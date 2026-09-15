@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct021707d8_02158a60 { char pad[8]; char* ptr; };
 extern Struct021707d8_02158a60 data_ov004_021707d8;
@@ -22,7 +22,7 @@ struct FieldAt10c_02158a60 { unsigned short low13 : 13; unsigned short high3 : 3
 
 // USA: func_ov004_02158a60  (semantic: SetupOrRejectAction_02158a60)
 extern "C" ARM int func_ov004_02158a60(void* obj) {
-    char* p = (char*)GetBattleStruct() + 0x26c + 0x5c00;
+    char* p = (char*)GameState::GetInstance() + 0x26c + 0x5c00;
     short a = *(short*)(p + 0xf8);
     if (a > 0 || *(unsigned short*)(p + 0xfa) != 0) {
         void* g = (void*)GetGlobalField0x1c020421a0();

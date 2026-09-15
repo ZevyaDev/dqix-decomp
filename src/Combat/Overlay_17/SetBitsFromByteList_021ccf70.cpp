@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 void SetBitInArray0x910(unsigned char* obj, int index);
 
@@ -12,10 +12,10 @@ struct Hdr021ccf70 {
 };
 
 // USA: func_ov017_021ccf70
-ARM void SetBitsFromByteList_021ccf70(int unused0, unsigned char* obj, struct BattleStruct* battleStruct) {
+ARM void SetBitsFromByteList_021ccf70(int unused0, unsigned char* obj, GameState* battleStruct) {
 	unsigned char* p = obj + 4;
 	Hdr021ccf70* hdr = (Hdr021ccf70*)p;
-	struct CombatantStruct* c = GetCombatantWithFlag0x100(battleStruct, hdr->id);
+	GameObject* c = GetCombatantWithFlag0x100(battleStruct, hdr->id);
 	if (!c) return;
 
 	unsigned char* base = (unsigned char*)GetFieldAt0x150((unsigned char*)c);

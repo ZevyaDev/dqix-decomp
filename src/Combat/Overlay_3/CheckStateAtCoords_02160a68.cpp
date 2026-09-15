@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetWord0x0(int* obj);
 int TestFlag0SetAndFlag1Clear(unsigned short* obj, int mask);
@@ -28,7 +28,7 @@ struct Ctx02160a68 {
 // USA: func_ov003_02160a68  (semantic: CheckStateAtCoords_02160a68)
 extern "C" ARM int func_ov003_02160a68(struct Ctx02160a68* self) {
     int flag = 0;
-    unsigned char* battleWord = (unsigned char*)GetWord0x0((int*)GetBattleStruct());
+    unsigned char* battleWord = (unsigned char*)GetWord0x0((int*)GameState::GetInstance());
     if (TestFlag0SetAndFlag1Clear(&data_02114e30, 2)) {
         if (IsFieldNotPositive_021a4e70(battleWord)) {
             flag = 1;

@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetFieldAt0x150(unsigned char* obj);
 
 // USA: func_0206483c  (semantic: MatchesCipheredCombatantName_0206483c)
 extern "C" ARM int func_0206483c(void* unused0, char* name) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(battleStruct, 0);
+    GameState* battleStruct = GameState::GetInstance();
+    GameObject* combatant = GetCombatantWithFlag0x100(battleStruct, 0);
     char* subject = (char*)GetFieldAt0x150((unsigned char*)combatant) + 0x3c;
     int len = strlen(subject);
     int i;

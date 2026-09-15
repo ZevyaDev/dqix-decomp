@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Holder_375cc;
 struct Node_375cc;
@@ -9,7 +9,6 @@ struct List_020347b4;
 struct Entry_020347b4;
 extern "C" Entry_020347b4* _ZN4BCFG18GetAnimationRecordEi(List_020347b4* list, int index);
 
-int GetField0x3b4Value(struct BattleStruct* battleStruct);
 
 extern "C" void _ZN8Object3D24MaybeSetRegularAnimationEPKci(void* obj, void* member, int arg3);
 
@@ -29,14 +28,14 @@ struct Obj0204a054 {
 
 // USA: func_0204a054
 ARM void ApplyCountdownOrDispatch0204a054(struct Obj0204a054* obj) {
-    struct BattleStruct* battleStruct;
+    GameState* battleStruct;
     struct Sub0204a054* entry;
     int threshold;
     unsigned short v;
-    battleStruct = GetBattleStruct();
+    battleStruct = GameState::GetInstance();
     entry = obj->field_13c;
     if (entry->field_5c == 0) return;
-    threshold = GetField0x3b4Value(battleStruct);
+    threshold = battleStruct->GetEffectiveDeltaTime();
     v = entry->field_5c;
     if ((unsigned int)threshold < v) {
         entry->field_5c = v - threshold;

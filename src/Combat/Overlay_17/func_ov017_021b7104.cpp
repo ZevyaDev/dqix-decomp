@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 void SetBitsInWord(unsigned int* obj, unsigned int mask);
 
 struct Src_021b7104 {
@@ -45,8 +45,8 @@ struct Dst_021b7104 {
 
 // USA: func_ov017_021b7104
 extern "C" ARM void func_ov017_021b7104(Dst_021b7104* dst, Src_021b7104* src) {
-    struct BattleStruct* battle = GetBattleStruct();
-    Struct_ov017_44C8* ov = func_ov017_0218b5b0();
+    GameState* battle = GameState::GetInstance();
+    GameResources* ov = func_ov017_0218b5b0();
 
     dst->f22 = src->f1;
     dst->f24 = src->f4;

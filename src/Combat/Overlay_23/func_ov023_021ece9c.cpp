@@ -1,8 +1,6 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-BattleStruct* GetBattleStruct();
-unsigned int GetBattleScaleCount(struct BattleStruct*);
 
 // USA: func_ov023_021ece9c  (semantic: UpdateDisplayCounterFromScale_021ece9c)
 extern "C" ARM void func_ov023_021ece9c(char* obj) {
@@ -19,8 +17,8 @@ extern "C" ARM void func_ov023_021ece9c(char* obj) {
 
     *(unsigned short*)(obj + 0x438) = *(unsigned short*)(obj + 0x438) | 1;
 
-    struct BattleStruct* bs = GetBattleStruct();
-    unsigned int scaleCount = GetBattleScaleCount(bs);
+    GameState* bs = GameState::GetInstance();
+    unsigned int scaleCount = bs->GetTickCount();
     int sum = *(unsigned char*)(obj + 0x43c) + scaleCount;
     *(unsigned char*)(obj + 0x43c) = (unsigned char)sum;
 

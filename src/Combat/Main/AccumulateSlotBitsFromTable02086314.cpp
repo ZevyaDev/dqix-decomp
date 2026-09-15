@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern short data_020e8a9e[];
 
@@ -8,7 +8,7 @@ int GetSlotBits0201137c(char* base, int id);
 
 // USA: func_02086314
 ARM int AccumulateSlotBitsFromTable02086314(unsigned char* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int total = 0;
     unsigned char i;
     short idx;

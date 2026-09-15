@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct HeadNode02046b24 { signed char id; };
 int GetHeadNodeIdOrMinusOne(struct HeadNode02046b24** obj);
@@ -7,9 +7,8 @@ int GetHeadNodeIdOrMinusOne(struct HeadNode02046b24** obj);
 struct ArrayContainsByteStruct;
 int ArrayContainsByte(struct ArrayContainsByteStruct* s, int val);
 
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantWithFlag0x2(struct BattleStruct* battleStruct, int combatantId);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+void* GetPtrField0x2a04(GameState* battleStruct);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 
 struct Obj02033834;
@@ -28,10 +27,10 @@ struct Info021ceee0 {
 };
 
 // USA: func_ov017_021ceee0  (semantic: SyncOrAimCombatantByHeadState_021ceee0)
-extern "C" ARM void func_ov017_021ceee0(void* unused0, struct Info021ceee0* info, struct BattleStruct* battle, char* obj) {
-    struct CombatantStruct* held;
+extern "C" ARM void func_ov017_021ceee0(void* unused0, struct Info021ceee0* info, GameState* battle, char* obj) {
+    GameObject* held;
     struct HeadNode02046b24** list = *(struct HeadNode02046b24***)(obj + 0x3000 + 0x6fc);
-    held = GetCombatantWithFlag0x2(battle, info->field12);
+    held = battle->GetMaybeWanderingMonsterByIndex(info->field12);
     if (ArrayContainsByte((struct ArrayContainsByteStruct*)GetPtrField0x2a04(battle), info->field12)) {
         return;
     }
@@ -46,7 +45,7 @@ extern "C" ARM void func_ov017_021ceee0(void* unused0, struct Info021ceee0* info
         if (!(*(unsigned short*)held & 0x80)) {
             return;
         }
-        struct CombatantStruct* target = GetCombatantWithFlag0x100(battle, info->field12);
+        GameObject* target = GetCombatantWithFlag0x100(battle, info->field12);
         if (!target) {
             return;
         }

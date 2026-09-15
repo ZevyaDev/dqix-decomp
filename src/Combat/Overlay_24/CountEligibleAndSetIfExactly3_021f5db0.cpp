@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x400ByID(int unused, int id);
+GameObject* GetCombatantWithFlag0x400ByID(int unused, int id);
 extern "C" int func_ov000_0215ec80(int battle, unsigned short* table, int count, int flag);
 int CheckFlag0x14Bit0x10Set(unsigned char* obj);
 
@@ -16,7 +16,7 @@ struct TableBuf_021f5db0 {
 
 // USA: func_ov024_021f5db0  (semantic: CountEligibleAndSetIfExactly3_021f5db0)
 extern "C" ARM int func_ov024_021f5db0(int* a0, int id, int a2, int* outFlag, short* outId) {
-	struct CombatantStruct* c = GetCombatantWithFlag0x400ByID(*a0, id);
+	GameObject* c = GetCombatantWithFlag0x400ByID(*a0, id);
 	if (!c) return 0;
 	int danger = *((unsigned char*)c + 0x17c);
 	if (danger >= 3) return 0;
@@ -28,8 +28,8 @@ extern "C" ARM int func_ov024_021f5db0(int* a0, int id, int a2, int* outFlag, sh
 	int count = func_ov000_0215ec80(*a0, buf.table.v, 8, danger & 0xff);
 	int eligible = 0;
 	for (int i = 0; i < count; i++) {
-		struct CombatantStruct* member = GetCombatantByID(*a0, *(short*)&buf.table.v[i]);
-		if (member && !CheckFlag0x14Bit0x10Set((unsigned char*)member->currentStats)) {
+		GameObject* member = GetCombatantByID(*a0, *(short*)&buf.table.v[i]);
+		if (member && !CheckFlag0x14Bit0x10Set((unsigned char*)member->currentStats_)) {
 			eligible++;
 		}
 	}

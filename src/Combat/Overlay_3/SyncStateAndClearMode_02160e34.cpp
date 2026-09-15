@@ -2,8 +2,8 @@
 
 void* GetDataPtr02114e04_020d6c00(void);
 extern "C" int func_ov017_0218b5b0(void);
-extern "C" void func_0203b19c(int, int, int);
-int CheckField0x20Positive(int* obj);
+extern "C" void _Z16SetSubBrightnessP13GameResourcesii(int, int, int);
+extern "C" int _Z31IsSubBrightnessTransitionActiveP13GameResources(int* obj);
 extern "C" void func_ov003_02167370(void* obj);
 struct FlagWord020466f4;
 void ClearFlags020466f4(struct FlagWord020466f4* word, unsigned int mask);
@@ -26,14 +26,14 @@ extern "C" ARM int func_ov003_02160e34(struct Self02160e34* self) {
 	unsigned char state = self->field4a8;
 
 	if (state == 0) {
-		func_0203b19c(w, -16, 8);
+		_Z16SetSubBrightnessP13GameResourcesii(w, -16, 8);
 		self->field4a8 = self->field4a8 + 1;
 		goto end;
 	}
 	if (state != 1) {
 		goto end;
 	}
-	if (CheckField0x20Positive((int*)w) != 0) {
+	if (_Z31IsSubBrightnessTransitionActiveP13GameResources((int*)w) != 0) {
 		goto end;
 	}
 

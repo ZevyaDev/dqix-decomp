@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
+void* GetPtrField0x2a04(GameState* battleStruct);
 struct Container020dedd0;
 struct Element020de650;
 struct Element020de650* FindElementByKey020dedd0(struct Container020dedd0* c, int key);
@@ -10,7 +10,7 @@ extern "C" void func_ov003_02176798(void* obj);
 
 // USA: func_ov003_02175924
 ARM int TrySpendResource_02175924(char* obj) {
-    void* ptrField = GetPtrField0x2a04(GetBattleStruct());
+    void* ptrField = GetPtrField0x2a04(GameState::GetInstance());
     short key = *(short*)(obj + 0x1000 + 0x3a);
     struct Element020de650* elem = FindElementByKey020dedd0((struct Container020dedd0*)(obj + 0x74 + 0x800), key);
     if (elem == 0) {

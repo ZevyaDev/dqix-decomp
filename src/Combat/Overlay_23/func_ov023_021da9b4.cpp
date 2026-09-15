@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct0200fb08;
 ARM unsigned char NormalizeField5_0200fb08(struct Struct0200fb08* obj);
@@ -14,7 +14,6 @@ ARM void SetEntryPosition(struct Container0205a3d0* c, int key, short a, short b
 struct Container0205a330;
 void IterateEntries0205a330(struct Container0205a330* c, int arg);
 
-unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
 
 extern "C" void func_0205ae8c(void* obj);
 
@@ -32,14 +31,14 @@ ARM int CheckField0x9cSetWhenField0xd4Present(unsigned char* obj);
 
 // USA: func_ov023_021da9b4  (semantic: UpdateEntryPositionsFromDamageAndElement_021da9b4)
 extern "C" ARM void func_ov023_021da9b4(void* obj) {
-    struct BattleStruct* bs1 = GetBattleStruct();
+    GameState* bs1 = GameState::GetInstance();
 
     if (*(void**)((char*)obj + 0x7d8) != 0) {
         signed char v = *(signed char*)((char*)obj + 0xc58);
         if (v >= 1 && v <= 8) {
             short posA = 0x6c;
             short posB = (short)(((v - 1) << 4) + 0x2b);
-            struct BattleStruct* bs2 = GetBattleStruct();
+            GameState* bs2 = GameState::GetInstance();
             int norm = NormalizeField5_0200fb08((struct Struct0200fb08*)bs2);
             struct Container0205a3d0* c = *(struct Container0205a3d0**)((char*)obj + 0x7e0);
             if (norm == 4) posA = 0x64;
@@ -49,7 +48,7 @@ extern "C" ARM void func_ov023_021da9b4(void* obj) {
             if (e != NULL) {
                 *(unsigned char*)((char*)e + 0x15) |= 8;
             }
-            unsigned int scaleCount = GetBattleScaleCount(bs2);
+            unsigned int scaleCount = bs2->GetTickCount();
             IterateEntries0205a330((struct Container0205a330*)c, scaleCount);
             SetEntryPosition(c, 0, posA, posB);
             func_0205ae8c(*(void**)((char*)obj + 0x7d8));
@@ -78,7 +77,7 @@ extern "C" ARM void func_ov023_021da9b4(void* obj) {
     if (e2 != NULL) {
         *(unsigned char*)((char*)e2 + 0x15) |= 8;
     }
-    unsigned int scaleCount2 = GetBattleScaleCount(bs1);
+    unsigned int scaleCount2 = bs1->GetTickCount();
     IterateEntries0205a330((struct Container0205a330*)c2, scaleCount2);
     SetEntryPosition(c2, 0, (short)(dx - 8), (short)(dy - 2));
     func_0205ae8c(*(void**)((char*)obj + 0x7e4));

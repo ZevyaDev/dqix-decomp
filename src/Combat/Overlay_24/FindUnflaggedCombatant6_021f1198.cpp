@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov000_0215e9fc(int a, short* buf, int max, int start);
 struct FlagObj_021df6ec;
@@ -17,7 +18,7 @@ extern "C" ARM int func_ov024_021f1198(struct Obj_021f1198* obj, int unused1, in
     if (count <= 0) return 0;
     int found = 0;
     for (int i = 0; i < count; i++) {
-        struct CombatantStruct* c = GetCombatantByID(obj->field0, buf.v[i]);
+        GameObject* c = GetCombatantByID(obj->field0, buf.v[i]);
         if (c && !IsFlagBit6Set_021df6ec((struct FlagObj_021df6ec*)c)) {
             found = 1;
             break;

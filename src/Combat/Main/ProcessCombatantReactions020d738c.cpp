@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct CombatantReactionBits020d738c {
     unsigned short unused0 : 2;
@@ -11,14 +11,14 @@ extern "C" void func_020d6f9c(void* param0, int combatantId, int reason);
 
 // USA: func_020d738c
 ARM void ProcessCombatantReactions020d738c(void* param0) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     int id;
     for (id = 0; id < 0xc; id++) {
         int combatantId = id;
         if (id > 3) {
             combatantId = id + 0xbc;
         }
-        struct CombatantStruct* combatant = GetCombatantFromList(battleStruct, combatantId);
+        GameObject* combatant = battleStruct->GetCombatantByIndex(combatantId);
         struct ModifiableCombatStats* currentStats;
         unsigned short flags;
         int reactionType;
@@ -26,7 +26,7 @@ ARM void ProcessCombatantReactions020d738c(void* param0) {
         if (combatant == NULL) {
             continue;
         }
-        currentStats = combatant->currentStats;
+        currentStats = combatant->currentStats_;
         flags = *(unsigned int*)currentStats->unk1;
         reactionType = ((struct CombatantReactionBits020d738c*)(currentStats->unk1 + 0xE))->reactionType;
         hp = currentStats->primaryStats.currHP;

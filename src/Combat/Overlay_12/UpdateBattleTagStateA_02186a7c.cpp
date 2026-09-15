@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
+#include "GameState/GameState.h"
 
-extern "C" void* _Z15GetBattleStructv();
 extern "C" void* _Z10GetWord0x0Pi(void* battle);
 extern "C" void* _Z17GetGlobal02109400v();
 
@@ -27,7 +27,7 @@ extern "C" void func_ov012_0218943c(void* self);
 
 // USA: func_ov012_02186a7c  (semantic: UpdateBattleTagStateA_02186a7c)
 extern "C" ARM void func_ov012_02186a7c(char* self) {
-	_Z10GetWord0x0Pi(_Z15GetBattleStructv());
+	_Z10GetWord0x0Pi(GameState::GetInstance());
 	(int)BackgroundLoader::GetInstance();
 	_Z17GetGlobal02109400v();
 

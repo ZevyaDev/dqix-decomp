@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
+#include "GameState/GameState.h"
 
-extern "C" void* _Z15GetBattleStructv();
 extern "C" {
 }
 extern "C" void* func_02012fe4(void);
@@ -20,7 +20,7 @@ struct Entry021b8c84 {
 
 // USA: func_ov017_021b8c84
 ARM void ApplyOrAdvanceListEntry_021b8c84(struct Entry021b8c84* obj) {
-    _Z15GetBattleStructv();
+    GameState::GetInstance();
     int listPtr = (int)BackgroundLoader::GetInstance();
     if (obj->key == -1) {
         obj->key = ((BackgroundLoader*)(listPtr))->QueueLoadFile((const char*)((int)&data_ov017_021d7c3c), (SafeAllocator*)(0));

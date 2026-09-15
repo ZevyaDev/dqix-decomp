@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Outer_02054000;
 void* GetActiveSub_02054000(struct Outer_02054000* p);
@@ -16,9 +16,9 @@ extern Data0217c2a0 data_ov000_02184294;
 extern "C" ARM int func_ov000_0217c2a0(void* objRaw) {
     char* obj = (char*)objRaw;
     int result = 0;
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     int combId = *(int*)(obj + 0x4c);
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(battleStruct, combId);
+    GameObject* combatant = GetCombatantWithFlag0x100(battleStruct, combId);
     if (combatant != 0) {
         void* sub = GetActiveSub_02054000((struct Outer_02054000*)combatant);
         if (sub != 0) {

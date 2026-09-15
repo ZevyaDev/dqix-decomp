@@ -1,10 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "std_library_functions.h"
 
 extern "C" int func_ov000_0215eb1c(int battle, unsigned short* table, int count, int flag);
-extern "C" float func_ov024_021db358(struct CombatantStruct* obj);
+extern "C" float func_ov024_021db358(GameObject* obj);
 
 extern unsigned short data_ov024_021fec6c;
 
@@ -29,7 +29,7 @@ extern "C" ARM int func_ov024_021f20b8(int* a0, int a1, int a2, int* outCount, s
     threshold = 0.5f;
     *outCount = 0;
     for (int i = 0; i < count; i++) {
-        struct CombatantStruct* member = GetCombatantByID(*a0, *(short*)&p[i]);
+        GameObject* member = GetCombatantByID(*a0, *(short*)&p[i]);
         if (!member) continue;
         if (func_ov024_021db358(member) >= threshold) continue;
         int idx = *outCount;

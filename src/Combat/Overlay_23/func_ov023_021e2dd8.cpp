@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetDataPtr02114e04_020d6c00(void);
 void OrBitsIntoField0(unsigned int* p, unsigned int mask);
@@ -12,7 +12,7 @@ void FilterSlotsWithFlag0x800020dc4d0(signed char* out, signed char* outCount);
 // USA: func_ov023_021e2dd8
 extern "C" ARM void func_ov023_021e2dd8(unsigned char* obj) {
     void* p;
-    struct BattleStruct* battle;
+    GameState* battle;
     signed char buf[4];
     signed char outCount;
     int i;
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov023_021e2dd8(unsigned char* obj) {
     *(unsigned int*)(obj + 0x124) = 0;
     *(unsigned int*)(obj + 0x4e8) = 0;
 
-    battle = GetBattleStruct();
+    battle = GameState::GetInstance();
     outCount = 0;
     for (i = 0; i < 4; i++) buf[i] = -1;
     FilterSlotsWithFlag0x800020dc4d0(buf, &outCount);

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 void* GetData02100044(void);
 extern "C" void func_0205e330(void* a, void* buf, int c);
@@ -16,8 +16,8 @@ struct Dst021ccb58 {
 
 // USA: func_ov017_021ccb58
 extern "C" ARM void func_ov017_021ccb58(int id, int idx) {
-	struct BattleStruct* battle = GetBattleStruct();
-	struct CombatantStruct* c = GetCombatantWithFlag0x100(battle, id);
+	GameState* battle = GameState::GetInstance();
+	GameObject* c = GetCombatantWithFlag0x100(battle, id);
 	if (!c) return;
 	unsigned char* base = (unsigned char*)GetFieldAt0x150((unsigned char*)c);
 	if (!base) return;

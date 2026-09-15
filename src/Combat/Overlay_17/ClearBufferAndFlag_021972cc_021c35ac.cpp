@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
 void* GetData02100044(void);
@@ -15,7 +15,6 @@ void InitSlotTable020e3004(struct SlotTable020e3004* p);
 struct Bytes020e358c;
 void ClearThreeBytes020e358c(struct Bytes020e358c* s);
 void ClearTwoBytesAtField_02195748(unsigned char* base);
-struct CombatantStruct* GetCombatantAtField0x3ac(struct BattleStruct* battleStruct);
 int GetFieldAt0x150(unsigned char* obj);
 extern "C" void func_0202c360(void* obj, int val);
 extern "C" void func_0202b2f0(void* obj);
@@ -26,13 +25,12 @@ extern "C" void func_ov017_02191108(int, int, int, int, int);
 extern "C" void func_ov017_02191234(int a);
 extern "C" void func_0202c288(void* obj);
 ARM void ClearBufferAndFlag_021972cc(char* p);
-extern "C" int func_ov017_0218b5b0(void);
 void ClearByteField17182_02195520(void* obj);
 
 // USA: func_ov017_021c35ac  (semantic: ResetBattleStateAndQueues_021c35ac)
 extern "C" ARM void func_ov017_021c35ac(void) {
-    struct BattleStruct* battle = GetBattleStruct();
-    int g = func_ov017_0218b5b0();
+    GameState* battle = GameState::GetInstance();
+    int g = ((int)func_ov017_0218b5b0());
     void* search = func_0202ae18();
     void* d100044 = GetData02100044();
     void* d153637 = GetData02153637();
@@ -50,7 +48,7 @@ extern "C" ARM void func_ov017_021c35ac(void) {
     ClearThreeBytes020e358c((struct Bytes020e358c*)d153634);
     ClearTwoBytesAtField_02195748((unsigned char*)g);
 
-    struct CombatantStruct* combatant = GetCombatantAtField0x3ac(battle);
+    GameObject* combatant = battle->GetProtagonist();
     GetFieldAt0x150((unsigned char*)combatant);
     int field134 = *(int*)((char*)combatant + 0x134);
     func_0202c360(search, field134);

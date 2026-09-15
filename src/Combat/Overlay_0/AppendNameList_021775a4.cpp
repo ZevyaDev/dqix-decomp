@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Container020e0310;
 
@@ -8,7 +8,7 @@ int AppendFrameTag02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
 int AppendCursorTag(char* dst, int cursor);
 extern "C" void* func_0202ae18(void);
 int CheckField0NonZero(int* obj);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 int GetFieldByKey020e0434(struct Container020e0310* c, int key);
 int AppendNameTag(char* dst, int n, const char* name);
 int AppendString02042058(char* dst, const char* src);
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov000_021775a4(void* base, char* dst) {
     void* p = func_0202ae18();
     int count = 3;
     if (CheckField0NonZero((int*)p)) {
-        if (GetField0x3acValue(GetBattleStruct()) == 0) count = 4;
+        if (GetField0x3acValue(GameState::GetInstance()) == 0) count = 4;
     }
 
     struct Container020e0310* c = (struct Container020e0310*)((char*)base + 0xb8);

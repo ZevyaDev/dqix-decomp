@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct GetElementByIndex0209bd80Element;
 struct GetElementByIndex0209bd80Container;
@@ -7,7 +7,6 @@ struct GetElementByIndex0209bd80Element* GetElementByIndex0209bd80(struct GetEle
 
 int GetEntryCount0209bd38(char* obj);
 
-int GetSelectedTableIndex(struct BattleStruct* battleStruct);
 
 extern "C" int func_02032370(int n);
 
@@ -27,7 +26,7 @@ struct Entry02073ec4 {
 
 // USA: func_02073ec4
 ARM struct Entry0209bd94* FindMatchingEntryByMask02073ec4(int mask, void* list) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     int arr2[6];
     int arr1[6];
     int count2 = 0;
@@ -38,8 +37,8 @@ ARM struct Entry0209bd94* FindMatchingEntryByMask02073ec4(int mask, void* list) 
         struct Entry02073ec4* entry = (struct Entry02073ec4*)GetElementByIndex0209bd80((struct GetElementByIndex0209bd80Container*)list, i);
         if (!entry) continue;
 
-        if (entry->type == 0 && GetSelectedTableIndex(battleStruct) == 0) continue;
-        if (entry->type == 1 && GetSelectedTableIndex(battleStruct) != 0) continue;
+        if (entry->type == 0 && battleStruct->GetTimeOfDay() == 0) continue;
+        if (entry->type == 1 && battleStruct->GetTimeOfDay() != 0) continue;
 
         {
             int flags8 = entry->flags8;

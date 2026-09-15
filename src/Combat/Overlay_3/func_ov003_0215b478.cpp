@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct0205de24;
 void FindAndLinkMatchingEntry0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
@@ -19,7 +19,7 @@ extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int 
 
 // USA: func_ov003_0215b478
 extern "C" ARM void func_ov003_0215b478(unsigned char* self) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     int field = GetGlobalField0x1c020421a0();
 
     FindAndLinkMatchingEntry0205de24((struct Struct0205de24*)(self + 0xf4), 0, 2);

@@ -1,12 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 
 int GetWord0x0(int* obj);
 int GetFieldIfFlag4(char* obj);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
-unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
 void SetBitsInField4(unsigned int* obj, unsigned int mask);
 void ClearBitsInField4(unsigned int* obj, unsigned int mask);
 void ClearFlagBits(unsigned char* obj, int mask);
@@ -51,9 +49,9 @@ struct Obj021c1404 {
 
 // USA: func_ov017_021c1404  (semantic: AdvanceEncounterSequenceStep_021c1404)
 extern "C" ARM void func_ov017_021c1404(struct Obj021c1404* obj) {
-	struct BattleStruct* battle = GetBattleStruct();
+	GameState* battle = GameState::GetInstance();
 	int* word0 = (int*)GetWord0x0((int*)battle);
-	struct CombatantStruct* combatant = GetCombatantAtField0x397c(battle);
+	GameObject* combatant = battle->GetUnknownGameObject();
 	int fieldVal = GetFieldIfFlag4((char*)battle);
 	SetBitsInField4((unsigned int*)word0, 0xc0);
 	if (combatant) {
@@ -88,7 +86,7 @@ extern "C" ARM void func_ov017_021c1404(struct Obj021c1404* obj) {
 		return;
 	}
 	if (step == 1) {
-		unsigned int scaleCount = GetBattleScaleCount(battle);
+		unsigned int scaleCount = battle->GetTickCount();
 		if (func_ov003_02154af4((void*)data_ov017_021d8478, scaleCount) == 0) return;
 		int val = GetGlobal02109400();
 		_Z21BlankFunction02094b40v(val);

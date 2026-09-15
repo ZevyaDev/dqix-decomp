@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantChecked(struct BattleStruct*, int);
+GameObject* GetCombatantChecked(GameState*, int);
 
 struct Entry021710ac {
     char pad0[0x8];
@@ -23,12 +23,12 @@ extern "C" ARM void func_ov000_021710ac(struct Entry021710ac* obj, int combatant
     if (!ok) {
         return;
     }
-    struct CombatantStruct* c = GetCombatantChecked(GetBattleStruct(), combatantId);
+    GameObject* c = GetCombatantChecked(GameState::GetInstance(), combatantId);
     if (c == 0) {
         return;
     }
-    obj->field8 = c->baseStats->primaryStats.maxHP;
-    obj->fieldA = c->baseStats->primaryStats.maxMP;
+    obj->field8 = c->baseStats_->primaryStats.maxHP;
+    obj->fieldA = c->baseStats_->primaryStats.maxMP;
     obj->fieldC = *(unsigned short*)(*(char**)((char*)c + 0x130) + 4);
     obj->fieldE = *(unsigned short*)(*(char**)((char*)c + 0x130) + 6);
 }

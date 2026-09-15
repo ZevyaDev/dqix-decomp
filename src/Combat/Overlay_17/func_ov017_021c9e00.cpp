@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetData02100044(void);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 extern "C" void func_0205e330(void* a, void* b, int c);
 
 struct Payload021c9e00 {
@@ -27,14 +27,14 @@ struct Evt021c9e00 {
 // USA: func_ov017_021c9e00  (semantic: EnqueueCombatantStatsEvent_021c9e00)
 extern "C" ARM void func_ov017_021c9e00(int id, int flagA, int flagB, int flagC) {
     void* data = GetData02100044();
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
 
     int ok = (id >= 0) && (id <= 3);
     if (!ok) {
         return;
     }
 
-    struct CombatantStruct* c = GetCombatantWithFlag0x100(battle, id);
+    GameObject* c = GetCombatantWithFlag0x100(battle, id);
     if (c == NULL) {
         return;
     }

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct S_a0870;
 struct S_a08a4;
@@ -27,12 +27,10 @@ extern "C" int _Z26GetGlobalField0x1c020421a0v(void);
 extern "C" void _Z24ReinitController02043204Pc(char* obj);
 void SetFieldsAt0x4And0x8(int* obj, int a, int b);
 extern "C" void* _Z24GetNodeIfType11_02168ad4Pvi(void* a, int id);
-struct CombatantStruct* GetCombatantAtField0x3ac(struct BattleStruct* battleStruct);
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_ov011_021845f8(void* ctx, int v);
 extern "C" void func_ov011_021848a0(void* obj, int val);
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void* func_ov023_021f6524(void* ctx, int value);
 
 // entry of the 3-slot table at battleStruct+0x74c0
@@ -128,7 +126,7 @@ extern struct Triple02168b44 data_ov004_021700d4;
 
 // USA: func_ov004_02168b44  (semantic: InitBattleSceneContext_02168b44)
 extern "C" ARM int func_ov004_02168b44(void* a) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* obj = func_0202ae18();
     struct Slot3_02168b44* slot = (struct Slot3_02168b44*)((char*)bs + 0x74c0);
     int i;
@@ -168,7 +166,7 @@ extern "C" ARM int func_ov004_02168b44(void* a) {
     if (score > 0x1869f) score = 0x1869f;
     int bit = 0;
     struct Combatant02168b44* c =
-        (struct Combatant02168b44*)GetCombatantAtField0x3ac(bs);
+        (struct Combatant02168b44*)bs->GetProtagonist();
     if (c) bit = c->f150->bit0;
     struct Field02168b44* fld = (struct Field02168b44*)((char*)bs + 0x569c);
     data_ov004_02171030->f194 =

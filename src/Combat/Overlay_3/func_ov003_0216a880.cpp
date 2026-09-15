@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct_0205d81c;
 struct Elem_0205d81c;
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov003_0216a880(unsigned char* obj) {
     if (e == 0) return;
     if (!IsField0x9cEqual3((unsigned char*)e)) return;
 
-    int key = NormalizeField5_0200fb08((struct Struct0200fb08*)GetBattleStruct());
+    int key = NormalizeField5_0200fb08((struct Struct0200fb08*)GameState::GetInstance());
 
     unsigned int lo = 0x90000;
     unsigned int hi = 0xc6000;

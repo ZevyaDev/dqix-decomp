@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 // USA: func_ov000_021599dc
-ARM int IsCombatantModStatsFlag0x100Set(struct CombatantStruct* c) {
-    return (*(int*)((char*)c->currentStats + 0x18) & 0x100) != 0;
+ARM int IsCombatantModStatsFlag0x100Set(GameObject* c) {
+    return (*(int*)((char*)c->currentStats_ + 0x18) & 0x100) != 0;
 }

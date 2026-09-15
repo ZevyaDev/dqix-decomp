@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
@@ -9,7 +9,6 @@ extern "C" void func_ov011_02184a24(void* target, void* buf, int kind);
 
 void* GetGlobalPtr021075f4(void);
 void* FindEntryPointerByKey0203df78(void* base, int key);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 
 struct Vec3_020406f8 { unsigned int v[3]; };
 struct Node020406f8;
@@ -29,10 +28,10 @@ extern "C" ARM void func_ov004_02168684(SafeAllocator* a, void* target) {
     memcpy(buf, &tmp, 0x88);
     func_ov011_02184a24(target, buf, 0x22);
 
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* entry = FindEntryPointerByKey0203df78(GetGlobalPtr021075f4(), 0x67);
     if (!entry) return;
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(bs);
+    GameObject* combatant = bs->GetUnknownGameObject();
     if (!combatant) return;
 
     struct Vec3_020406f8 tempVec;

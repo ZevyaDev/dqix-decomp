@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Vec3_021f7784 {
     int x;
@@ -36,12 +36,11 @@ public:
     unsigned char b4e;
 };
 
-int GetBattleScaleCount(struct BattleStruct* battleStruct);
 
 // USA: func_ov023_021f7784
 extern "C" ARM int func_ov023_021f7784(Obj021f7784* obj) {
     if (obj->flags0xc & 0x80) {
-        int count = GetBattleScaleCount(GetBattleStruct());
+        int count = GameState::GetInstance()->GetTickCount();
         int t = (unsigned short)count;
         Vec3_021f7784 v = obj->MethodAt20();
         int newX = v.x - (t << 11);

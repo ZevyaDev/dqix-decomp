@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov011_021845f8(void*, int);
 void* FindNodeById0218466c(void* obj, unsigned short id);
@@ -14,14 +14,13 @@ struct Source020e03f0;
 struct StructAA8;
 int ApplyPtrAndShorts(struct Source020e03f0* self, struct StructAA8* obj);
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 struct Sub0x150_021fa644 {
     char pad[0x49c];
     unsigned char bit0 : 1;
 };
 
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 
 struct List020727d8;
 void ResetListHeader020727d8(struct List020727d8* list);
@@ -60,9 +59,9 @@ extern "C" ARM void func_ov023_021fa644(Obj021fa644* obj, void* ctx, EncodedSize
     unsigned char kind = obj->field2c;
     int flag5 = 0;
     if (kind == 1) {
-        BattleStruct* bs = GetBattleStruct();
+        GameState* bs = GameState::GetInstance();
         int val = GetField0x3acValue(bs);
-        CombatantStruct* combatant = GetCombatantWithFlag0x800(bs, val);
+        GameObject* combatant = bs->GetPartyMemberByIndex(val);
         if (combatant != 0) {
             Sub0x150_021fa644* sub = *(Sub0x150_021fa644**)((char*)combatant + 0x150);
             flag5 = sub->bit0;

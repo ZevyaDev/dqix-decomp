@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct020dfc40;
 void ResetStruct020dfc40(struct Struct020dfc40* p);
@@ -38,7 +38,7 @@ ARM void InitObj02092aa4(struct Obj02092aa4* obj, unsigned char param) {
     obj->field3a = 0;
     obj->field3b = 0;
 
-    unsigned char* base = (unsigned char*)GetPtrField0x2a04(GetBattleStruct());
+    unsigned char* base = (unsigned char*)GetPtrField0x2a04(GameState::GetInstance());
     unsigned char i;
     for (i = 0; i < base[0xf7c]; i++) {
         unsigned char* entry = base + i;

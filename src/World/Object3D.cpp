@@ -1,7 +1,7 @@
 #include "World/Object3D.h"
 #include "Graphics/NSBXX/RenderConfig.h"
 #include "System/Graphics.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
 #include "Graphics/NSBXX/GeometryFifo.h"
@@ -12,10 +12,7 @@
 #include "Graphics/VRAMStaging.h"
 
 #if defined(jpn)
-#define _Z18GetField0x3b0ValueP12BattleStruct func_0200ff18
-#define _Z18GetField0x3b4ValueP12BattleStruct func_02010064
-#define _Z15GetFieldAt0x3c0P12BattleStruct func_02010074
-#define _Z19GetBattleScaleCountP12BattleStruct func_0201007c
+#define _Z18GetField0x3b0ValueP9GameState func_0200ff18
 #define _Z27ClearGlobalFlagBits02016d8cPv func_02016b2c
 #define _Z16GetPtrField0x144Pv func_0202e8e4
 #define _Z24Vector3fixMultiplyScalarPK8Vector3iiPS_ func_02030964
@@ -40,18 +37,11 @@ void CreateRotationZ(Matrix3x3* out, fix32_t s, fix32_t c);
 
 extern "C"
 {
-    extern "C" void* _Z18GetField0x3b0ValueP12BattleStruct(BattleStruct*);
-
-    // deltaTime for animation blending
-    extern "C" fix32_t _Z18GetField0x3b4ValueP12BattleStruct(BattleStruct*);
-    // deltaTime for model animations
-    extern "C" fix32_t _Z15GetFieldAt0x3c0P12BattleStruct(BattleStruct*);
-    // get some kind of deltaTime
-    extern "C" int _Z19GetBattleScaleCountP12BattleStruct(BattleStruct*);
+    void* _Z18GetField0x3b0ValueP9GameState(GameState*);
     // update world matrix rotation
-    extern "C" void _Z27ClearGlobalFlagBits02016d8cPv(const Matrix3x3* rotation);
+    void _Z27ClearGlobalFlagBits02016d8cPv(const Matrix3x3* rotation);
 
-    extern "C" const Matrix3x3* _Z16GetPtrField0x144Pv(void*);
+    const Matrix3x3* _Z16GetPtrField0x144Pv(void*);
 
     void func_020311f0(fix32_t); // send x-rotation to fifo
     void func_02031234(fix32_t); // send y-rotation to fifo
@@ -67,7 +57,7 @@ extern "C"
     void func_020d1d1c(unsigned short* out, const void* data, unsigned int length);
 
     // memcpy and flush cache
-    extern "C" void _Z23CopyRegionAndFlushCachePvPKvj(void*, const void*, unsigned);
+    void _Z23CopyRegionAndFlushCachePvPKvj(void*, const void*, unsigned);
 }
 
 // if set, drawing doesn't take place. Also does something with
@@ -220,7 +210,7 @@ void Object3D::AdvanceEffects()
     if (flags_ & (1 << OBJECT3D_FLAG_5))
         return;
 
-    int deltaTimeTicks = _Z18GetField0x3b4ValueP12BattleStruct(GetBattleStruct());
+    int deltaTimeTicks = GameState::GetInstance()->GetEffectiveDeltaTime();
     if ((0.0f != alphaTransition_.changePerTick) ? 1 : 0)
     {
         unsigned int inheritedAlphau16 = 65535.0f * (inheritedAlpha_ / 31.0f);
@@ -260,7 +250,7 @@ void Object3D::AdvanceEffects()
 
 void Object3D::AdvanceAnimations()
 {
-    (void)_Z19GetBattleScaleCountP12BattleStruct(GetBattleStruct());
+    (void)GameState::GetInstance()->GetTickCount();
     if (activeAnimationPackage_ == NULL)
         return;
     (this->*object3DsData.advanceProcs[activeAnimationPackage_->animationType])();
@@ -268,7 +258,7 @@ void Object3D::AdvanceAnimations()
 
 void Object3D::AdvanceAnimations_v0()
 {
-    fix16_t deltaTime = _Z15GetFieldAt0x3c0P12BattleStruct(GetBattleStruct());
+    fix16_t deltaTime = GameState::GetInstance()->GetAnimationDeltaTime();
     BCFG* activeBCFG = &activeAnimationPackage_->bcfgData;
     if (activeBCFG == NULL || activeAnimationIndex_ < 0 || (flags_ & (1 << OBJECT3D_FLAG_12)))
         return;
@@ -361,8 +351,8 @@ void Object3D::AdvanceAnimations_v0()
 
 void Object3D::AdvanceAnimations_v1()
 {
-    BattleStruct* battle = GetBattleStruct();
-    fix16_t deltaTime = _Z15GetFieldAt0x3c0P12BattleStruct(battle);
+    GameState* gameState = GameState::GetInstance();
+    fix16_t deltaTime = gameState->GetAnimationDeltaTime();
     if (activeAnimationIndex_ < 0 || activeAnimationPackage_->pAnim3Ds == NULL 
         || activeAnimationPackage_->pAnim3Ds[activeAnimationIndex_].data == NULL)
         return;
@@ -375,7 +365,7 @@ void Object3D::AdvanceAnimations_v1()
         return;
     if (priorAnimationBlend_.blendTimeRemaining > 0)
     {
-        unsigned int blendDeltaTime = _Z18GetField0x3b4ValueP12BattleStruct(battle);
+        unsigned int blendDeltaTime = gameState->GetEffectiveDeltaTime();
         unsigned int newTimeRemaining;
         if (priorAnimationBlend_.blendTimeRemaining < blendDeltaTime)
         {
@@ -601,7 +591,7 @@ void Object3D::PopulateRenderConfigWorld()
         RenderConfig::SetObjectPosition(&position_);
         if (flags_ & (1 << OBJECT3D_FLAG_19))
         {
-            const Matrix3x3* rotation = _Z16GetPtrField0x144Pv(_Z18GetField0x3b0ValueP12BattleStruct(GetBattleStruct()));
+            const Matrix3x3* rotation = _Z16GetPtrField0x144Pv(_Z18GetField0x3b0ValueP9GameState(GameState::GetInstance()));
             func_020ca528(rotation, &data_0210a010.objectRotationPosition.rotation);
             data_0210a010.flags &= ~((1 << RENDER_CONFIG_FLAG_WORLDVIEW_CACHE_VALID) | (1 << RENDER_CONFIG_FLAG_5) | (1 << RENDER_CONFIG_FLAG_2));
         }

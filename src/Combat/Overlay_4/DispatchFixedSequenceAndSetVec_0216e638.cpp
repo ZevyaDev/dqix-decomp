@@ -1,7 +1,7 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
 int GetGlobalField0x1c020421a0(void);
-void* GetBattleStruct(void);
 void SetByte0x7f70(void* obj, unsigned char value);
 
 struct Struct020a9ea4;
@@ -48,7 +48,7 @@ extern unsigned char data_02108760;
 extern "C" ARM int func_ov004_0216e638(void* a) {
     void* self = a;
     *(unsigned char*)((char*)GetGlobalField0x1c020421a0() + 0x1000 + 0x9ca) = 0;
-    SetByte0x7f70(GetBattleStruct(), 0);
+    SetByte0x7f70(GameState::GetInstance(), 0);
 
     ClearStruct020a9ea4(*(struct Struct020a9ea4**)((char*)&data_ov004_02171034 + 0x10));
     (&data_ov004_02171034)[2] = 1;

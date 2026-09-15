@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Node0216e8f0 {
     char pad[0xc];
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov004_0216e8f0(void* obj) {
         }
     }
     SetField1c8True_02184ad8((struct Obj_02184ad8*)obj);
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     if (data_ov004_02171034[3] != 6) {
         Node0216e8f0* node2 = func_ov023_021f6880(p, 1);
         if (node2 && ScaleStatsIfType12_021f6f10(node2) == 0xb) {

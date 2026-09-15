@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct_0205d81c;
 struct Elem_0205d81c;
@@ -18,13 +18,12 @@ Elem0205a3d0* FindEntryByHalfword0205a3d0(Container0205a3d0*, int);
 struct Container0205a330;
 void IterateEntries0205a330(Container0205a330*, int);
 
-unsigned int GetBattleScaleCount(struct BattleStruct*);
 
 extern "C" void func_0205ae8c(void*);
 
 // USA: func_ov003_0217e100
 ARM void ProcessScaleEntry0217e100(void* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     void* sub = *(void**)((char*)obj + 0x90);
     Elem_0205d81c* elem = FindElementForFieldB0((Struct_0205d81c*)sub);
     if (elem == NULL) return;
@@ -49,7 +48,7 @@ ARM void ProcessScaleEntry0217e100(void* obj) {
         *(unsigned char*)((char*)entry + 0x15) |= 8;
     }
 
-    int scaleCount = (int)GetBattleScaleCount(battleStruct);
+    int scaleCount = (int)battleStruct->GetTickCount();
     IterateEntries0205a330((Container0205a330*)cont, scaleCount);
 
     entry = FindEntryByHalfword0205a3d0(cont, 0);

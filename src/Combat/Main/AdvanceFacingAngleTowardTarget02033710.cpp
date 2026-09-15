@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 extern "C" int _Z22fix32ReduceAngle0To2Pii(int angle);
@@ -8,7 +8,6 @@ extern "C" int _ZNK8Object3D25IsTransitioningAnimationsEv(struct S_377d4* obj);
 struct Bytes02033b88;
 int SetByte0xbeShiftPrev(struct Bytes02033b88* p, int val);
 extern "C" int _Z24fix32SignedAngleDistanceii(int a, int b);
-unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 
 extern char data_020efa3c;
@@ -32,11 +31,11 @@ struct Obj02033710 {
 
 // USA: func_02033710
 ARM void AdvanceFacingAngleTowardTarget(struct Obj02033710* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     if (obj->stateBe == 4 || obj->stateBe == 6) {
         return;
     }
-    unsigned int scaleCount = GetBattleScaleCount(battleStruct);
+    unsigned int scaleCount = battleStruct->GetTickCount();
     int scaled = obj->scaleB0 * (int)scaleCount;
     struct Vec3_33710 tmp = obj->pos;
     int d = _Z24fix32SignedAngleDistanceii(tmp.y, obj->angleAE);

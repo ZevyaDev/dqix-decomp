@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct BattleStruct;
 struct Container0205a3d0;
 struct Container0205a330;
 
@@ -19,17 +19,15 @@ struct Obj0218c178 {
     struct Container0205a3d0* container;
 };
 
-extern "C" struct BattleStruct* _Z15GetBattleStructv(void);
 extern "C" void _Z26SetEntryFlag2ByKey0205a370P17Container0205a3d0i(struct Container0205a3d0*, int);
 extern "C" struct Entry0205a3d0* _Z27FindEntryByHalfword0205a3d0P17Container0205a3d0i(struct Container0205a3d0*, int);
-extern "C" int _Z19GetBattleScaleCountP12BattleStruct(struct BattleStruct*);
 extern "C" void _Z22IterateEntries0205a330P17Container0205a330i(struct Container0205a330*, int);
 extern "C" void _Z27SetEntryByte14ByKey0205a42cP17Container0205a3d0ii(struct Container0205a3d0*, int, int);
 extern "C" void func_0205ae8c(void*);
 
 // USA: func_ov019_0218c178  (semantic: ApplyBattleEntryState_0218c178)
 extern "C" ARM void func_ov019_0218c178(struct Obj0218c178* obj) {
-    struct BattleStruct* battle = _Z15GetBattleStructv();
+    GameState* battle = GameState::GetInstance();
     if (obj->flags & 1) {
         struct Container0205a3d0* c = obj->container;
         if (c != NULL) {
@@ -40,7 +38,7 @@ extern "C" ARM void func_ov019_0218c178(struct Obj0218c178* obj) {
                 e->f15 = e->f15 | 8;
             }
             _Z22IterateEntries0205a330P17Container0205a330i(
-                (struct Container0205a330*)c, _Z19GetBattleScaleCountP12BattleStruct(battle));
+                (struct Container0205a330*)c, battle->GetTickCount());
             e = _Z27FindEntryByHalfword0205a3d0P17Container0205a3d0i(c, 1);
             if (e != NULL) {
                 e->f4 = 0xd7;

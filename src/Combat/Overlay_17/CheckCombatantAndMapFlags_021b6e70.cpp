@@ -1,9 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
 #include "Grotto/Main/TreasureMapMetadata.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x20(struct BattleStruct* battleStruct, int combatantId);
 extern "C" void* func_02012fe4(void);
 int IsValueInRange0201b5d8(int x);
 
@@ -15,8 +14,8 @@ struct Obj_021b6e70 {
 
 // USA: func_ov017_021b6e70  (semantic: CheckCombatantAndMapFlags_021b6e70)
 extern "C" ARM bool func_ov017_021b6e70(struct Obj_021b6e70* obj, int combatantId) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x20(battleStruct, combatantId);
+    GameState* battleStruct = GameState::GetInstance();
+    GameObject* combatant = battleStruct->GetMaybeFieldMonsterByIndex(combatantId);
     if (combatant) {
         unsigned char flags = *((unsigned char*)combatant + 0x17d);
         if (flags & 0x2) {
@@ -27,7 +26,7 @@ extern "C" ARM bool func_ov017_021b6e70(struct Obj_021b6e70* obj, int combatantI
     }
 
     void* misc = func_02012fe4();
-    struct GrottoStruct* grotto = GetGrottoStruct(battleStruct);
+    struct GrottoStruct* grotto = battleStruct->GetGrottoStruct();
     int mapType = grotto->activeMapData.GetMapType();
     int val = *(unsigned short*)misc;
 

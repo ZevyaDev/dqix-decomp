@@ -1,8 +1,9 @@
 #include <globaldefs.h>
 #include "Combat/Overlay_0/GetCombatantByID.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov000_0215eb1c(int a0, short* buf, int count, int flag);
-extern "C" float func_ov024_021db358(struct CombatantStruct* obj);
+extern "C" float func_ov024_021db358(GameObject* obj);
 
 struct Obj_021f3d78 { int field0; };
 struct Buf8_021f3d78 { short v[8]; };
@@ -16,7 +17,7 @@ extern "C" ARM int func_ov024_021f3d78(struct Obj_021f3d78* obj, int id, int unu
     *outFlag = 0;
     for (int i = 0; i < count; i++) {
         if (id == buf.v[i]) continue;
-        struct CombatantStruct* c = GetCombatantByID(obj->field0, buf.v[i]);
+        GameObject* c = GetCombatantByID(obj->field0, buf.v[i]);
         if (!c) continue;
         if (func_ov024_021db358(c) > 0.08f) continue;
         int n = *outFlag;

@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_020dc548(int a, signed char* arr, signed char* count);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 extern "C" void _ZN8Object3D10EnableFlagEi(unsigned char* obj, unsigned int mask);
 void SetFlags0x1ce(unsigned char* obj, unsigned int mask);
 extern "C" void _ZN8Object3D11DisableFlagEi(unsigned char* obj, unsigned int mask);
@@ -17,14 +16,14 @@ struct TagObj_021d03a0 {
 };
 
 // USA: func_ov017_021d03a0
-extern "C" ARM void func_ov017_021d03a0(int bit, struct TagObj_021d03a0* tag, struct BattleStruct* battleStruct, unsigned char* base) {
-    struct CombatantStruct* combatant;
-    struct CombatantStruct* c2;
+extern "C" ARM void func_ov017_021d03a0(int bit, struct TagObj_021d03a0* tag, GameState* battleStruct, unsigned char* base) {
+    GameObject* combatant;
+    GameObject* c2;
     signed char arr[7];
     signed char count;
     int i;
 
-    combatant = GetCombatantWithFlag0x800(battleStruct, tag->id5);
+    combatant = battleStruct->GetPartyMemberByIndex(tag->id5);
     if (combatant == 0) {
         return;
     }
@@ -38,7 +37,7 @@ extern "C" ARM void func_ov017_021d03a0(int bit, struct TagObj_021d03a0* tag, st
 
     func_020dc548((signed char)bit, arr, &count);
     for (i = 0; i < count; i++) {
-        c2 = GetCombatantWithFlag0x800(battleStruct, arr[i]);
+        c2 = battleStruct->GetPartyMemberByIndex(arr[i]);
         if (c2 != 0) {
             _ZN8Object3D11DisableFlagEi((unsigned char*)c2, 0x400);
             if (GetByteFieldMasked0x1ce((void*)c2, 0x20) != 0) {

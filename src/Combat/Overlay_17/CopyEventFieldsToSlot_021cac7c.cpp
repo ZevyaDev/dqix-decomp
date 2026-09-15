@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetField6b0_021b8470(void* obj);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 
 struct Bits11_021cac7c {
     unsigned char bit0 : 1;
@@ -37,7 +37,7 @@ struct SrcEntry_021cac7c {
 };
 
 // USA: func_ov017_021cac7c  (semantic: CopyEventFieldsToSlot_021cac7c)
-extern "C" ARM void func_ov017_021cac7c(int unused0, struct SrcEntry_021cac7c* src, struct BattleStruct* battleStruct, unsigned char* base) {
+extern "C" ARM void func_ov017_021cac7c(int unused0, struct SrcEntry_021cac7c* src, GameState* battleStruct, unsigned char* base) {
     void* table = *(void**)(base + 0x3000 + 0x718);
     void* obj = GetField6b0_021b8470(table);
     if (obj == NULL) {

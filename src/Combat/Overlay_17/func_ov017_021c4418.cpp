@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct SearchStruct0202c1a4;
 signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 
 extern "C" void func_ov017_021c41fc(int combatantId, signed char flag10);
@@ -32,7 +32,7 @@ struct DispatchArgs021cc4f8 {
 };
 
 // USA: func_ov017_021cc4f8  (semantic: DispatchPendingEventFlags_021cc4f8)
-extern "C" ARM void func_ov017_021cc4f8(signed char flag, struct DispatchArgs021cc4f8* args, struct BattleStruct* bs, int unused, struct SearchStruct0202c1a4* search) {
+extern "C" ARM void func_ov017_021cc4f8(signed char flag, struct DispatchArgs021cc4f8* args, GameState* bs, int unused, struct SearchStruct0202c1a4* search) {
     int id = args->id;
     signed char cur = GetSearchStructCurrentArrEntry(search);
     if (args->tag != cur) return;
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov017_021cc4f8(signed char flag, struct DispatchArgs021
     }
     if (flags & 0x8) {
         func_ov017_021ce704(id);
-        struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, id);
+        GameObject* c = GetCombatantWithFlag0x100(bs, id);
         if (c) {
             int f150 = GetFieldAt0x150((unsigned char*)c);
             unsigned char slot = *(int*)((char*)f150 + 0x950) & 0xff;

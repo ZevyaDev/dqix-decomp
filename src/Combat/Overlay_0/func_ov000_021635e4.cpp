@@ -1,18 +1,17 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 struct IntField0x68_020377bc;
 extern "C" int _ZNK8Object3D9GetHeightEv(struct IntField0x68_020377bc* obj);
 extern "C" int _ZNK8Object3D9GetRadiusEv(unsigned char* obj);
 
 // USA: func_ov000_021635e4
 extern "C" ARM short func_ov000_021635e4(int id, int mode) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     if (bs == 0) {
         return 0x10a;
     }
-    struct CombatantStruct* c = GetCombatantUnchecked(bs, id);
+    GameObject* c = bs->GetGameObjectByIndex(id);
     if (c == 0) {
         return 0x10a;
     }

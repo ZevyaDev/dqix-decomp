@@ -1,16 +1,16 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Elem0217fb98 { char pad[0xf78]; unsigned char val; };
 
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
+void* GetPtrField0x2a04(GameState* battleStruct);
 extern "C" void* func_ov000_02161318(void*, unsigned char);
 int IsTurnCounterUnder100(void* obj);
 
 // USA: func_ov000_0217fb98
 ARM int CountUnder100Flags0217fb98(void* obj) {
     int result = 0;
-    unsigned char* base = (unsigned char*)GetPtrField0x2a04(GetBattleStruct());
+    unsigned char* base = (unsigned char*)GetPtrField0x2a04(GameState::GetInstance());
     unsigned char count = base[0xf7c];
     unsigned char i;
     for (i = 0; i < count; i++) {

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Combat/Overlay_0/GetCombatantByID.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_ov024_021ea85c(void* obj, int id, int a2);
 extern "C" void func_ov000_02159eac(void* a0, void* buf, int a2);
@@ -11,7 +12,7 @@ struct Obj_021e3cec { char pad0[0x10]; void* field0x10; };
 
 // USA: func_ov024_021e3cec
 extern "C" ARM unsigned long long func_ov024_021e3cec(struct Obj_021e3cec* obj, int unused, int id) {
-	struct CombatantStruct* c = GetCombatantByID((int)obj->field0x10, id);
+	GameObject* c = GetCombatantByID((int)obj->field0x10, id);
 	if (!c) return 0;
 	func_ov024_021ea85c(obj, id, 1);
 	union { struct { int lo; int hi; }; unsigned long long v; } local;

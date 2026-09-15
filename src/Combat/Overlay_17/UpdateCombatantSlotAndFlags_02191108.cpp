@@ -1,12 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantAtField0x3ac(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 unsigned char GetByte0x26c(char* obj);
 void* GetFieldPtrAt0x26c(void* obj);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
+int GetField0x3acValue(GameState* battleStruct);
 extern "C" void _ZN8Object3D11DisableFlagEi(unsigned char* obj, unsigned int mask);
 int GetFieldIfFlag4(char* obj);
 int GetField0x21c020a277c(void* obj);
@@ -22,10 +19,10 @@ extern "C" void func_020a2be8(void* obj);
 
 // USA: func_ov017_02191108  (semantic: UpdateCombatantSlotAndFlags_02191108)
 extern "C" ARM void func_ov017_02191108(void* unused, int c, int d, int e, int flag) {
-    struct BattleStruct* battle = GetBattleStruct();
-    if (GetCombatantAtField0x3ac(battle) == 0) return;
+    GameState* battle = GameState::GetInstance();
+    if (battle->GetProtagonist() == 0) return;
 
-    struct CombatantStruct* combatant2 = GetCombatantAtField0x397c(battle);
+    GameObject* combatant2 = battle->GetUnknownGameObject();
     if (combatant2 != 0 && GetByte0x26c((char*)combatant2) != 0) {
         unsigned char* field = (unsigned char*)GetFieldPtrAt0x26c(combatant2);
         field[0x52] = 1;
@@ -38,7 +35,7 @@ extern "C" ARM void func_ov017_02191108(void* unused, int c, int d, int e, int f
     func_ov017_02190884(fieldVal, &buf, &zero, c, d, e);
     int idx = buf.x[0];
 
-    struct CombatantStruct* combatant = GetCombatantUnchecked(battle, idx);
+    GameObject* combatant = battle->GetGameObjectByIndex(idx);
     if (combatant != 0) {
         _ZN8Object3D11DisableFlagEi((unsigned char*)combatant, 0x80);
     }

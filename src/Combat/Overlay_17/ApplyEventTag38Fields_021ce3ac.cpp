@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x1000(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x1000(GameState* battleStruct, int combatantId);
 void SetField0x2d0(void* obj, unsigned char value);
 void SetField0x2d1(void* obj, unsigned char value);
 void SetByte0x1c8(unsigned char* obj, unsigned char value);
@@ -18,8 +18,8 @@ struct LocalEvt021ce3ac {
 };
 
 // USA: func_ov017_021ce3ac
-ARM void ApplyEventTag38Fields_021ce3ac(int unused0, LocalEvt021ce3ac* evt, struct BattleStruct* battleStruct) {
-    struct CombatantStruct* c = GetCombatantWithFlag0x1000(battleStruct, evt->field4);
+ARM void ApplyEventTag38Fields_021ce3ac(int unused0, LocalEvt021ce3ac* evt, GameState* battleStruct) {
+    GameObject* c = GetCombatantWithFlag0x1000(battleStruct, evt->field4);
     if (c == NULL) {
         return;
     }

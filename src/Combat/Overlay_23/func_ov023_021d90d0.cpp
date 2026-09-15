@@ -1,8 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
 
 struct Entry_0205d6a0;
 void ResetEntryList0205d6a0(struct Entry_0205d6a0* a, int flag);
@@ -20,7 +19,7 @@ int TryApplyElemFields0205d5d0(struct StructA0205d5d0* a, int b, int c, int d, u
 
 // USA: func_ov023_021d90d0  (semantic: AdvanceBoxLayoutState_021d90d0)
 extern "C" ARM int func_ov023_021d90d0(char* obj) {
-    int count = GetBattleScaleCount(GetBattleStruct());
+    int count = GameState::GetInstance()->GetTickCount();
     if (count == 0) count = 1;
     unsigned char step = *(unsigned char*)(obj + 0x11c);
 

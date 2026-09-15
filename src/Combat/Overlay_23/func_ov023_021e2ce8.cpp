@@ -1,9 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "System/Cache.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" int func_ov017_021bdbcc(void* obj);
 ARM void* GetTableEntry020421b0(int idx);
 extern "C" int LoadToMainObjVRAM(int, int, unsigned int);
@@ -12,8 +10,8 @@ extern "C" int LoadToMainObjVRAM(int, int, unsigned int);
 extern "C" ARM void func_ov023_021e2ce8(int combatantId, void* p1) {
     if (combatantId < 0) return;
 
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x800(bs, combatantId);
+    GameState* bs = GameState::GetInstance();
+    GameObject* combatant = bs->GetPartyMemberByIndex(combatantId);
     if (p1 != 0 && combatant != 0) {
         void* p40 = *(void**)((char*)p1 + 0x40);
         void* entry = 0;
@@ -28,7 +26,7 @@ extern "C" ARM void func_ov023_021e2ce8(int combatantId, void* p1) {
                 void* p150 = *(void**)((char*)combatant + 0x150);
                 int val950 = *(int*)((char*)p150 + 0x950);
 
-                int flagB = func_ov017_0218b5b0();
+                int flagB = ((int)func_ov017_0218b5b0());
                 int chk = func_ov017_021bdbcc((void*)flagB);
                 if (chk != 0) val950 = 0;
 

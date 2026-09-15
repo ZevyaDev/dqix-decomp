@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 extern "C" int func_ov024_021fe698(void* obj, int idx);
@@ -10,7 +10,7 @@ struct Obj_021fce14 {
 	short field4;
 	unsigned char kind;
 	char pad7;
-	struct CombatantStruct* combatant;
+	GameObject* combatant;
 	int field0xc;
 };
 
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov024_021fce14(struct Obj_021fce14* obj) {
 	if (obj->field0xc >= 3) trigger = 1;
 	if (!trigger) return;
 	if (!func_ov024_021fe698(obj, 0x12)) return;
-	if (*(unsigned char*)((char*)obj->combatant->currentStats + 0x24) >= 1) return;
+	if (*(unsigned char*)((char*)obj->combatant->currentStats_ + 0x24) >= 1) return;
 	char buf[0xc8];
 	memset(buf, 0, 0xc8);
 	*(float*)(buf + 0xc4) = 1000.0f;

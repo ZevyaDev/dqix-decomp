@@ -1,12 +1,11 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "System/Memory.h"
 
 int GetGlobalField0x1c020421a0();
 extern "C" void func_02046380(void* obj);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
@@ -32,9 +31,9 @@ extern "C" ARM int func_ov004_02164e40(void* obj) {
     void* g = (void*)GetGlobalField0x1c020421a0();
     func_02046380(g);
 
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     GetField0x3acValue(battle);
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(battle);
+    GameObject* combatant = battle->GetUnknownGameObject();
 
     void* node = func_ov023_021f6880(func_ov011_021849c8(obj), 0xa);
     if (!node) return 0;
@@ -61,7 +60,7 @@ extern "C" ARM int func_ov004_02164e40(void* obj) {
     }
 
     if (combatant) {
-        char* name = (char*)combatant->baseStats;
+        char* name = (char*)combatant->baseStats_;
         SetIndexedName02046574((struct Obj02046574*)g, 0, name);
     }
     CopyStringToIndexedField0x2ec((char*)g, 0, buf);

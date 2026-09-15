@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
@@ -19,7 +19,7 @@ void FlushAndDispatchList0204b0e8(struct List0204b0e8*, void*);
 
 // USA: func_ov004_0216ad20  (semantic: DispatchStatusByNormalizedKind_0216ad20)
 extern "C" ARM int func_ov004_0216ad20(void* a) {
-    unsigned char v = NormalizeField5_0200fb08((struct Struct0200fb08*)GetBattleStruct());
+    unsigned char v = NormalizeField5_0200fb08((struct Struct0200fb08*)GameState::GetInstance());
     int kind = 0;
     switch (v) {
     case 2: kind = 1; break;

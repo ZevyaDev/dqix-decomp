@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Obj02048c90;
 void ResetInnerState02048c90(struct Obj02048c90* obj);
@@ -17,13 +17,13 @@ struct GatherObj021629ec {
 
 // USA: func_ov000_021629ec
 extern "C" ARM void func_ov000_021629ec(struct GatherObj021629ec* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     short buf[12];
     int n = 0;
     n = n + func_ov000_0215e9fc(obj->field29c, buf, 0xc, n);
     n = n + func_ov000_0215ec1c(obj->field29c, buf + n, 0xc - n, 0);
     for (int i = 0; i < n; i++) {
-        struct CombatantStruct* c = GetCombatantFromList(bs, buf[i]);
+        GameObject* c = bs->GetCombatantByIndex(buf[i]);
         if (c) {
             ResetInnerState02048c90((struct Obj02048c90*)c);
             ClearSubstructFlag0x4((unsigned char*)c);

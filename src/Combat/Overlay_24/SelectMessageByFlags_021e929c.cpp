@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
 int CheckFlag0x14Bit0x10Set(unsigned char* obj);
@@ -12,11 +12,11 @@ struct Ctx_021e929c {
 
 // USA: func_ov024_021e929c
 ARM int SelectMessageByFlags_021e929c(struct Ctx_021e929c* ctx, int id, int flag) {
-    struct CombatantStruct* combatant = GetCombatantByID(ctx->field10, id);
+    GameObject* combatant = GetCombatantByID(ctx->field10, id);
     if (combatant == NULL) {
         return 0;
     }
-    int flagSet = CheckFlag0x14Bit0x10Set((unsigned char*)combatant->currentStats);
+    int flagSet = CheckFlag0x14Bit0x10Set((unsigned char*)combatant->currentStats_);
     if (flag != 0) {
         if (flagSet != 0) {
             return SelectByIndexRange0to3_021da644(id, 0x42, 0x42 + 0x13c);

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Graphics/LightingManager.h"
+#include "GameState/GameState.h"
 
-void* GetBattleStruct(void);
 struct Manager_1f2a4;
 struct Element_1f2a4;
 struct Element_1f2a4* GetElementByIndexStride0x20(struct Manager_1f2a4* manager, int index);
@@ -15,7 +15,7 @@ struct Entry02019678 {
 
 // USA: func_02019678  (semantic: ProcessNodeFlags02019678)
 extern "C" ARM void func_02019678(void* a) {
-    GetBattleStruct();
+    GameState::GetInstance();
     LightingManager::GetInstance();
     void* node = *(void**)((char*)a + 0x41c);
     while (node != 0) {

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-void* GetField0x3f8Address(struct BattleStruct* battleStruct);
+void* GetField0x3f8Address(GameState* battleStruct);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 extern "C" void* func_02012fe4();
 struct S_bc7c;
@@ -21,7 +21,7 @@ extern struct Data02109bf4 data_02109bf4;
 // USA: func_020a9d78
 ARM int CopyBlobIntoBattleStruct020a9d78(void* srcRaw) {
     char* src = (char*)srcRaw;
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     char* dst = (char*)GetField0x3f8Address(battleStruct);
 
     *(unsigned short*)(dst + 0x0) = *(unsigned short*)(src + 0x0);

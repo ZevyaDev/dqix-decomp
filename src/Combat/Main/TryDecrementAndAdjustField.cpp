@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int IsField8Bit19Set(unsigned int* obj);
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
+void* GetPtrField0x2a04(GameState* battleStruct);
 
 struct KeyMap020a0a08;
 int DecrementKeyValue020a0a08(struct KeyMap020a0a08* map, int key, int amount);
@@ -20,7 +20,7 @@ ARM int TryDecrementAndAdjustField(void* obj) {
     if (!IsField8Bit19Set((unsigned int*)obj)) {
         return 0;
     }
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     void* ptr = GetPtrField0x2a04(battle);
     short key = *(short*)((char*)obj + 0x18);
     if (!DecrementKeyValue020a0a08((struct KeyMap020a0a08*)ptr, key, 1)) {

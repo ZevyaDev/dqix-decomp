@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetGlobalField0x1c020421a0(void);
 
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov023_021e83c8(void* obj) {
     char* p1 = strstr(*(char**)((char*)obj + 0x5d8), &data_ov023_021fddb0);
     char* p2 = strstr(p1 + 1, &data_ov023_021fddb0);
     a = 0x82; b = 0xb4;
-    int norm = NormalizeField5_0200fb08((struct Struct0200fb08*)GetBattleStruct());
+    int norm = NormalizeField5_0200fb08((struct Struct0200fb08*)GameState::GetInstance());
     switch (norm) {
     case 2:
     case 5:

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Elem020ac234 {
     unsigned short a;
@@ -10,7 +10,7 @@ struct Elem020ac234 {
 
 // USA: func_020ac234  (semantic: RepackBattleFlagArray020ac234)
 extern "C" ARM int func_020ac234(struct Elem020ac234* dst) {
-    char* base = (char*)GetBattleStruct() + 0x3ac0 + 0x4000;
+    char* base = (char*)GameState::GetInstance() + 0x3ac0 + 0x4000;
     unsigned short* src = (unsigned short*)(base + 4);
     int i;
     for (i = 0; i < 0x1d7; i++) {

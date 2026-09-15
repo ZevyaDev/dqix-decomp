@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetPointerFromArray0xbd0(unsigned char* obj, unsigned int index);
 
@@ -11,7 +11,7 @@ extern short data_020e8a34[];
 // USA: func_0207c984  (semantic: CollectValuesRoundedTo100_0207c984)
 #pragma opt_propagation off
 extern "C" ARM int func_0207c984(unsigned char* obj, int combatantId, int categoryId, short* outArr, short* outCount) {
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(GetBattleStruct(), combatantId);
+    GameObject* combatant = GetCombatantWithFlag0x100(GameState::GetInstance(), combatantId);
     if (combatant == 0) {
         return 1;
     }

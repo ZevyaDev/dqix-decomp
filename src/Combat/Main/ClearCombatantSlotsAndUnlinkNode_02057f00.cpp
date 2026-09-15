@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-void ClearCombatantSlot(struct BattleStruct* battleStruct, int id);
+void ClearCombatantSlot(GameState* battleStruct, int id);
 
 struct ListNode02057f00 {
     int value;
@@ -17,7 +17,7 @@ struct Obj02057f00 {
 extern "C" ARM void func_02057f00(void* obj, int value) {
     struct ListNode02057f00* node = ((struct Obj02057f00*)obj)->head;
     struct ListNode02057f00* prev = 0;
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     int i;
     for (i = 0; i < 16; i++) {
         if (value == *(int*)((char*)obj + i * 0xd4 + 0xd8)) {

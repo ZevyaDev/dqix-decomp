@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct IntField0x23c_020a27c4;
 int GetFieldIfFlag4(char* obj);
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov003_02161344(char* obj) {
     int result = 0;
     int flagB = result;
 
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     struct IntField0x23c_020a27c4* p = (struct IntField0x23c_020a27c4*)GetFieldIfFlag4((char*)battle);
     if (p != 0 && ((*((unsigned char*)p + 0x244) & 2) != 0 || GetIntAt0x23c(p) == 0)) {
         flagB = (TestFlag0SetAndFlag1Clear(&data_02114e30, 0x200) != 0) ? 1 : 0;

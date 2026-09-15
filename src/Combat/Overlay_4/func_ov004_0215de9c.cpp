@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
@@ -20,7 +20,7 @@ public:
 
 // USA: func_ov004_0215de9c
 extern "C" ARM int func_ov004_0215de9c(void* a) {
-	struct BattleStruct* battle = GetBattleStruct();
+	GameState* battle = GameState::GetInstance();
 	void* base = func_ov011_021849c8(a);
 	VObjDE9C* node = (VObjDE9C*)func_ov023_021f6880(base, 0x2be);
 	if (!node) return 0;

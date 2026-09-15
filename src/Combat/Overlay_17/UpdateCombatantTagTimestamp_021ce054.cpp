@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetFieldAt0x150(unsigned char* obj);
 unsigned long long GetCurrentTimestamp(void);
@@ -15,10 +15,10 @@ struct Src021ce054 {
 };
 
 // USA: func_ov017_021ce054  (semantic: UpdateCombatantTagTimestamp_021ce054)
-extern "C" ARM void func_ov017_021ce054(int checkVal, struct Src021ce054* src, struct BattleStruct* battleStruct, char* obj) {
+extern "C" ARM void func_ov017_021ce054(int checkVal, struct Src021ce054* src, GameState* battleStruct, char* obj) {
     int inRange = (checkVal >= 0) && (checkVal <= 3);
     if (!inRange) return;
-    struct CombatantStruct* c = GetCombatantWithFlag0x100(battleStruct, src->field8);
+    GameObject* c = GetCombatantWithFlag0x100(battleStruct, src->field8);
     if (!c) return;
     unsigned char* p = (unsigned char*)GetFieldAt0x150((unsigned char*)c);
     void* g = func_0202ae18();

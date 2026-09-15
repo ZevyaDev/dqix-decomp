@@ -1,10 +1,10 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-extern "C" void* _Z15GetBattleStructv();
 extern "C" int* _Z10GetWord0x0Pi(void* battle);
-void SetBothCounters(void* obj, int value, int frames);
-extern "C" void func_0203b19c(void* obj, int a, int b);
-extern "C" int _Z28CheckField0x14Or0x20PositivePi(int* word);
+extern "C" void _Z13SetBrightnessP13GameResourcesii(void* obj, int value, int frames);
+extern "C" void _Z16SetSubBrightnessP13GameResourcesii(void* obj, int a, int b);
+extern "C" int _Z28IsBrightnessTransitionActiveP13GameResources(int* word);
 int IsAnimationActive0209ca2c(void* obj);
 extern "C" void _Z22ResetEntryList0205d6a0P14Entry_0205d6a0i(void* p, int flag);
 
@@ -28,24 +28,24 @@ struct Obj021868a8 {
 
 // USA: func_ov008_021868a8
 extern "C" ARM void func_ov008_021868a8(struct Obj021868a8* obj) {
-    int* word = _Z10GetWord0x0Pi(_Z15GetBattleStructv());
+    int* word = _Z10GetWord0x0Pi(GameState::GetInstance());
     unsigned char flag = obj->b11;
     if (flag == 0) {
         if (obj->b24 == 0) {
-            SetBothCounters(word, -16, 15);
+            _Z13SetBrightnessP13GameResourcesii(word, -16, 15);
             if (obj->b13 == 0) {
                 if (GetShortAt0xb8((struct ShortField0xb8_0209cae8*)&data_02109bf4) != 0x29) {
                     DispatchContextByState0209c678((struct Actor0209c678*)&data_02109bf4, 15);
                 }
             }
         } else {
-            func_0203b19c(word, -16, 15);
+            _Z16SetSubBrightnessP13GameResourcesii(word, -16, 15);
         }
         obj->b11 = obj->b11 + 1;
         return;
     }
     if (flag != 1) return;
-    if (_Z28CheckField0x14Or0x20PositivePi(word) != 0) return;
+    if (_Z28IsBrightnessTransitionActiveP13GameResources(word) != 0) return;
     if (IsAnimationActive0209ca2c(&data_02109bf4) != 0) return;
     _Z22ResetEntryList0205d6a0P14Entry_0205d6a0i((char*)obj + 0x130, 1);
     obj->b10 = 0xe;

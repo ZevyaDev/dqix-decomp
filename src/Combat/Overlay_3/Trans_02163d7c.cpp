@@ -1,16 +1,14 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-extern "C" unsigned int _Z15GetBattleStructv();
 extern "C" unsigned int _Z16AppendNodeToTailP16TailList020469b4P16TailNode020469b4(unsigned int, unsigned int, unsigned int, unsigned int);
 extern "C" unsigned int _Z18CheckField0NonZeroPi(unsigned int, unsigned int);
 extern "C" unsigned int _Z19SetFlag320_02195530Ph(unsigned int);
-extern "C" unsigned int _Z21GetCombatantUncheckedP12BattleStructi(unsigned int, unsigned int);
 extern "C" unsigned int _Z28GetField150Ptr0x488_02052e2cP22Field150Holder02052e2c();
 extern "C" unsigned int func_02012fe4();
 extern "C" unsigned int func_0202ae18();
 extern "C" unsigned int func_0202c508(unsigned int);
 extern "C" unsigned int func_ov003_02161480();
-extern "C" unsigned int func_ov017_0218b5b0();
 extern "C" unsigned int func_ov017_021bbae4(unsigned int, unsigned int, unsigned int);
 
 // USA: func_ov003_02163d7c  (semantic: Trans_02163d7c)
@@ -24,11 +22,11 @@ extern "C" ARM unsigned int func_ov003_02163d7c(unsigned int r0, unsigned int r1
     unsigned int r9 = 0;
     r9 = r0;
     r0 = (unsigned int)func_ov003_02161480();
-    r0 = (unsigned int)_Z15GetBattleStructv();
+    r0 = (unsigned int)GameState::GetInstance();
     r5 = r0;
     r0 = (unsigned int)func_02012fe4();
     r4 = r0;
-    r0 = (unsigned int)func_ov017_0218b5b0();
+    r0 = (unsigned int)((unsigned int)func_ov017_0218b5b0());
     r6 = r0;
     r1 = r6 + 0x3000;
     r7 = *(unsigned int*)((char*)r1 + 0x6fc);
@@ -36,7 +34,7 @@ extern "C" ARM unsigned int func_ov003_02163d7c(unsigned int r0, unsigned int r1
     r1 = r9 + 0x400;
     r1 = *(signed char*)((char*)r1 + 0xa2);
     r0 = r5;
-    r0 = (unsigned int)_Z21GetCombatantUncheckedP12BattleStructi(r0, r1);
+    r0 = (unsigned int)((GameState*)r0)->GetGameObjectByIndex(r1);
     r0 = (unsigned int)_Z28GetField150Ptr0x488_02052e2cP22Field150Holder02052e2c();
     r5 = r0;
     r0 = (unsigned int)func_0202ae18();

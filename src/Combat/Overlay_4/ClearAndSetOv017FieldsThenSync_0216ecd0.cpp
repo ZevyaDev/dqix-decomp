@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 void ClearBitsInWord(unsigned int* obj, unsigned int mask);
 void ClearBitsInField4(unsigned int* obj, unsigned int mask);
 void ClearBitsInField8(unsigned int* obj, unsigned int mask);
@@ -19,7 +18,7 @@ extern Struct02171048_0216ecd0 data_ov004_02171048;
 
 // USA: func_ov004_0216ecd0  (semantic: ClearAndSetOv017FieldsThenSync_0216ecd0)
 extern "C" ARM int func_ov004_0216ecd0(void) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* obj = func_ov017_0218b5b0();
     ClearBitsInWord((unsigned int*)obj, -1);
     ClearBitsInField4((unsigned int*)obj, -1);

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Combat/Overlay_0/GetCombatantByID.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov024_021edf00(int* a0, int a1, short* a2);
 extern "C" int func_ov000_0215e9fc(int a, short* buf, int max, int start);
@@ -29,9 +30,9 @@ extern "C" ARM int func_ov024_021f18fc(int* a0, int a1, int a2, int* a3, short* 
 
 	*a3 = 0;
 	for (int i = 0; i < count; i++) {
-		struct CombatantStruct* c = GetCombatantByID(*a0, buf[i]);
+		GameObject* c = GetCombatantByID(*a0, buf[i]);
 		if (!c) continue;
-		if (CheckFlag0x2AndState2((struct S88514*)c->currentStats)) continue;
+		if (CheckFlag0x2AndState2((struct S88514*)c->currentStats_)) continue;
 		int idx = *a3;
 		*a3 = idx + 1;
 		a4[idx] = buf[i];

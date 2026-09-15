@@ -1,9 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_02012fe4(void);
-extern "C" void* func_ov017_0218b5b0(void);
-void* GetField0x3f8Address(struct BattleStruct* battleStruct);
+void* GetField0x3f8Address(GameState* battleStruct);
 
 struct Obj02071488 {
     char pad0[0x46];
@@ -47,7 +46,7 @@ struct DispatchLocal0219fc88 {
 
 // USA: func_ov017_0219fc88  (semantic: RunScriptAndRegisterEntryNode_0219fc88)
 extern "C" ARM int func_ov017_0219fc88(void* unusedSelf, int scriptId) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     unsigned short* g = (unsigned short*)func_02012fe4();
     void* ctx;
     int success;

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 void* GetData02100044(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
@@ -36,8 +36,8 @@ struct EventBuf021cf078 {
 // USA: func_ov017_021cf078  (semantic: EnqueueEventTag21_021cf078)
 extern "C" ARM void func_ov017_021cf078(int combatantId, unsigned short slot, unsigned char flag) {
     void* p = GetData02100044();
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, combatantId);
+    GameState* bs = GameState::GetInstance();
+    GameObject* combatant = GetCombatantWithFlag0x100(bs, combatantId);
     if (!combatant) return;
 
     int val150 = GetFieldAt0x150((unsigned char*)combatant);

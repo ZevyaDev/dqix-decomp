@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct PlayClock020ac614;
 void AddPlayClockHours020ac614(struct PlayClock020ac614* clock, int amount);
@@ -22,7 +22,7 @@ unsigned long long GetCurrentTimestamp(void);
 
 // USA: func_020ac4f8
 ARM int UpdatePlayClocks020ac4f8(int commit) {
-    struct BattleStruct *battle;
+    GameState *battle;
     unsigned char buf[0xb0];
     unsigned short hours;
     unsigned char minutes;
@@ -30,7 +30,7 @@ ARM int UpdatePlayClocks020ac4f8(int commit) {
     unsigned long long ts;
     void *buf2;
 
-    battle = GetBattleStruct();
+    battle = GameState::GetInstance();
     LoadBattleBlock020ac4c0(buf);
 
     hours = 0;

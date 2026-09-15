@@ -1,13 +1,13 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 int GetFieldAt0x150(unsigned char* obj);
 extern "C" void func_ov017_021d6134(void*, int);
 
 // USA: func_ov023_021ea7e0
 ARM int SumClampedField_021ea7e0(void *obj) {
-	struct BattleStruct *bs = GetBattleStruct();
+	GameState *bs = GameState::GetInstance();
 	int id = GetField0x3acValue(bs);
 	void *combatant = (void*)GetCombatantWithFlag0x100(bs, id);
 	int sum = 0;

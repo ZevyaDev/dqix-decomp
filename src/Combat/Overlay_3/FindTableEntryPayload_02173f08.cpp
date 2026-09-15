@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct0200fb08;
 unsigned char NormalizeField5_0200fb08(struct Struct0200fb08* obj);
@@ -7,7 +7,7 @@ extern signed char data_ov003_0217fad4[];
 
 // USA: func_ov003_02173f08
 ARM void FindTableEntryPayload_02173f08(char* out1, char* out2, char* out3, char* out4) {
-	signed char v = (signed char)NormalizeField5_0200fb08((struct Struct0200fb08*)GetBattleStruct());
+	signed char v = (signed char)NormalizeField5_0200fb08((struct Struct0200fb08*)GameState::GetInstance());
 	signed char* p = data_ov003_0217fad4;
 	while (1) {
 		signed char tag = *p;

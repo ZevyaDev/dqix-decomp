@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct*, int);
 
 struct Vec3 { int x; int y; int z; };
 extern "C" int func_02032424(struct Vec3*, struct Vec3*);
@@ -30,9 +29,9 @@ struct Entity02033920 {
 
 // USA: func_02033920  (semantic: AimAndUpdateFlagsIfInRange_02033920)
 extern "C" ARM void func_02033920(struct Entity02033920* obj, int id, int flag) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     if (id == obj->f4) return;
-    struct CombatantStruct* combatant = GetCombatantUnchecked(battleStruct, id);
+    GameObject* combatant = battleStruct->GetGameObjectByIndex(id);
     if (combatant == 0) return;
     int angle = func_02032424((struct Vec3*)((char*)combatant + 0x44), &obj->f44);
     SetVecYByMode02033834((struct Obj02033834*)obj, angle);

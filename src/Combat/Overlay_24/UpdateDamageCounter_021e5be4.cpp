@@ -1,15 +1,15 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int IsIdOrEffectMatchTarget0215fd24(int unused, int id);
-struct CombatantStruct* GetCombatantWithFlag0x1000(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x1000(GameState* battleStruct, int combatantId);
 
 struct Ctx_021e5be4 { char pad[0x10]; void* field0x10; };
 struct P2_021e5be4 { char pad[0x32]; short val0x32; };
 
 // USA: func_ov024_021e5be4  (semantic: UpdateDamageCounter_021e5be4)
 extern "C" ARM void func_ov024_021e5be4(struct Ctx_021e5be4* obj, int id, struct P2_021e5be4* p2, int unused3) {
-	struct BattleStruct* bs = GetBattleStruct();
+	GameState* bs = GameState::GetInstance();
 	void* field2a04 = GetPtrField0x2a04(bs);
 	if (IsIdOrEffectMatchTarget0215fd24((int)obj->field0x10, id)) {
 		*(int*)((char*)field2a04 + 0xf6c) -= p2->val0x32;

@@ -1,10 +1,8 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-struct BattleStruct* GetBattleStruct();
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" void func_ov017_021b6f18(void* node);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 extern "C" void func_ov017_021b6e70(void* evt, unsigned short tag);
 extern "C" void func_ov017_021b7104(void* node, void* out);
 struct TailList020469b4;
@@ -30,8 +28,8 @@ struct LocalEvt021b8bb0 {
 
 // USA: func_ov017_021b8bb0  (semantic: ApplyOrEnqueueEvent_021b8bb0)
 extern "C" ARM void func_ov017_021b8bb0(int id) {
-    struct BattleStruct* bs = GetBattleStruct();
-    char* base = (char*)(long)func_ov017_0218b5b0() + 0x3000;
+    GameState* bs = GameState::GetInstance();
+    char* base = (char*)(long)((int)func_ov017_0218b5b0()) + 0x3000;
     struct TailList020469b4* list = *(struct TailList020469b4**)(base + 0x6fc);
     struct TailNode020469b4* node = *(struct TailNode020469b4**)(base + 0x718);
     func_ov017_021b6f18(node);

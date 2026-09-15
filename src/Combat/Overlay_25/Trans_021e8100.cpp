@@ -1,7 +1,7 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-extern "C" unsigned int _Z15GetBattleStructv();
-extern "C" unsigned int _Z18GetField0x3b0ValueP12BattleStruct();
+extern "C" unsigned int _Z18GetField0x3b0ValueP9GameState();
 extern "C" unsigned int _Z33StoreFields0x1e4And0x1e8IfNonZeroPhii(unsigned int, unsigned int, unsigned int);
 
 // USA: func_ov025_021e8100  (semantic: Trans_021e8100)
@@ -9,8 +9,8 @@ extern "C" ARM unsigned int func_ov025_021e8100(unsigned int r0, unsigned int r1
     int cc = 0;
     unsigned int r4 = 0;
     r4 = r0;
-    r0 = (unsigned int)_Z15GetBattleStructv();
-    r0 = (unsigned int)_Z18GetField0x3b0ValueP12BattleStruct();
+    r0 = (unsigned int)GameState::GetInstance();
+    r0 = (unsigned int)_Z18GetField0x3b0ValueP9GameState();
     cc = (int)(r0) - (int)(0x0);
     if (cc == 0) { goto L24; }
     r1 = *(short*)((char*)r4 + 0xa);

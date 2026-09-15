@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct*, int);
 extern "C" void* _ZN8Object3D27UseRenderConfigDiffuseColorEv(void* obj);
 
 struct Buf7_02053cf8 { int v[7]; };
@@ -14,7 +13,7 @@ struct Obj02053cf8 {
 
 // USA: func_02053cf8  (semantic: ProcessFieldGroupAndDispatch_02053cf8)
 extern "C" ARM void func_02053cf8(struct Obj02053cf8* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     _ZN8Object3D27UseRenderConfigDiffuseColorEv(obj);
     int base = obj->f4 * 0xc;
     struct Buf7_02053cf8 ids = data_020e7bfc;
@@ -27,7 +26,7 @@ extern "C" ARM void func_02053cf8(struct Obj02053cf8* obj) {
 
     int* p = ids.v;
     while (*p >= 0) {
-        struct CombatantStruct* c = GetCombatantUnchecked(battleStruct, *p);
+        GameObject* c = battleStruct->GetGameObjectByIndex(*p);
         if (c != 0) {
             _ZN8Object3D27UseRenderConfigDiffuseColorEv(c);
         }

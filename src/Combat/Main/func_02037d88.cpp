@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_0202ae18(void);
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" void* func_02012fe4(void);
 extern "C" void func_020391ac(void* obj);
 extern "C" void func_02038138(void* obj);
@@ -22,7 +21,7 @@ void ApplyStatusTickEffect(struct Obj02039df4* obj);
 struct Obj02052ae8;
 extern "C" void _Z29StepValueTowardTarget02052ae8P11Obj02052ae8(struct Obj02052ae8* obj);
 
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
+int GetField0x3b0Value(GameState* battleStruct);
 int CheckSubstructByte0x7cPositive(signed char* obj);
 extern "C" int _Z24IsCountAtLeast4_0219a370Ph(unsigned char* base);
 int IsField0Null(void** obj);
@@ -33,7 +32,7 @@ int CheckField0xc4Low15BitsNonZero(struct BitField0203402c* p);
 
 extern "C" int _Z26GetGlobalField0x1c020421a0v();
 
-unsigned char GetField0x397cValue(struct BattleStruct* battleStruct);
+unsigned char GetField0x397cValue(GameState* battleStruct);
 int GetFieldIfFlag4(char* obj);
 
 struct S020a2c70;
@@ -98,9 +97,9 @@ struct Obj02037d88 {
 
 // USA: func_02037d88
 extern "C" ARM void func_02037d88(struct Obj02037d88* obj) {
-    void* bs = GetBattleStruct();
+    void* bs = GameState::GetInstance();
     func_0202ae18();
-    unsigned char* r6 = (unsigned char*)func_ov017_0218b5b0();
+    unsigned char* r6 = (unsigned char*)((int)func_ov017_0218b5b0());
 
     int flagBit = (obj->flags1ce & 4) != 0;
     if (flagBit) {
@@ -128,8 +127,8 @@ extern "C" ARM void func_02037d88(struct Obj02037d88* obj) {
     }
 
     {
-        void* bsOrig = GetBattleStruct();
-        int field3b0 = GetField0x3b0Value((struct BattleStruct*)bsOrig);
+        void* bsOrig = GameState::GetInstance();
+        int field3b0 = GetField0x3b0Value((GameState*)bsOrig);
         void* ctx = func_02012fe4();
         int* ptr130 = (int*)obj->field130;
 
@@ -160,11 +159,11 @@ extern "C" ARM void func_02037d88(struct Obj02037d88* obj) {
             && CheckField0xc4Low15BitsNonZero((struct BitField0203402c*)obj) == 0
             && ((struct GlobalOuter020421a0*)_Z26GetGlobalField0x1c020421a0v())->sub.flag == 0) {
 
-            unsigned char* ptr2a04 = (unsigned char*)GetPtrField0x2a04((struct BattleStruct*)bsOrig);
+            unsigned char* ptr2a04 = (unsigned char*)GetPtrField0x2a04((GameState*)bsOrig);
 
-            void* bsOrig2 = GetBattleStruct();
+            void* bsOrig2 = GameState::GetInstance();
             short id3 = obj->combatantId;
-            unsigned char field397c_1 = GetField0x397cValue((struct BattleStruct*)bsOrig2);
+            unsigned char field397c_1 = GetField0x397cValue((GameState*)bsOrig2);
             if (field397c_1 == id3) {
                 int p2 = GetFieldIfFlag4((char*)bsOrig2);
                 if (p2 != 0) {
@@ -203,9 +202,9 @@ extern "C" ARM void func_02037d88(struct Obj02037d88* obj) {
                 return;
             }
         } else {
-            void* bs3 = GetBattleStruct();
+            void* bs3 = GameState::GetInstance();
             short id2 = obj->combatantId;
-            unsigned char field397c_2 = GetField0x397cValue((struct BattleStruct*)bs3);
+            unsigned char field397c_2 = GetField0x397cValue((GameState*)bs3);
             if (field397c_2 == id2) {
                 int p = GetFieldIfFlag4((char*)bs3);
                 if (p != 0) {

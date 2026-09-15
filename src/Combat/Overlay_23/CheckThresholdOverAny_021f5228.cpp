@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct FieldPtrObj_021f5228 { char pad[0x150]; char *ptr150; };
 int GetFieldAt0x150(unsigned char* obj);
@@ -7,7 +7,7 @@ int GetTableByte020dd11c(unsigned int a, unsigned int b);
 
 // USA: func_ov023_021f5228
 ARM int CheckThresholdOverAny_021f5228(int id) {
-	struct BattleStruct *bs = GetBattleStruct();
+	GameState *bs = GameState::GetInstance();
 	struct FieldPtrObj_021f5228 *combatant = (struct FieldPtrObj_021f5228*)GetCombatantWithFlag0x100(bs, id);
 	if (!combatant) return 0;
 	int field150 = GetFieldAt0x150((unsigned char*)combatant);

@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "GameState/GameState.h"
 
 struct Struct_0205d81c;
 extern "C" void* _Z23FindElementByC40205d81cP15Struct_0205d81ci(struct Struct_0205d81c* s, int key);
 extern "C" int func_02050064(void* obj);
-extern "C" void* _Z15GetBattleStructv();
 extern "C" void* __clear(void* dst, int count);
 extern "C" int func_020426bc(void* src, void* dst, int flag);
 extern "C" int _Z12StringLengthPKc(const char* s);
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov023_021e8270(char* obj) {
     void* field4 = *(void**)((char*)elem + 0x4);
     memcpy(dst, base2 + off, size);
 
-    char* battle = (char*)_Z15GetBattleStructv() + 0x29c + 0x5400;
+    char* battle = (char*)GameState::GetInstance() + 0x29c + 0x5400;
 
     char buf[0x43a];
     __clear(buf, 0x3a);

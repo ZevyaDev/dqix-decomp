@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 unsigned char GetByte0x4(char* obj);
 void SetByte0x4(char* obj, unsigned char value);
@@ -30,8 +30,8 @@ extern unsigned char data_ov004_02171034[];
 
 // USA: func_ov004_0216d920
 extern "C" ARM int func_ov004_0216d920() {
-    struct BattleStruct* bs = GetBattleStruct();
-    Struct_ov017_44C8* obj = func_ov017_0218b5b0();
+    GameState* bs = GameState::GetInstance();
+    GameResources* obj = func_ov017_0218b5b0();
     if (GetByte0x4((char*)bs) != 2) {
         DispatchContextByState0209c678((struct Actor0209c678*)&data_02109bf4, 0);
         InitActorContext0209c20c((struct Actor0209c20c*)&data_02109bf4);

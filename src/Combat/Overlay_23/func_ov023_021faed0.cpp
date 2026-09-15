@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetGlobalField0x1c020421a0(void);
 extern "C" void* func_ov011_021849c8(void* a);
@@ -10,7 +10,6 @@ struct Entry021faed0;
 ARM void* GetEntryPtr_021fa854(char* obj, unsigned int idx);
 
 extern "C" void func_0205ac40(void* obj, void* entry);
-int GetField0x3b4Value(struct BattleStruct* battleStruct);
 void SelectCoordsByFlag0x24(unsigned char* obj, int* out1, int* out2);
 
 struct Obj0205eaa0;
@@ -127,8 +126,8 @@ extern "C" ARM void func_ov023_021faed0(struct Obj021faed0* obj, void* arg1) {
             flagX = 1;
         }
         unsigned char b54 = *((unsigned char*)&data_02114e54 + 0x54);
-        struct BattleStruct* battleStruct = GetBattleStruct();
-        int field3b4 = GetField0x3b4Value(battleStruct);
+        GameState* battleStruct = GameState::GetInstance();
+        int field3b4 = battleStruct->GetEffectiveDeltaTime();
         int result = 0;
 
         if (b55 != 0 && (obj->flags0xc & 0x20) == 0) {

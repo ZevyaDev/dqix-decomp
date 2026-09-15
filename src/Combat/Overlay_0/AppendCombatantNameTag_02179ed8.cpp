@@ -1,12 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct UnkStruct0205c508;
 void ComputeProductSums0205c508(struct UnkStruct0205c508* s, int* out1, int* out2);
 
 int IsField0x118Equal2(void* obj);
 int GetFieldAt0x150(unsigned char* obj);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 int AppendFrameTag02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
 int AppendCursorTag(char* dst, int cursor);
@@ -27,7 +26,7 @@ extern "C" ARM void func_ov000_02179ed8(char* obj, struct Entry02179ed8* entry, 
         int a, b;
         ComputeProductSums0205c508((struct UnkStruct0205c508*)(obj + 0x1dc), &a, &b);
         int aShifted = a << 24;
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x800(GetBattleStruct(), entry->field4c);
+        GameObject* combatant = GameState::GetInstance()->GetPartyMemberByIndex(entry->field4c);
         if (combatant != NULL) {
             int field950 = *(int*)((char*)GetFieldAt0x150((unsigned char*)combatant) + 0x950);
             signed char byteVal = entry->field23;

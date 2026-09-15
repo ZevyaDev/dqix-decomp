@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetFieldAt0x150(unsigned char* obj);
 struct BitScan02083a50;
@@ -19,8 +19,8 @@ struct LocalEvt021ccfd0 {
 
 // USA: func_ov017_021ccfd0  (semantic: EmitBitIndexGroups_021ccfd0)
 extern "C" ARM void func_ov017_021ccfd0(int combatantId) {
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, combatantId);
+    GameState* bs = GameState::GetInstance();
+    GameObject* combatant = GetCombatantWithFlag0x100(bs, combatantId);
     if (!combatant) {
         return;
     }

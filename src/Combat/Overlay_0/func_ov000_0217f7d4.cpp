@@ -1,11 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int HasAnyFlags_021719f8_021719f8(int* obj);
 struct Struct02170fd0;
 void CallHandlerIfF38Set02170fd0(struct Struct02170fd0* obj, int b);
 void* GetFieldAt0x150(unsigned char* obj);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 struct Entry0217f7d4 {
     char pad0[0x18];
@@ -24,7 +23,7 @@ struct Entry0217f7d4 {
 // USA: func_ov000_0217f7d4  (semantic: FindReadyCombatantId_0217f7d4)
 extern "C" ARM int func_ov000_0217f7d4(char* obj) {
     int result = -1;
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     struct Entry0217f7d4* entry;
     for (int i = 0; i < 4; i++) {
         signed char idx = *(signed char*)(obj + 0x6c + i);
@@ -41,7 +40,7 @@ extern "C" ARM int func_ov000_0217f7d4(char* obj) {
         }
 
         idx = *(signed char*)(obj + 0x6c + i);
-        struct CombatantStruct* c = GetCombatantWithFlag0x800(bs, idx);
+        GameObject* c = bs->GetPartyMemberByIndex(idx);
         if (c == NULL || (signed char)*(int*)((char*)GetFieldAt0x150((unsigned char*)c) + 0x94c) == 5) {
             signed char v = *(signed char*)((char*)entry + entry->field18 + 0x10);
             if (v == 0x64) result = entry->field4c;

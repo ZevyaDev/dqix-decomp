@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetGlobalField0x1c020421a0(void);
 struct Obj0205eaa0;
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov004_0216d004(void* a) {
     g[0x1000 + 0x9ca] = 0;
     DispatchWithShortB4_0205eaa0(&data_02108760, 5, 0);
 
-    SetByte0x7f70((void*)GetBattleStruct(), 0);
+    SetByte0x7f70((void*)GameState::GetInstance(), 0);
     ClearStruct020a9ea4(data_ov004_02171034.ptr10);
     data_ov004_02171034.flag2 = 1;
 

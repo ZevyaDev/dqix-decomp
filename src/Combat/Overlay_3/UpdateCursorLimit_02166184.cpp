@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_ov003_02160c58(unsigned char* self, short* outHigh, short* outLow);
-void* GetPtrField0x2a04(struct BattleStruct*);
+void* GetPtrField0x2a04(GameState*);
 extern "C" void func_ov003_02166220(unsigned char* self);
 
 // USA: func_ov003_02166184  (semantic: UpdateCursorLimit_02166184)
@@ -14,7 +14,7 @@ extern "C" ARM void func_ov003_02166184(unsigned char* self) {
 	int flags;
 	func_ov003_02160c58(self, &outHigh, &outLow);
 
-	base = (unsigned char*)GetPtrField0x2a04(GetBattleStruct()) + 0x2000;
+	base = (unsigned char*)GetPtrField0x2a04(GameState::GetInstance()) + 0x2000;
 	byteC8C = base[0xc8c];
 	limit = (byteC8C + 3) / 4;
 

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
 void* GetData02100044(void);
@@ -15,14 +15,13 @@ extern int* GetGlobal02109030(void);
 extern "C" void func_02094030(int* a, unsigned short b, short c, unsigned char d);
 extern void RemoveSearchEntry0202c21c(struct SearchStruct* obj, int value);
 
-extern int GetField0x3b4Value(struct BattleStruct* battleStruct);
 extern "C" void func_0202b0f4(void* p);
 extern "C" void func_ov003_02171e1c(void*, void*);
 extern int CheckSlotsAllFree0205e488(void* obj);
 
 // USA: func_ov003_02171764
 extern "C" ARM void func_ov003_02171764(char* self) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     struct SearchStruct* search = (struct SearchStruct*)func_0202ae18();
     void* dataPtr = GetData02100044();
 
@@ -35,7 +34,7 @@ extern "C" ARM void func_ov003_02171764(char* self) {
         RemoveSearchEntry0202c21c(search, *(unsigned char*)(self + 0x199));
     }
 
-    int fieldVal = GetField0x3b4Value(battle);
+    int fieldVal = battle->GetEffectiveDeltaTime();
     *(int*)(self + 0x72c) = fieldVal;
     if ((unsigned int)fieldVal > 0xbb8) {
         func_0202b0f4(search);

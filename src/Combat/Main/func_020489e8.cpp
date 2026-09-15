@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 ARM void Forward02048144(void* p);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
@@ -11,7 +11,6 @@ struct Bits41_37474 {
 };
 extern "C" int _ZNK8Object3D11GetOwnAlphaEv(struct Bits41_37474* obj);
 
-int GetField0x3b4Value(struct BattleStruct* battleStruct);
 
 extern "C" ARM void _ZN10AlphaTween15SetCurrentValueEf(unsigned short* out, float val);
 
@@ -54,8 +53,8 @@ extern "C" ARM void func_020489e8(struct Obj020489e8* obj) {
     }
     int isNonzero = 0.0f != ((struct Obj02034a30*)((char*)obj->field13c + 0x60))->field4;
     if (isNonzero) {
-        struct BattleStruct* battleStruct = GetBattleStruct();
-        int threshold = GetField0x3b4Value(battleStruct);
+        GameState* battleStruct = GameState::GetInstance();
+        int threshold = battleStruct->GetEffectiveDeltaTime();
         int bits = _ZNK8Object3D11GetOwnAlphaEv((struct Bits41_37474*)obj);
         _ZN10AlphaTween15SetCurrentValueEf(&((struct Obj02034a30*)((char*)obj->field13c + 0x60))->field0, (float)bits);
         float result = _ZN10AlphaTween7AdvanceEi((struct Obj02034a30*)((char*)obj->field13c + 0x60), threshold);

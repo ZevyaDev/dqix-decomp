@@ -1,11 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x2(struct BattleStruct* battleStruct, int combatantId);
-struct CombatantStruct* GetCombatantAtField0x3ac(struct BattleStruct* battleStruct);
 
 struct Vec3 { int x; int y; int z; };
-extern "C" void Vector3fix_Subtract(struct Vec3* a, struct Vec3* b, struct Vec3* out);
 
 struct U16Field0x6_020375f8 { char unk[0x6]; unsigned short field; };
 extern "C" unsigned short _ZNK8Object3D10GetField06Ev(struct U16Field0x6_020375f8* obj);
@@ -24,9 +21,7 @@ extern "C" void _ZN8Object3D11DisableFlagEi(unsigned char* obj, unsigned int mas
 struct S02037418;
 extern "C" void _ZN8Object3D17SetInheritedAlphaEi(struct S02037418* obj, int val);
 
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" struct Vec3 func_02034104(void* combatant);
-extern "C" void Vector3fix_Normalize(void* a, void* b);
 extern "C" int fix32_Atan2(int x, int z);
 
 extern char data_02108760;
@@ -46,16 +41,16 @@ struct Entity02078898 {
 
 // USA: func_02078898
 ARM int SyncCombatantPosition02078898(struct Entity02078898* p) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     unsigned short id = p->combatantIdField;
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x2(bs, id);
+    GameObject* combatant = bs->GetMaybeWanderingMonsterByIndex(id);
     if (combatant == 0) return 0;
 
     void* ov = func_ov017_0218b5b0();
     char* g = (char*)ov + 0x3000;
     void* g734 = *(void**)(g + 0x734);
 
-    struct CombatantStruct* other = GetCombatantAtField0x3ac(bs);
+    GameObject* other = bs->GetProtagonist();
     unsigned short a = _ZNK8Object3D10GetField06Ev((struct U16Field0x6_020375f8*)other);
     unsigned short b = _ZNK8Object3D10GetField06Ev((struct U16Field0x6_020375f8*)p);
     if (a == b && *((unsigned char*)g734 + 3) == 0) {
@@ -64,8 +59,8 @@ ARM int SyncCombatantPosition02078898(struct Entity02078898* p) {
 
     struct Vec3 pos = func_02034104(combatant);
     struct Vec3 diff;
-    Vector3fix_Subtract(&pos, &p->vecField44, &diff);
-    Vector3fix_Normalize(&diff, &diff);
+    Vector3fix_Subtract((const Vector3fix*)&pos, (const Vector3fix*)&p->vecField44, (Vector3fix*)&diff);
+    Vector3fix_Normalize((const Vector3fix*)&diff, (Vector3fix*)&diff);
     int angle = fix32_Atan2(diff.x, diff.z);
     SetVecYByMode02033834((struct Obj02033834*)p, angle);
 

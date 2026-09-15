@@ -9,7 +9,7 @@
 #include "Graphics/NSBXX/RenderConfig.h"
 #include "Graphics/NSBXX/GeometryFifo.h"
 #include "Graphics/NSBXX/NSBXX.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 
 // This keeps showing up in multiple translation units: in every case, we have
@@ -42,7 +42,6 @@ struct EffectScriptData
 } static effectScriptData;
 
 #if defined(jpn)
-#define _Z25GetCombatantAtField0x397cP12BattleStruct func_0200fc38 
 #define _Z16GetPtrField0x114Pv func_02033ad8 
 #define _Z19CheckBits5To9Equal2Pt func_0204cc40 
 #define _Z25RestorePairTables0207df90Pc func_0207ed10 
@@ -51,7 +50,6 @@ struct EffectScriptData
 
 extern "C"
 {
-    extern "C" void* _Z25GetCombatantAtField0x397cP12BattleStruct(BattleStruct*);
     void* _Z16GetPtrField0x114Pv(void*);
     bool _Z19CheckBits5To9Equal2Pt(void*);
 
@@ -753,7 +751,7 @@ void AtmosphericEffectSet::DetermineVisibilityFromTimeOfDay()
 
 void AtmosphericEffectSet::DetermineVisibilityFromUnknown()
 {
-    bool inputShouldHide = _Z19CheckBits5To9Equal2Pt(_Z16GetPtrField0x114Pv(_Z25GetCombatantAtField0x397cP12BattleStruct(GetBattleStruct())));
+    bool inputShouldHide = _Z19CheckBits5To9Equal2Pt(_Z16GetPtrField0x114Pv(GameState::GetInstance()->GetUnknownGameObject()));
 
     if (inputShouldHide != unknown_14_bit_2_ || visibilityDirty_)
     {

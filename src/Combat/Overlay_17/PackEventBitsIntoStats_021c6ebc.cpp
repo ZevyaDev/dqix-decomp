@@ -1,10 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov017_021b8478(void* obj);
 extern "C" int func_ov017_021b8468(void* obj);
 void* GetField6b0_021b8470(void* obj);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 struct Obj02088818;
 void SetStateAndByte0x6a(struct Obj02088818* obj, unsigned short mode);
 
@@ -28,7 +28,7 @@ struct SrcEntry021c6ebc {
 };
 
 // USA: func_ov017_021c6ebc  (semantic: PackEventBitsIntoStats_021c6ebc)
-extern "C" ARM void func_ov017_021c6ebc(int unused0, struct SrcEntry021c6ebc* src, struct BattleStruct* battleStruct, unsigned char* base) {
+extern "C" ARM void func_ov017_021c6ebc(int unused0, struct SrcEntry021c6ebc* src, GameState* battleStruct, unsigned char* base) {
     unsigned char* table = *(unsigned char**)(base + 0x3000 + 0x718);
     unsigned char* obj = (unsigned char*)func_ov017_021b8478(table);
     if (obj == 0) {
@@ -46,23 +46,23 @@ extern "C" ARM void func_ov017_021c6ebc(int unused0, struct SrcEntry021c6ebc* sr
     if (*(unsigned short*)(obj + 8) != src->field4) {
         return;
     }
-    struct CombatantStruct* combatant = GetCombatantFromList(battleStruct, src->field6);
+    GameObject* combatant = battleStruct->GetCombatantByIndex(src->field6);
     if (combatant == 0) {
         return;
     }
     struct PackedBits021c6ebc* dst;
     unsigned char a = src->bits8.fieldA;
-    dst = (struct PackedBits021c6ebc*)((unsigned char*)combatant->currentStats + 0x22);
+    dst = (struct PackedBits021c6ebc*)((unsigned char*)combatant->currentStats_ + 0x22);
     dst->fieldA = a;
     unsigned char b = src->bits8.fieldB;
-    dst = (struct PackedBits021c6ebc*)((unsigned char*)combatant->currentStats + 0x22);
+    dst = (struct PackedBits021c6ebc*)((unsigned char*)combatant->currentStats_ + 0x22);
     dst->fieldB = b;
     unsigned char c = src->bits8.fieldC;
-    dst = (struct PackedBits021c6ebc*)((unsigned char*)combatant->currentStats + 0x22);
+    dst = (struct PackedBits021c6ebc*)((unsigned char*)combatant->currentStats_ + 0x22);
     dst->fieldC = c;
     unsigned char st = src->bits8.state;
-    SetStateAndByte0x6a((struct Obj02088818*)combatant->currentStats, st);
-    *((unsigned char*)combatant->currentStats + 0x24) = src->fielda;
-    *(unsigned short*)((unsigned char*)combatant->currentStats + 4) = src->fieldc;
-    *(unsigned short*)((unsigned char*)combatant->currentStats + 6) = src->fielde;
+    SetStateAndByte0x6a((struct Obj02088818*)combatant->currentStats_, st);
+    *((unsigned char*)combatant->currentStats_ + 0x24) = src->fielda;
+    *(unsigned short*)((unsigned char*)combatant->currentStats_ + 4) = src->fieldc;
+    *(unsigned short*)((unsigned char*)combatant->currentStats_ + 6) = src->fielde;
 }

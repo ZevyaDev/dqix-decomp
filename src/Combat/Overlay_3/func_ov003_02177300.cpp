@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Obj2081;
 void ClearElementFlag0x20(struct Obj2081* obj, int key);
@@ -14,7 +14,7 @@ extern "C" void func_020813ec(void* obj, int key);
 // USA: func_ov003_02177300  (semantic: RecomputeElementTierAndDispatch_02177300)
 #pragma opt_common_subs off
 extern "C" ARM void func_ov003_02177300(char* self) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     int field = *(int*)(self + 0x1000 + 0x30);
     struct Obj2081* elemObj = *(struct Obj2081**)(self + 0x89c);
     int key1 = -1, key2 = -1;
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov003_02177300(char* self) {
     unsigned char i;
     for (i = 0; i < *(int*)(self + 0x1000 + 0x30); i++) {
         hp = 0;
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x100(battle, *(int*)(self + 0x1000 + 0x1c + i * 4));
+        GameObject* combatant = GetCombatantWithFlag0x100(battle, *(int*)(self + 0x1000 + 0x1c + i * 4));
         if (combatant != 0) {
             hp = *(int*)((char*)combatant + 0x134);
         }

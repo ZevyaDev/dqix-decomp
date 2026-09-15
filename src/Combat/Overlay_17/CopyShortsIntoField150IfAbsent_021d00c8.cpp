@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+void* GetPtrField0x2a04(GameState* battleStruct);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 
 struct Obj_021d00c8 {
@@ -13,7 +13,7 @@ struct Obj_021d00c8 {
 };
 
 // USA: func_ov017_021d00c8
-ARM void CopyShortsIntoField150IfAbsent_021d00c8(int unused0, char* p1raw, struct BattleStruct* bs) {
+ARM void CopyShortsIntoField150IfAbsent_021d00c8(int unused0, char* p1raw, GameState* bs) {
     struct Obj_021d00c8* p1 = (struct Obj_021d00c8*)(p1raw + 4);
     int id = p1->id;
     unsigned char* list = (unsigned char*)GetPtrField0x2a04(bs);
@@ -23,7 +23,7 @@ ARM void CopyShortsIntoField150IfAbsent_021d00c8(int unused0, char* p1raw, struc
         if (id == row[0xf78]) return;
     }
 
-    struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, id);
+    GameObject* c = GetCombatantWithFlag0x100(bs, id);
     if (!c) return;
     int field150 = GetFieldAt0x150((unsigned char*)c);
     if (!field150) return;

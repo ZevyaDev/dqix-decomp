@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int DispatchNodeIfType7_02156e2c(void* a, int key);
 void* GetEntryFor_021570a4(void* obj, int index);
@@ -44,7 +44,7 @@ public:
 
 // USA: func_ov004_0215d384
 extern "C" ARM int func_ov004_0215d384(void* a) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int idx = DispatchNodeIfType7_02156e2c(a, 0x5b);
     if (idx < 0) return 0;
     void* entry = GetEntryFor_021570a4(a, idx & 0xff);

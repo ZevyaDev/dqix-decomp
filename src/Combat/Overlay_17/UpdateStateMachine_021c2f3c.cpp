@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 extern "C" void* func_02057924(void);
 extern "C" void* func_0202ae18(void);
 extern "C" void func_020531f0(void* obj);
@@ -23,7 +22,7 @@ extern "C" void func_020a0c0c(void);
 // USA: func_ov017_021c2f3c  (semantic: UpdateStateMachine_021c2f3c)
 #pragma optimize_for_size off
 extern "C" ARM void func_ov017_021c2f3c(unsigned char* self) {
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(GetBattleStruct());
+    GameObject* combatant = GameState::GetInstance()->GetUnknownGameObject();
     void* r7 = func_02057924();
     void* r5 = func_0202ae18();
 

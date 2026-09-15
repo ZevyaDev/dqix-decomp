@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 union Value_021d60f4 { int i; float f; };
 struct TaggedValue_021d60f4 { int type; Value_021d60f4 value; };
@@ -7,7 +7,7 @@ struct TaggedPtr_021d6134 { int type; int* ptr; };
 
 extern "C" ARM int func_ov017_021d60f4(TaggedValue_021d60f4* a);
 extern "C" ARM void func_ov017_021d6134(TaggedPtr_021d6134* a, int val);
-extern "C" struct CombatantStruct* func_ov023_021e8f28(int index);
+extern "C" GameObject* func_ov023_021e8f28(int index);
 
 struct TaggedTriple_021e94cc {
     TaggedValue_021d60f4 combatantIndexTag; // offset 0
@@ -26,9 +26,9 @@ struct Transform150_021e94cc {
 
 // USA: func_ov023_021e94cc  (semantic: StoreCombatantFieldByIndex_021e94cc)
 extern "C" ARM int func_ov023_021e94cc(TaggedTriple_021e94cc* args) {
-    GetBattleStruct();
+    GameState::GetInstance();
     int combatantIdx = func_ov017_021d60f4(&args->combatantIndexTag);
-    struct CombatantStruct* combatant = func_ov023_021e8f28(combatantIdx);
+    GameObject* combatant = func_ov023_021e8f28(combatantIdx);
     if (combatant == 0) {
         return 0;
     }
@@ -70,22 +70,22 @@ extern "C" ARM int func_ov023_021e94cc(TaggedTriple_021e94cc* args) {
         break;
     }
     case 7: {
-        unsigned short v = combatant->baseStats->primaryStats.maxHP;
+        unsigned short v = combatant->baseStats_->primaryStats.maxHP;
         func_ov017_021d6134(&args->destTag, v);
         break;
     }
     case 8: {
-        unsigned short v = combatant->baseStats->primaryStats.maxMP;
+        unsigned short v = combatant->baseStats_->primaryStats.maxMP;
         func_ov017_021d6134(&args->destTag, v);
         break;
     }
     case 9: {
-        unsigned short v = combatant->baseStats->primaryStats.attack;
+        unsigned short v = combatant->baseStats_->primaryStats.attack;
         func_ov017_021d6134(&args->destTag, v);
         break;
     }
     case 10: {
-        unsigned short v = combatant->baseStats->primaryStats.defense;
+        unsigned short v = combatant->baseStats_->primaryStats.defense;
         func_ov017_021d6134(&args->destTag, v);
         break;
     }

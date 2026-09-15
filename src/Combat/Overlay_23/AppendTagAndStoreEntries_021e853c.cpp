@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetGlobalField0x1c020421a0(void);
 int AppendLineTag02041cc0(char* dst, int a1);
@@ -18,7 +18,7 @@ struct Combatant021e853c { char pad[0xf68]; int f68; int f6c; };
 
 // USA: func_ov023_021e853c  (semantic: AppendTagAndStoreEntries_021e853c)
 extern "C" ARM void func_ov023_021e853c(void* obj) {
-    struct Combatant021e853c* combatant = (struct Combatant021e853c*)GetPtrField0x2a04(GetBattleStruct());
+    struct Combatant021e853c* combatant = (struct Combatant021e853c*)GetPtrField0x2a04(GameState::GetInstance());
     int field = GetGlobalField0x1c020421a0();
     AppendLineTag02041cc0(*(char**)((char*)obj + 0x5d8), 0x18);
     int arr[2] = { combatant->f6c, combatant->f68 };

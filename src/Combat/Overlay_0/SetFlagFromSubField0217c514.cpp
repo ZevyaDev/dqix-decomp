@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Outer_02054000;
 void* GetActiveSub_02054000(struct Outer_02054000* p);
@@ -19,8 +19,8 @@ struct Sub0217c514 {
 
 // USA: func_ov000_0217c514  (semantic: SetFlagFromSubField0217c514)
 extern "C" ARM int func_ov000_0217c514(int id, int flags) {
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, id);
+    GameState* bs = GameState::GetInstance();
+    GameObject* c = GetCombatantWithFlag0x100(bs, id);
     if (!c) return flags;
     struct Sub0217c514* sub = (struct Sub0217c514*)GetActiveSub_02054000((struct Outer_02054000*)c);
     if (!sub) return flags;

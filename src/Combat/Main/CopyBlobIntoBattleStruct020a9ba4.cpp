@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 struct Blob020a9ba4 {
@@ -11,7 +11,7 @@ struct Blob020a9ba4 {
 // USA: func_020a9ba4
 ARM int CopyBlobIntoBattleStruct020a9ba4(void* src) {
     struct Blob020a9ba4 buf;
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     memcpy(&buf, src, sizeof(buf));
     memcpy((char*)bs + 0x6180, buf.second, 0x200);
     memcpy((char*)bs + 0x5f80, buf.first, 0x200);

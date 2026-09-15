@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Graphics/LightingManager.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct HalfwordRecord02052884 {
     char pad[0x20];
@@ -13,17 +13,16 @@ struct HalfwordRecord02052884 {
 
 extern "C" float func_ov017_021d6110(void* obj);
 extern "C" unsigned int func_ov017_021d60f4(void* obj);
-unsigned int GetField0x3b4Value(struct BattleStruct* battleStruct);
 
 // USA: func_ov001_02164004  (semantic: RecordChangeFromTaggedValues_02164004)
 extern "C" ARM int func_ov001_02164004(void* obj, int count) {
     float f = func_ov017_021d6110(obj);
     unsigned int extra = 0;
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     if (count >= 2) {
         extra = func_ov017_021d60f4((char*)obj + 8);
     }
-    unsigned short kind = extra * GetField0x3b4Value(battle);
+    unsigned short kind = extra * battle->GetEffectiveDeltaTime();
     LightingManager::GetInstance()->BeginFade(4096.0f * f, kind);
     return 1;
 }

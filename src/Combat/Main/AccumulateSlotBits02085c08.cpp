@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetSlotBits0201137c(char* base, int id);
 
@@ -7,13 +7,13 @@ int GetSlotBits0201137c(char* base, int id);
 ARM int AccumulateSlotBits02085c08(unsigned char* actor) {
     short v = *(short*)(actor + 0x2ac);
     int sel = 0x21;
-    struct BattleStruct* bs;
+    GameState* bs;
     int total;
     if (v > 0) {
         int w = *(int*)(actor + 0x29c);
         sel = (unsigned int)(w << 23) >> 27;
     }
-    bs = GetBattleStruct();
+    bs = GameState::GetInstance();
     total = 0;
     if (sel != 5) {
         if (sel == 0x21) {

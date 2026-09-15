@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct KeyedList0207c484;
 int DecrementKeyedStackAmount0207c484(struct KeyedList0207c484* obj, int value, int amount, int key);
@@ -18,7 +18,7 @@ struct Bits0xc_0215b1d4 { unsigned short low13 : 13; unsigned short high3 : 3; }
 
 // USA: func_ov004_0215b1d4  (semantic: DecrementOrRemoveSlotAndNotify_0215b1d4)
 extern "C" ARM int func_ov004_0215b1d4(void* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     char* base = (char*)bs + 0x26c + 0x5c00;
 
     *(short*)(base + 0xf8) = *(short*)(data_ov004_021707d8.ptr + 0x6c);
@@ -41,7 +41,7 @@ extern "C" ARM int func_ov004_0215b1d4(void* obj) {
         DecrementKeyValue020a0a08((struct KeyMap020a0a08*)result, key, amt);
     } else {
         int combatantId = *(signed char*)(data_ov004_021707d8.ptr + 0x70);
-        struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, combatantId);
+        GameObject* c = GetCombatantWithFlag0x100(bs, combatantId);
         if (!c) return 0;
         int field = GetFieldAt0x150((unsigned char*)c);
         short key = *(short*)(data_ov004_021707d8.ptr + 0x6c);

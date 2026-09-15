@@ -1,14 +1,13 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 unsigned char CopyOutRegion0x571d(char* obj, void* dst);
 extern "C" void func_ov002_02154c30(void* p);
 
 // USA: func_ov002_02154f4c
 ARM int BuildFlaggedCombatantSlotList_02154f4c(unsigned char* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     unsigned char buf[8];
     unsigned char n = CopyOutRegion0x571d((char*)battle, buf);
     unsigned char count = 0;
@@ -16,7 +15,7 @@ ARM int BuildFlaggedCombatantSlotList_02154f4c(unsigned char* obj) {
 
     buf[n] = 4;
     for (i = 0; i < n; i++) {
-        if (GetCombatantWithFlag0x800(battle, buf[i]) != NULL) {
+        if (battle->GetPartyMemberByIndex(buf[i]) != NULL) {
             unsigned char* q = obj + count;
             q += 0x1000;
             q[0xc68] = buf[i];

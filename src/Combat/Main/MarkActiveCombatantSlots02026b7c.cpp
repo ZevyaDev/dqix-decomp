@@ -1,15 +1,14 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 
 // USA: func_02026b7c
 ARM void MarkActiveCombatantSlots02026b7c(unsigned char* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int i;
     obj += 0x96;
     for (i = 0; i < 4; i++) {
-        if (GetCombatantUnchecked(bs, i)) {
+        if (bs->GetGameObjectByIndex(i)) {
             obj[0xa00] |= (1 << i);
         }
     }

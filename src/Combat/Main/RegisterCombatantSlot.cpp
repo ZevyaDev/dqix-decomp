@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct SlotBackRef_fd38 {
     char pad[4];
@@ -7,7 +7,7 @@ struct SlotBackRef_fd38 {
 };
 
 // USA: func_0200fd38
-ARM void RegisterCombatantSlot(struct BattleStruct* battleStruct, int id, struct CombatantStruct* combatant) {
-    battleStruct->combatantList[id] = combatant;
+ARM void RegisterCombatantSlot(GameState* battleStruct, int id, GameObject* combatant) {
+    battleStruct->objects_[id] = combatant;
     ((struct SlotBackRef_fd38*)combatant)->id = id;
 }

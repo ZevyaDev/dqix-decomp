@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetArrayEntry_021e8a54_021e8a54(char* obj);
 int FindTagAndCopy_021e24d0(char* s, char* out2, char* out1);
@@ -25,7 +25,7 @@ struct Param021e4aac {
 
 // USA: func_ov025_021e4aac  (semantic: SearchTagAndDispatch_021e4aac)
 extern "C" ARM int func_ov025_021e4aac(struct Param021e4aac* p, int unused, int unusedR2, void* dispatchObj) {
-    GetBattleStruct();
+    GameState::GetInstance();
     int handle = (int)BackgroundLoader::GetInstance();
     GetArrayEntry_021e8a54_021e8a54(*(char**)((char*)&data_ov025_021ef988 + 0xc));
 

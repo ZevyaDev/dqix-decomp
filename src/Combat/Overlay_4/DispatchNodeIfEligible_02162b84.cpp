@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_ov004_0215f0c0(void* self);
 extern "C" void func_ov004_0215e5fc(void* self, void* combatant);
@@ -16,13 +16,13 @@ extern "C" ARM int func_ov004_02162b84(void* self) {
     func_ov004_0215f0c0(self);
     func_ov004_0215e5fc(self, data_ov004_021707e8.combatant);
 
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     unsigned char buf[4];
     unsigned char n = CopyOutRegion0x571d((char*)battle, buf);
 
     int found = 0;
     for (int i = 0; i < 4; i++) {
-        struct CombatantStruct* c = GetCombatantWithFlag0x100(battle, i);
+        GameObject* c = GetCombatantWithFlag0x100(battle, i);
         if (c) {
             if (CheckField0x56bLowNibble((struct Obj02061bd8*)c)) found = 1;
         }

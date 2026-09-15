@@ -1,13 +1,12 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" void* func_ov017_021b8468(void* obj);
 extern "C" void func_ov000_021682ec(void* p);
 extern "C" void func_ov017_021d0b30(int a, int b, int c);
 extern "C" void func_ov017_021b0bc0(void* obj);
 int CheckCombatantsAndBit4_021b0b4c(void);
 int IsField0Null(void** obj);
-void* GetBattleStruct(void);
 
 struct Ctx021b08f4 {
     char pad0[0x9];
@@ -23,8 +22,8 @@ struct Ctx021b08f4 {
 
 // USA: func_ov017_021b08f4  (semantic: UpdateSlotFlagsAndGetByteA_021b08f4)
 extern "C" ARM unsigned char func_ov017_021b08f4(Ctx021b08f4* obj) {
-    GetBattleStruct();
-    int ctx = func_ov017_0218b5b0();
+    GameState::GetInstance();
+    int ctx = ((int)func_ov017_0218b5b0());
     char* base = (char*)ctx + 0x3000;
     void* p718 = *(void**)(base + 0x718);
     void* p700 = *(void**)(base + 0x700);

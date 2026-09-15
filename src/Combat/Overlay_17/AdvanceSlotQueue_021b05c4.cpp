@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Ctx021b05c4 {
     char pad0[0xa];
@@ -22,7 +22,7 @@ extern "C" void* func_ov017_021b0fe0(int a, int b);
 
 // USA: func_ov017_021b05c4  (semantic: AdvanceSlotQueue_021b05c4)
 extern "C" ARM unsigned char func_ov017_021b05c4(struct Ctx021b05c4* self) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     if (self->byte23 == 0) {
         if (self->byte24 == 4) {
             EnqueueEventTag23Field_021d0d58();
@@ -42,7 +42,7 @@ extern "C" ARM unsigned char func_ov017_021b05c4(struct Ctx021b05c4* self) {
         if (idx < 0) {
             return self->byteA;
         }
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, idx);
+        GameObject* combatant = GetCombatantWithFlag0x100(bs, idx);
         if (combatant == 0) {
             return self->byteA;
         }

@@ -1,16 +1,15 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 // USA: func_020dcc98  (semantic: ClassifyHPRatio020dcc98)
 extern "C" ARM int func_020dcc98(int combatantId) {
     int result = 15;
-    struct BattleStruct* battle = GetBattleStruct();
-    struct CombatantStruct* c = GetCombatantWithFlag0x800(battle, combatantId);
+    GameState* battle = GameState::GetInstance();
+    GameObject* c = battle->GetPartyMemberByIndex(combatantId);
     if (c != 0) {
         float ratio;
-        int maxHP = c->baseStats->primaryStats.maxHP;
+        int maxHP = c->baseStats_->primaryStats.maxHP;
         if ((float)maxHP == 0.0f) {
             ratio = 0.0f;
         } else {

@@ -1,10 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct SearchStruct0202c1a4;
 signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
 extern "C" void func_ov017_021c812c(int a, int b);
-struct CombatantStruct* GetCombatantFromList(struct BattleStruct* battleStruct, int combatantId);
 void SetSubstructByte0x1c(unsigned char* obj, unsigned char value);
 extern "C" void* func_ov017_021b8468(void* obj);
 void SetCombatWorkFlags0x55f4(void* work, int mask);
@@ -27,17 +26,17 @@ extern "C" ARM void func_ov017_021c82bc(int p0, struct Evt021c82bc* evt, int unu
         return;
     }
 
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int i;
     for (i = 0; i < 4; i++) {
-        struct CombatantStruct* c = GetCombatantFromList(bs, i);
+        GameObject* c = bs->GetCombatantByIndex(i);
         if (c != NULL && evt->arr1[i] != 0xff) {
             SetSubstructByte0x1c((unsigned char*)c, evt->arr1[i]);
         }
     }
     int j;
     for (j = 0; j < 8; j++) {
-        struct CombatantStruct* c = GetCombatantFromList(bs, j + 0xc0);
+        GameObject* c = bs->GetCombatantByIndex(j + 0xc0);
         if (c != NULL && evt->arr2[j] != 0xff) {
             SetSubstructByte0x1c((unsigned char*)c, evt->arr2[j]);
         }

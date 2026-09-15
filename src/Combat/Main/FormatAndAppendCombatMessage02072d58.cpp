@@ -1,9 +1,8 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void FormatEffectStats02072c9c(int combatantId, char* buf);
-extern "C" int func_ov017_0218b5b0(void);
 
 struct HeadNode02046b24;
 int GetHeadNodeIdOrMinusOne(struct HeadNode02046b24** obj);
@@ -14,12 +13,12 @@ extern char data_020f0cff[];
 ARM void FormatAndAppendCombatMessage02072d58(int combatantId, char* statsBuf, char* outBuf) {
     FormatEffectStats02072c9c(combatantId, statsBuf);
 
-    int base = func_ov017_0218b5b0();
+    int base = ((int)func_ov017_0218b5b0());
     struct HeadNode02046b24** headTable = *(struct HeadNode02046b24***)((char*)base + 0x36fc);
     int flag = 0;
 
     if (GetHeadNodeIdOrMinusOne(headTable) == 0xa) {
-        struct CombatantStruct* c = GetCombatantFromList(GetBattleStruct(), combatantId);
+        GameObject* c = GameState::GetInstance()->GetCombatantByIndex(combatantId);
         if (c != NULL) {
             flag = *(unsigned char*)(*(int*)((char*)c + 0x138) + 0x26);
         }
@@ -33,7 +32,7 @@ ARM void FormatAndAppendCombatMessage02072d58(int combatantId, char* statsBuf, c
         sprintf(outBuf, data_020f0cff, statsBuf, 0x65);
     }
 
-    struct CombatantStruct* c2 = GetCombatantWithFlag0x100(GetBattleStruct(), combatantId);
+    GameObject* c2 = GetCombatantWithFlag0x100(GameState::GetInstance(), combatantId);
     if (c2 == NULL) {
         return;
     }

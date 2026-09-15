@@ -1,16 +1,16 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Util/Random.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x400(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x400(GameState* battleStruct, int combatantId);
 extern "C" int func_0208a03c(void* p0, int oldVal, int id, int* outPtr, int p3);
 extern "C" int func_ov000_02154a04(int field0, int id, int flag, int p3);
 
 // USA: func_0208a5d8
 extern "C" ARM int func_0208a5d8(int* p0, int id, int* outPtr, int p3) {
     unsigned char i;
-    struct BattleStruct* bs;
-    struct CombatantStruct* combatant;
+    GameState* bs;
+    GameObject* combatant;
     struct ModifiableCombatStats* stats;
     unsigned char* p38;
     char* arr148;
@@ -21,10 +21,10 @@ extern "C" ARM int func_0208a5d8(int* p0, int id, int* outPtr, int p3) {
     unsigned char slotA;
     unsigned char slotB;
 
-    bs = GetBattleStruct();
+    bs = GameState::GetInstance();
     combatant = GetCombatantWithFlag0x400(bs, id);
     arr148 = *(char**)((char*)combatant + 0x148);
-    stats = combatant->currentStats;
+    stats = combatant->currentStats_;
     p38 = (unsigned char*)((char*)stats + 0x38);
     *p38 = *p38 % 3u;
     i = 0;

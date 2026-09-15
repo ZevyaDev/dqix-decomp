@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 
 struct Flags0202ecfc;
 void ClearFlag0x1At0x168(struct Flags0202ecfc* p);
@@ -25,7 +24,7 @@ struct Obj0216d560 {
 
 // USA: func_ov000_0216d560  (semantic: SomeFunc_0216d560)
 extern "C" ARM void func_ov000_0216d560(struct Obj0216d560* obj, int id) {
-    struct CombatantStruct* c = GetCombatantUnchecked(GetBattleStruct(), id);
+    GameObject* c = GameState::GetInstance()->GetGameObjectByIndex(id);
     if (!c) {
         obj->field224 = -1;
         ClearFlag0x1At0x168((struct Flags0202ecfc*)obj);

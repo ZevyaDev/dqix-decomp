@@ -1,13 +1,12 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_020da244(void* p);
 extern "C" void* func_02012fe4(void);
 extern int data_ov017_021d82fc;
 
 extern "C" void _Z29ClearSlotsAndProcess_021a27e8v(void* unused);
-struct CombatantStruct* GetCombatantWithFlag0x20(struct BattleStruct* battleStruct, int combatantId);
 extern "C" void _ZN8Object3D7DestroyEv(unsigned char* obj);
 
 void* GetGlobalPtr021075f4(void);
@@ -22,15 +21,14 @@ void* GetPointerAt0x32c(struct PointerField32c_ffc0* obj);
 struct PointerField330_ffd0;
 void* GetPointerAt0x330(struct PointerField330_ffd0* obj);
 
-void ClearCombatantSlot(struct BattleStruct* battleStruct, int id);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
+void ClearCombatantSlot(GameState* battleStruct, int id);
 
 struct Foo0207df50;
 void CopyInternalFields0207df50(struct Foo0207df50* p);
 
 // USA: func_ov017_021a316c  (semantic: TeardownOverlayState_021a316c)
 extern "C" ARM void func_ov017_021a316c(unsigned char* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     unsigned char* globalPtr = (unsigned char*)func_02012fe4();
     int i;
     int j;
@@ -60,7 +58,7 @@ extern "C" ARM void func_ov017_021a316c(unsigned char* obj) {
     _Z29ClearSlotsAndProcess_021a27e8v(obj);
 
     for (i = 0; i < 0x30; i++) {
-        struct CombatantStruct* c = GetCombatantWithFlag0x20(battleStruct, i + 0x70);
+        GameObject* c = battleStruct->GetMaybeFieldMonsterByIndex(i + 0x70);
         if (c) {
             _ZN8Object3D7DestroyEv((unsigned char*)c);
         }
@@ -70,7 +68,7 @@ extern "C" ARM void func_ov017_021a316c(unsigned char* obj) {
     CopyInternalFields0207df50((struct Foo0207df50*)(obj + 0x5dc));
 
     for (j = 0; j < 0x30; j++) {
-        struct CombatantStruct* c = GetCombatantWithFlag0x20(battleStruct, j + 0x70);
+        GameObject* c = battleStruct->GetMaybeFieldMonsterByIndex(j + 0x70);
         if (c) {
             _ZN8Object3D7DestroyEv((unsigned char*)c);
         }
@@ -87,7 +85,7 @@ extern "C" ARM void func_ov017_021a316c(unsigned char* obj) {
     }
 
     for (k = 1; k < 4; k++) {
-        if (GetCombatantUnchecked(battleStruct, k + 0xca)) {
+        if (battleStruct->GetGameObjectByIndex(k + 0xca)) {
             ClearCombatantSlot(battleStruct, k + 0xca);
         }
     }

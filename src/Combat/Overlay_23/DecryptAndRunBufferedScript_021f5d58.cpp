@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 unsigned long long ComputeModHash_021f6324(int count, unsigned char* ptr);
 extern "C" void func_ov031_022118a8(void* ctx, unsigned char* key, int keylen);
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov023_021f5d58(unsigned char* buf, int len, unsigned cha
     int keylen = strlen(key);
     func_ov031_022118a8(ctx, (unsigned char*)key, keylen);
     Rc4Crypt_02211938((unsigned char*)ctx, buf, len - 4, out);
-    char* bs = (char*)GetBattleStruct();
+    char* bs = (char*)GameState::GetInstance();
     data_ov023_021fff08.fieldC = bs + 0x5e6c;
     data_ov023_021fff08.field10 = 0;
     _ZN6Script10InitializeEv((struct ResetStruct*)local);

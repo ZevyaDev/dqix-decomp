@@ -1,8 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-struct BattleStruct* GetBattleStruct();
 int GetField5cb0Value(char* obj);
 int GetField5cb4Value(char* obj);
 extern "C" void func_ov017_021baedc(void* self, int flag);
@@ -42,7 +41,7 @@ extern "C" ARM void func_ov017_021bba08(struct Obj021bba08* obj, unsigned char* 
     func_ov017_021baedc(obj, 1);
     obj->f0x9c = 1;
 
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     char* b = (char*)bs;
     obj->f0xc = (unsigned char)GetField5cb0Value(b);
     obj->f0xe = (unsigned char)GetField5cb0Value(b);

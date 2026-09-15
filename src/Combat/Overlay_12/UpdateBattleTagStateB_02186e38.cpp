@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "GameState/GameState.h"
 
-extern "C" void* _Z15GetBattleStructv();
 
 struct Struct0205de24;
 void FindAndLinkMatchingEntry0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov012_02186e38(char* self) {
 
 	if (func_ov023_021e6de4(self) != 0) {
 		_Z28DispatchWithShortB4_0205eaa0P11Obj0205eaa0ii(&data_02108760, 1, 0);
-		void* battleStruct = _Z15GetBattleStructv();
+		void* battleStruct = GameState::GetInstance();
 		int val = *(int*)(self + 0x13dc);
 		void* name = FindEntryByKey((struct TableA68*)(self + 0x133c), (short)(val + 0x2846));
 		struct Field569c { char pad[4]; unsigned int field4; };

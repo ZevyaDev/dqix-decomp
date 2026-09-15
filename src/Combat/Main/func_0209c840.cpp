@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int CountEntriesType1WithId(int id);
 struct Obj020bc180;
@@ -13,7 +13,6 @@ extern "C" void func_0209c2e0(void* obj, int a, int b);
 extern "C" void func_020bbd9c(void);
 void SetContextAndDispatch0203ac10(void* obj, void* a, int b);
 int SetContextAndQuery0203ab6c(void* obj, void* arg1);
-int GetField0x3b4Value(struct BattleStruct* battleStruct);
 
 struct Actor0209c840 {
     char pad0[0xb0];
@@ -35,7 +34,7 @@ struct Actor0209c840 {
 
 // USA: func_0209c840
 extern "C" ARM void func_0209c840(struct Actor0209c840* actor) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
 
     if (actor->field_c9 == 1) {
         actor->field_ca = 0x320;
@@ -55,7 +54,7 @@ extern "C" ARM void func_0209c840(struct Actor0209c840* actor) {
     }
 
     if (actor->field_c9 == 2) {
-        unsigned int elapsed = GetField0x3b4Value(battle);
+        unsigned int elapsed = battle->GetEffectiveDeltaTime();
         if (elapsed < actor->field_ca) {
             actor->field_ca = actor->field_ca - elapsed;
             return;
@@ -82,7 +81,7 @@ extern "C" ARM void func_0209c840(struct Actor0209c840* actor) {
     }
 
     {
-        unsigned int elapsed = GetField0x3b4Value(battle);
+        unsigned int elapsed = battle->GetEffectiveDeltaTime();
         if (elapsed < actor->field_ca) {
             actor->field_ca = actor->field_ca - elapsed;
             return;

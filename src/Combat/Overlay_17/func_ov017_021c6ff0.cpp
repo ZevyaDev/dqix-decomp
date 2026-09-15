@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void* func_ov017_021b8478(void* obj);
 int TestBitAt0x34(unsigned char* obj, unsigned int index);
 void* GetData02100044(void);
@@ -26,7 +25,7 @@ struct Whole021c6ff0 {
 
 // USA: func_ov017_021c6ff0
 extern "C" ARM void func_ov017_021c6ff0() {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     unsigned char* table = *(unsigned char**)((char*)func_ov017_0218b5b0() + 0x3000 + 0x718);
     unsigned char* search = (unsigned char*)func_ov017_021b8478(table);
     void* data = GetData02100044();
@@ -39,7 +38,7 @@ extern "C" ARM void func_ov017_021c6ff0() {
         if (!TestBitAt0x34(search, (unsigned char)i)) {
             continue;
         }
-        struct CombatantStruct* c = GetCombatantFromList(bs, i);
+        GameObject* c = bs->GetCombatantByIndex(i);
         if (c == 0 || *(unsigned char*)(*(char**)((char*)c + 0x138) + 0x26) == 0) {
             continue;
         }

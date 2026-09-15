@@ -1,23 +1,23 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct BitArrayObj0205e830;
 int TestBitInArray0x1524(struct BitArrayObj0205e830* obj, int index);
-extern "C" Struct_ov017_44C8* func_ov017_0218b5b0(void);
+extern "C" GameResources* func_ov017_0218b5b0(void);
 void* GetData02100044(void);
 extern "C" void* func_0202ae18(void);
 
 struct Node021d48f0 { unsigned char idx; };
 Node021d48f0* PopAndRequeueNode(void* obj, int* outPtr);
 
-typedef void (*Handler021d7f98)(int, Node021d48f0*, struct BattleStruct*, Struct_ov017_44C8*, void*);
+typedef void (*Handler021d7f98)(int, Node021d48f0*, GameState*, GameResources*, void*);
 extern Handler021d7f98 data_ov017_021d7f98[];
 
 // USA: func_ov017_021d48f0  (semantic: DispatchQueuedNodeEvents_021d48f0)
 extern "C" ARM void func_ov017_021d48f0(void) {
-    struct BattleStruct* bs = GetBattleStruct();
-    Struct_ov017_44C8* ov = func_ov017_0218b5b0();
+    GameState* bs = GameState::GetInstance();
+    GameResources* ov = func_ov017_0218b5b0();
     void* data = GetData02100044();
     void* extra = func_0202ae18();
     int outVal;

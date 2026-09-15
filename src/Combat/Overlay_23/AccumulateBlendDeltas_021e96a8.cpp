@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" struct CombatantStruct* func_ov023_021e8f28(int index);
+extern "C" GameObject* func_ov023_021e8f28(int index);
 extern "C" int func_ov017_021d60f4(void* obj);
 extern "C" void func_ov017_021d6134(void* obj, int value);
 extern "C" void* __clear(void* dst, int count);
@@ -11,8 +11,8 @@ struct Node021e96a8 { char pad[0x18]; struct Blend10_021e96a8 posDelta; struct B
 
 // USA: func_ov023_021e96a8  (semantic: AccumulateBlendDeltas_021e96a8)
 extern "C" ARM int func_ov023_021e96a8(unsigned char* obj) {
-    GetBattleStruct();
-    struct CombatantStruct* entry = func_ov023_021e8f28(func_ov017_021d60f4(obj));
+    GameState::GetInstance();
+    GameObject* entry = func_ov023_021e8f28(func_ov017_021d60f4(obj));
     if (entry == 0) {
         return 0;
     }

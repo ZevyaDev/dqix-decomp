@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetDataPtr02114e04_020d6c00(void);
 
@@ -41,7 +41,7 @@ struct Obj020235c8 {
 
 // USA: func_020235c8
 ARM void ProcessCombatantState020235c8(struct Obj020235c8* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
 
     if (TestFlags02046708((struct FlagWord02046708*)GetDataPtr02114e04_020d6c00(), 0x41)) {
         return;

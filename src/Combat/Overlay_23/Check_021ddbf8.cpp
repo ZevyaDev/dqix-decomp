@@ -1,20 +1,20 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetWord0x0(int* obj);
-int CheckField0x20Positive(int* obj);
-int CheckField0x14Positive(int* obj);
+extern "C" int _Z31IsSubBrightnessTransitionActiveP13GameResources(int* obj);
+extern "C" int _Z32IsMainBrightnessTransitionActiveP13GameResources(int* obj);
 
 struct Obj021ddbf8 { char pad[0x77c]; signed char f77c; };
 
 // USA: func_ov023_021ddbf8
 ARM int Check_021ddbf8(Obj021ddbf8* arg) {
-    int* p = (int*)GetWord0x0((int*)GetBattleStruct());
+    int* p = (int*)GetWord0x0((int*)GameState::GetInstance());
     int r;
     if (arg->f77c == 1) {
-        r = CheckField0x20Positive(p);
+        r = _Z31IsSubBrightnessTransitionActiveP13GameResources(p);
     } else {
-        r = CheckField0x14Positive(p);
+        r = _Z32IsMainBrightnessTransitionActiveP13GameResources(p);
     }
     return r != 0;
 }

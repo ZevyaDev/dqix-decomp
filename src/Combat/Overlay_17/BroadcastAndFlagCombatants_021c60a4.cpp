@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetData02100044(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
@@ -50,10 +50,10 @@ extern "C" ARM void func_ov017_021c60a4(struct Source021c60a4* obj) {
     msg.field0xe = obj->fieldA;
     func_0205e330(data, &msg, 0);
 
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     for (unsigned int i = 0; i < 4; i++) {
         if ((signed char)obj->flags[i] == 0) continue;
-        struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, i);
+        GameObject* c = GetCombatantWithFlag0x100(bs, i);
         if (c == NULL) continue;
         SetField0x1b2IfMatchOrFlag02053f7c((struct Obj02053f7c*)c, obj->field0, 1);
     }

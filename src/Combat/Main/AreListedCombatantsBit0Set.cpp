@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Obj02086b98 {
     char pad[0xf78];
@@ -9,10 +9,10 @@ struct Obj02086b98 {
 
 // USA: func_02086b98
 ARM int AreListedCombatantsBit0Set(struct Obj02086b98* o) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int i;
     for (i = 0; i < o->count; i++) {
-        struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, o->ids[i]);
+        GameObject* c = GetCombatantWithFlag0x100(bs, o->ids[i]);
         if (c != NULL) {
             int* p = *(int**)((char*)c + 0x130);
             if ((*p & 1) == 0) {

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 // USA: func_02011538
-ARM int GetByteField0x5721(struct BattleStruct* battleStruct) {
+ARM int GetByteField0x5721(GameState* battleStruct) {
     return *(unsigned char*)((char*)battleStruct + 0x5721);
 }

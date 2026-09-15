@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov011_021849c8(void* obj);
 
@@ -9,10 +10,7 @@ extern "C" int func_ov023_021f6bb8(struct Struct_021f6bb8* obj);
 extern "C" void func_ov023_021f6bb0(void* obj, int v);
 
 
-struct BattleStruct;
-extern struct BattleStruct* GetBattleStruct(void);
-extern int GetField0x3acValue(struct BattleStruct* battleStruct);
-extern void* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
+extern int GetField0x3acValue(GameState* battleStruct);
 
 
 extern "C" void* __clear(void* dst, int count);
@@ -59,9 +57,9 @@ extern "C" ARM int func_ov023_021fa370(struct Obj021fa370* obj, void* param1) {
     handle = (int)BackgroundLoader::GetInstance();
     zeroPad = 0;
     if (obj->kind == 1) {
-        struct BattleStruct* bs = GetBattleStruct();
+        GameState* bs = GameState::GetInstance();
         int id = GetField0x3acValue(bs);
-        struct Combatant021fa370* combatant = (struct Combatant021fa370*)GetCombatantWithFlag0x800(bs, id);
+        struct Combatant021fa370* combatant = (struct Combatant021fa370*)bs->GetPartyMemberByIndex(id);
         if (combatant != 0) {
             zeroPad = combatant->inner->flagBit;
         }

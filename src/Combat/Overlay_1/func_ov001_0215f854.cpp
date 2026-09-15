@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
 extern "C" int func_ov017_021d60f4(void*);
@@ -7,9 +7,8 @@ extern "C" void* func_ov017_021d612c(void*);
 extern int AbsPlus159IfNegative0215ad2c(int x);
 extern SafeAllocator* data_ov001_021658b8[8];
 void* GetFieldPtrAt0x5ca4(void* obj);
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
-void SetField0x3b0Value(struct BattleStruct* battleStruct, int value);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
+int GetField0x3b0Value(GameState* battleStruct);
+void SetField0x3b0Value(GameState* battleStruct, int value);
 
 struct Obj0204a120;
 void InitState0204a120(struct Obj0204a120* obj);
@@ -25,7 +24,7 @@ extern "C" void _ZN8Object3D10EnableFlagEi(unsigned char* obj, unsigned int mask
 
 // USA: func_ov001_0215f854  (semantic: AllocateAndInitStateNode_0215f854)
 extern "C" ARM int func_ov001_0215f854(char* self) {
-	struct BattleStruct* bs = GetBattleStruct();
+	GameState* bs = GameState::GetInstance();
 	SafeAllocator* allocator = data_ov001_021658b8[0];
 	void* fieldPtr = GetFieldPtrAt0x5ca4(bs);
 
@@ -35,7 +34,7 @@ extern "C" ARM int func_ov001_0215f854(char* self) {
 
 	int id = AbsPlus159IfNegative0215ad2c(a);
 
-	struct CombatantStruct* combatant = GetCombatantUnchecked(bs, id);
+	GameObject* combatant = bs->GetGameObjectByIndex(id);
 	if (combatant == NULL) return 0;
 
 	void* newObj = allocator->Allocate(0x268);

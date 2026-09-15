@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 
@@ -20,7 +20,7 @@ extern "C" void func_02032fdc(struct Obj020a7eb8* obj, int a1, int a2);
 
 // USA: func_020a7eb8
 ARM void OffsetPositionYAndDispatch(struct Obj020a7eb8* obj) {
-    GetBattleStruct();
+    GameState::GetInstance();
     struct Vec3i020a7eb8 tmp = obj->pos;
     tmp.y += obj->field140;
     _ZN8Vector3iaSERKS_((int*)&obj->pos, (int*)&tmp);

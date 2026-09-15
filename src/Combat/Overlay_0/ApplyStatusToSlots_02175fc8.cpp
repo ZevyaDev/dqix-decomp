@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov000_02161318(void* obj, int index);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 
 // USA: func_ov000_02175fc8  (semantic: ApplyStatusToSlots_02175fc8)
@@ -12,8 +12,8 @@ extern "C" ARM void func_ov000_02175fc8(void* obj) {
     for (i = 0; i < 4; i++) {
         e = (char*)func_ov000_02161318(obj, i);
         if (e == NULL) continue;
-        struct BattleStruct* bs = GetBattleStruct();
-        struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, *(int*)(e + 0x4c));
+        GameState* bs = GameState::GetInstance();
+        GameObject* c = GetCombatantWithFlag0x100(bs, *(int*)(e + 0x4c));
         if (c == NULL) continue;
         int* p = *(int**)((char*)c + 0x130);
         if (*p & 4) {

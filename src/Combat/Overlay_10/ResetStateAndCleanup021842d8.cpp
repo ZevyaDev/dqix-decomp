@@ -1,12 +1,11 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern AllocatorUnion data_02114e20;
 
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 void SetByteField0x253(void* obj);
 
 extern "C" void* func_02057924();
@@ -33,7 +32,7 @@ ARM void ResetStateAndCleanup021842d8(struct Struct021842d8* obj) {
         ((BackgroundLoader*)(x))->RemoveTask((int)(obj->field4));
         obj->field4 = -1;
     }
-    struct CombatantStruct* c = GetCombatantAtField0x397c(GetBattleStruct());
+    GameObject* c = GameState::GetInstance()->GetUnknownGameObject();
     if (c != NULL) {
         SetByteField0x253(c);
     }

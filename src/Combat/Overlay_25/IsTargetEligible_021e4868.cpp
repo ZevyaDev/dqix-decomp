@@ -1,13 +1,12 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 struct S0204a438;
 void* GetField0x21c(struct S0204a438* p);
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
+int GetField0x3b0Value(GameState* battleStruct);
 int GetFlags(int obj);
 int DispatchByIndex021820bc(void* obj, int unused, int index, int arg);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 struct BitFlags02037170;
 extern "C" int _ZNK8Object3D19HasAnimationStoppedEv(struct BitFlags02037170* obj);
 struct BitFlags02037180;
@@ -35,7 +34,7 @@ extern "C" ARM int func_ov025_021e4868(struct Param021e4868* p, int b, int unuse
     if (*(int*)((char*)&data_ov025_021ef988 + 0x1c) & 4) {
         return 0;
     }
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     if (p->field8 == 0x19) {
         int val = GetField0x3b0Value(battle);
         if (GetFlags(val) & 0x10) {
@@ -47,7 +46,7 @@ extern "C" ARM int func_ov025_021e4868(struct Param021e4868* p, int b, int unuse
         if (DispatchByIndex021820bc((void*)d, b, p->field8, (int)&local.id) != 1) {
             return 1;
         }
-        obj = GetCombatantUnchecked(battle, local.id);
+        obj = battle->GetGameObjectByIndex(local.id);
     }
     if (!obj) {
         return 1;

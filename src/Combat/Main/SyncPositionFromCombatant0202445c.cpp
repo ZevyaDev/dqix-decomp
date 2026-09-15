@@ -1,8 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
-extern "C" ARM int fix32_Divide(unsigned int numerHi, unsigned int denomLo);
 
 struct Vec3_0202445c { int x; int y; int z; };
 
@@ -18,9 +16,9 @@ struct Obj0202445c {
 
 // USA: func_0202445c  (semantic: SyncPositionFromCombatant0202445c)
 extern "C" ARM void func_0202445c(struct Obj0202445c* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     if (battleStruct == 0) return;
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(battleStruct);
+    GameObject* combatant = battleStruct->GetUnknownGameObject();
     if (combatant == 0) return;
 
     struct Vec3_0202445c* pos = (struct Vec3_0202445c*)((char*)combatant + 0x44);
@@ -28,8 +26,8 @@ extern "C" ARM void func_0202445c(struct Obj0202445c* obj) {
     obj->posZ = pos->z;
 
     if (obj->mode == 3) {
-        int a = fix32_Divide(0x37000, obj->range);
-        int b = fix32_Divide(0x1e000, obj->range);
+        int a = fix32_Divide((fix32_t)(0x37000), (fix32_t)obj->range);
+        int b = fix32_Divide((fix32_t)(0x1e000), (fix32_t)obj->range);
         if (obj->posZ < 0) {
             if (obj->posZ < -a) {
                 obj->posZ = -(a + obj->posZ);

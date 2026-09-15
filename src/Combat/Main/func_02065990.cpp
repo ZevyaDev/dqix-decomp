@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
 struct Vec3_020406f8 {
     int v[3];
@@ -56,12 +57,9 @@ extern "C" void _Z25HandleRepeatInput02045740P14Repeat02045740(void* obj);
 extern "C" void func_020676e0(void* obj, int step);
 extern "C" void _Z26ProcessPendingFlag02045688P13State02045688(void* obj);
 extern "C" void _Z25HandleStateChange020455f8P13State020455f8(void* obj);
-extern "C" void* _Z15GetBattleStructv();
-extern "C" int _Z19GetBattleScaleCountP12BattleStruct(void* bs);
 extern "C" int _Z20IsHighByteFF02044494PvS_(void* obj, void* tok);
 extern "C" int _Z16Dispatch02044420PvS_(void* obj, void* tok);
 extern "C" void func_02043124(void* obj);
-extern "C" unsigned char* func_ov017_0218b5b0();
 extern "C" void _Z25SetName56AndFlag_0218d7b0PhPc(unsigned char* owner, char* name);
 extern "C" void _Z28DispatchWithShortB4_0205eaa0P11Obj0205eaa0ii(void* obj, int a, int b);
 extern "C" void func_ov016_0218b5c0(int a, signed char b);
@@ -69,7 +67,6 @@ extern "C" void func_ov017_0218b5f8(signed char a);
 extern "C" int _Z14ListContainsIdP16ListHead02046b60i(void* list, int id);
 extern "C" void _Z25CallHelperIfFlag_021a5ab0v(void* p);
 extern "C" int _Z25TestFlag0SetAndFlag1ClearPti(void* p, int mask);
-extern "C" void* _Z25GetCombatantAtField0x397cP12BattleStruct(void* bs);
 extern "C" void* _Z20GetGlobalPtr021075f4v();
 extern "C" void* _Z24GetEntryUnlessFlag0x8000P17EntryList_203dce4i(void* list, int id);
 extern "C" void _Z29SelectVec3FromSources020406f8P13Vec3_020406f8P12Node020406f8(struct Vec3_020406f8* out, void* node);
@@ -200,7 +197,7 @@ extern "C" ARM void func_02065990(unsigned char* self, int amount) {
             _Z25HandleStateChange020455f8P13State020455f8(self);
         }
         *(signed char*)(self + 0x912) =
-            *(signed char*)(self + 0x912) + _Z19GetBattleScaleCountP12BattleStruct(_Z15GetBattleStructv());
+            *(signed char*)(self + 0x912) + GameState::GetInstance()->GetTickCount();
     }
 
     if ((self + 0x1000)[0x9c5] != 0) step = 0x10;
@@ -270,7 +267,7 @@ extern "C" ARM void func_02065990(unsigned char* self, int amount) {
                 nm.f1 = (self + 0x1000)[0x9c7] == 0;
                 nm.f2 = *(unsigned short*)(self + 0x187e);
                 nm.f4 = 1;
-                _Z25SetName56AndFlag_0218d7b0PhPc(func_ov017_0218b5b0(), (char*)&nm);
+                _Z25SetName56AndFlag_0218d7b0PhPc(((unsigned char*)func_ov017_0218b5b0()), (char*)&nm);
                 *(int*)(self + 0x78) = *(int*)(self + 0x78) + 1;
                 return;
             } else if (tok == 0xff1c) {
@@ -300,7 +297,7 @@ extern "C" ARM void func_02065990(unsigned char* self, int amount) {
                     if (okv) {
                         func_ov016_0218b5c0(1, val);
                         func_ov017_0218b5f8(val);
-                        unsigned char* who = func_ov017_0218b5b0();
+                        unsigned char* who = ((unsigned char*)func_ov017_0218b5b0());
                         if (_Z14ListContainsIdP16ListHead02046b60i(*(void**)(who + 0x36fc), 0xc) != 0) {
                             _Z25CallHelperIfFlag_021a5ab0v(*(void**)(who + 0x371c));
                         }
@@ -369,7 +366,7 @@ extern "C" ARM void func_02065990(unsigned char* self, int amount) {
                 _Z26ProcessPendingFlag02045688P13State02045688(self);
                 return;
             } else if (tok == 0xff2d) {
-                unsigned char* who = (unsigned char*)_Z25GetCombatantAtField0x397cP12BattleStruct(_Z15GetBattleStructv());
+                unsigned char* who = (unsigned char*)GameState::GetInstance()->GetUnknownGameObject();
                 void* node = _Z24GetEntryUnlessFlag0x8000P17EntryList_203dce4i(
                     _Z20GetGlobalPtr021075f4v(), *(int*)(self + 0x1838));
                 if (who != 0 && node != 0) {
@@ -415,7 +412,7 @@ extern "C" ARM void func_02065990(unsigned char* self, int amount) {
                 _Z26ProcessPendingFlag02045688P13State02045688(self);
                 _Z28DispatchWithShortB4_0205eaa0P11Obj0205eaa0ii(&data_02108760, 5, 0);
                 int alive = 1;
-                unsigned char* bs = (unsigned char*)_Z15GetBattleStructv();
+                unsigned char* bs = (unsigned char*)GameState::GetInstance();
                 unsigned char* w = _Z10GetWord0x0Pi(bs);
                 if ((bs + 0x5000)[0xcc8] == 2) alive = 0;
                 if (w != 0 && alive != 0) (w + 0x4000)[0x354] = 0xa;
@@ -435,7 +432,7 @@ extern "C" ARM void func_02065990(unsigned char* self, int amount) {
                 *(int*)(self + 0x9a0) = 6;
                 _Z26ProcessPendingFlag02045688P13State02045688(self);
                 _Z28DispatchWithShortB4_0205eaa0P11Obj0205eaa0ii(&data_02108760, 5, 0);
-                unsigned char* w = _Z10GetWord0x0Pi(_Z15GetBattleStructv());
+                unsigned char* w = _Z10GetWord0x0Pi(GameState::GetInstance());
                 if (w != 0) (w + 0x4000)[0x354] = 0xa;
                 return;
             } else if (tok == 0xff0f) {

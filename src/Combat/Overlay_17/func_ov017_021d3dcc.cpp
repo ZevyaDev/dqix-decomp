@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct SearchStruct0202c1a4;
 signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
@@ -18,7 +18,7 @@ struct Evt021d3dcc {
 };
 
 // USA: func_ov017_021d3dcc
-extern "C" ARM void func_ov017_021d3dcc(int p0, struct Evt021d3dcc* evt, struct BattleStruct* battleStruct, int p3, struct SearchStruct0202c1a4* search) {
+extern "C" ARM void func_ov017_021d3dcc(int p0, struct Evt021d3dcc* evt, GameState* battleStruct, int p3, struct SearchStruct0202c1a4* search) {
     if (GetSearchStructCurrentArrEntry(search) != evt->midTag) {
         return;
     }

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
 #include "Memory/AllocatorUnion.h"
@@ -22,7 +22,7 @@ void InitializeSubObjectsAndFields020289c4(struct BigRecord020289c4* obj);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
 void* AllocateAligned4(AllocatorUnion* alloc, unsigned int size);
 void Clear12Bytes020a8e88(void* p);
-void ClearCombatantSlot(struct BattleStruct* battleStruct, int id);
+void ClearCombatantSlot(GameState* battleStruct, int id);
 // Passed a trailing source-length argument that _Z33DeserializeElementBuffers020a8e9cP11Obj020a8e9cP13SafeAllocatorPv ignores, so the mangled
 // name is spelled out instead of being re-derived from this declaration.
 extern "C" void _Z33DeserializeElementBuffers020a8e9cP11Obj020a8e9cP13SafeAllocatorPv(
@@ -35,7 +35,7 @@ extern unsigned char data_0211e33c[0x30000];
 
 // USA: func_ov017_0219fda0  (semantic: ResetEntriesAndReloadCombatData_0219fda0)
 extern "C" ARM void func_ov017_0219fda0(void) {
-	struct BattleStruct* battle = GetBattleStruct();
+	GameState* battle = GameState::GetInstance();
 	func_02012fe4();
 	struct Entry_02028bd0* entryTable = GetEntryTableBase();
 	for (int i = 0; i < 4; i++) {

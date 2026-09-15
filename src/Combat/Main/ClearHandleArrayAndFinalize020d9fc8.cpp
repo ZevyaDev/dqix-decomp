@@ -1,9 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct BattleStruct* GetBattleStruct();
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 void SetByteField0x253(void* obj);
 void* GetDataPtr02114e04_020d6c00(void);
 struct FlagWord020466f4 {
@@ -26,7 +24,7 @@ ARM void ClearHandleArrayAndFinalize020d9fc8(struct Struct020d9fc8* p) {
             p->arr[i] = -1;
         }
     }
-    SetByteField0x253(GetCombatantAtField0x397c(GetBattleStruct()));
+    SetByteField0x253(GameState::GetInstance()->GetUnknownGameObject());
     ClearFlags020466f4((struct FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0x1e);
     *((unsigned char*)p + 1) = 1;
 }

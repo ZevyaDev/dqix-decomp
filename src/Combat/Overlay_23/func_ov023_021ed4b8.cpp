@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct0205de24;
 void FindAndLinkMatchingEntry0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
@@ -8,7 +8,7 @@ void FindAndLinkMatchingEntry0205de24(struct Struct0205de24* obj, unsigned char 
 struct Container020e0310;
 int GetFieldByKey020e0434(struct Container020e0310* c, int key);
 
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 int GetGlobalField0x1c020421a0(void);
 void InitObjFromCombatantId020e4bf4(void* obj, int combatantId);
 
@@ -46,9 +46,9 @@ extern "C" ARM void func_ov023_021ed4b8(char* obj) {
 
     memset(*(void**)(obj + 0x1c), zero, 0x960);
 
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int id = GetField0x3acValue(bs);
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, id);
+    GameObject* combatant = GetCombatantWithFlag0x100(bs, id);
     if (combatant == NULL) return;
 
     int g = GetGlobalField0x1c020421a0();

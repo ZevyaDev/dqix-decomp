@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct BitField0203402c {
     char pad[0xc4];
@@ -7,11 +7,10 @@ struct BitField0203402c {
     unsigned short bit15 : 1;
 };
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 int CheckSubstructByte0x7cPositive(signed char* obj);
 int CheckField0xc4Low15BitsNonZero(struct BitField0203402c* p);
 extern "C" void* func_02012fe4(void);
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
+int GetField0x3b0Value(GameState* battleStruct);
 void* GetPointerFromArray0x3c(unsigned char* obj, unsigned int index);
 extern "C" int func_02094b9c(void* self, void* data);
 void InitObj0219a674(unsigned char* self);
@@ -33,8 +32,8 @@ struct LocalBuf021986 {
 
 // USA: func_ov017_02198618  (semantic: SomeFunc_02198618)
 extern "C" ARM void func_ov017_02198618(void* p0) {
-    struct BattleStruct* battle = GetBattleStruct();
-    struct CombatantStruct* c = GetCombatantAtField0x397c(battle);
+    GameState* battle = GameState::GetInstance();
+    GameObject* c = battle->GetUnknownGameObject();
     if (c == NULL) return;
     if (CheckSubstructByte0x7cPositive((signed char*)c) != 0) return;
     if (CheckField0xc4Low15BitsNonZero((struct BitField0203402c*)c) != 0) return;

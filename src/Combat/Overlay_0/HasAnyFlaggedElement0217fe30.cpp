@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov000_02161318(void* obj, int id);
 
@@ -12,7 +12,7 @@ struct Entry0217fe30 {
 // USA: func_ov000_0217fe30  (semantic: HasAnyFlaggedElement0217fe30)
 extern "C" ARM int func_ov000_0217fe30(char* obj) {
     int result = 0;
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     char* ptr = (char*)GetPtrField0x2a04(battle);
     unsigned char limit = *(unsigned char*)(ptr + 0xf7c);
     unsigned char idx;

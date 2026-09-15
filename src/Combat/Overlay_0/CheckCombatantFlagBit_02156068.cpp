@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x400(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x400(GameState* battleStruct, int combatantId);
 
 struct Inner02156068 {
     char pad[0xa];
@@ -18,8 +18,8 @@ extern "C" ARM int func_ov000_02156068(int unused0, int id, int a2, int a3) {
     if (flag) {
         return 0;
     }
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* c = GetCombatantWithFlag0x400(bs, id);
+    GameState* bs = GameState::GetInstance();
+    GameObject* c = GetCombatantWithFlag0x400(bs, id);
     if (c == NULL) {
         return 0;
     }

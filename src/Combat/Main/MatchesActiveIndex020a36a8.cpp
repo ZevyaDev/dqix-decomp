@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-int GetField0x3acValue(struct BattleStruct*);
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
+int GetField0x3acValue(GameState*);
 
 
 struct Combatant020A36A8 {
@@ -10,5 +10,5 @@ struct Combatant020A36A8 {
 
 // USA: func_020a36a8
 ARM int MatchesActiveIndex020a36a8(struct Combatant020A36A8* obj) {
-    return obj->field2a == GetField0x3acValue((struct BattleStruct*)(GetBattleStruct()));
+    return obj->field2a == GetField0x3acValue((GameState*)(GameState::GetInstance()));
 }

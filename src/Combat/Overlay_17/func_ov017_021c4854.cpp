@@ -1,9 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetData02100044(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 extern "C" void _ZN8Object3D10EnableFlagEi(unsigned char* obj, unsigned int mask);
 void DispatchWithZeroExtras_02193428(void* a, void* b);
 
@@ -45,8 +44,8 @@ extern "C" ARM void func_ov017_021c4854(struct Obj021c4854* obj, unsigned char b
 	s->f3 = arg6;
 	func_0205e330(p, buf, 0);
 
-	struct BattleStruct* battle = GetBattleStruct();
-	struct CombatantStruct* c = GetCombatantAtField0x397c(battle);
+	GameState* battle = GameState::GetInstance();
+	GameObject* c = battle->GetUnknownGameObject();
 	_ZN8Object3D10EnableFlagEi((unsigned char*)c, 0x4000000);
 	DispatchWithZeroExtras_02193428(c, 0);
 }

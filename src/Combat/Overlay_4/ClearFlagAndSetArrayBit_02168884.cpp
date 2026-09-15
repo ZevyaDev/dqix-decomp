@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int CheckBitsInField0x63dc(void* obj, int mask);
 void ClearFieldKeepBit0x10(void* obj);
@@ -8,7 +8,7 @@ void SetOrClearBitInArray(void* unused, unsigned char* array, int bit, int value
 
 // USA: func_ov004_02168884  (semantic: ClearFlagAndSetArrayBit_02168884)
 extern "C" ARM int func_ov004_02168884(void) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     CheckBitsInField0x63dc(battle, 1);
     ClearFieldKeepBit0x10(battle);
     void* p = func_0205ec34();

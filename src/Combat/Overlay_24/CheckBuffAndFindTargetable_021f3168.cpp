@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x400ByID(int unused, int id);
+GameObject* GetCombatantWithFlag0x400ByID(int unused, int id);
 extern "C" int func_ov000_0215e9fc(int battle, unsigned short* table, int count, int flag);
 struct RngHolder_021ed9dc;
 int CanTargetCombatant_021ed9dc(struct RngHolder_021ed9dc* holder, int id);
@@ -21,9 +21,9 @@ struct BuffWord_021f3168 {
 
 // USA: func_ov024_021f3168  (semantic: CheckBuffAndFindTargetable_021f3168)
 extern "C" ARM int func_ov024_021f3168(int* a0, int id, int a2, int* outFlag, short* outId) {
-	struct CombatantStruct* c = GetCombatantWithFlag0x400ByID(*a0, id);
+	GameObject* c = GetCombatantWithFlag0x400ByID(*a0, id);
 	if (!c) return 0;
-	if (((struct BuffWord_021f3168*)((char*)c->currentStats + 0x58))->unkBuff18 >= 2) return 0;
+	if (((struct BuffWord_021f3168*)((char*)c->currentStats_ + 0x58))->unkBuff18 >= 2) return 0;
 
 	unsigned short buf[8];
 	unsigned short* d = buf;

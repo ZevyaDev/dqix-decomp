@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_0205ec34(void);
 int LookupAndForEachNode020649b0(void* a, int mode, void* c);
@@ -21,8 +20,8 @@ struct LocalC02199138 {
 
 // USA: func_ov017_02199138  (semantic: SomeFunc_02199138)
 extern "C" ARM void func_ov017_02199138(char* self) {
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(bs);
+    GameState* bs = GameState::GetInstance();
+    GameObject* combatant = bs->GetUnknownGameObject();
     unsigned short* h = (unsigned short*)func_02012fe4();
     if (*((unsigned char*)(*(void**)(self + 0x3000 + 0xafc)) + 2) != 0) {
         return;

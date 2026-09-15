@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
 
@@ -31,9 +31,9 @@ extern struct DataOv023_021ffefc data_ov023_021ffefc;
 
 // USA: func_ov023_021f4098  (semantic: ComputeCombatantScaleFactor_021f4098)
 extern "C" ARM int func_ov023_021f4098(void* obj, int id, int flag) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     struct SearchStruct* p = (struct SearchStruct*)func_0202ae18();
-    struct CombatantStruct* c9 = GetCombatantWithFlag0x100(battleStruct, id);
+    GameObject* c9 = GetCombatantWithFlag0x100(battleStruct, id);
     if (c9 == 0 || CheckField0x56bLowNibble((struct Obj02061bd8*)c9) != 0) {
         return 0;
     }
@@ -51,7 +51,7 @@ extern "C" ARM int func_ov023_021f4098(void* obj, int id, int flag) {
     int i;
     for (i = 0; i < 4; i++) {
         if (TestBitAt0x34(*(unsigned char**)((char*)obj + 0x2a0), (unsigned char)i)) {
-            struct CombatantStruct* ci = GetCombatantWithFlag0x100(battleStruct, i);
+            GameObject* ci = GetCombatantWithFlag0x100(battleStruct, i);
             if (ci != 0 && CheckField0x56bLowNibble((struct Obj02061bd8*)ci) == 0) {
                 arrC[i] = (float)(unsigned int)GetField8FromField19c((struct Obj53dfc*)ci);
                 arrB[i] = (float)(unsigned int)GetTableValue(ci);

@@ -1,8 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
-unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
 
 struct IntField0x68_020377bc;
 extern "C" int _ZNK8Object3D9GetHeightEv(struct IntField0x68_020377bc* obj);
@@ -24,8 +22,8 @@ struct Actor020d7534 {
 
 // USA: func_020d7534
 extern "C" ARM void func_020d7534(struct Actor020d7534* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
-    unsigned int scaleCount = GetBattleScaleCount(battle);
+    GameState* battle = GameState::GetInstance();
+    unsigned int scaleCount = battle->GetTickCount();
     int i;
     for (i = 0; i < 0xc; i++) {
         unsigned short flags = *(unsigned short*)((char*)obj + 0xa24);
@@ -34,7 +32,7 @@ extern "C" ARM void func_020d7534(struct Actor020d7534* obj) {
             if (i > 3) {
                 id = i + 0xbc;
             }
-            struct CombatantStruct* combatant = GetCombatantUnchecked(battle, id);
+            GameObject* combatant = battle->GetGameObjectByIndex(id);
             if (combatant != 0) {
                 struct Vec3_020d7534 v = *(struct Vec3_020d7534*)((char*)combatant + 0x84);
                 v.y = _ZNK8Object3D9GetHeightEv((struct IntField0x68_020377bc*)combatant);

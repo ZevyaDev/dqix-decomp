@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
 struct SearchStruct0202c1a4 {
     char pad[0x1038];
@@ -13,8 +14,7 @@ Entry0207d9bc* FindEntryByHalfword(Entry0207d9bc* arr, unsigned short key);
 int CheckEntryBytes0207d978(Entry0207d9bc* arr, unsigned short key);
 int HasActiveEntryForId(unsigned char* arr, int id, int offset);
 
-struct CombatantStruct;
-CombatantStruct* FindCombatantByField16a_021a278c(void* unused, int val);
+GameObject* FindCombatantByField16a_021a278c(void* unused, int val);
 
 void MaybeResetEntry_021c5e28(int id, short val);
 

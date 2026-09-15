@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_ov004_0216ea38(void* ctx, int mode);
 int GetGlobalField0x1c020421a0(void);
@@ -17,7 +17,7 @@ extern Struct02171048_0216f4fc data_ov004_02171048;
 // USA: func_ov004_0216f4fc  (semantic: FormatSerialAndBindEntries_0216f4fc)
 extern "C" ARM int func_ov004_0216f4fc(void* ctx) {
     char buf[0x10];
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     char* dst;
     char* src;
     int k;

@@ -1,18 +1,17 @@
 #include <globaldefs.h>
-unsigned int GetBattleScaleCount(struct BattleStruct*);
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_02067b28(void* obj);
 
 // USA: func_02067e58
 ARM void RepeatStepClampedToField0x3c4(void* obj, int count) {
-    struct BattleStruct* battleStruct;
+    GameState* battleStruct;
     unsigned int minCount;
     if (count == 0) {
         return;
     }
-    battleStruct = GetBattleStruct();
-    minCount = GetBattleScaleCount((struct BattleStruct*)(battleStruct));
+    battleStruct = GameState::GetInstance();
+    minCount = ((GameState*)(battleStruct))->GetTickCount();
     if ((unsigned int)count < minCount) {
         count = minCount;
     }

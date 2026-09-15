@@ -1,9 +1,6 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-BattleStruct* GetBattleStruct();
-struct CombatantStruct;
-CombatantStruct* GetCombatantAtField0x397c(BattleStruct* battleStruct);
 void* GetGlobalField0x1c020421a0(void);
 void* GetDataPtr02114e04_020d6c00(void);
 extern "C" void* func_0205ec34(void);
@@ -36,7 +33,7 @@ extern Obj0205eaa0 data_02108760;
 extern "C" ARM void func_ov017_021c05f4(void* p9, unsigned char p8, unsigned char p7, int p6) {
     void* g = GetGlobalField0x1c020421a0();
     if (p6 != 0) {
-        CombatantStruct* combatant = GetCombatantAtField0x397c(GetBattleStruct());
+        GameObject* combatant = GameState::GetInstance()->GetUnknownGameObject();
         void* d = GetDataPtr02114e04_020d6c00();
         void* f = func_0205ec34();
         if (TestBitInByteArray((int)f, (unsigned char*)f + 0x8c, 0x119a) == 0) return;

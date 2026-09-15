@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x400ByID(int unused, int id);
+GameObject* GetCombatantWithFlag0x400ByID(int unused, int id);
 
 struct WeaknessBits_021f40c8 {
     signed int w0:3;
@@ -19,9 +19,9 @@ struct WeaknessBits_021f40c8 {
 
 // USA: func_ov024_021f40c8  (semantic: CheckWeaknessSlot4And5_021f40c8)
 extern "C" ARM int func_ov024_021f40c8(int* a0, int a1, int a2, int* a3, short* a4) {
-	struct CombatantStruct* c = GetCombatantWithFlag0x400ByID(*a0, a1);
+	GameObject* c = GetCombatantWithFlag0x400ByID(*a0, a1);
 	if (!c) return 0;
-	struct WeaknessBits_021f40c8* w = (struct WeaknessBits_021f40c8*)((char*)c->currentStats + 0x58);
+	struct WeaknessBits_021f40c8* w = (struct WeaknessBits_021f40c8*)((char*)c->currentStats_ + 0x58);
 	if (w->w4 >= 2 || w->w5 >= 2) return 0;
 	*a3 = 1;
 	*a4 = (short)a1;

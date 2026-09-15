@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetGlobalField0x1c020421a0(void);
 void InitObjFromCombatantId020e4bf4(void* obj, int combatantId);
@@ -16,7 +16,7 @@ extern "C" ARM void func_020d7e10(void* a, void* b, int c, int d, int e, int f);
 ARM void InitAndDispatchCombatant_021c2ea4(unsigned char* self) {
     char buf1[0xc];
     char buf2[0x80];
-    GetBattleStruct();
+    GameState::GetInstance();
     void* g = GetGlobalField0x1c020421a0();
     InitObjFromCombatantId020e4bf4(buf1, self[0x95]);
     *(void**)g = buf1;

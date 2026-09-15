@@ -1,6 +1,7 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantByID(int unused, int id);
+GameObject* GetCombatantByID(int unused, int id);
 
 struct FlagObj_021e47dc;
 int IsFlagBit22Set_021e47dc(struct FlagObj_021e47dc* obj);
@@ -19,7 +20,7 @@ struct Obj3_021ea78c {
 
 // USA: func_ov024_021ea78c
 ARM int CheckCombatantInTable_021ea78c(struct Wrapper_021ea78c* a, int id, struct Obj3_021ea78c* c) {
-    struct CombatantStruct* combatant = GetCombatantByID(a->field0x10, id);
+    GameObject* combatant = GetCombatantByID(a->field0x10, id);
     if (!combatant) return 0;
     if (!IsFlagBit22Set_021e47dc((struct FlagObj_021e47dc*)combatant)) return 0;
     int idx = 0;

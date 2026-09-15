@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
+int GetField0x3b0Value(GameState* battleStruct);
 extern "C" void _Z24DispatchByMode5_0218f22cPv(void* obj);
 
 struct Vec3_02190348 { int x, y, z; };
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov015_02190348(struct Obj02190348* obj) {
         *(volatile unsigned int*)0x04000448 = 1;
     }
     if (obj->flag19c) {
-        struct BattleStruct* bs = GetBattleStruct();
+        GameState* bs = GameState::GetInstance();
         int f3b0 = GetField0x3b0Value(bs);
         func_0208b610(*(struct Vec3_02190348*)(f3b0 + 0x10), 0x3dff, 0x800, 0x800, 0x800, 0);
     }

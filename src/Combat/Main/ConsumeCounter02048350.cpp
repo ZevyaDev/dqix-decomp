@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetFieldAt0x150(unsigned char* obj);
 int TestBitInArray0x8ec(unsigned char* obj, int index);
@@ -20,8 +20,8 @@ struct Obj02048350 {
 ARM int ConsumeCounter02048350(struct Obj02048350* obj, int amount) {
     struct Sub130_02048350* sub = obj->sub;
     unsigned short count = sub->count;
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, obj->combatantId);
+    GameState* bs = GameState::GetInstance();
+    GameObject* combatant = GetCombatantWithFlag0x100(bs, obj->combatantId);
     if (combatant != NULL && amount > 0) {
         unsigned char* ptr = (unsigned char*)GetFieldAt0x150((unsigned char*)combatant);
         if (ptr != NULL && TestBitInArray0x8ec(ptr, 0x106)) {

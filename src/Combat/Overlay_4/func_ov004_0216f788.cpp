@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_ov011_021848a0(void* obj, int val);
 int GetGlobalField0x1c020421a0(void);
@@ -10,7 +10,7 @@ extern Struct02171048_0216f788 data_ov004_02171048;
 
 // USA: func_ov004_0216f788  (semantic: CopyAndCheckFlags_0216f788)
 extern "C" ARM int func_ov004_0216f788(void* obj) {
-    char* p = (char*)GetBattleStruct() + 0x2380 + 0x4000;
+    char* p = (char*)GameState::GetInstance() + 0x2380 + 0x4000;
     char buf[0x40];
     memcpy(buf, p + 4, 0x40);
     if (data_ov004_02171048.ptr[0x32] == 0) {

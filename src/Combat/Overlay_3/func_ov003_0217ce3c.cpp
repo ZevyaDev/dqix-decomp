@@ -1,9 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct6_0217dc94;
 extern "C" void func_ov003_0217dc94(Struct6_0217dc94* obj);
-extern unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
 extern "C" int func_0205d0e0(void* p, int val);
 
 struct Block10Words0217ce3c { unsigned int w[10]; };
@@ -25,11 +24,11 @@ struct Obj0217ce3c {
 
 // USA: func_ov003_0217ce3c
 extern "C" ARM int func_ov003_0217ce3c(struct Obj0217ce3c* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     func_ov003_0217dc94((struct Struct6_0217dc94*)obj);
     if (obj->field8 & 1) return 1;
 
-    unsigned int scaleCount = GetBattleScaleCount(bs);
+    unsigned int scaleCount = bs->GetTickCount();
     if (obj->field90 != 0) {
         obj->field14 = func_0205d0e0(obj->field90, scaleCount);
     }

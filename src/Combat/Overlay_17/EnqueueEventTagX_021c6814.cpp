@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetData02100044(void);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 extern "C" void func_0205e330(void* a, void* b, int c);
 
 struct Src021c6814 {
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov017_021c6814(unsigned short a, unsigned short b, Src0
 	void* p = GetData02100044();
 	LocalEvt021c6814 buf;
 	Body021c6814* body = &buf.body;
-	struct BattleStruct* bs = GetBattleStruct();
+	GameState* bs = GameState::GetInstance();
 
 	buf.tag = 0x42;
 	body->field4 = a;

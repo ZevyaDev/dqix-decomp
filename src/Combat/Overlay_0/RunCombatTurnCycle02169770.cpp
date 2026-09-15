@@ -1,10 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Util/Random.h"
 
 extern "C" void func_0202ae18(void);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 void SeedRandom32Wrapper_0215faa4(struct Random* random, unsigned int stateHi, unsigned int stateLo);
 extern "C" void func_ov000_02169850(void* obj);
 extern "C" void ProcessCombatTurn(void* a, void* allocator);
@@ -13,12 +13,12 @@ void ClearCombatWorkFlags0x55f4(void* work, int mask);
 extern "C" void func_ov000_02160e48(void* obj);
 extern "C" void* func_0205ec34(void);
 void SetOrClearBitInArray(void* unused, unsigned char* array, int bit, int value);
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
+void* GetPtrField0x2a04(GameState* battleStruct);
 void EnqueueEventTag23Field_021d0d58(void);
 
 // USA: func_ov000_02169770
 ARM void RunCombatTurnCycle02169770(unsigned char* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     func_0202ae18();
     void* ptr29c = *(void**)(obj + 0x29c);
     GetField0x3acValue(battle);

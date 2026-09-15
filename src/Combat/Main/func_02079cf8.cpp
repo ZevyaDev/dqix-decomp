@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "Filesystem/GPC.h"
 #include "Filesystem/FileIO.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" {
     void __clear(void*, unsigned int);
-    extern "C" int _Z24NormalizeField5_0200fb08P14Struct0200fb08(BattleStruct*);
+    extern "C" int _Z24NormalizeField5_0200fb08P14Struct0200fb08(GameState*);
     void func_02079a58(void*, void*, void*, void*, unsigned int, unsigned int);
     void func_02079bac(void*, void*, void*, void*, unsigned int, unsigned int);
 }
@@ -38,7 +38,7 @@ extern "C" ARM void func_02079cf8(void* obj, void* a1, unsigned int a2) {
         unsigned int outSize2 = 0;
         len = sizeOut;
         capacity -= len;
-        BattleStruct* battle = GetBattleStruct();
+        GameState* battle = GameState::GetInstance();
         char buf[0x20];
         __clear(buf, sizeof(buf));
 

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct_0205bb84;
 int ComputeScaledSum0205bb84(struct Struct_0205bb84* s);
@@ -20,7 +20,6 @@ struct Elem02188870 {
 };
 struct Elem02188870* FindEntryByHalfword0205a3d0(struct Container0205a3d0* c, int key);
 
-unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
 
 extern "C" void func_0205ae8c(void* obj);
 
@@ -41,7 +40,7 @@ extern "C" ARM void func_ov008_02188870(struct Obj02188870* obj) {
     if (!(obj->flags_b18 & 8)) return;
     if (!(obj->flags_b18 & 0x80000)) return;
 
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     int sum = ComputeScaledSum0205bb84((struct Struct_0205bb84*)((char*)obj + 0x750));
     short val = (short)(((sum - obj->b29) << 4) + 7);
 
@@ -53,7 +52,7 @@ extern "C" ARM void func_ov008_02188870(struct Obj02188870* obj) {
         e->f15 |= 8;
     }
 
-    unsigned int count = GetBattleScaleCount(battle);
+    unsigned int count = battle->GetTickCount();
     IterateEntries0205a330((struct Container0205a330*)obj->f738, count);
 
     e = FindEntryByHalfword0205a3d0((struct Container0205a3d0*)obj->f738, 0);

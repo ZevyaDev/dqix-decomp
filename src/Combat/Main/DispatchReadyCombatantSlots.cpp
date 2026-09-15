@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 extern "C" int _ZNK8Object3D9IsVisibleEv(unsigned char* obj);
 
 struct Obj0205a148;
@@ -22,15 +21,15 @@ struct Field41_020d7638 {
 
 // USA: func_020d7638
 ARM void DispatchReadyCombatantSlots(struct Elem020d7638* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int i;
     for (i = 0; i < 0xc; i++) {
-        struct CombatantStruct* combatant;
+        GameObject* combatant;
         int id;
         if (obj[i].field_d0 < 0) continue;
         id = i;
         if (i > 3) id = i + 0xbc;
-        combatant = GetCombatantUnchecked(bs, id);
+        combatant = bs->GetGameObjectByIndex(id);
         if (!combatant) continue;
         if (!_ZNK8Object3D9IsVisibleEv((unsigned char*)combatant)) continue;
         if (!((struct Field41_020d7638*)combatant)->bit5) continue;

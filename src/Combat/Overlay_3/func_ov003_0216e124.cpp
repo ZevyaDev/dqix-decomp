@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
 extern "C" int func_0205d0e0(void* p, int val);
 extern "C" int func_ov023_021e2868(void* obj);
 extern unsigned char data_02114e54;
@@ -26,7 +25,7 @@ struct Obj0216e124 {
 
 // USA: func_ov003_0216e124
 extern "C" ARM int func_ov003_0216e124(struct Obj0216e124* obj) {
-    unsigned int scaleCount = GetBattleScaleCount(GetBattleStruct());
+    unsigned int scaleCount = GameState::GetInstance()->GetTickCount();
     if (obj->field3c != 0) {
         func_0205d0e0(obj->field3c, scaleCount);
     }

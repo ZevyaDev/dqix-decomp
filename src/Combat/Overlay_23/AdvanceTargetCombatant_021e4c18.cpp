@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 int TestFlag0SetAndFlag1Clear(unsigned short* obj, int mask);
 extern "C" int func_ov023_021e29d0(char* obj);
 extern "C" void func_ov023_021e2ce8(int combatantId, void* p1);
@@ -42,7 +41,7 @@ extern "C" ARM void func_ov023_021e4c18(struct Obj021e4c18* obj) {
     if (flags & 0x40) return;
     if (!(flags & 0x80)) return;
 
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
 
     int index = -1;
     int i;
@@ -62,12 +61,12 @@ extern "C" ARM void func_ov023_021e4c18(struct Obj021e4c18* obj) {
     }
     if (!five) return;
 
-    struct CombatantStruct* combatant;
+    GameObject* combatant;
     for (;;) {
         index = index + five;
         if (index < 0) index = obj->f4e8 - 1;
         if (index > obj->f4e8 - 1) index = 0;
-        combatant = GetCombatantUnchecked(battleStruct, obj->arr4ec[index]);
+        combatant = battleStruct->GetGameObjectByIndex(obj->arr4ec[index]);
         if (combatant != 0) break;
     }
 
@@ -88,8 +87,8 @@ extern "C" ARM void func_ov023_021e4c18(struct Obj021e4c18* obj) {
 
     func_ov023_021e2ce8(obj->arr4ec[index], obj->fc8);
 
-    combatant = GetCombatantUnchecked(battleStruct, obj->arr4ec[index]);
-    unsigned short cflags = combatant->flags;
+    combatant = battleStruct->GetGameObjectByIndex(obj->arr4ec[index]);
+    unsigned short cflags = combatant->obj3D_.unknown_0_;
     if ((cflags & 0x1000) || (cflags & 0x800) || (cflags & 0x200)) {
         if (obj->f134 > 0) return;
 

@@ -1,6 +1,7 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantByID(int unused, int id);
+GameObject* GetCombatantByID(int unused, int id);
 extern "C" int func_ov024_021eae14(void* obj, int id);
 struct Obj_021e8ca0;
 void* AddEntryToListAndIncCount_021e8ca0(struct Obj_021e8ca0* obj, int id);
@@ -10,7 +11,7 @@ struct Obj_021e40d8 { char pad0[0x10]; void* field0x10; };
 
 // USA: func_ov024_021e40d8
 ARM long long AddToTableAfterCheck_021e40d8(struct Obj_021e40d8* obj, int unused, int id) {
-	struct CombatantStruct* combatant = GetCombatantByID((int)obj->field0x10, id);
+	GameObject* combatant = GetCombatantByID((int)obj->field0x10, id);
 	if (!combatant) return 0;
 	if (func_ov024_021eae14(obj, id) > 0) {
 		void* entry = AddEntryToListAndIncCount_021e8ca0((struct Obj_021e8ca0*)obj, 0xcb);

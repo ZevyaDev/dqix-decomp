@@ -1,25 +1,20 @@
 #include "Grotto/Main/TreasureMapDataStructs.h"
 #include "System/Memory.h"
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
-#include "Grotto/Main/GrottoStruct.h"
+#include "GameState/GameState.h"
 #include <globaldefs.h>
 
 #ifdef jpn
-#define _Z18GetField0x3acValueP12BattleStruct func_0200ff04
-#define _Z25GetCombatantWithFlag0x100P12BattleStructi func_0200fd78
+#define _Z18GetField0x3acValueP9GameState func_0200ff04
+#define _Z25GetCombatantWithFlag0x100P9GameStatei func_0200fd78
 #define func_02012fe4 func_02012dac
 #endif
 
 extern "C"
 {
-// Seems to return a u32 whose address is just past the end of the BattleStruct.
-// Maybe BattleStruct is just the beginning of some larger struct?
-extern "C" unsigned int _Z18GetField0x3acValueP12BattleStruct(BattleStruct*);
 
-// Appears to index into the CombatantList and return the pointer after checking flags.
-// For now we just return a char*, but should probably be a CombatantStruct*.
-extern "C" char* _Z25GetCombatantWithFlag0x100P12BattleStructi(BattleStruct*, unsigned int);
+unsigned int _Z18GetField0x3acValueP9GameState(GameState*);
+char* _Z25GetCombatantWithFlag0x100P9GameStatei(GameState*, unsigned int);
 
 // returns the overland zone instance
 void* func_02012fe4();
@@ -29,11 +24,11 @@ void* func_02012fe4();
 // JPN: func_020a7a5c
 unsigned short GenerateNewMapQuality()
 {
-    BattleStruct* battle = GetBattleStruct();
-    char* maybeMainCharDataPtr = _Z25GetCombatantWithFlag0x100P12BattleStructi(battle, _Z18GetField0x3acValueP12BattleStruct(battle));
+    GameState* gameState = GameState::GetInstance();
+    char* maybeMainCharDataPtr = _Z25GetCombatantWithFlag0x100P9GameStatei(gameState, _Z18GetField0x3acValueP9GameState(gameState));
     // Another pointless function call
-    func_02012fe4();
-    GrottoStruct* grotto = GetGrottoStruct(battle);
+    (void)func_02012fe4();
+    GrottoStruct* grotto = gameState->GetGrottoStruct();
 
 #ifdef jpn
     #define MAIN_CHAR_DATA_PTR_OFFSET 0x144

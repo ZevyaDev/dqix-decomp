@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-unsigned char GetField0x397cValue(struct BattleStruct* battleStruct);
+unsigned char GetField0x397cValue(GameState* battleStruct);
 void* GetData02100044(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
 
@@ -17,7 +17,7 @@ struct LocalEvt021cc1f8 {
 
 // USA: func_ov017_021cc1f8  (semantic: EnqueueEventTag5_021cc1f8)
 extern "C" ARM void func_ov017_021cc1f8(int id, const char* src, int len, int extra) {
-	struct BattleStruct* bs = GetBattleStruct();
+	GameState* bs = GameState::GetInstance();
 	if (id == GetField0x397cValue(bs)) {
 		void* p = GetData02100044();
 		struct LocalEvt021cc1f8 buf;

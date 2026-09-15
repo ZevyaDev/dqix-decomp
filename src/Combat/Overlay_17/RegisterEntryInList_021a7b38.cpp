@@ -1,8 +1,6 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-struct BattleStruct* GetBattleStruct();
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" unsigned short* func_02012fe4(void* p);
 struct ListHead02046b60;
 extern int ListContainsId(struct ListHead02046b60* list, int id);
@@ -29,8 +27,8 @@ struct Ctx021a7b38 {
 
 // USA: func_ov017_021a7b38
 ARM void RegisterEntryInList_021a7b38(struct Ctx021a7b38* self) {
-    GetBattleStruct();
-    char* base = (char*)(long)func_ov017_0218b5b0() + 0x3000;
+    GameState::GetInstance();
+    char* base = (char*)(long)((int)func_ov017_0218b5b0()) + 0x3000;
     struct ListHead02046b60* list = *(struct ListHead02046b60**)(base + 0x6fc);
     struct ListNode02046b38* node = *(struct ListNode02046b38**)(base + 0x718);
     unsigned short id = *func_02012fe4(base);

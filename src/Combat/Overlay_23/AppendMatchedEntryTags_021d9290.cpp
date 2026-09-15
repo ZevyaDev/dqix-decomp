@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Container020e0310;
 int GetFieldByKey020e0434(Container020e0310*, int);
@@ -31,7 +31,7 @@ struct EntryLocal_021d9290 {
 extern "C" ARM void func_ov023_021d9290(char* obj, char* buf, unsigned char count) {
     if (!buf) return;
 
-    GetBattleStruct();
+    GameState::GetInstance();
     int g = GetGlobalField0x1c020421a0();
 
     char* fieldStr = (char*)GetFieldByKey020e0434(*(Container020e0310**)(obj + 0x0), 0x75f8);

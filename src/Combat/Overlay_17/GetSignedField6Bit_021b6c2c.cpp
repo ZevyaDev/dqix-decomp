@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov017_021b6d60(int a, void* buf);
 extern "C" void func_02086778(void* map, void* buf, int c, int d);
@@ -10,7 +10,7 @@ ARM int GetSignedField6Bit_021b6c2c(int a, int d) {
 	if (func_ov017_021b6d60(a, buf) == 0) {
 		return -1;
 	}
-	struct BattleStruct* bs = GetBattleStruct();
+	GameState* bs = GameState::GetInstance();
 	void* map = GetPtrField0x2a04(bs);
 	func_02086778(map, buf, 0, d);
 	int v = buf[0];

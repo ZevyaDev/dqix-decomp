@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
+void* GetPtrField0x2a04(GameState* battleStruct);
 int GetGlobalField0x1c020421a0(void);
 
 struct StoreStruct;
@@ -18,7 +18,7 @@ struct Combatant021e8604 { char pad[0xf74]; int val; };
 
 // USA: func_ov023_021e8604  (semantic: StoreAndDispatchEntry_021e8604)
 extern "C" ARM void func_ov023_021e8604(void* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     struct Combatant021e8604* combatant = (struct Combatant021e8604*)GetPtrField0x2a04(battleStruct);
     int field = GetGlobalField0x1c020421a0();
     StoreInArray0x8b0((struct StoreStruct*)field, 0, combatant->val);

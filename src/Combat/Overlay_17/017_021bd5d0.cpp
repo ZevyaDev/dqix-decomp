@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct SearchStruct0202c1a4;
 struct Foo02033b58;
@@ -12,8 +12,6 @@ struct Struct0130_021bd5d0 {
 };
 
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_ov017_0218b5b0(void);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 int CheckField0NonZero(int* obj);
 signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
 extern "C" void _Z21ClearFieldBit02053fe4P9T02053fe4(void* obj, int field2, int flag);
@@ -25,9 +23,9 @@ extern "C" void func_ov017_02191108(void* unused, int c, int d, int e, int flag)
 #pragma opt_propagation off
 // USA: func_ov017_021bd5d0
 extern "C" ARM void func_ov017_021bd5d0(void) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     void* g = func_0202ae18();
-    struct CombatantStruct* combatant = GetCombatantUnchecked(battle, 0);
+    GameObject* combatant = battle->GetGameObjectByIndex(0);
     void* other = func_ov017_0218b5b0();
     struct Struct0130_021bd5d0* p = *(struct Struct0130_021bd5d0**)((char*)combatant + 0x130);
 
@@ -37,7 +35,7 @@ extern "C" ARM void func_ov017_021bd5d0(void) {
             TryClearFlags0x130((unsigned char*)combatant, 1);
 
             p = *(struct Struct0130_021bd5d0**)((char*)combatant + 0x130);
-            struct BaseCombatStats* q = combatant->baseStats;
+            struct BaseCombatStats* q = combatant->baseStats_;
             unsigned char byte8 = p->byte8;
             unsigned int word0 = p->word0;
             unsigned short maxMP = q->primaryStats.maxMP;

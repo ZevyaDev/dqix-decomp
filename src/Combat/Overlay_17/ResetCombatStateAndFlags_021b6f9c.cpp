@@ -1,10 +1,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 extern "C" void func_ov000_021604f0(void);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
 void PopStack0AndTrigger(int flag);
@@ -57,7 +55,7 @@ extern "C" ARM void func_ov017_021b6f9c(char* self) {
         PopStack1AndTrigger(1);
     }
 
-    CombatantStruct* combatant = GetCombatantAtField0x397c(GetBattleStruct());
+    GameObject* combatant = GameState::GetInstance()->GetUnknownGameObject();
     SetByteField0x253(combatant);
     SetField0x1b2IfMatchOrFlag02053f7c((Obj02053f7c*)combatant, 0, 0);
     EnqueueEventTag127ForParty_021c3f70(0);

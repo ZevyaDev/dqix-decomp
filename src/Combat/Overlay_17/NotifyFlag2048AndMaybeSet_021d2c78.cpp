@@ -1,8 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct BattleStruct* GetBattleStruct(void);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 struct S02037418;
 extern "C" void _ZN8Object3D17SetInheritedAlphaEi(struct S02037418* obj, int val);
 void SetFlag0x1ceBit0x4(unsigned char* obj);
@@ -16,8 +14,8 @@ struct Src021d2c78 {
 
 // USA: func_ov017_021d2c78
 ARM void NotifyFlag2048AndMaybeSet_021d2c78(void* unused, Src021d2c78* src) {
-	struct BattleStruct* bs = GetBattleStruct();
-	struct CombatantStruct* c = GetCombatantWithFlag0x800(bs, src->field4);
+	GameState* bs = GameState::GetInstance();
+	GameObject* c = bs->GetPartyMemberByIndex(src->field4);
 	if (c == NULL) return;
 
 	_ZN8Object3D17SetInheritedAlphaEi((struct S02037418*)c, src->field5);

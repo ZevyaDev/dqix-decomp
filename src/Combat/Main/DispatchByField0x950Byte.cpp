@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 int MatchesAnyTableEntry020dd19c(unsigned int, int);
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetFieldAt0x150(unsigned char*);
 
 // USA: func_020dd154
 ARM int DispatchByField0x950Byte(int combatantId, int b) {
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(GetBattleStruct(), combatantId);
+    GameObject* combatant = GetCombatantWithFlag0x100(GameState::GetInstance(), combatantId);
     if (combatant == NULL) {
         return 0;
     }

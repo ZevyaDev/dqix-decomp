@@ -1,9 +1,8 @@
 #include <globaldefs.h>
 #include "Graphics/LightingManager.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_02012fe4(void);
-int GetSelectedTableIndex(struct BattleStruct* battleStruct);
 extern "C" void func_ov001_021601f8(void* a, void* b);
 
 struct TableRow02160504 {
@@ -35,11 +34,11 @@ struct DataStruct02160504 { char pad0[0x94]; int field94; int field98; };
 
 // USA: func_ov001_02160504
 extern "C" ARM int func_ov001_02160504(void) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     Big02160504* big = (Big02160504*)func_02012fe4();
     DataStruct02160504* d = (DataStruct02160504*)LightingManager::GetInstance();
     if (big->field834 != 0) return 1;
-    int idx = GetSelectedTableIndex(battle);
+    int idx = battle->GetTimeOfDay();
     d->field98 = idx;
     if (!(data_ov001_02165880.flag & 1)) {
         data_ov001_02164d14.f20 = data_ov001_02165880.field0;

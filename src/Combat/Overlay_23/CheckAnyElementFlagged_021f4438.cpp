@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
 int CheckField0NonZero(int* obj);
-void* GetPtrField0x2a04(struct BattleStruct*);
+void* GetPtrField0x2a04(GameState*);
 
 struct Obj021f4438 {
     char pad0[0x5900];
@@ -24,7 +24,7 @@ struct ElemBlock021f4438 {
 extern "C" ARM int func_ov023_021f4438(Obj021f4438* obj) {
     int result = 0;
     if (obj->byte5900 != 0 || obj->f6e24 != 0) {
-        struct BattleStruct* battleStruct = GetBattleStruct();
+        GameState* battleStruct = GameState::GetInstance();
         void* p = func_0202ae18();
         result = 1;
         if (CheckField0NonZero((int*)p)) {

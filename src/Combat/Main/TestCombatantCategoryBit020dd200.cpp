@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int TestBitInArray0x8ec(unsigned char* obj, int index);
 
@@ -10,8 +10,8 @@ extern Pair16_dd200 data_020ee710[];
 // USA: func_020dd200
 ARM int TestCombatantCategoryBit020dd200(int combatantId, int category) {
     int result = 0;
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(battleStruct, combatantId);
+    GameState* battleStruct = GameState::GetInstance();
+    GameObject* combatant = GetCombatantWithFlag0x100(battleStruct, combatantId);
     if (combatant == 0) {
         return result;
     }

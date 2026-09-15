@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct SearchStruct;
 struct Obj02171550 {
@@ -10,7 +10,6 @@ struct Obj02171550 {
 };
 
 extern "C" void* func_0202ae18(void);
-struct CombatantStruct* GetCombatantAtField0x3ac(struct BattleStruct* battleStruct);
 extern "C" int func_0202b000(void* ptr);
 extern "C" void func_0202b0f4(void* ptr);
 int SetState2AndCall0202d6c8(void* obj);
@@ -29,9 +28,9 @@ extern "C" ARM void func_ov003_02171550(struct Obj02171550* obj) {
         return;
     }
 
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     void* ptr = func_0202ae18();
-    struct CombatantStruct* c = GetCombatantAtField0x3ac(battle);
+    GameObject* c = battle->GetProtagonist();
 
     int state = func_0202b000(ptr);
     if (state != 0) {

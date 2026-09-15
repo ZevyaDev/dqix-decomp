@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_02012fe4(void);
 extern "C" int _s32_div_f(int a, int b);
@@ -18,7 +18,7 @@ extern "C" ARM void func_0208f048(unsigned char* p0) {
     int total;
     int count1;
     int i;
-    struct BattleStruct* bs;
+    GameState* bs;
     struct BitHistory0208f048* base7;
 
     if (*p0 != 0x62) {
@@ -33,7 +33,7 @@ extern "C" ARM void func_0208f048(unsigned char* p0) {
     }
     count1 = total - 7;
 
-    bs = GetBattleStruct();
+    bs = GameState::GetInstance();
     base7 = (struct BitHistory0208f048*)((char*)bs + 0x5cdc);
 
     i = 0;

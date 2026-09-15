@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-int GetField0x3b4Value(struct BattleStruct* battleStruct);
 
 struct Mid021eedb0 { unsigned int v[4]; };
 
@@ -23,8 +22,8 @@ extern Handler021eedb0 data_ov025_021ef93c[];
 
 // USA: func_ov025_021eedb0
 extern "C" ARM void func_ov025_021eedb0(struct Obj021eedb0* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
-    unsigned int elapsed = GetField0x3b4Value(battle);
+    GameState* battle = GameState::GetInstance();
+    unsigned int elapsed = battle->GetEffectiveDeltaTime();
     struct Rec021eedb0* node = obj->activeHead;
     struct Rec021eedb0* prev = 0;
     while (node != 0) {

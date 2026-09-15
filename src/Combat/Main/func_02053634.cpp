@@ -1,11 +1,10 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
 extern "C" int _Z26GetGlobalField0x1c020421a0v(void);
-unsigned char GetField0x397cValue(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
+unsigned char GetField0x397cValue(GameState* battleStruct);
 int GetSignedByte0x1c9(void* obj);
 int GetIndexedEntryField0x178(signed char* obj);
 
@@ -57,7 +56,7 @@ extern char data_020f0486;
 // USA: func_02053634
 extern "C" ARM void func_02053634(void* obj) {
     char* ctx = (char*)obj;
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
 
     int hasEntries0 = ctx[0x17c] > 0 ? 1 : 0;
     if (hasEntries0 != 0) {
@@ -70,7 +69,7 @@ extern "C" ARM void func_02053634(void* obj) {
         }
     }
 
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x800(bs, *(short*)(ctx + 4));
+    GameObject* combatant = bs->GetPartyMemberByIndex(*(short*)(ctx + 4));
     int hasEntries = ctx[0x17c] > 0 ? 1 : 0;
     if (hasEntries != 0) {
         if (GetSignedByte0x1c9(combatant) > 0) {
@@ -219,7 +218,7 @@ extern "C" ARM void func_02053634(void* obj) {
                 return;
             }
         } else if (state == 2) {
-            bs = GetBattleStruct();
+            bs = GameState::GetInstance();
             int target = GetFieldIfFlag4((char*)bs);
             int flag = 0;
             if (ctx[0x17c] > 1) {

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetSlotBits0201137c(char* base, int id);
 
@@ -10,7 +10,7 @@ struct Actor02085c80 {
 
 // USA: func_02085c80
 ARM int AccumulateSlotBits02085c80(struct Actor02085c80* actor) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int total = 0;
     if (actor->field8f3 & 0x2) {
         total += GetSlotBits0201137c((char*)bs, 0x39);

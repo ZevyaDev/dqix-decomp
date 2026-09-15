@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct PlayClock020ac614 { unsigned short hours; unsigned char minutes; unsigned char seconds; };
 void AddPlayClockHours020ac614(struct PlayClock020ac614* clock, int amount);
@@ -20,7 +20,7 @@ extern "C" int _s32_div_f(int a, int b);
 
 // USA: func_ov023_021e8fe8  (semantic: ComputeUpdatedPlayClock_021e8fe8)
 extern "C" ARM struct PlayClock020ac614 func_ov023_021e8fe8(struct PlayClock020ac614 clock, int flag) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     struct PlayClock020ac614 result;
     unsigned short tHours;
     unsigned char tMinutes;

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct S_10088;
 int IsFlag10088Set(struct S_10088* obj);
@@ -26,13 +26,13 @@ struct StatsInner_021eb1ec {
 
 // USA: func_ov024_021eb1ec
 ARM int CheckAndClearOrEvaluateFlags_021eb1ec(void* unused, int combatantId) {
-    struct BattleStruct* battle = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(battle, combatantId);
+    GameState* battle = GameState::GetInstance();
+    GameObject* combatant = GetCombatantWithFlag0x100(battle, combatantId);
     if (combatant == NULL) {
         return 0;
     }
-    if (((struct StatsInner_021eb1ec*)combatant->currentStats)->byte0x3a != 0) {
-        ((struct StatsInner_021eb1ec*)combatant->currentStats)->byte0x3a = 0;
+    if (((struct StatsInner_021eb1ec*)combatant->currentStats_)->byte0x3a != 0) {
+        ((struct StatsInner_021eb1ec*)combatant->currentStats_)->byte0x3a = 0;
         return 0;
     }
     if (GetTableValue(combatant) < 10) {
@@ -47,11 +47,11 @@ ARM int CheckAndClearOrEvaluateFlags_021eb1ec(void* unused, int combatantId) {
     if (IsFlagBit5Set_021de25c((struct FlagObj_021de25c*)combatant)) {
         return 0;
     }
-    if (CheckFlag0x14Bit0x10Set((unsigned char*)combatant->currentStats)) {
+    if (CheckFlag0x14Bit0x10Set((unsigned char*)combatant->currentStats_)) {
         return 0;
     }
     if (IsFlag10088Set((struct S_10088*)combatant)) {
         return 0;
     }
-    return ((struct StatsInner_021eb1ec*)combatant->currentStats)->bit3 == 0;
+    return ((struct StatsInner_021eb1ec*)combatant->currentStats_)->bit3 == 0;
 }

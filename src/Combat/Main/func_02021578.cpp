@@ -2,12 +2,10 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-struct BattleStruct* GetBattleStruct();
 
 extern "C" void* func_02012fe4(void);
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void* func_0203bd08(void);
 void* GetData02105254(void);
 extern "C" void func_02021428(void* obj, int amount);
@@ -92,7 +90,7 @@ extern "C" ARM void func_02021578(char* self) {
     SafeAllocator* alloc;
     int state;
 
-    GetBattleStruct();
+    GameState::GetInstance();
     loader = BackgroundLoader::GetInstance();
     modes = *(struct Modes02012fe4**)((char*)func_02012fe4() + 8);
     axis = func_ov017_0218b5b0();

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct_021fa76c;
 int CheckAllFlagsClear_021fa76c(struct Struct_021fa76c* combatant);
@@ -37,25 +37,25 @@ struct Obj_021fd1bc {
 	char pad0[0x64c];
 	struct State64c_021fd1bc* state64c;
 	char pad2[0x668 - 0x64c - 4];
-	struct CombatantStruct* ptr668;
+	GameObject* ptr668;
 };
 
 // USA: func_ov024_021fd1bc
 extern "C" ARM void func_ov024_021fd1bc(struct Obj_021fd1bc* obj) {
-	struct CombatantStruct* c = obj->ptr668;
+	GameObject* c = obj->ptr668;
 	if (!CheckAllFlagsClear_021fa76c((struct Struct_021fa76c*)c)) return;
 	struct State64c_021fd1bc* state = obj->state64c;
 	int index = state->field32 & 0xff;
 	unsigned short actionId = state->actionId;
-	if (!IsValidTargetCombatant((struct TargetObj02088418*)c->currentStats, index, actionId)) return;
+	if (!IsValidTargetCombatant((struct TargetObj02088418*)c->currentStats_, index, actionId)) return;
 	if (IsFlagBit19Set_021da9c8((struct FlagObj_021da9c8*)c)) return;
 	state = obj->state64c;
-	if (state->field30 == 2 && (c->flags & 0x400)) {
+	if (state->field30 == 2 && (c->obj3D_.unknown_0_ & 0x400)) {
 		struct FlagsA_021fd1bc* p = *(struct FlagsA_021fd1bc**)((char*)c + 0x144);
 		if (p && p->flag11) return;
 	}
 	float valF = (float)state->bits.val;
-	unsigned char pctBase = *(unsigned char*)((char*)c->currentStats + 0x4c);
+	unsigned char pctBase = *(unsigned char*)((char*)c->currentStats_ + 0x4c);
 	float scaled = valF * ((float)pctBase / 100.0f);
 	if (scaled > 100.0f) scaled = 100.0f;
 	SetFieldFromIndexed_021fe6b4((struct IndexedObj_021fe6b4*)obj, 1);

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
 int CheckFlag0x2AndKind1(struct Combatant_20885b4* obj);
@@ -13,12 +13,12 @@ struct Ctx_021e939c {
 
 // USA: func_ov024_021e939c
 ARM int SelectMessageByFlags2_021e939c(struct Ctx_021e939c* ctx, int id, int flag1, int flag2) {
-    struct CombatantStruct* combatant = GetCombatantByID(ctx->field10, id);
+    GameObject* combatant = GetCombatantByID(ctx->field10, id);
     if (combatant == NULL) {
         return 0;
     }
-    int state2 = CheckFlag0x2AndState2((struct S88514*)combatant->currentStats);
-    int kind1 = CheckFlag0x2AndKind1((struct Combatant_20885b4*)combatant->currentStats);
+    int state2 = CheckFlag0x2AndState2((struct S88514*)combatant->currentStats_);
+    int kind1 = CheckFlag0x2AndKind1((struct Combatant_20885b4*)combatant->currentStats_);
     if (flag1 != 0) {
         if (flag2 != 0) {
             return state2 != 0 ? 0x10c : 0x10a;

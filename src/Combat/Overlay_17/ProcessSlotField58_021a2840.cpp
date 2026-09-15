@@ -1,18 +1,17 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 extern "C" int _ZN7Model3D7GetTEX0Ev(void* obj);
 extern "C" void _Z23StageTexFilePaletteDataPV8NSBXXTexb(int a, int b);
 extern "C" void _Z21StageTexFileImageDataPV8NSBXXTexb(int a, int b);
 
 // USA: func_ov017_021a2840
 ARM void ProcessSlotField58_021a2840(void) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
 
     int i;
     for (i = 0; i < 0xc; i++) {
-        struct CombatantStruct* combatant = GetCombatantUnchecked(battleStruct, i + 7);
+        GameObject* combatant = battleStruct->GetGameObjectByIndex(i + 7);
         if (combatant == NULL) {
             continue;
         }

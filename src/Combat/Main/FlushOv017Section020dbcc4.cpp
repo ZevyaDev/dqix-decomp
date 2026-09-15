@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_02012fe4(void);
 void* GetData02100044(void);
@@ -21,7 +21,7 @@ struct Obj020dbcc4 {
 ARM void FlushOv017Section020dbcc4(struct Obj020dbcc4* obj) {
     int flag;
     int i;
-    GetBattleStruct();
+    GameState::GetInstance();
     char* base = (char*)func_02012fe4() + 0x840;
     if (obj->field10 != 0) return;
     if (GetSection0x1000Count0205e7d0((struct Struct0205e7d0*)GetData02100044()) < 0x76) return;

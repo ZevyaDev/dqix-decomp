@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Entry_02028bd0 {
     unsigned short id;
@@ -7,8 +7,7 @@ struct Entry_02028bd0 {
     unsigned short : 14;
 };
 struct Entry_02028bd0* FindEntryByCurrentId02027cb0(void);
-struct CombatantStruct* GetCombatantWithFlag0x20(struct BattleStruct* battleStruct, int combatantId);
-struct CombatantStruct* FindCombatantByField2_021a2738(void* unused, int value);
+GameObject* FindCombatantByField2_021a2738(void* unused, int value);
 struct PairStruct;
 void CopyPairAndStoreField(struct PairStruct* src, struct PairStruct* dst);
 struct Bytes02033b88;
@@ -16,7 +15,7 @@ int SetByte0xbeShiftPrev(struct Bytes02033b88* p, int val);
 
 // USA: func_ov017_021a2b1c  (semantic: SyncCombatantBytesFromEntry_021a2b1c)
 extern "C" ARM void func_ov017_021a2b1c(void* param) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     struct Entry_02028bd0* entry = FindEntryByCurrentId02027cb0();
     if (!entry) return;
 
@@ -25,9 +24,9 @@ extern "C" ARM void func_ov017_021a2b1c(void* param) {
         int t = entry->field2 * 0xc;
         t = t + 0x70;
         int idx = i + t;
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x20(bs, idx);
+        GameObject* combatant = bs->GetMaybeFieldMonsterByIndex(idx);
         if (!combatant) continue;
-        struct CombatantStruct* found = FindCombatantByField2_021a2738(param, *(short*)((char*)combatant + 2));
+        GameObject* found = FindCombatantByField2_021a2738(param, *(short*)((char*)combatant + 2));
         if (!found) continue;
         CopyPairAndStoreField((struct PairStruct*)found, (struct PairStruct*)combatant);
         switch (*(int*)((char*)combatant + 0x130)) {

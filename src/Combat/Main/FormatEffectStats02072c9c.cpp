@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_02052d7c(void* combatant, int arg1, int arg2);
 extern "C" void func_02072afc(int id, void* out1, void* out2);
@@ -15,7 +15,7 @@ struct EffectSlot02072c9c {
 
 // USA: func_02072c9c
 ARM void FormatEffectStats02072c9c(int combatantId, char* buf) {
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(GetBattleStruct(), combatantId);
+    GameObject* combatant = GetCombatantWithFlag0x100(GameState::GetInstance(), combatantId);
     if (combatant == NULL) {
         return;
     }

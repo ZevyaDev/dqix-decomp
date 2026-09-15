@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
 struct ThreeShorts021ded84 {
@@ -60,8 +60,8 @@ extern "C" ARM void func_ov025_021dee20(void* obj) {
     InitStruct02160030(rec);
     rec->field0x0 = row.b;
 
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantFromList(battleStruct, row.a);
+    GameState* battleStruct = GameState::GetInstance();
+    GameObject* combatant = battleStruct->GetCombatantByIndex(row.a);
     if (!combatant) {
         return;
     }
@@ -75,8 +75,8 @@ extern "C" ARM void func_ov025_021dee20(void* obj) {
     ResetBlockAndSetField0x1cToNeg1(rec2);
     ((struct Record2_021dee20*)rec2)->field0x30 = 0;
     ((struct Record2_021dee20*)rec->sub0x10)->field0x20 = row.a;
-    ((struct Record2_021dee20*)rec->sub0x10)->field0x22 = combatant->currentStats->primaryStats.currHP;
-    ((struct Record2_021dee20*)rec->sub0x10)->field0x24 = combatant->currentStats->primaryStats.currMP;
+    ((struct Record2_021dee20*)rec->sub0x10)->field0x22 = combatant->currentStats_->primaryStats.currHP;
+    ((struct Record2_021dee20*)rec->sub0x10)->field0x24 = combatant->currentStats_->primaryStats.currMP;
     rec->flags0x9 = 1;
 
     rec->sub0x14 = alloc->Allocate(0x24);

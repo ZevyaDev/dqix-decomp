@@ -1,9 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_ov017_0218b5b0(void);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 extern "C" void* func_02012fe4(void);
 
 struct Obj020397cc;
@@ -16,11 +14,7 @@ extern "C" int _Z8fix32sini(int angle);
 extern "C" int _Z8fix32cosi(int angle);
 
 struct Vec3 { int x; int y; int z; };
-extern "C" void Vector3fix_Normalize(struct Vec3* a, struct Vec3* b);
-extern "C" void Vector3fix_Add(struct Vec3* a, struct Vec3* b, struct Vec3* out);
-extern "C" void Vector3fix_Subtract(struct Vec3* a, struct Vec3* b, struct Vec3* out);
 extern "C" int fix32_Atan2(int x, int z);
-extern "C" int Vector3fix_Length(int* v);
 
 struct Obj02033834;
 void SetVecYByMode02033834(struct Obj02033834* obj, int arg);
@@ -28,15 +22,14 @@ struct Obj02033b68;
 void SetByteIfChanged02033b68(struct Obj02033b68* obj, int newVal);
 struct Foo02033b58;
 void SetByteSavingPrevious(struct Foo02033b58* p, unsigned char v);
-void SetBothCounters(void* obj, int value, int frames);
-int CheckField0x14Or0x20Positive(int* obj);
+extern "C" void _Z13SetBrightnessP13GameResourcesii(void* obj, int value, int frames);
+extern "C" int _Z28IsBrightnessTransitionActiveP13GameResources(int* obj);
 
 extern "C" unsigned char _Z19CopyOutRegion0x5718PcPv(void* src, void* dst);
 #define CopyOutRegion0x5718 _Z19CopyOutRegion0x5718PcPv
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 
-void* GetField0x3f8Address(struct BattleStruct* battleStruct);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+void* GetField0x3f8Address(GameState* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 extern "C" void VectorizedMemset(void* dst, int val, int size);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 extern "C" void _Z28CallFunc0200fbb4AtField0x3f8Pv(void* battle, void* obj);
@@ -70,10 +63,10 @@ struct Obj_021ab280 {
 
 // USA: func_ov017_021ab280
 extern "C" ARM int func_ov017_021ab280(struct Obj_021ab280* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     func_0202ae18();
     unsigned char* mgr = (unsigned char*)func_ov017_0218b5b0();
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(battle);
+    GameObject* combatant = battle->GetUnknownGameObject();
     void* g = func_02012fe4();
 
     int state = obj->state;
@@ -87,15 +80,15 @@ extern "C" ARM int func_ov017_021ab280(struct Obj_021ab280* obj) {
         dir.x = _Z8fix32sini(angleY);
         dir.y = 0;
         dir.z = _Z8fix32cosi(angleY);
-        Vector3fix_Normalize(&dir, &dir);
-        Vector3fix_Add((struct Vec3*)&obj->pos->x, &dir, &obj->vec14);
-        Vector3fix_Subtract(&obj->vec14, &saved, &dir);
-        Vector3fix_Normalize(&dir, &dir);
+        Vector3fix_Normalize((const Vector3fix*)&dir, (Vector3fix*)&dir);
+        Vector3fix_Add((const Vector3fix*)((struct Vec3*)&obj->pos->x), (const Vector3fix*)&dir, (Vector3fix*)&obj->vec14);
+        Vector3fix_Subtract((const Vector3fix*)&obj->vec14, (const Vector3fix*)&saved, (Vector3fix*)&dir);
+        Vector3fix_Normalize((const Vector3fix*)&dir, (Vector3fix*)&dir);
         int angle2 = fix32_Atan2(dir.x, dir.z);
 
         SetVecYByMode02033834((struct Obj02033834*)combatant, angle2);
         SetByteIfChanged02033b68((struct Obj02033b68*)combatant, 1);
-        SetBothCounters(mgr, -16, 15);
+        _Z13SetBrightnessP13GameResourcesii(mgr, -16, 15);
 
         obj->state = obj->state + 1;
         obj->counter = 0;
@@ -109,32 +102,32 @@ extern "C" ARM int func_ov017_021ab280(struct Obj_021ab280* obj) {
     } else if (state == 2) {
         struct Vec3 delta;
         struct Vec3 saved = *(struct Vec3*)((char*)combatant + 0x44);
-        Vector3fix_Subtract(&obj->vec14, &saved, &delta);
-        Vector3fix_Length((int*)&delta);
-        Vector3fix_Subtract(&obj->vec14, &saved, &delta);
-        Vector3fix_Normalize(&delta, &delta);
+        Vector3fix_Subtract((const Vector3fix*)&obj->vec14, (const Vector3fix*)&saved, (Vector3fix*)&delta);
+        Vector3fix_Length((const Vector3fix*)((int*)&delta));
+        Vector3fix_Subtract((const Vector3fix*)&obj->vec14, (const Vector3fix*)&saved, (Vector3fix*)&delta);
+        Vector3fix_Normalize((const Vector3fix*)&delta, (Vector3fix*)&delta);
         int angle2 = fix32_Atan2(delta.x, delta.z);
 
         SetVecYByMode02033834((struct Obj02033834*)combatant, angle2);
         SetByteSavingPrevious((struct Foo02033b58*)combatant, 1);
         *(unsigned short*)((char*)combatant + 0xb2) = 0xa3;
 
-        if (CheckField0x14Or0x20Positive((int*)mgr) == 0) {
+        if (_Z28IsBrightnessTransitionActiveP13GameResources((int*)mgr) == 0) {
             obj->state = 4;
             obj->counter = 0;
         }
     } else if (state == 3) {
         struct Vec3 delta;
         struct Vec3 saved = *(struct Vec3*)((char*)combatant + 0x44);
-        Vector3fix_Subtract(&obj->vec14, &saved, &delta);
-        Vector3fix_Normalize(&delta, &delta);
+        Vector3fix_Subtract((const Vector3fix*)&obj->vec14, (const Vector3fix*)&saved, (Vector3fix*)&delta);
+        Vector3fix_Normalize((const Vector3fix*)&delta, (Vector3fix*)&delta);
         int angle2 = fix32_Atan2(delta.x, delta.z);
 
         SetVecYByMode02033834((struct Obj02033834*)combatant, angle2);
         SetByteSavingPrevious((struct Foo02033b58*)combatant, 1);
         *(unsigned short*)((char*)combatant + 0xb2) = 0xa3;
 
-        if (CheckField0x14Or0x20Positive((int*)mgr) == 0) {
+        if (_Z28IsBrightnessTransitionActiveP13GameResources((int*)mgr) == 0) {
             obj->state = obj->state + 1;
             obj->counter = 0;
         }
@@ -144,7 +137,7 @@ extern "C" ARM int func_ov017_021ab280(struct Obj_021ab280* obj) {
         unsigned char buf[4];
         unsigned char count = CopyOutRegion0x5718((void*)battle, buf);
         for (int i = 0; i < count; i++) {
-            struct CombatantStruct* c = GetCombatantUnchecked(battle, buf[i]);
+            GameObject* c = battle->GetGameObjectByIndex(buf[i]);
             if (c != 0) {
                 _ZN8Object3D11DisableFlagEi((unsigned char*)c, 0x1000000);
             }

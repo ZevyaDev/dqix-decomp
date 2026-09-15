@@ -1,10 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov011_021849c8(void);
 extern "C" void* func_ov023_021f6880(void*, int);
 int ScaleStatsIfType12_021f6f10(void* self);
-extern "C" struct AxisFloats0203b5f8* func_ov017_0218b5b0(void);
 struct AxisFloats0203b5f8;
 int IsAxisIntZero(struct AxisFloats0203b5f8* s, int axis);
 extern char* data_ov004_02171010;
@@ -19,8 +18,8 @@ ARM int SwapObjStatFieldWithData_02164670(void* a1) {
     int t = ScaleStatsIfType12_021f6f10(obj);
     if (t != 7) return 0;
 
-    GetBattleStruct();
-    struct AxisFloats0203b5f8* axis = func_ov017_0218b5b0();
+    GameState::GetInstance();
+    struct AxisFloats0203b5f8* axis = ((struct AxisFloats0203b5f8*)func_ov017_0218b5b0());
     if (*(unsigned char*)(data_ov004_02171010 + 0x1000 + 0x8f4) == 0) goto fastpath;
     if (IsAxisIntZero(axis, 0) == 0) goto fastpath;
     if (*(unsigned char*)(data_ov004_02171010 + 0x1000 + 0x8fd) == 0) goto swappath;

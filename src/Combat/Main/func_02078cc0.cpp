@@ -1,13 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 struct Vec3 { int x; int y; int z; };
-extern "C" void Vector3fix_Subtract(struct Vec3* a, struct Vec3* b, struct Vec3* out);
 
-extern "C" struct Vec3 func_02034104(struct CombatantStruct* combatant);
-extern "C" void Vector3fix_Normalize(struct Vec3* out, struct Vec3* in);
+extern "C" struct Vec3 func_02034104(GameObject* combatant);
 extern "C" int fix32_Atan2(int x, int z);
 
 struct Obj02033834;
@@ -35,8 +32,8 @@ struct Entity02078cc0 {
 
 // USA: func_02078cc0  (semantic: AimAtFlagTargetOrReset_02078cc0)
 extern "C" ARM int func_02078cc0(struct Entity02078cc0* self) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x800(battleStruct, self->f166);
+    GameState* battleStruct = GameState::GetInstance();
+    GameObject* combatant = battleStruct->GetPartyMemberByIndex(self->f166);
     if (combatant == 0) {
         return 0;
     }
@@ -45,8 +42,8 @@ extern "C" ARM int func_02078cc0(struct Entity02078cc0* self) {
     self->fb2 = 0;
     struct Vec3 posCopy = func_02034104(combatant);
     struct Vec3 delta;
-    Vector3fix_Subtract(&posCopy, &self->f44, &delta);
-    Vector3fix_Normalize(&delta, &delta);
+    Vector3fix_Subtract((const Vector3fix*)&posCopy, (const Vector3fix*)&self->f44, (Vector3fix*)&delta);
+    Vector3fix_Normalize((const Vector3fix*)&delta, (Vector3fix*)&delta);
     int angle = fix32_Atan2(delta.x, delta.z);
     SetVecYByMode02033834((struct Obj02033834*)self, angle);
     _ZN8Object3D10EnableFlagEi((unsigned char*)self, 0x80);

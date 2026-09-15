@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
+int GetField0x3b0Value(GameState* battleStruct);
 int GetWord0x0(int* obj);
 void* GetActiveCombatWork(void);
 extern "C" void func_ov000_0216d370(int a, int b, int c, int d);
@@ -16,7 +16,7 @@ struct In021e9a94 {
 
 // USA: func_ov025_021e9a94
 ARM void UpdateCombatFlags_021e9a94(struct In021e9a94* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int val = GetField0x3b0Value(bs);
     GetWord0x0((int*)bs);
     GetActiveCombatWork();

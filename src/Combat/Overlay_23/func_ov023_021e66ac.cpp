@@ -1,8 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantAtField0x3ac(struct BattleStruct* battleStruct);
 int GetField5cb0Value(char* obj);
 extern "C" void func_0202ae18(void);
 
@@ -25,7 +24,7 @@ struct Flags69c_021e66ac {
 
 // USA: func_ov023_021e66ac  (semantic: BuildOrCopyKeyStringField_021e66ac)
 extern "C" ARM void func_ov023_021e66ac(void* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     struct Flags69c_021e66ac* flags = (struct Flags69c_021e66ac*)((char*)battleStruct + 0x5000 + 0x69c);
     char* subPtr = (char*)battleStruct + 0x569c;
 
@@ -35,7 +34,7 @@ extern "C" ARM void func_ov023_021e66ac(void* obj) {
         memcpy((char*)obj + 0x1400, entry, 7);
     } else if (flags->bit30) {
         func_0202ae18();
-        struct CombatantStruct* combatant = GetCombatantAtField0x3ac(battleStruct);
+        GameObject* combatant = battleStruct->GetProtagonist();
         struct Sub0x150_021e66ac* sub = *(struct Sub0x150_021e66ac**)((char*)combatant + 0x150);
         int result = sub->field950;
         if (GetField5cb0Value((char*)battleStruct) == 1) {

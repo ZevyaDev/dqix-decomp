@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_02012fe4(void);
 void* GetPtrField0x468(void* obj);
@@ -21,7 +21,7 @@ struct Entry0209cd50Layout {
 // USA: func_0209cd50  (semantic: LookupCategoryOverride_0209cd50)
 extern "C" ARM int func_0209cd50(int value) {
     int result = 0;
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     struct SearchTable* table = (struct SearchTable*)GetPtrField0x468(battle);
     void* base = func_02012fe4();
     if ((_s32_div_f(value, 100) * 100) == 0x170c) {

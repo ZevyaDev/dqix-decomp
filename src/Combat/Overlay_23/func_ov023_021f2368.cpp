@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetGlobalField0x1c020421a0(void);
 struct ArrayContainsByteStruct;
@@ -48,7 +48,7 @@ struct PctBits021f2368 { unsigned short low : 7; unsigned short pct : 9; };
 
 // USA: func_ov023_021f2368  (semantic: ProcessEntryMatchAndDispatch_021f2368)
 extern "C" ARM int func_ov023_021f2368(unsigned char* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     struct GlobalState021f2368* g = data_ov023_021ffefc;
     int state = GetGlobalField0x1c020421a0();
     unsigned char* stateObj = (unsigned char*)state;
@@ -84,7 +84,7 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* obj) {
         g->field70 = g->field70 + 1;
         if (g->byteArr6c[id] <= g->field70) {
             void* p2a04b = GetPtrField0x2a04(battleStruct);
-            struct CombatantStruct* combatant = GetCombatantWithFlag0x100(battleStruct, id);
+            GameObject* combatant = GetCombatantWithFlag0x100(battleStruct, id);
             unsigned char* field150 = (unsigned char*)GetFieldAt0x150((unsigned char*)combatant);
             struct PctBits021f2368* pb = (struct PctBits021f2368*)(obj + id * 0x54 + 0x5700 + 0x9c);
             if (pb->pct != 0) {

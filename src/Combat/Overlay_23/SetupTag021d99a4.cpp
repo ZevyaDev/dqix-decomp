@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct0200fb08;
 unsigned char NormalizeField5_0200fb08(struct Struct0200fb08* obj);
@@ -13,7 +13,7 @@ extern "C" void func_0205d304(void* a, void* b, int p2, int p3, int p4, int p5, 
 // USA: func_ov023_021d99a4  (semantic: SetupTag021d99a4)
 extern "C" ARM void func_ov023_021d99a4(void* objRaw) {
     char* obj = (char*)objRaw;
-    struct Struct0200fb08* bs = (struct Struct0200fb08*)GetBattleStruct();
+    struct Struct0200fb08* bs = (struct Struct0200fb08*)GameState::GetInstance();
     int fieldA4 = 0x18;
     int norm = NormalizeField5_0200fb08(bs);
     if (norm == 4) fieldA4 = 0x19;

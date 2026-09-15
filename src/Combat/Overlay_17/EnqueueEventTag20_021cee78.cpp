@@ -1,9 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetData02100044(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 
 struct LocalEvt021cee78 {
@@ -17,7 +16,7 @@ struct LocalEvt021cee78 {
 
 // USA: func_ov017_021cee78
 ARM void EnqueueEventTag20_021cee78(int id, unsigned char b) {
-	struct CombatantStruct* c = GetCombatantUnchecked(GetBattleStruct(), id);
+	GameObject* c = GameState::GetInstance()->GetGameObjectByIndex(id);
 	if (c == NULL) {
 		return;
 	}

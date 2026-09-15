@@ -1,11 +1,11 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct BattleStruct* GetBattleStruct(void);
 extern "C" void* func_0205ec34(void);
 int LookupAndForEachNode020649b0(void* a, int mode, void* c);
 extern "C" void func_0206f81c(void* p);
 void InitObj_021adc58(unsigned char* self);
-unsigned char GetField0x397cValue(struct BattleStruct* battleStruct);
+unsigned char GetField0x397cValue(GameState* battleStruct);
 extern "C" int _Z22fix32ReduceAngle0To2Pii(int angle);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 struct TailList020469b4;
@@ -20,7 +20,7 @@ struct LocalBuf0219922c {
 
 // USA: func_ov017_0219922c  (semantic: InitAndAppendSearchNode_0219922c)
 extern "C" ARM void func_ov017_0219922c(unsigned char* self) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     unsigned char* search = *(unsigned char**)(self + 0x3000 + 0x6bc);
     int flag = (search[0x16] == 1);
     unsigned short val_b6 = *(unsigned short*)(self + 0x3600 + 0xb6);

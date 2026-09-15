@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Variant02030b0c;
 extern "C" int _ZNK6Script9Parameter5ToIntEv(struct Variant02030b0c* p);
@@ -14,7 +14,7 @@ extern struct Global021fff08 data_ov023_021fff08;
 // USA: func_ov023_021f5788
 ARM int StoreField4IfMatch_021f5788(void* obj) {
     int a = _ZNK6Script9Parameter5ToIntEv((struct Variant02030b0c*)obj);
-    int b = NormalizeField5_0200fb08((struct Struct0200fb08*)GetBattleStruct());
+    int b = NormalizeField5_0200fb08((struct Struct0200fb08*)GameState::GetInstance());
     if (a == b) {
         data_ov023_021fff08.field10 = _ZNK6Script9Parameter8ToStringEv((struct Struct02030b7c*)((char*)obj + 0x8));
     }

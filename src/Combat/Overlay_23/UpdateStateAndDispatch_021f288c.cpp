@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 extern "C" void func_02046380(void);
@@ -37,7 +37,7 @@ struct PctBits021f288c { unsigned short low : 7; unsigned short pct : 9; };
 // USA: func_ov023_021f288c  (semantic: UpdateStateAndDispatch_021f288c)
 extern "C" ARM int func_ov023_021f288c(unsigned char* obj) {
     char msgBuf[0x100];
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     struct GlobalStateOv023_021ffefc* g = data_ov023_021ffefc;
     int id = g->id;
     int state = GetGlobalField0x1c020421a0();

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 extern "C" int func_02075910(int a, void* p, unsigned int size, int c);
@@ -15,7 +15,7 @@ ARM int CheckAndApplyDebugCode020ac910() {
     memset(buf, 0, 0x10);
     int result = func_02075910(0, buf, 0x10, 0);
     if (result == 0) {
-        BattleStruct* bs = GetBattleStruct();
+        GameState* bs = GameState::GetInstance();
         *(unsigned char*)((char*)bs + 0x5cc8) = 0;
         SetFlag0x5cccBit0((StateBits5ccc_11544*)bs);
         return 0;

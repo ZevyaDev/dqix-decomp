@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x20(struct BattleStruct* battleStruct, int combatantId);
 extern "C" void func_02012fe4(void);
 extern "C" void* func_0202ae18(void);
 struct Entry_02028bd0;
@@ -16,7 +15,7 @@ struct EntryField8_021a33e0 { unsigned char pad0[2]; unsigned short field2 : 2; 
 
 // USA: func_ov017_021a33e0
 ARM void EnqueueEventForFlaggedCombatants_021a33e0(void* unused, int key) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     func_02012fe4();
     void* search = func_0202ae18();
     struct Entry_02028bd0* entry = FindEntryInGlobalTable02027ccc(key);
@@ -28,7 +27,7 @@ ARM void EnqueueEventForFlaggedCombatants_021a33e0(void* unused, int key) {
     for (i = 0; i < 0xc; i++) {
         int idx = ((struct EntryField8_021a33e0*)entry)->field2;
         int base = idx * 0xc + 0x70;
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x20(battleStruct, i + base);
+        GameObject* combatant = battleStruct->GetMaybeFieldMonsterByIndex(i + base);
         if (combatant) {
             func_02076a8c(combatant);
             _ZN8Object3D10MakeHiddenEv((unsigned char*)combatant);

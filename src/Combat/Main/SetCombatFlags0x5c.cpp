@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 
 struct Struct0203cedc {
     char pad0[0xc];
@@ -14,11 +13,11 @@ struct Struct0203cedc {
 
 // USA: func_0203cedc
 ARM void SetCombatFlags0x5c(struct Struct0203cedc* obj, int b, int c) {
-    struct BattleStruct* battleStruct;
-    struct CombatantStruct* combatant;
+    GameState* battleStruct;
+    GameObject* combatant;
 
-    battleStruct = GetBattleStruct();
-    combatant = GetCombatantAtField0x397c(battleStruct);
+    battleStruct = GameState::GetInstance();
+    combatant = battleStruct->GetUnknownGameObject();
 
     if (*(int*)((char*)combatant + 0x4c) >= obj->fieldC) {
         return;

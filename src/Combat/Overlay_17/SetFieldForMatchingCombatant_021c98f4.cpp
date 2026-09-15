@@ -1,15 +1,15 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Obj02053f7c;
 void SetField0x1b2IfMatchOrFlag02053f7c(struct Obj02053f7c* obj, short a, int b);
 
 // USA: func_ov017_021c98f4
 ARM void SetFieldForMatchingCombatant_021c98f4(int target, int flag) {
-	struct BattleStruct* bs = GetBattleStruct();
+	GameState* bs = GameState::GetInstance();
 	int i;
 	for (i = 0; i < 4; i++) {
-		struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, i);
+		GameObject* c = GetCombatantWithFlag0x100(bs, i);
 		if (!c) {
 			continue;
 		}

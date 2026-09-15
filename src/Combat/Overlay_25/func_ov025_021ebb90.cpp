@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct021ecb90 {
     int a;
@@ -103,10 +103,8 @@ struct Bytes02033b88;
 struct Obj0203a588;
 
 void* GetActiveCombatWork(void);
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" unsigned char _Z25GetByte_021dcc64_021dcc64Pv(void* obj);
 extern "C" void _Z32ConfigureBgSub1AndClear_021dcc58Pv(void* obj, unsigned char v);
-int GetField0x3b4Value(struct BattleStruct* battleStruct);
 extern "C" int _Z36CheckCombatantStatusOrTable_02162954Pv(void* self);
 extern "C" int _Z13Check021ed2f4Pv(void* obj);
 extern "C" void func_ov025_021ebb24(struct Struct021ecb90* obj);
@@ -118,7 +116,6 @@ extern "C" void _Z25AppendUniqueShort0216346cPci(char* obj, int val);
 extern "C" void _Z25AppendUniqueShort021634c8Pci(char* obj, int val);
 extern "C" short func_ov000_0215ffa0(void* obj);
 extern "C" int func_ov025_021d8c30(void* sl_, void* sb_, int kind, int category, int idx, int inner, int flag);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 extern "C" void _ZN8Object3D11MakeVisibleEv(unsigned char* obj);
 void ClearSubstructFlag0x4(unsigned char* obj);
 int GetSubstructByte0x56(unsigned char* obj);
@@ -128,20 +125,16 @@ extern "C" void func_02043124(void* self);
 struct Obj0203a588* GetData02104b6c(void);
 extern "C" void _Z27ResetLowFlagEntries0203a588P11Obj0203a588(struct Obj0203a588* obj);
 void ZeroFieldsAt0x6e8(void* obj);
-extern "C" void func_0203b110(void* self, int a, int b);
+extern "C" void _Z17SetMainBrightnessP13GameResourcesii(void* self, int a, int b);
 int TestBit0At0x2f4(unsigned char* obj);
 int TestBit1At0x2f4(unsigned char* obj);
 extern "C" void* func_02057924(void);
 extern "C" int _ZNK8Object3D9GetHeightEv(void* obj);
 extern "C" void _ZN8Vector3iaSERKS_(struct Vec3* dst, struct Vec3* src);
-extern "C" void Vector3fix_Subtract(struct Vec3* a, struct Vec3* b, struct Vec3* out);
-extern "C" void Vector3fix_Normalize(struct Vec3* in, struct Vec3* out);
 extern "C" void _Z24Vector3fixMultiplyScalarPK8Vector3iiPS_(struct Vec3* in, int scale, struct Vec3* out);
 extern "C" int func_020c32f8(int);
 extern "C" int func_020c3260(int);
 extern "C" float func_0200c700(int);
-extern "C" void Mat3x3_WriteRotationY(struct Mtx33_021ebb90* out, int sinv, int cosv);
-extern "C" void Mat3x3_ApplyToVector(struct Vec3* v, struct Mtx33_021ebb90* m, struct Vec3* out);
 extern "C" short _Z24ClampScaledStat_0216352ciff(int id, float a, float b);
 extern "C" int func_ov000_021635e4(int id, unsigned char mode);
 extern "C" int _Z31IsCombatantStateSpecial02163c0cPvi(void* unused, int id);
@@ -178,14 +171,14 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
 
     unsigned char* codes;
 
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     unsigned char* cw = (unsigned char*)GetActiveCombatWork();
     void* p54 = func_ov017_0218b5b0();
 
     if (_Z25GetByte_021dcc64_021dcc64Pv(cw) != 0 && _Z25GetByte_021dcc64_021dcc64Pv(cw) < 3) return;
     if (_Z25GetByte_021dcc64_021dcc64Pv(cw) > 5 && _Z25GetByte_021dcc64_021dcc64Pv(cw) < 7) return;
 
-    unsigned int fpv = GetField0x3b4Value(battle);
+    unsigned int fpv = battle->GetEffectiveDeltaTime();
 
     if (obj->f301 != 0 && _Z36CheckCombatantStatusOrTable_02162954Pv(cw) != 0) {
         for (int j = 0; j < 12; j++) {
@@ -267,7 +260,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                 struct ListNode02160094* n0 = _Z22GetNodeAtIndex02160094P12List02160094i((struct List02160094*)obj->entries[i].a, 0);
                 int partyBlocked = 0;
                 if (n0 != 0 && n0 != 0 && IsPartyId021ebb90(n0->id)) {
-                    struct CombatantStruct* member = GetCombatantWithFlag0x100(battle, n0->id);
+                    GameObject* member = GetCombatantWithFlag0x100(battle, n0->id);
                     if (member != 0 &&
                         (TestBit0At0x2f4(*(unsigned char**)((char*)member + 0x150)) != 0 ||
                          TestBit1At0x2f4(*(unsigned char**)((char*)member + 0x150)) != 0)) {
@@ -318,7 +311,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                     if (targetId2 >= 0) {
                         func_ov000_0216df00(func_ov000_02160f14(cw), targetId2, 0, 0, 1.8f);
                         func_ov000_021626a0(cw, 4, 0);
-                        struct CombatantStruct* c2 = GetCombatantFromList(battle, targetId2);
+                        GameObject* c2 = battle->GetCombatantByIndex(targetId2);
                         if (c2 != 0) {
                             _ZN8Object3D11MakeVisibleEv((unsigned char*)c2);
                             ClearSubstructFlag0x4((unsigned char*)c2);
@@ -347,7 +340,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                 if (node1 != 0) targetId3 = func_ov000_0215ffa0(node1);
                 if (sp50 != 0) targetId3 = node1->vals[0];
 
-                struct CombatantStruct* target = GetCombatantUnchecked(battle, targetId3);
+                GameObject* target = battle->GetGameObjectByIndex(targetId3);
                 if (target != 0) {
                     void* spawnObj = func_02057924();
                     params.targetId = targetId3;
@@ -420,20 +413,20 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                                 dir.y = 0;
                                 dir.x = 0;
                                 if (e->t != 0) {
-                                    struct CombatantStruct* owner = GetCombatantUnchecked(battle, ownerId);
-                                    struct CombatantStruct* victim = GetCombatantUnchecked(battle, targetId3);
+                                    GameObject* owner = battle->GetGameObjectByIndex(ownerId);
+                                    GameObject* victim = battle->GetGameObjectByIndex(targetId3);
                                     if (owner != 0 && victim != 0) {
                                         _ZN8Vector3iaSERKS_(&selfPos, (struct Vec3*)((char*)owner + 0x44));
                                         _ZN8Vector3iaSERKS_(&targetPos, (struct Vec3*)((char*)victim + 0x44));
-                                        Vector3fix_Subtract(&selfPos, &targetPos, &toTarget);
-                                        Vector3fix_Normalize(&toTarget, &toTarget);
+                                        Vector3fix_Subtract((const Vector3fix*)&selfPos, (const Vector3fix*)&targetPos, (Vector3fix*)&toTarget);
+                                        Vector3fix_Normalize((const Vector3fix*)&toTarget, (Vector3fix*)&toTarget);
                                         _Z24Vector3fixMultiplyScalarPK8Vector3iiPS_(&toTarget, dir.z, &dir);
                                         _ZN8Vector3iaSERKS_(&targetRot, (struct Vec3*)((char*)victim + 0x50));
                                         int yaw = -targetRot.y;
                                         int cosv = (int)(4096.0f * (func_0200c700(func_020c32f8(yaw)) / 4294967296.0f));
                                         int sinv = (int)(4096.0f * (func_0200c700(func_020c3260(yaw)) / 4294967296.0f));
-                                        Mat3x3_WriteRotationY(&rot, sinv, cosv);
-                                        Mat3x3_ApplyToVector(&dir, &rot, &dir);
+                                        Mat3x3_WriteRotationY((Matrix3x3*)&rot, (fix32_t)sinv, (fix32_t)cosv);
+                                        Mat3x3_ApplyToVector((const Vector3fix*)&dir, (const Matrix3x3*)&rot, (Vector3fix*)&dir);
                                     }
                                 }
                                 break;
@@ -471,7 +464,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                     _Z26FindNodeAndProcess02057fb4Pvii(spawnObj, obj->entries[i].k, (int)&params);
                 }
 
-                if (obj->entries[i].d & 0x20) func_0203b110(p54, 0x10, 0xf);
+                if (obj->entries[i].d & 0x20) _Z17SetMainBrightnessP13GameResourcesii(p54, 0x10, 0xf);
                 obj->entries[i].d |= 2;
             }
         }
@@ -525,7 +518,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                                                     slots[cur].cat, obj->entries[i].idx, slots[cur].idx, 0);
                     obj->entries[i].w++;
                     if (obj->entries[i].d & 0x20) {
-                        func_0203b110(p54, 0, 0xf);
+                        _Z17SetMainBrightnessP13GameResourcesii(p54, 0, 0xf);
                         obj->entries[i].d &= ~0x20;
                     }
                     if (_Z18IsIdUnique021ee438P11Ctx021ee438i(obj->f30c, obj->f308) == 0 && waitUnique != 0) {

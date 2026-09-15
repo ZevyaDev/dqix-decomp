@@ -1,19 +1,16 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-int GetField0x3b4Value(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 void SetByteField0x253(void* obj);
 int GetFieldIfFlag4(char* obj);
 void SetField0x23cTrue(void* obj);
 void ClearBitsInField4(unsigned int* obj, unsigned int mask);
 
-extern "C" void* func_ov017_0218b5b0(void);
 
 // USA: func_ov017_021bfe60
 ARM int UpdateCountdownField_021bfe60_021bfe60(unsigned char* self) {
-    struct BattleStruct* battle = GetBattleStruct();
-    int value = GetField0x3b4Value(battle);
+    GameState* battle = GameState::GetInstance();
+    int value = battle->GetEffectiveDeltaTime();
     unsigned short* field8 = (unsigned short*)(self + 8);
     if ((unsigned int)value < (unsigned int)*field8) {
         *field8 = *field8 - value;
@@ -21,7 +18,7 @@ ARM int UpdateCountdownField_021bfe60_021bfe60(unsigned char* self) {
     }
 
     *field8 = 0;
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(battle);
+    GameObject* combatant = battle->GetUnknownGameObject();
     if (combatant != NULL) {
         SetByteField0x253(combatant);
     }

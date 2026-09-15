@@ -1,15 +1,15 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 unsigned char CopyOutRegion0x5718(char* obj, void* dst);
 extern "C" void* __clear(void* dst, int count);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 
 // USA: func_ov023_021e8f28
-extern "C" ARM struct CombatantStruct* func_ov023_021e8f28(int index) {
-    struct BattleStruct* battle = GetBattleStruct();
-    struct CombatantStruct* result = 0;
+extern "C" ARM GameObject* func_ov023_021e8f28(int index) {
+    GameState* battle = GameState::GetInstance();
+    GameObject* result = 0;
     if (index >= 0) {
         int inRange = (index >= 0) && (index <= 3);
         if (inRange) {

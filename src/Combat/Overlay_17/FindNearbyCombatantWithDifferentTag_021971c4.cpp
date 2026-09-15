@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 extern "C" void* __clear(void* dst, int count);
 
 struct U16Field0x6_020375f8;
@@ -17,11 +16,11 @@ struct Party021971c4 {
 
 // USA: func_ov017_021971c4  (semantic: FindNearbyCombatantWithDifferentTag_021971c4)
 extern "C" ARM unsigned short func_ov017_021971c4(unsigned char* ov) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     if (battleStruct == NULL) {
         return 0;
     }
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(battleStruct);
+    GameObject* combatant = battleStruct->GetUnknownGameObject();
     if (combatant == NULL) {
         return 0;
     }
@@ -38,7 +37,7 @@ extern "C" ARM unsigned short func_ov017_021971c4(unsigned char* ov) {
         if (flags[j] != 0) {
             continue;
         }
-        struct CombatantStruct* other = GetCombatantWithFlag0x100(battleStruct, j);
+        GameObject* other = GetCombatantWithFlag0x100(battleStruct, j);
         if (other == NULL) {
             continue;
         }

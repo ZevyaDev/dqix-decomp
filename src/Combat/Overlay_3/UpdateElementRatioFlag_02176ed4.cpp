@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-void* GetPtrField0x2a04(struct BattleStruct*);
+void* GetPtrField0x2a04(GameState*);
 
 struct Obj2081;
 void ClearElementFlag0x20(struct Obj2081* obj, int key);
@@ -26,7 +26,7 @@ extern "C" void func_020813ec(void* obj, int key);
 // USA: func_ov003_02176ed4  (semantic: UpdateElementRatioFlag_02176ed4)
 extern "C" ARM void func_ov003_02176ed4(char* self) {
     struct Obj2081* elemObj = *(struct Obj2081**)(self + 0x89c);
-    struct Obj02086aec* battleSum = (struct Obj02086aec*)GetPtrField0x2a04(GetBattleStruct());
+    struct Obj02086aec* battleSum = (struct Obj02086aec*)GetPtrField0x2a04(GameState::GetInstance());
     ClearElementFlag0x20(elemObj, 8);
     SetEntryLowNibbleAndElement02080c68(elemObj, 8, 0);
     int flag = 0;

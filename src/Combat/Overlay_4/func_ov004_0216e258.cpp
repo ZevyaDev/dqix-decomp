@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_020ab7a8(void* obj, int flag);
 void SetByte0x4(char* obj, unsigned char value);
@@ -25,7 +25,7 @@ extern struct FieldGroup02171034 data_ov004_02171034;
 
 // USA: func_ov004_0216e258  (semantic: DispatchByBattleState_0216e258)
 extern "C" ARM int func_ov004_0216e258(void* a) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
     int state = func_020ab7a8((void*)data_ov004_02171034.ptr10, 0);

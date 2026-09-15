@@ -1,8 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantAtField0x3ac(struct BattleStruct* battleStruct);
 
 extern "C" void* func_0205ec34(void);
 void* GetData02105254(void);
@@ -18,9 +16,7 @@ void _Z24SetElementFields0202756cPviiihhthii(void* obj, int p1, int p2, int idx,
         unsigned char p5, unsigned char p6, unsigned short p7, unsigned char p8, int p9, int p10);
 
 int TestBitInByteArray(int unused, unsigned char* arr, int index);
-extern "C" int fix32_Divide(unsigned int numerHi, unsigned int denomLo);
 extern "C" void _Z29ClampPositionToBounds0202630cPvPii(void* obj, int* pos, int margin);
-int GetField0x3b4Value(struct BattleStruct* battleStruct);
 
 extern "C" int _u32_div_f(int a, int b);
 extern "C" int _s32_div_f(int a, int b);
@@ -47,14 +43,14 @@ struct G8Obj {
 
 // USA: func_02025f28
 extern "C" ARM void func_02025f28(unsigned char* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     unsigned char* ctx = (unsigned char*)func_0205ec34();
     GetData02105254();
     void* g = func_02012fe4();
     unsigned short g0 = *(unsigned short*)g;
     void* g8 = *(void**)((char*)g + 8);
-    struct CombatantStruct* c1 = GetCombatantAtField0x397c(battle);
-    GetCombatantAtField0x3ac(battle);
+    GameObject* c1 = battle->GetUnknownGameObject();
+    battle->GetProtagonist();
     struct Vec3i pos0 = *(struct Vec3i*)((char*)c1 + 0x44);
 
     if (*(unsigned char*)(obj + 0x55c) != 0) {
@@ -84,8 +80,8 @@ extern "C" ARM void func_02025f28(unsigned char* obj) {
         posVec[0] = pos0.x + 0x80000;
         posVec[2] = pos0.z + 0x60000;
     } else if (((struct G8Obj*)g8)->lowNibble == 0) {
-        posVec[0] = fix32_Divide(pos0.x + *(int*)((char*)g + 0x44), 0x6000) + 0x80000;
-        posVec[2] = fix32_Divide(pos0.z + *(int*)((char*)g + 0x48), 0x6000) + 0x60000;
+        posVec[0] = fix32_Divide((fix32_t)(pos0.x + *(int*)((char*)g + 0x44)), (fix32_t)(0x6000)) + 0x80000;
+        posVec[2] = fix32_Divide((fix32_t)(pos0.z + *(int*)((char*)g + 0x48)), (fix32_t)(0x6000)) + 0x60000;
     } else {
         int g44 = *(int*)((char*)g + 0x44);
         if (g44 == 0 || *(int*)((char*)g + 0x48) == 0) {
@@ -106,7 +102,7 @@ extern "C" ARM void func_02025f28(unsigned char* obj) {
         _Z24SetElementFields0202756cPviiihhthii(obj, v.x, v.z, 0x19, 0x54, 0, 0xff, 0xff, 0x1000, 0x1000);
     }
 
-    int fieldVal = GetField0x3b4Value(battle);
+    int fieldVal = battle->GetEffectiveDeltaTime();
     unsigned int sum = *(unsigned int*)((char*)&data_020fdc4c + 0xc) + (unsigned int)fieldVal;
     unsigned int rem = sum % 0x560u;
     int q = ((int)rem - 0x2b0) / 0x2b;

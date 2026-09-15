@@ -1,14 +1,11 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Filesystem/FileIO.h"
 #include "System/Memory.h"
 #include "std_library_functions.h"
 
-extern "C" int func_ov017_0218b5b0(void);
-unsigned char* GetTreasureMapLanguageData(struct BattleStruct* battle);
-void SetTreasureMapLanguageDataPtr(struct BattleStruct* battle, unsigned char* to);
 void ReleaseBattleBuffers020a39d8(SafeAllocator* alloc);
 extern "C" void func_020c9be0(void);
 
@@ -17,9 +14,9 @@ extern const char data_020f1ab0[];
 
 // USA: func_020a3844  (semantic: LoadTreasureMapLanguageBuffers_020a3844)
 extern "C" ARM int func_020a3844(SafeAllocator* alloc) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    int base = func_ov017_0218b5b0();
-    unsigned char* word = GetTreasureMapLanguageData(battleStruct);
+    GameState* battleStruct = GameState::GetInstance();
+    int base = ((int)func_ov017_0218b5b0());
+    unsigned char* word = battleStruct->GetTreasureMapLanguageData();
     if (word != 0 || *(void**)(base + 0x4000 + 0x48c) != 0) {
         ReleaseBattleBuffers020a39d8(alloc);
     }
@@ -48,6 +45,6 @@ extern "C" ARM int func_020a3844(SafeAllocator* alloc) {
     }
 
     BackgroundLoader::RemoveLockGlobal();
-    SetTreasureMapLanguageDataPtr(battleStruct, buf);
+    battleStruct->SetTreasureMapLanguageDataPtr(buf);
     return 1;
 }

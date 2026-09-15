@@ -1,11 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct0205d888;
 void* GetLastEntry0205d888(struct Struct0205d888* p);
 int IsField0x9cEqual3(unsigned char* obj);
 void SetFieldAt0x30(void* obj, int value);
-unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
 int GetGlobalField0x1c020421a0(void);
 void SetupAndDispatch0205c904(unsigned char* p, int val);
 
@@ -41,13 +40,13 @@ extern "C" void func_ov013_021846a0(void* obj);
 // USA: func_ov013_021847c4  (semantic: UpdateTagDispatch021847c4)
 extern "C" ARM unsigned char func_ov013_021847c4(void* obj, int param1) {
     unsigned char* o = (unsigned char*)obj;
-    struct BattleStruct* bs;
+    GameState* bs;
     void* last;
     int i;
 
     *(int*)(o + 0x14) = param1;
-    bs = GetBattleStruct();
-    *(int*)(o + 0x644) = GetBattleScaleCount(bs);
+    bs = GameState::GetInstance();
+    *(int*)(o + 0x644) = bs->GetTickCount();
 
     last = GetLastEntry0205d888((struct Struct0205d888*)(o + 0x38));
     if (last != 0) {
@@ -65,7 +64,7 @@ extern "C" ARM unsigned char func_ov013_021847c4(void* obj, int param1) {
         int g = GetGlobalField0x1c020421a0();
         struct Container0205a330* c = *(struct Container0205a330**)(g + 0x2e0);
         if (c != 0) {
-            IterateEntries0205a330(c, GetBattleScaleCount(bs));
+            IterateEntries0205a330(c, bs->GetTickCount());
         }
     }
 

@@ -1,11 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov017_021c9d2c(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8);
 
 // USA: func_ov000_0217616c  (semantic: Dispatch_0217616c)
 extern "C" ARM void func_ov000_0217616c(char* obj) {
-    struct CombatantStruct* c = GetCombatantWithFlag0x100(GetBattleStruct(), *(int*)(obj + 0x4c));
+    GameObject* c = GetCombatantWithFlag0x100(GameState::GetInstance(), *(int*)(obj + 0x4c));
     if (c == 0) {
         return;
     }

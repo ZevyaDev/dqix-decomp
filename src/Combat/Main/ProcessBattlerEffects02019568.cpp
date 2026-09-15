@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Graphics/LightingManager.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Manager_1f2a4;
 struct Element_1f2a4;
@@ -17,7 +17,7 @@ struct Entry02019568 {
 
 // USA: func_02019568
 ARM void ProcessBattlerEffects02019568(void* a, int b) {
-    GetBattleStruct();
+    GameState::GetInstance();
     void* d = LightingManager::GetInstance();
     int shiftAmt = *(int*)((char*)d + 0x98);
 

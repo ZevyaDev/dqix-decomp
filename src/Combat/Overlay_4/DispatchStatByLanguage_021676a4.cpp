@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct0200fb08;
 unsigned char NormalizeField5_0200fb08(struct Struct0200fb08* obj);
@@ -21,7 +21,7 @@ void FlushAndDispatchList0204b0e8(struct List0204b0e8* obj, void* buf);
 
 // USA: func_ov004_021676a4  (semantic: DispatchStatByLanguage_021676a4)
 extern "C" ARM int func_ov004_021676a4(void* a) {
-    int lang = NormalizeField5_0200fb08((struct Struct0200fb08*)GetBattleStruct());
+    int lang = NormalizeField5_0200fb08((struct Struct0200fb08*)GameState::GetInstance());
     unsigned int v = 1;
     switch (lang) {
     case 2:

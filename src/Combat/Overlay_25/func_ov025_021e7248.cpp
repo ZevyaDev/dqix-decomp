@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetActiveCombatWork(void);
 unsigned char GetByte_021dcc64_021dcc64(void* obj);
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
+int GetField0x3b0Value(GameState* battleStruct);
 void CallFunc020a0d6cAtField0x194AndClearFlag2(char* obj, int a, int b, int c, int d);
 
 struct Param021e7248 {
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov025_021e7248(struct Param021e7248* p) {
             return 1;
         }
     }
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int field = GetField0x3b0Value(bs);
     CallFunc020a0d6cAtField0x194AndClearFlag2((char*)field, (int)((char*)p + 8), p->f14, p->f18, p->f1c);
     return 1;

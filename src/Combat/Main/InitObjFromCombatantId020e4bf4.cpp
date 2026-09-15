@@ -1,8 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 struct Sub0x150_020e4bf4 {
     char pad[0x49c];
@@ -15,10 +14,10 @@ extern "C" void func_020e4b34(void* obj, struct BaseCombatStats* stats1, struct 
 // USA: func_020e4bf4
 ARM void InitObjFromCombatantId020e4bf4(void* obj, int combatantId) {
     memset(obj, 0, 0xc);
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x800(battleStruct, combatantId);
+    GameState* battleStruct = GameState::GetInstance();
+    GameObject* combatant = battleStruct->GetPartyMemberByIndex(combatantId);
     if (combatant != NULL) {
         struct Sub0x150_020e4bf4* sub = *(struct Sub0x150_020e4bf4**)((char*)combatant + 0x150);
-        func_020e4b34(obj, combatant->baseStats, combatant->baseStats, 0, 0, 0, 0, sub->bit0, 0, 1, 0, 1);
+        func_020e4b34(obj, combatant->baseStats_, combatant->baseStats_, 0, 0, 0, 0, sub->bit0, 0, 1, 0, 1);
     }
 }

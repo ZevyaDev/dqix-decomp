@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 struct U16Field0x6_020375f8 { char unk[0x6]; unsigned short field; };
 extern "C" unsigned short _ZNK8Object3D10GetField06Ev(struct U16Field0x6_020375f8* obj);
@@ -39,10 +38,10 @@ struct Actor02076df4 {
 
 // USA: func_02076df4
 extern "C" ARM void func_02076df4(struct Actor02076df4* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     void* g = func_0202ae18();
     struct Entry_02028bd0* table = GetEntryTableBase();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x800(battleStruct, obj->field166);
+    GameObject* combatant = battleStruct->GetPartyMemberByIndex(obj->field166);
     int key = _ZNK8Object3D10GetField06Ev((struct U16Field0x6_020375f8*)obj);
     struct Entry_02028bd0* entry = FindInlineEntryById(table, key);
     if (entry == 0) {

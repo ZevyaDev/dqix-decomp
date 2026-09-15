@@ -1,28 +1,26 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct BattleStruct* GetBattleStruct(void);
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
+void* GetPtrField0x2a04(GameState* battleStruct);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 struct Obj02033874;
 void SetVecYFromValue02033874(struct Obj02033874* obj, int arg);
 struct Bytes02033b88;
 int SetByte0xbeShiftPrev(struct Bytes02033b88* p, int val);
 void ClearBytesAndZeroBlock02039d24(unsigned char* obj);
-unsigned char GetField0x397cValue(struct BattleStruct* battleStruct);
+unsigned char GetField0x397cValue(GameState* battleStruct);
 void SetFlag0x1ceBit0x4(unsigned char* obj);
 
 // USA: func_ov017_021921fc  (semantic: SyncFlaggedCombatantVecs_021921fc)
 extern "C" ARM void func_ov017_021921fc(int* vec, int angle, int resetFlag) {
     unsigned char* keys;
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     unsigned char* base = (unsigned char*)GetPtrField0x2a04(bs);
     keys = base + 0x378;
     int i = 0;
     keys = keys + 0xc00;
     for (; i < base[0xf7c]; i++) {
-        struct CombatantStruct* c = GetCombatantWithFlag0x800(bs, keys[i]);
+        GameObject* c = bs->GetPartyMemberByIndex(keys[i]);
         if (c != NULL) {
             _ZN8Vector3iaSERKS_((int*)((char*)c + 0x44), vec);
             SetVecYFromValue02033874((struct Obj02033874*)c, angle);

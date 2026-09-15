@@ -1,8 +1,6 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct CombatantStruct;
-struct BattleStruct;
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 extern "C" void func_ov017_0218f5a4(void* a, int i, int b, int c, int d);
 
@@ -13,8 +11,8 @@ struct ArgA021d0e64 {
 };
 
 // USA: func_ov017_021d0e64
-ARM void UpdateCombatantField150_021d0e64(void* unused0, ArgA021d0e64* a1, struct BattleStruct* bs, void* a3) {
-    struct CombatantStruct* c = GetCombatantWithFlag0x800(bs, a1->field4);
+ARM void UpdateCombatantField150_021d0e64(void* unused0, ArgA021d0e64* a1, GameState* bs, void* a3) {
+    GameObject* c = bs->GetPartyMemberByIndex(a1->field4);
     if (!c) return;
     int field150 = GetFieldAt0x150((unsigned char*)c);
     if (!field150) return;

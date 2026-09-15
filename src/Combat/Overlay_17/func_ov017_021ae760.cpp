@@ -1,12 +1,10 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 void ResetFieldWithLog_0218d5c8(unsigned char* obj);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 void SetByteField0x253(void* obj);
 int GetFieldIfFlag4(char* obj);
 void SetField0x238True(void* obj);
@@ -38,8 +36,8 @@ extern "C" ARM void func_ov017_021ae760(struct Obj_021ae760* self) {
         self->fieldB = 0;
     }
 
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* c = GetCombatantAtField0x397c(bs);
+    GameState* bs = GameState::GetInstance();
+    GameObject* c = bs->GetUnknownGameObject();
     if (c != NULL) {
         SetByteField0x253(c);
     }

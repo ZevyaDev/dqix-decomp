@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_ov031_02243b34(void*);
 
@@ -10,7 +10,7 @@ struct Obj022436e0 {
 
 // USA: func_ov031_022436e0
 ARM int GetField36State022436e0(struct Obj022436e0* obj) {
-	GetBattleStruct();
+	GameState::GetInstance();
 	func_ov031_02243b34(obj);
 	return obj->field36 != 0 ? 2 : 1;
 }

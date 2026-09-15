@@ -1,16 +1,15 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 
-extern "C" char* func_ov017_0218b5b0(void);
 
 struct Struct0218d618;
 int IsField10Eq2_0218d618(struct Struct0218d618* p);
 
 extern "C" void* func_02012fe4(void);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 void* AllocateAligned4(AllocatorUnion* alloc, unsigned int size);
 extern AllocatorUnion data_02114e20;
 
@@ -27,7 +26,7 @@ void Forward02047b30(void* a, int b, int c, int d);
 // USA: func_ov017_021b5dc4
 extern "C" ARM int func_ov017_021b5dc4(char* self) {
     if (*(unsigned char*)(self + 0x54) != 0) {
-        if (!IsField10Eq2_0218d618((struct Struct0218d618*)func_ov017_0218b5b0()))
+        if (!IsField10Eq2_0218d618((struct Struct0218d618*)((char*)func_ov017_0218b5b0())))
             return 3;
     } else {
         BackgroundLoader* loader = BackgroundLoader::GetInstance();
@@ -39,7 +38,7 @@ extern "C" ARM int func_ov017_021b5dc4(char* self) {
                 void* allocated = AllocateAligned4(&data_02114e20, 0x100);
                 if (outSize != 0 && allocated != 0) {
                     ((SafeAllocator*)(self + 0x40))->CreateTypeA(allocated, 0x100);
-                    struct BattleStruct* battle = GetBattleStruct();
+                    GameState* battle = GameState::GetInstance();
                     char* base = (char*)func_02012fe4();
                     int idx = GetField0x3acValue(battle);
                     char* p = base + 0x600 + idx * 0x88;
@@ -47,7 +46,7 @@ extern "C" ARM int func_ov017_021b5dc4(char* self) {
                     MaybeInvoke0204719c((struct Struct02047230*)*(int*)(self + 0x20));
                     func_0204719c((struct Struct02047230*)*(int*)(self + 0x20));
                     unsigned char local[0x70];
-                    short* mid = (short*)(func_ov017_0218b5b0() + 0x2cc);
+                    short* mid = (short*)(((char*)func_ov017_0218b5b0()) + 0x2cc);
                     CopyState0207dfc8((struct State0207dfc8*)((char*)mid + 0x230), (struct State0207dfc8*)local);
                     RestorePairTables0207df90((char*)local);
                     Forward02047b30((void*)*(int*)(self + 0x20), (int)outPtr, (int)outSize, (int)(self + 0x40));

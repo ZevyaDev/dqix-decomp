@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_020aaf84(void* ptr, int a, int b, int c);
 struct StateBits5ccc_1155c;
@@ -25,7 +25,7 @@ extern int data_02108760;
 
 // USA: func_ov004_0216e490  (semantic: ResetOrReinitAndNotify_0216e490)
 extern "C" ARM int func_ov004_0216e490(void* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     data_ov004_02171034[5] = 0;
     int res = func_020aaf84(*(void**)&data_ov004_02171034[0x10], 0, 1, 0);
     if (res == 0) {

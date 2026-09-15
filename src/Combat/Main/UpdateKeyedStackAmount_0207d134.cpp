@@ -2,14 +2,14 @@
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 #include "Memory/SignedAllocator.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Container020dedd0;
 struct Element020de650;
 extern struct Element020de650* FindElementByKey020dedd0(struct Container020dedd0* c, int key);
 
 extern void* InitAllocatorAndLoadGp2File0207d6dc(SafeAllocator* self, int param1, int param2);
-extern void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
+extern void* GetPtrField0x2a04(GameState* battleStruct);
 
 struct KeyedList0207c378;
 extern "C" int func_0207c378(struct KeyedList0207c378* obj, int value, int amount, int key);
@@ -41,7 +41,7 @@ extern "C" ARM int func_0207d134(struct Obj0207d134* self, short key, int amount
     int ret = 0;
     struct Element020de650* elem = FindElementByKey020dedd0(self->container, key);
     if (elem != NULL) {
-        struct BattleStruct* battleStruct = GetBattleStruct();
+        GameState* battleStruct = GameState::GetInstance();
         char* p = (char*)GetPtrField0x2a04(battleStruct) + 0x1d4;
         unsigned int nibble = ((struct ElemFlags0207d134*)elem)->nibble;
         ret = func_0207c378((struct KeyedList0207c378*)p, key, amount, nibble);

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Util/Random.h"
 
 struct Variant02030b0c;
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov023_021f5848(struct Variant02030b0c* obj) {
             data_ov023_021fff08.ptr->bits.low13 |= 2;
             return 0;
         }
-        GetPtrField0x2a04(GetBattleStruct());
+        GetPtrField0x2a04(GameState::GetInstance());
         float a = _ZNK6Script9Parameter7ToFloatEv((struct TaggedValue02030b44*)((char*)obj + 8));
         float b = _ZNK6Script9Parameter7ToFloatEv((struct TaggedValue02030b44*)((char*)obj + 0x10));
         struct Random* rng = GetBTRandom();

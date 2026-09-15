@@ -1,10 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetWord0x0(int* obj);
-void SetBothCounters(void* obj, int value, int frames);
-int CheckField0x14Or0x20Positive(int* obj);
-int GetBattleScaleCount(struct BattleStruct* battleStruct);
+extern "C" void _Z13SetBrightnessP13GameResourcesii(void* obj, int value, int frames);
+extern "C" int _Z28IsBrightnessTransitionActiveP13GameResources(int* obj);
 
 extern "C" void func_ov023_021e5020(void* p);
 extern "C" void func_ov023_021e4c18(void* obj);
@@ -25,7 +24,7 @@ struct Obj021e3db0 {
 
 // USA: func_ov023_021e3db0
 extern "C" ARM void func_ov023_021e3db0(struct Obj021e3db0* obj) {
-    int val = GetWord0x0((int*)GetBattleStruct());
+    int val = GetWord0x0((int*)GameState::GetInstance());
 
     if (obj->field128 != 0) {
         func_ov023_021e5020(obj->field128);
@@ -38,15 +37,15 @@ extern "C" ARM void func_ov023_021e3db0(struct Obj021e3db0* obj) {
         if (obj->field128 != 0 && *((unsigned char*)obj->field128 + 0xc12) != 0) {
             return;
         }
-        SetBothCounters((void*)val, 0, 15);
+        _Z13SetBrightnessP13GameResourcesii((void*)val, 0, 15);
         obj->field4e4++;
     } else if (obj->field4e4 == 1) {
-        if (!CheckField0x14Or0x20Positive((int*)val)) {
+        if (!_Z28IsBrightnessTransitionActiveP13GameResources((int*)val)) {
             obj->field4e4++;
         }
     } else if (obj->field4e4 == 2) {
         func_ov023_021e4c18(obj);
-        int scaleCount = GetBattleScaleCount(GetBattleStruct());
+        int scaleCount = GameState::GetInstance()->GetTickCount();
         func_ov023_021e463c(obj, scaleCount);
         func_ov023_021e447c(obj);
         func_ov023_021e456c(obj);

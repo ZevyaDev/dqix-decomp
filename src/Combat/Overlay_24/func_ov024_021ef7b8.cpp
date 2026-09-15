@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "Util/Random.h"
 
@@ -18,10 +18,10 @@ extern "C" ARM int func_ov024_021ef7b8(int* a0, int a1, int a2, int* outCount, s
 
 	*outCount = 0;
 	for (int i = 0; i < count; i++) {
-		struct CombatantStruct* member = GetCombatantByID(*a0, buf.v[i]);
+		GameObject* member = GetCombatantByID(*a0, buf.v[i]);
 		if (!member) continue;
-		if (member->currentStats->primaryStats.agility >= 999) continue;
-		if (member->currentStats->agilityBuff >= 2) continue;
+		if (member->currentStats_->primaryStats.agility >= 999) continue;
+		if (member->currentStats_->agilityBuff >= 2) continue;
 		int idx = *outCount;
 		*outCount = idx + 1;
 		outArray[idx] = buf.v[i];

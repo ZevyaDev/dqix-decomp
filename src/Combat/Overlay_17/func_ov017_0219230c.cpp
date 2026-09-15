@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 void SetAllEntriesFieldits24To29IfField54_021923e0_021923e0(void* obj, unsigned int value);
 extern unsigned short data_ov017_021d618e[8];
 
@@ -17,7 +16,7 @@ extern "C" ARM void func_ov017_0219230c(int p0, int idx, unsigned int flag) {
         return;
     }
 
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     short local[8];
     int i;
     int n = 8;
@@ -40,7 +39,7 @@ extern "C" ARM void func_ov017_0219230c(int p0, int idx, unsigned int flag) {
     local[6] = idx * 0xc + 0x1d;
 
     for (i = 0; local[i] > -1; i++) {
-        struct CombatantStruct* c = GetCombatantUnchecked(battle, local[i]);
+        GameObject* c = battle->GetGameObjectByIndex(local[i]);
         if (c) {
             SetAllEntriesFieldits24To29IfField54_021923e0_021923e0(c, flag);
         }

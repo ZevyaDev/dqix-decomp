@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* ZeroInitReturn020de824(void* obj);
 void InitStruct0207cbe8(char* obj);
@@ -11,7 +11,7 @@ extern "C" void func_ov011_021848a0(void* obj, int val);
 
 // USA: func_ov004_0215b740
 ARM int InitAndNotifyStruct_0215b740(void* obj) {
-    char* p = (char*)GetBattleStruct() + 0x26c + 0x5c00;
+    char* p = (char*)GameState::GetInstance() + 0x26c + 0x5c00;
     void* node = func_ov004_02156fd4(obj, 5);
     char buf[0x38];
     ((SafeAllocator*)buf)->ResetAllocatorPointer();

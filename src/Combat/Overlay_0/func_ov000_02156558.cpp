@@ -1,11 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Util/Random.h"
 
 int ClassifyField0x81fe(char* base);
 extern "C" int func_ov000_02155f9c(struct Random* rand, int combatantId, int checkSubFlag);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
-int IsFlag0x18Bit0x400Set(struct CombatantStruct* combatant);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
+int IsFlag0x18Bit0x400Set(GameObject* combatant);
 int TestBitInArray0x8ec(unsigned char* obj, int index);
 int NextRandomMax(struct Random* random, int maximum);
 
@@ -17,7 +17,7 @@ extern "C" ARM int func_ov000_02156558(struct Random* rand, int combatantId) {
         return 0;
     }
 
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int inRange = (combatantId >= 0 && combatantId <= 3) ? 1 : 0;
     if (!inRange) {
         return 0;
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov000_02156558(struct Random* rand, int combatantId) {
         return 0;
     }
 
-    struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, combatantId);
+    GameObject* c = GetCombatantWithFlag0x100(bs, combatantId);
     if (c == 0) {
         return 0;
     }

@@ -1,13 +1,12 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-extern "C" void* _Z15GetBattleStructv(void);
-extern "C" void* _Z20GetField0x3f8AddressP12BattleStruct(void* battle);
+extern "C" void* _Z20GetField0x3f8AddressP9GameState(void* battle);
 extern "C" void func_02012fe4(void);
 extern "C" int func_ov017_021d60f4(void* obj);
 extern "C" float func_ov017_021d6110(void* obj);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 extern "C" void _Z18InitStruct02070378Pc(void* obj);
-extern "C" char* func_ov017_0218b5b0(void);
 extern "C" void _Z28CallFunc0200fbb4AtField0x3f8Pv(void* battle, void* obj);
 
 struct S3f8_02161f80 {
@@ -28,8 +27,8 @@ struct S3f8_02161f80 {
 // USA: func_ov001_02161f80  (semantic: SetupField3f8FromTarget_02161f80)
 extern "C" ARM int func_ov001_02161f80(void* target, int count) {
     int tmpArr[3];
-    void* battle = _Z15GetBattleStructv();
-    struct S3f8_02161f80* obj = (struct S3f8_02161f80*)_Z20GetField0x3f8AddressP12BattleStruct(battle);
+    void* battle = GameState::GetInstance();
+    struct S3f8_02161f80* obj = (struct S3f8_02161f80*)_Z20GetField0x3f8AddressP9GameState(battle);
     func_02012fe4();
     int flag2 = -1;
     int fixedD;
@@ -49,7 +48,7 @@ extern "C" ARM int func_ov001_02161f80(void* target, int count) {
     _ZN8Vector3iaSERKS_(obj->vec10, tmpArr);
     obj->field1c = (short)fixedD;
     obj->field20 = flag2;
-    void* p = func_ov017_0218b5b0() + 0x3000;
+    void* p = ((char*)func_ov017_0218b5b0()) + 0x3000;
     void* q = *(void**)((char*)p + 0x734);
     if (q != NULL && *((unsigned char*)q + 3) != 0) {
         unsigned short v = *(unsigned short*)((char*)q + 8);

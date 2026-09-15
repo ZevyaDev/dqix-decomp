@@ -1,10 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 struct Obj020397cc;
 void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);
-extern "C" void* func_ov017_0218b5b0(void);
 int GetFieldIfFlag4(char* obj);
 void ClearIntAt0x23c(unsigned char* obj);
 void SetBitsInField4(unsigned int* obj, unsigned int mask);
@@ -36,8 +34,8 @@ struct Obj_021bf628 {
 
 // USA: func_ov017_021bf628  (semantic: RepositionCombatantFromPosData_021bf628)
 extern "C" ARM int func_ov017_021bf628(struct Obj_021bf628* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(battle);
+    GameState* battle = GameState::GetInstance();
+    GameObject* combatant = battle->GetUnknownGameObject();
     struct PosData_021bf628* pos = obj->pos;
     obj->x28 = pos->x;
     obj->x2c = pos->y;

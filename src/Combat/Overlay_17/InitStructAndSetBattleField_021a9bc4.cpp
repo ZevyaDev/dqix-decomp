@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct ByteHeader0204693c;
 extern void ResetByteHeader(ByteHeader0204693c* p);
@@ -18,6 +18,6 @@ extern "C" ARM void func_ov017_021a9bc4(Struct021a9bc4* self, unsigned char valu
 	self->byte0 = 0x3b;
 	self->byte8 = 0;
 	self->byte26c = 0;
-	BattleStruct* bs = GetBattleStruct();
+	GameState* bs = GameState::GetInstance();
 	*((unsigned char*)bs + 0x6000 + 0x4de) = value;
 }

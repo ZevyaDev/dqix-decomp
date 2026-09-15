@@ -1,11 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
 extern "C" unsigned short* func_02012fe4(void);
-extern "C" char* func_ov017_0218b5b0(void);
 extern "C" char* func_0203bd08(void);
 ARM void* GetData02105254(void);
 
@@ -129,10 +128,10 @@ struct Obj020227dc {
 
 // USA: func_020227dc
 extern "C" ARM void func_020227dc(struct Obj020227dc* ctx) {
-    GetBattleStruct();
+    GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     unsigned short* p6 = func_02012fe4();
-    char* axisObj = func_ov017_0218b5b0();
+    char* axisObj = ((char*)func_ov017_0218b5b0());
     char* p8 = func_0203bd08();
     void* dataPtr = GetData02105254();
     int i;

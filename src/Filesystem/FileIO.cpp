@@ -4,7 +4,7 @@
 #include "Filesystem/LowNitroHandle.h"
 #include "Filesystem/FileAccessor.h"
 #include "Filesystem/GPC.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Filesystem/NarcHandle.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "System/Memory.h"
@@ -30,7 +30,7 @@ extern "C"
     void* _Z27GetDataPtr02114e04_020d6c00v();
 
     // get system language?
-    extern "C" int _Z24NormalizeField5_0200fb08P14Struct0200fb08(BattleStruct*);
+    int _Z24NormalizeField5_0200fb08P14Struct0200fb08(GameState*);
 
     // Looks like a custom implementation of strstr
     char* _Z13FindSubstringPcS_(char* searchString, const char* targetString);
@@ -64,10 +64,10 @@ void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength
         *outLength = 0;
 
 #if defined(usa)
-    BattleStruct* battle = GetBattleStruct();
+    GameState* gameState = GameState::GetInstance();
     
     char replacedPath[128] = { 0 };
-    int language = _Z24NormalizeField5_0200fb08P14Struct0200fb08((BattleStruct*)battle);
+    int language = _Z24NormalizeField5_0200fb08P14Struct0200fb08(gameState);
     StringReplaceLanguageTag(path, replacedPath, language);
 #elif defined(jpn)
     const char* replacedPath = path;
@@ -103,11 +103,11 @@ void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength
 void* LoadFileIntoNewAllocation(const char* path, SafeAllocator& alloc, unsigned int* outLength)
 {
 #if defined(usa)
-    BattleStruct* battle = GetBattleStruct();
+    GameState* gameState = GameState::GetInstance();
 
     char replacedPath[128] = { 0 };
 
-    int language = _Z24NormalizeField5_0200fb08P14Struct0200fb08(battle);
+    int language = _Z24NormalizeField5_0200fb08P14Struct0200fb08(gameState);
     StringReplaceLanguageTag(path, replacedPath, language);
 #elif defined(jpn)
     const char* replacedPath = path;
@@ -333,7 +333,7 @@ extern "C" void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePa
         *outSize = 0;
 
     _ZN16BackgroundLoader21FreeAllocationsGlobalEv();
-    BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     char innerFileReplacedPath[128] = { 0 };
 
     int language = _Z24NormalizeField5_0200fb08P14Struct0200fb08(battle);

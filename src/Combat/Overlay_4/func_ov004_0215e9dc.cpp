@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 unsigned short GetFlagBitFromField150_0215eb20(void* obj, int bit);
 
@@ -9,7 +9,7 @@ extern unsigned char data_ov004_021707e8;
 
 // USA: func_ov004_0215e9dc
 extern "C" ARM int func_ov004_0215e9dc(void* unused, void* combatantIdPtr, int counter, int dir) {
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(GetBattleStruct(), (int)combatantIdPtr);
+    GameObject* combatant = GetCombatantWithFlag0x100(GameState::GetInstance(), (int)combatantIdPtr);
     int idx = counter;
 
     if (data_ov004_02170854[idx] == 0) {

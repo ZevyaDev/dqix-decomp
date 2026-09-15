@@ -1,13 +1,13 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetFieldAt0x150(unsigned char* obj);
 
 // USA: func_ov017_021ccbdc
-ARM void CopyWordsWithOffset_021ccbdc(int unused0, unsigned char* obj, struct BattleStruct* battleStruct) {
+ARM void CopyWordsWithOffset_021ccbdc(int unused0, unsigned char* obj, GameState* battleStruct) {
 	unsigned char* src = obj + 4;
 	unsigned short id = *(unsigned short*)(src + 0xc);
-	struct CombatantStruct* c = GetCombatantWithFlag0x100(battleStruct, id);
+	GameObject* c = GetCombatantWithFlag0x100(battleStruct, id);
 	if (!c) return;
 	unsigned char* base = (unsigned char*)GetFieldAt0x150((unsigned char*)c);
 	if (!base) return;

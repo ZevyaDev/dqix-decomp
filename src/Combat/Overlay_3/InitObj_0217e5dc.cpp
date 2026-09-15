@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetGlobalField0x1c020421a0(void);
 
@@ -21,7 +21,7 @@ struct Obj0217e5dc {
 
 // USA: func_ov003_0217e5dc
 ARM void InitObj_0217e5dc(struct Obj0217e5dc* self, signed char flag) {
-	GetBattleStruct();
+	GameState::GetInstance();
 	int* g = (int*)(int)GetGlobalField0x1c020421a0();
 	if (*(int*)((char*)g + 0x998) != 0) {
 		ReinitController02043204((char*)g);

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
@@ -21,7 +21,7 @@ extern "C" ARM int func_ov004_0216d5b0(void* obj) {
     if (ScaleStatsIfType12_021f6f10(node) != 4) return 0;
 
     struct TableA68* table = (struct TableA68*)func_ov023_021fa598(node);
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     int g = GetGlobalField0x1c020421a0();
 
     if (func_020abb64() == 0) {

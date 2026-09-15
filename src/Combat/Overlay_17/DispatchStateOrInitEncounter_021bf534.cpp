@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 void SetByteField0x253(void* obj);
 extern "C" void func_ov017_021bf490(void*);
 int GetGlobalField0x1c020421a0();
@@ -21,9 +20,9 @@ struct Obj_021bf534 {
 
 // USA: func_ov017_021bf534  (semantic: DispatchStateOrInitEncounter_021bf534)
 extern "C" ARM void func_ov017_021bf534(struct Obj_021bf534* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(battleStruct);
-    Struct_ov017_44C8* ov = func_ov017_0218b5b0();
+    GameState* battleStruct = GameState::GetInstance();
+    GameObject* combatant = battleStruct->GetUnknownGameObject();
+    GameResources* ov = func_ov017_0218b5b0();
     if (ov) {
         CallIfField498_0218d5ac(ov);
     }

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetWord0x0(int* obj);
 int DispatchByMode77c_021ddbb8(void* obj, int a, int b);
@@ -10,7 +10,7 @@ extern "C" void func_ov023_021dbfd0(void* a, void* b);
 
 // USA: func_ov023_021dc9e8  (semantic: DispatchAndResetSlots_021dc9e8)
 extern "C" ARM void func_ov023_021dc9e8(void* obj, void* arg1, int arg2, int arg3, unsigned short arg5) {
-    GetWord0x0((int*)GetBattleStruct());
+    GetWord0x0((int*)GameState::GetInstance());
     DispatchByMode77c_021ddbb8(obj, -16, 1);
 
     ResetIfNonNeg_021db2e4((volatile int*)((char*)obj + 0x734));

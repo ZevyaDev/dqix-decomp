@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 
 struct Target02059f38;
 struct Vec3_02059f38;
@@ -9,7 +8,6 @@ void CopyVec3ToField0x44(struct Target02059f38* dst, struct Vec3_02059f38* src);
 
 struct FixedVec3_2034;
 struct FixedMtx3T_2034;
-extern "C" void Mat4x3_ApplyToVector(struct FixedVec3_2034* v, struct FixedMtx3T_2034* m, struct FixedVec3_2034* out);
 
 extern "C" void* _ZN12RenderConfig20GetInverseViewMatrixEv(void);
 
@@ -38,8 +36,8 @@ extern "C" ARM void func_02059f54(unsigned char* p, int combatantId) {
         return;
     }
 
-    struct BattleStruct* bs = GetBattleStruct();
-    if (GetCombatantUnchecked(bs, combatantId) == 0) {
+    GameState* bs = GameState::GetInstance();
+    if (bs->GetGameObjectByIndex(combatantId) == 0) {
         return;
     }
 
@@ -49,7 +47,7 @@ extern "C" ARM void func_02059f54(unsigned char* p, int combatantId) {
     if (flags->bit3) {
         struct Vec3_02059f54 vec = *(struct Vec3_02059f54*)(p + 0x44);
         void* m = _ZN12RenderConfig20GetInverseViewMatrixEv();
-        Mat4x3_ApplyToVector((struct FixedVec3_2034*)&vec, (struct FixedMtx3T_2034*)m, (struct FixedVec3_2034*)&vec);
+        Mat4x3_ApplyToVector((const Vector3fix*)((struct FixedVec3_2034*)&vec), (const Matrix4x3*)((struct FixedMtx3T_2034*)m), (Vector3fix*)((struct FixedVec3_2034*)&vec));
         CopyVec3ToField0x44((struct Target02059f38*)p, (struct Vec3_02059f38*)&vec);
     }
 

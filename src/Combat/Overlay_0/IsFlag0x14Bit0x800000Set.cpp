@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 // USA: func_ov000_02157cc4
-ARM int IsFlag0x14Bit0x800000Set(struct CombatantStruct* combatant) {
-    return (*(unsigned int*)(combatant->currentStats->unk1 + 0) & 0x800000) != 0;
+ARM int IsFlag0x14Bit0x800000Set(GameObject* combatant) {
+    return (*(unsigned int*)(combatant->currentStats_->unk1 + 0) & 0x800000) != 0;
 }

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 // USA: func_020100a0
-ARM void SetField0x3acValue(struct BattleStruct* battleStruct, int value) {
+ARM void SetField0x3acValue(GameState* battleStruct, int value) {
     *(int*)((char*)battleStruct + 0x3ac) = value;
 }

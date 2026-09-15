@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 
 struct Sub0x150_020685cc {
     char pad[0x49c];
@@ -9,8 +8,8 @@ struct Sub0x150_020685cc {
 };
 
 // USA: func_020685cc
-ARM int GetBit0x49cOfField0x397cCombatant(struct BattleStruct* battleStruct) {
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(battleStruct);
+ARM int GetBit0x49cOfField0x397cCombatant(GameState* battleStruct) {
+    GameObject* combatant = battleStruct->GetUnknownGameObject();
     if (combatant != 0) {
         struct Sub0x150_020685cc* sub = *(struct Sub0x150_020685cc**)((char*)combatant + 0x150);
         return sub->bit0;

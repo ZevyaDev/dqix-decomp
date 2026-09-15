@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 extern "C" int _ZN7Model3D7GetTEX0Ev(void* obj);
 void DelayThenSyncBit0(void);
 extern "C" void _Z23StageTexFilePaletteDataPV8NSBXXTexb(int a, int b);
@@ -19,7 +18,7 @@ extern "C" ARM void func_ov017_0218f80c(void* obj, int idx) {
         DelayThenSyncBit0();
     }
 
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
 
     struct SlotIdTable_0218f80c table = data_ov017_021d61fc;
     int base = idx * 12;
@@ -37,7 +36,7 @@ extern "C" ARM void func_ov017_0218f80c(void* obj, int idx) {
 
     int i;
     for (i = 0; table.v[i] > -1; i++) {
-        struct CombatantStruct* combatant = GetCombatantUnchecked(battleStruct, table.v[i]);
+        GameObject* combatant = battleStruct->GetGameObjectByIndex(table.v[i]);
         if (combatant == NULL) {
             continue;
         }

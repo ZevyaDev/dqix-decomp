@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Obj374b0;
 extern "C" void* _ZN8Object3D25GetCurrentAnimationConfigEv(struct Obj374b0* obj);
@@ -8,7 +8,6 @@ struct List_020347b4;
 struct Entry_020347b4;
 extern "C" Entry_020347b4* _ZN4BCFG18GetAnimationRecordEi(List_020347b4* list, int index);
 
-int GetField0x3b4Value(struct BattleStruct* battleStruct);
 
 extern "C" void func_0208e0a8(void);
 extern "C" void* func_0202ae18(void);
@@ -44,7 +43,7 @@ struct Entry0208ec78 {
 
 // USA: func_0208ec78
 extern "C" ARM void func_0208ec78(struct Param0208ec78* p0) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     func_0208e0a8();
     void* g;
     char* r;
@@ -57,7 +56,7 @@ extern "C" ARM void func_0208ec78(struct Param0208ec78* p0) {
             Entry_020347b4* rate = _ZN4BCFG18GetAnimationRecordEi((List_020347b4*)field4, 0);
             if (rate != 0) {
                 r = (char*)rate;
-                int ifixed = (int)(4096.0f * ((float)(unsigned int)GetField0x3b4Value(bs) / 16.666666f));
+                int ifixed = (int)(4096.0f * ((float)(unsigned int)bs->GetEffectiveDeltaTime() / 16.666666f));
                 int rateVal = *(int*)(r + 0x18);
                 int delta = (int)(((long long)rateVal * ifixed + 0x800) >> 12);
                 struct Node0208ec78* node = p0->fieldC;
@@ -76,7 +75,7 @@ extern "C" ARM void func_0208ec78(struct Param0208ec78* p0) {
         return;
     }
 
-    p0->accum = p0->accum + (float)(unsigned int)GetField0x3b4Value(bs) / 1000.0f;
+    p0->accum = p0->accum + (float)(unsigned int)bs->GetEffectiveDeltaTime() / 1000.0f;
     if (p0->accum < 60.0f) {
         if (p0->id == 0) return;
     }

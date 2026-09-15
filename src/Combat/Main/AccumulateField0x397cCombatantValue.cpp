@@ -1,17 +1,15 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
-extern "C" int sprintf(int value, void* src);
 
 // USA: func_02069158
 ARM void AccumulateField0x397cCombatantValue(void* unused, int* accum) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(battleStruct);
+    GameState* battleStruct = GameState::GetInstance();
+    GameObject* combatant = battleStruct->GetUnknownGameObject();
     void* stats;
     if (combatant == NULL) {
         return;
     }
-    stats = *(void* volatile*)&combatant->baseStats;
-    *accum += sprintf(*accum, stats);
+    stats = *(void* volatile*)&combatant->baseStats_;
+    *accum += sprintf((char*)(*accum), (const char*)stats);
 }

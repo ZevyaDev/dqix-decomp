@@ -1,11 +1,10 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct ByteHeader0204693c;
 void ResetByteHeader(struct ByteHeader0204693c* p);
 void InitBigStruct0205c790(char* obj);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 unsigned char GetByteField0x252(void* obj);
 
 // USA: func_ov017_021af59c  (semantic: InitStruct_021af59c)
@@ -32,7 +31,7 @@ extern "C" ARM void func_ov017_021af59c(char* obj) {
     obj[0x42] = 0;
     InitBigStruct0205c790(obj + 0x48);
     *(int*)(obj + 0x280) = (*(unsigned int*)0x4000000 & 0x1f00) >> 8;
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(GetBattleStruct());
+    GameObject* combatant = GameState::GetInstance()->GetUnknownGameObject();
     if (combatant != 0) {
         obj[0x284] = GetByteField0x252(combatant) != 0 ? 1 : 0;
     } else {

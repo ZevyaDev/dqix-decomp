@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 unsigned char GetByte0x4(char* obj);
 extern "C" void MapVRAMBanksToTextureImage(int a);
@@ -8,7 +8,7 @@ void InitGlobalStateAndInstallHandlers020bb780(void* value, int installHandlers)
 
 // USA: func_ov017_0218d274
 ARM void ConfigureModeByByte_0218d274_0218d274(void) {
-	if (GetByte0x4((char*)GetBattleStruct()) == 6) {
+	if (GetByte0x4((char*)GameState::GetInstance()) == 6) {
 		MapVRAMBanksToTextureImage(3);
 		ConfigurePairMode020bb48c(2, 1);
 	} else {

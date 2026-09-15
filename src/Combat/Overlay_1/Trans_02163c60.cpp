@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-extern "C" unsigned int _Z15GetBattleStructv();
 extern "C" unsigned int _Z19GetFieldPtrAt0x5ca4Pv(unsigned int);
 extern "C" unsigned int _Z22ResetBigStruct02013750Pvi(unsigned int, unsigned int);
 extern "C" unsigned int _Z26CopyInternalFields0207df50P11Foo0207df50(unsigned int);
@@ -14,7 +14,7 @@ extern "C" ARM unsigned int func_ov001_02163c60(unsigned int r0, unsigned int r1
     unsigned int r4 = 0;
     unsigned int r5 = 0;
     unsigned int r6 = 0;
-    r0 = (unsigned int)_Z15GetBattleStructv();
+    r0 = (unsigned int)GameState::GetInstance();
     r4 = r0;
     r0 = (unsigned int)func_02012fe4();
     r5 = r0;

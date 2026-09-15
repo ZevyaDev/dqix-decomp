@@ -1,9 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetData02100044(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
-struct CombatantStruct* GetCombatantWithFlag0x20(struct BattleStruct* battleStruct, int combatantId);
 
 struct Vec3s02030fc8;
 extern "C" void _Z16Vector3fix16CopyP8Vector3sPKS_(struct Vec3s02030fc8* dst, struct Vec3s02030fc8* src);
@@ -34,7 +33,7 @@ extern "C" ARM void func_ov017_021d360c(int a, int b, int c, int d) {
         if (le3) goto sendEvent;
     }
     {
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x20(GetBattleStruct(), c);
+        GameObject* combatant = GameState::GetInstance()->GetMaybeFieldMonsterByIndex(c);
         if (combatant == 0) return;
         unsigned short v = *(unsigned short*)((char*)combatant + 0x100 + 0x6a);
         c = (unsigned short)(v + 4);

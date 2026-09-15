@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void SetField5cb0AndRecordByte0(char* obj, int v);
 void SetField5cb4AndRecordByte1(char* obj, int v);
@@ -29,7 +29,7 @@ ARM void ClassifyPriceCategoryAndNotifyBattle(unsigned char* table, int price) {
         table[0x332] = 0;
         entry = table;
     }
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     SetField5cb0AndRecordByte0((char*)bs, entry[0]);
     SetField5cb4AndRecordByte1((char*)bs, entry[1]);
     SetSlotByte020107dc((char*)bs, entry[2]);

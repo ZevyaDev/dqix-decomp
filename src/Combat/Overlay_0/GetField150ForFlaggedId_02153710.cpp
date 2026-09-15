@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetFieldAt0x150(unsigned char* obj);
 
@@ -7,7 +7,7 @@ int GetFieldAt0x150(unsigned char* obj);
 extern "C" ARM int func_ov000_02153710(int unused, int id) {
     int inRange = id >= 0 && id <= 3;
     if (!inRange) return 0;
-    struct CombatantStruct* c = GetCombatantWithFlag0x100(GetBattleStruct(), id);
+    GameObject* c = GetCombatantWithFlag0x100(GameState::GetInstance(), id);
     if (c == 0) return 0;
     return GetFieldAt0x150((unsigned char*)c);
 }

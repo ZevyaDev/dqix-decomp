@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov000_021537b8(char* self, short id, void* rec);
 void* GetData02108e10(void);
-int IsFlag0x14Bit0x20Set(struct CombatantStruct* combatant);
+int IsFlag0x14Bit0x20Set(GameObject* combatant);
 void* SearchBothTables02079e2c(char* p, int key);
 
 // USA: func_ov000_0215f110
@@ -14,8 +14,8 @@ ARM void ProcessCombatEntries_0215f110(char* self) {
     while (i < *(int*)(selfP + 0x8000 + 0xe7c)) {
         char* rec = (char*)(*(int**)(selfP + 0x8000 + 0xe78)) + i * 0x28;
         short id = *(short*)((char*)(*(void**)(rec + 0x10)) + 0x20);
-        struct BattleStruct* bs = GetBattleStruct();
-        struct CombatantStruct* c = GetCombatantFromList(bs, id);
+        GameState* bs = GameState::GetInstance();
+        GameObject* c = bs->GetCombatantByIndex(id);
         if (c == NULL) {
             return;
         }

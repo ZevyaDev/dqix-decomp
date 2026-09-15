@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetFieldAt0x150(unsigned char* obj);
 
@@ -11,8 +11,8 @@ extern "C" ARM int func_ov024_021da404(int a, int id, int b, int c, int d, int f
 	if (!valid) {
 		return fallback;
 	}
-	struct BattleStruct* battleStruct = GetBattleStruct();
-	struct CombatantStruct* combatant = GetCombatantWithFlag0x100(battleStruct, id);
+	GameState* battleStruct = GameState::GetInstance();
+	GameObject* combatant = GetCombatantWithFlag0x100(battleStruct, id);
 	if (!combatant) {
 		return fallback;
 	}

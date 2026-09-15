@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 void FilterSlotsWithFlag0x800020dc4d0(signed char* out, signed char* outCount);
 struct Obj02061bd8;
 int CheckField0x56bLowNibble(struct Obj02061bd8* obj);
@@ -21,7 +20,7 @@ extern "C" int func_ov002_02159774(void* base, int id, int a2, int a3, int a4);
 extern "C" ARM void func_ov002_0215e250(unsigned char* base, char* dst, int flag) {
     if (dst == NULL) return;
 
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int cursor = *(short*)(base + 0x1bf6);
 
     signed char idArr[7];
@@ -30,7 +29,7 @@ extern "C" ARM void func_ov002_0215e250(unsigned char* base, char* dst, int flag
 
     signed char matched = 0;
     for (int i = 0; i < count; i++) {
-        struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, idArr[i]);
+        GameObject* c = GetCombatantWithFlag0x100(bs, idArr[i]);
         if (c != NULL) {
             if (CheckField0x56bLowNibble((struct Obj02061bd8*)c) != 0) {
                 matched++;
@@ -49,17 +48,17 @@ extern "C" ARM void func_ov002_0215e250(unsigned char* base, char* dst, int flag
     AppendFormatted02041fac(dst, field, 0x16);
 
     for (int i2 = 0; i2 < count; i2++) {
-        struct CombatantStruct* c800 = GetCombatantWithFlag0x800(bs, idArr[idx]);
+        GameObject* c800 = bs->GetPartyMemberByIndex(idArr[idx]);
         if (c800 != NULL) {
-            struct CombatantStruct* c100 = GetCombatantWithFlag0x100(bs, idArr[idx]);
+            GameObject* c100 = GetCombatantWithFlag0x100(bs, idArr[idx]);
             if (CheckField0x56bLowNibble((struct Obj02061bd8*)c100) != 0) {
                 for (int attempt = 0; attempt < 4; attempt++) {
                     idx = (idx + 1) % 4;
                     if (idx == 0) break;
-                    struct CombatantStruct* c3 = GetCombatantWithFlag0x100(bs, idArr[idx]);
+                    GameObject* c3 = GetCombatantWithFlag0x100(bs, idArr[idx]);
                     if (c3 == NULL) continue;
                     if (CheckField0x56bLowNibble((struct Obj02061bd8*)c3) != 0) continue;
-                    GetCombatantWithFlag0x800(bs, idArr[idx]);
+                    bs->GetPartyMemberByIndex(idArr[idx]);
                     break;
                 }
             }

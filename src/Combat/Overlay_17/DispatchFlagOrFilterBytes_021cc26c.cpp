@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov017_021b8478(void* obj);
 int CheckSubstructByte0x7cPositive(signed char* obj);
@@ -18,10 +18,10 @@ struct Src021cc26c {
 };
 
 // USA: func_ov017_021cc26c
-ARM void DispatchFlagOrFilterBytes_021cc26c(int unused0, Src021cc26c* src, struct BattleStruct* battleStruct, unsigned char* base) {
+ARM void DispatchFlagOrFilterBytes_021cc26c(int unused0, Src021cc26c* src, GameState* battleStruct, unsigned char* base) {
     int id = src->id;
     int len = src->len;
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(battleStruct, id);
+    GameObject* combatant = GetCombatantWithFlag0x100(battleStruct, id);
     if (combatant == NULL) return;
 
     if (src->flag != 0) {

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Variant02030b0c;
 extern "C" int _ZNK6Script9Parameter5ToIntEv(Variant02030b0c*);
@@ -13,7 +13,7 @@ extern Entry02108ff4 data_02108ff4[];
 
 // USA: func_0208e2c0  (semantic: StoreVariantTriple0208e2c0)
 extern "C" ARM int func_0208e2c0(char* v) {
-    unsigned char* battleField = (unsigned char*)GetBattleStruct();
+    unsigned char* battleField = (unsigned char*)GameState::GetInstance();
     Entry02108ff4* table = data_02108ff4;
     int idRaw = _ZNK6Script9Parameter5ToIntEv((Variant02030b0c*)v);
     v += 8;

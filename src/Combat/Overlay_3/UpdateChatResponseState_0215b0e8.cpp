@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 extern "C" void* _Z26GetGlobalField0x1c020421a0v(void);
@@ -14,7 +14,7 @@ extern unsigned char data_02109bf4;
 // USA: func_ov003_0215b0e8
 ARM void UpdateChatResponseState_0215b0e8(void* self) {
     unsigned char* s = (unsigned char*)self;
-    GetBattleStruct();
+    GameState::GetInstance();
     unsigned char* g = (unsigned char*)_Z26GetGlobalField0x1c020421a0v();
     unsigned char state = *(unsigned char*)(s + 0x580);
 

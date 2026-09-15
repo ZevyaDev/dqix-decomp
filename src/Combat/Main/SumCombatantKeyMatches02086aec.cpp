@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Obj02086aec {
     char pad[0xf78];
@@ -21,15 +21,15 @@ short SumKeyedLookups02086bf4(char* obj, int key);
 // USA: func_02086aec
 ARM short SumCombatantKeyMatches02086aec(struct Obj02086aec* obj, int key) {
     short acc;
-    struct BattleStruct* bs;
+    GameState* bs;
     unsigned char i;
-    struct CombatantStruct* c;
+    GameObject* c;
     void* x;
     if (key < 0) {
         return 0;
     }
     acc = 0;
-    bs = GetBattleStruct();
+    bs = GameState::GetInstance();
     for (i = 0; i < obj->count; i++) {
         c = GetCombatantWithFlag0x100(bs, obj->ids[i]);
         if (c != NULL) {

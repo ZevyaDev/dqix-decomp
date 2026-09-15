@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct SearchStruct;
 
@@ -11,9 +11,9 @@ struct Group021cc388 {
 	unsigned char kinds[3];
 };
 
-int GetField0x3acValue(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantWithFlag0x1000(struct BattleStruct* battleStruct, int combatantId);
-struct CombatantStruct* GetCombatantWithFlag0x200(struct BattleStruct* battleStruct, int combatantId);
+int GetField0x3acValue(GameState* battleStruct);
+GameObject* GetCombatantWithFlag0x1000(GameState* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x200(GameState* battleStruct, int combatantId);
 
 extern "C" void func_ov017_02190264(unsigned char* ov, int combatantId);
 extern "C" void func_ov017_021905b8(unsigned char* ov, int combatantId, int mode);
@@ -25,7 +25,7 @@ extern "C" ARM void _Z14SetBit020263b0Phj(unsigned char* bits, unsigned int inde
 extern "C" void func_0202c288(struct SearchStruct* search);
 
 // USA: func_ov017_021cc388  (semantic: EnqueueGroupEventsAndSetBits_021cc388)
-extern "C" ARM void func_ov017_021cc388(int tag, Group021cc388* group, struct BattleStruct* battleStruct,
+extern "C" ARM void func_ov017_021cc388(int tag, Group021cc388* group, GameState* battleStruct,
                                         unsigned char* ov, struct SearchStruct* search) {
 	if (group->ownerId >= 0) {
 		if (group->ownerId != GetField0x3acValue(battleStruct)) return;

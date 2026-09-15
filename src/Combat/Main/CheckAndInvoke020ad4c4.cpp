@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 struct ListHead02046b60;
 extern int ListContainsId(struct ListHead02046b60* list, int id);
 extern int GetField5cb0Value(char* obj);
@@ -13,8 +12,8 @@ struct Obj020ad4c4 {
 
 // USA: func_020ad4c4
 ARM int CheckAndInvoke020ad4c4(struct Obj020ad4c4* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    int base = func_ov017_0218b5b0();
+    GameState* battleStruct = GameState::GetInstance();
+    int base = ((int)func_ov017_0218b5b0());
     struct ListHead02046b60* list = *(struct ListHead02046b60**)(base + 0x36fc);
     if (ListContainsId(list, 4)) {
         return 0;

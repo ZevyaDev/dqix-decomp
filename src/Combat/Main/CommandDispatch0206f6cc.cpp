@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetWord0x0(int* obj);
 extern "C" void func_ov017_021bac24(int obj);
@@ -18,7 +18,7 @@ ARM int CommandDispatch0206f6cc(unsigned char* p, int idx) {
         return 1;
     }
 
-    int ctx = GetWord0x0((int*)GetBattleStruct());
+    int ctx = GetWord0x0((int*)GameState::GetInstance());
     unsigned char cmd = p[idx];
     switch (cmd) {
         case 1: func_ov017_021bac24(ctx); break;

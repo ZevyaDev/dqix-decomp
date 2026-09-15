@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetDataPtr02114e04_020d6c00(void);
 struct FlagWord02046708;
@@ -8,7 +8,7 @@ int TestFlags02046708(struct FlagWord02046708* word, unsigned int mask);
 extern "C" void func_0205308c(void* obj, int val);
 extern "C" void func_ov017_021cc1f8(int a, void* buf, int len, int extra);
 
-unsigned char GetField0x397cValue(struct BattleStruct* battleStruct);
+unsigned char GetField0x397cValue(GameState* battleStruct);
 int GetFieldIfFlag4(char* obj);
 
 struct S020a2c70;
@@ -37,7 +37,7 @@ struct Obj02052e44 {
 ARM int InitFieldsIfInRange02052e44(struct Obj02052e44* obj, signed char arg1, int arg2, int arg3) {
     signed char idx;
     signed char val;
-    struct BattleStruct* battleStruct;
+    GameState* battleStruct;
 
     if (TestFlags02046708((struct FlagWord02046708*)GetDataPtr02114e04_020d6c00(), 2)) {
         return 0;
@@ -77,10 +77,10 @@ ARM int InitFieldsIfInRange02052e44(struct Obj02052e44* obj, signed char arg1, i
 
     {
         short field4;
-        battleStruct = GetBattleStruct();
+        battleStruct = GameState::GetInstance();
         field4 = obj->field4;
         obj = (struct Obj02052e44*)battleStruct;
-        unsigned char cur = GetField0x397cValue((struct BattleStruct*)obj);
+        unsigned char cur = GetField0x397cValue((GameState*)obj);
         if (cur == field4) {
             int r = GetFieldIfFlag4((char*)obj);
             if (r != 0) {

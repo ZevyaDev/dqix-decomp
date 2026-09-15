@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetFieldAt0x150(unsigned char* obj);
 struct Slots02083994;
@@ -10,7 +10,7 @@ extern "C" short func_0207c7a0(void* map, int key, int amount);
 
 // USA: func_02086c4c
 ARM short DispatchBySelector02086c4c(unsigned char* self, int selector, int key) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     short result = 0;
     int take;
     if (selector < 0) {
@@ -24,7 +24,7 @@ zero:
     take = 0;
 after:
     if (take) {
-        struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, selector);
+        GameObject* c = GetCombatantWithFlag0x100(bs, selector);
         if (c == NULL) {
             return 0;
         }

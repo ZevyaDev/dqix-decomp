@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* _Z26GetGlobalField0x1c020421a0v(void);
-extern "C" int _Z13IsField3dcSetP10S_020103b4(void*);
+extern "C" int _ZNK9GameState21IsMorningDayOrEveningEv(void*);
 extern "C" void* _Z21GetFieldByKey020e0434P17Container020e0310i(void*, int);
 extern "C" void _Z20AppendString02042058PcPKc(char*, const char*);
 extern "C" void _Z17SetElementFieldC2P15Struct_0205d81cii(void*, int, int);
@@ -20,7 +20,7 @@ ARM void UpdateHandshakeState_02159b20(void* self) {
     if (state == 0) {
         if (*(unsigned char*)(s + 0x59d) != 0) return;
 
-        int isSet = _Z13IsField3dcSetP10S_020103b4((void*)GetBattleStruct());
+        int isSet = _ZNK9GameState21IsMorningDayOrEveningEv((void*)GameState::GetInstance());
         int key = 0x3e8;
         if (!isSet) key += 1;
         void* val = _Z21GetFieldByKey020e0434P17Container020e0310i(s + 0x64, key);

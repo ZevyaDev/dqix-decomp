@@ -1,7 +1,7 @@
 #include "World/LootableContainer.h"
 #include "Resource/Script.h"
-#include "Grotto/Overlay_17/Struct44C8.h"
-#include "Combat/Main/BattleList.h"
+#include "Resource/GameResources.h"
+#include "GameState/GameState.h"
 #include "Filesystem/FileIO.h"
 
 #ifdef jpn
@@ -144,7 +144,7 @@ static Script::OpcodeLookupEntry s_zoneContainerOpcodes[] = {
 void LootableContainerManager::LoadZoneContainers(const void *treasureArchive,
     unsigned int archiveLength, const char *zoneName, SafeAllocator *alloc)
 {
-    (void)GetBattleStruct();
+    (void)GameState::GetInstance();
     char scriptFilename[20];
     sprintf(scriptFilename, "%s.bin", zoneName);
     const void* scriptFile;
@@ -152,18 +152,18 @@ void LootableContainerManager::LoadZoneContainers(const void *treasureArchive,
     if (!GetFileInNarcPermissive(treasureArchive, scriptFilename, &scriptFile, &scriptFileLength))
         return;
     data_02108e78.manager = this;
-    Struct_ov017_44C8* ov17thing = func_ov017_0218b5b0();
+    GameResources* resources = func_ov017_0218b5b0();
 
     if (alloc != NULL)
         data_02108e78.allocator = alloc;
     else
-        data_02108e78.allocator = &ov17thing->lootableContainerAllocator_18c_;
+        data_02108e78.allocator = &resources->lootableContainerAllocator_18c_;
     Script runner;
     runner.Initialize();
     runner.SetOpcodeLookup(s_zoneContainerOpcodes);
     runner.Load(scriptFile, scriptFileLength);
     runner.Execute();
-    data_02108e78.allocator = &ov17thing->lootableContainerAllocator_18c_;
+    data_02108e78.allocator = &resources->lootableContainerAllocator_18c_;
 
     char allocationBuffer[0x400];
     SafeAllocator tempAlloc;

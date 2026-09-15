@@ -1,10 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "Util/Random.h"
 
 extern "C" int func_ov000_0215eb1c(int a0, short* buf, int count, int flag);
-int IsCombatantFlagMask512_021eda60(struct CombatantStruct* combatant);
+int IsCombatantFlagMask512_021eda60(GameObject* combatant);
 int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
 
 struct Obj_021eef68 { int field0; };
@@ -19,10 +19,10 @@ extern "C" ARM int func_ov024_021eef68(struct Obj_021eef68* obj, int unused1, in
 
     *outCount = 0;
     for (int i = 0; i < count; i++) {
-        struct CombatantStruct* c = GetCombatantByID(obj->field0, buf.v[i]);
+        GameObject* c = GetCombatantByID(obj->field0, buf.v[i]);
         if (!c) continue;
-        if (c->currentStats->primaryStats.defense >= 0xffff) continue;
-        if (c->currentStats->defenseBuff >= 2) continue;
+        if (c->currentStats_->primaryStats.defense >= 0xffff) continue;
+        if (c->currentStats_->defenseBuff >= 2) continue;
         if (IsCombatantFlagMask512_021eda60(c)) continue;
         int idx = *outCount;
         *outCount = idx + 1;

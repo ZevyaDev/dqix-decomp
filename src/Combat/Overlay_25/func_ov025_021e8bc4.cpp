@@ -1,15 +1,14 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_02057924(void);
 extern "C" void func_02057f00(void* obj, int value);
 void* GetActiveCombatWork(void);
 extern "C" void* func_ov000_02160f14(void* obj);
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
-void SetField0x3b0Value(struct BattleStruct* battleStruct, int value);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
-void ClearCombatantSlot(struct BattleStruct* battleStruct, int id);
+int GetField0x3b0Value(GameState* battleStruct);
+void SetField0x3b0Value(GameState* battleStruct, int value);
+void ClearCombatantSlot(GameState* battleStruct, int id);
 extern "C" void _ZN8Object3D7DestroyEv(unsigned char* obj);
 struct Container02037364;
 extern "C" void _ZN8Object3D26RemoveAnimationPackageByIDEi(struct Container02037364* obj, int key);
@@ -33,7 +32,7 @@ struct Obj021e8bc4 {
 extern "C" ARM void func_ov025_021e8bc4(struct Obj021e8bc4* obj, int priority) {
     if (!obj->head) return;
 
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     void* g = func_02057924();
     GetField0x3b0Value(battle);
 
@@ -41,7 +40,7 @@ extern "C" ARM void func_ov025_021e8bc4(struct Obj021e8bc4* obj, int priority) {
     while (node != 0 && priority <= node->priority) {
         switch (node->type) {
         case 0: {
-            struct CombatantStruct* combatant = GetCombatantUnchecked(battle, node->id2);
+            GameObject* combatant = battle->GetGameObjectByIndex(node->id2);
             if (combatant) {
                 char* name = *(char**)((char*)combatant + 0x14);
                 char buf[0x28];
@@ -61,7 +60,7 @@ extern "C" ARM void func_ov025_021e8bc4(struct Obj021e8bc4* obj, int priority) {
             SetField0x3b0Value(battle, (int)func_ov000_02160f14(GetActiveCombatWork()));
             break;
         case 4: {
-            struct CombatantStruct* combatant = GetCombatantUnchecked(battle, node->id2);
+            GameObject* combatant = battle->GetGameObjectByIndex(node->id2);
             if (combatant) {
                 _ZN8Object3D7DestroyEv((unsigned char*)combatant);
                 ClearCombatantSlot(battle, node->id2);

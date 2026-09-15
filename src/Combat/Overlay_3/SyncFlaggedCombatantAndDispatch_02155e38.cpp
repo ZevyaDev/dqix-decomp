@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 extern "C" void func_02083cbc(void* a, void* obj, void* tail);
 extern "C" void func_02083e28(void* a, int arg2);
@@ -16,9 +15,9 @@ extern "C" void func_ov017_021c9e00(int id, int flagA, int flagB, int flagC);
 // USA: func_ov003_02155e38  (semantic: SyncFlaggedCombatantAndDispatch_02155e38)
 extern "C" ARM void func_ov003_02155e38(void* p) {
     char* obj = (char*)p;
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     signed char idx = *(signed char*)(obj + 0x1f7);
-    struct CombatantStruct* c = GetCombatantWithFlag0x800(bs, idx);
+    GameObject* c = bs->GetPartyMemberByIndex(idx);
     if (c == 0) {
         return;
     }

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Graphics/LightingManager.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-void* GetField0x3f8Address(struct BattleStruct* battleStruct);
+void* GetField0x3f8Address(GameState* battleStruct);
 struct SearchStruct0202c1a4;
 signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
 extern "C" void* func_0205ec34(void);
@@ -23,7 +23,7 @@ struct Evt021c51c0 {
 };
 
 // USA: func_ov017_021c51c0  (semantic: ApplyEvt021c51c0)
-extern "C" ARM void func_ov017_021c51c0(int flag, Evt021c51c0* evt, struct BattleStruct* battleStruct, unsigned char* obj, struct SearchStruct0202c1a4* search) {
+extern "C" ARM void func_ov017_021c51c0(int flag, Evt021c51c0* evt, GameState* battleStruct, unsigned char* obj, struct SearchStruct0202c1a4* search) {
 	unsigned char* base = obj + 0x3000;
 	void* h = *(void**)(base + 0x70c);
 	void* ctx = GetField0x3f8Address(battleStruct);

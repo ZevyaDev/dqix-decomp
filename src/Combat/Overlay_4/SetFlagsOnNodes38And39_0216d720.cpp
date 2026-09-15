@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void** func_ov011_021849c8(void* obj);
 extern "C" void func_ov011_021848a0(void* obj, int val);
@@ -25,7 +25,7 @@ extern "C" VNode0216d720* func_ov023_021f6880(void** list, int value);
 
 // USA: func_ov004_0216d720  (semantic: SetFlagsOnNodes38And39_0216d720)
 extern "C" ARM int func_ov004_0216d720(void* a0) {
-    GetBattleStruct();
+    GameState::GetInstance();
     VNode0216d720* node = func_ov023_021f6880(func_ov011_021849c8(a0), 0x38);
     if (node) {
         node->Method44(0);

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct TagValueEntry020e385c {
     unsigned int val;
@@ -23,7 +23,7 @@ ARM void RegisterTaggedEntryAndNotifyOverlay020e392c(struct TagValueEntry020e385
     if (FindEntryByTagAndValue(table, tag, val) != NULL) return;
     struct Entry020e3840* entry = FindFreeEntryAndReset020e38a0((struct Entry020e3840*)table);
     if (entry == NULL) return;
-    GetBattleStruct();
+    GameState::GetInstance();
     entry->f4 = tag & 0xff;
     entry->f0 = val;
     func_ov017_021cebcc(3, tag & 0xff, val);

@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 int GetField4340_021bdbe4(unsigned char* base);
 int GetField433c_021bdbd8(unsigned char* base);
 extern "C" void func_ov023_021e5628(void* addr, void* pair);
@@ -10,7 +9,7 @@ struct Pair021e3084 { int a; int b; };
 
 // USA: func_ov023_021e3084  (semantic: DecrementCounterAndDispatchPair_021e3084)
 extern "C" ARM void func_ov023_021e3084(void* obj) {
-    GetBattleStruct();
+    GameState::GetInstance();
 
     if (*(int*)((char*)obj + 0x134) > 0) {
         if (--*(int*)((char*)obj + 0x134) == 0) {
@@ -22,7 +21,7 @@ extern "C" ARM void func_ov023_021e3084(void* obj) {
         return;
     }
 
-    int h = func_ov017_0218b5b0();
+    int h = ((int)func_ov017_0218b5b0());
     Pair021e3084 p;
     if (h == 0) {
         p.b = 0;

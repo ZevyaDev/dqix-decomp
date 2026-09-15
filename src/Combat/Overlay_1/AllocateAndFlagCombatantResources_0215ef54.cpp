@@ -1,13 +1,12 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
 extern "C" void* func_ov017_021d612c(void* obj);
 extern "C" int func_ov017_021d60f4(void* a);
 int AbsPlus159IfNegative0215ad2c(int x);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 
 struct SearchObj0202ff34;
 
@@ -26,7 +25,7 @@ extern "C" ARM int func_ov001_0215ef54(char* obj, int count) {
     void* rawArg = obj;
     obj += 0x8;
     void* field4 = func_ov017_021d612c(rawArg);
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     if (battle == 0) return 0;
 
     char buf[0x20];
@@ -50,7 +49,7 @@ extern "C" ARM int func_ov001_0215ef54(char* obj, int count) {
         int t = func_ov017_021d60f4(obj);
         obj += 0x8;
         int idx = AbsPlus159IfNegative0215ad2c(t);
-        struct CombatantStruct* combatant = GetCombatantUnchecked(battle, idx);
+        GameObject* combatant = battle->GetGameObjectByIndex(idx);
         if (combatant != 0 && *(void**)((char*)combatant + 0x8) != 0) {
             _ZN7Model3D22ApplyTexturesFromModelEPS_(*(void**)((char*)combatant + 0x8), newBuf);
         }

@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x2(struct BattleStruct* battleStruct, int combatantId);
 extern "C" int _ZNK8Object3D9IsVisibleEv(unsigned char* obj);
 struct List_02028430;
 struct ListEntry_02028430;
@@ -14,14 +13,14 @@ struct KindField02073d58 {
 
 // USA: func_02073d58
 ARM int CheckAnySlotMatchesId02073d58(int a, void* b, int c) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int i;
     for (i = 0; i < 0xc; i++) {
         int kind = ((struct KindField02073d58*)((char*)b + 2))->kind;
         int tmp = kind * 12 + 0x70;
         int id = i + tmp;
         if (c != -1 && id == c) continue;
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x2(bs, id);
+        GameObject* combatant = bs->GetMaybeWanderingMonsterByIndex(id);
         if (!combatant) continue;
         if (!_ZNK8Object3D9IsVisibleEv((unsigned char*)combatant)) continue;
         unsigned short field_b8 = *(unsigned short*)((char*)combatant + 0xb8);

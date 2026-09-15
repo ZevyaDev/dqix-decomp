@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int CalculateAge(int birthYear, int birthMonth, int birthDay);
 
@@ -12,7 +12,7 @@ extern "C" ARM void func_ov023_021e61f4(void* obj) {
     char* base = (char*)obj;
     *(unsigned char*)(base + 0x13ab) = 0;
 
-    GetBattleStruct();
+    GameState::GetInstance();
 
     int age = CalculateAge(*(unsigned short*)(base + 0x13fc), *(unsigned char*)(base + 0x13fe), *(unsigned char*)(base + 0x13ff));
     if (age < 0x82) *(unsigned char*)(base + 0x13ab) |= 0x2;

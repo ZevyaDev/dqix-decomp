@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct_021fa76c;
 int CheckAllFlagsClear_021fa76c(struct Struct_021fa76c* combatant);
@@ -17,17 +17,17 @@ struct Obj_021fd5c4 {
 	char pad0[0x64c];
 	struct State64c_021fd5c4* state64c;
 	char pad2[0x668 - 0x64c - 4];
-	struct CombatantStruct* ptr668;
+	GameObject* ptr668;
 };
 
 // USA: func_ov024_021fd5c4  (semantic: ApplyBuffScaledPercent7_021fd5c4)
 extern "C" ARM void func_ov024_021fd5c4(struct Obj_021fd5c4* obj) {
-	struct CombatantStruct* c = obj->ptr668;
+	GameObject* c = obj->ptr668;
 	if (!CheckAllFlagsClear_021fa76c((struct Struct_021fa76c*)c)) return;
-	if (!CheckField0x14FlagsClear((unsigned char*)c->currentStats)) return;
+	if (!CheckField0x14FlagsClear((unsigned char*)c->currentStats_)) return;
 	if (IsFlagBit5Set_021de25c((struct FlagObj_021de25c*)c)) return;
 	float valF = (float)obj->state64c->bits.val;
-	unsigned char pctBase = *(unsigned char*)((char*)c->currentStats + 0x4a);
+	unsigned char pctBase = *(unsigned char*)((char*)c->currentStats_ + 0x4a);
 	float scaled = valF * ((float)pctBase / 100.0f);
 	if (scaled > 100.0f) scaled = 100.0f;
 	SetFieldFromIndexed_021fe6b4((struct IndexedObj_021fe6b4*)obj, 1);

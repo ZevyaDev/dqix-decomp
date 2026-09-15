@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 // USA: func_020103e8
-ARM int GetActiveBitIndex(struct BattleStruct* battleStruct) {
+ARM int GetActiveBitIndex(GameState* battleStruct) {
     return *(int*)((char*)battleStruct + 0x3e0);
 }

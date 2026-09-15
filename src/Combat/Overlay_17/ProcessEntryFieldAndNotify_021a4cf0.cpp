@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetGlobalPtr021075f4(void);
 struct EntryList_203dce4;
@@ -45,7 +45,7 @@ ARM void ProcessEntryFieldAndNotify_021a4cf0(char* self) {
     int* g = GetGlobal02109418();
     unsigned short v = *(unsigned short*)field;
     func_02095924(g, v & 0xff);
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     unsigned short v2 = *(unsigned short*)field;
     *(int*)((char*)bs + 0x5000 + 0x724) = v2;
     void* r = func_0205ec34((char*)bs + 0x5000);

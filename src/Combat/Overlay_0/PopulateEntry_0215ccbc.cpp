@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Field0x22_0215ccbc {
     unsigned short low2:2;
@@ -24,17 +24,17 @@ struct OutStruct0215ccbc {
 };
 
 // USA: func_ov000_0215ccbc
-ARM void PopulateEntry_0215ccbc(int unused, struct OutStruct0215ccbc* out, struct CombatantStruct* combatant,
+ARM void PopulateEntry_0215ccbc(int unused, struct OutStruct0215ccbc* out, GameObject* combatant,
                                  short valC, short valA, short valB, int wordC, int wordD, unsigned char byteE) {
     if (out == NULL) return;
     out->short0xc = valC;
     out->short0xe = valA;
     out->short0x10 = valB;
-    out->short0x12 = combatant->currentStats->primaryStats.maxHP;
-    out->short0x14 = combatant->currentStats->primaryStats.maxMP;
-    out->word0x18 = *(int*)((char*)combatant->currentStats->unk1 + 0);
-    out->byte0x1d = ((struct Field0x22_0215ccbc*)((char*)combatant->currentStats->unk1 + 0xe))->mid4;
-    out->byte0x1e = ((struct Field0x22_0215ccbc*)((char*)combatant->currentStats->unk1 + 0xe))->low2;
+    out->short0x12 = combatant->currentStats_->primaryStats.maxHP;
+    out->short0x14 = combatant->currentStats_->primaryStats.maxMP;
+    out->word0x18 = *(int*)((char*)combatant->currentStats_->unk1 + 0);
+    out->byte0x1d = ((struct Field0x22_0215ccbc*)((char*)combatant->currentStats_->unk1 + 0xe))->mid4;
+    out->byte0x1e = ((struct Field0x22_0215ccbc*)((char*)combatant->currentStats_->unk1 + 0xe))->low2;
     out->word0 = wordC;
     out->word4 = wordD;
     out->byte0x1c = byteE;

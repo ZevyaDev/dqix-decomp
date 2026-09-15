@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern AllocatorUnion data_02114e20;
 extern int data_02108760;
@@ -49,12 +49,9 @@ struct SearchEntry* FindEntryByHalfwordKey(struct SearchTable* table, int key);
 
 void* GetPtrField0x114(void* obj);
 void* GetPtrField0x468(void* obj);
-int GetField0x3acValue(struct BattleStruct* b);
+int GetField0x3acValue(GameState* b);
 void* GetField0x74deForValidIndex(char* base, unsigned int index);
-unsigned char GetField0x397cValue(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
+unsigned char GetField0x397cValue(GameState* battleStruct);
 
 struct Flags020340b4;
 void SetFlag0x80At0xc2(struct Flags020340b4* p);
@@ -114,7 +111,6 @@ struct Ov17Data02184354 {
     unsigned char pad0[0x3ba8];
     struct Actor02184354* actorInfo;
 };
-extern "C" struct Ov17Data02184354* func_ov017_0218b5b0(void);
 
 /* Result of _Z26GetGlobalField0x1c020421a0v. */
 struct Presenter02184354 {
@@ -172,14 +168,14 @@ struct Ctx02184354 {
 extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     struct Presenter02184354* presenter = _Z26GetGlobalField0x1c020421a0v();
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* caster;
+    GameState* bs = GameState::GetInstance();
+    GameObject* caster;
     struct MoveRecord02184354* move;
-    struct Actor02184354* actorInfo = func_ov017_0218b5b0()->actorInfo;
-    caster = GetCombatantWithFlag0x800(bs, actorInfo->combatantId);
-    struct CombatantStruct* active = GetCombatantWithFlag0x800(bs, GetField0x397cValue(bs));
+    struct Actor02184354* actorInfo = ((struct Ov17Data02184354*)func_ov017_0218b5b0())->actorInfo;
+    caster = bs->GetPartyMemberByIndex(actorInfo->combatantId);
+    GameObject* active = bs->GetPartyMemberByIndex(GetField0x397cValue(bs));
     void* scene = func_0202ae18();
-    struct Ov17Data02184354* ov17 = func_ov017_0218b5b0();
+    struct Ov17Data02184354* ov17 = ((struct Ov17Data02184354*)func_ov017_0218b5b0());
     move = (struct MoveRecord02184354*)func_02012fe4();
 
     if (caster == NULL || active == NULL) {
@@ -369,17 +365,17 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
         if (row != NULL) {
             _Z22ConsumeCounter02048350P11Obj02048350i((struct Obj02048350*)caster, row->amount);
         }
-        struct CombatantStruct* target = GetCombatantAtField0x397c(bs);
+        GameObject* target = bs->GetUnknownGameObject();
         if (target != NULL) {
             SetFlag0x80At0xc2((struct Flags020340b4*)target);
         }
         func_ov017_021d360c(0, GetField0x3acValue(bs), move->id, anchor);
         obj->state = 3;
     } else if (state == 3) {
-        struct BattleStruct* now = GetBattleStruct();
+        GameState* now = GameState::GetInstance();
         int finished = 0;
         if (obj->visible != 0) {
-            if (GetCombatantUnchecked(now, obj->nodeId) == NULL && presenter->busy == 0) {
+            if (now->GetGameObjectByIndex(obj->nodeId) == NULL && presenter->busy == 0) {
                 finished = 1;
             }
         } else {

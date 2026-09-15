@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Vec3 { int x; int y; int z; };
 
@@ -12,7 +12,7 @@ struct Obj021e5a6c {
 struct List021600f8;
 struct ListNode021600f8;
 
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
+int GetField0x3b0Value(GameState* battleStruct);
 extern "C" struct ListNode021600f8* _Z22GetNodeAtIndex021600f8P12List021600f8i(struct List021600f8* list, int index);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 extern "C" int _ZNK8Object3D9GetHeightEv(void* self);
@@ -20,7 +20,7 @@ void* GetActiveCombatWork(void);
 
 // USA: func_ov025_021e5a6c
 extern "C" ARM int func_ov025_021e5a6c(struct Obj021e5a6c* obj, struct List021600f8* list) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int f = GetField0x3b0Value(bs);
     unsigned char mode = obj->mode;
     if (mode == 0) {
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov025_021e5a6c(struct Obj021e5a6c* obj, struct List02160
         int height = 1;
         struct ListNode021600f8* node = _Z22GetNodeAtIndex021600f8P12List021600f8i(list, 0);
         if (node != 0) {
-            struct CombatantStruct* c = GetCombatantFromList(bs, *(short*)((char*)node + 0xe));
+            GameObject* c = bs->GetCombatantByIndex(*(short*)((char*)node + 0xe));
             if (c != 0) {
                 height = _ZNK8Object3D9GetHeightEv(c);
             }

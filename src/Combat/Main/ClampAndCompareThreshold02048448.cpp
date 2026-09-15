@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetFieldAt0x150(unsigned char* obj);
 int TestBitInArray0x8ec(unsigned char* obj, int index);
@@ -18,8 +18,8 @@ struct Struct02048448 {
 
 // USA: func_02048448
 ARM int ClampAndCompareThreshold02048448(struct Struct02048448* s, int val) {
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, s->combatantId);
+    GameState* bs = GameState::GetInstance();
+    GameObject* combatant = GetCombatantWithFlag0x100(bs, s->combatantId);
     if (combatant != NULL) {
         unsigned char* ptr = (unsigned char*)GetFieldAt0x150((unsigned char*)combatant);
         if (ptr != NULL) {

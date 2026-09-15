@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct FieldPtrObj_021ea6bc { char pad[0x150]; unsigned char *tbl; };
 
@@ -9,7 +9,7 @@ extern "C" void func_ov017_021d6134(void*, int);
 
 // USA: func_ov023_021ea6bc
 ARM int SumTableBytes_021ea6bc(void *obj) {
-	GetBattleStruct();
+	GameState::GetInstance();
 	struct FieldPtrObj_021ea6bc *p = (struct FieldPtrObj_021ea6bc*)func_ov023_021e8f28(func_ov017_021d60f4(obj));
 	if (!p) return 0;
 	int sum = 0;

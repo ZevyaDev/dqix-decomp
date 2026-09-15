@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov017_021b8478(void* obj);
 
@@ -21,6 +21,6 @@ ARM void SetBattleFlag728FromField6_021cbff4(int unused0, Src021cbff4* src, int 
 	Ret021cbff4* r = (Ret021cbff4*)func_ov017_021b8478(h);
 	if (!r) return;
 	if (r->field8 != src->field4) return;
-	unsigned char* bs = (unsigned char*)GetBattleStruct();
+	unsigned char* bs = (unsigned char*)GameState::GetInstance();
 	bs[0x5728] = src->field6 != 0 ? 1 : 0;
 }

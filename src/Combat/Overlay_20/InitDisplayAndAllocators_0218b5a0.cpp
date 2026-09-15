@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
 extern "C" void* func_0202ae18(void);
@@ -28,7 +28,7 @@ struct Ov020DisplayState_0218b5a0 {
 
 // USA: func_ov020_0218b5a0  (semantic: InitDisplayAndAllocators_0218b5a0)
 extern "C" ARM void func_ov020_0218b5a0(struct Ov020DisplayState_0218b5a0* obj) {
-    char* battleStruct = (char*)GetBattleStruct();
+    char* battleStruct = (char*)GameState::GetInstance();
     func_0202ae18();
     func_0200f3a4(battleStruct);
     MapVRAMBanksToMainBG(4);

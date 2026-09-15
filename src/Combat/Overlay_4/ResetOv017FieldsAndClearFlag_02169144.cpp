@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 void ClearBitsInWord(unsigned int* obj, unsigned int mask);
 void ClearBitsInField4(unsigned int* obj, unsigned int mask);
 void ClearBitsInField8(unsigned int* obj, unsigned int mask);
@@ -18,7 +17,7 @@ struct FieldGroup02171030At100 { char pad[0x8c]; unsigned short field8c; };
 
 // USA: func_ov004_02169144  (semantic: ResetOv017FieldsAndClearFlag_02169144)
 extern "C" ARM int func_ov004_02169144(void) {
-    GetBattleStruct();
+    GameState::GetInstance();
     void* obj = func_ov017_0218b5b0();
     unsigned char* self = *(unsigned char**)((char*)obj + 0x3000 + 0xb84);
     ClearBitsInWord((unsigned int*)obj, -1);

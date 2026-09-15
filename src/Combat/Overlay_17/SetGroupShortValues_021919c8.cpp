@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 extern "C" void _ZN8Object3D19SetAlphaScaleFactorEi(unsigned char* obj, short value);
 
 extern int data_ov017_021d6298[14];
@@ -24,9 +23,9 @@ ARM void SetGroupShortValues_021919c8(int unusedA, int b, short c) {
 	table[9] = base + 0x1b;
 	table[10] = base + 0x1c;
 	table[11] = base + 0x1d;
-	struct BattleStruct* battleStruct = GetBattleStruct();
+	GameState* battleStruct = GameState::GetInstance();
 	for (int i = 0; table[i] > -1; i++) {
-		struct CombatantStruct* combatant = GetCombatantUnchecked(battleStruct, table[i]);
+		GameObject* combatant = battleStruct->GetGameObjectByIndex(table[i]);
 		if (combatant) {
 			_ZN8Object3D19SetAlphaScaleFactorEi((unsigned char*)combatant, c);
 		}

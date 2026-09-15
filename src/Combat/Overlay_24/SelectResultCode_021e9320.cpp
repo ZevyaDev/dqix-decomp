@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Combat/Overlay_0/GetCombatantByID.h"
+#include "GameState/GameState.h"
 
 struct FlagObj_021de25c;
 int IsFlagBit5Set_021de25c(struct FlagObj_021de25c* obj);
@@ -9,7 +10,7 @@ struct Ctx_021e9320 { char pad[0x10]; int unused; };
 
 // USA: func_ov024_021e9320
 ARM int SelectResultCode_021e9320(struct Ctx_021e9320* ctx, int id, int mode) {
-    struct CombatantStruct* c = GetCombatantByID(ctx->unused, id);
+    GameObject* c = GetCombatantByID(ctx->unused, id);
     if (!c) return 0;
     int flagSet = IsFlagBit5Set_021de25c((struct FlagObj_021de25c*)c);
     if (mode != 0) {

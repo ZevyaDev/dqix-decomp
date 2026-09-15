@@ -1,10 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 
 // USA: func_ov003_0215b580
 ARM int AddCappedFieldF6c_0215b580(int unused, int amount) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* p = GetPtrField0x2a04(bs);
     int val = *(int*)((char*)p + 0xf6c);
     if (val < -amount) {

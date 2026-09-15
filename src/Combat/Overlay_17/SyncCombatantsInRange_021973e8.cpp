@@ -1,9 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_02012fe4(void);
 unsigned int GetBitsInField4(unsigned int* obj, unsigned int mask);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 struct ListNode0x2037a50;
 extern "C" int _ZNK8Object3D7IsChildEv(struct ListNode0x2037a50* node);
 extern "C" int _ZNK8Object3D7GetFlagEi(void* obj, int mask);
@@ -25,7 +24,7 @@ struct SyncLocal_021973e8 {
 
 // USA: func_ov017_021973e8  (semantic: SyncCombatantsInRange_021973e8)
 extern "C" ARM void func_ov017_021973e8(unsigned int* flagsObj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* ctx = func_02012fe4();
     unsigned short field38 = *(unsigned short*)((char*)ctx + 0x38);
     unsigned int field3c = *(unsigned int*)((char*)ctx + 0x3c);
@@ -39,7 +38,7 @@ extern "C" ARM void func_ov017_021973e8(unsigned int* flagsObj) {
 
     int id;
     for (id = 0xa0; id < 0xc0; id++) {
-        struct CombatantStruct* c = GetCombatantUnchecked(bs, id);
+        GameObject* c = bs->GetGameObjectByIndex(id);
         if (!c) continue;
         if (_ZNK8Object3D7IsChildEv((struct ListNode0x2037a50*)c)) continue;
         if (_ZNK8Object3D7GetFlagEi(c, 0x40000000) != 0) continue;

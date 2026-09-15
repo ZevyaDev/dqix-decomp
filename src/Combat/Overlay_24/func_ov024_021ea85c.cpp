@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Combat/Overlay_0/GetCombatantByID.h"
+#include "GameState/GameState.h"
 
 struct FlagObj_021da998;
 extern "C" int _Z28IsFlagBit8388608Set_021da998P16FlagObj_021da998(struct FlagObj_021da998* obj);
@@ -54,43 +55,43 @@ struct Obj_021ea85c { char pad0[0x10]; void* field0x10; };
 
 // USA: func_ov024_021ea85c
 extern "C" ARM void* func_ov024_021ea85c(struct Obj_021ea85c* obj, int id, int flagArg) {
-	struct CombatantStruct* c = GetCombatantByID((int)obj->field0x10, id);
+	GameObject* c = GetCombatantByID((int)obj->field0x10, id);
 	if (!c) return 0;
 	int flagA = _Z28IsFlagBit8388608Set_021da998P16FlagObj_021da998((struct FlagObj_021da998*)c);
 	int flagB = _Z23IsFlagBit24Set_021dd260P16FlagObj_021dd260((struct FlagObj_021dd260*)c);
-	ClearFlag0x14Bit0x800000AndByte0x24(c->currentStats);
-	ClearFlag0x1000000AndByte0x24(c->currentStats);
-	ClearFlag0x200AndBytes((unsigned char*)c->currentStats);
-	ClearFlag0x8000000AndBytes(c->currentStats);
-	ClearFlag0x10000000AndBytes(c->currentStats);
-	ClearFlag0x20000000AndBytes0x64And0x87((unsigned char*)c->currentStats);
-	ClearFlag0x100000((unsigned char*)c->currentStats);
-	ClearFlag0x400000AndBytes((unsigned char*)c->currentStats);
-	ClearFlag0x4000000AndBytes((unsigned char*)c->currentStats);
-	ClearFlag0x40000000AndBytes((unsigned char*)c->currentStats);
-	ClearFlag0x100AndBytes((unsigned char*)c->currentStats);
-	ClearFlag0x4000000AndBytes((unsigned char*)c->currentStats);
-	ClearFlag0x200000((unsigned char*)c->currentStats);
-	_Z35ClearFlag0x80000000AndBytes02088bd4Ph((unsigned char*)c->currentStats);
-	ResetFlag0x80AndState((struct Obj02088674*)c->currentStats);
-	ClearFlag0x8AndBytes((unsigned char*)c->currentStats);
-	ClearFlag0x10AndBytes((unsigned char*)c->currentStats);
-	ClearFlag0x2AndBytes((unsigned char*)c->currentStats);
-	ClearFlag0x4AndBytes((unsigned char*)c->currentStats);
-	ClearFlag0x200ClearByte0x78((unsigned char*)c->currentStats);
-	ClearFlag0x400AndBytes79And9c((unsigned char*)c->currentStats);
-	ClearFlag0x800AndBytes7cAnd9f((unsigned char*)c->currentStats);
-	ClearFlag0x100AndBytes7dA0((unsigned char*)c->currentStats);
-	_Z35ClearBattleFlags0x14And0x5802087838Pv(c->currentStats);
-	_Z35ClearBattleFlags0x14And0x580208792cPv(c->currentStats);
-	_Z35ClearBattleFlags0x14And0x5802087a20Pv(c->currentStats);
-	_Z35ClearBattleFlags0x14And0x5802087b14Pv(c->currentStats);
-	_Z35ClearBattleFlags0x14And0x5802087c08Pv(c->currentStats);
-	ClearBattleFlags0x14And0x58(c->currentStats);
-	ClearFlagsAndBytes(c->currentStats);
-	ClearFlags0x14And0x58AndBytes((unsigned char*)c->currentStats);
-	ClearBattleFlags0x18And0x58(c->currentStats);
-	ClearFlags0x14And0x58(c->currentStats);
+	ClearFlag0x14Bit0x800000AndByte0x24(c->currentStats_);
+	ClearFlag0x1000000AndByte0x24(c->currentStats_);
+	ClearFlag0x200AndBytes((unsigned char*)c->currentStats_);
+	ClearFlag0x8000000AndBytes(c->currentStats_);
+	ClearFlag0x10000000AndBytes(c->currentStats_);
+	ClearFlag0x20000000AndBytes0x64And0x87((unsigned char*)c->currentStats_);
+	ClearFlag0x100000((unsigned char*)c->currentStats_);
+	ClearFlag0x400000AndBytes((unsigned char*)c->currentStats_);
+	ClearFlag0x4000000AndBytes((unsigned char*)c->currentStats_);
+	ClearFlag0x40000000AndBytes((unsigned char*)c->currentStats_);
+	ClearFlag0x100AndBytes((unsigned char*)c->currentStats_);
+	ClearFlag0x4000000AndBytes((unsigned char*)c->currentStats_);
+	ClearFlag0x200000((unsigned char*)c->currentStats_);
+	_Z35ClearFlag0x80000000AndBytes02088bd4Ph((unsigned char*)c->currentStats_);
+	ResetFlag0x80AndState((struct Obj02088674*)c->currentStats_);
+	ClearFlag0x8AndBytes((unsigned char*)c->currentStats_);
+	ClearFlag0x10AndBytes((unsigned char*)c->currentStats_);
+	ClearFlag0x2AndBytes((unsigned char*)c->currentStats_);
+	ClearFlag0x4AndBytes((unsigned char*)c->currentStats_);
+	ClearFlag0x200ClearByte0x78((unsigned char*)c->currentStats_);
+	ClearFlag0x400AndBytes79And9c((unsigned char*)c->currentStats_);
+	ClearFlag0x800AndBytes7cAnd9f((unsigned char*)c->currentStats_);
+	ClearFlag0x100AndBytes7dA0((unsigned char*)c->currentStats_);
+	_Z35ClearBattleFlags0x14And0x5802087838Pv(c->currentStats_);
+	_Z35ClearBattleFlags0x14And0x580208792cPv(c->currentStats_);
+	_Z35ClearBattleFlags0x14And0x5802087a20Pv(c->currentStats_);
+	_Z35ClearBattleFlags0x14And0x5802087b14Pv(c->currentStats_);
+	_Z35ClearBattleFlags0x14And0x5802087c08Pv(c->currentStats_);
+	ClearBattleFlags0x14And0x58(c->currentStats_);
+	ClearFlagsAndBytes(c->currentStats_);
+	ClearFlags0x14And0x58AndBytes((unsigned char*)c->currentStats_);
+	ClearBattleFlags0x18And0x58(c->currentStats_);
+	ClearFlags0x14And0x58(c->currentStats_);
 	ApplyCombatantBuffs((int)obj->field0x10, id);
 	void* result = 0;
 	if (flagA) {

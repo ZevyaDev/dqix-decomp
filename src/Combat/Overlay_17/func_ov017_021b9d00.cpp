@@ -1,13 +1,13 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
 struct Variant02030b0c { int tag; union { int i; float f; } u; };
 extern "C" int _ZNK6Script9Parameter5ToIntEv(struct Variant02030b0c* p);
 
 struct BattleStruct021b9d00;
-struct BattleStruct021b9d00* GetBattleStruct();
 
 struct S_020103b4;
-int IsField3dcSet(struct S_020103b4* obj);
+extern "C" int _ZNK9GameState21IsMorningDayOrEveningEv(struct S_020103b4* obj);
 
 struct Struct02030b7c { int field0; void* field4; };
 extern "C" void* _ZNK6Script9Parameter8ToStringEv(struct Struct02030b7c* s);
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov017_021b9d00(struct Variant02030b0c* v, int idx) {
     if (data_ov017_021d8438.byte1 != 0) return 1;
     if (data_ov017_021d7c54.byte1 > -1) return 1;
 
-    GetBattleStruct();
+    GameState::GetInstance();
     int a = _ZNK6Script9Parameter5ToIntEv(v);
     struct Variant02030b0c* vn = (struct Variant02030b0c*)((char*)v + 8);
     v = (struct Variant02030b0c*)((char*)v + 16);
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov017_021b9d00(struct Variant02030b0c* v, int idx) {
         int c = _ZNK6Script9Parameter5ToIntEv(v);
         v = (struct Variant02030b0c*)((char*)v + 8);
         if (c != 0) {
-            if (IsField3dcSet((struct S_020103b4*)GetBattleStruct())) return 1;
+            if (_ZNK9GameState21IsMorningDayOrEveningEv((struct S_020103b4*)GameState::GetInstance())) return 1;
             data_ov017_021d8438.byte2 = 1;
         }
     } else {

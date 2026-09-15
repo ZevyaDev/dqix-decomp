@@ -1,16 +1,16 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int TestBitAt0x34(unsigned char* obj, unsigned int index);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 extern "C" void* func_0202ae18(void);
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
+void* GetPtrField0x2a04(GameState* battleStruct);
 extern "C" int func_ov023_021f44d0(void* obj);
 
 // USA: func_ov023_021f5150
 extern "C" ARM int func_ov023_021f5150(void* p0, unsigned char* p1, int* p2, int* p3) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     char* g = (char*)GetPtrField0x2a04(bs);
     func_0202ae18();
 
@@ -19,7 +19,7 @@ extern "C" ARM int func_ov023_021f5150(void* p0, unsigned char* p1, int* p2, int
     for (i = 0; i < 4; i++) {
         if (!TestBitAt0x34(p1, (unsigned char)i)) continue;
         sum += p2[i];
-        struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, i);
+        GameObject* c = GetCombatantWithFlag0x100(bs, i);
         if (c == 0) continue;
         int fVal = GetFieldAt0x150((unsigned char*)c);
         if (fVal == 0) continue;

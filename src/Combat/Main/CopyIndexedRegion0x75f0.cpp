@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 // USA: func_020ac020
 ARM int CopyIndexedRegion0x75f0(void* unused, short* indices, int* dest, int count) {
-    int* table = (int*)((char*)GetBattleStruct() + 0x75f0);
+    int* table = (int*)((char*)GameState::GetInstance() + 0x75f0);
     int i;
     for (i = 0; i < count; i++) {
         short idx = indices[i];

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x1000(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x1000(GameState* battleStruct, int combatantId);
 
 struct U16Field0x6_020375f8;
 extern "C" unsigned short _ZNK8Object3D10GetField06Ev(struct U16Field0x6_020375f8* obj);
@@ -26,10 +26,10 @@ struct Obj02039df4 {
 // USA: func_02039df4
 ARM void ApplyStatusTickEffect(struct Obj02039df4* obj) {
     int q;
-    struct CombatantStruct* combatant;
+    GameObject* combatant;
 
     if (obj->flagBit0xc2) return;
-    combatant = GetCombatantWithFlag0x1000(GetBattleStruct(), obj->combatantId);
+    combatant = GetCombatantWithFlag0x1000(GameState::GetInstance(), obj->combatantId);
     if (combatant == NULL) return;
     q = _ZNK8Object3D10GetField06Ev((struct U16Field0x6_020375f8*)obj) / 100;
     if (q != 0x2b && q != 0x2d && q != 0x40 && q != 0x29) return;

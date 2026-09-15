@@ -10,7 +10,7 @@ void DestroyStructAllocGroup0208ba54(struct StructAllocGroup0208ba54* self);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
 extern "C" void func_ov008_021845ac(void* p);
 void SetCombatModeFromCase020dc2d0(int mode);
-extern "C" void func_0203b19c(int base, int a, int b);
+extern "C" void _Z16SetSubBrightnessP13GameResourcesii(int base, int a, int b);
 struct Obj_021b994c;
 void ResetFieldsToDefault_021b994c(struct Obj_021b994c* obj);
 extern "C" void func_020a0c0c(void);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_021b8d80(unsigned char* self) {
         reg[2] = reg[2] & ~3;
 
         SetCombatModeFromCase020dc2d0(0);
-        func_0203b19c(handle, 0, 0xf);
+        _Z16SetSubBrightnessP13GameResourcesii(handle, 0, 0xf);
     }
 
     ResetFieldsToDefault_021b994c((struct Obj_021b994c*)self);

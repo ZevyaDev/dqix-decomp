@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetData02100044(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
@@ -25,7 +25,7 @@ ARM void EnqueueEventTag67_021c6a9c(unsigned short a0, unsigned char a1, unsigne
     void* p = GetData02100044();
     LocalEvt021c6a9c buf;
     struct Inner021c6a9c* r6 = &buf.fields;
-    GetBattleStruct();
+    GameState::GetInstance();
     unsigned char a4v = a4;
     signed char a5v = a5;
     r6->field9 = a4v;

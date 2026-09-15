@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 extern int data_020fdcb0[][8];
 extern int data_020fdcb8[][8];
@@ -9,8 +8,8 @@ extern int data_020fdcb8[][8];
 // USA: func_02027bd0
 ARM int ClassifyFlag0x800RatioTier02027bd0(int id) {
     int a, b;
-    struct BattleStruct* battle;
-    struct CombatantStruct* combatant;
+    GameState* battle;
+    GameObject* combatant;
     float ratio;
     int inRange;
 
@@ -28,8 +27,8 @@ ARM int ClassifyFlag0x800RatioTier02027bd0(int id) {
         return 1;
     }
 
-    battle = GetBattleStruct();
-    combatant = GetCombatantWithFlag0x800(battle, id);
+    battle = GameState::GetInstance();
+    combatant = battle->GetPartyMemberByIndex(id);
     if (combatant == NULL) {
         return 1;
     }

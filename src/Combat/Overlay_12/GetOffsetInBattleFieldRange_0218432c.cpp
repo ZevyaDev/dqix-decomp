@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct FieldValueB0218432c {
     unsigned int unk0 : 9;
@@ -14,7 +14,7 @@ extern struct Entry0218432c data_ov012_0218afac[];
 
 // USA: func_ov012_0218432c  (semantic: GetOffsetInBattleFieldRange_0218432c)
 extern "C" ARM int func_ov012_0218432c(int index) {
-    char* base = (char*)GetBattleStruct() + 0x569c;
+    char* base = (char*)GameState::GetInstance() + 0x569c;
     int fieldvalue = ((struct FieldValueB0218432c*)(base + 4))->value;
     short a1 = data_ov012_0218afaa[index].value;
     if (a1 <= fieldvalue) {

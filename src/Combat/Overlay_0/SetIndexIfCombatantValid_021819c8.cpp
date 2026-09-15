@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct ListNode02160094 {
     char pad[0x30];
@@ -14,11 +14,10 @@ struct List02160094 {
 };
 extern struct ListNode02160094* GetNodeAtIndex02160094(struct List02160094* list, int index);
 
-extern struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 
 // USA: func_ov000_021819c8  (semantic: SetIndexIfCombatantValid_021819c8)
 extern "C" ARM int func_ov000_021819c8(struct List02160094* list, int index, int* out, int flag) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     struct ListNode02160094* node = GetNodeAtIndex02160094(list, index);
     if (node != NULL) {
         int computed = 0;
@@ -28,7 +27,7 @@ extern "C" ARM int func_ov000_021819c8(struct List02160094* list, int index, int
             computed = *(unsigned short*)((char*)node + 0x20) * 0xc + 0x1d;
         }
 
-        struct CombatantStruct* combatant = GetCombatantUnchecked(battleStruct, computed);
+        GameObject* combatant = battleStruct->GetGameObjectByIndex(computed);
         if (combatant != NULL) {
             if (*(short*)((char*)combatant + 0x2) > -1) {
                 *out = computed;

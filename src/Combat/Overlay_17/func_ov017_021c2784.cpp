@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct SearchStruct;
 extern "C" struct SearchStruct* func_0202ae18(void);
@@ -12,10 +12,7 @@ extern "C" int func_ov017_021959b4(void);
 extern "C" int func_ov017_021a23e4(char* c, int a0, unsigned int f8, unsigned int fc);
 
 void* GetGlobalResetObj020d7a50(void);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
-struct CombatantStruct* GetCombatantWithFlag0x20(struct BattleStruct* battleStruct, int combatantId);
-unsigned char GetField0x397cValue(struct BattleStruct* battleStruct);
-int GetField0x3b4Value(struct BattleStruct* battleStruct);
+unsigned char GetField0x397cValue(GameState* battleStruct);
 void* GetGlobalField0x1c020421a0(void);
 void InitObjFromCombatantId020e4bf4(void* obj, int combatantId);
 int CallFunc020e0434With02153694(int a);
@@ -34,7 +31,7 @@ void ForwardField0xc0_0205ebec(void* obj);
 void SetByteField0x253(void* obj);
 int GetBitflagForCombatantColor_021a26e8(int unused0, int combatantId);
 void EnqueueEventTag139_021d09cc(int a, int b, int c, int d);
-struct CombatantStruct* FindCombatantByField0x16a(struct BattleStruct* battleStruct, int id);
+GameObject* FindCombatantByField0x16a(GameState* battleStruct, int id);
 
 extern int data_02108760;
 
@@ -54,14 +51,14 @@ struct Obj_021c2784 {
 
 // USA: func_ov017_021c2784
 extern "C" ARM void func_ov017_021c2784(Obj_021c2784* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    Struct_ov017_44C8* ov = func_ov017_0218b5b0();
+    GameState* battleStruct = GameState::GetInstance();
+    GameResources* ov = func_ov017_0218b5b0();
     struct SearchStruct* search = func_0202ae18();
     void* reset = GetGlobalResetObj020d7a50();
 
-    struct CombatantStruct* a = GetCombatantWithFlag0x800(battleStruct, obj->field14);
+    GameObject* a = battleStruct->GetPartyMemberByIndex(obj->field14);
     int fieldVal = GetField0x397cValue(battleStruct);
-    struct CombatantStruct* c = GetCombatantWithFlag0x800(battleStruct, fieldVal);
+    GameObject* c = battleStruct->GetPartyMemberByIndex(fieldVal);
     if (!a || !c) {
         obj->field1 = 1;
     }
@@ -92,7 +89,7 @@ extern "C" ARM void func_ov017_021c2784(Obj_021c2784* obj) {
         obj->state = 1;
         return;
     } else if (obj->state == 1) {
-        unsigned int v = (unsigned int)GetField0x3b4Value(battleStruct);
+        unsigned int v = (unsigned int)battleStruct->GetEffectiveDeltaTime();
         if (v < obj->field8) {
             obj->field8 -= v;
             return;
@@ -136,12 +133,12 @@ extern "C" ARM void func_ov017_021c2784(Obj_021c2784* obj) {
         obj->state = 3;
         return;
     } else if (obj->state == 3) {
-        unsigned int v = (unsigned int)GetField0x3b4Value(battleStruct);
+        unsigned int v = (unsigned int)battleStruct->GetEffectiveDeltaTime();
         if (v < obj->field8) {
             obj->field8 -= v;
             return;
         }
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x20(battleStruct, obj->fieldc);
+        GameObject* combatant = battleStruct->GetMaybeFieldMonsterByIndex(obj->fieldc);
         if (obj->fieldc > 0 && combatant != NULL) {
             if (_ZNK8Object3D19HasAnimationStoppedEv((struct BitFlags02037170*)combatant) == 0) {
                 if (_ZNK8Object3D22HasAnimationReachedEndEv((struct BitFlags02037180*)combatant) == 0) {
@@ -154,7 +151,7 @@ extern "C" ARM void func_ov017_021c2784(Obj_021c2784* obj) {
         obj->field1 = 1;
         return;
     } else if (obj->state == 4) {
-        unsigned int v = (unsigned int)GetField0x3b4Value(battleStruct);
+        unsigned int v = (unsigned int)battleStruct->GetEffectiveDeltaTime();
         unsigned short f8 = obj->field8;
         if (v < f8) {
             *(volatile unsigned short*)&obj->field8 = f8 - v;
@@ -163,7 +160,7 @@ extern "C" ARM void func_ov017_021c2784(Obj_021c2784* obj) {
         }
         return;
     } else if (obj->state == 5) {
-        struct CombatantStruct* found = FindCombatantByField0x16a(battleStruct, obj->field12);
+        GameObject* found = FindCombatantByField0x16a(battleStruct, obj->field12);
         if (obj->field12 != 0) {
             if (found == NULL) {
                 return;

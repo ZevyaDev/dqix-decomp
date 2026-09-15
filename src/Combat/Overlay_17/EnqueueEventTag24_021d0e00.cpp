@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetData02100044(void);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 extern "C" void func_0205e330(void* a, void* b, int c);
 
@@ -21,8 +20,8 @@ extern "C" ARM void func_ov017_021d0e00(int id) {
     buf.tag = 0x18;
     unsigned char* dst = &buf.id;
 
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* c = GetCombatantWithFlag0x800(bs, id);
+    GameState* bs = GameState::GetInstance();
+    GameObject* c = bs->GetPartyMemberByIndex(id);
     if (!c) return;
     int field150 = GetFieldAt0x150((unsigned char*)c);
     if (!field150) return;

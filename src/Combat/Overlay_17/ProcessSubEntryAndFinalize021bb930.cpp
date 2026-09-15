@@ -1,8 +1,6 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-struct BattleStruct* GetBattleStruct();
-unsigned int GetBattleScaleCount(struct BattleStruct*);
 void BlankFunction0208be8c(void);
 
 struct Container0205a3d0;
@@ -39,7 +37,7 @@ struct Obj021bb930 {
 // USA: func_ov017_021bb930  (semantic: ProcessSubEntryAndFinalize021bb930)
 extern "C" ARM void func_ov017_021bb930(struct Obj021bb930* self) {
     if (self->flag0xfe != 0 && self->sub != NULL) {
-        struct BattleStruct* battleStruct = GetBattleStruct();
+        GameState* battleStruct = GameState::GetInstance();
         struct Container0205a3d0* c = self->sub->c;
         if (c != NULL) {
             struct Elem021bb930* e;
@@ -49,7 +47,7 @@ extern "C" ARM void func_ov017_021bb930(struct Obj021bb930* self) {
             if (e != NULL) {
                 e->flags15 |= 0x8;
             }
-            count = GetBattleScaleCount(battleStruct);
+            count = battleStruct->GetTickCount();
             IterateEntries0205a330((struct Container0205a330*)c, count);
             e = FindEntryByHalfword0205a3d0(c, 1);
             if (e != NULL) {

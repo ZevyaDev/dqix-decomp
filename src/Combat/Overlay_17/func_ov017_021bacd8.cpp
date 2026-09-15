@@ -1,10 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 
-unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 int GetFieldIfFlag4(char* obj);
 void SetBitsInField4(unsigned int* obj, unsigned int mask);
 void ClearBitsInField4(unsigned int* obj, unsigned int mask);
@@ -19,7 +17,6 @@ void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);
 struct Obj021bac8c;
 extern "C" void func_ov017_021bac8c(struct Obj021bac8c* self);
 
-extern "C" unsigned int* func_ov017_0218b5b0(void);
 extern "C" void func_020a0cc4(unsigned int);
 extern "C" void func_020a0c0c(void);
 extern "C" int func_ov017_021959b4(void);
@@ -44,14 +41,14 @@ struct Obj021bacd8 {
 
 // USA: func_ov017_021bacd8  (semantic: AdvanceAllocatorSetup_021bacd8)
 extern "C" ARM void func_ov017_021bacd8(Obj021bacd8* self) {
-    struct BattleStruct* battle = GetBattleStruct();
-    unsigned int* ov = func_ov017_0218b5b0();
-    struct CombatantStruct* c = GetCombatantAtField0x397c(battle);
+    GameState* battle = GameState::GetInstance();
+    unsigned int* ov = ((unsigned int*)func_ov017_0218b5b0());
+    GameObject* c = battle->GetUnknownGameObject();
     int flagResult = GetFieldIfFlag4((char*)battle);
     SetBitsInField4(ov, 0xc0);
     CancelPendingAction020397cc((struct Obj020397cc*)c, 1);
     SetFlagsAt0x244((unsigned char*)flagResult, 3);
-    int scale = (int)GetBattleScaleCount(battle);
+    int scale = (int)battle->GetTickCount();
     if (scale < 0) {
         scale = 1;
     }

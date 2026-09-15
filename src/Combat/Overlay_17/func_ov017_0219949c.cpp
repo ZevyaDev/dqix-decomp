@@ -1,14 +1,9 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_ov017_0218b5b0(void);
 struct SearchStruct0202c1a4;
 signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
-struct BattleStruct;
-struct BattleStruct* GetBattleStruct(void);
-struct CombatantStruct;
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 struct U16Field0x6_020375f8;
 extern "C" unsigned short _ZNK8Object3D10GetField06Ev(struct U16Field0x6_020375f8* obj);
 void EnqueueEventTag154_021d0860(unsigned char a, unsigned char b, unsigned char c);
@@ -22,9 +17,9 @@ extern "C" ARM void func_ov017_0219949c(void* ctx, int combatantId, int matchTyp
         return;
     }
 
-    struct BattleStruct* battle = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantUnchecked(battle, combatantId);
-    struct CombatantStruct* target = GetCombatantAtField0x397c(battle);
+    GameState* battle = GameState::GetInstance();
+    GameObject* combatant = battle->GetGameObjectByIndex(combatantId);
+    GameObject* target = battle->GetUnknownGameObject();
     unsigned short v1 = _ZNK8Object3D10GetField06Ev((struct U16Field0x6_020375f8*)combatant);
     unsigned short v2 = _ZNK8Object3D10GetField06Ev((struct U16Field0x6_020375f8*)target);
 

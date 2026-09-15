@@ -1,10 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov017_021b8478(void* obj);
 extern "C" void* func_ov017_021b8468(void* obj);
 ARM void* GetField6b0_021b8470(void* obj);
-ARM int GetField0x3acValue(struct BattleStruct* battleStruct);
+ARM int GetField0x3acValue(GameState* battleStruct);
 
 struct EventSrc_021c7334 {
     char pad0[4];
@@ -38,7 +38,7 @@ struct StatsFlags_021c7334 {
 };
 
 // USA: func_ov017_021c7334
-extern "C" ARM void func_ov017_021c7334(void* unused0, struct EventSrc_021c7334* src, struct BattleStruct* battleStruct, char* data) {
+extern "C" ARM void func_ov017_021c7334(void* unused0, struct EventSrc_021c7334* src, GameState* battleStruct, char* data) {
     void* obj = *(void**)(data + 0x3718);
     void* p1c = func_ov017_021b8478(obj);
     if (!p1c) {
@@ -57,14 +57,14 @@ extern "C" ARM void func_ov017_021c7334(void* unused0, struct EventSrc_021c7334*
     if (*(unsigned short*)((char*)p1c + 0x8) != src->field4) {
         return;
     }
-    struct CombatantStruct* combatant = GetCombatantFromList(battleStruct, src->field6);
+    GameObject* combatant = battleStruct->GetCombatantByIndex(src->field6);
     if (!combatant) {
         return;
     }
-    ((struct StatsFlags_021c7334*)combatant->currentStats)->bits0x3b.bit0 = src->bits.bit0;
-    ((struct StatsFlags_021c7334*)combatant->currentStats)->bits0x3b.bit1 = src->bits.bit1;
-    ((struct StatsFlags_021c7334*)combatant->currentStats)->bits0x3b.bit2 = src->bits.bit2;
-    ((struct StatsFlags_021c7334*)combatant->currentStats)->bits0x3b.bit3 = src->bits.bit3;
-    ((struct StatsFlags_021c7334*)combatant->currentStats)->bits0x3b.nibble = src->bits.nibble;
-    ((struct StatsFlags_021c7334*)combatant->currentStats)->flag0x3a = src->flag0x13.bit7 != 0;
+    ((struct StatsFlags_021c7334*)combatant->currentStats_)->bits0x3b.bit0 = src->bits.bit0;
+    ((struct StatsFlags_021c7334*)combatant->currentStats_)->bits0x3b.bit1 = src->bits.bit1;
+    ((struct StatsFlags_021c7334*)combatant->currentStats_)->bits0x3b.bit2 = src->bits.bit2;
+    ((struct StatsFlags_021c7334*)combatant->currentStats_)->bits0x3b.bit3 = src->bits.bit3;
+    ((struct StatsFlags_021c7334*)combatant->currentStats_)->bits0x3b.nibble = src->bits.nibble;
+    ((struct StatsFlags_021c7334*)combatant->currentStats_)->flag0x3a = src->flag0x13.bit7 != 0;
 }

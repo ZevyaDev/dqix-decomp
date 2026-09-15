@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetWord0x0(int* obj);
 extern "C" void func_ov023_021dc520(void* obj);
@@ -21,7 +21,7 @@ struct Obj021dda04 {
 
 // USA: func_ov023_021dda04  (semantic: AdvanceCombatStageState_021dda04)
 extern "C" ARM void func_ov023_021dda04(struct Obj021dda04* obj) {
-    GetWord0x0((int*)GetBattleStruct());
+    GetWord0x0((int*)GameState::GetInstance());
 
     if (obj->field777 == 0) {
         func_ov023_021dc520(obj);

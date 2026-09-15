@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct StoreStruct;
 void StoreInArray0x8b0(struct StoreStruct* base, int index, int value);
@@ -12,7 +12,7 @@ extern "C" void func_02046608(int a, int b, void* fmt, void* dst, int p4, int p5
 
 // USA: func_ov003_0215de6c
 ARM void SetupFieldAndFormat_0215de6c(char* base, void* buf) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     int field = GetGlobalField0x1c020421a0();
     void* ptr = GetPtrField0x2a04(battleStruct);
 

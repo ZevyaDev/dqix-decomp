@@ -1,8 +1,6 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-BattleStruct* GetBattleStruct();
-unsigned int GetBattleScaleCount(struct BattleStruct*);
 
 // USA: func_ov023_021ecbe8  (semantic: AdvanceFadeState_021ecbe8)
 extern "C" ARM void func_ov023_021ecbe8(char* obj) {
@@ -45,8 +43,8 @@ extern "C" ARM void func_ov023_021ecbe8(char* obj) {
     }
 
     if (state == 1) {
-        BattleStruct* bs = GetBattleStruct();
-        unsigned int scaleCount = GetBattleScaleCount(bs);
+        GameState* bs = GameState::GetInstance();
+        unsigned int scaleCount = bs->GetTickCount();
 
         int sum = *(unsigned char*)(obj + 0x43c) + (int)scaleCount;
         *(unsigned char*)(obj + 0x43c) = (unsigned char)sum;

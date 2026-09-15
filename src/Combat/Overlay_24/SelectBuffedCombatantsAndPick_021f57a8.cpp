@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "Util/Random.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov000_0215e9fc(int battle, short* buf, int max, int start);
 int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
@@ -18,9 +19,9 @@ extern "C" ARM int func_ov024_021f57a8(int* a0, int a1, int a2, int* outCount, s
 
 	*outCount = 0;
 	for (int i = 0; i < count; i++) {
-		struct CombatantStruct* c = GetCombatantByID(*a0, buf.v[i]);
+		GameObject* c = GetCombatantByID(*a0, buf.v[i]);
 		if (!c) continue;
-		if (*((unsigned char*)c->currentStats + 0x24) == 0) continue;
+		if (*((unsigned char*)c->currentStats_ + 0x24) == 0) continue;
 		int idx = *outCount;
 		*outCount = idx + 1;
 		outArray[idx] = buf.v[i];

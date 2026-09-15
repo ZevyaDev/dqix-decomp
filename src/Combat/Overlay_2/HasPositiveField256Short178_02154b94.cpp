@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 // USA: func_ov002_02154b94
 ARM int HasPositiveField256Short178_02154b94(void* unused, int combatantId) {
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(GetBattleStruct(), combatantId);
+    GameObject* combatant = GetCombatantWithFlag0x100(GameState::GetInstance(), combatantId);
     if (!combatant) {
         return 0;
     }

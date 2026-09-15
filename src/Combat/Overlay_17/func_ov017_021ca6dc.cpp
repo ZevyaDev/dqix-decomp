@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov017_021b8478(void* obj);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 
 struct SlotBits_021ca6dc {
     unsigned short field0 : 2;
@@ -42,7 +42,7 @@ struct EventSrc_021ca6dc {
 };
 
 // USA: func_ov017_021ca6dc
-extern "C" ARM void func_ov017_021ca6dc(void* unused0, struct EventSrc_021ca6dc* src, struct BattleStruct* battleStruct, char* data) {
+extern "C" ARM void func_ov017_021ca6dc(void* unused0, struct EventSrc_021ca6dc* src, GameState* battleStruct, char* data) {
     void* p1c = func_ov017_021b8478(*(void**)(data + 0x3718));
     if (!p1c) {
         return;

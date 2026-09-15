@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 extern "C" void func_ov023_021e6594(char* obj);
@@ -14,7 +14,7 @@ extern "C" int func_ov012_0218ae74(unsigned char* self, const char* name);
 
 // USA: func_ov012_0218adac
 extern "C" ARM void func_ov012_0218adac(unsigned char* self, int p1, int p2, int flag) {
-    BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     func_ov023_021e6594((char*)self);
 
     char buf[0x7c];

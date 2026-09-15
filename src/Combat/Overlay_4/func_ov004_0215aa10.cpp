@@ -1,11 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int HasFlag101_021571d8(int a);
 int DispatchNodeIfType7_02156e2c(void* a, int key);
 extern "C" int func_ov004_02157128(void* obj);
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+void* GetPtrField0x2a04(GameState* battleStruct);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 struct Slots02083960;
 int CountPositiveSlots02083960(struct Slots02083960* s);
@@ -19,7 +19,7 @@ extern Struct021707d8_0215aa10 data_ov004_021707d8;
 
 // USA: func_ov004_0215aa10
 extern "C" ARM int func_ov004_0215aa10(void* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int result;
     if (HasFlag101_021571d8((int)obj)) {
         int idx = DispatchNodeIfType7_02156e2c(obj, 0x65);
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov004_0215aa10(void* obj) {
             if (!p) return 0;
             result = CountNonZeroValues020a0b8c((struct S_a0b8c*)p);
         } else {
-            struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, val);
+            GameObject* c = GetCombatantWithFlag0x100(bs, val);
             if (!c) return 0;
             int ptrAsInt = GetFieldAt0x150((unsigned char*)c);
             result = CountPositiveSlots02083960((struct Slots02083960*)ptrAsInt);

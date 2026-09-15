@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 // USA: func_0200fd58
-ARM void* ClearCombatantList(struct BattleStruct* battleStruct) {
-    return memset(battleStruct->combatantList, 0, 0x3a4);
+ARM void* ClearCombatantList(GameState* battleStruct) {
+    return memset(battleStruct->objects_, 0, 0x3a4);
 }

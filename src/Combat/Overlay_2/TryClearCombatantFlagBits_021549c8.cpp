@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 // USA: func_ov002_021549c8  (semantic: TryClearCombatantFlagBits_021549c8)
 extern "C" ARM int func_ov002_021549c8(void* unused, int combatantId, int flagMask, unsigned char* outByte) {
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(GetBattleStruct(), combatantId);
+    GameObject* combatant = GetCombatantWithFlag0x100(GameState::GetInstance(), combatantId);
     if (!combatant) {
         return 0;
     }

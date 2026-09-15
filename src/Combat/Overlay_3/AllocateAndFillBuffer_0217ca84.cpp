@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
 extern "C" void MemoryMapTexturePalette(void);
@@ -26,7 +26,7 @@ struct Inner0217ca84 {
 
 // USA: func_ov003_0217ca84  (semantic: AllocateAndFillBuffer_0217ca84)
 extern "C" ARM void func_ov003_0217ca84(S0217ca84* obj, unsigned short fillValue) {
-    GetBattleStruct();
+    GameState::GetInstance();
     _Z28LockStagedTextureVRAMCopyingv();
     MemoryMapTexturePalette();
 

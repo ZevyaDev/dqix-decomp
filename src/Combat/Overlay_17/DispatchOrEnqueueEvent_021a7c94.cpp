@@ -1,15 +1,14 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct TailNode020469b4 { char unk0[2]; unsigned char inList; char unk3; TailNode020469b4* next; };
 struct TailList020469b4 { TailNode020469b4* head; TailNode020469b4* tail; };
 struct Obj021a7d78 { char pad[0x30]; short f30; short pad30; int f34; };
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 int GetGlobalField0x1c020421a0(void);
 int CheckSubstructByte0x7cPositive(signed char* obj);
 int IsField0Null(void** obj);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 void AppendNodeToTail(struct TailList020469b4* list, struct TailNode020469b4* node);
 void EnqueueEventTag170_021d0198(int a, int b, int c, int d);
 void InitObj_021a7d78(struct Obj021a7d78* p);
@@ -17,9 +16,9 @@ extern "C" int func_020dc920(int, int, int, int);
 
 // USA: func_ov017_021a7c94  (semantic: DispatchOrEnqueueEvent_021a7c94)
 extern "C" ARM void func_ov017_021a7c94(unsigned char* obj, int id, int arg2) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int g = GetGlobalField0x1c020421a0();
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(bs);
+    GameObject* combatant = bs->GetUnknownGameObject();
     int ok = 1;
     if (*(int*)(g + 0x998) != 0) ok = 0;
     if (CheckSubstructByte0x7cPositive((signed char*)combatant) != 0) ok = 0;

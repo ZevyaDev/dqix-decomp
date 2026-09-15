@@ -1,10 +1,9 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-struct BattleStruct* GetBattleStruct();
 int GetWord0x0(int* obj);
-void SetBothCounters(void* obj, int value, int frames);
-int CheckField0x14Or0x20Positive(int* obj);
+extern "C" void _Z13SetBrightnessP13GameResourcesii(void* obj, int value, int frames);
+extern "C" int _Z28IsBrightnessTransitionActiveP13GameResources(int* obj);
 
 struct Struct0215b0fc {
     unsigned char pad0[0x10];
@@ -20,7 +19,7 @@ struct Struct0215b0fc {
 
 // USA: func_ov006_0215b0fc
 extern "C" ARM void func_ov006_0215b0fc(struct Struct0215b0fc* obj) {
-    int ctx = GetWord0x0((int*)GetBattleStruct());
+    int ctx = GetWord0x0((int*)GameState::GetInstance());
     unsigned char state = obj->f390;
     if (state == 0) {
         unsigned short flags = *(unsigned short*)((char*)obj->f10 + 0xae2);
@@ -30,14 +29,14 @@ extern "C" ARM void func_ov006_0215b0fc(struct Struct0215b0fc* obj) {
         return;
     }
     if (state == 1) {
-        SetBothCounters((void*)ctx, 0, 8);
+        _Z13SetBrightnessP13GameResourcesii((void*)ctx, 0, 8);
         obj->f390 = obj->f390 + 1;
         return;
     }
     if (state != 2) {
         return;
     }
-    if (CheckField0x14Or0x20Positive((int*)ctx) != 0) {
+    if (_Z28IsBrightnessTransitionActiveP13GameResources((int*)ctx) != 0) {
         return;
     }
     obj->f38f = 4;

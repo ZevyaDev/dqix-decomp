@@ -1,11 +1,8 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 void* GetGlobalField0x1c020421a0(void);
-extern "C" void func_ov017_0218b5b0(void);
 extern "C" void func_020531f0(void* obj);
 struct Obj020397cc;
 void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);
@@ -26,10 +23,10 @@ struct Obj_021c3194 {
 
 // USA: func_ov017_021c3194  (semantic: ProcessCombatantMessageState_021c3194)
 extern "C" ARM void func_ov017_021c3194(struct Obj_021c3194* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     func_ov017_0218b5b0();
-    struct CombatantStruct* a = GetCombatantAtField0x397c(battleStruct);
-    struct CombatantStruct* c = GetCombatantWithFlag0x800(battleStruct, obj->field9);
+    GameObject* a = battleStruct->GetUnknownGameObject();
+    GameObject* c = battleStruct->GetPartyMemberByIndex(obj->field9);
     char* g = (char*)GetGlobalField0x1c020421a0();
 
     if (c == NULL) {

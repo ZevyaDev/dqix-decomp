@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void ClearSubstructBytes(void* obj);
 extern "C" void func_02092d60(void* s, int b);
@@ -12,7 +12,7 @@ struct BattlePhaseState02093080 {
 
 // USA: func_02093080
 ARM void AdvanceBattlePhase02093080(struct BattlePhaseState02093080* s) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     unsigned char state = s->field35;
     if (state == 0) {
         ClearSubstructBytes(bs);

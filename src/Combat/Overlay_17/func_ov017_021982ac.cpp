@@ -1,10 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct020a2928;
 struct S_a28e0;
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 void* GetPointerFromArray0x3c(unsigned char* obj, unsigned int index);
 int GetFieldIfFlag4(char* obj);
 int CheckField0x245Bit0x2Set(unsigned char* obj);
@@ -37,9 +36,9 @@ extern "C" void _Z21BlankFunction020a28dcv(unsigned char* obj, int kind, void* s
 
 // USA: func_ov017_021982ac
 extern "C" ARM void func_ov017_021982ac(void) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     void* ctx = func_02012fe4();
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(battle);
+    GameObject* combatant = battle->GetUnknownGameObject();
     struct Anchor_021982ac anchor = *(struct Anchor_021982ac*)((char*)combatant + 0x44);
     struct PendingNode_021982ac* node;
     unsigned char* state;

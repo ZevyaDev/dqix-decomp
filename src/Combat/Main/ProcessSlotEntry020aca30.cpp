@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_020ae074(void* a);
 struct PointerField330_ffd0;
@@ -13,7 +13,7 @@ struct Struct020aca30 { char pad[0x36fc]; void* field0x36fc; };
 
 // USA: func_020aca30
 ARM void ProcessSlotEntry020aca30(struct Struct020aca30* a0) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     void* p;
     void* field = a0->field0x36fc;
     p = GetPointerAt0x330((struct PointerField330_ffd0*)battle);

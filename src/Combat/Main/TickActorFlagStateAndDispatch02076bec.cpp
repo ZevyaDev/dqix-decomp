@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" int _ZNK8Object3D9IsVisibleEv(unsigned char* obj);
 extern "C" int func_02032fdc(void* obj, void* param1, int flag);
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
+int GetField0x3b0Value(GameState* battleStruct);
 void* GetPtrField0x144(void* obj);
 extern "C" void func_020ca528(void* ptr, void* addr);
 
@@ -33,7 +33,7 @@ ARM int TickActorFlagStateAndDispatch02076bec(unsigned char* obj, void* param1) 
         return result;
     }
 
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     int f3b0 = GetField0x3b0Value(battleStruct);
 
     struct Vec3Block020b3850 localBuf = *(struct Vec3Block020b3850*)(obj + 0x44);

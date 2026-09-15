@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Util/Random.h"
 
 int GetWord0x0(int* obj);
@@ -19,14 +19,14 @@ extern struct Words3_02167cd4 data_ov000_021830cc;
 
 // USA: func_ov000_02167cd4  (semantic: AssignFormationPositions_02167cd4)
 extern "C" ARM void func_ov000_02167cd4(unsigned char* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     GetWord0x0((int*)battle);
     struct Random* rand = *(struct Random**)(obj + 0x29c);
     short ids[8];
     int count = func_ov000_0215eb1c(rand, ids, 8, 0);
     int i = 0;
     while (i < count) {
-        struct CombatantStruct* c = GetCombatantFromList(battle, ids[i]);
+        GameObject* c = battle->GetCombatantByIndex(ids[i]);
         if (c != 0) {
             int tmp = data_ov000_02183118[count - 1][i];
             if (GetSubstructByte0x1c((unsigned char*)c) != 0xff) {

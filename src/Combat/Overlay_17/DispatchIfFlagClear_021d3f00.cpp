@@ -1,11 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
 struct SearchStruct;
 int TestFlagBitAt0xe(struct SearchStruct* s, int idx);
 void* GetData02100044(void);
-unsigned char GetField0x397cValue(struct BattleStruct* bs);
+unsigned char GetField0x397cValue(GameState* bs);
 extern "C" void func_0205e330(void* a, void* b, int c);
 
 struct Obj021d3f00 {
@@ -34,7 +34,7 @@ struct Msg021d3f00 {
 // USA: func_ov017_021d3f00  (semantic: DispatchIfFlagClear_021d3f00)
 extern "C" ARM void func_ov017_021d3f00(struct Obj021d3f00* obj, unsigned char b, unsigned char c) {
     if (!obj) return;
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* search = func_0202ae18();
     if (TestFlagBitAt0xe((struct SearchStruct*)search, 0)) return;
     void* p = GetData02100044();

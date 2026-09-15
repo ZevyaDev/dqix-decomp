@@ -1,12 +1,12 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_ov011_021848a0(void* obj, int val);
 
 // USA: func_ov004_0215c900
 #pragma optimize_for_size off
 ARM int CheckBitAndNotify_0215c900(void* obj) {
-    char* p1 = (char*)GetBattleStruct() + 0x26c;
+    char* p1 = (char*)GameState::GetInstance() + 0x26c;
     char* p = p1 + 0x5d00;
     int flags = *(unsigned short*)(p + 0xc);
     flags = flags << 0x13;

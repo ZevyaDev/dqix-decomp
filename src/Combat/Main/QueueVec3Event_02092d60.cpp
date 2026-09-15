@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 int GetWord0x0(int* obj);
 
@@ -32,8 +31,8 @@ struct Param1_02092d60 {
 
 // USA: func_02092d60  (semantic: QueueVec3Event_02092d60)
 extern "C" ARM void func_02092d60(struct Param1_02092d60* p1, int p2) {
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* c = GetCombatantAtField0x397c(bs);
+    GameState* bs = GameState::GetInstance();
+    GameObject* c = bs->GetUnknownGameObject();
     if (c != 0) {
         struct Vec3_02092d60 vecBuf;
         _ZN8Vector3iaSERKS_(&vecBuf.x, (int*)((char*)c + 0x44));

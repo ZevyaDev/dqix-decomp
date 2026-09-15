@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Field2a04_02158b78 { char pad[0xf6c]; int f0xf6c; };
 extern "C" void* func_ov004_02156f38(void* self, int kind);
@@ -32,7 +32,7 @@ public:
 ARM int Dispatch02158b78(void* self) {
     VObj02158b78* node = (VObj02158b78*)func_ov004_02156f38(self, 0xc9);
     if (node) {
-        struct Field2a04_02158b78* fld = (struct Field2a04_02158b78*)GetPtrField0x2a04(GetBattleStruct());
+        struct Field2a04_02158b78* fld = (struct Field2a04_02158b78*)GetPtrField0x2a04(GameState::GetInstance());
         node->MethodE0(fld->f0xf6c);
         void* x = func_ov004_02156f6c(self, 0x16);
         if (x) func_ov023_021f809c(x, self);

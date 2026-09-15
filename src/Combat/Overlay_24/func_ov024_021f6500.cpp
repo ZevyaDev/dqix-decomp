@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Util/Random.h"
 
 extern "C" int func_ov000_0215eb1c(int a0, short* buf, int count, int flag);
-struct CombatantStruct* GetCombatantWithFlag0x400ByID(int unused, int id);
+GameObject* GetCombatantWithFlag0x400ByID(int unused, int id);
 int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
 
 extern unsigned short data_ov024_021fedbc;
@@ -26,10 +26,10 @@ extern "C" ARM int func_ov024_021f6500(struct Obj_6500* obj, int a1, int a2, int
 
 	*outCount = 0;
 	for (int i = 0; i < count; i++) {
-		struct CombatantStruct* c = GetCombatantWithFlag0x400ByID(obj->field0, buf[i]);
+		GameObject* c = GetCombatantWithFlag0x400ByID(obj->field0, buf[i]);
 		if (!c) continue;
 		if (*(short*)((char*)c + 2) != 0x13a) continue;
-		if (*(short*)((char*)c->currentStats + 0x2c) > 0) continue;
+		if (*(short*)((char*)c->currentStats_ + 0x2c) > 0) continue;
 		outArray[*outCount] = buf[i];
 		*outCount = *outCount + 1;
 	}

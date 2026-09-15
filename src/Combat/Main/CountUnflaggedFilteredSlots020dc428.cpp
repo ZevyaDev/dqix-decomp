@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void FilterSlotsWithFlag0x800020dc4d0(signed char* out, signed char* outCount);
 
@@ -23,9 +23,9 @@ extern "C" ARM int func_020dc428(void) {
     FilterSlotsWithFlag0x800020dc4d0(buf.ids, &buf.n);
 
     signed char active = 0;
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     for (int i = 0; i < buf.n; i++) {
-        struct CombatantStruct* c = GetCombatantWithFlag0x100(battle, buf.ids[i]);
+        GameObject* c = GetCombatantWithFlag0x100(battle, buf.ids[i]);
         if (c != 0) {
             int flagSet;
             struct Sub020dc428* sub = ((struct Combatant020dc428*)c)->sub;

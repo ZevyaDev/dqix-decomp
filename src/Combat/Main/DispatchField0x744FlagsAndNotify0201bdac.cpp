@@ -1,15 +1,14 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void func_ov017_021a9bc4(void* node, int flag);
 extern "C" void func_ov017_021a9a9c(void* node, int b1, int b2, int h3, int extra);
 extern "C" void func_ov017_021aa4cc(void* overlay, int flag);
 extern "C" void* func_0202ae18(void);
 extern "C" void func_020ae53c(int arg);
 
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
+void* GetPtrField0x2a04(GameState* battleStruct);
 int IsField0Null(void** obj);
 
 struct AxisFloats0203b5f8 { unsigned char pad0[0xc]; float f0c; unsigned char pad10[8]; float f18; };
@@ -29,7 +28,7 @@ int AreListedCombatantsBit0Set(Obj02086b98* o);
 
 // USA: func_0201bdac
 ARM void DispatchField0x744FlagsAndNotify(unsigned char* src) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     unsigned char* ov = (unsigned char*)func_ov017_0218b5b0();
     TailList020469b4* list = *(TailList020469b4**)(ov + 0x3000 + 0x6fc);
     void* table = func_0202ae18();
@@ -41,7 +40,7 @@ ARM void DispatchField0x744FlagsAndNotify(unsigned char* src) {
 
     unsigned char flags = *(src + 0x2000 + 0x744);
     if (flags & 1) {
-        struct GrottoStruct* grotto = GetGrottoStruct(bs);
+        struct GrottoStruct* grotto = bs->GetGrottoStruct();
         grotto->unknown_9 = 2;
         TailNode020469b4* node = *(TailNode020469b4**)(ov + 0x3000 + 0xb68);
         func_ov017_021a9bc4(node, 0);

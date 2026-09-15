@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 
 extern "C" void* func_ov017_0218b5b0(unsigned char* self);
-extern "C" void func_0203b110(void* p, int a, int b);
+extern "C" void _Z17SetMainBrightnessP13GameResourcesii(void* p, int a, int b);
 extern "C" int func_02012fe4(void);
 extern "C" void func_02098630(void* obj, void* addr, int a, int b);
 
-int CheckField0x14Positive(int* p);
+extern "C" int _Z32IsMainBrightnessTransitionActiveP13GameResources(int* p);
 void ResetFieldsB68AndB74_0216fb6c(char* obj);
 
 // USA: func_ov003_021733d0  (semantic: UpdateCombatState_021733d0)
 extern "C" ARM void func_ov003_021733d0(unsigned char* self) {
     int* p = (int*)func_ov017_0218b5b0(self);
     if (self[0xee] == 0) {
-        func_0203b110(p, -16, 24);
+        _Z17SetMainBrightnessP13GameResourcesii(p, -16, 24);
         self[0xee] = 1;
         return;
     }
     if (self[0xee] != 1) {
         return;
     }
-    if (CheckField0x14Positive(p) != 0) {
+    if (_Z32IsMainBrightnessTransitionActiveP13GameResources(p) != 0) {
         return;
     }
     int r4 = func_02012fe4();

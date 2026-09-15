@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct PointerField32c_ffc0;
 struct ResetObj020d7a5c;
@@ -18,14 +18,14 @@ extern "C" void func_0204500c(void*, const char*, int, int);
 void SetFlagsAt0x244(unsigned char* obj, unsigned char mask);
 void ClearFlagBits(unsigned char* obj, int mask);
 extern "C" int func_020457e0(void* obj);
-void* GetField0x3f8Address(struct BattleStruct* battleStruct);
+void* GetField0x3f8Address(GameState* battleStruct);
 extern "C" void VectorizedMemset(void*, int, int);
 void ReinitController02043204(char* obj);
 void SetByteFlagAt0x154(unsigned char* obj);
 
 // USA: func_ov017_021a9454  (semantic: HandleFieldStatusTransition_021a9454)
 extern "C" ARM void func_ov017_021a9454(char* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     char* g = (char*)GetGlobalField0x1c020421a0();
     func_02012fe4();
     int field = GetFieldIfFlag4((char*)battleStruct);

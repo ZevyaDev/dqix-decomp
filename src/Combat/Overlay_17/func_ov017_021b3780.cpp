@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 int GetFieldAt0x150(unsigned char* obj);
@@ -35,12 +35,12 @@ struct Ctx_021b3780 {
 
 // USA: func_ov017_021b3780
 extern "C" ARM int func_ov017_021b3780(struct Ctx_021b3780* ctx) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     int loadedList = (int)BackgroundLoader::GetInstance();
     if (!((BackgroundLoader*)(loadedList))->GetTaskStatus((int)(ctx->listKey))) {
         return 0;
     }
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(battle, ctx->combatantId);
+    GameObject* combatant = GetCombatantWithFlag0x100(battle, ctx->combatantId);
     if (!combatant) {
         return 0;
     }

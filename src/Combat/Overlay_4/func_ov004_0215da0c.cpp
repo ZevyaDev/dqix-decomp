@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
 short SumKeyedLookups02086bf4(char* obj, int key);
@@ -16,7 +16,7 @@ extern Struct021707d8_0215da0c data_ov004_021707d8;
 
 // USA: func_ov004_0215da0c
 extern "C" ARM int func_ov004_0215da0c(void* obj) {
-    void* p = GetPtrField0x2a04(GetBattleStruct());
+    void* p = GetPtrField0x2a04(GameState::GetInstance());
     int result4 = SumKeyedLookups02086bf4((char*)p, *(short*)(data_ov004_021707d8.ptr + 0xe));
 
     unsigned char flag = data_ov004_021707d8.ptr[0x9d];

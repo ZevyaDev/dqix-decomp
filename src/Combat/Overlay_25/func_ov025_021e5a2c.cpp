@@ -1,13 +1,13 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetActiveCombatWork(void);
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
+int GetField0x3b0Value(GameState* battleStruct);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 
 // USA: func_ov025_021e5a2c
 extern "C" ARM int func_ov025_021e5a2c(void* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int f = GetField0x3b0Value(bs);
     if (f != 0) {
         _ZN8Vector3iaSERKS_((int*)(f + 4), (int*)((char*)obj + 8));

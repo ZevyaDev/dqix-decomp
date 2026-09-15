@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetFieldAt0x150(unsigned char* obj);
 
@@ -10,14 +10,14 @@ struct GaugeState02154944 {
 
 // USA: func_ov002_02154944
 extern "C" ARM short func_ov002_02154944(void* obj, int combatantId, int delta, unsigned char* status) {
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(GetBattleStruct(), combatantId);
+    GameObject* combatant = GetCombatantWithFlag0x100(GameState::GetInstance(), combatantId);
     if (combatant == 0) {
         return 0;
     }
 
     GetFieldAt0x150((unsigned char*)combatant);
 
-    unsigned short maxMP = combatant->baseStats->primaryStats.maxMP;
+    unsigned short maxMP = combatant->baseStats_->primaryStats.maxMP;
     unsigned short currMP = (*(struct GaugeState02154944**)((char*)combatant + 0x130))->currMP;
     int sum = currMP + delta;
     int amount;

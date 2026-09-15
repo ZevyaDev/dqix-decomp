@@ -1,24 +1,19 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "GameState/GameState.h"
 
 struct Vec3 { int x; int y; int z; };
 struct Vec3Fixed02030e2c { int x; int y; int z; };
 struct Blk3_02157e18 { int v[3]; };
 
-struct BattleStruct;
-ARM struct BattleStruct* GetBattleStruct(void);
-ARM unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
-extern "C" void Vector3fix_Subtract(struct Vec3* a, struct Vec3* b, struct Vec3* out);
-extern "C" void Vector3fix_Add(struct Vec3* a, struct Vec3* b, struct Vec3* out);
-extern "C" ARM int fix32_Divide(unsigned int numerHi, unsigned int denomLo);
 extern "C" ARM void _Z24Vector3fixMultiplyScalarPK8Vector3iiPS_(struct Vec3Fixed02030e2c* in, int scale, struct Vec3Fixed02030e2c* out);
 
 // USA: func_ov001_02157e18  (semantic: AdvanceVelocityTowardTarget_02157e18)
 extern "C" ARM int func_ov001_02157e18(void* a, void* b) {
     char* pA = (char*)a;
     char* pB = (char*)b;
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    int scale = GetBattleScaleCount(battleStruct) << 0xc;
+    GameState* battleStruct = GameState::GetInstance();
+    int scale = battleStruct->GetTickCount() << 0xc;
     int period = *(int*)(pA + 0x1c);
     if (period == 0) {
         memcpy(pB + 0x58, pA + 0x10, 0xc);
@@ -28,15 +23,15 @@ extern "C" ARM int func_ov001_02157e18(void* a, void* b) {
     if (*(int*)(pB + 0x38) <= 0) {
         struct Vec3 diff;
         int denom = period << 0xd;
-        Vector3fix_Subtract((struct Vec3*)(pA + 0x10), (struct Vec3*)(pB + 0x58), &diff);
-        *(int*)(pB + 0xc0) = fix32_Divide(diff.x, denom);
-        *(int*)(pB + 0xc4) = fix32_Divide(diff.y, denom);
-        *(int*)(pB + 0xc8) = fix32_Divide(diff.z, denom);
+        Vector3fix_Subtract((const Vector3fix*)((struct Vec3*)(pA + 0x10)), (const Vector3fix*)((struct Vec3*)(pB + 0x58)), (Vector3fix*)&diff);
+        *(int*)(pB + 0xc0) = fix32_Divide((fix32_t)diff.x, (fix32_t)denom);
+        *(int*)(pB + 0xc4) = fix32_Divide((fix32_t)diff.y, (fix32_t)denom);
+        *(int*)(pB + 0xc8) = fix32_Divide((fix32_t)diff.z, (fix32_t)denom);
     }
     struct Blk3_02157e18 vel = *(struct Blk3_02157e18*)(pB + 0xc0);
     _Z24Vector3fixMultiplyScalarPK8Vector3iiPS_((struct Vec3Fixed02030e2c*)&vel, scale, (struct Vec3Fixed02030e2c*)&vel);
-    Vector3fix_Add((struct Vec3*)(pB + 0x58), (struct Vec3*)&vel, (struct Vec3*)(pB + 0x58));
-    int counter = *(int*)(pB + 0x38) + GetBattleScaleCount(battleStruct);
+    Vector3fix_Add((const Vector3fix*)((struct Vec3*)(pB + 0x58)), (const Vector3fix*)((struct Vec3*)&vel), (Vector3fix*)((struct Vec3*)(pB + 0x58)));
+    int counter = *(int*)(pB + 0x38) + battleStruct->GetTickCount();
     *(int*)(pB + 0x38) = counter;
     int limit = *(int*)(pA + 0x1c) << 1;
     if (counter >= limit) {

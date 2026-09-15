@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 int GetField0x17dBits4To5IfFlag8(unsigned char* obj);
 extern "C" int _ZNK8Object3D9GetRadiusEv(unsigned char* obj);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
@@ -21,9 +20,9 @@ struct CombatantFlagObj0207964c {
 // USA: func_0207964c  (semantic: AimAtFlaggedTargetCombatant_0207964c)
 extern "C" ARM void func_0207964c(unsigned char* self) {
     if (self[0x17d] & 8) {
-        struct BattleStruct* battleStruct = GetBattleStruct();
+        GameState* battleStruct = GameState::GetInstance();
         int field = GetField0x17dBits4To5IfFlag8(self);
-        unsigned char* combatant = (unsigned char*)GetCombatantWithFlag0x800(battleStruct, field);
+        unsigned char* combatant = (unsigned char*)battleStruct->GetPartyMemberByIndex(field);
         if (combatant != NULL) {
             if (!(((struct CombatantFlagObj0207964c*)combatant)->flags2 & 1)) {
                 int scale = _ZNK8Object3D9GetRadiusEv(combatant) / 4 + _ZNK8Object3D9GetRadiusEv(self) / 2;

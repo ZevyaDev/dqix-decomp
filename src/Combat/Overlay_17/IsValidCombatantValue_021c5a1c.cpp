@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* FindCombatantByField16a_021a278c(void* unused, int val);
-extern "C" void* func_ov017_0218b5b0(void);
+GameObject* FindCombatantByField16a_021a278c(void* unused, int val);
 
 // USA: func_ov017_021c5a1c
 ARM int IsValidCombatantValue_021c5a1c(int val) {
@@ -15,7 +14,7 @@ skip:
 		return 0;
 	if (val > 0x7fff)
 		return 0;
-	GetBattleStruct();
+	GameState::GetInstance();
 	void* p = func_ov017_0218b5b0();
 	if (p == NULL)
 		return 0;

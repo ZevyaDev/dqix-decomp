@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 void* GetData02100044(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
@@ -17,8 +17,8 @@ struct Packet021cca5c {
 
 // USA: func_ov017_021cca5c  (semantic: SendField150Window_021cca5c)
 extern "C" ARM void func_ov017_021cca5c(int id, int flag) {
-	struct BattleStruct* battle = GetBattleStruct();
-	struct CombatantStruct* c = GetCombatantWithFlag0x100(battle, id);
+	GameState* battle = GameState::GetInstance();
+	GameObject* c = GetCombatantWithFlag0x100(battle, id);
 	if (!c) return;
 
 	unsigned char* field150 = (unsigned char*)GetFieldAt0x150((unsigned char*)c);

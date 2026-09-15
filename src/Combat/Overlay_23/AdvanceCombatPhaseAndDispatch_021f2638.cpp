@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_02046380(void);
 int GetGlobalField0x1c020421a0(void);
@@ -23,7 +23,7 @@ extern int* data_ov023_021ffefc;
 
 // USA: func_ov023_021f2638  (semantic: AdvanceCombatPhaseAndDispatch_021f2638)
 extern "C" ARM int func_ov023_021f2638(unsigned char* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     int* g = data_ov023_021ffefc;
     int state = GetGlobalField0x1c020421a0();
     unsigned char* stateObj = (unsigned char*)state;
@@ -36,13 +36,13 @@ extern "C" ARM int func_ov023_021f2638(unsigned char* obj) {
         if (*(int*)(obj + 0x5768) != 0) {
             char msgBuf[0x100];
             unsigned char idBuf[4];
-            struct CombatantStruct* combatant;
+            GameObject* combatant;
             int n = CopyOutRegion0x571d((char*)battleStruct, idBuf);
             unsigned char flagged = 0;
             unsigned char total = 0;
             int i;
             for (i = 0; i < n; i++) {
-                combatant = GetCombatantFromList(battleStruct, idBuf[i]);
+                combatant = battleStruct->GetCombatantByIndex(idBuf[i]);
                 if (combatant == NULL) continue;
                 if (!TestBitAt0x34(*(unsigned char**)(obj + 0x2a0), idBuf[i])) continue;
                 total = total + 1;

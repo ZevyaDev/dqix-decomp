@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern char data_020feffc[];
 
@@ -18,7 +18,7 @@ extern "C" ARM int func_0202b900(int* obj, unsigned char* key) {
     int count;
     int j;
     int stride;
-    struct BattleStruct* battleStruct;
+    GameState* battleStruct;
     unsigned long long ts;
 
     i = 0;
@@ -51,7 +51,7 @@ extern "C" ARM int func_0202b900(int* obj, unsigned char* key) {
         if (func_02001aec(key, entries + j * stride + 4, 6) == 0) {
             _Z12Init0202dc40iPv(5, data_020feffc + j * stride);
             *obj = 6;
-            battleStruct = GetBattleStruct();
+            battleStruct = GameState::GetInstance();
             ts = GetCurrentTimestamp();
             *(unsigned int*)((char*)battleStruct + 0x3f0) = (unsigned int)ts;
             result = j;

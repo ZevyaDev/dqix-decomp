@@ -1,13 +1,12 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 void* GetFieldAt0x188(unsigned char*);
 int LookupAndForEachNode020649b0(void* a, int mode, void* c);
 
 // USA: func_02064a9c
 ARM int SetTargetFieldAndForEach02064a9c(void* param0, void* param1) {
-    void* x = GetFieldAt0x188((unsigned char*)(GetCombatantAtField0x397c(GetBattleStruct())));
+    void* x = GetFieldAt0x188((unsigned char*)(GameState::GetInstance()->GetUnknownGameObject()));
     if (x != NULL) {
         if (*(int*)((char*)x + 4) == 3) {
             *(int*)((char*)param1 + 4) = *(unsigned char*)((char*)x + 0x2c);

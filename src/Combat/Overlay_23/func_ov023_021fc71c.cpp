@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 void InitWordsQuad_021e60e0(void* obj, unsigned int val);
 void ClearShortsAt_021e616c_021e616c(char* obj);
@@ -14,8 +14,8 @@ struct FlagByte021fc71c {
 
 // USA: func_ov023_021fc71c  (semantic: InitOrClearCombatantSlot_021fc71c)
 extern "C" ARM void func_ov023_021fc71c(void* obj, int id, int flagArg) {
-    struct BattleStruct* battle = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(battle, id);
+    GameState* battle = GameState::GetInstance();
+    GameObject* combatant = GetCombatantWithFlag0x100(battle, id);
     unsigned char bit0 = ((struct FlagByte021fc71c*)((char*)obj + 0x1864))->bit0;
     int idx = (bit0 + 1) % 2;
     int mul = idx * 0xc20;

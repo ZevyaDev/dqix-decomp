@@ -1,10 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Vec3 { int x; int y; int z; };
-extern "C" void Vector3fix_Add(struct Vec3* a, struct Vec3* b, struct Vec3* out);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
-unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
 
 struct Segment0217208 {
     char pad[0x1c];
@@ -36,7 +34,7 @@ extern "C" ARM void func_02017208(struct EntryList0217208* manager) {
     int j;
     int k;
 
-    scaleCount = GetBattleScaleCount(GetBattleStruct());
+    scaleCount = GameState::GetInstance()->GetTickCount();
 
     for (i = 0; i < manager->count; i++) {
         e = &manager->entries[i];
@@ -50,7 +48,7 @@ extern "C" ARM void func_02017208(struct EntryList0217208* manager) {
                     for (k = 0; k < 4; k++) {
                         struct Vec3 tmp;
                         struct Segment0217208* seg = &e->segments[k];
-                        Vector3fix_Add(&seg->pos, &e->vel[k], &tmp);
+                        Vector3fix_Add((const Vector3fix*)&seg->pos, (const Vector3fix*)&e->vel[k], (Vector3fix*)&tmp);
                         _ZN8Vector3iaSERKS_((int*)&seg->pos, (int*)&tmp);
                         e->vel[k].y -= 0x40;
                     }

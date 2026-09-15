@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_ov002_0215be00(void* obj, int a1, int a2, int a3);
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
+void* GetPtrField0x2a04(GameState* battleStruct);
 int GetGlobalField0x1c020421a0();
 extern "C" void func_02046380(void* global);
 
@@ -23,7 +23,7 @@ struct BufOv0215bf34 { char pad[0xbd0]; void* buf; };
 ARM void InitBattleTag0215bf34(char* base) {
     func_ov002_0215be00(base, 0x29, 0x15, 0x15);
 
-    struct StoreStruct* combatant = (struct StoreStruct*)GetPtrField0x2a04(GetBattleStruct());
+    struct StoreStruct* combatant = (struct StoreStruct*)GetPtrField0x2a04(GameState::GetInstance());
     int field = GetGlobalField0x1c020421a0();
     func_02046380((void*)field);
 

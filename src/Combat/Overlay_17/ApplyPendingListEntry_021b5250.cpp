@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct List0202fe68;
 struct List0202fec8;
@@ -26,7 +26,7 @@ struct Obj021b5250 {
 
 // USA: func_ov017_021b5250  (semantic: ApplyPendingListEntry_021b5250)
 extern "C" ARM void func_ov017_021b5250(struct Obj021b5250* obj) {
-    GetBattleStruct();
+    GameState::GetInstance();
     int list = (int)BackgroundLoader::GetInstance();
     if (!((BackgroundLoader*)(list))->GetTaskStatus((int)(obj->key))) {
         return;

@@ -1,8 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct BattleStruct* GetBattleStruct(void);
-struct CombatantStruct* GetCombatantWithFlag0x20(struct BattleStruct* battleStruct, int combatantId);
 void* GetData02108ea8(void);
 struct Entry0207d9bc;
 struct Entry0207d9bc* FindEntryByHalfword(struct Entry0207d9bc* arr, unsigned short key);
@@ -11,7 +9,7 @@ extern unsigned char data_ov017_021d7654[4];
 
 // USA: func_ov017_021a1944  (semantic: AssignUniqueEventId_021a1944)
 extern "C" ARM unsigned short func_ov017_021a1944(void) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* table = GetData02108ea8();
     int i, j;
 retry:
@@ -20,7 +18,7 @@ retry:
     }
     for (i = 0; i < 4; i++) {
         for (j = 0; j < 0xc; j++) {
-            struct CombatantStruct* c = GetCombatantWithFlag0x20(bs, i * 0xc + 0x70 + j);
+            GameObject* c = bs->GetMaybeFieldMonsterByIndex(i * 0xc + 0x70 + j);
             if (c != NULL) {
                 unsigned short field = *(unsigned short*)((char*)c + 0x16a);
                 if (*(unsigned short*)(data_ov017_021d7654) == field) {

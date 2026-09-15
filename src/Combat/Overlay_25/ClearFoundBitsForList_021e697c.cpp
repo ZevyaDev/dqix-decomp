@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int DispatchByIndex021820bc(void* obj, int unused, int index, int arg);
 void ClearSubstructByte0x56(unsigned char* obj);
@@ -15,11 +15,11 @@ struct Obj021e697c {
 // USA: func_ov025_021e697c
 ARM int ClearFoundBitsForList_021e697c(struct Obj021e697c* obj, int p1, int unusedArg, void* p3) {
     int local[8];
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int count = DispatchByIndex021820bc(p3, p1, obj->field8, (int)&local[0]);
     int i;
     for (i = 0; i < count; i++) {
-        struct CombatantStruct* c = GetCombatantFromList(bs, local[i]);
+        GameObject* c = bs->GetCombatantByIndex(local[i]);
         if (c != NULL) {
             ClearSubstructByte0x56((unsigned char*)c);
             {

@@ -2,10 +2,10 @@
 #include "Memory/SafeAllocator.h"
 #include "System/Cache.h"
 #include "std_library_functions.h"
+#include "GameState/GameState.h"
 
-extern "C" void* _Z15GetBattleStructv();
 extern "C" void* _Z10GetWord0x0Pi(void* battle);
-void SetBothCounters(void* obj, int value, int frames);
+extern "C" void _Z13SetBrightnessP13GameResourcesii(void* obj, int value, int frames);
 
 struct Obj02097b34;
 extern "C" void func_02097b34(struct Obj02097b34* obj);
@@ -27,9 +27,9 @@ void SetBitsInField8(unsigned int* obj, unsigned int mask);
 
 // USA: func_ov028_021d8c20  (semantic: ResetStateAndCounters_021d8c20)  (semantic: ResetStateAndCounters_021d8c20)
 extern "C" ARM void func_ov028_021d8c20(char* self) {
-    void* battle = _Z15GetBattleStructv();
+    void* battle = GameState::GetInstance();
     void* word = _Z10GetWord0x0Pi(battle);
-    SetBothCounters(word, -16, 0);
+    _Z13SetBrightnessP13GameResourcesii(word, -16, 0);
 
     *(int*)0x4000014 = 0;
     *(int*)0x4001014 = 0;

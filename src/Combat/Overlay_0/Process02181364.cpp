@@ -1,12 +1,12 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov000_02161318(void* base, int id);
 extern "C" void func_ov000_02174b14(void* obj);
 
 // USA: func_ov000_02181364
 ARM void Process02181364(void* obj) {
-    unsigned char* base = (unsigned char*)GetPtrField0x2a04(GetBattleStruct());
+    unsigned char* base = (unsigned char*)GetPtrField0x2a04(GameState::GetInstance());
     unsigned char count = base[0xf7c];
     unsigned char j;
     for (j = 0; j < count; j++) {

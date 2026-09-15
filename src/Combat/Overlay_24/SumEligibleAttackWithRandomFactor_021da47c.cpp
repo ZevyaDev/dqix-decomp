@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Util/Random.h"
 
 extern "C" int func_ov000_0215e9fc(int battle, unsigned short* table, int count, int flag);
@@ -12,7 +12,7 @@ extern "C" ARM int func_ov024_021da47c(int* a0, unsigned short category, int unu
 		return fallback;
 	}
 
-	struct BattleStruct* battle = GetBattleStruct();
+	GameState* battle = GameState::GetInstance();
 
 	int sum = 0;
 	unsigned short buf[4];
@@ -26,9 +26,9 @@ extern "C" ARM int func_ov024_021da47c(int* a0, unsigned short category, int unu
 
 	int count = func_ov000_0215e9fc(*a0, buf, 4, 1);
 	for (int i = 0; i < count; i++) {
-		struct CombatantStruct* c = GetCombatantWithFlag0x100(battle, *(short*)&buf[i]);
+		GameObject* c = GetCombatantWithFlag0x100(battle, *(short*)&buf[i]);
 		if (c) {
-			sum += c->currentStats->primaryStats.attack;
+			sum += c->currentStats_->primaryStats.attack;
 		}
 	}
 

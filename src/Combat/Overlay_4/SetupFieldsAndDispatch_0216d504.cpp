@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_020aaf84(void*, int, int, int);
 unsigned char GetField0xcc0209ca98(char* obj);
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov004_0216d504(void* self) {
     SetModeClamped0209ca70(&data_02109bf4, 3);
     SetStateAndDispatch0205e9f4((struct Obj0205e9f4*)&data_02108760, 3);
 
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     SetByte0x7f70(battle, 0);
     ((unsigned char*)battle + 0x7000)[0xf71] = 0;
     SetByte0x4((char*)battle, 0);

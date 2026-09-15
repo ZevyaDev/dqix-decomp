@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void __clear(void* buf, int n);
 extern unsigned char CopyOutRegion0x5718(char* obj, void* dst);
@@ -9,7 +9,7 @@ struct Obj150_021ea51c { char pad[0x150]; char* ptr150; };
 
 // USA: func_ov023_021ea51c
 ARM int CountCombatantsByStatus2_021ea51c(void* obj) {
-	struct BattleStruct* bs = GetBattleStruct();
+	GameState* bs = GameState::GetInstance();
 	unsigned char buf[4];
 	__clear(buf, 4);
 	unsigned char len = CopyOutRegion0x5718((char*)bs, buf);

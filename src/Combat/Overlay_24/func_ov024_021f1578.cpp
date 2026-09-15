@@ -1,8 +1,9 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x400ByID(int unused, int id);
+GameObject* GetCombatantWithFlag0x400ByID(int unused, int id);
 struct S_bf3c_021f1440;
 int IsBitfield2Set_021f1440(struct S_bf3c_021f1440* obj);
 extern "C" int func_ov000_0215eb1c(int a, short* buf, int max, int start);
@@ -24,7 +25,7 @@ struct BuffWord_021f1578 {
 
 // USA: func_ov024_021f1578  (semantic: FindCombatantWithLowUnkBuff21_021f1578)
 extern "C" ARM int func_ov024_021f1578(struct Obj_021f1578* obj, short id, int unused2, int* outCount, void* outArr) {
-	struct CombatantStruct* c0 = GetCombatantWithFlag0x400ByID(obj->field0, id);
+	GameObject* c0 = GetCombatantWithFlag0x400ByID(obj->field0, id);
 	if (!c0) return 0;
 	if (!IsBitfield2Set_021f1440((struct S_bf3c_021f1440*)c0)) return 0;
 
@@ -34,9 +35,9 @@ extern "C" ARM int func_ov024_021f1578(struct Obj_021f1578* obj, short id, int u
 
 	int found = 0;
 	for (int i = 0; i < count; i++) {
-		struct CombatantStruct* c = GetCombatantByID(obj->field0, buf.v[i]);
+		GameObject* c = GetCombatantByID(obj->field0, buf.v[i]);
 		if (!c) continue;
-		struct BuffWord_021f1578* bw = (struct BuffWord_021f1578*)((char*)c->currentStats + 0x58);
+		struct BuffWord_021f1578* bw = (struct BuffWord_021f1578*)((char*)c->currentStats_ + 0x58);
 		if (bw->unkBuff21 < 2) {
 			found = 1;
 			break;

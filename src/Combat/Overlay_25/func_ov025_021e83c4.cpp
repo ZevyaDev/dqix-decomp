@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetArrayEntry_021e8a54_021e8a54(char* obj);
 int FindTagAndCopy_021e24d0(char* s, char* out2, char* out1);
@@ -28,12 +28,12 @@ struct Inner021e83c4 { char pad[0x49c]; unsigned char flag : 1; };
 
 // USA: func_ov025_021e83c4
 extern "C" ARM int func_ov025_021e83c4(struct Param021e83c4* p, struct Ctx1021e83c4* ctx, int unusedR2, void* dispatchObj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int handle = (int)BackgroundLoader::GetInstance();
     GetArrayEntry_021e8a54_021e8a54((char*)data_ov025_021ef988.target);
 
     int cid = *(unsigned short*)((char*)ctx->field0x10 + 0x20);
-    struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, cid);
+    GameObject* c = GetCombatantWithFlag0x100(bs, cid);
     struct Inner021e83c4* c2 = *(struct Inner021e83c4**)((char*)c + 0x150);
     char ch = 'm';
     if (c2->flag == 1) {

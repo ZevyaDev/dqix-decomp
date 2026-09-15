@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/AllocatorUnion.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* AllocateAligned4(AllocatorUnion* alloc, unsigned int size);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
@@ -11,7 +11,7 @@ extern "C" int func_02075acc(int a, void* p, unsigned int size, int c);
 
 // USA: func_020abca8
 ARM int AllocateAndProcessScratchBuffer020abca8() {
-    BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int zero = 0;
     *(unsigned char*)((char*)bs + 0x5cc8) = zero;
 

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_02033920(void* obj, int value, int arg3);
 
@@ -19,7 +19,7 @@ ARM void DispatchTargetByte020494c0(struct Obj020494c0* obj) {
     struct Sub020494c0* p;
     unsigned char v;
     if (obj->field_13c == NULL) return;
-    GetBattleStruct();
+    GameState::GetInstance();
     p = obj->field_13c;
     v = p->field_4c;
     if (v == 0xff) v = p->field_4d;

@@ -1,9 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 unsigned char GetByte0x4(char* obj);
 unsigned char GetByte0x7f70(void* obj);
-unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
 extern "C" int _s32_div_f(int a, int b);
 extern "C" int func_ov017_021d4df8(void* obj, int key);
 extern "C" void func_ov017_021d4ce4(void* obj, int key);
@@ -11,10 +10,10 @@ extern "C" void func_ov017_021d4ccc(void* obj);
 
 // USA: func_ov011_021848a8  (semantic: UpdateBattleScaleAndPollTicket_021848a8)
 extern "C" ARM void func_ov011_021848a8(void* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     if (GetByte0x4((char*)battle) == 6) {
         if (GetByte0x7f70(battle) == 1) {
-            unsigned int sum = *(unsigned int*)((char*)obj + 0x1d0) + GetBattleScaleCount(battle);
+            unsigned int sum = *(unsigned int*)((char*)obj + 0x1d0) + battle->GetTickCount();
             *(unsigned int*)((char*)obj + 0x1d0) = sum;
             if (sum > 0xe10) {
                 *(unsigned int*)((char*)obj + 0x1d0) = 0;

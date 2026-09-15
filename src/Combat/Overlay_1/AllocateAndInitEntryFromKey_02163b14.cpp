@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
 extern "C" void* func_02012fe4(void);
@@ -21,7 +21,7 @@ struct GlobalBlock_02163b14 {
 
 // USA: func_ov001_02163b14  (semantic: AllocateAndInitEntryFromKey_02163b14)
 extern "C" ARM int func_ov001_02163b14(void* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     struct GlobalBlock_02163b14* g = (struct GlobalBlock_02163b14*)func_02012fe4();
     void* fieldPtr = GetFieldPtrAt0x5ca4(battle);
     int type = *(int*)obj;

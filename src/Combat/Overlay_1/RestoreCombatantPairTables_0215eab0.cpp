@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov017_021d60f4(void*);
-struct BattleStruct* GetBattleStruct();
 int GetWord0x0(int* obj);
 
 struct Block0207df50 { unsigned int v[10]; };
@@ -20,7 +19,7 @@ void RestorePairTables0207df90(char* obj);
 
 // USA: func_ov001_0215eab0
 ARM int RestoreCombatantPairTables_0215eab0(void* self, int mode) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     if (bs == NULL) {
         return 0;
     }

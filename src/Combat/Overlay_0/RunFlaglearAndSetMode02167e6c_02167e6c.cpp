@@ -1,16 +1,16 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int TestBitAt0x34(unsigned char* obj, unsigned int index);
-extern "C" void func_02049d6c(struct CombatantStruct* combatant);
+extern "C" void func_02049d6c(GameObject* combatant);
 void ClearSubstructFlag0x4(unsigned char* obj);
 
 // USA: func_ov000_02167e6c
 ARM void RunFlaglearAndSetMode02167e6c_02167e6c(unsigned char* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     for (int i = 0; i < 4; i++) {
         if (TestBitAt0x34(*(unsigned char**)(obj + 0x2a0), (unsigned char)i)) {
-            struct CombatantStruct* c = GetCombatantFromList(battle, i);
+            GameObject* c = battle->GetCombatantByIndex(i);
             if (c) {
                 func_02049d6c(c);
                 ClearSubstructFlag0x4((unsigned char*)c);
@@ -18,7 +18,7 @@ ARM void RunFlaglearAndSetMode02167e6c_02167e6c(unsigned char* obj) {
         }
     }
     for (int i = 0xc0; i < 0xc8; i++) {
-        struct CombatantStruct* c = GetCombatantFromList(battle, i);
+        GameObject* c = battle->GetCombatantByIndex(i);
         if (c) {
             func_02049d6c(c);
             ClearSubstructFlag0x4((unsigned char*)c);

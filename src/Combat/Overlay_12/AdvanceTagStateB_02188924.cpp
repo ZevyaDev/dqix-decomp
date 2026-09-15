@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov012_02184384(void* ptr, int idx);
 extern "C" void func_ov023_021e6e60(void* obj);
@@ -18,8 +19,6 @@ int GetActiveScaledSum0205d794(struct Struct_0205c570* s);
 struct Obj0205eaa0;
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 extern int data_02108760;
-struct BattleStruct;
-struct BattleStruct* GetBattleStruct();
 struct Container020e0310;
 int GetFieldByKey020e0434(struct Container020e0310* c, int key);
 
@@ -59,7 +58,7 @@ extern "C" ARM void func_ov012_02188924(char* base) {
         DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, 1, 0);
         memset(base + 0x1400, 0, 0x40);
         memcpy(base + 0x1400, name, strlen(name));
-        struct BattleStruct* bs = GetBattleStruct();
+        GameState* bs = GameState::GetInstance();
         char* p = (char*)bs + 0x29c + 0x5400;
         int v = *(int*)(p + 0x4);
         int sel2 = *(int*)(base + 0x1000 + 0x3f0);

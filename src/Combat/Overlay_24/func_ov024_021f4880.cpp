@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "Util/Random.h"
 
@@ -23,9 +23,9 @@ extern "C" ARM int func_ov024_021f4880(int* a0, int a1, int a2, int* outCount, s
 
     *outCount = 0;
     for (int i = 0; i < count; i++) {
-        struct CombatantStruct* member = GetCombatantByID(*a0, buf.v[i]);
-        if (member && (CheckFlag0x2AndKind1((struct Combatant_20885b4*)member->currentStats) ||
-                       CheckFlag0x2AndState2((struct S88514*)member->currentStats))) {
+        GameObject* member = GetCombatantByID(*a0, buf.v[i]);
+        if (member && (CheckFlag0x2AndKind1((struct Combatant_20885b4*)member->currentStats_) ||
+                       CheckFlag0x2AndState2((struct S88514*)member->currentStats_))) {
             int idx = *outCount;
             *outCount = idx + 1;
             outArray[idx] = buf.v[i];

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "std_library_functions.h"
 
@@ -18,7 +18,7 @@ extern "C" ARM int func_ov024_021f5ce4(struct Obj_021f5ce4* obj, int unused1, in
     if (count <= 0) return 0;
     *outCount = 0;
     for (int i = 0; i < count; i++) {
-        struct CombatantStruct* c = GetCombatantByID(obj->field0, buf.v[i]);
+        GameObject* c = GetCombatantByID(obj->field0, buf.v[i]);
         if (c && !IsFlagBit24Set_021dd260((struct FlagObj_021dd260*)c)) {
             (*outCount)++;
         }

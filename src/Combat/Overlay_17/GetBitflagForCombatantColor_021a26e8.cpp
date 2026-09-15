@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 void* GetPtrField0x114(void* obj);
 struct ColorHolder0204bd7c;
 unsigned short ConvertColorToDecimalOffset30000(struct ColorHolder0204bd7c* obj);
@@ -11,8 +11,8 @@ int FindKeyGetBitflag02099a68(struct SearchList02099a68* list, unsigned short ke
 
 // USA: func_ov017_021a26e8
 ARM int GetBitflagForCombatantColor_021a26e8(int unused0, int combatantId) {
-	struct BattleStruct* bs = GetBattleStruct();
-	struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, combatantId);
+	GameState* bs = GameState::GetInstance();
+	GameObject* combatant = GetCombatantWithFlag0x100(bs, combatantId);
 	if (combatant == NULL) {
 		return 0;
 	}

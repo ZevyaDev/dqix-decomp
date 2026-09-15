@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x400(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x400(GameState* battleStruct, int combatantId);
 
 // USA: func_ov000_021536f8
-ARM struct CombatantStruct* GetCombatantWithFlag0x400ByID(int unused, int id) {
-	return GetCombatantWithFlag0x400(GetBattleStruct(), id);
+ARM GameObject* GetCombatantWithFlag0x400ByID(int unused, int id) {
+	return GetCombatantWithFlag0x400(GameState::GetInstance(), id);
 }

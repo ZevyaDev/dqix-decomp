@@ -1,10 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetGlobalField0x1c020421a0();
 void* GetGlobalPtr021075f4(void);
 void* FindEntryPointerByKey0203df78(void* base, int key);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 
 struct Vec3_020406f8;
 struct Node020406f8;
@@ -37,7 +36,7 @@ extern "C" ARM int func_ov004_021688d4(void) {
     void* ptr = GetGlobalPtr021075f4();
     void* node = FindEntryPointerByKey0203df78(ptr, 6);
     if (node) {
-        struct CombatantStruct* combatant = GetCombatantAtField0x397c(GetBattleStruct());
+        GameObject* combatant = GameState::GetInstance()->GetUnknownGameObject();
         struct Vec3Local_021688d4 v1;
         struct Vec3Local_021688d4 v2;
         struct Vec3Local_021688d4 tmp;
@@ -60,7 +59,7 @@ extern "C" ARM int func_ov004_021688d4(void) {
 
     func_0202ae18();
     if (func_0202c508()) {
-        struct BattleStruct* bs = GetBattleStruct();
+        GameState* bs = GameState::GetInstance();
         if (CheckBitsInField0x63dc(bs, 0x10)) {
             DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
         }

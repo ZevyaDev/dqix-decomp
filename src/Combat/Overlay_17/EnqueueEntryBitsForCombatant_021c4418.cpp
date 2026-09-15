@@ -1,10 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-struct BattleStruct* GetBattleStruct();
 void* GetData02100044(void);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 struct Field150Holder02052e2c;
 short* GetField150Ptr0x488_02052e2c(struct Field150Holder02052e2c* obj);
 extern "C" void func_0205e330(void* a, void* b, int c);
@@ -38,9 +36,9 @@ struct LocalEvt021c4418 {
 
 // USA: func_ov017_021c4418  (semantic: EnqueueEntryBitsForCombatant_021c4418)
 extern "C" ARM void func_ov017_021c4418(int combatantId, signed char flag10) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     void* p = GetData02100044();
-    struct CombatantStruct* c = GetCombatantWithFlag0x100(battleStruct, combatantId);
+    GameObject* c = GetCombatantWithFlag0x100(battleStruct, combatantId);
     if (!c) return;
     struct Entry150_021c4418* entry = (struct Entry150_021c4418*)GetField150Ptr0x488_02052e2c((struct Field150Holder02052e2c*)c);
     if (!entry) return;

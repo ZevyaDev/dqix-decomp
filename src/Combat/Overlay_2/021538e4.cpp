@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Util/Random.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Main/CombatCalculations.h"
 
 struct RangeConfig_021538e4 {
@@ -33,13 +33,13 @@ extern "C" ARM int func_ov002_021538e4(void* unused, struct ThresholdConfig_0215
 
     if (sb != 0) {
     if (p->mode == 2) {
-        struct BattleStruct* bs = GetBattleStruct();
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, combatantId);
+        GameState* bs = GameState::GetInstance();
+        GameObject* combatant = GetCombatantWithFlag0x100(bs, combatantId);
         if (combatant == 0) {
             return 0;
         }
         if ((p->field10 & 0x8000) != 0) {
-            unsigned short mend = combatant->baseStats->primaryStats.magicalMending;
+            unsigned short mend = combatant->baseStats_->primaryStats.magicalMending;
             unsigned int a = p->a;
             if (mend <= a) {
                 unsigned int y = sb->y;

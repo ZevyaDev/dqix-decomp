@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Node02187a58 {
     short id;
@@ -22,7 +22,6 @@ extern "C" ARM int _Z20GetTableByte020dd11cjj(unsigned int a, unsigned int b);
 int GetFieldAt0x150(unsigned char* obj);
 extern "C" void* _Z26GetGlobalField0x1c020421a0v(void);
 
-extern "C" void* memset(void* dst, int value, int n);
 extern "C" void __clear(void* buf, int n);
 extern "C" int sprintf(char* dst, const char* fmt, ...);
 extern "C" float _ffltu(unsigned int v);
@@ -48,8 +47,8 @@ extern "C" ARM void func_ov013_02187a58(void* self, void* ctx) {
         return;
     }
 
-    struct CombatantStruct* combatant =
-        GetCombatantWithFlag0x100(GetBattleStruct(), *(signed char*)(obj + 0x67));
+    GameObject* combatant =
+        GetCombatantWithFlag0x100(GameState::GetInstance(), *(signed char*)(obj + 0x67));
     if (combatant == 0) {
         return;
     }
@@ -75,7 +74,7 @@ extern "C" ARM void func_ov013_02187a58(void* self, void* ctx) {
     func_0204f41c(ctx, (short)((0x100 - func_020420e8(label, 0)) >> 1), 0xc, label,
                   0xa, 0xf, &outA, &outB, 0);
 
-    memset(entries, 0, 0x50);
+    memset((void*)entries, (int)(0), (unsigned int)(0x50));
     for (unsigned char i = 0; i < 10; i++) {
         struct Entry02187a58* e = &entries[i];
         struct Node02187a58* n = _Z25FindNthNodeByKind0208e024P12List0208e024ii((struct List0208e024*)(obj + 0xc), kind, i);

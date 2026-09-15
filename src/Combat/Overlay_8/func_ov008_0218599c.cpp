@@ -1,9 +1,9 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-extern "C" void* _Z15GetBattleStructv();
 extern "C" int* _Z10GetWord0x0Pi(void* battle);
 extern "C" void* _ZN16BackgroundLoader11GetInstanceEv();
-extern "C" int _Z28CheckField0x14Or0x20PositivePi(int* word);
+extern "C" int _Z28IsBrightnessTransitionActiveP13GameResources(int* word);
 extern "C" void _Z16OrGlobalFlag0x40v();
 
 #define REG_DISPCNT_SUB (*(volatile unsigned int*)0x04001000)
@@ -14,11 +14,11 @@ extern "C" void _Z16OrGlobalFlag0x40v();
 
 // USA: func_ov008_0218599c
 extern "C" ARM void func_ov008_0218599c(void* obj) {
-    int* word = _Z10GetWord0x0Pi(_Z15GetBattleStructv());
+    int* word = _Z10GetWord0x0Pi(GameState::GetInstance());
     _ZN16BackgroundLoader11GetInstanceEv();
     unsigned char flag = *((unsigned char*)obj + 0xb11);
     if (flag == 0) {
-        if (_Z28CheckField0x14Or0x20PositivePi(word) == 0) {
+        if (_Z28IsBrightnessTransitionActiveP13GameResources(word) == 0) {
             *((unsigned char*)obj + 0xb11) = *((unsigned char*)obj + 0xb11) + 1;
         }
     }

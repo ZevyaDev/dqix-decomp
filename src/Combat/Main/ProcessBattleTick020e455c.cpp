@@ -1,17 +1,15 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetGlobal02109400(void);
 extern "C" void func_02094ab0(void);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 void SetByteField0x253(void* obj);
 void* GetDataPtr02114e04_020d6c00(void);
 
 struct FlagWord020466f4;
 void ClearFlags020466f4(struct FlagWord020466f4* word, unsigned int mask);
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 extern "C" void _ZN8Object3D11DisableFlagEi(unsigned char* obj, unsigned int mask);
 
 
@@ -33,10 +31,10 @@ struct MainStruct020e455c {
 
 // USA: func_020e455c
 ARM void ProcessBattleTick020e455c(struct MainStruct020e455c* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     GetGlobal02109400();
     func_02094ab0();
-    struct CombatantStruct* c = GetCombatantAtField0x397c(battleStruct);
+    GameObject* c = battleStruct->GetUnknownGameObject();
     if (c != 0) {
         SetByteField0x253(c);
     }
@@ -45,7 +43,7 @@ ARM void ProcessBattleTick020e455c(struct MainStruct020e455c* obj) {
     unsigned int mask = 0x1000000;
     int i;
     for (i = 0; i < 4; i++) {
-        struct CombatantStruct* cc = GetCombatantWithFlag0x800(battleStruct, i);
+        GameObject* cc = battleStruct->GetPartyMemberByIndex(i);
         if (cc != 0) {
             _ZN8Object3D11DisableFlagEi((unsigned char*)cc, mask);
             ((struct Flags0xc1_020e455c*)((char*)cc + 0xc1))->a &= ~2;

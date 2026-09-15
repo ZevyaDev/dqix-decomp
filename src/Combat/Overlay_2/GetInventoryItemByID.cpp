@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
+void* GetPtrField0x2a04(GameState* battleStruct);
 int GetFieldAt0x150(unsigned char* obj);
 
 inline char* AddOffset204(char* p) { return p + 0x204; }
@@ -16,7 +16,7 @@ extern "C" ARM int GetInventoryItemByID(void* self, int idx, int kind) {
     if (kind < 0) {
         return -1;
     }
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     if (kind == 5) {
         char* p = (char*)GetPtrField0x2a04(battle);
         char* table = AddOffsetC00(AddOffset204(p));
@@ -27,7 +27,7 @@ extern "C" ARM int GetInventoryItemByID(void* self, int idx, int kind) {
         return *(short*)(p + 0xc + idx * 2);
     }
     signed char id = *(signed char*)((char*)self + 0x1c20);
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(battle, id);
+    GameObject* combatant = GetCombatantWithFlag0x100(battle, id);
     if (combatant == 0) {
         return -1;
     }

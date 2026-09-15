@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
@@ -11,7 +11,7 @@ void SetShorts_021fb25c(struct Obj021fb25c *obj, unsigned short a, unsigned shor
 
 // USA: func_ov004_0216a810  (semantic: SetStatShortsByLanguage_0216a810)
 extern "C" ARM int func_ov004_0216a810(void* a) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     void* base = func_ov011_021849c8(a);
     struct Obj021fb25c* obj1 = (struct Obj021fb25c*)func_ov023_021f6880(base, 0x1e);
     if (!obj1) return 0;

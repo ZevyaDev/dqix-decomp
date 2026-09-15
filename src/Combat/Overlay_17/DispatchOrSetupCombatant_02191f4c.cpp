@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantFromList(struct BattleStruct* battleStruct, int combatantId);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 void SetFieldndDispatch_021bdb78_021bdb78(int id);
 void SetupAndDispatchCombatant_02191e5c(int a, int b, short c, unsigned char d, unsigned short e);
 
@@ -10,10 +9,10 @@ extern "C" void func_ov017_0218f80c(int a, int b);
 
 // USA: func_ov017_02191f4c
 ARM void DispatchOrSetupCombatant_02191f4c(int a, int b) {
-	struct BattleStruct* battleStruct = GetBattleStruct();
-	struct CombatantStruct* combatant = GetCombatantFromList(battleStruct, b);
+	GameState* battleStruct = GameState::GetInstance();
+	GameObject* combatant = battleStruct->GetCombatantByIndex(b);
 	if (!combatant) return;
-	struct CombatantStruct* c2 = GetCombatantWithFlag0x100(battleStruct, b);
+	GameObject* c2 = GetCombatantWithFlag0x100(battleStruct, b);
 	if (c2 != NULL && (*(int*)((char*)c2 + 0x18c) & 0x40)) {
 		SetFieldndDispatch_021bdb78_021bdb78(b);
 		return;

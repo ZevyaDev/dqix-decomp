@@ -1,7 +1,7 @@
 #include "World/ZoneFeatures.h"
 #include "World/Zone3D.h"
 #include "Resource/Script.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "System/Memory.h"
 
 extern Script::OpcodeLookupEntry data_020ef388[];
@@ -15,7 +15,7 @@ struct Struct_020fdc20
 
 extern "C"
 {
-    extern "C" void* _Z16GetPtrField0x468Pv(BattleStruct*);
+    extern "C" void* _Z16GetPtrField0x468Pv(GameState*);
     void _ZN12ZoneFeatures13Opcode68Entry5ResetEv(void*);
 
     Matrix4x3 _Z15RotationMatrixYi(fix32_t);
@@ -146,7 +146,7 @@ int WarpScript_Opcode_68(Script::Parameter* params, int numParams)
 bool ProcessExtraOpcode69Params(Script::Parameter* param, int numParams, ZoneFeatures::Opcode68Entry& entry)
 {
     Script::Parameter* paramStart = param;
-    void* worldData = _Z16GetPtrField0x468Pv(GetBattleStruct());
+    void* worldData = _Z16GetPtrField0x468Pv(GameState::GetInstance());
     
     entry.unk_0 = (param++)->ToInt();
     if (paramStart[1].type == 0)
@@ -481,7 +481,7 @@ int WarpScript_Opcode_74(Script::Parameter* params, int numParams)
 {
     if (data_020fdc20.currentEntry == NULL)
         return 0;
-    void* worldData = _Z16GetPtrField0x468Pv(GetBattleStruct());
+    void* worldData = _Z16GetPtrField0x468Pv(GameState::GetInstance());
     switch (data_020fdc20.currentEntry->maybeType)
     {
     case 0:

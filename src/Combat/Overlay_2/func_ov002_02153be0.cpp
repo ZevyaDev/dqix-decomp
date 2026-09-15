@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" float _ffltu(unsigned int v);
 extern "C" float _fdiv(float a, float b);
@@ -11,13 +11,13 @@ extern "C" ARM int func_ov002_02153be0(void* obj, unsigned char* req, int combat
     int result = 0;
     unsigned int kind = *(unsigned int*)(req + 0x18);
     if (((kind << 14) >> 30) == 1) {
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x100(GetBattleStruct(), combatantId);
+        GameObject* combatant = GetCombatantWithFlag0x100(GameState::GetInstance(), combatantId);
         if (combatant == 0) {
             return 0;
         }
 
         if (*(unsigned int*)(req + 0x10) & 0x8000) {
-            unsigned int packed3c = *(unsigned int*)((char*)combatant->baseStats + 0x3c);
+            unsigned int packed3c = *(unsigned int*)((char*)combatant->baseStats_ + 0x3c);
             unsigned int cap = (unsigned short)((packed3c << 2) >> 22);
             unsigned int req4 = *(unsigned int*)(req + 4);
 

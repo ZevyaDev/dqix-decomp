@@ -1,8 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-struct CombatantStruct;
 struct SearchStruct;
 struct SearchStruct0202c1a4;
 struct StateFlags3c9 {
@@ -70,10 +69,7 @@ struct Bits0xc1 {
     unsigned char high : 6;
 };
 
-struct BattleStruct* GetBattleStruct(void);
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" struct SearchStruct* func_0202ae18(void);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 extern "C" void* func_0205ec34(void);
 extern "C" void* _Z27GetDataPtr02114e04_020d6c00v(void);
 int* GetGlobal02109030(void);
@@ -84,7 +80,7 @@ int IsAxisIntZero(struct AxisFloats0203b5f8* s, int axis);
 extern "C" void func_ov017_0219577c(int a, int b, int c);
 extern "C" void _Z30RegisterNodeAndNotify_0219593cv(void);
 extern "C" void _Z33ResetAndSetFlag0x3c9Bit0_020939dcPv(void* obj);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 extern "C" void _Z29SetCombatModeFromCase020dc2d0i(int mode);
 void ResetEightRegionsAndFlags(char* obj);
 extern "C" void func_02094030(int* a, int b, int c, signed char d);
@@ -118,7 +114,7 @@ extern "C" void _Z26ClearSearchFlagBit0202c718P12SearchStructi(struct SearchStru
 extern "C" void func_ov017_02195214(void* dst, void* src);
 extern "C" void _Z24SetSearchFlagBit0202c660P12SearchStructi(struct SearchStruct* obj, int value);
 int GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
-struct CombatantStruct* GetCombatantWithFlag0x200(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x200(GameState* battleStruct, int combatantId);
 extern "C" void _Z27CallIndexedHandler_02195494Pvii(void* obj, int index, int val);
 extern "C" int func_0202bd68(struct SearchStruct* self, int bitIndex);
 extern "C" void _Z20SetField4b0_02167240Pv(void* obj);
@@ -137,18 +133,15 @@ extern "C" int _ZNK8Object3D9GetHeightEv(void* obj);
 extern "C" int fix32_Divide(int a, int b);
 int GetHeadNodeIdOrMinusOne(struct HeadNode02046b24** obj);
 extern "C" unsigned short _Z32GetEntryField0x4OrFieldA0202bc8cP12SearchStruct(struct SearchStruct* obj);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int index);
 extern "C" int _Z29HasFlag3orFlag2And9a_021bd3a4P12Obj_021bd3a4(struct Obj_021bd3a4* obj);
 void* GetEntryBySignedByteIndex(struct SearchStruct* obj, int value);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 int GetSignedByte0x1ca(void* obj);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 extern "C" void _Z21SetVecYByMode02033834P11Obj02033834i(struct Obj02033834* obj, int value);
-extern "C" int Vector3fix_Distance(struct Vec3s32_020c3030* a, struct Vec3s32_020c3030* b);
 extern "C" void _Z24SetVecYFromValue02033874P11Obj02033874i(struct Obj02033874* obj, int value);
 int CheckSubstructByte0x7cPositive(signed char* p);
 extern "C" void func_020531f0(void* obj);
-struct CombatantStruct* FindCombatantByField0x16a(struct BattleStruct* battleStruct, int id);
+GameObject* FindCombatantByField0x16a(GameState* battleStruct, int id);
 extern "C" void _Z18TrySetMode02076cccPvi(void* obj, int mode);
 extern "C" void func_ov017_021917f0(int id, int flag);
 extern "C" void _Z24SetByteIfChanged02033b68P11Obj02033b68i(struct Obj02033b68* obj, int value);
@@ -173,9 +166,9 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* ov, unsigned char* mode, 
     unsigned char region[4];
 
     /* PERMBLOCK */
-    struct BattleStruct* battle;
+    GameState* battle;
     struct SearchStruct* search;
-    struct CombatantStruct* actor;
+    GameObject* actor;
     void* flags;
     int ctx;
     void* loader;
@@ -183,10 +176,10 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* ov, unsigned char* mode, 
     int* g;
     unsigned char* status;
     /* ENDPERM */
-    battle = GetBattleStruct();
-    ctx = func_ov017_0218b5b0();
+    battle = GameState::GetInstance();
+    ctx = ((int)func_ov017_0218b5b0());
     search = func_0202ae18();
-    actor = GetCombatantAtField0x397c(battle);
+    actor = battle->GetUnknownGameObject();
     loader = (void*)(int)BackgroundLoader::GetInstance();
     list = *(void***)(ov + 0x3000 + 0x6fc);
     owner = func_0205ec34();
@@ -445,7 +438,7 @@ dispatched:
         slot->bit15 = placed;
         slot->members = 0;
         for (int i = 0; i < 4; i++) {
-            if (GetCombatantUnchecked(battle, i) != NULL) {
+            if (battle->GetGameObjectByIndex(i) != NULL) {
                 slot->members |= (1 << i);
             }
         }
@@ -493,9 +486,9 @@ dispatched:
         if (i == GetSearchStructCurrentArrEntry((struct SearchStruct0202c1a4*)search)) continue;
         struct Slot021941fc* other = (struct Slot021941fc*)GetEntryBySignedByteIndex(search, i);
         if (other == NULL) continue;
-        struct CombatantStruct* c = GetCombatantWithFlag0x800(battle, i);
+        GameObject* c = battle->GetPartyMemberByIndex(i);
         if (c == NULL) continue;
-        c = GetCombatantWithFlag0x800(battle, GetSignedByte0x1ca(c));
+        c = battle->GetPartyMemberByIndex(GetSignedByte0x1ca(c));
         if (c == NULL) continue;
 
         if ((((struct Bits0xc1*)((char*)c + 0xc1))->low & 1) == 0 && other->bit12) {
@@ -507,7 +500,7 @@ dispatched:
             *(unsigned char*)((char*)c + 0xe0) |= 0x10;
             _Z21SetVecYByMode02033834P11Obj02033834i((struct Obj02033834*)c, angle);
             struct Vec3s32_020c3030 current = *(struct Vec3s32_020c3030*)((char*)c + 0x44);
-            if (Vector3fix_Distance(&target, &current) > 0x1000) {
+            if (Vector3fix_Distance((const Vector3fix*)&target, (const Vector3fix*)&current) > 0x1000) {
                 _ZN8Vector3iaSERKS_((int*)((char*)c + 0x44), (int*)&target);
                 _Z24SetVecYFromValue02033874P11Obj02033874i((struct Obj02033874*)c, angle);
             }
@@ -517,7 +510,7 @@ dispatched:
             if (CheckSubstructByte0x7cPositive((signed char*)c) != 0) {
                 func_020531f0(c);
             }
-            struct CombatantStruct* owner2 = FindCombatantByField0x16a(battle,
+            GameObject* owner2 = FindCombatantByField0x16a(battle,
                 *(unsigned short*)((char*)c + 0x100 + 0xb2));
             if (owner2 != NULL && *(int*)((char*)owner2 + 0x130) != 9) {
                 if ((**(int**)((char*)c + 0x130) & 1) == 0) {

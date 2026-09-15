@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_0205ec34(void);
@@ -10,7 +10,6 @@ extern "C" void func_ov017_021c9e00(int a, int b, int c, int d);
 extern "C" void func_ov017_0219bfb4(int a, int b);
 
 int CheckField0NonZero(int* obj);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 struct Combatant020482bc;
 int RestoreMaxMpToFull(struct Combatant020482bc* c);
@@ -30,7 +29,7 @@ struct CombatantView02010604 {
 };
 
 // USA: func_02010604
-ARM void ResetMpForFlaggedCombatants02010604(struct BattleStruct* obj, int arg1, int arg2, int arg3) {
+ARM void ResetMpForFlaggedCombatants02010604(GameState* obj, int arg1, int arg2, int arg3) {
     void* g = func_0202ae18();
     int i;
 
@@ -42,7 +41,7 @@ ARM void ResetMpForFlaggedCombatants02010604(struct BattleStruct* obj, int arg1,
 
     for (i = 0; i < *((unsigned char*)((char*)obj + 0x3000) + 0x980); i++) {
         int id = *((unsigned char*)((char*)obj + i + 0x3000) + 0x97c);
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x800(obj, id);
+        GameObject* combatant = obj->GetPartyMemberByIndex(id);
         struct CombatantView02010604* view;
         if (combatant == NULL) continue;
         view = (struct CombatantView02010604*)combatant;

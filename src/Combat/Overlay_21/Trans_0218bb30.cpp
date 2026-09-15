@@ -1,8 +1,8 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-extern "C" unsigned int _Z15GetBattleStructv();
 extern "C" unsigned int SendQueuedDataToGeometryFifo();
-extern "C" unsigned int _Z18GetField0x3b0ValueP12BattleStruct();
+extern "C" unsigned int _Z18GetField0x3b0ValueP9GameState();
 extern "C" unsigned int _Z26ResetGxEngineState020c52e8v();
 extern "C" unsigned int _Z28GetTaggedValueAsInt_02184c30P20TaggedNumber02184c30(unsigned int);
 extern "C" unsigned int _Z29WriteControlAndToggle020d86d0ii(unsigned int, unsigned int);
@@ -19,8 +19,8 @@ extern "C" ARM unsigned int func_ov021_0218bb30(unsigned int r0, unsigned int r1
     unsigned int r4 = 0;
     unsigned int r5 = 0;
     r5 = r0;
-    r0 = (unsigned int)_Z15GetBattleStructv();
-    r0 = (unsigned int)_Z18GetField0x3b0ValueP12BattleStruct();
+    r0 = (unsigned int)GameState::GetInstance();
+    r0 = (unsigned int)_Z18GetField0x3b0ValueP9GameState();
     r4 = r0;
     r0 = (unsigned int)_Z26ResetGxEngineState020c52e8v();
     r0 = (unsigned int)func_020c5414();

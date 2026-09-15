@@ -1,11 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-void CollectValidCombatants02010890(struct BattleStruct* bs, int* outList, int* outCount);
+void CollectValidCombatants02010890(GameState* bs, int* outList, int* outCount);
 
 // USA: func_0202c3e0
 ARM void StoreValidCombatantCount0202c3e0(void* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int list[4];
     int count;
     CollectValidCombatants02010890(bs, list, &count);

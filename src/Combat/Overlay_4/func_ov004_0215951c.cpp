@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" signed char func_ov004_02157128(void* obj);
 extern "C" void* func_ov004_02156f04(void* a, int key);
@@ -44,8 +44,8 @@ public:
 // USA: func_ov004_0215951c  (semantic: DispatchCombatantBufferEntries_0215951c)
 extern "C" ARM int func_ov004_0215951c(void* obj) {
     signed char flag = func_ov004_02157128(obj);
-    BattleStruct* battle = GetBattleStruct();
-    CombatantStruct* c = GetCombatantWithFlag0x100(battle, flag);
+    GameState* battle = GameState::GetInstance();
+    GameObject* c = GetCombatantWithFlag0x100(battle, flag);
     if (!c) return 0;
 
     unsigned char* fieldPtr = data_ov004_021707d8.ptr;

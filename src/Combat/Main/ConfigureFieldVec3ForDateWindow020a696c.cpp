@@ -1,15 +1,15 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" void* func_02012fe4(struct BattleStruct* battleStruct);
-void* GetField0x3f8Address(struct BattleStruct* battleStruct);
+extern "C" void* func_02012fe4(GameState* battleStruct);
+void* GetField0x3f8Address(GameState* battleStruct);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 struct Vec3Target020a6aa4 { int x; int y; int z; };
 void SetVec3At0x0020a6aa4(struct Vec3Target020a6aa4* obj, int x, int y, int z);
 
 // USA: func_020a696c
 ARM void ConfigureFieldVec3ForDateWindow(void* unused0, int value1, int value2) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     void* base = func_02012fe4(battleStruct);
     void* fieldPtr = GetField0x3f8Address(battleStruct);
 

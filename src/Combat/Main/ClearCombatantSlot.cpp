@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 // USA: func_0200fd48
-ARM void ClearCombatantSlot(struct BattleStruct* battleStruct, int id) {
-    battleStruct->combatantList[id] = NULL;
+ARM void ClearCombatantSlot(GameState* battleStruct, int id) {
+    battleStruct->objects_[id] = NULL;
 }

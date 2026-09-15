@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Obj020979c0;
 void InitStructWithZeroId020979f4(struct Obj020979c0* p);
@@ -33,6 +33,6 @@ extern "C" ARM void func_ov017_021b14ec(struct Obj021b14ec* self) {
 
     PopStack0AndTrigger(1);
     PopStack1AndTrigger(1);
-    int field = GetFieldIfFlag4((char*)GetBattleStruct());
+    int field = GetFieldIfFlag4((char*)GameState::GetInstance());
     if (field != 0) SetField0x23cTrue((void*)field);
 }

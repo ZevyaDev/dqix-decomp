@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov012_0218432c(int a);
 struct Struct0205de24;
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov012_02186fd8(char* base) {
     if (func_ov023_021e6de4(base) != 0) {
         DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, 1, 0);
 
-        BattleStruct* bs = GetBattleStruct();
+        GameState* bs = GameState::GetInstance();
         int key = (short)(*(int*)(base + 0x1000 + 0x3e0) + 0x27d8);
         void* name = FindEntryByKey((struct TableA68*)(base + 0x133c), key);
         char* entry = (char*)bs + 0x569c;

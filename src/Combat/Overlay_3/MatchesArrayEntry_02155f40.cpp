@@ -1,13 +1,12 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 void* GetArrayEntryByIndex_02156034(void* obj);
 
 // USA: func_ov003_02155f40
 ARM int MatchesArrayEntry_02155f40(void* obj, int combatantId) {
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x800(bs, combatantId);
+    GameState* bs = GameState::GetInstance();
+    GameObject* combatant = bs->GetPartyMemberByIndex(combatantId);
     int result;
     if (combatant != NULL) {
         void* inner = *(void**)((char*)combatant + 0x150);

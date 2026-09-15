@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct021707d8_0215e148 { char pad[8]; char* ptr; };
 extern Struct021707d8_0215e148 data_ov004_021707d8;
@@ -22,7 +22,7 @@ extern "C" void func_0207cf30(void* buf, int a, int b, int c);
 // USA: func_ov004_0215e148  (semantic: SetupDamageMessageOrDefault_0215e148)
 extern "C" ARM int func_ov004_0215e148(void* obj) {
     if (data_ov004_021707d8.ptr != NULL && *(unsigned char*)(data_ov004_021707d8.ptr + 0x9d) != 0) {
-        GetBattleStruct();
+        GameState::GetInstance();
         int key = DispatchNodeIfType7_02156e2c(obj, 0x5b);
         if (key < 0) return 0;
         void* entry = GetEntryFor_021570a4(obj, key & 0xff);

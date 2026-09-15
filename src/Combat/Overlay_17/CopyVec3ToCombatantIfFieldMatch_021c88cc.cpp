@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov017_021b8478(void* obj);
 extern "C" void* func_ov017_021b8468(void* obj);
@@ -19,7 +19,7 @@ struct Src021c88cc {
 };
 
 // USA: func_ov017_021c88cc
-ARM void CopyVec3ToCombatantIfFieldMatch_021c88cc(int unused0, Src021c88cc* src, struct BattleStruct* battleStruct, unsigned char* obj) {
+ARM void CopyVec3ToCombatantIfFieldMatch_021c88cc(int unused0, Src021c88cc* src, GameState* battleStruct, unsigned char* obj) {
 	unsigned char* base = obj + 0x3000;
 	void* h = *(void**)(base + 0x718);
 	Ret021c88cc* r = (Ret021c88cc*)func_ov017_021b8478(h);
@@ -27,7 +27,7 @@ ARM void CopyVec3ToCombatantIfFieldMatch_021c88cc(int unused0, Src021c88cc* src,
 	if (!func_ov017_021b8468(h)) return;
 	if (!GetField6b0_021b8470(h)) return;
 	if (r->field8 != src->field12) return;
-	struct CombatantStruct* c = GetCombatantFromList(battleStruct, src->field10);
+	GameObject* c = battleStruct->GetCombatantByIndex(src->field10);
 	if (!c) return;
 	int* dst = *(int**)((unsigned char*)c + 0x13c);
 	if (!dst) return;

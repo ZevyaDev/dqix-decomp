@@ -1,21 +1,19 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" int* func_0202ae18(void);
-extern "C" int func_ov017_0218b5b0(void);
 int CheckField0NonZero(int* obj);
 extern "C" int func_0202c508(void* obj);
 extern "C" int func_ov017_02195760(int obj);
 void SetByte2IfGlobalFlagSet(unsigned char* p);
 extern "C" void func_ov017_021ced48(int a, unsigned char b);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 struct SearchStruct;
 int TestFlagBitAt0xe(struct SearchStruct* obj, int value);
 
 // USA: func_020e35a0
 ARM void UpdateGlobalAndCombatantFlagBytes(unsigned char* p) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    int obj2 = func_ov017_0218b5b0();
+    GameState* battleStruct = GameState::GetInstance();
+    int obj2 = ((int)func_ov017_0218b5b0());
     int* searchObj = func_0202ae18();
     if (!CheckField0NonZero(searchObj)) return;
 
@@ -35,7 +33,7 @@ ARM void UpdateGlobalAndCombatantFlagBytes(unsigned char* p) {
             p[0] = 0;
         }
         for (i = 1; i < 4; i++) {
-            if (!GetCombatantUnchecked(battleStruct, i) || TestFlagBitAt0xe((struct SearchStruct*)searchObj, i)) {
+            if (!battleStruct->GetGameObjectByIndex(i) || TestFlagBitAt0xe((struct SearchStruct*)searchObj, i)) {
                 p[0] &= ~(1 << i);
                 p[1] &= ~(1 << i);
             }

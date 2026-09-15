@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov012_0218432c(int a);
 extern "C" void func_ov023_021e6e60(void* obj);
@@ -18,8 +19,6 @@ int GetActiveScaledSum0205d794(struct Struct_0205c570* s);
 struct Obj0205eaa0;
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 extern int data_02108760;
-struct BattleStruct;
-struct BattleStruct* GetBattleStruct();
 struct TableA68;
 void* FindEntryByKey(struct TableA68* table, int key);
 
@@ -53,7 +52,7 @@ extern "C" ARM void func_ov012_02187158(char* base) {
     }
     if (func_ov023_021e6de4(base)) {
         DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, 1, 0);
-        struct BattleStruct* bs = GetBattleStruct();
+        GameState* bs = GameState::GetInstance();
         int val = (*(signed char**)(base + 0x1000 + 0x3c0))[*(int*)(base + 0x1000 + 0x3e4)];
         short key = (short)(val + 0x2710);
         char* name = (char*)FindEntryByKey((struct TableA68*)(base + 0x133c), key);

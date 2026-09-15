@@ -1,15 +1,15 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov000_02161318(void* obj, int idx);
 extern "C" void func_ov000_02170db0(void* p);
 
 // USA: func_ov000_02174514
 ARM void UpdateFieldIfDiffers_02174514_02174514(void* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int i;
     for (i = 0; i < 4; i++) {
-        struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, i);
+        GameObject* c = GetCombatantWithFlag0x100(bs, i);
         if (c == NULL) continue;
         void* p = func_ov000_02161318(obj, i);
         if (p != NULL) {

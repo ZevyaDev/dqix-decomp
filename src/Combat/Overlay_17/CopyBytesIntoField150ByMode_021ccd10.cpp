@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 
 struct Src021ccd10 {
@@ -12,9 +12,9 @@ struct Src021ccd10 {
 };
 
 // USA: func_ov017_021ccd10  (semantic: CopyBytesIntoField150ByMode_021ccd10)
-extern "C" ARM void func_ov017_021ccd10(int unused0, char* p1raw, struct BattleStruct* battleStruct) {
+extern "C" ARM void func_ov017_021ccd10(int unused0, char* p1raw, GameState* battleStruct) {
 	struct Src021ccd10* p1 = (struct Src021ccd10*)(p1raw + 4);
-	struct CombatantStruct* c = GetCombatantWithFlag0x100(battleStruct, p1->id);
+	GameObject* c = GetCombatantWithFlag0x100(battleStruct, p1->id);
 	if (!c) return;
 
 	unsigned char* dst = (unsigned char*)GetFieldAt0x150((unsigned char*)c);

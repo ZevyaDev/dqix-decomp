@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 extern "C" int func_02075910(int a, void* p, unsigned int size, int c);
@@ -12,7 +12,7 @@ struct Buf020ac864 {
 
 // USA: func_020ac864
 ARM int VerifyAndApplySaveBuffer(int flag) {
-    BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     unsigned char* flagAddr = (unsigned char*)bs + 0x5000;
     flagAddr[0xcc8] = 0;
     int ok = 1;

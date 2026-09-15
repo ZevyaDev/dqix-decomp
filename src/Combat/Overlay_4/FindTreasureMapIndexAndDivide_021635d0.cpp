@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Grotto/Main/TreasureMapMetadata.h"
 
 extern char* data_ov004_02171010;
@@ -10,7 +10,7 @@ ARM int FindTreasureMapIndexAndDivide_021635d0(int* outQuotient, int* outRemaind
     if (outQuotient == NULL) return 0;
     if (outRemainder == NULL) return 0;
     int foundIndex = -1;
-    unsigned char result = CopyToRegion0x6482IfDst((char*)GetBattleStruct(), NULL);
+    unsigned char result = CopyToRegion0x6482IfDst((char*)GameState::GetInstance(), NULL);
     int i;
     if (result != 0) {
         for (i = 0; i < *(unsigned char*)(data_ov004_02171010 + 0x1000 + 0x8f4); i++) {

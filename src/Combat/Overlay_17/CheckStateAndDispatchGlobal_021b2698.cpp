@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "Resource/GameResources.h"
 
 int TestFlag0SetAndFlag1Clear(unsigned short* obj, int mask);
 extern unsigned short data_02114e30;
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov017_021b2698(SelfState_021b2698* self) {
     if (func_ov011_02184694(data_ov017_021d83f0.b) != 0) {
         return self->field8;
     }
-    Struct_ov017_44C8* ov = func_ov017_0218b5b0();
+    GameResources* ov = func_ov017_0218b5b0();
     void* p = *(void**)((char*)ov + 0x3000 + 0xb3c);
     if (((unsigned char*)p)[2] != 0) {
         goto fail;

@@ -1,9 +1,9 @@
 #include "Grotto/Main/TreasureMapDataStructs.h"
 #include "std_library_functions.h"
 #include "Grotto/Main/GrottoStruct.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "System/Memory.h"
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "Resource/GameResources.h"
 
 #ifdef jpn
 #define _Z13PushInputLogAi func_020a3b70
@@ -20,12 +20,12 @@ extern "C"
 }
 
 #define TMAPLANGDATA_READ(offset, into, len) \
-    (VectorizedInvertedMemcpy(GetTreasureMapLanguageData(GetBattleStruct()) + (offset), (into), (len)), offset += (len))
+    (VectorizedInvertedMemcpy(GameState::GetInstance()->GetTreasureMapLanguageData() + (offset), (into), (len)), offset += (len))
 
 bool ExportDetailedTreasureMapData(const TreasureMapMetadata* from,
     DetailedTreasureMapData* to, bool computeLegacyStats, const unsigned char* legacyStatsData)
 {
-    Struct_ov017_44C8* oddStruct = func_ov017_0218b5b0();
+    GameResources* resources = func_ov017_0218b5b0();
 
     if (from == NULL || to == NULL)
         return false;
@@ -52,10 +52,10 @@ bool ExportDetailedTreasureMapData(const TreasureMapMetadata* from,
     VectorizedInvertedMemcpy(from->DiscoveredBy, to->discoveredBy_, 10);
     VectorizedInvertedMemcpy(from->ClearedBy, to->clearedBy_, 10);
 
-    if (GetTreasureMapLanguageData(GetBattleStruct()) == 0)
+    if (GameState::GetInstance()->GetTreasureMapLanguageData() == NULL)
         return false;
 
-    int readOffset = oddStruct->pTMapLanguageOffsets->mapLocations;
+    int readOffset = resources->pTMapLanguageOffsets->mapLocations;
     
     unsigned short numEntries;
     TMAPLANGDATA_READ(readOffset, &numEntries, sizeof(numEntries));

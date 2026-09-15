@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetFieldAt0x150(unsigned char* obj);
 
@@ -8,7 +8,7 @@ void SwapGlobalEntry0203c108(struct Obj0203c108* obj, char* fmt);
 
 extern "C" void func_ov000_0216fe9c(void* obj);
 
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 
 // USA: func_ov000_02171138
 extern "C" ARM void func_ov000_02171138(void* objRaw) {
@@ -17,9 +17,9 @@ extern "C" ARM void func_ov000_02171138(void* objRaw) {
     if (combatantId < 0) {
         return;
     }
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     combatantId = *(int*)(obj + 0x4c);
-    struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, combatantId);
+    GameObject* c = GetCombatantWithFlag0x100(bs, combatantId);
     if (!c) {
         return;
     }

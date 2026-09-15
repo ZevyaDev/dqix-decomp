@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 int GetFieldAt0x150(unsigned char* obj);
 
 struct Field150Holder02052e2c;
@@ -15,7 +15,6 @@ void* FindEntryByShortField02083554(struct Container02083554* c, int id);
 struct Obj020de2a4;
 int GetNibbleField020de2a4(struct Obj020de2a4* obj, int a, int b);
 
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 
 extern "C" void func_02072afc(int id, int* arr, short* arr2);
 extern "C" void func_02099d34(void* obj, int a, int b, int c);
@@ -38,12 +37,12 @@ struct TableEntry020730e0 {
 
 // USA: func_020730e0
 ARM void ApplyCombatantEffectByIndex020730e0(int id, int index) {
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* combatant;
+    GameState* bs = GameState::GetInstance();
+    GameObject* combatant;
     int val150;
     struct TableEntry020730e0* table;
     int nibble;
-    struct CombatantStruct* combatant2;
+    GameObject* combatant2;
     void* subPtr;
     int bufA[11];
     short bufB[12];
@@ -78,7 +77,7 @@ ARM void ApplyCombatantEffectByIndex020730e0(int id, int index) {
         nibble = GetNibbleField020de2a4((struct Obj020de2a4*)entry, 1, table->b14.bit0);
     }
 
-    combatant2 = GetCombatantUnchecked(bs, bufA[index]);
+    combatant2 = bs->GetGameObjectByIndex(bufA[index]);
     if (!combatant2) {
         return;
     }

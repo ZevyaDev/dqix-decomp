@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "GameState/GameState.h"
 
 extern int data_ov023_021fdd6c;
-extern "C" void* _Z15GetBattleStructv();
 extern "C" void* __clear(void* dst, int count);
 extern "C" int func_020426bc(void* src, void* dst, int flag);
 extern "C" int _Z12StringLengthPKc(const char* s);
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov023_021e8cdc(char* obj) {
     if (*(int*)(obj + 0x5f4) == 0) return;
     char* dst = *(char**)(obj + 0x5d8);
 
-    char* battle = (char*)_Z15GetBattleStructv() + 0x29c + 0x5400;
+    char* battle = (char*)GameState::GetInstance() + 0x29c + 0x5400;
 
     char buf[0x43a];
     __clear(buf, 0x3a);

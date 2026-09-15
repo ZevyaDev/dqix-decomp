@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Overlay_1/EventArgs.h"
 
 int GetFieldIfFlag4(char* obj);
@@ -12,7 +12,7 @@ extern Data02165880_e14c data_ov001_02165880;
 
 // USA: func_ov001_0215e14c  (semantic: CaptureVecsAndDispatchEvent_0215e14c)
 extern "C" ARM int func_ov001_0215e14c(void* obj) {
-    int flagResult = GetFieldIfFlag4((char*)GetBattleStruct());
+    int flagResult = GetFieldIfFlag4((char*)GameState::GetInstance());
     if (flagResult == 0) {
         return 0;
     }

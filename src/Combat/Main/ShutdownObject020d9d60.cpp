@@ -1,10 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 void SetByteField0x253(void* obj);
-extern "C" int func_ov017_0218b5b0(void);
 void ClearBitsInWord(unsigned int* obj, unsigned int mask);
 void* GetDataPtr02114e04_020d6c00(void);
 struct FlagWord020466f4;
@@ -19,8 +17,8 @@ struct Obj020d9d60 {
 
 // USA: func_020d9d60
 ARM void ShutdownObject020d9d60(struct Obj020d9d60* self) {
-    SetByteField0x253((void*)GetCombatantAtField0x397c(GetBattleStruct()));
-    ClearBitsInWord((unsigned int*)func_ov017_0218b5b0(), 0x10);
+    SetByteField0x253((void*)GameState::GetInstance()->GetUnknownGameObject());
+    ClearBitsInWord((unsigned int*)((int)func_ov017_0218b5b0()), 0x10);
     ClearFlags020466f4((struct FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0xe);
     void* p = self->allocator.GetSignedAllocator();
     if (p == NULL) return;

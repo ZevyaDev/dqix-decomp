@@ -1,12 +1,10 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 #include "std_library_functions.h"
 
-extern "C" int func_ov017_0218b5b0(void);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 int GetFieldIfFlag4(char* obj);
 unsigned int GetField4(unsigned int* obj);
 struct Obj020397cc;
@@ -18,7 +16,7 @@ void SetBitsInWord(unsigned int* obj, unsigned int mask);
 extern "C" void func_020a0cc4(unsigned int);
 void* AllocateAligned4(AllocatorUnion* alloc, unsigned int size);
 extern "C" void func_020c9be0(void);
-void SetBothCounters(void* obj, int value, int frames);
+extern "C" void _Z13SetBrightnessP13GameResourcesii(void* obj, int value, int frames);
 struct ResetObj020d7a5c;
 struct ResetObj020d7a5c* GetGlobalResetObj020d7a50();
 struct Obj020d7aa0;
@@ -48,10 +46,10 @@ struct Obj021b2388 {
 
 // USA: func_ov017_021b2388  (semantic: InitMenuAllocatorAndLoadData_021b2388)
 extern "C" ARM int func_ov017_021b2388(struct Obj021b2388* ctx) {
-    struct BattleStruct* battle = (struct BattleStruct*)GetBattleStruct();
-    int base = func_ov017_0218b5b0();
+    GameState* battle = (GameState*)GameState::GetInstance();
+    int base = ((int)func_ov017_0218b5b0());
     unsigned char* fieldPtr;
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(battle);
+    GameObject* combatant = battle->GetUnknownGameObject();
     fieldPtr = (unsigned char*)GetFieldIfFlag4((char*)battle);
     int loadedList = (int)BackgroundLoader::GetInstance();
     void** entry = *(void***)((char*)base + 0x3700);
@@ -86,7 +84,7 @@ extern "C" ARM int func_ov017_021b2388(struct Obj021b2388* ctx) {
     ctx->fieldc = ((BackgroundLoader*)(loadedList))->QueueLoadFile((const char*)((int)tmp), (SafeAllocator*)((int)&ctx->allocator));
 
     if (!ctx->field38.bit4) {
-        SetBothCounters((void*)base, -16, 30);
+        _Z13SetBrightnessP13GameResourcesii((void*)base, -16, 30);
     }
 
     TeardownAndResetState020d7aa0((struct Obj020d7aa0*)GetGlobalResetObj020d7a50());

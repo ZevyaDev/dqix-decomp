@@ -1,10 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov017_021b8468(void* p);
 void* GetField6b0_021b8470(void* obj);
 void SetCombatWorkFlags0x55f4(void* work, int mask);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* bs, int id);
+GameObject* GetCombatantWithFlag0x100(GameState* bs, int id);
 int GetFieldAt0x150(unsigned char* obj);
 
 struct Word78Bits_021c8588 {
@@ -14,7 +14,7 @@ struct Word78Bits_021c8588 {
 };
 
 // USA: func_ov017_021c8588  (semantic: ApplyEntriesAndSetWorkFlag_021c8588)
-extern "C" ARM void func_ov017_021c8588(int a, signed char* b, struct BattleStruct* bs, char* d) {
+extern "C" ARM void func_ov017_021c8588(int a, signed char* b, GameState* bs, char* d) {
     void* handle;
     signed char* p0;
     int i;
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov017_021c8588(int a, signed char* b, struct BattleStru
 
     p0 = b + 4;
     for (i = 0; i < 4; i++) {
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, i);
+        GameObject* combatant = GetCombatantWithFlag0x100(bs, i);
         if (combatant == 0) continue;
         int field150 = GetFieldAt0x150((unsigned char*)combatant);
         if (field150 == 0) continue;

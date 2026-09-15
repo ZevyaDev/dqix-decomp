@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Element020de650 { unsigned int v[8]; };
 struct ElementFlagsWord020de650 {
@@ -20,7 +20,7 @@ int CopyInBattleField0x7540(void* src);
 
 // USA: func_020ddcbc  (semantic: ApplySlotElementEffectIfFlagged020ddcbc)
 extern "C" ARM int func_020ddcbc(int n, int idx, struct Container020dedd0* container) {
-    struct CombatantStruct* combatant;
+    GameObject* combatant;
     short* slotsArr;
     struct Element020de650* elem;
     int inRange;
@@ -31,7 +31,7 @@ extern "C" ARM int func_020ddcbc(int n, int idx, struct Container020dedd0* conta
     if (container == 0) return 0;
     if (idx < 0 || idx >= 8) return 0;
 
-    combatant = GetCombatantWithFlag0x100(GetBattleStruct(), n);
+    combatant = GetCombatantWithFlag0x100(GameState::GetInstance(), n);
     if (combatant == 0) return 0;
 
     slotsArr = (short*)((char*)(*(struct Slots0208386c**)((char*)combatant + 0x150)) + 0x454);

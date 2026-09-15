@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct TagInfo_021d26a4 {
     unsigned char pad[4];
@@ -8,17 +8,15 @@ struct TagInfo_021d26a4 {
     unsigned char flag1 : 1;
 };
 
-extern "C" int func_ov017_0218b5b0(void);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 void SetFlagBit_0218d4b8(unsigned char* base, int bit);
 void ClearFlagBit_0218d4d0(void* obj, int bit);
 extern "C" void func_ov017_02191aac(void* obj, int mode, int idx, unsigned char mask);
 
 // USA: func_ov017_021d26a4  (semantic: SetCombatantField150FlagAndNotify)
-extern "C" ARM void func_ov017_021d26a4(void* unused, TagInfo_021d26a4* info, struct BattleStruct* battleStruct, void* base) {
-    int flagBase = func_ov017_0218b5b0();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x800(battleStruct, info->id);
+extern "C" ARM void func_ov017_021d26a4(void* unused, TagInfo_021d26a4* info, GameState* battleStruct, void* base) {
+    int flagBase = ((int)func_ov017_0218b5b0());
+    GameObject* combatant = battleStruct->GetPartyMemberByIndex(info->id);
     if (combatant == 0) {
         return;
     }

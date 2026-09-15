@@ -1,8 +1,6 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-BattleStruct* GetBattleStruct();
-unsigned int GetBattleScaleCount(struct BattleStruct*);
 
 struct Container0205a3d0;
 struct Elem0205a3d0_021fb3c8 {
@@ -36,7 +34,7 @@ extern "C" ARM void func_ov023_021fb3c8(struct Obj021fb3c8* obj, void* arg1) {
     if (obj->flags0xc & 8) {
         return;
     }
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     void* listHead = func_ov011_021849c8(arg1);
     void* node = func_ov023_021f6880(listHead, obj->field20);
     void* p = func_ov023_021fad18(node);
@@ -50,7 +48,7 @@ extern "C" ARM void func_ov023_021fb3c8(struct Obj021fb3c8* obj, void* arg1) {
         entry->flags15 |= 8;
     }
     SetEntryByte14ByKey0205a42c(container, obj->field22, (unsigned char)obj->field24);
-    unsigned int scaleCount = GetBattleScaleCount(battleStruct);
+    unsigned int scaleCount = battleStruct->GetTickCount();
     func_0205a254(container, (unsigned char)obj->field22, scaleCount);
     short f28, f2a;
     f2a = obj->field2a;

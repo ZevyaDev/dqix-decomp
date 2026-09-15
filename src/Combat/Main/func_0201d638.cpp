@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "System/Memory.h"
 
 struct Param0201d638 {
@@ -17,10 +17,6 @@ struct Vec4fix0201d638 { int v[3]; int w; };
 extern "C" extern void _ZN15MaybeVector4fix8CopyFromERKS_(struct Vec4fix0201d638* dst, struct Vec4fix0201d638* src);
 
 struct Vec3fix0201d638 { int x, y, z; };
-extern "C" void Vector3fix_Subtract(struct Vec3fix0201d638* a, struct Vec3fix0201d638* b, struct Vec3fix0201d638* out);
-extern "C" int Vector3fix_Length(int* v);
-extern "C" void Vector3fix_Normalize(int* in, int* out);
-extern "C" int Vector3fix_InnerProduct(int* a, int* b);
 extern "C" void __clear(void* buf, int n);
 
 struct Elem0209998c {
@@ -57,7 +53,7 @@ struct Bits2e { unsigned short low4 : 4; unsigned short high12 : 12; };
 extern "C" ARM int _Z20WarpScript_Opcode_74PN6Script9ParameterEi(unsigned char* src, int count) {
     if (data_020fdc20.lastEntry == 0) return 0;
 
-    void* nameList = GetPtrField0x468((void*)GetBattleStruct());
+    void* nameList = GetPtrField0x468((void*)GameState::GetInstance());
 
     switch (W(4)) {
     case 0:
@@ -167,10 +163,10 @@ extern "C" ARM int _Z20WarpScript_Opcode_74PN6Script9ParameterEi(unsigned char* 
         src = (unsigned char*)p;
 
         struct Vec4fix0201d638 diffAndDot;
-        Vector3fix_Subtract((struct Vec3fix0201d638*)vecB, (struct Vec3fix0201d638*)vecA, (struct Vec3fix0201d638*)diffAndDot.v);
-        int len = Vector3fix_Length(diffAndDot.v);
-        Vector3fix_Normalize(diffAndDot.v, diffAndDot.v);
-        diffAndDot.w = Vector3fix_InnerProduct(diffAndDot.v, vecA);
+        Vector3fix_Subtract((const Vector3fix*)((struct Vec3fix0201d638*)vecB), (const Vector3fix*)((struct Vec3fix0201d638*)vecA), (Vector3fix*)((struct Vec3fix0201d638*)diffAndDot.v));
+        int len = Vector3fix_Length((const Vector3fix*)diffAndDot.v);
+        Vector3fix_Normalize((const Vector3fix*)diffAndDot.v, (Vector3fix*)diffAndDot.v);
+        diffAndDot.w = Vector3fix_InnerProduct((const Vector3fix*)diffAndDot.v, (const Vector3fix*)vecA);
 
         int vecC[3];
         __clear(vecC, 0xc);

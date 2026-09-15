@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct BitEntry0208ec04 {
     unsigned int low9 : 9;
@@ -12,7 +12,7 @@ struct BitEntry0208ec04 {
 
 // USA: func_0208ec04  (semantic: RecalcLow9FieldFromType0208ec04)
 extern "C" ARM void func_0208ec04(void) {
-    char* base = (char*)GetBattleStruct();
+    char* base = (char*)GameState::GetInstance();
     struct BitEntry0208ec04* e = (struct BitEntry0208ec04*)(base + 0x5cdc);
     int i;
     for (i = 0; i < 0x64; i++, e++) {

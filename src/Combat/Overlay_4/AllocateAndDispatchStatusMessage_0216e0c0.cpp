@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov011_021845f8(void* a, int b);
 extern "C" void* func_ov011_021849c8(void*);
@@ -25,7 +25,7 @@ struct Buf0216e0c0 { void* magic; char pad[0x54 - 4]; };
 extern "C" ARM int func_ov004_0216e0c0(void* obj) {
     void* fmt = 0;
     void* p4 = 0;
-    unsigned char state = *((unsigned char*)GetBattleStruct() + 0x7f71);
+    unsigned char state = *((unsigned char*)GameState::GetInstance() + 0x7f71);
     switch (state) {
         case 0: p4 = &data_ov004_02170752; fmt = &data_ov004_02170761; break;
         case 1: p4 = &data_ov004_02170770; fmt = &data_ov004_02170780; break;

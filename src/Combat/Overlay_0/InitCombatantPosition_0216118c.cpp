@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" void func_ov000_021626a0(void* self, int a, int b);
 extern "C" void func_ov000_0216d600(void* obj, int a1, int a2, int a3, int a4, int a5, int a6, int a7);
 void ApplyVec3Tail(void* obj, int* vec);
@@ -11,8 +10,8 @@ struct Vec3_0216118c { int v[3]; };
 
 // USA: func_ov000_0216118c
 ARM void InitCombatantPosition_0216118c(void* self, int flag) {
-    GetBattleStruct();
-    func_ov017_0218b5b0();
+    GameState::GetInstance();
+    ((int)func_ov017_0218b5b0());
     func_ov000_021626a0(self, 0x26, 0);
     func_ov000_0216d600((char*)self + 0x18 + 0xc00, 1, 1, 0, 0, 0, 0, 1);
     if (flag == 0) {

@@ -1,17 +1,17 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+void* GetPtrField0x2a04(GameState* battleStruct);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 struct KeyMap020a095c;
 int AddKeyValueClamped020a095c(struct KeyMap020a095c* map, int key, int amount);
 
 // USA: func_ov017_021b6bb8
 ARM void AddPositiveField150EntriesToMap_021b6bb8(int combatantId) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* keymap = GetPtrField0x2a04(bs);
-    struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, combatantId);
+    GameObject* c = GetCombatantWithFlag0x100(bs, combatantId);
     if (c == NULL) {
         return;
     }

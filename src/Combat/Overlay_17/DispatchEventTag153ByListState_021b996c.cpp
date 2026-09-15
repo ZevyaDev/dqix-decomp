@@ -1,14 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void* ctx);
 struct SearchStruct0202c1a4;
 signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 struct U16Field0x6_020375f8;
 extern "C" unsigned short _ZNK8Object3D10GetField06Ev(struct U16Field0x6_020375f8* obj);
-extern "C" void* func_ov017_0218b5b0(void* self);
 struct ListHead02046b60;
 int ListContainsId(struct ListHead02046b60* list, int id);
 int GetGlobalField0x1c020421a0();
@@ -22,9 +19,9 @@ extern "C" ARM void func_ov017_021b996c(struct Obj021b996c* self, int combatantI
     signed char cur = GetSearchStructCurrentArrEntry((struct SearchStruct0202c1a4*)search);
     if (checkVal != cur && checkVal != 4) return;
 
-    struct BattleStruct* battle = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantUnchecked(battle, combatantId);
-    struct CombatantStruct* combatant2 = GetCombatantAtField0x397c(battle);
+    GameState* battle = GameState::GetInstance();
+    GameObject* combatant = battle->GetGameObjectByIndex(combatantId);
+    GameObject* combatant2 = battle->GetUnknownGameObject();
     unsigned short u1 = _ZNK8Object3D10GetField06Ev((struct U16Field0x6_020375f8*)combatant);
     unsigned short u2 = _ZNK8Object3D10GetField06Ev((struct U16Field0x6_020375f8*)combatant2);
     if (u1 != u2) {
@@ -34,7 +31,7 @@ extern "C" ARM void func_ov017_021b996c(struct Obj021b996c* self, int combatantI
 
     int field5724;
     if (self->field12c != arg5 && (field5724 = *(int*)((char*)battle + 0x5724)) != arg5) {
-        void* p = func_ov017_0218b5b0((void*)field5724);
+        void* p = ((void* (*)(void*))func_ov017_0218b5b0)((void*)field5724);
         struct ListHead02046b60* list = *(struct ListHead02046b60**)((char*)p + 0x3000 + 0x6fc);
         if (ListContainsId(list, 4)) {
             EnqueueEventTag153_021d079c(tag, 1, 0);

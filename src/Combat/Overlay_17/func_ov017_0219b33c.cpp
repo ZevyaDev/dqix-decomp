@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 int IsFieldNotPositive_021a4e70(unsigned char* base);
 unsigned char GetByte0x26c(char* obj);
 
@@ -24,7 +23,7 @@ struct Buf15_0219b33c { unsigned char v[15]; };
 
 // USA: func_ov017_0219b33c
 extern "C" ARM void func_ov017_0219b33c(char* self, struct SrcFields_0219b33c* src) {
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(GetBattleStruct());
+    GameObject* combatant = GameState::GetInstance()->GetUnknownGameObject();
 
     if (!IsFieldNotPositive_021a4e70((unsigned char*)self)) return;
 

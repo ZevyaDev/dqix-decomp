@@ -1,10 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_02012fe4(void);
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
+int GetField0x3b0Value(GameState* battleStruct);
 void* GetPointerFromArray0x3c(unsigned char* obj, unsigned int index);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 int CheckSubstructByte0x7cPositive(signed char* obj);
 extern "C" int func_02094b9c(void* a, void* b);
 extern "C" int _Z22fix32ReduceAngle0To2Pii(int angle);
@@ -39,8 +38,8 @@ struct EventBuf021984f4 {
 
 // USA: func_ov017_021984f4  (semantic: FindTargetsAndForward_021984f4)
 extern "C" ARM void func_ov017_021984f4(void* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* c = GetCombatantAtField0x397c(bs);
+    GameState* bs = GameState::GetInstance();
+    GameObject* c = bs->GetUnknownGameObject();
     if (c == NULL) {
         return;
     }

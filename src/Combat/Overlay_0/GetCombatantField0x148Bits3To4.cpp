@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x400(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x400(GameState* battleStruct, int combatantId);
 
 struct Struct02159d94 {
     char pad[0x10];
@@ -12,8 +12,8 @@ struct Struct02159d94 {
 
 // USA: func_ov000_02159d94
 ARM int GetCombatantField0x148Bits3To4(int unused, int id) {
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x400(bs, id);
+    GameState* bs = GameState::GetInstance();
+    GameObject* combatant = GetCombatantWithFlag0x400(bs, id);
     struct Struct02159d94* field148 = *(struct Struct02159d94**)((char*)combatant + 0x148);
     return field148->val;
 }

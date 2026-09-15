@@ -1,11 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct SearchStruct;
 struct SearchStruct0202c1a4;
 struct Obj_02172518;
 
-int GetField0x3b4Value(struct BattleStruct* battleStruct);
 extern "C" void* func_0202ae18(void);
 extern "C" void func_0202b0f4(void* p);
 signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
@@ -27,10 +26,10 @@ struct Obj02171af0 {
 
 // USA: func_ov003_02171af0  (semantic: UpdateSearchAndDispatch_02171af0)
 extern "C" ARM void func_ov003_02171af0(struct Obj02171af0* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     void* ptr = func_0202ae18();
 
-    obj->field72c += GetField0x3b4Value(battle);
+    obj->field72c += battle->GetEffectiveDeltaTime();
     if (obj->field72c > 0xbb8) {
         func_0202b0f4(ptr);
         obj->field72c = 0;

@@ -1,20 +1,20 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct BattleStruct* GetBattleStruct(void);
 struct SearchStruct;
 extern "C" struct SearchStruct* func_0202ae18(void);
 int TestFlagBitAt0xe(struct SearchStruct* obj, int value);
-struct CombatantStruct* GetCombatantWithFlag0x200(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x200(GameState* battleStruct, int combatantId);
 extern "C" void func_ov017_021905b8(void* self, int idx, int flag);
 
 // USA: func_ov017_02195658  (semantic: FindAndPrepareCombatantSlot_02195658)
 extern "C" ARM int func_ov017_02195658(unsigned char* self) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     struct SearchStruct* search = func_0202ae18();
     for (int i = 1; i < 4; i++) {
         int flagA = 0;
         int flagB = 1;
-        struct CombatantStruct* c = GetCombatantWithFlag0x200(battle, i);
+        GameObject* c = GetCombatantWithFlag0x200(battle, i);
         unsigned char* ptr = *(unsigned char**)(self + 0x4000 + 0x41c);
         if (ptr[0] == 1 && ptr[2] == i) {
             if (c != NULL) {

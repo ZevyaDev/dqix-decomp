@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "System/Cache.h"
 
 extern int GetWord0x0(int* obj);
@@ -21,7 +21,7 @@ ARM void TransferBattleObjPaletteEntries020e16f4(struct Obj020e1674* self) {
     int field2c;
 
     if (self->ptr == NULL) return;
-    field2c = *(int*)(GetWord0x0((int*)GetBattleStruct()) + 0x2c);
+    field2c = *(int*)(GetWord0x0((int*)GameState::GetInstance()) + 0x2c);
     if (field2c == 0) return;
     CleanInvalidateCacheRange((void*)(field2c + 0xc), 0x20);
     if (self->ptr->flag == 0) {

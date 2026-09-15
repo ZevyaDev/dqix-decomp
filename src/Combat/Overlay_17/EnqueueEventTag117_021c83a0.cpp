@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "Resource/GameResources.h"
 
-extern "C" Struct_ov017_44C8* func_ov017_0218b5b0(void);
+extern "C" GameResources* func_ov017_0218b5b0(void);
 extern "C" void* func_ov017_021b8478(void* obj);
 void* GetField6b0_021b8470(void* obj);
 void* GetData02100044(void);
@@ -30,7 +30,7 @@ struct LocalEvt021c83a0 {
 
 // USA: func_ov017_021c83a0  (semantic: EnqueueEventTag117_021c83a0)
 extern "C" ARM void func_ov017_021c83a0(void) {
-    Struct_ov017_44C8* ov = func_ov017_0218b5b0();
+    GameResources* ov = func_ov017_0218b5b0();
     void* h = *(void**)((char*)ov + 0x3000 + 0x718);
     Ret021c83a0* r = (Ret021c83a0*)func_ov017_021b8478(h);
     void* work = GetField6b0_021b8470(h);

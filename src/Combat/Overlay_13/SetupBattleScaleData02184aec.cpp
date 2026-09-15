@@ -1,8 +1,7 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-extern "C" void* _Z15GetBattleStructv();
 extern "C" void* _Z26GetGlobalField0x1c020421a0v();
-extern "C" int _Z19GetBattleScaleCountP12BattleStruct(void*);
 extern "C" void _Z15Forward0204359cPvi(void*, int);
 extern "C" void func_020439b0(void*, int);
 extern "C" void _Z19InitEntries0205d2bcP11Obj0205d2bc(void*);
@@ -16,9 +15,9 @@ extern "C" ARM void func_ov013_02184aec(void* obj) {
         case 0: case 5: case 6: return;
     }
 
-    void* battle = _Z15GetBattleStructv();
+    void* battle = GameState::GetInstance();
     void* field = _Z26GetGlobalField0x1c020421a0v();
-    int count = _Z19GetBattleScaleCountP12BattleStruct(battle);
+    int count = ((GameState*)battle)->GetTickCount();
     _Z15Forward0204359cPvi(field, count);
     func_020439b0(field, 0);
     _Z19InitEntries0205d2bcP11Obj0205d2bc(o + 0x38);

@@ -475,7 +475,7 @@ src/Combat/Main/ClearBytesReturnPtr0200f374.cpp:
     complete
     .text start:0x0200f374 end:0x0200f398
 
-src/Combat/Main/GetBattleList.cpp:
+src/GameState/GameStateInstance.cpp:
 	complete
 	.text start:0x0200f398 end:0x0200f3a4
 
@@ -535,33 +535,9 @@ src/Combat/Main/ClearCombatantList.cpp:
     complete
     .text start:0x0200fd58 end:0x0200fd70
 
-src/Combat/Main/GetCombatantUnchecked.cpp:
-    complete
-    .text start:0x0200fd70 end:0x0200fd90
-
-src/Combat/Main/GetCombatantWithFlag0x2.cpp:
-    complete
-    .text start:0x0200fd90 end:0x0200fdcc
-
-src/Combat/Main/GetCombatantAtField0x3ac.cpp:
-    complete
-    .text start:0x0200fdcc end:0x0200fddc
-
-src/Combat/Main/GetCombatantAtField0x397c.cpp:
-    complete
-    .text start:0x0200fddc end:0x0200fdf0
-
-src/Combat/Main/GetCombatantWithFlag0x800.cpp:
-    complete
-    .text start:0x0200fdf0 end:0x0200fe2c
-
-src/Combat/Main/GetCombatantWithFlag0x20.cpp:
-    complete
-    .text start:0x0200fe2c end:0x0200fe68
-
-src/Combat/Main/GetCombatantFromList.cpp:
+src/GameState/GameStateObjects.cpp:
 	complete
-	.text start:0x0200fe68 end:0x0200fea4
+	.text start:0x0200fd70 end:0x0200fea4
 
 src/Combat/Main/GetCombatantWithFlag0x400.cpp:
     complete
@@ -635,57 +611,9 @@ src/Combat/Main/InitFields02010124.cpp:
     complete
     .text start:0x02010124 end:0x02010150
 
-src/Combat/Main/GetField0x3b4Value.cpp:
+src/GameState/GameTime.cpp:
     complete
-    .text start:0x02010208 end:0x02010210
-
-src/Combat/Main/GetBattleTimerDelta.cpp:
-    complete
-    .text start:0x02010210 end:0x02010218
-
-src/Combat/Main/GetFieldAt0x3c0.cpp:
-    complete
-    .text start:0x02010218 end:0x02010220
-
-src/Combat/Main/GetBattleScaleCount.cpp:
-    complete
-    .text start:0x02010220 end:0x02010228
-
-src/Combat/Main/SetField0x3bcValue.cpp:
-    complete
-    .text start:0x02010228 end:0x02010234
-
-src/Combat/Main/GetField0x3bcValue.cpp:
-    complete
-    .text start:0x02010234 end:0x02010240
-
-src/Combat/Main/ApplyScaledRateIfActive.cpp:
-    complete
-    .text start:0x02010240 end:0x02010280
-
-src/Combat/Main/GetAccumulatedValue.cpp:
-    complete
-    .text start:0x02010280 end:0x02010288
-
-src/Combat/Main/UpdateAccumulatorAndSelectIndex_02010288.cpp:
-    complete
-    .text start:0x02010288 end:0x02010354
-
-src/Combat/Main/SetActiveFlag.cpp:
-    complete
-    .text start:0x02010354 end:0x0201035c
-
-src/Combat/Main/GetSelectedTableIndex.cpp:
-    complete
-    .text start:0x0201035c end:0x02010364
-
-src/Combat/Main/SelectTableValueAndDispatch.cpp:
-    complete
-    .text start:0x02010364 end:0x020103b4
-
-src/Combat/Main/IsField3dcSet.cpp:
-    complete
-    .text start:0x020103b4 end:0x020103c8
+    .text start:0x02010150 end:0x020103c8
 
 src/Combat/Main/SetFieldIfNonNegative020103c8.cpp:
     complete
@@ -2062,6 +1990,16 @@ src/Combat/Main/SetActorTimerFromAxis_02021428.cpp:
 src/Combat/Main/HandleStateDispatch020214f0.cpp:
     complete
     .text start:0x020214f0 end:0x02021578
+
+src/Combat/Main/func_02021578.cpp:
+    complete
+    .text start:0x02021578 end:0x02021b84
+
+
+src/Combat/Main/func_020227dc.cpp:
+    complete
+    .text start:0x020227dc end:0x02022b90
+
 
 src/Combat/Main/ReleaseHandle02022b90.cpp:
     complete
@@ -3684,89 +3622,9 @@ src/Combat/Main/UpdateScaleOrApplyRecord0203ae4c.cpp:
     complete
     .text start:0x0203ae4c end:0x0203aee0
 
-src/Combat/Main/Init0203aee0.cpp:
+src/Resource/Brightness.cpp:
     complete
-    .text start:0x0203aee0 end:0x0203af44
-
-src/Combat/Main/BlankFunction0203af44.cpp:
-    complete
-    .text start:0x0203af44 end:0x0203af48
-
-src/Combat/Main/func_0203af48.cpp:
-    complete
-    .text start:0x0203af48 end:0x0203b080
-
-src/Combat/Main/SyncBrightnessRegistersIfDirty0203b080.cpp:
-    complete
-    .text start:0x0203b080 end:0x0203b0f8
-
-src/Combat/Main/StepAndFlushCounters.cpp:
-    complete
-    .text start:0x0203b0f8 end:0x0203b110
-
-src/Combat/Main/SetActorAnimTimer0203b110.cpp:
-    complete
-    .text start:0x0203b110 end:0x0203b19c
-
-src/Combat/Main/SetActorAnimTimer0203b19c.cpp:
-    complete
-    .text start:0x0203b19c end:0x0203b228
-
-src/Combat/Main/SetBothCounters.cpp:
-    complete
-    .text start:0x0203b228 end:0x0203b250
-
-src/Combat/Main/SetChannelFlag0x24AfterUpdate.cpp:
-    complete
-    .text start:0x0203b250 end:0x0203b268
-
-src/Combat/Main/SetChannelFlag0x25AfterUpdate.cpp:
-    complete
-    .text start:0x0203b268 end:0x0203b280
-
-src/Combat/Main/SetAndLockBothCounters.cpp:
-    complete
-    .text start:0x0203b280 end:0x0203b2b8
-
-src/Combat/Main/ClearChannelFlag0x24ThenUpdate.cpp:
-    complete
-    .text start:0x0203b2b8 end:0x0203b2cc
-
-src/Combat/Main/ClearChannelFlag0x25ThenUpdate.cpp:
-    complete
-    .text start:0x0203b2cc end:0x0203b2e0
-
-src/Combat/Main/UnlockAndSetBothCounters.cpp:
-    complete
-    .text start:0x0203b2e0 end:0x0203b318
-
-src/Combat/Main/UpdateActorAnimState0203b318.cpp:
-    complete
-    .text start:0x0203b318 end:0x0203b398
-
-src/Combat/Main/CheckField0x14Positive.cpp:
-    complete
-    .text start:0x0203b398 end:0x0203b3ac
-
-src/Combat/Main/CheckField0x20Positive.cpp:
-    complete
-    .text start:0x0203b3ac end:0x0203b3c0
-
-src/Combat/Main/CheckField0x14Or0x20Positive.cpp:
-    complete
-    .text start:0x0203b3c0 end:0x0203b400
-
-src/Combat/Main/GetField0x10StateIfField0x14Positive.cpp:
-    complete
-    .text start:0x0203b400 end:0x0203b438
-
-src/Combat/Main/GetField0x1cStateIfField0x20Positive.cpp:
-    complete
-    .text start:0x0203b438 end:0x0203b470
-
-src/Combat/Main/GetCombinedCounterStates.cpp:
-    complete
-    .text start:0x0203b470 end:0x0203b498
+    .text start:0x0203aee0 end:0x0203b498
 
 src/Combat/Main/GetWord.cpp:
     complete
@@ -6933,6 +6791,11 @@ src/Combat/Main/CheckField0x56bLowNibble.cpp:
     complete
     .text start:0x02061bd8 end:0x02061c04
 
+src/Combat/Main/func_02061c04.cpp:
+    complete
+    .text start:0x02061c04 end:0x020643e0
+
+
 src/Combat/Main/CopyHalfwordAndTwoBytes.cpp:
     complete
     .text start:0x020643e0 end:0x020643fc
@@ -7064,6 +6927,10 @@ src/Combat/Main/UpdateStatusTimer.cpp:
 src/Combat/Main/ResetOrConsumeCounter02065920.cpp:
     complete
     .text start:0x02065920 end:0x02065990
+
+src/Combat/Main/func_02065990.cpp:
+    complete
+    .text start:0x02065990 end:0x02066a6c
 
 src/Combat/Main/GetField440XY.cpp:
     complete
@@ -14457,6 +14324,16 @@ src/Combat/Main/GetGlobalWord021112ec.cpp:
     complete
     .text start:0x020c75a4 end:0x020c75b4
 
+src/Combat/Main/_Z18GetContextPriorityP16ProcessorContext.cpp:
+    complete
+    .text start:0x020c7b38 end:0x020c7b40
+
+
+src/Combat/Main/_Z17SetContextEndProcP16ProcessorContextPFviE.cpp:
+    complete
+    .text start:0x020c7ca8 end:0x020c7cb0
+
+
 src/Combat/Main/InitializeContextRegisters_020c7cb0.cpp:
     complete
     .text start:0x020c7cb0 end:0x020c7d34
@@ -17493,33 +17370,3 @@ src/Combat/Main/InitEntries020e5c00.cpp:
 //src/Graphics/VRAMAllocations.cpp:
 
 //src/System/ProcessorContext.cpp:
-
-
-src/Combat/Main/_Z17SetContextEndProcP16ProcessorContextPFviE.cpp:
-    complete
-    .text start:0x020c7ca8 end:0x020c7cb0
-
-
-src/Combat/Main/_Z18GetContextPriorityP16ProcessorContext.cpp:
-    complete
-    .text start:0x020c7b38 end:0x020c7b40
-
-
-src/Combat/Main/func_02021578.cpp:
-    complete
-    .text start:0x02021578 end:0x02021b84
-
-
-src/Combat/Main/func_020227dc.cpp:
-    complete
-    .text start:0x020227dc end:0x02022b90
-
-
-src/Combat/Main/func_02061c04.cpp:
-    complete
-    .text start:0x02061c04 end:0x020643e0
-
-
-src/Combat/Main/func_02065990.cpp:
-    complete
-    .text start:0x02065990 end:0x02066a6c

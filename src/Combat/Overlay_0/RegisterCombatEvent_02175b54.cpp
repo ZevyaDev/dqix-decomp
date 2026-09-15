@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetData02108e10(void);
 void* SearchBothTables02079e2c(char* p, int key);
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
+void* GetPtrField0x2a04(GameState* battleStruct);
 extern "C" void* func_ov000_02161318(void* obj, int id);
 extern "C" int func_ov000_02171210(void* a, void* b);
 
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov000_02175b54(void* obj) {
     if (tableEntry == 0) {
         return;
     }
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     unsigned char* field2a04 = (unsigned char*)GetPtrField0x2a04(battleStruct);
     signed char combIdx = *(signed char*)(field2a04 + 0xf00 + 0x78);
     char* entry = (char*)func_ov000_02161318(obj, combIdx);

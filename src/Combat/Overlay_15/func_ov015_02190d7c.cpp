@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
+int GetField0x3b0Value(GameState* battleStruct);
 extern "C" void _Z20AdvanceActor020a20d8Pv(void* actor);
 int TestFlag0SetAndFlag1Clear(unsigned short* obj, int mask);
 extern unsigned short data_02114e30;
@@ -33,7 +33,7 @@ struct S02190d7c {
 
 // USA: func_ov015_02190d7c
 extern "C" ARM void func_ov015_02190d7c(struct S02190d7c* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     if (bs == 0) {
         return;
     }

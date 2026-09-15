@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "Resource/GameResources.h"
 
 struct ListHead02046b60;
 extern "C" void func_02046a8c(struct ListHead02046b60* list, int val);

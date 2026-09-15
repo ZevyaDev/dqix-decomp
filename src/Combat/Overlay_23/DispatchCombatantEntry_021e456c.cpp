@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov023_021e6194(int arg);
 extern "C" void _ZN8Object3D24MaybeSetRegularAnimationEPKci(void* self, int a, int b);
@@ -15,8 +15,8 @@ extern "C" int func_ov023_021e5974(int a, int b, int c, int d, int e);
 extern "C" ARM void func_ov023_021e456c(void* objRaw) {
     char* obj = (char*)objRaw;
     if (!(*(unsigned short*)(obj + 0x634) & 4)) return;
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, *(int*)(obj + 0x4fc));
+    GameState* bs = GameState::GetInstance();
+    GameObject* combatant = GetCombatantWithFlag0x100(bs, *(int*)(obj + 0x4fc));
     if (!combatant) return;
     int flag = 0;
     if (*(unsigned short*)(obj + 0x634) & 0x10) flag = 1;

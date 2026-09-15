@@ -1,19 +1,18 @@
 #include <globaldefs.h>
 
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct SearchStruct;
-struct CombatantStruct;
 
 extern "C" void* func_0202ae18(void);
 
 int TestBitBySignedByteIndex(struct SearchStruct* obj, int value);
-struct CombatantStruct* GetCombatantWithFlag0x1000(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x1000(GameState* battleStruct, int combatantId);
 void SetField0x17eBitAndHigh(unsigned char* obj, int bit, int cond);
 
 // USA: func_0207973c
 ARM int CheckAndSetAllCombatantFlags0207973c(unsigned char* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     struct SearchStruct* search = (struct SearchStruct*)func_0202ae18();
     int i;
     for (i = 0; i < 4; i++) {

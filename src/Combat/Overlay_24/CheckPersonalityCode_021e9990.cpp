@@ -1,12 +1,12 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
 struct RefStruct_021e9990 { char pad[0x10]; int field10; };
 
 // USA: func_ov024_021e9990
 ARM int CheckPersonalityCode_021e9990(struct RefStruct_021e9990* s, int id, int unused2, int flag, signed char sb) {
-    struct CombatantStruct* c = GetCombatantByID(s->field10, id);
+    GameObject* c = GetCombatantByID(s->field10, id);
     if (c == NULL) return 0;
     if (flag != 0) goto retZero;
     switch (sb) {

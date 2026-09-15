@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 // USA: func_ov024_021edbd8
-ARM int IsCombatantFlagMask268435456_021edbd8(struct CombatantStruct* combatant) {
-    return (*(unsigned int*)((char*)combatant->currentStats + 0x14) & 0x10000000) != 0;
+ARM int IsCombatantFlagMask268435456_021edbd8(GameObject* combatant) {
+    return (*(unsigned int*)((char*)combatant->currentStats_ + 0x14) & 0x10000000) != 0;
 }

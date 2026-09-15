@@ -1,12 +1,12 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 unsigned char GetTableByte0207ca94(int index);
 int FindNthPositiveShort0207c6b8(unsigned char* obj, unsigned int index, int target);
 
 // USA: func_ov003_02175f20  (semantic: FindTableEntry_02175f20)
 extern "C" ARM int func_ov003_02175f20(void* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* p = GetPtrField0x2a04(bs);
     short v1 = *(short*)((char*)obj + 0x1012);
     int idx = (short)(v1 - 286);

@@ -1,11 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "Util/Random.h"
 
 extern "C" int func_ov000_0215eb1c(int battle, short* table, int count, int flag);
 int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
-int IsCombatantFlagMask512_021eda60(struct CombatantStruct* combatant);
+int IsCombatantFlagMask512_021eda60(GameObject* combatant);
 
 struct Buf8_021f0208 { short v[8]; };
 extern struct Buf8_021f0208 data_ov024_021feddc;
@@ -19,10 +19,10 @@ extern "C" ARM int func_ov024_021f0208(int* a0, int a1, int a2, int* outCount, s
 
 	*outCount = 0;
 	for (int i = 0; i < count; i++) {
-		struct CombatantStruct* member = GetCombatantByID(*a0, buf.v[i]);
+		GameObject* member = GetCombatantByID(*a0, buf.v[i]);
 		if (!member) continue;
-		if (member->currentStats->primaryStats.attack >= 0xffff) continue;
-		if (member->currentStats->attackBuff >= 2) continue;
+		if (member->currentStats_->primaryStats.attack >= 0xffff) continue;
+		if (member->currentStats_->attackBuff >= 2) continue;
 		if (IsCombatantFlagMask512_021eda60(member)) continue;
 		int idx = *outCount;
 		*outCount = idx + 1;

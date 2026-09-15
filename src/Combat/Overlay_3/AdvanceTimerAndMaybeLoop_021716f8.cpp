@@ -1,9 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Obj_02172518;
 void LoopCallOv017_02172518(struct Obj_02172518* obj, int flag);
-int GetField0x3b4Value(struct BattleStruct* battleStruct);
 extern "C" void func_0202ae18(void);
 extern "C" void func_0202b0f4(void);
 
@@ -26,7 +25,7 @@ extern "C" ARM void func_ov003_021716f8(struct Obj021716f8* obj) {
         b[0] = 3;
     }
 
-    obj->field72c += GetField0x3b4Value(GetBattleStruct());
+    obj->field72c += GameState::GetInstance()->GetEffectiveDeltaTime();
     if (obj->field72c <= 0xbb8) return;
 
     func_0202ae18();

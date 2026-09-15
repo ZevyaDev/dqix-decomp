@@ -1,17 +1,14 @@
 #include "World/Zone3D.h"
-#include "World/ZoneFeatures.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/NarcHandle.h"
 #include "Filesystem/FileAccessor.h"
 #include "Filesystem/LowNitroHandle.h"
 #include "Filesystem/FileIO.h"
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "Resource/GameResources.h"
 #include "Graphics/NSBXX/NSBXX.h"
 
 #if defined(jpn)
-#define _Z24GetCombatantAtField0x3acP12BattleStruct func_0200fc28
-#define _Z25GetCombatantAtField0x397cP12BattleStruct func_0200fc38
 #define _Z16GetPtrField0x468Pv func_020112f4
 #define _ZN12ZoneFeatures5ResetEv func_0201dfd4
 #define _Z22ResetBigStruct02013750Pvi func_02013518
@@ -31,36 +28,35 @@
 
 extern "C"
 {
-    extern "C" void* _Z16GetPtrField0x468Pv(BattleStruct*);
+    void* _Z16GetPtrField0x468Pv(GameState*);
     void _Z18InitStruct02013454Pc(void*);
-    extern "C" void* _Z24GetCombatantAtField0x3acP12BattleStruct(BattleStruct*);
-    extern "C" void* _Z25GetCombatantAtField0x397cP12BattleStruct(BattleStruct*);
 
-    extern "C" void* _Z15GetFieldAt0x150Ph(void*);
+    void* _Z15GetFieldAt0x150Ph(void*);
     void _Z25RunBufferedStream0205e104iiP12StreamHeaderi(const char*, SafeAllocator*, const void*, unsigned int);
 
     // Texture functions
-    extern "C" void* _Z26CopyInternalFields0207df50P11Foo0207df50(void*);
+    void* _Z26CopyInternalFields0207df50P11Foo0207df50(void*);
     void _Z25RestorePairTables0207df90Pc(void*);
     void _Z24BackupPairTables0207dfacPc(void*);
 
-    extern "C" void* _Z15GetData02108f0cv();
-    extern "C" void _Z23ClearThreeWords02094d00P29ClearThreeWords02094d00Struct(void*);
-    extern "C" Zone3D_StructPtr_8* _Z22FindEntryByHalfwordKeyP11SearchTablei(void*, unsigned short id);
+    void* _Z15GetData02108f0cv();
+    void _Z23ClearThreeWords02094d00P29ClearThreeWords02094d00Struct(void*);
+    Zone3D_StructPtr_8* _Z22FindEntryByHalfwordKeyP11SearchTablei(void*, unsigned short id);
 
     void func_020c9be0(); // abort() or similar
-    extern "C" void _Z16ZeroInit020de848Pv(void*);
+    void _Z16ZeroInit020de848Pv(void*);
 
-    extern "C" void _Z13Reset02013490Pc(void*);
-    extern "C" void _Z22ResetBigStruct02013750Pvi(Zone3D*, bool);
+    void _Z13Reset02013490Pc(void*);
+    void _Z22ResetBigStruct02013750Pvi(Zone3D*, bool);
     void _ZN6Zone3D15ProcessBATSFileEPKvj(Zone3D*, const void*, unsigned);
     void func_02014a24(Zone3D*, void*);
 
     // checks if zone id corresponds to a main floor of a grotto
-    extern "C" bool _Z17IsInRange0201b5b0i(int id);
+    bool _Z17IsInRange0201b5b0i(int id);
     // checks if zone id corresponds to boss floor of a grotto
     bool _Z22IsValueInRange0201b5d8i(int id);
 
+    void _ZN12ZoneFeatures5ResetEv(void*);
 }
 
 extern char data_020ef0f0[]; // "data/map/maplist9.bin"
@@ -99,12 +95,12 @@ extern char data_020ef22c[]; // "ARC:%s"
 
 void Zone3D::SwitchZone(unsigned short newID)
 {
-    BattleStruct* battle = GetBattleStruct();
+    GameState* gameState = GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
 
-    void* uVar3 = _Z16GetPtrField0x468Pv(battle);
+    void* uVar3 = _Z16GetPtrField0x468Pv(gameState);
     (void)func_ov017_0218b5b0();
-    void* iVar4 = _Z25GetCombatantAtField0x397cP12BattleStruct(battle);
+    GameObject* iVar4 = gameState->GetUnknownGameObject();
 
     pAllocator_68_ = pAllocator_4c_;
     pAllocator_68_->Reset();
@@ -138,7 +134,7 @@ void Zone3D::SwitchZone(unsigned short newID)
     unknown_834_ = 0;
     unknown_2820_ = 0;
 
-    ((ZoneFeatures*)(substruct_6c_))->Reset();
+    _ZN12ZoneFeatures5ResetEv(substruct_6c_);
 
     substruct_c_.buffer1[0] = 0;
     substruct_c_.buffer2[0] = 0;
@@ -158,7 +154,7 @@ void Zone3D::SwitchZone(unsigned short newID)
     unknown_4_ = pUnknownStruct_8_->unknown_2_;
     if (pUnknownStruct_8_->unknown_c_low_ == 0)
     {
-        void* iVar5 = _Z24GetCombatantAtField0x3acP12BattleStruct(battle);
+        GameObject* iVar5 = gameState->GetProtagonist();
         if (iVar5 != NULL)
         {
             void* iVar6 = _Z15GetFieldAt0x150Ph(iVar5);
@@ -199,7 +195,7 @@ void Zone3D::SwitchZone(unsigned short newID)
         if (currentGrottoFloor_23ba_ != -1)
         {
             copyOfCurrentGrottoFloor_23bb_ = currentGrottoFloor_23ba_;
-            position_23c0_ = *(Vector3i*)((int)iVar4 + 0x44);
+            position_23c0_ = iVar4->obj3D_.position_;
             unknown_23cc_ = *(short*)((int)iVar4 + 0xae);
         }
         isInMainGrottoFloor_23b8_ = false;

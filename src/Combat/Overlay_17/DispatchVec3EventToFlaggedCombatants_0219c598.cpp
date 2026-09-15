@@ -1,16 +1,13 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_02012fe4(void);
 extern "C" int _Z22fix32ReduceAngle0To2Pii(int angle);
-extern "C" void func_020399b0(struct CombatantStruct* combatant, unsigned short arg1, int* vec3, int value);
-extern "C" int func_ov017_0218b5b0(void);
+extern "C" void func_020399b0(GameObject* combatant, unsigned short arg1, int* vec3, int value);
 
-void* GetField0x3f8Address(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
+void* GetField0x3f8Address(GameState* battleStruct);
 unsigned char GetByte0x26c(char* obj);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 struct Owner_1e80c;
 struct S_e820;
@@ -20,12 +17,12 @@ int GetSignedFieldAt0x7c(S_e820* p);
 
 // USA: func_ov017_0219c598  (semantic: DispatchVec3EventToFlaggedCombatants_0219c598)
 extern "C" ARM void func_ov017_0219c598(int* srcVec3, short* srcAngle, int forceFlag) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     unsigned char* field3f8 = (unsigned char*)GetField0x3f8Address(battleStruct);
     void* dataBase = func_02012fe4();
-    func_ov017_0218b5b0();
+    ((int)func_ov017_0218b5b0());
     unsigned char* field2a04 = (unsigned char*)GetPtrField0x2a04(battleStruct);
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(battleStruct);
+    GameObject* combatant = battleStruct->GetUnknownGameObject();
 
     if (field3f8[0xa] != 0 && forceFlag == 0) {
         return;
@@ -53,14 +50,14 @@ extern "C" ARM void func_ov017_0219c598(int* srcVec3, short* srcAngle, int force
     int value = _Z22fix32ReduceAngle0To2Pii(angle);
 
     for (i = 0; i < field2a04[0xf7c]; i++) {
-        struct CombatantStruct* c = GetCombatantWithFlag0x800(battleStruct, (field2a04 + i)[0xf78]);
+        GameObject* c = battleStruct->GetPartyMemberByIndex((field2a04 + i)[0xf78]);
         if (c != 0) {
             func_020399b0(c, *(unsigned short*)dataBase, vec3, value);
         }
     }
 
     if (field2a04[0xf7d] != 0) {
-        struct CombatantStruct* c = GetCombatantWithFlag0x800(battleStruct, 0xce);
+        GameObject* c = battleStruct->GetPartyMemberByIndex(0xce);
         if (c != 0) {
             func_020399b0(c, *(unsigned short*)dataBase, vec3, value);
         }

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetField6b0_021b8470(void* obj);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 
 struct Packed10x3_021cb2f4 {
     unsigned int f0 : 3;
@@ -48,7 +48,7 @@ struct Ret021cb2f4 {
 };
 
 // USA: func_ov017_021cb2f4  (semantic: StorePackedTacticsInEntry_021cb2f4)
-extern "C" ARM void func_ov017_021cb2f4(int unused0, Src021cb2f4* src, struct BattleStruct* battleStruct, unsigned char* self) {
+extern "C" ARM void func_ov017_021cb2f4(int unused0, Src021cb2f4* src, GameState* battleStruct, unsigned char* self) {
     void* h = *(void**)(self + 0x3000 + 0x718);
     void* work = GetField6b0_021b8470(h);
     if (!work) return;

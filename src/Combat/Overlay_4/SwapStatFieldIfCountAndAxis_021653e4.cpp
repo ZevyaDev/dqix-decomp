@@ -1,11 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov011_021849c8(void* obj);
 extern "C" void* func_ov023_021f6880(void*, int);
 int ScaleStatsIfType12_021f6f10(void* self);
 struct AxisFloats0203b5f8;
-extern "C" struct AxisFloats0203b5f8* func_ov017_0218b5b0(void);
 int IsAxisIntZero(struct AxisFloats0203b5f8* s, int axis);
 extern char* data_ov004_02171010;
 struct ShortPairSrc0216351c;
@@ -14,8 +13,8 @@ extern "C" void func_ov004_02164084(void* a1);
 
 // USA: func_ov004_021653e4
 ARM int SwapStatFieldIfCountAndAxis_021653e4(void* a1) {
-    GetBattleStruct();
-    struct AxisFloats0203b5f8* axis = func_ov017_0218b5b0();
+    GameState::GetInstance();
+    struct AxisFloats0203b5f8* axis = ((struct AxisFloats0203b5f8*)func_ov017_0218b5b0());
     void* obj = func_ov023_021f6880(func_ov011_021849c8(a1), 0xa);
     if (obj == NULL) return 0;
     if (ScaleStatsIfType12_021f6f10(obj) != 7) return 0;

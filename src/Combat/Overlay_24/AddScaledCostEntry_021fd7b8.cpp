@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct AddEntryList_021f6a1c;
 void AddEntryIfUnderLimit16_021f6a1c(struct AddEntryList_021f6a1c* obj, void* src);
@@ -10,8 +10,8 @@ struct Inner12_021fd7b8 { unsigned int w[3]; };
 extern "C" ARM void func_ov024_021fd7b8(void* objRaw) {
 	char* obj = (char*)objRaw;
 	float scale = 12.5f;
-	struct CombatantStruct* c668 = *(struct CombatantStruct**)(obj + 0x668);
-	int byteVal48 = *(unsigned char*)((char*)c668->currentStats + 0x48);
+	GameObject* c668 = *(GameObject**)(obj + 0x668);
+	int byteVal48 = *(unsigned char*)((char*)c668->currentStats_ + 0x48);
 	float scaled1 = scale * ((float)byteVal48 / 100.0f);
 	struct Inner12_021fd7b8 local = *(struct Inner12_021fd7b8*)(obj + 0x65c);
 	short v = *(short*)(*(char**)(obj + 0x64c) + 0x32);

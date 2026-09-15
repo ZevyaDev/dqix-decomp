@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Graphics/LightingManager.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 
@@ -11,7 +11,7 @@ struct HandleState_02188d10;
 ARM int ResetHandle_02188d10(struct HandleState_02188d10* s);
 ARM void Clear0x10Bytes02096fc4(void* p);
 ARM int InitHandleState_02188bd0(struct HandleState_02188bd0* s);
-ARM void SetField0x3b0Value(struct BattleStruct* battleStruct, int value);
+ARM void SetField0x3b0Value(GameState* battleStruct, int value);
 
 struct State021845ec {
 	char pad0[0xc];
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov014_021845ec(struct State021845ec* obj) {
 	ResetHandle_02188d10((struct HandleState_02188d10*)obj->handleState);
 	Clear0x10Bytes02096fc4(obj->clr10);
 	InitHandleState_02188bd0((struct HandleState_02188bd0*)obj->handleState);
-	struct BattleStruct* battle = GetBattleStruct();
+	GameState* battle = GameState::GetInstance();
 	SetField0x3b0Value(battle, *(int*)((char*)&data_ov014_02189800 + 0xc));
 	*(int*)((char*)&data_ov014_02189800 + 0xc) = 0;
 	void* d = LightingManager::GetInstance();

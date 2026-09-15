@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_0203f370(void* obj);
 
@@ -21,7 +21,7 @@ ARM void UpdateEntrySubObjects0203dde0(struct Obj0203dde0* obj) {
     if (obj->field98 & 0x1) {
         return;
     }
-    GetBattleStruct();
+    GameState::GetInstance();
     for (i = 0; i < 0x20; i++) {
         struct Entry0203dde0* entry = obj->entries[i];
         if (entry != NULL && entry->field14 != NULL) {

@@ -3,9 +3,9 @@
 #include "Memory/SafeAllocator.h"
 #include "System/Cache.h"
 #include "std_library_functions.h"
+#include "GameState/GameState.h"
 
 extern "C" void* _Z17GetGlobal02109400v();
-extern "C" void* _Z15GetBattleStructv();
 extern "C" void* _Z10GetWord0x0Pi(void* battle);
 extern "C" void func_02094ab0(void*);
 extern "C" void _Z21BlankFunction02094b34v(void*, int, int, int, int);
@@ -16,7 +16,7 @@ extern "C" unsigned int _Z7GetWordPj(unsigned int*);
 extern "C" unsigned int _Z9GetField4Pj(unsigned int*);
 extern "C" unsigned int _Z9GetField8Pj(unsigned int*);
 void SetBitsInField4(unsigned int*, unsigned int);
-void SetBothCounters(void*, int, int);
+extern "C" void _Z13SetBrightnessP13GameResourcesii(void*, int, int);
 
 struct FieldSet02097bc4;
 void SetFieldGroupFromFlags02097bc4(struct FieldSet02097bc4*, int);
@@ -33,7 +33,7 @@ extern "C" void LoadToSubBG1ScreenData(int, int, unsigned int);
 extern "C" void LoadToSubBG1CharacterData(int, int, unsigned int);
 
 extern "C" void func_ov028_021d98e0(void*, void*, int, int);
-extern "C" int _Z28CheckField0x14Or0x20PositivePi(void*);
+extern "C" int _Z28IsBrightnessTransitionActiveP13GameResources(void*);
 
 extern int data_ov028_021d9aa0;
 
@@ -41,7 +41,7 @@ extern int data_ov028_021d9aa0;
 extern "C" ARM void func_ov028_021d8dd0(unsigned char* self) {
     void* g = _Z17GetGlobal02109400v();
     void* data = BackgroundLoader::GetInstance();
-    void* battle = _Z15GetBattleStructv();
+    void* battle = GameState::GetInstance();
     void* word = _Z10GetWord0x0Pi(battle);
     unsigned char state = self[0x81];
 
@@ -129,9 +129,9 @@ extern "C" ARM void func_ov028_021d8dd0(unsigned char* self) {
         }
     } else if (state == 5) {
         self[0x81] = state + 1;
-        SetBothCounters(word, 0, 0x1e);
+        _Z13SetBrightnessP13GameResourcesii(word, 0, 0x1e);
     } else if (state == 6) {
-        if (_Z28CheckField0x14Or0x20PositivePi(word) == 0) {
+        if (_Z28IsBrightnessTransitionActiveP13GameResources(word) == 0) {
             self[0x80] = 1;
             self[0x81] = 0;
         }

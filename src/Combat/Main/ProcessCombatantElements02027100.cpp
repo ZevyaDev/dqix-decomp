@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_0203bd08(void);
-extern "C" int func_ov017_0218b5b0(void);
 int GetFieldAt0x150(unsigned char* obj);
 void SubmitFlag0x800CombatantDataA0201fca0(void* p0, void* p1, int combatantId);
 void SubmitFlag0x800CombatantDataB0201fd38(void* p0, void* p1, int combatantId);
@@ -13,16 +12,16 @@ extern int data_020fdcb0;
 
 // USA: func_02027100
 ARM void ProcessCombatantElements02027100(unsigned char* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     func_0203bd08();
-    func_ov017_0218b5b0();
+    ((int)func_ov017_0218b5b0());
     for (int i = 0; i < obj[0x75c]; i++) {
         unsigned char* p = obj + i;
         int id = p[0x758];
         if (obj[0x75d] & (1 << id)) {
             continue;
         }
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x100(battle, id);
+        GameObject* combatant = GetCombatantWithFlag0x100(battle, id);
         if (combatant == NULL) {
             continue;
         }

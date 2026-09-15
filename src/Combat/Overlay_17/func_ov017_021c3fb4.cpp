@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Field150Holder02052e14;
 short* GetField150Ptr0x488(struct Field150Holder02052e14* obj);
@@ -17,8 +17,8 @@ struct Evt021c3fb4 {
 
 // USA: func_ov017_021c3fb4
 extern "C" ARM void func_ov017_021c3fb4(int combatantId, int flag) {
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, combatantId);
+    GameState* bs = GameState::GetInstance();
+    GameObject* c = GetCombatantWithFlag0x100(bs, combatantId);
     if (c == NULL) return;
 
     short* list = GetField150Ptr0x488((struct Field150Holder02052e14*)c);

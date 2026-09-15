@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
 int CheckField0NonZero(int* obj);
-unsigned char GetField0x397cValue(struct BattleStruct* battleStruct);
+unsigned char GetField0x397cValue(GameState* battleStruct);
 void EnqueueEventTag150_021d035c(unsigned char a, unsigned char b, unsigned char c);
 extern "C" int func_ov001_02154c64(void* a);
 extern "C" void func_ov001_021539d8(void* a);
@@ -19,7 +19,7 @@ struct Self02154de4 {
 // USA: func_ov001_02154de4
 ARM int ProcessAndDispatchState_02154de4(struct Self02154de4* self) {
 	if (CheckField0NonZero((int*)func_0202ae18()) != 0) {
-		struct BattleStruct* bs = GetBattleStruct();
+		GameState* bs = GameState::GetInstance();
 		unsigned char v = GetField0x397cValue(bs);
 		EnqueueEventTag150_021d035c(1, v & 0xff, self->f108);
 	}

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetWord0x0(int* obj);
-int CheckField0x20Positive(int* obj);
+extern "C" int _Z31IsSubBrightnessTransitionActiveP13GameResources(int* obj);
 
 struct Struct02074bf4;
 void ClearFlag0x11IfSet(struct Struct02074bf4*);
@@ -12,7 +12,7 @@ void DestroyStructAllocGroup0208ba54(struct StructAllocGroup0208ba54*);
 
 void ClearBitsInWord(unsigned int* obj, unsigned int mask);
 
-extern "C" void func_0203b19c(int, int, int);
+extern "C" void _Z16SetSubBrightnessP13GameResourcesii(int, int, int);
 void SetCombatModeFromCase020dc2d0(int);
 
 struct Obj0208d340 {
@@ -26,17 +26,17 @@ struct Obj0208d340 {
 
 // USA: func_0208d340
 ARM void AdvanceState0208d340(struct Obj0208d340* obj) {
-    int val = GetWord0x0((int*)GetBattleStruct());
+    int val = GetWord0x0((int*)GameState::GetInstance());
 
     if (obj->fd5 == 0) {
         if (!(obj->fda & 0x10)) {
-            func_0203b19c(val, -16, 8);
+            _Z16SetSubBrightnessP13GameResourcesii(val, -16, 8);
         }
         obj->fd5 = obj->fd5 + 1;
         return;
     }
     if (obj->fd5 == 1) {
-        if (CheckField0x20Positive((int*)val) == 0) {
+        if (_Z31IsSubBrightnessTransitionActiveP13GameResources((int*)val) == 0) {
             obj->fd5 = obj->fd5 + 1;
         }
         return;
@@ -55,5 +55,5 @@ ARM void AdvanceState0208d340(struct Obj0208d340* obj) {
     *(short*)((char*)reg + 0x50) = 0;
     obj->fd5 = obj->fd5 + 1;
     DestroyStructAllocGroup0208ba54((struct StructAllocGroup0208ba54*)obj);
-    ClearBitsInWord((unsigned int*)GetWord0x0((int*)GetBattleStruct()), 0x6000);
+    ClearBitsInWord((unsigned int*)GetWord0x0((int*)GameState::GetInstance()), 0x6000);
 }

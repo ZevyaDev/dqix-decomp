@@ -1,7 +1,7 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-extern "C" void* _Z15GetBattleStructv(void);
-extern "C" void* _Z20GetField0x3f8AddressP12BattleStruct(void* battle);
+extern "C" void* _Z20GetField0x3f8AddressP9GameState(void* battle);
 extern "C" void* func_02012fe4(void);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 extern "C" void _Z18InitStruct02070378Pc(void* obj);
@@ -30,8 +30,8 @@ struct S3f8 {
 // USA: func_ov001_021620bc  (semantic: InitField3f8FromLoadedData_021620bc)
 extern "C" ARM int func_ov001_021620bc(void) {
     int tmpVec[3];
-    void* battle = _Z15GetBattleStructv();
-    struct S3f8* obj = (struct S3f8*)_Z20GetField0x3f8AddressP12BattleStruct(battle);
+    void* battle = GameState::GetInstance();
+    struct S3f8* obj = (struct S3f8*)_Z20GetField0x3f8AddressP9GameState(battle);
     struct S02012fe4* data = (struct S02012fe4*)func_02012fe4();
     _ZN8Vector3iaSERKS_(tmpVec, data->vec);
     short shortCc = data->shortAt23cc;

@@ -1,13 +1,12 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov017_021d60f4(void*);
-void SelectTableValueAndDispatch(char* obj, int index);
 
 // USA: func_ov001_02162148  (semantic: DispatchTableEntry_02162148)
 extern "C" ARM int func_ov001_02162148(void* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int idx = func_ov017_021d60f4(obj);
-    SelectTableValueAndDispatch((char*)bs, idx);
+    ((GameState*)((char*)bs))->SetTimeOfDay((TimeOfDay)(idx));
     return 1;
 }

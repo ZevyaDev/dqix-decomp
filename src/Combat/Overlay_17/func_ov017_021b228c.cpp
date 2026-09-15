@@ -1,9 +1,6 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-struct BattleStruct* GetBattleStruct();
-struct CombatantStruct;
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 struct Obj020397cc;
 void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);
 
@@ -17,7 +14,7 @@ extern int data_ov017_021d83f0;
 
 // USA: func_ov017_021b228c
 extern "C" ARM void func_ov017_021b228c(unsigned char* self) {
-    struct CombatantStruct* combatant = GetCombatantAtField0x397c(GetBattleStruct());
+    GameObject* combatant = GameState::GetInstance()->GetUnknownGameObject();
     if (combatant != NULL) {
         CancelPendingAction020397cc((struct Obj020397cc*)combatant, 1);
     }

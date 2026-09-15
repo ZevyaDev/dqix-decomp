@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 void AddPositiveField150EntriesToMap_021b6bb8(int combatantId);
 extern "C" int func_ov017_021b6d60(int a, void* buf);
@@ -12,10 +11,10 @@ extern "C" ARM void func_ov003_02163e4c(char* obj) {
     unsigned char step = obj[0x4a4];
     if (step == 0) {
         char buf[0x23c];
-        struct BattleStruct* bs = GetBattleStruct();
+        GameState* bs = GameState::GetInstance();
         void* map = GetPtrField0x2a04(bs);
         short id = *(short*)(obj + 0x400 + 0x82);
-        struct CombatantStruct* c = GetCombatantWithFlag0x800(bs, id);
+        GameObject* c = bs->GetPartyMemberByIndex(id);
         if (c == NULL) {
             obj[0x4a3] = 0x10;
             return;

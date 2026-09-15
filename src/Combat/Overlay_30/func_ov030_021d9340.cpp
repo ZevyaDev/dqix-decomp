@@ -1,9 +1,9 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
 extern "C" void func_ov015_0218b5a0(void);
-extern "C" void _Z12Init0203aee0P15Struct_0203aee0(void* obj);
+extern "C" void _Z25InitializeBrightnessStateP13GameResources(void* obj);
 extern "C" unsigned int _Z24EnableSpecificInterruptsj(unsigned int mask);
-extern "C" void* _Z15GetBattleStructv(void);
 extern "C" void _ZN13SafeAllocator21ResetAllocatorPointerEv(void* alloc);
 extern "C" void _Z23ResetAllocators02054280P9T02054280(void* obj);
 extern "C" void func_0204719c(void* obj);
@@ -79,14 +79,14 @@ extern "C" void _Z25ClearFourEntries_02191b70Pv(void* obj);
 // USA: func_ov030_021d9340
 extern "C" ARM void func_ov030_021d9340(unsigned char* self) {
     func_ov015_0218b5a0();
-    _Z12Init0203aee0P15Struct_0203aee0(self);
+    _Z25InitializeBrightnessStateP13GameResources(self);
 
     volatile unsigned short* ime = (volatile unsigned short*)0x4000208;
     unsigned short old = *ime;
     (void)old;
     *ime = 1;
     _Z24EnableSpecificInterruptsj(8);
-    _Z15GetBattleStructv();
+    GameState::GetInstance();
 
     *(int*)(self + 0x2c) = 0;
     *(int*)(self + 0x30) = 0;

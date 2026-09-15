@@ -1,16 +1,16 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x400(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x400(GameState* battleStruct, int combatantId);
 
 // USA: func_ov000_0216352c
 ARM short ClampScaledStat_0216352c(int id, float a, float b) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int inRange = (id >= 0xc0 && id <= 0xc7);
     if (!(inRange && bs != NULL)) {
         return 0x10a;
     }
-    struct CombatantStruct* c = GetCombatantWithFlag0x400(bs, id);
+    GameObject* c = GetCombatantWithFlag0x400(bs, id);
     if (c == NULL) {
         return 0x10a;
     }

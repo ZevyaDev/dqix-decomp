@@ -1,9 +1,10 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov000_0215e9fc(int a, short* buf, int max, int start);
-int IsCombatantFlagMask512_021eda60(struct CombatantStruct* combatant);
+int IsCombatantFlagMask512_021eda60(GameObject* combatant);
 
 struct Obj_021f1768 { int field0; };
 struct Buf4_021f1768 { short v[4]; };
@@ -26,10 +27,10 @@ extern "C" ARM int func_ov024_021f1768(struct Obj_021f1768* obj, int unused1, in
     if (count <= 0) return 0;
     int found = 0;
     for (int i = 0; i < count; i++) {
-        struct CombatantStruct* c = GetCombatantByID(obj->field0, buf.v[i]);
+        GameObject* c = GetCombatantByID(obj->field0, buf.v[i]);
         if (!c) continue;
         if (IsCombatantFlagMask512_021eda60(c)) continue;
-        struct BuffWord_021f1768* bw = (struct BuffWord_021f1768*)((char*)c->currentStats + 0x58);
+        struct BuffWord_021f1768* bw = (struct BuffWord_021f1768*)((char*)c->currentStats_ + 0x58);
         if (bw->unkBuff18 > -2) {
             found = 1;
             break;

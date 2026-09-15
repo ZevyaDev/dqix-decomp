@@ -1,10 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
+void* GetPtrField0x2a04(GameState* battleStruct);
 struct AxisFloats0203b5a0;
 int IsAxisIntWithin16(struct AxisFloats0203b5a0* s, int axis);
 struct Obj020397cc;
@@ -23,10 +20,10 @@ extern "C" ARM void func_020a8c4c(struct Obj020a8c4c* obj, unsigned char axis) {
     if ((obj->f4 & (1 << axis)) != 0) {
         return;
     }
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     void* ov = func_ov017_0218b5b0();
-    struct CombatantStruct* c397c = GetCombatantAtField0x397c(battle);
-    struct CombatantStruct* c800 = GetCombatantWithFlag0x800(battle, axis);
+    GameObject* c397c = battle->GetUnknownGameObject();
+    GameObject* c800 = battle->GetPartyMemberByIndex(axis);
     GetPtrField0x2a04(battle);
     if (IsAxisIntWithin16((struct AxisFloats0203b5a0*)ov, 0) == 0) {
         CancelPendingAction020397cc((struct Obj020397cc*)c800, 1);

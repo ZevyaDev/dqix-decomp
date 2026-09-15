@@ -1,11 +1,10 @@
 #include <globaldefs.h>
 #include "Graphics/LightingManager.h"
-#include "Combat/Main/BattleList.h"
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
-void SetField0x3b0Value(struct BattleStruct* battleStruct, int value);
-void* GetField0x3f8Address(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
+void SetField0x3b0Value(GameState* battleStruct, int value);
+void* GetField0x3f8Address(GameState* battleStruct);
 int GetFieldIfFlag4(char* obj);
 void ClearFlagBits(unsigned char* obj, int mask);
 void SetFlagsAt0x244(unsigned char* obj, unsigned char mask);
@@ -56,8 +55,8 @@ struct SelfState_021b2758 {
 
 // USA: func_ov017_021b2758
 extern "C" ARM int func_ov017_021b2758(SelfState_021b2758* self) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    Struct_ov017_44C8* ov = func_ov017_0218b5b0();
+    GameState* battleStruct = GameState::GetInstance();
+    GameResources* ov = func_ov017_0218b5b0();
     SetField0x3b0Value(battleStruct, self->field0x44);
 
     if (data_ov017_021d83f0.slot != 0) {
@@ -81,7 +80,7 @@ extern "C" ARM int func_ov017_021b2758(SelfState_021b2758* self) {
     if (self->field0x38.b.bit1) return 6;
     if (self->field0x38.b.bit2) return 7;
 
-    GetCombatantAtField0x397c(battleStruct);
+    battleStruct->GetUnknownGameObject();
     int flagVal = GetFieldIfFlag4((char*)battleStruct);
     unsigned char* ctx = (unsigned char*)func_02012fe4();
     if (flagVal != 0) {

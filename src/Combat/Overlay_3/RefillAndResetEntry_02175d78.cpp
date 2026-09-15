@@ -1,15 +1,15 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Container020dedd0;
 struct Element020de650;
 struct Element020de650* FindElementByKey020dedd0(struct Container020dedd0* c, int key);
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
+void* GetPtrField0x2a04(GameState* battleStruct);
 extern "C" void func_ov003_02176798(void* obj);
 
 // USA: func_ov003_02175d78
 ARM int RefillAndResetEntry_02175d78(char* obj) {
-	struct BattleStruct* bs = GetBattleStruct();
+	GameState* bs = GameState::GetInstance();
 	int key = *(short*)(obj + 0x103a);
 	struct Element020de650* elem = FindElementByKey020dedd0((struct Container020dedd0*)(obj + 0x874), key);
 	void* p;

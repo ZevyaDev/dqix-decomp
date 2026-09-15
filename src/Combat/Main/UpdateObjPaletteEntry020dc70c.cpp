@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "System/Cache.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 extern int GetFieldAt0x150(unsigned char* obj);
 extern void* GetData02109dcc(void);
 
@@ -13,8 +12,8 @@ extern "C" void LoadToSubBGStandardPalette(int src, int dstOffset, unsigned int 
 
 // USA: func_020dc70c
 ARM void UpdateObjPaletteEntry020dc70c(int id, int p1, int p2, int p3, unsigned short p4, unsigned short p5, unsigned int count) {
-    struct BattleStruct* battle = GetBattleStruct();
-    struct CombatantStruct* c = GetCombatantWithFlag0x800(battle, id);
+    GameState* battle = GameState::GetInstance();
+    GameObject* c = battle->GetPartyMemberByIndex(id);
     if (c == NULL)
         return;
     int monster = GetFieldAt0x150((unsigned char*)c);
@@ -40,5 +39,5 @@ ARM void UpdateObjPaletteEntry020dc70c(int id, int p1, int p2, int p3, unsigned 
         else
             LoadToSubBGStandardPalette(src, size, count);
     }
-    *(int*)((unsigned char*)GetBattleStruct() + 0x5000 + 0xccc) &= ~2;
+    *(int*)((unsigned char*)GameState::GetInstance() + 0x5000 + 0xccc) &= ~2;
 }

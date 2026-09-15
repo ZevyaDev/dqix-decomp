@@ -1,6 +1,5 @@
 #include <globaldefs.h>
-int GetBattleTimerDelta(struct BattleStruct*);
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 
 struct BattleTimer0202441c {
@@ -11,7 +10,7 @@ struct BattleTimer0202441c {
 
 // USA: func_0202441c
 ARM void AccumulateBattleTimer0202441c(struct BattleTimer0202441c* p) {
-    p->accum += GetBattleTimerDelta((struct BattleStruct*)(GetBattleStruct()));
+    p->accum += ((GameState*)(GameState::GetInstance()))->GetTrueDeltaTime();
     if (p->accum >= 0x4b0) {
         p->state = 0;
         p->accum = 0;

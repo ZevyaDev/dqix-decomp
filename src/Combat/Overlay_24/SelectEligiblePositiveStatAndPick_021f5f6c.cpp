@@ -1,12 +1,12 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "Util/Random.h"
 
 extern "C" int func_ov000_0215e9fc(int battle, unsigned short* table, int count, int flag);
 struct FlagObj_021de25c;
 int IsFlagBit5Set_021de25c(struct FlagObj_021de25c* obj);
-int IsCombatantFlagMask512_021eda60(struct CombatantStruct* combatant);
+int IsCombatantFlagMask512_021eda60(GameObject* combatant);
 int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
 
 extern unsigned short data_ov024_021feb24;
@@ -27,11 +27,11 @@ extern "C" ARM int func_ov024_021f5f6c(int* a0, int a1, int a2, int* outCount, s
 
     *outCount = 0;
     for (int i = 0; i < count; i++) {
-        struct CombatantStruct* member = GetCombatantByID(*a0, *(short*)&buf[i]);
+        GameObject* member = GetCombatantByID(*a0, *(short*)&buf[i]);
         if (!member) continue;
         if (IsFlagBit5Set_021de25c((struct FlagObj_021de25c*)member)) continue;
         if (IsCombatantFlagMask512_021eda60(member)) continue;
-        unsigned char* p = (unsigned char*)member->currentStats;
+        unsigned char* p = (unsigned char*)member->currentStats_;
         int v = p[0x4a];
         if (v <= 0) continue;
         int idx = *outCount;

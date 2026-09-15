@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void __clear(void* buf, int n);
 extern "C" int func_020420e8(void* p, int flag);
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov013_02185e40(void* self, char* dst) {
     unsigned char* obj = (unsigned char*)self;
     if (dst == 0) return;
 
-    GetBattleStruct();
+    GameState::GetInstance();
 
     char buf13c[0x200];
     short keyA = 0x190;

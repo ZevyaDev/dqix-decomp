@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
 int GetWord0x0(int* obj);
@@ -12,8 +12,8 @@ int GetInnerFlagBit0020e28dc(struct Outer020e28dc* o);
 struct Obj020e25e8;
 void ResetSelectionState020e25e8(struct Obj020e25e8* obj);
 
-extern "C" void func_0203b19c(int obj, int value, int frames);
-int CheckField0x20Positive(int* obj);
+extern "C" void _Z16SetSubBrightnessP13GameResourcesii(int obj, int value, int frames);
+extern "C" int _Z31IsSubBrightnessTransitionActiveP13GameResources(int* obj);
 void InitFlags_021eb414(char* obj);
 extern "C" void func_ov023_021eb43c(void* obj);
 extern "C" void func_ov023_021eb26c(void* obj);
@@ -21,7 +21,7 @@ extern "C" void func_ov023_021eb26c(void* obj);
 // USA: func_ov003_02158214  (semantic: HandleStateTransition3_02158214)
 extern "C" ARM void func_ov003_02158214(void* p) {
     char* self = (char*)p;
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int word0 = GetWord0x0((int*)bs);
     unsigned char state = *(unsigned char*)(self + 0x1f9);
 
@@ -40,13 +40,13 @@ extern "C" ARM void func_ov003_02158214(void* p) {
         unsigned char newState = 3;
         *(unsigned char*)(self + 0x1f9) = newState;
         if (*(void**)(self + 0x204) == 0) return;
-        func_0203b19c(word0, newState - 0x13, 0);
+        _Z16SetSubBrightnessP13GameResourcesii(word0, newState - 0x13, 0);
         *(unsigned char*)(self + 0x1f9) = 1;
         return;
     }
 
     if (state == 1) {
-        if (CheckField0x20Positive((int*)word0) != 0) return;
+        if (_Z31IsSubBrightnessTransitionActiveP13GameResources((int*)word0) != 0) return;
         InitFlags_021eb414(*(char**)(self + 0x204));
         *(unsigned char*)(self + 0x1f9) = 2;
         return;

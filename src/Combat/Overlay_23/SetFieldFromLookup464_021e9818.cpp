@@ -1,13 +1,13 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-extern "C" void* _Z15GetBattleStructv();
 extern "C" int func_ov017_021d60f4(void* variant);
 extern "C" void func_ov017_021d6134(void* variant, int val);
 extern "C" void* func_ov023_021e8f28(int idx);
 
 // USA: func_ov023_021e9818
 ARM int SetFieldFromLookup464_021e9818(void* a) {
-    _Z15GetBattleStructv();
+    GameState::GetInstance();
     int idx = func_ov017_021d60f4(a);
     void* e = func_ov023_021e8f28(idx);
     if (e == NULL) return 0;

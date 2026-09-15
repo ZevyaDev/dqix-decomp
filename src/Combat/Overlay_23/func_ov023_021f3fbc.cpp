@@ -1,11 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int IsAnimationActive0209ca2c(void* obj);
 extern "C" void func_ov023_021d8af8(void* obj);
 extern "C" void* func_0202ae18(void);
 int CheckField0NonZero(int* obj);
-void* GetPtrField0x2a04(struct BattleStruct*);
+void* GetPtrField0x2a04(GameState*);
 extern "C" void func_ov017_021cc730(int id, unsigned char arg1, unsigned char arg2, unsigned char arg3);
 int GetGlobalField0x1c020421a0(void);
 void ReinitController02043204(char* obj);
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov023_021f3fbc(char* obj) {
     }
 
     if (CheckField0NonZero((int*)func_0202ae18())) {
-        struct BattleStruct* battleStruct = GetBattleStruct();
+        GameState* battleStruct = GameState::GetInstance();
         unsigned char* list = (unsigned char*)GetPtrField0x2a04(battleStruct);
         for (int i = 0; i < list[0xf7c]; i++) {
             unsigned char* p = list + i;

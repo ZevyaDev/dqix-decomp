@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_ov023_021dfb4c(void* obj);
 extern "C" void func_ov023_021ddae4(void* obj);
@@ -22,7 +22,7 @@ ARM void RefreshAndDispatch32_021dd974(void* obj) {
 
     if (!(*(unsigned short*)((char*)obj + 0x774) & 0x40)) return;
 
-    GetWord0x0((int*)GetBattleStruct());
+    GetWord0x0((int*)GameState::GetInstance());
 
     if (!(*(unsigned short*)((char*)obj + 0x774) & 0x20)) return;
 

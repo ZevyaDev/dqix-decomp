@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
 extern "C" int func_ov000_0215eb1c(int a0, short* buf, int count, int flag);
@@ -20,10 +20,10 @@ extern "C" ARM int func_ov024_021f2d98(struct Obj_021f2d98* obj, int unused1, in
 
     *outCount = 0;
     for (int i = 0; i < count; i++) {
-        struct CombatantStruct* c = GetCombatantByID(obj->field0, buf.v[i]);
+        GameObject* c = GetCombatantByID(obj->field0, buf.v[i]);
         if (!c) continue;
         if (IsFlagBit22Set_021e47dc((struct FlagObj_021e47dc*)c)) continue;
-        int byteVal = *(unsigned char*)((char*)c->currentStats + 0x48);
+        int byteVal = *(unsigned char*)((char*)c->currentStats_ + 0x48);
         if (byteVal <= 0) continue;
         int idx = *outCount;
         *outCount = idx + 1;

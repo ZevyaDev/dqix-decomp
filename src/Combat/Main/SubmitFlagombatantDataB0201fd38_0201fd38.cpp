@@ -1,10 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 // KEEP-NAME: the ROM symbol is the mangled C++ name, not a func_ tag.
 // USA: func_0201fd38
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 // One 32-byte record per combatant, holding two independent slots. Slot A is submitted by
 // SubmitFlag0x800CombatantDataA0201fca0, slot B by this function; a negative state means
@@ -23,7 +22,7 @@ extern "C" void func_0201fdd0(void* a, void* b, int combatantId, int state, int 
                               int arg6, int arg7, int arg8, int arg9, int arg10, int arg11);
 
 ARM void SubmitFlag0x800CombatantDataB0201fd38(void* a, void* b, int combatantId) {
-    if (GetCombatantWithFlag0x800(GetBattleStruct(), combatantId) != NULL) {
+    if (GameState::GetInstance()->GetPartyMemberByIndex(combatantId) != NULL) {
         struct CombatantSubmitEntry* entry = &data_020fdcb0[combatantId];
         int state = entry->stateB;
         if (state >= 0) {

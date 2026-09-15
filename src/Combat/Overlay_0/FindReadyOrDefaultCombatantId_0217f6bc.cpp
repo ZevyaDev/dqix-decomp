@@ -1,9 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int HasAnyFlags_021719f8_021719f8(int* obj);
 void* GetFieldAt0x150(unsigned char* obj);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 struct Entry0217f6bc {
     char pad0[0x18];
@@ -21,7 +20,7 @@ struct Entry0217f6bc {
 
 // USA: func_ov000_0217f6bc  (semantic: FindReadyOrDefaultCombatantId_0217f6bc)
 extern "C" ARM int func_ov000_0217f6bc(char* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     struct Entry0217f6bc* entry;
     int i;
     for (i = 0; i < 4; i++) {
@@ -34,7 +33,7 @@ extern "C" ARM int func_ov000_0217f6bc(char* obj) {
         if (v == 0x64) continue;
         if (HasAnyFlags_021719f8_021719f8((int*)entry)) continue;
         if (entry->field445 == 0) continue;
-        struct CombatantStruct* c = GetCombatantWithFlag0x800(bs, *(signed char*)(obj + 0x6c + i));
+        GameObject* c = bs->GetPartyMemberByIndex(*(signed char*)(obj + 0x6c + i));
         if (c == 0 || (signed char)(*(int*)((char*)GetFieldAt0x150((unsigned char*)c) + 0x94c)) == 5) {
             return entry->field4c;
         }

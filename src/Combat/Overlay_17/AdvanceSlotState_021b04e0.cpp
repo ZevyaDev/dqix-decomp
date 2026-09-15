@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Ctx021b04e0 {
     char pad0[0xa];
@@ -19,7 +19,7 @@ int CheckSlotsAllFree0205e488(void* obj);
 
 // USA: func_ov017_021b04e0
 ARM unsigned char AdvanceSlotState_021b04e0(struct Ctx021b04e0* self) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     unsigned char state = self->state21;
     if (state == 0) {
         unsigned char* ptr = (unsigned char*)GetPtrField0x2a04(bs);
@@ -30,7 +30,7 @@ ARM unsigned char AdvanceSlotState_021b04e0(struct Ctx021b04e0* self) {
         }
         unsigned char slot = (ptr + idx)[0xf78];
         self->idx22 = idx + 1;
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, slot);
+        GameObject* combatant = GetCombatantWithFlag0x100(bs, slot);
         if (combatant == NULL) {
             return self->byteA;
         }

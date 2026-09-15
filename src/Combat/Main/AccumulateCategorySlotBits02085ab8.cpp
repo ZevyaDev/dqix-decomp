@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int TestBitInArray0x8ec(unsigned char* obj, int index);
 int GetSlotBits0201137c(char* base, int id);
@@ -25,7 +25,7 @@ extern struct SlotEntry020e8c00 data_020e8c00[];
 
 // USA: func_02085ab8
 ARM int AccumulateCategorySlotBits02085ab8(unsigned char* actor, struct Param2085ab8* p2) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     unsigned int category = p2->category;
     if (category == 2) {
         if ((actor[0x8f8] & 0x80) == 0) {

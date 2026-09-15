@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct KeyMap020a0a08;
 int DecrementKeyValue020a0a08(struct KeyMap020a0a08* map, int key, int amount);
@@ -25,8 +25,8 @@ ARM int DecrementKeyEverywhere02086d88(unsigned char* self, int key) {
     if (DecrementKeyValue020a0a08((struct KeyMap020a0a08*)(self + 0xe04), key, 1) != 0) {
         return 1;
     }
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    struct CombatantStruct* c;
+    GameState* battleStruct = GameState::GetInstance();
+    GameObject* c;
     unsigned char i;
     for (i = 0; i < self[0xf7c]; i++) {
         unsigned char* p = self + i;

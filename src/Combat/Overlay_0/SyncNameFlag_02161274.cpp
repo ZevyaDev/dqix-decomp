@@ -1,11 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void BuildName020488ec(char* obj);
-struct CombatantStruct* GetCombatantWithFlag0x400(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x400(GameState* battleStruct, int combatantId);
 
 // USA: func_ov000_02161274
-ARM void SyncNameFlag_02161274(struct CombatantStruct* self) {
+ARM void SyncNameFlag_02161274(GameObject* self) {
     if (self == NULL) {
         return;
     }
@@ -14,10 +14,10 @@ ARM void SyncNameFlag_02161274(struct CombatantStruct* self) {
         return;
     }
     short val = *(short*)((char*)inner + 8);
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int i = 0;
     while (i < 8) {
-        struct CombatantStruct* c = GetCombatantWithFlag0x400(bs, i + 0xc0);
+        GameObject* c = GetCombatantWithFlag0x400(bs, i + 0xc0);
         if (c != NULL && c != self) {
             void* cInner = *(void**)((char*)c + 0x144);
             if (cInner != NULL) {

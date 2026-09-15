@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov017_0219219c(char* base, int idx);
 int HasFieldSlotOrFlagBit27_021920dc(int unused, int id);
@@ -7,9 +7,9 @@ int HasFieldSlotOrFlagBit27_021920dc(int unused, int id);
 // USA: func_ov017_02191fec  (semantic: SetFlagBitsFromCombatantState_02191fec)
 extern "C" ARM int func_ov017_02191fec(int a, int id) {
     int result = 1;
-    struct BattleStruct* battle = GetBattleStruct();
-    struct CombatantStruct* c = GetCombatantFromList(battle, id);
-    if (c != NULL && (*(int*)((char*)c->currentStats + 0x14) & 0x1000000)) {
+    GameState* battle = GameState::GetInstance();
+    GameObject* c = battle->GetCombatantByIndex(id);
+    if (c != NULL && (*(int*)((char*)c->currentStats_ + 0x14) & 0x1000000)) {
         if (func_ov017_0219219c((char*)a, id) != 0) {
             unsigned char* p1 = (unsigned char*)func_ov017_0219219c((char*)a, id);
             if (p1) *p1 |= 1;

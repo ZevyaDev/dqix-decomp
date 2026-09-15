@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
 struct SearchStruct;
@@ -9,7 +9,7 @@ extern "C" void func_ov011_021848a0(void* obj, int val);
 
 // USA: func_ov004_0215d670
 ARM int DispatchByFieldState_0215d670(void* obj) {
-    char* p = (char*)GetBattleStruct() + 0x26c;
+    char* p = (char*)GameState::GetInstance() + 0x26c;
     void* s = func_0202ae18();
     unsigned short v = *(unsigned short*)(p + 0x5d00 + 0xc);
     int state = (unsigned int)(v << 16) >> 29;

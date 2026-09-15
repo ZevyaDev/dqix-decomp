@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-int GetField0x3b4Value(struct BattleStruct* battleStruct);
 
 extern "C" void func_0207051c(void* p, unsigned short field2, int val);
 
@@ -18,7 +17,7 @@ struct Timer020707c8 {
 
 // USA: func_020707c8
 ARM void UpdateInterpTimer020707c8(struct Timer020707c8* p) {
-    int delta = GetField0x3b4Value(GetBattleStruct());
+    int delta = GameState::GetInstance()->GetEffectiveDeltaTime();
     int field8 = p->field8;
     if (field8 > 0) {
         p->fieldC += (float)delta * (((float)p->field4 - p->fieldC) / (float)field8);

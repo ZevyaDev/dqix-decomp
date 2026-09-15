@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" unsigned int _Z28CheckField0x14Or0x20PositivePi();
+extern "C" unsigned int _Z28IsBrightnessTransitionActiveP13GameResources();
 extern "C" unsigned int func_ov011_02184c68(unsigned int, unsigned int);
 extern "C" unsigned int func_ov017_0218b5b0();
 
@@ -9,7 +9,7 @@ extern "C" ARM unsigned int func_ov011_02186e30(unsigned int r0, unsigned int r1
     unsigned int r4 = 0;
     r4 = r0;
     r0 = (unsigned int)func_ov017_0218b5b0();
-    r0 = (unsigned int)_Z28CheckField0x14Or0x20PositivePi();
+    r0 = (unsigned int)_Z28IsBrightnessTransitionActiveP13GameResources();
     r1 = r0;
     r0 = r4;
     r0 = (unsigned int)func_ov011_02184c68(r0, r1);

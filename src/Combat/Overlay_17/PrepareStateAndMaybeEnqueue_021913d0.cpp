@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_0202ae18(void);
 extern "C" int func_0202c508(void);
@@ -11,7 +11,6 @@ struct TailList020469b4;
 struct TailNode020469b4;
 void AppendNodeToTail(struct TailList020469b4* list, struct TailNode020469b4* node);
 extern "C" void func_ov017_021ce400(int a, int b);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 struct Vec3_021913d0 { int x; int y; int z; };
 
@@ -21,8 +20,8 @@ extern "C" ARM void func_ov017_021913d0(unsigned char* obj, int count) {
         unsigned char* r4 = *(unsigned char**)(obj + 0x3000 + 0xba0);
         if (r4[2] == 0) {
             if (r4[0xb] == 0) {
-                struct BattleStruct* battle = GetBattleStruct();
-                struct CombatantStruct* combatant = GetCombatantWithFlag0x800(battle, 0);
+                GameState* battle = GameState::GetInstance();
+                GameObject* combatant = battle->GetPartyMemberByIndex(0);
                 struct Vec3_021913d0 a = *(struct Vec3_021913d0*)((char*)combatant + 0x44);
                 int* dest = (int*)((char*)battle + 0xf60 + 0x7000);
                 StoreThreeWords_0218f574(dest, a.x, a.y, a.z);

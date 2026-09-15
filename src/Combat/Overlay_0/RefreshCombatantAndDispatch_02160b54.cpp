@@ -1,12 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
-extern "C" unsigned int* func_ov017_0218b5b0(void);
+int GetField0x3b0Value(GameState* battleStruct);
 unsigned int GetBitsInField4(unsigned int* obj, unsigned int mask);
 extern "C" void func_02016874(void* big);
 extern "C" void func_ov000_02161020(void* obj);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct*, int);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 struct Vec3i_020374f0 { int x; int y; int z; };
 extern "C" struct Vec3i_020374f0 _ZNK8Object3D8GetScaleEv(unsigned char* src);
@@ -18,8 +16,8 @@ extern "C" void func_ov025_021df864(void* arg);
 
 // USA: func_ov000_02160b54  (semantic: RefreshCombatantAndDispatch_02160b54)
 extern "C" ARM void func_ov000_02160b54(unsigned char* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
-    unsigned int* v = func_ov017_0218b5b0();
+    GameState* battle = GameState::GetInstance();
+    unsigned int* v = ((unsigned int*)func_ov017_0218b5b0());
     GetField0x3b0Value(battle);
     if (!(*(int*)(obj + 0x55f4) & 0x200)) {
         return;
@@ -29,8 +27,8 @@ extern "C" ARM void func_ov000_02160b54(unsigned char* obj) {
     }
     func_ov000_02161020(obj);
     if (GetBitsInField4(v, 4) == 0) {
-        struct CombatantStruct* c1 = GetCombatantUnchecked(battle, *(short*)(obj + 0x6fd6));
-        struct CombatantStruct* c2 = GetCombatantUnchecked(battle, 0xc8);
+        GameObject* c1 = battle->GetGameObjectByIndex(*(short*)(obj + 0x6fd6));
+        GameObject* c2 = battle->GetGameObjectByIndex(0xc8);
         if (c2 != 0) {
             if (c1 != 0) {
                 _ZN8Vector3iaSERKS_((int*)((char*)c2 + 0x44), (int*)((char*)c1 + 0x44));

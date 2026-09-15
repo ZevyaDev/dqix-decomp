@@ -1,10 +1,10 @@
 #include <globaldefs.h>
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "Resource/GameResources.h"
 
 struct Obj0205eaa0;
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 extern int data_02108760;
-extern "C" void func_ov017_0218d644(Struct_ov017_44C8* ov, void* a, int b);
+extern "C" void func_ov017_0218d644(GameResources* ov, void* a, int b);
 void* GetGlobalResetObj020d7a50(void);
 extern "C" void func_020d7e10(void* a, void* b, int c, int d, int e, int f);
 extern "C" void func_ov017_021b6090(void* self);
@@ -24,7 +24,7 @@ struct SelfState_021b5f00 {
 
 // USA: func_ov017_021b5f00  (semantic: CheckStateAndDispatchResetOrAdvance_021b5f00)
 extern "C" ARM int func_ov017_021b5f00(SelfState_021b5f00* self) {
-    Struct_ov017_44C8* ov = func_ov017_0218b5b0();
+    GameResources* ov = func_ov017_0218b5b0();
     if (self->field54 != 0) {
         func_ov017_0218d644(ov, (char*)self + 0x2c, 0);
         void* reset = GetGlobalResetObj020d7a50();

@@ -1,16 +1,14 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 
 // USA: func_ov017_02190818
 ARM int IsCombatantField2InMonsterRange_02190818(int id) {
-	struct BattleStruct* bs = GetBattleStruct();
-	if (GetCombatantWithFlag0x800(bs, id) == NULL)
+	GameState* bs = GameState::GetInstance();
+	if (bs->GetPartyMemberByIndex(id) == NULL)
 		goto zero;
 	{
-	struct CombatantStruct* c = GetCombatantUnchecked(bs, id * 0xc + 0x14);
+	GameObject* c = bs->GetGameObjectByIndex(id * 0xc + 0x14);
 	if (c == NULL)
 		goto zero;
 	{

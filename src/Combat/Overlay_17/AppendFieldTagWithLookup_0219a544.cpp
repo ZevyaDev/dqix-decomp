@@ -1,12 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int AppendFormatted02041f70(char* buf, int a, int b);
 int AppendXTag(char* dst, int x);
 struct Container020e0310;
 int GetFieldByKey020e0434(struct Container020e0310* c, int key);
 int GetCombatSignedByteAt0x2c8d02039730(void* unused, int index);
-struct CombatantStruct* GetCombatantAtField0x3ac(struct BattleStruct* battleStruct);
 int AppendDotLeaderLabel02042084(char* buffer, char* label, int width, int extra);
 
 struct Table_0219a544 { int values[5]; };
@@ -22,10 +21,10 @@ ARM void AppendFieldTagWithLookup_0219a544(unsigned char* a, char* buf, int type
 	int resultByte = value;
 	if (type == 3 && value <= 0) {
 		struct Table_0219a544 local = data_ov017_021d6470;
-		struct CombatantStruct* combatant;
+		GameObject* combatant;
 		int idx = 0;
-		struct BattleStruct* battle = GetBattleStruct();
-		combatant = GetCombatantAtField0x3ac(battle);
+		GameState* battle = GameState::GetInstance();
+		combatant = battle->GetProtagonist();
 		while (((volatile int*)local.values)[idx] != 7) {
 			resultByte = (signed char)GetCombatSignedByteAt0x2c8d02039730(combatant, ((volatile int*)local.values)[idx]);
 			if (resultByte > 0) break;

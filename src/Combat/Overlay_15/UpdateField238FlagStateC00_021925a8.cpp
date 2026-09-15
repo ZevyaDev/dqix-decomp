@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
+int GetField0x3b0Value(GameState* battleStruct);
 int TestFlagMask(unsigned short* obj, int mask);
 void SetField0x238True(void* obj);
 void SetField0x238False(void* obj);
@@ -10,7 +10,7 @@ extern unsigned short data_02114e30;
 
 // USA: func_ov015_021925a8  (semantic: UpdateField238FlagStateC00_021925a8)
 extern "C" ARM int func_ov015_021925a8() {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     if (!battle) return 0;
     int field = GetField0x3b0Value(battle);
     if (!field) return 0;

@@ -1,9 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 void* GetData02100044(void);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 int HasFlagBit_0218d4ec(void* obj, int bit);
 extern "C" void func_0205e330(void* a, void* b, int c);
@@ -24,15 +22,15 @@ struct EventBuf021d25f4 {
 
 // USA: func_ov017_021d25f4  (semantic: SendCombatantFlagsEvent_021d25f4)
 extern "C" ARM void func_ov017_021d25f4(int combatantId) {
-    int handle = func_ov017_0218b5b0();
+    int handle = ((int)func_ov017_0218b5b0());
     void* p = GetData02100044();
     struct EventBuf021d25f4 buf;
     buf.tag = 0x20;
     struct Sub021d25f4* sub = &buf.sub;
 
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     if (battle == 0) return;
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x800(battle, combatantId);
+    GameObject* combatant = battle->GetPartyMemberByIndex(combatantId);
     if (combatant == 0) return;
     int val = GetFieldAt0x150((unsigned char*)combatant);
     if (val == 0) return;

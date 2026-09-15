@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Util/Random.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 int TestBitInArray0x8ec(unsigned char* obj, int index);
 extern unsigned char data_ov000_02182ac5[];
 
@@ -13,10 +13,10 @@ struct Field150_021564cc {
 
 // USA: func_ov000_021564cc
 ARM int RollChanceFromTable_021564cc(struct Random* rand, int id) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int inRange = (id >= 0 && id <= 3);
     if (!inRange) return 0;
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, id);
+    GameObject* combatant = GetCombatantWithFlag0x100(bs, id);
     if (combatant == NULL) return 0;
     unsigned char* field150 = *(unsigned char**)((char*)combatant + 0x150);
     if (!TestBitInArray0x8ec(field150, 0xd0)) return 0;

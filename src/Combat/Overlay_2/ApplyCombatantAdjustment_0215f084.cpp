@@ -1,7 +1,6 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-extern "C" void *_Z15GetBattleStructv();
-extern "C" void *_Z25GetCombatantWithFlag0x800P12BattleStructi(void *bs, int flag);
 extern "C" int _Z22AdjustValueByFieldFlagPvj(void *obj, unsigned int flag);
 extern "C" void *_Z26GetGlobalField0x1c020421a0v();
 extern "C" void func_02046380();
@@ -18,9 +17,9 @@ extern "C" ARM void func_ov002_0215f084(void *objPtr, int param2) {
         return;
     }
     char *base = (char*)objPtr;
-    void *bs = _Z15GetBattleStructv();
+    void *bs = GameState::GetInstance();
     signed char byteFlag = *(signed char*)(base + 0x1c20);
-    void *combatant = _Z25GetCombatantWithFlag0x800P12BattleStructi(bs, byteFlag);
+    void *combatant = ((GameState*)bs)->GetPartyMemberByIndex(byteFlag);
     if (combatant == 0) {
         return;
     }

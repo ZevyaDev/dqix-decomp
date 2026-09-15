@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Obj0207fcb8;
 void ClearAllBuffers0207fcb8(struct Obj0207fcb8* obj);
@@ -12,7 +12,6 @@ struct Obj2081;
 void* FindElementByByte0xc4(struct Obj2081* obj, int key);
 void GetLookAndTurnOffsets020809c4(void* obj, int id, int id2, short* out1, short* out2);
 int GetGlobalField0x1c020421a0(void);
-unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
 struct Container0205a330;
 void IterateEntries0205a330(struct Container0205a330* c, int arg);
 struct Container0205a3d0;
@@ -71,8 +70,8 @@ extern "C" ARM void func_ov017_021aad8c(struct Self021aad8c* self) {
     int key = g->f2e4;
     void* p2d8 = g->f2d8;
     if (p2d8 != NULL && cont != NULL) {
-        struct BattleStruct* battle = GetBattleStruct();
-        unsigned int scaleCount = GetBattleScaleCount(battle);
+        GameState* battle = GameState::GetInstance();
+        unsigned int scaleCount = battle->GetTickCount();
         IterateEntries0205a330((struct Container0205a330*)cont, scaleCount);
         SetEntryFlag2ByKey0205a370((struct Container0205a3d0*)cont, key);
 

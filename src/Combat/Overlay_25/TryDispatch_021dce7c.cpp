@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_ov000_02167f10(void* obj);
 extern "C" void func_ov025_021def64(void* obj, void* ptr, int n);
@@ -13,7 +13,7 @@ struct In021dce7c {
 // USA: func_ov025_021dce7c
 ARM int TryDispatch_021dce7c(unsigned char* obj, struct In021dce7c* ptr, int arg3) {
     if (ptr) {
-        GetBattleStruct();
+        GameState::GetInstance();
         if (ptr->field0 == 781 || ptr->field0 == 582) {
             int local = arg3;
             func_ov000_02167f10(obj);

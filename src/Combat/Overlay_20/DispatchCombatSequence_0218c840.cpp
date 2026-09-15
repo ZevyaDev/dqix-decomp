@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetGlobalField0x1c020421a0();
 struct ResetBytesAndSetByte0x16Data;
@@ -30,7 +30,7 @@ struct DispatchState_0218c840 {
 
 // USA: func_ov020_0218c840  (semantic: DispatchCombatSequence_0218c840)
 extern "C" ARM void func_ov020_0218c840(struct DispatchState_0218c840* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     unsigned char* g = (unsigned char*)GetGlobalField0x1c020421a0();
 
     if (obj->f4 == 0) {

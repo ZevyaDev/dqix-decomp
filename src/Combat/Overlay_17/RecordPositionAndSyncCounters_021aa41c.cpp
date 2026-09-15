@@ -1,13 +1,12 @@
 #include <globaldefs.h>
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "Resource/GameResources.h"
+#include "GameState/GameState.h"
 
-struct BattleStruct;
 
-struct BattleStruct* GetBattleStruct();
 int GetField5cb0Value(char* obj);
 int GetField5cb4Value(char* obj);
 int GetField5cb8Value(char* obj);
-void SetBothCounters(void* obj, int value, int frames);
+extern "C" void _Z13SetBrightnessP13GameResourcesii(void* obj, int value, int frames);
 void InitFieldsFromCombatant_0219bcac(unsigned char flag);
 void SetField5cb0AndRecordByte0(char* obj, int v);
 void SetField5cb4AndRecordByte1(char* obj, int v);
@@ -24,7 +23,7 @@ struct Obj021aa41c {
 
 // USA: func_ov017_021aa41c  (semantic: RecordPositionAndSyncCounters_021aa41c)
 extern "C" ARM void func_ov017_021aa41c(Obj021aa41c* p) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     char* obj = (char*)battleStruct;
     int v0 = GetField5cb0Value(obj);
     int v4 = GetField5cb4Value(obj);
@@ -32,8 +31,8 @@ extern "C" ARM void func_ov017_021aa41c(Obj021aa41c* p) {
     if (v0 * 10000 + v4 * 100 + v8 != p->f8 * 10000 + p->fa * 100 + p->fc) {
         InitFieldsFromCombatant_0219bcac(0);
     } else {
-        Struct_ov017_44C8* ov = func_ov017_0218b5b0();
-        SetBothCounters(ov, 0, 30);
+        GameResources* ov = func_ov017_0218b5b0();
+        _Z13SetBrightnessP13GameResourcesii(ov, 0, 30);
     }
     SetField5cb0AndRecordByte0(obj, p->f8);
     SetField5cb4AndRecordByte1(obj, p->fa);

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
 unsigned char GetByte0x4(char* obj);
@@ -25,7 +25,7 @@ struct AllocGroup0218d8d8 {
 
 // USA: func_ov020_0218d8d8
 ARM void ResetAllocatorAndDispatchState_0218d8d8(struct AllocGroup0218d8d8* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     SignedAllocatorHeader* header = obj->allocator.GetSignedAllocator();
     obj->allocator.Destroy();
     TailForward02012da4(&data_02114e20, header);

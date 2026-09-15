@@ -1,8 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 struct Sub130_020482e0 {
     unsigned int flags;
@@ -24,7 +22,7 @@ extern "C" void func_ov017_021c9e00(int id, int a, int b, int c);
 
 // USA: func_0208aebc  (semantic: ConsumeOrForceCounterAndFlag_0208aebc)
 extern "C" ARM void func_0208aebc(void* obj, int id) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     char* base = (char*)func_ov017_0218b5b0() + 0x3000;
     struct Combatant020482e0* c;
     void* p;
@@ -32,7 +30,7 @@ extern "C" ARM void func_0208aebc(void* obj, int id) {
     unsigned short oldCount;
 
     target = *(int**)(base + 0x6d0);
-    c = (struct Combatant020482e0*)GetCombatantWithFlag0x800(bs, id);
+    c = (struct Combatant020482e0*)bs->GetPartyMemberByIndex(id);
     p = func_0202ae18();
     oldCount = c->sub->count;
 

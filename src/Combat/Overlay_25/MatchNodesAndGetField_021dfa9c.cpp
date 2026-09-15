@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetSlotPtr02160f20(void* obj);
 int GetIntFieldFromOffset5000_02160f9c(void* obj);
@@ -15,12 +15,12 @@ extern "C" int _Z23GetField0Result02169aa4Pv(void* obj, int type, void* out, int
 
 // USA: func_ov025_021dfa9c  (semantic: MatchNodesAndGetField_021dfa9c)
 extern "C" ARM int func_ov025_021dfa9c(void* obj, void* base) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     void* slot = GetSlotPtr02160f20(obj);
     int count = GetIntFieldFromOffset5000_02160f9c(obj);
     struct ListNode02160094* node = GetNodeAtIndex02160094((struct List02160094*)slot, 0);
     int flagVal;
-    struct CombatantStruct* combatant;
+    GameObject* combatant;
     char* target;
     struct ListNode02160094* node2;
     struct ListNode021600f8* nodeA;
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov025_021dfa9c(void* obj, void* base) {
 
     if (node == NULL) goto fail;
     flagVal = *(unsigned short*)slot;
-    combatant = GetCombatantFromList(battle, *(unsigned short*)((char*)node + 0x20));
+    combatant = battle->GetCombatantByIndex(*(unsigned short*)((char*)node + 0x20));
     if (combatant == NULL) goto fail;
     if (count <= 0) goto fail;
     if (flagVal != 1) goto fail;

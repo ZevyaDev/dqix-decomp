@@ -1,11 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 short SumKeyedLookups02086bf4(char* obj, int key);
 
 // USA: func_ov003_02179da8  (semantic: CheckGoldCapTier_02179da8)
 extern "C" ARM int func_ov003_02179da8(void* obj, int flag) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* p = GetPtrField0x2a04(bs);
     int keyResult = 1;
     if (flag != 0) {

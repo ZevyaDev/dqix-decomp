@@ -1,10 +1,9 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
 int GetField5cb0Value(char* obj);
-struct CombatantStruct* GetCombatantAtField0x3ac(struct BattleStruct* battleStruct);
 struct TableA68;
 void* FindEntryByKey(struct TableA68* table, int key);
 
@@ -27,7 +26,7 @@ struct Sub0x150_021e6594 {
 
 // USA: func_ov023_021e6594  (semantic: BuildEntryBuffers_021e6594)
 extern "C" ARM void func_ov023_021e6594(char* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     struct BattleExt021e6594* ext = (struct BattleExt021e6594*)((char*)battleStruct + 0x569c);
     if (!ext->flag29) {
         void* entry;
@@ -35,7 +34,7 @@ extern "C" ARM void func_ov023_021e6594(char* obj) {
             entry = FindEntryByKey((struct TableA68*)(obj + 0x133c), 0x50e9);
         } else {
             func_0202ae18();
-            struct CombatantStruct* combatant = GetCombatantAtField0x3ac(battleStruct);
+            GameObject* combatant = battleStruct->GetProtagonist();
             struct Sub0x150_021e6594* sub = *(struct Sub0x150_021e6594**)((char*)combatant + 0x150);
             int key = 0x50dc;
             if (sub->bit0 == 1) key += 0x32;

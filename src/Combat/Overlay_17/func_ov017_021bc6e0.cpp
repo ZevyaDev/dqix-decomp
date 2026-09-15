@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" void* func_02012fe4(struct BattleStruct* battleStruct);
-float GetAccumulatedValue(struct BattleStruct* battleStruct);
+extern "C" void* func_02012fe4(GameState* battleStruct);
 
 struct Src021cd6d8 {
 	unsigned short f0;
@@ -19,7 +18,7 @@ void EnqueueEventTag142_021cd6d8(Src021cd6d8* src);
 
 // USA: func_ov017_021bc6e0
 extern "C" ARM void func_ov017_021bc6e0(char* self, unsigned char byteArg, int flags) {
-	struct BattleStruct* battleStruct = GetBattleStruct();
+	GameState* battleStruct = GameState::GetInstance();
 	void* obj2 = func_02012fe4(battleStruct);
 	Src021cd6d8 params;
 	params.f0 = 0;
@@ -38,7 +37,7 @@ extern "C" ARM void func_ov017_021bc6e0(char* self, unsigned char byteArg, int f
 	params.f8 = 0;
 	params.fa = *(unsigned short*)(self + 0x1c);
 	params.f6 = *(short*)(self + 0x52);
-	params.f10 = GetAccumulatedValue(battleStruct);
+	params.f10 = battleStruct->GetDayTimer();
 	params.fc = byteArg;
 	EnqueueEventTag142_021cd6d8(&params);
 }

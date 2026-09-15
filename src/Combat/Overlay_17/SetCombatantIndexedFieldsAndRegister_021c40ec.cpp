@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+extern void* GetPtrField0x2a04(GameState* battleStruct);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 extern "C" void func_02052d7c(void* obj, int index, short value);
 extern "C" void func_ov017_0218f5a4(void* self, int combatantId, int flag2, int flag3, int flag4);
 
@@ -15,7 +15,7 @@ struct Info_021c40ec {
 };
 
 // USA: func_ov017_021c40ec  (semantic: SetCombatantIndexedFieldsAndRegister_021c40ec)
-extern "C" ARM void func_ov017_021c40ec(void* unused, struct Info_021c40ec* info, struct BattleStruct* battleStruct, void* ov) {
+extern "C" ARM void func_ov017_021c40ec(void* unused, struct Info_021c40ec* info, GameState* battleStruct, void* ov) {
     int id = info->idNibble;
     char* p = (char*)GetPtrField0x2a04(battleStruct);
     if (p != NULL) {
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov017_021c40ec(void* unused, struct Info_021c40ec* info
         }
     }
 
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(battleStruct, id);
+    GameObject* combatant = GetCombatantWithFlag0x100(battleStruct, id);
     if (combatant == NULL) return;
 
     char* s = *(char**)((char*)ov + 0x3734);

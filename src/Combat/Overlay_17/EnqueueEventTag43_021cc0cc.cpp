@@ -1,10 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 extern "C" void* func_0202ae18(void);
 void* GetData02100044(void);
-struct CombatantStruct* GetCombatantAtField0x3ac(struct BattleStruct* battleStruct);
 
 struct SearchStruct0202c1a4;
 signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
@@ -22,10 +21,10 @@ struct LocalEvt021cc0cc {
 
 // USA: func_ov017_021cc0cc
 ARM void EnqueueEventTag43_021cc0cc(void) {
-	struct BattleStruct* bs = GetBattleStruct();
+	GameState* bs = GameState::GetInstance();
 	void* search = func_0202ae18();
 	void* p = GetData02100044();
-	struct CombatantStruct* c = GetCombatantAtField0x3ac(bs);
+	GameObject* c = bs->GetProtagonist();
 	if (!c) return;
 
 	LocalEvt021cc0cc buf;

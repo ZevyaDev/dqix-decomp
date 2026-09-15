@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_ov004_0216794c(short* out0, short* out1, short* out2, unsigned char* out3, int* out4);
 int DecrementKeyForCount_02167a0c(void* unused, int count);
@@ -12,7 +12,7 @@ extern "C" ARM int func_ov004_02167adc(void* self) {
     short m1, m2, m3;
     unsigned char flag;
     int idx;
-    GetPtrField0x2a04(GetBattleStruct());
+    GetPtrField0x2a04(GameState::GetInstance());
     func_ov004_0216794c(&m1, &m2, &m3, &flag, &idx);
     if (idx < 0) {
         goto end;

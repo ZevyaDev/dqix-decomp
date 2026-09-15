@@ -1,10 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 // USA: func_0202c410
 ARM void CopyBattleTailToObjField0x102c(void* obj) {
     *((unsigned char*)obj + 0x1029) |= 0x48;
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     unsigned char buf[6];
     unsigned char* dst = buf;
     unsigned char* src = (unsigned char*)battleStruct + 0x74fe;

@@ -1,14 +1,13 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_02094ab0(void);
 int GetGlobalField0x1c020421a0(void);
 void ReinitController02043204(char* obj);
 extern "C" void func_02043124(void* self);
 int GetGlobal02109400(void);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 void SetByteField0x253(void* obj);
 int GetFieldIfFlag4(char* obj);
 void ClearFlagBits(unsigned char* obj, int mask);
@@ -30,8 +29,8 @@ extern "C" ARM void func_ov017_021ac32c(struct Obj021ac32c* self) {
     func_02043124(ctrl);
     GetGlobal02109400();
     func_02094ab0();
-    struct BattleStruct* battle = GetBattleStruct();
-    SetByteField0x253(GetCombatantAtField0x397c(battle));
+    GameState* battle = GameState::GetInstance();
+    SetByteField0x253(battle->GetUnknownGameObject());
 
     void* p = self->allocator.GetSignedAllocator();
     if (p != NULL) {

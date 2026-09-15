@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct_0205d81c;
 struct Elem_0205d81c;
@@ -15,7 +15,6 @@ Elem0205a3d0* FindEntryByHalfword0205a3d0(Container0205a3d0*, int);
 struct Container0205a330;
 void IterateEntries0205a330(Container0205a330*, int);
 
-unsigned int GetBattleScaleCount(struct BattleStruct*);
 void SetEntryByte14ByKey0205a42c(Container0205a3d0*, int, int);
 extern "C" void func_0205ae8c(void*);
 
@@ -46,7 +45,7 @@ ARM void UpdateEntryAndScale_0215e2a8(char* base) {
         y = (short)(y + (short)(v % 8));
     }
 
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     Container0205a3d0* cont = *(Container0205a3d0**)(base + 0x394);
     if (cont == NULL) return;
 
@@ -56,7 +55,7 @@ ARM void UpdateEntryAndScale_0215e2a8(char* base) {
         *(unsigned char*)((char*)entry + 0x15) |= 8;
     }
 
-    int scaleCount = (int)GetBattleScaleCount(battleStruct);
+    int scaleCount = (int)battleStruct->GetTickCount();
     IterateEntries0205a330((Container0205a330*)cont, scaleCount);
 
     entry = FindEntryByHalfword0205a3d0(cont, 0);

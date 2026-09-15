@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Vec3_021630a4 { unsigned int v[3]; };
 
@@ -14,7 +14,7 @@ public:
 };
 
 extern "C" Node021630a4* func_ov004_0215e47c(void* a, int key);
-void SetField0x3b0Value(struct BattleStruct* battleStruct, int value);
+void SetField0x3b0Value(GameState* battleStruct, int value);
 
 extern int data_ov004_021707e8;
 
@@ -29,6 +29,6 @@ extern "C" ARM int func_ov004_021630a4(void* a) {
     v2.v[1] = 0;
     v2.v[2] = 0;
     node->SetVal0x1c(v2);
-    SetField0x3b0Value(GetBattleStruct(), *(int*)((char*)&data_ov004_021707e8 + 0x10));
+    SetField0x3b0Value(GameState::GetInstance(), *(int*)((char*)&data_ov004_021707e8 + 0x10));
     return 0;
 }

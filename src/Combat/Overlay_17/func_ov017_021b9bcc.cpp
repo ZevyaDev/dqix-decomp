@@ -1,7 +1,7 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
 struct BattleStruct021b9bcc;
-struct BattleStruct021b9bcc* GetBattleStruct();
 int GetField5cb8Value(char* obj);
 
 struct Data_ov017_021d8438 {
@@ -22,7 +22,7 @@ extern struct Data_ov017_021d8438 data_ov017_021d8438;
 
 // USA: func_ov017_021b9bcc
 extern "C" ARM int func_ov017_021b9bcc(int a, void* b) {
-    struct BattleStruct021b9bcc* battleStruct = GetBattleStruct();
+    struct BattleStruct021b9bcc* battleStruct = (struct BattleStruct021b9bcc*)GameState::GetInstance();
     int rem = a % 80;
     int day = rem / 16;
     int pos = rem % 16;

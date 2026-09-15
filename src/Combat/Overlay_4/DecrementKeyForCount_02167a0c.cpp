@@ -1,11 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int DecrementKeyEverywhere02086d88(unsigned char* self, int key);
 
 // USA: func_ov004_02167a0c
 ARM int DecrementKeyForCount_02167a0c(void* unused, int count) {
-	unsigned char* p = (unsigned char*)GetPtrField0x2a04(GetBattleStruct());
+	unsigned char* p = (unsigned char*)GetPtrField0x2a04(GameState::GetInstance());
 	int i;
 	int v;
 	for (i = 0; i < count; i++) {

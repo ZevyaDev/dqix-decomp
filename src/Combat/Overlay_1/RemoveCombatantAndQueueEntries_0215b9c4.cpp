@@ -1,11 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov017_021d60f4(void*);
 extern int AbsPlus159IfNegative0215ad2c(int x);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 extern "C" void _ZN8Object3D7DestroyEv(unsigned char* obj);
-void ClearCombatantSlot(struct BattleStruct* battleStruct, int id);
+void ClearCombatantSlot(GameState* battleStruct, int id);
 extern "C" void func_ov001_0215acb4(void* p);
 
 struct GlobalTable_0215b9c4 { int pad0; unsigned char* elems; };
@@ -15,10 +14,10 @@ struct Entry_0215b9c4 { int type; int field4; char pad8[8]; };
 
 // USA: func_ov001_0215b9c4  (semantic: RemoveCombatantAndQueueEntries_0215b9c4)
 extern "C" ARM int func_ov001_0215b9c4(void* self) {
-	struct BattleStruct* bs = GetBattleStruct();
+	GameState* bs = GameState::GetInstance();
 	if (bs == 0) return 0;
 	int id = AbsPlus159IfNegative0215ad2c(func_ov017_021d60f4(self));
-	struct CombatantStruct* combatant = GetCombatantUnchecked(bs, id);
+	GameObject* combatant = bs->GetGameObjectByIndex(id);
 	if (combatant == 0) return 0;
 	_ZN8Object3D7DestroyEv((unsigned char*)combatant);
 	ClearCombatantSlot(bs, id);

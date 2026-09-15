@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Combat/Overlay_0/GetCombatantByID.h"
+#include "GameState/GameState.h"
 
 int CheckFlag0x1ClearAndFlag0x40Clear(unsigned char* obj);
 void SetFlag0x200000ClearFlag0x100000(unsigned char* obj);
@@ -21,12 +22,12 @@ struct Range_021e0a50 { char pad[0x20]; struct PackedPair_021e0a50 f20; struct P
 
 // USA: func_ov024_021e0a50
 ARM void* AddBuffEntryToTable_021e0a50(struct Obj_021e0a50* obj, int unused, int id, struct Range_021e0a50* range, int unused2, int unused3, unsigned char flagArg) {
-	struct CombatantStruct* c = GetCombatantByID((int)obj->field0x10, id);
+	GameObject* c = GetCombatantByID((int)obj->field0x10, id);
 	if (!c) return 0;
-	int active = CheckFlag0x1ClearAndFlag0x40Clear((unsigned char*)c->currentStats);
+	int active = CheckFlag0x1ClearAndFlag0x40Clear((unsigned char*)c->currentStats_);
 	unsigned short sel;
 	if (active != 0 && flagArg != 0) {
-		SetFlag0x200000ClearFlag0x100000((unsigned char*)c->currentStats);
+		SetFlag0x200000ClearFlag0x100000((unsigned char*)c->currentStats_);
 		sel = SelectByIndexRange0to3_021da644(id, range->f20.c, range->f24.a);
 	} else {
 		sel = SelectByIndexRange0to3_021da644(id, range->f24.b, range->f24.c);

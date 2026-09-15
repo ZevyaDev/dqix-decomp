@@ -1,12 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_0205ec34(void);
 extern "C" void* func_02012fe4(void);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
-struct CombatantStruct* GetCombatantAtField0x3ac(struct BattleStruct* battleStruct);
 extern "C" int func_0202c508(void* obj);
 struct Obj020ad4c4;
 extern int CheckAndInvoke020ad4c4(struct Obj020ad4c4* obj);
@@ -19,12 +16,12 @@ extern "C" int func_ov017_0219c774(int a, int b, int c);
 // USA: func_ov017_0219bddc  (semantic: EvaluateCombatantTransition_0219bddc)
 extern "C" ARM int func_ov017_0219bddc(unsigned char* p0) {
     func_ov017_0218b5b0();
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* search = func_0202ae18();
     void* obj8 = func_0205ec34();
     void* obj4 = func_02012fe4();
-    struct CombatantStruct* c7 = GetCombatantUnchecked(bs, 0);
-    struct CombatantStruct* c6 = GetCombatantAtField0x3ac(bs);
+    GameObject* c7 = bs->GetGameObjectByIndex(0);
+    GameObject* c6 = bs->GetProtagonist();
 
     if (func_0202c508(search) != 0) {
         return 0;

@@ -1,9 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 struct Field3f8Struct;
-Field3f8Struct* GetField0x3f8Address(struct BattleStruct* bs);
+Field3f8Struct* GetField0x3f8Address(GameState* bs);
 extern "C" void func_02046a8c(void* list, void* node);
 unsigned char InitFieldsFromCombatant_0219bcac(unsigned char v);
 void InitAndResetHeader_0219e310(unsigned char* node, int v);
@@ -33,7 +32,7 @@ struct Field3f8Struct0219bd1c {
 
 // USA: func_ov017_0219bd1c  (semantic: Enqueue0219bd1c)
 extern "C" ARM void func_ov017_0219bd1c(int prepend, unsigned char sb, int insertAfterHead, unsigned char combatantFlag) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* ctxRaw = func_ov017_0218b5b0();
     char* ctx = (char*)ctxRaw + 0x3000;
     struct Field3f8Struct0219bd1c* field;

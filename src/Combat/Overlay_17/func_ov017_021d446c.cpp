@@ -1,11 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_02012fe4(void);
 struct Entry_02028bd0;
 struct Entry_02028bd0* GetEntryTableBase(void);
 struct Entry_02028bd0* FindInlineEntryById(struct Entry_02028bd0* base, int key);
-struct CombatantStruct* GetCombatantWithFlag0x20(struct BattleStruct* battleStruct, int combatantId);
 
 struct Entry_02028bd0 {
     unsigned short id;
@@ -21,12 +20,12 @@ struct Src021d446c {
 struct Out021d446c {
     int field0;
     Entry_02028bd0* field4;
-    struct CombatantStruct* field8;
+    GameObject* field8;
 };
 
 // USA: func_ov017_021d446c
 extern "C" ARM int func_ov017_021d446c(Src021d446c* p0, Out021d446c* out, int p2) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* tbl = func_02012fe4();
     struct Entry_02028bd0* entryBase = GetEntryTableBase();
 
@@ -40,7 +39,7 @@ extern "C" ARM int func_ov017_021d446c(Src021d446c* p0, Out021d446c* out, int p2
 
     int idx = 112 + entry->field2 * 12 + p0->field3;
     out->field0 = idx;
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x20(bs, idx);
+    GameObject* combatant = bs->GetMaybeFieldMonsterByIndex(idx);
     out->field8 = combatant;
     if (combatant == 0) return 0;
 

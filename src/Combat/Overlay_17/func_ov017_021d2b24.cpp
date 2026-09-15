@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Vec3_021c3f68 {
     int x;
@@ -7,7 +7,6 @@ struct Vec3_021c3f68 {
     int z;
 };
 void SetVec3_021c3f68(struct Vec3_021c3f68* obj, int x, int y, int z);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 unsigned short GetField6b4_021b8480(void* obj);
 void ClearBytesAndZeroBlock02039d24(unsigned char* obj);
 struct Fields020407b4;
@@ -34,13 +33,13 @@ struct Entry021d2b24 {
 // USA: func_ov017_021d2b24
 extern "C" ARM void func_ov017_021d2b24(void* unused0, struct Evt021d2b24* evt, int unused2, void* ctxRaw) {
     unsigned char* ctx = (unsigned char*)ctxRaw;
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
 
     if (evt->id == 0xce) {
         SetVec3_021c3f68((struct Vec3_021c3f68*)((char*)battle + 0x7f60), evt->field8, evt->fieldc, evt->field10);
     }
 
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x800(battle, evt->id);
+    GameObject* combatant = battle->GetPartyMemberByIndex(evt->id);
     if (combatant == NULL) {
         return;
     }

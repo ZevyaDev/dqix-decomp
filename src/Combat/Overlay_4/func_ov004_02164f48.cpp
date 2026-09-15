@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Grotto/Main/TreasureMapMetadata.h"
 #include "System/Memory.h"
 #include "System/Timing.h"
@@ -23,7 +23,7 @@ struct Elem020985ec* FindElementByShiftedField0x10(struct Elem020985ec* arr, int
 
 // USA: func_ov004_02164f48  (semantic: GenerateTreasureMapEntry_02164f48)
 extern "C" ARM int func_ov004_02164f48(void* a1) {
-    char* battle = (char*)GetBattleStruct();
+    char* battle = (char*)GameState::GetInstance();
     struct Info02011930 info;
     char name1buf[0xa];
     char name2buf[0xa];

@@ -1,11 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov017_021b8478(void* obj);
 extern "C" void* func_ov017_021b8468(void* obj);
 void* GetField6b0_021b8470(void* obj);
 void SetCombatWorkFlags0x55f4(void* work, int mask);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 void SetByteFields0x77d3And0x77d4(void* obj, int a, int b);
 extern "C" void __clear(void* buf, int len);
 extern "C" void func_ov017_021b848c(void* h, void* buf, int a, int b, int c, int d, int e, int f);
@@ -30,7 +30,7 @@ struct Evt021cbcc0 {
 };
 
 // USA: func_ov017_021cbcc0  (semantic: ApplyEventTagFlagsAndDispatch_021cbcc0)
-extern "C" ARM void func_ov017_021cbcc0(int unused0, Evt021cbcc0* evt, struct BattleStruct* battleStruct, unsigned char* base) {
+extern "C" ARM void func_ov017_021cbcc0(int unused0, Evt021cbcc0* evt, GameState* battleStruct, unsigned char* base) {
     unsigned short f4;
     unsigned short hf8;
     unsigned int f8word;

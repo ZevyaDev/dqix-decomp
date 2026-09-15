@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-void* GetBattleStruct(void);
 extern "C" void func_0205d0e0(void* obj, int val);
 struct TimeStamp020103f0;
 void ComputeElapsedPlayTimeHMS020103f0(struct TimeStamp020103f0* obj, unsigned short* outHours, unsigned char* outMinutes, unsigned char* outSeconds);
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov023_021e7404(char* obj, int amount) {
     *(int*)0x4001010 = 0;
 
     if (*(int*)(obj + 0x3c) == 0) {
-        void* battleStruct = GetBattleStruct();
+        void* battleStruct = GameState::GetInstance();
         char* savedClock = (char*)battleStruct + 0x104 + 0x7400;
         int firstTime = 0;
         unsigned char prevField610 = *(unsigned char*)(obj + 0x610);
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov023_021e7404(char* obj, int amount) {
             firstTime = 1;
         }
 
-        battleStruct = GetBattleStruct();
+        battleStruct = GameState::GetInstance();
         ComputeElapsedPlayTimeHMS020103f0((struct TimeStamp020103f0*)battleStruct, &hoursOut, &minutesOut, &secondsOut);
 
         ClearShortAndTwoBytes_021e71a0((struct ShortBytePair021e71a0*)(obj + 0x60e));

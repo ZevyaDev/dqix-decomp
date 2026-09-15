@@ -1,10 +1,11 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov000_0215e9fc(int a, short* buf, int max, int start);
 extern "C" void __clear(void* dst, int count);
-int IsCombatantFlagMask512_021eda60(struct CombatantStruct* combatant);
+int IsCombatantFlagMask512_021eda60(GameObject* combatant);
 
 extern unsigned short data_ov024_021feb34;
 
@@ -30,7 +31,7 @@ extern "C" ARM int func_ov024_021ee20c(int* a0, int a1, int a2, int* a3, short* 
     outCount = 0;
     i = 0;
     for (; i < count; i++) {
-        struct CombatantStruct* c = GetCombatantByID(*a0, buf[i]);
+        GameObject* c = GetCombatantByID(*a0, buf[i]);
         if (c && IsCombatantFlagMask512_021eda60(c)) {
             out[outCount] = buf[i];
             outCount++;

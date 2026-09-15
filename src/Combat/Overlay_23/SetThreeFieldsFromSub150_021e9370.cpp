@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov017_021d60f4(void* obj);
 extern "C" void* func_ov023_021e8f28(int v);
@@ -7,7 +7,7 @@ extern "C" void func_ov017_021d6134(void* obj, int v);
 
 // USA: func_ov023_021e9370
 ARM int SetThreeFieldsFromSub150_021e9370(void* obj) {
-    GetBattleStruct();
+    GameState::GetInstance();
     void* p = func_ov023_021e8f28(func_ov017_021d60f4(obj));
     if (p == NULL) {
         return 0;

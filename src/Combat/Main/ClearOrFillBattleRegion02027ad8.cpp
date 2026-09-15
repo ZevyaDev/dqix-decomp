@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 struct Region02027ad8 {
@@ -9,7 +9,7 @@ struct Region02027ad8 {
 
 // USA: func_02027ad8
 ARM void ClearOrFillBattleRegion02027ad8(int unused, int flag) {
-    struct Region02027ad8* r = (struct Region02027ad8*)GetBattleStruct();
+    struct Region02027ad8* r = (struct Region02027ad8*)GameState::GetInstance();
     if (flag != 0) {
         memset(r->slots[54], 0xff, sizeof(r->slots[54]));
     } else {

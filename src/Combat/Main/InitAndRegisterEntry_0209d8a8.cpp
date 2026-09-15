@@ -1,12 +1,10 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct BattleStruct* GetBattleStruct();
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
+void* GetPtrField0x2a04(GameState* battleStruct);
 void* GetGlobalManager0209dccc();
 extern "C" int func_ov017_021d60f4(void* p);
-extern "C" void* func_ov017_0218b5b0();
 extern "C" void* func_ov017_021b8468(int a);
 void* GetOffsetPtr02160f08(void* obj);
 void* ZeroInitReturn020de824(void* obj);
@@ -36,7 +34,7 @@ extern "C" ARM int func_0209d8a8(void* obj) {
     SelfBuf0209d8a8 self;
     int b0;
     int b1;
-    GetPtrField0x2a04(GetBattleStruct());
+    GetPtrField0x2a04(GameState::GetInstance());
     GlobalManagerFields0209d8a8* mgr = (GlobalManagerFields0209d8a8*)GetGlobalManager0209dccc();
     if (mgr == NULL) {
         return 0;

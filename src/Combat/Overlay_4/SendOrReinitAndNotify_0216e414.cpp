@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int SendShortBufferOrReturnZero020aba5c(int flag);
 int GetGlobalField0x1c020421a0(void);
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov004_0216e414(void* obj) {
         SetOffset100Fields_021f8960((char*)node, 0, 7);
         func_ov011_021848a0(obj, 0x1f5);
     } else {
-        SetByte0x7f70((void*)GetBattleStruct(), 1);
+        SetByte0x7f70((void*)GameState::GetInstance(), 1);
         func_ov011_021848a0(obj, 0x3e7);
     }
     return 0;

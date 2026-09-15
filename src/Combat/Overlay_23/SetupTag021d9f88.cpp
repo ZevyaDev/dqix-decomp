@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct_0205ba68;
 void SetupPointerTable0205ba68(struct Struct_0205ba68* s, int a, int b, int mode);
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov023_021d9f88(void* objRaw) {
     obj[0x349] = 1;
 
     int val = 0x10;
-    struct Struct0200fb08* bs = (struct Struct0200fb08*)GetBattleStruct();
+    struct Struct0200fb08* bs = (struct Struct0200fb08*)GameState::GetInstance();
     unsigned char norm = NormalizeField5_0200fb08(bs);
     switch (norm) {
         case 2: val = 0xe; break;

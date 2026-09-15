@@ -1,10 +1,10 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
 struct Variant02030b0c { int tag; union { int i; float f; } u; };
 extern "C" int _ZNK6Script9Parameter5ToIntEv(struct Variant02030b0c* p);
 
 struct BattleStruct021ba124;
-struct BattleStruct021ba124* GetBattleStruct();
 
 struct SearchStruct0202c1a4 { char pad[0x1038]; signed char arr[16]; };
 extern "C" int* func_0202ae18(void);
@@ -12,7 +12,7 @@ int CheckField0NonZero(int* obj);
 signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
 
 struct S_020103b4;
-int IsField3dcSet(struct S_020103b4* obj);
+extern "C" int _ZNK9GameState21IsMorningDayOrEveningEv(struct S_020103b4* obj);
 
 struct Struct02030b7c { int field0; void* field4; };
 extern "C" void* _ZNK6Script9Parameter8ToStringEv(struct Struct02030b7c* s);
@@ -40,7 +40,7 @@ extern "C" ARM int func_ov017_021ba124(struct Variant02030b0c* v, int idx) {
     if (data_ov017_021d8438.byte1 != 0) return 1;
     if (data_ov017_021d7c54.byte1 > -1) return 1;
 
-    GetBattleStruct();
+    GameState::GetInstance();
     struct SearchStruct0202c1a4* search = (struct SearchStruct0202c1a4*)func_0202ae18();
     if (!CheckField0NonZero((int*)search)) return 1;
     if (GetSearchStructCurrentArrEntry(search) != 0) return 1;
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov017_021ba124(struct Variant02030b0c* v, int idx) {
         int c = _ZNK6Script9Parameter5ToIntEv(v);
         v = (struct Variant02030b0c*)((char*)v + 8);
         if (c != 0) {
-            if (IsField3dcSet((struct S_020103b4*)GetBattleStruct())) return 1;
+            if (_ZNK9GameState21IsMorningDayOrEveningEv((struct S_020103b4*)GameState::GetInstance())) return 1;
             data_ov017_021d8438.byte2 = 1;
         }
     } else {

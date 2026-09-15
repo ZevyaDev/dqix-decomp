@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern char data_020feffc[];
 
@@ -12,7 +12,7 @@ unsigned long long GetCurrentTimestamp(void);
 // USA: func_0202b840
 ARM int StartBattleTransition0202b840(int* state, int id) {
     int i;
-    struct BattleStruct* battleStruct;
+    GameState* battleStruct;
 
     if (id < 0) {
         return 1;
@@ -40,7 +40,7 @@ ARM int StartBattleTransition0202b840(int* state, int id) {
     Init0202dc40(5, data_020feffc + id * 0xc0);
     *state = 6;
 
-    battleStruct = GetBattleStruct();
+    battleStruct = GameState::GetInstance();
     *(unsigned long long*)((char*)battleStruct + 0x3f0) = GetCurrentTimestamp();
 
     return 1;

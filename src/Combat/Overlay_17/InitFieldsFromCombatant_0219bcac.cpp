@@ -1,21 +1,18 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-struct CombatantStruct;
 
-struct BattleStruct* GetBattleStruct();
-void* GetField0x3f8Address(struct BattleStruct* battleStruct);
+void* GetField0x3f8Address(GameState* battleStruct);
 extern "C" unsigned short* func_02012fe4(void* fieldPtr);
-struct CombatantStruct* GetCombatantAtField0x3ac(struct BattleStruct* battleStruct);
 void InitStruct02070378(char* obj);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 
 // USA: func_ov017_0219bcac
 ARM void InitFieldsFromCombatant_0219bcac(unsigned char flag) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     char* obj = (char*)GetField0x3f8Address(battleStruct);
     unsigned short* val = func_02012fe4(obj);
-    char* combatant = (char*)GetCombatantAtField0x3ac(battleStruct);
+    char* combatant = (char*)battleStruct->GetProtagonist();
     InitStruct02070378(obj);
     *(short*)(obj + 0x0) = *val;
     _ZN8Vector3iaSERKS_((int*)(obj + 0x10), (int*)(combatant + 0x44));

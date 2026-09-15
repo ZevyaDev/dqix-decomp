@@ -1,12 +1,11 @@
 #include <globaldefs.h>
-int GetField0x3b4Value(struct BattleStruct*);
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_02054028(void* obj, int n);
 
 // USA: func_0205416c
 ARM void ConsumeCountdown0205416c(void* obj) {
-    unsigned int n = (unsigned int)GetField0x3b4Value((struct BattleStruct*)(GetBattleStruct()));
+    unsigned int n = (unsigned int)((GameState*)(GameState::GetInstance()))->GetEffectiveDeltaTime();
     unsigned short v = *(unsigned short*)((char*)obj + 0x1c0);
     if (v >= n) {
         *(unsigned short*)((char*)obj + 0x1c0) = v - n;

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetData02100044(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
@@ -22,8 +22,8 @@ struct LocalEvt021cc730 {
 
 // USA: func_ov017_021cc730  (semantic: EnqueueEventTag10_021cc730)
 extern "C" ARM void func_ov017_021cc730(int id, unsigned char arg1, unsigned char arg2, unsigned char arg3) {
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, id);
+    GameState* bs = GameState::GetInstance();
+    GameObject* combatant = GetCombatantWithFlag0x100(bs, id);
     if (combatant == 0) return;
     int field150 = GetFieldAt0x150((unsigned char*)combatant);
     if (field150 == 0) return;

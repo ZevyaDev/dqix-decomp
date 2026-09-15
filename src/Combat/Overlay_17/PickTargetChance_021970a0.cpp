@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Util/Random.h"
 
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+void* GetPtrField0x2a04(GameState* battleStruct);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 void* GetFieldAt0x150(unsigned char* obj);
 extern "C" int func_02032370(int max);
 
@@ -20,13 +20,13 @@ struct Field150LowBits021970a0 {
 
 // USA: func_ov017_021970a0  (semantic: PickTargetChance_021970a0)
 extern "C" ARM int func_ov017_021970a0(int mode) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     GetBTRandom();
     struct RandomTargetTable021970a0* table = (struct RandomTargetTable021970a0*)GetPtrField0x2a04(battleStruct);
 
     int maxVal = 0;
     for (int i = 0; i < table->count; i++) {
-        struct CombatantStruct* c = GetCombatantWithFlag0x100(battleStruct, table->ids[i]);
+        GameObject* c = GetCombatantWithFlag0x100(battleStruct, table->ids[i]);
         if (c == NULL) continue;
         int* p130 = *(int**)((char*)c + 0x130);
         if (*p130 & 1) continue;

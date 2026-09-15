@@ -1,14 +1,14 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x400(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x400(GameState* battleStruct, int combatantId);
 
 // USA: func_ov000_02163c0c
 #pragma optimize_for_size off
 ARM int IsCombatantStateSpecial02163c0c(void* unused, int id) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     int valid = (id >= 0xc0 && id <= 0xc7);
-    struct CombatantStruct* c;
+    GameObject* c;
     int x;
     short state;
     if (!valid) goto fail;

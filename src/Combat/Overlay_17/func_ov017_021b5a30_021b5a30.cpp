@@ -1,12 +1,10 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 void ResetFieldWithLog_0218d5c8(unsigned char* obj);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 void SetByteField0x253(void* obj);
 int GetFieldIfFlag4(char* obj);
 void SetField0x238True(void* obj);
@@ -24,7 +22,7 @@ struct Obj021b5a30 {
 
 // USA: func_ov017_021b5a30
 extern "C" ARM void func_ov017_021b5a30(struct Obj021b5a30* self) {
-	int base = func_ov017_0218b5b0();
+	int base = ((int)func_ov017_0218b5b0());
 	if (self->field0x54 != 0 && base != 0) {
 		ResetFieldWithLog_0218d5c8((unsigned char*)base);
 		self->field0x54 = 0;
@@ -42,8 +40,8 @@ extern "C" ARM void func_ov017_021b5a30(struct Obj021b5a30* self) {
 		TailForward02012da4((AllocatorUnion*)&data_02114e20, p2);
 	}
 
-	struct BattleStruct* battle = GetBattleStruct();
-	struct CombatantStruct* c = GetCombatantAtField0x397c(battle);
+	GameState* battle = GameState::GetInstance();
+	GameObject* c = battle->GetUnknownGameObject();
 	if (c != NULL) {
 		SetByteField0x253(c);
 	}

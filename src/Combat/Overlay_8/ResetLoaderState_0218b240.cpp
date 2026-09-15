@@ -1,11 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 
 extern "C" void _Z22ResetEntryList0205d6a0P14Entry_0205d6a0i(void* p, int flag);
 extern "C" void* _Z27GetDataPtr02114e04_020d6c00v();
 extern "C" void _Z18ClearFlags020466f4P16FlagWord020466f4j(void* p, unsigned int mask);
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void _Z15ClearBitsInWordPjj(unsigned int* p, unsigned int mask);
 
 struct Manager0218b240 {
@@ -32,7 +31,7 @@ struct Manager0218b240 {
 extern "C" ARM void func_ov008_0218b240(Manager0218b240* obj) {
     if (obj->bit3) return;
 
-    GetBattleStruct();
+    GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
 
     obj->bit0 = 0;

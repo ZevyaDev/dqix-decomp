@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct ScrollState020a63f8 {
     int x;
@@ -12,7 +12,7 @@ struct ScrollState020a63f8 {
 
 // USA: func_020a63f8
 ARM void AnimateSubBG1Scroll020a63f8(struct ScrollState020a63f8* p) {
-    GetBattleStruct();
+    GameState::GetInstance();
     if (p->frozen) {
         return;
     }

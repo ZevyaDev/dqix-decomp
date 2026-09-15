@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "Resource/GameResources.h"
 #include "std_library_functions.h"
 
 void StoreThreeWords_0218cbcc(int* p, int a, int b, int c);
@@ -25,7 +25,7 @@ struct LocalEvt0218d644 {
 };
 
 // USA: func_ov017_0218d644  (semantic: PrepareAndDispatchEventRecord_0218d644)
-extern "C" ARM void func_ov017_0218d644(Struct_ov017_44C8* ov, void* a, int b) {
+extern "C" ARM void func_ov017_0218d644(GameResources* ov, void* a, int b) {
     struct Obj020dbfa4* p = *(struct Obj020dbfa4**)((char*)ov + 0x4498);
 
     struct LocalEvt0218d644 buf;

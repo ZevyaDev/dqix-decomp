@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct PointerField32c_ffc0;
 void* GetPointerAt0x32c(struct PointerField32c_ffc0* obj);
@@ -30,7 +30,7 @@ extern "C" ARM void func_020a66a4(struct Struct020a66a4* a0) {
     int headId;
     void* g;
     void* other;
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     field = a0->field0x36fc;
     p = GetPointerAt0x32c((struct PointerField32c_ffc0*)battle);
     headId = GetHeadNodeIdOrMinusOne((struct HeadNode02046b24**)field);

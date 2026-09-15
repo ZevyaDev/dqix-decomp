@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void __clear(void* ptr, int size);
 unsigned char CopyOutRegion0x571d(char* obj, void* dst);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct*, int);
+GameObject* GetCombatantWithFlag0x100(GameState*, int);
 extern "C" void func_ov017_021d6134(void*, int);
 
 struct CurrentStats_021ea5a4 { char pad[4]; unsigned short maxHP; };
@@ -11,7 +11,7 @@ struct Combatant_021ea5a4 { unsigned short flags0; char pad[0x130 - 2]; struct C
 
 // USA: func_ov023_021ea5a4  (semantic: CountCombatantsWithPositiveHP_021ea5a4)
 extern "C" ARM int func_ov023_021ea5a4(void* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     unsigned char buf[4];
     __clear(buf, 4);
     int n = CopyOutRegion0x571d((char*)bs, buf);

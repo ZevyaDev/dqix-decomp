@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetGlobalField0x1c020421a0(void);
 extern "C" void* func_ov011_021849c8(void*);
@@ -23,6 +23,6 @@ extern "C" ARM int func_ov004_0216e828(void* a) {
             *(int*)((char*)g + 0x2e0) = tmp;
         }
     }
-    SetByte0x7f70(GetBattleStruct(), 0);
+    SetByte0x7f70(GameState::GetInstance(), 0);
     return 0;
 }

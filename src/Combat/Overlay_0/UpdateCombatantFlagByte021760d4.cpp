@@ -1,16 +1,16 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov000_02161318(void*, int);
 
 // USA: func_ov000_021760d4
 ARM void UpdateCombatantFlagByte021760d4(void* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     int i;
     for (i = 0; i < 4; i++) {
         void* found = func_ov000_02161318(obj, i);
         if (found != NULL) {
-            struct CombatantStruct* c = GetCombatantFromList(battleStruct, i);
+            GameObject* c = battleStruct->GetCombatantByIndex(i);
             if (c != NULL) {
                 void* p = *(void**)((char*)c + 0x138);
                 unsigned short val = *(unsigned short*)((char*)p + 0x22);

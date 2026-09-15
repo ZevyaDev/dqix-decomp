@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov017_021b8478(void* obj);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 
 struct SrcEntry021ca4a8 {
 	char pad0[4];
@@ -15,7 +15,7 @@ struct SrcEntry021ca4a8 {
 };
 
 // USA: func_ov017_021ca4a8
-ARM void CopySrcEntryIntoSlot_021ca4a8(int unused0, struct SrcEntry021ca4a8* src, struct BattleStruct* battleStruct, unsigned char* base) {
+ARM void CopySrcEntryIntoSlot_021ca4a8(int unused0, struct SrcEntry021ca4a8* src, GameState* battleStruct, unsigned char* base) {
 	void* table = *(void**)(base + 0x3000 + 0x718);
 	unsigned char* obj = (unsigned char*)func_ov017_021b8478(table);
 	if (obj == NULL) {

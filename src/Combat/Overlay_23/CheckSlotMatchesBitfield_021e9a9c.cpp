@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int RegisterSlotA020cf0fc(int a);
 extern "C" void func_ov017_021d6134(void* obj, int v);
@@ -13,7 +13,7 @@ struct Flags69c_021e9a9c {
 
 // USA: func_ov023_021e9a9c
 ARM int CheckSlotMatchesBitfield_021e9a9c(void* obj) {
-    void* bs = GetBattleStruct();
+    void* bs = GameState::GetInstance();
     int buf[4];
     RegisterSlotA020cf0fc((int)buf);
 

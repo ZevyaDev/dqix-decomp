@@ -1,10 +1,9 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
 extern "C" int func_ov017_021d60f4(void*);
-extern "C" void* _Z15GetBattleStructv();
 extern "C" void* _Z10GetWord0x0Pi(int*);
-extern "C" void func_0203b19c(void* obj, int value, int frames);
-extern "C" char* func_ov017_0218b5b0(void);
+extern "C" void _Z16SetSubBrightnessP13GameResourcesii(void* obj, int value, int frames);
 
 // USA: func_ov001_0215b454  (semantic: UpdateCounterAndSetFlagB_0215b454)
 extern "C" ARM int func_ov001_0215b454(void* self, int mode) {
@@ -14,11 +13,11 @@ extern "C" ARM int func_ov001_0215b454(void* self, int mode) {
     if (mode >= 2) {
         value = func_ov017_021d60f4((char*)self + 0x8);
     }
-    void* battle = _Z15GetBattleStructv();
+    void* battle = GameState::GetInstance();
     void* obj = _Z10GetWord0x0Pi((int*)battle);
     if (obj != NULL) {
-        func_0203b19c(obj, value, frames);
-        char* q = *(char**)(func_ov017_0218b5b0() + 0x3000 + 0x734);
+        _Z16SetSubBrightnessP13GameResourcesii(obj, value, frames);
+        char* q = *(char**)(((char*)func_ov017_0218b5b0()) + 0x3000 + 0x734);
         if (*(unsigned short*)(q + 0xa) <= 3) {
             *(unsigned char*)(q + 0x102) = 1;
         }

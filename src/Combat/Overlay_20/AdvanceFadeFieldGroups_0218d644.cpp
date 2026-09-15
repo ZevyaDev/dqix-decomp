@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void EncodeSignFlaggedHalfword(short* out, int value);
-int GetField0x3b4Value(struct BattleStruct* battleStruct);
 
 struct FadeFieldGroups_0218d644 {
     char pad[0x4e8];
@@ -16,7 +15,7 @@ struct FadeFieldGroups_0218d644 {
 
 // USA: func_ov020_0218d644  (semantic: AdvanceFadeFieldGroups_0218d644)
 extern "C" ARM void func_ov020_0218d644(struct FadeFieldGroups_0218d644* obj) {
-    int step = GetField0x3b4Value(GetBattleStruct());
+    int step = GameState::GetInstance()->GetEffectiveDeltaTime();
     int hasFade1 = obj->f4f0 > 0;
     if (hasFade1) {
         obj->f4e8 = obj->f4e8 + (float)step * (((float)obj->f4ec - obj->f4e8) / (float)obj->f4f0);

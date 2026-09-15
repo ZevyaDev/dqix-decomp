@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Obj150_021b354c;
 unsigned char GetSubByteField56e_021b354c(Obj150_021b354c* obj);
@@ -19,9 +19,9 @@ struct Obj_021b3678 {
 
 // USA: func_ov017_021b3678  (semantic: SetResultOrScanTables_021b3678)
 extern "C" ARM int func_ov017_021b3678(struct Obj_021b3678* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int field4 = (int)BackgroundLoader::GetInstance();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, obj->id);
+    GameObject* combatant = GetCombatantWithFlag0x100(bs, obj->id);
     if (!combatant) {
         return 0;
     }

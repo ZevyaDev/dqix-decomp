@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetField6b0_021b8470(void* obj);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 
 struct SrcEntry021ca918 {
     char pad0[4];
@@ -17,7 +17,7 @@ struct SrcEntry021ca918 {
 };
 
 // USA: func_ov017_021ca918
-extern "C" ARM void func_ov017_021ca918(int unused0, struct SrcEntry021ca918* src, struct BattleStruct* battleStruct, unsigned char* base) {
+extern "C" ARM void func_ov017_021ca918(int unused0, struct SrcEntry021ca918* src, GameState* battleStruct, unsigned char* base) {
     void* table = *(void**)(base + 0x3000 + 0x718);
     void* state = GetField6b0_021b8470(table);
     if (state == NULL) return;

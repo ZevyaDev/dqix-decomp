@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int func_ov017_0218b5b0(void);
-extern "C" void func_0203b19c(int base, int a, int b);
+extern "C" void _Z16SetSubBrightnessP13GameResourcesii(int base, int a, int b);
 extern "C" void func_02022bb0(void* obj);
 
 struct Obj02022d78 {
@@ -16,7 +16,7 @@ struct Obj02022d78 {
 // USA: func_02022d78
 ARM void SetActiveModeSavingPrevious02022d78(struct Obj02022d78* obj, int newValue) {
     if (obj->activeFlag != 0) {
-        func_0203b19c(func_ov017_0218b5b0(), -16, 0);
+        _Z16SetSubBrightnessP13GameResourcesii(func_ov017_0218b5b0(), -16, 0);
     }
     func_02022bb0(obj);
     obj->prevValue = obj->curValue;

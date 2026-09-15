@@ -1,11 +1,7 @@
 #include <globaldefs.h>
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "Resource/GameResources.h"
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-BattleStruct* GetBattleStruct();
-struct CombatantStruct;
-CombatantStruct* GetCombatantAtField0x397c(BattleStruct* battleStruct);
-int GetField0x3b4Value(BattleStruct* battleStruct);
 struct Obj020397cc;
 void CancelPendingAction020397cc(Obj020397cc* obj, int arg1);
 int GetFieldIfFlag4(char* obj);
@@ -38,10 +34,10 @@ struct SelfState_021b58b8 {
 // USA: func_ov017_021b58b8  (semantic: AdvanceTimerAndDispatchState_021b58b8)
 extern "C" ARM void func_ov017_021b58b8(SelfState_021b58b8* self, ListNode02046b38* arg1) {
     if (self->field18 != 0) {
-        BattleStruct* battleStruct = GetBattleStruct();
-        CombatantStruct* combatant = GetCombatantAtField0x397c(battleStruct);
+        GameState* battleStruct = GameState::GetInstance();
+        GameObject* combatant = battleStruct->GetUnknownGameObject();
         if (combatant != 0) {
-            unsigned int val = (unsigned int)GetField0x3b4Value(battleStruct);
+            unsigned int val = (unsigned int)battleStruct->GetEffectiveDeltaTime();
             if (val < self->field18) {
                 CancelPendingAction020397cc((Obj020397cc*)combatant, 1);
                 *(unsigned short*)((char*)combatant + 0xb2) = 0;
@@ -50,7 +46,7 @@ extern "C" ARM void func_ov017_021b58b8(SelfState_021b58b8* self, ListNode02046b
                 if (flag != 0) {
                     SetField0x238False((void*)flag);
                 }
-                Struct_ov017_44C8* ov = func_ov017_0218b5b0();
+                GameResources* ov = func_ov017_0218b5b0();
                 if (ov != 0) {
                     SetBitsInField4((unsigned int*)ov, 0x80);
                 }
@@ -61,7 +57,7 @@ extern "C" ARM void func_ov017_021b58b8(SelfState_021b58b8* self, ListNode02046b
                 if (flag != 0) {
                     SetField0x238True((void*)flag);
                 }
-                Struct_ov017_44C8* ov = func_ov017_0218b5b0();
+                GameResources* ov = func_ov017_0218b5b0();
                 if (ov != 0) {
                     ClearBitsInField4((unsigned int*)ov, 0x80);
                 }
@@ -69,7 +65,7 @@ extern "C" ARM void func_ov017_021b58b8(SelfState_021b58b8* self, ListNode02046b
         }
     }
 
-    Struct_ov017_44C8* ov = func_ov017_0218b5b0();
+    GameResources* ov = func_ov017_0218b5b0();
     if (ov != 0) {
         CallIfField498_0218d5ac((void*)ov);
     }

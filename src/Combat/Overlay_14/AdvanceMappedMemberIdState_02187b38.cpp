@@ -1,16 +1,16 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetWord0x0(int* obj);
 extern "C" void func_ov014_02188330(void* self);
 short FindMappedMemberId02080468(void* obj, int id);
 extern "C" void func_020813ec(void* obj, int key);
-void SetBothCounters(void* obj, int value, int frames);
-int CheckField0x14Or0x20Positive(int* obj);
+extern "C" void _Z13SetBrightnessP13GameResourcesii(void* obj, int value, int frames);
+extern "C" int _Z28IsBrightnessTransitionActiveP13GameResources(int* obj);
 
 // USA: func_ov014_02187b38  (semantic: AdvanceMappedMemberIdState_02187b38)
 extern "C" ARM void func_ov014_02187b38(void* self) {
-    int w = GetWord0x0((int*)GetBattleStruct());
+    int w = GetWord0x0((int*)GameState::GetInstance());
     unsigned char state = *((unsigned char*)self + 0x17b);
     if (state == 0) {
         *(void**)((char*)self + 0x5c) = (char*)self + 0xe0;
@@ -25,12 +25,12 @@ extern "C" ARM void func_ov014_02187b38(void* self) {
         return;
     }
     if (state == 1) {
-        SetBothCounters((void*)w, 0, 8);
+        _Z13SetBrightnessP13GameResourcesii((void*)w, 0, 8);
         (*((unsigned char*)self + 0x17b))++;
         return;
     }
     if (state != 2) return;
-    if (!CheckField0x14Or0x20Positive((int*)w)) {
+    if (!_Z28IsBrightnessTransitionActiveP13GameResources((int*)w)) {
         *((unsigned char*)self + 0x17a) = 2;
         *((unsigned char*)self + 0x17b) = 0;
     }

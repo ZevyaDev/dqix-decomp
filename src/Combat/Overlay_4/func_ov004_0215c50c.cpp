@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int DispatchNodeIfType7_02156e2c(void* a, int key);
 void* GetEntryFor_021570a4(void* obj, int index);
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov004_0215c50c(void* a) {
     unsigned char orig11 = data_ov004_021707d8.ptr[0x11];
     data_ov004_021707d8.ptr[0x11] = (unsigned char)((unsigned int)(entry->field4 << 25) >> 25);
 
-    void* ptr2a04 = GetPtrField0x2a04(GetBattleStruct());
+    void* ptr2a04 = GetPtrField0x2a04(GameState::GetInstance());
     unsigned int hi = (unsigned int)entry->field4 >> 7;
     unsigned int product = data_ov004_021707d8.ptr[0x11] * hi;
     int f6c = *(int*)((char*)ptr2a04 + 0xf6c);

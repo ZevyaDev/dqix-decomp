@@ -1,10 +1,8 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "System/Timing.h"
 
-extern "C" int func_ov017_0218b5b0(void);
-struct CombatantStruct* GetCombatantAtField0x3ac(struct BattleStruct*);
 extern "C" void func_0202ae18(void);
 void InitStruct02013718(char* obj, int a, int b);
 extern "C" void func_02012fe4(void);
@@ -22,10 +20,10 @@ void SetCombatWorkFlags0x55f4(void* work, int mask);
 
 // USA: func_ov000_02166880
 ARM void InitAndProcessCombat02166880(unsigned char* obj) {
-    func_ov017_0218b5b0();
-    struct BattleStruct* battle = GetBattleStruct();
+    ((int)func_ov017_0218b5b0());
+    GameState* battle = GameState::GetInstance();
     struct Obj0202fa00* fieldObj = (struct Obj0202fa00*)(int)BackgroundLoader::GetInstance();
-    GetCombatantAtField0x3ac(battle);
+    battle->GetProtagonist();
     func_0202ae18();
     InitStruct02013718((char*)(obj + 0x2c8 + 0xc00), (int)(obj + 8), (int)(obj + 0x6f0 + 0x3000));
     func_02012fe4();

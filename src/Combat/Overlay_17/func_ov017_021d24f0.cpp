@@ -1,12 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 
 struct ListHead02046b60;
 int ListContainsId(struct ListHead02046b60* list, int id);
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 
 struct U16Field0x6_020375f8;
 extern "C" unsigned short _ZNK8Object3D10GetField06Ev(struct U16Field0x6_020375f8* obj);
@@ -25,11 +23,11 @@ struct Node021d24f0 {
 };
 
 // USA: func_ov017_021d24f0
-extern "C" ARM void func_ov017_021d24f0(void* unused0, Node021d24f0* node, struct BattleStruct* battleStruct) {
-    int base = func_ov017_0218b5b0();
+extern "C" ARM void func_ov017_021d24f0(void* unused0, Node021d24f0* node, GameState* battleStruct) {
+    int base = ((int)func_ov017_0218b5b0());
     struct TailList020469b4* list = *(struct TailList020469b4**)((char*)base + 0x3000 + 0x6fc);
     if (ListContainsId((struct ListHead02046b60*)list, 0xa)) return;
-    struct CombatantStruct* c = GetCombatantAtField0x397c(battleStruct);
+    GameObject* c = battleStruct->GetUnknownGameObject();
     unsigned short u = _ZNK8Object3D10GetField06Ev((struct U16Field0x6_020375f8*)c);
     if (node->field8 != u) return;
     if (ListContainsId((struct ListHead02046b60*)list, 0x1a)) return;

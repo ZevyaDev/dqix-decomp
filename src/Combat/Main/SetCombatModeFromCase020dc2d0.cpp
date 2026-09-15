@@ -1,12 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
 
 extern "C" {
     void* func_0202ae18(GrottoStruct* grotto);
     int func_0202c508(void* something);
     void* func_02012fe4(void);
-    int func_ov017_0218b5b0(void);
 }
 
 struct FlagWord020466f4;
@@ -28,15 +27,15 @@ int ListContainsId(struct ListHead02046b60* list, int id);
 
 // USA: func_020dc2d0
 ARM void SetCombatModeFromCase020dc2d0(int mode) {
-    BattleStruct* battle = GetBattleStruct();
-    GrottoStruct* grotto = GetGrottoStruct(battle);
+    GameState* battle = GameState::GetInstance();
+    GrottoStruct* grotto = battle->GetGrottoStruct();
     void* something = func_0202ae18(grotto);
     void* ptr = func_02012fe4();
     int flag1;
     int flag2;
     StructWithNibble020dc2d0* field8 = *(StructWithNibble020dc2d0**)((char*)ptr + 0x8);
 
-    int base = func_ov017_0218b5b0();
+    int base = ((int)func_ov017_0218b5b0());
     flag1 = 0;
     void* list = *(void**)(base + 0x3000 + 0x6fc);
     flag2 = flag1;

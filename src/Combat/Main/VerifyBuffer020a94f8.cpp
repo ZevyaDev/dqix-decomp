@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 extern "C" int func_02075910(int a0, void* out, int a1, int a2);
@@ -14,7 +14,7 @@ ARM int VerifyBuffer020a94f8(struct Buf020a94f8* buf, int flag) {
     if (!func_02075910(id, buf, 0x14, 0)) {
         return 0;
     }
-    BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     if (strcmp(buf->str, &data_020f1be8) == 0) {
         ((unsigned char*)bs + 0x5000)[0xcc8] = flag ? 3 : 2;
         return 0;

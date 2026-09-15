@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Combat/Overlay_0/GetCombatantByID.h"
+#include "GameState/GameState.h"
 
 unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
 extern "C" void* func_ov000_0215e958(void* a0);
@@ -19,7 +20,7 @@ struct Range_021e1328 { char pad[0x20]; struct PackedPair_021e1328 f20; struct P
 
 // USA: func_ov024_021e1328
 ARM void* AddBuffEntryToTable_021e1328(struct Obj_021e1328* obj, int unused, int id, struct Range_021e1328* range) {
-	struct CombatantStruct* c = GetCombatantByID((int)obj->field0x10, id);
+	GameObject* c = GetCombatantByID((int)obj->field0x10, id);
 	if (!c) return 0;
 	unsigned short sel = SelectByIndexRange0to3_021da644(id, range->f20.c, range->f24.a);
 	void* entry = func_ov000_0215e958(obj->field0x10);

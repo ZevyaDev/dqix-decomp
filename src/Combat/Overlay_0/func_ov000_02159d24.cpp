@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct TableEntry02182d88 { short key; short pad; };
 extern struct TableEntry02182d88 data_ov000_02182d88[];
@@ -9,7 +9,7 @@ extern struct TableEntry02182d8a data_ov000_02182d8a[];
 
 // USA: func_ov000_02159d24
 extern "C" ARM int func_ov000_02159d24(int unused, int combatantId) {
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(GetBattleStruct(), combatantId);
+    GameObject* combatant = GetCombatantWithFlag0x100(GameState::GetInstance(), combatantId);
     if (combatant == 0) {
         return 0;
     }

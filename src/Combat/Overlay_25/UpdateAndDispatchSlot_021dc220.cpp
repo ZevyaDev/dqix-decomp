@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetSlotPtr02160f20(void* obj);
 int CheckSlotEntryKind021627fc(void* obj);
@@ -35,7 +35,7 @@ struct List02160094_dc220 {
 // USA: func_ov025_021dc220  (semantic: UpdateAndDispatchSlot_021dc220)
 extern "C" ARM void func_ov025_021dc220(void* obj) {
     struct Obj021dc220* self = (struct Obj021dc220*)obj;
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     void* slot = GetSlotPtr02160f20(obj);
     short idx = -1;
 
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov025_021dc220(void* obj) {
         struct ListNode02160094_dc220* node = list->head;
         int allowDefault = 1;
         while (node != NULL) {
-            struct CombatantStruct* combatant = GetCombatantFromList(battle, node->id);
+            GameObject* combatant = battle->GetCombatantByIndex(node->id);
             if (combatant != NULL) {
                 ClearSubstructFlag0x4((unsigned char*)combatant);
                 if (idx >= 0) {

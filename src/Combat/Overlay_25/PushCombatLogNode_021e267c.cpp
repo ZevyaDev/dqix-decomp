@@ -1,8 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 void* GetArrayEntry_021e8a54_021e8a54(char* obj);
 unsigned char GetByte48_021e8ba4(void* obj);
 extern "C" void* _ZN13SafeAllocator8AllocateEj(void* thisPtr, unsigned int size);
@@ -40,10 +39,10 @@ extern int data_ov025_021ef988;
 
 // USA: func_ov025_021e267c  (semantic: PushCombatLogNode_021e267c)
 extern "C" ARM void func_ov025_021e267c(int combatantId, int arg1, int arg2, int flag) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     void* entryObj = *(void**)((char*)&data_ov025_021ef988 + 0xc);
     void* entry = GetArrayEntry_021e8a54_021e8a54((char*)entryObj);
-    struct CombatantStruct* combatant = GetCombatantUnchecked(battle, combatantId);
+    GameObject* combatant = battle->GetGameObjectByIndex(combatantId);
     if (!combatant) return;
     struct Node021e8bac* node = (struct Node021e8bac*)_ZN13SafeAllocator8AllocateEj(entry, 0xc);
     if (!node) return;

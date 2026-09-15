@@ -1,8 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void func_ov017_021b5a30(unsigned char* obj);
 extern "C" void func_ov017_021b6090(unsigned char* obj);
 extern "C" void func_02094ab0(int a);
@@ -13,8 +11,8 @@ void SetByteField0x253(void* obj);
 
 // USA: func_ov017_021b5fc0  (semantic: AdvanceOrResetCombatScale_021b5fc0)
 extern "C" ARM int func_ov017_021b5fc0(unsigned char* obj) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    int scale = GetBattleScaleCount(battleStruct);
+    GameState* battleStruct = GameState::GetInstance();
+    int scale = battleStruct->GetTickCount();
     func_ov017_0218b5b0();
 
     if (obj[0x54] != 0) {

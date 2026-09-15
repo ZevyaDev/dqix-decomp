@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 ARM int GetGlobal02109400(void);
 extern "C" ARM void func_02094ab0(void* obj);
@@ -17,5 +17,5 @@ ARM void ResetBattlePhaseController020936b0(void* obj) {
     *(short*)(self + 0x30) = -1;
     self[0x34] = 4;
     self[0x35] = 0;
-    ClearSubstructBytes(GetBattleStruct());
+    ClearSubstructBytes(GameState::GetInstance());
 }

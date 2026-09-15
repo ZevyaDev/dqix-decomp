@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct SearchStruct0202c1a4 {
     char pad[0x1038];
@@ -9,8 +9,7 @@ struct SearchStruct0202c1a4 {
 extern "C" int* func_0202ae18(void);
 int CheckField0NonZero(int* obj);
 signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
-extern "C" int func_ov017_0218b5b0(void);
-void* GetField0x3f8Address(struct BattleStruct* battleStruct);
+void* GetField0x3f8Address(GameState* battleStruct);
 extern "C" void* func_02012fe4(void* unused);
 void* GetData02100044(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
@@ -43,8 +42,8 @@ extern "C" ARM void func_ov017_021d1a18(int a, short b, short c, unsigned char d
     if (!CheckField0NonZero(func_0202ae18())) return;
     if (GetSearchStructCurrentArrEntry((struct SearchStruct0202c1a4*)func_0202ae18()) != 0) return;
 
-    func_ov017_0218b5b0();
-    struct BattleStruct* bs = GetBattleStruct();
+    ((int)func_ov017_0218b5b0());
+    GameState* bs = GameState::GetInstance();
     void* base = func_02012fe4(GetField0x3f8Address(bs));
     void* p = GetData02100044();
 

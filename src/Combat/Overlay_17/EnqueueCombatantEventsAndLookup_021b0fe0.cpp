@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void EnqueueNameTag3_021c45b4(int combatantId);
 void EnqueueEventTag11_021cc97c(int id);
@@ -22,7 +22,6 @@ extern "C" void func_ov017_021d0e00(int id);
 extern "C" void func_ov017_021c9e00(int id, int a, int b, int c);
 extern "C" void func_ov017_021d25f4(int id);
 extern "C" void* func_ov017_021b8468(void* obj);
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" void func_ov000_0217616c(void* p);
 
 void* GetOffsetPtr02160f08(void* obj);
@@ -63,11 +62,11 @@ extern "C" ARM void func_ov017_021b0fe0(int id) {
 	func_ov017_021c9e00(id, 1, 0, 1);
 	func_ov017_021d25f4(id & 0xff);
 
-	if (!ArrayContainsByte((ArrayContainsByteStruct*)GetPtrField0x2a04(GetBattleStruct()), id)) {
+	if (!ArrayContainsByte((ArrayContainsByteStruct*)GetPtrField0x2a04(GameState::GetInstance()), id)) {
 		return;
 	}
 
-	int base = func_ov017_0218b5b0();
+	int base = ((int)func_ov017_0218b5b0());
 	struct ListHead02046b60* listA = *(struct ListHead02046b60**)((char*)base + 0x3000 + 0x6fc);
 	if (!ListContainsId(listA, 0xa)) {
 		return;

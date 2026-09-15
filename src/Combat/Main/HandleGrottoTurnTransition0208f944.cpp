@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
 #include "Grotto/Main/DetailedTreasureMapData.h"
 
-void* GetField0x3f8Address(struct BattleStruct* battleStruct);
+void* GetField0x3f8Address(GameState* battleStruct);
 extern "C" void* func_02012fe4(void);
 int IsInRange0201b588(int id);
 int IsValueInRange0201b5d8(int x);
@@ -35,9 +35,9 @@ struct State0208f944 {
 
 // USA: func_0208f944
 ARM void HandleGrottoTurnTransition0208f944(struct Obj0208f944* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     struct State0208f944* state = (struct State0208f944*)GetField0x3f8Address(battle);
-    struct GrottoStruct* grotto = GetGrottoStruct(battle);
+    struct GrottoStruct* grotto = battle->GetGrottoStruct();
     void* misc = func_02012fe4();
     int a = state->h0;
     int b = *(unsigned short*)misc;

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
+#include "GameState/GameState.h"
 
 struct ByteHeader0204693c020d8484 {
     signed char byte0;
@@ -20,7 +21,6 @@ struct Obj020d8484 {
     SafeAllocator allocator;                   // 0x14
 };
 
-struct BattleStruct* GetBattleStruct();
 int GetFieldIfFlag4(char* obj);
 void SetField0x23cTrue(void* obj);
 void ResetListHeader020727ec(struct List020727d8* list);
@@ -29,7 +29,7 @@ extern int data_02114e20;
 
 // USA: func_020d8484
 ARM void ShutdownObject020d8484(struct Obj020d8484* self) {
-    SetField0x23cTrue((void*)GetFieldIfFlag4((char*)GetBattleStruct()));
+    SetField0x23cTrue((void*)GetFieldIfFlag4((char*)GameState::GetInstance()));
     void* p = self->allocator.GetSignedAllocator();
     if (p != NULL) {
         self->allocator.Reset();

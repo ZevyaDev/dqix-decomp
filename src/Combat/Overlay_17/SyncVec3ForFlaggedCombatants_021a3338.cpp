@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Overlay_1/EventArgs.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x20(struct BattleStruct* battleStruct, int combatantId);
 extern "C" void* func_02012fe4(void);
 extern "C" int func_02018fbc(int seed, EventVec3* v);
 struct Entry_02028bd0;
@@ -17,7 +16,7 @@ struct EntryField2_021a3338 { unsigned char pad0[2]; unsigned short field2 : 2; 
 
 // USA: func_ov017_021a3338
 ARM void SyncVec3ForFlaggedCombatants_021a3338(void) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     struct PtrWithU16_021a3338* ptr = (struct PtrWithU16_021a3338*)func_02012fe4();
     unsigned short value = ptr->field0;
     struct Entry_02028bd0* entry = FindEntryByCurrentId02027cb0();
@@ -27,7 +26,7 @@ ARM void SyncVec3ForFlaggedCombatants_021a3338(void) {
     for (i = 0; i < 0xc; i++) {
         int idx = ((struct EntryField2_021a3338*)entry)->field2;
         int base = idx * 0xc + 0x70;
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x20(battleStruct, i + base);
+        GameObject* combatant = battleStruct->GetMaybeFieldMonsterByIndex(i + base);
         if (combatant) {
             if (value == _ZNK8Object3D10GetField06Ev((struct U16Field0x6_020375f8*)combatant)) {
                 EventVec3 v = *(EventVec3*)((char*)combatant + 0x44);

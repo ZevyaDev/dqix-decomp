@@ -1,16 +1,16 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" struct CombatantStruct* func_ov023_021e8f28(int index);
+extern "C" GameObject* func_ov023_021e8f28(int index);
 extern "C" int func_ov017_021d60f4(void* obj);
 extern "C" void func_ov017_021d6134(void* obj, int value);
 
 // USA: func_ov023_021e9424  (semantic: CheckSequenceMatchAndFlag_021e9424)
 extern "C" ARM int func_ov023_021e9424(char* ptr, int n) {
-    GetBattleStruct();
+    GameState::GetInstance();
     int id0 = func_ov017_021d60f4(ptr);
     ptr += 8;
-    struct CombatantStruct* combatant = func_ov023_021e8f28(id0);
+    GameObject* combatant = func_ov023_021e8f28(id0);
     if (!combatant) return 0;
 
     int allMatch = 1;

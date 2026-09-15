@@ -1,8 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x2(struct BattleStruct* battleStruct, int combatantId);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 int DispatchByIndex021820bc(void* obj, int unused, int index, int arg);
 struct Obj02033874;
@@ -32,16 +30,16 @@ struct Local021e87f4 {
 
 // USA: func_ov025_021e87f4
 ARM int DoCombatantVecUpdate_021e87f4(struct In021e87f4* a, int b, int unused, void* c) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     struct Local021e87f4 local;
     if (!DispatchByIndex021820bc(c, b, a->idx, (int)&local.id)) {
         return 1;
     }
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x2(bs, local.id);
+    GameObject* combatant = bs->GetMaybeWanderingMonsterByIndex(local.id);
     if (combatant) {
         SetVecYFromValue02033874((struct Obj02033874*)combatant, a->val);
     } else {
-        combatant = GetCombatantUnchecked(bs, local.id);
+        combatant = bs->GetGameObjectByIndex(local.id);
         if (!combatant) {
             return 1;
         }

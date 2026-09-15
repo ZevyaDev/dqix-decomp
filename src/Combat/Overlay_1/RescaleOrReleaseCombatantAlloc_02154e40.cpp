@@ -1,10 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 
 void SetFlag0x2IfByte0xd4Not3(unsigned char* obj);
-unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
 extern "C" void func_0208bb78(void* obj, int count);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
 extern AllocatorUnion data_02114e20;
@@ -28,11 +27,11 @@ struct Obj02154e40 {
 
 // USA: func_ov001_02154e40  (semantic: RescaleOrReleaseCombatantAlloc_02154e40)
 extern "C" ARM int func_ov001_02154e40(struct Obj02154e40* self) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
 
     if (!(self->flags0x50 & 0x8) && self->field0x138 != 0 && self->field0x120 != 0) {
         SetFlag0x2IfByte0xd4Not3((unsigned char*)self->field0x120);
-        unsigned int scaleCount = GetBattleScaleCount(battle);
+        unsigned int scaleCount = battle->GetTickCount();
         func_0208bb78(self->field0x120, scaleCount);
 
         if (*(short*)((char*)self->field0x120 + 0xd2) >= 0) {

@@ -1,13 +1,13 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" int _ZNK8Object3D9GetRadiusEv(unsigned char* obj);
 int CheckSubstructAndRange02167bb4(unsigned char* obj, int id);
 
 // USA: func_ov000_02167c28
 ARM int FindOrAssignSlot02167c28(unsigned char* obj, int id) {
-    struct BattleStruct* battle = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantFromList(battle, id);
+    GameState* battle = GameState::GetInstance();
+    GameObject* combatant = battle->GetCombatantByIndex(id);
     if (!combatant) return -1;
 
     for (int i = 0; i < 8; i++) {

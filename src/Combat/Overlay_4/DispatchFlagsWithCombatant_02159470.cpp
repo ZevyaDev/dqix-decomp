@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 signed char GetFlagByte_021570f0(int idx);
 extern "C" void* func_ov004_02156f04(void* a, int key);
 extern "C" int func_020dcc98(int);
@@ -32,18 +31,18 @@ public:
 
 // USA: func_ov004_02159470  (semantic: DispatchFlagsWithCombatant_02159470)
 extern "C" ARM int func_ov004_02159470(void* self) {
-    BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     GetPtrField0x2a04(battle);
     char* ptr = data_ov004_021707d8.ptr;
     unsigned char count = (unsigned char)(*(short*)(ptr + 0x3a));
     int key = 0x322;
     for (unsigned char i = 0; i < count; key++, i++) {
         int idVal = GetFlagByte_021570f0(i);
-        CombatantStruct* c = GetCombatantWithFlag0x800(battle, idVal);
+        GameObject* c = battle->GetPartyMemberByIndex(idVal);
         if (!c) continue;
         VObj02159470* node = (VObj02159470*)func_ov004_02156f04(self, key);
         if (!node) continue;
-        node->field0x20 = c->baseStats;
+        node->field0x20 = c->baseStats_;
         int v = func_020dcc98(idVal);
         node->Handle(v);
     }

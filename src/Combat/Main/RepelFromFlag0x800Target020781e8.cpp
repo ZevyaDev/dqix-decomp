@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 extern "C" void* func_0202ae18(void);
 int CheckField0NonZero(int* obj);
@@ -14,12 +13,8 @@ struct Vec3 {
     int y;
     int z;
 };
-extern "C" void Vector3fix_Subtract(struct Vec3* a, struct Vec3* b, struct Vec3* out);
-extern "C" void Vector3fix_Add(struct Vec3* a, struct Vec3* b, struct Vec3* out);
 
-extern "C" struct Vec3 func_02034104(struct CombatantStruct* combatant);
-extern "C" void Vector3fix_Normalize(struct Vec3* out, struct Vec3* in);
-extern "C" int fix32_Atan2(int x);
+extern "C" struct Vec3 func_02034104(GameObject* combatant);
 
 struct Obj02033834;
 void SetVecYByMode02033834(struct Obj02033834* obj, int arg);
@@ -62,8 +57,8 @@ struct Entity020781e8 {
 
 // USA: func_020781e8
 ARM int RepelFromFlag0x800Target020781e8(struct Entity020781e8* e) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x800(battleStruct, e->f166);
+    GameState* battleStruct = GameState::GetInstance();
+    GameObject* combatant = battleStruct->GetPartyMemberByIndex(e->f166);
     if (combatant == NULL) {
         return 0;
     }
@@ -73,16 +68,16 @@ ARM int RepelFromFlag0x800Target020781e8(struct Entity020781e8* e) {
     if (!CheckField0NonZero((int*)g) || GetSearchStructCurrentArrEntry((struct SearchStruct0202c1a4*)g) == 0) {
         struct Vec3 posCopy = func_02034104(combatant);
         struct Vec3 delta;
-        Vector3fix_Subtract(&posCopy, &e->f44, &delta);
-        Vector3fix_Normalize(&delta, &delta);
+        Vector3fix_Subtract((const Vector3fix*)&posCopy, (const Vector3fix*)&e->f44, (Vector3fix*)&delta);
+        Vector3fix_Normalize((const Vector3fix*)&delta, (Vector3fix*)&delta);
         delta.x = -delta.x;
         delta.y = -delta.y;
         delta.z = -delta.z;
-        scale = fix32_Atan2(delta.x);
+        scale = ((int (*)(int))fix32_Atan2)(delta.x);
         SetVecYByMode02033834((struct Obj02033834*)e, scale);
         delta.y = 0;
         _Z24Vector3fixMultiplyScalarPK8Vector3iiPS_((struct Vec3Fixed02030e2c*)&delta, 0x5000, (struct Vec3Fixed02030e2c*)&delta);
-        Vector3fix_Add(&e->f44, &delta, &e->f158);
+        Vector3fix_Add((const Vector3fix*)&e->f44, (const Vector3fix*)&delta, (Vector3fix*)&e->f158);
     }
 
     e->fb4 = 0x1c2;

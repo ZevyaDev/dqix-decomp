@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
 struct EntryA68 {
     short key;
@@ -16,7 +17,6 @@ struct BattleField0218a9ec {
     unsigned int hi : 6;
 };
 
-void* GetBattleStruct();
 extern "C" int _Z22AppendFrameTag02041c08Pciiiii(char* dst, int a1, int a2, int a3, int a4, int a5);
 int AppendCursorTag(char* dst, int cursor);
 void* FindEntryByKey(struct TableA68* table, int key);
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov012_0218a9ec(unsigned char* self, char* dst, int c) {
 
     int cursor = *(int*)(self + 0x13f4) & 7;
     struct BattleField0218a9ec* fld =
-        (struct BattleField0218a9ec*)((char*)GetBattleStruct() + 0x569c);
+        (struct BattleField0218a9ec*)((char*)GameState::GetInstance() + 0x569c);
 
     if (c != 0) {
         _Z22AppendFrameTag02041c08Pciiiii(dst, cursor, 8, 5, 5, 5);

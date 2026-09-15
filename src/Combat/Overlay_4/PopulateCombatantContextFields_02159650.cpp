@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct021707d8_02159650 { char pad[8]; unsigned char* ptr; };
 extern Struct021707d8_02159650 data_ov004_021707d8;
@@ -19,7 +19,6 @@ struct Element020de650 { int field0; char pad2[4]; int field8; char pad3[0xc]; s
 struct Element020de650* FindElementByKey020dedd0(struct Container020dedd0* c, int key);
 
 void InitObjFromCombatantId020e4bf4(void* obj, int combatantId);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 int CallFunc020e0434With02153694(int value);
 extern "C" void func_020e4b34(void* obj, int stats1, int stats2, int a, int b, int c, int d, int e, int f, int g, int h, int i);
@@ -57,7 +56,7 @@ extern "C" ARM int func_ov004_02159650(void* obj) {
     }
 
     int combatantId = *(signed char*)(data_ov004_021707d8.ptr + 0x12);
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x800(GetBattleStruct(), combatantId);
+    GameObject* combatant = GameState::GetInstance()->GetPartyMemberByIndex(combatantId);
 
     if (combatant != 0) {
         InitObjFromCombatantId020e4bf4(data_ov004_021707d8.ptr + 0xa0, combatantId);

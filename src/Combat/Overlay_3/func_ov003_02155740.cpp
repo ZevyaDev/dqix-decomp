@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 extern "C" float _fflt(int v);
 extern "C" float _fmul(float a, float b);
 extern "C" int _ffix(float v);
@@ -11,9 +10,9 @@ extern "C" void func_ov017_021c9e00(int id, int flagA, int flagB, int flagC);
 
 // USA: func_ov003_02155740  (semantic: RescaleCombatantSizeTarget_02155740)
 extern "C" ARM void func_ov003_02155740(char* obj) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     signed char idx = *(signed char*)(obj + 0x1f7);
-    struct CombatantStruct* c = GetCombatantWithFlag0x800(battle, idx);
+    GameObject* c = battle->GetPartyMemberByIndex(idx);
     if (c == 0) {
         return;
     }

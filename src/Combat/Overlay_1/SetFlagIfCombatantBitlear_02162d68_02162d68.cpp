@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 extern "C" void func_ov017_021d6134(void*, int);
 
@@ -12,7 +11,7 @@ struct Sub0x150_02162d68 {
 
 // USA: func_ov001_02162d68
 ARM int SetFlagIfCombatantBitlear_02162d68_02162d68(void* ctx) {
-    struct CombatantStruct* c = GetCombatantWithFlag0x800(GetBattleStruct(), 0);
+    GameObject* c = GameState::GetInstance()->GetPartyMemberByIndex(0);
     if (c == NULL) {
         return 0;
     }

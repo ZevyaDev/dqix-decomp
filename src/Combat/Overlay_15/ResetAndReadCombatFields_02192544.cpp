@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct BattleStruct* GetBattleStruct(void);
 int GetFieldIfFlag2(char* obj);
 struct Struct020A2CF0;
 void ResetState020a2cf0(struct Struct020A2CF0* obj);
@@ -11,7 +11,7 @@ extern "C" void func_0202e5d8(void* obj, int a, int b, int c);
 
 // USA: func_ov015_02192544  (semantic: ResetAndReadCombatFields_02192544)
 extern "C" ARM void func_ov015_02192544(void) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     if (battle == 0) {
         return;
     }

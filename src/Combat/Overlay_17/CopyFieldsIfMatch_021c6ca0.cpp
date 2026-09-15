@@ -1,10 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov017_021b8478(void* obj);
 extern "C" void* func_ov017_021b8468(void* obj);
 void* GetField6b0_021b8470(void* obj);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 
 struct Ret021c6ca0 {
     unsigned char pad0[8];
@@ -24,7 +24,7 @@ struct Src021c6ca0 {
 };
 
 // USA: func_ov017_021c6ca0  (semantic: CopyFieldsIfMatch_021c6ca0)
-extern "C" ARM void func_ov017_021c6ca0(int unused0, Src021c6ca0* src, struct BattleStruct* battleStruct, unsigned char* obj) {
+extern "C" ARM void func_ov017_021c6ca0(int unused0, Src021c6ca0* src, GameState* battleStruct, unsigned char* obj) {
     unsigned char* h = *(unsigned char**)(obj + 0x3000 + 0x718);
     Ret021c6ca0* r = (Ret021c6ca0*)func_ov017_021b8478(h);
     if (!r) return;
@@ -32,10 +32,10 @@ extern "C" ARM void func_ov017_021c6ca0(int unused0, Src021c6ca0* src, struct Ba
     if (!GetField6b0_021b8470(h)) return;
     if (r->field2a == GetField0x3acValue(battleStruct)) return;
     if (r->field8 != src->field4) return;
-    struct CombatantStruct* c = GetCombatantFromList(battleStruct, src->field6);
+    GameObject* c = battleStruct->GetCombatantByIndex(src->field6);
     if (!c) return;
-    *(unsigned short*)((char*)c->currentStats + 0x0) = src->field8;
-    *(unsigned short*)((char*)c->currentStats + 0x2) = src->fielda;
-    *(int*)((char*)c->currentStats + 0x14) = src->fieldc;
-    *(int*)((char*)c->currentStats + 0x18) = src->field10;
+    *(unsigned short*)((char*)c->currentStats_ + 0x0) = src->field8;
+    *(unsigned short*)((char*)c->currentStats_ + 0x2) = src->fielda;
+    *(int*)((char*)c->currentStats_ + 0x14) = src->fieldc;
+    *(int*)((char*)c->currentStats_ + 0x18) = src->field10;
 }

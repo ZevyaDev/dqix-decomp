@@ -30,20 +30,9 @@ struct ModifiableCombatStats {
     signed int magicalMendingBuff : 3;
 };
 
-struct CombatantStruct {
-    unsigned short flags;
-    char unk[0x132];
-    struct BaseCombatStats* baseStats; // TODO: holds more general info than just stats
-    struct ModifiableCombatStats* currentStats; // includes things like buffs being applied
-};
+class GameState;
+class GameObject;
 
-struct BattleStruct {
-    int unk0;
-    int unk4;
-    struct CombatantStruct* combatantList[0xe9]; // TODO: validate this size as well as this struct as a whole
-};
-struct BattleStruct* GetBattleStruct();
-struct CombatantStruct* GetCombatantFromList(struct BattleStruct* battleStruct, int id);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
-int GetByteField0x5721(struct BattleStruct* battleStruct);
+GameObject* GetCombatantWithFlag0x100(GameState* gameState, int combatantId);
+void* GetPtrField0x2a04(GameState* gameState);
+int GetByteField0x5721(GameState* gameState);

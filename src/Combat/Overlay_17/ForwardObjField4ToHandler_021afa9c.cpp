@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Grotto/Overlay_17/Struct44C8.h"
+#include "Resource/GameResources.h"
 
 extern "C" void func_ov017_021a3ddc(void* p, void* obj);
 

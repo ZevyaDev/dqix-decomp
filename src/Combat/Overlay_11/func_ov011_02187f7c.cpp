@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int CheckBitsInField0x63dc(void* obj, int mask);
 extern "C" void* func_0202ae18(void);
@@ -10,7 +10,7 @@ extern "C" int func_ov017_021d6134(void* arg0, int level);
 // USA: func_ov011_02187f7c
 extern "C" ARM int func_ov011_02187f7c(void* arg0) {
     int level = 0;
-    BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     if (CheckBitsInField0x63dc(battle, 1)) {
         if (CheckBitsInField0x63dc(battle, 2)) level = 1;
         if (CheckBitsInField0x63dc(battle, 4)) level = 2;

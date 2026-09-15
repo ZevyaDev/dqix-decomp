@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_0203f430(void* p);
 struct Obj02037640;
@@ -18,7 +18,7 @@ struct Roster0203de2c {
 // USA: func_0203de2c
 ARM void ReleaseRosterEntries0203de2c(struct Roster0203de2c* roster) {
     int i;
-    GetBattleStruct();
+    GameState::GetInstance();
     for (i = 0; i < 0x20; i++) {
         struct Node0203de2c* n = roster->nodes[i];
         if (n == NULL) continue;

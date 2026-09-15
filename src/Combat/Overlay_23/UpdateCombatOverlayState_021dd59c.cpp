@@ -2,8 +2,8 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/AllocatorUnion.h"
 #include "Memory/SafeAllocator.h"
+#include "GameState/GameState.h"
 
-struct BattleStruct* GetBattleStruct(void);
 int GetWord0x0(int* obj);
 
 int DispatchByMode77c_021ddbb8(void* obj, int a, int b);
@@ -46,7 +46,7 @@ extern int data_ov023_021fdb99;
 extern "C" ARM void func_ov023_021dd59c(void* objRaw) {
     char* obj = (char*)objRaw;
     int dataResult = (int)BackgroundLoader::GetInstance();
-    GetWord0x0((int*)GetBattleStruct());
+    GetWord0x0((int*)GameState::GetInstance());
 
     if (*(unsigned char*)(obj + 0x777) == 0) {
         if (data_ov023_021ff9e0.field4 == 0) {

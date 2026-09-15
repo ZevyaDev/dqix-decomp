@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
@@ -22,7 +22,7 @@ void SetShorts_021fb25c(struct Obj021fb25c*, unsigned short, unsigned short, uns
 
 // USA: func_ov004_02165c04  (semantic: DispatchByNormalizedKindWithExtra_02165c04)
 extern "C" ARM int func_ov004_02165c04(void* a) {
-    unsigned char v = NormalizeField5_0200fb08((struct Struct0200fb08*)GetBattleStruct());
+    unsigned char v = NormalizeField5_0200fb08((struct Struct0200fb08*)GameState::GetInstance());
     unsigned short extra = 0x4a;
     unsigned int kind = 0;
     switch (v) {

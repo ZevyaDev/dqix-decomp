@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov017_021b8478(void* obj);
 void* GetField6b0_021b8470(void* obj);
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 
 struct Src021c840c {
 	unsigned char pad0[4];
@@ -23,7 +23,7 @@ struct Ret021c840c {
 };
 
 // USA: func_ov017_021c840c
-ARM void UpdateFieldIfHalfwordsMatch_021c840c(int unused0, Src021c840c* src, struct BattleStruct* battleStruct, unsigned char* obj) {
+ARM void UpdateFieldIfHalfwordsMatch_021c840c(int unused0, Src021c840c* src, GameState* battleStruct, unsigned char* obj) {
 	unsigned char* base = obj + 0x3000;
 	void* h = *(void**)(base + 0x718);
 	Ret021c840c* r = (Ret021c840c*)func_ov017_021b8478(h);

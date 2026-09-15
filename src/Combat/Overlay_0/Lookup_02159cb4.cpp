@@ -1,13 +1,13 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern short data_ov000_02182d54;
 extern short data_ov000_02182d56[];
 
 // USA: func_ov000_02159cb4  (semantic: Lookup_02159cb4)
 extern "C" ARM int func_ov000_02159cb4(void* unusedThis, int combatantId) {
-    struct BattleStruct* battle = GetBattleStruct();
-    struct CombatantStruct* c = GetCombatantWithFlag0x100(battle, combatantId);
+    GameState* battle = GameState::GetInstance();
+    GameObject* c = GetCombatantWithFlag0x100(battle, combatantId);
     if (!c) return 0;
 
     int i = 0;

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_02094ab0(void);
 
@@ -11,7 +11,7 @@ void SetField0x23cTrue(void* obj);
 
 // USA: func_020d9ab0
 ARM void InitBattleAndControllerState(void* param) {
-    BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     ReinitController02043204((char*)GetGlobalField0x1c020421a0());
     GetGlobal02109400();
     func_02094ab0();

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov001_0215f1fc(void* param0) {
     int flag;
 
     void* name = func_ov017_021d612c(param0);
-    if (GetBattleStruct() == NULL) {
+    if (GameState::GetInstance() == NULL) {
         return 0;
     }
     sprintf(buf, data_ov001_02165745, name);

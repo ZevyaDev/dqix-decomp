@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int DispatchByIndex021820bc(void* obj, int unused, int index, int arg);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 struct ListNode020378dc;
 extern "C" void _ZN8Object3D6DetachEv(struct ListNode020378dc* node);
 struct Node02037890;
@@ -30,9 +29,9 @@ ARM int LinkCombatantsIfDispatched_021e7324(struct In021e7324* a, int b, int unu
     if (!r1 || !r2) {
         return 1;
     }
-    struct BattleStruct* bs = GetBattleStruct();
-    struct CombatantStruct* c1 = GetCombatantUnchecked(bs, out1.id);
-    struct CombatantStruct* c2 = GetCombatantUnchecked(bs, out2.id);
+    GameState* bs = GameState::GetInstance();
+    GameObject* c1 = bs->GetGameObjectByIndex(out1.id);
+    GameObject* c2 = bs->GetGameObjectByIndex(out2.id);
     if (!c1 || !c2) {
         return 1;
     }

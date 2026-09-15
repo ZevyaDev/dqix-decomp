@@ -1,10 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #pragma opt_propagation off
 
 extern "C" void* _Z27GetDataPtr02114e04_020d6c00v(void);
 extern "C" int _Z17TestFlags02046708P16FlagWord02046708j(struct FlagWord02046708* word, unsigned int mask);
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
+int GetField0x3b0Value(GameState* battleStruct);
 
 struct Vec3copy0202ec84 { int x; int y; int z; };
 extern "C" ARM int _Z27ComputeTwoFromVec3_0202ec84PvP16Vec3copy0202ec84PiS2_(void* obj, struct Vec3copy0202ec84* src, int* out1, int* out2);
@@ -38,7 +38,7 @@ extern "C" ARM void func_0205337c(struct Obj0205337c* obj) {
     if (_Z17TestFlags02046708P16FlagWord02046708j((struct FlagWord02046708*)_Z27GetDataPtr02114e04_020d6c00v(), 2)) return;
     if (obj->node == NULL) return;
 
-    void* target = (void*)GetField0x3b0Value(GetBattleStruct());
+    void* target = (void*)GetField0x3b0Value(GameState::GetInstance());
     *(volatile int*)0x4000444 = 0;
 
     struct Vec3copy0202ec84 pose = obj->pose;

@@ -1,12 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 extern "C" void func_ov017_021c12fc(char* obj, int a, int b);
 
 // USA: func_ov017_021a4e0c
 ARM void SetListField22FromCombatant_021a4e0c(char* obj) {
-	struct CombatantStruct* c = GetCombatantAtField0x397c(GetBattleStruct());
+	GameObject* c = GameState::GetInstance()->GetUnknownGameObject();
 	if (c == NULL) {
 		return;
 	}

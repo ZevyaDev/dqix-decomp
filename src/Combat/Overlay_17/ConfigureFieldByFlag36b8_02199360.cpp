@@ -1,10 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_02012fe4(void);
 extern "C" int func_0202c508(void* state);
-void* GetField0x3f8Address(struct BattleStruct* battleStruct);
+void* GetField0x3f8Address(GameState* battleStruct);
 struct PointerField32c_ffc0;
 void* GetPointerAt0x32c(struct PointerField32c_ffc0* obj);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
@@ -15,7 +15,7 @@ extern "C" void func_ov017_021d1a18(int a, int b, int c, int d);
 extern "C" ARM void func_ov017_02199360(void* obj) {
     if (!*(unsigned char*)((char*)obj + 0x36b8)) return;
 
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     void* state = func_0202ae18();
     void* base = func_02012fe4();
     void* src = *(void**)((char*)obj + 0x36bc);

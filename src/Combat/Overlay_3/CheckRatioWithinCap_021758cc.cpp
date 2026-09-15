@@ -1,11 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Container020dedd0;
 struct Element020de650;
 struct Element020de650* FindElementByKey020dedd0(struct Container020dedd0* c, int key);
 unsigned int ComputeRatio_02175898(char* obj, void* s);
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
+void* GetPtrField0x2a04(GameState* battleStruct);
 
 // USA: func_ov003_021758cc
 ARM int CheckRatioWithinCap_021758cc(char* self, int count) {
@@ -15,7 +15,7 @@ ARM int CheckRatioWithinCap_021758cc(char* self, int count) {
 		return 0;
 	unsigned int total = count * ComputeRatio_02175898(self, elem);
 	int result = 0;
-	if (total <= *(unsigned int*)((char*)GetPtrField0x2a04(GetBattleStruct()) + 0xf6c))
+	if (total <= *(unsigned int*)((char*)GetPtrField0x2a04(GameState::GetInstance()) + 0xf6c))
 		result = 1;
 	return result;
 }

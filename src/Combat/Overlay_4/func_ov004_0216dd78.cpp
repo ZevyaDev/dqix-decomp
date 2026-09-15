@@ -1,12 +1,11 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
 extern "C" unsigned short func_ov023_021f6f10(void*);
 extern "C" void* func_ov023_021fa598(void*);
-extern "C" void* _Z15GetBattleStructv();
 extern "C" void* _Z26GetGlobalField0x1c020421a0v(void);
 void* GetDataPtr02114e04_020d6c00(void);
 extern "C" int func_020ab7a8(void* obj, int flag);
@@ -31,7 +30,7 @@ extern "C" ARM int func_ov004_0216dd78(void* a) {
     if (func_ov023_021f6f10(node1) != 4) return 0;
 
     void* table = func_ov023_021fa598(node1);
-    void* battle = _Z15GetBattleStructv();
+    void* battle = GameState::GetInstance();
     void* globalField = _Z26GetGlobalField0x1c020421a0v();
     struct FlagWord020466f4* flagWord = (struct FlagWord020466f4*)GetDataPtr02114e04_020d6c00();
     BackgroundLoader::AddLockGlobal();

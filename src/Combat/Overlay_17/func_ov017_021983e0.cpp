@@ -1,10 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int IsField0Null(void** obj);
 extern "C" void* func_02012fe4(void);
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
+int GetField0x3b0Value(GameState* battleStruct);
 int CheckSubstructByte0x7cPositive(signed char* obj);
 void* GetPointerFromArray0x3c(unsigned char* obj, unsigned int index);
 extern "C" int func_02094b9c(void* a, void* b);
@@ -41,10 +40,10 @@ struct EventBuf021983e0 {
 // USA: func_ov017_021983e0  (semantic: FindFirstTargetAndForward_021983e0)
 extern "C" ARM void func_ov017_021983e0(unsigned char* obj) {
     if (IsField0Null(*(void***)(obj + 0x36fc))) {
-        struct BattleStruct* bs = GetBattleStruct();
+        GameState* bs = GameState::GetInstance();
         void* cache = func_02012fe4();
         GetField0x3b0Value(bs);
-        struct CombatantStruct* c = GetCombatantAtField0x397c(bs);
+        GameObject* c = bs->GetUnknownGameObject();
         if (CheckSubstructByte0x7cPositive((signed char*)c) == 0) {
             struct FilterData021983e0 filter = *(struct FilterData021983e0*)((char*)c + 0x44);
             struct TargetNode021983e0* node = (struct TargetNode021983e0*)GetPointerFromArray0x3c((unsigned char*)cache + 0x6c, 5);

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" unsigned short GetSubBGVRAMBanks(void);
 extern "C" unsigned short GetSubObjVRAMBanks(void);
@@ -19,7 +19,7 @@ void ResetList0204af64(struct List0204af64* obj);
 
 extern "C" void func_0204c684(void*);
 
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 
 struct ShortBytePair021e71a0;
 void ClearShortAndTwoBytes_021e71a0(struct ShortBytePair021e71a0* p);
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov023_021e7220(void* obj, int val) {
     ((SafeAllocator*)((char*)obj + 0x0))->ResetAllocatorPointer();
     ((SafeAllocator*)((char*)obj + 0x14))->ResetAllocatorPointer();
     ((SafeAllocator*)((char*)obj + 0x28))->ResetAllocatorPointer();
-    struct BattleStruct* battleStruct = GetBattleStruct();
+    GameState* battleStruct = GameState::GetInstance();
     *(int*)((char*)obj + 0x3c) = val;
     *(int*)((char*)obj + 0x40) = GetSubBGVRAMBanks();
     *(int*)((char*)obj + 0x44) = GetSubObjVRAMBanks();

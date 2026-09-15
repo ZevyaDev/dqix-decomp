@@ -1,11 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" int func_ov000_02160f14(void* work);
 extern "C" void func_ov000_0216d370(int a, int b, int c, int d);
 void* GetActiveCombatWork(void);
-int GetField0x3b0Value(struct BattleStruct* battleStruct);
-void SetField0x3b0Value(struct BattleStruct* battleStruct, int value);
+int GetField0x3b0Value(GameState* battleStruct);
+void SetField0x3b0Value(GameState* battleStruct, int value);
 extern "C" void _ZN8Vector3iaSERKS_(int* dst, int* src);
 void ApplyVec3Tail(void* obj, int* vec);
 
@@ -22,7 +22,7 @@ struct WorkStruct021e4e10 {
 
 // USA: func_ov025_021e4e10
 ARM int SyncCombatVecs_021e4e10(void) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* work = GetActiveCombatWork();
     struct WorkStruct021e4e10* p = (struct WorkStruct021e4e10*)(int)GetField0x3b0Value(bs);
     struct Inner021e4e10 vecA = p->vecA;

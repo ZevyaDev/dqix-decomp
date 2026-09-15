@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 
@@ -8,7 +8,6 @@ void TailForward02012da4(AllocatorUnion* alloc, void* data);
 int GetFieldIfFlag4(char* obj);
 void SetField0x23cTrue(void* obj);
 void ClearBitsInField4(unsigned int* obj, unsigned int mask);
-extern "C" void* func_ov017_0218b5b0(void);
 extern AllocatorUnion data_02114e20;
 
 // USA: func_ov017_021bf490  (semantic: ResetAllocatorsAndFlags_021bf490)
@@ -36,7 +35,7 @@ extern "C" ARM void func_ov017_021bf490(void* objRaw) {
         TailForward02012da4(&data_02114e20, h2);
     }
 
-    int flagResult = GetFieldIfFlag4((char*)GetBattleStruct());
+    int flagResult = GetFieldIfFlag4((char*)GameState::GetInstance());
     if (flagResult != 0) {
         SetField0x23cTrue((void*)flagResult);
     }

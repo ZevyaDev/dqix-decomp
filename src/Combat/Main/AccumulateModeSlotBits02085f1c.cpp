@@ -1,11 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int GetSlotBits0201137c(char* base, int id);
 
 // USA: func_02085f1c
 ARM int AccumulateModeSlotBits02085f1c(unsigned char* actor, int mode) {
-    struct BattleStruct* bs;
+    GameState* bs;
     int total;
     if (mode < 0) {
         short v = *(short*)(actor + 0x2ac);
@@ -16,7 +16,7 @@ ARM int AccumulateModeSlotBits02085f1c(unsigned char* actor, int mode) {
             mode = 0x21;
         }
     }
-    bs = GetBattleStruct();
+    bs = GameState::GetInstance();
     total = 0;
     if (mode == 3) {
         if (actor[0x8f2] & 0x80) {

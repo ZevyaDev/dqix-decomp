@@ -1,12 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" int func_ov017_0218b5b0(void);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 void* GetData02100044(void);
 struct U16Field0x6_020375f8;
 extern "C" unsigned short _ZNK8Object3D10GetField06Ev(struct U16Field0x6_020375f8* obj);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 extern "C" void func_0205e330(void* a, void* b, int c);
 
 struct Payload021c41fc {
@@ -26,9 +23,9 @@ struct Evt021c41fc {
 
 // USA: func_ov017_021c41fc  (semantic: EnqueueCombatantNibbleEvent_021c41fc)
 extern "C" ARM void func_ov017_021c41fc(int combatantId, int mode) {
-    struct BattleStruct* battleStruct = GetBattleStruct();
-    func_ov017_0218b5b0();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x800(battleStruct, combatantId);
+    GameState* battleStruct = GameState::GetInstance();
+    ((int)func_ov017_0218b5b0());
+    GameObject* combatant = battleStruct->GetPartyMemberByIndex(combatantId);
     if (combatant == NULL) return;
 
     void* data = GetData02100044();
@@ -54,7 +51,7 @@ extern "C" ARM void func_ov017_021c41fc(int combatantId, int mode) {
         p->flags |= 2;
     }
 
-    struct CombatantStruct* target = GetCombatantAtField0x397c(battleStruct);
+    GameObject* target = battleStruct->GetUnknownGameObject();
     if (target != NULL && combatantId == *(short*)((char*)target + 4)) {
         if (p->field6 == 0x2710) {
             p->field6 = 0x170c;

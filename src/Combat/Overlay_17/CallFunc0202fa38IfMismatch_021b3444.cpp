@@ -1,10 +1,9 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Obj150_021b354c;
 unsigned char GetSubByteField56e_021b354c(Obj150_021b354c* obj);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 extern "C" void func_02072afc(int id, int* arr, short* arr2);
 
 extern int data_020f2a38;
@@ -21,9 +20,9 @@ struct Obj_021b3444 {
 
 // USA: func_ov017_021b3444  (semantic: CallFunc0202fa38IfMismatch_021b3444)
 extern "C" ARM int func_ov017_021b3444(struct Obj_021b3444* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int field4 = (int)BackgroundLoader::GetInstance();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, obj->id);
+    GameObject* combatant = GetCombatantWithFlag0x100(bs, obj->id);
     if (combatant != 0) {
         if (GetSubByteField56e_021b354c((Obj150_021b354c*)combatant) != 0) {
             obj->result = ((BackgroundLoader*)(field4))->QueueLoadFileInGP2((const char*)(data_020f2a38), (const char*)(data_020f2a30), (SafeAllocator*)(0));
@@ -38,7 +37,7 @@ extern "C" ARM int func_ov017_021b3444(struct Obj_021b3444* obj) {
 
     int i;
     for (i = 0; i < 0xb; i++) {
-        struct CombatantStruct* c = GetCombatantUnchecked(bs, arr1[i]);
+        GameObject* c = bs->GetGameObjectByIndex(arr1[i]);
         if (c == 0) {
             continue;
         }

@@ -1,11 +1,10 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 extern "C" void func_ov004_0216794c(short* p1, short* p2, short* p3, short* p4, int* p5);
 int GetGlobalField0x1c020421a0(void);
 extern "C" void func_02046380(void* g);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 struct Obj02046574;
 void SetIndexedName02046574(struct Obj02046574* obj, int index, char* str);
 extern "C" int func_ov004_02167908(void* a1, int b);
@@ -50,7 +49,7 @@ extern "C" ARM int func_ov004_02167b78(void* a1, struct A2Struct02167b78* a2) {
     void* g = (void*)GetGlobalField0x1c020421a0();
     func_02046380(g);
 
-    struct CombatantStruct* c = GetCombatantAtField0x397c(GetBattleStruct());
+    GameObject* c = GameState::GetInstance()->GetUnknownGameObject();
     if (c != 0) {
         SetIndexedName02046574((struct Obj02046574*)g, 0, *(char**)((char*)c + 0x134));
     }

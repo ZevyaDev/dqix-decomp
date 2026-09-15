@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 extern "C" int func_02075910(int a0, void* out, int a1, int a2);
@@ -15,7 +15,7 @@ struct Buf020ac7b4 {
 
 // USA: func_020ac7b4
 ARM int SendBattleSaveBufferOrSetFlag020ac7b4(int flag) {
-    BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     int local0;
     if (!func_02075910(0, &local0, 1, 0)) {
         *(unsigned char*)((char*)bs + 0x5cc8) = 1;

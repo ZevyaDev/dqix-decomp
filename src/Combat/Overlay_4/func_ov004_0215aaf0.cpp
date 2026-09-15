@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Struct021707d8_0215aaf0 { char pad[8]; unsigned char* ptr; };
 extern Struct021707d8_0215aaf0 data_ov004_021707d8;
@@ -24,14 +24,14 @@ struct Element020de650* FindElementByKey020dedd0(struct Container020dedd0* c, in
 extern "C" void func_ov011_021848a0(void* obj, int val);
 
 extern "C" int func_ov004_02157128(void* obj);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 
 int EvalOrDispatch020de194(void* s);
 
 // USA: func_ov004_0215aaf0
 extern "C" ARM int func_ov004_0215aaf0(void* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     struct Container020dedd0* node = func_ov004_02156fd4(obj, 5);
     unsigned char* ptr2a04 = (unsigned char*)GetPtrField0x2a04(bs);
     if (!ptr2a04) return 0;
@@ -66,7 +66,7 @@ extern "C" ARM int func_ov004_0215aaf0(void* obj) {
             unsigned char* p100 = ptr2a04 + r5 + 0x100;
             data_ov004_021707d8.ptr[0x6f] = *(signed char*)(p100 + 0x3c);
         } else {
-            struct CombatantStruct* combatant = GetCombatantWithFlag0x100(bs, flagVal);
+            GameObject* combatant = GetCombatantWithFlag0x100(bs, flagVal);
             if (!combatant) return 0;
             int field150 = GetFieldAt0x150((unsigned char*)combatant);
             elem = FindElementByKey020dedd0(node, ((short*)((char*)field150 + 0x400 + 0x54))[idx]);

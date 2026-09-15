@@ -1,16 +1,14 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void* func_02012fe4(void);
 
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 
 struct BitField0203402c;
 int CheckField0xc4Low15BitsNonZero(struct BitField0203402c* p);
 
 void* GetFieldPtrAt0x26c(void* obj);
-void* GetField0x3f8Address(struct BattleStruct* battleStruct);
+void* GetField0x3f8Address(GameState* battleStruct);
 
 struct HeadNode02046b24;
 int GetHeadNodeIdOrMinusOne(struct HeadNode02046b24** obj);
@@ -32,8 +30,8 @@ struct Vec3Local_0218dba0 { unsigned int v[3]; };
 
 // USA: func_ov017_0218dba0  (semantic: SyncFlaggedCombatantState_0218dba0)
 extern "C" ARM void func_ov017_0218dba0(int combatantId) {
-    struct BattleStruct* battle = GetBattleStruct();
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x800(battle, combatantId);
+    GameState* battle = GameState::GetInstance();
+    GameObject* combatant = battle->GetPartyMemberByIndex(combatantId);
     if (combatant == 0) {
         return;
     }

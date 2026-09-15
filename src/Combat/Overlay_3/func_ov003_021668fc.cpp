@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 extern "C" void* func_ov003_02160bf8(void* obj, int key);
@@ -17,7 +17,7 @@ extern unsigned short data_ov003_0217f4a6[9];
 extern "C" ARM void func_ov003_021668fc(char* self) {
     if (*(short*)(self + 0x480) < 0) return;
 
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* p2a04 = GetPtrField0x2a04(bs);
     void* found = func_ov003_02160bf8(self, *(short*)(self + 0x480));
     if (found == 0) return;

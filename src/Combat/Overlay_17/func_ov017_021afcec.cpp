@@ -1,13 +1,11 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-struct Struct_ov017_44C8;
-extern "C" void* func_ov017_0218b5b0(void);
+struct GameResources;
 int GetGlobalField0x1c020421a0(void);
 void* GetDataPtr02114e04_020d6c00(void);
 extern "C" void func_ov017_021b6c78(void);
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 struct Obj020397cc;
 void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);
 extern "C" void func_ov017_021afb8c(char* self, char* name);
@@ -24,8 +22,8 @@ void OrBitsIntoField0(unsigned int* p, unsigned int mask);
 
 // USA: func_ov017_021afcec  (semantic: InitCombatEntryAndDispatch_021afcec)
 extern "C" ARM int func_ov017_021afcec(unsigned char* obj) {
-    struct BattleStruct* bs = GetBattleStruct();
-    struct Struct_ov017_44C8* ov = (struct Struct_ov017_44C8*)func_ov017_0218b5b0();
+    GameState* bs = GameState::GetInstance();
+    struct GameResources* ov = (struct GameResources*)func_ov017_0218b5b0();
     unsigned char* g = (unsigned char*)GetGlobalField0x1c020421a0();
     unsigned int* dataPtr = (unsigned int*)GetDataPtr02114e04_020d6c00();
 
@@ -33,7 +31,7 @@ extern "C" ARM int func_ov017_021afcec(unsigned char* obj) {
         func_ov017_021b6c78();
     }
     if (obj[0x284] != 0) {
-        struct CombatantStruct* c = GetCombatantAtField0x397c(bs);
+        GameObject* c = bs->GetUnknownGameObject();
         if (c != NULL) {
             CancelPendingAction020397cc((struct Obj020397cc*)c, 0);
         }

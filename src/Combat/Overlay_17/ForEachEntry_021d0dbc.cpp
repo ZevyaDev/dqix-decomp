@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetData02100044(void);
 extern "C" void func_ov017_021d0e00(int val);
@@ -7,7 +7,7 @@ extern "C" void func_ov017_021d0e00(int val);
 // USA: func_ov017_021d0dbc
 ARM void ForEachEntry_021d0dbc(void) {
     GetData02100044();
-    unsigned char* battle = (unsigned char*)GetPtrField0x2a04(GetBattleStruct());
+    unsigned char* battle = (unsigned char*)GetPtrField0x2a04(GameState::GetInstance());
     unsigned char count = battle[0xf7c];
     for (unsigned char i = 0; i < count; i++) {
         signed char v = *(signed char*)(battle + i + 0xf78);

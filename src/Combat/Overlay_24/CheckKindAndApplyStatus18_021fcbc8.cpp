@@ -1,17 +1,17 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "std_library_functions.h"
 
 extern "C" int func_ov024_021fe698(void* obj, int idx);
 extern "C" void func_ov024_021f9874(void* obj, void* buf, int zero, int val);
-int IsCombatantFlag2Mask512_021eadfc(struct CombatantStruct* combatant);
+int IsCombatantFlag2Mask512_021eadfc(GameObject* combatant);
 
 struct Obj_021fcbc8 {
 	char pad0[4];
 	short field4;
 	unsigned char kind;
 	char pad7;
-	struct CombatantStruct* combatant;
+	GameObject* combatant;
 	int field0xc;
 };
 

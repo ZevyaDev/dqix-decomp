@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-extern "C" int func_ov017_0218b5b0(void);
-struct CombatantStruct* FindCombatantByField16a_021a278c(void* unused, int val);
+GameObject* FindCombatantByField16a_021a278c(void* unused, int val);
 struct ListHead02046b38;
 struct ListNode02046b38;
 int ListContainsNode(struct ListHead02046b38* list, struct ListNode02046b38* target);
@@ -40,14 +39,14 @@ struct Buf021c5b44 {
 
 // USA: func_ov017_021c5b44  (semantic: RegisterCombatantNode_021c5b44)
 extern "C" ARM void func_ov017_021c5b44(unsigned char arg0, int combatantId, unsigned int arg2, unsigned char arg3, unsigned char arg4) {
-    GetBattleStruct();
-    void* baseRaw = (void*)(int)func_ov017_0218b5b0();
+    GameState::GetInstance();
+    void* baseRaw = (void*)(int)((int)func_ov017_0218b5b0());
     struct Ctx021c5b44* ctx = (struct Ctx021c5b44*)((char*)baseRaw + 0x3000);
     int id2 = -1;
     void* list = ctx->list6fc;
     void* node = ctx->node718;
 
-    struct CombatantStruct* combatant = FindCombatantByField16a_021a278c(baseRaw, combatantId);
+    GameObject* combatant = FindCombatantByField16a_021a278c(baseRaw, combatantId);
     if (combatant != 0) {
         id2 = *(short*)((char*)combatant + 4);
     }

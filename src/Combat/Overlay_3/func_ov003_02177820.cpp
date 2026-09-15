@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Obj2081;
 void ClearElementFlag0x20(struct Obj2081* obj, int key);
@@ -11,14 +11,13 @@ struct Container02080cc0;
 void SetEntryHighNibble0x13(struct Container02080cc0* obj, int id, int value);
 extern "C" int func_020dcc98(int combatantId);
 extern "C" void func_020813ec(void* obj, int key);
-void* GetPtrField0x2a04(struct BattleStruct* battleStruct);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
+void* GetPtrField0x2a04(GameState* battleStruct);
 
 // USA: func_ov003_02177820  (semantic: RecomputeElementTierAndDispatchAll_02177820)
 #pragma opt_common_subs off
 extern "C" ARM void func_ov003_02177820(char* self) {
     struct Obj2081* elemObj = *(struct Obj2081**)(self + 0x89c);
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     GetPtrField0x2a04(battle);
 
     int field = *(int*)(self + 0x1000 + 0x30);
@@ -37,7 +36,7 @@ extern "C" ARM void func_ov003_02177820(char* self) {
     unsigned char i;
     for (i = 0; i < *(int*)(self + 0x1000 + 0x30); i++) {
         hp = 0;
-        struct CombatantStruct* combatant = GetCombatantWithFlag0x800(battle, *(int*)(self + 0x1000 + 0x1c + i * 4));
+        GameObject* combatant = battle->GetPartyMemberByIndex(*(int*)(self + 0x1000 + 0x1c + i * 4));
         if (combatant != 0) {
             hp = *(int*)((char*)combatant + 0x134);
         }

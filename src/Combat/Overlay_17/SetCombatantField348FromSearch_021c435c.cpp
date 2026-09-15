@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct SearchStruct0202c1a4;
 signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4*);
@@ -19,13 +19,13 @@ struct Src021c435c {
 };
 
 // USA: func_ov017_021c435c  (semantic: SetCombatantField348FromSearch_021c435c)
-extern "C" ARM void func_ov017_021c435c(int unused0, struct Src021c435c* src, struct BattleStruct* battleStruct, unsigned char* obj, struct SearchStruct0202c1a4* search) {
+extern "C" ARM void func_ov017_021c435c(int unused0, struct Src021c435c* src, GameState* battleStruct, unsigned char* obj, struct SearchStruct0202c1a4* search) {
     if (src->field4 & 1) {
         if (GetSearchStructCurrentArrEntry(search) != src->hiNibble) return;
     }
     unsigned int idx = src->loNibble;
     if (idx == GetSearchStructCurrentArrEntry(search)) return;
-    struct CombatantStruct* c = GetCombatantWithFlag0x100(battleStruct, idx);
+    GameObject* c = GetCombatantWithFlag0x100(battleStruct, idx);
     if (!c) return;
     unsigned short val = src->field6;
     if (src->field4 & 2) val = src->field8;

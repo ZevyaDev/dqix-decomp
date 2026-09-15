@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 int HasAnyFlags_021719f8_021719f8(int* obj);
 extern "C" void __clear(void* buf, int n);
@@ -23,7 +23,7 @@ extern "C" ARM void func_ov000_021814bc(char* obj) {
     char buf[0x80];
     struct Entry021814bc* entry;
     int i;
-    (void)GetBattleStruct();
+    (void)GameState::GetInstance();
     for (i = 0; i < 4; i++) {
         entry = (struct Entry021814bc*)(obj + 0x958) + *(signed char*)(obj + i + 0x6c);
         if (entry->field4c < 0) continue;

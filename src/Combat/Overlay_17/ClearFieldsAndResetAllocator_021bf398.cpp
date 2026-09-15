@@ -1,8 +1,7 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
-struct CombatantStruct* GetCombatantAtField0x397c(struct BattleStruct* battleStruct);
 void SetByteField0x253(void* obj);
 int GetFieldIfFlag4(char* obj);
 void SetField0x23cTrue(void* obj);
@@ -14,9 +13,9 @@ void ResetListHeader020727ec(struct List020727d8* list);
 
 // USA: func_ov017_021bf398
 ARM void ClearFieldsAndResetAllocator_021bf398(char* self) {
-	struct BattleStruct* battle = GetBattleStruct();
+	GameState* battle = GameState::GetInstance();
 	int flagResult = GetFieldIfFlag4((char*)battle);
-	struct CombatantStruct* combatant = GetCombatantAtField0x397c(battle);
+	GameObject* combatant = battle->GetUnknownGameObject();
 	SetField0x23cTrue((void*)flagResult);
 	SetByteField0x253(combatant);
 	SafeAllocator* allocator = (SafeAllocator*)(self + 0x14);

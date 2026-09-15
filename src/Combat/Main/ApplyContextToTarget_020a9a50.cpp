@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void SetField5cb0AndRecordByte0(char* obj, int v);
 void SetField5cb4AndRecordByte1(char* obj, int v);
@@ -20,7 +20,7 @@ struct Ctx020a9a50 {
 
 // USA: func_020a9a50  (semantic: ApplyContextToTarget_020a9a50)
 extern "C" ARM int func_020a9a50(Ctx020a9a50* ctx, char* dst, int flag) {
-    char* battle = (char*)GetBattleStruct();
+    char* battle = (char*)GameState::GetInstance();
     SetField5cb0AndRecordByte0(battle, ctx->f0);
     SetField5cb4AndRecordByte1(battle, ctx->f4);
     SetSlotByte020107dc(battle, ctx->f8);

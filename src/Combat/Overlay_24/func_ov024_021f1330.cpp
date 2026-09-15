@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "Util/Random.h"
 
-struct CombatantStruct* GetCombatantWithFlag0x400ByID(int unused, int id);
+GameObject* GetCombatantWithFlag0x400ByID(int unused, int id);
 struct S_bf3c_021f1440;
 int IsBitfield2Set_021f1440(struct S_bf3c_021f1440* obj);
 extern "C" int func_ov000_0215eb1c(int battle, short* table, int count, int flag);
@@ -25,7 +25,7 @@ struct BuffWord_021f1330 {
 
 // USA: func_ov024_021f1330  (semantic: SelectLowUnkBuff21AndMaybePick_021f1330)
 extern "C" ARM int func_ov024_021f1330(int* a0, int a1, int a2, int* outCount, short* outArray) {
-	struct CombatantStruct* gate = GetCombatantWithFlag0x400ByID(*a0, a1);
+	GameObject* gate = GetCombatantWithFlag0x400ByID(*a0, a1);
 	if (!gate) return 0;
 	if (!IsBitfield2Set_021f1440((struct S_bf3c_021f1440*)gate)) return 0;
 
@@ -36,9 +36,9 @@ extern "C" ARM int func_ov024_021f1330(int* a0, int a1, int a2, int* outCount, s
 
 	*outCount = 0;
 	for (int i = 0; i < count; i++) {
-		struct CombatantStruct* member = GetCombatantByID(*a0, buf.v[i]);
+		GameObject* member = GetCombatantByID(*a0, buf.v[i]);
 		if (!member) continue;
-		struct BuffWord_021f1330* bw = (struct BuffWord_021f1330*)((char*)member->currentStats + 0x58);
+		struct BuffWord_021f1330* bw = (struct BuffWord_021f1330*)((char*)member->currentStats_ + 0x58);
 		if (bw->unkBuff21 >= 2) continue;
 		int idx = *outCount;
 		*outCount = idx + 1;

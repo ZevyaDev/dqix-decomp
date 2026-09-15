@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
 
 extern "C" void* func_0202ae18(void);
@@ -25,8 +25,6 @@ void ClearAndEncodeField14_021a5b08(struct Node0x20_021a5ad0* arr, int count);
 struct Struct0200fb08;
 unsigned char NormalizeField5_0200fb08(struct Struct0200fb08* obj);
 
-GrottoStruct* GetGrottoStruct(BattleStruct* battle);
-struct CombatantStruct* GetCombatantAtField0x3ac(struct BattleStruct* battleStruct);
 
 struct Cont0205d1e0;
 struct Cont0205d228;
@@ -48,12 +46,12 @@ extern "C" ARM void func_ov017_021a63d0(unsigned char* base) {
     if (*(int*)(base + 0x41b4) == 0) return;
 
     void* searchObj = func_0202ae18();
-    int f260 = GetIntField0x260(GetCombatantAtField0x3ac(GetBattleStruct()));
+    int f260 = GetIntField0x260(GameState::GetInstance()->GetProtagonist());
     int glob1c = GetGlobalField0x1c020421a0();
     void* g = func_02012fe4();
     void* ctx = GetGlobalContext020daf90();
 
-    if (GetGrottoStruct(GetBattleStruct())->unknown_0[0] == 0) return;
+    if (GameState::GetInstance()->GetGrottoStruct()->unknown_0[0] == 0) return;
 
     int f4080 = *(int*)(base + 0x4080);
     if (f4080 != 0) return;
@@ -62,7 +60,7 @@ extern "C" ARM void func_ov017_021a63d0(unsigned char* base) {
     if (!IsField0Null(*(void***)(base + 0x36fc))) return;
     if (func_0202c540(searchObj)) return;
 
-    GetBattleStruct();
+    GameState::GetInstance();
     if (IsGlobalU16InRange() != 0) return;
     if (*(int*)((char*)glob1c + 0x998) != 0) return;
     if (CheckSlotsForFlagState02015a2c((struct Something02015a2c*)g)) return;
@@ -81,7 +79,7 @@ extern "C" ARM void func_ov017_021a63d0(unsigned char* base) {
         } while (--n);
     }
 
-    unsigned char count = NormalizeField5_0200fb08((struct Struct0200fb08*)GetBattleStruct());
+    unsigned char count = NormalizeField5_0200fb08((struct Struct0200fb08*)GameState::GetInstance());
 
     if (*(int*)(base + 0x41b8) >= 3) {
         void* sub = *(void**)(base + 0x4090);

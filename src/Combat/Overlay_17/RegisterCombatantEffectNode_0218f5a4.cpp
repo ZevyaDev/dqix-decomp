@@ -1,16 +1,14 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_0202ae18(void);
 extern "C" int func_ov017_021925e0(void* p);
-struct CombatantStruct* GetCombatantWithFlag0x800(struct BattleStruct* battleStruct, int combatantId);
 extern "C" void _Z34ClearFlagAndZeroVec3Field_021bd440Pvi(void* obj, int arg);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 int GetFieldAt0x150(unsigned char* obj);
 struct Obj02061bd8;
 int CheckField0x56bLowNibble(struct Obj02061bd8* obj);
 extern "C" void func_02072afc(int id, int* arr, short* arr2);
-struct CombatantStruct* GetCombatantUnchecked(struct BattleStruct* battleStruct, int combatantId);
 extern "C" void* func_ov017_021a4658(void* p0, int p1);
 struct TailList020469b4;
 struct TailNode020469b4;
@@ -18,12 +16,12 @@ void AppendNodeToTail(struct TailList020469b4* list, struct TailNode020469b4* no
 
 // USA: func_ov017_0218f5a4  (semantic: RegisterCombatantEffectNode_0218f5a4)
 extern "C" ARM int func_ov017_0218f5a4(char* self, int combatantId, int flag2, int flag3, int flag4) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     func_0202ae18();
     void* base = *(void**)(self + 0x3000 + 0x734);
 
     if (func_ov017_021925e0(self + 0x3000) != 0) {
-        struct CombatantStruct* c = GetCombatantWithFlag0x800(bs, combatantId);
+        GameObject* c = bs->GetPartyMemberByIndex(combatantId);
         if (c != 0) {
             unsigned short w = *(unsigned short*)c;
             if (w & 0x1000) {
@@ -33,7 +31,7 @@ extern "C" ARM int func_ov017_0218f5a4(char* self, int combatantId, int flag2, i
         }
     }
 
-    struct CombatantStruct* c2 = GetCombatantWithFlag0x100(bs, combatantId);
+    GameObject* c2 = GetCombatantWithFlag0x100(bs, combatantId);
     if (c2 == 0) return 0;
     if (GetFieldAt0x150((unsigned char*)c2) == 0) return 0;
 
@@ -49,7 +47,7 @@ extern "C" ARM int func_ov017_0218f5a4(char* self, int combatantId, int flag2, i
                 int i;
                 for (i = 0; i < 0xb; i++) {
                     if (i == 0xa) continue;
-                    struct CombatantStruct* c3 = GetCombatantUnchecked(bs, arr[i]);
+                    GameObject* c3 = bs->GetGameObjectByIndex(arr[i]);
                     if (c3 != 0) {
                         short v1 = arr2[i];
                         short v2 = *(short*)((char*)c3 + 2);

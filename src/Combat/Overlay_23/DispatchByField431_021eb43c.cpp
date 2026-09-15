@@ -1,7 +1,6 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
-unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
 extern "C" void func_0205d0e0(void* obj, int count);
 extern "C" void func_ov023_021ecbe8(void* obj);
 extern "C" void func_ov023_021ece9c(void* obj);
@@ -11,7 +10,7 @@ extern struct DispatchEntry021eb43c data_ov023_021fe0f0[];
 
 // USA: func_ov023_021eb43c  (semantic: DispatchByField431_021eb43c)
 extern "C" ARM void func_ov023_021eb43c(void* obj) {
-    unsigned int count = GetBattleScaleCount(GetBattleStruct());
+    unsigned int count = GameState::GetInstance()->GetTickCount();
     if (count == 0) count = 1;
     if (*((unsigned char*)obj + 0x431) != 0) {
         func_0205d0e0((char*)obj + 0xc4, count);

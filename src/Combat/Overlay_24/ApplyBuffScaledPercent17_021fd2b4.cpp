@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 extern "C" void func_ov024_021fd088(void* obj, float pct, int a2);
 struct IndexedObj_021fe6b4;
@@ -12,12 +12,12 @@ struct Obj_021fd2b4 {
 	char pad0[0x64c];
 	struct State64c_021fd2b4* state64c;
 	char pad2[0x668 - 0x64c - 4];
-	struct CombatantStruct* ptr668;
+	GameObject* ptr668;
 };
 
 // USA: func_ov024_021fd2b4  (semantic: ApplyBuffScaledPercent17_021fd2b4)
 extern "C" ARM void func_ov024_021fd2b4(struct Obj_021fd2b4* obj) {
-	struct ModifiableCombatStats* stats = obj->ptr668->currentStats;
+	struct ModifiableCombatStats* stats = obj->ptr668->currentStats_;
 	if (stats->attackBuff <= -2) return;
 	short field32;
 	unsigned char pctBase = *(unsigned char*)((char*)stats + 0x4f);

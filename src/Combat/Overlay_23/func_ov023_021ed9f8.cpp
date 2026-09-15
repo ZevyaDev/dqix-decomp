@@ -1,9 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-BattleStruct* GetBattleStruct();
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" int func_ov017_02195658(void);
 void* GetData02108ea8(void);
 extern "C" void func_ov000_02174a50(void* obj, int combatantId);
@@ -44,9 +42,9 @@ struct InnerReset021ed9f8 {
 
 // USA: func_ov023_021ed9f8  (semantic: ScaleOrResetCombatants_021ed9f8)
 extern "C" ARM void func_ov023_021ed9f8(char* obj) {
-    GetBattleStruct();
+    GameState::GetInstance();
     int dataX = (int)BackgroundLoader::GetInstance();
-    func_ov017_0218b5b0();
+    ((int)func_ov017_0218b5b0());
     unsigned char* p = *(unsigned char**)(obj + 0x2a0);
     int n = func_ov017_02195658();
     if (n > 0) {

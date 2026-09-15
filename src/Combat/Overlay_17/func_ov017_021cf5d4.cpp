@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct S02046b1c;
-int GetField0x3acValue(struct BattleStruct* battleStruct);
+int GetField0x3acValue(GameState* battleStruct);
 int GetField0x0List02046b1c(struct S02046b1c* p);
 extern "C" void _Z18InitStruct02070378Pc(void* obj);
 extern "C" void _Z28CallFunc0200fbb4AtField0x3f8Pv(void* battle, void* obj);
@@ -23,7 +23,7 @@ struct S3f8_cf5d4 {
 };
 
 // USA: func_ov017_021cf5d4
-extern "C" ARM void func_ov017_021cf5d4(void* unused0, struct Evt021cf5d4* evt, struct BattleStruct* battle, unsigned char* table) {
+extern "C" ARM void func_ov017_021cf5d4(void* unused0, struct Evt021cf5d4* evt, GameState* battle, unsigned char* table) {
     int v = GetField0x3acValue(battle);
     if (evt->field6 != v) {
         return;

@@ -1,15 +1,13 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
 
 extern "C" void* func_0202ae18(void);
-struct CombatantStruct* GetCombatantWithFlag0x100(struct BattleStruct* battleStruct, int combatantId);
+GameObject* GetCombatantWithFlag0x100(GameState* battleStruct, int combatantId);
 struct U16Field0x6_020375f8;
 extern "C" unsigned short _ZNK8Object3D10GetField06Ev(struct U16Field0x6_020375f8* obj);
 extern "C" unsigned short func_02028460(void* a, void* b);
 extern "C" int func_0202c508(void* obj);
-struct GrottoStruct* GetGrottoStruct(struct BattleStruct* battleStruct);
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void* func_02012fe4(void);
 extern "C" int func_ov017_021a2128(void* a, int b, int c, int d, void* e, int f, int g, int h);
 
@@ -18,12 +16,12 @@ extern struct Buf3_021b5648 data_ov017_021d6bcc;
 
 // USA: func_ov017_021b5648  (semantic: RefreshCombatantSyncAndDispatch_021b5648)
 extern "C" ARM void func_ov017_021b5648(char* self) {
-    struct BattleStruct* bs = GetBattleStruct();
+    GameState* bs = GameState::GetInstance();
     void* ctx = func_0202ae18();
 
     int i;
     for (i = 0; i < 4; i++) {
-        struct CombatantStruct* c = GetCombatantWithFlag0x100(bs, i);
+        GameObject* c = GetCombatantWithFlag0x100(bs, i);
         if (c == 0) continue;
         void* p8 = *(void**)(self + 0x8);
         if (*(unsigned short*)p8 != _ZNK8Object3D10GetField06Ev((struct U16Field0x6_020375f8*)c)) continue;
@@ -34,9 +32,9 @@ extern "C" ARM void func_ov017_021b5648(char* self) {
     }
 
     if (func_0202c508(ctx) != 0 && *(unsigned short*)(self + 0x12) != 0) {
-        struct BattleStruct* bs2 = GetBattleStruct();
+        GameState* bs2 = GameState::GetInstance();
         void* obj5 = func_ov017_0218b5b0();
-        GetGrottoStruct(bs2);
+        bs2->GetGrottoStruct();
         ActiveGrottoClass* grotto = (ActiveGrottoClass*)((char*)func_02012fe4() + 0x23ec);
         unsigned char env = grotto->GetActiveGrottoEnviron() & 0xff;
 

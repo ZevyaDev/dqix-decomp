@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 void* GetData02100044(void);
 int GetFieldAt0x150(unsigned char* obj);
@@ -21,7 +21,7 @@ struct EventBuf021cff8c {
 // USA: func_ov017_021cff8c
 extern "C" ARM void func_ov017_021cff8c(int id, int skipCheck) {
     void* mgr = GetData02100044();
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     unsigned char* list = (unsigned char*)GetPtrField0x2a04(battle);
 
     int found = 0;
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov017_021cff8c(int id, int skipCheck) {
     }
     if (!found) return;
 
-    struct CombatantStruct* c = GetCombatantWithFlag0x100(battle, id);
+    GameObject* c = GetCombatantWithFlag0x100(battle, id);
     if (!c) return;
 
     int field150 = GetFieldAt0x150((unsigned char*)c);

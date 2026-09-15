@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct FlagWord02046708 { unsigned int flags; };
 
@@ -42,7 +42,7 @@ extern "C" ARM void func_02012de8(void) {
         if (!CheckField0NonZero(p2)) return;
         if (TestFlags02046708(p1, 0x1000000)) return;
         {
-            int word = GetWord0x0((int*)GetBattleStruct());
+            int word = GetWord0x0((int*)GameState::GetInstance());
             if (word == 0) return;
             CancelActionIfHeadIdMatches_02199e98((void*)word);
         }
@@ -52,7 +52,7 @@ extern "C" ARM void func_02012de8(void) {
     if (IsPowcntBit0Set()) return;
     DispatchIfEquals1(1);
     {
-        int word = GetWord0x0((int*)GetBattleStruct());
+        int word = GetWord0x0((int*)GameState::GetInstance());
         if (word == 0) return;
         SetBrightnessRegisters0203b540((struct Brightness0203b540*)word);
     }

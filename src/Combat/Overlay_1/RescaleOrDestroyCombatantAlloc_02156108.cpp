@@ -1,11 +1,8 @@
 #include <globaldefs.h>
+#include "GameState/GameState.h"
 
-struct BattleStruct;
-struct BattleStruct* GetBattleStruct();
 char* GetGlobalField0x1c020421a0(void);
-extern "C" int func_ov017_0218b5b0(void);
 void SetFlag0x2IfByte0xd4Not3(unsigned char* obj);
-unsigned int GetBattleScaleCount(struct BattleStruct* battleStruct);
 extern "C" void func_0208bb78(void* obj, int count);
 struct StructAllocGroup0208ba54;
 void DestroyStructAllocGroup0208ba54(struct StructAllocGroup0208ba54*);
@@ -30,16 +27,16 @@ struct Obj02156108 {
 
 // USA: func_ov001_02156108  (semantic: RescaleOrDestroyCombatantAlloc_02156108)
 extern "C" ARM int func_ov001_02156108(struct Obj02156108* self) {
-    struct BattleStruct* battle = GetBattleStruct();
+    GameState* battle = GameState::GetInstance();
     char* g6 = GetGlobalField0x1c020421a0();
-    unsigned int* obj17 = (unsigned int*)func_ov017_0218b5b0();
+    unsigned int* obj17 = (unsigned int*)((int)func_ov017_0218b5b0());
 
     if ((self->flags0x50 & 0x2) || (self->flags0x50 & 0x8)) {
         void* ptr = self->field0x120;
         if (ptr) {
             if (*(short*)((char*)ptr + 0xd2) >= 0) {
                 SetFlag0x2IfByte0xd4Not3((unsigned char*)ptr);
-                unsigned int scaleCount = GetBattleScaleCount(battle);
+                unsigned int scaleCount = battle->GetTickCount();
                 func_0208bb78(self->field0x120, scaleCount);
                 return self->field0xa;
             }

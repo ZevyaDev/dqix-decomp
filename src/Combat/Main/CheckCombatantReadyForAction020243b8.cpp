@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Combat/Main/BattleList.h"
+#include "GameState/GameState.h"
 
 struct Bits40_37464;
 extern "C" int _ZNK8Object3D17GetInheritedAlphaEv(struct Bits40_37464* obj);
@@ -11,7 +11,7 @@ ARM int CheckCombatantReadyForAction020243b8(void* unused, int combatantId) {
     if (combatantId < 0) {
         return 1;
     }
-    struct CombatantStruct* combatant = GetCombatantWithFlag0x100(GetBattleStruct(), combatantId);
+    GameObject* combatant = GetCombatantWithFlag0x100(GameState::GetInstance(), combatantId);
     if (combatant == NULL) {
         return 1;
     }
