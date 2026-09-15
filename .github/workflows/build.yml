@@ -53,7 +53,7 @@ jobs:
 
       - run: python tools/configure.py ${{ inputs.version }}
 
-      - run: ninja
+      - run: ninja check sha1 report
 
       - name: Progress summary
         run: |
