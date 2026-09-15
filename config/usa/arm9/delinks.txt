@@ -17370,3 +17370,8 @@ src/Combat/Main/InitEntries020e5c00.cpp:
 //src/Graphics/VRAMAllocations.cpp:
 
 //src/System/ProcessorContext.cpp:
+
+
+src/Combat/Main/0205faf4.cpp:
+    complete
+    .text start:0x0205faf4 end:0x02061bd8
