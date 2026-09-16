@@ -105,7 +105,9 @@ struct GameResources
     void* unknown_ptr_array_4088[3]; // jpn: offset 3e68
     char unknown_4094[0x130];
     void* unknown_ptr_41c4; // jpn: offset 3fa4
-    char unknown_41c8[0x160];
+    char unknown_41c8[0x11a];
+    unsigned char unknown_flag_42e2;
+    char unknown_42e3[0x45];
     void* unknown_ptr_4328; // jpn: offset 4108
 
 #if defined(usa)
