@@ -19,12 +19,12 @@ extern "C" int func_ov023_021f4fc8(void);
 struct Reset_021eefac;
 void ResetFields_021eefac(struct Reset_021eefac* s);
 
-extern int* data_ov023_021ffefc;
+extern "C" int* _ZZ17GetGlobal021ffefcvE1s;
 
 // USA: func_ov023_021f2638  (semantic: AdvanceCombatPhaseAndDispatch_021f2638)
 extern "C" ARM int func_ov023_021f2638(unsigned char* obj) {
     GameState* battleStruct = GameState::GetInstance();
-    int* g = data_ov023_021ffefc;
+    int* g = _ZZ17GetGlobal021ffefcvE1s;
     int state = GetGlobalField0x1c020421a0();
     unsigned char* stateObj = (unsigned char*)state;
     func_02046380();

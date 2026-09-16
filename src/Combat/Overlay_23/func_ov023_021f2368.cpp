@@ -42,14 +42,14 @@ struct GlobalState021f2368 {
     signed char e5;                  // 0xe5
 };
 
-extern struct GlobalState021f2368* data_ov023_021ffefc;
+extern "C" struct GlobalState021f2368* _ZZ17GetGlobal021ffefcvE1s;
 
 struct PctBits021f2368 { unsigned short low : 7; unsigned short pct : 9; };
 
 // USA: func_ov023_021f2368  (semantic: ProcessEntryMatchAndDispatch_021f2368)
 extern "C" ARM int func_ov023_021f2368(unsigned char* obj) {
     GameState* battleStruct = GameState::GetInstance();
-    struct GlobalState021f2368* g = data_ov023_021ffefc;
+    struct GlobalState021f2368* g = _ZZ17GetGlobal021ffefcvE1s;
     int state = GetGlobalField0x1c020421a0();
     unsigned char* stateObj = (unsigned char*)state;
     (int)BackgroundLoader::GetInstance();

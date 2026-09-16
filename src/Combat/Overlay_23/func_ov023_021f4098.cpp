@@ -27,7 +27,7 @@ int GetShiftedOrDefault_021f5578(void* a, void* b, int def);
 int AnySlotHasBit16At0x2f4(unsigned char* obj);
 
 struct DataOv023_021ffefc { void* field0; int field4; };
-extern struct DataOv023_021ffefc data_ov023_021ffefc;
+extern "C" struct DataOv023_021ffefc _ZZ17GetGlobal021ffefcvE1s;
 
 // USA: func_ov023_021f4098  (semantic: ComputeCombatantScaleFactor_021f4098)
 extern "C" ARM int func_ov023_021f4098(void* obj, int id, int flag) {
@@ -75,7 +75,7 @@ extern "C" ARM int func_ov023_021f4098(void* obj, int id, int flag) {
 
     float scaledFlag = flagF * (1.0f + (countF - 1.0f) / 10.0f);
     int intScaled = (int)scaledFlag;
-    int shiftVal = GetShiftedOrDefault_021f5578((char*)data_ov023_021ffefc.field0 + 0xf4, (void*)intScaled, 4);
+    int shiftVal = GetShiftedOrDefault_021f5578((char*)_ZZ17GetGlobal021ffefcvE1s.field0 + 0xf4, (void*)intScaled, 4);
 
     float term1 = arrC[3] * (arrB[3] + (float)shiftVal);
     float temp2 = arrC[2] * (arrB[2] + (float)shiftVal);

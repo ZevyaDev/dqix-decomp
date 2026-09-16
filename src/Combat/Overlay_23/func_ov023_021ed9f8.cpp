@@ -31,7 +31,7 @@ struct Global021ffefc {
     char pad4[4];
     unsigned int flags;
 };
-extern struct Global021ffefc data_ov023_021ffefc;
+extern "C" struct Global021ffefc _ZZ17GetGlobal021ffefcvE1s;
 
 struct InnerReset021ed9f8 {
     char pad0[4];
@@ -62,13 +62,13 @@ extern "C" ARM void func_ov023_021ed9f8(char* obj) {
         }
     }
 
-    unsigned int flags = data_ov023_021ffefc.flags;
+    unsigned int flags = _ZZ17GetGlobal021ffefcvE1s.flags;
     if (!(flags & 1)) {
         unsigned int va = *(volatile unsigned int*)&data_020e6d5c.a;
         unsigned int vb = *(volatile unsigned int*)&data_020e6d5c.b;
         *(unsigned int*)((char*)data_ov023_021fe148 + 0x88) = va;
         *(unsigned int*)((char*)data_ov023_021fe148 + 0x8c) = vb;
-        data_ov023_021ffefc.flags = flags | 1;
+        _ZZ17GetGlobal021ffefcvE1s.flags = flags | 1;
     }
 
     int idx = *(int*)(obj + 0xeac);
@@ -92,26 +92,26 @@ extern "C" ARM void func_ov023_021ed9f8(char* obj) {
     }
 
     if (reinit) {
-        ResetAndReinit_021f52c8((char*)data_ov023_021ffefc.inner + 0xf4);
+        ResetAndReinit_021f52c8((char*)_ZZ17GetGlobal021ffefcvE1s.inner + 0xf4);
         if (*(void**)(obj + 0x5588) != NULL) {
             InitCombatEntry_021d8b6c(*(void**)(obj + 0x5588));
             func_ov023_021d8af8(*(void**)(obj + 0x5588));
             *(void**)(obj + 0x5588) = NULL;
         }
 
-        if (((InnerReset021ed9f8*)data_ov023_021ffefc.inner)->f4 > -1) {
-            ((BackgroundLoader*)(dataX))->RemoveTask((int)(((InnerReset021ed9f8*)data_ov023_021ffefc.inner)->f4));
+        if (((InnerReset021ed9f8*)_ZZ17GetGlobal021ffefcvE1s.inner)->f4 > -1) {
+            ((BackgroundLoader*)(dataX))->RemoveTask((int)(((InnerReset021ed9f8*)_ZZ17GetGlobal021ffefcvE1s.inner)->f4));
         }
-        if (((InnerReset021ed9f8*)data_ov023_021ffefc.inner)->f8 > -1) {
-            ((BackgroundLoader*)(dataX))->RemoveTask((int)(((InnerReset021ed9f8*)data_ov023_021ffefc.inner)->f8));
+        if (((InnerReset021ed9f8*)_ZZ17GetGlobal021ffefcvE1s.inner)->f8 > -1) {
+            ((BackgroundLoader*)(dataX))->RemoveTask((int)(((InnerReset021ed9f8*)_ZZ17GetGlobal021ffefcvE1s.inner)->f8));
         }
-        if (((InnerReset021ed9f8*)data_ov023_021ffefc.inner)->fc > -1) {
-            ((BackgroundLoader*)(dataX))->RemoveTask((int)(((InnerReset021ed9f8*)data_ov023_021ffefc.inner)->fc));
+        if (((InnerReset021ed9f8*)_ZZ17GetGlobal021ffefcvE1s.inner)->fc > -1) {
+            ((BackgroundLoader*)(dataX))->RemoveTask((int)(((InnerReset021ed9f8*)_ZZ17GetGlobal021ffefcvE1s.inner)->fc));
         }
 
-        ((InnerReset021ed9f8*)data_ov023_021ffefc.inner)->f4 = -1;
-        ((InnerReset021ed9f8*)data_ov023_021ffefc.inner)->f8 = -1;
-        ((InnerReset021ed9f8*)data_ov023_021ffefc.inner)->fc = -1;
+        ((InnerReset021ed9f8*)_ZZ17GetGlobal021ffefcvE1s.inner)->f4 = -1;
+        ((InnerReset021ed9f8*)_ZZ17GetGlobal021ffefcvE1s.inner)->f8 = -1;
+        ((InnerReset021ed9f8*)_ZZ17GetGlobal021ffefcvE1s.inner)->fc = -1;
         return;
     }
 

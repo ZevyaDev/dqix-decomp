@@ -30,7 +30,7 @@ struct GlobalStateOv023_021ffefc {
     char pad2[0x18 - 0x16];
     int id;
 };
-extern struct GlobalStateOv023_021ffefc* data_ov023_021ffefc;
+extern "C" struct GlobalStateOv023_021ffefc* _ZZ17GetGlobal021ffefcvE1s;
 
 struct PctBits021f288c { unsigned short low : 7; unsigned short pct : 9; };
 
@@ -38,7 +38,7 @@ struct PctBits021f288c { unsigned short low : 7; unsigned short pct : 9; };
 extern "C" ARM int func_ov023_021f288c(unsigned char* obj) {
     char msgBuf[0x100];
     GameState* battleStruct = GameState::GetInstance();
-    struct GlobalStateOv023_021ffefc* g = data_ov023_021ffefc;
+    struct GlobalStateOv023_021ffefc* g = _ZZ17GetGlobal021ffefcvE1s;
     int id = g->id;
     int state = GetGlobalField0x1c020421a0();
     unsigned char* stateObj = (unsigned char*)state;
