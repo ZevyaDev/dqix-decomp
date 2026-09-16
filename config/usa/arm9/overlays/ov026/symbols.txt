@@ -38,15 +38,7 @@ data_ov026_021de7fa kind:data(any) addr:0x021de7fa
 data_ov026_021de802 kind:data(any) addr:0x021de802
 data_ov026_021de812 kind:data(any) addr:0x021de812
 data_ov026_021de822 kind:data(any) addr:0x021de822
-data_ov026_021de840 kind:data(any) addr:0x021de840
-data_ov026_021de843 kind:data(any) addr:0x021de843
-data_ov026_021de846 kind:data(any) addr:0x021de846
-data_ov026_021de849 kind:data(any) addr:0x021de849
-data_ov026_021de84c kind:data(any) addr:0x021de84c
-data_ov026_021de84f kind:data(any) addr:0x021de84f
-data_ov026_021de852 kind:data(any) addr:0x021de852
-data_ov026_021de855 kind:data(any) addr:0x021de855
-data_ov026_021de85c kind:data(any) addr:0x021de85c
+_ZZ12GetRowLabelsvE1s kind:data(any) addr:0x021de840
 data_ov026_021de87c kind:data(any) addr:0x021de87c
 data_ov026_021dedbc kind:data(any) addr:0x021dedbc
 data_ov026_021dedd4 kind:data(any) addr:0x021dedd4

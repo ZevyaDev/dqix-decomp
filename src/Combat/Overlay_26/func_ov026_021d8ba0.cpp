@@ -49,7 +49,20 @@ struct Cmd {
 struct Vec3i { int v[3]; };
 struct Pos2i { int x, z; };
 struct NameBuf { char s[0x80]; };
-struct TaskHolder { char pad[0x18]; int task; };
+struct RowLabels {
+    char names[8][3];
+    int loadTask;
+    const char* order[8];
+};
+
+inline RowLabels& GetRowLabels() {
+    static RowLabels s = {
+        {"f4", "f3", "f1", "f2", "b4", "b1", "b2", "b3"},
+        -1,
+        {s.names[2], s.names[3], s.names[1], s.names[0], s.names[5], s.names[6], s.names[7], s.names[4]},
+    };
+    return s;
+}
 
 struct Group {
     unsigned char unk0;
@@ -69,7 +82,7 @@ MessageWork* GetGlobalField0x1c020421a0();
 void* GetData02100044();
 void* GetDataPtr02114e04_020d6c00();
 unsigned char* GetData02153634();
-int ClassifyField0x81fe(BattleState*);
+int ClassifyField0x81fe(char*);
 void SetFieldsAndSignalData02184220(void*, int);
 void SetCombatWorkFlags0x55f4(void*, int);
 void ClearCombatWorkFlags0x55f4(void*, int);
@@ -92,7 +105,7 @@ ViewInfo* GetPtrField612_0216f208(void*);
 void ClearBitsInField4(unsigned int*, unsigned int);
 void InitCombatantPosition_0216118c(void*, int);
 void ClearFlagIfParityMismatch02163710_02163710(void*, int);
-void RunFlaglearAndSetMode02167e6c_02167e6c( BattleWork*);
+void RunFlaglearAndSetMode02167e6c_02167e6c(unsigned char*);
 Container020d6f44* GetField02163524(void*);
 void ResetEntryManager020d6f44(Container020d6f44*);
 void ProcessCombatantReactions020d738c(void*);
@@ -100,7 +113,7 @@ void ApplyField41ToGatheredCombatants02163a7c(GatherObj02163a7c*);
 int GetSubstructByte0x1c(unsigned char*);
 void SetSubstructByte0x1c(unsigned char*, unsigned char);
 void SetSubstructFields0x10And0x18ClearFlag0x1(unsigned char*, int*);
-void ReinitController02043204(MessageWork*);
+void ReinitController02043204(char*);
 void ReleaseEntriesTwoGroups02174dc0(void*);
 GameObject* GetCombatantWithFlag0x400(GameState*, int);
 char* GetCombatantWithFlag0x1000(GameState*, int);
@@ -136,9 +149,9 @@ int GetByte2IfGlobalFlagSet(unsigned char*);
 void ClearBitOrNotifyOverlay020e3798(unsigned char*);
 void SetBitOrNotifyOverlay020e36f0(unsigned char*);
 int CountUnder100Flags0217fb98(void*);
-void SetBoundedArrayField0x4f4( BattleWork*, int, int);
+void SetBoundedArrayField0x4f4(char*, int, int);
 int TestBitBySignedByteIndex(SearchStruct*, int);
-int GetByteField_02168720_02168720( BattleWork*);
+int GetByteField_02168720_02168720(char*);
 void ClearSlotBitndSetByte_021813d4(void*);
 void SetForwardAndStore0205eb54(void*, int, int);
 void DispatchIfField0xc4NonNeg_0205eb90(void*, int, int);
@@ -211,7 +224,6 @@ void func_ov000_02163928( BattleWork*);
 }
 
 extern char data_ov026_021dedbc[];
-extern TaskHolder data_ov026_021de840;
 extern char data_ov026_021dedd4[];
 extern char data_02108760;
 extern Vec3i data_ov026_021de6dc;
@@ -451,13 +463,13 @@ extern "C" ARM void func_ov026_021d8ba0(BattleWork* self) {
     if (battle == 0 || slot == 0) {
         return;
     }
-    if (ClassifyField0x81fe(battle) != 0 && battle->turns == 2) {
+    if (ClassifyField0x81fe((char*)battle) != 0 && battle->turns == 2) {
         SetFieldsAndSignalData02184220(self, 4);
         return;
     }
     {
         int mode = battle->turns;
-        func_ov026_021d8aac(self, mode, ClassifyField0x81fe(battle));
+        func_ov026_021d8aac(self, mode, ClassifyField0x81fe((char*)battle));
     }
     if (res->unknown_flag_42e2 != 0 && loader->GetNumQueuedTasks() == 0) {
         SetCombatWorkFlags0x55f4(self, 0x2000000);
@@ -476,7 +488,7 @@ extern "C" ARM void func_ov026_021d8ba0(BattleWork* self) {
             }
         }
         ((SafeAllocator*)(self->alloc))->Reset();
-        data_ov026_021de840.task = loader->QueueLoadFile(data_ov026_021dedbc, 0);
+        GetRowLabels().loadTask = loader->QueueLoadFile(data_ov026_021dedbc, 0);
         self->state = 1;
         if (CheckField0NonZero(link) && MatchesActiveIndex020a36a8((Combatant020A36A8*)self->party)) {
             InitOverlay17Sub0215e8e8(self->battle);
@@ -486,28 +498,28 @@ state1:
     if (self->state == 1) {
         void* file;
         unsigned int len;
-        if (!loader->GetTaskStatus(data_ov026_021de840.task)) {
+        if (!loader->GetTaskStatus(GetRowLabels().loadTask)) {
             return;
         }
-        loader->GetLoadedFileByID(data_ov026_021de840.task, &file, &len);
+        loader->GetLoadedFileByID(GetRowLabels().loadTask, &file, &len);
         ClearFirstTwoWords0209a338((Pair0209a338*)(self->scriptA));
         SetupAndRunBufferedScript0209a470((Ctx0209a470*)(self->scriptA), (SafeAllocator*)(self->alloc), (StreamHeader*)file, len);
-        loader->RemoveTask(data_ov026_021de840.task);
-        data_ov026_021de840.task = -1;
-        data_ov026_021de840.task = loader->QueueLoadFile(data_ov026_021dedd4, 0);
+        loader->RemoveTask(GetRowLabels().loadTask);
+        GetRowLabels().loadTask = -1;
+        GetRowLabels().loadTask = loader->QueueLoadFile(data_ov026_021dedd4, 0);
         self->state = 2;
     }
     if (self->state == 2) {
         void* file;
         unsigned int len;
-        if (!loader->GetTaskStatus(data_ov026_021de840.task)) {
+        if (!loader->GetTaskStatus(GetRowLabels().loadTask)) {
             return;
         }
-        loader->GetLoadedFileByID(data_ov026_021de840.task, &file, &len);
+        loader->GetLoadedFileByID(GetRowLabels().loadTask, &file, &len);
         ClearField00209a804((int*)(self->scriptB));
         SetupAndRunBufferedScript0209a8b4((Ctx0209a8b4*)(self->scriptB), (SafeAllocator*)(self->alloc), (StreamHeader*)file, len);
-        loader->RemoveTask(data_ov026_021de840.task);
-        data_ov026_021de840.task = -1;
+        loader->RemoveTask(GetRowLabels().loadTask);
+        GetRowLabels().loadTask = -1;
         self->state = 3;
     }
     if (self->state == 3) {
@@ -549,7 +561,7 @@ state1:
             InitCombatantPosition_0216118c(self, 1);
         }
         ClearFlagIfParityMismatch02163710_02163710(self, 1);
-        RunFlaglearAndSetMode02167e6c_02167e6c(self);
+        RunFlaglearAndSetMode02167e6c_02167e6c((unsigned char*)self);
         {
             Container020d6f44* reactions = GetField02163524(self);
             ResetEntryManager020d6f44(reactions);
@@ -626,7 +638,7 @@ state1:
             }
         }
     shifted:
-        ReinitController02043204(ctrl);
+        ReinitController02043204((char*)ctrl);
         func_02043124(ctrl);
         func_ov026_021daec8(self->battle, self->view, autoMode);
         {
@@ -697,7 +709,7 @@ state1:
         func_ov000_02174c14(self->list);
         func_ov000_021814bc(self->list);
         self->uiFlags &= ~0x600;
-        if (ClassifyField0x81fe(battle) != 0) {
+        if (ClassifyField0x81fe((char*)battle) != 0) {
             self->versusFlag = 1;
         }
         {
@@ -729,7 +741,7 @@ state1:
             func_ov000_0217fcc4(self->list, -1);
             self->inputOn = 0;
         }
-        if (ClassifyField0x81fe(battle) != 0) {
+        if (ClassifyField0x81fe((char*)battle) != 0) {
             if (func_0202c540(link) != 0) {
                 Process02181364(self->list);
                 func_ov000_0217fcc4(self->list, -1);
@@ -808,7 +820,7 @@ state1:
                 all = 1;
             }
             if (all || !mine || !entry) {
-                ReinitController02043204(ctrl);
+                ReinitController02043204((char*)ctrl);
                 self->state = 4;
                 ResetTaggedEntryAndNotifyOverlay020e3994(tags, 1, -1);
                 return;
@@ -924,7 +936,7 @@ state1:
                 if (self->slotDone[me] != (CountUnder100Flags0217fb98(self->list) == 0)) {
                     changed = 1;
                 }
-                SetBoundedArrayField0x4f4(self, me, CountUnder100Flags0217fb98(self->list) == 0);
+                SetBoundedArrayField0x4f4((char*)self, me, CountUnder100Flags0217fb98(self->list) == 0);
             }
             func_ov026_021db3d8(self);
             if (MatchesActiveIndex020a36a8((Combatant020A36A8*)self->party)) {
@@ -946,7 +958,7 @@ state1:
             if (redo) {
                 func_ov000_0217fcc4(self->list, -1);
             }
-            if (GetByteField_02168720_02168720(self) > 0 || ctrl->busy != 0) {
+            if (GetByteField_02168720_02168720((char*)self) > 0 || ctrl->busy != 0) {
                 redo = 0;
             }
             if (redo && CheckField0NonZero(link) && MatchesActiveIndex020a36a8((Combatant020A36A8*)self->party)) {
@@ -1049,7 +1061,7 @@ state1:
                     int all;
                     int i;
                     if (self->reinitFlag == 0) {
-                        RunFlaglearAndSetMode02167e6c_02167e6c(self);
+                        RunFlaglearAndSetMode02167e6c_02167e6c((unsigned char*)self);
                     }
                     func_ov026_021daec8(battle, func_ov000_02160f14(self), 0);
                     if (MatchesActiveIndex020a36a8((Combatant020A36A8*)self->party)) {
