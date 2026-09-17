@@ -4299,6 +4299,8 @@ from:0x0216f764 kind:arm_call to:0x021848a0 module:overlay(11)
 from:0x0216f774 kind:load to:0x02171048 module:overlay(4)
 from:0x0216f778 kind:load to:0x02108760 module:main
 from:0x0216f77c kind:load to:0x02109bf4 module:main
+from:0x0216f780 kind:overlay_id to:31 module:none
+from:0x0216f784 kind:overlay_id to:32 module:none
 from:0x0216f794 kind:arm_call to:0x0200f398 module:main
 from:0x0216f7ac kind:arm_call to:0x02001a40 module:main
 from:0x0216f7cc kind:arm_call to:0x021848a0 module:overlay(11)

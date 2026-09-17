@@ -81,6 +81,8 @@ from:0x0218ba80 kind:arm_call to:0x02043000 module:main
 from:0x0218ba88 kind:arm_call to:0x0207df50 module:main
 from:0x0218ba94 kind:arm_call to:0x0200fb84 module:main
 from:0x0218ba9c kind:arm_call to:0x020a1e54 module:main
+from:0x0218baa8 kind:overlay_id to:9 module:none
+from:0x0218baac kind:overlay_id to:23 module:none
 from:0x0218badc kind:load to:0x0218bbc4 module:overlay(21)
 from:0x0218bae0 kind:load to:0x02114e20 module:main
 from:0x0218baec kind:load to:0x02109bf4 module:main

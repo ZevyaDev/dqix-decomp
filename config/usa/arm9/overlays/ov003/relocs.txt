@@ -6386,6 +6386,7 @@ from:0x0217ee3c kind:arm_call to:0x02046b60 module:main
 from:0x0217ee4c kind:arm_call to:0x020397c0 module:main
 from:0x0217ee58 kind:arm_call to:0x0203b4e8 module:main
 from:0x0217ee68 kind:arm_call to:0x020397cc module:main
+from:0x0217ee88 kind:overlay_id to:9 module:none
 from:0x0217eed4 kind:arm_call to:0x02184bbc module:overlay(9)
 from:0x0217eeec kind:arm_call to:0x02184c30 module:overlays(9,11)
 from:0x0217ef04 kind:arm_call to:0x02184ca4 module:overlay(9)
