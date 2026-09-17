@@ -1781,7 +1781,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         lr.p1 = msg->p1;
         if (func_020ac2d4(0, &lr.p1, &lr.fb.opt, 1)) {
             lr.fb.flags |= 2;
-            func_020ac104(((__typeof__(&data_0211e33c))0x0211E33C), &lr.fb.opt, 1);
+            func_020ac104(&data_0211e33c, &lr.fb.opt, 1);
         }
         return 1;
     }
