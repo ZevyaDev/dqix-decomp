@@ -1,8 +1,9 @@
 """Give an assembled object the symbol shape dsd's delinked objects have.
 
-mwasmarm exports every `.global` as NOTYPE with size 0 and emits a `$d` mapping symbol for each
-data run. dsd emits FUNC/OBJECT with real sizes and no `$d`, and objdiff aborts the entire report
--- "Failed to find right side symbol for paired left side symbol" -- when the two sides disagree.
+mwasmarm exports every `.global` as NOTYPE with size 0 and emits a `$d` mapping symbol for every
+data run. dsd emits FUNC/OBJECT with real sizes and a `$d` only for literal-pool words inside a
+function, and objdiff aborts the entire report -- "Failed to find right side symbol for paired left
+side symbol" -- when the two sides disagree.
 
 Sizes come from the distance to the next exported symbol, and the type from the `$a`/`$t`/`$d`
 mapping symbol covering the address.
@@ -60,16 +61,18 @@ def fixup(path):
                      if sh[1] == SHT_PROGBITS and sh[2] & SHF_EXECINSTR}
 
     changed = 0
+    drop = set()
     for section in code_sections:
-        marks = sorted((e[4], e[2]) for e in entries if e[8] == section and e[2] in MAPPING)
+        marks = sorted((e[4], e[2], e[0]) for e in entries if e[8] == section and e[2] in MAPPING)
         exported = sorted((e[4], e) for e in entries
-                          if e[8] == section and e[6] >> 4 == 1 and e[2] and e[2] not in MAPPING)
+                          if e[8] == section and e[6] >> 4 == 1 and e[2] and e[2] not in MAPPING
+                          and not e[2].startswith(b".L"))
         end = shdrs[section][5]
         for pos, (value, entry) in enumerate(exported):
             following = exported[pos + 1][0] if pos + 1 < len(exported) else end
             size = following - value
             kind = STT_FUNC
-            for addr, mark in marks:
+            for addr, mark, _ in marks:
                 if addr <= value:
                     kind = STT_OBJECT if mark == b"$d" else STT_FUNC
             if entry[5] == size and entry[6] & 0xF == kind:
@@ -79,15 +82,23 @@ def fixup(path):
                              entry[6], entry[7], entry[8])
             changed += 1
 
-    keep, remap, dropped = [], {}, 0
+        funcs = [(e[4], e[4] + e[5]) for _, e in exported if e[6] & 0xF == STT_FUNC]
+        for pos, (addr, mark, index) in enumerate(marks):
+            if mark != b"$d":
+                continue
+            run_end = next((a for a, _, _ in marks[pos + 1:] if a > addr), end)
+            owner = next(((lo, hi) for lo, hi in funcs if lo < addr < hi), None)
+            if owner is None or min(run_end, owner[1]) - addr < 4:
+                drop.add(index)
+
+    keep, remap = [], {}
     for e in entries:
-        if e[2] == b"$d":
-            dropped += 1
+        if e[0] in drop:
             continue
         remap[e[0]] = len(keep)
         keep.append(bytes(data[e[1]:e[1] + SYM_SIZE]))
 
-    if dropped:
+    if drop:
         for sh in shdrs:
             if sh[1] not in (SHT_REL, SHT_RELA) or sh[6] != sym_index:
                 continue
@@ -99,14 +110,14 @@ def fixup(path):
                 if old not in remap:
                     raise SystemExit("%s: relocation references a dropped symbol" % path)
                 struct.pack_into("<I", data, off, (remap[old] << 8) | (r_info & 0xFF))
-        data[sh_offset:sh_offset + sh_size] = b"".join(keep) + b"\0" * (dropped * SYM_SIZE)
+        data[sh_offset:sh_offset + sh_size] = b"".join(keep) + b"\0" * (len(drop) * SYM_SIZE)
         struct.pack_into("<I", data, sym_off + 20, len(keep) * SYM_SIZE)
         struct.pack_into("<I", data, sym_off + 28, sum(1 for k in remap if k < first_global))
 
-    if changed or dropped:
+    if changed or drop:
         with open(path, "wb") as fh:
             fh.write(data)
-    return changed + dropped
+    return changed + len(drop)
 
 
 if __name__ == "__main__":
