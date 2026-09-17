@@ -17375,3 +17375,43 @@ src/Combat/Main/InitEntries020e5c00.cpp:
 src/Combat/Main/0205faf4.cpp:
     complete
     .text start:0x0205faf4 end:0x02061bd8
+
+
+src/Combat/Main/GuardedNotifyOverlay0211e33c020d6c34.cpp:
+    complete
+    .text start:0x020d6c34 end:0x020d6c68
+
+
+src/Combat/Main/GuardedNotifyOverlay0211e33c020d6c68.cpp:
+    complete
+    .text start:0x020d6c68 end:0x020d6c9c
+
+
+src/Combat/Main/GuardedOverlayDispatch020d6cb4.cpp:
+    complete
+    .text start:0x020d6cb4 end:0x020d6d18
+
+
+src/Combat/Main/InitOverlay17ObjAndBumpBattleCounter02012bd8.cpp:
+    complete
+    .text start:0x02012bd8 end:0x02012c34
+
+
+src/Combat/Main/NotifyOverlay0211e33c.cpp:
+    complete
+    .text start:0x020d6c0c end:0x020d6c34
+
+
+src/Combat/Main/func_02065418.cpp:
+    complete
+    .text start:0x02065418 end:0x020654b8
+
+
+src/Combat/Main/func_020d7978.cpp:
+    complete
+    .text start:0x020d7978 end:0x020d79e0
+
+
+src/Combat/Main/func_020d79e0.cpp:
+    complete
+    .text start:0x020d79e0 end:0x020d7a50
