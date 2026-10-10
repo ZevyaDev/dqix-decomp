@@ -19460,3 +19460,8 @@ src/Combat/Main/func_02017a94.cpp:
 src/Combat/Main/func_020c3260.cpp:
     complete
     .text start:0x020c3260 end:0x020c32f8
+
+
+src/Combat/Main/UnpackMapAMDJ.cpp:
+    complete
+    .text start:0x020146fc end:0x02014900
