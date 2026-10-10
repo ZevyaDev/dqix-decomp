@@ -19445,3 +19445,18 @@ src/Combat/Main/func_020d9870.cpp:
 src/Combat/Main/func_020ddb38.cpp:
     complete
     .text start:0x020ddb38 end:0x020ddcbc
+
+
+src/Combat/Main/func_02013e18.cpp:
+    complete
+    .text start:0x02013e18 end:0x02013fb4
+
+
+src/Combat/Main/func_02017a94.cpp:
+    complete
+    .text start:0x02017a94 end:0x02017c58
+
+
+src/Combat/Main/func_020c3260.cpp:
+    complete
+    .text start:0x020c3260 end:0x020c32f8
