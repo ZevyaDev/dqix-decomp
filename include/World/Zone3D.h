@@ -147,6 +147,8 @@ public:
     // usa: _ZN6Zone3D10SwitchZoneEt
     void SwitchZone(unsigned short newID);
 
-    // usa: func_020145a8
+    // usa: _ZN6Zone3D13UnpackMapAMDJEv
+    int UnpackMapAMDJ();
+
     void LoadMapAMDJ();
 };
