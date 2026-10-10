@@ -1,40 +1,8 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
+#include "World/Zone3D.h"
 #include "std_library_functions.h"
-
-struct Zone3D_StructPtr_8
-{
-    unsigned short unknown_0_;
-    unsigned short unknown_2_ : 15;
-    char unk_4;
-    char mapShortName_[7];
-    unsigned char unknown_c_low_ : 4;
-    unsigned char unknown_c_high_ : 1;
-};
-
-// Layout-compatible with include/World/Zone3D.h (usa). The repo header does not
-// declare LoadMapAMDJ, so the class is re-stated here with the method added.
-class Zone3D
-{
-public:
-    unsigned short currentZoneID_;
-    unsigned short previousZoneID_;
-    short unknown_4_;
-    char unk_6[2];
-    Zone3D_StructPtr_8* pUnknownStruct_8_;
-    char unk_c[0x420];
-    unsigned char unknown_42c_;
-    char unk_42d[3];
-    int mapListLoadHandle_;
-    int unknown_434_;
-    int mapAMBLLoadHandle_;
-    int mapAMDJLoadHandle_;
-    char unk_440[0x1fac];
-    ActiveGrottoClass grotto_;
-
-    void LoadMapAMDJ();
-};
 
 extern "C" {
     int _Z17IsInRange0201b5b0i(int id);
