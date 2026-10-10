@@ -19310,3 +19310,73 @@ src/Combat/Main/func_020abd20.cpp:
 src/Combat/Main/func_020e1f1c.cpp:
     complete
     .text start:0x020e1f1c end:0x020e2018
+
+
+src/Combat/Main/_ZN6Zone3D16ProcessNSBTXFileEPKvjPKc.cpp:
+    complete
+    .text start:0x0201445c end:0x020145a8
+
+
+src/Combat/Main/__sinit_020e5c58.cpp:
+    complete
+    .init start:0x020e5c58 end:0x020e5ce8
+
+
+src/Combat/Main/func_020145a8.cpp:
+    complete
+    .text start:0x020145a8 end:0x020146fc
+
+
+src/Combat/Main/func_02015438.cpp:
+    complete
+    .text start:0x02015438 end:0x02015518
+
+
+src/Combat/Main/func_02029568.cpp:
+    complete
+    .text start:0x02029568 end:0x02029634
+
+
+src/Combat/Main/func_02032090.cpp:
+    complete
+    .text start:0x02032090 end:0x02032124
+
+
+src/Combat/Main/func_0203ba74.cpp:
+    complete
+    .text start:0x0203ba74 end:0x0203bb1c
+
+
+src/Combat/Main/func_02095578.cpp:
+    complete
+    .text start:0x02095578 end:0x0209562c
+
+
+src/Combat/Main/func_020abe84.cpp:
+    complete
+    .text start:0x020abe84 end:0x020abf38
+
+
+src/Combat/Main/func_020abf60.cpp:
+    complete
+    .text start:0x020abf60 end:0x020ac020
+
+
+src/Combat/Main/func_020b08b8.cpp:
+    complete
+    .text start:0x020b08b8 end:0x020b0a1c
+
+
+src/Combat/Main/func_020b1ec0.cpp:
+    complete
+    .text start:0x020b1ec0 end:0x020b1f48
+
+
+src/Combat/Main/func_020b78f8.cpp:
+    complete
+    .text start:0x020b78f8 end:0x020b7990
+
+
+src/Combat/Main/func_020e0ec4.cpp:
+    complete
+    .text start:0x020e0ec4 end:0x020e0f74
