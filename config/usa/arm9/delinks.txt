@@ -19067,6 +19067,26 @@ src/Combat/Main/func_02019728.cpp:
     .text start:0x02019728 end:0x02019f24
 
 
+src/Combat/Main/func_02032fdc.cpp:
+    complete
+    .text start:0x02032fdc end:0x020332ac
+
+src/Combat/Main/func_020421c4.cpp:
+    complete
+    .text start:0x020421c4 end:0x020424ac
+
+src/Combat/Main/func_020771fc.cpp:
+    complete
+    .text start:0x020771fc end:0x02077500
+
+src/Combat/Main/func_020a72ac.cpp:
+    complete
+    .text start:0x020a72ac end:0x020a75a0
+
+src/Combat/Main/func_020ad1f8.cpp:
+    complete
+    .text start:0x020ad1f8 end:0x020ad4c4
+
 src/Combat/Main/_ZN6Zone3D13UnpackMapAMBLEv.cpp:
     complete
     .text start:0x02014108 end:0x02014390
