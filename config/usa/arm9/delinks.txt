@@ -19199,10 +19199,6 @@ src/Combat/Main/func_02016e14.cpp:
     complete
     .text start:0x02016e14 end:0x02017098
 
-src/Combat/Main/_ZN6Zone3D13UnpackMapAMDJEv.cpp:
-    complete
-    .text start:0x020146fc end:0x02014900
-
 src/Combat/Main/func_02017098.cpp:
     complete
     .text start:0x02017098 end:0x02017208
