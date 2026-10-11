@@ -19699,3 +19699,13 @@ src/Combat/Main/func_02055ccc.cpp:
 src/Combat/Main/func_020951d8.cpp:
     complete
     .text start:0x020951d8 end:0x02095364
+
+
+src/Combat/Main/FindFreeSlotAndStore02087510.cpp:
+    complete
+    .text start:0x02087510 end:0x02087574
+
+
+src/Combat/Main/func_020b1938.cpp:
+    complete
+    .text start:0x020b1938 end:0x020b19b8
