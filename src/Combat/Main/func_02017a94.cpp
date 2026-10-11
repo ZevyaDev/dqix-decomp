@@ -11,15 +11,12 @@ extern "C" int _Z35LookupAndForEachNodeIfMatch02064b24PvitS_(void* a, int mode, 
 struct Obj0201b600;
 struct Elem0201b600;
 struct FeatureElem02017a94;
-// Declared under its literal mangled name, as IsElemFlag4ClearByKeys_0201bd74.cpp and the
-// other three FindElemByKeys callers already do: the symbol is bound, and the call site
-// needs the third argument narrowed as UNSIGNED short (lsl/lsr, not lsl/asr).
 extern "C" struct FeatureElem02017a94* _Z14FindElemByKeysP11Obj0201b600is(
     struct Obj0201b600* obj, int key1, unsigned short key2);
 
 struct FeatureElem02017a94 {
-    unsigned short key;   // 0x00
-    unsigned short flags; // 0x02
+    unsigned short key;
+    unsigned short flags;
     unsigned char pad[0x2b];
 };
 
@@ -31,8 +28,6 @@ struct FeatureNode02017a94 {
     struct FeatureNode02017a94* next;
 };
 
-// Stack context handed to _Z35LookupAndForEachNodeIfMatch02064b24PvitS_ as its 4th argument.
-// That callee clears field30 before walking; we only ever fill field0c.
 struct AppendContext02017a94 {
     unsigned char pad00[0x0c];
     unsigned int zoneId;
@@ -79,11 +74,6 @@ extern "C" ARM void func_02017a94(Zone3D* zone) {
                                 GetPointerFromArray0x3c((unsigned char*)zone->substruct_6c_, 2);
                             while (n != NULL) {
                                 if (n->id2d == e->key) {
-                                    // (cur >> 4) and ((mask << 20) >> 16) are spelled in the
-                                    // 16-bit high-half form: mwccarm only emits lsl #16 / lsr #20
-                                    // for the first and lsr #16 (not asr) for the second when the
-                                    // shift runs in the unsigned domain. Semantics are identical
-                                    // (cur is 16-bit, so no bits are shifted out).
                                     cur = n->field2e;
                                     mask = (unsigned short)(((cur << 16) >> 20) | 1);
                                     n->field2e = (cur & 0xffff000f) | ((unsigned int)(mask << 20) >> 16);
@@ -100,9 +90,6 @@ extern "C" ARM void func_02017a94(Zone3D* zone) {
         ctx.zoneId = zone->currentZoneID_;
         _Z35LookupAndForEachNodeIfMatch02064b24PvitS_(bmp, 3, 0x6c, &ctx);
         _Z35LookupAndForEachNodeIfMatch02064b24PvitS_(bmp, 0x14, 0x6c, &ctx);
-        // Written through the Zone3D member rather than the same raw-pointer expression the
-        // guard uses: identical address, but mwccarm then cannot CSE it into a callee-saved
-        // register across the loop nest (the ROM recomputes `add sl,#0x2000` at both sites).
         zone->unk_276c[0x281d - 0x276c] = 0;
     }
 }

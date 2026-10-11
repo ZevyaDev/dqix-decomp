@@ -31,10 +31,6 @@ struct Container0201edf0 {
     int f0;
     struct Alloc0201edf0* alloc;
     struct List0201f214* list;
-    // Never read. This function only touches offsets 0/4/8, all inside the global's real 12
-    // bytes. The pad exists solely to push the declared object past 18 bytes, which is what
-    // gives the compiler the alias edge it needs to order the load against the store.
-    // Removing it drops the gate from MATCH back to 14 bytes. Do not tidy it away.
     char pad[16];
 };
 extern struct Container0201edf0 data_020fdc40;

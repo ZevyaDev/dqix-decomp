@@ -18,18 +18,18 @@ struct Flags02047554 {
 
 struct Obj02047554 {
     char pad0[0x8];
-    struct Entry02047554* entries; // 0x8
+    struct Entry02047554* entries;
     char pad1[0x1c - 0x8 - 4];
-    int f1c; // 0x1c
-    int f20; // 0x20
-    int f24; // 0x24
+    int f1c;
+    int f20;
+    int f24;
     char pad2[0x34 - 0x28];
-    int f34; // 0x34
-    int f38; // 0x38
-    int f3c; // 0x3c
+    int f34;
+    int f38;
+    int f3c;
     char pad3[0x82 - 0x40];
-    short f82; // 0x82
-    struct Flags02047554 f84; // 0x84
+    short f82;
+    struct Flags02047554 f84;
 };
 
 // USA: func_02047554

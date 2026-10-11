@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-// mwcc 2.0/sp2p2 has no __builtin_clz. A plain "=r" / "r" asm pair lets the allocator
-// pass the parameter straight through (one instruction, 2 bytes short); only "+r" on a
-// local pre-loaded with x forces the copy the ROM materialises before each clz.
 static inline int Clz(int x) {
     int r = x;
     __asm("clz %0, %0" : "+r"(r));
