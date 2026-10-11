@@ -8,8 +8,6 @@
 #include "Filesystem/FileAccessor.h"
 #include "std_library_functions.h"
 
-// Node type behind Zone3D::firstBMDJStruct_41c_ (see AllocateAndRunScript02014900.cpp:
-// it allocates 0x58 bytes and links 0x54 back into that same list).
 struct Zone3D_BMDJNode
 {
     char unknown_0_[0x54];
@@ -23,8 +21,8 @@ extern "C"
     int func_02014a24(Zone3D* zone, void* node);
 }
 
-extern char data_020ef13a[]; // "ARC"
-extern char data_020ef199[]; // ".bmdj"
+extern char data_020ef13a[];
+extern char data_020ef199[];
 
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.
 // USA: func_020146fc

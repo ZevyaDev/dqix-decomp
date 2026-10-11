@@ -24,8 +24,6 @@ struct Obj020322c0 {
 };
 
 // USA: func_020322c0
-// normalize self->f24 in place into a local, normalize the XZ unit vector for
-// other->x, return their inner product.
 extern "C" ARM int func_020322c0(const struct Obj020322c0* self, const struct Vec4f* other) {
     struct Vec3 a = self->f24;
     Vector3fix_Normalize(&a, &a);

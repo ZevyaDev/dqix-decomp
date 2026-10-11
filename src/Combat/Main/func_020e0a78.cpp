@@ -5,21 +5,14 @@ struct FlagWord02046708;
 
 struct CombatResBuildView {
     unsigned char unknown0[0x76c];
-    SafeAllocator *allocator;   // 0x76c
-    void *sourceData;           // 0x770
-    unsigned int size;          // 0x774
+    SafeAllocator *allocator;
+    void *sourceData;
+    unsigned int size;
 };
 
 extern "C" void *_Z27GetDataPtr02114e04_020d6c00v();
 extern "C" int _Z17TestFlags02046708P16FlagWord02046708j(FlagWord02046708 *flags, unsigned int mask);
 extern "C" void VectorizedInvertedMemcpy(void *dst, void *src, unsigned int size);
-// The 4th parameter of each of these four is DEAD AT THE ABI BOUNDARY and the real committed
-// definitions take three parameters (SetupWeightedEntriesAndSubmit.cpp:29 and siblings). Each
-// callee overwrites r2 and r3 with pool constants in its own prologue before reading anything, so
-// the value the caller puts in r3 is discarded. The ROM nevertheless materialises it, and that
-// `mov r3, #imm` is part of the bytes this function must match, so the fourth parameter is declared
-// to reproduce it. It is named dead_r3 rather than `size` so that nobody later reads these calls as
-// buffer-range submissions -- they are not; nothing downstream ever sees that value.
 extern "C" void _Z29SetupWeightedEntriesAndSubmitPvii(void *obj, void *buf, int offset, int dead_r3);
 extern "C" void _Z41SetupWeightedEntriesAndSubmitPair020e0cfcPvii(void *obj, void *buf, int offset, int dead_r3);
 extern "C" void func_020e0b4c(void *obj, void *buf, int offset, int dead_r3);

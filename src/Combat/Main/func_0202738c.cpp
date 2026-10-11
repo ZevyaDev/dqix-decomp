@@ -3,9 +3,6 @@
 #include "Combat/ActionState.h"
 
 // USA: func_0202738c
-// Set or clear the flag bit `mask` in element `id`'s ActionState.b2, or in all four
-// when id < 0. `add` picks |= (nonzero) against &= ~mask (zero).
-// obj[i + 0x758] holds the action-state id of combatant slot i.
 extern "C" ARM void func_0202738c(unsigned char *obj, int add, int mask, int id) {
     if (id < 0) {
         int i;

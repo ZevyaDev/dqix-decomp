@@ -30,14 +30,9 @@ extern "C" void _Z27AppendElementCapped0201f0f0P12List0201f0f0P12Elem0201f0f0(st
 extern "C" struct Entry_1f170* _Z19FindEntryBySignedIdP15EntryList_1f170i(struct EntryList_1f170*, int);
 
 struct Container0201ec00 {
-    struct Entry_1f170* f0;    // +0x0
-    SafeAllocator* alloc;      // +0x4
-    struct List0201f0f0* list; // +0x8
-    // Never touched by this function. The pad exists only to push the declared object past
-    // 2 * 8 + 4 = 20 bytes: mwcc's alias lookup counts a member offset twice, so a 12-byte
-    // declaration cannot prove that `data_020fdc40.list` (offset 8) does not alias the local
-    // element, and it emits a store->load mraw edge that pins `e.f8 = 0` above the pool load.
-    // Same lever as func_0201edf0. Do not tidy it away.
+    struct Entry_1f170* f0;
+    SafeAllocator* alloc;
+    struct List0201f0f0* list;
     char pad[16];
 };
 extern struct Container0201ec00 data_020fdc40;

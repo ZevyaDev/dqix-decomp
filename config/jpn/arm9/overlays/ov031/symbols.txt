@@ -636,7 +636,7 @@ _Z23ClearHighBit15_02218798i kind:function(arm,size=0xc) addr:0x02218f78
 _Z14Setup_022187a4PcPvi kind:function(arm,size=0x58) addr:0x02218f84
 _Z29ClearBufferAndNotify_022187fciPv kind:function(arm,size=0x40) addr:0x02218fdc
 func_ov031_0221883c kind:function(arm,size=0xa8) addr:0x0221901c
-func_ov031_022190c4 kind:function(arm,size=0x154) addr:0x022190c4
+func_ov031_022188e4 kind:function(arm,size=0x154) addr:0x022190c4
 func_ov031_02219218 kind:function(arm,size=0x154) addr:0x02219218
 func_ov031_02218b8c kind:function(arm,size=0x2a0) addr:0x0221936c
 func_ov031_02218e2c kind:function(arm,size=0x58) addr:0x0221960c
@@ -2285,10 +2285,10 @@ data_ov031_0224aae8 kind:data(any) addr:0x0224aae8
 data_ov031_0224aaec kind:data(any) addr:0x0224aaec
 data_ov031_02249f00 kind:data(any) addr:0x0224ab00
 data_ov031_02249f14 kind:data(any) addr:0x0224ab14
-data_ov031_0224ab24 kind:data(any) addr:0x0224ab24
-data_ov031_0224ab2c kind:data(any) addr:0x0224ab2c
-data_ov031_0224ab38 kind:data(any) addr:0x0224ab38
-data_ov031_0224ab3c kind:data(any) addr:0x0224ab3c
+data_ov031_02249f24 kind:data(any) addr:0x0224ab24
+data_ov031_02249f2c kind:data(any) addr:0x0224ab2c
+data_ov031_02249f38 kind:data(any) addr:0x0224ab38
+data_ov031_02249f3c kind:data(any) addr:0x0224ab3c
 data_ov031_0224ab40 kind:data(any) addr:0x0224ab40
 data_ov031_0224ab60 kind:data(any) addr:0x0224ab60
 data_ov031_0224ab80 kind:data(any) addr:0x0224ab80
@@ -2685,8 +2685,8 @@ data_ov031_0224d5e8 kind:bss addr:0x0224d5e8
 data_ov031_0224ca00 kind:bss addr:0x0224d600
 data_ov031_0224ca0a kind:bss addr:0x0224d60a
 data_ov031_0224d660 kind:bss addr:0x0224d660
-data_ov031_0224d680 kind:bss addr:0x0224d680
-data_ov031_0224d6c4 kind:bss addr:0x0224d6c4
+data_ov031_0224ca80 kind:bss addr:0x0224d680
+data_ov031_0224cac4 kind:bss addr:0x0224d6c4
 data_ov031_0224cb28 kind:bss addr:0x0224d728
 data_ov031_0224cbe8 kind:bss addr:0x0224d7e8
 data_ov031_0224d8a8 kind:bss addr:0x0224d8a8

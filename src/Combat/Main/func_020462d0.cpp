@@ -10,13 +10,6 @@ struct Slot020462d0 {
 };
 
 // USA: func_020462d0
-// Message-code refcount drain: for each code, mark the slot 0xff01, skip the escape codes,
-// decrement the per-code refcount, and on hitting zero Forward the slot and bump the
-// per-message forward counter. Offsets are the MessageSystem/CombatSlots layout shared with
-// DecrementSlotRef0206b198, InitCombatSlots02043040 and ReinitCombatController_02043224.
-// The two big offsets are written as ONE pointer expression each (0x17b8, 0x9b8); mwccarm's
-// canon splits them into the +0x3b8/+0x1400 and +0x1b8/+0x800 pairs itself, and that colouring
-// is the one the ROM has (a base + re-offset local colours the two scratch registers inverted).
 extern "C" ARM void func_020462d0(char* obj, unsigned short* codes, int count) {
     if (codes == 0) {
         return;
