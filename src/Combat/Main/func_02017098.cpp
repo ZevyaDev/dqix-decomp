@@ -2,6 +2,10 @@
 #include "Graphics/Vector.h"
 #include "World/LootableContainer.h"
 
+#if defined(jpn)
+#define data_020ef222 data_020ef15e
+#endif
+
 struct ActorListManager;
 struct SelfObj792c;
 struct Struct020478bc;
