@@ -2,9 +2,6 @@
 
 struct S021a72dc { unsigned char f0; unsigned char f1; };
 
-#if defined(jpn)
-#define func_ov017_021a7280 func_ov017_021a7c28
-#endif
 extern "C" void func_ov017_021a7280(S021a72dc*);
 
 // JPN: func_ov017_021a7c84

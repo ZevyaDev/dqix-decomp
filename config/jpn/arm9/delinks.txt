@@ -16710,3 +16710,27 @@ src/Combat/Main/func_02032370.cpp:
 src/Combat/Main/func_020323c4.cpp:
     complete
     .text start:0x02031efc end:0x02031f5c
+
+src/Combat/Main/SomeHashWrapper_020c0c3c.cpp:
+    complete
+    .text start:0x020c2708 end:0x020c279c
+
+src/Combat/Main/func_0202738c.cpp:
+    complete
+    .text start:0x02026cf0 end:0x02026d9c
+
+src/Combat/Main/func_02098080.cpp:
+    complete
+    .text start:0x02099cd0 end:0x02099e34
+
+src/Combat/Main/func_020a1a40.cpp:
+    complete
+    .text start:0x020a37b8 end:0x020a392c
+
+src/Combat/Main/func_0207d7f4.cpp:
+    complete
+    .text start:0x0207e574 end:0x0207e6f8
+
+src/Combat/Main/func_020288e0.cpp:
+    complete
+    .text start:0x02028138 end:0x0202821c

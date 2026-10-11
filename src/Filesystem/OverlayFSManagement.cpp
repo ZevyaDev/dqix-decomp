@@ -12,7 +12,6 @@
 #define data_020f2e44 data_020f2e58
 #define data_020f2290 data_020f23fc
 
-#define func_020c0c3c func_020c2708
 #endif
 
 // might be some kind of overlay-like thing for download play
