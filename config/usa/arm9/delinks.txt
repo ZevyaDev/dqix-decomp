@@ -20370,3 +20370,43 @@ src/Combat/Main/func_02020c18.cpp:
     complete
     .text start:0x02020c18 end:0x02020cb8
     .bss start:0x020fdc4c end:0x020fdc60
+
+
+src/NitroSDK/Main/CartridgeReadContextLoop.cpp:
+    complete
+    .text start:0x020d0f74 end:0x020d0fc4
+
+
+src/NitroSDK/Main/GetLowLevelCartridgeReadProc.cpp:
+    complete
+    .text start:0x020d0f34 end:0x020d0f40
+
+
+src/NitroSDK/Main/IPCCommand11Proc.cpp:
+    complete
+    .text start:0x020d0f40 end:0x020d0f74
+
+
+src/NitroSDK/Main/InitializeCardReading.cpp:
+    complete
+    .text start:0x020d0ec4 end:0x020d0f28
+
+
+src/NitroSDK/Main/SendGamecardBusCommand.cpp:
+    complete
+    .text start:0x020d08d8 end:0x020d0938
+
+
+src/NitroSDK/Main/SetupNormalGamecardBusCommandMode.cpp:
+    complete
+    .text start:0x020d0cd8 end:0x020d0d34
+
+
+src/NitroSDK/Main/TransferScratchBuffer.cpp:
+    complete
+    .text start:0x020d084c end:0x020d08d8
+
+
+src/NitroSDK/Main/WaitForReadManagerIdle_Internal.cpp:
+    complete
+    .text start:0x020d0f28 end:0x020d0f34
