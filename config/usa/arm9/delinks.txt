@@ -20390,3 +20390,23 @@ src/NitroSDK/Main/NSBXX_Model_SetDiffuseReflectionColor.cpp:
 src/NitroSDK/Main/NSBXX_Model_SetMaterialDiffuseReflectionColor.cpp:
     complete
     .text start:0x020b700c end:0x020b708c
+
+
+src/NitroSDK/Main/NSBXX_Model_GetMaterialPolygonID.cpp:
+    complete
+    .text start:0x020b71fc end:0x020b726c
+
+
+src/NitroSDK/Main/NSBXX_Model_SetMaterialAlpha.cpp:
+    complete
+    .text start:0x020b7184 end:0x020b71fc
+
+
+src/NitroSDK/Main/NSBXX_Model_SetMaterialAmbientReflectionColor.cpp:
+    complete
+    .text start:0x020b708c end:0x020b710c
+
+
+src/NitroSDK/Main/NSBXX_Model_SetMaterialPolygonID.cpp:
+    complete
+    .text start:0x020b710c end:0x020b7184
