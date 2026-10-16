@@ -20370,3 +20370,23 @@ src/Combat/Main/func_02020c18.cpp:
     complete
     .text start:0x02020c18 end:0x02020cb8
     .bss start:0x020fdc4c end:0x020fdc60
+
+
+src/NitroSDK/Main/NSBXX_Model_SetAlpha.cpp:
+    complete
+    .text start:0x020b732c end:0x020b736c
+
+
+src/NitroSDK/Main/NSBXX_Model_SetAmbientReflectionColor.cpp:
+    complete
+    .text start:0x020b72ac end:0x020b72ec
+
+
+src/NitroSDK/Main/NSBXX_Model_SetDiffuseReflectionColor.cpp:
+    complete
+    .text start:0x020b726c end:0x020b72ac
+
+
+src/NitroSDK/Main/NSBXX_Model_SetMaterialDiffuseReflectionColor.cpp:
+    complete
+    .text start:0x020b700c end:0x020b708c
