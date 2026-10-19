@@ -3,3 +3,10 @@
     .ctor       start:0x021da088 end:0x021da08c kind:rodata align:4
     .bss        start:0x021da0a0 end:0x021da0a0 kind:bss align:32
 
+src/DSProt110/Overlay_29/encryptor.cpp:
+    complete
+    .text start:0x021d9300 end:0x021d94b4
+
+src/DSProt110/Overlay_29/rc4.c:
+    complete
+    .text start:0x021d94b4 end:0x021d96f0
