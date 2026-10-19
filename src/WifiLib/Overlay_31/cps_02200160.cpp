@@ -1732,3 +1732,1330 @@ extern "C" ARM void func_ov031_0220296c(Header0220296c* a, void* b, unsigned int
     }
     SetIRQInterruptState(priorState);
 }
+
+struct IPv4Packet02202b78 {
+    unsigned char header;
+    unsigned char service;
+    unsigned short length;
+    unsigned short identification;
+    unsigned short fragment;
+    unsigned char ttl;
+    unsigned char protocol;
+    unsigned short checksum;
+    unsigned short sourceHigh;
+    unsigned short sourceLow;
+    unsigned short destinationHigh;
+    unsigned short destinationLow;
+};
+
+static inline unsigned short Swap16_02202b78(unsigned short value) {
+    return (value >> 8) | (value << 8);
+}
+
+// USA: func_ov031_02202b78
+extern "C" ARM IPv4Packet02202b78* func_ov031_02202b78(IPv4Packet02202b78* packet, int* release) {
+    unsigned short identification;
+    unsigned long headerLength;
+    IpFragment* available = NULL;
+    IpFragment* assembly;
+    unsigned long offset;
+    unsigned long flags, payloadLength, end, source, endBlock, index;
+    unsigned long count;
+    unsigned long total;
+    unsigned long rangeIndex;
+    unsigned long covered;
+    *release = 0;
+    flags = Swap16_02202b78(packet->fragment);
+    if (!(flags & 0x3fff)) return packet;
+    identification = packet->header;
+    unsigned short sourceLow = packet->sourceLow;
+    unsigned short sourceHigh = packet->sourceHigh;
+    headerLength = (identification & 15) * 4;
+    source = ((unsigned long)Swap16_02202b78(sourceHigh) << 16) | Swap16_02202b78(sourceLow);
+    identification = packet->identification;
+    index = 0;
+    assembly = data_ov031_0224cca8;
+    do {
+        if (assembly->count && assembly->source == source && assembly->identification == identification) break;
+        ++index;
+        if (!assembly->count && !available) available = assembly;
+        ++assembly;
+    } while (index < 8);
+    payloadLength = Swap16_02202b78(packet->length) - headerLength;
+    offset = flags & 0x1fff;
+    end = payloadLength + (offset << 3);
+    if (index == 8) {
+        if (!available || end > 4096) return NULL;
+        assembly = available;
+        assembly->allocation = static_cast<unsigned char*>(data_ov031_0224c994(headerLength + 14 + 4096));
+        if (!assembly->allocation) return NULL;
+        assembly->source = source;
+        assembly->identification = identification;
+        assembly->totalBlocks = 0;
+        assembly->timestamp = GetCurrentTimestamp() >> 16;
+        assembly->payload = assembly->allocation + 14 + headerLength;
+        VectorizedInvertedMemcpy(packet, assembly->allocation + 14, headerLength);
+    }
+    if (assembly->count == 8 || end > 4096) {
+        assembly->count = 0;
+        data_ov031_0224c9c0(assembly->allocation);
+        return NULL;
+    }
+    endBlock = offset + ((payloadLength + 7) >> 3);
+    if (!(flags & 0x2000)) {
+        assembly->totalLength = end;
+        assembly->totalBlocks = endBlock;
+    }
+    assembly->starts[assembly->count] = offset;
+    assembly->ends[assembly->count] = endBlock;
+    assembly->count++;
+    VectorizedInvertedMemcpy((unsigned char*)packet + headerLength, assembly->payload + (offset << 3), payloadLength);
+    total = assembly->totalBlocks;
+    if (!total) return NULL;
+    count = assembly->count;
+    covered = 0;
+    rangeIndex = 0;
+    if (rangeIndex < count) do {
+        if (assembly->starts[rangeIndex] <= covered && covered < assembly->ends[rangeIndex]) {
+            covered = assembly->ends[rangeIndex];
+            rangeIndex = 0;
+        } else {
+            rangeIndex++;
+        }
+    } while (rangeIndex < count);
+    if (covered < total) return NULL;
+    unsigned char* allocation = assembly->allocation;
+    IPv4Packet02202b78* result = (IPv4Packet02202b78*)(allocation + 14);
+    unsigned short length = assembly->totalLength + ((result->header & 15) * 4);
+    result->length = (length >> 8) | (length << 8);
+    assembly->count = 0;
+    *release = 1;
+    return result;
+}
+
+static inline unsigned short Swap16_02202e44(unsigned short value) { return (value >> 8) | (value << 8); }
+#define SourceAddress02202e44(packet) (((unsigned short)((packet->sourceHigh >> 8) | (packet->sourceHigh << 8)) << 16) | (unsigned short)((packet->sourceLow >> 8) | (packet->sourceLow << 8)))
+#define DestinationAddress02202e44(packet) (((unsigned short)((packet->destinationHigh >> 8) | (packet->destinationHigh << 8)) << 16) | (unsigned short)((packet->destinationLow >> 8) | (packet->destinationLow << 8)))
+
+// USA: func_ov031_02202e44
+extern "C" ARM void func_ov031_02202e44(IPv4Packet02202b78* packet, unsigned int available) {
+    unsigned int source = (Swap16_02202e44(packet->sourceHigh) << 16) | Swap16_02202e44(packet->sourceLow);
+    unsigned int destination = (Swap16_02202e44(packet->destinationHigh) << 16) | Swap16_02202e44(packet->destinationLow);
+    if (destination != source) {
+        if (!func_ov031_022007a4(destination)) return;
+        if (available < Swap16_02202e44(packet->length)) return;
+        if (ComputeNormalizedChecksum_02200684(packet, (packet->header & 15) << 2) != 0xffff) return;
+        if (data_ov031_0224c9d0 == DestinationAddress02202e44(packet))
+            func_ov031_02200e38((char*)packet - 8, SourceAddress02202e44(packet), 1);
+    }
+    int release;
+    packet = func_ov031_02202b78(packet, &release);
+    if (!packet) return;
+    void* payload = (char*)packet + ((packet->header & 15) << 2);
+    unsigned int payloadLength = Swap16_02202e44(packet->length) - ((packet->header & 15) << 2);
+    if (packet->protocol == 17) func_ov031_0220296c((Header0220296c*)packet, payload, payloadLength);
+    else if (data_ov031_0224c9d0) {
+        if (packet->protocol == 1) func_ov031_02201bb4((Header02201bb4*)packet, payload, (void*)payloadLength);
+        else if (packet->protocol == 6) func_ov031_0220284c(packet, (Buf0220284c*)payload, payloadLength);
+    }
+    if (release) data_ov031_0224c9c0((char*)packet - 14);
+}
+
+// USA: func_ov031_02203008  (semantic: DispatchByTagLoop_02203008)
+extern "C" ARM void func_ov031_02203008(void) {
+    unsigned int count;
+    for (;;) {
+        char* p = (char*)func_ov031_02200af8(&count);
+        if (count > 0x22) {
+            unsigned short tag = *(unsigned short*)(p + 0xc);
+            unsigned short swapped = (tag >> 8) | (tag << 8);
+            switch (swapped) {
+            case 0x800:
+                func_ov031_02202e44((IPv4Packet02202b78*)(p + 0xe), count - 0xe);
+                break;
+            case 0x806:
+                func_ov031_0220186c((Struct0220186c*)(p + 0xe), count - 0xe);
+                break;
+            }
+        }
+        AdvanceAndClampField30_02200bb8();
+    }
+}
+
+struct ContextIdentifierRecord {
+    int active;
+    char unknown4[6];
+    unsigned short identifier;
+};
+
+// USA: func_ov031_02203078
+extern "C" ARM unsigned short func_ov031_02203078(void) {
+    int duplicate;
+    ProcessorContext* context;
+    unsigned short identifier;
+    ProcessorContext* firstContext = data_02111304.firstContext;
+    do {
+        duplicate = 0;
+        ++ephemeral_port;
+        if (ephemeral_port < 1024 ||
+            ephemeral_port >= 5000) {
+            ephemeral_port = 1024;
+        }
+        context = firstContext;
+        if (context != NULL) {
+            identifier = ephemeral_port;
+            do {
+                ContextIdentifierRecord* record = (ContextIdentifierRecord*)context->unknown_A4;
+                if (record != NULL && record->active != 0 &&
+                    record->identifier == identifier) {
+                    duplicate = 1;
+                    break;
+                }
+                context = context->pNext;
+            } while (context != NULL);
+        }
+    } while (duplicate != 0);
+    return ephemeral_port;
+}
+
+// USA: func_ov031_02203120  (semantic: AdvanceEmbeddedRandom_02203120)
+extern "C" ARM unsigned int func_ov031_02203120(void) {
+	return MATH_Rand32(&data_ov031_0224c9e8, 0);
+}
+
+// USA: func_ov031_02203164
+ARM void SetField164_02203164(int v) {
+	data_02111304.activeContext->unknown_A4 = v;
+}
+
+// USA: func_ov031_02203178
+ARM void ClearField164_02203178(void) {
+	data_02111304.activeContext->unknown_A4 = 0;
+}
+
+// USA: func_ov031_02203190
+ARM void ResetSessionState02203190(void) {
+	void* session = (void*)data_02111304.activeContext->unknown_A4;
+	if (session == NULL) return;
+	*(unsigned char*)((char*)session + 0x8) = 10;
+	*(int*)((char*)session + 0x44) = 0;
+}
+
+struct SomeObj_022031bc {
+	char pad0[0xa];
+	unsigned short fieldA;
+	char pad1[0x18 - 0xa - 2];
+	unsigned short field18;
+	unsigned short field1a;
+	unsigned int field1c;
+	unsigned int field20;
+};
+
+// USA: func_ov031_022031bc
+ARM void UpdateObjFromContext_022031bc(int a, unsigned short b, unsigned int c) {
+	SomeObj_022031bc* obj = (SomeObj_022031bc*)data_02111304.activeContext->unknown_A4;
+	if (obj == NULL) {
+		return;
+	}
+	unsigned int val = (c == 0x7f000001) ? data_ov031_0224c9d0 : c;
+	obj->field1a = b;
+	obj->field18 = obj->field1a;
+	obj->field20 = val;
+	obj->field1c = val;
+	if (a != 0) {
+		obj->fieldA = (unsigned short)a;
+		return;
+	}
+	obj->fieldA = func_ov031_02203078();
+}
+
+// USA: func_ov031_0220321c
+ARM void InitSessionFields_0220321c(void) {
+    ProcessorContext* mgr = data_02111304.activeContext;
+    void* session = (void*)mgr->unknown_A4;
+    if (session == NULL) return;
+    *(void**)((char*)session + 0x0) = mgr;
+    *(unsigned char*)((char*)session + 0x8) = 0;
+    *(int*)((char*)session + 0x44) = 0;
+    *(int*)((char*)session + 0x60) = 0;
+    *(int*)((char*)session + 0x38) = 0;
+}
+
+// USA: func_ov031_02203250
+ARM void ZeroField164_02203250(void) {
+	int* q = (int*)data_02111304.activeContext->unknown_A4;
+	if (q) *q = 0;
+}
+
+// USA: func_ov031_02203270
+ARM void CopyField164_02203270(void* obj) {
+	*(int*)((char*)obj + 0xa4) = data_02111304.activeContext->unknown_A4;
+}
+
+// USA: func_ov031_02203288
+ARM void SetField38IfPresent_02203288(int value) {
+	void* obj = (void*)data_02111304.activeContext->unknown_A4;
+	if (obj != NULL) {
+		*(int*)((char*)obj + 0x38) = value;
+	}
+}
+
+struct Obj_022032a4 {
+	char pad0[0x4];
+	int field4;
+	char pad1[0x8 - 0x4 - 0x4];
+	unsigned char field8;
+	char pad2[0x10 - 0x8 - 0x1];
+	unsigned int field10;
+	char pad3[0x28 - 0x10 - 0x4];
+	int field28;
+};
+
+// USA: func_ov031_022032a4
+extern "C" ARM int func_ov031_022032a4(Obj_022032a4* obj) {
+	unsigned int tries;
+	int result28 = func_ov031_02203120();
+	int mode = 2;
+	tries = 0;
+	do {
+		obj->field28 = result28;
+		obj->field8 = (unsigned char)mode;
+		obj->field10 = (unsigned int)(GetCurrentTimestamp() >> 16);
+		func_ov031_02201f10((CpsSocket02201f10*)obj, mode, 0x18);
+
+		int oldIRQ = DisableIRQInterrupts();
+		if (obj->field8 == 2 && data_ov031_0224c9d0 != 0) {
+			obj->field4 = 1;
+			BlockCurrentContext(NULL);
+		}
+		SetIRQInterruptState(oldIRQ);
+
+		if (obj->field8 == 4) {
+			return 0;
+		}
+		if (data_ov031_0224c9d0 == 0) break;
+		tries = tries + 1;
+	} while (tries < 3);
+	return 1;
+}
+
+extern "C" int func_ov031_0220a540(void* self);
+
+// USA: func_ov031_02203358  (semantic: PollOrRelease_02203358)
+extern "C" ARM int func_ov031_02203358(void) {
+	void* mgr = *(void**)((char*)data_02111304.activeContext + 0xa4);
+	if (mgr) {
+		if (*((unsigned char*)mgr + 9) != 0) {
+			return func_ov031_0220a540(mgr);
+		}
+		return func_ov031_022032a4((Obj_022032a4*)mgr);
+	}
+	return 1;
+}
+
+struct Struct0_02203398 {
+	char pad[0x8];
+	unsigned char field0x8;
+};
+
+// USA: func_ov031_02203398
+ARM void CycleAndAdvanceState_02203398(Struct0_02203398* obj) {
+	CycleCurrentPriorityContexts();
+	unsigned char field8 = obj->field0x8;
+	if (field8 == 3 || field8 == 4) {
+		TailCallType17_02201f98((int)obj, 0x19);
+		obj->field0x8 = 7;
+	} else if (field8 != 0) {
+		TailCallType16_02201f84((int)obj, 0x1a);
+	}
+}
+
+void ResetStatusIfEight_0220a9b0(void*);
+
+// USA: func_ov031_022033e8  (semantic: ResetOrAdvanceContext_022033e8)
+extern "C" ARM void func_ov031_022033e8(void) {
+	void* mgr = *(void**)((char*)data_02111304.activeContext + 0xa4);
+	if (mgr == NULL) return;
+	if (*((unsigned char*)mgr + 9) != 0) {
+		ResetStatusIfEight_0220a9b0(mgr);
+	}
+	CycleAndAdvanceState_02203398((Struct0_02203398*)mgr);
+}
+
+extern "C" void func_ov031_0220aa30(void*);
+
+// USA: func_ov031_02203424
+ARM void UpdateAndWaitOnContext_02203424(void) {
+	void* mgr = *(void**)((char*)data_02111304.activeContext + 0xa4);
+	if (mgr == NULL) return;
+	if (*((unsigned char*)mgr + 9) != 0) {
+		func_ov031_0220aa30(mgr);
+	}
+	int start = (int)(GetCurrentTimestamp() >> 16);
+	while (link_is_on() != 0 && *((unsigned char*)mgr + 8) != 0
+	       && (int)(GetCurrentTimestamp() >> 16) - start < 0x27) {
+		DispatchContext02200264();
+	}
+	*((unsigned char*)mgr + 8) = 0;
+}
+
+// USA: func_ov031_022034ac
+ARM int WaitForField44_022034ac(unsigned int* out, void* obj) {
+	unsigned int v;
+	int priorState;
+	priorState = DisableIRQInterrupts();
+	v = *(unsigned int*)((char*)obj + 0x44);
+	if (v == 0) {
+		do {
+			*(unsigned int*)((char*)obj + 4) = 3;
+			BlockCurrentContext(NULL);
+			v = *(unsigned int*)((char*)obj + 0x44);
+		} while (v == 0);
+	}
+	SetIRQInterruptState(priorState);
+	*out = v;
+	return *(int*)((char*)obj + 0x40);
+}
+
+// USA: func_ov031_02203500
+ARM int WaitOrCycle_02203500(unsigned int* out, void* obj) {
+	if (*(unsigned int*)((char*)obj + 0x44) == 0 && *(unsigned char*)((char*)obj + 8) == 4) {
+		int priorState = DisableIRQInterrupts();
+		while (*(unsigned int*)((char*)obj + 0x44) == 0 && *(unsigned char*)((char*)obj + 8) == 4) {
+			*(unsigned int*)((char*)obj + 4) = 2;
+			BlockCurrentContext(NULL);
+		}
+		SetIRQInterruptState(priorState);
+	} else {
+		CycleCurrentPriorityContexts();
+	}
+	unsigned int v = *(unsigned int*)((char*)obj + 0x44);
+	*out = v;
+	return v != 0 ? *(int*)((char*)obj + 0x40) : 0;
+}
+
+struct NodeStruct0220357c { unsigned char pad[8]; unsigned char type; unsigned char flag9; };
+
+extern "C" int func_ov031_0220a594(unsigned int* out, void* obj);
+
+// USA: func_ov031_0220357c  (semantic: DispatchByNodeType_0220357c)
+extern "C" ARM int func_ov031_0220357c(unsigned int* out) {
+    NodeStruct0220357c* node = (NodeStruct0220357c*)data_02111304.activeContext->unknown_A4;
+    if (node) {
+        if ((unsigned char)(node->type + 0xf6) <= 1) return WaitForField44_022034ac(out, node);
+        if (node->flag9) return func_ov031_0220a594(out, node);
+        return WaitOrCycle_02203500(out, node);
+    }
+    *out = 0;
+    return 0;
+}
+
+struct StructOv31_022035e0 {
+	unsigned char pad[0x8];
+	unsigned char field8;
+	unsigned char pad2[0x33];
+	int field3c;
+	void* field40;
+	int field44;
+};
+
+extern "C" void* memmove(void*, const void*, unsigned int);
+
+// USA: func_ov031_022035e0  (semantic: AdvanceRingBufferAndMaybeTailCall_022035e0)
+extern "C" ARM void func_ov031_022035e0(int amount, StructOv31_022035e0* obj) {
+	int state = DisableIRQInterrupts();
+	int end = obj->field44;
+	int limit = obj->field3c;
+	int flag = 0;
+	if (end == limit) {
+		if (amount != 0) flag = 1;
+	}
+	if ((unsigned int)amount >= (unsigned int)end) {
+		obj->field44 = 0;
+	} else {
+		void* base = obj->field40;
+		int rem = end - amount;
+		obj->field44 = rem;
+		memmove(base, (char*)base + amount, rem);
+	}
+	SetIRQInterruptState(state);
+	if (obj->field8 == 10) return;
+	if (obj->field8 == 11) return;
+	if (obj->field44 != 0 && flag == 0) return;
+	TailCallType16_02201f84((int)obj, 0x1b);
+}
+
+void ReleaseHandleIfFull_0220a66c(int count, char* self);
+
+// USA: func_ov031_02203670  (semantic: ReleaseOrEnqueueHandle_02203670)
+extern "C" ARM void func_ov031_02203670(int count) {
+	void* mgr = *(void**)((char*)data_02111304.activeContext + 0xa4);
+	if (mgr == NULL) return;
+	if (*((unsigned char*)mgr + 9) != 0) {
+		ReleaseHandleIfFull_0220a66c(count, (char*)mgr);
+	} else {
+		func_ov031_022035e0(count, (StructOv31_022035e0*)mgr);
+	}
+}
+
+struct Soc022036a8 {
+	unsigned char pad0[0x8];
+	unsigned char state;
+	unsigned char pad9[0x2c - 0x9];
+	unsigned short f2c;
+	unsigned short f2e;
+	unsigned char pad30[0x34 - 0x30];
+	unsigned int f34;
+};
+
+// USA: func_ov031_022036a8
+extern "C" ARM int func_ov031_022036a8(unsigned char* buf, unsigned int len, Soc022036a8* soc, int flag) {
+	unsigned int n;
+	unsigned int win;
+	unsigned int prev = soc->f34;
+	int cnt;
+	if (flag != 0) {
+		win = 1;
+	} else {
+		win = soc->f2c;
+	}
+	cnt = prev * 2 + 4;
+	while (len != 0 && soc->state == 4) {
+		unsigned int cur;
+		n = soc->f2e;
+		if (n >= win) n = win;
+		if (mymss < n) n = mymss;
+		if (flag == 0) n &= ~1;
+		if (len < n) n = len;
+		cur = soc->f34;
+		cnt += cur - prev;
+		prev = cur;
+		if (cnt-- == 0) n = 0;
+		if (n == 0) break;
+		win -= n;
+		func_ov031_02201550(buf, n, (Socket02201550*)soc, 0x18, 0);
+		CycleCurrentPriorityContexts();
+		buf += n;
+		len -= n;
+	}
+	return n;
+}
+
+// USA: func_ov031_0220376c
+ARM int Wrapper0220376c(int a, int b, int c, int d, int e, int f) {
+	int result = func_ov031_022036a8((unsigned char*)a, b, (Soc022036a8*)e, f);
+	if (result != 0 && d != 0) {
+		return func_ov031_022036a8((unsigned char*)c, d, (Soc022036a8*)e, 0);
+	}
+	return result;
+}
+
+struct TransferChannel {
+    unsigned char padding[8];
+    unsigned char status;
+    unsigned char padding2[0x1f];
+    unsigned int sentOffset;
+    unsigned short available;
+    unsigned short padding3;
+    unsigned int acknowledgedOffset;
+    int pending;
+};
+
+// USA: func_ov031_022037a8
+extern "C" ARM unsigned int func_ov031_022037a8(unsigned char* first, unsigned int firstLength, unsigned char* second, unsigned int secondLength, TransferChannel* channel) {
+    unsigned int total = 0;
+    unsigned int transferred;
+    int retry = 0;
+    channel->pending = 0;
+    int lastProgress = GetCurrentTimestamp() >> 16;
+    while (link_is_on() != 0 && firstLength != 0 && channel->status == 4 && (int)(GetCurrentTimestamp() >> 16) - lastProgress < 159) {
+        unsigned int initialOffset = channel->sentOffset;
+        Wrapper0220376c((int)first, firstLength, (int)second, secondLength, (int)channel, retry);
+        int start = GetCurrentTimestamp() >> 16;
+        while (1) {
+            DispatchContext02200264();
+            if (link_is_on() == 0 || channel->status != 4 || channel->sentOffset == channel->acknowledgedOffset || (int)(GetCurrentTimestamp() >> 16) - start >= 15) break;
+            if (retry != 0 && channel->available != 0) break;
+        }
+        transferred = channel->acknowledgedOffset - initialOffset;
+        if (transferred > channel->sentOffset - initialOffset) transferred = 0;
+        total += transferred;
+        if (transferred != 0) lastProgress = GetCurrentTimestamp() >> 16;
+        channel->sentOffset = channel->acknowledgedOffset;
+        if (channel->status == 4 && channel->available == 0 && transferred == 0) {
+            if (retry == 0) {
+                int waitStart = GetCurrentTimestamp() >> 16;
+                while (link_is_on() != 0 && (int)(GetCurrentTimestamp() >> 16) - waitStart < 15) {
+                    DispatchContext02200264();
+                    if (channel->available != 0) break;
+                }
+                if (channel->available == 0) retry = 1;
+            }
+        } else {
+            retry = 0;
+        }
+        {
+            if (transferred < firstLength) {
+                first += transferred;
+                firstLength -= transferred;
+            } else {
+                unsigned int remainder = transferred - firstLength;
+                first = second + remainder;
+                second = NULL;
+                firstLength = secondLength - remainder;
+                secondLength = 0;
+            }
+        }
+    }
+    return total;
+}
+
+struct Node022039b0 { unsigned char pad0[0x8]; unsigned char type; unsigned char hasExtra; };
+
+extern "C" int func_ov031_0220a87c(void* a0, int a1, void* a2, int a3, Node022039b0* n);
+
+// USA: func_ov031_022039b0
+extern "C" ARM int func_ov031_022039b0(void* a0, int a1, void* a2, int a3) {
+	Node022039b0* n = (Node022039b0*)data_02111304.activeContext->unknown_A4;
+	if (n) {
+		int result;
+		if (n->type == 0xa) {
+			if (a1 != 0) func_ov031_02201414(a0, a1, (Socket02201414*)n);
+			if (a3 != 0) func_ov031_02201414(a2, a3, (Socket02201414*)n);
+			result = a1 + a3;
+		} else if (n->type == 0xb) {
+			if (a1 != 0) func_ov031_02201364((unsigned char*)a0, a1, (EchoSocket02201364*)n);
+			if (a3 != 0) func_ov031_02201364((unsigned char*)a2, a3, (EchoSocket02201364*)n);
+			result = a1 + a3;
+		} else {
+			if (n->hasExtra != 0) {
+				result = func_ov031_0220a87c(a0, a1, a2, a3, n);
+			} else {
+				result = func_ov031_022037a8((unsigned char*)a0, a1, (unsigned char*)a2, a3, (TransferChannel*)n);
+			}
+		}
+		if (data_ov031_0224c980 == 0) {
+			return result;
+		}
+	}
+	return 0;
+}
+
+// USA: func_ov031_02203a84  (semantic: DispatchOrDrainBuffer_02203a84)
+extern "C" ARM int func_ov031_02203a84(void* p0, int p1) {
+	void* mgr = *(void**)((char*)data_02111304.activeContext + 0xa4);
+	if (mgr == NULL) goto ret0;
+	int v = *(int*)((char*)mgr + 0x60);
+	if (v == 0) goto zero_case;
+	v = func_ov031_022039b0(*(void**)((char*)mgr + 0x5c), v, p0, p1);
+	{
+		int size = *(int*)((char*)mgr + 0x60);
+		if ((unsigned int)v < (unsigned int)size) {
+			memmove(*(void**)((char*)mgr + 0x5c), (char*)*(void**)((char*)mgr + 0x5c) + v, size - v);
+			size = *(int*)((char*)mgr + 0x60);
+			*(int*)((char*)mgr + 0x60) = size - v;
+			return 0;
+		}
+		*(int*)((char*)mgr + 0x60) = 0;
+		return v - size;
+	}
+zero_case:
+	return func_ov031_022039b0(p0, p1, (void*)0, 0);
+ret0:
+	return 0;
+}
+
+int GetRemainingOrStatus_0220a800(char* self);
+
+// USA: func_ov031_02203b1c  (semantic: GetActiveContextRemainingOrStatus_02203b1c)
+extern "C" ARM int func_ov031_02203b1c(void) {
+	char* mgr = (char*)data_02111304.activeContext->unknown_A4;
+	if (mgr == NULL) {
+		goto ret_zero;
+	}
+	if (*(unsigned char*)(mgr + 9) != 0) {
+		return GetRemainingOrStatus_0220a800(mgr);
+	}
+	{
+		int f44 = *(int*)(mgr + 0x44);
+		if (f44 != 0) {
+			goto ret_f44;
+		}
+		if (*(unsigned char*)(mgr + 8) == 4) {
+			goto ret_f44;
+		}
+		{
+			unsigned char t = (unsigned char)(*(unsigned char*)(mgr + 8) + 0xf6);
+			if (t > 1) {
+				goto ret_neg1;
+			}
+		}
+	ret_f44:
+		return f44;
+	}
+ret_neg1:
+	return -1;
+ret_zero:
+	return 0;
+}
+
+// USA: func_ov031_02203b8c
+ARM void ClearField60_02203b8c(void) {
+	void* mgr = *(void**)((char*)data_02111304.activeContext + 0xa4);
+	if (mgr == NULL) return;
+	int field60 = *(int*)((char*)mgr + 0x60);
+	if (field60 == 0) return;
+	func_ov031_022039b0(*(void**)((char*)mgr + 0x5c), field60, 0, 0);
+	*(int*)((char*)mgr + 0x60) = 0;
+}
+
+// USA: func_ov031_02203bcc
+extern "C" ARM void func_ov031_02203bcc(void) {
+	dhcp_callback();
+	if (data_ov031_0224c9d0 == 0) {
+		return;
+	}
+	func_ov031_02200ccc(data_ov031_0224c9d0);
+	SleepCurrentContext(0x64);
+	func_ov031_02200ccc(data_ov031_0224c9d0);
+	unsigned int start = (unsigned int)(GetCurrentTimestamp() >> 16);
+	while (link_is_on() && (int)((unsigned int)(GetCurrentTimestamp() >> 16) - start) < 0x17) {
+		if (ip_conflict) {
+			func_ov031_02200160(4);
+			return;
+		}
+		SleepCurrentContext(0x64);
+	}
+}
+
+struct MaintenanceConnection {
+    ProcessorContext* context;
+    int pending;
+    unsigned char state;
+    unsigned char padding9[7];
+    int timestamp;
+    int field14;
+    unsigned short currentPort, savedPort;
+    unsigned int currentAddress, savedAddress;
+};
+extern unsigned char data_ov031_0224d02c[], data_ov031_0224ceac[];
+extern "C" int func_ov031_022046b8(void);
+extern "C" int func_ov031_02204710(int* out, int mode);
+extern "C" void func_ov031_0220480c(void);
+extern "C" void func_ov031_0220aa98(int);
+
+// USA: func_ov031_02203c6c
+extern "C" ARM void func_ov031_02203c6c() {
+    int i;
+    int stage;
+    int timestamp;
+    ArpEntry* entry;
+    int watchdog;
+    int first;
+    calm_down = 0;
+    VectorizedMemset(&data_ov031_0224ca60, 0, sizeof(CpsSocket));
+    data_ov031_0224ca60.recvCapacity = 0x180;
+    data_ov031_0224ca60.recvBuffer = data_ov031_0224d02c;
+    data_ov031_0224ca60.sendCapacity = 0x180;
+    data_ov031_0224ca60.sendBuffer = data_ov031_0224ceac;
+    SetField164_02203164((int)&data_ov031_0224ca60);
+    watchdog = 1;
+    first = 1;
+    unsigned int retry = 1;
+    cps_state = 1;
+    stage = 0;
+    while (1) {
+        SleepCurrentContext(1000);
+        if (calm_down) break;
+        timestamp = (int)(GetCurrentTimestamp() >> 16);
+        if (link_is_on()) {
+            if (--retry == 0) {
+                if (cps_mode & 1) {
+                    if (stage == 0) {
+                        func_ov031_02203bcc();
+                        stage = 1;
+                    }
+                } else {
+                    switch (stage) {
+                    case 0:
+                        if (first) {
+                            cps_state = 2;
+                            first = 0;
+                        }
+                        if (!func_ov031_022046b8() || func_ov031_02204710((int*)&retry, 0) == 0) {
+                            func_ov031_02203bcc();
+                            stage = 3;
+                        } else {
+                            stage = 1;
+                        }
+                        break;
+                    case 1:
+                        if (func_ov031_02204710((int*)&retry, 1) == 0 && retry < 60) stage = 2;
+                        break;
+                    case 2:
+                        if (func_ov031_02204710((int*)&retry, 2)) stage = 1;
+                        else if (retry < 60) {
+                            func_ov031_02200160(3);
+                            watchdog = 1;
+                            retry = 1;
+                            stage = 0;
+                        }
+                        break;
+                    case 3:
+                        break;
+                    }
+                }
+            }
+        } else {
+            func_ov031_02200160(1);
+            watchdog = 1;
+            retry = 1;
+            stage = 0;
+        }
+        entry = data_ov031_0224ca00;
+        i = 0;
+        do {
+            if (entry->address && (short)(timestamp - entry->timestamp) > 957) entry->address = 0;
+            entry++;
+        } while (++i < 8);
+        if (data_ov031_0224c9ac && --watchdog == 0) {
+            func_ov031_02200ccc(data_ov031_0224c9ac);
+            watchdog = 105;
+        }
+        ProcessorContext* context = data_02111304.firstContext;
+        if (context) do {
+            MaintenanceConnection* connection = (MaintenanceConnection*)context->unknown_A4;
+            if (connection && connection->context) {
+                int state = connection->state;
+                if (state == 3 && timestamp - connection->timestamp > 39) {
+                    connection->state = 1;
+                    connection->currentPort = connection->savedPort;
+                    connection->currentAddress = connection->savedAddress;
+                } else if (state == 2 && timestamp - connection->timestamp > 39) {
+                    if (connection->pending == 1) {
+                        connection->state = 0;
+                        connection->pending = 0;
+                        MarkContextReadyAndSwitch(connection->context);
+                    }
+                } else if (state != 4 && connection->pending == 2) {
+                    connection->pending = 0;
+                    MarkContextReadyAndSwitch(connection->context);
+                }
+            }
+            context = context->pNext;
+        } while (context);
+        IpFragment* fragment = data_ov031_0224cca8;
+        int fragmentIndex = 0;
+        do {
+            if (fragment->count && (int)(timestamp - fragment->timestamp) > 239) {
+                data_ov031_0224c9c0(fragment->allocation);
+                fragment->count = 0;
+            }
+            fragment++;
+        } while (++fragmentIndex < 8);
+        func_ov031_0220aa98(timestamp);
+        if (scavenger) scavenger();
+    }
+    if (!(cps_mode & 1) && stage != 3) func_ov031_0220480c();
+    ClearField164_02203178();
+}
+
+struct Network32 {
+    unsigned short high;
+    unsigned short low;
+};
+struct BootpHeader {
+    unsigned short operationAndHardwareType;
+    unsigned char hardwareAddressLength;
+    unsigned char hops;
+    Network32 transactionId;
+    unsigned short seconds;
+    unsigned short flags;
+    Network32 clientAddress;
+    Network32 offeredAddress;
+    Network32 serverAddress;
+    Network32 relayAddress;
+    unsigned char clientHardwareAddress[16];
+    char serverName[64];
+    char bootFile[128];
+};
+extern const char data_ov031_02249698[];
+
+enum DhcpOption {
+    DhcpHostName = 12,
+    DhcpMessageType = 53,
+    DhcpParameterRequestList = 55,
+    DhcpClientIdentifier = 61
+};
+
+// USA: func_ov031_02203fdc
+extern "C" ARM unsigned char* func_ov031_02203fdc(void* buffer, int messageType, int* output) {
+    unsigned char* bytes = (unsigned char*)buffer;
+    BootpHeader* header = (BootpHeader*)buffer;
+    VectorizedMemset(buffer, 0, sizeof(BootpHeader));
+    header->operationAndHardwareType = 0x101;
+    header->hardwareAddressLength = 6;
+    unsigned int random = MATH_Rand32(&data_ov031_0224c9e8, 0);
+    if (output) *output = random;
+    int randomHigh = (unsigned short)(random / 0x10000U);
+    header->transactionId.high = (randomHigh >> 8) | (randomHigh << 8);
+    int randomLow = (unsigned short)random;
+    header->transactionId.low = (randomLow >> 8) | (randomLow << 8);
+    int addressHigh = (unsigned short)(data_ov031_0224c9d0 / 0x10000U);
+    header->clientAddress.high = (addressHigh >> 8) | (addressHigh << 8);
+    int addressLow = (unsigned short)data_ov031_0224c9d0;
+    header->clientAddress.low = (addressLow >> 8) | (addressLow << 8);
+    VectorizedInvertedMemcpy(data_ov031_0224ce68, header->clientHardwareAddress, 6);
+    ((unsigned short*)(bytes + sizeof(BootpHeader)))[0] = 0x8263;
+    ((unsigned short*)(bytes + sizeof(BootpHeader)))[1] = 0x6353;
+    ((unsigned short*)(bytes + sizeof(BootpHeader)))[2] = DhcpMessageType | (1 << 8);
+    bytes[0xf2] = messageType;
+    bytes[0xf3] = DhcpClientIdentifier;
+    bytes[0xf4] = 7;
+    bytes[0xf5] = 1;
+    VectorizedInvertedMemcpy(data_ov031_0224ce68, bytes + 0xf6, 6);
+    bytes[0xfc] = DhcpHostName;
+    bytes[0xfd] = 10;
+    VectorizedInvertedMemcpy(data_ov031_02249698, bytes + 0xfe, 10);
+    bytes[0x108] = DhcpParameterRequestList;
+    bytes[0x109] = 3;
+    bytes[0x10a] = 1;
+    bytes[0x10b] = 3;
+    bytes[0x10c] = 6;
+    return bytes + 0x10d;
+}
+
+// USA: func_ov031_02204168
+ARM void* FillRemainder_02204168(int value, unsigned int end, void* dst, unsigned int start) {
+    if (start < end) {
+        unsigned int len = end - start;
+        VectorizedMemset(dst, value, len);
+        dst = (char*)dst + len;
+    }
+    return dst;
+}
+
+// USA: func_ov031_0220419c
+extern "C" ARM int func_ov031_0220419c(void) {
+    int outVal;
+    unsigned char* buf = data_ov031_0224ced6;
+    unsigned char* ip = func_ov031_02203fdc(buf, 1, &outVal);
+    if (requested_ip != 0) {
+        ip[0] = 0x32;
+        ip[1] = 4;
+        ip[2] = (unsigned char)((unsigned short)(requested_ip >> 16) >> 8);
+        ip[3] = (unsigned char)(requested_ip >> 16);
+        ip[4] = (unsigned char)((unsigned short)requested_ip >> 8);
+        ip[5] = (unsigned char)requested_ip;
+        ip += 6;
+    }
+    ip[0] = 0xff;
+    unsigned char* dst = (unsigned char*)FillRemainder_02204168(0, 0x12c, ip + 1, (unsigned int)((ip + 1) - buf));
+    func_ov031_02203a84(buf, (int)(dst - buf));
+    return outVal;
+}
+
+// USA: func_ov031_02204260  (semantic: BuildAndDrainHeader_02204260)
+extern "C" ARM int func_ov031_02204260(int flag) {
+    int outVal;
+    unsigned char* buf = data_ov031_0224ced6;
+    unsigned char* ip = func_ov031_02203fdc(buf, 3, &outVal);
+    if (flag == 0) {
+        ip[0] = 0x32;
+        ip[1] = 4;
+        ip[2] = (unsigned char)((unsigned short)(requested_ip >> 16) >> 8);
+        ip[3] = (unsigned char)(requested_ip >> 16);
+        ip[4] = (unsigned char)((unsigned short)requested_ip >> 8);
+        ip[5] = (unsigned char)requested_ip;
+        ip[6] = 0x36;
+        ip[7] = 4;
+        ip[8] = (unsigned char)((unsigned short)(dhcp_server >> 16) >> 8);
+        ip[9] = (unsigned char)(dhcp_server >> 16);
+        ip[0xa] = (unsigned char)((unsigned short)dhcp_server >> 8);
+        ip[0xb] = (unsigned char)dhcp_server;
+        ip += 0xc;
+    }
+    ip[0] = 0xff;
+    unsigned char* dst = (unsigned char*)FillRemainder_02204168(0, 0x12c, ip + 1, (unsigned int)((ip + 1) - buf));
+    func_ov031_02203a84(buf, (int)(dst - buf));
+    return outVal;
+}
+
+struct BootpPacket02204368 {
+    unsigned char type;
+    unsigned char unknown1[3];
+    unsigned short transactionHigh;
+    unsigned short transactionLow;
+    unsigned char unknown8[8];
+    unsigned char assignedAddress[4];
+    unsigned char unknown14[8];
+    unsigned short hardwareAddress[3];
+    unsigned char unknown22[0xec - 0x22];
+    unsigned char cookie[4];
+    unsigned char options[1];
+};
+#define READ_NETWORK32_02204368(p) (((unsigned int)(unsigned short)(((p)[0] << 8) | (p)[1]) << 16) | (unsigned short)(((p)[2] << 8) | (p)[3]))
+#define SWAP_NETWORK16_02204368(v) ((unsigned short)(((v) >> 8) | ((v) << 8)))
+
+// USA: func_ov031_02204368
+extern "C" ARM int func_ov031_02204368(int transaction, int retry) {
+    int timeout = (retry + 1) * 15;
+    int start = (int)(GetCurrentTimestamp() >> 16);
+    int result = 0;
+    while (link_is_on() != 0 && result == 0 && (int)(GetCurrentTimestamp() >> 16) - start < timeout) {
+        if (!func_ov031_02203b1c()) {
+            DispatchContext02200264();
+            continue;
+        }
+        unsigned int length;
+        unsigned char* buffer = (unsigned char*)func_ov031_0220357c(&length);
+        BootpPacket02204368* packet = (BootpPacket02204368*)buffer;
+        if (length > 0xf0 && packet->type == 2 &&
+            transaction == ((unsigned int)SWAP_NETWORK16_02204368(packet->transactionHigh) << 16 |
+                             SWAP_NETWORK16_02204368(packet->transactionLow)) &&
+            !CompareThreeU16sDiffer02200824(packet->hardwareAddress, (unsigned short*)data_ov031_0224ce68)) {
+            unsigned char* end;
+            unsigned int address = READ_NETWORK32_02204368(packet->assignedAddress);
+            end = buffer + length;
+            result = 3;
+            unsigned char* option = buffer + 0xec;
+            if (*option++ == 0x63 && *option++ == 0x82 && *option++ == 0x53 && *option++ == 0x63) {
+                int type;
+                while (option < end && (type = *option++) != 0xff) {
+                    if (type == 0) continue;
+                    switch (type) {
+                    case 1:
+                        data_ov031_0224c99c = READ_NETWORK32_02204368(option + 1);
+                        break;
+                    case 3:
+                        data_ov031_0224c9ac = READ_NETWORK32_02204368(option + 1);
+                        break;
+                    case 6:
+                        if (option[0] < 8) data_ov031_0224c9e0[1] = 0;
+                        else data_ov031_0224c9e0[1] = READ_NETWORK32_02204368(option + 5);
+                        data_ov031_0224c9e0[0] = READ_NETWORK32_02204368(option + 1);
+                        break;
+                    case 51:
+                        lease_time = READ_NETWORK32_02204368(option + 1);
+                        break;
+                    case 53:
+                        switch (option[1]) {
+                        case 2:
+                            result = 1;
+                            requested_ip = address;
+                            break;
+                        case 5:
+                            result = 2;
+                            data_ov031_0224c9d0 = address;
+                            break;
+                        default:
+                            break;
+                        }
+                        break;
+                    case 54:
+                        dhcp_server = READ_NETWORK32_02204368(option + 1);
+                        break;
+                    default:
+                        break;
+                    }
+                    option += option[0] + 1;
+                }
+            }
+        }
+        func_ov031_02203670(length);
+    }
+    return result;
+}
+
+// USA: func_ov031_022046b8
+extern "C" ARM int func_ov031_022046b8(void) {
+	InitSessionFields_0220321c();
+	ResetSessionState02203190();
+	UpdateObjFromContext_022031bc(0x44, 0x43, (unsigned int)-1);
+	int result;
+	int i = 0;
+	do {
+		int v = func_ov031_0220419c();
+		result = func_ov031_02204368(v, i);
+		if (result == 1) {
+			break;
+		}
+		i++;
+	} while (i < 4);
+	ZeroField164_02203250();
+	return result == 1;
+}
+
+// USA: func_ov031_02204710  (semantic: StartSessionAndDispatch_02204710)
+extern "C" ARM int func_ov031_02204710(int* out, int mode) {
+	InitSessionFields_0220321c();
+	ResetSessionState02203190();
+
+	if (mode == 1) {
+		UpdateObjFromContext_022031bc(0x44, 0x43, dhcp_server);
+	} else {
+		UpdateObjFromContext_022031bc(0x44, 0x43, 0x43 - 0x44);
+	}
+
+	int result = 0;
+	int i = 0;
+	do {
+		result = func_ov031_02204368(func_ov031_02204260(mode), i);
+		if (result != 0) break;
+		i++;
+	} while (i < 4);
+
+	ZeroField164_02203250();
+
+	if (result == 2) {
+		*out = lease_time >> 1;
+		dhcp_retry = (lease_time + (lease_time << 1)) >> 3;
+		return 1;
+	}
+
+	unsigned int half = dhcp_retry >> 1;
+	dhcp_retry = half;
+	*out = half;
+
+	switch (mode) {
+	case 1:
+		if (half < 0x3c) {
+			*out = 1;
+			dhcp_retry = lease_time >> 3;
+		}
+		break;
+	case 2:
+		if (half < 0x3c) {
+			*out = 1;
+		}
+		break;
+	}
+
+	return 0;
+}
+
+// USA: func_ov031_0220480c
+extern "C" ARM void func_ov031_0220480c() {
+    InitSessionFields_0220321c();
+    ResetSessionState02203190();
+    UpdateObjFromContext_022031bc(0x44, 0x43, dhcp_server);
+    unsigned char* buffer = data_ov031_0224ced6;
+    unsigned char* end = func_ov031_02203fdc(buffer, 7, 0);
+    unsigned char terminator = 0xff;
+    unsigned char* remainder = end + 1;
+    *end = terminator;
+    end = remainder;
+    end = (unsigned char*)FillRemainder_02204168(0, 0x12c, end, end - buffer);
+    func_ov031_02203a84(buffer, end - buffer);
+    ZeroField164_02203250();
+}
+
+// USA: func_ov031_02204878
+ARM char* SkipControlSeq_02204878(char* p) {
+    unsigned char c = *p++;
+    if (c != 0) {
+        do {
+            if ((c & 0xc0) == 0xc0) {
+                return p + 1;
+            }
+            p += c;
+            c = *p++;
+        } while (c != 0);
+    }
+    return p;
+}
+
+struct DnsHeader022048a8 {
+    unsigned short identifier, flags, questionCount, answerCount, authorityCount, additionalCount;
+    unsigned char data[48];
+};
+struct DnsResponse022048a8 {
+    unsigned short identifier;
+    unsigned char flags, status;
+    unsigned char questionCount[2];
+    unsigned char counts[6];
+};
+struct DnsRecordHeader022048a8 {
+    unsigned char type[2], recordClass[2];
+    unsigned char ttl[4];
+    unsigned char length[2];
+};
+
+#define CPS_GETUSHORT1(p) ((unsigned short)(((unsigned char*)(p))[0] << 8 | ((unsigned char*)(p))[1]))
+#define CPS_GETULONG1(p) (((unsigned long)CPS_GETUSHORT1(p) << 16) | CPS_GETUSHORT1((p) + 2))
+
+// USA: func_ov031_022048a8
+extern "C" ARM int func_ov031_022048a8(const unsigned char* name, unsigned int type, int identifier, void* output, unsigned int capacity) {
+    DnsHeader022048a8 packet;
+    unsigned int length;
+    packet.identifier = (identifier >> 8) | (identifier << 8);
+    if (type != 32) packet.flags = 1;
+    else packet.flags = 0x1001;
+    packet.questionCount = 0x100;
+    packet.answerCount = 0;
+    packet.authorityCount = 0;
+    packet.additionalCount = 0;
+    length = 0;
+    unsigned char character = *name++;
+    unsigned char* label = packet.data;
+    unsigned char* cursor = label + 1;
+    int count = 0;
+    if (character) do {
+        if (character != '.') {
+            count = cursor - (unsigned char*)&packet;
+            if (count >= 60) return -1;
+            count = ++length;
+            *cursor++ = character;
+        } else {
+            *label = count;
+            label = cursor;
+            length = 0;
+            count = 0;
+            ++cursor;
+        }
+        character = *name++;
+    } while (character);
+    *label = length;
+    cursor[0] = 0;
+    cursor[1] = type >> 8;
+    cursor[2] = type;
+    cursor[3] = 0;
+    cursor[4] = 1;
+    func_ov031_02203a84(&packet, cursor + 5 - (unsigned char*)&packet);
+    int result = 0;
+    unsigned int start = GetCurrentTimestamp() >> 16;
+    while (link_is_on() && !result &&
+           (int)((unsigned int)(GetCurrentTimestamp() >> 16) - start) < 15) {
+        if (!func_ov031_02203b1c()) DispatchContext02200264();
+        else {
+            DnsResponse022048a8* response = (DnsResponse022048a8*)func_ov031_0220357c(&length);
+            if (length > 12 && identifier == (unsigned short)((response->identifier >> 8) | (response->identifier << 8))) {
+                int status = response->status & 15;
+                if (status == 3) result = -1;
+                else if (status == 0) {
+                    unsigned char* end = (unsigned char*)response + length;
+                    char* position = (char*)(response + 1);
+                    int remaining = (unsigned short)(response->questionCount[1] | (response->questionCount[0] << 8));
+                    while (remaining--) {
+                        position = SkipControlSeq_02204878(position) + 4;
+                    }
+                    if ((unsigned char*)position < end) do {
+                        DnsRecordHeader022048a8* record = (DnsRecordHeader022048a8*)SkipControlSeq_02204878(position);
+                        unsigned short dataLength = CPS_GETUSHORT1(record->length);
+                        if (type == CPS_GETUSHORT1(record->type)) {
+                            if (type != 12) {
+                                result = CPS_GETULONG1((unsigned char*)record + sizeof(*record) - 4 + dataLength);
+                            } else if (dataLength > capacity) result = 2;
+                            else {
+                                VectorizedInvertedMemcpy(record + 1, output, dataLength);
+                                result = 1;
+                            }
+                            break;
+                        }
+                        position = (char*)record + (sizeof(*record) + dataLength);
+                    } while ((unsigned char*)position < end);
+                }
+            }
+            func_ov031_02203670(length);
+        }
+    }
+    return result;
+}
+
+// USA: func_ov031_02204b50
+ARM int ParseDigits_02204b50(char* str, char** endptr) {
+    *endptr = str;
+    unsigned int result = 0;
+    unsigned int digit;
+    do {
+        digit = ((unsigned char)*str - 0x30) & 0xff;
+        if (digit > 9) break;
+        result = result * 10 + digit;
+        str++;
+        *endptr = str;
+    } while (1);
+    return result;
+}
+
+// USA: func_ov031_02204b84  (semantic: ParseIPv4Address_02204b84)
+extern "C" ARM int func_ov031_02204b84(char* str, unsigned int* out) {
+    unsigned int accum = 0;
+    char* p = str;
+    int octetIndex = 0;
+    do {
+        char* next;
+        int val = ParseDigits_02204b50(p, &next);
+        if (p == next)
+            return 0;
+        p = next;
+        if ((unsigned int)val > 0xff)
+            goto fail;
+        if (octetIndex != 3) {
+            unsigned char c = *p;
+            p = p + 1;
+            if (c != '.')
+                goto fail;
+        }
+        if (octetIndex == 3) {
+            if (*(unsigned char*)p != 0)
+                goto fail;
+        }
+        goto accumulate;
+fail:
+        return 0;
+accumulate:
+        octetIndex++;
+        accum = val | (accum << 8);
+    } while (octetIndex < 4);
+    *out = accum;
+    return 1;
+}
+
+// USA: func_ov031_02204c20  (semantic: StartSession_02204c20)
+extern "C" ARM int func_ov031_02204c20(char* name, unsigned int server, unsigned short identifier) {
+    if (server == 0) return -1;
+    InitSessionFields_0220321c();
+    ResetSessionState02203190();
+    UpdateObjFromContext_022031bc(0, 0x35, server);
+    int result = func_ov031_022048a8((const unsigned char*)name, 1, identifier, 0, 0);
+    ZeroField164_02203250();
+    return result;
+}
+
+// USA: func_ov031_02204c84
+extern "C" ARM CPSInAddr func_ov031_02204c84(char* name) {
+    unsigned int ip;
+    unsigned short id[2];
+    unsigned char askServer[2];
+    int retries;
+    int server;
+
+    id[0] = MATH_Rand32(&data_ov031_0224c9e8, 65536);
+    id[1] = MATH_Rand32(&data_ov031_0224c9e8, 65536);
+
+    if (func_ov031_02204b84(name, &ip)) {
+        return ip;
+    }
+
+    askServer[0] = 1;
+    askServer[1] = 1;
+
+    for (retries = 0; retries < 3; retries++) {
+        for (server = 0; server < 2; server++) {
+            if (askServer[server]) {
+                ip = func_ov031_02204c20(name, data_ov031_0224c9e0[server], id[server]);
+                if (ip != 0 && ip != 0xffffffff) {
+                    goto exit;
+                }
+                if (ip == 0xffffffff) {
+                    askServer[server] = 0;
+                }
+            }
+        }
+    }
+exit:
+    if (ip == 0xffffffff) {
+        ip = 0;
+    }
+    return ip;
+}
