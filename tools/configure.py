@@ -39,6 +39,7 @@ LIBRARY_BUILDS = {
     "network": ("NetworkLib", "2.0/sp2", ["-O4,p"]),
     "video": ("VideoLib", MWCC_VERSION, ["-O4,p"]),
     "wifi": ("WifiLib", SDK_MWCC_VERSION, ["-O4,p"]),
+    "wifi_setup": ("WifiSetupLib", SDK_MWCC_VERSION, ["-O3,p"]),
 }
 DECOMP_ME_COMPILER = "mwcc_30_137"
 CC_FLAGS = " ".join([

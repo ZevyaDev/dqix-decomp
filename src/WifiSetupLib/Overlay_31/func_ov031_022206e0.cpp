@@ -36,12 +36,14 @@ extern "C" THUMB int func_ov031_022206e0(unsigned char* message) {
     int type;
     int len;
     unsigned char* data;
+    unsigned char* end;
     header = (unsigned short*)message;
     message += 8;
     cursor = message;
     result = 0;
     total = SWAP16(*header);
-    data = func_ov031_02220248(&cursor, message + total, &type, &len);
+    end = message + total;
+    data = func_ov031_02220248(&cursor, end, &type, &len);
     if (data != 0) {
         do {
             switch (type) {
@@ -101,7 +103,7 @@ extern "C" THUMB int func_ov031_022206e0(unsigned char* message) {
                 memcpy(&data_ov031_0224fac0, data, len);
                 break;
             }
-            data = func_ov031_02220248(&cursor, message + total, &type, &len);
+            data = func_ov031_02220248(&cursor, end, &type, &len);
         } while (data != 0);
     }
     return result;
