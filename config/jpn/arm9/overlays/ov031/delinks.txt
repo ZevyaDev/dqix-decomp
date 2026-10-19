@@ -166,7 +166,7 @@ src/NetworkLib/Overlay_31/AllocInitAndRegisterObj_0223ede0.cpp:
     complete
     .text start:0x0223f5c0 end:0x0223f968
 
-src/WifiSetupLib/Overlay_31/wifi_setup_0221f324.cpp:
+src/WifiLib/Overlay_31/wifi_setup_0221f324.cpp:
     complete
     .text start:0x0221fb04 end:0x022232ec
     .bss start:0x02250270 end:0x02250718
@@ -235,7 +235,7 @@ src/NetworkLib/Overlay_31/AwaitIfActive_02216a84.cpp:
     complete
     .text start:0x02217264 end:0x02217294
 
-src/NetworkLib/Overlay_31/BitwiseCompute_0221cfc4.cpp:
+src/WifiLib/Overlay_31/BitwiseCompute_0221cfc4.cpp:
     complete
     .text start:0x0221d7a4 end:0x0221d7bc
 
@@ -271,11 +271,11 @@ src/NetworkLib/Overlay_31/BumpTag4To5_02216698.cpp:
     complete
     .text start:0x02216e78 end:0x02216e94
 
-src/NetworkLib/Overlay_31/ByteSwap32_0221e5d0.cpp:
+src/WifiLib/Overlay_31/ByteSwap32_0221e5d0.cpp:
     complete
     .text start:0x0221edb0 end:0x0221edd8
 
-src/NetworkLib/Overlay_31/ByteSwap32_0221e610.cpp:
+src/WifiLib/Overlay_31/ByteSwap32_0221e610.cpp:
     complete
     .text start:0x0221edf0 end:0x0221ee18
 
@@ -1063,7 +1063,7 @@ src/NetworkLib/Overlay_31/CompareBytes6_0220f368.cpp:
     complete
     .text start:0x0220fb48 end:0x0220fb74
 
-src/NetworkLib/Overlay_31/CompareBytesReturnDiff_0221e4fc.cpp:
+src/WifiLib/Overlay_31/CompareBytesReturnDiff_0221e4fc.cpp:
     complete
     .text start:0x0221ecdc end:0x0221ecfc
 
@@ -1239,7 +1239,7 @@ src/NetworkLib/Overlay_31/CopyStreamedData_02209840_0220a594.cpp:
     complete
     .text start:0x0220ad74 end:0x0220ae4c
 
-src/NetworkLib/Overlay_31/CopyToDest_0221e51c.cpp:
+src/WifiLib/Overlay_31/CopyToDest_0221e51c.cpp:
     complete
     .text start:0x0221ecfc end:0x0221ed0c
 
@@ -1591,7 +1591,7 @@ src/NetworkLib/Overlay_31/ExtractPackedHiLo_0223bd28.cpp:
     complete
     .text start:0x0223c508 end:0x0223c538
 
-src/NetworkLib/Overlay_31/FillBytes_0221e52c.cpp:
+src/WifiLib/Overlay_31/FillBytes_0221e52c.cpp:
     complete
     .text start:0x0221ed0c end:0x0221ed18
 
@@ -1699,7 +1699,7 @@ src/NetworkLib/Overlay_31/FlushAndTransferThenNotify_022373fc.cpp:
     complete
     .text start:0x02237bdc end:0x02237c28
 
-src/NetworkLib/Overlay_31/ForwardArgToCallback_0221c4ac.cpp:
+src/WifiLib/Overlay_31/ForwardArgToCallback_0221c4ac.cpp:
     complete
     .text start:0x0221cc8c end:0x0221cc9c
 
@@ -2079,9 +2079,13 @@ src/NetworkLib/Overlay_31/GetGlobalField1000_02219220.cpp:
     complete
     .text start:0x02219a00 end:0x02219a18
 
-src/NetworkLib/Overlay_31/GetGlobalField10_0221d06c.cpp:
+src/WifiLib/Overlay_31/GetGlobalField10_0221d06c.cpp:
     complete
     .text start:0x0221d84c end:0x0221d858
+
+src/WifiLib/Overlay_31/func_ov031_0221d078.cpp:
+    complete
+    .text start:0x0221d858 end:0x0221da50
 
 src/NetworkLib/Overlay_31/GetGlobalFieldcFieldc_022134f0.cpp:
     complete
@@ -2427,7 +2431,7 @@ src/NetworkLib/Overlay_31/InsertNewEntry_0220ece8.cpp:
     complete
     .text start:0x0220f4c8 end:0x0220f594
 
-src/NetworkLib/Overlay_31/InvokeAndInvertByte_0221e2bc.cpp:
+src/WifiLib/Overlay_31/InvokeAndInvertByte_0221e2bc.cpp:
     complete
     .text start:0x0221ea9c end:0x0221eac4
 
@@ -2435,7 +2439,7 @@ src/NetworkLib/Overlay_31/InvokeCallbackField28IfMatch_0220fdec.cpp:
     complete
     .text start:0x022105cc end:0x02210624
 
-src/NetworkLib/Overlay_31/InvokeCallback_0221c49c.cpp:
+src/WifiLib/Overlay_31/InvokeCallback_0221c49c.cpp:
     complete
     .text start:0x0221cc7c end:0x0221cc8c
 
@@ -2447,7 +2451,7 @@ src/NetworkLib/Overlay_31/InvokeHandlerIfSet_0221ecb4.cpp:
     complete
     .text start:0x0221f494 end:0x0221f4a8
 
-src/NetworkLib/Overlay_31/InvokeIfPositive_0221e458.cpp:
+src/WifiLib/Overlay_31/InvokeIfPositive_0221e458.cpp:
     complete
     .text start:0x0221ec38 end:0x0221ec50
 
@@ -2455,7 +2459,7 @@ src/NetworkLib/Overlay_31/InvokeStoredCallback_02211b98.cpp:
     complete
     .text start:0x02212378 end:0x022123b4
 
-src/NetworkLib/Overlay_31/InvokeWithSecondArg_0221e470.cpp:
+src/WifiLib/Overlay_31/InvokeWithSecondArg_0221e470.cpp:
     complete
     .text start:0x0221ec50 end:0x0221ec60
 
@@ -3227,7 +3231,7 @@ src/NetworkLib/Overlay_31/RunTwoSteps_0220db28.cpp:
     complete
     .text start:0x0220e308 end:0x0220e318
 
-src/NetworkLib/Overlay_31/SelectAndCall022071d8_0221e5b4.cpp:
+src/WifiLib/Overlay_31/SelectAndCall022071d8_0221e5b4.cpp:
     complete
     .text start:0x0221ed94 end:0x0221ed9c
 
@@ -3767,7 +3771,7 @@ src/NetworkLib/Overlay_31/SetGlobal02290d14_02239108.cpp:
     complete
     .text start:0x022398e8 end:0x022398fc
 
-src/NetworkLib/Overlay_31/SetGlobalField10_0221d060.cpp:
+src/WifiLib/Overlay_31/SetGlobalField10_0221d060.cpp:
     complete
     .text start:0x0221d840 end:0x0221d84c
 
@@ -3827,7 +3831,7 @@ src/NetworkLib/Overlay_31/SetPanRegisterBits_0223cbbc.cpp:
     complete
     .text start:0x0223d39c end:0x0223d3f8
 
-src/NetworkLib/Overlay_31/SetQueueHead_0221e6e0.cpp:
+src/WifiLib/Overlay_31/SetQueueHead_0221e6e0.cpp:
     complete
     .text start:0x0221eec0 end:0x0221eec8
 
@@ -3975,7 +3979,7 @@ src/NetworkLib/Overlay_31/StoreBufferParamsAndDispatch_02234ff8.cpp:
     complete
     .text start:0x022357d8 end:0x02235814
 
-src/NetworkLib/Overlay_31/StoreByteAndForwardPacket02207204.cpp:
+src/WifiLib/Overlay_31/StoreByteAndForwardPacket02207204.cpp:
     complete
     .text start:0x0221ed9c end:0x0221eda8
 
@@ -3991,7 +3995,7 @@ src/NetworkLib/Overlay_31/StoreTwoShorts_0223cb10.cpp:
     complete
     .text start:0x0223d2f0 end:0x0223d2fc
 
-src/NetworkLib/Overlay_31/StringLength_0221e650.cpp:
+src/WifiLib/Overlay_31/StringLength_0221e650.cpp:
     complete
     .text start:0x0221ee30 end:0x0221ee44
 
@@ -4151,7 +4155,7 @@ src/NetworkLib/Overlay_31/TailCallWithField648Ac8_0223ac14.cpp:
     complete
     .text start:0x0223b3f4 end:0x0223b418
 
-src/NetworkLib/Overlay_31/TailCallWrapper02207434_0221e5c8.cpp:
+src/WifiLib/Overlay_31/TailCallWrapper02207434_0221e5c8.cpp:
     complete
     .text start:0x0221eda8 end:0x0221edb0
 
@@ -4371,7 +4375,7 @@ src/NetworkLib/Overlay_31/XorCipher_0220bab8.cpp:
     complete
     .text start:0x0220c298 end:0x0220c304
 
-src/NetworkLib/Overlay_31/XorCopyBytes_0221e250.cpp:
+src/WifiLib/Overlay_31/XorCopyBytes_0221e250.cpp:
     complete
     .text start:0x0221ea30 end:0x0221ea5c
 
@@ -4451,7 +4455,7 @@ src/NetworkLib/Overlay_31/func_ov031_02206f3c.cpp:
     complete
     .text start:0x0220771c end:0x02207784
 
-src/NetworkLib/Overlay_31/func_ov031_022073a4.cpp:
+src/WifiLib/Overlay_31/func_ov031_022073a4.cpp:
     complete
     .text start:0x0221ed80 end:0x0221ed90
 
@@ -4663,7 +4667,7 @@ src/NetworkLib/Overlay_31/func_ov031_0221b780.cpp:
     complete
     .text start:0x0221bf60 end:0x0221bfdc
 
-src/NetworkLib/Overlay_31/func_ov031_0221d310.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221d310.cpp:
     complete
     .text start:0x0221daf0 end:0x0221db34
 
@@ -5995,15 +5999,15 @@ src/NetworkLib/Overlay_31/func_ov031_022135f4.cpp:
     complete
     .text start:0x02213dd4 end:0x02213e74
 
-src/NetworkLib/Overlay_31/func_ov031_0221e3d0.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221e3d0.cpp:
     complete
     .text start:0x0221ebb0 end:0x0221ebe4
 
-src/NetworkLib/Overlay_31/func_ov031_0221e54c.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221e54c.cpp:
     complete
     .text start:0x0221ed2c end:0x0221ed80
 
-src/NetworkLib/Overlay_31/func_ov031_0221e664.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221e664.cpp:
     complete
     .text start:0x0221ee44 end:0x0221eeb4
 
@@ -6079,15 +6083,15 @@ src/NetworkLib/Overlay_31/func_ov031_0221ae00.cpp:
     complete
     .text start:0x0221b5e0 end:0x0221b6b8
 
-src/NetworkLib/Overlay_31/func_ov031_0221cfdc.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221cfdc.cpp:
     complete
     .text start:0x0221d7bc end:0x0221d7e8
 
-src/NetworkLib/Overlay_31/func_ov031_0221d79c.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221d79c.cpp:
     complete
     .text start:0x0221df7c end:0x0221dfc0
 
-src/NetworkLib/Overlay_31/func_ov031_0221dedc.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221dedc.cpp:
     complete
     .text start:0x0221e6bc end:0x0221e728
 
@@ -6227,7 +6231,7 @@ src/NetworkLib/Overlay_31/func_ov031_02239cd4.cpp:
     complete
     .text start:0x0223a4b4 end:0x0223a550
 
-src/NetworkLib/Overlay_31/func_ov031_0221d008.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221d008.cpp:
     complete
     .text start:0x0221d7e8 end:0x0221d840
 
@@ -6435,11 +6439,11 @@ src/Combat/Overlay_31/SetGlobalField10AndPairFlag_0224342c.cpp:
     complete
     .text start:0x02243c0c end:0x02243c30
 
-src/NetworkLib/Overlay_31/CheckStatusAndFlag_0221e4d8.cpp:
+src/WifiLib/Overlay_31/CheckStatusAndFlag_0221e4d8.cpp:
     complete
     .text start:0x0221ecb8 end:0x0221ecdc
 
-src/NetworkLib/Overlay_31/SetActiveField4_0221d384.cpp:
+src/WifiLib/Overlay_31/SetActiveField4_0221d384.cpp:
     complete
     .text start:0x0221db64 end:0x0221db90
 
@@ -6471,7 +6475,7 @@ src/NetworkLib/Overlay_31/02235234.cpp:
     complete
     .text start:0x02235a14 end:0x02235b98
 
-src/NetworkLib/Overlay_31/func_ov031_0221e480.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221e480.cpp:
     complete
     .text start:0x0221ec60 end:0x0221ecb8
 
@@ -6479,7 +6483,7 @@ src/NetworkLib/Overlay_31/func_ov031_02211020.cpp:
     complete
     .text start:0x02211800 end:0x022118d0
 
-src/NetworkLib/Overlay_31/func_ov031_0221c4bc.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221c4bc.cpp:
     complete
     .text start:0x0221cc9c end:0x0221cd8c
 
@@ -6495,55 +6499,55 @@ src/NetworkLib/Overlay_31/func_ov031_022394b4.cpp:
     complete
     .text start:0x02239c94 end:0x02239cf8
 
-src/NetworkLib/Overlay_31/ByteSwap16_0221e638.cpp:
+src/WifiLib/Overlay_31/ByteSwap16_0221e638.cpp:
     complete
     .text start:0x0221ee18 end:0x0221ee30
 
-src/NetworkLib/Overlay_31/func_ov031_0221d3b0.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221d3b0.cpp:
     complete
     .text start:0x0221db90 end:0x0221dc30
 
-src/NetworkLib/Overlay_31/func_ov031_0221d450.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221d450.cpp:
     complete
     .text start:0x0221dc30 end:0x0221dd0c
 
-src/NetworkLib/Overlay_31/func_ov031_0221d604.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221d604.cpp:
     complete
     .text start:0x0221dde4 end:0x0221de88
 
-src/NetworkLib/Overlay_31/func_ov031_0221d7e0.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221d7e0.cpp:
     complete
     .text start:0x0221dfc0 end:0x0221e00c
 
-src/NetworkLib/Overlay_31/func_ov031_0221db18.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221db18.cpp:
     complete
     .text start:0x0221e2f8 end:0x0221e328
 
-src/NetworkLib/Overlay_31/func_ov031_0221e27c.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221e27c.cpp:
     complete
     .text start:0x0221ea5c end:0x0221ea9c
 
-src/NetworkLib/Overlay_31/func_ov031_0221e2e4.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221e2e4.cpp:
     complete
     .text start:0x0221eac4 end:0x0221eafc
 
-src/NetworkLib/Overlay_31/func_ov031_0221e428.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221e428.cpp:
     complete
     .text start:0x0221ec08 end:0x0221ec38
 
-src/NetworkLib/Overlay_31/ByteSwap16_0221e5f8.cpp:
+src/WifiLib/Overlay_31/ByteSwap16_0221e5f8.cpp:
     complete
     .text start:0x0221edd8 end:0x0221edf0
 
-src/NetworkLib/Overlay_31/HasFlag10_0221dc58.cpp:
+src/WifiLib/Overlay_31/HasFlag10_0221dc58.cpp:
     complete
     .text start:0x0221e438 end:0x0221e448
 
-src/NetworkLib/Overlay_31/NoOp_0221e5b0.cpp:
+src/WifiLib/Overlay_31/NoOp_0221e5b0.cpp:
     complete
     .text start:0x0221ed90 end:0x0221ed94
 
-src/NetworkLib/Overlay_31/ValidatePrintable_0221d270.cpp:
+src/WifiLib/Overlay_31/ValidatePrintable_0221d270.cpp:
     complete
     .text start:0x0221da50 end:0x0221da74
 
@@ -6551,7 +6555,7 @@ src/NetworkLib/Overlay_31/func_ov031_02218a38.cpp:
     complete
     .text start:0x02219218 end:0x0221936c
 
-src/NetworkLib/Overlay_31/func_ov031_0221e028.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221e028.cpp:
     complete
     .text start:0x0221e808 end:0x0221e860
 
@@ -6559,7 +6563,7 @@ src/Combat/Overlay_31/func_ov031_02243018.cpp:
     complete
     .text start:0x022437f8 end:0x02243924
 
-src/NetworkLib/Overlay_31/ClearQueue_0221e6d4.cpp:
+src/WifiLib/Overlay_31/ClearQueue_0221e6d4.cpp:
     complete
     .text start:0x0221eeb4 end:0x0221eec0
 
@@ -6567,19 +6571,19 @@ src/NetworkLib/Overlay_31/GetActiveContextRemainingOrStatus_02203b1c.cpp:
     complete
     .text start:0x022042fc end:0x0220436c
 
-src/NetworkLib/Overlay_31/StoreByteAndForward_0221e538.cpp:
+src/WifiLib/Overlay_31/StoreByteAndForward_0221e538.cpp:
     complete
     .text start:0x0221ed18 end:0x0221ed2c
 
-src/NetworkLib/Overlay_31/func_ov031_0221dc68.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221dc68.cpp:
     complete
     .text start:0x0221e448 end:0x0221e49c
 
-src/NetworkLib/Overlay_31/func_ov031_0221df48.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221df48.cpp:
     complete
     .text start:0x0221e728 end:0x0221e7b4
 
-src/NetworkLib/Overlay_31/func_ov031_0221e080.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221e080.cpp:
     complete
     .text start:0x0221e860 end:0x0221e8c8
 
@@ -6591,7 +6595,7 @@ src/Combat/Overlay_31/func_ov031_02243e34.cpp:
     complete
     .text start:0x0224460c end:0x02244894
 
-src/NetworkLib/Overlay_31/func_ov031_0221d52c.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221d52c.cpp:
     complete
     .text start:0x0221dd0c end:0x0221dde4
 
@@ -6687,7 +6691,7 @@ src/NetworkLib/Overlay_31/func_ov031_0221aed8.cpp:
     complete
     .text start:0x0221b6b8 end:0x0221b794
 
-src/NetworkLib/Overlay_31/func_ov031_0221e0e8.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221e0e8.cpp:
     complete
     .text start:0x0221e8c8 end:0x0221e944
 
@@ -6707,11 +6711,11 @@ src/NetworkLib/Overlay_31/func_ov031_02218b8c.cpp:
     complete
     .text start:0x0221936c end:0x0221960c
 
-src/NetworkLib/Overlay_31/func_ov031_0221e164.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221e164.cpp:
     complete
     .text start:0x0221e944 end:0x0221e9cc
 
-src/NetworkLib/Overlay_31/func_ov031_0221e404.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221e404.cpp:
     complete
     .text start:0x0221ebe4 end:0x0221ec08
 
@@ -7056,7 +7060,7 @@ src/NetworkLib/Overlay_31/func_ov031_0220a87c.cpp:
     complete
     .text start:0x0220b05c end:0x0220b190
 
-src/NetworkLib/Overlay_31/func_ov031_0221d294.cpp:
+src/WifiLib/Overlay_31/func_ov031_0221d294.cpp:
     complete
     .text start:0x0221da74 end:0x0221daf0
 

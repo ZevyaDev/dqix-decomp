@@ -37,8 +37,9 @@ LIBRARY_BUILDS = {
     "msl": ("MSL", MWCC_VERSION, ["-O4,p", "-ipa", "file", "-str", "nopool"]),
     "runtime": ("Runtime", MWCC_VERSION, ["-O4,p", "-char", "unsigned", "-Cpp_exceptions", "on"]),
     "network": ("NetworkLib", "2.0/sp2", ["-O4,p"]),
-    # ov031 Wi-Fi setup module (0x0221f324-0x02222b0c): built with the NitroSDK compiler; 0221fd18 needs it
-    "wifisetup": ("WifiSetupLib", SDK_MWCC_VERSION, ["-O4,p"]),
+    # ov031 Wi-Fi modules (0x0221c49c-0x0221e6e8, 0x0221f324-0x02222b0c): built with the NitroSDK compiler;
+    # 0221d078 and 0221fd18 need it
+    "wifi": ("WifiLib", SDK_MWCC_VERSION, ["-O4,p"]),
 }
 DECOMP_ME_COMPILER = "mwcc_30_137"
 CC_FLAGS = " ".join([
