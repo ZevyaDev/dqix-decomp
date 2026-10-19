@@ -166,9 +166,10 @@ src/NetworkLib/Overlay_31/AllocInitAndRegisterObj_0223ede0.cpp:
     complete
     .text start:0x0223f5c0 end:0x0223f968
 
-src/NetworkLib/Overlay_31/AllocZeroed_0222288c.cpp:
+src/WifiSetupLib/Overlay_31/wifi_setup_0221f324.cpp:
     complete
-    .text start:0x0222306c end:0x02223090
+    .text start:0x0221fb04 end:0x022232ec
+    .bss start:0x02250270 end:0x02250718
 
 src/NetworkLib/Overlay_31/AllocateAndInitBuffer_022411e4.cpp:
     complete
@@ -249,10 +250,6 @@ src/NetworkLib/Overlay_31/BuildAndApplyBuffer_022175dc.cpp:
 src/NetworkLib/Overlay_31/BuildAndCopyContext_02208ef0.cpp:
     complete
     .text start:0x022096d0 end:0x02209730
-
-src/NetworkLib/Overlay_31/BuildAndDispatch_02222af0.cpp:
-    complete
-    .text start:0x022232d0 end:0x022232ec
 
 src/NetworkLib/Overlay_31/BuildAndSendPacket_02210f78.cpp:
     complete
@@ -581,10 +578,6 @@ src/NetworkLib/Overlay_31/CallWithZeroZeroZero_02207360_0221042c.cpp:
 src/NetworkLib/Overlay_31/CallWithZeroZero_0223fad4.cpp:
     complete
     .text start:0x022402b4 end:0x022402c8
-
-src/NetworkLib/Overlay_31/CallWithZero_0221fa88.cpp:
-    complete
-    .text start:0x02220268 end:0x02220274
 
 src/NetworkLib/Overlay_31/CallbackAndForward_022234d8.cpp:
     complete
@@ -1122,10 +1115,6 @@ src/NetworkLib/Overlay_31/ComputeHmacSha1_02209234.cpp:
     complete
     .text start:0x02209a14 end:0x02209af0
 
-src/NetworkLib/Overlay_31/ComputeScaledTimestamp_02222870.cpp:
-    complete
-    .text start:0x02223050 end:0x0222306c
-
 src/NetworkLib/Overlay_31/ComputeStatusFlags_02206fa4.cpp:
     complete
     .text start:0x02207784 end:0x02207854
@@ -1249,10 +1238,6 @@ src/NetworkLib/Overlay_31/CopyStreamedData_02209840.cpp:
 src/NetworkLib/Overlay_31/CopyStreamedData_02209840_0220a594.cpp:
     complete
     .text start:0x0220ad74 end:0x0220ae4c
-
-src/NetworkLib/Overlay_31/CopyTemplate_02222adc.cpp:
-    complete
-    .text start:0x022232bc end:0x022232d0
 
 src/NetworkLib/Overlay_31/CopyToDest_0221e51c.cpp:
     complete
@@ -1610,10 +1595,6 @@ src/NetworkLib/Overlay_31/FillBytes_0221e52c.cpp:
     complete
     .text start:0x0221ed0c end:0x0221ed18
 
-src/NetworkLib/Overlay_31/FillElapsedResult_02222aa4.cpp:
-    complete
-    .text start:0x02223284 end:0x022232bc
-
 src/NetworkLib/Overlay_31/FillFourShorts_0223cb1c.cpp:
     complete
     .text start:0x0223d2fc end:0x0223d314
@@ -1745,10 +1726,6 @@ src/NetworkLib/Overlay_31/ForwardFourArgsAsStruct_0223d884.cpp:
 src/NetworkLib/Overlay_31/ForwardGlobal022918bcZeroZero_022403f4.cpp:
     complete
     .text start:0x02240bd4 end:0x02240bf0
-
-src/NetworkLib/Overlay_31/ForwardSkipArg_022201cc.cpp:
-    complete
-    .text start:0x022209ac end:0x022209b8
 
 src/NetworkLib/Overlay_31/ForwardToDataHandler_0222708c.cpp:
     complete
@@ -2106,10 +2083,6 @@ src/NetworkLib/Overlay_31/GetGlobalField10_0221d06c.cpp:
     complete
     .text start:0x0221d84c end:0x0221d858
 
-src/NetworkLib/Overlay_31/GetGlobalField2c_0221f994.cpp:
-    complete
-    .text start:0x02220174 end:0x02220180
-
 src/NetworkLib/Overlay_31/GetGlobalFieldcFieldc_022134f0.cpp:
     complete
     .text start:0x02213cd0 end:0x02213ce4
@@ -2466,17 +2439,9 @@ src/NetworkLib/Overlay_31/InvokeCallback_0221c49c.cpp:
     complete
     .text start:0x0221cc7c end:0x0221cc8c
 
-src/NetworkLib/Overlay_31/InvokeGuardedCallback_0221f9d0.cpp:
-    complete
-    .text start:0x022201b0 end:0x022201d8
-
 src/NetworkLib/Overlay_31/InvokeHandlerAndClear_02216a2c.cpp:
     complete
     .text start:0x0221720c end:0x02217264
-
-src/NetworkLib/Overlay_31/InvokeHandlerC_022228b0.cpp:
-    complete
-    .text start:0x02223090 end:0x022230a0
 
 src/NetworkLib/Overlay_31/InvokeHandlerIfSet_0221ecb4.cpp:
     complete
@@ -4490,10 +4455,6 @@ src/NetworkLib/Overlay_31/func_ov031_022073a4.cpp:
     complete
     .text start:0x0221ed80 end:0x0221ed90
 
-src/NetworkLib/Overlay_31/func_ov031_022073a4_02220178.cpp:
-    complete
-    .text start:0x02220958 end:0x02220970
-
 src/NetworkLib/Overlay_31/func_ov031_02209e98.cpp:
     complete
     .text start:0x0220a678 end:0x0220a7d0
@@ -4709,14 +4670,6 @@ src/NetworkLib/Overlay_31/func_ov031_0221d310.cpp:
 src/NetworkLib/Overlay_31/func_ov031_0221ef80.cpp:
     complete
     .text start:0x0221f760 end:0x0221f7c8
-
-src/NetworkLib/Overlay_31/func_ov031_0222170c.cpp:
-    complete
-    .text start:0x02221eec end:0x022222a8
-
-src/NetworkLib/Overlay_31/func_ov031_02221ac8.cpp:
-    complete
-    .text start:0x022222a8 end:0x02222664
 
 src/NetworkLib/Overlay_31/func_ov031_0222336c.cpp:
     complete
@@ -5982,14 +5935,6 @@ src/NetworkLib/Overlay_31/0222a6c4.cpp:
     complete
     .text start:0x0222aea4 end:0x0222af74
 
-src/NetworkLib/Overlay_31/func_ov031_02221e84.cpp:
-    complete
-    .text start:0x02222664 end:0x0222268c
-
-src/NetworkLib/Overlay_31/func_ov031_0221f7c4.cpp:
-    complete
-    .text start:0x0221ffa4 end:0x0221ffdc
-
 src/NetworkLib/Overlay_31/func_ov031_0223e454.cpp:
     complete
     .text start:0x0223ec34 end:0x0223ed2c
@@ -6078,22 +6023,6 @@ src/NetworkLib/Overlay_31/func_ov031_0221f158.cpp:
     complete
     .text start:0x0221f938 end:0x0221f970
 
-src/NetworkLib/Overlay_31/func_ov031_0221f9a0.cpp:
-    complete
-    .text start:0x02220180 end:0x022201b0
-
-src/NetworkLib/Overlay_31/func_ov031_0221fa20.cpp:
-    complete
-    .text start:0x02220200 end:0x02220238
-
-src/NetworkLib/Overlay_31/func_ov031_02220190.cpp:
-    complete
-    .text start:0x02220970 end:0x022209ac
-
-src/NetworkLib/Overlay_31/func_ov031_02220ed4.cpp:
-    complete
-    .text start:0x022216b4 end:0x022216ec
-
 src/NetworkLib/Overlay_31/func_ov031_0222855c.cpp:
     complete
     .text start:0x02228d3c end:0x02228d7c
@@ -6169,18 +6098,6 @@ src/NetworkLib/Overlay_31/func_ov031_0221f1e8.cpp:
 src/NetworkLib/Overlay_31/func_ov031_0221f26c.cpp:
     complete
     .text start:0x0221fa4c end:0x0221fb04
-
-src/NetworkLib/Overlay_31/func_ov031_0221f630.cpp:
-    complete
-    .text start:0x0221fe10 end:0x0221fe78
-
-src/NetworkLib/Overlay_31/func_ov031_0221f854.cpp:
-    complete
-    .text start:0x02220034 end:0x022200b8
-
-src/NetworkLib/Overlay_31/func_ov031_0221f8d8.cpp:
-    complete
-    .text start:0x022200b8 end:0x02220174
 
 src/NetworkLib/Overlay_31/func_ov031_0222938c.cpp:
     complete
@@ -6313,14 +6230,6 @@ src/NetworkLib/Overlay_31/func_ov031_02239cd4.cpp:
 src/NetworkLib/Overlay_31/func_ov031_0221d008.cpp:
     complete
     .text start:0x0221d7e8 end:0x0221d840
-
-src/NetworkLib/Overlay_31/func_ov031_0221f324.cpp:
-    complete
-    .text start:0x0221fb04 end:0x0221fe10
-
-src/NetworkLib/Overlay_31/func_ov031_0222053c.cpp:
-    complete
-    .text start:0x02220d1c end:0x02220db8
 
 src/NetworkLib/Overlay_31/func_ov031_0222e484.cpp:
     complete
@@ -6582,29 +6491,13 @@ src/NetworkLib/Overlay_31/func_ov031_0223bdb0.cpp:
     complete
     .text start:0x0223c590 end:0x0223c624
 
-src/NetworkLib/Overlay_31/func_ov031_0221f7fc.cpp:
-    complete
-    .text start:0x0221ffdc end:0x02220034
-
 src/NetworkLib/Overlay_31/func_ov031_022394b4.cpp:
     complete
     .text start:0x02239c94 end:0x02239cf8
 
-src/NetworkLib/Overlay_31/func_ov031_022203f0.cpp:
-    complete
-    .text start:0x02220bd0 end:0x02220bf8
-
 src/NetworkLib/Overlay_31/ByteSwap16_0221e638.cpp:
     complete
     .text start:0x0221ee18 end:0x0221ee30
-
-src/NetworkLib/Overlay_31/CopyAndSucceed_022205d8.cpp:
-    complete
-    .text start:0x02220db8 end:0x02220dc4
-
-src/NetworkLib/Overlay_31/FillBytes_02222830.cpp:
-    complete
-    .text start:0x02223010 end:0x02223028
 
 src/NetworkLib/Overlay_31/func_ov031_0221d3b0.cpp:
     complete
@@ -6638,18 +6531,6 @@ src/NetworkLib/Overlay_31/func_ov031_0221e428.cpp:
     complete
     .text start:0x0221ec08 end:0x0221ec38
 
-src/NetworkLib/Overlay_31/func_ov031_02220298.cpp:
-    complete
-    .text start:0x02220a78 end:0x02220aac
-
-src/NetworkLib/Overlay_31/func_ov031_02221f24.cpp:
-    complete
-    .text start:0x02222704 end:0x02222758
-
-src/NetworkLib/Overlay_31/func_ov031_02222848.cpp:
-    complete
-    .text start:0x02223028 end:0x02223050
-
 src/NetworkLib/Overlay_31/ByteSwap16_0221e5f8.cpp:
     complete
     .text start:0x0221edd8 end:0x0221edf0
@@ -6673,10 +6554,6 @@ src/NetworkLib/Overlay_31/func_ov031_02218a38.cpp:
 src/NetworkLib/Overlay_31/func_ov031_0221e028.cpp:
     complete
     .text start:0x0221e808 end:0x0221e860
-
-src/NetworkLib/Overlay_31/func_ov031_0221f698.cpp:
-    complete
-    .text start:0x0221fe78 end:0x0221febc
 
 src/Combat/Overlay_31/func_ov031_02243018.cpp:
     complete
@@ -6717,10 +6594,6 @@ src/Combat/Overlay_31/func_ov031_02243e34.cpp:
 src/NetworkLib/Overlay_31/func_ov031_0221d52c.cpp:
     complete
     .text start:0x0221dd0c end:0x0221dde4
-
-src/NetworkLib/Overlay_31/func_ov031_022205e4.cpp:
-    complete
-    .text start:0x02220dc4 end:0x02220ec0
 
 src/Combat/Overlay_31/func_ov031_02244660.cpp:
     complete
@@ -6817,34 +6690,6 @@ src/NetworkLib/Overlay_31/func_ov031_0221aed8.cpp:
 src/NetworkLib/Overlay_31/func_ov031_0221e0e8.cpp:
     complete
     .text start:0x0221e8c8 end:0x0221e944
-
-src/NetworkLib/Overlay_31/func_ov031_0221fa58.cpp:
-    complete
-    .text start:0x02220238 end:0x02220268
-
-src/NetworkLib/Overlay_31/func_ov031_0221fb38.cpp:
-    complete
-    .text start:0x02220318 end:0x02220370
-
-src/NetworkLib/Overlay_31/func_ov031_0221fb90.cpp:
-    complete
-    .text start:0x02220370 end:0x02220494
-
-src/NetworkLib/Overlay_31/func_ov031_0221fcb4.cpp:
-    complete
-    .text start:0x02220494 end:0x022204f8
-
-src/NetworkLib/Overlay_31/func_ov031_022227c0.cpp:
-    complete
-    .text start:0x02222fa0 end:0x02222fcc
-
-src/NetworkLib/Overlay_31/func_ov031_022228c0.cpp:
-    complete
-    .text start:0x022230a0 end:0x022230d4
-
-src/NetworkLib/Overlay_31/func_ov031_02222a10.cpp:
-    complete
-    .text start:0x022231f0 end:0x02223284
 
 src/NetworkLib/Overlay_31/func_ov031_022036a8.cpp:
     complete
@@ -7131,10 +6976,6 @@ src/NetworkLib/Overlay_31/func_ov031_0223bbd8.cpp:
     complete
     .text start:0x0223c3b8 end:0x0223c4a8
 
-src/NetworkLib/Overlay_31/func_ov031_02220968.cpp:
-    complete
-    .text start:0x02221148 end:0x022212d0
-
 src/NetworkLib/Overlay_31/func_ov031_022048a8.cpp:
     complete
     .text start:0x02205088 end:0x02205330
@@ -7219,10 +7060,6 @@ src/NetworkLib/Overlay_31/func_ov031_0221d294.cpp:
     complete
     .text start:0x0221da74 end:0x0221daf0
 
-src/NetworkLib/Overlay_31/func_ov031_022208b4.cpp:
-    complete
-    .text start:0x02221094 end:0x02221148
-
 src/NetworkLib/Overlay_31/func_ov031_022379f0.cpp:
     complete
     .text start:0x022381d0 end:0x0223830c
@@ -7291,10 +7128,6 @@ src/NetworkLib/Overlay_31/func_ov031_02202b78.cpp:
     complete
     .text start:0x02203358 end:0x02203624
 
-src/NetworkLib/Overlay_31/func_ov031_0222157c.cpp:
-    complete
-    .text start:0x02221d5c end:0x02221eec
-
 src/NetworkLib/Overlay_31/func_ov031_0222c45c.cpp:
     complete
     .text start:0x0222cc3c end:0x0222cdb4
@@ -7315,10 +7148,6 @@ src/NetworkLib/Overlay_31/func_ov031_0220abc4.cpp:
     complete
     .text start:0x0220b3a4 end:0x0220b7c0
 
-src/NetworkLib/Overlay_31/func_ov031_022212c4.cpp:
-    complete
-    .text start:0x02221aa4 end:0x02221d5c
-
 src/NetworkLib/Overlay_31/func_ov031_0223ffb0.cpp:
     complete
     .text start:0x02240790 end:0x02240830
@@ -7330,10 +7159,6 @@ src/NetworkLib/Overlay_31/func_ov031_02236ea0.cpp:
 src/NetworkLib/Overlay_31/func_ov031_02241694.cpp:
     complete
     .text start:0x02241e74 end:0x02241f00
-
-src/NetworkLib/Overlay_31/func_ov031_0221f6dc.cpp:
-    complete
-    .text start:0x0221febc end:0x0221ffa4
 
 src/NetworkLib/Overlay_31/func_ov031_02223c08.cpp:
     complete
