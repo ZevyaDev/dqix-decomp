@@ -1,1 +1,2 @@
 src/NitroSDK/Main/func_020b10b4.cpp -ipa file
+src/Combat/Overlay_29/func_ov029_021d9824.c -O4,p

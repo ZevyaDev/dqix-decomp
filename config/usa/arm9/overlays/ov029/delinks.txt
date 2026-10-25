@@ -12,6 +12,10 @@ src/Combat/Overlay_29/__sinit_ov029_021d9788.s:
     .text start:0x021d9788 end:0x021d97c0
     .ctor start:0x021da8b8 end:0x021da8bc
 
+src/Combat/Overlay_29/func_ov029_021d9824.c:
+    complete
+    .text start:0x021d9824 end:0x021d990c
+
 src/Combat/Overlay_29/__sinit_ov029_021d9a24.s:
     complete
     .text start:0x021d9a24 end:0x021d9a4c

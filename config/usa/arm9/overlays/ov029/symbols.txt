@@ -11,6 +11,7 @@ __sinit_ov029_021d9788 kind:function(arm,size=0x38) addr:0x021d9788
 func_ov029_021d97c0 kind:function(arm,size=0x28) addr:0x021d97c0
 func_ov029_021d97e8 kind:function(arm,size=0x3c) addr:0x021d97e8
 func_ov029_021d9824 kind:function(arm,size=0xe8) addr:0x021d9824
+data_ov029_021d990c kind:data(any) addr:0x021d990c
 __sinit_ov029_021d9a24 kind:function(arm,size=0x28) addr:0x021d9a24
 data_ov029_021d9c40 kind:data(any) addr:0x021d9c40
 data_ov029_021d9ce4 kind:data(any) addr:0x021d9ce4
