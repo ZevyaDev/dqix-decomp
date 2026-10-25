@@ -568,6 +568,10 @@ src/NetworkLib/Overlay_31/func_ov031_0221188c.cpp:
     complete
     .text start:0x0221188c end:0x022118a8
 
+src/NetworkLib/Overlay_31/func_ov031_022118a8.cpp:
+    complete
+    .text start:0x022118a8 end:0x02211938
+
 src/NetworkLib/Overlay_31/func_ov031_02211b28.cpp:
     complete
     .text start:0x02211b28 end:0x02211b40
