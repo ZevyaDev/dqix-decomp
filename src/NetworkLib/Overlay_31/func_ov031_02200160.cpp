@@ -1732,3 +1732,1333 @@ extern "C" ARM void func_ov031_0220296c(Struct_ov031_0220296c* arg0, void* arg1,
     }
     SetIRQInterruptState(var1);
 }
+
+struct Struct_ov031_02202b78 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    unsigned short unknown_a_;
+    unsigned short unknown_c_;
+    unsigned short unknown_e_;
+    unsigned short unknown_10_;
+    unsigned short unknown_12_;
+};
+
+static inline unsigned short inline_ov031_02202b78(unsigned short arg0) {
+    return (arg0 >> 8) | (arg0 << 8);
+}
+
+// USA: func_ov031_02202b78
+extern "C" ARM Struct_ov031_02202b78* func_ov031_02202b78(Struct_ov031_02202b78* arg0, int* arg1) {
+    unsigned short var0;
+    unsigned long var1;
+    Struct_ov031_0224cca8* var2 = NULL;
+    Struct_ov031_0224cca8* var3;
+    unsigned long var4;
+    unsigned long var5, var6, var7, var8, var9, var10;
+    unsigned long var11;
+    unsigned long var12;
+    unsigned long var13;
+    unsigned long var14;
+    *arg1 = 0;
+    var5 = inline_ov031_02202b78(arg0->unknown_6_);
+    if (!(var5 & 0x3fff)) return arg0;
+    var0 = arg0->unknown_0_;
+    unsigned short var15 = arg0->unknown_e_;
+    unsigned short var16 = arg0->unknown_c_;
+    var1 = (var0 & 15) * 4;
+    var8 = ((unsigned long)inline_ov031_02202b78(var16) << 16) | inline_ov031_02202b78(var15);
+    var0 = arg0->unknown_4_;
+    var10 = 0;
+    var3 = data_ov031_0224cca8;
+    do {
+        if (var3->unknown_4_ && var3->unknown_0_ == var8 && var3->unknown_6_ == var0) break;
+        ++var10;
+        if (!var3->unknown_4_ && !var2) var2 = var3;
+        ++var3;
+    } while (var10 < 8);
+    var6 = inline_ov031_02202b78(arg0->unknown_2_) - var1;
+    var4 = var5 & 0x1fff;
+    var7 = var6 + (var4 << 3);
+    if (var10 == 8) {
+        if (!var2 || var7 > 4096) return NULL;
+        var3 = var2;
+        var3->unknown_34_ = static_cast<unsigned char*>(data_ov031_0224c994(var1 + 14 + 4096));
+        if (!var3->unknown_34_) return NULL;
+        var3->unknown_0_ = var8;
+        var3->unknown_6_ = var0;
+        var3->unknown_8_ = 0;
+        var3->unknown_2c_ = GetCurrentTimestamp() >> 16;
+        var3->unknown_30_ = var3->unknown_34_ + 14 + var1;
+        VectorizedInvertedMemcpy(arg0, var3->unknown_34_ + 14, var1);
+    }
+    if (var3->unknown_4_ == 8 || var7 > 4096) {
+        var3->unknown_4_ = 0;
+        data_ov031_0224c9c0(var3->unknown_34_);
+        return NULL;
+    }
+    var9 = var4 + ((var6 + 7) >> 3);
+    if (!(var5 & 0x2000)) {
+        var3->unknown_a_ = var7;
+        var3->unknown_8_ = var9;
+    }
+    var3->unknown_c_[var3->unknown_4_] = var4;
+    var3->unknown_1c_[var3->unknown_4_] = var9;
+    var3->unknown_4_++;
+    VectorizedInvertedMemcpy((unsigned char*)arg0 + var1, var3->unknown_30_ + (var4 << 3), var6);
+    var12 = var3->unknown_8_;
+    if (!var12) return NULL;
+    var11 = var3->unknown_4_;
+    var14 = 0;
+    var13 = 0;
+    if (var13 < var11) do {
+        if (var3->unknown_c_[var13] <= var14 && var14 < var3->unknown_1c_[var13]) {
+            var14 = var3->unknown_1c_[var13];
+            var13 = 0;
+        } else {
+            var13++;
+        }
+    } while (var13 < var11);
+    if (var14 < var12) return NULL;
+    unsigned char* var17 = var3->unknown_34_;
+    Struct_ov031_02202b78* var18 = (Struct_ov031_02202b78*)(var17 + 14);
+    unsigned short var19 = var3->unknown_a_ + ((var18->unknown_0_ & 15) * 4);
+    var18->unknown_2_ = (var19 >> 8) | (var19 << 8);
+    var3->unknown_4_ = 0;
+    *arg1 = 1;
+    return var18;
+}
+
+static inline unsigned short inline_ov031_02202e44(unsigned short arg0) { return (arg0 >> 8) | (arg0 << 8); }
+#define SourceAddress02202e44(packet) (((unsigned short)((packet->unknown_c_ >> 8) | (packet->unknown_c_ << 8)) << 16) | (unsigned short)((packet->unknown_e_ >> 8) | (packet->unknown_e_ << 8)))
+#define DestinationAddress02202e44(packet) (((unsigned short)((packet->unknown_10_ >> 8) | (packet->unknown_10_ << 8)) << 16) | (unsigned short)((packet->unknown_12_ >> 8) | (packet->unknown_12_ << 8)))
+
+// USA: func_ov031_02202e44
+extern "C" ARM void func_ov031_02202e44(Struct_ov031_02202b78* arg0, unsigned int arg1) {
+    unsigned int var0 = (inline_ov031_02202e44(arg0->unknown_c_) << 16) | inline_ov031_02202e44(arg0->unknown_e_);
+    unsigned int var1 = (inline_ov031_02202e44(arg0->unknown_10_) << 16) | inline_ov031_02202e44(arg0->unknown_12_);
+    if (var1 != var0) {
+        if (!func_ov031_022007a4(var1)) return;
+        if (arg1 < inline_ov031_02202e44(arg0->unknown_2_)) return;
+        if (func_ov031_02200684(arg0, (arg0->unknown_0_ & 15) << 2) != 0xffff) return;
+        if (data_ov031_0224c9d0 == DestinationAddress02202e44(arg0))
+            func_ov031_02200e38((char*)arg0 - 8, SourceAddress02202e44(arg0), 1);
+    }
+    int var2;
+    arg0 = func_ov031_02202b78(arg0, &var2);
+    if (!arg0) return;
+    void* var3 = (char*)arg0 + ((arg0->unknown_0_ & 15) << 2);
+    unsigned int var4 = inline_ov031_02202e44(arg0->unknown_2_) - ((arg0->unknown_0_ & 15) << 2);
+    if (arg0->unknown_9_ == 17) func_ov031_0220296c((Struct_ov031_0220296c*)arg0, var3, var4);
+    else if (data_ov031_0224c9d0) {
+        if (arg0->unknown_9_ == 1) func_ov031_02201bb4((Struct_ov031_02201bb4*)arg0, var3, (void*)var4);
+        else if (arg0->unknown_9_ == 6) func_ov031_0220284c(arg0, (Struct_ov031_0220284c*)var3, var4);
+    }
+    if (var2) data_ov031_0224c9c0((char*)arg0 - 14);
+}
+
+// USA: func_ov031_02203008
+extern "C" ARM void func_ov031_02203008(void) {
+    unsigned int var0;
+    for (;;) {
+        char* var1 = (char*)func_ov031_02200af8(&var0);
+        if (var0 > 0x22) {
+            unsigned short var2 = *(unsigned short*)(var1 + 0xc);
+            unsigned short var3 = (var2 >> 8) | (var2 << 8);
+            switch (var3) {
+            case 0x800:
+                func_ov031_02202e44((Struct_ov031_02202b78*)(var1 + 0xe), var0 - 0xe);
+                break;
+            case 0x806:
+                func_ov031_0220186c((Struct_ov031_0220186c*)(var1 + 0xe), var0 - 0xe);
+                break;
+            }
+        }
+        func_ov031_02200bb8();
+    }
+}
+
+struct Struct_ov031_02203078 {
+    int unknown_0_;
+    char unknown_4_[6];
+    unsigned short unknown_a_;
+};
+
+// USA: func_ov031_02203078
+extern "C" ARM unsigned short func_ov031_02203078(void) {
+    int var0;
+    ProcessorContext* var1;
+    unsigned short var2;
+    ProcessorContext* var3 = data_02111304.firstContext;
+    do {
+        var0 = 0;
+        ++ephemeral_port;
+        if (ephemeral_port < 1024 ||
+            ephemeral_port >= 5000) {
+            ephemeral_port = 1024;
+        }
+        var1 = var3;
+        if (var1 != NULL) {
+            var2 = ephemeral_port;
+            do {
+                Struct_ov031_02203078* var4 = (Struct_ov031_02203078*)var1->unknown_A4;
+                if (var4 != NULL && var4->unknown_0_ != 0 &&
+                    var4->unknown_a_ == var2) {
+                    var0 = 1;
+                    break;
+                }
+                var1 = var1->pNext;
+            } while (var1 != NULL);
+        }
+    } while (var0 != 0);
+    return ephemeral_port;
+}
+
+// USA: func_ov031_02203120
+extern "C" ARM unsigned int func_ov031_02203120(void) {
+	data_ov031_0224c9e8.unknown_0_ = data_ov031_0224c9e8.unknown_8_ * data_ov031_0224c9e8.unknown_0_ + data_ov031_0224c9e8.unknown_10_;
+	return data_ov031_0224c9e8.unknown_0_ >> 32u;
+}
+
+// USA: func_ov031_02203164
+extern "C" ARM void func_ov031_02203164(int arg0) {
+	ProcessorContext* var0 = data_02111304.activeContext;
+	var0->unknown_A4 = arg0;
+}
+
+// USA: func_ov031_02203178
+extern "C" ARM void func_ov031_02203178(void) {
+	ProcessorContext* var0 = data_02111304.activeContext;
+	var0->unknown_A4 = 0;
+}
+
+// USA: func_ov031_02203190
+extern "C" ARM void func_ov031_02203190(void) {
+	ProcessorContext* var0 = data_02111304.activeContext;
+	void* var1 = (void*)var0->unknown_A4;
+	if (var1 == NULL) return;
+	*(unsigned char*)((char*)var1 + 0x8) = 10;
+	*(int*)((char*)var1 + 0x44) = 0;
+}
+
+struct Struct_ov031_022031bc {
+	char unknown_0_[0xa];
+	unsigned short unknown_a_;
+	char unknown_c_[0x18 - 0xa - 2];
+	unsigned short unknown_18_;
+	unsigned short unknown_1a_;
+	unsigned int unknown_1c_;
+	unsigned int unknown_20_;
+};
+
+// USA: func_ov031_022031bc
+extern "C" ARM void func_ov031_022031bc(int arg0, unsigned short arg1, unsigned int arg2) {
+	Struct_ov031_022031bc* var0 = (Struct_ov031_022031bc*)data_02111304.activeContext->unknown_A4;
+	if (var0 == NULL) {
+		return;
+	}
+	unsigned int var1 = (arg2 == 0x7f000001) ? data_ov031_0224c9d0 : arg2;
+	var0->unknown_1a_ = arg1;
+	var0->unknown_18_ = var0->unknown_1a_;
+	var0->unknown_20_ = var1;
+	var0->unknown_1c_ = var1;
+	if (arg0 != 0) {
+		var0->unknown_a_ = (unsigned short)arg0;
+		return;
+	}
+	var0->unknown_a_ = func_ov031_02203078();
+}
+
+// USA: func_ov031_0220321c
+extern "C" ARM void func_ov031_0220321c(void) {
+    ProcessorContext* var0 = data_02111304.activeContext;
+    void* var1 = (void*)var0->unknown_A4;
+    if (var1 == NULL) return;
+    *(void**)((char*)var1 + 0x0) = var0;
+    *(unsigned char*)((char*)var1 + 0x8) = 0;
+    *(int*)((char*)var1 + 0x44) = 0;
+    *(int*)((char*)var1 + 0x60) = 0;
+    *(int*)((char*)var1 + 0x38) = 0;
+}
+
+// USA: func_ov031_02203250
+extern "C" ARM void func_ov031_02203250(void) {
+	ProcessorContext* var0 = data_02111304.activeContext;
+	int* var1 = (int*)var0->unknown_A4;
+	if (var1) *var1 = 0;
+}
+
+// USA: func_ov031_02203270
+extern "C" ARM void func_ov031_02203270(ProcessorContext* arg0) {
+	ProcessorContext* var0 = data_02111304.activeContext;
+	arg0->unknown_A4 = var0->unknown_A4;
+}
+
+// USA: func_ov031_02203288
+extern "C" ARM void func_ov031_02203288(int arg0) {
+	void* var0 = (void*)data_02111304.activeContext->unknown_A4;
+	if (var0 != NULL) {
+		*(int*)((char*)var0 + 0x38) = arg0;
+	}
+}
+
+struct Struct_ov031_022032a4 {
+	char unknown_0_[0x4];
+	int unknown_4_;
+	char unknown_8_[0x8 - 0x4 - 0x4];
+	unsigned char unknown1_8_;
+	char unknown_9_[0x10 - 0x8 - 0x1];
+	unsigned int unknown_10_;
+	char unknown_14_[0x28 - 0x10 - 0x4];
+	int unknown_28_;
+};
+
+// USA: func_ov031_022032a4
+extern "C" ARM int func_ov031_022032a4(Struct_ov031_022032a4* arg0) {
+	unsigned int var0;
+	int var1 = func_ov031_02203120();
+	int var2 = 2;
+	var0 = 0;
+	do {
+		arg0->unknown_28_ = var1;
+		arg0->unknown1_8_ = (unsigned char)var2;
+		arg0->unknown_10_ = (unsigned int)(GetCurrentTimestamp() >> 16);
+		func_ov031_02201f10((Struct_ov031_02201f10*)arg0, var2, 0x18);
+
+		int var3 = DisableIRQInterrupts();
+		if (arg0->unknown1_8_ == 2 && data_ov031_0224c9d0 != 0) {
+			arg0->unknown_4_ = 1;
+			BlockCurrentContext(NULL);
+		}
+		SetIRQInterruptState(var3);
+
+		if (arg0->unknown1_8_ == 4) {
+			return 0;
+		}
+		if (data_ov031_0224c9d0 == 0) break;
+		var0 = var0 + 1;
+	} while (var0 < 3);
+	return 1;
+}
+
+extern "C" int func_ov031_0220a540(void* arg0);
+
+// USA: func_ov031_02203358
+extern "C" ARM int func_ov031_02203358(void) {
+	void* var0 = *(void**)((char*)data_02111304.activeContext + 0xa4);
+	if (var0) {
+		if (*((unsigned char*)var0 + 9) != 0) {
+			return func_ov031_0220a540(var0);
+		}
+		return func_ov031_022032a4((Struct_ov031_022032a4*)var0);
+	}
+	return 1;
+}
+
+struct Struct_ov031_02203398 {
+	char unknown_0_[0x8];
+	unsigned char unknown_8_;
+};
+
+// USA: func_ov031_02203398
+extern "C" ARM void func_ov031_02203398(Struct_ov031_02203398* arg0) {
+	CycleCurrentPriorityContexts();
+	unsigned char var0 = arg0->unknown_8_;
+	if (var0 == 3 || var0 == 4) {
+		func_ov031_02201f98((int)arg0, 0x19);
+		arg0->unknown_8_ = 7;
+	} else if (var0 != 0) {
+		func_ov031_02201f84((int)arg0, 0x1a);
+	}
+}
+
+extern "C" void func_ov031_0220a9b0(void*);
+
+// USA: func_ov031_022033e8
+extern "C" ARM void func_ov031_022033e8(void) {
+	void* var0 = *(void**)((char*)data_02111304.activeContext + 0xa4);
+	if (var0 == NULL) return;
+	if (*((unsigned char*)var0 + 9) != 0) {
+		func_ov031_0220a9b0(var0);
+	}
+	func_ov031_02203398((Struct_ov031_02203398*)var0);
+}
+
+extern "C" void func_ov031_0220aa30(void*);
+
+// USA: func_ov031_02203424
+extern "C" ARM void func_ov031_02203424(void) {
+	void* var0 = *(void**)((char*)data_02111304.activeContext + 0xa4);
+	if (var0 == NULL) return;
+	if (*((unsigned char*)var0 + 9) != 0) {
+		func_ov031_0220aa30(var0);
+	}
+	int var1 = (int)(GetCurrentTimestamp() >> 16);
+	while (link_is_on() != 0 && *((unsigned char*)var0 + 8) != 0
+	       && (int)(GetCurrentTimestamp() >> 16) - var1 < 0x27) {
+		func_ov031_02200264();
+	}
+	*((unsigned char*)var0 + 8) = 0;
+}
+
+// USA: func_ov031_022034ac
+extern "C" ARM int func_ov031_022034ac(unsigned int* arg0, void* arg1) {
+	unsigned int var0;
+	int var1;
+	var1 = DisableIRQInterrupts();
+	var0 = *(unsigned int*)((char*)arg1 + 0x44);
+	if (var0 == 0) {
+		do {
+			*(unsigned int*)((char*)arg1 + 4) = 3;
+			BlockCurrentContext(NULL);
+			var0 = *(unsigned int*)((char*)arg1 + 0x44);
+		} while (var0 == 0);
+	}
+	SetIRQInterruptState(var1);
+	*arg0 = var0;
+	return *(int*)((char*)arg1 + 0x40);
+}
+
+// USA: func_ov031_02203500
+extern "C" ARM int func_ov031_02203500(unsigned int* arg0, void* arg1) {
+	if (*(unsigned int*)((char*)arg1 + 0x44) == 0 && *(unsigned char*)((char*)arg1 + 8) == 4) {
+		int var0 = DisableIRQInterrupts();
+		while (*(unsigned int*)((char*)arg1 + 0x44) == 0 && *(unsigned char*)((char*)arg1 + 8) == 4) {
+			*(unsigned int*)((char*)arg1 + 4) = 2;
+			BlockCurrentContext(NULL);
+		}
+		SetIRQInterruptState(var0);
+	} else {
+		CycleCurrentPriorityContexts();
+	}
+	unsigned int var1 = *(unsigned int*)((char*)arg1 + 0x44);
+	*arg0 = var1;
+	return var1 != 0 ? *(int*)((char*)arg1 + 0x40) : 0;
+}
+
+struct Struct_ov031_0220357c { unsigned char unknown_0_[8]; unsigned char unknown_8_; unsigned char unknown_9_; };
+extern "C" int func_ov031_0220a594(unsigned int* arg0, void* arg1);
+
+// USA: func_ov031_0220357c
+extern "C" ARM int func_ov031_0220357c(unsigned int* arg0) {
+    Struct_ov031_0220357c* var0 = (Struct_ov031_0220357c*)data_02111304.activeContext->unknown_A4;
+    if (var0) {
+        if ((unsigned char)(var0->unknown_8_ + 0xf6) <= 1) return func_ov031_022034ac(arg0, var0);
+        if (var0->unknown_9_) return func_ov031_0220a594(arg0, var0);
+        return func_ov031_02203500(arg0, var0);
+    }
+    *arg0 = 0;
+    return 0;
+}
+
+struct Struct_ov031_022035e0 {
+	unsigned char unknown_0_[0x8];
+	unsigned char unknown_8_;
+	unsigned char unknown_9_[0x33];
+	int unknown_3c_;
+	void* unknown_40_;
+	int unknown_44_;
+};
+
+extern "C" void* memmove(void*, const void*, unsigned int);
+
+// USA: func_ov031_022035e0
+extern "C" ARM void func_ov031_022035e0(int arg0, Struct_ov031_022035e0* arg1) {
+	int var0 = DisableIRQInterrupts();
+	int var1 = arg1->unknown_44_;
+	int var2 = arg1->unknown_3c_;
+	int var3 = 0;
+	if (var1 == var2) {
+		if (arg0 != 0) var3 = 1;
+	}
+	if ((unsigned int)arg0 >= (unsigned int)var1) {
+		arg1->unknown_44_ = 0;
+	} else {
+		void* var4 = arg1->unknown_40_;
+		int var5 = var1 - arg0;
+		arg1->unknown_44_ = var5;
+		memmove(var4, (char*)var4 + arg0, var5);
+	}
+	SetIRQInterruptState(var0);
+	if (arg1->unknown_8_ == 10) return;
+	if (arg1->unknown_8_ == 11) return;
+	if (arg1->unknown_44_ != 0 && var3 == 0) return;
+	func_ov031_02201f84((int)arg1, 0x1b);
+}
+
+extern "C" void func_ov031_0220a66c(int arg0, char* arg1);
+
+// USA: func_ov031_02203670
+extern "C" ARM void func_ov031_02203670(int arg0) {
+	void* var0 = *(void**)((char*)data_02111304.activeContext + 0xa4);
+	if (var0 == NULL) return;
+	if (*((unsigned char*)var0 + 9) != 0) {
+		func_ov031_0220a66c(arg0, (char*)var0);
+	} else {
+		func_ov031_022035e0(arg0, (Struct_ov031_022035e0*)var0);
+	}
+}
+
+struct Struct_ov031_022036a8 {
+	unsigned char unknown_0_[0x8];
+	unsigned char unknown_8_;
+	unsigned char unknown_9_[0x2c - 0x9];
+	unsigned short unknown_2c_;
+	unsigned short unknown_2e_;
+	unsigned char unknown_30_[0x34 - 0x30];
+	unsigned int unknown_34_;
+};
+
+// USA: func_ov031_022036a8
+extern "C" ARM int func_ov031_022036a8(unsigned char* arg0, unsigned int arg1, Struct_ov031_022036a8* arg2, int arg3) {
+	unsigned int var0;
+	unsigned int var1;
+	unsigned int var2 = arg2->unknown_34_;
+	int var3;
+	if (arg3 != 0) {
+		var1 = 1;
+	} else {
+		var1 = arg2->unknown_2c_;
+	}
+	var3 = var2 * 2 + 4;
+	while (arg1 != 0 && arg2->unknown_8_ == 4) {
+		unsigned int var4;
+		var0 = arg2->unknown_2e_;
+		if (var0 >= var1) var0 = var1;
+		if (data_ov031_0224c982 < var0) var0 = data_ov031_0224c982;
+		if (arg3 == 0) var0 &= ~1;
+		if (arg1 < var0) var0 = arg1;
+		var4 = arg2->unknown_34_;
+		var3 += var4 - var2;
+		var2 = var4;
+		if (var3-- == 0) var0 = 0;
+		if (var0 == 0) break;
+		var1 -= var0;
+		func_ov031_02201550(arg0, var0, (Struct_ov031_02201550*)arg2, 0x18, 0);
+		CycleCurrentPriorityContexts();
+		arg0 += var0;
+		arg1 -= var0;
+	}
+	return var0;
+}
+
+// USA: func_ov031_0220376c
+extern "C" ARM int func_ov031_0220376c(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5) {
+	int var0 = func_ov031_022036a8((unsigned char*)arg0, arg1, (Struct_ov031_022036a8*)arg4, arg5);
+	if (var0 != 0 && arg3 != 0) {
+		return func_ov031_022036a8((unsigned char*)arg2, arg3, (Struct_ov031_022036a8*)arg4, 0);
+	}
+	return var0;
+}
+
+struct Struct_ov031_022037a8 {
+    unsigned char unknown_0_[8];
+    unsigned char unknown_8_;
+    unsigned char unknown_9_[0x1f];
+    unsigned int unknown_28_;
+    unsigned short unknown_2c_;
+    unsigned short unknown_2e_;
+    unsigned int unknown_30_;
+    int unknown_34_;
+};
+
+// USA: func_ov031_022037a8
+extern "C" ARM unsigned int func_ov031_022037a8(unsigned char* arg0, unsigned int arg1, unsigned char* arg2, unsigned int arg3, Struct_ov031_022037a8* arg4) {
+    unsigned int var0 = 0;
+    unsigned int var1;
+    int var2 = 0;
+    arg4->unknown_34_ = 0;
+    int var3 = GetCurrentTimestamp() >> 16;
+    while (link_is_on() != 0 && arg1 != 0 && arg4->unknown_8_ == 4 && (int)(GetCurrentTimestamp() >> 16) - var3 < 159) {
+        unsigned int var4 = arg4->unknown_28_;
+        func_ov031_0220376c((int)arg0, arg1, (int)arg2, arg3, (int)arg4, var2);
+        int var5 = GetCurrentTimestamp() >> 16;
+        while (1) {
+            func_ov031_02200264();
+            if (link_is_on() == 0 || arg4->unknown_8_ != 4 || arg4->unknown_28_ == arg4->unknown_30_ || (int)(GetCurrentTimestamp() >> 16) - var5 >= 15) break;
+            if (var2 != 0 && arg4->unknown_2c_ != 0) break;
+        }
+        var1 = arg4->unknown_30_ - var4;
+        if (var1 > arg4->unknown_28_ - var4) var1 = 0;
+        var0 += var1;
+        if (var1 != 0) var3 = GetCurrentTimestamp() >> 16;
+        arg4->unknown_28_ = arg4->unknown_30_;
+        if (arg4->unknown_8_ == 4 && arg4->unknown_2c_ == 0 && var1 == 0) {
+            if (var2 == 0) {
+                int var6 = GetCurrentTimestamp() >> 16;
+                while (link_is_on() != 0 && (int)(GetCurrentTimestamp() >> 16) - var6 < 15) {
+                    func_ov031_02200264();
+                    if (arg4->unknown_2c_ != 0) break;
+                }
+                if (arg4->unknown_2c_ == 0) var2 = 1;
+            }
+        } else {
+            var2 = 0;
+        }
+        {
+            if (var1 < arg1) {
+                arg0 += var1;
+                arg1 -= var1;
+            } else {
+                unsigned int var7 = var1 - arg1;
+                arg0 = arg2 + var7;
+                arg2 = NULL;
+                arg1 = arg3 - var7;
+                arg3 = 0;
+            }
+        }
+    }
+    return var0;
+}
+
+struct Struct_ov031_022039b0 { unsigned char unknown_0_[0x8]; unsigned char unknown_8_; unsigned char unknown_9_; };
+extern "C" int func_ov031_0220a87c(void* arg0, int arg1, void* arg2, int arg3, Struct_ov031_022039b0* arg4);
+
+// USA: func_ov031_022039b0
+extern "C" ARM int func_ov031_022039b0(void* arg0, int arg1, void* arg2, int arg3) {
+	Struct_ov031_022039b0* var0 = (Struct_ov031_022039b0*)data_02111304.activeContext->unknown_A4;
+	if (var0) {
+		int var1;
+		if (var0->unknown_8_ == 0xa) {
+			if (arg1 != 0) func_ov031_02201414(arg0, arg1, (Struct_ov031_02201414*)var0);
+			if (arg3 != 0) func_ov031_02201414(arg2, arg3, (Struct_ov031_02201414*)var0);
+			var1 = arg1 + arg3;
+		} else if (var0->unknown_8_ == 0xb) {
+			if (arg1 != 0) func_ov031_02201364((unsigned char*)arg0, arg1, (Struct_ov031_02201364_3*)var0);
+			if (arg3 != 0) func_ov031_02201364((unsigned char*)arg2, arg3, (Struct_ov031_02201364_3*)var0);
+			var1 = arg1 + arg3;
+		} else {
+			if (var0->unknown_9_ != 0) {
+				var1 = func_ov031_0220a87c(arg0, arg1, arg2, arg3, var0);
+			} else {
+				var1 = func_ov031_022037a8((unsigned char*)arg0, arg1, (unsigned char*)arg2, arg3, (Struct_ov031_022037a8*)var0);
+			}
+		}
+		if (data_ov031_0224c980 == 0) {
+			return var1;
+		}
+	}
+	return 0;
+}
+
+// USA: func_ov031_02203a84
+extern "C" ARM int func_ov031_02203a84(void* arg0, int arg1) {
+	void* var0 = *(void**)((char*)data_02111304.activeContext + 0xa4);
+	if (var0 == NULL) goto ret0;
+	int var1 = *(int*)((char*)var0 + 0x60);
+	if (var1 == 0) goto zero_case;
+	var1 = func_ov031_022039b0(*(void**)((char*)var0 + 0x5c), var1, arg0, arg1);
+	{
+		int var2 = *(int*)((char*)var0 + 0x60);
+		if ((unsigned int)var1 < (unsigned int)var2) {
+			memmove(*(void**)((char*)var0 + 0x5c), (char*)*(void**)((char*)var0 + 0x5c) + var1, var2 - var1);
+			var2 = *(int*)((char*)var0 + 0x60);
+			*(int*)((char*)var0 + 0x60) = var2 - var1;
+			return 0;
+		}
+		*(int*)((char*)var0 + 0x60) = 0;
+		return var1 - var2;
+	}
+zero_case:
+	return func_ov031_022039b0(arg0, arg1, (void*)0, 0);
+ret0:
+	return 0;
+}
+
+extern "C" int func_ov031_0220a800(char* arg0);
+
+// USA: func_ov031_02203b1c
+extern "C" ARM int func_ov031_02203b1c(void) {
+	char* var0 = (char*)data_02111304.activeContext->unknown_A4;
+	if (var0 == NULL) {
+		goto ret_zero;
+	}
+	if (*(unsigned char*)(var0 + 9) != 0) {
+		return func_ov031_0220a800(var0);
+	}
+	{
+		int var1 = *(int*)(var0 + 0x44);
+		if (var1 != 0) {
+			goto ret_f44;
+		}
+		if (*(unsigned char*)(var0 + 8) == 4) {
+			goto ret_f44;
+		}
+		{
+			unsigned char var2 = (unsigned char)(*(unsigned char*)(var0 + 8) + 0xf6);
+			if (var2 > 1) {
+				goto ret_neg1;
+			}
+		}
+	ret_f44:
+		return var1;
+	}
+ret_neg1:
+	return -1;
+ret_zero:
+	return 0;
+}
+
+// USA: func_ov031_02203b8c
+extern "C" ARM void func_ov031_02203b8c(void) {
+	void* var0 = *(void**)((char*)data_02111304.activeContext + 0xa4);
+	if (var0 == NULL) return;
+	int var1 = *(int*)((char*)var0 + 0x60);
+	if (var1 == 0) return;
+	func_ov031_022039b0(*(void**)((char*)var0 + 0x5c), var1, 0, 0);
+	*(int*)((char*)var0 + 0x60) = 0;
+}
+
+// USA: func_ov031_02203bcc
+extern "C" ARM void func_ov031_02203bcc(void) {
+	dhcp_callback();
+	if (data_ov031_0224c9d0 == 0) {
+		return;
+	}
+	func_ov031_02200ccc(data_ov031_0224c9d0);
+	SleepCurrentContext(0x64);
+	func_ov031_02200ccc(data_ov031_0224c9d0);
+	unsigned int var1 = (unsigned int)(GetCurrentTimestamp() >> 16);
+	goto checkExit;
+retry:
+	if (data_ov031_0224c981 != 0) {
+		func_ov031_02200160(4);
+		return;
+	}
+	SleepCurrentContext(0x64);
+checkExit:
+	if (link_is_on() == 0) {
+		return;
+	}
+	if ((int)((unsigned int)(GetCurrentTimestamp() >> 16) - var1) < 0x17) {
+		goto retry;
+	}
+}
+
+struct Struct_ov031_02203c6c {
+    ProcessorContext* unknown_0_;
+    int unknown_4_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_[7];
+    int unknown_10_;
+    int unknown_14_;
+    unsigned short unknown_18_, unknown_1a_;
+    unsigned int unknown_1c_, unknown_20_;
+};
+
+extern unsigned char data_ov031_0224d02c[], data_ov031_0224ceac[];
+extern "C" int func_ov031_022046b8();
+extern "C" int func_ov031_02204710(int*, int);
+extern "C" void func_ov031_0220aa98(int);
+extern "C" void func_ov031_0220480c();
+
+// USA: func_ov031_02203c6c
+extern "C" ARM void func_ov031_02203c6c() {
+    int var0;
+    int var1;
+    int var2;
+    Struct_ov031_0224ca00* var3;
+    int var4;
+    int var5;
+    calm_down = 0;
+    VectorizedMemset(&data_ov031_0224ca60, 0, 0x64);
+    data_ov031_0224ca60.unknown_3c_ = 0x180;
+    data_ov031_0224ca60.unknown_40_ = data_ov031_0224d02c;
+    data_ov031_0224ca60.unknown_48_ = 0x180;
+    data_ov031_0224ca60.unknown_4c_ = data_ov031_0224ceac;
+    func_ov031_02203164((int)&data_ov031_0224ca60);
+    var4 = 1;
+    var5 = 1;
+    unsigned int var6 = 1;
+    cps_state = 1;
+    var1 = 0;
+    while (1) {
+        SleepCurrentContext(1000);
+        if (calm_down) break;
+        var2 = (int)(GetCurrentTimestamp() >> 16);
+        if (link_is_on()) {
+            if (--var6 == 0) {
+                if (cps_mode & 1) {
+                    if (var1 == 0) {
+                        func_ov031_02203bcc();
+                        var1 = 1;
+                    }
+                } else {
+                    switch (var1) {
+                    case 0:
+                        if (var5) {
+                            cps_state = 2;
+                            var5 = 0;
+                        }
+                        if (!func_ov031_022046b8() || func_ov031_02204710((int*)&var6, 0) == 0) {
+                            func_ov031_02203bcc();
+                            var1 = 3;
+                        } else {
+                            var1 = 1;
+                        }
+                        break;
+                    case 1:
+                        if (func_ov031_02204710((int*)&var6, 1) == 0 && var6 < 60) var1 = 2;
+                        break;
+                    case 2:
+                        if (func_ov031_02204710((int*)&var6, 2)) var1 = 1;
+                        else if (var6 < 60) {
+                            func_ov031_02200160(3);
+                            var4 = 1;
+                            var6 = 1;
+                            var1 = 0;
+                        }
+                        break;
+                    case 3:
+                        break;
+                    }
+                }
+            }
+        } else {
+            func_ov031_02200160(1);
+            var4 = 1;
+            var6 = 1;
+            var1 = 0;
+        }
+        var3 = data_ov031_0224ca00;
+        var0 = 0;
+        do {
+            if (var3->unknown_0_ && (short)(var2 - var3->unknown_a_) > 957) var3->unknown_0_ = 0;
+            var3++;
+        } while (++var0 < 8);
+        if (data_ov031_0224c9ac && --var4 == 0) {
+            func_ov031_02200ccc(data_ov031_0224c9ac);
+            var4 = 105;
+        }
+        ProcessorContext* var7 = data_02111304.firstContext;
+        if (var7) do {
+            Struct_ov031_02203c6c* var8 = (Struct_ov031_02203c6c*)var7->unknown_A4;
+            if (var8 && var8->unknown_0_) {
+                int var9 = var8->unknown_8_;
+                if (var9 == 3 && var2 - var8->unknown_10_ > 39) {
+                    var8->unknown_8_ = 1;
+                    var8->unknown_18_ = var8->unknown_1a_;
+                    var8->unknown_1c_ = var8->unknown_20_;
+                } else if (var9 == 2 && var2 - var8->unknown_10_ > 39) {
+                    if (var8->unknown_4_ == 1) {
+                        var8->unknown_8_ = 0;
+                        var8->unknown_4_ = 0;
+                        MarkContextReadyAndSwitch(var8->unknown_0_);
+                    }
+                } else if (var9 != 4 && var8->unknown_4_ == 2) {
+                    var8->unknown_4_ = 0;
+                    MarkContextReadyAndSwitch(var8->unknown_0_);
+                }
+            }
+            var7 = var7->pNext;
+        } while (var7);
+        Struct_ov031_0224cca8* var10 = data_ov031_0224cca8;
+        int var11 = 0;
+        do {
+            if (var10->unknown_4_ && var2 - (int)var10->unknown_2c_ > 239) {
+                data_ov031_0224c9c0(var10->unknown_34_);
+                var10->unknown_4_ = 0;
+            }
+            var10++;
+        } while (++var11 < 8);
+        func_ov031_0220aa98(var2);
+        if (scavenger) scavenger();
+    }
+    if (!(cps_mode & 1) && var1 != 3) func_ov031_0220480c();
+    func_ov031_02203178();
+}
+
+struct Struct_ov031_02203fdc_2 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+};
+struct Struct_ov031_02203fdc {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    Struct_ov031_02203fdc_2 unknown_4_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    Struct_ov031_02203fdc_2 unknown_c_;
+    Struct_ov031_02203fdc_2 unknown_10_;
+    Struct_ov031_02203fdc_2 unknown_14_;
+    Struct_ov031_02203fdc_2 unknown_18_;
+    unsigned char unknown_1c_[16];
+    char unknown_2c_[64];
+    char unknown_6c_[128];
+};
+extern const char data_ov031_02249698[];
+
+enum Enum_ov031_02203fdc {
+    Enum_ov031_02203fdc_12 = 12,
+    Enum_ov031_02203fdc_53 = 53,
+    Enum_ov031_02203fdc_55 = 55,
+    Enum_ov031_02203fdc_61 = 61
+};
+
+// USA: func_ov031_02203fdc
+extern "C" ARM unsigned char* func_ov031_02203fdc(void* arg0, int arg1, int* arg2) {
+    unsigned char* var0 = (unsigned char*)arg0;
+    Struct_ov031_02203fdc* var1 = (Struct_ov031_02203fdc*)arg0;
+    VectorizedMemset(arg0, 0, sizeof(Struct_ov031_02203fdc));
+    var1->unknown_0_ = 0x101;
+    var1->unknown_2_ = 6;
+    data_ov031_0224c9e8.unknown_0_ = data_ov031_0224c9e8.unknown_8_ * data_ov031_0224c9e8.unknown_0_ + data_ov031_0224c9e8.unknown_10_;
+    unsigned int var2 = data_ov031_0224c9e8.unknown_0_ / 0x100000000ULL;
+    if (arg2) *arg2 = var2;
+    int var3 = (unsigned short)(var2 / 0x10000U);
+    var1->unknown_4_.unknown_0_ = (var3 >> 8) | (var3 << 8);
+    int var4 = (unsigned short)var2;
+    var1->unknown_4_.unknown_2_ = (var4 >> 8) | (var4 << 8);
+    int var5 = (unsigned short)(data_ov031_0224c9d0 / 0x10000U);
+    var1->unknown_c_.unknown_0_ = (var5 >> 8) | (var5 << 8);
+    int var6 = (unsigned short)data_ov031_0224c9d0;
+    var1->unknown_c_.unknown_2_ = (var6 >> 8) | (var6 << 8);
+    VectorizedInvertedMemcpy(data_ov031_0224ce68, var1->unknown_1c_, 6);
+    ((unsigned short*)(var0 + sizeof(Struct_ov031_02203fdc)))[0] = 0x8263;
+    ((unsigned short*)(var0 + sizeof(Struct_ov031_02203fdc)))[1] = 0x6353;
+    ((unsigned short*)(var0 + sizeof(Struct_ov031_02203fdc)))[2] = Enum_ov031_02203fdc_53 | (1 << 8);
+    var0[0xf2] = arg1;
+    var0[0xf3] = Enum_ov031_02203fdc_61;
+    var0[0xf4] = 7;
+    var0[0xf5] = 1;
+    VectorizedInvertedMemcpy(data_ov031_0224ce68, var0 + 0xf6, 6);
+    var0[0xfc] = Enum_ov031_02203fdc_12;
+    var0[0xfd] = 10;
+    VectorizedInvertedMemcpy(data_ov031_02249698, var0 + 0xfe, 10);
+    var0[0x108] = Enum_ov031_02203fdc_55;
+    var0[0x109] = 3;
+    var0[0x10a] = 1;
+    var0[0x10b] = 3;
+    var0[0x10c] = 6;
+    return var0 + 0x10d;
+}
+
+// USA: func_ov031_02204168
+extern "C" ARM void* func_ov031_02204168(int arg0, unsigned int arg1, void* arg2, unsigned int arg3) {
+    if (arg3 < arg1) {
+        unsigned int var0 = arg1 - arg3;
+        VectorizedMemset(arg2, arg0, var0);
+        arg2 = (char*)arg2 + var0;
+    }
+    return arg2;
+}
+
+// USA: func_ov031_0220419c
+extern "C" ARM int func_ov031_0220419c(void) {
+    int var0;
+    unsigned char* var1 = data_ov031_0224ced6;
+    unsigned char* var2 = func_ov031_02203fdc(var1, 1, &var0);
+    if (requested_ip != 0) {
+        var2[0] = 0x32;
+        var2[1] = 4;
+        var2[2] = (unsigned char)((unsigned short)(requested_ip >> 16) >> 8);
+        var2[3] = (unsigned char)(requested_ip >> 16);
+        var2[4] = (unsigned char)((unsigned short)requested_ip >> 8);
+        var2[5] = (unsigned char)requested_ip;
+        var2 += 6;
+    }
+    var2[0] = 0xff;
+    unsigned char* var3 = (unsigned char*)func_ov031_02204168(0, 0x12c, var2 + 1, (unsigned int)((var2 + 1) - var1));
+    func_ov031_02203a84(var1, (int)(var3 - var1));
+    return var0;
+}
+
+// USA: func_ov031_02204260
+extern "C" ARM int func_ov031_02204260(int arg0) {
+    int var0;
+    unsigned char* var1 = data_ov031_0224ced6;
+    unsigned char* var2 = func_ov031_02203fdc(var1, 3, &var0);
+    if (arg0 == 0) {
+        var2[0] = 0x32;
+        var2[1] = 4;
+        var2[2] = (unsigned char)((unsigned short)(requested_ip >> 16) >> 8);
+        var2[3] = (unsigned char)(requested_ip >> 16);
+        var2[4] = (unsigned char)((unsigned short)requested_ip >> 8);
+        var2[5] = (unsigned char)requested_ip;
+        var2[6] = 0x36;
+        var2[7] = 4;
+        var2[8] = (unsigned char)((unsigned short)(dhcp_server >> 16) >> 8);
+        var2[9] = (unsigned char)(dhcp_server >> 16);
+        var2[0xa] = (unsigned char)((unsigned short)dhcp_server >> 8);
+        var2[0xb] = (unsigned char)dhcp_server;
+        var2 += 0xc;
+    }
+    var2[0] = 0xff;
+    unsigned char* var3 = (unsigned char*)func_ov031_02204168(0, 0x12c, var2 + 1, (unsigned int)((var2 + 1) - var1));
+    func_ov031_02203a84(var1, (int)(var3 - var1));
+    return var0;
+}
+
+struct Struct_ov031_02204368 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned char unknown_8_[8];
+    unsigned char unknown_10_[4];
+    unsigned char unknown_14_[8];
+    unsigned short unknown_1c_[3];
+    unsigned char unknown_22_[0xec - 0x22];
+    unsigned char unknown_ec_[4];
+    unsigned char unknown_f0_[1];
+};
+#define READ_NETWORK32_02204368(p) (((unsigned int)(unsigned short)(((p)[0] << 8) | (p)[1]) << 16) | (unsigned short)(((p)[2] << 8) | (p)[3]))
+#define SWAP_NETWORK16_02204368(v) ((unsigned short)(((v) >> 8) | ((v) << 8)))
+
+// USA: func_ov031_02204368
+extern "C" ARM int func_ov031_02204368(int arg0, int arg1) {
+    int var0 = (arg1 + 1) * 15;
+    int var1 = (int)(GetCurrentTimestamp() >> 16);
+    int var2 = 0;
+    while (link_is_on() != 0 && var2 == 0 && (int)(GetCurrentTimestamp() >> 16) - var1 < var0) {
+        if (!func_ov031_02203b1c()) {
+            func_ov031_02200264();
+            continue;
+        }
+        unsigned int var3;
+        unsigned char* var4 = (unsigned char*)func_ov031_0220357c(&var3);
+        Struct_ov031_02204368* var5 = (Struct_ov031_02204368*)var4;
+        if (var3 > 0xf0 && var5->unknown_0_ == 2 &&
+            arg0 == ((unsigned int)SWAP_NETWORK16_02204368(var5->unknown_4_) << 16 |
+                             SWAP_NETWORK16_02204368(var5->unknown_6_)) &&
+            !func_ov031_02200824(var5->unknown_1c_, (unsigned short*)data_ov031_0224ce68)) {
+            unsigned char* var6;
+            unsigned int var7 = READ_NETWORK32_02204368(var5->unknown_10_);
+            var6 = var4 + var3;
+            var2 = 3;
+            unsigned char* var8 = var4 + 0xec;
+            if (*var8++ == 0x63 && *var8++ == 0x82 && *var8++ == 0x53 && *var8++ == 0x63) {
+                int var9;
+                while (var8 < var6 && (var9 = *var8++) != 0xff) {
+                    if (var9 == 0) continue;
+                    switch (var9) {
+                    case 1:
+                        data_ov031_0224c99c = READ_NETWORK32_02204368(var8 + 1);
+                        break;
+                    case 3:
+                        data_ov031_0224c9ac = READ_NETWORK32_02204368(var8 + 1);
+                        break;
+                    case 6:
+                        if (var8[0] < 8) data_ov031_0224c9e0[1] = 0;
+                        else data_ov031_0224c9e0[1] = READ_NETWORK32_02204368(var8 + 5);
+                        data_ov031_0224c9e0[0] = READ_NETWORK32_02204368(var8 + 1);
+                        break;
+                    case 51:
+                        lease_time = READ_NETWORK32_02204368(var8 + 1);
+                        break;
+                    case 53:
+                        switch (var8[1]) {
+                        case 2:
+                            var2 = 1;
+                            requested_ip = var7;
+                            break;
+                        case 5:
+                            var2 = 2;
+                            data_ov031_0224c9d0 = var7;
+                            break;
+                        default:
+                            break;
+                        }
+                        break;
+                    case 54:
+                        dhcp_server = READ_NETWORK32_02204368(var8 + 1);
+                        break;
+                    default:
+                        break;
+                    }
+                    var8 += var8[0] + 1;
+                }
+            }
+        }
+        func_ov031_02203670(var3);
+    }
+    return var2;
+}
+
+// USA: func_ov031_022046b8
+extern "C" ARM int func_ov031_022046b8(void) {
+	func_ov031_0220321c();
+	func_ov031_02203190();
+	func_ov031_022031bc(0x44, 0x43, (unsigned int)-1);
+	int var0;
+	int var1 = 0;
+	do {
+		int var2 = func_ov031_0220419c();
+		var0 = func_ov031_02204368(var2, var1);
+		if (var0 == 1) {
+			break;
+		}
+		var1++;
+	} while (var1 < 4);
+	func_ov031_02203250();
+	return var0 == 1;
+}
+
+// USA: func_ov031_02204710
+extern "C" ARM int func_ov031_02204710(int* arg0, int arg1) {
+	func_ov031_0220321c();
+	func_ov031_02203190();
+
+	if (arg1 == 1) {
+		func_ov031_022031bc(0x44, 0x43, dhcp_server);
+	} else {
+		func_ov031_022031bc(0x44, 0x43, 0x43 - 0x44);
+	}
+
+	int var0 = 0;
+	int var1 = 0;
+	do {
+		var0 = func_ov031_02204368(func_ov031_02204260(arg1), var1);
+		if (var0 != 0) break;
+		var1++;
+	} while (var1 < 4);
+
+	func_ov031_02203250();
+
+	if (var0 == 2) {
+		*arg0 = lease_time >> 1;
+		dhcp_retry = (lease_time + (lease_time << 1)) >> 3;
+		return 1;
+	}
+
+	unsigned int var2 = dhcp_retry >> 1;
+	dhcp_retry = var2;
+	*arg0 = var2;
+
+	switch (arg1) {
+	case 1:
+		if (var2 < 0x3c) {
+			*arg0 = 1;
+			dhcp_retry = lease_time >> 3;
+		}
+		break;
+	case 2:
+		if (var2 < 0x3c) {
+			*arg0 = 1;
+		}
+		break;
+	}
+
+	return 0;
+}
+
+// USA: func_ov031_0220480c
+extern "C" ARM void func_ov031_0220480c() {
+    func_ov031_0220321c();
+    func_ov031_02203190();
+    func_ov031_022031bc(0x44, 0x43, dhcp_server);
+    unsigned char* var0 = data_ov031_0224ced6;
+    unsigned char* var1 = func_ov031_02203fdc(var0, 7, 0);
+    unsigned char var2 = 0xff;
+    unsigned char* var3 = var1 + 1;
+    *var1 = var2;
+    var1 = var3;
+    var1 = (unsigned char*)func_ov031_02204168(0, 0x12c, var1, var1 - var0);
+    func_ov031_02203a84(var0, var1 - var0);
+    func_ov031_02203250();
+}
+
+// USA: func_ov031_02204878
+extern "C" ARM char* func_ov031_02204878(char* arg0) {
+    unsigned char var0 = *arg0++;
+    if (var0 != 0) {
+        do {
+            if ((var0 & 0xc0) == 0xc0) {
+                return arg0 + 1;
+            }
+            arg0 += var0;
+            var0 = *arg0++;
+        } while (var0 != 0);
+    }
+    return arg0;
+}
+
+struct Struct_ov031_022048a8_3 {
+    unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_, unknown_8_, unknown_a_;
+    unsigned char unknown_c_[48];
+};
+struct Struct_ov031_022048a8 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_, unknown_3_;
+    unsigned char unknown_4_[2];
+    unsigned char unknown_6_[6];
+};
+struct Struct_ov031_022048a8_2 {
+    unsigned char unknown_0_[2], unknown_2_[2];
+    unsigned char unknown_4_[4];
+    unsigned char unknown_8_[2];
+};
+
+#define CPS_GETUSHORT1(p) ((unsigned short)(((unsigned char*)(p))[0] << 8 | ((unsigned char*)(p))[1]))
+#define CPS_GETULONG1(p) (((unsigned long)CPS_GETUSHORT1(p) << 16) | CPS_GETUSHORT1((p) + 2))
+
+// USA: func_ov031_022048a8
+extern "C" ARM int func_ov031_022048a8(const unsigned char* arg0, unsigned int arg1, int arg2, void* arg3, unsigned int arg4) {
+    Struct_ov031_022048a8_3 var0;
+    unsigned int var1;
+    var0.unknown_0_ = (arg2 >> 8) | (arg2 << 8);
+    if (arg1 != 32) var0.unknown_2_ = 1;
+    else var0.unknown_2_ = 0x1001;
+    var0.unknown_4_ = 0x100;
+    var0.unknown_6_ = 0;
+    var0.unknown_8_ = 0;
+    var0.unknown_a_ = 0;
+    var1 = 0;
+    unsigned char var2 = *arg0++;
+    unsigned char* var3 = var0.unknown_c_;
+    unsigned char* var4 = var3 + 1;
+    int var5 = 0;
+    if (var2) do {
+        if (var2 != '.') {
+            var5 = var4 - (unsigned char*)&var0;
+            if (var5 >= 60) return -1;
+            var5 = ++var1;
+            *var4++ = var2;
+        } else {
+            *var3 = var5;
+            var3 = var4;
+            var1 = 0;
+            var5 = 0;
+            ++var4;
+        }
+        var2 = *arg0++;
+    } while (var2);
+    *var3 = var1;
+    var4[0] = 0;
+    var4[1] = arg1 >> 8;
+    var4[2] = arg1;
+    var4[3] = 0;
+    var4[4] = 1;
+    func_ov031_02203a84(&var0, var4 + 5 - (unsigned char*)&var0);
+    int var6 = 0;
+    unsigned int var7 = GetCurrentTimestamp() >> 16;
+    while (link_is_on() && !var6 &&
+           (int)((unsigned int)(GetCurrentTimestamp() >> 16) - var7) < 15) {
+        if (!func_ov031_02203b1c()) func_ov031_02200264();
+        else {
+            Struct_ov031_022048a8* var8 = (Struct_ov031_022048a8*)func_ov031_0220357c(&var1);
+            if (var1 > 12 && arg2 == (unsigned short)((var8->unknown_0_ >> 8) | (var8->unknown_0_ << 8))) {
+                int var9 = var8->unknown_3_ & 15;
+                if (var9 == 3) var6 = -1;
+                else if (var9 == 0) {
+                    unsigned char* var10 = (unsigned char*)var8 + var1;
+                    char* var11 = (char*)(var8 + 1);
+                    int var12 = (unsigned short)(var8->unknown_4_[1] | (var8->unknown_4_[0] << 8));
+                    while (var12--) {
+                        var11 = func_ov031_02204878(var11) + 4;
+                    }
+                    if ((unsigned char*)var11 < var10) do {
+                        Struct_ov031_022048a8_2* var13 = (Struct_ov031_022048a8_2*)func_ov031_02204878(var11);
+                        unsigned short var14 = CPS_GETUSHORT1(var13->unknown_8_);
+                        if (arg1 == CPS_GETUSHORT1(var13->unknown_0_)) {
+                            if (arg1 != 12) {
+                                var6 = CPS_GETULONG1((unsigned char*)var13 + sizeof(*var13) - 4 + var14);
+                            } else if (var14 > arg4) var6 = 2;
+                            else {
+                                VectorizedInvertedMemcpy(var13 + 1, arg3, var14);
+                                var6 = 1;
+                            }
+                            break;
+                        }
+                        var11 = (char*)var13 + (sizeof(*var13) + var14);
+                    } while ((unsigned char*)var11 < var10);
+                }
+            }
+            func_ov031_02203670(var1);
+        }
+    }
+    return var6;
+}
+
+// USA: func_ov031_02204b50
+extern "C" ARM int func_ov031_02204b50(char* arg0, char** arg1) {
+    *arg1 = arg0;
+    unsigned int var0 = 0;
+    unsigned int var1;
+    do {
+        var1 = ((unsigned char)*arg0 - 0x30) & 0xff;
+        if (var1 > 9) break;
+        var0 = var0 * 10 + var1;
+        arg0++;
+        *arg1 = arg0;
+    } while (1);
+    return var0;
+}
+
+// USA: func_ov031_02204b84
+extern "C" ARM int func_ov031_02204b84(char* arg0, unsigned int* arg1) {
+    unsigned int var0 = 0;
+    char* var1 = arg0;
+    int var2 = 0;
+    do {
+        char* var3;
+        int var4 = func_ov031_02204b50(var1, &var3);
+        if (var1 == var3)
+            return 0;
+        var1 = var3;
+        if ((unsigned int)var4 > 0xff)
+            goto fail;
+        if (var2 != 3) {
+            unsigned char var5 = *var1;
+            var1 = var1 + 1;
+            if (var5 != '.')
+                goto fail;
+        }
+        if (var2 == 3) {
+            if (*(unsigned char*)var1 != 0)
+                goto fail;
+        }
+        goto accumulate;
+fail:
+        return 0;
+accumulate:
+        var2++;
+        var0 = var4 | (var0 << 8);
+    } while (var2 < 4);
+    *arg1 = var0;
+    return 1;
+}
+
+// USA: func_ov031_02204c20
+extern "C" ARM int func_ov031_02204c20(void* arg0, unsigned int arg1, void* arg2) {
+    if (arg1 == 0) return -1;
+    func_ov031_0220321c();
+    func_ov031_02203190();
+    func_ov031_022031bc(0, 0x35, arg1);
+    int var0 = func_ov031_022048a8((const unsigned char*)arg0, 1, (int)arg2, 0, 0);
+    func_ov031_02203250();
+    return var0;
+}
+
+// USA: func_ov031_02204c84
+extern "C" ARM unsigned int func_ov031_02204c84(const unsigned char* arg0) {
+    unsigned char var0[2];
+    unsigned int var1;
+    unsigned short var2[2];
+    var2[0] = inline_ov031_02200298_2(&data_ov031_0224c9e8, 0x10000);
+    var2[1] = inline_ov031_02200298_2(&data_ov031_0224c9e8, 0x10000);
+    if (func_ov031_02204b84((char*)arg0, &var1))
+        return var1;
+    var0[0] = 1;
+    var0[1] = 1;
+    for (int var3 = 0; var3 < 3; var3++) {
+        for (int var4 = 0; var4 < 2; var4++) {
+            if (var0[var4]) {
+                var1 = func_ov031_02204c20((void*)arg0, data_ov031_0224c9e0[var4], (void*)var2[var4]);
+                if (var1 != 0 && var1 != 0xffffffff)
+                    goto done;
+                if (var1 == 0xffffffff)
+                    var0[var4] = 0;
+            }
+        }
+    }
+done:
+    if (var1 == 0xffffffff)
+        var1 = 0;
+    return var1;
+}
