@@ -1,10 +1,7 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca3ec func_020cbeb8
-#endif
 
-extern "C" void func_020ca3ec(int value, void* dest, int count);
+extern "C" void func_020ca3ec(int arg0, void* arg1, int arg2);
 
 struct Struct_020d5898 {
     int unknown_0_;

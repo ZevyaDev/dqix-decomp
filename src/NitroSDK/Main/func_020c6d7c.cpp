@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca3ec func_020cbeb8
-#endif
 
 struct GamecardBusLock
 {
@@ -14,7 +11,7 @@ struct GamecardBusLock
 extern "C"
 {
     void WaitByLoop(int);
-    void func_020ca3ec(int val, void* dst, unsigned len);
+    void func_020ca3ec(int arg0, void* arg1, unsigned arg2);
 }
 
 int WeakLockGamecardBusLock(unsigned short owner, GamecardBusLock* lock, void (*onLock)());

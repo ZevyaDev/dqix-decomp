@@ -2,16 +2,13 @@
 #include "NitroSDK/DMA.h"
 #include "NitroSDK/GamecardBusOwnership.h"
 
-#if defined(jpn)
-#define func_020ca3ec func_020cbeb8
-#endif
 
 #if defined(jpn)
 #define func_020c9be0 func_020cb6ac
 #endif
 
 extern "C" void func_020c9be0(void);
-extern "C" void func_020ca3ec(int value, void* dst, int size);
+extern "C" void func_020ca3ec(int arg0, void* arg1, int arg2);
 extern "C" void InitializeVRAM(void);
 
 extern unsigned short data_02111220;
