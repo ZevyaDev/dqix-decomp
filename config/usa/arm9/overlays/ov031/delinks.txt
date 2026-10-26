@@ -6841,6 +6841,11 @@ src/WifiLib/Overlay_31/func_ov031_022228f4.cpp:
     complete
     .text start:0x022228f4 end:0x02222928
 
+src/WifiLib/Overlay_31/func_ov031_02222928.cpp:
+    complete
+    .text start:0x02222928 end:0x02222a10
+    .bss start:0x0224f670 end:0x0224f6f4
+
 src/WifiLib/Overlay_31/func_ov031_02222a10.cpp:
     complete
     .text start:0x02222a10 end:0x02222aa4
