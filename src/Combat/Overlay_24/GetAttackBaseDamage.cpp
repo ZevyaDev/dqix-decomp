@@ -9,7 +9,6 @@ struct Struct_ov024_021e7bc0 {
     Random unknown_0_;
 };
 
-// param_1
 struct Struct_ov024_021e7bc0_2 {
     char unknown_0_[0x10];
     Struct_ov024_021e7bc0* unknown_10_;
@@ -17,7 +16,6 @@ struct Struct_ov024_021e7bc0_2 {
     float unknown_1c_;
 };
 
-// param_4
 struct Struct_ov024_021e7bc0_3 {
     int unknown_0_;
     unsigned int unknown_4_0_:12, unknown_5_4_:10, unknown_6_6_:10;
@@ -27,13 +25,11 @@ struct Struct_ov024_021e7bc0_3 {
     unsigned int unknown_18_0_:16, unknown_1a_0_:2;
 };
 
-// param_5: a damage range (variance, then base, minimum and maximum)
 struct Struct_ov024_021e7bc0_4 {
     unsigned int unknown_0_0_:8, unknown_1_0_:10, unknown_2_2_:14;
     unsigned int unknown_4_0_:10, unknown_5_2_:10, unknown_6_4_:10;
 };
 
-// {skill, stat, lo, hi}: the stat thresholds between which a skill's damage scales from minimum to maximum
 struct Struct_ov024_021e7bc0_5 {
     short unknown_0_;
     short unknown_2_;
@@ -56,7 +52,6 @@ struct Struct_ov024_021e7bc0_8 {
 };
 
 extern "C" {
-// Template of the local skill table: {skill, 0, lo, hi} x 6, then -1.
 extern const Struct_ov024_021e7bc0_6 data_ov024_021fe8b6;
 }
 
@@ -72,9 +67,6 @@ static inline unsigned short inline_ov024_021e7bc0_3(GameObject* arg0) {
     return ((Struct_ov024_021e7bc0_8*)arg0)->unknown_150_->unknown_4_0_;
 }
 
-// Base damage of an attack. With a damage range (param_5) the result is a random value in that range, scaled
-// between two stat thresholds for the skills in the local copy of data_ov024_021fe8b6; without one it is the
-// physical damage formula. var0/var1 are declared first on purpose: locals get registers in declaration order.
 #define ARG0 ((Struct_ov024_021e7bc0_2*)param_1)
 #define ARG3 ((Struct_ov024_021e7bc0_3*)param_4)
 #define ARG4 ((Struct_ov024_021e7bc0_4*)param_5)

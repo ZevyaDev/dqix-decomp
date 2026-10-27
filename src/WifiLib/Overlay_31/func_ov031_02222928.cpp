@@ -1,7 +1,6 @@
 #include <globaldefs.h>
 #include "NitroSDK/ProcessorContext.h"
 
-// The setup's result: the access point's SSID, security and keys.
 struct Struct_ov031_0224f7dc {
     char unknown_0_[0x20];
     int unknown_20_;
@@ -10,7 +9,6 @@ struct Struct_ov031_0224f7dc {
     int unknown_a8_[16];
 };
 
-// What the setup reports to the callback: state, time left, error.
 struct Struct_ov031_02222928 {
     int unknown_0_;
     int unknown_4_;
@@ -25,10 +23,6 @@ struct Struct_ov031_0224b114 {
     int unknown_10_;
 };
 
-// The setup's scalars, .bss 0x0224f670-0x0224f6f4, are defined here: the ROM reaches them all from one base
-// address, as mwcc does for objects defined in the same file. mwcc lays out equal-size objects in a fixed
-// permutation of their declaration order, so they are declared from +0x7c down to +0x0, then +0x80. Three
-// are global, as other files use them.
 static void (*data_ov031_0224f6ec)(Struct_ov031_02222928*);
 static int data_ov031_0224f6e8;
 static int data_ov031_0224f6e4;
@@ -76,8 +70,6 @@ void func_ov031_02222af0(void);
 }
 
 // USA: func_ov031_02222928
-// Starts the AOSS setup: unless it is already running (states 1-5), stores the callback and allocator, brings up
-// the wireless link, allocates the thread's stack, then starts the setup thread with a 60-second deadline.
 extern "C" THUMB int func_ov031_02222928(unsigned int arg0, int arg1, void (*arg2)(Struct_ov031_02222928*),
                                          void* (*arg3)(unsigned int), void (*arg4)(void*), unsigned int arg5) {
     int var0;
