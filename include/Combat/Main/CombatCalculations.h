@@ -1,7 +1,7 @@
 #pragma once
 
 int RoundUp(float value);
-float CalculatePhysicalDamage(int attack, int defense, int* variance);
+float CalculatePhysicalDamage(int attack, int defense, struct Random* random);
 float CalculateAttackBuffMultiplier(signed char buffLevel);
 float CalculateDefenseBuffMultiplier(signed char buffLevel);
 float CalculateAgilityBuffMultiplier(signed char buffLevel);
