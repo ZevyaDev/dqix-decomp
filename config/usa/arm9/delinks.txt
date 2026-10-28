@@ -15569,73 +15569,26 @@ src/NitroSDK/NSBXX/RenderCommandProcs.cpp:
     complete
     .text start:0x020b99b0 end:0x020bb424
 
-src/NitroSDK/Main/func_020bb424.cpp:
+src/NitroSDK/Main/020bb424.cpp:
     complete
-    .text start:0x020bb424 end:0x020bb42c
+    .text start:0x020bb424 end:0x020bb434
+    .data start:0x020f1ee8 end:0x020f1ef0
 
-src/NitroSDK/Main/func_020bb42c.cpp:
+src/NitroSDK/Main/020bb434.cpp:
     complete
-    .text start:0x020bb42c end:0x020bb434
+    .text start:0x020bb434 end:0x020bb444
+    .data start:0x020f1ef0 end:0x020f1ef8
 
-src/NitroSDK/Main/func_020bb434.cpp:
+src/NitroSDK/Main/020bb444.cpp:
     complete
-    .text start:0x020bb434 end:0x020bb43c
+    .text start:0x020bb444 end:0x020bb780
+    .data start:0x020f1ef8 end:0x020f1f8c
+    .bss start:0x0210cf84 end:0x0210cf88
 
-src/NitroSDK/Main/func_020bb43c.cpp:
+src/NitroSDK/Main/020bb780.cpp:
     complete
-    .text start:0x020bb43c end:0x020bb444
-
-src/NitroSDK/Main/func_020bb444.cpp:
-    complete
-    .text start:0x020bb444 end:0x020bb48c
-
-src/NitroSDK/Main/func_020bb48c.cpp:
-    complete
-    .text start:0x020bb48c end:0x020bb514
-
-src/NitroSDK/Main/func_020bb514.cpp:
-    complete
-    .text start:0x020bb514 end:0x020bb588
-
-src/NitroSDK/Main/func_020bb588.cpp:
-    complete
-    .text start:0x020bb588 end:0x020bb6f8
-
-src/NitroSDK/Main/func_020bb6f8.cpp:
-    complete
-    .text start:0x020bb6f8 end:0x020bb700
-
-src/NitroSDK/Main/func_020bb700.cpp:
-    complete
-    .text start:0x020bb700 end:0x020bb740
-
-src/NitroSDK/Main/func_020bb740.cpp:
-    complete
-    .text start:0x020bb740 end:0x020bb780
-
-src/NitroSDK/Main/func_020bb780.cpp:
-    complete
-    .text start:0x020bb780 end:0x020bb7cc
-
-src/NitroSDK/Main/func_020bb7cc.cpp:
-    complete
-    .text start:0x020bb7cc end:0x020bb908
-
-src/NitroSDK/Main/func_020bb908.cpp:
-    complete
-    .text start:0x020bb908 end:0x020bb910
-
-src/NitroSDK/Main/func_020bb910.cpp:
-    complete
-    .text start:0x020bb910 end:0x020bb92c
-
-src/NitroSDK/Main/func_020bb92c.cpp:
-    complete
-    .text start:0x020bb92c end:0x020bb948
-
-src/NitroSDK/Main/func_020bb948.cpp:
-    complete
-    .text start:0x020bb948 end:0x020bb964
+    .text start:0x020bb780 end:0x020bb964
+    .bss start:0x0210cf88 end:0x0210cf94
 
 src/NitroSDK/Main/func_020bb964.cpp:
     complete
