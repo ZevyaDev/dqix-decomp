@@ -206,7 +206,7 @@ extern "C" ARM int func_ov023_021e76c4(Struct_ov023_021e76c4_3* arg0)
                 unsigned int var18;
                 var18 = var16->unknown_8_;
                 var17 = var16->unknown_c_;
-                CleanInvalidateCacheRange(var17, var18);
+                DC_FlushRange(var17, var18);
                 LoadToSubBG1ScreenData(var17, 0, var18);
             }
             arg0->unknown_5d4_ = arg0->unknown_0_[0].Allocate(0x4e00);
@@ -234,10 +234,10 @@ extern "C" ARM int func_ov023_021e76c4(Struct_ov023_021e76c4_3* arg0)
         arg0->unknown_5dc_ = var8;
         arg0->unknown_5e0_ = 0;
         func_020dc7e8(2, -1);
-        CleanInvalidateCacheRange(&data_ov023_021fd760, 2);
+        DC_FlushRange(&data_ov023_021fd760, 2);
         LoadToSubBGStandardPalette(&data_ov023_021fd760, 2, 2);
         CleanCacheRange(&data_ov023_021fd760, 2);
-        CleanInvalidateCacheRange(&data_ov023_021fd760, 2);
+        DC_FlushRange(&data_ov023_021fd760, 2);
         LoadToSubBGStandardPalette(&data_ov023_021fd760, 0x22, 2);
         CleanCacheRange(&data_ov023_021fd760, 2);
     }

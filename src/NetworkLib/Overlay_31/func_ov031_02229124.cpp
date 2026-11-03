@@ -45,7 +45,7 @@ extern "C" ARM void func_ov031_02229124() {
             var1 += 0x20;
         } while (var2 < 2);
     }
-    CleanInvalidateCacheRange(var3, 0x200);
+    DC_FlushRange(var3, 0x200);
     LoadToMainBGStandardPalette(var3, 0, 0x200);
     func_ov031_0223b710(var3);
     BG0CNTSUB = (BG0CNTSUB & ~3) | 3;

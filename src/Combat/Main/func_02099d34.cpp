@@ -69,6 +69,6 @@ var3 = var2 * 2;
 
     unsigned int var8 = var0->block4Offset_;
     unsigned int var9 = var0->block4NumEightBytes_ << 3;
-    CleanInvalidateCacheRange((const void*)((unsigned char*)var0 + var8), var9);
+    DC_FlushRange((const void*)((unsigned char*)var0 + var8), var9);
     StageTexFilePaletteData(var0, true);
 }

@@ -230,7 +230,7 @@ extern "C" ARM int func_ov027_021d9e9c(NitroVM* arg0, void* arg1, unsigned long 
             }
         }
         if (var0)
-            CleanInvalidateCacheRange(arg1, arg2);
+            DC_FlushRange(arg1, arg2);
     }
     return var0;
 }

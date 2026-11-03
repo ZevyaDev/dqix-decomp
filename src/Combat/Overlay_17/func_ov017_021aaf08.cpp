@@ -9,7 +9,7 @@
 extern "C" void* func_020d6c00(void);
 extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
 extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
-void CleanInvalidateCacheRange(const void* addr, unsigned int size);
+extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
 extern "C" int LoadToMainBG2CharacterData(int arg0, int arg1, unsigned int arg2);
 extern "C" void LoadToMainBG1ScreenData(void* p, int a, int b);
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov017_021aaf08(char* arg0) {
     int var5 = *(int*)(arg0 + 0x8);
     if (var5 != 0) {
         memset((void*)var5, 0, 0x800);
-        CleanInvalidateCacheRange(*(void**)(arg0 + 0x8), 0x800);
+        DC_FlushRange(*(void**)(arg0 + 0x8), 0x800);
         LoadToMainBG1CharacterData(*(int*)(arg0 + 0x8), 0, 0x20);
         LoadToMainBG2CharacterData(*(int*)(arg0 + 0x8), 0, 0x20);
         LoadToMainBG1ScreenData(*(void**)(arg0 + 0x8), 0, 0x800);

@@ -9,6 +9,6 @@
 // USA: func_020d84f8
 extern "C" ARM unsigned int func_020d84f8(void* arg0, unsigned int arg1) {
     VectorizedMemset(arg0, 0, arg1);
-    CleanInvalidateCacheRange(arg0, arg1);
+    DC_FlushRange(arg0, arg1);
     return arg1;
 }

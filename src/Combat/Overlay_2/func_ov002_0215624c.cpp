@@ -53,7 +53,7 @@ extern "C" void func_0205cf78(struct Struct_ov002_0215624c_21 *arg0,
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void *memcpy(void *arg0, const void *arg1, unsigned int arg2);
 extern "C" void *func_020421b0(int arg0);
-void CleanInvalidateCacheRange(const void *where, unsigned int len);
+extern "C" void DC_FlushRange(const void *where, unsigned int len);
 extern "C" void LoadToMainBG1CharacterData(const void *data, unsigned int offset, unsigned int length);
 extern "C" void LoadToMainBG3CharacterData(const void *data, unsigned int offset, unsigned int length);
 extern "C" void func_0205a198(struct Struct_ov002_0215624c_23 *arg0);
@@ -215,7 +215,7 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
         memset((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
         memset((char *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)) + 0x20, 0x11111111, 0x20);
         memcpy((char *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)) + 0x40, func_020421b0(REGIONAL_OFFSET(0x1f, 0x15)), 0x20);
-        CleanInvalidateCacheRange((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0x60);
+        DC_FlushRange((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0x60);
         LoadToMainBG1CharacterData((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
         LoadToMainBG3CharacterData((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
 

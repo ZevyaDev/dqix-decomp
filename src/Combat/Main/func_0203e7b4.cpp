@@ -5,7 +5,7 @@ struct Struct_0203e63c { unsigned short* unknown_0_; unsigned short unknown_4_, 
 extern "C" void func_0203e624(Struct_0203e624*);
 extern "C" int func_0203e6c8(Struct_0203e6c8*, unsigned int);
 extern "C" unsigned char func_0203e63c(Struct_0203e63c*, unsigned int);
-void CleanInvalidateCacheRange(const void*, unsigned int);
+extern "C" void DC_FlushRange(const void*, unsigned int);
 // USA: func_0203e7b4
 extern "C" ARM int func_0203e7b4(Struct_0203e624* arg0, unsigned short* arg1, unsigned char* arg2, unsigned short* arg3, int arg4, int arg5, int arg6, int arg7) {
     func_0203e624(arg0);
@@ -31,7 +31,7 @@ extern "C" ARM int func_0203e7b4(Struct_0203e624* arg0, unsigned short* arg1, un
         --var1;
         var0 += arg7;
     }
-    CleanInvalidateCacheRange(arg0->unknown_0_, arg0->unknown_6_ * 2);
+    DC_FlushRange(arg0->unknown_0_, arg0->unknown_6_ * 2);
     unsigned char* var5 = arg2;
     for (; var3 != 0; ) {
         unsigned char* var6 = var5;
@@ -44,7 +44,7 @@ extern "C" ARM int func_0203e7b4(Struct_0203e624* arg0, unsigned short* arg1, un
         var5 += arg5;
         arg3 += arg7;
     }
-    CleanInvalidateCacheRange(arg2, arg5 * arg6);
+    DC_FlushRange(arg2, arg5 * arg6);
     func_0203e624(arg0);
     return 1;
 }

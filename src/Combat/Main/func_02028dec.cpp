@@ -17,7 +17,7 @@ extern "C" ARM void func_02028dec(int arg0) {
         return;
     }
     memcpy(glyphBitmapContext.unknown_0_, data_020e7390, 0x20);
-    CleanInvalidateCacheRange(glyphBitmapContext.unknown_0_, 0x20);
+    DC_FlushRange(glyphBitmapContext.unknown_0_, 0x20);
     if (arg0 == 0) {
 
         BG1CNT = (BG1CNT & 0x43) | 0x4;

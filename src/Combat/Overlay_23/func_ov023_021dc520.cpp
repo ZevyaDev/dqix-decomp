@@ -117,7 +117,7 @@ extern "C" ARM void func_ov023_021dc520(Struct_ov023_021dc520* arg0) {
                     if (var18 < 0) var18 = 0;
                     unsigned short var19 = var17 | (var18 << 5) | (var18 << 10);
                     int var20 = inline_ov023_021dc520(var15);
-                    CleanInvalidateCacheRange(&var19, 2);
+                    DC_FlushRange(&var19, 2);
                     int var21 = 0xe0 + var20;
                     if (arg0->unknown_77c_ == 0) LoadToMainObjStandardPalette(&var19, var21, 2);
                     else LoadToSubObjStandardPalette(&var19, var21, 2);

@@ -26,6 +26,6 @@ extern "C" ARM void func_0204fbf8(Struct_0204fbf8_2* arg0) {
     var2[0] = var1;
     var2[1] = var0;
     void (*var3)(void*, int, unsigned int) = (void(*)(void*, int, unsigned int))func_0204a5e4(var2[0], var2[1]);
-    CleanInvalidateCacheRange(arg0->unknown_8_, arg0->unknown_a4_);
+    DC_FlushRange(arg0->unknown_8_, arg0->unknown_a4_);
     var3(arg0->unknown_8_, arg0->unknown_a0_, arg0->unknown_a4_);
 }

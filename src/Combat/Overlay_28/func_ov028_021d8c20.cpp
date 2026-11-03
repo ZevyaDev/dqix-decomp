@@ -39,7 +39,7 @@ extern "C" ARM void func_ov028_021d8c20(char* arg0) {
     if (var2 != 0) {
         memset(var2, 0, 0x20);
         var2 = *(void**)(arg0 + 0x40);
-        CleanInvalidateCacheRange(var2, 0x20);
+        DC_FlushRange(var2, 0x20);
         var2 = *(void**)(arg0 + 0x40);
         LoadToMainBG1CharacterData((int)var2, 0, 0x20);
     }

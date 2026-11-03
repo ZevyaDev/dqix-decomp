@@ -39,7 +39,7 @@ extern "C" ARM void func_020b08b8(Struct_020b08b8_3* arg0, Struct_020b08b8* arg1
             unsigned int var6 = arg1->unknown_4_[var5];
             var2 = var0 * var5;
             var4 = var0 * var6;
-            CleanInvalidateCacheRange(var3, arg0->unknown_8_);
+            DC_FlushRange(var3, arg0->unknown_8_);
             switch (arg3) {
             case 1:
                 if (arg0->unknown_4_) {

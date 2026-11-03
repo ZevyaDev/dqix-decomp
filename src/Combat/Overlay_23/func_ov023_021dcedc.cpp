@@ -65,7 +65,7 @@ extern "C" ARM void func_ov023_021dcedc(Struct_ov023_021dcedc* arg0, void* arg1)
     if (arg0->unknown_77c_ == 0) {
         unsigned short var0 = 0x110f;
         unsigned int var1 = data_ov023_021ff9e0.unknown_c_ * 32;
-        CleanInvalidateCacheRange(&var0, 2);
+        DC_FlushRange(&var0, 2);
         LoadToMainBGStandardPalette(&var0, var1 + 0x12, 2);
     }
     char var2[64] = {};

@@ -165,7 +165,7 @@ checkvalid:
 
             unsigned short var20 = *(unsigned short*)(var14 + 4) & 0x3ff;
             unsigned int var21 = var20 << 7;
-            CleanInvalidateCacheRange(var13, 0x80);
+            DC_FlushRange(var13, 0x80);
             LoadToSubObjVRAM(var13, var21, 0x80);
             CleanCacheRange(var13, 0x80);
           }
@@ -198,7 +198,7 @@ checkvalid:
 
                 unsigned short var31 = *(unsigned short*)(var15 + 4) & 0x3ff;
                 unsigned int var32 = var31 << 7;
-                CleanInvalidateCacheRange(var13, 0x80);
+                DC_FlushRange(var13, 0x80);
                 LoadToSubObjVRAM(var13, var32, 0x80);
                 CleanCacheRange(var13, 0x80);
               }

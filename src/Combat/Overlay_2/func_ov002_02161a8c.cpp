@@ -8,7 +8,7 @@ struct Struct_ov000_0215d63c {
 };
 
 extern "C" unsigned char * func_02053c6c(unsigned char*);
-void CleanInvalidateCacheRange(const void *p, unsigned int size);
+extern "C" void DC_FlushRange(const void *p, unsigned int size);
 extern "C" void LoadToMainObjStandardPalette(const void *src, unsigned int offset, unsigned int size);
 
 // USA: func_ov002_02161a8c
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov002_02161a8c() {
         unsigned char var9 = var8[0x56a];
         if (var9 == 1 || var9 == 15) var1 = &var0[0];
         int var10 = (var6 + 9) * 16;
-        CleanInvalidateCacheRange(var1, 2);
+        DC_FlushRange(var1, 2);
         var10 += 13;
         LoadToMainObjStandardPalette(var1, var10 * 2, 2);
     }

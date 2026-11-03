@@ -103,7 +103,7 @@ void InitializeCardReadManager()
     manager->pSharedData = &data_02111880;
     
     func_020ca458(0, &data_02111880, sizeof(Arm7CardReadData));
-    CleanInvalidateCacheRange(&data_02111880, sizeof(Arm7CardReadData));
+    DC_FlushRange(&data_02111880, sizeof(Arm7CardReadData));
     manager->instructionCacheCleanThreshold = 0xffffffff;
     manager->dataCacheCleanThreshold = 0xffffffff;
     

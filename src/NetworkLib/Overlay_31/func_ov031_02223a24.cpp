@@ -8,7 +8,7 @@ extern void* data_ov031_02250bf4;
 
 // USA: func_ov031_02223a24
 extern "C" ARM void func_ov031_02223a24(int arg0) {
-	CleanInvalidateCacheRange(data_ov031_02250bf4, 0xc0);
+	DC_FlushRange(data_ov031_02250bf4, 0xc0);
 	LoadToMainBG1ScreenData(data_ov031_02250bf4, 0, 0xc0);
 	func_ov031_0223e2c0(1, arg0);
 }

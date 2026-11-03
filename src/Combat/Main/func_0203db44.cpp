@@ -61,7 +61,7 @@ extern "C" ARM void func_0203db44(void*, Struct_0203db44* arg1, SafeAllocator* a
                         if (var14 > 31) var14 = 31;
                         var0[var11] = var12 | (var13 << 5) | (var14 << 10);
                     }
-                    CleanInvalidateCacheRange(var0, var2);
+                    DC_FlushRange(var0, var2);
                     LoadToTexturePalette(var0, var3, var2);
                 }
             }

@@ -99,7 +99,7 @@ extern "C" ARM void func_ov003_021549a8(Struct_ov003_021549a8_2* arg0) {
 
     if (arg0->unknown_c_ != NULL) {
         memset(arg0->unknown_c_, 0, 0x20);
-        CleanInvalidateCacheRange(arg0->unknown_c_, 0x20);
+        DC_FlushRange(arg0->unknown_c_, 0x20);
         LoadToMainBG1CharacterData((int)arg0->unknown_c_, 0, 0x20);
     }
     arg0->unknown_c_ = NULL;

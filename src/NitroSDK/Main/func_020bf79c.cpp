@@ -326,7 +326,7 @@ extern "C" ARM void func_020bf79c(Struct_020bf79c_2* arg0) {
     }
 
     for (var13 = 0; var13 < arg0->unknown_10_; var13++) {
-        CleanInvalidateCacheRange(arg0->unknown_14_[var13], arg0->unknown_2c_);
+        DC_FlushRange(arg0->unknown_14_[var13], arg0->unknown_2c_);
     }
 
     if (arg0->unknown_c_ == 0) {

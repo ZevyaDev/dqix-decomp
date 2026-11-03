@@ -107,7 +107,7 @@ extern "C" ARM void func_02050100(Struct_02050100_2* arg0, int arg1) {
 #endif
     if (arg1) {
         Type_02050100 var27 = func_0204a5e4(var1, var2);
-        CleanInvalidateCacheRange(arg0->unknown_8_, arg0->unknown_a4_);
+        DC_FlushRange(arg0->unknown_8_, arg0->unknown_a4_);
         var27(arg0->unknown_8_, arg0->unknown_a0_, arg0->unknown_a4_);
     }
     arg0->unknown_d8_1_ = 0;

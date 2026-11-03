@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-void CleanInvalidateCacheRange(const void* addr, unsigned int size);
+extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 
 struct Struct_0204a848 {
     unsigned int   unknown_0_;
@@ -23,7 +23,7 @@ extern "C" ARM int func_0204a848(Struct_0204a848* arg0, void (*arg1)(const void*
     memcpy(&arg0->unknown_a_, arg2 + 0xa, 1);
     memcpy(&arg0->unknown_b_, arg2 + 0xb, 1);
     memcpy(&var0, arg2 + 0xc, 4);
-    CleanInvalidateCacheRange(arg2 + 0x10, var0);
+    DC_FlushRange(arg2 + 0x10, var0);
     arg1(arg2 + 0x10, arg0->unknown_0_, var0);
     return 0;
 }

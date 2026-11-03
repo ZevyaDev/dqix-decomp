@@ -33,7 +33,7 @@ struct Struct_0203f430_4 {
 };
 extern "C" struct Struct_0203f430_4* func_0203f354(struct Struct_0203f2b0_2* arg0, unsigned int arg1);
 
-void CleanInvalidateCacheRange(const void* where, unsigned int len);
+extern "C" void DC_FlushRange(const void* where, unsigned int len);
 int CancelVRAMStagingOperation(int value);
 int StageMemoryToVRAM(VRAMSubregion subregion, const void* data, unsigned int offset,
     unsigned int length, bool highPriority, bool allocateStagingSpace);
@@ -69,10 +69,10 @@ extern "C" ARM void func_0203f430(struct Struct_0203f430* arg0) {
     struct Struct_0203f430_3* var4 = var3->unknown_8_;
     int var5;
     for (var5 = 0; var5 < var3->unknown_4_; var5++, var4++) {
-        CleanInvalidateCacheRange(var4->unknown_c_, var4->unknown_8_);
+        DC_FlushRange(var4->unknown_c_, var4->unknown_8_);
     }
 
-    CleanInvalidateCacheRange(var0->unknown_20_, var0->unknown_1c_ << 1);
+    DC_FlushRange(var0->unknown_20_, var0->unknown_1c_ << 1);
 
     if (var3->unknown_4_ != 0) {
         CancelVRAMStagingOperation(arg0->unknown_58_);

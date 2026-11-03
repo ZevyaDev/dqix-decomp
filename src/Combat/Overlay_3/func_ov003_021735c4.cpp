@@ -65,7 +65,7 @@ extern "C" ARM void func_ov003_021735c4(struct Struct_ov003_021735c4* arg0) {
             }
             memset((void*)GetSubBG0ScreenBase(), 0, 0x800);
             unsigned char* var9 = var5[2];
-            CleanInvalidateCacheRange(var9 + 0x4c, 0x40);
+            DC_FlushRange(var9 + 0x4c, 0x40);
             LoadToSubBGStandardPalette(var9 + 0x4c, 0x40, 0x40);
             arg0->unknown_c6_ = -0xc0;
             *(volatile unsigned int*)0x4001010 = (arg0->unknown_c6_ << 16) & 0x1ff0000;

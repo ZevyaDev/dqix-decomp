@@ -34,7 +34,7 @@ extern "C" ARM int func_ov025_021e7ec0(struct Struct_ov025_021e7ec0* arg0, int a
         if (var7) {
             func_02048588((unsigned char*)var4, (unsigned char*)var7);
             unsigned int var8 = var7->obj3D_.GetTexturePaletteOffset();
-            CleanInvalidateCacheRange((char*)var5 + var5->block4Offset_, var5->block4NumEightBytes_ << 3);
+            DC_FlushRange((char*)var5 + var5->block4Offset_, var5->block4NumEightBytes_ << 3);
             NSBXX_Tex_WritePaletteVRAMOffset(var5, var8);
             StageTexFilePaletteData(var5, true);
         }

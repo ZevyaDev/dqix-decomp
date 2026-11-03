@@ -93,7 +93,7 @@ extern "C" ARM void func_020d03fc(Struct_020d03fc_2* arg0) {
         case 1:
         case 2:
             VectorizedInvertedMemcpy((const void*)arg0->unknown_1c_, arg0->unknown_12c_, var4);
-            CleanInvalidateCacheRange(arg0->unknown_12c_, var4);
+            DC_FlushRange(arg0->unknown_12c_, var4);
             DrainWriteBuffer();
             arg0->unknown_0_->unknown_c_ = (unsigned int)arg0->unknown_12c_;
             arg0->unknown_0_->unknown_10_ = arg0->unknown_20_;

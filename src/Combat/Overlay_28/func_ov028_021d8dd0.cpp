@@ -91,7 +91,7 @@ extern "C" ARM void func_ov028_021d8dd0(unsigned char* arg0) {
 
         unsigned short var10 = 0x67f5;
         memcpy(var5, &var10, 2);
-        CleanInvalidateCacheRange(var5, 2);
+        DC_FlushRange(var5, 2);
         LoadToSubBGStandardPalette((int)var5, 0xa, 2);
 
         unsigned short* var11 = (unsigned short*)var5;
@@ -99,15 +99,15 @@ extern "C" ARM void func_ov028_021d8dd0(unsigned char* arg0) {
             var11[var12] = var12;
         }
 
-        CleanInvalidateCacheRange(var5, 0x800);
+        DC_FlushRange(var5, 0x800);
         LoadToSubBG1ScreenData((int)var5, 0, 0x800);
         memset(var5, 0x11111111, 0x8000);
-        CleanInvalidateCacheRange(var5, 0x8000);
+        DC_FlushRange(var5, 0x8000);
         LoadToSubBG1CharacterData((int)var5, 0, 0x8000);
         void* var13 = *(void**)(arg0 + 0x40);
         memset(var13, 0x11111111, 0x8000);
         var13 = *(void**)(arg0 + 0x40);
-        CleanInvalidateCacheRange(var13, 0x8000);
+        DC_FlushRange(var13, 0x8000);
 
         unsigned short* var14 = (unsigned short*)0x4001008;
         var14[0] = (var14[0] & ~3) | 1;

@@ -116,7 +116,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
                 *(int *) (arg0 + OFF_STATE_02164d14) = 0;
                 for (int var12 = 0; var12 < 4; var12++) {
                     unsigned short var13 = data_ov002_0216cca4[var12] * 0x20;
-                    CleanInvalidateCacheRange(data_ov002_0216cc86, 2);
+                    DC_FlushRange(data_ov002_0216cc86, 2);
                     LoadToMainBGStandardPalette(data_ov002_0216cc86, (unsigned short) (var13 + 2), 2);
                     CleanCacheRange(data_ov002_0216cc86, 2);
                 }

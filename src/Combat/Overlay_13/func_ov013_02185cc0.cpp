@@ -21,7 +21,7 @@ struct Struct_ov013_02185cc0_3 {
 };
 extern "C" Struct_ov013_02185cc0_3* func_ov013_02184338(void* arg0, unsigned int arg1);
 extern "C" void* func_020421b0(int arg0);
-void CleanInvalidateCacheRange(const void* start, unsigned int size);
+extern "C" void DC_FlushRange(const void* start, unsigned int size);
 void CleanCacheRange(const void* start, unsigned int size);
 extern "C" void LoadToSubObjVRAM(const void* src, unsigned int offset, unsigned int size);
 extern "C" void LoadToMainObjVRAM(const void* src, unsigned int offset, unsigned int size);
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov013_02185cc0(Struct_ov013_02185cc0_2* arg0) {
         {
             memcpy(var2, func_020421b0((unsigned char)(var3 * 4 + 0x28)), 0x80);
             unsigned int var7 = (unsigned short)(var6[2] & 0x3ff) << var4[1];
-            CleanInvalidateCacheRange(var2, 0x80);
+            DC_FlushRange(var2, 0x80);
             if (var0)
                 LoadToSubObjVRAM(var2, var7, 0x80);
             else

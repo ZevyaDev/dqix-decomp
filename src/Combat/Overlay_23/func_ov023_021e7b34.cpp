@@ -32,7 +32,7 @@ extern "C" ARM int func_ov023_021e7b34(Struct_ov023_021e7b34_2* arg0, int arg1) 
     Struct_ov023_021e7b34* var3 = (Struct_ov023_021e7b34*)var2;
     void* var4 = var3->unknown_c_;
     int var5 = var3->unknown_8_;
-    CleanInvalidateCacheRange(var4, var5);
+    DC_FlushRange(var4, var5);
     LoadToSubBG1ScreenData((int)var4, 0, var5);
     return 0;
 }

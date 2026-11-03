@@ -54,7 +54,7 @@ struct Struct_020727d8 {
 };
 extern "C" void func_020727ec(struct Struct_020727d8* arg0);
 void CleanCacheRange(const void* addr, unsigned int size);
-void CleanInvalidateCacheRange(const void* addr, unsigned int size);
+extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(const void* src, unsigned int offset, unsigned int size);
 extern "C" void* GetMainBG1ScreenBase(void);
 unsigned long long GetCurrentTimestamp(void);
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov003_02173d40(Struct_ov003_02173d40* arg0) {
     unsigned char var5[0x20];
     memset(var5, 0, 0x20);
     CleanCacheRange(var5, 0x20);
-    CleanInvalidateCacheRange(var5, 0x20);
+    DC_FlushRange(var5, 0x20);
     LoadToMainBG1CharacterData(var5, 0, 0x20);
     memset(GetMainBG1ScreenBase(), 0, 0x800);
 

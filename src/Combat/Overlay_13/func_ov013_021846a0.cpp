@@ -69,7 +69,7 @@ struct Struct_0205d2bc;
 extern "C" void func_0205d2bc(struct Struct_0205d2bc*);
 extern "C" void func_0205d048(void*);
 
-void CleanInvalidateCacheRange(const void*, unsigned int);
+extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" int LoadToMainBG1CharacterData(const void*, int, unsigned int);
 
 // USA: func_ov013_021846a0
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov013_021846a0(Struct_ov013_021846a0_2* arg0) {
 
         if (arg0->unknown_654_) {
             memset(arg0->unknown_654_, 0, 0x20);
-            CleanInvalidateCacheRange(arg0->unknown_654_, 0x20);
+            DC_FlushRange(arg0->unknown_654_, 0x20);
             LoadToMainBG1CharacterData(arg0->unknown_654_, 0, 0x20);
         }
 

@@ -49,7 +49,7 @@ extern "C" ARM void func_ov003_021700dc(void* arg0) {
     void* var2 = *(void**)((char*)arg0 + 0x14);
     memset(var2, 0, 0x20);
     var2 = *(void**)((char*)arg0 + 0x14);
-    CleanInvalidateCacheRange(var2, 0x20);
+    DC_FlushRange(var2, 0x20);
     var2 = *(void**)((char*)arg0 + 0x14);
     LoadToMainBG1CharacterData((int)var2, 0, 0x20);
     *(unsigned short*)0x4000050 = 0;

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-void CleanInvalidateCacheRange(const void* p, unsigned int size);
+extern "C" void DC_FlushRange(const void* p, unsigned int size);
 typedef void (*Type_0204bc08)(void*, int, unsigned int);
 extern Type_0204bc08 data_020f01b0[];
 
@@ -18,6 +18,6 @@ extern "C" ARM void func_0204bc08(Struct_0204bc08* arg0, int arg1, unsigned char
     int var3 = (arg1 & 0xf) << var2;
     var3 += (arg2 & 0xf) << 1;
     arg4 &= ~1u;
-    CleanInvalidateCacheRange(arg3, arg4);
+    DC_FlushRange(arg3, arg4);
     var1(arg3, var3, arg4);
 }

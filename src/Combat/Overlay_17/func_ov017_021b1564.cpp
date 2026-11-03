@@ -256,10 +256,10 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Struct_02
         void* var13 = func_02012d88(&data_02114e20, 0x800);
         if (var13) {
             memset(var13, 0, 0x800);
-            CleanInvalidateCacheRange(var13, 0x20);
+            DC_FlushRange(var13, 0x20);
             LoadToMainBG1CharacterData(var13, 0, 0x20);
             LoadToMainBG2CharacterData(var13, 0, 0x20);
-            CleanInvalidateCacheRange(var13, 0x800);
+            DC_FlushRange(var13, 0x800);
             LoadToMainBG1ScreenData(var13, 0, 0x800);
             LoadToMainBG2ScreenData(var13, 0, 0x800);
             func_02012da4(&data_02114e20, var13);

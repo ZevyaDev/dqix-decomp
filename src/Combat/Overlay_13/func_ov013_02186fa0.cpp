@@ -16,7 +16,7 @@
 struct Struct_0204af14;
 extern "C" void* func_0204af14(struct Struct_0204af14* arg0, unsigned int arg1);
 
-void CleanInvalidateCacheRange(const void* where, unsigned int len);
+extern "C" void DC_FlushRange(const void* where, unsigned int len);
 extern "C" void LoadToMainBG1CharacterData(int, int, unsigned int);
 
 struct Struct_02020cb8_2;
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov013_02186fa0(unsigned char* arg0) {
         void* var2;
         if (var1 != 0 && (var2 = *(void**)((char*)var1 + 0xc)) != 0) {
             memset(var2, 0, 0x600);
-            CleanInvalidateCacheRange(var2, 0x20);
+            DC_FlushRange(var2, 0x20);
             LoadToMainBG1CharacterData((int)var2, 0, 0x20);
             func_0204b0e8((struct Struct_02020cb8_2*)(arg0 + 0x28), var2);
         }

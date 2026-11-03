@@ -74,7 +74,7 @@ extern "C" ARM void func_0204cb20(Struct_0204cb20_2* arg0, const char* arg1, sho
         int var9 = arg0->unknown_4_->inline_0204cb20();
         int var10 = arg0->unknown_4_->unknown_1c_0_;
         Type_0204cb20 var11 = func_0204a5e4(var10, var9);
-        CleanInvalidateCacheRange(arg0->unknown_8_, arg0->unknown_a4_);
+        DC_FlushRange(arg0->unknown_8_, arg0->unknown_a4_);
         var11(arg0->unknown_8_, arg0->unknown_a0_, arg0->unknown_a4_);
     }
 }
@@ -114,7 +114,7 @@ extern "C" ARM void func_0204cb20(Struct_0204cb20_2* arg0, const char* arg1, int
         int var22 = arg0->unknown_4_->inline_0204cb20();
         int var23 = arg0->unknown_4_->unknown_1c_0_;
         Type_0204cb20 var24 = func_0204a5e4(var23, var22);
-        CleanInvalidateCacheRange(arg0->unknown_8_, arg0->unknown_a4_);
+        DC_FlushRange(arg0->unknown_8_, arg0->unknown_a4_);
         var24(arg0->unknown_8_, arg0->unknown_a0_, arg0->unknown_a4_);
     }
 }

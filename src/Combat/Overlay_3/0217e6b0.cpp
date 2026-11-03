@@ -285,7 +285,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         func_020c5588(arg0->unknown_a0_, 0x10, 0x7fff, 0, 0);
         char var7[0x20];
         memset(var7, 0, 0x20);
-        CleanInvalidateCacheRange(var7, 0x20);
+        DC_FlushRange(var7, 0x20);
         LoadToMainBG1CharacterData(var7, 0, 0x20);
         ClearFlags00(var1, -1);
         ClearFlags04(var1, -1);

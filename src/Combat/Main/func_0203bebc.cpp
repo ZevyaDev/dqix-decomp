@@ -27,7 +27,7 @@ extern "C" void* func_020421a0(void);
 extern "C" void* func_020425b4(int arg0, int arg1);
 extern "C" int func_020425e4(int arg0, int arg1, int arg2);
 extern "C" int func_02042648(int arg0);
-void CleanInvalidateCacheRange(const void* p, unsigned int len);
+extern "C" void DC_FlushRange(const void* p, unsigned int len);
 extern "C" void LoadToSubObjVRAM(const void* data, unsigned int offset, unsigned int length);
 extern "C" int func_0205b36c(void* arg0, void* arg1, short arg2, int arg3, unsigned char arg4, unsigned char arg5);
 
@@ -138,7 +138,7 @@ extern "C" ARM void func_0203bebc(void* arg0, void* arg1, void* arg2)
             var11 += 4;
         }
     }
-    CleanInvalidateCacheRange(var14, 256);
+    DC_FlushRange(var14, 256);
     if (arg1 == 0) {
         LoadToMainObjVRAM(var14, (unsigned int)arg5, 256);
     } else if (arg1 == 1) {
@@ -195,7 +195,7 @@ extern "C" ARM void func_0203bebc(void* arg0, void* arg1, void* arg2)
         var30++;
     }
 
-    CleanInvalidateCacheRange(var18, 0x400);
+    DC_FlushRange(var18, 0x400);
     LoadToSubObjVRAM(var18, (unsigned int)arg2, 0x400);
     ((unsigned char*)arg0)[0x21] = var25 - 1;
 #endif

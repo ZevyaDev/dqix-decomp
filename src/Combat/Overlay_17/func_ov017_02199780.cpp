@@ -119,11 +119,11 @@ extern "C" ARM void func_ov017_02199780(unsigned char* arg0) {
 
 #if defined(jpn)
 			memset(*(void**)(arg0 + 0x3000 + 0xe54), 0, 0x20);
-			CleanInvalidateCacheRange(*(void**)(arg0 + 0x3000 + 0xe54), 0x20);
+			DC_FlushRange(*(void**)(arg0 + 0x3000 + 0xe54), 0x20);
 			LoadToMainBG1CharacterData(*(int*)(arg0 + 0x3000 + 0xe54), 0, 0x20);
 #else
 			memset(*(void**)(arg0 + 0x4000 + 0x74), 0, 0x20);
-			CleanInvalidateCacheRange(*(void**)(arg0 + 0x4000 + 0x74), 0x20);
+			DC_FlushRange(*(void**)(arg0 + 0x4000 + 0x74), 0x20);
 			LoadToMainBG1CharacterData(*(int*)(arg0 + 0x4000 + 0x74), 0, 0x20);
 #endif
 		}

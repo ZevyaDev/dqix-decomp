@@ -15,7 +15,7 @@ struct Struct_020db5ec;
 extern "C" void func_020db768(struct Struct_020db5ec* arg0, void* arg1);
 
 void DMAMemsetSynchronous(int, unsigned int, unsigned int, unsigned int);
-void CleanInvalidateCacheRange(const void* addr, unsigned int size);
+extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 void CleanCacheRange(const void* addr, unsigned int size);
 
 struct Struct_020db3f4_3;
@@ -51,7 +51,7 @@ extern "C" ARM void func_020db5ec(struct Struct_020db5ec_2* arg0) {
         func_020db6e4(arg0, var3);
     }
     func_020db768((struct Struct_020db5ec*)arg0, (void*)var2);
-    CleanInvalidateCacheRange((const void*)var4, 0xe0);
+    DC_FlushRange((const void*)var4, 0xe0);
     data_020f2904[arg0->unknown_3c_](var4, 0, 0xe0);
     CleanCacheRange((const void*)var4, 0xe0);
     DMAMemsetSynchronous(3, var4 + 0x20, 0xc0, 0x60);

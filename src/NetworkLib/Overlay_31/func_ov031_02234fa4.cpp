@@ -10,7 +10,7 @@ extern "C" ARM void func_ov031_02234fa4(void) {
     if (data_ov031_02290ce8[0x604] == 0) {
         return;
     }
-    CleanInvalidateCacheRange(data_ov031_02290ce8 + 4, 0x600);
+    DC_FlushRange(data_ov031_02290ce8 + 4, 0x600);
     LoadToMainBG2ScreenData((int)(data_ov031_02290ce8 + 4), 0, 0x600);
     data_ov031_02290ce8[0x604] = 0;
 }

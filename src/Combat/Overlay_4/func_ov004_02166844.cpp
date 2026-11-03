@@ -62,7 +62,7 @@ extern "C" ARM int func_ov004_02166844(void* arg0) {
     void* var3 = ((SafeAllocator*)(var0 + 4))->Allocate(2);
     if (var3 != 0) {
         *(short*)var3 = 0x7de0;
-        CleanInvalidateCacheRange(var3, 2);
+        DC_FlushRange(var3, 2);
         LoadToMainBGStandardPalette(var3, 0x12, 2);
         CleanCacheRange(var3, 2);
     }

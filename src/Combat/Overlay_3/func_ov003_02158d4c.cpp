@@ -61,7 +61,7 @@ extern "C" ARM void func_ov003_02158d4c(Struct_ov003_02158d4c* arg0) {
     arg0->unknown_28_.Reset();
     void* var1 = arg0->unknown_28_.Allocate(0x800);
     memset(var1, 0, 0x800);
-    CleanInvalidateCacheRange(var1, 0x20);
+    DC_FlushRange(var1, 0x20);
     LoadToMainBG1CharacterData((int)var1, 0, 0x20);
     LoadToMainBG1ScreenData((int)var1, 0, 0x800);
 

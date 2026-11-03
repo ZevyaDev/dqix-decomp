@@ -31,7 +31,7 @@ extern "C" int func_0205a1f0(void* arg0, void* arg1, int arg2);
 extern "C" int func_020421a0(void);
 extern "C" void VectorizedInvertedMemcpy(void* dst, void* src, int size);
 extern "C" void func_020c9820(void);
-void CleanInvalidateCacheRange(const void* addr, unsigned int size);
+extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToSubObjVRAM(int, int, unsigned int);
 extern "C" void func_02020aa0(void* arg0);
 extern "C" void func_02027974(void* arg0, int arg1, void* arg2);
@@ -212,7 +212,7 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
         char* var23 = *(char**)(var22 + Enum_02021f88_96);
         VectorizedInvertedMemcpy(var6->unknown_14_, var23, var6->unknown_10_);
         func_020c9820();
-        CleanInvalidateCacheRange(var23, var6->unknown_10_);
+        DC_FlushRange(var23, var6->unknown_10_);
         LoadToSubObjVRAM((int)var23, 0x2c20, var6->unknown_10_);
         BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_a14_);
         arg0->unknown_a14_ = -1;

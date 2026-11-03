@@ -17,6 +17,6 @@ extern "C" ARM void func_ov002_0215af64(char* arg0) {
     unsigned char var2 = (unsigned char)var0;
     int var3 = (int)func_020a6084();
     memcpy(var1, (void*)(var3 + (var2 << 5) + 0x1e), 2);
-    CleanInvalidateCacheRange(var1, 2);
+    DC_FlushRange(var1, 2);
     LoadToMainObjStandardPalette((int)var1, 0x11e, 2);
 }

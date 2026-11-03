@@ -172,7 +172,7 @@ extern "C" ARM void func_ov000_021707f0(Struct_ov000_021707f0* arg0) {
             arg0->unknown_430_[var13] = var23 | (var24 << 5) | (var25 << 10);
         }
     }
-    CleanInvalidateCacheRange(arg0->unknown_430_, 4);
+    DC_FlushRange(arg0->unknown_430_, 4);
     LoadToSubObjStandardPalette(arg0->unknown_430_, 0x142, 4);
     func_0205ac40(var5, var6->unknown_320_);
 }

@@ -137,7 +137,7 @@ cont:
     var0.unknown_1c_0_ = 3;
 
     unsigned char* var10 = ((struct Struct_ov001_0215686c_4*)var4)->unknown_2c_;
-    CleanInvalidateCacheRange(var10 + 0xc, 0x20);
+    DC_FlushRange(var10 + 0xc, 0x20);
     LoadToSubBGStandardPalette(var10 + 0xc, 0, 0x20);
     CleanCacheRange(var10 + 0xc, 0x20);
 
@@ -145,7 +145,7 @@ cont:
     if (var5 == -0x10) {
         memset(var1, 0x11, 0x20);
     }
-    CleanInvalidateCacheRange(var1, 0x20);
+    DC_FlushRange(var1, 0x20);
     LoadToSubBG3CharacterData(var1, 0x6000, 0x20);
     CleanCacheRange(var1, 0x20);
 

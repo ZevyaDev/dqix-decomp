@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-void CleanInvalidateCacheRange(const void* addr, unsigned int size);
+extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 void CleanCacheRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainObjStandardPalette(int arg0, int arg1, unsigned int arg2);
 extern "C" int LoadToSubObjStandardPalette(int arg0, int arg1, unsigned int arg2);
@@ -20,7 +20,7 @@ extern "C" ARM void func_020e1674(struct Struct_020e1674_2* arg0, int arg1, int 
     if (arg2 < 0 || arg2 >= 2) return;
     var1 = (int)((char*)arg0 + 0x22 + arg2 * 2);
     var0 = arg1 * 2;
-    CleanInvalidateCacheRange((const void*)(var1), 2);
+    DC_FlushRange((const void*)(var1), 2);
     var0 += 0x1c0;
     if (arg0->unknown_4_->unknown_3e_ == 0) {
         LoadToMainObjStandardPalette(var1, var0, 2);

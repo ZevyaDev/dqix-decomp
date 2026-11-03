@@ -279,7 +279,7 @@ int VRAMStagingManager::Stage(VRAMSubregion subregion, const void* data, unsigne
                 MemoryMapTextureImage();
                 break;
             }
-            CleanInvalidateCacheRange(data, length);
+            DC_FlushRange(data, length);
             g_vramSubregionLoadFunctions[subregion](data, offset, length);
             CleanCacheRange(data, length);
             switch (region)
@@ -311,7 +311,7 @@ int VRAMStagingManager::Stage(VRAMSubregion subregion, const void* data, unsigne
                         memcpy(allocSpace, data, length);
                         allocSpaceData = GetStagingSpaceAllocation(allocSpace);
                         stagingSpace = allocSpace;
-                        CleanInvalidateCacheRange(allocSpace, length);
+                        DC_FlushRange(allocSpace, length);
                     }
                 }
                 if (stagingSpace != NULL)
@@ -606,7 +606,7 @@ void VRAMStagingManager::SendReadyDataToVRAM()
             }
             copySource = (const void*)((intptr_t)pTask->copySource_ + pTask->wordsCopied_ * 4);
             destination = (pTask->destinationOffset_ + pTask->wordsCopied_) * 4;
-            CleanInvalidateCacheRange(copySource, amountToCopyThisTask);
+            DC_FlushRange(copySource, amountToCopyThisTask);
             g_vramSubregionLoadFunctions[pTask->subregion_](copySource, destination, amountToCopyThisTask);
             CleanCacheRange(copySource, amountToCopyThisTask);
             amountCopiedThisGroup += amountToCopyThisTask;

@@ -10,7 +10,7 @@ extern "C" int func_020426bc(void* arg0, void* arg1, int arg2);
 extern "C" int func_020d2ff0(const char* arg0);
 extern "C" void func_ov023_021e709c(void* arg0, void* arg1, int arg2);
 extern "C" void* func_0204a5e4(int arg0, int arg1);
-void CleanInvalidateCacheRange(void const*, unsigned int);
+extern "C" void DC_FlushRange(void const*, unsigned int);
 void CleanCacheRange(void const*, unsigned int);
 
 struct Struct_ov023_021ffa44 {
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov023_021e8270(char* arg0) {
         data_ov023_021ffa44.unknown_4_ = (void(*)(void*, void*, unsigned))func_0204a5e4(var10->unknown_0_0_, var10->unknown_0_4_);
         data_ov023_021ffa44.unknown_0_ |= 1;
     }
-    CleanInvalidateCacheRange(var2, var4);
+    DC_FlushRange(var2, var4);
     data_ov023_021ffa44.unknown_4_(var2, (void*)var3, var4);
     CleanCacheRange(var2, var4);
 }

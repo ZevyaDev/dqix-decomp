@@ -41,7 +41,7 @@ extern "C" ARM void func_ov002_021619b4(int arg0, void* arg1, void* arg2) {
     unsigned short var13 = var12 & 0x3ff;
     int var14 = var13 << 5;
 
-    CleanInvalidateCacheRange(arg2, 0x80);
+    DC_FlushRange(arg2, 0x80);
     LoadToMainObjVRAM((int)arg2, var14, 0x80);
     CleanCacheRange(arg2, 0x80);
 }

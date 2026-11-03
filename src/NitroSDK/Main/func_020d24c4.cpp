@@ -21,7 +21,7 @@ extern Struct_02112780_4 data_02112780;
 extern Struct_01ff8300_3* data_021127a4[9];
 extern unsigned char data_02112a60[0x1800];
 
-void CleanInvalidateCacheRange(const void* addr, unsigned int size);
+extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 int SendCommandToArm7(int command, int data, bool error);
 extern "C" void func_020d2880();
 extern "C" void* func_020d22f4(unsigned long arg0);
@@ -46,7 +46,7 @@ extern "C" ARM int func_020d24c4(unsigned long arg0) {
             return true;
         }
     }
-    CleanInvalidateCacheRange(data_02112a60, sizeof(data_02112a60));
+    DC_FlushRange(data_02112a60, sizeof(data_02112a60));
     if (SendCommandToArm7(7, (int)data_02112780.unknown_8_, false) < 0) {
         if (!(arg0 & 1)) {
             SetIRQInterruptState(var0);
@@ -57,7 +57,7 @@ extern "C" ARM int func_020d24c4(unsigned long arg0) {
             SetIRQInterruptState(var0);
             func_020d22f4(0);
             var0 = DisableIRQInterrupts();
-            CleanInvalidateCacheRange(data_02112a60, sizeof(data_02112a60));
+            DC_FlushRange(data_02112a60, sizeof(data_02112a60));
             if (data_02112780.unknown_8_ == NULL) {
                 SetIRQInterruptState(var0);
                 return true;

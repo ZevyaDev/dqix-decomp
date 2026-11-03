@@ -40,7 +40,7 @@ struct Struct_ov023_021ddc98_2 {
     short unknown_ae_;
 };
 
-void CleanInvalidateCacheRange(const void* addr, unsigned int size);
+extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" void LoadToSubBG0CharacterData(const void* src, unsigned int offset, unsigned int size);
 extern "C" void LoadToMainBG1CharacterData(const void* src, unsigned int offset, unsigned int size);
 extern "C" void LoadToMainBG2CharacterData(const void* src, unsigned int offset, unsigned int size);
@@ -76,12 +76,12 @@ extern "C" ARM unsigned int func_ov023_021ddc98(Struct_ov023_021ddc98_2* arg0, u
         var6 = arg0->unknown_ae_;
         if (var2 == 1)
         {
-            CleanInvalidateCacheRange(data_ov023_021ff9e0.unknown_4_, var0);
+            DC_FlushRange(data_ov023_021ff9e0.unknown_4_, var0);
             LoadToSubBG0CharacterData(data_ov023_021ff9e0.unknown_4_, arg1, var0);
         }
         else
         {
-            CleanInvalidateCacheRange(data_ov023_021ff9e0.unknown_4_, var0);
+            DC_FlushRange(data_ov023_021ff9e0.unknown_4_, var0);
             if (arg3)
                 LoadToMainBG1CharacterData(data_ov023_021ff9e0.unknown_4_, arg1, var0);
             else
@@ -105,7 +105,7 @@ extern "C" ARM unsigned int func_ov023_021ddc98(Struct_ov023_021ddc98_2* arg0, u
                 {
                     var11 = var5;
                     var11 |= arg2 << 12;
-                    CleanInvalidateCacheRange(&var11, 2);
+                    DC_FlushRange(&var11, 2);
                     *var9 = var11;
                     var5 = (unsigned short)(var5 + 1);
                     var9++;

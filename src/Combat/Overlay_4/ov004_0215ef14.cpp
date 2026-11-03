@@ -312,7 +312,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
                         var15 = (unsigned short)(var12->unknown_4_ & 0x3ff) << 5;
                         for (var14 = 0; var14 < 4; var14++, var16++) {
                             void* var17 = func_020421b0(var16);
-                            CleanInvalidateCacheRange(var17, 0x20);
+                            DC_FlushRange(var17, 0x20);
                             LoadToMainObjVRAM(var17, var15, 0x20);
                             CleanCacheRange(var17, 0x20);
                             var15 += 0x20;
@@ -763,7 +763,7 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
     func_020100c4(var3, (int)data_ov004_021708c8);
     func_ov004_0215e47c(arg0, 9)->unknown_c_ |= 0x80;
     var0 = 0x18c6;
-    CleanInvalidateCacheRange(&var0, 2);
+    DC_FlushRange(&var0, 2);
     LoadToSubBGStandardPalette(&var0, 2, 2);
     CleanCacheRange(&var0, 2);
 

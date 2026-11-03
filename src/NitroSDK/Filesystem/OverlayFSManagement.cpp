@@ -54,7 +54,7 @@ void InvalidateCacheAndZeroOverlay(const OverlayMetadata &overlay)
     unsigned int copySize = overlay.uncompressedSize;
     unsigned int totalSize = copySize + overlay.bssSectionSize;
 
-    InvalidateInstructionCacheRange(startAddr, totalSize);
+    IC_InvalidateRange(startAddr, totalSize);
     InvalidateDataCacheRange(startAddr, totalSize);
     VectorizedMemset(startAddr + copySize, 0, totalSize - copySize);
 }
@@ -257,7 +257,7 @@ void DecompressAndStaticInitializeOverlay(const OverlayMetadata& overlay)
     if (overlay.overlayFlags & (1 << OVERLAY_FLAG_COMPRESSED))
         func_02000970(overlay.loadAddress + initialSize);
     
-    CleanInvalidateCacheRange((void*)overlay.loadAddress, overlay.uncompressedSize);
+    DC_FlushRange((void*)overlay.loadAddress, overlay.uncompressedSize);
     OverlayMetadata::StaticInitializer* pInitializer = overlay.staticInitStart;
     OverlayMetadata::StaticInitializer* initializerEnd = overlay.staticInitEnd;
     if (pInitializer < initializerEnd)

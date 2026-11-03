@@ -209,7 +209,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
         VectorizedInvertedMemcpy(var15 + 0x2bc0, var14, 0x540);
         func_02023218(arg0, var14, 0, 0x540);
         func_020c9820();
-        CleanInvalidateCacheRange(var14, 0x540);
+        DC_FlushRange(var14, 0x540);
         LoadToSubObjVRAM(var14, 0x2bc0, 0x540);
 #else
         char* var16 = (char*)0x06600000;

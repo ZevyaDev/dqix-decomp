@@ -22,7 +22,7 @@ extern "C" ARM void func_020b07c0(Struct_020b07c0_2* arg0, int arg1, int arg2, S
     const void* var0 = arg0->unknown_c_;
     unsigned int var1 = arg0->unknown_8_;
 
-    CleanInvalidateCacheRange(var0, var1);
+    DC_FlushRange(var0, var1);
 
     switch (arg2) {
     case 1:

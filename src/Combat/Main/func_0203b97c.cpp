@@ -22,5 +22,5 @@ extern "C" ARM void func_0203b97c(void*, unsigned short* arg1, int arg2, int arg
             }
         }
     }
-    CleanInvalidateCacheRange(arg1, arg3 * (arg2 << 1));
+    DC_FlushRange(arg1, arg3 * (arg2 << 1));
 }

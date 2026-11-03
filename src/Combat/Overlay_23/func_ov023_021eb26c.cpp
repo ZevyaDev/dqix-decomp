@@ -15,7 +15,7 @@ extern "C" void func_0204b04c(void* arg0, int arg1);
 extern "C" void func_0204b088(void* arg0, int arg1);
 struct Struct_02020cb8_3;
 extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
-void CleanInvalidateCacheRange(const void* addr, unsigned int size);
+extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
 extern "C" void __clear(void* arg0, int arg1);
 
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov023_021eb26c(void* arg0) {
         func_0204b088(var0 + 0x44, 0);
         func_0204afb4((struct Struct_02020cb8_3*)(var0 + 0x44));
         memset(*(void**)(var0 + 0x420), 0, 0x20);
-        CleanInvalidateCacheRange(*(void**)(var0 + 0x420), 0x20);
+        DC_FlushRange(*(void**)(var0 + 0x420), 0x20);
         LoadToMainBG1CharacterData(*(int*)(var0 + 0x420), 0, 0x20);
     }
 

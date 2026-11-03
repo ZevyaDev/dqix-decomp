@@ -85,7 +85,7 @@ extern "C" ARM void func_ov005_02154198(Struct_ov005_02153954* arg0) {
     func_0204afb4((Struct_02020cb8_3*)arg0->unknown_e84_);
     if (arg0->unknown_3d88_ != NULL) {
         memset(arg0->unknown_3d88_, 0, 0x20);
-        CleanInvalidateCacheRange(arg0->unknown_3d88_, 0x20);
+        DC_FlushRange(arg0->unknown_3d88_, 0x20);
         LoadToMainBG1CharacterData(arg0->unknown_3d88_, 0, 0x20);
     }
     arg0->unknown_14_.Destroy();

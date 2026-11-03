@@ -542,13 +542,13 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_2* arg0)
             unsigned short var29 = 0x294a;
             void* var30 = arg0->unknown_137c_;
             memcpy(var30, &var29, sizeof(var29));
-            CleanInvalidateCacheRange(var30, sizeof(var29));
+            DC_FlushRange(var30, sizeof(var29));
             LoadToMainBGStandardPalette(var30, 4, sizeof(var29));
             CleanCacheRange(var30, sizeof(var29));
             unsigned short var31 = 0x1ce7;
             void* var32 = arg0->unknown_137c_;
             memcpy(var32, &var31, sizeof(var31));
-            CleanInvalidateCacheRange(var32, sizeof(var31));
+            DC_FlushRange(var32, sizeof(var31));
             LoadToMainBGStandardPalette(var32, 8, sizeof(var31));
             CleanCacheRange(var32, sizeof(var31));
             return;

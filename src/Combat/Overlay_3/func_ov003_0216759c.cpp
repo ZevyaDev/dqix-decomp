@@ -30,7 +30,7 @@ void func_0204b174(void*,void*,SafeAllocator*,int);
 void func_0204bc74(void*,int,int,int,int,int,int);
 void func_0204b0e8(void*,void*);
 Struct_ov003_0216759c_2* func_0204af14(void*,unsigned int);
-void _Z25CleanInvalidateCacheRangePKvj(const void*,unsigned int);
+extern "C" void DC_FlushRange(const void*,unsigned int);
 void LoadToSubBG1ScreenData(void*,int,unsigned int);
 void func_0204c684(void*);
 void func_0204c7a8(void*,SafeAllocator*,int,unsigned int);
@@ -109,7 +109,7 @@ extern "C" ARM int func_ov003_0216759c(Struct_ov003_0216759c* arg0) {
             Struct_ov003_0216759c_2* var15=func_0204af14(arg0->unknown_8_+1,0);
             if (var15) {
                 void* var16; unsigned int var17=var15->unknown_8_; var16=var15->unknown_c_;
-                _Z25CleanInvalidateCacheRangePKvj(var16,var17);
+                DC_FlushRange(var16,var17);
                 LoadToSubBG1ScreenData(var16,0,var17);
             }
             var11=arg0->unknown_4_;
@@ -151,10 +151,10 @@ extern "C" ARM int func_ov003_0216759c(Struct_ov003_0216759c* arg0) {
         *(volatile unsigned short*)0x400100c = (*(volatile unsigned short*)0x400100c & ~3) | 2;
         *(volatile unsigned short*)0x400100e = (*(volatile unsigned short*)0x400100e & ~3) | 3;
         *(volatile unsigned int*)0x4001000 = (*(volatile unsigned int*)0x4001000 & ~0x1f00) | 0x1300;
-        _Z25CleanInvalidateCacheRangePKvj(data_ov003_0217f4dc,2);
+        DC_FlushRange(data_ov003_0217f4dc,2);
         LoadToSubBGStandardPalette(data_ov003_0217f4dc,2,2);
         _Z15CleanCacheRangePKvj(data_ov003_0217f4dc,2);
-        _Z25CleanInvalidateCacheRangePKvj(data_ov003_0217f4dc,2);
+        DC_FlushRange(data_ov003_0217f4dc,2);
         LoadToSubBGStandardPalette(data_ov003_0217f4dc,0x22,2);
         _Z15CleanCacheRangePKvj(data_ov003_0217f4dc,2);
         func_0207f7f0(arg0->unknown_10_,arg0->unknown_c_,4);

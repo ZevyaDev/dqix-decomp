@@ -65,7 +65,7 @@ extern "C" ARM void func_ov017_0218f968(unsigned char* arg0, int arg1, unsigned 
                         }
                         var4[var11] = var13 | (var14 << 5) | (var15 << 10);
                     }
-                    CleanInvalidateCacheRange(var4, var8);
+                    DC_FlushRange(var4, var8);
                     StageMemoryToVRAM(VRAMSubregion_TexturePalette, var4, var9, var8, false, true);
                 }
             } else if (var5->obj3D_.GetField9e() == 1) {
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov017_0218f968(unsigned char* arg0, int arg1, unsigned 
                     for (unsigned int var19 = 0; var19 < var17 / 2; var19++) {
                         var4[var19] = arg2;
                     }
-                    CleanInvalidateCacheRange(var4, var17);
+                    DC_FlushRange(var4, var17);
                     StageMemoryToVRAM(VRAMSubregion_TexturePalette, var4, var18, var17, false, true);
                 }
             } else if (var5->obj3D_.GetField9e() == 2) {
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov017_0218f968(unsigned char* arg0, int arg1, unsigned 
                         unsigned short var33 = var30 * var25;
                         var4[var26] = var31 | (var32 << 5) | (var33 << 10);
                     }
-                    CleanInvalidateCacheRange(var4, var22);
+                    DC_FlushRange(var4, var22);
                     StageMemoryToVRAM(VRAMSubregion_TexturePalette, var4, var21, var22, false, true);
                 }
             }

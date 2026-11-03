@@ -61,7 +61,7 @@ extern "C" void func_0205d274(Struct_0205d274 *arg0);
 extern "C" void func_0205d2bc(Struct_0205d2bc *arg0);
 extern "C" void func_0205d048(struct Struct_0205d048 *arg0);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
-void CleanInvalidateCacheRange(const void *p, unsigned int len);
+extern "C" void DC_FlushRange(const void *p, unsigned int len);
 extern "C" void LoadToMainBG1CharacterData(const void *data, unsigned int offset, unsigned int length);
 extern "C" void func_ov002_0215b428(unsigned char *arg0);
 extern "C" void func_020a1f4c(int arg0);
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov002_021556fc(char *arg0) {
     func_0205d048((struct Struct_0205d048 *) (arg0 + FIELD_ec8));
     if (*(void **) (arg0 + FIELD_1bd8) != 0) {
         memset(*(void **) (arg0 + FIELD_1bd8), 0, 0x20);
-        CleanInvalidateCacheRange(*(void **) (arg0 + FIELD_1bd8), 0x20);
+        DC_FlushRange(*(void **) (arg0 + FIELD_1bd8), 0x20);
         LoadToMainBG1CharacterData(*(void **) (arg0 + FIELD_1bd8), 0, 0x20);
     }
     *(void **) (arg0 + FIELD_1bd8) = 0;

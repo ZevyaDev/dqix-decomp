@@ -36,7 +36,7 @@ extern "C" ARM void func_0202ab34(void* arg0, int arg1, int arg2) {
                 var5++;
                 var3 += 4;
             }
-            CleanInvalidateCacheRange(data_020fe9ac, 32);
+            DC_FlushRange(data_020fe9ac, 32);
             LoadToMainBG1CharacterData(data_020fe9ac, arg2 << 5, 32);
             CleanCacheRange(data_020fe9ac, 32);
         }

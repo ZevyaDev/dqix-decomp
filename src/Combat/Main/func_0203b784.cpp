@@ -18,7 +18,7 @@ extern "C" ARM int func_0203b784(int* arg0, int arg1, int arg2, int arg3, unsign
     int var2 = *(int*)((char*)&arg0[arg1] + 0x20);
     int var3 = var0[arg1];
     var0[arg1] = var3 + arg5;
-    CleanInvalidateCacheRange((void*)arg3, arg4);
+    DC_FlushRange((void*)arg3, arg4);
     switch (arg1) {
     case 0:
         switch (arg2) {

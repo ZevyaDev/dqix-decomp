@@ -57,7 +57,7 @@ extern "C" void func_ov017_021d1cb8();
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_0207df50(Struct_0203d028*);
-void CleanInvalidateCacheRange(const void*, unsigned int);
+extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" void func_02057e6c(void*, int, SafeAllocator*, void*, unsigned int, Struct_0203d028*);
 extern "C" void func_0205ebec(void*);
 extern "C" void func_02010834(Struct_02010834*, int, int*, int*);
@@ -120,7 +120,7 @@ extern "C" ARM void func_ov017_021a6c2c(Struct_ov017_021a6c2c_2* arg0) {
         func_0207df50(var10);
         void* var11 = arg0->unknown_30_.Allocate(var9);
         memcpy(var11, var8, var9);
-        CleanInvalidateCacheRange(var11, var9);
+        DC_FlushRange(var11, var9);
         func_02057e6c(var4, 13, &arg0->unknown_30_, var11, var9, var10);
         var3->RemoveTask(arg0->unknown_44_);
         arg0->unknown_44_ = -1; arg0->unknown_c_ = 0; arg0->unknown_8_++;

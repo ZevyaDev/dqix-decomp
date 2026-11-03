@@ -39,7 +39,7 @@ extern "C" ARM void func_020b0594(int arg0, int arg1, int arg2, void *arg3) {
         }
     }
 
-    CleanInvalidateCacheRange(var0->unknown_14_, var0->unknown_10_);
+    DC_FlushRange(var0->unknown_14_, var0->unknown_10_);
     switch (arg2) {
         case 0:
             MemoryMapTextureImage();

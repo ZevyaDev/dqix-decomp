@@ -106,7 +106,7 @@ extern "C" int func_020862a8(unsigned char*);
 extern "C" int func_02086314(unsigned char*);
 extern "C" void func_ov023_021e24b0(void*, int, int, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
 extern "C" void func_ov023_021e257c(void*);
-void CleanInvalidateCacheRange(const void*, unsigned int);
+extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" void LoadToSubBG0CharacterData(int, int, unsigned int);
 extern "C" void* func_0200fb8c(int*);
 struct GameResources;
@@ -241,7 +241,7 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
                 var13->unknown_12_ = 1;
                 func_ov023_021e257c(var13);
             }
-            CleanInvalidateCacheRange(var12, 0x6000);
+            DC_FlushRange(var12, 0x6000);
             LoadToSubBG0CharacterData((int)var12, 0, 0x6000);
         }
         ((BackgroundLoader*)var0)->RemoveTask(arg0->unknown_54_);
@@ -383,7 +383,7 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
                 var44->unknown_12_ = 1;
                 func_ov023_021e257c(var44);
             }
-            CleanInvalidateCacheRange(var43, 0x6000);
+            DC_FlushRange(var43, 0x6000);
             LoadToSubBG0CharacterData((int)var43, 0, 0x6000);
         }
         ((BackgroundLoader*)var29)->RemoveTask(arg0->unknown_54_);

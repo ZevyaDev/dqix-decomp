@@ -102,7 +102,7 @@ extern "C" ARM void func_ov023_021e6b8c(Struct_ov023_021e6b8c_7* arg0, unsigned 
     func_0205b228(&var12, (int)var3, 3);
     func_0205b734(&var12, 9, 9, (short)(var1 + 7), (short)(var2 + 7), 9);
     func_0205b234(&var12, (short)(var11 + 8), 10, var10, 2, 1);
-    CleanInvalidateCacheRange(arg0->unknown_137c_, arg3);
+    DC_FlushRange(arg0->unknown_137c_, arg3);
     LoadToMainObjVRAM(arg0->unknown_137c_, arg1, arg3);
     CleanCacheRange(arg0->unknown_137c_, arg3);
 }

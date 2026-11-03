@@ -14,7 +14,7 @@ struct Struct_ov000_02170b0c {
 extern unsigned short data_ov000_02184288;
 extern unsigned short data_ov000_02184288_arg;
 extern "C" double func_02009424(double);
-void CleanInvalidateCacheRange(const void*, unsigned int);
+extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" void LoadToSubBGStandardPalette(const void*, unsigned int, unsigned int);
 
 // USA: func_ov000_02170b0c
@@ -35,6 +35,6 @@ extern "C" ARM void func_ov000_02170b0c(Struct_ov000_02170b0c* arg0, unsigned in
         data_ov000_02184288 = (short)(var1 + 10) | ((short)(var2 + 10) << 5) | ((short)(var3 + 10) << 10);
     }
     int var4 = (arg0->unknown_4c_ + 2) << 5;
-    CleanInvalidateCacheRange(&data_ov000_02184288_arg, 2);
+    DC_FlushRange(&data_ov000_02184288_arg, 2);
     LoadToSubBGStandardPalette(&data_ov000_02184288_arg, var4 + 0x1e, 2);
 }

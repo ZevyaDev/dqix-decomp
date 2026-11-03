@@ -23,7 +23,7 @@ extern "C" ARM void func_020e16f4(struct Struct_020e1674_2* arg0) {
     if (arg0->unknown_4_ == NULL) return;
     var0 = *(int*)(func_0200fb8c((int*)GameState::GetInstance()) + 0x2c);
     if (var0 == 0) return;
-    CleanInvalidateCacheRange((void*)(var0 + 0xc), 0x20);
+    DC_FlushRange((void*)(var0 + 0xc), 0x20);
     if (arg0->unknown_4_->unknown_3e_ == 0) {
         LoadToMainObjStandardPalette(var0 + 0xc, 0x1c0, 0x20);
     } else {

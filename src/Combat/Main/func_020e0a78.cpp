@@ -23,7 +23,7 @@ extern "C" void func_020e0cfc(void*, int, int, int);
 extern "C" void func_020e0b4c(void *arg0, void *arg1, int arg2, int arg3);
 extern "C" void func_020e0ec4(void *arg0, void *arg1, int arg2, int arg3);
 extern "C" void func_020c9820();
-void CleanInvalidateCacheRange(const void *addr, unsigned int size);
+extern "C" void DC_FlushRange(const void *addr, unsigned int size);
 extern "C" int LoadToSubObjVRAM(void *dst, int mode, unsigned int size);
 
 // JPN: func_020e26ac
@@ -52,7 +52,7 @@ extern "C" ARM int func_020e0a78(void *arg0) {
     func_020e0cfc(arg0, (int)var1, 0x2080, 0xd00);
 #endif
     func_020c9820();
-    CleanInvalidateCacheRange(var1, var0->unknown_774_);
+    DC_FlushRange(var1, var0->unknown_774_);
     LoadToSubObjVRAM(var1, 0, var0->unknown_774_);
     var0->unknown_76c_->Free(var1);
 

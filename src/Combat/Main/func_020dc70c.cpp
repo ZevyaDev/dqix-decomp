@@ -32,7 +32,7 @@ extern "C" ARM void func_020dc70c(int arg0, int arg1, int arg2, int arg3, unsign
     unsigned int var6 = var4 << 1;
     int var7 = (int)func_020a6084();
     int var8 = var7 + (var3 << 5) + (arg1 << 1);
-    CleanInvalidateCacheRange((void*)var8, arg6);
+    DC_FlushRange((void*)var8, arg6);
     if (arg2 == 0) {
         if (arg3 != 0)
             LoadToMainObjStandardPalette(var8, var6, arg6);

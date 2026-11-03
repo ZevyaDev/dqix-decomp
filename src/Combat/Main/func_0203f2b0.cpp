@@ -25,7 +25,7 @@ struct Struct_0203f2b0_4 {
 };
 extern "C" struct Struct_0203f2b0_4* func_0203f354(struct Struct_0203f2b0_2* arg0, unsigned int arg1);
 
-void CleanInvalidateCacheRange(const void* where, unsigned int len);
+extern "C" void DC_FlushRange(const void* where, unsigned int len);
 
 struct Struct_0203f2b0_5 {
     struct Struct_02040468* unknown_0_;
@@ -58,6 +58,6 @@ extern "C" ARM void func_0203f2b0(struct Struct_0203f2b0_5* arg0) {
     struct Struct_0203f2b0_3* var5 = var4->unknown_8_;
     int var6;
     for (var6 = 0; var6 < var4->unknown_4_; var6++, var5++) {
-        CleanInvalidateCacheRange(var5->unknown_c_, var5->unknown_8_);
+        DC_FlushRange(var5->unknown_c_, var5->unknown_8_);
     }
 }

@@ -140,7 +140,7 @@ extern "C" ARM void func_ov003_021737e4(Struct_ov003_021737e4_2* arg0) {
             func_02050678(&var9, var15, 0x25, var12, 0xc, 0xf, &var13, &var14);
         }
         int var17 = (arg0->unknown_d0_ - 1) * 0x2000 + 0x1000;
-        CleanInvalidateCacheRange((char*)var8 + 0x10, 0x2000);
+        DC_FlushRange((char*)var8 + 0x10, 0x2000);
         LoadToSubBG0CharacterData((char*)var8 + 0x10, var17, 0x2000);
         int var18;
         if (arg0->unknown_1_) {
@@ -254,7 +254,7 @@ extern "C" ARM void func_ov003_021737e4(Struct_ov003_021737e4_2* arg0) {
             func_ov003_02172618(&var30, 0xf, var33);
         }
         int var34 = (arg0->unknown_d4_ - 1) * 0x2000 + 0x1000;
-        CleanInvalidateCacheRange((char*)var29 + 0x10, 0x2000);
+        DC_FlushRange((char*)var29 + 0x10, 0x2000);
         LoadToSubBG0CharacterData((char*)var29 + 0x10, var34, 0x2000);
         int var35 = 2;
         if (arg0->unknown_1_) {

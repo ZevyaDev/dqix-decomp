@@ -102,7 +102,7 @@ extern "C" ARM void func_ov015_0218c3a4(Struct_ov015_0218c03c_2* arg0, int arg1)
         if (var10 != 0 && var9 != 0)
         {
             LockStagedTextureVRAMCopying();
-            CleanInvalidateCacheRange(var8, var9);
+            DC_FlushRange(var8, var9);
             MemoryMapTexturePalette();
             LoadToTexturePalette(var8, var10 + var4, var9);
             MemoryUnmapTexturePalette();

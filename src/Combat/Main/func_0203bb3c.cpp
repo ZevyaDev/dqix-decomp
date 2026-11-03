@@ -31,7 +31,7 @@ extern "C" ARM void func_0203bb3c(struct Struct_02020fc4_2* arg0, char* arg1, Sa
     arg1 += 8;
 
     if (arg0->unknown_2_ == 0) {
-        CleanInvalidateCacheRange(arg1, 0x20);
+        DC_FlushRange(arg1, 0x20);
         switch (arg3) {
         case 0: LoadToMainBGStandardPalette((int)arg1, 0, 0x20); break;
         case 1: LoadToSubBGStandardPalette((int)arg1, 0, 0x20); break;
@@ -40,7 +40,7 @@ extern "C" ARM void func_0203bb3c(struct Struct_02020fc4_2* arg0, char* arg1, Sa
         arg0->unknown_14_ = (short)func_0203b784(var0, arg3, arg4, (int)arg1, arg0->unknown_4_ << 5, arg0->unknown_4_);
         arg1 += arg0->unknown_4_ << 5;
     } else if (arg0->unknown_2_ == 1) {
-        CleanInvalidateCacheRange(arg1, 0x200);
+        DC_FlushRange(arg1, 0x200);
         switch (arg3) {
         case 0: LoadToMainBGStandardPalette((int)arg1, 0, 0x200); break;
         case 1: LoadToSubBGStandardPalette((int)arg1, 0, 0x200); break;

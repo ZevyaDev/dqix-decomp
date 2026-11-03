@@ -50,7 +50,7 @@ extern "C" ARM int func_ov001_0215e5b0(void) {
     unsigned int var5 = 0x6400;
     memset(var1, 0, var5);
     memset(var1 + 0x20, 0x11111111, 0x20);
-    CleanInvalidateCacheRange(var1, var5);
+    DC_FlushRange(var1, var5);
     LoadToSubBG0CharacterData(var1, 0, var5);
 
     unsigned short* var6 = (unsigned short*)GetSubBG0ScreenBase();

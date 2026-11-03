@@ -51,7 +51,7 @@ void UnlockStagedTextureVRAMCopying();
 extern "C" void MemoryMapTexturePalette();
 extern "C" void LoadToTexturePalette(void* dst, const void* src, int size);
 extern "C" void MemoryUnmapTexturePalette();
-void CleanInvalidateCacheRange(const void*, unsigned int);
+extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" int fix32_Divide(int, int);
 
 struct Struct_ov015_0218d50c {
@@ -175,9 +175,9 @@ extern "C" ARM int func_ov015_0218d50c(Struct_ov015_0218d50c_3* arg0) {
     unsigned int var24 = ((Struct_ov015_0218d50c*)*arg0->unknown_4_)->unknown_148_;
     unsigned int var25 = (var24 << 16) >> 13;
     if (var25 != 0) {
-        CleanInvalidateCacheRange(var23 + arg0->unknown_3c_ * 4, 4);
-        CleanInvalidateCacheRange(var23 + 0x108 + arg0->unknown_3d_ * 4, 4);
-        CleanInvalidateCacheRange(var23 + 0x88 + arg0->unknown_3e_ * 16, 0x10);
+        DC_FlushRange(var23 + arg0->unknown_3c_ * 4, 4);
+        DC_FlushRange(var23 + 0x108 + arg0->unknown_3d_ * 4, 4);
+        DC_FlushRange(var23 + 0x88 + arg0->unknown_3e_ * 16, 0x10);
         func_020c9820();
         LockStagedTextureVRAMCopying();
         MemoryMapTexturePalette();

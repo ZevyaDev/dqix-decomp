@@ -27,7 +27,7 @@ extern "C" ARM void func_02099e18(Model3D* arg0, int arg1, int arg2, int arg3) {
             var2 = data_020e8e14;
             var3 = data_020e8e20;
             for (var6 = 0; var6 < 3; var6++) memcpy(var4 + var3.unknown_0_[var6], var1[var6], var2.unknown_0_[var6]);
-            CleanInvalidateCacheRange(var4, var5);
+            DC_FlushRange(var4, var5);
             StageTexFilePaletteData(var0, true);
         }
     }

@@ -41,5 +41,5 @@ extern "C" ARM void func_02029088() {
         memcpy(var1 + var8, var0, sizeof(Type_02029088_3));
     }
 #endif
-    CleanInvalidateCacheRange(glyphBitmapContext.unknown_0_, 256 * 192 / 2);
+    DC_FlushRange(glyphBitmapContext.unknown_0_, 256 * 192 / 2);
 }

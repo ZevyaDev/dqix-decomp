@@ -77,7 +77,7 @@ extern "C" ARM void func_0204c980(Struct_0204c980* arg0, const char* arg1, unsig
 #endif
         arg0->unknown_a0_ = arg2;
         Type_0204c980 var5 = (Type_0204c980)inline_0204c980(inline_0204c980_2(arg0->unknown_4_), arg0->unknown_4_->unknown_1c_0_);
-        CleanInvalidateCacheRange(arg0->unknown_8_, arg0->unknown_a4_);
+        DC_FlushRange(arg0->unknown_8_, arg0->unknown_a4_);
         var5(arg0->unknown_8_, arg0->unknown_a0_, arg0->unknown_a4_);
         if (arg0->unknown_c5_ & 1) {
             arg0->unknown_c0_ = 0;

@@ -11,7 +11,7 @@ extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
 struct Struct_02074bf4;
 extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
 
-void CleanInvalidateCacheRange(const void* addr, unsigned int size);
+extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
 extern "C" void LoadToMainBG1ScreenData(void* p, int a, int b);
 extern "C" int func_ov023_021f6bb8(void* arg0);
@@ -41,9 +41,9 @@ extern "C" ARM void func_ov011_02184770(char* arg0) {
 
     void* var3 = data_0211e33c;
     memset(var3, 0, 0x600);
-    CleanInvalidateCacheRange(var3, 0x20);
+    DC_FlushRange(var3, 0x20);
     LoadToMainBG1CharacterData((int)var3, 0, 0x20);
-    CleanInvalidateCacheRange(var3, 0x600);
+    DC_FlushRange(var3, 0x600);
     LoadToMainBG1ScreenData(var3, 0, 0x600);
 
     unsigned int var4 = *(unsigned int*)(arg0 + 0x1a8);

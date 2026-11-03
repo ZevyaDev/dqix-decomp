@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-void CleanInvalidateCacheRange(const void* addr, unsigned int size);
+extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 
 extern unsigned int data_020e7b98[][4];
 
@@ -20,5 +20,5 @@ static inline unsigned int inline_0204b04c(unsigned int arg0, unsigned int arg1)
 extern "C" ARM void func_0204b04c(Struct_0204b04c* arg0, void* arg1) {
     if (arg1 == NULL) arg1 = arg0->unknown_14_;
     if (arg1 == NULL) return;
-    CleanInvalidateCacheRange(arg1, inline_0204b04c(arg0->unknown_1f_, arg0->unknown_18_));
+    DC_FlushRange(arg1, inline_0204b04c(arg0->unknown_1f_, arg0->unknown_18_));
 }

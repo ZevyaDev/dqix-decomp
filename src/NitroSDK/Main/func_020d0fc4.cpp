@@ -32,7 +32,7 @@ extern "C" ARM int func_020d0fc4(CardReadManager* arg0, int arg1, int arg2)
         func_020d0fc4(arg0, CARD_REQUEST_INIT, 1);
     }
 
-    CleanInvalidateCacheRange(arg0->pSharedData, sizeof(Arm7CardReadData));
+    DC_FlushRange(arg0->pSharedData, sizeof(Arm7CardReadData));
     DrainWriteBuffer();
 
     do

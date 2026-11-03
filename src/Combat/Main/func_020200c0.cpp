@@ -73,7 +73,7 @@ extern "C" void func_020e46c4(void* arg0);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
 extern "C" void func_02046608(Struct_020200c0_6* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" void func_020c9820(void);
-void CleanInvalidateCacheRange(const void* addr, unsigned int size);
+extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" void LoadToSubObjVRAM(const void* src, unsigned int offset, unsigned int size);
 extern char data_020ef580[];
 
@@ -167,6 +167,6 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
         func_0205b234(&var7, (short)((0x40 - func_020420e8(var25, 0)) >> 1), 0x2b, var25, var10, 0);
     }
     func_020c9820();
-    CleanInvalidateCacheRange(var5, 0x800);
+    DC_FlushRange(var5, 0x800);
     LoadToSubObjVRAM(var5, var3, 0x800);
 }

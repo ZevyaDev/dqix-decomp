@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-void CleanInvalidateCacheRange(const void* addr, unsigned int size);
+extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 
 // USA: func_0204a8f4
 extern "C" ARM void func_0204a8f4(char* arg0, char* arg1) {
@@ -14,5 +14,5 @@ extern "C" ARM void func_0204a8f4(char* arg0, char* arg1) {
     memcpy(arg0 + 0xa, arg1 + 0xa, 1);
     memcpy(arg0 + 0xb, arg1 + 0xb, 1);
     memcpy(&var0, arg1 + 0xc, 4);
-    CleanInvalidateCacheRange(arg1 + 0x10, var0);
+    DC_FlushRange(arg1 + 0x10, var0);
 }

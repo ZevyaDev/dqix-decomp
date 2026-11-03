@@ -25,7 +25,7 @@ extern "C" void func_0204af64(struct Struct_02020cb8 *arg0);
 extern "C" void func_0204b11c(unsigned char *arg0, int arg1);
 struct Struct_02020cb8_5;
 extern "C" int func_0204b5e8(struct Struct_02020cb8_5 *arg0, int arg1, int arg2);
-void CleanInvalidateCacheRange(const void *addr, unsigned int size);
+extern "C" void DC_FlushRange(const void *addr, unsigned int size);
 extern "C" int LoadToMainBG3ScreenData(int arg0, int arg1, unsigned int arg2);
 extern "C" void func_0204b174(void *arg0, void *arg1, SafeAllocator *arg2, unsigned int arg3);
 struct Struct_02020cb8_2;
@@ -268,7 +268,7 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
                 if (var21 == 2) {
                     Struct_ov003_0216e714_6 *var22  = var10[var21];
                     unsigned int var23 = var22->unknown_c_;
-                    CleanInvalidateCacheRange((char *) var22 + 0x10, var23);
+                    DC_FlushRange((char *) var22 + 0x10, var23);
                     LoadToMainBG3ScreenData((int) ((char *) var22 + 0x10), 0, var23);
                 } else {
                     func_0204b174(&var12, var10[var21], 0, var11[var21]);
@@ -418,7 +418,7 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
                 if (var48 == 2) {
                     Struct_ov003_0216e714_6 *var49  = var29[var48];
                     unsigned int var50 = var49->unknown_c_;
-                    CleanInvalidateCacheRange((char *) var49 + 0x10, var50);
+                    DC_FlushRange((char *) var49 + 0x10, var50);
                     LoadToMainBG3ScreenData((int) ((char *) var49 + 0x10), 0, var50);
                 } else {
                     func_0204b174(&var32, var29[var48], 0, var30[var48]);

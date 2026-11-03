@@ -13,7 +13,7 @@ extern "C" int func_020937f0(int arg0);
 struct Struct_020db3a8;
 extern "C" int func_020db3a8(struct Struct_020db3a8* arg0);
 
-void CleanInvalidateCacheRange(const void* addr, unsigned int size);
+extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 void CleanCacheRange(const void* addr, unsigned int size);
 
 extern "C" void func_020db304(int arg0, int arg1);
@@ -79,7 +79,7 @@ extern "C" ARM void func_020db3f4(struct Struct_020db3f4* arg0) {
 
     void* var4 = data_020f28e4[arg0->unknown_3c_]();
 
-    CleanInvalidateCacheRange(arg0->unknown_40_, arg0->unknown_44_);
+    DC_FlushRange(arg0->unknown_40_, arg0->unknown_44_);
     data_020f28ec[arg0->unknown_3c_](arg0->unknown_40_, var1, arg0->unknown_44_);
     CleanCacheRange(arg0->unknown_40_, arg0->unknown_44_);
 
@@ -92,11 +92,11 @@ extern "C" ARM void func_020db3f4(struct Struct_020db3f4* arg0) {
         memset(var5, 0xeeeeeeee, 0x800);
     }
 
-    CleanInvalidateCacheRange(var5, 0x800);
+    DC_FlushRange(var5, 0x800);
     data_020f28ec[arg0->unknown_3c_](var5, var3, 0x800);
     CleanCacheRange(var5, 0x800);
 
-    CleanInvalidateCacheRange(arg0->unknown_48_, arg0->unknown_4c_);
+    DC_FlushRange(arg0->unknown_48_, arg0->unknown_4c_);
     data_020f28dc[arg0->unknown_3c_](arg0->unknown_48_, var2, arg0->unknown_4c_);
     CleanCacheRange(arg0->unknown_48_, arg0->unknown_4c_);
 

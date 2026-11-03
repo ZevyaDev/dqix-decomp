@@ -35,5 +35,5 @@ extern "C" ARM void func_020d2a48(void* arg0) {
         var0->unknown_260_[var2] = -1;
     }
 
-    CleanInvalidateCacheRange(var0, sizeof(Struct_020d2a48));
+    DC_FlushRange(var0, sizeof(Struct_020d2a48));
 }

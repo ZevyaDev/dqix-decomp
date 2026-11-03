@@ -82,7 +82,7 @@ extern "C" ARM void func_0203c35c(Struct_0203c35c* arg0) {
         var7[15] = data_020e78a0[var5];
         memcpy(var4 + var5 * 16, var7, 0x20);
     }
-    CleanInvalidateCacheRange(var4, 0xe0);
+    DC_FlushRange(var4, 0xe0);
     if (arg0->unknown_504_ == 0) LoadToMainObjStandardPalette(var4, arg0->unknown_50c_, 0xe0);
     else if (arg0->unknown_504_ == 1) LoadToSubObjStandardPalette(var4, arg0->unknown_50c_, 0xe0);
 }
