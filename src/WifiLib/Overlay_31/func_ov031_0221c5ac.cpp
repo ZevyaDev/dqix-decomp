@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define data_ov031_0224e6e4 data_ov031_0224f2e4
+#endif
+
 struct Struct_ov031_0221c5ac_2 {
     int unknown_0_;
 };

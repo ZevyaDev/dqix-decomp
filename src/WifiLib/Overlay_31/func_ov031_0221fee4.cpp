@@ -4,6 +4,11 @@
 #include "NitroSDK/WirelessScanDescriptor.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define data_ov031_0224fb20 data_ov031_02250720
+#define data_ov031_0224fb80 data_ov031_02250780
+#endif
+
 struct Struct_ov031_0221fd18_2 {
     unsigned int unknown_0_;
     unsigned char unknown_4_[0x20];

@@ -7506,3 +7506,12 @@ src/WifiLib/Overlay_31/func_ov031_02222928.cpp:
 src/NitroCrypto/Overlay_31/func_ov031_022118a8.cpp:
     complete
     .text start:0x02212088 end:0x02212118
+
+src/WifiLib/Overlay_31/func_ov031_0221c5ac.cpp:
+    complete
+    .text start:0x0221cd8c end:0x0221d7a4
+    .rodata start:0x02246cd0 end:0x02246cd4
+
+src/WifiLib/Overlay_31/func_ov031_0221fee4.cpp:
+    complete
+    .text start:0x022206c4 end:0x02220958

@@ -1973,7 +1973,7 @@ magic$8 kind:data(any) addr:0x02246cb0 local
 data_ov031_022460c0 kind:data(any) addr:0x02246cb4
 data_ov031_022460c4 kind:data(any) addr:0x02246cb8
 data_ov031_022460cc kind:data(any) addr:0x02246cc0
-data_ov031_02246cd0 kind:data(any) addr:0x02246cd0
+@73 kind:data(any) addr:0x02246cd0 local
 data_ov031_022460e0 kind:data(any) addr:0x02246cd4
 data_ov031_022460e8 kind:data(any) addr:0x02246cdc
 data_ov031_02246110 kind:data(any) addr:0x02246d04
