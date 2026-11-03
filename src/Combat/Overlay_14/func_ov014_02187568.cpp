@@ -107,8 +107,12 @@ extern "C" void func_020c5588(int, int, int, int, int);
 extern "C" int func_02097420(Struct_02097420*);
 extern "C" Struct_ov014_02184f78* func_02097418(Struct_02097418*);
 extern "C" void func_0206819c(const char*, char*, int);
+#if defined(jpn)
+extern "C" void func_02080654(Struct_0207f914*, int, int);
+#else
 extern "C" void func_0207f914(Struct_0207f914*, int, int, int);
 extern "C" void func_02080798(void*, int, int);
+#endif
 extern "C" int func_02046900(Struct_02020cb8_4*);
 extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
 extern "C" void func_020dfc40(Struct_0201099c_14*);
@@ -125,6 +129,12 @@ void func_ov014_02187488(Struct_ov014_02186bc8* arg0);
 Struct_ov014_02184f78* func_020974b0(Struct_020974b0* arg0, int arg1, int, bool arg3, int, short* arg5);
 }
 
+#if defined(jpn)
+extern const char data_ov014_0218a51c[];
+extern const char data_ov014_0218a534[];
+extern const char data_ov014_0218a551[];
+extern const char data_ov014_0218a567[];
+#else
 extern const char data_ov014_0218970c[];
 extern const char data_ov014_02189722[];
 extern const char data_ov014_02189734[];
@@ -132,10 +142,12 @@ extern const char data_ov014_0218974d[];
 extern const char data_ov014_02189754[];
 extern const char data_ov014_0218976a[];
 extern const char data_ov014_02189784[];
+#endif
 
 // USA: func_ov014_02187568
 extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
 {
+    SafeAllocator* var15;
     int* var0 = func_0200fb8c((int*)GameState::GetInstance());
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     if (arg0->unknown_17b_ == 0)
@@ -156,7 +168,11 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
     }
     else if (arg0->unknown_17b_ == 2)
     {
+#if defined(jpn)
+        arg0->unknown_168_ = var1->QueueLoadFile(data_ov014_0218a51c, NULL);
+#else
         arg0->unknown_168_ = var1->QueueLoadFileInGP2(data_ov014_0218970c, data_ov014_02189722, NULL);
+#endif
         arg0->unknown_17b_++;
     }
     else if (arg0->unknown_17b_ == 3)
@@ -178,6 +194,7 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
     }
     else if (arg0->unknown_17b_ == 4)
     {
+#if !defined(jpn)
         int var5 = func_02097420((Struct_02097420*)&arg0->unknown_a4_);
         Struct_ov014_02184f78* var6 = func_02097418((Struct_02097418*)&arg0->unknown_a4_);
         for (int var7 = 0; var7 < var5; var7++, var6++)
@@ -186,6 +203,7 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
             func_0206819c(var6->unknown_8_, var8, 0);
             sprintf((char*)var6->unknown_8_, var8);
         }
+#endif
         BG0CNTSUB = (BG0CNTSUB & (3 | 0x40)) | (0x1d << 8);
         BG1CNTSUB = (BG1CNTSUB & (3 | 0x40)) | (0x1e << 8);
         BG2CNTSUB = (BG2CNTSUB & (3 | 0x40)) | (0x1f << 8) | (2 << 2);
@@ -198,7 +216,11 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
         {
             SafeAllocator* var9 = arg0->unknown_b4_;
             var9[2].Reset();
+#if defined(jpn)
+            func_02080654((Struct_0207f914*)arg0->unknown_c0_, (int)&var9[2], (int)data_ov014_0218a534);
+#else
             func_0207f914((Struct_0207f914*)arg0->unknown_c0_, (int)&var9[2], (int)data_ov014_02189734, (int)data_ov014_0218974d);
+#endif
             arg0->unknown_17b_++;
         }
     }
@@ -212,11 +234,17 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
     }
     else if (arg0->unknown_17b_ == 7)
     {
+#if !defined(jpn)
         func_02080798(arg0->unknown_c0_, 6, 1);
+#endif
         arg0->unknown_f8_.unknown_50_ = 1;
         arg0->unknown_f8_.inline_ov008_02188d74(arg0->unknown_d4_, 8);
         arg0->unknown_f8_.unknown_3c_ = arg0->unknown_d8_;
+#if defined(jpn)
+        arg0->unknown_168_ = var1->QueueLoadFile(data_ov014_0218a551, NULL);
+#else
         arg0->unknown_168_ = var1->QueueLoadFile(data_ov014_02189754, NULL);
+#endif
         arg0->unknown_17b_++;
     }
     else if (arg0->unknown_17b_ == 8)
@@ -227,7 +255,6 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
             void* var12;
             unsigned int var13;
             unsigned int var14;
-            SafeAllocator* var15;
             int var16;
             var1->GetLoadedFileByID(arg0->unknown_168_, &var12, &var13);
             var16 = func_02046900((Struct_02020cb8_4*)var12);
@@ -247,7 +274,11 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
     else if (arg0->unknown_17b_ == 9)
     {
         func_020dfc40((Struct_0201099c_14*)&arg0->unknown_e0_);
+#if defined(jpn)
+        arg0->unknown_168_ = var1->QueueLoadFile(data_ov014_0218a567, NULL);
+#else
         arg0->unknown_168_ = var1->QueueLoadFileInGP2(data_ov014_0218976a, data_ov014_02189784, NULL);
+#endif
         arg0->unknown_17b_++;
     }
     else if (arg0->unknown_17b_ == 10)
