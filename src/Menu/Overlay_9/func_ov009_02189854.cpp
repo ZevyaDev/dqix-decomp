@@ -1,8 +1,16 @@
+#if defined(jpn)
+#define func_ov009_02189854 func_ov009_0218a8b4
+#endif
+
 struct Struct_ov009_02189854 {
     int unknown_0_, unknown_4_, unknown_8_, unknown_c_, unknown_10_, unknown_14_, unknown_18_, unknown_1c_;
 };
 struct Struct_ov009_02189854_2 {
+#if defined(jpn)
+    unsigned char unknown_0_[0xbb0];
+#else
     unsigned char unknown_0_[0xbec];
+#endif
     unsigned char unknown_bec_[12];
     int unknown_bf8_;
     unsigned char unknown_bfc_[0xc2c - 0xbfc];
@@ -22,12 +30,21 @@ extern "C" {
     void func_ov009_02188e70(Struct_ov009_02189854_2*, int);
 
     int func_ov009_02189854(Struct_ov009_02189854_2* arg0, int arg1, int arg2) {
+#if defined(jpn)
+        if (arg2 >= 0xa9 && arg2 <= 0xb8) {
+            if (arg1 >= 0x98 && arg1 <= 0xc7)
+                return -2;
+            if (arg1 >= 0xd2 && arg1 <= 0xf9)
+                return -3;
+        }
+#else
         if (arg2 >= 0xa9 && arg2 <= 0xb1) {
             if (arg1 >= 0x8e && arg1 <= 0xbe)
                 return -2;
             if (arg1 >= 0xc8 && arg1 <= 0xf0)
                 return -3;
         }
+#endif
         if (arg2 >= 8 && arg2 <= 24) {
             for (int var0 = 0; var0 < 8; ++var0) {
                 int var1 = (var0 << 4) + 0x78;
@@ -37,6 +54,7 @@ extern "C" {
             }
         }
 
+        int var13;
         Struct_ov009_02189854* var3 = &arg0->unknown_c2c_;
         int var4 = var3->unknown_8_;
         int var5 = var3->unknown_c_;
@@ -47,9 +65,22 @@ extern "C" {
         int var10 = -4;
         for (int var11 = 0; var11 < var9; ++var11) {
             for (int var12 = 0; var12 < var8; ++var12) {
-                int var13 = var3->unknown_0_ + var6 * var12;
+                var13 = var3->unknown_0_ + var6 * var12;
+#if defined(jpn)
+                if (arg0->unknown_c58_ == 8) {
+                    if (var12 >= 5)
+                        var13 += 8;
+                    if (var12 == var8 - 1) {
+                        var4 = 0x18;
+                        var13 += 0x10;
+                        if (var11 == 5)
+                            var4 += 8;
+                    }
+                }
+#else
                 if (arg0->unknown_c58_ == 8)
                     break;
+#endif
                 int var14 = var13 + var4;
                 if (arg1 >= var13 && arg1 <= var14) {
                     int var15 = var3->unknown_4_ + var7 * var11;
@@ -66,6 +97,10 @@ extern "C" {
             }
             if (var10 >= 0)
                 break;
+#if defined(jpn)
+            if (arg0->unknown_c58_ == 8)
+                var4 = var3->unknown_8_;
+#endif
         }
 
         int var17 = arg0->unknown_bf8_;
