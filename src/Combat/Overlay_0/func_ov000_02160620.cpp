@@ -4,7 +4,6 @@
 
 #if defined(jpn)
 #define RG(usa, jpn) (jpn)
-#define func_ov026_021d8ba0 func_ov026_021d9434
 #else
 #define RG(usa, jpn) (usa)
 #endif

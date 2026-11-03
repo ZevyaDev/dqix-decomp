@@ -9,6 +9,18 @@
 #include "Resource/CharacterCreationUI.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define data_ov026_021dedbc data_ov026_021df390
+#define data_ov026_021dedd4 data_ov026_021df3a8
+#define data_ov026_021dedec data_ov026_021df3f8
+#define data_ov026_021de6dc data_ov026_021decf8
+#define func_ov026_021dd8a8 func_ov026_021ddf78
+extern char data_ov026_021df3c0[];
+extern char data_ov026_021dedcc[];
+extern char data_ov026_021dee12[];
+extern char data_ov026_021dedee[];
+#endif
+
 struct Struct_ov026_021d8ba0_4;
 struct Struct_ov000_02160da0;
 struct Struct_ov000_02161e30;
@@ -53,14 +65,26 @@ struct Struct_020e6e88 { char unknown_0_[0x80]; };
 struct Struct_ov026_021d8ba0_3 {
     char unknown_0_[8][3];
     int unknown_18_;
+#if defined(jpn)
+    const char* unknown_1c_[4];
+    char unknown_2c_[0x20];
+#else
     const char* unknown_1c_[8];
+#endif
 };
 
 inline Struct_ov026_021d8ba0_3& inline_ov026_021d8ba0_2() {
     static Struct_ov026_021d8ba0_3 s = {
+#if defined(jpn)
+        {"f2", "b1", "f4", "b3", "f3", "f1", "b4", "b2"},
+        -1,
+        {data_ov026_021dedcc, data_ov026_021dee12, data_ov026_021dedee, s.unknown_2c_},
+        "\x82\xcd\n\x82\xa8\x82\xc7\x82\xeb\x82\xab\x81\x40\x82\xc6\x82\xdc\x82\xc7\x82\xc1\x82\xc4\x82\xa2\x82\xe9\x81\x49",
+#else
         {"f4", "f3", "f1", "f2", "b4", "b1", "b2", "b3"},
         -1,
         {s.unknown_0_[2], s.unknown_0_[3], s.unknown_0_[1], s.unknown_0_[0], s.unknown_0_[5], s.unknown_0_[6], s.unknown_0_[7], s.unknown_0_[4]},
+#endif
     };
     return s;
 }
@@ -190,7 +214,11 @@ void func_ov017_021c6814(unsigned short, unsigned short, Struct_ov026_021d8ba0*,
 int func_ov026_021ddd84(GameResources*, Struct_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, int);
 void func_ov017_021c847c();
 void func_020dd0b0(int, void*);
+#if defined(jpn)
+void func_0204500c(Struct_ov023_021f4c04*, void*, int);
+#else
 void func_0204500c(Struct_ov023_021f4c04*, void*, int, int);
+#endif
 int func_ov026_021d8a40();
 void func_ov026_021dce34(int, Struct_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, void*, void*, void*, void*, void*, void*);
 void func_ov026_021dd8a8(Struct_ov000_02161e30*, Struct_ov000_0217e870_2*);
@@ -256,6 +284,14 @@ struct Struct_ov026_021d8ba0_9 {
 };
 
 struct Struct_ov023_021f4c04 {
+#if defined(jpn)
+    char unknown_0_[0x868];
+    int unknown_998_;
+    char unknown_86c_[0xf73];
+    unsigned char unknown_19af_;
+    char unknown_17e0_[0x1b];
+    unsigned char unknown_19ca_;
+#else
     char unknown_0_[0x20];
     char* unknown_20_;
     char unknown_24_[0x38];
@@ -266,6 +302,7 @@ struct Struct_ov023_021f4c04 {
     unsigned char unknown_19af_;
     char unknown_19b0_[0x1a];
     unsigned char unknown_19ca_;
+#endif
 };
 
 struct Struct_ov026_021d8ba0_5 {
@@ -305,8 +342,13 @@ struct Struct_ov000_02161e30 {
 
 struct Struct_ov000_02160da0 {
     char unknown_0_[0x30];
+#if defined(jpn)
+    char unknown_30_[0x108];
+    char unknown_14c_[0xe0];
+#else
     char unknown_30_[0x11c];
     char unknown_14c_[0x150];
+#endif
     Struct_ov000_02161e30* unknown_29c_;
     Struct_ov000_0217e870_2* unknown_2a0_;
     char unknown_2a4_[0x974];
@@ -322,7 +364,11 @@ struct Struct_ov000_02160da0 {
     unsigned char unknown_eb4_;
     unsigned char unknown_eb5_;
     char unknown_eb6_[0x12];
+#if defined(jpn)
+    char unknown_ec8_[0x28d8];
+#else
     char unknown_ec8_[0x2898];
+#endif
     char unknown_3760_[0xb8];
     Struct_0201099c_3 unknown_3818_;
     char unknown_3820_[0xbc];
@@ -330,9 +376,14 @@ struct Struct_ov000_02160da0 {
     char unknown_38e0_[0x7d0];
     int unknown_40b0_;
     unsigned char unknown_40b4_;
+#if defined(jpn)
+    char unknown_4071_[0x143f];
+    char unknown_53bc_[0x1c0];
+#else
     char unknown_40b5_[0x11b7];
     char unknown_526c_[0x150];
     char unknown_53bc_[0xc0];
+#endif
     int unknown_547c_[8];
     int unknown_549c_[8];
     unsigned char unknown_54bc_;
@@ -351,7 +402,11 @@ struct Struct_ov000_02160da0 {
     char unknown_54ee_[0x2];
     int unknown_54f0_;
     int unknown_54f4_[4];
+#if defined(jpn)
+    char unknown_56f8_[0xd0];
+#else
     char unknown_5504_[0xd4];
+#endif
     int unknown_55d8_;
     char unknown_55dc_[0x18];
     int unknown_55f4_;
@@ -444,6 +499,7 @@ extern "C" ARM void func_ov026_021d8ba0(Struct_ov000_02160da0* arg0) {
     int* var46;
     void** var47;
     Struct_ov026_021d8ba0_7* var48;
+    Struct_ov000_0215440c_6* var72;
     unsigned char var49;
 
     var17 = GameState::GetInstance();
@@ -641,10 +697,32 @@ state1:
         func_ov026_021daec8(arg0->unknown_29c_, arg0->unknown_c18_, var49);
         {
             Struct_ov000_02161e30* var71 = arg0->unknown_29c_;
-            Struct_ov000_0215440c_6* var72;
             int var73;
             int var74;
             var43 = GameState::GetInstance();
+#if defined(jpn)
+            var41 = arg0->unknown_53bc_;
+            var72 = var71->unknown_81b0_;
+            var74 = 0;
+            func_ov000_02174614(arg0->unknown_3760_, -1);
+            func_ov000_02174dc0(arg0->unknown_3760_);
+            for (var38 = 0; var38 < var72->unknown_1_4_; var38++) {
+                for (var73 = 0; var73 < var72[var38].unknown_e_0_; var73++) {
+                    var36 = func_0200fea4(var43, var72[var38].unknown_6_[var73] + 0xc0);
+                    if (var36 == 0 || func_02010088((Struct_02010088*)var36) || func_ov026_021dd3c4((Struct_ov026_021d8ba0_10*)var36)) {
+                        continue;
+                    }
+                    var48 = *(Struct_ov026_021d8ba0_7**)((char*)var36 + 0x144);
+                    if (var48 == 0) {
+                        continue;
+                    }
+                    func_0203c108((Struct_0203c108_3*)(var41 + var74 * 0x38), (char*)var36 + 0x14c);
+                    arg0->unknown_547c_[var74] = *((unsigned char*)var36 + 0x17c);
+                    arg0->unknown_549c_[var74] = var72[var38].unknown_6_[var73] + 0xc0;
+                    var74++;
+                }
+            }
+#else
             var42 = arg0->unknown_526c_;
             var41 = arg0->unknown_53bc_;
             var72 = var71->unknown_81b0_;
@@ -685,6 +763,7 @@ state1:
                     var74++;
                 }
             }
+#endif
             func_ov000_021744f4((int)arg0->unknown_3760_, (void*)var74);
             var72 = var19->unknown_81b0_;
             arg0->unknown_54bc_ = var72->unknown_1_0_;
@@ -826,11 +905,16 @@ state1:
         if (((POWCNT & 0x8000) >> 15) == 1 && (IsBrightnessOutsideValidRange((GameResources*)var18, false) || IsBrightnessOutsideValidRange((GameResources*)var18, true)) && arg0->unknown_7712_ == 0) {
             SetBrightness(var18, 0, 0xf);
             if (var21->unknown_998_ == 0) {
+#if defined(jpn)
+                func_0204500c(var21, data_ov026_021df3c0, 0);
+                var21->unknown_998_ = 1;
+#else
                 void* var90 = func_020421a0()->unknown_5c_;
                 memset(var90, 0, 0x960);
                 func_020dd0b0(0, var90);
                 func_0204500c(var21, var90, 0, 0xe3);
                 var21->unknown_998_ = 1;
+#endif
             }
         }
         if (func_ov026_021ddd84(var18, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 1) != 0) {
@@ -891,9 +975,13 @@ state1:
             if (var102 != 0 && var101 != 0) {
                 func_02046380(var99);
                 func_02046574((Struct_02046574_2*)var99, 0, (char*)var101 + 0x14c);
+#if defined(jpn)
+                func_0204500c(var99, var102, 0);
+#else
                 func_020e4ce8(var4, (char*)var101, 1);
                 var99->unknown_20_ = var4;
                 func_0204500c(var99, var102, 0, 0xe3);
+#endif
                 var99->unknown_998_ = 1;
                 arg0->unknown_eac_ = 0xf;
                 return;
