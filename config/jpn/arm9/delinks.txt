@@ -19520,3 +19520,7 @@ src/Combat/Main/func_020abd20.cpp:
 src/Combat/Main/func_02067b28.cpp:
     complete
     .text start:0x020694dc end:0x0206982c
+
+src/Combat/Main/func_0205b530.cpp:
+    complete
+    .text start:0x0205c830 end:0x0205c9ac
