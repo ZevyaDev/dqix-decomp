@@ -20514,3 +20514,83 @@ src/NitroSDK/TouchScreen.cpp:
 src/MSL/Main/data_020e6d5c.c:
     complete
     .rodata start:0x020e6d6c end:0x020e6d74
+
+src/Combat/Main/data_02000000.s:
+    complete
+    .text start:0x02000000 end:0x02000084
+
+src/Combat/Main/data_02000088.s:
+    complete
+    .text start:0x02000088 end:0x02000108
+
+src/Combat/Main/data_02000110.s:
+    complete
+    .text start:0x02000110 end:0x0200016c
+
+src/Combat/Main/data_02000170.s:
+    complete
+    .text start:0x02000170 end:0x020001c0
+
+src/Combat/Main/data_020001c8.s:
+    complete
+    .text start:0x020001c8 end:0x02000240
+
+src/Combat/Main/data_02000244.s:
+    complete
+    .text start:0x02000244 end:0x02000298
+
+src/Combat/Main/data_0200029c.s:
+    complete
+    .text start:0x0200029c end:0x020002fc
+
+src/Combat/Main/data_02000300.s:
+    complete
+    .text start:0x02000300 end:0x02000350
+
+src/Combat/Main/data_02000354.s:
+    complete
+    .text start:0x02000354 end:0x020003b8
+
+src/Combat/Main/data_020003c0.s:
+    complete
+    .text start:0x020003c0 end:0x02000438
+
+src/Combat/Main/data_02000440.s:
+    complete
+    .text start:0x02000440 end:0x020004b0
+
+src/Combat/Main/data_020004b8.s:
+    complete
+    .text start:0x020004b8 end:0x02000520
+
+src/Combat/Main/data_02000528.s:
+    complete
+    .text start:0x02000528 end:0x0200058c
+
+src/Combat/Main/data_02000594.s:
+    complete
+    .text start:0x02000594 end:0x020005f4
+
+src/Combat/Main/data_020005fc.s:
+    complete
+    .text start:0x020005fc end:0x02000664
+
+src/Combat/Main/data_0200066c.s:
+    complete
+    .text start:0x0200066c end:0x020006cc
+
+src/Combat/Main/data_020006d0.s:
+    complete
+    .text start:0x020006d0 end:0x02000744
+
+src/Combat/Main/data_0200074c.s:
+    complete
+    .text start:0x0200074c end:0x0200079c
+
+src/Combat/Main/data_020007a4.s:
+    complete
+    .text start:0x020007a4 end:0x02000800
+
+src/Combat/Main/data_02000ba0.s:
+    complete
+    .text start:0x02000ba0 end:0x02000c9c

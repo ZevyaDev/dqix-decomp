@@ -20470,3 +20470,83 @@ src/Runtime/Main/func_0200c76c.s:
 src/NitroSDK/Main/func_020b20b0.cpp:
     complete
     .text start:0x020b20b0 end:0x020b23a8
+
+src/Combat/Main/data_02000000.s:
+    complete
+    .text start:0x02000000 end:0x02000068
+
+src/Combat/Main/data_02000070.s:
+    complete
+    .text start:0x02000070 end:0x020000d4
+
+src/Combat/Main/data_020000d8.s:
+    complete
+    .text start:0x020000d8 end:0x02000140
+
+src/Combat/Main/data_02000144.s:
+    complete
+    .text start:0x02000144 end:0x020001c0
+
+src/Combat/Main/data_020001c4.s:
+    complete
+    .text start:0x020001c4 end:0x02000214
+
+src/Combat/Main/data_0200021c.s:
+    complete
+    .text start:0x0200021c end:0x02000268
+
+src/Combat/Main/data_02000270.s:
+    complete
+    .text start:0x02000270 end:0x020002cc
+
+src/Combat/Main/data_020002d0.s:
+    complete
+    .text start:0x020002d0 end:0x0200033c
+
+src/Combat/Main/data_02000344.s:
+    complete
+    .text start:0x02000344 end:0x0200038c
+
+src/Combat/Main/data_02000394.s:
+    complete
+    .text start:0x02000394 end:0x02000410
+
+src/Combat/Main/data_02000418.s:
+    complete
+    .text start:0x02000418 end:0x02000464
+
+src/Combat/Main/data_0200046c.s:
+    complete
+    .text start:0x0200046c end:0x020004e8
+
+src/Combat/Main/data_020004f0.s:
+    complete
+    .text start:0x020004f0 end:0x0200056c
+
+src/Combat/Main/data_02000570.s:
+    complete
+    .text start:0x02000570 end:0x020005d0
+
+src/Combat/Main/data_020005d8.s:
+    complete
+    .text start:0x020005d8 end:0x0200062c
+
+src/Combat/Main/data_02000630.s:
+    complete
+    .text start:0x02000630 end:0x020006a8
+
+src/Combat/Main/data_020006b0.s:
+    complete
+    .text start:0x020006b0 end:0x02000730
+
+src/Combat/Main/data_02000738.s:
+    complete
+    .text start:0x02000738 end:0x0200078c
+
+src/Combat/Main/data_02000790.s:
+    complete
+    .text start:0x02000790 end:0x02000800
+
+src/Combat/Main/data_02000ba0.s:
+    complete
+    .text start:0x02000ba0 end:0x02000c9c

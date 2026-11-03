@@ -40,3 +40,7 @@ src/NitroSDK/itcm/func_01ff8218.cpp:
 src/NitroSDK/itcm/func_01ff82e4.cpp:
     complete
     .text start:0x01ff82e4 end:0x01ff8300
+
+src/System/itcm/data_01ff8640.s:
+    complete
+    .text start:0x01ff8640 end:0x01ff87a4
