@@ -10,17 +10,36 @@ struct Struct_ov025_021dc324_5 {
     unsigned int unknown_4_0_:12, unknown_5_4_:20;
     char unknown_8_[12]; unsigned int unknown_14_0_:28, unknown_17_4_:4;
 };
-struct Struct_ov025_021dc324_6 { char unknown_0_[0xc00]; char unknown_c00_[0x260]; unsigned char unknown_e60_; };
+struct Struct_ov025_021dc324_6 {
+#if defined(jpn)
+    char unknown_0_[0x800];
+#else
+    char unknown_0_[0xc00];
+#endif
+    char unknown_c00_[0x260]; unsigned char unknown_e60_;
+};
 struct Struct_ov025_021dc324_7 { char unknown_0_[0x5ce]; short unknown_5ce_; char unknown_5d0_[0xe78 - 0x2a8 - 0x5d0]; };
-struct Struct_ov025_021dc324_8 { char unknown_0_[0x5800]; Object3D unknown_5800_; };
 struct Struct_ov025_021dc324_9 {
     union {
+#if defined(jpn)
+        struct { char unknown_0_[0x394]; Struct_ov025_021dc324_6 unknown_18_; };
+#else
         struct { char unknown_0_[0x18]; Struct_ov025_021dc324_6 unknown_18_; };
-        struct { char unknown1_0_[0x154]; Struct_ov025_021dc324_8 unknown_154_; };
+#endif
         struct {
-            char unknown2_0_[0x29c]; char* unknown_29c_; char unknown_2a0_[8]; Struct_ov025_021dc324_7 unknown_2a8_;
+#if defined(jpn)
+            char unknown2_0_[0x218];
+#else
+            char unknown2_0_[0x29c];
+#endif
+            char* unknown_29c_; char unknown_2a0_[8]; Struct_ov025_021dc324_7 unknown_2a8_;
             unsigned char unknown_e78_; char unknown_e79_[0x33]; int unknown_eac_;
-            char unknown_eb0_[0x5954 - 0xeb0]; Object3D unknown_5954_;
+#if defined(jpn)
+            char unknown_eb0_[0x5b44 - 0xe2c];
+#else
+            char unknown_eb0_[0x5954 - 0xeb0];
+#endif
+            Object3D unknown_5954_;
             Object3D unknown_5a00_; char unknown_5aac_[4]; char unknown_5ab0_[0x5c3a - 0x5ab0]; unsigned char unknown_5c3a_;
         };
     };
@@ -52,11 +71,12 @@ extern "C" ARM void func_ov025_021dc324(Struct_ov025_021dc324_9* arg0) {
     var2 = &arg0->unknown_18_;
     if (!func_ov025_021ea46c(&arg0->unknown_2a8_)) return;
     Struct_02108e10* var4 = func_020797dc();
-    Struct_ov025_021dc324_8* var5 = &arg0->unknown_154_;
+    Object3D* var5 = &arg0->unknown_5954_;
+    Object3D* var17 = &arg0->unknown_5a00_;
     if (data_ov025_021ef404.unknown_4_) {
         if (!func_ov000_0216f0bc(var2->unknown_c00_)) return;
-        var5->unknown_5800_.MakeHidden();
-        arg0->unknown_5a00_.MakeHidden();
+        var5->MakeHidden();
+        var17->MakeHidden();
         int var6 = 0;
         Struct_ov025_021dc324_5* var7 = func_02079e2c((char*)var4, (short)var3->unknown_0_);
         if (func_ov000_02163690(var3->unknown_0_)) var6 = 1;
