@@ -8,6 +8,10 @@
 
 #if defined(jpn)
 #define func_0205ec34 func_0205ff20
+#define data_020f114d data_020f1251
+#define data_020f116b data_020f126f
+#define data_020f117f data_020f1283
+#define data_020f1192 data_020f1296
 #endif
 
 struct Struct_0208b9a0;
@@ -47,7 +51,11 @@ struct Struct_0208bf78_7 {
 };
 
 struct Struct_020465c0 {
+#if defined(jpn)
+    unsigned char unknown_0_[0x2c];
+#else
     unsigned char unknown_0_[0x60];
+#endif
     char* unknown_60_;
 };
 
@@ -131,15 +139,22 @@ extern "C" void func_0204b2e0(void*, char*);
 extern "C" void func_0204b3a0(Struct_02020cb8_6*, char*);
 extern "C" void func_0204c684(Struct_0208bf78_2*);
 extern "C" Struct_0205faf4_3* func_0205ec34();
-extern "C" void func_0204f41c(Struct_0208bf78_2*, short, short, const char*, int, unsigned char, short*, short*, int);
 extern "C" void func_02046380(Struct_020465c0*);
-extern "C" void func_02046608(Struct_020465c0*, int, const char*, char*, int, int, int);
-extern "C" int func_020420e8(char*, int);
 extern "C" void func_0208d42c(void*, Struct_0208bf78_2*, short, short, int, unsigned char, unsigned char, unsigned char, unsigned char);
 extern "C" void func_0204b5b4(void*, int);
+#if defined(jpn)
+extern "C" void func_02050678(void*, short, short, const char*, int, unsigned char, short*, short*);
+extern "C" void func_020474a8(Struct_020465c0*, int, const char*, char*);
+extern "C" int func_020d2ff0(const char*);
+extern char data_020f1234[], data_020f129b[];
+#else
+extern "C" void func_0204f41c(Struct_0208bf78_2*, short, short, const char*, int, unsigned char, short*, short*, int);
+extern "C" void func_02046608(Struct_020465c0*, int, const char*, char*, int, int, int);
+extern "C" int func_020420e8(char*, int);
+extern char data_020f1120[], data_020f113b[], data_020f1197[];
+#endif
 
-extern char data_020f1120[], data_020f113b[], data_020f114d[], data_020f116b[], data_020f117f[];
-extern char data_020f1192[], data_020f1197[];
+extern char data_020f114d[], data_020f116b[], data_020f117f[], data_020f1192[];
 
 static inline unsigned char inline_0208bf78_2(Struct_02065990_3* arg0, int arg1) {
     return func_020965ac(arg0, arg1);
@@ -157,12 +172,29 @@ static inline bool inline_0208bf78_5(Struct_0205faf4_3* arg0, unsigned char arg1
     return func_0206e120(arg0, arg1) == arg2;
 }
 
+#if defined(jpn)
+static inline void inline_0208bf78_6(void* arg0, short arg1, short arg2, int arg3, unsigned char arg4) {
+    if (arg0) {
+        char var0[8] = {0};
+        short var1;
+        short var2;
+        sprintf(var0, data_020f129b, arg3);
+        func_020d2ff0(var0);
+        func_02050678(arg0, arg1, arg2, var0, 8, arg4, &var1, &var2);
+    }
+}
+#endif
+
 // USA: func_0208bf78
 extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
     if (arg0->unknown_d6_ == 0) {
         func_0208d854((Struct_0208b9a0*)&arg0->unknown_1c_);
+#if defined(jpn)
+        arg0->unknown_bc_ = var0->QueueLoadFile(data_020f1234, 0);
+#else
         arg0->unknown_bc_ = var0->QueueLoadFileInGP2(data_020f1120, data_020f113b, 0);
+#endif
         arg0->unknown_d6_++;
     } else if (arg0->unknown_d6_ == 1) {
         if (!var0->GetTaskStatus(arg0->unknown_bc_)) return;
@@ -223,7 +255,11 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
         var15.unknown_8c_.unknown_1c_ = 0x20;
         var15.unknown_8c_.unknown_1e_ = 0x18;
         var15.unknown_8c_.unknown_28_ = 0xc;
+#if defined(jpn)
+        var15.unknown_8c_.unknown_2a_ = 0x15;
+#else
         var15.unknown_8c_.unknown_2a_ = 0x10;
+#endif
         arg0->unknown_da_ &= ~8;
         if (arg0->unknown_d2_ != 9999) {
             func_0205ec34();
@@ -231,15 +267,24 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
             short var20 = arg0->unknown_d2_;
             char var21[8] = {0};
             sprintf(var21, data_020f1192, var20);
+#if defined(jpn)
+            func_02050678(&var15, 0x18, 0x16, var21, 0xc, 0xf, &var16, &var17);
+#else
             func_0204f41c(&var15, 0x18, 0x14, var21, 0xc, 0xf, &var16, &var17, 0);
+#endif
             int var22 = func_0208d9e8((Struct_0208bf78_5*)&arg0->unknown_1c_, var20);
             bool var23 = 0;
             if (arg0->unknown_dd_ && !func_02096088(var19, inline_0208bf78_2(var19, var20))) {
                 if (!func_02096100((int)var19, var19->unknown_4a8_, inline_0208bf78_2(var19, var20))) var23 = 1;
             }
             if (var23) var22 = func_020e0434(&arg0->unknown_4_, 3);
+#if defined(jpn)
+            func_02050678(&var15, 0x48, 0x16, (const char*)var22, 0xc, 0xf, &var16, &var17);
+            int var24 = 0;
+#else
             int var24 = 0;
             func_0204f41c(&var15, 0x30, 0x14, (const char*)var22, 0xc, 0xf, &var16, &var17, var24);
+#endif
             if (inline_0208bf78_4(inline_0208bf78_2(var19, var20), 2)) {
                 var22 = func_0208da18((Struct_0208bf78_5*)&arg0->unknown_1c_, var20,
                                                       func_0209618c((Struct_0205faf4_7*)var19, inline_0208bf78_2(var19, var20)));
@@ -279,7 +324,11 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
             }
             Struct_020465c0* var30 = func_020421a0();
             char* var31 = var30->unknown_60_;
+#if defined(jpn)
+            memset(var31, 0, 0x800);
+#else
             memset(var31, 0, 0x960);
+#endif
             Struct_0208bf78_7* var32 = func_02096134((Struct_0205faf4_7*)var19, inline_0208bf78_2(var19, var20));
             if (var32) {
                 func_02046380(var30);
@@ -296,13 +345,35 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
                     func_020465c0(var30, var35 + 3, var36);
                 }
             }
+#if defined(jpn)
+            func_020474a8(var30, 0xc, (const char*)var22, var31);
+            func_02050678(&var15, 0x13, 0x2e, var31, 0xc, 0xf, &var16, &var17);
+#else
             func_02046608(var30, 0xc, (const char*)var22, var31, 0xe0, 0, 1);
             func_0204f41c(&var15, 0x10, 0x28, var31, 0xc, 0xf, &var16, &var17, 0);
+#endif
             var15.unknown_8c_.unknown_28_ = 0xa;
             var15.unknown_8c_.unknown_2a_ = 0x10;
+#if defined(jpn)
+            func_02050678(&var15, 0, 0, (const char*)func_020e0434(&arg0->unknown_4_, var24), 0xa, 0xe, &var16, &var17);
+#else
             func_0204f41c(&var15, 0, 0, (const char*)func_020e0434(&arg0->unknown_4_, var24), 0xa, 0xe, &var16, &var17, 0);
+#endif
             var15.unknown_8c_.unknown_28_ = 8;
             var15.unknown_8c_.unknown_2a_ = 0x10;
+#if defined(jpn)
+            if (var24) {
+                Struct_0208bf78_6 var37 = inline_0208bf78_3(var19, inline_0208bf78_2(var19, var20));
+                int var41 = var37.unknown_1_3_;
+                int var42 = var37.unknown_2_0_;
+                int var43 = var37.unknown_2_5_;
+                func_0208d42c(arg0, &var15, 0x5c, 0xa8, var37.unknown_0_0_ + 2000, 0xf, 4, 1, 0);
+                func_0208d42c(arg0, &var15, 0x82, 0xa8, var37.unknown_0_7_, 0xf, 2, 1, 0);
+                inline_0208bf78_6(&var15, 0x9a, 0xa8, var41, 0xf);
+                func_0208d42c(arg0, &var15, 0xb7, 0xa8, var42, 0xf, 2, 1, 1);
+                func_0208d42c(arg0, &var15, 0xcf, 0xa8, var43, 0xf, 2, 1, 1);
+            }
+#else
             if (var24) {
                 Struct_0208bf78_6 var37 = inline_0208bf78_3(var19, inline_0208bf78_2(var19, var20));
                 char var38[0x100] = {0};
@@ -311,6 +382,7 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
                 func_0208d42c(arg0, &var15, 0xd7, 0xa8, var37.unknown_2_0_, 0xf, 2, 1, 1);
                 func_0208d42c(arg0, &var15, 0xda, 0xa8, var37.unknown_2_5_, 0xf, 2, 0, 1);
             }
+#endif
         }
         Struct_0208bf78_3 var39;
         func_0204af64((Struct_02020cb8*)&var39);
