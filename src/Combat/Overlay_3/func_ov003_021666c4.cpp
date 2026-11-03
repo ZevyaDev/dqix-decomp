@@ -7,7 +7,11 @@ typedef short Type_ov003_021666c4;
 typedef unsigned int Type_020b11c8;
 
 struct Struct_02080cc0 {
+#if defined(jpn)
+    Type_020b1300 unknown_0_[0x2a];
+#else
     Type_020b1300 unknown_0_[0x36];
+#endif
     Type_ov003_021666c4 unknown_36_;
 };
 struct Struct_02080f8c;
@@ -18,7 +22,11 @@ struct Struct_ov003_021666c4 {
     Type_020b1300 unknown_0_0_ : 1;
     Type_020b1300 unknown_0_1_ : 6;
     Type_020b1300 unknown_0_7_ : 1;
+#if defined(jpn)
+    char unknown_1_[0x1a];
+#else
     char unknown_1_[0x36];
+#endif
 };
 struct Struct_ov003_021666c4_2 {
     Struct_ov003_021666c4 unknown_0_[10];
@@ -27,7 +35,11 @@ struct Struct_ov003_021666c4_2 {
     Struct_0201099c_3 unknown_2dc_;
     Type_020b1300 unknown_2e4_[0x40];
     Struct_02080cc0* unknown_324_;
+#if defined(jpn)
+    Type_020b1300 unknown_328_[0x7c];
+#else
     Type_020b1300 unknown_328_[0x13c];
+#endif
     Type_020b11c8 unknown_464_;
     Type_020b1300 unknown_468_[0x38];
     Type_ov002_0215ab60 unknown_4a0_;
@@ -40,7 +52,7 @@ extern "C" void func_0202ae18();
 extern "C" void func_02080cc0(Struct_02080cc0*, int, int);
 extern "C" void func_02080b40(void*, int);
 extern "C" void func_02080f8c(Struct_02080f8c*, int, int);
-extern "C" void func_02080fa8(Struct_02080fa8*, int, int);
+extern "C" void func_02080fa8(Struct_02080fa8*, Type_ov003_021666c4, int);
 extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_02081198(Struct_02081198*, int, int);
 extern "C" void func_02081164(Struct_02081164*, int, int);
@@ -79,7 +91,13 @@ extern "C" ARM void func_ov003_021666c4(Struct_ov003_021666c4_2* arg0) {
                 func_02080b40(var0, (Type_ov003_021666c4)(unsigned int)var9);
             }
             func_02080f8c((Struct_02080f8c*)var0, var1, (int)var6);
+#if defined(jpn)
+            int var11 = var1 + 8;
+            func_02080cc0(var0, (Type_ov003_021666c4)var11, var4);
+            func_02080fa8((Struct_02080fa8*)var0, var11, var7);
+#else
             func_02080fa8((Struct_02080fa8*)var0, (Type_ov003_021666c4)(var1 + 4), var7);
+#endif
         } else {
             int var10 = func_020e0434(&arg0->unknown_2dc_, 30000);
             func_02080f8c((Struct_02080f8c*)var0, (Type_ov003_021666c4)var1, var10);
