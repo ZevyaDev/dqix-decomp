@@ -6,6 +6,13 @@
 #include "NitroSDK/Matrix.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define data_ov026_021dee0c data_ov026_021df4bf
+#define data_ov026_021dee23 data_ov026_021df4d6
+#define data_ov026_021dee3a data_ov026_021df4ed
+#define data_ov026_021dedec data_ov026_021df3f8
+#endif
+
 struct Struct_ov000_02161e30;
 struct Struct_ov000_0217e870_2;
 struct Struct_02049f50;
@@ -49,13 +56,26 @@ struct Struct_02078398_2 {
 struct Struct_ov000_02160da0 {
     char unknown_0_[0x30];
     SafeAllocator unknown_30_;
+#if defined(jpn)
+    char unknown_44_[0x1d4];
+#else
     char unknown_44_[0x258];
+#endif
     Struct_ov000_02161e30* unknown_29c_;
     Struct_ov000_0217e870_2* unknown_2a0_;
+#if defined(jpn)
+    char unknown_220_[0x34fc];
+    char unknown_3760_[0x1faa];
+#else
     char unknown_2a4_[0x34bc];
     char unknown_3760_[0x1d72];
+#endif
     unsigned short unknown_54d2_;
+#if defined(jpn)
+    char unknown_56c8_[0x2239];
+#else
     char unknown_54d4_[0x223d];
+#endif
     unsigned char unknown_7711_;
     signed char unknown_7712_;
     char unknown_7713_[0x1];
@@ -78,9 +98,17 @@ struct Struct_ov026_021db5a4 {
 };
 
 struct Struct_ov026_021de6a0 {
+#if defined(jpn)
+    char unknown_0_[0x4];
+#else
     char unknown_0_[0xa];
+#endif
     Struct_ov026_021db5a4 unknown_a_;
+#if defined(jpn)
+    char unknown_7_[0x5];
+#else
     char unknown_d_[0xb];
+#endif
 };
 
 extern "C" void func_0207df50(Struct_0203d028* arg0);
