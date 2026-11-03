@@ -20550,3 +20550,7 @@ src/Combat/Main/data_02000790.s:
 src/Combat/Main/data_02000ba0.s:
     complete
     .text start:0x02000ba0 end:0x02000c9c
+
+src/NitroSDK/Main/func_020b10b4.cpp:
+    complete
+    .text start:0x020b10b4 end:0x020b11ac
