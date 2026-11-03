@@ -1,6 +1,119 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 
+#if defined(jpn)
+struct Struct_02045c00_2;
+struct Struct_02067b28 {
+    char unknown_0_[0x18];
+    unsigned short* unknown_4c_;
+    unsigned short* unknown_50_;
+    void* unknown_54_;
+    void* unknown_58_;
+    char unknown_5c_[0x10];
+    unsigned int unknown_6c_;
+    unsigned int unknown_70_;
+    char unknown_74_[0x7c4];
+    short unknown_934_, unknown_936_;
+    char unknown_938_[0x7c];
+    unsigned int unknown_9b4_;
+    char unknown_9b8_[0xe00];
+    unsigned char unknown_17b8_[0x80];
+    char unknown_1838_[0x4a];
+    unsigned short unknown_1882_[16];
+    unsigned short unknown_1942_;
+    short unknown_1946_;
+    char unknown_1948_[0x12];
+    unsigned char unknown_19dc_;
+    char unknown_1789_[0x69];
+    unsigned char unknown_17f2_;
+    unsigned char unknown_19c2_;
+    unsigned char unknown_19c3_;
+    unsigned char unknown_19c4_;
+};
+extern "C" int func_02069430(void*, unsigned short);
+extern "C" int func_02069444(void*, unsigned short);
+extern "C" int func_02043014(int, unsigned short*);
+extern "C" int func_02045c00(Struct_02045c00_2*, const char*, int);
+extern "C" int func_02046530(void*, unsigned short*, int, int);
+extern "C" int func_02001aec(const void*, const void*, int);
+extern const char data_020f07ce[];
+
+extern "C" ARM void func_02067b28(Struct_02067b28* arg0) {
+    if (!arg0->unknown_54_ | !arg0->unknown_58_) return;
+    if (arg0->unknown_70_ <= arg0->unknown_6c_) return;
+    char var0[3] = {0};
+    while (arg0->unknown_6c_ < arg0->unknown_70_) {
+        unsigned short var1;
+        unsigned short* var2;
+        unsigned short* var3;
+        int var4;
+        var2 = arg0->unknown_50_ + arg0->unknown_6c_;
+        var1 = *var2;
+        var4 = arg0->unknown_19dc_;
+        var3 = arg0->unknown_4c_ + arg0->unknown_6c_;
+        if (func_02069430(arg0, var1)) {
+            if (var1 == 0xff37) arg0->unknown_17f2_ = 1;
+            else if (var1 == 0xff38) arg0->unknown_17f2_ = 0;
+            *var3 = var1;
+            ++arg0->unknown_6c_;
+            int var5 = func_02069444(arg0, var1);
+            memcpy(var3 + 1, var2 + 1, var5 * 2);
+            arg0->unknown_6c_ += var5;
+            continue;
+        }
+        memcpy(var0, var2, 2);
+        if (!arg0->unknown_19c2_) {
+            arg0->unknown_19c4_ = 1;
+            if (arg0->unknown_1946_ <= 0) arg0->unknown_19c4_ = 0;
+            var4 = 10;
+            if (!func_02001aec(var0, data_020f07ce, 2)) {
+                if (arg0->unknown_1942_ == 0) arg0->unknown_19c4_ = 0;
+                else {
+                    int var6 = arg0->unknown_1942_ * var4;
+                    arg0->unknown_934_ = (short)(8 - (var6 & 7)) + (var6 + 18);
+                    arg0->unknown_936_ = 22;
+                }
+                arg0->unknown_19c3_ = 1;
+                arg0->unknown_19c2_ = 1;
+                var4 = arg0->unknown_19dc_;
+            }
+        }
+        if (arg0->unknown_17f2_) var4 = 6;
+        int var7 = func_02043014(var4, (unsigned short*)var0);
+        if (var7 >= 0) {
+            int var8 = func_02045c00((Struct_02045c00_2*)arg0, var0, var4);
+            if (var8 < 0) {
+                unsigned short var9 = func_02046530(arg0, (unsigned short*)var0, var7, var4);
+                if (!arg0->unknown_19c2_) arg0->unknown_1882_[arg0->unknown_1942_] = var9;
+                *var3 = var9;
+                ++arg0->unknown_6c_;
+                arg0->unknown_9b4_ = (arg0->unknown_9b4_ + 1) & 0x7f;
+                break;
+            }
+            unsigned short var10 = var8;
+            if (!arg0->unknown_19c2_) {
+                arg0->unknown_1882_[arg0->unknown_1942_] = var10;
+                ++arg0->unknown_1942_;
+                arg0->unknown_1942_ &= 0xf;
+            }
+            *var3 = var10;
+            if (arg0->unknown_17b8_[var10] < 255) ++arg0->unknown_17b8_[var10];
+        } else {
+            if (!arg0->unknown_19c2_) {
+                arg0->unknown_1882_[arg0->unknown_1942_] = 0xff19;
+                ++arg0->unknown_1942_;
+                arg0->unknown_1942_ &= 0xf;
+            }
+            *var3 = 0xff19;
+        }
+        ++arg0->unknown_6c_;
+    }
+    if (!arg0->unknown_19c2_) {
+        ++arg0->unknown_1942_;
+        arg0->unknown_1942_ &= 0xf;
+    }
+}
+#else
 struct Struct_0204254c {
     int unknown_0_;
     char unknown_4_;
@@ -118,3 +231,4 @@ extern "C" ARM void func_02067b28(Struct_02067b28* arg0) {
         arg0->unknown_1942_ &= 0x3f;
     }
 }
+#endif
