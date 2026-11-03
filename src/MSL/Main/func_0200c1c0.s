@@ -4,6 +4,7 @@
 	.global _frdiv
 	.global _fdiv
 	.global .L_0200c274
+	.global .L_0200c374
 
 _frdiv:
 	eor r0, r0, r1
@@ -124,6 +125,7 @@ _L030:
 	.word 0x81818282
 	.word 0x80808181
 _L1b4:
+.L_0200c374:
 	mov r1, r3, lsl #1
 	add r1, r1, #1
 	rsb lr, lr, #0

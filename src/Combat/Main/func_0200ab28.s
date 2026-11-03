@@ -8,7 +8,7 @@ _dadd:
 	stmdb sp!, {r4, lr}
 	eors ip, r1, r3
 	eormi r3, r3, #0x80000000
-	.word 0x4a0002b7
+	bmi . + 0xae4
 	subs ip, r0, r2
 	sbcs lr, r1, r3
 	bhs L_002c

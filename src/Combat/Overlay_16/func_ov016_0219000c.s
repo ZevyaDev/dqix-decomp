@@ -5,14 +5,34 @@
 	.global .L_021903ec
 	.global .L_0219043c
 	.global .L_0219070c
+	.global .L_02190010
+	.global .L_0219001c
+	.global .L_02190044
+	.global .L_0219004c
+	.global .L_02190194
+	.global .L_0219019c
+	.global .L_021901e4
+	.global .L_021901ec
+	.global .L_02190278
+	.global .L_0219027c
+	.global .L_02190430
+	.global .L_02190704
+	.global .L_02190774
+	.global .L_0219077c
+	.global .L_02190894
+	.global .L_021908ac
+	.global .L_02190924
+	.global .L_0219092c
 
 // USA: func_ov016_0219000c
 func_ov016_0219000c:
 	b _L810
+.L_02190010:
 	.word 0x00000000
 	.word 0x00000000
 	.word 0x00000000
 _L010:
+.L_0219001c:
 	mov r6, #0x20
 	add r7, r3, #0x200
 	mov r8, #0
@@ -24,9 +44,11 @@ _L028:
 	subs r6, r6, #1
 	bne _L028
 	mov pc, lr
+.L_02190044:
 	.word 0x00000000
 	.word 0x00000000
 _L040:
+.L_0219004c:
 	stmdb sp!, {r1, r3, r4}
 	add r3, r3, #0x200
 	rsb ip, r6, #0x7f
@@ -110,9 +132,11 @@ _L0d8:
 	str r2, [r3], #4
 	ldmia sp!, {r1, r3, r4}
 	mov pc, lr
+.L_02190194:
 	.word 0x00000000
 	.word 0x00000000
 _L190:
+.L_0219019c:
 	add r1, r3, #0x200
 	add r1, r1, r7, lsl #2
 	rsb r7, r6, #0
@@ -133,9 +157,11 @@ _L1ac:
 	subs r8, r8, #1
 	bne _L1a4
 	ldmia sp!, {r1, pc}
+.L_021901e4:
 	.word 0x00000000
 	.word 0x00000000
 _L1e0:
+.L_021901ec:
 	add r1, r3, #0x200
 	add r1, r1, r7, lsl #2
 	rsb r7, r6, #0
@@ -173,8 +199,10 @@ _L208:
 	add sl, sl, r2
 	str sl, [r1]
 	ldmia sp!, {r1, pc}
+.L_02190278:
 	.word 0x00000000
 _L270:
+.L_0219027c:
 	stmdb sp!, {r3, r4, lr}
 	ldmia r2, {r5, r6, r7, r8, sb, sl, fp, ip}
 	add r3, r1, #0x70
@@ -285,6 +313,7 @@ _L270:
 	add fp, fp, r0
 	add ip, ip, r3
 	mov pc, lr
+.L_02190430:
 	.word 0x00000000
 	.word 0x00000000
 	.word 0x00000000
@@ -468,6 +497,7 @@ _L43c:
 	ldr r4, [sp]
 	str r1, [r4, #0x74]
 	ldmia sp!, {r1, r3, r4, pc}
+.L_02190704:
 	.word 0x00000000
 	.word 0x00000000
 .L_0219070c:
@@ -497,9 +527,11 @@ _L43c:
 	mov fp, fp, asr #1
 	mov ip, ip, asr #1
 	ldmia sp!, {r0, pc}
+.L_02190774:
 	.word 0x00000000
 	.word 0x00000000
 _L770:
+.L_0219077c:
 	stmdb sp!, {r1, r4, lr}
 	ldr r2, [r1, #0x6c]
 	cmp r2, #1
@@ -574,6 +606,7 @@ _L854:
 	ldrb r0, [r2, r0]
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, ip, lr}
 	bx lr
+.L_02190894:
 	.word 0x10040c05
 	.word 0x0e141403
 	.word 0x00000a0c
@@ -581,6 +614,7 @@ _L854:
 	.word 0x00000000
 	.word 0x00000000
 _L8a0:
+.L_021908ac:
 	stmdb sp!, {r1, lr}
 	add ip, r1, #0x70
 	mov r6, r5, lsr #6
@@ -611,9 +645,11 @@ _L8a0:
 	ldrb r8, [sl]
 	ldrb sb, [sl, #1]
 	b _L190
+.L_02190924:
 	.word 0x00000000
 	.word 0x00000000
 _L920:
+.L_0219092c:
 	stmdb sp!, {r1, lr}
 	bl _L7e0
 	add r4, r1, #0xc0

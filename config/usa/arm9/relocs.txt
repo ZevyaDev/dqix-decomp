@@ -23103,10 +23103,12 @@ from:0x020c8b34 kind:arm_call to:0x020c8b44 module:main
 from:0x020c8b38 kind:arm_call to:0x020c8bd4 module:main
 from:0x020c8bd0 kind:load to:0x021115b4 module:main
 from:0x020c8c04 kind:arm_call to:0x020c89f8 module:main
+from:0x020c8c24 kind:arm_call to:0x020c8a08 module:main
 from:0x020c8c38 kind:load to:0x02111588 module:main
 from:0x020c8c40 kind:load to:0x021115b4 module:main
 from:0x020c8c44 kind:load to:0x0211158c module:main
 from:0x020c8c48 kind:load to:0x02111590 module:main
+from:0x020c8c4c kind:load to:0x020c8bd4 add:0x50 module:main
 from:0x020c8c68 kind:load to:0x02111634 module:main
 from:0x020c8c8c kind:arm_call to:0x020c8c50 module:main
 from:0x020c8cbc kind:arm_call to:0x020c6aec module:main

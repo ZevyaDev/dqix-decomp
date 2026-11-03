@@ -2,6 +2,7 @@
 	.arm
 
 	.global _ull_mod
+	.extern .L_0200d158
 
 // USA: func_0200cee8
 _ull_mod:
@@ -15,7 +16,7 @@ _L18:
 	orrs r5, r1, r3
 	bne . - 0x164
 	mov r1, r2
-	.word 0xeb000091
+	bl .L_0200d158
 	cmp r4, #0
 	movne r0, r1
 	mov r1, #0

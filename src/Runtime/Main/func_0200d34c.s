@@ -4,6 +4,7 @@
 	.global _drdiv
 	.global _ddiv
 	.global .L_0200d484
+	.global .L_0200d584
 
 _drdiv:
 	eor r1, r1, r3
@@ -162,6 +163,7 @@ _L128:
 	.word 0x82828383
 	.word 0x81818282
 	.word 0x80808181
+.L_0200d584:
 _L238:
 	movs r1, ip, lsl #0x1f
 	orr r1, r1, #0x7f000000

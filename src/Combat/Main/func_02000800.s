@@ -4,6 +4,13 @@
 	.extern data_027e0000
 	.extern func_01ff8000
 	.extern main
+	.extern func_02000954
+	.extern func_02000970
+	.extern func_02000a1c
+	.extern func_02000ab0
+	.extern func_02000b98
+	.extern func_0200d890
+	.extern func_0200edc8
 	.global Entry
 
 // USA: func_02000800
@@ -14,7 +21,7 @@ _L008:
 	ldrh r0, [ip, #6]
 	cmp r0, #0
 	bne _L008
-	bl . + 0x29c
+	bl func_02000ab0
 	mov r0, #0x13
 	msr cpsr_c, r0
 	ldr r0, [pc, #0x108]
@@ -40,19 +47,19 @@ _L054:
 	mov r0, #0
 	ldr r1, [pc, #0xbc]
 	mov r2, #0x4000
-	bl . + 0xe0
+	bl func_02000954
 	mov r0, #0
 	ldr r1, [pc, #0xb4]
 	mov r2, #0x400
-	bl . + 0xd0
+	bl func_02000954
 	mov r0, #0x200
 	ldr r1, [pc, #0xa8]
 	mov r2, #0x400
-	bl . + 0xc0
+	bl func_02000954
 	ldr r1, [pc, #0xa0]
 	ldr r0, [r1, #0x14]
-	bl . + 0xd0
-	bl . + 0x178
+	bl func_02000970
+	bl func_02000a1c
 	ldr r0, [pc, #0x90]
 	ldr r1, [r0, #0xc]
 	ldr r2, [r0, #0x10]
@@ -81,9 +88,9 @@ _L0d4:
 	add r1, r1, #0x3c
 	ldr r0, [pc, #0x40]
 	str r0, [r1]
-	bl . + 0xcf88
-	bl . + 0x28c
-	bl . + 0xe4b8
+	bl func_0200d890
+	bl func_02000b98
+	bl func_0200edc8
 	ldr r1, [pc, #0x30]
 	ldr lr, [pc, #0x30]
 	tst sp, #4

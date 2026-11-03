@@ -259,7 +259,7 @@ def main():
         n.rule(
             name="delink",
             # dsd never writes delink.yaml; without this stamp every build re-delinks and relinks
-            command=f'$python tools/stamp.py $out {DSD} delink --config-path $config_path'
+            command=f'$python tools/stamp.py $out $python tools/delink.py {DSD} $config_path $delinks_path'
         )
         n.newline()
 
@@ -623,6 +623,7 @@ def add_delink_and_lcf_builds(n: ninja_syntax.Writer, project: Project):
         outputs=str(delinks_path / "delink.yaml"),
         variables={
             "config_path": project.arm9_config_yaml(),
+            "delinks_path": delinks_path,
         }
     )
     n.newline()

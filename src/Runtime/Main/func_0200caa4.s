@@ -169,12 +169,12 @@ _L21c:
 _L234:
 	mov r0, #0
 	bx lr
-	.word 0xe3500000
-	.word 0xa2533001
-	.word 0xe0800000
-	.word 0xe1a004a0
-	.word 0xe1800b83
-	.word 0xe12fff1e
+	cmp r0, #0
+	subges r3, r3, #1
+	add r0, r0, r0
+	mov r0, r0, lsr #9
+	orr r0, r0, r3, lsl #23
+	bx lr
 _L254:
 	mvn r0, #0x80000000
 	bx lr

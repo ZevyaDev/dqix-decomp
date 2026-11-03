@@ -11,6 +11,7 @@ __sinit_ov029_021d9788:
 	add r0, pc, #4
 	bl func_ov029_021d9824
 	ldmia sp!, {pc}
+.L_021d9798:
 	.word data_ov029_021da7a8, 0x021dbb48
 	.word data_ov029_021da820, 0x021dbb48
 	.word data_ov029_021da898, 0x021dbb48
@@ -19,5 +20,6 @@ __sinit_ov029_021d9788:
 
 	.section .ctor, 4
 	.global .p__sinit_ov029_021d9788
+	.global .L_021d9798
 .p__sinit_ov029_021d9788:
 	.word __sinit_ov029_021d9788
