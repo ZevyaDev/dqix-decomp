@@ -8,7 +8,11 @@ _dadd:
 	stmdb sp!, {r4, lr}
 	eors ip, r1, r3
 	eormi r3, r3, #0x80000000
+#if defined(jpn)
+	bmi . + 0xa8c
+#else
 	bmi . + 0xae4
+#endif
 	subs ip, r0, r2
 	sbcs lr, r1, r3
 	bhs L_002c

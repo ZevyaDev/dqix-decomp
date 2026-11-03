@@ -17,7 +17,11 @@ _dsub:
 	stmdb sp!, {r4, lr}
 	eors ip, r1, r3
 	eormi r3, r3, #0x80000000
+#if defined(jpn)
+	bmi . - 0xa84
+#else
 	bmi . - 0xadc
+#endif
 	subs ip, r0, r2
 	sbcs lr, r1, r3
 	bhs _L030

@@ -162,6 +162,7 @@ _dflt kind:function(arm,size=0x40) addr:0x0200af38
 _dfltu kind:function(arm,size=0x3c) addr:0x0200af78
 _dmul kind:function(arm,size=0x364) addr:0x0200afb4
 func_0200b318 kind:function(arm,size=0x19c) addr:0x0200b318
+_drsb kind:function(arm,size=0x18,unknown) addr:0x0200b4b4
 _dsub kind:function(arm,size=0x3b4) addr:0x0200b4cc
 _fadd kind:function(arm,size=0x21c) addr:0x0200b880
 func_0200bbd8 kind:function(arm,size=0x8) addr:0x0200ba9c
