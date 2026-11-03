@@ -31,7 +31,11 @@ struct Struct_ov015_021934f8 {
 };
 
 struct Struct_ov015_021934f8_2 {
+#if defined(jpn)
+    char unknown_0_[0x1788];
+#else
     char unknown_0_[0x195a];
+#endif
     unsigned char unknown_195a_;
 };
 
@@ -110,7 +114,11 @@ extern "C" void func_0207df50(struct Struct_0203d028*);
 extern "C" void func_0207df90(char*);
 extern "C" void func_020432c4(void*);
 extern "C" void func_0207dfac(char*);
+#if defined(jpn)
+extern "C" void func_0204500c(void*, const void*, int);
+#else
 extern "C" void func_0204500c(void*, const void*, int, int);
+#endif
 extern "C" void func_0204359c(void*, int);
 extern "C" void func_020439b0(void*, int);
 extern "C" void func_ov015_02192700(void*);
@@ -137,6 +145,11 @@ extern const char* data_020f2a30;
 extern int data_ov015_02193cdc[];
 extern char data_02108760;
 extern int data_ov015_02194528[];
+#if defined(jpn)
+extern int data_ov015_0219480c[];
+extern const char data_ov015_0219511b[];
+extern "C" int func_020e052c(void*, void*, const char*, void*, short, unsigned char);
+#endif
 
 #define POWCNT1 (*(volatile unsigned short*)0x04000304)
 #define MASTER_BRIGHT ((short*)0x0400006c)
@@ -209,9 +222,16 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     memset(arg0->unknown_26c_, 0, 0x52);
 
     arg0->unknown_88_.ResetAllocatorPointer();
+#if defined(jpn)
+    arg0->unknown_88_.CreateTypeA(func_02012d88(&data_02114e20, 0x16c00), 0x16c00);
+#else
     arg0->unknown_88_.CreateTypeA(func_02012d88(&data_02114e20, 0x17600), 0x17600);
+#endif
     arg0->unknown_88_.Reset();
     func_020de848(arg0->unknown_4c_);
+#if defined(jpn)
+    func_020e052c(arg0->unknown_4c_, &arg0->unknown_88_, data_020f2a38, data_ov015_0219480c, 9, 1);
+#else
     BackgroundLoader::AddLockGlobal();
     unsigned int var4;
     void* var5;
@@ -220,6 +240,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     if (var5 != NULL)
         func_020dea64(arg0->unknown_4c_, &arg0->unknown_88_, var5, var4, data_ov015_02193cdc, 9);
     BackgroundLoader::RemoveLockGlobal();
+#endif
 
     arg0->unknown_9c_.ResetAllocatorPointer();
     arg0->unknown_9c_.CreateTypeA(func_02012d88(&data_02114e20, 0x20000), 0x20000);
@@ -243,7 +264,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     func_0205ea20(&data_02108760, 0x65);
     func_020c9820();
     func_020c38d4();
-    DISPCNTSUB = DISPCNTSUB | 0x10000;
+    DISPCNTSUB |= 0x10000;
     func_02010124((Struct_0200f3a4_9*)var0);
     func_020c3a0c(0);
     GetCurrentTimestamp();
@@ -253,7 +274,11 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     func_0207df90(arg0->unknown_124_);
     func_020432c4(var7);
     func_0207dfac(arg0->unknown_124_);
+#if defined(jpn)
+    func_0204500c(var7, data_ov015_0219511b, 0);
+#else
     func_0204500c(var7, data_ov015_02194528, 0, 0xe3);
+#endif
     var7->unknown_195a_ = 8;
     for (unsigned int var8 = 0; var8 < 0x10; var8++)
     {
