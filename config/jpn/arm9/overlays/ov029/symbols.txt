@@ -1,5 +1,5 @@
-func_ov029_021d9300 kind:function(arm,size=0xcc) addr:0x021d9300
-func_ov029_021d93cc kind:function(arm,size=0xe8) addr:0x021d93cc
+Encryptor_StartRange kind:function(arm,size=0xcc) addr:0x021d9300
+Encryptor_EndRange kind:function(arm,size=0xe8) addr:0x021d93cc
 RC4_Init kind:function(arm,size=0x74) addr:0x021d94b4 local
 RC4_Byte kind:function(arm,size=0x4c) addr:0x021d9528 local
 RC4_InitSBox kind:function(arm,size=0x24) addr:0x021d9574 local

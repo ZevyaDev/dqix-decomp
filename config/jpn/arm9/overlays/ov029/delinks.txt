@@ -6,3 +6,7 @@
 src/DSProtect/1.10/rc4.c:
     complete
     .text start:0x021d94b4 end:0x021d96f0
+
+src/DSProtect/1.10/encryptor.c:
+    complete
+    .text start:0x021d9300 end:0x021d94b4
