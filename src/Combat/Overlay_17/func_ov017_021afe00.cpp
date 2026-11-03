@@ -10,7 +10,11 @@ struct Struct_0201e830;
 struct AllocatorUnion;
 
 struct Struct_ov017_021afe00_3 {
+#if defined(jpn)
+    char unknown_0_[0x1a6];
+#else
     char unknown_0_[0x1b2];
+#endif
     unsigned short unknown_1b2_;
 };
 
@@ -44,7 +48,11 @@ struct Struct_ov017_021afe00_5 {
     int unknown_3c_;
     unsigned short unknown_40_;
     unsigned char unknown_42_;
+#if defined(jpn)
+    char unknown_43_[0x218 - 0x43];
+#else
     char unknown_43_[0x288 - 0x43];
+#endif
     Struct_ov017_021afe00_4* unknown_288_;
 };
 
@@ -105,9 +113,14 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
     }
     arg0->unknown_b_ = 1;
     char* var4 = (char*)func_02012fe4();
+    GameResources* var6;
+#if defined(jpn)
+    Struct_ov017_021afe00* var5 = (Struct_ov017_021afe00*)(var4 + 0x860);
+#else
     Struct_ov017_021afe00* var5 = (Struct_ov017_021afe00*)(var4 + 0x840);
+#endif
     if (arg0->unknown_9_ != 2) {
-        GameResources* var6 = GetGameResources();
+        var6 = GetGameResources();
         if (IsBrightnessTransitionActive(var6) != 0) {
             return 1;
         }
@@ -117,7 +130,11 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
             DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
             char* var7 = (char*)func_02012fe4();
             if (var7 != 0) {
+#if defined(jpn)
+                Struct_0201e830* var8 = (Struct_0201e830*)(var7 + 0x8c);
+#else
                 Struct_0201e830* var8 = (Struct_0201e830*)(var7 + 0x6c);
+#endif
                 if (var8 != 0) {
                     arg0->unknown_40_ = func_0201e830(var8);
                 }
@@ -142,7 +159,11 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
         }
         if (arg0->unknown_4_ != 0) {
             if (*arg0->unknown_4_ == 2) {
+#if defined(jpn)
+                if (func_ov017_021a193c(*(int**)((char*)GetGameResources() + 0x34f8)) != 0) {
+#else
                 if (func_ov017_021a193c(*(int**)((char*)GetGameResources() + 0x3708)) != 0) {
+#endif
                     DISPCNT = (DISPCNT & ~0x1f00) | 0x700;
                 }
             } else {
@@ -161,17 +182,28 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
     if (arg0->unknown_9_ == 0) {
         Struct_ov017_021afe00_4* var12 = arg0->unknown_288_;
         if (arg0->unknown_288_ != 0) {
+#if defined(jpn)
+            var12->unknown_0_ = *(unsigned char*)((char*)var0 + 0x5a7a);
+            memcpy(var12->unknown_4_, (char*)var0 + 0x5a7c, 0x190);
+            memcpy(var12->unknown_194_, (char*)var0 + 0x5c0c, 0x110);
+#else
             var12->unknown_0_ = *(unsigned char*)((char*)var0 + 0x5cda);
             memcpy(var12->unknown_4_, (char*)var0 + 0x5cdc, 0x190);
             memcpy(var12->unknown_194_, (char*)var0 + 0x5e6c, 0x110);
+#endif
             memcpy(var12->unknown_2a4_, func_020120a0((char*)var0, 0), 0x20);
             var12->unknown_2c4_ = func_02012078(var0);
             var12->unknown_2c8_ = var5->unknown_1b34_;
             var12->unknown_2d0_ = var5->unknown_1b38_;
             var12->unknown_2d2_ = var5->unknown_1b3c_;
             var12->unknown_2cc_ = var5->unknown_1b48_;
+#if defined(jpn)
+            var12->unknown_2d4_ = *(unsigned short*)(var4 + 0x27f4);
+            var12->unknown_2d5_ = *(unsigned short*)(var4 + 0x27f6);
+#else
             var12->unknown_2d4_ = *(unsigned short*)(var4 + 0x27b4);
             var12->unknown_2d5_ = *(unsigned short*)(var4 + 0x27b6);
+#endif
             for (int var13 = 0; var13 < 4; var13++) {
                 Struct_ov017_021afe00_3* var14 = (Struct_ov017_021afe00_3*)var0->GetPartyMemberByIndex(var13);
                 if (var14 != 0) {
