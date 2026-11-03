@@ -36,7 +36,11 @@ struct Struct_ov017_021d2d64_6 {
 };
 
 struct Struct_ov017_021d2d64_7 {
+#if defined(jpn)
+    char unknown_0_[0xf0];
+#else
     char unknown_0_[0x150];
+#endif
     unsigned char unknown_150_0_ : 6;
 };
 
@@ -83,14 +87,23 @@ extern "C" void func_020e1154(void* arg0);
 extern "C" int func_02048418(unsigned char* arg0, unsigned short arg1);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void __clear(void* arg0, unsigned int arg1);
-extern "C" int func_020e04f4(int arg0, void* arg1, int arg2, int arg3, unsigned char arg4, int arg5);
 extern "C" void func_02046380(void* arg0);
-extern "C" void func_020e46c4(void* arg0);
-extern "C" void func_020e4bf4(void* arg0, int arg1);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 extern "C" void func_020465c0(Struct_020465c0* arg0, int arg1, int arg2);
+#if defined(jpn)
+extern "C" int func_020e2168(char* arg0, const char* arg1, int arg2, int arg3, bool arg4);
+extern "C" void func_02046574(void* arg0, int arg1, char* arg2);
+extern "C" void func_020474a8(void* arg0, int arg1, char* arg2, char* arg3);
+extern "C" void func_020d7e10(void* arg0, void* arg1, int arg2, int arg3, int arg4);
+extern char data_ov017_021d8b4c[];
+static inline char* inline_ov017_021d2d64(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->baseStats_->unk; }
+#else
+extern "C" int func_020e04f4(int arg0, void* arg1, int arg2, int arg3, unsigned char arg4, int arg5);
+extern "C" void func_020e46c4(void* arg0);
+extern "C" void func_020e4bf4(void* arg0, int arg1);
 extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" void func_020d7e10(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
+#endif
 extern "C" void func_ov017_021d2cc0(void* arg0);
 extern "C" void func_ov017_021a5a88(int arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 
@@ -160,7 +173,11 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
             if (func_02046b60(var5, 0x1a)) var19 = 1;
             GameObject* var20 = arg2->GetUnknownGameObject();
             if (var20 != 0 && func_020535c8((signed char*)var20)) var19 = 0;
+#if defined(jpn)
+            if (*(int*)(func_020421a0() + 0x868) != 0 && func_020d805c((Struct_020d805c*)var3) == 0) var19 = 0;
+#else
             if (*(int*)(func_020421a0() + 0x998) != 0 && func_020d805c((Struct_020d805c*)var3) == 0) var19 = 0;
+#endif
 
             for (int var21 = 0; var21 < var8.unknown_7_; var21++) {
                 if (var3->unknown_150_0_ >= 3) var19 = 0;
@@ -255,6 +272,13 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
                         var0 = (void*)func_020421a0();
                         var6 = var23.unknown_0_[var37];
                         if (var6 < 0) continue;
+#if defined(jpn)
+                        char var38[0x80];
+                        __clear(var38, 0x80);
+                        func_020e2168(var38, data_ov017_021d8b4c, var6, 0, true);
+                        func_02046380(var0);
+                        func_02046574(var0, 2, inline_ov017_021d2d64(var24));
+#else
                         char var38[0x100];
                         __clear(var38, 0x100);
                         func_020e04f4((int)var38, data_ov017_021d8288, var6, 0, 1, (int)data_ov017_021d8298);
@@ -263,14 +287,20 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
                         func_020e46c4(var39);
                         func_020e4bf4(var39, var24->obj3D_.unknown_4_);
                         *(char**)((char*)var0 + 0x10) = var39;
+#endif
                         func_020465f0((unsigned char*)var0, 0, 0);
                         func_020465c0((Struct_020465c0*)var0, 0, var25->unknown_0_0_);
                         func_020465f0((unsigned char*)var0, 9, 0);
                         func_020465c0((Struct_020465c0*)var0, 9, var24->obj3D_.unknown_4_);
                         char var40[0x80];
                         __clear(var40, 0x80);
+#if defined(jpn)
+                        func_020474a8(var0, 0xc, var38, var40);
+                        func_020d7e10(var3, var40, 0, 0, 1);
+#else
                         func_02046608(var0, 0xc, var38, var40, 0xe3, 0, 1);
                         func_020d7e10(var3, var40, 0, 0, 1, 1);
+#endif
                     }
                 }
                 if (!var19 || !var26) {
