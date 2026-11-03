@@ -3,18 +3,42 @@
 #include "Memory/SafeAllocator.h"
 #include "Combat/Overlay15ViewerContext.h"
 
+#if defined(jpn)
+#define func_02069fec func_02069ecc
+#define func_02045d14 func_020469b0
+#define func_02045f3c func_02046c78
+#define data_ov015_0219417c data_ov015_02194cbc
+#define data_ov015_02194192 data_ov015_02194cd2
+#define data_ov015_021941a8 data_ov015_02194ce8
+#define data_ov015_021941be data_ov015_02194cfe
+#define data_ov015_021941d4 data_ov015_02194d14
+#define data_ov015_021941ea data_ov015_02194d2a
+#define data_ov015_02194200 data_ov015_02194d40
+#define data_ov015_02194216 data_ov015_02194d56
+#define data_ov015_0219422c data_ov015_02194d6c
+#define data_ov015_02194242 data_ov015_02194d82
+#endif
+
 extern "C" void __clear(void* arg0, unsigned long arg1);
 
 struct Struct_ov015_0218f794
 {
+#if defined(jpn)
+    char unknown_0_[0x17e0];
+#else
     char unknown_0_[0x19b0];
+#endif
     unsigned char unknown_19b0_;
 };
 
 extern "C" Struct_ov015_0218f794* func_020421a0();
 extern "C" void func_02069fec(Struct_ov015_0218f794* arg0, const char* arg1, char* arg2);
 extern "C" void func_02045d14(Struct_ov015_0218f794* arg0, const char* arg1, unsigned short* arg2, int arg3);
+#if defined(jpn)
+extern "C" void func_02045f3c(Struct_ov015_0218f794* arg0, unsigned short* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+#else
 extern "C" void func_02045f3c(Struct_ov015_0218f794* arg0, unsigned short* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9);
+#endif
 
 extern const char data_ov015_0219417c[];
 extern const char data_ov015_02194192[];
@@ -27,13 +51,38 @@ extern const char data_ov015_02194216[];
 extern const char data_ov015_0219422c[];
 extern const char data_ov015_02194242[];
 
+#if defined(jpn)
+#define PRINT_HEAP(fmt, allocator)                                                \
+    {                                                                             \
+        unsigned int used = (allocator).GetSizeWithLargestBlockRemoved();         \
+        sprintf(var0, fmt, used, (allocator).GetSize());                          \
+    }
+#else
 #define PRINT_HEAP(fmt, allocator)                                                \
     {                                                                             \
         unsigned int used = (allocator).GetSizeWithLargestBlockRemoved();         \
         unsigned int size = (allocator).GetSize();                                \
         sprintf(var0, fmt, used, size);                                           \
     }
+#endif
 
+#if defined(jpn)
+#define PREPARE_TEXT()                                                            \
+    {                                                                             \
+        memset(var1, 0, sizeof(var1));                                            \
+        Struct_ov015_0218f794* system = func_020421a0();        \
+        char converted[0x40];                                                     \
+        __clear(converted, sizeof(converted));                                    \
+        func_02069fec(system, var0, converted);                                   \
+        func_02045d14(system, converted, var1, 8);                                \
+    }
+
+#define DRAW_LINE(y)                                                              \
+    {                                                                             \
+        var2->unknown_19b0_ = 1;                                                   \
+        func_02045f3c(var2, &var1[1], 0, y, 0x7fff, 8, 0x14, 0);     \
+    }
+#else
 #define PREPARE_TEXT()                                                            \
     {                                                                             \
         memset(var1, 0, sizeof(var1));                                            \
@@ -49,6 +98,7 @@ extern const char data_ov015_02194242[];
         var2->unknown_19b0_ = 1;                                                   \
         func_02045f3c(var2, &var1[1], 0, y, 0x7fff, 8, 0x14, 0, 1, 0x11);     \
     }
+#endif
 
 // USA: func_ov015_0218f794
 extern "C" ARM void func_ov015_0218f794(Struct_ov015_0218bcb0* arg0)
