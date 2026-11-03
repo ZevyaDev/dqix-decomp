@@ -2,13 +2,13 @@
 	.arm
 
 	.global __sinit_ov029_021d9a24
-	.extern func_ov029_021d9824
+	.extern Encryptor_DecodeFunctionTable
 
 // USA: func_ov029_021d9a24
 __sinit_ov029_021d9a24:
 	stmdb sp!, {lr}
 	add r0, pc, #4
-	bl func_ov029_021d9824
+	bl Encryptor_DecodeFunctionTable
 	ldmia sp!, {pc}
 .L_021d9a34:
 	.word 0x021dab94, 0x021dbb6c

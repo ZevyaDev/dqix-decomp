@@ -10,9 +10,11 @@ __sinit_ov029_021d90ec kind:function(arm,size=0x48) addr:0x021d90ec
 data_ov029_021d9134 kind:data(any) addr:0x021d9134
 __sinit_ov029_021d9788 kind:function(arm,size=0x38) addr:0x021d9788
 .L_021d9798 kind:data(word[10]) addr:0x021d9798
-func_ov029_021d97c0 kind:function(arm,size=0x28) addr:0x021d97c0
-func_ov029_021d97e8 kind:function(arm,size=0x3c) addr:0x021d97e8
-func_ov029_021d9824 kind:function(arm,size=0xe8) addr:0x021d9824
+clearDataAndInstructionCache kind:function(arm,size=0x28) addr:0x021d97c0 local
+Encryptor_CategorizeInstruction kind:function(arm,size=0x3c) addr:0x021d97e8
+Encryptor_DecodeFunctionTable kind:function(arm,size=0xe8) addr:0x021d9824
+Encryptor_DecryptFunction kind:data(any) addr:0x021d990c
+Encryptor_EncryptFunction kind:data(any) addr:0x021d9994
 __sinit_ov029_021d9a24 kind:function(arm,size=0x28) addr:0x021d9a24
 .L_021d9a34 kind:data(word[6]) addr:0x021d9a34
 data_ov029_021d9c40 kind:data(any) addr:0x021d9c40
@@ -44,5 +46,5 @@ data_ov029_021da8ac kind:data(any) addr:0x021da8ac
 .p__sinit_ov029_021d9a24 kind:data(word) addr:0x021da8bc
 .p__sinit_ov029_021da374 kind:data(word) addr:0x021da8c0
 .p__sinit_ov029_021da844 kind:data(word) addr:0x021da8c4
-data_ov029_021da8e0 kind:bss addr:0x021da8e0
+BSS kind:bss addr:0x021da8e0
 data_ov029_021da8e1 kind:bss addr:0x021da8e1

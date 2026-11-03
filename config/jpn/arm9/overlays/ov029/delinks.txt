@@ -3,3 +3,6 @@
     .ctor       start:0x021da088 end:0x021da08c kind:rodata align:4
     .bss        start:0x021da0a0 end:0x021da0a0 kind:bss align:32
 
+src/DSProtect/1.10/rc4.c:
+    complete
+    .text start:0x021d94b4 end:0x021d96f0

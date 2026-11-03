@@ -7518,3 +7518,7 @@ src/NetworkLib/Overlay_31/func_ov031_02204c84.cpp:
 src/WifiLib/Overlay_31/func_ov031_0221fee4.cpp:
     complete
     .text start:0x0221fee4 end:0x02220178
+
+src/NitroCrypto/Overlay_31/func_ov031_022118a8.cpp:
+    complete
+    .text start:0x022118a8 end:0x02211938

@@ -39,6 +39,9 @@ LIBRARY_BUILDS = {
     "network": ("NetworkLib", "2.0/sp2", ["-O4,p"]),
     "video": ("VideoLib", MWCC_VERSION, ["-O4,p"]),
     "wifi": ("WifiLib", SDK_MWCC_VERSION, ["-O4,p"]),
+    "crypto": ("NitroCrypto", "1.2/base", ["-O4,p"]),
+    "dsprot_1.26": ("DSProtect/1.26", "dsi/1.2", ["-O4,p", "-i", "include/DSProtect/1.26"]),
+    "dsprot_1.10": ("DSProtect/1.10", "2.0/sp2p2", ["-O4,p", "-i", "include/DSProtect/1.10"]),
 }
 DECOMP_ME_COMPILER = "mwcc_30_137"
 CC_FLAGS = " ".join([
