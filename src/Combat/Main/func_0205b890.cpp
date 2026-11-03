@@ -57,11 +57,17 @@ extern "C" ARM void func_0205b890(Struct_0205b1ac* arg0, int arg1, Struct_0205b8
             var5 = var8;
             var3 = var1;
         }
+#if defined(jpn)
+        arg0[var6].unknown_0_ = var1 - var3;
+        arg0[var6].unknown_4_ = var7 - var4;
+        arg0[var6].unknown_6_ = var8 - var5;
+#else
         arg0[var6].unknown_0_ = (var1 - var3) << 5;
         var7 -= var4;
         var8 -= var5;
         arg0[var6].unknown_4_ = var7;
         arg0[var6].unknown_6_ = var8;
+#endif
         arg0[var6].unknown_8_ = var9;
         arg0[var6].unknown_a_ = var10;
     }
