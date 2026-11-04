@@ -12,6 +12,10 @@ struct Struct_ov004_021636b0 {
     char unknown_18f5_;
     short unknown_18f6_;
     short unknown_18f8_;
+#if defined(jpn)
+    DetailedTreasureMapData::RegularMapData* inline_ov004_02164084_57(int arg0) { return &unknown_ad4_[arg0].regular_; }
+    DetailedTreasureMapData::LegacyBossMapData* inline_ov004_02164084_58(int arg0) { return &unknown_ad4_[arg0].legacy_; }
+#endif
 };
 struct Struct_ov004_02171010_2 { Struct_ov004_021636b0* unknown_0_; void* unknown_4_; void* unknown_8_; };
 struct Struct_ov004_02162dd8 {
@@ -105,11 +109,18 @@ extern "C" void func_ov023_021f9d14(void*, void*);
 extern "C" void func_ov023_021f809c(void*, void*);
 extern "C" Struct_ov004_02162dd8* func_ov011_021845f8(void*, int);
 extern "C" void func_ov004_021634b8(void*, int, int);
-extern "C" void func_ov023_021f9b30(Struct_ov004_02153e20*, unsigned short, unsigned int, unsigned int);
+extern "C" void func_ov023_021f9b30(Struct_ov004_02153e20*, unsigned short, unsigned short, unsigned int);
 extern "C" void func_ov023_021f6600(void*, int, int);
 extern "C" int func_020119f8(char*, void*);
 struct Struct_02011930;
 extern "C" int func_02011930(void*, Struct_02011930*, void*, void*);
+#if defined(jpn)
+#define data_ov004_02170584 data_ov004_02170e18
+extern char data_ov004_02170e18[];
+extern char data_ov004_02170e2c[];
+extern char data_ov004_02170e33[];
+extern char data_ov004_02170e3a[];
+#endif
 
 // USA: func_ov004_02164084
 extern "C" ARM int func_ov004_02164084(void* arg0) {
@@ -140,6 +151,12 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
         Struct_ov004_02164084* var11 = func_ov023_021f6880(var0, var8 + 0x46);
         if (!var11) continue;
         if (func_ov023_021f6f10(var11) != 8) return 0;
+#if defined(jpn)
+        Struct_ov004_02164084* var20 = func_ov023_021f6880(var0, var8 + 0x50);
+        if (!var20) continue;
+        if (func_ov023_021f6f10(var20) != 8) return 0;
+        data_ov004_02171010.unknown_0_->unknown_ad4_[var8].BlankFunction();
+#else
         func_ov023_021f65d4(arg0, var8 + 0x226, 8);
         func_ov004_021634b8(arg0, var8 + 0x226, 0);
         func_ov023_021f65d4(arg0, var8 + 0x230, 8);
@@ -148,16 +165,65 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
         func_ov004_021634b8(arg0, var8 + 0x23a, 0);
         DetailedTreasureMapData* var12 = &data_ov004_02171010.unknown_0_->unknown_ad4_[var8];
         var12->BlankFunction();
+#endif
         var10->unknown_20_ = 0;
         var10->unknown_c_ |= 8;
         func_ov023_021f9b30(var1, 0, var8 & 0xffff, 0);
         var11->unknown_20_ = 0;
         var11->unknown_c_ |= 8;
+#if defined(jpn)
+        func_ov023_021f9b30(var1, 0, var8, 1);
+        var20->unknown_20_ = 0;
+        var20->unknown_c_ |= 8;
+        func_ov023_021f9b30(var1, 0, var8, 2);
+#endif
         if (var9 >= data_ov004_02171010.unknown_0_->unknown_18f4_) continue;
         ExportDetailedTreasureMapData(&data_ov004_02171010.unknown_0_->unknown_0_[var9], &data_ov004_02171010.unknown_0_->unknown_ad4_[var8], true, var6);
         var10->unknown_c_ &= ~8;
         func_ov023_021f9b30(var1, (unsigned short)(var8 + 0x3c), (unsigned short)var8, 0);
         var11->unknown_c_ &= ~8;
+#if defined(jpn)
+        func_ov023_021f9b30(var1, (unsigned short)(var8 + 0x46), var8, 1);
+        if (data_ov004_02171010.unknown_0_->unknown_ad4_[var8].mapType_ == 1) {
+            var10->unknown_20_ = data_ov004_02171010.unknown_0_->inline_ov004_02164084_57(var8)->nameNoLevel_;
+            var11->unknown_20_ = data_ov004_02171010.unknown_0_->inline_ov004_02164084_57(var8)->levelString_;
+        } else if (data_ov004_02171010.unknown_0_->unknown_ad4_[var8].mapType_ == 2) {
+            var10->unknown_20_ = data_ov004_02171010.unknown_0_->inline_ov004_02164084_58(var8)->mapNameNoLevel_;
+            var11->unknown_20_ = data_ov004_02171010.unknown_0_->inline_ov004_02164084_58(var8)->mapLevelString_;
+        }
+        var20->unknown_c_ &= ~8;
+        func_ov023_021f9b30(var1, (unsigned short)(var8 + 0x50), var8, 2);
+        GameState* var13 = GameState::GetInstance();
+        var10->inline_ov004_02164084_47(0xf);
+        var11->inline_ov004_02164084_47(0xf);
+        if (data_ov004_02171010.unknown_0_->unknown_ad4_[var8].discoveryState_ == 1) {
+            var20->inline_ov004_02164084_47(0xf);
+            var20->unknown_20_ = data_ov004_02170e2c;
+        } else if (data_ov004_02171010.unknown_0_->unknown_ad4_[var8].discoveryState_ == 2) {
+            var20->inline_ov004_02164084_47(0xd);
+            var20->unknown_20_ = data_ov004_02170e33;
+        } else if (data_ov004_02171010.unknown_0_->unknown_ad4_[var8].discoveryState_ == 3) {
+            var20->inline_ov004_02164084_47(7);
+            var20->unknown_20_ = data_ov004_02170e3a;
+        }
+        if (func_020119f8((char*)var13, 0)) {
+            if (data_ov004_02171010.unknown_0_->unknown_ad4_[var8].discoveryState_ == 1) {
+                var10->inline_ov004_02164084_47(4);
+                var11->inline_ov004_02164084_47(4);
+                var20->inline_ov004_02164084_47(4);
+            } else if (data_ov004_02171010.unknown_0_->unknown_ad4_[var8].discoveryState_ == 2) {
+                var10->inline_ov004_02164084_47(4);
+                var11->inline_ov004_02164084_47(4);
+                var20->inline_ov004_02164084_47(4);
+            }
+        } else {
+            if (!func_02011930(var13, 0, 0, 0)) continue;
+            if (!data_ov004_02171010.unknown_0_->unknown_0_[var9].GetInitialByteUnknownBit()) continue;
+            var10->inline_ov004_02164084_47(4);
+            var11->inline_ov004_02164084_47(4);
+            var20->inline_ov004_02164084_47(4);
+        }
+#else
         if (var12->mapType_ == 1) {
             var10->unknown_20_ = var12->regular_.nameNoLevel_;
             var11->unknown_20_ = var12->regular_.levelString_;
@@ -189,6 +255,7 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
             var10->inline_ov004_02164084_47(4);
             var11->inline_ov004_02164084_47(4);
         }
+#endif
     }
     var5->Free(var6);
     BackgroundLoader::RemoveLockGlobal();
@@ -196,6 +263,10 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
         var1->unknown_5c_ = 1;
         var1->unknown_5e_ = 1;
         func_ov023_021f9b30(var1, 0x3c, 0, 0);
+#if defined(jpn)
+        func_ov023_021f9b30(var1, 0x46, 0, 1);
+        func_ov023_021f9b30(var1, 0x50, 0, 2);
+#endif
         Struct_ov004_02164084* var14 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x1f4);
         if (var14) var14->unknown_c_ |= 8;
         var14 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x14);
@@ -203,6 +274,12 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
         for (unsigned short var15 = 0; var15 < 0x10;) {
             var14 = func_ov023_021f6880(func_ov011_021849c8(arg0), var15 + 0x3c);
             if (var14) var14->unknown_c_ |= 8;
+#if defined(jpn)
+            var14 = func_ov023_021f6880(func_ov011_021849c8(arg0), var15 + 0x46);
+            if (var14) var14->unknown_c_ |= 8;
+            var14 = func_ov023_021f6880(func_ov011_021849c8(arg0), var15 + 0x50);
+            if (var14) var14->unknown_c_ |= 8;
+#endif
             var15++;
         }
         var14 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x36);
