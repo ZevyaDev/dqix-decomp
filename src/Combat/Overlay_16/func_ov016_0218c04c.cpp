@@ -2,6 +2,12 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 #include "Input/Input.h"
+#include "NitroSDK/Timing.h"
+
+#if defined(jpn)
+#define func_ov016_0218c04c func_ov016_0218ca98
+#define data_ov016_0219d0c8 data_ov016_0219d0c0
+#endif
 
 extern "C" unsigned int func_020c8534(int arg0);
 extern "C" unsigned int func_020c8520(int arg0);
@@ -25,7 +31,11 @@ extern "C" void func_ov016_0218e72c(void* arg0);
 extern "C" void func_ov016_0218e640(void* arg0);
 extern "C" int func_ov016_0218e768(void* arg0, void* arg1);
 extern "C" void func_ov016_0218bce8(void* arg0, unsigned int arg1);
+#if defined(jpn)
+extern "C" void func_ov016_0218bec4(void* arg0);
+#else
 extern "C" void func_ov016_0218bec4(void* arg0, int arg1);
+#endif
 extern "C" void func_020d1f0c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_020d1fd0(int arg0, int arg1);
 extern "C" void func_020d24c4(int arg0);
@@ -37,12 +47,6 @@ extern "C" int func_020c7dcc(void);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 void CleanDataCache(void);
 void CleanCacheRange(const void* p, unsigned int n);
-struct Alarm;
-void ZeroInitializeAlarm(Alarm*);
-unsigned long long GetCurrentTimestamp(void);
-struct ProcessorContext;
-void SetInterval(Alarm*, unsigned long long, unsigned long long, void (*)(ProcessorContext**), ProcessorContext**);
-void CancelAlarm(Alarm*);
 extern "C" void func_0203ad14(void*, int, void*, int);
 struct Struct_0203aba8;
 extern "C" void func_0203aba8(Struct_0203aba8*, void*, void*);
@@ -55,41 +59,66 @@ extern "C" void func_ov016_0218c024(void);
 
 struct Struct_ov016_0218c04c {
 	char unknown_0_[0x10];
+#if defined(jpn)
+	short unknown_10_;
+#else
 	unsigned char unknown_10_;
 	char unknown_11_;
 	short unknown_12_;
+#endif
 	unsigned int unknown_14_;
 };
 
-struct Struct_ov016_0219d0c0_7 {
-	int unknown_0_;
-	int unknown_4_;
-	void* unknown_8_;
-	char unknown_c_[4];
-	int unknown_10_;
-	volatile int unknown_14_;
-	int unknown_18_;
-	int unknown_1c_;
-	int unknown_20_;
-	unsigned int unknown_24_;
-	int unknown_28_;
-	short* unknown_2c_;
-	short* unknown_30_;
-	Struct_ov016_0218c04c* unknown_34_;
-	int unknown_38_;
-	int unknown_3c_;
-	unsigned long long unknown_40_;
-	volatile long long unknown_48_;
-	long long unknown_50_;
-};
-
-extern Struct_ov016_0219d0c0_7 data_ov016_0219d0c0;
-extern char data_ov016_0219d0cc;
-extern char data_ov016_0219d118;
+#if defined(jpn)
+volatile int data_ov016_0219d0d4;
+SafeAllocator* data_ov016_0219d0c8;
+int data_ov016_0219d0c4;
+int data_ov016_0219d0dc;
+int data_ov016_0219d0d8;
+int data_ov016_0219d0fc;
+short* data_ov016_0219d0f0;
+short* data_ov016_0219d0ec;
+int data_ov016_0219d0e8;
+unsigned int data_ov016_0219d0e4;
+int data_ov016_0219d0e0;
+int data_ov016_0219d0d0;
+int data_ov016_0219cfb4;
+Struct_ov016_0218c04c* data_ov016_0219d0f4;
+int data_ov016_0219d0f8;
+long long data_ov016_0219d110;
+volatile long long data_ov016_0219d108;
+unsigned long long data_ov016_0219d100;
+Alarm data_ov016_0219d118;
+#else
+SafeAllocator* data_ov016_0219d0c8;
+int data_ov016_0219d0c0;
+int data_ov016_0219d0c4;
+int data_ov016_0219d0fc;
+int data_ov016_0219d0f8;
+Struct_ov016_0218c04c* data_ov016_0219d0f4;
+short* data_ov016_0219d0f0;
+short* data_ov016_0219d0ec;
+int data_ov016_0219d0e8;
+unsigned int data_ov016_0219d0e4;
+int data_ov016_0219d0e0;
+int data_ov016_0219d0dc;
+int data_ov016_0219d0d8;
+volatile int data_ov016_0219d0d4;
+int data_ov016_0219d0d0;
+int data_ov016_0219d0cc;
+volatile long long data_ov016_0219d108;
+unsigned long long data_ov016_0219d100;
+long long data_ov016_0219d110;
+Alarm data_ov016_0219d118;
+#endif
 extern char data_02109bf4;
 
 // USA: func_ov016_0218c04c
+#if defined(jpn)
+extern "C" ARM void func_ov016_0218c04c(const char* arg0) {
+#else
 extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
+#endif
 	unsigned char var0[0x48];
 	int var1;
 	int var2;
@@ -103,6 +132,7 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 	int var10;
 	void* var11;
 	int var12;
+	unsigned int var18;
 	unsigned int var13;
 	unsigned int var14;
 	unsigned int var15;
@@ -129,57 +159,69 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 	if (NitroVM_PrepareReadFileByPath((NitroVM*)var0, arg0)) {
 	var11 = func_ov016_0218e558(var0, 6);
 	if (var11 != 0) {
-		unsigned int var18 = 0;
+		var18 = 0;
 
 		var5 = 0;
 		var6 = func_ov016_0218e690(var11);
 		var13 = func_ov016_0218e6a8(var11);
 		var7 = (int)(((unsigned long long)(unsigned int)func_ov016_0218e660(var11) << 24) /
 			((unsigned long long)var13 * func_ov016_0218e678(var11)));
-		data_ov016_0219d0c0.unknown_24_ = (var7 + 1) * 7;
-		data_ov016_0219d0c0.unknown_30_ = (short*)((SafeAllocator*)data_ov016_0219d0c0.unknown_8_)->Allocate(data_ov016_0219d0c0.unknown_24_ * var13 * 2);
-		data_ov016_0219d0c0.unknown_2c_ = (short*)((SafeAllocator*)data_ov016_0219d0c0.unknown_8_)->Allocate(data_ov016_0219d0c0.unknown_24_ * var13 * 2);
-		memset(data_ov016_0219d0c0.unknown_30_, 0, data_ov016_0219d0c0.unknown_24_ * var13 * 2);
-		memset(data_ov016_0219d0c0.unknown_2c_, 0, data_ov016_0219d0c0.unknown_24_ * var13 * 2);
+		data_ov016_0219d0e4 = (var7 + 1) * 7;
+		data_ov016_0219d0f0 = (short*)data_ov016_0219d0c8->Allocate(data_ov016_0219d0e4 * var13 * 2);
+		data_ov016_0219d0ec = (short*)data_ov016_0219d0c8->Allocate(data_ov016_0219d0e4 * var13 * 2);
+		memset(data_ov016_0219d0f0, 0, data_ov016_0219d0e4 * var13 * 2);
+		memset(data_ov016_0219d0ec, 0, data_ov016_0219d0e4 * var13 * 2);
 		CleanDataCache();
 		var8 = 0;
-		data_ov016_0219d0c0.unknown_48_ = var8;
-		data_ov016_0219d0c0.unknown_28_ = var8;
-		data_ov016_0219d0c0.unknown_50_ = var8;
-		data_ov016_0219d0c0.unknown_18_ = var8;
-		data_ov016_0219d0c0.unknown_14_ = 1;
-		data_ov016_0219d0c0.unknown_1c_ = var8;
-		data_ov016_0219d0c0.unknown_3c_ = var8;
-		data_ov016_0219d0c0.unknown_20_ = var8;
-		ZeroInitializeAlarm((Alarm*)&data_ov016_0219d118);
+		data_ov016_0219d108 = var8;
+		data_ov016_0219d0e8 = var8;
+		data_ov016_0219d110 = var8;
+		data_ov016_0219d0d8 = var8;
+		data_ov016_0219d0d4 = 1;
+		data_ov016_0219d0dc = var8;
+		data_ov016_0219d0fc = var8;
+		data_ov016_0219d0e0 = var8;
+		ZeroInitializeAlarm(&data_ov016_0219d118);
 		{
 			unsigned long long var19 = GetCurrentTimestamp();
 			unsigned long long var20 = (0xf4240ULL << 24) / func_ov016_0218e678(var11);
 			unsigned long long var21 = ((var20 * 0x82ea) >> 6) / 1000;
-			SetInterval((Alarm*)&data_ov016_0219d118, var19 + 5, (unsigned int)var21, (void (*)(ProcessorContext**))func_ov016_0218c024, (ProcessorContext**)0);
+			SetInterval(&data_ov016_0219d118, var19 + 5, (unsigned int)var21, (void (*)(ProcessorContext**))func_ov016_0218c024, (ProcessorContext**)0);
 		}
-		data_ov016_0219d0c0.unknown_40_ = (GetCurrentTimestamp() << 6) / 0x82ea;
+		data_ov016_0219d100 = (GetCurrentTimestamp() << 6) / 0x82ea;
 		var9 = (float)func_ov016_0218e678(var11) / 16777216.0f;
 		var10 = 0;
 
 		while (func_ov016_0218e6c0(var11)) {
-			if (data_ov016_0219d0c0.unknown_10_ == 0) {
-				Struct_ov016_0218c04c* var22 = data_ov016_0219d0c0.unknown_34_;
+			if (data_ov016_0219d0d0 == 0) {
+				Struct_ov016_0218c04c* var22 = data_ov016_0219d0f4;
 				unsigned long long var23 = (GetCurrentTimestamp() << 6) / 0x82ea;
-				if (data_ov016_0219d0c0.unknown_40_ + var22->unknown_14_ <= var23) {
+				if (data_ov016_0219d100 + var22->unknown_14_ <= var23) {
+#if defined(jpn)
+					func_0203ad14(&data_02109bf4, var22->unknown_10_, 0, 0);
+#else
 					if (var22->unknown_10_ != 0) {
 						func_0203ad14(&data_02109bf4, var22->unknown_12_, 0, 0);
 					} else {
 						func_0203aba8((Struct_0203aba8*)&data_02109bf4, (void*)var22->unknown_12_, &data_ov016_0219d0cc);
 					}
+#endif
 					func_020bbd9c();
-					data_ov016_0219d0c0.unknown_10_ = 1;
+					data_ov016_0219d0d0 = 1;
 					var10 = var18;
 				}
 			}
 			if ((*(unsigned short*)0x27fffa8 & 0x8000) >> 15) {
-				data_ov016_0219d0c0.unknown_38_ = 1;
-				if (data_ov016_0219d0c0.unknown_34_->unknown_10_ != 0) {
+#if defined(jpn)
+				func_0203ae4c(&data_02109bf4, 1, 0);
+				data_ov016_0219d0f8 = 1;
+				func_020ce89c(0xc, 0, 0);
+				*(unsigned int*)(&data_02109bf4 + 0xa8) =
+					(unsigned int)(1000.0f * ((float)(var18 - var10) / var9));
+				func_0203ae4c(&data_02109bf4, 0, 0);
+#else
+				data_ov016_0219d0f8 = 1;
+				if (data_ov016_0219d0f4->unknown_10_ != 0) {
 					func_0203ae4c(&data_02109bf4, 1, 0);
 					func_020ce89c(0xc, 0, 0);
 					*(unsigned int*)(&data_02109bf4 + 0xa8) =
@@ -188,7 +230,8 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 				} else {
 					func_020ce89c(0xc, 0, 0);
 				}
-				data_ov016_0219d0c0.unknown_38_ = 0;
+#endif
+				data_ov016_0219d0f8 = 0;
 			}
 			func_ov016_0218e6e4(var11);
 			var18++;
@@ -197,22 +240,19 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 				if (func_ov016_0218e660(var11) != 0) {
 					unsigned long long var24 = func_ov016_0218e750(var11);
 					int var25 = 0;
-					int var26 = data_ov016_0219d0c0.unknown_28_;
-					unsigned int var27 = var13 * 2;
 					for (; var25 < var24; var25++) {
 						if (var12 != 0) {
-							long long var28; do { var28 = data_ov016_0219d0c0.unknown_50_ - data_ov016_0219d0c0.unknown_48_; } while (data_ov016_0219d0c0.unknown_24_ - var28 == 0);
+							long long var28; do { var28 = data_ov016_0219d110 - data_ov016_0219d108; } while (data_ov016_0219d0e4 - var28 == 0);
 						}
-						func_ov016_0218e768(var11, data_ov016_0219d0c0.unknown_30_ + var26);
-						func_ov016_0218e768(var11, data_ov016_0219d0c0.unknown_2c_ + data_ov016_0219d0c0.unknown_28_);
-						CleanCacheRange(data_ov016_0219d0c0.unknown_30_ + data_ov016_0219d0c0.unknown_28_, var27);
-						CleanCacheRange(data_ov016_0219d0c0.unknown_2c_ + data_ov016_0219d0c0.unknown_28_, var27);
-						var26 = data_ov016_0219d0c0.unknown_28_ + var13;
-						data_ov016_0219d0c0.unknown_28_ = var26;
-						if (var26 == data_ov016_0219d0c0.unknown_24_ * var13) {
-							data_ov016_0219d0c0.unknown_28_ = var26 = 0;
+						func_ov016_0218e768(var11, data_ov016_0219d0f0 + data_ov016_0219d0e8);
+						func_ov016_0218e768(var11, data_ov016_0219d0ec + data_ov016_0219d0e8);
+						CleanCacheRange(data_ov016_0219d0f0 + data_ov016_0219d0e8, var13 * 2);
+						CleanCacheRange(data_ov016_0219d0ec + data_ov016_0219d0e8, var13 * 2);
+						data_ov016_0219d0e8 = data_ov016_0219d0e8 + var13;
+						if (data_ov016_0219d0e8 == data_ov016_0219d0e4 * var13) {
+							data_ov016_0219d0e8 = 0;
 						}
-						data_ov016_0219d0c0.unknown_50_ = data_ov016_0219d0c0.unknown_50_ + 1;
+						data_ov016_0219d110 = data_ov016_0219d110 + 1;
 					}
 					if (var12 == 0 && var18 >= 6) {
 						func_ov016_0218bce8(func_ov016_0218e660(var11), var13);
@@ -221,25 +261,37 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 				}
 			}
 			if (var18 >= 6 || func_ov016_0218e660(var11) == 0) {
-				int var29 = (int)(data_ov016_0219d0c0.unknown_50_ - data_ov016_0219d0c0.unknown_48_);
-				if (data_ov016_0219d0c0.unknown_38_ != 0 ||
+				int var29 = (int)(data_ov016_0219d110 - data_ov016_0219d108);
+				if (data_ov016_0219d0f8 != 0 ||
 					(var29 <= (var7 + 1) * 3 && var8 == 0 && func_ov016_0218e660(var11) != 0)) {
 					func_ov016_0218e72c(var11);
 					var8 = 1;
 				} else {
+#if defined(jpn)
+					func_ov016_0218bec4(var11);
+#else
 					func_ov016_0218bec4(var11, arg1);
+#endif
 					var8 = 0;
 				}
 			}
 
 			{
 				unsigned short var30 = func_ov016_0218ca70();
-				if (data_ov016_0219d0c0.unknown_0_ == 0) {
+#if defined(jpn)
+				if (data_ov016_0219cfb4 == 0) {
+#else
+				if (data_ov016_0219d0c0 == 0) {
+#endif
 					var30 &= ~0xa;
 				}
 				if (var30 != var3) {
 					var3 = var30;
-					if (data_ov016_0219d0c0.unknown_0_ == 1) {
+#if defined(jpn)
+					if (data_ov016_0219cfb4 == 1) {
+#else
+					if (data_ov016_0219d0c0 == 1) {
+#endif
 						if ((var30 & 1) || (var30 & 2) || (var30 & 0x400) || (var30 & 0x800) || (var30 & 8)) {
 							var4 = true;
 							break;
@@ -257,14 +309,14 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 							func_020c9778(0, 1);
 						}
 						if (var12 == 1) {
-							memset(data_ov016_0219d0c0.unknown_30_, 0, data_ov016_0219d0c0.unknown_24_ * var13 * 2);
-							memset(data_ov016_0219d0c0.unknown_2c_, 0, data_ov016_0219d0c0.unknown_24_ * var13 * 2);
+							memset(data_ov016_0219d0f0, 0, data_ov016_0219d0e4 * var13 * 2);
+							memset(data_ov016_0219d0ec, 0, data_ov016_0219d0e4 * var13 * 2);
 							CleanDataCache();
-							data_ov016_0219d0c0.unknown_50_ = data_ov016_0219d0c0.unknown_50_ - data_ov016_0219d0c0.unknown_48_;
-							data_ov016_0219d0c0.unknown_48_ = 0;
-							data_ov016_0219d0c0.unknown_28_ = (int)data_ov016_0219d0c0.unknown_50_ * var13;
-							if (data_ov016_0219d0c0.unknown_28_ == data_ov016_0219d0c0.unknown_24_ * var13) {
-								data_ov016_0219d0c0.unknown_28_ = 0;
+							data_ov016_0219d110 = data_ov016_0219d110 - data_ov016_0219d108;
+							data_ov016_0219d108 = 0;
+							data_ov016_0219d0e8 = (int)data_ov016_0219d110 * var13;
+							if (data_ov016_0219d0e8 == data_ov016_0219d0e4 * var13) {
+								data_ov016_0219d0e8 = 0;
 							}
 							func_ov016_0218bce8(func_ov016_0218e660(var11), var13);
 						}
@@ -275,12 +327,19 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 				}
 			}
 
-			if (data_ov016_0219d0c0.unknown_0_ == 1) {
+#if defined(jpn)
+			if (data_ov016_0219cfb4 == 1) {
+#else
+			if (data_ov016_0219d0c0 == 1) {
+#endif
 				int var31, var32, var33, var34;
 				int var35;
 				g_touchInput.RefreshState();
 				g_touchInput.GetTouchPoint(&var1, &var2);
 				var35 = (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) ? 1 : 0;
+#if defined(jpn)
+				var31 = 0x56; var32 = 0xb3; var33 = 0x67; var34 = 0x98;
+#else
 				switch (func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance())) {
 				case 1:
 					var31 = 0x4c; var32 = 0xbd; var33 = 0x67; var34 = 0x98;
@@ -301,6 +360,7 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 					var31 = 0x4c; var32 = 0xbd; var33 = 0x67; var34 = 0x98;
 					break;
 				}
+#endif
 				if (var35) {
 					if (var31 <= var1 && var1 <= var32 && var2 >= 0x88 && var2 <= 0x97) {
 						var4 = true;
@@ -321,10 +381,14 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 		if (!var4) {
 			unsigned int var36;
 			for (var36 = 0; var36 < 5; var36++) {
+#if defined(jpn)
+				func_ov016_0218bec4(var11);
+#else
 				func_ov016_0218bec4(var11, arg1);
+#endif
 			}
 		}
-		while (data_ov016_0219d0c0.unknown_14_ == 0) {
+		while (data_ov016_0219d0d4 == 0) {
 		}
 		if ((func_020c7dcc() & 0x40000000) || (func_020c7dcc() & 0x80000000)) {
 			if (var12 == 1) {
@@ -333,19 +397,26 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 				func_020d24c4(1);
 			}
 		}
-		CancelAlarm((Alarm*)&data_ov016_0219d118);
-		((SafeAllocator*)data_ov016_0219d0c0.unknown_8_)->Free(data_ov016_0219d0c0.unknown_30_);
-		((SafeAllocator*)data_ov016_0219d0c0.unknown_8_)->Free(data_ov016_0219d0c0.unknown_2c_);
+		CancelAlarm(&data_ov016_0219d118);
+		data_ov016_0219d0c8->Free(data_ov016_0219d0f0);
+		data_ov016_0219d0c8->Free(data_ov016_0219d0ec);
 		func_ov016_0218e640(var11);
 		NitroVM_FinishRead((NitroVM*)var0);
-		if (data_ov016_0219d0c0.unknown_34_->unknown_12_ > -1) {
-			if (data_ov016_0219d0c0.unknown_34_->unknown_10_ != 0) {
+#if defined(jpn)
+		if (data_ov016_0219d0f4->unknown_10_ > -1) {
+			func_0203ad88(&data_02109bf4, 0, 0);
+			func_020bbd9c();
+		}
+#else
+		if (data_ov016_0219d0f4->unknown_12_ > -1) {
+			if (data_ov016_0219d0f4->unknown_10_ != 0) {
 				func_0203ad88(&data_02109bf4, 0, 0);
 			} else {
 				func_0203ac10(&data_02109bf4, &data_ov016_0219d0cc, 0);
 			}
 			func_020bbd9c();
 		}
+#endif
 	}
 }
 }

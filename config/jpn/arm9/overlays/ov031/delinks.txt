@@ -7519,3 +7519,8 @@ src/WifiLib/Overlay_31/func_ov031_0221fee4.cpp:
 src/Combat/Overlay_31/func_ov031_02246444.cpp:
     complete
     .text start:0x02246444 end:0x02246470
+
+src/Combat/Overlay_31/func_ov031_02244ad0.cpp:
+    complete
+    .text start:0x022452fc end:0x02245a0c
+    .bss start:0x02292a04 end:0x02292a3c
