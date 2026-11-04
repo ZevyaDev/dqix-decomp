@@ -19669,3 +19669,7 @@ src/Combat/Main/func_0203e8f8.cpp:
     .ctor start:0x020eeab8 end:0x020eeabc
     .data start:0x020efca4 end:0x020efcdc
     .bss start:0x02107518 end:0x0210771c
+
+src/Combat/Main/func_02066934.cpp:
+    complete
+    .text start:0x02066934 end:0x02066b08
