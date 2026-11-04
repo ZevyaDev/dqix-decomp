@@ -5,6 +5,11 @@
 #include "Graphics/Vector.h"
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define data_ov015_02194564 data_ov015_02195184
+#define func_ov015_0218e670 func_ov015_0218f290
+#endif
+
 struct Struct_ov015_0218e670
 {
     char unknown_0_[0x24];
@@ -54,15 +59,27 @@ extern "C" ARM void func_ov015_0218e670(Struct_ov015_0218e670* arg0)
         var5 = true;
     if (!var5)
         return;
+#if defined(jpn)
+    data_ov015_02194564.unknown_0_ = &var0;
+    data_ov015_02194564.unknown_8_ = &var1;
+    data_ov015_02194564.unknown_4_ = &var2;
+#else
     data_ov015_02194564.unknown_8_ = &var0;
     data_ov015_02194564.unknown_0_ = &var1;
     data_ov015_02194564.unknown_4_ = &var2;
+#endif
     func_020c5414();
     RenderConfig::SubmitToFifo();
     arg0->unknown_24_->MaybeUpdateBonePositions();
+#if defined(jpn)
+    data_ov015_02194564.unknown_0_ = NULL;
+    data_ov015_02194564.unknown_8_ = NULL;
+    data_ov015_02194564.unknown_4_ = NULL;
+#else
     data_ov015_02194564.unknown_8_ = NULL;
     data_ov015_02194564.unknown_0_ = NULL;
     data_ov015_02194564.unknown_4_ = NULL;
+#endif
     Vector3i var6;
     Vector3i var7;
     Vector3i var8;
