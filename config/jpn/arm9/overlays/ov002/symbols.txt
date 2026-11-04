@@ -217,7 +217,7 @@ data_ov002_0216cffa kind:data(any) addr:0x0216cffa
 data_ov002_0216c9ae kind:data(any) addr:0x0216d00a
 data_ov002_0216c9c0 kind:data(any) addr:0x0216d01c
 data_ov002_0216c9dc kind:data(any) addr:0x0216d038
-data_ov002_0216d054 kind:data(any) addr:0x0216d054
+data_ov002_0216d054 kind:data(byte[1]) addr:0x0216d054 local
 data_ov002_0216d058 kind:data(any) addr:0x0216d058
 @913 kind:data(any) addr:0x0216d060 local
 @915 kind:data(any) addr:0x0216d074 local
