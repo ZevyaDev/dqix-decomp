@@ -17484,7 +17484,7 @@ from:0x02097398 kind:arm_call to:0x0202f358 module:main
 from:0x020973a8 kind:load to:0x020f15c0 module:main
 from:0x020973ac kind:load to:0x0211fb64 module:main
 from:0x020973b0 kind:load to:0x021090bc module:main
-from:0x020973b4 kind:load to:0x020f1524 module:main
+from:0x020973b4 kind:load to:0x020f1524 module:none
 from:0x020973b8 kind:load to:0x020f1568 module:main
 from:0x02097408 kind:arm_call to:0x0203016c module:main
 from:0x02097414 kind:arm_call to:0x020301a4 module:main
@@ -21338,7 +21338,7 @@ from:0x020b52bc kind:load to:0x02109cd0 module:main
 from:0x020b52dc kind:load to:0x02109d84 module:main
 from:0x020b52f8 kind:arm_call to:0x020b8598 module:main
 from:0x020b5314 kind:load to:0x02109cc8 module:main
-from:0x020b5318 kind:load to:0x02109cc8 module:main
+from:0x020b5318 kind:load to:0x02109cc8 module:none
 from:0x020b5344 kind:load to:0x02109da8 module:main
 from:0x020b5348 kind:load to:0x02109cc8 module:main
 from:0x020b5374 kind:load to:0x02109db4 module:main
@@ -22776,7 +22776,7 @@ from:0x020c83dc kind:load to:0x02110efc module:main
 from:0x020c842c kind:arm_call to:0x020cb1c8 module:main
 from:0x020c8450 kind:arm_call to:0x020cb1dc module:main
 from:0x020c8478 kind:arm_call to:0x020c9364 module:main
-from:0x020c848c kind:load to:0x027e0000 module:dtcm
+from:0x020c848c kind:load to:0x027e0000 module:none
 from:0x020c8490 kind:load to:0x027e0060 module:dtcm
 from:0x020c8504 kind:arm_call to:0x020c87b8 module:main
 from:0x020c850c kind:load to:0x02110f1c module:main
@@ -23508,7 +23508,7 @@ from:0x020ceef4 kind:arm_call to:0x020cb6ac module:main
 from:0x020cef14 kind:arm_call to:0x02000970 module:main
 from:0x020cef1c kind:arm_call to:0x020c9dbc module:main
 from:0x020cef54 kind:load to:0x020f2e58 module:main
-from:0x020cef58 kind:load to:0x020f2e58 module:main
+from:0x020cef58 kind:load to:0x020f2e58 module:none
 from:0x020cef84 kind:arm_call to:0x020cb1c8 module:main
 from:0x020cf014 kind:arm_call to:0x020cb1dc module:main
 from:0x020cf04c kind:load to:0x020f33b0 module:main
@@ -23885,7 +23885,7 @@ from:0x020d2688 kind:arm_call to:0x020c8788 module:main
 from:0x020d2690 kind:arm_call to:0x020cb1dc module:main
 from:0x020d2694 kind:arm_call to:0x020d2404 module:main
 from:0x020d26a0 kind:load to:0x02111580 module:main
-from:0x020d26a4 kind:load to:0x01ff8000 module:itcm
+from:0x020d26a4 kind:load to:0x01ff8000 module:none
 from:0x020d26ac kind:load to:0x020f2438 module:main
 from:0x020d26b0 kind:load to:0x020d2458 module:main
 from:0x020d2704 kind:arm_call to:0x020d23a4 module:main
