@@ -99,6 +99,106 @@ g_vramSubregionLoadFunctions:
 	.word 0x020c5934
 	.word 0x020c5a90
 #elif defined(jpn)
+	.global cachedFilePaths
+cachedFilePaths:
+	.word 0x020f24d8
+	.word 0x020f28d7
+	.word 0x020f26b3
+	.word 0x020f25c7
+	.word 0x020f2799
+	.word 0x020f28ed
+	.word 0x020f2903
+	.word 0x020f2919
+	.word 0x020f2895
+	.word 0x020f26d7
+	.word 0x020f26ea
+	.word 0x020f292f
+	.word 0x020f2946
+	.word 0x020f26fd
+	.word 0x020f2710
+	.word 0x020f268f
+	.word 0x020f26a1
+	.word 0x020f28ab
+	.word 0x020f255e
+	.word 0x020f2513
+	.word 0x020f25f6
+	.word 0x020f2736
+	.word 0x020f26c5
+	.word 0x020f266b
+	.word 0x020f25e6
+	.word 0x020f258b
+	.word 0x020f24f5
+	.word 0x020f267d
+	.word 0x020f28c1
+	.word 0x020f27ae
+	.word 0x020f27c3
+	.word 0x020f27d8
+	.word 0x020f27ed
+	.word 0x020f2802
+	.word 0x020f2817
+	.word 0x020f282c
+	.word 0x020f2841
+	.word 0x020f2856
+	.word 0x020f286b
+	.word 0x020f2880
+	.word 0x020f2648
+	.word 0x020f2626
+	.word 0x020f275c
+	.word 0x020f2784
+	.word 0x020f2659
+	.word 0x020f2723
+	.word 0x020f2749
+	.word 0x020f24e6
+	.word 0x020f254f
+	.word 0x020f25b8
+	.word 0x020f2531
+	.word 0x020f256d
+	.word 0x020f2540
+	.word 0x020f257c
+	.word 0x020f25a9
+	.word 0x020f2504
+	.word 0x020f259a
+	.word 0x020f2616
+	.word 0x020f2606
+	.word 0x020f25d6
+	.word 0x020f2637
+	.word 0x020f2522
+	.word 0x020f2770
+	.word 0x020f295d
+	.global g_masterBrightnessFunctions
+g_masterBrightnessFunctions:
+	.word 0x020dd9fc
+	.word 0x020dd9e8
+	.global g_activeComponentFunctions
+g_activeComponentFunctions:
+	.word 0x020dda28
+	.word 0x020dda10
+	.global g_vramSubregionLoadFunctions
+g_vramSubregionLoadFunctions:
+	.word 0x020c8188
+	.word 0x020c7fc8
+	.word 0x020c72ec
+	.word 0x020c75a4
+	.word 0x020c78a4
+	.word 0x020c7664
+	.word 0x020c7964
+	.word 0x020c7724
+	.word 0x020c7a24
+	.word 0x020c77e4
+	.word 0x020c7ae4
+	.word 0x020c7340
+	.word 0x020c7604
+	.word 0x020c7904
+	.word 0x020c76c4
+	.word 0x020c79c4
+	.word 0x020c7784
+	.word 0x020c7a84
+	.word 0x020c7844
+	.word 0x020c7b44
+	.word 0x020c7398
+	.word 0x020c74f4
+	.word 0x020c73f0
+	.word 0x020c754c
 #else
 	.global cachedFilePaths
 cachedFilePaths:
