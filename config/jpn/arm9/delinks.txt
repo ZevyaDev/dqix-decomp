@@ -19676,7 +19676,7 @@ src/Combat/Main/func_02066934.cpp:
 
 src/Combat/Main/func_020469b0.cpp:
     complete
-    .text start:0x020469b0 end:0x02046c78
+    .text start:0x020469b0 end:0x02046f80
 
 src/Combat/Main/func_02046530.cpp:
     complete
@@ -19701,3 +19701,15 @@ src/Combat/Main/func_0206cc50.cpp:
 src/Combat/Main/func_02066794.cpp:
     complete
     .text start:0x02066794 end:0x02066934
+
+src/Combat/Main/func_02082484.cpp:
+    complete
+    .text start:0x02082484 end:0x020826e4
+
+src/Combat/Main/func_02095384.cpp:
+    complete
+    .text start:0x02095384 end:0x0209564c
+
+src/Combat/Main/func_02067ea0.cpp:
+    complete
+    .text start:0x02067ea0 end:0x020681b4
