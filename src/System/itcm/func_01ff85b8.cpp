@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define data_020ee278 data_020ee384
+#endif
+
 extern const unsigned long data_020ee278[256];
 
 extern "C"
