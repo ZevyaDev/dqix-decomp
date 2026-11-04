@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern short data_ov000_02183018[4];
+extern const short data_ov000_02183018[4];
 
 // USA: func_ov000_02167484
 extern "C" ARM int func_ov000_02167484(short* arg0, int arg1) {
