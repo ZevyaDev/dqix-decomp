@@ -6304,7 +6304,7 @@ data_020e8d3c kind:data(any) addr:0x020e8e58
 data_020e8d48 kind:data(any) addr:0x020e8e64
 data_020e8e70 kind:data(any) addr:0x020e8e70
 data_020e8d84 kind:data(any) addr:0x020e8e9c
-data_jpn_020e8ec4 kind:data(any) addr:0x020e8ec4
+@463 kind:data(any) addr:0x020e8ec4 local
 data_020e8de4 kind:data(any) addr:0x020e8ecc
 data_020e8db8 kind:data(any) addr:0x020e8ef8
 data_020e8e14 kind:data(any) addr:0x020e8f28
