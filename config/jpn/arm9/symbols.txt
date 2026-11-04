@@ -4760,6 +4760,7 @@ func_020c08ec kind:function(arm,size=0x154) addr:0x020c23b8
 func_020c0a40 kind:function(arm,size=0x1fc) addr:0x020c250c
 func_020c2708 kind:function(arm,size=0x94) addr:0x020c2708
 func_020c0cd0 kind:function(arm,size=0x1b8) addr:0x020c279c
+data_020c0e88 kind:data(any) addr:0x020c2954
 func_020c0e9c kind:function(arm,size=0x280) addr:0x020c2968
 func_020c111c kind:function(thumb,size=0xc) addr:0x020c2be8
 func_020c1128 kind:function(arm,size=0x58) addr:0x020c2bf4
