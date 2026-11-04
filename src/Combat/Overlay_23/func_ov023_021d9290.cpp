@@ -1,3 +1,92 @@
+#if defined(jpn)
+#include <globaldefs.h>
+#include "GameState/GameState.h"
+
+struct Struct_0201099c_3;
+struct Struct_ov023_021d9290_3 {
+    char unknown_0_[8];
+    char unknown_8_[0xc];
+};
+
+struct Struct_ov023_021d9290_2 {
+    Struct_0201099c_3* unknown_0_;
+    char unknown_4_[0xc0 - 4];
+    short unknown_c0_;
+    short unknown_c2_;
+    char unknown_c4_[0xdc - 0xc4];
+    int unknown_dc_[4];
+    char unknown_ec_[0x119 - 0xec];
+    unsigned char unknown_119_;
+    char unknown_11a_[0x120 - 0x11a];
+    Struct_ov023_021d9290_3* unknown_120_;
+    unsigned char unknown_124_[4];
+    unsigned char unknown_128_;
+};
+
+extern "C" char* func_020e0434(Struct_0201099c_3*, int);
+extern "C" int func_020421a0(void);
+extern "C" int func_020420e8(char*, int);
+extern "C" int func_02041b00(char*, int);
+extern "C" void __clear(void*, int);
+extern "C" Struct_ov023_021d9290_3* func_ov023_021d994c(Struct_ov023_021d9290_2*, int);
+extern "C" int func_02042058(char*, const char*);
+extern "C" void func_02046380(int);
+extern "C" void func_02046574(int, int, void*);
+extern "C" void func_020465c0(int, int, int);
+extern "C" void func_020474a8(int, int, char*, char*);
+
+// JPN: func_ov023_021d9290
+extern "C" ARM void func_ov023_021d9290(Struct_ov023_021d9290_2* arg0, char* arg1, unsigned char arg2) {
+    if (!arg1) return;
+
+    GameState::GetInstance();
+    int var1 = func_020421a0();
+
+    func_02042058(arg1, func_020e0434(arg0->unknown_0_, 0x75f8));
+
+    int var8 = 0;
+    int var5 = arg0->unknown_c2_;
+    int var6 = arg0->unknown_119_;
+    unsigned char* var4 = arg0->unknown_124_;
+    int var7 = arg0->unknown_128_;
+    signed char var9 = (signed char)(((var5 << 3) - (var6 * 10 + 0x1d)) / (var6 - 1));
+
+    if (arg0->unknown_120_ == NULL) return;
+
+    for (int var12 = 0; var12 < var7; var12++) {
+        if (arg0->unknown_dc_[var12] != 0 && arg2 != 0) {
+            Struct_ov023_021d9290_3* var14 = func_ov023_021d994c(arg0, var4[var12]);
+            if (var14 != NULL) {
+                char var15[0x100];
+                __clear(var15, 0x100);
+                if (var8 != 0) {
+                    func_02042058(arg1, func_020e0434(arg0->unknown_0_, 0));
+                    func_02041b00(arg1, var9);
+                }
+                func_02046380(var1);
+                func_02046574(var1, 0, var14->unknown_8_);
+                int var16 = arg0->unknown_dc_[var12];
+                int var17 = 0;
+                do {
+                    var16 /= 10;
+                    var17++;
+                } while (var16 != 0);
+                func_020465c0(var1, 0, 0xaa - (var17 * 8 + 10));
+                func_020465c0(var1, 1, arg0->unknown_dc_[var12]);
+                func_020474a8(var1, 0xc, func_020e0434(arg0->unknown_0_, 0x75f9), var15);
+                func_02042058(arg1, var15);
+                var8 = 1;
+                arg2 = arg2 - 1;
+            }
+        }
+    }
+
+    if (var8 == 0) {
+        func_020420e8(arg1, ((var5 << 3) - 0x1a) / 2 + 0x10);
+        func_02042058(arg1, func_020e0434(arg0->unknown_0_, 0x75fa));
+    }
+}
+#else
 struct Struct_0201099c_3;
 struct Struct_ov023_021d9290_3 {
     unsigned char unknown_0_;
@@ -5,11 +94,7 @@ struct Struct_ov023_021d9290_3 {
     unsigned char unknown_2_;
     unsigned char unknown_3_;
     int unknown_4_;
-#if defined(jpn)
-    char unknown_8_[0xc];
-#else
     char unknown_8_[0x30];
-#endif
 };
 
 struct Struct_ov023_021d9290_2 {
@@ -123,3 +208,4 @@ extern "C" ARM void func_ov023_021d9290(char* arg0, char* arg1, unsigned char ar
         func_02042058(arg1, var21);
     }
 }
+#endif
