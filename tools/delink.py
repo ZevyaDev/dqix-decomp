@@ -30,13 +30,18 @@ def add_data_mapping_symbols(path):
     def name(sym):
         return strings[sym[0]:strings.index(b"\0", sym[0])]
 
+    def in_code(sym):
+        return sym[5] < len(sections) and sections[sym[5]][2] & SHF_EXECINSTR
+
     mapped = {(s[5], s[1]) for s in symbols if name(s) in (b"$a", b"$t", b"$d")}
-    functions = [(s[5], s[1], s[1] + s[2]) for s in symbols
-                 if s[3] & 0xf == STT_FUNC and s[5] < len(sections) and sections[s[5]][2] & SHF_EXECINSTR]
+    functions = [(s[5], s[1], s[1] + s[2]) for s in symbols if s[3] & 0xf == STT_FUNC and in_code(s)]
     inside = [i for i, s in enumerate(symbols)
-              if s[3] & 0xf == STT_OBJECT and s[5] < len(sections) and sections[s[5]][2] & SHF_EXECINSTR
+              if s[3] & 0xf == STT_OBJECT and in_code(s)
               and any(f[0] == s[5] and f[1] < s[1] < f[2] for f in functions)]
-    if not inside:
+    stray = {i for i, s in enumerate(symbols)
+             if name(s) == b"$d" and in_code(s)
+             and not any(f[0] == s[5] and f[1] <= s[1] < f[2] for f in functions)}
+    if not inside and not stray:
         return False
     for i in inside:
         s = symbols[i]
@@ -48,7 +53,11 @@ def add_data_mapping_symbols(path):
     first_global = symtab[7]
     added = [struct.pack("<IIIBBH", name_offset, value, 0, 0, 0, shndx) for shndx, value in wanted]
     packed = [struct.pack("<IIIBBH", *s) for s in symbols]
-    new_symtab = b"".join(packed[:first_global] + added + packed[first_global:])
+    locals_kept = [i for i in range(first_global) if i not in stray]
+    globals_kept = [i for i in range(first_global, count) if i not in stray]
+    remap = {old: new for new, old in enumerate(locals_kept)}
+    remap.update({old: len(locals_kept) + len(added) + new for new, old in enumerate(globals_kept)})
+    new_symtab = b"".join([packed[i] for i in locals_kept] + added + [packed[i] for i in globals_kept])
 
     out = bytearray(data)
     for index, section in enumerate(sections):
@@ -56,8 +65,7 @@ def add_data_mapping_symbols(path):
             entry = 8 if section[1] == SHT_REL else 12
             for offset in range(section[4], section[4] + section[5], entry):
                 info, = struct.unpack_from("<I", out, offset + 4)
-                if info >> 8 >= first_global:
-                    struct.pack_into("<I", out, offset + 4, ((info >> 8) + len(added)) << 8 | info & 0xff)
+                struct.pack_into("<I", out, offset + 4, remap[info >> 8] << 8 | info & 0xff)
 
     def append(blob):
         while len(out) % 4:
@@ -68,7 +76,7 @@ def add_data_mapping_symbols(path):
 
     strtab[4], strtab[5] = append(strings), len(strings)
     symtab[4], symtab[5] = append(new_symtab), len(new_symtab)
-    symtab[7] = first_global + len(added)
+    symtab[7] = len(locals_kept) + len(added)
     shoff = append(b"".join(struct.pack("<10I", *s) for s in sections))
     struct.pack_into("<I", out, 0x20, shoff)
     with open(path, "wb") as fh:

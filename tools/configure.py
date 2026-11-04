@@ -323,7 +323,7 @@ def main():
 
         n.rule(
             name="objdiff_report",
-            command=f"{OBJDIFF} report generate -o $out"
+            command=f"{OBJDIFF} report generate -c combineTextSections=false -o $out"
         )
         n.newline()
 
@@ -621,7 +621,7 @@ def add_delink_and_lcf_builds(n: ninja_syntax.Writer, project: Project):
     delinks_path = project.arm9_delinks()
     n.build(
         inputs=project.dsd_configs() + [rom_config],
-        implicit=DSD,
+        implicit=[DSD, "tools/delink.py"],
         rule="delink",
         outputs=str(delinks_path / "delink.yaml"),
         variables={
