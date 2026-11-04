@@ -12,7 +12,7 @@ struct Struct_ov009_0218ad0c_2 {
 
 struct Struct_ov009_0218ad0c_1 {
     unsigned int unknown_0_0_ : 12;
-    unsigned int unknown_0_c_ : 20;
+    unsigned int unknown_1_4_ : 20;
     Struct_ov009_0218ad0c_2* unknown_4_;
     char* unknown_8_;
     char* unknown_c_;
