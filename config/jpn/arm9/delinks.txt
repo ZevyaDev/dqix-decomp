@@ -4499,10 +4499,6 @@ src/Combat/Main/func_0203e7b4.cpp:
     complete
     .text start:0x0203ecb0 end:0x0203edf4
 
-src/Combat/Main/func_0203ef60.cpp:
-    complete
-    .text start:0x0203f45c end:0x0203f478
-
 src/Combat/Main/func_0203ef7c.cpp:
     complete
     .text start:0x0203f478 end:0x0203f504
@@ -19033,10 +19029,6 @@ src/Combat/Main/__sinit_020e66a0.cpp:
     complete
     .init start:0x020e6f80 end:0x020e6fdc
 
-src/Combat/Main/__sinit_020e5c58.cpp:
-    complete
-    .init start:0x020e6538 end:0x020e65c8
-
 src/Combat/Main/__sinit_020e6790.cpp:
     complete
     .init start:0x020e7070 end:0x020e71d4
@@ -19668,3 +19660,12 @@ src/Combat/Main/func_02069878.cpp:
 src/Combat/Main/func_0206935c.cpp:
     complete
     .text start:0x0206935c end:0x02069408
+
+src/Combat/Main/func_0203e8f8.cpp:
+    complete
+    .text start:0x0203edf4 end:0x0203f478
+    .init start:0x020e6538 end:0x020e65c8
+    .rodata start:0x020e82a4 end:0x020e831c
+    .ctor start:0x020eeab8 end:0x020eeabc
+    .data start:0x020efca4 end:0x020efcdc
+    .bss start:0x02107518 end:0x0210771c

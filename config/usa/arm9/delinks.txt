@@ -4743,10 +4743,6 @@ src/Combat/Main/func_0203e7b4.cpp:
     complete
     .text start:0x0203e7b4 end:0x0203e8f8
 
-src/Combat/Main/func_0203ef60.cpp:
-    complete
-    .text start:0x0203ef60 end:0x0203ef7c
-
 src/Combat/Main/func_0203ef7c.cpp:
     complete
     .text start:0x0203ef7c end:0x0203f008
@@ -20327,10 +20323,6 @@ src/Combat/Main/__sinit_020e6790.cpp:
     complete
     .init start:0x020e6790 end:0x020e68f4
 
-src/Combat/Main/__sinit_020e5c58.cpp:
-    complete
-    .init start:0x020e5c58 end:0x020e5ce8
-
 src/Combat/Main/func_020e5920.cpp:
     complete
     .init start:0x020e5920 end:0x020e59c8
@@ -20554,3 +20546,12 @@ src/Combat/Main/data_02000ba0.s:
 src/NitroSDK/Main/func_020b10b4.cpp:
     complete
     .text start:0x020b10b4 end:0x020b11ac
+
+src/Combat/Main/func_0203e8f8.cpp:
+    complete
+    .text start:0x0203e8f8 end:0x0203ef7c
+    .init start:0x020e5c58 end:0x020e5ce8
+    .rodata start:0x020e7948 end:0x020e79c0
+    .ctor start:0x020eeb38 end:0x020eeb3c
+    .data start:0x020efd8c end:0x020efdc4
+    .bss start:0x021075d8 end:0x021077dc
