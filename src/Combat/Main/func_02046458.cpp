@@ -3,7 +3,7 @@
 
 // JPN: func_02046458
 extern "C" ARM void func_02046458(int arg0, short arg1, unsigned char arg2, unsigned char* arg3,
-                                  short arg4, short arg5, unsigned char* arg6, short arg7) {
+                                  short arg4, short arg5, unsigned char* arg6, short arg7, int arg8) {
     if (arg3 == 0 || arg6 == 0) {
         return;
     }
