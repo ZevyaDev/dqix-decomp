@@ -19741,3 +19741,11 @@ src/Combat/Main/func_02095c98.cpp:
 src/NitroSDK/Main/data_020c0e88.s:
     complete
     .text start:0x020c2954 end:0x020c2968
+
+src/Combat/Main/func_02081f70.cpp:
+    complete
+    .text start:0x02081f70 end:0x02082080
+
+src/Combat/Main/func_02079cf8.cpp:
+    complete
+    .text start:0x0207ab68 end:0x0207ac64

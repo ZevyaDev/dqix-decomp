@@ -10,6 +10,15 @@ extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 #include "World/ZoneTerrain.h"
 #include "World/Zone3D.h"
 
+#if defined(jpn)
+#define func_ov000_02165490 func_ov000_02166bdc
+#define func_020a93d0 func_020ab154
+#define data_ov000_021839ee data_ov000_02184b2e
+#define data_ov000_02183070 data_ov000_0218411c
+#define data_ov000_02183010 data_ov000_021840c8
+#define data_ov000_02183014 data_ov000_021840cc
+#endif
+
 struct Struct_02001a40 {
     int unknown_0_[3];
 };
@@ -129,7 +138,11 @@ struct Struct_ov000_02165490_14 {
 struct Struct_ov000_02165490_10 {
     char unknown_0_[0x44];
     SafeAllocator unknown_44_;
+#if defined(jpn)
+    char unknown_58_[0x1d4 - sizeof(SafeAllocator)];
+#else
     char unknown_58_[0x258 - sizeof(SafeAllocator)];
+#endif
     Struct_ov000_02165490_14* unknown_29c_;
     Struct_ov000_02165490_9* unknown_2a0_;
 };
@@ -154,7 +167,11 @@ extern "C" Struct_ov000_02165490* func_020a939c(char*, int);
 extern "C" int func_020a93d0(char*);
 extern "C" void* ExtractFileFromGP2(const char*, const char*, unsigned int*);
 extern "C" void func_0206efc4(void*);
+#if defined(jpn)
+extern "C" void func_0206f230(void*, void*, void*, unsigned int, short*, short);
+#else
 extern "C" void func_0206f230(void*, void*, void*, unsigned int, short*, short, int, int);
+#endif
 extern "C" int func_0201b5d8(int);
 
 extern "C" int func_020100a8(void*);
@@ -189,6 +206,9 @@ extern char data_ov000_021839ee[];
 extern int data_ov000_02183070[4][4];
 extern char data_ov000_02183a07[];
 extern char data_ov000_02183a1d[];
+#if defined(jpn)
+extern char data_ov000_02184b4a[];
+#endif
 
 extern const int data_ov000_02183010[1] = {1};
 extern const unsigned char data_ov000_02183014[4] = {0, 1, 2, 3};
@@ -380,8 +400,13 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
     Zone3D* var57 = func_02012fe4();
     char* var58 = func_02028bd0(func_02027ca4(), var57->currentZoneID_);
     if (var58 != 0) {
+#if defined(jpn)
+        for (int var59 = 0; var59 < func_020a93d0(var58 + 0x308); var59++) {
+            Struct_ov000_02165490* var60 = func_020a939c(var58 + 0x308, var59);
+#else
         for (int var59 = 0; var59 < func_020a93d0(var58 + 0x30c); var59++) {
             Struct_ov000_02165490* var60 = func_020a939c(var58 + 0x30c, var59);
+#endif
             if (var60 != 0) {
                 Struct_ov000_02165490_11* var61 = func_02070fd0(&var14->unknown_400_, var60->unknown_0_);
                 if (var61 != 0) {
@@ -408,10 +433,16 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
         }
     }
 
+#if defined(jpn)
+    if (LoadFileIntoMemory(data_ov000_02184b4a, data_0211e33c, &var4)) {
+        func_0206efc4(&var11->unknown_400_);
+        func_0206f230(&var11->unknown_400_, &arg0->unknown_44_, data_0211e33c, var4, var2, var8);
+#else
     void* var62 = ExtractFileFromGP2(data_ov000_02183a07, data_ov000_02183a1d, &var4);
     if (var62 != 0) {
         func_0206efc4(&var11->unknown_400_);
         func_0206f230(&var11->unknown_400_, &arg0->unknown_44_, var62, var4, var2, var8, 0, 0);
+#endif
         unsigned int var63 = arg0->unknown_44_.GetMaxPossibleAllocation();
         int var64 = var9;
         for (int var65 = 0; var65 < var9; var65++) {

@@ -68,7 +68,7 @@ data_ov008_0218b314 kind:data(any) addr:0x0218bf58
 data_ov008_0218bf60 kind:data(any) addr:0x0218bf60
 data_ov008_0218bf6c kind:data(any) addr:0x0218bf6c
 data_ov008_0218bf78 kind:data(any) addr:0x0218bf78
-data_ov008_0218bf84 kind:data(any) addr:0x0218bf84
+@996 kind:data(any) addr:0x0218bf84 local
 data_ov008_0218b340 kind:data(any) addr:0x0218bfc4
 data_ov008_0218b3b8 kind:data(any) addr:0x0218c03c
 data_ov008_0218c060 kind:data(any) addr:0x0218c060

@@ -3,6 +3,169 @@
 #include <World/Object3D.h>
 #include <Filesystem/BackgroundLoader.h>
 
+#if defined(jpn)
+#include <Filesystem/FileIO.h>
+struct Struct_ov008_02187278 {
+    char unknown_0_[0x14];
+    short unknown_14_;
+    unsigned char unknown_16_0_ : 1;
+};
+
+struct Struct_ov008_021842a0_2 {
+    char unknown_0_[0xa0];
+    char unknown_a0_[0x18];
+    char unknown_b8_[0xb2c - 0xb8];
+    const void* unknown_b2c_;
+    Struct_ov008_02187278* unknown_b30_;
+    void* unknown_b34_;
+    void* unknown_b38_;
+};
+
+struct Struct_ov005_0215840c_2 {
+    char unknown_0_[0x49c];
+    unsigned char unknown_49c_0_ : 1;
+    char unknown_49d_[0x8b8 - 0x49d];
+    int unknown_8b8_;
+};
+
+struct GameObject {
+    char unknown_0_[0x134];
+    void* unknown_134_;
+    char unknown_138_[0x144 - 0x138];
+    Struct_ov005_0215840c_2* unknown_144_;
+};
+
+struct GameState {
+    static GameState* GetInstance();
+    GameObject* GetProtagonist();
+};
+
+struct Struct_ov008_02187708 {
+    unsigned int unknown_0_0_ : 19;
+    int unknown_2_3_ : 11;
+    unsigned int unknown_3_6_ : 2;
+};
+
+static inline char* inline_ov008_02187708(GameState* arg0)
+{
+    return (char*)arg0 + 0x543c;
+}
+
+struct Struct_02021b84;
+struct Struct_ov008_021843f8_2;
+struct Struct_020727d8;
+struct Struct_0201099c_3;
+struct Struct_02072a68_2;
+struct Struct_02013fb4;
+
+struct Struct_ov008_02185dc0 {
+    int unknown_0_[2];
+};
+
+extern char data_ov008_0218c0d5[];
+extern char data_ov008_0218c0fc[];
+
+extern "C" Struct_02021b84* func_020421a0();
+extern "C" void func_020727d8(Struct_020727d8* arg0);
+extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
+extern "C" void func_02046574(Struct_02021b84* arg0, int arg1, const void* arg2);
+extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" void func_02046380(Struct_02021b84* arg0);
+extern "C" void func_020474a8(Struct_02021b84* arg0, int arg1, const char* arg2, char* arg3);
+extern "C" const char* func_020e2168(char* arg0, const char* arg1, short arg2, unsigned int arg3, int arg4);
+extern "C" void __clear(void* arg0, unsigned long arg1);
+
+static inline bool inline_ov008_02187708_2(const Struct_ov008_021842a0_2* arg0)
+{
+    return arg0->unknown_b2c_ != NULL;
+}
+
+static inline unsigned int inline_ov008_02187708_3(const Struct_ov008_021842a0_2* arg0)
+{
+    return arg0->unknown_b30_->unknown_16_0_;
+}
+
+// JPN: func_ov008_02187708
+extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg1, Struct_ov008_021843f8_2* arg2)
+{
+    if (arg1 == NULL)
+        return;
+    GameState* var0 = GameState::GetInstance();
+    BackgroundLoader::GetInstance();
+    Struct_02021b84* var1 = func_020421a0();
+    short var3 = 0;
+    char var4[0x40];
+    __clear(var4, sizeof(var4));
+    unsigned int var5 = 0;
+    func_02046380(var1);
+    if (!inline_ov008_02187708_2(arg0))
+    {
+        char* var9 = inline_ov008_02187708(var0);
+        var3 = ((Struct_ov008_02187708*)(var9 + 4))->unknown_2_3_;
+        GameObject* var10 = var0->GetProtagonist();
+        if (var10 != NULL)
+        {
+            if (var3 <= 0)
+                var3 = 700 + var10->unknown_144_->unknown_8b8_;
+            var5 = var10->unknown_144_->unknown_49c_0_;
+            func_02046574(var1, 1, var10->unknown_134_);
+        }
+    }
+    else
+    {
+        if (arg0->unknown_b30_ != NULL)
+            var3 = arg0->unknown_b30_->unknown_14_;
+        var5 = inline_ov008_02187708_3(arg0);
+        func_02046574(var1, 1, arg0->unknown_b2c_);
+    }
+    if (var3 > 0)
+    {
+        Struct_ov008_02185dc0 var14;
+        func_020727d8((Struct_020727d8*)&var14);
+        const char* var15 = NULL;
+        unsigned int var16 = 0;
+        if (var3 < 700)
+        {
+            if (arg0->unknown_b38_ != NULL)
+            {
+                var15 = func_020e0434((Struct_0201099c_3*)arg0->unknown_b38_, var3);
+            }
+            else
+            {
+                var15 = func_020e2168(var4, data_ov008_0218c0d5, var3, var5, 1);
+            }
+        }
+        else
+        {
+            if (arg0->unknown_b34_ != NULL)
+            {
+                var15 = func_02072a68((Struct_02072a68_2*)arg0->unknown_b34_, (short)(var3 + 20000));
+            }
+            else
+            {
+                char var17[0x40] = "data/bin/";
+                func_02042058(var17, data_ov008_0218c0fc);
+                BackgroundLoader::AddLockGlobal();
+                void* var21 = LoadFileIntoMemory(var17, data_0211e33c, &var16);
+                if (var21 != NULL)
+                {
+                    func_02072928(&var14, (Struct_02013fb4*)var21, var16, (short)(var3 + 20000), var4, 0);
+                    var15 = var4;
+                }
+                BackgroundLoader::RemoveLockGlobal();
+            }
+        }
+        func_02046574(var1, 0, var15);
+    }
+    int var23 = 100;
+    if (arg2 != NULL)
+        var23 = 101;
+    func_020474a8(var1, 10, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, var23), arg1);
+}
+#else
+
 struct Struct_01ff8b48_26 {
     unsigned short unknown_0_;
     unsigned char unknown_2_;
@@ -305,3 +468,4 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
     func_02041a5c(arg1, var25);
     func_02042058(arg1, var22 + 0x760);
 }
+#endif
