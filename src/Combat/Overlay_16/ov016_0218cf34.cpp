@@ -7,6 +7,11 @@
 #include "NitroSDK/Filesystem/FileAccessor.h"
 #include "NitroSDK/Filesystem/LowNitroHandle.h"
 
+#if defined(jpn)
+#define func_020c39a0 func_020c546c
+#define func_ov016_0218d2f4 func_ov016_0218d9f8
+#endif
+
 extern "C" int func_020d1fb0(int arg0, int arg1);
 extern "C" void func_020d2038(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9);
 extern "C" int func_020d1f70(int arg0, int arg1, int arg2, int arg3, int arg4);
@@ -66,14 +71,20 @@ extern "C" Struct_020e58dc_2* func_020e58dc(Struct_020e58dc* arg0, int arg1);
 
 struct Struct_ov016_0218d2f4 {
 	int unknown_0_;
+#if !defined(jpn)
 	int unknown_4_;
+#endif
 };
 
 struct Struct_ov016_0218d2f4_2 {
 	char unknown_0_[0x10];
+#if defined(jpn)
+	short unknown_10_;
+#else
 	unsigned char unknown_10_;
 	char unknown_11_;
 	short unknown_12_;
+#endif
 	unsigned int unknown_14_;
 };
 
@@ -85,6 +96,27 @@ struct Struct_021052b4 {
 	};
 };
 
+#if defined(jpn)
+int data_ov016_0219d150;
+int data_ov016_0219d144;
+int data_ov016_0219d148;
+Struct_ov016_0218d2f4_2* data_ov016_0219d154;
+short* data_ov016_0219d170;
+int data_ov016_0219d16c;
+unsigned int data_ov016_0219d168;
+unsigned int data_ov016_0219d164;
+int data_ov016_0219d160;
+int data_ov016_0219d15c;
+int data_ov016_0219d158;
+volatile int data_ov016_0219d174;
+unsigned long long data_ov016_0219d178;
+volatile unsigned long long data_ov016_0219d188;
+unsigned long long data_ov016_0219d180;
+Alarm data_ov016_0219d190;
+extern int data_ov016_0219cfb4;
+extern SafeAllocator* data_ov016_0219d0c0;
+#define data_ov016_0219d0c8 data_ov016_0219d0c0
+#else
 int data_ov016_0219d14c;
 int data_ov016_0219d144;
 int data_ov016_0219d148;
@@ -104,6 +136,7 @@ volatile unsigned long long data_ov016_0219d188;
 Alarm data_ov016_0219d190;
 extern int data_ov016_0219d0c0;
 extern SafeAllocator* data_ov016_0219d0c8;
+#endif
 extern char data_02109bf4;
 extern Struct_021052b4 data_021052b4[];
 extern char data_027e0000;
@@ -148,7 +181,11 @@ extern "C" ARM void func_ov016_0218d034(void) {
 }
 
 // USA: func_ov016_0218d0d4
+#if defined(jpn)
+extern "C" ARM void func_ov016_0218d0d4(void* arg0, void* arg1) {
+#else
 extern "C" ARM void func_ov016_0218d0d4(void* arg0, void* arg1, int arg2) {
+#endif
     int var2;
     while (data_ov016_0219d174 == 0) {
     }
@@ -158,7 +195,9 @@ extern "C" ARM void func_ov016_0218d0d4(void* arg0, void* arg1, int arg2) {
     data_ov016_0219d144 = 0;
     if (data_ov016_0219d164 < 2 ||
         data_ov016_0219d15c - var2 <= 1) {
+#if !defined(jpn)
         Struct_020e58dc_2* var3 = func_020e58dc((Struct_020e58dc*)arg2, var2);
+#endif
         unsigned short* var4;
         if (data_ov016_0219d148 == 0) {
             var4 = (unsigned short*)0x06820000;
@@ -166,24 +205,31 @@ extern "C" ARM void func_ov016_0218d0d4(void* arg0, void* arg1, int arg2) {
             var4 = (unsigned short*)0x06800000;
         }
         func_ov016_0218e708(arg0, var4, 0x100, 0);
+#if !defined(jpn)
         if (var3 != 0 && var3->unknown_4_ == 0) {
             func_ov016_0218e240(var4, (char*)var3->unknown_10_, 0x7fff, 0, 0xa8, 1, 1, var3->unknown_0_);
             var3->unknown_0_ += 4;
         }
+#endif
         if (data_ov016_0219d148 == 0) {
             var4 = (unsigned short*)0x06600000;
         } else {
             var4 = (unsigned short*)GetSubBG2ScreenBase();
         }
         func_ov016_0218e708(arg1, var4, 0x100, 0);
+#if !defined(jpn)
         if (var3 != 0 && var3->unknown_4_ == 1) {
             func_ov016_0218e240(var4, (char*)var3->unknown_10_, 0xffff, 0, 0xa8, 1, 1, var3->unknown_0_);
             var3->unknown_0_ += 4;
         }
+#endif
         data_ov016_0219d174 = 0;
     } else {
         func_ov016_0218e72c(arg0);
         func_ov016_0218e72c(arg1);
+#if defined(jpn)
+        data_ov016_0219d148 ^= 1;
+#endif
         data_ov016_0219d164 = 0;
     }
     data_ov016_0219d160++;
@@ -211,6 +257,14 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 	int var2;
 	int var3;
 
+#if defined(jpn)
+	data_ov016_0219d154 = arg3;
+	data_ov016_0219d180 = 0;
+	data_ov016_0219d150 = arg3->unknown_10_ < 0 ? 1 : 0;
+	data_ov016_0219cfb4 = arg4.unknown_0_;
+	func_020c39a0((short*)0x400006c, -16);
+	func_020c39a0((short*)0x400106c, -16);
+#else
 	func_020c39a0((short*)0x400006c, -16);
 	func_020c39a0((short*)0x400106c, -16);
 	data_ov016_0219d154 = arg3;
@@ -222,6 +276,7 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 		func_0203aa44(&data_02109bf4);
 		func_0203aaf8(&data_02109bf4, data_ov016_0219d154->unknown_12_, 0);
 	}
+#endif
 
 	SetInterruptHandler(1, (const void*)func_ov016_0218d034);
 	EnableSpecificInterrupts(0x60078);
@@ -351,11 +406,15 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 				Struct_ov016_0218d2f4_2* var30 = data_ov016_0219d154;
 				unsigned long long var31 = (GetCurrentTimestamp() << 6) / 0x82ea;
 				if (data_ov016_0219d180 + var30->unknown_14_ <= var31) {
+#if defined(jpn)
+					func_0203ad14(&data_02109bf4, var30->unknown_10_, 0, 0);
+#else
 					if (var30->unknown_10_ != 0) {
 						func_0203ad14(&data_02109bf4, var30->unknown_12_, 0, 0);
 					} else {
 						func_0203aba8(&data_02109bf4, var30->unknown_12_, &data_ov016_0219d14c);
 					}
+#endif
 					func_020bbd9c();
 					data_ov016_0219d150 = 1;
 					var12 = var23;
@@ -363,6 +422,13 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 			}
 			if ((*(unsigned short*)0x27fffa8 & 0x8000) >> 15) {
 				data_ov016_0219d158 = 1;
+#if defined(jpn)
+				func_0203ae4c(&data_02109bf4, 1, 0);
+				func_020ce89c(0xc, 0, 0);
+				*(unsigned int*)(&data_02109bf4 + 0xa8) =
+					(unsigned int)(1000.0f * ((float)(var23 - var12) / var13));
+				func_0203ae4c(&data_02109bf4, 0, 0);
+#else
 				if (data_ov016_0219d154->unknown_10_ != 0) {
 					func_0203ae4c(&data_02109bf4, 1, 0);
 					func_020ce89c(0xc, 0, 0);
@@ -372,6 +438,7 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 				} else {
 					func_020ce89c(0xc, 0, 0);
 				}
+#endif
 				data_ov016_0219d158 = 0;
 			}
 			func_ov016_0218e6c0(var25);
@@ -413,14 +480,22 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 					func_ov016_0218e72c(var25);
 					var14 = 1;
 				} else {
+#if defined(jpn)
+					func_ov016_0218d0d4(var26, var25);
+#else
 					func_ov016_0218d0d4(var26, var25, arg4.unknown_4_);
+#endif
 					var14 = 0;
 				}
 			}
 
 			{
 				unsigned short var34 = func_ov016_0218d2bc();
+#if defined(jpn)
+				if (data_ov016_0219cfb4 == 0) {
+#else
 				if (data_ov016_0219d0c0 == 0) {
+#endif
 					var34 = (unsigned short)(var34 & ~0xa);
 				}
 				if (var34 != var19) {
@@ -463,7 +538,11 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 		if (var18 == 0) {
 			unsigned int var35;
 			for (var35 = 0; var35 < 5; var35++) {
+#if defined(jpn)
+				func_ov016_0218d0d4(var26, var25);
+#else
 				func_ov016_0218d0d4(var26, var25, arg4.unknown_4_);
+#endif
 			}
 		}
 		while (data_ov016_0219d174 == 0) {
@@ -481,6 +560,12 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 		func_ov016_0218e640(var25);
 		NitroVM_FinishRead(&var1);
 		NitroVM_FinishRead(&var0);
+#if defined(jpn)
+		if (data_ov016_0219d154->unknown_10_ > -1) {
+			func_0203ad88(&data_02109bf4, 0, 0);
+			func_020bbd9c();
+		}
+#else
 		if (data_ov016_0219d154->unknown_12_ > -1) {
 			if (data_ov016_0219d154->unknown_10_ != 0) {
 				func_0203ad88(&data_02109bf4, 0, 0);
@@ -489,6 +574,7 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 			}
 			func_020bbd9c();
 		}
+#endif
 	}
 	SetInterruptHandler(1, (const void*)func_02012bd8);
 }

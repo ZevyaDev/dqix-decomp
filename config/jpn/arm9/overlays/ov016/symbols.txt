@@ -119,6 +119,21 @@ data_ov016_0219d0c0 kind:bss addr:0x0219cfa0
 data_ov016_0219cfb4 kind:bss addr:0x0219cfb4
 data_ov016_0219cff4 kind:bss addr:0x0219cff4
 data_ov016_0219d144 kind:bss addr:0x0219d020
-data_ov016_0219d068 kind:bss addr:0x0219d068
+data_ov016_0219d190 kind:bss addr:0x0219d068
 data_ov016_0219d1bc kind:bss addr:0x0219d094
 data_ov016_0219d1c0 kind:bss addr:0x0219d098
+
+data_ov016_0219d148 kind:bss addr:0x0219d024
+data_ov016_0219d150 kind:bss addr:0x0219d028
+data_ov016_0219d174 kind:bss addr:0x0219d02c
+data_ov016_0219d158 kind:bss addr:0x0219d030
+data_ov016_0219d15c kind:bss addr:0x0219d034
+data_ov016_0219d160 kind:bss addr:0x0219d038
+data_ov016_0219d164 kind:bss addr:0x0219d03c
+data_ov016_0219d168 kind:bss addr:0x0219d040
+data_ov016_0219d16c kind:bss addr:0x0219d044
+data_ov016_0219d170 kind:bss addr:0x0219d048
+data_ov016_0219d154 kind:bss addr:0x0219d04c
+data_ov016_0219d188 kind:bss addr:0x0219d050
+data_ov016_0219d178 kind:bss addr:0x0219d058
+data_ov016_0219d180 kind:bss addr:0x0219d060
