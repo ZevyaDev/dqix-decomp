@@ -7877,3 +7877,17 @@ data_02153660 kind:bss addr:0x02154e28
 _frsb kind:function(arm,size=0xc,unknown) addr:0x0200c95c
 _frdiv kind:function(arm,size=0xc,unknown) addr:0x0200c078
 _drdiv kind:function(arm,size=0x18,unknown) addr:0x0200d1f8
+data_02107744 kind:bss addr:0x02107744
+data_02107748 kind:bss addr:0x02107748
+data_02107750 kind:bss addr:0x02107750
+data_02107754 kind:bss addr:0x02107754
+data_02107758 kind:bss addr:0x02107758
+data_0210775c kind:bss addr:0x0210775c
+data_02107760 kind:bss addr:0x02107760
+data_02107764 kind:bss addr:0x02107764
+data_02107768 kind:bss addr:0x02107768
+data_0210776c kind:bss addr:0x0210776c
+data_02107770 kind:bss addr:0x02107770
+data_02107774 kind:bss addr:0x02107774
+data_02107778 kind:bss addr:0x02107778
+data_0210777c kind:bss addr:0x0210777c
