@@ -22,29 +22,34 @@ struct Struct_ov004_0217101c {
 };
 
 extern "C" void func_ov023_021f65b4(void*, void*, short, short);
-extern struct Struct_ov004_0217101c* data_ov004_0217101c;
-
-#if !defined(jpn)
-static const short data_ov004_0216ff98[3] = {6, 8, 10};
+struct Struct_ov004_0217101c_2 {
+#if defined(jpn)
+    void** unknown_0_;
+    struct Struct_ov004_0217101c* unknown1_0_;
+#else
+    struct Struct_ov004_0217101c* unknown1_0_;
+    void** unknown_4_;
 #endif
+    struct Struct_ov004_0217101c* inline_ov004_02165f2c() { return unknown1_0_; }
+};
+extern struct Struct_ov004_0217101c_2 data_ov004_0217101c;
 
 #if defined(jpn)
-enum { Enum_ov004_02165ef4_0 = 1 };
+static const short data_ov004_021706f8[2] = {8, 6};
 #else
-enum { Enum_ov004_02165ef4_0 = 0 };
+static const short data_ov004_0216ff98[3] = {6, 8, 10};
 #endif
 
 // USA: func_ov004_02165ef4
 extern "C" ARM void func_ov004_02165ef4(void* arg0) {
-    short var0 = (&data_ov004_0217101c)[Enum_ov004_02165ef4_0]->unknown_4c_;
+    short var0 = data_ov004_0217101c.inline_ov004_02165f2c()->unknown_4c_;
     short var1 = (var0 + 7) / 8;
     func_ov023_021f65b4(arg0, (void*)0x5b, 0, var1);
 }
 
-#if !defined(jpn)
 // USA: func_ov004_02165f2c
 extern "C" ARM void func_ov004_02165f2c(void) {
-    struct Struct_ov004_0217101c* var0 = data_ov004_0217101c;
+    struct Struct_ov004_0217101c* var0 = data_ov004_0217101c.inline_ov004_02165f2c();
     struct Struct_ov004_02165f2c* var1;
     struct Struct_ov004_02165f2c* var2;
     struct Struct_ov004_02165f2c* var3;
@@ -111,4 +116,3 @@ extern "C" ARM void func_ov004_02165f2c(void) {
         }
     }
 }
-#endif

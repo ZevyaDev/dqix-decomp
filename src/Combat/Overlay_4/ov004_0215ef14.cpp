@@ -17,7 +17,7 @@ struct Struct_ov004_0215f770 {
 
 struct Struct_ov004_0215f770_2 {
     struct Struct_ov004_0215f770* unknown_0_;
-    void* unknown_4_;
+    char* unknown_4_;
     char unknown_8_[0x10];
     short unknown_18_;
     char unknown_1a_[6];
@@ -36,14 +36,43 @@ struct Struct_ov004_0215f770_3;
 struct Struct_ov004_0215f770_4;
 
 #if defined(jpn)
-struct Struct_ov004_021707e8 {
-    unsigned char unknown_0_[2];
-    unsigned char unknown_2_;
-    unsigned char unknown_3_[0x19];
-    int unknown_1c_;
-};
-
-extern struct Struct_ov004_021707e8 data_ov004_021707e8;
+#define func_ov004_0215ef14 func_ov004_0215fa1c
+#define func_ov004_0215f770 func_ov004_021601a8
+#define data_ov004_021707ed data_ov004_021707e8
+#define data_ov004_02170814 data_ov004_02171090
+#define data_ov004_02170818 data_ov004_021710a8
+#define data_ov004_02170820 data_ov004_021710b0
+#define data_ov004_02170845 data_ov004_021710d5
+#define data_ov004_02170888 data_ov004_02171118
+#define data_ov004_0216fe5c data_ov004_021705c4
+#define data_ov004_0216fdf4 data_ov004_02170574
+#define data_ov004_0216fe1c data_ov004_02170584
+#define data_ov004_021704a4 data_ov004_02170d60
+int data_ov004_0217080c;
+unsigned char data_ov004_02170814[4];
+int data_ov004_02170808;
+int data_ov004_021707fc;
+int data_ov004_021707f8;
+int data_ov004_02170804;
+signed char data_ov004_021707f3;
+unsigned char data_ov004_021707eb;
+unsigned char data_ov004_021707e9;
+signed char data_ov004_021707ed;
+signed char data_ov004_021707ee;
+unsigned char data_ov004_021707f2;
+unsigned char data_ov004_0217108f;
+signed char data_ov004_021707f1;
+unsigned char data_ov004_021707ea;
+unsigned char data_ov004_021707ec;
+unsigned char data_ov004_021707f0;
+unsigned char data_ov004_021707ef;
+short data_ov004_02170818[4];
+unsigned char data_ov004_02170820[12];
+unsigned char data_ov004_0217082c[12];
+unsigned char data_ov004_02170845[13];
+unsigned char data_ov004_02170838[13];
+int data_ov004_02170854[13];
+short data_ov004_02170888[8][4];
 #else
 void* data_ov004_021707f4;
 unsigned char data_ov004_02170814[4];
@@ -73,14 +102,13 @@ unsigned char data_ov004_02170845[13];
 unsigned char data_ov004_02170838[13];
 int data_ov004_02170854[13];
 short data_ov004_02170888[8][4];
+#endif
 extern int data_ov004_0216fe5c[13];
 extern unsigned char data_ov004_0216fdf4[8];
 extern int data_ov004_0216fe1c[8];
 extern char* data_ov004_021704a4[8][4];
 extern char data_ov004_021708c8[];
-#endif
 
-#if !defined(jpn)
 // USA: func_ov004_0215ef14
 extern "C" ARM void func_ov004_0215ef14() {
     GameObject* var0 = func_0200ff1c(GameState::GetInstance(), data_ov004_02170804);
@@ -94,7 +122,6 @@ extern "C" ARM void func_ov004_0215ef14() {
         }
     }
 }
-#endif
 
 struct Struct_ov000_02179cdc_2 {
     unsigned char unknown_0_[0x15];
@@ -273,11 +300,7 @@ extern unsigned short data_ov004_0216fdd0[];
 // USA: func_ov004_0215f0c0
 extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-#if defined(jpn)
-    struct Struct_ov004_0215f0c0_2* var1 = (struct Struct_ov004_0215f0c0_2*)func_0200ff1c(var0, data_ov004_021707e8.unknown_1c_);
-#else
     struct Struct_ov004_0215f0c0_2* var1 = (struct Struct_ov004_0215f0c0_2*)func_0200ff1c(var0, data_ov004_02170804);
-#endif
     struct Struct_ov004_0215f0c0_6* var2 = (struct Struct_ov004_0215f0c0_6*)func_02053c6c((unsigned char*)var1);
     int var3 = 0;
     int var4 = 0xf;
@@ -337,11 +360,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
     if (var20 == 0) {
         return;
     }
-#if defined(jpn)
-    var20->inline_ov004_0215f0c0_24(var2->unknown_16c_[data_ov004_021707e8.unknown_2_]);
-#else
     var20->inline_ov004_0215f0c0_24(var2->unknown_16c_[data_ov004_021707ea]);
-#endif
 
     {
         Struct_ov004_0215f0c0_5* var21 = func_ov023_021f6880(var19, 0x7b);
@@ -366,11 +385,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
             var21->inline_ov004_0215f0c0_22(var4);
         }
     }
-#if defined(jpn)
-    int var25 = var2->unknown_186_[data_ov004_021707e8.unknown_2_];
-#else
     int var25 = var2->unknown_186_[data_ov004_021707ea];
-#endif
     if (var25 != 0) {
         var20 = func_ov023_021f6880(var19, 0x7e);
         if (var20 == 0) {
@@ -479,11 +494,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
     if (func_ov004_0215e460() != 0) {
         func_ov004_0215e49c(arg0, 0x7c, 0x201);
     } else {
-#if defined(jpn)
-        func_ov004_0215e49c(arg0, 0x7c, data_ov004_021707e8.unknown_2_ + 0x1e4);
-#else
         func_ov004_0215e49c(arg0, 0x7c, data_ov004_021707ea + 0x1e4);
-#endif
     }
 
 #if !defined(jpn)
@@ -574,7 +585,6 @@ extern "C" ARM int func_ov004_0215f74c(int arg0, int arg1) {
 	return func_0200ff1c(GameState::GetInstance(), arg1) != NULL;
 }
 
-#if !defined(jpn)
 extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
 extern "C" int func_02052df8(struct Struct_ov004_0215f770_3* arg0, int arg1);
 extern "C" struct Struct_ov004_0215f770_2* func_020dedd0(struct Struct_0200fb08* arg0, int arg1);
@@ -596,12 +606,17 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
     unsigned char var2[4];
 
     GameState* var3 = GameState::GetInstance();
+    unsigned char var5;
     char* var4 = (char*)GetGameResources()->unknown_ptr_array_3afc[20];
     data_ov004_02170804 = 0;
     data_ov004_02170804 = *(int*)(var4 + 0x4c);
     data_ov004_021707ec = 1;
+#if defined(jpn)
+    data_ov004_0217108f = 0;
+#else
     data_ov004_021707e8 = 0;
-    unsigned char var5 = func_020114ec((char*)var3, var1);
+#endif
+    var5 = func_020114ec((char*)var3, var1);
     GameObject* var6 = func_0200ff1c(var3, data_ov004_02170804);
     if (var6 == 0) {
         data_ov004_02170804 = 0;
@@ -616,7 +631,11 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
     }
     *(int*)(var4 + 0x4c) = data_ov004_02170804;
 
+#if defined(jpn)
+    data_ov004_021707ea = *(int*)(*(char**)((char*)var6 + 0x144) + 0x8b8);
+#else
     data_ov004_021707ea = *(int*)(*(char**)((char*)var6 + 0x150) + 0x950);
+#endif
     data_ov004_021707f0 = 0;
     data_ov004_02170854[0] = 0;
     data_ov004_02170854[1] = data_ov004_021707ea;
@@ -715,7 +734,11 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
                 var17 = func_020dedd0(var24->inline_ov004_0215f770_2(), var19);
             }
             if (var17 == 0 && var19 > 0) {
+#if defined(jpn)
+                var17 = &((struct Struct_ov004_0215f770_2*)(*(char**)((char*)var22 + 0x144) + 0x194))[(unsigned char)data_ov004_0216fe1c[var16]];
+#else
                 var17 = &((struct Struct_ov004_0215f770_2*)(*(char**)((char*)var22 + 0x150) + 0x194))[(unsigned char)data_ov004_0216fe1c[var16]];
+#endif
             }
             if (var17 == 0) {
                 data_ov004_021704a4[var16][var26] = 0;
@@ -724,11 +747,16 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
                 }
                 data_ov004_02170888[var16][var26] = -1;
             } else {
+#if defined(jpn)
+                data_ov004_02170888[var16][var26] = var17->unknown_18_;
+                data_ov004_021704a4[var16][var26] = var17->unknown_4_;
+#else
                 var18 = data_ov004_02170800 + (var26 * 8 + var16) * 0x80;
                 memset(var18, 0, 0x80);
                 func_02046608(func_020421a0(), 0, var17->unknown_4_, var18, 0x60, 0, 0);
                 data_ov004_02170888[var16][var26] = var17->unknown_18_;
                 data_ov004_021704a4[var16][var26] = var18;
+#endif
                 if (var16 == 0) {
                     int var27 = var17->unknown_0_->unknown_0_7_;
                     if (var27 == 0) {
@@ -767,6 +795,7 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
     LoadToSubBGStandardPalette(&var0, 2, 2);
     CleanCacheRange(&var0, 2);
 
+#if !defined(jpn)
     struct Struct_ov004_0215f0c0_10* var28 = func_ov004_0215e47c(arg0, 0x1f5);
     void* var29 = func_ov011_021849c8(arg0);
     if (var28 != 0 && var29 != 0) {
@@ -777,6 +806,6 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
             func_ov023_021f6bec(var29, 0, var28->unknown_24_, *var31);
         }
     }
+#endif
     return 0;
 }
-#endif

@@ -1086,7 +1086,8 @@ src/Combat/Overlay_4/func_ov004_0216ae9c.cpp:
 
 src/Combat/Overlay_4/ov004_02165ef4.cpp:
     complete
-    .text start:0x0216653c end:0x02166574
+    .text start:0x0216653c end:0x0216673c
+    .rodata start:0x021706f8 end:0x02170703
 
 src/Combat/Overlay_4/func_ov004_021633e4.cpp:
     complete
@@ -1420,7 +1421,8 @@ src/Combat/Overlay_4/func_ov004_02155d54.cpp:
 
 src/Combat/Overlay_4/ov004_0215ef14.cpp:
     complete
-    .text start:0x0215faa4 end:0x021601a8
+    .text start:0x0215fa1c end:0x02160780
+    .bss start:0x02171084 end:0x02171158
 
 src/Combat/Overlay_4/func_ov004_02168eac.cpp:
     complete

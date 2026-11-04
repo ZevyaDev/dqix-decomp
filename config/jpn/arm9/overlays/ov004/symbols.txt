@@ -545,8 +545,8 @@ data_ov004_021705c4 kind:data(any) addr:0x021705c4
 data_ov004_0216fe90 kind:data(any) addr:0x021705f8
 data_ov004_02170660 kind:data(any) addr:0x02170660
 data_ov004_02170668 kind:data(any) addr:0x02170668
-data_ov004_021706f8 kind:data(any) addr:0x021706f8
-data_ov004_021706ff kind:data(any) addr:0x021706ff
+data_ov004_021706f8 kind:data(byte[4]) addr:0x021706f8 local
+@30 kind:data(byte[4]) addr:0x021706ff local
 data_ov004_02170708 kind:data(any) addr:0x02170708
 data_ov004_02170750 kind:data(any) addr:0x02170750
 data_ov004_02170752 kind:data(any) addr:0x02170752
@@ -640,3 +640,19 @@ data_ov004_0217101c kind:bss addr:0x021718a4
 data_ov004_02171030 kind:bss addr:0x021718ac
 data_ov004_02171034 kind:bss addr:0x021718b0
 data_ov004_02171048 kind:bss addr:0x021718c4
+data_ov004_021707f2 kind:bss addr:0x02171085
+data_ov004_021707ea kind:bss addr:0x02171086
+data_ov004_021707e9 kind:bss addr:0x02171087
+data_ov004_021707ee kind:bss addr:0x02171088
+data_ov004_021707f1 kind:bss addr:0x02171089
+data_ov004_021707ef kind:bss addr:0x0217108a
+data_ov004_021707f0 kind:bss addr:0x0217108b
+data_ov004_021707f3 kind:bss addr:0x0217108c
+data_ov004_021707eb kind:bss addr:0x0217108d
+data_ov004_021707ec kind:bss addr:0x0217108e
+data_ov004_0217108f kind:bss addr:0x0217108f
+data_ov004_02170808 kind:bss addr:0x02171094
+data_ov004_021707fc kind:bss addr:0x02171098
+data_ov004_021707f8 kind:bss addr:0x0217109c
+data_ov004_02170804 kind:bss addr:0x021710a0
+data_ov004_0217080c kind:bss addr:0x021710a4
