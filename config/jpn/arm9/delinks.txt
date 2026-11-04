@@ -19775,3 +19775,7 @@ src/Combat/Main/func_020421c4.cpp:
 src/Combat/Main/data_02000794.s:
     complete
     .text start:0x02000794 end:0x02000800
+
+src/Combat/Main/func_02044f68.cpp:
+    complete
+    .text start:0x02044f68 end:0x020454dc
