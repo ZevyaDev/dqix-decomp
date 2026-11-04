@@ -4937,7 +4937,7 @@ src/Combat/Main/func_020429e4.cpp:
 
 src/Combat/Main/func_02042a50.cpp:
     complete
-    .text start:0x020430d0 end:0x02043110
+    .text start:0x020430d0 end:0x0204316c
 
 src/Combat/Main/func_02042a90.cpp:
     complete
@@ -19596,3 +19596,75 @@ src/Combat/Main/func_020428c4.cpp:
 src/Combat/Main/func_02042738.cpp:
     complete
     .text start:0x02042738 end:0x02042798
+
+src/Combat/Main/func_0206c520.cpp:
+    complete
+    .text start:0x0206c520 end:0x0206c570
+
+src/Combat/Main/func_02073864.cpp:
+    complete
+    .text start:0x02073864 end:0x02073914
+
+src/Combat/Main/func_02073bc4.cpp:
+    complete
+    .text start:0x02073bc4 end:0x02073c38
+
+src/Combat/Main/func_0209564c.cpp:
+    complete
+    .text start:0x0209564c end:0x020956bc
+
+src/Combat/Main/func_020952f4.cpp:
+    complete
+    .text start:0x020952f4 end:0x02095384
+
+src/Combat/Main/func_0209651c.cpp:
+    complete
+    .text start:0x0209651c end:0x02096660
+
+src/Filesystem/func_020da930.cpp:
+    complete
+    .text start:0x020da930 end:0x020da9d8
+
+src/Combat/Main/func_020e0484.cpp:
+    complete
+    .text start:0x020e0484 end:0x020e04f8
+
+src/Combat/Main/func_020e04f8.cpp:
+    complete
+    .text start:0x020e04f8 end:0x020e052c
+
+src/Combat/Main/func_020e052c.cpp:
+    complete
+    .text start:0x020e052c end:0x020e05a0
+
+src/Combat/Main/func_02022da0.cpp:
+    complete
+    .text start:0x02022da0 end:0x02022e04
+
+src/Combat/Main/func_020436dc.cpp:
+    complete
+    .text start:0x020436dc end:0x02043774
+
+src/Combat/Main/func_020454dc.cpp:
+    complete
+    .text start:0x020454dc end:0x02045504
+
+src/Combat/Main/func_02046458.cpp:
+    complete
+    .text start:0x02046458 end:0x02046530
+
+src/Combat/Main/func_02069408.cpp:
+    complete
+    .text start:0x02069408 end:0x02069430
+
+src/Combat/Main/func_020694a0.cpp:
+    complete
+    .text start:0x020694a0 end:0x020694dc
+
+src/Combat/Main/func_02069878.cpp:
+    complete
+    .text start:0x02069878 end:0x020698d8
+
+src/Combat/Main/func_0206935c.cpp:
+    complete
+    .text start:0x0206935c end:0x02069408
