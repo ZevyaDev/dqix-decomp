@@ -19783,3 +19783,8 @@ src/Combat/Main/func_02044f68.cpp:
 src/Combat/Main/func_0203bb6c.cpp:
     complete
     .text start:0x0203bb6c end:0x0203bbe4
+
+src/Combat/Main/func_020200c0.cpp:
+    complete
+    .text start:0x0201fde4 end:0x0202016c
+    .rodata start:0x020e78c0 end:0x020e78c4

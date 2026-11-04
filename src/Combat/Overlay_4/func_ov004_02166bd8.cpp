@@ -51,8 +51,13 @@ struct Struct_ov004_02166bd8_4 {
 };
 
 struct Struct_ov004_0217101c_3 {
+#if defined(jpn)
+    char** unknown_0_;
+    Struct_ov004_02166bd8_4* unknown_4_;
+#else
     Struct_ov004_02166bd8_4* unknown_0_;
     char** unknown_4_;
+#endif
 };
 
 extern "C" void* func_0205ec34();
@@ -79,7 +84,31 @@ extern "C" void func_ov023_021f6630(int, int, short, short);
 
 extern Struct_ov004_0217101c_3 data_ov004_0217101c;
 
+#if defined(jpn)
+struct Struct_ov004_0215de9c;
+extern "C" void* func_ov011_021849c8(void*);
+extern "C" Struct_ov004_0215de9c* func_ov023_021f6880(void*, int);
+extern "C" int func_ov023_021f6f10(Struct_ov004_0215de9c*);
+extern "C" void func_ov023_021fb27c(Struct_ov004_0215de9c*, int);
+extern "C" void func_ov023_021fa62c(Struct_ov004_0215de9c*, int);
+extern "C" void func_ov023_021fa634(Struct_ov004_0215de9c*, int);
+extern "C" void func_ov023_021f645c(void*, int, unsigned short, unsigned char);
+extern const char data_ov004_02170e59[];
+
+struct Struct_ov004_0215de9c {
+    Struct_ov004_0215de9c* inline_ov004_02166bd8_2(int arg0) {
+        func_ov023_021fb27c(this, arg0);
+        return this;
+    }
+};
+
+static inline Struct_ov004_0215de9c* inline_ov004_02166bd8(Struct_ov004_0215de9c* arg0) {
+    return (arg0 == NULL) ? NULL : (func_ov023_021f6f10(arg0) != 1) ? NULL : arg0;
+}
+#endif
+
 // USA: func_ov004_02166bd8
+// JPN: func_ov004_02166bd8
 extern "C" ARM int func_ov004_02166bd8(void* arg0) {
     func_0205ec34();
     func_ov004_02166608(arg0);
@@ -91,11 +120,16 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
         var1 = var2->unknown_5e_;
     }
     Struct_ov004_02166bd8_2* var3;
+#if defined(jpn)
+    Struct_ov004_02166bd8_4* var8 = data_ov004_0217101c.unknown_4_;
+#endif
     int var4 = 0xbe;
     int var5 = 0xc8;
     int var6 = 0xd2;
     int var7 = 0xdc;
+#if !defined(jpn)
     Struct_ov004_02166bd8_4* var8 = data_ov004_0217101c.unknown_0_;
+#endif
     var3 = var8->unknown_8_;
     short var9 = var0 * 8;
     while (var3 && var9) {
@@ -104,7 +138,9 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
     }
     Struct_02065990_3* var10 = func_02094d6c();
     func_020421a0();
+#if !defined(jpn)
     unsigned char* var11 = var10->unknown_a8_;
+#endif
     for (short var12 = 0; var12 < 8; var4++, var5++, var6++, var7++, var12++) {
         int var13 = 0;
         func_ov023_021f65d4(arg0, var4, 8);
@@ -118,6 +154,14 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
                 func_ov023_021f9b30(var2, var4, (unsigned short)var12, 0);
                 int var15 = 0;
                 if (!var3->unknown_2_4_) {
+#if defined(jpn)
+                    Struct_ov004_0215de9c* var25 = inline_ov004_02166bd8(func_ov023_021f6880(func_ov011_021849c8(arg0), var7));
+                    Struct_ov004_0215de9c* var16 = (var25 == NULL) ? NULL : var25->inline_ov004_02166bd8_2(6);
+                    func_ov023_021fa62c(var16, 0x40004000);
+                    func_ov023_021fa634(var16, -1);
+                    if (var12 >= 1 && var12 <= 3)
+                        func_ov023_021fa634(var16, 0x4000);
+#else
                     Struct_ov004_02166bd8* var16 = func_ov004_02165ea4(arg0, var7, 6);
                     var16->unknown_44_ = 4;
                     var16->unknown_46_ = 0;
@@ -138,8 +182,34 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
                         }
                         var16->unknown_46_ = var18;
                     }
+#endif
                     var15 = 1;
                 }
+#if defined(jpn)
+                unsigned short var21 = 5;
+                unsigned short var24 = 0xf;
+                unsigned int var19 = func_020965ac(var10, (unsigned char)var3->unknown_0_);
+                int var20 = func_02096100((int)var10, var10->unknown_a8_ + 0x400, var19);
+                if (var3->unknown_2_2_ && !var20)
+                    var21 = 10;
+                const char* var22 = var14->unknown_4_;
+                switch (var3->unknown_2_0_) {
+                case 0:
+                case 1:
+                    var21 = 5;
+                    if (!var20)
+                        var22 = data_ov004_02170e59;
+                    break;
+                case 2:
+                    var21 = 6;
+                    var24 = 0xd;
+                    break;
+                case 3:
+                    var21 = 7;
+                    var24 = 9;
+                    break;
+                }
+#else
                 unsigned int var19 = func_020965ac(var10, (unsigned char)var3->unknown_0_);
                 int var20 = func_02096100((int)var10, var11 + 0x400, var19);
                 int var21 = 10;
@@ -157,15 +227,29 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
                     var21 = 12;
                     break;
                 }
+#endif
+#if defined(jpn)
+                char* var23 = data_ov004_0217101c.unknown_0_[var12];
+#else
                 char* var23 = data_ov004_0217101c.unknown_4_[var12];
+#endif
                 memset(var23, 0, 0x80);
+#if defined(jpn)
+                func_02042058(var23, var3->unknown_4_);
+                func_02041a28(var23, 0x30);
+#else
                 func_02041a28(var23, 0x1c);
                 func_02042058(var23, var3->unknown_4_);
                 func_02041a28(var23, 0x2e);
+#endif
                 if (var22)
                     func_02042058(var23, var22);
                 func_ov023_021f63f8(arg0, var4, var23, 0xf);
+#if defined(jpn)
+                func_ov023_021f645c(arg0, var6, var21, var24);
+#else
                 func_ov004_02165ea4(arg0, var6, var21)->unknown_3a_ = 0;
+#endif
                 func_ov023_021f6600(arg0, var4, 8);
                 func_ov023_021f6600(arg0, var6, 8);
                 if (var15)

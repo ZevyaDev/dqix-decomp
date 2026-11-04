@@ -6114,7 +6114,7 @@ data_020e6f48 kind:data(any) addr:0x020e77ec
 data_020e784c kind:data(any) addr:0x020e784c
 data_020e78b0 kind:data(any) addr:0x020e78b0
 data_020e78b4 kind:data(any) addr:0x020e78b4
-data_020e78c0 kind:data(any) addr:0x020e78c0
+data_020e78c0 kind:data(byte[1]) addr:0x020e78c0
 data_020e7039 kind:data(any) addr:0x020e78d0
 data_020e78d5 kind:data(any) addr:0x020e78d5
 data_020e703e kind:data(any) addr:0x020e78da
