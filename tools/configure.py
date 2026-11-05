@@ -106,11 +106,11 @@ if platform is None:
 EXE = platform.exe
 WINE = args.wine if platform.system != "windows" else ""
 WINE_DEP = [WINE] if platform.system != "windows" and WINE == DEFAULT_WIBO_PATH else []
-SHELL = "cmd /c " if platform.system == "windows" else ""
 DSD = str(args.dsd or os.path.join('.', str(root_path / f"dsd{EXE}")))
 OBJDIFF = os.path.join('.', str(root_path / f"objdiff-cli{EXE}"))
 LD = os.path.join('.', str(mwcc_root / DEFAULT_MWCC_VERSION / "mwldarm.exe"))
 PYTHON = sys.executable
+SHELL = "cmd /c " if platform.system == "windows" else ""
 
 
 class Project:
