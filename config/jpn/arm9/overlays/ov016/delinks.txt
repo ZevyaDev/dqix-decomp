@@ -181,78 +181,103 @@ src/VideoLib/Overlay_16/func_ov016_0218f2f0.cpp:
     .text start:0x0218f510 end:0x0218f550
 
 src/VideoLib/Overlay_16/func_ov016_0218e558.cpp:
+    complete
     .text start:0x0218e794 end:0x0218e868
 
 src/Combat/Overlay_16/func_ov016_0218e098.cpp:
+    complete
     .text start:0x0218e680 end:0x0218e70c
 
 src/VideoLib/Overlay_16/func_ov016_0218e768.cpp:
+    complete
     .text start:0x0218e9a4 end:0x0218e9c8
 
 src/VideoLib/Overlay_16/func_ov016_0218fd50.cpp:
+    complete
     .text start:0x0218feb8 end:0x0218ff28
 
 src/VideoLib/Overlay_16/func_ov016_0218fdc0.cpp:
+    complete
     .text start:0x0218ff28 end:0x0218ff98
 
 src/VideoLib/Overlay_16/func_ov016_0218fe30.cpp:
+    complete
     .text start:0x0218ff98 end:0x02190008
 
 src/VideoLib/Overlay_16/func_ov016_0218fcd4.cpp:
+    complete
     .text start:0x0218fe3c end:0x0218feb8
 
 src/VideoLib/Overlay_16/func_ov016_0218e528.cpp:
+    complete
     .text start:0x0218e764 end:0x0218e794
 
 src/VideoLib/Overlay_16/func_ov016_0218e6e4.cpp:
+    complete
     .text start:0x0218e920 end:0x0218e944
 
 src/VideoLib/Overlay_16/func_ov016_0218f4fc.cpp:
+    complete
     .text start:0x0218f664 end:0x0218f670
 
 src/Combat/Overlay_16/func_ov016_0218b5c0.cpp:
+    complete
     .text start:0x0218c1e0 end:0x0218c1e4
 
 src/VideoLib/Overlay_16/func_ov016_0218e7ec.cpp:
+    complete
     .text start:0x0218ea28 end:0x0218ea3c
 
 src/VideoLib/Overlay_16/func_ov016_0218e800.cpp:
+    complete
     .text start:0x0218ea3c end:0x0218efe0
 
 src/VideoLib/Overlay_16/func_ov016_0218ef50.cpp:
+    complete
     .text start:0x0218f184 end:0x0218f2bc
 
 src/VideoLib/Overlay_16/func_ov016_0218f4f0.cpp:
+    complete
     .text start:0x0218f658 end:0x0218f664
 
 src/Combat/Overlay_16/func_ov016_0218be1c.cpp:
+    complete
     .text start:0x0218c8fc end:0x0218c93c
 
 src/Combat/Overlay_16/func_ov016_0218be7c.cpp:
+    complete
     .text start:0x0218c95c end:0x0218c9a4
 
 src/Combat/Overlay_16/func_ov016_0218bce8.cpp:
+    complete
     .text start:0x0218c7c8 end:0x0218c8fc
 
 src/VideoLib/Overlay_16/func_ov016_0218edac.cpp:
+    complete
     .text start:0x0218efe0 end:0x0218f148
 
 src/Combat/Overlay_16/func_ov016_0218c024.cpp:
+    complete
     .text start:0x0218ca70 end:0x0218ca98
 
 src/VideoLib/Overlay_16/func_ov016_0218f088.cpp:
+    complete
     .text start:0x0218f2bc end:0x0218f38c
 
 src/VideoLib/Overlay_16/func_ov016_0218f16c.cpp:
+    complete
     .text start:0x0218f38c end:0x0218f510
 
 src/VideoLib/Overlay_16/func_ov016_0218f340.cpp:
+    complete
     .text start:0x0218f560 end:0x0218f658
 
 src/Combat/Overlay_16/func_ov016_0218de60.cpp:
+    complete
     .text start:0x0218e4b4 end:0x0218e5f4
 
 src/Combat/Overlay_16/func_ov016_0218ca70.cpp:
+    complete
     .text start:0x0218d3b4 end:0x0218d3ec
 
 src/Combat/Overlay_16/func_ov016_0219000c.s:

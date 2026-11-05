@@ -3,17 +3,11 @@
 #if defined(jpn)
 
 #define func_ov023_021f6524 func_ov004_02168f08
-#define func_ov004_02169658 func_ov004_02169b80
 extern "C" void* func_ov004_02168fa4(void*, int);
 #endif
 
-#if defined(jpn)
-extern "C" void* func_ov004_02168fd8(void*, int);
-#define TYPE1_LOOKUP func_ov004_02168fd8
-#else
 extern "C" void* func_ov004_02168aa0(void* arg0, int arg1);
 #define TYPE1_LOOKUP func_ov004_02168aa0
-#endif
 extern "C" void* func_ov011_021849c8(void* arg0);
 extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
 extern "C" int func_ov023_021f6f10(void* arg0);

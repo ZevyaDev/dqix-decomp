@@ -1,6 +1,5 @@
 #if defined(jpn)
 #define R(j,u) (j)
-#define func_ov006_02154614 func_ov006_02155d94
 #else
 #define R(j,u) (u)
 #endif

@@ -5,6 +5,7 @@
     .bss        start:0x02200140 end:0x02200160 kind:bss align:32
 
 src/Combat/Overlay_24/GetAttackBaseDamage.cpp:
+    complete
 	.text start:0x021e7bc0 end:0x021e80e4
 
 src/Combat/Overlay_24/func_ov024_021d9d6c.cpp:

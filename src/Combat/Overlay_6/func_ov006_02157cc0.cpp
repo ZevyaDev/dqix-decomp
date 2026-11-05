@@ -6,7 +6,6 @@
 #define data_ov006_0215ffca data_ov006_02161336
 #define data_ov006_0215ffe2 data_ov006_0216132e
 #define data_ov006_0215fff4 data_ov006_02161346
-#define func_ov006_021547c8 func_ov006_02155f30
 #else
 #define R(j,u) (u)
 #endif

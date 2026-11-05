@@ -47,10 +47,17 @@ struct Struct_ov024_021e7bc0_7 {
 };
 
 struct Struct_ov024_021e7bc0_8 {
+#if defined(jpn)
+    char unknown_0_[0x144];
+#else
     char unknown_0_[0x150];
+#endif
     Struct_ov024_021e7bc0_7* unknown_150_;
 };
 
+#if defined(jpn)
+#define data_ov024_021fe8b6 data_ov024_021ff082
+#endif
 extern "C" {
 extern const Struct_ov024_021e7bc0_6 data_ov024_021fe8b6;
 }

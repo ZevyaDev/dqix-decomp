@@ -7761,7 +7761,7 @@ from:0x02042df8 kind:load to:0x020f006c module:main
 from:0x02042dfc kind:load to:0x020f0073 module:main
 from:0x02042e00 kind:load to:0x020f007a module:main
 from:0x02042e04 kind:load to:0x020f0082 module:main
-from:0x02042e08 kind:load to:0x01ff9760 module:itcm
+from:0x02042e08 kind:load to:0x01ff9760 module:none
 from:0x02042e90 kind:load to:0x02107740 module:main
 from:0x02042ea0 kind:load to:0x02107740 module:main
 from:0x02042f8c kind:load to:0x020f008a module:main

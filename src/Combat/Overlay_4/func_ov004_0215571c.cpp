@@ -1,12 +1,11 @@
 #if defined(jpn)
 #define R(j,u) (j)
-#define func_ov023_021f64a8 func_ov023_021f5a1c
 #else
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
 
-extern "C" int _s32_div_f(int a, int b);
+extern "C" int _s32_div_f(int arg0, int arg1);
 extern char* data_ov004_021707c4;
 extern "C" void func_ov023_021f64a8(void* arg0, int arg1, int arg2, int arg3);
 extern "C" int func_ov023_021f6680(void* arg0, int arg1);

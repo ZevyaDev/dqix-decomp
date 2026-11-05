@@ -10775,6 +10775,7 @@ src/Combat/Main/func_0208baec.cpp:
     .text start:0x0208c3e0 end:0x0208c46c
 
 src/Combat/Main/func_0208bb78.cpp:
+    complete
     .text start:0x0208c46c end:0x0208c764
 
 src/Combat/Main/func_0208be8c.cpp:

@@ -7,6 +7,7 @@ src/Combat/Overlay_30/func_ov030_021d8a40.cpp:
     .text start:0x021d9300 end:0x021d9b10
 
 src/Combat/Overlay_30/func_ov030_021d9340.cpp:
+    complete
     .text start:0x021d9c04 end:0x021da518
 
 src/Combat/Overlay_30/func_ov030_021d92f0.cpp:

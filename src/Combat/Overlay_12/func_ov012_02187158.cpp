@@ -1,6 +1,5 @@
 #if defined(jpn)
 #define R(j,u) (j)
-#define func_ov012_02189d68 func_ov012_0218a804
 #define data_ov009_0218ac04 data_ov009_0218bb6c
 #define data_ov013_02187d94 data_ov013_02188cd0
 #define func_ov008_02187b20 func_ov008_021888fc
@@ -30,12 +29,7 @@ extern "C" void func_ov012_0218adac(void* arg0, int arg1, int arg2);
 extern "C" void func_ov012_0218adac(void* arg0, int arg1, int arg2, int arg3);
 #endif
 extern "C" void func_ov012_0218930c(void* arg0, int arg1);
-#if defined(jpn)
-#define func_ov012_02189d68 func_ov012_0218a804
 extern "C" void func_ov012_02189d68(char* arg0);
-#else
-extern "C" void func_ov012_02189d68(char* arg0);
-#endif
 
 struct Struct_0205de24_2;
 extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
