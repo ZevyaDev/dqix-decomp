@@ -19,8 +19,8 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigne
 extern "C" void func_020a1df8(int arg0);
 extern "C" void func_020a1ef0(int arg0);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" void func_020a0cc4(unsigned int arg0, int arg1);
-extern "C" void func_020a0c0c(void);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize, int arg1);
+extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void func_ov003_02174114(void* arg0);
 extern "C" int func_ov003_021745fc(void* arg0);
 extern "C" void func_ov003_02174454(void* arg0);
@@ -56,10 +56,10 @@ extern "C" ARM void func_ov017_021b2ce8(Struct_ov017_021b2ce8* arg0) {
     }
 
     if (arg0->unknown_8_ == 0) {
-        func_020a0cc4(0x33820, var4);
+        ReleaseFileTablesForSpace_020a0cc4(0x33820, var4);
         void* var5 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x32000);
         if (var5 == NULL) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov017_021b2ce8(Struct_ov017_021b2ce8* arg0) {
         arg0->unknown_c_.Reset();
         data_ov017_021d840c = static_cast<Struct_ov003_02173f70*>(arg0->unknown_c_.Allocate(Enum_ov017_021b2ce8_4176));
         if (data_ov017_021d840c == NULL) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov017_021b2ce8(Struct_ov017_021b2ce8* arg0) {
     } else if (arg0->unknown_8_ == 1) {
         if (func_ov003_021745fc(data_ov017_021d840c)) {
             FontLoader_0208cb08* var6 = GetFontLoader_02094a00();
-            func_02094b40(var6);
+            ClearLoadedFontSets_02094b40(var6);
             CancelFontLoad_02094ab0(var6);
             RequestFontLoad_02094b34(var6, 0x6f, 5000, 1, 1);
             arg0->unknown_8_++;
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov017_021b2ce8(Struct_ov017_021b2ce8* arg0) {
         DISPCNT = (data_ov017_021d840c->unknown_38_ << 8) | (DISPCNT & ~0x1f00);
         func_020a28b0(var3, 3);
         func_ov017_021b2c88((Struct_ov017_021b2c88*)arg0);
-        func_020a0c0c();
+        LoadFileTables_020a0c0c();
         arg0->unknown_1_ = 1;
         ClearFlags00(var1, 0x6000);
         EnablePlayerControl_020397c0(var2);

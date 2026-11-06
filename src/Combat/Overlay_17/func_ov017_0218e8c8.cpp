@@ -30,7 +30,7 @@ extern "C" int func_020981e4(int, int);
 extern "C" unsigned short func_ov017_021b8480(void* arg0);
 extern "C" unsigned char* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" int func_ov017_02191b58(void*, int);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void func_ov017_0218eafc(Struct_ov017_0218e8c8_2* arg0, int arg1);
 extern "C" int func_02039d68(unsigned char* arg0);
 extern "C" int func_02032fdc(void* arg0, int arg1, int arg2);
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov017_0218e8c8(Struct_ov017_0218e8c8_2* arg0, int arg1,
             if (arg1 != var7->obj3D_.GetField06()) continue;
         }
 
-        if (var3 != NULL && func_020a35e0(var3, var4) == 0) continue;
+        if (var3 != NULL && IsPartyMemberInBattle_020a35e0(var3, var4) == 0) continue;
 
         if (var2 && var8 != NULL) {
             if (var8->obj3D_.unknown_2_ == 0x2347 || var8->obj3D_.unknown_2_ == 0x2348 ||

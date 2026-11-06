@@ -4,13 +4,10 @@
 #define func_020ca390 func_020cbe5c
 #endif
 
-#if defined(jpn)
-#define func_020ca3b8 func_020cbe84
-#endif
 
 extern "C" unsigned short func_ov027_021dab38(unsigned short* arg0, int arg1);
 extern "C" void func_020ca390(int val, void* dst, unsigned int size);
-extern "C" void func_020ca3b8(int src, void* dst, int size);
+extern "C" void Memcpy16Bit_020ca3b8(int src, void* dst, int size);
 extern "C" void func_ov027_021db124(void);
 extern "C" int func_020d69cc(int arg0, int arg1, int arg2, int arg3, unsigned short arg4, unsigned char arg5);
 
@@ -99,7 +96,7 @@ extern "C" ARM void func_ov027_021db154(int arg0, unsigned short arg1, unsigned 
     unsigned short var4 = var0->unknown_4b0_ ^ var0->unknown_35a_;
     for (var2 = 0; var2 < 15; var2++) {
         if (var4 & (2 << var2)) {
-            func_020ca3b8((int)((char*)data_ov027_021dd940.unknown_1c_ + 0x35e + var2 * 0x16), data_ov027_021dd990 + var3 * 0x16, 0x16);
+            Memcpy16Bit_020ca3b8((int)((char*)data_ov027_021dd940.unknown_1c_ + 0x35e + var2 * 0x16), data_ov027_021dd990 + var3 * 0x16, 0x16);
             data_ov027_021dd940.unknown_1c_->unknown_4b0_ |= (2u << var2);
             var3++;
             if (var3 == 4) break;

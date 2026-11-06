@@ -28,12 +28,12 @@ struct Struct_ov025_021e2f54_2 {
     unsigned short unknown_26_;
 };
 
-struct Struct_ov000_0215440c;
+struct BattleAction_ov000_0215440c;
 
 extern struct Struct_ov025_021ef988_5 data_ov025_021ef988;
 
 extern "C" struct Struct_ov025_021e2f54* FindActionData_02079e2c(char* actionTables, int actionId);
-extern "C" void* func_ov000_021600f8(struct Struct_ov000_0215440c* arg0, int arg1);
+extern "C" void* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
 extern "C" short func_ov000_0215ffa0(void* arg0);
 extern "C" void func_ov025_021ecc54(void* arg0, struct Struct_ov025_021e2f54_2* arg1);
 extern "C" int func_ov000_0215fc60(char* arg0);
@@ -46,7 +46,7 @@ static inline int inline_ov025_021e2f54(void* arg0) {
 extern "C" ARM void func_ov025_021e2f54(struct Struct_ov025_021e2f54_2* arg0, short* arg1, char* arg2) {
     struct Struct_ov025_021e2f54_3* var0 = data_ov025_021ef988.unknown_c_;
     struct Struct_ov025_021e2f54* var1 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), *arg1);
-    void* var2 = func_ov000_021600f8((struct Struct_ov000_0215440c*)arg1, 0);
+    void* var2 = GetActionTarget_ov000_021600f8((struct BattleAction_ov000_0215440c*)arg1, 0);
     if (var1 != 0 && var2 != 0) {
         if (inline_ov025_021e2f54(var2) && var1->unknown_17_4_ == 4) {
             arg0->unknown_26_ |= 8;

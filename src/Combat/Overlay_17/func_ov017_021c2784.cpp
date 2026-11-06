@@ -22,12 +22,12 @@ extern "C" int func_ov017_021959b4(void);
 extern "C" int func_ov017_021a23e4(char* arg0, int arg1, unsigned int arg2, unsigned int arg3);
 
 extern "C" void* func_020d7a50(void);
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" int GetStandardString_020e51cc(int stringId);
-extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
-extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
+extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
+extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 extern "C" void func_020e1154(void* arg0);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
     void* var3 = func_020d7a50();
 
     GameObject* var4 = var0->GetPartyMemberByIndex(arg0->unknown_14_);
-    int var5 = func_020100b0(var0);
+    int var5 = GetOwnPartyLeaderObjectIndex_020100b0(var0);
     GameObject* var6 = var0->GetPartyMemberByIndex(var5);
     if (!var4 || !var6) {
         arg0->unknown_1_ = 1;
@@ -96,8 +96,8 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
             func_02046608(var8, 0xc, var11, var10, 0xe3, 0, 1);
             func_020d7e10(var3, var10, 0, 0, 1, 1);
 #endif
-            func_0205ebc0(&gSoundEffectManager_02108760, 0x79, 0x79);
-            func_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
+            LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0x79, 0x79);
+            PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
             arg0->unknown_8_ = 0x3e8;
         }
         arg0->unknown_10_ = 1;
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
             return;
         }
         if (IsNotLocalWirelessGuest_0202c508(var2)) {
-            int var14 = func_020100b0(var0);
+            int var14 = GetOwnPartyLeaderObjectIndex_020100b0(var0);
             int var15 = func_ov017_021a23e4((char*)var1, var14, 0, arg0->unknown_18_);
             arg0->unknown_12_ = (unsigned short)var15;
             if (arg0->unknown_12_ != 0) {
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
             arg0->unknown_10_ = 2;
             return;
         }
-        int var16 = func_020100b0(var0);
+        int var16 = GetOwnPartyLeaderObjectIndex_020100b0(var0);
         int var17 = func_ov017_021a26e8(var1, var16);
         func_ov017_021d09cc(0, 0, var17, arg0->unknown_18_);
         arg0->unknown_10_ = 4;

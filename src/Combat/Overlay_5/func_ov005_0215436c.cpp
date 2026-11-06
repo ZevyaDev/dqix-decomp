@@ -46,9 +46,9 @@ struct BGLayer_0204b8d0;
 extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 struct TextWindow_0204c7a8;
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8*, SafeAllocator*, int, unsigned int);
-struct Struct_0205cf78_2;
-struct Struct_0205cf78;
-extern "C" void func_0205cf78(Struct_0205cf78*, Struct_0205cf78_2*, unsigned char);
+struct TextWindow_0205cf78_2;
+struct TextWindowManager_0205cf78;
+extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78*, TextWindow_0205cf78_2*, unsigned char);
 struct Struct_02000c9c_8;
 extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" int func_0204684c(PacEntry_02020aec*, char const*, void**, int, int*, void**);
@@ -63,7 +63,7 @@ extern "C" void func_ov005_02154d34(void* arg0, int arg1, int arg2);
 extern "C" void func_ov005_02154d50(void* arg0, int arg1, int arg2);
 extern "C" void func_ov005_02154d7c(void* arg0, int arg1, int arg2);
 extern "C" char* func_ov017_021a193c(int*);
-extern "C" void func_020dc7e8(int arg0, int arg1);
+extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
 extern "C" void func_ov023_021dc134(void* arg0, int arg1, int arg2);
 extern "C" void func_ov023_021dbfd0(void* arg0, void* arg1);
 
@@ -283,7 +283,7 @@ extern "C" ARM int func_ov005_0215436c(Struct_ov005_0215436c_3* arg0) {
             }
             arg0->unknown_f7c_ = &arg0->unknown_e84_[2];
             arg0->unknown_f96_ = 1;
-            func_0205cf78((Struct_0205cf78*)arg0->unknown_ee4_, (Struct_0205cf78_2*)arg0->unknown_fa0_, 3);
+            SetTextWindowArray_0205cf78((TextWindowManager_0205cf78*)arg0->unknown_ee4_, (TextWindow_0205cf78_2*)arg0->unknown_fa0_, 3);
 
             const char* var25 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, REGION_LAYOUT(0x3e9, 0x3ea));
             arg0->unknown_3dc8_ = var13->QueueLoadFile(var25, 0);
@@ -377,7 +377,7 @@ extern "C" ARM int func_ov005_0215436c(Struct_ov005_0215436c_3* arg0) {
         GameState::GetInstance();
         char* var36 = (char*)GetGameResources();
         int var37 = *(int*)(func_ov017_021a193c((int*)(*(int*)(var36 + REGION_LAYOUT(0x34f8, 0x3708)))) + REGION_LAYOUT(0x4f8, 0x4fc));
-        func_020dc7e8(5, (signed char)var37);
+        LoadPartyMemberColors_020dc7e8(5, (signed char)var37);
         arg0->unknown_244_.Reset();
         func_ov023_021dc134(arg0->unknown_1244_, arg0->unknown_2d90_, 0);
         arg0->unknown_19b8_ |= 0xd0;

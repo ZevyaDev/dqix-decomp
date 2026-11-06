@@ -9,7 +9,7 @@
 #include "Resource/GameResources.h"
 
 struct SoundEffectManager_02108760;
-struct Struct_0205bb84;
+struct MenuCursor_0205bb84;
 
 struct Struct_ov005_02153ba4_2 {
     char unknown_0_[R(0x4f8, 0x4fc)];
@@ -55,7 +55,7 @@ extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov005_02157190(void* arg0);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
-extern "C" int func_0205bb84(Struct_0205bb84* arg0);
+extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84* cursor);
 extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
 extern "C" int func_ov005_02157ae8(Struct_ov005_02153954* arg0, int arg1);
 extern "C" int func_ov005_021585fc(Struct_ov005_02153954* arg0, int arg1);
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov005_0215771c(Struct_ov005_02153954* arg0) {
     if (var1 < 4 && g_keyManager.TestKeysPressed(0x40)) {
         func_ov005_0215792c(arg0, 3);
         arg0->unknown_3dbb_ = arg0->unknown_3dbc_;
-        func_ov005_021579ec(arg0, arg0->unknown_3db8_, func_0205bb84((Struct_0205bb84*)arg0->unknown_19f4_));
+        func_ov005_021579ec(arg0, arg0->unknown_3db8_, GetMenuCursorIndex_0205bb84((MenuCursor_0205bb84*)arg0->unknown_19f4_));
         return;
     }
     int var3 = var1 % 4;
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov005_0215771c(Struct_ov005_02153954* arg0) {
         arg0->unknown_3dcc_ &= ~0x20000;
         arg0->unknown_3dcc_ &= ~0x40000;
     }
-    var2 = func_0205bb84((Struct_0205bb84*)arg0->unknown_19f4_) + 8;
+    var2 = GetMenuCursorIndex_0205bb84((MenuCursor_0205bb84*)arg0->unknown_19f4_) + 8;
     var0 = arg0->unknown_3dbb_;
     if (var2 != var0) {
         arg0->unknown_3dbb_ = var2;

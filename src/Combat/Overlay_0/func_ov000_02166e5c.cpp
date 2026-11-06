@@ -18,8 +18,8 @@ void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength
 unsigned int FindFilesInNarcBySubstring(const void* narcBuffer, const char* substr, const void** pOutFilePtrs, unsigned int* pOutFileSizes, unsigned int maxOutputs);
 struct Struct_020545b8;
 struct Struct_02013fb4;
-struct Struct_0203d028_11 { int unknown_0_[8]; };
-union Struct_ov000_02166e5c_9 { Struct_0203d028_11 unknown_0_; ObjectArchiveLoadInfo unknown1_0_; };
+struct ObjectArchiveLoadInfo_0203d028_11 { int unknown_0_[8]; };
+union Struct_ov000_02166e5c_9 { ObjectArchiveLoadInfo_0203d028_11 unknown_0_; ObjectArchiveLoadInfo unknown1_0_; };
 struct Struct_ov000_02166e5c_10 { char unknown_0_[0x70]; };
 struct Struct_02053da0 { unsigned char unknown_0_[0x578]; };
 struct Struct_02000c9c_34 { unsigned char unknown_0_[0x70]; };
@@ -109,14 +109,14 @@ struct TextureVRAMArea_0203d028;
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
-extern "C" void func_0203dafc(Struct_0203d028_11*);
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11*);
 struct Struct_02054664;
 extern "C" void func_02054664(Struct_02054664*);
 extern "C" void func_02053da0(char*, Struct_02053da0*);
 extern "C" void func_02049c88(Struct_ov000_02166e5c_7*, Struct_02000c9c_34*);
 extern "C" void func_ov000_0216d1c4(int, Struct_02013fb4*, int, int*);
 extern "C" void func_ov000_02165480(void*, int);
-extern "C" void func_0200fd38(GameState*, int, GameObject*);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_02053c74(char*, int);
 extern "C" Struct_ov000_02166e5c_6* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" void func_020d3c08(char*);
@@ -137,7 +137,7 @@ struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_0208936c(char*, char*, char*);
 extern "C" void func_020114c0(char*, int, void*);
-extern "C" void func_ov000_02160fa8(void*, int);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern const char data_ov000_02183aa5[], data_ov000_021839e2[], data_ov000_02183abe[];
 extern const char data_020ef078[];
 extern const Struct_ov000_02183014 data_ov000_02183014;
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
         return;
     }
     Struct_ov000_02166e5c_9 var7;
-    func_0203dafc(&var7.unknown_0_);
+    ClearObjectArchiveLoadInfo_0203dafc(&var7.unknown_0_);
     var7.unknown1_0_.fileData = gFileScratchSpace_0211e33c;
     var7.unknown1_0_.unk_8 = var5;
     var7.unknown1_0_.allocator = var3;
@@ -195,7 +195,7 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    func_0203dafc(&var7.unknown_0_);
+    ClearObjectArchiveLoadInfo_0203dafc(&var7.unknown_0_);
     var7.unknown1_0_.fileData = gFileScratchSpace_0211e33c;
     var7.unknown1_0_.unk_8 = var5;
     var7.unknown1_0_.allocator = var3;
@@ -204,7 +204,7 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    func_0200fd38(var1, 1, (GameObject*)var6);
+    SetGameObjectByIndex_0200fd38(var1, 1, (GameObject*)var6);
     func_02053c74((char*)var6, 1);
     Struct_ov000_02166e5c_6* var11 = GetPartyMemberData_02053c6c((unsigned char*)var6);
     if (!var11) {
@@ -253,7 +253,7 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
     int var18 = 2;
     Struct_ov000_02183014 var19 = data_ov000_02183014;
     func_020114c0((char*)var1, var18, &var19);
-    func_ov000_02160fa8(arg0, 0x400000);
+    SetBattleSceneFlags_ov000_02160fa8(arg0, 0x400000);
     BackgroundLoader::RemoveLockGlobal();
 #undef blocks_3
 }

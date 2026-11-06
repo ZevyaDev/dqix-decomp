@@ -19,7 +19,7 @@ extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, 
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a27b8(unsigned char* arg0);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
-extern "C" void func_020a0cc4(unsigned int);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void HaltForever_020c9be0(void);
 struct GameResources;
@@ -79,7 +79,7 @@ extern "C" ARM int func_ov017_021b2388(struct Struct_ov017_021b2388_2* arg0) {
     }
 
     SetFlags00((GameResources*)var1, 0x10);
-    func_020a0cc4(0x2f800);
+    ReleaseFileTablesForSpace_020a0cc4(0x2f800);
     void* var7 = AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, 0x2f800);
     if (!var7) {
         HaltForever_020c9be0();

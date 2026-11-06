@@ -5,20 +5,20 @@ enum { Enum_02028bd0_790 = 0x312 };
 enum { Enum_02028bd0_790 = 0x316 };
 #endif
 
-struct Struct_020fdd44 {
-    unsigned short unknown_0_;
+struct ActiveZone_020fdd44 {
+    unsigned short zoneId_0_;
     char unknown_2_[Enum_02028bd0_790];
 };
 
-// USA: func_02028bd0
-extern "C" ARM struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1) {
-    int var0;
-    if (arg1 < 0) {
+// USA: FindActiveZone_02028bd0
+extern "C" ARM struct ActiveZone_020fdd44* FindActiveZone_02028bd0(struct ActiveZone_020fdd44* zones, int zoneId) {
+    int i;
+    if (zoneId < 0) {
         return 0;
     }
-    for (var0 = 0; var0 < 4; var0++) {
-        if (arg1 == arg0[var0].unknown_0_) {
-            return &arg0[var0];
+    for (i = 0; i < 4; i++) {
+        if (zoneId == zones[i].zoneId_0_) {
+            return &zones[i];
         }
     }
     return 0;

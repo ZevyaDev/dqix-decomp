@@ -38,7 +38,7 @@ struct Struct_ov001_021561e0_4 {
 struct Struct_ov001_021561e0 { char unknown_0_[RG(0x5cac, 0x5a4c)]; unsigned char unknown_5cac_; };
 struct Struct_ov001_021561e0_2 { Object3D unknown_0_; char unknown_ac_[RG(0xe0, 0xd4)]; unsigned int unknown_18c_; };
 struct Struct_ov001_021561e0_3 { char unknown_0_[0x8c]; unsigned char unknown_8c_[1]; };
-struct Struct_020fdd44;
+struct ActiveZone_020fdd44;
 struct Struct_02018300_2;
 extern "C" int func_ov001_02153994();
 extern "C" int* GetLocalWireless_0202ae18();
@@ -50,8 +50,8 @@ extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
 extern "C" void func_ov001_0215aa5c();
 extern "C" void* GetZone3D_02012fe4();
 extern "C" void* func_0201e838(unsigned char*, unsigned int);
-extern "C" Struct_020fdd44* func_02027ca4();
-extern "C" Struct_02018300_2* func_02028bd0(Struct_020fdd44*, int);
+extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4();
+extern "C" Struct_02018300_2* FindActiveZone_02028bd0(ActiveZone_020fdd44*, int);
 extern "C" void func_02028c64(Struct_02018300_2*, int);
 extern "C" Struct_ov001_021561e0_3* GetFlagManager_0205ec34();
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
@@ -104,7 +104,7 @@ extern "C" ARM int func_ov001_021561e0(Struct_ov001_021561e0_4* arg0) {
     while (var7) {
         if (var7->unknown_2c_.unknown1_0_.unknown_2_4_ & 0x200) {
             int var8 = func_02018bc4(var6, var7);
-            Struct_02018300_2* var9 = func_02028bd0(func_02027ca4(), var6->currentZoneID_);
+            Struct_02018300_2* var9 = FindActiveZone_02028bd0(GetActiveZones_02027ca4(), var6->currentZoneID_);
             if (var9) func_02028c64(var9, var8);
             var7->unknown_2c_.unknown1_0_.unknown_2_4_ &= ~0x200;
         }

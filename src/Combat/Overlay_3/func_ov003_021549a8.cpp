@@ -31,8 +31,8 @@ enum { Enum_ov003_021549a8_524 = 0x20c };
 #include "std_library_functions.h"
 
 extern "C" void func_ov023_021eb26c(void* arg0);
-struct Struct_02074bd0;
-extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
+struct BGControlSave_02074bd0;
+extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 struct Struct_0207fcb8;
 extern "C" void func_0207fcb8(struct Struct_0207fcb8* arg0);
 struct Struct_0207fd44_2;
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov003_021549a8(Struct_ov003_021549a8_2* arg0) {
     unsigned int* var1 = (unsigned int*)0x4000000;
     *var1 = (*var1 & ~0x1f00) | 0x100;
     *(unsigned short*)0x4000050 = 0;
-    func_02074bd0((struct Struct_02074bd0*)arg0->unknown_160_);
+    RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)arg0->unknown_160_);
 
     Struct_0207f7f0* var2 = arg0->unknown_18_;
     if (var2 != NULL) {

@@ -13,8 +13,8 @@ struct TextWindow_0205d0e0 {
     short unknown_bc_;
     short unknown_be_;
 };
-extern "C" struct TextWindow_0205d0e0 *func_0205d8c4(struct TextWindowManager_0205d81c *arg0);
-extern "C" int func_0204c7e0(unsigned char *arg0);
+extern "C" struct TextWindow_0205d0e0 *GetCursorTextWindow_0205d8c4(struct TextWindowManager_0205d81c *windowManager);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char *textWindow);
 
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimation_0205a254_2 {
@@ -62,9 +62,9 @@ extern "C" ARM void func_ov002_0215afb8(char *arg0) {
 
     if (!(var0->unknown_247c_ & 4)) return;
 
-    struct TextWindow_0205d0e0 *var2 = func_0205d8c4(((TextWindowManager_0205d81c*)(&var0->unknown_ec8_)));
+    struct TextWindow_0205d0e0 *var2 = GetCursorTextWindow_0205d8c4(((TextWindowManager_0205d81c*)(&var0->unknown_ec8_)));
     if (var2 == NULL) return;
-    if (!func_0204c7e0(((unsigned char*)(var2)))) return;
+    if (!IsTextWindowOpen_0204c7e0(((unsigned char*)(var2)))) return;
     struct Struct_020e28dc *var3 = var0->unknown_4_;
     if (var3 == NULL) return;
     if (func_020e28dc(var3)) return;

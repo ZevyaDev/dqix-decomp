@@ -50,7 +50,7 @@ struct Struct_02052df8;
 extern "C" int func_02052df8(Struct_02052df8*, int);
 extern "C" void func_02052d7c(Struct_ov001_02162db0_2* arg0, int arg1, short arg2);
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" void func_ov017_0218f5a4(GameResources* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
 extern Struct_ov001_02165880_51 data_ov001_02165880;
 extern Struct_ov001_02164d14_3 data_ov001_02164d14;
@@ -124,6 +124,6 @@ extern "C" ARM int func_ov001_02162db0(void* arg0, int arg1) {
 
     ClearFlags00(var3, 0x10);
     BackgroundLoader::GetInstance();
-    func_ov017_0218f5a4(var3, var5, 1, 0, 0);
+    QueuePartyMemberModelLoad_ov017_0218f5a4(var3, var5, 1, 0, 0);
     return 1;
 }

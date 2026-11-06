@@ -43,16 +43,16 @@ struct Struct_0205a244;
 extern "C" void func_0205a244(struct Struct_0205a244* arg0);
 extern "C" void func_0205a494(void* arg0);
 extern "C" void func_020a64e8(void* arg0);
-struct Struct_02074bd0;
-extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
+struct BGControlSave_02074bd0;
+extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 struct Struct_02074bf4;
 extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
-struct Struct_020727d8 {
+struct StringList_020727d8 {
     void* unknown_0_;
     short unknown_4_;
     short unknown_6_;
 };
-extern "C" void func_020727ec(struct Struct_020727d8* arg0);
+extern "C" void func_020727ec(struct StringList_020727d8* arg0);
 void CleanCacheRange(const void* addr, unsigned int size);
 extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(const void* src, unsigned int offset, unsigned int size);
@@ -71,7 +71,7 @@ struct Struct_ov003_02173d40 {
     unsigned char unknown_130_[Enum_ov003_02173d40_388 - Enum_ov003_02173d40_304];
     SafeAllocator unknown_184_[3];
     unsigned char unknown_1c0_[Enum_ov003_02173d40_456 - Enum_ov003_02173d40_448];
-    struct Struct_020727d8 unknown_1c8_[3];
+    struct StringList_020727d8 unknown_1c8_[3];
 };
 
 // USA: func_ov003_02173d40
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov003_02173d40(Struct_ov003_02173d40* arg0) {
     func_0205a494(arg0->unknown_130_);
     func_020a64e8(arg0->unknown_d8_);
     *(volatile int*)0x4001010 = 0;
-    func_02074bd0((struct Struct_02074bd0*)arg0->unknown_fa_);
+    RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)arg0->unknown_fa_);
     func_02074bf4((struct Struct_02074bf4*)arg0->unknown_10c_);
 
     volatile unsigned int* var3 = (volatile unsigned int*)0x4000000;

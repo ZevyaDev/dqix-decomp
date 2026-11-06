@@ -13,8 +13,8 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" int func_ov023_021fad20(const void* arg0, const char* arg1, const void** arg2, unsigned int* arg3);
 extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, void* allocator);
 
-struct Struct_02043368;
-extern "C" void func_0205a234(struct Struct_02043368* arg0);
+struct SpriteAnimationList_02043368;
+extern "C" void InitSpriteAnimationList_0205a234(struct SpriteAnimationList_02043368* animationList);
 
 struct Struct_ov023_021f6d14_2 { unsigned int unknown_0_; int unknown_4_; void* unknown_8_; void* unknown_c_; };
 struct Struct_ov023_021f6d14;
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov023_021fab48(void* arg0, void* arg1, const void* arg2
     if (func_ov023_021fad20(arg2, data_ov023_021fec53, &var1, &var2) != 0) {
         void* var3 = ((SafeAllocator*)((char*)var0 + 4))->Allocate(8);
         if (var3 != 0) {
-            func_0205a234((struct Struct_02043368*)var3);
+            InitSpriteAnimationList_0205a234((struct SpriteAnimationList_02043368*)var3);
             *(void**)((char*)arg0 + Enum_ov023_021fab48_96) = var3;
             LoadSpriteSetFile_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
         }

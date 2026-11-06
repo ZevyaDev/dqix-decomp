@@ -7,7 +7,7 @@ extern "C" void func_0209c678(struct MusicManager_02109bf4_4* arg0, int arg1);
 extern "C" void func_0203aa44(void* arg0);
 extern "C" void func_020bc078(int* arg0);
 
-extern "C" void func_020bbd9c(void);
+extern "C" void UpdateSound_020bbd9c(void);
 extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
 
 struct Struct_02109bf4_3 {
@@ -24,7 +24,7 @@ struct Struct_02109bf4_3 {
 extern "C" ARM void func_0209c20c(struct Struct_02109bf4_3* arg0) {
     func_0203ad88((void*)(arg0), (void*)(0), (int)(0));
     func_0209c678((struct MusicManager_02109bf4_4*)arg0, 0);
-    func_020bbd9c();
+    UpdateSound_020bbd9c();
     func_0203aa44(arg0);
     arg0->unknown_b0_ = 0;
     arg0->unknown_b4_ = 0;

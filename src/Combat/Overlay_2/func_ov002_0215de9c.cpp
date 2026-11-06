@@ -1,7 +1,7 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 
-struct Struct_02048150;
+struct Party_02048150;
 struct ItemTable_0201099c_10;
 struct Struct_0207cf30_3;
 struct Struct_020a0b8c;
@@ -10,11 +10,11 @@ extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMar
 extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
-extern "C" int func_02086ef0(Struct_02048150 *arg0, int arg1);
+extern "C" int IsInParty_02086ef0(Party_02048150 *party, int objectIndex);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
 extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
-extern "C" void func_0206819c(const char *arg0, char *arg1, int arg2);
+extern "C" void CopyCapitalizedText_0206819c(const char *text, char *outText, int font);
 extern "C" int AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_020a0b8c(struct Struct_020a0b8c *arg0);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov002_0215de9c(char *arg0, char *arg1, int arg2) {
         GameObject *var13 = GetPartyMemberBaseByIndex_0200ff1c(var4, var7);
         if (var13 == NULL) return;
         var9 = GetPartyMemberData_02053c6c((unsigned char *) var13);
-        if (!func_02086ef0((Struct_02048150 *) var6, *(signed char *) (arg0 + 0x1c00 + 0x21))) return;
+        if (!IsInParty_02086ef0((Party_02048150 *) var6, *(signed char *) (arg0 + 0x1c00 + 0x21))) return;
         int var14     = func_ov002_02157108(arg0, *(signed char *) (arg0 + 0x1c00 + 0x21));
         int var15 = 0;
         if (var14 < 8) var15 = 1;
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov002_0215de9c(char *arg0, char *arg1, int arg2) {
                                                                         *(short *) (var9 + var16 * 2 + 0x454));
             if (var17 != NULL) {
                 __clear(var0, 0x100);
-                func_0206819c(*(const char **) (var17 + 4), var0, 0);
+                CopyCapitalizedText_0206819c(*(const char **) (var17 + 4), var0, 0);
                 AppendMenuEntry_02041b70(arg1, var16, var0);
                 if (var16 != var14 - 1) {
                     AppendText_02042058(arg1, *(const char **) (arg0 + 0x1000 + 0xbdc));
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov002_0215de9c(char *arg0, char *arg1, int arg2) {
                                                                         *(short *) (var6 + var19 * 2 + 0xc));
             if (var21 == NULL) continue;
             __clear(var1, 0x100);
-            func_0206819c(*(const char **) (var21 + 4), var1, 0);
+            CopyCapitalizedText_0206819c(*(const char **) (var21 + 4), var1, 0);
             AppendMenuEntry_02041b70(arg1, var19, var1);
             __clear(var2, 0x40);
             sprintf(var2, data_ov002_0216d270,

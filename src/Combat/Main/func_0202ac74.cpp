@@ -2,7 +2,7 @@
 
 extern "C" void func_0202ab34(void* arg0, int arg1, int arg2);
 extern "C" void LoadToMainBGStandardPalette(int src, int dstOffset, unsigned int size);
-extern "C" void func_020ca458(int a, void* ptr, int size);
+extern "C" void Memset32Bit_020ca458(int a, void* ptr, int size);
 
 extern char data_020ef788;
 extern char data_020ef78b;
@@ -24,5 +24,5 @@ extern "C" ARM void func_0202ac74() {
     func_0202ab34(&data_020ef797, 0x1, 0x2e);
     func_0202ab34(&data_020ef79a, 0x1, 0x2d);
     LoadToMainBGStandardPalette((int)&data_020e7170, 0, 0x200);
-    func_020ca458(0, &data_020fe9cc, 0x600);
+    Memset32Bit_020ca458(0, &data_020fe9cc, 0x600);
 }

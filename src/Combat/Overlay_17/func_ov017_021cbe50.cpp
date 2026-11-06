@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 
 struct Struct_ov017_021cbe50 {
 	unsigned char unknown_0_[4];
@@ -16,7 +16,7 @@ extern "C" ARM void func_ov017_021cbe50(int arg0, Struct_ov017_021cbe50* arg1, i
  enum {Enum_ov017_021cbe50_1816=0x718};
 #endif
 	void* var0 = *(void**)(arg3 + 0x3000 + Enum_ov017_021cbe50_1816);
-	void* var1 = func_ov017_021b8470(var0);
+	void* var1 = GetBattle_ov017_021b8470(var0);
 	if (!var1) return;
 
 	void* var2 = *(void**)((char*)var1 + 0x8000 + 0xe18);

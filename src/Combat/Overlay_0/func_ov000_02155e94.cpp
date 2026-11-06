@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_02010088;
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_ov000_02153c0c(GameObject* arg0);
 
 struct Struct_ov000_02155e94 { unsigned char unknown_0_0_ : 4; unsigned char unknown_0_4_ : 2; unsigned char unknown_0_6_ : 2; };
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov000_02155e94(unsigned char* arg0) {
             short var3 = (short)(*(var1 + var2 + 2) + 0xc0);
             GameState* var4 = GameState::GetInstance();
             GameObject* var5 = var4->GetCombatantByIndex(var3);
-            if (var5 != NULL && !func_02010088((struct Struct_02010088*)var5) && !func_ov000_02153c0c(var5)) {
+            if (var5 != NULL && !IsDead_02010088((struct Struct_02010088*)var5) && !func_ov000_02153c0c(var5)) {
                 GCNT(var1)->unknown_0_4_++;
                 CNT1B1(arg0)->unknown_0_0_++;
             }

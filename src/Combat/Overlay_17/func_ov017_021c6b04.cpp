@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* func_ov017_021b8468(void* arg0);
-extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" void func_ov000_02162b90(void* arg0, int arg1, int arg2, int arg3, int arg4, signed char arg5, signed char arg6);
 
 struct Struct_ov017_021c6b04 {
@@ -30,9 +30,9 @@ extern "C" ARM void func_ov017_021c6b04(int arg0, Struct_ov017_021c6b04_2* arg1,
     void* var0 = *(void**)(arg3 + 0x3000 + Enum_ov017_021c6b04_1816);
     Struct_ov017_021c6b04* var1 = (Struct_ov017_021c6b04*)GetBattleSetup_ov017_021b8478(var0);
     if (!var1) return;
-    void* var2 = func_ov017_021b8468(var0);
+    void* var2 = GetBattleScene_ov017_021b8468(var0);
     if (!var2) return;
-    void* var3 = func_ov017_021b8470(var0);
+    void* var3 = GetBattle_ov017_021b8470(var0);
     if (!var3) return;
     if (var1->unknown_8_ != arg1->unknown_4_) return;
     func_ov000_02162b90(var2, *(short*)&arg1->unknown_4_, arg1->unknown_6_, arg1->unknown_8_, arg1->unknown_9_, arg1->unknown_a_, arg1->unknown_b_);

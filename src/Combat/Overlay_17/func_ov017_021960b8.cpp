@@ -13,7 +13,7 @@ enum { Enum_ov017_021960b8_2456 = 0x998, Enum_ov017_021960b8_6603 = 0x19cb, Enum
 #include "Resource/Brightness.h"
 #include "Input/Input.h"
 
-struct Struct_02015438;
+struct QueueNode_02015438;
 struct Struct_020444e0;
 
 struct Struct_020707c8 {
@@ -32,7 +32,7 @@ struct Struct_ov017_021960b8 {
     char unknown_8_[Enum_ov017_021960b8_13912 - 0x8];
     unsigned char unknown_3658_;
     char unknown_3659_[Enum_ov017_021960b8_14076 - (Enum_ov017_021960b8_13912 + 1)];
-    Struct_02015438** unknown_36fc_;
+    QueueNode_02015438** unknown_36fc_;
     char unknown_3700_[Enum_ov017_021960b8_17192 - (Enum_ov017_021960b8_14076 + 4)];
     unsigned char* unknown_4328_;
 };
@@ -45,7 +45,7 @@ extern "C" void func_020c57d4(int, int, int, int, void*);
 extern "C" void func_020c5770(int, int, int, int, int, int, int, int, void*);
 extern "C" void func_ov017_021a3b30(int);
 extern "C" void func_020707c8(Struct_020707c8*);
-extern "C" int func_02046b24(Struct_02015438**);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void func_020444e0(Struct_020444e0*);
 extern "C" void func_ov017_0219ad84(Struct_ov017_021960b8*);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
@@ -92,9 +92,9 @@ extern "C" ARM void func_ov017_021960b8(Struct_ov017_021960b8* arg0) {
         func_020707c8(var2);
     }
 
-    if (func_02046b24(arg0->unknown_36fc_) != 2 &&
-        func_02046b24(arg0->unknown_36fc_) != 3 &&
-        func_02046b24(arg0->unknown_36fc_) != 10) {
+    if (GetQueueHeadType_02046b24(arg0->unknown_36fc_) != 2 &&
+        GetQueueHeadType_02046b24(arg0->unknown_36fc_) != 3 &&
+        GetQueueHeadType_02046b24(arg0->unknown_36fc_) != 10) {
         if ((var1->unknown_998_ != 0 || var1->unknown_19cb_ != 0) &&
             TestFlags04((GameResources*)(arg0->unknown_0_), 0x8000) == 0) {
             func_020444e0((Struct_020444e0*)var1);

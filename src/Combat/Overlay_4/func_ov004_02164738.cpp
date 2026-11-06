@@ -26,7 +26,7 @@ extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void func_020a39d8(SafeAllocator* arg0);
 extern "C" unsigned char func_02011930(void* arg0, struct Struct_02011930* arg1, void* arg2, void* arg3);
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
+extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 extern "C" void func_0206f81c(void* arg0);
 extern "C" int func_0201b5d8(int arg0);
 extern "C" void func_020e1154(void* arg0);
@@ -79,7 +79,7 @@ extern "C" ARM int func_ov004_02164738(void* arg0) {
 
     if (func_02011930(var3, NULL, NULL, NULL) != 0) {
         if (*((unsigned char*)var3 + 0x6000 + Enum_ov004_02164738_1246) != 0) {
-            if (func_020649b0(GetFlagManager_0205ec34(), 0x1b, var0)) {
+            if (RunTrigger_020649b0(GetFlagManager_0205ec34(), 0x1b, var0)) {
                 func_0206f81c(var0);
             }
         }

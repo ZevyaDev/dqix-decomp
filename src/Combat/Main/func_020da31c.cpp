@@ -33,7 +33,7 @@ extern "C" void func_02078484(Struct_02078398_2*);
 extern "C" void func_02057fb4(void*, int, void*);
 extern "C" void* func_02058658(void*, int);
 extern "C" void func_0205a180(Struct_0205a180*);
-extern "C" void func_0205ebfc(void*, int, int);
+extern "C" void PlayExtraSoundEffect_0205ebfc(void*, int, int);
 extern char data_020f2884[], data_020f2887[], gSoundEffectManager_02108760[];
 
 // USA: func_020da31c
@@ -148,12 +148,12 @@ extern "C" ARM void func_020da31c(Struct_020da31c_3* arg0) {
                 var13.unknown_11_ |= 0xb8;
                 func_02057fb4(var0, 0x16, &var13);
                 arg0->unknown_11_ = 1;
-                func_0205ebfc(gSoundEffectManager_02108760, 1, 0);
+                PlayExtraSoundEffect_0205ebfc(gSoundEffectManager_02108760, 1, 0);
             } else {
                 Struct_0205a180* var20 = (Struct_0205a180*)func_02058658(var0, 0xd0);
                 if (var20) {
                     func_0205a180(var20);
-                    func_0205ebfc(gSoundEffectManager_02108760, 1, 0);
+                    PlayExtraSoundEffect_0205ebfc(gSoundEffectManager_02108760, 1, 0);
                 }
             }
             ++arg0->unknown_10_;

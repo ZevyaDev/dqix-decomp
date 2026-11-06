@@ -28,7 +28,7 @@ struct Struct_02086f24_5 {
 };
 extern "C" struct Struct_02089fb0* func_02089fb0(struct Struct_02086f24_5* arg0, int arg1);
 
-extern "C" int func_020426bc(char* arg0, unsigned char* arg1, int arg2);
+extern "C" int ConvertTextToGlyphIndices_020426bc(char* text, unsigned char* outGlyphIndices, int font);
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
@@ -63,7 +63,7 @@ extern "C" ARM void func_020a93e0(char* arg0) {
                     struct Struct_02089fb0* var8 = func_02089fb0(
                         (struct Struct_02086f24_5*)&var4, (short)(var7 + 7));
                     char* var9 = *(char**)((char*)var8 + 4);
-                    func_020426bc(var9, (unsigned char*)(var0 + 0x140), 1);
+                    ConvertTextToGlyphIndices_020426bc(var9, (unsigned char*)(var0 + 0x140), 1);
                 }
             }
             SignedAllocatorHeader* var10 = var5.GetSignedAllocator();

@@ -244,7 +244,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             for (unsigned char var25 = 0; var25 < 2; var25++) {
                 BGLayer_02020cb8* var26 = arg0->unknown_10_ + var25;
                 SetBGScreenSize_0204b11c(var26, 0);
-                var26->unknown_1c_0_ = 0;
+                var26->isSubScreen_1c_0_ = 0;
                 var26->bgIndex_1c_4_ = var23.unknown_0_[var25];
                 SetBGPriority_0204b5b4(var26, var24.unknown_0_[var25]);
                 AllocateBGScreenData_0204b12c(var26, var0 + 0x14);

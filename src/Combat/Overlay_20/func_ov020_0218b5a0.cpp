@@ -5,8 +5,8 @@
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_0200f3a4(void*);
 extern "C" void MapVRAMBanksToMainBG(int v);
-extern "C" void func_020c391c(int arg0, int arg1, int arg2);
-extern "C" void func_020c3984(unsigned int arg0);
+extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
+extern "C" void SetSubBGMode_020c3984(unsigned int bgMode);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" unsigned char func_0200fb9c(char* arg0);
 extern "C" void func_020c5770(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, void* arg8);
@@ -40,8 +40,8 @@ extern "C" ARM void func_ov020_0218b5a0(struct Struct_ov020_0218b5a0* arg0) {
     volatile unsigned int* var1 = (volatile unsigned int*)0x4000000;
     *var1 = *var1 & ~0x7000000;
     *var1 = *var1 & ~0x38000000;
-    func_020c391c(1, 0, 1);
-    func_020c3984(0);
+    SetMainDisplayAndBGMode_020c391c(1, 0, 1);
+    SetSubBGMode_020c3984(0);
 
     volatile unsigned short* var2 = (volatile unsigned short*)0x4000008;
     var2[0] = var2[0] & ~0x3;

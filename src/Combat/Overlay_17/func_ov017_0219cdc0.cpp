@@ -16,7 +16,7 @@ extern "C" void func_ov017_021cedf4(int, int, int);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 extern "C" void func_ov017_02191108(void*, int, int, int, int);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
-extern "C" int func_020546a8(void*);
+extern "C" int GetLeaderObjectIndex_020546a8(void*);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
 extern "C" void func_02039d58(unsigned char*);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_0219cdc0(unsigned short arg0, int arg1, signed ch
             } else {
                 if (var0->GetPartyMemberByIndex(var8)) {
                     GameObject* var10 = GetCompanionByIndex_0200ff58(var0, arg2);
-                    if (var10) var8 = func_020546a8(var10);
+                    if (var10) var8 = GetLeaderObjectIndex_020546a8(var10);
                     func_ov017_021907dc((int)var2, var8, 1, 1, 1);
                     GameObject* var11 = (GameObject*)var0->GetPartyMemberByIndex(var8);
                     if (var11) {

@@ -6,14 +6,14 @@ enum { Enum_ov000_02161318_1096 = 0x488 };
 enum { Enum_ov000_02161318_1096 = 0x448 };
 #endif
 
-// USA: func_ov000_02161318
-extern "C" ARM void* func_ov000_02161318(void* arg0, int arg1) {
-    int var0 = (arg1 >= 0 && arg1 <= 3) ? 1 : 0;
-    if (var0) {
-        for (int var1 = 0; var1 < 4; var1++) {
-            int var2 = *(int*)((char*)arg0 + var1 * Enum_ov000_02161318_1096 + 0x9a4);
-            if (arg1 == var2) {
-                return (char*)arg0 + 0x958 + var1 * Enum_ov000_02161318_1096;
+// USA: FindPartyMemberPanel_ov000_02161318
+extern "C" ARM void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex) {
+    int isPartyMemberIndex = (memberIndex >= 0 && memberIndex <= 3) ? 1 : 0;
+    if (isPartyMemberIndex) {
+        for (int i = 0; i < 4; i++) {
+            int panelMemberIndex = *(int*)((char*)battleUI + i * Enum_ov000_02161318_1096 + 0x9a4);
+            if (memberIndex == panelMemberIndex) {
+                return (char*)battleUI + 0x958 + i * Enum_ov000_02161318_1096;
             }
         }
     }

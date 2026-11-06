@@ -53,17 +53,17 @@ struct Struct_ov013_021846a0_2 {
 struct Struct_0201099c_3;
 extern "C" ARM int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" ARM int func_02041a5c(char* arg0, int arg1);
-extern "C" ARM int func_02041a28(char* arg0, int arg1);
+extern "C" ARM int AppendXPositionTag_02041a28(char* buffer, int x);
 extern "C" ARM int func_02041acc(char* arg0, int arg1);
-extern "C" ARM int func_02041e70(char* arg0, int arg1);
+extern "C" ARM int AppendTextColorTag_02041e70(char* buffer, int colorIndex);
 extern "C" ARM int AppendText_02042058(char* buffer, const char* text);
 extern "C" ARM int GetStandardString_020e51cc(int stringId);
 extern "C" ARM int func_02041fac(char* arg0, int arg1, int arg2);
 extern "C" void* GetMessageWindow_020421a0(void);
 
 struct MessageWindow_020465c0;
-extern "C" ARM void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
-extern "C" ARM void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" ARM void SetMessageNumberAlignment_020465d8(unsigned char* window, int index, unsigned char alignment);
+extern "C" ARM void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" ARM void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 
 extern char data_ov013_02187e3c;
@@ -113,10 +113,10 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
         func_02041a5c(var10, 4);
         AppendText_02042058(var10, arg0->unknown_6a4_);
         func_02041acc(var10, 0x10);
-        func_02041e70(var10, var14);
+        AppendTextColorTag_02041e70(var10, var14);
         AppendText_02042058(var10, (const char*)var13);
         func_02041acc(var10, 4);
-        func_02041e70(var10, 0xf);
+        AppendTextColorTag_02041e70(var10, 0xf);
         int var15 = GetStandardString_020e51cc(0x3f3);
         AppendText_02042058(var10, (const char*)var15);
 
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
     var22 = 0x78 - var22;
 
     arg0->unknown_1e_ = (short)(var11 + (var22 >> 1) + 1);
-    func_02041a28(arg1, var22 >> 1);
+    AppendXPositionTag_02041a28(arg1, var22 >> 1);
 
     AppendText_02042058(arg1, var10);
 #endif
@@ -171,8 +171,8 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
     };
 
     for (int var25 = 0; var25 < 7; var25++) {
-        func_020465d8((unsigned char*)var23, var25, 1);
-        func_020465f0((unsigned char*)var23, var25, 3);
+        SetMessageNumberAlignment_020465d8((unsigned char*)var23, var25, 1);
+        SetMessageNumberWidth_020465f0((unsigned char*)var23, var25, 3);
         SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var23, var25, var24[var25]);
     }
 
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
         AppendText_02042058(arg1, (const char*)var27);
 
         short var28 = data_ov013_02187dac[var26];
-        func_02041a28(arg1, var28);
+        AppendXPositionTag_02041a28(arg1, var28);
 
         int var29 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, var1++);
         AppendText_02042058(arg1, (const char*)var29);

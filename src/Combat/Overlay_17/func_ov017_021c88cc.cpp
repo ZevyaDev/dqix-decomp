@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* func_ov017_021b8468(void* arg0);
-extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 struct Vector3i;
 
 struct Struct_ov017_021c88cc {
@@ -29,8 +29,8 @@ extern "C" ARM void func_ov017_021c88cc(int arg0, Struct_ov017_021c88cc_2* arg1,
 	void* var1 = *(void**)(var0 + Enum_ov017_021c88cc_1816);
 	Struct_ov017_021c88cc* var2 = (Struct_ov017_021c88cc*)GetBattleSetup_ov017_021b8478(var1);
 	if (!var2) return;
-	if (!func_ov017_021b8468(var1)) return;
-	if (!func_ov017_021b8470(var1)) return;
+	if (!GetBattleScene_ov017_021b8468(var1)) return;
+	if (!GetBattle_ov017_021b8470(var1)) return;
 	if (var2->unknown_8_ != arg1->unknown_12_) return;
 	GameObject* var3 = arg2->GetCombatantByIndex(arg1->unknown_10_);
 	if (!var3) return;

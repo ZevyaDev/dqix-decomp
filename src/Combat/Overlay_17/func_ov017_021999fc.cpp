@@ -26,10 +26,10 @@ extern "C" void FillBGScreenRect_0204bc74(void* layer, int screenEntry, int x, i
 struct BGLayer_02020cb8_2;
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
 struct TextWindow_0204c7a8;
-extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
-struct Struct_0205cf78;
-struct Struct_0205cf78_2;
-extern "C" void func_0205cf78(Struct_0205cf78* arg0, Struct_0205cf78_2* arg1, unsigned char arg2);
+extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
+struct TextWindowManager_0205cf78;
+struct TextWindow_0205cf78_2;
+extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78* windowManager, TextWindow_0205cf78_2* textWindows, unsigned char textWindowCapacity);
 
 struct Struct_ov017_021999fc;
 extern "C" void func_ov017_0219a388(Struct_ov017_021999fc* arg0);
@@ -184,7 +184,7 @@ extern "C" ARM void func_ov017_021999fc(Struct_ov017_021999fc* arg0) {
             Struct_ov017_021999fc_4* var20 = arg0->unknown_3cb0_;
             var20->unknown_98_ = &arg0->unknown_3cb4_[0];
             var20->unknown_b2_ = 2;
-            func_0205cf78((Struct_0205cf78*)arg0->unknown_3cb0_, (Struct_0205cf78_2*)arg0->unknown_3cf4_, 4);
+            SetTextWindowArray_0205cf78((TextWindowManager_0205cf78*)arg0->unknown_3cb0_, (TextWindow_0205cf78_2*)arg0->unknown_3cf4_, 4);
             BG0CNT = (BG0CNT & ~3) | 2;
             BG1CNT = (BG1CNT & ~3) | 1;
             BG2CNT = BG2CNT & ~3;

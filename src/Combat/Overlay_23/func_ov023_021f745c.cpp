@@ -50,7 +50,7 @@ extern "C" ARM int func_ov023_021f745c(char* arg0, void* arg1, int arg2, int arg
     SetBGScreenSize_0204b11c((unsigned char*)(arg0 + Enum_ov023_021f745c_40), 0);
 
     struct BGLayer_02020cb8* var0 = (struct BGLayer_02020cb8*)(arg0 + Enum_ov023_021f745c_40);
-    var0->unknown_1c_0_ = (unsigned char)arg6;
+    var0->isSubScreen_1c_0_ = (unsigned char)arg6;
     var0->bgIndex_1c_4_ = (unsigned char)arg7;
 
     SetBGPriority_0204b5b4(arg0 + Enum_ov023_021f745c_40, arg8);

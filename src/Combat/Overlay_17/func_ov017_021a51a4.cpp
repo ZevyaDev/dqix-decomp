@@ -15,7 +15,7 @@ enum { Enum_ov017_021a51a4_14032 = 0x36d0, Enum_ov017_021a51a4_14036 = 0x36d4, E
 #endif
 
 struct Struct_0202b2f0;
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 struct Struct_0203402c;
 struct Struct_02000c9c_8;
 struct Struct_ov017_021befe4;
@@ -31,12 +31,12 @@ struct SafeAllocator;
 extern "C" int GetMessageWindow_020421a0();
 extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
+extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00();
 extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_02039820(void* arg0);
 extern "C" int func_020535c8(signed char* arg0);
-extern "C" int func_02046708(Struct_02012de8* arg0, unsigned int arg1);
+extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" int func_0203402c(Struct_0203402c* arg0);
 extern "C" int func_020c39c8(volatile unsigned short* arg0);
 extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
     Struct_ov017_021a51a4* var1;
     unsigned char* var2;
     Struct_0202b2f0* var3;
-    Struct_02012de8* var4;
+    GlobalFlags_02012de8* var4;
     unsigned char* var5;
     int var6;
     int var7;
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
         return;
     }
     var6 = 0;
-    if (!func_02046708(var4, 0x800)) {
+    if (!TestGlobalFlags_02046708(var4, 0x800)) {
         if ((g_keyManager.TestKeysPressed(0x400) || arg0->unknown_42e4_ == 1) && var1->unknown_ac_ == 0) {
             if (!func_0203402c((Struct_0203402c*)var1)) {
                 var6 = 1;

@@ -12,12 +12,12 @@ struct ItemTable_0201099c_10 {
 struct Struct_020dee58;
 
 extern "C" unsigned char *func_02081da8(Struct_0207fdcc_2 *, int);
-extern "C" bool func_0204c7cc(unsigned char *);
+extern "C" bool IsTextWindowReady_0204c7cc(unsigned char *);
 extern "C" Struct_020dee58 *FindItemData_020dedd0(ItemTable_0201099c_10 *, int);
 extern "C" void func_020809c4(void *, int, int, short *, short *);
 extern "C" int func_020dee58(Struct_020dee58 *);
 extern "C" void func_ov003_0217585c(void *, int, int, int, unsigned char);
-extern "C" bool func_0204c7e0(unsigned char *);
+extern "C" bool IsTextWindowOpen_0204c7e0(unsigned char *);
 
 #if defined(jpn)
 extern unsigned char data_ov003_0217e34d[];
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov003_02175504(Struct_ov003_02175504_2 *arg0) {
     unsigned char var1  = 6;
     unsigned char *var2 = func_02081da8(var0, 3);
     if (var2) {
-        if (!func_0204c7cc(var2)) return;
+        if (!IsTextWindowReady_0204c7cc(var2)) return;
         short var3 = 7;
         short var4 = (short) (arg0->unknown_1014_ * 6);
         for (unsigned char var5 = 0; var5 < 6; var5++) {
@@ -83,11 +83,11 @@ extern "C" ARM void func_ov003_02175504(Struct_ov003_02175504_2 *arg0) {
     if (arg0->unknown_100c_ == 0x77) {
         Struct_ov003_02175504 *var10 = 0;
         var2                   = func_02081da8(var0, 0x15);
-        if (var2 && func_0204c7cc(var2)) var10 = (Struct_ov003_02175504 *) var2;
+        if (var2 && IsTextWindowReady_0204c7cc(var2)) var10 = (Struct_ov003_02175504 *) var2;
         var2 = func_02081da8(var0, 0x16);
-        if (var2 && func_0204c7cc(var2)) var10 = (Struct_ov003_02175504 *) var2;
+        if (var2 && IsTextWindowReady_0204c7cc(var2)) var10 = (Struct_ov003_02175504 *) var2;
         var2 = func_02081da8(var0, 0x1e);
-        if (var2 && func_0204c7cc(var2)) var10 = (Struct_ov003_02175504 *) var2;
+        if (var2 && IsTextWindowReady_0204c7cc(var2)) var10 = (Struct_ov003_02175504 *) var2;
         if (var10) {
             int var11 = var10->unknown_ac_;
             int var12 = var10->unknown_ae_;
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov003_02175504(Struct_ov003_02175504_2 *arg0) {
     if (arg0->unknown_ffe_ < 0) return;
     var2 = func_02081da8(var0, 0xe);
     if (!var2) return;
-    if (!func_0204c7e0(var2)) return;
+    if (!IsTextWindowOpen_0204c7e0(var2)) return;
     short var13 = 0x68;
     for (unsigned char var14 = 0; var14 < 8; var14++) {
         short var15, var16;

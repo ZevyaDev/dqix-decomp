@@ -74,7 +74,7 @@ extern "C" ARM int func_ov031_0221a518(const void* arg0, void* arg1) {
         func_ov031_02211b08(9, -24100);
         return 0;
     }
-    int var3 = GetContextPriority(data_02111304.activeContext);
+    int var3 = GetContextPriority(gContextScheduler_02111304.activeContext);
     func_ov031_02217db4(data_ov031_0224e69c->unknown_8_, var3 - 1);
     if (data_ov031_0224e69c->unknown_1b40_.uniqueID) return 1;
     func_ov031_022183b4(data_ov031_0224e69c->unknown_8_);

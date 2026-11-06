@@ -87,8 +87,8 @@ extern "C" void func_0205cf04(void*);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 struct MenuCursor_0205bacc;
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
-struct Struct_0205bcdc;
-extern "C" void func_0205bcdc(Struct_0205bcdc*, int);
+struct MenuCursor_0205bcdc;
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc*, int);
 extern "C" void SetMenuCursorIndex_0205bb04(Struct_02061c04_21*, int);
 
 // USA: func_ov000_0217ab8c
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov000_0217ab8c(Struct_ov000_0217ab8c* arg0, int arg1, i
     SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&var5->unknown_54_, var3);
     var5->unknown_4_.unknown_4_ = var2;
     var5->unknown_54_.unknown_4_ = var2;
-    func_0205bcdc((Struct_0205bcdc*)&var5->unknown_4_, var4);
+    SetTouchMenuCursorIndex_0205bcdc((MenuCursor_0205bcdc*)&var5->unknown_4_, var4);
     SetMenuCursorIndex_0205bb04(&var5->unknown_54_, var4);
     data_ov000_02184294.unknown1_8_->unknown_1d72_ &= ~0x100;
 }

@@ -3,13 +3,13 @@
 #include "Combat/MapDisplay.h"
 
 extern "C" void InitSprite_0205a198(struct Sprite_02043368_2*);
-struct Struct_02043368;
-extern "C" void func_0205a234(struct Struct_02043368*);
+struct SpriteAnimationList_02043368;
+extern "C" void InitSpriteAnimationList_0205a234(struct SpriteAnimationList_02043368*);
 
 struct Struct_ov000_02172128 {
     char unknown_0_[0x170];
     Sprite_02043368_2* unknown_170_;
-    Struct_02043368* unknown_174_;
+    SpriteAnimationList_02043368* unknown_174_;
 #if defined(jpn)
     char unknown_178_[0x1b78 - 0x178];
 #else
@@ -47,8 +47,8 @@ extern "C" ARM void func_ov000_02172128(Struct_ov000_02172128* arg0, SafeAllocat
     for (unsigned char var0 = 0; var0 < Enum_ov000_02172128_40; var0++) {
         InitSprite_0205a198(&arg0->unknown_170_[var0]);
     }
-    arg0->unknown_174_ = (Struct_02043368*)arg1->Allocate(8);
-    func_0205a234(arg0->unknown_174_);
+    arg0->unknown_174_ = (SpriteAnimationList_02043368*)arg1->Allocate(8);
+    InitSpriteAnimationList_0205a234(arg0->unknown_174_);
     unsigned int var1 = arg1->GetMaxPossibleAllocation();
     arg0->unknown_1af8_.CreateTypeA(arg1->Allocate(var1), var1);
 }

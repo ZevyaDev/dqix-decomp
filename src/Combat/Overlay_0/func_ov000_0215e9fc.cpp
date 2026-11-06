@@ -3,11 +3,11 @@
 #include "Combat/Main/BattleList.h"
 
 struct Struct_02010088;
-extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
+extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" int func_ov000_0215fc60(char* arg0);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" int func_ov000_02153c0c(GameObject* arg0);
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 
 struct Struct_ov000_0215e9fc {
     unsigned char unknown_0_[0x56b];
@@ -27,7 +27,7 @@ struct Struct_ov000_0215e9fc_2 {
 extern "C" ARM int CollectPartyCombatantIndices_ov000_0215e9fc(char* battle, short* indices, int maxCount, unsigned int filterFlags) {
     GameState* gameState = GameState::GetInstance();
     unsigned char partyOrder[4];
-    int partyCount = func_020114ec((char*)gameState, partyOrder);
+    int partyCount = GetPartyOrder_020114ec((char*)gameState, partyOrder);
     int skipMarkedData;
     int skipFlaggedStats;
     int i;
@@ -40,11 +40,11 @@ extern "C" ARM int CollectPartyCombatantIndices_ov000_0215e9fc(char* battle, sho
     for (; i < partyCount; i++) {
         memberIndex = partyOrder[i];
         if (func_ov000_0215fc60(battle) != 0 && memberIndex != 0) continue;
-        if (!func_020a35e0(*(unsigned char**)(battle + 0x8e18), memberIndex)) continue;
+        if (!IsPartyMemberInBattle_020a35e0(*(unsigned char**)(battle + 0x8e18), memberIndex)) continue;
         member = GetPartyMemberBaseByIndex_0200ff1c(gameState, memberIndex);
         if (member == NULL) continue;
         if (func_ov000_02153c0c(member)) continue;
-        if (skipFlaggedStats && func_02010088((struct Struct_02010088*)member)) continue;
+        if (skipFlaggedStats && IsDead_02010088((struct Struct_02010088*)member)) continue;
         if (skipMarkedData) {
             int isMarked;
             struct Struct_ov000_0215e9fc* memberData = ((struct Struct_ov000_0215e9fc_2*)member)->pPartyMemberData_150_;

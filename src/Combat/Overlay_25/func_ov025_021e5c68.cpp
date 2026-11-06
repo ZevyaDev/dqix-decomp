@@ -19,8 +19,8 @@ struct Struct_ov025_021e5c68_3 {
 };
 
 extern "C" void func_0202e694(void* arg0, int* arg1);
-struct Struct_ov000_0215440c;
-extern "C" Struct_ov025_021e5c68_3* func_ov000_021600f8(Struct_ov000_0215440c*, int);
+struct BattleAction_ov000_0215440c;
+extern "C" Struct_ov025_021e5c68_3* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" char* GetBattleScene_ov000_02160130();
 
 // USA: func_ov025_021e5c68
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov025_021e5c68(Struct_ov025_021e5c68_2* arg0, void* arg1
         if (var1 != 0) func_0202e694(var1, (int*)&arg0->unknown_8_);
     } else if (arg0->unknown_14_ == 2) {
         fix32_t var2 = 1;
-        Struct_ov025_021e5c68_3* var3 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, 0);
+        Struct_ov025_021e5c68_3* var3 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);
         if (var3 != 0) {
             GameObject* var4 = var0->GetCombatantByIndex(var3->unknown_e_);
             if (var4 != 0) var2 = var4->obj3D_.GetHeight();

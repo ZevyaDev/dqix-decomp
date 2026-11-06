@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void func_0205d0e0(void* arg0, int arg1);
+extern "C" void UpdateTextWindowManager_0205d0e0(void* windowManager, int ticks);
 extern "C" void func_ov023_021ecbe8(void* arg0);
 extern "C" void func_ov023_021ece9c(void* arg0);
 
@@ -13,7 +13,7 @@ extern "C" ARM void func_ov023_021eb43c(void* arg0) {
     unsigned int var0 = GameState::GetInstance()->GetTickCount();
     if (var0 == 0) var0 = 1;
     if (*((unsigned char*)arg0 + 0x431) != 0) {
-        func_0205d0e0((char*)arg0 + 0xc4, var0);
+        UpdateTextWindowManager_0205d0e0((char*)arg0 + 0xc4, var0);
     }
     unsigned char var1 = *((unsigned char*)arg0 + 0x431);
     if (data_ov023_021fe0f0[var1].unknown_0_ == 0) return;

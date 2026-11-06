@@ -10,7 +10,7 @@ enum { Enum_ov003_0216e200_92 = 0x5c };
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_ov003_02170898(void* arg0);
 extern "C" void func_ov003_02170688(void* arg0);
-extern "C" void func_02074af4(void* arg0);
+extern "C" void SaveMainBGControl_02074af4(void* save);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 
 // USA: func_ov003_0216e200
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov003_0216e200(char* arg0) {
 	*(int*)(arg0 + 0x18) = *(int*)(var0 + Enum_ov003_0216e200_92);
 	func_ov003_02170898(arg0);
 	func_ov003_02170688(arg0);
-	func_02074af4(arg0 + 0x48);
+	SaveMainBGControl_02074af4(arg0 + 0x48);
 
 	volatile unsigned int* var1 = (volatile unsigned int*)0x4000000;
 	*(int*)(arg0 + 0x5c) = (*var1 & 0x1f00) >> 8;

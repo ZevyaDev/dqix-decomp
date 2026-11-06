@@ -6,7 +6,7 @@ extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
 struct Struct_ov024_021e04e0;
 extern "C" int func_ov024_021e05e4(struct Struct_ov024_021e04e0* arg0);
 struct Struct_02010088;
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_ov024_021edf00(int* arg0, int arg1, short* arg2);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 struct Struct_ov024_021da670_6;
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov024_021f2ab4(int* arg0, int arg1, int arg2, int* arg3,
 	if (!var0) return 0;
 	if (func_ov024_021e05e4((struct Struct_ov024_021e04e0*)var0)) {
 		GameObject* var1 = GetCombatantByID(*arg0, ((struct Struct_ov024_021f2ab4*)var0->currentStats_)->unknown_2e_);
-		if (var1 && !func_02010088((struct Struct_02010088*)var1)) {
+		if (var1 && !IsDead_02010088((struct Struct_02010088*)var1)) {
 			*arg3 = 1;
 			arg4[0] = ((struct Struct_ov024_021f2ab4*)var0->currentStats_)->unknown_2e_;
 			return 1;

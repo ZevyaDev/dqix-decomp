@@ -4,7 +4,7 @@
 #include "NitroSDK/Matrix.h"
 
 
-struct Struct_020fdd44;
+struct ActiveZone_020fdd44;
 struct Struct_02018300_2;
 struct SoundEffectManager_02108760;
 struct Struct_02018300_3;
@@ -36,8 +36,8 @@ extern "C" void* func_0201e838(unsigned char*, unsigned int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_ov017_021d196c(unsigned short, unsigned short, int);
-extern "C" Struct_020fdd44* func_02027ca4();
-extern "C" Struct_02018300_2* func_02028bd0(Struct_020fdd44*, int);
+extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4();
+extern "C" Struct_02018300_2* FindActiveZone_02028bd0(ActiveZone_020fdd44*, int);
 extern "C" void func_02028c64(Struct_02018300_2*, int);
 extern const Struct_020e6e74 data_020e6e74;
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
@@ -130,6 +130,6 @@ extern "C" ARM void func_02018300(Zone3D* arg0, Struct_020134e0::Struct_02018300
     }
     int var14 = func_02018bc4(arg0, arg1);
     if (arg3 && arg4) func_ov017_021d196c(arg0->currentZoneID_, (unsigned short)var14, arg2);
-    Struct_02018300_2* var15 = func_02028bd0(func_02027ca4(), arg0->currentZoneID_);
+    Struct_02018300_2* var15 = FindActiveZone_02028bd0(GetActiveZones_02027ca4(), arg0->currentZoneID_);
     if (var15 && !(arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 512)) func_02028c64(var15, var14);
 }

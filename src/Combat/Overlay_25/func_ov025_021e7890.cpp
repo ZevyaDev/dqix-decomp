@@ -57,7 +57,7 @@ struct Struct_ov025_021e7890 {
     Struct_ov025_021e7890_8* unknown_13c_;
 };
 
-struct Struct_ov000_0215440c_2;
+struct BattleAction_ov000_0215440c_2;
 struct Struct_ov000_0215440c_4 {
     char unknown_0_[0x20];
     unsigned short unknown_20_;
@@ -68,10 +68,10 @@ struct Struct_ov025_021e7890_2 {
 
 extern "C" Struct_ov025_021e7890_6* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" Struct_ov000_0215440c_4* func_ov000_02160094(Struct_ov000_0215440c_2* arg0, int arg1);
+extern "C" Struct_ov000_0215440c_4* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" int func_02070fe4(Struct_02070fe4* arg0);
 extern "C" Struct_02070f98* func_02070f98(Struct_02070f98_2* arg0, int arg1);
-extern "C" void func_0200fd48(GameState* arg0, int arg1);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_ov025_021e771c(short* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov000_02161c0c(void* arg0, int arg1);
@@ -103,7 +103,7 @@ extern "C" ARM int func_ov025_021e7890(int arg0, Struct_ov025_021e7890_2* arg1) 
     var6 = GameState::GetInstance();
     var5 = GetBattleSetup_ov017_021b8478(var4->unknown_3000_.unknown_718_);
     var7 = GetBattleScene_ov000_02160130();
-    var8 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, 0);
+    var8 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, 0);
     if (var8 == 0) return 1;
     Struct_ov025_021e7890* var11 = (Struct_ov025_021e7890*)var6->GetCombatantByIndex(var8->unknown_20_);
     if (var11 == 0) return 1;
@@ -146,7 +146,7 @@ extern "C" ARM int func_ov025_021e7890(int arg0, Struct_ov025_021e7890_2* arg1) 
     func_ov000_02161c0c(var7, var8->unknown_20_);
     for (var3 = 0; var3 < 8; var3++) {
         short var19 = (short)(var3 + 0xc0);
-        if (var8->unknown_20_ != var19) func_0200fd48(var6, var19);
+        if (var8->unknown_20_ != var19) ClearGameObjectByIndex_0200fd48(var6, var19);
     }
     func_ov000_021677fc(var7);
     func_ov000_02167e6c((unsigned char*)var7);

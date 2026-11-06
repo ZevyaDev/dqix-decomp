@@ -13,7 +13,7 @@ extern "C" void func_02012de8(void);
 extern "C" void func_ov000_021723a8(void* arg0, void* arg1);
 extern "C" void func_ov000_02172128(void* arg0, void* arg1);
 extern "C" int func_ov000_021729ac(void* arg0);
-extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 
 // USA: func_ov000_02166978
 extern "C" ARM void func_ov000_02166978(unsigned char* arg0) {
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov000_02166978(unsigned char* arg0) {
         signed char var2 = *(signed char*)(arg0 + Enum_ov000_02166978_22289);
         if (var2 == 0) {
             FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
-            func_02094b40(var3);
+            ClearLoadedFontSets_02094b40(var3);
             RequestFontLoad_02094b34(var3, 0x65, 500, 0, 0);
             *(signed char*)(arg0 + Enum_ov000_02166978_22289) = 1;
         } else if (var2 == 1) {
@@ -45,5 +45,5 @@ extern "C" ARM void func_ov000_02166978(unsigned char* arg0) {
     }
     DISPCNT = (DISPCNT & ~0x1f00) | 0x1100;
     *(int*)(arg0 + Enum_ov000_02166978_22008) = 1;
-    func_ov000_02160fa8(arg0, 0x20);
+    SetBattleSceneFlags_ov000_02160fa8(arg0, 0x20);
 }

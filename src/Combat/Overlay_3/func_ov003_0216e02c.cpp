@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct Struct_02043368;
-extern "C" void func_0205a234(struct Struct_02043368* arg0);
+struct SpriteAnimationList_02043368;
+extern "C" void InitSpriteAnimationList_0205a234(struct SpriteAnimationList_02043368* animationList);
 
 struct BGLayer_02020cb8;
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
 extern "C" void InitTextWindow_0204c684(char* textWindow);
 
-struct Struct_0205cfd4;
-extern "C" void func_0205cfd4(struct Struct_0205cfd4* arg0);
+struct TextWindowManager_0205cfd4;
+extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 
 extern "C" void func_ov023_021e20c0(void* arg0);
 
@@ -46,13 +46,13 @@ extern "C" ARM void func_ov003_0216e02c(char* arg0, SafeAllocator* arg1) {
     }
 #endif
 
-    func_0205a234((struct Struct_02043368*)*(void**)(arg0 + 0x64));
+    InitSpriteAnimationList_0205a234((struct SpriteAnimationList_02043368*)*(void**)(arg0 + 0x64));
 
     void* var2 = (*(SafeAllocator**)(arg0 + 0xd0))->Allocate(0x400);
     ((SafeAllocator*)(arg0 + 0xbc))->CreateTypeA(var2, 0x400);
     ((SafeAllocator*)(arg0 + 0xbc))->Reset();
 
-    func_0205cfd4((struct Struct_0205cfd4*)*(void**)(arg0 + 0x3c));
+    InitTextWindowManager_0205cfd4((struct TextWindowManager_0205cfd4*)*(void**)(arg0 + 0x3c));
 
     for (int var3 = 0; var3 < 2; var3++) {
         InitBGLayer_0204af64((struct BGLayer_02020cb8*)(*(char**)(arg0 + 0x40) + (var3 << 5)));

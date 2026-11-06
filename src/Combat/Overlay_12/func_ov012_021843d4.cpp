@@ -3,16 +3,16 @@
 #include "NitroSDK/Graphics.h"
 #include "std_library_functions.h"
 
-struct Struct_020727d8;
+struct StringList_020727d8;
 struct StringTable_0201099c_14;
-struct Struct_0205cfd4;
+struct TextWindowManager_0205cfd4;
 struct BGLayer_02020cb8;
 
-extern "C" void func_02074af4(void* arg0);
+extern "C" void SaveMainBGControl_02074af4(void* save);
 extern "C" void func_ov023_021e7220(void* arg0, int arg1);
-extern "C" void func_020727d8(Struct_020727d8* arg0);
+extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
-extern "C" void func_0205cfd4(Struct_0205cfd4* arg0);
+extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 #if defined(jpn)
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov012_021843d4(Struct_ov012_021843d4* arg0)
 #endif
     arg0->unknown_18_ = 0;
     arg0->unknown_19_ = 0;
-    func_02074af4(arg0->unknown_8_);
+    SaveMainBGControl_02074af4(arg0->unknown_8_);
     arg0->unknown_1c_ = (DISPCNT & 0x1f00) >> 8;
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
     arg0->unknown_14bc_ = 0;
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov012_021843d4(Struct_ov012_021843d4* arg0)
     arg0->unknown_20_[6].ResetAllocatorPointer();
 #endif
     func_ov023_021e7220(arg0->unknown_d28_, 2);
-    func_020727d8((Struct_020727d8*)arg0->unknown_133c_);
+    ResetStringList_020727d8((StringList_020727d8*)arg0->unknown_133c_);
     InitStringTable_020dfc40((StringTable_0201099c_14*)arg0->unknown_1344_);
     arg0->unknown_135c_ = 0;
     arg0->unknown_1364_ = 0;
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov012_021843d4(Struct_ov012_021843d4* arg0)
     arg0->unknown_1368_ = 0;
     arg0->unknown_136c_ = 0;
 #endif
-    func_0205cfd4((Struct_0205cfd4*)arg0->unknown_ac_);
+    InitTextWindowManager_0205cfd4((TextWindowManager_0205cfd4*)arg0->unknown_ac_);
     for (int var0 = 0; var0 < 3; var0++)
         InitBGLayer_0204af64((BGLayer_02020cb8*)&arg0->unknown_168_[var0]);
     for (int var1 = 0; var1 < 13; var1++)

@@ -3,12 +3,12 @@
 #include "Resource/Brightness.h"
 #include "NitroSDK/Filesystem/FSInnerDefs.h"
 
-struct Struct_02012de8 { unsigned int unknown_0_; };
+struct GlobalFlags_02012de8 { unsigned int bits_0_; };
 
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
-extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
+extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" int func_020bbdcc(int arg0);
 extern "C" int func_020ce89c(int arg0, int arg1, int arg2);
 extern "C" int func_020cedc0(int arg0);
@@ -18,15 +18,15 @@ extern "C" int func_020cede0(void);
 
 // USA: func_02012de8
 extern "C" ARM void func_02012de8(void) {
-    struct Struct_02012de8* var0 = (struct Struct_02012de8*)GetGlobalFlags_020d6c00();
+    struct GlobalFlags_02012de8* var0 = (struct GlobalFlags_02012de8*)GetGlobalFlags_020d6c00();
     int* var1 = (int*)GetLocalWireless_0202ae18();
 
     int var2 = (*(volatile unsigned short*)0x027fffa8 & 0x8000) >> 15;
     if (var2) {
-        if (IsLocalWirelessOn_0202b7d8(var1) && !func_02046708(var0, 0x1000000)) {
+        if (IsLocalWirelessOn_0202b7d8(var1) && !TestGlobalFlags_02046708(var0, 0x1000000)) {
             goto skipFirst;
         }
-        if (!func_02046708(var0, 0x80)) {
+        if (!TestGlobalFlags_02046708(var0, 0x80)) {
             func_020bbdcc(0);
             func_020ce89c(0xc, 0, 0);
             if (func_020d1198() == 0) {
@@ -35,11 +35,11 @@ extern "C" ARM void func_02012de8(void) {
             return;
         }
     skipFirst:
-        if (!func_02046708(var0, 0x400000)) {
+        if (!TestGlobalFlags_02046708(var0, 0x400000)) {
             func_020cedc0(0);
         }
         if (!IsLocalWirelessOn_0202b7d8(var1)) return;
-        if (func_02046708(var0, 0x1000000)) return;
+        if (TestGlobalFlags_02046708(var0, 0x1000000)) return;
         {
             int var3 = GetResources_0200fb8c((int*)GameState::GetInstance());
             if (var3 == 0) return;

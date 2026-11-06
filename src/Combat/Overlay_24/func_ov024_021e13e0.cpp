@@ -5,7 +5,7 @@
 int RoundUp(float);
 extern "C" short func_ov000_0215a16c(void*, int, int, short*);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
-extern "C" void func_ov000_02159eac(void*, void*, int);
+extern "C" void SetActionResultFlag_ov000_02159eac(void*, void*, int);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 extern "C" int func_ov024_021eae14(void*, int);
 extern "C" void func_ov000_0215ccbc(void*, void*, GameObject*, short, short, short, unsigned long long, unsigned char);
@@ -27,7 +27,7 @@ extern "C" ARM void* func_ov024_021e13e0(Struct_ov024_021e13e0_2* arg0, int arg1
     if (!var5) return 0;
     int var6 = 0;
     if (var3 > 0) {
-        func_ov000_02159eac(arg0->unknown_10_, &var2, 0x25);
+        SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 0x25);
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var5, 0x1ba);
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var5, 0x16);
         var6 = 1;

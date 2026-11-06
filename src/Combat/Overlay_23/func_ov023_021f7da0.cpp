@@ -13,7 +13,7 @@ extern "C" int func_ov011_021844ec(struct Struct_ov011_021844ec* arg0);
 extern "C" void* func_ov023_021f79e4(void* arg0);
 
 struct TextWindow_0204c7a8;
-extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
+extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
 
 struct Struct_ov011_02185318_3 {
     char unknown_0_[4];

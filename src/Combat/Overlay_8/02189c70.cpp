@@ -247,7 +247,7 @@ extern "C" void StartMessage_0204500c(Struct_ov008_02189c70_12*, char*, int);
 #endif
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" int GetLocalWireless_0202ae18();
-extern "C" void func_020728ac(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, int arg4, int arg5, int arg6);
+extern "C" void LoadStringList_020728ac(void* stringList, SafeAllocator* allocator, void* arg2, unsigned int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 extern "C" void* GetGlobalFlags_020d6c00();
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
@@ -270,7 +270,7 @@ extern "C" void func_02046608(Struct_ov008_02189c70_12* arg0, int arg1, char* ar
 extern "C" void StartMessage_0204500c(Struct_ov008_02189c70_12* window, char* text, int arg2, int arg3);
 #endif
 extern "C" int IsNotLocalWirelessGuest_0202c508(int wireless);
-extern "C" int func_020457e0(Struct_ov008_02189c70_12* arg0);
+extern "C" int GetMessageChoice_020457e0(Struct_ov008_02189c70_12* window);
 extern "C" void func_ov008_0218b1e0(void* arg0);
 struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
@@ -280,7 +280,7 @@ bool ExportDetailedTreasureMapData(TreasureMapMetadata const*, DetailedTreasureM
 extern "C" void func_020a395c();
 extern "C" void func_020464e8(char*, int, char*);
 extern "C" void func_020e4b34(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10, int arg11);
-extern "C" int func_020100b0(GameState* arg0);
+extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" unsigned char func_02011804(GameState* arg0);
 extern "C" void func_020ac760(void* arg0);
 extern "C" void func_020ac734(void* arg0);
@@ -289,7 +289,7 @@ extern "C" void func_02011818(void*, Struct_02011818*);
 extern "C" void func_02011ab8(char*);
 extern "C" void func_02011a74(char*, unsigned int, char const*);
 extern "C" void func_ov017_021a9ff0(int arg0);
-extern "C" void func_020a1940(unsigned int arg0);
+extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 struct Struct_02046574_2;
@@ -332,7 +332,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             if (!GetFileInNarc(var15, data_ov008_0218c184, (const void**)&var16, &var18, 0))
                 var19 = 1;
             arg0->unknown_250_.Reset();
-            func_020728ac((char*)arg0 + 0x280, &arg0->unknown_250_, var16, var18, 0, 0, 0);
+            LoadStringList_020728ac((char*)arg0 + 0x280, &arg0->unknown_250_, var16, var18, 0, 0, 0);
             arg0->unknown_de0_ = (char*)arg0 + 0x280;
             arg0->unknown_ec0_1_ = 1;
             if (!GetFileInNarc(var15, data_ov008_0218c196, (const void**)&var16, &var18, 0))
@@ -358,7 +358,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             unsigned int var21;
             var10->GetLoadedFileByID(arg0->unknown_eac_, &var20, &var21);
             arg0->unknown_250_.Reset();
-            func_020728ac((char*)arg0 + 0x280, &arg0->unknown_250_, var20, var21, 0, 0, 0);
+            LoadStringList_020728ac((char*)arg0 + 0x280, &arg0->unknown_250_, var20, var21, 0, 0, 0);
             arg0->unknown_de0_ = (char*)arg0 + 0x280;
             arg0->unknown_ec0_1_ = 1;
             var10->GetLoadedFileByID(arg0->unknown_eb0_, &var20, &var21);
@@ -525,7 +525,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
         }
     } else if (arg0->unknown_e9a_ == 100) {
         if (var11->unknown_998_ != 0) return;
-        if (func_020457e0(var11) == 0) {
+        if (GetMessageChoice_020457e0(var11) == 0) {
             memset(var2, 0, 0x80);
             if (*((unsigned char*)var9 + LOW_REGION(0x6000 + 0xfbc,0x7000 + 0x1fc)) >= 0x10) {
                 char* var47 = FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0x69);
@@ -556,7 +556,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
         arg0->unknown_e9a_ = 2;
     } else if (arg0->unknown_e9a_ == 2) {
         if (var11->unknown_998_ != 0) return;
-        if (func_020457e0(var11) == 0 && arg0->unknown_ebb_ != 0) {
+        if (GetMessageChoice_020457e0(var11) == 0 && arg0->unknown_ebb_ != 0) {
             memcpy(var13->unknown_28_, &arg0->unknown_df0_, 0x2c);
             var13->unknown_9_ = 1;
             arg0->unknown_eba_ = 1;
@@ -606,7 +606,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
         __clear(var53, 0x30);
         func_02042764(arg0->unknown_ebc_, var53, 1);
         func_020e4b34(var8, var53, var53, 0, 0, 0, 0, arg0->unknown_ebc_->unknown_2e_0_, 0, 1, 0, 1);
-        InitPartyMemberNoun_020e4bf4(var7, func_020100b0(var9));
+        InitPartyMemberNoun_020e4bf4(var7, GetOwnPartyLeaderObjectIndex_020100b0(var9));
         var11->unknown_10_ = var8;
         var11->unknown_0_ = var7;
 #endif
@@ -636,7 +636,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             var11->unknown_2c8_ = 1;
             StartMessage_0204500c(var11, var54, 0);
 #else
-            InitPartyMemberNoun_020e4bf4(var7, func_020100b0(var9));
+            InitPartyMemberNoun_020e4bf4(var7, GetOwnPartyLeaderObjectIndex_020100b0(var9));
             var11->unknown_0_ = var7;
             var11->unknown_2c8_ = 1;
 #if defined(jpn)
@@ -668,7 +668,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
         }
     } else if (arg0->unknown_e9a_ == 5) {
         if (var11->unknown_998_ != 0) return;
-        int var58 = func_020457e0(var11);
+        int var58 = GetMessageChoice_020457e0(var11);
         if (var58 == 0) {
             arg0->unknown_e9a_ = 2;
             return;
@@ -724,7 +724,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
         arg0->unknown_e9a_ = 2;
     } else if (arg0->unknown_e9a_ == 6) {
         if (var12->unknown_3b4c_->unknown_2_ != 0) return;
-        func_020a1940(OVERLAY_ID(8));
+        LoadOverlay_020a1940(OVERLAY_ID(8));
         arg0->unknown_ec0_0_ = 0;
         arg0->unknown_e9a_ = 7;
     } else if (arg0->unknown_e9a_ == 7) {

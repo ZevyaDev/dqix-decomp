@@ -10,8 +10,8 @@ enum { Enum_020d9ae8_48 = 0x30, Enum_020d9ae8_64 = 0x40, Enum_020d9ae8_88 = 0x58
 struct QueueNode_0204693c;
 extern "C" void ResetQueueNode_0204693c(QueueNode_0204693c* node);
 
-struct Struct_020727d8;
-extern "C" void func_020727d8(Struct_020727d8* arg0);
+struct StringList_020727d8;
+extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 
 struct StringTable_0201099c_14;
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
@@ -34,7 +34,7 @@ extern "C" ARM void func_020d9ae8(Struct_02061c04_7* arg0, int arg1) {
     arg0->unknown_c_ = -1;
     memset((char*)arg0 + 0x10, 0, Enum_020d9ae8_48);
 #if defined(jpn)
-    func_020727d8((Struct_020727d8*)((char*)arg0 + Enum_020d9ae8_28));
+    ResetStringList_020727d8((StringList_020727d8*)((char*)arg0 + Enum_020d9ae8_28));
 #else
     InitStringTable_020dfc40((StringTable_0201099c_14*)((char*)arg0 + Enum_020d9ae8_64));
 #endif

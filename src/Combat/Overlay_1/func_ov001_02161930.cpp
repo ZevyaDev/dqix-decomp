@@ -3,7 +3,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 
 // USA: func_ov001_02161930
 extern "C" ARM int func_ov001_02161930(void* arg0) {
@@ -19,7 +19,7 @@ extern "C" ARM int func_ov001_02161930(void* arg0) {
 	GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, var3);
 	int var5 = var3;
 	if (var4 == NULL) {
-		var5 = func_020100b0(var0);
+		var5 = GetOwnPartyLeaderObjectIndex_020100b0(var0);
 	}
 	SetScriptRefInt_ov017_021d6134(arg0, var5);
 	return 1;

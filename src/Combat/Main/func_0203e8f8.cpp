@@ -108,7 +108,7 @@ extern "C" Struct_0203e8f8_2* func_0203f008(Struct_0203f008* arg0);
 extern "C" void func_020c555c(const unsigned short* arg0);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_020d86d0(int arg0, int arg1);
-extern "C" void func_020c9820(void);
+extern "C" void WaitForVBlank_020c9820(void);
 extern "C" Vector3i func_020406f8(Struct_0203e8f8* arg0);
 extern "C" Vector3i func_020407c4(Struct_0203e8f8* arg0);
 extern "C" void func_020c52e8(void);
@@ -207,7 +207,7 @@ extern "C" ARM int func_0203e8f8(void* arg0, Struct_0203e8f8* arg1, SafeAllocato
     func_020c555c(var0.unknown_0_);
     Set3DClearColorAndDepth_020c5588(0x7c00, 0, 0x7fff, 0, 0);
     func_020d86d0(0, 0);
-    func_020c9820();
+    WaitForVBlank_020c9820();
     LockStagedTextureVRAMCopying();
     var9 = GetTextureImageVRAMBanks();
     MapVRAMBanksToTextureImage(var9 & ~VRAM_BANK_D);
@@ -263,9 +263,9 @@ extern "C" ARM int func_0203e8f8(void* arg0, Struct_0203e8f8* arg1, SafeAllocato
     }
     SendQueuedDataToGeometryFifo();
     func_020d86d0(0, 0);
-    func_020c9820();
+    WaitForVBlank_020c9820();
     *(volatile unsigned int*)0x4000064 = 0x812b0010;
-    func_020c9820();
+    WaitForVBlank_020c9820();
     DC_FlushRange((void*)0x06870000, 0x10000);
     Struct_0203e624 var4;
     {

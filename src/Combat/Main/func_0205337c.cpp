@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
+extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 
 struct Struct_02015ef4 { int unknown_0_; int unknown_4_; int unknown_8_; };
 extern "C" ARM int func_0202ec84(void* arg0, struct Struct_02015ef4* arg1, int* arg2, int* arg3);
@@ -42,7 +42,7 @@ struct Struct_0205337c_2 {
 
 // USA: func_0205337c
 extern "C" ARM void func_0205337c(struct Struct_0205337c_2* arg0) {
-    if (func_02046708((struct Struct_02012de8*)GetGlobalFlags_020d6c00(), 2)) return;
+    if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)GetGlobalFlags_020d6c00(), 2)) return;
     if (arg0->unknown_190_ == NULL) return;
 
     void* var0 = GetCamera_020100bc(GameState::GetInstance());

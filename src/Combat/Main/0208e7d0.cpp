@@ -9,7 +9,7 @@ struct Struct_0208e7d0 {
 };
 
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 
 // USA: func_0208e7d0
 extern "C" ARM int func_0208e7d0(struct Struct_0208e7d0* arg0) {
@@ -19,7 +19,7 @@ extern "C" ARM int func_0208e7d0(struct Struct_0208e7d0* arg0) {
     int var0 = 8;
     GameState* var1 = GameState::GetInstance();
     GetFlagManager_0205ec34();
-    if (func_0201079c((char*)var1) >= 0x13) {
+    if (GetStoryChapter_0201079c((char*)var1) >= 0x13) {
         var0 = 0x10;
     }
     struct Random* var2 = GetBTRandom();

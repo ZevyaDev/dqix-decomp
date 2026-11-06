@@ -8,8 +8,8 @@ extern "C" unsigned short GetSubObjVRAMBanks(void);
 struct Struct_02074b64;
 extern "C" void func_02074b64(struct Struct_02074b64* arg0);
 
-struct Struct_0205cfd4;
-extern "C" void func_0205cfd4(struct Struct_0205cfd4* arg0);
+struct TextWindowManager_0205cfd4;
+extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 
 struct StringTable_0201099c_14;
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov023_021e7220(void* arg0, int arg1) {
     *(unsigned char*)((char*)arg0 + 0x74) = 0;
     *(unsigned char*)((char*)arg0 + 0x75) = 0;
     func_02074b64((struct Struct_02074b64*)((char*)arg0 + 0x64));
-    func_0205cfd4((struct Struct_0205cfd4*)((char*)arg0 + 0x78));
+    InitTextWindowManager_0205cfd4((struct TextWindowManager_0205cfd4*)((char*)arg0 + 0x78));
     InitStringTable_020dfc40((StringTable_0201099c_14*)((char*)arg0 + 0x4c));
     for (int var1 = 0; var1 < 2; var1++) {
         InitBGLayer_0204af64((struct BGLayer_02020cb8*)((char*)arg0 + 0x134 + var1 * 0x20));

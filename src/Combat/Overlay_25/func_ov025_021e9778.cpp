@@ -41,8 +41,8 @@ struct Struct_ov025_021e9778_8 {
     unsigned char unknown_a_;
 };
 
-struct Struct_ov000_0215440c_2;
-struct Struct_ov000_02160094;
+struct BattleAction_ov000_0215440c_2;
+struct ActionActor_ov000_02160094;
 struct Struct_ov025_021e9778_9;
 struct Struct_ov025_021e9778;
 struct Struct_ov025_021e9778_2;
@@ -60,14 +60,14 @@ typedef int (*Type_02000c9c_17)(struct Struct_ov025_021e9778_7*, struct Struct_o
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f00(void* arg0);
 extern "C" void* func_ov000_02160f20(void* arg0);
-extern "C" Struct_ov000_02160094* func_ov000_02160094(Struct_ov000_0215440c_2* arg0, int arg1);
+extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" void func_02078484(Struct_02078398_2* arg0);
 extern "C" void* func_ov000_02160f14(void* arg0);
 extern "C" void func_0202ea10(unsigned char* arg0, int arg1, int arg2);
 extern "C" short func_ov000_0216352c(int arg0, float arg1, float arg2);
 extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" void func_ov025_021eb6fc(Struct_ov025_021e9778_9* arg0, int arg1);
 extern "C" int func_ov025_021eb46c(Struct_ov025_021e9778* arg0);
 extern "C" int func_ov025_021eb204(Struct_ov025_021e9778_2* arg0);
@@ -139,12 +139,12 @@ extern "C" ARM void func_ov025_021e9778(void* arg0) {
         func_ov025_021e9a94((Struct_ov025_021e9778_5*)arg0);
     }
     if (*(void**)(var0 + 8) != NULL && ((Struct_ov025_021e9778_6*)((char*)*(void**)(var0 + 8) + 0x18))->unknown_1_4_ == 2) {
-        int var7 = *(unsigned short*)((char*)func_ov000_02160094((Struct_ov000_0215440c_2*)var4, 0) + 0x20);
+        int var7 = *(unsigned short*)((char*)GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var4, 0) + 0x20);
         int var8 = 0;
         GameState* var9 = GameState::GetInstance();
         int var10 = (var7 >= 0xc0 && var7 <= 0xc7);
         if (var10 != 0) {
-            GameObject* var11 = func_0200fea4(var9, var7);
+            GameObject* var11 = GetEnemyByIndex_0200fea4(var9, var7);
             if (var11 != 0) {
                 short var12 = var11->obj3D_.unknown_2_;
                 if (var12 == 0x200 || (unsigned int)(var12 - 0x289) <= 4) {
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov025_021e9778(void* arg0) {
             void* var13 = GetEffectManager_02057924();
             struct Struct_02078398_2 var14;
             func_02078484(&var14);
-            var14.unknown_14_ = *(unsigned short*)((char*)func_ov000_02160094((Struct_ov000_0215440c_2*)var4, 0) + 0x20);
+            var14.unknown_14_ = *(unsigned short*)((char*)GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var4, 0) + 0x20);
             if (var4->unknown_a_ & 1) {
                 strcpy((char*)&var14, data_ov025_021ef8de);
                 unsigned char* var15 = (unsigned char*)func_ov000_02160f14(var2);

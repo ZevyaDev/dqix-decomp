@@ -2,7 +2,7 @@
 
 extern unsigned char* data_ov031_02290c98;
 extern "C" void* VectorizedInvertedMemcpy(void* dst, void* src, int n);
-extern "C" int func_02005a94(signed char* arg0);
+extern "C" int ParseDecimal_02005a94(signed char* string);
 
 // USA: func_ov031_0222dd70
 extern "C" ARM int func_ov031_0222dd70(int arg0) {
@@ -22,6 +22,6 @@ extern "C" ARM int func_ov031_0222dd70(int arg0) {
         *var5++ = 0x20;
     } while (var4 < 3);
 
-    int var6 = func_02005a94((signed char*)var3);
+    int var6 = ParseDecimal_02005a94((signed char*)var3);
     return var6 >= arg0 ? 1 : 0;
 }

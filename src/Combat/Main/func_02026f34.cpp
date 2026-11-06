@@ -5,10 +5,10 @@
 #endif
 #include "GameState/GameState.h"
 
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 
 extern "C" void* GetGlobalFlags_020d6c00();
-extern "C" int func_02046708(Struct_02012de8* arg0, unsigned int arg1);
+extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
 
 struct Struct_020fdc60_4 {
     unsigned char unknown_0_;
@@ -71,7 +71,7 @@ enum { Enum_02026f34_1880 = 0x758, Enum_02026f34_1884 = 0x75c };
 // USA: func_02026f34
 extern "C" ARM void func_02026f34(void* arg0) {
     unsigned char* var0 = (unsigned char*)arg0;
-    if (func_02046708((Struct_02012de8*)GetGlobalFlags_020d6c00(), 0x41)) return;
+    if (TestGlobalFlags_02046708((GlobalFlags_02012de8*)GetGlobalFlags_020d6c00(), 0x41)) return;
 
     GameState* var1 = GameState::GetInstance();
     unsigned int var2 = var1->GetEffectiveDeltaTime();

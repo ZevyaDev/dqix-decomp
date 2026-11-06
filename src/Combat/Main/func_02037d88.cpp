@@ -31,7 +31,7 @@ extern "C" int func_0203402c(struct Struct_0203402c* arg0);
 
 extern "C" int GetMessageWindow_020421a0();
 
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 
 struct Struct_02037d88_12;
@@ -51,7 +51,7 @@ extern "C" void func_020a06b0(struct Struct_02037d88_3* arg0, unsigned int arg1)
 struct Struct_02037d88_4;
 extern "C" void func_020a0140(struct Struct_02037d88_4* arg0, unsigned int arg1);
 
-extern "C" int func_020ac494(void* arg0);
+extern "C" int SetBattleRecords_020ac494(void* records);
 
 extern "C" void func_020a2c8c(unsigned char* arg0);
 
@@ -164,7 +164,7 @@ extern "C" ARM void func_02037d88(struct Struct_02037d88_7* arg0) {
 
             void* var15 = GameState::GetInstance();
             short var16 = arg0->unknown_4_;
-            unsigned char var17 = func_020100b0((GameState*)var15);
+            unsigned char var17 = GetOwnPartyLeaderObjectIndex_020100b0((GameState*)var15);
             if (var17 == var16) {
                 int var18 = GetFollowCamera_020100f8((char*)var15);
                 if (var18 != 0) {
@@ -199,13 +199,13 @@ extern "C" ARM void func_02037d88(struct Struct_02037d88_7* arg0) {
                 GetBattleRecords_020ac4c0(var23);
                 func_020a06b0((struct Struct_02037d88_3*)var23, 1);
                 func_020a0140((struct Struct_02037d88_4*)(var23 + 0x68), 1);
-                func_020ac494(var23);
+                SetBattleRecords_020ac494(var23);
                 return;
             }
         } else {
             void* var24 = GameState::GetInstance();
             short var25 = arg0->unknown_4_;
-            unsigned char var26 = func_020100b0((GameState*)var24);
+            unsigned char var26 = GetOwnPartyLeaderObjectIndex_020100b0((GameState*)var24);
             if (var26 == var25) {
                 int var27 = GetFollowCamera_020100f8((char*)var24);
                 if (var27 != 0) {

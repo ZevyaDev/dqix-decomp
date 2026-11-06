@@ -1,13 +1,10 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca3b8 func_020cbe84
-#endif
 
-// USA: func_020ca3b8
+// USA: Memcpy16Bit_020ca3b8
 // PROVENANCE: pokeheartgold/lib/NitroSDK/asm/mi_memory.s — MIi_CpuCopy16. Halfword-granularity
 // memcpy loop (raw NitroSDK .s routine, ported as mwcc inline asm).
-extern "C" ARM asm void func_020ca3b8(const unsigned short* src, unsigned short* dst, unsigned int size) {
+extern "C" ARM asm void Memcpy16Bit_020ca3b8(const unsigned short* src, unsigned short* dst, unsigned int size) {
     mov ip, #0
 top:
     cmp ip, r2

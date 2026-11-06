@@ -17,8 +17,8 @@ enum { Enum_ov003_0216acf0_1152 = 0x480 };
 
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0;
-extern "C" TextWindow_0205d0e0* func_0205d8c4(TextWindowManager_0205d81c*);
-extern "C" int func_0204c7e0(unsigned char*);
+extern "C" TextWindow_0205d0e0* GetCursorTextWindow_0205d8c4(TextWindowManager_0205d81c*);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char*);
 
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimation_0205a254_2;
@@ -34,9 +34,9 @@ extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 extern "C" ARM void func_ov003_0216acf0(char* arg0) {
     if (!(*(unsigned char*)(arg0 + Enum_ov003_0216acf0_1439) & 1)) return;
 
-    TextWindow_0205d0e0* var0 = func_0205d8c4((TextWindowManager_0205d81c*)(arg0 + Enum_ov003_0216acf0_228));
+    TextWindow_0205d0e0* var0 = GetCursorTextWindow_0205d8c4((TextWindowManager_0205d81c*)(arg0 + Enum_ov003_0216acf0_228));
     if (var0 == NULL) return;
-    if (!func_0204c7e0((unsigned char*)var0)) return;
+    if (!IsTextWindowOpen_0204c7e0((unsigned char*)var0)) return;
     if (*(unsigned char*)((char*)var0 + 0xc5) & 0x20) return;
 
     short var1 = *(short*)((char*)var0 + 0xac);

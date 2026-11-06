@@ -19,9 +19,6 @@ enum { Enum_ov021_0218b5fc_1288 = 0x508, Enum_ov021_0218b5fc_7720 = 0x1e28, Enum
 #define func_020c51dc func_020c6ca8
 #endif
 
-#if defined(jpn)
-#define func_020c39a0 func_020c546c
-#endif
 
 struct AllocatorUnion;
 struct TextureVRAMArea_0203d028;
@@ -34,16 +31,16 @@ struct Struct_02109bf4_3;
 
 extern "C" void func_020a1df8(int arg0);
 extern "C" void func_020a1e54(int arg0);
-extern "C" void func_020a1940(unsigned int arg0);
+extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void func_0200fb84(int* arg0, int arg1);
-extern "C" void func_020c39a0(short* arg0, int arg1);
-extern "C" void* func_0203bd08(void);
+extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
+extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void func_0203bd24(char* arg0);
 extern "C" int* func_0203bd14();
 extern "C" int func_0203be4c(void* arg0);
 extern "C" void func_0203c35c(int* arg0);
 extern "C" void MapVRAMBanksToLCDC(unsigned short mask);
-extern "C" void func_020ca458(unsigned int value, void* dest, int count);
+extern "C" void Memset32Bit_020ca458(unsigned int value, void* dest, int count);
 extern "C" int DisableLCDCMappedVRAMBanks(void);
 void Finish3DRendering();
 extern "C" void func_020c51dc();
@@ -59,11 +56,11 @@ extern "C" void MapVRAMBanksToMainBG(int v);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void MapVRAMBanksToMainObj(int mode);
 extern "C" void MapVRAMBanksToSubObj(int value);
-extern "C" void func_020c391c(int arg0, int arg1, int arg2);
-extern "C" void func_020c3984(unsigned int arg0);
+extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
+extern "C" void SetSubBGMode_020c3984(unsigned int bgMode);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_020c555c(int arg0);
-extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
+extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02042c68(void* arg0);
 extern "C" void CloseMessageWindow_02043124(void* window);
@@ -78,8 +75,8 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigne
 extern "C" void func_ov009_0218454c(void* arg0, int arg1, int arg2);
 extern "C" void* func_02010954(char* arg0);
 extern "C" void func_ov009_021842a0(void* arg0, SafeAllocator* arg1);
-extern "C" void func_0209c3b4(Struct_0209c3b4_2* arg0, int arg1);
-extern "C" void func_020c9820();
+extern "C" void PlayMusic_0209c3b4(Struct_0209c3b4_2* manager, int musicIndex);
+extern "C" void WaitForVBlank_020c9820();
 extern "C" void func_020c38d4();
 extern "C" void func_02010124(Struct_0200f3a4_9* arg0);
 extern "C" int func_0200fb9c(char* arg0);
@@ -124,14 +121,14 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
 #if !defined(jpn)
     func_020a1df8(3);
 #endif
-    func_020a1940(OVERLAY_ID(9));
-    func_020a1940(OVERLAY_ID(23));
+    LoadOverlay_020a1940(OVERLAY_ID(9));
+    LoadOverlay_020a1940(OVERLAY_ID(23));
     GameState* var0 = GameState::GetInstance();
     func_0200fb84((int*)var0, (int)arg0);
-    func_020c39a0((short*)0x400006c, -16);
-    func_020c39a0((short*)0x400106c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
     BackgroundLoader::GetInstance()->MaybeReset();
-    void* var1 = func_0203bd08();
+    void* var1 = GetOAMManager_0203bd08();
     func_0203bd24((char*)var1);
     *(int*)var1 = 0;
     int* var2 = func_0203bd14();
@@ -139,7 +136,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     func_0203c35c(var2);
     var2[Enum_ov021_0218b5fc_1288 / 4] = 0x7000;
     MapVRAMBanksToLCDC(0x1ff);
-    func_020ca458(0, (void*)0x6800000, 0xa4000);
+    Memset32Bit_020ca458(0, (void*)0x6800000, 0xa4000);
     DisableLCDCMappedVRAMBanks();
     Finish3DRendering();
     func_020c51dc();
@@ -167,7 +164,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     var3 = inline_ov021_0218b5fc_2(&DISPCNT);
     var3 = (var3 & ~0x1f00) | 0x1f00;
     inline_ov021_0218b5fc(&DISPCNT, var3);
-    func_020c391c(1, 0, 1);
+    SetMainDisplayAndBGMode_020c391c(1, 0, 1);
 
     BG1CNT = (BG1CNT & 0x43) | 0x1d00;
     BG2CNT = (BG2CNT & 0x43) | 0x1e08;
@@ -177,7 +174,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     BG2CNT = (BG2CNT & ~3) | 1;
     BG3CNT = BG3CNT & ~3;
     DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | 0x1700;
-    func_020c3984(0);
+    SetSubBGMode_020c3984(0);
 
     BG0CNTSUB = (BG0CNTSUB & 0x43) | 0x1d00;
     BG1CNTSUB = (BG1CNTSUB & 0x43) | 0x1e10;
@@ -191,7 +188,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
 
     Struct_ov021_0218bbc4 var4 = data_ov021_0218bbc4;
     func_020c555c((int)&var4);
-    func_0207de48(arg0->unknown_44_, 0x4000, 0x40);
+    InitTextureVRAMArea_0207de48(arg0->unknown_44_, 0x4000, 0x40);
     void* var5 = GetMessageWindow_020421a0();
     func_02042c68(var5);
     CloseMessageWindow_02043124(var5);
@@ -210,8 +207,8 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     *(short*)(arg0->unknown_b4_ + 0x568) = GetProtagonistObjectIndex_020100a8(var0);
     *(char**)((char*)arg0->unknown_40_ + Enum_ov021_0218b5fc_3464) = arg0->unknown_b4_;
     func_ov009_021842a0(arg0->unknown_40_, &arg0->unknown_2c_);
-    func_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, 2);
-    func_020c9820();
+    PlayMusic_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, 2);
+    WaitForVBlank_020c9820();
     func_020c38d4();
     DISPCNTSUB |= 0x10000;
     func_02010124((Struct_0200f3a4_9*)var0);
@@ -224,10 +221,10 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
         func_ov021_0218baf8((Struct_ov021_0218b5fc_2*)arg0);
         func_ov021_0218bb30(arg0);
         arg0->unknown_28_ = 1;
-        func_020c9820();
+        WaitForVBlank_020c9820();
         func_020bbcb4();
         func_ov009_02184ca4(arg0->unknown_40_);
-        func_0203bdb0((Struct_0203bdb0*)func_0203bd08());
+        func_0203bdb0((Struct_0203bdb0*)GetOAMManager_0203bd08());
         UpdateAndApplyBrightness((GameResources*)arg0);
         data_02114e50++;
         var0->CalculateDeltaTime(0x411b);

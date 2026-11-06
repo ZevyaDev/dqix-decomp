@@ -3,7 +3,7 @@
 
 struct TextWindowManager_0205d81c {
     char unknown_0_[0xb0];
-    unsigned char unknown_b0_;
+    unsigned char cursorWindowId_b0_;
 };
 struct TextWindow_0205d0e0 {
     char unknown_0_[0xa8];
@@ -20,7 +20,7 @@ extern "C" ARM int func_0205d97c(TextWindowManager_0205d81c* arg0) {
     TextWindow_0205d0e0* var0;
     int var1;
     int var2;
-    var0 = FindTextWindow_0205d81c(arg0, arg0->unknown_b0_);
+    var0 = FindTextWindow_0205d81c(arg0, arg0->cursorWindowId_b0_);
     if (var0 == NULL) return 0;
     g_touchInput.GetTouchPoint(&var1, &var2);
     if (var1 == 0 || var2 == 0) return 0;

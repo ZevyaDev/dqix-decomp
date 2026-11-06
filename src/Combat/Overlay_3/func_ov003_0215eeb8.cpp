@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" int func_020426bc(void* arg0, void* arg1, int arg2);
+extern "C" int ConvertTextToGlyphIndices_020426bc(void* text, void* outGlyphIndices, int font);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
 
 struct Struct_ov003_0215eeb8 {
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov003_0215eeb8(struct Struct_ov003_0215eeb8* arg0) {
     int var3;
 
     __clear(var2, 0x100);
-    int var4 = func_020426bc(var0, var2, var1);
+    int var4 = ConvertTextToGlyphIndices_020426bc(var0, var2, var1);
     if (var4 == 0) {
         var3 = 9;
     } else {

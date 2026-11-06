@@ -91,8 +91,8 @@ extern char gMusicManager_02109bf4[];
 
 extern "C" Struct_ov023_021ec480_4* GetMessageWindow_020421a0();
 int IsBrightnessTransitionActive(GameResources* resources);
-extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
-extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
+extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
+extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c* windowManager, int windowId, int palette);
 extern "C" void func_0209c830(Struct_02109bf4_2* arg0, int arg1);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
         int var3 = 0x8c;
         if (arg0->unknown_430_ == 2 || (arg0->unknown_430_ == 7 && (arg0->unknown_438_ & GUIDE_WINDOW_MAIN_SCREEN)))
             var3 = 0x1b4;
-        func_0205ebc0(gSoundEffectManager_02108760, var3, var3);
+        LoadExtraSoundSet_0205ebc0(gSoundEffectManager_02108760, var3, var3);
         func_ov023_021ecbbc(arg0);
         arg0->unknown_432_++;
     }
@@ -164,7 +164,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
             return;
         func_ov023_021ed194(arg0);
         arg0->unknown_438_ |= GUIDE_WINDOW_TITLE_SCROLLING;
-        func_0205ebfc(gSoundEffectManager_02108760, 0, 0);
+        PlayExtraSoundEffect_0205ebfc(gSoundEffectManager_02108760, 0, 0);
         arg0->unknown_432_++;
     }
     if (var2 == 2)

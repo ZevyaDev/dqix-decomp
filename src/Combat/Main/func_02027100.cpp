@@ -8,7 +8,7 @@ enum { Enum_02027100_1880 = 0x758, Enum_02027100_1884 = 0x75c, Enum_02027100_188
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void func_0203bd08(void);
+extern "C" void GetOAMManager_0203bd08(void);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_0202756c(void* arg0, int arg1, int arg2, int arg3,
         unsigned char arg4, unsigned char arg5, unsigned short arg6, unsigned char arg7, int arg8, int arg9);
@@ -18,7 +18,7 @@ extern int data_020fdcb0;
 // USA: func_02027100
 extern "C" ARM void func_02027100(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_0203bd08();
+    GetOAMManager_0203bd08();
     ((int)GetGameResources());
     for (int var1 = 0; var1 < arg0[Enum_02027100_1884]; var1++) {
         unsigned char* var2 = arg0 + var1;

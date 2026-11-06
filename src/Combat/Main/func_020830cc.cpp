@@ -85,7 +85,7 @@ struct Struct_020830cc {
 
 extern "C" void func_02082fa8(struct Struct_02082fa8*, struct Struct_02082fa8*);
 extern "C" void __clear(void*, unsigned int);
-extern "C" void func_020426bc(void*, char*, int);
+extern "C" void ConvertTextToGlyphIndices_020426bc(void*, char*, int);
 
 // USA: func_020830cc
 extern "C" ARM void func_020830cc(struct Struct_020830cc* arg0, struct Struct_020830cc_2* arg1) {
@@ -124,7 +124,7 @@ extern "C" ARM void func_020830cc(struct Struct_020830cc* arg0, struct Struct_02
 #else
     char var6[0xc];
     __clear(var6, 0xc);
-    func_020426bc(arg0->unknown_3c_, var6, 1);
+    ConvertTextToGlyphIndices_020426bc(arg0->unknown_3c_, var6, 1);
     memcpy(arg1->unknown_140_, var6, 0xc);
 #endif
     arg1->unknown_1_4_ = (unsigned short)arg0->unknown_7b_6_;

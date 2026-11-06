@@ -8,7 +8,7 @@ enum { Enum_02076fdc_24 = 0x14 };
 enum { Enum_02076fdc_24 = 0x18 };
 #endif
 
-struct Struct_020fdd44;
+struct ActiveZone_020fdd44;
 struct Struct_0201a300_11;
 struct Struct_02033834_2;
 struct Struct_02033b68;
@@ -22,8 +22,8 @@ struct Struct_02076fdc {
     short unknown_8_;
 };
 
-extern "C" struct Struct_020fdd44* func_02027ca4();
-extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1);
+extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4();
+extern "C" struct ActiveZone_020fdd44* FindActiveZone_02028bd0(struct ActiveZone_020fdd44* zones, int zoneId);
 extern "C" struct Struct_02076fdc* func_020283c0(struct Struct_0201a300_11* arg0, int arg1);
 
 extern "C" int fix32_Atan2(int arg0, int arg1);
@@ -38,9 +38,9 @@ extern "C" void func_ov017_021c9168(int arg0, int arg1, int arg2, int arg3,
 
 // USA: func_02076fdc
 extern "C" ARM int func_02076fdc(Struct_02076a8c* arg0) {
-    struct Struct_020fdd44* var0 = func_02027ca4();
-    struct Struct_020fdd44* var1 =
-        func_02028bd0(var0, arg0->unknown_0_.unknown_0_.unknown_0_.GetField06());
+    struct ActiveZone_020fdd44* var0 = GetActiveZones_02027ca4();
+    struct ActiveZone_020fdd44* var1 =
+        FindActiveZone_02028bd0(var0, arg0->unknown_0_.unknown_0_.unknown_0_.GetField06());
     if (var1 == 0) {
         return 0;
     }

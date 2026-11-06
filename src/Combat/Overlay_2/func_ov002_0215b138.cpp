@@ -12,7 +12,7 @@ struct TextWindow_0205d0e0;
 
 extern "C" void func_0205def8(struct Struct_0205def8* arg0, int arg1, int arg2);
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
-extern "C" int func_0204c7cc(unsigned char* arg0);
+extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 extern "C" void func_ov002_02154bcc(int arg0, int arg1, void* arg2, int arg3, unsigned char arg4, unsigned char arg5);
 
 // USA: func_ov002_0215b138
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov002_0215b138(unsigned char* arg0) {
     if (var0 == 0) {
         return;
     }
-    if (!func_0204c7cc((unsigned char*)var0)) {
+    if (!IsTextWindowReady_0204c7cc((unsigned char*)var0)) {
         return;
     }
 

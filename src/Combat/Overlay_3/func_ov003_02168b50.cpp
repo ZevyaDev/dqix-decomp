@@ -64,7 +64,7 @@ extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
-extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, char*, int);
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov003_02168b50(struct Struct_ov003_02168b50_4* arg0) {
         SetMessageString_02046574((struct Struct_02046574_2*)var0, 0, (char*)var3->GetProtagonist()->baseStats_);
         if (var4->unknown_f68_ != 0) {
             SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var0, 0, var4->unknown_f68_);
-            func_020465f0((unsigned char*)var0, 0, 0);
+            SetMessageNumberWidth_020465f0((unsigned char*)var0, 0, 0);
             AppendText_02042058(arg0->unknown_7c_, (const char*)FindStringInTable_020e0434(var1, 0x3ea));
         } else {
             AppendText_02042058(arg0->unknown_7c_, (const char*)FindStringInTable_020e0434(var1, 0x3e9));

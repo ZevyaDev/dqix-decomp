@@ -46,7 +46,7 @@ extern int data_ov000_02184294[2];
 #endif
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
-extern "C" Struct_ov000_0217e870* func_ov000_02161318(Struct_ov004_021707e8*, int);
+extern "C" Struct_ov000_0217e870* FindPartyMemberPanel_ov000_02161318(Struct_ov004_021707e8*, int);
 extern "C" int func_ov000_0217c594(Struct_ov004_021707e8*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov000_02176e3c(Struct_ov004_021707e8*, Struct_ov000_0217e870*, int, int, int, int);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov000_0217e870(Struct_ov004_021707e8* arg0, int arg1, i
     arg0->unknown_1c_ = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_188_);
     GameState* var0 = GameState::GetInstance();
     Struct_ov000_0217e870_2* var1 = (Struct_ov000_0217e870_2*)GetParty_02010828(var0);
-    Struct_ov000_0217e870* var2 = func_ov000_02161318(arg0, GetProtagonistObjectIndex_020100a8(var0));
+    Struct_ov000_0217e870* var2 = FindPartyMemberPanel_ov000_02161318(arg0, GetProtagonistObjectIndex_020100a8(var0));
     if (func_ov000_0217c594(arg0, 0)) {
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         if (!var2) return;
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov000_0217e870(Struct_ov004_021707e8* arg0, int arg1, i
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 0x64;
         unsigned char var3 = var1->unknown_f7c_;
         for (unsigned char var4 = 0; var4 < var3; var4++) {
-            Struct_ov000_0217e870* var5 = func_ov000_02161318(arg0, var1->unknown_f78_[var4]);
+            Struct_ov000_0217e870* var5 = FindPartyMemberPanel_ov000_02161318(arg0, var1->unknown_f78_[var4]);
             if (var5) {
                 var5->unknown_1d_ = arg0->unknown_1c_;
                 var5->unknown_26_ = var2->unknown_26_;
@@ -90,13 +90,13 @@ extern "C" ARM void func_ov000_0217e870(Struct_ov004_021707e8* arg0, int arg1, i
         func_ov000_0217c638(arg0, arg1, arg2);
         GameState* var6 = GameState::GetInstance();
         Struct_ov000_0217e870_2* var7 = (Struct_ov000_0217e870_2*)GetParty_02010828(var6);
-        Struct_ov000_0217e870* var8 = func_ov000_02161318(arg0, GetProtagonistObjectIndex_020100a8(var6));
+        Struct_ov000_0217e870* var8 = FindPartyMemberPanel_ov000_02161318(arg0, GetProtagonistObjectIndex_020100a8(var6));
         if (!var8) return;
         var8->unknown_10_[var8->unknown_18_] = 0x17;
         unsigned char var9 = var7->unknown_f7c_;
         Struct_ov000_0217e870* var10;
         for (unsigned char var11 = 0; var11 < var9; var11++) {
-            var10 = func_ov000_02161318(arg0, var7->unknown_f78_[var11]);
+            var10 = FindPartyMemberPanel_ov000_02161318(arg0, var7->unknown_f78_[var11]);
             if (var10) {
                 var10->unknown_1d_ = -1;
                 var10->unknown_26_ = var8->unknown_26_;

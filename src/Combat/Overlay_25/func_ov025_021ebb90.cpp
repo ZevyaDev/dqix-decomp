@@ -56,16 +56,16 @@ struct Struct_ov025_021e9778_4 {
     unsigned char unknown_311_;
 };
 
-struct Struct_ov000_0215440c { short unknown_0_; char unknown_2_[7]; unsigned char unknown_9_; };
-struct Struct_ov000_021600f8 {
+struct BattleAction_ov000_0215440c { short unknown_0_; char unknown_2_[7]; unsigned char unknown_9_; };
+struct ActionTarget_ov000_021600f8 {
     char unknown_0_[0xe];
     short unknown_e_[3];
     unsigned char unknown_14_[3];
     unsigned char unknown_17_;
     unsigned char unknown_18_[3];
 };
-struct Struct_ov000_0215440c_2;
-struct Struct_ov000_02160094 {
+struct BattleAction_ov000_0215440c_2;
+struct ActionActor_ov000_02160094 {
     char unknown_0_[0x20];
     unsigned short unknown_20_;
     char unknown_22_[4];
@@ -116,8 +116,8 @@ extern "C" void func_ov025_021dcc58(void* arg0, unsigned char arg1);
 extern "C" int func_ov000_02162954(void* arg0);
 extern "C" int func_ov025_021ed2f4(void* arg0);
 extern "C" void func_ov025_021ebb24(struct Struct_ov025_021ebb90_6* arg0);
-extern "C" struct Struct_ov000_021600f8* func_ov000_021600f8(struct Struct_ov000_0215440c* arg0, int arg1);
-extern "C" struct Struct_ov000_02160094* func_ov000_02160094(struct Struct_ov000_0215440c_2* arg0, int arg1);
+extern "C" struct ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
+extern "C" struct ActionActor_ov000_02160094* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2* action, int index);
 extern "C" struct Struct_ov025_021ebb90* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" void func_ov000_0216346c(char* arg0, int arg1);
 extern "C" void func_ov000_021634c8(char* arg0, int arg1);
@@ -145,7 +145,7 @@ extern "C" short func_ov000_0216352c(int arg0, float arg1, float arg2);
 extern "C" int func_ov000_021635e4(int arg0, unsigned char arg1);
 extern "C" int func_ov000_02163c0c(void* arg0, int arg1);
 extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
-extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
+extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov025_021ee438(struct Struct_ov025_021ee438* arg0, int arg1);
 extern "C" void func_ov025_021dcf14(void* arg0);
 extern "C" void* func_ov000_02160f14(void* arg0);
@@ -216,16 +216,16 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
             return;
         }
 
-        struct Struct_ov000_021600f8* var19 = 0;
-        struct Struct_ov000_02160094* var20 = 0;
+        struct ActionTarget_ov000_021600f8* var19 = 0;
+        struct ActionActor_ov000_02160094* var20 = 0;
         if (var18->unknown_4_6_ == 1) {
-            struct Struct_ov000_021600f8* var21 = func_ov000_021600f8((struct Struct_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_, var18->unknown_4_0_);
+            struct ActionTarget_ov000_021600f8* var21 = GetActionTarget_ov000_021600f8((struct BattleAction_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_, var18->unknown_4_0_);
             if (var21 != 0) var19 = var21;
         } else if (var18->unknown_4_6_ == 0) {
-            struct Struct_ov000_02160094* var22 = func_ov000_02160094((struct Struct_ov000_0215440c_2*)arg0->unknown_0_[var17].unknown_0_, 0);
+            struct ActionActor_ov000_02160094* var22 = GetActionActor_ov000_02160094((struct BattleAction_ov000_0215440c_2*)arg0->unknown_0_[var17].unknown_0_, 0);
             if (var22 != 0) var20 = var22;
         } else if (var18->unknown_4_6_ == 2 || var18->unknown_4_6_ == 3) {
-            struct Struct_ov000_021600f8* var23 = func_ov000_021600f8((struct Struct_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_, var18->unknown_4_0_);
+            struct ActionTarget_ov000_021600f8* var23 = GetActionTarget_ov000_021600f8((struct BattleAction_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_, var18->unknown_4_0_);
             if (var23 != 0) var19 = var23;
         }
 
@@ -234,9 +234,9 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
 
         if (!(arg0->unknown_0_[var17].unknown_6_ & 0x10)) {
             struct Struct_ov025_021ebb90* var26 = FindActionData_02079e2c((char*)GetActionTables_020797dc(),
-                                                               ((struct Struct_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_)->unknown_0_);
-            for (int var27 = 0; var27 < ((struct Struct_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_)->unknown_9_; var27++) {
-                struct Struct_ov000_021600f8* var28 = func_ov000_021600f8((struct Struct_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_, var27);
+                                                               ((struct BattleAction_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_)->unknown_0_);
+            for (int var27 = 0; var27 < ((struct BattleAction_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_)->unknown_9_; var27++) {
+                struct ActionTarget_ov000_021600f8* var28 = GetActionTarget_ov000_021600f8((struct BattleAction_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_, var27);
                 if (var28 != 0) {
                     unsigned char var29 = 0;
                     unsigned char var30 = 0;
@@ -263,7 +263,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
             }
 
             if (var26 == 0 || (var26->unknown_14_ >> 28 != 3 && var26->unknown_14_ >> 28 != 4)) {
-                struct Struct_ov000_02160094* var32 = func_ov000_02160094((struct Struct_ov000_0215440c_2*)arg0->unknown_0_[var17].unknown_0_, 0);
+                struct ActionActor_ov000_02160094* var32 = GetActionActor_ov000_02160094((struct BattleAction_ov000_0215440c_2*)arg0->unknown_0_[var17].unknown_0_, 0);
                 int var33 = 0;
                 if (var32 != 0 && var32 != 0 && inline_ov025_021ebb90(var32->unknown_20_)) {
                     GameObject* var34 = GetPartyMemberBaseByIndex_0200ff1c(var11, var32->unknown_20_);
@@ -308,10 +308,10 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
                     int var40 = arg0->unknown_0_[var17].unknown_4_6_;
                     int var41 = -1;
                     if (var40 == 1) {
-                        struct Struct_ov000_021600f8* var42 = func_ov000_021600f8((struct Struct_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_, var39);
+                        struct ActionTarget_ov000_021600f8* var42 = GetActionTarget_ov000_021600f8((struct BattleAction_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_, var39);
                         if (var42 != 0) var41 = func_ov000_0215ffa0(var42);
                     } else if (var40 == 0) {
-                        struct Struct_ov000_02160094* var43 = func_ov000_02160094((struct Struct_ov000_0215440c_2*)arg0->unknown_0_[var17].unknown_0_, var39);
+                        struct ActionActor_ov000_02160094* var43 = GetActionActor_ov000_02160094((struct BattleAction_ov000_0215440c_2*)arg0->unknown_0_[var17].unknown_0_, var39);
                         if (var43 != 0) var41 = var43->unknown_20_;
                     }
                     if (var41 >= 0) {
@@ -338,7 +338,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
 
         if (!(arg0->unknown_0_[var17].unknown_6_ & 2)) {
             int var45 = -1;
-            struct Struct_ov000_02160094* var46 = func_ov000_02160094((struct Struct_ov000_0215440c_2*)arg0->unknown_0_[var17].unknown_0_, 0);
+            struct ActionActor_ov000_02160094* var46 = GetActionActor_ov000_02160094((struct BattleAction_ov000_0215440c_2*)arg0->unknown_0_[var17].unknown_0_, 0);
             if (var46 != 0) var45 = var46->unknown_20_;
 
             if (var24 <= arg0->unknown_0_[var17].unknown_10_ && arg0->unknown_0_[var17].unknown_10_ < var25) {
@@ -476,7 +476,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
         }
 
         if (!(arg0->unknown_0_[var17].unknown_6_ & 4) && var24 <= arg0->unknown_0_[var17].unknown_24_ && arg0->unknown_0_[var17].unknown_24_ < var25) {
-            func_0205ebfc(&gSoundEffectManager_02108760, arg0->unknown_0_[var17].unknown_22_, 0);
+            PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, arg0->unknown_0_[var17].unknown_22_, 0);
             arg0->unknown_0_[var17].unknown_6_ |= 4;
         }
 

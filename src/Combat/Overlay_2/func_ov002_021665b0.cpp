@@ -135,8 +135,8 @@ extern "C" void* func_02079ee0(void*, int);
 extern "C" short func_ov002_021538e4(char** arg0, Struct_ov002_021665b0_10* arg1, void* arg2, int arg3);
 extern "C" void func_ov002_021594e8(Struct_ov002_021665b0_2* arg0, int arg1, int arg2, int arg3);
 extern "C" char* GetMessageWindow_020421a0(void);
-struct Struct_0205da38;
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+struct TextWindowManager_0205da38;
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" int func_0205d97c(char* arg0);
 extern "C" int func_ov002_02161b48(char*, int);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -712,7 +712,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
         if (!(var95 != 0 && var95 != 1)) {
             var94[CTL_FLAG_021665b0] = 0;
             int var96 = g_keyManager.TestKeysPressed(0x601);
-            int var97 = (var96 | func_0205da38((struct Struct_0205da38*)((char*)arg0 + LIST_021665b0), 0x14)) ? 1 : 0;
+            int var97 = (var96 | IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)((char*)arg0 + LIST_021665b0), 0x14)) ? 1 : 0;
             int var98 = func_0205d97c((char*)arg0 + LIST_021665b0) == 1 ? 1 : 0;
             int var99 = func_ov002_02161b48((char*)arg0, 1);
             int var100 = g_keyManager.TestKeysPressed(0xf0);

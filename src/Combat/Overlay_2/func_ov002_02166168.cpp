@@ -11,7 +11,7 @@ struct Struct_020d7aa0_2;
 
 extern "C" int GetResources_0200fb8c(int *gameState);
 extern "C" void GetZone3D_02012fe4(void);
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_0215f3a0(void *arg0);
@@ -21,8 +21,8 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" char *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
 extern "C" int func_ov002_0216197c(int arg0, struct TextWindowManager_0205d81c *arg1);
 extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
-struct Struct_0205da38;
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+struct TextWindowManager_0205da38;
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" Struct_020d7aa0_2 *func_020d7a50();
 extern "C" void func_020d7aa0(Struct_020d7aa0_2 *arg0);
 extern "C" void func_ov002_02156080(void *arg0, short *arg1, short *arg2);
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
             func_ov002_0215b9a4(arg0, 0x17, 0);
         }
         int var5  = g_keyManager.TestKeysPressed(0x601);
-        int var6  = func_0205da38((struct Struct_0205da38*)OBJ, 0x14);
+        int var6  = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)OBJ, 0x14);
         int var7 = (var5 | var6) ? 1 : 0;
         if (var7) {
             unsigned int var8 = *(unsigned int *) (arg0 + 0x22ac);
@@ -177,7 +177,7 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
             func_ov002_0215b9a4(arg0, 0x16, 0);
         }
         int var19  = g_keyManager.TestKeysPressed(0x601);
-        int var20  = func_0205da38((struct Struct_0205da38*)OBJ, 0x14);
+        int var20  = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)OBJ, 0x14);
         int var21 = (var19 | var20) ? 1 : 0;
         if (var21) {
             unsigned int var22 = *(unsigned int *) (arg0 + 0x247c);

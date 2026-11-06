@@ -67,7 +67,7 @@ struct Struct_ov003_021760cc_5 {
 extern "C" int AppendText_02042058(char *, const char *);
 extern "C" Struct_ov003_021760cc_4 *GetMessageWindow_020421a0();
 extern "C" void __clear(void *, int);
-extern "C" void func_020e46c4(void *);
+extern "C" void InitNoun_020e46c4(void *);
 extern "C" void func_020e5334(Struct_ov003_021760cc_3 *, void *, unsigned int, int);
 extern "C" void ClearMessageParams_02046380(Struct_ov003_021760cc_4 *);
 extern "C" void InitPartyMemberNoun_020e4bf4(void *, int);
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_5 *arg0) {
             Struct_ov003_021760cc_3 var18;
             __clear(var16, 0x48);
             __clear(var17, 0x48);
-            func_020e46c4(&var18);
+            InitNoun_020e46c4(&var18);
             var18.unknown_0_ = var16;
             var18.unknown_4_ = var17;
             char var19[12];

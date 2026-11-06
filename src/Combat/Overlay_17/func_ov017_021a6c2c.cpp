@@ -52,7 +52,7 @@ extern "C" void* GetEffectManager_02057924();
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" Struct_ov017_021a6c2c_4* GetZone3D_02012fe4();
-extern "C" void func_020a0cc4(unsigned int);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void func_ov017_021d1cb8();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
@@ -62,8 +62,8 @@ extern "C" void func_02057e6c(void*, int, SafeAllocator*, void*, unsigned int, T
 extern "C" void func_0205ebec(void*);
 extern "C" void func_02010834(Struct_02010834*, int, int*, int*);
 extern "C" void func_02057fb4(void*, int, void*);
-extern "C" void func_0205ebc0(void*, int, int);
-extern "C" void func_0205ebfc(void*, int, int);
+extern "C" void LoadExtraSoundSet_0205ebc0(void*, int, int);
+extern "C" void PlayExtraSoundEffect_0205ebfc(void*, int, int);
 extern "C" int func_02039d7c(char*);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 #if defined(jpn)
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov017_021a6c2c(Struct_ov017_021a6c2c_2* arg0) {
                 var5->unknown_27cc_ = var5->unknown_48_;
             }
         }
-        func_020a0cc4(0x7000);
+        ReleaseFileTablesForSpace_020a0cc4(0x7000);
         if (var5->unknown_0_ != 0x4e27) {
             if (var5->unknown_0_ == 0x4e42) var5->unknown_27b4_ = 4;
         } else var5->unknown_27b4_ = 2;
@@ -149,8 +149,8 @@ extern "C" ARM void func_ov017_021a6c2c(Struct_ov017_021a6c2c_2* arg0) {
             var17->unknown_44_ = var16->obj3D_.GetScale();
             func_02057fb4(var4, 13, var17);
         }
-        func_0205ebc0(&gSoundEffectManager_02108760, 0xa2, 0xa2);
-        func_0205ebfc(&gSoundEffectManager_02108760, 2, 0);
+        LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0xa2, 0xa2);
+        PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, 2, 0);
         arg0->unknown_c_ = 0; arg0->unknown_8_++;
     } else if (arg0->unknown_8_ == 4) {
         arg0->unknown_c_ += var0->GetTickCount();

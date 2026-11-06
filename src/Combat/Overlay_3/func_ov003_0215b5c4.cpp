@@ -12,7 +12,7 @@ extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);
 struct Struct_0201099c_3;
 struct TextWindowManager_0205de24_2;
 
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);

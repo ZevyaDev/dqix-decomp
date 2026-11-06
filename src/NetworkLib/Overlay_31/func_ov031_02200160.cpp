@@ -119,7 +119,7 @@ extern "C" ARM void func_ov031_02200160(int arg0) {
 
     VectorizedMemset(data_ov031_0224ca00, 0, 0x60);
 
-    ProcessorContext* var1 = data_02111304.firstContext;
+    ProcessorContext* var1 = gContextScheduler_02111304.firstContext;
     if (var1 != NULL) {
         do {
             Struct_ov031_02200160* var2 = (Struct_ov031_02200160*)var1->unknown_A4;
@@ -495,7 +495,7 @@ extern "C" ARM void* func_ov031_02200af8(unsigned int* arg0) {
 	int var0 = DisableIRQInterrupts();
 	if (recv_tail == recv_head) {
 		do {
-			recv_waiter = data_02111304.activeContext;
+			recv_waiter = gContextScheduler_02111304.activeContext;
 			BlockCurrentContext(NULL);
 			recv_waiter = 0;
 		} while (recv_tail == recv_head);
@@ -819,7 +819,7 @@ struct Struct_ov031_02201364_3 {
 extern "C" ARM void func_ov031_02201364(unsigned char* arg0, unsigned int arg1, Struct_ov031_02201364_3* arg2) {
     Struct_ov031_02201364_2* var0 = arg2->unknown_4c_;
     var0->unknown_22_.unknown_0_ = 8;
-    var0->unknown_22_.unknown_4_ = (unsigned int)data_02111304.activeContext;
+    var0->unknown_22_.unknown_4_ = (unsigned int)gContextScheduler_02111304.activeContext;
     var0->unknown_22_.unknown_2_ = 0;
     unsigned short var1 = inline_ov031_02201364();
     arg2->unknown_a_ = var1;
@@ -900,7 +900,7 @@ extern "C" ARM void func_ov031_02201550(unsigned char* arg0, unsigned int arg1, 
     unsigned char* var0;
     unsigned int var1;
     if (arg2->unknown_8_ == 0) return;
-    if (data_02111304.activeContext == &data_ov031_0224cbe8) {
+    if (gContextScheduler_02111304.activeContext == &data_ov031_0224cbe8) {
         var0 = data_ov031_0224ce92;
     } else {
         var0 = arg2->unknown_4c_ + 0x22;
@@ -1057,7 +1057,7 @@ struct Struct_ov031_02201a94 {
 extern "C" ARM void func_ov031_02201a94(Struct_ov031_02201a94* arg0, void* arg1, void* arg2) {
     unsigned char* var0;
     int var1 = DisableIRQInterrupts();
-    ProcessorContext* var2 = data_02111304.firstContext;
+    ProcessorContext* var2 = gContextScheduler_02111304.firstContext;
     if (var2 != NULL) {
         do {
             var0 = (unsigned char*)var2->unknown_A4;
@@ -1155,7 +1155,7 @@ struct Struct_ov031_02201c84_4 { unsigned short unknown_0_; unsigned short unkno
 // USA: func_ov031_02201c84
 extern "C" ARM void* func_ov031_02201c84(Struct_ov031_02201c84_3* arg0, Struct_ov031_02201c84_4* arg1) {
 	Struct_ov031_02201c84* var0;
-	Struct_ov031_02201c84_2* var1 = (Struct_ov031_02201c84_2*)data_02111304.firstContext;
+	Struct_ov031_02201c84_2* var1 = (Struct_ov031_02201c84_2*)gContextScheduler_02111304.firstContext;
 	if (var1) {
 	do {
 		var0 = var1->unknown_a4_;
@@ -1222,7 +1222,7 @@ struct Struct_ov031_02201e0c { unsigned char unknown_0_[0x68]; Struct_ov031_0220
 // USA: func_ov031_02201e0c
 extern "C" ARM void* func_ov031_02201e0c(void* arg0, void* arg1) {
     int* var0;
-    Struct_ov031_02201e0c* var1 = (Struct_ov031_02201e0c*)data_02111304.firstContext;
+    Struct_ov031_02201e0c* var1 = (Struct_ov031_02201e0c*)gContextScheduler_02111304.firstContext;
     if (var1) {
         do {
             var0 = (int*)var1->unknown_a4_;
@@ -1280,7 +1280,7 @@ struct Struct_ov031_02201f10 {
 // USA: func_ov031_02201f10
 extern "C" ARM void func_ov031_02201f10(Struct_ov031_02201f10* arg0, int arg1, int arg2) {
     if (func_ov031_02201ef4(arg0->unknown_1c_) ||
-        data_02111304.activeContext != &data_ov031_0224cbe8) {
+        gContextScheduler_02111304.activeContext != &data_ov031_0224cbe8) {
         func_ov031_02201550((unsigned char*)0, 0, (Struct_ov031_02201550*)arg0, arg1, arg2);
     } else {
         func_ov031_02200ccc(func_ov031_02200730(arg0->unknown_1c_));
@@ -1693,7 +1693,7 @@ extern "C" ARM void func_ov031_0220296c(Struct_ov031_0220296c* arg0, void* arg1,
         if (func_ov031_022006a0(arg1, arg2, arg0, 0x11)) return;
     }
     int var1 = DisableIRQInterrupts();
-    ProcessorContext* var2 = data_02111304.firstContext;
+    ProcessorContext* var2 = gContextScheduler_02111304.firstContext;
     if (var2 != NULL) {
         do {
             var0 = (unsigned char*)var2->unknown_A4;

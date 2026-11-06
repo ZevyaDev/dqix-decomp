@@ -11,13 +11,13 @@ struct Struct_ov023_021e761c {
 }
 
 struct TextWindowManager_0205d1e0;
-extern "C" void func_0205d1e0(TextWindowManager_0205d1e0*);
+extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(TextWindowManager_0205d1e0*);
 
-struct Struct_0205d228;
-extern "C" void func_0205d228(Struct_0205d228*);
+struct TextWindowManager_0205d228;
+extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228*);
 
 struct TextWindowManager_0205d274;
-extern "C" void func_0205d274(TextWindowManager_0205d274*);
+extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274*);
 
 extern "C" int DrawSprite_0205ac40(void*, void*);
 
@@ -32,9 +32,9 @@ extern "C" ARM void func_ov023_021e761c(void *arg0) {
 	Struct_ov023_021e761c* var0 = static_cast<Struct_ov023_021e761c*>(arg0);
 	if (var0->unknown_5dc_ == 0) return;
 
-	func_0205d1e0(((TextWindowManager_0205d1e0*)(&var0->unknown_78_)));
-	func_0205d228(((Struct_0205d228*)(&var0->unknown_78_)));
-	func_0205d274(((TextWindowManager_0205d274*)(&var0->unknown_78_)));
+	ClearTextWindowManagerBGScreenData_0205d1e0(((TextWindowManager_0205d1e0*)(&var0->unknown_78_)));
+	DrawTextWindows_0205d228(((TextWindowManager_0205d228*)(&var0->unknown_78_)));
+	FlushTextWindowManagerBGScreenData_0205d274(((TextWindowManager_0205d274*)(&var0->unknown_78_)));
 
 #if !defined(jpn)
 	char* var1 = static_cast<char*>(arg0);

@@ -3,7 +3,7 @@
 
 struct Struct_0204c87c;
 struct TextWindowManager_0205d6a0;
-extern "C" int func_0204c7e0(unsigned char* arg0);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 extern "C" void func_0204c964(struct Struct_0204c87c* arg0);
 extern "C" void* func_ov000_02174da4(int arg0, void* arg1);
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov000_02177184(struct Struct_ov000_02177184_2* arg0, in
     }
     struct Struct_ov000_02177184* var0 = &arg0->unknown_188_;
     unsigned char* var1 = var0->unknown_9c_;
-    if (func_0204c7e0(var1)) {
+    if (IsTextWindowOpen_0204c7e0(var1)) {
         func_0204c964((struct Struct_0204c87c*)var1);
         arg0->unknown_1d72_ &= ~2;
         return;

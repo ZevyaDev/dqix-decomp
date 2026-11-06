@@ -40,7 +40,7 @@ struct Struct_02069234 {
 extern "C" char* func_020424ac(char* arg0);
 extern "C" int func_020d857c(signed char* arg0, signed char* arg1);
 extern "C" int GetStringLength_020d2ff0(const char* string);
-extern "C" int func_02005a94(void* arg0);
+extern "C" int ParseDecimal_02005a94(void* string);
 extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 extern "C" char* func_020e4958(char** arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
 
@@ -98,7 +98,7 @@ extern "C" ARM void func_02069234(Struct_02069234* arg0, char* arg1, char* arg2)
                     int var7 = GetStringLength_020d2ff0(var5->unknown_0_);
                     signed char var8 = var4[var7];
                     if (var8 >= '1' && var8 <= '9') {
-                        var6 = func_02005a94(var4 + var7) - 1;
+                        var6 = ParseDecimal_02005a94(var4 + var7) - 1;
                     }
                     var5->unknown_4_(var4, &var0, arg0, var6);
                 }
@@ -134,7 +134,7 @@ extern "C" ARM void func_02069234(Struct_02069234* arg0, char* arg1, char* arg2)
                     if (var15->unknown_5_ < 0) {
                         signed char var19 = *var4;
                         if (var19 >= '1' && var19 <= '9') {
-                            var18 = func_02005a94(var4) - 1;
+                            var18 = ParseDecimal_02005a94(var4) - 1;
                         }
                     }
                     switch (var15->unknown_4_) {

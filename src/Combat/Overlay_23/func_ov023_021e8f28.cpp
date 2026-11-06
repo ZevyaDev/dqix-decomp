@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" unsigned char func_02011494(char* arg0, void* arg1);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 
@@ -22,7 +22,7 @@ extern "C" ARM GameObject* func_ov023_021e8f28(int arg0) {
         } else {
             unsigned char var4[4];
             __clear(var4, 4);
-            unsigned char var5 = func_02011494((char*)var0, var4);
+            unsigned char var5 = GetOwnPartyOrder_02011494((char*)var0, var4);
             int var6 = -1 - arg0;
             if (var6 < var5) {
                 var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4[var6]);

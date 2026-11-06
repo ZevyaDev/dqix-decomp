@@ -19,8 +19,8 @@
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void func_02079a3c(void* arg0);
 
-struct Struct_0203d028_11;
-extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
+struct ObjectArchiveLoadInfo_0203d028_11;
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 
 extern char data_ov015_02194020[27] __attribute__((aligned(4)));
 extern char data_ov015_0219403b[7];
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov015_0218c538(Struct_ov015_0218bcb0* arg0, char* arg1)
         sprintf(var2, data_ov015_0219403b, var1);
         if (DecompressFileFromGPCByName(var6.pGPCFile, var6.machine, var4, var3, var5, var2)) {
             ObjectArchiveLoadInfo var7;
-            func_0203dafc((Struct_0203d028_11*)&var7);
+            ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var7);
             var7.allocator = &var0;
             var7.unk_8 = var3;
             var7.fileData = var4;
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov015_0218c538(Struct_ov015_0218bcb0* arg0, char* arg1)
             sprintf(var2, data_ov015_02194042, var1);
             if (DecompressFileFromGPCByName(var6.pGPCFile, var6.machine, var4, var3, var5, var2)) {
                 ObjectArchiveLoadInfo var8;
-                func_0203dafc((Struct_0203d028_11*)&var8);
+                ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var8);
 var8.allocator = &var0;
             var8.unk_8 = var3;
             var8.fileData = var4;
@@ -90,7 +90,7 @@ var8.allocator = &var0;
             sprintf(var2, data_ov015_0219404a, var1);
             if (DecompressFileFromGPCByName(var6.pGPCFile, var6.machine, var4, var3, var5, var2)) {
                 ObjectArchiveLoadInfo var9;
-                func_0203dafc((Struct_0203d028_11*)&var9);
+                ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var9);
 var9.allocator = &var0;
             var9.unk_8 = var3;
             var9.fileData = var4;
@@ -109,7 +109,7 @@ var9.allocator = &var0;
         }
         if (DecompressFileFromGPCByName(var6.pGPCFile, var6.machine, var4, var3, var5, var2)) {
             ObjectArchiveLoadInfo var10;
-            func_0203dafc((Struct_0203d028_11*)&var10);
+            ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var10);
             var10.allocator = &var0;
             var10.unk_8 = var3;
             var10.fileData = var4;
@@ -133,7 +133,7 @@ var9.allocator = &var0;
         }
         if (LoadFileIntoMemory(var2, gFileScratchSpace_0211e33c, &var3)) {
             ObjectArchiveLoadInfo var12;
-            func_0203dafc((Struct_0203d028_11*)&var12);
+            ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var12);
             var12.allocator = &var0;
             var12.fileData = gFileScratchSpace_0211e33c;
             var12.unk_8 = var3;

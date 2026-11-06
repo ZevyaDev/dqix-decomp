@@ -92,7 +92,7 @@ extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" unsigned int strlen(const char* arg0);
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
-extern "C" long func_02005a94(const char* arg0);
+extern "C" long ParseDecimal_02005a94(const char* string);
 extern "C" void* GetZone3D_02012fe4();
 extern "C" int func_0201bb78(struct Struct_0201bb78* arg0, unsigned int arg1);
 extern "C" void* GetFlagManager_0205ec34();
@@ -102,7 +102,7 @@ extern "C" int func_0206e384(unsigned char* arg0);
 extern "C" int func_0206e3d4(int arg0, int arg1);
 extern "C" unsigned int func_ov023_021db564(char* arg0);
 extern "C" void func_ov023_021dbb20(struct Struct_ov023_021db634_7* arg0, struct Struct_ov023_021db634_7* arg1);
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" void func_ov023_021db45c(void* arg0, struct Struct_ov023_021db45c* arg1, int arg2, short* arg3, short* arg4);
 extern "C" void func_ov023_021e257c(Struct_ov023_021db634_3* arg0);
 extern "C" void func_ov023_021db544(void* arg0, void* arg1, int arg2, int arg3);
@@ -180,16 +180,16 @@ extern "C" ARM void func_ov023_021db634(Struct_ov023_021db634_3* arg0, Struct_ov
                 {
                     char var18[4] = {0};
                     memcpy(var18, var6->unknown_4_ + 2, 2);
-                    short var19 = func_02005a94(var18);
+                    short var19 = ParseDecimal_02005a94(var18);
                     if (!func_0201bb78((Struct_0201bb78*)GetZone3D_02012fe4(), (unsigned short)(var19 + 20000)))
                         continue;
-                    var16 = FindStringInTable_020e0434(data_ov023_021ff9e0.unknown1_8_, (short)func_02005a94(var6->unknown_4_ + 5));
+                    var16 = FindStringInTable_020e0434(data_ov023_021ff9e0.unknown1_8_, (short)ParseDecimal_02005a94(var6->unknown_4_ + 5));
                     var15.unknown_4_ = 2;
                 }
             }
             else if (var17 == 'a')
             {
-                short var20 = func_02005a94(var16 + 1);
+                short var20 = ParseDecimal_02005a94(var16 + 1);
                 void* var21 = GetFlagManager_0205ec34();
                 if (!IsFlagSet_0206dfb0((int)var21, (unsigned char*)var21 + 0x8c, 0x1198))
                     continue;
@@ -235,7 +235,7 @@ extern "C" ARM void func_ov023_021db634(Struct_ov023_021db634_3* arg0, Struct_ov
                 break;
         }
     }
-    if (func_0201079c((char*)GameState::GetInstance()) == 1)
+    if (GetStoryChapter_0201079c((char*)GameState::GetInstance()) == 1)
         var13 = 0;
     var8 = var13;
     if (var13 == 4)

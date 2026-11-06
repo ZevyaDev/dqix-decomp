@@ -72,7 +72,7 @@ extern "C" unsigned int func_020965ac(Struct_02065990_3*, unsigned char);
 extern "C" int func_02096100(int, unsigned char*, int);
 extern "C" const char* func_ov023_021f63ac(void*, int, int);
 extern "C" void* memset(void*, int, unsigned int);
-extern "C" void func_02041a28(char*, int);
+extern "C" void AppendXPositionTag_02041a28(char*, int);
 extern "C" void AppendText_02042058(char*, const char*);
 extern "C" void func_ov023_021f63f8(void*, int, char*, int);
 extern "C" void func_ov023_021f6600(void*, int, int);
@@ -233,11 +233,11 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
                 memset(var23, 0, 0x80);
 #if defined(jpn)
                 AppendText_02042058(var23, var3->unknown_4_);
-                func_02041a28(var23, 0x30);
+                AppendXPositionTag_02041a28(var23, 0x30);
 #else
-                func_02041a28(var23, 0x1c);
+                AppendXPositionTag_02041a28(var23, 0x1c);
                 AppendText_02042058(var23, var3->unknown_4_);
-                func_02041a28(var23, 0x2e);
+                AppendXPositionTag_02041a28(var23, 0x2e);
 #endif
                 if (var22)
                     AppendText_02042058(var23, var22);

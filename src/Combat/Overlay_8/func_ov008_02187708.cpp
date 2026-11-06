@@ -53,7 +53,7 @@ static inline char* inline_ov008_02187708(GameState* arg0)
 
 struct MessageWindow_02021b84;
 struct Struct_ov008_021843f8_2;
-struct Struct_020727d8;
+struct StringList_020727d8;
 struct Struct_0201099c_3;
 struct StringList_02072a68_2;
 struct Struct_02013fb4;
@@ -66,7 +66,7 @@ extern char data_ov008_0218c0d5[];
 extern char data_ov008_0218c0fc[];
 
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
-extern "C" void func_020727d8(Struct_020727d8* arg0);
+extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
     if (var3 > 0)
     {
         Struct_ov008_02185dc0 var14;
-        func_020727d8((Struct_020727d8*)&var14);
+        ResetStringList_020727d8((StringList_020727d8*)&var14);
         const char* var15 = NULL;
         unsigned int var16 = 0;
         if (var3 < 700)
@@ -312,7 +312,7 @@ struct Struct_ov008_02187708_2 {
     int unknown_0_[3];
 };
 
-struct Struct_020727d8;
+struct StringList_020727d8;
 struct Struct_0201099c_3;
 struct StringList_02072a68_2;
 struct Struct_02013fb4;
@@ -325,9 +325,9 @@ extern char data_ov008_0218b4b0[];
 extern char data_ov008_0218b4c1[];
 
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
-extern "C" void func_020e46c4(void* arg0);
+extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" void func_020e4c74(void* arg0, GameObject* arg1);
-extern "C" void func_020727d8(Struct_020727d8* arg0);
+extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
@@ -383,7 +383,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
                 var3 = var12 - 20000 + var11->unknown_950_;
             }
             var5 = var10->unknown_150_->unknown_49c_0_;
-            func_020e46c4(&var6);
+            InitNoun_020e46c4(&var6);
             func_020e4c74(&var6, var10);
             var1->unknown_10_ = &var6;
         }
@@ -395,14 +395,14 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
             var3 = var13->unknown_14_;
         var5 = var13->unknown_16_0_;
         func_02042764(var8, var2, 1);
-        func_020e46c4(&var7);
+        InitNoun_020e46c4(&var7);
         func_020e4b34(&var7, var2, var2, 0, 0, 0, 0, var5, 0, 1, 0, 1);
         var1->unknown_10_ = &var7;
     }
     if (var3 > 0)
     {
         Struct_ov008_02185dc0 var14;
-        func_020727d8((Struct_020727d8*)&var14);
+        ResetStringList_020727d8((StringList_020727d8*)&var14);
         const char* var15 = NULL;
         unsigned int var16 = 0;
         if (var3 < 700)

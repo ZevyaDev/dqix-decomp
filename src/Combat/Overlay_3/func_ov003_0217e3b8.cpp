@@ -28,8 +28,8 @@ extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int sta
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
-extern "C" void func_020a0cc4(unsigned int arg0);
-extern "C" void func_020a0c0c(void);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
+extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020a1df8(int arg0);
 extern "C" void func_ov003_021681c8(void* arg0);
@@ -59,11 +59,11 @@ extern "C" ARM void func_ov003_0217e3b8(Struct_ov003_0217e3b8* arg0)
 
     if (arg0->unknown_8_ == 0)
     {
-        func_020a0cc4(R(0x16e14,0x16e18));
+        ReleaseFileTablesForSpace_020a0cc4(R(0x16e14,0x16e18));
         void* var5 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, R(0x16e14,0x16e18));
         if (var5 == 0)
         {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov003_0217e3b8(Struct_ov003_0217e3b8* arg0)
         arg0->unknown_20_ = arg0->unknown_c_.Allocate(R(0x5d4,0x5d8));
         if (arg0->unknown_20_ == 0)
         {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov003_0217e3b8(Struct_ov003_0217e3b8* arg0)
         ClearFlags04((GameResources*)var1, 0xc0);
         EnablePlayerControl_020397c0(var2);
         func_020a28b0((unsigned char*)var3, 3);
-        func_020a0c0c();
+        LoadFileTables_020a0c0c();
         arg0->unknown_1_ = 1;
     }
 }

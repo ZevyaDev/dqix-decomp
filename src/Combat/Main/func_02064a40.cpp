@@ -2,7 +2,7 @@
 extern "C" void* func_02053ccc(unsigned char*);
 #include "GameState/GameState.h"
 
-extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
+extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 
 // USA: func_02064a40
 extern "C" ARM int func_02064a40(void* arg0, void* arg1) {
@@ -17,5 +17,5 @@ extern "C" ARM int func_02064a40(void* arg0, void* arg1) {
             *(int*)((char*)arg1 + 4) = var1;
         }
     }
-    return func_020649b0(arg0, 9, arg1);
+    return RunTrigger_020649b0(arg0, 9, arg1);
 }

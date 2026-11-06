@@ -58,7 +58,7 @@ struct Struct_ov006_02157d7c {
 typedef void (Struct_ov006_02157d7c::*Type_02015554)();
 struct Struct_ov006_021601fc { Type_02015554 unknown_0_[14]; };
 extern struct Struct_ov006_021601fc data_ov006_021601fc;
-extern Type_02015554 data_020e6d5c;
+extern Type_02015554 gNullMemberFunctionPointer_020e6d5c;
 extern int data_ov006_02160398;
 
 // USA: func_ov006_02157d7c
@@ -147,7 +147,7 @@ extern "C" ARM int func_ov006_02157d7c(struct Struct_ov006_02157d7c* arg0, int a
 
     if ((data_ov006_02160398 & 1) == 0)
     {
-        data_ov006_021601fc.unknown_0_[13] = data_020e6d5c;
+        data_ov006_021601fc.unknown_0_[13] = gNullMemberFunctionPointer_020e6d5c;
         data_ov006_02160398 |= 1;
     }
 

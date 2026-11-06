@@ -7,7 +7,7 @@ struct Struct_ov017_021d82e0 { int unknown_0_; void* unknown_4_; };
 extern Struct_ov017_021d82e0 data_ov017_021d82e0;
 extern "C" void func_02039830(void*);
 extern "C" unsigned char func_02039820(void*);
-extern "C" unsigned char func_020100b0(GameState*);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" void func_02048418(unsigned char*, unsigned short);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 extern "C" void func_ov017_02191108(void*, int, int, int, int);
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov017_0218d2f0(unsigned char arg0, unsigned char arg1, 
     for (unsigned char var5 = 0; var5 < var3; ++var5) {
         short var6 = var1->unknown_f78_[var5];
         GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var0, var6);
-        if (!var7 || (!arg3 && var6 != func_020100b0(var0))) continue;
+        if (!var7 || (!arg3 && var6 != GetOwnPartyLeaderObjectIndex_020100b0(var0))) continue;
         if (arg0) {
             if (var7->unknown_ac_.unknown_84_->unknown_0_ & 1) {
                 func_02053fe4(var7, 1, 1);

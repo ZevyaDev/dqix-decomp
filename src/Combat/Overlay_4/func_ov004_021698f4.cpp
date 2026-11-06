@@ -11,7 +11,7 @@ extern "C" void* func_ov004_02168aa0(void* arg0, int arg1);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
-extern "C" int func_0204c7e0(unsigned char* arg0);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 extern "C" void func_ov023_021f8120(void* arg0);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void func_ov023_021f6844(void* arg0, int arg1);
@@ -51,7 +51,7 @@ extern "C" ARM int func_ov004_021698f4(void* arg0) {
 
     if (var2) {
         unsigned char* var3 = (unsigned char*)var2 + 0x20;
-        if (var3 && func_0204c7e0(var3)) {
+        if (var3 && IsTextWindowOpen_0204c7e0(var3)) {
             func_ov023_021f8120(var2);
             void* var4 = func_ov011_021845f8(arg0, 2);
             if (var4) {

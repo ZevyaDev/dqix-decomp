@@ -62,7 +62,7 @@ extern "C" ARM void func_ov017_021c1af0(Struct_ov017_021c1af0* arg0) {
     if (arg0->unknown_8_ == 0) {
         DisablePlayerControl_020397cc((Struct_02018300_3*)var0->GetProtagonist(), 1);
         FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
-        func_02094b30(var2, 0x204, 0);
+        RequestSingleFontLoad_02094b30(var2, 0x204, 0);
         if (UpdateFontLoad_02094b4c(var2)) arg0->unknown_8_ = 1;
     } else if (arg0->unknown_8_ == 1) {
         Struct_02046574_2* var3 = GetMessageWindow_020421a0();

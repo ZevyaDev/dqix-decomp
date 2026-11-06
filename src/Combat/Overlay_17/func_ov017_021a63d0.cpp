@@ -31,11 +31,11 @@ struct Struct_02000c9c_8;
 extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
 
 struct TextWindowManager_0205d1e0;
-struct Struct_0205d228;
+struct TextWindowManager_0205d228;
 struct TextWindowManager_0205d274;
-extern "C" void func_0205d1e0(TextWindowManager_0205d1e0*);
-extern "C" void func_0205d228(Struct_0205d228*);
-extern "C" void func_0205d274(TextWindowManager_0205d274*);
+extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(TextWindowManager_0205d1e0*);
+extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228*);
+extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274*);
 extern "C" void func_0205da88(void*, int, int, int);
 struct TextWindowManager_0205d2bc;
 extern "C" void func_0205d2bc(TextWindowManager_0205d2bc*);
@@ -113,10 +113,10 @@ extern "C" ARM void func_ov017_021a63d0(unsigned char* arg0) {
 
     if (*(int*)(arg0 + OFF_41b8) >= 3) {
         void* var13 = *(void**)(arg0 + OFF_4090);
-        func_0205d1e0((TextWindowManager_0205d1e0*)var13);
-        func_0205d228((Struct_0205d228*)var13);
+        ClearTextWindowManagerBGScreenData_0205d1e0((TextWindowManager_0205d1e0*)var13);
+        DrawTextWindows_0205d228((TextWindowManager_0205d228*)var13);
         func_0205da88(var13, 1, 2, 1);
-        func_0205d274((TextWindowManager_0205d274*)var13);
+        FlushTextWindowManagerBGScreenData_0205d274((TextWindowManager_0205d274*)var13);
         func_0205d2bc((TextWindowManager_0205d2bc*)var13);
 
         unsigned char* var14 = *(unsigned char**)(arg0 + OFF_41c4);

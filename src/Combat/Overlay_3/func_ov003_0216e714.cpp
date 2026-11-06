@@ -30,8 +30,8 @@ extern "C" int LoadToMainBG3ScreenData(int arg0, int arg1, unsigned int arg2);
 extern "C" void LoadBGBlock_0204b174(void *layer, void *block, SafeAllocator *allocator, unsigned int arg3);
 struct BGLayer_02020cb8_2;
 extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2 *layer, void *screenData);
-struct Struct_02020cb8_3;
-extern "C" void func_0204afb4(struct Struct_02020cb8_3 *arg0);
+struct BGLayer_02020cb8_3;
+extern "C" void ResetBGLayerData_0204afb4(struct BGLayer_02020cb8_3 *layer);
 
 extern char data_ov003_0218028b[];
 extern char data_ov003_0218029b[];
@@ -275,7 +275,7 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
                 }
             }
             LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2 *) &var12, 0);
-            func_0204afb4((struct Struct_02020cb8_3 *) &var12);
+            ResetBGLayerData_0204afb4((struct BGLayer_02020cb8_3 *) &var12);
             var6->RemoveTask(arg0->unknown_1c_);
             arg0->unknown_1c_ = -1;
             if (!(arg0->unknown_20_ & 0x20)) {
@@ -425,7 +425,7 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
                 }
             }
             LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2 *) &var32, 0);
-            func_0204afb4((struct Struct_02020cb8_3 *) &var32);
+            ResetBGLayerData_0204afb4((struct BGLayer_02020cb8_3 *) &var32);
             var26->RemoveTask(arg0->unknown_1c_);
             arg0->unknown_1c_ = -1;
             if (!(arg0->unknown_20_ & 0x20)) {

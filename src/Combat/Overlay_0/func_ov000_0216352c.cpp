@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 
 // USA: func_ov000_0216352c
 extern "C" ARM short func_ov000_0216352c(int arg0, float arg1, float arg2) {
@@ -10,7 +10,7 @@ extern "C" ARM short func_ov000_0216352c(int arg0, float arg1, float arg2) {
     if (!(var1 && var0 != NULL)) {
         return 0x10a;
     }
-    GameObject* var2 = func_0200fea4(var0, arg0);
+    GameObject* var2 = GetEnemyByIndex_0200fea4(var0, arg0);
     if (var2 == NULL) {
         return 0x10a;
     }

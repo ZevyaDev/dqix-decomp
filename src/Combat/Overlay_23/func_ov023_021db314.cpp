@@ -13,7 +13,7 @@ struct Struct_ov023_021db314 {
     void* unknown_4_;
 };
 
-extern "C" int func_02005a94(signed char* arg0);
+extern "C" int ParseDecimal_02005a94(signed char* string);
 extern "C" int func_ov023_021db564(char* arg0);
 
 // USA: func_ov023_021db314
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov023_021db314(void* arg0, short* arg1, short* arg2) {
             signed char* var5 = (signed char*)var1->unknown_4_;
 
             if (*var5 == 'f') {
-                arg1[var2] = (short)func_02005a94(var5 + 5);
+                arg1[var2] = (short)ParseDecimal_02005a94(var5 + 5);
                 var2++;
             } else if (*var5 >= 'A' && *var5 <= 'Z') {
                 unsigned short var6 = (unsigned short)func_ov023_021db564((char*)var5);

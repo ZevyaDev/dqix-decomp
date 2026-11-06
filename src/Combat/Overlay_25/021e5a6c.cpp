@@ -16,15 +16,15 @@ struct Struct_ov025_021e5a6c {
     unsigned char unknown_14_;
 };
 
-struct Struct_ov000_0215440c;
-struct Struct_ov000_021600f8;
+struct BattleAction_ov000_0215440c;
+struct ActionTarget_ov000_021600f8;
 
-extern "C" struct Struct_ov000_021600f8* func_ov000_021600f8(struct Struct_ov000_0215440c* arg0, int arg1);
+extern "C" struct ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
 struct Vector3i;
 extern "C" void* GetBattleScene_ov000_02160130(void);
 
 // USA: func_ov025_021e5a6c
-extern "C" ARM int func_ov025_021e5a6c(struct Struct_ov025_021e5a6c* arg0, struct Struct_ov000_0215440c* arg1) {
+extern "C" ARM int func_ov025_021e5a6c(struct Struct_ov025_021e5a6c* arg0, struct BattleAction_ov000_0215440c* arg1) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetCamera_020100bc(var0);
     unsigned char var2 = arg0->unknown_14_;
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov025_021e5a6c(struct Struct_ov025_021e5a6c* arg0, struc
         }
     } else if (var2 == 2) {
         int var3 = 1;
-        struct Struct_ov000_021600f8* var4 = func_ov000_021600f8(arg1, 0);
+        struct ActionTarget_ov000_021600f8* var4 = GetActionTarget_ov000_021600f8(arg1, 0);
         if (var4 != 0) {
             GameObject* var5 = var0->GetCombatantByIndex(*(short*)((char*)var4 + 0xe));
             if (var5 != 0) {

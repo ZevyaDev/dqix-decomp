@@ -10,7 +10,7 @@ struct Struct_0204483c {
 extern "C" ARM const char* func_020449a4(struct Struct_0204483c_2* arg0, const char* arg1);
 extern "C" ARM void func_02044974(struct Struct_0204483c* arg0, int arg1);
 extern "C" ARM int func_020d85dc(const char* arg0, const char* arg1);
-extern "C" ARM int func_02005a94(const char* arg0);
+extern "C" ARM int ParseDecimal_02005a94(const char* string);
 extern "C" ARM void func_020457e8(struct Struct_0204483c_2* arg0, int arg1);
 
 extern char data_020f00a3[];
@@ -51,7 +51,7 @@ extern "C" ARM void func_0204483c(struct Struct_0204483c_2* arg0, const char* ar
             }
             const char* var6 = var0 + 1;
             if (func_020d85dc(arg1 + 1, data_020f00a3)) {
-                int var7 = func_02005a94(arg1 + 6);
+                int var7 = ParseDecimal_02005a94(arg1 + 6);
                 if (var7 < 0) {
                     var7 = 0;
                 }

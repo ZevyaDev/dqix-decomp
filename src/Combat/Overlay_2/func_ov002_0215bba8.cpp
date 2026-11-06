@@ -29,7 +29,7 @@ struct Struct_ov002_0216cb18 {
 
 extern Type_ov002_0215bba8 data_ov002_0216d10c[PAGES];
 extern unsigned int data_ov002_0216d3b0[2];
-extern Type_ov002_0215bba8 data_020e6d5c;
+extern Type_ov002_0215bba8 gNullMemberFunctionPointer_020e6d5c;
 extern Struct_ov002_0216cb18 data_ov002_0216cb18[];
 extern Struct_ov002_0216cb18 data_ov002_0216cb1c[];
 
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov002_0215bba8(Struct_ov002_0215bba8_2 *arg0) {
     }
     memset(*(void **) (var0 + 0x1000 + RG(0xbd0, 0xa98)), 0, RG(0x960, 0x800));
     if (!(data_ov002_0216d3b0[0] & 1)) {
-        Type_ov002_0215bba8 var4      = data_020e6d5c;
+        Type_ov002_0215bba8 var4      = gNullMemberFunctionPointer_020e6d5c;
         data_ov002_0216d10c[0]  = var4;
 #if defined(jpn)
         data_ov002_0216d10c[24] = var4;

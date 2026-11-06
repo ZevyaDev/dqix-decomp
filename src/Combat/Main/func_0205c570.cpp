@@ -2,8 +2,8 @@
 
 struct Struct_0205bd04;
 extern "C" int func_0205bd04(struct Struct_0205bd04*);
-struct Struct_0205bb84;
-extern "C" int func_0205bb84(struct Struct_0205bb84*);
+struct MenuCursor_0205bb84;
+extern "C" int GetMenuCursorIndex_0205bb84(struct MenuCursor_0205bb84*);
 
 struct Struct_0205c570 {
     char unknown_0_[0x50];
@@ -22,5 +22,5 @@ extern "C" ARM int func_0205c570(struct Struct_0205c570* arg0) {
     if (arg0->unknown_95_ == 0) {
         return var0;
     }
-    return func_0205bb84((struct Struct_0205bb84*)((char*)arg0 + 0x54));
+    return GetMenuCursorIndex_0205bb84((struct MenuCursor_0205bb84*)((char*)arg0 + 0x54));
 }

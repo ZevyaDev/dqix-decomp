@@ -22,9 +22,9 @@ enum { Enum_ov003_0217db88_204 = 0xcc };
 #endif
 
 
-extern "C" void func_0205d048(void* arg0);
-struct Struct_02020cb8_3;
-extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
+extern "C" void ResetTextWindowManager_0205d048(void* windowManager);
+struct BGLayer_02020cb8_3;
+extern "C" void ResetBGLayerData_0204afb4(struct BGLayer_02020cb8_3* layer);
 struct Struct_0204c754;
 extern "C" void func_0204c754(struct Struct_0204c754* arg0);
 struct Struct_0205a244;
@@ -37,11 +37,11 @@ extern "C" void func_020dfc6c(struct StringTable_0201099c_14* arg0);
 extern "C" ARM void func_ov003_0217db88(void* arg0) {
     unsigned char* var0 = (unsigned char*)arg0;
 
-    func_0205d048(*(void**)(var0 + Enum_ov003_0217db88_144));
+    ResetTextWindowManager_0205d048(*(void**)(var0 + Enum_ov003_0217db88_144));
 
     int var1;
     for (var1 = 0; var1 < 2; var1++) {
-        func_0204afb4((struct Struct_02020cb8_3*)(*(char**)(var0 + Enum_ov003_0217db88_148) + var1 * 0x20));
+        ResetBGLayerData_0204afb4((struct BGLayer_02020cb8_3*)(*(char**)(var0 + Enum_ov003_0217db88_148) + var1 * 0x20));
     }
 
     int var2;

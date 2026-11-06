@@ -32,9 +32,9 @@ extern "C" int func_ov000_02171210(struct Struct_ov000_02171458_3* arg0, void* a
 extern "C" struct Struct_ov000_02171458_3* func_ov000_02170cf8(void* arg0, int arg1);
 extern "C" void* __clear(void* arg0, int arg1);
 #if !defined(jpn)
-extern "C" void func_020e4864(int arg0, char* arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void ExpandInflectionTags_020e4864(int text, char* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
 #endif
-extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
+extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 
 struct Struct_ov000_02171458 {
     char unknown_0_[6];
@@ -102,8 +102,8 @@ extern "C" ARM void func_ov000_02171458(struct Struct_ov000_02171458_2* arg0) {
     __clear(var5, 0x80);
     char var6[0x80];
     __clear(var6, 0x80);
-    func_020e4864(var4->unknown_0_, var5, 1, 0, 0, 0);
-    func_0206819c(var5, var6, 0);
+    ExpandInflectionTags_020e4864(var4->unknown_0_, var5, 1, 0, 0, 0);
+    CopyCapitalizedText_0206819c(var5, var6, 0);
     func_0203c108(&arg0->unknown_50_, var6);
 #endif
 }

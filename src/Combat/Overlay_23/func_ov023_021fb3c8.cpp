@@ -8,7 +8,7 @@ struct Struct_ov023_021fb3c8_2 {
     unsigned char unknown_15_;
 };
 extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254*, int);
-extern "C" void func_0205a42c(struct SpriteAnimationList_0205a254*, int, int);
+extern "C" void SetSpriteAnimationOAMIndex_0205a42c(struct SpriteAnimationList_0205a254*, int, int);
 extern "C" struct Struct_ov023_021fb3c8_2* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254*, int);
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov023_021fb3c8(struct Struct_ov023_021fb3c8* arg0, void
     if (var5 != NULL) {
         var5->unknown_15_ |= 8;
     }
-    func_0205a42c(var4, arg0->unknown_22_, (unsigned char)arg0->unknown_24_);
+    SetSpriteAnimationOAMIndex_0205a42c(var4, arg0->unknown_22_, (unsigned char)arg0->unknown_24_);
     unsigned int var6 = var0->GetTickCount();
     func_0205a254(var4, (unsigned char)arg0->unknown_22_, var6);
     short var7, var8;

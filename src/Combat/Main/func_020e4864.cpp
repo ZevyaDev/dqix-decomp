@@ -5,34 +5,34 @@ extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
 extern char data_020f2d2c[][11];
 extern signed char data_020eeab0[][8];
 extern char data_020ee9d8[][3];
-// USA: func_020e4864
-extern "C" ARM void func_020e4864(const char* arg0, char* arg1, int arg2, int, int, int arg5) {
-    int var0;
+// USA: ExpandInflectionTags_020e4864
+extern "C" ARM void ExpandInflectionTags_020e4864(const char* text, char* buffer, int isIndefinite, int, int, int grammaticalCase) {
+    int endingLength;
     for (;;) {
-        if (!*arg0) break;
-        if (*arg0 == '[') {
-            int var1 = 0;
-            int var2 = 0;
+        if (!*text) break;
+        if (*text == '[') {
+            int isTagFound = 0;
+            int i = 0;
             for (;;) {
-                if (!data_020f2d2c[var2][0]) break;
-                int var3 = GetStringLength_020d2ff0(data_020f2d2c[var2]);
-                if (CompareBytes_02001aec(arg0 + 1, data_020f2d2c[var2], var3) == 0) {
-                    if (arg2 >= 0 && arg5 >= 0) {
-                        int var4 = data_020eeab0[var2][arg2 + arg5 * 2] * 3;
-                        const char* var5 = (const char*)data_020ee9d8;
-                        var0 = GetStringLength_020d2ff0(var5 + var4);
-                        memcpy(arg1, var5 + var4, var0);
-                        arg1 += var0;
+                if (!data_020f2d2c[i][0]) break;
+                int tagLength = GetStringLength_020d2ff0(data_020f2d2c[i]);
+                if (CompareBytes_02001aec(text + 1, data_020f2d2c[i], tagLength) == 0) {
+                    if (isIndefinite >= 0 && grammaticalCase >= 0) {
+                        int endingOffset = data_020eeab0[i][isIndefinite + grammaticalCase * 2] * 3;
+                        const char* endings = (const char*)data_020ee9d8;
+                        endingLength = GetStringLength_020d2ff0(endings + endingOffset);
+                        memcpy(buffer, endings + endingOffset, endingLength);
+                        buffer += endingLength;
                     }
-                    arg0 += var3 + 1;
-                    var1 = true;
+                    text += tagLength + 1;
+                    isTagFound = true;
                     break;
                 }
-                var2++;
+                i++;
             }
-            if (var1) continue;
+            if (isTagFound) continue;
         }
-        *arg1++ = *arg0++;
+        *buffer++ = *text++;
     }
-    *arg1 = *arg0;
+    *buffer = *text;
 }

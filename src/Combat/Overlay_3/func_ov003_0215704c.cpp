@@ -30,7 +30,7 @@ void ResetMessageWindow_02043204(void *);
 void func_ov003_02158a50(void *);
 void func_0209c830(void *, int);
 void func_ov003_0215582c(void *);
-int func_02046b24(void *);
+int GetQueueHeadType_02046b24(void *);
 int _ZNK8Object3D19HasAnimationStoppedEv(void *);
 int GetLocalWireless_0202ae18(void);
 int IsLocalWirelessOn_0202b7d8(int);
@@ -243,7 +243,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
         }
     } else if (var1 == 8) {
         char *var14 = (char *) GetGameResources();
-        if (func_02046b24(*(void **) (var14 + 0x3000 + JPN_OFS(0x4f0, 0x700))) == 0x13) {
+        if (GetQueueHeadType_02046b24(*(void **) (var14 + 0x3000 + JPN_OFS(0x4f0, 0x700))) == 0x13) {
             return;
         }
         arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;

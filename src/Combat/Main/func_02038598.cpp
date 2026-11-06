@@ -81,7 +81,7 @@ struct Struct_02010604;
 struct Struct_02033b58;
 struct Struct_02033ec8;
 struct GlobalFlags_02038598_4 { unsigned int bits_0_; };
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" Zone3D* GetZone3D_02012fe4();
@@ -97,7 +97,7 @@ extern "C" void func_02038500(Struct_02038500*, int, int, int);
 extern "C" void func_02033e18(void*, int*, short);
 extern "C" int func_ov017_0218d268(void*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" int func_02046b60(Struct_02038598_5*, int);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void func_ov017_0219e310(unsigned char*, int);
@@ -114,9 +114,9 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
     struct Struct_02037d10* var3;
     unsigned int* var4;
     unsigned char var5;
-    Struct_02038598_5* var6;
+    Queue_02038598_5* var6;
     var0 = GetGameResources();
-    var6 = (Struct_02038598_5*)var0->unknown_ptr_array_36fc[0];
+    var6 = (Queue_02038598_5*)var0->unknown_ptr_array_36fc[0];
     var1 = GetZone3D_02012fe4();
     var2 = (Struct_02038598_7*)arg0->unknown_0_.unk_ac;
     var3 = &arg0->unknown_26c_;
@@ -247,11 +247,11 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
         }
 
         int var31 = 0;
-        if (func_02046b60(var6, 4) ||
-            func_02046b60(var6, 0x26) ||
-            func_02046b60(var6, 1) ||
-            func_02046b60(var6, 3) ||
-            func_02046b60(var6, 0x3e)) {
+        if (IsTypeInQueue_02046b60(var6, 4) ||
+            IsTypeInQueue_02046b60(var6, 0x26) ||
+            IsTypeInQueue_02046b60(var6, 1) ||
+            IsTypeInQueue_02046b60(var6, 3) ||
+            IsTypeInQueue_02046b60(var6, 0x3e)) {
             var31 = 1;
             var5 = 0;
         }

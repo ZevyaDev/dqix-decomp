@@ -66,7 +66,7 @@ extern "C" void func_0204b938(void*, void*, int, int, unsigned short);
 extern "C" void func_ov006_02154fe4(Struct_ov006_02154614*);
 extern "C" void func_ov006_02155480(Struct_ov006_02155480_2*);
 extern "C" int func_ov006_021570fc(Struct_ov006_02154614*, int);
-extern "C" void func_0204b088(void*, int);
+extern "C" void CopyBGScreenDataToVRAM_0204b088(void*, int);
 extern "C" int func_020e28dc(Struct_020e28dc*);
 extern "C" void func_020e2cc4(Struct_020439b0*, int);
 extern "C" void func_020e2834(Struct_020e2834*);
@@ -196,7 +196,7 @@ extern "C" ARM void func_ov006_02158478(Struct_ov006_02157a60* arg0)
         func_ov006_021570fc(R(*(Struct_ov006_02154614**)((char*)arg0+8),arg0->unknown_10_), 1);
         arg0->unknown_432_ = 0;
     }
-    func_0204b088(R((int*)((char*)arg0+0x4c),arg0->unknown_54_), 0);
+    CopyBGScreenDataToVRAM_0204b088(R((int*)((char*)arg0+0x4c),arg0->unknown_54_), 0);
     if (R(*(void**)((char*)arg0+0x10),arg0->unknown_18_) != 0)
     {
         void* var6 = *(void**)((char*)R(*(void**)((char*)arg0+0x10),arg0->unknown_18_) + 0x10);

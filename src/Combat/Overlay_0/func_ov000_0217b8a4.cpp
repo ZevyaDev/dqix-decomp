@@ -3,16 +3,16 @@
 #include "Input/Input.h"
 
 struct Struct_0205c570;
-struct Struct_0205bcdc;
+struct MenuCursor_0205bcdc;
 struct Struct_0205def8;
-struct Struct_0205da38;
+struct TextWindowManager_0205da38;
 struct SoundEffectManager_02108760;
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" int abs(int);
-extern "C" void func_0205bcdc(Struct_0205bcdc*, int);
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc*, int);
 extern "C" void SetMenuCursorIndex_0205bb04(void*, int);
 extern "C" void func_0205def8(Struct_0205def8*, int, int);
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 #if defined(jpn)
 extern "C" void func_ov000_02171e60(void*);
@@ -93,7 +93,7 @@ extern "C" ARM int func_ov000_0217b8a4(Struct_ov000_0217b8a4_3* arg0, int arg1, 
         var3--;
     }
     if (var4 != var3) {
-        func_0205bcdc((Struct_0205bcdc*)var1->unknown_4_, var3);
+        SetTouchMenuCursorIndex_0205bcdc((MenuCursor_0205bcdc*)var1->unknown_4_, var3);
         SetMenuCursorIndex_0205bb04(var1->unknown_54_, var3);
     }
     arg0->unknown_22_ = var3;
@@ -102,7 +102,7 @@ extern "C" ARM int func_ov000_0217b8a4(Struct_ov000_0217b8a4_3* arg0, int arg1, 
     func_0205def8((Struct_0205def8*)var7->unknown_188_, 1, 0x24);
     if (var2 != var3) return -1;
     int var8 = g_keyManager.TestKeysPressed(0x601);
-    int var9 = (var8 | func_0205da38((Struct_0205da38*)arg0->unknown_38_, 0x14)) != 0;
+    int var9 = (var8 | IsEntryTouchedAgain_0205da38((TextWindowManager_0205da38*)arg0->unknown_38_, 0x14)) != 0;
     if (var9 || arg0->unknown_444_) {
         Struct_ov000_0217b8a4_2* var10 = arg0->unknown_3f0_[var3];
         if (!var10) return -1;

@@ -35,7 +35,7 @@ extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);
 #include "std_library_functions.h"
 
 struct TextWindowManager_0205de24_2;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 
 struct TextWindow_0205d0e0;
 struct TextWindowManager_0205d81c;

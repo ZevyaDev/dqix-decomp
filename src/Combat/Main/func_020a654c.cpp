@@ -25,8 +25,8 @@ extern "C" void* GetZone3D_02012fe4();
 extern "C" void GetLocalWireless_0202ae18();
 struct Struct_0200ffc0;
 extern "C" void* func_0200ffc0(Struct_0200ffc0*);
-struct Struct_02015438;
-extern "C" int func_02046b24(Struct_02015438**);
+struct QueueNode_02015438;
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 struct Struct_02046b1c;
 extern "C" void* func_02046b1c(Struct_02046b1c*);
 struct GameResources;
@@ -47,7 +47,7 @@ extern "C" ARM void func_020a654c(struct Struct_020a654c* arg0) {
     GetLocalWireless_0202ae18();
     void* var3 = func_0200ffc0((Struct_0200ffc0*)var0);
     ((GameState*)var0)->GetUnknownGameObject();
-    int var4 = func_02046b24((Struct_02015438**)var2);
+    int var4 = GetQueueHeadType_02046b24((QueueNode_02015438**)var2);
     void* var5 = func_02046b1c((Struct_02046b1c*)var2);
     if (var3 == 0) {
         return;

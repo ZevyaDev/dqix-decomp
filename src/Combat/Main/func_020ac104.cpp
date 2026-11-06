@@ -28,7 +28,7 @@ struct Struct_020a0434 {
 };
 extern "C" int GetBattleRecords_020ac4c0(void*);
 extern "C" void func_020a0434(Struct_020a0434*, unsigned int);
-extern "C" int func_020ac494(void*);
+extern "C" int SetBattleRecords_020ac494(void*);
 // USA: func_020ac104
 extern "C" ARM int func_020ac104(int arg0, Struct_020ac104* arg1, int arg2) {
     Struct_020ac104_3* var0 = (Struct_020ac104_3*)GameState::GetInstance();
@@ -61,6 +61,6 @@ extern "C" ARM int func_020ac104(int arg0, Struct_020ac104* arg1, int arg2) {
     Struct_020a0434 var11;
     GetBattleRecords_020ac4c0(&var11);
     func_020a0434(&var11, var1);
-    func_020ac494(&var11);
+    SetBattleRecords_020ac494(&var11);
     return 1;
 }

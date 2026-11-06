@@ -10,7 +10,7 @@ struct Struct_0209c08c {
 };
 
 extern "C" char* GetZone3D_02012fe4(void);
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int func_020107d0(char* arg0);
 extern "C" int func_0201b5b0(int arg0);
 extern "C" void func_0209c008(void* arg0, struct Struct_02013fb4* arg1, int arg2, int arg3, int arg4, int arg5);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov017_021b4dc8(struct Struct_ov017_021b4dc8_2* arg0) {
         void* var6;
         var2->GetLoadedFileByID(arg0->unknown_c_, &var6, &var5);
         if (var6 != 0) {
-            int var7 = func_0201079c((char*)var1);
+            int var7 = GetStoryChapter_0201079c((char*)var1);
             int var8 = func_020107d0((char*)var1);
             int var9 = var4;
             if (func_0201b5b0(var4)) {

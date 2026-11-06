@@ -54,7 +54,7 @@ extern const struct Struct_ov024_021fe708 data_ov024_021fe768;
 extern const struct Struct_ov024_021fe708 data_ov024_021fe708;
 
 struct Struct_ov024_021e9f68_2* GetCombatantByID(int, int);
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_ov024_021e6798(GameObject*);
 struct GameObject;
 extern "C" int func_ov024_021e7ba8(GameObject*);
@@ -88,7 +88,7 @@ extern "C" ARM int func_ov024_021e9f68(struct Struct_ov024_021e9f68_3* arg0, sho
     if (!var0) {
         return 0;
     }
-    if (func_02010088((struct Struct_02010088*)var0) || func_ov024_021e6798((GameObject*)var0)) {
+    if (IsDead_02010088((struct Struct_02010088*)var0) || func_ov024_021e6798((GameObject*)var0)) {
         return 0;
     }
     var1 = GameState::GetInstance();

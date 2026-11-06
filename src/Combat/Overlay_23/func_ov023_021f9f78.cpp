@@ -39,13 +39,13 @@ struct Struct_ov023_021fd92c
 };
 
 extern Struct_ov023_021fd92c data_ov023_021fd92c;
-extern Type_ov023_021f9f78 data_020e6d5c;
+extern Type_ov023_021f9f78 gNullMemberFunctionPointer_020e6d5c;
 
 // USA: func_ov023_021f9f78
 extern "C" ARM void func_ov023_021f9f78(Struct_ov023_021f9f78* arg0, void* arg1)
 {
     Struct_ov023_021fd92c var0 = data_ov023_021fd92c;
-    Type_ov023_021f9f78 var1 = data_020e6d5c;
+    Type_ov023_021f9f78 var1 = gNullMemberFunctionPointer_020e6d5c;
     var0.unknown_0_[0] = var1;
     var0.unknown_0_[2] = var1;
     for (int var2 = 0; var2 < arg0->unknown_20_; var2++)

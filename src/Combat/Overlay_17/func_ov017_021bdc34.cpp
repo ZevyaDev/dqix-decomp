@@ -41,7 +41,7 @@ extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_ov017_021bdb78(int);
 extern "C" void func_ov017_0218fcf8(int, int, int);
-extern "C" void func_ov017_0218f5a4(void*, int, int, int, int);
+extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void*, int, int, int, int);
 #if defined(jpn)
 extern const char data_ov017_021d85ec[], data_ov017_021d8606[], data_ov017_021d861e[];
 extern const char data_ov017_021d8639[], data_ov017_021d8644[], data_ov017_021d864d[], data_ov017_021d8653[];
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov017_021bdc34(Struct_ov017_021bdc34_3* arg0) {
             }
             if (arg0->unknown_11_ == 1) var3->unknown_18c_ |= 0x40;
             else var3->unknown_18c_ &= ~0x40;
-            func_ov017_0218f5a4(var1, 0, 1, 0, 0);
+            QueuePartyMemberModelLoad_ov017_0218f5a4(var1, 0, 1, 0, 0);
             arg0->unknown_10_ = 1;
         } else {
             var1->unknown_4334_ = 0;
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov017_021bdc34(Struct_ov017_021bdc34_3* arg0) {
             var1->unknown_433c_ = 0;
             var1->unknown_4340_ = 0;
             if (var3 != 0) var3->unknown_18c_ &= ~0x40;
-            func_ov017_0218f5a4(var1, 0, 1, 0, 0);
+            QueuePartyMemberModelLoad_ov017_0218f5a4(var1, 0, 1, 0, 0);
             arg0->unknown_10_ = 2;
         }
     } else if (arg0->unknown_10_ == 1) {

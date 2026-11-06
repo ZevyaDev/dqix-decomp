@@ -2,7 +2,7 @@
 
 extern "C" unsigned int func_020937f0(int arg0);
 extern "C" int func_0209378c(int arg0);
-extern "C" void func_0203bd08(int arg0);
+extern "C" void GetOAMManager_0203bd08(int arg0);
 
 extern "C" int func_020db2dc(int arg0, int arg1);
 
@@ -44,7 +44,7 @@ extern "C" ARM void func_020db5ec(struct Struct_020db5ec_2* arg0) {
     int var1 = func_0209378c(arg0->unknown_3c_);
     int var2 = (var0 - 0xb80) >> var1;
     int var3 = (var0 - 0x800) >> var1;
-    func_0203bd08(var1);
+    GetOAMManager_0203bd08(var1);
     int var4 = func_020db2dc((int)arg0, arg0->unknown_3c_);
     func_020db360((struct Struct_020db264*)arg0, 0);
     if (arg0->unknown_53_ != 0) {

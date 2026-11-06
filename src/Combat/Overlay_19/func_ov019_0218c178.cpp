@@ -29,7 +29,7 @@ struct Struct_ov019_0218c178 {
 extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254*, int);
 extern "C" struct Struct_0205c96c* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254*, int);
 extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330*, int);
-extern "C" void func_0205a42c(struct SpriteAnimationList_0205a254*, int, int);
+extern "C" void SetSpriteAnimationOAMIndex_0205a42c(struct SpriteAnimationList_0205a254*, int, int);
 extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 
 // USA: func_ov019_0218c178
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov019_0218c178(struct Struct_ov019_0218c178* arg0) {
                 var2->unknown_4_ = 0xd7;
                 var2->unknown_6_ = 0x96;
             }
-            func_0205a42c(var1, 1, 0x24);
+            SetSpriteAnimationOAMIndex_0205a42c(var1, 1, 0x24);
         }
         DrawSpriteAnimations_0205ae8c((char*)arg0 + Enum_ov019_0218c178_84);
     } else {

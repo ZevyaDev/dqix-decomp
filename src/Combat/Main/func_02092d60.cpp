@@ -9,8 +9,8 @@
 struct Vector3i;
 extern "C" int GetResources_0200fb8c(int* gameState);
 
-struct Struct_02015438;
-extern "C" int func_02046b24(struct Struct_02015438** arg0);
+struct QueueNode_02015438;
+extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_021677d8(void* arg0, int arg1);
@@ -42,8 +42,8 @@ extern "C" ARM void func_02092d60(struct Struct_02092d60_3* arg0, int arg1) {
         struct Struct_02092d60 var2;
         *(Vector3i*)&var2.unknown_0_ = *(Vector3i const*)(&var1->obj3D_.position_.x);
         int var3 = GetResources_0200fb8c((int*)var0);
-        struct Struct_02015438** var4 = *(struct Struct_02015438***)((char*)(int)var3 + (IS_JPN ? 0x34ec : 0x36fc));
-        int var5 = func_02046b24(var4);
+        struct QueueNode_02015438** var4 = *(struct QueueNode_02015438***)((char*)(int)var3 + (IS_JPN ? 0x34ec : 0x36fc));
+        int var5 = GetQueueHeadType_02046b24(var4);
         if (var5 == 0xa) {
             void* var6 = GetBattleScene_ov000_02160130();
             if (var6 != 0) {

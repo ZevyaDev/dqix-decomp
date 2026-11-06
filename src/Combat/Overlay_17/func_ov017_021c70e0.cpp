@@ -3,8 +3,8 @@
 #include "std_library_functions.h"
 
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* func_ov017_021b8468(void* arg0);
-extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 // USA: func_ov017_021c70e0
@@ -17,8 +17,8 @@ extern "C" ARM void func_ov017_021c70e0(int arg0, unsigned char* arg1, GameState
     unsigned char* var0 = *(unsigned char**)(arg3 + 0x3000 + Enum_ov017_021c70e0_1816);
     unsigned char* var1 = (unsigned char*)GetBattleSetup_ov017_021b8478(var0);
     if (!var1) return;
-    if (!func_ov017_021b8468(var0)) return;
-    if (!func_ov017_021b8470(var0)) return;
+    if (!GetBattleScene_ov017_021b8468(var0)) return;
+    if (!GetBattle_ov017_021b8470(var0)) return;
 
     int var2 = GetProtagonistObjectIndex_020100a8(arg2);
     if (*(signed char*)(var1 + 0x2a) == var2) return;

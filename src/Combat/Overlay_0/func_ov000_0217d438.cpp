@@ -51,7 +51,7 @@ extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* win
 extern "C" int func_ov000_0217c5f4(void* arg0);
 extern "C" int func_ov000_0217c594(void* arg0, int arg1);
 extern "C" void func_ov000_0217c638(void* arg0, int arg1, int arg2);
-extern "C" void* func_ov000_02161318(void* arg0, int arg1);
+extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 extern "C" struct Struct_ov000_0217d438* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov000_02170ffc(void* arg0);
 extern "C" int func_ov000_02177798(void* arg0);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov000_0217d438(struct Struct_ov000_0217d438_3* arg0, in
         arg0->unknown_1d72_ |= 0x100;
         signed char var1 = arg0->unknown_1d74_[arg0->unknown_1d6b_];
         if (inline_ov000_02156cc4_2(var1)) {
-            void* var2 = func_ov000_02161318(arg0, var1);
+            void* var2 = FindPartyMemberPanel_ov000_02161318(arg0, var1);
             if (var2 != NULL) {
                 GameObject* var3 = var0->GetPartyMemberByIndex(var1);
                 if (var3 != NULL) {

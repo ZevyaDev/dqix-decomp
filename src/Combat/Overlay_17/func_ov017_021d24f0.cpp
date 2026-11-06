@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct Struct_02038598_5;
-extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
+struct Queue_02038598_5;
+extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 
 struct Struct_02039df4;
 
@@ -29,11 +29,11 @@ extern "C" ARM void func_ov017_021d24f0(void* arg0, Struct_ov017_021d24f0* arg1,
 #endif
     int var0 = ((int)GetGameResources());
     struct Queue_0201bdac_2* var1 = *(struct Queue_0201bdac_2**)((char*)var0 + 0x3000 + Enum_ov017_021d24f0_1788);
-    if (func_02046b60((struct Struct_02038598_5*)var1, 0xa)) return;
+    if (IsTypeInQueue_02046b60((struct Queue_02038598_5*)var1, 0xa)) return;
     GameObject* var2 = arg2->GetUnknownGameObject();
     unsigned short var3 = ((Object3D*)((struct Struct_02039df4*)var2))->GetField06();
     if (arg1->unknown_8_ != var3) return;
-    if (func_02046b60((struct Struct_02038598_5*)var1, 0x1a)) return;
+    if (IsTypeInQueue_02046b60((struct Queue_02038598_5*)var1, 0x1a)) return;
     struct QueueNode_0201bdac* var4 = *(struct QueueNode_0201bdac**)((char*)var0 + 0x3000 + Enum_ov017_021d24f0_2992);
     if (*((unsigned char*)var4 + 2) != 0) return;
     func_ov017_021c2b28((void*)var4, 1, arg1->unknown_4_);

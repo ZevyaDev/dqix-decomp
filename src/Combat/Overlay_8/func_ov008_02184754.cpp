@@ -86,7 +86,7 @@ struct Struct_ov008_0218b340 {
 };
 
 extern Struct_ov008_0218b340 data_ov008_0218b340;
-extern Type_02000c9c_12 data_020e6d5c;
+extern Type_02000c9c_12 gNullMemberFunctionPointer_020e6d5c;
 
 struct Struct_ov008_02184754;
 struct Struct_0209ff6c;
@@ -96,7 +96,7 @@ extern "C" void func_0209ff6c(Struct_0209ff6c* arg0);
 
 extern "C" {
 void func_ov008_02188ef0(Struct_ov008_021842a0_2* arg0);
-unsigned char func_0205d0e0(Struct_02081870_2* arg0, int arg1);
+unsigned char UpdateTextWindowManager_0205d0e0(Struct_02081870_2* windowManager, int ticks);
 void func_ov008_02186e4c(Struct_ov008_021842a0_2* arg0, unsigned int arg1);
 void func_ov008_0218747c(Struct_ov008_021842a0_2* arg0, int arg1);
 void func_ov023_021eb43c(void* arg0);
@@ -109,14 +109,14 @@ extern "C" ARM int func_ov008_02184754(Struct_ov008_021842a0_2* arg0)
     unsigned int var0 = GameState::GetInstance()->GetTickCount();
     if (var0 == 0)
         var0 = 1;
-    func_0205d0e0(&arg0->unknown_130_, var0);
+    UpdateTextWindowManager_0205d0e0(&arg0->unknown_130_, var0);
     func_ov008_02186e4c(arg0, var0);
     arg0->unknown_790_.AdvanceEffects();
     func_ov008_021870e4((Struct_ov008_02184754*)arg0, var0);
     func_ov008_0218747c(arg0, 0);
     func_ov008_0218747c(arg0, 1);
     Struct_ov008_0218b340 var1 = data_ov008_0218b340;
-    var1.unknown_0_[14] = data_020e6d5c;
+    var1.unknown_0_[14] = gNullMemberFunctionPointer_020e6d5c;
     if (var1.unknown_0_[arg0->unknown_b10_] == NULL)
         return 0;
     (arg0->*var1.unknown_0_[arg0->unknown_b10_])(var0);

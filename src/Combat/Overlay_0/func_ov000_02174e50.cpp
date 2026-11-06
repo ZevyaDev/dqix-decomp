@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-extern "C" void* func_ov000_02161318(void* arg0, int arg1);
+extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 extern "C" void func_0204bc08(void* arg0, int arg1, int arg2, void* arg3, int arg4);
 extern "C" double func_02009424(double arg0);
 
@@ -22,7 +22,7 @@ struct Struct_ov000_02174e50 {
 // USA: func_ov000_02174e50
 extern "C" ARM void func_ov000_02174e50(char* arg0, int arg1) {
     GameState::GetInstance();
-    struct Struct_ov000_02174e50* var0 = (struct Struct_ov000_02174e50*)func_ov000_02161318(arg0, arg1);
+    struct Struct_ov000_02174e50* var0 = (struct Struct_ov000_02174e50*)FindPartyMemberPanel_ov000_02161318(arg0, arg1);
     if (var0 != NULL) {
         float var1 = var0->unknown_40_;
         if (3.14f <= var1) {

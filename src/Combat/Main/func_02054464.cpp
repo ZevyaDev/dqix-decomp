@@ -5,7 +5,7 @@ struct TextureVRAMArea_0203d028;
 extern "C" ARM void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
 extern "C" ARM void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" ARM void SaveTextureVRAMState_0207dfac(char* area);
-extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
+extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 
 struct Struct_020e7d30 { int unknown_0_; int unknown_4_; };
 extern unsigned int data_020e7c18[];
@@ -27,13 +27,13 @@ extern "C" ARM int func_02054464(char* arg0, SafeAllocator* arg1, char* arg2) {
         if (var1 != 0) {
             var2 = arg1->Allocate(var1);
             ((SafeAllocator*)(arg0 + 4 + var0 * 0x14))->CreateTypeA(var2, var1);
-            func_0207de48(arg0 + 0xcc + var0 * 0x70, data_020e7d30[var0].unknown_0_, data_020e7d34[var0].unknown_0_);
+            InitTextureVRAMArea_0207de48(arg0 + 0xcc + var0 * 0x70, data_020e7d30[var0].unknown_0_, data_020e7d34[var0].unknown_0_);
         } else {
             ((SafeAllocator*)(arg0 + 4 + var0 * 0x14))->ResetAllocatorPointer();
         }
     }
 
-    func_0207de48(arg0 + 0x168 + 0x400, 0x240, 0x20);
+    InitTextureVRAMArea_0207de48(arg0 + 0x168 + 0x400, 0x240, 0x20);
     SaveTextureVRAMState_0207dfac(arg2);
 
     var2 = arg1->Allocate(0x2000);

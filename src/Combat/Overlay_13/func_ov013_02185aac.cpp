@@ -9,7 +9,7 @@
 #include "std_library_functions.h"
 
 struct TextWindowManager_0205de24_2;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 
 struct MenuCursor_0205ba68;
 extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
@@ -17,8 +17,8 @@ extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, i
 struct MenuCursor_0205bacc;
 extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
 
-struct Struct_0205bcdc;
-extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
+struct MenuCursor_0205bcdc;
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc* cursor, int index);
 
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" void func_ov013_02185be0(void* arg0, void* arg1);
@@ -66,6 +66,6 @@ extern "C" ARM void func_ov013_02185aac(unsigned char* arg0) {
     SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + R(0x88, 0x8c)), 2);
 
     int var0 = *(int*)(arg0 + R(0x5e8, 0x660));
-    func_0205bcdc((struct Struct_0205bcdc*)(arg0 + R(0x38, 0x3c)), var0);
+    SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc*)(arg0 + R(0x38, 0x3c)), var0);
     SetMenuCursorIndex_0205bb04(arg0 + R(0x88, 0x8c), var0);
 }

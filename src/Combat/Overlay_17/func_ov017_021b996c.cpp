@@ -12,8 +12,8 @@ extern "C" void* GetLocalWireless_0202ae18(void* arg0);
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 struct Struct_02039df4;
-struct Struct_02038598_5;
-extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
+struct Queue_02038598_5;
+extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov017_021d079c(unsigned char arg0, unsigned char arg1, unsigned short arg2);
 
@@ -38,8 +38,8 @@ extern "C" ARM void func_ov017_021b996c(struct Struct_ov017_021b996c* arg0, int 
     int var7;
     if (arg0->unknown_12c_ != arg4 && (var7 = *(int*)((char*)var2 + Enum_ov017_021b996c_22308)) != arg4) {
         void* var8 = GetGameResources();
-        struct Struct_02038598_5* var9 = *(struct Struct_02038598_5**)((char*)var8 + 0x3000 + Enum_ov017_021b996c_1788);
-        if (func_02046b60(var9, 4)) {
+        struct Queue_02038598_5* var9 = *(struct Queue_02038598_5**)((char*)var8 + 0x3000 + Enum_ov017_021b996c_1788);
+        if (IsTypeInQueue_02046b60(var9, 4)) {
             func_ov017_021d079c(arg3, 1, 0);
         } else {
             func_ov017_021d079c(arg3, 1, 1);

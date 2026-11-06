@@ -18,7 +18,7 @@ struct Struct_ov000_02175be4_2 {
 struct Struct_ov000_02175be4_3 { unsigned short unknown_0_; unsigned char unknown_2_[4],unknown_6_,unknown_7_; };
 struct Struct_ov000_021833a8 { short unknown_0_[4]; };
 extern "C" {
-Struct_ov000_02175be4* func_ov000_02161318(void*,int);
+Struct_ov000_02175be4* FindPartyMemberPanel_ov000_02161318(void*,int);
 void func_ov000_02170db0(Struct_ov000_02175be4*);
 int rand();
 extern const Struct_ov000_021833a8 data_ov000_021833a8;
@@ -30,7 +30,7 @@ static inline short inline_ov000_02175be4(Struct_ov000_02175be4* arg0) { return 
 extern "C" ARM void func_ov000_02175be4(Struct_ov000_02175be4_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     for (signed char var1=0;var1<4;var1++) {
-        if (!GetCompanionByIndex_0200ff58(var0,var1)) func_ov000_02161318(arg0,var1);
+        if (!GetCompanionByIndex_0200ff58(var0,var1)) FindPartyMemberPanel_ov000_02161318(arg0,var1);
     }
     if (arg0->unknown_1b_ != GetProtagonistObjectIndex_020100a8(var0)) return;
     unsigned char var2 = 0;
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov000_02175be4(Struct_ov000_02175be4_2* arg0) {
     Struct_ov000_021833a8 var4(data_ov000_021833a8);
     for (signed char var5=0;var5<4;var5++) {
         if (!GetCompanionByIndex_0200ff58(var0,var5)) {
-            Struct_ov000_02175be4* var6 = func_ov000_02161318(arg0,var5);
+            Struct_ov000_02175be4* var6 = FindPartyMemberPanel_ov000_02161318(arg0,var5);
             if (var6) {
                 var3[var2] = var6->unknown_26_;
                 var4.unknown_0_[var2] = var6->unknown_1d_;
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov000_02175be4(Struct_ov000_02175be4_2* arg0) {
     if (var21==-1) var21=var4.unknown_0_[0];
     if (!var17) {
         for (unsigned char var25=0;var25<4;var25++) {
-            Struct_ov000_02175be4* var26=func_ov000_02161318(arg0,var25);
+            Struct_ov000_02175be4* var26=FindPartyMemberPanel_ov000_02161318(arg0,var25);
             if (var26) {
                 var26->unknown_26_=arg0->unknown_0_[var25];
                 var26->unknown_1d_=arg0->unknown_8_[var25];
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov000_02175be4(Struct_ov000_02175be4_2* arg0) {
         }
     } else {
         for (unsigned char var27=0;var27<4;var27++) {
-            Struct_ov000_02175be4* var28=func_ov000_02161318(arg0,var27);
+            Struct_ov000_02175be4* var28=FindPartyMemberPanel_ov000_02161318(arg0,var27);
             if (var28) {
                 var28->unknown_26_=(unsigned short)var17;
                 var28->unknown_1d_=(signed char)var21;
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov000_02175be4(Struct_ov000_02175be4_2* arg0) {
         }
     }
     for (signed char var29=0;var29<4;var29++) {
-        Struct_ov000_02175be4* var30=func_ov000_02161318(arg0,var29);
+        Struct_ov000_02175be4* var30=FindPartyMemberPanel_ov000_02161318(arg0,var29);
         if (var30) {
             unsigned char var31=func_ov000_021761c8((char*)arg0,var30->unknown_1d_);
             unsigned char var32=func_ov000_021761ec((char*)arg0,var30->unknown_1d_);

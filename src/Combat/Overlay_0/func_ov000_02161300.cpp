@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov000_02161318(void *arg0);
+extern "C" int FindPartyMemberPanel_ov000_02161318(void *battleUI);
 
 #if defined(jpn)
 enum { Enum_ov000_02161300_14176 = 0x371c };
@@ -10,7 +10,7 @@ enum { Enum_ov000_02161300_14176 = 0x3760 };
 
 // USA: func_ov000_02161300
 extern "C" ARM void func_ov000_02161300(void *arg0) {
-    if (func_ov000_02161318((char*)arg0 + Enum_ov000_02161300_14176) == 0) {
+    if (FindPartyMemberPanel_ov000_02161318((char*)arg0 + Enum_ov000_02161300_14176) == 0) {
         return;
     }
 }

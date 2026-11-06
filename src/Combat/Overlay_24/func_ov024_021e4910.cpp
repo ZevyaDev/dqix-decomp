@@ -26,7 +26,7 @@ extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" int func_ov024_021e95d4(Struct_ov024_021e4910*, int, Struct_ov024_021e4910_2*, unsigned char, signed char, unsigned char, unsigned char);
 extern "C" int func_ov024_021e96e4(Struct_ov024_021e4910*, int, Struct_ov024_021e4910_2*, unsigned char, signed char, unsigned char, unsigned char);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
-extern "C" void func_ov000_02159eac(void*, void*, int);
+extern "C" void SetActionResultFlag_ov000_02159eac(void*, void*, int);
 extern "C" void func_ov000_0215cd44(void*, void*, GameObject*, int, int, int, int);
 extern "C" void func_ov000_0215ffc4(void*, void*, int);
 
@@ -66,8 +66,8 @@ extern "C" ARM unsigned long long func_ov024_021e4910(Struct_ov024_021e4910* arg
     var9.unknown_0_ = 0;
     var9.unknown_4_ = 0;
     if (var3 || var7) {
-        func_ov000_02159eac(arg0->unknown_10_, &var9, 0x1e);
-        func_ov000_02159eac(arg0->unknown_10_, &var9, 0x1f);
+        SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var9, 0x1e);
+        SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var9, 0x1f);
         func_ov000_0215cd44(arg0->unknown_10_, var5, var0, 0, 0, 0, 0);
         func_ov000_0215ffc4(arg0->unknown_c_, var5, 1);
         arg0->unknown_10_->unknown_8e02_++;

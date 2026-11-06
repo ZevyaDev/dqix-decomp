@@ -14,8 +14,8 @@ struct TextWindow_0205d0e0 {
     unsigned char unknown_c0_[0x5];
     unsigned char unknown_c5_;
 };
-extern "C" struct TextWindow_0205d0e0* func_0205d8c4(struct TextWindowManager_0205d81c* arg0);
-extern "C" int func_0204c7e0(unsigned char* arg0);
+extern "C" struct TextWindow_0205d0e0* GetCursorTextWindow_0205d8c4(struct TextWindowManager_0205d81c* windowManager);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimation_0205a254_2 {
@@ -25,7 +25,7 @@ struct SpriteAnimation_0205a254_2 {
 extern "C" struct SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
 extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
 extern "C" void func_020e27ec(struct SpriteAnimationList_0205a254* arg0, int arg1, short arg2, short arg3);
-extern "C" void func_0205a42c(struct SpriteAnimationList_0205a254* arg0, int arg1, int arg2);
+extern "C" void SetSpriteAnimationOAMIndex_0205a42c(struct SpriteAnimationList_0205a254* animationList, int index, int oamIndex);
 
 struct SpriteAnimationList_0205a330;
 extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
@@ -43,9 +43,9 @@ extern "C" ARM void func_ov003_0215c32c(char* arg0) {
 			return;
 		}
 
-		struct TextWindow_0205d0e0* var2 = func_0205d8c4((struct TextWindowManager_0205d81c*)(arg0 + 0xf4));
+		struct TextWindow_0205d0e0* var2 = GetCursorTextWindow_0205d8c4((struct TextWindowManager_0205d81c*)(arg0 + 0xf4));
 		if (var2 == NULL) return;
-		if (!func_0204c7e0((unsigned char*)var2)) return;
+		if (!IsTextWindowOpen_0204c7e0((unsigned char*)var2)) return;
 		if (var2->unknown_c5_ & 0x20) return;
 
 		short var3 = (short)(var2->unknown_ac_ * 8);
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov003_0215c32c(char* arg0) {
 			}
 			AdvanceSpriteAnimations_0205a330((struct SpriteAnimationList_0205a330*)var5, *(int*)(arg0 + 0x574));
 			func_020e27ec(var5, 0, var3 - 8, var4 - 2);
-			func_0205a42c(var5, 0, 0);
+			SetSpriteAnimationOAMIndex_0205a42c(var5, 0, 0);
 		}
 		DrawSpriteAnimations_0205ae8c(arg0 + 0x98);
 		return;

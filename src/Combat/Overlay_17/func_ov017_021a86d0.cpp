@@ -82,8 +82,8 @@ struct Struct_0201099c_3;
 extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_0205cb74(char*, int);
 extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
-struct Struct_0205bcdc;
-extern "C" void func_0205bcdc(Struct_0205bcdc*, int);
+struct MenuCursor_0205bcdc;
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc*, int);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 struct Struct_0205c77c;
 extern "C" void func_0205c77c(Struct_0205c77c*, int);
@@ -94,7 +94,7 @@ extern "C" int func_0205cecc(void* arg0);
 extern "C" int func_0205cb64(void* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0205ce50(unsigned char* arg0);
-extern "C" int func_020457e0(char* arg0);
+extern "C" int GetMessageChoice_020457e0(char* window);
 extern "C" unsigned char* GetFlagManager_0205ec34(void);
 extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
@@ -107,7 +107,7 @@ struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
 extern "C" void func_ov017_021baedc(unsigned char* arg0, int arg1);
-extern "C" int func_0201079c(char*);
+extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" int func_020107d0(char*);
 extern "C" int func_02010804(char*);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
@@ -164,7 +164,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             func_02040af0((Struct_0203dce4*)var5, var9);
         }
         FontLoader_0208cb08* var10 = GetFontLoader_02094a00();
-        func_02094b30(var10, 0x205, 0);
+        RequestSingleFontLoad_02094b30(var10, 0x205, 0);
         if (UpdateFontLoad_02094b4c(var10)) {
 #if defined(jpn)
             arg0->unknown_28_ = ((BackgroundLoader*)BackgroundLoader::GetInstance())->QueueLoadFile(data_ov017_021d7c0c, (SafeAllocator*)NULL);
@@ -241,7 +241,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
 #else
             func_0205cc50(arg0->unknown_2c_, 0, -4);
 #endif
-            func_0205bcdc((Struct_0205bcdc*)var3->unknown_20_, 0);
+            SetTouchMenuCursorIndex_0205bcdc((MenuCursor_0205bcdc*)var3->unknown_20_, 0);
             SetMenuCursorIndex_0205bb04(var3->unknown_70_, 0);
             var3->unknown_234_ = 1;
             func_0205c77c((Struct_0205c77c*)var3->unknown_4_, 1);
@@ -285,10 +285,10 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
     } else if (arg0->unknown_8_ == 6) {
         if (*(int*)(var1 + Enum_ov017_021a86d0_2464) == 0) {
             *(int*)(var1 + Enum_ov017_021a86d0_2456) = 1;
-            if (func_020457e0(var1) == 0) {
+            if (GetMessageChoice_020457e0(var1) == 0) {
                 func_ov017_021a933c(arg0, 0x66);
                 arg0->unknown_8_ = 7;
-            } else if (func_020457e0(var1) == 1) {
+            } else if (GetMessageChoice_020457e0(var1) == 1) {
                 func_ov017_021a933c(arg0, 0x67);
                 arg0->unknown_8_ = 2;
             }
@@ -428,7 +428,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
                 var38 = 0x7349;
                 break;
             }
-            var27 = func_0201079c((char*)var0);
+            var27 = GetStoryChapter_0201079c((char*)var0);
             var28 = func_020107d0((char*)var0);
             int var39 = func_02010804((char*)var0);
             if (var27 == 10 && var28 == 8 && var39 == 1) {

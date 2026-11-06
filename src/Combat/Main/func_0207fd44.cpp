@@ -5,7 +5,7 @@ enum { Enum_0207fd44_44 = 0x20 };
 enum { Enum_0207fd44_44 = 0x2c };
 #endif
 
-extern "C" void func_0204b04c(void* arg0, int arg1);
+extern "C" void FlushBGScreenData_0204b04c(void* layer, int screenData);
 
 struct Struct_0207fd44 { char unknown_0_[0x20]; };
 
@@ -24,7 +24,7 @@ extern "C" ARM void func_0207fd44(Struct_0207fd44_2* arg0) {
     if (var1 == NULL) return;
     var0 = arg0->unknown_38_;
     for (var2 = 0; var2 < var0; var2++) {
-        func_0204b04c(var1, 0);
+        FlushBGScreenData_0204b04c(var1, 0);
         var1++;
     }
 }

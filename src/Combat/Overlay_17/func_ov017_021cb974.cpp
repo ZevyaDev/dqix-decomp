@@ -34,12 +34,12 @@ struct Struct_ov017_021d82e0 {
  char unknown1_0_[0x3718];
 #endif
  void* unknown_3718_; };
-extern "C" void* func_ov017_021b8470(void*);
+extern "C" void* GetBattle_ov017_021b8470(void*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 
 // USA: func_ov017_021cb974
 extern "C" ARM void func_ov017_021cb974(int, Struct_ov017_021cb974* arg1, GameState* arg2, Struct_ov017_021d82e0* arg3) {
-    Struct_ov017_021cb974_4* var0 = (Struct_ov017_021cb974_4*)func_ov017_021b8470(arg3->unknown_3718_);
+    Struct_ov017_021cb974_4* var0 = (Struct_ov017_021cb974_4*)GetBattle_ov017_021b8470(arg3->unknown_3718_);
     Struct_ov017_021cb974_3* var1;
     if (!var0 || !(var1 = var0->unknown_8e18_)) return;
     if (var1->unknown_2a_ == GetProtagonistObjectIndex_020100a8(arg2)) return;

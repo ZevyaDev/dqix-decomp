@@ -10,8 +10,8 @@ enum { Enum_020235c8_2497 = 0x9c1, Enum_020235c8_2711 = 0xa97, Enum_020235c8_327
 
 extern "C" void* GetGlobalFlags_020d6c00(void);
 
-struct Struct_02012de8;
-extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
+struct GlobalFlags_02012de8;
+extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 
 extern "C" void func_02026ebc(void* arg0);
 extern "C" void func_02027100(unsigned char* arg0);
@@ -27,7 +27,7 @@ extern "C" {
     void func_0202555c(void* arg0);
     void func_02025b0c(void* arg0);
     void func_020276dc(void* arg0);
-    void func_020dc7e8(int arg0, int arg1);
+    void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
 }
 
 struct Struct_020235c8 {
@@ -50,7 +50,7 @@ struct Struct_0202343c_3 {
 extern "C" ARM void func_020235c8(struct Struct_0202343c_3* arg0) {
     GameState* var0 = GameState::GetInstance();
 
-    if (func_02046708((struct Struct_02012de8*)GetGlobalFlags_020d6c00(), 0x41)) {
+    if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)GetGlobalFlags_020d6c00(), 0x41)) {
         return;
     }
 
@@ -92,7 +92,7 @@ extern "C" ARM void func_020235c8(struct Struct_0202343c_3* arg0) {
     }
 
     if (((struct Struct_020235c8*)((char*)var0 + 0x5000))->unknown_ccc_1_) {
-        func_020dc7e8(6, 6 - 7);
-        func_020dc7e8(7, 7 - 8);
+        LoadPartyMemberColors_020dc7e8(6, 6 - 7);
+        LoadPartyMemberColors_020dc7e8(7, 7 - 8);
     }
 }

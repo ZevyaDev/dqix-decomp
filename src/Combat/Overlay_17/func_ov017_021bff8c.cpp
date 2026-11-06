@@ -2,12 +2,12 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct Struct_02048150;
-extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
+struct Party_02048150;
+extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-struct Struct_02038598_5;
-extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
+struct Queue_02038598_5;
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" int func_02039820(void* arg0);
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov017_021bff8c(Struct_ov017_021bff8c* arg0, unsigned ch
 #else
  enum {Enum_ov017_021bff8c_434=0x1b2,Enum_ov017_021bff8c_2456=0x998};
 #endif
-    if (func_02086ef0((Struct_02048150*)GetParty_02010828(GameState::GetInstance()), 0) == 0) {
+    if (IsInParty_02086ef0((Party_02048150*)GetParty_02010828(GameState::GetInstance()), 0) == 0) {
         int var0 = 0;
         int var1 = 0;
         GameState* var2 = GameState::GetInstance();
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov017_021bff8c(Struct_ov017_021bff8c* arg0, unsigned ch
             } else {
                 var1 = 1;
             }
-        } else if (func_02046b60((Struct_02038598_5*)arg0->unknown_36fc_, 3)) {
+        } else if (IsTypeInQueue_02046b60((Queue_02038598_5*)arg0->unknown_36fc_, 3)) {
             var1 = 1;
         }
         if (IsQueueEmpty_02046b08((void**)arg0->unknown_36fc_) == 0) {

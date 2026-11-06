@@ -10,7 +10,7 @@ extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 extern "C" void __clear(void* arg0, int arg1);
 
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 
 struct Struct_02053dfc;
 extern "C" int func_02053dfc(struct Struct_02053dfc* arg0);
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov023_021f4098(void* arg0, int arg1, int arg2) {
 
     int var7;
     for (var7 = 0; var7 < 4; var7++) {
-        if (func_020a35e0(*(unsigned char**)((char*)arg0 + Enum_ov023_021f4098_672), var7)) {
+        if (IsPartyMemberInBattle_020a35e0(*(unsigned char**)((char*)arg0 + Enum_ov023_021f4098_672), var7)) {
             GameObject* var8 = GetPartyMemberBaseByIndex_0200ff1c(var0, var7);
             if (var8 != 0 && func_02061bd8((struct Struct_0205faf4_11*)var8) == 0) {
                 var6[var7] = (float)(unsigned int)func_02053dfc((struct Struct_02053dfc*)var8);
@@ -68,7 +68,7 @@ extern "C" ARM int func_ov023_021f4098(void* arg0, int arg1, int arg2) {
     if (IsLocalWirelessOn_0202b7d8((int*)var1)) {
         var9 = 0.0f;
         for (var7 = 0; var7 < 4; var7++) {
-            if (func_020a35e0(*(unsigned char**)((char*)arg0 + Enum_ov023_021f4098_672), var7) && func_0202c1c0(var1, var7)) {
+            if (IsPartyMemberInBattle_020a35e0(*(unsigned char**)((char*)arg0 + Enum_ov023_021f4098_672), var7) && func_0202c1c0(var1, var7)) {
                 var9 += 1.0f;
             }
         }
@@ -108,7 +108,7 @@ extern "C" ARM int func_ov023_021f4098(void* arg0, int arg1, int arg2) {
 
     if (arg2 == 0) {
         for (arg2 = 0; arg2 < 4; arg2++) {
-            if (func_020a35e0(*(unsigned char**)((char*)arg0 + Enum_ov023_021f4098_672), arg2)) {
+            if (IsPartyMemberInBattle_020a35e0(*(unsigned char**)((char*)arg0 + Enum_ov023_021f4098_672), arg2)) {
                 GetPartyMemberBaseByIndex_0200ff1c(var0, arg2);
             }
         }

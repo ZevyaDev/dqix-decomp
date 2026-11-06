@@ -6,8 +6,8 @@
 
 struct FontLoader_0208cb08;
 extern "C" void* GetMessageWindow_020421a0();
-struct Struct_02038598_5;
-extern "C" int func_02046b60(Struct_02038598_5*, int);
+struct Queue_02038598_5;
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void func_ov016_0218b5c0(int, int);
 extern "C" void func_ov017_0218b5f8(int);
 extern "C" void ClearMessageParams_02046380(void*);
@@ -73,8 +73,8 @@ extern "C" ARM void func_020d7b04(Struct_020d7b04_3* arg0) {
     if (arg0->unknown_150_7_ && !UpdateFontLoad_02094b4c(var2)) return;
 
     void* var4 = GetGameResources()->unknown_ptr_array_36fc[0];
-    if (func_02046b60((Struct_02038598_5*)var4, 0x25)) return;
-    if (func_02046b60((Struct_02038598_5*)var4, 0x26)) return;
+    if (IsTypeInQueue_02046b60((Queue_02038598_5*)var4, 0x25)) return;
+    if (IsTypeInQueue_02046b60((Queue_02038598_5*)var4, 0x26)) return;
 
     unsigned short var5 = var1->GetEffectiveDeltaTime();
     if (arg0->unknown_152_ != 0) {
@@ -100,11 +100,11 @@ extern "C" ARM void func_020d7b04(Struct_020d7b04_3* arg0) {
         if (arg0->unknown_0_[0].unknown_6f_0_ != 0) {
             int var6 = 1;
             if (arg0->unknown_0_[0].unknown_6f_7_) {
-                var6 = !func_02046b60((Struct_02038598_5*)var4, 0xc);
+                var6 = !IsTypeInQueue_02046b60((Queue_02038598_5*)var4, 0xc);
             }
             if (var6) {
                 func_02094b3c(var2, 10);
-                func_02094b30(var2, 505, 0);
+                RequestSingleFontLoad_02094b30(var2, 505, 0);
                 arg0->unknown_0_[0].unknown_6f_0_ = 0;
                 arg0->unknown_150_7_ = 1;
                 return;

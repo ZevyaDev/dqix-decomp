@@ -21,7 +21,7 @@
 
 extern "C"
 {
-    bool func_02046708(void*, unsigned int);
+    bool TestGlobalFlags_02046708(void*, unsigned int);
     void* GetGlobalFlags_020d6c00();
 
     int GetGameLanguage_0200fb08(GameState*);

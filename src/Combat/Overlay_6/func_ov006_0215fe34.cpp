@@ -4,7 +4,7 @@
 
 struct Struct_02075cdc;
 extern "C" void func_02075cdc(struct Struct_02075cdc* arg0);
-extern "C" void* func_0203bd08(void);
+extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void* func_0203be4c(void);
 struct Struct_02015ef4_4;
 extern "C" unsigned short func_020de234(struct Struct_02015ef4_4* arg0, int arg1);
@@ -23,7 +23,7 @@ extern "C" ARM void func_ov006_0215fe34(char* arg0, struct Struct_02015ef4_4* ar
     *(int*)(arg0 + 0x3f4) = 5;
     *(unsigned char*)(arg0 + 0x416) = 1;
 
-    func_0203bd08();
+    GetOAMManager_0203bd08();
     void* var1 = func_0203be4c();
     *(char**)(arg0 + 0x3cc) = (char*)var1 + 0x1b8;
 

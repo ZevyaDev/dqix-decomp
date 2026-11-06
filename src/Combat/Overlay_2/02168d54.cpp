@@ -27,7 +27,7 @@ struct Struct_ov002_02168d54_9;
 struct Struct_ov002_0215624c_11;
 
 extern "C" int GetResources_0200fb8c(int* gameState);
-extern "C" void func_020a1940(unsigned int arg0);
+extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void func_ov002_021682c0(char* arg0);
 void SetSubBrightness(GameResources* resources, int brightness, int duration);
 extern "C" void* GetGlobalFlags_020d6c00(void);
@@ -70,7 +70,7 @@ extern "C" void func_020a1f4c(int arg0);
 extern "C" void func_020dc2d0(int arg0);
 extern "C" void func_ov002_0215a938(char* arg0);
 extern "C" void func_ov002_02161cf0(char* arg0);
-extern "C" void SetNextTextWindowBGLayer_0205de24(Struct_ov002_0215624c_11* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(Struct_ov002_0215624c_11* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" void func_ov002_02160274(char* arg0);
 
 extern char data_ov002_0216d350;
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
 
     if (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) == 0) {
         arg0[REGION_VALUE(0x228a, 0x2456)] = 1;
-        func_020a1940(OVERLAY_ID(13));
+        LoadOverlay_020a1940(OVERLAY_ID(13));
         func_ov002_021682c0(arg0);
         SetSubBrightness(var1, -0x10, 0xf);
         *(int*)(arg0 + REGION_VALUE(0x228c, 0x2458)) = var2->QueueLoadFile(&data_ov002_0216d350, NULL);
@@ -251,8 +251,8 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
         (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)))++;
     } else if (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) == 0xf) {
         FontLoader_0208cb08* var13 = GetFontLoader_02094a00();
-        func_02094b40(var13);
-        func_02094b30(var13, 100, 0);
+        ClearLoadedFontSets_02094b40(var13);
+        RequestSingleFontLoad_02094b30(var13, 100, 0);
         (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)))++;
     } else if (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) == 0x10) {
         if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) {

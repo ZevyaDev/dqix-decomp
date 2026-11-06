@@ -8,7 +8,7 @@ enum { Enum_ov017_021bba08_156 = 0x9c };
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int func_020107d0(char* arg0);
 extern "C" void func_ov017_021baedc(void* arg0, int arg1);
 
@@ -49,8 +49,8 @@ extern "C" ARM void func_ov017_021bba08(struct Struct_ov017_021bba08* arg0, unsi
 
     GameState* var0 = GameState::GetInstance();
     char* var1 = (char*)var0;
-    arg0->unknown_c_ = (unsigned char)func_0201079c(var1);
-    arg0->unknown_e_ = (unsigned char)func_0201079c(var1);
+    arg0->unknown_c_ = (unsigned char)GetStoryChapter_0201079c(var1);
+    arg0->unknown_e_ = (unsigned char)GetStoryChapter_0201079c(var1);
     arg0->unknown_d_ = (unsigned char)func_020107d0(var1);
     arg0->unknown_f_ = (unsigned char)func_020107d0(var1);
 

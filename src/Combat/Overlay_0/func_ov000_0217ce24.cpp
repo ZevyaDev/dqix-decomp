@@ -39,7 +39,7 @@ extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*,int);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" {
 void GetZone3D_02012fe4();int func_ov000_0217c594(void*,int);
-void* func_ov000_02161318(void*,int);int func_ov000_0217f5dc(void*);
+void* FindPartyMemberPanel_ov000_02161318(void*,int);int func_ov000_0217f5dc(void*);
 void func_ov000_02177038(void*,int,int,int,int);
 void func_ov000_02176634(void*,void*,int,int,int);
 int func_020dd3cc(int);int func_ov000_0217c514(int,int);
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov000_0217ce24(Struct_ov000_021682ec_5* arg0,int arg1,i
             if(var8){
                 bool var9=var8->unknown_150_?var8->unknown_150_->unknown_56b_0_!=0:false;
                 if(var9)var4=true;
-                void* var10=func_ov000_02161318(arg0,var7);
+                void* var10=FindPartyMemberPanel_ov000_02161318(arg0,var7);
                 if(var10&&func_ov000_0217f5dc(var10))var3++;
             }
         }
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov000_0217ce24(Struct_ov000_021682ec_5* arg0,int arg1,i
                 arg0->unknown_1d60_[arg0->unknown_1d68_]=6;
                 if(arg0->unknown_68_==0){
                     arg0->unknown_1d60_[arg0->unknown_1d68_]=43;
-                    func_ov000_02176634(arg0,func_ov000_02161318(arg0,var11),43,arg1,arg2);
+                    func_ov000_02176634(arg0,FindPartyMemberPanel_ov000_02161318(arg0,var11),43,arg1,arg2);
                     break;
                 }
             }

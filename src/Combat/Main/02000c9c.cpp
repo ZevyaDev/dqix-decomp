@@ -25,9 +25,9 @@ struct Struct_02000c9c_18;
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void func_020c3898();
 extern "C" void func_02012c34();
-extern "C" void func_020a0c0c();
+extern "C" void LoadFileTables_020a0c0c();
 extern "C" void func_020a1838();
-extern "C" void func_020a1940(unsigned int* arg0);
+extern "C" void LoadOverlay_020a1940(unsigned int* overlayId);
 extern "C" int func_020a1bb4(unsigned int* arg0);
 extern "C" unsigned int func_ov029_021d8e1c(void* arg0, void* arg1, int arg2);
 extern "C" unsigned int func_ov029_021d8f0c(void* arg0, void* arg1, int arg2);
@@ -74,8 +74,8 @@ void EnableSpecificInterrupts(unsigned int mask);
 void EnableIRQInterrupts();
 extern "C" void func_020c3864(int arg0);
 extern "C" void MapVRAMBanksToMainBG(int banks);
-extern "C" void func_020c391c(int arg0, int arg1, int arg2);
-extern "C" void func_020c9820();
+extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
+extern "C" void WaitForVBlank_020c9820();
 
 extern "C" void func_ov019_0218b5a0(void* arg0);
 extern "C" void func_ov019_0218b5a8(void* arg0);
@@ -133,7 +133,7 @@ extern "C" void func_020d8614();
 
 #define RUNTITLE() \
     do { \
-        func_020a1940(&OVERLAY_19_ID); \
+        LoadOverlay_020a1940(&OVERLAY_19_ID); \
         void* scene = func_02012db0(&gMainHeap_02114e20, TITLE_SCENE_SIZE); \
         func_ov019_0218b5a0(scene); \
         func_02012de4(&gMainHeap_02114e20); \
@@ -145,7 +145,7 @@ extern "C" void func_020d8614();
 
 #define RUNOV20() \
     do { \
-        func_020a1940(&OVERLAY_20_ID); \
+        LoadOverlay_020a1940(&OVERLAY_20_ID); \
         void* scene = func_02012db0(&gMainHeap_02114e20, WORLD_SCENE_SIZE); \
         func_ov020_0218b5a0(scene); \
         func_02012de4(&gMainHeap_02114e20); \
@@ -168,7 +168,7 @@ extern "C" void func_020d8614();
 
 #define RUNOV21() \
     do { \
-        func_020a1940(&OVERLAY_21_ID); \
+        LoadOverlay_020a1940(&OVERLAY_21_ID); \
         void* scene = func_02012db0(&gMainHeap_02114e20, 0xbc); \
         func_ov021_0218b5a0(scene); \
         func_02012de4(&gMainHeap_02114e20); \
@@ -180,7 +180,7 @@ extern "C" void func_020d8614();
 
 #define RUNOV15() \
     do { \
-        func_020a1940(&OVERLAY_15_ID); \
+        LoadOverlay_020a1940(&OVERLAY_15_ID); \
         void* scene = func_02012db0(&gMainHeap_02114e20, 0x358); \
         func_ov015_02193294(scene); \
         func_02012de4(&gMainHeap_02114e20); \
@@ -213,7 +213,7 @@ inline void inline_02000c9c_4(GameState* arg0) {
 
 #define RUNOV17() \
     do { \
-        func_020a1940(&OVERLAY_17_ID); \
+        LoadOverlay_020a1940(&OVERLAY_17_ID); \
         func_020d6cb4(); \
         func_020a1bb4(&OVERLAY_17_ID); \
     } while (0)
@@ -225,9 +225,9 @@ extern "C" ARM void main() {
     func_020c3898();
     DISPCNTSUB &= ~0x10000;
     func_02012c34();
-    func_020a0c0c();
+    LoadFileTables_020a0c0c();
     func_020a1838();
-    func_020a1940(&OVERLAY_29_ID);
+    LoadOverlay_020a1940(&OVERLAY_29_ID);
 #if defined(jpn)
     if (!data_ov029_021d9b60_fake((void*)func_020d8614) &&
         !data_ov029_021d9d20_fake((void*)func_020d863c) &&
@@ -236,11 +236,11 @@ extern "C" ARM void main() {
 #else
     if (!inline_02000c9c() && !inline_02000c9c_2() && !inline_02000c9c_3() && BackgroundLoader::GetInstance() == 0) {
 #endif
-        func_020a1940(&OVERLAY_33_ID);
+        LoadOverlay_020a1940(&OVERLAY_33_ID);
         PopulateOv33BackgroundLoader(gFileScratchSpace_0211e33c, 0x30000, 0x14);
     }
     func_020a1bb4(&OVERLAY_29_ID);
-    func_020a1940(&OVERLAY_32_ID);
+    LoadOverlay_020a1940(&OVERLAY_32_ID);
     func_020dc034();
     Struct_02000c9c_18* var2 = func_020daf90();
     func_020dafd4();
@@ -283,7 +283,7 @@ extern "C" ARM void main() {
                 RUNOV20();
                 if (*(unsigned char*)&var0->unk_6fc0[SCENE_SKIP_MEMBER_INDEX] == 0) {
                     func_020115b4((Struct_02000c9c_13*)var0, 1);
-                    func_020a1940(&OVERLAY_16_ID);
+                    LoadOverlay_020a1940(&OVERLAY_16_ID);
                     int var6 = 1;
                     while (var6) {
                         RUNOV16(var6);
@@ -344,7 +344,7 @@ extern "C" ARM void main() {
                 RUNOV15();
                 break;
             case 3:
-                func_020a1940(&OVERLAY_16_ID);
+                LoadOverlay_020a1940(&OVERLAY_16_ID);
                 int var8 = 1;
                 while (var8) {
                     RUNOV16(var8);
@@ -359,8 +359,8 @@ extern "C" ARM void main() {
                 func_0205e8d4(gSoundEffectManager_02108760);
                 func_0203a950(gMusicManager_02109bf4);
                 g_touchInput.Pause();
-                func_020a1940(&OVERLAY_27_ID);
-                func_020a1940(&OVERLAY_31_ID);
+                LoadOverlay_020a1940(&OVERLAY_27_ID);
+                LoadOverlay_020a1940(&OVERLAY_31_ID);
                 REG_IME;
                 REG_IME = 0;
                 InitializeActiveAlarmList();
@@ -392,7 +392,7 @@ extern "C" ARM void main() {
                 func_020d6c9c();
                 func_020c983c();
                 func_020c98f0(1);
-                func_020a1940(&OVERLAY_32_ID);
+                LoadOverlay_020a1940(&OVERLAY_32_ID);
                 g_touchInput.Unpause();
                 func_0209c174((Struct_02000c9c_16*)gMusicManager_02109bf4);
                 func_0209c290(gMusicManager_02109bf4);
@@ -402,13 +402,13 @@ extern "C" ARM void main() {
                 EnableIRQInterrupts();
                 func_020c3864(1);
                 MapVRAMBanksToMainBG(0x60);
-                func_020c391c(1, 0, 0);
+                SetMainDisplayAndBGMode_020c391c(1, 0, 0);
                 DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
                 BG0CNT = (BG0CNT & 0x43) | 4;
                 BG0CNT &= ~3;
                 BG0CNT &= ~0x40;
                 REG_POWCNT1 &= ~0x8000;
-                func_020c9820();
+                WaitForVBlank_020c9820();
                 func_0200fb94((char*)var0, 6);
                 func_02012010(var0, 1);
                 var7 = false;

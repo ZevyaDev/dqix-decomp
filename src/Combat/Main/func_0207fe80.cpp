@@ -36,7 +36,7 @@ struct Struct_0207fe80_3 {
     unsigned char unknown_39_;
 };
 
-extern "C" int func_0204c7e0(unsigned char*);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char*);
 extern "C" void FillBGScreenRect_0204bc74(struct Struct_0207fe80_2* layer, int screenEntry, short x, short y, short width, short height, int palette);
 extern "C" int func_0204fd00(struct Struct_0207fe80* arg0, int arg1);
 
@@ -75,7 +75,7 @@ extern "C" ARM void func_0207fe80(struct Struct_0207fe80_3* arg0, int arg1, int 
     arg3 &= 0x3ff;
     for (var5 = 0; var5 < arg0->unknown_39_; var5++) {
         var4 = &arg0->unknown_30_[var5];
-        if (func_0204c7e0((unsigned char*)var4) && var4->unknown_c4_ != 0xff) {
+        if (IsTextWindowOpen_0204c7e0((unsigned char*)var4) && var4->unknown_c4_ != 0xff) {
             if (!(var4->unknown_c5_ & 0x20) && !(var4->unknown_c5_ & 0x80) && var1 == var4->unknown_4_) {
                 var7 = var4->unknown_ae_;
                 var6 = var4->unknown_ac_;

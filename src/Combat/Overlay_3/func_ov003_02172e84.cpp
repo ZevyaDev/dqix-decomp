@@ -203,7 +203,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void func_0202b0f4(void *arg0);
 extern "C" int func_ov003_021734dc(int arg0, int arg1, int arg2);
 extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330 *animationList, int ticks);
-extern "C" int func_020457e0(Struct_ov003_02172e84_3 *arg0);
+extern "C" int GetMessageChoice_020457e0(Struct_ov003_02172e84_3 *window);
 extern "C" int func_ov003_02172570(unsigned char *arg0, void *arg1);
 
 extern char data_ov003_02180a49[];
@@ -299,7 +299,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
         AdvanceSpriteAnimations_0205a330(var15, var14->GetTickCount() >> 2);
         if (var1->unknown_870_ == 0) {
             var1->unknown_868_ = 1;
-            if (func_020457e0(var1) == 0) {
+            if (GetMessageChoice_020457e0(var1) == 0) {
                 arg0->unknown_c8_ = 1;
                 arg0->unknown_ea_ = 4;
             } else {
@@ -428,7 +428,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
         AdvanceSpriteAnimations_0205a330(var36, var35->GetTickCount() >> 2);
         if (var17->unknown_9a0_ == 0) {
             var17->unknown_998_ = 1;
-            if (func_020457e0(var17) == 0) {
+            if (GetMessageChoice_020457e0(var17) == 0) {
                 arg0->unknown_ca_ = 1;
                 arg0->unknown_ee_ = 4;
             } else {

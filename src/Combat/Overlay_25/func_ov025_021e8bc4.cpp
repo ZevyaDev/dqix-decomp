@@ -4,11 +4,11 @@
 #include "GameState/GameState.h"
 
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" void func_02057f00(void* arg0, int arg1);
+extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f14(void* arg0);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
-extern "C" void func_0200fd48(GameState* arg0, int arg1);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 struct Struct_ov001_0215bcc0;
 struct Struct_0208f410;
 
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov025_021e8bc4(struct Struct_ov025_021e8bc4_2* arg0, in
             break;
         }
         case 1:
-            func_02057f00(var1, var2->unknown_4_);
+            RemoveEffectResource_02057f00(var1, var2->unknown_4_);
             break;
         case 3:
             SetCamera_020100c4(var0, (int)func_ov000_02160f14(GetBattleScene_ov000_02160130()));
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov025_021e8bc4(struct Struct_ov025_021e8bc4_2* arg0, in
             GameObject* var8 = var0->GetGameObjectByIndex(var2->unknown_2_);
             if (var8) {
                 ((Object3D*)((unsigned char*)var8))->Destroy();
-                func_0200fd48(var0, var2->unknown_2_);
+                ClearGameObjectByIndex_0200fd48(var0, var2->unknown_2_);
             }
             break;
         }

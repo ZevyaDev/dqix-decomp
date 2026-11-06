@@ -56,7 +56,7 @@ extern Struct_ov006_0215ff6c data_ov006_0215ff6c;
 extern int data_0210a00c;
 void* GetCamera_020100bc(GameState*);
 void func_0202ec84(void*, const Vector3fix*, int*, int*);
-void func_0203bd08();
+void GetOAMManager_0203bd08();
 void* func_0203be40();
 void func_02076988(Struct_ov006_02154a60*, int, int);
 void func_02075db0(Struct_ov006_02154a60*, short, short);
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov006_02154a60(Struct_ov006_02154a60_2* arg0)
             var11->unknown_78_ = var17 - 12;
         }
     }
-    func_0203bd08();
+    GetOAMManager_0203bd08();
     void* var18 = func_0203be40();
     Struct_ov006_02154a60* var19;
     unsigned char var20;

@@ -29,7 +29,7 @@ struct Struct_020d9e44_2 {
 typedef void (Struct_020d9e44_2::*Type_02000c9c_13)();
 struct Struct_020ee678 { Type_02000c9c_13 unknown_0_[2]; };
 extern Struct_020ee678 data_020ee678;
-extern Type_02000c9c_13 data_020e6d5c;
+extern Type_02000c9c_13 gNullMemberFunctionPointer_020e6d5c;
 
 // USA: func_020d9e44
 extern "C" ARM void func_020d9e44(Struct_020d9e44_2* arg0) {
@@ -59,7 +59,7 @@ extern "C" ARM void func_020d9e44(Struct_020d9e44_2* arg0) {
         if (var1 == 1) return;
         Struct_020ee678 var3;
         var3 = data_020ee678;
-        var3.unknown_0_[1] = data_020e6d5c;
+        var3.unknown_0_[1] = gNullMemberFunctionPointer_020e6d5c;
         (arg0->*var3.unknown_0_[var1])();
     }
 }

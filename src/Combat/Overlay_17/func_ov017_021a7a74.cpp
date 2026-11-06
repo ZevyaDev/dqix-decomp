@@ -5,8 +5,8 @@
 #define func_ov017_021a7c28 func_ov017_021a85b8
 #endif
 
-struct Struct_02015438;
-extern "C" int func_02046b24(Struct_02015438** arg0);
+struct QueueNode_02015438;
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438** queue);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
@@ -21,8 +21,8 @@ extern "C" ARM void func_ov017_021a7a74(void* arg0, unsigned char* arg1) {
  enum {Enum_ov017_021a7a74_1788=0x6fc, Enum_ov017_021a7a74_2828=0xb0c, Enum_ov017_021a7a74_2968=0xb98};
 #endif
     int var0 = (int)GetGameResources();
-    Struct_02015438** var1 = *(Struct_02015438***)(var0 + 0x3000 + Enum_ov017_021a7a74_1788);
-    int var2 = func_02046b24(var1);
+    QueueNode_02015438** var1 = *(QueueNode_02015438***)(var0 + 0x3000 + Enum_ov017_021a7a74_1788);
+    int var2 = GetQueueHeadType_02046b24(var1);
     if (var2 == 0x1a) {
         int* var3 = *(int**)(var0 + 0x3000 + Enum_ov017_021a7a74_2828);
         if (*(int*)((char*)var3 + 0x64) != 0) {

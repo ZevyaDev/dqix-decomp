@@ -3,12 +3,12 @@
 
 struct Struct_ov000_02169b04;
 
-struct Struct_ov000_0215440c {
+struct BattleAction_ov000_0215440c {
     char unknown_0_[9];
     unsigned char unknown_9_;
 };
 
-struct Struct_ov000_021600f8 {
+struct ActionTarget_ov000_021600f8 {
     char unknown_0_[0x18];
     unsigned char unknown_18_;
 };
@@ -31,12 +31,12 @@ struct Struct_ov025_021e9778_3 {
 extern unsigned int data_ov025_021ef9a4;
 
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" Struct_ov000_0215440c* func_ov000_02160f20(void* arg0);
+extern "C" BattleAction_ov000_0215440c* func_ov000_02160f20(void* arg0);
 extern "C" void func_ov025_021df9b0(void* arg0);
 struct Struct_ov000_02163a7c;
 extern "C" void func_ov000_02163a7c(Struct_ov000_02163a7c*);
 extern "C" void* func_ov000_02169b04(struct Struct_ov000_02169b04* arg0, int arg1);
-extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c* arg0, int arg1);
+extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" Struct_ov025_021e9b2c* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
 extern "C" short func_ov000_0215ffa0(void* arg0);
 extern "C" void func_ov025_021eb6fc(Struct_ov025_021e9778_3* arg0, int arg1);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov025_021e9b2c(Struct_ov025_021e9778_3* arg0) {
 #endif
     GameState::GetInstance();
     void* var0 = GetBattleScene_ov000_02160130();
-    Struct_ov000_0215440c* var1 = func_ov000_02160f20(var0);
+    BattleAction_ov000_0215440c* var1 = func_ov000_02160f20(var0);
     if (data_ov025_021ef9a4 & 8) {
         func_ov025_021eb6fc(arg0, 0);
         func_ov025_021ea474(arg0);
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov025_021e9b2c(Struct_ov025_021e9778_3* arg0) {
             }
             int var2 = 1;
             for (int var3 = 0; var3 < var1->unknown_9_; var3++) {
-                Struct_ov000_021600f8* var4 = func_ov000_021600f8(var1, var3);
+                ActionTarget_ov000_021600f8* var4 = GetActionTarget_ov000_021600f8(var1, var3);
                 if (var4 == NULL) {
                     continue;
                 }
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov025_021e9b2c(Struct_ov025_021e9778_3* arg0) {
             }
             if (var2) {
                 bool var7 = true;
-                Struct_ov000_021600f8* var8 = func_ov000_021600f8(var1, 0);
+                ActionTarget_ov000_021600f8* var8 = GetActionTarget_ov000_021600f8(var1, 0);
                 if (var8 != NULL) {
                     int var9 = func_ov000_0215ffa0(var8);
                     var7 = (var9 >= 0 && var9 <= 3) ? 1 : 0;

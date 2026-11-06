@@ -82,7 +82,7 @@ extern "C" void func_ov017_021baedc(Struct_ov017_021af66c* arg0, int arg1);
 extern "C" void func_ov017_021bbae4(Struct_ov017_021af66c* arg0, int arg1, int arg2);
 extern "C" void func_ov017_0219577c(int arg0, int arg1, int arg2);
 extern "C" int func_ov017_02195658(GameResources* arg0);
-extern "C" void* func_ov017_021b8468(Struct_ov017_021af66c* arg0);
+extern "C" void* GetBattleScene_ov017_021b8468(Struct_ov017_021af66c* battleManager);
 extern "C" void func_ov017_021afb8c(Struct_ov017_021af66c_4* arg0, unsigned char* arg1);
 extern "C" void func_ov017_0218b5c0(int arg0, int arg1);
 
@@ -91,7 +91,7 @@ extern "C" void* func_020936f8();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 extern "C" int func_0202bd34(Struct_0202b2f0* arg0, int arg1);
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_02093a14(char* arg0);
 extern "C" void func_020dc2d0(int arg0);
@@ -162,7 +162,7 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
             if (var10->unknown_2_ == 0) {
                 func_ov017_021baedc(var10, 1);
                 func_ov017_021bbae4(var10, var9->unknown_8_, 2);
-                var10->unknown_cd_ = func_020100b0(var0);
+                var10->unknown_cd_ = GetOwnPartyLeaderObjectIndex_020100b0(var0);
                 var10->unknown_ce_ = var3->unknown_150_->unknown_49c_0_;
                 var10->unknown_cc_ = 1;
                 var10->unknown_cf_ = 3;
@@ -183,7 +183,7 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
     if (var12 > 0) {
         arg0->unknown_1b_[var12] = 0;
         if (var6->unknown_2_ != 0) {
-            void* var13 = func_ov017_021b8468(var6);
+            void* var13 = GetBattleScene_ov017_021b8468(var6);
             if (var13 != 0) {
                 func_ov000_02163b14(var13, (void*)var12);
                 func_ov017_021afb8c(arg0, arg0->unknown_e_);
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
         }
     }
     if (var6->unknown_2_ != 0) {
-        void* var14 = func_ov017_021b8468(var6);
+        void* var14 = GetBattleScene_ov017_021b8468(var6);
         if (var14 != 0) {
             func_ov000_02163b40(var14);
         }

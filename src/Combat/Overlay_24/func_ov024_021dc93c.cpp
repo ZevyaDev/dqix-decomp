@@ -2,8 +2,8 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 extern "C" void* GetParty_02010828(GameState*);
-struct Struct_02048150;
-extern "C" int func_02086ef0(Struct_02048150*, int);
+struct Party_02048150;
+extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void func_ov000_0215a8d4(unsigned char*, int);
 extern "C" int func_020881c4(unsigned char*);
 extern "C" int func_0208810c(unsigned char*);
@@ -11,11 +11,11 @@ extern "C" void func_02088220(void*, int);
 extern "C" int func_02088208(void*, int);
 extern "C" void func_02088150(void*);
 extern "C" int func_ov024_021e8c48(void*, signed char);
-extern "C" unsigned short func_ov024_021da644(int,int,int);
+extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int,int,int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
 extern "C" void func_ov000_0215ffc4(void*,void*,int);
-extern "C" void func_ov000_02159eac(void*,unsigned long long*,int);
+extern "C" void SetActionResultFlag_ov000_02159eac(void*,unsigned long long*,int);
 extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,short,unsigned long long,unsigned char);
 extern "C" void func_ov000_0215af54(void*,int,int);
 struct Struct_ov024_021dc93c {char unknown_0_[0x1c];unsigned char unknown_1c_0_:7;unsigned char unknown_1c_7_:1;};
@@ -59,7 +59,7 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
       ++var6;
       switch(var6){case 1:var3=0x31;break;case 2:var3=0x32;break;case 3:var3=0x33;break;}
       var4=0;
-      func_ov000_02159eac(arg0->unknown_10_,&var4,0x23);
+      SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var4,0x23);
       void* var9=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
       if(!var9)return 0;
       func_ov000_0215cd44(arg0->unknown_10_,var9,var0,var6,var4,arg0->unknown_c_->unknown_1c_7_!=0);
@@ -73,7 +73,7 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
       if(!var8)return 0;
       func_02088150(var0->currentStats_);
       AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var8,0x34);
-      func_ov000_02159eac(arg0->unknown_10_,&var4,7);
+      SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var4,7);
       func_ov000_0215cd44(arg0->unknown_10_,var8,var0,var6,var4,arg0->unknown_c_->unknown_1c_7_!=0);
       func_ov000_0215ffc4(arg0->unknown_c_,var8,0);
       ++*((unsigned char*)arg0->unknown_10_+0x8e02);
@@ -96,12 +96,12 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
     void* var13=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if(!var13)return 0;
     if(var12>0){
-     func_ov000_02159eac(arg0->unknown_10_,&var4,0x23);
+     SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var4,0x23);
      if(var12==4){
-      func_ov000_02159eac(arg0->unknown_10_,&var4,7);
+      SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var4,7);
       func_ov000_0215af54(arg0->unknown_10_,arg2,0);
       void* var14=GetParty_02010828(GameState::GetInstance());
-      if(func_02086ef0((Struct_02048150*)var14, arg1) && var5==0xa8)
+      if(IsInParty_02086ef0((Party_02048150*)var14, arg1) && var5==0xa8)
        func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 3);
      }
     }else{
@@ -122,7 +122,7 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
    func_ov000_0215ffc4(arg0->unknown_c_,var15,0);
    ++*((unsigned char*)arg0->unknown_10_+0x8e02);
    arg0->unknown_74_=1;
-   AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var15,func_ov024_021da644(arg2,arg3->unknown_24_.unknown_1_2_,arg3->unknown_24_.unknown_2_4_));
+   AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var15,SelectPartyOrEnemyMessage_ov024_021da644(arg2,arg3->unknown_24_.unknown_1_2_,arg3->unknown_24_.unknown_2_4_));
   }
  }
  if(inline_ov000_02156cc4_2(arg2) && var1)arg0->unknown_71_=1;

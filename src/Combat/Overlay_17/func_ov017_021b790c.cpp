@@ -34,7 +34,7 @@ extern "C" char data_ov017_021d83c0[];
 
 struct Struct_020469f8;
 struct Struct_020469f8_2;
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 struct Struct_02109bf4_3;
 struct MusicManager_02109bf4_4;
 struct Struct_02010604;
@@ -162,12 +162,12 @@ extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, 
 extern "C" void func_02054248(void* arg0);
 extern "C" unsigned char func_02010750(char* arg0);
 extern "C" void func_0201075c(char* arg0, unsigned char arg1);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void func_ov017_021aa4cc(void* arg0, int arg1);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" void func_020a0810(Struct_020a0810* arg0, unsigned int arg1);
 extern "C" void func_020a01ec(Struct_020a01ec* arg0, unsigned int arg1);
-extern "C" int func_020ac494(void* arg0);
+extern "C" int SetBattleRecords_020ac494(void* records);
 extern "C" unsigned char* GetZone3D_02012fe4(void);
 extern "C" void func_0201bf98(unsigned char* arg0, int arg1, int arg2);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
@@ -179,7 +179,7 @@ extern "C" void func_0206f81c(void* arg0);
 extern "C" int func_020a3694(int* arg0);
 extern "C" void func_02010604(GameState* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0209c530(void* arg0);
-extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void func_0209c20c(Struct_02109bf4_3* arg0);
 extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
@@ -230,12 +230,12 @@ extern "C" void func_020a367c(unsigned char* arg0, int arg1);
 extern "C" void func_02039758(void* arg0, int arg1);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(void* window);
-extern "C" int func_020100b0(GameState* arg0);
+extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" int func_02039888(void* arg0);
 
 // USA: func_ov017_021b790c
-extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Struct_02038598_5* arg1) {
+extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_02038598_5* arg1) {
     GameState* var0 = GameState::GetInstance();
     char* var1 = (char*)GetGameResources();
     GameObject* var2 = var0->GetUnknownGameObject();
@@ -282,7 +282,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Struct_02
                 for (var12 = 0; var12 < 4; var12++) {
                     GameObject* var14 = var0->GetPartyMemberByIndex(var12);
                     if (var14 != NULL && !(**(int**)((char*)var14 + 0x130) & 1) &&
-                        func_020a35e0(arg0->unknown_1c_, var12) == 0) {
+                        IsPartyMemberInBattle_020a35e0(arg0->unknown_1c_, var12) == 0) {
                         func_0201075c((char*)var0, 0);
                     }
                 }
@@ -303,7 +303,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Struct_02
             GetBattleRecords_020ac4c0(&var18);
             func_020a0810((Struct_020a0810*)&var18, 1);
             func_020a01ec((Struct_020a01ec*)var18.unknown_68_, 1);
-            func_020ac494(&var18);
+            SetBattleRecords_020ac494(&var18);
             func_0201bf98(GetZone3D_02012fe4(), 3, 1);
         }
         short var19[4];
@@ -339,10 +339,10 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Struct_02
             }
         }
         func_0209c530(gMusicManager_02109bf4);
-        if (arg0->unknown_6b0_->unknown_8e14_ == 2 || func_02046b60(arg1, 4) != 0) {
+        if (arg0->unknown_6b0_->unknown_8e14_ == 2 || IsTypeInQueue_02046b60(arg1, 4) != 0) {
             func_0209c20c((Struct_02109bf4_3*)gMusicManager_02109bf4);
         }
-        if (func_02046b60(arg1, 4) != 0) {
+        if (IsTypeInQueue_02046b60(arg1, 4) != 0) {
             arg0->unknown_6b6_ &= ~0x1000;
             inline_ov017_021b790c_2((GameResources*)var1)->inline_ov017_021b790c(1);
             func_0209c678((MusicManager_02109bf4_4*)gMusicManager_02109bf4, 0);
@@ -397,7 +397,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Struct_02
         arg0->unknown_6b4_ = 5;
     } else if (var6 == 5) {
         if (arg0->unknown_6b6_ & 0x1000) {
-            if (func_02046b60(*(Struct_02038598_5**)(var1 + 0x3000 + SCENE_NODES_021b790c), 3) == 0) {
+            if (IsTypeInQueue_02046b60(*(Queue_02038598_5**)(var1 + 0x3000 + SCENE_NODES_021b790c), 3) == 0) {
                 SetMainBrightness((GameResources*)var1, 0, 0x1e);
             }
         }
@@ -510,7 +510,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Struct_02
             char var45[0x64];
             __clear(var45, sizeof(var45));
             if (var44 != 0) {
-                GameObject* var46 = GetPartyMemberBaseByIndex_0200ff1c(var0, func_020100b0(var0));
+                GameObject* var46 = GetPartyMemberBaseByIndex_0200ff1c(var0, GetOwnPartyLeaderObjectIndex_020100b0(var0));
                 if (var46 != NULL) {
                     sprintf(var45, data_ov017_021d8395, *(char**)((char*)var46 + 0x134));
                 }
@@ -529,8 +529,8 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Struct_02
             Struct_ov017_021b790c_8 var50;
             __clear(var49, sizeof(var49));
             if (var44 != 0) {
-                if (GetPartyMemberBaseByIndex_0200ff1c(var0, func_020100b0(var0)) != NULL) {
-                    InitPartyMemberNoun_020e4bf4(&var50, func_020100b0(var0));
+                if (GetPartyMemberBaseByIndex_0200ff1c(var0, GetOwnPartyLeaderObjectIndex_020100b0(var0)) != NULL) {
+                    InitPartyMemberNoun_020e4bf4(&var50, GetOwnPartyLeaderObjectIndex_020100b0(var0));
                     var42->unknown_0_ = &var50;
                     sprintf(var49, (const char*)GetStandardString_020e51cc(0x21));
                 }

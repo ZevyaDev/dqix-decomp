@@ -43,7 +43,7 @@ void func_ov000_0215c758(void* arg0, short* arg1, int arg2, int arg3, short* arg
                          unsigned long long* arg6);
 short func_ov000_0215a004(void* arg0, int arg1, int arg2, int arg3, unsigned long long* arg4, int arg5, int arg6, int arg7);
 int func_ov000_02159dbc(void* arg0, int arg1);
-Struct_ov000_0215a23c_3* func_0200fea4(GameState* arg0, int arg1);
+Struct_ov000_0215a23c_3* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 Struct_ov000_0215a23c_2* GetPartyMemberData_02053c6c(Struct_ov000_0215a23c_3* gameObject);
 }
 
@@ -54,7 +54,7 @@ extern "C" int func_ov000_0215830c(GameObject* arg0);
 extern "C" int func_0202053c(void* arg0);
 extern "C" short func_ov000_0215a16c(void* arg0, int arg1, int arg2, short* arg3);
 extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
-extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" int func_02088514(Struct_02088514* arg0);
 float NextRandomFloatBetween(Random* random, float minimum, float maximum);
 
@@ -65,7 +65,7 @@ static inline Struct_ov000_0215a23c_3* inline_ov000_021537b8_2(int arg0) {
 
 static inline Struct_ov000_0215a23c_3* inline_ov000_0215a23c(int arg0) {
     GameState* var0 = GameState::GetInstance();
-    return func_0200fea4(var0, arg0);
+    return GetEnemyByIndex_0200fea4(var0, arg0);
 }
 
 // USA: func_ov000_0215a23c
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov000_0215a23c(void* arg0) {
                 var21 = 3;
             }
         }
-        if (func_02083b00(var19->unknown_150_, 0x3f) && var20->unknown_2ac_ > 0 && var20->unknown_29c_4_ == 3) {
+        if (HasLearnedSkillEntry_02083b00(var19->unknown_150_, 0x3f) && var20->unknown_2ac_ > 0 && var20->unknown_29c_4_ == 3) {
             float var22 = (float)(unsigned int)func_0202053c(var19) / 10.0f;
             var21 += (int)(1.0f + NextRandomFloatBetween((Random*)arg0, 0.0f, var22));
         }

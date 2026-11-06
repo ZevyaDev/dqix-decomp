@@ -62,8 +62,8 @@ extern "C" void func_02081058(void* arg0, int arg1, int arg2);
 extern "C" void func_02080798(void* arg0, int arg1, int arg2);
 struct Sprite_02043368_2;
 extern "C" void InitSprite_0205a198(Sprite_02043368_2*);
-struct Struct_02043368;
-extern "C" void func_0205a234(Struct_02043368*);
+struct SpriteAnimationList_02043368;
+extern "C" void InitSpriteAnimationList_0205a234(SpriteAnimationList_02043368*);
 struct Struct_020e2490;
 extern "C" void func_020e2490(Struct_020e2490*, int, int, void*, SafeAllocator*, int, unsigned char);
 struct BGLayer_02020cb8_2;
@@ -215,7 +215,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
             var1 = arg0->unknown_328_ + var2;
             SetBGScreenSize_0204b11c((unsigned char*)var1, 0);
             var4 = data_ov003_0217f454[var2];
-            var1->unknown_1c_0_ = 0;
+            var1->isSubScreen_1c_0_ = 0;
             var1->bgIndex_1c_4_ = var4;
             SetBGPriority_0204b5b4(var1, data_ov003_0217f460[var2]);
             AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)var1, (SafeAllocator*)&arg0->unknown_264_);
@@ -335,7 +335,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
         for (int var28 = 0; var28 < 0x19; var28++) {
             InitSprite_0205a198((Sprite_02043368_2*)(arg0->unknown_388_ + var28));
         }
-        func_0205a234((Struct_02043368*)arg0->unknown_38c_);
+        InitSpriteAnimationList_0205a234((SpriteAnimationList_02043368*)arg0->unknown_38c_);
         arg0->unknown_384_ = 0;
         arg0->unknown_374_ = arg0->unknown_388_;
         arg0->unknown_380_ = 0x19;

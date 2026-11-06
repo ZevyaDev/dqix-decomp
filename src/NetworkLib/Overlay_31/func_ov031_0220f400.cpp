@@ -21,7 +21,7 @@ extern "C" ARM void func_ov031_0220f400(void* arg0) {
 	char* var1 = (char*)data_ov031_0224e580;
 	*(int*)(var1 + 0x24) = 0;
 	char* var2 = (char*)data_ov031_0224e580;
-	unsigned int var3 = GetContextPriority(data_02111304.activeContext);
+	unsigned int var3 = GetContextPriority(gContextScheduler_02111304.activeContext);
 	PopulateContext((ProcessorContext*)(var2 + 0x34), (unsigned int)func_ov031_0220f5b4, 0, (unsigned int)(var2 + 0x8f4), 0x800, var3);
 	var0 = (char*)data_ov031_0224e580;
 	MarkContextStackTopUnknownSubspace((ProcessorContext*)(var0 + 0x34), 0x80);

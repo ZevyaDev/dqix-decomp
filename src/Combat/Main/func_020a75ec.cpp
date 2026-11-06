@@ -25,14 +25,14 @@ struct Struct_020a75ec {
     unsigned char unknown_15a_;
 };
 struct Struct_020a75ec_2 { Object3D unknown_0_; unsigned short unknown_ac_; };
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 struct Struct_02010604;
 struct Struct_02015ef4;
 extern short data_020e9450[];
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_020332ac(Struct_020a75ec*);
 extern "C" void func_020a78dc(Struct_020a75ec*);
-extern "C" int func_02046b60(Struct_02038598_5*, int);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
@@ -87,7 +87,7 @@ extern "C" ARM void func_020a75ec(Struct_020a75ec* arg0) {
     }
     GameResources* var5 = GetGameResources();
     void* var6 = var5->unknown_ptr_array_36fc[0];
-    if (!func_02046b60((Struct_02038598_5*)var6, 3) && !func_02046b60((Struct_02038598_5*)var6, 1)) {
+    if (!IsTypeInQueue_02046b60((Queue_02038598_5*)var6, 3) && !IsTypeInQueue_02046b60((Queue_02038598_5*)var6, 1)) {
         unsigned char* var7 = (unsigned char*)GetParty_02010828(var0);
         for (int var8 = 0; var8 < var7[0xf7c]; var8++) {
             Struct_020a75ec_2* var9 = (Struct_020a75ec_2*)var0->GetPartyMemberByIndex(*(var7 + 0xf78 + var8));

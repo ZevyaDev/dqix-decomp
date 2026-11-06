@@ -3,8 +3,8 @@
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 
-struct Struct_ov000_0215440c;
-struct Struct_ov000_021600f8 {
+struct BattleAction_ov000_0215440c;
+struct ActionTarget_ov000_021600f8 {
     char unknown_0_[0xe];
     short unknown_e_;
 };
@@ -24,11 +24,11 @@ struct Struct_ov025_021e6ff8 {
 
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" unsigned char func_ov025_021dcc64(void* arg0);
-extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c* arg0, int arg1);
+extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" void func_0202edf8(char* arg0, int arg1, int arg2, int arg3, int arg4);
 
 // USA: func_ov025_021e6ff8
-extern "C" ARM int func_ov025_021e6ff8(Struct_ov025_021e6ff8* arg0, Struct_ov000_0215440c* arg1) {
+extern "C" ARM int func_ov025_021e6ff8(Struct_ov025_021e6ff8* arg0, BattleAction_ov000_0215440c* arg1) {
 #if defined(jpn)
  enum { Enum_ov025_021e6ff8_28629=0x71c5 };
 #else
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov025_021e6ff8(Struct_ov025_021e6ff8* arg0, Struct_ov000
     }
     if (arg0->unknown_24_ == 2) {
         int var6 = 1;
-        Struct_ov000_021600f8* var7 = func_ov000_021600f8(arg1, 0);
+        ActionTarget_ov000_021600f8* var7 = GetActionTarget_ov000_021600f8(arg1, 0);
         if (var7 != NULL) {
             GameObject* var8 = var0->GetCombatantByIndex(var7->unknown_e_);
             if (var8 != NULL) {

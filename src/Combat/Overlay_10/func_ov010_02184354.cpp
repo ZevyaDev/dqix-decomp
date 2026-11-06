@@ -24,21 +24,21 @@ struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 
-struct Struct_020727d8 {
+struct StringList_020727d8 {
     void* unknown_0_;
     short unknown_4_;
     short unknown_6_;
 };
-extern "C" void func_020727d8(struct Struct_020727d8* arg0);
-extern "C" void func_020728ac(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void ResetStringList_020727d8(struct StringList_020727d8* stringList);
+extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* arg2, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
-extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
+extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
+extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 extern "C" void func_0205ebec(void* arg0);
 
 struct Struct_0204bd7c;
@@ -59,14 +59,14 @@ extern "C" void* func_02033fa0(void* arg0);
 extern "C" void* func_02011584(void* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 
 struct Struct_020340b4;
 extern "C" void func_020340b4(struct Struct_020340b4* arg0);
 
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" int func_020457e0(void* arg0);
+extern "C" int GetMessageChoice_020457e0(void* window);
 
 struct TextureVRAMArea_0203d028;
 extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
@@ -152,7 +152,7 @@ struct Struct_ov010_02184354_8 {
     unsigned short unknown_2_;
     int unknown_4_;
     int unknown_8_;
-    struct Struct_020727d8 unknown_c_;
+    struct StringList_020727d8 unknown_c_;
     SafeAllocator unknown_14_;
 };
 
@@ -169,7 +169,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
     struct Struct_ov010_02184354_4* var5 = *(Struct_ov010_02184354_4**)((char*)GetGameResources() + 0x3ba8);
 #endif
     var3 = var2->GetPartyMemberByIndex(var5->unknown_c_);
-    GameObject* var6 = var2->GetPartyMemberByIndex(func_020100b0(var2));
+    GameObject* var6 = var2->GetPartyMemberByIndex(GetOwnPartyLeaderObjectIndex_020100b0(var2));
     void* var7 = GetLocalWireless_0202ae18();
     void* var8 = GetGameResources();
     var4 = (struct Struct_ov010_02184354_2*)GetZone3D_02012fe4();
@@ -206,8 +206,8 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         void* var12;
         unsigned int var13;
         var0->GetLoadedFileByID(arg0->unknown_4_, &var12, &var13);
-        func_020727d8(&arg0->unknown_c_);
-        func_020728ac(&arg0->unknown_c_, &arg0->unknown_14_, var12, var13, 0, 0, 0);
+        ResetStringList_020727d8(&arg0->unknown_c_);
+        LoadStringList_020728ac(&arg0->unknown_c_, &arg0->unknown_14_, var12, var13, 0, 0, 0);
         var0->RemoveTask(arg0->unknown_4_);
 
         unsigned short* var14 = (unsigned short*)func_020120a0((char*)var2, GetProtagonistObjectIndex_020100a8(var2));
@@ -273,7 +273,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
 #else
         if (var1->unknown_998_ != 0) return 0;
 #endif
-        if (func_020457e0(var1) == 0) {
+        if (GetMessageChoice_020457e0(var1) == 0) {
             void* var24 = FindStringInList_02072a68((struct StringList_02072a68_2*)&arg0->unknown_c_, 0);
 #if defined(jpn)
             sprintf(var9, (const char*)var24, *(char**)((char*)var3 + 0x134));
@@ -309,8 +309,8 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
             arg0->unknown_2_ = arg0->unknown_2_ + 1;
             return 0;
         }
-        func_0205ebc0(&gSoundEffectManager_02108760, 0x74, 0x74);
-        func_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
+        LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0x74, 0x74);
+        PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
 
         void* var27;
         unsigned int var28;

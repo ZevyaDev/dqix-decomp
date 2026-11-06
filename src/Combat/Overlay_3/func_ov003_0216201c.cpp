@@ -59,10 +59,10 @@ extern "C" void func_ov003_02160c58(Struct_ov003_02154af4_3 *, short *, short *)
 extern "C" void func_02080c68(void *, int, int);
 extern "C" void *GetFlagManager_0205ec34();
 extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *);
-extern "C" int func_02011494(char*, void*);
+extern "C" int GetOwnPartyOrder_02011494(char*, void*);
 extern "C" void SetFlag_0206df6c(void *, unsigned char *, int, int);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char *, int);
-extern "C" int func_02083b00(unsigned char *, int);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char *, int);
 extern "C" void func_02083acc(unsigned char *, int);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 extern "C" void func_ov017_021ccfd0(int);
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                     }
                     break;
                 case 0xb8: {
-                    int var7           = func_02011494((char*)GameState::GetInstance(), &arg0->unknown_4a9_);
+                    int var7           = GetOwnPartyOrder_02011494((char*)GameState::GetInstance(), &arg0->unknown_4a9_);
                     arg0->unknown_4ad_       = var7;
                     unsigned char var8 = arg0->unknown_4ad_;
                     unsigned char var9;
@@ -183,7 +183,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                 case 0xba:
                     func_0207fe44((Struct_0207fe44*)var5);
                     if (IsFlagSet_0206dfb0((int) var2, var2 + 0x8c, 0x784) != 0 && var3 != 0 &&
-                        func_02083b00(var3, 0x11e) == 0)
+                        HasLearnedSkillEntry_02083b00(var3, 0x11e) == 0)
                     {
                         arg0->unknown_484_ = 0x59;
                         if (var3 != 0) {
@@ -200,7 +200,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
         } else if (func_ov003_02160a68(arg0) != 0) {
             func_0207fe44((Struct_0207fe44*)var5);
             if (IsFlagSet_0206dfb0((int) var2, var2 + 0x8c, 0x784) != 0 && var3 != 0 &&
-                func_02083b00(var3, 0x11e) == 0)
+                HasLearnedSkillEntry_02083b00(var3, 0x11e) == 0)
             {
                 arg0->unknown_484_ = 0x59;
                 if (var3 != 0) {

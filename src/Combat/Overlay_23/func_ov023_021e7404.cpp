@@ -2,7 +2,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void func_0205d0e0(void* arg0, int arg1);
+extern "C" void UpdateTextWindowManager_0205d0e0(void* windowManager, int ticks);
 struct Struct_020103f0;
 extern "C" void func_020103f0(struct Struct_020103f0* arg0, unsigned short* arg1, unsigned char* arg2, unsigned char* arg3);
 extern "C" void func_020ac614(struct Struct_020ac4f8* arg0, int arg1);
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov023_021e7404(char* arg0, int arg1) {
         return;
     }
 
-    func_0205d0e0(arg0 + 0x78, var0);
+    UpdateTextWindowManager_0205d0e0(arg0 + 0x78, var0);
     *(int*)0x4001010 = 0;
 
     if (*(int*)(arg0 + 0x3c) == 0) {

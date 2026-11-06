@@ -44,7 +44,7 @@ extern Struct_ov031_02249b54 data_ov031_02249b54;
 extern const char data_ov031_02249bb8[];
 extern Struct_ov031_0224e5e8_8 data_ov031_0224e5e8;
 extern int data_ov031_0224e5f4;
-extern Struct_02111304_6 data_02111304;
+extern Struct_02111304_6 gContextScheduler_02111304;
 
 // USA: func_ov031_02216b90
 extern "C" ARM int func_ov031_02216b90(int arg0) {
@@ -73,6 +73,6 @@ extern "C" ARM int func_ov031_02216b90(int arg0) {
         return 4;
     }
     func_ov031_02217db4(data_ov031_0224e5e8.unknown_8_->unknown_1314_,
-                        GetContextPriority((ProcessorContext*)data_02111304.unknown_4_) - 1);
+                        GetContextPriority((ProcessorContext*)gContextScheduler_02111304.unknown_4_) - 1);
     return 0;
 }

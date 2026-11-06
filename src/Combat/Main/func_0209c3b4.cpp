@@ -18,9 +18,9 @@ struct Struct_0209c3b4 {
 
 struct Struct_0209c3b4_2 {
     char unknown_0_[0xb0];
-    int unknown_b0_;               // 0xb0
+    int musicState_b0_;               // 0xb0
     int unknown_b4_;             // 0xb4
-    short unknown_b8_;             // 0xb8
+    short musicIndex_b8_;             // 0xb8
     short unknown_ba_;               // 0xba
     void* unknown_bc_;                 // 0xbc
     void* unknown_c0_;                   // 0xc0
@@ -33,23 +33,23 @@ struct Struct_0209c3b4_2 {
     short unknown_ce_;                                // 0xce
 };
 
-// USA: func_0209c3b4
-extern "C" ARM void func_0209c3b4(struct Struct_0209c3b4_2* arg0, int arg1) {
-    if (arg0->unknown_b0_ == 2) return;
-    if (arg0->unknown_b0_ == 1 && arg1 == arg0->unknown_b8_) return;
-    if (arg0->unknown_c8_.unknown_0_2_) return;
-    if (arg0->unknown_ce_ > -1) {
-        func_0209c73c((struct Struct_02109bf4_5*)arg0);
+// USA: PlayMusic_0209c3b4
+extern "C" ARM void PlayMusic_0209c3b4(struct Struct_0209c3b4_2* manager, int musicIndex) {
+    if (manager->musicState_b0_ == 2) return;
+    if (manager->musicState_b0_ == 1 && musicIndex == manager->musicIndex_b8_) return;
+    if (manager->unknown_c8_.unknown_0_2_) return;
+    if (manager->unknown_ce_ > -1) {
+        func_0209c73c((struct Struct_02109bf4_5*)manager);
     }
-    arg0->unknown_b0_ = 1;
-    func_0203aa44(arg0);
-    if (arg1 > 0) {
-        func_0203aaf8(arg0, (void*)arg1, &arg0->unknown_b4_);
-        func_0203aba8((struct Struct_0203aba8*)arg0, (void*)arg1, &arg0->unknown_bc_);
-        func_0209c2e0(arg0, arg0->unknown_cd_, 0);
+    manager->musicState_b0_ = 1;
+    func_0203aa44(manager);
+    if (musicIndex > 0) {
+        func_0203aaf8(manager, (void*)musicIndex, &manager->unknown_b4_);
+        func_0203aba8((struct Struct_0203aba8*)manager, (void*)musicIndex, &manager->unknown_bc_);
+        func_0209c2e0(manager, manager->unknown_cd_, 0);
     }
-    arg0->unknown_b8_ = (short)arg1;
-    arg0->unknown_ce_ = -1;
-    arg0->unknown_c8_.unknown_0_2_ = arg0->unknown_c8_.unknown_0_3_;
-    arg0->unknown_c8_.unknown_0_3_ = 0;
+    manager->musicIndex_b8_ = (short)musicIndex;
+    manager->unknown_ce_ = -1;
+    manager->unknown_c8_.unknown_0_2_ = manager->unknown_c8_.unknown_0_3_;
+    manager->unknown_c8_.unknown_0_3_ = 0;
 }

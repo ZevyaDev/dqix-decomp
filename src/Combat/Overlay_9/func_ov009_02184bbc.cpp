@@ -11,12 +11,12 @@
 #endif
 
 struct TextWindowManager_0205d1e0;
-struct Struct_0205d228;
+struct TextWindowManager_0205d228;
 struct TextWindowManager_0205d274;
 
-extern "C" void func_0205d1e0(TextWindowManager_0205d1e0*);
-extern "C" void func_0205d228(Struct_0205d228*);
-extern "C" void func_0205d274(TextWindowManager_0205d274*);
+extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(TextWindowManager_0205d1e0*);
+extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228*);
+extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274*);
 
 #if defined(jpn)
 extern "C" void func_ov023_021da274(Struct_ov009_021842a0* arg0);
@@ -59,12 +59,12 @@ extern "C" ARM void func_ov009_02184bbc(void* arg0) {
 #endif
 
     if (*(signed char*)(var0 + R(0xc1c, 0xc58)) != 0xa) {
-        func_0205d1e0((TextWindowManager_0205d1e0*)(var0 + R(0x1bc, 0x1f8)));
-        func_0205d228((Struct_0205d228*)(var0 + R(0x1bc, 0x1f8)));
-        func_0205d274((TextWindowManager_0205d274*)(var0 + R(0x1bc, 0x1f8)));
+        ClearTextWindowManagerBGScreenData_0205d1e0((TextWindowManager_0205d1e0*)(var0 + R(0x1bc, 0x1f8)));
+        DrawTextWindows_0205d228((TextWindowManager_0205d228*)(var0 + R(0x1bc, 0x1f8)));
+        FlushTextWindowManagerBGScreenData_0205d274((TextWindowManager_0205d274*)(var0 + R(0x1bc, 0x1f8)));
     }
 
-    func_0205d1e0((TextWindowManager_0205d1e0*)(var0 + R(0x278, 0x2b4)));
-    func_0205d228((Struct_0205d228*)(var0 + R(0x278, 0x2b4)));
-    func_0205d274((TextWindowManager_0205d274*)(var0 + R(0x278, 0x2b4)));
+    ClearTextWindowManagerBGScreenData_0205d1e0((TextWindowManager_0205d1e0*)(var0 + R(0x278, 0x2b4)));
+    DrawTextWindows_0205d228((TextWindowManager_0205d228*)(var0 + R(0x278, 0x2b4)));
+    FlushTextWindowManagerBGScreenData_0205d274((TextWindowManager_0205d274*)(var0 + R(0x278, 0x2b4)));
 }

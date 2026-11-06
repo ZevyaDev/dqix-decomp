@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_02010088;
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 
 struct Struct_02049efc {
     unsigned char unknown_0_[0x56];
@@ -15,7 +15,7 @@ struct Struct_02049efc_2 {
 // USA: func_02049efc
 extern "C" ARM void func_02049efc(struct Struct_02049efc_2* arg0) {
     if (arg0->unknown_13c_ == NULL) return;
-    if (func_02010088((struct Struct_02010088*)arg0)) {
+    if (IsDead_02010088((struct Struct_02010088*)arg0)) {
         arg0->unknown_13c_->unknown_56_ = 0;
     }
 }

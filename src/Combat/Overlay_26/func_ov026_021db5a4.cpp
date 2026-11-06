@@ -129,7 +129,7 @@ extern "C" void func_ov000_02167e6c(unsigned char* arg0);
 extern "C" {
 void* GetEffectManager_02057924();
 int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, TextureVRAMArea_0203d028* arg5);
-void func_02057f00(void* arg0, int arg1);
+void RemoveEffectResource_02057f00(void* effectManager, int effectId);
 int func_ov000_021759f4(void* arg0);
 void func_ov000_02175808(void* arg0);
 void func_ov000_021626a0(Struct_ov000_02160da0* arg0, int arg1, int arg2);
@@ -231,8 +231,8 @@ extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
     } else if (arg0->unknown_7712_ == 4) {
         if (!IsBrightnessTransitionActive(var0)) {
             SetMainBrightness(var0, -0x10, 0);
-            func_02057f00(GetEffectManager_02057924(), 0x1d);
-            func_02057f00(GetEffectManager_02057924(), 0x1e);
+            RemoveEffectResource_02057f00(GetEffectManager_02057924(), 0x1d);
+            RemoveEffectResource_02057f00(GetEffectManager_02057924(), 0x1e);
             arg0->unknown_7722_ = arg0->unknown_7724_ = -1;
             func_ov000_021626a0(arg0, 0x26, 1);
             ClearFlags04((GameResources*)var0, 0x100000);

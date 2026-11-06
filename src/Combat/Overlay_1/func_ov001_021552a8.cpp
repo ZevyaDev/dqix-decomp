@@ -14,7 +14,7 @@
 
 
 struct Sprite_02043368_2;
-struct Struct_02043368;
+struct SpriteAnimationList_02043368;
 struct Struct_0208b8c4;
 struct Struct_0203d028_6;
 struct PacEntry_02020cb8_4;
@@ -87,7 +87,7 @@ extern "C" void* func_0203cf4c(void);
 extern "C" void* func_0203d004(void* arg0);
 extern "C" void func_020401fc(Struct_0203d028_6* arg0, unsigned int arg1, SafeAllocator* arg2);
 extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
-extern "C" void func_0205a234(Struct_02043368* arg0);
+extern "C" void InitSpriteAnimationList_0205a234(SpriteAnimationList_02043368* animationList);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
@@ -108,7 +108,7 @@ extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_02019568(void* arg0, int arg1);
 extern "C" Object3D* func_ov017_021bdbc0(unsigned char* arg0);
-extern "C" void func_020a27a0(void* arg0);
+extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void func_020a27b8(unsigned char* arg0);
 extern "C" void func_020213fc(Struct_020213fc* arg0, int arg1);
 
@@ -203,7 +203,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
         for (int var12 = 0; var12 < 0xe; var12++) {
             InitSprite_0205a198((Sprite_02043368_2*)((char*)arg0->unknown_170_ + var12 * 0x28));
         }
-        func_0205a234((Struct_02043368*)arg0->unknown_16c_);
+        InitSpriteAnimationList_0205a234((SpriteAnimationList_02043368*)arg0->unknown_16c_);
         InitSpriteSet_0205a444((char*)arg0->unknown_168_);
         arg0->unknown_168_->unknown_50_ = 0;
         inline_ov001_021552a8(arg0->unknown_168_, arg0->unknown_170_, 0xe);
@@ -306,7 +306,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
         }
     }
 
-    func_020a27a0(var4);
+    DisableCameraFollow_020a27a0(var4);
     func_020a27b8((unsigned char*)var4);
     *(short*)((char*)var5 + 0xb2) = 0;
     func_020213fc((Struct_020213fc*)var2->unknown_ptr_36d0, 0);

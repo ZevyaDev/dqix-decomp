@@ -18,7 +18,7 @@ struct Struct_ov017_0219aa7c { unsigned char unknown_0_, unknown_1_; unsigned sh
 typedef void (GameResources::*Type_02000c9c_15)();
 struct Struct_ov017_021d64f4 { Type_02000c9c_15 unknown_0_[15]; };
 extern const Struct_ov017_021d64f4 data_ov017_021d64f4;
-extern const Type_02000c9c_15 data_020e6d5c;
+extern const Type_02000c9c_15 gNullMemberFunctionPointer_020e6d5c;
 extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" int func_020535c8(signed char*);
 extern "C" Struct_0203dce4_2* func_0203cf4c();
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov017_0219aa7c(GameResources* arg0) {
     if (g_keyManager.TestKeysPressed(1)) var13 = 1;
     if (var13) {
         Struct_ov017_021d64f4 var18 = data_ov017_021d64f4;
-        var18.unknown_0_[3] = data_020e6d5c;
+        var18.unknown_0_[3] = gNullMemberFunctionPointer_020e6d5c;
         if (var18.unknown_0_[((Struct_ov017_0219aa7c*)arg0->unknown_36b4_)->unknown_0_] != 0) {
             (arg0->*var18.unknown_0_[((Struct_ov017_0219aa7c*)arg0->unknown_36b4_)->unknown_0_])();
             arg0->unknown_42e3_[1] = 0;

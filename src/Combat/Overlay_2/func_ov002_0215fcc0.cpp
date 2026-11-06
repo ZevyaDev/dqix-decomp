@@ -13,15 +13,15 @@ struct Struct_ov002_0216ca30 {
 };
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int func_02041a5c(char *arg0, int arg1);
-extern "C" int func_02041a28(char *arg0, int arg1);
+extern "C" int AppendXPositionTag_02041a28(char *buffer, int x);
 extern "C" int func_02041acc(char *arg0, int arg1);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_02041fac(char *arg0, int arg1, int arg2);
 extern "C" const char *GetStandardString_020e51cc(int stringId);
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
-extern "C" void func_020465f0(unsigned char *arg0, int arg1, unsigned char arg2);
-extern "C" void func_020465d8(unsigned char *arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char *window, int index, unsigned char width);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char *window, int index, unsigned char alignment);
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" int func_020420e8(const char *arg0, int arg1);
 extern "C" int sprintf(char *arg0, const char *arg1, ...);
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov002_0215fcc0(char *arg0, char *arg1) {
     if (var12 != 0) var14 += 9;
     int var15                             = (0x80 - var14) >> 1;
     *(short *) (arg0 + 0x2400 + 0x5c) = var9 + var15 + 1;
-    func_02041a28(arg1, var15);
+    AppendXPositionTag_02041a28(arg1, var15);
     AppendText_02042058(arg1, var0);
     func_02041fac(arg1, (int) data_ov002_0216d2b3, 0x10);
     unsigned char *var16 = (unsigned char *) GetMessageWindow_020421a0();
@@ -94,13 +94,13 @@ extern "C" ARM void func_ov002_0215fcc0(char *arg0, char *arg1) {
         var4->baseStats_->primaryStats.agility,
     };
     for (int var19 = 0; var19 < 7; var19++) {
-        func_020465d8(var16, var19, 1);
-        func_020465f0(var16, var19, 3);
+        SetMessageNumberAlignment_020465d8(var16, var19, 1);
+        SetMessageNumberWidth_020465f0(var16, var19, 3);
         SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var16, var19, var18[var19]);
     }
     for (int var20 = 0; var20 < 5; var20++) {
         AppendText_02042058(arg1, (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), var6++));
-        func_02041a28(arg1, var17.unknown_0_[var20]);
+        AppendXPositionTag_02041a28(arg1, var17.unknown_0_[var20]);
         AppendText_02042058(arg1, (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), var7++));
         if (var20 != 4) {
             AppendText_02042058(arg1, *(const char **) (arg0 + 0x1000 + 0xbdc));

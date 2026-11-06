@@ -3,8 +3,8 @@
 extern "C" void* func_ov000_02170cf8(char* arg0, int arg1);
 extern "C" int func_ov000_02171210(void* arg0, void* arg1);
 extern "C" void* __clear(void* arg0, int arg1);
-extern "C" void func_020e4864(int arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
+extern "C" void ExpandInflectionTags_020e4864(int text, void* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
+extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 
 struct Struct_0203c108_3;
 extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
@@ -34,9 +34,9 @@ extern "C" ARM void func_ov000_021718a4(void* arg0) {
     char var8[0x80];
     __clear(var8, 0x80);
 
-    func_020e4864(*(int*)var2, var7, 1, 0, 0, 0);
+    ExpandInflectionTags_020e4864(*(int*)var2, var7, 1, 0, 0, 0);
 
-    func_0206819c(var7, var8, 0);
+    CopyCapitalizedText_0206819c(var7, var8, 0);
     func_0203c108((struct Struct_0203c108_3*)((char*)arg0 + 0x50), var8);
 #endif
 }

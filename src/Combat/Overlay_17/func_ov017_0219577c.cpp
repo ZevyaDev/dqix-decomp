@@ -11,8 +11,8 @@ extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct Qu
 struct Struct_02000c9c_54;
 extern "C" Struct_02000c9c_54* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int length);
-struct Struct_02038598_5;
-extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
+struct Queue_02038598_5;
+extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 extern "C" void func_02046a8c(void* arg0, void* arg1);
 extern "C" int func_020ac4f8(int arg0);
 extern "C" void func_ov017_021d1118(int arg0, int arg1, int arg2, int arg3);
@@ -106,14 +106,14 @@ extern "C" ARM void func_ov017_0219577c(unsigned char arg0, int arg1, int arg2) 
         var4->unknown_66_ = 1;
         var4->unknown_65_ = 1;
 
-        if (func_02046b60((struct Struct_02038598_5*)var2, 0x4e)) {
+        if (IsTypeInQueue_02046b60((struct Queue_02038598_5*)var2, 0x4e)) {
             func_02046a8c(var2, *(void**)(var1 + 0x3000 + Enum_ov017_0219577c_3236));
         }
-        if (func_02046b60((struct Struct_02038598_5*)var2, 3)) {
+        if (IsTypeInQueue_02046b60((struct Queue_02038598_5*)var2, 3)) {
             func_02046a8c(var2, *(void**)(var1 + 0x3000 + Enum_ov017_0219577c_1804));
         }
     }
-    if (func_02046b60((struct Struct_02038598_5*)var2, 0x40)) {
+    if (IsTypeInQueue_02046b60((struct Queue_02038598_5*)var2, 0x40)) {
         func_02046a8c(var2, *(void**)(var1 + 0x3000 + Enum_ov017_0219577c_2968));
     }
     func_020ac4f8(1);

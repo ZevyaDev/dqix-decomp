@@ -5,7 +5,7 @@
 extern "C" int func_020ac460(void* arg0);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" int func_020ac3c8(unsigned int* arg0, short* arg1, int arg2);
-extern "C" int func_020ac494(void* arg0);
+extern "C" int SetBattleRecords_020ac494(void* records);
 
 struct Struct_020a03c4 {
     char unknown_0_[0x10];
@@ -36,6 +36,6 @@ extern "C" ARM int func_ov023_021ed724(void* arg0, short* arg1, int arg2) {
         var3 |= 1;
     }
     func_020a03c4((struct Struct_020a03c4*)var1, arg2);
-    func_020ac494(var1);
+    SetBattleRecords_020ac494(var1);
     return var3;
 }

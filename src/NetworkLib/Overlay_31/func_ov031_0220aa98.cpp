@@ -37,7 +37,7 @@ extern "C" ARM void func_ov031_0220aa98(unsigned int arg0) {
     } while (var1 < 4);
     SetIRQInterruptState(var0);
 
-    ProcessorContext* var3 = data_02111304.firstContext;
+    ProcessorContext* var3 = gContextScheduler_02111304.firstContext;
     if (var3 == 0) {
         return;
     }

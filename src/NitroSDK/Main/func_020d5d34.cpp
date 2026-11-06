@@ -28,7 +28,7 @@ struct Struct_020d5d34
 };
 
 extern "C" int func_020d424c(int arg0, ...);
-extern "C" void func_020ca458(unsigned long value, void* dst, unsigned long size);
+extern "C" void Memset32Bit_020ca458(unsigned long value, void* dst, unsigned long size);
 extern "C" int func_020d4770(unsigned short arg0, Type_020d42e0 arg1, void* arg2);
 extern "C" int func_020d59bc(Type_020d42e0 arg0, void* arg1, const unsigned short* arg2,
                              unsigned short arg3, unsigned short arg4, unsigned short arg5,
@@ -59,7 +59,7 @@ extern "C" ARM int func_020d5d34(Struct_020d5d34* arg0, unsigned short arg1, uns
     var1 = func_020d46cc();
     if (var1 == 0)
         var2 = func_020d46fc();
-    func_020ca458(0, arg0, sizeof(Struct_020d5d34));
+    Memset32Bit_020ca458(0, arg0, sizeof(Struct_020d5d34));
     arg0->unknown_808_ = 0;
     arg0->unknown_80a_ = 0;
     arg0->unknown_80c_ = 0;

@@ -63,7 +63,7 @@ extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void func_02082828(void*);
 extern "C" void func_02054664(Struct_02054664*);
 extern "C" void func_02053c4c(char*, char*);
-extern "C" void func_0200fd38(GameState*, int, GameObject*);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" void func_020546a0(void*, int);
 extern "C" void func_020546b4(void*, int);
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov017_021c1e6c(Struct_ov017_021c1e6c_6* arg0) {
             unsigned char var15 = var12->unknown_10_0_;
             if (var14->unknown_150_) var14->unknown_150_->inline_ov017_021c1e6c_2(var15);
             var14->unknown_1c4_ = var12;
-            func_0200fd38(var0, 0xce, &var14->unknown_0_);
+            SetGameObjectByIndex_0200fd38(var0, 0xce, &var14->unknown_0_);
             char var16[0x50];
 #if defined(jpn)
             sprintf(var16, data_ov017_021d87d8, var4->unknown_c_);

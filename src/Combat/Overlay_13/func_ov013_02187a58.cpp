@@ -125,7 +125,7 @@ extern "C" void func_0204f41c(void* arg0, short arg1, short arg2, void* arg3, in
                               unsigned char arg5, short* arg6, short* arg7, int arg8);
 extern "C" void func_020749ac(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
-extern "C" void func_020e4864(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void ExpandInflectionTags_020e4864(void* text, void* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
 
 extern signed char data_ov013_02187dc8[];
 extern char data_ov013_02187ec3;
@@ -208,7 +208,7 @@ extern "C" ARM void func_ov013_02187a58(void* arg0, void* arg1) {
             __clear(var35, 0x100);
             __clear(var36, 0x100);
             func_02046608(GetMessageWindow_020421a0(), 0xa, var43->unknown_4_, var35, 0x100, 0, 0);
-            func_020e4864(var35, var36, 1, 0, 0, 0);
+            ExpandInflectionTags_020e4864(var35, var36, 1, 0, 0, 0);
 
             if (var43->unknown_3_7_ != 0 && *(signed char*)(var23 + 0x6a) >= 0) {
                 (*(short**)(var23 + 0x50))[var42] = (short)(func_020420e8(var36, 0) + 0x2e);

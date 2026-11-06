@@ -33,7 +33,7 @@ extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020a27b8(unsigned char*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void func_020728ac(StringList_02072a68_2*, SafeAllocator*, void*, unsigned int, int, int, int);
+extern "C" void LoadStringList_020728ac(StringList_02072a68_2*, SafeAllocator*, void*, unsigned int, int, int, int);
 extern "C" void ClearMessageParams_02046380(Struct_02046574_2*);
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
@@ -42,7 +42,7 @@ extern "C" void StartMessage_0204500c(Struct_02046574_2*, char*, int
     , int
 #endif
 );
-extern "C" int func_020457e0(Struct_02046574_2*);
+extern "C" int GetMessageChoice_020457e0(Struct_02046574_2*);
 extern "C" void func_020116c8(void*);
 extern "C" void func_020dc2d0(int);
 extern "C" void ResetMessageWindow_02043204(char*);
@@ -77,12 +77,12 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
         unsigned int var7;
         BackgroundLoader::GetInstance()->GetLoadedFileByID(arg0->unknown_28_, &var6, &var7);
         arg0->unknown_14_.Reset();
-        func_020728ac(&arg0->unknown_c_, &arg0->unknown_14_, var6, var7, 0, 0, 0);
+        LoadStringList_020728ac(&arg0->unknown_c_, &arg0->unknown_14_, var6, var7, 0, 0, 0);
         BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_28_);
         arg0->unknown_28_ = -1;
         ClearMessageParams_02046380(var1);
         SetMessageString_02046574(var1, 0, var0->GetUnknownGameObject()->baseStats_->unk);
-        func_02094b30(GetFontLoader_02094a00(), 0x203, 0);
+        RequestSingleFontLoad_02094b30(GetFontLoader_02094a00(), 0x203, 0);
         arg0->unknown_8_ = 2;
     }
     if (arg0->unknown_8_ == 2) {
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
         DisablePlayerControl_020397cc((Struct_02018300_3*)var3, 1);
         if ((*reinterpret_cast<int*>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_2456))) return;
         var2->unknown_0[2] = 1;
-        int var10 = func_020457e0(var1);
+        int var10 = GetMessageChoice_020457e0(var1);
         if (var10 == 0) arg0->unknown_8_ = 6;
         else if (var10 == 1) arg0->unknown_8_ = 9;
     } else if (arg0->unknown_8_ == 6) {

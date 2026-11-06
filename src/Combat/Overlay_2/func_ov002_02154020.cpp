@@ -1,11 +1,11 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 
-struct Struct_02048150;
+struct Party_02048150;
 
 extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" int *GetLocalWireless_0202ae18();
-extern "C" int func_02086ef0(Struct_02048150 *arg0, int arg1);
+extern "C" int IsInParty_02086ef0(Party_02048150 *party, int objectIndex);
 extern "C" int func_ov002_02154b94(void *arg0, int arg1);
 extern "C" int func_ov002_02154a34(void *arg0, int arg1);
 extern "C" void *func_02079ee0(void *arg0, int arg1);
@@ -21,7 +21,7 @@ extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" ARM int func_ov002_02154020(char *arg0, char *arg1, char *arg2) {
     if (arg1 == 0) return 0;
     if (arg2 == 0) return 0;
-    Struct_02048150 *var0 = (Struct_02048150 *) GetParty_02010828(GameState::GetInstance());
+    Party_02048150 *var0 = (Party_02048150 *) GetParty_02010828(GameState::GetInstance());
     int *var1                       = GetLocalWireless_0202ae18();
     int var2                   = 0;
     char *var3                  = arg1 + 8;
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov002_02154020(char *arg0, char *arg1, char *arg2) {
         unsigned char *var7 = (unsigned char *) (var3 + var6 * 6);
         unsigned char *var8 = (unsigned char *) (var4 + var6 * 6);
         int var9           = *(signed char *) (arg1 + 4 + var6);
-        if (!func_02086ef0(var0, var9)) {
+        if (!IsInParty_02086ef0(var0, var9)) {
             var7[4] = 1;
             var8[4] = 1;
         }
@@ -63,7 +63,7 @@ extern "C" ARM int func_ov002_02154020(char *arg0, char *arg1, char *arg2) {
             *(short *) (var8 + 2) = func_ov002_021549c8(arg0, var9, 2, var8);
         }
         if (var7[0] == 0 && var8[0] == 0) continue;
-        if (IsLocalWirelessOn_0202b7d8(var1) && func_02086ef0(var0, var9)) {
+        if (IsLocalWirelessOn_0202b7d8(var1) && IsInParty_02086ef0(var0, var9)) {
             func_ov017_021c9e00(var9, 0, 0, 1);
         }
         var2 = 1;

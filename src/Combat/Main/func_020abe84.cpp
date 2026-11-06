@@ -23,7 +23,7 @@ static inline unsigned int inline_020abe84(const Struct_020abe84* arg0) { return
 
 extern "C" int GetBattleRecords_020ac4c0(void*);
 extern "C" void func_020a0460(Struct_02061c04*, unsigned int);
-extern "C" int func_020ac494(void*);
+extern "C" int SetBattleRecords_020ac494(void*);
 
 // USA: func_020abe84
 extern "C" ARM int func_020abe84(void* arg0, short* arg1, Struct_020abe84* arg2, int arg3) {
@@ -43,6 +43,6 @@ extern "C" ARM int func_020abe84(void* arg0, short* arg1, Struct_020abe84* arg2,
     }
     GetBattleRecords_020ac4c0(&var0);
     func_020a0460(&var0, var2);
-    func_020ac494(&var0);
+    SetBattleRecords_020ac494(&var0);
     return 1;
 }

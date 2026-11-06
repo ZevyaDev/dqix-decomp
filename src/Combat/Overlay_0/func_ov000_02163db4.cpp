@@ -11,10 +11,10 @@ extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
 extern "C" void func_020708c8(Struct_020708c8*, unsigned int);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_020531f0(GameObject*);
-extern "C" void func_ov000_02160fa8(void*, int);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern "C" int func_ov000_02160fd4(void*, int);
 extern "C" int func_ov017_02195658(GameResources*);
-extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void func_ov017_021c8b78(unsigned short);
 extern "C" void func_020a367c(unsigned char*, int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
@@ -79,13 +79,13 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
             GameObject* var5 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4);
             if (var5) func_020531f0(var5);
         }
-        func_ov000_02160fa8(arg0, 0x2000000);
+        SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);
     }
     Struct_ov000_02163db4* var6 = arg0->unknown_2a0_;
     int var7 = func_ov017_02195658(var1);
-    if (func_020a35e0((unsigned char*)var6, var7 & 0xff)) {
+    if (IsPartyMemberInBattle_020a35e0((unsigned char*)var6, var7 & 0xff)) {
         if (var6->unknown_2a_ == var7) {
-            func_ov000_02160fa8(arg0, 0x2000000);
+            SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);
             func_ov017_021c8b78(var6->unknown_8_);
         }
         inline_ov000_02163db4((unsigned char*)var6, var7);
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
     for (int var8 = 0; var8 < 4; var8++) {
         GameObject* var9 = GetPartyMemberBaseByIndex_0200ff1c(var0, var8);
         if (!var9) continue;
-        if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var8 & 0xff)) {
+        if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var8 & 0xff)) {
             if (func_020535c8((signed char*)var9)) func_020531f0(var9);
         } else {
             if (func_020535e0((int*)var9)) func_020531f0(var9);
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
         func_ov017_021c8398((unsigned char)arg0->unknown_2a0_->unknown_2a_, 1);
         func_ov017_021c839c((unsigned char)arg0->unknown_2a0_->unknown_2a_, 1);
     } else {
-        func_ov000_02160fa8(arg0, 0x200000);
+        SetBattleSceneFlags_ov000_02160fa8(arg0, 0x200000);
     }
     if (arg0->unknown_ec8_ == 0x785d || arg0->unknown_ec8_ == 0x77f7 || arg0->unknown_ec8_ == 0x77f5) {
         SetFlags04(var1, 0x200000);

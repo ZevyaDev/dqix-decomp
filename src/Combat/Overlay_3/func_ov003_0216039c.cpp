@@ -35,9 +35,9 @@ struct SpriteAnimation_0205a254_2 {
 
 extern "C" unsigned char* func_02081da8(Struct_0207fdcc_2* arg0, int arg1);
 extern "C" int func_020e28dc(Struct_020e28dc* arg0);
-extern "C" void func_0205a42c(SpriteAnimationList_0205a254* arg0, int arg1, int arg2);
+extern "C" void SetSpriteAnimationOAMIndex_0205a42c(SpriteAnimationList_0205a254* animationList, int index, int oamIndex);
 extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
-extern "C" int func_0204c7e0(unsigned char* arg0);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
 extern "C" void PlaySpriteAnimation_0205a370(SpriteAnimationList_0205a254* animationList, int index);
 extern "C" SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(SpriteAnimationList_0205a254* animationList, int index);
@@ -69,11 +69,11 @@ extern "C" ARM void func_ov003_0216039c(Struct_ov003_0216039c* arg0) {
         return;
     }
     if (arg0->unknown_390_ != NULL && func_020e28dc(arg0->unknown_390_) != 0) {
-        func_0205a42c(arg0->unknown_38c_, 0, 0);
+        SetSpriteAnimationOAMIndex_0205a42c(arg0->unknown_38c_, 0, 0);
         DrawSpriteAnimations_0205ae8c(arg0->unknown_334_);
         return;
     }
-    if (func_0204c7e0(var0) == 0) {
+    if (IsTextWindowOpen_0204c7e0(var0) == 0) {
         return;
     }
     short var1;

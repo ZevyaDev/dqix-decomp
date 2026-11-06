@@ -3,7 +3,7 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
 extern "C" int func_ov000_02153e78(int arg0, short* arg1, int arg2, int arg3, int arg4);
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 
 struct Struct_ov024_021eecc8 {
 	unsigned char unknown_0_;
@@ -44,7 +44,7 @@ extern "C" ARM int func_ov024_021eecc8(struct Struct_ov024_021eecc8_3* arg0, int
 			GameObject* var10 = GetCombatantByID(arg0->unknown_0_, (short)var9);
 			if (!var10) continue;
 			if (((struct Struct_ov024_021eecc8_2*)var10->currentStats_)->unknown_18_ & 0x2000) continue;
-			if (func_02010088((struct Struct_02010088*)var10)) {
+			if (IsDead_02010088((struct Struct_02010088*)var10)) {
 				if (var5 > 0) {
 					var5--;
 					arg4[(*arg3)++] = var9;

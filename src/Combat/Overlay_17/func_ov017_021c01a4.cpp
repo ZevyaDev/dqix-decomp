@@ -13,8 +13,8 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigne
 struct Struct_02092aa4;
 extern "C" void func_02092aa4(Struct_02092aa4*, int);
 extern "C" void func_02092a74(SafeAllocator* arg0, SafeAllocator* arg1);
-extern "C" int func_020a0cc4(int arg0);
-extern "C" void func_020a0c0c();
+extern "C" int ReleaseFileTablesForSpace_020a0cc4(int neededSize);
+extern "C" void LoadFileTables_020a0c0c();
 extern "C" int func_02092bcc(struct Struct_02092aa4* arg0, int arg1);
 extern "C" void func_02092b34(struct Struct_02092aa4* arg0);
 
@@ -41,10 +41,10 @@ extern "C" ARM void func_ov017_021c01a4(struct Struct_ov017_021c01a4* arg0) {
     func_020a28a0(var2, 1);
 
     if (arg0->unknown_1c_ == 0) {
-        func_020a0cc4(0xc3c);
+        ReleaseFileTablesForSpace_020a0cc4(0xc3c);
         void* var3 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0xc3c);
         if (var3 == NULL) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_021c01a4(struct Struct_ov017_021c01a4* arg0) {
         arg0->unknown_8_.Reset();
         data_ov017_021d8474 = (struct Struct_02092aa4*)arg0->unknown_8_.Allocate(0x3c);
         if (data_ov017_021d8474 == NULL) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -72,6 +72,6 @@ extern "C" ARM void func_ov017_021c01a4(struct Struct_ov017_021c01a4* arg0) {
         EnablePlayerControl_020397c0(var1);
         arg0->unknown_1c_++;
         arg0->unknown_1_ = 1;
-        func_020a0c0c();
+        LoadFileTables_020a0c0c();
     }
 }

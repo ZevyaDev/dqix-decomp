@@ -7,11 +7,11 @@ struct SoundEffectManager_02108760;
 struct Struct_02010088;
 
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
-struct Struct_0205da38;
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+struct TextWindowManager_0205da38;
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov000_0217ab48(void* arg0);
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 
 struct Struct_ov000_0217bb2c_3 {
@@ -114,17 +114,17 @@ extern "C" ARM int func_ov000_0217bb2c(Struct_ov000_0217bb2c_2* arg0, int arg1, 
         return var0;
     }
     int var1 = g_keyManager.TestKeysPressed(0x601);
-    int var2 = (var1 | func_0205da38((struct Struct_0205da38*)arg0->unknown_38_, 0x14)) != 0;
+    int var2 = (var1 | IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)arg0->unknown_38_, 0x14)) != 0;
     if (var2) {
         GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_30_[arg0->unknown_21_]);
         if (var3 == NULL) {
             return -1;
         }
-        int var4 = !func_02010088((struct Struct_02010088*)var3);
+        int var4 = !IsDead_02010088((struct Struct_02010088*)var3);
         Struct_ov000_0217bb2c_3* var5 = func_ov000_02170cf8(arg0, arg0->unknown_26_);
         if (var5 != NULL) {
             if (var5->unknown_18_5_ == 0x12) {
-                var4 = func_02010088((struct Struct_02010088*)var3);
+                var4 = IsDead_02010088((struct Struct_02010088*)var3);
             }
             if (var5->unknown_4_0_ == 0x26 || var5->unknown_4_0_ == 0x27 || var5->unknown_4_0_ == 0x54) {
                 var4 = 1;

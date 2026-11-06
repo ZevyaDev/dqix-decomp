@@ -5,7 +5,7 @@ struct Struct_ov000_0215767c_8 {
     short unknown_20_;
 };
 
-struct Struct_ov000_0215440c_2 {
+struct BattleAction_ov000_0215440c_2 {
     char unknown_0_[8];
     unsigned char unknown_8_;
 };
@@ -28,10 +28,10 @@ extern "C" void func_ov000_02155e94(Struct_ov000_0215767c_2* arg0);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_0215767c_2* battle, short* indices, int maxCount, int filterFlags);
 extern "C" void func_ov000_0215858c(Struct_ov000_0215767c_2* arg0, int arg1, Struct_ov000_0215767c_8* arg2);
 extern "C" void func_ov000_021599f4(Struct_ov000_0215767c_2* arg0, int arg1);
-extern "C" Struct_ov000_0215767c_8* func_ov000_02160094(Struct_ov000_0215440c_2* arg0, int arg1);
+extern "C" Struct_ov000_0215767c_8* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 
 // USA: func_ov000_02157d3c
-extern "C" ARM void func_ov000_02157d3c(Struct_ov000_0215767c_2* arg0, Struct_ov000_0215440c_2* arg1, int arg2) {
+extern "C" ARM void func_ov000_02157d3c(Struct_ov000_0215767c_2* arg0, BattleAction_ov000_0215440c_2* arg1, int arg2) {
     func_ov000_02155e94(arg0);
     Struct_ov000_02182c74 var0 = data_ov000_02182c74;
     if (CollectPartyCombatantIndices_ov000_0215e9fc(arg0, var0.unknown_0_, 8, 9) <= 0) {
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov000_02157d3c(Struct_ov000_0215767c_2* arg0, Struct_ov
     if (arg0->unknown_8e14_ == 0 && arg2 == 0) {
         int var1;
         for (var1 = 0; var1 < arg1->unknown_8_; var1++) {
-            Struct_ov000_0215767c_8* var2 = func_ov000_02160094(arg1, var1);
+            Struct_ov000_0215767c_8* var2 = GetActionActor_ov000_02160094(arg1, var1);
             if (var2 != 0) {
                 func_ov000_0215858c(arg0, var2->unknown_20_, var2);
                 func_ov000_021599f4(arg0, var2->unknown_20_);

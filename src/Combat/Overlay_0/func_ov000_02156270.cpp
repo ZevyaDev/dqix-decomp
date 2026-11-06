@@ -5,7 +5,7 @@ extern "C" int func_ov000_0215fc60(char* arg0);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" float func_02084f58(void* arg0);
 extern "C" int func_02085c08(unsigned char* arg0);
-extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" float func_ov000_02155a04(GameObject* arg0);
 extern "C" GameObject* func_0200ff94(GameState* arg0, int arg1);
 extern "C" int func_ov000_021563ec(GameObject* arg0);
@@ -50,7 +50,7 @@ extern "C" ARM float func_ov000_02156270(struct Struct_ov000_02156270* arg0, int
         float var7 = func_02084f58(var5);
         float var8 = func_02085c08(var5);
         var0 = var8 + (var6 + var7);
-        if (func_02083b00(var5, 0xa6) && func_ov000_02155a04(var2) < 0.08f) {
+        if (HasLearnedSkillEntry_02083b00(var5, 0xa6) && func_ov000_02155a04(var2) < 0.08f) {
             var0 = var0 * var6;
         }
     } else {

@@ -3,7 +3,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
-extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(void* battle, short* indices, int maxCount, int filterFlags);
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov017_021c894c(unsigned short arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     void* var2 = GetLocalWirelessPacketQueue_0202ae24();
-    void* var3 = func_ov017_021b8470(var1->unknown_ptr_3718);
+    void* var3 = GetBattle_ov017_021b8470(var1->unknown_ptr_3718);
     if (var3 == NULL) {
         return;
     }

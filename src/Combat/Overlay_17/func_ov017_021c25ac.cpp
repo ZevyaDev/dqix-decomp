@@ -6,7 +6,7 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021c2380(int arg0, int arg1);
 extern "C" unsigned char func_02039820(void* arg0);
 extern "C" int func_020535c8(signed char* arg0);
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 
 // USA: func_ov017_021c25ac
 extern "C" ARM void func_ov017_021c25ac() {
@@ -15,7 +15,7 @@ extern "C" ARM void func_ov017_021c25ac() {
     GameObject* var2 = var0->GetUnknownGameObject();
     if (var2 != 0 && func_02039820(var2) != 0 && func_020535c8((signed char*)var2) == 0) {
         for (int var3 = 0; var3 < 4; var3++) {
-            func_ov017_021c2380(var3, func_020100b0(var0));
+            func_ov017_021c2380(var3, GetOwnPartyLeaderObjectIndex_020100b0(var0));
         }
     }
     if (IsNotLocalWirelessGuest_0202c508(var1) != 0) {
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov017_021c25ac() {
         }
     } else {
         for (int var6 = 0; var6 < 0x30; var6++) {
-            func_ov017_021c2380(func_020100b0(var0), var6 + 0x70);
+            func_ov017_021c2380(GetOwnPartyLeaderObjectIndex_020100b0(var0), var6 + 0x70);
         }
     }
 }

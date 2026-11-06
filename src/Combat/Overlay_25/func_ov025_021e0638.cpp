@@ -26,8 +26,8 @@ struct Struct_02048c90;
 struct Struct_02049410;
 struct Struct_02048f64;
 struct Struct_02048f64_2;
-struct Struct_ov000_0215440c_2;
-struct Struct_ov000_0215440c;
+struct BattleAction_ov000_0215440c_2;
+struct BattleAction_ov000_0215440c;
 
 struct Struct_ov025_021e0638_11 {
     unsigned char unknown_0_;
@@ -124,8 +124,8 @@ extern "C" Struct_ov025_021e0638_10* func_020489b0(void);
 extern "C" int func_02049ec0(unsigned char*);
 extern "C" int func_02048c10(unsigned char*);
 extern "C" void func_020494c0(Struct_02048f64_2*);
-extern "C" unsigned char* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
-extern "C" unsigned char* func_ov000_021600f8(Struct_ov000_0215440c*, int);
+extern "C" unsigned char* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
+extern "C" unsigned char* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 
 static inline Struct_ov025_021e0638_12* inline_01ff8b48_2(Struct_ov025_021e0638_12* arg0, int arg1) {
     if (arg1 == 0) {
@@ -430,8 +430,8 @@ found:
         }
     }
     func_02048994();
-    unsigned char* var85 = func_ov000_02160094((Struct_ov000_0215440c_2*)var4, 0);
-    unsigned char* var86 = func_ov000_021600f8((Struct_ov000_0215440c*)var4, 0);
+    unsigned char* var85 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var4, 0);
+    unsigned char* var86 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var4, 0);
     if (var85 != 0 && var86 != 0) {
         unsigned char* var87 = (unsigned char*)var2->GetCombatantByIndex(*(unsigned short*)(var85 + 0x20));
         unsigned char* var88 = (unsigned char*)var2->GetCombatantByIndex(*(short*)(var86 + 0xe));

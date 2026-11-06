@@ -4,10 +4,10 @@
 
 extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" void* func_ov000_02160f20(void* arg0);
-struct Struct_ov000_0215440c_2;
-extern "C" void* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
-struct Struct_ov000_0215440c;
-extern "C" void* func_ov000_021600f8(Struct_ov000_0215440c*, int);
+struct BattleAction_ov000_0215440c_2;
+extern "C" void* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
+struct BattleAction_ov000_0215440c;
+extern "C" void* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" int func_ov025_021ed380(char* arg0, unsigned short arg1, short arg2, int arg3, int arg4, short arg5, unsigned short arg6);
 extern "C" void func_ov025_021ed350(char* arg0, int arg1, unsigned short arg2);
 extern "C" void* FindActionData_02079e2c(char*, int);
@@ -43,9 +43,9 @@ extern "C" ARM void func_ov025_021ea474(char* arg0) {
     void* var0 = GameState::GetInstance();
     Struct_ov025_021ea474* var1 = (Struct_ov025_021ea474*)func_ov000_02160f20(GetBattleScene_ov000_02160130());
     if (var1 != 0) {
-        Struct_ov025_021ea474_2* var2 = (Struct_ov025_021ea474_2*)func_ov000_02160094((Struct_ov000_0215440c_2*)var1, 0);
+        Struct_ov025_021ea474_2* var2 = (Struct_ov025_021ea474_2*)GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var1, 0);
         int var3 = 0;
-        Struct_ov025_021ea474_2* var4 = (Struct_ov025_021ea474_2*)func_ov000_021600f8((Struct_ov000_0215440c*)var1, var3);
+        Struct_ov025_021ea474_2* var4 = (Struct_ov025_021ea474_2*)GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var1, var3);
         if (var4 != 0) var3 = var4->unknown_e_;
         if (var1->unknown_0_ == 0x92 || var1->unknown_0_ == 0x3a1) {
             Struct_ov025_021ea474_3* var5 = (Struct_ov025_021ea474_3*)((GameState*)var0)->GetCombatantByIndex(var2->unknown_20_);

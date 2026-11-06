@@ -4,15 +4,15 @@
 
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
-struct Struct_0205da38;
+struct TextWindowManager_0205da38;
 struct SoundEffectManager_02108760;
 struct TextWindowManager_0205d81c;
 struct Struct_0205dee8;
 struct ItemTable_0201099c_10;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
         }
         if (var4 != *(short *) (arg0 + 0x1ab4)) return;
         int var9 = g_keyManager.TestKeysPressed(0x601);
-        int var10 = func_0205da38((struct Struct_0205da38*)(arg0 + 0xe20), 0x14);
+        int var10 = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(arg0 + 0xe20), 0x14);
         if ((var9 | var10) ? 1 : 0) {
             if (!func_020dc920(var6[*(short *) (arg0 + 0x1ab4)], 1, 1, var8)) return;
             func_ov002_0215b814(arg0);
@@ -217,7 +217,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
         }
         if (var24 != *(short *) (arg0 + 0x1b00 + 0xec)) return;
         int var29 = g_keyManager.TestKeysPressed(0x601);
-        int var30 = func_0205da38((struct Struct_0205da38*)(arg0 + 0x2c8 + 0xc00), 0x14);
+        int var30 = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(arg0 + 0x2c8 + 0xc00), 0x14);
         if ((var29 | var30) ? 1 : 0) {
             if (!func_020dc920(var26[*(short *) (arg0 + 0x1b00 + 0xec)], 1, 1, var28)) return;
             func_ov002_0215b814(arg0);

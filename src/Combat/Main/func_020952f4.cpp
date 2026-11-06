@@ -15,7 +15,7 @@ struct Struct_020952f4 {
 
 extern "C" Struct_020952f4* GetZone3D_02012fe4();
 extern "C" void __clear(void*, int);
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int func_ov017_0218d2c4(int arg0);
 extern "C" int GetStringLength_020d2ff0(const char* string);
 
@@ -29,7 +29,7 @@ extern "C" ARM int func_020952f4(char* arg0) {
             GameState* var1 = GameState::GetInstance();
             char var2[2];
             __clear(var2, 2);
-            var2[0] = func_ov017_0218d2c4(func_0201079c((char*)var1));
+            var2[0] = func_ov017_0218d2c4(GetStoryChapter_0201079c((char*)var1));
             memcpy(arg0, var0->unknown_5_, 3);
             strcat(arg0, var2);
         }

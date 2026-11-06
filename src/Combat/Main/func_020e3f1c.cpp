@@ -147,15 +147,15 @@ extern "C" void CloseMessageWindow_02043124(void* window);
 
 extern AllocatorUnion gMainHeap_02114e20;
 #if defined(jpn)
-struct Struct_020727d8 {
+struct StringList_020727d8 {
     void* unknown_0_;
     void* unknown_4_;
 };
 struct StringList_02072a68_2;
 #include "Filesystem/FileIO.h"
 extern "C" int func_020d3018(const char* arg0, const char* arg1);
-extern "C" void func_020727d8(struct Struct_020727d8* arg0);
-extern "C" void func_020728ac(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void ResetStringList_020727d8(struct StringList_020727d8* stringList);
+extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* arg2, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern const char data_020f2e30[];
 extern const char data_020f2e3b[];
@@ -330,9 +330,9 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
         SafeAllocator var31;
         var31.ResetAllocatorPointer();
         var31.CreateTypeA(var30, 0x400);
-        struct Struct_020727d8 var29;
-        func_020727d8(&var29);
-        func_020728ac(&var29, &var31, (void*)var27, var28, 0, 0, 0);
+        struct StringList_020727d8 var29;
+        ResetStringList_020727d8(&var29);
+        LoadStringList_020728ac(&var29, &var31, (void*)var27, var28, 0, 0, 0);
         var0->RemoveTask(arg0->unknown_c_);
         arg0->unknown_c_ = -1;
         void* var33 = FindStringInList_02072a68((struct StringList_02072a68_2*)&var29, var8);

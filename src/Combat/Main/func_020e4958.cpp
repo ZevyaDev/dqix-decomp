@@ -9,7 +9,7 @@ extern "C" int sprintf(char*, const char*, ...);
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" void* memcpy(void*, const void*, unsigned int);
 extern "C" void __clear(void*, unsigned int);
-extern "C" void func_020e4864(char*, char*, int, int, int, int);
+extern "C" void ExpandInflectionTags_020e4864(char*, char*, int, int, int, int);
 extern void (*data_020ee9f0[])(char*, int);
 struct Struct_020eea50 {
     signed char unknown_0_[4];
@@ -67,7 +67,7 @@ extern "C" ARM void func_020e4958(char** arg0, int arg1, int arg2, int arg3, int
     }
     *var5 = *var4;
     memset(var1, 0, 0x100);
-    func_020e4864(var3, var1, var0, arg3, var2, arg5);
+    ExpandInflectionTags_020e4864(var3, var1, var0, arg3, var2, arg5);
     int var9 = GetStringLength_020d2ff0(var1);
     memcpy(*arg0, var1, var9);
     *arg0 += var9;

@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_ov000_02155184;
-extern "C" Struct_ov000_02155184* func_0200fea4(GameState*, int);
+extern "C" Struct_ov000_02155184* GetEnemyByIndex_0200fea4(GameState*, int);
 struct Struct_02070b6c_3;
 struct Struct_0206f01c_2;
 extern "C" void* func_02070fd0(Struct_02070b6c_3*, int);
@@ -37,7 +37,7 @@ static inline int inline_ov000_02155184_2(int arg0) { return arg0 >= 0 && arg0 <
 // USA: func_ov000_02155184
 extern "C" ARM void func_ov000_02155184(Struct_ov000_02155184_6* arg0, int arg1, int arg2) {
     if (inline_ov000_02155184_2(arg1)) return;
-    Struct_ov000_02155184* var0 = func_0200fea4(GameState::GetInstance(), arg1);
+    Struct_ov000_02155184* var0 = GetEnemyByIndex_0200fea4(GameState::GetInstance(), arg1);
     if (!var0) return;
     char* var1 = arg0->unknown_8e18_ + 0x284;
     unsigned short var2 = var0->unknown_2_;

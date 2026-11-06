@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void func_ov024_021ea85c(void* arg0, int arg1, int arg2);
-extern "C" void func_ov000_02159eac(void* arg0, void* arg1, int arg2);
+extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, unsigned long long arg4, int arg5);
 
@@ -30,7 +30,7 @@ extern "C" ARM void* func_ov024_021e02b0(struct Struct_ov024_021e02b0_2* arg0, i
     var1.unknown_4_ = 0;
     if (arg6) {
         func_ov024_021ea85c(arg0, arg2, 0);
-        func_ov000_02159eac(arg0->unknown_10_, &var1, 0x28);
+        SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var1, 0x28);
         arg0->unknown_14_++;
         if (arg0->unknown_44_ < 0) {
             arg0->unknown_44_ = arg2;

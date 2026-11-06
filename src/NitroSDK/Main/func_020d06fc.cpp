@@ -38,7 +38,7 @@ extern "C" ARM int func_020d06fc(void* arg0) {
 
     func_020d0078((unsigned int) arg0);
 
-    data_021118e0.currentTaskExecutionContext = data_02111304.activeContext;
+    data_021118e0.currentTaskExecutionContext = gContextScheduler_02111304.activeContext;
 
     func_020d0fc4(var0, 2, 1);
 

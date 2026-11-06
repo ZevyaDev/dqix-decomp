@@ -9,13 +9,13 @@
 typedef Struct_020134e0::Struct_02018300 Struct_02018300;
 
 struct Struct_0203402c;
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" int func_0203402c(Struct_0203402c* arg0);
-extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
 extern "C" int func_02094b9c(Struct_02018300* arg0, Vector3i* arg1);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
@@ -29,15 +29,15 @@ extern "C" ARM void func_ov017_021975e4(GameResources* arg0) {
     Vector3i var4 = var3->obj3D_.position_;
     Struct_02037d10* var5 = func_020399a8(var3);
     GameResources* var6 = GetGameResources();
-    Struct_02038598_5* var7 = (Struct_02038598_5*)var6->unknown_ptr_array_36fc[0];
+    Queue_02038598_5* var7 = (Queue_02038598_5*)var6->unknown_ptr_array_36fc[0];
 
     if (g_keyManager.TestKeysHeld(0x402)) return;
     if (func_020535c8((signed char*)var3) || var5->unknown_0_) return;
     if (func_0203402c((Struct_0203402c*)var3)) return;
-    if (func_02046b60(var7, 0xc)) return;
-    if (func_02046b60(var7, 0x2d)) return;
-    if (func_02046b60(var7, 0x26)) return;
-    if (func_02046b60(var7, 0x35)) return;
+    if (IsTypeInQueue_02046b60(var7, 0xc)) return;
+    if (IsTypeInQueue_02046b60(var7, 0x2d)) return;
+    if (IsTypeInQueue_02046b60(var7, 0x26)) return;
+    if (IsTypeInQueue_02046b60(var7, 0x35)) return;
     int var8 = ((unsigned char*)var3)[0xbe] == 0 ? 1 : 0;
     if (var8 == 1) return;
 

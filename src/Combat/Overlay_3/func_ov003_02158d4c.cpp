@@ -9,15 +9,15 @@ struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
 struct Struct_020e25e8;
 extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
-struct Struct_02074bd0;
-extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
+struct BGControlSave_02074bd0;
+extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 struct TextWindowManager_0205d1e0;
-extern "C" void func_0205d1e0(struct TextWindowManager_0205d1e0* arg0);
+extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(struct TextWindowManager_0205d1e0* windowManager);
 struct TextWindowManager_0205d274;
-extern "C" void func_0205d274(struct TextWindowManager_0205d274* arg0);
+extern "C" void FlushTextWindowManagerBGScreenData_0205d274(struct TextWindowManager_0205d274* windowManager);
 struct TextWindowManager_0205d2bc;
 extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc* arg0);
-extern "C" void func_0205d048(void* arg0);
+extern "C" void ResetTextWindowManager_0205d048(void* windowManager);
 extern "C" int LoadToMainBG1CharacterData(int src, int offset, unsigned int size);
 extern "C" int LoadToMainBG1ScreenData(int src, int offset, unsigned int size);
 extern "C" int GetMessageWindow_020421a0(void);
@@ -51,12 +51,12 @@ extern "C" ARM void func_ov003_02158d4c(Struct_ov003_02158d4c* arg0) {
     unsigned int* var0 = (unsigned int*)0x4000000;
     *var0 = (*var0 & ~0x1f00) | 0x100;
     *(unsigned short*)0x4000050 = 0;
-    func_02074bd0((struct Struct_02074bd0*)arg0->unknown_80_);
+    RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)arg0->unknown_80_);
 
-    func_0205d1e0((struct TextWindowManager_0205d1e0*)arg0->unknown_f4_);
-    func_0205d274((struct TextWindowManager_0205d274*)arg0->unknown_f4_);
+    ClearTextWindowManagerBGScreenData_0205d1e0((struct TextWindowManager_0205d1e0*)arg0->unknown_f4_);
+    FlushTextWindowManagerBGScreenData_0205d274((struct TextWindowManager_0205d274*)arg0->unknown_f4_);
     func_0205d2bc((struct TextWindowManager_0205d2bc*)arg0->unknown_f4_);
-    func_0205d048(arg0->unknown_f4_);
+    ResetTextWindowManager_0205d048(arg0->unknown_f4_);
 
     arg0->unknown_28_.Reset();
     void* var1 = arg0->unknown_28_.Allocate(0x800);

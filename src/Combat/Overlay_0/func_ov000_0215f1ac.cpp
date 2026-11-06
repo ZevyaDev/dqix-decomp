@@ -7,12 +7,12 @@ struct Struct_ov000_0215f1ac_2 { char unknown_0_[0x20]; unsigned short unknown_2
 struct Struct_ov000_0215f1ac_3 { short unknown_0_; char unknown_2_[0x10 - 2]; Struct_ov000_0215f1ac_2* unknown_10_; char unknown_14_[0x28 - 0x14]; };
 struct Struct_ov000_0215f1ac_4 { char unknown_0_[0x8e20]; int unknown_8e20_; char unknown_8e24_[0x8e78 - 0x8e24]; Struct_ov000_0215f1ac_3* unknown_8e78_; int unknown_8e7c_; };
 struct Struct_ov000_0215f1ac_5 { char unknown_0_[0x10]; unsigned int unknown_10_; char unknown_14_[0x2c - 0x14]; unsigned int unknown_2c_0_ : 14; unsigned int unknown_2d_6_ : 6; unsigned int unknown_2e_4_ : 12; };
-struct Struct_ov000_0215440c_2;
+struct BattleAction_ov000_0215440c_2;
 
 extern "C" Struct_ov000_0215f1ac_5* FindActionData_02079e2c(char*, int);
 extern "C" int func_02085180(unsigned char*);
 extern "C" int func_ov000_0215fc60(char*);
-extern "C" Struct_ov000_0215f1ac_2* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
+extern "C" Struct_ov000_0215f1ac_2* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 extern "C" void func_ov000_0215f500(Struct_ov000_0215f1ac_3*, Struct_ov000_0215f1ac_3*);
 extern const int data_ov000_02182aac[3];
 extern int data_ov000_02182a58[2];
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov000_0215f1ac(Struct_ov000_0215f1ac_4* arg0) {
     if (func_ov000_0215fc60((char*)arg0)) {
         Struct_ov000_0215f1ac_3* var25 = arg0->unknown_8e78_;
         Struct_ov000_0215f1ac_3* var26 = var25 + 1;
-        Struct_ov000_0215f1ac_2* var27 = func_ov000_02160094((Struct_ov000_0215440c_2*)var25, 0);
+        Struct_ov000_0215f1ac_2* var27 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var25, 0);
         if (arg0->unknown_8e7c_ == 1) {
             var26 = arg0->unknown_8e78_;
             var25 = 0;
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov000_0215f1ac(Struct_ov000_0215f1ac_4* arg0) {
             func_ov000_0215f500(var26, &var28);
         }
         int var29 = arg0->unknown_8e20_;
-        var27 = func_ov000_02160094((Struct_ov000_0215440c_2*)var26, 0);
+        var27 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var26, 0);
         if (var27 && var29 <= 1) var26->unknown_0_ = var29 == 0 ? 0x16e : 1;
         if (var25) var25->unknown_0_ = 0x1f7;
     }

@@ -62,9 +62,9 @@ struct Struct_ov000_021707f0 {
 extern "C" int GetResources_0200fb8c(int*);
 extern "C" void* func_ov000_02160f08(void*);
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
-extern "C" int func_0204c7cc(unsigned char*);
+extern "C" int IsTextWindowReady_0204c7cc(unsigned char*);
 extern "C" void func_0204c610(Struct_0204c610*, int, short*, short*, short*, short*);
-extern "C" void* func_ov017_021b8468(void*);
+extern "C" void* GetBattleScene_ov017_021b8468(void*);
 extern "C" double func_02009424(double);
 extern "C" void DrawSprite_0205ac40(void*, void*);
 struct Struct_ov000_02183488 {
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov000_021707f0(Struct_ov000_021707f0* arg0) {
     if (!var2 || !var2->unknown_ptr_3718) {
         return;
     }
-    void* var3 = func_ov017_021b8468(var2->unknown_ptr_3718);
+    void* var3 = GetBattleScene_ov017_021b8468(var2->unknown_ptr_3718);
     if (!var3) {
         return;
     }
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov000_021707f0(Struct_ov000_021707f0* arg0) {
     if (!var11 || !var13) {
         return;
     }
-    if (!func_0204c7cc((unsigned char*)var11)) {
+    if (!IsTextWindowReady_0204c7cc((unsigned char*)var11)) {
         return;
     }
     if (var11->palette_c2_) {

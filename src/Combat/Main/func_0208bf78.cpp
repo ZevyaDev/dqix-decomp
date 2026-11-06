@@ -21,10 +21,10 @@ struct Struct_0208bf78_5;
 struct Struct_0205faf4_3;
 struct Struct_0205faf4_4;
 struct Struct_0205faf4_7;
-struct Struct_02015438;
+struct QueueNode_02015438;
 struct BGLayer_02020cb8;
 struct BGLayer_02020cb8_5;
-struct Struct_02020cb8_6;
+struct BGLayer_02020cb8_6;
 
 struct Struct_0208bf78_6 {
     unsigned int unknown_0_0_ : 7;
@@ -124,7 +124,7 @@ extern "C" int func_0208da18(Struct_0208bf78_5*, int, int);
 extern "C" int func_0208dac4(Struct_0208bf78_5*, int);
 extern "C" int func_0208da00(Struct_0208bf78_5*, int);
 extern "C" int GetResources_0200fb8c(int*);
-extern "C" int func_02046b24(Struct_02015438**);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" int func_0208dadc(Struct_0208bf78_5*, int);
 extern "C" int func_0206e260(Struct_0205faf4_4*, int);
 extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0();
@@ -134,8 +134,8 @@ extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
 extern "C" void SetBGScreenSize_0204b11c(unsigned char*, int);
 extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
 extern "C" void func_0208c9cc(int, int, int, int, int);
-extern "C" void func_0204b2e0(void*, char*);
-extern "C" void func_0204b3a0(Struct_02020cb8_6*, char*);
+extern "C" void FlushBGBlock_0204b2e0(void*, char*);
+extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6*, char*);
 extern "C" void InitTextWindow_0204c684(Struct_0208bf78_2*);
 extern "C" Struct_0205faf4_3* GetFlagManager_0205ec34();
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0*);
@@ -309,7 +309,7 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
                             var22 = FindStringInTable_020e0434(&arg0->unknown_4_, 4);
                         } else if (inline_0208bf78_4(inline_0208bf78_2(var19, var20), 1)) {
                             GameResources* var28 = (GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance());
-                            if (func_02046b24((Struct_02015438**)var28->unknown_ptr_array_36fc[0]) == 0x2d) {
+                            if (GetQueueHeadType_02046b24((QueueNode_02015438**)var28->unknown_ptr_array_36fc[0]) == 0x2d) {
                                 var22 = func_0208dadc((Struct_0208bf78_5*)&arg0->unknown_1c_, var20);
                             }
                         }
@@ -392,8 +392,8 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
         SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&var39, 0, 0);
         func_0208c9cc(0, 0, 15, 0, 0);
         for (int var40 = 0; var40 < var12; var40++) {
-            func_0204b2e0(&var39, (char*)var8[var40]);
-            func_0204b3a0((Struct_02020cb8_6*)&var39, (char*)var8[var40]);
+            FlushBGBlock_0204b2e0(&var39, (char*)var8[var40]);
+            CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6*)&var39, (char*)var8[var40]);
         }
         var0->RemoveTask(arg0->unknown_bc_);
         arg0->unknown_bc_ = -1;

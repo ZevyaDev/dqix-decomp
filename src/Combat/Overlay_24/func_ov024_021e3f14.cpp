@@ -17,7 +17,7 @@ extern "C" void func_02087704(void* arg0);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
 extern "C" struct Struct_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
-extern "C" void func_ov000_02159eac(void* arg0, struct Struct_ov024_021e3f14_3* arg1, int arg2);
+extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, struct Struct_ov024_021e3f14_3* flags, int flagIndex);
 extern "C" void func_ov000_0215cd44(void* arg0, struct Struct_ov000_021584e8* arg1, GameObject* arg2, int arg3,
     struct Struct_ov024_021e3f14_3 arg4, int arg5);
 
@@ -59,7 +59,7 @@ extern "C" ARM unsigned long long func_ov024_021e3f14(struct Struct_ov024_021e3f
         case 2: var4 = 0x181; break;
         case 3: var4 = 0x259; break;
         }
-        if (var5 == 3) func_ov000_02159eac(arg0->unknown_10_, &var3, 8);
+        if (var5 == 3) SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var3, 8);
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var1, var4);
         var2 = 1;
     }

@@ -2,7 +2,7 @@
 #include <globaldefs.h>
 
 struct SoundEffectManager_02108760;
-struct Struct_ov000_0215440c_2;
+struct BattleAction_ov000_0215440c_2;
 
 struct Struct_ov025_021eb6fc {
     char unknown_0_[8];
@@ -25,7 +25,7 @@ extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f20(void* arg0);
 extern "C" Struct_ov025_021eb6fc* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" int func_ov000_02163690(int arg0);
-extern "C" unsigned char* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
+extern "C" unsigned char* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov025_021eb6fc(Struct_ov025_021e9778_9* arg0, int arg1)
         arg1 = 1;
     }
     if (arg1 != 0) {
-        unsigned char* var2 = func_ov000_02160094((Struct_ov000_0215440c_2*)var0, 0);
+        unsigned char* var2 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var0, 0);
         if (var2 != 0) {
             int var3 = *(unsigned short*)(var2 + 0x20);
             int var4;

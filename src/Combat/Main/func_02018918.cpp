@@ -2,14 +2,14 @@
 #include "World/ZoneChest.h"
 #include "Graphics/Vector.h"
 
-struct Struct_020fdd44 {
-    unsigned short unknown_0_;
+struct ActiveZone_020fdd44 {
+    unsigned short zoneId_0_;
     unsigned short unknown_2_;
     unsigned short unknown_4_;
     char unknown_6_[0x318 - 6];
 };
-extern "C" Struct_020fdd44* func_02027ca4();
-extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44*, int);
+extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4();
+extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44*, int);
 
 // USA: func_02018918
 extern "C" ARM void func_02018918(Zone3D* arg0, Struct_020134e0::Struct_02018300* arg1) {
@@ -44,7 +44,7 @@ extern "C" ARM void func_02018918(Zone3D* arg0, Struct_020134e0::Struct_02018300
         arg0->unk_830[0] = 15;
         if (!(arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 8)) {
             int var8 = func_02018bc4(arg0, arg1);
-            Struct_020fdd44* var9 = func_02028bd0(func_02027ca4(), arg0->currentZoneID_);
+            ActiveZone_020fdd44* var9 = FindActiveZone_02028bd0(GetActiveZones_02027ca4(), arg0->currentZoneID_);
             if (var9) var9->unknown_4_ &= ~(1 << var8);
         }
     }

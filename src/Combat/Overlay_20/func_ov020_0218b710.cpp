@@ -6,7 +6,6 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
-#define func_020c39a0 func_020c546c
 #define data_ov020_0218dbdc data_ov020_0218e41c
 #define data_ov020_0218dbef data_ov020_0218e42f
 #define data_ov020_0218dbf5 data_ov020_0218e435
@@ -26,7 +25,7 @@
 
 struct Struct_ov020_0218b710;
 struct Struct_ov020_0218b710_2;
-struct Struct_0205cfd4;
+struct TextWindowManager_0205cfd4;
 struct BGLayer_02020cb8;
 struct BGLayer_0204b12c;
 struct BGLayer_02020cb8_5;
@@ -34,21 +33,21 @@ struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct BGLayer_02020cb8_2;
 struct TextWindow_0204c7a8;
-struct Struct_0205cf78;
-struct Struct_0205cf78_2;
-struct Struct_0205d228;
+struct TextWindowManager_0205cf78;
+struct TextWindow_0205cf78_2;
+struct TextWindowManager_0205d228;
 struct TextWindowManager_0205d274;
 struct TextWindowManager_0205d2bc;
 struct TextureVRAMArea_0203d028;
 struct Struct_02045cac;
-struct Struct_0205bcdc;
+struct MenuCursor_0205bcdc;
 struct Struct_0205e8ec;
 struct Struct_0209c3b4_2;
 struct Struct_0203bdb0;
 struct Struct_ov020_0218b710_3;
 
-extern "C" void func_020c9820();
-extern "C" void func_020c39a0(short* arg0, int arg1);
+extern "C" void WaitForVBlank_020c9820();
+extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 extern "C" int func_0201201c(void* arg0);
 extern "C" void func_02012010(void* arg0, int arg1);
 extern "C" unsigned char func_0200fb9c(char* arg0);
@@ -60,7 +59,7 @@ extern "C" void func_ov020_0218d800(Struct_ov020_0218b710_2* arg0, int arg1, int
 extern "C" void func_020d86d0(int arg0, int arg1);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
-extern "C" void func_0205cfd4(Struct_0205cfd4* arg0);
+extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
 extern "C" void AllocateBGScreenData_0204b12c(BGLayer_0204b12c* layer, SafeAllocator* allocator);
@@ -68,14 +67,14 @@ extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5* layer, int scrollX, int
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
-extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
-extern "C" void func_0205cf78(Struct_0205cf78* arg0, Struct_0205cf78_2* arg1, unsigned char arg2);
+extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
+extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78* windowManager, TextWindow_0205cf78_2* textWindows, unsigned char textWindowCapacity);
 extern "C" char* GetMessageWindow_020421a0();
-extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
+extern "C" int AppendPositionTag_02041a90(char* buffer, int x, int y);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02042084(char* arg0, char* arg1, int arg2, int arg3);
-extern "C" void func_0205d228(Struct_0205d228* arg0);
-extern "C" void func_0205d274(TextWindowManager_0205d274* arg0);
+extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228* windowManager);
+extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274* windowManager);
 extern "C" void func_0205d2bc(TextWindowManager_0205d2bc* arg0);
 extern "C" void func_020bbcb4();
 extern "C" void func_02012efc();
@@ -94,10 +93,10 @@ extern "C" void func_0205c790(char* arg0);
 extern "C" int func_020ab9c0(int arg0);
 extern "C" void func_0205cb74(char* arg0, int arg1);
 extern "C" void func_0204359c(void* arg0, int arg1);
-extern "C" void func_0205bcdc(Struct_0205bcdc* arg0, int arg1);
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc* cursor, int index);
 extern "C" void func_0203bd24(char* arg0);
 extern "C" void func_0205e8ec(Struct_0205e8ec* arg0);
-extern "C" void func_0209c3b4(Struct_0209c3b4_2* arg0, int arg1);
+extern "C" void PlayMusic_0209c3b4(Struct_0209c3b4_2* manager, int musicIndex);
 extern "C" void func_020c52e8();
 extern "C" void func_0203bd88(void* arg0);
 extern "C" void func_0203bdb0(Struct_0203bdb0* arg0);
@@ -122,8 +121,8 @@ extern "C" void OpenTextWindow_0205d304(void* windowManager, char* text, int, in
 #else
 extern "C" void OpenTextWindow_0205d304(void* windowManager, char* text, int, int, int, int, int, int);
 #endif
-extern "C" void func_0205d0e0(void* arg0, int arg1);
-extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
+extern "C" void UpdateTextWindowManager_0205d0e0(void* windowManager, int ticks);
+extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 extern "C" void func_02042c68(char* arg0);
 extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void func_020432c4(char* arg0);
@@ -134,9 +133,9 @@ extern "C" void func_0205dfa8(void* arg0);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" void func_02043368(char* arg0);
 extern "C" void func_020439b0(char* arg0, int arg1);
-extern "C" char* func_0203bd08(void);
+extern "C" char* GetOAMManager_0203bd08(void);
 extern "C" void func_020c5414(void);
-extern "C" void func_020bbd9c(void);
+extern "C" void UpdateSound_020bbd9c(void);
 extern "C" void MapVRAMBanksToMainBG(int);
 extern "C" void MapVRAMBanksToMainObj(int);
 extern "C" void MapVRAMBanksToTextureImage(int);
@@ -240,7 +239,7 @@ static inline int inline_ov020_0218b710_2(Struct_ov020_0218b710_5* arg0) { retur
     for (;;) {                                   \
         if (!inline_ov020_0218b710_2(self)) break;          \
         func_ov020_0218d644(self);               \
-        func_020c9820();                     \
+        WaitForVBlank_020c9820();                     \
         func_02012efc();          \
         func_020d86d0(0, 1);     \
     }
@@ -249,7 +248,7 @@ static inline int inline_ov020_0218b710_2(Struct_ov020_0218b710_5* arg0) { retur
     for (;;) {                                   \
         if (!inline_ov020_0218b710(self)) break;         \
         func_ov020_0218d854(self);               \
-        func_020c9820();                     \
+        WaitForVBlank_020c9820();                     \
         func_02012efc();          \
         func_020d86d0(0, 1);     \
     }
@@ -257,12 +256,12 @@ static inline int inline_ov020_0218b710_2(Struct_ov020_0218b710_5* arg0) { retur
 // USA: func_ov020_0218b710
 extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_020c9820();
-    func_020c39a0((short*)0x400006c, -16);
-    func_020c39a0((short*)0x400106c, -16);
+    WaitForVBlank_020c9820();
+    WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
     if (func_0201201c(var0) == 1) {
-        func_020c39a0((short*)0x400006c, 16);
-        func_020c39a0((short*)0x400106c, 16);
+        WriteBrightnessRegister_020c39a0((short*)0x400006c, 16);
+        WriteBrightnessRegister_020c39a0((short*)0x400106c, 16);
     }
     func_020c38d4();
     *(volatile unsigned int*)0x4001000 |= 0x10000;
@@ -272,26 +271,26 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         for (;;) {
             if (!func_ov020_0218d898(arg0)) break;
             func_ov020_0218d644(arg0);
-            func_020c9820();
+            WaitForVBlank_020c9820();
             func_020d86d0(0, 1);
         }
     }
 
-    func_020c39a0((short*)0x400006c, -16);
-    func_020c39a0((short*)0x400106c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
     volatile unsigned short* var1 = (volatile unsigned short*)0x4000008;
     var1[0] = var1[0] & ~0x3;
     var1[1] = (var1[1] & ~0x3) | 0x1;
-    func_020c9820();
+    WaitForVBlank_020c9820();
     func_020c38d4();
     *(volatile unsigned int*)0x4001000 |= 0x10000;
-    func_020c39a0((short*)0x400006c, -16);
-    func_020c39a0((short*)0x400106c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
 
     if (func_0200fb9c((char*)var0) != 6) {
         arg0->unknown_470_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x10000), 0x10000);
         arg0->unknown_470_.Reset();
-        func_0205cfd4((Struct_0205cfd4*)arg0->unknown_2b4_);
+        InitTextWindowManager_0205cfd4((TextWindowManager_0205cfd4*)arg0->unknown_2b4_);
         InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_370_);
         InitTextWindow_0204c684(arg0->unknown_390_);
         MapVRAMBanksToMainBG(4);
@@ -329,7 +328,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 arg0->unknown_394_ = arg0->unknown_370_;
                 arg0->unknown_34c_ = arg0->unknown_370_;
                 arg0->unknown_366_ = 1;
-                func_0205cf78((Struct_0205cf78*)arg0->unknown_2b4_, (Struct_0205cf78_2*)arg0->unknown_390_, 1);
+                SetTextWindowArray_0205cf78((TextWindowManager_0205cf78*)arg0->unknown_2b4_, (TextWindow_0205cf78_2*)arg0->unknown_390_, 1);
                 break;
             }
             var3->RemoveAllLocks();
@@ -355,40 +354,40 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         memset(var11, 0, 0x960);
 #endif
         char var12[0x80] = {0};
-        func_02041a90(var11, 4, 0x68);
+        AppendPositionTag_02041a90(var11, 4, 0x68);
         sprintf(var12, data_ov020_0218dbef, data_ov020_0218dbf5, data_ov020_0218dbfc);
         AppendText_02042058(var11, var12);
-        func_02041a90(var11, 4, 0x74);
+        AppendPositionTag_02041a90(var11, 4, 0x74);
         sprintf(var12, data_ov020_0218dc08, 4, 2, 0x7539);
         AppendText_02042058(var11, var12);
-        func_02041a90(var11, 4, 0x80);
+        AppendPositionTag_02041a90(var11, 4, 0x80);
         sprintf(var12, data_ov020_0218dc1b, 0x13242d6);
         AppendText_02042058(var11, var12);
-        func_02041a90(var11, 4, 0x8c);
+        AppendPositionTag_02041a90(var11, 4, 0x8c);
         sprintf(var12, data_ov020_0218dc2b, 2, 1, 0x7533);
         AppendText_02042058(var11, var12);
-        func_02041a90(var11, 4, 0x98);
+        AppendPositionTag_02041a90(var11, 4, 0x98);
         sprintf(var12, data_ov020_0218dc3f, 2, 1, 0x7533);
         AppendText_02042058(var11, var12);
-        func_02041a90(var11, 4, 0xa4);
+        AppendPositionTag_02041a90(var11, 4, 0xa4);
         sprintf(var12, data_ov020_0218dc55, 3, 1, 0x7536);
         AppendText_02042058(var11, var12);
-        func_02041a90(var11, 4, 0xb0);
+        AppendPositionTag_02041a90(var11, 4, 0xb0);
         sprintf(var12, data_ov020_0218dc65, 3, 0, 0x7531);
         AppendText_02042058(var11, var12);
 #if defined(jpn)
-        func_02041a90(var11, 0x4e, 0x28);
+        AppendPositionTag_02041a90(var11, 0x4e, 0x28);
         AppendText_02042058(var11, data_ov020_0218dc72);
-        func_02041a90(var11, 0x4b, 0x36);
+        AppendPositionTag_02041a90(var11, 0x4b, 0x36);
         AppendText_02042058(var11, data_ov020_0218dc82);
-        func_02041a90(var11, 0x4b, 0x50);
+        AppendPositionTag_02041a90(var11, 0x4b, 0x50);
         AppendText_02042058(var11, data_ov020_0218dc91);
 #else
-        func_02041a90(var11, 0, 0x28);
+        AppendPositionTag_02041a90(var11, 0, 0x28);
         func_02042084(var11, data_ov020_0218dc72, 0x100, 0);
-        func_02041a90(var11, 0, 0x36);
+        AppendPositionTag_02041a90(var11, 0, 0x36);
         func_02042084(var11, data_ov020_0218dc82, 0x100, 0);
-        func_02041a90(var11, 0, 0x50);
+        AppendPositionTag_02041a90(var11, 0, 0x50);
         func_02042084(var11, data_ov020_0218dc91, 0x100, 0);
 #endif
 
@@ -397,13 +396,13 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
 #else
         OpenTextWindow_0205d304(arg0->unknown_2b4_, var11, 0, 0, 0, 1, 0, 0);
 #endif
-        func_0205d0e0(arg0->unknown_2b4_, 1);
-        func_0205d0e0(arg0->unknown_2b4_, 1);
-        func_0205d228((Struct_0205d228*)arg0->unknown_2b4_);
-        func_0205d274((TextWindowManager_0205d274*)arg0->unknown_2b4_);
+        UpdateTextWindowManager_0205d0e0(arg0->unknown_2b4_, 1);
+        UpdateTextWindowManager_0205d0e0(arg0->unknown_2b4_, 1);
+        DrawTextWindows_0205d228((TextWindowManager_0205d228*)arg0->unknown_2b4_);
+        FlushTextWindowManagerBGScreenData_0205d274((TextWindowManager_0205d274*)arg0->unknown_2b4_);
         func_0205d2bc((TextWindowManager_0205d2bc*)arg0->unknown_2b4_);
         func_020d86d0(0, 1);
-        func_020c9820();
+        WaitForVBlank_020c9820();
         func_020c38d4();
         volatile unsigned int* var13 = (volatile unsigned int*)0x4000000;
         *var13 = (*var13 & ~0x1f00) | 0x200;
@@ -417,8 +416,8 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 g_touchInput.pressed_ != 0) {
                 break;
             }
-            func_020c9820();
-            func_020c39a0((short*)0x400006c, 0);
+            WaitForVBlank_020c9820();
+            WriteBrightnessRegister_020c39a0((short*)0x400006c, 0);
             func_020d86d0(0, 1);
         }
 
@@ -427,9 +426,9 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         FreeMemory_02012da4(&gMainHeap_02114e20, var14);
     }
 
-    func_020c9820();
-    func_020c39a0((short*)0x400006c, -16);
-    func_020c39a0((short*)0x400106c, -16);
+    WaitForVBlank_020c9820();
+    WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
     volatile unsigned short* var15 = (volatile unsigned short*)0x4000008;
     volatile unsigned short* var16 = (volatile unsigned short*)0x400100a;
     var15[0] = (var15[0] & ~0x3) | 0x1;
@@ -450,7 +449,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
     UnlockStagedTextureVRAMCopying();
 
     arg0->unknown_470_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x10000), 0x10000);
-    func_0207de48(arg0->unknown_244_, 0x4000, 0x400);
+    InitTextureVRAMArea_0207de48(arg0->unknown_244_, 0x4000, 0x400);
     char* var17 = GetMessageWindow_020421a0();
     func_02042c68(var17);
     CloseMessageWindow_02043124(var17);
@@ -477,7 +476,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             for (;;) {
                 if (!inline_ov020_0218b710(arg0)) break;
                 func_ov020_0218d854(arg0);
-                func_020c9820();
+                WaitForVBlank_020c9820();
                 func_020d86d0(0, 1);
             }
             START_FADE(arg0, 0, 1500);
@@ -492,7 +491,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                     }
                 }
                 func_ov020_0218d644(arg0);
-                func_020c9820();
+                WaitForVBlank_020c9820();
                 func_020d86d0(0, 1);
             }
             START_FADE(arg0, -16, 1000);
@@ -513,7 +512,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                     if (g_keyManager.TestKeysPressed(0xc0b) || g_touchInput.pressed_ != 0) break;
                 }
                 func_ov020_0218d644(arg0);
-                func_020c9820();
+                WaitForVBlank_020c9820();
                 func_020d86d0(0, 1);
             }
             func_ov020_0218d800((Struct_ov020_0218b710_2*)(arg0), -16, 1000);
@@ -537,7 +536,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                     func_02012efc();
                 }
                 func_ov020_0218d644(arg0);
-                func_020c9820();
+                WaitForVBlank_020c9820();
                 func_020d86d0(0, 1);
             }
             START_FADE(arg0, -16, 500);
@@ -560,7 +559,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                     }
                 }
                 func_ov020_0218d644(arg0);
-                func_020c9820();
+                WaitForVBlank_020c9820();
                 func_020d86d0(0, 1);
             }
             START_FADE(arg0, -16, 1000);
@@ -581,7 +580,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                     if (g_keyManager.TestKeysPressed(0xf0b) || g_touchInput.pressed_ != 0) break;
                 }
                 func_ov020_0218d644(arg0);
-                func_020c9820();
+                WaitForVBlank_020c9820();
                 func_020d86d0(0, 1);
             }
             START_FADE(arg0, -16, 1000);
@@ -647,7 +646,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         arg0->unknown_c2_ = var25;
         func_0205cc50(arg0->unknown_c_, 0, -4);
 #endif
-        func_0205bcdc((Struct_0205bcdc*)arg0->unknown_2c_, 0);
+        SetTouchMenuCursorIndex_0205bcdc((MenuCursor_0205bcdc*)arg0->unknown_2c_, 0);
         SetMenuCursorIndex_0205bb04(arg0->unknown_7c_, 0);
         MapVRAMBanksToMainObj(2);
 
@@ -663,10 +662,10 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             var26->RemoveAllLocks();
         }
 
-        char* var28 = func_0203bd08();
+        char* var28 = GetOAMManager_0203bd08();
         func_0203bd24(var28);
         func_0205e8ec((Struct_0205e8ec*)gSoundEffectManager_02108760);
-        func_0209c3b4((Struct_0209c3b4_2*)gMusicManager_02109bf4, 2);
+        PlayMusic_0209c3b4((Struct_0209c3b4_2*)gMusicManager_02109bf4, 2);
         while (arg0->unknown_0_ != -1) {
             func_02012efc();
             if (++arg0->unknown_4_ >= 0xffffff) {
@@ -685,12 +684,12 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             }
             func_020d86d0(0, 1);
             func_0203bd88(var28);
-            func_020c9820();
+            WaitForVBlank_020c9820();
             func_0203bdb0((Struct_0203bdb0*)var28);
             func_020bbcb4();
-            func_020bbd9c();
-            func_020c39a0((short*)0x400006c, 0);
-            func_020c39a0((short*)0x400106c, 0);
+            UpdateSound_020bbd9c();
+            WriteBrightnessRegister_020c39a0((short*)0x400006c, 0);
+            WriteBrightnessRegister_020c39a0((short*)0x400106c, 0);
         }
 
         if (func_0200fb9c((char*)var0) == 0) {
@@ -702,6 +701,6 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
 
     func_ov020_0218d8d8((Struct_ov020_0218b710_3*)arg0);
     ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_244_);
-    func_020c39a0((short*)0x400006c, -16);
-    func_020c39a0((short*)0x400106c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
 }

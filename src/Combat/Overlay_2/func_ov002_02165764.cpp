@@ -15,7 +15,7 @@ struct Struct_ov002_02165764 {
 };
 
 extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_0215eadc(void *arg0, int arg1);
@@ -25,8 +25,8 @@ extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
 extern "C" void func_ov002_02161b98(char *arg0);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int func_ov002_0216197c(int arg0, struct TextWindowManager_0205d81c *arg1);
-struct Struct_0205da38;
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+struct TextWindowManager_0205da38;
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" char *func_0200ff94(GameState *arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_0215b720(char *arg0, int arg1);
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x14, 0);
         func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
         int var2  = g_keyManager.TestKeysPressed(0x601);
-        int var3  = func_0205da38((struct Struct_0205da38*)OBJ, 0x14);
+        int var3  = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)OBJ, 0x14);
         int var4 = (var2 | var3) ? 1 : 0;
         if (var4) {
             *(unsigned char *) (arg0 + 0x1b48) = 3;
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
             func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 0);
         }
         int var10  = g_keyManager.TestKeysPressed(0x601);
-        int var11  = func_0205da38((struct Struct_0205da38*)OBJ, 0x14);
+        int var11  = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)OBJ, 0x14);
         int var12 = (var10 | var11) ? 1 : 0;
         if (var12) {
             *(unsigned char *) (arg0 + 0x1c84) = 3;

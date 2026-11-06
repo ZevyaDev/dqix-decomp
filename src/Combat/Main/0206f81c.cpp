@@ -55,8 +55,8 @@ extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_ov017_021b7104(void* arg0, void* arg1);
 
 struct GameState;
-extern "C" void* func_020de824(void* arg0);
-extern "C" void func_020de848(void* arg0);
+extern "C" void* InitItemTable_020de824(void* itemTable);
+extern "C" void ClearItemTable_020de848(void* itemTable);
 extern char* data_020f2a38;
 extern char* data_020f2a30;
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
@@ -65,7 +65,7 @@ extern "C" void func_0207cbe8(char* arg0);
 extern "C" void func_0207d300(void* arg0, short arg1, int arg2, int arg3);
 
 extern "C" int func_02086d88(unsigned char* arg0, int arg1);
-extern "C" unsigned char func_02011494(char* arg0, void* arg1);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
 struct Struct_0203d028_3;
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 struct Struct_0206f81c;
@@ -74,12 +74,12 @@ extern "C" void func_02083738(void* arg0, int arg1);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_ov017_021c3fb4(int arg0, int arg1);
 extern "C" void func_ov017_021c4418(int arg0, signed char arg1);
-extern "C" void func_ov017_0218f5a4(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
 struct Struct_0203d028_4;
 extern "C" void func_ov017_021a3498(struct Struct_0203d028_4* arg0);
-struct Struct_02015438;
-extern "C" int func_02046b24(struct Struct_02015438** arg0);
+struct QueueNode_02015438;
+extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0206461c(void* arg0, int arg1);
@@ -338,8 +338,8 @@ extern "C" ARM void func_0206f81c(void* arg0) {
 #else
                     void* var34 = ((Struct_0206f81c_6*)var12)->inline_0206f81c(1);
 #endif
-                    func_020de824(var32);
-                    func_020de848(var32);
+                    InitItemTable_020de824(var32);
+                    ClearItemTable_020de848(var32);
 #if defined(jpn)
                     func_020e04f8(var32, (void*)var33, data_020f2a38, *(short*)(var14 + 2), true);
 #else
@@ -353,7 +353,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
 #endif
                     Struct_0206f81c_7 var37;
                     var37.unknown_0_.ResetAllocatorPointer();
-                    func_020de824(var37.unknown1_14_);
+                    InitItemTable_020de824(var37.unknown1_14_);
                     func_0207cbe8((char*)&var37);
                     func_0207cbe8((char*)&var37);
                     var37.unknown_2c_ = var32;
@@ -374,7 +374,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                         unsigned char var41[4];
                         int var42[4];
                         int var43 = 0;
-                        unsigned char var44 = func_02011494((char*)var7, var41);
+                        unsigned char var44 = GetOwnPartyOrder_02011494((char*)var7, var41);
                         for (int var45 = 0; var45 < var44; var45++) {
                             struct Struct_0203d028_3* var46 = (Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var7, var41[var45]);
                             if (var46 != NULL) {
@@ -402,11 +402,11 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                             void* var53 = *(void**)((char*)var52 + 0x3000 + REGION_VALUE(0x4f0, 0x700));
                             void* var54 = *(void**)((char*)var52 + 0x3000 + REGION_VALUE(0x4f4, 0x704));
                             var8 = BackgroundLoader::GetInstance();
-                            func_ov017_0218f5a4(var52, var42[var50], 1, 0, 0);
-                            while (func_02046b24((struct Struct_02015438**)var53) == 0x13) {
+                            QueuePartyMemberModelLoad_ov017_0218f5a4(var52, var42[var50], 1, 0, 0);
+                            while (GetQueueHeadType_02046b24((struct QueueNode_02015438**)var53) == 0x13) {
                                 var8->RemoveAllLocks();
                                 func_ov017_021a3498((struct Struct_0203d028_4*)var53);
-                                if (func_02046b24((struct Struct_02015438**)var54) == 0x14) {
+                                if (GetQueueHeadType_02046b24((struct QueueNode_02015438**)var54) == 0x14) {
                                     func_ov017_021a3498((struct Struct_0203d028_4*)var54);
                                 }
                             }
@@ -424,7 +424,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                     if (func_02086d88((unsigned char*)var55, *(short*)(var14 + 4)) != 0) var56 = 1;
                     if (var56 == 0) {
                         unsigned char var57[4];
-                        unsigned char var58 = func_02011494((char*)var11, var57);
+                        unsigned char var58 = GetOwnPartyOrder_02011494((char*)var11, var57);
                         for (int var59 = 0; var59 < var58; var59++) {
                             int var60 = var57[var59];
                             struct Struct_0203d028_3* var61 = (Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var11, var60);
@@ -442,11 +442,11 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                                         void* var65 = *(void**)((char*)var64 + 0x3000 + REGION_VALUE(0x4f0, 0x700));
                                         void* var66 = *(void**)((char*)var64 + 0x3000 + REGION_VALUE(0x4f4, 0x704));
                                         BackgroundLoader* var67 = BackgroundLoader::GetInstance();
-                                        func_ov017_0218f5a4(var64, var60, 1, 0, 0);
-                                        while (func_02046b24((struct Struct_02015438**)var65) == 0x13) {
+                                        QueuePartyMemberModelLoad_ov017_0218f5a4(var64, var60, 1, 0, 0);
+                                        while (GetQueueHeadType_02046b24((struct QueueNode_02015438**)var65) == 0x13) {
                                             var67->RemoveAllLocks();
                                             func_ov017_021a3498((struct Struct_0203d028_4*)var65);
-                                            if (func_02046b24((struct Struct_02015438**)var66) == 0x14) {
+                                            if (GetQueueHeadType_02046b24((struct QueueNode_02015438**)var66) == 0x14) {
                                                 func_ov017_021a3498((struct Struct_0203d028_4*)var66);
                                             }
                                         }
@@ -464,8 +464,8 @@ extern "C" ARM void func_0206f81c(void* arg0) {
 #else
                     void* var70 = ((Struct_0206f81c_6*)var12)->inline_0206f81c(1);
 #endif
-                    func_020de824(var68);
-                    func_020de848(var68);
+                    InitItemTable_020de824(var68);
+                    ClearItemTable_020de848(var68);
 #if defined(jpn)
                     func_020e04f8(var68, (void*)var69, data_020f2a38, *(short*)(var14 + 6), true);
 #else
@@ -479,7 +479,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
 #endif
                     Struct_0206f81c_7 var73;
                     var73.unknown_0_.ResetAllocatorPointer();
-                    func_020de824(var73.unknown1_14_);
+                    InitItemTable_020de824(var73.unknown1_14_);
                     func_0207cbe8((char*)&var73);
                     func_0207cbe8((char*)&var73);
                     var73.unknown_2c_ = var68;

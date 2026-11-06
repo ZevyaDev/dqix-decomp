@@ -57,14 +57,14 @@ struct Struct_ov000_0217df08_9 {
 };
 
 extern "C" Struct_ov000_0217df08_8* GetMessageWindow_020421a0();
-extern "C" Struct_ov000_0217df08_7* func_ov000_02161318(void* arg0, int arg1);
+extern "C" Struct_ov000_0217df08_7* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 extern "C" int func_ov000_02171a60(void*);
-extern "C" void func_020e46c4(void*);
+extern "C" void InitNoun_020e46c4(void*);
 struct Struct_0201099c_3;
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
-extern "C" Struct_ov000_0217df08_6* func_0200fea4(GameState*, int);
+extern "C" Struct_ov000_0217df08_6* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" void func_020e4ce8(Struct_ov000_0217df08*, Struct_ov000_0217df08_6*, int);
 extern "C" int func_ov000_0217ff34(void* arg0, int arg1, int* arg2);
 extern "C" void ClearMessageParams_02046380(Struct_ov000_0217df08_8*);
@@ -166,7 +166,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_5* arg0, int arg1,
                 int var14;
                 Struct_ov000_0217df08_2* var15;
                 for (var11 = 0; var11 < arg2; var11++) {
-                    Struct_ov000_0217df08_3* var16 = (Struct_ov000_0217df08_3*)func_0200fea4(var0, arg0->unknown_1f74_[var11]);
+                    Struct_ov000_0217df08_3* var16 = (Struct_ov000_0217df08_3*)GetEnemyByIndex_0200fea4(var0, arg0->unknown_1f74_[var11]);
                     if (var16 != 0) {
                         var15 = var16->unknown_144_;
                         if (var15 == 0) {
@@ -180,7 +180,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_5* arg0, int arg1,
                 }
                 var10 = 0;
                 for (var12 = 0; var12 < arg2; var12++) {
-                    var13 = (Struct_ov000_0217df08_3*)func_0200fea4(var0, arg0->unknown_1f74_[var12]);
+                    var13 = (Struct_ov000_0217df08_3*)GetEnemyByIndex_0200fea4(var0, arg0->unknown_1f74_[var12]);
                     if (var13 != 0) {
                         int var17 = -1;
                         var14 = func_ov000_0217ff34(arg0, arg0->unknown_1f74_[var12], &var17);
@@ -269,7 +269,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
                 signed char var27 = 0;
                 signed char var28 = 0;
                 for (int var29 = 0; var29 < 4; var29++) {
-                    Struct_ov000_0217df08_7* var30 = func_ov000_02161318(arg0, var29);
+                    Struct_ov000_0217df08_7* var30 = FindPartyMemberPanel_ov000_02161318(arg0, var29);
                     if (var30 != 0) {
                         var27++;
                         if (!func_ov000_02171a60(var30)) {
@@ -282,8 +282,8 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
                 Struct_ov000_0217df08 var31;
                 Struct_ov000_0217df08 var32;
                 Struct_ov000_0217df08 var33;
-                func_020e46c4(&var31);
-                func_020e46c4(&var32);
+                InitNoun_020e46c4(&var31);
+                InitNoun_020e46c4(&var32);
                 const char* var34 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 6);
                 char* var35 = var23->unknown_5c_;
                 char* var36 = var23->unknown_60_;
@@ -296,7 +296,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
                 int var41;
                 Struct_ov000_0217df08_2* var42;
                 for (var38 = 0; var38 < arg2; var38++) {
-                    Struct_ov000_0217df08_6* var43 = func_0200fea4(var22, arg0->unknown_1d3c_[var38]);
+                    Struct_ov000_0217df08_6* var43 = GetEnemyByIndex_0200fea4(var22, arg0->unknown_1d3c_[var38]);
                     if (var43 != 0) {
                         var42 = var43->unknown_144_;
                         if (var42 == 0) {
@@ -311,7 +311,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
                 }
                 var40 = 0;
                 for (var39 = 0; var39 < arg2; var39++) {
-                    Struct_ov000_0217df08_6* var44 = func_0200fea4(var22, arg0->unknown_1d3c_[var39]);
+                    Struct_ov000_0217df08_6* var44 = GetEnemyByIndex_0200fea4(var22, arg0->unknown_1d3c_[var39]);
                     if (var44 != 0) {
                         int var45 = -1;
                         var41 = func_ov000_0217ff34(arg0, arg0->unknown_1d3c_[var39], &var45);

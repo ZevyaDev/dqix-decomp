@@ -50,7 +50,7 @@ struct Struct_ov008_02188730_2 {
 extern "C" {
     void* GetLocalWireless_0202ae18();
     bool IsLocalWirelessGuest_0202c540(void*);
-    int func_0205bb84(void*);
+    int GetMenuCursorIndex_0205bb84(void*);
     void func_0205afb0(void*, void*, int);
     void func_0205af84(void*, void*, int);
     void DrawSprite_0205ac40(void*, void*);
@@ -65,7 +65,7 @@ extern "C" {
                 Struct_ov008_02188730* var3 = &arg0->unknown_734_[var2];
                 var3->unknown_14_ = 0x10000;
                 var3->unknown_18_ = ((var0 % 6) << 16) + 0x8000;
-                int var4 = func_0205bb84(arg0->unknown_750_) - arg0->unknown_b29_;
+                int var4 = GetMenuCursorIndex_0205bb84(arg0->unknown_750_) - arg0->unknown_b29_;
                 int var5 = 1;
                 if (var4 == var1)
                     var5 = 2;

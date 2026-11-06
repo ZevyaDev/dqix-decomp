@@ -2,7 +2,7 @@
 
 extern "C" void func_0203aa80(void* arg0, int arg1);
 extern "C" void func_0205e944(void*, int);
-extern "C" void func_020bbd9c(void);
+extern "C" void UpdateSound_020bbd9c(void);
 
 struct Struct_0205e8ec {
     char unknown_0_[0xb8];
@@ -22,5 +22,5 @@ extern "C" ARM void func_0205e8ec(struct Struct_0205e8ec* arg0) {
         arg0->unknown_c4_ = -1;
     }
     func_0205e944(arg0, 0x7f);
-    func_020bbd9c();
+    UpdateSound_020bbd9c();
 }

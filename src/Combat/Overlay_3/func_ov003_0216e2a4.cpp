@@ -63,8 +63,8 @@ struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct BGLayer_02020cb8_2;
 struct TextWindow_0204c7a8;
-struct Struct_0205cf78;
-struct Struct_0205cf78_2;
+struct TextWindowManager_0205cf78;
+struct TextWindow_0205cf78_2;
 
 extern "C" void SetBGScreenSize_0204b11c(unsigned char *layer, int screenSize);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4 *pac);
@@ -77,10 +77,10 @@ extern "C" void LoadBGBlock_0204b174(Struct_ov003_0216e2a4 *layer, void *block, 
 extern "C" void FillBGScreenRect_0204bc74(Struct_ov003_0216e2a4 *layer, int screenEntry, int x, int y, int width, int height, int palette);
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2 *layer, void *screenData);
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8 *window, SafeAllocator *allocator,
-                                                                           int arg2, unsigned int screenDataSize);
-extern "C" void func_0205cf78(Struct_0205cf78 *arg0,
-                                                                                     Struct_0205cf78_2 *arg1,
-                                                                                     unsigned char arg2);
+                                                                           int characterData, unsigned int screenDataSize);
+extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78 *windowManager,
+                                                                                     TextWindow_0205cf78_2 *textWindows,
+                                                                                     unsigned char textWindowCapacity);
 extern "C" void LoadSpriteSetFile_0205a528(void *spriteSet, void *fileData, unsigned int size, SafeAllocator *allocator);
 extern "C" void LoadStringTable_020dfec0(void *stringTable, SafeAllocator *allocator, void *fileData, unsigned int fileSize);
 extern "C" void func_ov023_021e20f0(void *arg0, SafeAllocator *arg1, void *arg2, unsigned int arg3);
@@ -154,8 +154,8 @@ extern "C" ARM void func_ov003_0216e2a4(Struct_ov003_0216e2a4_4 *arg0) {
             Struct_ov003_0216e2a4_3 *var9 = arg0->unknown_3c_;
             var9->unknown_98_    = arg0->unknown_40_;
             var9->unknown_b2_         = 2;
-            func_0205cf78((Struct_0205cf78 *) arg0->unknown_3c_,
-                                                                                 (Struct_0205cf78_2 *) arg0->unknown_44_, 2);
+            SetTextWindowArray_0205cf78((TextWindowManager_0205cf78 *) arg0->unknown_3c_,
+                                                                                 (TextWindow_0205cf78_2 *) arg0->unknown_44_, 2);
             arg0->unknown_b8_ = 0;
             arg0->unknown_a8_ = arg0->unknown_60_;
             arg0->unknown_b4_ = 0xa;
@@ -258,8 +258,8 @@ extern "C" ARM void func_ov003_0216e2a4(Struct_ov003_0216e2a4_4 *arg0) {
             Struct_ov003_0216e2a4_3 *var36 = arg0->unknown_3c_;
             var36->unknown_98_    = arg0->unknown_40_;
             var36->unknown_b2_         = 2;
-            func_0205cf78((Struct_0205cf78 *) arg0->unknown_3c_,
-                                                                                 (Struct_0205cf78_2 *) arg0->unknown_44_, 2);
+            SetTextWindowArray_0205cf78((TextWindowManager_0205cf78 *) arg0->unknown_3c_,
+                                                                                 (TextWindow_0205cf78_2 *) arg0->unknown_44_, 2);
             arg0->unknown_b8_ = 0;
             arg0->unknown_a8_ = arg0->unknown_60_;
             arg0->unknown_b4_ = 0x16;

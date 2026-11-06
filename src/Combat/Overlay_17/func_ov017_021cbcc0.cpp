@@ -8,9 +8,9 @@ enum { Enum_ov017_021cbcc0_1816 = 0x718 };
 #include "GameState/GameState.h"
 
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* func_ov017_021b8468(void* arg0);
-extern "C" void* func_ov017_021b8470(void* arg0);
-extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov000_0216872c(void* arg0, int arg1, int arg2);
 extern "C" void __clear(void* arg0, int arg1);
@@ -48,9 +48,9 @@ extern "C" ARM void func_ov017_021cbcc0(int arg0, Struct_ov017_021cbcc0_2* arg1,
     void* var8 = *(void**)(arg3 + 0x3000 + Enum_ov017_021cbcc0_1816);
     var5 = (Struct_ov017_021cbcc0*)GetBattleSetup_ov017_021b8478(var8);
     if (!var5) return;
-    var6 = func_ov017_021b8470(var8);
+    var6 = GetBattle_ov017_021b8470(var8);
     if (!var6) return;
-    var7 = func_ov017_021b8468(var8);
+    var7 = GetBattleScene_ov017_021b8468(var8);
     if (!var7) return;
 
     var0 = arg1->unknown_4_;
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov017_021cbcc0(int arg0, Struct_ov017_021cbcc0_2* arg1,
     var4 = arg1->unknown_f_;
     if (var0 != var1) return;
 
-    func_ov000_02160fa8(var7, 0x80000000);
+    SetBattleSceneFlags_ov000_02160fa8(var7, 0x80000000);
     int var9 = GetProtagonistObjectIndex_020100a8(arg2);
     if (!(arg1->unknown_c_ & (1 << var9))) return;
 

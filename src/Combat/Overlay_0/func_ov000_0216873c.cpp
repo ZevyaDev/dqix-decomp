@@ -15,7 +15,7 @@ enum { Enum_ov000_0216873c_5 = 5 };
 
 extern "C" GameResources* GetResources_0200fb8c(int* gameState);
 extern "C" void func_ov000_02160fbc(void* arg0, int arg1);
-extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" int func_ov000_02160fd4(void* arg0, int arg1);
 extern "C" void func_02013750(void* arg0, int arg1);
 extern "C" void func_ov000_02172720(void* arg0);
@@ -26,7 +26,7 @@ struct Struct_020d6d18_2;
 extern "C" void func_020d6f0c(struct Struct_020d6f0c* arg0);
 extern "C" void func_020d6d18(struct Struct_020d6d18_2* arg0);
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" void func_02057f00(void* arg0, int arg1);
+extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
 extern "C" void func_ov017_021a05a8(GameResources* arg0);
 extern "C" void func_ov017_0219b624(GameResources* arg0);
 extern "C" void func_ov017_0219ba0c(GameResources* arg0, int arg1);
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov000_0216873c(struct Struct_ov000_0216873c* arg0) {
     func_ov000_02160fbc(arg0, 0x200);
     func_02013750(arg0->unknown_ec8_, 1);
     func_ov000_02172720(arg0->unknown_3760_);
-    func_ov000_02160fa8(arg0, 0x800);
+    SetBattleSceneFlags_ov000_02160fa8(arg0, 0x800);
     func_02079f9c((char*)GetActionTables_020797dc());
     func_02047230(&arg0->unknown_5600_);
     func_02047230(&arg0->unknown_5688_);
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov000_0216873c(struct Struct_ov000_0216873c* arg0) {
     }
     void* var2 = GetEffectManager_02057924();
     for (int* var3 = data_ov000_0218321c; *var3 >= 0; var3++) {
-        func_02057f00(var2, *var3);
+        RemoveEffectResource_02057f00(var2, *var3);
     }
     arg0->unknown_774c_.Destroy();
     for (int var4 = 0; var4 < Enum_ov000_0216873c_5; var4++) {

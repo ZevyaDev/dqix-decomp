@@ -30,7 +30,7 @@ extern "C" void* GetResources_0200fb8c(int*);
 extern "C" void* GetFontLoader_02094a00();
 
 struct TextWindowManager_0205de24_2;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 
 struct Struct_0205c570;
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);

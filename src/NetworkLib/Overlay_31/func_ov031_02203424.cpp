@@ -14,7 +14,7 @@ extern Struct_ov031_0224c980_8 data_ov031_0224c980;
 
 // USA: func_ov031_02203424
 extern "C" ARM void func_ov031_02203424(void) {
-	void* var0 = *(void**)((char*)data_02111304.activeContext + 0xa4);
+	void* var0 = *(void**)((char*)gContextScheduler_02111304.activeContext + 0xa4);
 	if (var0 == NULL) return;
 	if (*((unsigned char*)var0 + 9) != 0) {
 		func_ov031_0220aa30(var0);

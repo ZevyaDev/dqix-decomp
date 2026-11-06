@@ -19,7 +19,7 @@ struct TextWindowManager_0205d5d0 {
     unsigned char textWindowCapacity_b3_;
 };
 
-extern "C" int func_0204c7e0(unsigned char* arg0);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 extern "C" void func_0205d904(unsigned char* arg0);
 #if defined(jpn)
 extern "C" void func_0204cb20(void* arg0, int arg1, int arg2);
@@ -28,7 +28,7 @@ extern "C" void func_0204cb20(void* arg0, int arg1, int arg2, unsigned char arg3
 #endif
 
 // USA: SetTextWindowText_0205d5d0
-extern "C" ARM int SetTextWindowText_0205d5d0(struct TextWindowManager_0205d5d0* windowManager, int windowId, int text, int arg3
+extern "C" ARM int SetTextWindowText_0205d5d0(struct TextWindowManager_0205d5d0* windowManager, int windowId, int text, int isWrappedAtScreenWidth
 #if !defined(jpn)
 , unsigned char font
 #endif
@@ -42,12 +42,12 @@ extern "C" ARM int SetTextWindowText_0205d5d0(struct TextWindowManager_0205d5d0*
 
     for (i = 0; i < windowManager->textWindowCapacity_b3_; i++) {
         textWindow = (TextWindow_0205d5d0_2*)((char*)windowManager->pTextWindows_9c_ + i * 0xe0);
-        if (!func_0204c7e0((unsigned char*)textWindow)) continue;
+        if (!IsTextWindowOpen_0204c7e0((unsigned char*)textWindow)) continue;
         if (windowId != textWindow->id_c4_) continue;
 #if defined(jpn)
-        func_0204cb20(textWindow, text, arg3);
+        func_0204cb20(textWindow, text, isWrappedAtScreenWidth);
 #else
-        func_0204cb20(textWindow, text, arg3, font);
+        func_0204cb20(textWindow, text, isWrappedAtScreenWidth, font);
 #endif
         func_0205d904((unsigned char*)windowManager);
         return 0;

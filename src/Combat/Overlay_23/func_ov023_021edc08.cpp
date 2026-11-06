@@ -75,7 +75,7 @@ extern "C" void func_ov017_021a23b0(GameResources*, int);
 extern "C" void func_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" void func_ov000_0216d370(void*, int, int, int);
 extern "C" void* GetEffectManager_02057924();
-extern "C" void func_02057f00(void*, int);
+extern "C" void RemoveEffectResource_02057f00(void*, int);
 extern "C" void func_020d6f0c(Struct_020d6f0c*);
 extern "C" void func_020d6d18(Struct_020d6d18_2*);
 extern "C" void func_ov000_021823a4(char*);
@@ -90,7 +90,7 @@ extern "C" void func_ov023_021f52f8(void*, void*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void ClearMessageParams_02046380(Struct_02081870*);
 extern "C" Struct_ov023_021edc08_3* GetZone3D_02012fe4();
-extern "C" void func_020e46c4(void*);
+extern "C" void InitNoun_020e46c4(void*);
 extern "C" void* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" Struct_ov023_021edc08_5 func_ov023_021ed804(Struct_ov023_021edc08_5, void*);
 extern "C" void func_ov023_021edf38(void*, Struct_ov023_021edc08_5*);
@@ -127,7 +127,7 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
     func_ov000_0216d370(arg0->unknown_c18_, 0, 0, 1);
     void* var4 = GetEffectManager_02057924();
     Struct_ov023_021fd870 var5 = data_ov023_021fd870;
-    for (int* var6 = var5.unknown_0_; *var6 >= 0; ++var6) func_02057f00(var4, *var6);
+    for (int* var6 = var5.unknown_0_; *var6 >= 0; ++var6) RemoveEffectResource_02057f00(var4, *var6);
     if (arg0->unknown_ea4_) {
         func_020d6f0c(arg0->unknown_ea4_);
         func_020d6d18((Struct_020d6d18_2*)arg0->unknown_ea4_);
@@ -172,7 +172,7 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
         ClearMessageParams_02046380(var3);
         Struct_ov023_021edc08_4* var13 = (Struct_ov023_021edc08_4*)&GetZone3D_02012fe4()->unknown_23ec_.GetDetailedData()->regular_;
         Struct_ov023_021edc08_5 var14;
-        func_020e46c4(&var14);
+        InitNoun_020e46c4(&var14);
         Struct_ov003_02162f40* var15 = arg0->unknown_2a0_;
         for (int var16 = 0; var16 < 3; ++var16) {
             void* var17 = func_0206f4f0(&var15->unknown_678_, var13->unknown_4_[var16]);

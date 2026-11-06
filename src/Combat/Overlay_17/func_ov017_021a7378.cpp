@@ -109,7 +109,7 @@ extern "C" Struct_ov001_02158ae4_3* func_0200ffd0(Struct_0200ffd0* arg0);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 extern "C" void* func_020d7a50(void);
 extern "C" void func_020d7aa0(Struct_020d7aa0_2* arg0);
-extern "C" void func_020a0cc4(unsigned int arg0);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void func_020ae38c(unsigned char* arg0);
 extern "C" void func_020ae380(unsigned char* arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
@@ -117,7 +117,7 @@ extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* alloc
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
-extern "C" int func_020457e0(Struct_ov000_0217964c_3* arg0);
+extern "C" int GetMessageChoice_020457e0(Struct_ov000_0217964c_3* window);
 extern "C" Struct_ov017_021a7378* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void func_02070378(char* arg0);
 extern "C" void* func_02033fa0(void* arg0);
@@ -157,10 +157,10 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
         func_020d7aa0((Struct_020d7aa0_2*)func_020d7a50());
         arg0->unknown_1c_ = (DISPCNT & 0x1f00) >> 8;
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1100;
-        func_020a0cc4(Enum_ov017_021a7378_5120);
+        ReleaseFileTablesForSpace_020a0cc4(Enum_ov017_021a7378_5120);
         func_020ae38c((unsigned char*)func_0200ffd0((Struct_0200ffd0*)var0));
         FontLoader_0208cb08* var5 = GetFontLoader_02094a00();
-        func_02094b30(var5, 0x205, 0);
+        RequestSingleFontLoad_02094b30(var5, 0x205, 0);
         if (UpdateFontLoad_02094b4c(var5)) {
 #if defined(jpn)
             arg0->unknown_20_ = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov017_021d7bd4, NULL);
@@ -202,7 +202,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
     } else if (arg0->unknown_8_ == 0xc8) {
         if (var2->unknown_9a0_ == 0) {
             func_020a28b0(var1, 2);
-            if (func_020457e0(var2) == 0) {
+            if (GetMessageChoice_020457e0(var2) == 0) {
                 Struct_ov017_021a7378* var9 = GetZoneEntry_0200fd0c(var0);
                 func_02070378((char*)var9);
                 var9->unknown_2_ = 1;
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
     } else if (arg0->unknown_8_ == 0x12c) {
         if (var2->unknown_9a0_ == 0) {
             func_020a28b0(var1, 2);
-            if (func_020457e0(var2) == 0) {
+            if (GetMessageChoice_020457e0(var2) == 0) {
                 void* var10 = func_02033fa0(var4);
                 if (var10 != NULL && func_0204bedc((unsigned short*)var10)) {
                     arg0->unknown_18_ = 0;
@@ -254,7 +254,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
     } else if (arg0->unknown_8_ == 0x12d) {
         if (var2->unknown_9a0_ == 0) {
             func_020a28b0(var1, 2);
-            if (func_020457e0(var2) == 0) {
+            if (GetMessageChoice_020457e0(var2) == 0) {
                 arg0->unknown_18_ = 3;
                 var4->unknown_13c_ = 2;
                 arg0->unknown_8_ = 0x63;

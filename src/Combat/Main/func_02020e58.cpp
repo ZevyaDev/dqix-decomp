@@ -20,16 +20,16 @@ extern "C" void SetBGPriority_0204b5b4(void*, int);
 struct BGLayer_02020cb8_5;
 extern "C" int SetBGScroll_0204b5e8(BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 
-extern "C" void func_0204b2e0(void* arg0, char* arg1);
+extern "C" void FlushBGBlock_0204b2e0(void* layer, char* block);
 
-struct Struct_02020cb8_6;
-extern "C" void func_0204b3a0(Struct_02020cb8_6* arg0, char* arg1);
+struct BGLayer_02020cb8_6;
+extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6* layer, char* block);
 
 struct BGLayer_02020cb8_2;
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
 
-struct Struct_02020cb8_3;
-extern "C" void func_0204afb4(Struct_02020cb8_3* arg0);
+struct BGLayer_02020cb8_3;
+extern "C" void ResetBGLayerData_0204afb4(BGLayer_02020cb8_3* layer);
 
 // USA: func_02020e58
 extern "C" ARM void func_02020e58(void* arg0, Type_02020aec arg1) {
@@ -64,17 +64,17 @@ extern "C" ARM void func_02020e58(void* arg0, Type_02020aec arg1) {
             var5[var9] = GetPacEntryData_020467f0((PacEntry_02020aec*)var1, var9, &var4, &var6[var9]);
         }
         InitBGLayer_0204af64((BGLayer_02020cb8*)&var7);
-        var7.unknown_1c_0_ = 1;
+        var7.isSubScreen_1c_0_ = 1;
         var7.bgIndex_1c_4_ = 0;
         SetBGPriority_0204b5b4(&var7, 2);
         SetBGScreenSize_0204b11c((unsigned char*)&var7, 0);
         SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&var7, 0, 0);
         for (int var10 = 0; var10 < var8; var10++) {
-            func_0204b2e0(&var7, (char*)var5[var10]);
-            func_0204b3a0((Struct_02020cb8_6*)&var7, (char*)var5[var10]);
+            FlushBGBlock_0204b2e0(&var7, (char*)var5[var10]);
+            CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6*)&var7, (char*)var5[var10]);
         }
         LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&var7, 0);
-        func_0204afb4((Struct_02020cb8_3*)&var7);
+        ResetBGLayerData_0204afb4((BGLayer_02020cb8_3*)&var7);
         ((Struct_02020554*)arg0)->unknown_55c_ = 1;
     }
     BackgroundLoader* var11 = BackgroundLoader::GetInstance();

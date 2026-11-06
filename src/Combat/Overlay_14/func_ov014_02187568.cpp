@@ -106,7 +106,7 @@ extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
 extern "C" int func_02097420(Struct_02097420*);
 extern "C" Struct_ov014_02184f78* func_02097418(Struct_02097418*);
-extern "C" void func_0206819c(const char*, char*, int);
+extern "C" void CopyCapitalizedText_0206819c(const char*, char*, int);
 #if defined(jpn)
 extern "C" void func_02080654(Struct_0207f914*, int, int);
 #else
@@ -157,8 +157,8 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
         Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
         FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
         CancelFontLoad_02094ab0(var2);
-        func_02094b40(var2);
-        func_02094b30(var2, 0x6a, 0);
+        ClearLoadedFontSets_02094b40(var2);
+        RequestSingleFontLoad_02094b30(var2, 0x6a, 0);
         arg0->unknown_17b_++;
     }
     else if (arg0->unknown_17b_ == 1)
@@ -200,7 +200,7 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
         for (int var7 = 0; var7 < var5; var7++, var6++)
         {
             char var8[0x80] = {};
-            func_0206819c(var6->unknown_8_, var8, 0);
+            CopyCapitalizedText_0206819c(var6->unknown_8_, var8, 0);
             sprintf((char*)var6->unknown_8_, var8);
         }
 #endif

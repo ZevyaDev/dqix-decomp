@@ -97,7 +97,7 @@ struct Struct_ov003_02174a80_5 {
     unsigned short unknown_1046_;
 };
 
-extern "C" void func_020de848(void*);
+extern "C" void ClearItemTable_020de848(void*);
 extern "C" void func_020dea64(void*, SafeAllocator*, void*, unsigned int, const char*, int);
 struct Struct_02072488;
 extern "C" void func_02072488(Struct_02072488*);
@@ -177,7 +177,7 @@ extern "C" ARM void func_ov003_02174a80(Struct_ov003_02174a80_5* arg0) {
             var1->GetLoadedFileByID(arg0->unknown_fec_, &var4, &var5);
             SafeAllocator* var6 = &arg0->unknown_4_->unknown_0_[0];
             var6->Reset();
-            func_020de848((char*)arg0 + Enum_ov003_02174a80_2164);
+            ClearItemTable_020de848((char*)arg0 + Enum_ov003_02174a80_2164);
             func_020dea64((char*)arg0 + Enum_ov003_02174a80_2164, var6, var4, var5, data_ov003_0217fab4, 9);
             var1->RemoveTask(arg0->unknown_fec_);
             arg0->unknown_fec_ = -1;

@@ -137,14 +137,14 @@ extern "C" int FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int st
 extern "C" int func_020e12ec(char* arg0, const char* arg1);
 #define data_ov006_0215ff5c data_ov006_021612c0
 #endif
-extern "C" void func_020de848(void* arg0);
+extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" int func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void func_ov023_021dcd90(Struct_ov006_02154614_2* arg0, unsigned char arg1);
 extern "C" void func_ov023_021dcae0(Struct_ov006_02154614_2* arg0, int arg1);
 extern "C" void func_ov023_021dced4(Struct_ov006_02154614_2* arg0, unsigned char arg1);
 extern "C" const char** func_020e5294(void* arg0, int arg1);
-extern "C" void func_020e4864(const char* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void ExpandInflectionTags_020e4864(const char* text, char* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void func_ov023_021dceac(char* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4, unsigned char arg5);
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov006_021557c0(Struct_ov006_02154614* arg0) {
             var0->GetLoadedFileByID(arg0->unknown_ad4_, &var8, &var9);
             arg0->unknown_188_->Reset();
             short var10 = arg0->unknown_12b8_;
-            func_020de848(arg0->unknown_1288_);
+            ClearItemTable_020de848(arg0->unknown_1288_);
             func_020de980(arg0->unknown_1288_, arg0->unknown_188_, var8, var9, var10);
             arg0->unknown_ae4_.unknown_774_ &= ~0x1000;
             arg0->unknown_ae4_.unknown_48_ = arg0->unknown_1288_;
@@ -228,7 +228,7 @@ extern "C" ARM void func_ov006_021557c0(Struct_ov006_02154614* arg0) {
         var0->GetLoadedFileByID(arg0->unknown_ad4_, &var18, &var19);
         if (var18 != 0) {
             arg0->unknown_188_->Reset();
-            func_020de848(arg0->unknown_1288_);
+            ClearItemTable_020de848(arg0->unknown_1288_);
             func_020de980(arg0->unknown_1288_, arg0->unknown_188_, var18, var19, arg0->unknown_1b8_->unknown_2_);
             arg0->unknown_1dc_ = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_1288_, arg0->unknown_1b8_->unknown_2_);
         }
@@ -252,17 +252,17 @@ extern "C" ARM void func_ov006_021557c0(Struct_ov006_02154614* arg0) {
             memset(arg0->unknown_0_, 0, sizeof(arg0->unknown_0_));
             const char** var22 = func_020e5294(arg0->unknown_1ac_, arg0->unknown_1b8_->unknown_4_[0]);
             if (var22 != 0) {
-                func_020e4864(*var22, arg0->unknown_0_[0], 1, 0, 0, 0);
+                ExpandInflectionTags_020e4864(*var22, arg0->unknown_0_[0], 1, 0, 0, 0);
                 var21[0] = arg0->unknown_0_[0];
             }
             var22 = func_020e5294(arg0->unknown_1ac_, arg0->unknown_1b8_->unknown_4_[1]);
             if (var22 != 0) {
-                func_020e4864(*var22, arg0->unknown_0_[1], 1, 0, 0, 0);
+                ExpandInflectionTags_020e4864(*var22, arg0->unknown_0_[1], 1, 0, 0, 0);
                 var21[1] = arg0->unknown_0_[1];
             }
             var22 = func_020e5294(arg0->unknown_1ac_, arg0->unknown_1b8_->unknown_4_[2]);
             if (var22 != 0) {
-                func_020e4864(*var22, arg0->unknown_0_[2], 1, 0, 0, 0);
+                ExpandInflectionTags_020e4864(*var22, arg0->unknown_0_[2], 1, 0, 0, 0);
                 var21[2] = arg0->unknown_0_[2];
             }
 #endif

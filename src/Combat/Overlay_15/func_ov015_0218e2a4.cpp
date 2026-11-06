@@ -29,8 +29,8 @@ struct TextureVRAMArea_0203d028;
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
-struct Struct_0203d028_11;
-extern "C" void func_0203dafc(Struct_0203d028_11*);
+struct ObjectArchiveLoadInfo_0203d028_11;
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11*);
 struct Struct_0204a120_2;
 struct Struct_020a3568;
 extern "C" Struct_0204a120_2* func_020100cc(char*);
@@ -82,7 +82,7 @@ extern "C" ARM int func_ov015_0218e2a4(Struct_ov015_0218e2a4_2* arg0, Struct_ov0
     if (!LoadFileIntoMemory(var0, gFileScratchSpace_0211e33c, &var3)) var1 = 0;
     else {
         ObjectArchiveLoadInfo var4;
-        func_0203dafc((Struct_0203d028_11*)&var4);
+        ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var4);
         SafeAllocator* var5 = arg0->unknown_8_;
         unsigned int var6 = var3;
         const void* var7 = gFileScratchSpace_0211e33c;

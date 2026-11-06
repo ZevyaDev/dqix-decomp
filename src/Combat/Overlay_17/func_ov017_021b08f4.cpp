@@ -8,7 +8,7 @@ enum { Enum_ov017_021b08f4_1816 = 0x508, Enum_ov017_021b08f4_1792 = 0x4f0 };
 enum { Enum_ov017_021b08f4_1816 = 0x718, Enum_ov017_021b08f4_1792 = 0x700 };
 #endif
 
-extern "C" void* func_ov017_021b8468(void* arg0);
+extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
 extern "C" void func_ov000_021682ec(void* arg0);
 extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_021b0bc0(void* arg0);
@@ -35,7 +35,7 @@ extern "C" ARM unsigned char func_ov017_021b08f4(Struct_ov017_021b08f4* arg0) {
     void* var2 = *(void**)(var1 + Enum_ov017_021b08f4_1816);
     void* var3 = *(void**)(var1 + Enum_ov017_021b08f4_1792);
     if (*((unsigned char*)var2 + 0x2) != 0) {
-        void* var4 = func_ov017_021b8468(var2);
+        void* var4 = GetBattleScene_ov017_021b8468(var2);
         if (var4 != 0) {
             func_ov000_021682ec(var4);
         }

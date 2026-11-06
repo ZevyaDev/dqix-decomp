@@ -3,9 +3,9 @@
 #include "Combat/ActionDisplay.h"
 #include "GameState/GameState.h"
 
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 extern "C" void *GetGlobalFlags_020d6c00();
-extern "C" int func_02046708(Struct_02012de8 *arg0, unsigned int arg1);
+extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8 *globalFlags, unsigned int mask);
 extern "C" void func_0202756c(void *arg0, int arg1, int arg2, int arg3, unsigned char arg4, unsigned char arg5,
                               unsigned short arg6, unsigned char arg7, int arg8, int arg9);
 
@@ -45,13 +45,13 @@ extern "C" ARM void func_02023d84(void *arg0, Struct_020236dc *arg1, int arg2, i
     GameState *var3                 = GameState::GetInstance();
     GameObject *var4         = var3->GetProtagonist();
     if (!var4) return;
-    Struct_02012de8 *var5 = static_cast<Struct_02012de8 *>(GetGlobalFlags_020d6c00());
+    GlobalFlags_02012de8 *var5 = static_cast<GlobalFlags_02012de8 *>(GetGlobalFlags_020d6c00());
     for (int var6 = 0; var6 < 4; var6++) {
         GameObject *var7 = var3->GetPartyMemberByIndex(var6);
         if (!var7) continue;
         unsigned short var8 = reinterpret_cast<Struct_02023d84_2 *>(var7)->unknown_1b2_;
         if (!var8) continue;
-        if (func_02046708(var5, 0x80000)) continue;
+        if (TestGlobalFlags_02046708(var5, 0x80000)) continue;
         if (var4->obj3D_.GetField06() != var7->obj3D_.GetField06()) continue;
         bool var9 = true;
         for (int var10 = 0; var10 < var2; var10++) {

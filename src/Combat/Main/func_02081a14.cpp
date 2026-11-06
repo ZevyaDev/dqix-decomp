@@ -15,8 +15,8 @@ extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window,
 
 extern "C" void ClearMessageParams_02046380(int window);
 #if defined(jpn)
-extern "C" void func_020465d8(unsigned char*, int, unsigned char);
-extern "C" void func_020465f0(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3);
 extern "C" void func_0204f41c(void* arg0, short arg1, int arg2, void* arg3, int arg4, int arg5, short* arg6, short* arg7);
 #else
@@ -71,8 +71,8 @@ extern "C" ARM void func_02081a14(struct Struct_02081a14* arg0, struct Struct_02
     ClearMessageParams_02046380(var1);
     int var2 = arg2->unknown_10_;
     SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var1, var2, arg2->unknown_0_);
-    func_020465d8((unsigned char*)var1, var2, arg2->unknown_14_0_);
-    func_020465f0((unsigned char*)var1, var2, arg2->unknown_14_2_);
+    SetMessageNumberAlignment_020465d8((unsigned char*)var1, var2, arg2->unknown_14_0_);
+    SetMessageNumberWidth_020465f0((unsigned char*)var1, var2, arg2->unknown_14_2_);
 
     void* var3 = FindStringInList_02072a68(arg0->unknown_0_, arg2->unknown_e_);
     func_02046608(var1, arg2->unknown_13_0_, var3, arg0->unknown_18_);

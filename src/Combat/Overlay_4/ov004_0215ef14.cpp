@@ -585,7 +585,7 @@ extern "C" ARM int func_ov004_0215f74c(int arg0, int arg1) {
 	return GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1) != NULL;
 }
 
-extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
+extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" int func_02052df8(struct Struct_ov004_0215f770_3* arg0, int arg1);
 extern "C" struct Struct_ov004_0215f770_2* FindItemData_020dedd0(struct Struct_0200fb08* itemTable, int itemId);
 extern "C" int GetCamera_020100bc(GameState* gameState);
@@ -593,11 +593,11 @@ extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void func_020a2010(void* arg0);
 extern "C" void func_0202e5c0(struct Struct_ov004_0215f770_4* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_020a27a0(void* arg0);
+extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void func_ov023_021f6bec(void* arg0, int arg1, unsigned int arg2, unsigned int arg3);
 extern "C" void func_ov004_0215ee90(void* arg0);
 extern "C" void func_ov004_0215eb40(void* arg0);
-extern "C" void func_020dc7e8(unsigned int arg0, int arg1);
+extern "C" void LoadPartyMemberColors_020dc7e8(unsigned int destination, int partyMemberIndex);
 
 // USA: func_ov004_0215f770
 extern "C" ARM int func_ov004_0215f770(void* arg0) {
@@ -616,7 +616,7 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
 #else
     data_ov004_021707e8 = 0;
 #endif
-    var5 = func_020114ec((char*)var3, var1);
+    var5 = GetPartyOrder_020114ec((char*)var3, var1);
     GameObject* var6 = GetPartyMemberBaseByIndex_0200ff1c(var3, data_ov004_02170804);
     if (var6 == 0) {
         data_ov004_02170804 = 0;
@@ -719,7 +719,7 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
     var21 = data_ov004_021707f2;
     var15 = data_ov004_02170804;
     var23 = GameState::GetInstance();
-    var25 = func_020114ec((char*)var23, var2);
+    var25 = GetPartyOrder_020114ec((char*)var23, var2);
     var26 = var15;
     for (var20 = 0; var20 < var25; var20++) {
         var22 = GetPartyMemberBaseByIndex_0200ff1c(var23, var26);
@@ -781,13 +781,13 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
 
     data_ov004_021707f3 = 0;
     data_ov004_021707ee = data_ov004_021707f1;
-    func_020dc7e8(2, (signed char)data_ov004_02170804);
-    func_020dc7e8(5, (signed char)data_ov004_02170804);
+    LoadPartyMemberColors_020dc7e8(2, (signed char)data_ov004_02170804);
+    LoadPartyMemberColors_020dc7e8(5, (signed char)data_ov004_02170804);
     data_ov004_021707f8 = GetCamera_020100bc(var3);
     func_020a2010(data_ov004_021708c8);
     func_0202e5c0((struct Struct_ov004_0215f770_4*)data_ov004_021708c8, 0xb666, 0xa800, 0x42ccc);
     func_0202e5c8((unsigned char*)data_ov004_021708c8, 0xb666, 0xa800, 0);
-    func_020a27a0(data_ov004_021708c8);
+    DisableCameraFollow_020a27a0(data_ov004_021708c8);
     SetCamera_020100c4(var3, (int)data_ov004_021708c8);
     func_ov004_0215e47c(arg0, 9)->unknown_c_ |= 0x80;
     var0 = 0x18c6;

@@ -23,8 +23,8 @@ extern "C" int func_ov024_021e05e4(struct Struct_ov024_021e04e0* arg0);
 extern "C" void func_020488cc(unsigned char* arg0, int arg1);
 extern "C" void func_02088e64(unsigned char* arg0);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
-struct Struct_02048150;
-extern "C" int func_02086ef0(struct Struct_02048150* arg0, int arg1);
+struct Party_02048150;
+extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex);
 extern "C" void func_ov000_0215a8d4(unsigned char* arg0, int arg1);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, unsigned long long arg4, int arg5);
 
@@ -44,7 +44,7 @@ extern "C" ARM void* func_ov024_021e07b0(struct Struct_ov024_021e07b0_3* arg0, u
         func_02088e64((unsigned char*)var0->currentStats_);
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, 0x164);
         var3 = 1;
-        if (func_02086ef0((struct Struct_02048150*)GetParty_02010828(GameState::GetInstance()), arg1) && arg3->unknown_4_0_ == 0xc6) {
+        if (IsInParty_02086ef0((struct Party_02048150*)GetParty_02010828(GameState::GetInstance()), arg1) && arg3->unknown_4_0_ == 0xc6) {
             func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, var3);
         }
     }

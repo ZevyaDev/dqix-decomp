@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_020a1940(int);
+extern "C" void LoadOverlay_020a1940(int);
 struct Struct_02109da4 {
     unsigned char unknown_0_;
     unsigned char unknown_1_;
@@ -18,5 +18,5 @@ extern "C" ARM void func_020a1f4c(int arg0) {
     data_02109da4.unknown_1_--;
     if (arg0 == 0 || inline_020a1f4c(&data_02109da4) == 0) return;
     signed char var0 = data_02109da4.unknown_2_[data_02109da4.unknown_1_ - 1];
-    func_020a1940(data_020f1977[var0]);
+    LoadOverlay_020a1940(data_020f1977[var0]);
 }

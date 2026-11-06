@@ -7,7 +7,7 @@
 #endif
 #include "Filesystem/BackgroundLoader.h"
 
-extern "C" void* func_0203bd08();
+extern "C" void* GetOAMManager_0203bd08();
 extern "C" unsigned int func_0203be40(void* arg0);
 
 struct Struct_ov006_02156e54_2 {
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov006_02156e54(Struct_ov006_02154614* arg0) {
         var1->unknown_70_ = -1;
         func_ov006_0215479c(var1);
         var1->unknown_0_.unknown_5e_ = 0;
-        var1->unknown_0_.unknown_14_ = func_0203be40(func_0203bd08()) + (var2 << 6) + 0x100;
+        var1->unknown_0_.unknown_14_ = func_0203be40(GetOAMManager_0203bd08()) + (var2 << 6) + 0x100;
         var1->unknown_0_.unknown_38_ = var2 * 0x120 + 0x240;
         var1->unknown_0_.unknown_3c_ = (var2 + LOW_REGION(8, 10)) & 0xf;
         var1->unknown_0_.unknown_40_ = 0;

@@ -2,12 +2,12 @@
 #include "GameState/GameState.h"
 
 extern "C" void* GetZone3D_02012fe4(void);
-struct Struct_020fdd44;
-extern "C" struct Struct_020fdd44* func_02027ca4(void);
-extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1);
+struct ActiveZone_020fdd44;
+extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
+extern "C" struct ActiveZone_020fdd44* FindActiveZone_02028bd0(struct ActiveZone_020fdd44* zones, int zoneId);
 
-struct Struct_020fdd44 {
-    unsigned short unknown_0_;
+struct ActiveZone_020fdd44 {
+    unsigned short zoneId_0_;
     unsigned short unknown_2_0_ : 2;
 };
 
@@ -19,7 +19,7 @@ struct Struct_ov017_021d446c {
 
 struct Struct_ov017_021d446c_2 {
     int unknown_0_;
-    Struct_020fdd44* unknown_4_;
+    ActiveZone_020fdd44* unknown_4_;
     GameObject* unknown_8_;
 };
 
@@ -27,13 +27,13 @@ struct Struct_ov017_021d446c_2 {
 extern "C" ARM int func_ov017_021d446c(Struct_ov017_021d446c* arg0, Struct_ov017_021d446c_2* arg1, int arg2) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetZone3D_02012fe4();
-    struct Struct_020fdd44* var2 = func_02027ca4();
+    struct ActiveZone_020fdd44* var2 = GetActiveZones_02027ca4();
 
     if (arg0->unknown_0_ != *(unsigned short*)var1 && arg2 != 1) {
         return 0;
     }
 
-    struct Struct_020fdd44* var3 = func_02028bd0(var2, arg0->unknown_0_);
+    struct ActiveZone_020fdd44* var3 = FindActiveZone_02028bd0(var2, arg0->unknown_0_);
     arg1->unknown_4_ = var3;
     if (var3 == 0) return 0;
 

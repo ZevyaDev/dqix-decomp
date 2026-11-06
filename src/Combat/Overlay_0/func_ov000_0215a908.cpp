@@ -23,10 +23,10 @@ struct Struct_ov000_0215a908_2 { char unknown_0_[0x2e]; short unknown_2e_; };
 struct Struct_ov000_0215a908_3 { char unknown_0_[8]; short unknown_8_; };
 struct Struct_ov000_0215a908_4 { char unknown_0_[0x144]; Struct_ov000_0215a908_3* unknown_144_; char unknown_148_[0x39]; unsigned char unknown_181_; unsigned char unknown_182_; };
 struct Struct_02010088;
-struct Struct_02048150;
-extern "C" GameObject* func_0200fea4(GameState*, int);
+struct Party_02048150;
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" int func_ov000_02155154(GameObject*);
-extern "C" int func_02010088(Struct_02010088*);
+extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov000_02153c0c(GameObject*);
 extern "C" void func_02088e64(unsigned char*);
 extern "C" void func_ov000_02160030(void*);
@@ -36,7 +36,7 @@ extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 extern "C" void func_ov000_0215ffc4(void*, void*, int);
 extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*, Struct_ov000_0215767c_6*);
 extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*, Struct_ov000_0215767c_4*);
-extern "C" int func_02086ef0(Struct_02048150*, int);
+extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void func_ov000_0215a8d4(unsigned char*, int);
 static inline short inline_ov000_0215a908(GameObject* arg0) { return ((Struct_ov000_0215a908_2*)arg0->currentStats_)->unknown_2e_; }
 static inline short inline_ov000_0215a908_2(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->currentStats_->primaryStats.currHP; }
@@ -48,11 +48,11 @@ extern "C" ARM void func_ov000_0215a908(Struct_ov000_0215a908* arg0, int arg1) {
     if (arg0->unknown_8e0b_ >= 20 || arg0->unknown_8e0c_ >= 20 || arg0->unknown_8e0d_ >= 20 || arg0->unknown_8e0e_ >= 20) return;
     Struct_ov000_0215767c_6* var0;
     Struct_ov000_0215767c_4* var1;
-    GameObject* var2 = func_0200fea4(GameState::GetInstance(), arg1);
+    GameObject* var2 = GetEnemyByIndex_0200fea4(GameState::GetInstance(), arg1);
     if (!var2 || !func_ov000_02155154(var2)) return;
     short var3 = inline_ov000_0215a908(var2);
     GameObject* var4 = GameState::GetInstance()->GetCombatantByIndex(var3);
-    if (!var4 || func_02010088((Struct_02010088*)var4) || func_ov000_02153c0c(var4)) {
+    if (!var4 || IsDead_02010088((Struct_02010088*)var4) || func_ov000_02153c0c(var4)) {
         func_02088e64((unsigned char*)var2->currentStats_);
         ((Struct_ov000_0215a908_4*)var2)->unknown_182_ = 0;
         return;
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov000_0215a908(Struct_ov000_0215a908* arg0, int arg1) {
     func_ov000_02160068(var5, var0);
     func_ov000_021600cc(inline_ov000_0215a908_4(var5), var1);
     Struct_ov000_0215a908_3* var7 = ((Struct_ov000_0215a908_4*)var2)->unknown_144_;
-    if (func_02086ef0((Struct_02048150*)GetParty_02010828(GameState::GetInstance()), var1->unknown_c_) && var7 && var7->unknown_8_ == 0x143) func_ov000_0215a8d4((unsigned char*)arg0, 9);
+    if (IsInParty_02086ef0((Party_02048150*)GetParty_02010828(GameState::GetInstance()), var1->unknown_c_) && var7 && var7->unknown_8_ == 0x143) func_ov000_0215a8d4((unsigned char*)arg0, 9);
     arg0->unknown_8e0b_++;
     arg0->unknown_8e0c_++;
     arg0->unknown_8e0d_++;

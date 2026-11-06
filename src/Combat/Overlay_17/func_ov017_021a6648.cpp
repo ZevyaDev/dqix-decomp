@@ -12,7 +12,7 @@ struct Struct_ov017_021a6648 {
 };
 struct GlobalFlags_02038598_4;
 struct Struct_020d7aa0_2;
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 struct Struct_ov017_021a6648_2 {
     char unknown_0_; unsigned char unknown_1_; char unknown_2_[6];
     unsigned char unknown_8_, unknown_9_, unknown_a_, unknown_b_, unknown_c_, unknown_d_; short unknown_e_;
@@ -30,7 +30,7 @@ extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
-extern "C" void func_020a0cc4(unsigned int);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void func_020bb700(int*);
@@ -38,8 +38,8 @@ extern "C" void func_020bb910(int*);
 extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" int func_02057e6c(void*, int, SafeAllocator*, void*, unsigned int, TextureVRAMArea_0203d028*);
 extern "C" void func_02057fb4(void*, int, void*);
-extern "C" void func_0205ebc0(void*, int, int);
-extern "C" void func_0205ebfc(void*, int, int);
+extern "C" void LoadExtraSoundSet_0205ebc0(void*, int, int);
+extern "C" void PlayExtraSoundEffect_0205ebfc(void*, int, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" void func_0205ebec(void*);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
@@ -47,8 +47,8 @@ extern "C" void func_020dc2d0(int);
 extern "C" void func_ov017_0219593c();
 extern "C" Struct_020d7aa0_2* func_020d7a50();
 extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
-extern "C" int func_02046b60(Struct_02038598_5*, int);
-extern "C" void func_02046a8c(Struct_02038598_5*, void*);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
+extern "C" void func_02046a8c(Queue_02038598_5*, void*);
 extern "C" void func_ov017_021a6b30(Struct_ov017_021a6648_2*);
 extern const char* data_ov017_021d771c[3];
 extern AllocatorUnion gMainHeap_02114e20;
@@ -59,7 +59,7 @@ extern char gSoundEffectManager_02108760;
 extern unsigned char data_ov017_021d6aa9[9], data_ov017_021d6aaa[9];
 
 // USA: func_ov017_021a6648
-extern "C" ARM void func_ov017_021a6648(Struct_ov017_021a6648_2* arg0, Struct_02038598_5* arg1) {
+extern "C" ARM void func_ov017_021a6648(Struct_ov017_021a6648_2* arg0, Queue_02038598_5* arg1) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetUnknownGameObject();
     GameResources* var2 = GetGameResources();
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov017_021a6648(Struct_ov017_021a6648_2* arg0, Struct_02
         if (!IsQueueEmpty_02046b08((void**)var2->unknown_ptr_array_36fc[1])) return;
         SetFlags00(var2, 0x10);
         SetGlobalFlags_020466e4(var5, 1);
-        func_020a0cc4(0x7000);
+        ReleaseFileTablesForSpace_020a0cc4(0x7000);
         arg0->unknown_e_ = var3->QueueLoadFile(data_ov017_021d771c[arg0->unknown_c_], 0);
         arg0->unknown_8_++;
     } else if (arg0->unknown_8_ == 1) {
@@ -121,11 +121,11 @@ extern "C" ARM void func_ov017_021a6648(Struct_ov017_021a6648_2* arg0, Struct_02
         var12.unknown_10_ = 1;
         func_02057fb4(var4, 0xc, &var12);
         if (arg0->unknown_c_ == 2) {
-            func_0205ebc0(&gSoundEffectManager_02108760, 0xa3, 0xa3);
-            func_0205ebfc(&gSoundEffectManager_02108760, 5, 0);
+            LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0xa3, 0xa3);
+            PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, 5, 0);
         } else {
-            func_0205ebc0(&gSoundEffectManager_02108760, 0xb2, 0xb2);
-            func_0205ebfc(&gSoundEffectManager_02108760, 2, 0);
+            LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0xb2, 0xb2);
+            PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, 2, 0);
         }
         arg0->unknown_9_ = 0;
         arg0->unknown_8_++;
@@ -146,11 +146,11 @@ extern "C" ARM void func_ov017_021a6648(Struct_ov017_021a6648_2* arg0, Struct_02
             func_ov017_0219593c();
             func_020d7aa0(func_020d7a50());
         }
-        if (!arg0->unknown_b_ && func_02046b60(arg1, 0xa)) {
+        if (!arg0->unknown_b_ && IsTypeInQueue_02046b60(arg1, 0xa)) {
             func_02046a8c(arg1, var2->unknown_ptr_3718);
             ClearFlags00(var2, 0x800);
         }
-        if (!arg0->unknown_b_ && func_02046b60(arg1, 0x40)) func_02046a8c(arg1, var2->unknown_ptr_array_3afc[0x27]);
+        if (!arg0->unknown_b_ && IsTypeInQueue_02046b60(arg1, 0x40)) func_02046a8c(arg1, var2->unknown_ptr_array_3afc[0x27]);
         func_ov017_021a6b30(arg0);
         arg0->unknown_1_ = 1;
     }

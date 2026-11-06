@@ -66,7 +66,7 @@ extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
 extern "C" void func_0205b234(struct Struct_020200c0_4* arg0, short arg1, short arg2, const char* arg3, int arg4, int arg5);
 extern "C" int func_ov017_021bdbcc(GameResources* arg0);
 extern "C" unsigned short func_0202053c(void* arg0);
-extern "C" void func_020c9820(void);
+extern "C" void WaitForVBlank_020c9820(void);
 extern "C" void DC_FlushRange(const void* arg0, unsigned int arg1);
 extern "C" void LoadToSubObjVRAM(const void* src, unsigned int offset, unsigned int size);
 
@@ -145,7 +145,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
             func_0205c9ac(&var7, 0x28, 0x2d, func_0202053c(var8), 8, 0xf, 2, 1);
         }
     }
-    func_020c9820();
+    WaitForVBlank_020c9820();
     DC_FlushRange(var5, 0x800);
     LoadToSubObjVRAM(var5, var3, 0x800);
 }
@@ -161,7 +161,7 @@ extern "C" void func_0205b674(struct Struct_020200c0_2* arg0, short arg1, int ar
                                          unsigned char arg4, unsigned char arg5, unsigned char arg6, unsigned char arg7);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
-extern "C" void func_020e46c4(void* arg0);
+extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void func_02046608(Struct_020200c0_6* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
 extern char data_020ef580[];
@@ -246,7 +246,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
     }
     if (var11 >= 0) {
         Struct_020200c0_5 var23;
-        func_020e46c4(&var23);
+        InitNoun_020e46c4(&var23);
         InitPartyMemberNoun_020e4bf4(&var23, arg0);
         const char* var24 = GetStandardString_020e51cc(var11);
         char var25[0x80];
@@ -255,7 +255,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
         func_02046608(var4, 10, var24, var25, 0x100, 0, 0);
         func_0205b234(&var7, (short)((0x40 - func_020420e8(var25, 0)) >> 1), 0x2b, var25, var10, 0);
     }
-    func_020c9820();
+    WaitForVBlank_020c9820();
     DC_FlushRange(var5, 0x800);
     LoadToSubObjVRAM(var5, var3, 0x800);
 }

@@ -101,7 +101,7 @@ extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" Struct_0204bd7c* func_02033fa0(void*);
 extern "C" int func_0204bd7c(Struct_0204bd7c*);
 extern "C" int IsLocalWirelessGuest_0202c540(int*);
-extern "C" int func_0201079c(char*);
+extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" int func_020107d0(char*);
 extern "C" int func_02010804(char*);
 TimeOfDay ConvertToTimeOfDay(float);
@@ -204,7 +204,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     if (arg0->unknown_50_ & 0x80) arg0->unknown_c_.unknown_e_ = func_0204bd7c(func_02033fa0(var4));
     if (arg0->unknown_c_.unknown_e_ != var5->currentZoneID_) var15 = 1;
     if (IsLocalWirelessGuest_0202c540(var3) && arg0->unknown_178_0_) {
-        if (arg0->unknown_179_ != func_0201079c((char*)var0) || arg0->unknown_17a_ != func_020107d0((char*)var0) || arg0->unknown_17b_ != func_02010804((char*)var0) || ConvertToTimeOfDay(arg0->unknown_17c_) != var0->GetTimeOfDay()) {
+        if (arg0->unknown_179_ != GetStoryChapter_0201079c((char*)var0) || arg0->unknown_17a_ != func_020107d0((char*)var0) || arg0->unknown_17b_ != func_02010804((char*)var0) || ConvertToTimeOfDay(arg0->unknown_17c_) != var0->GetTimeOfDay()) {
             func_02010774((char*)var0, arg0->unknown_179_);
             func_020107a8((char*)var0, arg0->unknown_17a_);
             func_020107dc((char*)var0, arg0->unknown_17b_);
@@ -218,7 +218,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
         }
     }
     int var21 = func_020107d0((char*)var0);
-    int var22 = func_0201079c((char*)var0);
+    int var22 = GetStoryChapter_0201079c((char*)var0);
     int var23 = var22 * 1000 + var21;
     unsigned int var24 = arg0->unknown_c_.unknown_0_;
     unsigned int var25 = arg0->unknown_c_.unknown_1_;
@@ -230,7 +230,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
             if (IsLocalWirelessGuest_0202c540(var3)) { var17 = var16 = 1; }
         }
         if (IsNotLocalWirelessGuest_0202c508(var3)) {
-            int var27 = func_0201079c((char*)var0);
+            int var27 = GetStoryChapter_0201079c((char*)var0);
             int var28 = func_020107d0((char*)var0);
             int var29 = func_02010804((char*)var0);
             func_ov017_021d0924(2, var19->unknown_332_, 0, (unsigned short)((var27 << 10) | (var28 << 5) | var29));

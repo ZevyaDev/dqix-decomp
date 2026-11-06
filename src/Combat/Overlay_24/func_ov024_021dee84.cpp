@@ -9,7 +9,7 @@ extern "C" int func_02087c84(struct Struct_02087c84* arg0, int arg1);
 void UpdateCombatantMagicalMending(int unused, int combatantId);
 struct Struct_ov024_021dee84_4;
 extern "C" unsigned short func_ov024_021e9990(Struct_ov024_021dee84_4* arg0, int arg1, int arg2, unsigned char arg3, signed char arg4);
-extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
+extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov024_021e8bf0(void* arg0, void* arg1, unsigned short* arg2);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
@@ -48,7 +48,7 @@ extern "C" ARM void* func_ov024_021dee84(struct Struct_ov024_021dee84_2* arg0, i
 	if (var1) {
 		var5 = func_ov024_021e9990((struct Struct_ov024_021dee84_4*)arg0, arg2, (int)arg3, (unsigned char)var3, var2);
 	} else {
-		var5 = func_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
+		var5 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
 	}
 	void* var6 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
 	if (!var6) return 0;

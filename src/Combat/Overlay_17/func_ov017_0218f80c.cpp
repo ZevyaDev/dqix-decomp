@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int _ZN7Model3D7GetTEX0Ev(void* arg0);
-extern "C" void func_020c9820(void);
+extern "C" void WaitForVBlank_020c9820(void);
 void StageTexFilePaletteData(NSBXXTex volatile*, bool);
 struct NSBXXTex;
 void StageTexFileImageData(NSBXXTex volatile*, bool);
@@ -16,7 +16,7 @@ extern struct Struct_ov017_021d61fc data_ov017_021d61fc;
 extern "C" ARM void func_ov017_0218f80c(void* arg0, int arg1) {
     volatile unsigned short* var0 = (volatile unsigned short*)0x4000004;
     if ((*var0 & 1) == 0) {
-        func_020c9820();
+        WaitForVBlank_020c9820();
     }
 
     GameState* var1 = GameState::GetInstance();

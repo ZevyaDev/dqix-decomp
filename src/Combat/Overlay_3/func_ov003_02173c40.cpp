@@ -81,8 +81,8 @@ enum { Enum_ov003_02173c40_836 = 0x344 };
 struct Struct_020a64bc;
 extern "C" void func_020a64bc(Struct_020a64bc* arg0);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
-struct Struct_020727d8;
-extern "C" void func_020727d8(Struct_020727d8* arg0);
+struct StringList_020727d8;
+extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 struct Struct_ov003_02173c40;
 extern "C" void func_ov003_0217bcb8(Struct_ov003_02173c40* arg0);
 
@@ -141,9 +141,9 @@ extern "C" ARM void func_ov003_02173c40(char* arg0) {
 
     *(int*)(arg0 + Enum_ov003_02173c40_448) = 0;
     *(int*)(arg0 + Enum_ov003_02173c40_452) = 0;
-    func_020727d8((Struct_020727d8*)(arg0 + Enum_ov003_02173c40_456));
-    func_020727d8((Struct_020727d8*)(arg0 + Enum_ov003_02173c40_464));
-    func_020727d8((Struct_020727d8*)(arg0 + Enum_ov003_02173c40_472));
+    ResetStringList_020727d8((StringList_020727d8*)(arg0 + Enum_ov003_02173c40_456));
+    ResetStringList_020727d8((StringList_020727d8*)(arg0 + Enum_ov003_02173c40_464));
+    ResetStringList_020727d8((StringList_020727d8*)(arg0 + Enum_ov003_02173c40_472));
 
     func_ov003_0217bcb8((Struct_ov003_02173c40*)(arg0 + Enum_ov003_02173c40_480));
 

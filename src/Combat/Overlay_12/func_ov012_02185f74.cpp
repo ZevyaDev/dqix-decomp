@@ -97,8 +97,8 @@ struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct BGLayer_02020cb8_2;
 struct TextWindow_0204c7a8;
-struct Struct_0205cf78;
-struct Struct_0205cf78_2;
+struct TextWindowManager_0205cf78;
+struct TextWindow_0205cf78_2;
 
 extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
 extern "C" void SetBGPriority_0204b5b4(Struct_ov012_02185f74_3* layer, int priority);
@@ -109,8 +109,8 @@ extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, voi
 extern "C" void LoadBGBlock_0204b174(Struct_ov012_02185f74_3* layer, void* block, SafeAllocator* allocator, unsigned int arg3);
 extern "C" void FillBGScreenRect_0204bc74(Struct_ov012_02185f74_3* layer, int screenEntry, int x, int y, int width, int height, int palette);
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
-extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
-extern "C" void func_0205cf78(Struct_0205cf78* arg0, Struct_0205cf78_2* arg1, unsigned char arg2);
+extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
+extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78* windowManager, TextWindow_0205cf78_2* textWindows, unsigned char textWindowCapacity);
 
 extern "C" const unsigned char data_ov012_0218af75[3];
 extern "C" const unsigned char data_ov012_0218af78[3];
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov012_02185f74(Struct_ov012_02185f74_2* arg0)
     }
     arg0->unknown_ac_.unknown_98_ = arg0->unknown_168_;
     arg0->unknown_ac_.unknown_b2_ = 3;
-    func_0205cf78((Struct_0205cf78*)&arg0->unknown_ac_, (Struct_0205cf78_2*)arg0->unknown_1c8_, 13);
+    SetTextWindowArray_0205cf78((TextWindowManager_0205cf78*)&arg0->unknown_ac_, (TextWindow_0205cf78_2*)arg0->unknown_1c8_, 13);
     var2->RemoveTask(*(int*)((char*)arg0 + Enum_ov012_02185f74_5004));
     *(int*)((char*)arg0 + Enum_ov012_02185f74_5004) = -1;
 }

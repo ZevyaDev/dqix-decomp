@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-// USA: func_020de824
-extern "C" ARM void* func_020de824(void* arg0) {
-    memset(arg0, 0, 0x14);
-    *((unsigned char*)arg0 + 0x14) = 0;
-    return arg0;
+// USA: InitItemTable_020de824
+extern "C" ARM void* InitItemTable_020de824(void* itemTable) {
+    memset(itemTable, 0, 0x14);
+    *((unsigned char*)itemTable + 0x14) = 0;
+    return itemTable;
 }

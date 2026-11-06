@@ -42,7 +42,7 @@ extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, u
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void func_020a35cc(unsigned char* arg0, unsigned char arg1);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void HaltForever_020c9be0(void);
 extern "C" void func_ov017_021c3f70(unsigned short arg0);
 
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov017_021b848c(Struct_ov017_021b848c_2* arg0, signed ch
         func_020a35cc(arg0->unknown_1c_, 3);
     }
     arg0->unknown_46_ = arg2;
-    if (func_020a35e0(arg0->unknown_1c_, arg0->unknown_46_) == 0) HaltForever_020c9be0();
+    if (IsPartyMemberInBattle_020a35e0(arg0->unknown_1c_, arg0->unknown_46_) == 0) HaltForever_020c9be0();
     if (arg3 == 0) GetProtagonistObjectIndex_020100a8(var0);
     arg0->unknown_48_ = arg3;
     arg0->unknown_1e_ = arg4;

@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct Struct_020fdd44;
-extern struct Struct_020fdd44 data_020fdd44;
+struct ActiveZone_020fdd44;
+extern struct ActiveZone_020fdd44 data_020fdd44;
 
-// USA: func_02027ca4
-extern "C" ARM struct Struct_020fdd44* func_02027ca4(void) {
+// USA: GetActiveZones_02027ca4
+extern "C" ARM struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void) {
     return &data_020fdd44;
 }

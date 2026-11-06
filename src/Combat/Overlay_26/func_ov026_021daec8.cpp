@@ -21,11 +21,11 @@ struct Struct_02049b54_3 {
 };
 
 extern "C" int GetResources_0200fb8c(int* gameState);
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" Struct_02049b54_3 func_02049b54(Struct_02049b54_2* arg0);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834* object, int angle);
 extern "C" void func_02049bac(unsigned char* arg0, int* arg1);
-extern "C" int func_02010088(Struct_02010088* arg0);
+extern "C" int IsDead_02010088(Struct_02010088* object);
 
 extern "C" {
 void __clear(void* arg0, int arg1);
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov026_021daec8(Struct_ov000_02161e30* arg0, Struct_ov02
     int var6 = var4.z;
 
     for (int var7 = 0; var7 < var2; var7++) {
-        GameObject* var8 = func_0200fea4(var1, var0[var7]);
+        GameObject* var8 = GetEnemyByIndex_0200fea4(var1, var0[var7]);
         if (var8 != NULL) {
             Vector3fix var9;
             __clear(&var9, sizeof(var9));
@@ -74,8 +74,8 @@ extern "C" ARM void func_ov026_021daec8(Struct_ov000_02161e30* arg0, Struct_ov02
     if (arg2 && arg0->unknown_8e20_ > 0) {
         func_0203232c(var5, var3);
         for (int var14 = 0; var14 < var3; var14++) {
-            GameObject* var15 = func_0200fea4(var1, var5[var14]);
-            if (var15 != NULL && !var15->obj3D_.IsTransitioningAnimations() && !func_02010088((Struct_02010088*)var15)) {
+            GameObject* var15 = GetEnemyByIndex_0200fea4(var1, var5[var14]);
+            if (var15 != NULL && !var15->obj3D_.IsTransitioningAnimations() && !IsDead_02010088((Struct_02010088*)var15)) {
                 var15->obj3D_.SetNormalizedAnimationTime(0x1000 / var3 * var14);
                 var15->obj3D_.AdvanceAnimations();
             }

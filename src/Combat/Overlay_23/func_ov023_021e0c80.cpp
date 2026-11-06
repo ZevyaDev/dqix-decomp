@@ -2,7 +2,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
 
-extern "C" int func_02005a94(signed char* arg0);
+extern "C" int ParseDecimal_02005a94(signed char* string);
 extern "C" void func_ov023_021e0f44(void* arg0);
 
 struct Struct_020534ac;
@@ -52,7 +52,7 @@ extern "C" ARM int func_ov023_021e0c80(void* arg0) {
             if (var9->unknown_1_ == 0 || var9->unknown_4_ == 0) continue;
             signed char var10 = var9->unknown_4_[0];
             if (var10 < 0x30 || var10 > 0x39) continue;
-            short var11 = func_02005a94((signed char*)var9->unknown_4_);
+            short var11 = ParseDecimal_02005a94((signed char*)var9->unknown_4_);
             short var12 = var11;
             signed char var13 = 0;
             if (10000 <= var11) {

@@ -35,7 +35,7 @@ struct Struct_020e081c {
 };
 
 extern "C" void* GetZone3D_02012fe4();
-extern "C" char* func_0203bd08();
+extern "C" char* GetOAMManager_0203bd08();
 extern "C" char* func_0203b628();
 extern "C" void func_020213fc(Struct_020213fc*, int);
 extern "C" void func_02021428(void*, int);
@@ -48,7 +48,7 @@ extern "C" int func_0205a498(void*, PacEntry_02020aec*, int, void*);
 extern "C" void* func_0203bd14();
 extern "C" void* func_0203be4c(char*);
 extern "C" void HaltForever_020c9be0();
-extern "C" void func_020c9820();
+extern "C" void WaitForVBlank_020c9820();
 #if defined(jpn)
 extern "C" void func_02020cb8(void*, int);
 #else
@@ -69,7 +69,7 @@ extern "C" ARM void func_020e081c(char* arg0) {
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
     GetZone3D_02012fe4();
     GameResources* var1 = GetGameResources();
-    char* var2 = func_0203bd08();
+    char* var2 = GetOAMManager_0203bd08();
     char* var3 = func_0203b628();
     SafeAllocator* var4 = inline_02021578(var1, 12);
     if (*(signed char*)(arg0 + Enum_020e081c_2498) == 0) {
@@ -104,7 +104,7 @@ extern "C" ARM void func_020e081c(char* arg0) {
         var0->GetLoadedFileByID(*(int*)(arg0 + Enum_020e081c_2568), &var7, &var8);
         func_0205a498(arg0 + 0x94, (PacEntry_02020aec*)var7, var8, var4);
         *(int*)((char*)func_0203bd14() + Enum_020e081c_1288) = 0x2800;
-        void* var9 = (char*)func_0203be4c(func_0203bd08()) + Enum_020e081c_600;
+        void* var9 = (char*)func_0203be4c(GetOAMManager_0203bd08()) + Enum_020e081c_600;
         *(void**)func_0203bd14() = var9;
         if (!*(SafeAllocator**)(arg0 + Enum_020e081c_1900)) HaltForever_020c9be0();
         if (*(SafeAllocator**)(arg0 + Enum_020e081c_1900) && *(void**)(arg0 + Enum_020e081c_1904))
@@ -112,7 +112,7 @@ extern "C" ARM void func_020e081c(char* arg0) {
         *(unsigned int*)(arg0 + Enum_020e081c_1908) = Enum_020e081c_13312;
         *(void**)(arg0 + Enum_020e081c_1904) = (*(SafeAllocator**)(arg0 + Enum_020e081c_1900))->Allocate(*(unsigned int*)(arg0 + Enum_020e081c_1908));
         VectorizedInvertedMemcpy((const void*)0x06600000, *(void**)(arg0 + Enum_020e081c_1904), *(unsigned int*)(arg0 + Enum_020e081c_1908));
-        func_020c9820();
+        WaitForVBlank_020c9820();
 #if defined(jpn)
         func_02020cb8(arg0, *(int*)(arg0 + Enum_020e081c_2556));
 #else

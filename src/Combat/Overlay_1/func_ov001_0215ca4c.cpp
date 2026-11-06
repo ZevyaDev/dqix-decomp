@@ -10,7 +10,7 @@ struct Struct_ov001_0215b72c { char unknown_0_[8]; };
 extern "C" const char* func_ov017_021d612c(Struct_ov001_0215b72c*);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_ov001_0215b72c*);
 extern "C" int func_ov001_0215ad2c(int);
-extern "C" void func_0200fd38(GameState*, int, GameObject*);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern SafeAllocator* data_ov001_021658b8[];
 extern const char data_ov001_0216572d[];
 extern const char data_ov001_0216576f[];
@@ -88,7 +88,7 @@ extern "C" ARM int func_ov001_0215ca4c(Struct_ov001_0215b72c* arg0, int arg1) {
     var23.unk_10 = 0;
     var22->LoadFromCCHROrCMOTArchive(&var23, 0);
     if (var11) BackgroundLoader::RemoveLockGlobal();
-    func_0200fd38(var0, var4, (GameObject*)var22);
+    SetGameObjectByIndex_0200fd38(var0, var4, (GameObject*)var22);
     var22->SetScale(266, 266, 266);
     var22->MaybeSetBCFGAnimation(0, 0);
     return 1;

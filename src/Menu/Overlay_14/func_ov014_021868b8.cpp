@@ -41,7 +41,7 @@ struct Struct_ov014_021868b8_5 {
 struct Struct_ov014_02184300_3;
 extern "C" {
 void InitSprite_0205a198(void*);
-void func_0205a234(void*);
+void InitSpriteAnimationList_0205a234(void*);
 void InitBGLayer_0204af64(void*);
 void InitTextWindow_0204c684(void*);
 void func_ov014_02184300(Struct_ov014_02184300_3*, SafeAllocator*);
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov014_021868b8(Struct_ov014_021868b8_5* arg0, SafeAlloc
     arg0->unknown_b4_ = (SafeAllocator*)arg1->Allocate(0x64);
     arg0->unknown_dc_ = (Struct_ov014_021868b8_4*)arg1->Allocate(0x4d0);
     for (unsigned char var0 = 0; var0 < 8; ++var0) InitSprite_0205a198(&arg0->unknown_d4_[var0]);
-    func_0205a234(arg0->unknown_d8_);
+    InitSpriteAnimationList_0205a234(arg0->unknown_d8_);
     for (int var1 = 0; var1 < 5; ++var1) {
         unsigned int var2;
         unsigned int var3 = var1 * sizeof(SafeAllocator);

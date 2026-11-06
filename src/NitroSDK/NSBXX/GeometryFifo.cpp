@@ -95,17 +95,17 @@ void OnGeometryFifoProcessingDone(int userdata)
 
 extern "C" void SendRawDataToGeometryFifo(const uint32_t* data, unsigned int numBytes)
 {
-    if (numBytes < 256 || data_020f2270 == -1)
+    if (numBytes < 256 || gGraphicsDMAChannel_020f2270 == -1)
         SubmitCommandToGeometryFifo(data[0], &data[1], (numBytes / 4) - 1);
     else
     {
         SendQueuedDataToGeometryFifo();
         data_0210cf78.fifoProcessingFlag = 1;
         if (data_0210cf78.unknown_8)
-            func_020ca2ac(data_020f2270, data, numBytes, &OnGeometryFifoProcessingDone,
+            func_020ca2ac(gGraphicsDMAChannel_020f2270, data, numBytes, &OnGeometryFifoProcessingDone,
                 reinterpret_cast<int>(&data_0210cf78.fifoProcessingFlag));
         else
-            func_020ca0a8(data_020f2270, data, numBytes, &OnGeometryFifoProcessingDone,
+            func_020ca0a8(gGraphicsDMAChannel_020f2270, data, numBytes, &OnGeometryFifoProcessingDone,
                 reinterpret_cast<int>(&data_0210cf78.fifoProcessingFlag));
     }
 }

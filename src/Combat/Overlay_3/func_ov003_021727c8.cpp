@@ -22,7 +22,7 @@ struct Struct_ov003_0217fa20 {
 
 extern "C" const Struct_ov003_0217fa20 data_ov003_0217fa20;
 extern "C" const Struct_ov003_0217fa20 data_ov003_0217fa58;
-extern "C" Type_ov003_021727c8 data_020e6d5c;
+extern "C" Type_ov003_021727c8 gNullMemberFunctionPointer_020e6d5c;
 
 // USA: func_ov003_021727c8
 extern "C" ARM bool func_ov003_021727c8(Struct_ov003_021727c8* arg0) {
@@ -30,7 +30,7 @@ extern "C" ARM bool func_ov003_021727c8(Struct_ov003_021727c8* arg0) {
     bool var0 = false;
     bool var1 = false;
     Struct_ov003_0217fa20 var2 = data_ov003_0217fa20;
-    Type_ov003_021727c8 var3 = data_020e6d5c;
+    Type_ov003_021727c8 var3 = gNullMemberFunctionPointer_020e6d5c;
     var2.unknown_0_[6] = var3;
     Struct_ov003_0217fa20 var4 = data_ov003_0217fa58;
     var4.unknown_0_[6] = var3;

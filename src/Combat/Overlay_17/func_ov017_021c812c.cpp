@@ -4,7 +4,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
-extern "C" ARM void* func_ov017_021b8470(void* arg0);
+extern "C" ARM void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_020493a4(unsigned char* arg0);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_021c812c(unsigned char arg0, int arg1) {
         for (int var6 = 0; var6 < 8; var6++) {
             var4->unknown_5_[var6] = 0xff;
         }
-        void* var7 = func_ov017_021b8470(*(void**)(var1 + 0x3000 + Enum_ov017_021c812c_1816));
+        void* var7 = GetBattle_ov017_021b8470(*(void**)(var1 + 0x3000 + Enum_ov017_021c812c_1816));
         if (var7 != NULL) {
             short var8[8];
             int var9 = CollectPartyCombatantIndices_ov000_0215e9fc(var7, var8, 8, 0x10);

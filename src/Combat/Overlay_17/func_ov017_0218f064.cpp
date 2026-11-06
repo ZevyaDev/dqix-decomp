@@ -67,13 +67,13 @@ extern "C" void func_02054664(Struct_02054664*);
 extern "C" int func_ov017_02192548();
 extern "C" void func_020415d8(Struct_020415d8*);
 extern "C" void HaltForever_020c9be0();
-extern "C" void func_0200fd38(GameState*, int, GameObject*);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_0203db34(unsigned char*, int, int, int);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02053c4c(char*, char*);
 extern "C" void func_02053c74(char*, int);
 extern "C" void func_ov017_0218f57c(void*, int);
-extern "C" int func_ov017_0218f5a4(GameResources*, int, int, int, int);
+extern "C" int QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources*, int, int, int, int);
 #if defined(jpn)
 #define data_ov017_021d73a4 data_ov017_021d7804
 #endif
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
     var16->unknown_0_.unknown_4_ = (short)arg1;
     var16->unknown_154_ = var6;
     var6->unknown_0_ = (short)arg1;
-    func_0200fd38(var0, arg1, (GameObject*)var16);
+    SetGameObjectByIndex_0200fd38(var0, arg1, (GameObject*)var16);
     if (var4) {
         Struct_ov017_0218f064_7* var17 = (Struct_ov017_0218f064_7*)var5->Allocate(0x764);
         if (!var17) HaltForever_020c9be0();
@@ -180,17 +180,17 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
         Object3D* var21 = &var17->unknown_0_[10];
         var21->Initialize();
         int var22 = arg1 * 12;
-        func_0200fd38(var0, var22 + 0x13, (GameObject*)&var17->unknown_0_[0]);
-        func_0200fd38(var0, var22 + 0x14, (GameObject*)&var17->unknown_0_[1]);
-        func_0200fd38(var0, var22 + 0x15, (GameObject*)&var17->unknown_0_[2]);
-        func_0200fd38(var0, var22 + 0x16, (GameObject*)&var17->unknown_0_[3]);
-        func_0200fd38(var0, var22 + 0x17, (GameObject*)&var17->unknown_0_[5]);
-        func_0200fd38(var0, var22 + 0x18, (GameObject*)var18);
-        func_0200fd38(var0, var22 + 0x19, (GameObject*)var19);
-        func_0200fd38(var0, var22 + 0x1a, (GameObject*)&var17->unknown_0_[8]);
-        func_0200fd38(var0, var22 + 0x1b, (GameObject*)&var17->unknown_0_[4]);
-        func_0200fd38(var0, var22 + 0x1c, (GameObject*)var20);
-        func_0200fd38(var0, var22 + 0x1d, (GameObject*)var21);
+        SetGameObjectByIndex_0200fd38(var0, var22 + 0x13, (GameObject*)&var17->unknown_0_[0]);
+        SetGameObjectByIndex_0200fd38(var0, var22 + 0x14, (GameObject*)&var17->unknown_0_[1]);
+        SetGameObjectByIndex_0200fd38(var0, var22 + 0x15, (GameObject*)&var17->unknown_0_[2]);
+        SetGameObjectByIndex_0200fd38(var0, var22 + 0x16, (GameObject*)&var17->unknown_0_[3]);
+        SetGameObjectByIndex_0200fd38(var0, var22 + 0x17, (GameObject*)&var17->unknown_0_[5]);
+        SetGameObjectByIndex_0200fd38(var0, var22 + 0x18, (GameObject*)var18);
+        SetGameObjectByIndex_0200fd38(var0, var22 + 0x19, (GameObject*)var19);
+        SetGameObjectByIndex_0200fd38(var0, var22 + 0x1a, (GameObject*)&var17->unknown_0_[8]);
+        SetGameObjectByIndex_0200fd38(var0, var22 + 0x1b, (GameObject*)&var17->unknown_0_[4]);
+        SetGameObjectByIndex_0200fd38(var0, var22 + 0x1c, (GameObject*)var20);
+        SetGameObjectByIndex_0200fd38(var0, var22 + 0x1d, (GameObject*)var21);
     }
     var16->unknown_b0_ = 0x324;
     var16->unknown_b4_ = 0x189;
@@ -209,7 +209,7 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
         if (var23) func_02053c4c((char*)var16, var23);
     } else func_02053c74((char*)var16, arg1);
     if (arg4 > 0) func_ov017_0218f57c(var16, arg4);
-    if (arg3) func_ov017_0218f5a4(arg0, arg1, 0, 0, 0);
+    if (arg3) QueuePartyMemberModelLoad_ov017_0218f5a4(arg0, arg1, 0, 0, 0);
 }
 
 #if defined(jpn)

@@ -121,13 +121,13 @@ struct Struct_ov000_021554f4_8 {
     unsigned int unknown_8_4_ : 5;
 };
 
-struct Struct_02048150;
+struct Party_02048150;
 struct Struct_02054000;
 struct Struct_02052df8;
 
-extern "C" Struct_ov000_021554f4_2* func_0200fea4(GameState*, int);
+extern "C" Struct_ov000_021554f4_2* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" int func_ov000_02155154(GameObject*);
-extern "C" int func_02086ef0(Struct_02048150*, int);
+extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void func_ov000_0215a8d4(unsigned char*, int);
 extern "C" float func_ov000_02155a04(char*);
 extern "C" Struct_ov000_021554f4_8* func_02054000(Struct_02054000*);
@@ -139,7 +139,7 @@ extern "C" void func_020a0840(Struct_020a0840*, unsigned int);
 extern "C" void func_020a02d0(Struct_020a02d0*, unsigned int);
 extern "C" void func_020a0644(Struct_020a0644*, unsigned int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" int func_020ac494(void*);
+extern "C" int SetBattleRecords_020ac494(void*);
 
 extern const signed char data_ov000_02182a7c[9];
 
@@ -148,8 +148,8 @@ static inline int inline_ov000_021554f4_8(int arg0) { return arg0 >= 0 && arg0 <
 // USA: func_ov000_021554f4
 extern "C" ARM void func_ov000_021554f4(Struct_ov000_021554f4_6* arg0, int arg1, int arg2, Struct_ov000_021554f4_7* arg3, unsigned char arg4, int arg5) {
     GameState* var0 = GameState::GetInstance();
-    Struct_02048150* var1 = (Struct_02048150*)GetParty_02010828(GameState::GetInstance());
-    Struct_ov000_021554f4_2* var2 = func_0200fea4(var0, arg1);
+    Party_02048150* var1 = (Party_02048150*)GetParty_02010828(GameState::GetInstance());
+    Struct_ov000_021554f4_2* var2 = GetEnemyByIndex_0200fea4(var0, arg1);
     if (!var2) return;
     if (var2->inline_ov000_021554f4_7()->unknown_0_ == 0 && arg5 == 8) {
         int var3 = arg0->unknown_8e06_;
@@ -158,9 +158,9 @@ extern "C" ARM void func_ov000_021554f4(Struct_ov000_021554f4_6* arg0, int arg1,
         return;
     }
     if (var2->unknown_144_ && var2->unknown_144_->unknown_8_ == 0xf5 && func_ov000_02155154((GameObject*)var2)
-        && func_02086ef0(var1, var2->inline_ov000_021554f4_7()->unknown_2e_)) {
+        && IsInParty_02086ef0(var1, var2->inline_ov000_021554f4_7()->unknown_2e_)) {
         if (!(func_ov000_02155154((GameObject*)var2) && var2->unknown_181_) && var2->unknown_182_
-            && func_02086ef0(var1, arg2)) {
+            && IsInParty_02086ef0(var1, arg2)) {
             Struct_ov000_021554f4_2* var4 = (Struct_ov000_021554f4_2*)GameState::GetInstance()->GetCombatantByIndex(arg2);
             if (var4 && var4->inline_ov000_021554f4_7()->unknown_58_.unknown_1_1_ == 2) func_ov000_0215a8d4((unsigned char*)arg0, 8);
         }
@@ -214,7 +214,7 @@ extern "C" ARM void func_ov000_021554f4(Struct_ov000_021554f4_6* arg0, int arg1,
         for (int var11 = 0; data_ov000_02182a7c[var11] != -1; var11++)
             var5->unknown_30_[var11] = func_02052df8((Struct_02052df8*)var9, data_ov000_02182a7c[var11]);
     }
-    if (!func_02086ef0(var1, arg2)) return;
+    if (!IsInParty_02086ef0(var1, arg2)) return;
     if (arg5 & 1) return;
     if (arg5 & 2) return;
     if (arg5 & 4) return;
@@ -225,5 +225,5 @@ extern "C" ARM void func_ov000_021554f4(Struct_ov000_021554f4_6* arg0, int arg1,
     func_020a0840((Struct_020a0840*)&var12, 1);
     func_020a02d0((Struct_020a02d0*)&var12.unknown_68_, 1);
     if (arg2 == GetProtagonistObjectIndex_020100a8(var0)) func_020a0644((Struct_020a0644*)&var12, 1);
-    func_020ac494(&var12);
+    SetBattleRecords_020ac494(&var12);
 }

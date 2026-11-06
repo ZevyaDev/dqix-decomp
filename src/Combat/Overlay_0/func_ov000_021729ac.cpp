@@ -4,14 +4,14 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_0203bd08(void);
+extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" unsigned short GetSubBGVRAMBanks(void);
 extern "C" void MapVRAMBanksToSubBG(int banks);
 extern "C" char* func_0203bd14();
 struct StringTable_0201099c_14;
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14*);
 extern "C" void LoadStringTable_020dfec0(void* stringTable, void* allocator, void* fileData, unsigned int fileSize);
-extern "C" void func_020de848(void* arg0);
+extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" void func_020dea64(void* arg0, void* arg1, void* arg2, unsigned int arg3, const void* arg4, int arg5);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" char* GetBattleSetup_ov017_021b8478(void* battleManager);
@@ -25,7 +25,7 @@ extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 struct Struct_0203c108_3;
 extern "C" void func_0203c108(Struct_0203c108_3*, char*);
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_020e46c4(void* arg0);
+extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void func_02046608(void* arg0, int arg1, char* arg2, void* arg3, int arg4, int arg5, int arg6);
 struct PacEntry_02020cb8_4;
@@ -59,10 +59,10 @@ extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2*, void*);
 extern "C" void FillBGScreenRect_0204bc74(void* layer, unsigned short screenEntry, int x, int y, int width, int height, unsigned short palette);
 struct TextWindow_0204c7a8;
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8*, SafeAllocator*, int, unsigned int);
-struct Struct_0205cf78_2;
-struct Struct_0205cf78;
-extern "C" void func_0205cf78(Struct_0205cf78*, Struct_0205cf78_2*, unsigned char);
-extern "C" void func_020dc7e8(int arg0, int arg1);
+struct TextWindow_0205cf78_2;
+struct TextWindowManager_0205cf78;
+extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78*, TextWindow_0205cf78_2*, unsigned char);
+extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
 struct Struct_0204c87c;
 extern "C" void func_0204c964(Struct_0204c87c*);
 
@@ -224,13 +224,13 @@ extern "C" ARM int func_ov000_021729ac(Struct_ov000_021729ac_8* arg0) {
 
     GameState::GetInstance();
     BackgroundLoader* var18 = BackgroundLoader::GetInstance();
-    func_0203bd08();
+    GetOAMManager_0203bd08();
 
     if (arg0->unknown_908_ == 0) {
         arg0->unknown_904_ = (*(volatile unsigned int*)0x4001000 & 0x1f00) >> 8;
         arg0->unknown_184_ = GetSubBGVRAMBanks();
         MapVRAMBanksToSubBG(0x180);
-        *(int*)func_0203bd08() = 0;
+        *(int*)GetOAMManager_0203bd08() = 0;
 
 #if defined(jpn)
         *(int*)(func_0203bd14() + 0x608) = 0x1d000;
@@ -269,10 +269,10 @@ extern "C" ARM int func_ov000_021729ac(Struct_ov000_021729ac_8* arg0) {
             var18->GetLoadedFileByID(arg0->unknown_90c_, &var6, &var7);
             if (var6 != 0) {
                 arg0->unknown_1a78_[4].Reset();
-                func_020de848(arg0->unknown_d0_[0]);
+                ClearItemTable_020de848(arg0->unknown_d0_[0]);
                 func_020dea64(arg0->unknown_d0_[0], &arg0->unknown_1a78_[4], var6, var7, data_ov000_02183302, 3);
                 arg0->unknown_1a78_[5].Reset();
-                func_020de848(arg0->unknown_d0_[1]);
+                ClearItemTable_020de848(arg0->unknown_d0_[1]);
                 __clear(var0, sizeof(var0));
                 unsigned short var19 = 0;
 
@@ -310,7 +310,7 @@ extern "C" ARM int func_ov000_021729ac(Struct_ov000_021729ac_8* arg0) {
             void* var25 = GetMessageWindow_020421a0();
             for (int var26 = 0; var26 < 9; var26++) {
                 __clear(var1, sizeof(var1));
-                func_020e46c4(&var3);
+                InitNoun_020e46c4(&var3);
                 if (var26 >= 5) {
                     var3.unknown_b_0_ = 1;
                 }
@@ -478,12 +478,12 @@ extern "C" ARM int func_ov000_021729ac(Struct_ov000_021729ac_8* arg0) {
             arg0->unknown_90c_ = -1;
             arg0->unknown_220_ = &arg0->unknown_8a4_[2];
             arg0->unknown_23a_ = 1;
-            func_0205cf78((Struct_0205cf78*)arg0->unknown_188_, (Struct_0205cf78_2*)arg0->unknown_284_, 7);
+            SetTextWindowArray_0205cf78((TextWindowManager_0205cf78*)arg0->unknown_188_, (TextWindow_0205cf78_2*)arg0->unknown_284_, 7);
             arg0->unknown_908_++;
             arg0->unknown_1d72_ |= 0x40;
         }
     } else if (arg0->unknown_908_ == 7) {
-        func_020dc7e8(0, -1);
+        LoadPartyMemberColors_020dc7e8(0, -1);
         *(volatile unsigned int*)0x4001000 = (*(volatile unsigned int*)0x4001000 & ~0x1f00) | 0x1700;
         *(volatile unsigned short*)0x4001050 = 0;
         func_0204c964((Struct_0204c87c*)&arg0->unknown_284_[0]);

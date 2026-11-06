@@ -109,7 +109,7 @@ struct Struct_02097238;
 struct Struct_02097054_5;
 struct StringTable_0201099c_14;
 struct TextureVRAMArea_0203d028;
-struct Struct_0203d028_11;
+struct ObjectArchiveLoadInfo_0203d028_11;
 
 extern char data_ov014_021895d5[];
 extern char data_ov014_021895ed[];
@@ -134,14 +134,14 @@ extern "C" Struct_ov014_021850cc_3* func_02097224(Struct_02097054_5* arg0, int a
 extern "C" void func_020e526c(void* arg0);
 extern "C" void func_020e56fc(void* arg0, int arg1, int arg2);
 extern "C" const char** func_020e5294(void* arg0, int arg1);
-extern "C" void func_020e4864(const char* arg0, char* arg1, int, int, int, int);
+extern "C" void ExpandInflectionTags_020e4864(const char* text, char* buffer, int, int, int, int);
 extern "C" void* func_020dfc2c(void* arg0);
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void func_020e046c(char* arg0, void* arg1, unsigned int arg2, short arg3);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
-extern "C" void func_0203dafc(Struct_0203d028_11* arg0);
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 extern "C" void func_ov014_02184c08(unsigned char* arg0);
 
 #if defined(jpn)
@@ -245,12 +245,12 @@ extern "C" ARM void func_ov014_021850cc(Struct_ov014_02184dcc* arg0) {
                 const char** var15 = func_020e5294(var14, var12->unknown_8_[0]);
                 if (var15 != NULL) {
                     memset(arg0->unknown_60_[0], 0, 0x48);
-                    func_020e4864(*var15, arg0->unknown_60_[0], 1, 0, 0, 0);
+                    ExpandInflectionTags_020e4864(*var15, arg0->unknown_60_[0], 1, 0, 0, 0);
                 }
                 var15 = func_020e5294(var14, var12->unknown_8_[1]);
                 if (var15 != NULL) {
                     memset(arg0->unknown_60_[1], 0, 0x48);
-                    func_020e4864(*var15, arg0->unknown_60_[1], 1, 0, 0, 0);
+                    ExpandInflectionTags_020e4864(*var15, arg0->unknown_60_[1], 1, 0, 0, 0);
                 }
 #endif
             }
@@ -318,13 +318,13 @@ extern "C" ARM void func_ov014_021850cc(Struct_ov014_02184dcc* arg0) {
                             ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var22->unknown_2cc_);
                             RestoreTextureVRAMState_0207df90(var22->unknown_2cc_);
                             ObjectArchiveLoadInfo var31;
-                            func_0203dafc((Struct_0203d028_11*)&var31);
+                            ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var31);
                             var31.fileData = var26;
                             var31.allocator = var19;
                             var31.unk_8 = var25;
                             arg0->unknown_40_->LoadFromCCHROrCMOTArchive(&var31, NULL);
                             SaveTextureVRAMState_0207dfac(var22->unknown_2cc_);
-                            func_0203dafc((Struct_0203d028_11*)&var31);
+                            ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var31);
                             var31.allocator = var19;
                             var31.fileData = var28;
                             var31.unk_8 = var27;

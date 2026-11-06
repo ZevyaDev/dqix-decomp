@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_0204c7e0(unsigned char* arg0);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 extern "C" void func_ov023_021f7eb8(void* arg0, void* arg1, int arg2, int arg3,
     int arg4, int arg5, int arg6, unsigned char arg7, int arg8, int arg9);
 
@@ -18,7 +18,7 @@ struct Struct_ov004_0215fdfc {
 
 // USA: func_ov023_021f809c
 extern "C" ARM void func_ov023_021f809c(struct Struct_ov004_0215fdfc* arg0, void* arg1) {
-    if (func_0204c7e0((unsigned char*)arg0 + 0x20)) {
+    if (IsTextWindowOpen_0204c7e0((unsigned char*)arg0 + 0x20)) {
         unsigned char var0 = arg0->unknown_e5_;
         unsigned short var1 = arg0->unknown_e2_;
         int var2 = (var0 & 4) ? 1 : 0;

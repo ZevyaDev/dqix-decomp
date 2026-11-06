@@ -114,7 +114,7 @@ extern "C" void func_020a2010(void* arg0);
 extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0202e5d8(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0202e0a4(void* arg0);
-extern "C" void func_020a27a0(void* arg0);
+extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void func_ov006_021542f4(void* arg0);
 
 // USA: func_ov006_02154e58
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov006_02154e58(Struct_ov006_02154614* arg0) {
             func_0202e5c8((unsigned char*)arg0->unknown_5cc_, 0, -0x1e8f, 0);
             func_0202e5d8(arg0->unknown_5cc_, 0, 0x2bae, 0x9199);
             func_0202e0a4(arg0->unknown_5cc_);
-            func_020a27a0(arg0->unknown_5cc_);
+            DisableCameraFollow_020a27a0(arg0->unknown_5cc_);
         }
         arg0->unknown_12bd_ = 0;
     } else {

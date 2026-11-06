@@ -34,7 +34,7 @@ struct Struct_ov017_021b71d8_3 {
 };
 
 extern "C" Struct_ov017_021b71d8_2* GetZone3D_02012fe4(void);
-extern "C" void func_020a0cc4(unsigned int arg0);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern AllocatorUnion gMainHeap_02114e20;
 extern "C" void func_ov000_0215ce80(Struct_ov017_021b71d8* arg0);
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov017_021b71d8(Struct_ov017_021b71d8_3* arg0) {
     GameState::GetInstance();
     Struct_ov017_021b71d8_2* var0 = GetZone3D_02012fe4();
     func_02012de4(&gMainHeap_02114e20);
-    func_020a0cc4(Enum_ov017_021b71d8_128988);
+    ReleaseFileTablesForSpace_020a0cc4(Enum_ov017_021b71d8_128988);
     arg0->unknown_8_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021b71d8_128988), Enum_ov017_021b71d8_128988);
     arg0->unknown1_1c_ = var0->unknown_0_;
     arg0->unknown_6b0_ = (Struct_ov017_021b71d8*)arg0->unknown_8_.Allocate(sizeof(Struct_ov017_021b71d8));

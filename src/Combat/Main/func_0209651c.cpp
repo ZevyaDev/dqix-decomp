@@ -6,7 +6,7 @@
 extern "C" void __clear(void*, int);
 extern "C" int func_020952f4(char* arg0);
 extern "C" int CompareBytes_02001aec(const char* left, const char* right, int count);
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 
 // JPN: func_0209651c
 extern "C" ARM void func_0209651c(FontLoader_0208cb08* arg0) {
@@ -44,7 +44,7 @@ extern "C" ARM int func_020965c0(FontLoader_0208cb08* arg0, int arg1) {
                     if (CompareBytes_02001aec(var1, arg0->unknown_59_, func_020952f4(var1)) != 0) var0 = 0;
                 }
             } else {
-                unsigned char var2 = func_0201079c((char*)GameState::GetInstance());
+                unsigned char var2 = GetStoryChapter_0201079c((char*)GameState::GetInstance());
                 if (var2 != arg0->unknown_58_) var0 = 0;
             }
         }

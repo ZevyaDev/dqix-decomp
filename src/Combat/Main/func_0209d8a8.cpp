@@ -13,9 +13,9 @@ enum { Enum_0209d8a8_1816 = 0x718 };
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* func_0209dccc();
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
-extern "C" void* func_ov017_021b8468(int arg0);
+extern "C" void* GetBattleScene_ov017_021b8468(int battleManager);
 extern "C" void* func_ov000_02160f08(void* arg0);
-extern "C" void* func_020de824(void* arg0);
+extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void func_0207cbe8(char* arg0);
 
 struct ItemTable_0201099c_10;
@@ -51,7 +51,7 @@ extern "C" ARM int func_0209d8a8(void* arg0) {
     var2 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 8);
     void* var4 = GetGameResources();
     int var5 = *(int*)((char*)var4 + 0x3000 + Enum_0209d8a8_1816);
-    void* var6 = func_ov017_021b8468(var5);
+    void* var6 = GetBattleScene_ov017_021b8468(var5);
     if (var6 == NULL) {
         return 1;
     }
@@ -61,7 +61,7 @@ extern "C" ARM int func_0209d8a8(void* arg0) {
     }
     struct ItemTable_0201099c_10* var8 = (struct ItemTable_0201099c_10*)((char*)var7 + 0xd0);
     ((SafeAllocator*)&var0)->ResetAllocatorPointer();
-    func_020de824(var0.unknown_0_ + 0x14);
+    InitItemTable_020de824(var0.unknown_0_ + 0x14);
     func_0207cbe8(var0.unknown_0_);
     if (FindItemData_020dedd0(var8, (short)var1) != NULL) {
         var0.unknown_2c_ = var8;

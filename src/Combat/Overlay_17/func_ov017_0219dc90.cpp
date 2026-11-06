@@ -71,15 +71,15 @@ struct Struct_ov017_0219dc90 {
 };
 
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" Struct_ov017_0219dc90_2* func_02027ca4(void);
+extern "C" Struct_ov017_0219dc90_2* GetActiveZones_02027ca4(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" void func_020288e0(Struct_ov017_0219dc90_2* arg0);
 extern "C" void func_ov017_0219e0ec(void* arg0);
 extern "C" int func_02028a54(Struct_ov017_0219dc90_2* arg0, int arg1);
 extern "C" void func_ov017_0219e180(Struct_ov017_0219dc90* arg0, int arg1);
-struct Struct_020fdd44;
-extern "C" Struct_ov017_0219dc90_2* func_02028bd0(Struct_020fdd44*, int);
+struct ActiveZone_020fdd44;
+extern "C" Struct_ov017_0219dc90_2* FindActiveZone_02028bd0(ActiveZone_020fdd44*, int);
 extern "C" unsigned short func_02028460(int* arg0, int* arg1);
 extern "C" int func_0201b588(int arg0);
 struct Struct_ov017_0219dc90_3;
@@ -94,7 +94,7 @@ extern "C" void func_02046a8c(Queue_0201bdac_2* arg0, Struct_ov017_0219dc90_5* a
 extern "C" ARM void func_ov017_0219dc90(Struct_ov017_0219dc90* arg0, int arg1, int arg2, unsigned char arg3, unsigned short arg4) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetLocalWireless_0202ae18();
-    Struct_ov017_0219dc90_2* var2 = func_02027ca4();
+    Struct_ov017_0219dc90_2* var2 = GetActiveZones_02027ca4();
     GetZone3D_02012fe4();
     Struct_ov017_0219dc90_7* var3 = (Struct_ov017_0219dc90_7*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1) != 0) return;
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov017_0219dc90(Struct_ov017_0219dc90* arg0, int arg1, i
     if (var3 == NULL) return;
     int var4 = func_02028a54(var2, arg2);
     func_ov017_0219e180(arg0, arg2);
-    Struct_ov017_0219dc90_2* var5 = func_02028bd0((Struct_020fdd44*)var2, arg2);
+    Struct_ov017_0219dc90_2* var5 = FindActiveZone_02028bd0((ActiveZone_020fdd44*)var2, arg2);
     Struct_ov017_0219dc90_6* var6 = &arg0->unknown_44b4_;
     if (var5 != NULL) {
         var3->unknown_b8_ = var5->unknown_34_ != 0 ? func_02028460(var5->unknown_18_, var3->unknown_44_) : 0;

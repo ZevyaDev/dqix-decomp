@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca3b8 func_020cbe84
-#endif
 
 struct Struct_ov031_0221e6e8_2 {
     unsigned int unknown_0_;
@@ -30,14 +27,14 @@ struct Struct_ov031_0221e6e8 {
 };
 struct Struct_ov031_0224b0e4 { unsigned short unknown_0_; unsigned char unknown_2_; unsigned char unknown_3_; };
 extern Struct_ov031_0224b0e4 data_ov031_0224b0e4[12] __attribute__((aligned(4)));
-extern "C" void func_020ca3b8(const void*, void*, unsigned int);
+extern "C" void Memcpy16Bit_020ca3b8(const void*, void*, unsigned int);
 
 // USA: func_ov031_0221e6e8
 extern "C" THUMB void func_ov031_0221e6e8(Struct_ov031_0221e6e8_2* arg0, Struct_ov031_0221e6e8* arg1) {
     arg1->unknown_0_ = arg0->unknown_a_;
-    func_020ca3b8(arg0->unknown_c_, arg1->unknown_4_, 32);
+    Memcpy16Bit_020ca3b8(arg0->unknown_c_, arg1->unknown_4_, 32);
     arg1->unknown_24_ = arg0->unknown_36_;
-    func_020ca3b8(arg0->unknown_4_, arg1->unknown_30_, 6);
+    Memcpy16Bit_020ca3b8(arg0->unknown_4_, arg1->unknown_30_, 6);
     int var0;
     int var1 = 0;
     Struct_ov031_0224b0e4* var2 = data_ov031_0224b0e4;

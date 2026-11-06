@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
-extern "C" unsigned char func_02011494(char* arg0, void* arg1);
+extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void* func_ov000_02161318(void* arg0, int arg1);
+extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 extern "C" int func_ov000_0217f5dc(void* arg0);
 
 struct Struct_ov000_0217228c {
@@ -19,7 +19,7 @@ struct Struct_ov000_0217228c {
 extern "C" ARM void func_ov000_0217228c(struct Struct_ov000_0217228c* arg0) {
     GameState* var0 = GameState::GetInstance();
     unsigned char var1[4];
-    int var2 = func_020114ec((char*)var0, var1);
+    int var2 = GetPartyOrder_020114ec((char*)var0, var1);
     unsigned char var3[4];
     __clear(var3, 4);
     for (int var4 = 0; var4 < var2; var4++) {
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov000_0217228c(struct Struct_ov000_0217228c* arg0) {
     unsigned char var6[4];
 #endif
     unsigned char var7 = 0;
-    int var8 = func_02011494((char*)var0, var6);
+    int var8 = GetOwnPartyOrder_02011494((char*)var0, var6);
     for (int var9 = 0; var9 < 4; var9++) {
 #if defined(jpn)
         if (var9 < var8) {
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov000_0217228c(struct Struct_ov000_0217228c* arg0) {
             arg0->unknown_70_[var9] = var6[var9];
         }
 #endif
-        void* var10 = func_ov000_02161318(arg0, arg0->unknown_70_[var9]);
+        void* var10 = FindPartyMemberPanel_ov000_02161318(arg0, arg0->unknown_70_[var9]);
         if (var10 != NULL && func_ov000_0217f5dc(var10) != 0) {
             var7++;
         }

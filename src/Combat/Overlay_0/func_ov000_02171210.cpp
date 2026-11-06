@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_ov000_0217538c(void* arg0);
-extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" int func_ov000_02175f80(void* arg0);
 extern "C" int func_ov000_0217608c(void* arg0);
 
@@ -71,14 +71,14 @@ extern "C" ARM int func_ov000_02171210(struct Struct_ov000_02171210* arg0, struc
             GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1->unknown_4c_);
             if (var2 != NULL) {
 #if defined(jpn)
-                if (func_02083b00(*(unsigned char**)((char*)var2 + 0x144), 0xe6)) {
+                if (HasLearnedSkillEntry_02083b00(*(unsigned char**)((char*)var2 + 0x144), 0xe6)) {
                     var1 = 3;
                 } else {
                     var1 = 2;
                 }
 #else
                 var1 = 2;
-                if (func_02083b00(*(unsigned char**)((char*)var2 + 0x150), 0xe6)) {
+                if (HasLearnedSkillEntry_02083b00(*(unsigned char**)((char*)var2 + 0x150), 0xe6)) {
                     var1 = 3;
                 }
 #endif

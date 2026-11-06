@@ -17,7 +17,7 @@ extern "C" ARM void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberInde
     GameState* gameState = GameState::GetInstance();
     GameObject* member = gameState->GetPartyMemberByIndex(partyMemberIndex);
     if (member != NULL) {
-        struct Struct_020e4bf4* var2 = *(struct Struct_020e4bf4**)((char*)member + 0x150);
-        func_020e4b34(noun, member->baseStats_, member->baseStats_, 0, 0, 0, 0, var2->unknown_49c_0_, 0, 1, 0, 1);
+        struct Struct_020e4bf4* memberData = *(struct Struct_020e4bf4**)((char*)member + 0x150);
+        func_020e4b34(noun, member->baseStats_, member->baseStats_, 0, 0, 0, 0, memberData->unknown_49c_0_, 0, 1, 0, 1);
     }
 }

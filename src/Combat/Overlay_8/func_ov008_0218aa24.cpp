@@ -121,18 +121,18 @@ extern "C" Struct_ov008_0218aa24* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" void func_ov008_0218b240(Struct_ov008_0218aa24_3* arg0);
 extern "C" void func_02042764(const void* arg0, char* arg1, int arg2);
 extern "C" void* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
-extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
+extern "C" int AppendPositionTag_02041a90(char* buffer, int x, int y);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_02041cf4(char* arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" int func_02041e70(char* arg0, int arg1);
-extern "C" void func_020465d8(unsigned char*, int, unsigned char);
-extern "C" void func_020465f0(unsigned char*, int, unsigned char);
+extern "C" int AppendTextColorTag_02041e70(char* buffer, int colorIndex);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 extern "C" void func_020474a8(void* arg0, int arg1, const char* arg2, char* arg3);
 extern "C" int func_ov008_0218bb28(Struct_ov008_0218aa24_3* arg0, const char* arg1);
 extern "C" unsigned int strlen(const char* arg0);
-extern "C" int func_02041a28(char* arg0, int arg1);
+extern "C" int AppendXPositionTag_02041a28(char* buffer, int x);
 
 // USA: func_ov008_0218aa24
 extern "C" ARM void func_ov008_0218aa24(Struct_ov008_0218aa24_3* arg0) {
@@ -187,46 +187,46 @@ extern "C" ARM void func_ov008_0218aa24(Struct_ov008_0218aa24_3* arg0) {
         var7 = (const char*)var12;
     }
     FindTextWindow_0205d81c((TextWindowManager_0205d81c*)arg0->unknown_18_, 0);
-    func_02041a90(arg0->unknown_2a0_, func_ov008_0218bb28(arg0, var7), 3);
+    AppendPositionTag_02041a90(arg0->unknown_2a0_, func_ov008_0218bb28(arg0, var7), 3);
     AppendText_02042058(arg0->unknown_2a0_, var7);
     func_02041cf4(arg0->unknown_2a0_, 0x7fff, 2, 0x56, 0xf);
 
     char* var13 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_278_, (short)var3);
     int var14 = func_ov008_0218bb28(arg0, var13);
     if (var5 != 0) var14 -= 5;
-    func_02041a90(arg0->unknown_2a0_, var14, 0x12);
+    AppendPositionTag_02041a90(arg0->unknown_2a0_, var14, 0x12);
     AppendText_02042058(arg0->unknown_2a0_, var13);
     if (var5 != 0) {
         if (var5 >= 10) {
             var5 = 10;
-            func_02041e70(arg0->unknown_2a0_, 0xd);
+            AppendTextColorTag_02041e70(arg0->unknown_2a0_, 0xd);
         } else {
-            func_02041e70(arg0->unknown_2a0_, 5);
+            AppendTextColorTag_02041e70(arg0->unknown_2a0_, 5);
         }
         int var15 = var14 + strlen(var13) / 2 * 10;
         var13 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_278_, (short)(var5 + 0x12c));
-        func_02041a90(arg0->unknown_2a0_, var15, 0x11);
+        AppendPositionTag_02041a90(arg0->unknown_2a0_, var15, 0x11);
         AppendText_02042058(arg0->unknown_2a0_, var13);
-        func_02041e70(arg0->unknown_2a0_, 0xf);
+        AppendTextColorTag_02041e70(arg0->unknown_2a0_, 0xf);
     }
 
     ClearMessageParams_02046380(var1);
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var4);
-    func_020465d8((unsigned char*)var1, 0, 0);
-    func_020465f0((unsigned char*)var1, 0, 3);
+    SetMessageNumberAlignment_020465d8((unsigned char*)var1, 0, 0);
+    SetMessageNumberWidth_020465f0((unsigned char*)var1, 0, 3);
     func_020474a8(var1, 10, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_278_, 0x1f6), var0);
-    func_02041a90(arg0->unknown_2a0_, 0x1f, 0x1b);
+    AppendPositionTag_02041a90(arg0->unknown_2a0_, 0x1f, 0x1b);
     AppendText_02042058(arg0->unknown_2a0_, var0);
     func_02041cf4(arg0->unknown_2a0_, 0x7fff, 2, 0x56, 0x28);
     memset(var0, 0, 0x80);
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 1, arg0->unknown_e1d_4_);
-    func_020465d8((unsigned char*)var1, 1, 1);
-    func_020465f0((unsigned char*)var1, 1, 2);
+    SetMessageNumberAlignment_020465d8((unsigned char*)var1, 1, 1);
+    SetMessageNumberWidth_020465f0((unsigned char*)var1, 1, 2);
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 2, arg0->unknown_e1e_0_);
-    func_020465d8((unsigned char*)var1, 2, 1);
-    func_020465f0((unsigned char*)var1, 2, 2);
+    SetMessageNumberAlignment_020465d8((unsigned char*)var1, 2, 1);
+    SetMessageNumberWidth_020465f0((unsigned char*)var1, 2, 2);
     func_020474a8(var1, 10, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_278_, 0x1f8), var0);
-    func_02041a28(arg0->unknown_2a0_, 12);
+    AppendXPositionTag_02041a28(arg0->unknown_2a0_, 12);
     AppendText_02042058(arg0->unknown_2a0_, var0);
     OpenTextWindow_0205d304(arg0->unknown_18_, arg0->unknown_2a0_, 0, 0, 0, 1, 0);
     arg0->unknown_1f8_->unknown_115_ = (signed char)var6;
@@ -302,7 +302,7 @@ extern "C" ARM void func_ov008_0218aa24(Struct_ov008_0218aa24_3* arg0) {
     }
     func_02042764(var27, var18, 1);
     FindTextWindow_0205d81c((TextWindowManager_0205d81c*)arg0->unknown_18_, 0);
-    func_02041a90(arg0->unknown_2a0_, (var21 - func_020420e8(var18, 0)) / 2, 3);
+    AppendPositionTag_02041a90(arg0->unknown_2a0_, (var21 - func_020420e8(var18, 0)) / 2, 3);
     AppendText_02042058(arg0->unknown_2a0_, var18);
     func_02041cf4(arg0->unknown_2a0_, 0x7fff, 2, var21 - 2, 0xf);
 
@@ -314,35 +314,35 @@ extern "C" ARM void func_ov008_0218aa24(Struct_ov008_0218aa24_3* arg0) {
     }
     int var34 = (var21 - func_020420e8(var33, 0)) / 2;
     if (var25 != 0) var34 -= 5;
-    func_02041a90(arg0->unknown_2a0_, var34, 0x12);
+    AppendPositionTag_02041a90(arg0->unknown_2a0_, var34, 0x12);
     AppendText_02042058(arg0->unknown_2a0_, var33);
     if (var25 != 0) {
         if (var25 >= 10) {
             var25 = 10;
-            func_02041e70(arg0->unknown_2a0_, 0xd);
+            AppendTextColorTag_02041e70(arg0->unknown_2a0_, 0xd);
         } else {
-            func_02041e70(arg0->unknown_2a0_, 5);
+            AppendTextColorTag_02041e70(arg0->unknown_2a0_, 5);
         }
         int var35 = var34 + func_020420e8(var33, 0);
         var33 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_278_, (short)(var25 + 0x12c));
-        func_02041a90(arg0->unknown_2a0_, var35 + 2, 0x12);
+        AppendPositionTag_02041a90(arg0->unknown_2a0_, var35 + 2, 0x12);
         AppendText_02042058(arg0->unknown_2a0_, var33);
-        func_02041e70(arg0->unknown_2a0_, 0xf);
+        AppendTextColorTag_02041e70(arg0->unknown_2a0_, 0xf);
     }
 
     ClearMessageParams_02046380(var19);
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var19, 0, var26);
-    func_020465d8((unsigned char*)var19, 0, 0);
-    func_020465f0((unsigned char*)var19, 0, 3);
+    SetMessageNumberAlignment_020465d8((unsigned char*)var19, 0, 0);
+    SetMessageNumberWidth_020465f0((unsigned char*)var19, 0, 3);
     func_02046608(var19, 10, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_278_, 0x1f6), var16, 0x100, 0, 0);
-    func_02041a90(arg0->unknown_2a0_, (var21 >> 1) - 13, 0x1e);
+    AppendPositionTag_02041a90(arg0->unknown_2a0_, (var21 >> 1) - 13, 0x1e);
     AppendText_02042058(arg0->unknown_2a0_, var16);
     func_02041cf4(arg0->unknown_2a0_, 0x7fff, 2, var21 - 2, 0x28);
     memset(var16, 0, 0x80);
     SetMessageString_02046574((Struct_02046574_2*)var19, 0, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_278_, (short)(arg0->unknown_e1d_4_ + 0x1f9)));
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var19, 2, arg0->unknown_e1e_0_);
     func_02046608(var19, 10, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_278_, 0x1f8), var16, 0x100, 0, 0);
-    func_02041a90(arg0->unknown_2a0_, 12, 0x2a);
+    AppendPositionTag_02041a90(arg0->unknown_2a0_, 12, 0x2a);
     AppendText_02042058(arg0->unknown_2a0_, var16);
     OpenTextWindow_0205d304(arg0->unknown_18_, arg0->unknown_2a0_, 0, 0, 0, 1, 0, 0);
     arg0->unknown_1f8_->unknown_115_ = (signed char)var23;

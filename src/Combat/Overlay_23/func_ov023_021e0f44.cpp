@@ -74,7 +74,7 @@ extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" Struct_ov023_021e0f44_4* func_ov023_021db4e4(Struct_ov023_021e0f44* arg0, int arg1);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4);
-extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
+extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" void func_ov023_021db45c(void* arg0, struct Struct_ov023_021db45c* arg1, int arg2, short* arg3, short* arg4);
 extern "C" void func_ov023_021e257c(Struct_ov023_021e0f44* arg0);
 extern "C" void func_ov023_021db544(void* arg0, void* arg1, int arg2, int arg3);
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov023_021e0f44(Struct_ov023_021e0f44_3* arg0)
 #if defined(jpn)
                 func_ov023_021e23d0(&arg0->unknown_cc_, data_ov023_021fd5a8[var4], (int)var6, 10, 15);
 #else
-                func_0206819c(var6, var1[var4], 0);
+                CopyCapitalizedText_0206819c(var6, var1[var4], 0);
                 func_ov023_021e23d0(&arg0->unknown_cc_, data_ov023_021fd5a8[var4], (int)var1[var4], 10, 15);
 #endif
 

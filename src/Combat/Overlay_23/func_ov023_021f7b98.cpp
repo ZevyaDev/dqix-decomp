@@ -8,15 +8,15 @@ struct BGLayer_02020cb8 {
     int screenBlocks_10_;
     int screenData_14_;
     int screenSize_18_;
-    unsigned char unknown_1c_0_ : 4;
+    unsigned char isSubScreen_1c_0_ : 4;
     unsigned char bgIndex_1c_4_ : 4;
     unsigned char unknown_1d_;
     unsigned char unknown_1e_;
     unsigned char unknown_1f_;
 
-    unsigned char inline_ov023_021f7b98() { return unknown_1c_0_; }
+    unsigned char inline_ov023_021f7b98() { return isSubScreen_1c_0_; }
     unsigned char inline_ov023_021f7b98_2() { return bgIndex_1c_4_; }
-    void inline_ov023_021f7b98_3(unsigned char arg0) { unknown_1c_0_ = arg0; }
+    void inline_ov023_021f7b98_3(unsigned char arg0) { isSubScreen_1c_0_ = arg0; }
     void inline_ov023_021f7b98_4(unsigned char arg0) { bgIndex_1c_4_ = arg0; }
 };
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
@@ -27,10 +27,10 @@ extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
-extern "C" void func_0204b2e0(void* arg0, char* arg1);
+extern "C" void FlushBGBlock_0204b2e0(void* layer, char* block);
 
-struct Struct_02020cb8_6;
-extern "C" void func_0204b3a0(struct Struct_02020cb8_6* arg0, char* arg1);
+struct BGLayer_02020cb8_6;
+extern "C" void CopyBGBlockToVRAM_0204b3a0(struct BGLayer_02020cb8_6* layer, char* block);
 
 struct Struct_ov023_021f7b98 {
 #if defined(jpn)
@@ -58,9 +58,9 @@ extern "C" ARM void func_ov023_021f7b98(struct Struct_ov023_021f7b98* arg0, void
             var2.inline_ov023_021f7b98_3(arg0->unknown_28_.inline_ov023_021f7b98());
             var2.inline_ov023_021f7b98_4(arg0->unknown_28_.inline_ov023_021f7b98_2());
             if (arg2) {
-                func_0204b2e0(&var2, var5);
+                FlushBGBlock_0204b2e0(&var2, var5);
             } else {
-                func_0204b3a0((struct Struct_02020cb8_6*)&var2, var5);
+                CopyBGBlockToVRAM_0204b3a0((struct BGLayer_02020cb8_6*)&var2, var5);
             }
         }
     }

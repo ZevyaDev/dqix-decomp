@@ -54,7 +54,7 @@ struct Struct_ov024_021e99d8_7 {
 };
 
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
-extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
+extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" int func_020850d0(unsigned char* arg0);
 
 static inline int inline_ov000_02169850(int arg0) {
@@ -80,9 +80,9 @@ extern "C" ARM int func_ov024_021e99d8(struct Struct_ov024_021e99d8_6* arg0, str
         if ((unsigned short)arg1->unknown_2_ == 0x1c || (unsigned short)arg1->unknown_2_ == 0x247) {
             return 0x2e;
         }
-        return func_ov024_021da644(var0, var1->unknown_20_.unknown_0_0_, var1->unknown_20_.unknown_1_2_);
+        return SelectPartyOrEnemyMessage_ov024_021da644(var0, var1->unknown_20_.unknown_0_0_, var1->unknown_20_.unknown_1_2_);
     }
-    int var2 = func_ov024_021da644(var0, arg2->unknown_20_.unknown_0_0_, arg2->unknown_20_.unknown_1_2_);
+    int var2 = SelectPartyOrEnemyMessage_ov024_021da644(var0, arg2->unknown_20_.unknown_0_0_, arg2->unknown_20_.unknown_1_2_);
     if (var2 == 1 && inline_ov000_02169850(var0)) {
         struct Struct_ov024_021e99d8_7* var3 =
             (struct Struct_ov024_021e99d8_7*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), var0);

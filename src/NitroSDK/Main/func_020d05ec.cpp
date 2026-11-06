@@ -39,7 +39,7 @@ extern "C" ARM int func_020d05ec(unsigned long arg0, unsigned long arg1, unsigne
         SendTaskToReadContext(func_020d03fc);
         return true;
     }
-    data_021118e0.currentTaskExecutionContext = data_02111304.activeContext;
+    data_021118e0.currentTaskExecutionContext = gContextScheduler_02111304.activeContext;
     func_020d03fc(var0);
     return var0->pSharedData->unknown_0 == CARD_RESULT_SUCCESS;
 }

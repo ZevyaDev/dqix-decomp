@@ -106,16 +106,16 @@ struct MessageWindow_02021b84 {
 };
 
 struct Struct_02045cac;
-struct Struct_0204b010;
-struct Struct_02020cb8_3;
+struct BGLayer_0204b010;
+struct BGLayer_02020cb8_3;
 struct GlobalFlags_02038598_4;
 
 extern "C" void func_0205a494(void* arg0);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_02045cac(Struct_02045cac* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
-extern "C" void func_0204b010(Struct_0204b010* arg0, void* arg1);
-extern "C" void func_0204afb4(Struct_02020cb8_3* arg0);
+extern "C" void ClearBGScreenData_0204b010(BGLayer_0204b010* layer, void* screenData);
+extern "C" void ResetBGLayerData_0204afb4(BGLayer_02020cb8_3* layer);
 extern "C" void func_02017d68(void* arg0);
 extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
@@ -123,11 +123,11 @@ extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, u
 extern "C" {
 void func_ov023_021eb26c(void* arg0);
 void CloseMessageWindow_02043124(MessageWindow_02021b84* window);
-void func_0204b04c(Struct_ov003_021594c4* arg0, int arg1);
-void func_0204b088(Struct_ov003_021594c4* arg0, int arg1);
+void FlushBGScreenData_0204b04c(Struct_ov003_021594c4* layer, int screenData);
+void CopyBGScreenDataToVRAM_0204b088(Struct_ov003_021594c4* layer, int screenData);
 unsigned int GetMainBGAssignedVRAMSize();
-void func_020ca458(int value, void* destination, unsigned int size);
-void func_0205d048(Struct_02081870_2* arg0);
+void Memset32Bit_020ca458(int value, void* destination, unsigned int size);
+void ResetTextWindowManager_0205d048(Struct_02081870_2* windowManager);
 void* GetZone3D_02012fe4();
 }
 
@@ -157,13 +157,13 @@ extern "C" ARM void func_ov008_021845ac(Struct_ov008_021842a0_2* arg0)
     for (int var3 = 0; var3 < 3; var3++)
     {
         Struct_ov003_021594c4* var4 = var2[var3];
-        func_0204b010((Struct_0204b010*)var4, 0);
-        func_0204b04c(var4, 0);
-        func_0204b088(var4, 0);
-        func_0204afb4((Struct_02020cb8_3*)var4);
+        ClearBGScreenData_0204b010((BGLayer_0204b010*)var4, 0);
+        FlushBGScreenData_0204b04c(var4, 0);
+        CopyBGScreenDataToVRAM_0204b088(var4, 0);
+        ResetBGLayerData_0204afb4((BGLayer_02020cb8_3*)var4);
     }
-    func_020ca458(0, (void*)0x06000000, GetMainBGAssignedVRAMSize());
-    func_0205d048(&arg0->unknown_130_);
+    Memset32Bit_020ca458(0, (void*)0x06000000, GetMainBGAssignedVRAMSize());
+    ResetTextWindowManager_0205d048(&arg0->unknown_130_);
     arg0->unknown_790_.Destroy();
     arg0->unknown_b8_ = NULL;
     arg0->unknown_72c_ = NULL;

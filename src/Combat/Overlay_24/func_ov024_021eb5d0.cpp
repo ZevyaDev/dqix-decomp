@@ -253,7 +253,7 @@ struct Struct_ov024_021eb5d0_16 {
 #define IN_RANGE_021eb5d0(x) (((x) >= 0 && (x) <= 3) ? 1 : 0)
 
 extern "C" Type_02000c9c_6 data_ov024_021ff508[0x51];
-extern "C" Type_02000c9c_6 data_020e6d5c;
+extern "C" Type_02000c9c_6 gNullMemberFunctionPointer_020e6d5c;
 extern "C" int data_ov024_02200144;
 struct Struct_ov024_021fe718 {
     short unknown_0_[8];
@@ -281,7 +281,7 @@ int NextRandomMax(Random*, int);
 struct GameObject;
 extern "C" int func_ov024_021eadfc(GameObject*);
 extern "C" int func_ov000_0215a124(void* arg0, int arg1, int arg2);
-extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" unsigned int func_020dd290(void* arg0, unsigned int arg1);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_ov024_021eb47c(Struct_ov024_021ea4d0*, int);
@@ -290,20 +290,20 @@ struct Struct_020a0530;
 extern "C" void func_020a0530(Struct_020a0530*, unsigned int);
 struct Struct_020a01b8;
 extern "C" void func_020a01b8(Struct_020a01b8*, unsigned int);
-extern "C" void func_020ac494(void* arg0);
+extern "C" void SetBattleRecords_020ac494(void* records);
 extern "C" int func_ov000_02159c58(void* arg0, int arg1);
 struct Struct_020a0674;
 extern "C" void func_020a0674(Struct_020a0674*, unsigned int);
 struct Struct_020a017c;
 extern "C" void func_020a017c(Struct_020a017c*, unsigned int);
-struct Struct_ov000_0215440c;
-extern "C" struct Struct_ov024_021eb5d0_5* func_ov000_021600f8(Struct_ov000_0215440c*, int);
+struct BattleAction_ov000_0215440c;
+extern "C" struct Struct_ov024_021eb5d0_5* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 struct Struct_ov024_021ea4d0_2;
 extern "C" int func_ov024_021ea4d0(Struct_ov024_021ea4d0*, Struct_ov024_021ea4d0_2*);
 extern "C" int func_ov024_021ea500(struct Struct_ov024_021ea4d0* arg0, struct Struct_ov024_021eaa50_2* arg1, int arg2);
 extern "C" int func_ov000_02156cc4(void* arg0, int arg1, struct Struct_ov024_021eaa50_2* arg2, int arg3);
 struct Struct_02010088;
-extern "C" int func_02010088(Struct_02010088*);
+extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov024_021e6798(GameObject*);
 extern "C" struct Struct_ov024_021eb5d0_5* func_ov000_0215e938(void* arg0);
 struct Struct_ov000_0215fef0;
@@ -324,14 +324,14 @@ extern "C" float func_02074948(int arg0);
 extern "C" int func_ov024_021e67c8(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2);
 extern "C" int func_ov024_021e6948(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2, int arg3);
 extern "C" int func_ov024_021e6a90(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2, struct Struct_ov024_021eaa50_2* arg3, unsigned short arg4);
-struct Struct_02048150;
-extern "C" int func_02086ef0(Struct_02048150*, int);
+struct Party_02048150;
+extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void func_ov000_0215a8d4(unsigned char*, int);
 struct Struct_ov024_021da670_6;
 extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
 struct Struct_ov024_021dd028_5;
 extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
-extern "C" void func_ov000_02159eac(void* arg0, void* arg1, unsigned char arg2);
+extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, unsigned char flagIndex);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
 extern "C" int func_ov000_021573a8(void* arg0, int arg1, int arg2, int arg3);
@@ -343,7 +343,7 @@ extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3
 struct Struct_ov024_021da9e0_4;
 extern "C" void func_ov024_021eb4e4(Struct_ov024_021da9e0_4*, int);
 extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
-extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
+extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" void func_ov000_0215fe84(void* arg0, void* arg1, int arg2);
 extern "C" void func_ov024_021e4c04(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2, struct Struct_ov024_021eaa50_2* arg3, int arg4);
 extern "C" void func_ov024_021e556c(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2, struct Struct_ov024_021eaa50_2* arg3, int arg4);
@@ -367,8 +367,8 @@ extern "C" void func_ov024_021e6104(struct Struct_ov024_021ea4d0* arg0, int arg1
 extern "C" void func_ov024_021e62cc(struct Struct_ov024_021ea4d0* arg0, int arg1, struct Struct_ov024_021eaa50_2* arg2);
 extern "C" int func_02085038(char*);
 extern "C" int func_ov000_02159d24(void* arg0, int arg1);
-struct Struct_ov000_0215440c_2;
-extern "C" struct Struct_ov024_021eb5d0_7* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
+struct BattleAction_ov000_0215440c_2;
+extern "C" struct Struct_ov024_021eb5d0_7* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 extern "C" void func_020881ac(void* arg0);
 extern "C" void func_02088234(void* arg0);
 extern "C" void func_ov024_021e80e4(struct Struct_ov024_021ea4d0* arg0, struct Struct_ov024_021eb5d0_9* arg1, struct Struct_ov024_021eaa50_2* arg2, int arg3, int arg4, struct Struct_ov024_021eaa50_2* arg5);
@@ -400,10 +400,10 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
     unsigned char var11[0xb0];
     int var12 = data_ov024_02200144;
     if ((var12 & 1) == 0) {
-        data_ov024_021ff508[0x1e] = data_020e6d5c;
-        data_ov024_021ff508[0x22] = data_020e6d5c;
-        data_ov024_021ff508[0x3b] = data_020e6d5c;
-        data_ov024_021ff508[0x3c] = data_020e6d5c;
+        data_ov024_021ff508[0x1e] = gNullMemberFunctionPointer_020e6d5c;
+        data_ov024_021ff508[0x22] = gNullMemberFunctionPointer_020e6d5c;
+        data_ov024_021ff508[0x3b] = gNullMemberFunctionPointer_020e6d5c;
+        data_ov024_021ff508[0x3c] = gNullMemberFunctionPointer_020e6d5c;
         data_ov024_02200144 = var12 | 1;
     }
     arg0->unknown_10_ = arg1;
@@ -538,7 +538,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
             } else {
                 if (IN_RANGE_021eb5d0(var18)) {
                     struct Struct_ov024_021eb5d0_12* var30 = (struct Struct_ov024_021eb5d0_12*)(void*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var13, var18);
-                    if (var30 != 0 && func_02083b00(var30->unknown_150_, 0x106) != 0) var29 = func_020dd290(var30, var29);
+                    if (var30 != 0 && HasLearnedSkillEntry_02083b00(var30->unknown_150_, 0x106) != 0) var29 = func_020dd290(var30, var29);
                 }
                 func_ov000_0215a124(arg0->unknown_10_, var18, var29);
             }
@@ -549,19 +549,19 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
             GetBattleRecords_020ac4c0(var10);
             func_020a0530((Struct_020a0530*)var10, 1);
             func_020a01b8((Struct_020a01b8*)(var10 + 0x68), 1);
-            func_020ac494(var10);
+            SetBattleRecords_020ac494(var10);
         }
         if (func_ov000_02159c58(arg0->unknown_10_, (unsigned short)var15->unknown_4_.unknown_0_0_) != 0) {
             GetBattleRecords_020ac4c0(var11);
             func_020a0674((Struct_020a0674*)var11, 1);
             func_020a017c((Struct_020a017c*)(var11 + 0x68), 1);
-            func_020ac494(var11);
+            SetBattleRecords_020ac494(var11);
         }
     }
     if (arg4 != 0) {
         var22 = arg3->unknown_9_;
         for (int var31 = 0; var31 < arg3->unknown_9_; var31++) {
-            var7.unknown_0_[var31] = func_ov000_021600f8((Struct_ov000_0215440c*)arg3, var31)->unknown_e_;
+            var7.unknown_0_[var31] = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg3, var31)->unknown_e_;
         }
     }
     int var32 = 0;
@@ -586,7 +586,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
     arg0->unknown_79_ = 0;
     var39 = var40 - 1;
     for (var38 = var40; var38 < var22; var38++, arg0->unknown_18_ = arg0->unknown_18_ + 1) {
-        if (func_02010088((Struct_02010088*)var19) != 0) break;
+        if (IsDead_02010088((Struct_02010088*)var19) != 0) break;
         if (func_ov024_021e6798((GameObject*)var19) != 0) break;
         if (var16 == 0x21 && var18 == var7.unknown_0_[var38]) continue;
         arg0->unknown_c_ = func_ov000_0215e938(arg0->unknown_10_);
@@ -605,7 +605,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
         arg0->unknown_c_->unknown_e_ = var7.unknown_0_[var38];
         if (var15->unknown_4_.unknown_0_0_ == 0x79 && arg0->unknown_18_ == (var22 - 1)) {
             struct Struct_ov024_021eb5d0_12* var43 = (struct Struct_ov024_021eb5d0_12*)GetCombatantByID((int)arg0->unknown_10_, var7.unknown_0_[var38]);
-            if (var43 == 0 || func_02010088((Struct_02010088*)var43) != 0 ||
+            if (var43 == 0 || IsDead_02010088((Struct_02010088*)var43) != 0 ||
                 func_ov024_021e6798((GameObject*)var43) != 0) {
                 var7.unknown_0_[var38] = func_ov000_0215cda0(arg0->unknown_10_);
                 if (var7.unknown_0_[var38] < 0) continue;
@@ -615,7 +615,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
         if (var16 != 0x12 && var16 != 0x21) {
             struct Struct_ov024_021eb5d0_12* var44 = (struct Struct_ov024_021eb5d0_12*)GetCombatantByID((int)arg0->unknown_10_, var7.unknown_0_[var38]);
             if (var44 == 0) continue;
-            if (func_02010088((Struct_02010088*)var44) != 0) continue;
+            if (IsDead_02010088((Struct_02010088*)var44) != 0) continue;
         }
         int var45 = 0;
         var3 = var18;
@@ -647,7 +647,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
         if (var16 != 0x12 && var16 != 0x21) {
             struct Struct_ov024_021eb5d0_12* var50 = (struct Struct_ov024_021eb5d0_12*)GetCombatantByID((int)arg0->unknown_10_, var4);
             if (var50 == 0) continue;
-            if (func_02010088((Struct_02010088*)var50) != 0) continue;
+            if (IsDead_02010088((Struct_02010088*)var50) != 0) continue;
         }
         if (var49 != 0) {
             var46 = FindActionData_02079e2c((char*)var14, 1);
@@ -715,7 +715,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                         unsigned char* var56 = GetPartyMemberData_02053c6c((unsigned char*)var55);
                         if (var55 != 0 && var56 != 0) {
                             if (*(short*)(var56 + 0x2cc) > 0) {
-                                if (func_02083b00(var55->unknown_150_, 0x28) != 0) {
+                                if (HasLearnedSkillEntry_02083b00(var55->unknown_150_, 0x28) != 0) {
                                     arg0->unknown_4_->unknown_a_ |= 2;
                                     arg0->unknown_c_->unknown_1c_.unknown_0_2_ = 1;
                                 }
@@ -766,7 +766,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                 func_ov000_0215cd80(arg0->unknown_10_);
                 void* var61 = GetParty_02010828((GameState*)(Struct_0203d028_2*)GameState::GetInstance());
                 if (arg0->unknown_c_->unknown_1c_.unknown_0_2_ != 0) {
-                    if (func_02086ef0((Struct_02048150*)var61, var4) != 0) {
+                    if (IsInParty_02086ef0((Party_02048150*)var61, var4) != 0) {
                         func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 6);
                     }
                 }
@@ -795,7 +795,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
             if (arg0->unknown_c_->unknown_1c_.unknown_0_4_) { var64 = 0xa; var65 = 0x1b9; }
             if (arg0->unknown_c_->unknown_1c_.unknown_0_5_) { var64 = 0x26; var65 = 0x24d; }
             if (arg0->unknown_c_->unknown_1c_.unknown_0_3_) { var64 = 9; var65 = 0x2b; }
-            if (var64 > 0) func_ov000_02159eac(arg0->unknown_10_, var63, var64);
+            if (var64 > 0) SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, var63, var64);
             if (var65 > 0) AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var63, (unsigned short)var65);
             func_ov000_0215ffc4(arg0->unknown_c_, var63, 0);
             arg0->unknown_10_->unknown_8e02_ = arg0->unknown_10_->unknown_8e02_ + 1;
@@ -826,8 +826,8 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                     struct Struct_ov024_021eb5d0_6* var70 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
                     if (var70 != 0) {
                         struct Struct_ov024_021eb5d0_12* var71 = (struct Struct_ov024_021eb5d0_12*)GetCombatantByID((int)arg0->unknown_10_, var4);
-                        func_ov000_02159eac(arg0->unknown_10_, var70, 1);
-                        func_ov000_02159eac(arg0->unknown_10_, var70, 0x2a);
+                        SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, var70, 1);
+                        SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, var70, 0x2a);
                         func_ov000_0215ccbc(
                             arg0->unknown_10_, var70, var71, var67, var71->unknown_138_->unknown_0_, var69, var70->unknown_0_, 0);
                         func_ov000_0215ffc4(arg0->unknown_c_, var70, 1);
@@ -850,8 +850,8 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                     struct Struct_ov024_021eb5d0_6* var74 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
                     if (var74 != 0) {
                         struct Struct_ov024_021eb5d0_12* var75 = (struct Struct_ov024_021eb5d0_12*)GetCombatantByID((int)arg0->unknown_10_, var4);
-                        func_ov000_02159eac(arg0->unknown_10_, var74, 0x10);
-                        func_ov000_02159eac(arg0->unknown_10_, var74, 0x19);
+                        SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, var74, 0x10);
+                        SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, var74, 0x19);
                         func_ov000_0215cd44(arg0->unknown_10_, var74, var75, 0, 0, 0);
                         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var74, (unsigned short)var73);
                         func_ov000_0215ffc4(arg0->unknown_c_, var74, 1);
@@ -870,12 +870,12 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                     if (var76->unknown_138_->unknown_2_ >= 0xff) var5 = var67;
                 }
                 if (var5 > 0) {
-                    unsigned short var78 = func_ov024_021da644(var18, 0x25f, 0x238);
+                    unsigned short var78 = SelectPartyOrEnemyMessage_ov024_021da644(var18, 0x25f, 0x238);
                     struct Struct_ov024_021eb5d0_6* var79 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
                     if (var79 != 0) {
                         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var79, (unsigned short)var78);
                         var1 = 0;
-                        func_ov000_02159eac(arg0->unknown_10_, &var1, 0x22);
+                        SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var1, 0x22);
                         func_ov000_0215ccbc(
                             arg0->unknown_10_, var79, var76, -var5, var76->unknown_138_->unknown_0_, var77, var1, 0);
                         func_ov000_0215fe84(arg0->unknown_8_, var79, 5);
@@ -967,7 +967,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
     }
     if (func_ov000_02159c58(arg0->unknown_10_, (unsigned short)var15->unknown_4_.unknown_0_0_) != 0) {
         for (int var99 = 0; var99 < arg2->unknown_8_; var99++) {
-            struct Struct_ov024_021eb5d0_7* var100 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg2, var99);
+            struct Struct_ov024_021eb5d0_7* var100 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg2, var99);
             if (var100 != 0) {
                 struct Struct_ov024_021eb5d0_12* var101 = (struct Struct_ov024_021eb5d0_12*)GetCombatantByID((int)arg0->unknown_10_, var100->unknown_20_);
                 if (var101 != 0) {
@@ -980,13 +980,13 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
     if (arg0->unknown_47_ != 0) {
         struct Struct_ov024_021eb5d0_12* var102 = (struct Struct_ov024_021eb5d0_12*)GetCombatantByID((int)arg0->unknown_10_, var18);
         if (var102 != 0) {
-            if (func_02010088((Struct_02010088*)var102) == 0 &&
+            if (IsDead_02010088((Struct_02010088*)var102) == 0 &&
                 func_ov024_021e6798((GameObject*)var102) == 0) {
                 struct Struct_ov024_021eb5d0_6* var103 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
                 if (var103 != 0) {
                     AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var103, (unsigned short)0x1f1);
                     var2 = 0;
-                    if (arg0->unknown_47_ > 1) func_ov000_02159eac(arg0->unknown_10_, &var2, 8);
+                    if (arg0->unknown_47_ > 1) SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 8);
                     func_ov000_0215cd44(arg0->unknown_10_, var103, var102, 0, var2, 0);
                     func_ov000_0215fe84(arg2->unknown_10_, var103, 1);
                     arg0->unknown_10_->unknown_8e02_ = arg0->unknown_10_->unknown_8e02_ + 1;
@@ -1001,13 +1001,13 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
     }
     arg2->unknown_18_ = func_ov024_021e99d8(arg0, arg2, var15);
     if ((arg2->unknown_a_ & 1) != 0) {
-        arg2->unknown_22_ = func_ov024_021da644(arg2->unknown_10_->unknown_20_, var15->unknown_28_.unknown_2_4_, var15->unknown_2c_.unknown_0_0_);
+        arg2->unknown_22_ = SelectPartyOrEnemyMessage_ov024_021da644(arg2->unknown_10_->unknown_20_, var15->unknown_28_.unknown_2_4_, var15->unknown_2c_.unknown_0_0_);
     }
     if ((arg2->unknown_a_ & 0x20) != 0) {
-        arg2->unknown_24_ = func_ov024_021da644(var20, var37->unknown_28_.unknown_2_4_, var37->unknown_2c_.unknown_0_0_);
+        arg2->unknown_24_ = SelectPartyOrEnemyMessage_ov024_021da644(var20, var37->unknown_28_.unknown_2_4_, var37->unknown_2c_.unknown_0_0_);
     }
     if ((arg2->unknown_a_ & 0x40) != 0) {
-        arg2->unknown_24_ = func_ov024_021da644(var20, var37->unknown_28_.unknown_2_4_, var37->unknown_2c_.unknown_0_0_);
+        arg2->unknown_24_ = SelectPartyOrEnemyMessage_ov024_021da644(var20, var37->unknown_28_.unknown_2_4_, var37->unknown_2c_.unknown_0_0_);
     }
     struct Struct_ov024_021eb5d0_12* var104 = (struct Struct_ov024_021eb5d0_12*)GetCombatantByID((int)arg0->unknown_10_, arg2->unknown_10_->unknown_20_);
     if (var104 != 0) {
@@ -1016,7 +1016,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
             if (var105 > 0) var104->unknown_138_->unknown_2_ = var105;
         }
         for (int var106 = 0; var106 < arg2->unknown_8_; var106++) {
-            struct Struct_ov024_021eb5d0_7* var107 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg2, var106);
+            struct Struct_ov024_021eb5d0_7* var107 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg2, var106);
             if (var107 != 0) {
                 struct Struct_ov024_021eb5d0_12* var108 = (struct Struct_ov024_021eb5d0_12*)GetCombatantByID((int)arg0->unknown_10_, var107->unknown_20_);
                 if (var108 != 0) {

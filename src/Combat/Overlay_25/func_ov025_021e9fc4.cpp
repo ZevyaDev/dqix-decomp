@@ -4,12 +4,12 @@
 struct Struct_ov000_0216fd38;
 struct Struct_ov000_0216fdf8;
 struct Struct_ov000_0216fd80;
-struct Struct_ov000_0215440c_2;
-struct Struct_ov000_0215440c;
+struct BattleAction_ov000_0215440c_2;
+struct BattleAction_ov000_0215440c;
 struct Struct_ov000_0215feb4;
-struct Struct_ov000_02160094;
+struct ActionActor_ov000_02160094;
 struct Struct_ov000_0215feb4;
-struct Struct_ov000_021600f8 {
+struct ActionTarget_ov000_021600f8 {
     Struct_ov000_0215feb4* unknown_0_[3];
     short unknown_c_;
     short unknown_e_[3];
@@ -17,7 +17,7 @@ struct Struct_ov000_021600f8 {
     unsigned char unknown_17_;
     unsigned char unknown_18_[3];
     unsigned char unknown_1b_[5];
-    Struct_ov000_021600f8* unknown_20_;
+    ActionTarget_ov000_021600f8* pNext_20_;
 };
 struct Struct_ov025_021e9fc4;
 extern "C" void* GetBattleScene_ov000_02160130();
@@ -25,8 +25,8 @@ extern "C" void* func_ov000_02160f20(void*);
 extern "C" int func_ov000_0216fd38(Struct_ov000_0216fd38*);
 extern "C" void func_ov000_0216fdf8(Struct_ov000_0216fdf8*, int);
 extern "C" void func_ov000_0216fd80(Struct_ov000_0216fd80*, int);
-extern "C" Struct_ov000_02160094* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
-extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c*, int);
+extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
+extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" Struct_ov000_0215feb4* func_ov000_0215feb4(char*, int, int);
 extern "C" void* func_ov000_0215fe2c(void*, int);
 extern "C" void* func_ov000_0215fff4(void*, int, int);
@@ -34,7 +34,7 @@ extern "C" void func_ov025_021ed324(void*, const char*);
 extern "C" char* func_020e046c(char*, void*, void*, int);
 extern "C" void func_ov025_021ed634(Struct_ov025_021e9fc4*);
 
-static inline unsigned char* inline_ov025_021e9fc4(Struct_ov000_021600f8* arg0) { return arg0->unknown_14_; }
+static inline unsigned char* inline_ov025_021e9fc4(ActionTarget_ov000_021600f8* arg0) { return arg0->unknown_14_; }
 
 // USA: func_ov025_021e9fc4
 // KEEP-NAME: func_ov025_021e9fc4
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov025_021e9fc4(char* arg0) {
         func_ov000_0216fdf8((Struct_ov000_0216fdf8*)(arg0 + 0x798), 0x7f);
         if ((unsigned short)((short*)(var3 + 0x18))[0] == 0xfa) func_ov000_0216fdf8((Struct_ov000_0216fdf8*)(arg0 + 0x798), 0x1e0);
         for (int var4 = 0; var4 < var3[8]; var4++) {
-            Struct_ov000_02160094* var5 = func_ov000_02160094((Struct_ov000_0215440c_2*)var3, var4);
+            ActionActor_ov000_02160094* var5 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var3, var4);
             if (var5 == 0) continue;
             for (int var6 = 0; var6 < 6; var6++) {
                 for (int var7 = 0; var7 < *((unsigned char*)var5 + 0x26 + var6); var7++) {
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov025_021e9fc4(char* arg0) {
             }
         }
         for (int var11 = 0; var11 < var3[9]; var11++) {
-            Struct_ov000_021600f8* var12 = func_ov000_021600f8((Struct_ov000_0215440c*)var3, var11);
+            ActionTarget_ov000_021600f8* var12 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var3, var11);
             if (var12 == 0) continue;
             unsigned char* var13;
             for (int var14 = 1; var14 < var12->unknown_17_; var14++) {

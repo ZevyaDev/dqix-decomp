@@ -21,7 +21,7 @@ struct Struct_ov031_02217fb0_2 {
 extern char data_ov031_02249df8[];
 extern char data_ov031_02249e14[];
 extern char data_ov031_02249e28[];
-extern "C" int func_02005a94(signed char*);
+extern "C" int ParseDecimal_02005a94(signed char*);
 
 // USA: func_ov031_02217fb0
 extern "C" ARM int func_ov031_02217fb0(Struct_ov031_02217fb0_2* arg0) {
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov031_02217fb0(Struct_ov031_02217fb0_2* arg0) {
     signed char var6 = *var5;
     *var5 = 0;
     LockMutex(&arg0->unknown_1000_.unknown_a08_.unknown_10_);
-    arg0->unknown_1000_.unknown_a30_ = func_02005a94((signed char*)(var3 + var4));
+    arg0->unknown_1000_.unknown_a30_ = ParseDecimal_02005a94((signed char*)(var3 + var4));
     UnlockMutex(&arg0->unknown_1000_.unknown_a08_.unknown_10_);
     *var5 = var6;
     return 1;

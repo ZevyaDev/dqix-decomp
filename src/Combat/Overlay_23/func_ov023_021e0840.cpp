@@ -16,7 +16,7 @@ extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int fla
 extern "C" {
     void func_020df850(void* arg0, void* arg1, int arg2, int arg3, int arg4);
     void* GetFlagManager_0205ec34(void);
-    int func_02005a94(signed char* arg0);
+    int ParseDecimal_02005a94(signed char* string);
     void InitTextWindow_0204c684(void* textWindow);
     void func_ov023_021db314(void* arg0, short* arg1, short* arg2);
     void func_ov023_021db634(void* arg0, void* arg1);
@@ -90,7 +90,7 @@ extern "C" ARM int func_ov023_021e0840(void* arg0) {
             if (!var13) continue;
             if ((signed char)var13[0] != 'f') continue;
             if (strlen(var13) < 5) continue;
-            int var14 = func_02005a94((signed char*)(var13 + 5));
+            int var14 = ParseDecimal_02005a94((signed char*)(var13 + 5));
             int var15 = var14 + 0x12 + 0xc00;
             if (!IsFlagSet_0206dfb0((int)var11, (unsigned char*)var11 + 0x8c, var15)) {
                 var12->unknown_1_ = 0;

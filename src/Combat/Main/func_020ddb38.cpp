@@ -27,7 +27,7 @@ extern "C" void* func_ov000_02171b9c(void* arg0, int arg1);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" void func_020a0504(struct Struct_020a0504* arg0, unsigned int arg1);
-extern "C" int func_020ac494(void* arg0);
+extern "C" int SetBattleRecords_020ac494(void* records);
 extern "C" void func_02083738(void* arg0, int arg1);
 
 // USA: func_020ddb38
@@ -73,7 +73,7 @@ extern "C" ARM int func_020ddb38(int arg0, int arg1, struct Struct_020ddb38_3* a
     if (((struct Struct_020ddb38_2*)&var2->unknown_0_[2])->unknown_3_7_) {
         GetBattleRecords_020ac4c0(var3);
         func_020a0504((struct Struct_020a0504*)var3, 1);
-        func_020ac494(var3);
+        SetBattleRecords_020ac494(var3);
     }
     return 1;
 }

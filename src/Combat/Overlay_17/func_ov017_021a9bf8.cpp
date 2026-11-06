@@ -73,13 +73,13 @@ extern "C" void StartMessage_0204500c(char*, char*, int
     , int
 #endif
 );
-extern "C" int func_020457e0(char*);
+extern "C" int GetMessageChoice_020457e0(char*);
 extern "C" void func_02011818(void*, Struct_02011818*);
 extern "C" void func_02011ab8(char*);
 extern "C" void func_02011a74(char*, unsigned int, const char*);
 extern "C" void func_ov017_021a9ff0(int);
 extern "C" void* GetFlagManager_0205ec34();
-extern "C" int func_020649b0(void*, int, void*);
+extern "C" int RunTrigger_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void*);
 extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" void func_ov017_021a9fa0(Struct_ov017_021a9bf8*);
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
         FontLoader_0208cb08* var6 = GetFontLoader_02094a00();
         CancelFontLoad_02094ab0(var6);
         func_02094b3c(var6, 12);
-        func_02094b30(var6, 0x203, 0);
+        RequestSingleFontLoad_02094b30(var6, 0x203, 0);
         func_020a27b8(var1);
         arg0->unknown_8_ = 1;
     } else if (arg0->unknown_8_ == 1) {
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
     } else if (arg0->unknown_8_ == 3) {
         char* var13 = GetMessageWindow_020421a0();
         if ((*reinterpret_cast<int*>(var13 + Enum_ov017_021a9bf8_2456))) return;
-        int var14 = func_020457e0(var13);
+        int var14 = GetMessageChoice_020457e0(var13);
         if (var14 == 0) arg0->unknown_8_ = 4;
         else if (var14 == 1) {
             VectorizedMemset(&var3, 0, 0x28);
@@ -197,7 +197,7 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
     } else if (arg0->unknown_8_ == 4) {
         if ((*reinterpret_cast<int*>(GetMessageWindow_020421a0() + Enum_ov017_021a9bf8_2456))) return;
         CancelFontLoad_02094ab0(GetFontLoader_02094a00());
-        if (func_020649b0(GetFlagManager_0205ec34(), 0x1b, var4)) func_0206f81c(var4);
+        if (RunTrigger_020649b0(GetFlagManager_0205ec34(), 0x1b, var4)) func_0206f81c(var4);
         arg0->unknown_8_ = 5;
     }
     if (arg0->unknown_8_ == 5) {

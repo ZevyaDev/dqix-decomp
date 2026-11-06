@@ -27,13 +27,13 @@ struct Struct_ov002_0216d088 {
 };
 
 extern "C" const char *FindStringInTable_020e0434(char *stringTable, int stringId);
-extern "C" int func_02041a28(char *arg0, int arg1);
+extern "C" int AppendXPositionTag_02041a28(char *buffer, int x);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_02042638(char *arg0, const char *arg1, int arg2);
 extern "C" void *GetMessageWindow_020421a0();
 extern "C" void SetMessageNumber_020465c0(void *window, int index, int number);
-extern "C" void func_020465f0(void *arg0, int arg1, unsigned char arg2);
-extern "C" void func_020465d8(void *arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberWidth_020465f0(void *window, int index, unsigned char width);
+extern "C" void SetMessageNumberAlignment_020465d8(void *window, int index, unsigned char alignment);
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" unsigned short func_0202053c(GameObject *arg0);
 extern "C" int func_ov017_021bdbcc(GameResources *arg0);
@@ -92,13 +92,13 @@ extern "C" ARM void func_ov002_02160d14(Struct_ov002_02160d14 *arg0, char *arg1)
         var2->baseStats_->primaryStats.agility,
     };
     for (int var11 = 0; var11 < 7; var11++) {
-        func_020465d8(var7, var11, 1);
-        func_020465f0(var7, var11, 3);
+        SetMessageNumberAlignment_020465d8(var7, var11, 1);
+        SetMessageNumberWidth_020465f0(var7, var11, 3);
         SetMessageNumber_020465c0(var7, var11, var10[var11]);
     }
     for (int var12 = 0; var12 < 5; var12++) {
         AppendText_02042058(arg1, FindStringInTable_020e0434(arg0->unknown_8_, var0++));
-        func_02041a28(arg1, var8.unknown_0_[var12]);
+        AppendXPositionTag_02041a28(arg1, var8.unknown_0_[var12]);
         AppendText_02042058(arg1, FindStringInTable_020e0434(arg0->unknown_8_, var1++));
         if (var12 != 4) {
             AppendText_02042058(arg1, arg0->unknown_1aa4_);

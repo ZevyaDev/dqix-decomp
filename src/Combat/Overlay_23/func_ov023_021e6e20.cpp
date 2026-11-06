@@ -3,7 +3,7 @@
 
 struct TextWindowManager_0205d81c {
     char unknown_0_[0xb0];
-    unsigned char unknown_b0_;
+    unsigned char cursorWindowId_b0_;
 };
 
 extern "C" int func_0205d97c(TextWindowManager_0205d81c* arg0);

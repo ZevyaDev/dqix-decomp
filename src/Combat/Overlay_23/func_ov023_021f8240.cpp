@@ -175,7 +175,7 @@ extern "C" StringList_02072a68_2* func_ov023_021fa598(Struct_ov023_021f8240* arg
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" int func_02042190(int arg0);
 extern "C" void __clear(void* arg0, unsigned long arg1);
-extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
+extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02046608(void* arg0, int, const char* arg2, char* arg3, int, int, int);
 extern "C" int func_020420e8(const char* arg0, int arg1);
@@ -278,7 +278,7 @@ extern "C" ARM void func_ov023_021f8240(Struct_ov023_021f8240_6* arg0, void* arg
             char var20[0x100] = {0};
             if (var7)
             {
-                func_0206819c(var6, var19, var5);
+                CopyCapitalizedText_0206819c(var6, var19, var5);
                 func_02046608(GetMessageWindow_020421a0(), 10, var19, var20, 0x400, 0, 0);
                 var6 = var20;
             }

@@ -109,10 +109,10 @@ extern "C" void func_02033fdc(Struct_02033fdc*);
 struct Struct_02010604;
 extern "C" int SetMotion_02033b88(Struct_02010604*, int);
 extern "C" struct Struct_ov025_021dcf14_4* FindActionData_02079e2c(char*, int);
-struct Struct_ov000_0215440c;
-extern "C" struct Struct_ov025_021dcf14_3* func_ov000_021600f8(Struct_ov000_0215440c*, int);
-struct Struct_ov000_0215440c_2;
-extern "C" struct Struct_ov025_021dcf14_2* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
+struct BattleAction_ov000_0215440c;
+extern "C" struct Struct_ov025_021dcf14_3* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
+struct BattleAction_ov000_0215440c_2;
+extern "C" struct Struct_ov025_021dcf14_2* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 struct Struct_ov025_021d8bfc;
 extern "C" void func_ov025_021d8bfc(void*, Struct_ov025_021d8bfc*);
 extern "C" int func_ov025_021ed444(void* arg0, int arg1, int arg2, int arg3, int arg4, short arg5, unsigned short arg6);
@@ -130,7 +130,7 @@ extern "C" int func_ov025_021dce7c(unsigned char*, Struct_ov025_021dce7c*, int);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_02078484(struct Struct_02078398_2* arg0);
 extern "C" void func_02057fb4(void*, int, void*);
-extern "C" void func_0205ebfc(void*, int, int);
+extern "C" void PlayExtraSoundEffect_0205ebfc(void*, int, int);
 extern "C" void func_ov025_021eabd0(void* arg0, bool arg1);
 extern "C" void func_ov025_021ead5c(void* arg0, bool arg1);
 
@@ -353,7 +353,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
             struct Struct_ov025_021dcf14_4* var41 =
                 FindActionData_02079e2c((char*)GetActionTables_020797dc(), *(short*)var40);
             if (var41 && var41->unknown_19_4_ == 2) {
-                struct Struct_ov025_021dcf14_3* var42 = func_ov000_021600f8((Struct_ov000_0215440c*)var40, var1->unknown_c_);
+                struct Struct_ov025_021dcf14_3* var42 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var40, var1->unknown_c_);
                 if (var42 == NULL) {
                     return 0;
                 }
@@ -382,14 +382,14 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
                 func_02033fdc((Struct_02033fdc*)var45);
             }
             void* var46 = func_ov000_02160f20(arg0);
-            struct Struct_ov025_021dcf14_2* var47 = func_ov000_02160094((Struct_ov000_0215440c_2*)var46, 0);
+            struct Struct_ov025_021dcf14_2* var47 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var46, 0);
             if (var47 == NULL) {
                 return 0;
             }
             if (var47 == NULL) {
                 return 0;
             }
-            struct Struct_ov025_021dcf14_3* var48 = func_ov000_021600f8((Struct_ov000_0215440c*)var46, var1->unknown_c_);
+            struct Struct_ov025_021dcf14_3* var48 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var46, var1->unknown_c_);
             if (var48 == NULL) {
                 return 0;
             }
@@ -476,14 +476,14 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
             TIMER -= var58;
         } else {
             void* var59 = func_ov000_02160f20(arg0);
-            struct Struct_ov025_021dcf14_2* var60 = func_ov000_02160094((Struct_ov000_0215440c_2*)var59, 0);
+            struct Struct_ov025_021dcf14_2* var60 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var59, 0);
             if (var60 == NULL) {
                 return 0;
             }
             if (var60 == NULL) {
                 return 0;
             }
-            struct Struct_ov025_021dcf14_3* var61 = func_ov000_021600f8((Struct_ov000_0215440c*)var59, var1->unknown_c_);
+            struct Struct_ov025_021dcf14_3* var61 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var59, var1->unknown_c_);
             if (var61 == NULL) {
                 return 0;
             }
@@ -592,7 +592,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
                         var84.unknown_2c_.y += var79->obj3D_.GetHeight() / 2;
                     }
                     func_02057fb4(var83, var82.unknown_20_, &var84);
-                    func_0205ebfc(&gSoundEffectManager_02108760, *(short*)(arg0 + Enum_ov025_021dcf14_28570), 0);
+                    PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, *(short*)(arg0 + Enum_ov025_021dcf14_28570), 0);
                 }
                 if (!var63) {
                     if (var62) {
@@ -618,7 +618,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
             TIMER -= var86;
         } else {
             struct Struct_ov025_021dcf14_3* var87 =
-                func_ov000_021600f8((Struct_ov000_0215440c*)func_ov000_02160f20(arg0), var1->unknown_c_);
+                GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)func_ov000_02160f20(arg0), var1->unknown_c_);
             if (var87 == NULL) {
                 return 0;
             }
@@ -748,7 +748,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
 
     if (arg0[Enum_ov025_021dcf14_28414] == 1) {
         var1 = var2->unknown_0_;
-        struct Struct_ov025_021dcf14_3* var6 = func_ov000_021600f8((Struct_ov000_0215440c*)var1, var2->unknown_c_);
+        struct Struct_ov025_021dcf14_3* var6 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var1, var2->unknown_c_);
         int var7 = var1->unknown_9_ - 1;
         if (var7 <= 0) {
             var7 = 1;
@@ -781,7 +781,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
         int var9 = var2->unknown_c_;
         int var10 = 0;
         TIMER = 0;
-        struct Struct_ov025_021dcf14_3* var11 = func_ov000_021600f8((Struct_ov000_0215440c*)var1, var9);
+        struct Struct_ov025_021dcf14_3* var11 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var1, var9);
         for (int var12 = 1; var12 < var11->unknown_17_; var12++) {
             if (var11->unknown_14_[var12] == 1 || var11->unknown_14_[var12] == 2) {
                 var10 = 1;
@@ -802,7 +802,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
             if (*(unsigned int*)(arg0 + Enum_ov025_021dcf14_28576) & 1) {
                 var16.unknown_2c_.y += var14->obj3D_.GetHeight() / 2;
             }
-            func_0205ebfc(&gSoundEffectManager_02108760, *(short*)(arg0 + Enum_ov025_021dcf14_28570), 0);
+            PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, *(short*)(arg0 + Enum_ov025_021dcf14_28570), 0);
             func_02057fb4(var15, *(short*)(arg0 + Enum_ov025_021dcf14_28568), &var16);
             TIMER = *(unsigned int*)(arg0 + Enum_ov025_021dcf14_28616);
         }
@@ -818,7 +818,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
             int var21;
             int var22 = var2->unknown_c_;
             TIMER = 0;
-            var19 = func_ov000_021600f8((Struct_ov000_0215440c*)var18, var22);
+            var19 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var18, var22);
             int var23 = 1;
             var21 = 0;
             for (; var23 < var19->unknown_17_; var23++) {
@@ -862,7 +862,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
                 struct Struct_ov025_021de124* var28 = (struct Struct_ov025_021de124*)func_ov000_02160f20(GetBattleScene_ov000_02160130());
                 int var29 = -1;
                 for (int var30 = 0; var30 < var28->unknown_9_; var30++) {
-                    struct Struct_ov025_021dcf14_3* var31 = func_ov000_021600f8((Struct_ov000_0215440c*)var28, var30);
+                    struct Struct_ov025_021dcf14_3* var31 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var28, var30);
                     if (var31 == 0) {
                         continue;
                     }
@@ -975,9 +975,9 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
             }
             func_02057fb4(var41, *(short*)(arg0 + Enum_ov025_021dcf14_28568), &var42);
             if (*(short*)(arg0 + Enum_ov025_021dcf14_28570) != -1) {
-                func_0205ebfc(&gSoundEffectManager_02108760, *(short*)(arg0 + Enum_ov025_021dcf14_28570), 0);
+                PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, *(short*)(arg0 + Enum_ov025_021dcf14_28570), 0);
             } else if (*(unsigned short*)(arg0 + Enum_ov025_021dcf14_28420) != -1) {
-                func_0205ebfc(&gSoundEffectManager_02108760, *(unsigned short*)(arg0 + Enum_ov025_021dcf14_28420), 0);
+                PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, *(unsigned short*)(arg0 + Enum_ov025_021dcf14_28420), 0);
             }
             TIMER = *(unsigned int*)(arg0 + Enum_ov025_021dcf14_28616);
         } else if (arg0[Enum_ov025_021dcf14_3640] == 3 || var38 == 0 || var40 != 0) {
@@ -997,7 +997,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
                 var49->obj3D_.position_ = var50;
                 var49->obj3D_.MakeVisible();
             }
-            func_0205ebfc(&gSoundEffectManager_02108760, *(unsigned short*)(arg0 + Enum_ov025_021dcf14_28420), 0);
+            PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, *(unsigned short*)(arg0 + Enum_ov025_021dcf14_28420), 0);
             var42.unknown_14_ = var48;
             func_02057fb4(var41, *(unsigned short*)(arg0 + Enum_ov025_021dcf14_28418), &var42);
             TIMER = *(unsigned int*)(arg0 + Enum_ov025_021dcf14_28624);
@@ -1021,7 +1021,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
             var55 = 1;
             for (; var56 < var52->unknown_9_; var56++) {
                 int var57 = var56 * 0x1c;
-                var53 = func_ov000_021600f8((Struct_ov000_0215440c*)var52, *(int*)(arg0 + var57 + Enum_ov025_021dcf14_28436));
+                var53 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var52, *(int*)(arg0 + var57 + Enum_ov025_021dcf14_28436));
                 for (int var58 = 1; var58 < var53->unknown_17_; var58++) {
                     if (var53->unknown_14_[var58] == 1 || var53->unknown_14_[var58] == 2) {
                         *(int*)(arg0 + Enum_ov025_021dcf14_24576 + var57 + Enum_ov025_021dcf14_3852) = 1;

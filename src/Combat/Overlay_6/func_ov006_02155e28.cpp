@@ -39,7 +39,7 @@ extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int 
 
 struct BGLayer_02020cb8 {
     unsigned char unknown_0_[0x1c];
-    unsigned char unknown_1c_0_ : 4;
+    unsigned char isSubScreen_1c_0_ : 4;
     unsigned char bgIndex_1c_4_ : 4;
     unsigned char unknown_1d_[3];
 };
@@ -50,8 +50,8 @@ struct BGLayer_0204b12c;
 extern "C" void AllocateBGScreenData_0204b12c(struct BGLayer_0204b12c* layer, SafeAllocator* allocator);
 struct BGLayer_02020cb8_5;
 extern "C" void SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
-struct Struct_0204b010;
-extern "C" void func_0204b010(struct Struct_0204b010* arg0, void* arg1);
+struct BGLayer_0204b010;
+extern "C" void ClearBGScreenData_0204b010(struct BGLayer_0204b010* layer, void* screenData);
 extern "C" void LoadBGBlock_0204b174(void* layer, void* block, void* allocator, int arg3);
 
 struct TextWindow_0204c7a8 {
@@ -60,7 +60,7 @@ struct TextWindow_0204c7a8 {
     unsigned char unknown_8_[0xe0 - 8];
 };
 extern "C" void InitTextWindow_0204c684(void* textWindow);
-extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
+extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
 
 struct Struct_0207f7f0_2;
 struct Struct_0207f914;
@@ -228,15 +228,15 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         for (unsigned char var13 = 0; var13 < 2; var13++) {
             struct BGLayer_02020cb8* var14 = &arg0->unknown_1cc_[var13];
             InitBGLayer_0204af64(var14);
-            var14->unknown_1c_0_ = 0;
+            var14->isSubScreen_1c_0_ = 0;
             var14->bgIndex_1c_4_ = var13 + 1;
             SetBGScreenSize_0204b11c((unsigned char*)var14, 0);
             SetBGPriority_0204b5b4(var14, var12.unknown_0_[var13]);
             AllocateBGScreenData_0204b12c((struct BGLayer_0204b12c*)var14, var11);
             SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)var14, 0, 0);
         }
-        func_0204b010((struct Struct_0204b010*)&arg0->unknown_1cc_[0], NULL);
-        func_0204b010((struct Struct_0204b010*)&arg0->unknown_1cc_[1], NULL);
+        ClearBGScreenData_0204b010((struct BGLayer_0204b010*)&arg0->unknown_1cc_[0], NULL);
+        ClearBGScreenData_0204b010((struct BGLayer_0204b010*)&arg0->unknown_1cc_[1], NULL);
         SafeAllocator* var15 = arg0->unknown_180_;
         var15[3].Reset();
         for (unsigned char var16 = 0; var16 < 1; var16++) {

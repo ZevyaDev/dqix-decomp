@@ -49,7 +49,7 @@ struct Struct_ov001_02154974_6 {
 
 extern "C" {
 struct Struct_ov001_02154974_4* func_0203cf4c(void);
-void func_0200fd48(GameState* arg0, int arg1);
+void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 struct Struct_ov001_02154974_5* func_0203df78(void* arg0, int arg1);
 int* func_0203dce4(void* arg0, int arg1);
 int func_02040404(void* arg0, const char* arg1);
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov001_02154974(struct Struct_ov001_02154974_3* arg0) {
             break;
         }
         case 4: {
-            func_0200fd48(var0, var4->unknown_2_);
+            ClearGameObjectByIndex_0200fd48(var0, var4->unknown_2_);
             struct Struct_ov001_02154974_5* var12 = func_0203df78(var1, var4->unknown_8_);
             if (var12 != 0 && var12->unknown_18_ != 0) {
                 ((struct Struct_ov001_02154974_6*)var12->unknown_18_)->unknown_d4_0_ = 0;
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov001_02154974(struct Struct_ov001_02154974_3* arg0) {
         case 7:
         case 8:
             if (var0->GetGameObjectByIndex(var4->unknown_2_) != 0) {
-                func_0200fd48(var0, var4->unknown_2_);
+                ClearGameObjectByIndex_0200fd48(var0, var4->unknown_2_);
             }
             break;
         case 3: {

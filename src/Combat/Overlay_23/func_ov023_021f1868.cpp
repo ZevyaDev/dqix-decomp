@@ -5,12 +5,12 @@
 #include <Memory/SafeAllocator.h>
 
 struct GameResources;
-struct Struct_02048150;
+struct Party_02048150;
 struct StringList_02072a68_2 { char unknown_0_[4]; };
 struct Struct_0200f3a4_8;
 struct Struct_0209a470;
 struct Struct_02013fb4;
-struct Struct_020727d8;
+struct StringList_020727d8;
 struct Struct_02046574_2;
 struct MessageWindow_020465c0;
 struct Struct_0209fee4;
@@ -184,13 +184,13 @@ extern "C" void func_020e1fc4(Struct_ov023_021f1868_7* arg0, SafeAllocator* arg1
 #endif
 
 extern "C" Struct_ov023_021f1868_3* GetMessageWindow_020421a0();
-extern "C" Struct_02048150* GetParty_02010828(GameState* gameState);
-extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
+extern "C" Party_02048150* GetParty_02010828(GameState* gameState);
+extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
 extern "C" void func_0209a338(Struct_0200f3a4_8* arg0);
 extern "C" void func_0209a470(Struct_0209a470* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
-extern "C" void func_020727d8(Struct_020727d8* arg0);
+extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" void func_020e526c(void* arg0);
 extern "C" void func_0209fe9c(char* arg0);
 extern "C" void func_0209fee4(Struct_0209fee4* arg0, SafeAllocator* arg1, int arg2, int arg3);
@@ -221,11 +221,11 @@ extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2* arg0);
 extern "C" {
 void __clear(void* arg0, unsigned long arg1);
 void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
-void func_020728ac(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
+void LoadStringList_020728ac(void* stringList, void* allocator, void* arg2, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 void func_020e5604(void* arg0, SafeAllocator* arg1, void* arg2, int arg3);
 Struct_ov023_021f1868_2* func_0209a594(void* arg0, int arg1);
 void ClearMessageParams_02046380(Struct_ov023_021f1868_3* window);
-void func_020e4864(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5);
+void ExpandInflectionTags_020e4864(void* text, char* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
 #if defined(jpn)
 void StartMessage_0204500c(Struct_ov023_021f1868_3* window, char* text, int arg2);
 #else
@@ -252,13 +252,13 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
     Struct_ov023_021f1868_3* var0 = GetMessageWindow_020421a0();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     int var2 = var20->unknown_18_;
-    int var3 = func_02086ef0(GetParty_02010828(var19), var2);
+    int var3 = IsInParty_02086ef0(GetParty_02010828(var19), var2);
     if (var20->unknown_0_ == 0)
     {
         arg0->unknown_77d1_ = 1;
         arg0->unknown_30_.Reset();
         arg0->unknown_5770_ = (StringList_02072a68_2*)arg0->unknown_30_.Allocate(8);
-        func_020727d8((Struct_020727d8*)arg0->unknown_5770_);
+        ResetStringList_020727d8((StringList_020727d8*)arg0->unknown_5770_);
         func_02073864(arg0->unknown_5770_, &arg0->unknown_30_, FindStringInList_02072a68(&arg0->unknown_5af4_, 0x21), 0, 0, 0);
         arg0->unknown_57b4_ = NULL;
         var20->unknown_4_ = var1->QueueLoadFile(data_ov023_021fd517, NULL);
@@ -381,7 +381,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             arg0->unknown_57b4_ = NULL;
             arg0->unknown_77d1_ = 0;
             FontLoader_0208cb08* var18 = GetFontLoader_02094a00();
-            func_02094b40(var18);
+            ClearLoadedFontSets_02094b40(var18);
             RequestFontLoad_02094b34(var18, 0x65, 500, 0, 0);
             var20->unknown_0_ = 8;
         }
@@ -392,7 +392,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
     Struct_ov023_021f1868_3* var21 = GetMessageWindow_020421a0();
     BackgroundLoader* var22 = BackgroundLoader::GetInstance();
     int var23 = var20->unknown_18_;
-    int var24 = func_02086ef0(GetParty_02010828(var19), var23);
+    int var24 = IsInParty_02086ef0(GetParty_02010828(var19), var23);
     if (var20->unknown_0_ == 0)
     {
         arg0->unknown_77d1_ = 1;
@@ -406,9 +406,9 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             func_0209a470((Struct_0209a470*)arg0->unknown_e98_, &arg0->unknown_30_, (Struct_02013fb4*)var26, var25);
         var26 = ExtractFileFromGP2(FindStringInList_02072a68(&arg0->unknown_5904_, 0x2b), FindStringInList_02072a68(&arg0->unknown_5904_, 0x21), &var25);
         arg0->unknown_557c_ = (StringList_02072a68_2*)arg0->unknown_30_.Allocate(8);
-        func_020727d8((Struct_020727d8*)arg0->unknown_557c_);
+        ResetStringList_020727d8((StringList_020727d8*)arg0->unknown_557c_);
         if (var26 != NULL)
-            func_020728ac(arg0->unknown_557c_, &arg0->unknown_30_, var26, var25, 0, 0, 0);
+            LoadStringList_020728ac(arg0->unknown_557c_, &arg0->unknown_30_, var26, var25, 0, 0, 0);
         var26 = ExtractFileFromGP2(data_ov023_021fe25e, data_ov023_021fe273, &var25);
         arg0->unknown_5580_ = arg0->unknown_30_.Allocate(0xc);
         func_020e526c(arg0->unknown_5580_);
@@ -467,7 +467,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
                         void** var35 = func_020e5294(arg0->unknown_5580_, var29->unknown_2_);
                         var21->unknown_8_ = var35;
                         __clear(var34, sizeof(var34));
-                        func_020e4864(*var35, var34, 1, 0, 0, 0);
+                        ExpandInflectionTags_020e4864(*var35, var34, 1, 0, 0, 0);
                         SetMessageString_02046574((Struct_02046574_2*)var21, 1, var34);
                     }
                     else
@@ -572,7 +572,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             arg0->unknown_55c4_ = NULL;
             arg0->unknown_77d1_ = 0;
             FontLoader_0208cb08* var52 = GetFontLoader_02094a00();
-            func_02094b40(var52);
+            ClearLoadedFontSets_02094b40(var52);
             RequestFontLoad_02094b34(var52, 0x65, 500, 0, 0);
             var20->unknown_0_ = 8;
         }
@@ -609,7 +609,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
         arg0->unknown_77d1_ = 0;
         SetMainBrightness(GetResources_0200fb8c((int*)var19), 0, 0xf);
         FontLoader_0208cb08* var53 = GetFontLoader_02094a00();
-        func_02094b40(var53);
+        ClearLoadedFontSets_02094b40(var53);
         RequestFontLoad_02094b34(var53, 0x65, 500, 0, 0);
         var20->unknown_0_++;
     }

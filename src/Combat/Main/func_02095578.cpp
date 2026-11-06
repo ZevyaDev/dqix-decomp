@@ -16,7 +16,7 @@ extern "C" ARM void func_0209562c(struct Struct_02095578* arg0, int arg1,
     struct Struct_02013fb4* arg2, int arg3, unsigned short arg4, int arg5, int arg6);
 
 extern "C" void* GetZone3D_02012fe4();
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int func_020107d0(char* arg0);
 extern int data_020f1474;
 extern char data_02109418[] __attribute__((aligned(4)));
@@ -48,7 +48,7 @@ extern "C" ARM int func_02095578(void) {
     (int)BackgroundLoader::GetInstance();
     var6 = ((Struct_02095578_2*)var5)->inline_02095578(1);
     var7 = *(unsigned short*)var3;
-    var8 = func_0201079c((char*)var2);
+    var8 = GetStoryChapter_0201079c((char*)var2);
     var9 = func_020107d0((char*)var2);
     BackgroundLoader::AddLockGlobal();
     sprintf(var0, (const char*)&data_020f1474);

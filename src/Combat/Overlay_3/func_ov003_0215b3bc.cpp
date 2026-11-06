@@ -4,8 +4,8 @@ struct MenuCursor_0205ba68;
 extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 struct MenuCursor_0205bacc;
 extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
-struct Struct_0205bcdc;
-extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
+struct MenuCursor_0205bcdc;
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc* cursor, int index);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
 // USA: func_ov003_0215b3bc
@@ -36,6 +36,6 @@ extern "C" ARM void func_ov003_0215b3bc(char* arg0) {
     SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + 0x148), var0);
     *(int*)(arg0 + 0xfc) = var1;
     *(int*)(arg0 + 0x14c) = var1;
-    func_0205bcdc((struct Struct_0205bcdc*)(arg0 + 0xf8), var2);
+    SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc*)(arg0 + 0xf8), var2);
     SetMenuCursorIndex_0205bb04((void*)(arg0 + 0x148), var2);
 }

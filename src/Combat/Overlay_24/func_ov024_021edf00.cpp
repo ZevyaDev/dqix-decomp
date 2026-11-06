@@ -10,7 +10,7 @@ extern "C" int func_ov024_021e05e4(struct Struct_ov024_021e04e0* arg0);
 
 struct Struct_02010088_2 { char unknown_0_[0x14]; int statusFlags_14_; };
 struct Struct_02010088 { char unknown_0_[0x138]; struct Struct_02010088_2* pCurrentStats_138_; };
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 
 // USA: func_ov024_021edf00
 extern "C" ARM int func_ov024_021edf00(int* arg0, int arg1, short* arg2) {
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov024_021edf00(int* arg0, int arg1, short* arg2) {
 	short var1 = *(short*)((char*)var0->currentStats_ + 0x2e);
 	GameObject* var2 = GetCombatantByID(*arg0, var1);
 	if (!var2) goto fail;
-	if (!func_02010088((struct Struct_02010088*)var2)) {
+	if (!IsDead_02010088((struct Struct_02010088*)var2)) {
 		*arg2 = *(short*)((char*)var0->currentStats_ + 0x2e);
 		return 1;
 	}

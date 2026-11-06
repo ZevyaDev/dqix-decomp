@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_ov000_021600f8 { char unknown_0_[0xc]; short unknown_c_; short unknown_e_; };
-struct Struct_ov000_0215440c {
+struct ActionTarget_ov000_021600f8 { char unknown_0_[0xc]; short unknown_c_; short unknown_e_; };
+struct BattleAction_ov000_0215440c {
     unsigned short unknown_0_;
     char unknown_2_[7];
     unsigned char unknown_9_;
@@ -32,9 +32,9 @@ struct Struct_ov025_021ea604_3 {
 };
 struct Struct_ov023_021f2a48 { char unknown_0_[0x28]; short unknown_28_; };
 extern "C" void* GetBattleScene_ov000_02160130();
-extern "C" Struct_ov000_0215440c* func_ov000_02160f20(void*);
-extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c*, int);
-extern "C" short func_ov000_0215ffa0(Struct_ov000_021600f8*);
+extern "C" BattleAction_ov000_0215440c* func_ov000_02160f20(void*);
+extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
+extern "C" short func_ov000_0215ffa0(ActionTarget_ov000_021600f8*);
 extern "C" int func_ov000_0215fd90(Struct_ov025_021ea604_2*, unsigned int);
 extern "C" void func_ov025_021ed35c(char*);
 extern "C" void func_ov025_021ea958(Struct_ov025_021ea604_3*, int, int, int);
@@ -45,8 +45,8 @@ inline int inline_ov025_021dfce0_2(int arg0) { return arg0 >= 0 && arg0 <= 3; }
 // USA: func_ov025_021ea604
 extern "C" ARM void func_ov025_021ea604(Struct_ov025_021ea604_3* arg0, int arg1, int, Struct_ov025_021ea604_2* arg3) {
     GameState* var0 = GameState::GetInstance();
-    Struct_ov000_0215440c* var1 = func_ov000_02160f20(GetBattleScene_ov000_02160130());
-    Struct_ov000_021600f8* var2 = func_ov000_021600f8(var1, arg1);
+    BattleAction_ov000_0215440c* var1 = func_ov000_02160f20(GetBattleScene_ov000_02160130());
+    ActionTarget_ov000_021600f8* var2 = GetActionTarget_ov000_021600f8(var1, arg1);
     int var3 = 0;
     if (arg0->unknown_5d0_) {
         int var4 = 1;
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov025_021ea604(Struct_ov025_021ea604_3* arg0, int arg1,
         if (var2->unknown_e_ >= 0 && var2->unknown_e_ <= 3) var5 = 1;
         bool var6 = var5;
         for (int var7 = arg1 + 1; var7 < var1->unknown_9_; var7++) {
-            Struct_ov000_021600f8* var8 = func_ov000_021600f8(var1, var7);
+            ActionTarget_ov000_021600f8* var8 = GetActionTarget_ov000_021600f8(var1, var7);
             int var9 = 0;
             if (var8->unknown_e_ >= 0 && var8->unknown_e_ <= 3) var9 = 1;
             bool var10 = var9;

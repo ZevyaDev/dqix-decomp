@@ -65,14 +65,14 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" Struct_ov023_021e868c_2* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
-extern "C" void func_02041a28(char* arg0, int arg1);
+extern "C" void AppendXPositionTag_02041a28(char* buffer, int x);
 #if defined(jpn)
 extern "C" int func_020420e8(char* arg0, int arg1);
 #define func_02041a5c func_020420e8
 #else
 extern "C" int func_02041a5c(char* arg0, int arg1);
 #endif
-extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
+extern "C" void AppendPositionTag_02041a90(char* buffer, int x, int y);
 extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 #if defined(jpn)
 extern "C" int func_02042638(char* arg0, int arg1, int arg2);
@@ -83,8 +83,8 @@ extern "C" int func_02041fac(char* arg0, int arg1, int arg2);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
-extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
-extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int index, unsigned char alignment);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 
 extern "C" {
 void* GetLocalWireless_0202ae18();
@@ -125,9 +125,9 @@ extern "C" ARM void func_ov023_021e868c(Struct_ov023_021e868c_3* arg0)
     char* var7 = arg0->unknown_5d8_;
     char var8[0x20] = {};
 #if defined(jpn)
-    func_02041a28(var7, (0xd0 - (strlen(var3->unknown_3c_) * 10 / 2)) / 2);
+    AppendXPositionTag_02041a28(var7, (0xd0 - (strlen(var3->unknown_3c_) * 10 / 2)) / 2);
 #else
-    func_02041a28(var7, (0xd0 - func_020420e8(var3->unknown_3c_, 0)) >> 1);
+    AppendXPositionTag_02041a28(var7, (0xd0 - func_020420e8(var3->unknown_3c_, 0)) >> 1);
 #endif
     func_02041fac(var7, (int)var3->unknown_3c_, 0x10);
     const char* var9 = FindStringInList_02072a68(arg0->unknown_5f4_, (short)(var6->unknown_5_1_ + 10000));
@@ -135,35 +135,35 @@ extern "C" ARM void func_ov023_021e868c(Struct_ov023_021e868c_3* arg0)
     AppendText_02042058(var7, FindStringInList_02072a68(arg0->unknown_5f4_, 0x6c));
 #if defined(jpn)
     int var10 = (0x6e - strlen(var9) * 10 / 2) / 2 + 0x56;
-    func_02041a28(var7, var10);
+    AppendXPositionTag_02041a28(var7, var10);
 #else
-    func_02041a28(var7, ((0x6e - func_020420e8(var9, 0)) >> 1) + 0x56);
+    AppendXPositionTag_02041a28(var7, ((0x6e - func_020420e8(var9, 0)) >> 1) + 0x56);
 #endif
     AppendText_02042058(var7, var9);
     AppendText_02042058(var7, FindStringInList_02072a68(arg0->unknown_5f4_, 0));
     AppendMenuEntry_02041b70(var7, 1, FindStringInList_02072a68(arg0->unknown_5f4_, 3));
-    func_02041a28(var7, 0x4c);
+    AppendXPositionTag_02041a28(var7, 0x4c);
     AppendText_02042058(var7, FindStringInList_02072a68(arg0->unknown_5f4_, 0x6c));
     if (var6->unknown_3_7_)
     {
-        func_02041a28(var7, 0x5a);
+        AppendXPositionTag_02041a28(var7, 0x5a);
     }
     else
     {
-        func_02041a90(var7, 0x6e, 0x34);
+        AppendPositionTag_02041a90(var7, 0x6e, 0x34);
 #if defined(jpn)
         func_020474a8(var1, 10, FindStringInList_02072a68(arg0->unknown_5f4_, 0x78), var8);
 #else
         func_02046608(var1, 10, FindStringInList_02072a68(arg0->unknown_5f4_, 0x78), var8, 0x100, 0, 0);
 #endif
         AppendText_02042058(var7, var8);
-        func_02041a90(var7, 0x5a, 0x28);
+        AppendPositionTag_02041a90(var7, 0x5a, 0x28);
     }
     if (var6->unknown_3_4_)
     {
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var6->unknown_0_0_);
-        func_020465d8((unsigned char*)var1, 0, 1);
-        func_020465f0((unsigned char*)var1, 0, 4);
+        SetMessageNumberAlignment_020465d8((unsigned char*)var1, 0, 1);
+        SetMessageNumberWidth_020465f0((unsigned char*)var1, 0, 4);
 #if defined(jpn)
         const char* var11 = FindStringInList_02072a68(arg0->unknown_5f4_, 0x64);
         func_020474a8(var1, 10, var11, var8);
@@ -173,8 +173,8 @@ extern "C" ARM void func_ov023_021e868c(Struct_ov023_021e868c_3* arg0)
         AppendText_02042058(var7, var8);
         memset(var8, 0, sizeof(var8));
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var6->unknown_1_4_);
-        func_020465d8((unsigned char*)var1, 0, 1);
-        func_020465f0((unsigned char*)var1, 0, 2);
+        SetMessageNumberAlignment_020465d8((unsigned char*)var1, 0, 1);
+        SetMessageNumberWidth_020465f0((unsigned char*)var1, 0, 2);
 #if defined(jpn)
         const char* var12 = FindStringInList_02072a68(arg0->unknown_5f4_, 0x65);
         func_020474a8(var1, 10, var12, var8);
@@ -184,8 +184,8 @@ extern "C" ARM void func_ov023_021e868c(Struct_ov023_021e868c_3* arg0)
         AppendText_02042058(var7, var8);
         memset(var8, 0, sizeof(var8));
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var6->unknown_2_0_);
-        func_020465d8((unsigned char*)var1, 0, 1);
-        func_020465f0((unsigned char*)var1, 0, 2);
+        SetMessageNumberAlignment_020465d8((unsigned char*)var1, 0, 1);
+        SetMessageNumberWidth_020465f0((unsigned char*)var1, 0, 2);
 #if defined(jpn)
         const char* var13 = FindStringInList_02072a68(arg0->unknown_5f4_, 0x66);
         func_020474a8(var1, 10, var13, var8);
@@ -234,13 +234,13 @@ extern "C" ARM void func_ov023_021e868c(Struct_ov023_021e868c_3* arg0)
 #endif
     func_02041a5c(var7, 0x42);
     AppendMenuEntry_02041b70(var7, 2, FindStringInList_02072a68(arg0->unknown_5f4_, 4));
-    func_02041a28(var7, 0x4c);
+    AppendXPositionTag_02041a28(var7, 0x4c);
     AppendText_02042058(var7, FindStringInList_02072a68(arg0->unknown_5f4_, 0x6c));
 #if defined(jpn)
     int var17 = (0x6e - strlen(var16) * 10 / 2) / 2 + 0x56;
-    func_02041a28(var7, var17);
+    AppendXPositionTag_02041a28(var7, var17);
 #else
-    func_02041a28(var7, ((0x6e - func_020420e8(var16, 0)) >> 1) + 0x56);
+    AppendXPositionTag_02041a28(var7, ((0x6e - func_020420e8(var16, 0)) >> 1) + 0x56);
 #endif
     AppendText_02042058(var7, var16);
     AppendText_02042058(var7, FindStringInList_02072a68(arg0->unknown_5f4_, 0));
@@ -257,13 +257,13 @@ extern "C" ARM void func_ov023_021e868c(Struct_ov023_021e868c_3* arg0)
     const char* var19 = FindStringInList_02072a68(arg0->unknown_5f4_, var18);
 #endif
     AppendMenuEntry_02041b70(var7, 3, FindStringInList_02072a68(arg0->unknown_5f4_, 5));
-    func_02041a28(var7, 0x4c);
+    AppendXPositionTag_02041a28(var7, 0x4c);
     AppendText_02042058(var7, FindStringInList_02072a68(arg0->unknown_5f4_, 0x6c));
 #if defined(jpn)
     int var20 = (0x6e - strlen(var19) * 10 / 2) / 2 + 0x56;
-    func_02041a28(var7, var20);
+    AppendXPositionTag_02041a28(var7, var20);
 #else
-    func_02041a28(var7, ((0x6e - func_020420e8(var19, 0)) >> 1) + 0x56);
+    AppendXPositionTag_02041a28(var7, ((0x6e - func_020420e8(var19, 0)) >> 1) + 0x56);
 #endif
     AppendText_02042058(var7, var19);
 }

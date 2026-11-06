@@ -11,8 +11,8 @@ enum { Enum_0208f410_1788 = 0x6fc };
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0208e0a8(void);
 
-struct Struct_02015438;
-extern "C" int func_02046b24(Struct_02015438** arg0);
+struct QueueNode_02015438;
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438** queue);
 extern "C" int func_0208e824(void* arg0, char* arg1);
 struct Struct_0208f410;
 struct Vector3i;
@@ -35,8 +35,8 @@ extern "C" ARM void func_0208f410(Struct_0208f410_3* arg0) {
     if (arg0->unknown_8_ == 0) return;
 
     int var0 = (int)GetGameResources();
-    Struct_02015438** var1 = *(Struct_02015438***)(var0 + 0x3000 + Enum_0208f410_1788);
-    if (func_02046b24(var1) == 0xa) return;
+    QueueNode_02015438** var1 = *(QueueNode_02015438***)(var0 + 0x3000 + Enum_0208f410_1788);
+    if (GetQueueHeadType_02046b24(var1) == 0xa) return;
     if (TestFlags04((GameResources*)var0, 2) != 0) return;
 
     void* var2 = GetZone3D_02012fe4();

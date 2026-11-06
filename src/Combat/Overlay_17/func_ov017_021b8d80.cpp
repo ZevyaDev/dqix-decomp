@@ -20,7 +20,7 @@ struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
 struct Struct_02061c04_11;
 extern "C" void func_ov017_021b994c(struct Struct_02061c04_11* arg0);
-extern "C" void func_020a0c0c(void);
+extern "C" void LoadFileTables_020a0c0c(void);
 
 extern int gMainHeap_02114e20;
 
@@ -63,5 +63,5 @@ extern "C" ARM void func_ov017_021b8d80(unsigned char* arg0) {
     }
 
     func_ov017_021b994c((struct Struct_02061c04_11*)arg0);
-    func_020a0c0c();
+    LoadFileTables_020a0c0c();
 }

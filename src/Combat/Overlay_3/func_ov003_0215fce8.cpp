@@ -22,7 +22,7 @@ union Struct_ov003_0215fce8_4 {
 };
 
 extern int data_ov003_02180cc0;
-extern struct Struct_020e6d5c_14 data_020e6d5c;
+extern struct Struct_020e6d5c_14 gNullMemberFunctionPointer_020e6d5c;
 extern struct Struct_020e6d5c_14 data_ov003_0217ff68[];
 
 extern "C" int func_ov017_021959b4();
@@ -165,7 +165,7 @@ extern "C" ARM int func_ov003_0215fce8(unsigned char *arg0, int arg1) {
     }
     *(unsigned int *) (arg0 + SO(0x464)) &= ~1u;
     if (!(data_ov003_02180cc0 & 1)) {
-        *(unsigned long long *) ((char *) data_ov003_0217ff68 + 0x80) = *(const unsigned long long *) &data_020e6d5c;
+        *(unsigned long long *) ((char *) data_ov003_0217ff68 + 0x80) = *(const unsigned long long *) &gNullMemberFunctionPointer_020e6d5c;
         data_ov003_02180cc0 |= 1;
     }
     unsigned char var11         = arg0[SO(0x4a3)];

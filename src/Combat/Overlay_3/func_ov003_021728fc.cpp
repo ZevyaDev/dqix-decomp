@@ -18,8 +18,8 @@ enum { Enum_ov003_021728fc_969 = 0x3c9 };
 extern "C" int GetMessageWindow_020421a0();
 
 extern "C" int func_020ac4f8(int arg0);
-struct Struct_02074af4;
-extern "C" ARM void func_02074af4(struct Struct_02074af4* arg0);
+struct BGControlSave_02074af4;
+extern "C" ARM void SaveMainBGControl_02074af4(struct BGControlSave_02074af4* save);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" int* func_020936f8(void);
 extern "C" void func_020941b0(struct Struct_02093b90_2* arg0);
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov003_021728fc(Struct_ov003_021728fc* arg0) {
 #if defined(jpn)
     *(int*)((char*)arg0 + 0xf0) = *(int*)(GetMessageWindow_020421a0() + 0x28);
 #endif
-    func_02074af4((struct Struct_02074af4*)((char*)arg0 + Enum_ov003_021728fc_250));
+    SaveMainBGControl_02074af4((struct BGControlSave_02074af4*)((char*)arg0 + Enum_ov003_021728fc_250));
 
     volatile unsigned int* var1 = (volatile unsigned int*)0x4000000;
     unsigned int var2 = (*var1 & 0x1f00) >> 8;

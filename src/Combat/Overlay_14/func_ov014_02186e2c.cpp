@@ -3,7 +3,7 @@
 struct Struct_0207fdcc_2;
 struct Struct_0207fdcc;
 extern "C" struct Struct_0207fdcc* func_02081da8(struct Struct_0207fdcc_2*, int);
-extern "C" int func_0204c7e0(unsigned char*);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char*);
 extern "C" void func_020809c4(void*, int, int, short*, short*);
 
 struct SpriteAnimationList_0205a254;
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov014_02186e2c(struct Struct_ov014_02186e2c_2* arg0) {
     if (arg0->unknown_170_ < 0) return;
     var0 = func_02081da8((struct Struct_0207fdcc_2*)arg0->unknown_c0_, arg0->unknown_170_);
     if (var0 == NULL) return;
-    if (func_0204c7e0((unsigned char*)var0) == 0) return;
+    if (IsTextWindowOpen_0204c7e0((unsigned char*)var0) == 0) return;
 
     func_020809c4(arg0->unknown_c0_, arg0->unknown_170_, *arg0->unknown_d0_, &var2, &var3);
     var2 -= 0x10;

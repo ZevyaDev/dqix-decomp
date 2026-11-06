@@ -121,7 +121,7 @@ struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_020420e8(void*, int);
-extern "C" int func_02041a28(char*, int);
+extern "C" int AppendXPositionTag_02041a28(char*, int);
 extern "C" int func_02041b00(char*, int);
 extern "C" int func_02041fac(char*, int, int);
 extern "C" void __clear(void*, int);
@@ -133,7 +133,7 @@ extern "C" int func_020426a4(int, int);
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0*, int, int);
 extern "C" void func_02046608(int, int, void*, void*, int, int, int);
-extern "C" int func_02041a90(char*, int, int);
+extern "C" int AppendPositionTag_02041a90(char*, int, int);
 extern "C" int sprintf(char*, const char*, ...);
 
 struct Struct_ov023_021d9290 {
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov023_021d9290(char* arg0, char* arg1, unsigned char ar
 
     char* var2 = (char*)FindStringInTable_020e0434(var0->unknown_0_, 0x75f8);
     int var3 = func_020420e8(var2, 0);
-    func_02041a28(arg1, (0xc0 - var3) >> 1);
+    AppendXPositionTag_02041a28(arg1, (0xc0 - var3) >> 1);
     func_02041b00(arg1, 1);
     func_02041fac(arg1, (int)var2, 0x10);
 
@@ -204,7 +204,7 @@ extern "C" ARM void func_ov023_021d9290(char* arg0, char* arg1, unsigned char ar
         char* var21 = (char*)FindStringInTable_020e0434(var0->unknown_0_, 0x75fa);
         int var22 = func_020420e8(var21, 0);
         var22 = 0xc0 - var22;
-        func_02041a90(arg1, var22 >> 1, (var10 - 0x1a) / 2 + 0x10);
+        AppendPositionTag_02041a90(arg1, var22 >> 1, (var10 - 0x1a) / 2 + 0x10);
         AppendText_02042058(arg1, var21);
     }
 }

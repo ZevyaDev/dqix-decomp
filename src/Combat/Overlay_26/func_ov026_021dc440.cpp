@@ -19,8 +19,8 @@ struct Struct_ov000_02160da0 { char unknown_0_[0x7712]; signed char unknown_7712
 
 void ZeroInitGPCPointer(GPCFile**);
 void ZeroDestroyGPCPointer(GPCFile**);
-struct Struct_0203d028_11;
-extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
+struct ObjectArchiveLoadInfo_0203d028_11;
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 struct Struct_0204a120;
 extern "C" void func_0204a120(struct Struct_0204a120* arg0);
 struct Struct_0204a3f0_2;
@@ -29,8 +29,8 @@ extern "C" void func_0204a3f0(struct Struct_0204a3f0_2* arg0, struct Struct_0204
 extern "C" void func_0204a440(char* arg0, const char* arg1);
 extern "C" void func_0204a464(char* arg0, const char* arg1);
 extern "C" void SetCamera_020100c4(GameState*, int);
-extern "C" void func_0200fd38(GameState*, int, GameObject*);
-extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" int func_020a35f8(unsigned char*);
 extern "C" void func_02072c9c(int, char*);
 struct Struct_02040774_2;
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, Struct_ov000_02160d
             if (var9) {
                 var9->Initialize();
                 ObjectArchiveLoadInfo var10;
-                func_0203dafc((Struct_0203d028_11*)&var10);
+                ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var10);
                 var10.unk_8 = var1;
                 var10.unk_10 = 1;
                 var10.allocator = arg0;
@@ -149,7 +149,7 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, Struct_ov000_02160d
             if (var19) {
                 var19->Initialize();
                 ObjectArchiveLoadInfo var20;
-                func_0203dafc((Struct_0203d028_11*)&var20);
+                ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var20);
                 var20.unk_8 = var1;
                 var20.unk_10 = 1;
                 var20.allocator = arg0;
@@ -167,11 +167,11 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, Struct_ov000_02160d
                     }
                 }
                 var19->EnableBoneTracking();
-                func_0200fd38(var3, 0xcf, (GameObject*)var19);
+                SetGameObjectByIndex_0200fd38(var3, 0xcf, (GameObject*)var19);
             }
         }
         for (int var25 = 0; var25 < 4; ++var25) {
-            if (func_020a35e0(arg3, var25)) {
+            if (IsPartyMemberInBattle_020a35e0(arg3, var25)) {
                 GameObject* var26 = GetPartyMemberBaseByIndex_0200ff1c(var3, var25);
                 if (var26) {
                     char var27[0x14];
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, Struct_ov000_02160d
                     }
                     if (var1) {
                         ObjectArchiveLoadInfo var28;
-                        func_0203dafc((Struct_0203d028_11*)&var28);
+                        ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var28);
                         var28.unk_10 = 1;
                         var28.packageID = 3;
                         var28.unk_8 = var1;

@@ -29,8 +29,8 @@ extern "C" int GetMessageWindow_020421a0(void);
 
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
-extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
-extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int index, unsigned char alignment);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
@@ -72,8 +72,8 @@ extern "C" ARM void func_ov023_021e83c8(void* arg0) {
     var3 = 0;
     for (; var3 < 2; var3++) {
         SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var1, var3, var4[var3]);
-        func_020465d8((unsigned char*)var1, var3, 1);
-        func_020465f0((unsigned char*)var1, var3, var2[var3] & 0xff);
+        SetMessageNumberAlignment_020465d8((unsigned char*)var1, var3, 1);
+        SetMessageNumberWidth_020465f0((unsigned char*)var1, var3, var2[var3] & 0xff);
     }
 
     int var6 = FindStringInTable_020e0434(&var0->unknown_4c_, 0);

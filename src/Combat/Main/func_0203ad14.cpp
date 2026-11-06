@@ -2,7 +2,7 @@
 
 extern "C" void* func_020bd42c(void*);
 extern "C" int func_020bec30(void* arg0, int arg1, int arg2);
-extern "C" void func_020bbd9c(void);
+extern "C" void UpdateSound_020bbd9c(void);
 
 // USA: func_0203ad14
 extern "C" ARM int func_0203ad14(void* arg0, int arg1, void* arg2, int arg3) {
@@ -17,6 +17,6 @@ extern "C" ARM int func_0203ad14(void* arg0, int arg1, void* arg2, int arg3) {
     } else {
         var1 = func_020bec30(var0 + 0x9c, arg1, arg3);
     }
-    func_020bbd9c();
+    UpdateSound_020bbd9c();
     return var1;
 }

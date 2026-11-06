@@ -8,7 +8,6 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
-#define func_020c39a0 func_020c546c
 #define func_ov016_0218d2f4 func_ov016_0218d9f8
 #define data_ov016_0219cfc0 data_ov016_0219cee0
 #define data_ov016_0219cfc6 data_ov016_0219cee9
@@ -62,10 +61,10 @@ struct Struct_ov016_0218b5c4_3 {
     int unknown_8_;
 };
 
-extern "C" int func_020c39a0(short* arg0, int arg1);
+extern "C" int WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 extern "C" void MapVRAMBanksToMainBG(int v);
-extern "C" void func_020c391c(int arg0, int arg1, int arg2);
-extern "C" void func_020a0cc4(unsigned int);
+extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_02028d68(int arg0);
 extern "C" void func_02028ddc(void* arg0);
@@ -87,7 +86,7 @@ struct Struct_0202a944;
 extern "C" void func_0202a944(Struct_0202a944_2*, Struct_0202a944*);
 extern "C" void func_0202a6c4(Struct_ov016_0218b5c4_8* arg0);
 extern "C" void func_0202a8cc(char*, int);
-extern "C" void func_020c9820();
+extern "C" void WaitForVBlank_020c9820();
 extern "C" void func_020c38d4();
 extern "C" int func_020115a8(Struct_02000c9c_12* arg0);
 extern "C" void func_02012efc();
@@ -107,7 +106,7 @@ struct Struct_ov016_0218b5c4_6;
 extern "C" Struct_ov016_0218b5c4_2* func_ov016_0218e124(Struct_ov016_0218b5c4_6**, int);
 extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
 extern "C" void func_0203ad88(void* arg0, void* arg1, int arg2);
-extern "C" void func_020bbd9c();
+extern "C" void UpdateSound_020bbd9c();
 extern "C" void func_0205e8d4(void* arg0);
 extern "C" void func_0203a950(void* arg0);
 extern "C" void func_0205e88c(Struct_02000c9c_17* arg0);
@@ -116,7 +115,7 @@ extern "C" void func_0209c2b8(void* arg0);
 extern "C" void func_0205ea20(void* arg0, int arg1);
 extern "C" void func_0209c290(void* arg0);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
-extern "C" void func_020a0c0c();
+extern "C" void LoadFileTables_020a0c0c();
 #if defined(jpn)
 extern "C" void func_ov016_0218d2f4(char* arg0, char* arg1, Struct_ov016_0218b5c4* arg2, Struct_ov016_0218b5c4_2* arg3, int arg4);
 extern "C" void func_ov016_0218caa8(char* arg0, Struct_ov016_0218b5c4* arg1, Struct_ov016_0218b5c4_2* arg2, int arg3);
@@ -156,18 +155,18 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
 #endif
 
     GameState* var8 = GameState::GetInstance();
-    func_020c39a0((short*)0x400006c, -16);
-    func_020c39a0((short*)0x400106c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
     MapVRAMBanksToMainBG(1);
     inline_ov016_0218b5c4(0);
     inline_ov016_0218b5c4_2(0);
-    func_020c391c(1, 0, 1);
+    SetMainDisplayAndBGMode_020c391c(1, 0, 1);
     volatile unsigned short* var9 = (volatile unsigned short*)0x4000008;
     var9[0] = (var9[0] & ~0x3) | 0x1;
     var9[1] = var9[1] & ~0x3;
     ColorEffect_ConfigureAlphaBlend(0x4000050, BLEND_TARGET_BG0, BLEND_TARGET_BACKDROP, 0x1f, 0x1f);
     ColorEffect_ConfigureAlphaBlend(0x4000050, BLEND_TARGET_BG1, BLEND_TARGET_BG0, 0x1f, 0);
-    func_020a0cc4(0x100000);
+    ReleaseFileTablesForSpace_020a0cc4(0x100000);
     arg0->unknown_0_.CreateTypeB(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x100000), 0x100000, 4);
     void* var10 = arg0->unknown_0_.Allocate(0x6000);
     func_02028d68(3);
@@ -204,12 +203,12 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
     arg0->unknown_14_.unknown_70_ = 1;
     arg0->unknown_14_.unknown_4c_ = 8;
     func_0202a8cc((char*)&arg0->unknown_14_, 1);
-    func_020c9820();
+    WaitForVBlank_020c9820();
     func_020c38d4();
     DISPCNTSUB |= 0x10000;
     DISPCNT = (DISPCNT & ~0x1f00) | 0x300;
-    func_020c39a0((short*)0x400006c, -16);
-    func_020c39a0((short*)0x400106c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
 
     int var15 = -1;
     if (func_020115a8((Struct_02000c9c_12*)var8) != 0) {
@@ -235,11 +234,11 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
         func_02029988(&arg0->unknown_14_, 1);
         func_02029088();
         func_020d86d0(0, 1);
-        func_020c9820();
+        WaitForVBlank_020c9820();
         func_020bbcb4();
         func_020290ac(0);
-        func_020c39a0((short*)0x400006c, 0);
-        func_020c39a0((short*)0x400106c, -16);
+        WriteBrightnessRegister_020c39a0((short*)0x400006c, 0);
+        WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
     }
 
 #if !defined(jpn)
@@ -275,15 +274,15 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
     }
 
     if (var15 >= 0) {
-        func_020c39a0((short*)0x400006c, -16);
-        func_020c39a0((short*)0x400106c, -16);
+        WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+        WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
         Struct_ov016_0218b5c4_2* var19 = func_ov016_0218e124((Struct_ov016_0218b5c4_6**)&var2, var15);
         if (var19 != 0) {
 #if !defined(jpn)
             if (var19->unknown_11_ != 0) {
                 func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
                 func_0203ad88(&gMusicManager_02109bf4, 0, 0);
-                func_020bbd9c();
+                UpdateSound_020bbd9c();
                 func_0205e8d4(&gSoundEffectManager_02108760);
                 func_0203a950(&gMusicManager_02109bf4);
                 func_0205e88c((Struct_02000c9c_17*)&gSoundEffectManager_02108760);
@@ -318,11 +317,11 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
         }
     }
 
-    func_020c39a0((short*)0x400006c, -16);
-    func_020c39a0((short*)0x400106c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
     SignedAllocatorHeader* var20 = arg0->unknown_0_.GetSignedAllocator();
     arg0->unknown_0_.Destroy();
     FreeMemory_02012da4(&gMainHeap_02114e20, var20);
-    func_020a0c0c();
+    LoadFileTables_020a0c0c();
     func_02028ddc(0);
 }

@@ -2,7 +2,7 @@
 #include "Resource/GameResources.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int func_020107d0(char* arg0);
 extern "C" int func_02010804(char* arg0);
 void SetBrightness(GameResources*, int, int);
@@ -24,7 +24,7 @@ struct Struct_ov017_021aa41c {
 extern "C" ARM void func_ov017_021aa41c(Struct_ov017_021aa41c* arg0) {
     GameState* var0 = GameState::GetInstance();
     char* var1 = (char*)var0;
-    int var2 = func_0201079c(var1);
+    int var2 = GetStoryChapter_0201079c(var1);
     int var3 = func_020107d0(var1);
     int var4 = func_02010804(var1);
     if (var2 * 10000 + var3 * 100 + var4 != arg0->unknown_8_ * 10000 + arg0->unknown_a_ * 100 + arg0->unknown_c_) {

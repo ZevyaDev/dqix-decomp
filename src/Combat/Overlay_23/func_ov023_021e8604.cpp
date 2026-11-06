@@ -16,8 +16,8 @@ extern "C" int GetMessageWindow_020421a0(void);
 
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
-extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
-extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int index, unsigned char alignment);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
@@ -38,8 +38,8 @@ extern "C" ARM void func_ov023_021e8604(void* arg0) {
     Struct_ov023_021e8604_2* var2 = static_cast<Struct_ov023_021e8604_2*>(GetParty_02010828(var1));
     int var3 = GetMessageWindow_020421a0();
     SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var3, 0, var2->unknown_f74_);
-    func_020465d8((unsigned char*)var3, 0, 1);
-    func_020465f0((unsigned char*)var3, 0, 0xa);
+    SetMessageNumberAlignment_020465d8((unsigned char*)var3, 0, 1);
+    SetMessageNumberWidth_020465f0((unsigned char*)var3, 0, 0xa);
     int var4 = FindStringInTable_020e0434(&var0->unknown_4c_, 2);
 #if defined(jpn)
     func_020474a8(((void*)(var3)), 0xa, ((const char*)(var4)), var0->unknown_5d8_);

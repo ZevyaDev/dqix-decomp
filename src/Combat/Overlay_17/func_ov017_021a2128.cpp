@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_020fdd44;
+struct ActiveZone_020fdd44;
 struct Struct_02073ec4_2;
 struct Struct_0206f01c_2;
 struct Struct_020283fc;
@@ -47,8 +47,8 @@ struct Struct_ov017_021a2128 { char unknown_0_[0x2fe0]; int unknown_31f0_; };
 #else
 struct Struct_ov017_021a2128 { char unknown_0_[0x31f0]; int unknown_31f0_; };
 #endif
-extern "C" Struct_020fdd44* func_02027ca4();
-extern "C" Struct_ov017_021a2128_4* func_02028bd0(Struct_020fdd44*, int);
+extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4();
+extern "C" Struct_ov017_021a2128_4* FindActiveZone_02028bd0(ActiveZone_020fdd44*, int);
 extern "C" Struct_ov017_021a2128_3* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" void* func_0206ef18(void*, int);
 extern "C" int func_ov017_021a20c0(int, int, int);
@@ -71,7 +71,7 @@ extern "C" void func_ov017_021c8f3c(int, int);
 
 // USA: func_ov017_021a2128
 extern "C" ARM int func_ov017_021a2128(Struct_ov017_021a2128* arg0, unsigned short arg1, int arg2, int arg3, const Vector3fix* arg4, int arg5, unsigned short arg6, unsigned char arg7) {
-    Struct_ov017_021a2128_4* var0 = func_02028bd0(func_02027ca4(), arg1);
+    Struct_ov017_021a2128_4* var0 = FindActiveZone_02028bd0(GetActiveZones_02027ca4(), arg1);
     if (!var0) return 0;
     Struct_ov017_021a2128_3* var1 = func_0206f4f0((Struct_0206f01c_2*)var0->unknown_2f8_, (short)arg2);
     void* var2 = func_0206ef18(var0->unknown_304_, (short)arg2);

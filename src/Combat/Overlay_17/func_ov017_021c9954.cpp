@@ -59,7 +59,7 @@ struct Struct_ov017_021c9954_7 {
 extern "C" void func_ov017_021b86f8(Struct_ov017_021c9954_2* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02076a8c(void* arg0);
 extern "C" Struct_ov017_021c9954_3* GetBattleSetup_ov017_021b8478(Struct_ov017_021c9954_2* battleManager);
-extern "C" Struct_ov017_021c9954_3* func_ov017_021b8468(Struct_ov017_021c9954_2* arg0);
+extern "C" Struct_ov017_021c9954_3* GetBattleScene_ov017_021b8468(Struct_ov017_021c9954_2* battleManager);
 extern "C" void func_ov000_02163778(void* arg0);
 extern "C" void func_020dc548(signed char arg0, signed char* arg1, signed char* arg2);
 extern "C" void func_ov017_021917f0(int arg0, int arg1);
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov017_021c9954(int arg0, int arg1, int arg2, int arg3) 
 
     if (arg1 != 0) {
         Struct_ov017_021c9954_3* var3 = GetBattleSetup_ov017_021b8478(var2);
-        Struct_ov017_021c9954_3* var4 = func_ov017_021b8468(var2);
+        Struct_ov017_021c9954_3* var4 = GetBattleScene_ov017_021b8468(var2);
         if (var4 != 0 && var3 != 0 && var3->unknown_8_ == arg0) {
             func_ov000_02163778(var4);
         }

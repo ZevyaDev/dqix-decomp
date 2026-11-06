@@ -13,8 +13,8 @@ struct Struct_02028430_2 {
 };
 struct Struct_02028430 { unsigned char unknown_0_[4]; Struct_02028430_2* unknown_4_; };
 struct Struct_020283fc;
-struct Struct_020fdd44 {
-    unsigned short unknown_0_; char unknown_2_[Enum_020339c8_24 - 2];
+struct ActiveZone_020fdd44 {
+    unsigned short zoneId_0_; char unknown_2_[Enum_020339c8_24 - 2];
     Struct_02028430 unknown_18_; char unknown_20_[0x34 - 0x20];
     int unknown_34_; char unknown_38_[0x318 - 0x38];
 };
@@ -22,8 +22,8 @@ struct Struct_020339c8 : Object3D {
     char unknown_ac_[0xb8 - 0xac]; unsigned short unknown_b8_;
     char unknown_ba_[8]; unsigned char unknown_c2_0_ : 6; unsigned char unknown_c2_6_ : 1;
 };
-extern "C" Struct_020fdd44* func_02027ca4();
-extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44*, int);
+extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4();
+extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44*, int);
 extern "C" Struct_02028430_2* func_02028430(Struct_02028430*, int);
 extern "C" int func_020283fc(Struct_020283fc*, int);
 extern "C" Vector3fix func_02034104(void*);
@@ -32,8 +32,8 @@ extern "C" int func_02028524(Struct_02028430*, const Vector3fix&);
 // USA: func_020339c8
 extern "C" ARM void func_020339c8(Struct_020339c8* arg0) {
     if (!arg0->unknown_c2_6_) return;
-    Struct_020fdd44* var0 = func_02027ca4();
-    Struct_020fdd44* var1 = func_02028bd0(var0, arg0->GetField06());
+    ActiveZone_020fdd44* var0 = GetActiveZones_02027ca4();
+    ActiveZone_020fdd44* var1 = FindActiveZone_02028bd0(var0, arg0->GetField06());
     if (!var1 || !var1->unknown_34_) return;
     Struct_02028430_2* var2 = func_02028430(&var1->unknown_18_, arg0->unknown_b8_);
     if (!var2) return;

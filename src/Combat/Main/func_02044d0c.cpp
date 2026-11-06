@@ -40,7 +40,7 @@ extern "C" ARM void func_02044d0c(void) {
 
     struct BGLayer_02020cb8 var4;
     InitBGLayer_0204af64(&var4);
-    var4.unknown_1c_0_ = 0;
+    var4.isSubScreen_1c_0_ = 0;
     var4.bgIndex_1c_4_ = 3;
     LoadBGBlock_0204b174(&var4, var3, 0, 0);
 

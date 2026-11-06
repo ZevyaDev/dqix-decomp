@@ -33,8 +33,8 @@ extern "C" char* func_020d2f88(char* arg0, char* arg1);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
-extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
-extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int index, unsigned char alignment);
 #if defined(jpn)
 extern "C" void* func_ov004_02168fa4(void*, int);
 extern "C" void func_ov023_021f809c(void*, void*);
@@ -194,11 +194,11 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
     ClearMessageParams_02046380(var3);
     char* var18 = static_cast<char*>(FindStringInList_02072a68(var2, 0x23));
     SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 0, var15->unknown_0_0_);
-    func_020465f0(static_cast<unsigned char*>(var3), 0, 4);
-    func_020465d8(static_cast<unsigned char*>(var3), 0, 1);
+    SetMessageNumberWidth_020465f0(static_cast<unsigned char*>(var3), 0, 4);
+    SetMessageNumberAlignment_020465d8(static_cast<unsigned char*>(var3), 0, 1);
     SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 1, var15->unknown_8_0_);
-    func_020465f0(static_cast<unsigned char*>(var3), 1, 2);
-    func_020465d8(static_cast<unsigned char*>(var3), 1, 1);
+    SetMessageNumberWidth_020465f0(static_cast<unsigned char*>(var3), 1, 2);
+    SetMessageNumberAlignment_020465d8(static_cast<unsigned char*>(var3), 1, 1);
     func_020474a8(var3, 8, var18, var16);
     var17 = static_cast<Struct_ov004_02169b4c_7*>(func_ov004_02168a6c(arg0, 0x190));
     var17->unknown_20_ = var16;
@@ -206,11 +206,11 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
 
     ClearMessageParams_02046380(var3);
     SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 0, var15->unknown_4_0_);
-    func_020465f0(static_cast<unsigned char*>(var3), 0, 4);
-    func_020465d8(static_cast<unsigned char*>(var3), 0, 1);
+    SetMessageNumberWidth_020465f0(static_cast<unsigned char*>(var3), 0, 4);
+    SetMessageNumberAlignment_020465d8(static_cast<unsigned char*>(var3), 0, 1);
     SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 1, var15->unknown_8_7_);
-    func_020465f0(static_cast<unsigned char*>(var3), 1, 2);
-    func_020465d8(static_cast<unsigned char*>(var3), 1, 1);
+    SetMessageNumberWidth_020465f0(static_cast<unsigned char*>(var3), 1, 2);
+    SetMessageNumberAlignment_020465d8(static_cast<unsigned char*>(var3), 1, 1);
     func_020474a8(var3, 8, static_cast<char*>(FindStringInList_02072a68(var2, 0x23)), var16);
     var17 = static_cast<Struct_ov004_02169b4c_7*>(func_ov004_02168a6c(arg0, 0x191));
     var17->unknown_20_ = var16;
@@ -299,8 +299,8 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
     int var25;
     for (var25 = 0; var25 < 6; var25++) {
         if (var22 & (1 << var25)) {
-            func_020465f0(static_cast<unsigned char*>(var3), var24, 5);
-            func_020465d8(static_cast<unsigned char*>(var3), var24, 1);
+            SetMessageNumberWidth_020465f0(static_cast<unsigned char*>(var3), var24, 5);
+            SetMessageNumberAlignment_020465d8(static_cast<unsigned char*>(var3), var24, 1);
             strcpy(var16, static_cast<char*>(FindStringInList_02072a68(var2, (short)(var25 + 0x28))));
             int var26 = var24 * 3;
             var17 = static_cast<Struct_ov004_02169b4c_7*>(func_ov004_02168a6c(arg0, var26 + 0x1f4));
@@ -341,17 +341,17 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
 
     ClearMessageParams_02046380(var3);
     SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 0, var15->unknown_9_6_);
-    func_020465f0(static_cast<unsigned char*>(var3), 0, 3);
-    func_020465d8(static_cast<unsigned char*>(var3), 0, 1);
+    SetMessageNumberWidth_020465f0(static_cast<unsigned char*>(var3), 0, 3);
+    SetMessageNumberAlignment_020465d8(static_cast<unsigned char*>(var3), 0, 1);
     SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 1, var15->unknown_f_0_);
-    func_020465f0(static_cast<unsigned char*>(var3), 1, 3);
-    func_020465d8(static_cast<unsigned char*>(var3), 1, 1);
+    SetMessageNumberWidth_020465f0(static_cast<unsigned char*>(var3), 1, 3);
+    SetMessageNumberAlignment_020465d8(static_cast<unsigned char*>(var3), 1, 1);
     SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 2, var15->unknown_a_5_);
-    func_020465f0(static_cast<unsigned char*>(var3), 2, 3);
-    func_020465d8(static_cast<unsigned char*>(var3), 2, 1);
+    SetMessageNumberWidth_020465f0(static_cast<unsigned char*>(var3), 2, 3);
+    SetMessageNumberAlignment_020465d8(static_cast<unsigned char*>(var3), 2, 1);
     SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 3, var15->unknown_12_7_);
-    func_020465f0(static_cast<unsigned char*>(var3), 3, 3);
-    func_020465d8(static_cast<unsigned char*>(var3), 3, 1);
+    SetMessageNumberWidth_020465f0(static_cast<unsigned char*>(var3), 3, 3);
+    SetMessageNumberAlignment_020465d8(static_cast<unsigned char*>(var3), 3, 1);
 
     int var30 = (var22 & 2) ? 4 : 3;
     for (int var31 = 0; var31 < var30; var31++) {

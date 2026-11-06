@@ -32,7 +32,7 @@ struct Struct_ov024_021e05fc_5 {
 extern "C" signed char func_ov000_02159e60(void* arg0, int arg1);
 extern "C" void func_ov000_021554f4(void* arg0, int arg1, int arg2, struct Struct_ov024_021e05fc_2* arg3, int arg4, int arg5);
 extern "C" void func_02088f68(struct Struct_02088f68* arg0);
-extern "C" void func_ov000_02159eac(void* arg0, unsigned long long* arg1, int arg2);
+extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, unsigned long long* flags, int flagIndex);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, GameObject* arg2, int arg3, unsigned long long arg4, int arg5);
@@ -62,7 +62,7 @@ extern "C" ARM void* func_ov024_021e05fc(struct Struct_ov024_021e05fc_5* arg0, i
             func_ov000_021554f4(arg0->unknown_10_, arg2, arg1, arg3, 0, 4);
             var8->currentStats_->primaryStats.currHP = 0;
             func_02088f68((struct Struct_02088f68*)var8->currentStats_);
-            func_ov000_02159eac(arg0->unknown_10_, &var7, 0x24);
+            SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var7, 0x24);
             ((unsigned char*)arg0->unknown_10_)[0x8e15]++;
         }
     } else {

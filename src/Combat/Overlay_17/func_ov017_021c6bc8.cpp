@@ -9,7 +9,7 @@ enum { Enum_ov017_021c6bc8_1816 = 0x718 };
 #include "Resource/GameResources.h"
 
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov017_021c6bc8() {
     struct Struct_ov017_021c6bc8* var5 = &var4.unknown_4_;
 
     for (int var6 = 0; var6 < 4; var6++) {
-        if (!func_020a35e0(var2, var6)) {
+        if (!IsPartyMemberInBattle_020a35e0(var2, var6)) {
             continue;
         }
         GameObject* var7 = var0->GetCombatantByIndex(var6);

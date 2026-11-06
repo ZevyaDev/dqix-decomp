@@ -72,7 +72,7 @@ struct Struct_ov003_0216da90
 };
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" void func_0205cef8(void* arg0);
 extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);

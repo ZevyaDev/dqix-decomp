@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 
 // USA: func_020dd290
 extern "C" ARM unsigned int func_020dd290(void* arg0, unsigned int arg1) {
@@ -13,7 +13,7 @@ extern "C" ARM unsigned int func_020dd290(void* arg0, unsigned int arg1) {
     }
     int var0 = GetPartyMemberData_02053c6c((unsigned char*)arg0);
     if (var0 != 0) {
-        if (func_02083b00((unsigned char*)var0, 0x106)) {
+        if (HasLearnedSkillEntry_02083b00((unsigned char*)var0, 0x106)) {
             arg1 = (unsigned int)(0.75f * (float)arg1 + 0.75f);
         }
     }

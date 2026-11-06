@@ -22,7 +22,7 @@ void ExecuteRenderCommands(RenderCommandHandler* handler)
 
 void SetUpRenderCommandHandler(RenderCommandHandler* handler, ModelRenderContext* modelData)
 {
-    func_020ca458(0, handler, sizeof(RenderCommandHandler));
+    Memset32Bit_020ca458(0, handler, sizeof(RenderCommandHandler));
     handler->boneMatrixBitfield_[0] = 1;
     handler->flags_ = 1;
 
@@ -953,7 +953,7 @@ void RenderCommand_9(RenderCommandHandler* handler, int modifier)
     uint8_t* instructionPtr = handler->instructionPointer_ + 3;
     
     NSBXXInvBindMatrix localCopy;
-    func_020ca458(0, &localCopy, sizeof(NSBXXInvBindMatrix));
+    Memset32Bit_020ca458(0, &localCopy, sizeof(NSBXXInvBindMatrix));
     SendQueuedDataToGeometryFifo();
 
     GXFIFO_MATRIX_MODE = 0; // projection

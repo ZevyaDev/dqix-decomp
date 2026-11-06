@@ -2,8 +2,8 @@
 #include "Combat/CombatantRecovery.h"
 #include "GameState/GameState.h"
 
-struct Struct_02048150;
-struct Struct_02038598_5;
+struct Party_02048150;
+struct Queue_02038598_5;
 struct Struct_020d805c;
 struct MessageWindow_020465c0;
 struct Struct_02000c9c_62;
@@ -73,8 +73,8 @@ extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void func_ov017_021d2d00(void* arg0, void* arg1);
 extern "C" void func_ov017_021d35f8(Struct_ov017_021d2d64_2* arg0);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
-extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
-extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
+extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void* func_020d7a50(void);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_020535c8(signed char* arg0);
@@ -88,7 +88,7 @@ extern "C" int func_02048418(unsigned char* arg0, unsigned short arg1);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 #if defined(jpn)
 extern "C" int func_020e2168(char* arg0, const char* arg1, int arg2, int arg3, bool arg4);
@@ -99,7 +99,7 @@ extern char data_ov017_021d8b4c[];
 static inline char* inline_ov017_021d2d64(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->baseStats_->unk; }
 #else
 extern "C" int func_020e04f4(int arg0, void* arg1, int arg2, int arg3, unsigned char arg4, int arg5);
-extern "C" void func_020e46c4(void* arg0);
+extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" void func_020d7e10(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
@@ -115,14 +115,14 @@ extern char data_ov017_021d8288[];
 extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg1, GameState* arg2, GameResources* arg3) {
     void* var0;
     int var1;
-    Struct_02048150* var2;
+    Party_02048150* var2;
     Struct_ov017_021d2d64_7* var3;
     int var4;
-    Struct_02038598_5* var5;
+    Queue_02038598_5* var5;
     short var6;
     Struct_ov017_021d2d64_4* var7 = &arg1->unknown_4_;
     var1 = GetProtagonistObjectIndex_020100a8(arg2);
-    var2 = (Struct_02048150*)GetParty_02010828(arg2);
+    var2 = (Party_02048150*)GetParty_02010828(arg2);
     Struct_ov017_021d2d64_4 var8;
     Struct_ov017_021d2d64_2 var9[4];
     Struct_ov017_021d2d64_2 var10[4];
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
         signed char var15 = 0;
         for (int var16 = 0; var16 < var7->unknown_7_; var16++) {
             int var17 = var7->unknown_4_[var16];
-            if (func_02086ef0(var2, var17) != 0) {
+            if (IsInParty_02086ef0(var2, var17) != 0) {
                 var8.unknown_4_[var15] = var17;
                 Struct_ov017_021d2d64_3* var18 = &var8.unknown_8_[var15];
                 var18->unknown_0_0_ = var7->unknown_8_[var16].unknown_0_0_;
@@ -156,12 +156,12 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
             return;
         }
 
-        var5 = (Struct_02038598_5*)arg3->unknown_ptr_array_36fc[0];
+        var5 = (Queue_02038598_5*)arg3->unknown_ptr_array_36fc[0];
         int var19 = 1;
-        if (func_02046b60(var5, 10)) var19 = 0;
-        if (func_02046b60(var5, 3)) var19 = 0;
-        if (func_02046b60(var5, 0x27)) var19 = 0;
-        if (func_02046b60(var5, 0x10) && ((Struct_ov017_021d2d64_9*)arg3->unknown_ptr_array_371c[4])->unknown_1c_ != 0 &&
+        if (IsTypeInQueue_02046b60(var5, 10)) var19 = 0;
+        if (IsTypeInQueue_02046b60(var5, 3)) var19 = 0;
+        if (IsTypeInQueue_02046b60(var5, 0x27)) var19 = 0;
+        if (IsTypeInQueue_02046b60(var5, 0x10) && ((Struct_ov017_021d2d64_9*)arg3->unknown_ptr_array_371c[4])->unknown_1c_ != 0 &&
             (((Struct_ov017_021d2d64_9*)arg3->unknown_ptr_array_371c[4])->unknown_1c_->unknown_59f_ & 4)) {
             var19 = 0;
         }
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
             var3 = (Struct_ov017_021d2d64_7*)func_020d7a50();
             var19 = 1;
             if (IsQueueEmpty_02046b08((void**)var5) == 0) var19 = 0;
-            if (func_02046b60(var5, 0x1a)) var19 = 1;
+            if (IsTypeInQueue_02046b60(var5, 0x1a)) var19 = 1;
             GameObject* var20 = arg2->GetUnknownGameObject();
             if (var20 != 0 && func_020535c8((signed char*)var20)) var19 = 0;
 #if defined(jpn)
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
                     }
                 } else if (var8.unknown_1_ == 4) {
                     int var35 = 1;
-                    if (func_02046b60(var5, 0x1a) && ((Struct_ov017_021d2d64_10*)arg3->unknown_ptr_array_3afc[4])->unknown_64_ != 0) {
+                    if (IsTypeInQueue_02046b60(var5, 0x1a) && ((Struct_ov017_021d2d64_10*)arg3->unknown_ptr_array_3afc[4])->unknown_64_ != 0) {
                         var35 = 0;
                     }
                     if ((int)var24->unknown_ac_.unknown_84_->unknown_4_ > 0 || var25->unknown_0_0_ == 0 || var35 == 0) {
@@ -239,7 +239,7 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
                                 var25->unknown_0_0_ = var24->baseStats_->primaryStats.maxHP;
                             }
                             var26 = 1;
-                            if (func_02046b60(var5, 0x1a)) {
+                            if (IsTypeInQueue_02046b60(var5, 0x1a)) {
                                 func_020e1154((void*)0x1f4);
                             }
                             var23.unknown_0_[0] = 0x7955;
@@ -284,13 +284,13 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
                         func_020e04f4((int)var38, data_ov017_021d8288, var6, 0, 1, (int)data_ov017_021d8298);
                         ClearMessageParams_02046380(var0);
                         char var39[0xc];
-                        func_020e46c4(var39);
+                        InitNoun_020e46c4(var39);
                         InitPartyMemberNoun_020e4bf4(var39, var24->obj3D_.unknown_4_);
                         *(char**)((char*)var0 + 0x10) = var39;
 #endif
-                        func_020465f0((unsigned char*)var0, 0, 0);
+                        SetMessageNumberWidth_020465f0((unsigned char*)var0, 0, 0);
                         SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 0, var25->unknown_0_0_);
-                        func_020465f0((unsigned char*)var0, 9, 0);
+                        SetMessageNumberWidth_020465f0((unsigned char*)var0, 9, 0);
                         SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 9, var24->obj3D_.unknown_4_);
                         char var40[0x80];
                         __clear(var40, 0x80);

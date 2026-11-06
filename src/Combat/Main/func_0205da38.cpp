@@ -6,21 +6,21 @@ struct TextWindow_0205d0e0;
 
 extern "C" int func_0205bd20(struct Struct_0205bd20* arg0, int arg1);
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
-extern "C" int func_0204c7cc(unsigned char* arg0);
+extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 
-struct Struct_0205da38 {
+struct TextWindowManager_0205da38 {
     char unknown_0_[0xb0];
-    unsigned char unknown_b0_;
+    unsigned char cursorWindowId_b0_;
 };
 
-// USA: func_0205da38
-extern "C" ARM int func_0205da38(struct Struct_0205da38* arg0, int arg1) {
-    unsigned char* var0;
-    if (func_0205bd20((struct Struct_0205bd20*)((char*)arg0 + 0x4), arg1) == 0) goto ret0;
-    var0 = (unsigned char*)FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)arg0, arg0->unknown_b0_);
-    if (var0 == NULL) goto ret0;
-    if (func_0204c7cc(var0) == 0) goto ret0;
-    if (var0[0xc5] & 2) return 1;
+// USA: IsEntryTouchedAgain_0205da38
+extern "C" ARM int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1) {
+    unsigned char* cursorWindow;
+    if (func_0205bd20((struct Struct_0205bd20*)((char*)windowManager + 0x4), arg1) == 0) goto ret0;
+    cursorWindow = (unsigned char*)FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)windowManager, windowManager->cursorWindowId_b0_);
+    if (cursorWindow == NULL) goto ret0;
+    if (IsTextWindowReady_0204c7cc(cursorWindow) == 0) goto ret0;
+    if (cursorWindow[0xc5] & 2) return 1;
 ret0:
     return 0;
 }

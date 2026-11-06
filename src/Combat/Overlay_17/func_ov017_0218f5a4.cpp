@@ -20,65 +20,65 @@ struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
-// USA: func_ov017_0218f5a4
-extern "C" ARM int func_ov017_0218f5a4(char* arg0, int arg1, int arg2, int arg3, int arg4) {
-    GameState* var0 = GameState::GetInstance();
+// USA: QueuePartyMemberModelLoad_ov017_0218f5a4
+extern "C" ARM int QueuePartyMemberModelLoad_ov017_0218f5a4(char* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload) {
+    GameState* gameState = GameState::GetInstance();
     GetLocalWireless_0202ae18();
-    void* var1 = *(void**)(arg0 + 0x3000 + Enum_ov017_0218f5a4_1844);
+    void* var1 = *(void**)(gameResources + 0x3000 + Enum_ov017_0218f5a4_1844);
 
-    if (func_ov017_021925e0(arg0 + 0x3000) != 0) {
-        GameObject* var2 = var0->GetPartyMemberByIndex(arg1);
-        if (var2 != 0) {
-            unsigned short var3 = var2->obj3D_.classFlags_0_;
-            if (var3 & 0x1000) {
-                func_ov017_021bd440(var1, arg1 & 0xff);
+    if (func_ov017_021925e0(gameResources + 0x3000) != 0) {
+        GameObject* partyMember = gameState->GetPartyMemberByIndex(memberIndex);
+        if (partyMember != 0) {
+            unsigned short classFlags = partyMember->obj3D_.classFlags_0_;
+            if (classFlags & 0x1000) {
+                func_ov017_021bd440(var1, memberIndex & 0xff);
                 return 0;
             }
         }
     }
 
-    GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
-    if (var4 == 0) return 0;
-    if (GetPartyMemberData_02053c6c((unsigned char*)var4) == 0) return 0;
+    GameObject* partyMemberBase = GetPartyMemberBaseByIndex_0200ff1c(gameState, memberIndex);
+    if (partyMemberBase == 0) return 0;
+    if (GetPartyMemberData_02053c6c((unsigned char*)partyMemberBase) == 0) return 0;
 
-    if (arg4 == 0) {
-        unsigned char* var5 = *(unsigned char**)((char*)var4 + Enum_ov017_0218f5a4_336);
-        int var6 = var5 ? var5[0x56e] : 0;
-        if (var6 == 0 && arg2 == 0) {
-            if (func_02061bd8((struct Struct_0205faf4_11*)var4) == 0) {
-                int var7[0xb];
-                short var8[0xb];
-                func_02072afc(arg1, var7, var8);
-                int var9 = 0;
-                int var10;
-                for (var10 = 0; var10 < 0xb; var10++) {
-                    if (var10 == 0xa) continue;
-                    GameObject* var11 = var0->GetGameObjectByIndex(var7[var10]);
-                    if (var11 != 0) {
-                        short var12 = var8[var10];
-                        short var13 = var11->obj3D_.unknown_2_;
-                        if (var12 != var13) var9 = 1;
+    if (isFullReload == 0) {
+        unsigned char* memberData = *(unsigned char**)((char*)partyMemberBase + Enum_ov017_0218f5a4_336);
+        int isReloadPending = memberData ? memberData[0x56e] : 0;
+        if (isReloadPending == 0 && isForced == 0) {
+            if (func_02061bd8((struct Struct_0205faf4_11*)partyMemberBase) == 0) {
+                int partObjectIndices[0xb];
+                short partModelIds[0xb];
+                func_02072afc(memberIndex, partObjectIndices, partModelIds);
+                int hasChangedPart = 0;
+                int i;
+                for (i = 0; i < 0xb; i++) {
+                    if (i == 0xa) continue;
+                    GameObject* part = gameState->GetGameObjectByIndex(partObjectIndices[i]);
+                    if (part != 0) {
+                        short partModelId = partModelIds[i];
+                        short loadedModelId = part->obj3D_.unknown_2_;
+                        if (partModelId != loadedModelId) hasChangedPart = 1;
                     }
                 }
-                if (var9 == 0) return 0;
+                if (hasChangedPart == 0) return 0;
             }
         }
     }
 
-    void* var14 = func_ov017_021a4658(arg0, arg1);
-    if (var14 != 0) {
-        *(short*)((char*)var14 + 8) = (short)arg1;
-        if (arg2 != 0) {
-            ((unsigned char*)var14)[0xb] |= 0x2;
+    void* loadTask = func_ov017_021a4658(gameResources, memberIndex);
+    if (loadTask != 0) {
+        *(short*)((char*)loadTask + 8) = (short)memberIndex;
+        if (isForced != 0) {
+            ((unsigned char*)loadTask)[0xb] |= 0x2;
         }
-        if (arg3 != 0 || (*(int*)((char*)var4 + Enum_ov017_0218f5a4_396) & 0x40)) {
-            ((unsigned char*)var14)[0xb] |= 0x4;
+        if (useAlternateAnimationPackage != 0 || (*(int*)((char*)partyMemberBase + Enum_ov017_0218f5a4_396) & 0x40)) {
+            ((unsigned char*)loadTask)[0xb] |= 0x4;
         }
-        if (arg4 != 0) {
-            ((unsigned char*)var14)[0xb] |= 0x1;
+        if (isFullReload != 0) {
+            ((unsigned char*)loadTask)[0xb] |= 0x1;
         }
-        if (((unsigned char*)var14)[2] == 0) {
-            AppendToQueue_020469b4((struct Queue_0201bdac_2*)*(void**)(arg0 + 0x3000 + Enum_ov017_0218f5a4_1792), (struct QueueNode_0201bdac*)var14);
+        if (((unsigned char*)loadTask)[2] == 0) {
+            AppendToQueue_020469b4((struct Queue_0201bdac_2*)*(void**)(gameResources + 0x3000 + Enum_ov017_0218f5a4_1792), (struct QueueNode_0201bdac*)loadTask);
         }
     }
     return 1;

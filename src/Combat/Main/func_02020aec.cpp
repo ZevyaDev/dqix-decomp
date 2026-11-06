@@ -11,7 +11,7 @@
 struct Struct_020534ac;
 
 extern "C" void* func_0203bd14();
-extern "C" void* func_0203bd08(void);
+extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void* func_0203be4c(void);
 
 struct PacEntry_02020aec;
@@ -32,7 +32,7 @@ extern "C" ARM void func_02020aec(Struct_02020554* arg0, Type_02020aec arg1, Saf
 
     char* var3 = (char*)func_0203bd14();
     *(int*)(var3 + (IS_JPN ? 0x608 : 0x508)) = 0x2000;
-    func_0203bd08();
+    GetOAMManager_0203bd08();
 
     char* var4 = (char*)func_0203be4c() + 0x2c0;
     var3 = (char*)func_0203bd14();

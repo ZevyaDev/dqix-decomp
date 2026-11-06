@@ -17,7 +17,7 @@ extern char data_ov003_0217e68e[], data_ov003_0217e696[];
 #include "GameState/GameState.h"
 
 struct TextWindowManager_0205de24_2;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void* window);
@@ -26,8 +26,8 @@ extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
-extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
-extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int index, unsigned char alignment);
 
 #if !defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
@@ -68,8 +68,8 @@ extern "C" ARM void func_ov003_0215b478(unsigned char* arg0) {
     void* var3 = GetParty_02010828(var0);
     int var4 = *(int*)((char*)var3 + 0xf6c);
     SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var1, 0, var4);
-    func_020465f0((unsigned char*)var1, 0, 7);
-    func_020465d8((unsigned char*)var1, 0, 1);
+    SetMessageNumberWidth_020465f0((unsigned char*)var1, 0, 7);
+    SetMessageNumberAlignment_020465d8((unsigned char*)var1, 0, 1);
 
 #if defined(jpn)
     OpenTextWindow_0205d304(arg0 + 0xf4, *(void**)(arg0 + 0x7c), 0, 0, 0, 1, 0);

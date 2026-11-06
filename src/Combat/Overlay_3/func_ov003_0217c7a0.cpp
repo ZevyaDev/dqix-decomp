@@ -7,8 +7,8 @@
 #include "NitroSDK/Matrix.h"
 #include "Resource/GameResources.h"
 
-struct Struct_0204b010;
-struct Struct_02020cb8_3;
+struct BGLayer_0204b010;
+struct BGLayer_02020cb8_3;
 
 struct Struct_ov003_0217c7a0
 {
@@ -41,16 +41,16 @@ struct Struct_ov003_0217c7a0_2
     int unknown_150_[3];
 };
 
-extern "C" void func_0204b010(Struct_0204b010* arg0, void* arg1);
-extern "C" void func_0204b04c(void* arg0, int arg1);
-extern "C" void func_0204b088(void* arg0, int arg1);
-extern "C" void func_0204afb4(Struct_02020cb8_3* arg0);
+extern "C" void ClearBGScreenData_0204b010(BGLayer_0204b010* layer, void* screenData);
+extern "C" void FlushBGScreenData_0204b04c(void* layer, int screenData);
+extern "C" void CopyBGScreenDataToVRAM_0204b088(void* layer, int screenData);
+extern "C" void ResetBGLayerData_0204afb4(BGLayer_02020cb8_3* layer);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_0202e694(void* arg0, int* arg1);
 extern "C" void func_020a2794(void* arg0);
 extern "C" void func_020a2744(char* arg0);
 extern "C" int func_ov003_0217c2a0(int arg0);
-extern "C" void func_0200fd48(GameState* arg0, int arg1);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 
 // USA: func_ov003_0217c7a0
 extern "C" ARM void func_ov003_0217c7a0(Struct_ov003_0217c7a0_2* arg0)
@@ -96,14 +96,14 @@ extern "C" ARM void func_ov003_0217c7a0(Struct_ov003_0217c7a0_2* arg0)
         var3->RemoveTask(arg0->unknown_138_);
         arg0->unknown_138_ = -1;
 
-        func_0204b010((Struct_0204b010*)&arg0->unknown_40_, 0);
-        func_0204b04c(&arg0->unknown_40_, 0);
-        func_0204b088(&arg0->unknown_40_, 0);
-        func_0204afb4((Struct_02020cb8_3*)&arg0->unknown_40_);
-        func_0204b010((Struct_0204b010*)&arg0->unknown_60_, 0);
-        func_0204b04c(&arg0->unknown_60_, 0);
-        func_0204b088(&arg0->unknown_60_, 0);
-        func_0204afb4((Struct_02020cb8_3*)&arg0->unknown_60_);
+        ClearBGScreenData_0204b010((BGLayer_0204b010*)&arg0->unknown_40_, 0);
+        FlushBGScreenData_0204b04c(&arg0->unknown_40_, 0);
+        CopyBGScreenDataToVRAM_0204b088(&arg0->unknown_40_, 0);
+        ResetBGLayerData_0204afb4((BGLayer_02020cb8_3*)&arg0->unknown_40_);
+        ClearBGScreenData_0204b010((BGLayer_0204b010*)&arg0->unknown_60_, 0);
+        FlushBGScreenData_0204b04c(&arg0->unknown_60_, 0);
+        CopyBGScreenDataToVRAM_0204b088(&arg0->unknown_60_, 0);
+        ResetBGLayerData_0204afb4((BGLayer_02020cb8_3*)&arg0->unknown_60_);
 
         Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
         Struct_ov003_0217c7a0* var4 = (Struct_ov003_0217c7a0*)GetCamera_020100bc(var1);
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov003_0217c7a0(Struct_ov003_0217c7a0_2* arg0)
         func_020a2794(var4);
         func_020a2744((char*)var4);
         func_ov003_0217c2a0(0);
-        func_0200fd48(var1, 0xa0);
+        ClearGameObjectByIndex_0200fd48(var1, 0xa0);
         arg0->unknown_143_ = 1;
     }
 }

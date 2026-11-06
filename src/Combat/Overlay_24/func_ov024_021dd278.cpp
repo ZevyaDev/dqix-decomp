@@ -2,11 +2,11 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 struct Struct_02010088;
-extern "C" int func_02010088(Struct_02010088*);
+extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" void func_0208902c(unsigned char*, int);
-extern "C" void func_ov000_02159eac(void*,void*,int);
+extern "C" void SetActionResultFlag_ov000_02159eac(void*,void*,int);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);
-extern "C" unsigned short func_ov024_021da644(int,int,int);
+extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int,int,int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
 extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,int,unsigned long long,unsigned char);
@@ -25,7 +25,7 @@ extern "C" ARM void* func_ov024_021dd278(Struct_ov024_021dd278_4* arg0,int arg1,
     GameObject* var1=GetCombatantByID((int)arg0->unknown_10_,arg2);
     if(!var1)return 0;
     int var2=0;
-    if(func_02010088((Struct_02010088*)var1))var2=1;
+    if(IsDead_02010088((Struct_02010088*)var1))var2=1;
     unsigned short var3=arg3->unknown_4_.unknown_0_0_;
     union {struct{int unknown_0_;int unknown_4_;};unsigned long long unknown1_0_;} var4;
     var4.unknown_0_=0;var4.unknown_4_=0;
@@ -46,17 +46,17 @@ extern "C" ARM void* func_ov024_021dd278(Struct_ov024_021dd278_4* arg0,int arg1,
         }
         short var8=(int)(var6*(float)(unsigned int)var1->currentStats_->primaryStats.maxHP);
         func_0208902c((unsigned char*)var1->currentStats_, var8);
-        func_ov000_02159eac(arg0->unknown_10_,&var4,3);
+        SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var4,3);
         ((Struct_ov024_021dd278_2*)var1->currentStats_)->unknown_3b_0_=1;
         if(inline_ov000_021537b8(arg2)){
             GameObject* var9=GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(),arg2);
             if(var9)((Struct_ov024_021dd278_2*)var9->currentStats_)->unknown_3a_=1;
         }
-        var5=func_ov024_021da644(arg2,arg3->unknown_20_.unknown_2_4_,arg3->unknown_24_.unknown_0_0_);
+        var5=SelectPartyOrEnemyMessage_ov024_021da644(arg2,arg3->unknown_20_.unknown_2_4_,arg3->unknown_24_.unknown_0_0_);
         arg0->unknown_14_++;
     }else{
         if(var2)var5=0x21;
-        else var5=func_ov024_021da644(arg2,arg3->unknown_24_.unknown_1_2_,arg3->unknown_24_.unknown_2_4_);
+        else var5=SelectPartyOrEnemyMessage_ov024_021da644(arg2,arg3->unknown_24_.unknown_1_2_,arg3->unknown_24_.unknown_2_4_);
     }
     void* var10=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if(!var10)return 0;

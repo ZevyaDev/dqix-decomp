@@ -114,10 +114,10 @@ extern "C" ARM void func_02067b28(Struct_02067b28* arg0) {
     }
 }
 #else
-struct Struct_0204254c {
+struct FontGlyph_0204254c {
     int unknown_0_;
     char unknown_4_;
-    signed char unknown_5_0_ : 6;
+    signed char codeLength_5_0_ : 6;
     signed char unknown_5_6_ : 2;
     char unknown_6_[2];
 };
@@ -154,10 +154,10 @@ struct Struct_02067b28 {
 };
 extern "C" int func_02044494(void*, void*);
 extern "C" int func_02044420(void*, void*);
-extern "C" Struct_0204254c* func_0204254c(int, int);
+extern "C" FontGlyph_0204254c* func_0204254c(int, int);
 extern "C" int func_020424e4(int, int);
 extern "C" int func_02045c00(Struct_02045c00_2*, int);
-extern "C" int func_020459b8(Struct_02067b28*, unsigned char, Struct_0204254c*, unsigned char);
+extern "C" int func_020459b8(Struct_02067b28*, unsigned char, FontGlyph_0204254c*, unsigned char);
 extern "C" int CompareBytes_02001aec(const void*, const void*, int);
 extern char data_020f08dc[3];
 
@@ -193,11 +193,11 @@ extern "C" ARM void func_02067b28(Struct_02067b28* arg0) {
                 arg0->unknown_19c3_ = 1;
             }
         }
-        Struct_0204254c* var4 = func_0204254c((int)var0, arg0->unknown_19dc_);
+        FontGlyph_0204254c* var4 = func_0204254c((int)var0, arg0->unknown_19dc_);
         int var5 = func_020424e4((int)var0, arg0->unknown_19dc_);
         if (var4 && var5 >= 0) {
             int var6 = func_02045c00((Struct_02045c00_2*)arg0, (int)var4);
-            arg0->unknown_7c_ += var4->unknown_5_0_;
+            arg0->unknown_7c_ += var4->codeLength_5_0_;
             if (var6 < 0) {
                 unsigned short var7 = func_020459b8(arg0, (unsigned char)var5, var4, arg0->unknown_19dc_);
                 if (!arg0->unknown_19c2_) arg0->unknown_1882_[arg0->unknown_1942_] = var7;

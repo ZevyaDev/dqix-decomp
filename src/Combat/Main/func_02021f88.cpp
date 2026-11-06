@@ -9,7 +9,7 @@
 #include "Resource/Brightness.h"
 
 extern "C" unsigned short* GetZone3D_02012fe4(void);
-extern "C" void* func_0203bd08(void);
+extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void* func_0203b628(void);
 extern "C" void func_02021428(void* arg0, int arg1);
 
@@ -30,7 +30,7 @@ extern "C" void func_0205af38(int arg0, char* arg1, int arg2, int arg3);
 extern "C" int func_0205a1f0(void* arg0, void* arg1, int arg2);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void VectorizedInvertedMemcpy(void* dst, void* src, int size);
-extern "C" void func_020c9820(void);
+extern "C" void WaitForVBlank_020c9820(void);
 extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToSubObjVRAM(int, int, unsigned int);
 extern "C" void func_02020aa0(void* arg0);
@@ -133,7 +133,7 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
     var11 = BackgroundLoader::GetInstance();
     var12 = GetZone3D_02012fe4();
     var13 = GetGameResources();
-    var14 = (char*)func_0203bd08();
+    var14 = (char*)GetOAMManager_0203bd08();
     var15 = (char*)func_0203b628();
     var16 = arg0->unknown_9c2_;
     var17 = inline_02021f88(var13, 12);
@@ -190,7 +190,7 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
         arg0->unknown_94_.unknown_4c_ = 0x1b;
         char* var20 = (char*)func_0203bd14();
         *(int*)(var20 + Enum_02021f88_1288) = 0x2000;
-        func_0203bd08();
+        GetOAMManager_0203bd08();
         char* var21 = (char*)func_0203be4c() + 0x2c0;
         var20 = (char*)func_0203bd14();
         *(char**)var20 = var21;
@@ -211,7 +211,7 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
         char* var22 = (char*)GetMessageWindow_020421a0();
         char* var23 = *(char**)(var22 + Enum_02021f88_96);
         VectorizedInvertedMemcpy(var6->unknown_14_, var23, var6->unknown_10_);
-        func_020c9820();
+        WaitForVBlank_020c9820();
         DC_FlushRange(var23, var6->unknown_10_);
         LoadToSubObjVRAM((int)var23, 0x2c20, var6->unknown_10_);
         BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_a14_);
@@ -275,7 +275,7 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
             arg0->unknown_70_ = arg0->unknown_74_ + 1;
             char* var29 = inline_02021f88_2(var12);
             InitBGLayer_0204af64(&arg0->unknown_4c_);
-            arg0->unknown_4c_.unknown_1c_0_ = 1;
+            arg0->unknown_4c_.isSubScreen_1c_0_ = 1;
             arg0->unknown_4c_.bgIndex_1c_4_ = 0;
             arg0->unknown_4c_.unknown_0_ = arg0->unknown_70_ << 5;
             var11->AddFence();
@@ -324,7 +324,7 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
         arg0->unknown_9c8_ = 0;
         arg0->unknown_9c3_ = 0;
         arg0->unknown_9c2_ = arg0->unknown_9c2_ + 1;
-        func_020c9820();
+        WaitForVBlank_020c9820();
         func_0202343c(arg0);
         func_02026b7c((unsigned char*)arg0);
         func_02026bdc(arg0, 0);

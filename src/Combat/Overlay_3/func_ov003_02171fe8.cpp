@@ -5,7 +5,7 @@
 
 extern "C" void __clear(void *arg0, int arg1);
 extern "C" void func_ov003_02170a7c(char *arg0, char *arg1);
-extern "C" void func_020426bc(const char *arg0, char *arg1, int arg2);
+extern "C" void ConvertTextToGlyphIndices_020426bc(const char *text, char *outGlyphIndices, int font);
 extern "C" void *GetZone3D_02012fe4(void);
 extern "C" int func_ov003_021725a4(void *arg0, void *arg1);
 
@@ -198,8 +198,8 @@ extern "C" ARM void func_ov003_02171fe8(Struct_ov003_02171fe8_3 *arg0, int arg1,
                 memset(var0, 0, 0xb);
                 func_ov003_02170a7c((char *) &arg0->unknown_2a0_.unknown_0_, var0);
                 memset(&arg0->unknown_2a0_.unknown_0_, 0, 0xb);
-                func_020426bc(var0, (char *) &var2.unknown_0_, 1);
-                func_020426bc(data_ov003_021805bc[var5], (char *) &var2.unknown_6c_.unknown_0_[2], 1);
+                ConvertTextToGlyphIndices_020426bc(var0, (char *) &var2.unknown_0_, 1);
+                ConvertTextToGlyphIndices_020426bc(data_ov003_021805bc[var5], (char *) &var2.unknown_6c_.unknown_0_[2], 1);
                 Struct_ov003_02171fe8_9 *var6 = (Struct_ov003_02171fe8_9 *) &var2.unknown_6c_;
                 if (var6->unknown_5_1_ >= 100) {
                     if (var6->unknown_5_1_ < 200) {
@@ -220,13 +220,13 @@ extern "C" ARM void func_ov003_02171fe8(Struct_ov003_02171fe8_3 *arg0, int arg1,
                 memcpy(var1, var7 + 1, 10);
                 func_ov003_02170a7c(var1, var0);
                 memset(var7 + 1, 0, 10);
-                func_020426bc(var0, var7 + 1, 1);
+                ConvertTextToGlyphIndices_020426bc(var0, var7 + 1, 1);
                 memset(var0, 0, 0xb);
                 memset(var1, 0, 0xb);
                 memcpy(var1, var7 + 0xb, 10);
                 func_ov003_02170a7c(var1, var0);
                 memset(var7 + 0xb, 0, 10);
-                func_020426bc(var0, var7 + 0xb, 1);
+                ConvertTextToGlyphIndices_020426bc(var0, var7 + 0xb, 1);
             }
             char *var8 = (char *) GetZone3D_02012fe4();
             if (arg0->unknown_718_ < 3) {

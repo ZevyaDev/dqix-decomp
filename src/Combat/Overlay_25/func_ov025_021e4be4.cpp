@@ -8,8 +8,8 @@
 extern "C" SafeAllocator* func_ov025_021e8a54(char* arg0);
 struct Struct_ov025_021e27c8;
 extern "C" void func_ov025_021eb084(struct Struct_ov025_021e27c8* arg0, int arg1);
-struct Struct_0203d028_11;
-extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
+struct ObjectArchiveLoadInfo_0203d028_11;
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 
 struct Struct_0204a120;
@@ -94,7 +94,7 @@ extern "C" ARM int func_ov025_021e4be4(struct Struct_ov025_021e4be4* arg0) {
 
     var10->Initialize();
     ObjectArchiveLoadInfo var12;
-    func_0203dafc((struct Struct_0203d028_11*)&var12);
+    ClearObjectArchiveLoadInfo_0203dafc((struct ObjectArchiveLoadInfo_0203d028_11*)&var12);
     var12.fileData = var7;
     var12.unk_8 = var8;
     var12.allocator = var2;

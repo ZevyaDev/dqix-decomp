@@ -100,7 +100,7 @@ extern "C" void* func_ov016_0218fcd4(void);
 extern "C" void* func_ov016_0218fd50(void);
 extern "C" void* func_ov016_0218fdc0(void);
 extern "C" void* func_ov016_0218fe30(void);
-extern "C" void func_020ca458(unsigned int value, void* dest, unsigned int size);
+extern "C" void Memset32Bit_020ca458(unsigned int value, void* dest, unsigned int size);
 extern unsigned char data_ov016_02191d78[];
 
 // USA: func_ov016_0218e800
@@ -134,7 +134,7 @@ extern "C" ARM int func_ov016_0218e800(Struct_ov016_0218e800_2* arg0, Struct_ov0
         return 0;
 
     arg0->unknown_34_ = (Struct_ov016_0218e800_3*)func_ov016_0218bc8c(sizeof(Struct_ov016_0218e800_3));
-    func_020ca458(0, arg0->unknown_34_, sizeof(Struct_ov016_0218e800_3));
+    Memset32Bit_020ca458(0, arg0->unknown_34_, sizeof(Struct_ov016_0218e800_3));
     arg0->unknown_38_ = (int (*)(Struct_ov016_0218e800_3*))func_ov016_0218fcd4();
     arg0->unknown_34_->unknown_3c_ = func_ov016_0218fd50();
     arg0->unknown_34_->unknown_40_ = data_ov016_02191d78;
@@ -160,7 +160,7 @@ extern "C" ARM int func_ov016_0218e800(Struct_ov016_0218e800_2* arg0, Struct_ov0
         if (!arg0->unknown_5c_[var3]) return 0;
         arg0->unknown_60_[var3] = (unsigned char*)func_ov016_0218bc8c((arg0->unknown_4_.unknown_10_ >> 1) << 8);
         if (!arg0->unknown_60_[var3]) return 0;
-        func_020ca458(0, arg0->unknown_5c_[var3], arg0->unknown_4_.unknown_10_ << 8);
+        Memset32Bit_020ca458(0, arg0->unknown_5c_[var3], arg0->unknown_4_.unknown_10_ << 8);
         VectorizedMemset(arg0->unknown_60_[var3], 0x80, (arg0->unknown_4_.unknown_10_ >> 1) << 8);
     }
 
@@ -184,7 +184,7 @@ extern "C" ARM int func_ov016_0218e800(Struct_ov016_0218e800_2* arg0, Struct_ov0
     if (arg0->unknown_4_.unknown_18_ != 0) {
         arg0->unknown_58_ = (Struct_ov016_0218e800_4*)func_ov016_0218bc8c(arg0->unknown_4_.unknown_1a_ * sizeof(Struct_ov016_0218e800_4));
         if (!arg0->unknown_58_) return 0;
-        func_020ca458(0, arg0->unknown_58_, arg0->unknown_4_.unknown_1a_ * sizeof(Struct_ov016_0218e800_4));
+        Memset32Bit_020ca458(0, arg0->unknown_58_, arg0->unknown_4_.unknown_1a_ * sizeof(Struct_ov016_0218e800_4));
     }
 
     int var6 = arg0->unknown_0_->inline_ov016_0218e800_6();

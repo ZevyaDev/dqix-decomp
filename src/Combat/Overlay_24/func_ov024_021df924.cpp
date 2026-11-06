@@ -100,7 +100,7 @@ extern "C" int func_ov024_021df71c(Struct_ov024_021df924_11* arg0, unsigned shor
 extern "C" short func_02052df8(Struct_02052df8* arg0, int arg1);
 extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" char* func_ov000_02160f08(void* arg0);
-extern "C" void* func_020de824(void* arg0);
+extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void func_0207cbe8(char* arg0);
 extern "C" void func_ov000_0215fa70(void*, short, short, short);
 extern "C" int func_0207ccf0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
@@ -111,7 +111,7 @@ extern "C" void func_020a0720(Struct_020a0720* arg0, unsigned int arg1);
 extern "C" void func_0209fffc(Struct_0209fffc* arg0, unsigned int arg1);
 extern "C" void func_020a0750(Struct_020a0750* arg0, unsigned int arg1);
 extern "C" void func_020a0038(Struct_020a0038* arg0, unsigned int arg1);
-extern "C" void func_020ac494(void* arg0);
+extern "C" void SetBattleRecords_020ac494(void* records);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, GameObject* arg2, int arg3, int arg4, int arg5, int arg6);
@@ -174,7 +174,7 @@ extern "C" ARM void* func_ov024_021df924(Struct_ov024_021df924_2* arg0, short ar
             char* var21 = var20 + 0xd0;
             char* var22 = var20 + 0xe8;
             var14.unknown_0_.ResetAllocatorPointer();
-            func_020de824(var14.unknown_14_);
+            InitItemTable_020de824(var14.unknown_14_);
             func_0207cbe8((char*)&var14);
             func_0207cbe8((char*)&var14);
             if (var16) {
@@ -223,7 +223,7 @@ extern "C" ARM void* func_ov024_021df924(Struct_ov024_021df924_2* arg0, short ar
     } else {
         var28 = arg3->unknown_24_.unknown_2_4_;
     }
-    func_020ac494(var26);
+    SetBattleRecords_020ac494(var26);
     void* var29 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var29) return 0;
     if (var28) AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var29, var28);

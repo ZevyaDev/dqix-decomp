@@ -3,12 +3,12 @@
 #include "Graphics/Vector.h"
 #include "World/Object3D.h"
 
-struct Struct_ov000_0215440c_2;
-struct Struct_ov000_0215440c;
+struct BattleAction_ov000_0215440c_2;
+struct BattleAction_ov000_0215440c;
 struct Struct_02033834;
 struct Vector3i;
-extern "C" struct Struct_ov000_0215440c_2* func_ov000_02160094(struct Struct_ov000_0215440c_2* arg0, int arg1);
-extern "C" struct Struct_ov000_0215440c* func_ov000_021600f8(struct Struct_ov000_0215440c* arg0, int arg1);
+extern "C" struct BattleAction_ov000_0215440c_2* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2* action, int index);
+extern "C" struct BattleAction_ov000_0215440c* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
 extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void* GetCamera_020100bc(GameState* gameState);
 extern "C" int func_0202e7f0(void* arg0);
@@ -57,10 +57,10 @@ struct Struct_ov025_021e514c_3 {
 };
 
 // USA: func_ov025_021e514c
-extern "C" ARM int func_ov025_021e514c(struct Struct_ov025_021e514c_2* arg0, struct Struct_ov000_0215440c_2* arg1, int arg2, void* arg3) {
+extern "C" ARM int func_ov025_021e514c(struct Struct_ov025_021e514c_2* arg0, struct BattleAction_ov000_0215440c_2* arg1, int arg2, void* arg3) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_ov025_021e514c_5* var1 = (struct Struct_ov025_021e514c_5*)func_ov000_02160094(arg1, 0);
-    struct Struct_ov025_021e514c* var2 = (struct Struct_ov025_021e514c*)func_ov000_021600f8((struct Struct_ov000_0215440c*)arg1, 0);
+    struct Struct_ov025_021e514c_5* var1 = (struct Struct_ov025_021e514c_5*)GetActionActor_ov000_02160094(arg1, 0);
+    struct Struct_ov025_021e514c* var2 = (struct Struct_ov025_021e514c*)GetActionTarget_ov000_021600f8((struct BattleAction_ov000_0215440c*)arg1, 0);
     int var3[8];
     int var4 = func_ov000_021820bc(arg3, (int)arg1, arg0->unknown_8_, (int)var3);
     Vector3fix var5;

@@ -8,17 +8,17 @@ enum { Enum_ov025_021e2c34_28 = 0x1c };
 
 #include "GameState/GameState.h"
 
-struct Struct_ov000_0215440c_2;
-struct Struct_ov000_02160094;
+struct BattleAction_ov000_0215440c_2;
+struct ActionActor_ov000_02160094;
 struct Struct_02059cfc_4;
 struct Struct_ov025_021e2c34;
 
-extern "C" struct Struct_ov000_02160094* func_ov000_02160094(struct Struct_ov000_0215440c_2* arg0, int arg1);
+extern "C" struct ActionActor_ov000_02160094* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2* action, int index);
 extern int data_ov025_021ef988;
 
 // USA: func_ov025_021e2c34
-extern "C" ARM int func_ov025_021e2c34(void* arg0, struct Struct_ov000_0215440c_2* arg1) {
-    struct Struct_ov000_02160094* var0 = func_ov000_02160094(arg1, 0);
+extern "C" ARM int func_ov025_021e2c34(void* arg0, struct BattleAction_ov000_0215440c_2* arg1) {
+    struct ActionActor_ov000_02160094* var0 = GetActionActor_ov000_02160094(arg1, 0);
     if (!var0) return 0;
     int var1 = *(unsigned short*)((char*)var0 + 0x20);
     GameState* var2 = GameState::GetInstance();

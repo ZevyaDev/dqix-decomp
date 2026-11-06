@@ -5,12 +5,12 @@
 #include "NitroSDK/Graphics.h"
 #include "Resource/Brightness.h"
 
-struct Struct_02012de8;
-struct Struct_02015438;
+struct GlobalFlags_02012de8;
+struct QueueNode_02015438;
 
 unsigned long long GetCurrentTimestamp(void);
-extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
-extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
+extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00();
+extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_020c52e8();
 extern "C" void func_020c5414();
@@ -18,7 +18,7 @@ extern "C" void func_ov017_02195ecc(unsigned char* arg0, int arg1);
 extern "C" void func_ov017_021959ec(void* arg0);
 extern "C" void func_020c3a0c(int arg0);
 extern "C" void func_ov017_02195bbc(unsigned char* arg0);
-extern "C" int func_02046b24(struct Struct_02015438** arg0);
+extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_020d9834(int arg0);
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov017_02195a20(unsigned char* arg0) {
  enum {Enum_ov017_02195a20_17546=0x448a,Enum_ov017_02195a20_14076=0x36fc};
 #endif
     GetCurrentTimestamp();
-    Struct_02012de8* var0 = GetGlobalFlags_020d6c00();
+    GlobalFlags_02012de8* var0 = GetGlobalFlags_020d6c00();
     void* var1 = GetLocalWireless_0202ae18();
     func_020c52e8();
     func_020c5414();
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_02195a20(unsigned char* arg0) {
     SendQueuedDataToGeometryFifo();
     LightingManager::GetInstance()->SubmitToRenderConfig();
 
-    int var2 = func_02046708(var0, 0x800000);
+    int var2 = TestGlobalFlags_02046708(var0, 0x800000);
     if (var2) {
         func_020c3a0c(-1);
     }
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov017_02195a20(unsigned char* arg0) {
     if (var2) {
         func_020c3a0c(0);
     }
-    if (func_02046b24(*(Struct_02015438***)(arg0 + Enum_ov017_02195a20_14076)) == 0x16) {
+    if (GetQueueHeadType_02046b24(*(QueueNode_02015438***)(arg0 + Enum_ov017_02195a20_14076)) == 0x16) {
         func_ov017_02195ecc(arg0, 2);
     }
     if (var2) {

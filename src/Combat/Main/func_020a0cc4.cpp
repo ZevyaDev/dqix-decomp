@@ -19,26 +19,26 @@ extern struct Struct_02114e20 gMainHeap_02114e20;
 extern void* data_02109d90;
 extern const char data_020f18e8[];
 
-// USA: func_020a0cc4
-extern "C" ARM int func_020a0cc4(int arg0) {
-    if (arg0 >= 0) {
-        unsigned int var0 = func_02012dd0(&gMainHeap_02114e20);
-        if (var0 >= arg0) goto fail;
+// USA: ReleaseFileTablesForSpace_020a0cc4
+extern "C" ARM int ReleaseFileTablesForSpace_020a0cc4(int neededSize) {
+    if (neededSize >= 0) {
+        unsigned int maxAllocation = func_02012dd0(&gMainHeap_02114e20);
+        if (maxAllocation >= neededSize) goto fail;
     }
     if (data_02109d90 == NULL) goto fail;
 
     {
-        int var1 = (int)BackgroundLoader::GetInstance();
-        if (var1 != 0) {
-            ((BackgroundLoader*)(var1))->MaybeWaitIdle();
+        int backgroundLoader = (int)BackgroundLoader::GetInstance();
+        if (backgroundLoader != 0) {
+            ((BackgroundLoader*)(backgroundLoader))->MaybeWaitIdle();
         }
 
         NitroHandle_ReleaseFileTables(NitroHandle_FindBySignature(data_020f18e8, 3));
         FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, data_02109d90);
         data_02109d90 = NULL;
 
-        if (var1 != 0) {
-            ((BackgroundLoader*)((struct Struct_020a0cc4*)var1))->RemoveLock();
+        if (backgroundLoader != 0) {
+            ((BackgroundLoader*)((struct Struct_020a0cc4*)backgroundLoader))->RemoveLock();
         }
     }
     return 1;

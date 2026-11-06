@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_02012de8;
-extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
-extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
+struct GlobalFlags_02012de8;
+extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00();
+extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" int func_ov017_02191b58(void*, int);
 extern "C" void func_ov017_02191e5c(int, int, short, unsigned char, unsigned short);
 extern "C" void func_ov017_02191f4c(int, int);
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov017_02191cc0(unsigned char* arg0) {
 #else
  enum {Enum_ov017_02191cc0_15184=0x3b50};
 #endif
-    if (func_02046708(GetGlobalFlags_020d6c00(), 0x20000)) return;
+    if (TestGlobalFlags_02046708(GetGlobalFlags_020d6c00(), 0x20000)) return;
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetProtagonist();
     if (var1 == 0) return;

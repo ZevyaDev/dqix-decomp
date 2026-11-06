@@ -59,8 +59,8 @@ extern "C" void func_020d3c84(Struct_020d3c28*, Struct_02013fb4*, int);
 struct Struct_020d3d90;
 extern "C" void* func_020d3d90(Struct_020d3d90*, int);
 extern "C" void func_ov017_02191508(int arg0, void* arg1);
-struct Struct_0203d028_11;
-extern "C" void func_0203dafc(Struct_0203d028_11*);
+struct ObjectArchiveLoadInfo_0203d028_11;
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11*);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 struct Struct_02010604;
@@ -209,7 +209,7 @@ extern "C" ARM void func_ov017_021b2fac(struct Struct_ov017_021b2fac* arg0) {
             if (var3->GetDetailedTaskStatus(arg0->unknown_10_) == 2) {
                 var3->GetLoadedFileByID(arg0->unknown_10_, &var18, &var19);
                 if (var18 != 0) {
-                    func_0203dafc((Struct_0203d028_11*)&var20);
+                    ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var20);
                     var20.fileData = var18;
                     var20.unk_8 = var19;
                     var20.allocator = var10;

@@ -26,7 +26,7 @@ extern "C"
     Zone3D_StructPtr_8* func_02099950(void*, unsigned short id);
 
     void HaltForever_020c9be0();
-    void func_020de848(void*);
+    void ClearItemTable_020de848(void*);
 
     void func_02013750(Zone3D*, bool);
 
@@ -124,7 +124,7 @@ void Zone3D::SwitchZone(unsigned short newID, int)
 
     atmosphericEffects_.Reset();
     lighting_.Reset();
-    func_020de848(&unknown_struct_2754_[0]);
+    ClearItemTable_020de848(&unknown_struct_2754_[0]);
 
     pUnknownStruct_8_ = func_02099950(uVar3, newID);
     unknown_4_ = pUnknownStruct_8_->unknown_2_;

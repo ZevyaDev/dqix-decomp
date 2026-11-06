@@ -3,17 +3,17 @@
 #include "World/Zone3D.h"
 #include "Input/Input.h"
 
-struct Struct_02012de8;
-struct Struct_02015438;
+struct GlobalFlags_02012de8;
+struct QueueNode_02015438;
 struct Struct_0200ffc0;
 struct Struct_02018300_3;
 struct Struct_0203402c;
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" Zone3D* GetZone3D_02012fe4();
-extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
+extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00();
 extern "C" int IsQueueEmpty_02046b08(void**);
-extern "C" int func_02046b24(Struct_02015438**);
-extern "C" int func_02046708(Struct_02012de8*, unsigned int);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
+extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
 extern "C" unsigned char* func_0200ffc0(Struct_0200ffc0*);
 extern "C" int func_020535c8(signed char*);
 extern "C" int func_0203402c(Struct_0203402c*);
@@ -30,10 +30,10 @@ extern "C" ARM void func_ov017_0219a6b8(GameResources* arg0) {
     unsigned char* var1;
     GetMessageWindow_020421a0();
     unsigned short var2 = GetZone3D_02012fe4()->currentZoneID_;
-    Struct_02012de8* var3 = GetGlobalFlags_020d6c00();
+    GlobalFlags_02012de8* var3 = GetGlobalFlags_020d6c00();
     if (!IsQueueEmpty_02046b08((void**)arg0->unknown_ptr_array_36fc[0])) return;
-    if (func_02046b24((Struct_02015438**)(void**)arg0->unknown_ptr_array_36fc[0]) == 2) return;
-    if (func_02046708(var3, 0x800)) return;
+    if (GetQueueHeadType_02046b24((QueueNode_02015438**)(void**)arg0->unknown_ptr_array_36fc[0]) == 2) return;
+    if (TestGlobalFlags_02046708(var3, 0x800)) return;
     GameObject* var4 = var0->GetUnknownGameObject();
     if (!var4) return;
     var1 = func_0200ffc0((Struct_0200ffc0*)var0);

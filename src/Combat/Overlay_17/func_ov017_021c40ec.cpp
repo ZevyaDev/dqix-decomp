@@ -10,7 +10,7 @@ enum { Enum_ov017_021c40ec_14132 = 0x3734, Enum_ov017_021c40ec_384 = 0x180 };
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void func_02052d7c(void* arg0, int arg1, short arg2);
-extern "C" void func_ov017_0218f5a4(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
 struct Struct_ov017_021c40ec {
     char unknown_0_[4];
@@ -54,6 +54,6 @@ extern "C" ARM void func_ov017_021c40ec(void* arg0, struct Struct_ov017_021c40ec
     }
 
     if (arg1->unknown_4_4_) {
-        func_ov017_0218f5a4(arg3, var0, 0, 0, 0);
+        QueuePartyMemberModelLoad_ov017_0218f5a4(arg3, var0, 0, 0, 0);
     }
 }

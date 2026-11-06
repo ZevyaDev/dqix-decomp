@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_ov000_0215440c_2;
-struct Struct_ov000_02160094 { char unknown_0_[0x20]; unsigned short unknown_20_; };
-struct Struct_ov000_0215440c { char unknown_0_[9]; unsigned char unknown_9_; };
-struct Struct_ov000_021600f8 { char unknown_0_[0xe]; short unknown_e_; };
+struct BattleAction_ov000_0215440c_2;
+struct ActionActor_ov000_02160094 { char unknown_0_[0x20]; unsigned short unknown_20_; };
+struct BattleAction_ov000_0215440c { char unknown_0_[9]; unsigned char unknown_9_; };
+struct ActionTarget_ov000_021600f8 { char unknown_0_[0xe]; short unknown_e_; };
 
 struct Struct_ov025_021e3c80 {
     char unknown_0_[8];
@@ -31,8 +31,8 @@ extern Struct_ov025_021ef988_8 data_ov025_021ef988;
 
 extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" char* func_ov000_02160f14(void* arg0);
-extern "C" Struct_ov000_02160094* func_ov000_02160094(Struct_ov000_0215440c_2* arg0, int arg1);
-extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c* arg0, int arg1);
+extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
+extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" void func_ov000_021626a0(void* arg0, int arg1, int arg2);
 extern "C" void func_ov025_021eb8e8(char* arg0);
 extern "C" void func_ov000_0216d600(char* arg0, int arg1, int arg2, int arg3, float arg4, float arg5, float arg6, unsigned char arg7);
@@ -50,14 +50,14 @@ extern "C" void func_ov000_0216d370(char* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov000_0216f2b8(char* arg0);
 
 // USA: func_ov025_021e3c80
-extern "C" ARM int func_ov025_021e3c80(Struct_ov025_021e3c80* arg0, Struct_ov000_0215440c_2* arg1) {
+extern "C" ARM int func_ov025_021e3c80(Struct_ov025_021e3c80* arg0, BattleAction_ov000_0215440c_2* arg1) {
     int var0[12];
     int var1[8];
     unsigned char* var2 = (unsigned char*)GetBattleScene_ov000_02160130();
     char* var3 = func_ov000_02160f14(var2);
     char* var4 = data_ov025_021ef988.unknown_c_;
-    Struct_ov000_02160094* var5 = func_ov000_02160094(arg1, 0);
-    Struct_ov000_021600f8* var6 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, 0);
+    ActionActor_ov000_02160094* var5 = GetActionActor_ov000_02160094(arg1, 0);
+    ActionTarget_ov000_021600f8* var6 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);
     if (*(unsigned int*)(var4 + 0x1c4) & 0x40) {
         func_ov000_021626a0(var2, 4, 1);
         *(unsigned int*)(var4 + 0x1c4) &= ~0x40;
@@ -134,9 +134,9 @@ extern "C" ARM int func_ov025_021e3c80(Struct_ov025_021e3c80* arg0, Struct_ov000
         break;
     }
     case 7: {
-        int var17 = ((Struct_ov000_0215440c*)arg1)->unknown_9_;
+        int var17 = ((BattleAction_ov000_0215440c*)arg1)->unknown_9_;
         for (int var18 = 0; var18 < var17; var18++) {
-            Struct_ov000_021600f8* var19 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, var18);
+            ActionTarget_ov000_021600f8* var19 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, var18);
             if (var19 != 0) {
                 var1[var18] = var19->unknown_e_;
             }

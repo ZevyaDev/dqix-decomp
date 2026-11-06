@@ -3,7 +3,7 @@
 #include "std_library_functions.h"
 
 struct Struct_02010088;
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_ov000_02153c0c(GameObject* arg0);
 
 struct Struct_ov000_0215acb8 {
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov000_0215acb8(struct Struct_ov000_0215acb8_4* arg0, in
     if (var0 == NULL) {
         return;
     }
-    if (func_02010088((struct Struct_02010088*)var0)) {
+    if (IsDead_02010088((struct Struct_02010088*)var0)) {
         return;
     }
     if (func_ov000_02153c0c(var0)) {

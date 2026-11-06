@@ -41,11 +41,11 @@
 #endif
 
 struct Struct_020466c8;
-struct Struct_02074bd0;
+struct BGControlSave_02074bd0;
 struct TextWindowManager_0205d1e0;
 struct TextWindowManager_0205d274;
 struct TextWindowManager_0205d2bc;
-struct Struct_0205d048;
+struct TextWindowManager_0205d048;
 
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void func_020466c8(Struct_020466c8 *arg0, int arg1);
@@ -54,12 +54,12 @@ extern "C" void func_ov017_021cff8c(int arg0, int arg1);
 extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
 extern "C" void *GetFontLoader_02094a00();
 extern "C" void CancelFontLoad_02094ab0(void *loader);
-extern "C" void func_02074bd0(Struct_02074bd0 *arg0);
+extern "C" void RestoreMainBGControl_02074bd0(BGControlSave_02074bd0 *save);
 extern "C" void ResetMessageWindow_02043204(char *window);
-extern "C" void func_0205d1e0(TextWindowManager_0205d1e0 *arg0);
-extern "C" void func_0205d274(TextWindowManager_0205d274 *arg0);
+extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(TextWindowManager_0205d1e0 *windowManager);
+extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274 *windowManager);
 extern "C" void func_0205d2bc(TextWindowManager_0205d2bc *arg0);
-extern "C" void func_0205d048(struct Struct_0205d048 *arg0);
+extern "C" void ResetTextWindowManager_0205d048(struct TextWindowManager_0205d048 *windowManager);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void DC_FlushRange(const void *p, unsigned int len);
 extern "C" void LoadToMainBG1CharacterData(const void *data, unsigned int offset, unsigned int length);
@@ -93,13 +93,13 @@ extern "C" ARM void func_ov002_021556fc(char *arg0) {
     CancelFontLoad_02094ab0(GetFontLoader_02094a00());
     *(volatile unsigned int *) 0x4000000   = (*(volatile unsigned int *) 0x4000000 & ~0x1f00) | 0x100;
     *(volatile unsigned short *) 0x4000050 = 0;
-    func_02074bd0((Struct_02074bd0 *) (arg0 + FIELD_38));
+    RestoreMainBGControl_02074bd0((BGControlSave_02074bd0 *) (arg0 + FIELD_38));
     ResetMessageWindow_02043204(GetMessageWindow_020421a0());
     *(void **) (arg0 + FIELD_1bd0) = 0;
-    func_0205d1e0((TextWindowManager_0205d1e0 *) (arg0 + FIELD_ec8));
-    func_0205d274((TextWindowManager_0205d274 *) (arg0 + FIELD_ec8));
+    ClearTextWindowManagerBGScreenData_0205d1e0((TextWindowManager_0205d1e0 *) (arg0 + FIELD_ec8));
+    FlushTextWindowManagerBGScreenData_0205d274((TextWindowManager_0205d274 *) (arg0 + FIELD_ec8));
     func_0205d2bc((TextWindowManager_0205d2bc *) (arg0 + FIELD_ec8));
-    func_0205d048((struct Struct_0205d048 *) (arg0 + FIELD_ec8));
+    ResetTextWindowManager_0205d048((struct TextWindowManager_0205d048 *) (arg0 + FIELD_ec8));
     if (*(void **) (arg0 + FIELD_1bd8) != 0) {
         memset(*(void **) (arg0 + FIELD_1bd8), 0, 0x20);
         DC_FlushRange(*(void **) (arg0 + FIELD_1bd8), 0x20);

@@ -32,7 +32,7 @@ extern "C" void func_02012de8(void);
 struct Struct_ov000_02166880;
 extern "C" void func_02015438(void* arg0);
 extern "C" void func_020d84f4(void);
-extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 
 // USA: func_ov000_02166880
 extern "C" ARM void func_ov000_02166880(unsigned char* arg0) {
@@ -65,5 +65,5 @@ extern "C" ARM void func_ov000_02166880(unsigned char* arg0) {
         if (*(int*)(arg0 + 0x1000 + REGION_OFFSET_4) == 0) break;
         func_020d84f4();
     }
-    func_ov000_02160fa8(arg0, 0x10);
+    SetBattleSceneFlags_ov000_02160fa8(arg0, 0x10);
 }

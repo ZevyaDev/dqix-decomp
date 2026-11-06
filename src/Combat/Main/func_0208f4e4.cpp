@@ -10,8 +10,8 @@ enum { Enum_0208f4e4_108 = 0x6c };
 #include "Grotto/Main/GrottoStruct.h"
 #include "Resource/GameResources.h"
 
-struct Struct_02015438;
-extern "C" int func_02046b24(struct Struct_02015438** arg0);
+struct QueueNode_02015438;
+extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0208f68c(void* arg0);
@@ -27,7 +27,7 @@ extern "C" ARM void func_0208f4e4(unsigned char* arg0) {
     if (arg0[0xb5]) {
         func_0208f68c(arg0);
     }
-    if (func_02046b24((struct Struct_02015438**)var2) == 10) return;
+    if (GetQueueHeadType_02046b24((struct QueueNode_02015438**)var2) == 10) return;
     GrottoStruct* var4 = var0->GetGrottoStruct();
     TreasureMapMetadata* var5 = (TreasureMapMetadata*)((char*)var4 + Enum_0208f4e4_108);
     unsigned short var6 = *(unsigned short*)var1;

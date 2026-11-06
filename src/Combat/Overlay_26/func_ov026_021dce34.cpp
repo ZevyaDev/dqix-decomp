@@ -95,7 +95,7 @@ extern "C" int func_020a36a8(Struct_020a36a8*);
 extern "C" int func_ov000_02160fd4(void*, int);
 extern "C" void func_ov000_02160fbc(void*, int);
 extern "C" void func_020a35cc(unsigned char*, unsigned char);
-extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
 extern "C" void func_02053da0(char*, Struct_02053da0*);
 extern "C" void func_0208936c(char*, char*, char*);
@@ -107,7 +107,7 @@ extern "C" void func_02039d58(unsigned char*);
 extern "C" void func_ov000_02168644(char*, int);
 extern "C" void func_02039894(unsigned char*);
 extern "C" void func_ov000_02167e6c(unsigned char*);
-extern "C" int func_02010088(Struct_02010088*);
+extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov026_021dd3c4(Struct_ov026_021d8ba0_10*);
 extern "C" void func_ov017_021cbc48(Struct_ov017_021cbc48*);
 extern "C" void func_ov017_021cdf80(char*, unsigned char);
@@ -238,7 +238,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, Struct_ov000_02160da0* arg1, S
             }
             for (var15 = 0; var15 < 8; var15++) {
                 GameObject* var17 = var3->GetCombatantByIndex(var15 + 0xc0);
-                if (var17 && var17->obj3D_.IsVisible() && !func_02010088((Struct_02010088*)var17) &&
+                if (var17 && var17->obj3D_.IsVisible() && !IsDead_02010088((Struct_02010088*)var17) &&
                     !func_ov026_021dd3c4((Struct_ov026_021d8ba0_10*)var17)) {
                     var13 |= 1 << var15;
                 }
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, Struct_ov000_02160da0* arg1, S
             var0.unknown_c_ = arg3->unknown_35_;
             var0.unknown_e_ = arg3->unknown_c_;
             for (int var18 = 0; var18 < 4; var18++) {
-                if (func_020a35e0((unsigned char*)arg3, var18)) {
+                if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg3, var18)) {
                     var0.unknown_8_ |= 1 << var18;
                 } else {
                     var0.unknown_8_ &= ~(1 << var18);

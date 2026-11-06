@@ -70,7 +70,7 @@ extern "C" int func_ov031_02217d1c(Struct_ov031_022192c0_3* arg0);
 extern "C" void func_ov031_02217db4(Struct_ov031_022192c0_3* arg0, int arg1);
 extern "C" int func_ov031_02218b8c(Struct_ov031_022192c0_3* arg0, int arg1);
 extern "C" char* func_ov031_02218e2c(Struct_ov031_022192c0_3* arg0, const char* arg1);
-extern "C" int func_02005a94(const char* arg0);
+extern "C" int ParseDecimal_02005a94(const char* string);
 extern "C" int func_ov031_022175dc(void* arg0);
 extern "C" int func_ov031_022178b4(Struct_ov031_022192c0_3* arg0, void* arg1, int arg2);
 extern "C" int func_ov031_02218604(Struct_ov031_022192c0_3* arg0, const char* arg1, const char* arg2, int arg3);
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
         G.unknown_0_->unknown_1004_ = -2;
         if (func_ov031_02217c00(G.unknown_14_, &data_ov031_0224e624) != 0) FAIL(1);
         if (func_ov031_02217d1c(G.unknown_14_) != 0) FAIL(1);
-        func_ov031_02217db4(G.unknown_14_, GetContextPriority(data_02111304.activeContext) - 1);
+        func_ov031_02217db4(G.unknown_14_, GetContextPriority(gContextScheduler_02111304.activeContext) - 1);
         if (G.unknown_14_->unknown_1b38_.uniqueID != 0) AwaitContextCompletion(&G.unknown_14_->unknown_1b38_);
         switch (G.unknown_14_->unknown_1020_) {
         case 2:
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
         }
         if (func_ov031_02218b8c(G.unknown_14_, 0) != 1) FAIL(2);
 
-        var0 = func_02005a94(func_ov031_02218e2c(G.unknown_14_, data_ov031_0224a124));
+        var0 = ParseDecimal_02005a94(func_ov031_02218e2c(G.unknown_14_, data_ov031_0224a124));
         if (data_020f3390 == 0x22) {
             func_ov031_0221a1d4(2);
             goto done;
@@ -200,7 +200,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
                 var2(data_ov031_0224a088, G.unknown_0_->unknown_1118_, 0);
                 G.unknown_0_->unknown_1118_ = 0;
                 if (func_ov031_02217d1c(G.unknown_14_) != 0) FAIL(1);
-                func_ov031_02217db4(G.unknown_14_, GetContextPriority(data_02111304.activeContext) - 1);
+                func_ov031_02217db4(G.unknown_14_, GetContextPriority(gContextScheduler_02111304.activeContext) - 1);
                 if (G.unknown_14_->unknown_1b38_.uniqueID != 0) AwaitContextCompletion(&G.unknown_14_->unknown_1b38_);
                 switch (G.unknown_14_->unknown_1020_) {
                 case 2:
@@ -277,7 +277,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
         var2(data_ov031_0224a06c, G.unknown_0_->unknown_1114_, 0);
         G.unknown_0_->unknown_1114_ = 0;
         if (func_ov031_02217d1c(G.unknown_14_) != 0) FAIL(1);
-        func_ov031_02217db4(G.unknown_14_, GetContextPriority(data_02111304.activeContext) - 1);
+        func_ov031_02217db4(G.unknown_14_, GetContextPriority(gContextScheduler_02111304.activeContext) - 1);
         if (G.unknown_14_->unknown_1b38_.uniqueID != 0) AwaitContextCompletion(&G.unknown_14_->unknown_1b38_);
         switch (G.unknown_14_->unknown_1020_) {
         case 3:
@@ -298,7 +298,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
         }
         if (func_ov031_02218b8c(G.unknown_14_, 0) != 1) FAIL(2);
 
-        var0 = func_02005a94(func_ov031_02218e2c(G.unknown_14_, data_ov031_0224a124));
+        var0 = ParseDecimal_02005a94(func_ov031_02218e2c(G.unknown_14_, data_ov031_0224a124));
         if (data_020f3390 == 0x22) FAIL(2);
         if (var0 != 200) {
             func_ov031_022183b4(G.unknown_14_);
@@ -312,7 +312,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
         }
 
         if (func_ov031_02218e84(G.unknown_14_, (int)data_ov031_0224a180, var21, 4) <= 0) FAIL(9);
-        var14 = func_02005a94(var21);
+        var14 = ParseDecimal_02005a94(var21);
         if (data_020f3390 == 0x22) FAIL(9);
         if (G.unknown_c_ == 1 && var14 == 0x72) {
             G.unknown_0_->unknown_1004_ = 0;
@@ -345,7 +345,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
             var0 = func_ov031_02218e84(G.unknown_14_, (int)data_ov031_0224a198, var5, var13 + 1);
             if (var0 < 0) FAIL(9);
             var5[var0] = 0;
-            var0 = func_02005a94(var5);
+            var0 = ParseDecimal_02005a94(var5);
             if (data_020f3390 == 0x22) FAIL(9);
             var10 = var0 * 1000;
             if ((int)var10 > 180000) var10 = 180000;
@@ -362,7 +362,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
         if (func_ov031_02217c00(G.unknown_14_, &data_ov031_0224e624) != 0) FAIL(1);
         if (func_ov031_02218710(G.unknown_14_, var4) != 0) FAIL(8);
         if (func_ov031_02217d1c(G.unknown_14_) != 0) FAIL(1);
-        func_ov031_02217db4(G.unknown_14_, GetContextPriority(data_02111304.activeContext) - 1);
+        func_ov031_02217db4(G.unknown_14_, GetContextPriority(gContextScheduler_02111304.activeContext) - 1);
         if (G.unknown_14_->unknown_1b38_.uniqueID != 0) AwaitContextCompletion(&G.unknown_14_->unknown_1b38_);
         switch (G.unknown_14_->unknown_1020_) {
         case 2:

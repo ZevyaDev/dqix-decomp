@@ -166,7 +166,7 @@ struct Struct_ov000_021643d4_7 {
 extern "C" int GetLocalWireless_0202ae18(BackgroundLoader*);
 extern "C" int func_02027cb0();
 extern "C" Struct_ov000_0215f7a8* func_ov017_021a278c(void*, int);
-extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" int func_02039d7c(char*);
 struct Struct_02039d84;
 extern "C" void func_02039d84(Struct_02039d84*);
@@ -191,7 +191,7 @@ extern "C" void func_ov017_021a27e8(void* arg0);
 extern "C" void func_ov017_0219b938(int arg0);
 extern "C" int func_0203cf4c();
 extern "C" int func_0203e06c(void*);
-extern "C" void func_ov000_02160fa8(void*, int);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 struct Struct_0203cfb4;
 extern "C" void func_0203cfb4(Struct_0203cfb4*);
 extern "C" void func_ov017_021a316c(int arg0);
@@ -219,7 +219,7 @@ struct Struct_020a07e0;
 extern "C" void func_020a07e0(Struct_020a07e0*, unsigned int);
 struct Struct_020a00d4;
 extern "C" void func_020a00d4(Struct_020a00d4*, unsigned int);
-extern "C" void func_020ac494(void*);
+extern "C" void SetBattleRecords_020ac494(void*);
 extern "C" void func_0201075c(char*, unsigned char);
 extern "C" void func_ov017_021c894c(int arg0);
 extern "C" void func_ov017_021c8758(int arg0);
@@ -251,7 +251,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
         *var10 = (*var10 & ~0x1f00) | ((var11 & ~0x10) << 8);
     }
     for (int var12 = 0; var12 < 4; var12++) {
-        if (!func_020a35e0((unsigned char*)arg0->unknown_2a0_, var12)) continue;
+        if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var12)) continue;
         Struct_ov000_0215f7a8* var13 = (Struct_ov000_0215f7a8*)var0->GetPartyMemberByIndex(var12);
         if (!var13) continue;
         if (func_02039d7c((char*)var13)) {
@@ -340,7 +340,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     }
     int var31 = func_0203cf4c();
     if (func_0203e06c((void*)var31) > 0) {
-        func_ov000_02160fa8(arg0, 0x1000);
+        SetBattleSceneFlags_ov000_02160fa8(arg0, 0x1000);
     }
     func_0203cfb4((Struct_0203cfb4*)var31);
     func_ov017_021a316c(var3);
@@ -397,7 +397,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
         }
     }
     for (int var38 = 0; var38 < 4; var38++) {
-        if (!func_020a35e0((unsigned char*)arg0->unknown_2a0_, var38)) continue;
+        if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var38)) continue;
         Struct_ov000_0215f7a8* var39 = (Struct_ov000_0215f7a8*)var0->GetPartyMemberByIndex(var38);
         if (!var39) continue;
         var39->unknown_160_ = var39->unknown_44_;
@@ -411,9 +411,9 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
         }
     }
     if (!IsLocalWirelessOn_0202b7d8((int*)var1)) {
-        func_ov000_02160fa8(arg0, 2);
+        SetBattleSceneFlags_ov000_02160fa8(arg0, 2);
     } else if (GetProtagonistObjectIndex_020100a8(var0) == arg0->unknown_2a0_->unknown_2a_) {
-        func_ov000_02160fa8(arg0, 2);
+        SetBattleSceneFlags_ov000_02160fa8(arg0, 2);
     }
     if (IsLocalWirelessGuest_0202c540(var1)) {
         func_ov017_0219c774(0, 1, 0);
@@ -443,7 +443,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     GetBattleRecords_020ac4c0(&var42);
     func_020a07e0((Struct_020a07e0*)&var42, 1);
     func_020a00d4((Struct_020a00d4*)&var42.unknown_68_, 1);
-    func_020ac494(&var42);
+    SetBattleRecords_020ac494(&var42);
     ((Struct_ov000_021643d4_5*)var0)->unknown_5728_ = 0;
     func_0201075c((char*)var0, 0);
     func_ov017_021c894c(arg0->unknown_2a0_->unknown_8_);
@@ -452,5 +452,5 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     func_ov017_021c847c();
     arg0->unknown_77f0_ = -1;
     func_02048994();
-    func_ov000_02160fa8(arg0, 1);
+    SetBattleSceneFlags_ov000_02160fa8(arg0, 1);
 }

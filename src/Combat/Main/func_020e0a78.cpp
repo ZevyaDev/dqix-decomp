@@ -2,7 +2,7 @@
 
 #include "Memory/SafeAllocator.h"
 
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 
 struct Struct_020e0a78 {
 #if defined(jpn)
@@ -16,13 +16,13 @@ struct Struct_020e0a78 {
 };
 
 extern "C" void *GetGlobalFlags_020d6c00();
-extern "C" int func_02046708(Struct_02012de8 *arg0, unsigned int arg1);
+extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8 *globalFlags, unsigned int mask);
 extern "C" void VectorizedInvertedMemcpy(void *dst, void *src, unsigned int size);
 extern "C" void func_020e0df8(void*, int, int, int);
 extern "C" void func_020e0cfc(void*, int, int, int);
 extern "C" void func_020e0b4c(void *arg0, void *arg1, int arg2, int arg3);
 extern "C" void func_020e0ec4(void *arg0, void *arg1, int arg2, int arg3);
-extern "C" void func_020c9820();
+extern "C" void WaitForVBlank_020c9820();
 extern "C" void DC_FlushRange(const void *addr, unsigned int size);
 extern "C" int LoadToSubObjVRAM(void *dst, int mode, unsigned int size);
 
@@ -34,7 +34,7 @@ extern "C" ARM int func_020e0a78(void *arg0) {
     if (var0->unknown_76c_ == 0) {
         return 0;
     }
-    if (func_02046708(static_cast<Struct_02012de8 *>(GetGlobalFlags_020d6c00()), 0x41)) {
+    if (TestGlobalFlags_02046708(static_cast<GlobalFlags_02012de8 *>(GetGlobalFlags_020d6c00()), 0x41)) {
         return 0;
     }
 
@@ -51,7 +51,7 @@ extern "C" ARM int func_020e0a78(void *arg0) {
     func_020e0ec4(arg0, var1, 0x16c0, 0x9c0);
     func_020e0cfc(arg0, (int)var1, 0x2080, 0xd00);
 #endif
-    func_020c9820();
+    WaitForVBlank_020c9820();
     DC_FlushRange(var1, var0->unknown_774_);
     LoadToSubObjVRAM(var1, 0, var0->unknown_774_);
     var0->unknown_76c_->Free(var1);

@@ -24,7 +24,7 @@ struct Struct_0202e6a8;
 extern "C" void func_ov000_0216d370(Struct_020a212c_2*, int, int, int);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(Random*, short*, int, int);
 extern "C" void func_0202e5d8(Struct_020a212c_2*, int, int, int);
-extern "C" Struct_ov000_0216e3c4* func_0200fea4(GameState*, int);
+extern "C" Struct_ov000_0216e3c4* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" void func_0202e5c8(unsigned char*, int, int, int);
 extern "C" void func_ov000_0216d368(Struct_ov000_0216d368*, int, int, int);
 extern "C" void func_0202e6a8(Struct_0202e6a8*, int);
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov000_0216e3c4(Struct_020a212c_2* arg0) {
     Struct_ov000_0216d368 var17;
     func_ov000_0216d368(&var17, 0, 0, 0);
     for (int var18 = 0; var18 < 8; var18++) {
-        Struct_ov000_0216e3c4* var19 = func_0200fea4(var0, var18 + 0xc0);
+        Struct_ov000_0216e3c4* var19 = GetEnemyByIndex_0200fea4(var0, var18 + 0xc0);
         if (var19 && var19->unknown_c2_4_) {
             Vector3i var20;
             var20 = var19->unknown_0_.position_;

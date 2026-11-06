@@ -83,12 +83,12 @@ struct Struct_ov026_021d8ba0_10;
 
 extern "C" Struct_ov026_021ddf78_7* GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(Struct_ov026_021ddf78_7*);
-extern "C" Struct_ov026_021ddf78_8* func_0200fea4(GameState*, int);
-extern "C" int func_02010088(Struct_02010088*);
+extern "C" Struct_ov026_021ddf78_8* GetEnemyByIndex_0200fea4(GameState*, int);
+extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov026_021dd3c4(Struct_ov026_021d8ba0_10*);
 extern "C" void SetMessageString_02046574(Struct_ov026_021ddf78_7*, int, char*);
 extern "C" Struct_ov026_021ddf78_9* GetBattleSetup_ov017_021b8478(void*);
-extern "C" void* func_ov017_021b8468(void*);
+extern "C" void* GetBattleScene_ov017_021b8468(void*);
 extern "C" void* func_ov000_02160f08(void*);
 extern "C" int func_02070094();
 extern "C" const char** func_0206f4f0(int, int);
@@ -138,8 +138,8 @@ extern "C" ARM void func_ov026_021ddf78(Struct_ov026_021ddf78_5* arg0, Struct_ov
         }
         var3[var7] = var8->unknown_0_;
         for (int var12 = 0; var12 < var8->unknown_a_0_; var12++) {
-            Struct_ov026_021ddf78_8* var13 = func_0200fea4(var4, var8->unknown_2_[var12] + 0xc0);
-            if (var13 == 0 || func_02010088((Struct_02010088*)var13) || func_ov026_021dd3c4((Struct_ov026_021d8ba0_10*)var13)) {
+            Struct_ov026_021ddf78_8* var13 = GetEnemyByIndex_0200fea4(var4, var8->unknown_2_[var12] + 0xc0);
+            if (var13 == 0 || IsDead_02010088((Struct_02010088*)var13) || func_ov026_021dd3c4((Struct_ov026_021d8ba0_10*)var13)) {
                 continue;
             }
             if (var13->unknown_148_ == 0) {
@@ -224,7 +224,7 @@ extern "C" ARM void func_ov026_021ddf78(Struct_ov026_021ddf78_5* arg0, Struct_ov
     if (arg0->unknown_8e49_ == 1) {
         strcat(var0, data_ov026_021df61b);
         strcat(var0, var1);
-        Struct_ov026_021ddf78_11* var29 = (Struct_ov026_021ddf78_11*)func_ov000_02160f08(func_ov017_021b8468(var15));
+        Struct_ov026_021ddf78_11* var29 = (Struct_ov026_021ddf78_11*)func_ov000_02160f08(GetBattleScene_ov017_021b8468(var15));
         unsigned char var30 = arg1->unknown_8_ % 2;
         if (var29 != 0) {
             var29->unknown_955_ = var30;

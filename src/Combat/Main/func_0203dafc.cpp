@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-struct Struct_0203d028_11 {
+struct ObjectArchiveLoadInfo_0203d028_11 {
     int unknown_0_;
     int unknown_4_;
     int unknown_8_;
@@ -11,14 +11,14 @@ struct Struct_0203d028_11 {
     int unknown_1c_;
 };
 
-// USA: func_0203dafc
-extern "C" ARM void func_0203dafc(struct Struct_0203d028_11* arg0) {
-    arg0->unknown_0_ = 0;
-    arg0->unknown_4_ = 0;
-    arg0->unknown_8_ = 0;
-    arg0->unknown_c_ = 0;
-    arg0->unknown_10_ = 0;
-    arg0->unknown_14_ = 0;
-    arg0->unknown_18_ = 0;
-    arg0->unknown_1c_ = 0;
+// USA: ClearObjectArchiveLoadInfo_0203dafc
+extern "C" ARM void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo) {
+    loadInfo->unknown_0_ = 0;
+    loadInfo->unknown_4_ = 0;
+    loadInfo->unknown_8_ = 0;
+    loadInfo->unknown_c_ = 0;
+    loadInfo->unknown_10_ = 0;
+    loadInfo->unknown_14_ = 0;
+    loadInfo->unknown_18_ = 0;
+    loadInfo->unknown_1c_ = 0;
 }

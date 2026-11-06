@@ -6,8 +6,8 @@ extern "C" void func_020bed10(void);
 extern "C" void func_020d24c4(int arg0);
 extern "C" void func_020bceb4(void);
 
-// USA: func_020bbd9c
-extern "C" ARM void func_020bbd9c(void) {
+// USA: UpdateSound_020bbd9c
+extern "C" ARM void UpdateSound_020bbd9c(void) {
     while (func_020d22f4(0) != 0) {
     }
     func_020bc2f0();

@@ -2,9 +2,9 @@
 #include "GameState/GameState.h"
 
 struct Struct_02010088;
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_ov000_02153c0c(GameObject* arg0);
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 
 struct Struct_ov000_02153e78 {
     char unknown_0_[0x17c];
@@ -36,11 +36,11 @@ extern "C" ARM int func_ov000_02153e78(struct Struct_ov000_02153e78_3* arg0, sho
         unsigned char* var4 = var2[var3].unknown_2_;
         int var5;
         for (var5 = 0; var5 < var2[var3].unknown_a_0_; var5++) {
-            GameObject* var6 = func_0200fea4(var0, var4[var5] + 0xc0);
+            GameObject* var6 = GetEnemyByIndex_0200fea4(var0, var4[var5] + 0xc0);
             if (var6 == NULL) continue;
             if (arg3 != ((struct Struct_ov000_02153e78*)var6)->unknown_17c_) continue;
             if (!(arg4 & 0x10) && func_ov000_02153c0c(var6)) continue;
-            if ((arg4 & 1) && func_02010088((struct Struct_02010088*)var6)) continue;
+            if ((arg4 & 1) && IsDead_02010088((struct Struct_02010088*)var6)) continue;
             arg1[var1] = var4[var5] + 0xc0;
             var1++;
             if (var1 == arg2) return var1;

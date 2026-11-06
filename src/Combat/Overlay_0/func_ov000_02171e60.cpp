@@ -26,8 +26,8 @@ struct Struct_ov000_02171e60_2 {
 };
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void func_020e4864(const char* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
+extern "C" void ExpandInflectionTags_020e4864(const char* text, char* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
+extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 struct MessageWindow_02021b84;
 extern "C" struct MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_02046608(struct MessageWindow_02021b84* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
@@ -94,8 +94,8 @@ extern "C" ARM void func_ov000_02171e60(struct Struct_ov000_02171e60* arg0) {
     __clear(var2, 0x80);
     char var3[0x80];
     __clear(var3, 0x80);
-    func_020e4864(var0->unknown_4_, var2, 1, 0, 0, 0);
-    func_0206819c(var2, var3, 0);
+    ExpandInflectionTags_020e4864(var0->unknown_4_, var2, 1, 0, 0, 0);
+    CopyCapitalizedText_0206819c(var2, var3, 0);
     func_02046608(GetMessageWindow_020421a0(), 10, var3, var2, 0x100, 0, 0);
     func_0203c108(&arg0->unknown_50_, var2);
 #endif

@@ -6,8 +6,8 @@
 
 
 extern "C" int GetMessageWindow_020421a0(void);
-struct Struct_02048150;
-extern "C" int func_02086ef0(struct Struct_02048150* arg0, int arg1);
+struct Party_02048150;
+extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex);
 struct Struct_0209a9dc_2;
 struct Struct_0209a9dc_3 { unsigned short unknown_0_; unsigned short unknown_2_; };
 extern "C" struct Struct_0209a9dc_3* func_0209a9dc(struct Struct_0209a9dc_2* arg0, int arg1);
@@ -65,7 +65,7 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* arg0) {
     unsigned char* var3 = (unsigned char*)var2;
     (int)BackgroundLoader::GetInstance();
     int var4 = var1->unknown_18_;
-    int var5 = func_02086ef0((struct Struct_02048150*)GetParty_02010828(var0), var4);
+    int var5 = IsInParty_02086ef0((struct Party_02048150*)GetParty_02010828(var0), var4);
 
     if (var1->unknown_0_ == 0) {
         struct Struct_0209a9dc_3* var6 = func_0209a9dc((struct Struct_0209a9dc_2*)((char*)var1 + 0xf0),
@@ -118,7 +118,7 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* arg0) {
             struct Struct_ov023_021f2368_3* var23 = (struct Struct_ov023_021f2368_3*)(arg0 + var4 * 0x54 + Enum_ov023_021f2368_22272 + Enum_ov023_021f2368_156);
             if (var23->unknown_0_7_ != 0) {
                 var1->unknown_e5_ = 0xc;
-            } else if (func_02086ef0((struct Struct_02048150*)var20, var4) &&
+            } else if (IsInParty_02086ef0((struct Party_02048150*)var20, var4) &&
                        func_ov023_021f5228(var4) != 0 &&
                        *(unsigned short*)(var22 + 0x564) != 0) {
                 var1->unknown_e5_ = 8;

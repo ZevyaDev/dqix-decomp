@@ -25,7 +25,7 @@ struct Struct_ov000_02182a6c {
     signed char unknown_0_[8];
 };
 
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" void func_020891b0(struct Struct_020891b0* arg0);
 
 extern struct Struct_ov000_02182a6c data_ov000_02182a6c;
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov000_0215f57c(struct Random* arg0, int arg1) {
     if (inline_ov000_0215f57c(arg1)) {
         return 0;
     }
-    struct Struct_ov000_0215f57c_2* var0 = (struct Struct_ov000_0215f57c_2*)func_0200fea4(GameState::GetInstance(), arg1);
+    struct Struct_ov000_0215f57c_2* var0 = (struct Struct_ov000_0215f57c_2*)GetEnemyByIndex_0200fea4(GameState::GetInstance(), arg1);
     struct Struct_ov000_0215f57c* var1 = var0->unknown_148_;
     int var2 = var0->unknown_138_->unknown_3c_0_ ? 1 : 0;
     int var3 = NextRandomMax(arg0, 2);

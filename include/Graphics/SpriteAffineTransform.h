@@ -9,7 +9,7 @@ struct Matrix2x2_0205ac40_3 {
 
 struct SpriteSet_0205ac40 {
     char unknown_0_[0x50];
-    unsigned char unknown_50_;
+    unsigned char isSubScreen_50_;
 };
 
 struct Struct_0205b174 {

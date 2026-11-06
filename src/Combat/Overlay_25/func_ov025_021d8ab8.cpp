@@ -2,13 +2,13 @@
 
 extern "C" ARM void* __clear(void* arg0, int arg1);
 
-struct Struct_ov000_0215440c_2;
-struct Struct_ov000_02160094;
-extern "C" Struct_ov000_02160094* func_ov000_02160094(Struct_ov000_0215440c_2* arg0, int arg1);
+struct BattleAction_ov000_0215440c_2;
+struct ActionActor_ov000_02160094;
+extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 
-struct Struct_ov000_0215440c;
-struct Struct_ov000_021600f8;
-extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c* arg0, int arg1);
+struct BattleAction_ov000_0215440c;
+struct ActionTarget_ov000_021600f8;
+extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 
 extern "C" void func_ov025_021d8c30(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov025_021d8ab8(void* arg0, void* arg1, int arg2, int ar
     int* var1 = var0;
 
     if (arg2 == 0) {
-        Struct_ov000_02160094* var2 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, arg4);
+        ActionActor_ov000_02160094* var2 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, arg4);
         if (var2) {
             unsigned char* var3 = (unsigned char*)var2;
             var1[0] = var3[0x26];
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov025_021d8ab8(void* arg0, void* arg1, int arg2, int ar
             var1[5] = var3[0x27];
         }
     } else if ((unsigned int)(arg2 - 1) <= 2) {
-        Struct_ov000_021600f8* var4 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, arg4);
+        ActionTarget_ov000_021600f8* var4 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, arg4);
         if (var4) {
             unsigned char* var5 = (unsigned char*)var4;
             var1[0] = var5[0x18];

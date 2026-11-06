@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 
-struct Struct_020fdd44;
-extern "C" struct Struct_020fdd44* func_02027ca4(void);
-extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1);
+struct ActiveZone_020fdd44;
+extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
+extern "C" struct ActiveZone_020fdd44* FindActiveZone_02028bd0(struct ActiveZone_020fdd44* zones, int zoneId);
 
 struct Struct_02039df4;
 
@@ -56,8 +56,8 @@ extern "C" int rand(void);
 // USA: func_02078e60
 extern "C" ARM unsigned short func_02078e60(void* arg0, char* arg1) {
     struct Struct_02078e60* var0 = (struct Struct_02078e60*)arg0;
-    struct Struct_020fdd44* var1;
-    struct Struct_020fdd44* var2;
+    struct ActiveZone_020fdd44* var1;
+    struct ActiveZone_020fdd44* var2;
     struct Struct_02028430_2* var3;
     struct Struct_02078e60_2* var4;
     struct Struct_02078e60_3* var5;
@@ -69,8 +69,8 @@ extern "C" ARM unsigned short func_02078e60(void* arg0, char* arg1) {
     int var11;
 
     *arg1 = 0;
-    var1 = func_02027ca4();
-    var2 = func_02028bd0(var1, ((Object3D*)((struct Struct_02039df4*)var0))->GetField06());
+    var1 = GetActiveZones_02027ca4();
+    var2 = FindActiveZone_02028bd0(var1, ((Object3D*)((struct Struct_02039df4*)var0))->GetField06());
     if (var2 == NULL) {
         return 0;
     }

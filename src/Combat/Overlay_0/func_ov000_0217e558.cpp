@@ -57,10 +57,10 @@ extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void func_0205def8(Struct_0205def8*, int, int);
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
 extern "C" GameResources* GetResources_0200fb8c(int*);
-extern "C" Struct_ov000_0217e558_2* func_ov017_021b8468(void*);
+extern "C" Struct_ov000_0217e558_2* GetBattleScene_ov017_021b8468(void*);
 extern "C" int func_ov000_0217c594(Struct_ov000_0217e558*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
-extern "C" Struct_ov000_0217e558_5* func_ov000_02161318(Struct_ov000_0217e558*, int);
+extern "C" Struct_ov000_0217e558_5* FindPartyMemberPanel_ov000_02161318(Struct_ov000_0217e558*, int);
 extern "C" void func_ov000_02170db0(Struct_ov000_0217e558_5*);
 
 extern "C" Struct_ov000_0217e558_4* FindActionData_02079e2c(char*, int);
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov000_0217e558(Struct_ov000_0217e558* arg0, int arg1, i
     SetTextWindowPalette_0205deb4(&arg0->unknown_188_.unknown2_0_, 0x18, 0);
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetResources_0200fb8c((int*)var0);
-    if (func_ov017_021b8468(PTR3718(var1))->unknown_7712_ != -1 || !func_ov000_0217c594(arg0, 5)) return;
+    if (GetBattleScene_ov017_021b8468(PTR3718(var1))->unknown_7712_ != -1 || !func_ov000_0217c594(arg0, 5)) return;
     arg0->unknown_956_ = 0;
     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
     if ((unsigned short)arg0->unknown_10_[arg0->unknown_1d6d_] == 0) {
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov000_0217e558(Struct_ov000_0217e558* arg0, int arg1, i
         Struct_ov000_0217e558_3* var2 = (Struct_ov000_0217e558_3*)GetParty_02010828(var0);
         unsigned char var3 = var2->unknown_f7c_;
         for (unsigned char var4 = 0; var4 < var3; var4++) {
-            Struct_ov000_0217e558_5* var5 = func_ov000_02161318(arg0, var2->unknown_f78_[var4]);
+            Struct_ov000_0217e558_5* var5 = FindPartyMemberPanel_ov000_02161318(arg0, var2->unknown_f78_[var4]);
             if (var5) {
                 var5->inline_ov000_0217e558_3(var5->inline_ov000_0217e558());
                 var5->unknown_26_ = 0;
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov000_0217e558(Struct_ov000_0217e558* arg0, int arg1, i
         func_ov000_02175b54(arg0);
         GameState* var8 = GameState::GetInstance();
         Struct_ov000_0217e558_3* var9 = (Struct_ov000_0217e558_3*)GetParty_02010828(var8);
-        Struct_ov000_0217e558_5* var10 = func_ov000_02161318(arg0, GetProtagonistObjectIndex_020100a8(var8));
+        Struct_ov000_0217e558_5* var10 = FindPartyMemberPanel_ov000_02161318(arg0, GetProtagonistObjectIndex_020100a8(var8));
         if (!var10) return;
         switch (arg0->unknown_1d60_[arg0->unknown_1d68_]) {
         case 14: arg0->unknown_1d60_[arg0->unknown_1d68_] = 25; arg0->unknown_1d79_ = 0; break;
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov000_0217e558(Struct_ov000_0217e558* arg0, int arg1, i
         if (var13 == 2) var12 = var10->unknown_2e_;
         unsigned char var14 = var9->unknown_f7c_;
         for (unsigned char var15 = 0; var15 < var14; var15++) {
-            Struct_ov000_0217e558_5* var16 = func_ov000_02161318(arg0, var9->unknown_f78_[var15]);
+            Struct_ov000_0217e558_5* var16 = FindPartyMemberPanel_ov000_02161318(arg0, var9->unknown_f78_[var15]);
             if (var16) {
                 var16->unknown_1d_ = var11;
                 var16->unknown_26_ = var7->unknown_4_0_;

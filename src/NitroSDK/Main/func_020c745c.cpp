@@ -46,7 +46,7 @@ extern "C" ARM void func_020c745c()
     data_021112e0.substruct_24.unknown_0 = 0;
     data_021112e0.substruct_24.unknown_2 = 0;
 
-    *(Struct_02111304**)0x027fffa0 = &data_02111304;
+    *(Struct_02111304**)0x027fffa0 = &gContextScheduler_02111304;
 
     SetSwitchContextProcB(NULL);
 

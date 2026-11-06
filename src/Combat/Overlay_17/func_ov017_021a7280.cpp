@@ -8,8 +8,8 @@
 #include "GameState/GameState.h"
 
 extern "C" void* GetEffectManager_02057924(void* arg0);
-extern "C" void func_02057f00(void* arg0, int arg1);
-extern "C" void func_020a0c0c(void);
+extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
+extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_0205ebec(void* arg0);
@@ -24,7 +24,7 @@ struct Struct_ov017_021a7280 {
 
 // USA: func_ov017_021a7280
 extern "C" ARM void func_ov017_021a7280(struct Struct_ov017_021a7280* arg0) {
-	func_02057f00(GetEffectManager_02057924(arg0), 0xd);
+	RemoveEffectResource_02057f00(GetEffectManager_02057924(arg0), 0xd);
 
 	EnablePlayerControl_020397c0(GameState::GetInstance()->GetUnknownGameObject());
 
@@ -36,5 +36,5 @@ extern "C" ARM void func_ov017_021a7280(struct Struct_ov017_021a7280* arg0) {
 		FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
 	}
 
-	func_020a0c0c();
+	LoadFileTables_020a0c0c();
 }

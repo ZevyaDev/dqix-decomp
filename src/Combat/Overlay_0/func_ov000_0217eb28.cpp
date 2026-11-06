@@ -57,8 +57,8 @@ extern "C" int func_ov000_021815c8(void*);
 extern "C" int* GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov017_021c3fb4(int, int);
-extern "C" void func_ov017_0218f5a4(GameResources*, int, int, int, int);
-extern "C" Struct_ov000_0217e870* func_ov000_02161318(Struct_ov004_021707e8*, int);
+extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources*, int, int, int, int);
+extern "C" Struct_ov000_0217e870* FindPartyMemberPanel_ov000_02161318(Struct_ov004_021707e8*, int);
 extern "C" int func_ov000_021719f8(int*);
 extern "C" void func_ov000_02171c04(Struct_ov000_0217e870*);
 extern "C" Struct_ov000_02179cdc_2* func_0205d888(Struct_0205d0e0_2*);
@@ -87,8 +87,8 @@ extern "C" ARM void func_ov000_0217eb28(Struct_ov004_021707e8* arg0, int arg1, i
             func_ov017_021c3fb4(var1, 1);
         GameResources* var2 = GetGameResources();
         BackgroundLoader::GetInstance();
-        func_ov017_0218f5a4(var2, var1, 1, 0, 0);
-        Struct_ov000_0217e870* var3 = func_ov000_02161318(arg0, var1);
+        QueuePartyMemberModelLoad_ov017_0218f5a4(var2, var1, 1, 0, 0);
+        Struct_ov000_0217e870* var3 = FindPartyMemberPanel_ov000_02161318(arg0, var1);
         if (!var3) return;
         if (func_ov000_021719f8((int*)var3)) {
             var3->unknown_10_[var3->unknown_18_] = 0x64;
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov000_0217eb28(Struct_ov004_021707e8* arg0, int arg1, i
         unsigned char var5 = ((Struct_ov000_0217e870_2*)GetParty_02010828(GameState::GetInstance()))->unknown_f7c_;
         for (unsigned char var6 = 0; var6 < var5; var6++) {
             int var7 = arg0->unknown_70_[var6];
-            Struct_ov000_0217e870* var8 = func_ov000_02161318(arg0, var7);
+            Struct_ov000_0217e870* var8 = FindPartyMemberPanel_ov000_02161318(arg0, var7);
             if (var8 && !func_ov000_021719f8((int*)var8) && var8->unknown_87_) {
                 arg0->unknown_17c_ = var7;
                 break;

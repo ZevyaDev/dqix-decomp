@@ -7,17 +7,17 @@ struct TextWindowManager_0205d81c {
     int unknown_98_;
     struct TextWindow_0205d0e0* pTextWindows_9c_;
     char unknown_a0_[0xb0 - 0xa0];
-    unsigned char unknown_b0_;
+    unsigned char cursorWindowId_b0_;
     char unknown_b1_[0xb4 - 0xb1];
     unsigned char unknown_b4_;
 };
 
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c*, int);
 
-// USA: func_0205d8c4
-extern "C" ARM struct TextWindow_0205d0e0* func_0205d8c4(struct TextWindowManager_0205d81c* arg0) {
-    if (arg0->unknown_98_ == 0) return 0;
-    if (arg0->pTextWindows_9c_ == 0) return 0;
-    if (arg0->unknown_b4_ == 0) return 0;
-    return FindTextWindow_0205d81c(arg0, arg0->unknown_b0_);
+// USA: GetCursorTextWindow_0205d8c4
+extern "C" ARM struct TextWindow_0205d0e0* GetCursorTextWindow_0205d8c4(struct TextWindowManager_0205d81c* windowManager) {
+    if (windowManager->unknown_98_ == 0) return 0;
+    if (windowManager->pTextWindows_9c_ == 0) return 0;
+    if (windowManager->unknown_b4_ == 0) return 0;
+    return FindTextWindow_0205d81c(windowManager, windowManager->cursorWindowId_b0_);
 }

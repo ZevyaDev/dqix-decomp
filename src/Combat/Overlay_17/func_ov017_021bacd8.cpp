@@ -22,8 +22,8 @@ extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, 
 struct Struct_ov017_021bac8c;
 extern "C" void func_ov017_021bac8c(struct Struct_ov017_021bac8c* arg0);
 
-extern "C" void func_020a0cc4(unsigned int);
-extern "C" void func_020a0c0c(void);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
+extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" int func_ov017_021959b4(void);
 
 extern "C" void func_ov003_0215c650(void* arg0);
@@ -59,10 +59,10 @@ extern "C" ARM void func_ov017_021bacd8(Struct_ov017_021bacd8* arg0) {
     }
     int var5 = arg0->unknown_8_;
     if (var5 == 0) {
-        func_020a0cc4(Enum_ov017_021bacd8_62524);
+        ReleaseFileTablesForSpace_020a0cc4(Enum_ov017_021bacd8_62524);
         void* var6 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021bacd8_62524);
         if (var6 == NULL) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov017_021bacd8(Struct_ov017_021bacd8* arg0) {
         void* var7 = arg0->unknown_c_.Allocate(Enum_ov017_021bacd8_1020);
         arg0->unknown_20_ = var7;
         if (var7 == NULL) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -102,6 +102,6 @@ extern "C" ARM void func_ov017_021bacd8(Struct_ov017_021bacd8* arg0) {
     ClearFlags04((GameResources*)var1, 0xc0);
     EnablePlayerControl_020397c0(var2);
     func_020a28b0((unsigned char*)var3, 3);
-    func_020a0c0c();
+    LoadFileTables_020a0c0c();
     arg0->unknown_1_ = 1;
 }

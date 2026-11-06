@@ -6,13 +6,13 @@
 
 extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" void* func_ov000_02160f20(void* arg0);
-struct Struct_ov000_0215440c_2;
-extern "C" void* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
-struct Struct_ov000_0215440c;
-extern "C" void* func_ov000_021600f8(Struct_ov000_0215440c*, int);
+struct BattleAction_ov000_0215440c_2;
+extern "C" void* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
+struct BattleAction_ov000_0215440c;
+extern "C" void* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 struct GameState;
-extern "C" void* func_0200fea4(GameState*, int);
-extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
+extern "C" void* GetEnemyByIndex_0200fea4(GameState*, int);
+extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
 extern "C" void func_0205eabc(void* arg0, void* arg1, int arg2);
 extern "C" void* FindActionData_02079e2c(char*, int);
 extern "C" int func_ov025_021eb42c(void* arg0, short arg1, short arg2);
@@ -133,7 +133,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
     arg0[0x5d0] = 0;
     arg0[0x5d1] = 0;
     *(int*)(arg0 + 0x5e4) = 0;
-    Struct_ov000_0215b278* var8 = (Struct_ov000_0215b278*)func_ov000_02160094((Struct_ov000_0215440c_2*)var6, 0);
+    Struct_ov000_0215b278* var8 = (Struct_ov000_0215b278*)GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var6, 0);
     if (var8 != 0) {
         if (inline_ov000_0215f57c(var8->unknown_20_)) {
             var7 = 1;
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
             if (var9 != 0) {
                 int var10 = ((Object3D*)var9)->GetField78();
                 int var11 = ((Object3D*)var9)->GetField7a();
-                func_0205ebc0(&gSoundEffectManager_02108760, var10, var11);
+                LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, var10, var11);
             }
         }
     }
@@ -154,8 +154,8 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
     *(Entry**)(arg0 + 8) = var12;
     if ((var12 != 0 && ((var12->unknown_18_ << 16) >> 28) == 2) || var6->unknown_0_ == 0x1f8 || var6->unknown_0_ == 0x392) {
         int var13 = 0;
-        func_ov000_02160094((Struct_ov000_0215440c_2*)var6, var13);
-        Struct_ov000_0215b278* var14 = (Struct_ov000_0215b278*)func_ov000_02160094((Struct_ov000_0215440c_2*)var6, var13);
+        GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var6, var13);
+        Struct_ov000_0215b278* var14 = (Struct_ov000_0215b278*)GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var6, var13);
         if (var14->unknown_20_ <= 3) var13 = 1;
         if (var13 != 0) {
             func_ov025_021eb42c(arg0, 4, 0x14);
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
         }
     }
     for (int var15 = 0; var15 < var6->unknown_9_; var15++) {
-        char* var16 = (char*)func_ov000_021600f8((Struct_ov000_0215440c*)var6, var15);
+        char* var16 = (char*)GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var6, var15);
         if (var16 == 0) continue;
         unsigned char* var17 = (unsigned char*)var16 + 0x14;
         int var18 = 1;
@@ -175,7 +175,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
                 unsigned short var20 = *(unsigned short*)(var16 + (var18 - 1) * 2 + 0xe);
                 int var21 = var20 <= 3 ? 1 : 0;
                 if (var21 == 0) {
-                    Struct_ov000_0215ab88* var22 = (Struct_ov000_0215ab88*)func_0200fea4((GameState*)var3, var20);
+                    Struct_ov000_0215ab88* var22 = (Struct_ov000_0215ab88*)GetEnemyByIndex_0200fea4((GameState*)var3, var20);
                     if (var22 != 0 && var22->unknown_2_ == 0xf4) {
                         func_ov025_021eb148(arg0, 0x1a, 0xcfe5, 1);
                     }
@@ -287,7 +287,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
     *(int*)(arg0 + 0x880) = -1;
     void* var34 = BackgroundLoader::GetInstance();
     int var35 = 0;
-    Struct_ov000_0215b278* var36 = (Struct_ov000_0215b278*)func_ov000_02160094((Struct_ov000_0215440c_2*)var6, 0);
+    Struct_ov000_0215b278* var36 = (Struct_ov000_0215b278*)GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var6, 0);
     void* var37 = func_ov000_02160f08(var5);
     short* var38 = 0;
     if (var36 != 0) var38 = func_ov025_021dafd0((char*)var37, var36->unknown_20_);

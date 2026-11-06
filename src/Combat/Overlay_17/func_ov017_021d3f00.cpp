@@ -6,7 +6,7 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 struct Struct_0202b2f0;
 extern "C" int func_0202c578(struct Struct_0202b2f0* arg0, int arg1);
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021d3f00 {
@@ -41,6 +41,6 @@ extern "C" ARM void func_ov017_021d3f00(Struct_02037d10* arg0, unsigned char arg
     var4->unknown_2_0_ = arg1;
     var4->unknown_2_4_ = arg2;
     var4->unknown_4_ = arg0->unknown_48_;
-    var4->unknown_3_ = func_020100b0(var0);
+    var4->unknown_3_ = GetOwnPartyLeaderObjectIndex_020100b0(var0);
     QueueOutgoingPacket_0205e330(var2, &var3, 0);
 }

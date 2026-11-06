@@ -11,7 +11,7 @@ struct Struct_0208cb08_2 {
     unsigned int unknown_4_;
     unsigned short unknown_8_[4];
 };
-struct Struct_02015438;
+struct QueueNode_02015438;
 struct Struct_02074b64 { unsigned char unknown_0_[0x14]; };
 struct BGLayer_0204b12c;
 struct BGLayer_0204af38;
@@ -53,7 +53,7 @@ struct Struct_0208cb08_5 {
 extern "C" int GetResources_0200fb8c(int*);
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
-extern "C" int func_02046b24(Struct_02015438**);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void func_02074b64(Struct_02074b64*);
 extern "C" void func_020dc2bc();
 void SetSubBrightness(GameResources*, int, int);
@@ -86,7 +86,7 @@ extern "C" ARM void func_0208cb08(Struct_0208cb08_5* arg0) {
         SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 1);
         FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
         int var3 = 0x67;
-        if (func_02046b24((Struct_02015438**)var1->unknown_ptr_array_36fc[0]) != 0x2d) {
+        if (GetQueueHeadType_02046b24((QueueNode_02015438**)var1->unknown_ptr_array_36fc[0]) != 0x2d) {
             if (arg0->unknown_d2_ < 0) var3 = 0x32;
             else {
                 int var4 = arg0->unknown_d2_ / 20;
@@ -94,7 +94,7 @@ extern "C" ARM void func_0208cb08(Struct_0208cb08_5* arg0) {
                 var3 = var4 + 0x32;
             }
         }
-        func_02094b30(var2, var3, 0);
+        RequestSingleFontLoad_02094b30(var2, var3, 0);
         ++arg0->unknown_d5_;
     } else if (arg0->unknown_d5_ == 1) {
         if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) ++arg0->unknown_d5_;
@@ -173,7 +173,7 @@ extern "C" ARM void func_0208cb08(Struct_0208cb08_5* arg0) {
             REG_SUB_BG_0208cb08.unknown_8_[2] = (REG_SUB_BG_0208cb08.unknown_8_[2] & ~3) | 3;
             REG_SUB_BG_0208cb08.unknown_8_[3] = (REG_SUB_BG_0208cb08.unknown_8_[3] & ~3) | 1;
             REG_SUB_BG_0208cb08.unknown_0_ = (REG_SUB_BG_0208cb08.unknown_0_ & ~0x1f00) | 0x1900;
-            if (func_02046b24((Struct_02015438**)var1->unknown_ptr_array_36fc[0]) == 0x2d) {
+            if (GetQueueHeadType_02046b24((QueueNode_02015438**)var1->unknown_ptr_array_36fc[0]) == 0x2d) {
                 if (!IsSubBrightnessTransitionActive(var1)) SetSubBrightness(var1, 0, 25);
             } else if (!(arg0->unknown_da_ & 0x10)) SetSubBrightness(var1, 0, 8);
             ++arg0->unknown_d5_;

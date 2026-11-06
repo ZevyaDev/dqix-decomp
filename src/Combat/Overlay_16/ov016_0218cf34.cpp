@@ -8,7 +8,6 @@
 #include "NitroSDK/Filesystem/LowNitroHandle.h"
 
 #if defined(jpn)
-#define func_020c39a0 func_020c546c
 #define func_ov016_0218d2f4 func_ov016_0218d9f8
 #endif
 
@@ -16,22 +15,22 @@ extern "C" int func_020d1fb0(int arg0, int arg1);
 extern "C" void func_020d2038(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9);
 extern "C" int func_020d1f70(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" int func_020d1ee4(int arg0, int arg1, int arg2, int arg3);
-extern "C" void func_020c39a0(short* arg0, int arg1);
+extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 extern "C" void func_020bc078(int* arg0);
 extern "C" void func_0203aa44(void* arg0);
 extern "C" void func_0203aaf8(void* arg0, int arg1, int arg2);
 extern "C" void func_020c3864(int arg0);
 extern "C" void MapVRAMBanksToLCDC(int banks);
-extern "C" void func_020ca458(int arg0, void* arg1, unsigned int arg2);
+extern "C" void Memset32Bit_020ca458(int arg0, void* arg1, unsigned int arg2);
 extern "C" void DisableLCDCMappedVRAMBanks(void);
-extern "C" void func_020c391c(int arg0, int arg1, int arg2);
+extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
 extern "C" void LoadToSubOAM(const void* p, unsigned int off, unsigned int n);
 extern "C" void ReleaseSubBGVRAMBanks(void);
 extern "C" void ReleaseSubObjVRAMBanks(void);
 extern "C" void MapVRAMBanksToSubObj(int banks);
 extern "C" void MapVRAMBanksToSubBG(int banks);
-extern "C" void func_020c3984(unsigned int arg0);
-extern "C" void func_020c9820(void);
+extern "C" void SetSubBGMode_020c3984(unsigned int bgMode);
+extern "C" void WaitForVBlank_020c9820(void);
 extern "C" unsigned int func_020c8534(int arg0);
 extern "C" unsigned int func_020c8520(int arg0);
 extern "C" unsigned int func_ov016_0218fc78(void);
@@ -56,7 +55,7 @@ extern "C" void func_020d1f0c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_020d1fd0(int arg0, int arg1);
 extern "C" void func_020d24c4(int arg0);
 extern "C" void func_020c9778(int arg0, int arg1);
-extern "C" void func_020bbd9c(void);
+extern "C" void UpdateSound_020bbd9c(void);
 extern "C" int func_020ce89c(int arg0, int arg1, int arg2);
 extern "C" int func_020c7dcc(void);
 extern "C" void func_0203ad14(void*, int, void*, int);
@@ -169,10 +168,10 @@ extern "C" ARM void func_ov016_0218d034(void) {
     if (data_ov016_0219d174 == 0) {
         data_ov016_0219d174 = 1;
         if (data_ov016_0219d148 == 0) {
-            func_020c391c(6, 0, 0);
+            SetMainDisplayAndBGMode_020c391c(6, 0, 0);
             *(volatile unsigned int*)0x4001000 = (*(volatile unsigned int*)0x4001000 & ~0x1f00) | 0x1000;
         } else {
-            func_020c391c(2, 0, 0);
+            SetMainDisplayAndBGMode_020c391c(2, 0, 0);
             *(volatile unsigned int*)0x4001000 = (*(volatile unsigned int*)0x4001000 & ~0x1f00) | 0x400;
         }
         data_ov016_0219d148 ^= 1;
@@ -262,11 +261,11 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 	data_ov016_0219d180 = 0;
 	data_ov016_0219d150 = arg3->unknown_10_ < 0 ? 1 : 0;
 	data_ov016_0219cfb4 = arg4.unknown_0_;
-	func_020c39a0((short*)0x400006c, -16);
-	func_020c39a0((short*)0x400106c, -16);
+	WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+	WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
 #else
-	func_020c39a0((short*)0x400006c, -16);
-	func_020c39a0((short*)0x400106c, -16);
+	WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+	WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
 	data_ov016_0219d154 = arg3;
 	data_ov016_0219d180 = 0;
 	data_ov016_0219d150 = arg3->unknown_12_ < 0 ? 1 : 0;
@@ -287,14 +286,14 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 	}
 	func_020c3864(1);
 	MapVRAMBanksToLCDC(0x1ff);
-	func_020ca458(0, (void*)0x6800000, 0xa4000);
+	Memset32Bit_020ca458(0, (void*)0x6800000, 0xa4000);
 	DisableLCDCMappedVRAMBanks();
-	func_020ca458(0xc0, (void*)0x7000000, 0x400);
-	func_020ca458(0, (void*)0x5000000, 0x400);
-	func_020ca458(0xc0, (void*)0x7000400, 0x400);
-	func_020ca458(0, (void*)0x5000400, 0x400);
+	Memset32Bit_020ca458(0xc0, (void*)0x7000000, 0x400);
+	Memset32Bit_020ca458(0, (void*)0x5000000, 0x400);
+	Memset32Bit_020ca458(0xc0, (void*)0x7000400, 0x400);
+	Memset32Bit_020ca458(0, (void*)0x5000400, 0x400);
 	MapVRAMBanksToLCDC(3);
-	func_020c391c(2, 0, 0);
+	SetMainDisplayAndBGMode_020c391c(2, 0, 0);
 	*(volatile unsigned short*)0x4000304 = *(volatile unsigned short*)0x4000304 | 0x8000;
 	*(volatile unsigned int*)0x4001000 = (*(volatile unsigned int*)0x4001000 & ~0x60) | 0x20;
 
@@ -315,7 +314,7 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 	ReleaseSubObjVRAMBanks();
 	MapVRAMBanksToSubObj(8);
 	MapVRAMBanksToSubBG(4);
-	func_020c3984(5);
+	SetSubBGMode_020c3984(5);
 	{
 		volatile unsigned short* var8 = (volatile unsigned short*)0x400100c;
 		*var8 = (*var8 & 0x43) | 0x84 | 0x4000;
@@ -323,10 +322,10 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 		*var8 = *var8 & ~0x40;
 		*(volatile unsigned int*)0x4001000 = (*(volatile unsigned int*)0x4001000 & ~0x1f00) | 0x400;
 	}
-	func_020c9820();
+	WaitForVBlank_020c9820();
 	data_ov016_0219d0c8 = arg2;
-	func_020c39a0((short*)0x400006c, 0);
-	func_020c39a0((short*)0x400106c, 0);
+	WriteBrightnessRegister_020c39a0((short*)0x400006c, 0);
+	WriteBrightnessRegister_020c39a0((short*)0x400106c, 0);
 
 	int var9;
 	unsigned int var10;
@@ -415,7 +414,7 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 						func_0203aba8(&gMusicManager_02109bf4, var30->unknown_12_, &data_ov016_0219d14c);
 					}
 #endif
-					func_020bbd9c();
+					UpdateSound_020bbd9c();
 					data_ov016_0219d150 = 1;
 					var12 = var23;
 				}
@@ -563,7 +562,7 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 #if defined(jpn)
 		if (data_ov016_0219d154->unknown_10_ > -1) {
 			func_0203ad88(&gMusicManager_02109bf4, 0, 0);
-			func_020bbd9c();
+			UpdateSound_020bbd9c();
 		}
 #else
 		if (data_ov016_0219d154->unknown_12_ > -1) {
@@ -572,7 +571,7 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 			} else {
 				func_0203ac10(&gMusicManager_02109bf4, &data_ov016_0219d14c, 0);
 			}
-			func_020bbd9c();
+			UpdateSound_020bbd9c();
 		}
 #endif
 	}

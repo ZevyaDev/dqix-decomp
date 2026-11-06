@@ -2,10 +2,10 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 
-struct Struct_0205d048;
-struct Struct_02020cb8_3;
-extern "C" void func_0205d048(struct Struct_0205d048* arg0);
-extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
+struct TextWindowManager_0205d048;
+struct BGLayer_02020cb8_3;
+extern "C" void ResetTextWindowManager_0205d048(struct TextWindowManager_0205d048* windowManager);
+extern "C" void ResetBGLayerData_0204afb4(struct BGLayer_02020cb8_3* layer);
 extern "C" void func_ov000_02170054(void* arg0);
 
 #if defined(jpn)
@@ -58,9 +58,9 @@ extern "C" ARM void func_ov000_02172720(Struct_ov000_02172720* arg0) {
         var0->RemoveTask(arg0->unknown_90c_);
         arg0->unknown_90c_ = -1;
     }
-    func_0205d048((struct Struct_0205d048*)arg0->unknown_188_);
-    func_0204afb4((struct Struct_02020cb8_3*)arg0->unknown_8c4_);
-    func_0204afb4((struct Struct_02020cb8_3*)arg0->unknown_8a4_);
+    ResetTextWindowManager_0205d048((struct TextWindowManager_0205d048*)arg0->unknown_188_);
+    ResetBGLayerData_0204afb4((struct BGLayer_02020cb8_3*)arg0->unknown_8c4_);
+    ResetBGLayerData_0204afb4((struct BGLayer_02020cb8_3*)arg0->unknown_8a4_);
 #if defined(jpn)
     if (arg0->unknown_1aa0_.GetSignedAllocator() != 0) {
         arg0->unknown_1aa0_.Destroy();

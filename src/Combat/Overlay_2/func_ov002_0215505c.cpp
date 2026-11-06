@@ -4,7 +4,7 @@
 
 
 struct StringTable_0201099c_14;
-struct Struct_0205cfd4;
+struct TextWindowManager_0205cfd4;
 struct BGLayer_02020cb8;
 struct Struct_020a9ea4;
 
@@ -13,16 +13,16 @@ struct Struct_ov002_0215505c {
     unsigned char unknown_0_1_ : 7;
 };
 
-extern "C" void *func_020e46c4(void *arg0);
+extern "C" void *InitNoun_020e46c4(void *noun);
 struct Struct_ov002_0215505c_2;
 extern "C" void func_ov023_021e1318(Struct_ov002_0215505c_2*);
 extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14 *stringTable);
-extern "C" void func_02074af4(void *arg0);
-extern "C" void func_0205cfd4(struct Struct_0205cfd4 *arg0);
+extern "C" void SaveMainBGControl_02074af4(void *save);
+extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4 *windowManager);
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8 *layer);
 extern "C" void InitTextWindow_0204c684(void *textWindow);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
-extern "C" int func_02011494(char *arg0, void *arg1);
+extern "C" int GetOwnPartyOrder_02011494(char *gameState, void *arg1);
 extern "C" char *GetFlagManager_0205ec34(void);
 extern "C" unsigned short func_0206e384(unsigned char *arg0);
 extern "C" short func_0206e3d4(int arg0, int arg1);
@@ -55,13 +55,13 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     InitStringTable_020dfc40((struct StringTable_0201099c_14 *) (arg0 + 0x8));
     U8(0x30) = 0;
     U8(0x31) = 0;
-    func_02074af4(arg0 + 0x20);
+    SaveMainBGControl_02074af4(arg0 + 0x20);
     S32(0x34)                            = (*(volatile unsigned int *) 0x4000000 & 0x1f00) >> 8;
     *(volatile unsigned int *) 0x4000000 = (*(volatile unsigned int *) 0x4000000 & ~0x1f00) | 0x100;
     for (int var1 = 0; var1 < 5; var1++) {
         *(int *) (arg0 + var1 * 4 + 0x1a6c) = -1;
     }
-    func_0205cfd4((struct Struct_0205cfd4 *) (arg0 + 0xe20));
+    InitTextWindowManager_0205cfd4((struct TextWindowManager_0205cfd4 *) (arg0 + 0xe20));
     for (int var2 = 0; var2 < 3; var2++) {
         InitBGLayer_0204af64((struct BGLayer_02020cb8 *) (arg0 + 0xedc + var2 * 0x20));
     }
@@ -173,7 +173,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     U8(0x1b3f)                              = 0;
     S8(0x1b37)                              = 0;
     GameState *var9                           = GameState::GetInstance();
-    S32(0x1afc)                             = func_02011494((char *) var9, var0);
+    S32(0x1afc)                             = GetOwnPartyOrder_02011494((char *) var9, var0);
     for (int var10 = 0; var10 < S32(0x1afc); var10++) {
         *(int *) (arg0 + var10 * 4 + 0x1b00) = var0[var10];
         GameObject *var11                    = var9->GetPartyMemberByIndex(var0[var10]);
@@ -182,7 +182,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
             S8(0x1b37)++;
         }
     }
-    S32(0x1b14) = func_02011494((char *) var9, var0);
+    S32(0x1b14) = GetOwnPartyOrder_02011494((char *) var9, var0);
     for (int var12 = 0; var12 < S32(0x1b14); var12++) {
         *(int *) (arg0 + var12 * 4 + 0x1b18) = var0[var12];
     }
@@ -239,8 +239,8 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     func_ov002_0215b814(arg0);
 #else
     unsigned char var18[4];
-    func_020e46c4(arg0 + 8);
-    func_020e46c4(arg0 + 0x14);
+    InitNoun_020e46c4(arg0 + 8);
+    InitNoun_020e46c4(arg0 + 0x14);
     RESET(0x88c);
     RESET(0x878);
     RESET(0x850);
@@ -253,13 +253,13 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     InitStringTable_020dfc40((struct StringTable_0201099c_14 *) (arg0 + 0x20));
     U8(0x48) = 0;
     U8(0x49) = 0;
-    func_02074af4(arg0 + 0x38);
+    SaveMainBGControl_02074af4(arg0 + 0x38);
     S32(0x4c)                            = (*(volatile unsigned int *) 0x4000000 & 0x1f00) >> 8;
     *(volatile unsigned int *) 0x4000000 = (*(volatile unsigned int *) 0x4000000 & ~0x1f00) | 0x100;
     for (int var19 = 0; var19 < 5; var19++) {
         *(int *) (arg0 + var19 * 4 + 0x1ba4) = -1;
     }
-    func_0205cfd4((struct Struct_0205cfd4 *) (arg0 + 0x2c8 + 0xc00));
+    InitTextWindowManager_0205cfd4((struct TextWindowManager_0205cfd4 *) (arg0 + 0x2c8 + 0xc00));
     for (int var20 = 0; var20 < 3; var20++) {
         InitBGLayer_0204af64((struct BGLayer_02020cb8 *) (arg0 + 0x384 + 0xc00 + var20 * 0x20));
     }
@@ -374,7 +374,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     U8(0x1c7b)                              = 0;
     S8(0x1c73)                              = 0;
     GameState *var27                           = GameState::GetInstance();
-    S32(0x1c38)                             = func_02011494((char *) var27, var18);
+    S32(0x1c38)                             = GetOwnPartyOrder_02011494((char *) var27, var18);
     for (int var28 = 0; var28 < S32(0x1c38); var28++) {
         *(int *) (arg0 + var28 * 4 + 0x1c3c) = var18[var28];
         GameObject *var29                    = var27->GetPartyMemberByIndex(var18[var28]);
@@ -383,7 +383,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
             S8(0x1c73)++;
         }
     }
-    S32(0x1c50) = func_02011494((char *) var27, var18);
+    S32(0x1c50) = GetOwnPartyOrder_02011494((char *) var27, var18);
     for (int var30 = 0; var30 < S32(0x1c50); var30++) {
         *(int *) (arg0 + var30 * 4 + 0x1c54) = var18[var30];
     }

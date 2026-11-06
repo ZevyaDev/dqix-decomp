@@ -4,7 +4,7 @@
 #include "Util/Random.h"
 
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
 
 struct Struct_ov024_021eebbc { char unknown_0_; unsigned char unknown_1_0_:4; unsigned char unknown_1_4_:4; };
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov024_021eebbc(struct Struct_ov024_021eebbc_2* arg0, int
     for (int var4 = 0; var4 < var3; var4++) {
         GameObject* var5 = GetCombatantByID(arg0->unknown_0_, var2.unknown_0_[var4]);
         if (!var5) continue;
-        if (!func_02010088((struct Struct_02010088*)var5)) continue;
+        if (!IsDead_02010088((struct Struct_02010088*)var5)) continue;
         int var6 = *arg3;
         *arg3 = var6 + 1;
         arg4[var6] = var2.unknown_0_[var4];

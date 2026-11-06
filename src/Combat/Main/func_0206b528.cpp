@@ -40,15 +40,15 @@ extern "C" bool func_02067a9c(void* arg0, void* arg1);
 extern "C" int func_02067ad8(int arg0, void* arg1);
 extern "C" int func_0206abf8(void* arg0, void* arg1);
 
-struct Struct_0204254c {
+struct FontGlyph_0204254c {
     int unknown_0_;
     char unknown_4_;
-    signed char unknown_5_0_ : 6;
+    signed char codeLength_5_0_ : 6;
     signed char unknown_5_6_ : 2;
     char unknown_6_[2];
 };
 
-extern "C" struct Struct_0204254c* func_0204254c(int arg0, int arg1);
+extern "C" struct FontGlyph_0204254c* func_0204254c(int arg0, int arg1);
 
 // USA: func_0206b528
 extern "C" ARM int func_0206b528(unsigned char* arg0, int* arg1, int* arg2) {
@@ -79,8 +79,8 @@ extern "C" ARM int func_0206b528(unsigned char* arg0, int* arg1, int* arg2) {
             }
         } else {
             int var7 = 1;
-            struct Struct_0204254c* var8 = func_0204254c((int)var4, (arg0 + 0x1000)[0x9dc]);
-            if (var8) var7 = var8->unknown_5_0_;
+            struct FontGlyph_0204254c* var8 = func_0204254c((int)var4, (arg0 + 0x1000)[0x9dc]);
+            if (var8) var7 = var8->codeLength_5_0_;
             var4 += var7;
         }
     again: ;

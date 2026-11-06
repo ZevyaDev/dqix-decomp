@@ -114,7 +114,7 @@ struct Struct_ov000_021620f0_6 {
 };
 
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 struct Struct_ov000_02161e30_3;
 extern "C" void func_ov000_021620d8(Struct_ov000_02161e30_3*);
 extern "C" Struct_02048934* func_02070fd0(Struct_02070b6c_3* arg0, int arg1);
@@ -124,7 +124,7 @@ extern "C" int func_ov000_02161bb8(unsigned char* arg0);
 extern "C" void func_020891cc(void* arg0);
 extern "C" void func_02089630(void* arg0, void* arg1, int arg2);
 extern "C" void func_02049c88(void* arg0, void* arg1);
-extern "C" void func_0200fd38(GameState* arg0, int arg1, GameObject* arg2);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState* gameState, int index, GameObject* object);
 extern "C" void func_ov000_02161274(GameObject* arg0);
 extern "C" void func_02048934(void* arg0, Struct_02048934* arg1, Random* arg2);
 extern "C" void func_ov000_02161bec(unsigned char* arg0);
@@ -172,7 +172,7 @@ extern "C" ARM void func_ov000_021620f0(Struct_ov000_021620f0_6* arg0, int arg1)
         var3->unknown_1_4_++;
         var3->unknown_1_6_++;
         for (int var15 = 0; var15 < var10[var11]; var15++, var1++) {
-            var2 = (Struct_ov000_021620f0_8*)func_0200fea4(var4, var1 + 0xc0);
+            var2 = (Struct_ov000_021620f0_8*)GetEnemyByIndex_0200fea4(var4, var1 + 0xc0);
             Struct_ov000_021620f0_7* var16 = &arg0->unknown_2a0_->unknown_158_[var1];
             func_020891cc(var16);
             if (!var2) {
@@ -188,7 +188,7 @@ extern "C" ARM void func_ov000_021620f0(Struct_ov000_021620f0_6* arg0, int arg1)
                 func_02048850((Struct_02048850*)var2, var13);
                 var2->unknown_0_.MakeHidden();
                 func_02049f3c((unsigned char*)var2);
-                func_0200fd38(var4, var1 + 0xc0, (GameObject*)var2);
+                SetGameObjectByIndex_0200fd38(var4, var1 + 0xc0, (GameObject*)var2);
             }
             func_02048934(var2, var12, arg0->unknown_29c_->inline_ov000_021620f0());
             unsigned short var17 = var2->unknown_188_;

@@ -3,12 +3,12 @@
 
 extern "C" void* func_ov000_02160f20(void* arg0);
 extern "C" int func_ov000_02160f9c(void* arg0);
-struct Struct_ov000_0215440c_2;
-struct Struct_ov000_02160094;
-extern "C" struct Struct_ov000_02160094* func_ov000_02160094(struct Struct_ov000_0215440c_2* arg0, int arg1);
-struct Struct_ov000_0215440c;
-struct Struct_ov000_021600f8;
-extern "C" struct Struct_ov000_021600f8* func_ov000_021600f8(struct Struct_ov000_0215440c* arg0, int arg1);
+struct BattleAction_ov000_0215440c_2;
+struct ActionActor_ov000_02160094;
+extern "C" struct ActionActor_ov000_02160094* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2* action, int index);
+struct BattleAction_ov000_0215440c;
+struct ActionTarget_ov000_021600f8;
+extern "C" struct ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
 extern "C" int func_02048bd0(unsigned char* arg0);
 extern "C" short func_ov000_0215ffa0(void* arg0);
 extern "C" int func_02048ae0(void* arg0, int arg1, void* arg2, int arg3);
@@ -18,13 +18,13 @@ extern "C" ARM int func_ov025_021dfa9c(void* arg0, void* arg1) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = func_ov000_02160f20(arg0);
     int var2 = func_ov000_02160f9c(arg0);
-    struct Struct_ov000_02160094* var3 = func_ov000_02160094((struct Struct_ov000_0215440c_2*)var1, 0);
+    struct ActionActor_ov000_02160094* var3 = GetActionActor_ov000_02160094((struct BattleAction_ov000_0215440c_2*)var1, 0);
     int var4;
     GameObject* var5;
     char* var6;
-    struct Struct_ov000_02160094* var7;
-    struct Struct_ov000_021600f8* var8;
-    struct Struct_ov000_021600f8* var9;
+    struct ActionActor_ov000_02160094* var7;
+    struct ActionTarget_ov000_021600f8* var8;
+    struct ActionTarget_ov000_021600f8* var9;
     int var10[2];
     int var11;
 
@@ -39,12 +39,12 @@ extern "C" ARM int func_ov025_021dfa9c(void* arg0, void* arg1) {
     var6 = (char*)arg1 + 0x21c + 0x8000 + (var2 - 1) * 0x28;
     if (var6 == NULL) goto fail;
 
-    var7 = func_ov000_02160094((struct Struct_ov000_0215440c_2*)var6, 0);
+    var7 = GetActionActor_ov000_02160094((struct BattleAction_ov000_0215440c_2*)var6, 0);
     if (var7 == NULL) goto fail;
     if (*(unsigned short*)((char*)var7 + 0x20) != *(unsigned short*)((char*)var3 + 0x20)) goto fail;
 
-    var8 = func_ov000_021600f8((struct Struct_ov000_0215440c*)var1, 0);
-    var9 = func_ov000_021600f8((struct Struct_ov000_0215440c*)var6, 0);
+    var8 = GetActionTarget_ov000_021600f8((struct BattleAction_ov000_0215440c*)var1, 0);
+    var9 = GetActionTarget_ov000_021600f8((struct BattleAction_ov000_0215440c*)var6, 0);
     if (var8 == NULL || var9 == NULL) goto fail;
     if (*(short*)((char*)var8 + 0xe) != *(short*)((char*)var9 + 0xe)) goto fail;
     if (*(unsigned short*)var6 != 1) goto fail;

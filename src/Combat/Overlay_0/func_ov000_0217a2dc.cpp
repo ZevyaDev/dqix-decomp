@@ -8,12 +8,12 @@ extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_ov000_0217542c(void* arg0);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 
-extern "C" int func_02041e70(char* arg0, int arg1);
+extern "C" int AppendTextColorTag_02041e70(char* buffer, int colorIndex);
 extern "C" const char** FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int func_020420e8(const char* arg0, int arg1);
-extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
+extern "C" int AppendPositionTag_02041a90(char* buffer, int x, int y);
 extern "C" int func_02041cc0(char* arg0, int arg1);
 #if defined(jpn)
 extern "C" void* GetMessageWindow_020421a0();
@@ -57,16 +57,16 @@ extern "C" ARM void func_ov000_0217a2dc(struct Struct_ov000_0217a2dc* arg0, int 
         for (int var5 = 0; var5 < arg0->unknown_1a_; var5++) {
 #if defined(jpn)
             if (var5 == var3) {
-                func_02041e70(arg2, 5);
+                AppendTextColorTag_02041e70(arg2, 5);
             } else {
-                func_02041e70(arg2, 3);
+                AppendTextColorTag_02041e70(arg2, 3);
             }
 #else
             int var6 = 3;
             if (var5 == var3) {
                 var6 = 5;
             }
-            func_02041e70(arg2, var6);
+            AppendTextColorTag_02041e70(arg2, var6);
 #endif
             if (arg0->unknown_10_[var5] == 0) {
                 AppendText_02042058(arg2, var1);
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov000_0217a2dc(struct Struct_ov000_0217a2dc* arg0, int 
         }
     }
 
-    func_02041e70(arg2, 0xf);
+    AppendTextColorTag_02041e70(arg2, 0xf);
 #if defined(jpn)
     void* var13 = GetMessageWindow_020421a0();
     ClearMessageParams_02046380(var13);
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov000_0217a2dc(struct Struct_ov000_0217a2dc* arg0, int 
     AppendText_02042058(arg2, data_ov000_021851af);
 #else
     const char* var14 = (const char*)FindStringInTable_020e0434(var0, 0x21);
-    func_02041a90(arg2, (0xb0 - func_020420e8(var14, 0)) >> 1, 5);
+    AppendPositionTag_02041a90(arg2, (0xb0 - func_020420e8(var14, 0)) >> 1, 5);
     AppendText_02042058(arg2, var14);
     func_02041cc0(arg2, 0x11);
 #endif

@@ -27,8 +27,8 @@ struct TextWindow_0205d304_4 {
     char unknown_0_[0x4];
     void* pBGLayer_4_;
     char unknown_8_[0x98];
-    unsigned int unknown_a0_;
-    int unknown_a4_;
+    unsigned int characterDataOffset_a0_;
+    int characterDataSize_a4_;
     struct Struct_0205d304_3 unknown_a8_[4];
     char unknown_b8_[0xa];
     short palette_c2_;
@@ -64,11 +64,11 @@ extern "C" ARM void OpenTextWindow_0205d304(struct TextWindowManager_0205d304* w
 #endif
     struct TextWindow_0205d304_4* textWindow;
     struct TextWindow_0205d304_4* earlierWindow;
-    unsigned char var2, bgIndex, var4, earlierBGIndex;
+    unsigned char isSubScreen, bgIndex, earlierIsSubScreen, earlierBGIndex;
     int hasSameLayerWindow;
     int earlierIndex;
     unsigned char i;
-    unsigned int var9;
+    unsigned int characterDataOffset;
 
     if (text == 0 || windowManager->pBGLayers_98_ == NULL || windowManager->pTextWindows_9c_ == NULL) return;
     if (windowManager->textWindowCapacity_b3_ <= windowManager->textWindowCount_b4_) return;
@@ -100,28 +100,28 @@ extern "C" ARM void OpenTextWindow_0205d304(struct TextWindowManager_0205d304* w
 
     if (windowManager->textWindowCount_b4_ != 0) {
         hasSameLayerWindow = 0;
-        func_0205d594((struct Struct_0205d304_2*)textWindow->pBGLayer_4_, &var2, &bgIndex);
+        func_0205d594((struct Struct_0205d304_2*)textWindow->pBGLayer_4_, &isSubScreen, &bgIndex);
         for (earlierIndex = windowManager->textWindowCount_b4_ - 1; earlierIndex >= 0; earlierIndex--) {
             earlierWindow = &windowManager->pTextWindows_9c_[earlierIndex];
-            func_0205d594((struct Struct_0205d304_2*)earlierWindow->pBGLayer_4_, &var4, &earlierBGIndex);
-            if (var2 == var4 && bgIndex == earlierBGIndex) {
+            func_0205d594((struct Struct_0205d304_2*)earlierWindow->pBGLayer_4_, &earlierIsSubScreen, &earlierBGIndex);
+            if (isSubScreen == earlierIsSubScreen && bgIndex == earlierBGIndex) {
                 earlierWindow = &windowManager->pTextWindows_9c_[earlierIndex];
-                var9 = earlierWindow->unknown_a0_ + earlierWindow->unknown_a4_;
+                characterDataOffset = earlierWindow->characterDataOffset_a0_ + earlierWindow->characterDataSize_a4_;
 #if defined(jpn)
-                func_0204d790(textWindow, text, var9, arg2, isVerticallyCentered, isSizedToText);
+                func_0204d790(textWindow, text, characterDataOffset, arg2, isVerticallyCentered, isSizedToText);
 #else
-                func_0204c980(textWindow, text, var9, arg2, isVerticallyCentered, isSizedToText, font);
+                func_0204c980(textWindow, text, characterDataOffset, arg2, isVerticallyCentered, isSizedToText, font);
 #endif
                 hasSameLayerWindow = 1;
                 break;
             }
         }
         if (!hasSameLayerWindow) {
-            var9 = func_0204aa28((struct Struct_0204aa28*)textWindow->pBGLayer_4_);
+            characterDataOffset = func_0204aa28((struct Struct_0204aa28*)textWindow->pBGLayer_4_);
 #if defined(jpn)
-            func_0204d790(textWindow, text, var9, arg2, isVerticallyCentered, isSizedToText);
+            func_0204d790(textWindow, text, characterDataOffset, arg2, isVerticallyCentered, isSizedToText);
 #else
-            func_0204c980(textWindow, text, var9, arg2, isVerticallyCentered, isSizedToText, font);
+            func_0204c980(textWindow, text, characterDataOffset, arg2, isVerticallyCentered, isSizedToText, font);
 #endif
         }
         textWindow->flags_c5_ &= ~0x20;
@@ -130,11 +130,11 @@ extern "C" ARM void OpenTextWindow_0205d304(struct TextWindowManager_0205d304* w
             earlierWindow->palette_c2_ = 1;
         }
     } else {
-        var9 = func_0204aa28((struct Struct_0204aa28*)textWindow->pBGLayer_4_);
+        characterDataOffset = func_0204aa28((struct Struct_0204aa28*)textWindow->pBGLayer_4_);
 #if defined(jpn)
-        func_0204d790(textWindow, text, var9, arg2, isVerticallyCentered, isSizedToText);
+        func_0204d790(textWindow, text, characterDataOffset, arg2, isVerticallyCentered, isSizedToText);
 #else
-        func_0204c980(textWindow, text, var9, arg2, isVerticallyCentered, isSizedToText, font);
+        func_0204c980(textWindow, text, characterDataOffset, arg2, isVerticallyCentered, isSizedToText, font);
 #endif
         textWindow->flags_c5_ &= ~0x20;
     }

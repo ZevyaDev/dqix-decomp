@@ -6,11 +6,11 @@
 
 struct Struct_02033fdc;
 extern "C" void func_02033fdc(struct Struct_02033fdc* arg0);
-extern "C" void func_0200fd48(GameState* arg0, int arg1);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void func_0205ebec(void* arg0);
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" void func_02057f00(void* arg0, int arg1);
+extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
 
 struct Struct_ov025_021e9558 {
     char unknown_0_[0x20];
@@ -72,19 +72,19 @@ extern "C" ARM void func_ov025_021e9558(struct Struct_ov025_021e9558_4* arg0) {
     func_ov025_021e8bc4(arg0, 0);
 
     for (unsigned int var6 = 0; var6 < data_ov025_021ef990; var6++) {
-        func_02057f00(var3, var6 + 100);
+        RemoveEffectResource_02057f00(var3, var6 + 100);
     }
-    func_02057f00(var3, 4);
-    func_02057f00(var3, 0x20);
-    func_02057f00(var3, 0x21);
-    func_02057f00(var3, 0x1b);
-    func_02057f00(var3, 0x19);
-    func_02057f00(var3, 0x1a);
-    func_02057f00(var3, 0x1f);
-    func_02057f00(var3, 0x21);
-    func_02057f00(var3, 0x22);
-    func_02057f00(var3, 0x23);
-    func_02057f00(var3, 0x24);
+    RemoveEffectResource_02057f00(var3, 4);
+    RemoveEffectResource_02057f00(var3, 0x20);
+    RemoveEffectResource_02057f00(var3, 0x21);
+    RemoveEffectResource_02057f00(var3, 0x1b);
+    RemoveEffectResource_02057f00(var3, 0x19);
+    RemoveEffectResource_02057f00(var3, 0x1a);
+    RemoveEffectResource_02057f00(var3, 0x1f);
+    RemoveEffectResource_02057f00(var3, 0x21);
+    RemoveEffectResource_02057f00(var3, 0x22);
+    RemoveEffectResource_02057f00(var3, 0x23);
+    RemoveEffectResource_02057f00(var3, 0x24);
     data_ov025_021ef990 = 0;
 
     for (Struct_ov025_021e9558* var7 = var2->unknown_10_; var7 != NULL; var7 = var7->unknown_30_) {
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov025_021e9558(struct Struct_ov025_021e9558_4* arg0) {
             var10->obj3D_.MakeVisible();
         }
         var9->obj3D_.Detach();
-        func_0200fd48(var0, 200);
+        ClearGameObjectByIndex_0200fd48(var0, 200);
     }
 
 #if defined(jpn)

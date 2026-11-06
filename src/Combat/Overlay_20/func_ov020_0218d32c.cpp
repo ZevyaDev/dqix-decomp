@@ -4,11 +4,8 @@
 #include "std_library_functions.h"
 #include "Filesystem/BackgroundLoader.h"
 
-#if defined(jpn)
-#define func_020c39a0 func_020c546c
-#endif
 
-extern "C" void func_020c39a0(short* arg0, int arg1);
+extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 
 extern "C" void MapVRAMBanksToMainBG(int);
 extern "C" void func_ov020_0218c7bc(int, int, int, int, int);
@@ -24,7 +21,7 @@ struct BGLayer_02020cb8_5;
 extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
 extern "C" int DisableSubObjVRAMBanks();
 extern "C" int DisableSubBGVRAMBanks();
-extern "C" void func_020c3984(unsigned int);
+extern "C" void SetSubBGMode_020c3984(unsigned int);
 extern "C" void MapVRAMBanksToSubObj(unsigned short value);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void func_ov020_0218cd64(int, int, int, int, int);
@@ -33,13 +30,13 @@ struct PacEntry_02020cb8_4;
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
-extern "C" void func_0204b2e0(void*, char*);
-struct Struct_02020cb8_6;
-extern "C" void func_0204b3a0(Struct_02020cb8_6*, char*);
+extern "C" void FlushBGBlock_0204b2e0(void*, char*);
+struct BGLayer_02020cb8_6;
+extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6*, char*);
 struct BGLayer_02020cb8_2;
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2*, void*);
-struct Struct_02020cb8_3;
-extern "C" void func_0204afb4(Struct_02020cb8_3*);
+struct BGLayer_02020cb8_3;
+extern "C" void ResetBGLayerData_0204afb4(BGLayer_02020cb8_3*);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int* out, unsigned char a, unsigned char b, unsigned char c, int d);
 
 extern char data_ov020_0218dce2;
@@ -78,8 +75,8 @@ extern "C" ARM void func_ov020_0218d32c(struct Struct_ov020_0218d32c_2* arg0, in
     unsigned char var5[0x20];
 
     arg0->unknown_470_.Reset();
-    func_020c39a0((short*)0x400006c, -16);
-    func_020c39a0((short*)0x400106c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
     MapVRAMBanksToMainBG(8);
     func_ov020_0218c7bc(0, 1, 1, 1, 0);
 
@@ -95,7 +92,7 @@ extern "C" ARM void func_ov020_0218d32c(struct Struct_ov020_0218d32c_2* arg0, in
 
     DisableSubObjVRAMBanks();
     DisableSubBGVRAMBanks();
-    func_020c3984(0);
+    SetSubBGMode_020c3984(0);
 
     volatile unsigned int* var7 = (volatile unsigned int*)0x4001000;
     *var7 = (*var7 & ~0x1f00) | 0x100;
@@ -135,12 +132,12 @@ extern "C" ARM void func_ov020_0218d32c(struct Struct_ov020_0218d32c_2* arg0, in
     SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var5, 0, 0);
 
     for (int var11 = 0; var11 < 3; var11++) {
-        func_0204b2e0(var5, var3[var11]);
-        func_0204b3a0((Struct_02020cb8_6*)var5, var3[var11]);
+        FlushBGBlock_0204b2e0(var5, var3[var11]);
+        CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6*)var5, var3[var11]);
     }
 
     LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)var5, (void*)0);
-    func_0204afb4((Struct_02020cb8_3*)var5);
+    ResetBGLayerData_0204afb4((BGLayer_02020cb8_3*)var5);
     BackgroundLoader::RemoveLockGlobal();
 
     *(volatile unsigned short*)0x4000050 = 0;
@@ -150,6 +147,6 @@ extern "C" ARM void func_ov020_0218d32c(struct Struct_ov020_0218d32c_2* arg0, in
     volatile unsigned int* var12 = (volatile unsigned int*)0x4000000;
     *var12 = (*var12 & ~0x1f00) | 0x1300;
 
-    func_020c39a0((short*)0x400006c, -16);
-    func_020c39a0((short*)0x400106c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
 }

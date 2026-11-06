@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 struct Struct_02040774_2; struct Struct_02033834; struct Struct_02010604; struct LocalWireless_0202c1a4;
-struct Struct_020fdd44 { unsigned short unknown_0_; unsigned short unknown_2_0_:2,unknown_2_2_:14; };
+struct ActiveZone_020fdd44 { unsigned short zoneId_0_; unsigned short unknown_2_0_:2,unknown_2_2_:14; };
 struct Struct_ov017_021c48f0_3 { int unknown_0_,unknown_4_,unknown_8_; };
 union Struct_ov017_021c48f0_4 { Struct_ov017_021c48f0_3 unknown_0_; Vector3i unknown1_0_; };
 struct Struct_ov017_021c48f0_5 { unsigned char unknown_0_,unknown_1_[3]; unsigned short unknown_4_; unsigned char unknown_6_,unknown_7_; unsigned short unknown_8_; short unknown_a_,unknown_c_,unknown_e_,unknown_10_; };
@@ -20,13 +20,13 @@ struct Struct_ov017_021c48f0_2 { char unknown_0_[0x34c0]; unsigned char* unknown
 struct Struct_ov017_021c48f0_2 { char unknown_0_[0x36d0]; unsigned char* unknown_36d0_; char unknown_36d4_[0x3734-0x36d4]; Struct_ov017_021c48f0_8* unknown_3734_; };
 #endif
 extern "C" int func_02039888(void*); extern "C" void func_02039d58(unsigned char*);
-extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*,int); extern "C" int func_020546a8(void*);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*,int); extern "C" int GetLeaderObjectIndex_020546a8(void*);
 extern "C" unsigned short* GetZone3D_02012fe4(); extern "C" void func_02039d24(unsigned char*);
 extern "C" void func_020407b4(Struct_02040774_2*,int,int,int); extern "C" void SetFacingInstantly_02033874(Struct_02033834*,int); extern "C" void SetMotion_02033b88(Struct_02010604*,int);
 extern "C" void func_ov017_02193428(void*,void*); extern "C" void func_02026bc8(unsigned char*,int);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void func_ov017_0219dc90(GameResources*,int,int,int,int);
-extern "C" Struct_020fdd44* func_02027ca4(); extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44*,int);
+extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4(); extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44*,int);
 extern "C" void func_ov017_021c8f3c(int,int); extern "C" void __clear(void*,int);
 extern "C" void func_ov017_021c95ec(int,int,int,int,int,Struct_ov017_021c48f0_3,int,int,int);
 extern "C" void func_ov017_021c9168(int,int,int,int,Struct_ov017_021c48f0_3,Struct_ov017_021c48f0_3,int);
@@ -37,7 +37,7 @@ extern "C" int func_02039790(void*,int); extern "C" void func_ov017_021bd4d0(voi
 // USA: func_ov017_021c48f0
 extern "C" ARM void func_ov017_021c48f0(int arg0,Struct_ov017_021c48f0_5* arg1,GameState* arg2,GameResources* arg3,LocalWireless_0202c1a4* arg4) {
     int var0;
-    Struct_020fdd44* var1;
+    ActiveZone_020fdd44* var1;
     Struct_ov017_021c48f0_8* var2;
     var2=((Struct_ov017_021c48f0_2*)arg3)->unknown_3734_;
     int var3=arg1->unknown_4_;
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_021c48f0(int arg0,Struct_ov017_021c48f0_5* arg1,G
         GameObject* var7=var6[0];
         if(*((Struct_ov017_021c48f0_7*)var7)->unknown_130_&1) { var0=func_02039888(var7); GameObject* var8=arg2->GetPartyMemberByIndex(var0); if(var8!=NULL) func_02039d58((unsigned char*)var8); }
         else { func_02039d58((unsigned char*)var7); var0=arg0; }
-        for(int var9=0;var9<4;var9++) { GameObject* var10=GetCompanionByIndex_0200ff58(arg2,var9); if(var10!=NULL && arg0==func_020546a8(var10)) var6[var5++]=var10; }
+        for(int var9=0;var9<4;var9++) { GameObject* var10=GetCompanionByIndex_0200ff58(arg2,var9); if(var10!=NULL && arg0==GetLeaderObjectIndex_020546a8(var10)) var6[var5++]=var10; }
         int var11=(var2->unknown_3_==0 || var2->unknown_101_==0)?1:0;
         for(int var12=0;var12<var5;var12++) {
             GameObject* var13=var6[var12];
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov017_021c48f0(int arg0,Struct_ov017_021c48f0_5* arg1,G
     }
     if(GetOwnProtagonistObjectIndex_0202c1a4(arg4)==0) {
         func_ov017_0219dc90(arg3,arg0,arg1->unknown_4_,arg1->unknown_6_,arg1->unknown_8_);
-        var1=func_02028bd0(func_02027ca4(),var3);
+        var1=FindActiveZone_02028bd0(GetActiveZones_02027ca4(),var3);
         if(var1!=NULL) {
             int var14;
             Struct_ov017_021c48f0_4 var15,var16,var17;

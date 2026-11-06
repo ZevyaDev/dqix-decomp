@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Struct_0205bb84 {
+struct MenuCursor_0205bb84 {
     int unknown_0_;
     int unknown_4_;
-    int unknown_8_;
-    int unknown_c_;
+    int columnCount_8_;
+    int rowCount_c_;
     int unknown_10_;
-    int unknown_14_;
+    int page_14_;
     int unknown_18_;
     int unknown_1c_;
     int unknown_20_;
-    int* unknown_24_;
-    int* unknown_28_;
-    int* unknown_2c_;
+    int* pMinorCount_24_;
+    int* pMajorIndex_28_;
+    int* pMinorIndex_2c_;
 };
-struct Struct_0205c4a8 : Struct_0205bb84 {};
+struct Struct_0205c4a8 : MenuCursor_0205bb84 {};
 struct Struct_0205bf3c : Struct_0205c4a8 {
     int unknown_30_;
     unsigned short unknown_34_;
@@ -32,7 +32,7 @@ struct Struct_020e7dc4 { int unknown_0_[4]; };
 struct Struct_020e7db8 { unsigned short unknown_0_[5]; };
 struct Struct_020e7db0 { unsigned char unknown_0_[4]; };
 extern "C" void func_0205bf3c(Struct_0205bf3c*);
-extern "C" int func_0205bb84(Struct_0205bb84*);
+extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84*);
 extern "C" void func_0205c4a8(Struct_0205c4a8*, int);
 extern "C" void SetMenuCursorIndex_0205bb04(Struct_0205bf3c*, int);
 extern const Struct_020e7db8 data_020e7db8;
@@ -42,8 +42,8 @@ extern const Struct_020e7db0 data_020e7db0, data_020e7db4;
 // USA: func_0205bf58
 extern "C" ARM int func_0205bf58(Struct_0205bf3c* arg0, unsigned int arg1) {
     if (arg0->unknown_0_ == 0) return 0;
-    if (arg0->unknown_8_ <= 0) return 0;
-    if (arg0->unknown_c_ <= 0) return 0;
+    if (arg0->columnCount_8_ <= 0) return 0;
+    if (arg0->rowCount_c_ <= 0) return 0;
     unsigned char var0 = arg0->unknown_39_;
     unsigned char var1 = arg0->unknown_3a_;
     Struct_020e7db8 var2 = data_020e7db8;
@@ -67,26 +67,26 @@ extern "C" ARM int func_0205bf58(Struct_0205bf3c* arg0, unsigned int arg1) {
                 int var8 = arg0->unknown_1c_;
                 arg0->unknown_1c_ += arg0->unknown_30_;
                 if (arg0->unknown_3d_) {
-                    if (arg0->unknown_c_ <= arg0->unknown_1c_) arg0->unknown_1c_ = 0;
-                    else if (arg0->unknown_1c_ < 0) arg0->unknown_1c_ = arg0->unknown_c_ - 1;
+                    if (arg0->rowCount_c_ <= arg0->unknown_1c_) arg0->unknown_1c_ = 0;
+                    else if (arg0->unknown_1c_ < 0) arg0->unknown_1c_ = arg0->rowCount_c_ - 1;
                     if (arg0->unknown_34_ == 0x40) {
                         int var9 = arg0->unknown_0_;
-                        if (var9 <= func_0205bb84(arg0))
+                        if (var9 <= GetMenuCursorIndex_0205bb84(arg0))
                             SetMenuCursorIndex_0205bb04(arg0, var9 - 1);
                     } else if (arg0->unknown_34_ == 0x80) {
-                        if (arg0->unknown_0_ <= func_0205bb84(arg0))
+                        if (arg0->unknown_0_ <= GetMenuCursorIndex_0205bb84(arg0))
                             arg0->unknown_1c_ = 0;
                     }
                 } else {
-                    if (arg0->unknown_c_ <= arg0->unknown_1c_) arg0->unknown_1c_ = var8;
+                    if (arg0->rowCount_c_ <= arg0->unknown_1c_) arg0->unknown_1c_ = var8;
                     else if (arg0->unknown_1c_ < 0) arg0->unknown_1c_ = var8;
-                    if (func_0205bb84(arg0) >= arg0->unknown_0_)
+                    if (GetMenuCursorIndex_0205bb84(arg0) >= arg0->unknown_0_)
                         arg0->unknown_1c_ = var8;
                 }
             } else if (arg0->unknown_34_ == 0x20 || arg0->unknown_34_ == 0x10) {
                 int var10 = arg0->unknown_18_;
                 arg0->unknown_18_ += arg0->unknown_30_;
-                if (arg0->unknown_8_ <= arg0->unknown_18_) {
+                if (arg0->columnCount_8_ <= arg0->unknown_18_) {
                     if (arg0->unknown_3c_) {
                         arg0->unknown_18_ = 0;
                         if (arg0->unknown_4_ > 1) func_0205c4a8(arg0, 1);
@@ -99,17 +99,17 @@ extern "C" ARM int func_0205bf58(Struct_0205bf3c* arg0, unsigned int arg1) {
                     }
                 } else if (arg0->unknown_18_ < 0) {
                     if (arg0->unknown_3c_) {
-                        arg0->unknown_18_ = arg0->unknown_8_ - 1;
+                        arg0->unknown_18_ = arg0->columnCount_8_ - 1;
                         if (arg0->unknown_4_ > 1) func_0205c4a8(arg0, -1);
                     } else {
                         if (arg0->unknown_4_ == 1) arg0->unknown_18_ = var10;
                         else {
-                            arg0->unknown_18_ = arg0->unknown_8_ - 1;
+                            arg0->unknown_18_ = arg0->columnCount_8_ - 1;
                             func_0205c4a8(arg0, -1);
                         }
                     }
                 }
-                if (func_0205bb84(arg0) >= arg0->unknown_0_) {
+                if (GetMenuCursorIndex_0205bb84(arg0) >= arg0->unknown_0_) {
                     if (arg0->unknown_4_ == 1) arg0->unknown_18_ = var10;
                     else {
                         arg0->unknown_18_ = 0;
@@ -130,17 +130,17 @@ extern "C" ARM int func_0205bf58(Struct_0205bf3c* arg0, unsigned int arg1) {
                 arg0->unknown_36_ = 1;
                 arg0->unknown_37_ = 0;
                 arg0->unknown_1c_ += arg0->unknown_30_;
-                if (arg0->unknown_c_ <= arg0->unknown_1c_) arg0->unknown_1c_ = arg0->unknown_c_ - 1;
+                if (arg0->rowCount_c_ <= arg0->unknown_1c_) arg0->unknown_1c_ = arg0->rowCount_c_ - 1;
                 else if (arg0->unknown_1c_ < 0) arg0->unknown_1c_ = 0;
                 int var12 = arg0->unknown_0_;
-                if (var12 <= func_0205bb84(arg0))
+                if (var12 <= GetMenuCursorIndex_0205bb84(arg0))
                     SetMenuCursorIndex_0205bb04(arg0, var12 - 1);
                 if (arg0->unknown_34_ == 0x40 || arg0->unknown_34_ == 0x20) {
                     int var13 = arg0->unknown_0_;
-                    if (var13 <= func_0205bb84(arg0))
+                    if (var13 <= GetMenuCursorIndex_0205bb84(arg0))
                         SetMenuCursorIndex_0205bb04(arg0, var13 - 1);
                 } else if (arg0->unknown_34_ == 0x80 || arg0->unknown_34_ == 0x10) {
-                    if (arg0->unknown_0_ <= func_0205bb84(arg0))
+                    if (arg0->unknown_0_ <= GetMenuCursorIndex_0205bb84(arg0))
                         arg0->unknown_1c_ = 0;
                 }
             }
@@ -156,14 +156,14 @@ extern "C" ARM int func_0205bf58(Struct_0205bf3c* arg0, unsigned int arg1) {
                 arg0->unknown_36_ = 0;
                 arg0->unknown_37_ = 1;
                 arg0->unknown_18_ += arg0->unknown_30_;
-                if (arg0->unknown_8_ <= arg0->unknown_18_) {
-                    arg0->unknown_18_ = arg0->unknown_8_ - 1;
+                if (arg0->columnCount_8_ <= arg0->unknown_18_) {
+                    arg0->unknown_18_ = arg0->columnCount_8_ - 1;
                     func_0205c4a8(arg0, 1);
                 } else if (arg0->unknown_18_ < 0) {
                     arg0->unknown_18_ = 0;
                     func_0205c4a8(arg0, -1);
                 }
-                if (func_0205bb84(arg0) >= arg0->unknown_0_) {
+                if (GetMenuCursorIndex_0205bb84(arg0) >= arg0->unknown_0_) {
                     if (arg0->unknown_4_ == 1) arg0->unknown_18_ = 0;
                     else {
                         arg0->unknown_18_ = 0;

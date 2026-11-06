@@ -16,7 +16,7 @@ extern "C" unsigned long long _ll_udiv(unsigned long long arg0, unsigned int arg
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_021c310c(void* arg0);
-extern "C" void func_020a0c0c(void);
+extern "C" void LoadFileTables_020a0c0c(void);
 
 // USA: func_ov017_021c2f3c
 #pragma optimize_for_size off
@@ -74,6 +74,6 @@ extern "C" ARM void func_ov017_021c2f3c(unsigned char* arg0) {
 
     arg0[0x1] = 1;
     func_ov017_021c310c(arg0);
-    if (arg0[0x96] != 0) func_020a0c0c();
+    if (arg0[0x96] != 0) LoadFileTables_020a0c0c();
     if (var0 != 0) EnablePlayerControl_020397c0(var0);
 }

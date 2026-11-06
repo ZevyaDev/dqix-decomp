@@ -4,6 +4,6 @@
 // USA: func_ov031_02207d3c
 extern "C" ARM void func_ov031_02207d3c(unsigned int arg0) {
 	if (arg0 < 0x20) {
-		ChangeContextPriority(data_02111304.activeContext, arg0);
+		ChangeContextPriority(gContextScheduler_02111304.activeContext, arg0);
 	}
 }

@@ -20,7 +20,7 @@ struct Struct_ov002_0215bba8_3;
 extern "C" int func_ov002_0215a9f0(void *arg0);
 extern "C" char *GetFlagManager_0205ec34();
 extern "C" short func_0206e3e8(int arg0, int arg1);
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_021609d4(char *arg0);
@@ -28,7 +28,7 @@ extern "C" void func_ov002_02161b98(char *arg0);
 extern "C" int GetCursorIndex_0205d794(struct Struct_ov002_0215624c_15 *windowManager);
 extern "C" void func_ov002_0215bba8(char *arg0);
 struct Struct_ov002_02164748;
-extern "C" int func_0205da38(struct Struct_ov002_02164748* arg0, int arg1);
+extern "C" int IsEntryTouchedAgain_0205da38(struct Struct_ov002_02164748* windowManager, int arg1);
 extern "C" int func_ov002_0215a9b4(void *arg0, short arg1);
 extern "C" int func_0206e3d4(int arg0, int arg1);
 extern "C" char *FindTextWindow_0205d81c(struct Struct_ov002_02155960_2 *windowManager, int windowId);
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov002_0216994c(char *arg0) {
         func_ov002_0215bba8(arg0);
     }
     int var4  = g_keyManager.TestKeysPressed(0x601);
-    int var5  = func_0205da38((struct Struct_ov002_02164748*)OBJ, 0x14);
+    int var5  = IsEntryTouchedAgain_0205da38((struct Struct_ov002_02164748*)OBJ, 0x14);
     int var6 = (var4 | var5) ? 1 : 0;
     if (var6) {
         int var7 = func_ov002_0215a9b4(arg0, *(short *) (arg0 + RG(0x1c0c, 0x1ad4)));

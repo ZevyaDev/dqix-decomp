@@ -245,7 +245,7 @@ struct Struct_01ff91ac_20 { unsigned short unknown_0_; unsigned short unknown_2_
 extern "C" struct Struct_ov017_0219e384* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_02011584(void* arg0);
-extern "C" struct Struct_ov017_0219dc90_2* func_02027ca4(void);
+extern "C" struct Struct_ov017_0219dc90_2* GetActiveZones_02027ca4(void);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" struct Struct_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" void* GetGlobalFlags_020d6c00(void);
@@ -270,18 +270,18 @@ struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_ov017_021c4664(int arg0, struct Struct_ov009_0218aa28 arg1, int arg2);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
-extern "C" int func_020100b0(GameState*);
+extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" void func_ov017_021d035c(unsigned char arg0, unsigned char arg1, unsigned char arg2);
 extern "C" void func_ov017_021d257c(unsigned char arg0, int arg1);
-extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
+extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 extern "C" void func_0206f81c(void* arg0);
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" void func_020531f0(void* arg0);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void* func_020daf90(void);
-struct Struct_02038598_5;
-extern "C" int func_02046b60(Struct_02038598_5*, int);
+struct Queue_02038598_5;
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" int func_020db2d4(void* arg0);
 extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
@@ -293,8 +293,8 @@ extern "C" void func_ov017_0219d250(void* arg0, unsigned char arg1);
 extern "C" int func_020bc0f8(int arg0, int arg1);
 extern "C" void func_ov017_0219c598(int arg0, int arg1, int arg2);
 extern "C" int func_02028a54(struct Struct_ov017_0219dc90_2* arg0, int arg1);
-struct Struct_020fdd44;
-extern "C" struct Struct_ov017_0219dc90_2* func_02028bd0(Struct_020fdd44*, int);
+struct ActiveZone_020fdd44;
+extern "C" struct Struct_ov017_0219dc90_2* FindActiveZone_02028bd0(ActiveZone_020fdd44*, int);
 extern "C" int func_0201b588(int arg0);
 struct Struct_ov017_0219dc90_3;
 extern "C" void func_ov017_021b46d8(Struct_ov017_0219dc90_3*);
@@ -316,7 +316,7 @@ extern "C" int func_02098210(int, int);
 extern "C" void* func_0208e9e8(void);
 extern "C" signed char* GetFollowCamera_020100f8(char*);
 struct Struct_0209c3b4_2;
-extern "C" void func_0209c3b4(Struct_0209c3b4_2*, int);
+extern "C" void PlayMusic_0209c3b4(Struct_0209c3b4_2*, int);
 struct Struct_0201bdac_4;
 extern "C" int func_02086b98(Struct_0201bdac_4*);
 struct Struct_0209caa0;
@@ -406,7 +406,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 	char* var7 = (char*)var6 + Enum_ov017_0219e384_9196;
 	int var8 = (int)var6 + Enum_ov017_0219e384_2112;
 	void* var9 = func_02011584(var0);
-	struct Struct_ov017_0219dc90_2* var10 = func_02027ca4();
+	struct Struct_ov017_0219dc90_2* var10 = GetActiveZones_02027ca4();
 	void* var11 = GetFlagManager_0205ec34();
 	struct Struct_ov017_0219e384_6* var12 = (struct Struct_ov017_0219e384_6*)GetParty_02010828(var0);
 	struct Struct_0202b2f0* var13 = GetLocalWireless_0202ae18();
@@ -494,7 +494,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 				*(unsigned short*)(var1 + Enum_ov017_0219e384_17580) = 0;
 			}
 			if (var4->unknown_e_ != 0) {
-				func_ov017_021d035c(0, func_020100b0(var0), 1);
+				func_ov017_021d035c(0, GetOwnPartyLeaderObjectIndex_020100b0(var0), 1);
 			}
 			var24 = var6->currentZoneID_;
 			if (var4->unknown_0_ != var24) {
@@ -509,7 +509,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			}
 			var23 = GetFlagManager_0205ec34();
 			var17.unknown_ac_.unknown_c_ = var6->currentZoneID_;
-			if (var4->unknown_a_ == 0 && func_020649b0(var23, 0x1e, &var17.unknown_ac_) != 0) {
+			if (var4->unknown_a_ == 0 && RunTrigger_020649b0(var23, 0x1e, &var17.unknown_ac_) != 0) {
 				func_0206f81c(&var17.unknown_ac_);
 			}
 			if (var21 == 0) {
@@ -541,7 +541,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 		var31 = func_020daf90();
 		var32 = *(void***)(var1 + Enum_ov017_0219e384_14084);
 		if (IsQueueEmpty_02046b08(var32) == 0) {
-			if (func_02046b60((Struct_02038598_5*)var32, 0x4c) == 0) {
+			if (IsTypeInQueue_02046b60((Queue_02038598_5*)var32, 0x4c) == 0) {
 				return;
 			}
 			if (func_020db2d4(var31) != 0) {
@@ -598,9 +598,9 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			return;
 		}
 		func_ov017_0219c598(0, 0, 0);
-		var33 = func_02027ca4();
+		var33 = GetActiveZones_02027ca4();
 		var34 = func_02028a54(var33, var6->currentZoneID_);
-		var35 = func_02028bd0((Struct_020fdd44*)var33, var6->currentZoneID_);
+		var35 = FindActiveZone_02028bd0((ActiveZone_020fdd44*)var33, var6->currentZoneID_);
 		*(struct Struct_ov017_0219dc90_2**)(var1 + Enum_ov017_0219e384_14072) = var35;
 		var36 = (signed char*)var0->GetGrottoStruct();
 		if (func_0201b588(var6->currentZoneID_) != 0) {
@@ -776,7 +776,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 		var59 = var6->previousZoneID_;
 		var60 = (unsigned char*)var6->pUnknownStruct_8_;
 		var61 = (char*)var6 + 0xc;
-		var62 = func_02028bd0((Struct_020fdd44*)var10, var58);
+		var62 = FindActiveZone_02028bd0((ActiveZone_020fdd44*)var10, var58);
 		var63 = GetFollowCamera_020100f8((char*)var0);
 		var17.unknown_90_ = *(Struct_02014900*)var3->unknown_44_;
 		var64 = (var4->unknown_20_ > 0) ? 1 : 0;
@@ -796,7 +796,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			}
 		}
 		if (arg0->unknown_a_ != 0) {
-			func_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, func_0209cd50(var58));
+			PlayMusic_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, func_0209cd50(var58));
 			if (IsLocalWirelessOn_0202b7d8((int*)var13) != 0 && func_02086b98((Struct_0201bdac_4*)var12) != 0) {
 				func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
 			}
@@ -810,7 +810,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			func_02095b30(func_02094d6c(), 0);
 		}
 		if (IsNotLocalWirelessGuest_0202c508(var13) != 0) {
-			struct Struct_ov017_0219dc90_2* var67 = func_02028bd0((Struct_020fdd44*)var10, var6->currentZoneID_);
+			struct Struct_ov017_0219dc90_2* var67 = FindActiveZone_02028bd0((ActiveZone_020fdd44*)var10, var6->currentZoneID_);
 			if (var67 != 0) {
 				func_02013cb0(var6, var67->unknown_2_4_);
 				func_02018c74(var6, var67->unknown_4_);
@@ -877,7 +877,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			if (var4->unknown_a_ == 0 && func_020649f4(var70, &var17.unknown_38_) != 0) {
 				func_0206f81c(&var17.unknown_38_);
 			}
-			var71 = func_02046b60((Struct_02038598_5*)var56, 4);
+			var71 = IsTypeInQueue_02046b60((Queue_02038598_5*)var56, 4);
 			if (IsLocalWirelessOn_0202b7d8((int*)var13) == 0 || IsNotLocalWirelessGuest_0202c508(var13) != 0) {
 				BackgroundLoader::AddLockGlobal();
 				if (LoadFileIntoMemory(data_ov017_021d761e, gFileScratchSpace_0211e33c, &var18.unknown_0_) != 0 &&
@@ -967,22 +967,22 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 		int var75;
 		int var76;
 
-		if (var4->unknown_69_ != 0 && func_02046b60((Struct_02038598_5*)arg1, 0x3d) == 0) {
+		if (var4->unknown_69_ != 0 && IsTypeInQueue_02046b60((Queue_02038598_5*)arg1, 0x3d) == 0) {
 			func_ov017_021a65c4(var1, 1, 0);
 		}
 		var74 = 1;
 		var75 = 1;
-		if (func_02046b60((Struct_02038598_5*)arg1, 4) != 0 ||
-		    func_02046b60((Struct_02038598_5*)arg1, 0xa) != 0 ||
-		    func_02046b60((Struct_02038598_5*)arg1, 0x3d) != 0) {
+		if (IsTypeInQueue_02046b60((Queue_02038598_5*)arg1, 4) != 0 ||
+		    IsTypeInQueue_02046b60((Queue_02038598_5*)arg1, 0xa) != 0 ||
+		    IsTypeInQueue_02046b60((Queue_02038598_5*)arg1, 0x3d) != 0) {
 			var74 = 0;
 			var75 = 0;
 		}
-		if (func_02046b60((Struct_02038598_5*)arg1, 0x2a) != 0 ||
-		    func_02046b60((Struct_02038598_5*)arg1, 0xf) != 0) {
+		if (IsTypeInQueue_02046b60((Queue_02038598_5*)arg1, 0x2a) != 0 ||
+		    IsTypeInQueue_02046b60((Queue_02038598_5*)arg1, 0xf) != 0) {
 			var75 = 0;
 		}
-		if (func_02046b60((Struct_02038598_5*)arg1, 0x2d) != 0) {
+		if (IsTypeInQueue_02046b60((Queue_02038598_5*)arg1, 0x2d) != 0) {
 			var74 = 0;
 		}
 		if (IsNotLocalWirelessGuest_0202c508(var13) != 0) {

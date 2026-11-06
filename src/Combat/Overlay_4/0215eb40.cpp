@@ -84,7 +84,7 @@ extern "C" int func_0209a670(struct Struct_0209a670*);
 extern "C" struct Struct_ov004_0215eb40_4* func_0209a654(struct Struct_0209a654_2*, unsigned int);
 extern "C" void func_02083acc(unsigned char*, int);
 extern "C" void func_02083b28(unsigned char*, int);
-extern "C" int func_02083b00(unsigned char*, int);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char*, int);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10*, int);
 extern "C" void* func_ov004_0215e47c(void*, int);
@@ -172,7 +172,7 @@ afterSlots:
             continue;
         }
         unsigned short var19 = var12->unknown_0_0_;
-        bool var20 = func_02083b00(var3, var19);
+        bool var20 = HasLearnedSkillEntry_02083b00(var3, var19);
         if (!var20) {
             continue;
         }

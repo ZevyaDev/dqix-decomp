@@ -14,7 +14,7 @@ enum { Enum_ov017_021b24d0_261 = 0x105, Enum_ov017_021b24d0_716 = 0x2cc };
 
 extern "C" void HaltForever_020c9be0(void);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void func_020a1940(unsigned int arg0);
+extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void func_020a1ef0(int arg0);
 extern "C" void func_020a1df8(int arg0);
 extern "C" void func_ov011_0218438c(char* arg0);
@@ -76,7 +76,7 @@ extern "C" ARM int func_ov017_021b24d0(Struct_ov017_021b24d0_3* arg0) {
     if (var4 == NULL || var3 == 0) {
         HaltForever_020c9be0();
     }
-    func_020a1940(OVERLAY_ID(11));
+    LoadOverlay_020a1940(OVERLAY_ID(11));
     func_020a1ef0(1);
     func_020a1df8(4);
     data_ov017_021d83f0.unknown_4_ = (char*)arg0->unknown_10_.Allocate(0x1e0);

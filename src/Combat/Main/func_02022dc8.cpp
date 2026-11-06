@@ -36,15 +36,15 @@ struct Struct_02022dc8_2 : GameObject {
     unsigned char unknown_154_[0x38];
     unsigned int unknown_18c_;
 };
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 struct Struct_020214f0;
 extern Struct_020fdcb0_3 data_020fdcb0[4];
 extern Struct_020fdc60_3 data_020fdc60[4];
 extern "C" void func_0201f9b8(Struct_020fdcb0_3*);
 extern "C" void func_0201f9e8(Struct_020fdc60_3*);
 extern "C" unsigned short func_0202053c(void*);
-extern "C" Struct_02012de8* GetGlobalFlags_020d6c00(void);
-extern "C" int func_02046708(Struct_02012de8*, unsigned int);
+extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00(void);
+extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
 #if defined(jpn)
 extern "C" void func_02022644(Struct_02020554*);
 #else
@@ -101,7 +101,7 @@ extern "C" ARM void func_02022dc8(Struct_02020554* arg0) {
             var7->unknown_1e_ = 0;
         }
     }
-    if (func_02046708(GetGlobalFlags_020d6c00(), 1)) {
+    if (TestGlobalFlags_02046708(GetGlobalFlags_020d6c00(), 1)) {
 #if defined(jpn)
         func_02022644(arg0);
 #else

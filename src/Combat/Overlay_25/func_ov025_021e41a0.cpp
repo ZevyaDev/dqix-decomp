@@ -35,10 +35,10 @@ struct Struct_02078398_2 {
     Vector3i unknown_38_;
     Vector3i unknown_44_;
 };
-struct Struct_ov000_0215440c_2;
+struct BattleAction_ov000_0215440c_2;
 struct Struct_ov025_021e41a0_2 { unsigned char unknown_0_[0x20]; unsigned short unknown_20_; };
 struct Struct_ov025_021e41a0_3 { unsigned char unknown_0_[0xe]; short unknown_e_; };
-struct Struct_ov000_0215440c { unsigned char unknown_0_[9]; unsigned char unknown_9_; };
+struct BattleAction_ov000_0215440c { unsigned char unknown_0_[9]; unsigned char unknown_9_; };
 #if defined(jpn)
 struct Struct_ov025_021e41a0 { unsigned char unknown_0_[0x70f2]; unsigned short unknown_6f02_; };
 #else
@@ -51,8 +51,8 @@ struct Struct_ov025_021ef988_10 { unsigned char unknown_0_[0xc]; char* unknown_c
 #endif
 extern Struct_ov025_021ef988_10 data_ov025_021ef988;
 extern "C" void* GetEffectManager_02057924();
-extern "C" Struct_ov025_021e41a0_2* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
-extern "C" Struct_ov025_021e41a0_3* func_ov000_021600f8(Struct_ov000_0215440c*, int);
+extern "C" Struct_ov025_021e41a0_2* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
+extern "C" Struct_ov025_021e41a0_3* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" void func_02078484(Struct_02078398_2*);
 extern "C" Struct_ov025_021e41a0* GetBattleScene_ov000_02160130();
 extern "C" void* func_02057fb4(void*, int, void*);
@@ -64,10 +64,10 @@ static inline void inline_ov025_021e41a0(Vector3i* arg0, int arg1) {
 }
 
 // USA: func_ov025_021e41a0
-extern "C" ARM int func_ov025_021e41a0(Struct_ov025_021e41a0_4* arg0, Struct_ov000_0215440c* arg1) {
+extern "C" ARM int func_ov025_021e41a0(Struct_ov025_021e41a0_4* arg0, BattleAction_ov000_0215440c* arg1) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetEffectManager_02057924();
-    Struct_ov025_021e41a0_2* var2 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, 0);
+    Struct_ov025_021e41a0_2* var2 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, 0);
     if (!var2) return 0;
     int var3 = var2->unknown_20_;
     GameObject* var4 = var0->GetGameObjectByIndex(var3);
@@ -80,7 +80,7 @@ extern "C" ARM int func_ov025_021e41a0(Struct_ov025_021e41a0_4* arg0, Struct_ov0
     if (arg0->unknown_10_ & 1) {
         Vector3i var8 = {};
         for (int var9 = 0; var9 < arg1->unknown_9_; var9++) {
-            Struct_ov025_021e41a0_3* var10 = func_ov000_021600f8(arg1, var9);
+            Struct_ov025_021e41a0_3* var10 = GetActionTarget_ov000_021600f8(arg1, var9);
             if (var10) {
                 GameObject* var11 = var0->GetGameObjectByIndex(var10->unknown_e_);
                 if (var11) {
@@ -94,7 +94,7 @@ extern "C" ARM int func_ov025_021e41a0(Struct_ov025_021e41a0_4* arg0, Struct_ov0
             int var13 = 4096.0f * (1.0f / (unsigned int)arg1->unknown_9_);
             Vector3fixMultiplyScalar(&var8, var13, &var8);
         }
-        Struct_ov025_021e41a0_3* var14 = func_ov000_021600f8(arg1, 0);
+        Struct_ov025_021e41a0_3* var14 = GetActionTarget_ov000_021600f8(arg1, 0);
         Vector3i var15 = {arg0->unknown_12_, arg0->unknown_14_, arg0->unknown_16_};
         int var16 = 0;
         int var17 = var14->unknown_e_;

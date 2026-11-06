@@ -4,7 +4,7 @@
 
 struct Struct_ov024_021da670_7;
 extern "C" int func_ov024_021da9b0(struct Struct_ov024_021da670_7* arg0);
-extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
+extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 
 struct Struct_ov024_021ddc80_4 { char unknown_0_[0x10]; int unknown_10_; };
 
@@ -20,6 +20,6 @@ extern "C" ARM int func_ov024_021e9464(struct Struct_ov024_021ddc80_4* arg0, int
 #if defined(jpn)
     return 0x1b;
 #else
-    return func_ov024_021da644(arg1, 0x26d, 0x1b);
+    return SelectPartyOrEnemyMessage_ov024_021da644(arg1, 0x26d, 0x1b);
 #endif
 }

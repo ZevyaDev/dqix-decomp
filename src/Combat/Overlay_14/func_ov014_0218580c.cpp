@@ -93,7 +93,7 @@ extern "C" void func_020a2010(void* arg0);
 extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0202e5d8(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0202e0a4(void* arg0);
-extern "C" void func_020a27a0(void* arg0);
+extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
@@ -190,7 +190,7 @@ extern "C" ARM void func_ov014_0218580c(Struct_ov014_02184dcc* arg0) {
         func_0202e5c8((unsigned char*)arg0->unknown_44_, 0, 0, 0);
         func_0202e5d8(arg0->unknown_44_, 0, 0, 0xa000);
         func_0202e0a4(arg0->unknown_44_);
-        func_020a27a0(arg0->unknown_44_);
+        DisableCameraFollow_020a27a0(arg0->unknown_44_);
         SetCamera_020100c4(var14, (int)arg0->unknown_44_);
         GameResources* var15 = GetGameResources();
         SetFlags04(var15, 0x6093e);

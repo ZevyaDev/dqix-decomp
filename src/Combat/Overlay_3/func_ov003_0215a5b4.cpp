@@ -47,7 +47,7 @@ extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c*
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
+extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" void func_ov003_021592d8(struct Struct_ov003_0215a5b4_4* arg0, struct Struct_ov003_0215a5b4_2* arg1, char* arg2);
 extern "C" void func_ov003_02159250(struct Struct_ov003_0215a5b4_4* arg0, char* arg1);
 extern "C" void func_ov003_0215c01c(struct Struct_ov003_0215a5b4_4* arg0, int arg1, int arg2);
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov003_0215a5b4(struct Struct_ov003_0215a5b4_4* arg0) {
         unsigned char var3[4];
         char* var4 = arg0->unknown_7c_ + Enum_ov003_0215a5b4_2144;
         __clear(var3, sizeof(var3));
-        int var5 = func_020114ec((char*)var2, var3);
+        int var5 = GetPartyOrder_020114ec((char*)var2, var3);
         for (int var6 = 0; var6 < var5; var6++) {
             struct Struct_ov003_0215a5b4_2* var7 =
                 (struct Struct_ov003_0215a5b4_2*)GetPartyMemberBaseByIndex_0200ff1c(var2, var3[var6]);

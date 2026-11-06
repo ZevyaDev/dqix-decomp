@@ -44,7 +44,7 @@ extern "C" Struct_0201777c* func_0201777c(Struct_02017098* arg0, int arg1);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_021b5a30(Struct_ov017_021b5aec_2* arg0);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
-extern "C" void* func_020de824(void* arg0);
+extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void func_0207cbe8(char* arg0);
 extern "C" void func_0207d538(Struct_ov017_021b5aec* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov017_021b6174(int arg0, int arg1, int arg2);
@@ -85,7 +85,7 @@ extern "C" ARM int func_ov017_021b5aec(Struct_ov017_021b5aec_2* arg0) {
                 var5 = 1;
                 Struct_ov017_021b5aec var9;
                 var9.unknown_0_.ResetAllocatorPointer();
-                func_020de824(var9.unknown_14_);
+                InitItemTable_020de824(var9.unknown_14_);
                 func_0207cbe8((char*)&var9);
                 func_0207cbe8((char*)&var9);
                 var9.unknown_2c_ = (char*)var0 + Enum_ov017_021b5aec_10068;

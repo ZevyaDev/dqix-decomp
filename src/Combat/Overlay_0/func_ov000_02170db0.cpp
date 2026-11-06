@@ -63,8 +63,8 @@ extern "C" int func_ov000_02171a74(struct Struct_ov000_02170db0_3* arg0);
 #else
 extern "C" int func_ov000_02171a74(struct Struct_ov000_02170db0_3* arg0, char* arg1);
 #endif
-extern "C" void func_020e4864(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
+extern "C" void ExpandInflectionTags_020e4864(void* text, char* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
+extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" void func_ov000_0217616c(struct Struct_ov000_02170db0_3* arg0);
@@ -109,8 +109,8 @@ extern "C" ARM void func_ov000_02170db0(struct Struct_ov000_02170db0_3* arg0) {
         char var8[0x80];
         __clear(var7, sizeof(var7));
         __clear(var8, sizeof(var8));
-        func_020e4864(var0->unknown_0_, var7, 1, 0, 0, 0);
-        func_0206819c(var7, var8, 0);
+        ExpandInflectionTags_020e4864(var0->unknown_0_, var7, 1, 0, 0, 0);
+        CopyCapitalizedText_0206819c(var7, var8, 0);
         func_0203c108(&arg0->unknown_50_, var8);
 #endif
     } else if (var1 != NULL) {
@@ -122,8 +122,8 @@ extern "C" ARM void func_ov000_02170db0(struct Struct_ov000_02170db0_3* arg0) {
             char var10[0x80];
             __clear(var9, sizeof(var9));
             __clear(var10, sizeof(var10));
-            func_020e4864(var1->unknown_4_, var9, 1, 0, 0, 0);
-            func_0206819c(var9, var10, 0);
+            ExpandInflectionTags_020e4864(var1->unknown_4_, var9, 1, 0, 0, 0);
+            CopyCapitalizedText_0206819c(var9, var10, 0);
             func_02046608(GetMessageWindow_020421a0(), 10, var10, var9, 0x100, 0, 0);
             func_0203c108(&arg0->unknown_50_, var9);
 #endif

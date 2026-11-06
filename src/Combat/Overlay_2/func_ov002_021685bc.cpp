@@ -19,7 +19,7 @@ extern "C" void func_020466c8(struct Struct_020466c8 *arg0, int arg1);
 extern "C" int func_ov002_021574d4(void *arg0, int arg1);
 extern "C" void *func_0209a594(void *arg0, int arg1);
 extern "C" void ClearMessageParams_02046380(void *window);
-extern "C" void func_020e4864(void *arg0, void *arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void ExpandInflectionTags_020e4864(void *text, void *buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void *window, char *text, int arg2);
 #else
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov002_021685bc(unsigned char *arg0) {
                     void **var8            = (void **) func_020e5294(*(void **) (arg0 + 0x2000 + 0x44c), var0->unknown_2_);
                     *(void ***) (var7 + 8) = var8;
                     __clear(var6, 0x80);
-                    func_020e4864(*var8, var6, 1, 0, 0, 0);
+                    ExpandInflectionTags_020e4864(*var8, var6, 1, 0, 0, 0);
                     SetMessageString_02046574((struct Struct_02046574_2 *) var7, 1, var6);
                 } else {
                     SetMessageString_02046574(

@@ -4,7 +4,7 @@
 
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimationList_0205a330;
-extern "C" void func_0205a42c(struct SpriteAnimationList_0205a254* arg0, int arg1, int arg2);
+extern "C" void SetSpriteAnimationOAMIndex_0205a42c(struct SpriteAnimationList_0205a254* animationList, int index, int oamIndex);
 extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
 extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
 extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov023_021ecf78(struct Struct_ov023_021ecf78_2* arg0) {
     }
 
     GameState* var0 = GameState::GetInstance();
-    func_0205a42c(arg0->unknown_42c_, 0, 0x40);
+    SetSpriteAnimationOAMIndex_0205a42c(arg0->unknown_42c_, 0, 0x40);
     PlaySpriteAnimation_0205a370(arg0->unknown_42c_, 0);
 
     struct Struct_ov023_021ecf78* var1 = FindSpriteAnimation_0205a3d0(arg0->unknown_42c_, 0);

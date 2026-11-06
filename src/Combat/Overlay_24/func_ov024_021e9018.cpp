@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
-extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
+extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 struct Struct_ov024_021da670_7;
 extern "C" int func_ov024_021da9b0(struct Struct_ov024_021da670_7* arg0);
 extern "C" int func_020882f8(unsigned char* arg0);
@@ -22,7 +22,7 @@ extern struct Struct_ov024_021fe7c6 data_ov024_021fe7c6[];
 extern "C" ARM int func_ov024_021e9018(struct Struct_ov024_021e9018* arg0, int arg1, short arg2, int arg3) {
     if (arg3 != 0) {
         if (arg2 == 5) {
-            return func_ov024_021da644(arg1, 0x63, 0x62);
+            return SelectPartyOrEnemyMessage_ov024_021da644(arg1, 0x63, 0x62);
         }
         int var0 = 0;
         while (data_ov024_021fe840[var0].unknown_0_ != -1) {
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov024_021e9018(struct Struct_ov024_021e9018* arg0, int a
 #if defined(jpn)
             return 0x1b;
 #else
-            return func_ov024_021da644(arg1, 0x26d, 0x1b);
+            return SelectPartyOrEnemyMessage_ov024_021da644(arg1, 0x26d, 0x1b);
 #endif
 
         }
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov024_021e9018(struct Struct_ov024_021e9018* arg0, int a
 #if defined(jpn)
             return 0x1b;
 #else
-            return func_ov024_021da644(arg1, 0x26d, 0x1b);
+            return SelectPartyOrEnemyMessage_ov024_021da644(arg1, 0x26d, 0x1b);
 #endif
 
         }
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov024_021e9018(struct Struct_ov024_021e9018* arg0, int a
         int var3 = var2->unknown_0_2_;
         if (var3 != arg2) return 0;
         if (var3 == 5) {
-            return func_ov024_021da644(arg1, 0x61, 0x60);
+            return SelectPartyOrEnemyMessage_ov024_021da644(arg1, 0x61, 0x60);
         }
         int var4 = 0;
         while (data_ov024_021fe7c4[var4].unknown_0_ != -1) {

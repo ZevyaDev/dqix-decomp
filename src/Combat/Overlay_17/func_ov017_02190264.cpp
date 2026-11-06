@@ -33,7 +33,7 @@ extern "C" int func_020535c8(signed char*);
 extern "C" void func_020531f0(GameObject*);
 extern "C" void func_020545ac(short*);
 extern "C" int func_020115a8(Struct_02000c9c_12*);
-extern "C" void func_0200fd48(GameState*, int);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov017_02190264(GameResources* arg0, int arg1) {
     var12.unknown_0_[9] = arg1 * 12 + 0x1b;
     var12.unknown_0_[10] = arg1 * 12 + 0x1c;
     var12.unknown_0_[11] = arg1 * 12 + 0x1d;
-    for (int var13 = 0; var12.unknown_0_[var13] >= 0; var13++) func_0200fd48(var1, var12.unknown_0_[var13]);
+    for (int var13 = 0; var12.unknown_0_[var13] >= 0; var13++) ClearGameObjectByIndex_0200fd48(var1, var12.unknown_0_[var13]);
     int var14;
     GameState* var15 = GameState::GetInstance();
     Struct_ov017_02190264* var16[4] = {};

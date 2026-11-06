@@ -5,8 +5,8 @@ enum { Enum_ov003_0217dfb4_20=0x10 };
 extern "C" void ClearMessageParams_02046380(void*);
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*,int,int);
-extern "C" void func_020465f0(unsigned char*,int,unsigned char);
-extern "C" void func_020465d8(unsigned char*,int,unsigned char);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char*,int,unsigned char);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*,int,unsigned char);
 extern "C" void func_02042428(char*, int);
 #else
 enum { Enum_ov003_0217dfb4_20=0x14 };
@@ -81,10 +81,10 @@ extern "C" ARM void func_ov003_0217dfb4(struct Struct_ov003_0217dfb4_2* arg0) {
         ClearMessageParams_02046380((void*)var1);
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var4 + 1);
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 1, arg0->unknown_32_);
-        func_020465f0((unsigned char*)var1, 0, 2);
-        func_020465f0((unsigned char*)var1, 1, 2);
-        func_020465d8((unsigned char*)var1, 0, 1);
-        func_020465d8((unsigned char*)var1, 1, 0);
+        SetMessageNumberWidth_020465f0((unsigned char*)var1, 0, 2);
+        SetMessageNumberWidth_020465f0((unsigned char*)var1, 1, 2);
+        SetMessageNumberAlignment_020465d8((unsigned char*)var1, 0, 1);
+        SetMessageNumberAlignment_020465d8((unsigned char*)var1, 1, 0);
         func_02042428(var0, 8);
         AppendText_02042058(var0, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_cc_, 0xc8));
 #else

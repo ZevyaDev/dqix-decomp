@@ -8,8 +8,8 @@ enum { Enum_ov017_021d0f94_1788 = 0x6fc, Enum_ov017_021d0f94_2880 = 0xb40, Enum_
 
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
-struct Struct_02015438;
-extern "C" int func_02046b24(struct Struct_02015438** arg0);
+struct QueueNode_02015438;
+extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 extern "C" int func_ov003_0217f278(int* arg0);
 
 extern "C" void func_ov003_02171fe8(void* arg0, void* arg1, void* arg2, int arg3, unsigned char arg4);
@@ -27,8 +27,8 @@ extern "C" ARM void func_ov017_021d0f94(void* arg0, struct Struct_ov017_021d0f94
     signed char var0 = GetOwnProtagonistObjectIndex_0202c1a4(arg4);
     if (arg1->unknown_4_ != var0) return;
 
-    struct Struct_02015438** var1 = *(struct Struct_02015438***)(arg3 + 0x3000 + Enum_ov017_021d0f94_1788);
-    if (func_02046b24(var1) != 0x2a) return;
+    struct QueueNode_02015438** var1 = *(struct QueueNode_02015438***)(arg3 + 0x3000 + Enum_ov017_021d0f94_1788);
+    if (GetQueueHeadType_02046b24(var1) != 0x2a) return;
 
     int* var2 = *(int**)(arg3 + 0x3000 + Enum_ov017_021d0f94_2880);
     int var3 = func_ov003_0217f278(var2);

@@ -9,7 +9,7 @@
 
 struct Struct_020e28dc;
 struct Struct_020e25e8;
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 struct GlobalFlags_02038598_4;
 
 extern "C" int GetResources_0200fb8c(int *);
@@ -27,7 +27,7 @@ extern "C" void func_ov023_021eb26c(char *);
 extern "C" void func_ov013_02186fa0(char *);
 extern "C" void func_ov013_021846a0(char *);
 extern "C" void *GetGlobalFlags_020d6c00();
-extern "C" int func_02046708(struct Struct_02012de8 *, unsigned int);
+extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8 *, unsigned int);
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4 *, unsigned int);
 extern "C" void func_020a1f4c(int);
 
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov002_0216c654(char *arg0) {
         S32(0x1bc0 + Enum_ov002_0216c654_0) = 7;
     } else if (var1 == 7) {
         void *var2 = GetGlobalFlags_020d6c00();
-        if (func_02046708((struct Struct_02012de8 *) var2, 1) ||
+        if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8 *) var2, 1) ||
             !IsSubBrightnessTransitionActive(var0))
         {
             ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4 *) var2, 1);

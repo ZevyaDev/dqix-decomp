@@ -20,7 +20,7 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int func_0202c1c0(struct Struct_0202b2f0* arg0, int arg1);
 extern "C" int func_0207d978(struct Struct_0207d7f4* arg0, unsigned short arg1);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
-extern "C" int func_020546a8(void* arg0);
+extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 
 // USA: func_0207d7f4
 extern "C" ARM int func_0207d7f4(struct Struct_0207d7f4* arg0, unsigned short arg1, int arg2, int arg3,
@@ -57,7 +57,7 @@ extern "C" ARM int func_0207d7f4(struct Struct_0207d7f4* arg0, unsigned short ar
     var2->unknown_8_[arg2] = var0;
     for (var5 = 0; var5 < 4; var5++) {
         var4 = GetCompanionByIndex_0200ff58(var1, var5);
-        if (var4 != NULL && func_020546a8(var4) == arg2)
+        if (var4 != NULL && GetLeaderObjectIndex_020546a8(var4) == arg2)
             var2->unknown_8_[var5] = var0;
     }
     if (arg3 != 0 && var2->unknown_4_ < 0 && arg4 >= 0) {

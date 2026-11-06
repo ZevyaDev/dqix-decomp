@@ -13,7 +13,7 @@ struct Struct_020407c4_2;
 struct Struct_02040c2c_4;
 struct Struct_02040c2c_5;
 struct Struct_02028460_3 { int unknown_0_; int unknown_4_; int unknown_8_; };
-struct Struct_02015438;
+struct QueueNode_02015438;
 
 struct Struct_02040c2c_3 {
     Object3D unknown_0_;
@@ -56,7 +56,7 @@ extern "C" int rand(void);
 extern "C" int func_0202e800(void* arg0);
 extern "C" void* func_0202ed6c(void* arg0);
 
-extern "C" int func_02046b24(struct Struct_02015438** arg0);
+extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 extern "C" void func_0204117c(struct Struct_02040c2c_5* arg0, struct Struct_02028460_3* arg1);
 extern "C" void func_02041298(struct Struct_02040c2c_4* arg0, int arg1);
 extern "C" void func_020406f8(struct Struct_0203de84* arg0, struct Struct_0203de84_2* arg1);
@@ -76,7 +76,7 @@ extern "C" ARM void func_02040c2c(struct Struct_0203dd20* arg0, void* arg1, int 
         if (var5 != 0) {
             arg0->unknown_14_->unknown_2a_ = var5->spriteDiffuseColor_;
         }
-        if (func_02046b24((Struct_02015438**)GetGameResources()->unknown_ptr_array_36fc[0]) != 4) {
+        if (GetQueueHeadType_02046b24((QueueNode_02015438**)GetGameResources()->unknown_ptr_array_36fc[0]) != 4) {
             if (!(arg0->unknown_0_ & 1) && !(arg0->unknown_0_ & 0x20000)) {
                 if (arg0->unknown_c_ != 0 && arg0->unknown_c_->unknown_1f_ != 0) {
                     Struct_02040c2c_2* var6 = arg0->unknown_14_;
@@ -108,7 +108,7 @@ extern "C" ARM void func_02040c2c(struct Struct_0203dd20* arg0, void* arg1, int 
                 arg0->unknown_18_->unknown_0_.SetDiffuseColor(LightingManager::GetInstance()->modelDiffuseColor_);
             }
         }
-        if (func_02046b24((Struct_02015438**)GetGameResources()->unknown_ptr_array_36fc[0]) != 4) {
+        if (GetQueueHeadType_02046b24((QueueNode_02015438**)GetGameResources()->unknown_ptr_array_36fc[0]) != 4) {
             if (!(arg0->unknown_0_ & 1) && !(arg0->unknown_0_ & 0x20000)) {
                 if (arg0->unknown_c_ != 0 && arg0->unknown_c_->unknown_1f_ != 0) {
                     Struct_02040c2c_3* var7 = arg0->unknown_18_;

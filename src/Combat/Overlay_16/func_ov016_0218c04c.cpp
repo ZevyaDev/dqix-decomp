@@ -40,7 +40,7 @@ extern "C" void func_020d1f0c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_020d1fd0(int arg0, int arg1);
 extern "C" void func_020d24c4(int arg0);
 extern "C" void func_020c9778(int arg0, int arg1);
-extern "C" void func_020bbd9c(void);
+extern "C" void UpdateSound_020bbd9c(void);
 extern "C" int func_020ce89c(int arg0, int arg1, int arg2);
 extern "C" unsigned short func_ov016_0218ca70(void);
 extern "C" int func_020c7dcc(void);
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 						func_0203aba8((Struct_0203aba8*)&gMusicManager_02109bf4, (void*)var22->unknown_12_, &data_ov016_0219d0cc);
 					}
 #endif
-					func_020bbd9c();
+					UpdateSound_020bbd9c();
 					data_ov016_0219d0d0 = 1;
 					var10 = var18;
 				}
@@ -405,7 +405,7 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 #if defined(jpn)
 		if (data_ov016_0219d0f4->unknown_10_ > -1) {
 			func_0203ad88(&gMusicManager_02109bf4, 0, 0);
-			func_020bbd9c();
+			UpdateSound_020bbd9c();
 		}
 #else
 		if (data_ov016_0219d0f4->unknown_12_ > -1) {
@@ -414,7 +414,7 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 			} else {
 				func_0203ac10(&gMusicManager_02109bf4, &data_ov016_0219d0cc, 0);
 			}
-			func_020bbd9c();
+			UpdateSound_020bbd9c();
 		}
 #endif
 	}

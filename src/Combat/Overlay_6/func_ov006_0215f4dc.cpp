@@ -51,7 +51,7 @@ extern "C" void func_02080fa8(Struct_02080fa8*, int, int);
 extern "C" void func_020805f4(void*, int);
 extern "C" void func_02081130(void*, int, int);
 extern "C" void* memset(void*, int, unsigned int);
-extern "C" void func_020e4864(const char*, char*, int, int, int, int);
+extern "C" void ExpandInflectionTags_020e4864(const char*, char*, int, int, int, int);
 extern "C" void func_020813ec(void*, int);
 
 // USA: func_ov006_0215f4dc
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov006_0215f4dc(Struct_ov006_02157a60* arg0) {
             const char** var10 = (const char**)func_020e5294(arg0->unknown_170_, var5[var8]);
             if (var10 != NULL) {
                 memset(arg0->unknown_4_[var9], 0, 4);
-                func_020e4864(*var10, arg0->unknown_4_[var9], 1, 0, 0, 0);
+                ExpandInflectionTags_020e4864(*var10, arg0->unknown_4_[var9], 1, 0, 0, 0);
                 func_02080f8c((Struct_02080f8c*)arg0->unknown_14_, var6, (int)arg0->unknown_4_[var9]);
             }
             func_020805f4(var4, var6);

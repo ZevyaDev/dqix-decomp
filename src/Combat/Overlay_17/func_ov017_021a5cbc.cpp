@@ -40,8 +40,8 @@ struct BGLayer_02020cb8_5;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct BGLayer_02020cb8_2;
-struct Struct_0205cf78;
-struct Struct_0205cf78_2;
+struct TextWindowManager_0205cf78;
+struct TextWindow_0205cf78_2;
 struct Struct_02000c9c_8;
 #if defined(jpn)
 enum { Enum_ov017_021a5cbc_1280 = 0x400 };
@@ -66,14 +66,14 @@ extern "C" void FillBGScreenRect_0204bc74(Struct_ov017_021a5ad0*, int, int, int,
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2*, void*);
 extern "C" void func_ov017_021a5b08(Struct_ov017_021a5ad0*, int);
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8*, SafeAllocator*, int, unsigned int);
-extern "C" void func_0205cf78(Struct_0205cf78*, Struct_0205cf78_2*, unsigned char);
+extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78*, TextWindow_0205cf78_2*, unsigned char);
 extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" void OpenTextWindow_0205d304(Struct_ov017_021a5cbc_3*, const char*, int, unsigned char, unsigned char, unsigned char, void*
 #if !defined(jpn)
     , unsigned char
 #endif
 );
-extern "C" void func_0205d0e0(Struct_ov017_021a5cbc_3*, unsigned int);
+extern "C" void UpdateTextWindowManager_0205d0e0(Struct_ov017_021a5cbc_3*, unsigned int);
 extern const unsigned char data_ov017_021d6a8c[];
 extern const char data_ov017_021d76e8[];
 extern const char data_ov017_021d76fb[];
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov017_021a5cbc(GameResources* arg0) {
         Struct_ov017_021a5cbc_3* var25 = static_cast<Struct_ov017_021a5cbc_3*>(arg0->unknown_ptr_array_4088[2]);
         var25->unknown_98_ = reinterpret_cast<Struct_ov017_021a5ad0*>(arg0->unknown_4094);
         var25->unknown_b2_ = 2;
-        func_0205cf78((Struct_0205cf78*)static_cast<Struct_ov017_021a5cbc_3*>(arg0->unknown_ptr_array_4088[2]), (Struct_0205cf78_2*)&(*reinterpret_cast<TextWindow_0204c7a8*>(arg0->unknown_4094 + 0x40)), 1);
+        SetTextWindowArray_0205cf78((TextWindowManager_0205cf78*)static_cast<Struct_ov017_021a5cbc_3*>(arg0->unknown_ptr_array_4088[2]), (TextWindow_0205cf78_2*)&(*reinterpret_cast<TextWindow_0204c7a8*>(arg0->unknown_4094 + 0x40)), 1);
         REG_BACKGROUND_0 = (REG_BACKGROUND_0 & ~3) | 2;
         REG_BACKGROUND_1 = (REG_BACKGROUND_1 & ~3) | 1;
         REG_BACKGROUND_2 = REG_BACKGROUND_2 & ~3;
@@ -192,7 +192,7 @@ extern "C" ARM void func_ov017_021a5cbc(GameResources* arg0) {
             , 0
 #endif
         );
-        func_0205d0e0(var26, GameState::GetInstance()->GetTickCount());
+        UpdateTextWindowManager_0205d0e0(var26, GameState::GetInstance()->GetTickCount());
         (*reinterpret_cast<TextWindow_0204c7a8*>(arg0->unknown_4094 + 0x40)).unknown_c2_ = 0;
         ++(*reinterpret_cast<int*>(arg0->unknown_4094 + 0x124));
     }

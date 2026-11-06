@@ -43,7 +43,7 @@ static inline Struct_ov012_02186e38* inline_ov012_02186e38(GameState* arg0) {
 
 extern "C" int func_ov012_0218432c(int arg0);
 struct TextWindowManager_0205de24_2;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" void func_ov023_021e6e60(void* arg0);
 extern "C" void func_ov012_02189c44(char* arg0);
 struct Struct_0205c570;

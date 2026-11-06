@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_ov000_02160094 {
+struct ActionActor_ov000_02160094 {
     char unknown_0_[0x20];
     unsigned short unknown_20_;
     char unknown_22_[2];
     unsigned short unknown_24_;
 };
-struct Struct_ov000_0215440c_2;
+struct BattleAction_ov000_0215440c_2;
 
 struct Struct_ov000_021537b8_6 {
     char unknown_0_[0xe];
@@ -40,7 +40,7 @@ struct Struct_ov025_021e44fc_4 {
     struct Struct_ov025_021e44fc_3* unknown_130_;
 };
 
-extern "C" struct Struct_ov000_02160094* func_ov000_02160094(struct Struct_ov000_0215440c_2* arg0, int arg1);
+extern "C" struct ActionActor_ov000_02160094* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2* action, int index);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f08(void* arg0);
 extern "C" void func_ov000_02176150(struct Struct_ov000_021537b8_6* arg0, unsigned short arg1);
@@ -50,8 +50,8 @@ static inline int inline_ov000_02156cc4_2(int arg0) {
 }
 
 // USA: func_ov025_021e44fc
-extern "C" ARM int func_ov025_021e44fc(void* arg0, struct Struct_ov000_0215440c_2* arg1) {
-    struct Struct_ov000_02160094* var0 = func_ov000_02160094(arg1, 0);
+extern "C" ARM int func_ov025_021e44fc(void* arg0, struct BattleAction_ov000_0215440c_2* arg1) {
+    struct ActionActor_ov000_02160094* var0 = GetActionActor_ov000_02160094(arg1, 0);
     GameState* var1 = GameState::GetInstance();
     struct Struct_ov025_021e44fc_2* var2 = (struct Struct_ov025_021e44fc_2*)func_ov000_02160f08(GetBattleScene_ov000_02160130());
     struct Struct_ov025_021e44fc* var3;

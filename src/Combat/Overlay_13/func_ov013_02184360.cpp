@@ -8,10 +8,10 @@
 
 struct Struct_02074b64;
 extern "C" ARM void func_02074b64(struct Struct_02074b64* arg0);
-struct Struct_02074af4;
-extern "C" ARM void func_02074af4(struct Struct_02074af4* arg0);
-struct Struct_0205cfd4;
-extern "C" ARM void func_0205cfd4(struct Struct_0205cfd4* arg0);
+struct BGControlSave_02074af4;
+extern "C" ARM void SaveMainBGControl_02074af4(struct BGControlSave_02074af4* save);
+struct TextWindowManager_0205cfd4;
+extern "C" ARM void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 extern "C" ARM void func_0205c790(char* arg0);
 struct BGLayer_02020cb8;
 extern "C" ARM void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov013_02184360(void* arg0, void* arg1) {
         unsigned int var2 = *(volatile unsigned int*)0x4001000;
         *(int*)(var0 + R(0x30, 0x34)) = (var2 & 0x1f00u) >> 8;
     } else {
-        func_02074af4((Struct_02074af4*)var1);
+        SaveMainBGControl_02074af4((BGControlSave_02074af4*)var1);
         volatile unsigned int* var3 = (volatile unsigned int*)0x4000000;
         unsigned int var4 = *var3;
         *(int*)(var0 + R(0x30, 0x34)) = (var4 & 0x1f00u) >> 8;
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov013_02184360(void* arg0, void* arg1) {
         *var3 = (var4 & ~0x1f00u) | 0x100u;
     }
 
-    func_0205cfd4((Struct_0205cfd4*)(var0 + R(0x34, 0x38)));
+    InitTextWindowManager_0205cfd4((TextWindowManager_0205cfd4*)(var0 + R(0x34, 0x38)));
     func_0205c790((char*)(var0 + R(0x3d0, 0x3d4)));
 
     if (var0[R(0x5cc, 0x640)] != 0) {

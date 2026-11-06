@@ -15,7 +15,7 @@ extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" int* func_ov017_021a193c(int* arg0);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void* __clear(void* arg0, int arg1);
-extern "C" void func_020e46c4(void* arg0);
+extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" short func_ov005_0215a930(void* arg0, int arg1);
 extern "C" void func_020dcf7c(int arg0, void* arg1);
 extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
@@ -111,7 +111,7 @@ extern "C" ARM int func_ov005_02158b3c(void* arg0, void* arg1) {
     __clear(var6.unknown_80_, 0x80);
     __clear(var6.unknown_0_, 0x80);
     Struct_ov005_02158b3c_3 var7;
-    func_020e46c4(&var7);
+    InitNoun_020e46c4(&var7);
     var7.unknown_0_ = var6.unknown_80_;
     var7.unknown_4_ = var6.unknown_0_;
 

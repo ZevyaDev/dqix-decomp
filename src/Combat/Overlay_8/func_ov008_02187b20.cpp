@@ -170,11 +170,11 @@ extern char data_ov008_0218b4c3[];
 extern "C" unsigned char* GetMessageWindow_020421a0();
 extern "C" void func_020ac0b4(void* arg0);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
-extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
-extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
-extern "C" void func_02041e70(char* arg0, int arg1);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int index, unsigned char alignment);
+extern "C" void AppendTextColorTag_02041e70(char* buffer, int colorIndex);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
-extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
+extern "C" void AppendPositionTag_02041a90(char* buffer, int x, int y);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 
@@ -245,25 +245,25 @@ extern "C" ARM void func_ov008_02187b20(Struct_ov008_021842a0_2* arg0, char* arg
         var10 = 9999;
     ClearMessageParams_02046380(var2);
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var2, 0, var3);
-    func_020465f0(var2, 0, 5);
-    func_020465d8(var2, 0, 1);
+    SetMessageNumberWidth_020465f0(var2, 0, 5);
+    SetMessageNumberAlignment_020465d8(var2, 0, 1);
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var2, 1, var4);
-    func_020465f0(var2, 1, 5);
-    func_020465d8(var2, 1, 1);
+    SetMessageNumberWidth_020465f0(var2, 1, 5);
+    SetMessageNumberAlignment_020465d8(var2, 1, 1);
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var2, 2, var6);
-    func_020465f0(var2, 2, LOW_REGION(3, 5));
+    SetMessageNumberWidth_020465f0(var2, 2, LOW_REGION(3, 5));
     char* var11;
-    func_020465d8(var2, 2, 1);
+    SetMessageNumberAlignment_020465d8(var2, 2, 1);
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var2, 3, var8);
-    func_020465f0(var2, 3, LOW_REGION(3, 5));
-    func_020465d8(var2, 3, 1);
+    SetMessageNumberWidth_020465f0(var2, 3, LOW_REGION(3, 5));
+    SetMessageNumberAlignment_020465d8(var2, 3, 1);
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var2, 4, var9);
-    func_020465f0(var2, 4, LOW_REGION(4, 5));
-    func_020465d8(var2, 4, 1);
+    SetMessageNumberWidth_020465f0(var2, 4, LOW_REGION(4, 5));
+    SetMessageNumberAlignment_020465d8(var2, 4, 1);
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var2, 5, var10);
-    func_020465f0(var2, 5, LOW_REGION(4, 5));
-    func_020465d8(var2, 5, 1);
-    func_02041e70(arg1, 0xe);
+    SetMessageNumberWidth_020465f0(var2, 5, LOW_REGION(4, 5));
+    SetMessageNumberAlignment_020465d8(var2, 5, 1);
+    AppendTextColorTag_02041e70(arg1, 0xe);
     var11 = GetFlagManager_0205ec34();
     var5 = 0;
     if (arg2 != NULL)
@@ -290,12 +290,12 @@ extern "C" ARM void func_ov008_02187b20(Struct_ov008_021842a0_2* arg0, char* arg
         if (var5 & (1 << var14))
         {
 #if defined(jpn)
-            func_02041a90(arg1, 2, var13 * 15 + 1);
+            AppendPositionTag_02041a90(arg1, 2, var13 * 15 + 1);
             AppendText_02042058(arg1, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var14 + 0x78)));
 #else
             char var15[0x40];
             var1 = var13 * 14;
-            func_02041a90(arg1, 2, var1 + 7);
+            AppendPositionTag_02041a90(arg1, 2, var1 + 7);
             __clear(var15, sizeof(var15));
             const char* var16 = FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var14 + 0x78));
             memcpy(var15, var16, strlen(var16));
@@ -303,7 +303,7 @@ extern "C" ARM void func_ov008_02187b20(Struct_ov008_021842a0_2* arg0, char* arg
             if (var17 != NULL)
                 *var17 = 0;
             AppendText_02042058(arg1, var15);
-            func_02041a90(arg1, 0x62, var1 + 7);
+            AppendPositionTag_02041a90(arg1, 0x62, var1 + 7);
             AppendText_02042058(arg1, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var14 + 500)));
 #endif
             var13++;

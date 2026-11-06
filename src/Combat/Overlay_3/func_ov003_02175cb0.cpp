@@ -24,7 +24,7 @@ struct ItemData_0201099c_9 {
 
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" void func_020de824(void* arg0);
+extern "C" void InitItemTable_020de824(void* itemTable);
 extern "C" void func_0207cbe8(char* arg0);
 extern "C" void func_0207cc0c(char* arg0);
 extern "C" void func_0207d134(void* arg0, int arg1, int arg2);
@@ -43,7 +43,7 @@ extern "C" ARM int func_ov003_02175cb0(char* arg0, int arg1) {
 
     char var1[0x38];
     ((SafeAllocator*)var1)->ResetAllocatorPointer();
-    func_020de824(var1 + 0x14);
+    InitItemTable_020de824(var1 + 0x14);
     func_0207cbe8(var1);
     func_0207cbe8(var1);
     *(void**)(var1 + 0x2c) = arg0 + Enum_ov003_02175cb0_2164;

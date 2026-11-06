@@ -77,7 +77,7 @@ extern "C" void* func_020e2ff8();
 extern "C" void func_020e3428(void*, int);
 extern "C" Struct_ov002_02157d40_6* GetMessageWindow_020421a0();
 extern "C" Struct_ov002_0215a0a4_5* FindActionData_02079e2c(char*, int);
-extern "C" void* func_020e46c4(void*);
+extern "C" void* InitNoun_020e46c4(void*);
 extern "C" void SetMessageString_02046574(Struct_ov002_02157d40_6*, int, char*);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" int func_02048350(Struct_ov002_02157d40_8*, int);
@@ -120,8 +120,8 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
     ClearMessageParams_02046380(var8);
     var5 = arg0->unknown_1000_.unknown_bd0_;
 #if !defined(jpn)
-    func_020e46c4(arg0->unknown_8_);
-    func_020e46c4(arg0->unknown_14_);
+    InitNoun_020e46c4(arg0->unknown_8_);
+    InitNoun_020e46c4(arg0->unknown_14_);
 #endif
     var3 = GetPartyMemberBaseByIndex_0200ff1c(var7, arg1->unknown_2_);
     if (var3) {

@@ -2,13 +2,13 @@
 #include "World/ZoneChest.h"
 #include <Graphics/Vector.h>
 
-struct Struct_020fdd44 {
-    unsigned short unknown_0_;
+struct ActiveZone_020fdd44 {
+    unsigned short zoneId_0_;
     unsigned short unknown_2_;
     unsigned short unknown_4_;
 };
-extern "C" Struct_020fdd44* func_02027ca4();
-extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44*, int);
+extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4();
+extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44*, int);
 
 // USA: func_0201874c
 extern "C" ARM void func_0201874c(Zone3D* arg0, Struct_020134e0::Struct_02018300* arg1) {
@@ -44,8 +44,8 @@ extern "C" ARM void func_0201874c(Zone3D* arg0, Struct_020134e0::Struct_02018300
     arg0->unk_830[0] = 0xf;
     if (!(arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 8)) {
         int var5 = func_02018bc4(arg0, arg1);
-        Struct_020fdd44* var6 = func_02027ca4();
-        Struct_020fdd44* var7 = func_02028bd0(var6, arg0->currentZoneID_);
+        ActiveZone_020fdd44* var6 = GetActiveZones_02027ca4();
+        ActiveZone_020fdd44* var7 = FindActiveZone_02028bd0(var6, arg0->currentZoneID_);
         if (var7) var7->unknown_4_ &= ~(1 << var5);
     }
 }

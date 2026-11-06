@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
 struct Struct_0205c570;
-struct Struct_0205bb84;
+struct MenuCursor_0205bb84;
 
 extern "C" int func_0205bf58(void* arg0, int arg1);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
-extern "C" int func_0205bb84(struct Struct_0205bb84* arg0);
+extern "C" int GetMenuCursorIndex_0205bb84(struct MenuCursor_0205bb84* cursor);
 extern "C" int func_ov000_021753d8(void* arg0, int arg1);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" void func_0205d7a0(unsigned char* arg0, int arg1);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov000_0217f304(struct Struct_ov000_0217f304_2* arg0, in
     if (var1 != 0xe && var1 != 0x19) return;
     func_0205bf58(arg0->unknown_244_, 1);
     var0 = GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_188_);
-    int var2 = func_0205bb84((struct Struct_0205bb84*)arg0->unknown_244_);
+    int var2 = GetMenuCursorIndex_0205bb84((struct MenuCursor_0205bb84*)arg0->unknown_244_);
     int var3 = arg3->unknown_1d_;
     int var4 = func_ov000_021753d8(arg0, var0);
     if (var1 == 0x19) var3 = arg0->unknown_1c_;

@@ -6,9 +6,9 @@
 #include "Resource/Brightness.h"
 
 struct Struct_ov009_0218aa28;
-struct Struct_02015438;
+struct QueueNode_02015438;
 struct Struct_02077788_2;
-struct Struct_02048150;
+struct Party_02048150;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 
@@ -116,7 +116,7 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" Struct_ov017_02196430_3* GetZone3D_02012fe4(void);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
-extern "C" int func_02046b24(Struct_02015438** arg0);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438** queue);
 extern "C" int func_02053cdc(int* arg0);
 extern "C" int func_02039d7c(char* arg0);
 extern "C" int func_02039760(void* arg0);
@@ -126,7 +126,7 @@ extern "C" short func_ov017_021a4754(Vector3fix* arg0, int arg1, Vector3fix* arg
 extern "C" void func_ov017_0219b33c(Struct_ov017_02196430_8* arg0, Struct_ov017_02196430_4* arg1);
 extern "C" int func_ov017_0219735c(unsigned char* arg0, unsigned short arg1);
 extern "C" int func_020795cc(unsigned char* arg0);
-extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
+extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 extern "C" int func_ov017_02196fc8(GameObject* arg0, GameObject* arg1, int arg2);
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
@@ -157,7 +157,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
     Struct_ov017_02196430_8* var5 = (Struct_ov017_02196430_8*)GetGameResources();
     Struct_ov017_02196430_3* var6 = GetZone3D_02012fe4();
     LightingManager* var7 = LightingManager::GetInstance();
-    Struct_02048150* var8 = (Struct_02048150*)GetParty_02010828(var1);
+    Party_02048150* var8 = (Party_02048150*)GetParty_02010828(var1);
     unsigned short var9;
     int var10;
     int var11;
@@ -177,7 +177,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
         return 2;
     }
     if (IsQueueEmpty_02046b08((void**)var0->unknown_36fc_) == 0) {
-        return func_02046b24((Struct_02015438**)var0->unknown_36fc_) == 0x45 ? 0 : 2;
+        return GetQueueHeadType_02046b24((QueueNode_02015438**)var0->unknown_36fc_) == 0x45 ? 0 : 2;
     }
     if (var3 == NULL) {
         return 2;
@@ -265,7 +265,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
                 }
 #endif
                 if (!((unsigned char)(var27->unknown_17d_ & 8) &&
-                      func_02086ef0(var8, func_020795cc((unsigned char*)var27)))) {
+                      IsInParty_02086ef0(var8, func_020795cc((unsigned char*)var27)))) {
                     if (var14 != 0) {
                         continue;
                     }
@@ -304,7 +304,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
                 continue;
             }
             if (var25 == 0 && (var27->unknown_17d_ & 8)) {
-                if (!func_02086ef0(var8, func_020795cc((unsigned char*)var27))) {
+                if (!IsInParty_02086ef0(var8, func_020795cc((unsigned char*)var27))) {
                     continue;
                 }
             }

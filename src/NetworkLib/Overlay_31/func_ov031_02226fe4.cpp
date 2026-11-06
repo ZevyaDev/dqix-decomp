@@ -12,7 +12,7 @@ extern "C" ARM void func_ov031_0223d0a4(void);
 extern "C" void func_ov031_0223e168(int arg0);
 extern "C" void func_ov031_0223d704(void);
 extern "C" int func_ov031_0223dfd0(void);
-extern "C" void func_020c9820(void);
+extern "C" void WaitForVBlank_020c9820(void);
 extern "C" void func_ov031_02227468(void);
 
 extern int data_ov031_0224b608;
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov031_02226fe4(void* arg0, int arg1, unsigned int arg2) 
 		func_ov031_0223e168(var1);
 		func_ov031_0223d704();
 		func_ov031_0223dfd0();
-		func_020c9820();
+		WaitForVBlank_020c9820();
 	} while (data_ov031_02250c0c.unknown_1_ == 0);
 	func_ov031_02227468();
 	func_ov031_022167a8(var0);

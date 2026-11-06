@@ -17,8 +17,8 @@ extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* 
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
-struct Struct_0203d028_11;
-extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
+struct ObjectArchiveLoadInfo_0203d028_11;
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 
 struct Struct_02055718;
 extern "C" int func_02055718(struct Struct_02055718* arg0, int arg1, int arg2);
@@ -110,7 +110,7 @@ extern "C" ARM int func_ov015_0218e02c(void* arg0, int* arg1) {
         var0.Destroy();
 
         Struct_02053634 var12;
-        func_0203dafc((struct Struct_0203d028_11*)&var12);
+        ClearObjectArchiveLoadInfo_0203dafc((struct ObjectArchiveLoadInfo_0203d028_11*)&var12);
         void* var13 = *(void**)((char*)arg0 + 8);
         void* var14 = &gFileScratchSpace_0211e33c;
         unsigned int var15 = var6;

@@ -3,8 +3,8 @@
 struct Struct_0205bd04;
 extern "C" int func_0205bd04(struct Struct_0205bd04*);
 
-struct Struct_0205bcdc;
-extern "C" void func_0205bcdc(struct Struct_0205bcdc*, int);
+struct MenuCursor_0205bcdc;
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc*, int);
 
 struct Struct_0205bd78 {
     int unknown_0_;
@@ -51,7 +51,7 @@ extern "C" ARM int func_0205bd78(struct Struct_0205bd78* arg0, int arg1, int arg
                     *arg0->unknown_28_ = var1;
                     int var9 = func_0205bd04((struct Struct_0205bd04*)arg0);
                     if (arg0->unknown_0_ <= var9) var9 = -1;
-                    func_0205bcdc((struct Struct_0205bcdc*)arg0, var9);
+                    SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc*)arg0, var9);
                     return var9;
                 }
             }

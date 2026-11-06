@@ -33,7 +33,7 @@ struct Struct_ov017_02198e30_3 {
 
 extern "C" struct Struct_ov017_02198e30_2* GetFlagManager_0205ec34(void);
 extern "C" int func_020321e0(Vector3fix* arg0, void* arg1, int arg2, void* arg3, unsigned int arg4);
-extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
+extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 extern "C" void func_0206f81c(void* arg0);
 
 // USA: func_ov017_02198e30
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov017_02198e30(unsigned char* arg0) {
         if (var4 > -1) {
             struct Struct_ov017_02198e30_3 var5;
             var5.unknown_4_ = var4;
-            if (func_020649b0(var1, 5, &var5)) {
+            if (RunTrigger_020649b0(var1, 5, &var5)) {
                 func_0206f81c(&var5);
             }
             var1->unknown_491_ = -1;
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov017_02198e30(unsigned char* arg0) {
     struct Struct_ov017_02198e30_3 var6;
     if (var4 > -1) {
         var6.unknown_4_ = var4;
-        if (func_020649b0(var1, 5, &var6)) {
+        if (RunTrigger_020649b0(var1, 5, &var6)) {
             func_0206f81c(&var6);
         }
         var6.unknown_4_ = -1;
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov017_02198e30(unsigned char* arg0) {
 
     arg0[Enum_ov017_02198e30_17478] = var2->unknown_0_;
     var6.unknown_4_ = var2->unknown_0_;
-    if (func_020649b0(var1, 2, &var6)) {
+    if (RunTrigger_020649b0(var1, 2, &var6)) {
         func_0206f81c(&var6);
     }
 

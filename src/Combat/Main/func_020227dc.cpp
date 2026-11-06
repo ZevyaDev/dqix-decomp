@@ -8,7 +8,7 @@
 #include "Resource/Brightness.h"
 
 extern "C" unsigned short* GetZone3D_02012fe4(void);
-extern "C" char* func_0203bd08(void);
+extern "C" char* GetOAMManager_0203bd08(void);
 extern "C" ARM void* func_0203b628(void);
 
 extern "C" void func_02021428(void* arg0, int arg1);
@@ -58,7 +58,7 @@ struct Struct_0201f040_3;
 
 extern "C" void func_0202445c(void* arg0);
 extern "C" void func_ov017_02191234(void* arg0);
-extern "C" void func_020c9820(void);
+extern "C" void WaitForVBlank_020c9820(void);
 extern "C" void func_0202343c(void* arg0);
 extern "C" void func_02026b7c(unsigned char* arg0);
 extern "C" void func_02026bdc(void* arg0, int arg1);
@@ -90,7 +90,7 @@ extern "C" ARM void func_020227dc(Struct_02020554* arg0) {
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
     unsigned short* var1 = GetZone3D_02012fe4();
     char* var2 = ((char*)GetGameResources());
-    char* var3 = func_0203bd08();
+    char* var3 = GetOAMManager_0203bd08();
     void* var4 = func_0203b628();
     int var5;
     SafeAllocator* var6 = (SafeAllocator*)(var2 + 0x128);
@@ -187,7 +187,7 @@ extern "C" ARM void func_020227dc(Struct_02020554* arg0) {
     arg0->unknown_9c8_ = 0;
     arg0->unknown_9c3_ = 0;
     arg0->unknown_9c2_ = arg0->unknown_9c2_ + 1;
-    func_020c9820();
+    WaitForVBlank_020c9820();
     func_0202343c(arg0);
     func_02026b7c((unsigned char*)arg0);
     func_02026bdc(arg0, 0);

@@ -70,15 +70,15 @@ extern "C" void func_02094030(void *, int, int, int);
 extern "C" unsigned int *GetGlobalFlags_020d6c00();
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
-extern "C" int func_020100b0(GameState *);
+extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState *);
 struct Struct_02052e2c;
 extern "C" Struct_0209a678_2 * func_02052e2c(Struct_02052e2c*);
 extern "C" void func_ov017_021bbae4(Struct_ov000_0215b278 *, int, int);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
-struct Struct_02038598_5;
-extern "C" int func_02046b60(Struct_02038598_5*, int);
+struct Queue_02038598_5;
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
@@ -197,9 +197,9 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
             ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80000);
             Struct_020bc1ec *var19   = GetZone3D_02012fe4();
             Struct_ov000_0215b278 *var20     = *(Struct_ov000_0215b278 **) (var0 + 0x3000 + RES_NODE_C_021638e4);
-            Struct_0209a678_2 *var21 = func_02052e2c((Struct_02052e2c*)(var1->GetGameObjectByIndex(func_020100b0(var1))));
+            Struct_0209a678_2 *var21 = func_02052e2c((Struct_02052e2c*)(var1->GetGameObjectByIndex(GetOwnPartyLeaderObjectIndex_020100b0(var1))));
             func_ov017_021bbae4(var20, var19->unknown_8_, 2);
-            var20->unknown_cd_ = func_020100b0(var1);
+            var20->unknown_cd_ = GetOwnPartyLeaderObjectIndex_020100b0(var1);
             var20->unknown_ce_ = var21->unknown_14_0_;
             if (arg0->unknown_464_ & 0x40) {
                 arg0->unknown_464_ &= ~0x40;
@@ -207,7 +207,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
                     var20->unknown_cf_ = 2;
                     AppendToQueue_020469b4((Queue_0201bdac_2*)var3, (QueueNode_0201bdac*)var20);
                 }
-                if (func_02046b60((Struct_02038598_5*)var3, 3) == 0) {
+                if (IsTypeInQueue_02046b60((Queue_02038598_5*)var3, 3) == 0) {
                     SetBrightness((GameResources*)var0, 0, 8);
                 }
             } else {

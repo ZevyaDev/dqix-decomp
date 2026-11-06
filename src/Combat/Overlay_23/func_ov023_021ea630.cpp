@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
+extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
 
@@ -14,7 +14,7 @@ extern "C" ARM int func_ov023_021ea630(void* arg0) {
     GameState* var0 = GameState::GetInstance();
     unsigned char var1[4];
     __clear(var1, 4);
-    int var2 = func_020114ec((char*)var0, var1);
+    int var2 = GetPartyOrder_020114ec((char*)var0, var1);
     int var3 = 0;
     for (int var4 = 0; var4 < var2; var4++) {
         struct Struct_ov023_021ea630_2* var5 = (struct Struct_ov023_021ea630_2*)GetPartyMemberBaseByIndex_0200ff1c(var0, var1[var4]);

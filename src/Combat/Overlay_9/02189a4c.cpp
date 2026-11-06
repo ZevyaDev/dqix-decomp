@@ -83,7 +83,7 @@ extern "C" unsigned int func_020e0424(Struct_020e0424*);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_020424e4(int, int);
 extern "C" Struct_ov009_02186e00* func_020425b4(int, int);
-extern "C" int func_020426bc(const char*, unsigned char*, int);
+extern "C" int ConvertTextToGlyphIndices_020426bc(const char*, unsigned char*, int);
 extern "C" int func_ov009_0218a4c8(int, int, int, int, int);
 extern "C" int func_ov009_0218a518(Struct_ov009_02189a4c_5*, const unsigned char*, const unsigned char*, int, int);
 
@@ -264,7 +264,7 @@ exact_done:
     int var52;
     Struct_ov009_02189a4c* var53;
     int var54;
-    func_020426bc(var4, var5, 1);
+    ConvertTextToGlyphIndices_020426bc(var4, var5, 1);
     var54 = 0;
     unsigned int var55;
     Struct_ov009_02189a4c* var56;
@@ -330,7 +330,7 @@ exact_done:
         var33 = var3;
         __clear(var6, 320);
         for (int var67 = 0; var67 < var51->unknown_1e_; ++var67) {
-            func_020426bc(var51->unknown_0_[var67], var6[var67], 1);
+            ConvertTextToGlyphIndices_020426bc(var51->unknown_0_[var67], var6[var67], 1);
             var51->unknown_0_[var67] = (char*)var6[var67];
         }
         var34 = var52 - var51->unknown_1e_ + 1;

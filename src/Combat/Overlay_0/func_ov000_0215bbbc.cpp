@@ -3,12 +3,12 @@
 union Struct_ov000_021573a8_2 { struct { short unknown1_0_,unknown1_2_; }; struct { unsigned short unknown_0_,unknown_2_; }; };
 struct GameObject { char unknown_0_[0x138]; Struct_ov000_021573a8_2* unknown_138_; int inline_ov000_0215b278() const { return unknown_138_->unknown1_0_; } int inline_ov000_0215b278_2() const { return unknown_138_->unknown1_2_; } };
 class GameState { public: static GameState* GetInstance(); GameObject* GetCombatantByIndex(int); };
-struct Struct_ov000_0215440c_2 { void* unknown_0_; void* unknown_4_; unsigned char unknown_8_; };
+struct BattleAction_ov000_0215440c_2 { void* unknown_0_; void* unknown_4_; unsigned char unknown_8_; };
 struct Struct_ov000_0215b278 { void* unknown_0_[6]; char unknown_18_[4]; short unknown_1c_,unknown_1e_; unsigned short unknown_20_,unknown_22_,unknown_24_; unsigned char unknown_26_[6],unknown_2c_,unknown_2d_; char unknown_2e_[2]; int unknown_30_; };
 struct Struct_ov000_021537b8 { unsigned short unknown_0_; char unknown_2_[9]; unsigned char unknown_b_; };
 struct Struct_ov000_0215b278_2 { char unknown_0_[0xe]; unsigned short unknown_e_; char unknown_10_[7]; unsigned char unknown_17_; };
 struct Struct_ov000_0215b278_3 { char unknown_0_[0x20]; int unknown_20_; };
-extern "C" Struct_ov000_0215b278* func_ov000_02160094(Struct_ov000_0215440c_2*,int);
+extern "C" Struct_ov000_0215b278* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*,int);
 extern "C" void* func_ov000_0215e9d8(void*);
 extern "C" void func_ov000_02160030(void*);
 extern "C" void* func_ov000_0215e918(void*);
@@ -22,9 +22,9 @@ extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*,Struct_ov000_021576
 extern "C" { Struct_ov000_0215b278_3* GetNextActionResult_ov000_0215e958(void*); void func_ov000_0215ccbc(void*,Struct_ov000_0215b278_3*,GameObject*,short,short,short,unsigned long long,unsigned char); }
 inline int inline_ov000_021537b8(unsigned short arg0) { int var0=0; if(arg0<=3) var0=1; return var0; }
 // USA: func_ov000_0215bbbc
-extern "C" ARM void func_ov000_0215bbbc(unsigned char* arg0,Struct_ov000_0215440c_2* arg1) {
+extern "C" ARM void func_ov000_0215bbbc(unsigned char* arg0,BattleAction_ov000_0215440c_2* arg1) {
     for(int var0=0;var0<arg1->unknown_8_;var0++) {
-        Struct_ov000_0215b278* var1=func_ov000_02160094(arg1,var0);
+        Struct_ov000_0215b278* var1=GetActionActor_ov000_02160094(arg1,var0);
         if(!var1) continue;
         Struct_ov000_021537b8* var2; Struct_ov000_0215b278* var3; Struct_ov000_0215b278_2* var4; Struct_ov000_0215b278_3* var5;
         int var6=(short)var1->unknown_20_;

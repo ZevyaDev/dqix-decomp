@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_0203bd08(void);
+extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void* func_0203be40(void* arg0);
 extern "C" void* func_0203be4c(void* arg0);
 extern "C" unsigned int func_020937f0(int arg0);
@@ -68,7 +68,7 @@ extern "C" ARM void func_020e1780(struct Struct_020e1780* arg0) {
     if (arg0->unknown_4_ == 0) return;
     if (!arg0->unknown_4_->unknown_3f_0_ || (var8 = arg0->unknown_4_->unknown_8_) == 0) return;
 
-    var14 = func_0203bd08();
+    var14 = GetOAMManager_0203bd08();
     func_0203be40(var14);
     var1 = arg0->unknown_4_->unknown_3e_;
     var0 = arg0->unknown_4_->unknown_38_;

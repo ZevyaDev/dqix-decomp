@@ -24,7 +24,7 @@ extern "C" unsigned short* GetZone3D_02012fe4();
 extern "C" unsigned char* GetFlagManager_0205ec34();
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void func_02019678(unsigned short* arg0, int arg1);
-extern "C" void func_0200fd48(GameState* arg0, int arg1);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 extern "C" Object3D* func_ov017_021bdbc0(unsigned char*);
 extern "C" int func_0201bfc0(unsigned char*, int);
 extern "C" void func_020e1154(void*);
@@ -41,7 +41,7 @@ extern "C" int func_02011590(Struct_02011590*);
 extern "C" void func_020115f4(void*, unsigned short);
 extern "C" void func_ov017_021bb27c(void* arg0);
 extern "C" void func_ov017_021bb0c4(unsigned char*);
-extern "C" int func_020649b0(void*, int, void*);
+extern "C" int RunTrigger_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void* arg0);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
@@ -63,7 +63,7 @@ extern "C" void func_02039d48(unsigned char*);
 void SetBrightness(GameResources*, int, int);
 extern "C" int func_0209cd50(unsigned short arg0);
 struct Struct_0209c3b4_2;
-extern "C" void func_0209c3b4(Struct_0209c3b4_2*, int);
+extern "C" void PlayMusic_0209c3b4(Struct_0209c3b4_2*, int);
 extern "C" void func_ov017_021bd704(void* arg0);
 void SetMainBrightness(GameResources*, int, int);
 extern "C" void func_ov017_021cdd70(unsigned short arg0, unsigned short arg1, unsigned short arg2, unsigned short arg3, unsigned short arg4, unsigned short arg5, unsigned char arg6);
@@ -239,7 +239,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
             GameObject* var19 = var7->GetGameObjectByIndex(var18 + 0xa0);
             if (var19 != 0) {
                 var19->obj3D_.Destroy();
-                func_0200fd48(var7, var18 + 0xa0);
+                ClearGameObjectByIndex_0200fd48(var7, var18 + 0xa0);
             }
         }
         ((Struct_ov017_021bc77c_5*)var17)->unknown_3000_.unknown_630_ = 0;
@@ -298,7 +298,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
     if (*((unsigned char*)var1 + Enum_ov017_021bc77c_17122) == 0) {
         Struct_ov017_021bc77c_2 var24;
         var24.unknown_8_ = arg0->unknown_8_;
-        if (func_020649b0(var13, 0xb, &var24)) {
+        if (RunTrigger_020649b0(var13, 0xb, &var24)) {
             func_0206f81c(&var24);
         }
         if (IsLocalWirelessGuest_0202c540(var2)) {
@@ -356,7 +356,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
     if (var27[2]) {
         SetBrightness(var1, -16, 0);
     } else if (var10[2]) {
-        func_0209c3b4((Struct_0209c3b4_2*)gMusicManager_02109bf4, func_0209cd50(*var12));
+        PlayMusic_0209c3b4((Struct_0209c3b4_2*)gMusicManager_02109bf4, func_0209cd50(*var12));
         func_ov017_021bd704(&arg0->unknown_c_);
         SetMainBrightness(var1, 0, 0x28);
     } else if (var14[2]) {
@@ -473,7 +473,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
             func_ov000_02156b20((GameObject*)arg0);
 #endif
         }
-        func_0209c3b4((Struct_0209c3b4_2*)gMusicManager_02109bf4, func_0209cd50(*var12));
+        PlayMusic_0209c3b4((Struct_0209c3b4_2*)gMusicManager_02109bf4, func_0209cd50(*var12));
         func_ov017_021bd704(&arg0->unknown_c_);
         func_ov017_021a01bc((unsigned char*)var1);
         if (var11[2]) {

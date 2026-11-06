@@ -9,7 +9,7 @@ extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 
 extern "C" void* GetEffectManager_02057924();
-extern "C" void func_02057f00(void* arg0, int arg1);
+extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
 extern "C" void func_ov010_021842a0(void* arg0);
 
 struct Struct_ov010_021842d8 {
@@ -21,7 +21,7 @@ struct Struct_ov010_021842d8 {
 
 // USA: func_ov010_021842d8
 extern "C" ARM void func_ov010_021842d8(struct Struct_ov010_021842d8* arg0) {
-    func_02057f00(GetEffectManager_02057924(), 0x11);
+    RemoveEffectResource_02057f00(GetEffectManager_02057924(), 0x11);
     void* var0 = arg0->unknown_14_.GetSignedAllocator();
     if (var0 != NULL) {
         arg0->unknown_14_.Destroy();

@@ -28,7 +28,7 @@ extern "C" {
 void func_ov014_02185c48(void*);
 void* func_02097224(void*, short);
 extern void* data_ov014_02189800[4];
-extern Type_02000c9c_9 data_020e6d5c;
+extern Type_02000c9c_9 gNullMemberFunctionPointer_020e6d5c;
 extern Type_02000c9c_9 data_ov014_021895a0[];
 extern Type_02000c9c_9 data_ov014_021895b0[];
 extern const char data_ov014_021895c8[];
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov014_02184700(Struct_ov014_02184700_3* arg0) {
     arg0->unknown_92_ = 0;
     unsigned int var11 = (unsigned int)data_ov014_02189800[1];
     if (!(var11 & 1)) {
-        data_ov014_021895a0[4] = data_020e6d5c;
+        data_ov014_021895a0[4] = gNullMemberFunctionPointer_020e6d5c;
         data_ov014_02189800[1] = (void*)(var11 | 1);
     }
     if (data_ov014_021895b0[arg0->unknown_7c_]) (arg0->*data_ov014_021895b0[arg0->unknown_7c_])();

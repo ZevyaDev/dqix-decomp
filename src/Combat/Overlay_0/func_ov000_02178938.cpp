@@ -19,8 +19,8 @@ extern "C" void AppendCursorTag_02041ea4(char*, int);
 extern "C" void AppendText_02042058(char*, const char*);
 extern "C" void __clear(void*, int);
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0*);
-extern "C" void func_020e46c4(void*);
-extern "C" GameObject* func_0200fea4(GameState*, int);
+extern "C" void InitNoun_020e46c4(void*);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" void func_020e4ce8(Struct_ov000_02178938_3*, GameObject*, int);
 extern "C" void func_ov000_0217aa08(char*, char*);
 extern "C" void func_020e4f18(Struct_ov000_02178938_3*, Struct_ov000_02178938_3*, int);
@@ -107,8 +107,8 @@ extern "C" ARM void func_ov000_02178938(Struct_ov000_02178938* arg0, Struct_ov00
 #else
                 ClearMessageParams_02046380(var8);
                 Struct_ov000_02178938_3 var19;
-                func_020e46c4(&var19);
-                GameObject* var20 = func_0200fea4(var9, arg0->unknown_1d3c_[var17]);
+                InitNoun_020e46c4(&var19);
+                GameObject* var20 = GetEnemyByIndex_0200fea4(var9, arg0->unknown_1d3c_[var17]);
                 char var21[128];
                 char var22[128];
                 __clear(var21, 128);

@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 #if defined(jpn)
-extern "C" int func_02005a94(const char*);
+extern "C" int ParseDecimal_02005a94(const char*);
 extern "C" int func_020d85dc(const char*, const char*);
 extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
 extern "C" void func_02043270(void*, int, int, int, int);
@@ -50,7 +50,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
                 if (arg1[var8] == 0) return arg1 + var8;
                 var8++;
             }
-            int var9 = func_02005a94(arg1 + 6);
+            int var9 = ParseDecimal_02005a94(arg1 + 6);
             while (arg1[var7] != ',')
             {
                 if (arg1[var7] == '>')
@@ -63,7 +63,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
             }
             if (var6) return arg1;
             var7++;
-            int var10 = func_02005a94(arg1 + var7);
+            int var10 = ParseDecimal_02005a94(arg1 + var7);
             while (arg1[var7] != ',')
             {
                 if (arg1[var7] == '>')
@@ -76,7 +76,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
             }
             if (var6) return arg1;
             var7++;
-            int var11 = func_02005a94(arg1 + var7);
+            int var11 = ParseDecimal_02005a94(arg1 + var7);
             while (arg1[var7] != ',')
             {
                 if (arg1[var7] == '>')
@@ -88,7 +88,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
                 var7++;
             }
             if (var6) return arg1;
-            int var12 = func_02005a94(arg1 + (var7 + 1));
+            int var12 = ParseDecimal_02005a94(arg1 + (var7 + 1));
             if (var9 < 0) var9 = 0;
             if (var9 > 256) var9 = 256;
             if (var10 < 0) var10 = 0;
@@ -113,7 +113,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
         else if (func_020d85dc(arg1, data_020f00d4))
         {
             int var13 = 6;
-            int var14 = func_02005a94(arg1 + 6);
+            int var14 = ParseDecimal_02005a94(arg1 + 6);
             while (arg1[var13] != '>')
             {
                 if (arg1[var13] == 0) return arg1 + var13;
@@ -132,7 +132,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
                 if (arg1[var16] == 0) return arg1 + var16;
                 var16++;
             }
-            int var17 = func_02005a94(arg1 + 6);
+            int var17 = ParseDecimal_02005a94(arg1 + 6);
             if (var17 <= 0) var17 = 12;
             while (arg1[var15] != ',')
             {
@@ -143,7 +143,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
                 }
                 var15++;
             }
-            int var18 = func_02005a94(arg1 + (var15 + 1));
+            int var18 = ParseDecimal_02005a94(arg1 + (var15 + 1));
             if (var18 <= 0) var18 = 16;
             arg0->unknown_1000_.unknown_730_ = var17;
             arg0->unknown_1000_.unknown_734_ = var18;
@@ -171,7 +171,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
                 }
             }
             if (var21) continue;
-            int var24 = func_02005a94(arg1 + 7);
+            int var24 = ParseDecimal_02005a94(arg1 + 7);
             if (var24 < 0) var24 = 255;
             if (var24 > 255) var24 = 255;
             while (arg1[var19] != ',')
@@ -186,7 +186,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
             }
             if (var21) continue;
             var19++;
-            int var25 = func_02005a94(arg1 + var19);
+            int var25 = ParseDecimal_02005a94(arg1 + var19);
             if (var25 < 0) var25 = 255;
             if (var25 > 255) var25 = 255;
             while (arg1[var19] != ',')
@@ -200,7 +200,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
                 var19++;
             }
             if (var21) continue;
-            int var26 = func_02005a94(arg1 + (var19 + 1));
+            int var26 = ParseDecimal_02005a94(arg1 + (var19 + 1));
             if (var26 < 0) var26 = 255;
             if (var26 > 255) var26 = 255;
             arg0->unknown_1000_.unknown_74c_ = (var24 >> 3) | ((var25 >> 3) << 5) | ((var26 >> 3) << 10);

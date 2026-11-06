@@ -52,17 +52,17 @@ extern "C" int func_02041fac(char*, int, int);
 #endif
 extern "C" int AppendFrameTag_02041c08(char*, int, int, int, int, int);
 extern "C" int AppendCursorTag_02041ea4(char*, int);
-extern "C" int func_02041e70(char*, int);
-extern "C" int func_02041a90(char*, int, int);
-extern "C" int func_02041a28(char*, int);
+extern "C" int AppendTextColorTag_02041e70(char*, int);
+extern "C" int AppendPositionTag_02041a90(char*, int, int);
+extern "C" int AppendXPositionTag_02041a28(char*, int);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" int AppendMenuEntry_02041b70(char*, int, const char*);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" void func_02046608(void*, int, void*, void*, int, int, int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" void func_020465f0(unsigned char*, int, unsigned char);
-extern "C" void func_020465d8(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*, int, unsigned char);
 extern "C" int GetStandardString_020e51cc(int);
 
 #if defined(jpn)
@@ -112,14 +112,14 @@ extern "C" ARM void func_ov003_0215b964(Struct_ov003_0215b964_5* arg0, char* arg
             float var11 = (float)(int)var9->unknown_4_;
             var7 = var11 / (float)var8;
         }
-        if (var10 & 1) func_02041e70(arg1, 9);
-        else if (var7 <= 0.08f) func_02041e70(arg1, 11);
-        else if (var7 <= 0.25f) func_02041e70(arg1, 13);
-        else func_02041e70(arg1, 15);
+        if (var10 & 1) AppendTextColorTag_02041e70(arg1, 9);
+        else if (var7 <= 0.08f) AppendTextColorTag_02041e70(arg1, 11);
+        else if (var7 <= 0.25f) AppendTextColorTag_02041e70(arg1, 13);
+        else AppendTextColorTag_02041e70(arg1, 15);
 #if defined(jpn)
-        func_02041a28(arg1, 12);
+        AppendXPositionTag_02041a28(arg1, 12);
 #else
-        func_02041a90(arg1, 12, var4 * 14 + 20);
+        AppendPositionTag_02041a90(arg1, 12, var4 * 14 + 20);
 #endif
         const char* var12;
         if (var2 == -1) {
@@ -139,8 +139,8 @@ extern "C" ARM void func_ov003_0215b964(Struct_ov003_0215b964_5* arg0, char* arg
         if (!(var5->unknown_130_->unknown_0_ & 1) && !(var10 & 6)) {
             ClearMessageParams_02046380(var1);
             SetMessageNumber_020465c0(var1, 0, var6->unknown_16c_[var6->unknown_950_]);
-            func_020465f0(((unsigned char*)(var1)), 0, 2);
-            func_020465d8(((unsigned char*)(var1)), 0, 1);
+            SetMessageNumberWidth_020465f0(((unsigned char*)(var1)), 0, 2);
+            SetMessageNumberAlignment_020465d8(((unsigned char*)(var1)), 0, 1);
             char var13[0x40];
             __clear(var13, sizeof(var13));
             func_020474a8(var1, 10, ((char*)(FindStringInTable_020e0434(&arg0->unknown_64_, 12))), var13);
@@ -150,7 +150,7 @@ extern "C" ARM void func_ov003_0215b964(Struct_ov003_0215b964_5* arg0, char* arg
 #else
         memset(var0->unknown_8e0_, 0, 0x40);
         memset(var0->unknown_920_, 0, 0x40);
-        func_02041a28(var0->unknown_920_, 0x40);
+        AppendXPositionTag_02041a28(var0->unknown_920_, 0x40);
         if (var5->unknown_130_->unknown_0_ & 1)
             AppendText_02042058(var0->unknown_920_, (const char*)FindStringInTable_020e0434(&arg0->unknown_64_, 13));
         else if (var10 & 2)
@@ -166,11 +166,11 @@ extern "C" ARM void func_ov003_0215b964(Struct_ov003_0215b964_5* arg0, char* arg
         if (!(var5->unknown_130_->unknown_0_ & 1) && !(var10 & 6)) {
             ClearMessageParams_02046380(var1);
             SetMessageNumber_020465c0(var1, 0, var6->unknown_16c_[var6->unknown_950_]);
-            func_020465f0((unsigned char*)var1, 0, 2);
-            func_020465d8((unsigned char*)var1, 0, 1);
+            SetMessageNumberWidth_020465f0((unsigned char*)var1, 0, 2);
+            SetMessageNumberAlignment_020465d8((unsigned char*)var1, 0, 1);
             memset(var0->unknown_8e0_, 0, 0x40);
             memset(var0->unknown_920_, 0, 0x40);
-            func_02041a28(var0->unknown_920_, 0x40);
+            AppendXPositionTag_02041a28(var0->unknown_920_, 0x40);
             AppendText_02042058(var0->unknown_920_, (const char*)GetStandardString_020e51cc(0x3f3));
             AppendText_02042058(var0->unknown_920_, (const char*)FindStringInTable_020e0434(&arg0->unknown_64_, 12));
             func_02046608(var1, 10, var0->unknown_920_, var0->unknown_8e0_, 0x100, 0, 0);

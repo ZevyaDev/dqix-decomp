@@ -2,11 +2,8 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 
-#if defined(jpn)
-#define func_020c39a0 func_020c546c
-#endif
 
-extern "C" void func_020c39a0(short* arg0, int arg1);
+extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void func_ov020_0218cd64(int, int, int, int, int);
@@ -43,7 +40,7 @@ struct Struct_ov020_0218cd98 {
 extern "C" ARM void func_ov020_0218cd98(struct Struct_ov020_0218cd98* arg0) {
     unsigned char* var0 = (unsigned char*)arg0;
 
-    func_020c39a0((short*)0x400106c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
     arg0->unknown_470_.Reset();
     MapVRAMBanksToSubBG(4);
     func_ov020_0218cd64(0, 1, 1, 1, 0);
@@ -87,6 +84,6 @@ extern "C" ARM void func_ov020_0218cd98(struct Struct_ov020_0218cd98* arg0) {
     volatile unsigned int* var11 = (volatile unsigned int*)0x4001000;
     *var11 = (*var11 & ~0x1f00) | 0x100;
 
-    func_020c39a0((short*)0x400006c, -16);
-    func_020c39a0((short*)0x400106c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
 }

@@ -19,7 +19,7 @@ extern "C" ARM void func_ov003_02173f70(Struct_ov003_02173f70* arg0, SafeAllocat
         arg0->unknown_4_ = static_cast<SafeAllocator*>(arg1->Allocate(0x78));
         arg0->unknown_830_ = static_cast<Sprite_02043368_2*>(arg1->Allocate(0x528));
         arg0->unknown_89c_ = static_cast<Struct_0207f7f0*>(arg1->Allocate(sizeof(Struct_0207f7f0)));
-        arg0->unknown_82c_ = static_cast<Struct_02043368*>(arg1->Allocate(8));
+        arg0->unknown_82c_ = static_cast<SpriteAnimationList_02043368*>(arg1->Allocate(8));
         arg0->unknown_0_ = static_cast<Struct_020e2490*>(arg1->Allocate(0x24));
 #if defined(jpn)
         func_020e2490(arg0->unknown_0_, 0, 1, arg0->unknown_82c_, arg1, 3, 0x40);

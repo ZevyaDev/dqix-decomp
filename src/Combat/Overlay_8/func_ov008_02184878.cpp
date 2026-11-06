@@ -13,11 +13,11 @@
 #include <globaldefs.h>
 
 struct TextWindowManager_0205d1e0;
-extern "C" void func_0205d1e0(struct TextWindowManager_0205d1e0*);
-struct Struct_0205d228;
-extern "C" void func_0205d228(struct Struct_0205d228*);
+extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(struct TextWindowManager_0205d1e0*);
+struct TextWindowManager_0205d228;
+extern "C" void DrawTextWindows_0205d228(struct TextWindowManager_0205d228*);
 struct TextWindowManager_0205d274;
-extern "C" void func_0205d274(struct TextWindowManager_0205d274*);
+extern "C" void FlushTextWindowManagerBGScreenData_0205d274(struct TextWindowManager_0205d274*);
 extern "C" void func_ov008_02188730(void* arg0);
 extern "C" void func_ov008_02188934(void* arg0);
 struct Struct_ov008_02184878;
@@ -30,9 +30,9 @@ extern "C" ARM void func_ov008_02184878(char* arg0) {
     signed char var0 = *(signed char*)(arg0 + 0xb10);
     if (var0 == 0 || var0 == 1 || var0 == 0xe) return;
     if (*(void**)(arg0 + 0xb08) == 0) {
-        func_0205d1e0((TextWindowManager_0205d1e0*)(arg0 + 0x130));
-        func_0205d228((Struct_0205d228*)(arg0 + 0x130));
-        func_0205d274((TextWindowManager_0205d274*)(arg0 + 0x130));
+        ClearTextWindowManagerBGScreenData_0205d1e0((TextWindowManager_0205d1e0*)(arg0 + 0x130));
+        DrawTextWindows_0205d228((TextWindowManager_0205d228*)(arg0 + 0x130));
+        FlushTextWindowManagerBGScreenData_0205d274((TextWindowManager_0205d274*)(arg0 + 0x130));
     }
     if (*(int*)(arg0 + 0xb24) == 1) return;
     if (*(signed char*)(arg0 + 0xb10) == 3 && *(unsigned char*)(arg0 + 0xb11) < 1) return;

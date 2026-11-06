@@ -6,12 +6,12 @@ enum { Enum_02079040_24 = 0x14 };
 enum { Enum_02079040_24 = 0x18 };
 #endif
 
-struct Struct_020fdd44;
-extern "C" struct Struct_020fdd44* func_02027ca4(void);
+struct ActiveZone_020fdd44;
+extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
 
 struct Struct_02039df4;
 
-extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1);
+extern "C" struct ActiveZone_020fdd44* FindActiveZone_02028bd0(struct ActiveZone_020fdd44* zones, int zoneId);
 
 extern "C" int func_02028638(void* arg0, void* arg1);
 
@@ -26,15 +26,15 @@ struct Struct_02076df4 {
 
 // USA: func_02079040
 extern "C" ARM unsigned short func_02079040(struct Struct_02076df4* arg0, unsigned char* arg1) {
-    struct Struct_020fdd44* var0;
-    struct Struct_020fdd44* var1;
+    struct ActiveZone_020fdd44* var0;
+    struct ActiveZone_020fdd44* var1;
     unsigned short var2;
     int var3;
     int var4;
     *arg1 = 0;
-    var0 = func_02027ca4();
+    var0 = GetActiveZones_02027ca4();
     var2 = ((Object3D*)((struct Struct_02039df4*)arg0))->GetField06();
-    var1 = func_02028bd0(var0, var2);
+    var1 = FindActiveZone_02028bd0(var0, var2);
     if (var1 == NULL) {
         return 0;
     }

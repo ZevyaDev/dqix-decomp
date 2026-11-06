@@ -17,7 +17,7 @@ extern char data_020ef4b1[], data_020ef4c9[], data_020ef4d0[];
 #include "Resource/Brightness.h"
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0203bd08(void);
+extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void* func_0203b628(void);
 extern "C" void func_02021428(void* arg0, int arg1);
 
@@ -27,7 +27,7 @@ extern "C" void func_0203bd78(char* arg0);
 extern "C" void func_0203bd24(char* arg0);
 extern "C" void func_0203b718(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0203ba74(void* arg0);
-extern "C" void func_020c9820(void);
+extern "C" void WaitForVBlank_020c9820(void);
 #if defined(jpn)
 extern "C" void func_02020cb8(void* arg0, int arg1);
 extern "C" void func_02020e58(void* arg0, int arg1);
@@ -86,7 +86,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
     var4 = BackgroundLoader::GetInstance();
     GetZone3D_02012fe4();
     var5 = GetGameResources();
-    var6 = (char*)func_0203bd08();
+    var6 = (char*)GetOAMManager_0203bd08();
     var7 = (char*)func_0203b628();
     var8 = inline_02021b84(var5, 12);
     var9 = var3->GetGrottoStruct();
@@ -141,7 +141,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
         func_0203b718(var7, 1, 0, 0);
         func_0203b718(var7, 1, 1, 0);
         func_0203ba74(var7);
-        func_020c9820();
+        WaitForVBlank_020c9820();
 #if defined(jpn)
         func_02020cb8(arg0, arg0->unknown_9fc_);
 #else
@@ -208,7 +208,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
         char* var15 = (char*)0x06600000;
         VectorizedInvertedMemcpy(var15 + 0x2bc0, var14, 0x540);
         func_02023218(arg0, var14, 0, 0x540);
-        func_020c9820();
+        WaitForVBlank_020c9820();
         DC_FlushRange(var14, 0x540);
         LoadToSubObjVRAM(var14, 0x2bc0, 0x540);
 #else
@@ -216,7 +216,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
         memcpy(arg0->unknown_bf0_, var16 + 0x2c00, 0x40);
         func_020233b8(arg0, 1);
 #endif
-        func_0203bd08();
+        GetOAMManager_0203bd08();
         char* var17 = (char*)func_0203be4c() + 0x2e8;
         *(char**)func_0203bd14() = var17;
         BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_a04_);
@@ -232,7 +232,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
         arg0->unknown_9c8_ = 0;
         arg0->unknown_9c3_ = 0;
         arg0->unknown_9c2_ = arg0->unknown_9c2_ + 1;
-        func_020c9820();
+        WaitForVBlank_020c9820();
         func_0202343c(arg0);
         func_02026b7c((unsigned char*)arg0);
         func_02026bdc(arg0, 0);

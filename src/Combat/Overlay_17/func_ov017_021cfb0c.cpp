@@ -8,8 +8,8 @@ enum { Enum_ov017_021cfb0c_14076 = 0x36fc, Enum_ov017_021cfb0c_15116 = 0x3b0c };
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
-struct Struct_02015438;
-struct Struct_02038598_5;
+struct QueueNode_02015438;
+struct Queue_02038598_5;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 struct LocalWireless_0202c1a4;
@@ -27,7 +27,7 @@ struct Struct_ov017_021cfb0c {
 
 struct Struct_ov017_021cfb0c_2 {
     unsigned char unknown_0_[Enum_ov017_021cfb0c_14076];
-    Struct_02015438** unknown_36fc_;
+    QueueNode_02015438** unknown_36fc_;
     unsigned char unknown_3700_[Enum_ov017_021cfb0c_15116 - 0x3700];
     struct Struct_ov017_021cfb0c* unknown_3b0c_;
     unsigned char unknown_3b10_[0x3ca4 - 0x3b10];
@@ -43,9 +43,9 @@ struct Struct_ov017_021cfb0c_3 {
 extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202c1a4* wireless);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
-extern "C" int func_02046b24(Struct_02015438** arg0);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438** queue);
 extern "C" int func_0201b588(int arg0);
-extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void func_ov017_021be40c(struct Struct_ov017_021be40c* arg0);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov017_021cfb0c(int arg0, void* arg1, GameState* arg2, s
     unsigned short* var1;
     struct Struct_ov017_021cfb0c_3* var2;
     unsigned short var3;
-    Struct_02015438** var4;
+    QueueNode_02015438** var4;
     unsigned short* var5;
     struct Struct_ov017_021be40c* var6;
 
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov017_021cfb0c(int arg0, void* arg1, GameState* arg2, s
     var4 = arg3->unknown_36fc_;
     var0 = 0;
     var5 = (unsigned short*)GetZoneEntry_0200fd0c(arg2);
-    if (func_02046b24(var4) == 3) {
+    if (GetQueueHeadType_02046b24(var4) == 3) {
         if (func_0201b588(*var5)) {
             var0 = 1;
         }
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov017_021cfb0c(int arg0, void* arg1, GameState* arg2, s
 
     Vector3i var7 = var2->unknown_10_;
     var7.z += 0x2000;
-    if (func_02046b60((Struct_02038598_5*)var4, 3) || func_02046b60((Struct_02038598_5*)var4, 1)) {
+    if (IsTypeInQueue_02046b60((Queue_02038598_5*)var4, 3) || IsTypeInQueue_02046b60((Queue_02038598_5*)var4, 1)) {
         unsigned short var8 = *(unsigned short*)GetZoneEntry_0200fd0c(arg2);
         if (var8 == 0xc3b5) {
             return;
@@ -91,12 +91,12 @@ extern "C" ARM void func_ov017_021cfb0c(int arg0, void* arg1, GameState* arg2, s
         }
     }
 
-    if (func_02046b24(var4) == 0x1a) {
+    if (GetQueueHeadType_02046b24(var4) == 0x1a) {
         if (arg3->unknown_3b0c_->unknown_14_ >= 6) {
             return;
         }
     }
-    if (func_02046b60((Struct_02038598_5*)var4, 0x4e)) {
+    if (IsTypeInQueue_02046b60((Queue_02038598_5*)var4, 0x4e)) {
         return;
     }
 

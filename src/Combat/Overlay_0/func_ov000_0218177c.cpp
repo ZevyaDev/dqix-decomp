@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-struct Struct_ov000_02160094 {
+struct ActionActor_ov000_02160094 {
     char unknown_0_[0x20];
     short unknown_20_;
 };
-struct Struct_ov000_0215440c_2;
-extern "C" Struct_ov000_02160094* func_ov000_02160094(Struct_ov000_0215440c_2* arg0, int arg1);
+struct BattleAction_ov000_0215440c_2;
+extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 
-struct Struct_ov000_021600f8 {
+struct ActionTarget_ov000_021600f8 {
     char unknown_0_[0xe];
     short unknown_e_;
 };
-struct Struct_ov000_0215440c;
-extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c* arg0, int arg1);
+struct BattleAction_ov000_0215440c;
+extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov000_0215ec1c(void* arg0, short* arg1, int arg2, int arg3);
@@ -30,13 +30,13 @@ extern "C" ARM int func_ov000_0218177c(void* arg0, void* arg1, int arg2, int arg
     short var0[12];
     int var1;
     if (arg2) {
-        Struct_ov000_02160094* var2 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, 0);
+        ActionActor_ov000_02160094* var2 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, 0);
         if (var2 == 0) {
             return 0;
         }
         var1 = var2->unknown_20_;
     } else {
-        Struct_ov000_021600f8* var3 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, 0);
+        ActionTarget_ov000_021600f8* var3 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);
         if (var3 == 0) {
             return 0;
         }

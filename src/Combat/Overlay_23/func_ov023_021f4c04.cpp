@@ -12,9 +12,9 @@
 struct Struct_ov000_02161e30;
 struct MusicManager_02109bf4_4;
 struct GlobalFlags_02038598_4;
-struct Struct_020727d8;
+struct StringList_020727d8;
 struct StringList_02072a68_2;
-struct Struct_02048150;
+struct Party_02048150;
 
 struct Struct_ov026_021d8ba0 {
     unsigned char unknown_0_[4];
@@ -164,24 +164,24 @@ extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_0201075c(char* arg0, unsigned char arg1);
 extern "C" unsigned char func_02010750(char* arg0);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_ov017_021d2400(void);
 extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
-extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
-extern "C" void func_020727d8(Struct_020727d8* arg0);
+extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1,
                                     unsigned int* arg2);
-extern "C" void func_020728ac(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5,
-                              int arg6);
+extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* arg2, int scriptSize, int idFilter, int idFilterCount,
+                              int skippedStringCount);
 extern "C" void func_ov023_021f50fc();
 extern "C" int func_ov000_02163c80(void* arg0, int arg1);
 extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
 extern "C" void func_ov017_021c9b20(int arg0, int arg1);
 extern "C" int func_02076ccc(void* arg0, int arg1);
 extern "C" void func_ov017_021a23b0(void* arg0, int arg1);
-extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
+extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" void func_ov000_0216d370(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
@@ -190,7 +190,7 @@ extern "C" void StartMessage_0204500c(void* window, const char* text, int arg2, 
 #endif
 extern "C" void func_0209c6d8(void* arg0, int arg1);
 extern "C" int func_ov017_021959b4(void);
-extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
+extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 extern "C" void func_ov017_021cbfb8(unsigned short arg0, unsigned char arg1);
 extern "C" void func_0209c7fc(void* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -223,14 +223,14 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
             GameObject* var12 = var3->GetPartyMemberByIndex(var11);
             if (var12 == NULL) continue;
             if (((Struct_ov023_021f4c04_3*)var12)->unknown_130_->unknown_0_ & 1) continue;
-            if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var11)) continue;
+            if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var11)) continue;
             func_0201075c((char*)var3, 0);
         }
         if (func_02010750((char*)var3) != 0 && IsLocalWirelessOn_0202b7d8((int*)var9) != 0) {
             func_ov017_021d2400();
         }
         func_0209c678(&gMusicManager_02109bf4, 0x1e);
-        func_ov000_02160fa8(arg0, 0x800000);
+        SetBattleSceneFlags_ov000_02160fa8(arg0, 0x800000);
         ClearGlobalFlags_020466f4(var7, 0x40000);
         inline_ov023_021f4c04().unknown_4_ = 0;
         arg0->unknown_eac_ = 1;
@@ -238,7 +238,7 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
         if (inline_ov023_021f4c04().unknown_4_ < 1000) return;
         if (var6->GetNumQueuedTasks() > 0) return;
         ((SafeAllocator*)arg0->unknown_30_)->Reset();
-        func_020727d8((Struct_020727d8*)arg0->unknown_5904_);
+        ResetStringList_020727d8((StringList_020727d8*)arg0->unknown_5904_);
 #if defined(jpn)
         func_02073864(arg0->unknown_5904_, arg0->unknown_30_, data_ov023_021fd49e, 0, 0, 0);
 #else
@@ -246,7 +246,7 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
         var1 = 0;
         void* var13 = ExtractFileFromGP2(data_ov023_021fe1d8, data_ov023_021fe1ee, &var1);
         if (var13 != NULL) {
-            func_020728ac(arg0->unknown_5904_, arg0->unknown_30_, var13, var1, 0, 0, 0);
+            LoadStringList_020728ac(arg0->unknown_5904_, arg0->unknown_30_, var13, var1, 0, 0, 0);
         }
         BackgroundLoader::RemoveLockGlobal();
 #endif
@@ -264,13 +264,13 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
             func_ov017_021a23b0((void*)var5, var14);
         }
 #if !defined(jpn)
-        unsigned char var16 = func_020114ec((char*)var3, var2);
+        unsigned char var16 = GetPartyOrder_020114ec((char*)var3, var2);
         unsigned char var17 = 0;
         unsigned char var18 = 0;
         for (int var19 = 0; var19 < var16; var19++) {
             GameObject* var20 = var3->GetCombatantByIndex(var2[var19]);
             if (var20 == NULL) continue;
-            if (!func_020a35e0((unsigned char*)arg0->unknown_2a0_, var2[var19])) continue;
+            if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var2[var19])) continue;
             var17++;
             if ((((Struct_ov023_021f4c04_3*)var20)->unknown_130_->unknown_0_ & 1) == 0) var18++;
         }
@@ -294,7 +294,7 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
         if (func_ov017_021959b4() == 0 && *(unsigned char*)((char*)var3 + REGION_LAYOUT(0x54c8, 0x5728)) == 0) {
             if (var4->unknown_998_ != 0) return;
         }
-        if (func_02086ef0((Struct_02048150*)var8, arg0->unknown_2a0_->unknown_2a_)) {
+        if (IsInParty_02086ef0((Party_02048150*)var8, arg0->unknown_2a0_->unknown_2a_)) {
             func_ov017_021cbfb8(arg0->unknown_2a0_->unknown_8_, 1);
         }
         *(unsigned char*)((char*)var3 + REGION_LAYOUT(0x54c8, 0x5728)) = 0;

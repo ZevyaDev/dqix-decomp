@@ -26,7 +26,7 @@ struct BGLayer_0204b174 {
     unsigned char unknown_0_[0x10];
     Struct_0204acdc* pScreenBlocks_10_;
     unsigned char unknown_14_[8];
-    unsigned char unknown_1c_0_ : 4;
+    unsigned char isSubScreen_1c_0_ : 4;
     unsigned char bgIndex_1c_4_ : 4;
     unsigned char screenBlockCount_1d_;
     unsigned char screenBlockCapacity_1e_;
@@ -44,12 +44,12 @@ extern "C" ARM int LoadBGBlock_0204b174(struct BGLayer_0204b174* layer, char* bl
     memcpy(tag, block, 5);
 
     if (CompareBytes_02001aec(tag, &data_020f0238, 4) == 0) {
-        Type_0204b174 var1 = (Type_0204b174)data_020f01f8[layer->unknown_1c_0_][layer->bgIndex_1c_4_];
-        return func_0204a848((Struct_0204a848*)layer, var1, (unsigned char*)block, (void*)allocator);
+        Type_0204b174 characterDataLoader = (Type_0204b174)data_020f01f8[layer->isSubScreen_1c_0_][layer->bgIndex_1c_4_];
+        return func_0204a848((Struct_0204a848*)layer, characterDataLoader, (unsigned char*)block, (void*)allocator);
     }
 
     if (CompareBytes_02001aec(tag, &data_020f023d, 4) == 0) {
-        Type_0204b174 paletteLoader = data_020f01b0[layer->unknown_1c_0_];
+        Type_0204b174 paletteLoader = data_020f01b0[layer->isSubScreen_1c_0_];
         return func_0204aa64((Struct_0204aa64*)((char*)layer + 0xc), paletteLoader, (unsigned char*)block, (void*)allocator);
     }
 
@@ -59,7 +59,7 @@ extern "C" ARM int LoadBGBlock_0204b174(struct BGLayer_0204b174* layer, char* bl
                 return 1;
             }
             int status = func_0204acdc((Struct_0204acdc*)((char*)layer->pScreenBlocks_10_ + layer->screenBlockCount_1d_ * 0x10),
-                                           (void*)(Type_0204b174)data_020f0218[layer->unknown_1c_0_][layer->bgIndex_1c_4_],
+                                           (void*)(Type_0204b174)data_020f0218[layer->isSubScreen_1c_0_][layer->bgIndex_1c_4_],
                                            (unsigned char*)block, (SafeAllocator*)allocator);
             if (status != 0) {
                 return 1;

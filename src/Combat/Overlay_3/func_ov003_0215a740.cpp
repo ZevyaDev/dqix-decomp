@@ -34,7 +34,7 @@ extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" int _s32_div_f(int, int);
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" void func_020465f0(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
@@ -52,11 +52,11 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov017_021c3fb4(int, int);
 extern "C" void func_ov017_021c4418(int, int);
-extern "C" void func_ov017_0218f5a4(void*, int, int, int, int);
+extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void*, int, int, int, int);
 struct Struct_0203d028_4;
 extern "C" void func_ov017_021a3498(Struct_0203d028_4*);
-struct Struct_02015438;
-extern "C" int func_02046b24(Struct_02015438**);
+struct QueueNode_02015438;
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void func_ov017_0218b5f8(int);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
             }
             if (var8 != 0) {
                 SetMessageNumber_020465c0((MessageWindow_020465c0*)var2, 0, *(int*)(var0 + 0x5ac));
-                func_020465f0(var2, 0, 0);
+                SetMessageNumberWidth_020465f0(var2, 0, 0);
                 memset(*(void**)(var0 + 0x7c), 0, Enum_ov003_0215a740_2400);
                 func_ov003_02159290(arg0, 0x425, 0x42e);
                 func_ov003_02159250(arg0, *(void**)(var0 + 0x7c));
@@ -262,11 +262,11 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
                 void* var26 = *(void**)((char*)var25 + Enum_ov003_0215a740_14080);
                 void* var27 = *(void**)((char*)var25 + Enum_ov003_0215a740_14080 + 4);
                 void* var28 = BackgroundLoader::GetInstance();
-                func_ov017_0218f5a4(var25, var14, 1, 0, 0);
-                while (func_02046b24((Struct_02015438**)var26) == 0x13) {
+                QueuePartyMemberModelLoad_ov017_0218f5a4(var25, var14, 1, 0, 0);
+                while (GetQueueHeadType_02046b24((QueueNode_02015438**)var26) == 0x13) {
                     ((BackgroundLoader*)var28)->RemoveAllLocks();
                     func_ov017_021a3498((Struct_0203d028_4*)var26);
-                    if (func_02046b24((Struct_02015438**)var27) == 0x14) {
+                    if (GetQueueHeadType_02046b24((QueueNode_02015438**)var27) == 0x14) {
                         func_ov017_021a3498((Struct_0203d028_4*)var27);
                     }
                 }

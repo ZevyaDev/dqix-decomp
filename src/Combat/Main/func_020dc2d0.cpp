@@ -10,7 +10,7 @@ extern "C" {
 }
 
 struct GlobalFlags_02038598_4;
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 struct Struct_02093b90_2;
 
 struct Struct_020dc2d0 {
@@ -24,7 +24,7 @@ extern "C" int* func_020936f8(void);
 extern "C" void func_020941b0(struct Struct_02093b90_2* arg0);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
-extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
+extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 
 #if defined(jpn)
 enum { Enum_020dc2d0_1788 = 0x4ec };
@@ -47,7 +47,7 @@ extern "C" ARM void func_020dc2d0(int arg0) {
     void* var8 = *(void**)(var7 + 0x3000 + Enum_020dc2d0_1788);
     var5 = var4;
 
-    int var9 = func_02046b60((Struct_02038598_5*)var8, 0x43);
+    int var9 = IsTypeInQueue_02046b60((Queue_02038598_5*)var8, 0x43);
     if (var9) {
         var4 = 1;
     }

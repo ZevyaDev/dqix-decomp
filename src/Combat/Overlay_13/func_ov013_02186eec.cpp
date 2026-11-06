@@ -2,12 +2,12 @@
 
 struct Struct_0208df10;
 extern "C" void func_0208df10(struct Struct_0208df10* arg0);
-struct Struct_020727d8;
-extern "C" void func_020727d8(struct Struct_020727d8* arg0);
+struct StringList_020727d8;
+extern "C" void ResetStringList_020727d8(struct StringList_020727d8* stringList);
 struct BGLayer_02020cb8;
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
-struct Struct_02074af4;
-extern "C" void func_02074af4(struct Struct_02074af4* arg0);
+struct BGControlSave_02074af4;
+extern "C" void SaveMainBGControl_02074af4(struct BGControlSave_02074af4* save);
 struct Struct_02074b64;
 extern "C" void func_02074b64(struct Struct_02074b64* arg0);
 
@@ -23,7 +23,7 @@ extern "C" ARM void func_ov013_02186eec(void* arg0, unsigned char arg1) {
 
     *(int*)(var0 + 0x0) = 0;
     func_0208df10((struct Struct_0208df10*)(var0 + 0xc));
-    func_020727d8((struct Struct_020727d8*)(var0 + 0x4));
+    ResetStringList_020727d8((struct StringList_020727d8*)(var0 + 0x4));
     var0[0x24] = 0;
     var0[0x25] = 0;
     InitBGLayer_0204af64((struct BGLayer_02020cb8*)(var0 + 0x28));
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov013_02186eec(void* arg0, unsigned char arg1) {
 #endif
 
     if (var0[Enum_ov013_02186eec_100] == 0) {
-        func_02074af4((struct Struct_02074af4*)(var0 + 0x14));
+        SaveMainBGControl_02074af4((struct BGControlSave_02074af4*)(var0 + 0x14));
         var1 = *(volatile unsigned int*)0x4000000;
     } else {
         func_02074b64((struct Struct_02074b64*)(var0 + 0x14));

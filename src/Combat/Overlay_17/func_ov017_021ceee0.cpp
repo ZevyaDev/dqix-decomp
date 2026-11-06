@@ -7,11 +7,11 @@ enum { Enum_ov017_021ceee0_1788 = 0x6fc, Enum_ov017_021ceee0_352 = 0x160, Enum_o
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_02015438 { signed char unknown_0_; };
-extern "C" int func_02046b24(struct Struct_02015438** arg0);
+struct QueueNode_02015438 { signed char type_0_; };
+extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 
-struct Struct_02048150;
-extern "C" int func_02086ef0(struct Struct_02048150* arg0, int arg1);
+struct Party_02048150;
+extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex);
 
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
@@ -35,15 +35,15 @@ struct Struct_ov017_021ceee0 {
 // USA: func_ov017_021ceee0
 extern "C" ARM void func_ov017_021ceee0(void* arg0, struct Struct_ov017_021ceee0* arg1, GameState* arg2, char* arg3) {
     GameObject* var0;
-    struct Struct_02015438** var1 = *(struct Struct_02015438***)(arg3 + 0x3000 + Enum_ov017_021ceee0_1788);
+    struct QueueNode_02015438** var1 = *(struct QueueNode_02015438***)(arg3 + 0x3000 + Enum_ov017_021ceee0_1788);
     var0 = arg2->GetMaybeWanderingMonsterByIndex(arg1->unknown_12_);
-    if (func_02086ef0((struct Struct_02048150*)GetParty_02010828(arg2), arg1->unknown_12_)) {
+    if (IsInParty_02086ef0((struct Party_02048150*)GetParty_02010828(arg2), arg1->unknown_12_)) {
         return;
     }
     if (!var0) {
         return;
     }
-    if (func_02046b24(var1) == 0xa) {
+    if (GetQueueHeadType_02046b24(var1) == 0xa) {
         int var2 = arg1->unknown_12_ <= 3;
         if (!var2) {
             return;
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov017_021ceee0(void* arg0, struct Struct_ov017_021ceee0
         *(Vector3i*)((int*)((char*)var3 + Enum_ov017_021ceee0_364)) = *(Vector3i const*)var4;
         return;
     }
-    if (func_02046b24(var1) == 4) {
+    if (GetQueueHeadType_02046b24(var1) == 4) {
         return;
     }
     *(Vector3i*)(&var0->obj3D_.position_.x) = *(Vector3i const*)arg1->unknown_4_;

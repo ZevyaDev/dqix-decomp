@@ -9,7 +9,6 @@
 #if defined(jpn)
 #define func_020d1198 func_020d2c64
 
-#define data_02111304 data_02110fa4
 
 #define data_02111728 data_021113c8
 #define data_0211172c data_021113cc

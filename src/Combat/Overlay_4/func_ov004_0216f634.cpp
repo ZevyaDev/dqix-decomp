@@ -9,7 +9,7 @@ struct Struct_02000c9c_17;
 
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" SafeAllocator* func_ov011_021845f8(void* arg0, int arg1);
-extern "C" void func_020a1940(unsigned int arg0);
+extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" int func_ov031_0221156c(void* arg0);
 extern "C" void func_0205e8d4(void* arg0);
 extern "C" void func_0203a950(void* arg0);
@@ -51,7 +51,7 @@ extern "C" ARM int func_ov004_0216f634(void* arg0) {
         GameState* var0 = GameState::GetInstance();
         func_0205e8d4(&gSoundEffectManager_02108760);
         func_0203a950(&gMusicManager_02109bf4);
-        func_020a1940(OVERLAY_ID(31));
+        LoadOverlay_020a1940(OVERLAY_ID(31));
         SafeAllocator* var1 = func_ov011_021845f8(arg0, 0);
         if (var1 == NULL) {
             return 0;
@@ -65,7 +65,7 @@ extern "C" ARM int func_ov004_0216f634(void* arg0) {
 #endif
         data_ov004_02171048.unknown_4_->unknown_32_ = func_ov031_0221156c(var2) != 0;
         data_ov004_02171048.unknown_4_->unknown_33_ = func_ov031_02211608(var2) != 0;
-        func_020a1940(OVERLAY_ID(32));
+        LoadOverlay_020a1940(OVERLAY_ID(32));
         func_0209c174((Struct_02000c9c_16*)&gMusicManager_02109bf4);
         func_0209c290(&gMusicManager_02109bf4);
         func_0205e88c((Struct_02000c9c_17*)&gSoundEffectManager_02108760);

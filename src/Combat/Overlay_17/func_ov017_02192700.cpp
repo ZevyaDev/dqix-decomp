@@ -5,7 +5,7 @@
 
 
 struct LocalWireless_0202c1a4;
-struct Struct_02048150;
+struct Party_02048150;
 
 struct Struct_ov017_02192700_2 {
     unsigned char unknown_0_;
@@ -68,13 +68,13 @@ struct Struct_ov017_02192700 {
 
 extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18(void);
 extern "C" Struct_ov017_02192700* GetFlagManager_0205ec34(void);
-extern "C" struct Struct_020fdd44* func_02027ca4(void);
+extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" int func_ov017_02194140(Struct_ov017_02192700_5* arg0, Struct_ov017_02192700_5* arg1);
 extern "C" int func_02039d68(unsigned char* arg0);
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
+extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 extern "C" void func_ov017_0219b33c(Struct_ov017_02192700_4* arg0, Struct_01ff91ac_18* arg1);
 extern "C" void func_ov017_021c316c(Struct_ov017_02192700_2* arg0, int arg1);
 extern "C" int func_ov017_0218d4ec(void* arg0, int arg1);
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
         return;
     }
     unsigned short var4 = var3->unknown_0_.GetField06();
-    func_02027ca4();
+    GetActiveZones_02027ca4();
     Struct_ov017_02192700_3* var5 = arg0->unknown_36f8_;
     if (IsLocalWirelessOn_0202b7d8((int*)var1)) {
         for (int var6 = 0; var6 <= 3; var6++) {
@@ -150,11 +150,11 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
                 if (func_02039d68((unsigned char*)var9)) {
                     continue;
                 }
-                Struct_02048150* var10 = (Struct_02048150*)GetParty_02010828(var8);
+                Party_02048150* var10 = (Party_02048150*)GetParty_02010828(var8);
                 if (var10 == NULL) {
                     continue;
                 }
-                if (func_02086ef0(var10, var7->unknown_0_.unknown_4_)) {
+                if (IsInParty_02086ef0(var10, var7->unknown_0_.unknown_4_)) {
                     continue;
                 }
                 Struct_ov017_02192700_4* var11 = inline_ov017_02192700();

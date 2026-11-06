@@ -7,8 +7,8 @@ enum { Enum_ov017_021c8bac_14104 = 0x3718 };
 #endif
 
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* func_ov017_021b8468(void* arg0);
-extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 
 struct Struct_ov017_021c8bac {
 	unsigned char unknown_0_[8];
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov017_021c8bac(int arg0, Struct_ov017_021c8bac_2* arg1,
 	Struct_ov017_021c8bac* var1 = (Struct_ov017_021c8bac*)GetBattleSetup_ov017_021b8478(var0);
 	if (!var1) return;
 	if (var1->unknown_8_ != arg1->unknown_4_) return;
-	void* var2 = func_ov017_021b8468(var0);
+	void* var2 = GetBattleScene_ov017_021b8468(var0);
 	if (!var2) return;
-	func_ov000_02160fa8(var2, 0x2000000);
+	SetBattleSceneFlags_ov000_02160fa8(var2, 0x2000000);
 }

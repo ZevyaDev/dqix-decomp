@@ -98,7 +98,7 @@ struct Struct_0207fc6c;
 typedef void (Struct_ov006_02154614::*Type_02000c9c_7)();
 struct Struct_ov006_0215ff94 { Type_02000c9c_7 unknown_0_[3]; };
 extern struct Struct_ov006_0215ff94 data_ov006_0215ff94;
-extern Type_02000c9c_7 data_020e6d5c;
+extern Type_02000c9c_7 gNullMemberFunctionPointer_020e6d5c;
 
 extern "C" void func_ov006_02156bd8(Struct_ov006_02154614* arg0);
 extern "C" void func_0207fc6c(Struct_0207fc6c* arg0, int arg1);
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov006_021549ac(Struct_ov006_02154614* arg0, int arg1) {
     func_ov006_02156d70(arg0);
     struct Struct_ov006_0215ff94 var1;
     var1 = data_ov006_0215ff94;
-    var1.unknown_0_[2] = data_020e6d5c;
+    var1.unknown_0_[2] = gNullMemberFunctionPointer_020e6d5c;
     if (var1.unknown_0_[arg0->unknown_adc_] != 0) {
         (arg0->*var1.unknown_0_[arg0->unknown_adc_])();
         func_ov006_02155068(arg0);

@@ -16,11 +16,11 @@ enum { Enum_ov003_02169594_405 = 0x195 };
 
 struct MenuCursor_0205ba68;
 struct MenuCursor_0205bacc;
-struct Struct_0205bcdc;
+struct MenuCursor_0205bcdc;
 
 extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
-extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc* cursor, int index);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
 struct Struct_ov003_02169594 {
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov003_02169594(struct Struct_ov003_02169594_2* arg0) {
     SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)inline_ov003_02169594(arg0, 1), var2);
     inline_ov003_02169594(arg0, 0)->unknown_4_ = var3;
     inline_ov003_02169594(arg0, 1)->unknown_4_ = var3;
-    func_0205bcdc((struct Struct_0205bcdc*)inline_ov003_02169594(arg0, 0), var4);
+    SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc*)inline_ov003_02169594(arg0, 0), var4);
     SetMenuCursorIndex_0205bb04(inline_ov003_02169594(arg0, 1), var4);
     struct Struct_ov003_02169594* var5 = inline_ov003_02169594(arg0, 1);
     var5->unknown_3c_ = 0;

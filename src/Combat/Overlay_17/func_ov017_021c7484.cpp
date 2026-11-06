@@ -35,7 +35,7 @@ struct Struct_ov017_021c7484_5 { char unknown_0_[8]; unsigned short unknown_8_; 
 
 extern "C" void* GetBattleSetup_ov017_021b8478(void*);
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
-extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void QueueOutgoingPacket_0205e330(void*, void*, int);
 
 // USA: func_ov017_021c7484
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov017_021c7484() {
     var3.unknown_0_ = 0x72;
     Struct_ov017_021c7484_3* var4 = &var3.unknown_4_;
     for (int var5 = 0; var5 < 4; ++var5) {
-        if (!func_020a35e0((unsigned char*)var1, var5)) continue;
+        if (!IsPartyMemberInBattle_020a35e0((unsigned char*)var1, var5)) continue;
         GameObject* var6 = var0->GetCombatantByIndex(var5);
         if (!((Struct_ov017_021c7484_2*)var6->currentStats_)->unknown_26_) continue;
         var4->unknown_0_ = var1->unknown_8_;

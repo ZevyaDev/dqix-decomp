@@ -43,7 +43,7 @@ bool FindFilesInNarcBySubstring(const void*, const char*, const void**, unsigned
 void* DecompressLZ77FileIntoAllocatedSpace(SafeAllocator&, const void*, unsigned int&);
 extern "C" void func_0209953c(unsigned short);
 extern "C" void func_02072ac4(void*);
-extern "C" void func_0200fd38(GameState*, int, GameObject*);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_ov017_021a2b1c(void*);
 extern char data_ov017_021d7668[];
 extern char gFileScratchSpace_0211e33c[] __attribute__((aligned(4)));
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov017_021a28a8(Struct_ov017_021a28a8_4* arg0) {
                             var20.packageID = 0;
                             var20.allocator = var1;
                             if (var4[var10].unknown_0_.LoadFromCCHROrCMOTArchive(&var20, 0)) {
-                                func_0200fd38(var0, var10 + 7, (GameObject*)&var4[var10]);
+                                SetGameObjectByIndex_0200fd38(var0, var10 + 7, (GameObject*)&var4[var10]);
                             } else func_0209953c(3);
                         }
                     }

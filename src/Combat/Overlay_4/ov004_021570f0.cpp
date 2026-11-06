@@ -340,7 +340,7 @@ extern "C" ARM int func_ov004_0215799c(void* arg0, int arg1, unsigned int arg2, 
 struct ItemTable_0201099c_10;
 struct Struct_02052df8;
 struct Struct_0207c484;
-struct Struct_02015438;
+struct QueueNode_02015438;
 struct Struct_0203d028_4;
 
 struct Struct_ov004_02157a28 {
@@ -390,11 +390,11 @@ extern "C" int func_0207c378(struct Struct_020732cc*, int, int, int);
 extern "C" void func_ov017_021c3fb4(int, int);
 extern "C" void func_ov017_021c4418(int, int);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
-extern "C" void func_ov017_0218f5a4(GameResources*, int, int, int, int);
+extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources*, int, int, int, int);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void*, int);
 
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10*, int);
-extern "C" void* func_020de824(void*);
+extern "C" void* InitItemTable_020de824(void*);
 extern "C" void func_0207cbe8(char*);
 extern "C" void func_0207cc0c(char*);
 extern "C" void* GetParty_02010828(struct GameState*);
@@ -402,7 +402,7 @@ extern "C" int func_02052df8(Struct_02052df8*, int);
 extern "C" int func_0207c484(struct Struct_0207c484*, int, int, int);
 extern "C" void func_020483f0(unsigned char*, unsigned short);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
-extern "C" int func_02046b24(Struct_02015438**);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void func_ov017_021a3498(Struct_0203d028_4*);
 
 // USA: func_ov004_02157a28
@@ -419,7 +419,7 @@ extern "C" ARM int func_ov004_02157a28(void* arg0, int arg1) {
     int var6 = var5->unknown_8_.unknown_0_0_;
     Struct_ov004_02157a28_4 var7;
     var7.unknown_0_.ResetAllocatorPointer();
-    func_020de824(var7.unknown_14_);
+    InitItemTable_020de824(var7.unknown_14_);
     func_0207cbe8((char*)&var7);
     func_0207cbe8((char*)&var7);
     var7.unknown_2c_ = var4;
@@ -472,14 +472,14 @@ extern "C" ARM int func_ov004_02157a28(void* arg0, int arg1) {
             if (var18) func_ov017_021c9e00(var0, 0, 0, 1);
         }
         GameResources* var20 = GetGameResources();
-        Struct_02015438** var21 = (Struct_02015438**)var20->unknown_ptr_array_36fc[1];
+        QueueNode_02015438** var21 = (QueueNode_02015438**)var20->unknown_ptr_array_36fc[1];
         Struct_0203d028_4* var22 = (Struct_0203d028_4*)var20->unknown_ptr_array_36fc[2];
         BackgroundLoader* var23 = BackgroundLoader::GetInstance();
-        func_ov017_0218f5a4(var20, var0, 1, 0, 0);
-        while (func_02046b24(var21) == 0x13) {
+        QueuePartyMemberModelLoad_ov017_0218f5a4(var20, var0, 1, 0, 0);
+        while (GetQueueHeadType_02046b24(var21) == 0x13) {
             var23->RemoveAllLocks();
             func_ov017_021a3498((Struct_0203d028_4*)var21);
-            if (func_02046b24((Struct_02015438**)var22) == 0x14) {
+            if (GetQueueHeadType_02046b24((QueueNode_02015438**)var22) == 0x14) {
                 func_ov017_021a3498(var22);
             }
         }
@@ -590,7 +590,7 @@ extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14*);
 #else
 extern "C" void func_020e526c(void*);
 #endif
-extern "C" void func_020e46c4(void*);
+extern "C" void InitNoun_020e46c4(void*);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" unsigned short func_0201e830(struct Struct_0201e830* arg0);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
@@ -603,7 +603,7 @@ extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" unsigned char func_0209ca98(char*);
 extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
-extern "C" unsigned char func_02011494(char*, void*);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char*, void*);
 
 // USA: func_ov004_02157db8
 extern "C" ARM int func_ov004_02157db8(void* arg0) {
@@ -673,8 +673,8 @@ extern "C" ARM int func_ov004_02157db8(void* arg0) {
     var7->unknown_98_ = 0;
     var7->unknown_9c_ = 0;
     var7->unknown_9d_ = 0;
-    func_020e46c4(var7->unknown_a0_);
-    func_020e46c4(var7->unknown_ac_);
+    InitNoun_020e46c4(var7->unknown_a0_);
+    InitNoun_020e46c4(var7->unknown_ac_);
 #endif
 
     void* var11 = GetZone3D_02012fe4();
@@ -737,7 +737,7 @@ extern "C" ARM int func_ov004_02157db8(void* arg0) {
 #endif
 
     unsigned char var25[4];
-    unsigned char var26 = func_02011494((char*)var0, var25);
+    unsigned char var26 = GetOwnPartyOrder_02011494((char*)var0, var25);
     for (int var27 = 0; var27 < var26; var27++) {
         ((Struct_ov004_02157db8_4*)data_ov004_021707e0)->unknown_32_[var27] = var25[var27];
     }
@@ -874,7 +874,7 @@ extern "C" unsigned char func_ov017_021b1fe8(struct Struct_ov004_021583a8*);
 extern "C" void GetBattleRecords_020ac4c0(void*);
 struct Struct_020a059c;
 extern "C" void func_020a059c(Struct_020a059c*, unsigned int);
-extern "C" void func_020ac494(void*);
+extern "C" void SetBattleRecords_020ac494(void*);
 extern "C" void func_ov011_02184be0(void*, int, int);
 
 // USA: func_ov004_021583a8
@@ -978,7 +978,7 @@ extern "C" ARM int func_ov004_021583a8(void* arg0) {
             unsigned char var16[0xb0];
             GetBattleRecords_020ac4c0(var16);
             func_020a059c((Struct_020a059c*)var16, 1);
-            func_020ac494(var16);
+            SetBattleRecords_020ac494(var16);
             char* var17 = ((char*)FindStringInList_02072a68(var2, 0x26));
             memcpy(var13, var17, strlen(var17));
             ((Struct_ov004_021583a8_7*)data_ov004_021707e0)->unknown_14_ = 1;
@@ -2044,7 +2044,7 @@ struct Struct_ov004_02159bcc {
     void* unknown_30_;
     int unknown_34_;
 };
-extern "C" void* func_020de824(void* arg0);
+extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void func_0207cbe8(char* arg0);
 extern "C" void func_0207cc0c(char* arg0);
 extern "C" int func_0207d134(struct Struct_0207d134*, short, int);
@@ -2065,7 +2065,7 @@ extern "C" ARM int func_ov004_02159bcc(void* arg0) {
         if (var3 != NULL) {
             Struct_ov004_02159bcc var4;
             var4.unknown_0_.ResetAllocatorPointer();
-            func_020de824(var4.unknown_14_);
+            InitItemTable_020de824(var4.unknown_14_);
             func_0207cbe8((char*)&var4);
             func_0207cbe8((char*)&var4);
             var4.unknown_2c_ = var3;
@@ -3179,7 +3179,7 @@ extern "C" ARM int func_ov004_0215b740(void* arg0) {
     void* var1 = ((void*)func_ov004_02156fd4(arg0, 5));
     char var2[0x38];
     ((SafeAllocator*)var2)->ResetAllocatorPointer();
-    func_020de824(var2 + 0x14);
+    InitItemTable_020de824(var2 + 0x14);
     func_0207cbe8(var2);
     func_0207cbe8(var2);
     *(void**)(var2 + 0x2c) = var1;
@@ -3377,7 +3377,7 @@ extern "C" ARM int func_ov004_0215b934(void* arg0) {
         } else if (var7 & 2) {
             char var10[0x38];
             ((SafeAllocator*)var10)->ResetAllocatorPointer();
-            func_020de824(var10 + 0x14);
+            InitItemTable_020de824(var10 + 0x14);
             func_0207cbe8(var10);
             func_0207cbe8(var10);
             func_0207d300(var10, var5->unknown_f8_.unknown_0_, (signed char)var5->unknown_f8_.unknown_2_, 0);
@@ -3604,7 +3604,7 @@ struct Struct_ov004_0215bf94 {
 extern "C" unsigned int GetSubBG0ScreenBase(void);
 extern "C" unsigned int GetMainBG3ScreenBase(void);
 struct Struct_0209c3b4_2;
-extern "C" void func_0209c3b4(struct Struct_0209c3b4_2* arg0, int arg1);
+extern "C" void PlayMusic_0209c3b4(struct Struct_0209c3b4_2* manager, int musicIndex);
 extern "C" void func_0209ca70(void* arg0, int arg1);
 extern "C" void func_020dc2bc(void);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
@@ -3634,7 +3634,7 @@ extern "C" ARM int func_ov004_0215bf94() {
     };
     Struct_ov004_0215bf94_3* var2 = (Struct_ov004_0215bf94_3*)GetZone3D_02012fe4();
     unsigned char var3 = var2->unknown_8_->unknown_d_0_;
-    func_0209c3b4((struct Struct_0209c3b4_2*)gMusicManager_02109bf4, var3);
+    PlayMusic_0209c3b4((struct Struct_0209c3b4_2*)gMusicManager_02109bf4, var3);
     func_0209ca70(gMusicManager_02109bf4, ((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_2d_);
     func_020dc2bc();
 #if defined(jpn)
@@ -4223,7 +4223,7 @@ extern "C" ARM int func_ov004_0215c974(void* arg0) {
         func_ov004_0215b1d4(arg0);
         void* var13 = GetZone3D_02012fe4();
         Struct_ov004_0215c974_2* var14 = (Struct_ov004_0215c974_2*)((char*)(*(void**)((char*)var13 + 8)) + 0xd);
-        func_0209c3b4((struct Struct_0209c3b4_2*)gMusicManager_02109bf4, var14->unknown_0_0_);
+        PlayMusic_0209c3b4((struct Struct_0209c3b4_2*)gMusicManager_02109bf4, var14->unknown_0_0_);
         func_0209ca70(gMusicManager_02109bf4, data_ov004_021707e0[0x2d]);
     } else if (data_ov004_021707e0[0x14] != 0) {
         void* var15 = GetGameResources();
@@ -4837,7 +4837,7 @@ extern "C" ARM int func_ov004_0215da0c(void* arg0) {
     if (var3) {
         unsigned char var4[0x38];
         ((SafeAllocator*)var4)->ResetAllocatorPointer();
-        func_020de824(var4 + 0x14);
+        InitItemTable_020de824(var4 + 0x14);
         func_0207cbe8((char*)var4);
         func_0207cbe8((char*)var4);
 
@@ -4923,7 +4923,7 @@ extern "C" ARM int func_ov004_0215db14(void* arg0) {
     if (var11) {
         Struct_ov004_0215db14_2 var12;
         var12.unknown_0_.ResetAllocatorPointer();
-        func_020de824(var12.unknown_14_);
+        InitItemTable_020de824(var12.unknown_14_);
         func_0207cbe8((char*)&var12);
         func_0207cbe8((char*)&var12);
         var12.unknown_2c_ = var11;
@@ -5098,7 +5098,7 @@ extern "C" ARM int func_ov004_0215e148(void* arg0) {
 
         char var4[0x38];
         ((SafeAllocator*)var4)->ResetAllocatorPointer();
-        func_020de824(var4 + 0x14);
+        InitItemTable_020de824(var4 + 0x14);
         func_0207cbe8(var4);
         func_0207cbe8(var4);
         *(void**)(var4 + 0x2c) = var2;

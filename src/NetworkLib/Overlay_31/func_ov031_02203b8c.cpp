@@ -5,7 +5,7 @@ extern "C" void func_ov031_022039b0(int, int, int, int);
 
 // USA: func_ov031_02203b8c
 extern "C" ARM void func_ov031_02203b8c(void) {
-	void* var0 = *(void**)((char*)data_02111304.activeContext + 0xa4);
+	void* var0 = *(void**)((char*)gContextScheduler_02111304.activeContext + 0xa4);
 	if (var0 == NULL) return;
 	int var1 = *(int*)((char*)var0 + 0x60);
 	if (var1 == 0) return;

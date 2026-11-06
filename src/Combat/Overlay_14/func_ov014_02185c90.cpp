@@ -98,7 +98,7 @@ extern "C" void InitTextWindow_0204c684(void*);
 struct Struct_02097054_5;
 extern "C" int func_02097224(Struct_02097054_5*, int);
 extern "C" void __clear(void*, int);
-extern "C" void func_0206819c(const char*, char*, int);
+extern "C" void CopyCapitalizedText_0206819c(const char*, char*, int);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02046608(void*, int, char*, char*, int, int, int);
 extern "C" void func_ov023_021e24b0(void*, int, int, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
@@ -118,9 +118,9 @@ extern "C" void SetBGPriority_0204b5b4(void*, int);
 struct BGLayer_02020cb8_5;
 extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
 extern "C" void func_0204b4c0(void*, void*);
-extern "C" void func_0204b2e0(void*, char*);
-struct Struct_02020cb8_6;
-extern "C" void func_0204b3a0(Struct_02020cb8_6*, char*);
+extern "C" void FlushBGBlock_0204b2e0(void*, char*);
+struct BGLayer_02020cb8_6;
+extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6*, char*);
 
 #define FLAGOP(e, id, stmt) do { struct Struct_ov003_0215d4fc* p = func_ov014_021842a0(e, id); if (p) { stmt; } } while (0)
 #define SetBit4(e, id) FLAGOP(e, id, p->unknown_16_ |= 0x10)
@@ -160,8 +160,8 @@ extern "C" ARM void func_ov014_02185c90(struct Struct_ov000_0217c638_2* arg0) {
                 __clear(var8, 0x200);
                 __clear(var9, 0x48);
                 __clear(var10, 0x48);
-                func_0206819c(arg0->unknown_60_, var6, 0);
-                func_0206819c(arg0->unknown_64_, var7, 0);
+                CopyCapitalizedText_0206819c(arg0->unknown_60_, var6, 0);
+                CopyCapitalizedText_0206819c(arg0->unknown_64_, var7, 0);
                 char* var14 = var9;
                 char* var15 = var10;
                 char* var16 = var8;
@@ -319,8 +319,8 @@ extern "C" ARM void func_ov014_02185c90(struct Struct_ov000_0217c638_2* arg0) {
         for (int var41 = 0; var41 < var40; var41++) {
             void* var42 = GetPacEntryData_020467f0((PacEntry_02020aec*)var36, var41, &var35, &var38);
             if (var42) {
-                func_0204b2e0(&var39, (char*)var42);
-                func_0204b3a0((Struct_02020cb8_6*)&var39, (char*)var42);
+                FlushBGBlock_0204b2e0(&var39, (char*)var42);
+                CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6*)&var39, (char*)var42);
             }
         }
         var0->RemoveTask(arg0->unknown_70_);

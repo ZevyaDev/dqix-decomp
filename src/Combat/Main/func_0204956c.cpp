@@ -18,7 +18,7 @@ struct Struct_02107850 { Vector3i unknown_0_, unknown_c_; int unknown_18_; unsig
 struct Struct_02010088;
 struct Struct_02048f64_2;
 extern "C" int func_02048c68(unsigned char*);
-extern "C" int func_02010088(Struct_02010088*);
+extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" void func_02049ae4(unsigned char*);
 extern "C" int func_02049ee8(unsigned char*);
 extern "C" int func_020494a0(unsigned char*);
@@ -42,7 +42,7 @@ static inline Struct_02048cf0 inline_0204956c(const int& arg0) {
 extern "C" ARM void func_0204956c(Struct_0204956c_2* arg0) {
     unsigned char* var0 = reinterpret_cast<unsigned char*>(arg0);
     if (!(arg0->unknown_13c_->unknown_20_ & 4)) return;
-    if (!arg0->unknown_13c_->unknown_56_ || func_02048c68(var0) || func_02010088(reinterpret_cast<Struct_02010088*>(arg0))) {
+    if (!arg0->unknown_13c_->unknown_56_ || func_02048c68(var0) || IsDead_02010088(reinterpret_cast<Struct_02010088*>(arg0))) {
         func_02049ae4(var0);
         return;
     }

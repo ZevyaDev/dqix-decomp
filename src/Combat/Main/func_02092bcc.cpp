@@ -20,7 +20,7 @@ union Struct_02092bcc {
 };
 
 extern struct Struct_020e8d84 data_020e8d84;
-extern struct Struct_020e6d5c data_020e6d5c;
+extern struct Struct_020e6d5c gNullMemberFunctionPointer_020e6d5c;
 
 // USA: func_02092bcc
 extern "C" ARM int func_02092bcc(unsigned char* arg0, int arg1) {
@@ -53,8 +53,8 @@ extern "C" ARM int func_02092bcc(unsigned char* arg0, int arg1) {
 
     var0.unknown_0_ = data_020e8d84;
     {
-        int var4 = data_020e6d5c.unknown_4_;
-        void* var5 = data_020e6d5c.unknown_0_;
+        int var4 = gNullMemberFunctionPointer_020e6d5c.unknown_4_;
+        void* var5 = gNullMemberFunctionPointer_020e6d5c.unknown_0_;
         ((struct Struct_020e6d5c*)&var0)[4].unknown_4_ = var4;
         ((struct Struct_020e6d5c*)&var0)[4].unknown_0_ = var5;
     }

@@ -4,7 +4,7 @@
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 
 struct TextWindowManager_0205d5d0;
-extern "C" int SetTextWindowText_0205d5d0(struct TextWindowManager_0205d5d0* windowManager, int windowId, int text, int arg3, unsigned char font);
+extern "C" int SetTextWindowText_0205d5d0(struct TextWindowManager_0205d5d0* windowManager, int windowId, int text, int isWrappedAtScreenWidth, unsigned char font);
 
 struct Struct_ov023_021da1dc {
     char unknown_0_[0x30];

@@ -12,7 +12,7 @@ class GameState {public:static GameState* GetInstance();};
 struct Struct_ov000_021537b8_4 {char unknown_0_[8];unsigned int unknown_8_0_:8,unknown_9_0_:2,unknown_9_2_:22;char unknown_c_[8];unsigned int unknown_14_0_:28,unknown_17_4_:4;unsigned int unknown_18_0_:5,unknown_18_5_:7,unknown_19_4_:20;unsigned int unknown_1c_0_:14,unknown_1d_6_:5,unknown_1e_3_:13;};
 extern "C" Struct_ov000_021537b8_4* FindActionData_02079e2c(char*,int);extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);extern "C" int func_ov000_021543f4(GameObject*);
 struct Struct_ov000_021540fc {unsigned short unknown_0_;unsigned char unknown_2_,unknown_3_;};struct Struct_02053dc0;extern "C" Struct_ov000_021540fc* func_02053dc0(Struct_02053dc0*);
-extern "C" int func_02083b00(unsigned char*,int);extern "C" void func_ov000_02153cc0(int,int,int*);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char*,int);extern "C" void func_ov000_02153cc0(int,int,int*);
 struct Random;extern "C" int func_ov000_0215fbe0(Random*,int);int NextRandomMax(Random*,int);
 struct Struct_ov000_021540fc_2 {unsigned int unknown_0_0_:1,unknown_0_1_:1,unknown_0_2_:30;};struct Struct_ov000_02182ae4 {short unknown_0_[8];};
 extern "C" {extern const Struct_ov000_02182ae4 data_ov000_02182b74;int func_ov000_02153f98(void*,int,int,short*);void func_ov000_02153aa4(void*,int,int*);void func_ov000_02153c24(void*,int*);int func_ov000_02153e78(void*,short*,int,int,int);int CollectEnemyCombatantIndices_ov000_0215eb1c(void*,short*,int,int);int CollectPartyCombatantIndices_ov000_0215e9fc(void*,short*,int,int);}
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov000_021540fc(Random* arg0,int arg1,int arg2,short* arg
  if(func_ov000_021543f4(var2))return func_ov000_02153f98(arg0,arg1,arg2,arg3);
  Struct_ov000_021540fc* var3=func_02053dc0((Struct_02053dc0*)var2);if(!var3)return 0;
  int var4=0;int var5=var1->unknown_9_0_;int var6=var1->unknown_17_4_;
- if(var6==6){if(func_02083b00(var2->unknown_150_,0xe6))var6=3;else var6=2;}
+ if(var6==6){if(HasLearnedSkillEntry_02083b00(var2->unknown_150_,0xe6))var6=3;else var6=2;}
  if(var6==5){Struct_ov000_021540fc_2* var7=(Struct_ov000_021540fc_2*)(var2->unknown_150_+0x2f4);if(!var7)return 0;if(var7->unknown_0_1_)var6=3;else if(var7->unknown_0_0_)var6=4;else var6=2;}
  if(var6==1){arg3[var4++]=arg1;}
  else if(var5==1){

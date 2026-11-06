@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_0204c7cc
-extern "C" ARM int func_0204c7cc(unsigned char* arg0) {
-    return *(int*)(arg0 + 0x9c) == 3;
+// USA: IsTextWindowReady_0204c7cc
+extern "C" ARM int IsTextWindowReady_0204c7cc(unsigned char* textWindow) {
+    return *(int*)(textWindow + 0x9c) == 3;
 }

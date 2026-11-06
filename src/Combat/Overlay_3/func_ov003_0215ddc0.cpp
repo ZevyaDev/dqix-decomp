@@ -40,7 +40,7 @@ enum { Enum_ov003_0215ddc0_2 = 2 };
 #include "std_library_functions.h"
 
 struct TextWindowManager_0205de24_2;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" void func_ov003_0215de6c(char* arg0, void* arg1);
 #if !defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);

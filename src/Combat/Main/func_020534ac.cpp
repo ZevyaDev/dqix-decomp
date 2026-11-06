@@ -8,9 +8,9 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
+extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 
 struct Struct_020534ac_2;
 
@@ -35,7 +35,7 @@ extern "C" ARM void func_020534ac(char* arg0) {
     int var5;
     int var6;
 
-    if (func_02046708((struct Struct_02012de8*)GetGlobalFlags_020d6c00(), 2)) {
+    if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)GetGlobalFlags_020d6c00(), 2)) {
         return;
     }
     if (*(unsigned char*)(arg0 + (IS_JPN ? 0x179 : 0x185)) == 0) {

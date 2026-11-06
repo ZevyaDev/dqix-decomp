@@ -19,13 +19,13 @@ struct Struct_ov000_02162c14 {
     signed char unknown_2e_;
 };
 
-extern "C" struct Struct_ov000_02162c14* func_ov000_02161318(char* arg0, int arg1);
+extern "C" struct Struct_ov000_02162c14* FindPartyMemberPanel_ov000_02161318(char* battleUI, int memberIndex);
 extern "C" int func_ov000_021761c8(char* arg0, int arg1);
 extern "C" int func_ov000_021761ec(char* arg0, int arg1);
 
 // USA: func_ov000_02162c14
 extern "C" ARM void func_ov000_02162c14(char* arg0, int arg1, char* arg2) {
-    struct Struct_ov000_02162c14* var0 = func_ov000_02161318(arg0 + REGION_OFFSET_0, arg1);
+    struct Struct_ov000_02162c14* var0 = FindPartyMemberPanel_ov000_02161318(arg0 + REGION_OFFSET_0, arg1);
     if (var0 == 0) {
         return;
     }

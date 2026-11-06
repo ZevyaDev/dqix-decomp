@@ -21,7 +21,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void GetBattleRecords_020ac4c0(void*);
 extern "C" void func_020a0608(Struct_020a0608*, unsigned int);
 extern "C" void func_020a0294(Struct_020a0294*, unsigned int);
-extern "C" void func_020ac494(void*);
+extern "C" void SetBattleRecords_020ac494(void*);
 
 // USA: func_ov000_0215a004
 extern "C" ARM short func_ov000_0215a004(void* arg0, void* arg1, int arg2, int arg3, unsigned long long* arg4,
@@ -44,7 +44,7 @@ extern "C" ARM short func_ov000_0215a004(void* arg0, void* arg1, int arg2, int a
             GetBattleRecords_020ac4c0(&var2);
             func_020a0608((Struct_020a0608*)&var2, 1);
             func_020a0294((Struct_020a0294*)&var2.unknown_68_, 1);
-            func_020ac494(&var2);
+            SetBattleRecords_020ac494(&var2);
         }
     }
     if (arg3 > 0) {

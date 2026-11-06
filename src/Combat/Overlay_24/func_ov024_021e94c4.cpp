@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
-extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
+extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 
 struct Struct_ov024_021e94c4 {
     char unknown_0_[0x10];
@@ -44,10 +44,10 @@ extern "C" ARM int func_ov024_021e94c4(Struct_ov024_021e94c4* arg0, int arg1,
 #if defined(jpn)
             return 0x1b;
 #else
-            return func_ov024_021da644(arg1, 0x26d, 0x1b);
+            return SelectPartyOrEnemyMessage_ov024_021da644(arg1, 0x26d, 0x1b);
 #endif
 
         }
     }
-    return func_ov024_021da644(arg1, arg2->unknown_25_2_, arg2->unknown_26_4_);
+    return SelectPartyOrEnemyMessage_ov024_021da644(arg1, arg2->unknown_25_2_, arg2->unknown_26_4_);
 }

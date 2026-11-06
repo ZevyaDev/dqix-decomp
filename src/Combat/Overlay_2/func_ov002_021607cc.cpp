@@ -15,11 +15,11 @@ extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" int func_02041c64(char *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" char *FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int func_020420e8(const char *arg0, int arg1);
-extern "C" int func_02041a28(char *arg0, int arg1);
+extern "C" int AppendXPositionTag_02041a28(char *buffer, int x);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_02041cc0(char *arg0, int arg1);
 extern "C" void *__clear(void *arg0, int arg1);
-extern "C" void func_02041a90(char *arg0, int arg1, int arg2);
+extern "C" void AppendPositionTag_02041a90(char *buffer, int x, int y);
 extern "C" int func_02042084(char *arg0, char *arg1, int arg2, int arg3);
 extern "C" int AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
 
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg
             var7 += 0x119d;
         }
         __clear(var4, 0x40);
-        func_02041a90(arg1, 0x2b, var1.unknown_0_[var5]);
+        AppendPositionTag_02041a90(arg1, 0x2b, var1.unknown_0_[var5]);
         if (var7 != 0x119d) {
             AppendText_02042058(
                 var4, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), (short) var7));
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg
     }
     func_02041c64(arg1, 0, 2, 2, 2, 2);
     func_02041cc0(arg1, 0xa2);
-    func_02041a90(arg1, 0x2b, var1.unknown_0_[var5]);
+    AppendPositionTag_02041a90(arg1, 0x2b, var1.unknown_0_[var5]);
     AppendMenuEntry_02041b70(arg1, var5, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x11fa));
 }
 #else
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg
     AppendCursorTag_02041ea4(arg1, var8);
     func_02041c64(arg1, 0x64, 2, 2, 2, 2);
     char *var10 = FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), 0x1194);
-    func_02041a28(arg1, (0x98 - func_020420e8(var10, 0)) >> 1);
+    AppendXPositionTag_02041a28(arg1, (0x98 - func_020420e8(var10, 0)) >> 1);
     AppendText_02042058(arg1, var10);
     func_02041cc0(arg1, 0x11);
     Struct_ov002_0216ca88 var11 = data_ov002_0216ca88;
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg
             var15 += 0x119d;
         }
         __clear(var12, 0x40);
-        func_02041a90(arg1, 0x2b, var9.unknown_0_[var13]);
+        AppendPositionTag_02041a90(arg1, 0x2b, var9.unknown_0_[var13]);
         if (var15 != 0x119d) {
             AppendText_02042058(
                 var12, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), (short) var15));
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg
     }
     func_02041c64(arg1, 0, 2, 2, 2, 2);
     func_02041cc0(arg1, 0xa2);
-    func_02041a90(arg1, 0x2b, var9.unknown_0_[var13]);
+    AppendPositionTag_02041a90(arg1, 0x2b, var9.unknown_0_[var13]);
     AppendMenuEntry_02041b70(arg1, var13, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), 0x11fa));
 }
 #endif

@@ -53,7 +53,7 @@ int func_ov000_0217c594(void*, int);
 void func_ov000_02174da4(void*, void*);
 void func_ov000_02177038(void*, int, int, int, int);
 int func_ov000_0217f990(void*);
-Struct_ov000_0215ab88* func_ov000_02161318(void*, int);
+Struct_ov000_0215ab88* FindPartyMemberPanel_ov000_02161318(void*, int);
 void func_ov000_02176634(void*, void*, int, int, int);
 void func_ov000_02176e3c(void*, int, int, int, int, int);
 void func_ov000_02180394(void*);
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov000_0217cb5c(Struct_ov000_0215767c_2* arg0, int arg1,
                 Struct_ov000_02182a74* var3 = (Struct_ov000_02182a74*)GetParty_02010828(var2);
                 unsigned char var4 = var3->unknown_f7c_;
                 for (unsigned char var5 = 0; var5 < var4; var5++) {
-                    Struct_ov000_0215ab88* var6 = func_ov000_02161318(arg0, arg0->unknown_70_[var5]);
+                    Struct_ov000_0215ab88* var6 = FindPartyMemberPanel_ov000_02161318(arg0, arg0->unknown_70_[var5]);
                     if (var6) {
                         var6->unknown_10_[var6->unknown_18_] = 100;
                     }

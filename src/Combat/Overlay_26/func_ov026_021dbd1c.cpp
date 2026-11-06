@@ -54,7 +54,7 @@ extern "C" void func_ov000_0216377c(Struct_ov000_0216377c* arg0, unsigned char a
 extern "C" void func_ov017_021cc050(unsigned short arg0);
 
 extern "C" {
-int func_020a35e0(Struct_ov000_0217e870_2* arg0, unsigned char arg1);
+int IsPartyMemberInBattle_020a35e0(Struct_ov000_0217e870_2* battleSetup, unsigned char partyMemberIndex);
 void func_020a367c(Struct_ov000_0217e870_2* arg0, unsigned char arg1);
 void func_0207da94(void* arg0, unsigned char arg1);
 void func_ov017_02191b40(GameResources* arg0, int arg1);
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov026_021dbd1c(Struct_ov000_02160da0* arg0, int arg1, i
     GameResources* var6 = GetGameResources();
     int var7 = 0;
 
-    if (func_020a35e0(var1, arg1)) {
+    if (IsPartyMemberInBattle_020a35e0(var1, arg1)) {
         var7 = 1;
         arg0->unknown_7748_ = 1;
     }

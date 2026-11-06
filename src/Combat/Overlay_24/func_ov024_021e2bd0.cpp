@@ -33,7 +33,7 @@ struct Struct_ov024_021e2bd0_5 {
 union Struct_ov024_021e2bd0_6 { struct { int unknown1_0_; int unknown_4_; }; unsigned long long unknown_0_; };
 
 extern "C" int func_ov024_021e8fa4(struct Struct_ov024_021e2bd0_2*, int, int);
-extern "C" void func_ov000_02159eac(void*, Struct_ov024_021e2bd0_6*, int);
+extern "C" void SetActionResultFlag_ov000_02159eac(void*, Struct_ov024_021e2bd0_6*, int);
 extern "C" int func_02088418(Struct_02088418*, int, int);
 extern "C" int func_ov024_021eb4b0(int, int, int);
 extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
@@ -67,11 +67,11 @@ extern "C" ARM unsigned long long func_ov024_021e2bd0(Struct_ov024_021e2bd0_3* a
     Struct_ov024_021e2bd0_6 var5;
     var5.unknown1_0_ = 0;
     var5.unknown_4_ = 0;
-    func_ov000_02159eac(arg0->unknown_10_, &var5, (unsigned char)var4);
+    SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var5, (unsigned char)var4);
     if (!func_02088418((Struct_02088418*)var0->currentStats_, (unsigned char)arg3->unknown_32_, (unsigned short)arg3->unknown_4_0_)) return 0;
     if (func_ov024_021eb4b0((int)arg0, ((Struct_ov024_021e2bd0_4*)var0->currentStats_)->unknown_14_, 0x80000)) {
         if (var4 == 0x12 || var4 == 0x15 || var4 == 0x1b || var4 == 0x1c)
-            func_ov000_02159eac(arg0->unknown_10_, &var5, 0x2b);
+            SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var5, 0x2b);
     }
     int var6 = func_ov024_021dd260((Struct_ov024_021dd028_5*)var0);
     int var7 = func_ov024_021da998((Struct_ov024_021da670_6*)var0);

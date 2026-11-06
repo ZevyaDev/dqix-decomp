@@ -104,7 +104,7 @@ struct Struct_ov008_021842a0_2 {
 struct Struct_0201099c_3;
 
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_02041e70(char* arg0, int arg1);
+extern "C" void AppendTextColorTag_02041e70(char* buffer, int colorIndex);
 extern "C" void func_02041a5c(char* arg0, int arg1);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
@@ -118,8 +118,8 @@ int sprintf(char* arg0, const char* arg1, ...);
 struct MessageWindow_020465c0;
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" void func_020465f0(unsigned char*, int, unsigned char);
-extern "C" void func_020465d8(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*, int, unsigned char);
 extern "C" void func_020474a8(void*, int, const char*, char*);
 #endif
 
@@ -170,17 +170,17 @@ extern "C" ARM void func_ov008_02187278(Struct_ov008_021842a0_2* arg0, char* arg
     __clear(var5, sizeof(var5));
     ClearMessageParams_02046380(var4);
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var4, 0, var0->unknown_0_);
-    func_020465f0((unsigned char*)var4, 0, 4);
-    func_020465d8((unsigned char*)var4, 0, 1);
+    SetMessageNumberWidth_020465f0((unsigned char*)var4, 0, 4);
+    SetMessageNumberAlignment_020465d8((unsigned char*)var4, 0, 1);
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var4, 1, var0->unknown_2_);
-    func_020465f0((unsigned char*)var4, 1, 2);
-    func_020465d8((unsigned char*)var4, 1, 1);
+    SetMessageNumberWidth_020465f0((unsigned char*)var4, 1, 2);
+    SetMessageNumberAlignment_020465d8((unsigned char*)var4, 1, 1);
     func_020474a8(var4, 10, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 0x6e), var5);
-    func_02041e70(arg1, 0xe);
+    AppendTextColorTag_02041e70(arg1, 0xe);
     AppendText_02042058(arg1, var5);
 #else
     GetMessageWindow_020421a0();
-    func_02041e70(arg1, 0xe);
+    AppendTextColorTag_02041e70(arg1, 0xe);
     func_02041a5c(arg1, 2);
     char var6[0x40];
     __clear(var6, sizeof(var6));

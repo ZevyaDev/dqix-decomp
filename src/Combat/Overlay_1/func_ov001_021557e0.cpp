@@ -20,15 +20,15 @@ extern "C" void func_02010834(struct Struct_02010834* arg0, int arg1, int* arg2,
 extern "C" void func_02039d58(unsigned char* arg0);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void* GetParty_02010828(GameState* gameState);
-struct Struct_02048150;
-extern "C" int func_02086ef0(struct Struct_02048150* arg0, int arg1);
+struct Party_02048150;
+extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex);
 struct Struct_0205420c;
 extern "C" void func_0205420c(struct Struct_0205420c* arg0, int arg1, int arg2);
 extern "C" void func_ov017_02191f4c(int arg0, int arg1);
 extern "C" void func_ov017_02192400(int arg0, int arg1);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void func_ov017_021917f0(int arg0, int arg1);
 extern "C" void func_020e3368(unsigned char* arg0, unsigned char arg1);
 struct Struct_ov001_02154de4;
@@ -129,7 +129,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
             if (var13 == 0) {
                 continue;
             }
-            if (func_02086ef0((struct Struct_02048150*)var11, var12) != 0) {
+            if (IsInParty_02086ef0((struct Party_02048150*)var11, var12) != 0) {
                 func_0205420c((struct Struct_0205420c*)var13, 1, 0);
             }
             func_ov017_02191f4c((int)var0, var12);
@@ -140,7 +140,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
 
     if (IsLocalWirelessOn_0202b7d8((int*)var1) != 0 && arg0->unknown_12_ != 0 && arg0->unknown_116_ < 0) {
         if (arg0->unknown_101_ != 0) {
-            int var14 = func_020100b0(var2);
+            int var14 = GetOwnPartyLeaderObjectIndex_020100b0(var2);
             for (int var15 = 0; var15 < 4; var15++) {
                 if (var15 == var14) {
                     continue;

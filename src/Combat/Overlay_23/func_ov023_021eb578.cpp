@@ -6,8 +6,8 @@
 
 struct GameResources;
 struct Struct_0201099c_3;
-struct Struct_0205cf78;
-struct Struct_0205cf78_2;
+struct TextWindowManager_0205cf78;
+struct TextWindow_0205cf78_2;
 struct PacEntry_02020aec;
 struct PacEntry_02020cb8_4;
 struct BGLayer_02020cb8_5;
@@ -18,7 +18,7 @@ struct BGLayer_02020cb8_2;
 struct TextWindow_0204c7a8;
 struct BGLayer_0204b8d0;
 struct Sprite_02043368_2;
-struct Struct_02043368;
+struct SpriteAnimationList_02043368;
 
 extern "C" int GetResources_0200fb8c(int* gameState);
 void SetSubBrightness(GameResources* resources, int brightness, int duration);
@@ -44,15 +44,15 @@ extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int ind
 extern "C" void LoadBGBlock_0204b174(void* layer, void* block, SafeAllocator* allocator, int arg3);
 extern "C" void FillBGScreenRect_0204bc74(void* layer, int screenEntry, int x, int y, int width, int height, int palette);
 extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2* layer, void* screenData);
-extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
-extern "C" void func_0205cf78(struct Struct_0205cf78* arg0, struct Struct_0205cf78_2* arg1, unsigned char arg2);
+extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
+extern "C" void SetTextWindowArray_0205cf78(struct TextWindowManager_0205cf78* windowManager, struct TextWindow_0205cf78_2* textWindows, unsigned char textWindowCapacity);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 extern "C" void AllocateBGScreenBlocks_0204af38(struct BGLayer_0204af38* layer, int capacity, SafeAllocator* allocator);
 extern "C" void CopyBGScreenBlockRect_0204b8d0(struct BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
-extern "C" void func_0205a234(struct Struct_02043368* arg0);
+extern "C" void InitSpriteAnimationList_0205a234(struct SpriteAnimationList_02043368* animationList);
 extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, void* allocator);
 
 extern char data_ov023_021fe108[];
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov023_021eb578(Struct_ov023_021eb578_4* arg0) {
         } else if (IS_MAIN_SCREEN_MODE(arg0)) {
             SetMainBrightness(var2, -16, 15);
         }
-        func_02094b40(var1);
+        ClearLoadedFontSets_02094b40(var1);
         RequestFontLoad_02094b34(var1, 0x71, 0x201, 0, 0);
         arg0->unknown_432_++;
     }
@@ -279,7 +279,7 @@ extern "C" ARM void func_ov023_021eb578(Struct_ov023_021eb578_4* arg0) {
         }
         arg0->unknown_15c_ = &arg0->unknown_84_[0];
         arg0->unknown_176_ = 2;
-        func_0205cf78((struct Struct_0205cf78*)arg0->unknown_c4_, (struct Struct_0205cf78_2*)arg0->unknown_180_, 3);
+        SetTextWindowArray_0205cf78((struct TextWindowManager_0205cf78*)arg0->unknown_c4_, (struct TextWindow_0205cf78_2*)arg0->unknown_180_, 3);
         arg0->unknown_434_ = var3->QueueLoadFile((const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_4_, 3), NULL);
         arg0->unknown_432_++;
     }
@@ -381,7 +381,7 @@ extern "C" ARM void func_ov023_021eb578(Struct_ov023_021eb578_4* arg0) {
         for (var44 = 0; var44 < 4; var44++) {
             InitSprite_0205a198((struct Sprite_02043368_2*)(arg0->unknown_428_ + var44 * 0x28));
         }
-        func_0205a234((struct Struct_02043368*)arg0->unknown_42c_);
+        InitSpriteAnimationList_0205a234((struct SpriteAnimationList_02043368*)arg0->unknown_42c_);
         var3->GetLoadedFileByID(arg0->unknown_434_, &var36, &var37);
         var42 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var36);
         var0[3].Reset();

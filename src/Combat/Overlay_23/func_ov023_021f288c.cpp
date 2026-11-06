@@ -14,8 +14,8 @@ extern "C" int func_ov023_021f4fc8(void);
 extern "C" int func_ov023_021f5228(int arg0);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 
-struct Struct_02048150;
-extern "C" int func_02086ef0(struct Struct_02048150* arg0, int arg1);
+struct Party_02048150;
+extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex);
 
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
@@ -90,7 +90,7 @@ extern "C" ARM int func_ov023_021f288c(unsigned char* arg0) {
     } else if (var2->unknown_0_ == 1) {
         void* var11 = GetParty_02010828(var1);
         var6 = 0;
-        if (func_02086ef0((struct Struct_02048150*)var11, var3)) {
+        if (IsInParty_02086ef0((struct Party_02048150*)var11, var3)) {
             if (func_ov023_021f5228(var3)) {
                 var6 = 1;
                 void* var12 = GetFlagManager_0205ec34();

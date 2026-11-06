@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-// USA: func_020ca458  (semantic: NitroSDK MIi_CpuClearFast)
-extern "C" ARM asm void func_020ca458(unsigned int data, void* destp, unsigned int size) {
+// USA: Memset32Bit_020ca458  (semantic: NitroSDK MIi_CpuClearFast)
+extern "C" ARM asm void Memset32Bit_020ca458(unsigned int data, void* destp, unsigned int size) {
     stmfd sp!, {r4-r9}
     add r9, r1, r2
     mov r12, r2, lsr #5

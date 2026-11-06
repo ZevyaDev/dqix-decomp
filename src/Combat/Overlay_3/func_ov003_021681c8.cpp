@@ -7,11 +7,11 @@ enum { Enum_ov003_021681c8_76 = 0x4c };
 #include "Memory/SafeAllocator.h"
 #include "Combat/MapDisplay.h"
 
-struct Struct_0205cfd4;
+struct TextWindowManager_0205cfd4;
 struct StringTable_0201099c_14;
 
-extern "C" void func_02074af4(void* arg0);
-extern "C" void func_0205cfd4(struct Struct_0205cfd4* arg0);
+extern "C" void SaveMainBGControl_02074af4(void* save);
+extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
@@ -62,7 +62,7 @@ struct Struct_ov003_021681c8 {
 extern "C" ARM void func_ov003_021681c8(Struct_ov003_021681c8* arg0) {
     arg0->unknown_dc_ = 0;
     arg0->unknown_dd_ = 0;
-    func_02074af4(arg0->unknown_cc_);
+    SaveMainBGControl_02074af4(arg0->unknown_cc_);
 
     volatile unsigned int* var0 = (volatile unsigned int*)0x4000000;
     arg0->unknown_e0_ = (*var0 & 0x1f00) >> 8;
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov003_021681c8(Struct_ov003_021681c8* arg0) {
     arg0->unknown_0_[1].ResetAllocatorPointer();
     arg0->unknown_0_[0].ResetAllocatorPointer();
 
-    func_0205cfd4((struct Struct_0205cfd4*)arg0->unknown_e4_);
+    InitTextWindowManager_0205cfd4((struct TextWindowManager_0205cfd4*)arg0->unknown_e4_);
     for (int var1 = 0; var1 < 2; var1++) {
         InitBGLayer_0204af64(&arg0->unknown_1a0_[var1]);
     }

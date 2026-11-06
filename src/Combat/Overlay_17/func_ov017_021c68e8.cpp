@@ -5,8 +5,8 @@ struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* func_ov017_021b8468(void* arg0);
-extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" void func_ov000_02162b70(void* arg0, int arg1, unsigned char arg2);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
@@ -56,9 +56,9 @@ extern "C" ARM void func_ov017_021c68e8(int arg0, Struct_ov017_021c68e8_2* arg1,
 #endif
     Struct_ov017_021c68e8* var1 = (Struct_ov017_021c68e8*)GetBattleSetup_ov017_021b8478(var0);
     if (!var1) return;
-    void* var2 = func_ov017_021b8468(var0);
+    void* var2 = GetBattleScene_ov017_021b8468(var0);
     if (!var2) return;
-    void* var3 = func_ov017_021b8470(var0);
+    void* var3 = GetBattle_ov017_021b8470(var0);
     if (!var3) return;
     if (var1->unknown_8_ != arg1->unknown_4_) return;
 

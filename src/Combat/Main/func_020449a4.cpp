@@ -12,7 +12,7 @@ struct Struct_020449a4 {
     unsigned char unknown_19bb_;
 };
 extern "C" int func_020d85dc(const char* arg0, const char* arg1);
-extern "C" int func_02005a94(const char* arg0);
+extern "C" int ParseDecimal_02005a94(const char* string);
 extern "C" void func_02042b98(Struct_020449a4*, int, int, int, int);
 extern char data_020f00a9[];
 extern char data_020f00b0[];
@@ -38,7 +38,7 @@ extern "C" ARM const char* func_020449a4(Struct_020449a4* arg0, const char* arg1
                 if (!arg1[var4]) return arg1 + var4;
                 var4++;
             }
-            var5 = func_02005a94(arg1 + 6);
+            var5 = ParseDecimal_02005a94(arg1 + 6);
             while (arg1[var3] != ',') {
                 if (arg1[var3] == '>') {
                     arg1 += var3 + 1;
@@ -49,7 +49,7 @@ extern "C" ARM const char* func_020449a4(Struct_020449a4* arg0, const char* arg1
             }
             if (var2) return arg1;
             var3++;
-            var6 = func_02005a94(arg1 + var3);
+            var6 = ParseDecimal_02005a94(arg1 + var3);
             while (arg1[var3] != ',') {
                 if (arg1[var3] == '>') {
                     arg1 += var3 + 1;
@@ -60,7 +60,7 @@ extern "C" ARM const char* func_020449a4(Struct_020449a4* arg0, const char* arg1
             }
             if (var2) return arg1;
             var3++;
-            var1 = func_02005a94(arg1 + var3);
+            var1 = ParseDecimal_02005a94(arg1 + var3);
             while (arg1[var3] != ',') {
                 if (arg1[var3] == '>') {
                     arg1 += var3 + 1;
@@ -70,7 +70,7 @@ extern "C" ARM const char* func_020449a4(Struct_020449a4* arg0, const char* arg1
                 var3++;
             }
             if (var2) return arg1;
-            int var7 = func_02005a94(arg1 + (var3 + 1));
+            int var7 = ParseDecimal_02005a94(arg1 + (var3 + 1));
             if (var5 < 0) var5 = 0;
             if (var5 > 256) var5 = 256;
             if (var6 < 0) var6 = 0;
@@ -94,7 +94,7 @@ extern "C" ARM const char* func_020449a4(Struct_020449a4* arg0, const char* arg1
                 if (!arg1[var9]) return arg1 + var9;
                 var9++;
             }
-            int var10 = func_02005a94(arg1 + 6);
+            int var10 = ParseDecimal_02005a94(arg1 + 6);
             if (var10 <= 0) var10 = 12;
             while (arg1[var8] != ',') {
                 if (arg1[var8] == '>') {
@@ -103,7 +103,7 @@ extern "C" ARM const char* func_020449a4(Struct_020449a4* arg0, const char* arg1
                 }
                 var8++;
             }
-            int var11 = func_02005a94(arg1 + (var8 + 1));
+            int var11 = ParseDecimal_02005a94(arg1 + (var8 + 1));
             if (var11 <= 0) var11 = 16;
             arg0->unknown_1860_ = var10;
             arg0->unknown_1864_ = var11;

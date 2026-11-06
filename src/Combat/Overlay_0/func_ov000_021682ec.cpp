@@ -22,7 +22,7 @@ char unknown1_0_[0x77d6];
 #endif
 Struct_ov000_021682ec_4 unknown_77d6_[4];unsigned char unknown_77ee_;inline int inline_ov000_021682ec_2(){return unknown_77ee_;}};
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);extern "C" int IsQueueEmpty_02046b08(void**);extern "C" void func_02072c9c(int,char*);
-struct Struct_0203d028_11;extern "C" void func_0203dafc(Struct_0203d028_11*);struct Struct_02013fb4;extern "C" void func_ov000_0216d1c4(int,Struct_02013fb4*,int,int*);struct Struct_02010604;extern "C" void SetMotion_02033b88(Struct_02010604*,int);
+struct ObjectArchiveLoadInfo_0203d028_11;extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11*);struct Struct_02013fb4;extern "C" void func_ov000_0216d1c4(int,Struct_02013fb4*,int,int*);struct Struct_02010604;extern "C" void SetMotion_02033b88(Struct_02010604*,int);
 extern "C" {int sprintf(char*,const char*,...);void func_ov000_0216867c(Struct_ov000_021682ec_5*,int);extern const char data_ov000_02183ad8[],data_ov000_02183ae0[],data_ov000_02183afb[],data_ov000_02183b03[];}
 // USA: func_ov000_021682ec
 extern "C" ARM void func_ov000_021682ec(Struct_ov000_021682ec_5* arg0){
@@ -38,14 +38,14 @@ extern "C" ARM void func_ov000_021682ec(Struct_ov000_021682ec_5* arg0){
    if(!var1->GetTaskStatus(var5->unknown_2_))continue;var6=GetPartyMemberBaseByIndex_0200ff1c(var2,var5->unknown_0_);
    if(var6&&var1->GetDetailedTaskStatus(var5->unknown_2_)==2){
     var1->GetLoadedFileByID(var5->unknown_2_,&var12,&var13);Struct_ov000_021682ec_2* var17=((Struct_ov000_021682ec_3*)var6)->unknown_154_;
-    if(var17&&var12){var3=&var17->unknown_52c_;var3->Reset();func_0203dafc((Struct_0203d028_11*)&var9);var9.unk_10=1;var9.packageID=0;var9.fileData=var12;var9.unk_8=var13;var9.allocator=var3;var6->obj3D_.LoadFromCCHROrCMOTArchive(&var9,0);}
+    if(var17&&var12){var3=&var17->unknown_52c_;var3->Reset();ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var9);var9.unk_10=1;var9.packageID=0;var9.fileData=var12;var9.unk_8=var13;var9.allocator=var3;var6->obj3D_.LoadFromCCHROrCMOTArchive(&var9,0);}
    }
    var1->RemoveTask(var5->unknown_2_);var5->unknown_2_=0xffff;var5->unknown_1_++;
   }else if(var5->unknown_1_==2){
    if(!var1->GetTaskStatus(var5->unknown_4_))continue;var6=GetPartyMemberBaseByIndex_0200ff1c(var2,var5->unknown_0_);
    if(var6&&var1->GetDetailedTaskStatus(var5->unknown_4_)==2){
     var1->GetLoadedFileByID(var5->unknown_4_,&var12,&var13);Struct_ov000_021682ec_2* var18=((Struct_ov000_021682ec_3*)var6)->unknown_154_;
-    if(var18&&var12){var3=&var18->unknown_540_;var3->Reset();func_0203dafc((Struct_0203d028_11*)&var10);var10.unk_10=1;var10.packageID=1;var10.fileData=var12;var10.unk_8=var13;var10.allocator=var3;var6->obj3D_.LoadFromCCHROrCMOTArchive(&var10,0);
+    if(var18&&var12){var3=&var18->unknown_540_;var3->Reset();ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var10);var10.unk_10=1;var10.packageID=1;var10.fileData=var12;var10.unk_8=var13;var10.allocator=var3;var6->obj3D_.LoadFromCCHROrCMOTArchive(&var10,0);
      if(FindFilesInNarcBySubstring(var12,data_ov000_02183b03,&var14,&var15,1)){func_ov000_0216d1c4((int)var3,(Struct_02013fb4*)var14,var15,&var16);inline_ov000_021682ec((Struct_ov000_021682ec_3*)var6,var16);}
      SetMotion_02033b88((Struct_02010604*)var6,0);
     }

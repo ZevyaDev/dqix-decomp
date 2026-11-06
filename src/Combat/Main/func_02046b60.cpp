@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 
-struct Struct_02046b60 {
-    signed char unknown_0_;
+struct QueueNode_02046b60 {
+    signed char type_0_;
     char unknown_1_[3];
-    struct Struct_02046b60* unknown_4_;
+    struct QueueNode_02046b60* pNext_4_;
 };
 
-struct Struct_02038598_5 {
-    struct Struct_02046b60* unknown_0_;
+struct Queue_02038598_5 {
+    struct QueueNode_02046b60* pHead_0_;
 };
 
-// USA: func_02046b60
-extern "C" ARM int func_02046b60(struct Struct_02038598_5* arg0, int arg1) {
-    struct Struct_02046b60* var0 = arg0->unknown_0_;
-    while (var0 != 0) {
-        if (var0->unknown_0_ == arg1) {
+// USA: IsTypeInQueue_02046b60
+extern "C" ARM int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type) {
+    struct QueueNode_02046b60* node = queue->pHead_0_;
+    while (node != 0) {
+        if (node->type_0_ == type) {
             return 1;
         }
-        var0 = var0->unknown_4_;
+        node = node->pNext_4_;
     }
     return 0;
 }

@@ -53,7 +53,7 @@ extern "C" ARM int func_ov001_02154e40(struct Struct_ov001_02154e40* arg0) {
     if (arg0->unknown_13_ != 0) {
         var4 = 0;
     }
-    func_02094b40(var3);
+    ClearLoadedFontSets_02094b40(var3);
     CancelFontLoad_02094ab0(var3);
     func_02094b2c(var3, 0x6f, (char*)arg0 + 0x62, 1, var4);
     return 0xd;

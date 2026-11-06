@@ -34,7 +34,7 @@ struct Struct_0203ca24;
 struct Struct_0203d028_12;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 struct Struct_0208b8c4;
 
 struct Struct_ov017_021b8e8c {
@@ -109,7 +109,7 @@ extern "C" int func_0203dfdc(void* arg0, int arg1);
 extern "C" int func_02040a90(struct Struct_02040a90* arg0);
 extern "C" int func_02040528(int* arg0);
 extern "C" void func_0203cedc(struct Struct_0203ca24* arg0, int arg1, int arg2);
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int func_020107d0(char* arg0);
 extern "C" Struct_0203d028_12* func_0209854c(struct Struct_0203d028_12* arg0, int arg1);
 extern "C" void func_ov017_021a967c(QueueNode_0201bdac* arg0, int arg1);
@@ -125,8 +125,8 @@ extern "C" unsigned char* func_0206f504(void);
 extern "C" void func_0206f510(char* arg0);
 extern "C" int func_0206f550(unsigned char* arg0, char* arg1, char* arg2);
 extern "C" int func_0206f6cc(unsigned char* arg0, int arg1);
-extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
-extern "C" void func_020a0cc4(unsigned int arg0);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_0208b8c4(struct Struct_0208b8c4* arg0, SafeAllocator* arg1);
 #if defined(jpn)
@@ -135,7 +135,7 @@ extern "C" void StartMessage_0204500c(void* window, char* text, int arg2);
 extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int arg3);
 #endif
 extern "C" void func_0208bb78(void* arg0, unsigned int arg1);
-extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
+extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 extern "C" void func_0206f81c(void* arg0);
 extern "C" void func_ov008_02184a3c(char* arg0, unsigned char arg1);
 extern "C" void func_0208beb4(unsigned char* arg0);
@@ -150,7 +150,7 @@ extern char data_ov017_021d7cad;
 extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov017_021b8e8c
-extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02038598_5* arg1) {
+extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_02038598_5* arg1) {
     if (arg0->unknown_114_ == NULL) {
         arg0->unknown_1_ = 1;
         return;
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
             var12->unknown_14_ != NULL) {
             func_0203cedc(var12->unknown_14_, 1, 0);
         }
-        int var15 = func_0201079c((char*)var0);
+        int var15 = GetStoryChapter_0201079c((char*)var0);
         char var16[0xc];
         strcpy(var16, *(char**)((char*)var3 + 8) + 5);
         var16[3] = 0;
@@ -318,7 +318,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
             if (var8 != NULL) {
                 func_020a27ac(var8);
             }
-            if (func_02046b60(arg1, 0x2b) != 0 && var8 != NULL) {
+            if (IsTypeInQueue_02046b60(arg1, 0x2b) != 0 && var8 != NULL) {
                 func_020a27b8((unsigned char*)var8);
             }
             arg0->unknown_11c_ = -1;
@@ -331,7 +331,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
         }
         FontLoader_0208cb08* var33 = GetFontLoader_02094a00();
         if (arg0->unknown_128_ != 0) {
-            func_02094b40(var33);
+            ClearLoadedFontSets_02094b40(var33);
             RequestFontLoad_02094b34(var33, 0x6e, 0x1ff, 0, 0);
         } else {
             RequestFontLoad_02094b34(var33, 0x6f, 0x1388, 1, 1);
@@ -348,7 +348,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
         }
         break;
     case 2: {
-        func_020a0cc4(0xa000);
+        ReleaseFileTablesForSpace_020a0cc4(0xa000);
         arg0->unknown_8_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0xa000), 0xa000);
         func_0208b8c4((Struct_0208b8c4*)arg0->unknown_30_, &arg0->unknown_8_);
         char* var34 = *(char**)(var4 + Enum_ov017_021b8e8c_92);
@@ -381,7 +381,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
         *(int*)(var4 + Enum_ov017_021b8e8c_2460) = arg0->unknown_114_->unknown_3_;
         arg0->unknown_11c_ = 5;
         func_0208bb78(arg0->unknown_30_, var0->GetTickCount());
-        if (func_02046b60((Struct_02038598_5*)var1->unknown_ptr_array_36fc[0], 0x17) == 0) {
+        if (IsTypeInQueue_02046b60((Queue_02038598_5*)var1->unknown_ptr_array_36fc[0], 0x17) == 0) {
             break;
         }
         if (var8 != NULL) {
@@ -395,7 +395,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
         Struct_ov017_021b8e8c_4 var37;
         var37.unknown_0_ = arg0->unknown_114_->unknown_0_;
         var37.unknown_14_ = arg0->unknown_124_;
-        if (func_020649b0(var7, 1, &var37) != 0) {
+        if (RunTrigger_020649b0(var7, 1, &var37) != 0) {
             func_0206f81c(&var37);
         }
         break;
@@ -458,7 +458,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
         Struct_ov017_021b8e8c_4 var42;
         var42.unknown_0_ = arg0->unknown_114_->unknown_0_;
         var42.unknown_14_ = arg0->unknown_124_;
-        if (func_020649b0(var7, 1, &var42) != 0) {
+        if (RunTrigger_020649b0(var7, 1, &var42) != 0) {
             func_0206f81c(&var42);
         }
         if (var40 == 0 && var41[2] != 0) {

@@ -22,7 +22,7 @@ struct Struct_ov000_0215eb1c {
 };
 struct Struct_02010088;
 extern "C" int func_ov000_02153c0c(GameObject*);
-extern "C" int func_02010088(Struct_02010088*);
+extern "C" int IsDead_02010088(Struct_02010088*);
 
 // USA: CollectEnemyCombatantIndices_ov000_0215eb1c
 extern "C" ARM int CollectEnemyCombatantIndices_ov000_0215eb1c(Struct_ov000_0215eb1c* battle, short* indices, int maxCount, int filterFlags) {
@@ -33,7 +33,7 @@ extern "C" ARM int CollectEnemyCombatantIndices_ov000_0215eb1c(Struct_ov000_0215
             GameObject* combatant = GameState::GetInstance()->GetCombatantByIndex(combatantIndex);
             if (!combatant) continue;
             if (!(filterFlags & 0x10) && func_ov000_02153c0c(combatant)) continue;
-            if ((filterFlags & 1) && func_02010088((Struct_02010088*)combatant)) continue;
+            if ((filterFlags & 1) && IsDead_02010088((Struct_02010088*)combatant)) continue;
             indices[count++] = combatantIndex;
             if (count == maxCount) return count;
         }

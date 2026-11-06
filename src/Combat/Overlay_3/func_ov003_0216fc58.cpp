@@ -13,7 +13,7 @@ struct Struct_ov003_0216fc58 {
     short unknown_ae_;
 };
 
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" void func_0205cef8(void* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);

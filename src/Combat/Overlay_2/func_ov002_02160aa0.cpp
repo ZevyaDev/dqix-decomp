@@ -6,7 +6,7 @@ extern "C" void __clear(void *arg0, int arg1);
 extern "C" void *GetMessageWindow_020421a0(void);
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" void SetMessageNumber_020465c0(void *window, int index, int number);
-extern "C" void func_020465f0(void *arg0, int arg1, int arg2);
+extern "C" void SetMessageNumberWidth_020465f0(void *window, int index, int width);
 extern "C" void func_020474a8(void *arg0, int arg1, const char *arg2, char *arg3);
 #endif
 
@@ -14,7 +14,7 @@ struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
-extern "C" int func_02041e70(char *arg0, int arg1);
+extern "C" int AppendTextColorTag_02041e70(char *buffer, int colorIndex);
 extern "C" int AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_ov002_0215a9b4(void *arg0, short arg1);
@@ -44,17 +44,17 @@ extern "C" ARM void func_ov002_02161938(unsigned char *arg0, char *arg1, int arg
     for (; var4 < var3; var4++) {
         var1 = func_0206e3d4((int) var5, func_ov002_0215a9b4(arg0, var4));
         if (var1 == 0) {
-            func_02041e70(arg1, 0xf);
+            AppendTextColorTag_02041e70(arg1, 0xf);
             AppendMenuEntry_02041b70(arg1, var2,
                           (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 8), 0x119c + 1));
         } else if (*(unsigned int *) (arg0 + 0x2000 + 0x2b0) & (1 << (var1 - 1))) {
-            func_02041e70(arg1, 0xf);
+            AppendTextColorTag_02041e70(arg1, 0xf);
             AppendMenuEntry_02041b70(arg1, var2,
                           (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 8), (short) (var1 + 0x119d)));
         } else {
-            func_02041e70(arg1, 0xf);
+            AppendTextColorTag_02041e70(arg1, 0xf);
             AppendMenuEntry_02041b70(arg1, var2,
                           (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 8), 0x119c));
@@ -66,15 +66,15 @@ extern "C" ARM void func_ov002_02161938(unsigned char *arg0, char *arg1, int arg
             AppendText_02042058(arg1, data_ov002_0216d2b4);
         }
     }
-    func_02041e70(arg1, 0xf);
+    AppendTextColorTag_02041e70(arg1, 0xf);
     char var6[0x40];
     __clear(var6, 0x40);
     void *var7 = GetMessageWindow_020421a0();
     ClearMessageParams_02046380(var7);
     SetMessageNumber_020465c0(var7, 0, *(unsigned char *) (arg0 + 0x2000 + 0x2b4) + 1);
-    func_020465f0(var7, 0, 1);
+    SetMessageNumberWidth_020465f0(var7, 0, 1);
     SetMessageNumber_020465c0(var7, 1, 2);
-    func_020465f0(var7, 1, 1);
+    SetMessageNumberWidth_020465f0(var7, 1, 1);
     func_020474a8(var7, 8,
                   (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x119a),
                   var6);
@@ -102,17 +102,17 @@ extern "C" ARM void func_ov002_02160aa0(unsigned char *arg0, char *arg1, int arg
     for (; var4 < var3; var4++) {
         var1 = func_0206e3d4((int) var5, func_ov002_0215a9b4(arg0, var4));
         if (var1 == 0) {
-            func_02041e70(arg1, 0xf);
+            AppendTextColorTag_02041e70(arg1, 0xf);
             AppendMenuEntry_02041b70(arg1, var2,
                           (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 0x20), 0x119c + 1));
         } else if (*(unsigned int *) (arg0 + 0x2000 + 0x480) & (1 << (var1 - 1))) {
-            func_02041e70(arg1, 0xf);
+            AppendTextColorTag_02041e70(arg1, 0xf);
             AppendMenuEntry_02041b70(arg1, var2,
                           (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 0x20), (short) (var1 + 0x119d)));
         } else {
-            func_02041e70(arg1, 0xf);
+            AppendTextColorTag_02041e70(arg1, 0xf);
             AppendMenuEntry_02041b70(arg1, var2,
                           (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 0x20), 0x119c));
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov002_02160aa0(unsigned char *arg0, char *arg1, int arg
             AppendText_02042058(arg1, data_ov002_0216d2b4);
         }
     }
-    func_02041e70(arg1, 0xf);
+    AppendTextColorTag_02041e70(arg1, 0xf);
     func_ov002_0215b918(arg0, 0x22, *(unsigned char *) (arg0 + 0x2000 + 0x484), 2);
 }
 #endif

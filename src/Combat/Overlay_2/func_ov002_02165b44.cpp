@@ -8,7 +8,7 @@
 
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
-struct Struct_0205da38;
+struct TextWindowManager_0205da38;
 struct SoundEffectManager_02108760;
 struct TextWindowManager_0205d81c;
 struct Struct_0205dee8;
@@ -24,15 +24,15 @@ struct Struct_ov002_02165b44 {
 };
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" void func_0205dee8(struct Struct_0205dee8 *arg0, int arg1);
 extern "C" void func_ov002_02156ff0(unsigned char *arg0, int arg1);
-extern "C" int func_020100b0(GameState *arg0);
+extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState *gameState);
 extern "C" GameObject *func_0200ff94(GameState *arg0, int arg1);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char *flags, int flagIndex);
 extern "C" char *func_020a83b0(struct Struct_020a83b0 *arg0, int arg1);
@@ -74,11 +74,11 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
         func_ov002_02161b98(arg0);
         *(short *) (arg0 + 0x1ac4) = GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + 0xe20));
         int var1                            = g_keyManager.TestKeysPressed(0x601);
-        int var2 = func_0205da38((struct Struct_0205da38*)(arg0 + 0xe20), 0x14);
+        int var2 = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(arg0 + 0xe20), 0x14);
         if ((var1 | var2) ? 1 : 0) {
             GameState *var3 = GameState::GetInstance();
             int var4        = *(signed char *) (arg0 + 0x1ae8);
-            if (var4 == 4) var4 = func_020100b0(var3);
+            if (var4 == 4) var4 = GetOwnPartyLeaderObjectIndex_020100b0(var3);
             GameObject *var5 = func_0200ff94(var3, var4);
             if (var5 == NULL) return;
             *(unsigned char *) (arg0 + 0xed8) = *(int *) (arg0 + 0x1a80);
@@ -228,11 +228,11 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
         func_ov002_02161b98(arg0);
         *(short *) (arg0 + 0x1b00 + 0xfc) = GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + 0x2c8 + 0xc00));
         int var20                            = g_keyManager.TestKeysPressed(0x601);
-        int var21 = func_0205da38((struct Struct_0205da38*)(arg0 + 0x2c8 + 0xc00), 0x14);
+        int var21 = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(arg0 + 0x2c8 + 0xc00), 0x14);
         if ((var20 | var21) ? 1 : 0) {
             GameState *var22 = GameState::GetInstance();
             int var23        = *(signed char *) (arg0 + 0x1c00 + 0x20);
-            if (var23 == 4) var23 = func_020100b0(var22);
+            if (var23 == 4) var23 = GetOwnPartyLeaderObjectIndex_020100b0(var22);
             GameObject *var24 = func_0200ff94(var22, var23);
             if (var24 == NULL) return;
             *(unsigned char *) (arg0 + 0xf80) = *(int *) (arg0 + 0x1000 + 0xbb8);

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_020fdd44;
-extern "C" struct Struct_020fdd44* func_02027ca4(void);
+struct ActiveZone_020fdd44;
+extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 struct LocalWireless_0202c1a4;
@@ -14,7 +14,7 @@ struct Struct_ov017_0219d250_8 { unsigned char unknown_0_[2]; unsigned short unk
 // USA: func_ov017_0219e014
 extern "C" ARM void func_ov017_0219e014(unsigned char* arg0, Struct_ov017_0219d250_8* arg1) {
 	GameState* var0 = GameState::GetInstance();
-	func_02027ca4();
+	GetActiveZones_02027ca4();
 	void* var1 = GetLocalWireless_0202ae18();
 
 	if (arg1) {

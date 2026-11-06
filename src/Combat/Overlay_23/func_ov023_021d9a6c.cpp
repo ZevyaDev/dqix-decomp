@@ -5,7 +5,7 @@
 #include "Combat/TryApplyElemFields.h"
 
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
-extern "C" int func_02041e70(char*, int);
+extern "C" int AppendTextColorTag_02041e70(char*, int);
 extern "C" int func_02042158(char*, int);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" int GetStringLength_020d2ff0(const char*);
@@ -36,9 +36,9 @@ extern "C" ARM void func_ov023_021d9a6c(char* arg0) {
 
     for (int var5 = 0; var5 < var0->unknown_da0_[var0->unknown_da3_]; var5++) {
         if (var5 == var0->unknown_c58_ - 1)
-            func_02041e70(var0->unknown_f8_, 14);
+            AppendTextColorTag_02041e70(var0->unknown_f8_, 14);
         else
-            func_02041e70(var0->unknown_f8_, 15);
+            AppendTextColorTag_02041e70(var0->unknown_f8_, 15);
         if (var5 < 7) {
             short var6 = var4[var5];
             func_02042158(var0->unknown_f8_, (10 - GetStringLength_020d2ff0((const char*)FindStringInTable_020e0434(&var0->unknown_e0_, var6))) * 5);
@@ -72,8 +72,8 @@ extern "C" ARM void func_ov023_021d9a6c(char* arg0) {
 
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
-extern "C" int func_02041e70(char*, int);
-extern "C" int func_02041a28(char*, int);
+extern "C" int AppendTextColorTag_02041e70(char*, int);
+extern "C" int AppendXPositionTag_02041a28(char*, int);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" int func_020420e8(void*, int);
 
@@ -111,17 +111,17 @@ extern "C" ARM void func_ov023_021d9a6c(char* arg0) {
         signed char var17 = *(signed char*)(arg0 + 0xc58);
         int var18 = 15;
         if (var16 == var17 - 1) var18 = 14;
-        func_02041e70(var12, var18);
+        AppendTextColorTag_02041e70(var12, var18);
 
         if (var16 < 7) {
             short var19 = var15[var16];
-            func_02041a28(var12, 0x32 - func_020420e8((void*)FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), var19), 0));
+            AppendXPositionTag_02041a28(var12, 0x32 - func_020420e8((void*)FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), var19), 0));
             AppendText_02042058(var12, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), var19));
             AppendText_02042058(var12, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), 0x4273));
         } else if (var16 == 7) {
             char* var20 = (*(char***)(arg0 + 0xdb0))[*(unsigned char*)(arg0 + 0xda3)];
             if (*(signed char*)var20 != 0) {
-                func_02041a28(var12, 0x32 - func_020420e8(var20, 0));
+                AppendXPositionTag_02041a28(var12, 0x32 - func_020420e8(var20, 0));
                 AppendText_02042058(var12, var20);
             } else {
                 AppendText_02042058(var12, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), 0x4274));

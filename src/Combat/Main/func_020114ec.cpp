@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-// USA: func_020114ec
-extern "C" ARM unsigned char func_020114ec(char* arg0, void* arg1) {
+// USA: GetPartyOrder_020114ec
+extern "C" ARM unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder) {
 #if defined(jpn)
-    unsigned char var0 = *(unsigned char*)(arg0 + 0x54c1);
+    unsigned char count = *(unsigned char*)(gameState + 0x54c1);
 #else
-    unsigned char var1 = *(unsigned char*)(arg0 + 0x5721);
+    unsigned char count = *(unsigned char*)(gameState + 0x5721);
 #endif
 #if defined(jpn)
-    memcpy(arg1, arg0 + 0x54bd, var0);
+    memcpy(outPartyOrder, gameState + 0x54bd, count);
 #else
-    memcpy(arg1, arg0 + 0x571d, var1);
+    memcpy(outPartyOrder, gameState + 0x571d, count);
 #endif
 #if defined(jpn)
-    return *(unsigned char*)(arg0 + 0x54c1);
+    return *(unsigned char*)(gameState + 0x54c1);
 #else
-    return *(unsigned char*)(arg0 + 0x5721);
+    return *(unsigned char*)(gameState + 0x5721);
 #endif
 }

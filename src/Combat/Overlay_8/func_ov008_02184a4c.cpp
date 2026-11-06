@@ -193,8 +193,8 @@ extern "C" int IsFlagSet_0206dfb0(char* flagManager, char* flags, int flagIndex)
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
-struct Struct_020727d8;
-extern "C" void func_020727d8(Struct_020727d8*);
+struct StringList_020727d8;
+extern "C" void ResetStringList_020727d8(StringList_020727d8*);
 extern "C" void func_020727f8(void* arg0, const char* arg1, int arg2, void* arg3, unsigned char arg4);
 extern "C" void func_0209fe9c(char*);
 struct Struct_0209fee4;
@@ -229,8 +229,8 @@ extern "C" int func_ov008_02188a54(Struct_ov008_02184a4c_12* arg0, int arg1);
 extern "C" void InitSpriteSet_0205a444(char*);
 struct Sprite_02043368_2;
 extern "C" void InitSprite_0205a198(Sprite_02043368_2*);
-struct Struct_02043368;
-extern "C" void func_0205a234(Struct_02043368*);
+struct SpriteAnimationList_02043368;
+extern "C" void InitSpriteAnimationList_0205a234(SpriteAnimationList_02043368*);
 extern "C" int LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, SafeAllocator* allocator);
 extern "C" int func_ov008_02188d74(Struct_ov008_02184a4c_12* arg0);
 struct TextureVRAMArea_0203d028;
@@ -244,7 +244,7 @@ extern "C" void func_020a2010(void* arg0);
 struct Struct_0202e5c0;
 extern "C" void func_0202e5c0(Struct_0202e5c0*, int, int, int);
 extern "C" void func_0202e5c8(unsigned char*, int, int, int);
-extern "C" void func_020a27a0(void* arg0);
+extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void SetCamera_020100c4(GameState*, int);
 struct Struct_020a13c4;
 extern "C" void func_020a13c4(Struct_020a13c4*);
@@ -266,7 +266,7 @@ extern "C" Struct_ov008_02184a4c_10* FindTextWindow_0205d81c(TextWindowManager_0
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void func_020432c4(char* arg0);
 struct Struct_0209c3b4_2;
-extern "C" void func_0209c3b4(Struct_0209c3b4_2*, int);
+extern "C" void PlayMusic_0209c3b4(Struct_0209c3b4_2*, int);
 extern "C" void func_ov008_02186964(Struct_ov008_02184a4c_12* arg0);
 
 struct Struct_ov008_02184a4c_14 {
@@ -336,7 +336,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
                 char var10[0x80];
                 __clear(var10, 0x80);
                 Struct_ov008_02184a4c var11;
-                func_020727d8((Struct_020727d8*)&var11);
+                ResetStringList_020727d8((StringList_020727d8*)&var11);
                 func_020727f8(&var11, data_ov008_0218b400, 1000, var10, REGION_VALUE(1, 2));
                 arg0->unknown_b20_ = var2->QueueLoadFile(var10, NULL);
                 arg0->unknown_b18_ |= 0x400;
@@ -379,7 +379,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
             }
         }
         FontLoader_0208cb08* var14 = GetFontLoader_02094a00();
-        func_02094b40(var14);
+        ClearLoadedFontSets_02094b40(var14);
         RequestFontLoad_02094b34(var14, 0x6b, 0x1fc, 0, 0);
         arg0->unknown_b11_++;
     } else if (var4 == 3) {
@@ -446,7 +446,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
                 for (int var27 = 0; var27 < 0x12; var27++) {
                     InitSprite_0205a198((Sprite_02043368_2*)&arg0->unknown_734_[var27]);
                 }
-                func_0205a234((Struct_02043368*)arg0->unknown_738_);
+                InitSpriteAnimationList_0205a234((SpriteAnimationList_02043368*)arg0->unknown_738_);
 #if defined(jpn)
                 arg0->unknown_b20_ = var2->QueueLoadFile(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_a0_, 3), NULL);
 #else
@@ -516,7 +516,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
         func_020a2010(arg0->unknown_83c_);
         func_0202e5c0((Struct_0202e5c0*)arg0->unknown_83c_, 0, 0x8000, 0x40000);
         func_0202e5c8((unsigned char*)arg0->unknown_83c_, 0, 0, 0);
-        func_020a27a0(arg0->unknown_83c_);
+        DisableCameraFollow_020a27a0(arg0->unknown_83c_);
         SetCamera_020100c4(var0, (int)arg0->unknown_83c_);
         arg0->unknown_b11_++;
     } else if (var4 == 9) {
@@ -601,7 +601,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
                 }
                 memset(arg0->unknown_b8_, 0, REGION_VALUE(0x800, 0x960));
                 Struct_ov008_02184a4c var56;
-                func_020727d8((Struct_020727d8*)&var56);
+                ResetStringList_020727d8((StringList_020727d8*)&var56);
                 func_020727f8(&var56, data_ov008_0218b400, (short)var55, arg0->unknown_b8_, REGION_VALUE(1, 2));
                 if (func_020d3018(arg0->unknown_b8_, data_ov008_0218b48f) == 0) {
                     arg0->unknown_b11_ = 0xff;
@@ -657,7 +657,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
             }
             memset(arg0->unknown_b8_, 0, REGION_VALUE(0x800, 0x960));
             Struct_ov008_02184a4c var61;
-            func_020727d8((Struct_020727d8*)&var61);
+            ResetStringList_020727d8((StringList_020727d8*)&var61);
             func_020727f8(&var61, data_ov008_0218b400, var60, arg0->unknown_b8_, REGION_VALUE(1, 2));
             arg0->unknown_b20_ = var2->QueueLoadFile(arg0->unknown_b8_, NULL);
             arg0->unknown_b11_ = 10;
@@ -685,7 +685,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
             RestoreTextureVRAMState_0207df90(var64 + 0x5b0);
             func_020432c4(var65);
             SaveTextureVRAMState_0207dfac(var64 + 0x5b0);
-            func_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, 0x29);
+            PlayMusic_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, 0x29);
             arg0->unknown_b10_ = 3;
             arg0->unknown_b11_ = 0;
             if (arg0->unknown_b0c_ == NULL) {

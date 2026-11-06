@@ -9,8 +9,8 @@ enum { Enum_020a66a4_14076 = 0x36fc, Enum_020a66a4_1816 = 0x718 };
 
 struct Struct_0200ffc0;
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
-struct Struct_02015438;
-extern "C" int func_02046b24(struct Struct_02015438** arg0);
+struct QueueNode_02015438;
+extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 struct Struct_02046b1c;
 extern "C" int func_02046b1c(struct Struct_02046b1c* arg0);
 struct Struct_020a66a4;
@@ -39,7 +39,7 @@ extern "C" ARM void func_020a66a4(struct Struct_020a66a4_2* arg0) {
     GameState* var5 = GameState::GetInstance();
     var1 = arg0->unknown_36fc_;
     var0 = func_0200ffc0((struct Struct_0200ffc0*)var5);
-    var2 = func_02046b24((struct Struct_02015438**)var1);
+    var2 = GetQueueHeadType_02046b24((struct QueueNode_02015438**)var1);
     func_02046b1c((struct Struct_02046b1c*)var1);
     struct Struct_020a66a4_3* var6 = (struct Struct_020a66a4_3*)((char*)arg0 + 0x3000);
     var4 = var6->unknown_718_;

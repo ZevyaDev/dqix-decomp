@@ -36,8 +36,8 @@ extern "C" void func_ov017_0219bcac(unsigned char);
 extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void* func_02094d6c();
 extern "C" void* func_020965f8();
-extern "C" void* func_020de824(void*);
-extern "C" void func_020de848(void*);
+extern "C" void* InitItemTable_020de824(void*);
+extern "C" void ClearItemTable_020de848(void*);
 extern "C" void func_020de1d4(Struct_02083508_2*);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 #if defined(jpn)
@@ -50,7 +50,7 @@ extern "C" void* GetParty_02010828(GameState*);
 struct Struct_0207cf30_4;
 extern "C" void func_020a095c(Struct_0207cf30_4*, int, int);
 extern "C" void func_020dbc5c(char*, int);
-extern "C" int func_020100b0(GameState*);
+extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" void func_ov017_021cee78(int, unsigned char);
 extern "C" void func_ov017_02191234(GameResources*);
 
@@ -249,8 +249,8 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
         func_02094d6c();
         func_020965f8();
 
-        func_020de824(var0);
-        func_020de848(var0);
+        InitItemTable_020de824(var0);
+        ClearItemTable_020de848(var0);
         func_020de1d4(&var1);
         BackgroundLoader::AddLockGlobal();
 #if defined(jpn)
@@ -263,7 +263,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
         }
         BackgroundLoader::RemoveLockGlobal();
         var2.unknown_0_.ResetAllocatorPointer();
-        func_020de824(var2.unknown_14_);
+        InitItemTable_020de824(var2.unknown_14_);
         func_0207cbe8((char*)&var2);
         func_0207cbe8((char*)&var2);
         func_0207cc18(&var2, &var1);
@@ -273,7 +273,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
         unsigned char* var24 = (unsigned char*)GetParty_02010828(var5) + 0xf78;
         for (int var25 = 0; var25 < 4; var25++, var24++) {
             unsigned char var26 = *var24;
-            if (var26 != func_020100b0(var5)) {
+            if (var26 != GetOwnPartyLeaderObjectIndex_020100b0(var5)) {
                 func_ov017_021cee78(var26, 0);
             }
         }

@@ -24,7 +24,7 @@ struct Struct_021117ec_5
 extern Struct_021117ec_5 data_021117ec;
 
 extern "C" void func_020c976c(unsigned long cycles);
-extern "C" void func_020c9820();
+extern "C" void WaitForVBlank_020c9820();
 extern "C" unsigned long func_020ce614(int arg0);
 extern "C" unsigned long func_020ce5b0(int arg0, void (*arg1)(), int* arg2);
 extern "C" unsigned long func_020ce7e0(int arg0);
@@ -67,8 +67,8 @@ extern "C" ARM int func_020ceba8(int arg0, int arg1, int arg2, int arg3)
             while (func_020ce7e0(0) != PM_SUCCESS);
         if (VBLANK_COUNT - data_021117ec.unknown_8_ <= LCD_INIT_WAIT_FRAMES)
         {
-            func_020c9820();
-            func_020c9820();
+            WaitForVBlank_020c9820();
+            WaitForVBlank_020c9820();
         }
         POWCNT &= ~1;
         data_021117ec.unknown_4_ = VBLANK_COUNT;

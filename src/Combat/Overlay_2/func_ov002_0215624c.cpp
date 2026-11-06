@@ -28,10 +28,10 @@ struct Struct_ov002_0215624c_11;
 struct Struct_ov002_0215624c_26;
 struct Struct_0201099c_3;
 
-extern "C" unsigned char *func_0205d8c4(struct Struct_ov002_02155960_2 *arg0);
-extern "C" int func_0204c7cc(unsigned char *arg0);
+extern "C" unsigned char *GetCursorTextWindow_0205d8c4(struct Struct_ov002_02155960_2 *windowManager);
+extern "C" int IsTextWindowReady_0204c7cc(unsigned char *textWindow);
 extern "C" void func_0205bc24(void *arg0, int arg1);
-extern "C" int func_0205d0e0(void *arg0, int arg1);
+extern "C" int UpdateTextWindowManager_0205d0e0(void *windowManager, int ticks);
 extern "C" int GetCursorIndex_0205d794(struct Struct_ov002_0215624c_15 *windowManager);
 extern "C" void func_020a1ef0(int arg0);
 extern "C" int GetResources_0200fb8c(int *gameState);
@@ -46,10 +46,10 @@ extern "C" void FillBGScreenRect_0204bc74(void *layer, unsigned short screenEntr
 extern "C" void LoadBGScreenData_0204b0e8(struct Struct_ov002_0215624c_19 *layer, void *screenData);
 extern "C" void LoadBGBlock_0204b174(void *layer, void *block, SafeAllocator *allocator, int arg3);
 extern "C" void SetTextWindowBuffers_0204c7a8(struct Struct_ov002_0215624c_20 *window, SafeAllocator *allocator,
-                                                                           int arg2, unsigned int screenDataSize);
-extern "C" void func_0205cf78(struct Struct_ov002_0215624c_21 *arg0,
-                                                                                     struct Struct_ov002_0215624c_22 *arg1,
-                                                                                     unsigned char arg2);
+                                                                           int characterData, unsigned int screenDataSize);
+extern "C" void SetTextWindowArray_0205cf78(struct Struct_ov002_0215624c_21 *windowManager,
+                                                                                     struct Struct_ov002_0215624c_22 *textWindows,
+                                                                                     unsigned char textWindowCapacity);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void *memcpy(void *arg0, const void *arg1, unsigned int arg2);
 extern "C" void *func_020421b0(int arg0);
@@ -57,16 +57,16 @@ extern "C" void DC_FlushRange(const void *where, unsigned int len);
 extern "C" void LoadToMainBG1CharacterData(const void *data, unsigned int offset, unsigned int length);
 extern "C" void LoadToMainBG3CharacterData(const void *data, unsigned int offset, unsigned int length);
 extern "C" void InitSprite_0205a198(struct Struct_ov002_0215624c_23 *sprite);
-extern "C" void func_0205a234(struct Struct_ov002_0215624c_24 *arg0);
+extern "C" void InitSpriteAnimationList_0205a234(struct Struct_ov002_0215624c_24 *animationList);
 extern "C" void InitSpriteSet_0205a444(char *spriteSet);
 extern "C" void *GetPacEntryData_020467f0(struct Struct_ov002_0215624c_25 *pac, int index, void **outEntry, int *outSize);
 extern "C" void LoadSpriteSetFile_0205a528(void *spriteSet, void *fileData, int size, void *allocator);
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" int CountPacEntries_02046900(struct Struct_ov002_0215624c_26 *pac);
 extern "C" void LoadStringTable_020dfec0(void *stringTable, void *allocator, void *fileData, unsigned int fileSize);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
-extern "C" void func_020dc7e8(int arg0, int arg1);
+extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
 extern "C" void func_ov002_0215bf34(char *arg0);
 extern "C" void func_ov002_0215c028(char *arg0);
 extern "C" void func_ov002_0215bba8(char *arg0);
@@ -143,11 +143,11 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
         return;
     }
 
-    unsigned char *var2 = func_0205d8c4((struct Struct_ov002_02155960_2 *) (arg0 + REGIONAL_OFFSET(0xe20, 0xec8)));
-    if (var2 != 0 && func_0204c7cc(var2) && !(var2[0xc5] & 2)) {
+    unsigned char *var2 = GetCursorTextWindow_0205d8c4((struct Struct_ov002_02155960_2 *) (arg0 + REGIONAL_OFFSET(0xe20, 0xec8)));
+    if (var2 != 0 && IsTextWindowReady_0204c7cc(var2) && !(var2[0xc5] & 2)) {
         func_0205bc24(&((struct Struct_ov002_0215624c_12 *) (arg0 + REGIONAL_OFFSET(0xe20, 0xec8)))->unknown_4_, -1);
     }
-    S32(REGIONAL_OFFSET(0x1a90, 0x1bc8)) = func_0205d0e0(arg0 + REGIONAL_OFFSET(0xe20, 0xec8), S32(REGIONAL_OFFSET(0x1a68, 0x1ba0)));
+    S32(REGIONAL_OFFSET(0x1a90, 0x1bc8)) = UpdateTextWindowManager_0205d0e0(arg0 + REGIONAL_OFFSET(0xe20, 0xec8), S32(REGIONAL_OFFSET(0x1a68, 0x1ba0)));
     short var3   = S16(REGIONAL_OFFSET(0x1aa8, 0x1be0));
     S16(REGIONAL_OFFSET(0x1aa8, 0x1be0)) = GetCursorIndex_0205d794((struct Struct_ov002_0215624c_15 *) (arg0 + REGIONAL_OFFSET(0xe20, 0xec8)));
     if (S32(REGIONAL_OFFSET(0x1a88, 0x1bc0)) >= 1 && var3 != S16(REGIONAL_OFFSET(0x1aa8, 0x1be0))) {
@@ -209,7 +209,7 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
         }
         *(char **) (arg0 + REGIONAL_OFFSET(0xeb8, 0xf60)) = arg0 + REGIONAL_OFFSET(0xedc, 0xf84);
         U8(REGIONAL_OFFSET(0xed2, 0xf7a))                 = 3;
-        func_0205cf78((struct Struct_ov002_0215624c_21 *) (arg0 + REGIONAL_OFFSET(0xe20, 0xec8)),
+        SetTextWindowArray_0205cf78((struct Struct_ov002_0215624c_21 *) (arg0 + REGIONAL_OFFSET(0xe20, 0xec8)),
                                                                              (struct Struct_ov002_0215624c_22 *) (arg0 + REGIONAL_OFFSET(0xf3c, 0xfe4)), 12);
 
         memset((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
@@ -222,7 +222,7 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
         for (unsigned char var17 = 0; var17 < REGIONAL_OFFSET(0x2c, 0x2b); var17++) {
             InitSprite_0205a198((struct Struct_ov002_0215624c_23 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + var17 * 0x28));
         }
-        func_0205a234((struct Struct_ov002_0215624c_24 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c)));
+        InitSpriteAnimationList_0205a234((struct Struct_ov002_0215624c_24 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c)));
         InitSpriteSet_0205a444((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)));
         *(unsigned char *) (S32(REGIONAL_OFFSET(0x19c0, 0x1a68)) + 0x50) = 0;
         {
@@ -260,8 +260,8 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
         REG16(0x0400000c) = (REG16(0x0400000c) & ~3) | 1;
         REG16(0x0400000e) = (REG16(0x0400000e) & ~3);
         REG32(0x04000000) = (REG32(0x04000000) & ~0x1f00) | 0x1f00;
-        func_0205d0e0(arg0 + REGIONAL_OFFSET(0xe20, 0xec8), S32(REGIONAL_OFFSET(0x1a68, 0x1ba0)));
-        func_0205d0e0(arg0 + REGIONAL_OFFSET(0xe20, 0xec8), S32(REGIONAL_OFFSET(0x1a68, 0x1ba0)));
+        UpdateTextWindowManager_0205d0e0(arg0 + REGIONAL_OFFSET(0xe20, 0xec8), S32(REGIONAL_OFFSET(0x1a68, 0x1ba0)));
+        UpdateTextWindowManager_0205d0e0(arg0 + REGIONAL_OFFSET(0xe20, 0xec8), S32(REGIONAL_OFFSET(0x1a68, 0x1ba0)));
 
         if (U8(REGIONAL_OFFSET(0x22b5, 0x2485)) != 0) {
             char *var24                 = (char *) GameState::GetInstance();
@@ -306,7 +306,7 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
             for (unsigned char var32 = 0; var32 < REGIONAL_OFFSET(0x2c, 0x2b); var32++) {
                 InitSprite_0205a198((struct Struct_ov002_0215624c_23 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + var32 * 0x28));
             }
-            func_0205a234((struct Struct_ov002_0215624c_24 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c)));
+            InitSpriteAnimationList_0205a234((struct Struct_ov002_0215624c_24 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c)));
             InitSpriteSet_0205a444((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)));
             *(unsigned char *) (S32(REGIONAL_OFFSET(0x19c0, 0x1a68)) + 0x50) = 0;
             {
@@ -349,7 +349,7 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
         if (U8(REGIONAL_OFFSET(0x22b5, 0x2485)) == 0) {
             func_ov002_0215a938(arg0);
         }
-        func_020dc7e8(1, -1);
-        func_020dc7e8(8, -1);
+        LoadPartyMemberColors_020dc7e8(1, -1);
+        LoadPartyMemberColors_020dc7e8(8, -1);
     }
 }

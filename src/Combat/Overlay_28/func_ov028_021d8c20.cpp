@@ -12,8 +12,8 @@ void SetBrightness(GameResources*, int, int);
 struct Struct_02097b34;
 extern "C" void func_02097b34(struct Struct_02097b34* arg0);
 
-struct Struct_02074bd0;
-extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
+struct BGControlSave_02074bd0;
+extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
 
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov028_021d8c20(char* arg0) {
         ((SafeAllocator*)(arg0 + 0x44))->Destroy();
     }
     func_02097b34((struct Struct_02097b34*)(arg0 + 0x20));
-    func_02074bd0((struct Struct_02074bd0*)(arg0 + 0xc));
+    RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)(arg0 + 0xc));
 
     void* var2 = *(void**)(arg0 + 0x40);
     if (var2 != 0) {

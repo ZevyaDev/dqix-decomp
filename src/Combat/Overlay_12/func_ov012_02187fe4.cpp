@@ -86,7 +86,7 @@ struct SoundEffectManager_02108760;
 struct Struct_ov012_02186a7c;
 struct TextWindowManager_0205de24_2;
 
-extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" void func_ov012_0218a054(Struct_ov012_02187fe4* arg0);
 extern "C" int func_ov023_021e63bc(Struct_ov012_02187fe4* arg0);
 extern "C" void func_ov023_021e61f4(Struct_ov012_02187fe4* arg0);

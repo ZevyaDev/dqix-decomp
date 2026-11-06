@@ -13,7 +13,7 @@
 
 struct Struct_02054000;
 extern "C" void* func_02054000(struct Struct_02054000* arg0);
-extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 
 struct Struct_ov000_02171ffc {
     unsigned int unknown_0_0_ : 1;
@@ -109,10 +109,10 @@ extern "C" ARM int func_ov000_02171ffc(struct Struct_ov000_0215ab88* arg0) {
     }
     if (var2 == 6 && var0 != 0) {
 #if defined(jpn)
-        var2 = func_02083b00((unsigned char*)var0->unknown_150_, 0xe6) ? 3 : 2;
+        var2 = HasLearnedSkillEntry_02083b00((unsigned char*)var0->unknown_150_, 0xe6) ? 3 : 2;
 #else
         var2 = 2;
-        if (func_02083b00((unsigned char*)var0->unknown_150_, 0xe6)) {
+        if (HasLearnedSkillEntry_02083b00((unsigned char*)var0->unknown_150_, 0xe6)) {
             var2 = 3;
         }
 #endif

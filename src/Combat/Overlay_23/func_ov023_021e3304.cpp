@@ -3,7 +3,7 @@
 
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimation_0205a254_2;
-extern "C" void func_0205a42c(struct SpriteAnimationList_0205a254*, int, int);
+extern "C" void SetSpriteAnimationOAMIndex_0205a42c(struct SpriteAnimationList_0205a254*, int, int);
 extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254*, int);
 extern "C" struct SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254*, int);
 
@@ -16,7 +16,7 @@ extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 // USA: func_ov023_021e3304
 extern "C" ARM void func_ov023_021e3304(void* arg0, int arg1, int arg2) {
     GameState* var0 = GameState::GetInstance();
-    func_0205a42c(*(struct SpriteAnimationList_0205a254**)((char*)arg0 + 0xd0), 0, 0);
+    SetSpriteAnimationOAMIndex_0205a42c(*(struct SpriteAnimationList_0205a254**)((char*)arg0 + 0xd0), 0, 0);
     PlaySpriteAnimation_0205a370(*(struct SpriteAnimationList_0205a254**)((char*)arg0 + 0xd0), 0);
     struct SpriteAnimation_0205a254_2* var1 = FindSpriteAnimation_0205a3d0(*(struct SpriteAnimationList_0205a254**)((char*)arg0 + 0xd0), 0);
     if (var1 != NULL) {

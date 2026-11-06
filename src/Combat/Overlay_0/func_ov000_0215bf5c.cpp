@@ -3,7 +3,7 @@
 
 struct GameObject { char unknown_0_[0x138]; short* unknown_138_; int inline_ov000_0215bf5c() const { return unknown_138_[0]; } int inline_ov000_0215bf5c_2() const { return unknown_138_[1]; } };
 class GameState { public: static GameState* GetInstance(); GameObject* GetCombatantByIndex(int); };
-struct Struct_ov000_0215440c_2 { void* unknown_0_; void* unknown_4_; unsigned char unknown_8_; };
+struct BattleAction_ov000_0215440c_2 { void* unknown_0_; void* unknown_4_; unsigned char unknown_8_; };
 struct Struct_ov000_0215bf5c_2 {
     void* unknown_0_; void* unknown_4_; void* unknown_8_; void* unknown_c_; void* unknown_10_;
     char unknown_14_[8]; short unknown_1c_; char unknown_1e_[2]; unsigned short unknown_20_; unsigned short unknown_22_,unknown_24_,unknown_26_;
@@ -13,7 +13,7 @@ struct Struct_ov000_0215bf5c_3 { unsigned long long unknown_0_; };
 struct Struct_ov000_0215bf5c_4 { unsigned short unknown_0_; char unknown_2_[9]; unsigned char unknown_b_; };
 struct Struct_ov000_0215bf5c_5 { char unknown_0_[0xe]; unsigned short unknown_e_; char unknown_10_[7]; unsigned char unknown_17_; };
 struct Struct_ov000_0215bf5c_6 { char unknown_0_[0x20]; int unknown_20_; };
-extern "C" Struct_ov000_0215bf5c_2* func_ov000_02160094(Struct_ov000_0215440c_2*,int);
+extern "C" Struct_ov000_0215bf5c_2* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*,int);
 extern "C" Struct_ov000_0215bf5c_3* func_ov000_0215feb4(char*,int,int);
 extern "C" void* func_ov000_0215e9d8(void*);
 extern "C" void func_ov000_02160030(void*);
@@ -39,9 +39,9 @@ static inline GameObject* inline_02000c9c_5(int arg0) { return GameState::GetIns
 static inline int inline_ov000_0215bf5c_3(Struct_ov000_0215bf5c_2* arg0) { return arg0->unknown_28_; }
 
 // USA: func_ov000_0215bf5c
-extern "C" ARM void func_ov000_0215bf5c(Struct_ov000_0215bf5c* arg0,Struct_ov000_0215440c_2* arg1) {
+extern "C" ARM void func_ov000_0215bf5c(Struct_ov000_0215bf5c* arg0,BattleAction_ov000_0215440c_2* arg1) {
     for (int var0=0;var0<arg1->unknown_8_;var0++) {
-        Struct_ov000_0215bf5c_2* var1=func_ov000_02160094(arg1,var0);
+        Struct_ov000_0215bf5c_2* var1=GetActionActor_ov000_02160094(arg1,var0);
         if (!var1) continue;
         Struct_ov000_0215bf5c_3* var2;
         bool var3;bool var4;

@@ -5,7 +5,7 @@
 #include <globaldefs.h>
 
 struct Struct_0201099c_3;
-struct Struct_020727d8;
+struct StringList_020727d8;
 
 extern "C" unsigned char func_ov013_021847c4(void *arg0, int arg1);
 extern "C" char *GetMessageWindow_020421a0();
@@ -19,8 +19,8 @@ extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021ccc34(int arg0);
 extern "C" void func_ov017_021cd0d8(int arg0, unsigned short *arg1, int arg2);
 extern "C" const char *FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
-extern "C" void func_020727d8(Struct_020727d8 *arg0);
-extern "C" void func_020728ac(void *arg0, void *arg1, void *arg2, unsigned int arg3, int arg4, int arg5, int arg6);
+extern "C" void ResetStringList_020727d8(StringList_020727d8 *stringList);
+extern "C" void LoadStringList_020728ac(void *stringList, void *allocator, void *arg2, unsigned int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 extern "C" void func_020e526c(void *arg0);
 extern "C" void func_020e5604(void *arg0, void *arg1, void *arg2, unsigned int arg3);
 extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
@@ -67,9 +67,9 @@ extern "C" ARM void func_ov002_02168354(char *arg0) {
             void *var5        = ExtractFileFromGP2(
                 FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x20), 0x64), var4, &var0);
             *(void **) (arg0 + 0x2448) = ((SafeAllocator *) (arg0 + 0x64 + 0x800))->Allocate(8);
-            func_020727d8(*(Struct_020727d8 **) (arg0 + 0x2448));
+            ResetStringList_020727d8(*(StringList_020727d8 **) (arg0 + 0x2448));
             if (var5 != 0) {
-                func_020728ac(*(void **) (arg0 + 0x2448), arg0 + 0x64 + 0x800, var5, var0, 0, 0, 0);
+                LoadStringList_020728ac(*(void **) (arg0 + 0x2448), arg0 + 0x64 + 0x800, var5, var0, 0, 0, 0);
             }
             var5                       = ExtractFileFromGP2(data_ov002_0216d300, data_ov002_0216d315, &var0);
             *(void **) (arg0 + 0x244c) = ((SafeAllocator *) (arg0 + 0x64 + 0x800))->Allocate(0xc);

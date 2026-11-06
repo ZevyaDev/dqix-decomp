@@ -9,7 +9,7 @@ extern "C" int func_ov024_021e9464(struct Struct_ov024_021ddc80_4* arg0, int arg
 struct Struct_ov024_021da670_6;
 extern "C" int func_ov024_021da998(struct Struct_ov024_021da670_6* arg0);
 extern "C" int func_ov024_021eb4b0(int arg0, int arg1, int arg2);
-extern "C" void func_ov000_02159eac(void* arg0, void* arg1, int arg2);
+extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 struct Struct_ov024_021ddc80_5;
 extern "C" void* func_ov024_021e8cfc(struct Struct_ov024_021ddc80_5* arg0, void* arg1, int arg2, int arg3);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
@@ -41,10 +41,10 @@ extern "C" ARM void* func_ov024_021ddc80(struct Struct_ov024_021ddc80* arg0, int
 	var5.unknown_4_ = 0;
 	if (var1) {
 		if (func_ov024_021eb4b0((int)arg0, ((struct Struct_ov024_021ddc80_3*)var0->currentStats_)->unknown_14_, 8)) {
-			func_ov000_02159eac(arg0->unknown_10_, &var5, 0x2b);
+			SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var5, 0x2b);
 		}
 		func_0208826c((unsigned char*)var0->currentStats_);
-		func_ov000_02159eac(arg0->unknown_10_, &var5, 0x18);
+		SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var5, 0x18);
 		arg0->unknown_14_++;
 		if (var4) {
 			func_ov024_021e8cfc((struct Struct_ov024_021ddc80_5*)arg0, var0, 0, 0);

@@ -3,7 +3,7 @@
 struct Struct_0207fdcc_2;
 struct Struct_0207fdcc;
 extern "C" Struct_0207fdcc* func_02081da8(struct Struct_0207fdcc_2* arg0, int arg1);
-extern "C" int func_0204c7cc(unsigned char* arg0);
+extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 extern "C" void func_ov003_02173f08(char* arg0, char* arg1, char* arg2, char* arg3);
 extern "C" void func_ov003_0217585c(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov003_0217545c(void* arg0) {
 	var0 = *(struct Struct_0207fdcc_2**)((char*)arg0 + Enum_ov003_0217545c_2204);
 	var1 = func_02081da8(var0, 10);
 	if (var1 == NULL) return;
-	if (!func_0204c7cc((unsigned char*)var1)) return;
+	if (!IsTextWindowReady_0204c7cc((unsigned char*)var1)) return;
 
 	var2 = *(short*)((char*)var1 + 0xae);
 	var3 = *(short*)((char*)var1 + 0xac);

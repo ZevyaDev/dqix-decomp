@@ -5,7 +5,7 @@
 extern "C" void __clear(void* arg0, int arg1);
 
 struct Struct_02010088;
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_ov000_02153c0c(GameObject* arg0);
 
 struct Struct_ov000_02153aa4 {
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov000_02153aa4(Struct_ov000_02153aa4_3* arg0, int arg1,
     if (var2 == NULL) {
         return;
     }
-    if (!func_02010088((struct Struct_02010088*)var2) && !func_ov000_02153c0c(var2)) {
+    if (!IsDead_02010088((struct Struct_02010088*)var2) && !func_ov000_02153c0c(var2)) {
         return;
     }
     Struct_ov000_02153aa4* var3 = arg0->unknown_81b4_;
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov000_02153aa4(Struct_ov000_02153aa4_3* arg0, int arg1,
     for (var10 = 0; var10 < var12->unknown_a_0_; var10++) {
         var11 = var9[var10] + 0xc0;
         GameObject* var15 = inline_ov000_02153aa4(var11);
-        if (var15 != NULL && !func_02010088((struct Struct_02010088*)var15) && !func_ov000_02153c0c(var15)) {
+        if (var15 != NULL && !IsDead_02010088((struct Struct_02010088*)var15) && !func_ov000_02153c0c(var15)) {
             var13[var8] = var11;
             var8++;
         }

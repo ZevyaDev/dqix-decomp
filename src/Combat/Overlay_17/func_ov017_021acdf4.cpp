@@ -97,8 +97,8 @@ extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" Struct_0209494c* func_020936f8(void);
 extern "C" int func_0209494c(Struct_0209494c* arg0);
-extern "C" void func_020a0cc4(unsigned int arg0);
-extern "C" void func_020a0c0c(void);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
+extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void func_ov017_021adb50(char* arg0);
 extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void func_02070378(char* arg0);
@@ -111,8 +111,8 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_ov017_021ce014(int arg0, unsigned short arg1, unsigned short arg2, unsigned short arg3);
-extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
-extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
+extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
+extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
 extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
@@ -129,7 +129,7 @@ extern "C" void func_ov004_021689d8(SafeAllocator* arg0, void* arg1);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 int IsBrightnessTransitionActive(GameResources* resources);
-extern "C" void func_02057f00(void* arg0, int arg1);
+extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
 extern "C" void func_0205ebec(void* arg0);
 extern "C" void func_ov017_02197528(void);
 extern "C" void EnablePlayerControl_020397c0(void* object);
@@ -189,7 +189,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
         if (arg0->unknown_280_ && !func_0209494c(func_020936f8())) {
             return;
         }
-        func_020a0cc4(0x7000);
+        ReleaseFileTablesForSpace_020a0cc4(0x7000);
         if (arg0->unknown_282_) {
             func_ov017_021adb50((char*)arg0);
         }
@@ -231,7 +231,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
         if (var9 == NULL) {
             var4->RemoveTask(arg0->unknown_40_);
             func_ov017_021adb1c(arg0);
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -306,11 +306,11 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
             func_ov017_021ce014(var20, 3, (int)((Object3D*)var2)->GetField06(), var21);
         }
         if (arg0->unknown_280_) {
-            func_0205ebc0(&gSoundEffectManager_02108760, 0xa3, 0xa3);
-            func_0205ebfc(&gSoundEffectManager_02108760, 5, 0);
+            LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0xa3, 0xa3);
+            PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, 5, 0);
         } else {
-            func_0205ebc0(&gSoundEffectManager_02108760, 0xb2, 0xb2);
-            func_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
+            LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0xb2, 0xb2);
+            PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
         }
         arg0->unknown1_1c_++;
     } else if (arg0->unknown1_1c_ == 2) {
@@ -418,7 +418,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
         if (IsBrightnessTransitionActive(var1)) {
             return;
         }
-        func_02057f00(var3, 8);
+        RemoveEffectResource_02057f00(var3, 8);
         func_0205ebec(&gSoundEffectManager_02108760);
         func_ov017_02197528();
         arg0->unknown_1_ = 1;
@@ -426,7 +426,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
         ((Object3D*)var2)->SetInheritedAlpha(0x1f);
         func_02039d58((unsigned char*)var2);
         func_ov017_021adb1c(arg0);
-        func_020a0c0c();
+        LoadFileTables_020a0c0c();
         if (arg0->unknown_280_) {
             func_ov017_021c37a4();
         }
@@ -473,7 +473,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
             func_020a2770(var39, -1);
             *(Vector3i*)(var39 + 0x10) = arg0->unknown_20_;
             func_0205ec20(&gSoundEffectManager_02108760, 0, 0);
-            func_0205ebfc(&gSoundEffectManager_02108760, 1, 0);
+            PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, 1, 0);
             arg0->unknown1_1c_++;
         }
     } else if (arg0->unknown1_1c_ == 0xb) {
@@ -500,7 +500,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
     } else if (arg0->unknown1_1c_ == 0xd) {
         char* var43 = (char*)GetMessageWindow_020421a0();
         func_020a2770((void*)GetFollowCamera_020100f8((char*)var0), arg0->unknown_1f_);
-        func_02057f00(var3, 8);
+        RemoveEffectResource_02057f00(var3, 8);
         func_0205ebec(&gSoundEffectManager_02108760);
         for (int var44 = 0; var44 < 5; var44++) {
             if (arg0->unknown_1e_ & (1 << var44)) {
@@ -515,6 +515,6 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
         EnablePlayerControl_020397c0(var2);
         ResetMessageWindow_02043204(var43);
         func_ov017_021adb1c(arg0);
-        func_020a0c0c();
+        LoadFileTables_020a0c0c();
     }
 }

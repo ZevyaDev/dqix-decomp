@@ -11,37 +11,37 @@ enum Enum_02094b30 {
 
 extern "C" int func_020952f4(char* arg0);
 extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 #endif
 
-// USA: func_02094b30
-extern "C" ARM void func_02094b30(FontLoader_0208cb08* arg0, int arg1, int arg2) {
+// USA: RequestSingleFontLoad_02094b30
+extern "C" ARM void RequestSingleFontLoad_02094b30(FontLoader_0208cb08* loader, int fontSetId, int isPackArchive) {
 #if defined(jpn)
-    if (arg1 < 0 || arg0->requestedFontSetId_34_ >= 0 || arg0->unknown_3c_ == arg1) return;
-    if (arg0->unknown_40_ == arg1) {
-        int var0 = 1;
-        char var1[8] = {};
-        switch (arg0->unknown_40_) {
+    if (fontSetId < 0 || loader->requestedFontSetId_34_ >= 0 || loader->unknown_3c_ == fontSetId) return;
+    if (loader->unknown_40_ == fontSetId) {
+        int isLoaded = 1;
+        char fontName[8] = {};
+        switch (loader->unknown_40_) {
         case Enum_02094b30_5000:
-            if (CompareBytes_02001aec(var1, arg0->unknown_59_, func_020952f4(var1)) != 0) {
-                var0 = 0;
+            if (CompareBytes_02001aec(fontName, loader->unknown_59_, func_020952f4(fontName)) != 0) {
+                isLoaded = 0;
             }
             break;
         case Enum_02094b30_1000: {
-            int var2 = func_0201079c((char*)GameState::GetInstance());
-            var2 &= 0xff;
-            if (var2 != arg0->unknown_58_) {
-                var0 = 0;
+            int variant = GetStoryChapter_0201079c((char*)GameState::GetInstance());
+            variant &= 0xff;
+            if (variant != loader->unknown_58_) {
+                isLoaded = 0;
             }
             break;
         }
         }
-        if (var0) return;
+        if (isLoaded) return;
     }
-    CancelFontLoad_02094ab0(arg0);
-    arg0->requestedFontSetId_34_ = arg1;
-    arg0->loadState_56_ = 0;
-    arg0->unknown_57_ = 0;
-    arg0->unknown_61_ = arg2;
+    CancelFontLoad_02094ab0(loader);
+    loader->requestedFontSetId_34_ = fontSetId;
+    loader->loadState_56_ = 0;
+    loader->unknown_57_ = 0;
+    loader->unknown_61_ = isPackArchive;
 #endif
 }

@@ -4,7 +4,7 @@
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
 
-struct Struct_02015438;
+struct QueueNode_02015438;
 struct Struct_02033f2c;
 struct Struct_02033f44;
 struct Struct_02010604;
@@ -55,7 +55,7 @@ struct Struct_ov017_0219344c {
 };
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" int func_02046b24(Struct_02015438** arg0);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438** queue);
 extern "C" void func_02033f2c(Struct_02033f2c* arg0);
 extern "C" int func_ov017_0218df50(void* arg0, void* arg1);
 extern "C" int func_ov017_0218dfd8(Struct_ov017_0219344c_2* arg0);
@@ -64,7 +64,7 @@ extern "C" int func_02039dcc(unsigned char* arg0);
 extern "C" int func_ov017_02193290(Struct_ov017_0219344c_4* arg0, Struct_ov017_0219344c_2* arg1, Vector3i* arg2, Vector3i* arg3, int* arg4, int* arg5, int arg6);
 extern "C" int func_02017d90(Struct_ov017_0219344c_3* arg0, int arg1, Struct_ov017_0219344c_5* arg2, Struct_ov017_0219344c_4 arg3, Struct_ov017_0219344c_2* arg4);
 extern "C" int func_ov017_02192b48(Struct_ov017_0219344c_5* arg0, Struct_ov017_0219344c_4* arg1, int arg2, Struct_ov017_0219344c_2* arg3, int arg4, Vector3i* arg5, Vector3i* arg6, int* arg7, int* arg8, int arg9, int* arg10, int arg11, int arg12, int arg13);
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" int SetMotion_02033b88(Struct_02010604* object, int motion);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
@@ -111,7 +111,7 @@ extern "C" ARM int func_ov017_0219344c(Struct_ov017_0219344c_2* arg0, int arg1, 
     GameResources* var19 = GetGameResources();
     var5 = (Struct_ov017_0219344c_3*)GetZone3D_02012fe4();
     var6 = 0;
-    Struct_02015438** var20 = (Struct_02015438**)var19->unknown_ptr_array_36fc[0];
+    QueueNode_02015438** var20 = (QueueNode_02015438**)var19->unknown_ptr_array_36fc[0];
     var17 = var5->unknown_0_;
     Vector3i var21 = arg0->position_;
     var18 = arg0->unknown_ac_;
@@ -130,7 +130,7 @@ extern "C" ARM int func_ov017_0219344c(Struct_ov017_0219344c_2* arg0, int arg1, 
     Vector3i var25;
     SETUP_PROBE();
     var1 = 1;
-    if (func_02046b24(var20) != 3 || arg0->unknown_c1_3_) {
+    if (GetQueueHeadType_02046b24(var20) != 3 || arg0->unknown_c1_3_) {
         arg0->unknown_ac_ += 0x51;
     }
     if (arg0->unknown_ac_ > 0x1000) {
@@ -230,7 +230,7 @@ extern "C" ARM int func_ov017_0219344c(Struct_ov017_0219344c_2* arg0, int arg1, 
         }
         if (var27 != NULL && var14 != 0) {
             short var33 = arg0->unknown_4_;
-            if (var33 != func_020100b0(var4)) {
+            if (var33 != GetOwnPartyLeaderObjectIndex_020100b0(var4)) {
                 continue;
             }
             var13 = func_ov017_02193290(&var22, arg0, var27, &var23, &var3, &var2, var7);

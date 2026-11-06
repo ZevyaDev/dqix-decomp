@@ -18,7 +18,7 @@ extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0 *window, int index, int number);
 extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" void *__clear(void *arg0, int arg1);
-extern "C" void func_0206819c(const char *arg0, char *arg1, int arg2);
+extern "C" void CopyCapitalizedText_0206819c(const char *text, char *outText, int font);
 extern "C" int AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" void *GetParty_02010828(GameState *gameState);
@@ -35,8 +35,8 @@ struct Struct_0201099c_3;
 extern "C" int GetStringLength_020d2ff0(const char *string);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2 *window, int index, char *text);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
-extern "C" void func_020465f0(unsigned char *arg0, int arg1, unsigned char arg2);
-extern "C" void func_020465d8(unsigned char *arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char *window, int index, unsigned char width);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char *window, int index, unsigned char alignment);
 extern "C" void func_020474a8(void *arg0, int arg1, const char *arg2, char *arg3);
 extern "C" void func_02042428(char *arg0, int arg1);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
@@ -123,10 +123,10 @@ extern "C" ARM void func_ov002_0215c988(char *arg0, char *arg1, int arg2) {
     if (var8 > 1) {
         SetMessageNumber_020465c0((MessageWindow_020465c0 *) var5, 0, var7 + 1);
         SetMessageNumber_020465c0((MessageWindow_020465c0 *) var5, 1, var8);
-        func_020465f0((unsigned char *) var5, 0, 2);
-        func_020465f0((unsigned char *) var5, 1, 2);
-        func_020465d8((unsigned char *) var5, 0, 1);
-        func_020465d8((unsigned char *) var5, 1, 0);
+        SetMessageNumberWidth_020465f0((unsigned char *) var5, 0, 2);
+        SetMessageNumberWidth_020465f0((unsigned char *) var5, 1, 2);
+        SetMessageNumberAlignment_020465d8((unsigned char *) var5, 0, 1);
+        SetMessageNumberAlignment_020465d8((unsigned char *) var5, 1, 0);
         func_02042428(arg1, 8);
         AppendText_02042058(arg1, (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x47f));
         var23 = 1;
@@ -172,7 +172,7 @@ extern "C" ARM void func_ov002_0215c988(char *arg0, char *arg1, int arg2) {
                                                                         *(short *) (var38 + var41 * 2 + 0x454));
             if (var42 != 0) {
                 __clear(var25, 0x100);
-                func_0206819c(*(char **) (var42 + 4), var25, 0);
+                CopyCapitalizedText_0206819c(*(char **) (var42 + 4), var25, 0);
                 AppendMenuEntry_02041b70(arg1, var40, var25);
                 if (var41 != var39 - 1) {
                     AppendText_02042058(arg1, *(char **) (arg0 + 0x1bdc));
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov002_0215c988(char *arg0, char *arg1, int arg2) {
                                                                         *(short *) (var43 + var46 * 2 + 0xc));
             if (var47 != 0) {
                 __clear(var26, 0x100);
-                func_0206819c(*(char **) (var47 + 4), var26, 0);
+                CopyCapitalizedText_0206819c(*(char **) (var47 + 4), var26, 0);
                 AppendMenuEntry_02041b70(arg1, var45, var26);
                 __clear(var27, 0x40);
                 sprintf(var27, data_ov002_0216d270,

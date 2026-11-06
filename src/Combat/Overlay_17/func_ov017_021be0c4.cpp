@@ -44,13 +44,13 @@ extern "C" Struct_ov017_021be0c4_2* GetZone3D_02012fe4();
 extern "C" int* GetLocalWireless_0202ae18();
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
-extern "C" void func_0205ebc0(void*, int, int);
-extern "C" void func_0205ebfc(void*, int, int);
+extern "C" void LoadExtraSoundSet_0205ebc0(void*, int, int);
+extern "C" void PlayExtraSoundEffect_0205ebfc(void*, int, int);
 extern "C" void func_0205ebec(void*);
 extern char gSoundEffectManager_02108760[];
 extern "C" int func_0208f748(void*, int*);
 extern "C" void __clear(void*, unsigned int);
-extern "C" void func_020426bc(BaseCombatStats*, char*, int);
+extern "C" void ConvertTextToGlyphIndices_020426bc(BaseCombatStats*, char*, int);
 extern "C" void VectorizedInvertedMemcpy(const void*, void*, unsigned int);
 extern "C" void func_02011744(GameState*);
 extern "C" const char* GetStandardString_020e51cc(int);
@@ -80,12 +80,12 @@ extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
     if (arg0->unknown_8_ == 0) {
         DisablePlayerControl_020397cc((Struct_02018300_3*)var0->GetUnknownGameObject(), 1);
         FontLoader_0208cb08* var4 = GetFontLoader_02094a00();
-        func_02094b30(var4, 0x203, 0);
+        RequestSingleFontLoad_02094b30(var4, 0x203, 0);
         if (UpdateFontLoad_02094b4c(var4)) arg0->unknown_8_ = 1;
     } else if (arg0->unknown_8_ == 1) {
         SetMainBrightness(var1, 0x10, 0xf);
-        func_0205ebc0(gSoundEffectManager_02108760, 0x83, 0x83);
-        func_0205ebfc(gSoundEffectManager_02108760, 0, 0);
+        LoadExtraSoundSet_0205ebc0(gSoundEffectManager_02108760, 0x83, 0x83);
+        PlayExtraSoundEffect_0205ebfc(gSoundEffectManager_02108760, 0, 0);
         arg0->unknown_8_ = 2;
     } else if (arg0->unknown_8_ == 2) {
         if (!IsMainBrightnessTransitionActive(var1)) {
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
 #else
                     char var5[10];
                     __clear(var5, 10);
-                    func_020426bc(var0->GetProtagonist()->baseStats_, var5, 1);
+                    ConvertTextToGlyphIndices_020426bc(var0->GetProtagonist()->baseStats_, var5, 1);
                     VectorizedInvertedMemcpy(var5, var3->activeMapData.DiscoveredBy, 10);
 #endif
                 }

@@ -17,7 +17,7 @@
 #include "Input/Input.h"
 
 struct SoundEffectManager_02108760;
-struct Struct_0205bb84;
+struct MenuCursor_0205bb84;
 
 struct Struct_ov005_02153954 {
     char unknown_0_[R(0x196c, 0x19f4)];
@@ -41,7 +41,7 @@ extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char a
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov005_02157190(void* arg0);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
-extern "C" int func_0205bb84(Struct_0205bb84* arg0);
+extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84* cursor);
 extern "C" int func_ov005_02158560(Struct_ov005_02153954* arg0, unsigned char arg1, int arg2);
 extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
 
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov005_0215742c(Struct_ov005_02153954* arg0) {
         func_ov005_021579ec(arg0, arg0->unknown_3db8_, arg0->unknown_3dbb_);
         return;
     }
-    if (!func_ov005_02158560(arg0, func_0205bb84((Struct_0205bb84*)arg0->unknown_19f4_), 0))
+    if (!func_ov005_02158560(arg0, GetMenuCursorIndex_0205bb84((MenuCursor_0205bb84*)arg0->unknown_19f4_), 0))
         return;
     arg0->unknown_3dcc_ |= 0x100;
     func_ov005_021579ec(arg0, arg0->unknown_3db8_, arg0->unknown_3dbc_);

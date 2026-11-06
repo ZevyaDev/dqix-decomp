@@ -24,7 +24,7 @@ struct Struct_02018300_3;
 struct Struct_ov017_021c0580;
 struct Struct_0201e830;
 struct Struct_02074b64;
-struct Struct_02074bd0;
+struct BGControlSave_02074bd0;
 struct Struct_02074bf4;
 struct Struct_020469f8;
 struct Struct_020469f8_2;
@@ -97,10 +97,10 @@ struct Struct_ov017_021c0850_2 {
 };
 
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
-extern "C" void func_020a0cc4(unsigned int arg0);
-extern "C" void func_020a0c0c(void);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
+extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void func_020a1940(unsigned int arg0);
+extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void func_020a1ef0(int arg0);
 extern "C" void func_ov008_021843f8(void* arg0);
 extern "C" void func_ov008_021842a0(void* arg0, SafeAllocator* arg1);
@@ -114,7 +114,7 @@ extern "C" void func_0203e0a0(void* arg0, unsigned short arg1);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
-extern "C" void func_02074af4(void* arg0);
+extern "C" void SaveMainBGControl_02074af4(void* save);
 extern "C" void func_02074b64(Struct_02074b64* arg0);
 extern "C" void func_020bb700(int* arg0);
 extern "C" void func_020bb740(int* arg0);
@@ -125,11 +125,11 @@ void LockStagedTextureVRAMCopying(void);
 void UnlockStagedTextureVRAMCopying(void);
 void UpdateVRAMStagingVRAMBanks(void);
 extern "C" void func_020bb48c(unsigned int arg0, int arg1);
-extern "C" void func_020c391c(int arg0, int arg1, int arg2);
-extern "C" void func_020c3984(unsigned int arg0);
+extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
+extern "C" void SetSubBGMode_020c3984(unsigned int bgMode);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_020c54a4(int arg0, unsigned int arg1, unsigned int arg2, unsigned short arg3);
-extern "C" void* func_0203bd08(void);
+extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void func_0203bd24(char* arg0);
 extern "C" int* func_0203bd14(void);
 extern "C" int func_0203be4c(void* arg0);
@@ -137,7 +137,7 @@ extern "C" void func_0203c35c(int* arg0);
 extern "C" int func_ov017_021959b4(void);
 extern "C" void func_ov008_02184a2c(char*);
 extern "C" int func_ov008_02184754(void* arg0);
-extern "C" void func_02074bd0(Struct_02074bd0* arg0);
+extern "C" void RestoreMainBGControl_02074bd0(BGControlSave_02074bd0* save);
 extern "C" void func_02074bf4(Struct_02074bf4* arg0);
 extern "C" void* func_ov008_021845ac(void* arg0);
 extern "C" void func_ov017_0218f79c(void* arg0);
@@ -159,7 +159,7 @@ extern "C" void func_020469f8(Struct_020469f8* arg0, Struct_020469f8_2* arg1);
 extern "C" void func_ov017_021c0580(void* arg0, int arg1, const char* arg2, void* arg3);
 extern "C" int func_0209cd50(int arg0);
 struct Struct_0209c3b4_2;
-extern "C" void func_0209c3b4(Struct_0209c3b4_2*, int);
+extern "C" void PlayMusic_0209c3b4(Struct_0209c3b4_2*, int);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_021c07d0(void* arg0);
 extern "C" int func_ov004_0215502c(SafeAllocator* arg0, int arg1);
@@ -202,10 +202,10 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
     DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
 
     if (arg0->unknown_20_ == 0) {
-        func_020a0cc4(Enum_ov017_021c0850_123784);
+        ReleaseFileTablesForSpace_020a0cc4(Enum_ov017_021c0850_123784);
         void* var3 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021c0850_123784);
         if (var3 == NULL) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -213,11 +213,11 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         arg0->unknown_8_.Reset();
         arg0->unknown_1c_ = (Struct_ov017_021c0850*)arg0->unknown_8_.Allocate(Enum_ov017_021c0850_2888);
         if (arg0->unknown_1c_ == NULL) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
-        func_020a1940(OVERLAY_ID(8));
+        LoadOverlay_020a1940(OVERLAY_ID(8));
         func_020a1ef0(1);
         func_ov008_021843f8(arg0->unknown_1c_);
         func_ov008_021842a0(arg0->unknown_1c_, &arg0->unknown_8_);
@@ -254,7 +254,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         }
         arg0->unknown_3c_ = 0;
         arg0->unknown_3d_ = 0;
-        func_02074af4(arg0->unknown_2c_);
+        SaveMainBGControl_02074af4(arg0->unknown_2c_);
         arg0->unknown_40_ = (DISPCNT & 0x1f00) >> 8;
         func_02074b64((Struct_02074b64*)arg0->unknown_2c_);
         arg0->unknown_44_ = (DISPCNTSUB & 0x1f00) >> 8;
@@ -290,7 +290,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         UpdateVRAMStagingVRAMBanks();
         UnlockStagedTextureVRAMCopying();
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1300;
-        func_020c391c(1, 0, 1);
+        SetMainDisplayAndBGMode_020c391c(1, 0, 1);
         BG1CNT = (BG1CNT & 0x43) | 0x1e00;
         BG0CNT = (BG0CNT & ~3) | 1;
         BG1CNT = (BG1CNT & ~3) | 2;
@@ -298,7 +298,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         inline_ov017_021c0850_2(0);
         ColorEffect_ConfigureAlphaBlend(0x04000050, 1, 2, 0xf, 0x1f);
         inline_ov017_021c0850_3(0x13);
-        func_020c3984(0);
+        SetSubBGMode_020c3984(0);
         BG0CNTSUB = (BG0CNTSUB & 0x43) | 0xe00;
         BG1CNTSUB = (BG1CNTSUB & 0x43) | 0xf08;
         BG0CNTSUB = (BG0CNTSUB & ~3) | 1;
@@ -309,7 +309,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         SetFlags04(var1, 0x8de);
         Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
         func_020c54a4(0, 0, 0, 0);
-        char* var7 = (char*)func_0203bd08();
+        char* var7 = (char*)GetOAMManager_0203bd08();
         func_0203bd24(var7);
         *(int*)var7 = 0;
         int* var8 = func_0203bd14();
@@ -336,7 +336,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         UnlockStagedTextureVRAMCopying();
         DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_40_ << 8);
         DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | (arg0->unknown_44_ << 8);
-        func_02074bd0((Struct_02074bd0*)arg0->unknown_2c_);
+        RestoreMainBGControl_02074bd0((BGControlSave_02074bd0*)arg0->unknown_2c_);
         func_02074bf4((Struct_02074bf4*)arg0->unknown_2c_);
         Set3DClearColorAndDepth_020c5588(arg0->unknown_a8_, 0x10, 0x7fff, 0, 0);
         func_ov008_021845ac(arg0->unknown_1c_);
@@ -375,7 +375,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
     } else if (arg0->unknown_20_ == 5) {
         arg0->unknown_3c_ = 0;
         arg0->unknown_3d_ = 0;
-        func_02074af4(arg0->unknown_2c_);
+        SaveMainBGControl_02074af4(arg0->unknown_2c_);
         func_02074b64((Struct_02074b64*)arg0->unknown_2c_);
         arg0->unknown_25_ = arg0->unknown_1c_->unknown_b29_;
         arg0->unknown_26_ = (arg0->unknown_1c_->unknown_b18_ & 0x40000) != 0;
@@ -417,7 +417,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
             return;
         case 0: {
             SetMainBrightness(var1, 0, 0xf);
-            func_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, func_0209cd50(*(unsigned short*)GetZone3D_02012fe4()));
+            PlayMusic_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, func_0209cd50(*(unsigned short*)GetZone3D_02012fe4()));
             char* var19 = (char*)GetMessageWindow_020421a0();
             *(int*)(var19 + Enum_ov017_021c0850_728) = 0;
             *(unsigned char*)(var19 + Enum_ov017_021c0850_742) = 1;
@@ -435,7 +435,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
             DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
         }
         func_ov017_021c07d0(arg0);
-        func_020a0c0c();
+        LoadFileTables_020a0c0c();
         arg0->unknown_1_ = 1;
     }
 }

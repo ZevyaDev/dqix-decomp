@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_020fdd44 {
-    unsigned short unknown_0_;
+struct ActiveZone_020fdd44 {
+    unsigned short zoneId_0_;
     unsigned short unknown_2_0_ : 2;
     unsigned short : 14;
 };
-extern "C" struct Struct_020fdd44* func_02027cb0(void);
+extern "C" struct ActiveZone_020fdd44* func_02027cb0(void);
 extern "C" GameObject* func_ov017_021a2738(void* arg0, int arg1);
 struct Struct_02072adc;
 extern "C" void func_02072adc(struct Struct_02072adc* arg0, struct Struct_02072adc* arg1);
@@ -16,7 +16,7 @@ extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
 // USA: func_ov017_021a2b1c
 extern "C" ARM void func_ov017_021a2b1c(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_020fdd44* var1 = func_02027cb0();
+    struct ActiveZone_020fdd44* var1 = func_02027cb0();
     if (!var1) return;
 
     int var2;

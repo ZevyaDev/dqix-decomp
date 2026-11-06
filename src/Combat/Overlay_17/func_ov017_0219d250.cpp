@@ -114,7 +114,7 @@ struct Struct_ov017_0219d250_5 {
 
 extern "C" char* GetZone3D_02012fe4(void);
 extern "C" char* GetMessageWindow_020421a0(void);
-extern "C" void* func_02027ca4(void);
+extern "C" void* GetActiveZones_02027ca4(void);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void* func_02011584(void*);
 extern "C" Struct_ov017_0219d250_7* GetZoneEntry_0200fd0c(GameState* gameState);
@@ -159,10 +159,10 @@ extern "C" void func_ov017_021a316c(Struct_ov017_0219d250_5* arg0);
 extern "C" void func_ov017_0219de70(Struct_ov017_0219d250_5* arg0, Struct_ov017_0219d250_6* arg1, Struct_ov017_0219d250_6* arg2);
 extern "C" void func_02012040(void*);
 extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" void func_ov017_0218f5a4(Struct_ov017_0219d250_5* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(Struct_ov017_0219d250_5* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 extern "C" void func_0208fa8c(void* arg0);
-struct Struct_020fdd44;
-extern "C" void* func_02028bd0(Struct_020fdd44*, int);
+struct ActiveZone_020fdd44;
+extern "C" void* FindActiveZone_02028bd0(ActiveZone_020fdd44*, int);
 struct Struct_ov017_0219d250_8;
 extern "C" void func_ov017_0219e014(unsigned char*, Struct_ov017_0219d250_8*);
 extern "C" void func_020288e0(void* arg0);
@@ -221,7 +221,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
     var5 = GameState::GetInstance();
     char* var27 = GetZone3D_02012fe4();
     var6 = GetMessageWindow_020421a0();
-    var7 = func_02027ca4();
+    var7 = GetActiveZones_02027ca4();
     var8 = GetEffectManager_02057924();
     var9 = var5->GetProtagonist();
     var10 = var5->GetUnknownGameObject();
@@ -378,11 +378,11 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
         func_02012040(var5);
     }
     if (var1->unknown_3_ != 0) {
-        func_ov017_0218f5a4(arg0, GetProtagonistObjectIndex_020100a8(var5), 1, 0, 0);
+        QueuePartyMemberModelLoad_ov017_0218f5a4(arg0, GetProtagonistObjectIndex_020100a8(var5), 1, 0, 0);
         var1->unknown_3_ = 0;
     }
     func_0208fa8c(var28);
-    func_ov017_0219e014((unsigned char*)arg0, (Struct_ov017_0219d250_8*)(func_02028bd0((Struct_020fdd44*)var7, var15)));
+    func_ov017_0219e014((unsigned char*)arg0, (Struct_ov017_0219d250_8*)(FindActiveZone_02028bd0((ActiveZone_020fdd44*)var7, var15)));
     func_020288e0(var7);
     func_ov017_0219e0ec(arg0);
     func_0203cfb4((Struct_0203cfb4*)var13);

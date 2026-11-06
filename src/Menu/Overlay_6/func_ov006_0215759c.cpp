@@ -16,7 +16,7 @@ struct Struct_ov006_0215759c { char unknown_0_[0x18]; short unknown_18_; };
 struct Struct_ov006_0215759c_2 { SafeAllocator unknown_0_; char unknown_14_[0x24]; };
 extern "C" {
 void* GetParty_02010828(GameState*);
-void func_020de824(void*);
+void InitItemTable_020de824(void*);
 void func_0207cbe8(void*);
 void func_0207d300(void*, short, signed char, int);
 void func_0207cc0c(void*);
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov006_0215759c(Struct_ov006_0215759c* arg0, Struct_ov00
     void* var1 = GetParty_02010828(var0);
     Struct_ov006_0215759c_2 var2;
     var2.unknown_0_.ResetAllocatorPointer();
-    func_020de824(var2.unknown_14_);
+    InitItemTable_020de824(var2.unknown_14_);
     func_0207cbe8(&var2);
     func_0207cbe8(&var2);
     func_0207d300(&var2, arg0->unknown_18_, (signed char)arg2, 0);

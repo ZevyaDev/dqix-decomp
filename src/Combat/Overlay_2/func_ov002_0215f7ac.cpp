@@ -20,10 +20,10 @@ extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject)
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2 *window, int index, char *text);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
 extern "C" char *FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
-extern "C" int func_02041e70(char *arg0, int arg1);
+extern "C" int AppendTextColorTag_02041e70(char *buffer, int colorIndex);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
-extern "C" void func_020465f0(unsigned char *arg0, int arg1, unsigned char arg2);
-extern "C" void func_020465d8(unsigned char *arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char *window, int index, unsigned char width);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char *window, int index, unsigned char alignment);
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" int GetStringLength_020d2ff0(const char *string);
 extern "C" void *__clear(void *arg0, int arg1);
@@ -71,18 +71,18 @@ extern "C" ARM void func_ov002_0215f7ac(char *arg0, char *arg1) {
         __clear(var1, 0x20);
         int var12 = 5;
         if (var11 == 10) var12 = 0xd;
-        func_02041e70(var1, var12);
+        AppendTextColorTag_02041e70(var1, var12);
         AppendText_02042058(var1, var0);
-        func_02041e70(var1, 0xf);
+        AppendTextColorTag_02041e70(var1, 0xf);
         SetMessageString_02046574((struct Struct_02046574_2 *) var3, 2, var1);
     }
     for (int var13 = 0; var13 < 8; var13++) {
         int var14 = 3;
         if (var13 == 4) var14 = 2;
-        func_020465f0((unsigned char *) var3, var13, var14);
+        SetMessageNumberWidth_020465f0((unsigned char *) var3, var13, var14);
     }
     for (int var15 = 0; var15 < 8; var15++) {
-        func_020465d8((unsigned char *) var3, var15, 1);
+        SetMessageNumberAlignment_020465d8((unsigned char *) var3, var15, 1);
     }
     func_020474a8(var3, 0xa, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x7d0), arg1);
 }

@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_ov000_02160094 { char unknown_0_[0x20]; unsigned short unknown_20_; };
-struct Struct_ov000_021600f8 { char unknown_0_[0xe]; short unknown_e_; };
-struct Struct_ov000_0215440c_2 { char unknown_0_[0x10]; Struct_ov000_02160094* unknown_10_; };
-struct Struct_ov000_0215440c;
+struct ActionActor_ov000_02160094 { char unknown_0_[0x20]; unsigned short unknown_20_; };
+struct ActionTarget_ov000_021600f8 { char unknown_0_[0xe]; short unknown_e_; };
+struct BattleAction_ov000_0215440c_2 { char unknown_0_[0x10]; ActionActor_ov000_02160094* unknown_10_; };
+struct BattleAction_ov000_0215440c;
 struct Struct_ov025_021e2ca4 { char unknown_0_[8]; short unknown_8_; short unknown_a_; int unknown_c_; };
 struct Struct_ov025_021dcf14_8 {
     int unknown_0_;
@@ -15,16 +15,16 @@ struct Struct_ov025_021dcf14_8 {
     Struct_ov025_021dcf14_8* unknown_18_;
 };
 struct Struct_ov025_021dcf14_7;
-extern "C" Struct_ov000_02160094* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
-extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c*, int);
+extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
+extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" void func_ov025_021de110(void*);
 extern "C" void func_ov025_021eee48(Struct_ov025_021dcf14_7*, Struct_ov025_021dcf14_8*);
 extern "C" int func_ov025_021df9f4(GameObject*);
 extern "C" void func_02033920(GameObject*, int, int);
 
 // USA: func_ov025_021e2ca4
-extern "C" ARM int func_ov025_021e2ca4(Struct_ov025_021e2ca4* arg0, Struct_ov000_0215440c_2* arg1, Struct_ov025_021dcf14_7* arg2) {
-    Struct_ov000_02160094* var0 = func_ov000_02160094(arg1, 0);
+extern "C" ARM int func_ov025_021e2ca4(Struct_ov025_021e2ca4* arg0, BattleAction_ov000_0215440c_2* arg1, Struct_ov025_021dcf14_7* arg2) {
+    ActionActor_ov000_02160094* var0 = GetActionActor_ov000_02160094(arg1, 0);
     if (!var0) return 0;
     int var1 = var0->unknown_20_;
     GameState* var2 = GameState::GetInstance();
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov025_021e2ca4(Struct_ov025_021e2ca4* arg0, Struct_ov000
     if (!var4) return 1;
     BCFG::AnimationRecord* var6 = var4->GetAnimationRecord(var5);
     if (!var6) return 0;
-    Struct_ov000_021600f8* var7 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, 0);
+    ActionTarget_ov000_021600f8* var7 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);
     if (!var7) return 1;
     GameObject* var8 = var2->GetCombatantByIndex(var7->unknown_e_);
     if (var6 && var8) {

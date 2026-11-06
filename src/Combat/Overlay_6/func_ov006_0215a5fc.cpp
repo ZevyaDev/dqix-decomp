@@ -38,7 +38,7 @@ extern char data_ov006_02160359[];
 
 extern "C" int GetResources_0200fb8c(int* gameState);
 struct Struct_0209c3b4_2;
-extern "C" int func_0209c3b4(Struct_0209c3b4_2*, int);
+extern "C" int PlayMusic_0209c3b4(Struct_0209c3b4_2*, int);
 extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
 struct StringTable_0201099c_14;
@@ -201,12 +201,12 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
 
     if (var2 == 0) {
         if ((arg0->unknown_394_ & 2) == 0) {
-            func_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, 8);
+            PlayMusic_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, 8);
         }
         func_020c54a4(0, 0, 0, 0);
         Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
         FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
-        func_02094b40(var3);
+        ClearLoadedFontSets_02094b40(var3);
         RequestFontLoad_02094b34(var3, 0x6c, 0x1fd, 0, 0);
         arg0->unknown_390_ = arg0->unknown_390_ + 1;
     }

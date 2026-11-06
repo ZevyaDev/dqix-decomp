@@ -14,7 +14,7 @@ extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable,
 extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" int func_02041fac(char *arg0, int arg1, int arg2);
-extern "C" int func_02041e70(char *arg0, int arg1);
+extern "C" int AppendTextColorTag_02041e70(char *buffer, int colorIndex);
 extern "C" int AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_ov002_02159774(void *arg0, int arg1, int arg2, int arg3, int arg4);
@@ -44,9 +44,9 @@ extern "C" ARM void func_ov002_0215d0e8(unsigned char *arg0, char *arg1, int arg
     for (int var4 = 0; var4 < var2; var4++) {
         unsigned char var5 = var3[var4];
         int var6          = func_ov002_02159774(arg0, var5, 1, 1, 1);
-        func_02041e70(arg1, var6);
+        AppendTextColorTag_02041e70(arg1, var6);
         AppendMenuEntry_02041b70(arg1, var4, (const char *) (arg0 + RG(0x1ab0, 0x1a08) + var5 * RG(0x3c, 0x18)));
-        func_02041e70(arg1, 0xf);
+        AppendTextColorTag_02041e70(arg1, 0xf);
         if (var4 != var2 - 1) {
             AppendText_02042058(arg1, *(const char **) (arg0 + RG(0x1000 + 0xbdc, 0x1000 + 0xaa4)));
         }

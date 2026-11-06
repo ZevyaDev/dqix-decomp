@@ -16,7 +16,7 @@ enum { Enum_02052bfc_336 = 0x150, Enum_02052bfc_1788 = 0x6fc };
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-struct Struct_02048150;
+struct Party_02048150;
 
 struct Struct_0201bc94_2 {
     unsigned char unknown_0_0_ : 4;
@@ -47,7 +47,7 @@ struct Struct_02052bfc_2 {
     Struct_02052bfc* unknown_150_;
 };
 
-extern "C" int func_02086ef0(Struct_02048150*, int);
+extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" long long _ll_udiv(long long arg0, long long arg1);
@@ -65,11 +65,11 @@ extern "C" ARM void func_02052bfc(struct Struct_02052bfc_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     void* var2 = *(void**)((char*)var1 + 0x3000 + Enum_02052bfc_1788);
-    Struct_02048150* var3 = (Struct_02048150*)GetParty_02010828(var0);
+    Party_02048150* var3 = (Party_02048150*)GetParty_02010828(var0);
     Struct_0201bc94* var4 = (Struct_0201bc94*)GetZone3D_02012fe4();
     unsigned char var5 = arg0->unknown_4_ & 0xff;
 
-    if (!func_02086ef0(var3, var5)) return;
+    if (!IsInParty_02086ef0(var3, var5)) return;
     if (arg0->unknown_150_->unknown_56c_ == 0) return;
 
     uint64_t var6 = GetCurrentTimestamp() - arg0->unknown_150_->unknown_480_;

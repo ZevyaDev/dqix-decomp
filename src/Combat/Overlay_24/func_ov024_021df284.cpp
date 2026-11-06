@@ -7,7 +7,7 @@ extern "C" int func_02087b3c(struct Struct_02087b3c* arg0, int arg1);
 struct Struct_02087b90;
 extern "C" int func_02087b90(struct Struct_02087b90* arg0, int arg1);
 void UpdateCombatantMagicalMight(int unused, int combatantId);
-extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
+extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 
 struct Struct_ov024_021df284 {
@@ -56,7 +56,7 @@ extern "C" ARM void* func_ov024_021df284(struct Struct_ov024_021df284_3* arg0, s
         }
     }
     if (!var1 && var3 == 0) {
-        var4 = func_ov024_021da644(arg2, arg3->unknown_25_2_, arg3->unknown_26_4_);
+        var4 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_25_2_, arg3->unknown_26_4_);
     }
     if (var3 != 0 && !var1) {
         var4 = 0;

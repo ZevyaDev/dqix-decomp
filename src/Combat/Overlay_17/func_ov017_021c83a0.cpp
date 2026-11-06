@@ -2,7 +2,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov017_021c83a0(void) {
     GameResources* var0 = GetGameResources();
     void* var1 = *(void**)((char*)var0 + 0x3000 + Enum_ov017_021c83a0_1816);
     Struct_ov017_021c83a0* var2 = (Struct_ov017_021c83a0*)GetBattleSetup_ov017_021b8478(var1);
-    void* var3 = func_ov017_021b8470(var1);
+    void* var3 = GetBattle_ov017_021b8470(var1);
     void* var4 = GetLocalWirelessPacketQueue_0202ae24();
 
     Struct_ov017_021c83a0_3 var5;

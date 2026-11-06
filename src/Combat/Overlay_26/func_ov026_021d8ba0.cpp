@@ -47,7 +47,7 @@ struct Struct_02010604;
 struct Struct_02015ef4_5;
 struct Struct_020e385c;
 struct Struct_02046574_2;
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 struct GlobalFlags_02038598_4;
 struct Struct_0202b2f0;
 struct Struct_02053dd0;
@@ -109,7 +109,7 @@ extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" unsigned char* func_020e3580();
 extern "C" int func_ov000_0215fc60(char*);
 extern "C" void func_ov000_02160d80(void*, int);
-extern "C" void func_ov000_02160fa8(void*, int);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern "C" void func_ov000_02160fbc(void*, int);
 extern "C" int func_ov000_02160fd4(void*, int);
 extern "C" void func_ov000_0218173c(void*);
@@ -137,14 +137,14 @@ extern "C" void func_02049390(unsigned char*, unsigned char);
 extern "C" void func_02049bd4(unsigned char*, int*);
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_ov000_02174dc0(void*);
-extern "C" GameObject* func_0200fea4(GameState*, int);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" char* GetCompanionByIndex_0200ff58(GameState*, int);
-extern "C" int func_02010088(Struct_02010088*);
+extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov026_021dd3c4(Struct_ov026_021d8ba0_10*);
 extern "C" void func_0203c108(Struct_0203c108_3*, char*);
 extern "C" void func_ov000_021744f4(int, void*);
 extern "C" void func_ov000_02176054(void*);
-extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void* func_02053dc0(Struct_02053dc0*);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_ov000_02181364(void*);
@@ -163,7 +163,7 @@ extern "C" void func_ov000_02174514(void*);
 extern "C" void func_02088e64(unsigned char*);
 extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
-extern "C" int func_02046708(Struct_02012de8*, unsigned int);
+extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" int func_020e37e8(unsigned char*);
@@ -197,7 +197,7 @@ Struct_ov026_021d8ba0_2 func_ov000_0216f74c(int* arg0);
 void CloseMessageWindow_02043124(Struct_ov023_021f4c04*);
 void func_ov026_021daec8(Struct_ov000_02161e30*, void*, int);
 void func_ov000_02174614(void*, int);
-void func_020e4864(void*, char*, int, int, int, int);
+void ExpandInflectionTags_020e4864(void*, char*, int, int, int, int);
 void __clear(void*, int);
 void func_02046608(Struct_ov023_021f4c04*, int, char*, char*, int, int, int);
 void func_ov000_0217f518(Struct_ov026_021d8ba0_6*);
@@ -238,7 +238,7 @@ void func_ov017_021c894c(unsigned short);
 void func_ov017_021c8758(unsigned short);
 void func_ov017_021c8654();
 void* GetEffectManager_02057924();
-void func_02057f00(void*, int);
+void RemoveEffectResource_02057f00(void*, int);
 void func_ov000_02168144( Struct_ov000_02160da0*);
 void func_ov000_0215d588(Struct_ov000_02161e30*);
 void func_ov000_02160da0( Struct_ov000_02160da0*);
@@ -526,7 +526,7 @@ extern "C" ARM void func_ov026_021d8ba0(Struct_ov000_02160da0* arg0) {
         func_ov026_021d8aac(arg0, var50, func_ov000_0215fc60((char*)var19));
     }
     if (var18->unknown_42e2_ != 0 && var23->GetNumQueuedTasks() == 0) {
-        func_ov000_02160fa8(arg0, 0x2000000);
+        SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);
         return;
     }
 
@@ -586,7 +586,7 @@ state1:
         arg0->unknown_7710_ = 0;
         arg0->unknown_7738_ = func_0204671c((Struct_0204671c*)GetGlobalFlags_020d6c00());
         arg0->unknown_eb4_ = 0;
-        func_ov000_02160fa8(arg0, 0x80000);
+        SetBattleSceneFlags_ov000_02160fa8(arg0, 0x80000);
         ClearFlags00(var18, 0x10);
         func_ov000_0218048c(arg0->unknown_3760_);
         func_ov000_02180b3c(arg0->unknown_3760_);
@@ -708,8 +708,8 @@ state1:
             func_ov000_02174dc0(arg0->unknown_3760_);
             for (var38 = 0; var38 < var72->unknown_1_4_; var38++) {
                 for (var73 = 0; var73 < var72[var38].unknown_e_0_; var73++) {
-                    var36 = func_0200fea4(var43, var72[var38].unknown_6_[var73] + 0xc0);
-                    if (var36 == 0 || func_02010088((Struct_02010088*)var36) || func_ov026_021dd3c4((Struct_ov026_021d8ba0_10*)var36)) {
+                    var36 = GetEnemyByIndex_0200fea4(var43, var72[var38].unknown_6_[var73] + 0xc0);
+                    if (var36 == 0 || IsDead_02010088((Struct_02010088*)var36) || func_ov026_021dd3c4((Struct_ov026_021d8ba0_10*)var36)) {
                         continue;
                     }
                     var48 = *(Struct_ov026_021d8ba0_7**)((char*)var36 + 0x144);
@@ -734,8 +734,8 @@ state1:
             for (var38 = 0; var38 < var72->unknown_1_4_; var38++) {
                 var37 = 0;
                 for (var73 = 0; var73 < var72[var38].unknown_e_0_; var73++) {
-                    var36 = func_0200fea4(var43, var72[var38].unknown_6_[var73] + 0xc0);
-                    if (var36 == 0 || func_02010088((Struct_02010088*)var36) || func_ov026_021dd3c4((Struct_ov026_021d8ba0_10*)var36)) {
+                    var36 = GetEnemyByIndex_0200fea4(var43, var72[var38].unknown_6_[var73] + 0xc0);
+                    if (var36 == 0 || IsDead_02010088((Struct_02010088*)var36) || func_ov026_021dd3c4((Struct_ov026_021d8ba0_10*)var36)) {
                         continue;
                     }
                     var48 = *(Struct_ov026_021d8ba0_7**)((char*)var36 + 0x144);
@@ -744,7 +744,7 @@ state1:
                     }
                     {
                         var3 = data_ov026_021de6f8;
-                        func_020e4864((char*)var36 + 0x14c, var3.unknown_0_ + 5, 1, 0, 0, 0);
+                        ExpandInflectionTags_020e4864((char*)var36 + 0x14c, var3.unknown_0_ + 5, 1, 0, 0, 0);
                         __clear(var2, sizeof(var2));
                         func_02046608(var40, 0xa, var3.unknown_0_, var2, 0x100, 0, 0);
                         func_0203c108((Struct_0203c108_3*)(var41 + var74 * 0x18), var2);
@@ -754,7 +754,7 @@ state1:
                     if (var37 == 0) {
                         var37 = 1;
                         var1 = data_ov026_021de778;
-                        func_020e4864(var48->unknown_14_, var1.unknown_0_ + 5, 1, 0, 0, 0);
+                        ExpandInflectionTags_020e4864(var48->unknown_14_, var1.unknown_0_ + 5, 1, 0, 0, 0);
                         __clear(var0, sizeof(var0));
                         func_02046608(var40, 0xa, var1.unknown_0_, var0, 0x100, 0, 0);
                         func_0203c108((Struct_0203c108_3*)(var42 + var39 * 0x18), var0);
@@ -794,14 +794,14 @@ state1:
             var44 = arg0->unknown_29c_;
             var76 = arg0->unknown_2a0_;
             for (var77 = 0; var77 < 4; var77++) {
-                if (func_020a35e0((unsigned char*)var76, var77)) {
+                if (IsPartyMemberInBattle_020a35e0((unsigned char*)var76, var77)) {
                     func_ov026_021dc8fc(arg0, var44, var76, arg0->unknown_3760_, arg0->unknown_e98_, arg0->unknown_ea0_, var77);
                 }
             }
         }
         for (var56 = 0; var56 < 4; var56++) {
             void* var78;
-            if (!func_020a35e0((unsigned char*)arg0->unknown_2a0_, var56)) continue;
+            if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var56)) continue;
             var27 = GetPartyMemberBaseByIndex_0200ff1c(var17, var56);
             if (var27 == 0) continue;
             var78 = func_02053dc0((Struct_02053dc0*)var27);
@@ -809,7 +809,7 @@ state1:
                 memset(var78, 0, 6);
             }
             arg0->unknown_54f0_ = arg0->unknown_38dc_;
-            if (func_02010088((Struct_02010088*)var27)) continue;
+            if (IsDead_02010088((Struct_02010088*)var27)) continue;
             SetMotion_02033b88((Struct_02010604*)var27, 0);
         }
         if (var19->unknown_8e20_ == 0 && arg0->unknown_29c_->unknown_8e49_ == 2) {
@@ -835,7 +835,7 @@ state1:
             }
         }
         if (func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
-            func_ov000_02160fa8(arg0, 0x40000000);
+            SetBattleSceneFlags_ov000_02160fa8(arg0, 0x40000000);
         }
         if (((SafeAllocator*)arg0->unknown_774c_)->GetSignedAllocator() == 0) {
             ((SafeAllocator*)arg0->unknown_774c_)->CreateTypeA(((SafeAllocator*)(arg0->unknown_30_))->Allocate(0x16000), 0x16000);
@@ -920,7 +920,7 @@ state1:
         if (func_ov026_021ddd84(var18, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 1) != 0) {
             return;
         }
-        if (func_ov026_021d8a40() && IsQueueEmpty_02046b08(var47) && func_020a35e0((unsigned char*)arg0->unknown_2a0_, arg0->unknown_2a0_->unknown_2a_)) {
+        if (func_ov026_021d8a40() && IsQueueEmpty_02046b08(var47) && IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, arg0->unknown_2a0_->unknown_2a_)) {
             func_ov026_021dce34(-1, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, arg0->unknown_ec8_, arg0->unknown_5c3c_, arg0->unknown_5728_, arg0->unknown_e98_, arg0->unknown_ea0_, arg0->unknown_5910_, arg0->unknown_c18_);
         }
     }
@@ -953,7 +953,7 @@ state1:
             var95 = CollectEnemyCombatantIndices_ov000_0215eb1c(var19, var96, 8, 0);
             var93 = GameState::GetInstance();
             for (var94 = 0; var94 < var95; var94++) {
-                GameObject* var97 = func_0200fea4(var93, var96[var94]);
+                GameObject* var97 = GetEnemyByIndex_0200fea4(var93, var96[var94]);
                 if (var97 != 0) {
                     ModifiableCombatStats* var98 = var97->currentStats_;
                     if ((*(int*)&var98->unk1[4] & 0x1000) && GetPartyMemberBaseByIndex_0200ff1c(var93, *(short*)&var98->unk1[0x1a]) == 0) {
@@ -970,7 +970,7 @@ state1:
         if (var91) {
             Struct_ov023_021f4c04* var99 = GetMessageWindow_020421a0();
             Struct_0201099c_3* var100 = arg0->inline_ov026_021d8ba0();
-            GameObject* var101 = func_0200fea4(var17, var28);
+            GameObject* var101 = GetEnemyByIndex_0200fea4(var17, var28);
             void* var102 = FindStringInTable_020e0434(var100, 0x28);
             if (var102 != 0 && var101 != 0) {
                 ClearMessageParams_02046380(var99);
@@ -987,11 +987,11 @@ state1:
                 return;
             }
         }
-        if (func_ov026_021d8a40() && IsQueueEmpty_02046b08(var47) && func_020a35e0((unsigned char*)arg0->unknown_2a0_, arg0->unknown_2a0_->unknown_2a_)) {
+        if (func_ov026_021d8a40() && IsQueueEmpty_02046b08(var47) && IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, arg0->unknown_2a0_->unknown_2a_)) {
             func_ov026_021dce34(-1, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, arg0->unknown_ec8_, arg0->unknown_5c3c_, arg0->unknown_5728_, arg0->unknown_e98_, arg0->unknown_ea0_, arg0->unknown_5910_, arg0->unknown_c18_);
         }
         if (var19->unknown_8e47_ == 0) {
-            if (func_02046708((Struct_02012de8*)var25, 0x200) == 0) {
+            if (TestGlobalFlags_02046708((GlobalFlags_02012de8*)var25, 0x200) == 0) {
                 int var103 = var19->unknown_8e20_;
                 int var104 = var19->unknown_8e49_;
                 int var105 = 1;
@@ -1030,7 +1030,7 @@ state1:
                 var46 = GetLocalWireless_0202ae18();
                 if (IsLocalWirelessOn_0202b7d8(var46)) {
                     for (var92 = 0; var92 < 4; var92++) {
-                        if (func_020a35e0((unsigned char*)var45, var92) && func_0202c1c0((Struct_0202b2f0*)var46, var92)) {
+                        if (IsPartyMemberInBattle_020a35e0((unsigned char*)var45, var92) && func_0202c1c0((Struct_0202b2f0*)var46, var92)) {
                             var107 = (var107 & arg0->unknown_54f4_[var92]) ? 1 : 0;
                         }
                     }
@@ -1152,9 +1152,9 @@ state1:
                     if (func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
                         arg0->unknown_5950_ = func_ov026_021dd3dc(arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_);
                         func_ov017_021cefe0(arg0->unknown_2a0_->unknown_8_, arg0->unknown_5950_, arg0->unknown_7748_);
-                        func_ov000_02160fa8(arg0, 0x800000);
+                        SetBattleSceneFlags_ov000_02160fa8(arg0, 0x800000);
                     }
-                    if (func_02046708((Struct_02012de8*)var25, 0x200)) {
+                    if (TestGlobalFlags_02046708((GlobalFlags_02012de8*)var25, 0x200)) {
                         func_020e36f0(var26);
                     }
                     arg0->unknown_eac_ = 0x12;
@@ -1165,8 +1165,8 @@ state1:
                     var119 = 1;
                     for (var120 = 0; var120 < 4; var120++) {
                         GameObject* var121;
-                        if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var120) && (var121 = var17->GetCombatantByIndex(var120)) != 0) {
-                            if (func_02010088((Struct_02010088*)var121) == 0) {
+                        if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var120) && (var121 = var17->GetCombatantByIndex(var120)) != 0) {
+                            if (IsDead_02010088((Struct_02010088*)var121) == 0) {
                                 var119 = 0;
                             }
                         }
@@ -1182,7 +1182,7 @@ state1:
         if (func_ov026_021ddd84(var18, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 0) != 0) {
             return;
         }
-        if (func_020e37e8(var26) != 0 || func_02046708((Struct_02012de8*)var25, 0x200) == 0) {
+        if (func_020e37e8(var26) != 0 || TestGlobalFlags_02046708((GlobalFlags_02012de8*)var25, 0x200) == 0) {
             ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var25, 0x200);
             if (func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
                 arg0->unknown_eac_ = 8;
@@ -1197,7 +1197,7 @@ state1:
         if (func_0205e488(var24)) {
             int var122;
             for (var122 = 0; var122 < 4; var122++) {
-                if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var122)) {
+                if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var122)) {
                     GetCompanionByIndex_0200ff58(var17, var122);
                     func_ov000_02162c14(arg0, var122, &var9);
                     func_ov017_021c6814(arg0->unknown_2a0_->unknown_8_, var122, &var9, 1, -1, 1);
@@ -1241,7 +1241,7 @@ state1:
             int var125 = func_ov000_0215ec1c(var19, var10, 8, 0);
             int var126;
             for (var126 = 0; var126 < var125; var126++) {
-                GameObject* var127 = func_0200fea4(var17, var10[var126]);
+                GameObject* var127 = GetEnemyByIndex_0200fea4(var17, var10[var126]);
                 if (var127 != 0) {
                     ModifiableCombatStats* var128 = var127->currentStats_;
                     var128->primaryStats.currHP = var128->primaryStats.maxHP;
@@ -1259,7 +1259,7 @@ state1:
         }
         ((SafeAllocator*)arg0->unknown_774c_)->Destroy();
         arg0->unknown_7749_ = 0;
-        func_02057f00(GetEffectManager_02057924(), 0x13);
+        RemoveEffectResource_02057f00(GetEffectManager_02057924(), 0x13);
         if (IsQueueEmpty_02046b08((void**)var18->unknown_ptr_array_36fc[1]) == 0) {
             return;
         }
@@ -1274,7 +1274,7 @@ state1:
             Object3D* var129;
             int var130;
             for (var130 = 0; var130 < 4; var130++) {
-                if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var130)) {
+                if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var130)) {
                     func_ov000_02162c14(arg0, var130, &var11);
                     var129 = (Object3D*)var17->GetGameObjectByIndex(var130);
                     if (var129 != 0) {
@@ -1290,7 +1290,7 @@ state1:
             var17 = GameState::GetInstance();
             for (var124 = 0; var124 < 4; var124++) {
                 GameObject* var134;
-                if (func_020a35e0((unsigned char*)var131, var124) && (var134 = GetPartyMemberBaseByIndex_0200ff1c(var17, var124)) != 0) {
+                if (IsPartyMemberInBattle_020a35e0((unsigned char*)var131, var124) && (var134 = GetPartyMemberBaseByIndex_0200ff1c(var17, var124)) != 0) {
                     func_02053dd0((Struct_02053dd0*)var134);
                 }
             }
@@ -1298,7 +1298,7 @@ state1:
             if (var133 != 0) {
                 for (var132 = 0; var132 < var133->unknown_f7c_; var132++) {
                     GameObject* var135 = GetPartyMemberBaseByIndex_0200ff1c(var17, var133->unknown_f78_[var132]);
-                    if (var135 != 0 && func_02010088((Struct_02010088*)var135) == 0) {
+                    if (var135 != 0 && IsDead_02010088((Struct_02010088*)var135) == 0) {
                         arg0->unknown_58ce_++;
                         break;
                     }

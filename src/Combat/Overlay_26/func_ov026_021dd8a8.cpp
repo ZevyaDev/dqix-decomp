@@ -85,20 +85,20 @@ extern "C" void __clear(void*, int);
 extern "C" void ClearMessageParams_02046380(Struct_ov023_021f4c04*);
 extern "C" void func_020e4ce8(Struct_ov026_021db090_3*, GameObject*, int);
 extern "C" Struct_ov026_021d8ba0_8* GetBattleSetup_ov017_021b8478(void*);
-extern "C" void* func_ov017_021b8468(void*);
+extern "C" void* GetBattleScene_ov017_021b8468(void*);
 extern "C" void func_020dd0b0(int, char*);
 extern "C" void StartMessage_0204500c(Struct_ov023_021f4c04*, char*, int, int);
 extern "C" void func_02042b98(Struct_ov023_021f4c04*, int, int, int, int);
 extern "C" Struct_ov023_021f4c04* GetMessageWindow_020421a0();
-extern "C" GameObject* func_0200fea4(GameState*, int);
-extern "C" int func_02010088(Struct_02010088*);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
+extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov026_021dd3c4(Struct_ov026_021d8ba0_10*);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" unsigned char func_020114ec(char*, void*);
+extern "C" unsigned char GetPartyOrder_020114ec(char*, void*);
 extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" void* func_ov000_02160f08(void*);
 extern "C" void* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
-extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" char* func_ov026_021d8a78(void*);
 
 extern signed char data_ov026_021de6a6[];
@@ -164,8 +164,8 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
         }
         var2[var9] = var10->unknown_0_;
         for (var14 = 0; var14 < var10->unknown_a_0_; var14++) {
-            GameObject* var28 = func_0200fea4(var6, var10->unknown_2_[var14] + 0xc0);
-            if (var28 == NULL || func_02010088((Struct_02010088*)var28) || func_ov026_021dd3c4((Struct_ov026_021d8ba0_10*)var28)) {
+            GameObject* var28 = GetEnemyByIndex_0200fea4(var6, var10->unknown_2_[var14] + 0xc0);
+            if (var28 == NULL || IsDead_02010088((Struct_02010088*)var28) || func_ov026_021dd3c4((Struct_ov026_021d8ba0_10*)var28)) {
                 continue;
             }
             if (((Struct_ov017_021af66c_5*)var28)->unknown_148_ == NULL) {
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var8, 0, 1);
     }
 
-    var20 = func_020114ec((char*)var6, var5);
+    var20 = GetPartyOrder_020114ec((char*)var6, var5);
     var16 = 0;
     var19 = 0;
     var21 = func_ov000_02160f08(GetBattleScene_ov000_02160130());
@@ -213,7 +213,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
         if (var30 == NULL) {
             continue;
         }
-        if (!func_020a35e0((unsigned char*)arg1, var5[var18])) {
+        if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg1, var5[var18])) {
             continue;
         }
         var19++;
@@ -254,7 +254,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
     func_020dd0b0(var26, var24);
     strcpy(var0, var24);
     if (arg0->unknown_8e49_ == 1) {
-        Struct_ov026_021dd8a8* var32 = (Struct_ov026_021dd8a8*)func_ov000_02160f08(func_ov017_021b8468(var7));
+        Struct_ov026_021dd8a8* var32 = (Struct_ov026_021dd8a8*)func_ov000_02160f08(GetBattleScene_ov017_021b8468(var7));
         unsigned char var33 = arg1->unknown_8_ % 2;
         if (var32 != NULL) {
             var32->unknown_955_ = var33;

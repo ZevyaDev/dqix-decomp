@@ -34,7 +34,7 @@ static inline unsigned int inline_ov017_021c71a4(Struct_ov017_021c71a4* arg0) { 
 static inline unsigned int inline_ov003_0216e714(Struct_ov017_021c71a4* arg0) { return arg0->unknown_3b_.unknown_0_4_; }
 extern "C" Struct_ov017_021c71a4_4* GetBattleSetup_ov017_021b8478(void*);
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
-extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void QueueOutgoingPacket_0205e330(void*, void*, int);
 
 // USA: func_ov017_021c71a4
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_021c71a4() {
     var3.unknown_0_ = 0x71;
     Struct_ov017_021c71a4_2* var4 = (Struct_ov017_021c71a4_2*)var3.unknown_4_;
     for (int var5 = 0; var5 < 4; ++var5) {
-        if (!func_020a35e0((unsigned char*)var1, var5)) continue;
+        if (!IsPartyMemberInBattle_020a35e0((unsigned char*)var1, var5)) continue;
         GameObject* var6 = var0->GetCombatantByIndex(var5);
         if (!var6 || !((Struct_ov017_021c71a4*)var6->currentStats_)->unknown_26_) continue;
         var4->unknown_0_ = var1->unknown_8_;

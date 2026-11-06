@@ -2,7 +2,7 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-struct Struct_02048150;
+struct Party_02048150;
 struct ItemTable_0201099c_10;
 struct Struct_0201099c_3;
 struct Struct_02046574_2;
@@ -13,11 +13,11 @@ extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMar
 extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
-extern "C" int func_02086ef0(Struct_02048150 *arg0, int arg1);
+extern "C" int IsInParty_02086ef0(Party_02048150 *party, int objectIndex);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
-extern "C" void func_020465f0(unsigned char *arg0, int arg1, unsigned char arg2);
-extern "C" void func_020465d8(unsigned char *arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char *window, int index, unsigned char width);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char *window, int index, unsigned char alignment);
 extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" char *FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int GetStringLength_020d2ff0(const char *string);
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov002_0215ef64(char *arg0, char *arg1, int arg2) {
         GameObject *var13 = GetPartyMemberBaseByIndex_0200ff1c(var4, var7);
         if (var13 == NULL) return;
         var9 = GetPartyMemberData_02053c6c((unsigned char *) var13);
-        if (!func_02086ef0((Struct_02048150 *) var6, *(signed char *) (arg0 + 0x1a00 + 0xe9))) return;
+        if (!IsInParty_02086ef0((Party_02048150 *) var6, *(signed char *) (arg0 + 0x1a00 + 0xe9))) return;
         int var14     = func_ov002_02157108(arg0, *(signed char *) (arg0 + 0x1a00 + 0xe9));
         int var15 = 0;
         if (var14 < 8) var15 = 1;
@@ -117,11 +117,11 @@ extern "C" ARM void func_ov002_0215ef64(char *arg0, char *arg1, int arg2) {
     }
     if (var12 > 1) {
         SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var5, 0, var11 + 1);
-        func_020465f0((unsigned char *) var5, 0, 2);
-        func_020465d8((unsigned char *) var5, 0, 1);
+        SetMessageNumberWidth_020465f0((unsigned char *) var5, 0, 2);
+        SetMessageNumberAlignment_020465d8((unsigned char *) var5, 0, 1);
         SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var5, 1, var12);
-        func_020465f0((unsigned char *) var5, 1, 2);
-        func_020465d8((unsigned char *) var5, 1, 0);
+        SetMessageNumberWidth_020465f0((unsigned char *) var5, 1, 2);
+        SetMessageNumberAlignment_020465d8((unsigned char *) var5, 1, 0);
         func_02042428(arg1, 8);
         AppendText_02042058(arg1, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x47f));
     }

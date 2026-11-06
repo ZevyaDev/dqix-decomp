@@ -12,12 +12,12 @@ extern "C" void func_ov017_02199684(Struct_ov017_02199684* arg0, int arg1, int a
 extern "C" void func_ov017_021996bc(Struct_ov017_02199684* arg0, int arg1);
 
 struct TextWindowManager_0205d1e0;
-extern "C" void func_0205d1e0(TextWindowManager_0205d1e0*);
+extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(TextWindowManager_0205d1e0*);
 struct TextWindowManager_0205d274;
-extern "C" void func_0205d274(TextWindowManager_0205d274*);
+extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274*);
 struct TextWindowManager_0205d2bc;
 extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc*);
-extern "C" void func_0205d048(void* arg0);
+extern "C" void ResetTextWindowManager_0205d048(void* windowManager);
 
 extern "C" void func_ov017_021996fc(unsigned char* arg0);
 
@@ -102,19 +102,19 @@ extern "C" ARM void func_ov017_02199780(unsigned char* arg0) {
 #if defined(jpn)
 		if (*(int*)(arg0 + 0x3000 + 0xe54) != 0) {
 			func_ov017_02199684((Struct_ov017_02199684*)(arg0 + 0x294 + 0x3800), 2, 0x800);
-			func_0205d1e0(*(TextWindowManager_0205d1e0**)(arg0 + 0x3000 + 0xa90));
-			func_0205d274(*(TextWindowManager_0205d274**)(arg0 + 0x3000 + 0xa90));
+			ClearTextWindowManagerBGScreenData_0205d1e0(*(TextWindowManager_0205d1e0**)(arg0 + 0x3000 + 0xa90));
+			FlushTextWindowManagerBGScreenData_0205d274(*(TextWindowManager_0205d274**)(arg0 + 0x3000 + 0xa90));
 			func_0205d2bc(*(TextWindowManager_0205d2bc**)(arg0 + 0x3000 + 0xa90));
 			func_ov017_021996bc((Struct_ov017_02199684*)(arg0 + 0x294 + 0x3800), 2);
-			func_0205d048(*(void**)(arg0 + 0x3000 + 0xa90));
+			ResetTextWindowManager_0205d048(*(void**)(arg0 + 0x3000 + 0xa90));
 #else
 		if (*(int*)(arg0 + 0x4000 + 0x74) != 0) {
 			func_ov017_02199684((Struct_ov017_02199684*)(arg0 + 0xb4 + 0x3c00), 2, 0x800);
-			func_0205d1e0(*(TextWindowManager_0205d1e0**)(arg0 + 0x3000 + 0xcb0));
-			func_0205d274(*(TextWindowManager_0205d274**)(arg0 + 0x3000 + 0xcb0));
+			ClearTextWindowManagerBGScreenData_0205d1e0(*(TextWindowManager_0205d1e0**)(arg0 + 0x3000 + 0xcb0));
+			FlushTextWindowManagerBGScreenData_0205d274(*(TextWindowManager_0205d274**)(arg0 + 0x3000 + 0xcb0));
 			func_0205d2bc(*(TextWindowManager_0205d2bc**)(arg0 + 0x3000 + 0xcb0));
 			func_ov017_021996bc((Struct_ov017_02199684*)(arg0 + 0xb4 + 0x3c00), 2);
-			func_0205d048(*(void**)(arg0 + 0x3000 + 0xcb0));
+			ResetTextWindowManager_0205d048(*(void**)(arg0 + 0x3000 + 0xcb0));
 #endif
 
 #if defined(jpn)

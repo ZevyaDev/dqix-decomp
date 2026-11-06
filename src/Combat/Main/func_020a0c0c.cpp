@@ -12,34 +12,34 @@ void CacheMainFileAccessors();
 extern AllocatorUnion gMainHeap_02114e20;
 extern void* data_02109d90;
 
-// USA: func_020a0c0c
-extern "C" ARM void func_020a0c0c() {
-    unsigned int var0;
-    void* var1;
-    BackgroundLoader* var2;
-    unsigned int var3;
+// USA: LoadFileTables_020a0c0c
+extern "C" ARM void LoadFileTables_020a0c0c() {
+    unsigned int maxAllocation;
+    void* padding;
+    BackgroundLoader* backgroundLoader;
+    unsigned int tablesSize;
 
     if (data_02109d90 != NULL)
         return;
 
-    var3 = LoadROMFilesystemFileTables(NULL, 0);
-    var0 = func_02012dd0((Struct_02114e20*)&gMainHeap_02114e20);
-    if (var3 + 0x10 > var0)
+    tablesSize = LoadROMFilesystemFileTables(NULL, 0);
+    maxAllocation = func_02012dd0((Struct_02114e20*)&gMainHeap_02114e20);
+    if (tablesSize + 0x10 > maxAllocation)
         return;
 
-    var2 = BackgroundLoader::GetInstance();
-    if (var2 != NULL)
-        var2->AddLock();
+    backgroundLoader = BackgroundLoader::GetInstance();
+    if (backgroundLoader != NULL)
+        backgroundLoader->AddLock();
 
-    var1 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var0 - (var3 + 0x10));
-    data_02109d90 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var3);
-    FreeMemory_02012da4(&gMainHeap_02114e20, var1);
+    padding = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, maxAllocation - (tablesSize + 0x10));
+    data_02109d90 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, tablesSize);
+    FreeMemory_02012da4(&gMainHeap_02114e20, padding);
 
     if (data_02109d90 != NULL)
-        LoadROMFilesystemFileTables(data_02109d90, var3);
+        LoadROMFilesystemFileTables(data_02109d90, tablesSize);
 
-    if (var2 != NULL)
-        var2->RemoveLock();
+    if (backgroundLoader != NULL)
+        backgroundLoader->RemoveLock();
 
     CacheMainFileAccessors();
 }

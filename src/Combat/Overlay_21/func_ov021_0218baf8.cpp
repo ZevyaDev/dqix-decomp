@@ -8,7 +8,7 @@
 
 extern "C" int func_ov009_02184a18(int arg0);
 extern "C" void func_0203aa08(void* arg0);
-extern "C" void func_020bbd9c(void);
+extern "C" void UpdateSound_020bbd9c(void);
 extern int gSoundEffectManager_02108760;
 
 struct Struct_ov021_0218b5fc_2 {
@@ -25,5 +25,5 @@ extern "C" ARM void func_ov021_0218baf8(struct Struct_ov021_0218b5fc_2* arg0) {
         arg0->unknown_b8_ = 1;
     }
     func_0203aa08(&gSoundEffectManager_02108760);
-    func_020bbd9c();
+    UpdateSound_020bbd9c();
 }

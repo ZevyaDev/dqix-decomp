@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
+extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 
 extern AllocatorUnion gMainHeap_02114e20;
@@ -29,10 +29,10 @@ extern "C" ARM void func_ov015_02192600(struct Struct_ov015_02192600_3* arg0) {
         arg0->unknown_104_[var1].unknown_0_ = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x70);
         int var2;
         for (var2 = 0; var2 < 10; var2++) {
-            func_0207de48((char*)arg0->unknown_c4_[var1].unknown_0_ + var2 * 0x70, var0.unknown_0_[var2].unknown_0_, var0.unknown_0_[var2].unknown_4_);
-            func_0207de48((char*)arg0->unknown_e4_[var1].unknown_0_ + var2 * 0x70, var0.unknown_0_[var2].unknown_8_, var0.unknown_0_[var2].unknown_c_);
+            InitTextureVRAMArea_0207de48((char*)arg0->unknown_c4_[var1].unknown_0_ + var2 * 0x70, var0.unknown_0_[var2].unknown_0_, var0.unknown_0_[var2].unknown_4_);
+            InitTextureVRAMArea_0207de48((char*)arg0->unknown_e4_[var1].unknown_0_ + var2 * 0x70, var0.unknown_0_[var2].unknown_8_, var0.unknown_0_[var2].unknown_c_);
         }
-        func_0207de48(arg0->unknown_104_[var1].unknown_0_, 0x4000, 0x400);
+        InitTextureVRAMArea_0207de48(arg0->unknown_104_[var1].unknown_0_, 0x4000, 0x400);
     }
-    func_0207de48((char*)arg0 + 0x124, 0x4000, 0x40);
+    InitTextureVRAMArea_0207de48((char*)arg0 + 0x124, 0x4000, 0x40);
 }

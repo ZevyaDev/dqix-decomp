@@ -34,7 +34,7 @@ extern "C" void func_020d8484(Struct_020d80b0_3*);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020a27b8(unsigned char*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void func_020728ac(StringList_02072a68_2*, SafeAllocator*, void*, unsigned int, int, int, int);
+extern "C" void LoadStringList_020728ac(StringList_02072a68_2*, SafeAllocator*, void*, unsigned int, int, int, int);
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
@@ -101,11 +101,11 @@ extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
             unsigned int var9;
             BackgroundLoader::GetInstance()->GetLoadedFileByID(arg0->unknown_28_, &var8, &var9);
             arg0->unknown_14_.Reset();
-            func_020728ac(&arg0->unknown_c_, &arg0->unknown_14_, var8, var9, 0, 0, 0);
+            LoadStringList_020728ac(&arg0->unknown_c_, &arg0->unknown_14_, var8, var9, 0, 0, 0);
             BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_28_);
             arg0->unknown_28_ = -1;
             ClearMessageParams_02046380(var2);
-            func_02094b30(GetFontLoader_02094a00(), 0x203, 0);
+            RequestSingleFontLoad_02094b30(GetFontLoader_02094a00(), 0x203, 0);
             arg0->unknown_8_ = 2;
         }
     } else if (arg0->unknown_8_ == 2) {

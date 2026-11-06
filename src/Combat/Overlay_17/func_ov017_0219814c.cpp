@@ -32,7 +32,7 @@ extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
 extern "C" int func_02094b9c(struct Struct_ov017_0219814c* arg0, struct Struct_ov017_0219814c_2* arg1);
 extern "C" struct Struct_ov017_0219814c* func_02053ccc(unsigned char* arg0);
 extern "C" void func_02053cc4(unsigned char* arg0, int arg1);
-extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
+extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 extern "C" void func_0206f81c(void* arg0);
 
 // USA: func_ov017_0219814c
@@ -58,23 +58,23 @@ extern "C" ARM void func_ov017_0219814c(void) {
     if (var7 != 0) {
         if (var6 == 0) {
             var5.unknown_4_ = var7->unknown_2c_;
-            if (func_020649b0(var2, 5, &var5)) {
+            if (RunTrigger_020649b0(var2, 5, &var5)) {
                 func_0206f81c(&var5);
             }
         } else if (var6 != var7) {
             var5.unknown_4_ = var7->unknown_2c_;
-            if (func_020649b0(var2, 5, &var5)) {
+            if (RunTrigger_020649b0(var2, 5, &var5)) {
                 func_0206f81c(&var5);
             }
             var5.unknown_30_ = 0;
             var5.unknown_4_ = var6->unknown_2c_;
-            if (func_020649b0(var2, 2, &var5)) {
+            if (RunTrigger_020649b0(var2, 2, &var5)) {
                 func_0206f81c(&var5);
             }
         }
     } else if (var6 != 0) {
         var5.unknown_4_ = var6->unknown_2c_;
-        if (func_020649b0(var2, 2, &var5)) {
+        if (RunTrigger_020649b0(var2, 2, &var5)) {
             func_0206f81c(&var5);
         }
     }

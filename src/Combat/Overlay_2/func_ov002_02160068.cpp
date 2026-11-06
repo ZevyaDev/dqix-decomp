@@ -12,7 +12,7 @@ extern "C" void OpenTextWindow_0205d304(void *windowManager, void *text, int arg
 #endif
 extern "C" void func_ov002_0215be00(void *arg0, int arg1, int arg2, int arg3);
 struct TextWindowManager_0205de24_2;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 struct TextWindowManager_0205d81c;
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);

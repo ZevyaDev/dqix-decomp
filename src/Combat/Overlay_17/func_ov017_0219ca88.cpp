@@ -10,7 +10,7 @@ struct Struct_ov009_0218aa28 { int unknown_0_, unknown_4_, unknown_8_; };
 struct Struct_02000c9c_56 { Vector3fix unknown_0_, unknown_c_; };
 struct Struct_02046b38;
 struct Struct_02046b38_2;
-struct Struct_02015438;
+struct QueueNode_02015438;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 struct Struct_ov017_0219ca88_2 {
@@ -38,7 +38,7 @@ extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" void* GetFlagManager_0205ec34(void*);
 extern "C" int func_02046b38(Struct_02046b38*, Struct_02046b38_2*);
-extern "C" int func_02046b24(Struct_02015438**);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_ov017_0219bed0(void*);
 extern "C" unsigned char func_0200fb9c(char*);
@@ -52,7 +52,7 @@ extern "C" short func_ov017_021a4754(Vector3fix*, int, Vector3fix*);
 extern "C" void func_ov017_0219b33c(GameResources*, Struct_ov017_0219ca88_3*);
 extern "C" void func_ov017_0219e310(unsigned char*, int);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
-extern "C" int func_020649b0(void*, int, void*);
+extern "C" int RunTrigger_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void*);
 
 // USA: func_ov017_0219ca88
@@ -66,8 +66,8 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
     int var5 = 0;
     void* var6 = GetFlagManager_0205ec34(GetCamera_020100bc(var0));
     if (func_02046b38((Struct_02046b38*)arg0->unknown_ptr_array_36fc[0], (Struct_02046b38_2*)arg0->unknown_ptr_array_36fc[4])) return;
-    if (func_02046b24((Struct_02015438**)arg0->unknown_ptr_array_36fc[0]) == 4) return;
-    if (func_02046b24((Struct_02015438**)arg0->unknown_ptr_array_36fc[0]) == 10) return;
+    if (GetQueueHeadType_02046b24((QueueNode_02015438**)arg0->unknown_ptr_array_36fc[0]) == 4) return;
+    if (GetQueueHeadType_02046b24((QueueNode_02015438**)arg0->unknown_ptr_array_36fc[0]) == 10) return;
     if (TestFlags08(arg0, 8)) {
         if (static_cast<unsigned char*>(arg0->unknown_ptr_array_36fc[5])[3]) return;
         if (IsMainBrightnessTransitionActive(arg0)) return;
@@ -122,6 +122,6 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
     if (!var3[0xa]) {
         Struct_ov017_0219ca88 var12;
         var12.unknown_c_ = var2->currentZoneID_;
-        if (func_020649b0(var6, 6, &var12)) func_0206f81c(&var12);
+        if (RunTrigger_020649b0(var6, 6, &var12)) func_0206f81c(&var12);
     }
 }

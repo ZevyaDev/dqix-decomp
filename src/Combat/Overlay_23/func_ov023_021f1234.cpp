@@ -8,7 +8,7 @@
 
 
 struct GameResources;
-struct Struct_02048150;
+struct Party_02048150;
 struct TextWindowManager_0205d6a0;
 struct StringList_02072a68_2;
 struct Struct_ov002_021682c0;
@@ -128,7 +128,7 @@ extern "C" Struct_ov023_021f1234_2* _ZZ21inline_ov023_021f4c04vE1s;
 extern char gSoundEffectManager_02108760[];
 
 extern "C" Struct_ov023_021f1234_4* GetMessageWindow_020421a0();
-extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
+extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 extern "C" void func_ov023_021d8b6c(void* arg0);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
@@ -181,7 +181,7 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
     void* var4 = GetFlagManager_0205ec34();
     Struct_ov023_021f1234_4* var5 = GetMessageWindow_020421a0();
     int var6 = var1->unknown_18_;
-    int var7 = func_02086ef0((Struct_02048150*)GetParty_02010828(var0), var6);
+    int var7 = IsInParty_02086ef0((Party_02048150*)GetParty_02010828(var0), var6);
     if (arg0->unknown_5574_ == NULL)
     {
         if (arg0->unknown_5588_ != NULL)
@@ -351,7 +351,7 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
         else if (var1->unknown_0_ == 11)
         {
             FontLoader_0208cb08* var14 = GetFontLoader_02094a00();
-            func_02094b40(var14);
+            ClearLoadedFontSets_02094b40(var14);
             RequestFontLoad_02094b34(var14, 0x65, 500, 0, 0);
             var1->unknown_0_++;
         }

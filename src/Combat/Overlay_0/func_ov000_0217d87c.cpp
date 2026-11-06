@@ -69,12 +69,12 @@ extern "C" void func_ov000_0217a9d0(int, int, int, TextWindowManager_0205d81c*);
 extern "C" void func_0205def8(Struct_0205def8*, int, int);
 extern "C" int func_ov000_021719f8(int*);
 extern "C" int func_ov000_0218158c(void* arg0, int arg1);
-extern "C" void func_020de848(void* arg0);
+extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" int func_020de9a4(void* arg0, void* arg1, void* arg2, unsigned int arg3, void* arg4, unsigned short arg5);
 extern "C" int func_0207c984(void* arg0, int arg1, int arg2, void* arg3, void* arg4);
 extern "C" int func_ov000_0217c594(Struct_ov000_02178d28_2* arg0, int arg1);
-extern "C" Struct_ov000_0217d674* func_ov000_02161318(Struct_ov000_02178d28_2* arg0, int arg1);
+extern "C" Struct_ov000_0217d674* FindPartyMemberPanel_ov000_02161318(Struct_ov000_02178d28_2* battleUI, int memberIndex);
 extern "C" void func_ov000_02175258(Struct_ov000_02178d28_2* arg0);
 extern "C" void func_ov000_02176634(Struct_ov000_02178d28_2* arg0, void* arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov000_0217c638(Struct_ov000_02178d28_2* arg0, int arg1, int arg2);
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov000_0217d87c(Struct_ov000_02178d28_2* arg0, int arg1,
 #else
         ((SafeAllocator*)((char*)arg0 + 0x1af8))->Reset();
 #endif
-        func_020de848((char*)arg0 + 0x100);
+        ClearItemTable_020de848((char*)arg0 + 0x100);
         unsigned int var6;
 #if defined(jpn)
         void* var7 = func_020e08f0(0, &var6);
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov000_0217d87c(Struct_ov000_02178d28_2* arg0, int arg1,
         func_ov000_0217a9d0(7, arg0->unknown_66_, 4, (TextWindowManager_0205d81c*)arg0->unknown_188_);
     } else if (func_ov000_0217c5f4(arg0) != 0) {
         arg0->unknown_956_ = 0;
-        Struct_ov000_0217d674* var8 = func_ov000_02161318(arg0, var2);
+        Struct_ov000_0217d674* var8 = FindPartyMemberPanel_ov000_02161318(arg0, var2);
         if (var8 == NULL) {
             return;
         }
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov000_0217d87c(Struct_ov000_02178d28_2* arg0, int arg1,
         unsigned char var10 = ((unsigned char*)GetParty_02010828(var9))[0xf7c];
         for (unsigned char var11 = 0; var11 < var10; var11++) {
             int var12 = arg0->unknown_70_[var11];
-            Struct_ov000_0217d674* var13 = func_ov000_02161318(arg0, var12);
+            Struct_ov000_0217d674* var13 = FindPartyMemberPanel_ov000_02161318(arg0, var12);
             if (var13 == NULL) {
                 continue;
             }

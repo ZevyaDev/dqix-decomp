@@ -21,7 +21,7 @@ extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int in
 extern "C" void func_020875c4(Struct_02087574* arg0, int arg1, int arg2);
 extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_020546a0(void* arg0, int arg1);
-extern "C" int func_020546a8(void* arg0);
+extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" void func_020546b4(void*, int);
 extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void __clear(void* arg0, int arg1);
@@ -78,7 +78,7 @@ extern "C" ARM int func_020dcd40() {
         int var13 = 0;
         for (int var14 = 0; var14 < 4; var14++) {
             GameObject* var15 = GetCompanionByIndex_0200ff58(var2, var14);
-            if (var15 != NULL && var14 != var7 && var12 == func_020546a8(var15)) {
+            if (var15 != NULL && var14 != var7 && var12 == GetLeaderObjectIndex_020546a8(var15)) {
                 var13++;
             }
         }

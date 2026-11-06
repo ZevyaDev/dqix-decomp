@@ -52,7 +52,7 @@ union Struct_02065990_7 {
 };
 
 struct SpriteAnimationList_0205a254;
-extern "C" void func_0205a42c(SpriteAnimationList_0205a254*, int, int);
+extern "C" void SetSpriteAnimationOAMIndex_0205a42c(SpriteAnimationList_0205a254*, int, int);
 struct SpriteAnimationList_0205a330;
 extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330*, int);
 extern "C" void func_0206b104(void* arg0);
@@ -79,8 +79,8 @@ struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov016_0218b5c0(int arg0, signed char arg1);
 extern "C" void func_ov017_0218b5f8(signed char arg0);
-struct Struct_02038598_5;
-extern "C" int func_02046b60(Struct_02038598_5*, int);
+struct Queue_02038598_5;
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void func_ov017_021a5ab0(void* arg0);
 extern "C" void* func_0203cf4c();
 struct Struct_0203dce4_2;
@@ -125,7 +125,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
 
     if (*(void**)(var0 + REGION_VALUE(0x230, 0x2e0)) != 0 && var0[REGION_VALUE(0x236, 0x2e6)] != 0 && arg0->unknown_9a0_ == 6) {
         if ((*(unsigned short*)0x4000304 & 0x8000) >> 15 == 1) {
-            func_0205a42c((SpriteAnimationList_0205a254*)(*(void**)(var0 + REGION_VALUE(0x230, 0x2e0))), 0, 0x1e);
+            SetSpriteAnimationOAMIndex_0205a42c((SpriteAnimationList_0205a254*)(*(void**)(var0 + REGION_VALUE(0x230, 0x2e0))), 0, 0x1e);
         }
         AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)(*(void**)(var0 + REGION_VALUE(0x230, 0x2e0))), var9);
     }
@@ -333,7 +333,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                         func_ov016_0218b5c0(1, var17);
                         func_ov017_0218b5f8(var17);
                         unsigned char* var22 = ((unsigned char*)GetGameResources());
-                        if (func_02046b60((Struct_02038598_5*)(*(void**)(var22 + REGION_VALUE(0x34ec, 0x36fc))), 0xc) != 0) {
+                        if (IsTypeInQueue_02046b60((Queue_02038598_5*)(*(void**)(var22 + REGION_VALUE(0x34ec, 0x36fc))), 0xc) != 0) {
                             func_ov017_021a5ab0(*(void**)(var22 + REGION_VALUE(0x350c, 0x371c)));
                         }
                     }

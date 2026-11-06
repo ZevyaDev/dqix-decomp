@@ -6,7 +6,7 @@ enum { Enum_ov000_0217f62c_7538 = 0x1d72 };
 #endif
 
 extern "C" int func_ov000_0217f6bc(void* arg0);
-extern "C" void* func_ov000_02161318(void* arg0, int arg1);
+extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 struct Struct_ov000_02170fd0;
 extern "C" void func_ov000_02170fd0(struct Struct_ov000_02170fd0* arg0, int arg1);
 extern "C" void func_ov000_02175258(void* arg0);
@@ -18,7 +18,7 @@ extern "C" ARM int func_ov000_0217f62c(void* arg0) {
     int var1 = func_ov000_0217f6bc(var0);
     int var2 = (var1 >= 0 && var1 <= 3) ? 1 : 0;
     if (var2) {
-        struct Struct_ov000_02170fd0* var3 = (struct Struct_ov000_02170fd0*)func_ov000_02161318(var0, var1);
+        struct Struct_ov000_02170fd0* var3 = (struct Struct_ov000_02170fd0*)FindPartyMemberPanel_ov000_02161318(var0, var1);
         if (var3 != 0) {
             *(int*)(var0 + 0x17c) = *(int*)((char*)var3 + 0x4c);
             func_ov000_02170fd0(var3, 0);

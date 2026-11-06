@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" void* GetLocalWireless_0202ae18(void);
 
 struct StringList_02072a68_2 { struct StringListEntry_02072a68* unknown_0_; short capacity_4_; };
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov023_021e66ac(void* arg0) {
         GetLocalWireless_0202ae18();
         Struct_ov023_021e66ac_2* var4 = (Struct_ov023_021e66ac_2*)var1->GetProtagonist();
         int var5 = var4->unknown_150_->unknown_950_;
-        if (func_0201079c((char*)var1) == 1) {
+        if (GetStoryChapter_0201079c((char*)var1) == 1) {
             var5 = 13;
         }
         int var6 = 0x50dc;

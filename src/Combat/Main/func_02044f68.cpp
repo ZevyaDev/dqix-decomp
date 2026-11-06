@@ -32,7 +32,7 @@ extern "C" char* func_02045504(Struct_02044f68* arg0, const char* arg1);
 extern "C" void func_020454dc(char** arg0, unsigned short arg1);
 extern "C" int func_020d85dc(const char* arg0, const char* arg1);
 extern "C" int func_020d857c(const char* arg0, const char* arg1);
-extern "C" int func_02005a94(const char* arg0);
+extern "C" int ParseDecimal_02005a94(const char* string);
 extern "C" void func_020436dc(Struct_02044f68* arg0, int arg1, int arg2);
 
 // JPN: func_02044f68
@@ -76,7 +76,7 @@ extern "C" ARM void func_02044f68(Struct_02044f68* arg0, char* arg1, char* arg2,
             }
             var31 = var4 + 1;
             if (func_020d85dc(var3, data_020f00a7)) {
-                int var5 = func_02005a94(var3 + 5);
+                int var5 = ParseDecimal_02005a94(var3 + 5);
                 if (var5 < 0) {
                     var5 = 0;
                 }
@@ -84,35 +84,35 @@ extern "C" ARM void func_02044f68(Struct_02044f68* arg0, char* arg1, char* arg2,
                 arg0->unknown_17dd_++;
                 func_020454dc(&arg2, 0xff1c);
             } else if (func_020d857c(var3, data_020f00ad)) {
-                short var6 = func_02005a94(var3 + 2);
+                short var6 = ParseDecimal_02005a94(var3 + 2);
                 func_020454dc(&arg2, 0xff22);
                 func_020454dc(&arg2, var6);
             } else if (func_020d857c(var3, data_020f00b0)) {
-                short var7 = func_02005a94(var3 + 2);
+                short var7 = ParseDecimal_02005a94(var3 + 2);
                 func_020454dc(&arg2, 0xff23);
                 func_020454dc(&arg2, var7);
             } else if (func_020d857c(var3, data_020f00b3)) {
                 char* var8 = strchr(var3 + 3, ',');
                 if (var8 != NULL) {
-                    short var9 = func_02005a94(var3 + 3);
-                    short var10 = func_02005a94(var8 + 1);
+                    short var9 = ParseDecimal_02005a94(var3 + 3);
+                    short var10 = ParseDecimal_02005a94(var8 + 1);
                     func_020454dc(&arg2, 0xff24);
                     func_020454dc(&arg2, var9);
                     func_020454dc(&arg2, var10);
                 }
             } else if (func_020d857c(var3, data_020f00b7)) {
-                short var11 = func_02005a94(var3 + 2);
+                short var11 = ParseDecimal_02005a94(var3 + 2);
                 func_020454dc(&arg2, 0xff25);
                 func_020454dc(&arg2, var11);
             } else if (func_020d857c(var3, data_020f00ba)) {
-                short var12 = func_02005a94(var3 + 2);
+                short var12 = ParseDecimal_02005a94(var3 + 2);
                 func_020454dc(&arg2, 0xff26);
                 func_020454dc(&arg2, var12);
             } else if (func_020d857c(var3, data_020f00bd)) {
                 char* var13 = strchr(var3 + 3, ',');
                 if (var13 != NULL) {
-                    short var14 = func_02005a94(var3 + 3);
-                    short var15 = func_02005a94(var13 + 1);
+                    short var14 = ParseDecimal_02005a94(var3 + 3);
+                    short var15 = ParseDecimal_02005a94(var13 + 1);
                     func_020454dc(&arg2, 0xff27);
                     func_020454dc(&arg2, var14);
                     func_020454dc(&arg2, var15);

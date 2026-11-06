@@ -90,7 +90,7 @@ extern "C" void func_ov003_0215e6d8(Struct_ov003_0215e6d8* arg0);
 extern "C" void func_ov003_0215e6f8(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
 extern "C" void func_ov003_0215efb8(Struct_ov003_0215efb8* arg0);
 extern "C" int func_ov012_0218ae74(Struct_ov012_02188cd0* arg0, Struct_ov012_02188cd0_3* arg1);
-extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" void func_ov023_021e6e60(Struct_ov012_02188cd0* arg0);
 extern "C" void func_ov012_0218aabc(char* arg0);
 extern "C" void func_ov003_0215f41c(void* arg0, const char* arg1);
@@ -102,7 +102,7 @@ extern "C" void func_ov023_021e8270(void* arg0);
 extern "C" void func_ov012_021845f8(void* arg0);
 extern "C" int func_ov012_02184d80(void* arg0, char* arg1);
 extern "C" void func_0205def8(Struct_0205def8* arg0, int arg1, int arg2);
-extern "C" void func_020426bc(const char* arg0, char* arg1, int arg2);
+extern "C" void ConvertTextToGlyphIndices_020426bc(const char* text, char* outGlyphIndices, int font);
 extern "C" void func_ov012_0218943c(Struct_ov012_02188cd0* arg0);
 extern "C" Struct_ov012_02188cd0_4* GetMessageWindow_020421a0();
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
@@ -248,7 +248,7 @@ extern "C" ARM void func_ov012_02188cd0(Struct_ov012_02188cd0* arg0)
     }
     else if (arg0->unknown_1370_ == 5)
     {
-        func_020426bc(arg0->unknown_13d0_, inline_ov012_02188cd0(GameState::GetInstance())->unknown_8_, 1);
+        ConvertTextToGlyphIndices_020426bc(arg0->unknown_13d0_, inline_ov012_02188cd0(GameState::GetInstance())->unknown_8_, 1);
         arg0->unknown_1328_ = 0;
         memset(arg0->unknown_13d0_, 0, 0x400);
         arg0->unknown_1370_++;

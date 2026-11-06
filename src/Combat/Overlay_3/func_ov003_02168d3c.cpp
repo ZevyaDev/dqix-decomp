@@ -14,7 +14,7 @@ extern "C" void func_ov003_02169c3c(void*);
 extern "C" int func_ov003_02169eec(void*, void*);
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" void func_020465f0(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_0205d6e4(TextWindowManager_0205d81c*, int);
 extern "C" void* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 extern "C" int func_ov003_02169938(int, int);
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov003_02168d3c(Struct_ov003_02168d3c* arg0, void* arg1,
             }
             ClearMessageParams_02046380(var1);
             SetMessageNumber_020465c0((MessageWindow_020465c0*)var1,0,var2->unknown_f68_);
-            func_020465f0((unsigned char*)var1,0,0);
+            SetMessageNumberWidth_020465f0((unsigned char*)var1,0,0);
             unsigned int var12=var2->unknown_f68_/1000;
             unsigned int var13=var2->unknown_f6c_/1000;
             int var14=1;
@@ -182,7 +182,7 @@ extern "C" ARM void func_ov003_02168d3c(Struct_ov003_02168d3c* arg0, void* arg1,
             memset(arg0->unknown_7c_,0,Enum_ov003_02168d3c_2400);
             ClearMessageParams_02046380(var1);
             SetMessageNumber_020465c0((MessageWindow_020465c0*)var1,0,arg0->unknown_5a0_);
-            func_020465f0((unsigned char*)var1,0,0);
+            SetMessageNumberWidth_020465f0((unsigned char*)var1,0,0);
             int var25=FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_,(short)(var24+1));
             inline_ov003_02168d3c_2(var1,var25,arg0->unknown_7c_);
             func_ov003_0216abd8(arg0,arg0->unknown_7c_);
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov003_02168d3c(Struct_ov003_02168d3c* arg0, void* arg1,
         } else if(var23) {
             ClearMessageParams_02046380(var1);
             SetMessageNumber_020465c0((MessageWindow_020465c0*)var1,0,0x3b9ac618-var2->unknown_f68_);
-            func_020465f0((unsigned char*)var1,0,0);
+            SetMessageNumberWidth_020465f0((unsigned char*)var1,0,0);
             int var26=FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_,var24);
             inline_ov003_02168d3c_2(var1,var26,arg0->unknown_7c_);
             func_ov003_0216abd8(arg0,arg0->unknown_7c_);

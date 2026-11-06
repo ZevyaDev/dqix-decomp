@@ -12,7 +12,7 @@ struct Struct_02081b3c {
 
 extern "C" ARM int func_02042190(int arg0);
 extern "C" ARM int GetMessageWindow_020421a0(void);
-extern "C" ARM void func_0206819c(const char* arg0, char* arg1, int arg2);
+extern "C" ARM void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_020420e8(void* arg0, int arg1);
@@ -88,7 +88,7 @@ extern "C" ARM void func_02081b3c(void* arg0, void* arg1, void* arg2) {
     __clear(var5, 0x100);
 
     if (*(unsigned char*)(var2 + 0x2a) & 0x40) {
-        func_0206819c(var6, var5, var4);
+        CopyCapitalizedText_0206819c(var6, var5, var4);
         var6 = var5;
     }
 

@@ -2,7 +2,7 @@
 #include "Resource/ActionDataTables.h"
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" int func_ov000_02159d94(void* arg0, int arg1);
 
 struct Struct_ov024_021f66cc {
@@ -25,7 +25,7 @@ extern Type_02000c9c_16 data_ov024_021ff790[];
 // USA: func_ov024_021f66cc
 extern "C" ARM int func_ov024_021f66cc(Struct_ov024_021f66cc_2* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5) {
 	arg0->unknown_0_ = arg1;
-	func_0200fea4(GameState::GetInstance(), arg3);
+	GetEnemyByIndex_0200fea4(GameState::GetInstance(), arg3);
 	struct Struct_ov024_021f66cc* var0 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), (short)arg2);
 	int var1 = 0;
 	int var2 = func_ov000_02159d94(arg0->unknown_0_, (short)arg3);

@@ -8,13 +8,13 @@
 #include "GameState/GameState.h"
 
 extern "C" void* GetGlobalFlags_020d6c00(void);
-struct Struct_02012de8;
-extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
+struct GlobalFlags_02012de8;
+extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 
 extern "C" void func_0205308c(void* arg0, int arg1);
 extern "C" void func_ov017_021cc1f8(int arg0, void* arg1, int arg2, int arg3);
 
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 
 struct Struct_02037d88_12;
@@ -54,7 +54,7 @@ extern "C" ARM int func_02052f44(struct Struct_02037d88_2* arg0, signed char* ar
     signed char var3;
     GameState* var4;
 
-    if (func_02046708((struct Struct_02012de8*)GetGlobalFlags_020d6c00(), 2)) {
+    if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)GetGlobalFlags_020d6c00(), 2)) {
         return 0;
     }
 
@@ -105,7 +105,7 @@ extern "C" ARM int func_02052f44(struct Struct_02037d88_2* arg0, signed char* ar
         var4 = GameState::GetInstance();
         var7 = arg0->unknown_4_;
         arg0 = (struct Struct_02037d88_2*)var4;
-        unsigned char var8 = func_020100b0((GameState*)arg0);
+        unsigned char var8 = GetOwnPartyLeaderObjectIndex_020100b0((GameState*)arg0);
         if (var8 == var7) {
             int var9 = GetFollowCamera_020100f8((char*)arg0);
             if (var9 != 0) {

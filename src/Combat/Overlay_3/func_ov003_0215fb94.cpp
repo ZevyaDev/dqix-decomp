@@ -18,14 +18,14 @@ enum { Enum_ov003_0215fb94_742 = 0x2e6 };
 #include "Resource/Brightness.h"
 
 struct GlobalFlags_02038598_4;
-struct Struct_02074bd0;
+struct BGControlSave_02074bd0;
 struct Struct_0207fcb8;
 struct Struct_0207fd44_2;
 struct Struct_0207fd88;
 
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
-extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
+extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 extern "C" void func_0207fcb8(struct Struct_0207fcb8* arg0);
 extern "C" void func_0207fd44(struct Struct_0207fd44_2* arg0);
 extern "C" void func_0207fd88(struct Struct_0207fd88* arg0);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov003_0215fb94(Struct_ov003_0215fb94* arg0) {
     *var2 = (*var2 & ~0x1f00) | 0x100;
     *(volatile unsigned short*)0x4000050 = 0;
 
-    func_02074bd0((struct Struct_02074bd0*)arg0->unknown_2f4_);
+    RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)arg0->unknown_2f4_);
 
     Struct_0207f7f0* var3 = arg0->unknown_324_;
     if (var3 != NULL) {

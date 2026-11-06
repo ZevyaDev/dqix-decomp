@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" int func_ov017_021b8468(void* arg0);
-extern "C" void* func_ov017_021b8470(void* arg0);
-extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+extern "C" int GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 
 struct Struct_ov017_021cf694 {
 	unsigned char unknown_0_[4];
@@ -24,11 +24,11 @@ extern "C" ARM void func_ov017_021cf694(int arg0, Struct_ov017_021cf694* arg1, i
 	if (var1 == NULL) {
 		return;
 	}
-	int var2 = func_ov017_021b8468(var0);
+	int var2 = GetBattleScene_ov017_021b8468(var0);
 	if (var2 == 0) {
 		return;
 	}
-	if (func_ov017_021b8470(var0) == NULL) {
+	if (GetBattle_ov017_021b8470(var0) == NULL) {
 		return;
 	}
 	if (arg1->unknown_c_ != *(unsigned short*)((char*)var1 + 8)) {
@@ -39,5 +39,5 @@ extern "C" ARM void func_ov017_021cf694(int arg0, Struct_ov017_021cf694* arg1, i
 	unsigned char* var5 = (unsigned char*)var2 + Enum_ov017_021cf694_24576;
 	*(int*)(var5 + Enum_ov017_021cf694_3644) = var3;
 	*(int*)(var5 + Enum_ov017_021cf694_3648) = var4;
-	func_ov000_02160fa8((void*)var2, 0x20000);
+	SetBattleSceneFlags_ov000_02160fa8((void*)var2, 0x20000);
 }

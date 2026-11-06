@@ -18,7 +18,7 @@ struct Struct_02095384_2 {
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_020952f4(char* arg0);
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int func_ov017_0218d2c4(int arg0);
 
 extern Struct_02095384 data_02109400;
@@ -62,7 +62,7 @@ extern "C" ARM int func_02095384(int arg0, int arg1, Struct_02095384_2* arg2) {
         if (var3->unknown_44_[0] != 0) {
             sprintf(var4, data_020f14d4, var3->unknown_44_);
         } else {
-            unsigned char var7 = func_0201079c((char*)GameState::GetInstance());
+            unsigned char var7 = GetStoryChapter_0201079c((char*)GameState::GetInstance());
             var3->unknown_58_ = var7;
             sprintf(var4, data_020f14db, func_ov017_0218d2c4(var7));
         }

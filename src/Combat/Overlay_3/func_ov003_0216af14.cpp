@@ -30,7 +30,7 @@ struct Struct_ov003_0216af14_2 {
 };
 
 struct Struct_020e6d5c_16 { unsigned int unknown_0_; unsigned int unknown_4_; };
-extern struct Struct_020e6d5c_16 data_020e6d5c;
+extern struct Struct_020e6d5c_16 gNullMemberFunctionPointer_020e6d5c;
 
 struct Struct_ov003_0216af14 { unsigned int unknown_0_; unsigned int unknown_4_; };
 struct Struct_ov003_0217f578 { struct Struct_ov003_0216af14 unknown_0_[8]; };
@@ -43,7 +43,7 @@ extern "C" void func_ov003_0215c800(void* arg0);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_ov003_0216d818(char* arg0);
 extern "C" void func_ov003_0216d84c(void* arg0);
-extern "C" int func_0205d0e0(void* arg0, unsigned int arg1);
+extern "C" int UpdateTextWindowManager_0205d0e0(void* windowManager, unsigned int ticks);
 
 // USA: func_ov003_0216af14
 extern "C" ARM int func_ov003_0216af14(Struct_ov003_0216af14_2* arg0) {
@@ -67,13 +67,13 @@ extern "C" ARM int func_ov003_0216af14(Struct_ov003_0216af14_2* arg0) {
     }
     unsigned int var2 = var0->GetTickCount();
     if (arg0->unknown_12c0_ != 0 && arg0->unknown_4_ == 2) {
-        arg0->unknown_10_ = func_0205d0e0(arg0->unknown_12c0_, var2);
+        arg0->unknown_10_ = UpdateTextWindowManager_0205d0e0(arg0->unknown_12c0_, var2);
     }
 
     struct Struct_ov003_0217f578 var3;
     var3 = data_ov003_0217f578;
-    unsigned int var4 = data_020e6d5c.unknown_4_;
-    unsigned int var5 = data_020e6d5c.unknown_0_;
+    unsigned int var4 = gNullMemberFunctionPointer_020e6d5c.unknown_4_;
+    unsigned int var5 = gNullMemberFunctionPointer_020e6d5c.unknown_0_;
     var3.unknown_0_[7].unknown_4_ = var4;
     var3.unknown_0_[7].unknown_0_ = var5;
 

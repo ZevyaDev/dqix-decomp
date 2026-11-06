@@ -27,7 +27,7 @@ extern "C" int GetStandardString_020e51cc(int stringId);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int arg3);
 #endif
-extern "C" int func_020457e0(void* arg0);
+extern "C" int GetMessageChoice_020457e0(void* window);
 extern "C" void func_ov017_021ab860(short arg0, int arg1);
 extern "C" void func_020e1154(void* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -70,7 +70,7 @@ extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
         func_020a27b8((unsigned char*)var5);
         arg0->unknown_8_ = 1;
     } else if (arg0->unknown_8_ == 1) {
-        func_02094b30(var3, 0x20e, 0);
+        RequestSingleFontLoad_02094b30(var3, 0x20e, 0);
         arg0->unknown_8_ = 2;
     } else if (arg0->unknown_8_ == 2) {
         if (UpdateFontLoad_02094b4c(var3) != 0) {
@@ -93,7 +93,7 @@ extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
         arg0->unknown_8_ = 4;
     } else if (arg0->unknown_8_ == 4) {
         if (*(int*)((char*)var2 + Enum_020d9870_2456) == 0) {
-            if (func_020457e0(var2) == 0) {
+            if (GetMessageChoice_020457e0(var2) == 0) {
                 func_ov017_021ab860(*(short*)((char*)var1 + 4), 1);
                 func_020e1154((void*)0xbb8);
             }

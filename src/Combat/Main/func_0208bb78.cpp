@@ -27,8 +27,8 @@ extern Struct_020e8ce4 data_020e8e00;
 #else
 extern Struct_020e8ce4 data_020e8ce4;
 #endif
-extern Type_01ff8b48_6 data_020e6d5c;
-struct Struct_02015438;
+extern Type_01ff8b48_6 gNullMemberFunctionPointer_020e6d5c;
+struct QueueNode_02015438;
 struct Struct_02000c9c_8;
 struct Struct_02065990_3;
 extern "C" int func_0208ca00(Struct_0208bb78*, int);
@@ -37,7 +37,7 @@ extern "C" void func_0208b788(int, float, Struct_0208baec*, int);
 extern "C" int func_0208baec(int, Struct_0208baec_2*, Struct_0208baec*, int, float, int, unsigned char);
 extern "C" int GetResources_0200fb8c(int*);
 extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8*);
-extern "C" int func_02046b24(Struct_02015438**);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" int* func_02094d6c();
 extern "C" unsigned char func_020965ac(Struct_02065990_3*, unsigned char);
 extern "C" int func_02096088(void*, int);
@@ -58,7 +58,7 @@ extern "C" ARM int func_0208bb78(Struct_0208bb78* arg0, int arg1) {
 #else
         Struct_020e8ce4 var1 = data_020e8ce4;
 #endif
-        var1.unknown_0_[4] = data_020e6d5c;
+        var1.unknown_0_[4] = gNullMemberFunctionPointer_020e6d5c;
         if (!var1.unknown_0_[arg0->unknown_d4_]) return 1;
         (arg0->*var1.unknown_0_[arg0->unknown_d4_])();
     }
@@ -66,7 +66,7 @@ extern "C" ARM int func_0208bb78(Struct_0208bb78* arg0, int arg1) {
     GameResources* var3 = (GameResources*)GetResources_0200fb8c((int*)var2);
     float var4;
     unsigned char var5;
-    Struct_02015438** var6 = (Struct_02015438**)var3->unknown_ptr_array_36fc[0];
+    QueueNode_02015438** var6 = (QueueNode_02015438**)var3->unknown_ptr_array_36fc[0];
     if (arg0->unknown_da_ & 8) {
         int var7 = (arg0->unknown_da_ & 0x100) != 0;
         Struct_0208baec var8;
@@ -95,12 +95,12 @@ extern "C" ARM int func_0208bb78(Struct_0208bb78* arg0, int arg1) {
 #endif
         } else {
             int var10 = 1;
-            if (func_02046b24(var6) == 0x2d) var5 = var10;
+            if (GetQueueHeadType_02046b24(var6) == 0x2d) var5 = var10;
             else if (arg0->unknown_d8_ == 1) var10 = 0;
             if (var10) func_0208baec((int)&arg0->unknown_60_, &arg0->unknown_b4_[var5], &var8, 0x40, var4, var0, 1);
         }
     }
-    if (arg0->unknown_d2_ != 9999 && arg0->unknown_d2_ >= 0 && arg0->unknown_d4_ != 0 && arg0->unknown_d4_ != 3 && func_02046b24(var6) != 0x2d) {
+    if (arg0->unknown_d2_ != 9999 && arg0->unknown_d2_ >= 0 && arg0->unknown_d4_ != 0 && arg0->unknown_d4_ != 3 && GetQueueHeadType_02046b24(var6) != 0x2d) {
         int* var11 = func_02094d6c();
         int var12 = func_020965ac((Struct_02065990_3*)var11, (unsigned char)arg0->unknown_d2_);
         if (func_02096088(var11, var12)) {

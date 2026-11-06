@@ -28,7 +28,7 @@ enum { Enum_ov017_021a2c14_1500 = 0x58c };
 enum { Enum_ov017_021a2c14_1500 = 0x5dc };
 #endif
 extern "C" void* func_0203cf4c();
-extern "C" int func_0201079c(char*);
+extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" int func_020107d0(char*);
 extern "C" int func_02010804(char*);
 extern "C" void func_0203cfb4(Struct_0203cfb4*);
@@ -62,7 +62,7 @@ extern "C" ARM int func_ov017_021a2c14(GameResources* arg0, Zone3D_StructPtr_8* 
     SafeAllocator* var3 = &arg0->allocator_array_38[7];
     unsigned char* var4 = reinterpret_cast<unsigned char*>(arg0) + Enum_ov017_021a2c14_1500;
     int var5 = arg1->unknown_0_;
-    int var6 = func_0201079c((char*)var0);
+    int var6 = GetStoryChapter_0201079c((char*)var0);
     int var7 = func_020107d0((char*)var0);
     int var8 = func_02010804((char*)var0);
     func_0203cfb4((Struct_0203cfb4*)var2);

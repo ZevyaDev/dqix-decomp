@@ -16,8 +16,8 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 
-struct Struct_02015438;
-extern "C" int func_02046b24(struct Struct_02015438** arg0);
+struct QueueNode_02015438;
+extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 extern "C" unsigned char func_0200fb9c(char* arg0);
 extern "C" int func_0201201c(void* arg0);
 
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov017_0218d0ec(unsigned char* arg0) {
     Struct_ov017_0218d0ec* var1 = (Struct_ov017_0218d0ec*)GetZone3D_02012fe4();
     void* var2 = GetLocalWireless_0202ae18();
 
-    if (func_02046b24(*(struct Struct_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 3) return;
+    if (GetQueueHeadType_02046b24(*(struct QueueNode_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 3) return;
     if (func_0200fb9c((char*)var0) == 6) return;
     if (func_0201201c(var0) == 5) return;
 
@@ -56,11 +56,11 @@ extern "C" ARM void func_ov017_0218d0ec(unsigned char* arg0) {
         func_ov017_021cdaa0();
     }
 
-    if (func_02046b24(*(struct Struct_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 0xa) {
+    if (GetQueueHeadType_02046b24(*(struct QueueNode_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 0xa) {
         if (func_ov017_021b8b54(*(void**)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1816)) != 0) return;
     }
-    if (func_02046b24(*(struct Struct_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 4) return;
-    if (func_02046b24(*(struct Struct_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 0x16) return;
+    if (GetQueueHeadType_02046b24(*(struct QueueNode_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 4) return;
+    if (GetQueueHeadType_02046b24(*(struct QueueNode_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 0x16) return;
 
     Struct_ov017_0218d0ec_4* var8 = (Struct_ov017_0218d0ec_4*)LightingManager::GetInstance();
     int var9 = var8->unknown_98_;

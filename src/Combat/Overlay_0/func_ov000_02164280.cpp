@@ -45,7 +45,7 @@ struct Struct_ov000_02164280 {
     char unknown_36f0_[0x800];
 };
 
-extern "C" char* func_0203bd08(void);
+extern "C" char* GetOAMManager_0203bd08(void);
 extern "C" int* func_0203bd14();
 extern "C" void MapVRAMBanksToTextureImage(int handle);
 extern "C" void func_020bb48c(unsigned int arg0, int arg1);
@@ -56,13 +56,13 @@ extern "C" void func_0203bd24(char* arg0);
 extern "C" void func_0203c35c(int* arg0);
 extern "C" void func_ov017_02195540(unsigned char* arg0);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
+extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 // USA: func_ov000_02164280
 extern "C" ARM void func_ov000_02164280(Struct_ov000_02164280* arg0) {
     Struct_ov000_02161e30_6* var0 = (Struct_ov000_02161e30_6*)GetGameResources();
-    char* var1 = func_0203bd08();
+    char* var1 = GetOAMManager_0203bd08();
     int* var2 = func_0203bd14();
     LockStagedTextureVRAMCopying();
     MapVRAMBanksToTextureImage(7);
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov000_02164280(Struct_ov000_02164280* arg0) {
     func_ov017_02195540((unsigned char*)var0);
     ResetTextureVRAMState_0207df50(var0->unknown_2cc_);
     RestoreTextureVRAMState_0207df90((char*)var0->unknown_2cc_);
-    func_0207de48(arg0->unknown_36f0_, 0x18000, 0x800);
+    InitTextureVRAMArea_0207de48(arg0->unknown_36f0_, 0x18000, 0x800);
     SaveTextureVRAMState_0207dfac((char*)var0->unknown_2cc_);
     UpdateVRAMStagingVRAMBanks();
     UnlockStagedTextureVRAMCopying();

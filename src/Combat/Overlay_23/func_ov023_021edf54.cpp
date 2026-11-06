@@ -241,21 +241,21 @@ extern "C" void func_02049ae4(unsigned char* arg0);
 extern "C" void func_ov023_021f50fc();
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" void func_020a0858(Struct_020a0858* arg0, unsigned int arg1);
 extern "C" void func_020a0300(Struct_020a0300* arg0, unsigned int arg1);
-extern "C" int func_020ac494(void* arg0);
-extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+extern "C" int SetBattleRecords_020ac494(void* records);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" int func_ov000_02160fd4(void* arg0, int arg1);
 extern "C" void func_ov023_021ed7e0(Struct_ov023_021ed7e0* arg0);
 extern "C" int func_020ac020(void* arg0, short* arg1, int* arg2, int arg3);
 extern "C" unsigned short func_0202053c(void* arg0);
-extern "C" int func_02010088(Struct_02010088* arg0);
+extern "C" int IsDead_02010088(Struct_02010088* object);
 extern "C" int func_ov023_021eea98(Struct_ov023_021edf54* arg0);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
+extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" Struct_020e385c* func_020e3808();
 extern "C" void func_020e39d4(Struct_020e385c* arg0, int arg1, int arg2, int arg3);
 
@@ -320,7 +320,7 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
 
         int var19 = 0;
         for (int var20 = 0; var20 < 4; var20++) {
-            if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var20))
+            if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var20))
                 arg0->unknown_5758_[var20] = func_ov023_021f4098(arg0, var20, var19);
         }
 
@@ -391,7 +391,7 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
                 unsigned int var31 = inline_ov023_021edf54_4(arg0->unknown_29c_->unknown_8e3c_, arg0->unknown_29c_->unknown_8e34_);
                 GameState* var32 = GameState::GetInstance();
                 for (int var33 = 0; var33 < 4; var33++) {
-                    if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var33))
+                    if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var33))
                         var2[var33] = func_ov023_021f4098(arg0, var33, var31);
                 }
                 func_ov017_021cd590(arg0->unknown_2a0_->unknown_8_, var2, 0, 1);
@@ -400,12 +400,12 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
                 GetBattleRecords_020ac4c0(&var35);
                 func_020a0858((Struct_020a0858*)&var35, var2[var34]);
                 func_020a0300((Struct_020a0300*)var35.unknown_68_, var2[var34]);
-                func_020ac494(&var35);
+                SetBattleRecords_020ac494(&var35);
             }
         }
     } else {
         if (var6->unknown_42e2_ != 0)
-            func_ov000_02160fa8(arg0, 0x2000000);
+            SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);
         if (IsLocalWirelessGuest_0202c540(var0) && arg0->unknown_2a0_->unknown_25_ != 0)
             var7->unknown_19b2_ = 0;
         if (!func_ov000_02160fd4(arg0, 0x2000))
@@ -441,13 +441,13 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
 
     Struct_ov023_021edf54_8* var44 = _ZZ21inline_ov023_021f4c04vE1s.unknown_0_->unknown_118_;
     for (int var45 = 0; var45 < 4; var45++) {
-        if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var45)) {
+        if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var45)) {
             Struct_ov023_021edf54_11* var46 = (Struct_ov023_021edf54_11*)GetPartyMemberBaseByIndex_0200ff1c(var5, var45);
             if (var46 != 0) {
                 var44->unknown_0_ = var45;
                 var44->unknown_1_ = var46->unknown_150_->unknown_950_;
                 var44->unknown_2_ = func_0202053c(var46);
-                var44->unknown_3_ = func_02010088((Struct_02010088*)var46);
+                var44->unknown_3_ = IsDead_02010088((Struct_02010088*)var46);
                 var44->unknown_4_ = arg0->unknown_5758_[var45] + func_ov023_021eea98((Struct_ov023_021edf54*)var46);
                 Struct_ov023_021edf54_7* var47 = (Struct_ov023_021edf54_7*)GetPartyMemberData_02053c6c((unsigned char*)var46);
                 var44->unknown_38_.unknown_0_ = var47->unknown_0_;
@@ -500,7 +500,7 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
             }
         }
     }
-    _ZZ21inline_ov023_021f4c04vE1s.unknown_0_->unknown_279d_ = func_020114ec((char*)var5, _ZZ21inline_ov023_021f4c04vE1s.unknown_0_->unknown_2799_);
+    _ZZ21inline_ov023_021f4c04vE1s.unknown_0_->unknown_279d_ = GetPartyOrder_020114ec((char*)var5, _ZZ21inline_ov023_021f4c04vE1s.unknown_0_->unknown_2799_);
 
     if (arg0->unknown_2a0_->unknown_25_ == 0)
         _ZZ21inline_ov023_021f4c04vE1s.unknown_0_->unknown_10_ = func_ov023_021f5150(arg0, arg0->unknown_2a0_, arg0->unknown_5758_, &arg0->unknown_5768_, 0) ? 1 : 0;

@@ -3,8 +3,8 @@
 #include "Util/Random.h"
 
 struct Struct_02010088;
-extern "C" int func_02010088(struct Struct_02010088* arg0);
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 
 struct Struct_ov000_02154f30 {
     char unknown_0_[0x3c];
@@ -53,7 +53,7 @@ extern struct Struct_ov000_02182c94 data_ov000_02182c94;
 
 // USA: func_ov000_02154f30
 extern "C" ARM short func_ov000_02154f30(struct Random* arg0, int arg1, int arg2, short* arg3) {
-    struct Struct_ov000_02154f30_4* var0 = (struct Struct_ov000_02154f30_4*)func_0200fea4(GameState::GetInstance(), arg1);
+    struct Struct_ov000_02154f30_4* var0 = (struct Struct_ov000_02154f30_4*)GetEnemyByIndex_0200fea4(GameState::GetInstance(), arg1);
     struct Struct_ov000_02154f30_3* var1 = var0->unknown_148_;
     struct Struct_ov000_02182ca4 var2 = data_ov000_02182ca4;
     int var3 = 0;
@@ -61,7 +61,7 @@ extern "C" ARM short func_ov000_02154f30(struct Random* arg0, int arg1, int arg2
         short var4 = var0->unknown_138_->unknown_2e_;
         GameState* var5 = GameState::GetInstance();
         GameObject* var6 = var5->GetCombatantByIndex(var4);
-        if (var6 != NULL && !func_02010088((struct Struct_02010088*)var6) && !func_ov000_02153c0c(var6)) {
+        if (var6 != NULL && !IsDead_02010088((struct Struct_02010088*)var6) && !func_ov000_02153c0c(var6)) {
             return var0->unknown_138_->unknown_2e_;
         }
     }
@@ -71,7 +71,7 @@ extern "C" ARM short func_ov000_02154f30(struct Random* arg0, int arg1, int arg2
         short var10 = arg3[var9];
         GameState* var11 = GameState::GetInstance();
         GameObject* var12 = var11->GetCombatantByIndex(var10);
-        if (var12 == NULL || func_02010088((struct Struct_02010088*)var12) || func_ov000_02153c0c(var12)) {
+        if (var12 == NULL || IsDead_02010088((struct Struct_02010088*)var12) || func_ov000_02153c0c(var12)) {
             continue;
         }
         var2.unknown_0_[var8] = (unsigned short)((struct Struct_ov000_02154f30_4*)var12)->unknown_134_->unknown_3f_6_ == 0 ? 2 : 1;

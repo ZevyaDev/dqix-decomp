@@ -20,10 +20,10 @@ struct Struct_020e280c;
 struct Struct_020676e0;
 struct Struct_020e25e8;
 struct TextWindowManager_0205d6a0;
-struct Struct_0205bcdc;
+struct MenuCursor_0205bcdc;
 struct ItemTable_0201099c_10;
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_02160fb4(char *arg0);
@@ -49,7 +49,7 @@ extern "C" void func_ov002_02156e90(void *arg0);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" void ResetMessageWindow_02043204(char *window);
 extern "C" void func_0205dee8(struct Struct_0205dee8 *arg0, int arg1);
-extern "C" void func_0205bcdc(struct Struct_0205bcdc *arg0, int arg1);
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc *cursor, int index);
 extern "C" void SetMenuCursorIndex_0205bb04(void *cursor, int index);
 extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
 extern "C" char gSoundEffectManager_02108760[];
@@ -99,7 +99,7 @@ struct Struct_ov002_0216a300 {
         { \
             int n_   = (*(short *) (arg0 + RG(0x1c00 + 0xa, 0x1a00 + 0xd2)) = 7); \
             char *l_ = LST(arg0); \
-            func_0205bcdc((struct Struct_0205bcdc *) (l_ + 4), n_); \
+            SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc *) (l_ + 4), n_); \
             SetMenuCursorIndex_0205bb04(l_ + 0x54, n_); \
             func_ov002_0215b9a4(arg0, K(0x21, 0x24), 0); \
         } \

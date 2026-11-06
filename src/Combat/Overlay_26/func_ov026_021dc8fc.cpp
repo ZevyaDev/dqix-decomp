@@ -85,7 +85,7 @@ extern "C" void func_ov000_02171614(Struct_ov000_02171614*);
 extern "C" ItemData_0201099c_9* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" void func_02083acc(unsigned char*, int);
 extern "C" void func_02083b28(unsigned char*, int);
-extern "C" int func_02083b00(unsigned char*, int);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char*, int);
 extern "C" int func_020839dc(Struct_020839dc*, unsigned char*, int);
 extern "C" Struct_0209a9dc_3* func_0209a9dc(Struct_0209a9dc_2*, int);
 extern "C" Struct_ov026_021dc8fc_5* FindActionData_02079e2c(char*, int);
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8b
         }
     }
     for (unsigned short var14 = 0; var14 < 0x11f; ++var14) {
-        if (func_02083b00((unsigned char*)var2, var14)) {
+        if (HasLearnedSkillEntry_02083b00((unsigned char*)var2, var14)) {
             Struct_ov026_021dc8fc_2* var15 = func_0209a594(arg4, var14);
             if (var15 && var15->unknown_2_) {
                 var4[var15->unknown_a_] = var15->unknown_2_;

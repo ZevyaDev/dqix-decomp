@@ -36,13 +36,13 @@ struct Struct_ov000_02160da0 {
 
 extern "C" int func_ov026_021d8a40();
 extern "C" int IsQueueEmpty_02046b08(void**);
-extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void func_ov026_021dce34(int, Struct_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, void*, void*, void*, void*, void*, void*);
 
 // USA: func_ov026_021dbe44
 extern "C" ARM void func_ov026_021dbe44(Struct_ov000_02160da0* arg0) {
     void** var0 = (void**)GetGameResources()->unknown_ptr_array_36fc[2];
-    if (func_ov026_021d8a40() && IsQueueEmpty_02046b08(var0) && func_020a35e0((unsigned char*)arg0->unknown_2a0_, arg0->unknown_2a0_->unknown_2a_)) {
+    if (func_ov026_021d8a40() && IsQueueEmpty_02046b08(var0) && IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, arg0->unknown_2a0_->unknown_2a_)) {
         func_ov026_021dce34(-1, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, arg0->unknown_ec8_, arg0->unknown_5c3c_, arg0->unknown_5728_, arg0->unknown_e98_, arg0->unknown_ea0_, arg0->unknown_5910_, arg0->unknown_c18_);
     }
 }

@@ -7,7 +7,7 @@
 #include "Resource/Brightness.h"
 
 struct LocalWireless_0202c1a4;
-struct Struct_02015438;
+struct QueueNode_02015438;
 struct Struct_0203d028_4;
 struct Struct_0208b088;
 struct Struct_0203dd20_2;
@@ -34,7 +34,7 @@ extern "C" void func_02015438(void*);
 extern "C" void func_020d9834(int);
 extern "C" void func_02022dc8(void*);
 extern "C" void func_ov017_021a624c(GameResources*);
-extern "C" int func_02046b24(Struct_02015438**);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void func_ov017_0219a6b8(GameResources*);
 extern "C" void func_020966e0(void*);
 extern "C" void func_ov017_021a3498(Struct_0203d028_4*);
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     if (!var11 && *var7) func_02015438(*var7);
     func_02022dc8(arg0->unknown_ptr_36d0);
     func_ov017_021a624c(arg0);
-    if (func_02046b24((Struct_02015438**)arg0->unknown_ptr_array_36fc[0]) != 3)
+    if (GetQueueHeadType_02046b24((QueueNode_02015438**)arg0->unknown_ptr_array_36fc[0]) != 3)
         func_ov017_0219a6b8(arg0);
     if (var8->unknown_998_ && !((unsigned char*)arg0->unknown_ptr_array_3afc[13])[2]) {
         var8->func_020444d4(var5);
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
         else if (func_0202e09c((int)var13) & 16) func_0204a170(var13);
     }
     func_ov017_0218d0ec(arg0);
-    if (func_02046b24((Struct_02015438**)arg0->unknown_ptr_array_36fc[0]) != 3) {
+    if (GetQueueHeadType_02046b24((QueueNode_02015438**)arg0->unknown_ptr_array_36fc[0]) != 3) {
         if (!IsLocalWirelessOn_0202b7d8((int*)var1) || GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1) == 0)
             func_ov017_021a205c(arg0);
     }
@@ -139,14 +139,14 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     if (var14 == 2 || var15 == 2) arg0->unknown_42e3_[5] = 0;
     if (!var11) {
         func_ov017_021c25ac(arg0);
-        if (func_02046b24((Struct_02015438**)arg0->unknown_ptr_array_36fc[0]) != 3 &&
-            func_02046b24((Struct_02015438**)arg0->unknown_ptr_array_36fc[0]) != 2 && !arg0->unknown_3658_[0]) {
+        if (GetQueueHeadType_02046b24((QueueNode_02015438**)arg0->unknown_ptr_array_36fc[0]) != 3 &&
+            GetQueueHeadType_02046b24((QueueNode_02015438**)arg0->unknown_ptr_array_36fc[0]) != 2 && !arg0->unknown_3658_[0]) {
             func_ov017_021a476c(arg0);
             func_ov017_0219755c((unsigned char*)arg0);
             func_ov017_021a51a4(arg0);
             func_ov017_021c05f4(arg0, 1, 0, 1);
         }
-        if (func_02046b24((Struct_02015438**)arg0->unknown_ptr_array_36fc[0]) != 3) {
+        if (GetQueueHeadType_02046b24((QueueNode_02015438**)arg0->unknown_ptr_array_36fc[0]) != 3) {
             func_0208ec78(func_0208e9e8());
             func_0208f4e4((unsigned char*)var2->unk_2664);
         }

@@ -2,13 +2,13 @@
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 
-extern "C" int func_0205d0e0(void* arg0, int arg1);
+extern "C" int UpdateTextWindowManager_0205d0e0(void* windowManager, int ticks);
 extern "C" int func_ov023_021e2868(void* arg0);
 
 struct Struct_ov003_0217f5c0 { unsigned int unknown_0_[16]; };
 extern struct Struct_ov003_0217f5c0 data_ov003_0217f5c0;
 struct Struct_020e6d5c_17 { unsigned int unknown_0_; unsigned int unknown_4_; };
-extern struct Struct_020e6d5c_17 data_020e6d5c;
+extern struct Struct_020e6d5c_17 gNullMemberFunctionPointer_020e6d5c;
 struct Struct_ov003_0216e124 { unsigned int unknown_0_; unsigned int unknown_4_; };
 
 struct Struct_ov003_0216e124_2 {
@@ -27,7 +27,7 @@ struct Struct_ov003_0216e124_2 {
 extern "C" ARM int func_ov003_0216e124(struct Struct_ov003_0216e124_2* arg0) {
     unsigned int var0 = GameState::GetInstance()->GetTickCount();
     if (arg0->unknown_3c_ != 0) {
-        func_0205d0e0(arg0->unknown_3c_, var0);
+        UpdateTextWindowManager_0205d0e0(arg0->unknown_3c_, var0);
     }
     if (arg0->unknown_d4_ != 0) {
         arg0->unknown_c_ = (short)func_ov023_021e2868(arg0->unknown_d4_);
@@ -40,7 +40,7 @@ extern "C" ARM int func_ov003_0216e124(struct Struct_ov003_0216e124_2* arg0) {
 
     struct Struct_ov003_0217f5c0 var1;
     var1 = data_ov003_0217f5c0;
-    struct Struct_020e6d5c_17* var2 = &data_020e6d5c;
+    struct Struct_020e6d5c_17* var2 = &gNullMemberFunctionPointer_020e6d5c;
     unsigned int var3 = var2->unknown_4_;
     unsigned int var4 = var2->unknown_0_;
     ((struct Struct_ov003_0216e124*)&var1)[7].unknown_4_ = var3;

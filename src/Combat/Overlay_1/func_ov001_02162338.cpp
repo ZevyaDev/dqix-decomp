@@ -2,7 +2,7 @@
 #include "NitroSDK/OverlayId.h"
 
 extern "C" void SetScriptRefInt_ov017_021d6134(void* value, int number);
-extern "C" void func_020a1940(unsigned int arg0);
+extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" int func_020a1bb4(unsigned int arg0);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" int func_ov029_021d8e94(void* arg0, void* arg1, int arg2);
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov001_02162338(void* arg0, int arg1) {
 #if defined(jpn)
     SetScriptRefInt_ov017_021d6134(arg0, 1);
     unsigned int var0 = OVERLAY_ID(29);
-    func_020a1940(var0);
+    LoadOverlay_020a1940(var0);
     *(unsigned int*)(&data_ov001_02165880 + 0x28) = 0;
     if (data_ov029_021d9c40_fake(func_ov001_021622f0)
         && data_ov029_0216398c_fake(func_ov001_02162308)
@@ -46,7 +46,7 @@ extern "C" ARM int func_ov001_02162338(void* arg0, int arg1) {
 #else
     SetScriptRefInt_ov017_021d6134(arg0, 1);
     unsigned int var1 = OVERLAY_ID(29);
-    func_020a1940(var1);
+    LoadOverlay_020a1940(var1);
     *(unsigned int*)(&data_ov001_02165880 + 0x28) = 0;
 #if defined(eur)
     if (arg1 > 1 && GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 8) == 2) {

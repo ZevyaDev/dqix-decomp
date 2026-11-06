@@ -42,7 +42,7 @@ extern "C" void func_020a6180(void* arg0);
 extern "C" void func_020a6194(void* arg0);
 extern "C" void* func_0203b628();
 extern "C" void func_0203b634(char*);
-extern "C" void* func_0203bd08();
+extern "C" void* GetOAMManager_0203bd08();
 extern "C" void func_0203bd24(char*);
 extern "C" void* func_0203cf4c();
 struct Struct_0203cf58;
@@ -97,8 +97,8 @@ extern "C" void MapVRAMBanksToMainBG(int v);
 extern "C" void MapVRAMBanksToSubBG(int v);
 extern "C" void MapVRAMBanksToMainObj(int mode);
 extern "C" void MapVRAMBanksToSubObj(int value);
-extern "C" void func_020c391c(int arg0, int arg1, int arg2);
-extern "C" void func_020c3984(unsigned int arg0);
+extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
+extern "C" void SetSubBGMode_020c3984(unsigned int bgMode);
 extern "C" void func_020c51dc();
 extern "C" void func_020c537c();
 extern "C" void func_0202ac74();
@@ -127,7 +127,7 @@ extern "C" void func_020e5058();
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_020e50ec(void* arg0, unsigned int arg1);
 extern "C" void func_020e5114();
-extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
+extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 extern "C" void func_02013718(char* arg0, int arg1, int arg2);
 extern "C" void func_0202df68(void* arg0);
 struct Struct_0204a120_2;
@@ -153,7 +153,7 @@ extern "C" int func_02011570(Struct_02000c9c_9*);
 extern "C" void* func_0208e9e8();
 extern "C" void func_0208ea10(void* arg0, int arg1);
 unsigned long long GetCurrentTimestamp();
-extern "C" int func_02011494(char*, void*);
+extern "C" int GetOwnPartyOrder_02011494(char*, void*);
 extern "C" int func_020dcd40();
 extern "C" void func_ov017_02191108(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_020897b4(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
@@ -166,7 +166,7 @@ extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int fl
 extern "C" void func_020120f0(void* arg0);
 extern "C" int func_02032370(int arg0);
 extern "C" void func_02039768(GameObject* arg0, void* arg1);
-extern "C" short func_020100b0(GameState* arg0);
+extern "C" short GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void func_020a2770(void* arg0, short arg1);
 extern "C" int rand();
 extern "C" void func_0201206c(void* arg0, int arg1);
@@ -175,7 +175,7 @@ extern "C" void* GetEffectManager_02057924();
 struct Struct_02057930;
 extern "C" void func_02057930(Struct_02057930*);
 extern "C" void func_02057978(Struct_02057930*);
-extern "C" void* func_02027ca4();
+extern "C" void* GetActiveZones_02027ca4();
 #if defined(jpn)
 extern "C" void func_02028894(void* arg0, void* arg1);
 #else
@@ -219,14 +219,14 @@ struct Struct_0206f81c_2;
 extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2*, char*);
 extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
 extern "C" int GetMainBGAssignedVRAMSize();
-extern "C" void func_020ca458(unsigned int value, void* dest, int count);
-extern "C" void func_020c9820();
+extern "C" void Memset32Bit_020ca458(unsigned int value, void* dest, int count);
+extern "C" void WaitForVBlank_020c9820();
 extern "C" void func_020c38d4();
 struct Struct_0200f3a4_9;
 extern "C" void func_02010124(Struct_0200f3a4_9*);
 extern "C" void func_020c3a0c(int arg0);
-struct Struct_02015438;
-extern "C" int func_02046b24(Struct_02015438**);
+struct QueueNode_02015438;
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void func_0206e424(void* arg0, int arg1);
 extern "C" void func_ov017_021bdbf0(unsigned char*);
 extern "C" void func_0202ad30();
@@ -254,7 +254,7 @@ extern "C" void func_ov017_02195a20(void* arg0);
 extern "C" void func_020d9834(int arg0);
 extern "C" void func_0209c840(void* arg0);
 extern "C" void func_0203aa08(void* arg0);
-extern "C" void func_020bbd9c();
+extern "C" void UpdateSound_020bbd9c();
 extern "C" void func_0203bd88(void* arg0);
 extern "C" void func_0204359c(void* arg0, int arg1);
 extern "C" void func_0203dd94(char*);
@@ -454,7 +454,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     func_020a6194(var11);
     void* var12 = func_0203b628();
     func_0203b634((char*)var12);
-    void* var13 = func_0203bd08();
+    void* var13 = GetOAMManager_0203bd08();
     func_0203bd24((char*)var13);
     void* var14 = func_0203cf4c();
     func_0203cf58((Struct_0203cf58*)var14);
@@ -507,8 +507,8 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     *(volatile unsigned int*)0x4000000 &= ~0x38000000;
     *(volatile unsigned short*)0x400000a = (*(volatile unsigned short*)0x400000a & 0x43) | 4;
     *(volatile unsigned int*)0x4000000 = (*(volatile unsigned int*)0x4000000 & ~0x1f00) | 0x1300;
-    func_020c391c(1, 0, 1);
-    func_020c3984(0);
+    SetMainDisplayAndBGMode_020c391c(1, 0, 1);
+    SetSubBGMode_020c3984(0);
     *(volatile unsigned int*)0x4001000 = (*(volatile unsigned int*)0x4001000 & ~0x1f00) | 0x1300;
     MapVRAMBanksToSubBG(0x80);
     unsigned short* var20 = (unsigned short*)0x4001008;
@@ -566,7 +566,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     if (func_0200fb9c((char*)var5) == 9) {
         var25 = 1;
         arg0->unknown_c4_.CreateTypeA(AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, 0x30000), 0x30000);
-        func_0207de48(arg0->unknown_f0c_, 0x10, 0x10);
+        InitTextureVRAMArea_0207de48(arg0->unknown_f0c_, 0x10, 0x10);
     }
     func_02013718(var9, (int)arg0->unknown_38_, (int)arg0->unknown_2cc_);
     func_0202df68(var0);
@@ -626,7 +626,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
 
         if (var27 != 0) {
             char* var34 = (char*)GetParty_02010828(var5);
-            int var35 = func_02011494((char*)var5, var3);
+            int var35 = GetOwnPartyOrder_02011494((char*)var5, var3);
             unsigned char* var36;
             if (func_020115a8((Struct_02000c9c_12*)var5) != 0) {
                 var36 = var3;
@@ -728,7 +728,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         func_ov017_02191108(arg0, 1, 1, 1, 1);
     }
 
-    func_020a2770(var0, func_020100b0(var5));
+    func_020a2770(var0, GetOwnPartyLeaderObjectIndex_020100b0(var5));
     if (func_020115a8((Struct_02000c9c_12*)var5) == 0) {
         func_0201206c(var5, rand());
         if (func_0200fb9c((char*)var5) != 5) {
@@ -737,7 +737,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     }
     void* var48 = GetEffectManager_02057924();
     func_02057930((Struct_02057930*)var48);
-    void* var49 = func_02027ca4();
+    void* var49 = GetActiveZones_02027ca4();
 #if defined(jpn)
     func_02028894(var49, arg0->unknown_d8_);
 #else
@@ -803,15 +803,15 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         }
         AppendToQueue_020469b4((Queue_0201bdac_2*)arg0->unknown_36fc_, (QueueNode_0201bdac*)var56);
     }
-    func_020ca458(0, (void*)0x6000000, GetMainBGAssignedVRAMSize());
-    func_020c9820();
+    Memset32Bit_020ca458(0, (void*)0x6000000, GetMainBGAssignedVRAMSize());
+    WaitForVBlank_020c9820();
     func_020c38d4();
     *(volatile unsigned int*)0x4001000 |= 0x10000;
     func_02010124((Struct_0200f3a4_9*)var5);
     func_020c3a0c(0);
     unsigned long long var57 = GetCurrentTimestamp();
     void* var58 = arg0->unknown_3700_;
-    while (func_02046b24((Struct_02015438**)var58) == 0x13) {
+    while (GetQueueHeadType_02046b24((QueueNode_02015438**)var58) == 0x13) {
         var8->RemoveAllLocks();
         func_ov017_021a3498((Struct_0203d028_4*)var58);
     }
@@ -895,7 +895,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         }
         func_0209c840(&gMusicManager_02109bf4);
         func_0203aa08(&gSoundEffectManager_02108760);
-        func_020bbd9c();
+        UpdateSound_020bbd9c();
         func_0203bd88(var13);
         func_0204359c(var51, Enum_ov017_0218b688_24);
         if (var60 != 0) {
@@ -910,11 +910,11 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         if (data_ov017_021d82e0.unknown_0_ == 0) {
             int var63 = var5->currentNumTicks_;
             for (int var64 = 1; var64 < 2 - var63; var64++) {
-                func_020c9820();
+                WaitForVBlank_020c9820();
             }
             func_020d86d0(1, 0);
             arg0->unknown_28_ = 1;
-            func_020c9820();
+            WaitForVBlank_020c9820();
         }
         if (data_ov017_021d82e0.unknown_0_ != 0) {
             var5->CalculateDeltaTime(0);
@@ -927,7 +927,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         func_ov017_021a4358((int)arg0->unknown_36fc_);
         func_0203bdb0((Struct_0203bdb0*)var13);
         int var66 = 1;
-        if (func_02046b24((Struct_02015438**)arg0->unknown_36fc_) == 2) {
+        if (GetQueueHeadType_02046b24((QueueNode_02015438**)arg0->unknown_36fc_) == 2) {
             Struct_ov017_0218b688_4* var67 = (Struct_ov017_0218b688_4*)func_ov017_021a193c((int*)arg0->unknown_3708_);
             if (var67 != 0 && IS_OBJ_FLAG2_SET(var67)) {
                 var66 = 0;
@@ -957,7 +957,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         }
         func_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
         func_0205e8ec((Struct_0205e8ec*)&gSoundEffectManager_02108760);
-        func_020bbd9c();
+        UpdateSound_020bbd9c();
     }
     gMusicManager_02109bf4.unknown_c8_ &= ~4;
     func_ov017_021a3ef0(arg0->unknown_36fc_);

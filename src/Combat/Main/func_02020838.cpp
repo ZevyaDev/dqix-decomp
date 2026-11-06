@@ -5,7 +5,7 @@
 extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" void DisableSubObjVRAMBanks(void);
 extern "C" int DisableSubBGVRAMBanks(void);
-extern "C" void func_020c3984(unsigned int arg0);
+extern "C" void SetSubBGMode_020c3984(unsigned int bgMode);
 extern "C" void MapVRAMBanksToSubObj(unsigned short value);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void func_02020968(int arg0, int arg1, int arg2, int arg3, int arg4);
@@ -18,7 +18,7 @@ extern "C" ARM void func_02020838(Struct_02020554* arg0) {
 
     DisableSubBGVRAMBanks();
     DisableSubObjVRAMBanks();
-    func_020c3984(0);
+    SetSubBGMode_020c3984(0);
     MapVRAMBanksToSubBG(0x80);
 
     if (var1->unknown_c_low_ == 0) {

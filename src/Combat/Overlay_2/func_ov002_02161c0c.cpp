@@ -7,13 +7,13 @@ struct Struct_0201099c_3;
 extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" char *FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
-extern "C" void func_02041a90(char *arg0, int arg1, int arg2);
+extern "C" void AppendPositionTag_02041a90(char *buffer, int x, int y);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_02042638(char *arg0, const char *arg1, int arg2);
 extern "C" int func_02041b00(char *arg0, int arg1);
-extern "C" int func_02041e70(char *arg0, int arg1);
+extern "C" int AppendTextColorTag_02041e70(char *buffer, int colorIndex);
 extern "C" int AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
-extern "C" int func_02041a28(char *arg0, int arg1);
+extern "C" int AppendXPositionTag_02041a28(char *buffer, int x);
 extern "C" int func_02042158(char *arg0, int arg1);
 extern "C" int func_02041bac(char *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" int func_0204234c(char *arg0, int arg1);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov002_02161c0c(unsigned char *arg0, char *arg1, int arg
         AppendFrameTag_02041c08(arg1, var7, 8, 5, 5, 5);
     }
     AppendCursorTag_02041ea4(arg1, var7);
-    func_02041a90(arg1, 0x4b, 4);
+    AppendPositionTag_02041a90(arg1, 0x4b, 4);
     AppendText_02042058(arg1, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0xfa6));
     func_02042638(arg1, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 5), 0x10);
     var1 = 0x11f8;
@@ -49,27 +49,27 @@ extern "C" ARM void func_ov002_02161c0c(unsigned char *arg0, char *arg1, int arg
         if (var3 == 2) {
             func_02041b00(arg1, 7);
         }
-        func_02041e70(arg1, 0xf);
+        AppendTextColorTag_02041e70(arg1, 0xf);
         AppendMenuEntry_02041b70(arg1, var8, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), var1++));
         if (var3 != 2) {
-            func_02041a28(arg1, 0x52);
+            AppendXPositionTag_02041a28(arg1, 0x52);
             var4 = 0x11fb;
-            func_02041e70(arg1, 3);
+            AppendTextColorTag_02041e70(arg1, 3);
             AppendText_02042058(arg1, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), var4++));
             func_02042158(arg1, 0xc);
             for (var6 = 0; var6 < 5; var6++) {
                 int var11 = 0xf;
                 if (var6 + 1 == *var0[var3]) {
-                    func_02041e70(arg1, var11);
+                    AppendTextColorTag_02041e70(arg1, var11);
                     AppendText_02042058(arg1, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x1202));
                     var11 = 5;
                 }
-                func_02041e70(arg1, var11);
+                AppendTextColorTag_02041e70(arg1, var11);
                 AppendMenuEntry_02041b70(arg1, var9, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), var4++));
                 var9++;
                 func_02042158(arg1, 0xc);
             }
-            func_02041e70(arg1, 3);
+            AppendTextColorTag_02041e70(arg1, 3);
             AppendText_02042058(arg1, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), var4));
         }
         if (var3 != 2) {

@@ -9,7 +9,7 @@ struct TextWindow_0204c7a8 {
 };
 
 // USA: SetTextWindowBuffers_0204c7a8
-extern "C" ARM void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize) {
+extern "C" ARM void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize) {
     window->pScreenData_d4_ = allocator->Allocate(screenDataSize);
-    window->unknown_8_ = arg2;
+    window->unknown_8_ = characterData;
 }

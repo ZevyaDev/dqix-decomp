@@ -34,7 +34,7 @@ struct Struct_ov015_0218d50c_3 {
 };
 
 struct Vector3i;
-extern "C" void func_020c9820();
+extern "C" void WaitForVBlank_020c9820();
 extern "C" void func_02079a3c(void*);
 struct TextureVRAMArea_0203d028;
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
@@ -75,7 +75,7 @@ extern "C" ARM int func_ov015_0218d50c(Struct_ov015_0218d50c_3* arg0) {
 
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
-    func_020c9820();
+    WaitForVBlank_020c9820();
     var5 = arg0->inline_ov015_0218d50c(7)->unknown_2_;
     if (arg0->unknown_20_[7] != var5) {
         arg0->inline_ov015_0218d50c(3)->unknown_2_ = -1;
@@ -178,7 +178,7 @@ extern "C" ARM int func_ov015_0218d50c(Struct_ov015_0218d50c_3* arg0) {
         DC_FlushRange(var23 + arg0->unknown_3c_ * 4, 4);
         DC_FlushRange(var23 + 0x108 + arg0->unknown_3d_ * 4, 4);
         DC_FlushRange(var23 + 0x88 + arg0->unknown_3e_ * 16, 0x10);
-        func_020c9820();
+        WaitForVBlank_020c9820();
         LockStagedTextureVRAMCopying();
         MemoryMapTexturePalette();
         LoadToTexturePalette(var23 + arg0->unknown_3c_ * 4, (char*)var25 + 0x24, 4);

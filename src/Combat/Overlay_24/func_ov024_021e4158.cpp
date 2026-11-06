@@ -7,7 +7,7 @@ struct Struct_02087b90;
 extern "C" int func_02087b3c(struct Struct_02087b3c* arg0, int arg1);
 extern "C" int func_02087b90(struct Struct_02087b90* arg0, int arg1);
 void UpdateCombatantMagicalMight(int unused, int combatantId);
-extern "C" void func_ov000_02159eac(void* arg0, void* arg1, int arg2);
+extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 struct Struct_ov024_021e2bd0;
 extern "C" void* func_ov024_021e8ca0(struct Struct_ov024_021e2bd0* arg0, int arg1);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
@@ -49,7 +49,7 @@ extern "C" ARM unsigned long long func_ov024_021e4158(struct Struct_ov024_021e41
 			default: var6 = 0x1b5; break;
 			}
 		}
-		func_ov000_02159eac(arg0->unknown_10_, &var5, 0x20);
+		SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var5, 0x20);
 		void* var7 = func_ov024_021e8ca0((struct Struct_ov024_021e2bd0*)arg0, var6);
 		if (var7) {
 			func_ov000_0215cd44(arg0->unknown_10_, var7, var0, 0, 0, 0, 0);

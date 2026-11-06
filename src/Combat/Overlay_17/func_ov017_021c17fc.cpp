@@ -19,10 +19,10 @@ extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" void func_020a0cc4(unsigned int arg0);
-extern "C" void func_020a0c0c(void);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
+extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void func_020a1940(unsigned int arg0);
+extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void func_020a1df8(int arg0);
 extern "C" void func_020a1ef0(int arg0);
 extern "C" void func_ov012_021843d4(void* arg0);
@@ -64,10 +64,10 @@ extern "C" ARM void func_ov017_021c17fc(Struct_ov017_021c17fc_2* arg0) {
     unsigned char* var3 = (unsigned char*)GetFollowCamera_020100f8((char*)var0);
     func_020a28a0(var3, 3);
     if (arg0->unknown_1c_ == 0) {
-        func_020a0cc4(Enum_ov017_021c17fc_189632);
+        ReleaseFileTablesForSpace_020a0cc4(Enum_ov017_021c17fc_189632);
         void* var4 = AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, Enum_ov017_021c17fc_189632);
         if (var4 == NULL) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov017_021c17fc(Struct_ov017_021c17fc_2* arg0) {
             func_020a1df8(3);
         }
 #endif
-        func_020a1940(OVERLAY_ID(12));
+        LoadOverlay_020a1940(OVERLAY_ID(12));
         func_020a1ef0(1);
         arg0->unknown_20_ = (Struct_ov017_021c17fc*)arg0->unknown_8_.Allocate(Enum_ov017_021c17fc_5312);
         func_ov012_021843d4(arg0->unknown_20_);
@@ -115,6 +115,6 @@ extern "C" ARM void func_ov017_021c17fc(Struct_ov017_021c17fc_2* arg0) {
     } else {
         func_ov017_0218d77c(var1, 1);
     }
-    func_020a0c0c();
+    LoadFileTables_020a0c0c();
     arg0->unknown_1_ = 1;
 }

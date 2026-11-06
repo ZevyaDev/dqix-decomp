@@ -152,7 +152,7 @@ struct Struct_ov000_02179cdc_4 : GameObject {
 };
 
 struct GameResources;
-struct Struct_020727d8;
+struct StringList_020727d8;
 struct Struct_02013fb4;
 struct Struct_0201099c_3;
 struct TextWindowManager_0205d81c;
@@ -167,7 +167,7 @@ extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 void SetSubBrightness(GameResources* resources, int brightness, int frames);
 int IsBrightnessTransitionActive(GameResources* resources);
 void* LoadFileIntoMemory(const char* path, void* archive, unsigned int* size);
-extern "C" void func_020727d8(Struct_020727d8* arg0);
+extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
@@ -259,10 +259,10 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
             char* var8 = arg0->unknown_b8_;
             char* var14 = var8 + 0x80;
             Struct_ov008_02185dc0 var9;
-            func_020727d8((Struct_020727d8*)&var9);
+            ResetStringList_020727d8((StringList_020727d8*)&var9);
             func_020727f8(&var9, data_ov008_0218b400, 1001, var8, 0);
             Struct_ov000_02179cdc_4* var10 = (Struct_ov000_02179cdc_4*)GetPartyMemberBaseByIndex_0200ff1c(var1, GetProtagonistObjectIndex_020100a8(var1));
-            func_020727d8((Struct_020727d8*)&var9);
+            ResetStringList_020727d8((StringList_020727d8*)&var9);
             unsigned char var11 = var10->unknown_150_->unknown_49c_0_;
             func_020727f8(&var9, var8, CLEAR_TITLE, var14, var11);
 #else
@@ -275,16 +275,16 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
             void* var17 = LoadFileIntoMemory(data_ov008_0218b400, gFileScratchSpace_0211e33c, &var16);
             if (var17 != NULL)
             {
-                func_020727d8((Struct_020727d8*)&var15);
+                ResetStringList_020727d8((StringList_020727d8*)&var15);
                 func_02072928(&var15, (Struct_02013fb4*)var17, var16, 1001, var12, 0);
-                func_020727d8((Struct_020727d8*)&var15);
+                ResetStringList_020727d8((StringList_020727d8*)&var15);
                 func_02072928(&var15, (Struct_02013fb4*)var17, var16, 1001, var13, 1);
             }
             var17 = ExtractFileFromGP2(var12, var13, &var16);
             if (var17 != NULL)
             {
                 Struct_ov000_02179cdc_4* var18 = (Struct_ov000_02179cdc_4*)GetPartyMemberBaseByIndex_0200ff1c(var1, GetProtagonistObjectIndex_020100a8(var1));
-                func_020727d8((Struct_020727d8*)&var15);
+                ResetStringList_020727d8((StringList_020727d8*)&var15);
                 unsigned char var19 = var18->unknown_150_->unknown_49c_0_;
                 func_02072928(&var15, (Struct_02013fb4*)var17, var16, CLEAR_TITLE, var14, var19);
             }

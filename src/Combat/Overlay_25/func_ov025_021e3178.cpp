@@ -89,10 +89,10 @@ extern "C" int func_ov000_0215fd90(void* arg0, unsigned char arg1);
 extern "C" void func_ov000_02162c14(void* arg0, int arg1, struct Struct_ov025_021e3178_3* arg2);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" struct Struct_ov025_021e3178_2* FindActionData_02079e2c(char*, int);
-struct Struct_ov000_0215440c_2;
-extern "C" struct Struct_ov025_021e3178* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
-struct Struct_ov000_0215440c;
-extern "C" struct Struct_ov025_021e3178* func_ov000_021600f8(Struct_ov000_0215440c*, int);
+struct BattleAction_ov000_0215440c_2;
+extern "C" struct Struct_ov025_021e3178* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
+struct BattleAction_ov000_0215440c;
+extern "C" struct Struct_ov025_021e3178* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" struct Struct_ov025_021e3178* func_ov000_0215feb4(char*, int, int);
 extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
 extern "C" int func_020850d0(unsigned char* arg0);
@@ -168,8 +168,8 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
     }
     case 5: {
         if (arg1->unknown_8_ == 1 && arg1->unknown_9_ == 1) {
-            struct Struct_ov025_021e3178* var16 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, 0);
-            struct Struct_ov025_021e3178* var17 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, 0);
+            struct Struct_ov025_021e3178* var16 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, 0);
+            struct Struct_ov025_021e3178* var17 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);
             if (var16 && var17) {
                 if (var16->unknown_20_ == *(short*)((char*)var17 + 0xe)) NOTIFY();
             }
@@ -206,7 +206,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
     }
     case 11: {
         if (arg1->unknown_9_ == 0) break;
-        struct Struct_ov025_021e3178* var23 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, 0);
+        struct Struct_ov025_021e3178* var23 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);
         if (!var23) break;
         for (int var24 = 0; var24 < var23->unknown_17_; var24++) {
             int var25 = ((unsigned char*)((int)var23 + 0x14))[var24];
@@ -220,7 +220,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
     case 10: {
         if (arg1->unknown_9_ == 0) break;
         for (int var26 = 0; var26 < arg1->unknown_9_; var26++) {
-            struct Struct_ov025_021e3178* var27 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, var26);
+            struct Struct_ov025_021e3178* var27 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, var26);
             if (var27) {
                 unsigned char* var28 = var27->unknown_14_;
                 for (int var29 = 1; var29 < var27->unknown_17_; var29++) {
@@ -238,7 +238,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
     case 7: {
         if (arg1->unknown_9_ == 0) break;
         for (int var31 = 0; var31 < arg1->unknown_9_; var31++) {
-            struct Struct_ov025_021e3178* var32 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, var31);
+            struct Struct_ov025_021e3178* var32 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, var31);
             if (var32) {
                 unsigned char* var33 = var32->unknown_14_;
                 for (int var34 = 1; var34 < var32->unknown_17_; var34++) {
@@ -255,7 +255,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
     case 13: {
         if (arg1->unknown_9_ == 0) break;
         for (int var36 = 0; var36 < arg1->unknown_9_; var36++) {
-            struct Struct_ov025_021e3178* var37 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, var36);
+            struct Struct_ov025_021e3178* var37 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, var36);
             if (var37) {
                 for (int var38 = 1; var38 < var37->unknown_17_; var38++) {
                     if (var37->unknown_14_[var38] == 1) {
@@ -269,7 +269,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
     }
     case 8: {
         for (int var39 = 0; var39 < arg1->unknown_8_; var39++) {
-            struct Struct_ov025_021e3178* var40 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, var39);
+            struct Struct_ov025_021e3178* var40 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, var39);
             if (var40) {
                 for (int var41 = 0; var41 < 6; var41++) {
                     if (var40->unknown_26_[var41]) {
@@ -285,7 +285,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
     case 14:
     case 17: {
         for (int var42 = 0; var42 < arg1->unknown_8_; var42++) {
-            struct Struct_ov025_021e3178* var43 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, var42);
+            struct Struct_ov025_021e3178* var43 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, var42);
             if (var43) {
                 for (int var44 = 0; var44 < 6; var44++) {
                     int var45 = 0;
@@ -371,7 +371,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
         int var59 = 0;
         int var60 = 0;
         for (int var61 = 0; var61 < arg1->unknown_9_; var61++) {
-            struct Struct_ov025_021e3178* var62 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, var61);
+            struct Struct_ov025_021e3178* var62 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, var61);
             if (var62) {
                 for (int var63 = 1; var63 < var62->unknown_17_; var63++) {
                     if (var62->unknown_14_[var63] == 0xa) {
@@ -398,7 +398,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
     case 9: {
         struct Struct_ov025_021e3178_2* var65 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), arg1->unknown_0_);
         if (!var65) return 0;
-        struct Struct_ov025_021e3178* var66 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, 0);
+        struct Struct_ov025_021e3178* var66 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);
         if (!var66) return 0;
         if (!var66) return 0;
         void* var67 = func_ov000_0215fff4(var66, 0, 0);

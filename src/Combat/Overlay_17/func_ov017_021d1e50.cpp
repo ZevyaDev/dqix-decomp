@@ -30,7 +30,7 @@ extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" Struct_ov017_021d1e50_2* GetZone3D_02012fe4();
 extern "C" void func_ov017_021baedc(Struct_ov017_021d1e50_3*, int);
 extern "C" void func_ov017_021bbbf8(void*, unsigned short);
-extern "C" int func_0201079c(char*);
+extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void func_02070378(char*);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov017_021d1e50(int arg0, Struct_ov017_021cd748_6* arg1,
         if (!var3) { var3 = var7; var7 = 0; }
         var5->unknown_8_ = var3;
         func_ov017_021bbbf8(var5, var7);
-        if (func_0201079c((char*)arg2) >= 0x13 && var3 == 0x7345 && (unsigned int)(var2 - 0x1901) <= 3) var5->unknown_105_ = 1;
+        if (GetStoryChapter_0201079c((char*)arg2) >= 0x13 && var3 == 0x7345 && (unsigned int)(var2 - 0x1901) <= 3) var5->unknown_105_ = 1;
         AppendToQueue_020469b4(var4, var5);
     } else {
         var0 = (Struct_ov017_021d1e50*)GetZoneEntry_0200fd0c(arg2);

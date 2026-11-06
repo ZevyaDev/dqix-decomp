@@ -17,7 +17,7 @@
 extern "C"
 {
     // memset but tries to do 32 bytes at a time
-    void func_020ca458(int value, void* dst, unsigned len);
+    void Memset32Bit_020ca458(int value, void* dst, unsigned len);
 
     // abort() or fatal error or similar
     void HaltForever_020c9be0();
@@ -101,7 +101,7 @@ void InitializeCardReadManager()
     manager->lock.taskType = 0;
     manager->pSharedData = &data_02111880;
     
-    func_020ca458(0, &data_02111880, sizeof(Arm7CardReadData));
+    Memset32Bit_020ca458(0, &data_02111880, sizeof(Arm7CardReadData));
     DC_FlushRange(&data_02111880, sizeof(Arm7CardReadData));
     manager->instructionCacheCleanThreshold = 0xffffffff;
     manager->dataCacheCleanThreshold = 0xffffffff;

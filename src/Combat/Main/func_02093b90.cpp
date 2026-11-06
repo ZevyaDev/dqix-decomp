@@ -12,7 +12,7 @@
 #define DRAW_ARGS_02093b90 15, 0
 #endif
 
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 struct AllocatorUnion;
 struct SoundEffectManager_02108760;
 struct Struct_02093b90 {
@@ -39,11 +39,11 @@ struct Struct_02093b90_3 {
 struct Struct_020200c0_4 { void* unknown_0_; Struct_02093b90_3* unknown_4_; unsigned char unknown_8_; };
 extern AllocatorUnion gMainHeap_02114e20;
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
-extern "C" char* func_0203bd08();
+extern "C" char* GetOAMManager_0203bd08();
 extern "C" unsigned char func_020938cc();
 extern "C" void func_0203be58(char*, int, int);
-extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
-extern "C" int func_02046708(Struct_02012de8*, unsigned int);
+extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00();
+extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
 extern "C" void func_020941b0(Struct_02093b90_2*);
 extern "C" int func_020941f8(Struct_02093b90_2*);
 extern "C" int func_020943dc(Struct_02093b90_2*);
@@ -65,10 +65,10 @@ static inline unsigned char* inline_02093b90(Struct_02093b90_2* arg0) { return a
 
 // USA: func_02093b90
 extern "C" ARM void func_02093b90(Struct_02093b90_2* arg0, int arg1) {
-    char* var0 = func_0203bd08();
+    char* var0 = GetOAMManager_0203bd08();
     func_0203be58(var0, func_020938cc(), 1);
-    Struct_02012de8* var1 = GetGlobalFlags_020d6c00();
-    if (func_02046708(var1, 0x20)) {
+    GlobalFlags_02012de8* var1 = GetGlobalFlags_020d6c00();
+    if (TestGlobalFlags_02046708(var1, 0x20)) {
         func_020941b0(arg0);
         return;
     }
@@ -88,7 +88,7 @@ extern "C" ARM void func_02093b90(Struct_02093b90_2* arg0, int arg1) {
     if (6.28f <= arg0->unknown_344_) arg0->unknown_344_ -= 6.28f;
     if (arg0->unknown_3cb_ <= 0) return;
     if (func_020943dc(arg0)) return;
-    if (func_02046708(var1, 0x8000)) return;
+    if (TestGlobalFlags_02046708(var1, 0x8000)) return;
     if (arg0->unknown_348_[0]) {
         void* var3 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x800);
         if (!var3) return;

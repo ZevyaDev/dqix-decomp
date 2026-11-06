@@ -27,11 +27,11 @@ struct Struct_ov000_0215b5a0_3 { unsigned short unknown_0_; char unknown_2_[0xb 
 struct Struct_ov000_0215b5a0_4 { char unknown_0_[0x1c]; short unknown_1c_; short unknown_1e_; unsigned short unknown_20_, unknown_22_, unknown_24_; char unknown_26_[0x30 - 0x26]; int unknown_30_; };
 struct Struct_ov000_0215b5a0_5 { char unknown_0_[0xe]; short unknown_e_[4]; char unknown_16_; unsigned char unknown_17_; };
 struct Struct_ov000_021584e8 { char unknown_0_[0x20]; int unknown_20_; };
-struct Struct_ov000_0215440c { unsigned short unknown_0_; char unknown_2_[9 - 2]; unsigned char unknown_9_; };
+struct BattleAction_ov000_0215440c { unsigned short unknown_0_; char unknown_2_[9 - 2]; unsigned char unknown_9_; };
 
 struct Struct_02010088;
-extern "C" Struct_ov000_0215b5a0_5* func_ov000_021600f8(Struct_ov000_0215440c*, int);
-extern "C" int func_02010088(Struct_02010088*);
+extern "C" Struct_ov000_0215b5a0_5* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
+extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov000_02153c0c(GameObject*);
 extern "C" int func_020882f8(unsigned char*);
 extern "C" int func_ov000_02156038(GameObject*);
@@ -59,12 +59,12 @@ static inline short inline_ov000_021584e8_2(GameObject* arg0) { return arg0->cur
 static inline bool inline_ov000_021537b8(short arg0) { return arg0 >= 0 && arg0 <= 3; }
 
 // USA: func_ov000_0215b5a0
-extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, Struct_ov000_0215440c* arg1) {
+extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, BattleAction_ov000_0215440c* arg1) {
     short var0[8] = {-1};
     static const int sSleepChance[4] = {100, 50, 25, 25};
     short var1 = 0;
     for (int var2 = 0; var2 < arg1->unknown_9_; var2++) {
-        Struct_ov000_0215b5a0_5* var3 = func_ov000_021600f8(arg1, var2);
+        Struct_ov000_0215b5a0_5* var3 = GetActionTarget_ov000_021600f8(arg1, var2);
         if (!var3) continue;
         short var4 = var3->unknown_e_[(signed char)(var3->unknown_17_ - 1)];
         bool var5 = false;
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, Struct_ov
         if (!var14) continue;
         if (!inline_ov000_0215b5a0(var14)->unknown_23_6_) continue;
         inline_ov000_0215b5a0(var14)->unknown_23_6_ = 0;
-        if (func_02010088((Struct_02010088*)var14)) continue;
+        if (IsDead_02010088((Struct_02010088*)var14)) continue;
         if (func_ov000_02153c0c(var14)) continue;
         if (func_020882f8((unsigned char*)var14->currentStats_)) continue;
         if (func_ov000_02156038(var14)) continue;

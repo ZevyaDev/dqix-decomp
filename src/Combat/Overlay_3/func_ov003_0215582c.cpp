@@ -124,7 +124,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" void func_020a06ec(struct Struct_020a06ec* arg0, unsigned int arg1);
 extern "C" void func_020a0258(struct Struct_020a0258* arg0, unsigned int arg1);
-extern "C" int func_020ac494(void* arg0);
+extern "C" int SetBattleRecords_020ac494(void* records);
 extern "C" int func_0207c7a0(void* arg0, int arg1, int arg2);
 extern "C" struct Struct_ov003_0215582c_10* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void func_02052d7c(void* arg0, int arg1, int arg2);
@@ -134,7 +134,7 @@ extern "C" void func_02083738(void* arg0, int arg1);
 extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
 extern "C" void func_02083b60(unsigned char* arg0, int arg1);
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void func_ov017_0218f5a4(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
 extern const unsigned char data_ov003_0217f2c4[];
 extern const unsigned char data_ov003_0217f2b4[];
@@ -216,7 +216,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
         GetBattleRecords_020ac4c0(var18);
         func_020a06ec((struct Struct_020a06ec*)var18, 1);
         func_020a0258((struct Struct_020a0258*)(var18 + 0x1a), 1);
-        func_020ac494(var18);
+        SetBattleRecords_020ac494(var18);
     }
 
     int var19 = 0;
@@ -308,6 +308,6 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
     if (var19 == 0) {
         GameResources* var31 = GetGameResources();
         GetLocalWireless_0202ae18();
-        func_ov017_0218f5a4(var31, arg0->unknown_1f7_, 1, 0, 0);
+        QueuePartyMemberModelLoad_ov017_0218f5a4(var31, arg0->unknown_1f7_, 1, 0, 0);
     }
 }

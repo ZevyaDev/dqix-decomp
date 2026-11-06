@@ -8,8 +8,8 @@ extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMar
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int func_02041dd0(char* arg0, int arg1);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
-extern "C" int func_02041e70(char* arg0, int arg1);
-extern "C" int func_02041a28(char* arg0, int arg1);
+extern "C" int AppendTextColorTag_02041e70(char* buffer, int colorIndex);
+extern "C" int AppendXPositionTag_02041a28(char* buffer, int x);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_ov000_02170c7c(void* arg0);
@@ -57,8 +57,8 @@ extern "C" ARM void func_ov000_02178648(char* arg0, char* arg1) {
         if (var6 != NULL) {
             func_02041dd0(arg1, func_ov000_02170c7c(var5));
             AppendMenuEntry_02041b70(arg1, var1, (const char*)var6->baseStats_);
-            func_02041e70(arg1, 0xf);
-            func_02041a28(arg1, 0x46);
+            AppendTextColorTag_02041e70(arg1, 0xf);
+            AppendXPositionTag_02041a28(arg1, 0x46);
             struct Struct_ov000_02178648* var7 = (struct Struct_ov000_02178648*)var6->baseStats_;
             AppendText_02042058(arg1, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), (short)((unsigned short)var7->unknown_3f_6_ + 0x7551)));
             if (var4 != var2 - 1) {
@@ -68,6 +68,6 @@ extern "C" ARM void func_ov000_02178648(char* arg0, char* arg1) {
         var1++;
     }
 #if !defined(jpn)
-    func_02041a28(arg1, 0x7a);
+    AppendXPositionTag_02041a28(arg1, 0x7a);
 #endif
 }

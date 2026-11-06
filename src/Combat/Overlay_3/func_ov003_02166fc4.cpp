@@ -11,17 +11,17 @@ struct Struct_ov003_02166fc4_2 {
  char unknown_32c_[Enum_ov003_02166fc4_1124-Enum_ov003_02166fc4_804-8]; unsigned int unknown_464_;
  char unknown_468_[Enum_ov003_02166fc4_1213-Enum_ov003_02166fc4_1124-4]; unsigned char unknown_4bd_;
 };
-struct Struct_0204b010;
-extern "C" void func_0204b010(Struct_0204b010*, void*);
+struct BGLayer_0204b010;
+extern "C" void ClearBGScreenData_0204b010(BGLayer_0204b010*, void*);
 extern "C" void FillBGScreenRect_0204bc74(void*,int,int,int,int,int,int);
 struct BGLayer_0204b8d0;
 extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
-extern "C" void func_0204b04c(void*,int);
+extern "C" void FlushBGScreenData_0204b04c(void*,int);
 // USA: func_ov003_02166fc4
 extern "C" ARM void func_ov003_02166fc4(Struct_ov003_02166fc4_2* arg0) {
  Struct_ov003_02166fc4* var0=arg0->unknown_328_;
  if((arg0->unknown_464_&0x80000) || (arg0->unknown_464_&0x100000) || (arg0->unknown_464_&0x200000) || (arg0->unknown_464_&0x800000)) {
-  func_0204b010((Struct_0204b010*)var0->unknown_40_, 0);
+  ClearBGScreenData_0204b010((BGLayer_0204b010*)var0->unknown_40_, 0);
   if(arg0->unknown_464_&0x80000) {
    FillBGScreenRect_0204bc74(var0->unknown_40_,0,0,0,32,25,0);
    arg0->unknown_464_|=0x40000;arg0->unknown_464_&=~0x80000;
@@ -46,6 +46,6 @@ extern "C" ARM void func_ov003_02166fc4(Struct_ov003_02166fc4_2* arg0) {
    CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)var0->unknown_40_, 4, 0, 0, 28, 10, 1, 2, 0xffff);
    arg0->unknown_464_|=0x40000;arg0->unknown_464_&=~0x800000;
   }
-  if(arg0->unknown_464_&0x40000) func_0204b04c(var0->unknown_40_,0);
+  if(arg0->unknown_464_&0x40000) FlushBGScreenData_0204b04c(var0->unknown_40_,0);
  }
 }

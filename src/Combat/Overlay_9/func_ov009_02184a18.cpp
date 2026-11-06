@@ -33,10 +33,10 @@ struct Struct_02081870_2 {
 };
 
 extern "C" void func_020a20d8(void* arg0);
-extern "C" Struct_ov006_02158478* func_0205d8c4(TextWindowManager_0205d81c* arg0);
-extern "C" int func_0204c7cc(unsigned char* arg0);
+extern "C" Struct_ov006_02158478* GetCursorTextWindow_0205d8c4(TextWindowManager_0205d81c* windowManager);
+extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 extern "C" void func_0205bc24(void* arg0, int arg1);
-extern "C" int func_0205d0e0(Struct_02081870_2* arg0, unsigned int arg1);
+extern "C" int UpdateTextWindowManager_0205d0e0(Struct_02081870_2* windowManager, unsigned int ticks);
 extern "C" void func_ov023_021e5020(void* arg0);
 extern "C" void func_ov009_02188604(void* arg0, unsigned int arg1);
 extern "C" void func_ov009_02188454(void* arg0);
@@ -72,7 +72,7 @@ struct Struct_ov008_0218b340 {
 };
 
 extern const Struct_ov008_0218b340 data_ov009_0218ab9c;
-extern const Type_02000c9c_2 data_020e6d5c;
+extern const Type_02000c9c_2 gNullMemberFunctionPointer_020e6d5c;
 
 // USA: func_ov009_02184a18
 extern "C" ARM int func_ov009_02184a18(Struct_ov009_021842a0_2* arg0)
@@ -84,12 +84,12 @@ extern "C" ARM int func_ov009_02184a18(Struct_ov009_021842a0_2* arg0)
         func_020a20d8(arg0->unknown_924_);
     if (arg0->unknown_c58_ == 9 && arg0->unknown_c59_ == 2)
     {
-        Struct_ov006_02158478* var1 = func_0205d8c4((TextWindowManager_0205d81c*)&arg0->unknown_1f8_[1]);
-        if (var1 != NULL && func_0204c7cc((unsigned char*)var1) != 0 && !(var1->unknown_c5_ & 2))
+        Struct_ov006_02158478* var1 = GetCursorTextWindow_0205d8c4((TextWindowManager_0205d81c*)&arg0->unknown_1f8_[1]);
+        if (var1 != NULL && IsTextWindowReady_0204c7cc((unsigned char*)var1) != 0 && !(var1->unknown_c5_ & 2))
             func_0205bc24(&arg0->unknown_1f8_[1].unknown_0_.unknown_4_, -1);
     }
-    func_0205d0e0(&arg0->unknown_1f8_[0], var0);
-    arg0->unknown_d85_ = func_0205d0e0(&arg0->unknown_1f8_[1], var0);
+    UpdateTextWindowManager_0205d0e0(&arg0->unknown_1f8_[0], var0);
+    arg0->unknown_d85_ = UpdateTextWindowManager_0205d0e0(&arg0->unknown_1f8_[1], var0);
     if (arg0->unknown_d9c_ & 0x200)
     {
         arg0->unknown_878_.AdvanceEffects();
@@ -104,7 +104,7 @@ extern "C" ARM int func_ov009_02184a18(Struct_ov009_021842a0_2* arg0)
     func_ov009_021885b8((Struct_ov009_02184a18*)arg0);
 
     Struct_ov008_0218b340 var2 = data_ov009_0218ab9c;
-    var2.unknown_0_[12] = data_020e6d5c;
+    var2.unknown_0_[12] = gNullMemberFunctionPointer_020e6d5c;
     if (var2.unknown_0_[arg0->unknown_c58_] == 0)
         return 0;
     (arg0->*var2.unknown_0_[arg0->unknown_c58_])();

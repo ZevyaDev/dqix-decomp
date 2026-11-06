@@ -32,7 +32,7 @@ struct Struct_020ad61c_3 {
     Vector3i unknown_174_;
     int unknown_180_;
 };
-struct Struct_02015438;
+struct QueueNode_02015438;
 struct Struct_ov017_021d82fc_5 {
     unsigned char unknown_0_[13];
     unsigned char unknown_d_;
@@ -48,7 +48,7 @@ extern "C" void func_020adda4(Struct_020ad61c_3*);
 extern "C" void func_020adaac(Struct_020ad61c_3*);
 extern "C" void func_020ae398(Struct_020ad61c*);
 extern "C" void func_020ae3f4(Struct_020ad61c_2*);
-extern "C" int func_02046b24(Struct_02015438**);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" int func_02018fbc(Zone3D*, Struct_02015ef4*);
@@ -116,9 +116,9 @@ extern "C" ARM void func_020ad61c(Struct_020ad61c_3* arg0) {
     GameResources* var7 = GetGameResources();
     void* var8;
     int var9;
-    Struct_02015438** var10 = (Struct_02015438**)var7->unknown_ptr_array_36fc[0];
+    QueueNode_02015438** var10 = (QueueNode_02015438**)var7->unknown_ptr_array_36fc[0];
     GameObject* var11 = var3->GetUnknownGameObject();
-    if (var11 && func_02046b24(var10) != 3) {
+    if (var11 && GetQueueHeadType_02046b24(var10) != 3) {
         var11->obj3D_.position_ = arg0->unknown_0_.position_;
         EnablePlayerControl_020397c0(var11);
     }

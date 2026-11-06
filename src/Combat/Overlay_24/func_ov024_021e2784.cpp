@@ -17,7 +17,7 @@ extern "C" void func_02088644(struct Struct_02088644* arg0);
 extern "C" short func_ov000_0215a16c(void* arg0, int arg1, int arg2, short* arg3);
 extern "C" struct Struct_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
-extern "C" void func_ov000_02159eac(void* arg0, struct Struct_ov024_021e2784_4* arg1, int arg2);
+extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, struct Struct_ov024_021e2784_4* flags, int flagIndex);
 extern "C" void func_ov000_0215ccbc(
     int arg0, struct Struct_ov000_021584e8* arg1, GameObject* arg2, short arg3, short arg4, short arg5,
     struct Struct_ov024_021e2784_4 arg6, unsigned char arg7);
@@ -47,20 +47,20 @@ extern "C" ARM struct Struct_ov000_021584e8* func_ov024_021e2784(struct Struct_o
     unsigned short var5 = inline_ov024_021dc700(var0);
     if (var0->currentStats_->primaryStats.currHP < var5) {
         var3 = func_ov000_0215a16c(arg0->unknown_10_, arg2, arg4, &var4);
-        func_ov000_02159eac(arg0->unknown_10_, &var2, 0x25);
+        SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 0x25);
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var1, 0x16);
         arg0->unknown_14_++;
     }
     if (func_ov024_021da9b0((struct Struct_ov024_021da670_7*)var0)) {
         func_020882dc(var0->currentStats_);
         ((struct Struct_ov024_021e2784_3*)((char*)var0->currentStats_ + 0x3b))->unknown_0_0_ = 1;
-        func_ov000_02159eac(arg0->unknown_10_, &var2, 0x1a);
+        SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 0x1a);
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var1, 0x1f9);
         arg0->unknown_14_++;
     }
     if (func_020885b4((struct Struct_020885b4*)var0->currentStats_) || func_02088514((struct Struct_02088514*)var0->currentStats_)) {
         func_02088644((struct Struct_02088644*)var0->currentStats_);
-        func_ov000_02159eac(arg0->unknown_10_, &var2, 0x11);
+        SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 0x11);
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var1, 0x54);
         arg0->unknown_14_++;
     }

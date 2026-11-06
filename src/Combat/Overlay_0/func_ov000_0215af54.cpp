@@ -49,7 +49,7 @@ struct Struct_ov000_0215af54_5 {
     unsigned char unknown_8e13_;
 };
 
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_ov000_02153c0c(GameObject* arg0);
 extern "C" void func_ov000_02160030(void* arg0);
 extern "C" void func_ov000_02157cdc(void* arg0);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov000_0215af54(struct Struct_ov000_0215af54_5* arg0, in
     if (var4 == NULL) {
         return;
     }
-    if (func_02010088((struct Struct_02010088*)var4)) {
+    if (IsDead_02010088((struct Struct_02010088*)var4)) {
         return;
     }
     if (func_ov000_02153c0c(var4)) {

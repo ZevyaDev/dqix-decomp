@@ -78,7 +78,7 @@ extern "C" int *GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *);
 extern "C" short *func_02052e2c(Struct_02052e2c *);
 extern "C" Struct_ov003_0217599c_4 *FindItemData_020dedd0(ItemTable_0201099c_10 *, int);
-extern "C" void *func_020de824(void *);
+extern "C" void *InitItemTable_020de824(void *);
 extern "C" void func_0207cbe8(char *);
 extern "C" void func_0207cc18(void *, Struct_ov003_0217599c_4 *);
 extern "C" void func_0207cc0c(char *);
@@ -94,7 +94,7 @@ static inline int inline_ov003_0217599c(unsigned int arg0) {
 extern "C" void func_ov017_021c3fb4(int, int);
 extern "C" void func_ov017_021c4418(int, int);
 GameResources *GetGameResources();
-extern "C" void func_ov017_0218f5a4(GameResources *, int, int, int, int);
+extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources *, int, int, int, int);
 
 #if defined(jpn)
 extern int data_ov003_0217e388[9];
@@ -118,7 +118,7 @@ extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
     unsigned int var4 = var3->unknown_8_0_;
     Struct_0206b37c var5;
     var5.unknown_0_.ResetAllocatorPointer();
-    func_020de824(var5.unknown_14_);
+    InitItemTable_020de824(var5.unknown_14_);
     func_0207cbe8((char *) &var5);
     func_0207cbe8((char *) &var5);
     var5.unknown_2c_ = &arg0->unknown_874_;
@@ -176,6 +176,6 @@ extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
     }
     GameResources *var16 = GetGameResources();
     BackgroundLoader::GetInstance();
-    func_ov017_0218f5a4(var16, arg0->unknown_1043_, 1, 0, 0);
+    QueuePartyMemberModelLoad_ov017_0218f5a4(var16, arg0->unknown_1043_, 1, 0, 0);
     return 1;
 }

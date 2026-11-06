@@ -22,7 +22,7 @@ struct Struct_ov031_022031bc {
 
 // USA: func_ov031_022031bc
 extern "C" ARM void func_ov031_022031bc(int arg0, unsigned short arg1, unsigned int arg2) {
-	Struct_ov031_022031bc* var0 = (Struct_ov031_022031bc*)data_02111304.activeContext->unknown_A4;
+	Struct_ov031_022031bc* var0 = (Struct_ov031_022031bc*)gContextScheduler_02111304.activeContext->unknown_A4;
 	if (var0 == NULL) {
 		return;
 	}

@@ -16,7 +16,7 @@ struct Struct_ov000_0215767c_10 {unsigned short unknown_0_;char unknown_2_[7];un
 struct Struct_ov000_0215767c_2 {char unknown_0_[0x8e00];unsigned char unknown_8e00_;char unknown_8e01_[0x17];char* unknown_8e18_;char unknown_8e1c_[0x58];Struct_ov000_0215767c_9* unknown_8e74_;char unknown_8e78_[8];unsigned char unknown_8e80_,unknown_8e81_;char unknown_8e82_[0x14];unsigned char unknown_8e96_;};
 struct Struct_ov000_0215767c {char unknown_0_[0x18];unsigned int unknown_18_0_:5,unknown_18_5_:7,unknown_19_4_:20;char unknown_1c_[0x14];short unknown_30_;};
 struct Struct_ov000_02182ae4 {short unknown_0_[8];};struct Struct_ov000_02182a74 {short unknown_0_[4];};struct Struct_ov000_0215767c_3 {char unknown_0_[0x678];};
-extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);extern "C" GameObject* func_0200fea4(GameState*,int);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*,int);
 extern "C" int func_ov000_02159c58(void*,int);extern "C" int func_0208555c(unsigned char*);struct Random;int NextRandomMax(Random*,int);
 struct Struct_02088418;extern "C" int func_02088418(Struct_02088418*,int,int);extern "C" int func_ov000_02157cc4(GameObject*);extern "C" void func_02088474(void*,int,int);
 extern "C" int func_ov000_02159d94(void*, int);extern "C" void func_0208a910(int*);struct Struct_02070b6c_3;extern "C" void* func_02070fd0(Struct_02070b6c_3*,int);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov000_0215767c(Struct_ov000_0215767c_2* arg0,Struct_ov0
    if(!var13&&arg1->unknown_0_!=0x1f6){Struct_ov000_0215767c_3 var14;func_ov024_021f73b8(&var14);func_ov024_021f8f20(&var14,arg0,var2,arg1);}
   }
  }else{
-  var4.unknown_0_[var5++]=var2;GameObject* var15=func_0200fea4(GameState::GetInstance(),var2);int var16=func_ov000_02159d94(arg0, var2);int var17=1;
+  var4.unknown_0_[var5++]=var2;GameObject* var15=GetEnemyByIndex_0200fea4(GameState::GetInstance(),var2);int var16=func_ov000_02159d94(arg0, var2);int var17=1;
   if(func_ov000_0215704c(arg0,var2))var6=true;
   else if(arg1->unknown_0_==0x1f7&&!func_ov000_02155f9c(arg0,var2,1))var17=0;
   else if(var16==2)var17=0;

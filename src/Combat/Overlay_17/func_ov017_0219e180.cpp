@@ -2,13 +2,13 @@
 #include "GameState/GameState.h"
 #include "World/Object3D.h"
 
-struct Struct_020fdd44 {
-    unsigned short unknown_0_;
+struct ActiveZone_020fdd44 {
+    unsigned short zoneId_0_;
     unsigned short unknown_2_0_ : 2;
     unsigned short : 14;
 };
-extern "C" struct Struct_020fdd44* func_02027ca4(void);
-extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1);
+extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
+extern "C" struct ActiveZone_020fdd44* FindActiveZone_02028bd0(struct ActiveZone_020fdd44* zones, int zoneId);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 struct LocalWireless_0202c1a4;
@@ -18,14 +18,14 @@ extern "C" GameObject* func_ov017_021a2738(void* arg0, int arg1);
 // USA: func_ov017_0219e180
 extern "C" ARM void func_ov017_0219e180(void* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_020fdd44* var1 = func_02027ca4();
+    struct ActiveZone_020fdd44* var1 = GetActiveZones_02027ca4();
     void* var2 = GetLocalWireless_0202ae18();
     if (IsLocalWirelessOn_0202b7d8((int*)var2) != 0) {
         if (GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var2) != 0) {
             return;
         }
     }
-    struct Struct_020fdd44* var3 = func_02028bd0(var1, arg1);
+    struct ActiveZone_020fdd44* var3 = FindActiveZone_02028bd0(var1, arg1);
     if (var3 == NULL) {
         return;
     }

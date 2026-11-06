@@ -19,7 +19,7 @@ struct Struct_020a8170;
 struct Struct_020a83fc;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
-struct Struct_020727d8;
+struct StringList_020727d8;
 struct Struct_0206f81c_2;
 struct Struct_0206f81c_3;
 struct Struct_0206f81c_4;
@@ -67,11 +67,11 @@ extern "C" void func_ov017_021b2bf4(Struct_0206f81c_3* arg0, unsigned int arg1);
 extern "C" void func_ov017_021b2c0c(Struct_0206f81c_4* arg0, unsigned int arg1);
 extern "C" void func_ov017_021b2bdc(Struct_0206f81c_5* arg0, unsigned int arg1);
 int LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
-extern "C" void func_020727d8(Struct_020727d8* arg0);
-extern "C" int func_0201079c(char* arg0);
+extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
 extern "C" int func_020d3018(const char* arg0, const char* arg1);
-extern "C" int func_02005a94(signed char* arg0);
+extern "C" int ParseDecimal_02005a94(signed char* string);
 extern "C" void func_ov017_021ba90c(Struct_ov017_0219bfb4* arg0);
 extern "C" void func_ov004_021689d8(SafeAllocator* arg0, void* arg1);
 
@@ -197,14 +197,14 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
     }
 
     char var22[8];
-    func_020727d8((Struct_020727d8*)var22);
+    ResetStringList_020727d8((StringList_020727d8*)var22);
     char var23[8];
     __clear(var23, 8);
     short var24 = *(int*)(var2 + 0x2c94);
     if (arg1 != 0) {
         var24 = arg1;
     }
-    int var25 = func_0201079c((char*)var1);
+    int var25 = GetStoryChapter_0201079c((char*)var1);
     for (int var26 = 0; var26 < 3; var26++) {
         unsigned char var27 = inline_ov017_0219bfb4(var26, 0);
         unsigned char var28 = inline_ov017_0219bfb4(var26, 1);
@@ -217,10 +217,10 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
         int var31 = 0;
         int var32 = 0;
         if (func_020d3018(var29, &data_ov017_021d75fa)) {
-            var31 = func_02005a94((signed char*)var29);
+            var31 = ParseDecimal_02005a94((signed char*)var29);
         }
         if (func_020d3018(var30, &data_ov017_021d75fa)) {
-            var32 = func_02005a94((signed char*)var30);
+            var32 = ParseDecimal_02005a94((signed char*)var30);
         }
         int var33 = 0;
         if (var31 == 0 && var32 == 0) {
@@ -243,7 +243,7 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
 
     signed char var35 = 1;
     if (func_020d3018(var23, &data_ov017_021d75fa)) {
-        var35 = func_02005a94((signed char*)var23);
+        var35 = ParseDecimal_02005a94((signed char*)var23);
     }
     if (var35 != 3) {
         func_ov017_021ba90c((Struct_ov017_0219bfb4*)var10);

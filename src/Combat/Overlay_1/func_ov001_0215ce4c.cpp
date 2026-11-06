@@ -8,7 +8,7 @@
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" int func_ov001_0215ad2c(int arg0);
 extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
-extern "C" void func_0200fd38(GameState* arg0, int arg1, GameObject* arg2);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState* gameState, int index, GameObject* object);
 extern "C" void NSBXX_Model_SetPolygonID(NSBXXInternalModel* model, int id);
 
 extern SafeAllocator* data_ov001_021658b8[8];
@@ -65,6 +65,6 @@ extern "C" ARM int func_ov001_0215ce4c(char* arg0, int arg1) {
     var9->position_.z = 0x1000;
     var9->MaybeSetBCFGAnimation(0, 0);
     var9->MakeHidden();
-    func_0200fd38(var5, var10, (GameObject*)var9);
+    SetGameObjectByIndex_0200fd38(var5, var10, (GameObject*)var9);
     return 1;
 }

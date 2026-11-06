@@ -7,10 +7,10 @@ struct BGLayer_02020cb8_5;
 struct BGLayer_02020cb8_2;
 struct BGLayer_02020cb8;
 struct TextWindow_0204c7a8;
-struct Struct_0205cf78;
-struct Struct_0205cf78_2;
+struct TextWindowManager_0205cf78;
+struct TextWindow_0205cf78_2;
 struct Sprite_02043368_2;
-struct Struct_02043368;
+struct SpriteAnimationList_02043368;
 struct PacEntry_02020aec;
 struct PacEntry_02020cb8_4;
 struct Struct_0201099c_3;
@@ -21,7 +21,7 @@ extern "C" short func_0206f7f4(Struct_0206f7f4 *, int);
 extern "C" char *strcpy(char *arg0, const char *arg1);
 extern "C" int sprintf(char *arg0, const char *arg1, ...);
 extern "C" void *__clear(void *arg0, int arg1);
-extern "C" int func_02005a94();
+extern "C" int ParseDecimal_02005a94();
 extern "C" void func_ov003_0215e1ec(char *arg0);
 extern "C" void func_ov003_0215ca90(void *arg0, int arg1);
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8 *layer);
@@ -37,12 +37,12 @@ extern "C" void LoadBGBlock_0204b174(void *layer, void *block, SafeAllocator *al
 extern "C" void FillBGScreenRect_0204bc74(void *layer, unsigned short screenEntry, int x, int y, int width, int height, unsigned short palette);
 extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2 *layer, void *screenData);
 extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8 *window, SafeAllocator *allocator,
-                                                                           int arg2, unsigned int screenDataSize);
-extern "C" void func_0205cf78(struct Struct_0205cf78 *arg0,
-                                                                                     struct Struct_0205cf78_2 *arg1,
-                                                                                     unsigned char arg2);
+                                                                           int characterData, unsigned int screenDataSize);
+extern "C" void SetTextWindowArray_0205cf78(struct TextWindowManager_0205cf78 *windowManager,
+                                                                                     struct TextWindow_0205cf78_2 *textWindows,
+                                                                                     unsigned char textWindowCapacity);
 extern "C" void InitSprite_0205a198(struct Sprite_02043368_2 *sprite);
-extern "C" void func_0205a234(struct Struct_02043368 *arg0);
+extern "C" void InitSpriteAnimationList_0205a234(struct SpriteAnimationList_02043368 *animationList);
 extern "C" void LoadSpriteSetFile_0205a528(void *spriteSet, void *fileData, int size, void *allocator);
 extern "C" void LoadStringTable_020dfec0(void *stringTable, void *allocator, void *fileData, unsigned int fileSize);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
@@ -149,7 +149,7 @@ extern "C" ARM void func_ov003_0215caf0(char *arg0) {
             ((SafeAllocator *) arg0)->Reset();
             LoadStringTable_020dfec0(arg0 + 0x64, arg0, var7, var8);
             if (FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x64), 0x32) != 0) {
-                U8(0x3ee) = func_02005a94();
+                U8(0x3ee) = ParseDecimal_02005a94();
             }
             if (U8(0x3ee) == 3) {
                 U8(0x3ee) = 0;
@@ -223,8 +223,8 @@ extern "C" ARM void func_ov003_0215caf0(char *arg0) {
             }
             *(char **) (arg0 + 0x130 + Enum_ov003_0215caf0_0) = arg0 + 0x154 + Enum_ov003_0215caf0_0;
             U8(0x14a)                 = 2;
-            func_0205cf78((struct Struct_0205cf78 *) (arg0 + 0x98 + Enum_ov003_0215caf0_0),
-                                                                                 (struct Struct_0205cf78_2 *) (arg0 + 0x194 + Enum_ov003_0215caf0_0), 2);
+            SetTextWindowArray_0205cf78((struct TextWindowManager_0205cf78 *) (arg0 + 0x98 + Enum_ov003_0215caf0_0),
+                                                                                 (struct TextWindow_0205cf78_2 *) (arg0 + 0x194 + Enum_ov003_0215caf0_0), 2);
             REG16(0x04000008) = (REG16(0x04000008) & ~3) | 2;
             REG16(0x0400000a) = (REG16(0x0400000a) & ~3) | 1;
             REG16(0x0400000c) = (REG16(0x0400000c) & ~3);
@@ -241,7 +241,7 @@ extern "C" ARM void func_ov003_0215caf0(char *arg0) {
                 InitSprite_0205a198((struct Sprite_02043368_2 *) (S32(0x3ac) + var26 * 0x28));
             }
             S32(0x3b0) = (int) ((SafeAllocator *) (arg0 + 0x50))->Allocate(8);
-            func_0205a234((struct Struct_02043368 *) S32(0x3b0));
+            InitSpriteAnimationList_0205a234((struct SpriteAnimationList_02043368 *) S32(0x3b0));
             U8(0x3a8)  = 0;
             S32(0x398) = S32(0x3ac);
             S16(0x3a4) = 6;
@@ -279,7 +279,7 @@ extern "C" ARM void func_ov003_0215caf0(char *arg0) {
             int var36 = FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x64), 0x2710);
             int var37 = 1;
             if (var36 != 0) {
-                var37 = func_02005a94();
+                var37 = ParseDecimal_02005a94();
             }
             func_ov003_0215ca90(arg0, var37);
             if (var37 == 0) {

@@ -10,8 +10,8 @@ enum { Enum_020ac9ac_14076 = 0x36fc };
 extern "C" void* GetZone3D_02012fe4(GameState* arg0);
 struct Struct_0200ffd0;
 extern "C" void* func_0200ffd0(struct Struct_0200ffd0* arg0);
-struct Struct_02015438;
-extern "C" int func_02046b24(struct Struct_02015438** arg0);
+struct QueueNode_02015438;
+extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 struct Struct_02046b1c;
 extern "C" int func_02046b1c(struct Struct_02046b1c* arg0);
 struct GameResources;
@@ -29,7 +29,7 @@ extern "C" ARM void func_020ac9ac(struct Struct_020ac9ac* arg0) {
     void* var3 = arg0->unknown_36fc_;
     GetZone3D_02012fe4(var0);
     var1 = func_0200ffd0((struct Struct_0200ffd0*)var0);
-    var2 = func_02046b24((struct Struct_02015438**)var3);
+    var2 = GetQueueHeadType_02046b24((struct QueueNode_02015438**)var3);
     int var4 = func_02046b1c((struct Struct_02046b1c*)var3);
     if (var1 == NULL) return;
     if (var2 == 0xa) {

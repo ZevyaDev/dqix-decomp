@@ -86,8 +86,8 @@ extern "C" ARM void func_0206c794(void* arg0) {
 }
 #else
 
-struct Struct_0204254c { int unknown_0_; signed char unknown_4_; signed char unknown_5_0_ : 6; signed char unknown_5_6_ : 2; unsigned char unknown_6_[2]; };
-extern "C" Struct_0204254c* func_0204254c(int, int);
+struct FontGlyph_0204254c { int unknown_0_; signed char unknown_4_; signed char codeLength_5_0_ : 6; signed char unknown_5_6_ : 2; unsigned char unknown_6_[2]; };
+extern "C" FontGlyph_0204254c* func_0204254c(int, int);
 extern "C" int func_02042648(int);
 struct Struct_0204500c_4;
 extern "C" void func_0206b198(Struct_0204500c_4*, unsigned short);
@@ -163,11 +163,11 @@ extern "C" ARM void func_0206ad74(Struct_0206ad74* arg0) {
             for (;;) {
                 var0 = var6 + 1;
                 if (!*var7) break;
-                Struct_0204254c* var15 = func_0204254c((int)var7, arg0->unknown_19dc_);
+                FontGlyph_0204254c* var15 = func_0204254c((int)var7, arg0->unknown_19dc_);
                 if (var15) {
                     arg0->unknown_1942_++;
                     int var16 = var15->unknown_4_;
-                    int var17 = var15->unknown_5_0_;
+                    int var17 = var15->codeLength_5_0_;
                     arg0->unknown_1944_ += var16 + 1;
                     var7 += var17;
                 } else {

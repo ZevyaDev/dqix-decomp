@@ -11,10 +11,10 @@ extern "C" void func_020a367c(unsigned char* arg0, int arg1);
 struct Struct_0207da94;
 extern "C" void func_0207da94(struct Struct_0207da94* arg0, int arg1);
 
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 
 extern "C" int func_ov017_021959b4(void);
-extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 
 extern "C" void func_ov023_021f52c8(void* arg0);
 extern "C" void func_ov023_021d8b6c(void* arg0);
@@ -22,7 +22,7 @@ extern "C" void func_ov023_021d8af8(void* arg0);
 extern "C" void func_ov023_021d8bb4(void* arg0);
 
 struct Struct_020e6d5c_2 { unsigned int unknown_0_; unsigned int unknown_4_; };
-extern struct Struct_020e6d5c_2 data_020e6d5c;
+extern struct Struct_020e6d5c_2 gNullMemberFunctionPointer_020e6d5c;
 
 struct Struct_ov023_021fe148 { unsigned int unknown_0_; unsigned int unknown_4_; };
 extern struct Struct_ov023_021fe148 data_ov023_021fe148[];
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov023_021ed9f8(char* arg0) {
         func_0207da94((struct Struct_0207da94*)var3, (int)(unsigned char)var2);
         if (var2 == (signed char)var1[0x2a]) {
             for (int var4 = 0; var4 < 4; var4++) {
-                if (func_020a35e0(var1, var4 & 0xff)) {
+                if (IsPartyMemberInBattle_020a35e0(var1, var4 & 0xff)) {
                     var1[0x2a] = var4;
                     break;
                 }
@@ -70,8 +70,8 @@ extern "C" ARM void func_ov023_021ed9f8(char* arg0) {
 
     unsigned int var5 = _ZZ21inline_ov023_021f4c04vE1s.unknown_8_;
     if (!(var5 & 1)) {
-        unsigned int var6 = *(volatile unsigned int*)&data_020e6d5c.unknown_0_;
-        unsigned int var7 = *(volatile unsigned int*)&data_020e6d5c.unknown_4_;
+        unsigned int var6 = *(volatile unsigned int*)&gNullMemberFunctionPointer_020e6d5c.unknown_0_;
+        unsigned int var7 = *(volatile unsigned int*)&gNullMemberFunctionPointer_020e6d5c.unknown_4_;
         *(unsigned int*)((char*)data_ov023_021fe148 + 0x88) = var6;
         *(unsigned int*)((char*)data_ov023_021fe148 + 0x8c) = var7;
         _ZZ21inline_ov023_021f4c04vE1s.unknown_8_ = var5 | 1;
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov023_021ed9f8(char* arg0) {
     int var13 = 0;
     if (func_ov017_021959b4()) {
         if (*(unsigned char*)(arg0 + Enum_ov023_021ed9f8_30673) == 0) {
-            func_ov000_02160fa8(arg0, 0x2000000);
+            SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);
             var13 = 1;
         }
     }

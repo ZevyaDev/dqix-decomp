@@ -18,7 +18,7 @@ extern "C" void func_ov003_021701e4(void *arg0, int arg1);
 extern "C" void func_ov003_02170898(void *arg0);
 extern "C" void func_ov003_02170688(void *arg0);
 extern "C" void func_02098630(void *arg0, void *arg1, int arg2, int arg3);
-extern "C" int func_020457e0(void *arg0);
+extern "C" int GetMessageChoice_020457e0(void *window);
 
 struct Struct_ov003_0216efdc_2;
 struct Struct_ov003_0216f474;
@@ -282,7 +282,7 @@ extern "C" ARM void func_ov003_0216f474(Struct_ov003_0216f474_4 *arg0) {
         }
         {
             Struct_ov003_0216f474_3 *var13 = arg0->unknown_f4_[(arg0->unknown_0_ - 1) * 8 + arg0->unknown_6_];
-            if (func_020457e0(var1) == 0) {
+            if (GetMessageChoice_020457e0(var1) == 0) {
                 if (func_02098970((Struct_02098970 *) (var0 + Enum_ov003_0216f474_2112), (Struct_02098970_2 *) var13) != 0) {
                     func_ov003_02170898(arg0);
                     func_ov003_02170688(arg0);

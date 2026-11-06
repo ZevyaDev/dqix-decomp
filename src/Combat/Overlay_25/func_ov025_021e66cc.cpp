@@ -47,7 +47,7 @@ struct Struct_ov025_021ef9a8 { int unknown_0_; int unknown_4_; int unknown_8_; i
 
 struct Struct_02054000;
 struct Struct_ov025_021e267c_2;
-struct Struct_0203d028_11;
+struct ObjectArchiveLoadInfo_0203d028_11;
 
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" Struct_ov025_021e66cc_3* func_02054000(struct Struct_02054000* arg0);
@@ -55,7 +55,7 @@ extern "C" void func_ov025_021e3158(struct Struct_ov025_021ef9a8* arg0);
 extern "C" int func_ov025_021e2628(int arg0, int arg1);
 extern "C" SafeAllocator* func_ov025_021e8a54(char* arg0);
 extern "C" void func_ov025_021e8bac(struct Struct_ov025_021e267c_2* arg0, struct Struct_ov025_021e267c_3* arg1);
-extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 
 extern struct Struct_ov025_021ef988_11 data_ov025_021ef988;
 extern struct Struct_ov025_021ef9a8 data_ov025_021ef9a8;
@@ -126,7 +126,7 @@ extern "C" ARM int func_ov025_021e66cc(void* arg0, struct Struct_ov025_021e66cc_
         func_ov025_021e8bac((struct Struct_ov025_021e267c_2*)data_ov025_021ef988.unknown_c_, var9);
 
         ObjectArchiveLoadInfo var10;
-        func_0203dafc((struct Struct_0203d028_11*)&var10);
+        ClearObjectArchiveLoadInfo_0203dafc((struct ObjectArchiveLoadInfo_0203d028_11*)&var10);
         var10.fileData = var6;
         var10.unk_8 = var5;
         var10.unk_10 = 1;

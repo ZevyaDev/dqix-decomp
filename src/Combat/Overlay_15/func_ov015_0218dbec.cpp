@@ -10,11 +10,11 @@ extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(
 struct Struct_0206f01c_2;
 struct Struct_02070b6c_3;
 struct TextureVRAMArea_0203d028;
-struct Struct_0203d028_11;
+struct ObjectArchiveLoadInfo_0203d028_11;
 
 extern "C" void* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" void* func_02070fd0(Struct_02070b6c_3*, int);
-extern "C" void func_0203dafc(struct Struct_0203d028_11*);
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11*);
 
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
@@ -22,7 +22,7 @@ extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_02079a3c(void*);
 extern "C" void _ZN8Object3D10SetField7aEt(Object3D*, unsigned int);
-extern "C" void func_0205ebc0(void*, int, int);
+extern "C" void LoadExtraSoundSet_0205ebc0(void*, int, int);
 
 struct Struct_ov015_0218dbec_4 {
     int unknown_0_;
@@ -112,7 +112,7 @@ extern "C" ARM int func_ov015_0218dbec(Struct_ov015_0218dbec_3* arg0, Struct_ov0
             }
             ObjectArchiveLoadInfo var13;
             if (var11 != 0) {
-                func_0203dafc((Struct_0203d028_11*)&var13);
+                ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var13);
                 var13.allocator = arg0->unknown_8_;
                 var13.unk_8 = var9;
                 var13.fileData = var11;
@@ -120,7 +120,7 @@ extern "C" ARM int func_ov015_0218dbec(Struct_ov015_0218dbec_3* arg0, Struct_ov0
                 arg0->unknown_24_->LoadFromCCHROrCMOTArchive(&var13, 0);
             }
             if (var12 != 0) {
-                func_0203dafc((Struct_0203d028_11*)&var13);
+                ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var13);
                 var13.allocator = arg0->unknown_8_;
                 var13.unk_8 = var10;
                 var13.fileData = var12;
@@ -152,7 +152,7 @@ extern "C" ARM int func_ov015_0218dbec(Struct_ov015_0218dbec_3* arg0, Struct_ov0
         if (var16 != 0) {
             arg0->unknown_24_->SetField78(var16->unknown_14_ & 0xffff);
             _ZN8Object3D10SetField7aEt(arg0->unknown_24_, var16->unknown_14_ >> 16);
-            func_0205ebc0(&gSoundEffectManager_02108760, var16->unknown_14_ & 0xffff, var16->unknown_14_ >> 16);
+            LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, var16->unknown_14_ & 0xffff, var16->unknown_14_ >> 16);
         }
         arg0->unknown_c_ = arg0->unknown_10_->unknown_0_;
         var15 = 1;

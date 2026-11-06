@@ -18,7 +18,7 @@
 struct TextWindowManager_0205d2bc;
 extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc* arg0);
 extern "C" void func_ov005_0215a620(void* arg0);
-extern "C" void func_0204b088(void* arg0, int arg1);
+extern "C" void CopyBGScreenDataToVRAM_0204b088(void* layer, int screenData);
 struct Struct_020439b0;
 extern "C" void func_020e2d24(int* arg0, int arg1, int arg2);
 extern "C" void func_ov005_0215ae7c(void* arg0);
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov005_02155108(void* arg0) {
     func_ov005_0215a620(arg0);
 
     if (*(int*)(var0 + 0x3000 + R(0xd44, 0xdcc)) & 0x100) {
-        func_0204b088(var0 + R(0xea0, 0x2a4 + 0xc00), 0);
+        CopyBGScreenDataToVRAM_0204b088(var0 + R(0xea0, 0x2a4 + 0xc00), 0);
         *(int*)(var0 + 0x3000 + R(0xd44, 0xdcc)) &= ~0x100;
     }
 

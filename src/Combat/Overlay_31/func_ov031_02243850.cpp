@@ -68,7 +68,7 @@ extern "C" ARM int func_ov031_02243850(void* arg0) {
 #else
     *(int*)((char*)GetGameResources() + 0x4494) = 1;
 #endif
-    MarkContextStackTopUnknownSubspace(data_02111304.activeContext, 0x100);
+    MarkContextStackTopUnknownSubspace(gContextScheduler_02111304.activeContext, 0x100);
     EnableSpecificInterrupts(0xc78);
     (void)REG_IME;
     REG_IME = 1;

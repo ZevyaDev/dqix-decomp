@@ -172,11 +172,11 @@ struct Struct_ov024_021f7478_7 {
 extern "C" void func_ov024_021f68c8(struct Struct_ov024_021f68c8* arg0);
 extern "C" struct Struct_ov024_021f7478_10* func_ov000_021536f8(int arg0, int arg1);
 struct Struct_ov024_021f7478_10* GetCombatantByID(int unused, int id);
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_ov024_021e6798(GameObject* arg0);
 extern "C" float func_ov024_021db358(struct Struct_ov024_021f7478_10* arg0);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" double func_02008f5c(double);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
@@ -260,7 +260,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
         for (var12 = 0; var12 < var13[var5].unknown_e_0_; var12++) {
             struct Struct_ov024_021f7478_10* var14 = func_ov000_021536f8((int)arg0->unknown_0_, (short)(var13[var5].unknown_6_[var12] + 0xc0));
             if (var14 == 0) continue;
-            if (func_02010088((struct Struct_02010088*)var14)) continue;
+            if (IsDead_02010088((struct Struct_02010088*)var14)) continue;
             if (func_ov024_021e6798((GameObject*)var14)) continue;
             arg0->unknown_7c_[arg0->unknown_9c_] = var14;
             arg0->unknown_a0_[var5][var11] = arg0->unknown_9c_;
@@ -300,12 +300,12 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
     arg0->unknown_134_ = 0;
     for (long var21 = 0; var21 < 4; var21++) {
         arg0->unknown_114_[var21] = 1.0f;
-        if (!func_020a35e0(((struct Struct_ov024_021f7478_5*)arg0->unknown_0_)->unknown_8e18_, var21)) continue;
+        if (!IsPartyMemberInBattle_020a35e0(((struct Struct_ov024_021f7478_5*)arg0->unknown_0_)->unknown_8e18_, var21)) continue;
         struct Struct_ov024_021f7478_10* var22 = GetCombatantByID((int)arg0->unknown_0_, (short)var21);
         if (var22 == 0) continue;
         arg0->unknown_114_[var21] = func_ov024_021db358(var22);
         arg0->unknown_104_[var21] = var22->unknown_138_->primaryStats.currHP;
-        if (func_02010088((struct Struct_02010088*)var22)) {
+        if (IsDead_02010088((struct Struct_02010088*)var22)) {
             if (arg0->unknown_12c_ < 0) arg0->unknown_12c_ = var21;
             arg0->unknown_114_[var21] = 1.0f;
             continue;
@@ -483,13 +483,13 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
 
     int var65 = 1;
     for (int var66 = 0; var66 < 4; var66++) {
-        if (!func_020a35e0(((struct Struct_ov024_021f7478_5*)arg0->unknown_0_)->unknown_8e18_, var66)) continue;
+        if (!IsPartyMemberInBattle_020a35e0(((struct Struct_ov024_021f7478_5*)arg0->unknown_0_)->unknown_8e18_, var66)) continue;
         struct Struct_ov024_021f7478_10* var67 = (struct Struct_ov024_021f7478_10*)(Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c(var10, var66);
         if (var67 == 0) continue;
         if (var67->unknown_134_->primaryStats.attack > var65) var65 = var67->unknown_134_->primaryStats.attack;
     }
     for (int var68 = 0; var68 < 4; var68++) {
-        if (!func_020a35e0(((struct Struct_ov024_021f7478_5*)arg0->unknown_0_)->unknown_8e18_, var68)) continue;
+        if (!IsPartyMemberInBattle_020a35e0(((struct Struct_ov024_021f7478_5*)arg0->unknown_0_)->unknown_8e18_, var68)) continue;
         struct Struct_ov024_021f7478_10* var69 = (struct Struct_ov024_021f7478_10*)(Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c(var10, var68);
         if (var69 == 0) continue;
         arg0->unknown_44_[var68] = (float)var69->unknown_134_->primaryStats.attack / (float)var65;

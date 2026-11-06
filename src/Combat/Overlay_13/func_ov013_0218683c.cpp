@@ -23,8 +23,8 @@ struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void func_ov013_02186c64(void* arg0, int arg1, int arg2);
 extern "C" void func_ov013_02185cc0(void* arg0);
-struct Struct_0205da38;
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+struct TextWindowManager_0205da38;
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void func_ov013_02186c1c(void* arg0);
 
 // USA: func_ov013_0218683c
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov013_0218683c(void* arg0) {
             var0[LOW_REGION(0x5ca, 0x63e)] = 0;
         } else {
             if (g_keyManager.TestKeysPressed(2) != 0 ||
-                (*(int*)(var0 + LOW_REGION(0x5e8, 0x660)) == 1 && func_0205da38((struct Struct_0205da38*)(var0 + LOW_REGION(0x34, 0x38)), 0x14) != 0)) {
+                (*(int*)(var0 + LOW_REGION(0x5e8, 0x660)) == 1 && IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(var0 + LOW_REGION(0x34, 0x38)), 0x14) != 0)) {
                 if (g_keyManager.TestKeysPressed(2) == 0) {
                     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
                 }
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov013_0218683c(void* arg0) {
                 func_ov013_02185cc0(var0);
             } else {
                 if (*(int*)(var0 + LOW_REGION(0x5e8, 0x660)) == 0 &&
-                    func_0205da38((struct Struct_0205da38*)(var0 + LOW_REGION(0x34, 0x38)), 0x14) != 0) {
+                    IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(var0 + LOW_REGION(0x34, 0x38)), 0x14) != 0) {
                     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
                     int var4 = 1;
                     if (var0[LOW_REGION(0x5c8, 0x63c)] == 4) {

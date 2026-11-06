@@ -37,7 +37,7 @@ extern char gSoundEffectManager_02108760[];
 extern char data_ov008_0218b490[];
 extern "C" {
     int func_0205bafc(void*);
-    int func_0205bb84(void*);
+    int GetMenuCursorIndex_0205bb84(void*);
     void SetMenuCursorIndex_0205bb04(void*, int);
     void PlaySoundEffect_0205eaa0(void*, int, int);
 
@@ -59,7 +59,7 @@ extern "C" {
             if (var4 != 0 && arg2 >= 0 && arg2 < 8) {
                 arg0->unknown_b29_ = var4 - 1;
                 int var5 = arg0->unknown_b29_ + 5;
-                if (func_0205bb84(arg0->unknown_750_) > var5)
+                if (GetMenuCursorIndex_0205bb84(arg0->unknown_750_) > var5)
                     SetMenuCursorIndex_0205bb04(arg0->unknown_750_, var5);
                 return -1;
             }
@@ -67,7 +67,7 @@ extern "C" {
                 if (var4 + 6 < arg0->unknown_74c_)
                     ++arg0->unknown_b29_;
                 int var6 = arg0->unknown_b29_;
-                if (func_0205bb84(arg0->unknown_750_) < var6)
+                if (GetMenuCursorIndex_0205bb84(arg0->unknown_750_) < var6)
                     SetMenuCursorIndex_0205bb04(arg0->unknown_750_, var6);
                 return -1;
             }

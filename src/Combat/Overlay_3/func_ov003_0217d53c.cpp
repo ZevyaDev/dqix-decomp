@@ -17,7 +17,7 @@ enum { Enum_ov003_0217d53c_14092 = 0x370c };
 
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" char* GetZone3D_02012fe4(void);
-extern "C" int func_020457e0(char* arg0);
+extern "C" int GetMessageChoice_020457e0(char* window);
 extern "C" void func_ov017_021baedc(void* arg0, int arg1);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov003_0217d53c(Struct_ov003_0217d53c_3* arg0) {
     char* var5 = GetZone3D_02012fe4();
 #endif
     if (arg0->unknown_5_ != 0 || *(int*)(var1 + Enum_ov003_0217d53c_2464) != 0) return;
-    if (func_020457e0(var1) == 0) {
+    if (GetMessageChoice_020457e0(var1) == 0) {
         Struct_ov003_0217d53c* var6 = *(Struct_ov003_0217d53c**)(var2 + Enum_ov003_0217d53c_14132);
         func_ov017_021baedc(var6, 1);
         var6->unknown_10b_ = 1;

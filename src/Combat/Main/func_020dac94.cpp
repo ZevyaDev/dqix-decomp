@@ -10,8 +10,8 @@ enum { Enum_020dac94_228 = 0xe4 };
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 
-extern "C" void func_020a0cc4(unsigned int);
-extern "C" void func_020a0c0c(void);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
+extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" int func_ov003_0217ce3c(void*);
 extern "C" int func_ov017_021959b4(void);
 extern "C" int func_ov003_0217daf0(void*);
@@ -52,11 +52,11 @@ extern "C" ARM void func_020dac94(void* arg0, void*) {
         SetFlags04(GetGameResources(), 0xc0);
         unsigned int var3 = func_02012dd0((struct Struct_02114e20*)&gMainHeap_02114e20);
         if (var3 < 0x6000) {
-            func_020a0cc4(0x6000);
+            ReleaseFileTablesForSpace_020a0cc4(0x6000);
         }
         void* var4 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x6000);
         if (var4 == NULL) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             var0->unknown_1_ = 1;
             return;
         }
@@ -65,7 +65,7 @@ extern "C" ARM void func_020dac94(void* arg0, void*) {
         void* var5 = var0->unknown_14_.Allocate(Enum_020dac94_228);
         var0->unknown_c_ = var5;
         if (var5 == NULL) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             var0->unknown_1_ = 1;
             return;
         }

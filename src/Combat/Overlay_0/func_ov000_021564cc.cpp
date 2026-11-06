@@ -8,7 +8,7 @@ enum { Enum_ov000_021564cc_336 = 0x150, Enum_ov000_021564cc_2384 = 0x950 };
 #include "Util/Random.h"
 
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern unsigned char data_ov000_02182ac5[];
 
 struct Struct_ov000_021564cc {
@@ -24,7 +24,7 @@ extern "C" ARM int func_ov000_021564cc(struct Random* arg0, int arg1) {
     GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (var2 == NULL) return 0;
     unsigned char* var3 = *(unsigned char**)((char*)var2 + Enum_ov000_021564cc_336);
-    if (!func_02083b00(var3, 0xd0)) return 0;
+    if (!HasLearnedSkillEntry_02083b00(var3, 0xd0)) return 0;
     struct Struct_ov000_021564cc* var4 = *(struct Struct_ov000_021564cc**)((char*)var2 + Enum_ov000_021564cc_336);
     int var5 = var4->unknown_950_;
     int var6 = data_ov000_02182ac5[var5];

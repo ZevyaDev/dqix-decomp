@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" int func_02005a94(signed char* arg0);
+extern "C" int ParseDecimal_02005a94(signed char* string);
 
 // USA: func_ov023_021db564
 extern "C" ARM int func_ov023_021db564(char* arg0) {
@@ -11,7 +11,7 @@ extern "C" ARM int func_ov023_021db564(char* arg0) {
     __clear(var0, 5);
     strncpy(var0, arg0, 4);
     var0[3] = 0;
-    short var2 = (short)func_02005a94((signed char*)(var0 + 1));
+    short var2 = (short)ParseDecimal_02005a94((signed char*)(var0 + 1));
     unsigned short var3 = (unsigned short)(var2 * 100);
     char var4 = var0[0];
     if (var4 == 'C') {

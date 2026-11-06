@@ -2,17 +2,17 @@
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 
-struct Struct_ov000_0215440c_2;
-struct Struct_ov000_0215440c;
+struct BattleAction_ov000_0215440c_2;
+struct BattleAction_ov000_0215440c;
 struct Struct_020338d4;
 struct Struct_ov009_0218aa28;
 
-struct Struct_ov000_02160094 {
+struct ActionActor_ov000_02160094 {
     char unknown_0_[0x20];
     unsigned short unknown_20_;
 };
 
-struct Struct_ov000_021600f8 {
+struct ActionTarget_ov000_021600f8 {
     char unknown_0_[0xe];
     short unknown_e_;
 };
@@ -29,8 +29,8 @@ extern "C" void func_ov000_02167e6c(unsigned char* arg0);
 extern "C" void func_ov000_02167dd8(unsigned char* arg0);
 extern "C" void func_ov000_02167f10(unsigned char* arg0);
 extern "C" void func_ov025_021def64(unsigned char* arg0, void* arg1, int arg2);
-extern "C" Struct_ov000_02160094* func_ov000_02160094(Struct_ov000_0215440c_2* arg0, int arg1);
-extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c* arg0, int arg1);
+extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
+extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" void func_ov025_021e4448(int* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_020338d4(Struct_020338d4* arg0, Struct_ov009_0218aa28* arg1);
 
@@ -43,8 +43,8 @@ extern "C" ARM int func_ov025_021e6cf4(Struct_ov025_021e6cf4* arg0, void* arg1) 
         func_ov000_02167dd8(var0);
     } else if (arg0->unknown_8_0_ == 2) {
         GameState* var1 = GameState::GetInstance();
-        Struct_ov000_02160094* var2 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, 0);
-        Struct_ov000_021600f8* var3 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, 0);
+        ActionActor_ov000_02160094* var2 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, 0);
+        ActionTarget_ov000_021600f8* var3 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);
         if (var2 == NULL || var3 == NULL) {
             return 1;
         }

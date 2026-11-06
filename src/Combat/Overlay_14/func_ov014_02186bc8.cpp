@@ -99,7 +99,7 @@ void func_ov014_021886f8(Struct_ov014_02186bc8* arg0);
 }
 
 extern unsigned int data_ov014_0218981c;
-extern Type_0207fc6c data_020e6d5c;
+extern Type_0207fc6c gNullMemberFunctionPointer_020e6d5c;
 extern Type_0207fc6c data_ov014_021896d4[7];
 extern Type_0207fc6c data_ov014_021896d4_dup[7];
 
@@ -134,7 +134,7 @@ extern "C" ARM bool func_ov014_02186bc8(Struct_ov014_02186bc8* arg0, int arg1)
 
     if (!(data_ov014_0218981c & 1))
     {
-        data_ov014_021896d4_dup[6] = data_020e6d5c;
+        data_ov014_021896d4_dup[6] = gNullMemberFunctionPointer_020e6d5c;
         data_ov014_0218981c |= 1;
     }
     if (data_ov014_021896d4[arg0->unknown_17a_] == NULL)

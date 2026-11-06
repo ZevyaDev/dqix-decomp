@@ -2,11 +2,11 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 struct Struct_02092cd0;
 
 extern "C" void func_02092d60(void* arg0, int arg1);
-extern "C" int func_020457e0(char* arg0);
+extern "C" int GetMessageChoice_020457e0(char* window);
 extern "C" unsigned char* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" void func_02094030(int* arg0, short arg1, short arg2, int arg3);
 extern "C" char* GetMessageWindow_020421a0(void);
@@ -15,7 +15,7 @@ extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int* func_020936f8(void);
 extern "C" unsigned int func_02092cd0(Struct_02092cd0* arg0, int arg1);
 extern "C" int func_02092d18(Struct_02092cd0* arg0, int arg1);
-extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
+extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 extern "C" int func_020a35f8(unsigned char* arg0);
 
 struct Struct_02092cd0 {
@@ -66,13 +66,13 @@ extern "C" ARM void func_020930d0(struct Struct_02092cd0* arg0) {
     unsigned char var5;
     int var6;
     struct Struct_020930d0* var7;
-    struct Struct_02038598_5* var8;
+    struct Queue_02038598_5* var8;
     unsigned char var9;
 
     var1 = GameState::GetInstance();
     var2 = (Struct_020930d0_3*)GetMessageWindow_020421a0();
     var0 = GetGameResources();
-    var8 = (struct Struct_02038598_5*)var0->unknown_ptr_array_36fc[0];
+    var8 = (struct Queue_02038598_5*)var0->unknown_ptr_array_36fc[0];
     var7 = (struct Struct_020930d0*)GetParty_02010828(var1);
     var3 = func_020936f8();
     var9 = arg0->unknown_35_;
@@ -112,7 +112,7 @@ extern "C" ARM void func_020930d0(struct Struct_02092cd0* arg0) {
                 var15 = 8;
             } else {
                 var15 = 6;
-                if (func_02046b60(var8, 10)) {
+                if (IsTypeInQueue_02046b60(var8, 10)) {
                     if (var12 == func_020a35f8(GetBattleSetup_ov017_021b8478(var0->unknown_ptr_3718)) && var16 + var17 == 4) arg0->unknown_3b_ = 1;
                 }
             }
@@ -128,7 +128,7 @@ extern "C" ARM void func_020930d0(struct Struct_02092cd0* arg0) {
 
     if (var9 == 2) {
         if (var2->unknown_9a0_ != 0) return;
-        int var18 = func_020457e0((char*)var2);
+        int var18 = GetMessageChoice_020457e0((char*)var2);
         if (var18 == 0) {
             arg0->unknown_35_ = 3;
             func_02092d60(arg0, 0);

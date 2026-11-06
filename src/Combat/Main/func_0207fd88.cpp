@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_0204b088(void* arg0, int arg1);
+extern "C" void CopyBGScreenDataToVRAM_0204b088(void* layer, int screenData);
 
 struct Struct_0207fd88_2 { char unknown_0_[0x20]; };
 
@@ -23,7 +23,7 @@ extern "C" ARM void func_0207fd88(Struct_0207fd88* arg0) {
     if (var1 == NULL) return;
     var0 = arg0->unknown_38_;
     for (var2 = 0; var2 < var0; var2++) {
-        func_0204b088(var1, 0);
+        CopyBGScreenDataToVRAM_0204b088(var1, 0);
         var1++;
     }
 }

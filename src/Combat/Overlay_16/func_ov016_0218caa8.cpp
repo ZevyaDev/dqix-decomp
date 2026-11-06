@@ -6,9 +6,6 @@
 #include "NitroSDK/Interrupts.h"
 #include "NitroSDK/VRAM.h"
 
-#if defined(jpn)
-#define func_020c39a0 func_020c546c
-#endif
 
 #define IRQ_MASTER_ENABLE (*(volatile unsigned short*)0x04000208)
 #define SUB_BG0_SCROLL (*(volatile unsigned int*)0x04001010)
@@ -53,7 +50,7 @@ struct BGLayer_0204b8d0;
 struct BGLayer_02020cb8_2;
 struct Struct_02000c9c_8;
 
-extern "C" void func_020c39a0(short*, int);
+extern "C" void WriteBrightnessRegister_020c39a0(short*, int);
 extern "C" void func_020bc078(int*);
 extern "C" void func_0203aa44(void*);
 extern "C" int func_0203aaf8(void*, void*, int*);
@@ -61,7 +58,7 @@ extern "C" void func_ov016_0218be1c();
 extern "C" void func_02012bd8();
 extern "C" int func_020c3864(int);
 extern "C" int func_0201201c(void*);
-extern "C" void func_020c3984(unsigned int);
+extern "C" void SetSubBGMode_020c3984(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
@@ -73,8 +70,8 @@ extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*)
 extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2*, void*);
-extern "C" void func_020c9820();
-extern "C" void func_020ca458(unsigned int, void*, unsigned int);
+extern "C" void WaitForVBlank_020c9820();
+extern "C" void Memset32Bit_020ca458(unsigned int, void*, unsigned int);
 extern "C" void SetBGPriority_0204b5b4(Struct_ov003_021594c4*, int);
 extern "C" void LoadBGBlock_0204b174(Struct_ov003_021594c4*, void*, SafeAllocator*, unsigned int);
 extern "C" void func_ov016_0218c04c(char*, void*);
@@ -107,9 +104,9 @@ struct Struct_ov016_0219d0c0_8 {
     int unknown_4c_[2];
 };
 
-struct Struct_02020cb8_6;
-extern "C" void func_0204b2e0(void*, char*);
-extern "C" void func_0204b3a0(Struct_02020cb8_6*, char*);
+struct BGLayer_02020cb8_6;
+extern "C" void FlushBGBlock_0204b2e0(void*, char*);
+extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6*, char*);
 extern "C" void func_ov016_0218ca98(char*);
 extern const char data_ov016_0219cf00[];
 extern Struct_ov016_0219d0c0_8 data_ov016_0219d0c0;
@@ -122,8 +119,8 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
     data_ov016_0219d0c0.unknown_4c_[1] = 0;
     data_ov016_0219d0c0.unknown_18_ = arg2->unknown_10_ < 0;
     data_ov016_0219d0c0.unknown_14_ = arg3;
-    func_020c39a0((short*)0x0400006c, -16);
-    func_020c39a0((short*)0x0400106c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x0400006c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x0400106c, -16);
     SetInterruptHandler(1, (const void*)func_ov016_0218be1c);
     EnableSpecificInterrupts(0x60078);
     unsigned short var0 = IRQ_MASTER_ENABLE;
@@ -133,14 +130,14 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
     if (func_0201201c(var1) == 5)
     {
         MapVRAMBanksToLCDC(0x1ff);
-        func_020ca458(0, (void*)0x06800000, 0xa4000);
-        func_020ca458(0xc0, (void*)0x07000000, 0x400);
-        func_020ca458(0, (void*)0x05000000, 0x400);
-        func_020ca458(0xc0, (void*)0x07000400, 0x400);
-        func_020ca458(0, (void*)0x05000400, 0x400);
+        Memset32Bit_020ca458(0, (void*)0x06800000, 0xa4000);
+        Memset32Bit_020ca458(0xc0, (void*)0x07000000, 0x400);
+        Memset32Bit_020ca458(0, (void*)0x05000000, 0x400);
+        Memset32Bit_020ca458(0xc0, (void*)0x07000400, 0x400);
+        Memset32Bit_020ca458(0, (void*)0x05000400, 0x400);
         MapVRAMBanksToLCDC(3);
         MapVRAMBanksToSubBG(0x80);
-        func_020c3984(0);
+        SetSubBGMode_020c3984(0);
         DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | 0x100;
         BG0CNTSUB &= ~3;
         unsigned short var2 = BG0CNTSUB;
@@ -174,8 +171,8 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
                     char* var12 = (char*)GetPacEntryData_020467f0((PacEntry_02020aec*)var6, var10, &var5, &var11);
                     if (var12 != NULL)
                     {
-                        func_0204b2e0(&var9, var12);
-                        func_0204b3a0((Struct_02020cb8_6*)&var9, var12);
+                        FlushBGBlock_0204b2e0(&var9, var12);
+                        CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6*)&var9, var12);
                     }
                 }
                 var4->RemoveTask(var3);
@@ -187,18 +184,18 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
     else
     {
         MapVRAMBanksToLCDC(0x1ff);
-        func_020ca458(0, (void*)0x06800000, 0xa4000);
+        Memset32Bit_020ca458(0, (void*)0x06800000, 0xa4000);
         DisableLCDCMappedVRAMBanks();
-        func_020ca458(0xc0, (void*)0x07000000, 0x400);
-        func_020ca458(0, (void*)0x05000000, 0x400);
-        func_020ca458(0xc0, (void*)0x07000400, 0x400);
-        func_020ca458(0, (void*)0x05000400, 0x400);
+        Memset32Bit_020ca458(0xc0, (void*)0x07000000, 0x400);
+        Memset32Bit_020ca458(0, (void*)0x05000000, 0x400);
+        Memset32Bit_020ca458(0xc0, (void*)0x07000400, 0x400);
+        Memset32Bit_020ca458(0, (void*)0x05000400, 0x400);
         MapVRAMBanksToLCDC(0x1ff);
     }
-    func_020c9820();
+    WaitForVBlank_020c9820();
     data_ov016_0219d0c0.unknown_0_ = arg1;
-    func_020c39a0((short*)0x0400006c, 0);
-    func_020c39a0((short*)0x0400106c, 0);
+    WriteBrightnessRegister_020c39a0((short*)0x0400006c, 0);
+    WriteBrightnessRegister_020c39a0((short*)0x0400106c, 0);
     func_ov016_0218ca98(arg0);
     SetInterruptHandler(1, (const void*)func_02012bd8);
 }
@@ -206,8 +203,8 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
 // USA: func_ov016_0218caa8
 extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_0218caa8_2* arg2, int arg3, void* arg4)
 {
-    func_020c39a0((short*)0x0400006c, -16);
-    func_020c39a0((short*)0x0400106c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x0400006c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x0400106c, -16);
     data_ov016_0219d0c0.unknown_34_ = arg2;
     data_ov016_0219d0c0.unknown_40_[0] = 0;
     data_ov016_0219d0c0.unknown_40_[1] = 0;
@@ -228,14 +225,14 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
     if (func_0201201c(var14) == 5)
     {
         MapVRAMBanksToLCDC(0x1ff);
-        func_020ca458(0, (void*)0x06800000, 0xa4000);
-        func_020ca458(0xc0, (void*)0x07000000, 0x400);
-        func_020ca458(0, (void*)0x05000000, 0x400);
-        func_020ca458(0xc0, (void*)0x07000400, 0x400);
-        func_020ca458(0, (void*)0x05000400, 0x400);
+        Memset32Bit_020ca458(0, (void*)0x06800000, 0xa4000);
+        Memset32Bit_020ca458(0xc0, (void*)0x07000000, 0x400);
+        Memset32Bit_020ca458(0, (void*)0x05000000, 0x400);
+        Memset32Bit_020ca458(0xc0, (void*)0x07000400, 0x400);
+        Memset32Bit_020ca458(0, (void*)0x05000400, 0x400);
         MapVRAMBanksToLCDC(3);
         MapVRAMBanksToSubBG(0x80);
-        func_020c3984(0);
+        SetSubBGMode_020c3984(0);
         DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | 0x100;
         BG0CNTSUB &= ~3;
         unsigned short var15 = BG0CNTSUB;
@@ -318,18 +315,18 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
     else
     {
         MapVRAMBanksToLCDC(0x1ff);
-        func_020ca458(0, (void*)0x06800000, 0xa4000);
+        Memset32Bit_020ca458(0, (void*)0x06800000, 0xa4000);
         DisableLCDCMappedVRAMBanks();
-        func_020ca458(0xc0, (void*)0x07000000, 0x400);
-        func_020ca458(0, (void*)0x05000000, 0x400);
-        func_020ca458(0xc0, (void*)0x07000400, 0x400);
-        func_020ca458(0, (void*)0x05000400, 0x400);
+        Memset32Bit_020ca458(0xc0, (void*)0x07000000, 0x400);
+        Memset32Bit_020ca458(0, (void*)0x05000000, 0x400);
+        Memset32Bit_020ca458(0xc0, (void*)0x07000400, 0x400);
+        Memset32Bit_020ca458(0, (void*)0x05000400, 0x400);
         MapVRAMBanksToLCDC(0x1ff);
     }
-    func_020c9820();
+    WaitForVBlank_020c9820();
     data_ov016_0219d0c0.unknown_8_ = arg1;
-    func_020c39a0((short*)0x0400006c, 0);
-    func_020c39a0((short*)0x0400106c, 0);
+    WriteBrightnessRegister_020c39a0((short*)0x0400006c, 0);
+    WriteBrightnessRegister_020c39a0((short*)0x0400106c, 0);
     func_ov016_0218c04c(arg0, arg4);
     SetInterruptHandler(1, (const void*)func_02012bd8);
 }

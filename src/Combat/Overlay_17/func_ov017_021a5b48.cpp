@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Combat/MapDisplay.h"
 
-struct Struct_0205cfd4;
-extern "C" void func_0205cfd4(struct Struct_0205cfd4* arg0);
+struct TextWindowManager_0205cfd4;
+extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
@@ -16,7 +16,7 @@ static const int kLayoutShift=0;
 
 // USA: func_ov017_021a5b48
 extern "C" ARM void func_ov017_021a5b48(unsigned char* arg0) {
-    func_0205cfd4(*(struct Struct_0205cfd4**)(arg0 + 0x4090 - kLayoutShift));
+    InitTextWindowManager_0205cfd4(*(struct TextWindowManager_0205cfd4**)(arg0 + 0x4090 - kLayoutShift));
     for (int var0 = 0; var0 < 2; var0++) {
         InitBGLayer_0204af64((struct BGLayer_02020cb8*)(arg0 + 0x4094 - kLayoutShift + var0 * 0x20));
     }

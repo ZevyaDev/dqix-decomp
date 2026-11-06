@@ -58,7 +58,7 @@ extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int 
 extern "C" void* func_0208247c(void* arg0);
 extern "C" int func_02082490(void* arg0, void* arg1, unsigned int arg2, int arg3, int arg4);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
-extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" void func_02046608(void* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
 
 extern char data_ov003_0217fe18[];
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov003_021592d8(struct Struct_ov003_021592d8_6* arg0, st
         }
         if (var10 > 0) {
             SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var0, 0, var10);
-            func_020465f0((unsigned char*)var0, 0, 0);
+            SetMessageNumberWidth_020465f0((unsigned char*)var0, 0, 0);
             var4 = 0x3fd;
         } else {
             var4 = 0x3ff;

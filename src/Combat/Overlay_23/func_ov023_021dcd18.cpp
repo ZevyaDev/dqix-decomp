@@ -10,9 +10,9 @@
 #endif
 
 
-struct Struct_02074bd0;
+struct BGControlSave_02074bd0;
 struct Struct_02074bf4;
-extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
+extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
 
 // USA: func_ov023_021dcd18
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov023_021dcd18(void* arg0) {
         unsigned int* var1 = (unsigned int*)0x4001000;
         *var1 = (*var1 & ~0x1f00) | (*(unsigned int*)((char*)arg0 + REGION_FIELD_2) << 8);
     } else {
-        func_02074bd0((struct Struct_02074bd0*)((char*)arg0 + REGION_FIELD_1));
+        RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)((char*)arg0 + REGION_FIELD_1));
         unsigned int* var2 = (unsigned int*)0x4000000;
         *var2 = (*var2 & ~0x1f00) | (*(unsigned int*)((char*)arg0 + REGION_FIELD_2) << 8);
     }

@@ -3,11 +3,11 @@
 #include "Memory/SafeAllocator.h"
 
 struct Struct_02013fb4;
-struct Struct_020727d8;
+struct StringList_020727d8;
 struct PacEntry_02020cb8_4;
 
-extern "C" void func_020727d8(Struct_020727d8* arg0);
-extern "C" void func_020728ac(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
+extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* arg2, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
@@ -56,9 +56,9 @@ extern "C" ARM int func_0207f9f4(Struct_0207f9f4* arg0) {
             unsigned int var5;
             var1->GetLoadedFileByID(var0[0], &var4, &var5);
             arg0->unknown_0_ = arg0->unknown_14_->Allocate(8);
-            func_020727d8((Struct_020727d8*)arg0->unknown_0_);
+            ResetStringList_020727d8((StringList_020727d8*)arg0->unknown_0_);
             if (var4 != 0) {
-                func_020728ac(arg0->unknown_0_, arg0->unknown_14_, var4, var5, 0, 0, 0);
+                LoadStringList_020728ac(arg0->unknown_0_, arg0->unknown_14_, var4, var5, 0, 0, 0);
             }
             var1->GetLoadedFileByID(var0[1], &var4, &var5);
             if (var4 != 0) {
@@ -98,8 +98,8 @@ extern "C" ARM int func_0207f9f4(Struct_0207f9f4* arg0) {
             var12[var14] = GetPacEntryData_020467f0((PacEntry_02020aec*)var9, var14, &var8, &var13[var14]);
         }
         arg0->unknown_0_ = arg0->unknown_14_->Allocate(8);
-        func_020727d8((Struct_020727d8*)arg0->unknown_0_);
-        func_020728ac(arg0->unknown_0_, arg0->unknown_14_, var12[0], var13[0], 0, 0, 0);
+        ResetStringList_020727d8((StringList_020727d8*)arg0->unknown_0_);
+        LoadStringList_020728ac(arg0->unknown_0_, arg0->unknown_14_, var12[0], var13[0], 0, 0, 0);
         func_0207f524(arg0->unknown_4_, arg0->unknown_14_, (Struct_02013fb4*)var12[1], var13[1]);
         func_0207ef74((Struct_0207ed1c*)arg0->unknown_c_, (SafeAllocator*)arg0->unknown_14_, (Struct_02013fb4*)var12[2], var13[2]);
         var7->RemoveTask(arg0->unknown_1c_);

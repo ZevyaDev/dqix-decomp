@@ -16,7 +16,7 @@ struct Struct_ov003_02154720_2 {
  unsigned char unknown_1f2_[4],unknown_1f6_,unknown_1f7_,unknown_1f8_,unknown_1f9_,unknown_1fa_,unknown_1fb_;unsigned int unknown_1fc_;int unknown_200_,unknown_204_;
  char unknown_208_[0x330-0x208];int unknown_330_,unknown_334_;unsigned char unknown_338_,unknown_339_,unknown_33a_;
 };
-extern "C" void func_02074af4(void*);
+extern "C" void SaveMainBGControl_02074af4(void*);
 extern "C" void InitSpriteSet_0205a444(char*);
 struct Struct_02081ee4;
 struct Struct_02081ee4_2;
@@ -25,10 +25,10 @@ extern "C" void func_0208247c(void*);
 struct StringTable_0201099c_14;
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14*);
 extern "C" void func_ov023_021e20c0(void*);
-extern "C" void func_020de848(void*);
+extern "C" void ClearItemTable_020de848(void*);
 extern "C" unsigned int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void* memset(void*,int,unsigned int);
-extern "C" unsigned int func_020114ec(char*, void*);
+extern "C" unsigned int GetPartyOrder_020114ec(char*, void*);
 extern "C" void func_ov003_0215873c(void*);
 // USA: func_ov003_02154720
 extern "C" ARM void func_ov003_02154720(void* arg0,unsigned char arg1) {
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov003_02154720(void* arg0,unsigned char arg1) {
  int var4;
  GameState* var5;
  int var6;
- var1->unknown_170_=0;var1->unknown_171_=0;func_02074af4(var1->unknown_160_);
+ var1->unknown_170_=0;var1->unknown_171_=0;SaveMainBGControl_02074af4(var1->unknown_160_);
  var1->unknown_174_=(*(volatile unsigned int*)0x04000000&0x1f00)>>8;
  *(volatile unsigned int*)0x04000000=(*(volatile unsigned int*)0x04000000&~0x1f00)|0x100;
  var5=GameState::GetInstance();
@@ -51,14 +51,14 @@ extern "C" ARM void func_ov003_02154720(void* arg0,unsigned char arg1) {
  InitStringTable_020dfc40((StringTable_0201099c_14*)var1->unknown_e4_);
  InitStringTable_020dfc40((StringTable_0201099c_14*)var1->unknown_fc_);
  func_ov023_021e20c0(var1->unknown_114_);
- func_020de848(var1->unknown_178_);
+ ClearItemTable_020de848(var1->unknown_178_);
  var1->unknown_1d0_=-1;var1->unknown_1d4_=0;var1->unknown_1d8_=0;var1->unknown_1dc_=0;
  var1->unknown_1e0_=-1;var1->unknown_1e2_=-1;var1->unknown_1e4_=-1;var1->unknown_1e6_=-1;var1->unknown_1e8_=-1;var1->unknown_1ea_=-1;var1->unknown_1ee_=-1;var1->unknown_1ec_=var1->unknown_1ee_;var1->unknown_1f0_=-1;
  var1->unknown_1f7_=GetProtagonistObjectIndex_020100a8(var5);
  var1->unknown_1f8_=0;var1->unknown_1f9_=0;var1->unknown_1fa_=0;var1->unknown_1fb_=0;var1->unknown_1fc_=0;var1->unknown_200_=0;var1->unknown_204_=0;
  var1->unknown_330_=0;var1->unknown_334_=0;var1->unknown_338_=0;var1->unknown_339_=0;var1->unknown_33a_=0;
  for(var6=0;var6<4;var6++) { var1->unknown_1f2_[var6]=0;memset(&var1->unknown_190_[var6],0,4); }
- var1->unknown_1f6_=func_020114ec((char*)var5, var1->unknown_1f2_);
+ var1->unknown_1f6_=GetPartyOrder_020114ec((char*)var5, var1->unknown_1f2_);
  Struct_ov003_02154720* var7=(Struct_ov003_02154720*)GetParty_02010828(var5);
  var3=var1->unknown_1f6_;
  for(int var8=0;var8<var3;var8++) {

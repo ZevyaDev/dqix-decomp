@@ -31,7 +31,7 @@ extern "C" void func_ov000_02172720(void* arg0);
 
 extern "C" void func_02079f9c(char* arg0);
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" void func_02057f00(void* arg0, int arg1);
+extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
 extern "C" void func_ov023_021eb26c(void* arg0);
 
 extern char gSoundEffectManager_02108760[];
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov000_021604f0(struct Struct_ov000_021604f0* arg0) {
     func_02079f9c((char*)GetActionTables_020797dc());
     void* var0 = GetEffectManager_02057924();
     for (int* var1 = data_ov000_02182fe0; *var1 >= 0; var1++) {
-        func_02057f00(var0, *var1);
+        RemoveEffectResource_02057f00(var0, *var1);
     }
     if (arg0->unknown_55cc_ != NULL) {
         func_ov023_021eb26c(arg0->unknown_55cc_);

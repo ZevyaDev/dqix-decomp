@@ -30,7 +30,7 @@ extern int gSoundEffectManager_02108760;
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
-extern "C" void* func_020e46c4(void*);
+extern "C" void* InitNoun_020e46c4(void*);
 extern "C" void func_020dcf7c(int, void*);
 extern "C" int GetStringLength_020d2ff0(const char*);
 extern "C" void func_02044f3c(struct MessageWindow_02021b84* arg0, const char* arg1, int arg2);
@@ -205,7 +205,7 @@ extern "C" ARM void StartMessage_0204500c(struct MessageWindow_02021b84* window,
 
     short var9 = var8->unknown_7f58_;
     Struct_0204500c_2 var10;
-    func_020e46c4(&var10);
+    InitNoun_020e46c4(&var10);
     if (var9 > 0) {
         char var11[0x80] = {};
         char var12[0x80] = {};

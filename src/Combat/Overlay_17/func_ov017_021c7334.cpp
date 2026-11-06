@@ -8,8 +8,8 @@ enum { Enum_ov017_021c7334_14104 = 0x3718 };
 #include "GameState/GameState.h"
 
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* func_ov017_021b8468(void* arg0);
-extern "C" ARM void* func_ov017_021b8470(void* arg0);
+extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" ARM void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" ARM int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 struct Struct_ov017_021c7334 {
@@ -50,10 +50,10 @@ extern "C" ARM void func_ov017_021c7334(void* arg0, struct Struct_ov017_021c7334
     if (!var1) {
         return;
     }
-    if (!func_ov017_021b8468(var0)) {
+    if (!GetBattleScene_ov017_021b8468(var0)) {
         return;
     }
-    if (!func_ov017_021b8470(var0)) {
+    if (!GetBattle_ov017_021b8470(var0)) {
         return;
     }
     int var2 = GetProtagonistObjectIndex_020100a8(arg2);

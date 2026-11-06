@@ -29,12 +29,12 @@ struct Struct_ov000_02160da0 {
 
 extern "C" void* func_ov000_02160f20(void* arg0);
 extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
-extern "C" struct Struct_ov000_021626a0* func_0200fea4(GameState* arg0, int arg1);
+extern "C" struct Struct_ov000_021626a0* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" int func_02049ee8(unsigned char* arg0);
 extern "C" void func_020d76b8(struct Struct_020d76b8* arg0, int arg1);
 extern "C" void func_020d76d8(unsigned char* arg0, int arg1);
 extern "C" int func_ov000_0215fc60(char* arg0);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 
 // USA: func_ov000_021626a0
 extern "C" ARM void func_ov000_021626a0(Struct_ov000_02160da0* arg0, int arg1, int arg2) {
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov000_021626a0(Struct_ov000_02160da0* arg0, int arg1, i
         }
         var7 = arg2;
         if (var6->obj3D_.classFlags_0_ & 0x400) {
-            var10 = func_0200fea4(var1, var0[var3]);
+            var10 = GetEnemyByIndex_0200fea4(var1, var0[var3]);
             if (var10 != NULL) {
                 var11 = var10->unknown_148_;
                 if (func_02049ee8((unsigned char*)var10) == 0 && var11->unknown_13_3_) {
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov000_021626a0(Struct_ov000_02160da0* arg0, int arg1, i
         if (var6 == NULL) {
             continue;
         }
-        if (func_020a35e0(arg0->unknown_2a0_, var4)) {
+        if (IsPartyMemberInBattle_020a35e0(arg0->unknown_2a0_, var4)) {
             var6->obj3D_.MakeHidden();
             func_020d76d8((unsigned char*)var8, var4);
         }

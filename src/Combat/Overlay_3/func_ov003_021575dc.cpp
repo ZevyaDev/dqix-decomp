@@ -112,7 +112,7 @@ struct Struct_02109bf4_2;
 extern "C" void func_0209c830(Struct_02109bf4_2*, int);
 extern "C" int func_0209ca2c(void* arg0);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
-extern "C" void* func_020de824(void* arg0);
+extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void func_0207cbe8(char* arg0);
 extern "C" void func_0207cc0c(char* arg0);
 extern "C" int func_ov023_021ed6cc(int arg0);
@@ -129,7 +129,7 @@ extern "C" void func_ov003_02158140(Struct_ov003_021575dc_2*, int);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
-extern "C" void func_020de848(void* arg0);
+extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" ARM int func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -309,7 +309,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
             var24->RemoveTask(var0->unknown_1d0_);
             var0->unknown_1d0_ = -1;
             short var31 = var0->unknown_1f0_;
-            func_020de848(var0->unknown_178_);
+            ClearItemTable_020de848(var0->unknown_178_);
             func_020de980(var0->unknown_178_, var0->unknown_0_ + 0x78, var25, var26, var31);
             var0->unknown_338_ = 1;
             func_ov003_0215873c(arg0);
@@ -346,7 +346,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
 
                 char var37[0x38];
                 ((SafeAllocator*)var37)->ResetAllocatorPointer();
-                func_020de824(var37 + 0x14);
+                InitItemTable_020de824(var37 + 0x14);
                 func_0207cbe8(var37);
                 func_0207cbe8(var37);
                 *(void**)(var37 + 0x2c) = var0->unknown_178_;
@@ -481,7 +481,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
         }
     } else if (var3 == 0x66) {
         FontLoader_0208cb08* var68 = GetFontLoader_02094a00();
-        func_02094b40(var68);
+        ClearLoadedFontSets_02094b40(var68);
         RequestFontLoad_02094b34(var68, 0x66, 501, 0, 0);
         var0->unknown_1f9_ = var0->unknown_1f9_ + 1;
     } else if (var3 == 0x67) {

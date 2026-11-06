@@ -6,7 +6,7 @@
 #include "World/ZoneLootableRecord.h"
 #include "Resource/Brightness.h"
 
-struct Struct_02015438;
+struct QueueNode_02015438;
 struct Struct_0201730c;
 struct Struct_02015ef4_2;
 struct Struct_0203402c;
@@ -37,7 +37,7 @@ struct Struct_ov017_0219ad84_4 {
 
 extern "C" Struct_ov017_0219ad84* GetZone3D_02012fe4();
 extern "C" Struct_ov017_0219ad84_2* GetMessageWindow_020421a0();
-extern "C" int func_02046b24(Struct_02015438**);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void func_0204724c(Struct_0201730c*);
 extern "C" void func_020473c8(Struct_02015ef4_2*, int);
 extern "C" unsigned char func_02039d7c(char*);
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
     GameObject* var5 = var0->GetUnknownGameObject();
     if (!var5) return;
 
-    if (func_02046b24((Struct_02015438**)arg0->unknown_ptr_array_36fc[0]) == 4) {
+    if (GetQueueHeadType_02046b24((QueueNode_02015438**)arg0->unknown_ptr_array_36fc[0]) == 4) {
         if (inline_ov017_0219ad84(arg0) == NULL || !inline_ov017_0219ad84(arg0)->unknown_84_0_) return;
         GXFIFO_MATRIX_PUSH = 0;
         if (inline_ov017_0219ad84(arg0) != &arg0->substruct_array_2b90[12] &&

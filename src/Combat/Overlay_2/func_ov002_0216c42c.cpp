@@ -48,7 +48,7 @@ struct Struct_ov002_0216c42c_6 {
 
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
-extern "C" int func_02086ef0(Struct_ov002_0216c42c* arg0, int arg1);
+extern "C" int IsInParty_02086ef0(Struct_ov002_0216c42c* party, int objectIndex);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov017_021d2cc0(void* arg0);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov002_0216c42c(char* arg0, Struct_ov002_0216c42c_5* arg
     signed char var3 = 0;
     for (int var4 = 0; var4 < arg1->unknown_3_; var4++) {
         int var5 = arg1->unknown_4_[var4];
-        if (func_02086ef0(var1, var5) == 0) {
+        if (IsInParty_02086ef0(var1, var5) == 0) {
             var2.unknown_4_[var3] = var5;
             Struct_ov002_0216c42c_2* var6 = &var2.unknown_8_[var3];
             Struct_ov002_0216c42c_4* var7 = &arg1->unknown_8_[var4];

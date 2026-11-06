@@ -10,7 +10,7 @@
 
 struct Struct_0207fdcc_2;
 struct Struct_ov006_02158054;
-struct Struct_0204b010;
+struct BGLayer_0204b010;
 struct Struct_0204af14;
 struct Struct_02000c9c_8;
 struct BGLayer_0204b8d0;
@@ -58,7 +58,7 @@ struct Struct_ov006_02156e54_2 {
 extern "C" int func_ov006_02158080(Struct_0207fdcc_2*, int);
 extern "C" void func_ov006_02158054(void*, Struct_ov006_02158054*, int, int, unsigned char, unsigned char);
 extern "C" void func_ov006_02154a60(Struct_ov006_02154614*);
-extern "C" void func_0204b010(Struct_0204b010*, void*);
+extern "C" void ClearBGScreenData_0204b010(BGLayer_0204b010*, void*);
 extern "C" void* func_0204af14(Struct_0204af14*, unsigned int);
 extern "C" void func_0204b938(void*, void*, int, int, unsigned short);
 extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
@@ -66,7 +66,7 @@ extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0*, unsigned int, 
 extern "C" void func_0207fcb8(Struct_0207fcb8*);
 extern "C" void func_0207fd00(Struct_0207fd00*);
 extern "C" void func_0207fe80(void*, int, int, int);
-extern "C" void func_0204b04c(void*, int);
+extern "C" void FlushBGScreenData_0204b04c(void*, int);
 extern "C" void func_0207fd44(Struct_0207fd44_2*);
 extern "C" void PlaySpriteAnimation_0205a370(SpriteAnimationList_0205a254*, int);
 extern "C" Struct_ov006_021580b8_2* FindSpriteAnimation_0205a3d0(SpriteAnimationList_0205a254*, int);
@@ -80,7 +80,7 @@ extern "C" void func_ov006_021587d0(Struct_ov006_02157a60*);
 extern "C" void func_ov006_02158914(Struct_ov006_02157a60*);
 extern "C" void func_020807c4(void*, int, short*, short*);
 extern "C" void DrawSprite_0205ac40(void*, Struct_ov006_021580b8*);
-extern "C" void* func_0203bd08();
+extern "C" void* GetOAMManager_0203bd08();
 extern "C" unsigned int func_0203be4c(void*);
 extern "C" void func_02076988(int*, int, int);
 extern "C" void func_02075db0(Struct_02075db0*, int, int);
@@ -195,7 +195,7 @@ extern "C" ARM void func_ov006_021580b8(Struct_ov006_02157a60* arg0)
             arg0->unknown_42c_ = 0;
         }
         func_ov006_02154a60(arg0->unknown_10_);
-        func_0204b010((Struct_0204b010*)arg0->unknown_54_, 0);
+        ClearBGScreenData_0204b010((BGLayer_0204b010*)arg0->unknown_54_, 0);
         void* var0 = func_0204af14((Struct_0204af14*)arg0->unknown_54_, arg0->unknown_397_);
         if (var0 != 0)
             func_0204b938(arg0->unknown_54_, var0, 0, 0, 0xffff);
@@ -227,7 +227,7 @@ extern "C" ARM void func_ov006_021580b8(Struct_ov006_02157a60* arg0)
         func_0207fcb8((Struct_0207fcb8*)var3);
         func_0207fd00((Struct_0207fd00*)var3);
         func_0207fe80(var3, 2, 1, 1);
-        func_0204b04c(arg0->unknown_54_, 0);
+        FlushBGScreenData_0204b04c(arg0->unknown_54_, 0);
         func_0207fd44((Struct_0207fd44_2*)var3);
         if (arg0->unknown_394_ & 0x200)
         {
@@ -284,7 +284,7 @@ extern "C" ARM void func_ov006_021580b8(Struct_ov006_02157a60* arg0)
             var9->unknown_26_ = 1;
             DrawSprite_0205ac40(arg0->unknown_ac_, var9);
         }
-        unsigned int var10 = func_0203be4c(func_0203bd08());
+        unsigned int var10 = func_0203be4c(GetOAMManager_0203bd08());
         arg0->unknown_3b8_.unknown_4c_ = 0;
         arg0->unknown_3b8_.unknown_14_ = var10 + 0x1b8;
         arg0->unknown_3b8_.unknown_44_ = 0x37;

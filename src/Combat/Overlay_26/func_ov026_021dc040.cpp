@@ -27,13 +27,13 @@ struct Struct_ov026_021dc040 {
 };
 extern "C" Object3D* func_0204a438(Struct_0204a438*);
 extern "C" int func_ov000_0215fc60(char*);
-extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void SetCamera_020100c4(GameState*, int);
 extern "C" void func_ov000_0216118c(void*, int);
 extern "C" void func_ov000_02167e6c(unsigned char*);
-extern "C" void func_0200fd48(GameState*, int);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
 extern "C" void func_02012050(Struct_02012050*);
 extern "C" {
 int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
@@ -65,7 +65,7 @@ extern "C" ARM int func_ov026_021dc040(SafeAllocator* arg0, Struct_ov000_02160da
             Vector3fix var7 = {};
             int var8[2] = {};
             for (int var9 = 0; var9 < var6; ++var9) {
-                if (func_020a35e0((unsigned char*)arg3, var5[var9])) {
+                if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg3, var5[var9])) {
                     GameObject* var10 = GetPartyMemberBaseByIndex_0200ff1c(var0, var5[var9]);
                     if (var10 && var10->obj3D_.pModel_) {
                         Struct_ov026_021dc040* var11 = (Struct_ov026_021dc040*)var10->baseStats_;
@@ -91,7 +91,7 @@ extern "C" ARM int func_ov026_021dc040(SafeAllocator* arg0, Struct_ov000_02160da
             Vector3fixMultiplyScalar(&var7, (int)(4096.0f * (1.0f / (float)var6)), &var7);
             int var17 = -var7.x;
             for (int var18 = 0; var18 < var6; ++var18) {
-                if (func_020a35e0((unsigned char*)arg3, var5[var18])) {
+                if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg3, var5[var18])) {
                     GameObject* var19 = GetPartyMemberBaseByIndex_0200ff1c(var0, var5[var18]);
                     if (var19) {
                         Vector3fix var20 = var19->obj3D_.position_;
@@ -106,7 +106,7 @@ extern "C" ARM int func_ov026_021dc040(SafeAllocator* arg0, Struct_ov000_02160da
     if (arg1->unknown_7712_ == 0 && !var2->HasAnimationStopped()) return 0;
     if (arg1->unknown_7712_ != 6) {
         for (int var21 = 0; var21 < 4; ++var21) {
-            if (func_020a35e0((unsigned char*)arg3, var21)) {
+            if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg3, var21)) {
                 GameObject* var22 = GetPartyMemberBaseByIndex_0200ff1c(var0, var21);
                 if (var22) {
                     var22->obj3D_.RemoveAnimationPackageByID(3);
@@ -122,7 +122,7 @@ extern "C" ARM int func_ov026_021dc040(SafeAllocator* arg0, Struct_ov000_02160da
         func_ov000_021626a0(arg1, 0x26, 0);
         func_ov000_021626a0(arg1, 0x27, 1);
         arg0->Reset();
-        func_0200fd48(var0, 0xcf);
+        ClearGameObjectByIndex_0200fd48(var0, 0xcf);
         func_02012050((Struct_02012050*)var0);
     }
     return 1;

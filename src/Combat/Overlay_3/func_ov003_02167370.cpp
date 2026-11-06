@@ -16,8 +16,8 @@ extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
 extern "C" int DisableSubBGVRAMBanks(void);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void MapVRAMBanksToSubObj(int value);
-struct Struct_02020cb8_3;
-extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
+struct BGLayer_02020cb8_3;
+extern "C" void ResetBGLayerData_0204afb4(struct BGLayer_02020cb8_3* layer);
 struct Struct_0204c754;
 extern "C" void func_0204c754(struct Struct_0204c754* arg0);
 
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov003_02167370(char* arg0) {
     MapVRAMBanksToSubObj(*(int*)(arg0 + 0x18));
 
     if (*(void**)(arg0 + 8) != 0) {
-        func_0204afb4(*(struct Struct_02020cb8_3**)(arg0 + 8));
+        ResetBGLayerData_0204afb4(*(struct BGLayer_02020cb8_3**)(arg0 + 8));
         *(int*)(arg0 + 8) = 0;
     }
     if (*(void**)(arg0 + 0xc) != 0) {

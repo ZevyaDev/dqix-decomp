@@ -21,17 +21,17 @@ struct Struct_02108db0 {
 };
 extern struct Struct_02108db0 data_02108db0;
 
-// USA: func_020728ac
-extern "C" ARM void func_020728ac(int arg0, int arg1, struct Struct_02013fb4* arg2, int arg3, int arg4, unsigned short arg5, unsigned char arg6) {
-    char var0[0x430];
-    data_02108db0.unknown_10_ = arg0;
-    data_02108db0.unknown_c_ = arg1;
-    data_02108db0.unknown_8_ = arg4;
-    data_02108db0.unknown_2_ = arg5;
+// USA: LoadStringList_020728ac
+extern "C" ARM void LoadStringList_020728ac(int stringList, int allocator, struct Struct_02013fb4* arg2, int scriptSize, int idFilter, unsigned short idFilterCount, unsigned char skippedStringCount) {
+    char script[0x430];
+    data_02108db0.unknown_10_ = stringList;
+    data_02108db0.unknown_c_ = allocator;
+    data_02108db0.unknown_8_ = idFilter;
+    data_02108db0.unknown_2_ = idFilterCount;
     data_02108db0.unknown_4_ = 0;
-    data_02108db0.unknown_0_ = arg6;
-    ((Script*)((struct Struct_0201f040*)var0))->Initialize();
-    ((Script*)((struct Struct_0201f040*)var0))->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f0cc8);
-    ((Script*)((struct Struct_0201f040_2*)var0))->Load(arg2, arg3);
-    ((Script*)((struct Struct_0201f040_3*)var0))->Execute();
+    data_02108db0.unknown_0_ = skippedStringCount;
+    ((Script*)((struct Struct_0201f040*)script))->Initialize();
+    ((Script*)((struct Struct_0201f040*)script))->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f0cc8);
+    ((Script*)((struct Struct_0201f040_2*)script))->Load(arg2, scriptSize);
+    ((Script*)((struct Struct_0201f040_3*)script))->Execute();
 }

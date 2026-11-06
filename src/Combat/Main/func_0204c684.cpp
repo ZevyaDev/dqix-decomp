@@ -8,8 +8,8 @@
 #include "std_library_functions.h"
 
 extern "C" void func_0204f0ec(char* arg0);
-struct Struct_02020cb8_7;
-extern "C" void func_0204acb0(struct Struct_02020cb8_7* arg0);
+struct BGScreenBlock_02020cb8_7;
+extern "C" void func_0204acb0(struct BGScreenBlock_02020cb8_7* arg0);
 
 struct Struct_0204c684 {
     unsigned char unknown_0_0_ : 1;
@@ -51,17 +51,17 @@ extern "C" ARM void InitTextWindow_0204c684(char* textWindow) {
     *(unsigned char*)(textWindow + 0xc6) = 2;
     *(unsigned char*)(textWindow + 0xc7) = 0xa;
 
-    func_0204acb0((struct Struct_02020cb8_7*)(textWindow + 0xc8));
+    func_0204acb0((struct BGScreenBlock_02020cb8_7*)(textWindow + 0xc8));
 
-    Struct_0204c684* var0 = (Struct_0204c684*)(textWindow + 0xd8);
-    var0->unknown_0_0_ = 0;
-    var0->unknown_0_3_ = 0;
+    Struct_0204c684* flags = (Struct_0204c684*)(textWindow + 0xd8);
+    flags->unknown_0_0_ = 0;
+    flags->unknown_0_3_ = 0;
     *(unsigned char*)(textWindow + 0xd9) = 0;
     *(unsigned char*)(textWindow + 0xda) = 0;
 
-    var0->unknown_0_1_ = 1;
+    flags->unknown_0_1_ = 1;
 #if !defined(jpn)
-    var0->unknown_0_2_ = 0;
+    flags->unknown_0_2_ = 0;
 #endif
 
     memset(textWindow + 0xdb, 0, 4);

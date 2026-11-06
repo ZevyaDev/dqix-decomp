@@ -40,7 +40,7 @@ extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_02033fdc(Struct_02033fdc*);
-extern "C" void func_0200fd38(GameState*, int, GameObject*);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_020da1ac(void*);
 extern "C" void func_020a72ac(Zone3D*, int);
 extern char data_020f1b50[];
@@ -101,7 +101,7 @@ extern "C" ARM void func_020a6728(GameResources* arg0, int arg1) {
     var8->unknown_e0_ &= ~1;
     var8->unknown_0_.DisableFlag(0x180);
     var8->unknown_0_.EnableFlag(0x400000);
-    func_0200fd38(var0, 0xc9, (GameObject*)var8);
+    SetGameObjectByIndex_0200fd38(var0, 0xc9, (GameObject*)var8);
     if (arg1 == 10000) {
         SafeAllocator* var12 = (SafeAllocator*)var4->Allocate(0x14);
         var12->ResetAllocatorPointer();

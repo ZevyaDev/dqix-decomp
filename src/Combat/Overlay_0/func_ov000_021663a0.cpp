@@ -5,7 +5,7 @@
 extern "C" void func_ov000_0216733c(struct Struct_ov000_021663a0_2* arg0);
 extern "C" void func_ov000_02166540(struct Struct_ov000_021663a0_2* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0203232c(int* arg0, int arg1);
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" int func_02048bd0(unsigned char* arg0);
 
 struct Struct_ov000_021663a0_3 {
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov000_021663a0(struct Struct_ov000_021663a0_2* arg0) {
     }
     func_0203232c(var4, var2);
     for (int var13 = 0; var13 < var2; var13++) {
-        GameObject* var14 = func_0200fea4(var0, var4[var13]);
+        GameObject* var14 = GetEnemyByIndex_0200fea4(var0, var4[var13]);
         if (var14 != 0 && arg0->unknown_2a0_->unknown_2c_ == 0 && !func_02048bd0((unsigned char*)var14)) {
             var14->obj3D_.SetInheritedAlpha(0);
             ((unsigned char*)var14)[0x183] = 0x10 / var2 * var13 + 5;

@@ -6,10 +6,10 @@ extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(
 #include "Filesystem/FileIO.h"
 
 struct Struct_02000c9c_8;
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
-extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
-extern "C" int func_02046708(Struct_02012de8*, unsigned int);
+extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00();
+extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
 extern "C" void __clear(void*, unsigned int);
 
 struct Struct_0207568c : GPCReadPair {
@@ -34,7 +34,7 @@ extern "C" ARM void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsi
     unsigned int var4 = 0;
     unsigned char* var5 = gFileScratchSpace_0211e33c;
     unsigned int var6 = 0x30000;
-    if (func_02046708(GetGlobalFlags_020d6c00(), 0x02000000)) var6 -= 0x8000;
+    if (TestGlobalFlags_02046708(GetGlobalFlags_020d6c00(), 0x02000000)) var6 -= 0x8000;
     Struct_0207568c var7;
     if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var7.pGPCFile, var7.machine, arg0, var5, var4, var6, false, NULL)) {
         var3 = var4;

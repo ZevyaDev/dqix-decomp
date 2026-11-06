@@ -134,7 +134,7 @@ cont:
     var9[0x28] = 0;
 
     InitBGLayer_0204af64(&var0);
-    var0.unknown_1c_0_ = 3;
+    var0.isSubScreen_1c_0_ = 3;
 
     unsigned char* var10 = ((struct Struct_ov001_0215686c_4*)var4)->unknown_2c_;
     DC_FlushRange(var10 + 0xc, 0x20);

@@ -36,7 +36,7 @@ struct Struct_ov015_0218cc24_2 {
 };
 
 struct Vector3i;
-extern "C" void func_020c9820();
+extern "C" void WaitForVBlank_020c9820();
 extern "C" void func_02079a3c(void*);
 struct TextureVRAMArea_0203d028;
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
@@ -69,7 +69,7 @@ extern "C" ARM int func_ov015_0218cc24(Struct_ov015_0218cc24_2* arg0) {
     SafeAllocator* var4;
     short var5;
 
-    func_020c9820();
+    WaitForVBlank_020c9820();
     var5 = arg0->inline_ov015_0218cc24(7)->unknown_2_;
     if (arg0->unknown_20_[7] != var5) {
         arg0->inline_ov015_0218cc24(3)->unknown_2_ = -1;

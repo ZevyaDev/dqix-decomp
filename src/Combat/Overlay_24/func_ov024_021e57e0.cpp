@@ -18,11 +18,11 @@ struct Struct_ov024_021e57e0_3 {
     unsigned char unknown_17_;
 };
 
-struct Struct_ov000_0215440c;
+struct BattleAction_ov000_0215440c;
 
 struct Struct_ov024_021e57e0_4 {
     int unknown_0_;
-    struct Struct_ov000_0215440c* unknown_4_;
+    struct BattleAction_ov000_0215440c* unknown_4_;
     void* unknown_8_;
     char unknown_c_[4];
     void* unknown_10_;
@@ -30,7 +30,7 @@ struct Struct_ov024_021e57e0_4 {
 
 struct Struct_ov000_021584e8;
 
-extern "C" struct Struct_ov024_021e57e0_3* func_ov000_021600f8(struct Struct_ov000_0215440c* arg0, int arg1);
+extern "C" struct Struct_ov024_021e57e0_3* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
 extern "C" short func_ov000_0215a004(void* arg0, int arg1, int arg2, int arg3, unsigned long long* arg4, struct Struct_ov024_021e57e0_2* arg5, int arg6, int arg7);
 extern "C" struct Struct_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, int arg2);
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov024_021e57e0(struct Struct_ov024_021e57e0_4* arg0, in
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg1);
     if (!var0) return;
     if (arg2->unknown_4_.unknown_0_0_ == 0xaf) {
-        struct Struct_ov024_021e57e0_3* var1 = func_ov000_021600f8(arg0->unknown_4_, 0);
+        struct Struct_ov024_021e57e0_3* var1 = GetActionTarget_ov000_021600f8(arg0->unknown_4_, 0);
         for (int var2 = 1; var2 < var1->unknown_17_; var2++) {
             if (var1->unknown_14_[var2] == 3) return;
         }

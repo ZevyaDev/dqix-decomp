@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_02010088;
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 
 struct Struct_ov024_021da670_7;
 extern "C" int func_ov024_021da9b0(struct Struct_ov024_021da670_7* arg0);
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov024_021eb1ec(void* arg0, int arg1) {
     if (func_020882f8((unsigned char*)var1->currentStats_)) {
         return 0;
     }
-    if (func_02010088((struct Struct_02010088*)var1)) {
+    if (IsDead_02010088((struct Struct_02010088*)var1)) {
         return 0;
     }
     return ((struct Struct_ov024_021eb1ec*)var1->currentStats_)->unknown_3b_3_ == 0;

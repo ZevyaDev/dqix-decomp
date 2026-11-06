@@ -2,9 +2,9 @@
 #include "World/ZoneChest.h"
 
 extern "C" void* GetZone3D_02012fe4(void);
-struct Struct_020fdd44;
-extern "C" struct Struct_020fdd44* func_02027ca4(void);
-extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1);
+struct ActiveZone_020fdd44;
+extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
+extern "C" struct ActiveZone_020fdd44* FindActiveZone_02028bd0(struct ActiveZone_020fdd44* zones, int zoneId);
 
 struct Struct_02018300_2;
 extern "C" void func_02028c64(struct Struct_02018300_2* arg0, int arg1);
@@ -25,8 +25,8 @@ extern "C" ARM void func_ov017_021d19b0(int arg0, struct Struct_ov017_021d19b0* 
             return;
         func_02018300(var0, var1, arg1->unknown_8_, 0, 0);
     } else {
-        struct Struct_020fdd44* var2 = func_02027ca4();
-        struct Struct_020fdd44* var3 = func_02028bd0(var2, arg1->unknown_4_);
+        struct ActiveZone_020fdd44* var2 = GetActiveZones_02027ca4();
+        struct ActiveZone_020fdd44* var3 = FindActiveZone_02028bd0(var2, arg1->unknown_4_);
         if (var3 == NULL)
             return;
         func_02028c64((struct Struct_02018300_2*)var3, arg1->unknown_6_);

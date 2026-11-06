@@ -29,8 +29,8 @@ struct Struct_ov000_0216258c_2 {
     char unknown_3760_[1];
 };
 
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
-extern "C" Struct_ov000_0216258c_3* func_ov000_02161318(void* arg0, int arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
+extern "C" Struct_ov000_0216258c_3* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 extern "C" void func_ov000_0217f518(Struct_ov000_0216258c_3* arg0);
 extern "C" void func_ov000_02176134(Struct_ov000_0216258c_3* arg0, unsigned short arg1);
 extern "C" void func_ov000_02176150(Struct_ov000_0216258c_3* arg0, unsigned short arg1);
@@ -39,10 +39,10 @@ extern "C" void func_ov000_02176150(Struct_ov000_0216258c_3* arg0, unsigned shor
 extern "C" ARM void func_ov000_0216258c(Struct_ov000_0216258c_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     for (int var1 = 0; var1 < 4; var1++) {
-        if (!func_020a35e0(arg0->unknown_2a0_, var1 & 0xff)) continue;
+        if (!IsPartyMemberInBattle_020a35e0(arg0->unknown_2a0_, var1 & 0xff)) continue;
         GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, var1);
         if (!var2) continue;
-        Struct_ov000_0216258c_3* var3 = func_ov000_02161318(arg0->unknown_3760_, var1);
+        Struct_ov000_0216258c_3* var3 = FindPartyMemberPanel_ov000_02161318(arg0->unknown_3760_, var1);
         if (!var3) continue;
         if (var3->unknown_c_ == 0 && !(((Struct_ov000_0216258c*)var2->currentStats_)->unknown_14_ & 1)) {
             func_ov000_0217f518(var3);

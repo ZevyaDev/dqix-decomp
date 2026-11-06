@@ -25,7 +25,7 @@ struct PacEntry_02020aec;
 struct PacEntry_02020cb8_4;
 struct BGLayer_0204b8d0;
 struct BGLayer_02020cb8_2;
-struct Struct_02020cb8_6;
+struct BGLayer_02020cb8_6;
 struct Struct_0204af14;
 struct Struct_02000c9c_8;
 
@@ -43,8 +43,8 @@ extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0* layer, unsigned
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
 extern "C" void FillBGScreenRect_0204bc74(Struct_ov003_021594c4* layer, int screenEntry, int x, int y, int width, int height, int palette);
 extern "C" int CompareBytes_02001aec(const void* left, const void* right, unsigned int count);
-extern "C" void func_0204b2e0(void* arg0, char* arg1);
-extern "C" void func_0204b3a0(Struct_02020cb8_6* arg0, char* arg1);
+extern "C" void FlushBGBlock_0204b2e0(void* layer, char* block);
+extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6* layer, char* block);
 extern "C" void* func_0204af14(Struct_0204af14* arg0, unsigned int arg1);
 extern "C" void func_0204b620(Struct_ov003_021594c4* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8,
                               int arg9);
@@ -239,13 +239,13 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_02184e58_2* arg0)
             }
             if (arg0->unknown_d8f_ != 0)
             {
-                func_0204b2e0(var26, (char*)var22);
+                FlushBGBlock_0204b2e0(var26, (char*)var22);
             }
             else
             {
                 char var27[5] = {};
                 memcpy(var27, var22, 4);
-                func_0204b3a0((Struct_02020cb8_6*)var26, (char*)var22);
+                CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6*)var26, (char*)var22);
                 if (CompareBytes_02001aec(var27, data_ov009_0218bc20, 4) == 0)
                     LoadBGBlock_0204b174(var26, var22, &arg0->unknown_0_[1], var21);
             }
@@ -411,12 +411,12 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_021842a0_2* arg0)
             if (arg0->unknown_db6_ != 0)
             {
                 if (var56 != var32)
-                    func_0204b2e0(var58, (char*)var55);
+                    FlushBGBlock_0204b2e0(var58, (char*)var55);
             }
             else
             {
                 if (var56 != var32)
-                    func_0204b3a0((Struct_02020cb8_6*)var58, (char*)var55);
+                    CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6*)var58, (char*)var55);
                 if (CompareBytes_02001aec(var57, data_ov009_0218acab, 4) == 0)
                     LoadBGBlock_0204b174(var58, var55, &arg0->unknown_0_[1], var52);
             }

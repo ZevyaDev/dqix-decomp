@@ -141,7 +141,7 @@ struct Struct_ov001_021539d8_5* func_0203cf4c(void);
 
 void* GetLocalWireless_0202ae18(void);
 int IsNotLocalWirelessGuest_0202c508(void* wireless);
-unsigned char func_020100b0(GameState* arg0);
+unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 void ResetTextureVRAMState_0207df50(struct Struct_ov001_021539d8_7* area);
 void RestoreTextureVRAMState_0207df90(struct Struct_ov001_021539d8_7* area);
@@ -149,7 +149,7 @@ void SaveTextureVRAMState_0207dfac(struct Struct_ov001_021539d8_7* area);
 void func_ov001_0215ab54(int arg0, int arg1, int arg2);
 struct Struct_ov001_021539d8* func_0203df78(void* arg0, int arg1);
 int func_0203dfdc(void* arg0, int arg1);
-void func_0200fd38(GameState* arg0, int arg1, struct Struct_ov001_021539d8_11* arg2);
+void SetGameObjectByIndex_0200fd38(GameState* gameState, int index, struct Struct_ov001_021539d8_11* object);
 SafeAllocator* func_ov001_0215aab8(void);
 void _ZN8Object3D10InitializeEv(struct Struct_ov001_021539d8_11* arg0);
 void _ZN8Object3D11MakeVisibleEv(struct Struct_ov001_021539d8_11* arg0);
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
     for (var5 = arg0->unknown_d0_; var5 != 0; var5 = var5->unknown_34_) {
         if (var5->unknown_0_0_ == 1) {
             if (IsNotLocalWirelessGuest_0202c508(var4) == 0 || !(arg0->unknown_f8_0_ & 0x10)) {
-                int var22 = func_020100b0(var0);
+                int var22 = GetOwnPartyLeaderObjectIndex_020100b0(var0);
                 if (var22 != 0) {
                     struct Struct_ov001_021539d8_3* var23;
                     for (var23 = arg0->unknown_d0_; var23 != 0; var23 = var23->unknown_34_) {
@@ -268,7 +268,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             if ((arg0->unknown_f8_0_ & 0x10) || !(*var24->unknown_130_ & 1)) {
                 func_ov001_0215ab54(4, 0, var5->unknown_1_);
             } else if (IsNotLocalWirelessGuest_0202c508(var4) != 0) {
-                func_ov001_0215ab54(5, func_020100b0(var0), var5->unknown_1_);
+                func_ov001_0215ab54(5, GetOwnPartyLeaderObjectIndex_020100b0(var0), var5->unknown_1_);
             } else {
                 int var25 = GetProtagonistObjectIndex_020100a8(var0);
                 int var26;
@@ -289,7 +289,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             break;
         }
         case 1:
-            func_ov001_0215ab54(5, func_020100b0(var0), var5->unknown_1_);
+            func_ov001_0215ab54(5, GetOwnPartyLeaderObjectIndex_020100b0(var0), var5->unknown_1_);
             break;
         case 9:
         case 11:
@@ -304,7 +304,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             struct Struct_ov001_021539d8* var27 = func_0203df78(var2, var5->unknown_8_);
             if (var27 != 0 && var27->unknown_18_ != 0) {
                 var27->unknown_18_->unknown_d4_0_ = 1;
-                func_0200fd38(var0, var5->unknown_2_, var27->unknown_18_);
+                SetGameObjectByIndex_0200fd38(var0, var5->unknown_2_, var27->unknown_18_);
                 var27->unknown_0_ |= 0x10000;
                 func_ov001_0215ab54(6, func_0203dfdc(var2, var5->unknown_8_), var5->unknown_1_);
             }
@@ -349,7 +349,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             SaveTextureVRAMState_0207dfac(var21);
             _ZN8Object3D8SetScaleEiii(var34, 0x10a, 0x10a, 0x10a);
             _ZN8Object3D21MaybeSetBCFGAnimationEii(var34, 0, 0);
-            func_0200fd38(var0, var5->unknown_2_, var34);
+            SetGameObjectByIndex_0200fd38(var0, var5->unknown_2_, var34);
             if (var5->unknown_4_ & 1) {
                 GetZone3D_02012fe4();
                 var8 = LightingManager::GetInstance();
@@ -526,7 +526,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             SaveTextureVRAMState_0207dfac(var21);
             _ZN8Object3D8SetScaleEiii(var55, 0x10a, 0x10a, 0x10a);
             _ZN8Object3D21MaybeSetBCFGAnimationEii(var55, 0, 0);
-            func_0200fd38(var0, var5->unknown_2_, var55);
+            SetGameObjectByIndex_0200fd38(var0, var5->unknown_2_, var55);
             func_ov001_0215ab54(1, var5->unknown_2_, var5->unknown_1_);
             var1->RemoveTask(var5->unknown_2c_);
             var5->unknown_31_ = 1;
@@ -557,7 +557,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             SaveTextureVRAMState_0207dfac(var21);
             _ZN8Object3D8SetScaleEiii(var62, 0x10a, 0x10a, 0x10a);
             _ZN8Object3D21MaybeSetBCFGAnimationEii(var62, 0, 0);
-            func_0200fd38(var0, var5->unknown_2_, var62);
+            SetGameObjectByIndex_0200fd38(var0, var5->unknown_2_, var62);
             func_ov001_0215ab54(1, var5->unknown_2_, var5->unknown_1_);
             var1->RemoveTask(var5->unknown_2c_);
             var5->unknown_31_ = 1;
@@ -593,7 +593,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             var67->unknown_48_ = -0xa000;
             var67->unknown_4c_ = 0x1000;
             _ZN8Object3D21MaybeSetBCFGAnimationEii(var67, 0, 0);
-            func_0200fd38(var0, var5->unknown_2_, var67);
+            SetGameObjectByIndex_0200fd38(var0, var5->unknown_2_, var67);
             _ZN8Object3D10MakeHiddenEv(var67);
             func_ov001_0215ab54(1, var5->unknown_2_, var5->unknown_1_);
             var1->RemoveTask(var5->unknown_2c_);

@@ -2,7 +2,7 @@
 
 extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
-extern "C" int func_02005a94(void* arg0);
+extern "C" int ParseDecimal_02005a94(void* string);
 
 extern char* data_020f0afc[];
 
@@ -37,7 +37,7 @@ extern "C" ARM int func_0206f550(struct Struct_0206f550* arg0, char* arg1, char*
                     if (CompareBytes_02001aec(var0, var2, var3) == 0) {
                         if (var4 == 4 || (unsigned char)(var4 + 0xff) <= 1) {
                             var0 += var3;
-                            arg0->unknown_8_[arg0->unknown_4_] = (short)func_02005a94(var0);
+                            arg0->unknown_8_[arg0->unknown_4_] = (short)ParseDecimal_02005a94(var0);
                         }
                         var1 = 1;
                         arg0->unknown_0_[arg0->unknown_4_] = var4;

@@ -2,7 +2,7 @@
 
 extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" int CompareBytes_02001aec(unsigned char* left, unsigned char* right, int count);
-extern "C" int func_02005a94(void* arg0);
+extern "C" int ParseDecimal_02005a94(void* string);
 
 // USA: func_0204fc40
 extern "C" ARM int func_0204fc40(void* arg0, char** arg1, char* arg2, short* arg3, int arg4) {
@@ -12,7 +12,7 @@ extern "C" ARM int func_0204fc40(void* arg0, char** arg1, char* arg2, short* arg
         var1 += var0;
         short var2;
         for (var2 = 0; var2 < arg4; var2++) {
-            int var3 = func_02005a94(var1);
+            int var3 = ParseDecimal_02005a94(var1);
             arg3[var2] = (short)var3;
             if (var2 == arg4 - 1) break;
             while (*var1 != ',') var1++;

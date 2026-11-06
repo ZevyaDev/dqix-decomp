@@ -14,14 +14,14 @@ struct Struct_ov008_0218936c;
 
 extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
-extern "C" void func_020a0cc4(unsigned int arg0);
-extern "C" void func_020a0c0c(void);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
+extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" Struct_020d7aa0_2* func_020d7a50();
 extern "C" void func_020d7aa0(Struct_020d7aa0_2* arg0);
 extern "C" void func_020a1ef0(int arg0);
 extern "C" void func_020a1f4c(int arg0);
-extern "C" void func_020a1940(unsigned int arg0);
+extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void func_ov008_02188f5c(void* arg0, int arg1, int arg2);
 extern "C" void func_ov008_02189284(Struct_ov008_02189284* arg0, SafeAllocator* arg1);
 extern "C" unsigned char func_ov008_0218936c(Struct_ov008_0218936c* arg0, unsigned int arg1);
@@ -61,14 +61,14 @@ extern "C" ARM void func_ov017_021a9768(Struct_ov017_021a9768_2* arg0) {
     SetFlags04((GameResources*)var1, 0xc0);
     if (arg0->unknown_8_ == 0) {
 #if defined(jpn)
-        func_020a0cc4(0x1c704);
+        ReleaseFileTablesForSpace_020a0cc4(0x1c704);
         void* var4 = AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, 0x1c704);
 #else
-        func_020a0cc4(0x1c70c);
+        ReleaseFileTablesForSpace_020a0cc4(0x1c70c);
         void* var4 = AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, 0x1c70c);
 #endif
         if (var4 == NULL) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov017_021a9768(Struct_ov017_021a9768_2* arg0) {
 #endif
         arg0->unknown_c_.Reset();
         func_020a1ef0(1);
-        func_020a1940(OVERLAY_ID(8));
+        LoadOverlay_020a1940(OVERLAY_ID(8));
 #if defined(jpn)
         arg0->unknown_20_ = (Struct_ov017_021a9768*)arg0->unknown_c_.Allocate(0xec4);
 #else
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov017_021a9768(Struct_ov017_021a9768_2* arg0) {
     arg0->unknown_20_ = NULL;
     func_020a1f4c(1);
     func_ov017_021a9714(arg0);
-    func_020a0c0c();
+    LoadFileTables_020a0c0c();
     ClearFlags04((GameResources*)var1, 0x80);
     arg0->unknown_1_ = 1;
 }

@@ -18,7 +18,7 @@ struct Struct_0207fdcc_2;
 struct Struct_0207fdcc;
 extern "C" Struct_0207fdcc* func_02081da8(Struct_0207fdcc_2* arg0, int arg1);
 
-extern "C" int func_0204c7e0(unsigned char* arg0);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 
 struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov003_02175fd4(unsigned char* arg0) {
     if (var0 == NULL) {
         return;
     }
-    if (func_0204c7e0((unsigned char*)var0) == 0 || *(void**)(arg0 + 0x0) == NULL) {
+    if (IsTextWindowOpen_0204c7e0((unsigned char*)var0) == 0 || *(void**)(arg0 + 0x0) == NULL) {
         return;
     }
     if (func_020e28dc(*(Struct_020e28dc**)(arg0 + 0x0)) != 0) {

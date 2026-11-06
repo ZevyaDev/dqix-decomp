@@ -4,8 +4,8 @@
 struct Struct_02074b64;
 extern "C" void func_02074b64(struct Struct_02074b64* arg0);
 
-struct Struct_0205cfd4;
-extern "C" void func_0205cfd4(struct Struct_0205cfd4* arg0);
+struct TextWindowManager_0205cfd4;
+extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 
 // USA: func_ov023_021d8a40
 extern "C" ARM void func_ov023_021d8a40(void* arg0) {
@@ -16,7 +16,7 @@ extern "C" ARM void func_ov023_021d8a40(void* arg0) {
     *(int*)((char*)arg0 + 0x1c) = (*var0 & 0x1f00) >> 8;
     *(int*)arg0 = 0;
     *(int*)((char*)arg0 + 4) = 0;
-    func_0205cfd4((struct Struct_0205cfd4*)((char*)arg0 + 0x20));
+    InitTextWindowManager_0205cfd4((struct TextWindowManager_0205cfd4*)((char*)arg0 + 0x20));
     for (int var1 = 0; var1 < 4; var1++) {
         *(int*)((char*)arg0 + 0xdc + var1 * 4) = 0;
     }

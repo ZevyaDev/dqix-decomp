@@ -7,7 +7,7 @@
 extern "C"
 {
     void func_020ca408(const void* src, void* dst, unsigned len);
-    void func_020ca458(int value, void* data, unsigned len);
+    void Memset32Bit_020ca458(int value, void* data, unsigned len);
 }
 
 bool ProcessMaterialAnimationsOnBoundMaterial(MaterialRenderData* material, AnimationData* anim, unsigned int matIdx)
@@ -106,7 +106,7 @@ bool ProcessJointAnimationsOnBoneMatrix(BoneMatrixRenderData* bone, AnimationDat
     }
 
     // Multiple animations to deal with
-    func_020ca458(0, bone, sizeof(BoneMatrixRenderData));
+    Memset32Bit_020ca458(0, bone, sizeof(BoneMatrixRenderData));
     bone->flags_ = 0xffffffff;
 
     Vector3fix rootRotationTopRow;

@@ -19,7 +19,7 @@
 #endif
 #include <globaldefs.h>
 
-extern "C" void func_0205d0e0(void* arg0);
+extern "C" void UpdateTextWindowManager_0205d0e0(void* windowManager);
 extern "C" void func_ov008_021895a8(void* arg0);
 extern "C" void func_ov008_02189c70(void* arg0);
 extern "C" void func_ov008_0218af80(void* arg0);
@@ -37,7 +37,7 @@ struct Struct_ov008_0218936c {
 
 // USA: func_ov008_0218936c
 extern "C" ARM unsigned char func_ov008_0218936c(Struct_ov008_0218936c* arg0, unsigned int arg1) {
-    func_0205d0e0((char*)arg0 + 0x18);
+    UpdateTextWindowManager_0205d0e0((char*)arg0 + 0x18);
     switch (arg0->unknown_e99_) {
     case 0:
         func_ov008_021895a8(arg0);

@@ -44,8 +44,8 @@ struct Struct_ov000_0215767c_2 {
     int unknown_8e24_;
 };
 
-struct Struct_ov000_0215440c_2;
-extern "C" Struct_ov000_0215767c_8* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
+struct BattleAction_ov000_0215440c_2;
+extern "C" Struct_ov000_0215767c_8* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 extern "C" Struct_ov000_0215767c_10* func_ov000_0215e9d8(void* arg0);
 extern "C" Struct_ov000_0215767c_8* func_ov000_0215e918(void* arg0);
 extern "C" Struct_ov000_0215767c_9* func_ov000_0215e938(void* arg0);
@@ -75,7 +75,7 @@ static inline short inline_ov000_021584e8_2(GameObject* arg0) { SDK_NULL_ASSERT(
 // USA: func_ov000_0215c2d0
 extern "C" ARM void func_ov000_0215c2d0(Struct_ov000_0215767c_2* arg0, Struct_ov000_0215767c_10* arg1) {
     for (int var0 = 0; var0 < arg1->unknown_8_; var0++) {
-        Struct_ov000_0215767c_8* var1 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, var0);
+        Struct_ov000_0215767c_8* var1 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, var0);
         if (var1 == 0) {
             continue;
         }

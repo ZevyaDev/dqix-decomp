@@ -26,8 +26,8 @@ extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_0206b7b0(char* arg0);
 
-struct Struct_0205bcdc;
-extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
+struct MenuCursor_0205bcdc;
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc* cursor, int index);
 
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
@@ -74,7 +74,7 @@ extern "C" ARM void func_020652d0(char* arg0, int arg1, int arg2, int arg3) {
     func_0205cc50(arg0, 1, -4);
 #endif
 
-    func_0205bcdc((struct Struct_0205bcdc*)(arg0 + 0x20), arg1);
+    SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc*)(arg0 + 0x20), arg1);
     SetMenuCursorIndex_0205bb04(arg0 + 0x70, arg1);
 
     arg0[Enum_020652d0_564] = 1;

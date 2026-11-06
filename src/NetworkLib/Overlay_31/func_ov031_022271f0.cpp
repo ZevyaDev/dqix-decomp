@@ -3,9 +3,6 @@
 #include "NitroSDK/VRAM.h"
 #include "NitroSDK/ColorEffects.h"
 
-#if defined(jpn)
-#define func_020c39a0 func_020c546c
-#endif
 
 #define REG_MASTER_BRIGHTNESS (*(volatile short*)0x0400006c)
 #define REG_MASTER_BRIGHTNESS_SUB (*(volatile short*)0x0400106c)
@@ -20,9 +17,9 @@
 #define REG_POWER_CONTROL (*(volatile unsigned short*)0x04000304)
 
 extern "C" void func_020c3864(int);
-extern "C" void func_020c391c(int, int, int);
-extern "C" void func_020c39a0(short*, int);
-extern "C" void func_020c3984(unsigned int);
+extern "C" void SetMainDisplayAndBGMode_020c391c(int, int, int);
+extern "C" void WriteBrightnessRegister_020c39a0(short*, int);
+extern "C" void SetSubBGMode_020c3984(unsigned int);
 extern "C" void func_020c38d4();
 extern "C" void func_ov031_0223c308();
 extern "C" void func_ov031_0223d928();
@@ -38,10 +35,10 @@ extern "C" ARM void func_ov031_022271f0() {
     func_020c3864(0);
     MapVRAMBanksToMainBG(1);
     MapVRAMBanksToMainObj(2);
-    func_020c391c(1, 0, 0);
+    SetMainDisplayAndBGMode_020c391c(1, 0, 0);
     DISPCNT &= ~0x1f00;
     DISPCNT &= ~0xe000;
-    func_020c39a0((short*)&REG_MASTER_BRIGHTNESS, 0);
+    WriteBrightnessRegister_020c39a0((short*)&REG_MASTER_BRIGHTNESS, 0);
     DISPCNT = (DISPCNT & 0xffcfffef) | 0x200010;
     BG0CNT &= ~0x40;
     BG1CNT &= ~0x40;
@@ -54,10 +51,10 @@ extern "C" ARM void func_ov031_022271f0() {
     ColorEffect_ConfigureBrightnessAdjust(0x04000050, 0x3f, 0x10);
     MapVRAMBanksToSubBG(0x80);
     MapVRAMBanksToSubObj(0x100);
-    func_020c3984(0);
+    SetSubBGMode_020c3984(0);
     DISPCNTSUB = inline_ov031_022271f0(0x1f00);
     DISPCNTSUB = inline_ov031_022271f0(0xe000);
-    func_020c39a0((short*)&REG_MASTER_BRIGHTNESS_SUB, 0);
+    WriteBrightnessRegister_020c39a0((short*)&REG_MASTER_BRIGHTNESS_SUB, 0);
     DISPCNTSUB = (DISPCNTSUB & 0xffcfffef) | 0x10;
     BG0CNTSUB &= ~0x40;
     BG1CNTSUB &= ~0x40;

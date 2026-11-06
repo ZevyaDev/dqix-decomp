@@ -60,7 +60,7 @@ extern "C" void func_0203bdf4(char* arg0, char* arg1);
 extern "C" void func_0203c248(char* arg0, char* arg1);
 #endif
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
-extern "C" int func_02041a28(char* arg0, int arg1);
+extern "C" int AppendXPositionTag_02041a28(char* buffer, int x);
 extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" const char* GetStandardString_020e51cc(int stringId);
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov000_021777e4(Struct_ov000_021777e4_3* arg0, char* arg
         func_02041dd0(arg1, func_ov000_02170c7c(var0));
         func_0203c248(var0->unknown_68_, var9);
         AppendMenuEntry_02041b70(arg1, var3, var9);
-        func_02041a28(arg1, 0x4e);
+        AppendXPositionTag_02041a28(arg1, 0x4e);
         func_02041dd0(arg1, 0);
         AppendText_02042058(arg1, FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_b8_, (short)(var8 + 0x753e)));
         AppendText_02042058(arg1, FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_b8_, 0));

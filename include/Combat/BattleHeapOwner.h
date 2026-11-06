@@ -5,7 +5,7 @@
 #include "Combat/MenuNodeChain.h"
 
 struct Struct_020e2490;
-struct Struct_02043368;
+struct SpriteAnimationList_02043368;
 struct Struct_ov003_02173f70 {
     Struct_020e2490* unknown_0_;
     SafeAllocator* unknown_4_;
@@ -16,14 +16,14 @@ struct Struct_ov003_02173f70 {
 #else
     unsigned char unknown1_3c_[0x814 - 0x3c];
 #endif
-    Struct_02043368* unknown_814_;
+    SpriteAnimationList_02043368* unknown_814_;
     Sprite_02043368_2* unknown_818_;
     unsigned char unknown_81c_[8];
     unsigned short unknown_824_;
     unsigned char unknown_826_[2];
     unsigned char unknown_828_;
     unsigned char unknown_829_[3];
-    Struct_02043368* unknown_82c_;
+    SpriteAnimationList_02043368* unknown_82c_;
     Sprite_02043368_2* unknown_830_;
     unsigned char unknown_834_[0x89c - 0x834];
     Struct_0207f7f0* unknown_89c_;

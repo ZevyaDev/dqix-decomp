@@ -16,7 +16,7 @@
 
 struct Struct_0205d0e0_2;
 extern "C" void* func_0205d888(struct Struct_0205d0e0_2* arg0);
-extern "C" int func_0204c7cc(unsigned char* arg0);
+extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 extern "C" void func_0205bc24(void* arg0, int arg1);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
@@ -33,14 +33,14 @@ extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, i
 struct MenuCursor_0205bacc;
 extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
 
-struct Struct_0205bcdc;
-extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
+struct MenuCursor_0205bcdc;
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc* cursor, int index);
 
 struct TextWindowManager_0205d81c;
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c* windowManager, int windowId, int palette);
 
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
-extern "C" int func_0205d0e0(void* arg0, int arg1);
+extern "C" int UpdateTextWindowManager_0205d0e0(void* windowManager, int ticks);
 extern "C" void func_ov013_02186bd4(void* arg0);
 extern "C" void func_ov013_02184d80(void* arg0);
 extern "C" void func_ov013_02186160(void* arg0);
@@ -63,14 +63,14 @@ extern "C" ARM unsigned char func_ov013_021847c4(void* arg0, int arg1) {
 
     var2 = func_0205d888((struct Struct_0205d0e0_2*)(var0 + R(0x34,0x38)));
     if (var2 != 0) {
-        if (func_0204c7cc((unsigned char*)var2) != 0) {
+        if (IsTextWindowReady_0204c7cc((unsigned char*)var2) != 0) {
             if ((((unsigned char*)var2)[0xc5] & 2) == 0) {
                 func_0205bc24(var0 + R(0x38,0x3c), -1);
             }
         }
     }
 
-    *(int*)(var0 + R(0x5d4,0x648)) = func_0205d0e0(var0 + R(0x34,0x38), *(int*)(var0 + R(0x5d0,0x644)));
+    *(int*)(var0 + R(0x5d4,0x648)) = UpdateTextWindowManager_0205d0e0(var0 + R(0x34,0x38), *(int*)(var0 + R(0x5d0,0x644)));
     func_0205c904(var0 + R(0x3d0,0x3d4), *(int*)(var0 + R(0x5d0,0x644)));
 
     {
@@ -94,7 +94,7 @@ extern "C" ARM unsigned char func_ov013_021847c4(void* arg0, int arg1) {
             SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(var0 + R(0x38,0x3c)), 6);
             SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(var0 + R(0x88,0x8c)), 6);
             var3 = *(int*)(var0 + R(0x5e4,0x65c));
-            func_0205bcdc((struct Struct_0205bcdc*)(var0 + R(0x38,0x3c)), var3);
+            SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc*)(var0 + R(0x38,0x3c)), var3);
             SetMenuCursorIndex_0205bb04(var0 + R(0x88,0x8c), var3);
             func_ov013_02186bd4(arg0);
         }
@@ -106,7 +106,7 @@ extern "C" ARM unsigned char func_ov013_021847c4(void* arg0, int arg1) {
             SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(var0 + R(0x88,0x8c)), 1, 2, 0);
             SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(var0 + R(0x38,0x3c)), 2);
             SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(var0 + R(0x88,0x8c)), 2);
-            func_0205bcdc((struct Struct_0205bcdc*)(var0 + R(0x38,0x3c)), 0);
+            SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc*)(var0 + R(0x38,0x3c)), 0);
             SetMenuCursorIndex_0205bb04(var0 + R(0x88,0x8c), 0);
         }
         var0[R(0x5cb,0x63f)] = 0;

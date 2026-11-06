@@ -26,7 +26,7 @@ extern "C" {
     void func_02012bd8(void);
 }
 
-extern int data_020f2270;
+extern int gGraphicsDMAChannel_020f2270;
 extern unsigned char data_02114e00;
 extern AllocatorUnion gMainHeap_02114e20;
 extern int data_02114e50;
@@ -35,7 +35,7 @@ extern int data_02114e50;
 extern "C" ARM void func_02012c34(void) {
     func_020c8368();
     func_020c36ec();
-    data_020f2270 = 0;
+    gGraphicsDMAChannel_020f2270 = 0;
     func_020c36f0();
     func_020ce270();
     func_020cf020();

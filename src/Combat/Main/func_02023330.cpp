@@ -4,7 +4,7 @@
 #include "NitroSDK/Cache.h"
 
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_020c9820(void);
+extern "C" void WaitForVBlank_020c9820(void);
 extern "C" void func_020230fc(void* arg0, void* arg1, int arg2);
 extern "C" int LoadToSubObjVRAM(void* buf, int a1, int a2);
 
@@ -26,7 +26,7 @@ extern "C" ARM int func_02023330(void* arg0, int arg1)
     func_020230fc(arg0, var3, 0);
     if (arg1 != 0)
     {
-        func_020c9820();
+        WaitForVBlank_020c9820();
     }
 
     DC_FlushRange(var3, 0x480);

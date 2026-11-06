@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(void* battle, short* indices, int maxCount, int filterFlags);
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern short data_ov000_02182c44[8];
 
 struct Struct_ov000_0215fc8c { short unknown_0_[8]; };
@@ -18,7 +18,7 @@ extern "C" ARM int func_ov000_0215fc8c(void* arg0, int arg1) {
     while (var2 < var1) {
         short var3 = var0[var2];
         GameState* var4 = GameState::GetInstance();
-        GameObject* var5 = func_0200fea4(var4, var3);
+        GameObject* var5 = GetEnemyByIndex_0200fea4(var4, var3);
         if (var5 != NULL) {
             struct Struct_ov000_0215fc8c_2* var6 = *(struct Struct_ov000_0215fc8c_2**)((char*)var5 + 0x144);
             if (var6 != NULL) {

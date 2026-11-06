@@ -26,7 +26,7 @@ struct Struct_ov003_0215af9c {
 extern "C" Struct_ov003_0215af9c* GetMessageWindow_020421a0(void);
 int IsBrightnessTransitionActive(GameResources*);
 void SetMainBrightness(GameResources*, int, int);
-extern "C" int func_020100b0(GameState*);
+extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" void ClearMessageParams_02046380(Struct_ov003_0215af9c*);
 struct Struct_02046574_2;
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov003_0215af9c(Struct_ov003_021594c4_2* arg0) {
 
         if (arg0->unknown_587_ == 1) {
             GameState* var3 = GameState::GetInstance();
-            GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var3, func_020100b0(var3));
+            GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var3, GetOwnPartyLeaderObjectIndex_020100b0(var3));
             ClearMessageParams_02046380(var1);
             SetMessageString_02046574((Struct_02046574_2*)var1, 0, (char*)var4->baseStats_);
         }

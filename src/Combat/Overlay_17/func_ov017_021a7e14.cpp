@@ -100,9 +100,9 @@ extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0();
 extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18();
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
-extern "C" void func_020a0cc4(unsigned int arg0);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void func_020a0c0c();
+extern "C" void LoadFileTables_020a0c0c();
 #if defined(jpn)
 #define func_ov017_021a7dd8 func_ov017_021a8754
 #endif
@@ -110,9 +110,9 @@ extern "C" void func_ov017_021a7dd8(Struct_ov017_021a7e14_5* arg0);
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
-extern "C" void func_020de848(void* arg0);
+extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" void func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
-extern "C" void func_020e46c4(void* arg0);
+extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void func_020dcf7c(int arg0, void* arg1);
 extern "C" Struct_ov017_021a7e14_3* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
@@ -122,14 +122,14 @@ extern "C" char* GetStandardString_020e51cc(int stringId);
 extern "C" void func_020e4b34(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10, int arg11);
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0* window);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
-extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02086bf4(char* arg0, int arg1);
-extern "C" int func_020457e0(MessageWindow_020465c0* arg0);
+extern "C" int GetMessageChoice_020457e0(MessageWindow_020465c0* window);
 extern "C" int func_0202c578(Struct_0202b2f0* arg0, int arg1);
 extern "C" int func_ov017_021a85e8(unsigned char* arg0, int arg1);
-extern "C" void* func_020de824(void* arg0);
+extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void func_0207cbe8(char* arg0);
 extern "C" void func_0207cf30(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -166,10 +166,10 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
     var5->unknown_b2_ = 0;
 
     if (arg0->unknown_24_ == 0) {
-        func_020a0cc4(0x2000);
+        ReleaseFileTablesForSpace_020a0cc4(0x2000);
         void* var8 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x2000);
         if (var8 == NULL) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -178,7 +178,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
         arg0->unknown_1c_ = (Struct_0201099c_3*)arg0->unknown_8_.Allocate(0x18);
         if (arg0->unknown_1c_ == NULL) {
             func_ov017_021a7dd8(arg0);
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -200,8 +200,8 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
             arg0->unknown_28_ = -1;
             arg0->unknown_20_ = var2->unknown_5c_;
 #if defined(jpn)
-            func_02094b40(var3);
-            func_02094b30(var3, 0x208, 0);
+            ClearLoadedFontSets_02094b40(var3);
+            RequestSingleFontLoad_02094b30(var3, 0x208, 0);
 #endif
             arg0->unknown_24_ = 2;
         }
@@ -218,7 +218,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
         void* var13 = ExtractFileFromGP2(data_020f2a18, data_020f2a0c, &var12);
 #endif
         arg0->unknown_2c_ = (ItemTable_0201099c_10*)arg0->unknown_8_.Allocate(0x18);
-        func_020de848(arg0->unknown_2c_);
+        ClearItemTable_020de848(arg0->unknown_2c_);
         if (var13 != NULL) {
             func_020de980(arg0->unknown_2c_, &arg0->unknown_8_, var13, var12, arg0->unknown_30_);
         }
@@ -230,7 +230,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
         arg0->unknown_48_ = (char*)arg0->unknown_8_.Allocate(0x40);
         arg0->unknown_4c_ = (char*)arg0->unknown_8_.Allocate(0x40);
         if (arg0->unknown_3c_ != NULL && arg0->unknown_48_ != NULL && arg0->unknown_4c_ != NULL) {
-            func_020e46c4(arg0->unknown_3c_);
+            InitNoun_020e46c4(arg0->unknown_3c_);
             memset(arg0->unknown_48_, 0, 0x40);
             memset(arg0->unknown_4c_, 0, 0x40);
             arg0->unknown_3c_->unknown_0_ = arg0->unknown_48_;
@@ -259,14 +259,14 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
         SetMessageString_02046574((Struct_02046574_2*)var2, 0, ((GameObject*)var14)->baseStats_->unk);
         SetMessageString_02046574((Struct_02046574_2*)var2, 1, var11);
 #else
-        func_020e46c4(arg0->unknown_40_);
+        InitNoun_020e46c4(arg0->unknown_40_);
         InitPartyMemberNoun_020e4bf4(arg0->unknown_40_, arg0->unknown_34_);
-        func_020e46c4(arg0->unknown_44_);
+        InitNoun_020e46c4(arg0->unknown_44_);
         char* var15 = GetStandardString_020e51cc((short)var14->unknown_150_->unknown_950_);
         func_020e4b34(arg0->unknown_44_, var15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         ClearMessageParams_02046380(var2);
         SetMessageNumber_020465c0(var2, 0, 1);
-        func_020465f0((unsigned char*)var2, 0, 1);
+        SetMessageNumberWidth_020465f0((unsigned char*)var2, 0, 1);
         var2->unknown1_0_ = arg0->unknown_40_;
         var2->unknown_18_ = arg0->unknown_3c_;
         var2->unknown_28_ = arg0->unknown_44_;
@@ -295,7 +295,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
     } else if (arg0->unknown_24_ == 3) {
         if (var2->unknown_9a0_ == 3 || var2->unknown_9a0_ == 0) {
             var2->unknown_19ae_ = 0;
-            int var17 = func_020457e0(var2);
+            int var17 = GetMessageChoice_020457e0(var2);
             if (var17 == 0) {
                 if (arg0->unknown_3a_ & 1) {
                     func_ov017_021d0198(8, arg0->unknown_34_, var6, arg0->unknown_30_);
@@ -349,7 +349,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
                 Struct_ov017_021a7e14_3* var20 = FindItemData_020dedd0(arg0->unknown_2c_, arg0->unknown_30_);
                 Struct_ov017_021a7e14_4 var21;
                 var21.unknown_0_.ResetAllocatorPointer();
-                func_020de824(var21.unknown_14_);
+                InitItemTable_020de824(var21.unknown_14_);
                 func_0207cbe8((char*)&var21);
                 func_0207cbe8((char*)&var21);
                 var21.unknown_2c_ = arg0->unknown_2c_;
@@ -359,7 +359,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
 #if !defined(jpn)
                 ClearMessageParams_02046380(var2);
                 SetMessageNumber_020465c0(var2, 0, 1);
-                func_020465f0((unsigned char*)var2, 0, 1);
+                SetMessageNumberWidth_020465f0((unsigned char*)var2, 0, 1);
                 var2->unknown1_0_ = arg0->unknown_40_;
                 var2->unknown_18_ = arg0->unknown_3c_;
                 var2->unknown_28_ = arg0->unknown_44_;
@@ -389,7 +389,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
             ResetMessageWindow_02043204((char*)var2);
             EnablePlayerControl_020397c0(var5);
             func_ov017_021a7dd8(arg0);
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
         }
     }

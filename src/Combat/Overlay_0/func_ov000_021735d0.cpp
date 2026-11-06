@@ -30,9 +30,9 @@ extern "C" void func_ov000_02180b50(Struct_ov000_021735d0_5*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" {
-int* GetLocalWireless_0202ae18(); void func_020dc7e8(int,int); int func_0205d0e0(void*,int);
+int* GetLocalWireless_0202ae18(); void LoadPartyMemberColors_020dc7e8(int,int); int UpdateTextWindowManager_0205d0e0(void*,int);
 void func_ov000_02175fc8(void*);void func_ov000_02174d08(void*);void func_ov000_02175024(void*,int);
-void* func_ov000_02161318(void*,int);
+void* FindPartyMemberPanel_ov000_02161318(void*,int);
 void func_ov000_0217f304(void*,int,int,void*);void func_ov000_0217c908(void*,int,int);
 void func_ov000_02176e3c(void*,void*,int,int,int,int);
 int func_ov000_0217fd60(void*,int);void func_ov000_021751ac(void*);
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov000_021735d0(Struct_ov000_021682ec_5* arg0,int arg1)
     SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)arg0->unknown_8c4_,0,0);
     SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)arg0->unknown_8e4_,0,0);
     GameState* var0=GameState::GetInstance();GetLocalWireless_0202ae18();
-    if(((Struct_ov000_021735d0*)var0)->unknown_5ccc_1_)func_020dc7e8(0,-1);
+    if(((Struct_ov000_021735d0*)var0)->unknown_5ccc_1_)LoadPartyMemberColors_020dc7e8(0,-1);
     if(!arg1)arg1=1;
     int var1=1;
     Struct_ov000_021735d0_2* var2=func_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0);
@@ -60,13 +60,13 @@ extern "C" ARM void func_ov000_021735d0(Struct_ov000_021682ec_5* arg0,int arg1)
         int var3;bool var4=arg0->unknown_21c_,var5=arg0->unknown_21d_;var3=0;
         if(var2&&!(arg0->unknown_1d72_&0x200)&&arg0->unknown_1d60_[arg0->unknown_1d68_]!=6&&arg0->unknown_1d60_[arg0->unknown_1d68_]!=7&&!(var2->unknown_24_&1))var3=1;
         if(var3){arg0->unknown_21c_=false;arg0->unknown_21d_=false;}
-        arg0->unknown_118_=func_0205d0e0(arg0->unknown_188_,arg1);
+        arg0->unknown_118_=UpdateTextWindowManager_0205d0e0(arg0->unknown_188_,arg1);
         if(var3){if(var4)arg0->unknown_21c_=true;if(var5)arg0->unknown_21d_=true;}
     }
     func_ov000_02175fc8(arg0);func_ov000_02174d08(arg0);func_ov000_02174fc0(arg0);
     func_ov000_02175024(arg0,arg1);func_ov000_021754fc((Struct_ov000_021735d0_4*)arg0,arg1);
     if(arg0->unknown_1d72_&0x200){
-        void* var6=func_ov000_02161318(arg0,(signed char)GetProtagonistObjectIndex_020100a8(GameState::GetInstance()));
+        void* var6=FindPartyMemberPanel_ov000_02161318(arg0,(signed char)GetProtagonistObjectIndex_020100a8(GameState::GetInstance()));
         func_ov000_0217f304(arg0,data_ov000_02183ff0,data_ov000_02184288[1],var6);
         func_ov000_0217c908(arg0,data_ov000_02183ff0,data_ov000_02184288[1]);
         func_ov000_02180b50((Struct_ov000_021735d0_5*)arg0);

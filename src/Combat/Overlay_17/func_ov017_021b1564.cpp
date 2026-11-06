@@ -10,7 +10,7 @@ struct Struct_0209c3b4_2;
 struct Struct_02018300_3;
 struct Struct_020979c0;
 struct Struct_02074b64;
-struct Struct_02074bd0;
+struct BGControlSave_02074bd0;
 struct Struct_02074bf4;
 struct TextureVRAMArea_0203d028;
 struct Queue_0201bdac_2;
@@ -61,16 +61,16 @@ extern "C" void StartMessage_0204500c(void*, signed char*, int, int);
 enum { Enum_ov017_021b1564_248832 = 0x3cc00, Enum_ov017_021b1564_255008 = 0x3e420 };
 #endif
 extern "C" void ResetMessageWindow_02043204(char*);
-extern "C" int func_020457e0(void*);
+extern "C" int GetMessageChoice_020457e0(void*);
 extern "C" void func_020a27ac(void*);
 void SetBrightness(GameResources*, int, int);
 extern "C" void func_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" void func_020dc2bc();
-extern "C" void func_020a0cc4(unsigned int);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void func_020a0c0c();
+extern "C" void LoadFileTables_020a0c0c();
 extern "C" void CloseMessageWindow_02043124(void*);
 extern "C" void func_020a1df8(int);
 extern "C" void func_020a1ef0(int);
@@ -79,7 +79,7 @@ extern "C" void func_020979c0(Struct_020979c0*, unsigned char);
 extern "C" void func_ov006_02157a60(Struct_ov017_021b1564*);
 extern "C" void func_ov006_021576a0(Struct_ov017_021b1564*, SafeAllocator*, void*);
 extern "C" int func_02097a04(Struct_020979c0*);
-extern "C" void func_02074af4(void*);
+extern "C" void SaveMainBGControl_02074af4(void*);
 extern "C" void func_02074b64(Struct_02074b64*);
 extern "C" void* func_0203cf4c();
 extern "C" Zone3D* GetZone3D_02012fe4();
@@ -92,8 +92,8 @@ extern "C" int func_ov006_02157d7c(Struct_ov017_021b1564*, unsigned int);
 extern "C" void func_ov006_02157cc0(Struct_ov017_021b1564*);
 extern "C" void func_02097b34(Struct_020979c0*);
 extern "C" void func_ov017_021b14ec(Struct_ov017_021b1564_7*);
-extern "C" void func_0209c3b4(Struct_0209c3b4_2*, int);
-extern "C" void func_02074bd0(Struct_02074bd0*);
+extern "C" void PlayMusic_0209c3b4(Struct_0209c3b4_2*, int);
+extern "C" void RestoreMainBGControl_02074bd0(BGControlSave_02074bd0*);
 extern "C" void func_02074bf4(Struct_02074bf4*);
 extern "C" void LoadToMainBG1CharacterData(void*, int, unsigned int);
 extern "C" void LoadToMainBG2CharacterData(void*, int, unsigned int);
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         return;
     } else if (arg0->unknown_48_ == 100) {
         if (var3->unknown_998_) return;
-        if (func_020457e0(var3) == 1) {
+        if (GetMessageChoice_020457e0(var3) == 1) {
             ResetMessageWindow_02043204((char*)var3);
             arg0->unknown_1_ = 1;
             if (var4) func_020a27ac(var4);
@@ -175,10 +175,10 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         ++arg0->unknown_48_;
         return;
     } else if (arg0->unknown_48_ == 2) {
-        func_020a0cc4(Enum_ov017_021b1564_255008);
+        ReleaseFileTablesForSpace_020a0cc4(Enum_ov017_021b1564_255008);
         Struct_ov017_021b1564_3* var7 = (Struct_ov017_021b1564_3*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021b1564_255008);
         if (!var7) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             if (var4) func_020a27ac(var4);
             return;
@@ -192,7 +192,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         arg0->unknown_1c_ = (Struct_020979c0*)arg0->unknown_8_.Allocate(0x20);
         data_ov017_021d83ec = (Struct_ov017_021b1564*)arg0->unknown_8_.Allocate(0x438);
         if (!arg0->unknown_1c_ || !data_ov017_021d83ec) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             if (var4) func_020a27ac(var4);
             return;
@@ -211,7 +211,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         ++arg0->unknown_48_;
         arg0->unknown_30_ = 0;
         arg0->unknown_31_ = 0;
-        func_02074af4(arg0->unknown_20_);
+        SaveMainBGControl_02074af4(arg0->unknown_20_);
         arg0->unknown_34_ = (REG_MAIN_DISPLAY & 0x1f00) >> 8;
         func_02074b64((Struct_02074b64*)arg0->unknown_20_);
         arg0->unknown_38_ = (REG_SUB_DISPLAY & 0x1f00) >> 8;
@@ -239,17 +239,17 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
             func_ov006_02157cc0(data_ov017_021d83ec);
             func_02097b34(arg0->unknown_1c_);
             func_ov017_021b14ec(arg0);
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             if (var4) func_020a27ac(var4);
             return;
         }
-        func_0209c3b4((Struct_0209c3b4_2*)gMusicManager_02109bf4, 7);
+        PlayMusic_0209c3b4((Struct_0209c3b4_2*)gMusicManager_02109bf4, 7);
         func_ov006_02157cc0(data_ov017_021d83ec);
         data_ov017_021d83ec = 0;
         func_ov017_021b1ca8(0);
         func_02097b34(arg0->unknown_1c_);
-        func_02074bd0((Struct_02074bd0*)arg0->unknown_20_);
+        RestoreMainBGControl_02074bd0((BGControlSave_02074bd0*)arg0->unknown_20_);
         REG_MAIN_DISPLAY = (REG_MAIN_DISPLAY & ~0x1f00) | (arg0->unknown_34_ << 8);
         func_02074bf4((Struct_02074bf4*)arg0->unknown_20_);
         REG_SUB_DISPLAY = (REG_SUB_DISPLAY & ~0x1f00) | (arg0->unknown_38_ << 8);
@@ -312,7 +312,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         if (!var16) return;
         GameObject* var20 = var0->GetUnknownGameObject();
         if (var20) EnablePlayerControl_020397c0(var20);
-        func_020a0c0c();
+        LoadFileTables_020a0c0c();
         arg0->unknown_1_ = 1;
     }
 }

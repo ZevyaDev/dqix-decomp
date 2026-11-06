@@ -6,14 +6,11 @@
 #define func_020ca390 func_020cbe5c
 #endif
 
-#if defined(jpn)
-#define func_020ca3b8 func_020cbe84
-#endif
 
 
 extern "C" void HaltForever_020c9be0();
 extern "C" void func_020ca390(unsigned short value, void* dst, unsigned long size);
-extern "C" void func_020ca3b8(const void* src, void* dst, unsigned long size);
+extern "C" void Memcpy16Bit_020ca3b8(const void* src, void* dst, unsigned long size);
 extern "C" int func_020d3fdc();
 extern "C" void func_020d468c();
 
@@ -265,7 +262,7 @@ extern "C" ARM void func_020d42e0(unsigned int arg0, unsigned int arg1, unsigned
                 data_021142e0.unknown_50_.unknown_3c_ = var9;
                 VectorizedInvertedMemcpy(var10, data_02114344, sizeof(data_02114344));
                 if (var11 != NULL)
-                    func_020ca3b8(var11, data_02114354, sizeof(data_02114354));
+                    Memcpy16Bit_020ca3b8(var11, data_02114354, sizeof(data_02114354));
                 else
                     func_020ca390(0, data_02114354, sizeof(data_02114354));
                 data_021142e0.unknown_50_.unknown_40_ = var8 == 0 ? var12 : var13;

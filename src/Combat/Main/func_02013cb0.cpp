@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "World/ZoneChest.h"
 
-struct Struct_020fdd44;
-extern "C" Struct_020fdd44* func_02027ca4();
-extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44* arg0, int arg1);
+struct ActiveZone_020fdd44;
+extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4();
+extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44* zones, int zoneId);
 
 // USA: func_02013cb0
 extern "C" ARM void func_02013cb0(Zone3D* arg0, unsigned int arg1) {
@@ -13,8 +13,8 @@ extern "C" ARM void func_02013cb0(Zone3D* arg0, unsigned int arg1) {
             arg0->unknown_478_[var0].unknown_2_ = -1;
         }
     }
-    Struct_020fdd44* var1 = func_02027ca4();
-    Struct_020fdd44* var2 = func_02028bd0(var1, arg0->currentZoneID_);
+    ActiveZone_020fdd44* var1 = GetActiveZones_02027ca4();
+    ActiveZone_020fdd44* var2 = FindActiveZone_02028bd0(var1, arg0->currentZoneID_);
     if (var2 == NULL) {
         return;
     }

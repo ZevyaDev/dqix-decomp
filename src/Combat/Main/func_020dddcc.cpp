@@ -12,7 +12,7 @@ extern "C" int GetBattleRecords_020ac4c0(void* records);
 struct Struct_020a0504;
 extern "C" void func_020a0504(struct Struct_020a0504* arg0, unsigned int arg1);
 
-extern "C" int func_020ac494(void* arg0);
+extern "C" int SetBattleRecords_020ac494(void* records);
 
 // USA: func_020dddcc
 extern "C" ARM int func_020dddcc(void* arg0) {
@@ -30,7 +30,7 @@ extern "C" ARM int func_020dddcc(void* arg0) {
     if ((unsigned int)var4 >> 31) {
         GetBattleRecords_020ac4c0(var0);
         func_020a0504((struct Struct_020a0504*)var0, 1);
-        func_020ac494(var0);
+        SetBattleRecords_020ac494(var0);
     }
     return 1;
 }

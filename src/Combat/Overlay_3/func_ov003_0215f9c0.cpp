@@ -12,9 +12,9 @@ enum { Enum_ov003_0215f9c0_550 = 0x226 };
 struct StringTable_0201099c_14 {
     char unknown_0_[0x18];
 };
-struct Struct_02074af4 {
+struct BGControlSave_02074af4 {
     unsigned short unknown_0_[8];
-    unsigned char unknown_10_;
+    unsigned char isMainSaved_10_;
     unsigned char unknown_11_;
     char unknown_12_[2];
 };
@@ -28,7 +28,7 @@ struct Struct_020a9ea4 {
     char unknown_0_[8];
 };
 
-extern "C" void func_02074af4(struct Struct_02074af4* arg0);
+extern "C" void SaveMainBGControl_02074af4(struct BGControlSave_02074af4* save);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void func_02081ee4(struct Struct_02081ee4* arg0, struct Struct_02081ee4_2* arg1);
 extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
@@ -47,7 +47,7 @@ struct Struct_ov003_0215f9c0 {
     SafeAllocator unknown_2b4_;
     char unknown_2c8_[0x2dc - 0x2c8];
     struct StringTable_0201099c_14 unknown_2dc_;
-    struct Struct_02074af4 unknown_2f4_;
+    struct BGControlSave_02074af4 unknown_2f4_;
     struct Struct_02081ee4 unknown_308_;
     struct Struct_02081ee4_2 unknown_314_;
     int unknown_318_;
@@ -125,9 +125,9 @@ extern "C" ARM void func_ov003_0215f9c0(struct Struct_ov003_0215f9c0* arg0, int 
     arg0->unknown_28c_.ResetAllocatorPointer();
     arg0->unknown_2a0_.ResetAllocatorPointer();
     arg0->unknown_2b4_.ResetAllocatorPointer();
-    arg0->unknown_2f4_.unknown_10_ = 0;
+    arg0->unknown_2f4_.isMainSaved_10_ = 0;
     arg0->unknown_2f4_.unknown_11_ = 0;
-    func_02074af4(&arg0->unknown_2f4_);
+    SaveMainBGControl_02074af4(&arg0->unknown_2f4_);
     arg0->unknown_330_ = (DISPCNT & 0x1f00) >> 8;
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
     InitSpriteSet_0205a444(arg0->unknown_334_);

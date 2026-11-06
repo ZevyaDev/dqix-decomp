@@ -39,8 +39,8 @@ extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct Qu
 extern "C" void func_ov017_021a7a74(void* arg0, void* arg1);
 extern "C" int func_ov017_0219735c(unsigned char* arg0, unsigned short arg1);
 extern "C" void func_ov017_021972f8(void* arg0, unsigned short arg1);
-struct Struct_02038598_5;
-extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
+struct Queue_02038598_5;
+extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 extern "C" unsigned short func_ov017_021bb9f4(void* arg0);
 extern "C" short func_ov017_021bb9fc(void* arg0);
 extern "C" void func_ov017_021bb9ec(void* arg0, unsigned short arg1);
@@ -367,7 +367,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
     var17 = var16->unknown_36fc_;
     var29 = var16->unknown_3734_;
     var18 = 0;
-    if (func_02046b60((Struct_02038598_5*)var17, 4)) {
+    if (IsTypeInQueue_02046b60((Queue_02038598_5*)var17, 4)) {
         if (func_ov017_021bb9f4(var29) == 5 && arg1->unknown_4_ == func_ov017_021bb9fc(var29) + 0x8005) {
             func_ov017_021bb9ec(var29, 6);
             func_ov017_021c5b44(arg1->unknown_8_, arg1->unknown_4_, func_ov017_021bb9fc(var29), arg1->unknown_c_, arg1->unknown_10_);

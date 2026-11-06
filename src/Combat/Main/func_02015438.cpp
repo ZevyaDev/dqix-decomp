@@ -5,9 +5,9 @@
 #include "Resource/GameResources.h"
 #include "World/Zone3D.h"
 
-struct Struct_02015438;
+struct QueueNode_02015438;
 struct Struct_02015438_2;
-extern "C" int func_02046b24(struct Struct_02015438** arg0);
+extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 extern "C" void func_02015518(void* arg0, char* arg1);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_02013e18(Zone3D* arg0);
@@ -46,8 +46,8 @@ extern "C" ARM void func_02015438(Zone3D* arg0) {
         if ((arg0->unk_830[0] & 0xff) == 0) {
             void* var3 = var0->GetProtagonist();
             if (var3 != 0) {
-                if (func_02046b24(
-                        *(struct Struct_02015438***)((char*)GetGameResources() + 0x3000 + Enum_02015438_1788)) != 4) {
+                if (GetQueueHeadType_02046b24(
+                        *(struct QueueNode_02015438***)((char*)GetGameResources() + 0x3000 + Enum_02015438_1788)) != 4) {
                     EnablePlayerControl_020397c0(var3);
                 }
             }

@@ -5,9 +5,9 @@
 
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
 
-struct Struct_0205cfd4;
+struct TextWindowManager_0205cfd4;
 struct BGLayer_02020cb8;
-struct Struct_020727d8;
+struct StringList_020727d8;
 struct StringTable_0201099c_14;
 
 struct Struct_ov005_0215840c_2
@@ -56,15 +56,15 @@ struct Struct_ov008_02188f5c_2
 
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void* GetLocalWireless_0202ae18();
-extern "C" void func_02074af4(void* arg0);
+extern "C" void SaveMainBGControl_02074af4(void* save);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
-extern "C" void func_020426bc(const char* arg0, char* arg1, int);
+extern "C" void ConvertTextToGlyphIndices_020426bc(const char* text, char* outGlyphIndices, int);
 extern "C" void func_ov008_021843f8(void* arg0);
 extern "C" void func_ov017_021d1014(signed char arg0, int, int);
 extern "C" void func_ov017_021d1118(signed char arg0, int, int, int);
-extern "C" void func_0205cfd4(Struct_0205cfd4* arg0);
+extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
-extern "C" void func_020727d8(Struct_020727d8* arg0);
+extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void func_ov008_02189228(void* arg0);
 extern "C" Struct_ov005_0215840c_2* GetPartyMemberData_02053c6c(unsigned char* gameObject);
@@ -136,15 +136,15 @@ extern "C" ARM void func_ov008_02188f5c(Struct_ov008_02188f5c_3* arg0, signed ch
     GetLocalWireless_0202ae18();
     arg0->unknown_10_ = 0;
     arg0->unknown_11_ = 0;
-    func_02074af4(arg0);
+    SaveMainBGControl_02074af4(arg0);
     arg0->unknown_14_ = (REG_DISPCNT & 0x1f00) >> 8;
     REG_DISPCNT = (REG_DISPCNT & ~0x1f00) | 0x100;
-    func_0205cfd4((Struct_0205cfd4*)&arg0->unknown_18_);
+    InitTextWindowManager_0205cfd4((TextWindowManager_0205cfd4*)&arg0->unknown_18_);
     InitBGLayer_0204af64((BGLayer_02020cb8*)&arg0->unknown_d4_[0]);
     InitBGLayer_0204af64((BGLayer_02020cb8*)&arg0->unknown_d4_[1]);
     InitTextWindow_0204c684(&arg0->unknown_114_);
-    func_020727d8((Struct_020727d8*)&arg0->unknown_278_);
-    func_020727d8((Struct_020727d8*)&arg0->unknown_280_);
+    ResetStringList_020727d8((StringList_020727d8*)&arg0->unknown_278_);
+    ResetStringList_020727d8((StringList_020727d8*)&arg0->unknown_280_);
     InitStringTable_020dfc40((StringTable_0201099c_14*)&arg0->unknown_288_);
     arg0->unknown_1f4_ = NULL;
     arg0->unknown_1f8_ = NULL;
@@ -219,7 +219,7 @@ extern "C" ARM void func_ov008_02188f5c(Struct_ov008_02188f5c_3* arg0, signed ch
 #else
                 char var3[0xc];
                 __clear(var3, sizeof(var3));
-                func_020426bc(var2->unknown_3c_, var3, 1);
+                ConvertTextToGlyphIndices_020426bc(var2->unknown_3c_, var3, 1);
                 memcpy(arg0->unknown_df0_.unknown_6_, var3, sizeof(arg0->unknown_df0_.unknown_6_));
 #endif
                 arg0->unknown_df0_.unknown_13_6_ = 1;

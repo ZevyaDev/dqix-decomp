@@ -36,7 +36,7 @@ extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void GetBattleRecords_020ac4c0(void*);
 extern "C" void func_020a04c8(Struct_0206e424_4*, unsigned int);
-extern "C" void func_020ac494(void*);
+extern "C" void SetBattleRecords_020ac494(void*);
 
 static inline int inline_0206e424(Struct_0206e424* arg0) {
     return arg0->unknown_8_0_ <= 7;
@@ -72,5 +72,5 @@ extern "C" ARM void func_0206e424(Struct_0206e424_3* arg0, int arg1) {
     Struct_0206e424_4 var9;
     GetBattleRecords_020ac4c0(&var9);
     func_020a04c8(&var9, var5);
-    func_020ac494(&var9);
+    SetBattleRecords_020ac494(&var9);
 }

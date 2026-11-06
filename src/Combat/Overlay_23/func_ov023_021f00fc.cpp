@@ -54,11 +54,11 @@ extern "C" void GetMessageWindow_020421a0();
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" int func_02010038(GameState* arg0, unsigned char* arg1);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" Struct_ov023_021f00fc_2* func_ov023_021f0360(void* arg0, int arg1);
 extern "C" unsigned int func_ov023_021eea98(Struct_ov023_021edf54* arg0);
 extern "C" void func_ov017_021cd4c8(unsigned short, unsigned short, signed char);
-extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" int func_ov000_02160fd4(void* arg0, int arg1);
 
 extern "C" {
@@ -89,7 +89,7 @@ extern "C" ARM int func_ov023_021f00fc(Struct_ov023_021f00fc_4* arg0)
         }
         for (int var7 = 0; var7 < 4; var7++)
         {
-            if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var7) && var3[var7] != 0)
+            if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var7) && var3[var7] != 0)
             {
                 Struct_ov023_021f00fc_2* var8 = func_ov023_021f0360(_ZZ21inline_ov023_021f4c04vE1s, var7);
                 GameObject* var9 = GetPartyMemberBaseByIndex_0200ff1c(var0, var7);
@@ -106,7 +106,7 @@ extern "C" ARM int func_ov023_021f00fc(Struct_ov023_021f00fc_4* arg0)
     else
     {
         if (var2->unknown_42e2_ != 0)
-            func_ov000_02160fa8(arg0, 0x2000000);
+            SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);
         if (!func_ov000_02160fd4(arg0, 0x4000))
             return arg0->unknown_eac_;
         if (!func_ov000_02160fd4(arg0, 0x8000))
@@ -116,7 +116,7 @@ extern "C" ARM int func_ov023_021f00fc(Struct_ov023_021f00fc_4* arg0)
     int var10 = 0;
     for (int var11 = 0; var11 < 4; var11++)
     {
-        if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var11))
+        if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var11))
             var10 += arg0->unknown_5758_[var11];
     }
     if (var10 > 0)

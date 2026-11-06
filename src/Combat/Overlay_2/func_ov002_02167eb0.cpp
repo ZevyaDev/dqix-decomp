@@ -8,11 +8,11 @@ struct Struct_0205c570;
 struct TextWindowManager_0205d81c;
 struct SoundEffectManager_02108760;
 
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
-struct Struct_0205da38;
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+struct TextWindowManager_0205da38;
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov002_02167eb0(char *arg0) {
     *(short *) (arg0 + 0x1acc) = GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + 0xe20));
     if (var1 != *(short *) (arg0 + 0x1acc)) return;
     int var2 = g_keyManager.TestKeysPressed(0x601);
-    int var3 = (var2 | func_0205da38((struct Struct_0205da38*)(arg0 + 0xe20), 0x14)) ? 1 : 0;
+    int var3 = (var2 | IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(arg0 + 0xe20), 0x14)) ? 1 : 0;
     if (var3) {
         func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 1);
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov002_02167eb0(char *arg0) {
     *(short *) (arg0 + 0x1c04) = GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + 0xec8));
     if (var7 != *(short *) (arg0 + 0x1c04)) return;
     int var8 = g_keyManager.TestKeysPressed(0x601);
-    int var9 = (var8 | func_0205da38((struct Struct_0205da38*)(arg0 + 0xec8), 0x14)) ? 1 : 0;
+    int var9 = (var8 | IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(arg0 + 0xec8), 0x14)) ? 1 : 0;
     if (var9) {
         func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 1);
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);

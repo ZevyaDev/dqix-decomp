@@ -12,8 +12,8 @@ struct SpriteAnimationList_0205a330;
 extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330 *animationList, int ticks);
 struct Struct_0205c570;
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
-struct Struct_0205da38;
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+struct TextWindowManager_0205da38;
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" int func_0205d97c(void *arg0);
 struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0 *windowManager, int isAll);
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
         var3 = func_ov003_0217e1e4(arg0);
     }
     var4 = -1;
-    if (func_0205da38((struct Struct_0205da38*)arg0->unknown_90_, 0x14) == 1) {
+    if (IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)arg0->unknown_90_, 0x14) == 1) {
         var4 = GetCursorIndex_0205d794((struct Struct_0205c570 *) arg0->unknown_90_);
     } else if (g_keyManager.TestKeysPressed(0x601) != 0) {
         var4 = GetCursorIndex_0205d794((struct Struct_0205c570 *) arg0->unknown_90_);

@@ -112,9 +112,9 @@ extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" int func_0201b868(void* arg0, int arg1);
 extern "C" void func_ov017_021a6b9c(void* arg0, int arg1);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
+extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" void func_ov002_02157ce0(char* arg0);
 extern "C" void func_020a8170(struct Struct_ov002_02157634_6* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
@@ -255,7 +255,7 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
         if (arg0->unknown_1c84_ == 2 || arg0->unknown_1c84_ == 7) {
             var6 = Enum_ov002_02157634_7;
         } else {
-            arg0->unknown_1c21_ = func_020100b0(var4);
+            arg0->unknown_1c21_ = GetOwnPartyLeaderObjectIndex_020100b0(var4);
             var5 = 1;
         }
     } else if (arg0->unknown_1bb8_ == Enum_ov002_02157634_7) {
@@ -272,7 +272,7 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
             var18 = 0;
         }
         if (!var18) {
-            var16 = func_020100b0(var4);
+            var16 = GetOwnPartyLeaderObjectIndex_020100b0(var4);
         }
         ActionTables_02108e10* var19 = GetActionTables_020797dc();
         GetParty_02010828(var4);
@@ -292,7 +292,7 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
                 func_ov016_0218b5c0(0, -1);
                 if (var21->unknown_17_4_ == 3) {
                     __clear(var1, 4);
-                    var0.unknown_3_ = func_020114ec((char*)var4, var1);
+                    var0.unknown_3_ = GetPartyOrder_020114ec((char*)var4, var1);
                     for (int var22 = 0; var22 < var0.unknown_3_; var22++) {
                         var0.unknown_4_[var22] = var1[var22];
                     }

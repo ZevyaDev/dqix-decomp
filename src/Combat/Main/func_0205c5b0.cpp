@@ -12,11 +12,11 @@ struct Struct_0205bc10;
 extern "C" void func_0205bc10(struct Struct_0205bc10*);
 struct Struct_0205bc2c;
 extern "C" int func_0205bc2c(Struct_0205bc2c*, int);
-struct Struct_0205bb84;
-extern "C" int func_0205bb84(struct Struct_0205bb84*);
+struct MenuCursor_0205bb84;
+extern "C" int GetMenuCursorIndex_0205bb84(struct MenuCursor_0205bb84*);
 extern "C" int func_0205bf58(void*, void*);
-struct Struct_0205bcdc;
-extern "C" void func_0205bcdc(struct Struct_0205bcdc*, int);
+struct MenuCursor_0205bcdc;
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc*, int);
 
 struct Struct_0205c5b0 {
     char unknown_0_[0x34];
@@ -56,13 +56,13 @@ extern "C" ARM int func_0205c5b0(void* arg0, void* arg1) {
     }
 
     if (var1->unknown_95_ != 0) {
-        int var6 = func_0205bb84((struct Struct_0205bb84*)((char*)var1 + 0x54));
+        int var6 = GetMenuCursorIndex_0205bb84((struct MenuCursor_0205bb84*)((char*)var1 + 0x54));
         if (func_0205bf58((char*)var1 + 0x54, var0) != 0) {
-            int var7 = func_0205bb84((struct Struct_0205bb84*)((char*)var1 + 0x54));
+            int var7 = GetMenuCursorIndex_0205bb84((struct MenuCursor_0205bb84*)((char*)var1 + 0x54));
             if (var6 != var7) {
                 var2 = 1;
-                int var8 = func_0205bb84((struct Struct_0205bb84*)((char*)var1 + 0x54));
-                func_0205bcdc((struct Struct_0205bcdc*)((char*)var1 + 0x4), var8);
+                int var8 = GetMenuCursorIndex_0205bb84((struct MenuCursor_0205bb84*)((char*)var1 + 0x54));
+                SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc*)((char*)var1 + 0x4), var8);
                 var1->unknown_34_ = -1;
                 func_0205bc10((struct Struct_0205bc10*)((char*)var1 + 0x4));
             }

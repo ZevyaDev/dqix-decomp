@@ -3,7 +3,7 @@
 struct TextWindowManager_0205d81c;
 
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c*, int);
-extern "C" int func_0204c7cc(unsigned char*);
+extern "C" int IsTextWindowReady_0204c7cc(unsigned char*);
 extern "C" void* func_ov013_02184338(void*, unsigned int);
 extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov013_02186db4(void* arg0) {
 
     unsigned char* var1 = (unsigned char*)FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)(var0 + 0x38), 4);
     if (var1 == 0) return;
-    if (func_0204c7cc(var1) == 0) return;
+    if (IsTextWindowReady_0204c7cc(var1) == 0) return;
     if ((var1[0xc5] & 0x20) != 0) return;
 
     int var2 = 0x2a;

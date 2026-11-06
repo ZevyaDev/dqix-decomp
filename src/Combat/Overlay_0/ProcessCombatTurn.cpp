@@ -114,7 +114,7 @@ extern "C" int func_ov000_0215fc60(char*);
 float NextRandomFloatBetween(Random*, float, float);
 extern "C" void func_020749ac(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
-extern "C" Struct_ov000_0215ab88* func_0200fea4(GameState*, int);
+extern "C" Struct_ov000_0215ab88* GetEnemyByIndex_0200fea4(GameState*, int);
 struct Struct_02053dc0;
 extern "C" Struct_ov000_0215d63c* func_02053dc0(Struct_02053dc0*);
 extern "C" void func_020dc548(signed char arg0, signed char* arg1, signed char* arg2);
@@ -143,16 +143,16 @@ extern "C" int func_ov000_0215f57c(void* arg0, int arg1);
 extern "C" void func_ov000_0215f110(char*);
 extern "C" void func_ov000_0215f1ac(void* arg0);
 struct Struct_02010088;
-extern "C" int func_02010088(Struct_02010088*);
+extern "C" int IsDead_02010088(Struct_02010088*);
 struct GameObject;
 extern "C" int func_ov000_02153c0c(GameObject*);
 extern "C" int func_ov000_021599dc(GameObject*);
 extern "C" Struct_ov000_0215767c_10* func_ov000_0215e9d8(void* arg0);
 extern "C" Struct_ov000_0215767c_8* func_ov000_0215e918(void* arg0);
-struct Struct_ov000_0215440c;
-extern "C" Struct_ov000_0215767c_9* func_ov000_021600f8(Struct_ov000_0215440c*, int);
-struct Struct_ov000_0215440c_2;
-extern "C" Struct_ov000_0215767c_8* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
+struct BattleAction_ov000_0215440c;
+extern "C" Struct_ov000_0215767c_9* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
+struct BattleAction_ov000_0215440c_2;
+extern "C" Struct_ov000_0215767c_8* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 extern "C" void func_ov000_0215767c(void* arg0, Struct_ov000_0215767c_10* arg1, Struct_ov000_0215767c_10* arg2);
 extern "C" void func_ov024_021eb510(void*);
 extern "C" void func_ov024_021eb5d0(Struct_ov000_0215d63c_3* arg0, void* arg1, Struct_ov000_0215767c_10* arg2, Struct_ov000_0215767c_10* arg3, int arg4);
@@ -179,7 +179,7 @@ static inline Struct_ov000_0215ab88* inline_ov000_02153aa4(int arg0) {
 
 static inline Struct_ov000_0215ab88* inline_ov000_0215d63c(int arg0) {
     GameState* var0 = GameState::GetInstance();
-    return func_0200fea4(var0, arg0);
+    return GetEnemyByIndex_0200fea4(var0, arg0);
 }
 
 // USA: func_ov000_0215d63c
@@ -410,7 +410,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
             } else {
                 var50->unknown_0_ = 2;
                 int var53 = func_ov000_02159d94(arg0, (short)var50->unknown_10_->unknown_20_);
-                Struct_ov000_0215ab88* var54 = func_0200fea4((GameState*)var1, var50->unknown_10_->unknown_20_);
+                Struct_ov000_0215ab88* var54 = GetEnemyByIndex_0200fea4((GameState*)var1, var50->unknown_10_->unknown_20_);
                 if (var53 != 2) {
                     int var55;
                     func_0208a910(&var55);
@@ -466,7 +466,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
         if (var63 == 0) {
             continue;
         }
-        if (func_02010088((Struct_02010088*)var63) != 0) {
+        if (IsDead_02010088((Struct_02010088*)var63) != 0) {
             continue;
         }
         if (var63->unknown_138_->unknown_3b_2_) {
@@ -536,13 +536,13 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
                 func_ov000_02160030(var71);
                 var72->unknown_0_ = var71->unknown_0_ = var67->unknown_0_;
                 for (int var73 = 0; var73 < var67->unknown_9_; var73++) {
-                    Struct_ov000_0215767c_9* var74 = func_ov000_021600f8((Struct_ov000_0215440c*)var67, var73);
+                    Struct_ov000_0215767c_9* var74 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var67, var73);
                     int var75 = var74->unknown_e_;
                     Struct_ov000_0215ab88* var76 = inline_ov000_02153aa4(var75);
                     if (var76 == 0) {
                         continue;
                     }
-                    if (func_02010088((Struct_02010088*)var76) != 0) {
+                    if (IsDead_02010088((Struct_02010088*)var76) != 0) {
                         continue;
                     }
                     if (func_ov000_02153c0c((GameObject*)var76) != 0) {
@@ -556,13 +556,13 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
                     arg0->unknown_8e81_++;
                 }
                 for (int var78 = 0; var78 < var67->unknown_8_; var78++) {
-                    Struct_ov000_0215767c_8* var79 = func_ov000_02160094((Struct_ov000_0215440c_2*)var67, var78);
+                    Struct_ov000_0215767c_8* var79 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var67, var78);
                     int var80 = (short)var79->unknown_20_;
                     Struct_ov000_0215ab88* var81 = inline_ov000_02153aa4(var80);
                     if (var81 == 0) {
                         break;
                     }
-                    if (func_02010088((Struct_02010088*)var81) != 0) {
+                    if (IsDead_02010088((Struct_02010088*)var81) != 0) {
                         break;
                     }
                     if (func_ov000_02153c0c((GameObject*)var81) != 0) {

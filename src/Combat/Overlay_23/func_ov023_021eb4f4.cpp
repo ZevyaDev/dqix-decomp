@@ -4,7 +4,7 @@ struct TextWindowManager_0205d2bc;
 extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc*);
 struct BGLayer_02020cb8_5;
 extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5*, int, int);
-extern "C" void func_0204b088(void*, int);
+extern "C" void CopyBGScreenDataToVRAM_0204b088(void*, int);
 #if defined(jpn)
 #define func_ov023_021ed44c func_ov023_021ed394
 #endif
@@ -18,7 +18,7 @@ extern "C" ARM void func_ov023_021eb4f4(char* arg0) {
 	if ((var0 & 0x40) || (var0 & 0x200)) {
 		short var1 = *(short*)(arg0 + 0x400 + 0x3a);
 		SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)(arg0 + 0x64), 0, var1);
-		func_0204b088(arg0 + 0x64, 0);
+		CopyBGScreenDataToVRAM_0204b088(arg0 + 0x64, 0);
 		unsigned short var2 = *(unsigned short*)(arg0 + 0x400 + 0x38);
 		var2 &= ~0x200;
 		*(unsigned short*)(arg0 + 0x400 + 0x38) = var2;

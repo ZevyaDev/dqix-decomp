@@ -84,7 +84,7 @@ extern "C" void* func_020d7a50(void);
 extern "C" void func_ov017_021ae760(Struct_ov017_021adcb0_4* arg0);
 extern "C" void func_ov017_0218d5ac(void* arg0);
 extern "C" void* GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_020a27a0(void* arg0);
+extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void func_020a2794(void* arg0);
 extern "C" void func_02033834(Struct_02033834_2* arg0, int arg1);
 extern "C" int* GetLocalWireless_0202ae18(void);
@@ -115,7 +115,7 @@ extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_ov017_021a9bc4(void* arg0, int arg1);
 extern "C" void func_ov017_021a9a9c(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
-extern "C" void* func_020de824(void*);
+extern "C" void* InitItemTable_020de824(void*);
 extern "C" void func_0207cbe8(char*);
 extern "C" int func_0207d538(void*, int, int, char*, int);
 extern "C" void func_ov017_0218d644(GameResources*, Vector3fix*, int);
@@ -162,7 +162,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
         GameState* var9 = GameState::GetInstance();
         void* var10 = GetFollowCamera_020100f8((char*)var9);
         if (var10) {
-            func_020a27a0(var10);
+            DisableCameraFollow_020a27a0(var10);
         }
         if (var7) {
             SetFlags04(var7, 0x80);
@@ -345,7 +345,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                     } else {
                         Struct_ov017_021a7e14_4 var40;
                         var40.unknown_0_.ResetAllocatorPointer();
-                        func_020de824(var40.unknown_14_);
+                        InitItemTable_020de824(var40.unknown_14_);
                         func_0207cbe8((char*)&var40);
                         char var41[0x80] = {};
                         func_0207cbe8((char*)&var40);

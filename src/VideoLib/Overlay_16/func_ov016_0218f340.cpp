@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca3b8 func_020cbe84
-#endif
 
 struct Struct_ov016_0218f340_2 {
     unsigned char* unknown_0_;
@@ -30,7 +27,7 @@ extern "C" int func_ov016_0219000c(Struct_ov016_0218f340_2*);
 extern "C" void func_ov016_021909cc_unk(Struct_ov016_0218f340_2*);
 extern "C" void func_ov016_0218fea0(Struct_ov016_0218f340_2*, unsigned char*);
 extern "C" void func_ov016_0218feb4(Struct_ov016_0218f340_2*, unsigned char*, int, void*);
-extern "C" void func_020ca3b8(void*, void*, int);
+extern "C" void Memcpy16Bit_020ca3b8(void*, void*, int);
 
 // USA: func_ov016_0218f340
 extern "C" ARM int func_ov016_0218f340(Struct_ov016_0218f340* arg0, void* arg1) {
@@ -59,7 +56,7 @@ extern "C" ARM int func_ov016_0218f340(Struct_ov016_0218f340* arg0, void* arg1) 
         func_ov016_0218feb4(&arg0->unknown_58_[arg0->unknown_d0_], *arg0->unknown_34_, 0x80, arg1);
         *arg0->unknown_34_ += 0x80;
     } else {
-        func_020ca3b8(*arg0->unknown_34_, arg1, 0x200);
+        Memcpy16Bit_020ca3b8(*arg0->unknown_34_, arg1, 0x200);
         *arg0->unknown_34_ += 0x200;
     }
 #endif

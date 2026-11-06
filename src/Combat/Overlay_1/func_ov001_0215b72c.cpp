@@ -9,7 +9,7 @@ extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_ov001_0215b72c*);
 extern "C" int func_ov001_0215ad2c(int);
 extern "C" int func_ov001_0215ad3c(const char*, char*, char*);
 extern "C" unsigned int func_ov001_0215a750(const char*, void**);
-extern "C" void func_0200fd38(GameState*, int, GameObject*);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern SafeAllocator* data_ov001_021658b8[];
 extern const char data_ov001_02165745[];
 extern const char data_ov001_0216574d[];
@@ -79,7 +79,7 @@ extern "C" ARM int func_ov001_0215b72c(Struct_ov001_0215b72c* arg0, int arg1) {
         return 0;
     }
     if (var2) BackgroundLoader::RemoveLockGlobal();
-    func_0200fd38(var0, var6, (GameObject*)var3);
+    SetGameObjectByIndex_0200fd38(var0, var6, (GameObject*)var3);
     var3->SetScale(266, 266, 266);
     return 1;
 }

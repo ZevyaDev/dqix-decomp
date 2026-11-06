@@ -8,7 +8,7 @@ struct GameState {
     static GameState* GetInstance();
 };
 struct GameObject;
-struct Struct_02048150;
+struct Party_02048150;
 struct StringList_02072a68_2 { char unknown_0_[4]; };
 struct Struct_ov023_021d9988;
 struct Struct_ov023_021f03a0 { unsigned char unknown_0_, unknown_1_, unknown_2_, unknown_3_; unsigned int unknown_4_; };
@@ -83,7 +83,7 @@ extern "C" Struct_02092e0c* GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(Struct_02092e0c*);
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void* GetParty_02010828(GameState*);
-extern "C" int func_02086ef0(Struct_02048150*, int);
+extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 struct Struct_ov023_021eeaac_2;
 extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2*);
 extern "C" Struct_ov023_021f03a0* func_ov023_021f0360(void*, int);
@@ -136,7 +136,7 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
 #endif
     BackgroundLoader* var8 = BackgroundLoader::GetInstance();
     char* var9 = FindStringInList_02072a68(&arg0->unknown_5904_, 0x22);
-    int var10 = func_02086ef0((Struct_02048150*)GetParty_02010828(var5), var6->unknown_18_);
+    int var10 = IsInParty_02086ef0((Party_02048150*)GetParty_02010828(var5), var6->unknown_18_);
     if (var6->unknown_0_ == 0) {
         var6->unknown_18_++;
         if (var6->unknown_18_ >= 4) {

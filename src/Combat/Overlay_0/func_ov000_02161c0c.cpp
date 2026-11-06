@@ -8,7 +8,7 @@ struct Struct_02048850;
 struct Struct_02048850_2;
 struct Struct_02010604;
 
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" void func_ov000_02167c28(unsigned char* arg0, int arg1);
 extern "C" unsigned char* func_02070fd0(struct Struct_02070b6c_3* arg0, int arg1);
 extern "C" struct Struct_02048850_2* func_0206f4f0(struct Struct_0206f01c_2* arg0, int arg1);
@@ -21,7 +21,7 @@ extern "C" void func_ov000_02161dfc(unsigned char* arg0, unsigned char* arg1);
 extern "C" void func_020488ec(char* arg0);
 extern "C" void func_ov000_02161274(GameObject* arg0);
 extern "C" void func_ov000_02166784(struct Struct_ov000_02161c0c_3* arg0, unsigned char* arg1, unsigned char* arg2);
-extern "C" void func_0200fd48(GameState* arg0, int arg1);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 
 struct Struct_ov000_02161c0c {
     char unknown_0_[2];
@@ -43,7 +43,7 @@ enum { Enum_ov000_02161c0c_672 = 0x2a0, Enum_ov000_02161c0c_3768 = 0xeb8, Enum_o
 // USA: func_ov000_02161c0c
 extern "C" ARM void func_ov000_02161c0c(unsigned char* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    unsigned char* var1 = (unsigned char*)func_0200fea4(var0, arg1);
+    unsigned char* var1 = (unsigned char*)GetEnemyByIndex_0200fea4(var0, arg1);
     unsigned char* var2 = *(unsigned char**)(arg0 + Enum_ov000_02161c0c_672);
     struct Struct_02070b6c_3* var3 = (struct Struct_02070b6c_3*)(var2 + 0x684);
     struct Struct_0206f01c_2* var4 = (struct Struct_0206f01c_2*)(var2 + 0x678);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov000_02161c0c(unsigned char* arg0, int arg1) {
     int var16 = var10;
     arg0 = *(unsigned char**)(arg0 + Enum_ov000_02161c0c_668) + 0x81b0;
     for (arg1 = 0; arg1 < ((struct Struct_ov000_02161c0c_2*)(arg0 + var16 * 0x18))->unknown_19_; arg1++) {
-        func_0200fd48(var0, (short)(((struct Struct_ov000_02161c0c_2*)(arg0 + var16 * 0x18))->unknown_11_[arg1] + 0xc0));
+        ClearGameObjectByIndex_0200fd48(var0, (short)(((struct Struct_ov000_02161c0c_2*)(arg0 + var16 * 0x18))->unknown_11_[arg1] + 0xc0));
     }
     memset(arg0 + 0x11 + var10 * 0x18, 0, 8);
     (arg0 + var10 * 0x18)[0x19] = 0;

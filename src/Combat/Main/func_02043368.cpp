@@ -5,13 +5,13 @@
 #include "GameState/GameState.h"
 
 struct Sprite_02043368_2;
-struct Struct_02043368;
+struct SpriteAnimationList_02043368;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
-extern "C" void func_0205a234(struct Struct_02043368* arg0);
+extern "C" void InitSpriteAnimationList_0205a234(struct SpriteAnimationList_02043368* animationList);
 extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, void* allocator);
@@ -21,7 +21,7 @@ extern char data_020f0093;
 
 struct Struct_02043368_3 {
     char unknown_0_[0x3c];
-    struct Struct_02043368* unknown_3c_;
+    struct SpriteAnimationList_02043368* unknown_3c_;
     void* unknown_40_;
     char unknown_44_[8];
     unsigned short unknown_4c_;
@@ -39,7 +39,7 @@ struct Struct_02043368_4 {
     SafeAllocator* unknown_2d4_;
     struct Struct_02043368_3* unknown_2d8_;
     char* unknown_2dc_;
-    struct Struct_02043368* unknown_2e0_;
+    struct SpriteAnimationList_02043368* unknown_2e0_;
     unsigned short unknown_2e4_;
     char unknown_2e6_[1];
     unsigned char unknown_2e7_;
@@ -76,14 +76,14 @@ extern "C" ARM void func_02043368(struct Struct_02043368_4* arg0) {
         arg0->unknown_2d4_->Reset();
         arg0->unknown_2d8_ = (struct Struct_02043368_3*)arg0->unknown_2d4_->Allocate(0x54);
         arg0->unknown_2dc_ = (char*)arg0->unknown_2d4_->Allocate(0xf0);
-        arg0->unknown_2e0_ = (struct Struct_02043368*)arg0->unknown_2d4_->Allocate(8);
+        arg0->unknown_2e0_ = (struct SpriteAnimationList_02043368*)arg0->unknown_2d4_->Allocate(8);
 
         if (arg0->unknown_2d8_ != 0 && arg0->unknown_2dc_ != 0 && arg0->unknown_2e0_ != 0) {
             InitSpriteSet_0205a444((char*)arg0->unknown_2d8_);
             for (unsigned short var2 = 0; var2 < 6; var2++) {
                 InitSprite_0205a198((struct Sprite_02043368_2*)(arg0->unknown_2dc_ + var2 * 0x28));
             }
-            func_0205a234(arg0->unknown_2e0_);
+            InitSpriteAnimationList_0205a234(arg0->unknown_2e0_);
             arg0->unknown_2d8_->unknown_50_ = 0;
             {
                 struct Struct_02043368_3* var3 = arg0->unknown_2d8_;

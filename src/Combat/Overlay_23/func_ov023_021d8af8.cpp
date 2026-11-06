@@ -9,8 +9,8 @@ extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0*, in
 struct Struct_02074bf4;
 extern "C" void func_02074bf4(struct Struct_02074bf4*);
 
-struct Struct_0205cfd4;
-extern "C" void func_0205cfd4(struct Struct_0205cfd4*);
+struct TextWindowManager_0205cfd4;
+extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4*);
 
 // USA: func_ov023_021d8af8
 extern "C" ARM void func_ov023_021d8af8(void* arg0) {
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov023_021d8af8(void* arg0) {
     int* var1 = (int*)0x4001000;
     *var1 = (*var1 & ~0x1f00) | (*(int*)((char*)arg0 + 0x1c) << 8);
     func_02074bf4((struct Struct_02074bf4*)((char*)arg0 + 8));
-    func_0205cfd4((struct Struct_0205cfd4*)var0);
+    InitTextWindowManager_0205cfd4((struct TextWindowManager_0205cfd4*)var0);
     *(unsigned char*)((char*)arg0 + 0x11a) = 0;
     *(unsigned char*)((char*)arg0 + 0x11b) = 0;
     *(unsigned char*)((char*)arg0 + 0x11c) = 0;

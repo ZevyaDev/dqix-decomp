@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Combat/MapDisplay.h"
 
-struct Struct_0205cfd4;
-extern "C" void func_0205cfd4(struct Struct_0205cfd4* arg0);
+struct TextWindowManager_0205cfd4;
+extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
@@ -15,7 +15,7 @@ extern "C" ARM void func_ov017_021996fc(unsigned char* arg0) {
 #else
  enum {Enum_ov017_021996fc_3248=0xcb0, Enum_ov017_021996fc_180=0xb4, Enum_ov017_021996fc_244=0xf4, Enum_ov017_021996fc_15360=0x3c00, Enum_ov017_021996fc_16384=0x4000, Enum_ov017_021996fc_116=0x74, Enum_ov017_021996fc_120=0x78, Enum_ov017_021996fc_124=0x7c, Enum_ov017_021996fc_128=0x80, Enum_ov017_021996fc_132=0x84};
 #endif
-    func_0205cfd4(*(struct Struct_0205cfd4**)(arg0 + 0x3000 + Enum_ov017_021996fc_3248));
+    InitTextWindowManager_0205cfd4(*(struct TextWindowManager_0205cfd4**)(arg0 + 0x3000 + Enum_ov017_021996fc_3248));
 
     for (int var0 = 0; var0 < 2; var0++) {
         InitBGLayer_0204af64((struct BGLayer_02020cb8*)(arg0 + Enum_ov017_021996fc_180 + Enum_ov017_021996fc_15360 + var0 * 0x20));

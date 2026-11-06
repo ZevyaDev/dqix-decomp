@@ -8,7 +8,7 @@ struct TextWindow_0205d0e0 {
 
 struct TextWindowManager_0205d81c;
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
-extern "C" int func_0204c7e0(unsigned char* arg0);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 
 struct Struct_0204c610;
 extern "C" void func_0204c610(struct Struct_0204c610* arg0, int arg1, short* arg2, short* arg3, short* arg4, short* arg5);
@@ -29,7 +29,7 @@ struct Struct_ov003_021703f0 {
 // USA: func_ov003_021703f0
 extern "C" ARM void func_ov003_021703f0(struct Struct_ov003_021703f0* arg0, short* arg1, short* arg2) {
     if (arg0->unknown_1_ == 5) {
-        if (arg0->unknown_44_ != 0 && func_0204c7e0(arg0->unknown_44_) != 0) {
+        if (arg0->unknown_44_ != 0 && IsTextWindowOpen_0204c7e0(arg0->unknown_44_) != 0) {
 #if defined(jpn)
             *arg1 = 0x2c;
             *arg2 = arg0->unknown_8_ * 17 + 0x3a;

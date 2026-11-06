@@ -26,20 +26,20 @@ struct Struct_ov017_021d82fc_3 {
     char unknown_8_[0x44 - 8];
 };
 
-struct Struct_0203d028_11;
+struct ObjectArchiveLoadInfo_0203d028_11;
 struct Struct_0200ffd0;
 struct Struct_02033834;
 struct Struct_02033fdc;
 
 extern "C" void* func_0200ffd0(struct Struct_0200ffd0* arg0);
 extern "C" void func_020ad59c(void* arg0);
-extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void GetZone3D_02012fe4();
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 extern "C" void func_02033fdc(struct Struct_02033fdc* arg0);
-extern "C" void func_0200fd38(GameState* arg0, int arg1, GameObject* arg2);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState* gameState, int index, GameObject* object);
 extern "C" void func_020adfa8(struct Struct_020aca88* arg0);
 extern "C" void func_020da1ac(void* arg0);
 
@@ -74,7 +74,7 @@ extern "C" ARM void func_020aca88(GameResources* arg0, int arg1) {
             return;
         }
         func_020ad59c(var7);
-        func_0203dafc((struct Struct_0203d028_11*)&var5);
+        ClearObjectArchiveLoadInfo_0203dafc((struct ObjectArchiveLoadInfo_0203d028_11*)&var5);
         RestoreTextureVRAMState_0207df90(var3);
         var5.unk_8 = var4;
         var5.fileData = var6;
@@ -98,7 +98,7 @@ extern "C" ARM void func_020aca88(GameResources* arg0, int arg1) {
         func_02033fdc((struct Struct_02033fdc*)var7);
         var7->unknown_e0_0_ = 0;
         var7->unknown_0_.EnableFlag(0x80);
-        func_0200fd38(var0, 0xca, (GameObject*)var7);
+        SetGameObjectByIndex_0200fd38(var0, 0xca, (GameObject*)var7);
         var0->GetGameObjectByIndex(0xcb);
 
         var6 = LoadFileIntoNewAllocation(data_020f1c20, *var2, &var4);
@@ -110,7 +110,7 @@ extern "C" ARM void func_020aca88(GameResources* arg0, int arg1) {
             return;
         }
         var12->Initialize();
-        func_0203dafc((struct Struct_0203d028_11*)&var5);
+        ClearObjectArchiveLoadInfo_0203dafc((struct ObjectArchiveLoadInfo_0203d028_11*)&var5);
         RestoreTextureVRAMState_0207df90(var3);
         var5.unk_8 = var4;
         var5.fileData = var6;
@@ -121,7 +121,7 @@ extern "C" ARM void func_020aca88(GameResources* arg0, int arg1) {
         var12->SetScale(&var10);
         var12->MakeVisible();
         var12->EnableFlag(0x180);
-        func_0200fd38(var0, 0xcb, (GameObject*)var12);
+        SetGameObjectByIndex_0200fd38(var0, 0xcb, (GameObject*)var12);
         var0->GetGameObjectByIndex(0xcc);
 
         var6 = LoadFileIntoNewAllocation(data_020f1c38, *var2, &var4);
@@ -133,7 +133,7 @@ extern "C" ARM void func_020aca88(GameResources* arg0, int arg1) {
             return;
         }
         var12->Initialize();
-        func_0203dafc((struct Struct_0203d028_11*)&var5);
+        ClearObjectArchiveLoadInfo_0203dafc((struct ObjectArchiveLoadInfo_0203d028_11*)&var5);
         RestoreTextureVRAMState_0207df90(var3);
         var5.unk_8 = var4;
         var5.fileData = var6;
@@ -148,7 +148,7 @@ extern "C" ARM void func_020aca88(GameResources* arg0, int arg1) {
         var12->SetScale(&var10);
         var12->MakeVisible();
         var12->EnableFlag(0x180);
-        func_0200fd38(var0, 0xcc, (GameObject*)var12);
+        SetGameObjectByIndex_0200fd38(var0, 0xcc, (GameObject*)var12);
         var0->GetGameObjectByIndex(0xcd);
 
         var6 = LoadFileIntoNewAllocation(data_020f1c51, *var2, &var4);
@@ -160,7 +160,7 @@ extern "C" ARM void func_020aca88(GameResources* arg0, int arg1) {
             return;
         }
         var12->Initialize();
-        func_0203dafc((struct Struct_0203d028_11*)&var5);
+        ClearObjectArchiveLoadInfo_0203dafc((struct ObjectArchiveLoadInfo_0203d028_11*)&var5);
         RestoreTextureVRAMState_0207df90(var3);
         var5.unk_8 = var4;
         var5.fileData = var6;
@@ -175,7 +175,7 @@ extern "C" ARM void func_020aca88(GameResources* arg0, int arg1) {
         var12->SetScale(&var10);
         var12->MakeVisible();
         var12->EnableFlag(0x180);
-        func_0200fd38(var0, 0xcd, (GameObject*)var12);
+        SetGameObjectByIndex_0200fd38(var0, 0xcd, (GameObject*)var12);
 
         func_020adfa8(var7);
         SafeAllocator* var13 = (SafeAllocator*)var2->Allocate(0x14);

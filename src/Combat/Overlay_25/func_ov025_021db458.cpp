@@ -4,8 +4,8 @@
 #include "World/Object3D.h"
 #include "World/ZoneFeatures.h"
 
-struct Struct_ov000_0215440c_2;
-struct Struct_ov000_0215440c;
+struct BattleAction_ov000_0215440c_2;
+struct BattleAction_ov000_0215440c;
 struct Struct_ov025_021db458 { char unknown_0_[0x20]; unsigned short unknown_20_; char unknown_22_[0xe]; Struct_ov025_021db458* unknown_30_; };
 struct Struct_ov025_021db458_2 { char unknown_0_[0xe]; short unknown_e_[4]; char unknown_16_; unsigned char unknown_17_; char unknown_18_[8]; Struct_ov025_021db458_2* unknown_20_; };
 struct Struct_ov025_021db458_3 { char unknown_0_[4]; short unknown_4_; char unknown_6_[0x3e]; Struct_02014900 unknown_44_; };
@@ -33,8 +33,8 @@ extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* 
 extern "C" int func_ov000_0215ec1c(void* arg0, short* arg1, int arg2, int arg3);
 extern "C" int func_02049afc(unsigned char* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
-extern "C" Struct_ov025_021db458* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
-extern "C" Struct_ov025_021db458_2* func_ov000_021600f8(Struct_ov000_0215440c*, int);
+extern "C" Struct_ov025_021db458* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
+extern "C" Struct_ov025_021db458_2* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 
 // USA: func_ov025_021db458
 extern "C" ARM void func_ov025_021db458(Struct_ov025_021db458_4* arg0) {
@@ -64,8 +64,8 @@ extern "C" ARM void func_ov025_021db458(Struct_ov025_021db458_4* arg0) {
         short* var16 = var4;
         var10 = var14->unknown_44_;
         var10.unknown1_0_.y = 0xcc;
-        var12 = func_ov000_02160094((Struct_ov000_0215440c_2*)var3, 0);
-        Struct_ov025_021db458_2* var17 = func_ov000_021600f8((Struct_ov000_0215440c*)var3, 0);
+        var12 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var3, 0);
+        Struct_ov025_021db458_2* var17 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var3, 0);
         Struct_ov025_021db458* var18 = var12;
         int var19 = var14->unknown_4_;
         for (; var18; var18 = var18->unknown_30_) {

@@ -3,10 +3,10 @@
 #include "Combat/Main/BattleList.h"
 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" int func_02083b00(unsigned char* arg0, int arg1);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 struct Struct_02010088;
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 struct Struct_02088514;
 extern "C" int func_02088514(struct Struct_02088514* arg0);
 struct Struct_ov024_021da670_7;
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov024_021fd954(struct Struct_ov024_021fbec4* arg0, int 
     if (var0->unknown_9_0_ == 1) return;
     var1 = var0->unknown_17_4_;
     if (var1 == 6) {
-        if (func_02083b00(var5->unknown_150_, 0xe6)) {
+        if (HasLearnedSkillEntry_02083b00(var5->unknown_150_, 0xe6)) {
             var1 = 3;
         } else {
             var1 = 2;
@@ -115,10 +115,10 @@ extern "C" ARM void func_ov024_021fd954(struct Struct_ov024_021fbec4* arg0, int 
     var4 = 0;
     for (var2 = 0; var2 < 4; var2++) {
         if (var1 == 1 && var2 != arg0->unknown_4_) continue;
-        if (!func_020a35e0(arg0->unknown_0_->unknown_8e18_, var2 & 0xff)) continue;
+        if (!IsPartyMemberInBattle_020a35e0(arg0->unknown_0_->unknown_8e18_, var2 & 0xff)) continue;
         var3 = GetCombatantByID((int)arg0->unknown_0_, (short)var2);
         if (!var3) continue;
-        if (func_02010088((struct Struct_02010088*)var3)) continue;
+        if (IsDead_02010088((struct Struct_02010088*)var3)) continue;
         if ((var0->unknown_10_ & 0x400) && (*(unsigned int*)((char*)var3->unknown_138_ + 0x14) & 0x200)) continue;
 
         bool var7 = false;

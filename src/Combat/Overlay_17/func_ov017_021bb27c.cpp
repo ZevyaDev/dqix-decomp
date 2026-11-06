@@ -8,7 +8,7 @@ struct Struct_02033fdc;
 struct Struct_02033b58;
 struct Struct_02033834;
 struct GlobalFlags_02038598_4;
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 struct Struct_ov017_021bb27c_2 {
     Object3D unknown_0_; char unknown_ac_[0x15]; unsigned char unknown_c1_0_:2, unknown_c1_2_:6;
     char unknown_c2_[0x1e]; unsigned char unknown_e0_;
@@ -66,16 +66,16 @@ extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_02053ec8(void*, int);
 extern "C" void func_02053f04(void*);
-extern "C" int func_020100b0(GameState*);
+extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
 extern "C" GlobalFlags_02038598_4* GetGlobalFlags_020d6c00();
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void func_ov017_02191fec(GameResources*, int);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
-extern "C" int func_02046b60(Struct_02038598_5*, int);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void func_020dc2d0(int);
 extern "C" void func_ov017_02190264(GameResources*, int);
-extern "C" void func_ov017_0218f5a4(GameResources*, int, int, int, int);
+extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources*, int, int, int, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" void func_020a27ac(void*);
 extern "C" void func_ov017_021921fc(const Vector3fix*, int, int);
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
     int* var0;
     GameState* var1 = GameState::GetInstance();
     GameResources* var2 = GetGameResources();
-    Struct_02038598_5* var3 = (Struct_02038598_5*)var2->unknown_ptr_array_36fc[0];
+    Queue_02038598_5* var3 = (Queue_02038598_5*)var2->unknown_ptr_array_36fc[0];
     Struct_ov017_021bb27c_6* var4 = inline_ov017_021bb27c(var2);
     GameObject* var5 = var1->GetUnknownGameObject();
     void* var6 = (void*)GetFollowCamera_020100f8((char*)var1);
@@ -133,7 +133,7 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
             if (var12) { func_02053ec8(var12, 0); func_02053f04(var12); }
         }
         if (arg0->unknown_12_) {
-            func_020100b0(var1);
+            GetOwnPartyLeaderObjectIndex_020100b0(var1);
             for (int var13 = 0; var13 < 4; var13++) {
                 Struct_ov017_021bb27c_2* var14 = (Struct_ov017_021bb27c_2*)GetPartyMemberBaseByIndex_0200ff1c(var1, var13);
                 if (var14) {
@@ -170,13 +170,13 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
     ClearGlobalFlags_020466f4(GetGlobalFlags_020d6c00(), 0x400f);
     Struct_ov017_021bb27c_5* var18 = (Struct_ov017_021bb27c_5*)GetZoneEntry_0200fd0c(var1);
     if (arg0->unknown_104_ && !var4->unknown_2_ && (!var18->unknown_2_ || arg0->unknown_10c_) &&
-        !func_02046b60(var3, 10) && !(arg0->unknown_16_ == 1 && arg0->unknown_cf_ == 2)) {
+        !IsTypeInQueue_02046b60(var3, 10) && !(arg0->unknown_16_ == 1 && arg0->unknown_cf_ == 2)) {
         func_020dc2d0(0);
     }
     arg0->unknown_ff_ = 1;
     for (int var19 = 0; var19 < 4; var19++) {
         if (arg0->unknown_174_ & (1 << var19)) func_ov017_02190264(var2, var19);
-        if (arg0->unknown_175_ & (1 << var19)) func_ov017_0218f5a4(var2, var19, 0, 0, 1);
+        if (arg0->unknown_175_ & (1 << var19)) QueuePartyMemberModelLoad_ov017_0218f5a4(var2, var19, 0, 0, 1);
     }
     if (var5) EnablePlayerControl_020397c0(var5);
     if (var6) func_020a27ac(var6);
@@ -197,7 +197,7 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
         if (arg0->unknown_a_ <= 2 && arg0->unknown_fd_) return;
         Struct_ov017_021bb27c_5* var25 = (Struct_ov017_021bb27c_5*)GetZoneEntry_0200fd0c(var1);
         if (var25->unknown_2_ && arg0->unknown_108_) var25->unknown_e_ = 1;
-        else func_ov017_021d035c(0, func_020100b0(var1), arg0->unknown_108_);
+        else func_ov017_021d035c(0, GetOwnPartyLeaderObjectIndex_020100b0(var1), arg0->unknown_108_);
         for (int var26 = 0; var26 < 4; var26++) {
             GameObject* var27 = var1->GetPartyMemberByIndex(var26);
             if (var27 && func_02039790(var27, 0x20)) func_ov017_021bd4d0(arg0, var26, 0, 0);

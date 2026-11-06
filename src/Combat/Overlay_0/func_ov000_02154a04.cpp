@@ -24,7 +24,7 @@ extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(Random*, short*, int,
 extern "C" short func_ov000_02154f30(Random*, short, int, short*);
 extern "C" void func_ov000_02153d10(Random*, short*);
 extern "C" void func_ov000_02153d78(Random*, short, short*);
-extern "C" GameObject* func_0200fea4(GameState*, int);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" int func_ov000_02153e78(Random*, short*, int, int, int);
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(Random*, short*, int, int);
 extern "C" signed char func_ov000_0215fbe0(Random*, int);
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov000_02154a04(Random* arg0, int arg1, int arg2, short* 
             func_ov000_02153d78(arg0, (short)arg1, &var6);
             arg3[var0++] = var6;
         } else if (var3 == 4) {
-            GameObject* var7 = func_0200fea4(GameState::GetInstance(), (short)arg1);
+            GameObject* var7 = GetEnemyByIndex_0200fea4(GameState::GetInstance(), (short)arg1);
             var0 = func_ov000_02153e78(arg0, arg3, 8, ((Struct_ov000_02154a04_2*)var7)->unknown_17c_, 1);
         } else if (var3 == 3) {
             var0 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0, arg3, 8, 1);

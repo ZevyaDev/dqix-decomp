@@ -35,20 +35,20 @@ struct Struct_ov003_0217bf78_2 {
     int unknown_160_;
 };
 
-extern "C" void func_020a27a0(void *arg0);
+extern "C" void DisableCameraFollow_020a27a0(void *camera);
 extern "C" void func_020a27ac(void *arg0);
 extern "C" int func_0202e7f0(void *arg0);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char *window);
 extern "C" void func_ov003_0217c974(Struct_ov003_0217bf78_2 *arg0);
 extern "C" void func_0202e694(void *arg0, int *arg1);
-extern "C" void func_0200fd38(GameState *arg0, int arg1, GameObject *arg2);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState *gameState, int index, GameObject *object);
 extern "C" void func_ov003_0217ca84(Struct_ov003_0217bf78_2 *arg0, unsigned short arg1);
 extern "C" void func_020a64e8(void);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" int func_ov003_0217c2a0(int arg0);
 extern "C" void func_ov003_0217cb3c(Struct_ov003_0217bf78_2 *arg0, int arg1, int arg2);
-extern "C" void func_0205ebc0(void *arg0, int arg1, int arg2);
+extern "C" void LoadExtraSoundSet_0205ebc0(void *manager, int soundSetToLoad, int soundSet);
 
 extern char data_ov003_02180bef[];
 extern char data_ov003_02180cf8[];
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov003_0217bf78(Struct_ov003_0217bf78_2 *arg0) {
         arg0->unknown_138_            = var0->QueueLoadFile(data_ov003_02180d08, 0);
         arg0->unknown_134_            = var0->QueueLoadFile(data_ov003_02180c07, 0);
         Struct_ov003_0217bf78 *var3 = (Struct_ov003_0217bf78*)GetCamera_020100bc(var2);
-        func_020a27a0(var3);
+        DisableCameraFollow_020a27a0(var3);
         func_020a27ac(var3);
         var3->unknown_21e_ = func_0202e7f0(var3);
         var0->RemoveTask(arg0->unknown_13c_);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov003_0217bf78(Struct_ov003_0217bf78_2 *arg0) {
         arg0->unknown_150_       = var5->unknown_70_;
         var5->unknown_10_       = data_ov003_02180ce0;
         func_0202e694(var5, data_ov003_02180cec);
-        func_0200fd38(var4, 0xa0, (GameObject *) arg0->unknown_80_);
+        SetGameObjectByIndex_0200fd38(var4, 0xa0, (GameObject *) arg0->unknown_80_);
         func_ov003_0217ca84(arg0, 0);
         arg0->unknown_141_++;
     } else if (arg0->unknown_141_ == 2) {
@@ -121,6 +121,6 @@ extern "C" ARM void func_ov003_0217bf78(Struct_ov003_0217bf78_2 *arg0) {
         *(volatile unsigned int *) 0x4001000 &= ~0x1f00;
         arg0->unknown_140_  = 2;
         arg0->unknown_141_ = 0;
-        func_0205ebc0(&gSoundEffectManager_02108760, 0x8b, 0x8b);
+        LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0x8b, 0x8b);
     }
 }

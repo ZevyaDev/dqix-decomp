@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0204b010;
+struct BGLayer_0204b010;
 struct BGLayer_0204b8d0;
 struct Struct_0204b878;
 struct TextWindowManager_0205d1e0;
-struct Struct_0205d228;
+struct TextWindowManager_0205d228;
 struct TextWindowManager_0205d274;
 struct Struct_0204af14;
 struct Struct_ov000_02173954;
 
-extern "C" void func_0204b010(struct Struct_0204b010*, void*);
+extern "C" void ClearBGScreenData_0204b010(struct BGLayer_0204b010*, void*);
 extern "C" void CopyBGScreenBlockRect_0204b8d0(struct BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
-extern "C" void func_0205d1e0(struct TextWindowManager_0205d1e0*);
-extern "C" void func_0205d228(struct Struct_0205d228*);
-extern "C" void func_0205d274(struct TextWindowManager_0205d274*);
+extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(struct TextWindowManager_0205d1e0*);
+extern "C" void DrawTextWindows_0205d228(struct TextWindowManager_0205d228*);
+extern "C" void FlushTextWindowManagerBGScreenData_0205d274(struct TextWindowManager_0205d274*);
 extern "C" void* func_0204af14(struct Struct_0204af14*, unsigned int);
 extern "C" void func_0204b878(struct Struct_0204b878*, int, int, int, short, short, short, short, unsigned short);
 extern "C" void func_ov000_0217f5e4(struct Struct_ov000_02173954*, int);
 
-extern "C" void func_0204b04c(void*, int);
+extern "C" void FlushBGScreenData_0204b04c(void*, int);
 extern "C" void* GetLocalWireless_0202ae18(void*);
-extern "C" void func_0203bd08(void*);
+extern "C" void GetOAMManager_0203bd08(void*);
 extern "C" void func_ov000_0217a8f4(void*);
 extern "C" void func_ov000_021750e4(void*);
 extern "C" void func_ov000_02175544(void*);
@@ -87,31 +87,31 @@ extern "C" ARM void func_ov000_02173954(char* arg0) {
 #else
     if (*(unsigned short*)(arg0 + 0x1d72) & 0x80) {
 #endif
-        func_0204b010((struct Struct_0204b010*)(arg0 + 0x8a4), 0);
+        ClearBGScreenData_0204b010((struct BGLayer_0204b010*)(arg0 + 0x8a4), 0);
         CopyBGScreenBlockRect_0204b8d0((struct BGLayer_0204b8d0*)(arg0 + 0x8c4), 0, 0, 0, 0, 0, 0x20, 0x19, 0xffff);
-        func_0205d1e0((struct TextWindowManager_0205d1e0*)(arg0 + 0x188));
-        func_0204b04c(arg0 + 0x8c4, 0);
+        ClearTextWindowManagerBGScreenData_0205d1e0((struct TextWindowManager_0205d1e0*)(arg0 + 0x188));
+        FlushBGScreenData_0204b04c(arg0 + 0x8c4, 0);
         return;
     }
     func_ov000_0217a8f4(arg0);
     func_ov000_021750e4(arg0);
-    func_0204b010((struct Struct_0204b010*)(arg0 + 0x8a4), 0);
+    ClearBGScreenData_0204b010((struct BGLayer_0204b010*)(arg0 + 0x8a4), 0);
     CopyBGScreenBlockRect_0204b8d0((struct BGLayer_0204b8d0*)(arg0 + 0x8c4), 0, 0, 0, 0, 0, 0x20, 0x19, 0xffff);
-    func_0205d1e0((struct TextWindowManager_0205d1e0*)(arg0 + 0x188));
+    ClearTextWindowManagerBGScreenData_0205d1e0((struct TextWindowManager_0205d1e0*)(arg0 + 0x188));
 #if defined(jpn)
     if (*(unsigned char*)(arg0 + 0x1fb8) == 0 && (*(unsigned short*)(arg0 + 0x1faa) & 0x600)) {
 #else
     if (*(unsigned char*)(arg0 + 0x1d80) == 0 && (*(unsigned short*)(arg0 + 0x1d72) & 0x600)) {
 #endif
-        func_0205d228((struct Struct_0205d228*)(arg0 + 0x188));
+        DrawTextWindows_0205d228((struct TextWindowManager_0205d228*)(arg0 + 0x188));
         func_ov000_02175544(arg0);
-        func_0204b04c(arg0 + 0x8a4, 0);
-        func_0204b04c(arg0 + 0x8c4, 0);
-        func_0205d274((struct TextWindowManager_0205d274*)(arg0 + 0x188));
+        FlushBGScreenData_0204b04c(arg0 + 0x8a4, 0);
+        FlushBGScreenData_0204b04c(arg0 + 0x8c4, 0);
+        FlushTextWindowManagerBGScreenData_0205d274((struct TextWindowManager_0205d274*)(arg0 + 0x188));
         func_ov000_02180bac(arg0);
         return;
     }
-    func_0203bd08(GetLocalWireless_0202ae18(GameState::GetInstance()));
+    GetOAMManager_0203bd08(GetLocalWireless_0202ae18(GameState::GetInstance()));
     signed char* var0;
 #if defined(jpn)
     int var10, var11;
@@ -285,10 +285,10 @@ extern "C" ARM void func_ov000_02173954(char* arg0) {
         }
     }
     if (inline_ov000_0215f57c(var3)) {
-        func_0205d228((struct Struct_0205d228*)(arg0 + 0x188));
+        DrawTextWindows_0205d228((struct TextWindowManager_0205d228*)(arg0 + 0x188));
         func_ov000_02175544(arg0);
     }
-    func_0204b04c(arg0 + 0x8a4, 0);
-    func_0204b04c(arg0 + 0x8c4, 0);
-    func_0205d274((struct TextWindowManager_0205d274*)(arg0 + 0x188));
+    FlushBGScreenData_0204b04c(arg0 + 0x8a4, 0);
+    FlushBGScreenData_0204b04c(arg0 + 0x8c4, 0);
+    FlushTextWindowManagerBGScreenData_0205d274((struct TextWindowManager_0205d274*)(arg0 + 0x188));
 }

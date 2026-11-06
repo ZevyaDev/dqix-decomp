@@ -26,18 +26,18 @@ extern "C" void SetBGPriority_0204b5b4(void*, int);
 struct BGLayer_02020cb8_5;
 extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 
-extern "C" void func_020c9820();
+extern "C" void WaitForVBlank_020c9820();
 
-extern "C" void func_0204b2e0(void* arg0, char* arg1);
+extern "C" void FlushBGBlock_0204b2e0(void* layer, char* block);
 
-struct Struct_02020cb8_6;
-extern "C" void func_0204b3a0(struct Struct_02020cb8_6* arg0, char* arg1);
+struct BGLayer_02020cb8_6;
+extern "C" void CopyBGBlockToVRAM_0204b3a0(struct BGLayer_02020cb8_6* layer, char* block);
 
 struct BGLayer_02020cb8_2;
 extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2* layer, void* screenData);
 
-struct Struct_02020cb8_3;
-extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
+struct BGLayer_02020cb8_3;
+extern "C" void ResetBGLayerData_0204afb4(struct BGLayer_02020cb8_3* layer);
 
 struct Struct_ov001_021624cc {
     unsigned char unknown_0_[0x1c];
@@ -84,16 +84,16 @@ extern "C" ARM int func_ov001_021624cc(void* arg0) {
     SetBGPriority_0204b5b4(&var3, 0);
     SetBGScreenSize_0204b11c((unsigned char*)&var3, 0);
     SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)&var3, 0, 0);
-    func_020c9820();
+    WaitForVBlank_020c9820();
     for (int var11 = 0; var11 < var9; var11++) {
         char* var12 = var1[var11];
-        func_0204b2e0(&var3, var12);
-        func_0204b3a0((struct Struct_02020cb8_6*)&var3, var12);
+        FlushBGBlock_0204b2e0(&var3, var12);
+        CopyBGBlockToVRAM_0204b3a0((struct BGLayer_02020cb8_6*)&var3, var12);
     }
     if (var8) {
         BackgroundLoader::RemoveLockGlobal();
     }
     LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)&var3, 0);
-    func_0204afb4((struct Struct_02020cb8_3*)&var3);
+    ResetBGLayerData_0204afb4((struct BGLayer_02020cb8_3*)&var3);
     return 1;
 }

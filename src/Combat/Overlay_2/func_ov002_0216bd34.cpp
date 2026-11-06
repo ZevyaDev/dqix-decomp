@@ -10,13 +10,13 @@
 
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
-struct Struct_0205da38;
+struct TextWindowManager_0205da38;
 struct SoundEffectManager_02108760;
 struct ItemTable_0201099c_10;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov002_0216bd34(char *arg0) {
         int var3   = *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1a00 + 0xea));
         int var4  = 0;
         int var5     = g_keyManager.TestKeysPressed(0x601);
-        int var6     = func_0205da38((struct Struct_0205da38*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0x14);
+        int var6     = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0x14);
         if ((var5 | var6) ? 1 : 0) {
             *(unsigned char *) (arg0 + RG(0xf80, 0xed8)) = *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80));
             *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;

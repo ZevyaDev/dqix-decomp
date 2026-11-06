@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 struct TextWindowManager_0205de24_2;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 #if defined(jpn)
 #define func_ov013_02185e40 func_ov013_02186f4c
 extern "C" void OpenTextWindow_0205d304(void*, char*, int, int, int, int, void*);

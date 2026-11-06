@@ -38,7 +38,7 @@ struct BGLayer_02020cb8 {
     unsigned char unknown_d_;
     unsigned short unknown_e_;
     int screenBlocks_10_, screenData_14_, screenSize_18_;
-    unsigned char unknown_1c_0_ : 4;
+    unsigned char isSubScreen_1c_0_ : 4;
     unsigned char bgIndex_1c_4_ : 4;
     unsigned char unknown_1d_, unknown_1e_, unknown_1f_;
 };

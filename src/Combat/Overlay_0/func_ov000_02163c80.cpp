@@ -12,9 +12,9 @@ struct Struct_ov000_02163c80 { char unknown_0_[Enum_ov000_02163c80_672]; unsigne
 
 struct Struct_0201bdac_4;
 struct Struct_02010088;
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" int func_02086b98(struct Struct_0201bdac_4* arg0);
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 
 // USA: func_ov000_02163c80
 extern "C" ARM int func_ov000_02163c80(struct Struct_ov000_02163c80* arg0, int arg1) {
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov000_02163c80(struct Struct_ov000_02163c80* arg0, int a
     for (var3 = 0; var3 < 4; var3++) {
         GameObject* var5 = var0->GetPartyMemberByIndex(var3);
         if (var5 == NULL) continue;
-        if (func_020a35e0(arg0->unknown_2a0_, var3 & 0xff)) continue;
+        if (IsPartyMemberInBattle_020a35e0(arg0->unknown_2a0_, var3 & 0xff)) continue;
         if (!(**(int**)((char*)var5 + 0x130) & 1)) var2 = 0;
     }
     int var6 = func_02086b98(var1) != 0;
@@ -35,8 +35,8 @@ extern "C" ARM int func_ov000_02163c80(struct Struct_ov000_02163c80* arg0, int a
         for (var4 = 0; var4 < 4; var4++) {
             GameObject* var7 = var0->GetCombatantByIndex(var4);
             if (var7 == NULL) continue;
-            if (!func_020a35e0(arg0->unknown_2a0_, var4 & 0xff)) continue;
-            if (!func_02010088((struct Struct_02010088*)var7)) var6 = 0;
+            if (!IsPartyMemberInBattle_020a35e0(arg0->unknown_2a0_, var4 & 0xff)) continue;
+            if (!IsDead_02010088((struct Struct_02010088*)var7)) var6 = 0;
         }
     }
     if (var6 && !var2) {

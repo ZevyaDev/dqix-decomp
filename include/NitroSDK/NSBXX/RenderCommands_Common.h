@@ -174,7 +174,7 @@ extern "C"
     // repeatedly write u32s to dst (useful for hardware registers)
     void func_020ca430(const void* src, volatile void* dst, unsigned int numBytes);
     // aligned 32-byte-looped memset
-    void func_020ca458(int value, void* dst, unsigned int len);
+    void Memset32Bit_020ca458(int value, void* dst, unsigned int len);
     // zero-initialize matrix
     void func_020ca7d0(void*);
 }

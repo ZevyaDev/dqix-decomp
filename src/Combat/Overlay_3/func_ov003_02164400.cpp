@@ -74,7 +74,7 @@ int NextRandomMax(struct Random* random, int maximum);
 extern "C" void func_02080b54(void* arg0, int arg1);
 extern "C" int func_02080b40(void* arg0, int arg1);
 extern "C" struct Struct_0207fdcc* func_02081da8(struct Struct_0207fdcc_2*, int);
-extern "C" int func_0204c7cc(unsigned char* arg0);
+extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 
 extern int gFileScratchSpace_0211e33c;
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
@@ -419,7 +419,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
             *(short*)(arg0 + HI(0x47a)) = 0;
             arg0[HI(0x4a4)] = 0xe;
         }
-        if (func_0204c7cc((unsigned char*)var28) == 0) return;
+        if (IsTextWindowReady_0204c7cc((unsigned char*)var28) == 0) return;
         *(short*)(arg0 + HI(0x47a)) = 0;
         arg0[HI(0x4a4)] = 0xe;
         return;

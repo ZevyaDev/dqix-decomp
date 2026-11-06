@@ -8,7 +8,7 @@ extern "C" int func_ov027_021d9bdc(void);
 extern "C" void func_ov027_021d9e04(int arg0, short arg1);
 extern "C" unsigned int func_ov027_021dd024();
 extern "C" unsigned int func_ov027_021dd038();
-extern "C" void func_020ca458(unsigned int value, void* dest, int count);
+extern "C" void Memset32Bit_020ca458(unsigned int value, void* dest, int count);
 extern "C" void VectorizedMemset(void* dst, int val, int size);
 
 extern "C" void func_ov027_021d8c20(int arg0, int arg1, int arg2);
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov027_021d8c94(int arg0, void* arg1) {
     if (arg0 == 0x11) {
         void* var16 = data_ov027_021e33ec;
         Type_ov027_021d8c94 var17 = *(Type_ov027_021d8c94*)((char*)var16 + 0x14e4);
-        func_020ca458(0, var16, 0x7d00);
+        Memset32Bit_020ca458(0, var16, 0x7d00);
         data_ov027_021e33ec = 0;
         if (var17) var17(0, 0xc, 0);
     }

@@ -67,8 +67,8 @@ struct Struct_ov000_021759f4 {
 
 extern "C" struct Struct_020a36a8* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" int func_020a36a8(struct Struct_020a36a8* arg0);
-extern "C" struct Struct_ov000_021759f4* func_ov017_021b8468(void* arg0);
-extern "C" struct Struct_ov000_021643d4_8* func_ov000_02161318(void* arg0, int arg1);
+extern "C" struct Struct_ov000_021759f4* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" struct Struct_ov000_021643d4_8* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 extern "C" int func_ov000_021719f8(int* arg0);
 extern "C" void func_ov017_021c9cd8(unsigned char arg0);
 extern unsigned short data_ov000_02183444[];
@@ -88,7 +88,7 @@ extern "C" ARM int func_ov000_021759f4(struct Struct_ov000_021759f4_5* arg0) {
         return 0;
     }
     if (var1 != NULL && !func_020a36a8(var1)) {
-        struct Struct_ov000_021759f4* var2 = func_ov017_021b8468(var0);
+        struct Struct_ov000_021759f4* var2 = GetBattleScene_ov017_021b8468(var0);
         if (var2 != NULL) {
             return var2->unknown_eb4_;
         }
@@ -98,7 +98,7 @@ extern "C" ARM int func_ov000_021759f4(struct Struct_ov000_021759f4_5* arg0) {
     unsigned char var4 = 0;
     unsigned char var5 = 0;
     for (int var6 = 0; var6 < 4; var6++) {
-        struct Struct_ov000_021643d4_8* var7 = func_ov000_02161318(arg0, var6);
+        struct Struct_ov000_021643d4_8* var7 = FindPartyMemberPanel_ov000_02161318(arg0, var6);
         if (var7 == NULL) {
             break;
         }

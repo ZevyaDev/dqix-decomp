@@ -18,7 +18,7 @@
 #define data_ov017_021d7df9 data_ov017_021d85d1
 #endif
 
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 struct Struct_02018300_3;
 struct Struct_020d7aa0_2;
 struct Struct_02010834;
@@ -76,7 +76,7 @@ extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" ARM int func_ov017_021bb27c(Struct_ov017_021bbc10* arg0);
 
-extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 char* strstr(const char* arg0, const char* arg1);
@@ -98,7 +98,7 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
     GameResources* var4 = GetGameResources();
     void* var5 = GetLocalWireless_0202ae18();
 
-    if (func_02046b60((Struct_02038598_5*)var4->unknown_ptr_array_36fc[0], 1)) {
+    if (IsTypeInQueue_02046b60((Queue_02038598_5*)var4->unknown_ptr_array_36fc[0], 1)) {
         arg0->unknown_ff_ = 1;
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;

@@ -23,7 +23,7 @@ struct StringListEntry_02072a68 { short id_0_; void* pText_4_; };
 struct StringList_02072a68_2 { struct StringListEntry_02072a68* unknown_0_; short capacity_4_; };
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 
-extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
+extern "C" int AppendPositionTag_02041a90(char* buffer, int x, int y);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 extern "C" int func_020420e8(void* arg0, int arg1);
@@ -98,7 +98,7 @@ extern "C" ARM int func_ov004_021564f0(void* arg0) {
             var15 = 8;
         }
         func_02042428(var10, 0xc);
-        func_02041a90(var10, var14, var15);
+        AppendPositionTag_02041a90(var10, var14, var15);
         AppendText_02042058(var10, (const char*)var12);
         *(void**)((char*)var11 + 0x20) = var10;
     }
@@ -167,7 +167,7 @@ extern "C" ARM int func_ov004_021564f0(void* arg0) {
         if (var27 < 0) {
             var27 = 0;
         }
-        func_02041a90(var23, var27, 6);
+        AppendPositionTag_02041a90(var23, var27, 6);
         if (var25) {
             AppendText_02042058(var23, (const char*)var25);
         }

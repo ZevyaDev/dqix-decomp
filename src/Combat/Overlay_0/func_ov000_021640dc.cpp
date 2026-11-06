@@ -2,10 +2,10 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" int func_ov000_02160fd4(void* arg0, int arg1);
 extern "C" int func_ov017_02195658(GameResources* arg0);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void func_020a367c(unsigned char* arg0, int arg1);
 
 extern "C" void func_ov017_021c8b78(unsigned short arg0);
@@ -86,14 +86,14 @@ extern "C" ARM void func_ov000_021640dc(struct Struct_ov000_021640dc_4* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     if (var1->unknown_42e2_ != 0) {
-        func_ov000_02160fa8(arg0, 0x2000000);
+        SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);
         return;
     }
     struct Struct_ov000_021640dc_2* var2 = arg0->unknown_2a0_;
     int var3 = func_ov017_02195658(var1);
-    if (func_020a35e0((unsigned char*)var2, var3)) {
+    if (IsPartyMemberInBattle_020a35e0((unsigned char*)var2, var3)) {
         if (var2->unknown_2a_ == var3) {
-            func_ov000_02160fa8(arg0, 0x2000000);
+            SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);
             func_ov017_021c8b78(var2->unknown_8_);
         }
         inline_ov000_02163db4((unsigned char*)var2, var3);
@@ -114,8 +114,8 @@ extern "C" ARM void func_ov000_021640dc(struct Struct_ov000_021640dc_4* arg0) {
     func_ov000_021674f4((unsigned char*)arg0, arg0->unknown_2a0_->unknown_2c_ == 0);
     func_0208b4c0(func_0208a9b4());
     func_ov000_02160d80(arg0, 7);
-    func_ov000_02160fa8(arg0, 0x10000);
-    func_ov000_02160fa8(arg0, 0x40000000);
+    SetBattleSceneFlags_ov000_02160fa8(arg0, 0x10000);
+    SetBattleSceneFlags_ov000_02160fa8(arg0, 0x40000000);
     arg0->unknown_3760_.unknown_24_ = arg0->unknown_2a0_->unknown_8_;
     arg0->unknown_54bc_ = inline_ov000_021640dc(arg0->unknown_29c_)->unknown_1_0_;
     arg0->unknown_3760_.unknown_20_ = arg0->unknown_2a0_->unknown_c_;

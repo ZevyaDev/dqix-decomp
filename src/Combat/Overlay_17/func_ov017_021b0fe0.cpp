@@ -28,16 +28,16 @@ extern "C" void func_ov017_021cff8c(int arg0, int arg1);
 extern "C" void func_ov017_021d0e00(int arg0);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021d25f4(int arg0);
-extern "C" void* func_ov017_021b8468(void* arg0);
+extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
 extern "C" void func_ov000_0217616c(void* arg0);
 
 extern "C" void* func_ov000_02160f08(void* arg0);
 
-struct Struct_02048150;
-extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
+struct Party_02048150;
+extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 
-struct Struct_02038598_5;
-extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
+struct Queue_02038598_5;
+extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 
 // USA: func_ov017_021b0fe0
 extern "C" ARM void func_ov017_021b0fe0(int arg0) {
@@ -69,18 +69,18 @@ extern "C" ARM void func_ov017_021b0fe0(int arg0) {
 	func_ov017_021c9e00(arg0, 1, 0, 1);
 	func_ov017_021d25f4(arg0 & 0xff);
 
-	if (!func_02086ef0((Struct_02048150*)GetParty_02010828(GameState::GetInstance()), arg0)) {
+	if (!IsInParty_02086ef0((Party_02048150*)GetParty_02010828(GameState::GetInstance()), arg0)) {
 		return;
 	}
 
 	int var1 = ((int)GetGameResources());
-	struct Struct_02038598_5* var2 = *(struct Struct_02038598_5**)((char*)var1 + 0x3000 + Enum_ov017_021b0fe0_1788);
-	if (!func_02046b60(var2, 0xa)) {
+	struct Queue_02038598_5* var2 = *(struct Queue_02038598_5**)((char*)var1 + 0x3000 + Enum_ov017_021b0fe0_1788);
+	if (!IsTypeInQueue_02046b60(var2, 0xa)) {
 		return;
 	}
 
 	void* var3 = *(void**)((char*)var1 + 0x3000 + Enum_ov017_021b0fe0_1816);
-	void* var4 = func_ov017_021b8468(var3);
+	void* var4 = GetBattleScene_ov017_021b8468(var3);
 	void* var5 = func_ov000_02160f08(var4);
 
 	int var6 = (arg0 >= 0 && arg0 <= 3) ? 1 : 0;

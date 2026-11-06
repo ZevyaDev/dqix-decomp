@@ -27,7 +27,7 @@ extern "C" int func_0208e824(void*, char*);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" Struct_020130b0* func_0201e844(void*, int, int);
-extern "C" void func_020de848(void*);
+extern "C" void ClearItemTable_020de848(void*);
 extern "C" int func_020de9a4(void*, SafeAllocator*, void*, unsigned int, short*, unsigned short);
 extern "C" void func_02013b70(Zone3D*, SafeAllocator*);
 extern const char* data_020f2a38;
@@ -114,7 +114,7 @@ extern "C" ARM void func_0201647c(Zone3D* arg0) {
             }
         }
     }
-    func_020de848(arg0->unknown_struct_2754_);
+    ClearItemTable_020de848(arg0->unknown_struct_2754_);
     if (var11 > 0) {
 #if defined(jpn)
         func_020e0484(arg0->unknown_struct_2754_, var0, data_020f2a38, var10,

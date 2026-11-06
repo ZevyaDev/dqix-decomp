@@ -12,7 +12,7 @@ enum { Enum_ov017_021b4f48_9196 = 0x23ec, Enum_ov017_021b4f48_96 = 0x60 };
 struct Struct_02013fb4;
 
 extern "C" char* GetZone3D_02012fe4(void);
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int func_020107d0(char* arg0);
 extern "C" int func_0201b5b0(int arg0);
 extern "C" void func_0209bc98(
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov017_021b4f48(struct Struct_ov017_021b4f48_2* arg0) {
         var1->GetLoadedFileByID(arg0->unknown_c_, &var4, &var3);
         if (var4 != 0) {
             int var5 = arg0->unknown_8_->unknown_0_;
-            int var6 = func_0201079c((char*)var0);
+            int var6 = GetStoryChapter_0201079c((char*)var0);
             int var7 = func_020107d0((char*)var0);
             if (func_0201b5b0(var5)) {
                 int var8 = var2->GetFloorMonsterRank(var5 % 20);

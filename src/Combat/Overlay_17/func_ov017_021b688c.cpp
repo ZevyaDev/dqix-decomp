@@ -7,7 +7,7 @@
 
 
 struct Struct_02018300_3;
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 struct Struct_ov017_021b688c {
 #if defined(jpn)
     char unknown_0_[0x218];
@@ -43,10 +43,10 @@ extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" int GetResources_0200fb8c(int*);
 extern "C" int GetFollowCamera_020100f8(char*);
 extern "C" void func_020a28a0(unsigned char*, unsigned char);
-extern "C" void func_020a0cc4(int);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern AllocatorUnion gMainHeap_02114e20;
-extern "C" void func_020a0c0c();
+extern "C" void LoadFileTables_020a0c0c();
 extern "C" void func_020a1df8(int);
 extern "C" void func_ov003_0215f9c0(Struct_ov017_021b688c*, int);
 extern "C" void func_ov003_0215f8cc(Struct_ov017_021b688c*, SafeAllocator*);
@@ -54,7 +54,7 @@ extern "C" void func_020a27b8(unsigned char*);
 extern "C" int func_ov003_0215fce8(Struct_ov017_021b688c*, unsigned int);
 extern "C" void func_ov003_0215fb94(Struct_ov017_021b688c*);
 extern "C" void func_ov017_021b67d8(Struct_ov017_021b688c_2*);
-extern "C" int func_02046b60(Struct_02038598_5*, int);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_020a27ac(void*);
@@ -72,10 +72,10 @@ extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
     SetFlags04(var2, 0xc0);
     func_020a28a0((unsigned char*)GetFollowCamera_020100f8((char*)var0), 1);
     if (arg0->unknown_1d_ == 0) {
-        func_020a0cc4(0x1b800);
+        ReleaseFileTablesForSpace_020a0cc4(0x1b800);
         void* var3 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x1b800);
         if (!var3) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
         arg0->unknown_8_.Reset();
         arg0->unknown_24_ = (Struct_ov017_021b688c*)arg0->unknown_8_.Allocate(sizeof(Struct_ov017_021b688c));
         if (!arg0->unknown_24_) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
     } else if (arg0->unknown_1d_ == 1) {
         if (!func_ov003_0215fce8(arg0->unknown_24_, var0->GetTickCount())) return;
         FontLoader_0208cb08* var4 = GetFontLoader_02094a00();
-        func_02094b40(var4);
+        ClearLoadedFontSets_02094b40(var4);
         CancelFontLoad_02094ab0(var4);
         RequestFontLoad_02094b34(var4, 0x6f, 0x1388, 1, 1);
         arg0->unknown_1d_++;
@@ -110,8 +110,8 @@ extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
         arg0->unknown_1d_++;
         func_ov017_021b67d8(arg0);
         arg0->unknown_1_ = 1;
-        Struct_02038598_5* var5 = (Struct_02038598_5*)var2->unknown_ptr_array_36fc[0];
-        if (func_02046b60(var5, 4) || func_02046b60(var5, 0x18)) {
+        Queue_02038598_5* var5 = (Queue_02038598_5*)var2->unknown_ptr_array_36fc[0];
+        if (IsTypeInQueue_02046b60(var5, 4) || IsTypeInQueue_02046b60(var5, 0x18)) {
             DisablePlayerControl_020397cc(var1, 1);
             return;
         }

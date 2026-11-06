@@ -12,14 +12,14 @@ enum { Enum_ov025_021d8c30_336 = 0x144, Enum_ov025_021d8c30_2540 = 0x968, Enum_o
 enum { Enum_ov025_021d8c30_336 = 0x150, Enum_ov025_021d8c30_2540 = 0x9ec, Enum_ov025_021d8c30_2528 = 0x9e0, Enum_ov025_021d8c30_2086 = 0x826, Enum_ov025_021d8c30_1224 = 0x4c8, Enum_ov025_021d8c30_1220 = 0x4c4, Enum_ov025_021d8c30_3768 = 0xeb8, Enum_ov025_021d8c30_3752 = 0xea8, Enum_ov025_021d8c30_1232 = 0x4d0, Enum_ov025_021d8c30_1226 = 0x4ca, Enum_ov025_021d8c30_672 = 0x2a0, Enum_ov025_021d8c30_1132 = 0x46c, Enum_ov025_021d8c30_396 = 0x18c, Enum_ov025_021d8c30_3208 = 0xc88, Enum_ov025_021d8c30_14176 = 0x3760, Enum_ov025_021d8c30_28238 = 0x6e4e, Enum_ov025_021d8c30_28414 = 0x6efe, Enum_ov025_021d8c30_28632 = 0x6fd8, Enum_ov025_021d8c30_28648 = 0x6fe8, Enum_ov025_021d8c30_30532 = 0x7744, Enum_ov025_021d8c30_30533 = 0x7745, Enum_ov025_021d8c30_30534 = 0x7746, Enum_ov025_021d8c30_28636 = 0x6fdc, Enum_ov025_021d8c30_28668 = 0x6ffc, Enum_ov025_021d8c30_680 = 0x2a8, Enum_ov025_021d8c30_2192 = 0x890, Enum_ov025_021d8c30_3096 = 0xc18, Enum_ov025_021d8c30_3640 = 0xe38 };
 #endif
 
-struct Struct_ov000_0215440c_2;
-struct Struct_ov000_02160094 {
+struct BattleAction_ov000_0215440c_2;
+struct ActionActor_ov000_02160094 {
     char unknown_0_[0x20];
     unsigned short unknown_20_;
 };
 
-struct Struct_ov000_0215440c;
-struct Struct_ov000_021600f8 {
+struct BattleAction_ov000_0215440c;
+struct ActionTarget_ov000_021600f8 {
     char unknown_0_[0xe];
     short unknown_e_[3];
     unsigned char unknown_14_[3];
@@ -175,10 +175,10 @@ extern "C" struct Struct_0203a588_2* func_02039e70(void);
 extern "C" int func_ov000_02163524(void* arg0);
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" unsigned char func_ov025_021dcc64(void* arg0);
-extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c* arg0, int arg1);
+extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" void func_ov025_021dcc70(char* arg0, char* arg1);
 extern "C" void func_ov025_021dcde8(unsigned char* arg0, struct Struct_ov025_021d8c30_11* arg1);
-extern "C" Struct_ov000_02160094* func_ov000_02160094(Struct_ov000_0215440c_2* arg0, int arg1);
+extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" struct Struct_ov000_0215feb4* func_ov000_0215feb4(char* arg0, int arg1, int arg2);
 extern "C" int func_ov000_0215ffa0(void* arg0);
 extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
@@ -194,7 +194,7 @@ extern "C" void func_0202ea10(unsigned char* arg0, int arg1, int arg2);
 extern "C" void func_ov000_02163440(void* arg0, short arg1, unsigned short arg2, unsigned short arg3);
 extern "C" void func_0205ec20(void* arg0, void* arg1, int arg2);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" int func_ov025_021ed444(char* arg0, int arg1, int arg2, int arg3, int arg4, short arg5, unsigned short arg6);
 extern "C" int func_ov025_021ed380(char* arg0, int arg1, int arg2, int arg3, int arg4, short arg5, unsigned short arg6);
 extern "C" void* GetEffectManager_02057924(void);
@@ -223,7 +223,7 @@ extern "C" void func_ov017_02191aac(char* arg0, int arg1, int arg2, unsigned cha
 extern "C" void func_02054028(void* arg0, int arg1);
 extern "C" int GetResources_0200fb8c(int* gameState);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
-extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
+extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov000_021823dc(unsigned char* arg0, int arg1);
 extern "C" int func_ov000_02163c0c(void* arg0, int arg1);
 extern "C" void* __clear(void* arg0, int arg1);
@@ -252,7 +252,7 @@ static inline int inline_ov000_02156cc4_2(unsigned short arg0) {
     return arg0 <= 3;
 }
 
-static inline unsigned char* inline_01ff91ac_3(Struct_ov000_021600f8* arg0) {
+static inline unsigned char* inline_01ff91ac_3(ActionTarget_ov000_021600f8* arg0) {
     return arg0->unknown_14_;
 }
 
@@ -275,7 +275,7 @@ static inline Vector3fix inline_ov025_021d8c30_4(void* arg0) {
 // USA: func_ov025_021d8c30
 extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_021d8c30_4* arg1, int arg2, int arg3,
                                         int arg4, int arg5, unsigned char arg6) {
-    Struct_ov000_02160094* var0;
+    ActionActor_ov000_02160094* var0;
     GameState* var1;
     char* var2;
     unsigned char* var3;
@@ -289,7 +289,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
     int var11;
     int var12;
     GameObject* var13;
-    Struct_ov000_02160094* var14;
+    ActionActor_ov000_02160094* var14;
     int var15;
     int var16;
     GameObject* var17;
@@ -344,13 +344,13 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
     int var48 = -1;
     var8 = 0;
     struct Struct_ov025_021d8c30* var49 = 0;
-    Struct_ov000_021600f8* var50 = 0;
+    ActionTarget_ov000_021600f8* var50 = 0;
     const char* var51;
     int var52;
 
     if (arg6 == 0) {
         if (func_ov025_021dcc64(arg0) != 0) {
-            Struct_ov000_021600f8* var53 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, arg4);
+            ActionTarget_ov000_021600f8* var53 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, arg4);
             struct Struct_ov025_021d8c30_9 var54;
             if (var53) {
                 var54.unknown_18_ = var53->unknown_e_[1];
@@ -381,7 +381,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
 
     var9 = 0;
     if (arg2 == 0) {
-        Struct_ov000_02160094* var57 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, arg4);
+        ActionActor_ov000_02160094* var57 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, arg4);
         if (var57) {
             var48 = var57->unknown_20_;
             if (arg3 == 0) {
@@ -399,7 +399,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             }
         }
     } else if ((unsigned int)(arg2 - 1) <= 2) {
-        Struct_ov000_021600f8* var58 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, arg4);
+        ActionTarget_ov000_021600f8* var58 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, arg4);
         if (var58) {
             var50 = var58;
             var48 = func_ov000_0215ffa0(var58);
@@ -431,7 +431,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         var11 = var59->obj3D_.GetCurrentAnimationTime();
     }
 
-    var0 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, 0);
+    var0 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, 0);
     var12 = -1;
     var13 = 0;
     var14 = 0;
@@ -503,7 +503,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
                 }
                 var10 = 0;
                 if (!inline_ov000_02169850(var60)) {
-                    GameObject* var63 = func_0200fea4(var1, var60);
+                    GameObject* var63 = GetEnemyByIndex_0200fea4(var1, var60);
                     if (var63 && var63->obj3D_.unknown_2_ == 0xf4) {
                         var17 = var25;
                         var15 = 1;
@@ -586,7 +586,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
                     var15 = 1;
                     var16 = 0x23;
                 } else {
-                    GameObject* var72 = func_0200fea4(var1, var60);
+                    GameObject* var72 = GetEnemyByIndex_0200fea4(var1, var60);
                     if (var72 && (var72->obj3D_.unknown_2_ == 0x3c || var72->obj3D_.unknown_2_ == 0x3d)) {
                         var25->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef3e8, 0x19);
                     }
@@ -864,7 +864,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         } else {
             GameState* var95 = GameState::GetInstance();
             if (var59->obj3D_.classFlags_0_ & 0x400) {
-                GameObject* var96 = func_0200fea4(var95, var59->obj3D_.unknown_4_);
+                GameObject* var96 = GetEnemyByIndex_0200fea4(var95, var59->obj3D_.unknown_4_);
                 unsigned char* var97;
                 if (var96 && (var97 = *(unsigned char**)((unsigned char*)var96 + 0x144)) != 0) {
                     short var98 = *(short*)(var97 + 8);
@@ -888,7 +888,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         var33 = var30;
         var34 = inline_ov000_02169850(var48);
         if (!var34) {
-            GameObject* var99 = func_0200fea4(var1, var48);
+            GameObject* var99 = GetEnemyByIndex_0200fea4(var1, var48);
             struct Struct_ov025_021d8c30_6* var100;
             if (var99 && (var100 = *(struct Struct_ov025_021d8c30_6**)((unsigned char*)var99 + 0x148)) != 0) {
                 var32 = var100->unknown_27_4_;
@@ -946,7 +946,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             if (var18 == 2) var103 = 0x27;
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, var103, 0);
         } else if (*(short*)(arg0 + Enum_ov025_021d8c30_1226) >= 0 && !var19) {
-            func_0205ebfc(&gSoundEffectManager_02108760, *(short*)(arg0 + Enum_ov025_021d8c30_1226), 0);
+            PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, *(short*)(arg0 + Enum_ov025_021d8c30_1226), 0);
         }
         if (var42->unknown_0_) {
             if (!var52) {

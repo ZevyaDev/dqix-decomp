@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov000_02161318(void* arg0, int arg1);
+extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -13,7 +13,7 @@ extern "C" void func_ov000_02170db0(void* arg0);
 // USA: func_ov000_02174428
 extern "C" ARM void func_ov000_02174428(void* arg0, int arg1, int arg2, int arg3,
                                           signed char arg4, short arg5, signed char arg6, unsigned short arg7) {
-    void* var0 = func_ov000_02161318(arg0, arg1);
+    void* var0 = FindPartyMemberPanel_ov000_02161318(arg0, arg1);
     if (!var0) return;
     GameState* var1 = GameState::GetInstance();
     int var2 = GetProtagonistObjectIndex_020100a8(var1);

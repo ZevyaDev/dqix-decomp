@@ -20,8 +20,8 @@ struct Struct_02078398_2 {
     Vector3fix unknown_44_;
 };
 
-struct Struct_ov000_0215440c_2;
-struct Struct_ov000_0215440c;
+struct BattleAction_ov000_0215440c_2;
+struct BattleAction_ov000_0215440c;
 
 struct Struct_ov000_0215440c_4 {
     char unknown_0_[0x20];
@@ -48,8 +48,8 @@ struct Struct_ov025_021e4624 {
     short unknown_e_;
 };
 
-extern "C" Struct_ov000_0215440c_4* func_ov000_02160094(Struct_ov000_0215440c_2* arg0, int arg1);
-extern "C" Struct_ov000_0215440c_5* func_ov000_021600f8(Struct_ov000_0215440c* arg0, int arg1);
+extern "C" Struct_ov000_0215440c_4* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
+extern "C" Struct_ov000_0215440c_5* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" void func_ov025_021e3158(struct Struct_ov025_021ef9a8* arg0);
 extern "C" void func_02078484(struct Struct_02078398_2* arg0);
 extern "C" int func_02057fb4(void*, int, void*);
@@ -63,8 +63,8 @@ extern struct Struct_ov025_021ef988_11 data_ov025_021ef988;
 extern "C" ARM int func_ov025_021e4624(struct Struct_ov025_021e4624* arg0, void* arg1) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetEffectManager_02057924();
-    Struct_ov000_0215440c_4* var2 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, 0);
-    Struct_ov000_0215440c_5* var3 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, 0);
+    Struct_ov000_0215440c_4* var2 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, 0);
+    Struct_ov000_0215440c_5* var3 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);
     int var4 = var2->unknown_20_;
     int var5 = var3->unknown_e_;
     GameObject* var6 = var0->GetGameObjectByIndex(var4);

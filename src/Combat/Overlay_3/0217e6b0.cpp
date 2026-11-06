@@ -31,11 +31,11 @@ enum { Enum_ov003_0217e6b0_1060 = 0x424 };
 #endif
 
 struct Struct_02018300_3;
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 struct TextureVRAMArea_0203d028;
 struct Struct_0201e830;
 struct Struct_02074b64;
-struct Struct_02074bd0;
+struct BGControlSave_02074bd0;
 struct Struct_02074bf4;
 struct Struct_02058564_2;
 
@@ -87,7 +87,7 @@ extern "C" int IsQueueEmpty_02046b08(void** queue);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
-extern "C" void func_02074af4(void* arg0);
+extern "C" void SaveMainBGControl_02074af4(void* save);
 extern "C" void func_02074b64(Struct_02074b64* arg0);
 extern "C" void func_020bb700(int* arg0);
 extern "C" void func_020bb740(int* arg0);
@@ -96,7 +96,7 @@ extern "C" void* GetZone3D_02012fe4(void);
 extern "C" unsigned short func_0201e830(Struct_0201e830* arg0);
 extern "C" void func_ov017_0219bf74(void);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
-extern "C" void func_020a1940(unsigned int arg0);
+extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void func_020a1ef0(int arg0);
 extern "C" void func_ov009_0218454c(void* arg0, int arg1, int arg2);
 extern "C" void func_ov008_021842a0(void* arg0, SafeAllocator* arg1);
@@ -107,17 +107,17 @@ void LockStagedTextureVRAMCopying(void);
 void UnlockStagedTextureVRAMCopying(void);
 void UpdateVRAMStagingVRAMBanks(void);
 extern "C" void func_020bb48c(unsigned int arg0, int arg1);
-extern "C" void func_020c391c(int arg0, int arg1, int arg2);
-extern "C" void func_020c3984(unsigned int arg0);
+extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
+extern "C" void SetSubBGMode_020c3984(unsigned int bgMode);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_020c54a4(int arg0, unsigned int arg1, unsigned int arg2, unsigned short arg3);
-extern "C" void* func_0203bd08(void);
+extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void func_0203bd24(char* arg0);
 extern "C" int* func_0203bd14(void);
 extern "C" int func_0203be4c(void* arg0);
 extern "C" void func_0203c35c(int* arg0);
 extern "C" int func_ov009_02184a18(void* arg0);
-extern "C" void func_02074bd0(Struct_02074bd0* arg0);
+extern "C" void RestoreMainBGControl_02074bd0(BGControlSave_02074bd0* save);
 extern "C" void func_02074bf4(Struct_02074bf4* arg0);
 extern "C" void GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov017_0218f79c(void* arg0);
@@ -135,7 +135,7 @@ extern "C" void func_ov017_021b66f0(unsigned char* arg0);
 extern "C" void func_ov003_0217e67c(void* arg0);
 extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_0218f758(void* arg0);
-extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 
 enum Enum_ov003_0217e6b0 {
@@ -175,7 +175,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         }
         arg0->unknown_34_ = 0;
         arg0->unknown_35_ = 0;
-        func_02074af4(arg0->unknown_24_);
+        SaveMainBGControl_02074af4(arg0->unknown_24_);
         arg0->unknown_38_ = (DISPCNT & 0x1f00) >> 8;
         func_02074b64((Struct_02074b64*)arg0->unknown_24_);
         arg0->unknown_3c_ = (DISPCNTSUB & 0x1f00) >> 8;
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         arg0->unknown_8_.CreateTypeA(var1->allocator_array_38[0].Allocate(Enum_ov003_0217e6b0_238492), Enum_ov003_0217e6b0_238492);
         arg0->unknown_8_.Reset();
         arg0->unknown_1c_ = arg0->unknown_8_.Allocate(Enum_ov003_0217e6b0_3512);
-        func_020a1940(OVERLAY_ID(9));
+        LoadOverlay_020a1940(OVERLAY_ID(9));
         func_020a1ef0(1);
         func_ov009_0218454c(arg0->unknown_1c_, arg0->unknown_b4_, 1);
         func_ov008_021842a0(arg0->unknown_1c_, &arg0->unknown_8_);
@@ -234,7 +234,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         UpdateVRAMStagingVRAMBanks();
         UnlockStagedTextureVRAMCopying();
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1f00;
-        func_020c391c(1, 0, 1);
+        SetMainDisplayAndBGMode_020c391c(1, 0, 1);
         BG1CNT = (BG1CNT & 0x43) | 0x1d00;
         BG2CNT = (BG2CNT & 0x43) | 0x1e08;
         BG3CNT = (BG3CNT & 0x43) | 0x1f0c;
@@ -243,7 +243,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         BG2CNT = (BG2CNT & ~3) | 1;
         BG3CNT = BG3CNT & ~3;
         DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | 0x1700;
-        func_020c3984(0);
+        SetSubBGMode_020c3984(0);
         BG0CNTSUB = (BG0CNTSUB & 0x43) | 0x1d00;
         BG1CNTSUB = (BG1CNTSUB & 0x43) | 0x1e10;
         BG2CNTSUB = (BG2CNTSUB & 0x43) | 0x1f18;
@@ -252,7 +252,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         BG2CNTSUB = BG2CNTSUB & ~3;
         Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
         func_020c54a4(0, 0, 0, 0);
-        char* var5 = (char*)func_0203bd08();
+        char* var5 = (char*)GetOAMManager_0203bd08();
         func_0203bd24(var5);
         *(int*)var5 = 0;
         int* var6 = func_0203bd14();
@@ -280,7 +280,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         inline_ov003_0217e6b0_3((Enum_ov003_0217e6b0)arg0->unknown_64_);
         DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_38_ << 8);
         DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | (arg0->unknown_3c_ << 8);
-        func_02074bd0((Struct_02074bd0*)arg0->unknown_24_);
+        RestoreMainBGControl_02074bd0((BGControlSave_02074bd0*)arg0->unknown_24_);
         func_02074bf4((Struct_02074bf4*)arg0->unknown_24_);
         Set3DClearColorAndDepth_020c5588(arg0->unknown_a0_, 0x10, 0x7fff, 0, 0);
         char var7[0x20];
@@ -332,7 +332,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
             return;
         }
         arg0->unknown_1_ = 1;
-        if (func_02046b60((Struct_02038598_5*)var1->unknown_ptr_array_36fc[0], 0x17)) {
+        if (IsTypeInQueue_02046b60((Queue_02038598_5*)var1->unknown_ptr_array_36fc[0], 0x17)) {
             return;
         }
         EnablePlayerControl_020397c0(var2);

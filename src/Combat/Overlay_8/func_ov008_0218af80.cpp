@@ -8,7 +8,7 @@
 #include "NitroSDK/OverlayId.h"
 #include "Resource/GameResources.h"
 
-extern "C" void func_020a1940(unsigned int arg0);
+extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void func_ov008_021843f8(void* arg0);
 extern "C" void func_ov008_021842a0(void* arg0, void* arg1);
 extern "C" void func_ov008_02184a3c(char* arg0, unsigned char arg1);
@@ -42,7 +42,7 @@ struct Struct_ov008_0218af80 {
 extern "C" ARM void func_ov008_0218af80(Struct_ov008_0218af80* arg0) {
     GameResources* var0 = GetGameResources();
     if (arg0->unknown_e9c_ == 0 && arg0->unknown_ec0_1_ && !IsBrightnessTransitionActive(var0)) {
-        func_020a1940(OVERLAY_ID(8));
+        LoadOverlay_020a1940(OVERLAY_ID(8));
         func_ov008_021843f8(arg0->unknown_2a8_);
         arg0->unknown_dcc_ = 1;
         func_ov008_021842a0(arg0->unknown_2a8_, arg0->unknown_228_);

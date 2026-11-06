@@ -5,7 +5,7 @@
 
 #if defined(jpn)
 struct Struct_0201099c_3;
-struct Struct_020727d8;
+struct StringList_020727d8;
 
 extern "C" unsigned char func_ov013_021847c4(void *arg0, int arg1);
 extern "C" char *GetMessageWindow_020421a0();
@@ -19,7 +19,7 @@ extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021ccc34(int arg0);
 extern "C" void func_ov017_021cd0d8(int arg0, unsigned short *arg1, int arg2);
 extern "C" const char *FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
-extern "C" void func_020727d8(Struct_020727d8 *arg0);
+extern "C" void ResetStringList_020727d8(StringList_020727d8 *stringList);
 extern "C" void func_02073864(void *arg0, void *arg1, const char *arg2, short *arg3, unsigned short arg4, unsigned char arg5);
 extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 extern "C" void func_02083e28(void *arg0, int arg1);
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov002_02168de4(char *arg0) {
                     return;
                 }
                 *(void **) (arg0 + 0x2280) = ((SafeAllocator *) (arg0 + 0x3c8 + 0x400))->Allocate(8);
-                func_020727d8(*(Struct_020727d8 **) (arg0 + 0x2280));
+                ResetStringList_020727d8(*(StringList_020727d8 **) (arg0 + 0x2280));
                 func_02073864(*(void **) (arg0 + 0x2280), arg0 + 0x3c8 + 0x400,
                               FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 8), 0x64), 0, 0, 0);
                 func_02083e28(GetPartyMemberData_02053c6c((unsigned char *) var2), 0);

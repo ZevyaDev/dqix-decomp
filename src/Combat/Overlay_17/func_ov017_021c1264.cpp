@@ -25,8 +25,8 @@ extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, 
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern AllocatorUnion gMainHeap_02114e20;
-extern "C" void func_020a0cc4(unsigned int);
-extern "C" void func_020a0c0c(void);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
+extern "C" void LoadFileTables_020a0c0c(void);
 
 extern "C" void func_ov003_02154720(void* arg0, unsigned char arg1);
 extern "C" void func_ov003_021544ec(void* arg0, SafeAllocator* arg1);
@@ -62,10 +62,10 @@ extern "C" ARM void func_ov017_021c1404(struct Struct_ov017_021c1404* arg0) {
 	unsigned char var4 = arg0->unknown_1c_;
 
 	if (var4 == 0) {
-		func_020a0cc4(Enum_ov017_021c1404_147456);
+		ReleaseFileTablesForSpace_020a0cc4(Enum_ov017_021c1404_147456);
 		void* var5 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021c1404_147456);
 		if (!var5) {
-			func_020a0c0c();
+			LoadFileTables_020a0c0c();
 			arg0->unknown_1_ = 1;
 			return;
 		}
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov017_021c1404(struct Struct_ov017_021c1404* arg0) {
 		void* var6 = arg0->unknown_8_.Allocate(Enum_ov017_021c1404_828);
 		data_ov017_021d8478 = (int)var6;
 		if (!var6) {
-			func_020a0c0c();
+			LoadFileTables_020a0c0c();
 			arg0->unknown_1_ = 1;
 			return;
 		}
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov017_021c1404(struct Struct_ov017_021c1404* arg0) {
 		unsigned int var7 = var0->GetTickCount();
 		if (func_ov003_02154af4((void*)data_ov017_021d8478, var7) == 0) return;
 		FontLoader_0208cb08* var8 = GetFontLoader_02094a00();
-		func_02094b40(var8);
+		ClearLoadedFontSets_02094b40(var8);
 		CancelFontLoad_02094ab0(var8);
 		RequestFontLoad_02094b34(var8, 0x6f, 0x1388, 1, 1);
 		arg0->unknown_1c_ = arg0->unknown_1c_ + 1;
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov017_021c1404(struct Struct_ov017_021c1404* arg0) {
 	EnablePlayerControl_020397c0(var2);
 	func_020a28b0((unsigned char*)var3, 3);
 	func_ov017_021c1394(arg0);
-	func_020a0c0c();
+	LoadFileTables_020a0c0c();
 	arg0->unknown_1_ = 1;
 	func_ov017_021c1264();
 }

@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_02048150;
+struct Party_02048150;
 
 extern "C" int *GetLocalWireless_0202ae18(void);
-extern "C" int func_02086ef0(Struct_02048150 *arg0, int arg1);
+extern "C" int IsInParty_02086ef0(Party_02048150 *party, int objectIndex);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" int func_ov002_02154a34(void *arg0, int arg1);
 extern "C" int func_ov002_02154b94(void *arg0, int arg1);
@@ -44,7 +44,7 @@ extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" ARM int func_ov002_02153ccc(void **arg0, Struct_ov002_02153ccc_2 *arg1, Struct_ov002_02153ccc_3 *arg2, int arg3) {
     if (arg1 == 0) return 0;
     if (arg2 == 0) return 0;
-    Struct_02048150 *var0 = (Struct_02048150 *)GetParty_02010828(GameState::GetInstance());
+    Party_02048150 *var0 = (Party_02048150 *)GetParty_02010828(GameState::GetInstance());
     int *var1                         = GetLocalWireless_0202ae18();
     Struct_ov002_02153ccc *var2         = arg1->unknown_8_;
     int var3                    = 0;
@@ -56,7 +56,7 @@ extern "C" ARM int func_ov002_02153ccc(void **arg0, Struct_ov002_02153ccc_2 *arg
         Struct_ov002_02153ccc *var6 = &var2[var5];
         int var7           = arg1->unknown_4_[var5];
         int var8;
-        if (!func_02086ef0(var0, var7)) var6->unknown_4_ = 1;
+        if (!IsInParty_02086ef0(var0, var7)) var6->unknown_4_ = 1;
         if (!func_ov002_02154a6c(arg0, var7, arg1->unknown_2_)) {
             var6->unknown_0_ = 1;
             continue;
@@ -80,7 +80,7 @@ extern "C" ARM int func_ov002_02153ccc(void **arg0, Struct_ov002_02153ccc_2 *arg
             var6->unknown_2_ = func_ov002_021548c4(arg0, var7, var8, var6);
         }
         if (var6->unknown_0_ == 0) continue;
-        if (IsLocalWirelessOn_0202b7d8(var1) && func_02086ef0(var0, var7)) {
+        if (IsLocalWirelessOn_0202b7d8(var1) && IsInParty_02086ef0(var0, var7)) {
             func_ov017_021c9e00(var7, 0, 0, 1);
         }
         var3 = 1;

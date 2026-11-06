@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void* GetLocalWireless_0202ae18(void);
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov023_021f5150(void* arg0, unsigned char* arg1, int* arg
     int var2 = 0;
     int var3;
     for (var3 = 0; var3 < 4; var3++) {
-        if (!func_020a35e0(arg1, var3)) continue;
+        if (!IsPartyMemberInBattle_020a35e0(arg1, var3)) continue;
         var2 += arg2[var3];
         GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, var3);
         if (var4 == 0) continue;

@@ -19,7 +19,7 @@ struct Struct_02111304_3 {
 typedef void (*Type_02003ddc)(int slot);
 
 extern int data_020f3060;
-extern Struct_02111304_3 data_02111304;
+extern Struct_02111304_3 gContextScheduler_02111304;
 extern int data_020f2f70[];
 extern int data_020f2f94[];
 extern Type_02003ddc data_020f3394[];
@@ -34,16 +34,16 @@ extern "C" ARM int func_02003ddc(int arg0) {
 
     do {
         if (TryLockMutex((Mutex*)&data_020f3060) == 0) {
-            data_020f2f70[7] = data_02111304.unknown_4_->unknown_6c_;
+            data_020f2f70[7] = gContextScheduler_02111304.unknown_4_->unknown_6c_;
             data_020f2f94[7] = 1;
             break;
         }
-        if (data_020f2f70[7] == data_02111304.unknown_4_->unknown_6c_) {
+        if (data_020f2f70[7] == gContextScheduler_02111304.unknown_4_->unknown_6c_) {
             data_020f2f94[7] = data_020f2f94[7] + 1;
             break;
         }
         LockMutex((Mutex*)&data_020f3060);
-        data_020f2f70[7] = data_02111304.unknown_4_->unknown_6c_;
+        data_020f2f70[7] = gContextScheduler_02111304.unknown_4_->unknown_6c_;
         data_020f2f94[7] = 1;
     } while (0);
 

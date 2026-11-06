@@ -4,9 +4,9 @@
 #include "GameState/GameState.h"
 
 struct Struct_02010088;
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" void func_0208902c(unsigned char* arg0, int arg1);
-extern "C" void func_ov000_02159eac(void* arg0, void* arg1, int arg2);
+extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 extern "C" float func_ov024_021db358(GameObject* arg0);
 extern "C" short func_ov000_0215a16c(void* arg0, int arg1, int arg2, short* arg3);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
@@ -31,9 +31,9 @@ extern "C" ARM void* func_ov024_021de868(struct Struct_ov024_021de868_2* arg0, i
 	var2.unknown_0_ = 0;
 	var2.unknown_4_ = 0;
 	int var3;
-	if (func_02010088((struct Struct_02010088*)var0)) {
+	if (IsDead_02010088((struct Struct_02010088*)var0)) {
 		func_0208902c((unsigned char*)var0->currentStats_, var0->currentStats_->primaryStats.maxHP);
-		func_ov000_02159eac(arg0->unknown_10_, &var2, 3);
+		SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 3);
 		((struct Struct_ov024_021de868_3*)var0->currentStats_)->unknown_3b_0_ = 1;
 		var3 = 0x20;
 		int var4 = (arg2 >= 0 && arg2 <= 3);
@@ -45,7 +45,7 @@ extern "C" ARM void* func_ov024_021de868(struct Struct_ov024_021de868_2* arg0, i
 		}
 	} else if (func_ov024_021db358(var0) < 1.0f) {
 		func_ov000_0215a16c(arg0->unknown_10_, arg2, var0->currentStats_->primaryStats.maxHP, &var1);
-		func_ov000_02159eac(arg0->unknown_10_, &var2, 0x25);
+		SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 0x25);
 		var3 = 0x16;
 	} else {
 		var3 = 0x1f;

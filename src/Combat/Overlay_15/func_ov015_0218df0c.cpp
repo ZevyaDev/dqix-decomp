@@ -25,8 +25,8 @@ extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 struct Vector3i;
 
-struct Struct_0203d028_11;
-extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
+struct ObjectArchiveLoadInfo_0203d028_11;
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 
 struct Struct_ov015_02193cfc { unsigned int unknown_0_[3]; };
 
@@ -61,7 +61,7 @@ extern "C" ARM int func_ov015_0218df0c(void* arg0, int* arg1) {
         var1 = 0;
     } else {
         ObjectArchiveLoadInfo var5;
-        func_0203dafc((struct Struct_0203d028_11*)&var5);
+        ClearObjectArchiveLoadInfo_0203dafc((struct ObjectArchiveLoadInfo_0203d028_11*)&var5);
         SafeAllocator* var6 = *(SafeAllocator**)((char*)arg0 + 8);
         unsigned int var7 = var3;
         void* var8 = &gFileScratchSpace_0211e33c;

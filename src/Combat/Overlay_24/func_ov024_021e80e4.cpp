@@ -106,10 +106,10 @@ struct Struct_ov024_021fe800 {
 extern "C" struct Struct_ov024_021fe800 data_ov024_021fe800;
 
 extern "C" int func_ov000_0215fc60(char*);
-struct Struct_ov000_0215440c_2;
-extern "C" struct Struct_ov024_021e80e4_2* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
-struct Struct_ov000_0215440c;
-extern "C" struct Struct_ov024_021e80e4* func_ov000_021600f8(Struct_ov000_0215440c*, int);
+struct BattleAction_ov000_0215440c_2;
+extern "C" struct Struct_ov024_021e80e4_2* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
+struct BattleAction_ov000_0215440c;
+extern "C" struct Struct_ov024_021e80e4* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" short func_ov000_0215ffa0(struct Struct_ov024_021e80e4* arg0);
 struct Struct_ov000_02159f7c;
 extern "C" int func_ov000_02159f7c(void*, Struct_ov000_02159f7c*);
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
     struct Struct_ov024_021fe800 var0;
 
     if (func_ov000_0215fc60((char*)arg0->unknown_10_) != 0) {
-        struct Struct_ov024_021e80e4_2* var1 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, 0);
+        struct Struct_ov024_021e80e4_2* var1 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, 0);
         if (var1 != 0) {
             if (var1->unknown_20_ == 0) {
                 arg1->unknown_1a_ = 0x260;
@@ -149,7 +149,7 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
     var0 = data_ov024_021fe800;
 
     for (int var13 = 0; var13 < arg1->unknown_9_; var13++) {
-        struct Struct_ov024_021e80e4* var14 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, var13);
+        struct Struct_ov024_021e80e4* var14 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, var13);
         if (var14 == 0) continue;
         int var15 = func_ov000_0215ffa0(var14);
         struct Struct_ov024_021e80e4_11* var16;
@@ -264,7 +264,7 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
                 var21 = 1;
                 var20 = 1;
             } else {
-                struct Struct_ov024_021e80e4* var26 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, 0);
+                struct Struct_ov024_021e80e4* var26 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);
                 if (var26 != 0 && var26->unknown_0_ != 0) {
                     if (func_ov000_02159f7c(arg0->unknown_10_, (Struct_ov000_02159f7c*)var26->unknown_0_) != 0) {
                         var10 = 0;
@@ -289,7 +289,7 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
         struct Struct_ov024_021e80e4* var29 = 0;
         var27 = arg0->unknown_4_;
         for (int var30 = 0; var30 < var27->unknown_9_; var30++) {
-            struct Struct_ov024_021e80e4* var31 = func_ov000_021600f8((Struct_ov000_0215440c*)var27, var30);
+            struct Struct_ov024_021e80e4* var31 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var27, var30);
             if (var31 == 0) continue;
             if (IN_RANGE_021e80e4(func_ov000_0215ffa0(var31))) continue;
             if (var29 == 0) var29 = var31;
@@ -304,7 +304,7 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
 
     if (var20 != 0 || var21 != 0) {
         for (int var33 = 0; var33 < arg1->unknown_9_; var33++) {
-            struct Struct_ov024_021e80e4* var34 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, var33);
+            struct Struct_ov024_021e80e4* var34 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, var33);
             if (var34 == 0) continue;
             int var35 = func_ov000_0215ffa0(var34);
             if (IN_RANGE_021e80e4(var35) && var20 == 0) continue;
@@ -322,7 +322,7 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
     struct Struct_ov024_021e80e4_9* var38 = arg2;
     struct Struct_ov024_021e80e4_9* var39 = arg2;
     if (arg2->unknown_18_.unknown_0_5_ == 1 && arg4 != 0) {
-        struct Struct_ov024_021e80e4_2* var40 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, 0);
+        struct Struct_ov024_021e80e4_2* var40 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, 0);
         if (var40 != 0) {
             if (IN_RANGE_021e80e4(var40->unknown_20_)) {
                 var39 = arg5;

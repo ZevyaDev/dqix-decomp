@@ -17,9 +17,9 @@ extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020a28a0(unsigned char*, unsigned char);
 extern "C" void func_020a28b0(unsigned char*, int);
-extern "C" void func_020a0cc4(unsigned int);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void func_020a0c0c();
+extern "C" void LoadFileTables_020a0c0c();
 extern "C" void func_020a1df8(int);
 extern "C" Struct_0206f7f4* func_0206f504();
 extern "C" short func_0206f7f4(Struct_0206f7f4*, int);
@@ -49,17 +49,17 @@ extern "C" ARM void func_ov017_021ba998(Struct_ov017_021ba998_2* arg0) {
     int var4 = var0->GetTickCount();
     if (var4 < 0) var4 = 1;
     if (arg0->unknown_22_ == 0) {
-        func_020a0cc4(0x16e00);
+        ReleaseFileTablesForSpace_020a0cc4(0x16e00);
         void* var5 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x16e00);
         if (!var5) {
-            func_020a0c0c(); arg0->unknown_1_ = 1;
+            LoadFileTables_020a0c0c(); arg0->unknown_1_ = 1;
             return;
         }
         arg0->unknown_8_.CreateTypeA(var5, 0x16e00);
         arg0->unknown_8_.Reset();
         arg0->unknown_1c_ = (Struct_ov017_021ba998*)arg0->unknown_8_.Allocate(0x5c0);
         if (!arg0->unknown_1c_) {
-            func_020a0c0c(); arg0->unknown_1_ = 1;
+            LoadFileTables_020a0c0c(); arg0->unknown_1_ = 1;
             return;
         }
         func_020a1df8(3);
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov017_021ba998(Struct_ov017_021ba998_2* arg0) {
         EnablePlayerControl_020397c0(var2);
         func_020a28b0(var3, 3);
         func_ov017_021ba94c(arg0);
-        func_020a0c0c();
+        LoadFileTables_020a0c0c();
         arg0->unknown_1_ = 1;
     }
 }

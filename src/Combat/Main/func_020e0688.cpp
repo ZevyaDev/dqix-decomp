@@ -16,11 +16,11 @@ struct Struct_020e0688_2 {
     int unknown_a0c_;
 };
 
-struct Struct_02012de8;
-extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
+struct GlobalFlags_02012de8;
+extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_02022b90(void* arg0, int* arg1);
-extern "C" void func_020c9820(void);
+extern "C" void WaitForVBlank_020c9820(void);
 
 struct PacEntry_02020cb8_4;
 extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
@@ -38,16 +38,16 @@ extern "C" void SetBGPriority_0204b5b4(void*, int);
 struct BGLayer_02020cb8_5;
 extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 
-extern "C" void func_0204b2e0(void* arg0, char* arg1);
+extern "C" void FlushBGBlock_0204b2e0(void* layer, char* block);
 
-struct Struct_02020cb8_6;
-extern "C" void func_0204b3a0(struct Struct_02020cb8_6* arg0, char* arg1);
+struct BGLayer_02020cb8_6;
+extern "C" void CopyBGBlockToVRAM_0204b3a0(struct BGLayer_02020cb8_6* layer, char* block);
 
 struct BGLayer_02020cb8_2;
 extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2* layer, void* screenData);
 
-struct Struct_02020cb8_3;
-extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
+struct BGLayer_02020cb8_3;
+extern "C" void ResetBGLayerData_0204afb4(struct BGLayer_02020cb8_3* layer);
 
 struct Struct_020e0688 {
     unsigned char unknown_0_[0x1c];
@@ -62,7 +62,7 @@ extern "C" ARM void func_020e0688(struct Struct_020e0688_2* arg0) {
         return;
     }
 
-    if (func_02046708((struct Struct_02012de8*)GetGlobalFlags_020d6c00(), 0x41)) {
+    if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)GetGlobalFlags_020d6c00(), 0x41)) {
         return;
     }
 
@@ -89,7 +89,7 @@ extern "C" ARM void func_020e0688(struct Struct_020e0688_2* arg0) {
             var5[var9] = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var2, var9, &var4, &var6[var9]);
         }
 
-        func_020c9820();
+        WaitForVBlank_020c9820();
         InitBGLayer_0204af64((struct BGLayer_02020cb8*)&var7);
         var7.unknown_1c_0_ = 1;
         var7.unknown_1c_4_ = 0;
@@ -98,12 +98,12 @@ extern "C" ARM void func_020e0688(struct Struct_020e0688_2* arg0) {
         SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)&var7, 0, 0);
 
         for (int var10 = 0; var10 < var8; var10++) {
-            func_0204b2e0(&var7, (char*)var5[var10]);
-            func_0204b3a0((struct Struct_02020cb8_6*)&var7, (char*)var5[var10]);
+            FlushBGBlock_0204b2e0(&var7, (char*)var5[var10]);
+            CopyBGBlockToVRAM_0204b3a0((struct BGLayer_02020cb8_6*)&var7, (char*)var5[var10]);
         }
 
         LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)&var7, 0);
-        func_0204afb4((struct Struct_02020cb8_3*)&var7);
+        ResetBGLayerData_0204afb4((struct BGLayer_02020cb8_3*)&var7);
     }
 
     func_02022b90(arg0, &arg0->unknown_a0c_);

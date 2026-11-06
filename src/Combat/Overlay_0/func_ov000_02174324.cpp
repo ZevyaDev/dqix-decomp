@@ -30,7 +30,7 @@ struct Struct_ov000_02174324_3 {
     struct Struct_ov000_02174324_2* unknown_170_;
 };
 
-extern "C" struct Struct_ov000_02174324* func_ov000_02161318(struct Struct_ov000_02174324_3* arg0, int arg1);
+extern "C" struct Struct_ov000_02174324* FindPartyMemberPanel_ov000_02161318(struct Struct_ov000_02174324_3* battleUI, int memberIndex);
 extern "C" int DrawSprite_0205ac40(void* spriteSet, struct Struct_ov000_02174324_2* sprite, int arg2);
 
 extern unsigned int data_ov000_02183460[];
@@ -43,7 +43,7 @@ enum { Enum_ov000_02174324_92 = 0x58 };
 enum { Enum_ov000_02174324_92 = 0x5c };
 #endif
 extern "C" ARM int func_ov000_02174324(struct Struct_ov000_02174324_3* arg0, int arg1, int arg2, int arg3) {
-    struct Struct_ov000_02174324* var0 = func_ov000_02161318(arg0, arg1);
+    struct Struct_ov000_02174324* var0 = FindPartyMemberPanel_ov000_02161318(arg0, arg1);
     if (var0 == NULL) return 0;
 
     int var1 = 0;

@@ -27,7 +27,7 @@ struct Struct_020f2e60 {
 extern void (*data_020f2e70[64])();
 
 extern int data_020f2fb8;
-extern Struct_02111304_2 data_02111304;
+extern Struct_02111304_2 gContextScheduler_02111304;
 extern int data_020f2f70;
 extern int data_020f2f94;
 extern Struct_020f2e60 data_020f2e60;
@@ -35,13 +35,13 @@ extern Struct_020f2e60 data_020f2e60;
 // USA: func_020015e8
 extern "C" ARM void func_020015e8() {
     if (TryLockMutex((Mutex*)&data_020f2fb8) == 0) {
-        data_020f2f70 = data_02111304.unknown_4_->unknown_6c_;
+        data_020f2f70 = gContextScheduler_02111304.unknown_4_->unknown_6c_;
         data_020f2f94 = 1;
-    } else if (data_020f2f70 == data_02111304.unknown_4_->unknown_6c_) {
+    } else if (data_020f2f70 == gContextScheduler_02111304.unknown_4_->unknown_6c_) {
         data_020f2f94++;
     } else {
         LockMutex((Mutex*)&data_020f2fb8);
-        data_020f2f70 = data_02111304.unknown_4_->unknown_6c_;
+        data_020f2f70 = gContextScheduler_02111304.unknown_4_->unknown_6c_;
         data_020f2f94 = 1;
     }
 

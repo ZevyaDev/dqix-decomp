@@ -8,7 +8,7 @@ extern "C" void* GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void* window);
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
-extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 struct Struct_0201099c_3;
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov003_0216abd8(struct Struct_ov003_0216abd8_3* arg0, ch
     ClearMessageParams_02046380(var2);
     if (var3->unknown_f68_ != 0) {
         SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var2, 0, var3->unknown_f68_);
-        func_020465f0((unsigned char*)var2, 0, 0);
+        SetMessageNumberWidth_020465f0((unsigned char*)var2, 0, 0);
         int var5 = FindStringInTable_020e0434((struct Struct_0201099c_3*)var0->unknown_64_, 0x443);
 #if defined(jpn)
         func_020474a8(var2, 0xc, var5, var4->unknown_600_);

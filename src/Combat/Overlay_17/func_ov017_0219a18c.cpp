@@ -14,11 +14,11 @@ extern "C" void func_ov017_02199684(Struct_ov017_02199684* arg0, int arg1, int a
 extern "C" void func_ov017_021996bc(Struct_ov017_02199684* arg0, int arg1);
 
 struct TextWindowManager_0205d1e0;
-struct Struct_0205d228;
+struct TextWindowManager_0205d228;
 struct TextWindowManager_0205d274;
-extern "C" void func_0205d1e0(TextWindowManager_0205d1e0*);
-extern "C" void func_0205d228(Struct_0205d228*);
-extern "C" void func_0205d274(TextWindowManager_0205d274*);
+extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(TextWindowManager_0205d1e0*);
+extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228*);
+extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274*);
 extern "C" void func_0205da88(void*, int, int, int);
 struct TextWindowManager_0205d2bc;
 extern "C" void func_0205d2bc(TextWindowManager_0205d2bc*);
@@ -63,8 +63,8 @@ extern "C" ARM void func_ov017_0219a18c(unsigned char* arg0) {
     }
 
     func_ov017_02199684((Struct_ov017_02199684*)(arg0 + Enum_ov017_0219a18c_180 + Enum_ov017_0219a18c_15360), 2, 0x800);
-    func_0205d1e0(*(TextWindowManager_0205d1e0**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
-    func_0205d228(*(Struct_0205d228**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
+    ClearTextWindowManagerBGScreenData_0205d1e0(*(TextWindowManager_0205d1e0**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
+    DrawTextWindows_0205d228(*(TextWindowManager_0205d228**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
     func_0205da88(*(void**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248), 1, 2, 1);
 
     GameObject* var3 = var2->GetProtagonist();
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov017_0219a18c(unsigned char* arg0) {
         }
     }
 
-    func_0205d274(*(TextWindowManager_0205d274**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
+    FlushTextWindowManagerBGScreenData_0205d274(*(TextWindowManager_0205d274**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
     if (TestFlags04((GameResources*)arg0, 0x10000) == 0) {
         func_0205d2bc(*(TextWindowManager_0205d2bc**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
     }

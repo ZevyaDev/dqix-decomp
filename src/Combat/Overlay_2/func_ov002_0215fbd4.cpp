@@ -6,7 +6,7 @@ extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
-extern "C" int func_02041a28(char* arg0, int arg1);
+extern "C" int AppendXPositionTag_02041a28(char* buffer, int x);
 extern "C" int func_02041fac(char* arg0, int arg1, int arg2);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov002_0215fbd4(char* arg0, char* arg1, int arg2) {
     }
     AppendCursorTag_02041ea4(arg1, var0);
 
-    func_02041a28(arg1, 0xf);
+    AppendXPositionTag_02041a28(arg1, 0xf);
     struct Struct_0201099c_3* var2 = (struct Struct_0201099c_3*)(arg0 + 0x8);
     var0 = FindStringInTable_020e0434(var2, 0x109a);
     func_02042638(arg1, var0, 0x10);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov002_0215fbd4(char* arg0, char* arg1, int arg2) {
     struct Struct_0201099c_3* var9 = (struct Struct_0201099c_3*)(arg0 + 0x20);
     var7 = FindStringInTable_020e0434(var9, 0x109a);
     int var10 = func_020420e8((const char*)var7, 0);
-    func_02041a28(arg1, (0x78 - var10) >> 1);
+    AppendXPositionTag_02041a28(arg1, (0x78 - var10) >> 1);
     func_02041fac(arg1, var7, 0x10);
 
     char* var11;

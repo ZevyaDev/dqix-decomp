@@ -22,7 +22,7 @@ extern "C"
     void func_020a1df8(unsigned int);
     void func_020a1e54(unsigned int);
 
-    void func_020426bc(void*, char* arg1, int);
+    void ConvertTextToGlyphIndices_020426bc(void*, char* outGlyphIndices, int);
 
     const char* GetStandardString_020e51cc(int);
 

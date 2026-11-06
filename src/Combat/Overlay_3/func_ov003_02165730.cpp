@@ -12,7 +12,7 @@ enum { Enum_ov003_02165730_208 = 0xd0 };
 #include "Resource/Brightness.h"
 #include "Resource/GameResources.h"
 
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 struct Struct_020e25e8;
 
 struct Struct_ov003_02165278 {
@@ -24,7 +24,7 @@ extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" Struct_ov003_02165278* func_020936f8(void);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
-extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
+extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
 
 struct Struct_ov003_02165730 {
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov003_02165730(Struct_ov003_02165730_2* arg0) {
         func_020e25e8(arg0->unknown_390_);
     } else if (arg0->unknown_4a4_ == 1) {
         if (IsBrightnessTransitionActive(var0) != 0) return;
-        if (func_02046708((struct Struct_02012de8*)var1, 0x41) != 0) {
+        if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)var1, 0x41) != 0) {
             arg0->unknown_464_ |= 0x800;
         }
         arg0->unknown_4a4_ = 2;

@@ -13,7 +13,7 @@ struct Struct_ov000_0217ae90_2 {
     signed char unknown_18_,unknown_19_,unknown_1a_,unknown_1b_;char unknown_1c_[2];short unknown_1e_;
     char unknown_20_[6];signed char unknown_26_;char unknown_27_[9];
 };
-struct Struct_0201099c_3;struct Struct_0205c570;struct Struct_0205da38;struct TextWindowManager_0205d6a0;
+struct Struct_0201099c_3;struct Struct_0205c570;struct TextWindowManager_0205da38;struct TextWindowManager_0205d6a0;
 struct Struct_0203c108_3;struct SoundEffectManager_02108760;
 struct Struct_ov000_021682ec_5 {
     int unknown_0_;Struct_0201099c_3* unknown_4_;Struct_ov000_0217ae90_2 unknown_8_;
@@ -40,7 +40,7 @@ extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*,int);
 extern "C" void func_0203c108(Struct_0203c108_3*,char*);
 extern "C" int func_ov000_0217ab48(void*);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*,int);
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" {
 void GetZone3D_02012fe4();
 void* func_ov000_02174504(Struct_ov000_0217ab8c_2*);
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov000_0217ae90(Struct_ov000_021682ec_5* arg0)
     var2->unknown_1e_=0;
     data_ov000_02184294.unknown1_8_->unknown_1d72_|=0x100;
     bool var3=g_keyManager.TestKeysPressed(0x601);
-    bool var4=var3 | func_0205da38((Struct_0205da38*)arg0->unknown_38_,20);
+    bool var4=var3 | IsEntryTouchedAgain_0205da38((TextWindowManager_0205da38*)arg0->unknown_38_,20);
     if(var4){
         arg0->unknown_444_=0;
         data_ov000_02184294.unknown_0_=func_ov000_02174504(data_ov000_02184294.unknown1_8_);

@@ -15,7 +15,7 @@ struct Struct_020104cc;
 extern "C" void func_020104cc(struct Struct_020104cc* arg0, unsigned short* arg1, unsigned char* arg2, unsigned char* arg3);
 
 extern "C" int GetBattleRecords_020ac4c0(void* records);
-extern "C" int func_020ac494(void* arg0);
+extern "C" int SetBattleRecords_020ac494(void* records);
 
 unsigned long long GetCurrentTimestamp(void);
 
@@ -66,5 +66,5 @@ extern "C" ARM int func_020ac4f8(int arg0) {
         var0->altTimestamp_ = var5;
     }
 
-    return func_020ac494(&var1);
+    return SetBattleRecords_020ac494(&var1);
 }

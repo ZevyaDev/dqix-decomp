@@ -16,7 +16,7 @@ extern int data_ov031_02249f2c;
 extern int data_ov031_02249f38;
 extern int data_ov031_02249f3c;
 
-extern "C" int func_02005a94(char* arg0);
+extern "C" int ParseDecimal_02005a94(char* string);
 
 // USA: func_ov031_022188e4
 extern "C" ARM int func_ov031_022188e4(void* arg0, const char* arg1) {
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov031_022188e4(void* arg0, const char* arg1) {
 		var0->unknown_1128_ = var4 + 1;
 	}
 	if (var1 != NULL) {
-		var0->unknown_1134_ = func_02005a94(var1);
+		var0->unknown_1134_ = ParseDecimal_02005a94(var1);
 	}
 	return 1;
 }

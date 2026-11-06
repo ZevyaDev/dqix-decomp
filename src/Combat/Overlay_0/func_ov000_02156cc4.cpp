@@ -29,7 +29,7 @@ struct Struct_02085ab8 {
 };
 
 extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" float func_02084e78(void* arg0);
 extern "C" int func_02085ab8(unsigned char* arg0, Struct_02085ab8* arg1);
 float CalculateCritRate(int deftness, float accessoryBonus, float bookBonus, float skillBonus, unsigned char hitCount);
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov000_02156cc4(struct Random* arg0, int arg1, Struct_020
         float var5 = func_02084e78(var3);
         float var6 = func_02085ab8(var3, arg2);
         var1 = CalculateCritRate(var4, var5, var6, arg2->unknown_16_5_ / 100.0f, (unsigned char)arg3);
-        if (func_02083b00(inline_ov000_02156cc4(var2), 0x11d)) {
+        if (HasLearnedSkillEntry_02083b00(inline_ov000_02156cc4(var2), 0x11d)) {
             if (func_ov000_02155a04(var2) < 0.25f) {
                 var1 *= 2.0f;
             }

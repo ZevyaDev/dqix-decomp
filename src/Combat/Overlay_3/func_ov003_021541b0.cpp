@@ -16,8 +16,8 @@ struct BGLayer_0204af38;
 extern "C" void AllocateBGScreenBlocks_0204af38(struct BGLayer_0204af38* layer, int capacity, SafeAllocator* allocator);
 struct BGLayer_0204b12c;
 extern "C" void AllocateBGScreenData_0204b12c(struct BGLayer_0204b12c* layer, SafeAllocator* allocator);
-struct Struct_0204b010;
-extern "C" void func_0204b010(struct Struct_0204b010* arg0, void* arg1);
+struct BGLayer_0204b010;
+extern "C" void ClearBGScreenData_0204b010(struct BGLayer_0204b010* layer, void* screenData);
 struct Struct_0204b988;
 extern "C" void func_0204b988(struct Struct_0204b988* arg0, unsigned int arg1, int arg2, int arg3, unsigned short arg4);
 struct BGLayer_02020cb8_2;
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov003_021541b0(struct Struct_ov003_021541b0* arg0) {
             }
             var1->RemoveTask(arg0->unknown_50_);
             arg0->unknown_50_ = -1;
-            func_0204b010((struct Struct_0204b010*)arg0->unknown_18_, 0);
+            ClearBGScreenData_0204b010((struct BGLayer_0204b010*)arg0->unknown_18_, 0);
             func_0204b988((struct Struct_0204b988*)arg0->unknown_18_, 0, 0, 0, 0xffff);
             LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)arg0->unknown_18_, 0);
             arg0->unknown_5a_ = 1;

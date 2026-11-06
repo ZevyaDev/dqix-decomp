@@ -32,7 +32,7 @@ extern "C" void OpenTextWindow_0205d304(Struct_02081870_2* windowManager, char* 
 #endif
 
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
-extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
+extern "C" void AppendPositionTag_02041a90(char* buffer, int x, int y);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
             int var6 = (0x80 - (var4 / 2) * 12) / 2;
             var5 = 6;
             if (var4 != GetStringLength_020d2ff0(var2)) var5 = 8;
-            func_02041a90(var0, var6, var5);
+            AppendPositionTag_02041a90(var0, var6, var5);
             AppendText_02042058(var0, var2);
 #else
             Struct_ov008_02187f6c_3* var7 = (Struct_ov008_02187f6c_3*)GameState::GetInstance()->GetProtagonist();
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
                 int var13 = (0xa0 - func_020420e8(var8, 1)) / 2;
                 if (var13 < 0)
                     var13 = 0;
-                func_02041a90(var0, var13, 6);
+                AppendPositionTag_02041a90(var0, var13, 6);
                 if (var8 != NULL)
                     AppendText_02042058(var0, var8);
 #endif
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
                     var15 = 4;
                 for (var14 = 0; var14 < var15; var14++)
                 {
-                    func_02041a90(var0, 4, var14 * 15 + 4);
+                    AppendPositionTag_02041a90(var0, 4, var14 * 15 + 4);
                     AppendText_02042058(var0, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var14 + 0x82)));
                 }
             }
@@ -214,7 +214,7 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
             int var23 = (0x80 - (var21 / 2) * 12) / 2;
             var22 = 6;
             if (var21 != GetStringLength_020d2ff0(var19)) var22 = 8;
-            func_02041a90(var17, var23, var22);
+            AppendPositionTag_02041a90(var17, var23, var22);
             AppendText_02042058(var17, var19);
 #else
             Struct_ov008_02187f6c_3* var24 = (Struct_ov008_02187f6c_3*)GameState::GetInstance()->GetProtagonist();
@@ -234,7 +234,7 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
             int var30 = (0xa0 - func_020420e8(var25, 1)) / 2;
             if (var30 < 0)
                 var30 = 0;
-            func_02041a90(var17, var30, 6);
+            AppendPositionTag_02041a90(var17, var30, 6);
             if (var25 != NULL)
                 AppendText_02042058(var17, var25);
 #endif
@@ -248,7 +248,7 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
                 var32 = 4;
             for (var31 = 0; var31 < var32; var31++)
             {
-                func_02041a90(var17, 4, var31 * 15 + 4);
+                AppendPositionTag_02041a90(var17, 4, var31 * 15 + 4);
                 AppendText_02042058(var17, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var31 + 0x82)));
             }
         }

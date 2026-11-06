@@ -3,7 +3,7 @@
 
 extern "C" void func_020dc4d0(signed char*, signed char*);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
-extern "C" int func_020546a8(void*);
+extern "C" int GetLeaderObjectIndex_020546a8(void*);
 static inline int inline_020dc548(int arg0) { return arg0 >= 0 && arg0 <= 3; }
 
 // USA: func_020dc548
@@ -21,7 +21,7 @@ extern "C" ARM void func_020dc548(int arg0, signed char* arg1, signed char* arg2
         int var9 = var1[var8];
         GameObject* var10 = GetCompanionByIndex_0200ff58(var0, var9);
         if (var10) {
-            if (var4 == func_020546a8(var10)) {
+            if (var4 == GetLeaderObjectIndex_020546a8(var10)) {
                 var3[var6][var5] = var9;
                 ++var7[var6];
                 ++var5;

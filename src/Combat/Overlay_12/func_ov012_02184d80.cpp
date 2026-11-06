@@ -65,7 +65,7 @@ extern "C" void __clear(void*, unsigned int);
 extern "C" void func_ov012_021855f0(void*, char*, char*);
 extern "C" int func_020424e4(int, int);
 extern "C" Struct_ov009_02186e00* func_020425b4(int, int);
-extern "C" int func_020426bc(const char*, unsigned char*, int);
+extern "C" int ConvertTextToGlyphIndices_020426bc(const char*, unsigned char*, int);
 extern "C" int func_ov012_02185634(void*, void*, int, int, int);
 extern "C" int func_ov012_02185684(void*, unsigned char*, unsigned char*, int, int);
 
@@ -214,7 +214,7 @@ extern "C" ARM int func_ov012_02184d80(Struct_ov012_02184d80* arg0, char* arg1, 
     short var52;
     int var53;
     unsigned int var54;
-    func_020426bc(var16, var15, 1);
+    ConvertTextToGlyphIndices_020426bc(var16, var15, 1);
     var49 = 0;
     var48 = var17;
     var45 = arg0->unknown_36_;
@@ -273,7 +273,7 @@ extern "C" ARM int func_ov012_02184d80(Struct_ov012_02184d80* arg0, char* arg1, 
         var9 = var17;
         __clear(var14, 320);
         for (var37 = 0; var37 < var51->unknown_1e_; ++var37) {
-            func_020426bc(var51->unknown_0_[var37], var14[var37], 1);
+            ConvertTextToGlyphIndices_020426bc(var51->unknown_0_[var37], var14[var37], 1);
             var51->unknown_0_[var37] = (char*)var14[var37];
         }
         var8 = var53 - var51->unknown_1e_ + 1;

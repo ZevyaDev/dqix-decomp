@@ -1,15 +1,12 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca3b8 func_020cbe84
-#endif
 
 typedef void (*Type_ov031_02227898)(int);
 
 extern "C" void func_ov031_0223a794(void);
 extern "C" void func_ov031_0223ab18(unsigned char* arg0, unsigned char* arg1);
 extern "C" void* func_ov031_0223ab5c(void);
-extern "C" void func_020ca3b8(const void* src, void* dst, unsigned long size);
+extern "C" void Memcpy16Bit_020ca3b8(const void* src, void* dst, unsigned long size);
 extern "C" void func_ov031_0223e2c0(int arg0, void* arg1);
 extern "C" unsigned int func_ov031_0223cf70(void** arg0);
 extern "C" char* data_ov031_02290c44;
@@ -52,7 +49,7 @@ extern "C" ARM void func_ov031_02227898(void* arg0) {
 		if (var1) {
 			char* var3 = data_ov031_02290c44 + 0x1e280;
 			void* var4 = func_ov031_0223ab5c();
-			func_020ca3b8(var4, var3, 0x16);
+			Memcpy16Bit_020ca3b8(var4, var3, 0x16);
 			inline_ov031_02227898(0);
 		}
 		break;

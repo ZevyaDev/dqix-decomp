@@ -4,9 +4,6 @@
 #define func_020c39c8 func_020c5494
 #endif
 
-#if defined(jpn)
-#define func_020c39a0 func_020c546c
-#endif
 
 #if defined(jpn)
 enum { Enum_ov020_0218d7ac_1256 = 0x478 };
@@ -14,7 +11,7 @@ enum { Enum_ov020_0218d7ac_1256 = 0x478 };
 enum { Enum_ov020_0218d7ac_1256 = 0x4e8 };
 #endif
 
-extern "C" void func_020c39a0(short* arg0, int arg1);
+extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 extern "C" int func_020c39c8(volatile unsigned short* arg0);
 
 struct Struct_ov020_0218d7ac {
@@ -31,7 +28,7 @@ struct Struct_ov020_0218b710 {
 // USA: func_ov020_0218d7ac
 extern "C" ARM void func_ov020_0218d7ac(struct Struct_ov020_0218b710* arg0, int arg1, int arg2) {
     if (arg2 == 0) {
-        func_020c39a0((short*)0x400006c, arg1);
+        WriteBrightnessRegister_020c39a0((short*)0x400006c, arg1);
         arg0->unknown_4e8_.unknown_0_ = (float)arg1;
         arg0->unknown_4e8_.unknown_4_ = arg1;
         arg0->unknown_4e8_.unknown_8_ = 0;

@@ -29,9 +29,9 @@ extern "C" int IsLocalWirelessGuest_0202c540(void*);
 struct Struct_0201099c_3;
 extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_ov003_0215bf18(void*, int);
-extern "C" int func_020457e0(void*);
+extern "C" int GetMessageChoice_020457e0(void*);
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" int func_020649b0(void*, int, void*);
+extern "C" int RunTrigger_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void*);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void func_ov017_021d1118(int, int, int, int);
@@ -120,13 +120,13 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
             unsigned char var10 = var9;
             int var11 = 1;
             if (var8 == 6 && var10 == 5) {
-                if (func_020457e0(var1) == 0) var11 = 0;
+                if (GetMessageChoice_020457e0(var1) == 0) var11 = 0;
             }
             *(unsigned char*)(var0 + 0x5b3) = (unsigned char)*(int*)(var1 + Enum_ov003_02159d0c_2464);
             if (var11) return;
         }
         *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) | 0x10;
-        if (func_020649b0(GetFlagManager_0205ec34(), 0xc, var4)) {
+        if (RunTrigger_020649b0(GetFlagManager_0205ec34(), 0xc, var4)) {
             func_0206f81c(var4);
         }
         if (*(unsigned char*)(var0 + 0x5b4) == 0) {

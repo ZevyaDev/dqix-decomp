@@ -34,9 +34,9 @@ struct BGLayer_0204b12c;
 struct BGLayer_02020cb8_5;
 struct BGLayer_02020cb8_2;
 struct TextWindow_0204c7a8;
-struct Struct_0205cf78;
-struct Struct_0205cf78_2;
-struct Struct_02043368;
+struct TextWindowManager_0205cf78;
+struct TextWindow_0205cf78_2;
+struct SpriteAnimationList_02043368;
 
 struct Struct_ov003_021594c4
 {
@@ -116,7 +116,7 @@ struct Struct_ov008_021895a8
     unsigned char unknown_0_[2];
 };
 
-extern "C" void func_020728ac(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, int, int, int);
+extern "C" void LoadStringList_020728ac(void* stringList, SafeAllocator* allocator, void* arg2, unsigned int scriptSize, int, int, int);
 extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" void SetBGPriority_0204b5b4(Struct_ov003_021594c4* layer, int);
 extern "C" void LoadBGBlock_0204b174(Struct_ov003_021594c4* layer, void* block, SafeAllocator* allocator, unsigned int arg3);
@@ -136,10 +136,10 @@ extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int);
 extern "C" void AllocateBGScreenData_0204b12c(BGLayer_0204b12c* layer, SafeAllocator* allocator);
 extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5* layer, int, int);
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void*);
-extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
-extern "C" void func_0205cf78(Struct_0205cf78* arg0, Struct_0205cf78_2* arg1, unsigned char arg2);
+extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
+extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78* windowManager, TextWindow_0205cf78_2* textWindows, unsigned char textWindowCapacity);
 extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
-extern "C" void func_0205a234(Struct_02043368* arg0);
+extern "C" void InitSpriteAnimationList_0205a234(SpriteAnimationList_02043368* animationList);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
@@ -277,7 +277,7 @@ extern "C" ARM void func_ov008_021895a8(Struct_ov008_02188f5c_3* arg0)
             unsigned int var12;
             var2->GetLoadedFileByID(arg0->unknown_ea0_, &var11, &var12);
             arg0->unknown_214_.Reset();
-            func_020728ac(&arg0->unknown_278_, &arg0->unknown_214_, var11, var12, 0, 0, 0);
+            LoadStringList_020728ac(&arg0->unknown_278_, &arg0->unknown_214_, var11, var12, 0, 0, 0);
             var2->RemoveTask(arg0->unknown_ea0_);
             arg0->unknown_ea0_ = -1;
             arg0->unknown_e9a_++;
@@ -347,14 +347,14 @@ extern "C" ARM void func_ov008_021895a8(Struct_ov008_02188f5c_3* arg0)
             arg0->unknown_114_.unknown_4_ = &arg0->unknown_d4_[1];
             arg0->unknown_18_.unknown_98_ = &arg0->unknown_d4_[0];
             arg0->unknown_18_.unknown_b2_ = 2;
-            func_0205cf78((Struct_0205cf78*)&arg0->unknown_18_, (Struct_0205cf78_2*)&arg0->unknown_114_, 1);
+            SetTextWindowArray_0205cf78((TextWindowManager_0205cf78*)&arg0->unknown_18_, (TextWindow_0205cf78_2*)&arg0->unknown_114_, 1);
             for (unsigned char var28 = 0; var28 < 8; var28++)
             {
                 int var29 = var28 * sizeof(Struct_ov006_021580b8);
                 InitSprite_0205a198((Sprite_02043368_2*)((char*)arg0->unknown_1f8_ + var29));
                 ((Struct_ov006_021580b8*)((char*)arg0->unknown_1f8_ + var29))->unknown_22_ = var28 + 4;
             }
-            func_0205a234((Struct_02043368*)arg0->unknown_1fc_);
+            InitSpriteAnimationList_0205a234((SpriteAnimationList_02043368*)arg0->unknown_1fc_);
             InitSpriteSet_0205a444((char*)arg0->unknown_1f4_);
             arg0->unknown_1f4_->unknown_50_ = 0;
             Struct_ov008_02188d74* var30 = arg0->unknown_1f4_;

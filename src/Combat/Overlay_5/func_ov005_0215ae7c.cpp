@@ -43,7 +43,7 @@ extern "C" short* func_02052e14(Struct_02052e14* arg0);
 extern "C" void func_020462d0(MessageWindow_02021b84* arg0, unsigned short* arg1, int arg2);
 extern "C" ItemData_0201099c_9* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void __clear(void* arg0, unsigned long arg1);
-extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
+extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" void func_02046608(MessageWindow_02021b84* arg0, int, const char* arg2, char* arg3, int arg4, int, int);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_020d2f88(char* arg0, char* arg1);
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov005_0215ae7c(Struct_ov005_02153954* arg0)
         {
             char var10[0x80];
             __clear(var10, sizeof(var10));
-            func_0206819c(var8->unknown_4_, var10, 0);
+            CopyCapitalizedText_0206819c(var8->unknown_4_, var10, 0);
             func_02046608(var0, 0, var10, var9, 0x58, 0, 0);
         }
         else if (var7 <= 0)

@@ -3,7 +3,7 @@
 #include "Graphics/Vector.h"
 
 
-struct Struct_020fdd44;
+struct ActiveZone_020fdd44;
 struct Struct_0206f01c_2;
 struct Struct_02073ec4_3;
 struct Struct_ov017_021a23e4 { char unknown_0_[0xc]; short unknown_c_; short unknown_e_; };
@@ -48,8 +48,8 @@ extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_ov017_021a26e8(GameResources* arg0, int arg1);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
-extern "C" Struct_020fdd44* func_02027ca4();
-extern "C" Struct_ov017_021a23e4_2* func_02028bd0(Struct_020fdd44*, int);
+extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4();
+extern "C" Struct_ov017_021a23e4_2* FindActiveZone_02028bd0(ActiveZone_020fdd44*, int);
 extern "C" Struct_02073ec4_3* func_02073ec4(int arg0, void* arg1);
 extern "C" int func_02073fdc(void* arg0);
 extern "C" Struct_ov017_021a23e4* func_0206f4f0(Struct_0206f01c_2*, int);
@@ -73,7 +73,7 @@ extern "C" ARM int func_ov017_021a23e4(GameResources* arg0, int arg1, int arg2, 
         var2 >= 0x190 && var2 <= 0x199) {
         return 0;
     }
-    Struct_ov017_021a23e4_2* var4 = func_02028bd0(func_02027ca4(), var2);
+    Struct_ov017_021a23e4_2* var4 = FindActiveZone_02028bd0(GetActiveZones_02027ca4(), var2);
     if (!var4) return 0;
     Struct_02073ec4_3* var5 = func_02073ec4(arg2, var4->unknown_60_);
     if (!var5) return 0;

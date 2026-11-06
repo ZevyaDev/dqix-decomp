@@ -91,8 +91,8 @@ struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct BGLayer_02020cb8_2;
 struct TextWindow_0204c7a8;
-struct Struct_0205cf78;
-struct Struct_0205cf78_2;
+struct TextWindowManager_0205cf78;
+struct TextWindow_0205cf78_2;
 
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3 *object, int standStill);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
@@ -123,10 +123,10 @@ extern "C" void LoadBGBlock_0204b174(Struct_ov003_0216b07c_2 *layer, void *block
 extern "C" void FillBGScreenRect_0204bc74(Struct_ov003_0216b07c_2 *layer, int screenEntry, int x, int y, int width, int height, int palette);
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2 *layer, void *screenData);
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8 *window, SafeAllocator *allocator,
-                                                                           int arg2, unsigned int screenDataSize);
-extern "C" void func_0205cf78(Struct_0205cf78 *arg0,
-                                                                                     Struct_0205cf78_2 *arg1,
-                                                                                     unsigned char arg2);
+                                                                           int characterData, unsigned int screenDataSize);
+extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78 *windowManager,
+                                                                                     TextWindow_0205cf78_2 *textWindows,
+                                                                                     unsigned char textWindowCapacity);
 extern "C" void *GetMessageWindow_020421a0();
 
 struct Struct_ov003_0217f56c {
@@ -283,7 +283,7 @@ extern "C" ARM void func_ov003_0216b07c(Struct_ov003_0216b07c *arg0) {
         Struct_ov003_0216b07c_5 *var27       = arg0->unknown_12c0_;
         var27->unknown_98_          = arg0->unknown_12c4_;
         var27->unknown_b2_               = 2;
-        func_0205cf78((Struct_0205cf78 *) arg0->unknown_12c0_, (Struct_0205cf78_2 *) arg0->unknown_12c8_, 1);
+        SetTextWindowArray_0205cf78((TextWindowManager_0205cf78 *) arg0->unknown_12c0_, (TextWindow_0205cf78_2 *) arg0->unknown_12c8_, 1);
         ((Struct_ov003_0216b07c_4 *) 0x4000008)[0].unknown_0_0_ = 3;
         ((Struct_ov003_0216b07c_4 *) 0x4000008)[1].unknown_0_0_ = 1;
         ((Struct_ov003_0216b07c_4 *) 0x4000008)[2].unknown_0_0_ = 2;
@@ -342,8 +342,8 @@ extern "C" ARM void func_ov003_0216b07c(Struct_ov003_0216b07c *arg0) {
         Struct_ov003_0216b07c_5 *var40 = arg0->unknown_12c0_;
         var40->unknown_98_    = arg0->unknown_12c4_;
         var40->unknown_b2_         = 2;
-        func_0205cf78((Struct_0205cf78 *) arg0->unknown_12c0_,
-                                                                             (Struct_0205cf78_2 *) arg0->unknown_12c8_, 1);
+        SetTextWindowArray_0205cf78((TextWindowManager_0205cf78 *) arg0->unknown_12c0_,
+                                                                             (TextWindow_0205cf78_2 *) arg0->unknown_12c8_, 1);
         ((Struct_ov003_0216b07c_4 *) 0x4000008)[0].unknown_0_0_ = 3;
         ((Struct_ov003_0216b07c_4 *) 0x4000008)[1].unknown_0_0_ = 1;
         ((Struct_ov003_0216b07c_4 *) 0x4000008)[2].unknown_0_0_ = 2;

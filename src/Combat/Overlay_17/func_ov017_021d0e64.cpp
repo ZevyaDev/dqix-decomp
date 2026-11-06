@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void func_ov017_0218f5a4(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
 struct Struct_ov017_021d0e64 {
     unsigned char unknown_0_[4];
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov017_021d0e64(void* arg0, Struct_ov017_021d0e64* arg1,
         short var3 = *(short*)(var2 + 0x488);
         if (var3 < 0) {
             var0->obj3D_.unknown_2_ = -1;
-            func_ov017_0218f5a4(arg3, arg1->unknown_4_, 0, 0, 0);
+            QueuePartyMemberModelLoad_ov017_0218f5a4(arg3, arg1->unknown_4_, 0, 0, 0);
         }
     }
     var2[0x56a] = arg1->unknown_5_;

@@ -6,14 +6,14 @@ enum { Enum_ov000_02167dd8_672 = 0x2a0, Enum_ov000_02167dd8_2385 = 0x951 };
 #endif
 #include "GameState/GameState.h"
 
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void func_02049e00(void);
 
 // USA: func_ov000_02167dd8
 extern "C" ARM void func_ov000_02167dd8(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
     for (int var1 = 0; var1 < 4; var1++) {
-        if (func_020a35e0(*(unsigned char**)(arg0 + Enum_ov000_02167dd8_672), var1)) {
+        if (IsPartyMemberInBattle_020a35e0(*(unsigned char**)(arg0 + Enum_ov000_02167dd8_672), var1)) {
             if (var0->GetCombatantByIndex(var1)) func_02049e00();
         }
     }

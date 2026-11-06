@@ -7,7 +7,7 @@ enum { Enum_02077500_24 = 0x18 };
 #include <globaldefs.h>
 #include "World/Object3D.h"
 
-struct Struct_020fdd44;
+struct ActiveZone_020fdd44;
 struct Struct_0201a300_11;
 struct Struct_02039df4;
 struct Struct_02037d88_9;
@@ -38,8 +38,8 @@ struct Struct_02077500_3 {
     unsigned short unknown_164_;
 };
 
-extern "C" Struct_020fdd44* func_02027ca4();
-extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44* arg0, int arg1);
+extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4();
+extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44* zones, int zoneId);
 extern "C" Struct_02077500_2* func_020283c0(Struct_0201a300_11* arg0, int arg1);
 extern "C" void GetLocalWireless_0202ae18();
 extern "C" int IsNotLocalWirelessGuest_0202c508();
@@ -47,11 +47,11 @@ extern "C" void func_ov017_021c927c(int arg0, int arg1, int arg2, Struct_0207750
 
 // USA: func_02077500
 extern "C" ARM int func_02077500(Struct_02077500_3* arg0) {
-    Struct_020fdd44* var0 = func_02027ca4();
+    ActiveZone_020fdd44* var0 = GetActiveZones_02027ca4();
     if (var0 == 0) {
         return 0;
     }
-    Struct_020fdd44* var1 = func_02028bd0(var0, ((Object3D*)((Struct_02039df4*)arg0))->GetField06());
+    ActiveZone_020fdd44* var1 = FindActiveZone_02028bd0(var0, ((Object3D*)((Struct_02039df4*)arg0))->GetField06());
     if (var1 == 0) {
         return 0;
     }

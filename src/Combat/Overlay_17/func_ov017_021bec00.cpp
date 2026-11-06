@@ -109,7 +109,7 @@ extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
         DisablePlayerControl_020397cc((Struct_02018300_3*)var0->GetUnknownGameObject(), 1);
         SetFlags04(var1, 0xc0);
         FontLoader_0208cb08* var6 = GetFontLoader_02094a00();
-        func_02094b30(var6, 0x203, 0);
+        RequestSingleFontLoad_02094b30(var6, 0x203, 0);
         if (UpdateFontLoad_02094b4c(var6)) {
             arg0->unknown_38_ = 1;
             arg0->unknown_44_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0xc00), 0xc00);

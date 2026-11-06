@@ -26,7 +26,7 @@ struct Struct_ov017_021a3ef0_12;
 extern "C" void func_ov017_021b2200(struct Struct_ov017_021a3ef0_12* arg0);
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void func_020a0c0c(void);
+extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
 
 struct Struct_ov017_021d83f0_8 { unsigned int unknown_0_; int unknown_4_; };
@@ -68,7 +68,7 @@ extern "C" ARM int func_ov017_021b2758(Struct_ov017_021b2758_3* arg0) {
         if (func_ov011_021849bc((struct Struct_ov011_021849bc*)data_ov017_021d83f0.unknown_4_, 2)) arg0->unknown_38_.unknown_0_ |= 2;
         if (func_ov011_021849bc((struct Struct_ov011_021849bc*)data_ov017_021d83f0.unknown_4_, 4)) arg0->unknown_38_.unknown_0_ |= 4;
         func_ov017_021b2200((struct Struct_ov017_021a3ef0_12*)arg0);
-        func_020a0c0c();
+        LoadFileTables_020a0c0c();
     }
 
     ClearFlags00(var1, 0x10);

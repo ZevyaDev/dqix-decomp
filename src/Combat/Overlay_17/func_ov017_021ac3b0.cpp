@@ -65,9 +65,9 @@ extern "C" void StartMessage_0204500c(void*, const char*, int);
 #else
 extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
-extern "C" void func_020a0cc4(unsigned int);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void func_02033834(Struct_02033834_2*, int);
-extern "C" void func_020a0c0c();
+extern "C" void LoadFileTables_020a0c0c();
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_ov017_021acc8c(void*, Struct_02013fb4*, int, int);
 extern "C" Struct_ov017_021ac3b0_4* GetFlagManager_0205ec34();
@@ -81,7 +81,7 @@ extern "C" int func_020ac2d4(int, void*, Struct_ov017_021ac3b0*, int);
 extern "C" void func_020ac104(int, Struct_ov017_021ac3b0*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
-extern "C" int func_020649b0(void*, int, void*);
+extern "C" int RunTrigger_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(Struct_ov017_021ac3b0_5*);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 #if defined(jpn)
@@ -119,12 +119,12 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
 #endif
         var3->unknown_19b2_ = 0; var3->unknown_998_ = 1;
         func_02094b3c(var5, 10);
-        func_02094b30(var5, 0x1f6, 1);
+        RequestSingleFontLoad_02094b30(var5, 0x1f6, 1);
         arg0->unknown_28_++;
     } else if (arg0->unknown_28_ == 1) {
         if (UpdateFontLoad_02094b4c(var5)) arg0->unknown_28_++;
     } else if (arg0->unknown_28_ == 2) {
-        func_020a0cc4(0x2800);
+        ReleaseFileTablesForSpace_020a0cc4(0x2800);
         DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
         func_02033834((Struct_02033834_2*)var1, fix32ReduceAngle0To2Pi(arg0->unknown_8_->unknown_20_));
         Struct_ov017_021ac3b0_7* var8 = var2->unknown_8_;
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
         if (!var4->GetTaskStatus(arg0->unknown_24_)) return;
         if (var4->GetDetailedTaskStatus(arg0->unknown_24_) != 2) {
             var4->RemoveTask(arg0->unknown_24_); arg0->unknown_24_ = -1; arg0->unknown_1_ = 1;
-            func_ov017_021ac32c(arg0); func_020a0c0c(); return;
+            func_ov017_021ac32c(arg0); LoadFileTables_020a0c0c(); return;
         }
         void* var11; unsigned int var12;
         var4->GetLoadedFileByID(arg0->unknown_24_, &var11, &var12);
@@ -216,6 +216,6 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
         Struct_ov017_021ac3b0_4* var26 = GetFlagManager_0205ec34();
         Struct_ov017_021ac3b0_5 var27;
         var27.unknown_c_ = var2->unknown_0_; var27.unknown_24_ = arg0->unknown_8_->unknown_0_;
-        if (func_020649b0(var26, 0x18, &var27)) func_0206f81c(&var27);
+        if (RunTrigger_020649b0(var26, 0x18, &var27)) func_0206f81c(&var27);
     }
 }

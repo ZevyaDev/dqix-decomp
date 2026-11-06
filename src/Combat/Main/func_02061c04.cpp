@@ -39,8 +39,8 @@ extern "C" void func_020ae730(int arg0);
 extern "C" void func_020ae7d4(int arg0);
 extern "C" void func_020ae880(int arg0);
 extern "C" void func_ov017_021d0d58();
-struct Struct_02038598_5;
-extern "C" int func_02046b60(Struct_02038598_5*, int);
+struct Queue_02038598_5;
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void *GetBattleSetup_ov017_021b8478(void *battleManager);
 extern "C" int func_020a3694(int*);
 struct Struct_02061c04_8;
@@ -99,7 +99,7 @@ extern "C" void func_020d9dec(Struct_02061c04_15*, int);
 struct Struct_02061c04_16;
 extern "C" void func_020d9fb4(Struct_02061c04_16*, int);
 extern "C" void * GetParty_02010828(GameState*);
-extern "C" int func_0201079c(char*);
+extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" int func_020107d0(char*);
 extern "C" int func_02010804(char*);
 extern "C" void func_0206e080(char*, int);
@@ -202,7 +202,7 @@ extern "C" void func_02048418(unsigned char*, unsigned short);
 extern "C" void func_ov017_02191108(void *arg0, int arg1, int arg2, int arg3, int arg4);
 struct Struct_02033b58;
 extern "C" void func_02033b58(Struct_02033b58*, unsigned char);
-extern "C" void *func_02027ca4(void);
+extern "C" void *GetActiveZones_02027ca4(void);
 struct Struct_02028bac;
 extern "C" void * func_02028bac(Struct_02028bac*, int);
 extern "C" void func_ov017_021a23b0(void *arg0, unsigned short arg1);
@@ -492,7 +492,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     }
     case 0x84: {
         GameState *var52 = GameState::GetInstance();
-        var17.unknown_14_.unknown_a_ = func_0201079c((char*)var52);
+        var17.unknown_14_.unknown_a_ = GetStoryChapter_0201079c((char*)var52);
         var17.unknown_14_.unknown_c_ = func_020107d0((char*)var52);
         var17.unknown_14_.unknown_e_ = func_02010804((char*)var52);
         func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
@@ -688,7 +688,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     case 0x94: {
         GameState *var84 = GameState::GetInstance();
-        var17.unknown_14_.unknown_4_ = func_0201079c((char*)var84);
+        var17.unknown_14_.unknown_4_ = GetStoryChapter_0201079c((char*)var84);
         var17.unknown_14_.unknown_6_ = func_020107d0((char*)var84);
         var17.unknown_14_.unknown_8_ = func_02010804((char*)var84);
         arg1->unknown_2_ = 5;
@@ -900,7 +900,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     case 0xb4: {
         void *var110 = GetGameResources();
         void *var111 = *(void **)((char *)var110 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
-        if (!func_02046b60((Struct_02038598_5*)var111, 0xa))
+        if (!IsTypeInQueue_02046b60((Queue_02038598_5*)var111, 0xa))
             return 1;
         void *var112 = *(void **)((char *)var110 + 0x3000 + REGION_VALUE(0x508, 0x718));
         void *var113 = GetBattleSetup_ov017_021b8478(var112);
@@ -1166,7 +1166,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             int var162;
             GameState *var163 = GameState::GetInstance();
             void *var164 = GetGameResources();
-            void *var165 = func_02027ca4();
+            void *var165 = GetActiveZones_02027ca4();
             for (int var166 = 0; var166 < 4; var166++) {
                 void *var167 = func_02028bac((Struct_02028bac*)var165, var166);
                 if (!((struct Struct_02061c04_33 *)((char *)var167 + 2))->unknown_0_2_)
@@ -1269,7 +1269,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     }
     case 0xd6: {
         GameState *var187 = GameState::GetInstance();
-        var17.unknown_8_ = func_0201079c((char*)var187);
+        var17.unknown_8_ = GetStoryChapter_0201079c((char*)var187);
         var17.unknown_a_ = func_020107d0((char*)var187);
         var17.unknown_c_ = func_02010804((char*)var187);
         func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);

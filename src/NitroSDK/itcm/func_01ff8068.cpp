@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern char data_027e0060[];
-extern unsigned short data_02111304;
+extern unsigned short gContextScheduler_02111304;
 extern "C" void func_020cd594(void*);
 extern "C" void func_020cd5d4(void*);
 
@@ -26,11 +26,11 @@ _wake:
     ldr ip, =data_027e0060
     str r3, [ip]
     str r3, [ip, #0x4]
-    ldr ip, =data_02111304
+    ldr ip, =gContextScheduler_02111304
     mov r1, #0x1
     strh r1, [ip]
 _resched:
-    ldr ip, =data_02111304
+    ldr ip, =gContextScheduler_02111304
     ldrh r1, [ip]
     cmp r1, #0x0
     beq _noresched

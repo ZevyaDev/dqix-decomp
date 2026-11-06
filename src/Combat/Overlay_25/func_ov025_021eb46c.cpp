@@ -52,8 +52,8 @@ struct Struct_ov025_021e9778 {
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f20(void* arg0);
 extern "C" void func_02072c9c(int arg0, char* arg1);
-struct Struct_ov000_0215440c_2;
-extern "C" Struct_ov025_021eb46c* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
+struct BattleAction_ov000_0215440c_2;
+extern "C" Struct_ov025_021eb46c* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 struct Struct_ov025_021e267c_3;
 struct Struct_ov025_021e267c_2;
 extern "C" void func_ov025_021e8bac(Struct_ov025_021e267c_2*, Struct_ov025_021e267c_3*);
@@ -79,8 +79,8 @@ extern "C" ARM int func_ov025_021eb46c(Struct_ov025_021e9778* arg0) {
         if (arg0->unknown_1c8_ == 0) {
             Struct_ov025_021eb46c_2* var8 = (Struct_ov025_021eb46c_2*)func_ov000_02160f20(GetBattleScene_ov000_02160130());
             arg0->unknown_1cc_ = -1;
-            if (var8->unknown_8_ == 1 && func_ov000_02160094((Struct_ov000_0215440c_2*)var8, 0) != NULL) {
-                int var9 = func_ov000_02160094((Struct_ov000_0215440c_2*)var8, 0)->unknown_20_;
+            if (var8->unknown_8_ == 1 && GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var8, 0) != NULL) {
+                int var9 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var8, 0)->unknown_20_;
                 Struct_ov025_021eb46c_4* var10 = (Struct_ov025_021eb46c_4*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), var9);
                 bool var11;
                 if (var9 >= 0 && var9 <= 3) {
@@ -109,8 +109,8 @@ extern "C" ARM int func_ov025_021eb46c(Struct_ov025_021e9778* arg0) {
             var5->GetLoadedFileByID(arg0->unknown_1cc_, &var3, &var4);
             if (var3 != NULL) {
                 void* var13 = func_ov000_02160f20(GetBattleScene_ov000_02160130());
-                if (func_ov000_02160094((Struct_ov000_0215440c_2*)var13, 0) != NULL) {
-                    var6 = func_ov000_02160094((Struct_ov000_0215440c_2*)var13, 0)->unknown_20_;
+                if (GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var13, 0) != NULL) {
+                    var6 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var13, 0)->unknown_20_;
                     GameObject* var14 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), var6);
                     if (var14 != NULL) {
                         Struct_ov025_021eb46c_5* var15 = (Struct_ov025_021eb46c_5*)var7->Allocate(sizeof(Struct_ov025_021eb46c_5));

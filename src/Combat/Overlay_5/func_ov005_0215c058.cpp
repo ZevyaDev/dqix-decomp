@@ -89,8 +89,8 @@ extern "C" void func_ov005_02154d34(Struct_ov005_0215c058_3* arg0, int arg1, int
 extern "C" void func_ov005_02154d50(Struct_ov005_0215c058_3* arg0, int arg1, int arg2);
 extern "C" void func_ov005_02154d7c(Struct_ov005_0215c058_3* arg0, int arg1, int arg2);
 extern "C" void func_ov005_021537bc(Struct_ov005_0215c058_3* arg0, int arg1, unsigned short arg2);
-struct Struct_0205bb84;
-extern "C" int func_0205bb84(Struct_0205bb84*);
+struct MenuCursor_0205bb84;
+extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" int func_ov005_02157190(void* arg0);
 extern "C" unsigned char* GetParty_02010828(GameState*);
@@ -199,7 +199,7 @@ extern "C" ARM void func_ov005_0215c058(Struct_ov005_0215c058_4* arg0)
             func_ov005_021537bc(&var12, 0, 0x7fff);
         }
 
-        int var17 = func_0205bb84((Struct_0205bb84*)arg0->unknown_19f4_) + 8;
+        int var17 = GetMenuCursorIndex_0205bb84((MenuCursor_0205bb84*)arg0->unknown_19f4_) + 8;
         if (var17 != arg0->unknown_3dbb_)
         {
             arg0->unknown_3dbb_ = var17;

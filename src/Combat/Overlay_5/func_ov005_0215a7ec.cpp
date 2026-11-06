@@ -44,22 +44,22 @@ struct Struct_ov005_02153954 {
 };
 
 struct TextWindowManager_0205d81c;
-extern "C" Struct_ov005_02158e04* func_0205d8c4(TextWindowManager_0205d81c*);
+extern "C" Struct_ov005_02158e04* GetCursorTextWindow_0205d8c4(TextWindowManager_0205d81c*);
 extern "C" int func_020e28dc(Struct_020e28dc* arg0);
 extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
-extern "C" int func_0204c7e0(unsigned char* arg0);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
 extern "C" void* func_ov017_021a193c(int* arg0);
 extern "C" void func_ov023_021e3304(void* arg0, short arg1, short arg2);
 
 // USA: func_ov005_0215a7ec
 extern "C" ARM void func_ov005_0215a7ec(Struct_ov005_02153954* arg0) {
-    Struct_ov005_02158e04* var0 = func_0205d8c4((TextWindowManager_0205d81c*)arg0->unknown_ee4_);
+    Struct_ov005_02158e04* var0 = GetCursorTextWindow_0205d8c4((TextWindowManager_0205d81c*)arg0->unknown_ee4_);
     if (var0 != NULL) {
         unsigned char var1 = var0->unknown_c4_;
         if (arg0->unknown_e64_ != NULL && func_020e28dc(arg0->unknown_e64_)) {
             DrawSpriteAnimations_0205ae8c(arg0->unknown_e68_);
-        } else if (var1 == 1 && func_0204c7e0((unsigned char*)var0)) {
+        } else if (var1 == 1 && IsTextWindowOpen_0204c7e0((unsigned char*)var0)) {
             short var2 = (short)(var0->unknown_ac_ << 3) + var0->unknown_bc_;
             short var3 = (short)(var0->unknown_ae_ << 3) + var0->unknown_be_;
             if (var1 == 2) {

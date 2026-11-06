@@ -5,7 +5,7 @@
 #include "NitroSDK/Graphics.h"
 #include "Combat/MapDisplay.h"
 
-struct Struct_02074af4 {
+struct BGControlSave_02074af4 {
     unsigned short unknown_0_;
     char unknown_2_[2];
     unsigned short unknown_4_;
@@ -14,7 +14,7 @@ struct Struct_02074af4 {
     char unknown_a_[2];
     unsigned short unknown_c_;
     char unknown_e_[2];
-    unsigned char unknown_10_;
+    unsigned char isMainSaved_10_;
     unsigned char unknown_11_;
 };
 
@@ -22,7 +22,7 @@ struct StringTable_0201099c_14 {
     char unknown_0_[0x18];
 };
 
-struct Struct_0205cfd4 {
+struct TextWindowManager_0205cfd4 {
     char unknown_0_[0xbc];
 };
 
@@ -41,9 +41,9 @@ struct Struct_ov003_0215c650 {
     struct StringTable_0201099c_14 unknown_7c_;
 #endif
     void* unknown1_7c_;
-    struct Struct_02074af4 unknown_80_;
+    struct BGControlSave_02074af4 unknown_80_;
     int unknown_94_;
-    struct Struct_0205cfd4 unknown_98_;
+    struct TextWindowManager_0205cfd4 unknown_98_;
     struct BGLayer_02020cb8 unknown_154_[2];
     struct Struct_02000c9c_83 unknown_194_[2];
     int unknown_354_;
@@ -84,18 +84,18 @@ struct Struct_ov003_0215c650 {
     int unknown_3f8_;
 };
 
-extern "C" void func_02074af4(struct Struct_02074af4* arg0);
+extern "C" void SaveMainBGControl_02074af4(struct BGControlSave_02074af4* save);
 extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
-extern "C" void func_0205cfd4(struct Struct_0205cfd4* arg0);
+extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 extern "C" void InitTextWindow_0204c684(struct Struct_02000c9c_83* textWindow);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 
 // USA: func_ov003_0215c650
 extern "C" ARM void func_ov003_0215c650(struct Struct_ov003_0215c650* arg0) {
-    arg0->unknown_80_.unknown_10_ = 0;
+    arg0->unknown_80_.isMainSaved_10_ = 0;
     arg0->unknown_80_.unknown_11_ = 0;
-    func_02074af4(&arg0->unknown_80_);
+    SaveMainBGControl_02074af4(&arg0->unknown_80_);
     arg0->unknown_94_ = (DISPCNT & 0x1f00) >> 8;
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
 
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov003_0215c650(struct Struct_ov003_0215c650* arg0) {
     InitStringTable_020dfc40(&arg0->unknown_7c_);
 #endif
     arg0->unknown1_7c_ = 0;
-    func_0205cfd4(&arg0->unknown_98_);
+    InitTextWindowManager_0205cfd4(&arg0->unknown_98_);
 
     for (int var0 = 0; var0 < 2; var0++) {
         InitBGLayer_0204af64(&arg0->unknown_154_[var0]);

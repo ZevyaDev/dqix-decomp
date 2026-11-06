@@ -12,7 +12,7 @@ extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_020897b4(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
-extern "C" int func_ov017_0218f5a4(char* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" int QueuePartyMemberModelLoad_ov017_0218f5a4(char* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 extern char* data_020ee9cc[];
 extern char data_020f2cbc;
 
@@ -94,7 +94,7 @@ extern "C" ARM void func_020e3c94(Struct_020e3b8c_2* arg0) {
             *(int*)((var3 + arg0->unknown_c_ * 4) + 0x138) = arg0->unknown_10_;
         }
         if (arg0->unknown_20_ & 4) {
-            func_ov017_0218f5a4((char*)GetGameResources(), arg0->unknown_9_, 0, 0, 1);
+            QueuePartyMemberModelLoad_ov017_0218f5a4((char*)GetGameResources(), arg0->unknown_9_, 0, 0, 1);
         }
     }
 

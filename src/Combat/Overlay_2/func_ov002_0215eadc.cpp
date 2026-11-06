@@ -5,7 +5,7 @@ struct Struct_ov002_02155960_2;
 struct Struct_ov002_02155960_4;
 extern "C" struct Struct_ov002_02155960_4 *FindTextWindow_0205d81c(struct Struct_ov002_02155960_2 *windowManager, int windowId);
 struct Struct_ov002_0215624c_11;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" void SetTextWindowPalette_0205deb4(struct Struct_ov002_02155960_2 *windowManager, int windowId, int palette);
 extern "C" void func_ov002_0215ee04(char *arg0);

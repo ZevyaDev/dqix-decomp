@@ -28,7 +28,7 @@ struct Struct_020288e0_2 {
 
 extern "C" GameObject* func_0200fee0(GameState* arg0, int arg1);
 extern "C" int func_02053ed0(void* arg0);
-extern "C" void func_0200fd48(GameState* arg0, int arg1);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 extern "C" void func_020289c4(Struct_020288e0*);
 
 // USA: func_020288e0
@@ -53,7 +53,7 @@ extern "C" ARM void func_020288e0(Struct_020288e0* arg0)
         }
         if (var4) continue;
         for (int var7 = 0; var7 < 12; ++var7) {
-            func_0200fd48(var0, var7 + (var1 * 12 + 0x70));
+            ClearGameObjectByIndex_0200fd48(var0, var7 + (var1 * 12 + 0x70));
         }
         func_020289c4(var2);
     }

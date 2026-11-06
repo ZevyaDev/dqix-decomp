@@ -27,17 +27,17 @@ extern "C" int func_02069408(void*, unsigned short);
 extern "C" unsigned short* func_0206c730(void*, unsigned short, unsigned short*);
 extern "C" void func_0206c794(void*);
 #else
-struct Struct_0204254c {
+struct FontGlyph_0204254c {
     int unknown_0_;
     signed char unknown_4_;
-    signed char unknown_5_0_ : 6;
+    signed char codeLength_5_0_ : 6;
     signed char unknown_5_6_ : 2;
     char unknown_6_[2];
 };
 extern "C" int func_0206ac6c(void*, void*);
 extern "C" int func_0206abf8(void*, void*);
 extern "C" bool func_02067a9c(void*, void*);
-extern "C" Struct_0204254c* func_0204254c(int, int);
+extern "C" FontGlyph_0204254c* func_0204254c(int, int);
 extern "C" char* func_0206ac94(void*, unsigned short, char*);
 extern "C" void func_0206ad74(void*);
 #endif
@@ -137,8 +137,8 @@ extern "C" ARM void func_0206aa28(char* arg0) {
         } else {
             var2 = 1;
             int var10 = 1;
-            Struct_0204254c* var11 = func_0204254c((int)(var0), (unsigned char)(arg0[0x19dc]));
-            if (var11) var10 = var11->unknown_5_0_;
+            FontGlyph_0204254c* var11 = func_0204254c((int)(var0), (unsigned char)(arg0[0x19dc]));
+            if (var11) var10 = var11->codeLength_5_0_;
             memcpy(var1, var0, var10);
             var1 += var10;
             (*(int*)(arg0 + Enum_0206aa28_112))++;

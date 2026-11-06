@@ -3,7 +3,7 @@
 
 extern "C" int func_ov000_021719f8(int* arg0);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" ARM void* func_ov000_02161318(void* arg0, int arg1);
+extern "C" ARM void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 
 struct Struct_ov000_0217f990 {
     char unknown_0_[0x18];
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov000_0217f990(char* arg0) {
     unsigned char var4;
     for (var4 = 0; var4 < var2; var4++) {
         signed char var5 = *(signed char*)(arg0 + var4 + 0x70);
-        struct Struct_ov000_0217f990* var6 = (struct Struct_ov000_0217f990*)func_ov000_02161318(arg0, var5);
+        struct Struct_ov000_0217f990* var6 = (struct Struct_ov000_0217f990*)FindPartyMemberPanel_ov000_02161318(arg0, var5);
         if (var6 == 0) continue;
         if (var6->unknown_4c_ < 0) continue;
         if (var6->unknown_87_ == 0) continue;

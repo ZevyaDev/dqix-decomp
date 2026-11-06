@@ -26,14 +26,14 @@ struct Struct_020236dc_6 {
     unsigned char unknown_0_[0x8c];
     unsigned char unknown_8c_[1];
 };
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 struct Struct_020236dc_7;
 extern "C" void* GetZone3D_02012fe4();
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void* GetFlagManager_0205ec34();
 extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
-extern "C" int func_02046708(Struct_02012de8*, unsigned int);
+extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
 extern "C" void func_02053f58(Struct_020236dc_7*, int*, int*);
 extern "C" unsigned char func_02053f74(void*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
@@ -58,7 +58,7 @@ extern "C" ARM int func_020236dc(Struct_020236dc* arg0, unsigned char* arg1, Vec
     Zone3D* var3 = (Zone3D*)GetZone3D_02012fe4();
     GetLocalWireless_0202ae18();
     Struct_020236dc_6* var4 = (Struct_020236dc_6*)GetFlagManager_0205ec34();
-    Struct_02012de8* var5 = (Struct_02012de8*)GetGlobalFlags_020d6c00();
+    GlobalFlags_02012de8* var5 = (GlobalFlags_02012de8*)GetGlobalFlags_020d6c00();
     Struct_02021394_2* var6 = (Struct_02021394_2*)var1->unknown_ptr_36d0;
     Struct_020236dc_4 var7;
     var7.unknown_0_ = arg0;
@@ -81,7 +81,7 @@ extern "C" ARM int func_020236dc(Struct_020236dc* arg0, unsigned char* arg1, Vec
         Struct_020236dc* var13 = &var7.unknown_0_[var7.unknown_4_];
         var13->unknown_14_ = var8;
         ++var7.unknown_4_;
-        var13->unknown_11_ = var9->unknown_1b2_ && !func_02046708(var5, 0x80000) ? 1 : 0;
+        var13->unknown_11_ = var9->unknown_1b2_ && !TestGlobalFlags_02046708(var5, 0x80000) ? 1 : 0;
         var13->unknown_12_ = var2 ? var2->obj3D_.GetField06() == var9->obj3D_.GetField06() : 0;
         if (var9->unknown_18c_ & 0x10) {
             func_02053f58((Struct_020236dc_7*)var9, &var13->unknown_0_.x, &var13->unknown_0_.z);

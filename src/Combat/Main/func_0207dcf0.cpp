@@ -5,7 +5,7 @@ struct Struct_0207d7f4 { unsigned short unknown_0_; unsigned short unknown_2_; u
 extern "C" int func_0207d978(struct Struct_0207d7f4* arg0, unsigned short arg1);
 extern "C" struct Struct_0207d7f4* func_0207d9bc(struct Struct_0207d7f4* arg0, unsigned short arg1);
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" void func_ov017_021b848c(unsigned char* arg0, signed char* arg1, int arg2, int arg3, unsigned short arg4, signed char arg5, int arg6, int arg7);
 
 struct Struct_0207dcf0 {
@@ -36,7 +36,7 @@ extern "C" ARM void func_0207dcf0(unsigned short arg0) {
 
     unsigned char* var2 = *(unsigned char**)((char*)GetGameResources() + Enum_0207dcf0_14104);
     void* var3 = GetBattleSetup_ov017_021b8478(var2);
-    func_ov017_021b8470(var2);
+    GetBattle_ov017_021b8470(var2);
 
     if (((signed char*)var1)[8] != 0) {
         func_ov017_021b848c(

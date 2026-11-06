@@ -3,8 +3,8 @@
 
 extern "C" void* GetGlobalFlags_020d6c00(void);
 
-struct Struct_02012de8;
-extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
+struct GlobalFlags_02012de8;
+extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 
 extern "C" int func_02023330(void* arg0, int arg1);
 extern "C" int func_020233b8(void* arg0, int arg1);
@@ -21,7 +21,7 @@ struct Struct_020275e4 {
 
 // USA: func_020275e4
 extern "C" ARM void func_020275e4(struct Struct_020275e4* arg0) {
-    if (func_02046708((struct Struct_02012de8*)GetGlobalFlags_020d6c00(), 0x41)) {
+    if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)GetGlobalFlags_020d6c00(), 0x41)) {
         return;
     }
 

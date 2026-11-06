@@ -55,7 +55,7 @@ extern "C" ARM int func_ov001_02156108(struct Struct_ov001_02156108* arg0) {
 
     if (TestFlags00((GameResources*)var2, 0x1000) == 0) {
         FontLoader_0208cb08* var5 = GetFontLoader_02094a00();
-        func_02094b40(var5);
+        ClearLoadedFontSets_02094b40(var5);
         CancelFontLoad_02094ab0(var5);
         RequestFontLoad_02094b34(var5, 0x6f, 0x1388, 1, 1);
     }

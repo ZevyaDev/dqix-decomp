@@ -10,7 +10,7 @@ struct Struct_020534ac_2;
 struct Struct_020534ac;
 
 extern "C" void func_ov023_021f7b98(void* arg0, void* arg1, int arg2, int arg3, unsigned int arg4);
-extern "C" void func_0204b088(void* arg0, int arg1);
+extern "C" void CopyBGScreenDataToVRAM_0204b088(void* layer, int screenData);
 
 struct Struct_ov023_021f78a4 {
     char unknown_0_[0xc];
@@ -47,6 +47,6 @@ extern "C" ARM void func_ov023_021f78a4(struct Struct_ov023_021f78a4* arg0) {
     }
 
     if (!(arg0->unknown_c_ & 0x1)) {
-        func_0204b088((char*)arg0 + Enum_ov023_021f78a4_40, 0);
+        CopyBGScreenDataToVRAM_0204b088((char*)arg0 + Enum_ov023_021f78a4_40, 0);
     }
 }

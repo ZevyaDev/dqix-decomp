@@ -1,10 +1,7 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca3b8 func_020cbe84
-#endif
 
-extern "C" void func_020ca3b8(int a, void* p, int size);
+extern "C" void Memcpy16Bit_020ca3b8(int a, void* p, int size);
 
 struct Struct_ov027_021d8c94 {
 	unsigned char unknown_0_[0x358];
@@ -19,7 +16,7 @@ struct Struct_ov027_021d8c94 {
 // USA: func_ov027_021dad14
 extern "C" ARM void func_ov027_021dad14(Struct_ov027_021d8c94* arg0, int arg1, unsigned int arg2, int arg3) {
 	unsigned char var0 = 1;
-	func_020ca3b8(arg1, &arg0->unknown_35e_, 0x14a);
+	Memcpy16Bit_020ca3b8(arg1, &arg0->unknown_35e_, 0x14a);
 	int var1 = 0;
 	do {
 		if (arg2 & (2 << var1)) var0 = (var0 + 1) & 0xff;

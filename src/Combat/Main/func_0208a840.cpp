@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" int func_0208a03c(void* arg0, int arg1, int arg2, int* arg3, int arg4);
 extern "C" int func_ov000_02154a04(int arg0, int arg1, int arg2, int arg3);
 
@@ -15,7 +15,7 @@ extern "C" ARM int func_0208a840(int* arg0, int arg1, int* arg2, int arg3) {
     unsigned char var5;
 
     var0 = GameState::GetInstance();
-    var1 = func_0200fea4(var0, arg1);
+    var1 = GetEnemyByIndex_0200fea4(var0, arg1);
     var2 = *(char**)((char*)var1 + 0x148);
     var3 = (unsigned char*)((char*)(*arg0) + 0x81c0 + *((unsigned char*)var1 + 0x17c) * 0x18);
 

@@ -71,7 +71,7 @@ extern "C" void func_02047b30(void*, int, int, int);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" Struct_ov017_021ae85c* GetMessageWindow_020421a0();
 extern "C" void __clear(void*, int);
-extern "C" void* func_020de824(void*);
+extern "C" void* InitItemTable_020de824(void*);
 extern "C" void func_0207cbe8(char*);
 extern "C" int func_0207d538(void*, int, int, char*, int);
 extern "C" void* func_020d7a50();
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
         var1->RemoveTask(arg0->unknown_10_);
         FontLoader_0208cb08* var13 = GetFontLoader_02094a00();
         func_02094b3c(var13, 10);
-        func_02094b30(var13, 0x1f9, 0);
+        RequestSingleFontLoad_02094b30(var13, 0x1f9, 0);
         arg0->unknown_8_ = 4;
     } else if (arg0->unknown_8_ == 4) {
         if (!UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) return;
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
         Struct_ov017_021ae85c_5* var15 = GetZone3D_02012fe4();
         Struct_ov017_021ae85c_3 var16;
         var16.unknown_0_.ResetAllocatorPointer();
-        func_020de824(var16.unknown_14_);
+        InitItemTable_020de824(var16.unknown_14_);
         func_0207cbe8((char*)&var16); func_0207cbe8((char*)&var16);
         var16.unknown_2c_ = &var15->unknown_2754_;
         if (func_0207d538(&var16, 2, (unsigned short)arg0->unknown_c_, var14, 1))

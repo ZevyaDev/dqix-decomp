@@ -13,9 +13,9 @@ enum { Enum_ov003_0217e100_60 = 0x3c };
 
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0;
-extern "C" TextWindow_0205d0e0* func_0205d8c4(TextWindowManager_0205d81c*);
+extern "C" TextWindow_0205d0e0* GetCursorTextWindow_0205d8c4(TextWindowManager_0205d81c*);
 
-extern "C" int func_0204c7e0(unsigned char*);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char*);
 
 struct Struct_0205c570;
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
@@ -34,9 +34,9 @@ extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 extern "C" ARM void func_ov003_0217e100(void* arg0) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = *(void**)((char*)arg0 + Enum_ov003_0217e100_144);
-    TextWindow_0205d0e0* var2 = func_0205d8c4((TextWindowManager_0205d81c*)var1);
+    TextWindow_0205d0e0* var2 = GetCursorTextWindow_0205d8c4((TextWindowManager_0205d81c*)var1);
     if (var2 == NULL) return;
-    if (!func_0204c7e0((unsigned char*)var2)) return;
+    if (!IsTextWindowOpen_0204c7e0((unsigned char*)var2)) return;
 
     var1 = *(void**)((char*)arg0 + Enum_ov003_0217e100_144);
     short var3 = *(short*)((char*)var2 + 0xae);

@@ -38,7 +38,7 @@ extern "C" int func_ov000_0217542c(void* arg0);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" struct Struct_ov000_0217831c* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
-extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
+extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 #if defined(jpn)
 extern "C" int func_02042158(char* arg0, int arg1);
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov000_0217831c(Struct_ov000_0217831c_3* arg0, char* arg
 #else
             char var19[0x100];
             __clear(var19, sizeof(var19));
-            func_0206819c(var17->unknown_4_, var19, 0);
+            CopyCapitalizedText_0206819c(var17->unknown_4_, var19, 0);
             var18 = var19;
 #endif
         }

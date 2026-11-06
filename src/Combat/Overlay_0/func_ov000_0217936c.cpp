@@ -20,10 +20,10 @@ extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMar
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int* func_ov000_0217199c(void* arg0, int arg1);
 extern "C" int func_ov000_0217c4e8(void* arg0, int arg1);
-extern "C" int func_02041e70(char* arg0, int arg1);
+extern "C" int AppendTextColorTag_02041e70(char* buffer, int colorIndex);
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void func_020e4864(int arg0, char* arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
+extern "C" void ExpandInflectionTags_020e4864(int text, char* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
+extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
@@ -54,9 +54,9 @@ extern "C" ARM void func_ov000_0217936c(struct Struct_ov000_0217936c* arg0, stru
         }
 #if defined(jpn)
         if (func_ov000_0217c4e8(arg1, var7)) {
-            func_02041e70(arg2, 0xf);
+            AppendTextColorTag_02041e70(arg2, 0xf);
         } else {
-            func_02041e70(arg2, 3);
+            AppendTextColorTag_02041e70(arg2, 3);
         }
         AppendMenuEntry_02041b70(arg2, var7 - var4, (const char*)*var8);
 #else
@@ -64,11 +64,11 @@ extern "C" ARM void func_ov000_0217936c(struct Struct_ov000_0217936c* arg0, stru
         if (func_ov000_0217c4e8(arg1, var7)) {
             var9 = 0xf;
         }
-        func_02041e70(arg2, var9);
+        AppendTextColorTag_02041e70(arg2, var9);
         __clear(var0, sizeof(var0));
         __clear(var1, sizeof(var1));
-        func_020e4864(*var8, var0, 1, 0, 0, 0);
-        func_0206819c(var0, var1, 0);
+        ExpandInflectionTags_020e4864(*var8, var0, 1, 0, 0, 0);
+        CopyCapitalizedText_0206819c(var0, var1, 0);
         AppendMenuEntry_02041b70(arg2, var7 - var4, var0);
 #endif
         if (var7 != var5 - 1) {

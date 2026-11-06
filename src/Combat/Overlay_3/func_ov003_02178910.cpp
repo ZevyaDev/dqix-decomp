@@ -53,7 +53,7 @@ extern "C" int func_020de194(void* arg0);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
-extern "C" void func_020de824(void* arg0);
+extern "C" void InitItemTable_020de824(void* itemTable);
 extern "C" void func_0207cbe8(char* arg0);
 extern "C" unsigned int _u32_div_f(unsigned int arg0, unsigned int arg1);
 
@@ -611,7 +611,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
 
                 unsigned char var88[0x38];
                 ((SafeAllocator*)var88)->ResetAllocatorPointer();
-                func_020de824(var88 + 0x14);
+                InitItemTable_020de824(var88 + 0x14);
                 func_0207cbe8((char*)var88);
                 func_0207cbe8((char*)var88);
                 *(void**)(var88 + 0x2c) = arg0 + (0x874 - Enum_ov003_02178910_0);

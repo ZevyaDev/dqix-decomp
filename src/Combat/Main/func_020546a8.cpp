@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-// USA: func_020546a8
-extern "C" ARM int func_020546a8(void* arg0) {
+// USA: GetLeaderObjectIndex_020546a8
+extern "C" ARM int GetLeaderObjectIndex_020546a8(void* companion) {
 #if defined(jpn)
-    return *(signed char*)((char*)arg0 + 0x2c4);
+    return *(signed char*)((char*)companion + 0x2c4);
 #else
-    return *(signed char*)((char*)arg0 + 0x2d0);
+    return *(signed char*)((char*)companion + 0x2d0);
 #endif
 }

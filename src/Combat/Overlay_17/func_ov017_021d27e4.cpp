@@ -10,7 +10,7 @@ extern "C" void func_02052d7c(void* arg0, int arg1, short arg2);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021c3fb4(int arg0, int arg1);
 extern "C" void func_ov017_021c4418(int arg0, int arg1);
-extern "C" void func_ov017_0218f5a4(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void* GetParty_02010828(GameState*);
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov017_021d27e4(void* arg0, Struct_ov017_021d27e4_2* arg
                     func_ov017_021c4418(var2, -1);
                     GameResources* var16 = GetGameResources();
                     BackgroundLoader::GetInstance();
-                    func_ov017_0218f5a4(var16, var2, 1, 0, 0);
+                    QueuePartyMemberModelLoad_ov017_0218f5a4(var16, var2, 1, 0, 0);
                     ((Type_ov017_021d27e4)func_ov017_021d27a0)(2, var1, var2);
                     return;
                 }

@@ -370,7 +370,7 @@ void LoadDataFromCartridgeToMemory(unsigned int dmaChannel,
     }
     else
     {
-        readManager->currentTaskExecutionContext = data_02111304.activeContext;
+        readManager->currentTaskExecutionContext = gContextScheduler_02111304.activeContext;
         SafeReadBlocksFromCartridge(readManager);
     }
 }

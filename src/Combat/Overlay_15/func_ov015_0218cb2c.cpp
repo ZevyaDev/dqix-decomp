@@ -22,8 +22,8 @@ struct Struct_ov001_0215bcc0;
 extern "C" void* __clear(void* arg0, int arg1);
 void* LoadFileIntoMemory(const char* path, void* buf, unsigned int* outLen);
 
-struct Struct_0203d028_11;
-extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
+struct ObjectArchiveLoadInfo_0203d028_11;
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 
 extern char data_ov015_02194078;
 extern int gFileScratchSpace_0211e33c;
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov015_0218cb2c(void* arg0, int arg1) {
 
         if (var4 != 0) {
             ObjectArchiveLoadInfo var5;
-            func_0203dafc((struct Struct_0203d028_11*)&var5);
+            ClearObjectArchiveLoadInfo_0203dafc((struct ObjectArchiveLoadInfo_0203d028_11*)&var5);
             var5.allocator = &var1;
             var5.fileData = &gFileScratchSpace_0211e33c;
             var5.unk_8 = var3;

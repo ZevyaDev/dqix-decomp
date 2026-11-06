@@ -6,7 +6,7 @@
 
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
-extern "C" void func_020728ac(void* arg0, SafeAllocator* arg1, const void* arg2, unsigned int arg3, int, int, int);
+extern "C" void LoadStringList_020728ac(void* stringList, SafeAllocator* allocator, const void* arg2, unsigned int scriptSize, int, int, int);
 #if defined(jpn)
 extern char data_ov012_0218bf40[];
 extern char data_ov012_0218bf52[];
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov012_02185e18(char* arg0) {
         return;
     }
     ((SafeAllocator*)(arg0 + 0x2c))->Reset();
-    func_020728ac(arg0 + 0x1314, (SafeAllocator*)(arg0 + 0x2c), var3, var4, 0, 0, 0);
+    LoadStringList_020728ac(arg0 + 0x1314, (SafeAllocator*)(arg0 + 0x2c), var3, var4, 0, 0, 0);
     *(void**)(arg0 + 0x1348) = FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x1314), 0);
     if (!GetFileInNarc(var1, data_ov012_0218bf52, &var3, (unsigned int*)(arg0 + 0x1410), 0)) {
         var0->RemoveTask(*(int*)(arg0 + 0x1350));
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov012_02185e18(char* arg0) {
     unsigned int var7;
     var0->GetLoadedFileByID(var5, &var6, &var7);
     ((SafeAllocator*)(arg0 + 0x34))->Reset();
-    func_020728ac(arg0 + 0x133c, (SafeAllocator*)(arg0 + 0x34), var6, var7, 0, 0, 0);
+    LoadStringList_020728ac(arg0 + 0x133c, (SafeAllocator*)(arg0 + 0x34), var6, var7, 0, 0, 0);
     *(void**)(arg0 + 0x1378) = FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x133c), 0);
     var0->RemoveTask(*(int*)(arg0 + 0x1380));
     *(int*)(arg0 + 0x1380) = -1;

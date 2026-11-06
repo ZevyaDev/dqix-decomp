@@ -12,7 +12,7 @@ extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg
 extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 struct TextWindowManager_0205de24_2;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" void func_ov002_0215c8a4(void* arg0);
 struct TextWindowManager_0205d81c;
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);

@@ -171,8 +171,8 @@ struct PacEntry_02020cb8_4;
 struct BGLayer_0204b8d0;
 struct BGLayer_02020cb8_2;
 struct TextWindow_0204c7a8;
-struct Struct_0205cf78;
-struct Struct_0205cf78_2;
+struct TextWindowManager_0205cf78;
+struct TextWindow_0205cf78_2;
 struct TextWindowManager_0205d81c;
 struct Struct_0201099c_3;
 struct TextureVRAMArea_0203d028;
@@ -180,7 +180,7 @@ struct TextureVRAMArea_0203d028;
 struct GameResources;
 extern "C" GameResources* GetResources_0200fb8c(int* gameState);
 extern "C" char* GetMessageWindow_020421a0();
-extern "C" void func_020de848(void* arg0);
+extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" void func_020de9a4(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, const void* arg4, int arg5);
 extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" void func_ov023_021e4e8c(void* arg0);
@@ -188,7 +188,7 @@ extern "C" void func_ov023_021e4f64(void* arg0, SafeAllocator* arg1);
 extern "C" void func_ov023_021e4fd8(void* arg0);
 extern "C" void func_ov023_021e6198(void* arg0, int arg1);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
-extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
+extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
@@ -197,7 +197,7 @@ struct Struct_0202e5c0;
 extern "C" void func_0202e5c0(Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0202e0a4(void* arg0);
-extern "C" void func_020a27a0(void* arg0);
+extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void func_ov009_02188bf8(unsigned char* arg0, int arg1, short* arg2, short* arg3);
 extern "C" int func_ov009_02188b14(void* arg0, int arg1, int arg2);
@@ -218,13 +218,13 @@ extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0* layer, unsigned
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
 extern "C" void FillBGScreenRect_0204bc74(Struct_ov003_021594c4* layer, int screenEntry, int x, int y, int width, int height, int palette);
 extern "C" void func_ov023_021da274(void* arg0);
-extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
-extern "C" void func_0205cf78(Struct_0205cf78* arg0, Struct_0205cf78_2* arg1, unsigned char arg2);
+extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
+extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78* windowManager, TextWindow_0205cf78_2* textWindows, unsigned char textWindowCapacity);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 struct Sprite_02043368_2;
 extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
-struct Struct_02043368;
-extern "C" void func_0205a234(Struct_02043368* arg0);
+struct SpriteAnimationList_02043368;
+extern "C" void InitSpriteAnimationList_0205a234(SpriteAnimationList_02043368* animationList);
 extern "C" void LoadSpriteSetFile_0205a528(Struct_ov009_02185634_5* spriteSet, void* fileData, int size, SafeAllocator* allocator);
 extern "C" void func_ov003_0215e6f8(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
 extern "C" void func_ov003_0215f41c(Struct_ov009_02185634_2* arg0, const char* arg1);
@@ -308,7 +308,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
         arg0->unknown_0_[5].Reset();
         LoadStringTable_020dfec0(arg0->unknown_e0_, &arg0->unknown_0_[5], var4, var5);
         arg0->unknown_d8_ = *(int*)(GetMessageWindow_020421a0() + 0x28);
-        func_020de848(arg0->unknown_c8_);
+        ClearItemTable_020de848(arg0->unknown_c8_);
         func_020e0484(arg0->unknown_c8_, &arg0->unknown_0_[4], data_020f2a38, data_ov009_0218ab48, 0x29, 1);
 #else
         BackgroundLoader::AddLockGlobal();
@@ -319,7 +319,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
         LoadStringTable_020dfec0(arg0->unknown_e0_, &arg0->unknown_0_[5], var7, var6);
         BackgroundLoader::RemoveLockGlobal();
         arg0->unknown1_f8_ = *(int*)(GetMessageWindow_020421a0() + 0x5c);
-        func_020de848(arg0->unknown_c8_);
+        ClearItemTable_020de848(arg0->unknown_c8_);
         BackgroundLoader::AddLockGlobal();
         unsigned int var8;
         void* var9 = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &var8);
@@ -372,7 +372,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
                 if (DecompressFileFromGPCByName(var12.pGPCFile, var12.machine, var15 + var0, var14, var16,
                                                 FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 0x7d0)))
                 {
-                    func_0207de48(arg0->unknown_808_, var17, var18);
+                    InitTextureVRAMArea_0207de48(arg0->unknown_808_, var17, var18);
                     ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_808_);
                     RestoreTextureVRAMState_0207df90(arg0->unknown_808_);
                     ((Object3D*)arg0->unknown_878_)->SetModelFromFileCopy(arg0->unknown_b4_, var15 + var0, var14,
@@ -381,7 +381,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
                 }
             }
             BackgroundLoader::RemoveLockGlobal();
-            func_0207de48(arg0->unknown_c68_, 0x1a00, 0x20);
+            InitTextureVRAMArea_0207de48(arg0->unknown_c68_, 0x1a00, 0x20);
             var12.Reset();
             ZeroDestroyGPCPointer(&var12.pGPCFile);
         }
@@ -395,7 +395,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
         func_0202e5c0((Struct_0202e5c0*)var19->unknown_800_, 0xd000, 0xf800, 0x42ccc);
         func_0202e5c8((unsigned char*)var19->unknown_800_, 0xd000, 0xf800, 0);
         func_0202e0a4(var19->unknown_800_);
-        func_020a27a0(var19->unknown_800_);
+        DisableCameraFollow_020a27a0(var19->unknown_800_);
         SetCamera_020100c4(var1, (int)var19->unknown_800_);
 
         arg0->unknown_da3_ = 0;
@@ -618,7 +618,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
             }
             arg0->unknown_1f8_.unknown_98_ = &arg0->unknown_138_[2];
             arg0->unknown_1f8_.unknown_b2_ = 1;
-            func_0205cf78((Struct_0205cf78*)&arg0->unknown_1f8_, (Struct_0205cf78_2*)arg0->unknown_370_, 1);
+            SetTextWindowArray_0205cf78((TextWindowManager_0205cf78*)&arg0->unknown_1f8_, (TextWindow_0205cf78_2*)arg0->unknown_370_, 1);
 
             arg0->unknown_7d4_ = arg0->unknown_0_[2].Allocate(0x400);
             for (int var55 = 0; var55 < 4; var55++)
@@ -630,7 +630,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
             }
             arg0->unknown_2b4_.unknown_98_ = &arg0->unknown_138_[5];
             arg0->unknown_2b4_.unknown_b2_ = 1;
-            func_0205cf78((Struct_0205cf78*)&arg0->unknown_2b4_, (Struct_0205cf78_2*)arg0->unknown_450_, 4);
+            SetTextWindowArray_0205cf78((TextWindowManager_0205cf78*)&arg0->unknown_2b4_, (TextWindow_0205cf78_2*)arg0->unknown_450_, 4);
 
             int var56;
 #if !defined(jpn)
@@ -647,7 +647,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
             TABLE_A->unknown_3c_ = arg0->unknown_7e0_;
             for (var56 = 0; var56 < 6; var56++)
                 InitSprite_0205a198((Sprite_02043368_2*)&arg0->unknown_7dc_[var56]);
-            func_0205a234((Struct_02043368*)arg0->unknown_7e0_);
+            InitSpriteAnimationList_0205a234((SpriteAnimationList_02043368*)arg0->unknown_7e0_);
 
 #if !defined(jpn)
             Struct_ov009_02185634_5* var58 = arg0->unknown_7e4_;
@@ -667,7 +667,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
             TABLE_B->unknown_3c_ = arg0->unknown_7ec_;
             for (int var59 = 0; var59 < 0x19; var59++)
                 InitSprite_0205a198((Sprite_02043368_2*)&arg0->unknown_7e8_[var59]);
-            func_0205a234((Struct_02043368*)arg0->unknown_7ec_);
+            InitSpriteAnimationList_0205a234((SpriteAnimationList_02043368*)arg0->unknown_7ec_);
 
 #if defined(jpn)
             arg0->unknown_d90_ = var2->QueueLoadFile(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 1000), NULL);

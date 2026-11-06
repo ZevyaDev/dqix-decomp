@@ -26,7 +26,7 @@ extern "C" void func_0208f7ec(struct Struct_0201c014* arg0);
 struct Struct_020134e0_2;
 extern "C" void func_02094d00(struct Struct_020134e0_2* arg0);
 
-extern "C" void* func_020de824(void* arg0);
+extern "C" void* InitItemTable_020de824(void* itemTable);
 
 extern "C" void func_020134e0(void* arg0);
 
@@ -45,7 +45,7 @@ extern "C" ARM void* func_0201c014(void* arg0) {
     func_0208f7ec((struct Struct_0201c014*)((char*)arg0 + Enum_0201c014_612 + 0x2400));
     func_02094d00((struct Struct_020134e0_2*)((char*)arg0 + Enum_0201c014_804 + 0x2400));
     ((SafeAllocator*)((char*)arg0 + Enum_0201c014_1840 + 0x2000))->ResetAllocatorPointer();
-    func_020de824((char*)arg0 + Enum_0201c014_852 + 0x2400);
+    InitItemTable_020de824((char*)arg0 + Enum_0201c014_852 + 0x2400);
     func_020134e0(arg0);
     return arg0;
 }

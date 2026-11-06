@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" int func_ov000_02154a04(int arg0, int arg1, int arg2, int arg3);
 
 struct Struct_0208a91c {
@@ -22,7 +22,7 @@ typedef int (*Type_0208a91c)(void*, int, int*, int);
 // USA: func_0208a91c
 extern "C" ARM int func_0208a91c(int* arg0, int arg1, int arg2, int* arg3, int arg4) {
     GameState* var0 = GameState::GetInstance();
-    GameObject* var1 = func_0200fea4(var0, arg2);
+    GameObject* var1 = GetEnemyByIndex_0200fea4(var0, arg2);
     struct Struct_0208a91c* var2 = *(struct Struct_0208a91c**)((char*)var1 + 0x148);
     *arg0 = arg1;
     int var3 = var2->unknown_10_5_;

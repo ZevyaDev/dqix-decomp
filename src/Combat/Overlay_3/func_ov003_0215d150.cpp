@@ -65,7 +65,7 @@ extern "C" Struct_ov003_0215d150 *GetZone3D_02012fe4();
 extern "C" void ClearMessageParams_02046380(void *window);
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" void func_020465f0(unsigned char *, int, unsigned char);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char *, int, unsigned char);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" int IsLocalWirelessGuest_0202c540(int *wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(int *wireless);
@@ -109,9 +109,9 @@ extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
     if (var4 == 0) {
         ClearMessageParams_02046380(var1);
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, arg0->unknown_3c3_);
-        func_020465f0((unsigned char *) var1, 0, 0);
+        SetMessageNumberWidth_020465f0((unsigned char *) var1, 0, 0);
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 1, arg0->unknown_3cc_);
-        func_020465f0((unsigned char *) var1, 1, 0);
+        SetMessageNumberWidth_020465f0((unsigned char *) var1, 1, 0);
 
         int var6;
         var6 = (arg0->unknown_3d0_ == 0) ? 1 : 0;

@@ -12,8 +12,8 @@ extern "C" void func_02046608(void *arg0, int arg1, int arg2, int arg3, int arg4
 
 #if defined(jpn)
 #define RG(u, j) (j)
-extern "C" void func_020465f0(Struct_ov002_02157d40_2*, int, unsigned char);
-extern "C" void func_020465d8(Struct_ov002_02157d40_2*, int, unsigned char);
+extern "C" void SetMessageNumberWidth_020465f0(Struct_ov002_02157d40_2*, int, unsigned char);
+extern "C" void SetMessageNumberAlignment_020465d8(Struct_ov002_02157d40_2*, int, unsigned char);
 extern "C" void func_020474a8(void *arg0, int arg1, int arg2, int arg3);
 #else
 #define RG(u, j) (u)
@@ -53,13 +53,13 @@ extern "C" ARM void func_ov002_0215f084(void *arg0, int arg1) {
     ClearMessageParams_02046380();
     SetMessageNumber_020465c0((Struct_ov002_02157d40_2*)var10, 0, var7);
 #if defined(jpn)
-    func_020465f0((Struct_ov002_02157d40_2*)var10, 0, 3);
-    func_020465d8((Struct_ov002_02157d40_2*)var10, 0, 1);
+    SetMessageNumberWidth_020465f0((Struct_ov002_02157d40_2*)var10, 0, 3);
+    SetMessageNumberAlignment_020465d8((Struct_ov002_02157d40_2*)var10, 0, 1);
 #endif
     SetMessageNumber_020465c0((Struct_ov002_02157d40_2*)var10, 1, var9->unknown_4_);
 #if defined(jpn)
-    func_020465f0((Struct_ov002_02157d40_2*)var10, 1, 3);
-    func_020465d8((Struct_ov002_02157d40_2*)var10, 1, 0);
+    SetMessageNumberWidth_020465f0((Struct_ov002_02157d40_2*)var10, 1, 3);
+    SetMessageNumberAlignment_020465d8((Struct_ov002_02157d40_2*)var10, 1, 0);
 #endif
     int var11 = FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + RG(0x20, 0x8)), 0xbb8);
 #if defined(jpn)

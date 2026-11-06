@@ -10,7 +10,7 @@
 #define REGION_OFFSET_2 0x3000
 #endif
 
-extern "C" void* func_ov000_02161318(void* arg0, int arg1);
+extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 extern "C" int func_ov000_021761ec(char* arg0, int arg1);
 
 // USA: func_ov000_02162b90
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov000_02162b90(void* arg0, int arg1, int arg2, int arg3
         }
         var2++;
     }
-    void* var4 = func_ov000_02161318((char*)arg0 + REGION_OFFSET_1 + REGION_OFFSET_2, arg5);
+    void* var4 = FindPartyMemberPanel_ov000_02161318((char*)arg0 + REGION_OFFSET_1 + REGION_OFFSET_2, arg5);
     if (var4 != NULL) {
         *(short*)((char*)var4 + 0x26) = (short)arg2;
         *(unsigned char*)((char*)var4 + 0x1d) = (unsigned char)var1;

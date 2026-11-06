@@ -18,7 +18,7 @@ extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, unsigned int size, SafeAllocator* allocator);
-extern "C" void func_020728ac(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, int, int, int);
+extern "C" void LoadStringList_020728ac(void* stringList, SafeAllocator* allocator, void* arg2, unsigned int scriptSize, int, int, int);
 struct Struct_0208df10;
 extern "C" void func_0208df10(Struct_0208df10* arg0);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
@@ -46,7 +46,7 @@ struct Struct_0204b988;
 extern "C" void func_0204b988(Struct_0204b988* arg0, unsigned int arg1, int arg2, int arg3, unsigned short arg4);
 struct BGLayer_02020cb8_2;
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
-extern "C" void func_020dc7e8(int arg0, int arg1);
+extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
 
 extern char data_ov013_02187e48[];
 extern char data_ov013_02187e61[];
@@ -140,7 +140,7 @@ extern "C" ARM bool func_ov013_021870f0(Struct_ov013_021870f0_6* arg0) {
 #if defined(jpn)
         FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
         func_02094b3c(var3, 10);
-        func_02094b30(var3, 0x68, 0);
+        RequestSingleFontLoad_02094b30(var3, 0x68, 0);
 #else
         SafeAllocator* var4 = arg0->unknown_0_;
         var4[4].Reset();
@@ -217,7 +217,7 @@ extern "C" ARM bool func_ov013_021870f0(Struct_ov013_021870f0_6* arg0) {
             var2->GetLoadedFileByID(arg0->unknown_5c_, &var16, &var17);
             SafeAllocator* var18 = arg0->unknown_0_;
             var18[3].Reset();
-            func_020728ac(arg0->unknown_4_, &var18[3], var16, var17, 0, 0, 0);
+            LoadStringList_020728ac(arg0->unknown_4_, &var18[3], var16, var17, 0, 0, 0);
             var2->RemoveTask(arg0->unknown_5c_);
             arg0->unknown_5c_ = -1;
             arg0->unknown_66_++;
@@ -344,9 +344,9 @@ extern "C" ARM bool func_ov013_021870f0(Struct_ov013_021870f0_6* arg0) {
             arg0->unknown_65_ = true;
             arg0->unknown_66_ = 0;
             if (arg0->unknown_64_ == 0)
-                func_020dc7e8(4, -1);
+                LoadPartyMemberColors_020dc7e8(4, -1);
             else
-                func_020dc7e8(3, -1);
+                LoadPartyMemberColors_020dc7e8(3, -1);
         }
         var1 = false;
     }

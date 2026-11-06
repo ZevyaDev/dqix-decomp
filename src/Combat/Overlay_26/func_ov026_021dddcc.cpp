@@ -90,7 +90,7 @@ Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4* arg0, int 
 int func_ov000_021719f8(int* arg0);
 int func_ov000_021761c8(char* arg0, int arg1);
 int func_ov000_021761ec(char* arg0, int arg1);
-Struct_ov000_0215ab88* func_0200fea4(GameState* arg0, int arg1);
+Struct_ov000_0215ab88* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 void* GetCamera_020100bc(GameState* gameState);
 int _ZNK8Object3D9GetHeightEv(Struct_ov000_0215ab88* arg0);
 int func_0202ec84(void* arg0, Struct_ov026_021dddcc* arg1, int* arg2, int* arg3);
@@ -297,7 +297,7 @@ extern "C" ARM void func_ov026_021dddcc(Struct_ov000_02160da0* arg0) {
             break;
         }
         for (var37 = 0; var37 < var36; var37++) {
-            Struct_ov000_0215ab88* var39 = func_0200fea4(var6, var38.unknown_0_[var37]);
+            Struct_ov000_0215ab88* var39 = GetEnemyByIndex_0200fea4(var6, var38.unknown_0_[var37]);
             int var40;
             if (var39 == 0) continue;
             var40 = var39->unknown_4_ - 0xc0;

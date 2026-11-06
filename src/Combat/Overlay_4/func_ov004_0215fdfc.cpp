@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Combat/Main/BattleList.h"
 
-extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
+extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
 extern "C" unsigned short func_ov004_0215eb20(void* arg0, int arg1);
 struct SoundEffectManager_02108760;
@@ -12,7 +12,7 @@ extern "C" void* func_ov004_0215e4c0(void* arg0, int arg1);
 struct Struct_ov004_0215fdfc;
 extern "C" void func_ov023_021f809c(struct Struct_ov004_0215fdfc*, void*);
 extern "C" void func_ov023_021fc71c(void*, int, int);
-extern "C" void func_020dc7e8(int, int);
+extern "C" void LoadPartyMemberColors_020dc7e8(int, int);
 extern "C" void func_ov004_0215ee90(void*);
 extern "C" void func_ov004_0215f0c0(void*);
 extern "C" void func_ov004_0215e5fc(void*, int);
@@ -122,7 +122,7 @@ extern "C" ARM int func_ov004_0215fdfc(void* arg0) {
     int var5;
     unsigned char var6[4];
     var0 = GameState::GetInstance();
-    var5 = func_020114ec((char*)var0, var6);
+    var5 = GetPartyOrder_020114ec((char*)var0, var6);
     var4 = data_ov004_021707e8.unknown_1c_;
     var3 = 0;
     var2 = data_ov004_021707e8.unknown1_a_;
@@ -274,8 +274,8 @@ extern "C" ARM int func_ov004_0215fdfc(void* arg0) {
         func_ov004_0216276c(arg0);
         break;
     }
-    func_020dc7e8(2, (signed char)data_ov004_021707e8.unknown_1c_);
-    func_020dc7e8(5, (signed char)data_ov004_021707e8.unknown_1c_);
+    LoadPartyMemberColors_020dc7e8(2, (signed char)data_ov004_021707e8.unknown_1c_);
+    LoadPartyMemberColors_020dc7e8(5, (signed char)data_ov004_021707e8.unknown_1c_);
     Struct_ov004_0215fdfc_5* var18 = (Struct_ov004_0215fdfc_5*)func_ov004_0215e4c0(arg0, 3);
     var18->unknown_104_ = data_ov004_021707e8.unknown_b_;
     var18->unknown_106_ = data_ov004_021707e8.unknown_6_;

@@ -24,8 +24,8 @@ struct GameObject;
 extern "C" int func_ov024_021e67b0(GameObject*);
 struct GameState;
 extern "C" void* GetParty_02010828(GameState*);
-struct Struct_02048150;
-extern "C" int func_02086ef0(Struct_02048150*, int);
+struct Party_02048150;
+extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void func_ov000_0215a8d4(unsigned char*, int);
 extern "C" int func_ov000_02156068(struct Struct_02000c9c_76* arg0, int arg1, int arg2, int arg3);
 struct Random;
@@ -44,7 +44,7 @@ extern "C" ARM int func_ov024_021e6948(struct Struct_ov024_021e6948_2* arg0, int
         if (func_ov024_021e67b0((GameObject*)var1)) {
             var0 = var0 * func_02074938(1);
         }
-        if (func_02086ef0((Struct_02048150*)(GetParty_02010828((GameState*)GameState::GetInstance())), arg1) &&
+        if (IsInParty_02086ef0((Party_02048150*)(GetParty_02010828((GameState*)GameState::GetInstance())), arg1) &&
             var1 && var1->unknown_138_->unknown_21_ == 1) {
             func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 0);
         }

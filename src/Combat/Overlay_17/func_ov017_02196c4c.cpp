@@ -12,8 +12,8 @@ struct Struct_0200ffc0;
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
 extern "C" unsigned char* GetFlagManager_0205ec34(void);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
-struct Struct_02015438;
-extern "C" int func_02046b24(struct Struct_02015438** arg0);
+struct QueueNode_02015438;
+extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 extern "C" int func_02053cdc(int* arg0);
 extern "C" int func_02039760(void* arg0);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
@@ -85,7 +85,7 @@ extern "C" ARM int func_ov017_02196c4c(Struct_ov017_02196c4c* arg0) {
     var5 = LightingManager::GetInstance();
 
     if (IsQueueEmpty_02046b08((void**)arg0->unknown_36fc_) == 0) {
-        return func_02046b24((struct Struct_02015438**)arg0->unknown_36fc_) == 0x45 ? 0 : 2;
+        return GetQueueHeadType_02046b24((struct QueueNode_02015438**)arg0->unknown_36fc_) == 0x45 ? 0 : 2;
     }
     if (var2 == NULL) {
         return 2;

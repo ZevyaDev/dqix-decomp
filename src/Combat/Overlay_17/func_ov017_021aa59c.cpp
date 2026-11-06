@@ -42,7 +42,7 @@ struct Struct_ov017_021aa59c_6;
 struct SoundEffectManager_02108760;
 struct Struct_0207fe44;
 struct GlobalFlags_02038598_4;
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
@@ -55,9 +55,9 @@ extern "C" int func_02086b98(struct Struct_0201bdac_4* arg0);
 extern "C" void func_ov017_021ab010(void* arg0, int arg1);
 extern "C" int func_02046c78(struct Struct_02046c78* arg0);
 extern "C" void func_0209c678(struct MusicManager_02109bf4_4* arg0, int arg1);
-extern "C" void func_020a0cc4(unsigned int arg0);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void func_020a0c0c(void);
+extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void func_02081ee4(struct Struct_02081ee4* arg0, struct Struct_02081ee4_2* arg1);
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
@@ -65,7 +65,7 @@ extern "C" void SetBGPriority_0204b5b4(void* layer, int priority);
 extern "C" void AllocateBGScreenData_0204b12c(struct BGLayer_0204b12c* layer, SafeAllocator* allocator);
 extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
-extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
+extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
 extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void LoadBGBlock_0204b174(void* layer, void* block, SafeAllocator* allocator, unsigned int arg3);
@@ -95,8 +95,8 @@ extern "C" int func_ov017_021ab1a4(struct Struct_ov017_021aa59c_6* arg0);
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" unsigned char func_02010750(char* arg0);
 extern "C" void func_ov017_021d1a18(int arg0, int arg1, int arg2, int arg3);
-extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
-extern "C" void func_02046a8c(struct Struct_02038598_5* arg0, void* arg1);
+extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
+extern "C" void func_02046a8c(struct Queue_02038598_5* arg0, void* arg1);
 extern "C" void func_02010604(GameState* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0201075c(char* arg0, unsigned char arg1);
 extern "C" void func_0209c20c(struct Struct_02109bf4_3* arg0);
@@ -160,7 +160,7 @@ struct Struct_ov017_021aa59c_3 {
 };
 
 // USA: func_ov017_021aa59c
-extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02038598_5* arg1) {
+extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_02038598_5* arg1) {
     GameResources* var0;
     Struct_ov017_021aa59c_2* var1;
     GameState* var2 = GameState::GetInstance();
@@ -190,10 +190,10 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
     BackgroundLoader* var5 = BackgroundLoader::GetInstance();
     int var6 = arg0->unknown_14_;
     if (var6 == 0) {
-        func_020a0cc4(0x7800);
+        ReleaseFileTablesForSpace_020a0cc4(0x7800);
         void* var7 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x7800);
         if (var7 == NULL) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             func_ov017_021aaf08(arg0);
             arg0->unknown_1_ = 1;
             return;
@@ -216,7 +216,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
         for (int var9 = 0; var9 < 2; var9++) {
             InitBGLayer_0204af64((BGLayer_02020cb8*)var8);
             SetBGScreenSize_0204b11c((unsigned char*)var8, 0);
-            var8->unknown_1c_0_ = 0;
+            var8->isSubScreen_1c_0_ = 0;
             var8->bgIndex_1c_4_ = var9 + 1;
             SetBGPriority_0204b5b4(var8, var9);
             AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)var8, &arg0->unknown_24_);
@@ -364,13 +364,13 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
         }
     } else if (var6 == 8) {
         if (IsBrightnessTransitionActive(var0) == 0) {
-            if (func_02046b60(arg1, 0x40) != 0) {
+            if (IsTypeInQueue_02046b60(arg1, 0x40) != 0) {
                 func_02046a8c(arg1, var0->unknown_ptr_array_3afc[39]);
             }
             func_02010604(var2, 0, func_02010750((char*)var2), 0);
             func_0201075c((char*)var2, 0);
             DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_c_ << 8);
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             func_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
             func_ov017_021aaf08(arg0);
             arg0->unknown_1_ = 1;

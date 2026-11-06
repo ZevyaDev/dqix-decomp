@@ -12,7 +12,7 @@ extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02041fac(char* arg0, int arg1, int arg2);
-extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
+extern "C" int AppendPositionTag_02041a90(char* buffer, int x, int y);
 
 struct Struct_ov002_0215f224;
 extern "C" void func_0205c508(struct Struct_ov002_0215f224* arg0, int* arg1, int* arg2);
@@ -33,8 +33,8 @@ extern int data_ov002_0216d2a8;
 struct Struct_ov002_02157d40_2;
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void SetMessageNumber_020465c0(Struct_ov002_02157d40_2*, int, int);
-extern "C" void func_020465f0(unsigned char*, int, unsigned char);
-extern "C" void func_020465d8(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*, int, unsigned char);
 #else
 #define RG(u, j) (u)
 #endif
@@ -81,10 +81,10 @@ extern "C" ARM void func_ov002_0215f224(char* arg0, char* arg1, int arg2) {
         int var9 = GetMessageWindow_020421a0();
         SetMessageNumber_020465c0((Struct_ov002_02157d40_2*)var9, 0, var4 + 1);
         SetMessageNumber_020465c0((Struct_ov002_02157d40_2*)var9, 1, var8);
-        func_020465f0((unsigned char*)var9, 0, 1);
-        func_020465f0((unsigned char*)var9, 1, 1);
-        func_020465d8((unsigned char*)var9, 0, 1);
-        func_020465d8((unsigned char*)var9, 1, 0);
+        SetMessageNumberWidth_020465f0((unsigned char*)var9, 0, 1);
+        SetMessageNumberWidth_020465f0((unsigned char*)var9, 1, 1);
+        SetMessageNumberAlignment_020465d8((unsigned char*)var9, 0, 1);
+        SetMessageNumberAlignment_020465d8((unsigned char*)var9, 1, 0);
         AppendText_02042058(arg1, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 8), 0x579));
     }
 #else
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov002_0215f224(char* arg0, char* arg1, int arg2) {
         int var13 = func_020420e8(var12, 0);
         int var14 = var13 + (var13 & 1);
         int var15 = (0x78 - var14) >> 1;
-        func_02041a90(arg1, var15, 0x63);
+        AppendPositionTag_02041a90(arg1, var15, 0x63);
         AppendText_02042058(arg1, var12);
     }
 #endif

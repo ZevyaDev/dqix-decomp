@@ -7,7 +7,7 @@ extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
 
 extern "C" void SetBGPriority_0204b5b4(void*, int);
 
-struct BGLayer_02020cb8_5 { char unknown_0_[0x1c]; unsigned char unknown_1c_0_ : 4; unsigned char bgIndex_1c_4_ : 4; };
+struct BGLayer_02020cb8_5 { char unknown_0_[0x1c]; unsigned char isSubScreen_1c_0_ : 4; unsigned char bgIndex_1c_4_ : 4; };
 extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 
 extern "C" void InitTextWindow_0204c684(void*);
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov001_0215e7c0(void* arg0) {
 
     struct BGLayer_02020cb8 var0;
     InitBGLayer_0204af64(&var0);
-    var0.unknown_1c_0_ = 1;
+    var0.isSubScreen_1c_0_ = 1;
     var0.bgIndex_1c_4_ = 0;
     SetBGScreenSize_0204b11c((unsigned char*)&var0, 0);
     SetBGPriority_0204b5b4(&var0, 0);

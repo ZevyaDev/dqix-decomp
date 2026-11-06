@@ -19,7 +19,7 @@
 
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" void* func_ov000_02161318(void* arg0, int arg1);
+extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 extern "C" int func_ov000_02171210(void* arg0, void* arg1);
 
 // USA: func_ov000_02175b54
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov000_02175b54(void* arg0) {
     GameState* var4 = GameState::GetInstance();
     unsigned char* var5 = (unsigned char*)GetParty_02010828(var4);
     signed char var6 = *(signed char*)(var5 + 0xf00 + 0x78);
-    char* var7 = (char*)func_ov000_02161318(arg0, var6);
+    char* var7 = (char*)FindPartyMemberPanel_ov000_02161318(arg0, var6);
     if (var7 == 0) {
         return;
     }

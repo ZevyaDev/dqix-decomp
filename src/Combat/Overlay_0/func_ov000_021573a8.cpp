@@ -3,7 +3,7 @@ struct Struct_ov000_021573a8_2 { unsigned short unknown_0_,unknown_2_,unknown_4_
 struct Struct_ov000_021573a8 { char unknown_0_[0x10];unsigned int unknown_10_0_:19,unknown_12_3_:1,unknown_12_4_:12; };
 struct GameObject { char unknown_0_[0x138];Struct_ov000_021573a8_2* unknown_138_;char unknown_13c_[0xc];Struct_ov000_021573a8* unknown_148_; unsigned int inline_ov000_021573a8()const{return unknown_138_->unknown_2_;} unsigned int inline_ov000_021573a8_2()const{return unknown_138_->unknown_6_;} };
 class GameState {public:static GameState* GetInstance();GameObject* GetCombatantByIndex(int);};
-extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);extern "C" GameObject* func_0200fea4(GameState*,int);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*,int);
 struct Struct_02085c80 {char unknown_0_[0x29c];unsigned int unknown_29c_0_:4,unknown_29c_4_:5,unknown_29d_1_:23;char unknown_2a0_[0xc];short unknown_2ac_;};
 extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" float func_02084fc8(char*);extern "C" int func_02085c80(Struct_02085c80*);
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov000_021573a8(Random* arg0,int arg1,int arg2,int arg3){
   if(var8+var9<var2)var2=var8+var9;
   unsigned int var14=var1->unknown_138_->unknown_2_;if((float)var14<var2)var2=(float)var14;
  }else {
-  GameObject* var15=func_0200fea4(GameState::GetInstance(),arg1);if(!var15)return 0;
+  GameObject* var15=GetEnemyByIndex_0200fea4(GameState::GetInstance(),arg1);if(!var15)return 0;
   if(!var15->unknown_148_)return 0;if(!var15->unknown_148_->unknown_12_3_)return 0;
   if(var15->unknown_138_->unknown_2_<0xff&&var15->unknown_138_->unknown_2_>=var15->unknown_138_->unknown_6_)return 0;
   int var16=NextRandomMax(arg0,2);

@@ -42,12 +42,12 @@ extern "C" const Struct_ov026_021de6cc data_ov026_021de6d4;
 extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18();
 extern "C" int func_ov000_0215fc60(char*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
-extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
 extern "C" int func_0202c1c0(Struct_0202b2f0*, int);
-extern "C" int func_020546a8(void*);
-extern "C" int func_02010088(Struct_02010088*);
+extern "C" int GetLeaderObjectIndex_020546a8(void*);
+extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov026_021dce1c(Struct_ov026_021dc8fc_4*);
 extern "C" int func_020882f8(unsigned char*);
 extern "C" int func_ov000_0215f7a8(Struct_ov000_02161e30*, short*, unsigned char);
@@ -57,7 +57,7 @@ extern "C" void func_020a0780(struct Struct_020a0780*, unsigned int);
 extern "C" void func_020a0068(struct Struct_020a0068*, unsigned int);
 extern "C" void func_020a07b0(struct Struct_020a07b0*, unsigned int);
 extern "C" void func_020a00a4(struct Struct_020a00a4*, unsigned int);
-extern "C" void func_020ac494(void*);
+extern "C" void SetBattleRecords_020ac494(void*);
 
 // USA: func_ov026_021dd3dc
 extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000_0217e870_2* arg1, Struct_ov026_021d8ba0_4* arg2) {
@@ -74,10 +74,10 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
     if (func_ov000_0215fc60((char*)arg0) != 0) {
         return 1;
     }
-    if (IsLocalWirelessOn_0202b7d8((int*)var6) == 0 || func_020a35e0((unsigned char*)arg1, var9)) {
+    if (IsLocalWirelessOn_0202b7d8((int*)var6) == 0 || IsPartyMemberInBattle_020a35e0((unsigned char*)arg1, var9)) {
         var8 = 0;
         for (var7 = 0; var7 < 4; var7++) {
-            if (!func_020a35e0((unsigned char*)arg1, var7)) continue;
+            if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg1, var7)) continue;
             if (var7 != 0 && !GetCompanionByIndex_0200ff58(var5, var7)) continue;
             Struct_ov026_021d8ba0_6* var10 = func_ov026_021dae60(arg2, var7);
             if (!var10) continue;
@@ -88,7 +88,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
         }
         if (var8 == 0) {
             for (var7 = 0; var7 < 4; var7++) {
-                if (!func_020a35e0((unsigned char*)arg1, var7)) continue;
+                if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg1, var7)) continue;
                 if (var7 != 0 && !GetCompanionByIndex_0200ff58(var5, var7)) continue;
                 GameObject* var11 = var5->GetCombatantByIndex(var7);
                 if (!var11) continue;
@@ -103,7 +103,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
     }
     if (IsLocalWirelessOn_0202b7d8((int*)var6)) {
         for (var7 = 1; var7 < 4; var7++) {
-            if (!func_020a35e0((unsigned char*)arg1, var7)) continue;
+            if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg1, var7)) continue;
             if (GetCompanionByIndex_0200ff58(var5, var7)) continue;
             GameObject* var12 = var5->GetCombatantByIndex(var7);
             if (!var12) continue;
@@ -135,17 +135,17 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
             int var19 = 0;
             int var20;
             for (var20 = 0; var20 < 4; var20++) {
-                if (!func_020a35e0((unsigned char*)arg1, var20)) continue;
+                if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg1, var20)) continue;
                 if (func_0202c1c0(var6, var20)) {
                     var0.unknown_0_[var19] = var20;
                     var19++;
                 }
             }
             for (var20 = 0; var20 < 4; var20++) {
-                if (!func_020a35e0((unsigned char*)arg1, var20)) continue;
+                if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg1, var20)) continue;
                 GameObject* var21 = GetCompanionByIndex_0200ff58(var5, var20);
                 if (!var21) continue;
-                if (func_0202c1c0(var6, func_020546a8(var21))) {
+                if (func_0202c1c0(var6, GetLeaderObjectIndex_020546a8(var21))) {
                     var0.unknown_0_[var19] = var20;
                     var19++;
                 }
@@ -157,7 +157,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
                 short var24 = var0.unknown_0_[var22];
                 GameObject* var25 = var5->GetCombatantByIndex(var24);
                 if (!var25) continue;
-                if (func_02010088((Struct_02010088*)var25)) continue;
+                if (IsDead_02010088((Struct_02010088*)var25)) continue;
                 if (func_ov026_021dce1c((Struct_ov026_021dc8fc_4*)var25)) continue;
                 if (func_020882f8((unsigned char*)((Struct_ov017_021af66c_5*)var25)->unknown_138_)) continue;
                 if ((((Struct_ov017_021af66c_5*)var25)->unknown_138_->unknown_14_ & 0x80000) == 0) {
@@ -184,7 +184,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
             for (int var29 = 0; var29 < var27; var29++) {
                 GameObject* var30 = var5->GetCombatantByIndex(var2[var29]);
                 if (!var30) continue;
-                if (func_02010088((Struct_02010088*)var30)) {
+                if (IsDead_02010088((Struct_02010088*)var30)) {
                     var28 = 1;
                     break;
                 }
@@ -194,7 +194,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
                 func_020a00a4((Struct_020a00a4*)var26, 1);
             }
         }
-        func_020ac494(&var4);
+        SetBattleRecords_020ac494(&var4);
     }
     return var8;
 }

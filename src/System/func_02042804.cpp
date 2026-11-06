@@ -7,10 +7,10 @@ extern "C" void *__clear(void *arg0, int arg1);
 extern const char data_020f0049[24];
 extern const char data_020f0061[24];
 
-struct Struct_0204254c {
+struct FontGlyph_0204254c {
     int unknown_0_;
     char unknown_4_;
-    signed char unknown_5_0_ : 6;
+    signed char codeLength_5_0_ : 6;
     signed char unknown_5_6_ : 2;
     char unknown_6_[2];
 };
@@ -26,7 +26,7 @@ struct Struct_02042804 {
     unsigned int unknown_4_;
     unsigned int unknown_8_;
     Struct_020425e4 *unknown_c_;
-    Struct_0204254c *unknown_10_;
+    FontGlyph_0204254c *unknown_10_;
     void *unknown_14_;
 };
 
@@ -49,7 +49,7 @@ extern "C" ARM void func_02042804(void *arg0, const char *arg1, int *arg2, int *
         Struct_02042804 *var3 = reinterpret_cast<Struct_02042804 *>(*arg2);
         char *var4               = reinterpret_cast<char *>(var3);
         var3->unknown_c_             = reinterpret_cast<Struct_020425e4 *>(var4 + reinterpret_cast<int>(var3->unknown_c_));
-        var3->unknown_10_          = reinterpret_cast<Struct_0204254c *>(var4 + reinterpret_cast<int>(var3->unknown_10_));
+        var3->unknown_10_          = reinterpret_cast<FontGlyph_0204254c *>(var4 + reinterpret_cast<int>(var3->unknown_10_));
         var3->unknown_14_        = var4 + reinterpret_cast<int>(var3->unknown_14_);
         for (unsigned int var5 = 0; var5 < var3->unknown_4_; ++var5) {
             var3->unknown_10_[var5].unknown_0_ = reinterpret_cast<int>(var4 + var3->unknown_10_[var5].unknown_0_);

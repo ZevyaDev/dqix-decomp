@@ -5,8 +5,8 @@ struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void func_ov017_021c812c(int arg0, int arg1);
 extern "C" void func_02049390(unsigned char* arg0, unsigned char arg1);
-extern "C" void* func_ov017_021b8468(void* arg0);
-extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 
 struct Struct_ov017_021c82bc {
     unsigned char unknown_0_[4];
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov017_021c82bc(int arg0, struct Struct_ov017_021c82bc* 
     }
 
     void* var6 = *(void**)((char*)arg3 + 0x3000 + Enum_ov017_021c82bc_1816);
-    void* var7 = func_ov017_021b8468(var6);
+    void* var7 = GetBattleScene_ov017_021b8468(var6);
     if (!var7) return;
-    func_ov000_02160fa8(var7, 0x200000);
+    SetBattleSceneFlags_ov000_02160fa8(var7, 0x200000);
 }

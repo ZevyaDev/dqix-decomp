@@ -7,7 +7,7 @@ extern unsigned short __attribute__((aligned(2))) data_020e8a8c[];
 extern unsigned short __attribute__((aligned(4))) data_020e8a8c[];
 #endif
 
-extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" int func_0201137c(char* arg0, int arg1);
 
 // USA: func_02085cd0
@@ -99,7 +99,7 @@ extern "C" ARM int func_02085cd0(unsigned char* arg0, int arg1) {
     unsigned char var8;
     short var9;
     for (var8 = 0; (var9 = var3[var8]) != -1; var8++) {
-        if (func_02083b00(arg0, var9)) {
+        if (HasLearnedSkillEntry_02083b00(arg0, var9)) {
             var7 += func_0201137c((char*)var2, var9);
         }
     }

@@ -11,7 +11,7 @@ enum { Enum_ov025_021e4fc8_12 = 0xc };
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void* func_02058658(void* arg0, int arg1);
 extern "C" void* func_ov025_021e8cf0(char* arg0, int arg1);
-extern "C" void func_0200fd48(GameState* arg0, int arg1);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 extern "C" void func_02059cc8(unsigned char* arg0);
 extern int data_ov025_021ef988;
 
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov025_021e4fc8(struct Struct_ov025_021e4fc8* arg0) {
     void* var0 = func_ov025_021e8cf0(*(char**)((char*)&data_ov025_021ef988 + Enum_ov025_021e4fc8_12), arg0->unknown_8_);
     if (var0) {
         GameState* var1 = GameState::GetInstance();
-        func_0200fd48(var1, *(int*)var0);
+        ClearGameObjectByIndex_0200fd48(var1, *(int*)var0);
         void* var2 = GetEffectManager_02057924();
         void* var3 = func_02058658(var2, *(int*)var0);
         if (var3) {

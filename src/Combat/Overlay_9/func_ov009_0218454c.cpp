@@ -8,7 +8,7 @@ struct StringTable_0201099c_14 {
     char unknown_0_[0x18];
 };
 
-struct Struct_0205cfd4 {
+struct TextWindowManager_0205cfd4 {
     char unknown_0_[0xbc];
 };
 
@@ -33,14 +33,14 @@ struct Struct_ov009_021847c4 {
 
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
-extern "C" void func_020de848(void* arg0);
+extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 #if defined(jpn)
 #define func_ov009_021847ec func_ov009_02185850
 #endif
 extern "C" void func_ov009_021847ec(void* arg0);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
-extern "C" void func_0205cfd4(Struct_0205cfd4* arg0);
+extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitTextWindow_0204c684(Struct_ov006_02158478* textWindow);
 extern "C" void func_0205bef8(Struct_0205bef8* arg0);
 extern "C" void func_ov009_021847c4(Struct_ov009_021847c4* arg0);
@@ -70,7 +70,7 @@ struct Struct_ov009_021842a0_2 {
     char unknown_fc_[0x3c];
 #endif
     BGLayer_02020cb8 unknown_138_[6];
-    Struct_0205cfd4 unknown_1f8_[2];
+    TextWindowManager_0205cfd4 unknown_1f8_[2];
     Struct_ov006_02158478 unknown_370_[1];
     Struct_ov006_02158478 unknown_450_[4];
     void* unknown_7d0_;
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov009_0218454c(Struct_ov009_021842a0_2* arg0, int arg1,
     arg0->unknown_c0_ = NULL;
     arg0->unknown_c4_ = NULL;
 #endif
-    func_020de848(&arg0->unknown_c8_);
+    ClearItemTable_020de848(&arg0->unknown_c8_);
     InitStringTable_020dfc40(&arg0->unknown_e0_);
     arg0->unknown_f8_ = NULL;
     func_ov009_021847ec(&arg0->unknown_fc_);
@@ -173,8 +173,8 @@ extern "C" ARM void func_ov009_0218454c(Struct_ov009_021842a0_2* arg0, int arg1,
     InitBGLayer_0204af64(&arg0->unknown_138_[3]);
     InitBGLayer_0204af64(&arg0->unknown_138_[4]);
     InitBGLayer_0204af64(&arg0->unknown_138_[5]);
-    func_0205cfd4(&arg0->unknown_1f8_[0]);
-    func_0205cfd4(&arg0->unknown_1f8_[1]);
+    InitTextWindowManager_0205cfd4(&arg0->unknown_1f8_[0]);
+    InitTextWindowManager_0205cfd4(&arg0->unknown_1f8_[1]);
     for (int var0 = 0; var0 < 1; var0++)
         InitTextWindow_0204c684(&arg0->unknown_370_[var0]);
     for (int var1 = 0; var1 < 4; var1++)

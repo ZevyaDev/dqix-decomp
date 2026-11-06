@@ -6,7 +6,7 @@
 
 extern short data_020e8a9e[];
 
-extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" int func_0201137c(char* arg0, int arg1);
 
 // USA: func_02086314
@@ -16,7 +16,7 @@ extern "C" ARM int func_02086314(unsigned char* arg0) {
     unsigned char var2;
     short var3;
     for (var2 = 0; (var3 = data_020e8a9e[var2]) != -1; var2++) {
-        if (func_02083b00(arg0, var3)) {
+        if (HasLearnedSkillEntry_02083b00(arg0, var3)) {
             var1 += func_0201137c((char*)var0, var3);
         }
     }

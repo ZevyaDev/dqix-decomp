@@ -182,13 +182,13 @@ extern "C" void func_02086404(Struct_0201099c_20* arg0);
 extern "C" void func_02086598(Struct_0201099c_15* arg0, int arg1);
 extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void __clear(void* arg0, unsigned int arg1);
-extern "C" int func_020426bc(void* arg0, void* arg1, int arg2);
+extern "C" int ConvertTextToGlyphIndices_020426bc(void* text, void* outGlyphIndices, int font);
 extern "C" void func_0209a804(int* arg0);
 extern "C" void func_0209a810(Struct_0201099c_18* arg0, void* arg1);
 extern "C" int func_020865b0(Struct_0201099c_16* arg0);
 extern "C" void func_020865b8(Struct_0201099c_17* arg0, int arg1);
-extern "C" void func_020de824(void* arg0);
-extern "C" void func_020de848(void* arg0);
+extern "C" void InitItemTable_020de824(void* itemTable);
+extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" int func_020dea64(void* arg0, void* arg1, void* arg2, unsigned int arg3, const void* arg4, short arg5);
 extern "C" void* func_0208247c(void* arg0);
 extern "C" void func_02082828(Struct_0201099c_13* arg0);
@@ -364,7 +364,7 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
         char* var26 = FindStringInTable_020e0434((Struct_0201099c_3*)&var10, var23);
         unsigned char var27[12];
         __clear(var27, sizeof(var27));
-        func_020426bc(var26, var27, 1);
+        ConvertTextToGlyphIndices_020426bc(var26, var27, 1);
         memcpy(var4->unknown_140_, var27, sizeof(var27));
 #endif
         short* var28 = var4->unknown_160_.unknown_0_;
@@ -421,8 +421,8 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
 #endif
         var39.Reset();
         ItemTable_0201099c_10 var40;
-        func_020de824(&var40);
-        func_020de848(&var40);
+        InitItemTable_020de824(&var40);
+        ClearItemTable_020de848(&var40);
 #if defined(jpn)
         func_020e052c(&var40, &var39, data_020f2a38, data_020e7610, 8, 1);
 #else

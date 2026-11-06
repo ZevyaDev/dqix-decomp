@@ -21,7 +21,7 @@ extern char data_020ef078[];
 
 struct Struct_02013fb4;
 struct Struct_02070b6c_3 { unsigned char unknown_0_[0xc]; };
-struct Struct_0203d028_11 {
+struct ObjectArchiveLoadInfo_0203d028_11 {
     int unknown_0_;
     int unknown_4_;
     int unknown_8_;
@@ -66,14 +66,14 @@ extern "C" Struct_ov000_02166070_3* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" void func_020484d0(void*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
-extern "C" void func_0203dafc(struct Struct_0203d028_11*);
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11*);
 extern "C" Struct_ov000_02166070_4* func_02070fd0(struct Struct_02070b6c_3*, int);
 extern "C" void func_ov000_0216d1c4(int, struct Struct_02013fb4*, int, int*);
 extern "C" void func_020484f8(Object3D*, Struct_020484f8_2*);
 extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028*);
 extern "C" void _ZN8Object3D10SetField78Et(Object3D*, unsigned int);
 extern "C" void _ZN8Object3D10SetField7aEt(Object3D*, unsigned int);
-extern "C" void func_0207de48(char*, int, int);
+extern "C" void InitTextureVRAMArea_0207de48(char*, int, int);
 
 // USA: func_ov000_02166070
 extern "C" ARM void func_ov000_02166070(Struct_ov000_02166070_2* arg0, GPCReadPair* arg1, int arg2, int arg3, int arg4, unsigned int arg5) {
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov000_02166070(Struct_ov000_02166070_2* arg0, GPCReadPa
     SafeAllocator* var2 = &arg0->unknown_44_;
     Struct_02070b6c_3* var3 = &var0->unknown_684_;
     char var4[0x10];
-    struct Struct_0203d028_11 var5;
+    struct ObjectArchiveLoadInfo_0203d028_11 var5;
     Struct_020484f8_2 var6;
     unsigned int var7;
     const void* var8;
@@ -124,13 +124,13 @@ extern "C" ARM void func_ov000_02166070(Struct_ov000_02166070_2* arg0, GPCReadPa
     func_020484d0(var17);
     var17->unknown_2_ = arg3;
     RestoreTextureVRAMState_0207df90(arg0->unknown_1bc_);
-    func_0203dafc(&var5);
+    ClearObjectArchiveLoadInfo_0203dafc(&var5);
     var5.unknown_4_ = (int)var15;
     var5.unknown_8_ = var10;
     var5.unknown_c_ = var2;
     var17->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var5, 0);
     SaveTextureVRAMState_0207dfac(arg0->unknown_1bc_);
-    func_0203dafc(&var5);
+    ClearObjectArchiveLoadInfo_0203dafc(&var5);
     var5.unknown_4_ = (int)var16;
     var5.unknown_8_ = var11;
     var5.unknown_c_ = var2;
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov000_02166070(Struct_ov000_02166070_2* arg0, GPCReadPa
     if (arg3 == 0x13f || arg3 == 0x13d || arg3 == 0x321) {
         ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)arg0->unknown_14c_);
         RestoreTextureVRAMState_0207df90(arg0->unknown_14c_);
-        func_0207de48(arg0->unknown_14c_, 0x800, 0);
-        func_0207de48(arg0->unknown_14c_, 0xb800, 0x400);
+        InitTextureVRAMArea_0207de48(arg0->unknown_14c_, 0x800, 0);
+        InitTextureVRAMArea_0207de48(arg0->unknown_14c_, 0xb800, 0x400);
     }
 }

@@ -164,8 +164,8 @@ struct Struct_020a95a4_5 {
     unsigned char unknown_454_[0x10];
 };
 
-struct Struct_020fdd44 {
-    unsigned short unknown_0_;
+struct ActiveZone_020fdd44 {
+    unsigned short zoneId_0_;
     unsigned short unknown_2_0_ : 4;
     unsigned short unknown_2_4_ : 12;
     unsigned short unknown_4_;
@@ -330,8 +330,8 @@ extern "C" int IsLocalWirelessGuest_0202c540(Struct_ov031_0224e6e0* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(Struct_ov031_0224e6e0* wireless);
 extern "C" int func_02075acc(int arg0, void* arg1, unsigned int arg2, int arg3);
 extern "C" void func_020830cc(Struct_020a95a4_5* arg0, Struct_020a95a4_7* arg1);
-extern "C" void func_020a0c0c(void);
-extern "C" void func_020a0cc4(unsigned int arg0);
+extern "C" void LoadFileTables_020a0c0c(void);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 
 extern "C" Struct_020a95a4_3* func_02094d6c(void);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
@@ -346,7 +346,7 @@ extern "C" unsigned char func_0207c694(unsigned char* arg0, unsigned int arg1);
 extern "C" unsigned short* func_020120a0(char* arg0, unsigned int arg1);
 extern "C" unsigned char func_0209ca98(char* arg0);
 extern "C" unsigned char func_0205ea18(unsigned char* arg0);
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int func_020107d0(char* arg0);
 extern "C" int func_02010804(char* arg0);
 extern "C" int func_0201081c(char* arg0);
@@ -354,12 +354,12 @@ extern "C" void func_020ac4f8(int arg0);
 extern "C" int func_0201b588(int arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
-extern "C" int func_02011494(char* arg0, void* arg1);
+extern "C" int GetOwnPartyOrder_02011494(char* gameState, void* arg1);
 extern "C" void func_020a99d0(Struct_020a99d0_3* arg0, Struct_020a99d0_3* arg1);
 extern "C" int func_020ac7b4(int arg0);
 extern "C" void func_ov017_021d0d58(void);
-extern "C" Struct_020fdd44* func_02027ca4(void);
-extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44* arg0, int arg1);
+extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
+extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44* zones, int zoneId);
 extern "C" Struct_0203dce4_2* func_0203cf4c(void);
 extern "C" int func_0203e524(Struct_0203dce4_2* arg0, Struct_02028460_3* arg1, Struct_0203e524* arg2);
 extern "C" Struct_02087574_2* func_02087574(Struct_02087574* arg0, int arg1);
@@ -467,13 +467,13 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
         var23 = GetZone3D_02012fe4();
         GetGameResources();
         var12 = func_02094d6c();
-        func_020a0cc4(sizeof(Struct_020a95a4_6));
+        ReleaseFileTablesForSpace_020a0cc4(sizeof(Struct_020a95a4_6));
         var22 = (Struct_020a95a4_6*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, sizeof(Struct_020a95a4_6));
         if (var22 != NULL) {
             memset(var22, 0, sizeof(Struct_020a95a4_6));
             Struct_020a9eb8_2::Struct_020a9eb8_3 var26;
             unsigned char var27[4];
-            var15 = func_02011494((char*)var24, var27);
+            var15 = GetOwnPartyOrder_02011494((char*)var24, var27);
             memcpy(var22->unknown_0_, var25->unknown_f80_, var25->unknown_2c8c_ * sizeof(Struct_020a95a4_7));
             for (var11 = 0; var11 < var15; var11++) {
                 var10 = var11 + var25->unknown_2c8c_;
@@ -591,7 +591,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             func_02075acc((char*)&arg1->unknown_4_ - var21, var22, sizeof(Struct_020a95a4_6), 0);
             FreeMemory_02012da4(&gMainHeap_02114e20, var22);
         }
-        func_020a0c0c();
+        LoadFileTables_020a0c0c();
         if (IsFlagSet_0206dfb0((int)var1, var1->unknown_8c_, 0x113c)) {
             var3->unknown_2c94_ = var5;
         }
@@ -604,7 +604,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             func_02075acc((char*)&arg1->unknown_2cac_ - var21 + 0x1fb, var1->unknown_1eb_, sizeof(var1->unknown_1eb_), 0);
         } else {
             Struct_020a9eb8_6 var39;
-            var39.unknown_0_ = func_0201079c((char*)var38);
+            var39.unknown_0_ = GetStoryChapter_0201079c((char*)var38);
             var39.unknown_4_ = func_020107d0((char*)var38);
             var39.unknown_8_ = func_02010804((char*)var38);
             var39.unknown_c_ = func_0201081c((char*)var38);
@@ -625,7 +625,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
         int var42 = (char*)arg1->unknown_3ec4_ - var21;
         Struct_020a95a4* var43 = &GetZone3D_02012fe4()->unknown_840_;
         func_02075acc(var42, var43->unknown_0_, sizeof(var43->unknown_0_), 0);
-        func_020a0cc4(sizeof(Struct_020a9eb8_8));
+        ReleaseFileTablesForSpace_020a0cc4(sizeof(Struct_020a9eb8_8));
         Struct_020a9eb8_8* var44 = (Struct_020a9eb8_8*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, sizeof(Struct_020a9eb8_8));
         if (var44 != NULL) {
             VectorizedInvertedMemcpy(var43->unknown_d98_, var44->unknown_0_, sizeof(var43->unknown_d98_));
@@ -638,7 +638,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             func_02075acc(var42 + sizeof(var43->unknown_0_), var44, sizeof(Struct_020a9eb8_8), 0);
             FreeMemory_02012da4(&gMainHeap_02114e20, var44);
         }
-        func_020a0c0c();
+        LoadFileTables_020a0c0c();
         Struct_020a9eb8_2* var45 = reinterpret_cast<Struct_020a9eb8_2*>(GameState::GetInstance());
         Struct_020a9eb8_9 var46;
         var46.unknown_400_ = var45->unknown_5f7c_;
@@ -702,7 +702,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             var58.unknown_2_ = var59->obj3D_.rotation_.y;
         }
         Struct_020a95a4_2* var60 = GetZone3D_02012fe4();
-        Struct_020fdd44* var61 = func_02028bd0(func_02027ca4(), var60->unknown_0_);
+        ActiveZone_020fdd44* var61 = FindActiveZone_02028bd0(GetActiveZones_02027ca4(), var60->unknown_0_);
         if (var61 == NULL) {
             var58.unknown_12_ = 0;
             var58.unknown_10_ = 0;

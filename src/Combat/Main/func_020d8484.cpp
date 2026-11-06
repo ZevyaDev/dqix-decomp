@@ -8,7 +8,7 @@ struct Struct_020d8484 {
     signed char unknown_2_;
     signed char unknown_3_;
 };
-struct Struct_020727d8 {
+struct StringList_020727d8 {
     void* unknown_0_;
     short unknown_4_;
     short unknown_6_;
@@ -17,13 +17,13 @@ struct Struct_020d80b0_3 {
     struct Struct_020d8484 unknown_0_;
     int unknown_4_;
     int unknown_8_;
-    struct Struct_020727d8 unknown_c_;
+    struct StringList_020727d8 unknown_c_;
     SafeAllocator unknown_14_;
 };
 
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a27ac(void* arg0);
-extern "C" void func_020727ec(struct Struct_020727d8* arg0);
+extern "C" void func_020727ec(struct StringList_020727d8* arg0);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern int gMainHeap_02114e20;
 

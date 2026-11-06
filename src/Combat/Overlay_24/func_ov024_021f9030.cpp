@@ -101,7 +101,7 @@ struct Struct_ov024_021fefc2 {
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" int func_ov024_021e6798(GameObject* arg0);
 extern "C" Struct_ov024_021f9030_4* func_02053dc0(Struct_02053dc0* arg0);
 extern "C" Struct_ov024_021f9030_7* FindActionData_02079e2c(char* actionTables, int actionId);
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov024_021f9030(Struct_ov024_021f9030_2* arg0, Struct_ov
     for (var16 = 0; var16 < 4; var16++) {
         GameObject* var17 = GetPartyMemberBaseByIndex_0200ff1c(var0, var16);
         if (var17 == 0) continue;
-        if (!func_020a35e0(arg0->unknown_0_->unknown_8e18_, var16)) continue;
+        if (!IsPartyMemberInBattle_020a35e0(arg0->unknown_0_->unknown_8e18_, var16)) continue;
         if (func_ov024_021e6798(var17)) continue;
         if (*var17->unknown_130_ & 1) continue;
         if (var17->unknown_138_->unknown_18_ & 0x800) {

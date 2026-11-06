@@ -9,13 +9,13 @@ struct Struct_ov025_021ead5c_2 {
     struct Struct_ov025_021ead5c_2* unknown_20_;
 };
 
-struct Struct_ov000_021600f8 {
+struct ActionTarget_ov000_021600f8 {
     struct Struct_ov025_021ead5c_2* unknown_0_;
     char unknown_4_[0x20 - 0x4];
-    struct Struct_ov000_021600f8* unknown_20_;
+    struct ActionTarget_ov000_021600f8* pNext_20_;
 };
 
-struct Struct_ov000_0215440c {
+struct BattleAction_ov000_0215440c {
     char unknown_0_[0x1e];
     unsigned short unknown_1e_;
     unsigned short unknown_20_;
@@ -32,10 +32,10 @@ struct Struct_ov025_021ead5c {
 };
 
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" Struct_ov000_0215440c* func_ov000_02160f20(void* arg0);
-extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c* arg0, int arg1);
+extern "C" BattleAction_ov000_0215440c* func_ov000_02160f20(void* arg0);
+extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" int func_ov000_0215fd90(Struct_ov025_021ead5c_2* arg0, int arg1);
-extern "C" short func_ov000_0215ffa0(Struct_ov000_021600f8* arg0);
+extern "C" short func_ov000_0215ffa0(ActionTarget_ov000_021600f8* arg0);
 extern "C" int func_ov025_021ed380(char* arg0, int arg1, int arg2, int arg3, int arg4, short arg5, unsigned short arg6);
 
 static inline int inline_ov017_021c530c(int arg0) {
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov025_021ead5c(Struct_ov025_021ead5c* arg0, int arg1) {
         }
         arg0->unknown_5cb_ = 1;
     }
-    Struct_ov000_0215440c* var0 = func_ov000_02160f20(GetBattleScene_ov000_02160130());
+    BattleAction_ov000_0215440c* var0 = func_ov000_02160f20(GetBattleScene_ov000_02160130());
     unsigned char var1[4];
     int var2[4];
     __clear(var1, sizeof(var1));
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov025_021ead5c(Struct_ov025_021ead5c* arg0, int arg1) {
     __clear(var2, sizeof(var2));
     int var4 = 0;
     if (var0->unknown_1e_ != 0 || var0->unknown_20_ != 0) {
-        for (Struct_ov000_021600f8* var5 = func_ov000_021600f8(var0, 0); var5 != NULL; var5 = var5->unknown_20_) {
+        for (ActionTarget_ov000_021600f8* var5 = GetActionTarget_ov000_021600f8(var0, 0); var5 != NULL; var5 = var5->pNext_20_) {
             for (Struct_ov025_021ead5c_2* var6 = var5->unknown_0_; var6 != NULL; var6 = var6->unknown_20_) {
                 if (func_ov000_0215fd90(var6, 0xd) != 0) {
                     continue;

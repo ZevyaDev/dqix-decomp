@@ -17,11 +17,11 @@ union Struct_ov023_021ed804_4 {
     struct { unsigned int unknown_0_, unknown_4_; Struct_ov023_021ed804_2 unknown_8_; } unknown1_0_;
 };
 
-extern "C" void* func_020e46c4(void* arg0);
+extern "C" void* InitNoun_020e46c4(void* noun);
 
 // USA: func_ov023_021ed804
 extern "C" ARM void func_ov023_021ed804(Struct_ov023_021ed804_4* arg0, Struct_ov023_021ed804_4 arg1, Struct_ov023_021ed804* arg2) {
-    func_020e46c4(&arg1);
+    InitNoun_020e46c4(&arg1);
     arg1.unknown1_0_.unknown_0_ = arg2->unknown_0_;
     arg1.unknown1_0_.unknown_4_ = arg2->unknown_14_;
     arg1.unknown1_0_.unknown_8_.unknown_0_0_ = arg2->unknown_18_.unknown_0_0_;

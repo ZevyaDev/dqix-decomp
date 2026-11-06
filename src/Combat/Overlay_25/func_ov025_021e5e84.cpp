@@ -7,7 +7,7 @@ struct Struct_02046574_2;
 extern "C" struct Struct_02046574_2* GetMessageWindow_020421a0(void);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 
 struct Struct_ov025_021e5e84 {
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov025_021e5e84(struct Struct_ov025_021e5e84* arg0, int a
             SetMessageString_02046574(var2, arg0->unknown_8_, (char*)var6->baseStats_);
         }
     } else {
-        GameObject* var7 = func_0200fea4(var1, var3);
+        GameObject* var7 = GetEnemyByIndex_0200fea4(var1, var3);
         if (var7 != NULL) {
             SetMessageString_02046574(var2, arg0->unknown_8_, (char*)var7 + 0x14c);
         }

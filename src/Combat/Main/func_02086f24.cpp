@@ -137,12 +137,12 @@ extern "C" void func_02089de8(void* arg0, void* arg1, const char* arg2);
 extern "C" Struct_02086f24* func_02089fb0(Struct_02086f24_5* arg0, int arg1);
 extern "C" void func_02086404(Struct_0201099c_20* arg0);
 extern "C" void __clear(void* arg0, unsigned int arg1);
-extern "C" int func_020426bc(const void* arg0, void* arg1, int arg2);
+extern "C" int ConvertTextToGlyphIndices_020426bc(const void* text, void* outGlyphIndices, int font);
 extern "C" void func_02082828(Struct_02086f24_2* arg0);
 extern "C" void func_02082d6c(Struct_02086f24_2* arg0, Struct_0201099c_20* arg1);
 extern "C" void func_02082fc4(void* arg0, void* arg1);
-extern "C" void func_020de824(void* arg0);
-extern "C" void func_020de848(void* arg0);
+extern "C" void InitItemTable_020de824(void* itemTable);
+extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" int func_020def44(int arg0, int arg1, int arg2, short arg3);
 extern "C" void func_02083e28(void* arg0, int arg1);
 extern "C" void func_0209a804(int* arg0);
@@ -222,7 +222,7 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
         sprintf((char*)var0.unknown_140_, data_020f1150, var11->unknown_4_);
 #else
         __clear(var5, sizeof(var5));
-        func_020426bc(var11->unknown_4_, var5, 1);
+        ConvertTextToGlyphIndices_020426bc(var11->unknown_4_, var5, 1);
         memcpy(var0.unknown_140_, var5, sizeof(var5));
 #endif
         VectorizedInvertedMemcpy(var11->unknown_30_, var0.unknown_2_, sizeof(var0.unknown_2_));
@@ -240,8 +240,8 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
         func_02082fc4(&var2, &var1);
         BackgroundLoader::AddLockGlobal();
         var8 = 0;
-        func_020de824(&var6);
-        func_020de848(&var6);
+        InitItemTable_020de824(&var6);
+        ClearItemTable_020de848(&var6);
 #if defined(jpn)
         func_020e0968(data_020f2a38, &var8);
 #else

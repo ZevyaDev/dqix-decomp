@@ -10,7 +10,7 @@ extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireles
 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
-extern "C" int func_02041a28(char* arg0, int arg1);
+extern "C" int AppendXPositionTag_02041a28(char* buffer, int x);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 // USA: func_ov023_021e8e34
@@ -34,6 +34,6 @@ extern "C" ARM void func_ov023_021e8e34(void* arg0) {
     int var9 = var8 * 5 + 6;
     int var10 = (var9 / 8 + 1) * 8 - var8 * 5;
     var10 = var10 / 2;
-    func_02041a28(var0, var10);
+    AppendXPositionTag_02041a28(var0, var10);
     AppendText_02042058(var0, var7);
 }

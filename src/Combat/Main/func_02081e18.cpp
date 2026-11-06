@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_0204c7e0(unsigned char* arg0);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 struct Struct_0204aa28;
 extern "C" unsigned int func_0204aa28(Struct_0204aa28* arg0);
 
@@ -37,7 +37,7 @@ extern "C" ARM unsigned int func_02081e18(Struct_020813ec* arg0, int arg1) {
     int var1;
     for (var1 = (int)arg0->unknown_39_ - 1; var1 >= 0; var1--) {
         var0 = &arg0->unknown_30_[var1];
-        if (func_0204c7e0(reinterpret_cast<unsigned char*>(var0)) && var0->unknown_4_) {
+        if (IsTextWindowOpen_0204c7e0(reinterpret_cast<unsigned char*>(var0)) && var0->unknown_4_) {
             Struct_02081e18* var2 = var0->unknown_4_;
             if (arg1 == var2->unknown_1c_4_) {
                 return var0->unknown_a0_ + var0->unknown_a4_;

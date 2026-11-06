@@ -80,16 +80,16 @@ struct Struct_ov024_021da9e0_4;
 extern "C" void func_ov024_021eb4e4(Struct_ov024_021da9e0_4*, int);
 extern "C" unsigned long long func_ov024_021e4b14(struct Struct_ov024_021da9e0_2* arg0, int arg1, int arg2, struct Struct_ov024_021da9e0_8* arg3, int arg4);
 extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, int arg2);
-struct Struct_ov000_0215440c_2;
-extern "C" struct Struct_ov024_021da9e0* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
+struct BattleAction_ov000_0215440c_2;
+extern "C" struct Struct_ov024_021da9e0* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 extern "C" struct Struct_ov024_021da9e0_8* FindActionData_02079e2c(char*, int);
 extern "C" short func_ov000_0215a004(void* arg0, int arg1, int arg2, int arg3, void* arg4, struct Struct_ov024_021da9e0_8* arg5, int arg6, int arg7);
-extern "C" void func_ov000_02159eac(void* arg0, void* arg1, int arg2);
+extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" int func_ov024_021eb08c(struct Struct_ov024_021da9e0_2* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov000_0215a908(void* arg0, int arg1);
 extern "C" unsigned short func_ov024_021e9b24(struct Struct_ov024_021da9e0_2* arg0, int arg1, struct Struct_ov024_021da9e0_8* arg2, int arg3);
-extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
+extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" void func_ov000_0215ccbc(void* arg0, void* arg1, GameObject* arg2, short arg3, short arg4, short arg5, unsigned long long arg6, unsigned char arg7);
 
 static inline int inline_ov024_021da9e0(int arg0) {
@@ -184,7 +184,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
     if (!func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0xd) && !func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0x29)) {
         struct Struct_ov024_021da9e0_8* var18 = arg3;
         if (arg0->unknown_4_) {
-            struct Struct_ov024_021da9e0* var19 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg0->unknown_4_, 0);
+            struct Struct_ov024_021da9e0* var19 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg0->unknown_4_, 0);
             if (var19) {
                 if (var19->unknown_20_ != arg1) var18 = 0;
                 unsigned int var20 = arg3->unknown_4_.unknown_0_0_;
@@ -195,7 +195,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
         var17 = func_ov000_0215a004(arg0->unknown_10_, arg1, arg2, arg4, &var14, var18, arg0->unknown_c_->unknown_1c_.unknown_0_7_ != 0, 0);
     }
     if (arg4 > 0) arg0->unknown_14_++;
-    else func_ov000_02159eac(arg0->unknown_10_, &var14, 4);
+    else SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var14, 4);
     if (func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 2) || func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0xd)) {
         *arg5 |= 2;
         arg0->unknown_c_->unknown_0_[1] = 0;
@@ -232,7 +232,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
 #if defined(jpn)
                 var23 = 0x1b;
 #else
-                var23 = func_ov024_021da644(arg2, 0x26d, 0x1b);
+                var23 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, 0x26d, 0x1b);
 #endif
         }
         if (var23) AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var16, var23);

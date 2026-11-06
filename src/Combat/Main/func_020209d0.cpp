@@ -2,7 +2,7 @@
 
 extern "C" void DisableSubObjVRAMBanks(void);
 extern "C" int DisableSubBGVRAMBanks(void);
-extern "C" void func_020c3984(unsigned int arg0);
+extern "C" void SetSubBGMode_020c3984(unsigned int bgMode);
 extern "C" void MapVRAMBanksToSubObj(unsigned short value);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void func_02020968(int arg0, int arg1, int arg2, int arg3, int arg4);
@@ -14,7 +14,7 @@ extern "C" ARM void func_020209d0(void* arg0) {
 
     DisableSubObjVRAMBanks();
     DisableSubBGVRAMBanks();
-    func_020c3984(0);
+    SetSubBGMode_020c3984(0);
 
     *var0 = (*var0 & ~0x1f00) | 0x1300;
     MapVRAMBanksToSubObj(0x100);

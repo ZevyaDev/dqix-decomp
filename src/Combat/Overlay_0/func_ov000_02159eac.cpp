@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
-struct Struct_ov000_02159eac {
-    unsigned long long unknown_0_;
+struct ActionResultFlags_ov000_02159eac {
+    unsigned long long bits_0_;
 };
 
-// USA: func_ov000_02159eac
-extern "C" ARM void func_ov000_02159eac(void* arg0, struct Struct_ov000_02159eac* arg1, unsigned int arg2) {
-    if (arg2 > 31) {
-        arg1->unknown_0_ |= ((unsigned long long)(1 << (arg2 - 31)) << 32) & 0xFFFFFFFF00000000ULL;
+// USA: SetActionResultFlag_ov000_02159eac
+extern "C" ARM void SetActionResultFlag_ov000_02159eac(void* battle, struct ActionResultFlags_ov000_02159eac* flags, unsigned int flagIndex) {
+    if (flagIndex > 31) {
+        flags->bits_0_ |= ((unsigned long long)(1 << (flagIndex - 31)) << 32) & 0xFFFFFFFF00000000ULL;
     } else {
-        arg1->unknown_0_ |= (unsigned long long)(1 << arg2) & 0xFFFFFFFFULL;
+        flags->bits_0_ |= (unsigned long long)(1 << flagIndex) & 0xFFFFFFFFULL;
     }
 }

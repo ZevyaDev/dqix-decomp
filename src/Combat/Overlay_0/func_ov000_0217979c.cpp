@@ -17,7 +17,7 @@ extern "C" int func_02042158(char* arg0, int arg1);
 #else
 extern "C" int func_02041acc(char* arg0, int arg1);
 #endif
-extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
+extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 
 #if defined(jpn)
 #define data_ov000_02184069 data_ov000_021851a9
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov000_0217979c(char* arg0, struct Struct_ov000_0217979c
 #else
         char var11[0x100];
         __clear(var11, 0x100);
-        func_0206819c(var8->unknown_4_, var11, 0);
+        CopyCapitalizedText_0206819c(var8->unknown_4_, var11, 0);
         AppendText_02042058(var9, var11);
 #endif
         AppendMenuEntry_02041b70(arg2, var7 - var2, var9);

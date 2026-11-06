@@ -21,7 +21,7 @@ extern "C" int func_ov004_02167908(void* arg0, int arg1);
 #endif
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
-extern "C" void* func_020e46c4(void* arg0);
+extern "C" void* InitNoun_020e46c4(void* noun);
 extern "C" void func_020dcf7c(int arg0, void* arg1);
 
 struct Struct_ov004_02170010_2 {
@@ -92,7 +92,7 @@ extern "C" ARM int func_ov004_02167b78(void* arg0, struct Struct_ov004_02170010_
             }
 #else
             if (data_ov004_02171024.unknown_4_ != 0 && data_ov004_02171024.unknown_0_ != 0 && data_ov004_02171024.unknown_8_ != 0) {
-                func_020e46c4(data_ov004_02171024.unknown_4_);
+                InitNoun_020e46c4(data_ov004_02171024.unknown_4_);
                 data_ov004_02171024.unknown_4_->unknown_0_ = data_ov004_02171024.unknown_0_;
                 data_ov004_02171024.unknown_4_->unknown_4_ = data_ov004_02171024.unknown_8_;
                 memset(data_ov004_02171024.unknown_0_, 0, 0x80);

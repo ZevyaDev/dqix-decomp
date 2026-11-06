@@ -3,9 +3,9 @@
 
 struct Struct_02039df4 { char unknown_0_[0x6]; unsigned short unknown_6_; };
 
-struct Struct_020fdd44;
-extern "C" struct Struct_020fdd44* func_02027ca4(void);
-extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1);
+struct ActiveZone_020fdd44;
+extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
+extern "C" struct ActiveZone_020fdd44* FindActiveZone_02028bd0(struct ActiveZone_020fdd44* zones, int zoneId);
 
 extern "C" void* GetLocalWireless_0202ae18(void);
 
@@ -38,10 +38,10 @@ struct Struct_02076df4_2 {
 extern "C" ARM void func_02076df4(struct Struct_02076df4_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetLocalWireless_0202ae18();
-    struct Struct_020fdd44* var2 = func_02027ca4();
+    struct ActiveZone_020fdd44* var2 = GetActiveZones_02027ca4();
     GameObject* var3 = var0->GetPartyMemberByIndex(arg0->unknown_166_);
     int var4 = ((Object3D*)((struct Struct_02039df4*)arg0))->GetField06();
-    struct Struct_020fdd44* var5 = func_02028bd0(var2, var4);
+    struct ActiveZone_020fdd44* var5 = FindActiveZone_02028bd0(var2, var4);
     if (var5 == 0) {
         return;
     }

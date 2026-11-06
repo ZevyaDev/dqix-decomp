@@ -9,11 +9,11 @@ enum { Enum_02065418_14076 = 0x36fc };
 #include "NitroSDK/ColorEffects.h"
 #include "NitroSDK/OverlayId.h"
 
-struct Struct_02015438;
+struct QueueNode_02015438;
 
 extern "C" int func_020a18f4(unsigned int arg0);
 extern "C" int GetResources_0200fb8c(int* gameState);
-extern "C" int func_02046b24(Struct_02015438** arg0);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438** queue);
 
 static inline int inline_02065418() {
     return (int)((*(volatile unsigned int*)0x4000000 & 0x1f00) >> 8);
@@ -28,14 +28,14 @@ extern "C" ARM void func_02065418(int arg0) {
     if (!func_020a18f4(OVERLAY_ID(17))) {
         return;
     }
-    Struct_02015438** var0 = *(Struct_02015438***)((char*)GetResources_0200fb8c((int*)GameState::GetInstance()) + Enum_02065418_14076);
+    QueueNode_02015438** var0 = *(QueueNode_02015438***)((char*)GetResources_0200fb8c((int*)GameState::GetInstance()) + Enum_02065418_14076);
     if (var0 == NULL) {
         return;
     }
-    if (func_02046b24(var0) == 0x2d) {
+    if (GetQueueHeadType_02046b24(var0) == 0x2d) {
         return;
     }
-    if (func_02046b24(var0) == 0x2a) {
+    if (GetQueueHeadType_02046b24(var0) == 0x2a) {
         return;
     }
     if (arg0 != 0) {

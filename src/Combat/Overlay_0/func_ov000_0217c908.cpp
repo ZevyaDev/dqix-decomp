@@ -2,8 +2,8 @@
 #include "Input/Input.h"
 #if defined(jpn)
 #include "std_library_functions.h"
-extern "C" void func_0205d1e0(void*);
-extern "C" void func_0205d274(void*);
+extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(void*);
+extern "C" void FlushTextWindowManagerBGScreenData_0205d274(void*);
 extern "C" void func_0205d2bc(void*);
 #define KINDS_OFFSET 0x1f98
 #else
@@ -111,8 +111,8 @@ extern "C" ARM void func_ov000_0217c908(struct Struct_ov000_0217c908* arg0, int 
         memset(arg0->unknown_1d60_, 0, 8);
         arg0->unknown_1d68_ = 0;
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 1;
-        func_0205d1e0(arg0->unknown_188_);
-        func_0205d274(arg0->unknown_188_);
+        ClearTextWindowManagerBGScreenData_0205d1e0(arg0->unknown_188_);
+        FlushTextWindowManagerBGScreenData_0205d274(arg0->unknown_188_);
         func_0205d2bc(arg0->unknown_188_);
         CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_188_, 1);
         arg0->unknown_1faa_ |= 2;

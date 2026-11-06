@@ -10,7 +10,7 @@ extern "C" ARM void func_ov003_02159464(void* arg0) {
     var1 = GetFontLoader_02094a00();
     var2 = var0[0x59e];
     if (var2 == 0) {
-        func_02094b30(var1, 0x200, 1);
+        RequestSingleFontLoad_02094b30(var1, 0x200, 1);
         var0[0x59e] = var0[0x59e] + 1;
         return;
     }

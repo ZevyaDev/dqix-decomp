@@ -33,7 +33,7 @@ struct GameResources;
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 
-extern "C" unsigned char func_02011494(char* arg0, void* arg1);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
 
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
@@ -141,7 +141,7 @@ extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
         ((Object3D*)((unsigned char*)var2))->DisableFlag(0x01000080);
 
         unsigned char var16[4];
-        unsigned char var17 = func_02011494((char*)var0, var16);
+        unsigned char var17 = GetOwnPartyOrder_02011494((char*)var0, var16);
         for (int var18 = 0; var18 < var17; var18++) {
             GameObject* var19 = var0->GetGameObjectByIndex(var16[var18]);
             if (var19 != 0) {

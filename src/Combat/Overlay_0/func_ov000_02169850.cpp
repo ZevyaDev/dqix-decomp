@@ -46,7 +46,7 @@ struct Struct_ov000_02169850_4 {
     unsigned short unknown_8_;
 };
 struct Struct_ov000_0215767c_8 { char unknown_0_[0x16]; unsigned short unknown_16_; };
-extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void func_ov000_02162c14(Struct_ov000_02169850_2*, int, Struct_ov000_02169850_4*);
 extern "C" Struct_ov000_0215767c_8* func_ov000_02171d90(Struct_ov000_02169850*, int);
 extern "C" int func_ov000_021761c8(char*, int);
@@ -58,7 +58,7 @@ static inline int inline_ov000_02169850(int arg0) { return arg0 >= 0 && arg0 <= 
 extern "C" ARM void func_ov000_02169850(Struct_ov000_02169850_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     for (int var1 = 0; var1 < 4; ++var1) {
-        if (!func_020a35e0(arg0->unknown_2a0_, var1)) continue;
+        if (!IsPartyMemberInBattle_020a35e0(arg0->unknown_2a0_, var1)) continue;
         GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, var1);
         if (!var2) continue;
         Struct_ov000_02169850_3* var3 = func_02053dc0((Struct_02053dc0*)var2);

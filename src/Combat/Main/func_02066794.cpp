@@ -22,7 +22,7 @@ struct Struct_0202f6a4;
 struct Struct_02065990;
 struct Struct_020456d0;
 struct SoundEffectManager_02108760;
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 struct Struct_0203de84_2;
 struct Struct_02065990_2;
 struct Struct_02065990_3;
@@ -512,7 +512,7 @@ extern "C" Struct_0203dce4* func_0203dce4(Struct_0203dce4_2* arg0, int arg1);
 extern "C" void func_0206b104(struct Struct_0206b104* arg0);
 extern "C" void func_0206cba0(struct Struct_0206b224* arg0);
 extern "C" void func_020665bc(char*, int, const char*, const char*);
-extern "C" void func_0205a42c(SpriteAnimationList_0205a254*, int, int);
+extern "C" void SetSpriteAnimationOAMIndex_0205a42c(SpriteAnimationList_0205a254*, int, int);
 extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330*, int);
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" int func_02065758(Struct_02065758* arg0, int arg1);
@@ -531,7 +531,7 @@ extern "C" void func_ov017_0218d7b0(unsigned char* arg0, char* arg1);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov016_0218b5c0(int arg0, signed char arg1);
 extern "C" void func_ov017_0218b5f8(signed char arg0);
-extern "C" int func_02046b60(Struct_02038598_5*, int);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void func_ov017_021a5ab0(void* arg0);
 extern "C" void func_020406f8(Struct_0203de84*, Struct_0203de84_2*);
 extern "C" int fix32_Atan2(int arg0, int arg1);
@@ -596,8 +596,8 @@ extern "C" void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2);
 extern "C" void func_0206c570(void* arg0, const char* arg1);
 extern "C" int func_020d857c(const char* arg0, const char* arg1);
 extern "C" int GetStringLength_020d2ff0(const char* string);
-extern "C" int func_02005a94(const char* arg0);
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" int ParseDecimal_02005a94(const char* string);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_020474b4(Struct_020698d8* arg0, int arg1);
 extern "C" void func_020de968(int arg0, char* arg1);
@@ -935,7 +935,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
 
     if (*(void**)(var0 + 0x230) != 0 && var0[0x236] != 0 && arg0->unknown_9a0_ == 6) {
         if ((*(unsigned short*)0x4000304 & 0x8000) >> 15 == 1) {
-            func_0205a42c((SpriteAnimationList_0205a254*)(*(void**)(var0 + 0x230)), 0, 0x1e);
+            SetSpriteAnimationOAMIndex_0205a42c((SpriteAnimationList_0205a254*)(*(void**)(var0 + 0x230)), 0, 0x1e);
         }
         AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)(*(void**)(var0 + 0x230)), var9);
     }
@@ -1124,7 +1124,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                         func_ov016_0218b5c0(1, var17);
                         func_ov017_0218b5f8(var17);
                         unsigned char* var22 = ((unsigned char*)GetGameResources());
-                        if (func_02046b60((Struct_02038598_5*)(*(void**)(var22 + 0x34ec)), 0xc) != 0) {
+                        if (IsTypeInQueue_02046b60((Queue_02038598_5*)(*(void**)(var22 + 0x34ec)), 0xc) != 0) {
                             func_ov017_021a5ab0(*(void**)(var22 + 0x350c));
                         }
                     }
@@ -2042,9 +2042,9 @@ extern "C" ARM void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* 
             GameState* var1 = GameState::GetInstance();
             signed char var2[5];
             __clear(var2, 5);
-            var2[2] = func_020100b0(var1);
+            var2[2] = GetOwnPartyLeaderObjectIndex_020100b0(var1);
             var2[3] = GetProtagonistObjectIndex_020100a8(var1);
-            var2[4] = func_020100b0(var1);
+            var2[4] = GetOwnPartyLeaderObjectIndex_020100b0(var1);
             unsigned char var3 = 0;
             int var4 = 0;
             for (signed char** var5 = data_020f0784; *var5 != 0; var3++, var5++) {
@@ -2094,7 +2094,7 @@ extern "C" ARM void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* 
                 arg3 += sprintf(arg3, data_020f0802, arg0->unknown_77c_);
             } else if (CompareBytes_02001aec(arg2, data_020f0805, 7) == 0) {
                 arg2 += 7;
-                int var11 = func_02005a94((char*)arg2) - 1;
+                int var11 = ParseDecimal_02005a94((char*)arg2) - 1;
                 if (var11 >= 0 && var11 < 16) {
                     arg3 += sprintf(arg3, arg0->unknown_37c_[var11]);
                 } else {
@@ -2106,7 +2106,7 @@ extern "C" ARM void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* 
                 arg2 += 8;
             } else if (CompareBytes_02001aec(arg2, data_020f0829, 5) == 0) {
                 arg2 += 5;
-                int var12 = func_02005a94((char*)arg2) - 1;
+                int var12 = ParseDecimal_02005a94((char*)arg2) - 1;
                 if (var12 >= 0 && var12 < 16) {
                     int var14 = arg0->unknown_780_[var12];
                     unsigned char var13 = arg0->unknown_7d2_[var12];
@@ -2150,7 +2150,7 @@ extern "C" ARM void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* 
         }
         if (var7 == '<') {
             if (CompareBytes_02001aec(arg2, data_020f0848, 6) == 0) {
-                switch ((unsigned char)func_02005a94((char*)arg2 + 6)) {
+                switch ((unsigned char)ParseDecimal_02005a94((char*)arg2 + 6)) {
                     case 8:
                         var0 = 8;
                         break;
@@ -2268,7 +2268,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d85dc(var140, data_020f085d)) {
                 int var18 = 8;
-                arg0->unknown_178e_ = func_02005a94(var140 + var18);
+                arg0->unknown_178e_ = ParseDecimal_02005a94(var140 + var18);
                 while (var140[var18] != '>') {
                     if (var140[var18] == 0) {
                         return;
@@ -2288,7 +2288,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d857c(var140, data_020f086d)) {
                 int var21 = 6;
-                arg0->unknown_178c_ = func_02005a94(var140 + var21);
+                arg0->unknown_178c_ = ParseDecimal_02005a94(var140 + var21);
                 while (var140[var21] != '>') {
                     if (var140[var21] == 0) {
                         return;
@@ -2308,7 +2308,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d857c(var140, data_020f087a)) {
                 int var24 = 6;
-                int var25 = func_02005a94(var140 + var24);
+                int var25 = ParseDecimal_02005a94(var140 + var24);
                 while (var140[var24] != '>') {
                     if (var140[var24] == 0) {
                         return;
@@ -2333,7 +2333,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d857c(var140, data_020f088c)) {
                 int var28 = 7;
-                int var29 = func_02005a94(var140 + var28);
+                int var29 = ParseDecimal_02005a94(var140 + var28);
                 while (var140[var28] != '>') {
                     if (var140[var28] == 0) {
                         return;
@@ -2382,7 +2382,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d857c(var140, data_020f08cb)) {
                 int var36 = 0xd;
-                arg0->unknown_17f7_ = func_02005a94(var140 + var36) != 0;
+                arg0->unknown_17f7_ = ParseDecimal_02005a94(var140 + var36) != 0;
                 int var37 = 0;
                 while (var140[var36] != ',') {
                     if (var140[var36] == '>') {
@@ -2396,7 +2396,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                     var140 += var36 + 1;
                     continue;
                 }
-                arg0->unknown_17f8_ = func_02005a94(var140 + var36) != 0;
+                arg0->unknown_17f8_ = ParseDecimal_02005a94(var140 + var36) != 0;
                 while (var140[var36] != ',') {
                     if (var140[var36] == '>') {
                         var37 = 1;
@@ -2409,7 +2409,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                     var140 += var36 + 1;
                     continue;
                 }
-                arg0->unknown_174e_ = func_02005a94(var140 + var36);
+                arg0->unknown_174e_ = ParseDecimal_02005a94(var140 + var36);
                 while (var140[var36] != '>') {
                     if (var140[var36] == 0) {
                         return;
@@ -2423,7 +2423,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d857c(var140, data_020f08d9)) {
                 int var39 = 4;
-                signed char var40 = func_02005a94(var140 + var39);
+                signed char var40 = ParseDecimal_02005a94(var140 + var39);
                 int var41 = 0;
                 while (var140[var39] != ',') {
                     if (var140[var39] == '>') {
@@ -2437,7 +2437,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                     var140 += var39 + 1;
                     continue;
                 }
-                signed char var42 = func_02005a94(var140 + var39);
+                signed char var42 = ParseDecimal_02005a94(var140 + var39);
                 while (var140[var39] != '>') {
                     if (var140[var39] == 0) {
                         return;
@@ -2454,7 +2454,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d857c(var140, data_020f08de)) {
                 int var44 = 3;
-                short var45 = func_02005a94(var140 + var44);
+                short var45 = ParseDecimal_02005a94(var140 + var44);
                 while (var140[var44] != '>') {
                     if (var140[var44] == 0) {
                         return;
@@ -2469,7 +2469,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d857c(var140, data_020f08e2)) {
                 int var47 = 3;
-                short var48 = func_02005a94(var140 + var47);
+                short var48 = ParseDecimal_02005a94(var140 + var47);
                 while (var140[var47] != '>') {
                     if (var140[var47] == 0) {
                         return;
@@ -2486,7 +2486,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 short var50 = 0;
                 short var51 = 0;
                 int var52 = 4;
-                var50 = func_02005a94(var140 + var52);
+                var50 = ParseDecimal_02005a94(var140 + var52);
                 int var53 = 0;
                 while (var140[var52] != ',') {
                     if (var140[var52] == '>') {
@@ -2500,7 +2500,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                     var140 += var52 + 1;
                     continue;
                 }
-                var51 = func_02005a94(var140 + var52);
+                var51 = ParseDecimal_02005a94(var140 + var52);
                 while (var140[var52] != '>') {
                     if (var140[var52] == 0) {
                         return;
@@ -2516,7 +2516,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d857c(var140, data_020f08eb)) {
                 int var55 = 3;
-                short var56 = func_02005a94(var140 + var55);
+                short var56 = ParseDecimal_02005a94(var140 + var55);
                 while (var140[var55] != '>') {
                     if (var140[var55] == 0) {
                         return;
@@ -2531,7 +2531,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d857c(var140, data_020f08ef)) {
                 int var58 = 3;
-                short var59 = func_02005a94(var140 + var58);
+                short var59 = ParseDecimal_02005a94(var140 + var58);
                 while (var140[var58] != '>') {
                     if (var140[var58] == 0) {
                         return;
@@ -2548,7 +2548,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 short var61 = 0;
                 short var62 = 0;
                 int var63 = 4;
-                var61 = func_02005a94(var140 + var63);
+                var61 = ParseDecimal_02005a94(var140 + var63);
                 int var64 = 0;
                 while (var140[var63] != ',') {
                     if (var140[var63] == '>') {
@@ -2562,7 +2562,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                     var140 += var63 + 1;
                     continue;
                 }
-                var62 = func_02005a94(var140 + var63);
+                var62 = ParseDecimal_02005a94(var140 + var63);
                 while (var140[var63] != '>') {
                     if (var140[var63] == 0) {
                         return;
@@ -2608,7 +2608,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d857c(var140, data_020f0932)) {
                 int var71 = 0xe;
-                int var72 = func_02005a94(var140 + var71);
+                int var72 = ParseDecimal_02005a94(var140 + var71);
                 while (var140[var71] != '>') {
                     if (var140[var71] == 0) {
                         return;
@@ -2678,7 +2678,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d857c(var140, data_020f096c)) {
                 GameState* var82 = GameState::GetInstance();
-                GameObject* var83 = GetPartyMemberBaseByIndex_0200ff1c(var82, func_020100b0(var82));
+                GameObject* var83 = GetPartyMemberBaseByIndex_0200ff1c(var82, GetOwnPartyLeaderObjectIndex_020100b0(var82));
                 var140 += 0xa;
                 if (var83 == 0) {
                     continue;
@@ -2775,7 +2775,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d857c(var140, data_020f09f6)) {
                 int var90 = 4;
-                int var91 = func_02005a94(var140 + var90);
+                int var91 = ParseDecimal_02005a94(var140 + var90);
                 while (var140[var90] != '>') {
                     if (var140[var90] == 0) {
                         return;
@@ -2789,7 +2789,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d857c(var140, data_020f09fb)) {
                 int var93 = 4;
-                int var94 = func_02005a94(var140 + var93);
+                int var94 = ParseDecimal_02005a94(var140 + var93);
                 while (var140[var93] != '>') {
                     if (var140[var93] == 0) {
                         return;
@@ -2813,7 +2813,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d857c(var140, data_020f0a00)) {
                 int var99 = 7;
-                short var100 = func_02005a94(var140 + var99);
+                short var100 = ParseDecimal_02005a94(var140 + var99);
                 arg0->unknown_1776_ = func_jpn_02098210(func_02094d6c(), var100 & 0xff);
                 while (var140[var99] != '>') {
                     if (var140[var99] == 0) {
@@ -3078,7 +3078,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
                 if (arg1[var8] == 0) return arg1 + var8;
                 var8++;
             }
-            int var9 = func_02005a94(arg1 + 6);
+            int var9 = ParseDecimal_02005a94(arg1 + 6);
             while (arg1[var7] != ',')
             {
                 if (arg1[var7] == '>')
@@ -3091,7 +3091,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
             }
             if (var6) return arg1;
             var7++;
-            int var10 = func_02005a94(arg1 + var7);
+            int var10 = ParseDecimal_02005a94(arg1 + var7);
             while (arg1[var7] != ',')
             {
                 if (arg1[var7] == '>')
@@ -3104,7 +3104,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
             }
             if (var6) return arg1;
             var7++;
-            int var11 = func_02005a94(arg1 + var7);
+            int var11 = ParseDecimal_02005a94(arg1 + var7);
             while (arg1[var7] != ',')
             {
                 if (arg1[var7] == '>')
@@ -3116,7 +3116,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
                 var7++;
             }
             if (var6) return arg1;
-            int var12 = func_02005a94(arg1 + (var7 + 1));
+            int var12 = ParseDecimal_02005a94(arg1 + (var7 + 1));
             if (var9 < 0) var9 = 0;
             if (var9 > 256) var9 = 256;
             if (var10 < 0) var10 = 0;
@@ -3141,7 +3141,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
         else if (func_020d85dc(arg1, data_020f0ace))
         {
             int var13 = 6;
-            int var14 = func_02005a94(arg1 + 6);
+            int var14 = ParseDecimal_02005a94(arg1 + 6);
             while (arg1[var13] != '>')
             {
                 if (arg1[var13] == 0) return arg1 + var13;
@@ -3160,7 +3160,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
                 if (arg1[var16] == 0) return arg1 + var16;
                 var16++;
             }
-            int var17 = func_02005a94(arg1 + 6);
+            int var17 = ParseDecimal_02005a94(arg1 + 6);
             if (var17 <= 0) var17 = 12;
             while (arg1[var15] != ',')
             {
@@ -3171,7 +3171,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
                 }
                 var15++;
             }
-            int var18 = func_02005a94(arg1 + (var15 + 1));
+            int var18 = ParseDecimal_02005a94(arg1 + (var15 + 1));
             if (var18 <= 0) var18 = 16;
             arg0->unknown_1000_.unknown_860_ = var17;
             arg0->unknown_1000_.unknown_864_ = var18;
@@ -3199,7 +3199,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
                 }
             }
             if (var21) continue;
-            int var24 = func_02005a94(arg1 + 7);
+            int var24 = ParseDecimal_02005a94(arg1 + 7);
             if (var24 < 0) var24 = 255;
             if (var24 > 255) var24 = 255;
             while (arg1[var19] != ',')
@@ -3214,7 +3214,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
             }
             if (var21) continue;
             var19++;
-            int var25 = func_02005a94(arg1 + var19);
+            int var25 = ParseDecimal_02005a94(arg1 + var19);
             if (var25 < 0) var25 = 255;
             if (var25 > 255) var25 = 255;
             while (arg1[var19] != ',')
@@ -3228,7 +3228,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
                 var19++;
             }
             if (var21) continue;
-            int var26 = func_02005a94(arg1 + (var19 + 1));
+            int var26 = ParseDecimal_02005a94(arg1 + (var19 + 1));
             if (var26 < 0) var26 = 255;
             if (var26 > 255) var26 = 255;
             arg0->unknown_1000_.unknown_87c_ = (var24 >> 3) | ((var25 >> 3) << 5) | ((var26 >> 3) << 10);

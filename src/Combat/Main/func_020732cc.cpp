@@ -12,7 +12,7 @@ extern "C" void func_02048418(unsigned char*, unsigned short);
 
 struct Struct_020732cc;
 extern "C" int func_0207c378(struct Struct_020732cc* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_ov017_0218f5a4(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
 struct Struct_020732cc_2 {
     unsigned char unknown_0_[8];
@@ -54,6 +54,6 @@ extern "C" ARM void func_020732cc(int arg0) {
                 var5[var7] = -1;
             }
         }
-        func_ov017_0218f5a4(var1, arg0, 0, 0, 0);
+        QueuePartyMemberModelLoad_ov017_0218f5a4(var1, arg0, 0, 0, 0);
     }
 }

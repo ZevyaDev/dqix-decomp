@@ -113,8 +113,8 @@ struct BGLayer_0204b12c;
 struct BGLayer_02020cb8_5;
 struct BGLayer_02020cb8_2;
 struct TextWindow_0204c7a8;
-struct Struct_0205cf78;
-struct Struct_0205cf78_2;
+struct TextWindowManager_0205cf78;
+struct TextWindow_0205cf78_2;
 
 extern "C" Struct_ov003_0217cf10_6 *GetMessageWindow_020421a0();
 extern "C" Struct_ov003_0217cf10_9 *GetZone3D_02012fe4(void);
@@ -136,8 +136,8 @@ extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5 *layer, int scrollX, int
 extern "C" void LoadBGBlock_0204b174(Struct_ov003_0217cf10 *layer, void *block, SafeAllocator *allocator, int arg3);
 extern "C" void FillBGScreenRect_0204bc74(Struct_ov003_0217cf10 *layer, int screenEntry, int x, int y, int width, int height, int palette);
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2 *layer, void *screenData);
-extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8 *window, SafeAllocator *allocator, int arg2, unsigned int screenDataSize);
-extern "C" void func_0205cf78(Struct_0205cf78 *arg0, Struct_0205cf78_2 *arg1, unsigned char arg2);
+extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8 *window, SafeAllocator *allocator, int characterData, unsigned int screenDataSize);
+extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78 *windowManager, TextWindow_0205cf78_2 *textWindows, unsigned char textWindowCapacity);
 extern "C" void LoadStringTable_020dfec0(void *stringTable, SafeAllocator *allocator, void *fileData, unsigned int fileSize);
 extern "C" const char *FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int func_020420e8(const char *arg0, int arg1);
@@ -256,7 +256,7 @@ extern "C" ARM void func_ov003_0217cf10(Struct_ov003_0217cf10_5 *arg0) {
         Struct_ov003_0217cf10_3 *var23 = arg0->unknown_90_;
         var23->unknown_98_ = arg0->unknown_94_;
         var23->unknown_b2_ = 2;
-        func_0205cf78((Struct_0205cf78 *)arg0->unknown_90_, (Struct_0205cf78_2 *)arg0->unknown_98_, 1);
+        SetTextWindowArray_0205cf78((TextWindowManager_0205cf78 *)arg0->unknown_90_, (TextWindow_0205cf78_2 *)arg0->unknown_98_, 1);
         BG0CNT = (BG0CNT & ~3) | 3;
         BG1CNT = (BG1CNT & ~3) | 1;
         BG2CNT = (BG2CNT & ~3) | 2;
@@ -378,7 +378,7 @@ extern "C" ARM void func_ov003_0217cf10(Struct_ov003_0217cf10_5 *arg0) {
         Struct_ov003_0217cf10_3 *var49 = arg0->unknown_90_;
         var49->unknown_98_ = arg0->unknown_94_;
         var49->unknown_b2_ = 2;
-        func_0205cf78((Struct_0205cf78 *)arg0->unknown_90_, (Struct_0205cf78_2 *)arg0->unknown_98_, 1);
+        SetTextWindowArray_0205cf78((TextWindowManager_0205cf78 *)arg0->unknown_90_, (TextWindow_0205cf78_2 *)arg0->unknown_98_, 1);
         BG0CNT = (BG0CNT & ~3) | 3;
         BG1CNT = (BG1CNT & ~3) | 1;
         BG2CNT = (BG2CNT & ~3) | 2;

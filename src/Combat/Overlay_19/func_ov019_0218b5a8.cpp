@@ -13,13 +13,10 @@
 #define func_020c51dc func_020c6ca8
 #endif
 
-#if defined(jpn)
-#define func_020c39a0 func_020c546c
-#endif
 
-struct Struct_02043368 {
-    int unknown_0_;
-    unsigned short unknown_4_;
+struct SpriteAnimationList_02043368 {
+    int pAnimations_0_;
+    unsigned short animationCount_4_;
 };
 struct TextureVRAMArea_0203d028;
 struct StringTable_0201099c_14;
@@ -35,12 +32,12 @@ extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
-extern "C" void func_0205a234(Struct_02043368* arg0);
-extern "C" void func_020c39a0(short* arg0, int arg1);
+extern "C" void InitSpriteAnimationList_0205a234(SpriteAnimationList_02043368* animationList);
+extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 extern "C" void func_0200fb84(int* arg0, int arg1);
 extern "C" char* func_0203b628();
 extern "C" void func_0203b634(char* arg0);
-extern "C" void* func_0203bd08(void);
+extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void func_0203bd24(char* arg0);
 void LockStagedTextureVRAMCopying();
 extern "C" unsigned int DisableTextureImageVRAMBanks();
@@ -53,7 +50,7 @@ extern "C" void MapVRAMBanksToTextureImage(int banks);
 extern "C" void func_020bb48c(unsigned int arg0, int arg1);
 extern "C" void MapVRAMBanksToTexturePalette(int banks);
 extern "C" void MapVRAMBanksToMainBG(int banks);
-extern "C" void func_020c391c(int arg0, int arg1, int arg2);
+extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
 extern "C" void MapVRAMBanksToMainObj(int banks);
 void UpdateVRAMStagingVRAMBanks();
 void UnlockStagedTextureVRAMCopying();
@@ -63,7 +60,7 @@ extern "C" void func_020c537c();
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_020c5770(int, int, int, int, int, int, int, int, void*);
 extern "C" void func_020bb780(void* arg0, int arg1);
-extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
+extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_02042c68(MessageWindow_02021b84* arg0);
 extern "C" void CloseMessageWindow_02043124(MessageWindow_02021b84* window);
@@ -80,7 +77,7 @@ extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_020d86d0(int arg0, int arg1);
-extern "C" void func_020c9820();
+extern "C" void WaitForVBlank_020c9820();
 extern "C" void func_020bbcb4();
 void UnlockAndSetMainBrightness(GameResources* res, int target, int frames);
 void UnlockAndSetSubBrightness(GameResources* res, int target, int frames);
@@ -89,7 +86,7 @@ extern "C" void func_020c38d4();
 extern "C" void __clear(void* arg0, int arg1);
 unsigned long long GetCurrentTimestamp();
 extern "C" void func_02012efc();
-extern "C" int func_020457e0(MessageWindow_02021b84* arg0);
+extern "C" int GetMessageChoice_020457e0(MessageWindow_02021b84* window);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_020a9ea4(Struct_020a9ea4* arg0);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
@@ -101,7 +98,7 @@ extern "C" void func_0209c6d8(void* arg0, int arg1);
 extern "C" int func_ov019_0218c240(void* arg0);
 extern "C" int func_020aba5c(int arg0);
 extern "C" void func_02043368(MessageWindow_02021b84* arg0);
-extern "C" void func_020bbd9c();
+extern "C" void UpdateSound_020bbd9c();
 extern "C" void func_020c52e8();
 extern "C" void func_020c5414();
 extern "C" void func_020c57d4(int, int, int, int, void*);
@@ -138,11 +135,11 @@ extern Vector3fix data_ov019_0218c2a0;
 
 #if defined(jpn)
 struct StringList_02072a68_2;
-struct Struct_020727d8;
+struct StringList_020727d8;
 struct Struct_02013fb4;
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
-extern "C" void func_020727d8(struct Struct_020727d8* arg0);
-extern "C" void func_020728ac(int arg0, int arg1, struct Struct_02013fb4* arg2, int arg3, int arg4, unsigned short arg5, unsigned char arg6);
+extern "C" void ResetStringList_020727d8(struct StringList_020727d8* stringList);
+extern "C" void LoadStringList_020728ac(int stringList, int allocator, struct Struct_02013fb4* arg2, int scriptSize, int idFilter, unsigned short idFilterCount, unsigned char skippedStringCount);
 extern char data_ov019_0218ceb8[];
 enum { Enum_ov019_0218b5a8_24 = 0x8, Enum_ov019_0218b5a8_728 = 0x228 };
 #else
@@ -158,7 +155,7 @@ struct Struct_ov019_0218b5a8 {
     int unknown_4c_;
     int unknown_50_;
     char unknown_54_[0x90 - 0x54];
-    Struct_02043368* unknown_90_;
+    SpriteAnimationList_02043368* unknown_90_;
     Sprite_02043368_2* unknown_94_;
     char unknown_98_[0xa0 - 0x98];
     short unknown_a0_;
@@ -166,7 +163,7 @@ struct Struct_ov019_0218b5a8 {
     unsigned char unknown_a4_;
     char unknown_a5_[0xa8 - 0xa5];
     Sprite_02043368_2 unknown_a8_[14];
-    Struct_02043368 unknown_2d8_;
+    SpriteAnimationList_02043368 unknown_2d8_;
 };
 
 static inline void inline_ov019_0218b5a8(MessageWindow_02021b84* arg0, Struct_ov019_0218b5a8* arg1, int arg2) {
@@ -241,13 +238,13 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     for (int var3 = 0; var3 < 14; var3++) {
         InitSprite_0205a198(&arg0->unknown_a8_[var3]);
     }
-    func_0205a234(&arg0->unknown_2d8_);
-    func_020c39a0((short*)0x400006c, -16);
-    func_020c39a0((short*)0x400106c, -16);
+    InitSpriteAnimationList_0205a234(&arg0->unknown_2d8_);
+    WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
+    WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
     func_0200fb84((int*)var0, (int)arg0);
     var1->MaybeReset();
     func_0203b634(func_0203b628());
-    void* var4 = func_0203bd08();
+    void* var4 = GetOAMManager_0203bd08();
     func_0203bd24((char*)var4);
     LockStagedTextureVRAMCopying();
     DisableTextureImageVRAMBanks();
@@ -264,7 +261,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     inline_ov016_0218b5c4_2(0);
     BG1CNT = (BG1CNT & 0x43) | 4;
     inline_ov017_021a86d0_2(0x11);
-    func_020c391c(1, 0, 1);
+    SetMainDisplayAndBGMode_020c391c(1, 0, 1);
     MapVRAMBanksToMainObj(0x20);
     inline_ov019_0218b5a8_2(0x10);
     inline_ov017_021c0850(0);
@@ -283,8 +280,8 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
 
     char var5[0x70];
     char var6[0x70];
-    func_0207de48(var5, 0x4000, 0x20);
-    func_0207de48(var6, 0x4000, 0x20);
+    InitTextureVRAMArea_0207de48(var5, 0x4000, 0x20);
+    InitTextureVRAMArea_0207de48(var6, 0x4000, 0x20);
     MessageWindow_02021b84* var7 = GetMessageWindow_020421a0();
     func_02042c68(var7);
     CloseMessageWindow_02043124(var7);
@@ -319,8 +316,8 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    func_020727d8((struct Struct_020727d8*)arg0->unknown_34_);
-    func_020728ac((int)arg0->unknown_34_, (int)&var10, (struct Struct_02013fb4*)gFileScratchSpace_0211e33c, var8, 0, 0, 0);
+    ResetStringList_020727d8((struct StringList_020727d8*)arg0->unknown_34_);
+    LoadStringList_020728ac((int)arg0->unknown_34_, (int)&var10, (struct Struct_02013fb4*)gFileScratchSpace_0211e33c, var8, 0, 0, 0);
 #else
     void* var12 = ExtractFileFromGP2(data_ov019_0218c2d8, data_ov019_0218c2ed, &var8);
     if (var12 == NULL) {
@@ -349,7 +346,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     }
     var7->unknown_998_ = 1;
     func_020d86d0(0, 1);
-    func_020c9820();
+    WaitForVBlank_020c9820();
     func_020bbcb4();
     UnlockAndSetMainBrightness((GameResources*)arg0, 0, 5);
     UnlockAndSetSubBrightness((GameResources*)arg0, -16, 1);
@@ -369,12 +366,12 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
         switch (var13) {
         case 1:
             if (var7->unknown_998_ == 0) {
-                if (func_020457e0(var7) == 0) {
+                if (GetMessageChoice_020457e0(var7) == 0) {
                     SetGlobalFlags_020466e4(var2, 0x80);
                     inline_ov019_0218b5a8(var7, arg0, 5);
                     func_020a9ea4((Struct_020a9ea4*)arg0->unknown_2c_);
                     var13 = 3;
-                } else if (func_020457e0(var7) == 1) {
+                } else if (GetMessageChoice_020457e0(var7) == 1) {
                     inline_ov019_0218b5a8(var7, arg0, 3);
                     var13 = 2;
                 }
@@ -383,10 +380,10 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
             break;
         case 2:
             if (var7->unknown_998_ == 0) {
-                if (func_020457e0(var7) == 0) {
+                if (GetMessageChoice_020457e0(var7) == 0) {
                     inline_ov019_0218b5a8(var7, arg0, 4);
                     var13 = 9;
-                } else if (func_020457e0(var7) == 1) {
+                } else if (GetMessageChoice_020457e0(var7) == 1) {
                     inline_ov019_0218b5a8(var7, arg0, 2);
                     var13 = 1;
                 }
@@ -406,7 +403,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
                     for (int var20 = 0; var20 < 14; var20++) {
                         InitSprite_0205a198(&arg0->unknown_a8_[var20]);
                     }
-                    func_0205a234(&arg0->unknown_2d8_);
+                    InitSpriteAnimationList_0205a234(&arg0->unknown_2d8_);
                     arg0->unknown_a4_ = 0;
                     arg0->unknown_94_ = arg0->unknown_a8_;
                     arg0->unknown_a0_ = 14;
@@ -511,7 +508,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
         if (var7->unknown_9a0_ != 3 && !(var13 == 3 && var7->unknown_9a0_ == 4)) {
             var7->func_020444d4(1);
         }
-        func_020bbd9c();
+        UpdateSound_020bbd9c();
         func_020c52e8();
         func_020c5414();
         RenderConfig::Reset();
@@ -527,7 +524,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
         func_0204359c(var7, 0x10);
         func_020d86d0(0, 1);
         arg0->unknown_28_ = 1;
-        func_020c9820();
+        WaitForVBlank_020c9820();
         func_0203bdb0((Struct_0203bdb0*)var4);
         func_020439b0(var7, 1);
         var0->CalculateDeltaTime((GetCurrentTimestamp() - var19) * 64 * 1000 / 33514);

@@ -10,19 +10,19 @@ extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, in
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 
-struct Struct_020fdd44 {
-    unsigned short unknown_0_;
+struct ActiveZone_020fdd44 {
+    unsigned short zoneId_0_;
     unsigned short unknown_2_0_ : 4;
     unsigned short unknown_2_4_ : 12;
     unsigned short unknown_4_;
 };
-extern "C" struct Struct_020fdd44* func_02027ca4(void);
-extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1);
+extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
+extern "C" struct ActiveZone_020fdd44* FindActiveZone_02028bd0(struct ActiveZone_020fdd44* zones, int zoneId);
 
 struct Struct_ov017_0218e674;
 extern "C" int func_ov017_021bd3a4(Struct_ov017_0218e674* arg0);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
-extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
+extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" int func_ov017_021b8b94(void* arg0);
 
 struct Struct_ov017_021c4fa0_6 {
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov017_021c4fa0(int arg0, int arg1) {
     void* var8;
     Struct_ov017_021c4fa0* var9;
     int var10;
-    Struct_020fdd44* var11;
+    ActiveZone_020fdd44* var11;
     Struct_ov017_021c4fa0_3* var12;
     Struct_ov017_021c4fa0_5 var13;
 
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov017_021c4fa0(int arg0, int arg1) {
     var1 = GetZone3D_02012fe4();
     var4 = GetGameResources();
     var7 = (Struct_ov017_021c4fa0_6*)var4->unknown_ptr_array_371c[6];
-    func_02027ca4();
+    GetActiveZones_02027ca4();
     var2 = GetLocalWirelessPacketQueue_0202ae24();
 
     var13.unknown_0_ = 0x8f;
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov017_021c4fa0(int arg0, int arg1) {
     var5->unknown_8_ = -1.0f;
 
     var9 = (Struct_ov017_021c4fa0*)var4->unknown_ptr_3718;
-    var3 = (char*)func_ov017_021b8470(var9);
+    var3 = (char*)GetBattle_ov017_021b8470(var9);
     var6 = (Struct_ov017_021c4fa0_2*)GetBattleSetup_ov017_021b8478(var9);
 
     if (IsNotLocalWirelessGuest_0202c508(var8)) {
@@ -128,14 +128,14 @@ extern "C" ARM void func_ov017_021c4fa0(int arg0, int arg1) {
                 var5->unknown_4_ = var7->unknown_52_;
             }
         } else if (var9->unknown_2_ != 0 && !(var3 != NULL && var3[0x8e14] != 0) && var6 != NULL &&
-                   !func_020a35e0((unsigned char*)var6, arg0 & 0xff) && !func_ov017_021b8b94(var9) && var6->unknown_c_ >= 0) {
+                   !IsPartyMemberInBattle_020a35e0((unsigned char*)var6, arg0 & 0xff) && !func_ov017_021b8b94(var9) && var6->unknown_c_ >= 0) {
             var5->unknown_1_ = 2;
             var5->unknown_2_ = var6->unknown_c_;
             var5->unknown_4_ = *var1;
         }
 
         var5->unknown_8_ = var0->GetDayTimer();
-        var11 = func_02028bd0(func_02027ca4(), arg1);
+        var11 = FindActiveZone_02028bd0(GetActiveZones_02027ca4(), arg1);
         if (var11 != NULL) {
             var5->unknown_c_ = var11->unknown_2_4_;
             var5->unknown_e_ = var11->unknown_4_;

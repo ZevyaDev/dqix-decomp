@@ -3,8 +3,8 @@
 
 struct TextWindowManager_0205d81c;
 struct Struct_0205c4a8;
-struct Struct_0205bb84;
-struct Struct_0205bcdc;
+struct MenuCursor_0205bb84;
+struct MenuCursor_0205bcdc;
 
 struct Struct_ov023_021e6448 {
     char unknown_0_[0xa8];
@@ -52,8 +52,8 @@ struct Struct_ov023_021e6448_4 {
 extern "C" int func_0205c6e4(unsigned char* arg0);
 extern "C" Struct_ov023_021e6448* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" void func_0205c4a8(Struct_0205c4a8* arg0, int arg1);
-extern "C" int func_0205bb84(Struct_0205bb84* arg0);
-extern "C" void func_0205bcdc(Struct_0205bcdc* arg0, int arg1);
+extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84* cursor);
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc* cursor, int index);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
 // USA: func_ov023_021e6448
@@ -83,8 +83,8 @@ extern "C" ARM int func_ov023_021e6448(Struct_ov023_021e6448_4* arg0) {
                     func_0205c4a8((Struct_0205c4a8*)var6, 1);
                     arg0->unknown_1398_ = 1;
                 }
-                int var8 = func_0205bb84((Struct_0205bb84*)var6);
-                func_0205bcdc((Struct_0205bcdc*)&arg0->unknown_ac_.unknown_4_[0], var8);
+                int var8 = GetMenuCursorIndex_0205bb84((MenuCursor_0205bb84*)var6);
+                SetTouchMenuCursorIndex_0205bcdc((MenuCursor_0205bcdc*)&arg0->unknown_ac_.unknown_4_[0], var8);
                 SetMenuCursorIndex_0205bb04(&arg0->unknown_ac_.unknown_4_[1], var8);
             }
             return 1;

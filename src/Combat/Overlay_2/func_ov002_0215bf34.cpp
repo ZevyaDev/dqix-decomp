@@ -27,12 +27,12 @@ struct Struct_ov002_0215bf34_2 {
 struct MessageWindow_020465c0;
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" void func_020465d8(unsigned char*, int, unsigned char);
-extern "C" void func_020465f0(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
 extern "C" int GetStandardString_020e51cc(int);
 extern "C" void func_ov002_0215be00(void*, int, short, short);
 extern "C" void ClearMessageParams_02046380(void*);
-extern "C" void func_0205d0e0(void*, int);
+extern "C" void UpdateTextWindowManager_0205d0e0(void*, int);
 #if defined(jpn)
 extern const char data_ov002_0216d908[];
 extern "C" void func_020474a8(void*, unsigned char, const char*, char*);
@@ -56,8 +56,8 @@ extern "C" ARM void func_ov002_0215bf34(char* arg0) {
     ClearMessageParams_02046380(var2);
     SetMessageNumber_020465c0(var2, 0, var1->unknown_f6c_);
     unsigned char* var3 = ((unsigned char*)(var2));
-    func_020465d8(var3, 0, 1);
-    func_020465f0(var3, 0, 7);
+    SetMessageNumberAlignment_020465d8(var3, 0, 1);
+    SetMessageNumberWidth_020465f0(var3, 0, 7);
     memset(var0->unknown_1bd0_, 0, Enum_ov002_0215bf34_2400);
 #if defined(jpn)
     func_020474a8(var2, 8, data_ov002_0216d908, var0->unknown_1bd0_);
@@ -71,5 +71,5 @@ extern "C" ARM void func_ov002_0215bf34(char* arg0) {
 #else
                  0, 0, 0);
 #endif
-    func_0205d0e0(&var0->unknown_ec8_, 4);
+    UpdateTextWindowManager_0205d0e0(&var0->unknown_ec8_, 4);
 }

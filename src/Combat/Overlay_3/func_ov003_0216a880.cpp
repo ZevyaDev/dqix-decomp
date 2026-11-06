@@ -4,7 +4,7 @@
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0;
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
-extern "C" int func_0204c7cc(unsigned char* arg0);
+extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 
 struct Struct_02000c9c_8;
 extern "C" int GetGameLanguage_0200fb08(struct Struct_02000c9c_8*);
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov003_0216a880(unsigned char* arg0) {
 #endif
     struct TextWindow_0205d0e0* var0 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)(arg0 + Enum_ov003_0216a880_228), 2);
     if (var0 == 0) return;
-    if (!func_0204c7cc((unsigned char*)var0)) return;
+    if (!IsTextWindowReady_0204c7cc((unsigned char*)var0)) return;
 
 #if !defined(jpn)
     int var1 = GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());

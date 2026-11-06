@@ -23,16 +23,16 @@ typedef unsigned short (Struct_ov017_021bb1a4::*Type_02000c9c_19)(int);
 
 extern Type_02000c9c_19 data_ov017_021d7ccc[20];
 extern unsigned int data_ov017_021d845c;
-extern Type_02000c9c_19 data_020e6d5c;
+extern Type_02000c9c_19 gNullMemberFunctionPointer_020e6d5c;
 
 extern "C" void func_0208bb78(void* arg0, unsigned int arg1);
 extern "C" int func_020a1e54(int arg0);
-extern "C" void func_020a0c0c(void);
+extern "C" void LoadFileTables_020a0c0c(void);
 
 // USA: func_ov017_021bb1a4
 extern "C" ARM void func_ov017_021bb1a4(Struct_ov017_021bb1a4* arg0, int arg1) {
     if (!(data_ov017_021d845c & 1)) {
-        data_ov017_021d7ccc[19] = data_020e6d5c;
+        data_ov017_021d7ccc[19] = gNullMemberFunctionPointer_020e6d5c;
         data_ov017_021d845c |= 1;
     }
 
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov017_021bb1a4(Struct_ov017_021bb1a4* arg0, int arg1) {
     if (arg0->unknown_ff_ != 0) {
         if (TestFlags00(GetGameResources(), 0x1000) == 0) {
             func_020a1e54(1);
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
         }
     }
 }

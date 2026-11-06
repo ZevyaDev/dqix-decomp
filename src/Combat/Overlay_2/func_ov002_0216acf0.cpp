@@ -38,7 +38,7 @@ extern "C" void func_ov002_0216bfd4(char* arg0, int arg1);
 extern "C" int func_ov002_02161b48(char* arg0, int arg1);
 extern "C" void func_ov017_021d0198(int arg0, int arg1, int arg2, int arg3);
 struct Struct_ov002_02164748;
-extern "C" int func_0205da38(struct Struct_ov002_02164748* arg0, int arg1);
+extern "C" int IsEntryTouchedAgain_0205da38(struct Struct_ov002_02164748* windowManager, int arg1);
 extern "C" void func_ov002_0216c28c(char* arg0, int arg1);
 struct Struct_ov002_0216acf0;
 extern "C" void func_020444bc(Struct_ov002_0216acf0*);
@@ -65,8 +65,8 @@ extern "C" void SetTextWindowText_0205d5d0(Struct_ov002_0215bba8_3*, int, int, i
 #define TAE_LAST(x) , x
 #endif
 extern "C" void func_ov002_0215b9a4(char* arg0, int arg1, int arg2);
-extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
-extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
+extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
+extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 extern "C" void ResetMessageWindow_02043204(char* window);
 struct Struct_ov002_0216acf0_3;
 extern "C" void CloseTextWindows_0205d6a0(Struct_ov002_0216acf0_3*, int);
@@ -282,7 +282,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
             if (var22 == 0) var22 = 1;
             int var23 = 0;
             int var24 = g_keyManager.TestKeysPressed(0x601);
-            if (inline_ov002_0216acf0(var24, func_0205da38((struct Struct_ov002_02164748*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0x14)) ||
+            if (inline_ov002_0216acf0(var24, IsEntryTouchedAgain_0205da38((struct Struct_ov002_02164748*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0x14)) ||
                 func_ov002_02161b48(arg0, 1) != 0 ||
                 g_keyManager.TestKeysPressed(0xf0) != 0 || g_touchInput.pressed_ != 0) {
                 var23 = 1;
@@ -402,8 +402,8 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
             U8(RG(0x248a, 0x22ba)) = 0;
             S32(RG(0x1bc0, 0x1a88)) = 0;
             if (S16(RG(0x1c28, 0x1af0)) == 0x7532 || S16(RG(0x1c28, 0x1af0)) == 0x7531) {
-                func_0205ebc0(&gSoundEffectManager_02108760, 0x75, 0x75);
-                func_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
+                LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0x75, 0x75);
+                PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
             }
             return;
         }
@@ -423,8 +423,8 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                 U8(RG(0x1caf, 0x1b73)) = 0;
             }
             if (S16(RG(0x1c28, 0x1af0)) == 0x7530) {
-                func_0205ebc0(&gSoundEffectManager_02108760, 0x75, 0x75);
-                func_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
+                LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0x75, 0x75);
+                PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
             }
             char* var30 = func_0205d888((Struct_ov002_0216acf0_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)));
             if (U8(RG(0x2521, 0x2351)) != 0) {

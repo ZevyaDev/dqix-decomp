@@ -31,7 +31,7 @@ struct Struct_ov001_02160da8_2 {
 struct Struct_0205faf4_11;
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_ov001_0215b72c*);
 extern "C" const char* func_ov017_021d612c(Struct_ov001_0215b72c*);
-extern "C" int func_020100b0(GameState*);
+extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" int func_ov001_021612ac(void*);
 extern "C" int func_02061bd8(Struct_0205faf4_11*);
@@ -67,10 +67,10 @@ extern "C" ARM int func_ov001_02160da8(Struct_ov001_0215b72c* arg0, int arg1) {
     case 9:
         if (arg1 < 2) return 0;
         var1->unknown_1_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 1);
-        if (var1->unknown_0_0_ == 1) var1->unknown_2_ = func_020100b0(var0);
+        if (var1->unknown_0_0_ == 1) var1->unknown_2_ = GetOwnPartyLeaderObjectIndex_020100b0(var0);
         else if (var1->unknown_0_0_ == 9) {
             var1->unknown_2_ = var2->unknown_116_;
-            if (!GetPartyMemberBaseByIndex_0200ff1c(var0, var1->unknown_2_)) var1->unknown_2_ = func_020100b0(var0);
+            if (!GetPartyMemberBaseByIndex_0200ff1c(var0, var1->unknown_2_)) var1->unknown_2_ = GetOwnPartyLeaderObjectIndex_020100b0(var0);
         }
         if (var1->unknown_2_ == 0) var1->unknown_0_4_ = 1;
         else var1->unknown_0_4_ = 2;
@@ -81,7 +81,7 @@ extern "C" ARM int func_ov001_02160da8(Struct_ov001_0215b72c* arg0, int arg1) {
         if (arg1 < 2) return 0;
         var1->unknown_1_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 1);
         var1->unknown_0_4_ = 2;
-        func_020100b0(var0);
+        GetOwnPartyLeaderObjectIndex_020100b0(var0);
         if (var1->unknown_0_0_ == 11) var1->unknown_2_ = 3;
         else if (var1->unknown_0_0_ == 12) var1->unknown_2_ = 2;
         else if (var1->unknown_0_0_ == 13) var1->unknown_2_ = 1;

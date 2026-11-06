@@ -10,9 +10,9 @@ enum {Enum_ov017_021b67d8_1788=0x6fc, Enum_ov017_021b67d8_1844=0x734, Enum_ov017
 
 extern "C" void func_020a1e54(int arg0);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
-extern "C" void func_020a0c0c(void);
-struct Struct_02038598_5;
-extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
+extern "C" void LoadFileTables_020a0c0c(void);
+struct Queue_02038598_5;
+extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 extern "C" void* GetLocalWireless_0202ae18(void);
 
 extern int gMainHeap_02114e20;
@@ -26,7 +26,7 @@ struct Struct_ov017_021b67d8 {
 
 struct Struct_ov017_021b67d8_2 {
     unsigned char unknown_0_[Enum_ov017_021b67d8_1788];
-    struct Struct_02038598_5* unknown_6fc_;
+    struct Queue_02038598_5* unknown_6fc_;
     unsigned char unknown_700_[Enum_ov017_021b67d8_1844 - Enum_ov017_021b67d8_1788 - 4];
     unsigned char* unknown_734_;
 };
@@ -44,17 +44,17 @@ extern "C" ARM void func_ov017_021b67d8(struct Struct_ov017_021b67d8* arg0) {
         FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
     }
 
-    func_020a0c0c();
+    LoadFileTables_020a0c0c();
 
     int var1 = 1;
     struct Struct_ov017_021b67d8_2* var2 = (struct Struct_ov017_021b67d8_2*)((char*)GetGameResources() + 0x3000);
-    struct Struct_02038598_5* var3 = var2->unknown_6fc_;
+    struct Queue_02038598_5* var3 = var2->unknown_6fc_;
     unsigned char* var4 = var2->unknown_734_;
 
-    if (func_02046b60(var3, 0x18) != 0) {
+    if (IsTypeInQueue_02046b60(var3, 0x18) != 0) {
         var1 = 0;
     }
-    if (func_02046b60(var3, 4) != 0) {
+    if (IsTypeInQueue_02046b60(var3, 4) != 0) {
         if (var4[Enum_ov017_021b67d8_204] == 1) {
             var1 = 0;
         }

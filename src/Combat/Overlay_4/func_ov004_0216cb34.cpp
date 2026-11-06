@@ -12,7 +12,7 @@ struct Struct_ov004_0216b7bc;
 
 extern "C" void func_0209ca70(void* arg0, int arg1);
 extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
-extern "C" void func_0209c3b4(struct Struct_0209c3b4_2* arg0, int arg1);
+extern "C" void PlayMusic_0209c3b4(struct Struct_0209c3b4_2* manager, int musicIndex);
 extern "C" void func_02012028(void* arg0, unsigned char arg1);
 extern "C" void* func_ov004_0216b1c4(void* arg0, int arg1);
 extern "C" void* func_ov004_0216ae9c(void* arg0, int arg1);
@@ -104,7 +104,7 @@ extern "C" ARM int func_ov004_0216cb34(void* arg0) {
     data_ov004_02171034.unknown_6_ = 3;
     data_ov004_02171034.unknown_8_ = 0;
     if (data_ov004_02171034.unknown_5_ != 4) {
-        func_0209c3b4((struct Struct_0209c3b4_2*)gMusicManager_02109bf4, 2);
+        PlayMusic_0209c3b4((struct Struct_0209c3b4_2*)gMusicManager_02109bf4, 2);
     }
     var0 = GameState::GetInstance();
     GetParty_02010828(var0);

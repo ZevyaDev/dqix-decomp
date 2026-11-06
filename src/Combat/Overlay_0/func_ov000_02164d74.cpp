@@ -62,9 +62,9 @@ struct Struct_02010604;
 
 extern "C" void func_ov000_02163524(void*);
 extern "C" void func_ov000_0217feb0(void* arg0, unsigned char arg1, int arg2);
-extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void func_ov000_02174a50(void* arg0, int arg1);
-extern "C" struct Struct_ov000_02164d74_4* func_0200fea4(GameState* arg0, int arg1);
+extern "C" struct Struct_ov000_02164d74_4* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02089560(char* arg0, char* arg1, char* arg2);
 extern "C" void func_0208936c(char* arg0, char* arg1, char* arg2);
@@ -78,7 +78,7 @@ extern "C" void func_02049f3c(unsigned char* arg0);
 extern "C" void func_ov000_021677fc(struct Struct_ov000_02164d74_5* arg0);
 extern "C" void func_ov000_02167cd4(struct Struct_ov000_02164d74_5* arg0);
 extern "C" void func_ov000_02167dd8(unsigned char* arg0);
-extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 
 #define REG_POWCNT1 (*(volatile unsigned short*)0x04000304)
 
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov000_02164d74(struct Struct_ov000_02164d74_5* arg0) {
     }
     REG_POWCNT1 |= 0x8000;
     for (var3 = 0; var3 < 4; var3++) {
-        if (!func_020a35e0((unsigned char*)arg0->unknown_2a0_, var3)) {
+        if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var3)) {
             func_ov000_02174a50(arg0->unknown_3760_, var3);
             continue;
         }
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov000_02164d74(struct Struct_ov000_02164d74_5* arg0) {
     if (arg0->unknown_2a0_->unknown_2c_ != 0) {
         unsigned char var5 = arg0->unknown_77d4_;
         for (var3 = 0; var3 < 8; var3++) {
-            struct Struct_ov000_02164d74_4* var6 = func_0200fea4(var0, var3 + 0xc0);
+            struct Struct_ov000_02164d74_4* var6 = GetEnemyByIndex_0200fea4(var0, var3 + 0xc0);
             if (var6 != NULL && !(var5 & (1 << var3))) {
                 var6->unknown_0_.MakeHidden();
                 func_02049f3c((unsigned char*)var6);
@@ -138,5 +138,5 @@ extern "C" ARM void func_ov000_02164d74(struct Struct_ov000_02164d74_5* arg0) {
     func_ov000_021677fc(arg0);
     func_ov000_02167cd4(arg0);
     func_ov000_02167dd8((unsigned char*)arg0);
-    func_ov000_02160fa8(arg0, 0x200);
+    SetBattleSceneFlags_ov000_02160fa8(arg0, 0x200);
 }

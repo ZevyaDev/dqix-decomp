@@ -16,7 +16,7 @@ struct ObjectArchiveLoadInfo;
 struct Struct_ov025_021e267c;
 struct Struct_0208f410;
 
-struct Struct_0203d028_11 {
+struct ObjectArchiveLoadInfo_0203d028_11 {
     int unknown_0_;
     int unknown_4_;
     int unknown_8_;
@@ -26,7 +26,7 @@ struct Struct_0203d028_11 {
     int unknown_18_;
     int unknown_1c_;
 };
-extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 
 struct Struct_ov025_021e267c_2;
 struct Struct_ov025_021e267c_3 {
@@ -55,8 +55,8 @@ extern "C" ARM void func_ov025_021e267c(int arg0, int arg1, int arg2, int arg3) 
         strcpy(var6, var5);
     }
     void* var7 = (void*)((Object3D*)((struct Struct_ov025_021e267c*)var3))->GetCurrentAnimationTime();
-    struct Struct_0203d028_11 var8;
-    func_0203dafc(&var8);
+    struct ObjectArchiveLoadInfo_0203d028_11 var8;
+    ClearObjectArchiveLoadInfo_0203dafc(&var8);
     void* var9 = *(void**)((char*)&data_ov025_021ef988 + Enum_ov025_021e267c_12);
     var8.unknown_c_ = (int)var2;
     var8.unknown_4_ = arg1;

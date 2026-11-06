@@ -3,7 +3,7 @@
 struct Struct_020dbdc0;
 extern "C" void func_020dbf70(struct Struct_020dbdc0* arg0);
 extern "C" int GetEffectManager_02057924(void);
-extern "C" void func_02057f00(int arg0, int arg1);
+extern "C" void RemoveEffectResource_02057f00(int effectManager, int effectId);
 
 struct Struct_020dbebc {
     int unknown_0_;
@@ -21,6 +21,6 @@ extern "C" ARM void func_020dbedc(struct Struct_020dbebc* arg0) {
         return;
     }
     if (var0 != 2) return;
-    func_02057f00(GetEffectManager_02057924(), arg0->unknown_8_);
+    RemoveEffectResource_02057f00(GetEffectManager_02057924(), arg0->unknown_8_);
     arg0->unknown_10_ = 0;
 }

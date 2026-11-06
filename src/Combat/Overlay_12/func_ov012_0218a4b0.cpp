@@ -23,7 +23,7 @@ extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
-extern "C" int func_02041e70(char* arg0, int arg1);
+extern "C" int AppendTextColorTag_02041e70(char* buffer, int colorIndex);
 
 // USA: func_ov012_0218a4b0
 extern "C" ARM void func_ov012_0218a4b0(unsigned char* arg0, char* arg1, int arg2) {
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov012_0218a4b0(unsigned char* arg0, char* arg1, int arg
 #if defined(jpn)
         AppendText_02042058(arg1, data_ov012_0218bfdf);
 #else
-        func_02041e70(arg1, 3);
+        AppendTextColorTag_02041e70(arg1, 3);
 #endif
     }
 

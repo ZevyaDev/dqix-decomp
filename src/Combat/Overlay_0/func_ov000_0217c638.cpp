@@ -3,7 +3,7 @@
 
 struct MenuCursor_0205ba68;
 struct MenuCursor_0205bacc;
-struct Struct_0205bcdc;
+struct MenuCursor_0205bcdc;
 struct Struct_0205cf1c;
 
 extern "C" void* GetParty_02010828(GameState*);
@@ -12,7 +12,7 @@ extern "C" void* GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_ov000_0218155c(void*);
-extern "C" void* func_ov000_02161318(void*, int);
+extern "C" void* FindPartyMemberPanel_ov000_02161318(void*, int);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" void func_0205cf10(void*);
 extern "C" void func_0205cf1c(Struct_0205cf1c*);
@@ -20,7 +20,7 @@ extern "C" void func_0205cef8(void*);
 extern "C" void func_0205cf04(void*);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
-extern "C" void func_0205bcdc(Struct_0205bcdc*, int);
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc*, int);
 extern "C" void SetMenuCursorIndex_0205bb04(void*, int);
 
 #if defined(jpn)
@@ -146,7 +146,7 @@ extern "C" ARM void func_ov000_0217c638(Struct_ov000_0217c638_3* arg0, int arg1,
         var1 = 6;
         signed char var12 = 0;
         int var13 = var11 >= 0 && var11 <= 3;
-        if (var13 && func_ov000_02161318(arg0, var11)) {
+        if (var13 && FindPartyMemberPanel_ov000_02161318(arg0, var11)) {
             GameObject* var14 = var5->GetPartyMemberByIndex(var11);
             if (var14) {
                 var12 = (signed char)((Struct_ov000_0217c638*)GetPartyMemberData_02053c6c((unsigned char*)var14))->unknown_94c_;
@@ -185,6 +185,6 @@ extern "C" ARM void func_ov000_0217c638(Struct_ov000_0217c638_3* arg0, int arg1,
     SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&arg0->unknown_1dc_, var1);
     arg0->unknown_18c_.unknown_4_ = var3;
     arg0->unknown_1dc_.unknown_4_ = var3;
-    func_0205bcdc((Struct_0205bcdc*)&arg0->unknown_18c_, var4);
+    SetTouchMenuCursorIndex_0205bcdc((MenuCursor_0205bcdc*)&arg0->unknown_18c_, var4);
     SetMenuCursorIndex_0205bb04(&arg0->unknown_1dc_, var4);
 }

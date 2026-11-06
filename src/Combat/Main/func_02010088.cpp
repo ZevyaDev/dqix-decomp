@@ -10,7 +10,7 @@ struct Struct_02010088 {
     struct Struct_02010088_2* pCurrentStats_138_;
 };
 
-// USA: func_02010088
-extern "C" ARM int func_02010088(struct Struct_02010088* arg0) {
-    return (arg0->pCurrentStats_138_->statusFlags_14_ & 1) != 0;
+// USA: IsDead_02010088
+extern "C" ARM int IsDead_02010088(struct Struct_02010088* object) {
+    return (object->pCurrentStats_138_->statusFlags_14_ & 1) != 0;
 }

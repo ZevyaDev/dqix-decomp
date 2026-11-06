@@ -103,7 +103,7 @@ struct PacEntry_02020cb8_4;
 struct BGLayer_02020cb8;
 struct BGLayer_02020cb8_5;
 struct PacEntry_02020aec;
-struct Struct_02020cb8_6;
+struct BGLayer_02020cb8_6;
 
 struct Struct_ov003_021594c4 {
     char unknown_0_[0x1c];
@@ -120,8 +120,8 @@ extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
 extern "C" void SetBGPriority_0204b5b4(void* layer, int priority);
 extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void func_0204b2e0(void* arg0, char* arg1);
-extern "C" void func_0204b3a0(Struct_02020cb8_6* arg0, char* arg1);
+extern "C" void FlushBGBlock_0204b2e0(void* layer, char* block);
+extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6* layer, char* block);
 
 extern char data_ov006_021601b6[];
 extern char data_ov006_021601cc[];
@@ -156,8 +156,8 @@ extern "C" ARM void func_ov006_02156bd8(Struct_ov006_02154614* arg0) {
                 int var7;
                 void* var8 = GetPacEntryData_020467f0((PacEntry_02020aec*)var2, var6, &var1, &var7);
                 if (var8 != 0) {
-                    func_0204b2e0(&var5, (char*)var8);
-                    func_0204b3a0((Struct_02020cb8_6*)&var5, (char*)var8);
+                    FlushBGBlock_0204b2e0(&var5, (char*)var8);
+                    CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6*)&var5, (char*)var8);
                 }
             }
             var0->RemoveTask(arg0->unknown_ad8_);

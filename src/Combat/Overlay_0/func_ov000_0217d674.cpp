@@ -49,7 +49,7 @@ extern "C" void func_0205def8(Struct_0205def8*, int, int);
 extern "C" int func_020dd3cc(int arg0);
 extern "C" int func_ov000_0217c594(Struct_ov000_02178d28_2* arg0, int arg1);
 extern "C" int func_ov000_0217c514(int arg0, int arg1);
-extern "C" Struct_ov000_0217d674* func_ov000_02161318(Struct_ov000_02178d28_2* arg0, int arg1);
+extern "C" Struct_ov000_0217d674* FindPartyMemberPanel_ov000_02161318(Struct_ov000_02178d28_2* battleUI, int memberIndex);
 extern "C" void func_ov000_02175258(Struct_ov000_02178d28_2* arg0);
 extern "C" void func_ov000_02176634(Struct_ov000_02178d28_2* arg0, void* arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov000_0217c638(Struct_ov000_02178d28_2* arg0, int arg1, int arg2);
@@ -67,11 +67,11 @@ extern "C" ARM void func_ov000_0217d674(Struct_ov000_02178d28_2* arg0, int arg1,
         if (arg0->unknown_68_ == 0) {
             arg0->unknown_1d68_ = arg0->unknown_1d68_ + 1;
             arg0->unknown_1d60_[arg0->unknown_1d68_] = 0x2b;
-            func_ov000_02176634(arg0, func_ov000_02161318(arg0, arg0->unknown_17c_), 0x2b, arg1, arg2);
+            func_ov000_02176634(arg0, FindPartyMemberPanel_ov000_02161318(arg0, arg0->unknown_17c_), 0x2b, arg1, arg2);
             return;
         }
         arg0->unknown_17c_ = var0;
-        Struct_ov000_0217d674* var1 = func_ov000_02161318(arg0, var0);
+        Struct_ov000_0217d674* var1 = FindPartyMemberPanel_ov000_02161318(arg0, var0);
         if (var1 == NULL) {
             return;
         }

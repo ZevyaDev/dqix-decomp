@@ -9,7 +9,7 @@ enum { Enum_ov017_021a09c8_10872 = 0x2a78, Enum_ov017_021a09c8_10960 = 0x2ad0, E
 #endif
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
+extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 extern "C" void func_020bb740(int* arg0);
 extern "C" void func_020bb92c(int* arg0);
 extern "C" int func_020bb588(unsigned int arg0, int arg1, int arg2);
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov017_021a09c8(char* arg0) {
     {
         int var4;
         for (int var5 = 0; (var4 = data_ov017_021d675c[var5].unknown_0_) != 0; var5++) {
-            func_0207de48((arg0 + Enum_ov017_021a09c8_716) + data_ov017_021d6758[var5].unknown_0_ * 0x70, var4, data_ov017_021d6760[var5].unknown_0_);
+            InitTextureVRAMArea_0207de48((arg0 + Enum_ov017_021a09c8_716) + data_ov017_021d6758[var5].unknown_0_ * 0x70, var4, data_ov017_021d6760[var5].unknown_0_);
         }
     }
 
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov017_021a09c8(char* arg0) {
     {
         int var6;
         for (int var7 = 0; (var6 = data_ov017_021d6854[var7].unknown_0_) != 0; var7++) {
-            func_0207de48((arg0 + Enum_ov017_021a09c8_716) + data_ov017_021d6850[var7].unknown_0_ * 0x70, var6, data_ov017_021d6858[var7].unknown_0_);
+            InitTextureVRAMArea_0207de48((arg0 + Enum_ov017_021a09c8_716) + data_ov017_021d6850[var7].unknown_0_ * 0x70, var6, data_ov017_021d6858[var7].unknown_0_);
         }
     }
 

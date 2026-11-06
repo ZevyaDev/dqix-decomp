@@ -10,7 +10,7 @@ struct Struct_0200ffd0;
 extern "C" void* func_0200ffd0(struct Struct_0200ffd0* arg0);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void func_020da77c(void* arg0, int arg1, void* arg2);
-extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
+extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
 extern "C" void func_020a2770(void* arg0, short arg1);
 extern "C" void func_ov017_021d1c2c(unsigned char arg0, unsigned short arg1);
 extern "C" int func_0201b868(void* arg0, int arg1);
@@ -115,7 +115,7 @@ extern "C" ARM void func_020acecc(unsigned int* arg0, int arg1, int arg2)
         var8.unknown_4_ = 0;
         var8.unknown_0_ = var3->unknown_0_.unknown_4_;
         func_020da77c(&data_ov017_021d82fc, 3, &var8);
-        func_0205ebc0(&gSoundEffectManager_02108760, 0xa0, 0xa0);
+        LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0xa0, 0xa0);
         func_020a2770(var2, 0xca);
         var3->unknown_19c_ = 1;
         var3->unknown_13c_ = 0;

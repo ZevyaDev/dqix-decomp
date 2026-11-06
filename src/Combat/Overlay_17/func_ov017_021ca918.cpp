@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 struct Struct_ov017_021ca918 {
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov017_021ca918(int arg0, struct Struct_ov017_021ca918* 
  enum {Enum_ov017_021ca918_1816=0x718};
 #endif
     void* var0 = *(void**)(arg3 + 0x3000 + Enum_ov017_021ca918_1816);
-    void* var1 = func_ov017_021b8470(var0);
+    void* var1 = GetBattle_ov017_021b8470(var0);
     if (var1 == NULL) return;
     unsigned char* var2 = *(unsigned char**)((char*)var1 + 0x8000 + 0xe18);
     if (var2 == NULL) return;

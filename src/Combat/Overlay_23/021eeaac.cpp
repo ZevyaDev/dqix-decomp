@@ -5,7 +5,7 @@
 #include "Resource/GameResources.h"
 #include "NitroSDK/OverlayId.h"
 
-struct Struct_020727d8;
+struct StringList_020727d8;
 struct Struct_0202b2f0;
 struct Struct_0200f3a4_8;
 struct Struct_0209a470;
@@ -13,14 +13,14 @@ struct Struct_02086f24_6;
 struct Struct_02013fb4;
 struct Struct_ov023_021eeaac_2;
 
-extern "C" void func_020a1940(unsigned int arg0);
-extern "C" void func_020727d8(Struct_020727d8* arg0);
-extern "C" void func_020728ac(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
+extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
+extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, int arg2, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 extern "C" void func_ov000_0215fa84(void* arg0, short* arg1, short* arg2, short* arg3);
 extern "C" int func_ov023_021ed92c();
-extern "C" void func_020de848(void* arg0);
+extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" int func_020de9a4(void* arg0, void* arg1, void* arg2, unsigned int arg3, void* arg4, unsigned short arg5);
-extern "C" void* func_020de824(void* arg0);
+extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void func_0207cbe8(char* arg0);
 extern "C" int func_0207d300(void* arg0, int arg1, int arg2, int arg3);
 extern "C" int func_0207ccf0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
@@ -68,7 +68,7 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
     int* var2 = _ZZ21inline_ov023_021f4c04vE1s;
     SafeAllocator* var3 = inline_ov000_02166804(var0, 5);
     if (var2[0] == 0) {
-        func_020a1940(OVERLAY_ID(13));
+        LoadOverlay_020a1940(OVERLAY_ID(13));
 #if defined(jpn)
         var2[1] = var1->QueueLoadFile(data_ov023_021fd49e, NULL);
 #else
@@ -83,8 +83,8 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
         unsigned int var4;
         void* var5;
         var1->GetLoadedFileByID(var2[1], &var5, &var4);
-        func_020727d8((Struct_020727d8*)(arg0 + Enum_ov023_021eeaac_22788));
-        func_020728ac(arg0 + Enum_ov023_021eeaac_22788, var3, (int)var5, var4, 0, 0, 0);
+        ResetStringList_020727d8((StringList_020727d8*)(arg0 + Enum_ov023_021eeaac_22788));
+        LoadStringList_020728ac(arg0 + Enum_ov023_021eeaac_22788, var3, (int)var5, var4, 0, 0, 0);
         var1->RemoveTask(var2[1]);
 #if defined(jpn)
         var2[1] = var1->QueueLoadGP1(data_020f2a38, NULL);
@@ -141,13 +141,13 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
             }
         }
         *(void**)(arg0 + Enum_ov023_021eeaac_22796) = var3->Allocate(0x18);
-        func_020de848(*(void**)(arg0 + Enum_ov023_021eeaac_22796));
+        ClearItemTable_020de848(*(void**)(arg0 + Enum_ov023_021eeaac_22796));
         func_020de9a4(*(void**)(arg0 + Enum_ov023_021eeaac_22796), var3, var8, var7, var10, var9);
         var1->RemoveTask(var2[1]);
         if (*(short*)(*(char**)(arg0 + Enum_ov023_021eeaac_668) + 0x8e4a) > 0) {
             var9--;
             ((SafeAllocator*)var18)->ResetAllocatorPointer();
-            func_020de824(var18 + 0x14);
+            InitItemTable_020de824(var18 + 0x14);
             func_0207cbe8(var18);
             func_0207cbe8(var18);
             *(void**)(var18 + 0x2c) = *(void**)(arg0 + Enum_ov023_021eeaac_22796);
@@ -169,7 +169,7 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
             var28 = GetProtagonistObjectIndex_020100a8(var22);
             for (var27 = 0; var27 < var9; var27++, var20++) {
                 ((SafeAllocator*)var25)->ResetAllocatorPointer();
-                func_020de824(var25 + 0x14);
+                InitItemTable_020de824(var25 + 0x14);
                 func_0207cbe8(var25);
                 func_0207cbe8(var25);
                 *(void**)(var25 + 0x2c) = var19;

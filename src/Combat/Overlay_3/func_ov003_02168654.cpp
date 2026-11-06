@@ -31,7 +31,7 @@ void LoadBGBlock_0204b174(void*,void*,SafeAllocator*,int);
 void FillBGScreenRect_0204bc74(void*,int,int,int,int,int,int);
 void LoadBGScreenData_0204b0e8(void*,void*);
 void SetTextWindowBuffers_0204c7a8(void*,SafeAllocator*,void*,unsigned int);
-void func_0205cf78(void*,void*,unsigned char);
+void SetTextWindowArray_0205cf78(void*,void*,unsigned char);
 void LoadSpriteSetFile_0205a528(void*,void*,int,SafeAllocator*);
 }
 extern char data_ov003_021800e0[];
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov003_02168654(Struct_ov003_02168654_5* arg0) {
             }
             arg0->unknown_e4_.unknown_98_=arg0->unknown_1a0_;
             arg0->unknown_e4_.unknown_b2_=2;
-            func_0205cf78(&arg0->unknown_e4_,arg0->unknown_1e0_,3);
+            SetTextWindowArray_0205cf78(&arg0->unknown_e4_,arg0->unknown_1e0_,3);
             arg0->unknown_4e8_++;
         }
     } else if (arg0->unknown_4e8_==3) {

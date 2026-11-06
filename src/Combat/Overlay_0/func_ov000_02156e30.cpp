@@ -26,7 +26,7 @@ struct Struct_ov000_02156e30_2 {
 
 extern "C" Struct_ov000_02156e30* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_02085154(unsigned char* arg0);
-extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" int func_ov000_02155f9c(struct Random* arg0, int arg1, int arg2);
 extern "C" float func_ov000_02156118(struct Random* arg0, int arg1);
 
@@ -63,7 +63,7 @@ extern "C" ARM int func_ov000_02156e30(struct Random* arg0, int arg1, int arg2, 
         GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg2);
         Struct_ov000_02156e30* var4 = GetPartyMemberData_02053c6c((unsigned char*)var3);
         if (var3 != NULL && var4 != NULL && var4->unknown_2cc_ > 0) {
-            if (func_02083b00(inline_ov000_02156cc4(var3), 0x28)) {
+            if (HasLearnedSkillEntry_02083b00(inline_ov000_02156cc4(var3), 0x28)) {
                 var2 = 100.0f;
             }
         }

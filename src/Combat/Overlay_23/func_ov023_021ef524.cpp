@@ -78,7 +78,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void func_ov000_02163b60(void*);
 extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2*);
-extern "C" Struct_ov000_0217964c_2* func_0200fea4(GameState*, int);
+extern "C" Struct_ov000_0217964c_2* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" int func_0209ca2c(void*);
 extern "C" void func_ov023_021f00f4(int*, int, int, int);
@@ -99,7 +99,7 @@ void StartMessage_0204500c(MessageWindow_020465c0*, const char*, int);
 int func_ov023_021f4fc8();
 void func_ov000_0216d370(void*, int, int, int);
 void func_ov000_02163b90(Struct_ov023_021ef524_3*, int);
-int func_020457e0(MessageWindow_020465c0*);
+int GetMessageChoice_020457e0(MessageWindow_020465c0*);
 void func_02011744(GameState*);
 }
 
@@ -140,7 +140,7 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
             var7 = 3;
         }
         for (int var8 = 0; var8 < var7; ++var8) {
-            Struct_ov000_0217964c_2* var9 = func_0200fea4(var0, var8 + 0xc0);
+            Struct_ov000_0217964c_2* var9 = GetEnemyByIndex_0200fea4(var0, var8 + 0xc0);
             if (var9 && var9->unknown_138_) {
                 arg0->unknown_7020_[arg0->unknown_701e_] = var9->unknown_4_;
                 ++arg0->unknown_701e_;
@@ -151,7 +151,7 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
         Vector3fix var14;
         func_ov023_021f00f4(&var14.x, 0, 0, 0);
         for (int var15 = 0; var15 < arg0->unknown_701e_; ++var15) {
-            Struct_ov000_0217964c_2* var16 = func_0200fea4(var0, arg0->unknown_7020_[var15]);
+            Struct_ov000_0217964c_2* var16 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_7020_[var15]);
             var16->position_ = func_02049b54((Struct_02049b54_2*)var16);
             var16->rotation_.x = 0;
             var16->rotation_.y = 0;
@@ -211,7 +211,7 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
         }
     } else if (var1->unknown_0_ == 6) {
         if (var2->unknown_870_ != 3) return arg0->unknown_e28_;
-        if (!func_020457e0(var2)) var1->unknown_0_ = 7; else var1->unknown_0_ = 8;
+        if (!GetMessageChoice_020457e0(var2)) var1->unknown_0_ = 7; else var1->unknown_0_ = 8;
     } else if (var1->unknown_0_ == 7) {
         if (func_ov023_021f4fc8()) {
             arg0->unknown_595c_ = 1;
@@ -245,7 +245,7 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
             var1->unknown_0_ = 11;
         }
     } else if (var1->unknown_0_ == 10) {
-        if (!func_0200fea4(var0, arg0->unknown_7020_[0])->GetInheritedAlpha() || !arg0->unknown_701e_) var1->unknown_0_ = 11;
+        if (!GetEnemyByIndex_0200fea4(var0, arg0->unknown_7020_[0])->GetInheritedAlpha() || !arg0->unknown_701e_) var1->unknown_0_ = 11;
     } else if (var1->unknown_0_ == 11) {
         if (func_ov023_021f4fc8()) { func_ov023_021eefac(var1); return 5; }
     }

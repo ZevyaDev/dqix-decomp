@@ -14,10 +14,10 @@ extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int ind
 struct BGLayer_02020cb8;
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
-extern "C" void func_0204b2e0(void* arg0, char* arg1);
+extern "C" void FlushBGBlock_0204b2e0(void* layer, char* block);
 
-struct Struct_02020cb8_6;
-extern "C" void func_0204b3a0(struct Struct_02020cb8_6* arg0, char* arg1);
+struct BGLayer_02020cb8_6;
+extern "C" void CopyBGBlockToVRAM_0204b3a0(struct BGLayer_02020cb8_6* layer, char* block);
 
 
 struct Struct_ov004_02163144 {
@@ -61,8 +61,8 @@ extern "C" ARM int func_ov004_02163144() {
             for (int var8 = 0; var8 < var7; var8++) {
                 void* var9 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var2, var8, &var5, &var4);
                 if (var9) {
-                    func_0204b2e0(&var6, (char*)var9);
-                    func_0204b3a0((struct Struct_02020cb8_6*)&var6, (char*)var9);
+                    FlushBGBlock_0204b2e0(&var6, (char*)var9);
+                    CopyBGBlockToVRAM_0204b3a0((struct BGLayer_02020cb8_6*)&var6, (char*)var9);
                 }
             }
             ((BackgroundLoader*)(var1))->RemoveTask((int)(data_ov004_021707e8.unknown_20_));

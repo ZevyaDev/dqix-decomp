@@ -43,15 +43,15 @@ struct PacEntry_02020aec;
 struct PacEntry_02020cb8_4;
 struct BGLayer_02020cb8_2;
 struct TextWindow_0204c7a8;
-struct Struct_0205cf78;
-struct Struct_0205cf78_2;
+struct TextWindowManager_0205cf78;
+struct TextWindow_0205cf78_2;
 struct Struct_ov003_0215917c;
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov017_021d243c(int arg0);
 extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
-extern "C" int func_02005a94(const char* arg0);
+extern "C" int ParseDecimal_02005a94(const char* string);
 extern "C" void func_ov003_02159250(void* arg0, void* arg1);
 extern "C" void func_ov003_02159464(void* arg0);
 extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
@@ -63,12 +63,12 @@ extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, voi
 extern "C" void LoadBGBlock_0204b174(Struct_ov003_021594c4* layer, void* block, SafeAllocator* allocator, unsigned int arg3);
 extern "C" void FillBGScreenRect_0204bc74(Struct_ov003_021594c4* layer, int screenEntry, int x, int y, int width, int height, int palette);
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
-extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
-extern "C" void func_0205cf78(Struct_0205cf78* arg0, Struct_0205cf78_2* arg1, unsigned char arg2);
+extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
+extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78* windowManager, TextWindow_0205cf78_2* textWindows, unsigned char textWindowCapacity);
 extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, SafeAllocator* allocator);
 extern "C" int func_020d3018(const char* arg0, const char* arg1);
 extern "C" void func_ov003_0215917c(Struct_ov003_0215917c* arg0, int arg1);
-extern "C" unsigned char func_02011494(char* arg0, void* arg1);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
 
 #if defined(jpn)
 #include "Filesystem/FileIO.h"
@@ -146,7 +146,7 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
         LoadStringTable_020dfec0(arg0->unknown_64_, &arg0->unknown_0_[0], var3, var5);
         const char* var6 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, 0x32);
         if (var6 != NULL) {
-            arg0->unknown_5b1_ = func_02005a94(var6);
+            arg0->unknown_5b1_ = ParseDecimal_02005a94(var6);
         }
         if (arg0->unknown_5b1_ == 3) {
             arg0->unknown_5b1_ = 0;
@@ -225,7 +225,7 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
             }
             arg0->unknown_18c_ = &arg0->unknown_1b0_[0];
             arg0->unknown_1a6_ = 2;
-            func_0205cf78((Struct_0205cf78*)arg0->unknown_f4_, (Struct_0205cf78_2*)arg0->unknown_1f0_, 4);
+            SetTextWindowArray_0205cf78((TextWindowManager_0205cf78*)arg0->unknown_f4_, (TextWindow_0205cf78_2*)arg0->unknown_1f0_, 4);
             arg0->unknown_578_ = var11->QueueLoadFile(data_ov003_0217fe5a, NULL);
             arg0->unknown_580_++;
         }
@@ -277,7 +277,7 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
             }
         }
         func_ov003_0215917c((Struct_ov003_0215917c*)arg0, var31);
-        arg0->unknown_590_ = func_02011494((char*)GameState::GetInstance(), arg0->unknown_591_);
+        arg0->unknown_590_ = GetOwnPartyOrder_02011494((char*)GameState::GetInstance(), arg0->unknown_591_);
         arg0->unknown_588_ = 1;
         arg0->unknown_580_ = 1;
     }
@@ -308,7 +308,7 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
         arg0->unknown_578_ = -1;
         const char* var41 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, 0x32);
         if (var41 != NULL) {
-            arg0->unknown_5b1_ = func_02005a94(var41);
+            arg0->unknown_5b1_ = ParseDecimal_02005a94(var41);
         }
         if (arg0->unknown_5b1_ == 3) {
             arg0->unknown_5b1_ = 0;
@@ -387,7 +387,7 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
             }
             arg0->unknown_18c_ = &arg0->unknown_1b0_[0];
             arg0->unknown_1a6_ = 2;
-            func_0205cf78((Struct_0205cf78*)arg0->unknown_f4_, (Struct_0205cf78_2*)arg0->unknown_1f0_, 4);
+            SetTextWindowArray_0205cf78((TextWindowManager_0205cf78*)arg0->unknown_f4_, (TextWindow_0205cf78_2*)arg0->unknown_1f0_, 4);
             arg0->unknown_578_ = var46->QueueLoadFile(data_ov003_0217fe5a, NULL);
             arg0->unknown_580_++;
         }
@@ -439,7 +439,7 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
             }
         }
         func_ov003_0215917c((Struct_ov003_0215917c*)arg0, var66);
-        arg0->unknown_590_ = func_02011494((char*)GameState::GetInstance(), arg0->unknown_591_);
+        arg0->unknown_590_ = GetOwnPartyOrder_02011494((char*)GameState::GetInstance(), arg0->unknown_591_);
         arg0->unknown_588_ = 1;
         arg0->unknown_580_ = 1;
     }

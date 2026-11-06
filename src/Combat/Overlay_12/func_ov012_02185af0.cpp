@@ -18,16 +18,16 @@ extern "C" int GetFontLoader_02094a00(void);
 struct FontLoader_02094ab0;
 extern "C" void CancelFontLoad_02094ab0(struct FontLoader_02094ab0* loader);
 
-struct Struct_02074bd0;
-extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
+struct BGControlSave_02074bd0;
+extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 
 struct TextWindowManager_0205d1e0;
-extern "C" void func_0205d1e0(struct TextWindowManager_0205d1e0*);
+extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(struct TextWindowManager_0205d1e0*);
 struct TextWindowManager_0205d274;
-extern "C" void func_0205d274(struct TextWindowManager_0205d274*);
+extern "C" void FlushTextWindowManagerBGScreenData_0205d274(struct TextWindowManager_0205d274*);
 struct TextWindowManager_0205d2bc;
 extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc*);
-extern "C" void func_0205d048(void*);
+extern "C" void ResetTextWindowManager_0205d048(void*);
 
 extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" void LoadToMainBG1CharacterData(int, int, unsigned int);
@@ -40,12 +40,12 @@ extern "C" ARM void func_ov012_02185af0(unsigned char* arg0) {
     *var0 = (*var0 & ~0x1f00) | 0x100;
     *(volatile unsigned short*)((char*)var0 + 0x50) = 0;
 
-    func_02074bd0((struct Struct_02074bd0*)(arg0 + R(0,8)));
+    RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)(arg0 + R(0,8)));
 
-    func_0205d1e0((struct TextWindowManager_0205d1e0*)(arg0 + R(0x90,0xac)));
-    func_0205d274((struct TextWindowManager_0205d274*)(arg0 + R(0x90,0xac)));
+    ClearTextWindowManagerBGScreenData_0205d1e0((struct TextWindowManager_0205d1e0*)(arg0 + R(0x90,0xac)));
+    FlushTextWindowManagerBGScreenData_0205d274((struct TextWindowManager_0205d274*)(arg0 + R(0x90,0xac)));
     func_0205d2bc((struct TextWindowManager_0205d2bc*)(arg0 + R(0x90,0xac)));
-    func_0205d048((void*)(arg0 + R(0x90,0xac)));
+    ResetTextWindowManager_0205d048((void*)(arg0 + R(0x90,0xac)));
 
     memset(*(void**)(arg0 + R(0x134c,0x137c)), 0, 0x20);
     DC_FlushRange(*(void**)(arg0 + R(0x134c,0x137c)), 0x20);

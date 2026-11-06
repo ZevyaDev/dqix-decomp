@@ -4,7 +4,7 @@ struct Struct_020e6d5c_10 {
     unsigned int unknown_0_;
     unsigned int unknown_4_;
 };
-extern struct Struct_020e6d5c_10 data_020e6d5c;
+extern struct Struct_020e6d5c_10 gNullMemberFunctionPointer_020e6d5c;
 
 extern unsigned int data_ov024_02200140;
 
@@ -27,7 +27,7 @@ typedef int (*Type_ov024_021da55c)(void* self, int a2, int a3, unsigned short a4
 extern "C" ARM int func_ov024_021da55c(int* arg0, int arg1, int arg2, int arg3, unsigned short arg4, struct Struct_ov024_021da55c* arg5, int arg6) {
     unsigned int var0 = data_ov024_02200140;
     if (!(var0 & 1)) {
-        struct Struct_020e6d5c_10 var1 = data_020e6d5c;
+        struct Struct_020e6d5c_10 var1 = gNullMemberFunctionPointer_020e6d5c;
         data_ov024_021ff1e0[0].unknown_0_ = var1.unknown_0_;
         data_ov024_021ff1e0[0].unknown_4_ = var1.unknown_4_;
         data_ov024_021ff1e0[46].unknown_0_ = var1.unknown_0_;

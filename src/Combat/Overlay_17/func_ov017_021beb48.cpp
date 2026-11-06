@@ -3,8 +3,8 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
 extern "C" void* GetEffectManager_02057924(void* arg0);
-extern "C" void func_02057f00(void* arg0, int arg1);
-extern "C" void func_020a0c0c(void);
+extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
+extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 
 extern int gMainHeap_02114e20;
@@ -16,7 +16,7 @@ struct Struct_ov017_021beb48 {
 
 // USA: func_ov017_021beb48
 extern "C" ARM void func_ov017_021beb48(struct Struct_ov017_021beb48* arg0) {
-	func_02057f00(GetEffectManager_02057924(arg0), 5);
+	RemoveEffectResource_02057f00(GetEffectManager_02057924(arg0), 5);
 
 	void* var0 = arg0->unknown_24_.GetSignedAllocator();
 	if (var0 != NULL) {
@@ -24,5 +24,5 @@ extern "C" ARM void func_ov017_021beb48(struct Struct_ov017_021beb48* arg0) {
 		FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
 	}
 
-	func_020a0c0c();
+	LoadFileTables_020a0c0c();
 }

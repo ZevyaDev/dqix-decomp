@@ -16,11 +16,11 @@ struct Struct_02048850_2;
 struct LocalWireless_0202c1a4;
 
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" unsigned char* func_02070fd0(Struct_02070b6c_3* arg0, int arg1);
 extern "C" Struct_02048850_2* func_0206f4f0(Struct_0206f01c_2* arg0, int arg1);
-extern "C" int func_02010088(Struct_02010088* arg0);
+extern "C" int IsDead_02010088(Struct_02010088* object);
 extern "C" int func_ov000_02161bb8(unsigned char* arg0);
 extern "C" void func_02048934(void* arg0, Struct_02048934* arg1, Random* arg2);
 extern "C" void func_020891cc(void* arg0);
@@ -31,7 +31,7 @@ extern "C" void func_02049c88(void* arg0, void* arg1);
 extern "C" void func_02048850(Struct_02048850* arg0, Struct_02048850_2* arg1);
 extern "C" void func_020488ec(char* arg0);
 extern "C" void func_02049f3c(unsigned char* arg0);
-extern "C" void func_0200fd38(GameState* arg0, int arg1, GameObject* arg2);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState* gameState, int index, GameObject* object);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 
@@ -169,7 +169,7 @@ extern "C" ARM int func_ov000_02161380(Struct_ov000_02161380_10* arg0, int arg1,
     var3 = (Struct_0206f01c_2*)((unsigned char*)arg0->unknown_2a0_ + 0x678);
     var4 = -1;
     for (int var21 = 0; var21 < 8; var21++) {
-        if (func_0200fea4(var1, var21 + 0xc0) == 0) {
+        if (GetEnemyByIndex_0200fea4(var1, var21 + 0xc0) == 0) {
             var4 = (short)(var21 + 0xc0);
             break;
         }
@@ -257,11 +257,11 @@ extern "C" ARM int func_ov000_02161380(Struct_ov000_02161380_10* arg0, int arg1,
 
     for (var6 = 0; var6 < 2; var6++) {
         for (int var32 = 0; var32 < var16->unknown_4_[arg2].unknown_a_0_; var32++) {
-            var13 = (Struct_ov000_02161380_2*)func_0200fea4(var1, var16->unknown_4_[arg2].unknown_2_[var32] + 0xc0);
+            var13 = (Struct_ov000_02161380_2*)GetEnemyByIndex_0200fea4(var1, var16->unknown_4_[arg2].unknown_2_[var32] + 0xc0);
             if (!var13) continue;
             unsigned char var33[2];
             var33[0] = (var13->unknown_138_->unknown_18_ & 0x2000) != 0;
-            var33[1] = func_02010088((Struct_02010088*)var13);
+            var33[1] = IsDead_02010088((Struct_02010088*)var13);
             if (var33[var6] == 0) continue;
             if (var13->unknown_184_ != 0) continue;
 
@@ -326,7 +326,7 @@ extern "C" ARM int func_ov000_02161380(Struct_ov000_02161380_10* arg0, int arg1,
             func_02049f3c((unsigned char*)var15);
             var16->unknown_4c_[var23].unknown_4_ |= 1 << var15->unknown_18d_;
             func_ov000_02161bec(var38);
-            func_0200fd38(var1, var4, (GameObject*)var15);
+            SetGameObjectByIndex_0200fd38(var1, var4, (GameObject*)var15);
             var16->unknown_4_[arg2].unknown_2_[var16->unknown_4_[arg2].unknown_a_0_] = var35;
             var16->unknown_4_[arg2].unknown_a_0_++;
             var16->unknown_4_[arg2].unknown_a_4_++;

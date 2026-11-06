@@ -11,7 +11,7 @@ extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(
 struct Struct_02013fb4;
 struct TextureVRAMArea_0203d028;
 struct Struct_0205faf4_11;
-struct Struct_0203d028_11;
+struct ObjectArchiveLoadInfo_0203d028_11;
 struct Struct_02015ef4_5;
 
 extern "C" void* GetLocalWireless_0202ae18(void);
@@ -21,13 +21,13 @@ extern "C" void func_ov000_0216d1c4(int, Struct_02013fb4*, int, int*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_020d84f4(void);
 extern "C" void* func_02079a3c(void* arg0);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" int func_02061bd8(Struct_0205faf4_11* arg0);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_02072c9c(int arg0, char* arg1);
-extern "C" void func_0203dafc(Struct_0203d028_11* arg0);
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 extern "C" void func_02049c88(void* arg0, void* arg1);
 extern "C" void func_ov000_02165480(void*, int);
 struct Struct_ov000_02164fac;
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov000_02164fac(Struct_ov000_02164fac_3* arg0) {
         var18 -= var4;
 
         for (int var20 = 0; var20 < 4; var20++) {
-            if (!func_020a35e0(arg0->unknown_2a0_, var20)) {
+            if (!IsPartyMemberInBattle_020a35e0(arg0->unknown_2a0_, var20)) {
                 continue;
             }
             Struct_ov000_02164fac_5* var21 = (Struct_ov000_02164fac_5*)GetPartyMemberBaseByIndex_0200ff1c(var12, var20);
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov000_02164fac(Struct_ov000_02164fac_3* arg0) {
             if (var4 != 0) {
                 var21->unknown_0_.RemoveAllAnimationPackages();
                 ((SafeAllocator*)(var22 + 0x52c))->Reset();
-                func_0203dafc((Struct_0203d028_11*)&var2);
+                ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var2);
                 var2.allocator = var23;
                 var2.unk_10 = 1;
                 var2.packageID = 0;
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov000_02164fac(Struct_ov000_02164fac_3* arg0) {
             if (var4 != 0) {
                 var21->unknown_0_.RemoveAnimationPackageByID(1);
                 ((SafeAllocator*)(var22 + 0x540))->Reset();
-                func_0203dafc((Struct_0203d028_11*)&var3);
+                ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var3);
                 var3.unk_10 = 1;
                 var3.packageID = 1;
                 var3.allocator = (SafeAllocator*)(var22 + 0x540);

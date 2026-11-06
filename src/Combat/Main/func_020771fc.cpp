@@ -36,7 +36,7 @@ struct Struct_020771fc_2 {
     unsigned char unknown_17c_;
 };
 
-struct Struct_020fdd44;
+struct ActiveZone_020fdd44;
 struct Struct_0201a300_11;
 struct Struct_02033b68;
 struct Struct_02033f44;
@@ -61,8 +61,8 @@ extern "C" int func_02018fbc(Struct_020771fc_3* arg0, Vector3i* arg1);
 extern "C" void func_ov017_021c9400(int arg0, int arg1, int arg2, Vector3i arg3, Vector3i arg4, int arg5);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
-extern "C" Struct_020fdd44* func_02027ca4(void);
-extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44* arg0, int arg1);
+extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
+extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44* zones, int zoneId);
 extern "C" Struct_020771fc* func_020283c0(Struct_0201a300_11* arg0, int arg1);
 extern "C" void func_02033b68(Struct_02033b68* arg0, int arg1);
 extern "C" void* func_02033f44(Struct_02033f44* arg0);
@@ -127,9 +127,9 @@ extern "C" ARM void func_020771fc(Struct_020771fc_2* arg0) {
     if (var3 < 0x1000) {
         Vector3i var9 = arg0->unknown_44_;
         if (IsNotLocalWirelessGuest_0202c508(var0) != 0) {
-            Struct_020fdd44* var10 = func_02027ca4();
+            ActiveZone_020fdd44* var10 = GetActiveZones_02027ca4();
             int var11 = ((Object3D*)arg0)->GetField06();
-            Struct_020fdd44* var12 = func_02028bd0(var10, var11);
+            ActiveZone_020fdd44* var12 = FindActiveZone_02028bd0(var10, var11);
             if (var12 != 0) {
                 Struct_0201a300_11* var13 = (Struct_0201a300_11*)((char*)var12 + Enum_020771fc_24);
                 if (var13 != 0) {

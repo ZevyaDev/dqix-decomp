@@ -25,10 +25,10 @@ struct TextWindow_0205d0e0 {
     unsigned char unknown_0_[0xc5];
     unsigned char unknown_c5_;
 };
-extern "C" struct TextWindow_0205d0e0* func_0205d8c4(struct TextWindowManager_0205d81c* arg0);
-extern "C" int func_0204c7cc(unsigned char* arg0);
+extern "C" struct TextWindow_0205d0e0* GetCursorTextWindow_0205d8c4(struct TextWindowManager_0205d81c* windowManager);
+extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 extern "C" void func_0205bc24(void* arg0, int arg1);
-extern "C" int func_0205d0e0(void* arg0, int arg1);
+extern "C" int UpdateTextWindowManager_0205d0e0(void* windowManager, int ticks);
 
 extern "C" void func_ov003_021594c4(void* arg0);
 extern "C" void func_ov003_02159b20(void* arg0);
@@ -77,11 +77,11 @@ extern "C" ARM int func_ov003_02158e94(struct Struct_ov003_02158e94* arg0, int a
     }
 
     if (arg0->unknown_570_ != 0 && !func_020e28dc(arg0->unknown_570_) && arg0->unknown_588_ != 0 && arg0->unknown_587_ == 0) {
-        struct TextWindow_0205d0e0* var0 = func_0205d8c4((struct TextWindowManager_0205d81c*)arg0->unknown_f4_);
-        if (var0 != 0 && func_0204c7cc((unsigned char*)var0) != 0 && (var0->unknown_c5_ & 2) == 0) {
+        struct TextWindow_0205d0e0* var0 = GetCursorTextWindow_0205d8c4((struct TextWindowManager_0205d81c*)arg0->unknown_f4_);
+        if (var0 != 0 && IsTextWindowReady_0204c7cc((unsigned char*)var0) != 0 && (var0->unknown_c5_ & 2) == 0) {
             func_0205bc24(arg0->unknown_f8_, -1);
         }
-        arg0->unknown_582_ = func_0205d0e0(arg0->unknown_f4_, arg1);
+        arg0->unknown_582_ = UpdateTextWindowManager_0205d0e0(arg0->unknown_f4_, arg1);
     }
 
     switch (arg0->unknown_588_) {

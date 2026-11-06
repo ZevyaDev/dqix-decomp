@@ -14,15 +14,15 @@ extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable,
 extern "C" int func_ov000_0217542c(void* arg0);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
-extern "C" void* func_ov000_02161318(void* arg0, int arg1);
+extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int func_ov000_02170c7c(void* arg0);
 extern "C" int func_02041dd0(char* arg0, int arg1);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
-extern "C" int func_02041a28(char* arg0, int arg1);
+extern "C" int AppendXPositionTag_02041a28(char* buffer, int x);
 extern "C" Struct_ov000_02177d04* func_02054000(struct Struct_02054000* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
-extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
+extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 // USA: func_ov000_02177d04
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov000_02177d04(char* arg0, char* arg1) {
 
     for (unsigned char var4 = 0; var4 < var1; var4++) {
         signed char var5 = *(signed char*)(arg0 + 0x70 + var4);
-        void* var6 = func_ov000_02161318(arg0, var5);
+        void* var6 = FindPartyMemberPanel_ov000_02161318(arg0, var5);
         if (var6 == 0) {
             continue;
         }
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov000_02177d04(char* arg0, char* arg1) {
         }
         func_02041dd0(arg1, func_ov000_02170c7c(var6));
         AppendMenuEntry_02041b70(arg1, var4, var7->baseStats_->unk);
-        func_02041a28(arg1, 0x46);
+        AppendXPositionTag_02041a28(arg1, 0x46);
         func_02041dd0(arg1, 0);
         Struct_ov000_02177d04* var8 = func_02054000((struct Struct_02054000*)var7);
         if (var8 != 0) {
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov000_02177d04(char* arg0, char* arg1) {
 #else
             char var9[0x100];
             __clear(var9, 0x100);
-            func_0206819c(var8->unknown_4_, var9, 0);
+            CopyCapitalizedText_0206819c(var8->unknown_4_, var9, 0);
             AppendText_02042058(arg1, var9);
 #endif
         }

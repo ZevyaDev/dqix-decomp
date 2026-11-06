@@ -7,10 +7,10 @@ extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int fla
 extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
-extern "C" int func_02041e70(char* arg0, int arg1);
+extern "C" int AppendTextColorTag_02041e70(char* buffer, int colorIndex);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
-extern "C" int func_02041a28(char* arg0, int arg1);
+extern "C" int AppendXPositionTag_02041a28(char* buffer, int x);
 
 extern short data_ov002_0216ca04[];
 extern int data_ov002_0216ca58[];
@@ -33,17 +33,17 @@ extern "C" ARM void func_ov002_0215c178(void* arg0, char* arg1, int arg2) {
     AppendCursorTag_02041ea4(arg1, var1);
     for (int var4 = 0; var4 < 6; var4++) {
         if (var4 == 3 && var3 == 0) {
-            func_02041e70(arg1, 3);
+            AppendTextColorTag_02041e70(arg1, 3);
         }
         int var5 = data_ov002_0216d09c[var4];
         AppendMenuEntry_02041b70(arg1, var5, data_ov002_0216d600[var5]);
         if (var4 == 1 || var4 == 3) {
             AppendText_02042058(arg1, &data_ov002_0216d92a);
         } else {
-            func_02041a28(arg1, 0x3e);
+            AppendXPositionTag_02041a28(arg1, 0x3e);
         }
         if (var4 == 3 && var3 == 0) {
-            func_02041e70(arg1, 15);
+            AppendTextColorTag_02041e70(arg1, 15);
         }
     }
 }
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov002_0215c178(void* arg0, char* arg1, int arg2) {
     AppendCursorTag_02041ea4(arg1, var7);
     for (int var13 = 0; var13 < 6; var13++) {
         if (var13 == 3 && var9 == 0) {
-            func_02041e70(arg1, 3);
+            AppendTextColorTag_02041e70(arg1, 3);
         }
         int var14 = data_ov002_0216ca58[var13];
         int var15 = GetStandardString_020e51cc(data_ov002_0216ca04[var14]);
@@ -74,10 +74,10 @@ extern "C" ARM void func_ov002_0215c178(void* arg0, char* arg1, int arg2) {
         if (var13 == 1 || var13 == 3) {
             AppendText_02042058(arg1, &data_ov002_0216d26e);
         } else {
-            func_02041a28(arg1, var10 + 0x20);
+            AppendXPositionTag_02041a28(arg1, var10 + 0x20);
         }
         if (var13 == 3 && var9 == 0) {
-            func_02041e70(arg1, 15);
+            AppendTextColorTag_02041e70(arg1, 15);
         }
     }
 }

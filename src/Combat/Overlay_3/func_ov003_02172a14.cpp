@@ -14,7 +14,7 @@ struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct BGLayer_02020cb8;
 struct BGLayer_02020cb8_5;
-struct Struct_02020cb8_6;
+struct BGLayer_02020cb8_6;
 struct Struct_ov003_02172a14;
 
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4 *pac);
@@ -39,14 +39,14 @@ extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5 *layer, int scrollX, int
 #if defined(jpn)
 extern "C" void LoadBGBlock_0204b174(void *layer, void *block, SafeAllocator *allocator, int arg3);
 extern "C" void LoadBGScreenData_0204b0e8(void *layer, void *screenData);
-extern "C" void func_0204afb4(void *arg0);
+extern "C" void ResetBGLayerData_0204afb4(void *layer);
 #else
-extern "C" void func_0204b2e0(void *arg0, char *arg1);
-extern "C" void func_0204b3a0(Struct_02020cb8_6 *arg0, char *arg1);
+extern "C" void FlushBGBlock_0204b2e0(void *layer, char *block);
+extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6 *layer, char *block);
 #endif
 extern "C" void ColorEffect_ConfigureAlphaBlend(int control, int a, int b, int c, int d);
 void SetMainBrightness(GameResources *resources, int a, int b);
-extern "C" void func_020728ac(void *arg0, void *arg1, void *arg2, unsigned int arg3, int arg4, int arg5, int arg6);
+extern "C" void LoadStringList_020728ac(void *stringList, void *allocator, void *arg2, unsigned int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 
 #if defined(jpn)
 #define data_ov003_021809f4 data_ov003_0217eb62
@@ -243,11 +243,11 @@ extern "C" ARM void func_ov003_02172a14(Struct_ov003_02172a14_4 *arg0) {
             }
         }
         LoadBGScreenData_0204b0e8(&var17, 0);
-        func_0204afb4(&var17);
+        ResetBGLayerData_0204afb4(&var17);
 #else
         for (int var24 = 0; var24 < var20; var24++) {
-            func_0204b2e0(&var17, (char *) var13[var24]);
-            func_0204b3a0((Struct_02020cb8_6 *) &var17, (char *) var13[var24]);
+            FlushBGBlock_0204b2e0(&var17, (char *) var13[var24]);
+            CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6 *) &var17, (char *) var13[var24]);
         }
 #endif
         ColorEffect_ConfigureAlphaBlend(0x04000050, 1, 0x12, 0x1f, 0x1f);
@@ -266,7 +266,7 @@ extern "C" ARM void func_ov003_02172a14(Struct_ov003_02172a14_4 *arg0) {
         void *var25;
         unsigned int var26;
         var1->GetLoadedFileByID(arg0->unknown_f0_, &var25, &var26);
-        func_020728ac(arg0->unknown_1d0_, arg0->unknown_184_, var25, var26, 0, 0, 0);
+        LoadStringList_020728ac(arg0->unknown_1d0_, arg0->unknown_184_, var25, var26, 0, 0, 0);
         var1->RemoveTask(arg0->unknown_f0_);
 #if defined(jpn)
         arg0->unknown_f0_ = var1->QueueLoadFile(data_ov003_0217eb81, 0);
@@ -280,13 +280,13 @@ extern "C" ARM void func_ov003_02172a14(Struct_ov003_02172a14_4 *arg0) {
         void *var27;
         unsigned int var28;
         var1->GetLoadedFileByID(arg0->unknown_f0_, &var27, &var28);
-        func_020728ac(arg0->unknown_1d8_, arg0->unknown_198_, var27, var28, 0, 0, 0);
+        LoadStringList_020728ac(arg0->unknown_1d8_, arg0->unknown_198_, var27, var28, 0, 0, 0);
         var1->RemoveTask(arg0->unknown_f0_);
         arg0->unknown_f0_ = -1;
         arg0->unknown_ee_ = 5;
     }
     if (arg0->unknown_ee_ == 5) {
-        func_02094b30(var2, 0x1ff, 0);
+        RequestSingleFontLoad_02094b30(var2, 0x1ff, 0);
         if (UpdateFontLoad_02094b4c(var2) != 0) {
             arg0->unknown_ec_ = 2;
             arg0->unknown_ee_  = 0;

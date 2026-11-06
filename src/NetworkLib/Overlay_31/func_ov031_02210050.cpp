@@ -64,7 +64,7 @@ extern "C" ARM void func_ov031_02210050(Struct_ov031_02210050* arg0, int arg1, i
     Struct_ov031_02210050_2* var2 = inline_ov031_02210050(var1);
     var1->unknown_a04_.unknown_0_ = var2->unknown_4_ = 0;
     Struct_ov031_02210050* var3 = data_ov031_0224e588;
-    unsigned int var4 = GetContextPriority(data_02111304.activeContext);
+    unsigned int var4 = GetContextPriority(gContextScheduler_02111304.activeContext);
     PopulateContext(&var3->unknown_a10_, (unsigned int)func_ov031_02210674, 0, (unsigned int)(var3->unknown_ad8_ + sizeof(var3->unknown_ad8_)), 0x800, var4);
     MarkContextStackTopUnknownSubspace(&data_ov031_0224e588->unknown_a10_, 0x80);
 }

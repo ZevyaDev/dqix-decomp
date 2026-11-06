@@ -19,7 +19,7 @@ extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" void func_ov011_02184a40(void* arg0, int arg1);
 
 #if defined(jpn)
-extern "C" void* func_0203bd08(void);
+extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void* func_0203be40(void);
 #endif
 
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov023_021faed0(struct Struct_ov023_021faed0_2* arg0, vo
                 if (var11) var10 = arg0->unknown_48_;
             }
             if (var10 >= 0) {
-                func_0203bd08();
+                GetOAMManager_0203bd08();
                 struct Struct_ov000_021700dc { unsigned int unknown_0_; unsigned int unknown_4_; };
                 Struct_ov000_021700dc* var12 = (Struct_ov000_021700dc*)func_0203be40();
                 unsigned int var13 = var12[arg0->unknown_24_].unknown_0_ & 0x3fff3fff;

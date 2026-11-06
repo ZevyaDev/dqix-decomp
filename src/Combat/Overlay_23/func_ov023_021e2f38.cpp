@@ -35,7 +35,7 @@ extern "C" ARM void func_ov023_021e2f38(void* arg0) {
     }
 
     FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
-    func_02094b40(var2);
+    ClearLoadedFontSets_02094b40(var2);
     CancelFontLoad_02094ab0(var2);
 
     if (*(void**)(var0 + 0x0) != 0) {

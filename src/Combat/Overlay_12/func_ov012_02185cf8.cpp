@@ -39,7 +39,7 @@ struct Struct_ov012_0218b108
 };
 
 extern "C" const Struct_ov012_0218b108 data_ov012_0218b108;
-extern "C" Type_ov012_02185cf8 data_020e6d5c;
+extern "C" Type_ov012_02185cf8 gNullMemberFunctionPointer_020e6d5c;
 
 static inline Struct_ov012_02185cf8_2* inline_ov012_02185cf8(char* arg0)
 {
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov012_02185cf8(Struct_ov012_02185cf8* arg0)
     }
     memset(arg0->unknown_1374_, 0, LOW_REGION(0x800, 0x960));
     Struct_ov012_0218b108 var1 = data_ov012_0218b108;
-    Type_ov012_02185cf8 var2 = data_020e6d5c;
+    Type_ov012_02185cf8 var2 = gNullMemberFunctionPointer_020e6d5c;
     var1.unknown_0_[0] = var2;
     var1.unknown_0_[15] = var2;
     if (var1.unknown_0_[arg0->unknown_1371_] != 0)

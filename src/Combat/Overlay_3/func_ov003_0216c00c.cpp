@@ -31,7 +31,7 @@ extern "C" void func_ov003_0216d8d4(char* arg0, int arg1);
 #else
 extern "C" void func_ov003_0216d8d4(char* arg0, int arg1, int arg2, int arg3, int arg4);
 #endif
-extern "C" int func_020457e0(char* arg0);
+extern "C" int GetMessageChoice_020457e0(char* window);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
@@ -69,7 +69,7 @@ struct Struct_020a9ea4;
 extern "C" void func_020a9ea4(Struct_020a9ea4*);
 extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
 struct Struct_0209c3b4_2;
-extern "C" void func_0209c3b4(struct Struct_0209c3b4_2* arg0, int arg1);
+extern "C" void PlayMusic_0209c3b4(struct Struct_0209c3b4_2* manager, int musicIndex);
 struct Struct_02059cfc_2;
 struct Struct_02059cfc_3;
 extern "C" void func_02059f38(Struct_02059cfc_2*, Struct_02059cfc_3*);
@@ -85,7 +85,7 @@ extern "C" void* func_ov017_021b1fb8(void* arg0);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 struct Struct_020a03f8;
 extern "C" void func_020a03f8(Struct_020a03f8*, unsigned int);
-extern "C" void func_020ac494(void* arg0);
+extern "C" void SetBattleRecords_020ac494(void* records);
 extern "C" void func_020ac760(void* arg0);
 extern "C" void func_020ac734(void* arg0);
 extern "C" const char* GetStandardString_020e51cc(int stringId);
@@ -210,7 +210,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         }
     } else if (var9 == 2) {
         if (*(int*)(var2 + 0x870) != 0) return;
-        if (func_020457e0(var2) == 1) {
+        if (GetMessageChoice_020457e0(var2) == 1) {
             *(int*)(var2 + 0x868) = 1;
             func_ov003_0216d8d4(arg0, 0x40);
             *(short*)(arg0 + 6) = 3;
@@ -232,7 +232,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     } else if (var9 == 3) {
         if (*(int*)(var2 + 0x870) != 0) return;
         *(int*)(var2 + 0x868) = 1;
-        if (func_020457e0(var2) == 1) {
+        if (GetMessageChoice_020457e0(var2) == 1) {
             if (func_02011804((GameState*)var0) != 0) {
                 func_ov003_0216d8d4(arg0, 0x4c);
                 *(short*)(arg0 + 6) = 0x64;
@@ -257,7 +257,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     } else if (var9 == 0x64) {
         if (*(int*)(var2 + 0x870) != 0) return;
         *(int*)(var2 + 0x868) = 1;
-        if (func_020457e0(var2) == 1) {
+        if (GetMessageChoice_020457e0(var2) == 1) {
             func_ov003_0216d8d4(arg0, 0x48);
             *(short*)(arg0 + 6) = 0x12c;
         } else {
@@ -267,7 +267,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     } else if (var9 == 4) {
         if (*(int*)(var2 + 0x870) != 0) return;
         *(int*)(var2 + 0x868) = 1;
-        if (func_020457e0(var2) == 1) {
+        if (GetMessageChoice_020457e0(var2) == 1) {
             func_ov003_0216d8d4(arg0, 0x32);
             *(short*)(arg0 + 6) = 0x63;
         } else if (func_02011804((GameState*)var0) != 0) {
@@ -288,7 +288,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     } else if (var9 == 0x66) {
         if (*(int*)(var2 + 0x870) != 0) return;
         *(int*)(var2 + 0x868) = 1;
-        if (func_020457e0(var2) == 1) {
+        if (GetMessageChoice_020457e0(var2) == 1) {
             func_ov003_0216d8d4(arg0, 0x32);
             *(short*)(arg0 + 6) = 0x63;
         } else {
@@ -367,7 +367,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         int var22[0x2c];
         GetBattleRecords_020ac4c0(var22);
         func_020a03f8((Struct_020a03f8*)var22, *(unsigned char*)(arg0 + 0x1000 + 0x27e));
-        func_020ac494(var22);
+        SetBattleRecords_020ac494(var22);
         { int var23 = inline_ov003_0216c00c_5(var4); inline_ov003_0216c00c_6(var4, *(unsigned char*)(arg0 + 0x1000 + 0x27d) + var23); }
         if (var20 != 0) {
             struct Struct_0203d028_3* var24 = (Struct_0203d028_3*)((GameState*)var0)->GetUnknownGameObject();
@@ -427,7 +427,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (IsBrightnessTransitionActive(var1) != 0) return;
         void* var31 = *(void**)((char*)var3 + 8);
         int var32 = ((struct Struct_ov003_0216c00c_8*)var31)->unknown_d_0_;
-        func_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var32);
+        PlayMusic_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var32);
         func_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
         if (*(unsigned char*)(arg0 + 0x1000 + 0x279) != 0) {
             *(int*)(var2 + 0x868) = 1;
@@ -456,7 +456,7 @@ phase2:;
     if (var9 == 0x12c) {
         if (*(int*)(var2 + 0x870) != 0) return;
         *(int*)(var2 + 0x868) = 1;
-        if (func_020457e0(var2) == 1) {
+        if (GetMessageChoice_020457e0(var2) == 1) {
             func_ov003_0216d8d4(arg0, 0x32);
             *(short*)(arg0 + 6) = 0x63;
         } else {
@@ -577,7 +577,7 @@ phase2:;
     } else if (var9 == 0x12) {
         void* var49 = GetZone3D_02012fe4();
         int var50 = (*(struct Struct_ov003_0216c00c_8**)((char*)var49 + 8))->unknown_d_0_;
-        func_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var50);
+        PlayMusic_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var50);
         func_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
         if ((unsigned int)func_02011804((GameState*)var0) >= 0x63) {
             *(short*)(arg0 + 6) = 0x13;
@@ -608,7 +608,7 @@ phase2:;
     } else if (var9 == 0x13) {
         char* var58 = (char*)GetMessageWindow_020421a0();
         if (*(int*)(var58 + 0x868) != 0) return;
-        int var59 = func_020457e0(var58);
+        int var59 = GetMessageChoice_020457e0(var58);
         if (var59 == 0) {
             *(short*)(arg0 + 6) = 0xc;
             return;
@@ -719,7 +719,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         }
     } else if (var76 == 2) {
         if (*(int*)(var70 + 0x9a0) != 0) return;
-        if (func_020457e0(var70) == 1) {
+        if (GetMessageChoice_020457e0(var70) == 1) {
             *(int*)(var70 + 0x998) = 1;
             func_ov003_0216d8d4(arg0, 0x40, -1, -1, -1);
             *(short*)(arg0 + 6) = 3;
@@ -743,7 +743,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     } else if (var76 == 3) {
         if (*(int*)(var70 + 0x9a0) != 0) return;
         *(int*)(var70 + 0x998) = 1;
-        if (func_020457e0(var70) == 1) {
+        if (GetMessageChoice_020457e0(var70) == 1) {
             if (func_02011804((GameState*)var68) != 0) {
                 func_ov003_0216d8d4(arg0, 0x4c, -1, -1, -1);
                 *(short*)(arg0 + 6) = 0x64;
@@ -768,7 +768,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     } else if (var76 == 0x64) {
         if (*(int*)(var70 + 0x9a0) != 0) return;
         *(int*)(var70 + 0x998) = 1;
-        if (func_020457e0(var70) == 1) {
+        if (GetMessageChoice_020457e0(var70) == 1) {
             func_ov003_0216d8d4(arg0, 0x48, -1, -1, -1);
             *(short*)(arg0 + 6) = 0x12c;
         } else {
@@ -778,7 +778,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     } else if (var76 == 4) {
         if (*(int*)(var70 + 0x9a0) != 0) return;
         *(int*)(var70 + 0x998) = 1;
-        if (func_020457e0(var70) == 1) {
+        if (GetMessageChoice_020457e0(var70) == 1) {
             func_ov003_0216d8d4(arg0, 0x32, -1, -1, -1);
             *(short*)(arg0 + 6) = 0x63;
         } else if (func_02011804((GameState*)var68) != 0) {
@@ -799,7 +799,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     } else if (var76 == 0x66) {
         if (*(int*)(var70 + 0x9a0) != 0) return;
         *(int*)(var70 + 0x998) = 1;
-        if (func_020457e0(var70) == 1) {
+        if (GetMessageChoice_020457e0(var70) == 1) {
             func_ov003_0216d8d4(arg0, 0x32, -1, -1, -1);
             *(short*)(arg0 + 6) = 0x63;
         } else {
@@ -878,7 +878,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         int var90[0x2c];
         GetBattleRecords_020ac4c0(var90);
         func_020a03f8((Struct_020a03f8*)var90, *(unsigned char*)(arg0 + 0x1000 + 0x3ee));
-        func_020ac494(var90);
+        SetBattleRecords_020ac494(var90);
         inline_ov003_0216c00c_6(inline_ov003_0216c00c_4(var71), *(unsigned char*)(arg0 + 0x1000 + 0x3ed) + inline_ov003_0216c00c_5(inline_ov003_0216c00c_4(var71)));
         if (var88 != 0) {
             struct Struct_0203d028_3* var91 = (Struct_0203d028_3*)((GameState*)var68)->GetUnknownGameObject();
@@ -940,7 +940,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (IsBrightnessTransitionActive(var69) != 0) return;
         void* var100 = *(void**)((char*)var71 + 8);
         int var101 = ((struct Struct_ov003_0216c00c_8*)var100)->unknown_d_0_;
-        func_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var101);
+        PlayMusic_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var101);
         func_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
         if (*(unsigned char*)(arg0 + 0x1000 + 0x3e9) != 0) {
             *(int*)(var70 + 0x998) = 1;
@@ -969,7 +969,7 @@ phase2:;
     if (var76 == 0x12c) {
         if (*(int*)(var70 + 0x9a0) != 0) return;
         *(int*)(var70 + 0x998) = 1;
-        if (func_020457e0(var70) == 1) {
+        if (GetMessageChoice_020457e0(var70) == 1) {
             func_ov003_0216d8d4(arg0, 0x32, -1, -1, -1);
             *(short*)(arg0 + 6) = 0x63;
         } else {
@@ -1089,7 +1089,7 @@ phase2:;
     } else if (var76 == 0x12) {
         void* var119 = GetZone3D_02012fe4();
         int var120 = (*(struct Struct_ov003_0216c00c_8**)((char*)var119 + 8))->unknown_d_0_;
-        func_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var120);
+        PlayMusic_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var120);
         func_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
         if ((unsigned int)func_02011804((GameState*)var68) >= 0x63) {
             *(short*)(arg0 + 6) = 0x13;
@@ -1122,7 +1122,7 @@ phase2:;
     } else if (var76 == 0x13) {
         char* var130 = (char*)GetMessageWindow_020421a0();
         if (*(int*)(var130 + 0x998) != 0) return;
-        int var131 = func_020457e0(var130);
+        int var131 = GetMessageChoice_020457e0(var130);
         if (var131 == 0) {
             *(short*)(arg0 + 6) = 0xc;
             return;

@@ -12,10 +12,10 @@ struct Struct_02053dfc;
 struct Struct_02070b6c_3;
 
 extern "C" int func_02011518(void* arg0, unsigned int arg1);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_02053dfc(struct Struct_02053dfc* arg0);
-extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" unsigned short func_0202053c(void* arg0);
 
 struct Struct_ov023_021f454c_7 {
@@ -160,10 +160,10 @@ extern "C" ARM void func_ov023_021f454c(struct Struct_ov023_021f454c_6* arg0) {
             int var18 = func_02011518(var1, (unsigned char)(var14 - 1));
             struct Struct_ov023_021f454c* var19 = (struct Struct_ov023_021f454c*)GetPartyMemberBaseByIndex_0200ff1c(var1, var18);
             if (var19 == 0) continue;
-            if (!func_020a35e0((unsigned char*)arg0->unknown_2a0_, var18)) continue;
-            if (func_02010088((struct Struct_02010088*)var19)) continue;
+            if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var18)) continue;
+            if (IsDead_02010088((struct Struct_02010088*)var19)) continue;
             if ((float)(unsigned int)func_02053dfc((struct Struct_02053dfc*)var19) / var4 < 0.5f) continue;
-            if (!func_02083b00(var19->unknown_150_, 0xa4)) continue;
+            if (!HasLearnedSkillEntry_02083b00(var19->unknown_150_, 0xa4)) continue;
             var5 = func_0202053c(var19);
             var17->unknown_5_ = var18;
         } else {
@@ -280,7 +280,7 @@ extern "C" ARM void func_ov023_021f454c(struct Struct_ov023_021f454c_6* arg0) {
 
     if (arg0->unknown_5900_ != 0 || arg0->unknown_6e24_ != 0) {
         for (int var33 = 0; var33 < 4; var33++) {
-            if (!func_020a35e0((unsigned char*)arg0->unknown_2a0_, var33)) continue;
+            if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var33)) continue;
             struct Struct_ov023_021f454c* var34 = (struct Struct_ov023_021f454c*)GetPartyMemberBaseByIndex_0200ff1c(var1, var33);
             if (var34 == 0) continue;
             if (!((float)(unsigned int)func_02053dfc((struct Struct_02053dfc*)var34) / var4 < 0.5f)) {

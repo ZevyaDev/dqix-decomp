@@ -32,7 +32,7 @@ struct Struct_ov012_021884f4 {
 
 extern "C" int func_ov012_02184384(unsigned short* arg0, int arg1);
 struct TextWindowManager_0205de24_2;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" void func_ov023_021e6e60(void* arg0);
 extern "C" void func_ov012_0218a438(char* arg0);
 struct Struct_0205c570;

@@ -4,7 +4,7 @@ extern "C" int func_ov031_02218b8c(void* arg0, int arg1);
 extern "C" void* func_ov031_02218e2c(void* arg0, const char* arg1);
 extern "C" int func_ov031_02218e84(void* arg0, int arg1, char* arg2, int arg3);
 extern "C" void func_ov031_0221a218(void);
-extern "C" int func_02005a94(const char* arg0);
+extern "C" int ParseDecimal_02005a94(const char* string);
 extern "C" void func_ov031_02211b08(int arg0, int arg1);
 
 extern char* data_ov031_0224e69c;
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov031_0221a89c(void) {
         func_ov031_02211b08(0x10, 0xffff9df3);
         return 0;
     }
-    int var3 = func_02005a94((const char*)var2);
+    int var3 = ParseDecimal_02005a94((const char*)var2);
     if (data_020f3390 == 0x22) {
         func_ov031_02211b08(0x10, 0xffff9df3);
         return 0;
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov031_0221a89c(void) {
         func_ov031_02211b08(0x10, 0xffff9df3);
         return 0;
     }
-    var3 = func_02005a94(var0);
+    var3 = ParseDecimal_02005a94(var0);
     if (data_020f3390 == 0x22) {
         func_ov031_02211b08(0x10, 0xffff9df3);
         return 0;

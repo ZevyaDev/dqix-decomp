@@ -7,7 +7,7 @@ extern "C" int func_ov023_021f6c90(void* arg0, int arg1, int arg2);
 extern "C" ARM void func_ov023_021f6bec(void* arg0, int arg1, unsigned int arg2, unsigned int arg3);
 struct Struct_02075cdc;
 extern "C" void func_02075cdc(struct Struct_02075cdc* arg0);
-extern "C" void* func_0203bd08(void);
+extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void* func_0203be40(void);
 extern "C" void* func_0203be4c(void);
 extern "C" int func_ov023_021f6e5c(void* arg0, int arg1);
@@ -29,10 +29,10 @@ extern "C" ARM int func_ov023_021fb534(void* arg0, void* arg1, unsigned short ar
     func_02075cdc((struct Struct_02075cdc*)((char*)arg0 + 0x20));
     void* var2;
     if (arg5 == 0) {
-        func_0203bd08();
+        GetOAMManager_0203bd08();
         var2 = func_0203be40();
     } else {
-        func_0203bd08();
+        GetOAMManager_0203bd08();
         var2 = func_0203be4c();
     }
     *(void**)((char*)arg0 + 0x34) = (char*)var2 + var1 * 8;

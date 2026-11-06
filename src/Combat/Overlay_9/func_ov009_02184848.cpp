@@ -19,14 +19,14 @@ extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void func_0205a494(void* arg0);
 extern "C" void* func_0203bd14();
 extern "C" void func_0203c4c4(char* arg0);
-struct Struct_0204b010;
-extern "C" void func_0204b010(Struct_0204b010* arg0, void* arg1);
-extern "C" void func_0204b04c(void* arg0, int arg1);
-extern "C" void func_0204b088(void* arg0, int arg1);
-struct Struct_02020cb8_3;
-extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
-struct Struct_0205d048;
-extern "C" void func_0205d048(struct Struct_0205d048* arg0);
+struct BGLayer_0204b010;
+extern "C" void ClearBGScreenData_0204b010(BGLayer_0204b010* layer, void* screenData);
+extern "C" void FlushBGScreenData_0204b04c(void* layer, int screenData);
+extern "C" void CopyBGScreenDataToVRAM_0204b088(void* layer, int screenData);
+struct BGLayer_02020cb8_3;
+extern "C" void ResetBGLayerData_0204afb4(struct BGLayer_02020cb8_3* layer);
+struct TextWindowManager_0205d048;
+extern "C" void ResetTextWindowManager_0205d048(struct TextWindowManager_0205d048* windowManager);
 extern "C" void* __clear(void* arg0, int arg1);
 
 // USA: func_ov009_02184848
@@ -62,15 +62,15 @@ extern "C" ARM void func_ov009_02184848(Struct_ov009_021842a0* arg0) {
         var2[5] = var0 + R(0x19c,0x1d8);
         for (int var3 = 0; var3 < 6; var3++) {
             void* var4 = var2[var3];
-            func_0204b010((Struct_0204b010*)var4, 0);
-            func_0204b04c(var4, 0);
-            func_0204b088(var4, 0);
-            func_0204afb4((struct Struct_02020cb8_3*)var4);
+            ClearBGScreenData_0204b010((BGLayer_0204b010*)var4, 0);
+            FlushBGScreenData_0204b04c(var4, 0);
+            CopyBGScreenDataToVRAM_0204b088(var4, 0);
+            ResetBGLayerData_0204afb4((struct BGLayer_02020cb8_3*)var4);
         }
     }
 
-    func_0205d048((struct Struct_0205d048*)(var0 + R(0x1bc,0x1f8)));
-    func_0205d048((struct Struct_0205d048*)(var0 + R(0x278,0x2b4)));
+    ResetTextWindowManager_0205d048((struct TextWindowManager_0205d048*)(var0 + R(0x1bc,0x1f8)));
+    ResetTextWindowManager_0205d048((struct TextWindowManager_0205d048*)(var0 + R(0x278,0x2b4)));
     *(int*)(var0 + R(0xd8,0xf8)) = 0;
     *(int*)(var0 + R(0x794,0x7d0)) = 0;
     *(int*)(var0 + R(0x798,0x7d4)) = 0;

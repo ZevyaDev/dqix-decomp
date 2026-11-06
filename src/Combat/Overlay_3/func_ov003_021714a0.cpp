@@ -7,7 +7,7 @@ public:
 typedef void (Struct_ov003_0216c00c::*Type_01ff91ac_2)();
 
 extern Type_01ff91ac_2 data_ov003_0218070c[12];
-extern Type_01ff91ac_2 data_020e6d5c;
+extern Type_01ff91ac_2 gNullMemberFunctionPointer_020e6d5c;
 extern int data_ov003_02180cc4;
 
 extern "C" void* GetLocalWireless_0202ae18(void);
@@ -29,7 +29,7 @@ extern "C" ARM int func_ov003_021714a0(Struct_ov003_0216c00c* arg0) {
     }
 
     if (!(data_ov003_02180cc4 & 1)) {
-        data_ov003_0218070c[11] = data_020e6d5c;
+        data_ov003_0218070c[11] = gNullMemberFunctionPointer_020e6d5c;
         data_ov003_02180cc4 |= 1;
     }
 

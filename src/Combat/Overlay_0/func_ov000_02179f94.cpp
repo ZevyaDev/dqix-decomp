@@ -25,7 +25,7 @@ struct TextWindowManager_0205d81c {
     short unknown_aa_;
     short unknown_ac_;
     short unknown_ae_;
-    char unknown_b0_;
+    char cursorWindowId_b0_;
     unsigned char unknown_b1_;
     char unknown_b2_;
     unsigned char textWindowCapacity_b3_;

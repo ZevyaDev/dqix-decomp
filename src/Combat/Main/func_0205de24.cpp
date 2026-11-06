@@ -20,17 +20,17 @@ struct TextWindowManager_0205de24_2 {
 };
 
 // USA: SetNextTextWindowBGLayer_0205de24
-extern "C" ARM void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex) {
+extern "C" ARM void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex) {
     if (windowManager->pBGLayers_98_ == 0 || windowManager->pTextWindows_9c_ == 0) return;
     struct TextWindow_0205de24* nextWindow = (struct TextWindow_0205de24*)(windowManager->pTextWindows_9c_ + windowManager->textWindowCount_b4_ * 0xE0);
     if (nextWindow == 0) return;
     unsigned char* layer;
     unsigned char i = 0;
-    unsigned char var3, layerBGIndex;
+    unsigned char layerIsSubScreen, layerBGIndex;
     while (i < windowManager->bgLayerCount_b2_) {
         layer = windowManager->pBGLayers_98_ + i * 0x20;
-        func_0205d594((struct Struct_0205d304_2*)layer, &var3, &layerBGIndex);
-        if (var3 == arg1 && layerBGIndex == bgIndex) {
+        func_0205d594((struct Struct_0205d304_2*)layer, &layerIsSubScreen, &layerBGIndex);
+        if (layerIsSubScreen == isSubScreen && layerBGIndex == bgIndex) {
             nextWindow->pBGLayer_4_ = layer;
             return;
         }

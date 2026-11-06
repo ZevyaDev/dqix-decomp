@@ -6,7 +6,6 @@
 #include <asmhacks.h>
 
 #if defined(jpn)
-#define func_020ca3b8 func_020cbe84
 #define func_020ca408 func_020cbed4
 
 #define data_020ed658 data_020ed764
@@ -65,55 +64,55 @@ extern const unsigned short data_020ed668[48];
 extern "C"
 {
     // inverted memcpy via u16s
-    void func_020ca3b8(const void* src, void* dst, unsigned len);
+    void Memcpy16Bit_020ca3b8(const void* src, void* dst, unsigned len);
     // inverted memcpy via u32s
     void func_020ca408(const void* src, void* dst, unsigned len);
 }
 
 void LoadToMainBGStandardPalette(const void* data, unsigned int offset, unsigned int length)
 {
-    if (data_020f2270 != -1 && length > 28)
-        DMAMemcpySynchronous16Bit(data_020f2270, (unsigned int)data, 0x05000000 + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 28)
+        DMAMemcpySynchronous16Bit(gGraphicsDMAChannel_020f2270, (unsigned int)data, 0x05000000 + offset, length);
     else
-        func_020ca3b8(data, (void*)(0x05000000 + offset), length);
+        Memcpy16Bit_020ca3b8(data, (void*)(0x05000000 + offset), length);
 }
 
 void LoadToSubBGStandardPalette(const void* data, unsigned int offset, unsigned int length)
 {
-    if (data_020f2270 != -1 && length > 28)
-        DMAMemcpySynchronous16Bit(data_020f2270, (unsigned int)data, 0x05000400 + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 28)
+        DMAMemcpySynchronous16Bit(gGraphicsDMAChannel_020f2270, (unsigned int)data, 0x05000400 + offset, length);
     else
-        func_020ca3b8(data, (void*)(0x05000400 + offset), length);
+        Memcpy16Bit_020ca3b8(data, (void*)(0x05000400 + offset), length);
 }
 
 void LoadToMainObjStandardPalette(const void* data, unsigned int offset, unsigned int length)
 {
-    if (data_020f2270 != -1 && length > 28)
-        DMAMemcpySynchronous16Bit(data_020f2270, (unsigned int)data, 0x05000200 + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 28)
+        DMAMemcpySynchronous16Bit(gGraphicsDMAChannel_020f2270, (unsigned int)data, 0x05000200 + offset, length);
     else
-        func_020ca3b8(data, (void*)(0x05000200 + offset), length);
+        Memcpy16Bit_020ca3b8(data, (void*)(0x05000200 + offset), length);
 }
 
 void LoadToSubObjStandardPalette(const void* data, unsigned int offset, unsigned int length)
 {
-    if (data_020f2270 != -1 && length > 28)
-        DMAMemcpySynchronous16Bit(data_020f2270, (unsigned int)data, 0x05000600 + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 28)
+        DMAMemcpySynchronous16Bit(gGraphicsDMAChannel_020f2270, (unsigned int)data, 0x05000600 + offset, length);
     else
-        func_020ca3b8(data, (void*)(0x05000600 + offset), length);
+        Memcpy16Bit_020ca3b8(data, (void*)(0x05000600 + offset), length);
 }
 
 void LoadToMainOAM(const void* data, unsigned int offset, unsigned int length)
 {
-    if (data_020f2270 != -1 && length > 48)
-        DMAMemcpySynchronous(data_020f2270, (unsigned int)data, 0x07000000 + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 48)
+        DMAMemcpySynchronous(gGraphicsDMAChannel_020f2270, (unsigned int)data, 0x07000000 + offset, length);
     else
         func_020ca408(data, (void*)(0x07000000 + offset), length);
 }
 
 void LoadToSubOAM(const void* data, unsigned int offset, unsigned int length)
 {
-    if (data_020f2270 != -1 && length > 48)
-        DMAMemcpySynchronous(data_020f2270, (unsigned int)data, 0x07000400 + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 48)
+        DMAMemcpySynchronous(gGraphicsDMAChannel_020f2270, (unsigned int)data, 0x07000400 + offset, length);
     else
         func_020ca408(data, (void*)(0x07000400 + offset), length);
 }
@@ -122,10 +121,10 @@ void LoadToSubOAM(const void* data, unsigned int offset, unsigned int length)
 void LoadToMainObjVRAM(const void* data, unsigned int offset, unsigned int length)
 {
     int writeAddr = 0x06400000;
-    if (data_020f2270 != -1 && length > 48)
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 48)
     {
         writeAddr += offset;
-        DMAMemcpySynchronous(data_020f2270, (unsigned int)data, writeAddr, length);
+        DMAMemcpySynchronous(gGraphicsDMAChannel_020f2270, (unsigned int)data, writeAddr, length);
     }
     else
     {
@@ -138,10 +137,10 @@ void LoadToMainObjVRAM(const void* data, unsigned int offset, unsigned int lengt
 void LoadToSubObjVRAM(const void* data, unsigned int offset, unsigned int length)
 {
     int writeAddr = 0x06600000;
-    if (data_020f2270 != -1 && length > 48)
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 48)
     {
         writeAddr += offset;
-        DMAMemcpySynchronous(data_020f2270, (unsigned int)data, writeAddr, length);
+        DMAMemcpySynchronous(gGraphicsDMAChannel_020f2270, (unsigned int)data, writeAddr, length);
     }
     else
     {
@@ -153,80 +152,80 @@ void LoadToSubObjVRAM(const void* data, unsigned int offset, unsigned int length
 void LoadToMainBG0ScreenData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetMainBG0ScreenBase();
-    if (data_020f2270 != -1 && length > 28)
-        DMAMemcpySynchronous16Bit(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 28)
+        DMAMemcpySynchronous16Bit(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
-        func_020ca3b8(data, (void*)(base + offset), length);
+        Memcpy16Bit_020ca3b8(data, (void*)(base + offset), length);
 }
 
 void LoadToSubBG0ScreenData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetSubBG0ScreenBase();
-    if (data_020f2270 != -1 && length > 28)
-        DMAMemcpySynchronous16Bit(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 28)
+        DMAMemcpySynchronous16Bit(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
-        func_020ca3b8(data, (void*)(base + offset), length);
+        Memcpy16Bit_020ca3b8(data, (void*)(base + offset), length);
 }
 
 void LoadToMainBG1ScreenData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetMainBG1ScreenBase();
-    if (data_020f2270 != -1 && length > 28)
-        DMAMemcpySynchronous16Bit(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 28)
+        DMAMemcpySynchronous16Bit(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
-        func_020ca3b8(data, (void*)(base + offset), length);
+        Memcpy16Bit_020ca3b8(data, (void*)(base + offset), length);
 }
 
 void LoadToSubBG1ScreenData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetSubBG1ScreenBase();
-    if (data_020f2270 != -1 && length > 28)
-        DMAMemcpySynchronous16Bit(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 28)
+        DMAMemcpySynchronous16Bit(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
-        func_020ca3b8(data, (void*)(base + offset), length);
+        Memcpy16Bit_020ca3b8(data, (void*)(base + offset), length);
 }
 
 void LoadToMainBG2ScreenData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetMainBG2ScreenBase();
-    if (data_020f2270 != -1 && length > 28)
-        DMAMemcpySynchronous16Bit(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 28)
+        DMAMemcpySynchronous16Bit(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
-        func_020ca3b8(data, (void*)(base + offset), length);
+        Memcpy16Bit_020ca3b8(data, (void*)(base + offset), length);
 }
 
 void LoadToSubBG2ScreenData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetSubBG2ScreenBase();
-    if (data_020f2270 != -1 && length > 28)
-        DMAMemcpySynchronous16Bit(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 28)
+        DMAMemcpySynchronous16Bit(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
-        func_020ca3b8(data, (void*)(base + offset), length);
+        Memcpy16Bit_020ca3b8(data, (void*)(base + offset), length);
 }
 
 void LoadToMainBG3ScreenData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetMainBG3ScreenBase();
-    if (data_020f2270 != -1 && length > 28)
-        DMAMemcpySynchronous16Bit(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 28)
+        DMAMemcpySynchronous16Bit(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
-        func_020ca3b8(data, (void*)(base + offset), length);
+        Memcpy16Bit_020ca3b8(data, (void*)(base + offset), length);
 }
 
 void LoadToSubBG3ScreenData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetSubBG3ScreenBase();
-    if (data_020f2270 != -1 && length > 28)
-        DMAMemcpySynchronous16Bit(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 28)
+        DMAMemcpySynchronous16Bit(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
-        func_020ca3b8(data, (void*)(base + offset), length);
+        Memcpy16Bit_020ca3b8(data, (void*)(base + offset), length);
 }
 
 void LoadToMainBG0CharacterData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetMainBG0CharacterBase();
-    if (data_020f2270 != -1 && length > 48)
-        DMAMemcpySynchronous(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 48)
+        DMAMemcpySynchronous(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
         func_020ca408(data, (void*)(base + offset), length);
 }
@@ -234,8 +233,8 @@ void LoadToMainBG0CharacterData(const void* data, unsigned int offset, unsigned 
 void LoadToSubBG0CharacterData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetSubBG0CharacterBase();
-    if (data_020f2270 != -1 && length > 48)
-        DMAMemcpySynchronous(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 48)
+        DMAMemcpySynchronous(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
         func_020ca408(data, (void*)(base + offset), length);
 }
@@ -243,8 +242,8 @@ void LoadToSubBG0CharacterData(const void* data, unsigned int offset, unsigned i
 void LoadToMainBG1CharacterData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetMainBG1CharacterBase();
-    if (data_020f2270 != -1 && length > 48)
-        DMAMemcpySynchronous(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 48)
+        DMAMemcpySynchronous(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
         func_020ca408(data, (void*)(base + offset), length);
 }
@@ -252,8 +251,8 @@ void LoadToMainBG1CharacterData(const void* data, unsigned int offset, unsigned 
 void LoadToSubBG1CharacterData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetSubBG1CharacterBase();
-    if (data_020f2270 != -1 && length > 48)
-        DMAMemcpySynchronous(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 48)
+        DMAMemcpySynchronous(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
         func_020ca408(data, (void*)(base + offset), length);
 }
@@ -261,8 +260,8 @@ void LoadToSubBG1CharacterData(const void* data, unsigned int offset, unsigned i
 void LoadToMainBG2CharacterData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetMainBG2CharacterBase();
-    if (data_020f2270 != -1 && length > 48)
-        DMAMemcpySynchronous(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 48)
+        DMAMemcpySynchronous(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
         func_020ca408(data, (void*)(base + offset), length);
 }
@@ -270,8 +269,8 @@ void LoadToMainBG2CharacterData(const void* data, unsigned int offset, unsigned 
 void LoadToSubBG2CharacterData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetSubBG2CharacterBase();
-    if (data_020f2270 != -1 && length > 48)
-        DMAMemcpySynchronous(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 48)
+        DMAMemcpySynchronous(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
         func_020ca408(data, (void*)(base + offset), length);
 }
@@ -279,8 +278,8 @@ void LoadToSubBG2CharacterData(const void* data, unsigned int offset, unsigned i
 void LoadToMainBG3CharacterData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetMainBG3CharacterBase();
-    if (data_020f2270 != -1 && length > 48)
-        DMAMemcpySynchronous(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 48)
+        DMAMemcpySynchronous(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
         func_020ca408(data, (void*)(base + offset), length);
 }
@@ -288,8 +287,8 @@ void LoadToMainBG3CharacterData(const void* data, unsigned int offset, unsigned 
 void LoadToSubBG3CharacterData(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int base = GetSubBG3CharacterBase();
-    if (data_020f2270 != -1 && length > 48)
-        DMAMemcpySynchronous(data_020f2270, (unsigned int)data, base + offset, length);
+    if (gGraphicsDMAChannel_020f2270 != -1 && length > 48)
+        DMAMemcpySynchronous(gGraphicsDMAChannel_020f2270, (unsigned int)data, base + offset, length);
     else
         func_020ca408(data, (void*)(base + offset), length);
 }
@@ -320,16 +319,16 @@ void MemoryMapMainBGExtendedPalette()
 void LoadToMainBGExtendedPalette(const void* data, unsigned int offset, unsigned int length)
 {
     unsigned int dest = data_02111240.mainBGExtPaletteMapAddress_250_ + offset - data_02111240.mainBGExtPaletteInitialOffset_24c_;
-    if (data_020f2270 != -1)
-        DMAMemcpyAsync(data_020f2270, (unsigned int)data, dest, length, NULL, 0);
+    if (gGraphicsDMAChannel_020f2270 != -1)
+        DMAMemcpyAsync(gGraphicsDMAChannel_020f2270, (unsigned int)data, dest, length, NULL, 0);
     else
         func_020ca408(data, (void*)dest, length);
 }
 
 void MemoryUnmapMainBGExtendedPalette()
 {
-    if (data_020f2270 != -1)
-        AwaitDMACompletion(data_020f2270);
+    if (gGraphicsDMAChannel_020f2270 != -1)
+        AwaitDMACompletion(gGraphicsDMAChannel_020f2270);
 
     MapVRAMBanksToMainBGExtendedPalette(data_02111240.mainBGExtPaletteBanks_254_);
     data_02111240.mainBGExtPaletteBanks_254_ = 0;
@@ -355,7 +354,7 @@ void MemoryMapMainObjExtendedPalette()
 
 void LoadToMainObjExtendedPalette(const void* data, unsigned int offset, unsigned int length)
 {
-    int dmaChannel = data_020f2270;
+    int dmaChannel = gGraphicsDMAChannel_020f2270;
     unsigned int dest = data_02111240.mainObjExtPaletteMapAddress_244_ + offset;
     if (dmaChannel != -1)
         DMAMemcpyAsync(dmaChannel, (unsigned int)data, dest, length, NULL, 0);
@@ -365,8 +364,8 @@ void LoadToMainObjExtendedPalette(const void* data, unsigned int offset, unsigne
 
 void MemoryUnmapMainObjExtendedPalette()
 {
-    if (data_020f2270 != -1)
-        AwaitDMACompletion(data_020f2270);
+    if (gGraphicsDMAChannel_020f2270 != -1)
+        AwaitDMACompletion(gGraphicsDMAChannel_020f2270);
 
     MapVRAMBanksToMainObjExtendedPalette(data_02111240.mainObjExtPaletteBanks_248_);
     data_02111240.mainObjExtPaletteBanks_248_ = 0;
@@ -380,16 +379,16 @@ void MemoryMapSubBGExtendedPalette()
 
 void LoadToSubBGExtendedPalette(const void* data, unsigned int offset, unsigned int length)
 {
-    if (data_020f2270 != -1)
-        DMAMemcpyAsync(data_020f2270, (unsigned int)data, 0x06898000 + offset, length, NULL, 0);
+    if (gGraphicsDMAChannel_020f2270 != -1)
+        DMAMemcpyAsync(gGraphicsDMAChannel_020f2270, (unsigned int)data, 0x06898000 + offset, length, NULL, 0);
     else
         func_020ca408(data, (void*)(0x06898000 + offset), length);
 }
 
 void MemoryUnmapSubBGExtendedPalette()
 {
-    if (data_020f2270 != -1)
-        AwaitDMACompletion(data_020f2270);
+    if (gGraphicsDMAChannel_020f2270 != -1)
+        AwaitDMACompletion(gGraphicsDMAChannel_020f2270);
     
     MapVRAMBanksToSubBGExtendedPalette(data_02111240.subBGExtPaletteBanks_240_);
     data_02111240.subBGExtPaletteBanks_240_ = 0;
@@ -402,16 +401,16 @@ void MemoryMapSubObjExtendedPalette()
 
 void LoadToSubObjExtendedPalette(const void* data, unsigned int offset, unsigned int length)
 {
-    if (data_020f2270 != -1)
-        DMAMemcpyAsync(data_020f2270, (unsigned int)data, 0x068a0000 + offset, length, NULL, 0);
+    if (gGraphicsDMAChannel_020f2270 != -1)
+        DMAMemcpyAsync(gGraphicsDMAChannel_020f2270, (unsigned int)data, 0x068a0000 + offset, length, NULL, 0);
     else
         func_020ca408(data, (void*)(0x068a0000 + offset), length);
 }
 
 void MemoryUnmapSubObjExtendedPalette()
 {
-    if (data_020f2270 != -1)
-        AwaitDMACompletion(data_020f2270);
+    if (gGraphicsDMAChannel_020f2270 != -1)
+        AwaitDMACompletion(gGraphicsDMAChannel_020f2270);
 
     MapVRAMBanksToSubObjExtendedPalette(data_02111240.subObjExtPaletteBanks_258_);
     data_02111240.subObjExtPaletteBanks_258_ = 0;
@@ -455,28 +454,28 @@ void LoadToTextureImage(const void* data, unsigned int offset, unsigned int leng
         firstBlockWriteAddr = data_0211125c.textureImageFirstMapAddress_260_ + offset;
         unsigned int firstWriteSize = data_0211125c.textureImageFirstMapRegionSize_278_ - offset;
         
-        if (data_020f2270 != -1 && firstWriteSize > 48)
-            DMAMemcpySynchronous(data_020f2270, (unsigned int)data, firstBlockWriteAddr, firstWriteSize);
+        if (gGraphicsDMAChannel_020f2270 != -1 && firstWriteSize > 48)
+            DMAMemcpySynchronous(gGraphicsDMAChannel_020f2270, (unsigned int)data, firstBlockWriteAddr, firstWriteSize);
         else
             func_020ca408(data, (void*)firstBlockWriteAddr, firstWriteSize);
 
-        if (data_020f2270 != -1)
-            DMAMemcpyAsync(data_020f2270, (unsigned int)data + firstWriteSize, secondBlockStart, length - firstWriteSize, NULL, 0);
+        if (gGraphicsDMAChannel_020f2270 != -1)
+            DMAMemcpyAsync(gGraphicsDMAChannel_020f2270, (unsigned int)data + firstWriteSize, secondBlockStart, length - firstWriteSize, NULL, 0);
         else
             func_020ca408((const void*)((unsigned int)data + firstWriteSize), (void*)secondBlockStart, length - firstWriteSize);
         return;
     }
 
-    if (data_020f2270 != -1)
-        DMAMemcpyAsync(data_020f2270, (unsigned int)data, firstBlockWriteAddr, length, NULL, 0);
+    if (gGraphicsDMAChannel_020f2270 != -1)
+        DMAMemcpyAsync(gGraphicsDMAChannel_020f2270, (unsigned int)data, firstBlockWriteAddr, length, NULL, 0);
     else
         func_020ca408(data, (void*)firstBlockWriteAddr, length);
 }
 
 void MemoryUnmapTextureImage()
 {
-    if (data_020f2270 != -1)
-        AwaitDMACompletion(data_020f2270);
+    if (gGraphicsDMAChannel_020f2270 != -1)
+        AwaitDMACompletion(gGraphicsDMAChannel_020f2270);
     MapVRAMBanksToTextureImage(data_0211125c.textureImageBanks_270_);
     data_0211125c.textureImageFirstMapRegionSize_278_ = 0;
     data_0211125c.textureImageSecondMapAddress_274_ = 0;
@@ -493,7 +492,7 @@ void MemoryMapTexturePalette()
 
 void LoadToTexturePalette(const void* data, unsigned int offset, unsigned int length)
 {
-    int dmaChannel = data_020f2270;
+    int dmaChannel = gGraphicsDMAChannel_020f2270;
     unsigned int writeAddr = data_0211125c.texturePaletteMapAddress_264_ + offset;
     if (dmaChannel != -1)
         DMAMemcpyAsync(dmaChannel, (unsigned int)data, writeAddr, length, NULL, 0);
@@ -503,8 +502,8 @@ void LoadToTexturePalette(const void* data, unsigned int offset, unsigned int le
 
 void MemoryUnmapTexturePalette()
 {
-    if (data_020f2270 != -1)
-        AwaitDMACompletion(data_020f2270);
+    if (gGraphicsDMAChannel_020f2270 != -1)
+        AwaitDMACompletion(gGraphicsDMAChannel_020f2270);
     MapVRAMBanksToTexturePalette(data_0211125c.texturePaletteBanks_268_);
     data_0211125c.texturePaletteBanks_268_ = 0;
     data_0211125c.texturePaletteMapAddress_264_ = 0;
@@ -535,7 +534,7 @@ void MemoryMapClearTexture()
 
 void LoadClearImage(const void* data, unsigned int length)
 {
-    int dmaChannel = data_020f2270;
+    int dmaChannel = gGraphicsDMAChannel_020f2270;
     unsigned int writeAddr = data_0211125c.clearTextureMapAddress_26c_;
     if (dmaChannel != -1)
         DMAMemcpyAsync(dmaChannel, (unsigned int)data, writeAddr, length, NULL, 0);
@@ -546,16 +545,16 @@ void LoadClearImage(const void* data, unsigned int length)
 void LoadClearDepthBuffer(const void* data, unsigned int length)
 {
     unsigned int writeAddr = data_0211125c.clearTextureMapAddress_26c_ + 0x20000;
-    if (data_020f2270 != -1)
-        DMAMemcpyAsync(data_020f2270, (unsigned int)data, writeAddr, length, NULL, 0);
+    if (gGraphicsDMAChannel_020f2270 != -1)
+        DMAMemcpyAsync(gGraphicsDMAChannel_020f2270, (unsigned int)data, writeAddr, length, NULL, 0);
     else
         func_020ca408(data, (void*)writeAddr, length);
 }
 
 void MemoryUnmapClearTexture()
 {
-    if (data_020f2270 != -1)
-        AwaitDMACompletion(data_020f2270);
+    if (gGraphicsDMAChannel_020f2270 != -1)
+        AwaitDMACompletion(gGraphicsDMAChannel_020f2270);
 
     MapVRAMBanksToClearTextures(data_0211125c.clearTextureBanks_25c_);
     data_0211125c.clearTextureBanks_25c_ = 0;

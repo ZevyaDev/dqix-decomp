@@ -4,7 +4,7 @@
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
+extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 extern "C" void func_0206f81c(void* arg0);
 extern "C" void func_ov017_021b57fc(void* arg0);
 struct Queue_0201bdac_2;
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov017_02199138(char* arg0) {
     struct Struct_ov017_02199138 var4;
     var4.unknown_c_ = *var2;
     var4.unknown_24_ = *(unsigned short*)(*(void**)(arg0 + 0x3000 + Enum_ov017_02199138_1724));
-    if (func_020649b0(var3, 0x17, &var4)) {
+    if (RunTrigger_020649b0(var3, 0x17, &var4)) {
         func_0206f81c(&var4);
         return;
     }

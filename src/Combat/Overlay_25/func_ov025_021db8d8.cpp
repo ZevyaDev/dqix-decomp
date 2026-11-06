@@ -4,7 +4,7 @@
 
 struct Struct_ov000_02169b04;
 struct Struct_ov000_02169b54;
-struct Struct_ov000_0215440c_2;
+struct BattleAction_ov000_0215440c_2;
 struct Struct_ov000_02163a7c;
 
 struct Struct_ov000_02169b04_2 {
@@ -88,7 +88,7 @@ extern "C" void func_020493dc(unsigned char*, unsigned char);
 extern "C" void func_02049390(unsigned char*, unsigned char);
 extern "C" struct Struct_ov000_02169b04_2* func_ov000_02169b04(struct Struct_ov000_02169b04*, int);
 extern "C" struct Struct_ov000_02169b04_2* func_ov000_02169b54(struct Struct_ov000_02169b54*, int);
-extern "C" struct Struct_ov025_021db8d8* func_ov000_02160094(struct Struct_ov000_0215440c_2*, int);
+extern "C" struct Struct_ov025_021db8d8* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2*, int);
 extern "C" void func_ov000_02167dd8(unsigned char*);
 extern "C" void func_ov000_02163a7c(struct Struct_ov000_02163a7c*);
 extern "C" int func_ov025_021dfa9c(void* arg0, void* arg1);
@@ -173,7 +173,7 @@ extern "C" ARM void func_ov025_021db8d8(struct Struct_ov025_021db8d8_6* arg0) {
         if (var22 && func_020493ec((unsigned char*)var22) != 0xff) {
             void* var23 = func_ov000_02160f60(arg0);
             if (var23) {
-                struct Struct_ov025_021db8d8* var24 = func_ov000_02160094((struct Struct_ov000_0215440c_2*)var23, 0);
+                struct Struct_ov025_021db8d8* var24 = GetActionActor_ov000_02160094((struct BattleAction_ov000_0215440c_2*)var23, 0);
                 if (var24 && var24->unknown_20_ == var17) {
                     var7 = 1;
                 }

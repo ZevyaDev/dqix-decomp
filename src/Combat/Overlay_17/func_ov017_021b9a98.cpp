@@ -6,7 +6,7 @@ struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void func_0202c288(void* arg0);
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
+extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 extern "C" void func_0206f81c(void* arg0);
 struct Struct_02061c04_11;
 extern "C" void func_ov017_021b994c(struct Struct_02061c04_11* arg0);
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov017_021b9a98(Struct_02061c04_11* arg0, int arg1, unsi
             *(short*)((char*)arg0 + 0x134) = (short)arg0->unknown_12c_;
             void* var3 = GetFlagManager_0205ec34();
             Struct_ov017_021b9a98 var4;
-            if (func_020649b0(var3, 0x1a, &var4)) {
+            if (RunTrigger_020649b0(var3, 0x1a, &var4)) {
                 func_0206f81c(&var4);
             }
             func_ov017_021b994c(arg0);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov017_021b9a98(Struct_02061c04_11* arg0, int arg1, unsi
             *(short*)((char*)arg0 + 0x134) = (short)arg0->unknown_12c_;
             void* var6 = GetFlagManager_0205ec34();
             Struct_ov017_021b9a98 var7;
-            if (func_020649b0(var6, 0x1a, &var7)) {
+            if (RunTrigger_020649b0(var6, 0x1a, &var7)) {
                 func_0206f81c(&var7);
             }
             func_ov017_021b994c(arg0);

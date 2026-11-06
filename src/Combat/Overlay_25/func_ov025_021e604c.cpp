@@ -12,7 +12,7 @@ extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02049f28(unsigned char* arg0);
 extern "C" int GetResources_0200fb8c(int* gameState);
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" void func_02049b54(struct Struct_ov009_0218aa28* arg0, struct Struct_02049b54_2* arg1);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 extern "C" void func_02049bac(unsigned char* arg0, int* arg1);
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov025_021e604c(void* arg0, int arg1, int arg2, void* arg
     var6 = var17->unknown_240_;
     var9 = var6.unknown_0_[2];
     for (var8 = 0; var8 < var10; var8++) {
-        GameObject* var18 = func_0200fea4(var11, var7[var8]);
+        GameObject* var18 = GetEnemyByIndex_0200fea4(var11, var7[var8]);
         if (var18 != NULL) {
             __clear(&var5, 0xc);
             var5.z = var9;

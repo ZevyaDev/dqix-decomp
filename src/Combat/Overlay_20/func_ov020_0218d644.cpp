@@ -1,11 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_020c39a0 func_020c546c
-#endif
 
-extern "C" void func_020c39a0(short* arg0, int arg1);
+extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 
 struct Struct_ov020_0218d644 {
 #if defined(jpn)
@@ -33,7 +30,7 @@ extern "C" ARM void func_ov020_0218d644(struct Struct_ov020_0218d644* arg0) {
             arg0->unknown_4e8_ = (float)arg0->unknown_4ec_;
             arg0->unknown_4f0_ = 0;
         }
-        func_020c39a0((short*)0x400006c, (int)arg0->unknown_4e8_);
+        WriteBrightnessRegister_020c39a0((short*)0x400006c, (int)arg0->unknown_4e8_);
     }
     int var2 = arg0->unknown_4fc_ > 0;
     if (!var2) return;
@@ -43,5 +40,5 @@ extern "C" ARM void func_ov020_0218d644(struct Struct_ov020_0218d644* arg0) {
         arg0->unknown_4f4_ = (float)arg0->unknown_4f8_;
         arg0->unknown_4fc_ = 0;
     }
-    func_020c39a0((short*)0x400106c, (int)arg0->unknown_4f4_);
+    WriteBrightnessRegister_020c39a0((short*)0x400106c, (int)arg0->unknown_4f4_);
 }

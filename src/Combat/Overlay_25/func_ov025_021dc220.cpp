@@ -9,8 +9,8 @@ enum { Enum_ov025_021dc220_3704 = 0xe78 };
 
 extern "C" void* func_ov000_02160f20(void* arg0);
 extern "C" int func_ov000_021627fc(void* arg0);
-struct Struct_ov000_0215440c;
-extern "C" void* func_ov000_021600f8(struct Struct_ov000_0215440c* arg0, int arg1);
+struct BattleAction_ov000_0215440c;
+extern "C" void* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
 extern "C" void func_02049ae4(unsigned char* arg0);
 extern "C" int func_02048c10(unsigned char* arg0);
 extern "C" void func_0204a030(unsigned char*, int);
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov025_021dc220(void* arg0) {
         *(int*)(data_ov025_021ef404 + 4) = 1;
         var0->unknown_eac_ = 6;
         {
-            void* var4 = func_ov000_021600f8((struct Struct_ov000_0215440c*)var2, 0);
+            void* var4 = GetActionTarget_ov000_021600f8((struct BattleAction_ov000_0215440c*)var2, 0);
             if (var4 != NULL) {
                 var3 = *(short*)((char*)var4 + 0xe);
             }

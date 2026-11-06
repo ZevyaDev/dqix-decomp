@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca3b8 func_020cbe84
-#endif
 
 typedef void (*Type_020d42e0)(void* arg);
 
@@ -35,7 +32,7 @@ struct Struct_020d5fd0;
 struct Struct_020d5fd0_2;
 
 extern "C" int func_020d424c(int arg0, ...);
-extern "C" void func_020ca3b8(const void* src, void* dst, unsigned long size);
+extern "C" void Memcpy16Bit_020ca3b8(const void* src, void* dst, unsigned long size);
 extern "C" int func_020d59bc(Type_020d42e0 arg0, void* arg1, const unsigned short* arg2,
                              unsigned short arg3, unsigned short arg4, unsigned short arg5,
                              unsigned short arg6);
@@ -96,7 +93,7 @@ extern "C" ARM int func_020d5fd0(Struct_020d5d34* arg0, const unsigned short* ar
         if (arg0->unknown_80c_ != arg0->unknown_80a_)
         {
             arg0->unknown_0_[arg0->unknown_80c_].unknown_0_ |= 1;
-            func_020ca3b8(&arg0->unknown_0_[arg0->unknown_80c_], arg2, sizeof(Struct_020d5d34_2));
+            Memcpy16Bit_020ca3b8(&arg0->unknown_0_[arg0->unknown_80c_], arg2, sizeof(Struct_020d5d34_2));
             arg0->unknown_81a_ = arg0->unknown_800_[arg0->unknown_80c_];
             arg0->unknown_80c_ = (arg0->unknown_80c_ + 1) & 3;
             var4 = true;
@@ -130,7 +127,7 @@ extern "C" ARM int func_020d5fd0(Struct_020d5d34* arg0, const unsigned short* ar
             }
             else
             {
-                func_020ca3b8(&arg0->unknown_0_[arg0->unknown_80c_], arg2, sizeof(Struct_020d5d34_2));
+                Memcpy16Bit_020ca3b8(&arg0->unknown_0_[arg0->unknown_80c_], arg2, sizeof(Struct_020d5d34_2));
                 arg0->unknown_81a_ = arg0->unknown_800_[arg0->unknown_80c_];
                 arg0->unknown_80c_ = (arg0->unknown_80c_ + 1) & 3;
                 var8 = true;
@@ -141,7 +138,7 @@ extern "C" ARM int func_020d5fd0(Struct_020d5d34* arg0, const unsigned short* ar
         {
             unsigned short* const var9 = (unsigned short*)((unsigned char*)&arg0->unknown_0_[arg0->unknown_80a_] + 32);
             int var10;
-            func_020ca3b8(arg1, var9, arg0->unknown_810_);
+            Memcpy16Bit_020ca3b8(arg1, var9, arg0->unknown_810_);
             var10 = func_020d59bc(func_020d6318, arg0, var9, arg0->unknown_810_, arg0->unknown_80e_, arg0->unknown_816_, 1);
             arg0->unknown_80a_ = (arg0->unknown_80a_ + 1) & 3;
             if (var10 != 2 && var10 != 0)

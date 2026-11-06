@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void func_020488ec(char* arg0);
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 
 // USA: func_ov000_02161274
 extern "C" ARM void func_ov000_02161274(GameObject* arg0) {
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov000_02161274(GameObject* arg0) {
     GameState* var2 = GameState::GetInstance();
     int var3 = 0;
     while (var3 < 8) {
-        GameObject* var4 = func_0200fea4(var2, var3 + 0xc0);
+        GameObject* var4 = GetEnemyByIndex_0200fea4(var2, var3 + 0xc0);
         if (var4 != NULL && var4 != arg0) {
             void* var5 = *(void**)((char*)var4 + 0x144);
             if (var5 != NULL) {

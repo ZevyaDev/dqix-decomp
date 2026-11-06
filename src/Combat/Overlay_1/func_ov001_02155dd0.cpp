@@ -49,7 +49,7 @@ extern "C" void* GetFlagManager_0205ec34();
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 struct Struct_02010604;
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
-extern "C" void func_0200fd48(GameState* arg0, int arg1);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 
 extern char data_ov001_02164c4a[];
@@ -101,7 +101,7 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
         var3 = var11->GetGameObjectByIndex(var9 + 0xa0);
         if (var3 != 0) {
             var3->obj3D_.Destroy();
-            func_0200fd48(var11, var9 + 0xa0);
+            ClearGameObjectByIndex_0200fd48(var11, var9 + 0xa0);
         }
     }
 

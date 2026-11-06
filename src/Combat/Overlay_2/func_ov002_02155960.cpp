@@ -83,24 +83,24 @@ extern "C" void func_ov002_0215b648(unsigned char*);
 extern "C" void func_ov002_02156bc8(Struct_ov002_02155960_7*);
 extern "C" void func_ov002_02156c7c(Struct_ov002_02155960_7*);
 extern "C" void func_ov002_021561b0(Struct_ov002_02155960_7*);
-extern "C" Struct_ov002_02155960_4* func_0205d8c4(Struct_ov002_02155960_2*);
-extern "C" int func_0204c7cc(unsigned char*);
+extern "C" Struct_ov002_02155960_4* GetCursorTextWindow_0205d8c4(Struct_ov002_02155960_2*);
+extern "C" int IsTextWindowReady_0204c7cc(unsigned char*);
 extern "C" void func_0205bc24(void*, int);
 extern "C" int func_020e28dc(Struct_0201079c*);
 extern "C" void func_020e263c(Struct_0201079c_2*, int);
-extern "C" int func_0205d0e0(Struct_ov002_02155960_2*, int);
+extern "C" int UpdateTextWindowManager_0205d0e0(Struct_ov002_02155960_2*, int);
 extern "C" int func_ov002_02161b48(char*, int);
 extern "C" void* GetFlagManager_0205ec34();
-extern "C" int func_020649b0(void*, int, void*);
+extern "C" int RunTrigger_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void*);
 extern "C" void func_ov023_021dca88(void*);
 extern "C" void func_ov002_0215aa14(char*);
-extern "C" int func_0201079c(char*);
+extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" void func_0205def8(Struct_ov002_02155960_3*, int, int);
 extern "C" void SetTextWindowPalette_0205deb4(Struct_ov002_02155960_2*, int, int);
 extern "C" void func_ov002_0215bba8(Struct_ov002_02155960_7*);
 extern unsigned int data_ov002_0216d3a8;
-extern Type_ov002_02155960 data_020e6d5c;
+extern Type_ov002_02155960 gNullMemberFunctionPointer_020e6d5c;
 extern Type_ov002_02155960 data_ov002_0216cd74[RG(44, 47)];
 
 static inline Struct_ov002_02155960_6* inline_ov002_02155960(Struct_ov002_02155960_7* arg0) { SDK_NULL_ASSERT(arg0); return &arg0->unknown_ec8_; }
@@ -125,13 +125,13 @@ extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) 
             func_ov002_02156c7c(arg0);
         }
         func_ov002_021561b0(arg0);
-        Struct_ov002_02155960_4* var1 = func_0205d8c4((Struct_ov002_02155960_2*)&arg0->unknown_ec8_);
-        if (var1 != 0 && func_0204c7cc((unsigned char*)var1) != 0 && (var1->unknown_c5_ & 2) == 0)
+        Struct_ov002_02155960_4* var1 = GetCursorTextWindow_0205d8c4((Struct_ov002_02155960_2*)&arg0->unknown_ec8_);
+        if (var1 != 0 && IsTextWindowReady_0204c7cc((unsigned char*)var1) != 0 && (var1->unknown_c5_ & 2) == 0)
             func_0205bc24(inline_ov002_02155960(arg0)->unknown_4_, -1);
         if (arg0->unknown_4_.unknown_0_ != 0 && func_020e28dc(arg0->unknown_4_.unknown_0_) != 0) {
             func_020e263c(arg0->unknown_4_.unknown1_0_, arg0->unknown_1ba0_);
         } else {
-            arg0->unknown_1bc8_ = func_0205d0e0((Struct_ov002_02155960_2*)&arg0->unknown_ec8_, arg0->unknown_1ba0_);
+            arg0->unknown_1bc8_ = UpdateTextWindowManager_0205d0e0((Struct_ov002_02155960_2*)&arg0->unknown_ec8_, arg0->unknown_1ba0_);
         }
     }
     if (arg0->unknown_2485_ != 0) {
@@ -142,7 +142,7 @@ extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) 
         }
         if (arg0->unknown_2487_ == 1) {
             Struct_ov002_02155960 var2;
-            if (func_020649b0(GetFlagManager_0205ec34(), 0x16, &var2) != 0)
+            if (RunTrigger_020649b0(GetFlagManager_0205ec34(), 0x16, &var2) != 0)
                 func_0206f81c(&var2);
             if (arg0->unknown_247c_ & 1)
                 func_ov023_021dca88(arg0->unknown_50_);
@@ -155,7 +155,7 @@ extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) 
     if (arg0->unknown_1bb8_ == RG(0x26, 0x29) && var0->unknown_998_ != 0 && var0->unknown_9a0_ == 5)
         return 0;
     if ((data_ov002_0216d3a8 & 1) == 0) {
-        Type_ov002_02155960 var3 = data_020e6d5c;
+        Type_ov002_02155960 var3 = gNullMemberFunctionPointer_020e6d5c;
 #if defined(jpn)
         data_ov002_0216cd74[6] = var3;
         data_ov002_0216cd74[9] = var3;
@@ -204,7 +204,7 @@ extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) 
             }
         }
     }
-    if (func_0201079c((char*)GameState::GetInstance()) == 1 || arg0->unknown_2485_ != 0) {
+    if (GetStoryChapter_0201079c((char*)GameState::GetInstance()) == 1 || arg0->unknown_2485_ != 0) {
         func_0205def8((Struct_ov002_02155960_3*)&arg0->unknown_ec8_, 0, RG(0x29, 0x2c));
     }
     SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)&arg0->unknown_ec8_, RG(0x29, 0x2c), 0);

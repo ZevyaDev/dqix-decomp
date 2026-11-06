@@ -16,7 +16,7 @@ extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindow
 struct TextWindowManager_0205d5d0;
 struct Struct_ov012_02185bf0;
 typedef void (Struct_ov012_02185bf0::*Type_ov012_02185bf0)(void* dest, int alt);
-extern Type_ov012_02185bf0 data_020e6d5c;
+extern Type_ov012_02185bf0 gNullMemberFunctionPointer_020e6d5c;
 
 struct Struct_ov012_0218b088 { Type_ov012_02185bf0 unknown_0_[16]; };
 extern struct Struct_ov012_0218b088 data_ov012_0218b088;
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov012_02185bf0(char* arg0, int arg1, int arg2) {
     memset(var2, 0, Enum_ov012_02185bf0_2400);
 
     struct Struct_ov012_0218b088 var3 = data_ov012_0218b088;
-    Type_ov012_02185bf0 var4 = data_020e6d5c;
+    Type_ov012_02185bf0 var4 = gNullMemberFunctionPointer_020e6d5c;
     var3.unknown_0_[0] = var4;
     var3.unknown_0_[15] = var4;
 

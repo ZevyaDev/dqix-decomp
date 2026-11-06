@@ -20,8 +20,8 @@ struct PacEntry_02020aec;
 struct BGLayer_0204b8d0;
 struct BGLayer_02020cb8_2;
 struct TextWindow_0204c7a8;
-struct Struct_0205cf78;
-struct Struct_0205cf78_2;
+struct TextWindowManager_0205cf78;
+struct TextWindow_0205cf78_2;
 struct Struct_02081870_2 {
     char unknown_0_[0x98];
     BGLayer_02020cb8* unknown_98_;
@@ -66,7 +66,7 @@ extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0*, unsigned int, 
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2*, void*);
 extern "C" void FillBGScreenRect_0204bc74(BGLayer_02020cb8*, int, int, int, int, int, int);
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8*, SafeAllocator*, int, unsigned int);
-extern "C" void func_0205cf78(Struct_0205cf78*, Struct_0205cf78_2*, unsigned char);
+extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78*, TextWindow_0205cf78_2*, unsigned char);
 
 // USA: func_ov008_02188a54
 extern "C" ARM int func_ov008_02188a54(Struct_ov008_021842a0_2* arg0, int arg1) {
@@ -102,7 +102,7 @@ extern "C" ARM int func_ov008_02188a54(Struct_ov008_021842a0_2* arg0, int arg1) 
             arg0->unknown_14_.Reset();
             InitBGLayer_0204af64(&arg0->unknown_f0_);
             SetBGScreenSize_0204b11c((unsigned char*)&arg0->unknown_f0_, 0);
-            arg0->unknown_f0_.unknown_1c_0_ = 1;
+            arg0->unknown_f0_.isSubScreen_1c_0_ = 1;
             arg0->unknown_f0_.bgIndex_1c_4_ = 0;
             SetBGPriority_0204b5b4(&arg0->unknown_f0_, 1);
             SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&arg0->unknown_f0_, 0, 0);
@@ -110,7 +110,7 @@ extern "C" ARM int func_ov008_02188a54(Struct_ov008_021842a0_2* arg0, int arg1) 
             AllocateBGScreenBlocks_0204af38((BGLayer_0204af38*)&arg0->unknown_f0_, 1, &arg0->unknown_14_);
             InitBGLayer_0204af64(&arg0->unknown_110_);
             SetBGScreenSize_0204b11c((unsigned char*)&arg0->unknown_110_, 0);
-            arg0->unknown_110_.unknown_1c_0_ = 1;
+            arg0->unknown_110_.isSubScreen_1c_0_ = 1;
             arg0->unknown_110_.bgIndex_1c_4_ = 1;
             SetBGPriority_0204b5b4(&arg0->unknown_110_, 0);
             SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&arg0->unknown_110_, 0, 0);
@@ -142,7 +142,7 @@ extern "C" ARM int func_ov008_02188a54(Struct_ov008_021842a0_2* arg0, int arg1) 
             }
             arg0->unknown_130_.unknown_98_ = &arg0->unknown_110_;
             arg0->unknown_130_.unknown_b2_ = 1;
-            func_0205cf78((Struct_0205cf78*)&arg0->unknown_130_, (Struct_0205cf78_2*)arg0->unknown_1ec_, 6);
+            SetTextWindowArray_0205cf78((TextWindowManager_0205cf78*)&arg0->unknown_130_, (TextWindow_0205cf78_2*)arg0->unknown_1ec_, 6);
             arg0->unknown_b12_ = 0;
             return 1;
         }

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-struct Struct_02020cb8_7 {
+struct BGScreenBlock_02020cb8_7 {
     short unknown_0_;    // 0x0
     short unknown_2_;    // 0x2
     char unknown_4_;     // 0x4
@@ -11,7 +11,7 @@ struct Struct_02020cb8_7 {
 };
 
 // USA: func_0204acb0
-extern "C" ARM void func_0204acb0(struct Struct_02020cb8_7* arg0) {
+extern "C" ARM void func_0204acb0(struct BGScreenBlock_02020cb8_7* arg0) {
     arg0->unknown_0_ = 0;
     arg0->unknown_2_ = 0;
     arg0->unknown_4_ = 0;

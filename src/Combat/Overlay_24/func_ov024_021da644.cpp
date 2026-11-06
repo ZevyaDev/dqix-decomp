@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-// USA: func_ov024_021da644
-extern "C" ARM unsigned short func_ov024_021da644(int arg0, int arg1, int arg2) {
-	int var0 = (arg0 >= 0 && arg0 <= 3);
-	return var0 ? (unsigned short)arg1 : (unsigned short)arg2;
+// USA: SelectPartyOrEnemyMessage_ov024_021da644
+extern "C" ARM unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId) {
+	int isPartyMember = (combatantIndex >= 0 && combatantIndex <= 3);
+	return isPartyMember ? (unsigned short)partyMessageId : (unsigned short)enemyMessageId;
 }

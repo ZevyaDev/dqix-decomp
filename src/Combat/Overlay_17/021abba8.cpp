@@ -17,7 +17,7 @@ enum { Enum_ov017_021abba8_340 = 0x154 };
 
 
 struct Struct_02018300_3;
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 struct TextureVRAMArea_0203d028;
 struct Struct_02010834;
 struct Struct_0206f81c_2;
@@ -73,21 +73,21 @@ struct Struct_ov017_021abba8 {
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
-extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void func_ov017_021ac2a8(void* arg0);
 extern "C" void func_02046a8c(void* arg0, void* arg1);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int GetFontLoader_02094a00(void);
 extern "C" void CancelFontLoad_02094ab0(int loader);
-extern "C" void func_020a0cc4(unsigned int arg0);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, TextureVRAMArea_0203d028* arg5);
 extern "C" void func_02010834(Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
-extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
-extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
+extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
+extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void func_ov017_02197528(void);
@@ -111,7 +111,7 @@ extern char gSoundEffectManager_02108760;
 extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov017_021abba8
-extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Struct_02038598_5* arg1) {
+extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Queue_02038598_5* arg1) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetLocalWireless_0202ae18();
     GameResources* var2 = GetGameResources();
@@ -122,16 +122,16 @@ extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Struct_0203
 
     if (arg0->unknown_8_ == 0) {
         DisablePlayerControl_020397cc((Struct_02018300_3*)var3, 1);
-        if (func_02046b60(arg1, 0x4e)) {
+        if (IsTypeInQueue_02046b60(arg1, 0x4e)) {
             arg0->unknown_1_ = 1;
             func_ov017_021ac2a8(arg0);
-            if (func_02046b60(arg1, 3)) {
+            if (IsTypeInQueue_02046b60(arg1, 3)) {
                 func_02046a8c(arg1, var2->unknown_ptr_array_36fc[4]);
             }
         } else if (IsQueueEmpty_02046b08((void**)var2->unknown_ptr_array_36fc[1])) {
             SetFlags00(var2, 0x10);
             CancelFontLoad_02094ab0(GetFontLoader_02094a00());
-            func_020a0cc4(0x2800);
+            ReleaseFileTablesForSpace_020a0cc4(0x2800);
             arg0->unknown_24_ = var5->QueueLoadFile(&data_ov017_021d78da, NULL);
             arg0->unknown_8_++;
         }
@@ -220,8 +220,8 @@ extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Struct_0203
     } else if (arg0->unknown_8_ == 3) {
         arg0->unknown_a_ += var6;
         if (arg0->unknown_a_ > 8) {
-            func_0205ebc0(&gSoundEffectManager_02108760, 0xb1, 0xb1);
-            func_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
+            LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0xb1, 0xb1);
+            PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
             arg0->unknown_8_++;
         }
     } else if (arg0->unknown_8_ == 4) {

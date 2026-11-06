@@ -47,7 +47,7 @@ extern "C" void func_0202656c(struct Struct_0202656c* arg0, int arg1);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_020265a8(char* arg0, int arg1, const char* arg2, int arg3);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
-extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
+extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" void* func_020e5294(void* arg0, int arg1);
 extern "C" void func_020263c8(unsigned char* arg0, int arg1);
 extern "C" void func_02026418(unsigned char* arg0, unsigned char arg1);
@@ -160,11 +160,11 @@ extern "C" ARM void func_ov004_021636b0(void* arg0, const char* arg1) {
             if (var18 == NULL) return;
             if (func_ov023_021f6f10(var18) != 4) return;
             struct StringList_02072a68_2* var19 = func_ov023_021fa598(var18);
-            func_0206819c((const char*)FindStringInList_02072a68(var19, (short)var17), var1, 0);
+            CopyCapitalizedText_0206819c((const char*)FindStringInList_02072a68(var19, (short)var17), var1, 0);
             func_02046608(var16, 0, var1, var5, 0x60, 0, 0);
         } else {
             char** var20 = (char**)func_020e5294(data_ov004_02171010.unknown_8_, (short)var3->treasureItemIDs_[var15]);
-            func_0206819c(*var20, var1, 0);
+            CopyCapitalizedText_0206819c(*var20, var1, 0);
             func_02046608(var16, 0, var1, var5, 0x60, 0, 0);
         }
         func_020265a8((char*)var7, (unsigned char)var15, var5, var3->treasureDropRates_[var15]);

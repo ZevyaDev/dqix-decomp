@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_02074af4(void*);
+extern "C" void SaveMainBGControl_02074af4(void*);
 
 struct Struct_02074b64;
 extern "C" void func_02074b64(struct Struct_02074b64* arg0);
@@ -13,15 +13,15 @@ extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
 extern "C" void InitTextWindow_0204c684(void*);
 
-struct Struct_0205cfd4;
-extern "C" void func_0205cfd4(struct Struct_0205cfd4* arg0);
+struct TextWindowManager_0205cfd4;
+extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 
 // USA: func_ov023_021eb138
 extern "C" ARM void func_ov023_021eb138(void* arg0, unsigned char arg1) {
     *(unsigned char*)((char*)arg0 + 0x430) = arg1;
     *(unsigned char*)((char*)arg0 + 0x3a) = 0;
     *(unsigned char*)((char*)arg0 + 0x3b) = 0;
-    func_02074af4((char*)arg0 + 0x2a);
+    SaveMainBGControl_02074af4((char*)arg0 + 0x2a);
     func_02074b64((struct Struct_02074b64*)((char*)arg0 + 0x2a));
 
     unsigned int* var0 = (unsigned int*)0x4000000;
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov023_021eb138(void* arg0, unsigned char arg1) {
         InitTextWindow_0204c684((char*)arg0 + 0x180 + var5 * 0xe0);
     }
 
-    func_0205cfd4((struct Struct_0205cfd4*)((char*)arg0 + 0xc4));
+    InitTextWindowManager_0205cfd4((struct TextWindowManager_0205cfd4*)((char*)arg0 + 0xc4));
 
     *(int*)((char*)arg0 + 0x420) = 0;
     *(int*)((char*)arg0 + 0x424) = 0;

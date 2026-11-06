@@ -48,7 +48,7 @@ extern "C" void* func_0203cf4c();
 extern "C" Struct_ov001_02154f24* GetZone3D_02012fe4();
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void func_02012de4(AllocatorUnion*);
-extern "C" void func_020a0cc4(int);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(int);
 extern "C" void func_0203e0a0(void*, int);
 extern "C" void func_ov017_021a316c(GameResources*);
 extern "C" void func_0203cf58(Struct_0203cf58*);
@@ -56,7 +56,7 @@ extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void __clear(void*, unsigned int);
 extern "C" void* GetFlagManager_0205ec34();
-extern "C" int func_020649b0(void*, int, void*);
+extern "C" int RunTrigger_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void*);
 extern "C" Struct_020e385c* func_020e3808();
 extern "C" void* func_020e385c(Struct_020e385c*, int, int);
@@ -104,7 +104,7 @@ extern "C" ARM int func_ov001_02154f24(Struct_ov001_02154f24_3* arg0)
         return arg0->unknown_a_;
     }
     func_02012de4(&gMainHeap_02114e20);
-    func_020a0cc4(0x40400);
+    ReleaseFileTablesForSpace_020a0cc4(0x40400);
     func_02012de4(&gMainHeap_02114e20);
     if ((arg0->unknown_50_ & 1) && !TestFlags00(var1, 0x1000))
     {
@@ -182,7 +182,7 @@ extern "C" ARM int func_ov001_02154f24(Struct_ov001_02154f24_3* arg0)
     void* var15 = GetFlagManager_0205ec34();
     Struct_ov001_02154f24_2 var16;
     var16.unknown_8_ = arg0->unknown_8_;
-    if (func_020649b0(var15, 10, &var16))
+    if (RunTrigger_020649b0(var15, 10, &var16))
     {
         func_0206f81c(&var16);
     }

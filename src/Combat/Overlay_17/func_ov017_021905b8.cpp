@@ -15,11 +15,11 @@ extern "C" void func_0207dba8(void* arg0);
 extern "C" void func_ov017_02190264(void* arg0, int arg1);
 extern "C" void func_ov000_0215fb04(void* arg0, int arg1);
 extern "C" void func_ov017_02192654(int arg0, int arg1, int arg2);
-extern "C" void* func_ov017_021b8468(void* arg0);
+extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_0202c600(Struct_0202b2f0* arg0, int arg1);
 extern "C" void func_0202c718(Struct_0202b2f0* arg0, int arg1);
@@ -33,7 +33,7 @@ extern "C" Struct_020e3b08* func_020e3808(void);
 extern "C" void func_020e3b08(Struct_020e3b08* arg0, int arg1);
 extern "C" int func_0207959c(Struct_0207959c* arg0, int arg1);
 extern "C" void func_0207958c(Struct_0207958c* arg0);
-extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" unsigned short func_ov017_021b8480(void* arg0);
 
 struct Struct_ov017_021905b8 {
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov017_021905b8(GameResources* arg0, int arg1, int arg2)
     if (arg1 <= 0) {
         return;
     }
-    if (arg1 == GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1) || arg1 == func_020100b0(var0) ||
+    if (arg1 == GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1) || arg1 == GetOwnPartyLeaderObjectIndex_020100b0(var0) ||
         arg1 == GetProtagonistObjectIndex_020100a8(var0)) {
         func_0202c600(var1, arg1);
         func_0202c718(var1, arg1);
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov017_021905b8(GameResources* arg0, int arg1, int arg2)
 
     Struct_ov017_021905b8_3* var5 = (Struct_ov017_021905b8_3*)arg0->unknown_ptr_3718;
     if (var5->unknown_2_ != 0) {
-        void* var6 = func_ov017_021b8470(var5);
+        void* var6 = GetBattle_ov017_021b8470(var5);
         if (var6 != NULL) {
             func_ov000_0215fb04(var6, arg1);
         }
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov017_021905b8(GameResources* arg0, int arg1, int arg2)
             if (var10->unknown_2_ != 0 && func_ov017_021b8480(var10) == 0) {
                 Struct_ov017_021905b8_4* var11 = (Struct_ov017_021905b8_4*)GetBattleSetup_ov017_021b8478(var10);
                 if (var11 != NULL && var11->unknown_8_ == var8->unknown_16a_) {
-                    Struct_ov017_021905b8_5* var12 = (Struct_ov017_021905b8_5*)func_ov017_021b8468(var10);
+                    Struct_ov017_021905b8_5* var12 = (Struct_ov017_021905b8_5*)GetBattleScene_ov017_021b8468(var10);
                     if (var12 != NULL && var12->unknown_ea8_ == 7) {
                         var9 = 0;
                     }

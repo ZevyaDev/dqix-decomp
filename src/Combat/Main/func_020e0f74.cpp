@@ -7,12 +7,12 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Graphics.h"
 
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 
 extern "C" void *func_0203b628();
 extern "C" void *GetZone3D_02012fe4();
 extern "C" void *GetGlobalFlags_020d6c00();
-extern "C" int func_02046708(Struct_02012de8 *arg0, unsigned int arg1);
+extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8 *globalFlags, unsigned int mask);
 extern "C" void *GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void func_0202756c(void *arg0, int arg1, int arg2, int arg3, unsigned char arg4, unsigned char arg5,
@@ -41,7 +41,7 @@ extern "C" ARM void func_020e0f74(void *arg0) {
     GameState::GetInstance();
     func_0203b628();
     GetZone3D_02012fe4();
-    if (func_02046708(static_cast<Struct_02012de8 *>(GetGlobalFlags_020d6c00()), 0x41)) {
+    if (TestGlobalFlags_02046708(static_cast<GlobalFlags_02012de8 *>(GetGlobalFlags_020d6c00()), 0x41)) {
         return;
     }
 

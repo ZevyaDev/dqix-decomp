@@ -3,7 +3,7 @@
 #include "Resource/CharacterCreationUI.h"
 #include <std_library_functions.h>
 
-struct Struct_0204b010;
+struct BGLayer_0204b010;
 struct BGLayer_0204b8d0;
 struct Struct_0204b9b8;
 enum Enum_ov023_021da274 {
@@ -11,24 +11,24 @@ enum Enum_ov023_021da274 {
     Enum_ov023_021da274_1 = 1,
     Enum_ov023_021da274_255 = 0xff
 };
-extern "C" void func_0204b010(Struct_0204b010*, void*);
+extern "C" void ClearBGScreenData_0204b010(BGLayer_0204b010*, void*);
 extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
-extern "C" void func_0204b04c(void*, void*);
+extern "C" void FlushBGScreenData_0204b04c(void*, void*);
 extern "C" void func_0204b9b8(Struct_0204b9b8*, int, int, int, int, unsigned int);
 
 extern "C" ARM void func_ov023_021da274(Struct_ov009_021842a0* arg0) {
     if (arg0->unknown_d9c_ & 0x1000) {
-        func_0204b010((Struct_0204b010*)&arg0->unknown_158_[0], NULL);
+        ClearBGScreenData_0204b010((BGLayer_0204b010*)&arg0->unknown_158_[0], NULL);
         int var0 = arg0->unknown_c58_;
         if (var0 >= 1 && var0 <= 8) {
             short var1 = (short)((var0 - 1) * 2);
             short var2 = var1 + 5;
             CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_158_[0], 0, 0, var1, 15, var2, 10, 2, 0xffff);
         }
-        func_0204b04c(&arg0->unknown_158_[0], NULL);
+        FlushBGScreenData_0204b04c(&arg0->unknown_158_[0], NULL);
     }
     if (arg0->unknown_d9c_ & 0x2000) {
-        func_0204b010((Struct_0204b010*)&arg0->unknown_158_[3], NULL);
+        ClearBGScreenData_0204b010((BGLayer_0204b010*)&arg0->unknown_158_[3], NULL);
         int var3 = arg0->unknown_c58_;
         if (var3 == 1) {
             unsigned int var4 = 0;
@@ -83,31 +83,31 @@ extern "C" ARM void func_ov023_021da274(Struct_ov009_021842a0* arg0) {
                     }
                 }
             }
-            func_0204b04c(&arg0->unknown_158_[2], NULL);
+            FlushBGScreenData_0204b04c(&arg0->unknown_158_[2], NULL);
         } else if (var3 == 9) {
             unsigned int var17 = 0;
             if (arg0->unknown_d95_ == 0) var17 = 1;
             CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_158_[3], var17, 0, 0, 0, 14, 32, 10, 0xffff);
             CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_158_[3], 2, 0, 0, 24, 9, 8, 7, 0xffff);
             func_0204b9b8((Struct_0204b9b8*)&arg0->unknown_158_[2], 2, 7, 28, 12, 1);
-            func_0204b04c(&arg0->unknown_158_[2], NULL);
+            FlushBGScreenData_0204b04c(&arg0->unknown_158_[2], NULL);
         }
-        func_0204b04c(&arg0->unknown_158_[3], NULL);
+        FlushBGScreenData_0204b04c(&arg0->unknown_158_[3], NULL);
     }
 }
 #else
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0204b010;
+struct BGLayer_0204b010;
 struct BGLayer_0204b8d0;
 struct Struct_02000c9c_8;
 struct Struct_0204b9b8;
 
-extern "C" void func_0204b010(struct Struct_0204b010*, void*);
+extern "C" void ClearBGScreenData_0204b010(struct BGLayer_0204b010*, void*);
 extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8*);
 extern "C" void CopyBGScreenBlockRect_0204b8d0(struct BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
-extern "C" void func_0204b04c(void* arg0, void* arg1);
+extern "C" void FlushBGScreenData_0204b04c(void* layer, void* screenData);
 extern "C" void func_0204b9b8(Struct_0204b9b8* arg0, int arg1, int arg2, int arg3, int arg4, unsigned arg5);
 extern "C" void func_ov003_0215ec68(int arg0, short* arg1, short* arg2);
 
@@ -159,7 +159,7 @@ struct Struct_ov023_021da274_3 {
 // USA: func_ov023_021da274
 extern "C" ARM void func_ov023_021da274(Struct_ov023_021da274_3* arg0) {
     if (arg0->unknown_d9c_ & 0x1000) {
-        func_0204b010((struct Struct_0204b010*)&arg0->unknown_158_, NULL);
+        ClearBGScreenData_0204b010((struct BGLayer_0204b010*)&arg0->unknown_158_, NULL);
         int var18 = arg0->unknown_c58_;
         if (var18 >= 1 && var18 <= 8) {
             int var19 = (short)((var18 - 1) * 2 + 1);
@@ -172,11 +172,11 @@ extern "C" ARM void func_ov023_021da274(Struct_ov023_021da274_3* arg0) {
             }
             CopyBGScreenBlockRect_0204b8d0(WIN(arg0->unknown_158_), 0, 0, var19, var20, var21, var22, 2, 0xffff);
         }
-        func_0204b04c(&arg0->unknown_158_, NULL);
+        FlushBGScreenData_0204b04c(&arg0->unknown_158_, NULL);
     }
 
     if (arg0->unknown_d9c_ & 0x2000) {
-        func_0204b010((struct Struct_0204b010*)&arg0->unknown_1b8_, NULL);
+        ClearBGScreenData_0204b010((struct BGLayer_0204b010*)&arg0->unknown_1b8_, NULL);
         int var23 = arg0->unknown_c58_;
         if (var23 == 1) {
             unsigned int var24 = 0;
@@ -230,16 +230,16 @@ extern "C" ARM void func_ov023_021da274(Struct_ov023_021da274_3* arg0) {
                     func_0204b9b8((Struct_0204b9b8*)&arg0->unknown_198_, var35 >> 3, var36 >> 3, var38 >> 3, var37 >> 3, 0);
                 }
             }
-            func_0204b04c(&arg0->unknown_198_, NULL);
+            FlushBGScreenData_0204b04c(&arg0->unknown_198_, NULL);
         } else if (var23 == 9) {
             unsigned int var39 = 0;
             if (arg0->unknown_d95_ == 0) var39 = 1;
             CopyBGScreenBlockRect_0204b8d0(WIN(arg0->unknown_1b8_), var39, 0, 0, 0, 0xe, 0x20, 0xa, 0xffff);
             CopyBGScreenBlockRect_0204b8d0(WIN(arg0->unknown_1b8_), 2, 0, 0, 0x18, 9, 8, 7, 0xffff);
             func_0204b9b8((Struct_0204b9b8*)&arg0->unknown_198_, 2, 7, 0x1c, 0xc, 1);
-            func_0204b04c(&arg0->unknown_198_, NULL);
+            FlushBGScreenData_0204b04c(&arg0->unknown_198_, NULL);
         }
-        func_0204b04c(&arg0->unknown_1b8_, NULL);
+        FlushBGScreenData_0204b04c(&arg0->unknown_1b8_, NULL);
     }
 }
 

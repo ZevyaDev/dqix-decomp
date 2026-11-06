@@ -26,13 +26,13 @@ extern "C" char *FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTabl
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2 *window, int index, char *text);
-extern "C" void *func_020e46c4(void *arg0);
+extern "C" void *InitNoun_020e46c4(void *noun);
 extern "C" void *__clear(void *arg0, int arg1);
 extern "C" void InitPartyMemberNoun_020e4bf4(void *noun, int partyMemberIndex);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0 *window, int index, int number);
 extern "C" void *FindActionData_02079e2c(char *actionTables, int actionId);
 extern "C" void func_020e4e38(void *arg0, struct Struct_020e4e38 *arg1);
-extern "C" unsigned char func_020100b0(GameState *arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState *gameState);
 extern "C" void func_020e526c(void *arg0);
 extern "C" void func_020e56fc(void *arg0, int arg1, int arg2);
 extern "C" void *func_020e5294(void *arg0, int arg1);
@@ -81,8 +81,8 @@ extern "C" ARM void func_ov002_02161234(char *arg0, char *arg1) {
     }
     var14 = *(signed char *) (arg0 + 0x1c20);
     var16 = *(signed char *) (arg0 + 0x1c21);
-    func_020e46c4(&var6);
-    func_020e46c4(&var7);
+    InitNoun_020e46c4(&var6);
+    InitNoun_020e46c4(&var7);
     __clear(var0, 0x80);
     __clear(var1, 0x80);
     __clear(var2, 0x80);
@@ -135,7 +135,7 @@ extern "C" ARM void func_ov002_02161234(char *arg0, char *arg1) {
             SetMessageNumber_020465c0((MessageWindow_020465c0 *) var12, 0, 1);
         } else if (*(signed char *) (arg0 + 0x1c20) == 4) {
             SetMessageNumber_020465c0((MessageWindow_020465c0 *) var12, 0, 0);
-            InitPartyMemberNoun_020e4bf4(&var4, func_020100b0(var11));
+            InitPartyMemberNoun_020e4bf4(&var4, GetOwnPartyLeaderObjectIndex_020100b0(var11));
         }
         BackgroundLoader::AddLockGlobal();
         void *var23 = ExtractFileFromGP2(data_ov002_0216d2bc, data_ov002_0216d2d2, &var10);
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov002_02161234(char *arg0, char *arg1) {
             *(void **) (var12 + 0x1c) = &var7;
         }
         if (var16 == 4) {
-            InitPartyMemberNoun_020e4bf4(&var5, func_020100b0(var11));
+            InitPartyMemberNoun_020e4bf4(&var5, GetOwnPartyLeaderObjectIndex_020100b0(var11));
         }
         BackgroundLoader::RemoveLockGlobal();
     }

@@ -34,7 +34,7 @@ extern "C" int func_ov023_021e6448(void*);
 extern "C" int func_ov023_021e7148(void*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void GetLocalWireless_0202ae18();
-extern "C" int func_0201079c(char*);
+extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void func_ov012_0218bba0(void*, int, int);
 extern "C" void func_ov012_02189be8(void*, int);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov012_02188640(char* arg0) {
                 int var6 = *(int*)(var5 + 0x8b8);
                 var3->unknown_3_6_ = 1;
                 var3->unknown_6_3_ = var6 + 700;
-                if (func_0201079c((char*)var4) == 1)
+                if (GetStoryChapter_0201079c((char*)var4) == 1)
                     var3->unknown_6_3_ = 713;
             } else {
                 var3->unknown_6_3_ = *(int*)(arg0 + 0x1444) + 799;
@@ -165,7 +165,7 @@ struct Struct_ov012_02186a7c;
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 
-extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" void func_ov023_021e6e60(Struct_ov012_02188640_6* arg0);
 extern "C" void func_ov012_0218a574(char* arg0);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
@@ -173,7 +173,7 @@ extern "C" int func_ov023_021e6448(Struct_ov012_02188640_6* arg0);
 extern "C" int func_ov023_021e6de4(Struct_ov012_02188640_6* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void GetLocalWireless_0202ae18();
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_ov012_0218adac(Struct_ov012_02188640_6* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov012_0218930c(Struct_ov012_02188640_6* arg0, int arg1);
@@ -239,7 +239,7 @@ extern "C" ARM void func_ov012_02188640(Struct_ov012_02188640_6* arg0)
                 int var16 = var14->unknown_950_;
                 var11->unknown_3_6_ = 1;
                 var11->unknown_6_3_ = var15 + var16 - 0x4e20;
-                if (func_0201079c((char*)var12) == 1)
+                if (GetStoryChapter_0201079c((char*)var12) == 1)
                     var11->unknown_6_3_ = var15 + 13 - 0x4e20;
             }
             else

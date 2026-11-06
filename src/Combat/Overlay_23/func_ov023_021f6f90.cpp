@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_020e6d5c_3 { unsigned int unknown_0_; unsigned int unknown_4_; };
-extern struct Struct_020e6d5c_3 data_020e6d5c;
+extern struct Struct_020e6d5c_3 gNullMemberFunctionPointer_020e6d5c;
 
 struct Struct_ov023_021fd8d8 { unsigned int unknown_0_[8]; };
 extern struct Struct_ov023_021fd8d8 data_ov023_021fd8d8;
@@ -12,8 +12,8 @@ struct Struct_ov023_021f6f90 { unsigned int unknown_0_; unsigned int unknown_4_;
 extern "C" ARM int func_ov023_021f6f90(void* arg0, void* arg1) {
     struct Struct_ov023_021fd8d8 var0;
     var0 = data_ov023_021fd8d8;
-    unsigned int var1 = data_020e6d5c.unknown_4_;
-    unsigned int var2 = data_020e6d5c.unknown_0_;
+    unsigned int var1 = gNullMemberFunctionPointer_020e6d5c.unknown_4_;
+    unsigned int var2 = gNullMemberFunctionPointer_020e6d5c.unknown_0_;
     var0.unknown_0_[7] = var1;
     var0.unknown_0_[6] = var2;
     struct Struct_ov023_021f6f90* var3 = (struct Struct_ov023_021f6f90*)&var0;

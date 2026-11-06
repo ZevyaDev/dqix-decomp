@@ -44,7 +44,7 @@ extern "C" ARM int func_ov001_0215e5b0(void) {
 
     struct BGLayer_02020cb8 var4;
     InitBGLayer_0204af64(&var4);
-    var4.unknown_1c_0_ = 1;
+    var4.isSubScreen_1c_0_ = 1;
     LoadBGBlock_0204b174(&var4, var0->unknown_2c_, 0, 0);
 
     unsigned int var5 = 0x6400;

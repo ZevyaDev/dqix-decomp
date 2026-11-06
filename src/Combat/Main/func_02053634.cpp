@@ -7,7 +7,7 @@
 
 
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" int func_02039874(void* arg0);
 extern "C" int func_02053604(signed char* arg0);
 
@@ -64,7 +64,7 @@ extern "C" ARM void func_02053634(void* arg0) {
     int var2 = var0[OBJECT_OFFSET(0x17c)] > 0 ? 1 : 0;
     if (var2 != 0) {
         short var3 = *(short*)(var0 + 4);
-        int var4 = func_020100b0(var1);
+        int var4 = GetOwnPartyLeaderObjectIndex_020100b0(var1);
         if (var4 == var3
             && ((unsigned char*)GetMessageWindow_020421a0())[GLOBAL_ACTIVE_OFFSET] != 0) {
             func_020531f0(var0);
@@ -188,7 +188,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                     return;
                 }
                 short var20 = *(short*)(var0 + 4);
-                if (var20 == func_020100b0(var1)) {
+                if (var20 == GetOwnPartyLeaderObjectIndex_020100b0(var1)) {
                     void* var21 = GetFlagManager_0205ec34();
                     unsigned char var22[0x34];
                     for (int var23 = 0; var23 < 4; var23++) {
@@ -229,7 +229,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                 }
             } else {
                 short var28 = *(short*)(var0 + 4);
-                if (var28 == func_020100b0(var1)
+                if (var28 == GetOwnPartyLeaderObjectIndex_020100b0(var1)
                     && g_keyManager.TestKeysPressed(0xc03) != 0) {
                     var27 = 1;
                     func_ov017_021cc2f0(*(short*)(var0 + 4));
@@ -277,7 +277,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                 return;
             }
             short var33 = *(short*)(var0 + 4);
-            if (var33 == func_020100b0(var1)) {
+            if (var33 == GetOwnPartyLeaderObjectIndex_020100b0(var1)) {
                 void* var34 = GetFlagManager_0205ec34();
                 unsigned char var35[0x34];
                 for (int var36 = 0; var36 < 4; var36++) {

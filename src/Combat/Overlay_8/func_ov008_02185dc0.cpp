@@ -121,10 +121,10 @@ struct Struct_ov000_02179cdc_4 : GameObject {
 };
 
 struct Struct_020a05d8;
-struct Struct_020727d8;
+struct StringList_020727d8;
 struct Struct_02013fb4;
 struct Struct_0201099c_3;
-struct Struct_0205bb84;
+struct MenuCursor_0205bb84;
 struct SoundEffectManager_02108760;
 
 extern char data_ov008_0218b400[] __attribute__((aligned(4)));
@@ -137,14 +137,14 @@ void SetBrightness(GameResources* resources, int screen, int brightness);
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void GetBattleRecords_020ac4c0(void* records);
 extern "C" void func_020a05d8(Struct_020a05d8* arg0, unsigned int arg1);
-extern "C" void func_020ac494(void* arg0);
+extern "C" void SetBattleRecords_020ac494(void* records);
 void* LoadFileIntoMemory(const char* path, void* archive, unsigned int* size);
-extern "C" void func_020727d8(Struct_020727d8* arg0);
+extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, int arg5);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
-extern "C" int func_0205bb84(Struct_0205bb84* arg0);
+extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84* cursor);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 extern "C" {
@@ -210,17 +210,17 @@ extern "C" ARM void func_ov008_02185dc0(Struct_ov008_021842a0_2* arg0, unsigned 
                         Struct_ov008_021843f8_3 var5;
                         GetBattleRecords_020ac4c0(&var5);
                         func_020a05d8((Struct_020a05d8*)&var5, 1);
-                        func_020ac494(&var5);
+                        SetBattleRecords_020ac494(&var5);
                     }
                     memset(arg0->unknown_b8_, 0, REGION_LAYOUT(0x800, 0x960));
 #if defined(jpn)
                     char* var6 = arg0->unknown_b8_;
                     char* var12 = var6 + 0x80;
                     Struct_ov008_02185dc0 var7;
-                    func_020727d8((Struct_020727d8*)&var7);
+                    ResetStringList_020727d8((StringList_020727d8*)&var7);
                     func_020727f8(&var7, data_ov008_0218b400, arg0->unknown_b16_, var6, 0);
                     Struct_ov000_02179cdc_4* var8 = (Struct_ov000_02179cdc_4*)GetPartyMemberBaseByIndex_0200ff1c(var0, GetProtagonistObjectIndex_020100a8(var0));
-                    func_020727d8((Struct_020727d8*)&var7);
+                    ResetStringList_020727d8((StringList_020727d8*)&var7);
                     int var9 = var8->unknown_150_->unknown_49c_0_;
                     func_020727f8(&var7, var6, arg0->unknown_b14_, var12, var9);
 #else
@@ -233,16 +233,16 @@ extern "C" ARM void func_ov008_02185dc0(Struct_ov008_021842a0_2* arg0, unsigned 
                     void* var15 = LoadFileIntoMemory(data_ov008_0218b400, gFileScratchSpace_0211e33c, &var14);
                     if (var15 != NULL)
                     {
-                        func_020727d8((Struct_020727d8*)&var13);
+                        ResetStringList_020727d8((StringList_020727d8*)&var13);
                         func_02072928(&var13, (Struct_02013fb4*)var15, var14, arg0->unknown_b16_, var10, 0);
-                        func_020727d8((Struct_020727d8*)&var13);
+                        ResetStringList_020727d8((StringList_020727d8*)&var13);
                         func_02072928(&var13, (Struct_02013fb4*)var15, var14, arg0->unknown_b16_, var11, 1);
                     }
                     var15 = ExtractFileFromGP2(var10, var11, &var14);
                     if (var15 != NULL)
                     {
                         Struct_ov000_02179cdc_4* var16 = (Struct_ov000_02179cdc_4*)GetPartyMemberBaseByIndex_0200ff1c(var0, GetProtagonistObjectIndex_020100a8(var0));
-                        func_020727d8((Struct_020727d8*)&var13);
+                        ResetStringList_020727d8((StringList_020727d8*)&var13);
                         int var17 = var16->unknown_150_->unknown_49c_0_;
                         func_02072928(&var13, (Struct_02013fb4*)var15, var14, arg0->unknown_b14_, var12, var17);
                     }
@@ -300,7 +300,7 @@ extern "C" ARM void func_ov008_02185dc0(Struct_ov008_021842a0_2* arg0, unsigned 
     if (var3 == 3)
     {
         int var18 = func_ov008_02186a30(arg0, arg1);
-        int var19 = func_0205bb84((Struct_0205bb84*)&arg0->unknown_750_);
+        int var19 = GetMenuCursorIndex_0205bb84((MenuCursor_0205bb84*)&arg0->unknown_750_);
 #if defined(jpn)
         int var20 = 5;
         int var21 = arg0->unknown_b29_;

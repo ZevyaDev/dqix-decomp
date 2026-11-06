@@ -23,11 +23,11 @@ struct Struct_ov024_021de274_6 {char unknown_0_[4];Struct_ov024_021de274_5* unkn
 
 struct Struct_ov000_021584e8;
 
-extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
+extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" struct Struct_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
-extern "C" void func_ov000_02159eac(void* arg0, unsigned long long* arg1, int arg2);
+extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, unsigned long long* flags, int flagIndex);
 extern "C" short func_ov000_0215a124(void* arg0, int arg1, int arg2);
 extern "C" void func_ov000_0215ccbc(void* arg0, struct Struct_ov000_021584e8* arg1, GameObject* arg2,
                             short arg3, short arg4, short arg5, unsigned long long arg6, unsigned char arg7);
@@ -54,16 +54,16 @@ extern "C" ARM Struct_ov000_021584e8* func_ov024_021de274(Struct_ov024_021de274_
  unsigned long long var6=0;
  unsigned short var7=0;
  if(var2 && arg4>0){
-  var7=func_ov024_021da644(arg2,arg3->unknown_20_.unknown_2_4_,arg3->unknown_24_.unknown_0_0_);
-  func_ov000_02159eac(arg0->unknown_10_,&var5,1);
-  func_ov000_02159eac(arg0->unknown_10_,&var5,0x2a);
+  var7=SelectPartyOrEnemyMessage_ov024_021da644(arg2,arg3->unknown_20_.unknown_2_4_,arg3->unknown_24_.unknown_0_0_);
+  SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var5,1);
+  SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var5,0x2a);
  }else{
 #if defined(jpn)
   if(var3<=0)var7=0x1b;
   else var7=0x1f;
 #else
   if(var3>0)var7=0x1f;
-  else var7=func_ov024_021da644(arg2,0x26d,0x1b);
+  else var7=SelectPartyOrEnemyMessage_ov024_021da644(arg2,0x26d,0x1b);
 #endif
   arg4=0;
   arg0->unknown_75_=0;
@@ -76,7 +76,7 @@ extern "C" ARM Struct_ov000_021584e8* func_ov024_021de274(Struct_ov024_021de274_
   short var10=0;
   short var11=func_ov000_0215a1d4(arg0->unknown_10_,arg1,arg4,&var10);
   if(var2 && arg4>0){
-   func_ov000_02159eac(arg0->unknown_10_,&var6,0x22);
+   SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var6,0x22);
    Struct_ov000_021584e8* var12=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
    if(!var12)return 0;
    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var12,0x26c);

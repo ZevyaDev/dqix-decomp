@@ -33,8 +33,8 @@ struct Struct_ov000_02166a94_4 {
     char unknown_230_[4];
 };
 struct Struct_02057de0_2;
-struct Struct_0203d028_11 { int unknown_0_[8]; };
-union Struct_ov000_02166a94 { Struct_0203d028_11 unknown_0_; ObjectArchiveLoadInfo unknown1_0_; };
+struct ObjectArchiveLoadInfo_0203d028_11 { int unknown_0_[8]; };
+union Struct_ov000_02166a94 { ObjectArchiveLoadInfo_0203d028_11 unknown_0_; ObjectArchiveLoadInfo unknown1_0_; };
 struct Struct_020d6d18_2;
 struct Struct_020d6d90_3;
 struct Struct_020d76fc;
@@ -44,7 +44,7 @@ extern "C" void HaltForever_020c9be0();
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_02057de0(Struct_02057de0_2*, int, SafeAllocator*, int, int);
-extern "C" void func_0203dafc(Struct_0203d028_11*);
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11*);
 extern "C" void func_02047b30(void*, int, int, int);
 extern "C" void func_ov000_02182114(char*);
 extern "C" void func_ov000_0218214c(void*, SafeAllocator*, const void*);
@@ -56,7 +56,7 @@ extern "C" void func_020d6d90(Struct_020d6d90_3*, const void*, SafeAllocator*, c
 extern "C" void func_020d76fc(Struct_020d76fc*);
 extern "C" void func_020d771c(unsigned char*);
 extern "C" void func_020d6ec8(Struct_020d6ec8*, SafeAllocator*);
-extern "C" void func_ov000_02160fa8(void*, int);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern const char data_ov000_02183a5a[], data_ov000_02183a6f[], data_ov000_02183a7a[], data_ov000_02183a85[], data_ov000_02183a93[];
 extern const char data_ov000_02183910[][16];
 struct Struct_ov000_02183028 {
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov000_02166a94(Struct_ov000_02166a94_3* arg0) {
         if (var6) {
             var17 = var14;
             var20 = var17[var19];
-            func_0203dafc(&var16.unknown_0_);
+            ClearObjectArchiveLoadInfo_0203dafc(&var16.unknown_0_);
             const void* var21;
             int var22;
             var22 = var5;
@@ -159,6 +159,6 @@ extern "C" ARM void func_ov000_02166a94(Struct_ov000_02166a94_3* arg0) {
     func_020d6ec8((Struct_020d6ec8*)arg0->unknown_ea4_, arg0->unknown_4_);
     RestoreTextureVRAMState_0207df90(var1->unknown_230_);
     SaveTextureVRAMState_0207dfac(var1->unknown_230_);
-    func_ov000_02160fa8(arg0, 0x40);
+    SetBattleSceneFlags_ov000_02160fa8(arg0, 0x40);
     BackgroundLoader::RemoveLockGlobal();
 }

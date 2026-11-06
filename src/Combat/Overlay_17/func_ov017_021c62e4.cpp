@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 
 struct Struct_ov017_021c62e4 {
     unsigned char unknown_0_[8];
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov017_021c62e4(int arg0, Struct_ov017_021c62e4_5* arg1,
     int var1;
     void* var2 = *(void**)(arg3 + 0x3000 + Enum_ov017_021c62e4_1816);
 
-    char* var3 = (char*)func_ov017_021b8470(var2);
+    char* var3 = (char*)GetBattle_ov017_021b8470(var2);
     if (!var3) return;
 
     Struct_ov017_021c62e4* var4 = (Struct_ov017_021c62e4*)GetBattleSetup_ov017_021b8478(var2);

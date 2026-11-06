@@ -6,7 +6,7 @@
 extern "C" void GetLocalWireless_0202ae18();
 extern "C" void func_0201bd04(void* arg0, int arg1, int arg2);
 extern "C" void func_0201bd3c(void* arg0, int arg1, int arg2);
-extern "C" int func_0201079c(char* arg0);
+extern "C" int GetStoryChapter_0201079c(char* gameState);
 struct Struct_02040774_2;
 extern "C" void func_020407b4(struct Struct_02040774_2* arg0, int arg1, int arg2, int arg3);
 
@@ -65,7 +65,7 @@ extern "C" ARM void func_020ad1f8(struct Struct_020ad1f8_2* arg0) {
         }
         return;
     } else if (arg0->unknown_0_ == 0x1130) {
-        int var3 = func_0201079c((char*)var0);
+        int var3 = GetStoryChapter_0201079c((char*)var0);
         if (arg0->unknown_2700_.unknown_b4_ == 5 || var3 >= 0x13) {
             func_0201bd04(arg0, 0x17, 0);
             func_0201bd04(arg0, 1, 0);

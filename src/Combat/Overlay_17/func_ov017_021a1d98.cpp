@@ -3,8 +3,8 @@
 #include "NitroSDK/Matrix.h"
 #include "Resource/Brightness.h"
 
-struct Struct_020fdd44 {
-    unsigned short unknown_0_;
+struct ActiveZone_020fdd44 {
+    unsigned short zoneId_0_;
     unsigned short unknown_2_0_ : 2;
 };
 
@@ -34,8 +34,8 @@ struct Struct_ov017_021a1d98_4 {
     Struct_ov017_021a1d98_4() : unknown_0_(0x0270f000), unknown_4_(0) {}
 };
 
-extern "C" Struct_020fdd44* func_02027ca4();
-extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44*, int);
+extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4();
+extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44*, int);
 extern "C" Struct_ov017_021a1d98_2* GetZone3D_02012fe4();
 extern "C" int func_02076bec(GameObject*, void*);
 struct Struct_0203402c;
@@ -45,7 +45,7 @@ extern "C" void func_0208f87c(const void* arg0, int arg1, int arg2, int arg3, in
 // USA: func_ov017_021a1d98
 extern "C" ARM void func_ov017_021a1d98(unsigned int* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    Struct_020fdd44* var1 = func_02028bd0(func_02027ca4(), arg1);
+    ActiveZone_020fdd44* var1 = FindActiveZone_02028bd0(GetActiveZones_02027ca4(), arg1);
     if (!var1) return;
     Struct_ov017_021a1d98_2* var2 = GetZone3D_02012fe4();
     unsigned short var3 = var2->unknown_38_;

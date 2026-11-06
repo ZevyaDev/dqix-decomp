@@ -11,12 +11,12 @@
 
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
-struct Struct_0205da38;
+struct TextWindowManager_0205da38;
 struct SoundEffectManager_02108760;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_ov002_0215bf34(char *arg0);
@@ -35,7 +35,7 @@ extern "C" char gSoundEffectManager_02108760[];
 
 static inline int inline_ov002_021622ec(char *arg0) {
     return (g_keyManager.TestKeysPressed(0x601) |
-            func_0205da38((struct Struct_0205da38*)(arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0x14)) ? 1 : 0;
+            IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0x14)) ? 1 : 0;
 }
 
 // USA: func_ov002_021622ec

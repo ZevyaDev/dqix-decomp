@@ -12,7 +12,7 @@ extern "C" void func_02088724(struct Struct_02088724* arg0);
 extern "C" void func_0208876c(struct Struct_0208876c* arg0);
 extern "C" void func_020887b4(struct Struct_020887b4* arg0);
 extern "C" void func_020887fc(unsigned char* arg0);
-extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
+extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
@@ -41,7 +41,7 @@ extern "C" ARM void* func_ov024_021dff3c(struct Struct_ov024_021dff3c_2* arg0, i
     unsigned short var1;
     if (arg3->unknown_30_ > 0) {
         if (func_0208869c((unsigned char*)var0->currentStats_) && arg6 != 0) {
-            var1 = func_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
+            var1 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
             switch (arg3->unknown_30_) {
                 case 1:
                     func_020886dc((struct Struct_020886dc*)var0->currentStats_);
@@ -60,10 +60,10 @@ extern "C" ARM void* func_ov024_021dff3c(struct Struct_ov024_021dff3c_2* arg0, i
                     break;
             }
         } else {
-            var1 = func_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
+            var1 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
         }
     } else {
-        var1 = func_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
+        var1 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
     }
     void* var2 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var2) return 0;

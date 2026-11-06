@@ -17,7 +17,7 @@ extern "C" void AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMa
 extern "C" void AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" const char *FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void func_02041fac(char *arg0, int arg1, int arg2);
-extern "C" void func_02041e70(char *arg0, int arg1);
+extern "C" void AppendTextColorTag_02041e70(char *buffer, int colorIndex);
 extern "C" void AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
 extern "C" void AppendText_02042058(char *buffer, const char *text);
 
@@ -42,9 +42,9 @@ extern "C" ARM void func_ov002_0215db8c(char *arg0, char *arg1, int arg2) {
         if (var7) {
             unsigned char *var8 = (unsigned char *)((GameState*)var1)->GetPartyMemberByIndex(var4);
             if (var8 != 0) {
-                func_02041e70(arg1, func_ov002_02159774(arg0, var4, 0, 1, 1));
+                AppendTextColorTag_02041e70(arg1, func_ov002_02159774(arg0, var4, 0, 1, 1));
                 AppendMenuEntry_02041b70(arg1, var6, *(const char **) (var8 + 0x134));
-                func_02041e70(arg1, 0xf);
+                AppendTextColorTag_02041e70(arg1, 0xf);
             }
         } else {
             AppendMenuEntry_02041b70(arg1, var6, FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + RG(0x20, 0x8)), var3++));

@@ -31,9 +31,9 @@ struct BGLayer_0204b8d0 {
     unsigned char screenBlockCount_1d_;
 };
 extern "C" void CopyBGScreenBlockRect_0204b8d0(struct BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
-struct Struct_0204b010;
-extern "C" void func_0204b010(struct Struct_0204b010* arg0, void* arg1);
-extern "C" void func_0204b04c(void* arg0, int arg1);
+struct BGLayer_0204b010;
+extern "C" void ClearBGScreenData_0204b010(struct BGLayer_0204b010* layer, void* screenData);
+extern "C" void FlushBGScreenData_0204b04c(void* layer, int screenData);
 extern "C" void func_02047554(void* arg0, int arg1, int arg2);
 extern "C" void func_ov005_0215792c(void* arg0, unsigned char arg1);
 extern "C" void func_ov005_021579ec(void* arg0, unsigned int arg1, unsigned char arg2);
@@ -186,12 +186,12 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
                 arg0->unknown_3dec_ = 1;
             }
         }
-        func_0204b010((struct Struct_0204b010*)&arg0->unknown_ea4_, 0);
+        ClearBGScreenData_0204b010((struct BGLayer_0204b010*)&arg0->unknown_ea4_, 0);
         CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_ea4_, 0, 0, 0, 0x20 - arg0->unknown_3de2_, 0, 0x10, 0x16, 0xffff);
         unsigned char var11 = arg0->unknown_3dbc_;
         short var12 = var11 * 2 + 0xf;
         CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_ea4_, (unsigned char)(var11 + 1), 0, 0, var12 + 0x10 - arg0->unknown_3de2_, 0, 4, 3, 0xffff);
-        func_0204b04c(&arg0->unknown_ea4_, 0);
+        FlushBGScreenData_0204b04c(&arg0->unknown_ea4_, 0);
         if (arg0->unknown_3dec_ == 1) {
             arg0->unknown_3dba_++;
             arg0->unknown_3de2_ = 0;
@@ -217,12 +217,12 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
                 arg0->unknown_3dec_ = 2;
             }
         }
-        func_0204b010((struct Struct_0204b010*)&arg0->unknown_ea4_, 0);
+        ClearBGScreenData_0204b010((struct BGLayer_0204b010*)&arg0->unknown_ea4_, 0);
         CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_ea4_, 0, 0, 0, arg0->unknown_3de2_ + 0x10, 0, 0x10, 0x16, 0xffff);
         unsigned char var13 = arg0->unknown_3dbc_;
         short var14 = var13 * 2 + 0xf;
         CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_ea4_, (unsigned char)(var13 + 1), 0, 0, var14 + arg0->unknown_3de2_, 0, 4, 3, 0xffff);
-        func_0204b04c(&arg0->unknown_ea4_, 0);
+        FlushBGScreenData_0204b04c(&arg0->unknown_ea4_, 0);
         if (arg0->unknown_3dec_ == 2) {
             arg0->unknown_3dba_++;
             arg0->unknown_3de2_ = 0;

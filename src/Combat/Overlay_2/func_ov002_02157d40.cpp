@@ -64,7 +64,7 @@ extern "C" void* func_020e2ff8(void);
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int func_0202053c(void* arg0);
-extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" void func_ov017_021c2b28(void* arg0, unsigned char arg1, unsigned char arg2);
 extern "C" void func_020e3428(void* arg0, int arg1);
 extern "C" int func_0201b588(int arg0);
@@ -75,7 +75,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 void* LoadFileIntoMemory(const char* path, void* buf, unsigned int* outSize);
 extern "C" void func_02048418(unsigned char* arg0, unsigned short arg1);
 extern "C" void func_020a8170(struct Struct_ov002_02157634_6* arg0);
-extern "C" int func_020114ec(char* arg0, void* arg1);
+extern "C" int GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" int func_0202663c(unsigned char* arg0);
 extern "C" void func_02046a3c(struct Struct_ov002_02157d40_9* arg0, struct Struct_ov002_02157d40_10* arg1);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
@@ -120,7 +120,7 @@ extern "C" void func_ov002_021536e0(void* arg0);
 extern "C" int func_ov002_021536ec(void* arg0, void* arg1, int arg2);
 extern "C" void func_ov002_0216c42c(void* arg0, void* arg1, void* arg2);
 extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
-extern "C" void func_ov017_0218f5a4(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 extern "C" int func_ov017_0219ff58(int arg0, int arg1, int arg2, int arg3);
 extern "C" int func_ov017_021ab860(signed char arg0);
 extern "C" void func_ov017_021c12fc(void* arg0, int arg1, int arg2);
@@ -372,7 +372,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
             struct Struct_ov002_02157634_8* var17 = (struct Struct_ov002_02157634_8*)FindActionData_02079e2c(var1, arg0->unknown_1c26_);
             if (var17 != 0) {
                 __clear(var0.unknown_18_, 4);
-                int var18 = func_020114ec((char*)var2, var0.unknown_18_);
+                int var18 = GetPartyOrder_020114ec((char*)var2, var0.unknown_18_);
                 if (var17->unknown_9_2_ & 1) {
                     func_ov016_0218b5c0(0, -1);
                     var0.unknown_c8_.unknown_0_ = arg0->unknown_1c26_;
@@ -534,7 +534,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 AppendText_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
             }
             __clear(var0.unknown_10_, 4);
-            int var37 = func_020114ec((char*)var2, var0.unknown_10_);
+            int var37 = GetPartyOrder_020114ec((char*)var2, var0.unknown_10_);
             int* var38 = var0.unknown_104_;
             int var39;
             for (var39 = 0; var39 < var37; var39++) {
@@ -576,7 +576,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                         var43 = 0x753a;
                     } else {
                         SetMessageNumber_020465c0((struct Struct_ov002_02157d40_2*)var35, 0, var45);
-                        func_020465f0(var35, 0, 0);
+                        SetMessageNumberWidth_020465f0(var35, 0, 0);
                         var43 = 0x7538;
                     }
                 }
@@ -860,7 +860,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     }
                     void* var74 = GetGameResources();
                     BackgroundLoader::GetInstance();
-                    func_ov017_0218f5a4(var74, arg0->unknown_1c21_, 1, 0, 0);
+                    QueuePartyMemberModelLoad_ov017_0218f5a4(var74, arg0->unknown_1c21_, 1, 0, 0);
                 }
                 arg0->unknown_2488_ = -1;
                 arg0->unknown_248a_ = 0;

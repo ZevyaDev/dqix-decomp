@@ -3,7 +3,7 @@
 #include "Graphics/Vector.h"
 #include "Resource/GameResources.h"
 
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 
 struct Struct_ov017_021c5c5c {
     char unknown_0_[8];
@@ -30,7 +30,7 @@ struct Struct_ov017_021c5c5c_4 {
 #else
     char unknown1_0_[0x36fc];
 #endif
-    Struct_02038598_5* unknown_36fc_;
+    Queue_02038598_5* unknown_36fc_;
     char unknown_3700_[0x3718 - 0x3700];
     Struct_ov017_021c5c5c_2* unknown_3718_;
 #if defined(jpn)
@@ -66,7 +66,7 @@ struct Struct_ov017_021c5c5c_6 {
 extern "C" Struct_ov017_021c5c5c* GetBattleSetup_ov017_021b8478(Struct_ov017_021c5c5c_2* battleManager);
 extern "C" Struct_ov017_021c5c5c_6* func_ov017_021a278c(void* arg0, int arg1);
 extern "C" unsigned char func_02039d7c(char* arg0);
-extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void func_ov017_021ab010(void* arg0, int arg1);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 
@@ -75,7 +75,7 @@ extern "C" ARM int func_ov017_021c5c5c(int arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov017_021c5c5c_4* var1 = (Struct_ov017_021c5c5c_4*)GetGameResources();
     Struct_ov017_021c5c5c_6* var2;
-    Struct_02038598_5* var3 = var1->unknown_36fc_;
+    Queue_02038598_5* var3 = var1->unknown_36fc_;
     var2 = (Struct_ov017_021c5c5c_6*)var0->GetUnknownGameObject();
     if (var2 == NULL) {
         return 0;
@@ -120,7 +120,7 @@ extern "C" ARM int func_ov017_021c5c5c(int arg0, int arg1) {
     }
 
     Struct_ov017_021c5c5c_3* var9 = var1->unknown_3b0c_;
-    if (func_02046b60(var3, 0x1a) && var9->unknown_64_ != 0) {
+    if (IsTypeInQueue_02046b60(var3, 0x1a) && var9->unknown_64_ != 0) {
         return 0;
     }
     if (var9->unknown_3_ != 0 && var9->unknown_1_ == 0) {

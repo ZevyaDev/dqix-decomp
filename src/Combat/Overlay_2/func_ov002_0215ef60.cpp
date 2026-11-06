@@ -19,10 +19,10 @@ struct Struct_ov002_02155960_4 {
 };
 extern "C" struct Struct_ov002_02155960_4 *FindTextWindow_0205d81c(struct Struct_ov002_02155960_2 *windowManager, int windowId);
 struct Struct_ov002_0215624c_11;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 struct Struct_ov002_0215bba8_3;
-extern "C" void SetTextWindowText_0205d5d0(struct Struct_ov002_0215bba8_3 *windowManager, int windowId, int text, int arg3,
+extern "C" void SetTextWindowText_0205d5d0(struct Struct_ov002_0215bba8_3 *windowManager, int windowId, int text, int isWrappedAtScreenWidth,
                                                                      unsigned char font);
 
 struct Struct_ov002_0215ef60 {

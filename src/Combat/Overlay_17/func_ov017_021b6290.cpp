@@ -20,7 +20,7 @@ struct Struct_ov017_021b6290 {
 };
 struct MusicManager_02109bf4_4;
 struct Struct_0203e5d8;
-struct Struct_02038598_5;
+struct Queue_02038598_5;
 extern "C" void* GetZone3D_02012fe4();
 extern "C" unsigned char* func_020704fc();
 extern "C" void func_02017c58(void*);
@@ -34,7 +34,7 @@ extern "C" void CloseMessageWindow_02043124(void*);
 extern "C" int abs(int);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_0209c678(MusicManager_02109bf4_4*, int);
-extern "C" int func_02046b60(Struct_02038598_5*, int);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" Struct_0203e5d8* func_0203cf4c();
 extern "C" void func_0203e5d8(Struct_0203e5d8*, int);
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
                 var4->GetLoadedFileByID(arg0->unknown_100_, &var7, &var8);
                 Struct_02074060 var9;
                 Struct_02074060* var10 = &var9;
-                if (func_02046b60((Struct_02038598_5*)var1->unknown_ptr_array_36fc[0], 10)) {
+                if (IsTypeInQueue_02046b60((Queue_02038598_5*)var1->unknown_ptr_array_36fc[0], 10)) {
                     void* var11 = GetBattleSetup_ov017_021b8478(var5);
                     if (var11) var10 = (Struct_02074060*)((char*)var11 + 0x10);
                 }

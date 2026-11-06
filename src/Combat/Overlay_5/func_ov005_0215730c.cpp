@@ -9,7 +9,7 @@
 #include "Resource/GameResources.h"
 
 struct SoundEffectManager_02108760;
-struct Struct_0205bb84;
+struct MenuCursor_0205bb84;
 
 struct Struct_ov005_02153ba4_2 {
     char unknown_0_[R(0x56c, 0x634)];
@@ -38,7 +38,7 @@ extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char a
 extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_0205bf58(void* arg0, int arg1);
-extern "C" int func_0205bb84(Struct_0205bb84* arg0);
+extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84* cursor);
 extern "C" void func_ov005_0215742c(Struct_ov005_02153954* arg0);
 extern "C" void func_ov005_0215751c(Struct_ov005_02153954* arg0);
 extern "C" void func_ov005_0215771c(Struct_ov005_02153954* arg0);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov005_0215730c(Struct_ov005_02153954* arg0) {
     if (var1 == 0)
         var1 = 1;
     func_0205bf58(arg0->unknown_19f4_, var1);
-    func_0205bb84((Struct_0205bb84*)arg0->unknown_19f4_);
+    GetMenuCursorIndex_0205bb84((MenuCursor_0205bb84*)arg0->unknown_19f4_);
     switch (arg0->unknown_3db8_) {
     case 2:
         func_ov005_0215742c(arg0);

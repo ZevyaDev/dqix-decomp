@@ -4,17 +4,17 @@
 #include "Memory/SafeAllocator.h"
 
 
-struct Struct_02074bd0;
-extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
+struct BGControlSave_02074bd0;
+extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 struct Struct_02074bf4;
 extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
 
-struct Struct_0204b010;
-extern "C" void func_0204b010(struct Struct_0204b010* arg0, void* arg1);
-extern "C" void func_0204b04c(void* arg0, int arg1);
-extern "C" void func_0204b088(void* arg0, int arg1);
-struct Struct_02020cb8_3;
-extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
+struct BGLayer_0204b010;
+extern "C" void ClearBGScreenData_0204b010(struct BGLayer_0204b010* layer, void* screenData);
+extern "C" void FlushBGScreenData_0204b04c(void* layer, int screenData);
+extern "C" void CopyBGScreenDataToVRAM_0204b088(void* layer, int screenData);
+struct BGLayer_02020cb8_3;
+extern "C" void ResetBGLayerData_0204afb4(struct BGLayer_02020cb8_3* layer);
 extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
 extern "C" void __clear(void* arg0, int arg1);
@@ -33,15 +33,15 @@ extern "C" ARM void func_ov023_021eb26c(void* arg0) {
     unsigned int* var3 = (unsigned int*)0x4001000;
     *var3 = (*var3 & ~0x1f00) | (*(int*)(var0 + 0x40) << 8);
 
-    func_02074bd0((struct Struct_02074bd0*)(var0 + 0x2a));
+    RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)(var0 + 0x2a));
     func_02074bf4((struct Struct_02074bf4*)(var0 + 0x2a));
 
     unsigned char var4 = *(unsigned char*)(var0 + 0x430);
     if (var4 == 2 || (var4 == 7 && (*(unsigned short*)(var0 + 0x438) & 8) != 0)) {
-        func_0204b010((struct Struct_0204b010*)(var0 + 0x44), 0);
-        func_0204b04c(var0 + 0x44, 0);
-        func_0204b088(var0 + 0x44, 0);
-        func_0204afb4((struct Struct_02020cb8_3*)(var0 + 0x44));
+        ClearBGScreenData_0204b010((struct BGLayer_0204b010*)(var0 + 0x44), 0);
+        FlushBGScreenData_0204b04c(var0 + 0x44, 0);
+        CopyBGScreenDataToVRAM_0204b088(var0 + 0x44, 0);
+        ResetBGLayerData_0204afb4((struct BGLayer_02020cb8_3*)(var0 + 0x44));
         memset(*(void**)(var0 + 0x420), 0, 0x20);
         DC_FlushRange(*(void**)(var0 + 0x420), 0x20);
         LoadToMainBG1CharacterData(*(int*)(var0 + 0x420), 0, 0x20);

@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov017_021b8468(void* arg0);
-extern "C" void* func_ov017_021b8470(void* arg0);
-extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
@@ -24,9 +24,9 @@ extern "C" ARM void func_ov017_021c8588(int arg0, signed char* arg1, GameState* 
     signed char* var1;
     int var2;
     void* var3 = *(void**)(arg3 + Enum_ov017_021c8588_14104);
-    var0 = func_ov017_021b8468(var3);
+    var0 = GetBattleScene_ov017_021b8468(var3);
     if (var0 == 0) return;
-    if (func_ov017_021b8470(var3) == 0) return;
+    if (GetBattle_ov017_021b8470(var3) == 0) return;
 
     var1 = arg1 + 4;
     for (var2 = 0; var2 < 4; var2++) {
@@ -42,6 +42,6 @@ extern "C" ARM void func_ov017_021c8588(int arg0, signed char* arg1, GameState* 
     }
 
     if (*((unsigned char*)var3 + 3) != 0 && var0 != 0) {
-        func_ov000_02160fa8(var0, 0x4000000 << arg0);
+        SetBattleSceneFlags_ov000_02160fa8(var0, 0x4000000 << arg0);
     }
 }

@@ -19,7 +19,7 @@ extern "C" void func_02022da0(void*);
 #include "NitroSDK/Memory.h"
 
 extern "C" Zone3D* GetZone3D_02012fe4(void);
-extern "C" void* func_0203bd08(void);
+extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void* func_0203b628(void);
 extern "C" void func_02021428(void* arg0, int arg1);
 
@@ -54,7 +54,7 @@ extern "C" void func_02020fc4(void* arg0, int* arg1, SafeAllocator* arg2);
 extern "C" void func_020210f8(char* arg0, int* arg1, SafeAllocator* arg2);
 extern "C" void func_0202445c(void* arg0);
 extern "C" void func_ov017_02191234(void* arg0);
-extern "C" void func_020c9820(void);
+extern "C" void WaitForVBlank_020c9820(void);
 extern "C" void func_0202343c(void* arg0);
 extern "C" void func_02026b7c(unsigned char* arg0);
 extern "C" void func_02026bdc(void* arg0, int arg1);
@@ -91,7 +91,7 @@ extern "C" ARM void func_02021578(Struct_02020554* arg0) {
     var4 = BackgroundLoader::GetInstance();
     var9 = GetZone3D_02012fe4()->pUnknownStruct_8_;
     var5 = GetGameResources();
-    var10 = (char*)func_0203bd08();
+    var10 = (char*)GetOAMManager_0203bd08();
     var11 = (char*)func_0203b628();
     var13 = arg0->unknown_9c2_;
     var12 = inline_02021578(var5, 12);
@@ -254,7 +254,7 @@ extern "C" ARM void func_02021578(Struct_02020554* arg0) {
         arg0->unknown_9c8_ = 0;
         arg0->unknown_9c3_ = 0;
         arg0->unknown_9c2_ = arg0->unknown_9c2_ + 1;
-        func_020c9820();
+        WaitForVBlank_020c9820();
         func_0202343c(arg0);
         func_0202445c(arg0);
         func_02026b7c((unsigned char*)arg0);

@@ -20,7 +20,7 @@ extern "C" void func_ov024_021f8628(Struct_ov024_021f8f20* arg0, unsigned short 
 extern "C" void func_ov024_021f7478(Struct_ov024_021f8f20* arg0);
 
 extern Struct_ov024_021ff054 data_ov024_021ff054;
-extern Type_ov024_021f8f20 data_020e6d5c;
+extern Type_ov024_021f8f20 gNullMemberFunctionPointer_020e6d5c;
 
 // USA: func_ov024_021f8f20
 extern "C" ARM void func_ov024_021f8f20(Struct_ov024_021f8f20* arg0, int arg1, int arg2, unsigned short* arg3) {
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov024_021f8f20(Struct_ov024_021f8f20* arg0, int arg1, i
     arg0->unknown_6_ = var2;
     func_ov024_021f7478(arg0);
     Struct_ov024_021ff054 var3 = data_ov024_021ff054;
-    var3.unknown_0_[5] = data_020e6d5c;
+    var3.unknown_0_[5] = gNullMemberFunctionPointer_020e6d5c;
     Type_ov024_021f8f20 var4 = var3.unknown_0_[var2];
     if (var4 != 0) {
         (arg0->*var4)(arg2, var0, arg3);

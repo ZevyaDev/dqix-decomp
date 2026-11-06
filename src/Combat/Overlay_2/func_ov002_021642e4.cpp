@@ -4,7 +4,7 @@
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);

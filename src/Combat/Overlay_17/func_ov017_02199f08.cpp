@@ -15,7 +15,7 @@ extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_ov017_021a5bac(unsigned char* arg0);
 extern "C" void func_ov017_021996fc(unsigned char* arg0);
-extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
+extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" void func_ov017_021999fc(unsigned char* arg0);
 
 struct Struct_ov017_02199684 { unsigned char unknown_0_[0x14]; int unknown_14_; unsigned char unknown_18_[0x20 - 0x18]; };
@@ -45,8 +45,8 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* arg0) {
     enum {Enum_ov017_02199f08_16512 = 0x4080, Enum_ov017_02199f08_16500 = 0x4074, Enum_ov017_02199f08_16504 = 0x4078, Enum_ov017_02199f08_180 = 0xb4, Enum_ov017_02199f08_15360 = 0x3c00, Enum_ov017_02199f08_3248 = 0xcb0, Enum_ov017_02199f08_1788 = 0x6fc, Enum_ov017_02199f08_396 = 0x18c, Enum_ov017_02199f08_3240 = 0xca8, Enum_ov017_02199f08_3244 = 0xcac};
 #endif
 
-    struct Struct_02015438;
-    if (IsQueueEmpty_02046b08((void**)*(struct Struct_02015438***)(arg0 + 0x3000 + Enum_ov017_02199f08_1788)) == 0) {
+    struct QueueNode_02015438;
+    if (IsQueueEmpty_02046b08((void**)*(struct QueueNode_02015438***)(arg0 + 0x3000 + Enum_ov017_02199f08_1788)) == 0) {
         func_ov017_02199e98(arg0);
         return;
     }
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* arg0) {
         }
     }
 
-    if (func_02046708((Struct_02012de8*)GetGlobalFlags_020d6c00(), 4) != 0) {
+    if (TestGlobalFlags_02046708((GlobalFlags_02012de8*)GetGlobalFlags_020d6c00(), 4) != 0) {
         func_ov017_02199e98(arg0);
         return;
     }

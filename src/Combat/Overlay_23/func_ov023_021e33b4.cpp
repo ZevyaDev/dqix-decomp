@@ -137,7 +137,7 @@ int IsMainBrightnessTransitionActive(GameResources* resources);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
-extern "C" void func_020de848(void* arg0);
+extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" void func_020dea40(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
 extern "C" int func_020deb08(Struct_020deb08* arg0);
 extern "C" void func_020deb24(Struct_0205faf4_9* arg0, int arg1);
@@ -154,13 +154,13 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_020a2010(void* arg0);
 extern "C" void func_0202e5c0(Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_020a27a0(void* arg0);
+extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void func_020c54a4(int arg0, unsigned int arg1, unsigned int arg2, unsigned short arg3);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void func_020e46c4(void* arg0);
+extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_ov023_021e20c0(void* arg0);
@@ -179,7 +179,7 @@ int func_ov005_0215436c(void* arg0);
 void func_ov005_0215a960(void* arg0);
 void func_ov005_0215ae7c(void* arg0);
 void func_020dea64(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, const void* arg4, int arg5);
-void func_0207de48(void* arg0, int arg1, int arg2);
+void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 void func_020432c4(void* arg0);
 void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, SafeAllocator* allocator);
 void ClearMessageParams_02046380(void* window);
@@ -207,7 +207,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
     if (arg0->unknown_4e4_ == 1)
     {
         FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
-        func_02094b40(var3);
+        ClearLoadedFontSets_02094b40(var3);
         RequestFontLoad_02094b34(var3, 0x79, 0x1fa, 0, 0);
         arg0->unknown_4e4_++;
     }
@@ -234,7 +234,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             SetFlags04(var1, 0x601fe);
             RestoreTextureVRAMState_0207df90(arg0->unknown_8_);
             arg0->unknown_14_->Reset();
-            func_020de848(arg0->unknown_a4_);
+            ClearItemTable_020de848(arg0->unknown_a4_);
             func_020dea40(arg0->unknown_a4_, arg0->unknown_14_, var4, var5, 0xb);
             arg0->unknown_be_ = func_020deb08((Struct_020deb08*)arg0->unknown_a4_);
             arg0->unknown_bc_ = arg0->unknown_be_ + 0x31;
@@ -291,7 +291,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             func_ov023_021e6150(arg0->unknown_120_[1], 1);
 
             arg0->unknown_14_->Reset();
-            func_020de848(arg0->unknown_a4_);
+            ClearItemTable_020de848(arg0->unknown_a4_);
             func_020dea64(arg0->unknown_a4_, arg0->unknown_14_, var4, var5, data_ov023_021fd66c, 9);
 
             arg0->unknown_638_ = arg0->unknown_2c_.Allocate(0x2a0);
@@ -302,12 +302,12 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             if (arg0->unknown_0_ != NULL)
                 *(void**)((char*)arg0->unknown_0_ + 0xdf4) = arg0->unknown_a4_;
 
-            func_0207de48(arg0->unknown_474_, 0x4000, 0x40);
+            InitTextureVRAMArea_0207de48(arg0->unknown_474_, 0x4000, 0x40);
             ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_474_);
             if (arg0->unknown_4e5_ == 3 && arg0->unknown_0_ != NULL)
                 func_ov005_02153b20(arg0->unknown_0_);
 
-            func_0207de48(arg0->unknown_404_, 0, 0);
+            InitTextureVRAMArea_0207de48(arg0->unknown_404_, 0, 0);
             ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_404_);
 
             void* var8 = GetMessageWindow_020421a0();
@@ -320,7 +320,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             func_020a2010(arg0->unknown_13c_);
             func_0202e5c0((Struct_0202e5c0*)arg0->unknown_13c_, 0xb666, 0xa800, 0x42ccc);
             func_0202e5c8((unsigned char*)arg0->unknown_13c_, 0xb666, 0xa800, 0);
-            func_020a27a0(arg0->unknown_13c_);
+            DisableCameraFollow_020a27a0(arg0->unknown_13c_);
             SetCamera_020100c4(var0, (int)arg0->unknown_13c_);
             func_020c54a4(0, 0, 0, 0);
 
@@ -392,7 +392,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
     {
 #if !defined(jpn)
         Struct_ov023_021e33b4_4 var19;
-        func_020e46c4(&var19);
+        InitNoun_020e46c4(&var19);
         InitPartyMemberNoun_020e4bf4(&var19, GetProtagonistObjectIndex_020100a8(var0));
         void* var20 = GetMessageWindow_020421a0();
         Struct_0201099c_3* var21 = (Struct_0201099c_3*)((char*)arg0->unknown_0_ + 0xdf8);

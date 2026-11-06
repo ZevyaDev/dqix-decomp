@@ -7,7 +7,7 @@
 
 extern "C" void func_ov002_02157030(void* arg0, unsigned char arg1, short* arg2, short* arg3, short* arg4, short* arg5);
 struct TextWindowManager_0205de24_2;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" void func_ov002_0215be00(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov004_0215de9c(void* arg0, void* arg1, int arg2);
 #if defined(jpn)

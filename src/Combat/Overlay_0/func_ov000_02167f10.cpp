@@ -9,7 +9,7 @@ enum { Enum_ov000_02167f10_672 = 0x2a0, Enum_ov000_02167f10_22865 = 0x5951 };
 struct Struct_02049e88;
 extern "C" void func_02049e88(struct Struct_02049e88* arg0);
 extern "C" void func_02049ae4(unsigned char* arg0);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 
 // USA: func_ov000_02167f10
 extern "C" ARM void func_ov000_02167f10(unsigned char* arg0) {
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov000_02167f10(unsigned char* arg0) {
     GameObject* var1;
     int var2;
     for (var2 = 0; var2 < 4; var2++) {
-        if (func_020a35e0(*(unsigned char**)(arg0 + Enum_ov000_02167f10_672), var2 & 0xff)) {
+        if (IsPartyMemberInBattle_020a35e0(*(unsigned char**)(arg0 + Enum_ov000_02167f10_672), var2 & 0xff)) {
             var1 = var0->GetCombatantByIndex(var2);
             if (var1) {
                 func_02049e88((struct Struct_02049e88*)var1);

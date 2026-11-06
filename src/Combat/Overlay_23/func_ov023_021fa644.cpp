@@ -21,11 +21,11 @@ struct Struct_ov023_021fa644 {
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
-struct Struct_020727d8;
-extern "C" void func_020727d8(struct Struct_020727d8* arg0);
+struct StringList_020727d8;
+extern "C" void ResetStringList_020727d8(struct StringList_020727d8* stringList);
 
 struct Struct_02013fb4;
-extern "C" void func_020728ac(int, int, struct Struct_02013fb4*, int, int, unsigned short, unsigned char);
+extern "C" void LoadStringList_020728ac(int, int, struct Struct_02013fb4*, int, int, unsigned short, unsigned char);
 
 struct Struct_ov023_021fa644_2 {
     char unknown_0_[8];
@@ -80,6 +80,6 @@ extern "C" ARM void func_ov023_021fa644(Struct_ov023_021fa644_2* arg0, void* arg
         var4 = 1;
     }
 
-    func_020727d8((Struct_020727d8*)((char*)arg0 + 0x20));
-    func_020728ac((int)((char*)arg0 + 0x20), (int)((char*)var0 + 4), (Struct_02013fb4*)arg2, arg3, 0, 0, var4);
+    ResetStringList_020727d8((StringList_020727d8*)((char*)arg0 + 0x20));
+    LoadStringList_020728ac((int)((char*)arg0 + 0x20), (int)((char*)var0 + 4), (Struct_02013fb4*)arg2, arg3, 0, 0, var4);
 }

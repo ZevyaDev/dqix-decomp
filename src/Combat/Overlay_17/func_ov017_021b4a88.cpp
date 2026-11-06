@@ -12,8 +12,8 @@
 #include "World/GrottoTileGraph.h"
 
 extern "C" Zone3D* GetZone3D_02012fe4(void);
-extern "C" void func_020a0cc4(unsigned int arg0);
-extern "C" void func_020a0c0c(void);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
+extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" int func_0201b5b0(int arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov017_021b4a88(Struct_ov017_021b4a88* arg0) {
             unsigned int var4;
             void* var5;
             var0->GetLoadedFileByID(arg0->unknown_c_, &var5, &var4);
-            func_020a0cc4(0x2800);
+            ReleaseFileTablesForSpace_020a0cc4(0x2800);
 
             SafeAllocator var6;
             var6.ResetAllocatorPointer();
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov017_021b4a88(Struct_ov017_021b4a88* arg0) {
             void* var24 = var17.GetSignedAllocator();
             var17.Destroy();
             FreeMemory_02012da4(&gMainHeap_02114e20, var24);
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
         }
         var0->RemoveTask(arg0->unknown_c_);
         arg0->unknown_c_ = -1;

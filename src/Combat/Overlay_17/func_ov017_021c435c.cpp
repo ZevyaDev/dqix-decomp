@@ -3,7 +3,7 @@
 
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4*);
-extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
 
 struct Struct_0203d028_13;
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov017_021c435c(int arg0, struct Struct_ov017_021c435c* 
     unsigned char* var3 = *(unsigned char**)(arg3 + 0x3000 + Enum_ov017_021c435c_1816);
     void* var4 = GetBattleSetup_ov017_021b8478(var3);
     if (var3[2] != 0) {
-        if (func_020a35e0((unsigned char*)var4, arg1->unknown_5_0_)) {
+        if (IsPartyMemberInBattle_020a35e0((unsigned char*)var4, arg1->unknown_5_0_)) {
             *(unsigned int*)((char*)var1 + Enum_ov017_021c435c_348) = var2;
             return;
         }

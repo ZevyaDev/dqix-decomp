@@ -29,8 +29,8 @@ extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void *window);
-extern "C" void func_020465f0(unsigned char *arg0, int arg1, unsigned char arg2);
-extern "C" void func_020465d8(unsigned char *arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char *window, int index, unsigned char width);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char *window, int index, unsigned char alignment);
 extern "C" int func_ov002_02159774(void *arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" char *FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
@@ -63,10 +63,10 @@ extern "C" ARM void func_ov002_0215e2b0(char *arg0, char *arg1) {
     }
     char *var10 = GetMessageWindow_020421a0();
     ClearMessageParams_02046380(var10);
-    func_020465f0((unsigned char *) var10, 0, 3);
-    func_020465d8((unsigned char *) var10, 0, 1);
-    func_020465f0((unsigned char *) var10, 1, 3);
-    func_020465d8((unsigned char *) var10, 1, 1);
+    SetMessageNumberWidth_020465f0((unsigned char *) var10, 0, 3);
+    SetMessageNumberAlignment_020465d8((unsigned char *) var10, 0, 1);
+    SetMessageNumberWidth_020465f0((unsigned char *) var10, 1, 3);
+    SetMessageNumberAlignment_020465d8((unsigned char *) var10, 1, 1);
     int var11 = 0x4ba;
     char *var12 = *(char **) (var7 + 0x130);
     char *var13 = *(char **) (var7 + 0x134);
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov002_0215e2b0(char *arg0, char *arg1) {
             case 0x5625:
                 var14 = *(unsigned short *) ((char *) var8 + 0x564);
                 var11 = 0x110a;
-                func_020465f0((unsigned char *) var10, 0, 4);
+                SetMessageNumberWidth_020465f0((unsigned char *) var10, 0, 4);
                 break;
             case 0x561d: break;
             default: var16 = 0; break;

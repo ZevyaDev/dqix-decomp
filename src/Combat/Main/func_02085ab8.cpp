@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" int func_0201137c(char* arg0, int arg1);
 
 struct Struct_02085ab8 {
@@ -57,7 +57,7 @@ extern "C" ARM int func_02085ab8(unsigned char* arg0, struct Struct_02085ab8* ar
 
     int var5 = 0;
     if (var3 != -1) {
-        if (func_02083b00(arg0, var3)) {
+        if (HasLearnedSkillEntry_02083b00(arg0, var3)) {
             var5 += func_0201137c((char*)var0, var3);
         }
     }

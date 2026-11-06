@@ -20,7 +20,7 @@
 
 extern "C" void* GetResources_0200fb8c(int*);
 extern "C" void func_020dc2bc();
-extern "C" void func_02074af4(void*);
+extern "C" void SaveMainBGControl_02074af4(void*);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 
@@ -33,9 +33,9 @@ extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
 extern "C" void SetBGScreenSize_0204b11c(unsigned char*, int);
 struct BGLayer_02020cb8_5;
 extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
-extern "C" void func_0204b2e0(void*, char*);
-struct Struct_02020cb8_6;
-extern "C" void func_0204b3a0(Struct_02020cb8_6*, char*);
+extern "C" void FlushBGBlock_0204b2e0(void*, char*);
+struct BGLayer_02020cb8_6;
+extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6*, char*);
 
 extern "C" void LoadToSubBGStandardPalette(int, int, unsigned int);
 extern "C" void LoadToSubBG1ScreenData(int, int, unsigned int);
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov028_021d8dd0(unsigned char* arg0) {
         }
     } else if (var4 == 2) {
         func_020dc2bc();
-        func_02074af4(arg0 + 0xc);
+        SaveMainBGControl_02074af4(arg0 + 0xc);
         *(unsigned int*)(arg0 + 0x74) = GetFlags00((GameResources*)var3);
         *(unsigned int*)(arg0 + 0x78) = GetFlags04((GameResources*)var3);
         *(unsigned int*)(arg0 + 0x7c) = GetFlags08((GameResources*)var3);
@@ -86,8 +86,8 @@ extern "C" ARM void func_ov028_021d8dd0(unsigned char* arg0) {
         SetBGScreenSize_0204b11c((unsigned char*)var7, 0);
         SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var7, 0, 0);
         int var9 = *(int*)((char*)var3 + 0x2c);
-        func_0204b2e0(var7, (char*)var9);
-        func_0204b3a0((Struct_02020cb8_6*)var7, (char*)var9);
+        FlushBGBlock_0204b2e0(var7, (char*)var9);
+        CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6*)var7, (char*)var9);
 
         unsigned short var10 = 0x67f5;
         memcpy(var5, &var10, 2);

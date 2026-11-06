@@ -26,7 +26,7 @@ extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
 struct Struct_0200ffd0;
 extern "C" void* func_0200ffd0(struct Struct_0200ffd0* arg0);
 
-extern "C" void func_0200fd48(GameState* arg0, int arg1);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 
 struct TextureVRAMArea_0203d028;
 extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
@@ -83,16 +83,16 @@ extern "C" ARM void func_ov017_021a316c(unsigned char* arg0) {
     func_0208f7ec((struct Struct_0201c014*)(var1 + Enum_ov017_021a316c_9828));
 
     if (func_0200ffc0((struct Struct_0200ffc0*)var0)) {
-        func_0200fd48(var0, 0xc9);
+        ClearGameObjectByIndex_0200fd48(var0, 0xc9);
     }
     if (func_0200ffd0((struct Struct_0200ffd0*)var0)) {
-        func_0200fd48(var0, 0xca);
+        ClearGameObjectByIndex_0200fd48(var0, 0xca);
     }
 
     for (var4 = 1; var4 < 4; var4++) {
         if (var0->GetGameObjectByIndex(var4 + 0xca)) {
-            func_0200fd48(var0, var4 + 0xca);
+            ClearGameObjectByIndex_0200fd48(var0, var4 + 0xca);
         }
     }
-    func_0200fd48(var0, 0xce);
+    ClearGameObjectByIndex_0200fd48(var0, 0xce);
 }

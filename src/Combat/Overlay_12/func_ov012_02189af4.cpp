@@ -27,11 +27,11 @@ extern "C" void func_0205c508(Struct_0205c508*, int*, int*);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" int AppendMenuEntry_02041b70(char*, int, const char*);
-extern "C" int func_02041a28(char*, int);
+extern "C" int AppendXPositionTag_02041a28(char*, int);
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" void func_020465f0(unsigned char*, int, unsigned char);
-extern "C" void func_020465d8(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*, int, unsigned char);
 extern "C" void func_02042428(char*, int);
 extern "C" void GetLocalWireless_0202ae18();
 
@@ -57,17 +57,17 @@ extern "C" ARM void func_ov012_02189af4(char* arg0, char* arg1, int arg2) {
         AppendMenuEntry_02041b70(arg1, var2 & 15, FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x1314), (short)(var2 + 0x2774)));
         var4 = var2 + (var9 + 1 - var8) / 2;
         if (var4 < 47) {
-            func_02041a28(arg1, 0x56);
+            AppendXPositionTag_02041a28(arg1, 0x56);
             AppendMenuEntry_02041b70(arg1, var4 & 15, FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x1314), (short)(var4 + 0x2774)));
         }
     }
     ClearMessageParams_02046380(var1);
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var6 + 1);
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 1, var7);
-    func_020465f0((unsigned char*)var1, 0, 2);
-    func_020465f0((unsigned char*)var1, 1, 2);
-    func_020465d8((unsigned char*)var1, 0, 1);
-    func_020465d8((unsigned char*)var1, 1, 0);
+    SetMessageNumberWidth_020465f0((unsigned char*)var1, 0, 2);
+    SetMessageNumberWidth_020465f0((unsigned char*)var1, 1, 2);
+    SetMessageNumberAlignment_020465d8((unsigned char*)var1, 0, 1);
+    SetMessageNumberAlignment_020465d8((unsigned char*)var1, 1, 0);
     func_02042428(arg1, 8);
     AppendText_02042058(arg1, FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x1314), 0x6a));
 }
@@ -113,7 +113,7 @@ extern "C" void func_0205c508(Struct_0205c508* arg0, int* arg1, int* arg2);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
-extern "C" void func_02041a28(char* arg0, int arg1);
+extern "C" void AppendXPositionTag_02041a28(char* buffer, int x);
 extern "C" void func_ov012_021842a0(Struct_ov012_02189af4_4* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov012_02189af4
@@ -142,7 +142,7 @@ extern "C" ARM void func_ov012_02189af4(Struct_ov012_02189af4_4* arg0, char* arg
         int var18 = var17 + (var15 + 1 - var14) / 2;
         if (var18 < 0xc0)
         {
-            func_02041a28(arg1, 0x56);
+            AppendXPositionTag_02041a28(arg1, 0x56);
             AppendMenuEntry_02041b70(arg1, var18 & 0xf, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, (short)(var18 + 0x2846)));
         }
     }

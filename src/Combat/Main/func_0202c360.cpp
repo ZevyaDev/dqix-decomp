@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void __clear(char* arg0, int arg1);
-extern "C" int func_020426bc(int arg0, char* arg1, int arg2);
+extern "C" int ConvertTextToGlyphIndices_020426bc(int text, char* outGlyphIndices, int font);
 extern "C" void func_02010890(GameState* arg0, int* arg1, int* arg2);
 
 #if defined(jpn)
@@ -23,7 +23,7 @@ extern "C" ARM void func_0202c360(void* arg0, Type_0202c360 arg1) {
     *var4 = strlen(arg1);
 #else
     __clear(var0, 0x14);
-    func_020426bc(arg1, var0, 1);
+    ConvertTextToGlyphIndices_020426bc(arg1, var0, 1);
     *var4 = strlen(var0);
     memcpy((char*)arg0 + 0x1014, var0, *var4 + 1);
 #endif

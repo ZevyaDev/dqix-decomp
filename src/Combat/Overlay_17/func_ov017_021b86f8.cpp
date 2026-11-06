@@ -5,7 +5,7 @@
 #include "Resource/Brightness.h"
 
 struct Struct_020708c8;
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 
 struct Struct_ov017_021b86f8 {
     char unknown_0_[0x24];
@@ -26,7 +26,7 @@ extern "C" void GetMessageWindow_020421a0(void);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" GameObject* func_0200ff94(GameState* arg0, int arg1);
 extern "C" Struct_020708c8* func_020704fc(void);
-extern "C" Struct_02012de8* GetGlobalFlags_020d6c00(void);
+extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020d7a50(void);
 extern "C" int GetStandardString_020e51cc(int stringId);
@@ -36,7 +36,7 @@ extern "C" float func_020709ac(unsigned char* arg0);
 extern "C" void func_020708c8(Struct_020708c8* arg0, unsigned int arg1);
 extern "C" int abs(int arg0);
 void SetMainBrightness(GameResources* res, int level, int b);
-extern "C" int func_02046708(Struct_02012de8* arg0, unsigned int arg1);
+extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_020dc2d0(int arg0);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov017_021b86f8(Struct_ov017_021b86f8* arg0, int arg1, i
     GameObject* var1 = func_0200ff94(var0, GetProtagonistObjectIndex_020100a8(var0));
     GameResources* var2 = GetGameResources();
     Struct_020708c8* var3 = func_020704fc();
-    Struct_02012de8* var4 = GetGlobalFlags_020d6c00();
+    GlobalFlags_02012de8* var4 = GetGlobalFlags_020d6c00();
     GetZone3D_02012fe4();
     if (var1 != NULL) {
         if (arg2) {
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov017_021b86f8(Struct_ov017_021b86f8* arg0, int arg1, i
     if (abs(GetBrightness((GameResources*)var2, false)) == 0x10) {
         SetMainBrightness(var2, 0, 0x1e);
     }
-    if (func_02046708(var4, 1)) {
+    if (TestGlobalFlags_02046708(var4, 1)) {
         ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var4, 1);
         func_020dc2d0(0);
     }

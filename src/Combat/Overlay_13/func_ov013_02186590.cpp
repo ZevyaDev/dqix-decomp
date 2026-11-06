@@ -8,8 +8,8 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Struct_0205bcdc;
-extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
+struct MenuCursor_0205bcdc;
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc* cursor, int index);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
 extern "C" int GetMessageWindow_020421a0();
@@ -47,10 +47,10 @@ extern "C" ARM void func_ov013_02186590(void* arg0) {
         unsigned char var4 = var0[R(0x5c8,0x63c)];
         unsigned char* var5 = var0 + R(0x3ec,0x3f0);
         if (var4 == 4) {
-            func_0205bcdc((struct Struct_0205bcdc*)(var5 + 4), var3);
+            SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc*)(var5 + 4), var3);
             SetMenuCursorIndex_0205bb04(var5 + 0x54, var3);
         } else {
-            func_0205bcdc((struct Struct_0205bcdc*)(var5 + 4), 0);
+            SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc*)(var5 + 4), 0);
             SetMenuCursorIndex_0205bb04(var5 + 0x54, 0);
         }
         var0[R(0x5ca,0x63e)] = var0[R(0x5ca,0x63e)] + 1;

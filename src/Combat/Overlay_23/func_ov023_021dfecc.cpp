@@ -24,10 +24,10 @@ extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
-extern "C" void func_0204b2e0(void* arg0, char* arg1);
+extern "C" void FlushBGBlock_0204b2e0(void* layer, char* block);
 
-struct Struct_02020cb8_6;
-extern "C" void func_0204b3a0(struct Struct_02020cb8_6* arg0, char* arg1);
+struct BGLayer_02020cb8_6;
+extern "C" void CopyBGBlockToVRAM_0204b3a0(struct BGLayer_02020cb8_6* layer, char* block);
 
 extern "C" int func_ov023_021e20f0(void*, void*, void*, void*);
 
@@ -73,10 +73,10 @@ extern "C" ARM int func_ov023_021dfecc(void* arg0) {
 
             signed char var11 = *(signed char*)(var0 + Enum_ov023_021dfecc_1792 + Enum_ov023_021dfecc_124);
             if (var11 == 1) {
-                var1.unknown_1c_0_ = var11;
+                var1.isSubScreen_1c_0_ = var11;
                 var1.bgIndex_1c_4_ = 1;
             } else {
-                var1.unknown_1c_0_ = var11;
+                var1.isSubScreen_1c_0_ = var11;
                 var1.bgIndex_1c_4_ = 3;
             }
 
@@ -96,8 +96,8 @@ extern "C" ARM int func_ov023_021dfecc(void* arg0) {
                 for (unsigned char var15 = 0; var15 < var14; var15++) {
                     var3 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var2, var15, &var6, &var5);
                     if (var3) {
-                        func_0204b2e0(&var1, (char*)var3);
-                        func_0204b3a0((struct Struct_02020cb8_6*)&var1, (char*)var3);
+                        FlushBGBlock_0204b2e0(&var1, (char*)var3);
+                        CopyBGBlockToVRAM_0204b3a0((struct BGLayer_02020cb8_6*)&var1, (char*)var3);
                         func_ov023_021e20f0(var0 + 0xcc, var0, var3, (void*)var5);
                     }
                 }
@@ -108,8 +108,8 @@ extern "C" ARM int func_ov023_021dfecc(void* arg0) {
                     if (FindFilesInNarcBySubstring((const void*)var2, data_ov023_021fda78[var16],
                             (const void**)&var3, (unsigned int*)&var5, 1) != 0) {
                         if (var16 != 3) {
-                            func_0204b2e0(&var1, (char*)var3);
-                            func_0204b3a0((struct Struct_02020cb8_6*)&var1, (char*)var3);
+                            FlushBGBlock_0204b2e0(&var1, (char*)var3);
+                            CopyBGBlockToVRAM_0204b3a0((struct BGLayer_02020cb8_6*)&var1, (char*)var3);
                         } else {
                             func_ov023_021e20f0(var0 + 0xcc, var0, var3, (void*)var5);
                         }

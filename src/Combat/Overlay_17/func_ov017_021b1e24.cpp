@@ -7,7 +7,7 @@
 
 struct Struct_ov017_021b1e24;
 
-extern "C" void func_020a1940(unsigned int arg0);
+extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void func_ov031_02243518(void* arg0, int arg1);
 extern "C" void func_ov031_02243690(Struct_ov017_021b1e24* arg0);
 extern "C" void func_0205e92c(void* arg0);
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov017_021b1e24(Struct_ov017_021b1e24_3* arg0) {
         arg0->unknown_c_.Reset();
         func_0205e92c(&gSoundEffectManager_02108760);
         func_0209c278(&gMusicManager_02109bf4);
-        func_020a1940(OVERLAY_ID(31));
+        LoadOverlay_020a1940(OVERLAY_ID(31));
         func_ov031_02243518(arg0->unknown_24_, arg0->unknown_21_);
         arg0->unknown_24_->unknown_28_ = &arg0->unknown_c_;
         inline_ov017_021b1e24(arg0->unknown_24_, arg0->unknown_34_, arg0->unknown_38_);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov017_021b1e24(Struct_ov017_021b1e24_3* arg0) {
     if (arg0->unknown_24_->unknown_30_ == 0) {
         return;
     }
-    func_020a1940(OVERLAY_ID(32));
+    LoadOverlay_020a1940(OVERLAY_ID(32));
     func_0209c278(&gMusicManager_02109bf4);
     func_0209c290(&gMusicManager_02109bf4);
     func_0205e92c(&gSoundEffectManager_02108760);

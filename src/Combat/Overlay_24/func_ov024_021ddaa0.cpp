@@ -7,7 +7,7 @@ struct Struct_02087e6c;
 
 extern "C" int func_02087e18(Struct_02087e18*, unsigned char);
 extern "C" int func_02087e6c(struct Struct_02087e6c* arg0, int arg1);
-extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
+extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov024_021e8bf0(void* arg0, void* arg1, unsigned short* arg2);
@@ -71,9 +71,9 @@ extern "C" ARM void* func_ov024_021ddaa0(struct Struct_ov024_021ddaa0_4* arg0, i
             }
         }
     } else {
-        var5 = func_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
+        var5 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
     }
-    int var6 = func_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
+    int var6 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
     void* var7 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var7) return 0;
     if (var6) {

@@ -130,13 +130,13 @@ extern "C" void func_ov000_0217a514(Struct_ov000_02176634_11*, Struct_ov000_0217
 extern "C" Struct_ov000_02176634_9* GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(Struct_ov000_02176634_9*);
 extern "C" void __clear(void*, int);
-extern "C" void func_020e46c4(void*);
+extern "C" void InitNoun_020e46c4(void*);
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
-extern "C" Struct_ov000_02176634_4* func_ov000_02161318(Struct_ov000_02176634_11*, int);
+extern "C" Struct_ov000_02176634_4* FindPartyMemberPanel_ov000_02161318(Struct_ov000_02176634_11*, int);
 extern "C" Struct_ov000_02176634_2* func_ov000_0217199c(void*, int);
 extern "C" int func_ov000_021815c8(void*);
 extern "C" Struct_ov000_02176634_3* func_ov000_021815e4(char*);
@@ -281,7 +281,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
         func_020474a8(var13, 10, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7555), var0);
         break;
     case 0x2b: {
-        Struct_ov000_02176634_4* var15 = func_ov000_02161318(arg0, arg0->unknown_70_[arg0->unknown_1d6b_]);
+        Struct_ov000_02176634_4* var15 = FindPartyMemberPanel_ov000_02161318(arg0, arg0->unknown_70_[arg0->unknown_1d6b_]);
         if (var15 != NULL) {
             memset(var14, 0, 0x20);
             func_0203bdf4((char*)var15 + 0x88, var14);
@@ -425,7 +425,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
     __clear(var29, 0x80);
     Struct_ov000_02176634_5 var30;
     Struct_ov000_02176634_5 var31;
-    func_020e46c4(&var31);
+    InitNoun_020e46c4(&var31);
     var31.unknown_0_ = var28;
     var31.unknown_4_ = var29;
     int var32;
@@ -454,7 +454,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
         var33 = 0x7555;
         break;
     case 0x2b: {
-        Struct_ov000_02176634_4* var34 = func_ov000_02161318(arg0, arg0->unknown_70_[arg0->unknown_1d6b_]);
+        Struct_ov000_02176634_4* var34 = FindPartyMemberPanel_ov000_02161318(arg0, arg0->unknown_70_[arg0->unknown_1d6b_]);
         if (var34 != NULL) {
             InitPartyMemberNoun_020e4bf4(&var30, var34->unknown_4c_);
         }

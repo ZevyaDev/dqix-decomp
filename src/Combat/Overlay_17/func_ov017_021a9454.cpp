@@ -75,7 +75,7 @@ extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
-extern "C" int func_020457e0(void* arg0);
+extern "C" int GetMessageChoice_020457e0(void* window);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void VectorizedMemset(void*, int, int);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -126,7 +126,7 @@ extern "C" ARM void func_ov017_021a9454(Struct_ov017_021a9454_2* arg0) {
     if (var3 != 1 || var1->unknown_9a0_ != 0) return;
 
     func_020a28b0((unsigned char*)var2, 2);
-    if (func_020457e0(var1) == 0) {
+    if (GetMessageChoice_020457e0(var1) == 0) {
         func_0200ffc0((struct Struct_0200ffc0*)var0);
         Struct_ov017_021a9454_3* var8 = (Struct_ov017_021a9454_3*)GetZoneEntry_0200fd0c(var0);
         VectorizedMemset(var8, 0, sizeof(*var8));

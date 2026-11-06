@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" unsigned char func_02011494(char* arg0, void* arg1);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
 extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
 
 #if defined(jpn)
@@ -21,7 +21,7 @@ extern "C" ARM int func_ov023_021ea46c(void* arg0) {
 	GameState* var0 = GameState::GetInstance();
 	unsigned char var1[4];
 	__clear(var1, 4);
-	unsigned char var2 = func_02011494((char*)var0, var1);
+	unsigned char var2 = GetOwnPartyOrder_02011494((char*)var0, var1);
 	int var3 = 0;
 	for (int var4 = 0; var4 < var2; var4++) {
 		unsigned char var5 = var1[var4];

@@ -29,8 +29,8 @@ extern "C" void func_0205cef8(void* arg0);
 extern "C" void func_0205cf04(void* arg0);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
 extern "C" int func_ov005_02157190(void* arg0);
-struct Struct_0205da38;
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+struct TextWindowManager_0205da38;
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_0205cf10(void* arg0);
 extern "C" void func_0205cf1c(Struct_0205cf1c* arg0);
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov005_02158f80(Struct_ov005_02153954* arg0) {
         arg0->unknown_3ddc_++;
     } else if (arg0->unknown_3ddc_ == 1) {
         arg0->unknown_3dde_ = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_ee4_);
-        if (func_ov005_02157190(arg0) | func_0205da38((struct Struct_0205da38*)arg0->unknown_ee4_, 0x14)) {
+        if (func_ov005_02157190(arg0) | IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)arg0->unknown_ee4_, 0x14)) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             func_0205cf10(arg0->unknown_ee4_);
             func_0205cf1c((Struct_0205cf1c*)arg0->unknown_ee4_);

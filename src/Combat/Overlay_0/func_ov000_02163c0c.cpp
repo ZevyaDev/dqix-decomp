@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 
 // USA: func_ov000_02163c0c
 #pragma optimize_for_size off
@@ -12,7 +12,7 @@ extern "C" ARM int func_ov000_02163c0c(void* arg0, int arg1) {
     int var3;
     short var4;
     if (!var1) goto fail;
-    var2 = func_0200fea4(var0, arg1);
+    var2 = GetEnemyByIndex_0200fea4(var0, arg1);
     if (!var2) goto fail;
     var3 = 0x1fd;
     var4 = var2->obj3D_.unknown_2_;

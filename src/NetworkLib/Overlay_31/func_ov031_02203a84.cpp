@@ -6,7 +6,7 @@ extern "C" void* memmove(void*, const void*, unsigned int);
 
 // USA: func_ov031_02203a84
 extern "C" ARM int func_ov031_02203a84(void* arg0, int arg1) {
-	void* var0 = *(void**)((char*)data_02111304.activeContext + 0xa4);
+	void* var0 = *(void**)((char*)gContextScheduler_02111304.activeContext + 0xa4);
 	if (var0 == NULL) goto ret0;
 	int var1 = *(int*)((char*)var0 + 0x60);
 	if (var1 == 0) goto zero_case;

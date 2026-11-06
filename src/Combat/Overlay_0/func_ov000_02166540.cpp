@@ -88,7 +88,7 @@ extern "C" void func_02048bb8(unsigned char*);
 extern "C" void func_02048bf8(unsigned char*);
 extern "C" Struct_ov000_02166540_3* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" int SetMotion_02033b88(Struct_02010604*, int);
-extern "C" void func_0200fd38(GameState*, int, GameObject*);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_ov000_02166784(Struct_ov000_02161c0c_3*, unsigned char*, unsigned char*);
 extern "C" int func_ov000_02167c28(unsigned char*, int);
 extern "C" void func_ov017_02191aac(void*, int, int, int);
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov000_02166540(Struct_ov000_02161c0c_3* arg0, int arg1,
         var7->unknown_b0_ = var13;
     }
     SetMotion_02033b88((Struct_02010604*)var7, 0);
-    func_0200fd38(var0, arg1, (GameObject*)var7);
+    SetGameObjectByIndex_0200fd38(var0, arg1, (GameObject*)var7);
     func_ov000_02166784(arg0, (unsigned char*)var4, (unsigned char*)var7);
     func_ov000_02167c28((unsigned char*)arg0, arg1);
     GameObject* var14 = var0->GetCombatantByIndex(arg1);

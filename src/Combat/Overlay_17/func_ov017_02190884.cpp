@@ -3,7 +3,7 @@
 #include "World/Zone3D.h"
 #include "Resource/GameResources.h"
 
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 struct Struct_02018300_3;
 struct Struct_02033834;
 struct LocalWireless_0202c1a4;
@@ -40,8 +40,8 @@ struct Struct_ov017_021d61dc {
     int unknown_0_[8];
 };
 
-extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
-extern "C" int func_02046708(Struct_02012de8* arg0, unsigned int arg1);
+extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00();
+extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" void func_020dc548(signed char arg0, signed char* arg1, signed char* arg2);
 extern "C" int func_02039d7c(char* arg0);
 extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18();
@@ -49,7 +49,7 @@ extern "C" GameObject* func_0200fee0(GameState* arg0, int arg1);
 extern "C" char* GetZone3D_02012fe4();
 extern "C" int func_020981e4(int arg0, int arg1);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
-extern "C" int func_020546a8(void* arg0);
+extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" int func_ov017_02190818(int arg0);
 extern "C" int func_02039888(void* arg0);
 extern "C" int func_02039820(void* arg0);
@@ -58,7 +58,7 @@ extern "C" int func_02010038(GameState* arg0, unsigned char* arg1);
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" void func_020531f0(void* arg0);
 extern "C" int func_02039874(void* arg0);
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void func_020340f4(unsigned char* arg0);
 extern "C" void func_02039858(unsigned char*, int);
 extern "C" void EnablePlayerControl_020397c0(void* object);
@@ -83,7 +83,7 @@ extern Struct_ov017_021d61dc data_ov017_021d61dc;
 extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3, int arg4, int arg5) {
     GameState* var0 = GameState::GetInstance();
 
-    if (func_02046708(GetGlobalFlags_020d6c00(), 0x2000) != 0) {
+    if (TestGlobalFlags_02046708(GetGlobalFlags_020d6c00(), 0x2000) != 0) {
         unsigned char* var1 = (unsigned char*)GetParty_02010828(var0);
         int var2;
         for (var2 = 0; var2 < var1[0xf7c]; var2++) {
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
 
     for (int var22 = 3; var22 >= 0; var22--) {
         Struct_ov017_02190884_2* var23 = (Struct_ov017_02190884_2*)GetCompanionByIndex_0200ff58(var0, var22);
-        if (var23 != NULL && arg0 == func_020546a8(var23)) {
+        if (var23 != NULL && arg0 == GetLeaderObjectIndex_020546a8(var23)) {
             if (!(var23->unknown_130_->unknown_0_ & 1)) {
                 var15[var17++] = var22;
             } else {
@@ -229,7 +229,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
     }
 
     var13 = 0;
-    if (arg1[0] != func_020100b0(var0)) {
+    if (arg1[0] != GetOwnPartyLeaderObjectIndex_020100b0(var0)) {
         var13 = 1;
     }
 

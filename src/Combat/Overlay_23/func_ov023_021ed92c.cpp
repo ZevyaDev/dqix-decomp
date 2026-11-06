@@ -3,7 +3,7 @@
 
 extern "C" void* GetParty_02010828(GameState* gameState);
 struct Struct_02010088;
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 
 // USA: func_ov023_021ed92c
 extern "C" ARM int func_ov023_021ed92c(void) {
@@ -13,7 +13,7 @@ extern "C" ARM int func_ov023_021ed92c(void) {
         unsigned char* var3 = var1 + var2;
         GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, var3[0xf78]);
         if (var4) {
-            if (!func_02010088((struct Struct_02010088*)var4)) return 0;
+            if (!IsDead_02010088((struct Struct_02010088*)var4)) return 0;
         }
     }
     return 1;

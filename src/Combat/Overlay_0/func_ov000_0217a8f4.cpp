@@ -41,13 +41,13 @@ struct Struct_ov000_021834d4 {
 extern Struct_ov000_02183548 data_ov000_02183548[];
 extern Struct_ov000_021834d4 data_ov000_021834d4[];
 
-extern "C" Struct_ov000_0217a8f4* func_ov000_02161318(Struct_ov000_0217a8f4_3* arg0, int arg1);
+extern "C" Struct_ov000_0217a8f4* FindPartyMemberPanel_ov000_02161318(Struct_ov000_0217a8f4_3* battleUI, int memberIndex);
 extern "C" void func_ov000_02176210(TextWindowManager_0205d81c* arg0, int arg1, int arg2);
 extern "C" void func_0205d904(unsigned char* arg0);
 
 // USA: func_ov000_0217a8f4
 extern "C" ARM void func_ov000_0217a8f4(Struct_ov000_0217a8f4_3* arg0) {
-    Struct_ov000_0217a8f4* var0 = func_ov000_02161318(arg0, arg0->unknown_17c_);
+    Struct_ov000_0217a8f4* var0 = FindPartyMemberPanel_ov000_02161318(arg0, arg0->unknown_17c_);
     if (var0 == 0) {
         return;
     }

@@ -6,8 +6,8 @@
 #include "Memory/SafeAllocator.h"
 
 extern "C" void* GetZone3D_02012fe4(void);
-struct Struct_020fdd44;
-extern "C" struct Struct_020fdd44* func_02027ca4(void);
+struct ActiveZone_020fdd44;
+extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
 struct Struct_02028bac {
 	unsigned short unknown_0_;
 	unsigned short unknown_2_;
@@ -22,7 +22,7 @@ extern "C" void func_020289c4(struct Struct_020288e0* arg0);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020a8e88(void* arg0);
-extern "C" void func_0200fd48(GameState* arg0, int arg1);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 struct Struct_020a8e9c_3;
 extern "C" void func_020a8e9c(Struct_020a8e9c_3*, SafeAllocator*, void*, unsigned int);
 
@@ -35,7 +35,7 @@ extern unsigned char gFileScratchSpace_0211e33c[0x30000];
 extern "C" ARM void func_ov017_0219fda0(void) {
 	GameState* var0 = GameState::GetInstance();
 	GetZone3D_02012fe4();
-	struct Struct_020fdd44* var1 = func_02027ca4();
+	struct ActiveZone_020fdd44* var1 = GetActiveZones_02027ca4();
 	for (int var2 = 0; var2 < 4; var2++) {
 		struct Struct_02028bac* var3 = func_02028bac((struct Struct_02028bac*)var1, var2);
 		func_020289c4((struct Struct_020288e0*)var3);
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov017_0219fda0(void) {
 		}
 	}
 	for (int var5 = 0x70; var5 <= 0x9f; var5++) {
-		func_0200fd48(var0, var5);
+		ClearGameObjectByIndex_0200fd48(var0, var5);
 	}
 	struct Struct_02028bac* var6 = func_02028bac((struct Struct_02028bac*)var1, 0);
 	unsigned int var7 = 0xa000;

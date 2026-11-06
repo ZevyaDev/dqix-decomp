@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Struct_0205da38;
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+struct TextWindowManager_0205da38;
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern int data_ov000_02184294;
 
 #if defined(jpn)
@@ -22,6 +22,6 @@ extern "C" ARM int func_ov000_0217c594(void* arg0, int arg1) {
     }
     *(void**)((char*)&data_ov000_02184294 + Enum_ov000_0217c594_8) = arg0;
     int var2 = g_keyManager.TestKeysPressed(0x601);
-    int var3 = func_0205da38((struct Struct_0205da38*)(var0 + 0x188), 0x14);
+    int var3 = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(var0 + 0x188), 0x14);
     return (var2 | var3) != 0;
 }

@@ -19,13 +19,13 @@ extern "C" int func_02070fe4(Struct_02070fe4*);
 extern "C" Struct_02070f98* func_02070f98(Struct_02070f98_2*, int);
 extern "C" void func_ov025_021e771c(short*, int, short*, int);
 extern "C" void func_ov000_02161c0c(void*, int);
-extern "C" void func_0200fd48(GameState*, int);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
 extern "C" void func_ov000_021677fc(void*);
 extern "C" void func_ov000_02167e6c(unsigned char*);
 extern "C" Struct_ov001_02158ae4_3* func_ov000_02160f14(void*);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" unsigned char* func_ov000_02163524(void*);
-extern "C" GameObject* func_0200fea4(GameState*, int);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" int func_020493a4(unsigned char*);
 extern "C" void func_ov000_02167fb0(void*, GameObject*);
 extern "C" void func_020d7334(unsigned char*, int);
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov025_021e7b74(void*, void*, void*, void* arg3) {
     }
     unsigned char* var20 = var16;
     for (short var21 = 0xc0; var21 <= 0xc7; ++var21, ++var20) {
-        if (!*var20) func_0200fd48(var3, var21);
+        if (!*var20) ClearGameObjectByIndex_0200fd48(var3, var21);
     }
     func_ov000_021677fc(var5);
     func_ov000_02167e6c((unsigned char*)var5);
@@ -89,7 +89,7 @@ extern "C" ARM int func_ov025_021e7b74(void*, void*, void*, void* arg3) {
     unsigned char* var29 = func_ov000_02163524(var5);
     short* var30 = var6;
     for (int var31 = 0; var31 < var0; ++var30, ++var31) {
-        GameObject* var32 = func_0200fea4(var3, *var30);
+        GameObject* var32 = GetEnemyByIndex_0200fea4(var3, *var30);
         if (var32 && func_020493a4((unsigned char*)var32) == 0xff) {
             func_ov000_02167fb0(var5, var32);
             func_020d7334(var29, *var30);

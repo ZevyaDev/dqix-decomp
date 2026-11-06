@@ -22,8 +22,8 @@ extern "C" void LoadToMainBG1CharacterData(int, int, unsigned int);
 struct BGLayer_02020cb8_2;
 extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2* layer, void* screenData);
 
-struct Struct_02074bd0;
-extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
+struct BGControlSave_02074bd0;
+extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 
 struct Struct_02074bf4;
 extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov013_02186fa0(unsigned char* arg0) {
             LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)(arg0 + 0x28), var2);
         }
 
-        func_02074bd0((struct Struct_02074bd0*)(arg0 + 0x14));
+        RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)(arg0 + 0x14));
         {
             volatile unsigned int* var3 = (unsigned int*)0x4000000;
             *var3 = (*var3 & ~0x1f00) | (*(unsigned int*)(arg0 + R(0x4c,0x60)) << 8);

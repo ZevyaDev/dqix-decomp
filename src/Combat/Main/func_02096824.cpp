@@ -7,17 +7,17 @@ enum { Enum_02096824_2456 = 0x868 };
 enum { Enum_02096824_2456 = 0x998 };
 #endif
 
-struct Struct_02012de8;
+struct GlobalFlags_02012de8;
 
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
+extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02096c38(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
 // USA: func_02096824
 extern "C" ARM void func_02096824(unsigned char* arg0) {
     void* var0 = GetGlobalFlags_020d6c00();
-    if (func_02046708((struct Struct_02012de8*)var0, 0x4000)) return;
+    if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)var0, 0x4000)) return;
     if (!(g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0)) return;
     int var1 = GetMessageWindow_020421a0();
     if (var1 != 0 && *(int*)(var1 + Enum_02096824_2456) != 0) return;

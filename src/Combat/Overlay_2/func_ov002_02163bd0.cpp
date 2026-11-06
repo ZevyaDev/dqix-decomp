@@ -12,12 +12,12 @@ enum { Enum_ov002_02163bd0_13 = 0xd, Enum_ov002_02163bd0_38 = 0x26 };
 
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
-struct Struct_0205da38;
+struct TextWindowManager_0205da38;
 struct SoundEffectManager_02108760;
 struct TextWindowManager_0205d81c;
 struct Struct_0205dee8;
 struct Struct_0205def8;
-struct Struct_02048150;
+struct Party_02048150;
 struct Struct_0207cf30_3;
 struct Struct_02061c04_23;
 struct Struct_0207cf30_4;
@@ -25,17 +25,17 @@ struct Struct_02083994;
 struct ItemTable_0201099c_10;
 extern "C" int func_ov002_02154f4c(unsigned char *arg0);
 extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int func_020dcc20(int arg0, int arg1);
 extern "C" void *GetParty_02010828(GameState *gameState);
-extern "C" int func_02086ef0(struct Struct_02048150 *arg0, int arg1);
+extern "C" int IsInParty_02086ef0(struct Party_02048150 *party, int objectIndex);
 extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
 extern "C" int func_0205df38(void *arg0, int arg1);
 extern "C" int func_020dcbbc(unsigned char *arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_020a0b3c(struct Struct_0207cf30_3 *arg0, int arg1);
 extern "C" int func_020a0a08(Struct_02061c04_23*, int, int);
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
             return;
         }
         int var8 = 0;
-        if (!func_02086ef0((struct Struct_02048150 *) GetParty_02010828(var0),
+        if (!IsInParty_02086ef0((struct Party_02048150 *) GetParty_02010828(var0),
                                *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe9, 0x1c00 + 0x21))) &&
             *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe9, 0x1c00 + 0x21)) != 4)
         {
@@ -134,7 +134,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) L(arg0), Enum_ov002_02163bd0_13, 1);
         if (var7 != *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xb6, 0x1b00 + 0xee))) return;
         int var9 = g_keyManager.TestKeysPressed(0x601);
-        int var10 = func_0205da38((struct Struct_0205da38*)(L(arg0)), 0x14);
+        int var10 = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(L(arg0)), 0x14);
         if (((var9 | var10) ? 1 : 0) || var8) {
             GameObject *var11 = var0->GetProtagonist();
             if (var11 != NULL) {

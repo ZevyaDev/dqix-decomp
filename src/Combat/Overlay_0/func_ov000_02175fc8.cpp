@@ -10,7 +10,7 @@
 
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov000_02161318(void* arg0, int arg1);
+extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov000_02175fc8(void* arg0) {
     char* var0;
     int var1;
     for (var1 = 0; var1 < 4; var1++) {
-        var0 = (char*)func_ov000_02161318(arg0, var1);
+        var0 = (char*)FindPartyMemberPanel_ov000_02161318(arg0, var1);
         if (var0 == NULL) continue;
         GameState* var2 = GameState::GetInstance();
         GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var2, *(int*)(var0 + 0x4c));

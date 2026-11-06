@@ -40,24 +40,24 @@ struct Struct_ov005_02153954 {
 
 extern "C" char gSoundEffectManager_02108760[];
 
-extern "C" void func_0205d0e0(void* arg0);
+extern "C" void UpdateTextWindowManager_0205d0e0(void* windowManager);
 extern "C" void func_ov005_021589f4(Struct_ov005_02153954* arg0);
 extern "C" int func_ov005_02158b3c(void* arg0, void* arg1);
 extern "C" Struct_ov005_02158e04* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
-extern "C" int func_0204c7cc(unsigned char*);
+extern "C" int IsTextWindowReady_0204c7cc(unsigned char*);
 extern "C" int func_ov005_02157190(void* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 // USA: func_ov005_02158878
 extern "C" ARM void func_ov005_02158878(Struct_ov005_02153954* arg0) {
-    func_0205d0e0(&arg0->unknown_ee4_);
+    UpdateTextWindowManager_0205d0e0(&arg0->unknown_ee4_);
     if (arg0->unknown_3dd0_ == 0) {
         func_ov005_021589f4(arg0);
         arg0->unknown_3dd0_++;
         return;
     }
     if (arg0->unknown_3dd0_ == 1) {
-        if (func_0204c7cc((unsigned char*)(FindTextWindow_0205d81c((TextWindowManager_0205d81c*)&arg0->unknown_ee4_, 0)))) {
+        if (IsTextWindowReady_0204c7cc((unsigned char*)(FindTextWindow_0205d81c((TextWindowManager_0205d81c*)&arg0->unknown_ee4_, 0)))) {
             if (arg0->unknown_3dd1_ == 0xc || arg0->unknown_3dd1_ == 0xd)
                 arg0->unknown_3dcc_ |= 0x10000;
         }

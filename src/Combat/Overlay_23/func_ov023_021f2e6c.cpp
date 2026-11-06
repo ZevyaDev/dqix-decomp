@@ -49,8 +49,8 @@ extern "C" void* func_02096134(Struct_0205faf4_7*, int);
 extern "C" void ClearMessageParams_02046380(unsigned char* window);
 struct StringList_02072a68_2;
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
-extern "C" void func_020e46c4(void* arg0);
-extern "C" unsigned char* func_0200fea4(GameState* arg0, int arg1);
+extern "C" void InitNoun_020e46c4(void* noun);
+extern "C" unsigned char* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" Struct_ov023_021f2e6c_7 func_ov023_021ed804(Struct_ov023_021f2e6c_7 arg0, void* arg1);
 extern "C" void func_ov023_021edf38(Struct_ov023_021f2e6c_7* arg0, const Struct_ov023_021f2e6c_7& arg1);
 extern "C" void __clear(void* arg0, int arg1);
@@ -183,10 +183,10 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                 }
                 char* var14 = FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x5904), var13);
                 Struct_ov023_021f2e6c_7 var15;
-                func_020e46c4(&var15);
+                InitNoun_020e46c4(&var15);
                 GameState* var16 = GameState::GetInstance();
                 for (int var17 = 0xc0; var17 <= 0xc7; var17++) {
-                    unsigned char* var18 = func_0200fea4(var16, var17);
+                    unsigned char* var18 = GetEnemyByIndex_0200fea4(var16, var17);
                     if (var18 != 0) {
                         void* var19 = *(void**)(var18 + 0x144);
                         if (var8 == *(short*)((char*)var19 + 8)) {
@@ -201,7 +201,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                 Struct_ov023_021f2e6c_8 var22;
                 __clear(var20, 0x80);
                 __clear(var21, 0x80);
-                func_020e46c4(&var22);
+                InitNoun_020e46c4(&var22);
                 var22.unknown_0_ = var20;
                 var22.unknown_4_ = var21;
                 func_020dcf7c(var7, &var22);
@@ -247,8 +247,8 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
         *(SafeAllocator**)(arg0 + Enum_ov023_021f2e6c_21952) = (SafeAllocator*)((SafeAllocator*)(arg0 + 0x30))->Allocate(0x14);
         (*(SafeAllocator**)(arg0 + Enum_ov023_021f2e6c_21952))->CreateTypeA(((SafeAllocator*)(arg0 + 0x30))->Allocate(0xf000), 0xf000);
         FontLoader_0208cb08* var27 = GetFontLoader_02094a00();
-        func_02094b40(var27);
-        func_02094b30(var27, 0x210, 1);
+        ClearLoadedFontSets_02094b40(var27);
+        RequestSingleFontLoad_02094b30(var27, 0x210, 1);
         var1[0] = 1;
     } else if (var5 == 10) {
         if (func_ov023_021f4fc8() != 0) {
@@ -413,13 +413,13 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                         GameState* var53 = GameState::GetInstance();
                         int var54 = 0xc0;
                         for (int var55 = 0xc0; var55 <= 0xc7; var55++) {
-                            unsigned char* var56 = func_0200fea4(var53, var55);
+                            unsigned char* var56 = GetEnemyByIndex_0200fea4(var53, var55);
                             if (var56 != 0 && *(int*)(var56 + 0x138) != 0) {
                                 var54 = var55;
                                 break;
                             }
                         }
-                        unsigned char* var57 = func_0200fea4(var53, var54);
+                        unsigned char* var57 = GetEnemyByIndex_0200fea4(var53, var54);
                         int var58 = *(int*)(var57 + 0x138);
                         if (var57 != 0 && var58 != 0) {
                             int var59 = *(int*)(var57 + 0x13c);

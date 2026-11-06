@@ -4,7 +4,7 @@
 #include "std_library_functions.h"
 #include "Combat/MapDisplay.h"
 
-struct Struct_0205cfd4 { char unknown_0_[0xbc]; };
+struct TextWindowManager_0205cfd4 { char unknown_0_[0xbc]; };
 struct Struct_0205bef8 { char unknown_0_[0x40]; };
 struct Struct_02092aa4 { char unknown_0_[0x3c]; };
 #if defined(jpn)
@@ -15,9 +15,9 @@ struct Struct_0203c0cc { char unknown_0_[0x18]; };
 enum { Enum_ov000_021723a8_1096 = 0x448, Enum_ov000_021723a8_9 = 9 };
 #endif
 
-extern "C" void func_020de848(void* arg0);
+extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
-extern "C" void func_0205cfd4(struct Struct_0205cfd4* arg0);
+extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 extern "C" void func_0205bef8(struct Struct_0205bef8* arg0);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void func_02092aa4(Struct_02092aa4* arg0, int arg1);
@@ -62,8 +62,8 @@ struct Struct_ov000_021723a8 {
     volatile unsigned short unknown_180_;
     volatile unsigned short unknown_182_;
     int unknown_184_;
-    struct Struct_0205cfd4 unknown_188_;
-    char unknown_244_[0x244 - 0x188 - sizeof(struct Struct_0205cfd4)];
+    struct TextWindowManager_0205cfd4 unknown_188_;
+    char unknown_244_[0x244 - 0x188 - sizeof(struct TextWindowManager_0205cfd4)];
     struct Struct_0205bef8 unknown1_244_;
     char unknown_284_[0x284 - 0x244 - sizeof(struct Struct_0205bef8)];
     char unknown1_284_[7][0xe0];
@@ -151,8 +151,8 @@ extern "C" ARM void func_ov000_021723a8(struct Struct_ov000_021723a8* arg0, int 
     arg0->unknown_1ac8_.ResetAllocatorPointer();
     arg0->unknown_1adc_.ResetAllocatorPointer();
     arg0->unknown_1af8_.ResetAllocatorPointer();
-    func_020de848(arg0->unknown_d0_);
-    func_020de848(arg0->unknown_e8_);
+    ClearItemTable_020de848(arg0->unknown_d0_);
+    ClearItemTable_020de848(arg0->unknown_e8_);
     data_ov000_02184288.unknown_8_ = arg0;
     arg0->unknown_68_ = 0;
     arg0->unknown_178_ = 0;
@@ -179,7 +179,7 @@ extern "C" ARM void func_ov000_021723a8(struct Struct_ov000_021723a8* arg0, int 
     InitBGLayer_0204af64(&arg0->unknown_8a4_[0]);
     InitBGLayer_0204af64(&arg0->unknown_8a4_[1]);
     InitBGLayer_0204af64(&arg0->unknown_8a4_[2]);
-    func_0205cfd4(&arg0->unknown_188_);
+    InitTextWindowManager_0205cfd4(&arg0->unknown_188_);
     func_0205bef8(&arg0->unknown1_244_);
     for (int var5 = 0; var5 < 7; var5++) {
         InitTextWindow_0204c684(arg0->unknown1_284_[var5]);

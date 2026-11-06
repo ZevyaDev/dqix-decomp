@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0205bb84;
-extern "C" int func_0205bb84(struct Struct_0205bb84* arg0);
+struct MenuCursor_0205bb84;
+extern "C" int GetMenuCursorIndex_0205bb84(struct MenuCursor_0205bb84* cursor);
 
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimationList_0205a330;
 
-extern "C" void func_0205a42c(struct SpriteAnimationList_0205a254* arg0, int arg1, int arg2);
+extern "C" void SetSpriteAnimationOAMIndex_0205a42c(struct SpriteAnimationList_0205a254* animationList, int index, int oamIndex);
 extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
 extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
 
@@ -41,10 +41,10 @@ extern "C" ARM void func_ov008_02188870(struct Struct_ov008_02188870_2* arg0) {
     if (!(arg0->unknown_b18_ & 0x80000)) return;
 
     GameState* var0 = GameState::GetInstance();
-    int var1 = func_0205bb84((struct Struct_0205bb84*)((char*)arg0 + 0x750));
+    int var1 = GetMenuCursorIndex_0205bb84((struct MenuCursor_0205bb84*)((char*)arg0 + 0x750));
     short var2 = (short)(((var1 - arg0->unknown_b29_) << 4) + 7);
 
-    func_0205a42c((struct SpriteAnimationList_0205a254*)arg0->unknown_738_, 0, 0x3f);
+    SetSpriteAnimationOAMIndex_0205a42c((struct SpriteAnimationList_0205a254*)arg0->unknown_738_, 0, 0x3f);
     PlaySpriteAnimation_0205a370((struct SpriteAnimationList_0205a254*)arg0->unknown_738_, 0);
 
     struct Struct_ov008_02188870* var3 = FindSpriteAnimation_0205a3d0((struct SpriteAnimationList_0205a254*)arg0->unknown_738_, 0);

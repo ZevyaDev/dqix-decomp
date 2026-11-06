@@ -18,7 +18,7 @@ extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" int GetBattleRecords_020ac4c0(void*);
 extern "C" void func_020a04c8(Struct_0206e424_4*, unsigned int);
 extern "C" void func_020a0494(Struct_0207cc18_3*, unsigned int);
-extern "C" int func_020ac494(void*);
+extern "C" int SetBattleRecords_020ac494(void*);
 // USA: func_0207cc18
 extern "C" ARM void func_0207cc18(void* arg0, Struct_0207cc18_2* arg1) {
     if (arg1) {
@@ -35,7 +35,7 @@ extern "C" ARM void func_0207cc18(void* arg0, Struct_0207cc18_2* arg1) {
                     func_020a04c8((Struct_0206e424_4*)&var3, 1);
                 else if (inline_0207cc18_2(var4))
                     func_020a0494((Struct_0207cc18_3*)&var3, 1);
-                func_020ac494(&var3);
+                SetBattleRecords_020ac494(&var3);
             }
         }
     }

@@ -5,7 +5,7 @@ struct Struct_0209c3b4_2;
 
 extern "C" void func_0209c678(struct MusicManager_02109bf4_4* arg0, int arg1);
 extern "C" int func_0209c0f4(int arg0, int arg1);
-extern "C" void func_0209c3b4(struct Struct_0209c3b4_2* arg0, int arg1);
+extern "C" void PlayMusic_0209c3b4(struct Struct_0209c3b4_2* manager, int musicIndex);
 extern "C" void func_0203aa80(void* arg0, int arg1);
 extern "C" int func_0203ab6c(void*, void*);
 extern "C" int func_0209c140();
@@ -40,7 +40,7 @@ extern "C" ARM void func_0209c530(struct Struct_0209c530* arg0) {
     if (func_0209c0f4(arg0->unknown_b8_, arg0->unknown_ba_) != 0) {
         short var0 = arg0->unknown_b8_;
         arg0->unknown_b8_ = -1;
-        func_0209c3b4((struct Struct_0209c3b4_2*)arg0, var0);
+        PlayMusic_0209c3b4((struct Struct_0209c3b4_2*)arg0, var0);
     } else {
         if (arg0->unknown_b4_ > 0) {
             func_0203aa80(arg0, arg0->unknown_b4_);

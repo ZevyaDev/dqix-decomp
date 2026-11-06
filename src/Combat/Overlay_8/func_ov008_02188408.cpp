@@ -16,7 +16,7 @@ extern "C" char* GetFlagManager_0205ec34();
 extern "C" void ClearMessageParams_02046380(MessageWindow_02021b84* window);
 
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
-extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
+extern "C" void AppendPositionTag_02041a90(char* buffer, int x, int y);
 extern "C" void func_02041a5c(char* arg0, int arg1);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_0204201c(char* arg0, int arg1, int);
@@ -33,8 +33,8 @@ extern char data_ov008_0218c0d5[];
 extern "C" int func_020e2168(char*, const char*, int, int, bool);
 extern "C" void func_02041f50(char*, char*);
 extern "C" int GetStringLength_020d2ff0(const char*);
-extern "C" void func_020465f0(unsigned char*, int, unsigned char);
-extern "C" void func_020465d8(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*, int, unsigned char);
 #endif
 extern char data_ov008_0218b465[];
 extern char data_ov008_0218b47c[];
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
         int var5 = (0x80 - (var4 / 2) * 12) / 2;
         int var6 = 6;
         if (var4 != GetStringLength_020d2ff0(var2)) var6 = 8;
-        func_02041a90(arg1, var5, var6);
+        AppendPositionTag_02041a90(arg1, var5, var6);
         AppendText_02042058(arg1, var2);
 #else
         char* var7 = arg0->unknown_b8_ + 0x8e0;
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
         int var12 = (0xa0 - func_020420e8(var7, 1)) / 2;
         if (var12 < 0)
             var12 = 0;
-        func_02041a90(arg1, var12, 6);
+        AppendPositionTag_02041a90(arg1, var12, 6);
         if (var7 != NULL)
             AppendText_02042058(arg1, var7);
 #endif
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
     {
         for (int var15 = 0; var15 < var13; var15++)
         {
-            func_02041a90(arg1, 4, var15 * 15 + 4);
+            AppendPositionTag_02041a90(arg1, 4, var15 * 15 + 4);
             AppendText_02042058(arg1, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var15 + 0x82)));
         }
     }
@@ -199,23 +199,23 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
         ClearMessageParams_02046380(var0);
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 0, var16);
 #if defined(jpn)
-        func_020465f0((unsigned char*)var0, 0, 3);
-        func_020465d8((unsigned char*)var0, 0, 1);
+        SetMessageNumberWidth_020465f0((unsigned char*)var0, 0, 3);
+        SetMessageNumberAlignment_020465d8((unsigned char*)var0, 0, 1);
 #endif
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 1, var17);
 #if defined(jpn)
-        func_020465f0((unsigned char*)var0, 1, 3);
-        func_020465d8((unsigned char*)var0, 1, 1);
+        SetMessageNumberWidth_020465f0((unsigned char*)var0, 1, 3);
+        SetMessageNumberAlignment_020465d8((unsigned char*)var0, 1, 1);
 #endif
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 2, var18);
 #if defined(jpn)
-        func_020465f0((unsigned char*)var0, 2, 3);
-        func_020465d8((unsigned char*)var0, 2, 1);
+        SetMessageNumberWidth_020465f0((unsigned char*)var0, 2, 3);
+        SetMessageNumberAlignment_020465d8((unsigned char*)var0, 2, 1);
 #endif
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 3, var19);
 #if defined(jpn)
-        func_020465f0((unsigned char*)var0, 3, 3);
-        func_020465d8((unsigned char*)var0, 3, 1);
+        SetMessageNumberWidth_020465f0((unsigned char*)var0, 3, 3);
+        SetMessageNumberAlignment_020465d8((unsigned char*)var0, 3, 1);
 #endif
         for (int var26 = 0; var26 < var13; var26++)
         {

@@ -6,8 +6,8 @@
 extern "C" int func_ov017_021959b4(void);
 extern "C" void func_ov011_02184604(void* arg0, unsigned char* arg1);
 
-struct Struct_02074bd0;
-extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
+struct BGControlSave_02074bd0;
+extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 struct Struct_02074bf4;
 extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
 
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov011_02184770(char* arg0) {
     volatile unsigned int* var0 = (volatile unsigned int*)0x4000000;
     *var0 = (*var0 & ~0x1f00) | 0x100;
 
-    func_02074bd0((struct Struct_02074bd0*)(arg0 + 0x194));
+    RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)(arg0 + 0x194));
     func_02074bf4((struct Struct_02074bf4*)(arg0 + 0x194));
 
     volatile unsigned short* var1 = (volatile unsigned short*)0x4000304;

@@ -13,14 +13,14 @@ struct Struct_02061c04_21 {
     unsigned char unknown_c68_[5];
 };
 
-extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
+extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" void func_ov002_02154c30(void* arg0);
 
 // USA: func_ov002_02154f4c
 extern "C" ARM int func_ov002_02154f4c(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
     unsigned char var1[8];
-    unsigned char var2 = func_020114ec((char*)var0, var1);
+    unsigned char var2 = GetPartyOrder_020114ec((char*)var0, var1);
     unsigned char var3 = 0;
     unsigned char var4;
 

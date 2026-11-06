@@ -16,7 +16,7 @@ extern "C" void OpenTextWindow_0205d304(void *, void *, int, int, int, int, int)
 #else
 extern "C" void OpenTextWindow_0205d304(void *, void *, int, int, bool, bool, void *, bool);
 #endif
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 struct TextWindowManager_0205d5d0;
 extern "C" void SetTextWindowText_0205d5d0(TextWindowManager_0205d5d0*, int, int, int, unsigned char);
 struct Struct_0205dee8;

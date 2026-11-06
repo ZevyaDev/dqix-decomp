@@ -150,13 +150,13 @@ extern "C" Struct_ov023_021eefd0_9* GetMessageWindow_020421a0();
 extern "C" void func_0206efc4(void* arg0);
 extern "C" void func_0206f200(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void* func_0206f4f0(Struct_0206f01c_2* arg0, int arg1);
-extern "C" void func_020e46c4(void* arg0);
+extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void GetBattleRecords_020ac4c0(void* records);
 extern "C" void func_020a0330(Struct_020a0330* arg0, unsigned int arg1);
 extern "C" void func_020a0110(Struct_020a0110* arg0, unsigned int arg1);
 extern "C" void func_020a0388(Struct_020a0388* arg0, unsigned int arg1);
-extern "C" void func_020ac494(void* arg0);
+extern "C" void SetBattleRecords_020ac494(void* records);
 extern "C" void func_0209c6d8(void* arg0, int arg1);
 extern "C" void func_ov017_021cfc74(unsigned char arg0);
 extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2* arg0);
@@ -175,7 +175,7 @@ int IsNotLocalWirelessGuest_0202c508(void* wireless);
 int IsLocalWirelessGuest_0202c540(void* wireless);
 int func_ov023_021f4fc8();
 Struct_ov023_021eefd0_2* GetZone3D_02012fe4();
-void func_020426bc(void* arg0, char* arg1, int arg2);
+void ConvertTextToGlyphIndices_020426bc(void* text, char* outGlyphIndices, int font);
 void VectorizedMemset(void* dst, int value, unsigned int size);
 void VectorizedInvertedMemcpy(const void* src, void* dst, unsigned int size);
 void func_02011744(GameState* arg0);
@@ -319,7 +319,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
         Struct_ov023_021eefd0_8 var18;
         if (var9 != NULL)
             var10 = var9->unknown_c_;
-        func_020e46c4(&var18);
+        InitNoun_020e46c4(&var18);
         void* var19 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
         if (var10 == 0x36 || var10 == 0x43 || var10 == 0x50)
             var19 = func_0206f4f0((Struct_0206f01c_2*)var1, 0x1fc);
@@ -386,7 +386,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
             GetBattleRecords_020ac4c0(&var21);
             func_020a0330((Struct_020a0330*)&var21, 1);
             func_020a0110((Struct_020a0110*)var21.unknown_68_, 1);
-            func_020ac494(&var21);
+            SetBattleRecords_020ac494(&var21);
         }
         if (!IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) || arg0->unknown_2a0_->unknown_25_ == 0)
             func_0209c6d8(gMusicManager_02109bf4, 0x36);
@@ -429,7 +429,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
                 func_020a0388((Struct_020a0388*)&var26, 1);
                 if (var25 != NULL && var25->mapType_ == 2 && var25->legacy_.level_ > var26.unknown_c_7_)
                     var26.unknown_c_7_ = var25->legacy_.level_;
-                func_020ac494(&var26);
+                SetBattleRecords_020ac494(&var26);
             }
             return 4;
         }
@@ -445,7 +445,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
 #else
                 char var30[0xa];
                 __clear(var30, sizeof(var30));
-                func_020426bc(var29, var30, 1);
+                ConvertTextToGlyphIndices_020426bc(var29, var30, 1);
 #endif
 
                 var27->discoveryState_ = 3;
@@ -466,7 +466,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
                 func_020a0388((Struct_020a0388*)&var31, 1);
                 if (var25 != NULL && var25->mapType_ == 1 && var25->regular_.level_ > var31.unknown_c_0_)
                     var31.unknown_c_0_ = var25->regular_.level_;
-                func_020ac494(&var31);
+                SetBattleRecords_020ac494(&var31);
             }
         }
         return var0->unknown_10_ ? 0xe : 6;

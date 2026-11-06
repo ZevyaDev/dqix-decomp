@@ -41,7 +41,7 @@ struct Struct_0205faf4_20 {
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void func_02010890(GameState*, int*, int*);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" int func_020457e0(int);
+extern "C" int GetMessageChoice_020457e0(int);
 struct Struct_0205faf4;
 struct GameState;
 struct Struct_02053f7c;
@@ -77,7 +77,7 @@ struct Struct_0205faf4_5 {
     unsigned int unknown_14_0_:10;
 };
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" unsigned char func_020100b0(GameState*);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 struct Struct_0205faf4_6 { char unknown_0_[8]; unsigned int unknown_8_0_:18, unknown_a_2_:1; };
 struct Struct_0205faf4_7;
 struct Struct_0205faf4_8 { unsigned int unknown_0_0_:9, unknown_1_1_:1, unknown_1_2_:5, unknown_1_7_:1, unknown_2_0_:2, unknown_2_2_:1; };
@@ -91,8 +91,8 @@ extern "C" void* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
 extern "C" short func_0207c638(void* arg0, unsigned int arg1);
 struct Struct_0205faf4_9 { int unknown_0_[6]; };
 struct Struct_0205faf4_10 { int unknown_0_; int unknown_4_; unsigned int unknown_8_0_:9, unknown_9_1_:3; };
-extern "C" void* func_020de824(void* arg0);
-extern "C" void func_020de848(void* arg0);
+extern "C" void* InitItemTable_020de824(void* itemTable);
+extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" struct Struct_0205faf4_10* func_020deb24(struct Struct_0205faf4_9* arg0, int arg1);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" int func_020de9a4(void* arg0, void* arg1, void* arg2, unsigned int arg3, void* arg4, unsigned short arg5);
@@ -202,7 +202,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return CU16(2) == var10;
     }
     case 16:
-        return CU16(2) == func_020457e0(GetMessageWindow_020421a0());
+        return CU16(2) == GetMessageChoice_020457e0(GetMessageWindow_020421a0());
     case 17: {
         struct Struct_0203d028_2* var11 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
         if (CU16(2) == 1) {
@@ -429,7 +429,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 47: {
         struct Struct_0203d028_2* var55 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
-        struct Struct_0203d028_3* var56 = (Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var55, func_020100b0((GameState*)var55));
+        struct Struct_0203d028_3* var56 = (Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var55, GetOwnPartyLeaderObjectIndex_020100b0((GameState*)var55));
         if (!var56) return 0;
         int var57 = 0;
         int var58;
@@ -731,8 +731,8 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         unsigned char* var114 = (unsigned char*)GetParty_02010828((GameState*)(void*)GameState::GetInstance());
         void* var115 = func_0207c5f8(var114 + 0x1d4, CU16(2));
         short var116 = func_0207c638(var114 + 0x1d4, CU16(2));
-        func_020de824(&var112);
-        func_020de848(&var112);
+        InitItemTable_020de824(&var112);
+        ClearItemTable_020de848(&var112);
 #if defined(jpn)
         func_020e0484(&var112, &var111, data_020f2a38, var115, var116, true);
 #else

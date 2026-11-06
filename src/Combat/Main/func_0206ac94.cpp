@@ -20,10 +20,10 @@ extern "C" ARM unsigned short* func_0206c730(void* arg0, unsigned short arg1, un
 }
 #else
 
-struct Struct_0204254c {
+struct FontGlyph_0204254c {
     int unknown_0_;
     char unknown_4_;
-    signed char unknown_5_0_ : 6;
+    signed char codeLength_5_0_ : 6;
     signed char unknown_5_6_ : 2;
     char unknown_6_[2];
 };
@@ -32,7 +32,7 @@ extern "C" bool func_02044494(void* arg0, void* arg1);
 extern "C" bool func_0206ac6c(void* arg0, void* arg1);
 extern "C" int CompareBytes_02001aec(unsigned char* left, unsigned char* right, int count);
 extern "C" int func_0206abf8(void* arg0, void* arg1);
-extern "C" struct Struct_0204254c* func_0204254c(int arg0, int arg1);
+extern "C" struct FontGlyph_0204254c* func_0204254c(int arg0, int arg1);
 
 // USA: func_0206ac94
 extern "C" ARM int func_0206ac94(void* arg0, unsigned short arg1, unsigned char* arg2) {
@@ -58,11 +58,11 @@ extern "C" ARM int func_0206ac94(void* arg0, unsigned short arg1, unsigned char*
             var1 += var2;
             var0 += var2;
         } else {
-            struct Struct_0204254c* var3;
+            struct FontGlyph_0204254c* var3;
             int var4 = 1;
             var3 = func_0204254c((int)var1, *(unsigned char*)((char*)arg0 + 0x19dc));
             if (var3) {
-                var4 = var3->unknown_5_0_;
+                var4 = var3->codeLength_5_0_;
             }
             var1 += var4;
             var0 += var4;

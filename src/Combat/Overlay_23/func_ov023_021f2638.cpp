@@ -6,8 +6,8 @@ extern "C" void ClearMessageParams_02046380(void);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" int func_ov023_021f4438(void* arg0);
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
@@ -87,14 +87,14 @@ extern "C" ARM int func_ov023_021f2638(unsigned char* arg0) {
             char var18[0x100];
             unsigned char var19[4];
             GameObject* var20;
-            int var21 = func_020114ec((char*)var12, var19);
+            int var21 = GetPartyOrder_020114ec((char*)var12, var19);
             unsigned char var22 = 0;
             unsigned char var23 = 0;
             int var24;
             for (var24 = 0; var24 < var21; var24++) {
                 var20 = var12->GetCombatantByIndex(var19[var24]);
                 if (var20 == NULL) continue;
-                if (!func_020a35e0(*(unsigned char**)(arg0 + 0x2a0), var19[var24])) continue;
+                if (!IsPartyMemberInBattle_020a35e0(*(unsigned char**)(arg0 + 0x2a0), var19[var24])) continue;
                 var23 = var23 + 1;
                 void* var25 = *(void**)((char*)var20 + 0x130);
                 if ((*(int*)var25 & 1) == 0) var22 = var22 + 1;

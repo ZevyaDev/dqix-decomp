@@ -66,7 +66,7 @@ extern "C" void StartMessage_0204500c(Struct_ov012_02187320* window, const char*
 extern "C" void StartMessage_0204500c(Struct_ov012_02187320* window, const char* text, int arg2, int arg3);
 #endif
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
-extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" void func_ov023_021e6e60(Struct_ov012_02187320_3* arg0);
 extern "C" void func_ov012_02189f38(char* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -81,7 +81,7 @@ extern "C" void func_ov012_0218adac(Struct_ov012_02187320_3* arg0, int arg1, int
 #endif
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_ov012_0218943c(Struct_ov012_02187320_3* arg0);
-extern "C" int func_020457e0(Struct_ov012_02187320* arg0);
+extern "C" int GetMessageChoice_020457e0(Struct_ov012_02187320* window);
 
 extern "C" char gSoundEffectManager_02108760[];
 
@@ -192,7 +192,7 @@ extern "C" ARM void func_ov012_02187320(Struct_ov012_02187320_3* arg0)
     else if (arg0->unknown_1370_ == 10 && var0->unknown_998_ == 0)
     {
         Struct_ov012_02187320_2* var6 = inline_ov012_02187320(GameState::GetInstance());
-        if (func_020457e0(var0) == 0)
+        if (GetMessageChoice_020457e0(var0) == 0)
             var6->unknown_3_7_ = 0;
         else
             var6->unknown_3_7_ = 1;

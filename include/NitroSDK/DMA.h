@@ -19,7 +19,7 @@ struct DMARegisterSet
 #endif
 
 // DMA channel for general use
-extern int data_020f2270;
+extern int gGraphicsDMAChannel_020f2270;
 
 // ITCM functions. The atomic operations are wrapped with DisableIRQInterrupts()
 // and SetIRQInterruptState(), 

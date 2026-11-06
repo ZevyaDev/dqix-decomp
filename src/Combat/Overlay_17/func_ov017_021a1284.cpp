@@ -15,7 +15,7 @@ struct TextureVRAMArea_0203d028;
 struct Struct_02018300_3;
 struct Struct_0203de2c_3;
 struct Struct_02058564_2;
-struct Struct_02048150;
+struct Party_02048150;
 struct Struct_ov017_021a1284_7;
 struct Struct_ov017_021a1284_8 {
     char unknown_0_[4];
@@ -83,9 +83,9 @@ extern "C" void func_0203983c(unsigned char*, int);
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_0203d008(unsigned char*);
 extern "C" void func_0203e0a0(Struct_0203dce4_2*, unsigned short);
-extern "C" void func_020a0cc4(unsigned int);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void func_020a0c0c();
+extern "C" void LoadFileTables_020a0c0c();
 extern "C" void func_ov017_0219bf74();
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void func_ov017_0219b938(GameResources*);
@@ -95,7 +95,7 @@ extern "C" void func_020a1df8(int);
 extern "C" void func_020a1ef0(int);
 extern "C" void func_ov023_021e2dd8(Struct_ov017_021a1284_8*);
 extern "C" void __clear(void*, unsigned int);
-extern "C" int func_02011494(char*, void*);
+extern "C" int GetOwnPartyOrder_02011494(char*, void*);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" void func_ov023_021e31b0(Struct_ov017_021a1284_7*, unsigned char*, int);
 extern "C" int func_ov017_021959b4();
@@ -112,9 +112,9 @@ extern "C" void func_02042b30(void*, void*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void func_020432c4(void*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
-extern "C" int func_ov017_0218f5a4(GameResources*, int, int, int, int);
+extern "C" int QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources*, int, int, int, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
-extern "C" int func_02086ef0(Struct_02048150*, int);
+extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void func_ov017_021c3fb4(int, int);
 extern "C" void func_ov017_021c4418(int, int);
 extern "C" void func_ov017_0219ba0c(GameResources*, int);
@@ -165,10 +165,10 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         func_0203d008((unsigned char*)var3);
         func_0203e0a0(var3, var2->currentZoneID_);
         SetFlags00(var7, 0x10);
-        func_020a0cc4(Enum_ov017_021a1284_95744);
+        ReleaseFileTablesForSpace_020a0cc4(Enum_ov017_021a1284_95744);
         void* var10 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021a1284_95744);
         if (!var10) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_22_ = 4;
             return;
         }
@@ -207,7 +207,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
             unsigned char var16[4];
             unsigned char var17 = 0;
             for (int var18 = 0; var18 < 4; ++var18) var16[var18] = 0xff;
-            int var19 = func_02011494((char*)var0, var15);
+            int var19 = GetOwnPartyOrder_02011494((char*)var0, var15);
             for (int var20 = 0; var20 < var19; ++var20) {
                 GameObject* var21 = GetPartyMemberBaseByIndex_0200ff1c(var0, var15[var20]);
                 if (!var21) continue;
@@ -239,9 +239,9 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         RestoreTextureVRAMState_0207df90(((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
         func_020432c4(var8);
         SaveTextureVRAMState_0207dfac(((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
-        Struct_02048150* var24 = (Struct_02048150*)GetParty_02010828(var0);
+        Party_02048150* var24 = (Party_02048150*)GetParty_02010828(var0);
         for (int var25 = 0; var25 < 4; ++var25) {
-            if (func_ov017_0218f5a4(var7, var25, 0, 0, 0) && IsLocalWirelessOn_0202b7d8(var5) && func_02086ef0(var24, var25)) {
+            if (QueuePartyMemberModelLoad_ov017_0218f5a4(var7, var25, 0, 0, 0) && IsLocalWirelessOn_0202b7d8(var5) && IsInParty_02086ef0(var24, var25)) {
                 func_ov017_021c3fb4(var25, 1);
                 func_ov017_021c4418(var25, -1);
             }

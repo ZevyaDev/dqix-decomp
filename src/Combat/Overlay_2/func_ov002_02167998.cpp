@@ -35,14 +35,14 @@ struct Struct_ov002_02167998_4 {
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
 extern "C" void func_0205def8(struct Struct_ov002_02155960_3 *arg0, int arg1, int arg2);
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" struct Struct_ov002_02155960_4 *FindTextWindow_0205d81c(struct Struct_ov002_02155960_2 *windowManager, int windowId);
 extern "C" void func_0204c610(struct Struct_ov002_02167998 *arg0, int arg1, short *arg2, short *arg3, short *arg4, short *arg5);
 extern "C" void func_0204c654(Struct_ov002_02167998_2*, int, short, short, short, short);
 extern "C" int GetCursorIndex_0205d794(struct Struct_ov002_0215624c_15 *windowManager);
 extern "C" void func_0205d7a0(unsigned char *arg0, int arg1);
-extern "C" int func_0205da38(struct Struct_ov002_02164748 *arg0, int arg1);
+extern "C" int IsEntryTouchedAgain_0205da38(struct Struct_ov002_02164748 *windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct Struct_ov002_02157d40_7 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov002_02167998(char *arg0) {
     func_0205def8((struct Struct_ov002_02155960_3 *) var0, var4, RG(0x1b, 0x1c));
     if (var16 != *(short *) (arg0 + RG(0x1c02, 0x1aca))) return;
     int var18 = g_keyManager.TestKeysPressed(0x601);
-    int var19 = (var18 | func_0205da38((struct Struct_ov002_02164748 *) OBJ, 0x14)) ? 1 : 0;
+    int var19 = (var18 | IsEntryTouchedAgain_0205da38((struct Struct_ov002_02164748 *) OBJ, 0x14)) ? 1 : 0;
     if (var19) {
         if (var15 == *(signed char *) (arg0 + RG(0x1c73, 0x1b37))) {
             PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7 *) gSoundEffectManager_02108760, 1, 0);

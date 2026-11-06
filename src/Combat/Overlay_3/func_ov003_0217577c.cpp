@@ -13,7 +13,7 @@ enum { Enum_ov003_0217577c_2204 = 0x89c };
 struct Struct_0207fdcc_2;
 struct Struct_0207fdcc;
 extern "C" struct Struct_0207fdcc* func_02081da8(struct Struct_0207fdcc_2* arg0, int arg1);
-extern "C" int func_0204c7cc(unsigned char* arg0);
+extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
 extern "C" void func_ov003_0217585c(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov003_0217577c(void* arg0) {
     struct Struct_0207fdcc_2* var1 = var0->unknown_89c_;
     struct Struct_0207fdcc* var2 = func_02081da8(var1, 9);
     if (var2 == 0) return;
-    if (!func_0204c7cc((unsigned char*)var2)) return;
+    if (!IsTextWindowReady_0204c7cc((unsigned char*)var2)) return;
 
     short var3, var4;
     int var5 = 0;

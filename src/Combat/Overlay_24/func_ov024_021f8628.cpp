@@ -13,7 +13,7 @@ extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
 
 struct Struct_02010088_2 { char unknown_0_[0x14]; int statusFlags_14_; };
 struct Struct_02010088 { char unknown_0_[0x138]; struct Struct_02010088_2* pCurrentStats_138_; };
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 
 extern "C" float func_ov024_021db358(GameObject* arg0);
 
@@ -41,7 +41,7 @@ extern "C" ARM int func_ov024_021f8628(char** arg0, void* arg1, struct Struct_02
         for (int var7 = 0; var7 < var5[var6].unknown_e_0_; var7++) {
             GameObject* var8 = func_ov000_021536f8((int)*arg0, (short)(var5[var6].unknown_6_[var7] + 0xc0));
             if (var8 == 0) continue;
-            if (func_02010088((struct Struct_02010088*)var8)) continue;
+            if (IsDead_02010088((struct Struct_02010088*)var8)) continue;
             if (func_ov024_021db358(var8) < var2) {
                 var2 = func_ov024_021db358(var8);
                 var3 = var6;

@@ -20,10 +20,10 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" {
 int* GetLocalWireless_0202ae18();
 Struct_0208fa8c* GetZone3D_02012fe4();
-void func_020a0cc4(int);
+void ReleaseFileTablesForSpace_020a0cc4(int);
 void func_020a3720();
 void func_020a395c();
-void func_020a0c0c();
+void LoadFileTables_020a0c0c();
 int IsLocalWirelessGuest_0202c540(int*);
 }
 void ExportDetailedTreasureMapData(const TreasureMapMetadata*, DetailedTreasureMapData*, bool, const unsigned char*);
@@ -44,11 +44,11 @@ extern "C" ARM void func_0208fa8c(DetailedTreasureMapData* arg0) {
     if (func_0201b588(var5) && !func_0201b588(var8) &&
         (var8 < 30000 || var8 > 39999)) {
         arg0->Clear();
-        func_020a0cc4(0x2000);
+        ReleaseFileTablesForSpace_020a0cc4(0x2000);
         func_020a3720();
         ExportDetailedTreasureMapData(&var4->activeMapData, arg0, true, 0);
         func_020a395c();
-        func_020a0c0c();
+        LoadFileTables_020a0c0c();
         if (!var4->unknown_0[0]) ((Struct_0208fa8c_2*)arg0)->unknown_260_ = 1;
         var4->unknown_0[1] = 0;
         if (IsLocalWirelessGuest_0202c540(var3)) var4->activeMapLevel = arg0->GetLevel();

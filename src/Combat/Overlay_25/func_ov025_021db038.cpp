@@ -59,10 +59,10 @@ struct Struct_ov000_021537b8 {
 #endif
 
 };
-struct Struct_ov000_0215440c_2;
-struct Struct_ov000_0215440c;
-struct Struct_ov000_02160094 { char unknown_0_[0x20]; unsigned short unknown_20_; };
-struct Struct_ov000_021600f8 { int unknown_0_; char unknown_4_[8]; int unknown_c_; char unknown_10_[8]; unsigned char unknown_18_; char unknown_19_[2]; unsigned char unknown_1b_; };
+struct BattleAction_ov000_0215440c_2;
+struct BattleAction_ov000_0215440c;
+struct ActionActor_ov000_02160094 { char unknown_0_[0x20]; unsigned short unknown_20_; };
+struct ActionTarget_ov000_021600f8 { int unknown_0_; char unknown_4_[8]; int unknown_c_; char unknown_10_[8]; unsigned char unknown_18_; char unknown_19_[2]; unsigned char unknown_1b_; };
 #if defined(jpn)
 struct MessageWindow_02021b84 { char unknown_0_[0x868]; int unknown_998_; };
 #else
@@ -82,14 +82,14 @@ extern "C" unsigned char _ZZ21inline_ov025_021dcf14vE1s __attribute__((aligned(4
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" void func_ov025_021db6dc(Struct_ov000_021537b8*);
 extern "C" int func_ov000_0215fc60(char*);
-extern "C" Struct_ov000_02160094* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
-extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c*, int);
+extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
+extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" void func_ov025_021e88d8(char*);
 extern "C" void func_ov025_021e8a40(char*, int, int);
 extern "C" void func_ov025_021e8a4c(char*, int);
 extern "C" void func_ov000_0216df00(void*, int, int, int, float);
 extern "C" void func_ov000_021626a0(void*, int, int);
-extern "C" void func_ov000_02160fa8(void*, int);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern "C" int func_ov000_02160fd4(void*, int);
 extern "C" void func_ov000_02160fbc(void*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
@@ -137,13 +137,13 @@ extern "C" ARM void func_ov025_021db038(Struct_ov000_021537b8* arg0) {
     if (!arg0->unknown_eac_) func_ov025_021db6dc(arg0);
     if (arg0->unknown_eac_ == 1) {
         int var5;
-        Struct_ov000_021600f8* var6;
-        Struct_ov000_02160094* var7;
+        ActionTarget_ov000_021600f8* var6;
+        ActionActor_ov000_02160094* var7;
         int var8;
         var8 = -1;
         if (func_ov000_0215fc60((char*)var1)) {
-            var7 = func_ov000_02160094((Struct_ov000_0215440c_2*)var2, 0);
-            var6 = func_ov000_021600f8((Struct_ov000_0215440c*)var2, 0);
+            var7 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var2, 0);
+            var6 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var2, 0);
             if (var7) {
                 var5 = var7->unknown_20_;
                 if (var1->unknown_8e20_ == 1 && var5 == 0xc0) {
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov025_021db038(Struct_ov000_021537b8* arg0) {
                     func_ov000_0216df00(arg0->unknown_c18_, var5, 0, 0, 1.8f);
                     func_ov000_021626a0(arg0, 4, 0);
                     func_ov000_021626a0(arg0, 0, 1);
-                    func_ov000_02160fa8(arg0, 0x1000000);
+                    SetBattleSceneFlags_ov000_02160fa8(arg0, 0x1000000);
                     if (func_ov000_0215fc60((char*)var1) == 1) var8 = 0x1ee;
                     else if (func_ov000_0215fc60((char*)var1) == 2) var8 = 0x211;
                 }

@@ -2,12 +2,12 @@
 
 extern "C" int func_0205bafc(void* arg0);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
-struct Struct_0205bcdc {
-    int unknown_0_;
+struct MenuCursor_0205bcdc {
+    int itemCount_0_;
     char unknown_4_[0x2c];
     int unknown_30_;
 };
-extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc* cursor, int index);
 
 // USA: func_0205d7a0
 extern "C" ARM void func_0205d7a0(unsigned char* arg0, int arg1) {
@@ -24,5 +24,5 @@ extern "C" ARM void func_0205d7a0(unsigned char* arg0, int arg1) {
         SetMenuCursorIndex_0205bb04(arg0 + 0x54, arg1);
     }
     if (arg0[0x94] == 0) return;
-    func_0205bcdc((struct Struct_0205bcdc*)(arg0 + 0x4), arg1);
+    SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc*)(arg0 + 0x4), arg1);
 }

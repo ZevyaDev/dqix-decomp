@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" void* func_0206a3c0(void* arg0, int arg1);
-extern "C" int func_02005a94(char* arg0);
+extern "C" int ParseDecimal_02005a94(char* string);
 
 extern "C" char* func_020424ac(char* arg0);
 extern "C" int func_020d857c(signed char* arg0, signed char* arg1);
@@ -103,7 +103,7 @@ extern "C" ARM void func_02069fec(struct Struct_02069fec_2* arg0, int arg1, char
 
                 if (func_020d857c((signed char*)var1, (signed char*)data_020f091b)) {
                     int var15 = 0xe;
-                    int var16 = func_02005a94(var1 + 0xe);
+                    int var16 = ParseDecimal_02005a94(var1 + 0xe);
                     while (var1[var15] != '>') {
                         if (var1[var15] == 0) return;
                         var15++;
@@ -118,7 +118,7 @@ extern "C" ARM void func_02069fec(struct Struct_02069fec_2* arg0, int arg1, char
                 }
                 if (func_020d857c((signed char*)var1, (signed char*)data_020f092a)) {
                     int var18 = 4;
-                    int var19 = func_02005a94(var1 + 4);
+                    int var19 = ParseDecimal_02005a94(var1 + 4);
                     while (var1[var18] != '>') {
                         if (var1[var18] == 0) return;
                         var18++;
@@ -131,7 +131,7 @@ extern "C" ARM void func_02069fec(struct Struct_02069fec_2* arg0, int arg1, char
                 }
                 if (func_020d857c((signed char*)var1, (signed char*)data_020f092f)) {
                     int var21 = 4;
-                    int var22 = func_02005a94(var1 + 4);
+                    int var22 = ParseDecimal_02005a94(var1 + 4);
                     while (var1[var21] != '>') {
                         if (var1[var21] == 0) return;
                         var21++;

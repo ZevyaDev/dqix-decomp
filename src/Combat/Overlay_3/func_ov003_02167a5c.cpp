@@ -11,7 +11,7 @@ struct Struct_0207fe44;
 extern "C" void func_0207fe44(struct Struct_0207fe44* arg0);
 
 struct Struct_020e6d5c_15 { unsigned int unknown_0_; unsigned int unknown_4_; };
-extern struct Struct_020e6d5c_15 data_020e6d5c;
+extern struct Struct_020e6d5c_15 gNullMemberFunctionPointer_020e6d5c;
 struct Struct_ov003_02167a5c { unsigned int unknown_0_[2]; };
 
 struct Struct_ov003_02167a5c_2 { unsigned int unknown_0_; unsigned int unknown_4_; };
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov003_02167a5c(struct Struct_ov003_02167a5c_3* arg0, in
 
     struct Struct_ov003_0217f4f0 var0;
     var0 = data_ov003_0217f4f0;
-    *(struct Struct_ov003_02167a5c*)&var0.unknown_0_[0] = *(struct Struct_ov003_02167a5c*)&data_020e6d5c;
+    *(struct Struct_ov003_02167a5c*)&var0.unknown_0_[0] = *(struct Struct_ov003_02167a5c*)&gNullMemberFunctionPointer_020e6d5c;
 
     if (var0.unknown_0_[arg1].unknown_0_ == 0) return;
     struct Struct_ov003_02167a5c_2* var1 = &var0.unknown_0_[arg1];

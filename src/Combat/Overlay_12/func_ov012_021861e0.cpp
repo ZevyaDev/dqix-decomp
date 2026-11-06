@@ -10,8 +10,8 @@ enum { Enum_ov012_021861e0_19 = 19, Enum_ov012_021861e0_4964 = 0x1364, Enum_ov01
 
 struct Sprite_02043368_2;
 extern "C" void InitSprite_0205a198(Sprite_02043368_2*);
-struct Struct_02043368;
-extern "C" void func_0205a234(Struct_02043368*);
+struct SpriteAnimationList_02043368;
+extern "C" void InitSpriteAnimationList_0205a234(SpriteAnimationList_02043368*);
 extern "C" void InitSpriteSet_0205a444(char*);
 struct PacEntry_02020cb8_4;
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov012_021861e0(char* arg0) {
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
     for (unsigned char var1 = 0; var1 < Enum_ov012_021861e0_19; ++var1)
         InitSprite_0205a198((Sprite_02043368_2*)(*(char**)(arg0 + Enum_ov012_021861e0_4964) + var1 * 0x28));
-    func_0205a234(*(Struct_02043368**)(arg0 + Enum_ov012_021861e0_4960));
+    InitSpriteAnimationList_0205a234(*(SpriteAnimationList_02043368**)(arg0 + Enum_ov012_021861e0_4960));
     InitSpriteSet_0205a444(*(char**)(arg0 + Enum_ov012_021861e0_4956));
     *(unsigned char*)(*(char**)(arg0 + Enum_ov012_021861e0_4956) + 0x50) = 0;
     char* var2 = *(char**)(arg0 + Enum_ov012_021861e0_4956);

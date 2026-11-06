@@ -46,7 +46,7 @@ struct Struct_02057fd8_2 {
 struct Struct_02057fd8_3 { unsigned char unknown_0_[8]; Struct_02057fd8 unknown_8_[16]; };
 extern "C" void func_0205563c(Struct_0205563c*);
 extern "C" int func_02055660(Struct_02055660*, int, int, int);
-extern "C" void func_0200fd38(GameState*, int, GameObject*);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 ModelRenderContext* GetModel3DContext(Model3D*);
 extern "C" void func_020e2fdc(RenderCommandHandler*);
 extern const char data_020e7d90[];
@@ -92,7 +92,7 @@ extern "C" ARM int func_02057fd8(Struct_02057fd8_3* arg0, Struct_02057fd8_2* arg
         arg0->unknown_8_[var2].unknown_bc_ = arg2->unknown_1c_;
         arg0->unknown_8_[var2].unknown_c0_ = arg2->unknown_20_;
         COPY_REACTION_FLAGS_02057FD8();
-        func_0200fd38(var0, var1, reinterpret_cast<GameObject*>(var3));
+        SetGameObjectByIndex_0200fd38(var0, var1, reinterpret_cast<GameObject*>(var3));
         if (var3->pModel_) {
             ModelRenderContext* var4 = GetModel3DContext(var3->pModel_);
             NSBXXNameList* var5 = var4->internalModel_ ? &var4->internalModel_->boneList_ : 0;
@@ -111,7 +111,7 @@ extern "C" ARM int func_02057fd8(Struct_02057fd8_3* arg0, Struct_02057fd8_2* arg
         arg0->unknown_8_[var2].unknown_bc_ = arg2->unknown_1c_;
         arg0->unknown_8_[var2].unknown_c0_ = arg2->unknown_20_;
         COPY_REACTION_FLAGS_02057FD8();
-        func_0200fd38(var0, var1, reinterpret_cast<GameObject*>(&arg1->unknown_14_));
+        SetGameObjectByIndex_0200fd38(var0, var1, reinterpret_cast<GameObject*>(&arg1->unknown_14_));
         func_0205563c(&arg0->unknown_8_[var2].unknown_0_.unknown2_0_);
         func_02055660(&arg0->unknown_8_[var2].unknown_0_.unknown_0_, reinterpret_cast<int>(arg1->unknown_c0_), reinterpret_cast<int>(&arg1->unknown_14_), arg1->unknown_4_);
         Matrix4x3 var7 __attribute__((aligned(4)));

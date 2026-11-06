@@ -11,7 +11,7 @@ struct Struct_02015ef4_3;
 struct Struct_020159c0_2;
 struct ItemTable_0201099c_10;
 struct Struct_02015ef4_4;
-struct Struct_02015438;
+struct QueueNode_02015438;
 struct Struct_02015ef4_5;
 struct Struct_02015ef4;
 
@@ -64,7 +64,7 @@ extern "C" void func_020159c0(Struct_020159c0_2*, int);
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" int func_020de234(Struct_02015ef4_4*, int);
 extern "C" int sprintf(char*, const char*, ...);
-extern "C" int func_02046b24(Struct_02015438**);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void func_0204719c(void*);
 extern "C" void func_0207dfc8(Struct_02015ef4_5*, Struct_02015ef4_5*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
@@ -141,8 +141,8 @@ extern "C" ARM int func_02015ef4(Zone3D* arg0, int arg1) {
         unsigned int var15 = 0;
         var3->GetLoadedFileByID(var1->unknown_12_, &var14, &var15);
         GameResources* var16 = GetGameResources();
-        Struct_02015438** var17 = (Struct_02015438**)var16->unknown_ptr_array_36fc[0];
-        if (var14 && func_02046b24(var17) != 4) {
+        QueueNode_02015438** var17 = (QueueNode_02015438**)var16->unknown_ptr_array_36fc[0];
+        if (var14 && GetQueueHeadType_02046b24(var17) != 4) {
             Struct_02012fa4* var18 = &reinterpret_cast<Struct_02012fa4*>(arg0->unknown_600_)[var1->unknown_14_];
             var1->unknown_20_ = var18;
             func_0204719c(var18);

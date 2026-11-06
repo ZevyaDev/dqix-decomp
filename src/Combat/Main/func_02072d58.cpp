@@ -10,8 +10,8 @@ enum { Enum_02072d58_14076 = 0x36fc, Enum_02072d58_336 = 0x150 };
 
 extern "C" void func_02072c9c(int arg0, char* arg1);
 
-struct Struct_02015438;
-extern "C" int func_02046b24(struct Struct_02015438** arg0);
+struct QueueNode_02015438;
+extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 
 extern char data_020f0cff[];
 
@@ -20,10 +20,10 @@ extern "C" ARM void func_02072d58(int arg0, char* arg1, char* arg2) {
     func_02072c9c(arg0, arg1);
 
     int var0 = ((int)GetGameResources());
-    struct Struct_02015438** var1 = *(struct Struct_02015438***)((char*)var0 + Enum_02072d58_14076);
+    struct QueueNode_02015438** var1 = *(struct QueueNode_02015438***)((char*)var0 + Enum_02072d58_14076);
     int var2 = 0;
 
-    if (func_02046b24(var1) == 0xa) {
+    if (GetQueueHeadType_02046b24(var1) == 0xa) {
         GameObject* var3 = GameState::GetInstance()->GetCombatantByIndex(arg0);
         if (var3 != NULL) {
             var2 = *(unsigned char*)(*(int*)((char*)var3 + 0x138) + 0x26);

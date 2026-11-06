@@ -20,9 +20,6 @@
 #include "Resource/Brightness.h"
 #include "NitroSDK/ColorEffects.h"
 
-#if defined(jpn)
-#define func_020c39a0 func_020c546c
-#endif
 
 #define REG_BLDCNT 0x04000050
 #define REG_BLDCNT_SUB 0x04001050
@@ -66,15 +63,15 @@ extern "C" void func_0202ee38(char* arg0, int arg1, int arg2);
 extern "C" void func_0202ee58(char* arg0, int arg1, int arg2);
 extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
 extern "C" int func_0202eeb4(char* arg0);
-extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
+extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
-extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
+extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
-extern "C" void func_020c39a0(short* arg0, int arg1);
+extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 extern "C" void func_0205ebec(void* arg0);
 #if defined(jpn)
 #define func_ov009_021855dc func_ov009_021867bc
@@ -180,7 +177,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         arg0->unknown_d9c_ |= 0x800000;
         if (func_ov023_021e6194(arg0->unknown_7f8_)->normalizedAnimationTime_ >= 0xccc)
         {
-            func_0205ebc0(gSoundEffectManager_02108760, 0x6f, 0x6f);
+            LoadExtraSoundSet_0205ebc0(gSoundEffectManager_02108760, 0x6f, 0x6f);
             arg0->unknown_c59_ = 2;
         }
         break;
@@ -310,14 +307,14 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         break;
     }
     case 6:
-        func_0205ebfc(gSoundEffectManager_02108760, 0, 0);
+        PlayExtraSoundEffect_0205ebfc(gSoundEffectManager_02108760, 0, 0);
         arg0->unknown_d96_ = 150;
         arg0->unknown_c59_ = 7;
         break;
     case 7:
         SetGlobalFlags_020466e4(var3, 0x100);
         SetBrightness(var1, 16, 40);
-        func_0205ebfc(gSoundEffectManager_02108760, 1, 0);
+        PlayExtraSoundEffect_0205ebfc(gSoundEffectManager_02108760, 1, 0);
         arg0->unknown_c59_ = 8;
         break;
     case 8:
@@ -343,8 +340,8 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
     case 10:
         if (IsBrightnessTransitionActive(var1))
             break;
-        func_020c39a0(REG_MASTER_BRIGHT, -16);
-        func_020c39a0(REG_MASTER_BRIGHT_SUB, -16);
+        WriteBrightnessRegister_020c39a0(REG_MASTER_BRIGHT, -16);
+        WriteBrightnessRegister_020c39a0(REG_MASTER_BRIGHT_SUB, -16);
         ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var3, 0x100);
         ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT, 0x1f, 0);
         ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT_SUB, 0x1f, 0);

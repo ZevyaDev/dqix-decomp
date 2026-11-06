@@ -68,7 +68,7 @@ struct Struct_ov012_021894b4_2
 extern "C" void AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" void AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
-extern "C" void func_02041a28(char* arg0, int arg1);
+extern "C" void AppendXPositionTag_02041a28(char* buffer, int x);
 extern "C" void func_02041fac(char* arg0, int arg1, int arg2);
 extern "C" void func_02041b00(char* arg0, int arg1);
 extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
@@ -78,18 +78,18 @@ extern "C" void func_02041cf4(char* arg0, int arg1, int arg2, int arg3, int arg4
 extern "C" void func_02041d48(char* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void __clear(void* arg0, unsigned long arg1);
-extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
-extern "C" void func_02041e70(char* arg0, int arg1);
+extern "C" void AppendPositionTag_02041a90(char* buffer, int x, int y);
+extern "C" void AppendTextColorTag_02041e70(char* buffer, int colorIndex);
 #if defined(jpn)
 extern "C" int func_02042798(const char* arg0, int arg1, int arg2);
 extern "C" void SetMessageNumber_020465c0(void* window, int index, int number);
-extern "C" void func_020465d8(void* arg0, int arg1, int arg2);
-extern "C" void func_020465f0(void* arg0, int arg1, int arg2);
+extern "C" void SetMessageNumberAlignment_020465d8(void* window, int index, int alignment);
+extern "C" void SetMessageNumberWidth_020465f0(void* window, int index, int width);
 extern "C" void func_020474a8(void* arg0, int arg1, const char* arg2, char* arg3);
 #else
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" int GetStringLength_020d2ff0(const char* string);
-extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
+extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 
 extern "C" const short data_ov012_0218af92[];
 extern "C" const char data_ov012_0218b305[];
@@ -111,11 +111,11 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
         AppendFrameTag_02041c08(arg1, var0, 8, 5, 5, 5);
     AppendCursorTag_02041ea4(arg1, var0);
 #if defined(jpn)
-    func_02041a28(arg1, 0x3e);
+    AppendXPositionTag_02041a28(arg1, 0x3e);
     const char* var1 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 1);
 #else
     const char* var1 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 1);
-    func_02041a28(arg1, (0xe0 - func_020420e8(var1, 0)) >> 1);
+    AppendXPositionTag_02041a28(arg1, (0xe0 - func_020420e8(var1, 0)) >> 1);
 #endif
     func_02041fac(arg1, (int)var1, 0x10);
     func_02041b00(arg1, 3);
@@ -161,15 +161,15 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
     char var7[0x20];
     __clear(var7, sizeof(var7));
     char* var23 = arg0->unknown_1440_;
-    func_02041a90(arg1, func_02042798(var23, 0x88, 0xa) + 0x58, 0x16);
+    AppendPositionTag_02041a90(arg1, func_02042798(var23, 0x88, 0xa) + 0x58, 0x16);
     AppendText_02042058(arg1, var23);
 
-    func_02041a90(arg1, 0x62, 0x26);
+    AppendPositionTag_02041a90(arg1, 0x62, 0x26);
     if (inline_ov012_021894b4(var5)->unknown_3_7_)
     {
         SetMessageNumber_020465c0(var21, 0, inline_ov012_021894b4(var5)->unknown_0_0_);
-        func_020465d8(var21, 0, 1);
-        func_020465f0(var21, 0, 4);
+        SetMessageNumberAlignment_020465d8(var21, 0, 1);
+        SetMessageNumberWidth_020465f0(var21, 0, 4);
         func_020474a8(var21, 0xa, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 0x64), var7);
     }
     else
@@ -180,19 +180,19 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
 
     memset(var7, 0, sizeof(var7));
     SetMessageNumber_020465c0(var21, 0, var6->unknown_1_4_);
-    func_020465d8(var21, 0, 1);
-    func_020465f0(var21, 0, 2);
+    SetMessageNumberAlignment_020465d8(var21, 0, 1);
+    SetMessageNumberWidth_020465f0(var21, 0, 2);
     func_020474a8(var21, 0xa, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 0x65), var7);
     AppendText_02042058(arg1, var7);
 
     memset(var7, 0, sizeof(var7));
     SetMessageNumber_020465c0(var21, 0, var6->unknown_2_0_);
-    func_020465d8(var21, 0, 1);
-    func_020465f0(var21, 0, 2);
+    SetMessageNumberAlignment_020465d8(var21, 0, 1);
+    SetMessageNumberWidth_020465f0(var21, 0, 2);
     func_020474a8(var21, 0xa, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 0x66), var7);
     AppendText_02042058(arg1, var7);
 
-    func_02041a90(arg1, func_02042798(arg0->unknown_1400_, 0x88, 0xa) + 0x58, 0x36);
+    AppendPositionTag_02041a90(arg1, func_02042798(arg0->unknown_1400_, 0x88, 0xa) + 0x58, 0x36);
     AppendText_02042058(arg1, arg0->unknown_1400_);
 
     const char* var17;
@@ -200,7 +200,7 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
         var17 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, (short)(var6->unknown_2_5_ + 30000));
     else
         var17 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 0x6d);
-    func_02041a90(arg1, func_02042798(var17, 0x88, 0xa) + 0x58, 0x46);
+    AppendPositionTag_02041a90(arg1, func_02042798(var17, 0x88, 0xa) + 0x58, 0x46);
     AppendText_02042058(arg1, var17);
 
     const char* var22 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 0x71);
@@ -208,7 +208,7 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
     GetMessageWindow_020421a0();
     char var7[0x20];
     __clear(var7, sizeof(var7));
-    func_02041a90(arg1, ((0x88 - func_020420e8(arg0->unknown_1440_, 0)) >> 1) + 0x58, 0x16);
+    AppendPositionTag_02041a90(arg1, ((0x88 - func_020420e8(arg0->unknown_1440_, 0)) >> 1) + 0x58, 0x16);
     AppendText_02042058(arg1, arg0->unknown_1440_);
 
     char var8[0x100];
@@ -230,13 +230,13 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
         var10 = func_020420e8(var13, 0);
         sprintf(var8, var11);
     }
-    func_02041a90(arg1, ((0x88 - var10) >> 1) + 0x58, 0x26);
+    AppendPositionTag_02041a90(arg1, ((0x88 - var10) >> 1) + 0x58, 0x26);
     AppendText_02042058(arg1, var8);
 
     char var14[0x80];
     __clear(var14, sizeof(var14));
-    func_0206819c(arg0->unknown_1400_, var14, 0);
-    func_02041a90(arg1, ((0x88 - func_020420e8(var14, 0)) >> 1) + 0x58, 0x36);
+    CopyCapitalizedText_0206819c(arg0->unknown_1400_, var14, 0);
+    AppendPositionTag_02041a90(arg1, ((0x88 - func_020420e8(var14, 0)) >> 1) + 0x58, 0x36);
     AppendText_02042058(arg1, var14);
 
     short var15 = 0x6d;
@@ -244,7 +244,7 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
     if (var16)
         var15 = var6->unknown_2_5_ + 30000;
     const char* var17 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, var15);
-    func_02041a90(arg1, ((0x88 - func_020420e8(var17, 0)) >> 1) + 0x58, 0x46);
+    AppendPositionTag_02041a90(arg1, ((0x88 - func_020420e8(var17, 0)) >> 1) + 0x58, 0x46);
     AppendText_02042058(arg1, var17);
 #endif
 
@@ -267,11 +267,11 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
         var20 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 0x13);
     }
 #if defined(jpn)
-    func_02041a90(arg1, func_02042798(var20, 0x88, 0xa) + 0x58, 0x56);
+    AppendPositionTag_02041a90(arg1, func_02042798(var20, 0x88, 0xa) + 0x58, 0x56);
 #else
-    func_02041a90(arg1, ((0x88 - func_020420e8(var20, 0)) >> 1) + 0x58, 0x56);
+    AppendPositionTag_02041a90(arg1, ((0x88 - func_020420e8(var20, 0)) >> 1) + 0x58, 0x56);
 #endif
     if (var19)
-        func_02041e70(arg1, 3);
+        AppendTextColorTag_02041e70(arg1, 3);
     AppendText_02042058(arg1, var20);
 }

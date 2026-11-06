@@ -66,8 +66,8 @@ extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" void func_0205def8(struct Struct_0205def8* arg0, int arg1, int arg2);
-struct Struct_0205da38;
-extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+struct TextWindowManager_0205da38;
+extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov000_0217ab48(void* arg0);
@@ -94,7 +94,7 @@ extern "C" ARM int func_ov000_0217b518(Struct_ov000_0217b518_3* arg0, int arg1, 
         return -1;
     }
     int var3 = g_keyManager.TestKeysPressed(0x601);
-    bool var4 = (var3 | func_0205da38((struct Struct_0205da38*)arg0->unknown_38_, 0x14)) ? 1 : 0;
+    bool var4 = (var3 | IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)arg0->unknown_38_, 0x14)) ? 1 : 0;
     if (var4 || arg0->unknown_444_) {
         func_0205def8((struct Struct_0205def8*)var0->unknown_188_, 0, 0x22);
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
@@ -141,7 +141,7 @@ extern "C" ARM int func_ov000_0217b518(Struct_ov000_0217b518_3* arg0, int arg1, 
         return -1;
     }
     int var10 = g_keyManager.TestKeysPressed(0x601);
-    int var11 = (var10 | func_0205da38((struct Struct_0205da38*)arg0->unknown_38_, 0x14)) ? 1 : 0;
+    int var11 = (var10 | IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)arg0->unknown_38_, 0x14)) ? 1 : 0;
     if (var11 || arg0->unknown_444_) {
         func_0205def8((struct Struct_0205def8*)var8->unknown1_188_, 0, 0x22);
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);

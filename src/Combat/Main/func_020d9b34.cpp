@@ -8,7 +8,7 @@
 #if defined(jpn)
 #define REGION_VALUE(jpnValue, usaValue) jpnValue
 extern const char data_020f2a18[];
-extern "C" void func_020728ac(int, int, void*, int, int, unsigned short, unsigned char);
+extern "C" void LoadStringList_020728ac(int, int, void*, int, int, unsigned short, unsigned char);
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void StartMessage_0204500c(void*, void*, int);
@@ -88,7 +88,7 @@ extern "C" ARM void func_020d9b34(struct Struct_020d9b34_2* arg0) {
             unsigned int var2;
             var0->GetLoadedFileByID(arg0->unknown_c_, &var1, &var2);
 #if defined(jpn)
-            func_020728ac((int)&arg0->unknown_40_, (int)&arg0->unknown_58_, var1, var2, 0, 0, 0);
+            LoadStringList_020728ac((int)&arg0->unknown_40_, (int)&arg0->unknown_58_, var1, var2, 0, 0, 0);
 #else
             LoadStringTable_020dfec0(&arg0->unknown_40_, &arg0->unknown_58_, var1, var2);
 #endif
@@ -98,9 +98,9 @@ extern "C" ARM void func_020d9b34(struct Struct_020d9b34_2* arg0) {
         }
     } else if (arg0->unknown_9_ == 2) {
         FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
-        func_02094b40(var3);
+        ClearLoadedFontSets_02094b40(var3);
         CancelFontLoad_02094ab0(var3);
-        func_02094b30(var3, 0x207, 0);
+        RequestSingleFontLoad_02094b30(var3, 0x207, 0);
         arg0->unknown_9_++;
     } else if (arg0->unknown_9_ == 3) {
         if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()) == 0) return;

@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 
 struct LocalWireless_0202c1a4;
-struct Struct_02038598_5;
-struct Struct_02015438;
+struct Queue_02038598_5;
+struct QueueNode_02015438;
 struct Struct_020113e0;
 struct Struct_ov017_021cf730_2 {
     char unknown_0_[4]; unsigned short unknown_4_; unsigned char unknown_6_;
@@ -23,9 +23,9 @@ struct Struct_ov017_021cf86c_4 {
 };
 struct Struct_ov017_021cf86c {
 #if defined(jpn)
-    char unknown_0_[0x34ec]; Struct_02038598_5* unknown_36fc_;
+    char unknown_0_[0x34ec]; Queue_02038598_5* unknown_36fc_;
 #else
-    char unknown1_0_[0x36fc]; Struct_02038598_5* unknown_36fc_;
+    char unknown1_0_[0x36fc]; Queue_02038598_5* unknown_36fc_;
 #endif
 #if defined(jpn)
     char unknown_34f0_[0x3a84 - 0x34f0]; Struct_ov017_021cf86c_4* unknown_3ca4_;
@@ -42,8 +42,8 @@ struct Struct_ov017_021cf86c_3 { char unknown_0_[0xc]; int unknown_c_; };
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" Struct_ov017_021cf86c_2* GetZone3D_02012fe4();
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
-extern "C" int func_02046b60(Struct_02038598_5*, int);
-extern "C" int func_02046b24(Struct_02015438**);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
+extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void func_0208f748(void*, int);
 extern "C" void func_020113e0(Struct_020113e0*);
 extern "C" int func_0201b588(int);
@@ -53,10 +53,10 @@ extern "C" ARM void func_ov017_021cf86c(void*, Struct_ov017_021cf730_2* arg1, Ga
     if (arg1->unknown_7_.unknown1_0_.unknown_0_3_ >= 0 && GetOwnProtagonistObjectIndex_0202c1a4(arg4) != arg1->unknown_7_.unknown1_0_.unknown_0_3_) return;
     Struct_ov017_021cf86c_2* var0 = GetZone3D_02012fe4();
     GrottoStruct* var1;
-    Struct_02038598_5* var2 = arg3->unknown_36fc_;
+    Queue_02038598_5* var2 = arg3->unknown_36fc_;
     GetZoneEntry_0200fd0c(arg2);
     var1 = arg2->GetGrottoStruct();
-    if (func_02046b60(var2, 0x4e)) {
+    if (IsTypeInQueue_02046b60(var2, 0x4e)) {
         Struct_ov017_021cf86c_4* var3 = arg3->unknown_3ca4_;
         var3->unknown_3a_ = arg1->unknown_4_;
         var3->unknown_3c_ = arg1->unknown_6_;
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov017_021cf86c(void*, Struct_ov017_021cf730_2* arg1, Ga
         var1->unknown_0[1] = 0;
     }
     if (var1->unknown_0[0] && (var1->activeMapData.GetDiscoveryState() == 2 || var1->activeMapData.GetDiscoveryState() == 3)) {
-        if (((Struct_ov017_021cf86c_3*)var1)->unknown_c_ == arg2->GetProtagonist()->obj3D_.GetField06() && func_02046b24((Struct_02015438**)var2) != 10) {
+        if (((Struct_ov017_021cf86c_3*)var1)->unknown_c_ == arg2->GetProtagonist()->obj3D_.GetField06() && GetQueueHeadType_02046b24((QueueNode_02015438**)var2) != 10) {
             func_0208f748(var0->unknown_2664_, 0);
         }
     }

@@ -3,7 +3,7 @@
 #include "Combat/BattleSkillEligibility.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
 
-extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" void* func_ov000_02153758(void* arg0, int arg1);
 extern "C" char* GetZone3D_02012fe4(void);
 
@@ -20,7 +20,7 @@ struct Struct_ov000_02159dbc_2 {
 // USA: func_ov000_02159dbc
 extern "C" ARM int func_ov000_02159dbc(char* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    GameObject* var1 = func_0200fea4(GameState::GetInstance(), arg1);
+    GameObject* var1 = GetEnemyByIndex_0200fea4(GameState::GetInstance(), arg1);
     if (var1 == 0) {
         return 1;
     }

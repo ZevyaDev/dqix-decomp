@@ -3,7 +3,7 @@
 extern "C" unsigned int strlen(const char* arg0);
 extern "C" char* strcpy(char* arg0, const char* arg1);
 extern "C" int strcmp(const char* arg0, const char* arg1);
-extern "C" int func_02005a94(const char* arg0);
+extern "C" int ParseDecimal_02005a94(const char* string);
 extern "C" int func_020cf25c(void* arg0, void* arg1);
 extern "C" long long func_020cf990(int arg0, unsigned char* arg1);
 
@@ -61,7 +61,7 @@ extern "C" ARM int func_ov031_0221a218(const char* arg0) {
     var2[25] = 0;
 
     data_020f3390 = 0;
-    var0.unknown_0_ = func_02005a94(&var2[12]);
+    var0.unknown_0_ = ParseDecimal_02005a94(&var2[12]);
     if (data_020f3390 == 0x22) {
         goto fail;
     }
@@ -80,22 +80,22 @@ extern "C" ARM int func_ov031_0221a218(const char* arg0) {
     }
 
     data_020f3390 = 0;
-    var0.unknown_8_ = func_02005a94(&var2[5]);
+    var0.unknown_8_ = ParseDecimal_02005a94(&var2[5]);
     if (data_020f3390 == 0x22) {
         goto fail;
     }
     data_020f3390 = 0;
-    var1.unknown_0_ = func_02005a94(&var2[17]);
+    var1.unknown_0_ = ParseDecimal_02005a94(&var2[17]);
     if (data_020f3390 == 0x22) {
         goto fail;
     }
     data_020f3390 = 0;
-    var1.unknown_4_ = func_02005a94(&var2[20]);
+    var1.unknown_4_ = ParseDecimal_02005a94(&var2[20]);
     if (data_020f3390 == 0x22) {
         goto fail;
     }
     data_020f3390 = 0;
-    var1.unknown_8_ = func_02005a94(&var2[23]);
+    var1.unknown_8_ = ParseDecimal_02005a94(&var2[23]);
     if (data_020f3390 == 0x22) {
         goto fail;
     }

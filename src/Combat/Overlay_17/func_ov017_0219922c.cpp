@@ -9,10 +9,10 @@ enum { Enum_ov017_0219922c_1724 = 0x6bc, Enum_ov017_0219922c_13824 = 0x3600, Enu
 
 
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
+extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 extern "C" void func_0206f81c(void* arg0);
 extern "C" void func_ov017_021adc58(unsigned char* arg0);
-extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 int fix32ReduceAngle0To2Pi(int angle);
 struct Vector3i;
 struct Queue_0201bdac_2;
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov017_0219922c(unsigned char* arg0) {
         void* var5 = GetFlagManager_0205ec34();
         struct Struct_ov017_0219922c var6;
         var6.unknown_20_ = *(unsigned short*)(var1 + 0x1c);
-        if (func_020649b0(var5, 0x12, &var6)) {
+        if (RunTrigger_020649b0(var5, 0x12, &var6)) {
             func_0206f81c(&var6);
         }
         return;
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov017_0219922c(unsigned char* arg0) {
     var7 = *(unsigned char**)(arg0 + 0x3000 + Enum_ov017_0219922c_2852);
     var7[0xa] = (unsigned char)var3;
 
-    int var8 = func_020100b0(var0);
+    int var8 = GetOwnPartyLeaderObjectIndex_020100b0(var0);
     var7 = *(unsigned char**)(arg0 + 0x3000 + Enum_ov017_0219922c_2852);
     var7[8] = (unsigned char)var8;
 

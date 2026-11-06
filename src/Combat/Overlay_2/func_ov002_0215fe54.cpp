@@ -3,11 +3,11 @@
 #if defined(jpn)
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
-extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
+extern "C" int AppendPositionTag_02041a90(char* buffer, int x, int y);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void SetMessageNumber_020465c0(void* window, int index, int number);
-extern "C" void func_020465d8(void* arg0, int arg1, unsigned char arg2);
-extern "C" void func_020465f0(void* arg0, int arg1, unsigned char arg2);
+extern "C" void SetMessageNumberAlignment_020465d8(void* window, int index, unsigned char alignment);
+extern "C" void SetMessageNumberWidth_020465f0(void* window, int index, unsigned char width);
 extern "C" const char* FindStringInTable_020e0434(char* stringTable, int stringId);
 extern "C" void func_020474a8(void* arg0, int arg1, const char* arg2, char* arg3);
 
@@ -42,11 +42,11 @@ extern "C" ARM void func_ov002_0215fe54(void* arg0, char* arg1, int arg2, int ar
         void* var10 = GetMessageWindow_020421a0();
         SetMessageNumber_020465c0(var10, 0, arg3 / 8 + 1);
         SetMessageNumber_020465c0(var10, 1, var9);
-        func_020465f0(var10, 0, 1);
-        func_020465f0(var10, 1, 1);
-        func_020465d8(var10, 0, 1);
-        func_020465d8(var10, 1, 0);
-        func_02041a90(arg1, 0x20, 0x74);
+        SetMessageNumberWidth_020465f0(var10, 0, 1);
+        SetMessageNumberWidth_020465f0(var10, 1, 1);
+        SetMessageNumberAlignment_020465d8(var10, 0, 1);
+        SetMessageNumberAlignment_020465d8(var10, 1, 0);
+        AppendPositionTag_02041a90(arg1, 0x20, 0x74);
         char var11[0x40] = {};
         func_020474a8(var10, 8, FindStringInTable_020e0434(var0 + 8, 9), var11);
         AppendText_02042058(arg1, var11);

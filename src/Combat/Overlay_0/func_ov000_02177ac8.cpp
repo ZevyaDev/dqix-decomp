@@ -12,7 +12,7 @@ extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMar
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
-extern "C" int func_02041a28(char* arg0, int arg1);
+extern "C" int AppendXPositionTag_02041a28(char* buffer, int x);
 
 extern int data_ov000_021834e0[6];
 
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov000_02177ac8(char* arg0, char* arg1) {
             AppendText_02042058(arg1, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0));
         }
         if (!var7) {
-            func_02041a28(arg1, var0 + 0x20);
+            AppendXPositionTag_02041a28(arg1, var0 + 0x20);
         }
     }
 }

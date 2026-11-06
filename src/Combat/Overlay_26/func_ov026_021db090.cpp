@@ -95,7 +95,7 @@ struct Struct_ov023_021f2a48_4 {
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" Struct_ov000_0217964c_3* GetMessageWindow_020421a0();
-extern "C" int func_02010088(struct Struct_02010088*);
+extern "C" int IsDead_02010088(struct Struct_02010088*);
 extern "C" void func_020e4c74(void*, GameObject*);
 extern "C" void func_02053ec8(void*, int);
 extern "C" void func_ov017_021c9ad4(unsigned short);
@@ -173,7 +173,7 @@ extern "C" ARM void func_ov026_021db090(Struct_ov000_02160da0* arg0) {
 #endif
         for (var12 = 0; var12 < var9; var12++) {
             GameObject* var14 = var0->GetCombatantByIndex(var7[var12]);
-            if (var14 == NULL || func_02010088((Struct_02010088*)var14)) {
+            if (var14 == NULL || IsDead_02010088((Struct_02010088*)var14)) {
                 continue;
             }
             func_ov000_02162c14(arg0, var7[var12], &var6);

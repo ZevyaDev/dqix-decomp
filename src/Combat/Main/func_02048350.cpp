@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 
 struct Struct_02048350 {
     char unknown_0_[0x6];
@@ -24,7 +24,7 @@ extern "C" ARM int func_02048350(struct Struct_02048350_2* arg0, int arg1) {
     GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var2, arg0->unknown_4_);
     if (var3 != NULL && arg1 > 0) {
         unsigned char* var4 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var3);
-        if (var4 != NULL && func_02083b00(var4, 0x106)) {
+        if (var4 != NULL && HasLearnedSkillEntry_02083b00(var4, 0x106)) {
             arg1 = (int)(0.75f + 0.75f * (float)arg1);
             if (arg1 <= 0) {
                 arg1 = 0;

@@ -11,7 +11,7 @@
 
 struct MenuCursor_0205ba68;
 struct MenuCursor_0205bacc;
-struct Struct_0205bcdc;
+struct MenuCursor_0205bcdc;
 struct Struct_0205cf1c;
 extern "C" void func_0205cef8(void *arg0);
 extern "C" void func_0205cf04(void *arg0);
@@ -21,7 +21,7 @@ extern "C" unsigned char func_02011804(GameState* arg0);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
 extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68 *cursor, int columnCount, int rowCount, int isRowMajor);
 extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc *cursor, int itemCount);
-extern "C" void func_0205bcdc(struct Struct_0205bcdc *arg0, int arg1);
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc *cursor, int index);
 extern "C" void SetMenuCursorIndex_0205bb04(void *cursor, int index);
 extern "C" int func_020dc428();
 extern "C" void func_ov002_02156080(void *arg0, short *arg1, short *arg2);
@@ -277,7 +277,7 @@ extern "C" ARM void func_ov002_02161cf0(char *arg0) {
     SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc *) (var5 + 0x54), var2);
     *(int *) (var5 + 8)    = var3;
     *(int *) (var5 + 0x58) = var3;
-    func_0205bcdc((struct Struct_0205bcdc *) (var5 + 4), var4);
+    SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc *) (var5 + 4), var4);
     SetMenuCursorIndex_0205bb04(var5 + 0x54, var4);
     *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
 }

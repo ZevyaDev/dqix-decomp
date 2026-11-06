@@ -15,13 +15,13 @@ extern "C" void func_ov017_021a5ad0(struct Struct_ov017_021a5ad0* arg0, int arg1
 extern "C" void func_ov017_021a5b08(struct Struct_ov017_021a5ad0* arg0, int arg1);
 
 struct TextWindowManager_0205d1e0;
-extern "C" void func_0205d1e0(struct TextWindowManager_0205d1e0* arg0);
+extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(struct TextWindowManager_0205d1e0* windowManager);
 struct TextWindowManager_0205d274;
-extern "C" void func_0205d274(struct TextWindowManager_0205d274* arg0);
+extern "C" void FlushTextWindowManagerBGScreenData_0205d274(struct TextWindowManager_0205d274* windowManager);
 struct TextWindowManager_0205d2bc;
 extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc* arg0);
-struct Struct_0205d048;
-extern "C" void func_0205d048(struct Struct_0205d048* arg0);
+struct TextWindowManager_0205d048;
+extern "C" void ResetTextWindowManager_0205d048(struct TextWindowManager_0205d048* windowManager);
 
 extern "C" void func_ov017_021a5b48(unsigned char* arg0);
 
@@ -51,13 +51,13 @@ extern "C" ARM void func_ov017_021a5bac(unsigned char* arg0) {
             func_ov017_021a5ad0((struct Struct_ov017_021a5ad0*)(arg0 + Enum_ov017_021a5bac_16532), 2, 0x800);
 
             void* var3 = *(void**)(arg0 + Enum_ov017_021a5bac_16528);
-            func_0205d1e0((struct TextWindowManager_0205d1e0*)var3);
-            func_0205d274((struct TextWindowManager_0205d274*)var3);
+            ClearTextWindowManagerBGScreenData_0205d1e0((struct TextWindowManager_0205d1e0*)var3);
+            FlushTextWindowManagerBGScreenData_0205d274((struct TextWindowManager_0205d274*)var3);
             func_0205d2bc((struct TextWindowManager_0205d2bc*)var3);
 
             func_ov017_021a5b08((struct Struct_ov017_021a5ad0*)(arg0 + Enum_ov017_021a5bac_16532), 2);
 
-            func_0205d048((struct Struct_0205d048*)var3);
+            ResetTextWindowManager_0205d048((struct TextWindowManager_0205d048*)var3);
 
             *var0 = (*var0 & ~0x1f00) | 0x1300;
         }

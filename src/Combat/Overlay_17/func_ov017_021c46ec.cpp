@@ -33,7 +33,7 @@ extern "C" int IsLocalWirelessGuest_0202c540(struct LocalWireless_0202c1a4* wire
 extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202c1a4* wireless);
 extern "C" void func_020103c8(GameState* arg0, int arg1);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
-extern "C" signed char func_020546a8(void* arg0);
+extern "C" signed char GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" void func_ov017_0219dac4(struct Struct_ov017_021c46ec_3* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021c4fa0(int arg0, int arg1);
 
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_021c46ec(int arg0, struct Struct_ov017_021c46ec* 
         var4[var6++] = var5;
         for (var2 = 0; var2 < 4; var2++) {
             GameObject* var7 = GetCompanionByIndex_0200ff58(arg2, var2);
-            if (var7 != NULL && arg0 == func_020546a8(var7)) {
+            if (var7 != NULL && arg0 == GetLeaderObjectIndex_020546a8(var7)) {
                 var4[var6++] = var7;
             }
         }

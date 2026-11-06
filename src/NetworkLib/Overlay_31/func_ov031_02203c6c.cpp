@@ -136,7 +136,7 @@ extern "C" ARM void func_ov031_02203c6c() {
             func_ov031_02200ccc(data_ov031_0224c980.unknown_2c_);
             var4 = 105;
         }
-        ProcessorContext* var7 = data_02111304.firstContext;
+        ProcessorContext* var7 = gContextScheduler_02111304.firstContext;
         if (var7) do {
             Struct_ov031_02203c6c* var8 = (Struct_ov031_02203c6c*)var7->unknown_A4;
             if (var8 && var8->unknown_0_) {

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-// USA: func_020de848
-extern "C" ARM void func_020de848(void* arg0) {
-    memset(arg0, 0, 0x14);
-    *((unsigned char*)arg0 + 0x14) = 0;
+// USA: ClearItemTable_020de848
+extern "C" ARM void ClearItemTable_020de848(void* itemTable) {
+    memset(itemTable, 0, 0x14);
+    *((unsigned char*)itemTable + 0x14) = 0;
 }

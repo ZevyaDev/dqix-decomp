@@ -43,7 +43,7 @@ extern "C" int func_02018fbc(Struct_020a6aac*, Vector3fix*);
 extern "C" void func_ov017_0219c598(int* arg0, short* arg1, int arg2);
 
 extern "C" void* func_0201b754(void* arg0, int arg1);
-extern "C" void func_0200fd48(GameState*, int);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
 
 struct Struct_02017a94;
 struct Struct_0201b600;
@@ -235,7 +235,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
             GameObject* var23 = var0->GetUnknownGameObject();
             func_020a2770(var3, var23->obj3D_.unknown_4_);
             ClearFlags04((GameResources*)arg0, 0x10004);
-            func_0200fd48(var0, 0xc9);
+            ClearGameObjectByIndex_0200fd48(var0, 0xc9);
             if (IsLocalWirelessGuest_0202c540(var2) != 0) {
                 if (var1->unknown_2774_.unknown_14_ == 0) {
                     func_0201b8c8((struct Struct_02017a94*)var1, 0, 1, 0);
@@ -310,11 +310,11 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
                 }
             }
         }
-        func_0200fd48(var0, 0xc9);
+        ClearGameObjectByIndex_0200fd48(var0, 0xc9);
     } else {
         if (arg2 == 0x2710) {
             ClearFlags04((GameResources*)arg0, 0x10004);
-            func_0200fd48(var0, 0xc9);
+            ClearGameObjectByIndex_0200fd48(var0, 0xc9);
             short var38 = var0->GetUnknownGameObject()->obj3D_.unknown_4_;
             func_020a2770(var3, var38);
             short var39 = (short)var1->unknown_2774_.unknown_12_;

@@ -23,14 +23,14 @@ struct TextWindow_0205d0e0 {
 };
 struct TextWindowManager_0205d81c;
 struct SpriteAnimationList_0205a330;
-extern "C" void func_0205a42c(SpriteAnimationList_0205a254*, int, int);
+extern "C" void SetSpriteAnimationOAMIndex_0205a42c(SpriteAnimationList_0205a254*, int, int);
 extern "C" void PlaySpriteAnimation_0205a370(SpriteAnimationList_0205a254*, int);
 extern "C" SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(SpriteAnimationList_0205a254*, int);
 extern "C" void func_020e27ec(SpriteAnimationList_0205a254*, int, short, short);
 extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330*, int);
 extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
-extern "C" int func_0204c7e0(unsigned char*);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char*);
 
 extern "C" ARM void func_ov023_021da9b4(Struct_ov009_021842a0* arg0) {
     GameState* var0 = GameState::GetInstance();
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov023_021da9b4(Struct_ov009_021842a0* arg0) {
         signed char var1 = arg0->unknown_c58_;
         if (var1 >= 1 && var1 <= 8) {
             short var2 = (short)(((var1 - 1) << 4) + 0x2b);
-            func_0205a42c(arg0->unknown_7e0_, 0, 0x78);
+            SetSpriteAnimationOAMIndex_0205a42c(arg0->unknown_7e0_, 0, 0x78);
             PlaySpriteAnimation_0205a370(arg0->unknown_7e0_, 0);
             SpriteAnimation_0205a254_2* var3 = FindSpriteAnimation_0205a3d0(arg0->unknown_7e0_, 0);
             if (var3 != NULL) var3->unknown_15_ |= 8;
@@ -51,12 +51,12 @@ extern "C" ARM void func_ov023_021da9b4(Struct_ov009_021842a0* arg0) {
     if (arg0->unknown_7e4_ == NULL) return;
     TextWindow_0205d0e0* var5 = FindTextWindow_0205d81c((TextWindowManager_0205d81c*)&arg0->unknown_1f8_[1], 1);
     if (var5 == NULL) return;
-    if (!func_0204c7e0((unsigned char*)var5)) return;
+    if (!IsTextWindowOpen_0204c7e0((unsigned char*)var5)) return;
     short var6 = (short)(var5->unknown_ac_ << 3);
     short var7 = (short)(var5->unknown_ae_ << 3);
     var6 = (short)(var6 + var5->unknown_bc_);
     var7 = (short)(var7 + var5->unknown_be_);
-    func_0205a42c(arg0->unknown_7ec_, 0, 0x3f);
+    SetSpriteAnimationOAMIndex_0205a42c(arg0->unknown_7ec_, 0, 0x3f);
     PlaySpriteAnimation_0205a370(arg0->unknown_7ec_, 0);
     SpriteAnimation_0205a254_2* var8 = FindSpriteAnimation_0205a3d0(arg0->unknown_7ec_, 0);
     if (var8 != NULL) var8->unknown_15_ |= 8;
@@ -70,7 +70,7 @@ struct Struct_02000c9c_8;
 extern "C" ARM unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
 
 struct SpriteAnimationList_0205a254;
-extern "C" void func_0205a42c(struct SpriteAnimationList_0205a254* arg0, int arg1, int arg2);
+extern "C" void SetSpriteAnimationOAMIndex_0205a42c(struct SpriteAnimationList_0205a254* animationList, int index, int oamIndex);
 extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
 struct SpriteAnimation_0205a254_2;
 extern "C" struct SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
@@ -91,7 +91,7 @@ struct Struct_ov023_021da9b4 {
     short unknown_be_;
 };
 extern "C" ARM struct Struct_ov023_021da9b4* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
-extern "C" ARM int func_0204c7e0(unsigned char* arg0);
+extern "C" ARM int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 
 // USA: func_ov023_021da9b4
 extern "C" ARM void func_ov023_021da9b4(void* arg0) {
@@ -106,7 +106,7 @@ extern "C" ARM void func_ov023_021da9b4(void* arg0) {
             int var15 = GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)var14);
             struct SpriteAnimationList_0205a254* var16 = *(struct SpriteAnimationList_0205a254**)((char*)arg0 + 0x7e0);
             if (var15 == 4) var12 = 0x64;
-            func_0205a42c(var16, 0, 0x78);
+            SetSpriteAnimationOAMIndex_0205a42c(var16, 0, 0x78);
             PlaySpriteAnimation_0205a370(var16, 0);
             struct SpriteAnimation_0205a254_2* var17 = FindSpriteAnimation_0205a3d0(var16, 0);
             if (var17 != NULL) {
@@ -126,7 +126,7 @@ extern "C" ARM void func_ov023_021da9b4(void* arg0) {
     if (var19 == 0) {
         return;
     }
-    if (!func_0204c7e0((unsigned char*)var19)) {
+    if (!IsTextWindowOpen_0204c7e0((unsigned char*)var19)) {
         return;
     }
     short var20 = (short)(var19->unknown_ac_ << 3);
@@ -135,7 +135,7 @@ extern "C" ARM void func_ov023_021da9b4(void* arg0) {
     var21 = (short)(var21 + var19->unknown_be_);
 
     struct SpriteAnimationList_0205a254* var22 = *(struct SpriteAnimationList_0205a254**)((char*)arg0 + 0x7ec);
-    func_0205a42c(var22, 0, 0x78);
+    SetSpriteAnimationOAMIndex_0205a42c(var22, 0, 0x78);
     PlaySpriteAnimation_0205a370(var22, 0);
     struct SpriteAnimation_0205a254_2* var23 = FindSpriteAnimation_0205a3d0(var22, 0);
     if (var23 != NULL) {

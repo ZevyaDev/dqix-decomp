@@ -19,7 +19,7 @@ extern "C" ARM unsigned short func_ov031_02203078(void) {
     int var0;
     ProcessorContext* var1;
     unsigned short var2;
-    ProcessorContext* var3 = data_02111304.firstContext;
+    ProcessorContext* var3 = gContextScheduler_02111304.firstContext;
     do {
         var0 = 0;
         ++data_ov031_0224c980.unknown_8_;

@@ -93,14 +93,14 @@ extern "C" void StartMessage_0204500c(Struct_ov003_02174114 *, int, int);
 extern "C" void StartMessage_0204500c(Struct_ov003_02174114 *, int, int, int);
 #endif
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14 *);
-extern "C" void func_02074af4(void *);
+extern "C" void SaveMainBGControl_02074af4(void *);
 extern "C" void func_ov023_021dc134(void *, int, int);
 extern "C" void InitSpriteSet_0205a444(char *);
 extern "C" void func_ov003_02174408(Struct_ov003_02174114_4 *);
 extern "C" void func_02081ee4(Struct_02081ee4 *, Struct_02081ee4_2 *);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8 *);
 extern "C" void InitTextWindow_0204c684(void *);
-extern "C" unsigned char func_02011494(char *, void *);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char *, void *);
 extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *, int);
 
 #if defined(jpn)
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov003_02174114(Struct_ov003_02174114_3 *arg0) {
     InitStringTable_020dfc40((StringTable_0201099c_14 *) (arg0->unknown_c_));
     arg0->unknown_34_ = 0;
     arg0->unknown_35_ = 0;
-    func_02074af4(arg0->unknown_24_);
+    SaveMainBGControl_02074af4(arg0->unknown_24_);
     volatile unsigned int *var2 = (volatile unsigned int *) 0x4000000;
     unsigned int var3             = *var2;
     arg0->unknown_38_             = (var3 & 0x1f00u) >> 8;
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov003_02174114(Struct_ov003_02174114_3 *arg0) {
 
     GameState *var7 = GameState::GetInstance();
     unsigned char var8[8];
-    int var9 = func_02011494((char *) var7, var8);
+    int var9 = GetOwnPartyOrder_02011494((char *) var7, var8);
     for (int var10 = 0; var10 < var9; var10++)
         arg0->unknown_101c_[var10] = var8[var10];
     arg0->unknown_1030_ = var9;

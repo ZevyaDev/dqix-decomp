@@ -31,9 +31,9 @@ struct Struct_ov003_0217ef58_2 {
     char unknown_2a_[0x10];
 };
 
-extern "C" void func_02074af4(void* arg0);
-extern "C" void func_020a0cc4(unsigned int arg0);
-extern "C" void func_020a0c0c(void);
+extern "C" void SaveMainBGControl_02074af4(void* save);
+extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
+extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void VectorizedMemset(void* dst, int val, unsigned int len);
 extern "C" void func_020a1df8(int arg0);
@@ -57,12 +57,12 @@ extern "C" ARM void func_ov003_0217ef58(Struct_ov003_0217ef58_2* arg0) {
     GameState* var0 = GameState::GetInstance();
 
     if (arg0->unknown_10_ == 0) {
-        func_02074af4(arg0->unknown_2a_);
+        SaveMainBGControl_02074af4(arg0->unknown_2a_);
         SetFlags04(GetGameResources(), 0xc0);
-        func_020a0cc4(0x1e800);
+        ReleaseFileTablesForSpace_020a0cc4(0x1e800);
         void* var1 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0xb000);
         if (var1 == 0) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov003_0217ef58(Struct_ov003_0217ef58_2* arg0) {
         arg0->unknown_14_.Reset();
         arg0->unknown_c_ = (Struct_ov003_0217ef58*)arg0->unknown_14_.Allocate(Enum_ov003_0217ef58_5140);
         if (arg0->unknown_c_ == 0) {
-            func_020a0c0c();
+            LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
             return;
         }

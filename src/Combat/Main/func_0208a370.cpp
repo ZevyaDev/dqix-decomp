@@ -4,7 +4,7 @@
 struct Struct_0208a370_3 { Random* unknown_0_; };
 struct Struct_0208a370 { char unknown_0_[0x18]; unsigned short unknown_18_[6]; };
 struct Struct_0208a370_2 { char unknown_0_[0x148]; Struct_0208a370* unknown_148_; };
-extern "C" GameObject* func_0200fea4(GameState*, int);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" int func_0208a03c(Struct_0208a370_3*, unsigned char, int, int*, int);
 extern "C" int func_ov000_02154a04(Random*, int, int, int);
 extern unsigned char data_020e8caa[];
@@ -14,7 +14,7 @@ extern "C" ARM int func_0208a370(Struct_0208a370_3* arg0, int arg1, int arg2, in
     int var1;
     Struct_0208a370* var2;
     int var3;
-    var2 = ((Struct_0208a370_2*)func_0200fea4(GameState::GetInstance(), arg2))->unknown_148_;
+    var2 = ((Struct_0208a370_2*)GetEnemyByIndex_0200fea4(GameState::GetInstance(), arg2))->unknown_148_;
     var0 = data_020e8caa + arg1 * 6;
     int var4 = NextRandomMax(arg0->unknown_0_, 256) + 1;
     for (var1 = 0; var1 < 6; var1++) {

@@ -40,7 +40,7 @@ extern int data_ov004_02170854[];
 extern char data_ov004_0217052d[];
 extern unsigned char gFileScratchSpace_0211e33c[0x30000];
 
-extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
+extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" Struct_ov004_02162dd8* func_ov011_021845f8(void*, int);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_0208274c(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3);
@@ -70,7 +70,7 @@ extern "C" ARM int func_ov004_02162dd8(void* arg0) {
     data_ov004_021707e8.unknown1_0_ = 1;
     GameState* var0 = GameState::GetInstance();
     unsigned char var1[4];
-    int var2 = func_020114ec((char*)var0, var1);
+    int var2 = GetPartyOrder_020114ec((char*)var0, var1);
     data_ov004_021707e8.unknown_14_ = 0;
     data_ov004_021707e8.unknown_14_ = (Struct_ov004_02162dd8_2*)func_ov011_021845f8(arg0, 4)->unknown_4_.Allocate(0x480);
     if (data_ov004_021707e8.unknown_14_ != 0) {

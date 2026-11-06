@@ -27,11 +27,11 @@ extern "C" void func_0205c508(Struct_0205c508*, int*, int*);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" int AppendMenuEntry_02041b70(char*, int, const char*);
-extern "C" int func_02041a28(char*, int);
+extern "C" int AppendXPositionTag_02041a28(char*, int);
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" void func_020465f0(unsigned char*, int, unsigned char);
-extern "C" void func_020465d8(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
+extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*, int, unsigned char);
 extern "C" void func_02042428(char*, int);
 extern "C" void GetLocalWireless_0202ae18();
 
@@ -63,10 +63,10 @@ extern "C" ARM void func_ov012_02189dfc(char* arg0, char* arg1, int arg2) {
         ClearMessageParams_02046380(var1);
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var4 + 1);
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 1, var5);
-        func_020465f0((unsigned char*)var1, 0, 2);
-        func_020465f0((unsigned char*)var1, 1, 2);
-        func_020465d8((unsigned char*)var1, 0, 1);
-        func_020465d8((unsigned char*)var1, 1, 0);
+        SetMessageNumberWidth_020465f0((unsigned char*)var1, 0, 2);
+        SetMessageNumberWidth_020465f0((unsigned char*)var1, 1, 2);
+        SetMessageNumberAlignment_020465d8((unsigned char*)var1, 0, 1);
+        SetMessageNumberAlignment_020465d8((unsigned char*)var1, 1, 0);
         func_02042428(arg1, 8);
         AppendText_02042058(arg1, FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x1314), 0x6b));
     }
@@ -117,7 +117,7 @@ extern "C" void func_0205c508(Struct_0205c508* arg0, int* arg1, int* arg2);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
-extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
+extern "C" void AppendPositionTag_02041a90(char* buffer, int x, int y);
 extern "C" void func_ov012_021842a0(Struct_ov012_02189dfc_2* arg0, int arg1, int arg2, int arg3);
 
 extern "C" const char data_ov012_0218b310[];
@@ -149,7 +149,7 @@ extern "C" ARM void func_ov012_02189dfc(Struct_ov012_02189dfc_2* arg0, char* arg
     if (arg0->unknown_13c4_0_ > 9)
     {
         func_ov012_021842a0(arg0, 5, var12, var13);
-        func_02041a90(arg1, 0x2a, 0x94);
+        AppendPositionTag_02041a90(arg1, 0x2a, 0x94);
         AppendText_02042058(arg1, data_ov012_0218b310);
     }
 }

@@ -71,7 +71,7 @@ extern "C" ARM int func_ov003_0216759c(Struct_ov003_0216759c* arg0) {
             var4 = arg0->unknown_8_+var5;
             InitBGLayer_0204af64(var4);
             SetBGScreenSize_0204b11c(var4, var3[var5]);
-            var4->unknown_1c_0_=1;
+            var4->isSubScreen_1c_0_=1;
             var4->bgIndex_1c_4_=var5;
             SetBGPriority_0204b5b4(var4,var5);
             AllocateBGScreenData_0204b12c(var4,var2);

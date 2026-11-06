@@ -17,7 +17,7 @@ extern Struct_ov031_0224e1d0 data_ov031_0224e1d0;
 
 // USA: func_ov031_022066b4
 extern "C" ARM int func_ov031_022066b4(int arg0) {
-    Struct_ov031_022066b4* var0 = reinterpret_cast<Struct_ov031_022066b4*>(data_02111304.activeContext->unknown_A4);
+    Struct_ov031_022066b4* var0 = reinterpret_cast<Struct_ov031_022066b4*>(gContextScheduler_02111304.activeContext->unknown_A4);
     int var1 = DisableIRQInterrupts();
     int var2;
     if (var0 != 0) {

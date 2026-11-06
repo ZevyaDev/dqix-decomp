@@ -8,7 +8,7 @@
 struct Struct_0205c53c;
 struct MenuCursor_0205ba68;
 struct MenuCursor_0205bacc;
-struct Struct_0205bcdc;
+struct MenuCursor_0205bcdc;
 
 struct Struct_ov005_021571d0 {
     int unknown_0_;
@@ -64,7 +64,7 @@ struct Struct_ov005_02153954 {
 extern "C" void func_0205c53c(Struct_0205c53c* arg0);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc* cursor, int itemCount);
-extern "C" void func_0205bcdc(Struct_0205bcdc* arg0, int arg1);
+extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc* cursor, int index);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void func_ov005_02159a30(Struct_ov005_02153954* arg0, char* arg1, int arg2);
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov005_02159904(Struct_ov005_02153954* arg0) {
     var0->unknown_4_.unknown_4_ = 1;
     var0->unknown_54_.unknown_4_ = 1;
     int var1 = arg0->unknown_3dde_;
-    func_0205bcdc((Struct_0205bcdc*)&var0->unknown_4_, var1);
+    SetTouchMenuCursorIndex_0205bcdc((MenuCursor_0205bcdc*)&var0->unknown_4_, var1);
     SetMenuCursorIndex_0205bb04(&var0->unknown_54_, var1);
     } else {
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var0->unknown_4_, 1, 4, 0);
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov005_02159904(Struct_ov005_02153954* arg0) {
     var0->unknown_4_.unknown_4_ = 1;
     var0->unknown_54_.unknown_4_ = 1;
     int var2 = arg0->unknown_3dde_;
-    func_0205bcdc((Struct_0205bcdc*)&var0->unknown_4_, var2);
+    SetTouchMenuCursorIndex_0205bcdc((MenuCursor_0205bcdc*)&var0->unknown_4_, var2);
     SetMenuCursorIndex_0205bb04(&var0->unknown_54_, var2);
     }
 #else
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov005_02159904(Struct_ov005_02153954* arg0) {
     var0->unknown_4_.unknown_4_ = 1;
     var0->unknown_54_.unknown_4_ = 1;
     int var4 = arg0->unknown_3dde_;
-    func_0205bcdc((Struct_0205bcdc*)&var0->unknown_4_, var4);
+    SetTouchMenuCursorIndex_0205bcdc((MenuCursor_0205bcdc*)&var0->unknown_4_, var4);
     SetMenuCursorIndex_0205bb04(&var0->unknown_54_, var4);
 #endif
 #if defined(jpn)

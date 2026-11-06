@@ -5,7 +5,7 @@ extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" int func_ov001_0215ad2c(int arg0);
 extern "C" void* func_0203cf4c(void);
 extern "C" void* func_0203df78(void* arg0, int arg1);
-extern "C" void func_0200fd38(GameState* arg0, int arg1, GameObject* arg2);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState* gameState, int index, GameObject* object);
 
 struct Struct_ov001_02160c78 {
 	unsigned char unknown_0_[0xd4];
@@ -24,6 +24,6 @@ extern "C" ARM int func_ov001_02160c78(char* arg0) {
 	struct Struct_ov001_02160c78* var5 = *(struct Struct_ov001_02160c78**)((char*)var4 + 0x18);
 	if (var5 == 0) return 0;
 	var5->unknown_d4_0_ = 1;
-	func_0200fd38(var0, var3, *(GameObject**)((char*)var4 + 0x18));
+	SetGameObjectByIndex_0200fd38(var0, var3, *(GameObject**)((char*)var4 + 0x18));
 	return 1;
 }

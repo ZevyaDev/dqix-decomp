@@ -11,9 +11,9 @@ struct Struct_ov000_0215a908 { char unknown_0_[0x8e00]; unsigned char unknown_8e
 struct Struct_ov000_0215a908_2 { char unknown_0_[0x2e]; short unknown_2e_; };
 struct Struct_02010088;
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(Struct_ov000_0215a908*, short*, int, int);
-extern "C" GameObject* func_0200fea4(GameState*, int);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" int func_ov000_02155154(GameObject*);
-extern "C" int func_02010088(Struct_02010088*);
+extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov000_02153c0c(GameObject*);
 extern "C" void func_020488cc(unsigned char*, int);
 extern "C" void func_02088e64(unsigned char*);
@@ -44,11 +44,11 @@ extern "C" ARM void func_ov000_0215c4cc(Struct_ov000_0215a908* arg0) {
     int var4 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0, var0, 8, 1);
     for (int var5 = 0; var5 < var4; var5++) {
         short var6 = inline_ov000_0215c4cc(var0, var5);
-        GameObject* var7 = func_0200fea4(GameState::GetInstance(), var6);
+        GameObject* var7 = GetEnemyByIndex_0200fea4(GameState::GetInstance(), var6);
         if (!var7 || !func_ov000_02155154(var7)) continue;
         short var8 = inline_ov000_0215a908(var7);
         GameObject* var9 = GameState::GetInstance()->GetCombatantByIndex(var8);
-        if (var9 && !func_02010088((Struct_02010088*)var9) && !func_ov000_02153c0c(var9)) continue;
+        if (var9 && !IsDead_02010088((Struct_02010088*)var9) && !func_ov000_02153c0c(var9)) continue;
         func_020488cc((unsigned char*)var7, 1);
         func_02088e64((unsigned char*)var7->currentStats_);
         Struct_ov000_0215767c_7* var10 = (Struct_ov000_0215767c_7*)func_ov000_0215e9d8(arg0);

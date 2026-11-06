@@ -41,7 +41,7 @@ struct Struct_ov017_021b88d0_3 {
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
-extern "C" int func_020546a8(void* arg0);
+extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" void func_ov000_0215fab0(struct Struct_ov000_0215fab0* arg0, unsigned char arg1);
 extern "C" void func_ov017_021b6f9c(struct Struct_ov017_021b88d0_3* arg0);
 
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov017_021b88d0(struct Struct_ov017_021b88d0_3* arg0, in
         int var3 = 1;
         for (int var4 = 0; var4 < 4; var4++) {
             GameObject* var5 = GetCompanionByIndex_0200ff58(var0, var4);
-            if (var5 != 0 && arg1 == func_020546a8(var5)) {
+            if (var5 != 0 && arg1 == GetLeaderObjectIndex_020546a8(var5)) {
                 var2[var3++] = var4;
             }
         }

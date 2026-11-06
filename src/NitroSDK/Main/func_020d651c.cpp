@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca3b8 func_020cbe84
-#endif
 
 struct Struct_02114330
 {
@@ -51,7 +48,7 @@ struct Struct_020d5d34
     unsigned short unknown_81e_[1];
 };
 
-extern "C" void func_020ca3b8(const void* src, void* dst, unsigned long size);
+extern "C" void Memcpy16Bit_020ca3b8(const void* src, void* dst, unsigned long size);
 extern "C" unsigned short func_020d46cc();
 
 // USA: func_020d651c
@@ -84,7 +81,7 @@ extern "C" ARM void func_020d651c(void* arg0)
                 return;
             if (!(var3 & (1 << var4)))
                 return;
-            func_020ca3b8(var5, &var1->unknown_0_[var1->unknown_808_], var2);
+            Memcpy16Bit_020ca3b8(var5, &var1->unknown_0_[var1->unknown_808_], var2);
             var1->unknown_800_[var1->unknown_808_] = var0->unknown_1a_ >> 1;
             var1->unknown_808_ = (var1->unknown_808_ + 1) & 3;
             break;

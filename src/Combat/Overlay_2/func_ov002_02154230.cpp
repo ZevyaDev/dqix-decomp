@@ -3,8 +3,8 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-struct Struct_02048150;
-extern "C" int func_02086ef0(Struct_02048150 *arg0, int arg1);
+struct Party_02048150;
+extern "C" int IsInParty_02086ef0(Party_02048150 *party, int objectIndex);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" int func_ov002_02154b94(void *arg0, int arg1);
 extern "C" int func_ov002_02154a34(void *arg0, int arg1);
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov002_02154230(char *arg0, struct Struct_ov002_02154230 
     if (arg2 == 0) return 0;
     GameState *var0                  = GameState::GetInstance();
     GameResources *var1             = GetGameResources();
-    Struct_02048150 *var2 = (Struct_02048150 *) GetParty_02010828(var0);
+    Party_02048150 *var2 = (Party_02048150 *) GetParty_02010828(var0);
     int *var3                       = GetLocalWireless_0202ae18();
     struct Struct_ov002_02154230_2 *var4       = (struct Struct_ov002_02154230_2 *) ((char *) arg1 + 8);
     unsigned char var5              = 0;
@@ -48,7 +48,7 @@ extern "C" ARM int func_ov002_02154230(char *arg0, struct Struct_ov002_02154230 
     for (int var7 = 0; var7 < arg1->unknown_3_; var7++) {
         struct Struct_ov002_02154230_2 *var8 = &var4[var7];
         int var9                  = arg1->unknown_4_[var7];
-        if (!func_02086ef0(var2, var9)) var8->unknown_4_ = 1;
+        if (!IsInParty_02086ef0(var2, var9)) var8->unknown_4_ = 1;
         if (!func_ov002_02154a6c(arg0, var9, arg1->unknown_2_)) {
             var8->unknown_0_ = 1;
             continue;
@@ -87,10 +87,10 @@ extern "C" ARM int func_ov002_02154230(char *arg0, struct Struct_ov002_02154230 
         } else {
             func_02048150(var12, var10, 1);
         }
-        if (IsLocalWirelessOn_0202b7d8(var3) && func_02086ef0(var2, var9)) {
+        if (IsLocalWirelessOn_0202b7d8(var3) && IsInParty_02086ef0(var2, var9)) {
             func_ov017_021c9e00(var9, 1, 0, 1);
         }
-        if (func_02086ef0(var2, var9)) {
+        if (IsInParty_02086ef0(var2, var9)) {
             func_ov017_02191108(var1, 1, 1, 1, 1);
         }
         var5 = 1;

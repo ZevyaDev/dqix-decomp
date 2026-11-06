@@ -189,7 +189,7 @@ extern "C" ARM void func_ov008_02185a70(Struct_ov008_021842a0_2* arg0, unsigned 
     if (var3 == 5)
     {
         CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)&arg0->unknown_130_, 1);
-        func_02094b40(var2);
+        ClearLoadedFontSets_02094b40(var2);
         RequestFontLoad_02094b34(var2, 0x6b, 0x1fc, 0, 0);
         arg0->unknown_b11_++;
     }

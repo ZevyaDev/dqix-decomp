@@ -8,7 +8,7 @@ enum { Enum_ov003_0215e1ec_963 = 0x3c3 };
 #endif
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" unsigned char func_02011494(char* arg0, void* arg1);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
 
 struct Struct_ov003_0215e1ec {
     unsigned int unknown_0_;
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov003_0215e1ec(struct Struct_ov003_0215e1ec_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     unsigned char var1[4];
     __clear(var1, 4);
-    int var2 = func_02011494((char*)var0, var1);
+    int var2 = GetOwnPartyOrder_02011494((char*)var0, var1);
     arg0->unknown_3c3_ = 0;
     for (int var3 = 0; var3 < var2; var3++) {
         GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, var1[var3]);

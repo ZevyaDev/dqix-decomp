@@ -7,7 +7,7 @@ struct Struct_02033f44;
 struct Struct_ov017_0218e210 { char unknown_0_[0x24]; Vector3fix unknown_24_; };
 struct Struct_ov017_0218e210_2 { char unknown_0_[0xae]; short unknown_ae_; };
 extern "C" void func_02037d88(GameObject*);
-extern "C" int func_020100b0(GameState*);
+extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" int func_ov017_0218df50(void*, void*);
 extern "C" int func_ov017_0218dfd8(GameObject*);
 extern "C" void func_ov017_0219344c(GameObject*, int, const Vector3fix*, int, int*, int*);
@@ -28,10 +28,10 @@ extern "C" ARM void func_ov017_0218e210(int arg0, int arg1) {
     int var4 = Vector3fix_Distance(&var2, &var3);
     int var5 = var1->obj3D_.unknown_4_;
     int var6 = 1;
-    if (var5 == func_020100b0(var0) && !(var1->obj3D_.classFlags_0_ & 0x8000) && var4 > 0x333) var6 = 2;
+    if (var5 == GetOwnPartyLeaderObjectIndex_020100b0(var0) && !(var1->obj3D_.classFlags_0_ & 0x8000) && var4 > 0x333) var6 = 2;
     int var7 = 0;
     int var8 = 0;
-    if (var6 == 1 && arg0 == func_020100b0(var0)) {
+    if (var6 == 1 && arg0 == GetOwnPartyLeaderObjectIndex_020100b0(var0)) {
         var7 |= func_ov017_0218df50(var1, 0);
         var8 |= var7;
         var8 |= func_ov017_0218dfd8(var1);

@@ -6,10 +6,10 @@ struct Struct_ov000_021584e8;
 struct Struct_ov024_021ddf5c_4 { int unknown_0_; int unknown_4_; };
 
 extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
-extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
+extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" struct Struct_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
-extern "C" void func_ov000_02159eac(void* arg0, struct Struct_ov024_021ddf5c_4* arg1, int arg2);
+extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, struct Struct_ov024_021ddf5c_4* flags, int flagIndex);
 extern "C" void func_ov000_0215ccbc(
     int arg0, struct Struct_ov000_021584e8* arg1, GameObject* arg2, short arg3, short arg4, short arg5,
     struct Struct_ov024_021ddf5c_4 arg6, unsigned char arg7);
@@ -52,10 +52,10 @@ extern "C" ARM struct Struct_ov000_021584e8* func_ov024_021ddf5c(struct Struct_o
     if (!inline_ov024_021ddf5c(arg2) && var0->currentStats_->primaryStats.currMP >= 0xff) var4 = 1;
     unsigned short var5;
     if (var2 > 0 || var4) {
-        var5 = func_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
+        var5 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
         arg0->unknown_14_++;
     } else {
-        var5 = func_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
+        var5 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
     }
     struct Struct_ov000_021584e8* var6 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var6) return 0;
@@ -63,7 +63,7 @@ extern "C" ARM struct Struct_ov000_021584e8* func_ov024_021ddf5c(struct Struct_o
     struct Struct_ov024_021ddf5c_4 var7;
     var7.unknown_0_ = 0;
     var7.unknown_4_ = 0;
-    func_ov000_02159eac(arg0->unknown_10_, &var7, 0x22);
+    SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var7, 0x22);
     unsigned short var8 = var0->currentStats_->primaryStats.currHP;
     unsigned char var9;
     if (arg0->unknown_c_->unknown_1c_7_) var9 = 1; else var9 = 0;

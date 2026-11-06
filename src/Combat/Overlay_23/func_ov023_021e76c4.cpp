@@ -76,8 +76,8 @@ struct PacEntry_02020aec;
 struct BGLayer_02020cb8_2;
 struct Struct_0204af14;
 struct TextWindow_0204c7a8;
-struct Struct_0205cf78;
-struct Struct_0205cf78_2;
+struct TextWindowManager_0205cf78;
+struct TextWindow_0205cf78_2;
 
 extern "C" Struct_ov023_021e76c4_2* GetMessageWindow_020421a0();
 extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
@@ -88,8 +88,8 @@ extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
 extern "C" Struct_ov023_021e76c4* func_0204af14(Struct_0204af14* arg0, unsigned int arg1);
-extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
-extern "C" void func_0205cf78(Struct_0205cf78* arg0, Struct_0205cf78_2* arg1, unsigned char arg2);
+extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
+extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78* windowManager, TextWindow_0205cf78_2* textWindows, unsigned char textWindowCapacity);
 
 extern "C" {
 void __clear(void* arg0, unsigned long arg1);
@@ -100,7 +100,7 @@ void MapVRAMBanksToSubBG(int banks);
 void LoadBGBlock_0204b174(Struct_ov023_021e76c4_4* layer, void* block, SafeAllocator* allocator, unsigned int arg3);
 void FillBGScreenRect_0204bc74(Struct_ov023_021e76c4_4* layer, int screenEntry, int x, int y, int width, int height, int palette);
 void LoadToSubBG1ScreenData(void* data, int offset, unsigned int size);
-void func_020dc7e8(int arg0, int arg1);
+void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
 void LoadToSubBGStandardPalette(const void* data, int offset, unsigned int size);
 }
 
@@ -223,7 +223,7 @@ extern "C" ARM int func_ov023_021e76c4(Struct_ov023_021e76c4_3* arg0)
             var19->unknown_4_ = &arg0->unknown_134_[0];
             arg0->unknown_78_.unknown_98_ = &arg0->unknown_134_[0];
             arg0->unknown_78_.unknown_b2_ = 1;
-            func_0205cf78((Struct_0205cf78*)&arg0->unknown_78_, (Struct_0205cf78_2*)arg0->unknown_174_, 5);
+            SetTextWindowArray_0205cf78((TextWindowManager_0205cf78*)&arg0->unknown_78_, (TextWindow_0205cf78_2*)arg0->unknown_174_, 5);
             arg0->unknown_5e0_++;
         }
         var8 = 0;
@@ -233,7 +233,7 @@ extern "C" ARM int func_ov023_021e76c4(Struct_ov023_021e76c4_3* arg0)
         REG_DISPCNT_SUB = (REG_DISPCNT_SUB & ~0x1f00) | 0x1300;
         arg0->unknown_5dc_ = var8;
         arg0->unknown_5e0_ = 0;
-        func_020dc7e8(2, -1);
+        LoadPartyMemberColors_020dc7e8(2, -1);
         DC_FlushRange(&data_ov023_021fd760, 2);
         LoadToSubBGStandardPalette(&data_ov023_021fd760, 2, 2);
         CleanCacheRange(&data_ov023_021fd760, 2);

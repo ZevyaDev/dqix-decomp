@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_020fdd44;
-extern "C" struct Struct_020fdd44* func_02027ca4(void);
+struct ActiveZone_020fdd44;
+extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
 struct Struct_02028bac;
 extern "C" struct Struct_02028bac* func_02028bac(struct Struct_02028bac* arg0, int arg1);
 
@@ -16,7 +16,7 @@ struct Struct_02090294 {
 
 // USA: func_02090294
 extern "C" ARM int func_02090294(struct Struct_02090294* arg0) {
-    struct Struct_02028bac* var0 = (struct Struct_02028bac*)func_02027ca4();
+    struct Struct_02028bac* var0 = (struct Struct_02028bac*)GetActiveZones_02027ca4();
     int var1 = 0;
     int var2;
 retry:

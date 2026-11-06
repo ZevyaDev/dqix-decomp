@@ -24,7 +24,7 @@ extern "C" void func_020c5414();
 extern "C" void func_0202e0a4(void* arg0);
 extern "C" void func_ov009_02184c30(void* arg0);
 extern "C" void func_ov009_02184bbc(void* arg0);
-extern "C" void* func_0203bd08();
+extern "C" void* GetOAMManager_0203bd08();
 extern "C" void func_0203bd88(void* arg0);
 extern "C" void func_020d86d0(int arg0, int arg1);
 
@@ -44,6 +44,6 @@ extern "C" ARM void func_ov021_0218bb30(Struct_ov021_0218bb30* arg0)
     SendQueuedDataToGeometryFifo();
     func_ov009_02184c30(arg0->unknown_40_);
     func_ov009_02184bbc(arg0->unknown_40_);
-    func_0203bd88(func_0203bd08());
+    func_0203bd88(GetOAMManager_0203bd08());
     func_020d86d0(1, 0);
 }

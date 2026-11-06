@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_ov000_0215440c_2;
-struct Struct_ov000_0215440c;
-struct Struct_ov000_02160094 { char unknown_0_[0x20]; unsigned short unknown_20_; };
-struct Struct_ov000_021600f8 { char unknown_0_[0xe]; short unknown_e_; };
+struct BattleAction_ov000_0215440c_2;
+struct BattleAction_ov000_0215440c;
+struct ActionActor_ov000_02160094 { char unknown_0_[0x20]; unsigned short unknown_20_; };
+struct ActionTarget_ov000_021600f8 { char unknown_0_[0xe]; short unknown_e_; };
 struct Struct_ov025_021ef9a8 { int unknown_0_[6]; };
 struct Struct_ov025_021ef988_24 { char unknown_0_[0x20]; int unknown_20_; };
 struct Struct_ov025_021e6a08 { int unknown_0_, unknown_4_, unknown_8_; };
 struct Struct_02048c90;
 struct Struct_02010604 { Object3D unknown_0_; char unknown_ac_[0x14]; unsigned char unknown_c0_; };
 struct Struct_ov023_021f2a48 { char unknown_0_[0x14]; unsigned int unknown_14_; };
-extern "C" Struct_ov000_02160094* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
-extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c*, int);
+extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
+extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" void func_ov025_021e3158(Struct_ov025_021ef9a8*);
 extern "C" void func_02049ae4(unsigned char*);
 extern "C" int func_02048c10(unsigned char*);
@@ -24,10 +24,10 @@ extern Struct_ov025_021ef9a8 data_ov025_021ef9a8;
 extern Struct_ov025_021ef988_24 data_ov025_021ef988;
 
 // USA: func_ov025_021e6a08
-extern "C" ARM int func_ov025_021e6a08(Struct_ov025_021e6a08* arg0, Struct_ov000_0215440c_2* arg1) {
+extern "C" ARM int func_ov025_021e6a08(Struct_ov025_021e6a08* arg0, BattleAction_ov000_0215440c_2* arg1) {
     GameState* var0 = GameState::GetInstance();
-    Struct_ov000_02160094* var1 = func_ov000_02160094(arg1, 0);
-    Struct_ov000_021600f8* var2 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, 0);
+    ActionActor_ov000_02160094* var1 = GetActionActor_ov000_02160094(arg1, 0);
+    ActionTarget_ov000_021600f8* var2 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);
     if (!var1 || !var2) { func_ov025_021e3158(&data_ov025_021ef9a8); return 1; }
     GameObject* var3 = var0->GetCombatantByIndex(var1->unknown_20_);
     GameObject* var4 = var0->GetCombatantByIndex(var2->unknown_e_);

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_0204c7e0(unsigned char* arg0);
+extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 extern "C" int func_0204fd00(void* arg0, int arg1);
 extern "C" void FillBGScreenRect_0204bc74(void* layer, int screenEntry, short x, short y, short width, short height, int palette);
 
@@ -60,7 +60,7 @@ extern "C" ARM void func_0205da88(struct Struct_0205da88_3* arg0, int arg1, int 
         arg3 &= 0x3ff;
         for (var4 = 0; var4 < arg0->unknown_b3_; var4++) {
             var3 = &arg0->unknown_9c_[var4];
-            if (!func_0204c7e0((unsigned char*)var3)) continue;
+            if (!IsTextWindowOpen_0204c7e0((unsigned char*)var3)) continue;
             if (var3->unknown_c5_ & 0x20) continue;
             if (var3->unknown_c5_ & 0x80) continue;
             if (var1 != var3->unknown_4_) continue;

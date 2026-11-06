@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov000_02161318(void* arg0, int arg1);
+extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov000_021719f8(int* arg0);
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov000_021756b8(void* arg0) {
         if (var8 == 5) {
             continue;
         }
-        void* var9 = func_ov000_02161318(arg0, var4);
+        void* var9 = FindPartyMemberPanel_ov000_02161318(arg0, var4);
         if (var9 == 0) {
             continue;
         }

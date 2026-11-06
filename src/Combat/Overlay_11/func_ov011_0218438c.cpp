@@ -3,7 +3,7 @@
 #include "Resource/Brightness.h"
 
 extern "C" void func_ov011_021842a0(void* arg0);
-extern "C" void func_02074af4(void* arg0);
+extern "C" void SaveMainBGControl_02074af4(void* save);
 
 struct Struct_ov011_0218438c;
 extern "C" void func_ov023_021f672c(struct Struct_ov011_0218438c* arg0);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov011_0218438c(struct Struct_ov011_0218438c_2* arg0) {
     arg0->unknown_190_ = (*(unsigned short*)0x4000304 & 0x8000) >> 15;
     arg0->unknown_1a4_ = 0;
     arg0->unknown_1a5_ = 0;
-    func_02074af4((char*)arg0 + 0x194);
+    SaveMainBGControl_02074af4((char*)arg0 + 0x194);
     func_02074b64((struct Struct_02074b64*)((char*)arg0 + 0x194));
     arg0->unknown_1a8_ = (*(unsigned int*)0x4000000 & 0x1f00) >> 8;
     arg0->unknown_1ac_ = (*(unsigned int*)0x4001000 & 0x1f00) >> 8;

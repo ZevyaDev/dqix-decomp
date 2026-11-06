@@ -131,7 +131,7 @@ extern "C" void func_02080cc0(Struct_02080cc0* arg0, int arg1, int arg2);
 extern "C" Struct_ov006_021555b0* func_ov006_02153c6c(void* arg0, short arg1);
 extern "C" const char** func_020e5294(void* arg0, int arg1);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
-extern "C" void func_020e4864(const char* arg0, char* arg1, int, int, int, int);
+extern "C" void ExpandInflectionTags_020e4864(const char* text, char* buffer, int, int, int, int);
 extern "C" void func_020805f4(void* arg0, int arg1);
 extern "C" void func_020806b0(void* arg0, int arg1);
 extern "C" void func_02080b2c(void* arg0, int arg1);
@@ -178,7 +178,7 @@ extern "C" ARM void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0) {
                     if (var8 != 0)
                     {
                         memset(arg0->unknown_4_[var5], 0, 4);
-                        func_020e4864(*var8, arg0->unknown_4_[var5], 1, 0, 0, 0);
+                        ExpandInflectionTags_020e4864(*var8, arg0->unknown_4_[var5], 1, 0, 0, 0);
                         var7 = arg0->unknown_4_[var5];
                     }
                 }

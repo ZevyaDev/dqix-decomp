@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca3b8 func_020cbe84
-#endif
 
 
 enum Enum_ov027_021dbdec { Enum_ov027_021dbdec_0 = 0, Enum_ov027_021dbdec_1 = 1 };
@@ -96,7 +93,7 @@ extern "C" void func_ov027_021dcc8c(void);
 extern "C" void func_ov027_021dd0cc(int arg0, int arg1);
 extern "C" int func_020d4770(int arg0, int arg1, int arg2);
 extern "C" int func_020d54d0(void* arg0, void* arg1, void* arg2, int arg3, unsigned short arg4);
-extern "C" void func_020ca3b8(const void* src, void* dst, unsigned int len);
+extern "C" void Memcpy16Bit_020ca3b8(const void* src, void* dst, unsigned int len);
 extern "C" void HaltForever_020c9be0(void);
 
 extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
@@ -195,7 +192,7 @@ extern "C" ARM void func_ov027_021dbdec(void* arg0) {
                 }
                 if (var3 < 0x10) {
                     var1->unknown_5e0_ = var3 + 1;
-                    func_020ca3b8(var0, &var2[var3].unknown_c0_, 0xb8);
+                    Memcpy16Bit_020ca3b8(var0, &var2[var3].unknown_c0_, 0xb8);
                     InvalidateDataCacheRange(&var1->unknown_600_[var3], 0xc0);
                     DMAMemcpySynchronous16Bit(data_ov027_021e33e0.unknown_0_, (unsigned int)var1->unknown_440_,
                         (unsigned int)&var1->unknown_600_[var3], 0xc0);

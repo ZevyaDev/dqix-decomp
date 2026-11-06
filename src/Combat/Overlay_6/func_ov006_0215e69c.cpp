@@ -116,7 +116,7 @@ struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 #endif
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
-extern "C" void func_020e4864(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void ExpandInflectionTags_020e4864(void* text, void* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
 struct Struct_02080f8c;
 extern "C" void func_02080f8c(Struct_02080f8c*, int, int);
 extern "C" void func_020805f4(void* arg0, int arg1);
@@ -320,7 +320,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
         var7 = func_020e5294(arg0->unknown_170_, arg0->unknown_1ec_);
         if (var7 != 0) {
             memset(*arg0->unknown_4_, 0, 0x80);
-            func_020e4864(*var7, *arg0->unknown_4_, 1, 0, 0, 0);
+            ExpandInflectionTags_020e4864(*var7, *arg0->unknown_4_, 1, 0, 0, 0);
             func_02080f8c((Struct_02080f8c*)arg0->unknown_14_, 0x7f, (int)(*arg0->unknown_4_));
         }
         func_020805f4(arg0->unknown_14_, 0x7f);
@@ -397,7 +397,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
         var11 = func_020e5294(arg0->unknown_170_, arg0->unknown_1ec_);
         if (var11 != 0) {
             memset(*arg0->unknown_4_, 0, 0x80);
-            func_020e4864(*var11, *arg0->unknown_4_, 1, 0, 0, 0);
+            ExpandInflectionTags_020e4864(*var11, *arg0->unknown_4_, 1, 0, 0, 0);
             func_02080f8c((Struct_02080f8c*)arg0->unknown_14_, 0x7f, (int)(*arg0->unknown_4_));
         }
         func_020805f4(arg0->unknown_14_, 0x7f);

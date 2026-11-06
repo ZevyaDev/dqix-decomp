@@ -15,12 +15,12 @@ extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_020730e0(int arg0, int arg1);
 extern "C" int NSBXX_Model_GetMaterialPolygonID(NSBXXInternalModel* model, unsigned int materialIndex);
-extern "C" int func_ov017_021b8470(void* arg0);
+extern "C" int GetBattle_ov017_021b8470(void* battleManager);
 extern "C" unsigned char* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 
-struct Struct_0203d028_11;
-extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
+struct ObjectArchiveLoadInfo_0203d028_11;
+extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 struct Struct_02013fb4;
 extern "C" void func_ov000_0216d1c4(int arg0, struct Struct_02013fb4* arg1, int arg2, int* arg3);
 
@@ -35,7 +35,7 @@ extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
 struct Struct_0202b2f0;
 extern "C" struct Struct_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
-extern "C" int func_020546a8(void* arg0);
+extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" int func_0202be08(struct Struct_0202b2f0* arg0, int arg1);
 struct Struct_02054000;
 extern "C" void* func_02054000(struct Struct_02054000* arg0);
@@ -203,10 +203,10 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
 
     int var20 = 0;
     void* var21 = var0->unknown_ptr_3718;
-    var3 = func_ov017_021b8470(var21);
+    var3 = GetBattle_ov017_021b8470(var21);
     unsigned char* var22 = GetBattleSetup_ov017_021b8478(var21);
     if (((unsigned char*)var21)[2] != 0 && var22 != NULL) {
-        if (func_020a35e0(var22, arg0->unknown_8_)) {
+        if (IsPartyMemberInBattle_020a35e0(var22, arg0->unknown_8_)) {
             var20 = 1;
         }
     }
@@ -238,7 +238,7 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
         switch (var25) {
         case 11: {
             ObjectArchiveLoadInfo var28;
-            func_0203dafc((struct Struct_0203d028_11*)&var28);
+            ClearObjectArchiveLoadInfo_0203dafc((struct ObjectArchiveLoadInfo_0203d028_11*)&var28);
             var28.allocator = &var5->allocator_52c;
             var28.fileData = var26;
             var28.unk_8 = var27;
@@ -247,7 +247,7 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
         }
         case 13: {
             ObjectArchiveLoadInfo var29;
-            func_0203dafc((struct Struct_0203d028_11*)&var29);
+            ClearObjectArchiveLoadInfo_0203dafc((struct ObjectArchiveLoadInfo_0203d028_11*)&var29);
             var29.allocator = &var5->allocator_540;
             var29.fileData = var26;
             var29.packageID = 1;
@@ -294,7 +294,7 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
             int var38 = var10->unknown_0_.unknown_4_;
             GameObject* var39 = GetCompanionByIndex_0200ff58(var8, var38);
             if (var39 != NULL) {
-                var38 = func_020546a8(var39);
+                var38 = GetLeaderObjectIndex_020546a8(var39);
             }
             int var40 = func_0202be08(var37, var38);
             if (*var10->unknown_130_ & 1) {

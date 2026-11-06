@@ -14,7 +14,7 @@ extern "C" void func_020dc2bc(void);
 
 struct Struct_02074b64;
 extern "C" void func_02074b64(struct Struct_02074b64* arg0);
-extern "C" void func_02074af4(void* arg0);
+extern "C" void SaveMainBGControl_02074af4(void* save);
 
 struct Struct_020534ac;
 struct PacEntry_02020cb8_4;
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov023_021dd59c(void* arg0) {
             return;
         }
         FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
-        func_02094b30(var2, 0x1fa, 0);
+        RequestSingleFontLoad_02094b30(var2, 0x1fa, 0);
         *(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) = *(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) + 1;
     } else if (*(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) == 3) {
         if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()) != 0) {
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov023_021dd59c(void* arg0) {
         if (*(signed char*)(var0 + Enum_ov023_021dd59c_1916) == 1) {
             func_02074b64((struct Struct_02074b64*)(var0 + Enum_ov023_021dd59c_280));
         } else {
-            func_02074af4(var0 + Enum_ov023_021dd59c_280);
+            SaveMainBGControl_02074af4(var0 + Enum_ov023_021dd59c_280);
         }
         *(char*)(var0 + Enum_ov023_021dd59c_380) = *(signed char*)(var0 + Enum_ov023_021dd59c_1916);
         *(void**)(var0 + Enum_ov023_021dd59c_364) = var0 + Enum_ov023_021dd59c_384;

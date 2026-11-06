@@ -4,7 +4,7 @@
 
 extern "C" void func_02087628(char* arg0);
 
-extern "C" unsigned char func_02011494(char* arg0, void* arg1);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov017_021b6c78(void) {
 
     char var2[4];
     char var3[0x10];
-    unsigned char var4 = func_02011494((char*)var0, var2);
+    unsigned char var4 = GetOwnPartyOrder_02011494((char*)var0, var2);
 
     for (unsigned char var5 = 0; var5 < var4; var5 = (unsigned char)(var5 + 1)) {
         char var6 = var2[var5];

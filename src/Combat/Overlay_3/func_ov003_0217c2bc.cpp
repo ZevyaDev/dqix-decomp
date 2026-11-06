@@ -16,7 +16,7 @@ struct Struct_ov003_0217c2bc {
     unsigned char unknown_142_;
 };
 
-extern "C" void func_0205ebfc(void *arg0, int arg1, int arg2);
+extern "C" void PlayExtraSoundEffect_0205ebfc(void *manager, int soundEffectIndex, int handle);
 extern "C" void func_ov003_0217cb3c(Struct_ov003_0217c2bc *arg0, int arg1, int arg2);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_ov003_0217c974(Struct_ov003_0217c2bc *arg0);
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov003_0217c2bc(Struct_ov003_0217c2bc *arg0) {
         arg0->unknown_141_++;
     } else if (arg0->unknown_141_ == 1) {
         if (--arg0->unknown_142_ != 0) return;
-        func_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
+        PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
         func_ov003_0217cb3c(arg0, 1, 0);
         ((Object3D*)arg0->unknown_80_)->MakeVisible();
         Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);

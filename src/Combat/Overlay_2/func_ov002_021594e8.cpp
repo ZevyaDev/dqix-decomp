@@ -14,7 +14,7 @@ extern "C" void *FindActionData_02079e2c(char *actionTables, int actionId);
 extern "C" GameObject *func_0200ff94(GameState *arg0, int arg1);
 extern "C" int *GetLocalWireless_0202ae18(void);
 extern "C" void *__clear(void *arg0, int arg1);
-extern "C" int func_020114ec(char *arg0, void *arg1);
+extern "C" int GetPartyOrder_020114ec(char *gameState, void *outPartyOrder);
 extern "C" void func_02048350(struct Struct_02048350_2 *arg0, int arg1);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov002_021594e8(struct Struct_ov002_021594e8_2 *arg0, sh
             struct Struct_ov002_021594e8_3 *var12 = (struct Struct_ov002_021594e8_3 *) FindActionData_02079e2c((char*)var6, arg0->unknown_1c26_);
             if (var12 != NULL) {
                 __clear(var2, 4);
-                int var13 = func_020114ec((char *) var5, var2);
+                int var13 = GetPartyOrder_020114ec((char *) var5, var2);
                 if (var12->unknown_9_2_ & 1) {
                     var0.unknown_0_    = arg0->unknown_1c26_;
                     var0.unknown_2_ = arg2;

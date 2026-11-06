@@ -12,13 +12,13 @@ extern "C" void func_020947f0(void* arg0);
 
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
-struct Struct_02038598_5;
-extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
+struct Queue_02038598_5;
+extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 
 extern "C" void* GetGlobalFlags_020d6c00(void);
 
-struct Struct_02012de8;
-extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
+struct GlobalFlags_02012de8;
+extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 
 struct Struct_02093f68 {
     char unknown_0_[(IS_JPN ? 0x139 : 0x3c9)];
@@ -37,11 +37,11 @@ extern "C" ARM void func_02093f68(char* arg0) {
 
     if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18())
         || *(int*)(var2 + (IS_JPN ? 0x41e4 : 0x4494))
-        || func_02046b60((struct Struct_02038598_5*)var1, 0x26)) {
+        || IsTypeInQueue_02046b60((struct Queue_02038598_5*)var1, 0x26)) {
         func_02094654(arg0);
     }
 
-    if (func_02046708((struct Struct_02012de8*)GetGlobalFlags_020d6c00(), 0x8020)) return;
+    if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)GetGlobalFlags_020d6c00(), 0x8020)) return;
     if (!((struct Struct_02093f68*)arg0)->unknown_3c9_0_) return;
     if (arg0[(IS_JPN ? 0x13b : 0x3cb)] <= 0) return;
 

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct TextWindowManager_0205de24_2;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 
 extern "C" void* __clear(void* arg0, int arg1);
 
@@ -19,9 +19,9 @@ extern char data_ov003_0217ea90[];
 extern char data_ov003_0217eaac[];
 extern char data_ov003_0217eabf[];
 extern char data_ov003_0217ea6f[];
-extern "C" int SetTextWindowText_0205d5d0(struct TextWindowManager_0205d5d0* windowManager, int windowId, int text, int arg3);
+extern "C" int SetTextWindowText_0205d5d0(struct TextWindowManager_0205d5d0* windowManager, int windowId, int text, int isWrappedAtScreenWidth);
 #else
-extern "C" int SetTextWindowText_0205d5d0(struct TextWindowManager_0205d5d0* windowManager, int windowId, int text, int arg3, unsigned char font);
+extern "C" int SetTextWindowText_0205d5d0(struct TextWindowManager_0205d5d0* windowManager, int windowId, int text, int isWrappedAtScreenWidth, unsigned char font);
 #endif
 
 // USA: func_ov003_0216fe74

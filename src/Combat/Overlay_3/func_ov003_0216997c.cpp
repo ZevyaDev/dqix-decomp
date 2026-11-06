@@ -35,7 +35,7 @@ extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);
 #include "std_library_functions.h"
 
 struct TextWindowManager_0205de24_2;
-extern "C" ARM void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" ARM void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);

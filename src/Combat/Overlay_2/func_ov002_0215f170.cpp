@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_ov002_0215624c_11;
-extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char arg1,
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 #if defined(jpn)
 enum { Enum_ov002_0215f170_3784 = 0xe20, Enum_ov002_0215f170_7096 = 0x1a80, Enum_ov002_0215f170_7120 = 0x1a98, Enum_ov002_0215f170_2400 = 0x800 };

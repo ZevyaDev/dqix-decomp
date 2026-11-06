@@ -30,7 +30,7 @@ extern Struct_ov000_02182c74 data_ov000_02182cf4;
 extern Struct_ov000_02182b04 data_ov000_02182bc4;
 
 struct GameState;
-extern "C" Struct_ov000_0215ab88* func_0200fea4(GameState*, int);
+extern "C" Struct_ov000_0215ab88* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" void func_020488ac(unsigned char*, int);
 extern "C" void func_020488cc(unsigned char*, int);
 extern "C" void func_0208979c(unsigned char*);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov000_0215e6e8(Struct_ov000_0215767c_2* arg0) {
                     }
                 }
                 if (var6 == 0) {
-                    Struct_ov000_0215ab88* var8 = func_0200fea4((GameState*)GameState::GetInstance(), var7);
+                    Struct_ov000_0215ab88* var8 = GetEnemyByIndex_0200fea4((GameState*)GameState::GetInstance(), var7);
                     if (var8 != NULL) {
                         var8->unknown_184_ = 0;
                         func_020488ac((unsigned char*)var8, 0);

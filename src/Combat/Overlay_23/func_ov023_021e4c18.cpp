@@ -6,7 +6,7 @@ extern "C" int func_ov023_021e29d0(char* arg0);
 extern "C" void func_ov023_021e2ce8(int arg0, void* arg1);
 struct Struct_0204af14;
 extern "C" void* func_0204af14(struct Struct_0204af14* arg0, unsigned int arg1);
-extern "C" void func_020dc7e8(int arg0, int arg1);
+extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov023_021e4c18(struct Struct_ov023_021e4c18* arg0) {
         struct Struct_0204af14* var8 = (struct Struct_0204af14*)((char*)arg0->unknown_0_ + Enum_ov023_021e4c18_3716);
         if (var8 != 0) {
             if (func_0204af14(var8, 1) != 0) {
-                func_020dc7e8(5, var7);
+                LoadPartyMemberColors_020dc7e8(5, var7);
             }
         }
     }

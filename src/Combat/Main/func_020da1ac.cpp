@@ -4,15 +4,15 @@ struct Struct_020da1ac;
 extern "C" void func_020da22c(struct Struct_020da1ac* arg0);
 
 extern "C" void* GetEffectManager_02057924(void*);
-extern "C" void func_02057f00(void*, int);
+extern "C" void RemoveEffectResource_02057f00(void*, int);
 
 // USA: func_020da1ac
 extern "C" ARM void func_020da1ac(void* arg0) {
     void* var0 = GetEffectManager_02057924(arg0);
     if (var0) {
-        func_02057f00(var0, 0x14);
-        func_02057f00(var0, 0x15);
-        func_02057f00(var0, 0x16);
+        RemoveEffectResource_02057f00(var0, 0x14);
+        RemoveEffectResource_02057f00(var0, 0x15);
+        RemoveEffectResource_02057f00(var0, 0x16);
     }
     char* var1 = (char*)arg0 + 0x14;
     unsigned char var2 = 0;

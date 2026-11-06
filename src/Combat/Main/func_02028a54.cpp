@@ -22,8 +22,8 @@ struct Struct_02028a54 {
 };
 
 extern "C" void func_020289c4(Struct_020288e0*);
-extern "C" void func_0200fd48(GameState*, int);
-extern "C" void func_0200fd38(GameState*, int, GameObject*);
+extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
+extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" void GetLocalWireless_0202ae18();
 extern "C" void GetZone3D_02012fe4();
 extern "C" void func_02076a8c(GameObject*);
@@ -59,7 +59,7 @@ extern "C" ARM int func_02028a54(Struct_020288e0* arg0, int arg1)
     int var6 = 0;
     if (!var5) {
         int var7 = var2 * 12 + 0x70;
-        for (; var6 < 12; ++var6) func_0200fd48(var0, var6 + var7);
+        for (; var6 < 12; ++var6) ClearGameObjectByIndex_0200fd48(var0, var6 + var7);
         return 0;
     }
     int var8 = var2 * 12;
@@ -67,7 +67,7 @@ extern "C" ARM int func_02028a54(Struct_020288e0* arg0, int arg1)
     for (; var6 < 12; ++var6) {
         func_02076a8c(&var5[var6].unknown_0_);
         var5[var6].unknown_0_.obj3D_.MakeHidden();
-        func_0200fd38(var0, var6 + var8, &var5[var6].unknown_0_);
+        SetGameObjectByIndex_0200fd38(var0, var6 + var8, &var5[var6].unknown_0_);
     }
     return 1;
 }

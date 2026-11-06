@@ -161,8 +161,8 @@ extern "C" void func_ov000_02165f90(void*, void*);
 extern "C" void* memcpy(void*, const void*, unsigned int);
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" int func_ov000_02167484(short*, int);
-extern "C" char* func_02027ca4();
-extern "C" char* func_02028bd0(char*, int);
+extern "C" char* GetActiveZones_02027ca4();
+extern "C" char* FindActiveZone_02028bd0(char*, int);
 extern "C" Struct_ov000_02165490* func_020a939c(char*, int);
 extern "C" int func_020a93d0(char*);
 extern "C" void* ExtractFileFromGP2(const char*, const char*, unsigned int*);
@@ -176,7 +176,7 @@ extern "C" int func_0201b5d8(int);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(void*);
 extern "C" void func_ov000_0215ed8c(Struct_ov000_02165490_14*);
-extern "C" void func_ov000_02160fa8(void*, int);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov017_021cdf80(Struct_ov000_02165490_14*, int);
 extern "C" void func_02079a3c(void*);
@@ -398,7 +398,7 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
     }
 
     Zone3D* var57 = GetZone3D_02012fe4();
-    char* var58 = func_02028bd0(func_02027ca4(), var57->currentZoneID_);
+    char* var58 = FindActiveZone_02028bd0(GetActiveZones_02027ca4(), var57->currentZoneID_);
     if (var58 != 0) {
 #if defined(jpn)
         for (int var59 = 0; var59 < func_020a93d0(var58 + 0x308); var59++) {
@@ -512,7 +512,7 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
 
         if (arg0->unknown_2a0_->unknown_2a_ == GetProtagonistObjectIndex_020100a8(var12)) {
             func_ov000_0215ed8c(arg0->unknown_29c_);
-            func_ov000_02160fa8(arg0, 4);
+            SetBattleSceneFlags_ov000_02160fa8(arg0, 4);
             if (IsLocalWirelessOn_0202b7d8(var13)) {
                 func_ov017_021cdf80(arg0->unknown_29c_, 0);
             }

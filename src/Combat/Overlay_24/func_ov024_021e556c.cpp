@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_02010088;
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_020854e8(unsigned char* arg0);
 extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
 extern "C" void func_ov000_0215acb8(void* arg0, int arg1, int arg2, int arg3);
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov024_021e556c(struct Struct_ov024_021e556c_4* arg0, in
     if (arg0->unknown_75_ == 0) return;
     struct Struct_ov024_021e556c_5* var3 = (struct Struct_ov024_021e556c_5*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg2);
     if (var3 == 0) return;
-    if (func_02010088((struct Struct_02010088*)var3)) return;
+    if (IsDead_02010088((struct Struct_02010088*)var3)) return;
     if (!func_020854e8(var3->unknown_150_)) return;
     short var4 = 0;
     short var5 = func_ov000_0215a1d4(arg0->unknown_10_, arg2, arg3->unknown_8_.unknown_0_0_, &var4);

@@ -5,7 +5,7 @@ struct Struct_02011b24;
 struct Struct_02093428_5;
 
 extern "C" void GetZone3D_02012fe4();
-extern "C" int func_020457e0(char* arg0);
+extern "C" int GetMessageChoice_020457e0(char* window);
 extern "C" void func_020531f0(GameObject* arg0);
 extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void func_020945ac(struct Struct_02093428_5* arg0);
@@ -96,7 +96,7 @@ extern "C" ARM void func_02093428(struct Struct_02093428_6* arg0) {
             return;
         }
         if (((struct Struct_02093428_2*)var1)->unknown_9a0_ != 0) return;
-        int var8 = func_020457e0(var1);
+        int var8 = GetMessageChoice_020457e0(var1);
         if (var8 == 0) {
             arg0->unknown_35_++;
             return;

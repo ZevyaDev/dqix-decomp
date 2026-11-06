@@ -2,7 +2,7 @@
 
 extern "C" void VectorizedMemset(void* dst, int val, unsigned int len);
 extern "C" void VectorizedInvertedMemcpy(void* dst, const void* src, unsigned int len);
-extern "C" int func_02005a94(signed char* arg0);
+extern "C" int ParseDecimal_02005a94(signed char* string);
 
 // USA: func_ov031_022366d8
 extern "C" ARM void func_ov031_022366d8(unsigned char* arg0, unsigned char* arg1) {
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov031_022366d8(unsigned char* arg0, unsigned char* arg1
 			if (var3 >= 3) break;
 		}
 
-		arg1[var1] = (unsigned char)func_02005a94((signed char*)var0);
+		arg1[var1] = (unsigned char)ParseDecimal_02005a94((signed char*)var0);
 		var1++;
 		var2 += 3;
 	} while (var1 < 4);

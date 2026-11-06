@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* func_ov017_021b8468(void* arg0);
+extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
 extern "C" void func_ov000_02163344(void* arg0, int arg1, short arg2, unsigned char arg3, unsigned short arg4, unsigned short arg5);
 typedef void (*Type_ov017_021cd2dc)(void*, int, unsigned short, unsigned int, unsigned short, unsigned short);
 
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov017_021cd2dc(int arg0, Struct_ov017_021cd2dc* arg1, i
     Struct_ov017_021cd2dc_2* var1 = (Struct_ov017_021cd2dc_2*)GetBattleSetup_ov017_021b8478(var0);
     if (*(unsigned short*)((char*)var1 + 8) != arg1->unknown_4_0_) return;
 
-    void* var2 = func_ov017_021b8468(var0);
+    void* var2 = GetBattleScene_ov017_021b8468(var0);
     if (!var2) return;
 
     unsigned short var3 = arg1->unknown_c_0_;

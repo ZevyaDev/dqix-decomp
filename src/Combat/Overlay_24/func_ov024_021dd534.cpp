@@ -39,9 +39,9 @@ struct Struct_ov024_021dd534_6 {
 extern "C" int func_02088840(unsigned char* arg0);
 extern "C" void func_02088854(unsigned char* arg0);
 extern "C" int func_ov024_021e9198(struct Struct_ov024_021dd534_6* arg0, int arg1, short arg2, int arg3);
-extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
+extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" int func_ov024_021eb4b0(int arg0, int arg1, int arg2);
-extern "C" void func_ov000_02159eac(void* arg0, unsigned long long* arg1, int arg2);
+extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, unsigned long long* flags, int flagIndex);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov024_021e8bf0(struct Struct_ov024_021dd534_6* arg0, void* arg1, unsigned short* arg2);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
@@ -57,17 +57,17 @@ extern "C" ARM void* func_ov024_021dd534(struct Struct_ov024_021dd534_6* arg0, i
     if (func_02088840((unsigned char*)var0->currentStats_) && arg6) {
         var1 = func_ov024_021e9198(arg0, arg2, var3, 1);
         if (var1 == 0) {
-            var1 = func_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
+            var1 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
         }
         if (func_ov024_021eb4b0((int)arg0, ((struct Struct_ov024_021dd534_4*)var0->currentStats_)->unknown_14_, 0x40)) {
-            func_ov000_02159eac(arg0->unknown_10_, &var2, 0x2b);
+            SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 0x2b);
         }
         func_02088854((unsigned char*)var0->currentStats_);
         ((struct Struct_ov024_021dd534_4*)var0->currentStats_)->unknown_22_.unknown_0_6_ = (unsigned char)var3;
     } else {
         var1 = func_ov024_021e9198(arg0, arg2, var3, 0);
         if (var1 == 0) {
-            var1 = func_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
+            var1 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
         }
         arg0->unknown_75_ = 0;
     }

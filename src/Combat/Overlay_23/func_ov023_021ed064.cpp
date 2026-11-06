@@ -5,7 +5,7 @@ extern "C" int func_ov023_021ed014(struct Struct_ov023_021ec480* arg0);
 struct TextWindow_0205d0e0;
 struct TextWindowManager_0205d81c;
 extern "C" ARM struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
-extern "C" ARM int func_0204c7e0(unsigned char* arg0);
+extern "C" ARM int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 extern "C" ARM void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c* windowManager, int windowId, int palette);
 
 extern "C" void func_ov023_021ed194(char* arg0);
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov023_021ed064(void* arg0) {
     *(unsigned short*)((char*)arg0 + 0x438) |= 0x2;
 
     struct TextWindow_0205d0e0* var0 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)((char*)arg0 + 0xc4), 0);
-    if (var0 != 0 && func_0204c7e0((unsigned char*)var0) != 0) {
+    if (var0 != 0 && IsTextWindowOpen_0204c7e0((unsigned char*)var0) != 0) {
         *(unsigned short*)((char*)arg0 + 0x438) |= 0x1;
     } else {
         func_ov023_021ed194((char*)arg0);

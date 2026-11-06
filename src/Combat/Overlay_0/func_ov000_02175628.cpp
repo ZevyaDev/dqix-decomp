@@ -3,7 +3,7 @@
 
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void* func_ov000_02161318(void* arg0, int arg1);
+extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 
 // USA: func_ov000_02175628
 extern "C" ARM void func_ov000_02175628(void* arg0) {
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov000_02175628(void* arg0) {
         if (var7 == 5) {
             continue;
         }
-        char* var8 = (char*)func_ov000_02161318(arg0, var4);
+        char* var8 = (char*)FindPartyMemberPanel_ov000_02161318(arg0, var4);
         if (var8) {
             signed char var9 = *(signed char*)(var8 + 0x18);
             *(var8 + var9 + 0x10) = 0x64;

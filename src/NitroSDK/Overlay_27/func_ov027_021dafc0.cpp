@@ -4,12 +4,9 @@
 #define func_020ca390 func_020cbe5c
 #endif
 
-#if defined(jpn)
-#define func_020ca3b8 func_020cbe84
-#endif
 
 extern "C" void func_020ca390(int val, void* dst, unsigned int nBytes);
-extern "C" int func_020ca3b8(int src, int dst, int nBytes);
+extern "C" int Memcpy16Bit_020ca3b8(int src, int dst, int nBytes);
 extern "C" unsigned short func_ov027_021dab38(unsigned short* arg0, int arg1);
 extern "C" int func_020d69cc(int arg0, int arg1, int arg2, int arg3, unsigned short arg4, unsigned char arg5);
 
@@ -56,7 +53,7 @@ extern "C" ARM int func_ov027_021dafc0(int arg0, unsigned short arg1, int arg2) 
         }
     }
 
-    func_020ca3b8((int)data_ov027_021dd940.unknown_20_, (int)&data_ov027_021dd98e, data_ov027_021dd940.unknown_4c_);
+    Memcpy16Bit_020ca3b8((int)data_ov027_021dd940.unknown_20_, (int)&data_ov027_021dd98e, data_ov027_021dd940.unknown_4c_);
 
     data_ov027_021dd940.unknown_4a_ = data_ov027_021dd940.unknown_27_;
     data_ov027_021dd940.unknown_4b_ = data_ov027_021dd940.unknown_28_;

@@ -5,7 +5,7 @@
 #include "Resource/Brightness.h"
 struct Struct_02032e58;
 
-struct Struct_02048150;
+struct Party_02048150;
 struct Struct_ov000_02163a7c;
 struct Struct_02010088;
 struct Struct_02010604;
@@ -90,7 +90,7 @@ struct Struct_020391ac { char unknown_0_[0xc1]; unsigned char unknown_c1_; unsig
 extern "C" Struct_ov023_021eeaac_2* _ZZ21inline_ov023_021f4c04vE1s;
 extern "C" Struct_02092e0c* GetMessageWindow_020421a0();
 extern "C" void* GetLocalWireless_0202ae18();
-extern "C" int func_02086ef0(Struct_02048150*, int);
+extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void func_ov023_021ed988(char*, int);
 extern "C" void func_ov000_02163b90(Struct_ov000_02160da0*, int);
 extern "C" void func_ov000_021626a0(Struct_ov000_02160da0*, int, int);
@@ -101,16 +101,16 @@ extern "C" int func_ov000_02153e40(void*, short*, int, int);
 extern "C" void func_02048cf0(GameObject*, int);
 extern "C" void func_ov000_0216e3c4(void*);
 extern "C" unsigned char* func_ov000_02163524(void*);
-extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void func_020d7334(unsigned char*, int);
-extern "C" int func_02010088(Struct_02010088*);
+extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_0203400c(Struct_02032e58*);
-extern "C" GameObject* func_0200fea4(GameState*, int);
+extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
-extern "C" void func_ov000_02160fa8(void*, int);
+extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern "C" void func_ov023_021d8a40(Struct_ov023_021f03a0_2*);
 extern "C" void func_ov023_021d8cb4(void*, void*);
 extern "C" void func_ov023_021d9988(Struct_ov023_021d9988*, void*, unsigned int);
@@ -149,7 +149,7 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
     GetLocalWireless_0202ae18();
     GameResources* var8 = GetGameResources();
     BackgroundLoader* var9 = BackgroundLoader::GetInstance();
-    func_02086ef0((Struct_02048150*)GetParty_02010828(var5), var6->unknown_18_);
+    IsInParty_02086ef0((Party_02048150*)GetParty_02010828(var5), var6->unknown_18_);
     if (var6->unknown_0_ == 0) {
         if (arg0->unknown_576c_) func_ov023_021ed988((char*)arg0, 0);
         func_ov000_02163b90(arg0, 1);
@@ -170,10 +170,10 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
         unsigned char* var14 = func_ov000_02163524(arg0);
         GameState* var15 = GameState::GetInstance();
         for (int var16 = 0; var16 < 4; var16++) {
-            if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var16)) {
+            if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var16)) {
                 if (var14) func_020d7334(var14, var16);
                 GameObject* var17 = var15->GetCombatantByIndex(var16);
-                if (var17 && !func_02010088((Struct_02010088*)var17)) {
+                if (var17 && !IsDead_02010088((Struct_02010088*)var17)) {
                     ((Struct_020391ac*)var17)->unknown_c1_ &= ~0xf0;
                     SetMotion_02033b88((Struct_02010604*)var17, 0);
                     var17->obj3D_.SkipAnimationTransition();
@@ -183,11 +183,11 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
             }
         }
         for (int var18 = 0; var18 < 8; var18++) {
-            GameObject* var19 = func_0200fea4(var15, var18 + 0xc0);
+            GameObject* var19 = GetEnemyByIndex_0200fea4(var15, var18 + 0xc0);
             if (var19 && ((Struct_020391ac*)var19)->unknown_c2_4_) var19->obj3D_.MakeVisible();
         }
         CloseTextWindows_0205d6a0(&arg0->unknown_38e8_, 1);
-        func_ov000_02160fa8(arg0, 0x40000);
+        SetBattleSceneFlags_ov000_02160fa8(arg0, 0x40000);
         arg0->unknown_30_.Reset();
         arg0->unknown_5588_ = (Struct_ov023_021f03a0_2*)arg0->unknown_30_.Allocate(0x12c);
         func_ov023_021d8a40(arg0->unknown_5588_);
@@ -232,7 +232,7 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
             for (int var27 = 0; var27 < 4; var27++) {
                 int var28 = func_02011518(var5, (unsigned char)var27);
                 GameObject* var29 = GetPartyMemberBaseByIndex_0200ff1c(var5, var28);
-                if (var29 && func_020a35e0((unsigned char*)arg0->unknown_2a0_, var28) && !func_02010088((Struct_02010088*)var29)) {
+                if (var29 && IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var28) && !IsDead_02010088((Struct_02010088*)var29)) {
 #if defined(jpn)
 
 #else
@@ -255,10 +255,10 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
             for (int var32 = 0; var32 < 4; var32++) {
 #if defined(jpn)
                 GameObject* var33 = GetPartyMemberBaseByIndex_0200ff1c(var5, var32);
-                if (var33 && func_020a35e0((unsigned char*)arg0->unknown_2a0_, var32) && !GetCompanionByIndex_0200ff58(var5, var32))
+                if (var33 && IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var32) && !GetCompanionByIndex_0200ff58(var5, var32))
                     var23 = var33->baseStats_;
 #else
-                if (GetPartyMemberBaseByIndex_0200ff1c(var5, var32) && func_020a35e0((unsigned char*)arg0->unknown_2a0_, var32) && !GetCompanionByIndex_0200ff58(var5, var32))
+                if (GetPartyMemberBaseByIndex_0200ff1c(var5, var32) && IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var32) && !GetCompanionByIndex_0200ff58(var5, var32))
                     InitPartyMemberNoun_020e4bf4(var2, var32);
 #endif
 

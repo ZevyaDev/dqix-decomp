@@ -3,7 +3,7 @@
 extern "C" int func_02048bd0(unsigned char* arg0);
 extern "C" int func_02048c68(unsigned char* arg0);
 struct Struct_02010088;
-extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_02049ee8(unsigned char* arg0);
 
 struct Struct_02049a74 {
@@ -24,7 +24,7 @@ extern "C" ARM void func_02049a74(struct Struct_02048f64* arg0) {
     if (func_02048bd0((unsigned char*)arg0)) return;
     if (func_02048c68((unsigned char*)arg0)) return;
     if (arg0->unknown_13c_->unknown_56_ == 0) return;
-    if (func_02010088((struct Struct_02010088*)arg0)) return;
+    if (IsDead_02010088((struct Struct_02010088*)arg0)) return;
     if (func_02049ee8((unsigned char*)arg0)) {
         arg0->unknown_13c_->unknown_20_ |= 4;
     }

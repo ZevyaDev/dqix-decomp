@@ -13,10 +13,10 @@ struct Struct_ov017_021cd608_3 {
 };
 
 extern "C" struct Struct_ov017_021cd608_3* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* func_ov017_021b8468(void* arg0);
+extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
-extern "C" int func_020ac494(void* arg0);
+extern "C" int SetBattleRecords_020ac494(void* records);
 extern "C" void func_ov000_02163378(void* arg0, int* arg1, unsigned char arg2);
 
 struct Struct_020a0858 {
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov017_021cd608(int arg0, struct Struct_ov017_021cd608_2
     if (var5->unknown_8_ != var2->unknown_0_) {
         return;
     }
-    void* var6 = func_ov017_021b8468(var1);
+    void* var6 = GetBattleScene_ov017_021b8468(var1);
     if (var6 == 0) {
         return;
     }
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov017_021cd608(int arg0, struct Struct_ov017_021cd608_2
         GetBattleRecords_020ac4c0(&var4);
         func_020a0858(&var4.unknown_0_, var3[var7]);
         func_020a0300(&var4.unknown_68_, var3[var7]);
-        func_020ac494(&var4);
+        SetBattleRecords_020ac494(&var4);
     } else {
         func_ov000_02163378(var6, var3, var2->unknown_e_);
     }

@@ -23,7 +23,7 @@ extern "C" void SetGlobalFlags_020466e4(unsigned int *globalFlags, unsigned int 
 struct Struct_ov002_0215624c_23;
 extern "C" void InitSprite_0205a198(Struct_ov002_0215624c_23*);
 struct Struct_ov002_0215624c_24;
-extern "C" void func_0205a234(Struct_ov002_0215624c_24*);
+extern "C" void InitSpriteAnimationList_0205a234(Struct_ov002_0215624c_24*);
 extern "C" void InitSpriteSet_0205a444(char *spriteSet);
 extern "C" void *GetPacEntryData_020467f0(Struct_ov002_0215624c_25 *pac, int index, void **outEntry, int *outSize);
 extern "C" void LoadSpriteSetFile_0205a528(void *spriteSet, void *fileData, unsigned int size, SafeAllocator *allocator);
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov002_02169efc(char *arg0) {
         for (unsigned char var9 = 0; var9 < 0x2c; var9++) {
             InitSprite_0205a198((Struct_ov002_0215624c_23*)(*(char **) (arg0 + RG(0x1a64, 0x19bc)) + var9 * 0x28));
         }
-        func_0205a234((Struct_ov002_0215624c_24*)(*(void **) (arg0 + RG(0x1a6c, 0x19c4))));
+        InitSpriteAnimationList_0205a234((Struct_ov002_0215624c_24*)(*(void **) (arg0 + RG(0x1a6c, 0x19c4))));
         InitSpriteSet_0205a444(*(char **) (arg0 + RG(0x1a68, 0x19c0)));
         var4 = *(char **) (arg0 + RG(0x1a68, 0x19c0));
         var4[0x50]                                      = 0;

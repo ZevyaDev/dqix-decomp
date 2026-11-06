@@ -3,7 +3,7 @@
 
 extern "C" void func_ov004_0215f0c0(void* arg0);
 extern "C" void func_ov004_0215e5fc(void* arg0, void* arg1);
-extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
+extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 struct Struct_0205faf4_11;
 extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
 extern "C" void* func_ov004_0215e47c(void* arg0, int arg1);
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov004_02162b84(void* arg0) {
 
     GameState* var0 = GameState::GetInstance();
     unsigned char var1[4];
-    unsigned char var2 = func_020114ec((char*)var0, var1);
+    unsigned char var2 = GetPartyOrder_020114ec((char*)var0, var1);
 
     int var3 = 0;
     for (int var4 = 0; var4 < 4; var4++) {

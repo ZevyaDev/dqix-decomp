@@ -8,7 +8,7 @@ struct OAMEntry_0205ac40_4 {
     short affineParameter_6_;
 };
 
-extern "C" void* func_0203bd08();
+extern "C" void* GetOAMManager_0203bd08();
 extern "C" OAMEntry_0205ac40_4* func_0203be4c(void*);
 extern "C" OAMEntry_0205ac40_4* func_0203be40(void*);
 extern "C" void func_020b0a1c(OAMEntry_0205ac40_4*, unsigned short, Sprite_0205ac40_2*, Matrix2x2_0205ac40_3*, int*, unsigned short, int);
@@ -18,7 +18,7 @@ extern "C" ARM void DrawSprite_0205ac40(SpriteSet_0205ac40* spriteSet, Sprite_02
     int palette;
     unsigned short remainingCount;
     int priority;
-    void* var3;
+    void* oamManager;
     OAMEntry_0205ac40_4* oamBuffer;
     Matrix2x2_0205ac40_3* transform;
     bool isDoubleSize;
@@ -27,10 +27,10 @@ extern "C" ARM void DrawSprite_0205ac40(SpriteSet_0205ac40* spriteSet, Sprite_02
     Matrix2x2_0205ac40_3 inverseMatrix;
     int position[2];
     if (sprite != NULL) {
-        var3 = func_0203bd08();
+        oamManager = GetOAMManager_0203bd08();
         transform = NULL;
-        oamBuffer = func_0203be4c(var3);
-        if (spriteSet->unknown_50_ == 0) oamBuffer = func_0203be40(var3);
+        oamBuffer = func_0203be4c(oamManager);
+        if (spriteSet->isSubScreen_50_ == 0) oamBuffer = func_0203be40(oamManager);
         isDoubleSize = false;
         if (sprite->isAffine_23_) {
             func_0205b0d8(spriteSet, &transformMatrix, &inverseMatrix, sprite);

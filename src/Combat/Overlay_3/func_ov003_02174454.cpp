@@ -17,8 +17,8 @@ enum { Enum_ov003_02174454_742 = 0x2e6 };
 
 extern "C" int GetMessageWindow_020421a0();
 
-struct Struct_02074bd0;
-extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
+struct BGControlSave_02074bd0;
+extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 
 extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov003_02174454(char* arg0) {
     unsigned int* var3 = (unsigned int*)0x4000000;
     *var3 = (*var3 & ~0x1f00) | 0x100;
     *(unsigned short*)0x4000050 = 0;
-    func_02074bd0((struct Struct_02074bd0*)(arg0 + 0x24));
+    RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)(arg0 + 0x24));
 
 #if !defined(jpn)
     if (*(void**)(arg0 + Enum_ov003_02174454_4084) != 0)
