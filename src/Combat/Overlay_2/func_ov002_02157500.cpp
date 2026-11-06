@@ -2,9 +2,9 @@
 
 extern "C" int GetInventoryItemByID(void* arg0);
 
-struct Struct_0201099c_10;
-struct Struct_0201099c_9;
-extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+struct ItemTable_0201099c_10;
+struct ItemData_0201099c_9;
+extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
 
 #if defined(jpn)
 #define CONTAINER_02157500 0x750
@@ -18,7 +18,7 @@ extern "C" ARM int func_ov002_02157500(char* arg0, int, int) {
     if (var0 < 0) {
         return 0;
     }
-    struct Struct_0201099c_9* var1 = func_020dedd0((struct Struct_0201099c_10*)(arg0 + CONTAINER_02157500), var0);
+    struct ItemData_0201099c_9* var1 = func_020dedd0((struct ItemTable_0201099c_10*)(arg0 + CONTAINER_02157500), var0);
     if (var1 != NULL) {
         unsigned int var2 = *(unsigned int*)((char*)var1 + 8);
         return (int)((var2 << 16) >> 30);

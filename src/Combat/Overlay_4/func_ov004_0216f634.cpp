@@ -7,7 +7,7 @@
 struct Struct_02000c9c_16;
 struct Struct_02000c9c_17;
 
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" SafeAllocator* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void func_020a1940(unsigned int arg0);
 extern "C" int func_ov031_0221156c(void* arg0);
@@ -19,8 +19,8 @@ extern "C" void func_0209c174(Struct_02000c9c_16* arg0);
 extern "C" void func_0209c290(void* arg0);
 extern "C" void func_0205e88c(Struct_02000c9c_17* arg0);
 extern "C" void func_0205ea20(void* arg0, int arg1);
-extern char data_02108760;
-extern char data_02109bf4;
+extern char gSoundEffectManager_02108760;
+extern char gMusicManager_02109bf4;
 
 struct Struct_ov004_0216f634_2 {
     char unknown_0_[0x30];
@@ -46,11 +46,11 @@ struct Struct_ov004_0216f634 {
 // USA: func_ov004_0216f634
 extern "C" ARM int func_ov004_0216f634(void* arg0) {
     if (data_ov004_02171048.unknown_4_->unknown_30_ == 0) {
-        func_ov011_021848a0(arg0, 0xd3);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0xd3);
     } else {
         GameState* var0 = GameState::GetInstance();
-        func_0205e8d4(&data_02108760);
-        func_0203a950(&data_02109bf4);
+        func_0205e8d4(&gSoundEffectManager_02108760);
+        func_0203a950(&gMusicManager_02109bf4);
         func_020a1940(OVERLAY_ID(31));
         SafeAllocator* var1 = func_ov011_021845f8(arg0, 0);
         if (var1 == NULL) {
@@ -66,15 +66,15 @@ extern "C" ARM int func_ov004_0216f634(void* arg0) {
         data_ov004_02171048.unknown_4_->unknown_32_ = func_ov031_0221156c(var2) != 0;
         data_ov004_02171048.unknown_4_->unknown_33_ = func_ov031_02211608(var2) != 0;
         func_020a1940(OVERLAY_ID(32));
-        func_0209c174((Struct_02000c9c_16*)&data_02109bf4);
-        func_0209c290(&data_02109bf4);
-        func_0205e88c((Struct_02000c9c_17*)&data_02108760);
-        func_0205ea20(&data_02108760, 100);
+        func_0209c174((Struct_02000c9c_16*)&gMusicManager_02109bf4);
+        func_0209c290(&gMusicManager_02109bf4);
+        func_0205e88c((Struct_02000c9c_17*)&gSoundEffectManager_02108760);
+        func_0205ea20(&gSoundEffectManager_02108760, 100);
         if (data_ov004_02171048.unknown_4_->unknown_34_ == 3) {
-            func_ov011_021848a0(arg0, 0xd4);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0xd4);
             return 0;
         }
-        func_ov011_021848a0(arg0, 100);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 100);
     }
     return 0;
 }

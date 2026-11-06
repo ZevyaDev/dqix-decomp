@@ -1,7 +1,7 @@
 #include "GameState/BattleRecordSnapshot.h"
 #include <globaldefs.h>
 
-extern "C" int func_020ac4c0(void* arg0);
+extern "C" int GetBattleRecords_020ac4c0(void* records);
 
 extern "C" Struct_020ac4f8 func_ov023_021e8fe8(Struct_020ac4f8 arg0, int arg1);
 struct Struct_0209cf44 {
@@ -19,7 +19,7 @@ extern "C" void func_ov017_021d6134(Struct_0209cf44* arg0, int arg1);
 extern "C" ARM int func_ov023_021e9fd4(void* arg0) {
     Struct_0209cf44* var0 = (Struct_0209cf44*)arg0;
     Struct_02061c04 var1;
-    func_020ac4c0(&var1);
+    GetBattleRecords_020ac4c0(&var1);
 
     Struct_020ac4f8 var2 = func_ov023_021e8fe8(var1.unknown_68_.unknown_0_, 0);
 

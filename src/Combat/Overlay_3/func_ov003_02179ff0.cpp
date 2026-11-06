@@ -14,7 +14,7 @@ enum { Enum_ov003_02179ff0_4154 = 0x103a };
 #endif
 #include "GameState/GameState.h"
 
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" unsigned char func_0207ca94(int arg0);
 extern "C" short func_0207c638(void* arg0, unsigned int arg1);
@@ -38,7 +38,7 @@ struct Struct_ov003_02179ff0 {
 // USA: func_ov003_02179ff0
 extern "C" ARM void func_ov003_02179ff0(Struct_ov003_02179ff0* arg0) {
     void* var0 = arg0->unknown_89c_;
-    unsigned char* var1 = (unsigned char*)func_02010828(GameState::GetInstance());
+    unsigned char* var1 = (unsigned char*)GetParty_02010828(GameState::GetInstance());
     if (arg0->unknown_100c_ == 0x77) {
         short var2 = arg0->unknown_1012_ - func_02080468(var0, 0x1d);
         unsigned int var3 =func_0207ca94(var2);

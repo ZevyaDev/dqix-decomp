@@ -90,7 +90,7 @@ struct Struct_ov011_02184bcc;
 struct Struct_ov004_02153978;
 struct Struct_02047a5c;
 struct Struct_02047a3c;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
 extern "C" unsigned short func_ov011_02184a00(struct Struct_ov011_02184a00* arg0);
 extern "C" int func_020c39c8(volatile unsigned short* arg0);
@@ -102,22 +102,22 @@ extern "C" unsigned short func_ov023_021f8c60(unsigned char* arg0);
 extern "C" unsigned int func_ov023_021f6f08(struct Struct_ov004_02153978* arg0);
 extern "C" int func_ov011_02184bd8(struct Struct_ov011_02184bd8* arg0);
 extern "C" void func_ov011_02184bcc(struct Struct_ov011_02184bcc* arg0);
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void* func_ov023_021f9cb8(void* arg0, void* arg1, void* arg2);
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" void func_ov011_02184a40(void* arg0, int arg1);
 extern "C" int func_ov023_021f9bc8(void* arg0);
-extern "C" Struct_ov023_021f8e1c_3* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" Struct_ov023_021f8e1c_3* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" void func_ov023_021f88b8(void* arg0, void* arg1, int arg2);
 extern "C" Struct_ov023_021f8e1c func_ov023_021f8b78(void* arg0, void* arg1);
 extern "C" void func_ov023_021f98e0(void* arg0, void* arg1);
 extern "C" int func_ov023_021f9da8(void* arg0, void* arg1, int arg2, int arg3);
 
-extern struct Struct_02108760 data_02108760;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern unsigned int data_ov023_021fff24;
 extern const unsigned short data_ov023_021fd922[];
 
@@ -142,7 +142,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
         var3 = 1;
     }
 
-    void* var4 = func_ov011_021849c8(arg1);
+    void* var4 = GetMenuObjectList_ov011_021849c8(arg1);
     int var5 = 0;
     var0 = arg0->unknown_28_;
     int var6 = arg0->unknown_2a_;
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
             if (g_keyManager.TestKeysPressed(data_ov023_021fd922[var9])) {
                 int var10 = 0;
                 if (var7[var9] != 0) {
-                    func_ov011_021848a0(arg1, var7[var9]);
+                    QueueMenuScriptEntry_ov011_021848a0(arg1, var7[var9]);
                     var10 = 1;
                 }
                 if (var8[var9] != 0) {
@@ -316,7 +316,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
     }
     if (var0 != arg0->unknown_28_ || var6 != arg0->unknown_2a_) {
         var17 = 1;
-        Struct_ov023_021f8e1c_3* var23 = func_ov023_021f6880(var4, arg0->unknown_20_[func_ov023_021f9bc8(arg0)]);
+        Struct_ov023_021f8e1c_3* var23 = FindMenuObjectById_ov023_021f6880(var4, arg0->unknown_20_[func_ov023_021f9bc8(arg0)]);
         void* var24 = func_ov023_021f9cb8(arg0, arg1, var23);
         if (var24 != 0) {
             func_ov023_021f88b8(var24, arg1, 0x8000);
@@ -339,7 +339,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
                 if (arg0->unknown_20_[var2] == 0) {
                     continue;
                 }
-                Struct_ov023_021f8e1c_3* var32 = func_ov023_021f6880(var4, arg0->unknown_20_[var2]);
+                Struct_ov023_021f8e1c_3* var32 = FindMenuObjectById_ov023_021f6880(var4, arg0->unknown_20_[var2]);
                 if (var32 == 0) {
                     continue;
                 }
@@ -363,7 +363,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
                 if (var27 < var25 && var25 <= var27 + var29 && var28 < var26 && var26 <= var28 + var30) {
                     var6 = var2 % arg0->unknown_26_;
                     var0 = var2 / arg0->unknown_26_;
-                    var32 = func_ov023_021f6880(var4, arg0->unknown_20_[var0 * arg0->unknown_26_ + var6]);
+                    var32 = FindMenuObjectById_ov023_021f6880(var4, arg0->unknown_20_[var0 * arg0->unknown_26_ + var6]);
                     if (var32 != 0 && func_ov023_021f6f10(var32) == 8 && var32->inline_ov023_021f8e1c_34() == 0) {
                         void* var36 = func_ov023_021f9cb8(arg0, arg1, var32);
                         if (var36 != 0) {
@@ -414,12 +414,12 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
         }
         var6 = arg0->unknown_2a_;
         var0 = arg0->unknown_28_;
-        Struct_ov023_021f8e1c_3* var37 = func_ov023_021f6880(var4, arg0->unknown_20_[var0 * arg0->unknown_26_ + var6]);
+        Struct_ov023_021f8e1c_3* var37 = FindMenuObjectById_ov023_021f6880(var4, arg0->unknown_20_[var0 * arg0->unknown_26_ + var6]);
         int var38 = 0;
         if (var37 != 0) {
             int var39 = var37->inline_ov023_021f8e1c_54();
             if (var39 > 0) {
-                func_ov011_021848a0(arg1, var39);
+                QueueMenuScriptEntry_ov011_021848a0(arg1, var39);
                 var38 = 1;
             }
             var39 = var37->inline_ov023_021f8e1c_56();
@@ -429,13 +429,13 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
             }
         }
         if (arg0->unknown_42_ != 0) {
-            func_ov011_021848a0(arg1, arg0->unknown_42_);
+            QueueMenuScriptEntry_ov011_021848a0(arg1, arg0->unknown_42_);
         }
         if (arg0->unknown_40_ != 0) {
             func_ov011_02184a40(arg1, arg0->unknown_40_);
         }
         if (var38 && arg0->unknown_61_ != 0) {
-            func_0205eaa0(&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         }
     }
 
@@ -444,7 +444,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
             return;
         }
         if (arg0->unknown_44_ != 0) {
-            func_ov011_021848a0(arg1, arg0->unknown_44_);
+            QueueMenuScriptEntry_ov011_021848a0(arg1, arg0->unknown_44_);
         }
         if (arg0->unknown_46_ != 0) {
             func_ov011_02184a40(arg1, arg0->unknown_46_);
@@ -455,7 +455,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
         if (arg0->unknown_62_ == 0 && !var3) {
             var6 = arg0->unknown_2a_;
             var0 = arg0->unknown_28_;
-            Struct_ov023_021f8e1c_3* var40 = func_ov023_021f6880(var4, arg0->unknown_20_[var0 * arg0->unknown_26_ + var6]);
+            Struct_ov023_021f8e1c_3* var40 = FindMenuObjectById_ov023_021f6880(var4, arg0->unknown_20_[var0 * arg0->unknown_26_ + var6]);
             int var41 = 0;
             if (var40 != 0) {
                 int var42 = var40->inline_ov023_021f8e1c_4();
@@ -465,7 +465,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
                 }
             }
             if (var41 && arg0->unknown_61_ != 0) {
-                func_0205eaa0(&data_02108760, 1, 0);
+                PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             }
         }
     }

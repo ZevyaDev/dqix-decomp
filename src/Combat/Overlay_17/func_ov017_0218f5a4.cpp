@@ -7,29 +7,29 @@ enum { Enum_ov017_0218f5a4_1844 = 0x524, Enum_ov017_0218f5a4_336 = 0x144, Enum_o
 enum { Enum_ov017_0218f5a4_1844 = 0x734, Enum_ov017_0218f5a4_336 = 0x150, Enum_ov017_0218f5a4_396 = 0x18c, Enum_ov017_0218f5a4_1792 = 0x700 };
 #endif
 
-extern "C" void func_0202ae18(void);
+extern "C" void GetLocalWireless_0202ae18(void);
 extern "C" int func_ov017_021925e0(void* arg0);
 extern "C" void func_ov017_021bd440(void* arg0, int arg1);
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 struct Struct_0205faf4_11;
 extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
 extern "C" void func_02072afc(int arg0, int* arg1, short* arg2);
 extern "C" void* func_ov017_021a4658(void* arg0, int arg1);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 // USA: func_ov017_0218f5a4
 extern "C" ARM int func_ov017_0218f5a4(char* arg0, int arg1, int arg2, int arg3, int arg4) {
     GameState* var0 = GameState::GetInstance();
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     void* var1 = *(void**)(arg0 + 0x3000 + Enum_ov017_0218f5a4_1844);
 
     if (func_ov017_021925e0(arg0 + 0x3000) != 0) {
         GameObject* var2 = var0->GetPartyMemberByIndex(arg1);
         if (var2 != 0) {
-            unsigned short var3 = var2->obj3D_.unknown_0_;
+            unsigned short var3 = var2->obj3D_.classFlags_0_;
             if (var3 & 0x1000) {
                 func_ov017_021bd440(var1, arg1 & 0xff);
                 return 0;
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov017_0218f5a4(char* arg0, int arg1, int arg2, int arg3,
 
     GameObject* var4 = func_0200ff1c(var0, arg1);
     if (var4 == 0) return 0;
-    if (func_02053c6c((unsigned char*)var4) == 0) return 0;
+    if (GetPartyMemberData_02053c6c((unsigned char*)var4) == 0) return 0;
 
     if (arg4 == 0) {
         unsigned char* var5 = *(unsigned char**)((char*)var4 + Enum_ov017_0218f5a4_336);
@@ -78,7 +78,7 @@ extern "C" ARM int func_ov017_0218f5a4(char* arg0, int arg1, int arg2, int arg3,
             ((unsigned char*)var14)[0xb] |= 0x1;
         }
         if (((unsigned char*)var14)[2] == 0) {
-            func_020469b4((struct Struct_0201bdac_2*)*(void**)(arg0 + 0x3000 + Enum_ov017_0218f5a4_1792), (struct Struct_0201bdac*)var14);
+            AppendToQueue_020469b4((struct Queue_0201bdac_2*)*(void**)(arg0 + 0x3000 + Enum_ov017_0218f5a4_1792), (struct QueueNode_0201bdac*)var14);
         }
     }
     return 1;

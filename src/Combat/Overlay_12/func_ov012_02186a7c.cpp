@@ -26,7 +26,7 @@ enum {
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_0200fb8c(int*);
+extern "C" void* GetResources_0200fb8c(int*);
 extern "C" void* func_02094a00();
 
 struct Struct_0205de24_2;
@@ -35,9 +35,9 @@ extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1
 struct Struct_0205c570;
 extern "C" int func_0205d794(struct Struct_0205c570* arg0);
 
-struct Struct_02108760;
-extern struct Struct_02108760 data_02108760;
-extern "C" int func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
+extern "C" int PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 struct Struct_0205d6a0;
 extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
@@ -51,7 +51,7 @@ extern "C" void func_ov012_0218943c(void* arg0);
 
 // USA: func_ov012_02186a7c
 extern "C" ARM void func_ov012_02186a7c(char* arg0) {
-	func_0200fb8c((int*)GameState::GetInstance());
+	GetResources_0200fb8c((int*)GameState::GetInstance());
 	BackgroundLoader::GetInstance();
 	func_02094a00();
 
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov012_02186a7c(char* arg0) {
 	if (func_ov023_021e6de4(arg0) != 0) {
 		*(unsigned char*)(arg0 + Enum_ov012_02186a7c_356) = *(unsigned char*)(arg0 + Enum_ov012_02186a7c_4977);
 		*(unsigned char*)(arg0 + Enum_ov012_02186a7c_5024) = 0;
-		func_0205eaa0(&data_02108760, 1, 0);
+		PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
 
 		int var2 = *(int*)(arg0 + Enum_ov012_02186a7c_5076);
 		switch (var2) {

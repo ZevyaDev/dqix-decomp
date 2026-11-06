@@ -2,7 +2,7 @@
 
 extern "C" int func_ov031_0223c054(int);
 extern "C" void func_ov031_0223c078(int, int, int, int);
-extern "C" void func_ov031_022274c0(int arg0);
+extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
 extern "C" void func_ov031_02229bc8(void);
 
 // USA: func_ov031_02229b7c
@@ -10,5 +10,5 @@ extern "C" ARM void func_ov031_02229b7c(void) {
 	if (func_ov031_0223c054(1) != 0) return;
 	func_ov031_0223c078(3, 1, 0x3f, 0x40);
 	func_ov031_0223c078(3, 0, 0x3f, 0x40);
-	func_ov031_022274c0((int)func_ov031_02229bc8);
+	SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02229bc8);
 }

@@ -6,9 +6,9 @@ struct Struct_0206528c;
 extern "C" struct Struct_0206528c_2* func_0206528c(struct Struct_0206528c* arg0, int arg1);
 extern "C" void* func_0203cf4c(void);
 extern "C" void* func_0203cff4(void* arg0);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 struct Struct_ov017_0219593c {
 	char unknown_0_[0x114];
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov017_0219593c(void) {
 	var1->unknown_114_ = func_0206528c((struct Struct_0206528c*)var3, 0x63);
 	var1->unknown_124_ = 0xd7;
 	if (var1->unknown_114_ != 0) {
-		func_020469b4(*(struct Struct_0201bdac_2**)(var0 + 0x3000 + Enum_ov017_0219593c_1788), (struct Struct_0201bdac*)var1);
+		AppendToQueue_020469b4(*(struct Queue_0201bdac_2**)(var0 + 0x3000 + Enum_ov017_0219593c_1788), (struct QueueNode_0201bdac*)var1);
 	}
 	var2 = *(unsigned char**)(var0 + 0x3000 + Enum_ov017_0219593c_2816);
 	if (var2[2] == 0) return;

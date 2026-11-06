@@ -37,9 +37,9 @@ struct Struct_ov006_02158cfc_2 {
 extern "C" Struct_ov006_02158cfc* func_ov006_02158d8c(void*, short);
 extern "C" void func_02071ffc(Struct_02071ffc_4*, int, int, int, short, short*);
 extern "C" void func_ov006_02158cac(void*);
-struct Struct_02108760;
-extern Struct_02108760 data_02108760 __attribute__((aligned(4)));
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+struct SoundEffectManager_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760 __attribute__((aligned(4)));
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov006_02158cfc(Struct_ov006_02158cfc_2*, Struct_ov006_02158cfc*);
 extern "C" void func_020804fc(void*, int);
 extern "C" void func_ov006_0215f7e8(Struct_ov006_02158cfc_2*);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov006_02159c64(Struct_ov006_02158cfc_2* arg0) {
     arg0->unknown_30_ = arg0->unknown_2c_ = arg0->unknown_14c_.unknown_0_;
     if (!var0) var0 = arg0->unknown_30_;
     func_ov006_02158cac(arg0);
-    func_0205eaa0(&data_02108760, 1, 0);
+    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
     short var2 = 0;
     for (Struct_ov006_02158cfc* var3 = arg0->unknown_30_; var3; var3 = var3->unknown_1c_) {
         if (var3 == var0) break;

@@ -6,20 +6,20 @@
 // USA: func_ov001_021557e0
 
 extern "C" int func_ov001_02153994(void);
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* arg0);
-extern "C" int func_0202c508(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void* func_020e2ff8(void);
 struct Struct_02033fcc;
 extern "C" void func_02033fcc(struct Struct_02033fcc* arg0);
 extern "C" unsigned char func_02039d7c(char* arg0);
 extern "C" void func_02039d24(unsigned char* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 struct Struct_02010834;
 extern "C" void func_02010834(struct Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
 extern "C" void func_02039d58(unsigned char* arg0);
-extern "C" void* func_020d6c00(void);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* GetParty_02010828(GameState* gameState);
 struct Struct_02048150;
 extern "C" int func_02086ef0(struct Struct_02048150* arg0, int arg1);
 struct Struct_0205420c;
@@ -27,7 +27,7 @@ extern "C" void func_0205420c(struct Struct_0205420c* arg0, int arg1, int arg2);
 extern "C" void func_ov017_02191f4c(int arg0, int arg1);
 extern "C" void func_ov017_02192400(int arg0, int arg1);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" unsigned char func_020100b0(GameState* arg0);
 extern "C" void func_ov017_021917f0(int arg0, int arg1);
 extern "C" void func_020e3368(unsigned char* arg0, unsigned char arg1);
@@ -85,10 +85,10 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
         return arg0->unknown_a_;
     }
 
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     GameState* var2 = GameState::GetInstance();
 
-    if (arg0->unknown_12_ != 0 && func_0202c540(var1) != 0) {
+    if (arg0->unknown_12_ != 0 && IsLocalWirelessGuest_0202c540(var1) != 0) {
         arg0->unknown_103_ = 1;
         if (arg0->unknown_f8_0_ & 0x10) {
             GameObject* var3 = func_0200ff1c(var2, 0);
@@ -112,7 +112,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
 
         int var6[4];
         int var7;
-        func_02010834((struct Struct_02010834*)var2, func_020100a8(var2), var6, &var7);
+        func_02010834((struct Struct_02010834*)var2, GetProtagonistObjectIndex_020100a8(var2), var6, &var7);
         for (int var8 = 0; var8 < var7; var8++) {
             GameObject* var9 = var2->GetPartyMemberByIndex(var6[var8]);
             if (var9 == 0) {
@@ -122,8 +122,8 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
             func_02039d58((unsigned char*)var9);
         }
 
-        unsigned int* var10 = (unsigned int*)func_020d6c00();
-        void* var11 = func_02010828(var2);
+        unsigned int* var10 = (unsigned int*)GetGlobalFlags_020d6c00();
+        void* var11 = GetParty_02010828(var2);
         for (int var12 = 0; var12 < 4; var12++) {
             struct Struct_ov001_021557e0* var13 = (struct Struct_ov001_021557e0*)func_0200ff1c(var2, var12);
             if (var13 == 0) {
@@ -138,7 +138,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
         func_020466e4(var10, 0x20000);
     }
 
-    if (func_0202b7d8((int*)var1) != 0 && arg0->unknown_12_ != 0 && arg0->unknown_116_ < 0) {
+    if (IsLocalWirelessOn_0202b7d8((int*)var1) != 0 && arg0->unknown_12_ != 0 && arg0->unknown_116_ < 0) {
         if (arg0->unknown_101_ != 0) {
             int var14 = func_020100b0(var2);
             for (int var15 = 0; var15 < 4; var15++) {
@@ -174,7 +174,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
         *var18 = (*var18 & ~0x1f00) | 0x1100;
     }
 
-    if ((arg0->unknown_f8_0_ & 0x10) && func_0202c508(var1) != 0) {
+    if ((arg0->unknown_f8_0_ & 0x10) && IsNotLocalWirelessGuest_0202c508(var1) != 0) {
         func_020e3368((unsigned char*)func_020e2ff8(), 1);
         return 0x12;
     }

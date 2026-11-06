@@ -14,13 +14,13 @@ struct Struct_0205faf4_11;
 extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
 
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" int func_02041ea4(char* arg0, int arg1);
 extern "C" int func_02041fac(char* arg0, int arg1, int arg2);
 extern "C" int func_02041e70(char* arg0, int arg1);
 extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_020e51cc(int arg0);
 extern "C" int func_ov002_02159774(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov002_0215e250(unsigned char* arg0, char* arg1, int arg
     }
     func_02041ea4(arg1, var1);
 
-    int var8 = func_020e0434((struct Struct_0201099c_3*)(arg0 + RG(0x20, 0x8)), 2);
+    int var8 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + RG(0x20, 0x8)), 2);
     func_02041fac(arg1, var8, 0x16);
 
     for (int var9 = 0; var9 < var3; var9++) {
@@ -75,14 +75,14 @@ extern "C" ARM void func_ov002_0215e250(unsigned char* arg0, char* arg1, int arg
             func_02041e70(arg1, var14);
             func_02041b70(arg1, var9, (const char*)(arg0 + RG(0x1ab0, 0x1a08) + var2[var7] * RG(0x3c, 0x18)));
             func_02041e70(arg1, 0xf);
-            func_02042058(arg1, *(const char**)(arg0 + 0x1000 + RG(0xbdc, 0xaa4)));
+            AppendText_02042058(arg1, *(const char**)(arg0 + 0x1000 + RG(0xbdc, 0xaa4)));
 
             var7++;
         }
     }
 
 #if defined(jpn)
-    func_02041b70(arg1, var3, (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0 + 0x8), 0x76d));
+    func_02041b70(arg1, var3, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0x8), 0x76d));
 #else
     func_02041b70(arg1, var3, (const char*)func_020e51cc(0x1a));
 #endif

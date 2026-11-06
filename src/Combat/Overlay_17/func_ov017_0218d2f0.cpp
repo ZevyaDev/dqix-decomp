@@ -18,7 +18,7 @@ extern "C" void func_020397cc(Struct_02018300_3*, int);
 // USA: func_ov017_0218d2f0
 extern "C" ARM void func_ov017_0218d2f0(unsigned char arg0, unsigned char arg1, int arg2, unsigned char arg3) {
     GameState* var0 = GameState::GetInstance();
-    Struct_ov000_02175808_4* var1 = (Struct_ov000_02175808_4*)func_02010828(var0);
+    Struct_ov000_02175808_4* var1 = (Struct_ov000_02175808_4*)GetParty_02010828(var0);
     int var2 = 1;
     unsigned char var3 = var1->unknown_f7c_;
     GameObject* var4 = var0->GetUnknownGameObject();

@@ -53,12 +53,12 @@ extern "C" int func_0205d794(struct Struct_0205c570* arg0);
 
 extern "C" void func_ov012_02189a78(char* arg0);
 
-struct Struct_02072a68_2;
-extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
+struct StringList_02072a68_2;
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 
-struct Struct_02108760;
-extern struct Struct_02108760 data_02108760;
-extern "C" int func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
+extern "C" int PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 struct Struct_ov012_02186a7c;
 extern "C" int func_ov023_021e6e20(struct Struct_ov012_02186a7c* arg0);
@@ -98,10 +98,10 @@ extern "C" ARM void func_ov012_02186e38(char* arg0) {
 	}
 
 	if (func_ov023_021e6de4(arg0) != 0) {
-		func_0205eaa0(&data_02108760, 1, 0);
+		PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
 		void* var2 = GameState::GetInstance();
 		int var3 = *(int*)(arg0 + Enum_ov012_02186e38_5084);
-		void* var4 = func_02072a68((struct Struct_02072a68_2*)(arg0 + Enum_ov012_02186e38_4924), (short)(var3 + Enum_ov012_02186e38_10310));
+		void* var4 = FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + Enum_ov012_02186e38_4924), (short)(var3 + Enum_ov012_02186e38_10310));
 		Struct_ov012_02186e38* var5 = inline_ov012_02186e38((GameState*)var2);
 
 		memset(arg0 + Enum_ov012_02186e38_5184, 0, 0x40);

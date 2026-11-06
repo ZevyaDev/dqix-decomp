@@ -14,8 +14,8 @@ struct Struct_0205d0e0 {
     unsigned char unknown_c5_[0xe0 - 0xc5];
 };
 extern "C" Struct_0205d0e0* func_0205d81c(Struct_0205d81c*, int);
-extern "C" int func_020e0434(Struct_0201099c_3*, int);
-extern "C" int func_02042058(char*, const char*);
+extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
+extern "C" int AppendText_02042058(char*, const char*);
 extern "C" int func_02042428(char*, int);
 
 // USA: 021d9e60; JPN: 021da6f0.
@@ -28,10 +28,10 @@ extern "C" ARM void func_ov023_021d9e60(char* arg0) {
         var1->unknown_b8_ = 0x11;
         var1->unknown_ba_ = 0x10;
         func_02042428(var0->unknown_f8_, 12);
-        func_02042058(var0->unknown_f8_, var0->unknown_d74_[var0->unknown_da3_]);
+        AppendText_02042058(var0->unknown_f8_, var0->unknown_d74_[var0->unknown_da3_]);
     } else {
-        int var2 = func_020e0434(&var0->unknown_e0_, 0x4274);
-        func_02042058(var0->unknown_f8_, (const char*)var2);
+        int var2 = FindStringInTable_020e0434(&var0->unknown_e0_, 0x4274);
+        AppendText_02042058(var0->unknown_f8_, (const char*)var2);
     }
     func_0205d5d0((Struct_0205d5d0*)&var0->unknown_1f8_[1], 3, (int)var0->unknown_f8_, 0);
     var0->unknown_d9c_ &= ~0x8000;
@@ -48,9 +48,9 @@ struct Struct_0205d5d0;
 extern "C" int func_0205d5d0(Struct_0205d5d0*, int, int, int, unsigned char);
 
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(Struct_0201099c_3*, int);
+extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 
-extern "C" int func_02042058(char*, const char*);
+extern "C" int AppendText_02042058(char*, const char*);
 extern "C" int func_02041a28(char*, int);
 
 extern "C" void __clear(void*, int);
@@ -78,10 +78,10 @@ extern "C" ARM void func_ov023_021d9e60(char* arg0) {
 		func_02042764(var5, var6, 0);
 		int var10 = func_020420e8(var6, 0);
 		func_02041a28(var3, (0x50 - var10) >> 1);
-		func_02042058(var3, var6);
+		AppendText_02042058(var3, var6);
 	} else {
-		int var11 = func_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), 0x4274);
-		func_02042058(var3, (const char*)var11);
+		int var11 = FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), 0x4274);
+		AppendText_02042058(var3, (const char*)var11);
 	}
 	func_0205d5d0((Struct_0205d5d0*)(arg0 + 0x2b4), 3, (int)var3, 0, 0);
 	*(int*)(arg0 + 0xd9c) &= ~0x8000;

@@ -11,7 +11,7 @@ enum { Enum_ov017_021a1284_1253 = 0x4e1, Enum_ov017_021a1284_1276 = 0x4f8, Enum_
 enum { Enum_ov017_021a1284_1253 = 0x4e5, Enum_ov017_021a1284_1276 = 0x4fc, Enum_ov017_021a1284_1588 = 0x634, Enum_ov017_021a1284_1608 = 0x648, Enum_ov017_021a1284_716 = 0x2cc, Enum_ov017_021a1284_14080 = 0x3700, Enum_ov017_021a1284_1060 = 0x424, Enum_ov017_021a1284_95744 = 0x17600, Enum_ov017_021a1284_336 = 0x150 };
 #endif
 
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 struct Struct_02018300_3;
 struct Struct_0203de2c_3;
 struct Struct_02058564_2;
@@ -70,24 +70,24 @@ struct Struct_0203dce4_2;
 extern "C" Struct_0203dce4_2* func_0203cf4c();
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" Struct_02058564_2* func_02057924();
-extern "C" int* func_0202ae18();
-extern "C" GameResources* func_0200fb8c(int*);
+extern "C" int* GetLocalWireless_0202ae18();
+extern "C" GameResources* GetResources_0200fb8c(int*);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" int func_02039850(void*);
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_ov017_021a1178(GameResources*, int);
 extern "C" void func_0203983c(unsigned char*, int);
-extern "C" void func_02043204(char*);
+extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_0203d008(unsigned char*);
 extern "C" void func_0203e0a0(Struct_0203dce4_2*, unsigned short);
 extern "C" void func_020a0cc4(unsigned int);
-extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_020a0c0c();
 extern "C" void func_ov017_0219bf74();
-extern "C" void func_0207df50(Struct_0203d028*);
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void func_ov017_0219b938(GameResources*);
 extern "C" int func_020981e4(int, int);
 extern "C" void func_ov017_021a316c(GameResources*);
@@ -109,11 +109,11 @@ extern "C" void func_ov017_0218f79c(void*);
 extern "C" void func_ov017_021a2840(GameResources*);
 extern "C" void func_02058564(Struct_02058564_2*);
 extern "C" void func_02042b30(void*, void*);
-extern "C" void func_0207df90(char*);
+extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void func_020432c4(void*);
-extern "C" void func_0207dfac(char*);
+extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" int func_ov017_0218f5a4(GameResources*, int, int, int, int);
-extern "C" int func_0202b7d8(int*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int func_02086ef0(Struct_02048150*, int);
 extern "C" void func_ov017_021c3fb4(int, int);
 extern "C" void func_ov017_021c4418(int, int);
@@ -124,7 +124,7 @@ extern "C" void func_ov017_0219bd1c(int, int, int, int);
 extern "C" unsigned char* func_020100f8(char*);
 extern "C" void func_020a28b0(unsigned char*, int);
 extern "C" void func_020397c0(void*);
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov017_021a1284
 extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1) {
@@ -133,9 +133,9 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
     Zone3D* var2 = GetZone3D_02012fe4();
     Struct_0203dce4_2* var3 = func_0203cf4c();
     Struct_02058564_2* var4 = func_02057924();
-    int* var5 = func_0202ae18();
+    int* var5 = GetLocalWireless_0202ae18();
     GameObject* var6 = var0->GetUnknownGameObject();
-    GameResources* var7 = func_0200fb8c((int*)var0);
+    GameResources* var7 = GetResources_0200fb8c((int*)var0);
     void* var8 = GetMessageWindow_020421a0();
     func_020397cc((Struct_02018300_3*)var6, 1);
     ((Struct_ov017_021a1284_5*)var6)->unknown_b2_ = 0;
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
             ((Struct_ov017_021a1284_5*)var6)->unknown_b4_ = 0x189;
             var6->obj3D_.SetHeight(0x1800);
             var6->obj3D_.SetRadius(0x1000);
-            func_ov017_021a1178(var7, func_020100a8(var0));
+            func_ov017_021a1178(var7, GetProtagonistObjectIndex_020100a8(var0));
             func_0203983c((unsigned char*)var6, 0);
         }
         unsigned char var9 = 0;
@@ -161,12 +161,12 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
 #else
         StartMessage_0204500c((MessageWindow_02021b84*)var8, (char*)&var9, 0, 0xe3);
 #endif
-        func_02043204((char*)var8);
+        ResetMessageWindow_02043204((char*)var8);
         func_0203d008((unsigned char*)var3);
         func_0203e0a0(var3, var2->currentZoneID_);
         SetFlags00(var7, 0x10);
         func_020a0cc4(Enum_ov017_021a1284_95744);
-        void* var10 = func_02012d88(&data_02114e20, Enum_ov017_021a1284_95744);
+        void* var10 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021a1284_95744);
         if (!var10) {
             func_020a0c0c();
             arg0->unknown_22_ = 4;
@@ -179,7 +179,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         SafeAllocator* var12 = &var7->allocator_array_38[0];
         Struct_ov017_021a1284_2* var13 = &((Struct_ov017_021a1284_3*)var7)->unknown_2cc_;
         var12->Reset();
-        func_0207df50((Struct_0203d028*)var13);
+        ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var13);
         func_ov017_0219b938(var7);
         SafeAllocator* var14 = &var7->allocator_array_38[5];
         var14->Reset();
@@ -235,13 +235,13 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         func_ov017_021a2840(var7);
         func_02058564(var4);
         func_02042b30(var8, ((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
-        func_0207df50((Struct_0203d028*)((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
-        func_0207df90(((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
+        ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
+        RestoreTextureVRAMState_0207df90(((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
         func_020432c4(var8);
-        func_0207dfac(((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
-        Struct_02048150* var24 = (Struct_02048150*)func_02010828(var0);
+        SaveTextureVRAMState_0207dfac(((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
+        Struct_02048150* var24 = (Struct_02048150*)GetParty_02010828(var0);
         for (int var25 = 0; var25 < 4; ++var25) {
-            if (func_ov017_0218f5a4(var7, var25, 0, 0, 0) && func_0202b7d8(var5) && func_02086ef0(var24, var25)) {
+            if (func_ov017_0218f5a4(var7, var25, 0, 0, 0) && IsLocalWirelessOn_0202b7d8(var5) && func_02086ef0(var24, var25)) {
                 func_ov017_021c3fb4(var25, 1);
                 func_ov017_021c4418(var25, -1);
             }

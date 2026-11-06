@@ -7,7 +7,7 @@
 struct Struct_ov023_021edc08_5 {
     unsigned int unknown_0_, unknown_4_, unknown_8_;
 };
-struct Struct_02072a68_2 {
+struct StringList_02072a68_2 {
     int unknown_0_[4];
 };
 struct Struct_ov023_021ed7e0 {
@@ -16,7 +16,7 @@ struct Struct_ov023_021ed7e0 {
     unsigned int unknown_2_2_ : 7;
     unsigned int unknown_3_1_ : 7;
 };
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_ov023_021f2248_5 {
     unsigned short unknown_0_;
     unsigned short unknown_2_0_ : 15;
@@ -37,7 +37,7 @@ struct Struct_ov023_021f2248_6 {
     Struct_ov023_021f2248_5 unknown_5ac0_[8];
     unsigned char unknown_5af0_;
     char unknown_5af1_[3];
-    Struct_02072a68_2 unknown_5af4_;
+    StringList_02072a68_2 unknown_5af4_;
 };
 struct Struct_ov023_021f2248_7 {
     int unknown_0_;
@@ -65,14 +65,14 @@ struct Struct_ov023_021f2248 {
     char* unknown_134_;
 };
 extern "C" Struct_ov023_021f2248_8 _ZZ21inline_ov023_021f4c04vE1s;
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" Struct_02081870* GetMessageWindow_020421a0();
 extern "C" void func_020de968(int, char*);
 extern "C" int func_020ac020(void*, short*, int*, int);
 extern "C" void func_020abe84(void*, short*, Struct_ov023_021ed7e0*, int);
 extern "C" Struct_ov023_021f2248_3* func_0206f4f0(Struct_0206f01c_2*, int);
-extern "C" const char* func_02072a68(Struct_02072a68_2*, int);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void StartMessage_0204500c(Struct_02081870*, const char*, int);
 extern "C" void func_ov023_021ed7e0(Struct_ov023_021ed7e0*);
 extern "C" int func_ov023_021f4fc8();
@@ -104,16 +104,16 @@ extern "C" ARM int func_ov023_021f2248(Struct_ov023_021f2248_6* arg0) {
         if (var7 >= 0) {
             Struct_ov023_021f2248* var13 = (Struct_ov023_021f2248*)func_0200ff1c(var0, var7);
             if (var13) var9 = var13->unknown_134_;
-            sprintf(var12, func_02072a68(&arg0->unknown_5af4_, 0x25), var9, var20);
+            sprintf(var12, FindStringInList_02072a68(&arg0->unknown_5af4_, 0x25), var9, var20);
         } else {
             char var14[0xc4] = {0};
-            sprintf(var12, func_02072a68(&arg0->unknown_5af4_, 0x11), var19, var9);
-            if (!var6) sprintf(var14, func_02072a68(&arg0->unknown_5af4_, 0x12), var20, var9, var20);
-            else sprintf(var14, func_02072a68(&arg0->unknown_5af4_, 0x13), var20, var20);
+            sprintf(var12, FindStringInList_02072a68(&arg0->unknown_5af4_, 0x11), var19, var9);
+            if (!var6) sprintf(var14, FindStringInList_02072a68(&arg0->unknown_5af4_, 0x12), var20, var9, var20);
+            else sprintf(var14, FindStringInList_02072a68(&arg0->unknown_5af4_, 0x13), var20, var20);
             strcat(var12, var14);
-            if (var1->unknown_e4_ < arg0->unknown_5af0_ - 1) strcat(var12, func_02072a68(&arg0->unknown_5af4_, 0x22));
+            if (var1->unknown_e4_ < arg0->unknown_5af0_ - 1) strcat(var12, FindStringInList_02072a68(&arg0->unknown_5af4_, 0x22));
         }
-        func_0205eaa0(&data_02108760, 0x15, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x15, 0);
         StartMessage_0204500c(var2, var12, 1);
         var2->unknown_17e2_ = 0;
         var2->unknown_868_ = 1;

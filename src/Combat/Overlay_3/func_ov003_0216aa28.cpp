@@ -46,10 +46,10 @@ struct Struct_ov003_0216aa28_3 {
     int unknown_f6c_;
 };
 
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 
-extern "C" const char* func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 #if defined(jpn)
 #define APPLY_MENU(a,b,c,d,e) func_0205d5d0(a,b,c,d)
 #else
@@ -57,9 +57,9 @@ extern "C" int func_02042058(char* arg0, const char* arg1);
 #endif
 extern "C" void func_ov003_02169a84(struct Struct_ov003_0216aa28_2* arg0, char* arg1, int arg2);
 extern "C" void func_ov003_02169d10(struct Struct_ov003_0216aa28_2* arg0, char* arg1, int arg2);
-extern "C" struct Struct_020465c0* GetMessageWindow_020421a0();
-extern "C" void func_02046380(struct Struct_020465c0* arg0);
-extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" struct MessageWindow_020465c0* GetMessageWindow_020421a0();
+extern "C" void ClearMessageParams_02046380(struct MessageWindow_020465c0* window);
+extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
 
@@ -107,15 +107,15 @@ extern "C" ARM void func_ov003_0216aa28(struct Struct_ov003_0216aa28_2* arg0) {
         return;
     }
     GameState* var3 = GameState::GetInstance();
-    struct Struct_020465c0* var4 = GetMessageWindow_020421a0();
-    struct Struct_ov003_0216aa28_3* var5 = (struct Struct_ov003_0216aa28_3*)func_02010828(var3);
+    struct MessageWindow_020465c0* var4 = GetMessageWindow_020421a0();
+    struct Struct_ov003_0216aa28_3* var5 = (struct Struct_ov003_0216aa28_3*)GetParty_02010828(var3);
     memset(arg0->unknown_7c_, 0, TEXT_BYTES);
 #if defined(jpn)
     func_02042428(arg0->unknown_7c_, 8);
 #endif
-    func_02042058(arg0->unknown_7c_, func_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, 0x65));
-    func_02046380(var4);
-    func_020465c0(var4, 0, var5->unknown_f6c_);
+    AppendText_02042058(arg0->unknown_7c_, FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, 0x65));
+    ClearMessageParams_02046380(var4);
+    SetMessageNumber_020465c0(var4, 0, var5->unknown_f6c_);
     func_020465f0((unsigned char*)var4, 0, 7);
     func_020465d8((unsigned char*)var4, 0, 1);
     APPLY_MENU((struct Struct_0205d5d0*)&arg0->unknown_e4_, 0, (int)arg0->unknown_7c_, 1, 0);

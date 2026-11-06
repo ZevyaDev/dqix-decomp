@@ -2,17 +2,17 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" void func_02046380(void);
+extern "C" void ClearMessageParams_02046380(void);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
 extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
 extern "C" int func_ov023_021f4438(void* arg0);
-struct Struct_02072a68_2;
-extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
-struct Struct_020465c0;
-extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+struct StringList_02072a68_2;
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
+struct MessageWindow_020465c0;
+extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" int func_0201b5d8(int arg0);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, char* text, int arg2);
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov023_021f2638(unsigned char* arg0) {
     int* var1 = _ZZ21inline_ov023_021f4c04vE1s;
     int var2 = GetMessageWindow_020421a0();
     unsigned char* var3 = (unsigned char*)var2;
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     void* var4 = GetZone3D_02012fe4();
     int var5 = *var1;
 
@@ -40,14 +40,14 @@ extern "C" ARM int func_ov023_021f2638(unsigned char* arg0) {
         if (*(int*)(arg0 + 0x5958) != 0) {
             char var6[0x100];
             int var7 = func_ov023_021f4438(arg0);
-            char* var8 = (char*)func_02072a68((struct Struct_02072a68_2*)(arg0 + 0x5af4), 0x10);
+            char* var8 = (char*)FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + 0x5af4), 0x10);
             sprintf(var6, var8, *(int*)(arg0 + 0x5958));
             int var9 = 0;
             if (*(unsigned char*)(arg0 + 0x5af0) == 0 && *(int*)(arg0 + 0x7014) != 0) {
                 if (func_0201b5d8(*(unsigned short*)var4) != 0) var9 = 1;
             }
             if (var7 != 0 && var9 == 0) {
-                char* var10 = (char*)func_02072a68((struct Struct_02072a68_2*)(arg0 + 0x5af4), 0x22);
+                char* var10 = (char*)FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + 0x5af4), 0x22);
                 strcat(var6, var10);
             }
             StartMessage_0204500c(var3, var6, 1);
@@ -77,8 +77,8 @@ extern "C" ARM int func_ov023_021f2638(unsigned char* arg0) {
     int* var13 = _ZZ21inline_ov023_021f4c04vE1s;
     int var14 = GetMessageWindow_020421a0();
     unsigned char* var15 = (unsigned char*)var14;
-    func_02046380();
-    func_0202ae18();
+    ClearMessageParams_02046380();
+    GetLocalWireless_0202ae18();
     void* var16 = GetZone3D_02012fe4();
     int var17 = *var13;
 
@@ -102,15 +102,15 @@ extern "C" ARM int func_ov023_021f2638(unsigned char* arg0) {
             var15[0x30] = var23;
             var15[0x31] = var22;
             int var26 = func_ov023_021f4438(arg0);
-            char* var27 = (char*)func_02072a68((struct Struct_02072a68_2*)(arg0 + 0x5904), 0x10);
+            char* var27 = (char*)FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + 0x5904), 0x10);
             sprintf(var18, var27);
-            func_020465c0((struct Struct_020465c0*)var15, 0, *(int*)(arg0 + 0x5768));
+            SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var15, 0, *(int*)(arg0 + 0x5768));
             int var28 = 0;
             if (*(unsigned char*)(arg0 + 0x5900) == 0 && *(int*)(arg0 + 0x6e24) != 0) {
                 if (func_0201b5d8(*(unsigned short*)var16) != 0) var28 = 1;
             }
             if (var26 != 0 && var28 == 0) {
-                char* var29 = (char*)func_02072a68((struct Struct_02072a68_2*)(arg0 + 0x5904), 0x22);
+                char* var29 = (char*)FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + 0x5904), 0x22);
                 strcat(var18, var29);
             }
             StartMessage_0204500c(var15, var18, 1, 0xe3);

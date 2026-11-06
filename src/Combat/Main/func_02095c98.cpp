@@ -4,10 +4,10 @@
 
 #if defined(jpn)
 extern "C" unsigned char func_02095384(int arg0, unsigned char arg1, int* arg2);
-extern "C" void func_02095d18(Struct_0208cb08* arg0);
+extern "C" void func_02095d18(FontLoader_0208cb08* arg0);
 
 // JPN: func_02095c98
-extern "C" ARM void func_02095c98(Struct_0208cb08* arg0) {
+extern "C" ARM void func_02095c98(FontLoader_0208cb08* arg0) {
     if (arg0->unknown_57_ == 0) {
         BackgroundLoader::GetInstance();
         int* var0 = &arg0->unknown_34_;

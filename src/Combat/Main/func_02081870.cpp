@@ -5,10 +5,10 @@
 #define func_0204f41c func_02050678
 #endif
 
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 struct Struct_02046574_2;
 struct Struct_02081870 {
-    Struct_02072a68_2* unknown_0_;
+    StringList_02072a68_2* unknown_0_;
     char unknown_4_[0x14];
     char* unknown_18_;
 };
@@ -38,10 +38,10 @@ struct Struct_02081870_3 {
     unsigned char unknown_2a_;
 };
 extern "C" int func_02042190(int);
-extern "C" void* func_02072a68(Struct_02072a68_2*, int);
+extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" int func_020420e8(char*, int);
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_02046380(Struct_02046574_2*);
+extern "C" void ClearMessageParams_02046380(Struct_02046574_2*);
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 #if defined(jpn)
 extern "C" int func_020d2ff0(const char*);
@@ -58,7 +58,7 @@ extern "C" ARM void func_02081870(Struct_02081870* arg0, Struct_02081870_2* arg1
     int var0 = arg2->unknown_13_4_;
     if (arg2->unknown_2a_ & 4) var0 = 5;
     if (arg2->unknown_2a_ & 8) {
-        char* var1 = (char*)func_02072a68(arg0->unknown_0_, arg2->unknown_e_);
+        char* var1 = (char*)FindStringInList_02072a68(arg0->unknown_0_, arg2->unknown_e_);
         if (var1) {
             short var2 = arg1->unknown_a8_ * 8;
             int var3 = func_020d2ff0(var1) >> 1;
@@ -67,9 +67,9 @@ extern "C" ARM void func_02081870(Struct_02081870* arg0, Struct_02081870_2* arg1
     }
     Struct_02046574_2* var4 = (Struct_02046574_2*)GetMessageWindow_020421a0();
     memset(arg0->unknown_18_, 0, 0x800);
-    func_02046380(var4);
+    ClearMessageParams_02046380(var4);
     func_02046574(var4, arg2->unknown_10_, arg2->unknown_0_);
-    void* var5 = func_02072a68(arg0->unknown_0_, arg2->unknown_e_);
+    void* var5 = FindStringInList_02072a68(arg0->unknown_0_, arg2->unknown_e_);
     func_020474a8(var4, arg2->unknown_13_0_, var5, arg0->unknown_18_);
     int var6 = arg2->unknown_13_0_;
     arg1->unknown_b4_ = var6;
@@ -90,7 +90,7 @@ extern "C" ARM void func_02081870(Struct_02081870* arg0, Struct_02081870_2* arg1
     if (arg2->unknown_2a_ & 4) var8 = 5;
     int var9 = func_02042190(arg2->unknown_13_0_);
     if (arg2->unknown_2a_ & 8) {
-        char* var10 = (char*)func_02072a68(arg0->unknown_0_, arg2->unknown_e_);
+        char* var10 = (char*)FindStringInList_02072a68(arg0->unknown_0_, arg2->unknown_e_);
         if (var10) {
             short var11 = arg1->unknown_a8_ * 8;
             arg2->unknown_6_ = (short)(var11 - func_020420e8(var10, var9)) >> 1;
@@ -98,9 +98,9 @@ extern "C" ARM void func_02081870(Struct_02081870* arg0, Struct_02081870_2* arg1
     }
     Struct_02046574_2* var12 = (Struct_02046574_2*)GetMessageWindow_020421a0();
     memset(arg0->unknown_18_, 0, 0x960);
-    func_02046380(var12);
+    ClearMessageParams_02046380(var12);
     func_02046574(var12, arg2->unknown_10_, arg2->unknown_0_);
-    void* var13 = func_02072a68(arg0->unknown_0_, arg2->unknown_e_);
+    void* var13 = FindStringInList_02072a68(arg0->unknown_0_, arg2->unknown_e_);
     func_02046608(var12, arg2->unknown_13_0_, var13, arg0->unknown_18_, 0x100, 0, 0);
     int var14 = arg2->unknown_13_0_;
     arg1->unknown_b4_ = var14;

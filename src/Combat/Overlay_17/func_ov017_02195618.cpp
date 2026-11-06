@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/Brightness.h"
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 struct Struct_0202b2f0;
 extern "C" void func_0202c600(struct Struct_0202b2f0* arg0, int arg1);
 extern "C" void* func_0202ae24(void);
@@ -17,7 +17,7 @@ struct Struct_ov017_02195618 { unsigned char unknown_0_[
 
 // USA: func_ov017_02195618
 extern "C" ARM void func_ov017_02195618(unsigned char* arg0) {
-	void* var0 = func_0202ae18();
+	void* var0 = GetLocalWireless_0202ae18();
 	SetFlags00((GameResources*)arg0, 2);
 	((Struct_ov017_02195618*)arg0)->unknown_42e2_ = 1;
 	func_0202c600((struct Struct_0202b2f0*)var0, 0);

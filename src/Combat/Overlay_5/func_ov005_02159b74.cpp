@@ -8,7 +8,7 @@ enum { Enum_ov005_02159b74_3684 = 0xe64 };
 
 #include <GameState/GameState.h>
 
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
 struct Struct_ov005_02159b74 {
     char unknown_0_[0x38];
@@ -29,7 +29,7 @@ struct Struct_ov005_02153954 {
     Struct_ov005_02159b74_2* unknown_e64_;
 };
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 struct Struct_020e280c;
 extern "C" void func_020e280c(Struct_020e280c*, void*);
@@ -42,7 +42,7 @@ struct Struct_020e28f0;
 extern "C" void func_020e28f0(Struct_020e28f0*, short, short);
 struct Struct_020e263c_2;
 extern "C" void func_020e263c(Struct_020e263c_2*, int);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 // USA: func_ov005_02159b74
 extern "C" ARM void func_ov005_02159b74(Struct_ov005_02153954* arg0) {
@@ -65,5 +65,5 @@ extern "C" ARM void func_ov005_02159b74(Struct_ov005_02153954* arg0) {
     if (var4 == 0)
         var4 = 1;
     func_020e263c((Struct_020e263c_2*)arg0->unknown_e64_, var4);
-    func_0205eaa0((Struct_02108760*)&data_02108760, 5, 0);
+    PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 5, 0);
 }

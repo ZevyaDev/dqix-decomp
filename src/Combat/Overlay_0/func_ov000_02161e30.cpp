@@ -68,7 +68,7 @@ struct Struct_ov000_0215ab88 {
     unsigned short unknown_188_, unknown_18a_;
     unsigned char unknown_18c_, unknown_18d_;
 };
-extern "C" int* func_0202ae18();
+extern "C" int* GetLocalWireless_0202ae18();
 extern "C" Struct_02048934* func_02070fd0(Struct_02070b6c_3*, int);
 extern "C" Struct_02048850_2* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" Struct_ov000_0215ab88* func_0200fea4(GameState*, int);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov000_02161e30(Struct_ov000_02161e30* arg0, int arg1, i
     Struct_ov000_0215ab88* var1;
     Struct_0208ab34_3* const var2 = &arg0->unknown_29c_->unknown_81b0_;
     GameState* var3 = GameState::GetInstance();
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     Struct_ov000_02161e30_6* var4 = arg0->unknown_2a0_;
     Struct_0206f01c_2* var5 = (Struct_0206f01c_2*)arg0->unknown_2a0_->unknown_678_;
     var0 = func_02070fd0((Struct_02070b6c_3*)var4->unknown_684_, arg2);

@@ -7,7 +7,7 @@
 
 #include "GameState/GameState.h"
 
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 struct Struct_02012de8;
 extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
 
@@ -44,7 +44,7 @@ extern "C" ARM int func_02052e44(Struct_02037d88* arg0, signed char arg1) {
     signed char var1;
     GameState* var2;
 
-    if (func_02046708((struct Struct_02012de8*)func_020d6c00(), 2)) {
+    if (func_02046708((struct Struct_02012de8*)GetGlobalFlags_020d6c00(), 2)) {
         return 0;
     }
 

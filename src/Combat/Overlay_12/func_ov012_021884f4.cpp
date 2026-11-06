@@ -38,12 +38,12 @@ extern "C" void func_ov012_0218a438(char* arg0);
 struct Struct_0205c570;
 extern "C" int func_0205d794(struct Struct_0205c570* arg0);
 extern "C" int func_ov023_021e6de4(char* arg0);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 struct Struct_ov012_02186a7c;
 extern "C" int func_ov023_021e6e20(struct Struct_ov012_02186a7c* arg0);
 extern "C" void func_ov012_0218930c(void* arg0, int arg1);
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 // USA: func_ov012_021884f4
 extern "C" ARM void func_ov012_021884f4(char* arg0) {
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov012_021884f4(char* arg0) {
         }
 
         if (var5 != 0) {
-            func_0205eaa0((struct Struct_02108760*)&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
         }
     } else {
         if (func_ov023_021e6e20((struct Struct_ov012_02186a7c*)arg0) != 0) {

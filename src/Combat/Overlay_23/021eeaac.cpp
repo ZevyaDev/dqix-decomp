@@ -25,8 +25,8 @@ extern "C" void func_0207cbe8(char* arg0);
 extern "C" int func_0207d300(void* arg0, int arg1, int arg2, int arg3);
 extern "C" int func_0207ccf0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 
-extern "C" int func_020100a8(GameState* arg0);
-extern "C" Struct_0202b2f0* func_0202ae18(void);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
+extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
 extern "C" void func_0209a338(Struct_0200f3a4_8* arg0);
 extern "C" void func_0209a470(Struct_0209a470* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
@@ -157,7 +157,7 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
         var20 = (Struct_ov023_021eeaac*)(arg0 + Enum_ov023_021eeaac_22736);
         var21 = *(signed char*)(arg0 + Enum_ov023_021eeaac_22785);
         var22 = GameState::GetInstance();
-        var23 = (char*)func_02010828(var22);
+        var23 = (char*)GetParty_02010828(var22);
         var24 = 0;
         for (var14 = 0; var14 < *(unsigned char*)(var23 + 0xf7c); var14++) {
             if (var21 & (1 << *(unsigned char*)(var23 + var14 + 0xf78))) {
@@ -166,7 +166,7 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
             }
         }
         if (var24) {
-            var28 = func_020100a8(var22);
+            var28 = GetProtagonistObjectIndex_020100a8(var22);
             for (var27 = 0; var27 < var9; var27++, var20++) {
                 ((SafeAllocator*)var25)->ResetAllocatorPointer();
                 func_020de824(var25 + 0x14);
@@ -177,7 +177,7 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
                 if (var6 < 0) {
                     var26 = func_0207d300(var25, var20->unknown_0_, 1, 1);
                 } else {
-                    if (var28 != var6 && (func_0202c1c0(func_0202ae18(), var6) != 0 || var28 != 0)) {
+                    if (var28 != var6 && (func_0202c1c0(GetLocalWireless_0202ae18(), var6) != 0 || var28 != 0)) {
                         if (var21 & (1 << var28)) {
                             var6 = var28;
                         }

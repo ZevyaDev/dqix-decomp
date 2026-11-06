@@ -20,11 +20,11 @@ struct Struct_ov005_02153954 {
     unsigned char unknown_3df4_[8];
 };
 
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 // USA: func_ov005_021585fc
 extern "C" ARM int func_ov005_021585fc(Struct_ov005_02153954* arg0, int arg1) {
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov005_021585fc(Struct_ov005_02153954* arg0, int arg1) {
     if (var2 == var1)
         var3 = 0;
     if (var3) {
-        func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
         if (arg1 < 0)
             arg0->unknown_3dcc_ |= 0x20000;
         else

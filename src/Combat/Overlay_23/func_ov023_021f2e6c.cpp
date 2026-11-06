@@ -46,9 +46,9 @@ extern "C" void func_ov023_021d8af8(void* arg0);
 extern "C" void func_ov000_0215fa84(void* arg0, short* arg1, short* arg2, short* arg3);
 struct Struct_0205faf4_7;
 extern "C" void* func_02096134(Struct_0205faf4_7*, int);
-extern "C" void func_02046380(unsigned char* arg0);
-struct Struct_02072a68_2;
-extern "C" char* func_02072a68(Struct_02072a68_2*, int);
+extern "C" void ClearMessageParams_02046380(unsigned char* window);
+struct StringList_02072a68_2;
+extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void func_020e46c4(void* arg0);
 extern "C" unsigned char* func_0200fea4(GameState* arg0, int arg1);
 extern "C" Struct_ov023_021f2e6c_7 func_ov023_021ed804(Struct_ov023_021f2e6c_7 arg0, void* arg1);
@@ -60,8 +60,8 @@ extern "C" void func_0209c6d8(void* arg0, int arg1);
 extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int arg3);
 #endif
 extern "C" void func_ov000_0215fa70(void* arg0, short arg1, short arg2, short arg3);
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_ov023_021ed92c(void);
 struct Struct_ov023_021eeaac_2;
 extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2*);
@@ -88,8 +88,8 @@ struct Struct_020d794c;
 extern "C" char* func_020d794c(Struct_020d794c*, int);
 struct Struct_ov023_021f2e6c_2;
 extern "C" int func_ov023_021f3a8c(Struct_ov023_021f2e6c_2*);
-struct Struct_020465c0;
-extern "C" void func_020465c0(Struct_020465c0*, int, int);
+struct MessageWindow_020465c0;
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" unsigned char* func_ov000_02162d88(void* arg0, unsigned short arg1);
 extern "C" void func_02048614(unsigned char* arg0);
 extern "C" void func_02049c88(unsigned char* arg0, int arg1);
@@ -114,7 +114,7 @@ struct Struct_0202ed0c;
 extern "C" void func_0202ed0c(Struct_0202ed0c_2*, Struct_0202ed0c*);
 
 extern "C" int* _ZZ21inline_ov023_021f4c04vE1s;
-extern char data_02109bf4;
+extern char gMusicManager_02109bf4;
 extern char data_ov023_021fe2ca;
 extern char data_ov023_021fe2e5;
 extern const char* data_020f2a38;
@@ -166,7 +166,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
             func_ov000_0215fa84(*(void**)(arg0 + Enum_ov023_021f2e6c_668), &var6, &var8, &var7);
             void* var9 = func_02096134((Struct_0205faf4_7*)var3, *(short*)(*(char**)(arg0 + Enum_ov023_021f2e6c_668) + 0x8e4a));
             if (var7 != 0 && var9 != 0) {
-                func_02046380(var0);
+                ClearMessageParams_02046380(var0);
 #if defined(jpn)
                 char* var10 = data_ov023_021fd54e;
                 if (var6 == 0x12) var10 = data_ov023_021fd578;
@@ -181,7 +181,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                 if (var6 == 0x12) {
                     var13 = 0x2a;
                 }
-                char* var14 = func_02072a68((Struct_02072a68_2*)(arg0 + 0x5904), var13);
+                char* var14 = FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x5904), var13);
                 Struct_ov023_021f2e6c_7 var15;
                 func_020e46c4(&var15);
                 GameState* var16 = GameState::GetInstance();
@@ -208,7 +208,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                 *(Struct_ov023_021f2e6c_8**)(var0 + 0x18) = &var22;
 
 #endif
-                func_0209c6d8(&data_02109bf4, 0x3e);
+                func_0209c6d8(&gMusicManager_02109bf4, 0x3e);
 #if defined(jpn)
                 StartMessage_0204500c(var0, var10, 1);
 #else
@@ -222,7 +222,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                 return *(int*)(arg0 + Enum_ov023_021f2e6c_3756);
             }
         }
-        if (func_0202c540(func_0202ae18()) != 0) {
+        if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) != 0) {
             return 0xf;
         }
         if (func_ov023_021ed92c() != 0 && *(short*)(*(char**)(arg0 + Enum_ov023_021f2e6c_668) + 0x8e4a) == 0) {
@@ -246,7 +246,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
         func_020d784c((Struct_020d784c*)(*(Struct_ov023_021f2e6c_5**)(arg0 + Enum_ov023_021f2e6c_21908)));
         *(SafeAllocator**)(arg0 + Enum_ov023_021f2e6c_21952) = (SafeAllocator*)((SafeAllocator*)(arg0 + 0x30))->Allocate(0x14);
         (*(SafeAllocator**)(arg0 + Enum_ov023_021f2e6c_21952))->CreateTypeA(((SafeAllocator*)(arg0 + 0x30))->Allocate(0xf000), 0xf000);
-        Struct_0208cb08* var27 = func_02094a00();
+        FontLoader_0208cb08* var27 = func_02094a00();
         func_02094b40(var27);
         func_02094b30(var27, 0x210, 1);
         var1[0] = 1;
@@ -329,7 +329,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
         int var40 = var3->unknown_0_;
         int var41 = 0;
         for (short var42 = *(short*)(arg0 + Enum_ov023_021f2e6c_21900) + 1; var42 < var40; var42++) {
-            if (func_0202c540(func_0202ae18()) != 0 || func_ov023_021ed92c() != 0) {
+            if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) != 0 || func_ov023_021ed92c() != 0) {
                 if (*(short*)(*(char**)(arg0 + Enum_ov023_021f2e6c_668) + 0x8e4a) != var4[var42].unknown_0_.unknown_0_0_) {
                     continue;
                 }
@@ -394,9 +394,9 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                 }
             }
             if (var47 != 0) {
-                func_02046380(var0);
+                ClearMessageParams_02046380(var0);
                 for (int var50 = 0; var50 < 4; var50++) {
-                    func_020465c0((Struct_020465c0*)var0, var50, (*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904))->unknown_70_[var50]);
+                    SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, var50, (*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904))->unknown_70_[var50]);
                 }
 #if defined(jpn)
                 StartMessage_0204500c(var0, func_020d794c((Struct_020d794c*)(*(Struct_ov023_021f2e6c_5**)(arg0 + Enum_ov023_021f2e6c_21908)), (short)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904))->unknown_6c_), 1);

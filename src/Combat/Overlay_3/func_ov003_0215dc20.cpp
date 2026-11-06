@@ -15,7 +15,7 @@ enum { Enum_ov003_0215dc20_1008 = 0x3f0 };
 extern "C" ARM void func_ov003_0215dc20(void* arg0) {
 	unsigned char* var0 = (unsigned char*)arg0;
 	unsigned char var1;
-	Struct_0208cb08* var2;
+	FontLoader_0208cb08* var2;
 	if (var0[Enum_ov003_0215dc20_1004] == 0) return;
 	var1 = var0[Enum_ov003_0215dc20_1005];
 	if (var1 == 0) {

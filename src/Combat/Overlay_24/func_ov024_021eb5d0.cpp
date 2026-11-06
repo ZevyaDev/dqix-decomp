@@ -283,9 +283,9 @@ extern "C" int func_ov024_021eadfc(GameObject*);
 extern "C" int func_ov000_0215a124(void* arg0, int arg1, int arg2);
 extern "C" int func_02083b00(unsigned char* arg0, int arg1);
 extern "C" unsigned int func_020dd290(void* arg0, unsigned int arg1);
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_ov024_021eb47c(Struct_ov024_021ea4d0*, int);
-extern "C" void func_020ac4c0(void* arg0);
+extern "C" void GetBattleRecords_020ac4c0(void* records);
 struct Struct_020a0530;
 extern "C" void func_020a0530(Struct_020a0530*, unsigned int);
 struct Struct_020a01b8;
@@ -319,7 +319,7 @@ extern "C" int func_ov000_02156648(void* arg0, int arg1, int arg2, struct Struct
 int GetAttackBaseDamage(int*, int, int, int*, int*);
 extern "C" void func_ov024_021da550(int* arg0);
 extern "C" int func_ov024_021da55c(int* arg0, void* arg1, unsigned short arg2, unsigned short arg3, int arg4, struct Struct_ov024_021eaa50_2* arg5, int arg6);
-extern "C" unsigned char* func_02053c6c(unsigned char*);
+extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" float func_02074948(int arg0);
 extern "C" int func_ov024_021e67c8(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2);
 extern "C" int func_ov024_021e6948(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2, int arg3);
@@ -382,7 +382,7 @@ extern "C" void func_ov000_021584e8(void* arg0, void* arg1, void* arg2, void* ar
 extern "C" void func_02083e28(unsigned char* arg0, int arg1);
 void ApplyCombatantBuffs(int, int);
 struct GameState;
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 
 // USA: func_ov024_021eb5d0
 extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, struct Struct_ov024_021eb5d0_10* arg1, struct Struct_ov024_021eb5d0_9* arg2, struct Struct_ov024_021eaa50* arg3, unsigned char arg4) {
@@ -544,15 +544,15 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
             }
         }
     }
-    if (var18 == func_020100a8((GameState*)var13)) {
+    if (var18 == GetProtagonistObjectIndex_020100a8((GameState*)var13)) {
         if (func_ov024_021eb47c(arg0, var15->unknown_4_.unknown_0_0_) != 0) {
-            func_020ac4c0(var10);
+            GetBattleRecords_020ac4c0(var10);
             func_020a0530((Struct_020a0530*)var10, 1);
             func_020a01b8((Struct_020a01b8*)(var10 + 0x68), 1);
             func_020ac494(var10);
         }
         if (func_ov000_02159c58(arg0->unknown_10_, (unsigned short)var15->unknown_4_.unknown_0_0_) != 0) {
-            func_020ac4c0(var11);
+            GetBattleRecords_020ac4c0(var11);
             func_020a0674((Struct_020a0674*)var11, 1);
             func_020a017c((Struct_020a017c*)(var11 + 0x68), 1);
             func_020ac494(var11);
@@ -712,7 +712,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                     arg0->unknown_c_->unknown_1c_.unknown_0_7_ = 1;
                     if (IN_RANGE_021eb5d0(var4)) {
                         struct Struct_ov024_021eb5d0_12* var55 = (struct Struct_ov024_021eb5d0_12*)(void*)func_0200ff1c((GameState*)var13, var4);
-                        unsigned char* var56 = func_02053c6c((unsigned char*)var55);
+                        unsigned char* var56 = GetPartyMemberData_02053c6c((unsigned char*)var55);
                         if (var55 != 0 && var56 != 0) {
                             if (*(short*)(var56 + 0x2cc) > 0) {
                                 if (func_02083b00(var55->unknown_150_, 0x28) != 0) {
@@ -764,7 +764,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                 var51 = 0;
                 var45 = 0;
                 func_ov000_0215cd80(arg0->unknown_10_);
-                void* var61 = func_02010828((GameState*)(Struct_0203d028_2*)GameState::GetInstance());
+                void* var61 = GetParty_02010828((GameState*)(Struct_0203d028_2*)GameState::GetInstance());
                 if (arg0->unknown_c_->unknown_1c_.unknown_0_2_ != 0) {
                     if (func_02086ef0((Struct_02048150*)var61, var4) != 0) {
                         func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 6);

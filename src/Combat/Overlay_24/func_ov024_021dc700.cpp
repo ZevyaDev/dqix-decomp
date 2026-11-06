@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 struct Struct_02048150;
 extern "C" int func_02086ef0(Struct_02048150*, int);
 extern "C" void func_ov000_0215a8d4(unsigned char*, int);
@@ -33,7 +33,7 @@ extern "C" ARM void* func_ov024_021dc700(Struct_ov024_021dc700_4* arg0,int arg1,
     unsigned short var4;
     if(arg6 && arg4>0){
         var4=func_ov024_021da644(arg2,arg3->unknown_20_.unknown_2_4_,arg3->unknown_24_.unknown_0_0_);
-        void* var5=func_02010828(GameState::GetInstance());
+        void* var5=GetParty_02010828(GameState::GetInstance());
         if(func_02086ef0((Struct_02048150*)var5, arg1) && var1->currentStats_->primaryStats.currHP==1 && arg3->unknown_4_.unknown_0_0_==0xb7)
             func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 2);
     }else{

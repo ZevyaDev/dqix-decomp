@@ -35,7 +35,7 @@ extern Struct_ov003_0217f340 data_ov003_0217f340;
 extern Struct_020e6d5c_13 data_020e6d5c;
 extern "C" int func_ov017_021959b4();
 extern "C" char* GetMessageWindow_020421a0();
-extern "C" void func_02043204(char*);
+extern "C" void ResetMessageWindow_02043204(char*);
 struct Struct_020e28dc;
 extern "C" int func_020e28dc(Struct_020e28dc*);
 struct Struct_020e25e8;
@@ -61,7 +61,7 @@ extern "C" ARM int func_ov003_02154af4(Struct_ov003_02154af4_3* arg0,unsigned in
  if (arg0->unknown_339_ && !arg0->unknown_338_) {
   if(arg0->unknown_8_) *arg0->unknown_8_=-1;
   arg0->unknown_8_=0;
-  func_02043204(GetMessageWindow_020421a0());
+  ResetMessageWindow_02043204(GetMessageWindow_020421a0());
   arg0->unknown_1ee_=-1; arg0->unknown_1ec_=arg0->unknown_1ee_;
   if(arg0->unknown_1c_ && func_020e28dc((Struct_020e28dc*)arg0->unknown_1c_)) func_020e25e8((Struct_020e25e8*)arg0->unknown_1c_);
   arg0->unknown_1f8_=6; arg0->unknown_1f9_=0; arg0->unknown_339_=0;
@@ -75,7 +75,7 @@ extern "C" ARM int func_ov003_02154af4(Struct_ov003_02154af4_3* arg0,unsigned in
   int var1; Struct_ov003_02154af4* var2; Struct_ov000_0217c638* var3; bool var4; int var5; Struct_ov000_02182a74* var6; GameState* var7;
   var4=false;
   var7=GameState::GetInstance();
-  var6=(Struct_ov000_02182a74*)func_02010828(var7);
+  var6=(Struct_ov000_02182a74*)GetParty_02010828(var7);
   int var8=var6->unknown_f7c_;
   for(var1=0;var1<var8;var1++) {
    var5=var6->unknown_f78_[var1];

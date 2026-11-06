@@ -77,13 +77,13 @@ extern "C" void func_ov009_021867bc(unsigned char*, int);
 struct Struct_ov009_0218742c_8 { char unknown_0_[0x63d4]; unsigned char unknown_63d4_; };
 #endif
 struct Struct_ov009_0218aac8 { unsigned char unknown_0_; unsigned char unknown_1_; unsigned char unknown_2_[5]; };
-struct Struct_0205d81c; struct Struct_02108760; struct Struct_0205c570; struct Struct_0205da38;
+struct Struct_0205d81c; struct SoundEffectManager_02108760; struct Struct_0205c570; struct Struct_0205da38;
 struct Struct_0205d6a0; struct Struct_0204b010; struct Struct_0205d1e0; struct Struct_0205d228;
-struct Struct_0205d274; struct Struct_0205d2bc; struct Struct_0201099c_10; struct Struct_0201099c_18;
-extern "C" void* func_020d6c00();
+struct Struct_0205d274; struct Struct_0205d2bc; struct ItemTable_0201099c_10; struct Struct_0201099c_18;
+extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void func_ov023_021d9f88(Struct_ov009_0218742c_6*);
 extern "C" void func_0205deb4(Struct_0205d81c*, int, int);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" int func_0205d794(Struct_0205c570*);
 extern "C" int func_0205da38(Struct_0205da38*, int);
 extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
@@ -103,7 +103,7 @@ extern "C" void func_0208247c(void*);
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
 extern "C" void func_02082490(void*, void*, unsigned int, int, int);
 extern "C" void func_02083cbc(void*, void*, void*);
-extern "C" void* func_020dedd0(Struct_0201099c_10*, int);
+extern "C" void* func_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" void func_02083e28(void*, int);
 extern "C" void func_020863c4(unsigned char*);
 extern "C" void func_0209a804(int*);
@@ -112,10 +112,10 @@ extern "C" void func_02083b60(unsigned char*, int);
 extern "C" void func_020830cc(void*, Struct_ov009_0218742c*);
 extern "C" void func_02086778(void*, Struct_ov009_0218742c*, unsigned char, unsigned char);
 extern "C" void* func_ov003_0215f4fc(void*, const char*);
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern unsigned char data_ov009_0218a9b4[];
 extern char data_ov009_0218ad2c[];
-extern char data_0211e33c[] __attribute__((aligned(4)));
+extern char gFileScratchSpace_0211e33c[] __attribute__((aligned(4)));
 extern Struct_ov009_0218aac8 data_ov009_0218aac8[];
 extern char data_ov009_0218ad26[];
 
@@ -124,12 +124,12 @@ inline Struct_ov009_0218742c_7* inline_ov009_0218742c_4(Struct_ov009_0218742c* a
 // USA: func_ov009_0218742c
 extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_020d6c00();
+    GetGlobalFlags_020d6c00();
     unsigned int var1 = arg0->unknown_c59_;
     if (var1 == 0) {
         func_ov023_021d9f88(arg0);
         func_0205deb4((Struct_0205d81c*)arg0->unknown_2b4_, 3, 2);
-        func_0205eaa0(&data_02108760, 5, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 5, 0);
         ++arg0->unknown_c59_;
     } else if (var1 == 1) {
         arg0->unknown_d9c_ |= 0x2000;
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
         int var4 = g_keyManager.TestKeysPressed(1);
         int var5 = g_keyManager.TestKeysPressed(0x400);
         if (var3 | (var4 | var5)) {
-            func_0205eaa0(&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             switch (arg0->unknown_d84_) {
             case 0: ++arg0->unknown_c59_; break;
             case 1: var2 = 1; break;
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             func_ov009_021855dc((unsigned char*)arg0, 10);
 #if defined(jpn)
         } else if (arg0->unknown_d95_ == 1) {
-            void* var7 = func_02010828(var0);
+            void* var7 = GetParty_02010828(var0);
             Struct_ov009_0218742c var8;
             func_02086404(&var8);
             func_02083ca0((unsigned char*)arg0->unknown_d88_, arg0->unknown_da2_);
@@ -200,13 +200,13 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             func_0208247c(&var11);
             BackgroundLoader::AddLockGlobal();
             unsigned int var12;
-            void* var13 = LoadFileIntoMemory(var9, data_0211e33c, &var12);
+            void* var13 = LoadFileIntoMemory(var9, gFileScratchSpace_0211e33c, &var12);
             if (var13) func_02082490(&var11, var13, var12, arg0->unknown_d88_->unknown_16c_[arg0->unknown_da2_], 0);
             func_02083cbc(arg0->unknown_d88_, &var11, var11.unknown_3c_);
             BackgroundLoader::RemoveLockGlobal();
             short* var14 = arg0->unknown_d88_->unknown_488_;
             for (int var15 = 0; var15 < 7; ++var15) {
-                void* var16 = func_020dedd0((Struct_0201099c_10*)arg0->unknown_a8_, var14[data_ov009_0218aac8[var15].unknown_0_]);
+                void* var16 = func_020dedd0((ItemTable_0201099c_10*)arg0->unknown_a8_, var14[data_ov009_0218aac8[var15].unknown_0_]);
                 if (var16) memcpy(&arg0->unknown_d88_->unknown_194_[data_ov009_0218aac8[var15].unknown_1_], var16, 32);
             }
             func_02083e28(arg0->unknown_d88_, 0);
@@ -246,7 +246,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
 #else
         } else if (arg0->unknown_d95_ == 1) {
             Struct_ov009_0218742c_9* var25 = arg0->unknown_d88_;
-            void* var26 = func_02010828(var0);
+            void* var26 = GetParty_02010828(var0);
             Struct_ov009_0218742c var27;
             func_02086404(&var27);
             func_02083ca0((unsigned char*)var25, arg0->unknown_da2_);
@@ -260,13 +260,13 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             func_0208247c(&var30);
             BackgroundLoader::AddLockGlobal();
             unsigned int var31;
-            void* var32 = LoadFileIntoMemory(var28, data_0211e33c, &var31);
+            void* var32 = LoadFileIntoMemory(var28, gFileScratchSpace_0211e33c, &var31);
             if (var32) func_02082490(&var30, var32, var31, var25->unknown_16c_[arg0->unknown_da2_], 0);
             func_02083cbc(var25, &var30, var30.unknown_3c_);
             BackgroundLoader::RemoveLockGlobal();
             short* var33 = var25->unknown_488_;
             for (int var34 = 0; var34 < 7; ++var34) {
-                void* var35 = func_020dedd0((Struct_0201099c_10*)arg0->unknown_c8_, var33[data_ov009_0218aac8[var34].unknown_0_]);
+                void* var35 = func_020dedd0((ItemTable_0201099c_10*)arg0->unknown_c8_, var33[data_ov009_0218aac8[var34].unknown_0_]);
                 if (var35) memcpy(&var25->unknown_194_[data_ov009_0218aac8[var34].unknown_1_], var35, 32);
             }
             func_02083e28(var25, 0);

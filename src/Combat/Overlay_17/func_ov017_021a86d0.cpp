@@ -65,16 +65,13 @@ extern "C" int fix32_Atan2(int arg0, int arg1);
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 struct AllocatorUnion;
-extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_020dfec0(void* arg0, void* arg1, void* arg2, unsigned int arg3);
 struct Struct_02046574_2;
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov017_021a933c(void* arg0, int arg1);
 extern "C" void func_0205c790(char*);
 struct Struct_0205ba68;
@@ -82,7 +79,7 @@ extern "C" void func_0205ba68(Struct_0205ba68*, int, int, int);
 struct Struct_0205bacc;
 extern "C" void func_0205bacc(Struct_0205bacc*, int);
 struct Struct_0201099c_3;
-extern "C" void* func_020e0434(Struct_0201099c_3*, int);
+extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_0205cb74(char*, int);
 extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 struct Struct_0205bcdc;
@@ -95,25 +92,25 @@ struct Struct_0205a330;
 extern "C" void func_0205a330(Struct_0205a330*, int);
 extern "C" int func_0205cecc(void* arg0);
 extern "C" int func_0205cb64(void* arg0);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0205ce50(unsigned char* arg0);
 extern "C" int func_020457e0(char* arg0);
-extern "C" unsigned char* func_0205ec34(void);
+extern "C" unsigned char* GetFlagManager_0205ec34(void);
 extern "C" unsigned char* func_0200fd0c(GameState*);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 extern "C" void func_020e1154(void* arg0);
 extern "C" void func_ov017_021d1c2c(unsigned char, unsigned short);
 extern "C" void func_ov017_021d1dc0(unsigned short, int, int*, int, int);
 extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(Struct_0201bdac_2*, Struct_0201bdac*);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
 extern "C" void func_ov017_021baedc(unsigned char* arg0, int arg1);
 extern "C" int func_0201079c(char*);
 extern "C" int func_020107d0(char*);
 extern "C" int func_02010804(char*);
-extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" int func_ov017_021a01b4(char* arg0, int arg1);
 extern "C" void func_ov017_021bbbf8(void*, unsigned short);
 extern "C" void func_020397c0(void* arg0);
@@ -121,8 +118,8 @@ extern "C" void func_ov017_021a92a0(Struct_ov017_021a86d0* arg0);
 
 extern char data_ov017_021d77f0[];
 extern char data_ov017_021d780a[];
-extern char data_02114e20[];
-extern char data_02108760[];
+extern char gMainHeap_02114e20[];
+extern char gSoundEffectManager_02108760[];
 
 static inline unsigned int inline_ov017_021a86d0(void) {
     return (*(volatile unsigned int*)0x4000000 & 0x1f00) >> 8;
@@ -166,7 +163,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             }
             func_02040af0((Struct_0203dce4*)var5, var9);
         }
-        Struct_0208cb08* var10 = func_02094a00();
+        FontLoader_0208cb08* var10 = func_02094a00();
         func_02094b30(var10, 0x205, 0);
         if (func_02094b4c(var10)) {
 #if defined(jpn)
@@ -174,7 +171,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
 #else
             arg0->unknown_28_ = BackgroundLoader::GetInstance()->QueueLoadFileInGP2(data_ov017_021d77f0, data_ov017_021d780a, NULL);
 #endif
-            ((SafeAllocator*)arg0->unknown_264_)->CreateTypeA(func_02012d88((AllocatorUnion*)data_02114e20, Enum_ov017_021a86d0_5120), Enum_ov017_021a86d0_5120);
+            ((SafeAllocator*)arg0->unknown_264_)->CreateTypeA(AllocateRoundedSize_02012d88((AllocatorUnion*)gMainHeap_02114e20, Enum_ov017_021a86d0_5120), Enum_ov017_021a86d0_5120);
             arg0->unknown_8_ = 1;
         }
     } else if (arg0->unknown_8_ == 1) {
@@ -188,7 +185,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             ((BackgroundLoader*)var11)->RemoveTask(arg0->unknown_28_);
             arg0->unknown_28_ = -1;
             func_02046574((Struct_02046574_2*)var1, 0, *(char**)((char*)var0->GetProtagonist() + 0x134));
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             func_ov017_021a933c(arg0, 0x64);
             *(int*)(var1 + Enum_ov017_021a86d0_2456) = 1;
             arg0->unknown_8_ = 2;
@@ -214,9 +211,9 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
                 if (arg0->unknown_18_[var17] == 4) {
                     var16 = 0xc;
                 }
-                func_0205cb74((char*)arg0->unknown_2c_, (int)(func_020e0434((Struct_0201099c_3*)arg0->unknown_278_, arg0->unknown_18_[var17])));
+                func_0205cb74((char*)arg0->unknown_2c_, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_278_, arg0->unknown_18_[var17])));
             }
-            func_0205cb74((char*)arg0->unknown_2c_, (int)(func_020e0434((Struct_0201099c_3*)arg0->unknown_278_, 6)));
+            func_0205cb74((char*)arg0->unknown_2c_, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_278_, 6)));
             int var18 = arg0->unknown_20_;
             int var19 = 0x60 - (var18 + 1) * 0xe;
             if (var18 == 2) {
@@ -260,7 +257,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
         var1[Enum_ov017_021a86d0_6574] = 0;
         int var26 = func_0205cecc(arg0->unknown_2c_);
         if (g_keyManager.TestKeysPressed(1)) {
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             var26 = func_0205cb64(arg0->unknown_2c_);
         } else if (g_keyManager.TestKeysPressed(2)) {
             var26 = -2;
@@ -272,7 +269,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             arg0->unknown_8_ = 4;
         }
     } else if (arg0->unknown_8_ == 4) {
-        func_02043204(var1);
+        ResetMessageWindow_02043204(var1);
         arg0->unknown_8_ = 100;
     } else if (arg0->unknown_8_ == 5) {
         arg0->unknown_c_ = *(unsigned short*)(var2 + Enum_ov017_021a86d0_10164);
@@ -305,7 +302,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
     } else if (arg0->unknown_8_ == 99) {
         int var27;
         int var28;
-        unsigned char* var29 = func_0205ec34();
+        unsigned char* var29 = GetFlagManager_0205ec34();
         char* var30 = (char*)GetGameResources();
         void* var31 = *(void**)(var30 + Enum_ov017_021a86d0_14076);
         unsigned char* var32 = func_0200fd0c(var0);
@@ -373,7 +370,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             func_0200fcfc(var0, var32);
             unsigned char* var35 = *(unsigned char**)(var30 + Enum_ov017_021a86d0_14092);
             func_ov017_0219e310(var35, 0);
-            func_020469b4((Struct_0201bdac_2*)var31, (Struct_0201bdac*)var35);
+            AppendToQueue_020469b4((Queue_0201bdac_2*)var31, (QueueNode_0201bdac*)var35);
             if (var33) {
                 func_ov017_021a65c4(var30, 1, 0);
             }
@@ -436,17 +433,17 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             int var39 = func_02010804((char*)var0);
             if (var27 == 10 && var28 == 8 && var39 == 1) {
                 if (arg0->unknown_14_ == 0 && arg0->unknown_10_ == 1 &&
-                    func_0206dfb0((int)var29, var29 + 0x8c, 4) &&
-                    func_0206dfb0((int)var29, var29 + 0x8c, 5) &&
-                    func_0206dfb0((int)var29, var29 + 0x8c, 6) &&
-                    func_0206dfb0((int)var29, var29 + 0x8c, 7) &&
-                    func_0206dfb0((int)var29, var29 + 0x8c, 8) &&
-                    func_0206dfb0((int)var29, var29 + 0x8c, 9) &&
-                    func_0206dfb0((int)var29, var29 + 0x8c, 10)) {
+                    IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 4) &&
+                    IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 5) &&
+                    IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 6) &&
+                    IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 7) &&
+                    IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 8) &&
+                    IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 9) &&
+                    IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 10)) {
                     var38 = 0x7080;
                 }
             } else if (var27 == 0x11 && var28 == 1 && var39 == 1 && arg0->unknown_14_ == 1 && arg0->unknown_10_ == 3) {
-                if (func_0206dfb0((int)var29, var29 + 0x8c, 0x15)) {
+                if (IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 0x15)) {
                     var38 = 0x721a;
                 }
             }
@@ -459,15 +456,15 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             }
             *(unsigned short*)(var36 + 8) = var37;
             func_ov017_021bbbf8(var36, var38);
-            func_020469b4((Struct_0201bdac_2*)var31, (Struct_0201bdac*)var36);
+            AppendToQueue_020469b4((Queue_0201bdac_2*)var31, (QueueNode_0201bdac*)var36);
             int var40[3];
             func_ov017_021d1c2c(arg0->unknown_10_, 0);
             func_ov017_021d1dc0(arg0->unknown_10_, 0, var40, var37, var38);
         }
         arg0->unknown_8_ = 100;
-        func_02043204(var1);
+        ResetMessageWindow_02043204(var1);
     } else if (arg0->unknown_8_ == 100 && *(int*)(var1 + Enum_ov017_021a86d0_2464) == 0) {
-        func_02043204(var1);
+        ResetMessageWindow_02043204(var1);
         func_0205ce50(arg0->unknown_2c_);
         func_020397c0(var0->GetProtagonist());
         func_ov017_021a92a0(arg0);

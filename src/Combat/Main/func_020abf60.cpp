@@ -7,16 +7,13 @@ enum { Enum_020abf60_30192 = 0x75f0 };
 #endif
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
 #endif
 
-extern "C" void* func_0205ec34(void);
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
 struct Struct_02097430_2;
 struct Struct_02097430 {
@@ -44,9 +41,9 @@ extern "C" ARM int func_020abf60(void* arg0) {
     if (arg0 == 0) {
         return 0;
     }
-    Struct_020abf60* var0 = static_cast<Struct_020abf60*>(func_0205ec34());
-    if (func_0206dfb0((int)var0, var0->unknown_8c_, 0x796) == 0 ||
-        func_0206dfb0((int)var0, var0->unknown_8c_, 0x1143) != 0) {
+    Struct_020abf60* var0 = static_cast<Struct_020abf60*>(GetFlagManager_0205ec34());
+    if (IsFlagSet_0206dfb0((int)var0, var0->unknown_8c_, 0x796) == 0 ||
+        IsFlagSet_0206dfb0((int)var0, var0->unknown_8c_, 0x1143) != 0) {
         return 0;
     }
     func_0206df6c(var0, var0->unknown_8c_, 0x1143, 1);

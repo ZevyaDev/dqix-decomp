@@ -4,15 +4,15 @@
 #include "Resource/GameResources.h"
 #include "Combat/CombatantRecovery.h"
 
-struct Struct_0203d028 { unsigned char unknown_0_[0x70]; };
+struct TextureVRAMArea_0203d028 { unsigned char unknown_0_[0x70]; };
 struct Struct_ov017_0218f064_6;
 struct Struct_ov017_021bdc34 {
     unsigned char unknown_0_[4];
     SafeAllocator unknown_4_;
     unsigned char unknown_18_[0xcc - 0x18];
-    Struct_0203d028 unknown_cc_;
+    TextureVRAMArea_0203d028 unknown_cc_;
     unsigned char unknown_13c_[0x1ac - 0x13c];
-    Struct_0203d028 unknown_1ac_;
+    TextureVRAMArea_0203d028 unknown_1ac_;
     unsigned char unknown_21c_[0x52c - 0x21c];
     SafeAllocator unknown_52c_;
 };
@@ -36,9 +36,9 @@ struct Struct_ov017_021bdc34_3 {
     unsigned char unknown_11_;
 };
 extern "C" Struct_ov017_021bdc34* func_ov017_021a11b4(Struct_ov017_0218f064_6*);
-extern "C" void func_0207df50(Struct_0203d028*);
-extern "C" void func_0207df90(char*);
-extern "C" void func_0207dfac(char*);
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
+extern "C" void RestoreTextureVRAMState_0207df90(char*);
+extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_ov017_021bdb78(int);
 extern "C" void func_ov017_0218fcf8(int, int, int);
 extern "C" void func_ov017_0218f5a4(void*, int, int, int, int);
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov017_021bdc34(Struct_ov017_021bdc34_3* arg0) {
         return;
     }
     SafeAllocator* var5[4] = {&var4->unknown_4_, &var4->unknown_4_, &var4->unknown_52c_, &var4->unknown_4_};
-    Struct_0203d028* var6[4] = {&var4->unknown_cc_, &var4->unknown_cc_, &var4->unknown_1ac_, &var4->unknown_cc_};
+    TextureVRAMArea_0203d028* var6[4] = {&var4->unknown_cc_, &var4->unknown_cc_, &var4->unknown_1ac_, &var4->unknown_cc_};
     if (arg0->unknown_10_ == 0) {
         if (arg0->unknown_11_ == 1 && var1->unknown_4334_ != 0 && var1->unknown_4338_ != 0) {
             if (var3->unknown_18c_ & 0x40) { arg0->unknown_1_ = 1; return; }
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov017_021bdc34(Struct_ov017_021bdc34_3* arg0) {
 #endif
                 for (int var7 = 0; var7 < 4; var7++) {
                     var5[var7]->Reset();
-                    func_0207df50(var6[var7]);
+                    ResetTextureVRAMState_0207df50(var6[var7]);
                 }
             } else {
                 for (int var8 = 0; var8 < 4; var8++) arg0->unknown_8_[var8] = -1;
@@ -128,11 +128,11 @@ extern "C" ARM void func_ov017_021bdc34(Struct_ov017_021bdc34_3* arg0) {
                     var15.unk_10 = 1;
                     var15.allocator = var13;
                     var15.unk_8 = var12;
-                    Struct_0203d028* var16 = var6[var10];
-                    func_0207df90((char*)var16);
+                    TextureVRAMArea_0203d028* var16 = var6[var10];
+                    RestoreTextureVRAMState_0207df90((char*)var16);
                     var14->Initialize();
                     var14->LoadFromCCHROrCMOTArchive(&var15, 0);
-                    func_0207dfac((char*)var16);
+                    SaveTextureVRAMState_0207dfac((char*)var16);
                     switch (var10) {
                     case 0: var1->unknown_4334_ = var14; break;
                     case 1: var1->unknown_4338_ = var14; break;

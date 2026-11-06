@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_0202ae24(void);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
 struct Struct_ov017_021d0e00 {
@@ -23,7 +23,7 @@ extern "C" ARM void func_ov017_021d0e00(int arg0) {
     GameState* var3 = GameState::GetInstance();
     GameObject* var4 = var3->GetPartyMemberByIndex(arg0);
     if (!var4) return;
-    int var5 = func_02053c6c((unsigned char*)var4);
+    int var5 = GetPartyMemberData_02053c6c((unsigned char*)var4);
     if (!var5) return;
 
     var2[0] = (unsigned char)arg0;

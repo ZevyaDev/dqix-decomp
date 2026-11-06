@@ -15,10 +15,10 @@ extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" void func_020a0cc4(unsigned int arg0);
 extern "C" void func_020a0c0c(void);
 extern "C" int func_0201b5b0(int arg0);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 #if defined(jpn)
 #define data_ov017_021d7b53 data_ov017_021d8293
 #define data_ov017_021d7b57 data_ov017_021d8297
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_021b4a88(Struct_ov017_021b4a88* arg0) {
 
             SafeAllocator var6;
             var6.ResetAllocatorPointer();
-            var6.CreateTypeA(func_02012d88(&data_02114e20, 0x800), 0x800);
+            var6.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x800), 0x800);
             var6.Reset();
 
             NarcHandle var7;
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov017_021b4a88(Struct_ov017_021b4a88* arg0) {
             int var16 = var15 % 20;
             SafeAllocator var17;
             var17.ResetAllocatorPointer();
-            var17.CreateTypeA(func_02012d88(&data_02114e20, 0x600), 0x600);
+            var17.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x600), 0x600);
             var17.Reset();
             if (func_0201b5b0(var15)) {
                 int var18 = var2->CalculateAndStoreFloorWidth(var16);
@@ -99,19 +99,19 @@ extern "C" ARM void func_ov017_021b4a88(Struct_ov017_021b4a88* arg0) {
                 var21.Clear();
                 var21.Clear();
                 var21.AllocateBuffers(&var17);
-                TileFeaturePlacementData* var22 = (TileFeaturePlacementData*)func_02012d88(&data_02114e20, sizeof(TileFeaturePlacementData) * 256);
+                TileFeaturePlacementData* var22 = (TileFeaturePlacementData*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, sizeof(TileFeaturePlacementData) * 256);
                 var20->CalculateFloorMap(var16, var18, var19, &var21);
                 func_02019728(var1, var16, &var3, var22, &var21);
                 func_0201a300(var1, var16, arg0->unknown_8_, var22, &var21);
-                func_02012da4(&data_02114e20, var22);
+                FreeMemory_02012da4(&gMainHeap_02114e20, var22);
                 var21.Clear2();
             }
             void* var23 = var6.GetSignedAllocator();
             var6.Destroy();
-            func_02012da4(&data_02114e20, var23);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var23);
             void* var24 = var17.GetSignedAllocator();
             var17.Destroy();
-            func_02012da4(&data_02114e20, var24);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var24);
             func_020a0c0c();
         }
         var0->RemoveTask(arg0->unknown_c_);

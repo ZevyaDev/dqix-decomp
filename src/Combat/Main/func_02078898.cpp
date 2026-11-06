@@ -6,8 +6,8 @@ struct Struct_ov009_0218aa28 { int unknown_0_; int unknown_4_; int unknown_8_; }
 
 struct Struct_02039df4 { char unknown_0_[0x6]; unsigned short unknown_6_; };
 
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 struct Struct_02033834_2;
 extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
@@ -20,7 +20,7 @@ struct Struct_02037d88_8;
 extern "C" struct Struct_ov009_0218aa28 func_02034104(void* arg0);
 extern "C" int fix32_Atan2(int arg0, int arg1);
 
-extern char data_02108760;
+extern char gSoundEffectManager_02108760;
 
 struct Struct_02078898 {
     char unknown_0_[0x6];
@@ -56,7 +56,7 @@ extern "C" ARM int func_02078898(struct Struct_02078898* arg0) {
     unsigned short var7 = ((Object3D*)((struct Struct_02039df4*)var6))->GetField06();
     unsigned short var8 = ((Object3D*)((struct Struct_02039df4*)arg0))->GetField06();
     if (var7 == var8 && *((unsigned char*)var5 + 3) == 0) {
-        func_0205eaa0((struct Struct_02108760*)&data_02108760, 6, 0);
+        PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 6, 0);
     }
 
     struct Struct_ov009_0218aa28 var9 = func_02034104(var2);

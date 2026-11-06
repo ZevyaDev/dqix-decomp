@@ -41,8 +41,8 @@ struct Struct_02077500_3 {
 extern "C" Struct_020fdd44* func_02027ca4();
 extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44* arg0, int arg1);
 extern "C" Struct_02077500_2* func_020283c0(Struct_0201a300_11* arg0, int arg1);
-extern "C" void func_0202ae18();
-extern "C" int func_0202c508();
+extern "C" void GetLocalWireless_0202ae18();
+extern "C" int IsNotLocalWirelessGuest_0202c508();
 extern "C" void func_ov017_021c927c(int arg0, int arg1, int arg2, Struct_02077500 arg3, int arg4, int arg5, int arg6);
 
 // USA: func_02077500
@@ -62,8 +62,8 @@ extern "C" ARM int func_02077500(Struct_02077500_3* arg0) {
     arg0->unknown_b2_ = 0;
     ((Object3D*)((Struct_02037d88_9*)arg0))->TransitionInheritedAlpha(0, 0xfa);
     ((Object3D*)((unsigned char*)arg0))->EnableFlag(0x80);
-    func_0202ae18();
-    if (func_0202c508() != 0) {
+    GetLocalWireless_0202ae18();
+    if (IsNotLocalWirelessGuest_0202c508() != 0) {
         Struct_02077500_2* var3 = func_020283c0(var2, arg0->unknown_164_);
         if (var3 == 0) {
             return 0;

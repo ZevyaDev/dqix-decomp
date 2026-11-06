@@ -8,7 +8,7 @@
 
 struct Struct_02095384 {
     int unknown_0_;
-    Struct_0208cb08* unknown_4_;
+    FontLoader_0208cb08* unknown_4_;
 };
 
 struct Struct_02095384_2 {
@@ -49,7 +49,7 @@ extern "C" ARM int func_02095384(int arg0, int arg1, Struct_02095384_2* arg2) {
         var1 = var6;
     }
     int var5;
-    Struct_0208cb08* var3 = data_02109400.unknown_4_;
+    FontLoader_0208cb08* var3 = data_02109400.unknown_4_;
     char var4[0x30];
     __clear(var4, 0x30);
     switch (arg0) {

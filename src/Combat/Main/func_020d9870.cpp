@@ -10,19 +10,19 @@ extern char data_020f29cc;
 
 extern "C" int func_ov017_021959b4(void);
 extern "C" void* GetMessageWindow_020421a0(void);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" char* func_020100f8(char*);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void func_020d9a58(void* arg0);
-extern "C" int func_0202b7d8(int* arg0);
-extern "C" int func_0202c508(void* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021cf730(int arg0, int arg1);
 extern "C" void func_020a27b8(unsigned char* arg0);
 extern "C" void func_020531f0(void* arg0);
 struct Struct_02018300_3;
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020e11a4(void);
-extern "C" void func_02046380(void* arg0);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" int func_020e51cc(int arg0);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int arg3);
@@ -30,7 +30,7 @@ extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int ar
 extern "C" int func_020457e0(void* arg0);
 extern "C" void func_ov017_021ab860(short arg0, int arg1);
 extern "C" void func_020e1154(void* arg0);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_020397c0(void* arg0);
 extern "C" void func_020d9ab0(void* arg0);
 extern "C" int func_0201b5d8(int arg0);
@@ -53,8 +53,8 @@ extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
     GetGameResources();
     void* var1 = var0->GetUnknownGameObject();
     void* var2 = GetMessageWindow_020421a0();
-    Struct_0208cb08* var3 = func_02094a00();
-    void* var4 = func_0202ae18();
+    FontLoader_0208cb08* var3 = func_02094a00();
+    void* var4 = GetLocalWireless_0202ae18();
     char* var5 = func_020100f8((char*)var0);
     unsigned short* var6 = GetZone3D_02012fe4();
 
@@ -64,7 +64,7 @@ extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
     }
 
     if (arg0->unknown_8_ == 0) {
-        if (func_0202b7d8((int*)var4) != 0 && func_0202c508(var4) != 0) {
+        if (IsLocalWirelessOn_0202b7d8((int*)var4) != 0 && IsNotLocalWirelessGuest_0202c508(var4) != 0) {
             func_ov017_021cf730(-1, 0);
         }
         func_020a27b8((unsigned char*)var5);
@@ -82,7 +82,7 @@ extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
             func_020397cc((Struct_02018300_3*)var1, 1);
         }
         func_020e11a4();
-        func_02046380(var2);
+        ClearMessageParams_02046380(var2);
 #if defined(jpn)
         StartMessage_0204500c(var2, &data_020f29cc, 0);
 #else
@@ -97,7 +97,7 @@ extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
                 func_ov017_021ab860(*(short*)((char*)var1 + 4), 1);
                 func_020e1154((void*)0xbb8);
             }
-            func_02043204((char*)var2);
+            ResetMessageWindow_02043204((char*)var2);
             arg0->unknown_8_ = 5;
         }
     } else if (arg0->unknown_8_ == 5) {

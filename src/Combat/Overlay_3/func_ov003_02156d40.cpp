@@ -5,11 +5,11 @@ void *_ZN9GameState11GetInstanceEv(void);
 int func_02080468(void *, int);
 void func_0208203c(void *);
 int func_ov003_021550dc(void *);
-void func_0205eaa0(void *, int, int);
-int func_020100a8(void *);
+void PlaySoundEffect_0205eaa0(void *, int, int);
+int GetProtagonistObjectIndex_020100a8(void *);
 int func_ov003_02155f88(void *, int);
 void func_0207fe44(void *);
-void *func_02010828(void *);
+void *GetParty_02010828(void *);
 int func_ov003_02155208(void *);
 void func_ov003_02155580(void *, int);
 int func_ov003_02155618(void *);
@@ -17,7 +17,7 @@ int func_ov003_02155fc0(void *, int);
 void func_ov003_02158334(void *);
 }
 
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 
 struct Struct_ov003_02156d40 {
 #if defined(jpn)
@@ -64,7 +64,7 @@ struct Struct_ov003_02156d40_3 {
 // USA: func_ov003_02156d40
 extern "C" ARM void func_ov003_02156d40(struct Struct_ov003_02156d40_3 *arg0) {
     void *var0              = _ZN9GameState11GetInstanceEv();
-    struct Struct_ov003_02156d40_2 *var1   = (struct Struct_ov003_02156d40_2 *) func_02010828(var0);
+    struct Struct_ov003_02156d40_2 *var1   = (struct Struct_ov003_02156d40_2 *) GetParty_02010828(var0);
     struct Struct_ov003_02156d40 *var2 = (struct Struct_ov003_02156d40 *) arg0->unknown_18_;
     if (arg0->unknown_1f9_ == 0) {
         func_ov003_02155580(arg0, 0);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov003_02156d40(struct Struct_ov003_02156d40_3 *arg0) {
         if (var3 != -1) {
             if (var3 == 1) {
                 if (arg0->unknown_1fb_ == 0) {
-                    arg0->unknown_1f7_  = func_020100a8(var0);
+                    arg0->unknown_1f7_  = GetProtagonistObjectIndex_020100a8(var0);
                     arg0->unknown_1f9_ = 0;
                     if (func_ov003_02155f88(arg0, arg0->unknown_1f7_)) {
                         arg0->unknown_1ec_  = 8;
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov003_02156d40(struct Struct_ov003_02156d40_3 *arg0) {
     }
     arg0->unknown_8_ = &arg0->unknown_1e2_;
     if (func_ov003_021550dc(arg0) != 0) {
-        func_0205eaa0(data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(gSoundEffectManager_02108760, 1, 0);
         func_0208203c(arg0->unknown_80_);
         arg0->unknown_8_  = 0;
         short var4    = (short) (arg0->unknown_1e2_ - func_02080468(var2, arg0->unknown_1e6_));

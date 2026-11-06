@@ -5,13 +5,13 @@
 
 extern "C" int func_02046b08(void** arg0);
 extern "C" void func_ov017_02199e98(void* arg0);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int func_02039750(void* arg0);
 extern "C" int func_0203402c(struct Struct_0203402c* arg0);
 extern "C" unsigned char func_02039820(void* arg0);
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_ov017_021a5bac(unsigned char* arg0);
 extern "C" void func_ov017_021996fc(unsigned char* arg0);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
     var0->GetProtagonist();
     GameObject* var1 = var0->GetUnknownGameObject();
-    unsigned char* var2 = (unsigned char*)func_02010828(var0);
+    unsigned char* var2 = (unsigned char*)GetParty_02010828(var0);
     int var3 = func_02039750(var1);
 
     if (var3 == -1) {
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* arg0) {
                 *(short*)((char*)var1 + 0xac) == 0) {
                 func_020397cc((Struct_02018300_3*)var1, 1);
                 *(unsigned short*)((char*)var1 + 0xb2) = 0;
-                func_020466e4((unsigned int*)func_020d6c00(), 0x400);
+                func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x400);
                 func_ov017_021a5bac(arg0);
 
                 volatile unsigned short* var4 = (volatile unsigned short*)0x400000a;
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* arg0) {
         }
     }
 
-    if (func_02046708((Struct_02012de8*)func_020d6c00(), 4) != 0) {
+    if (func_02046708((Struct_02012de8*)GetGlobalFlags_020d6c00(), 4) != 0) {
         func_ov017_02199e98(arg0);
         return;
     }

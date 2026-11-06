@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_0205c570;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0205d6a0;
 
 struct Struct_ov000_0217d438 {
@@ -46,19 +46,19 @@ struct Struct_ov000_0217d438_3 {
 };
 
 extern "C" int func_0205d794(struct Struct_0205c570* arg0);
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
 extern "C" int func_ov000_0217c5f4(void* arg0);
 extern "C" int func_ov000_0217c594(void* arg0, int arg1);
 extern "C" void func_ov000_0217c638(void* arg0, int arg1, int arg2);
 extern "C" void* func_ov000_02161318(void* arg0, int arg1);
-extern "C" struct Struct_ov000_0217d438* func_02053c6c(unsigned char* arg0);
+extern "C" struct Struct_ov000_0217d438* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov000_02170ffc(void* arg0);
 extern "C" int func_ov000_02177798(void* arg0);
 extern "C" void func_ov017_021c847c();
 extern "C" void func_ov000_0217fa60(void* arg0);
 extern "C" void func_ov000_02174c14(void* arg0);
-extern struct Struct_02108760 data_02108760;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 static inline int inline_ov000_02156cc4_2(signed char arg0) {
     return arg0 >= 0 && arg0 <= 3;
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov000_0217d438(struct Struct_ov000_0217d438_3* arg0, in
     arg0->unknown_1d72_ |= 0x100;
     arg0->unknown_1d6c_ = func_0205d794((struct Struct_0205c570*)arg0->unknown_188_);
     if (func_ov000_0217c594(arg0, 0) != 0) {
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         GameState* var0 = GameState::GetInstance();
         arg0->unknown_1d72_ |= 0x100;
         signed char var1 = arg0->unknown_1d74_[arg0->unknown_1d6b_];
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov000_0217d438(struct Struct_ov000_0217d438_3* arg0, in
             if (var2 != NULL) {
                 GameObject* var3 = var0->GetPartyMemberByIndex(var1);
                 if (var3 != NULL) {
-                    struct Struct_ov000_0217d438* var4 = func_02053c6c((unsigned char*)var3);
+                    struct Struct_ov000_0217d438* var4 = GetPartyMemberData_02053c6c((unsigned char*)var3);
                     if ((signed char)var4->unknown_94c_ != arg0->unknown_1d6c_) {
                         var4->unknown_94c_ = arg0->unknown_1d6c_;
                         func_ov000_02170ffc(var2);
@@ -97,10 +97,10 @@ extern "C" ARM void func_ov000_0217d438(struct Struct_ov000_0217d438_3* arg0, in
                 if (var5->unknown_24_ & 2) {
                     continue;
                 }
-                if (!(var7->obj3D_.unknown_0_ & 0x1000)) {
+                if (!(var7->obj3D_.classFlags_0_ & 0x1000)) {
                     continue;
                 }
-                struct Struct_ov000_0217d438* var8 = func_02053c6c((unsigned char*)var7);
+                struct Struct_ov000_0217d438* var8 = GetPartyMemberData_02053c6c((unsigned char*)var7);
                 if ((signed char)var8->unknown_94c_ == arg0->unknown_1d6c_) {
                     continue;
                 }

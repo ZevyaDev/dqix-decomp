@@ -37,7 +37,7 @@ extern "C" ARM void func_020339c8(Struct_020339c8* arg0) {
     if (!var1 || !var1->unknown_34_) return;
     Struct_02028430_2* var2 = func_02028430(&var1->unknown_18_, arg0->unknown_b8_);
     if (!var2) return;
-    if (arg0->unknown_0_ & 0x1200) {
+    if (arg0->classFlags_0_ & 0x1200) {
         int var3 = func_02028524(&var1->unknown_18_, func_02034104(arg0));
         if (var3 > -1) arg0->unknown_b8_ = var3;
     } else if (var2->unknown_2_) {

@@ -11,13 +11,13 @@ extern "C" char data_ov002_0216d92c[];
 #endif
 
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3 *arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int func_02041c08(char *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" int func_02041ea4(char *arg0, int arg1);
 extern "C" int func_02041fac(char *arg0, int arg1, int arg2);
 extern "C" int func_02041e70(char *arg0, int arg1);
 extern "C" int func_02041b70(char *arg0, int arg1, const char *arg2);
-extern "C" int func_02042058(char *arg0, const char *arg1);
+extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_ov002_02159774(void *arg0, int arg1, int arg2, int arg3, int arg4);
 
 // USA: func_ov002_0215c348
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov002_0215c348(unsigned char *arg0, char *arg1, int arg
 #if defined(jpn)
     int var3 = (int) data_ov002_0216d92c;
 #else
-    int var3 = func_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), 0x5dc);
+    int var3 = FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), 0x5dc);
 #endif
     func_02041fac(arg1, var3, 0x16);
 
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov002_0215c348(unsigned char *arg0, char *arg1, int arg
             func_02041e70(arg1, 0xf);
             var2++;
             if (var6 != var4 - 1) {
-                func_02042058(arg1, *(const char **) (arg0 + 0x1000 + RG(0xbdc, 0xaa4)));
+                AppendText_02042058(arg1, *(const char **) (arg0 + 0x1000 + RG(0xbdc, 0xaa4)));
             }
         }
     }

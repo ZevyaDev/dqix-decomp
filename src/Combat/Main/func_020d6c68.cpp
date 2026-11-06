@@ -4,7 +4,7 @@
 #include "NitroSDK/OverlayId.h"
 
 extern "C" void func_020a1940(unsigned int arg0);
-extern char data_0211e33c;
+extern char gFileScratchSpace_0211e33c;
 
 // USA: func_020d6c68
 extern "C" ARM void func_020d6c68() {
@@ -12,5 +12,5 @@ extern "C" ARM void func_020d6c68() {
         return;
     }
     func_020a1940(OVERLAY_ID(34));
-    PopulateOv33BackgroundLoader(&data_0211e33c, 0x30000, 0x14);
+    PopulateOv33BackgroundLoader(&gFileScratchSpace_0211e33c, 0x30000, 0x14);
 }

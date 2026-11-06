@@ -10,9 +10,9 @@ extern "C" void func_ov017_021b6f18(void* arg0);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
 extern "C" bool func_ov017_021b6e70(void* arg0, int arg1);
 extern "C" void func_ov017_021b7104(unsigned char* arg0, void* arg1);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 struct Struct_ov017_021c5b44 {
 #if defined(jpn)
@@ -75,6 +75,6 @@ extern "C" ARM void func_ov017_021c5b44(unsigned char arg0, int arg1, unsigned i
 
         func_ov017_021b7104((unsigned char*)var4, &var6);
 
-        func_020469b4((struct Struct_0201bdac_2*)var3, (struct Struct_0201bdac*)var4);
+        AppendToQueue_020469b4((struct Queue_0201bdac_2*)var3, (struct QueueNode_0201bdac*)var4);
     }
 }

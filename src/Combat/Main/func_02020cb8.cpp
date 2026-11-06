@@ -4,11 +4,11 @@
 
 struct Struct_020534ac;
 
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 
-struct Struct_02020aec;
-extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
 struct Struct_02020cb8;
 extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
@@ -57,9 +57,9 @@ extern "C" ARM void func_02020cb8(void* arg0, Type_02020aec arg1) {
         *arg1
 #endif
 , &var1, &var2);
-    int var8 = func_02046900((struct Struct_02020cb8_4*)var1);
+    int var8 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var1);
     for (int var9 = 0; var9 < var8; var9++) {
-        var4[var9] = func_020467f0((struct Struct_02020aec*)var1, var9, &var3, &var5[var9]);
+        var4[var9] = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var1, var9, &var3, &var5[var9]);
     }
 
     func_0204af64((struct Struct_02020cb8*)&var6);

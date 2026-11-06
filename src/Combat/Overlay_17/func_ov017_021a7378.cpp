@@ -68,8 +68,8 @@ struct Struct_ov017_021a7378 {
     unsigned char unknown_61_;
 };
 
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
 
 struct Struct_ov017_021a7378_2 {
     char unknown_0_[4];
@@ -112,9 +112,9 @@ extern "C" void func_020d7aa0(Struct_020d7aa0_2* arg0);
 extern "C" void func_020a0cc4(unsigned int arg0);
 extern "C" void func_020ae38c(unsigned char* arg0);
 extern "C" void func_020ae380(unsigned char* arg0);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020dfec0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
-extern "C" int func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
 extern "C" int func_020457e0(Struct_ov000_0217964c_3* arg0);
@@ -124,18 +124,18 @@ extern "C" void* func_02033fa0(void* arg0);
 extern "C" int func_0204bedc(unsigned short* arg0);
 extern "C" int func_0204bef4(Struct_0204bef4* arg0);
 extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
-extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
+extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
-extern "C" void func_ov017_021baedc(Struct_0201bdac* arg0, int arg1);
+extern "C" void func_ov017_021baedc(QueueNode_0201bdac* arg0, int arg1);
 extern "C" void func_ov017_021d1c2c(unsigned char arg0, unsigned short arg1);
 extern "C" void func_ov017_021d1dc0(unsigned short, int, int*, int, int);
 extern "C" void* func_02094d6c(void);
 extern "C" Struct_ov017_021a7378_2* func_02096134(Struct_0205faf4_7* arg0, int arg1);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0205ce50(unsigned char* arg0);
 extern "C" void func_ov017_021a79f0(Struct_ov017_021a7378_3* arg0);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 #if defined(jpn)
 extern const char data_ov017_021d7bd4[];
 #else
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1100;
         func_020a0cc4(Enum_ov017_021a7378_5120);
         func_020ae38c((unsigned char*)func_0200ffd0((Struct_0200ffd0*)var0));
-        Struct_0208cb08* var5 = func_02094a00();
+        FontLoader_0208cb08* var5 = func_02094a00();
         func_02094b30(var5, 0x205, 0);
         if (func_02094b4c(var5)) {
 #if defined(jpn)
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
 #else
             arg0->unknown_20_ = BackgroundLoader::GetInstance()->QueueLoadFileInGP2(data_ov017_021d7798, data_ov017_021d77b2, NULL);
 #endif
-            arg0->unknown_25c_.CreateTypeA(func_02012d88(&data_02114e20, Enum_ov017_021a7378_5120), Enum_ov017_021a7378_5120);
+            arg0->unknown_25c_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021a7378_5120), Enum_ov017_021a7378_5120);
             arg0->unknown_8_ = 1;
         }
     } else if (arg0->unknown_8_ == 1) {
@@ -182,16 +182,16 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
             arg0->unknown_20_ = -1;
             if (arg0->unknown_c_ == 0) {
 #if defined(jpn)
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x23), 0);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x23), 0);
 #else
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x23), 0, 0xe3);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x23), 0, 0xe3);
 #endif
                 arg0->unknown_8_ = 0xc8;
             } else {
 #if defined(jpn)
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x24), 0);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x24), 0);
 #else
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x24), 0, 0xe3);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x24), 0, 0xe3);
 #endif
                 arg0->unknown_8_ = 0x12c;
             }
@@ -233,9 +233,9 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
                 } else {
                     var2->unknown_998_ = 1;
 #if defined(jpn)
-                    StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x26), 0);
+                    StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x26), 0);
 #else
-                    StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x26), 0, 0xe3);
+                    StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x26), 0, 0xe3);
 #endif
                     arg0->unknown_8_ = 0x12d;
                     func_020a28a0(var1, 2);
@@ -243,9 +243,9 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
             } else {
                 var2->unknown_998_ = 1;
 #if defined(jpn)
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x25), 0);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x25), 0);
 #else
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x25), 0, 0xe3);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x25), 0, 0xe3);
 #endif
                 arg0->unknown_8_ = 0x12d;
                 func_020a28a0(var1, 2);
@@ -270,8 +270,8 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
     } else if (arg0->unknown_8_ == 0x63) {
         GameResources* var11 = GetGameResources();
         Struct_ov017_021a7378* var12;
-        Struct_0201bdac_2* var13 = (Struct_0201bdac_2*)var11->unknown_ptr_array_36fc[0];
-        Struct_0201bdac* var14 = (Struct_0201bdac*)var11->unknown_ptr_array_371c[6];
+        Queue_0201bdac_2* var13 = (Queue_0201bdac_2*)var11->unknown_ptr_array_36fc[0];
+        QueueNode_0201bdac* var14 = (QueueNode_0201bdac*)var11->unknown_ptr_array_371c[6];
         var12 = func_0200fd0c(var0);
         func_02070378((char*)var12);
         var12->unknown_7_ = 1;
@@ -286,9 +286,9 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
             var12->unknown_18_ = 0x100000;
             var3->unknown_27b8_ = var4->unknown_44_;
             func_0200fcfc(var0, var12);
-            Struct_0201bdac* var16 = (Struct_0201bdac*)var11->unknown_ptr_array_36fc[4];
+            QueueNode_0201bdac* var16 = (QueueNode_0201bdac*)var11->unknown_ptr_array_36fc[4];
             func_ov017_0219e310((unsigned char*)var16, 0);
-            func_020469b4(var13, var16);
+            AppendToQueue_020469b4(var13, var16);
             func_ov017_021a65c4(var11, 1, 0);
             break;
         }
@@ -296,7 +296,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
             var4->unknown_13c_ = 2;
             func_ov017_021baedc(var14, 1);
             *(unsigned short*)((char*)var14 + 8) = 0x7346;
-            func_020469b4(var13, var14);
+            AppendToQueue_020469b4(var13, var14);
             break;
         }
         Vector3i var17;
@@ -316,11 +316,11 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
             var18->unknown_4_++;
         }
         arg0->unknown_8_ = 0x64;
-        func_02043204((char*)var2);
+        ResetMessageWindow_02043204((char*)var2);
     } else if (arg0->unknown_8_ == 0x64) {
         var2->unknown_19ae_ = 0;
         if (var2->unknown_9a0_ == 0) {
-            func_02043204((char*)var2);
+            ResetMessageWindow_02043204((char*)var2);
             func_0205ce50(arg0->unknown_24_);
             func_020ae380((unsigned char*)func_0200ffd0((Struct_0200ffd0*)var0));
             func_ov017_021a79f0(arg0);

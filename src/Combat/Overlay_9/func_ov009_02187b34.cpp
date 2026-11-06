@@ -54,12 +54,12 @@ struct Struct_ov009_0218aa98 {
 
 struct Struct_02109bf4_4;
 struct Struct_0201099c_3;
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 struct Struct_02038598_4;
 
 extern "C" Object3D* func_ov023_021e6194(void* arg0);
-extern "C" GameResources* func_0200fb8c(int* arg0);
-extern "C" unsigned int* func_020d6c00();
+extern "C" GameResources* GetResources_0200fb8c(int* gameState);
+extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void func_ov023_021dac40(void* arg0, unsigned int arg1);
 extern "C" int func_ov009_0218a930(void* arg0, unsigned int arg1);
 extern "C" void func_0202ee38(char* arg0, int arg1, int arg2);
@@ -67,10 +67,10 @@ extern "C" void func_0202ee58(char* arg0, int arg1, int arg2);
 extern "C" void func_0209c678(Struct_02109bf4_4* arg0, int arg1);
 extern "C" int func_0202eeb4(char* arg0);
 extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
-extern "C" void func_0207df50(Struct_0203d028* arg0);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
@@ -94,8 +94,8 @@ extern const Struct_ov009_0218aa28 data_ov009_0218aa34;
 extern const Struct_ov009_0218aa98 data_ov009_0218aa98;
 extern char data_ov009_0218acd9[];
 extern char data_ov009_0218ad41[];
-extern char data_02109bf4[];
-extern char data_02108760[];
+extern char gMusicManager_02109bf4[];
+extern char gSoundEffectManager_02108760[];
 
 struct Struct_ov009_021842a0_2 {
     char unknown_0_[R(0xa0,0xb4)];
@@ -136,9 +136,9 @@ struct Struct_ov009_021842a0_2 {
 extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
 {
     GameState* var0 = GameState::GetInstance();
-    GameResources* var1 = func_0200fb8c((int*)var0);
+    GameResources* var1 = GetResources_0200fb8c((int*)var0);
     Object3D* var2 = func_ov023_021e6194(arg0->unknown_7f8_);
-    unsigned int* var3 = func_020d6c00();
+    unsigned int* var3 = GetGlobalFlags_020d6c00();
     BackgroundLoader* var4 = BackgroundLoader::GetInstance();
     if (var4 == NULL)
         return;
@@ -162,7 +162,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         func_0202ee58(arg0->unknown_924_, (int)&var7, 0x1e000);
         arg0->unknown_d98_ = 90;
         arg0->unknown_d9c_ |= 0x10000;
-        func_0209c678((Struct_02109bf4_4*)data_02109bf4, 120);
+        func_0209c678((Struct_02109bf4_4*)gMusicManager_02109bf4, 120);
         arg0->unknown_c59_ = 1;
         int* var8 = arg0->unknown_c5c_;
         for (unsigned char var9 = 0; var9 < 3; var9++)
@@ -180,7 +180,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         arg0->unknown_d9c_ |= 0x800000;
         if (func_ov023_021e6194(arg0->unknown_7f8_)->normalizedAnimationTime_ >= 0xccc)
         {
-            func_0205ebc0(data_02108760, 0x6f, 0x6f);
+            func_0205ebc0(gSoundEffectManager_02108760, 0x6f, 0x6f);
             arg0->unknown_c59_ = 2;
         }
         break;
@@ -190,11 +190,11 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         short var13 = arg0->unknown_da3_ * 100 + 2002;
         Struct_ov009_0218aa98 var14 = data_ov009_0218aa98;
         var14.unknown_0_[0].unknown_0_ = arg0->unknown_b8_;
-        var14.unknown_0_[0].unknown_4_ = func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, var13);
+        var14.unknown_0_[0].unknown_4_ = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, var13);
         var14.unknown_0_[1].unknown_0_ = &arg0->unknown_b8_[1];
-        var14.unknown_0_[1].unknown_4_ = func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, var12);
+        var14.unknown_0_[1].unknown_4_ = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, var12);
         var14.unknown_0_[2].unknown_0_ = arg0->unknown_b4_;
-        var14.unknown_0_[2].unknown_4_ = func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 0x898);
+        var14.unknown_0_[2].unknown_4_ = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 0x898);
         Struct_ov009_02187b34_2* var15 = var14.unknown_0_;
         const char* var16 = data_ov009_0218acd9;
         for (; var15->unknown_0_ != NULL; var15++)
@@ -256,10 +256,10 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
                     break;
                 case 2:
                     var25.allocator = arg0->unknown_b4_;
-                    func_0207df50((Struct_0203d028*)arg0->unknown_c68_);
-                    func_0207df90(arg0->unknown_c68_);
+                    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_c68_);
+                    RestoreTextureVRAMState_0207df90(arg0->unknown_c68_);
                     arg0->unknown_cd8_.LoadFromCHRArchive(&var25);
-                    func_0207dfac(arg0->unknown_c68_);
+                    SaveTextureVRAMState_0207dfac(arg0->unknown_c68_);
                     break;
                 }
             }
@@ -268,7 +268,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         }
         arg0->unknown_c59_ = 5;
         var2->StopCurrentAnimation();
-        var2->MaybeSetRegularAnimation(func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 2500), 0);
+        var2->MaybeSetRegularAnimation(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 2500), 0);
         Vector3fix var26;
         memset(&var26, 0, sizeof(var26));
         var26 = var2->rotation_;
@@ -283,7 +283,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         arg0->unknown_878_.SetScale(var28, var29, var31);
         arg0->unknown_878_.rotation_ = var26;
         arg0->unknown_878_.StopCurrentAnimation();
-        arg0->unknown_878_.MaybeSetRegularAnimation(func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 2500), 0);
+        arg0->unknown_878_.MaybeSetRegularAnimation(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 2500), 0);
         Vector3fix var32;
         var32 = ((Object3D*)((char*)var2 + 0x408))->position_;
         arg0->unknown_cd8_.rotation_ = var26;
@@ -295,7 +295,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         var33->SetScale(var28, var29, var31);
         var33->rotation_ = var26;
         var33->StopCurrentAnimation();
-        var33->MaybeSetRegularAnimation(func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 2500), 0);
+        var33->MaybeSetRegularAnimation(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 2500), 0);
         Vector3fix var34;
         var34 = ((Object3D*)((char*)var2 + 0x408))->position_;
         Object3D* var35 = &arg0->unknown_cd8_;
@@ -310,14 +310,14 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         break;
     }
     case 6:
-        func_0205ebfc(data_02108760, 0, 0);
+        func_0205ebfc(gSoundEffectManager_02108760, 0, 0);
         arg0->unknown_d96_ = 150;
         arg0->unknown_c59_ = 7;
         break;
     case 7:
         func_020466e4(var3, 0x100);
         SetBrightness(var1, 16, 40);
-        func_0205ebfc(data_02108760, 1, 0);
+        func_0205ebfc(gSoundEffectManager_02108760, 1, 0);
         arg0->unknown_c59_ = 8;
         break;
     case 8:
@@ -348,7 +348,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         func_020466f4((Struct_02038598_4*)var3, 0x100);
         ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT, 0x1f, 0);
         ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT_SUB, 0x1f, 0);
-        func_0205ebec(data_02108760);
+        func_0205ebec(gSoundEffectManager_02108760);
         arg0->unknown_c59_ = 11;
         break;
     case 11:

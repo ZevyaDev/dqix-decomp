@@ -42,7 +42,7 @@ extern "C" ARM int func_020abb64() {
     var4->unknown_4_.unknown_1_1_ = 300;
     var4->unknown_4_.unknown_2_3_ = 706;
     var4->unknown_8_ = 0;
-    func_0208660c((char*)func_02010828(var0));
+    func_0208660c((char*)GetParty_02010828(var0));
     VectorizedMemset(var3->unknown_6380_, 0, 0x54);
     return 1;
 }

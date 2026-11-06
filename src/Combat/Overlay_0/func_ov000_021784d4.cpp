@@ -56,7 +56,7 @@ extern "C" ARM void func_ov000_021784d4(struct Struct_ov000_021784d4_2* arg0, st
     }
     int var0 = arg1->unknown_44_;
     int var1 = arg1->unknown_48_;
-    func_02010828(GameState::GetInstance());
+    GetParty_02010828(GameState::GetInstance());
     unsigned char var2 = arg0->unknown_79_;
     func_ov000_0217c638(arg0, arg2, arg3);
     struct Struct_ov000_021784d4* var3 = &arg0->unknown_188_;

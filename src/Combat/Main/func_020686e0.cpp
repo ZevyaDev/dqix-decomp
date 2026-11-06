@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 
 struct Struct_020686e0 {
     char unknown_0_[0xf78];
@@ -20,7 +20,7 @@ struct Struct_020686e0_3 {
 
 // USA: func_020686e0
 extern "C" ARM int func_020686e0(GameState* arg0, struct Struct_020686e0_3* arg1) {
-    unsigned char* var0 = (unsigned char*)func_02010828(arg0);
+    unsigned char* var0 = (unsigned char*)GetParty_02010828(arg0);
     signed char var1 = arg1->unknown_31_;
     if (var1 < 0) {
         int var2;

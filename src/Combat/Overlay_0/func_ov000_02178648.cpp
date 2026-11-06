@@ -10,8 +10,8 @@ extern "C" int func_02041dd0(char* arg0, int arg1);
 extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
 extern "C" int func_02041e70(char* arg0, int arg1);
 extern "C" int func_02041a28(char* arg0, int arg1);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_ov000_02170c7c(void* arg0);
 
 struct Struct_ov000_02178648 {
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov000_02178648(char* arg0, char* arg1) {
     int var1 = 0;
     unsigned char var2;
     GameState* var3 = GameState::GetInstance();
-    func_02010828(var3);
+    GetParty_02010828(var3);
 
     if (func_ov000_0217542c(arg0)) {
         func_02041c08(arg1, var0, 8, 5, 5, 5);
@@ -60,9 +60,9 @@ extern "C" ARM void func_ov000_02178648(char* arg0, char* arg1) {
             func_02041e70(arg1, 0xf);
             func_02041a28(arg1, 0x46);
             struct Struct_ov000_02178648* var7 = (struct Struct_ov000_02178648*)var6->baseStats_;
-            func_02042058(arg1, (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), (short)((unsigned short)var7->unknown_3f_6_ + 0x7551)));
+            AppendText_02042058(arg1, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), (short)((unsigned short)var7->unknown_3f_6_ + 0x7551)));
             if (var4 != var2 - 1) {
-                func_02042058(arg1, (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0));
+                AppendText_02042058(arg1, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0));
             }
         }
         var1++;

@@ -13,7 +13,7 @@ struct Struct_ov000_02161e30;
 struct Struct_02109bf4_4;
 struct Struct_02038598_4;
 struct Struct_020727d8;
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 struct Struct_02048150;
 
 struct Struct_ov026_021d8ba0 {
@@ -147,7 +147,7 @@ inline Struct_ov023_021ed9f8& inline_ov023_021f4c04() {
     return s;
 }
 
-extern Struct_02109bf4_4 data_02109bf4;
+extern Struct_02109bf4_4 gMusicManager_02109bf4;
 extern const char data_ov023_021fe1d8[];
 extern const char data_ov023_021fe1ee[];
 #if defined(jpn)
@@ -157,15 +157,15 @@ extern "C" void StartMessage_0204500c(void*, const char*, int);
 #endif
 
 extern "C" Struct_ov023_021f4c04* GetMessageWindow_020421a0();
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_020d6c00();
-extern "C" void* func_02010828(GameState* arg0);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetGlobalFlags_020d6c00();
+extern "C" void* GetParty_02010828(GameState* gameState);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_0201075c(char* arg0, unsigned char arg1);
 extern "C" unsigned char func_02010750(char* arg0);
 extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_ov017_021d2400(void);
 extern "C" void func_0209c678(Struct_02109bf4_4* arg0, int arg1);
 extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
@@ -183,7 +183,7 @@ extern "C" int func_02076ccc(void* arg0, int arg1);
 extern "C" void func_ov017_021a23b0(void* arg0, int arg1);
 extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
 extern "C" void func_ov000_0216d370(void* arg0, int arg1, int arg2, int arg3);
-extern "C" void* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" void* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, const char* text, int arg2, int arg3);
@@ -193,8 +193,8 @@ extern "C" int func_ov017_021959b4(void);
 extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
 extern "C" void func_ov017_021cbfb8(unsigned short arg0, unsigned char arg1);
 extern "C" void func_0209c7fc(void* arg0);
-extern "C" void func_02043204(char* arg0);
-extern "C" void func_02043124(void* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
+extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void func_ov000_02160d80(void* arg0, int arg1);
 
 // USA: func_ov023_021f4c04
@@ -207,12 +207,12 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
 
     GameState* var3 = GameState::GetInstance();
     Struct_ov023_021f4c04* var4 = GetMessageWindow_020421a0();
-    int var5 = func_0200fb8c((int*)var3);
+    int var5 = GetResources_0200fb8c((int*)var3);
     GetZone3D_02012fe4();
     BackgroundLoader* var6 = BackgroundLoader::GetInstance();
-    Struct_02038598_4* var7 = (Struct_02038598_4*)func_020d6c00();
-    void* var8 = func_02010828(var3);
-    void* var9 = func_0202ae18();
+    Struct_02038598_4* var7 = (Struct_02038598_4*)GetGlobalFlags_020d6c00();
+    void* var8 = GetParty_02010828(var3);
+    void* var9 = GetLocalWireless_0202ae18();
 
     inline_ov023_021f4c04().unknown_4_ += var3->GetEffectiveDeltaTime();
     int var10 = arg0->unknown_eac_;
@@ -226,10 +226,10 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
             if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var11)) continue;
             func_0201075c((char*)var3, 0);
         }
-        if (func_02010750((char*)var3) != 0 && func_0202b7d8((int*)var9) != 0) {
+        if (func_02010750((char*)var3) != 0 && IsLocalWirelessOn_0202b7d8((int*)var9) != 0) {
             func_ov017_021d2400();
         }
-        func_0209c678(&data_02109bf4, 0x1e);
+        func_0209c678(&gMusicManager_02109bf4, 0x1e);
         func_ov000_02160fa8(arg0, 0x800000);
         func_020466f4(var7, 0x40000);
         inline_ov023_021f4c04().unknown_4_ = 0;
@@ -280,15 +280,15 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
         func_ov000_0216d370(arg0->unknown_c18_, 0, 0, 1);
 #if defined(jpn)
         int var21 = *(int*)((char*)var3->GetProtagonist() + 0x134);
-        sprintf(var0, (const char*)func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x14), var21);
+        sprintf(var0, (const char*)FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 0x14), var21);
         StartMessage_0204500c(var4, var0, 1);
 #else
         var3->GetProtagonist();
-        sprintf(var0, (const char*)func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x14));
+        sprintf(var0, (const char*)FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 0x14));
         StartMessage_0204500c(var4, var0, 1, 0xe3);
 #endif
         var4->unknown_998_ = 1;
-        func_0209c6d8(&data_02109bf4, 0x3a);
+        func_0209c6d8(&gMusicManager_02109bf4, 0x3a);
         arg0->unknown_eac_ = 2;
     } else if (var10 == 2) {
         if (func_ov017_021959b4() == 0 && *(unsigned char*)((char*)var3 + REGION_LAYOUT(0x54c8, 0x5728)) == 0) {
@@ -298,9 +298,9 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
             func_ov017_021cbfb8(arg0->unknown_2a0_->unknown_8_, 1);
         }
         *(unsigned char*)((char*)var3 + REGION_LAYOUT(0x54c8, 0x5728)) = 0;
-        func_0209c7fc(&data_02109bf4);
-        func_02043204((char*)var4);
-        func_02043124(var4);
+        func_0209c7fc(&gMusicManager_02109bf4);
+        ResetMessageWindow_02043204((char*)var4);
+        CloseMessageWindow_02043124(var4);
         func_ov000_02160d80(arg0, 4);
     }
 }

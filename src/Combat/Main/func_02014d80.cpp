@@ -57,9 +57,9 @@ extern "C" ARM int func_02014d80(Zone3D* arg0, void* arg1, Struct_02012ff0* arg2
         void* var14 = DecompressLZ77FileIntoAllocatedSpace(*var5, var13, var12);
         if (var14 && var1->unknown_4_) {
             var1->unknown_4_->Clear();
-            func_0207df90(var4);
+            RestoreTextureVRAMState_0207df90(var4);
             var1->unknown_4_->SetAndProcessRawFile(var14, var12, Model3D::TextureStagingMode_Normal);
-            func_0207dfac(var4);
+            SaveTextureVRAMState_0207dfac(var4);
             NSBXXTex* var15 = var1->unknown_4_->GetTEX0();
             if (var15) {
                 arg0->textureImageMemory_ += NSBXX_Tex_GetBlock1Length(var15);

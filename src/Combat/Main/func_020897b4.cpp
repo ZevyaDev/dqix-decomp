@@ -19,9 +19,9 @@ struct Struct_02086f24_6 { void* unknown_0_; };
 
 extern char data_020f1019[];
 extern char data_020f102e[];
-extern unsigned char data_0211e33c[0x30000];
+extern unsigned char gFileScratchSpace_0211e33c[0x30000];
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void* func_0208247c(void* arg0);
 extern "C" int func_0208274c(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3);
 extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
@@ -73,11 +73,11 @@ extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int ar
 
     if (arg5 == 0) {
         sprintf(var0, data_020f1019, arg2);
-        if (LoadFileIntoMemory(var0, &data_0211e33c, &var5) == 0) {
+        if (LoadFileIntoMemory(var0, &gFileScratchSpace_0211e33c, &var5) == 0) {
             BackgroundLoader::RemoveLockGlobal();
             return;
         }
-        arg5 = &data_0211e33c;
+        arg5 = &gFileScratchSpace_0211e33c;
         arg6 = var5;
     }
 
@@ -85,7 +85,7 @@ extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int ar
     func_0208274c(&var1, (Struct_02013fb4*)arg5, arg6, arg1);
 
     Struct_0201099c_2* const var8 = &var1;
-    Struct_020897b4* var9 = reinterpret_cast<Struct_020897b4*>(func_02053c6c((unsigned char*)var7));
+    Struct_020897b4* var9 = reinterpret_cast<Struct_020897b4*>(GetPartyMemberData_02053c6c((unsigned char*)var7));
     var9->unknown_954_ |= 1 << arg2;
     var9->unknown_950_ = arg2;
     var9->unknown_16c_[arg2] = arg1;
@@ -101,8 +101,8 @@ extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int ar
     }
 
     if (arg7 == 0) {
-        if (LoadFileIntoMemory(data_020f102e, &data_0211e33c, &var5) != 0) {
-            arg7 = &data_0211e33c;
+        if (LoadFileIntoMemory(data_020f102e, &gFileScratchSpace_0211e33c, &var5) != 0) {
+            arg7 = &gFileScratchSpace_0211e33c;
             arg8 = var5;
         }
     }

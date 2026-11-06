@@ -12,9 +12,9 @@ struct Struct_020e25e8;
 struct Struct_02012de8;
 struct Struct_02038598_4;
 
-extern "C" int func_0200fb8c(int *);
+extern "C" int GetResources_0200fb8c(int *);
 extern "C" char *GetMessageWindow_020421a0();
-extern "C" void func_02043204(char *);
+extern "C" void ResetMessageWindow_02043204(char *);
 extern "C" int func_020e28dc(struct Struct_020e28dc *);
 extern "C" void func_020e25e8(struct Struct_020e25e8 *);
 void SetSubBrightness(GameResources *, int, int);
@@ -26,7 +26,7 @@ extern "C" void func_ov023_021eb414(char *);
 extern "C" void func_ov023_021eb26c(char *);
 extern "C" void func_ov013_02186fa0(char *);
 extern "C" void func_ov013_021846a0(char *);
-extern "C" void *func_020d6c00();
+extern "C" void *GetGlobalFlags_020d6c00();
 extern "C" int func_02046708(struct Struct_02012de8 *, unsigned int);
 extern "C" void func_020466f4(struct Struct_02038598_4 *, unsigned int);
 extern "C" void func_020a1f4c(int);
@@ -43,10 +43,10 @@ enum { Enum_ov002_0216c654_0 = 0, Enum_ov002_0216c654_0_2 = 0, Enum_ov002_0216c6
 
 // USA: func_ov002_0216c654
 extern "C" ARM void func_ov002_0216c654(char *arg0) {
-    GameResources *var0 = (GameResources *) func_0200fb8c((int *) GameState::GetInstance());
+    GameResources *var0 = (GameResources *) GetResources_0200fb8c((int *) GameState::GetInstance());
     int var1          = S32(0x1bc0 + Enum_ov002_0216c654_0);
     if (var1 == 0) {
-        func_02043204(GetMessageWindow_020421a0());
+        ResetMessageWindow_02043204(GetMessageWindow_020421a0());
         if (S32(4) != 0 && func_020e28dc((struct Struct_020e28dc *) S32(4))) {
             func_020e25e8((struct Struct_020e25e8 *) S32(4));
         }
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov002_0216c654(char *arg0) {
         func_ov013_021846a0(arg0 + 0xd70 + 0x1000 + Enum_ov002_0216c654_0_7);
         S32(0x1bc0 + Enum_ov002_0216c654_0) = 7;
     } else if (var1 == 7) {
-        void *var2 = func_020d6c00();
+        void *var2 = GetGlobalFlags_020d6c00();
         if (func_02046708((struct Struct_02012de8 *) var2, 1) ||
             !IsSubBrightnessTransitionActive(var0))
         {

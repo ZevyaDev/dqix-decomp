@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 struct Struct_020806d8_2 {
     unsigned int unknown_0_;
     short unknown_4_;
@@ -25,14 +25,14 @@ struct Struct_0207f0ac {
     short unknown_4_;
 };
 struct Struct_020806d8_3 {
-    Struct_02072a68_2* unknown_0_;
+    StringList_02072a68_2* unknown_0_;
     Struct_0207f524 unknown_4_;
     Struct_0207f0ac unknown_c_;
 };
 
 extern "C" void* func_0207f6ac(Struct_0207f524*, int);
 extern "C" Struct_020806d8* func_0207f0ac(Struct_0207f0ac*, int);
-extern "C" void* func_02072a68(Struct_02072a68_2*, int);
+extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 #if defined(jpn)
 extern "C" int func_020d2ff0(const char*);
 #else
@@ -49,7 +49,7 @@ extern "C" ARM void func_020806d8(Struct_020806d8_3* arg0, int arg1, int arg2, i
         return;
     }
     if (var0->unknown_12_ != 0) return;
-    char* var1 = (char*)func_02072a68(arg0->unknown_0_, var0->unknown_e_);
+    char* var1 = (char*)FindStringInList_02072a68(arg0->unknown_0_, var0->unknown_e_);
     if (var1 == NULL) return;
 #if defined(jpn)
     int var2 = func_020d2ff0(var1) >> 1;

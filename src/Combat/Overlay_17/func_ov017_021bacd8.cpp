@@ -32,8 +32,8 @@ extern "C" void func_ov003_0215caa4(void* arg0);
 extern "C" int func_ov003_0215c924(void* arg0, int arg1);
 extern "C" void func_ov003_0215c800(void* arg0);
 
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern AllocatorUnion data_02114e20;
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern AllocatorUnion gMainHeap_02114e20;
 
 struct Struct_ov017_021bacd8 {
     char unknown_0_;
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov017_021bacd8(Struct_ov017_021bacd8* arg0) {
     int var5 = arg0->unknown_8_;
     if (var5 == 0) {
         func_020a0cc4(Enum_ov017_021bacd8_62524);
-        void* var6 = func_02012d88(&data_02114e20, Enum_ov017_021bacd8_62524);
+        void* var6 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021bacd8_62524);
         if (var6 == NULL) {
             func_020a0c0c();
             arg0->unknown_1_ = 1;

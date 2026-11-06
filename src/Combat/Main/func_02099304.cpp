@@ -17,7 +17,7 @@ struct Struct_02099304 {
     signed char unknown_6_;
 };
 
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 struct Struct_02046574_2;
 
 struct Struct_021098e8_2 {
@@ -34,19 +34,19 @@ struct Struct_021098e8_2 {
 extern Struct_021098e8_2 data_021098e8;
 extern Script::OpcodeLookupEntry data_020f1504[];
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* arg0);
-extern "C" void func_02046380(Struct_020465c0* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
+extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0* window);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void func_020cf0fc(int arg0);
-extern "C" Struct_020465c0* GetMessageWindow_020421a0(void);
-extern "C" void func_020465c0(Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0(void);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 extern "C" int func_02098f20(int arg0, int arg1, int arg2);
 extern "C" void func_02046574(Struct_02046574_2* arg0, int arg1, char* arg2);
 
 // USA: func_02099304
 extern "C" ARM int func_02099304(Struct_02099304* arg0, char* arg1, const void* arg2, unsigned int arg3, void* arg4, int arg5, unsigned char arg6, char* arg7, char* arg8) {
-    void* var0 = func_0202ae18();
+    void* var0 = GetLocalWireless_0202ae18();
     int var1[4];
     Script var2;
 
@@ -64,7 +64,7 @@ extern "C" ARM int func_02099304(Struct_02099304* arg0, char* arg1, const void* 
         data_021098e8.unknown_0_ |= 0x10;
     } else {
         if (arg6 & 2) {
-            if (func_0202c508(var0)) {
+            if (IsNotLocalWirelessGuest_0202c508(var0)) {
                 func_020cf0fc((int)var1);
                 if (var1[1] == arg0->unknown_1_4_ && var1[2] == arg0->unknown_2_0_) {
                     data_021098e8.unknown_0_ |= 1;
@@ -91,11 +91,11 @@ extern "C" ARM int func_02099304(Struct_02099304* arg0, char* arg1, const void* 
         }
     }
 
-    Struct_020465c0* var3 = GetMessageWindow_020421a0();
-    func_02046380(var3);
+    MessageWindow_020465c0* var3 = GetMessageWindow_020421a0();
+    ClearMessageParams_02046380(var3);
     unsigned int var4 = arg0->unknown_2_0_;
-    func_020465c0(var3, 1, arg0->unknown_1_4_);
-    func_020465c0(var3, 2, var4);
+    SetMessageNumber_020465c0(var3, 1, arg0->unknown_1_4_);
+    SetMessageNumber_020465c0(var3, 2, var4);
     if (arg0->unknown_3_7_) {
         int var5;
         if (arg0->unknown_4_0_ < 0) {
@@ -106,7 +106,7 @@ extern "C" ARM int func_02099304(Struct_02099304* arg0, char* arg1, const void* 
                 var5 = 0;
             }
         }
-        func_020465c0(var3, 0, var5);
+        SetMessageNumber_020465c0(var3, 0, var5);
     }
     func_02046574((Struct_02046574_2*)var3, 0, arg1);
     func_02046574((Struct_02046574_2*)var3, 1, arg7);

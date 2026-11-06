@@ -15,9 +15,9 @@ enum { Enum_ov003_0217726c_2204 = 0x89c };
 
 #include "Combat/Main/BattleList.h"
 
-struct Struct_0201099c_10;
-struct Struct_0201099c_9;
-extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+struct ItemTable_0201099c_10;
+struct ItemData_0201099c_9;
+extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
 extern "C" unsigned int func_ov003_02175898(char* arg0, void* arg1);
 struct Struct_0207fdcc_2;
 extern "C" void func_02080c20(struct Struct_0207fdcc_2* arg0, int arg1);
@@ -29,9 +29,9 @@ extern "C" void func_020813ec(void* arg0, int arg1);
 // USA: func_ov003_0217726c
 extern "C" ARM void func_ov003_0217726c(char* arg0) {
 	int var0 = *(short*)(arg0 + Enum_ov003_0217726c_4154);
-	struct Struct_0201099c_10* var1 = (struct Struct_0201099c_10*)(arg0 + Enum_ov003_0217726c_2164);
+	struct ItemTable_0201099c_10* var1 = (struct ItemTable_0201099c_10*)(arg0 + Enum_ov003_0217726c_2164);
 	struct Struct_0207fdcc_2* var2 = *(struct Struct_0207fdcc_2**)(arg0 + Enum_ov003_0217726c_2204);
-	struct Struct_0201099c_9* var3 = func_020dedd0(var1, var0);
+	struct ItemData_0201099c_9* var3 = func_020dedd0(var1, var0);
 	int var4 = *(short*)(arg0 + Enum_ov003_0217726c_4100);
 	int var5 = 0;
 	int var6;

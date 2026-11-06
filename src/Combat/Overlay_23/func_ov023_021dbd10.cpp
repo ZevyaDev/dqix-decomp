@@ -3,7 +3,7 @@
 extern "C" void* func_ov023_021db4e4(void* arg0, int arg1);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4);
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3*, int);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
 
 struct Struct_ov023_021dbd10 {
     char unknown_0_[0x16];
@@ -58,10 +58,10 @@ extern "C" ARM void func_ov023_021dbd10(void* arg0, struct Struct_ov023_021dbd10
     var0 = (struct Struct_ov023_021dbd10*)func_ov023_021db4e4(arg0, 0xe);
     if (var0) var0->unknown_16_ &= ~1;
 
-    func_ov023_021e23d0(arg0, 0x19, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x24), 0xa, 0xf);
-    func_ov023_021e23d0(arg0, 0x17, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x23), 0x8, 0xf);
-    func_ov023_021e23d0(arg0, 0x1a, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x25), 0xa, 0xf);
-    func_ov023_021e23d0(arg0, 0x18, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x23), 0x8, 0xf);
-    func_ov023_021e23d0(arg0, 0x15, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x26), 0xa, 0xf);
-    func_ov023_021e23d0(arg0, 0x16, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x27), 0xa, 0xf);
+    func_ov023_021e23d0(arg0, 0x19, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x24), 0xa, 0xf);
+    func_ov023_021e23d0(arg0, 0x17, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x23), 0x8, 0xf);
+    func_ov023_021e23d0(arg0, 0x1a, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x25), 0xa, 0xf);
+    func_ov023_021e23d0(arg0, 0x18, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x23), 0x8, 0xf);
+    func_ov023_021e23d0(arg0, 0x15, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x26), 0xa, 0xf);
+    func_ov023_021e23d0(arg0, 0x16, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x27), 0xa, 0xf);
 }

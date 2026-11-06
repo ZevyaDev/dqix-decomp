@@ -22,8 +22,8 @@ extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov003_0217c974(Struct_ov003_0217c2bc *arg0);
 extern "C" void func_0209c830(Struct_02109bf4_2*, int);
 
-extern int data_02108760;
-extern struct Struct_02109bf4_2 data_02109bf4;
+extern int gSoundEffectManager_02108760;
+extern struct Struct_02109bf4_2 gMusicManager_02109bf4;
 
 // USA: func_ov003_0217c2bc
 extern "C" ARM void func_ov003_0217c2bc(Struct_ov003_0217c2bc *arg0) {
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov003_0217c2bc(Struct_ov003_0217c2bc *arg0) {
         arg0->unknown_141_++;
     } else if (arg0->unknown_141_ == 1) {
         if (--arg0->unknown_142_ != 0) return;
-        func_0205ebfc(&data_02108760, 0, 0);
+        func_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
         func_ov003_0217cb3c(arg0, 1, 0);
         ((Object3D*)arg0->unknown_80_)->MakeVisible();
         func_020c5588(0, 0, 0x7fff, 0, 0);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov003_0217c2bc(Struct_ov003_0217c2bc *arg0) {
         arg0->unknown_141_++;
     } else if (arg0->unknown_141_ == 12) {
         if (IsBrightnessTransitionActive(var0)) return;
-        func_0209c830(&data_02109bf4, 0x43);
+        func_0209c830(&gMusicManager_02109bf4, 0x43);
         SetBrightness(var0, 0, 0x3c);
         func_ov003_0217cb3c(arg0, 0, 1);
         arg0->unknown_141_++;

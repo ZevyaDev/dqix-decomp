@@ -10,7 +10,7 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-extern "C" int func_0200fb8c(int*);
+extern "C" int GetResources_0200fb8c(int*);
 extern "C" void func_ov005_02155424(void* arg0);
 extern "C" void func_ov005_02155544(void* arg0);
 extern "C" void func_ov005_021555c0(void* arg0);
@@ -33,11 +33,11 @@ struct Struct_0204af38;
 extern "C" void func_0204af38(Struct_0204af38*, int, SafeAllocator*);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int* out, unsigned char a, unsigned char b, unsigned char c, int d);
 struct Struct_0201099c_3;
-extern "C" const char* func_020e0434(Struct_0201099c_3*, int);
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(Struct_02020cb8_4*);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void func_0204b174(void* arg0, void* arg1, SafeAllocator* arg2, int arg3);
 extern "C" void func_0204bc74(void* arg0, unsigned short arg1, int arg2, int arg3, int arg4, int arg5, unsigned short arg6);
 struct Struct_02020cb8_2;
@@ -51,9 +51,9 @@ struct Struct_0205cf78;
 extern "C" void func_0205cf78(Struct_0205cf78*, Struct_0205cf78_2*, unsigned char);
 struct Struct_02000c9c_8;
 extern "C" int func_0200fb08(Struct_02000c9c_8*);
-extern "C" int func_0204684c(Struct_02020aec*, char const*, void**, int, int*, void**);
-extern "C" void func_0207df90(char*);
-extern "C" void func_0207dfac(char*);
+extern "C" int func_0204684c(PacEntry_02020aec*, char const*, void**, int, int*, void**);
+extern "C" void RestoreTextureVRAMState_0207df90(char*);
+extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_02047b30(void* arg0, int arg1, int arg2, int arg3);
 struct Struct_ov002_0215505c_2;
 extern "C" void func_ov023_021e1318(Struct_ov002_0215505c_2*);
@@ -168,7 +168,7 @@ extern "C" ARM int func_ov005_0215436c(Struct_ov005_0215436c_3* arg0) {
     }
 
     GameState* var11 = GameState::GetInstance();
-    int var12 = func_0200fb8c((int*)var11);
+    int var12 = GetResources_0200fb8c((int*)var11);
     BackgroundLoader* var13 = BackgroundLoader::GetInstance();
 
     if (arg0->unknown_3dc4_ == 0) {
@@ -239,19 +239,19 @@ extern "C" ARM int func_ov005_0215436c(Struct_ov005_0215436c_3* arg0) {
         ColorEffect_ConfigureAlphaBlend((unsigned int*)0x4000050, 1, 2, 0xa, 6);
 
 #if defined(jpn)
-        arg0->unknown_3dc8_ = var13->QueueLoadFile(func_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x3e8), 0);
+        arg0->unknown_3dc8_ = var13->QueueLoadFile(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x3e8), 0);
 #else
-        const char* var18 = func_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x3e9);
-        const char* var19 = func_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x3e8);
+        const char* var18 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x3e9);
+        const char* var19 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x3e8);
         arg0->unknown_3dc8_ = var13->QueueLoadFileInGP2(var19, var18, 0);
 #endif
         arg0->unknown_3dc4_++;
     } else if (arg0->unknown_3dc4_ == 3) {
         if (var13->GetTaskStatus(arg0->unknown_3dc8_) != 0) {
             var13->GetLoadedFileByID(arg0->unknown_3dc8_, &var2, &var3);
-            int var20 = func_02046900((Struct_02020cb8_4*)var2);
+            int var20 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var2);
             for (int var21 = 0; var21 < var20; var21++) {
-                void* var22 = func_020467f0((Struct_02020aec*)var2, var21, &var1, &var4);
+                void* var22 = GetPacEntryData_020467f0((PacEntry_02020aec*)var2, var21, &var1, &var4);
                 if (var22 != 0) {
                     if (var21 == 0) {
                         func_0204b174(&arg0->unknown_e84_[2], var22, &arg0->unknown_0_, var4);
@@ -285,22 +285,22 @@ extern "C" ARM int func_ov005_0215436c(Struct_ov005_0215436c_3* arg0) {
             arg0->unknown_f96_ = 1;
             func_0205cf78((Struct_0205cf78*)arg0->unknown_ee4_, (Struct_0205cf78_2*)arg0->unknown_fa0_, 3);
 
-            const char* var25 = func_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, REGION_LAYOUT(0x3e9, 0x3ea));
+            const char* var25 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, REGION_LAYOUT(0x3e9, 0x3ea));
             arg0->unknown_3dc8_ = var13->QueueLoadFile(var25, 0);
             arg0->unknown_3dc4_++;
         }
     } else if (arg0->unknown_3dc4_ == 4) {
         if (var13->GetTaskStatus(arg0->unknown_3dc8_) != 0) {
             var13->GetLoadedFileByID(arg0->unknown_3dc8_, &var5, &var6);
-            int var26 = func_02046900((Struct_02020cb8_4*)var5);
+            int var26 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var5);
 #if defined(jpn)
-            const char* var27 = func_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d0);
-            if (func_0204684c((Struct_02020aec*)var5, var27, var9, var26, var10, 0) != 0) {
-                func_0207df90((char*)arg0->unknown_294_);
+            const char* var27 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d0);
+            if (func_0204684c((PacEntry_02020aec*)var5, var27, var9, var26, var10, 0) != 0) {
+                RestoreTextureVRAMState_0207df90((char*)arg0->unknown_294_);
                 for (int var28 = 0; var28 < var26; var28++) {
                     func_02047b30(arg0->unknown_1a70_ + var28 * 0x88, (int)var9[var28], var10[var28], (int)((char*)arg0 + 0x14));
                 }
-                func_0207dfac((char*)arg0->unknown_294_);
+                SaveTextureVRAMState_0207dfac((char*)arg0->unknown_294_);
             }
             var13->RemoveTask(arg0->unknown_3dc8_);
             arg0->unknown_3dc8_ = -1;
@@ -308,9 +308,9 @@ extern "C" ARM int func_ov005_0215436c(Struct_ov005_0215436c_3* arg0) {
 #else
             int var29 = func_0200fb08((Struct_02000c9c_8*)var11);
             int var30 = 0;
-            const char* var31 = func_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d0);
-            if (func_0204684c((Struct_02020aec*)var5, var31, var9, var26, var10, 0) != 0) {
-                func_0207df90((char*)arg0->unknown_294_);
+            const char* var31 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d0);
+            if (func_0204684c((PacEntry_02020aec*)var5, var31, var9, var26, var10, 0) != 0) {
+                RestoreTextureVRAMState_0207df90((char*)arg0->unknown_294_);
                 for (int var32 = 0; var32 < var26; var32++) {
                     if (var32 == 0x23) {
                         if (var29 == 2 || var29 == 3) {
@@ -328,7 +328,7 @@ extern "C" ARM int func_ov005_0215436c(Struct_ov005_0215436c_3* arg0) {
                     func_02047b30(arg0->unknown_1a70_ + var30 * 0x88, (int)var9[var32], var10[var32], (int)((char*)arg0 + 0x14));
                     var30++;
                 }
-                func_0207dfac((char*)arg0->unknown_294_);
+                SaveTextureVRAMState_0207dfac((char*)arg0->unknown_294_);
             }
             var13->RemoveTask(arg0->unknown_3dc8_);
             arg0->unknown_3dc8_ = -1;

@@ -1,15 +1,12 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
 #endif
 
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 struct Struct_0201c1c8;
 
 struct Struct_0205faf4_13;
@@ -35,7 +32,7 @@ extern struct Struct_ov023_021fff08_7 data_ov023_021fff08;
 
 // USA: func_ov023_021f5a1c
 extern "C" ARM int func_ov023_021f5a1c(struct Struct_0201c1c8* arg0, int arg1) {
-    void* var0 = func_0205ec34();
+    void* var0 = GetFlagManager_0205ec34();
     for (int var1 = 0; var1 < arg1; var1++) {
         int var2 = ((Script::Parameter*)arg0)->ToInt();
         arg0 = (struct Struct_0201c1c8*)((char*)arg0 + 8);

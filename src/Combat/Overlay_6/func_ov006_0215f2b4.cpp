@@ -8,7 +8,7 @@ enum { Enum_ov006_0215f2b4_24 = 0x18 };
 
 #include "GameState/GameState.h"
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 
 struct Struct_020e25e8;
 extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
@@ -18,7 +18,7 @@ struct Struct_02109bf4_4;
 extern "C" void func_0209c678(struct Struct_02109bf4_4* arg0, int arg1);
 int IsBrightnessTransitionActive(GameResources*);
 
-extern int data_02109bf4;
+extern int gMusicManager_02109bf4;
 
 struct Struct_ov006_0215f2b4 {
 	unsigned char unknown_0_[Enum_ov006_0215f2b4_24];
@@ -32,14 +32,14 @@ struct Struct_ov006_0215f2b4 {
 
 // USA: func_ov006_0215f2b4
 extern "C" ARM void func_ov006_0215f2b4(struct Struct_ov006_0215f2b4* arg0) {
-	int var0 = func_0200fb8c((int*)GameState::GetInstance());
+	int var0 = GetResources_0200fb8c((int*)GameState::GetInstance());
 	if (arg0->unknown_390_ == 0) {
 		if (arg0->unknown_18_ != 0) {
 			func_020e25e8(arg0->unknown_18_);
 		}
 		SetBrightness((GameResources*)var0, -16, 16);
 		if ((arg0->unknown_394_ & 2) == 0) {
-			func_0209c678((struct Struct_02109bf4_4*)&data_02109bf4, 0xf);
+			func_0209c678((struct Struct_02109bf4_4*)&gMusicManager_02109bf4, 0xf);
 		}
 		arg0->unknown_390_ += 1;
 		return;

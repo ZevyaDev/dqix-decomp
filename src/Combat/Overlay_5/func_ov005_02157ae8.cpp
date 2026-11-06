@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int* func_0202ae18(GameState* arg0);
-extern "C" int func_0202b7d8(int* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int* GetLocalWireless_0202ae18(GameState* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void* func_0200ff58(GameState* arg0, int arg1);
 extern "C" int func_020546a8(void* arg0);
 
 // USA: func_ov005_02157ae8
 extern "C" ARM int func_ov005_02157ae8(void* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    if (func_0202b7d8(func_0202ae18(var0))) {
+    if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18(var0))) {
         GameObject* var1 = var0->GetGameObjectByIndex(arg1);
         if (var1 == NULL)
             return 0;
-        unsigned short var2 = var1->obj3D_.unknown_0_;
-        int var3 = func_020100a8(var0);
+        unsigned short var2 = var1->obj3D_.classFlags_0_;
+        int var3 = GetProtagonistObjectIndex_020100a8(var0);
         if (var2 & 0x200) {
             if (arg1 != var3)
                 return 0;

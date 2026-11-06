@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 extern "C" void func_ov023_021f6ed8(void* arg0);
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" void* func_ov023_021fad18(void* arg0);
 extern "C" int func_ov023_021f6c90(void* arg0, int arg1, int arg2);
 extern "C" void* func_ov023_021fa854(char* arg0, unsigned int arg1);
@@ -79,8 +79,8 @@ extern "C" ARM int func_ov023_021fad84(struct Struct_ov023_021fad84* arg0, void*
 #endif
 
 
-    void* var0 = func_ov011_021849c8(arg1);
-    void* var1 = func_ov023_021f6880(var0, arg0->unknown_20_);
+    void* var0 = GetMenuObjectList_ov011_021849c8(arg1);
+    void* var1 = FindMenuObjectById_ov023_021f6880(var0, arg0->unknown_20_);
     if (var1 == NULL) {
         return 0;
     }

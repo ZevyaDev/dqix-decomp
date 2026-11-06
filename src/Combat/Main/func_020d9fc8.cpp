@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void func_020397c0(void* arg0);
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 struct Struct_02038598_4 {
     unsigned int unknown_0_;
 };
@@ -25,6 +25,6 @@ extern "C" ARM void func_020d9fc8(struct Struct_020d9e44* arg0) {
         }
     }
     func_020397c0(GameState::GetInstance()->GetUnknownGameObject());
-    func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 0x1e);
+    func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x1e);
     *((unsigned char*)arg0 + 1) = 1;
 }

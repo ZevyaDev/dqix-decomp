@@ -38,7 +38,7 @@ extern "C" ARM void func_ov014_02186b30(struct Struct_ov014_02186b30* arg0) {
     if (arg0->unknown_168_ >= 0) {
         inline_020dbf70(arg0->unknown_168_);
     }
-    Struct_0208cb08* var0 = func_02094a00();
+    FontLoader_0208cb08* var0 = func_02094a00();
     func_02094b40(var0);
     func_02094ab0(var0);
     func_020972c8(&arg0->unknown_a4_);

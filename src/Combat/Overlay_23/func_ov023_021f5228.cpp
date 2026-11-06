@@ -6,7 +6,7 @@ struct Struct_ov023_021f5228 { char unknown_0_[0x144]; char *unknown_150_; };
 #else
 struct Struct_ov023_021f5228 { char unknown_0_[0x150]; char *unknown_150_; };
 #endif
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_020dd11c(unsigned int arg0, unsigned int arg1);
 
 // USA: func_ov023_021f5228
@@ -19,7 +19,7 @@ extern "C" ARM int func_ov023_021f5228(int arg0) {
 	GameState *var0 = GameState::GetInstance();
 	struct Struct_ov023_021f5228 *var1 = (struct Struct_ov023_021f5228*)func_0200ff1c(var0, arg0);
 	if (!var1) return 0;
-	int var2 = func_02053c6c((unsigned char*)var1);
+	int var2 = GetPartyMemberData_02053c6c((unsigned char*)var1);
 	if (!var2) return 0;
 	int var3 = *(int*)(var1->unknown_150_ + Enum_ov023_021f5228_2384);
 	unsigned int var4 = var3 & 0xff;

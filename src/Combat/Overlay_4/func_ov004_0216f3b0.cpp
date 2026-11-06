@@ -3,15 +3,15 @@
 
 
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" void* func_ov017_021b1d44(void* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021b1e24(void* arg0, void* arg1);
 struct Struct_ov004_0215883c_4;
 extern "C" unsigned char func_ov017_021b2060(Struct_ov004_0215883c_4* arg0);
 struct Struct_ov004_0215883c_3;
 extern "C" unsigned char func_ov017_021b204c(Struct_ov004_0215883c_3* arg0);
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 
 struct Struct_ov004_02171048_4 { char unknown_0_[4]; unsigned char* unknown_4_; };
 extern Struct_ov004_02171048_4 data_ov004_02171048;
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov004_0216f3b0(void* arg0) {
     if (var3 == 0) {
         void* var4 = func_ov011_021845f8(arg0, 1);
         if (!var4) {
-            func_ov011_021848a0(arg0, 0xd2);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0xd2);
             data_ov004_02171048.unknown_4_[0x2e] = 0;
             return 0;
         }
@@ -50,16 +50,16 @@ extern "C" ARM int func_ov004_0216f3b0(void* arg0) {
 #else
                 if (*(int*)((char*)var0 + 0x4000 + 0x494) == 0) {
 #endif
-                    func_ov011_021848a0(arg0, 0xcc);
+                    QueueMenuScriptEntry_ov011_021848a0(arg0, 0xcc);
                     return 0;
                 }
             }
             if (!func_ov017_021b204c((Struct_ov004_0215883c_3*)var2)) {
-                func_ov011_021848a0(arg0, 0xc9);
+                QueueMenuScriptEntry_ov011_021848a0(arg0, 0xc9);
                 data_ov004_02171048.unknown_4_[0x2e]++;
 
-                void* var5 = func_ov011_021849c8(arg0);
-                void* var6 = func_ov023_021f6880(var5, 0x97);
+                void* var5 = GetMenuObjectList_ov011_021849c8(arg0);
+                void* var6 = FindMenuObjectById_ov023_021f6880(var5, 0x97);
                 if (var6) {
                     *(unsigned char*)((char*)var6 + 0xc) &= ~8;
                 }

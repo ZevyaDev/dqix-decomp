@@ -12,16 +12,16 @@ struct Struct_ov017_021cf730_2 {
 };
 
 struct Struct_ov017_021cf730 { char unknown_0_[0xc]; int unknown_c_; };
-extern "C" int* func_0202ae18();
-extern "C" int func_0202b7d8(int*);
-extern "C" int func_0202c540(int*);
+extern "C" int* GetLocalWireless_0202ae18();
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
+extern "C" int IsLocalWirelessGuest_0202c540(int*);
 extern "C" void* func_0202ae24();
 extern "C" void func_0205e330(void*, void*, int);
 
 // USA: func_ov017_021cf730
 extern "C" ARM void func_ov017_021cf730(signed char arg0, unsigned char arg1) {
-    int* var0 = func_0202ae18();
-    if (!func_0202b7d8(var0) || func_0202c540(var0)) return;
+    int* var0 = GetLocalWireless_0202ae18();
+    if (!IsLocalWirelessOn_0202b7d8(var0) || IsLocalWirelessGuest_0202c540(var0)) return;
     GameState* var1 = GameState::GetInstance();
     void* var2 = func_0202ae24();
     unsigned char var3[0x14];

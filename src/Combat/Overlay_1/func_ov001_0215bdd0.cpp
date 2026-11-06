@@ -4,7 +4,7 @@
 extern "C" int func_ov017_021d60f4(void* arg0);
 extern "C" int func_ov001_0215ad2c(int arg0);
 extern "C" void func_ov001_0215acb4(void* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_ov001_02164214(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" int func_ov001_02164248(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov001_0215bdd0(char* arg0) {
     if (var3 == 0 || var3 == 1 || (unsigned)(var3 - 4) <= 1) {
         GameObject* var4 = NULL;
         if (var3 == 0) {
-            var4 = var0->GetGameObjectByIndex(func_020100a8(var0));
+            var4 = var0->GetGameObjectByIndex(GetProtagonistObjectIndex_020100a8(var0));
         } else if (var3 == 1) {
             var4 = var0->GetGameObjectByIndex(var1);
         } else if (var3 == 4) {

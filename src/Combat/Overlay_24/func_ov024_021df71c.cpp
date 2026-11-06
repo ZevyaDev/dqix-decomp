@@ -33,7 +33,7 @@ extern "C" int func_020882f8(unsigned char*);
 extern "C" ARM int func_ov024_021df71c(Struct_ov000_0215ab88* arg0, unsigned int arg1, int arg2, unsigned short* arg3, unsigned short* arg4, unsigned short* arg5) {
     Struct_ov024_021df71c_3* var0 = (Struct_ov024_021df71c_3*)func_02094d6c();
     if (!var0->unknown_0_) return 0;
-    Struct_02053f7c* var1 = (Struct_02053f7c*)func_02010828(GameState::GetInstance());
+    Struct_02053f7c* var1 = (Struct_02053f7c*)GetParty_02010828(GameState::GetInstance());
     int var2 = 0;
     if (arg0->unknown_144_) var2 = arg0->unknown_144_->unknown_8_;
     for (int var3 = 0; var3 < var0->unknown_0_; ++var3) {

@@ -3,12 +3,12 @@
 
 extern "C" int func_ov017_021d60f4(void*);
 struct AllocatorUnion;
-extern "C" void func_02012da4(struct AllocatorUnion*, void*);
+extern "C" void FreeMemory_02012da4(struct AllocatorUnion*, void*);
 struct Struct_02114e20;
 extern "C" unsigned int func_02012dd0(struct Struct_02114e20*);
 
 extern SafeAllocator* data_ov001_021658b8[8];
-extern struct AllocatorUnion data_02114e20;
+extern struct AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov001_0215ea40
 extern "C" ARM int func_ov001_0215ea40(void* arg0) {
@@ -19,8 +19,8 @@ extern "C" ARM int func_ov001_0215ea40(void* arg0) {
     SignedAllocatorHeader* var2 = var1->GetSignedAllocator();
     if (var2 != NULL) {
         var1->Destroy();
-        func_02012da4(&data_02114e20, var2);
+        FreeMemory_02012da4(&gMainHeap_02114e20, var2);
     }
-    func_02012dd0((struct Struct_02114e20*)&data_02114e20);
+    func_02012dd0((struct Struct_02114e20*)&gMainHeap_02114e20);
     return 1;
 }

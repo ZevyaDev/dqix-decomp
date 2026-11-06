@@ -44,7 +44,7 @@ extern "C" ARM void* func_ov024_021e07b0(struct Struct_ov024_021e07b0_3* arg0, u
         func_02088e64((unsigned char*)var0->currentStats_);
         func_ov000_0215a88c(arg0->unknown_10_, var2, 0x164);
         var3 = 1;
-        if (func_02086ef0((struct Struct_02048150*)func_02010828(GameState::GetInstance()), arg1) && arg3->unknown_4_0_ == 0xc6) {
+        if (func_02086ef0((struct Struct_02048150*)GetParty_02010828(GameState::GetInstance()), arg1) && arg3->unknown_4_0_ == 0xc6) {
             func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, var3);
         }
     }

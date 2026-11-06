@@ -9,9 +9,9 @@ struct Struct_02075cdc;
 extern "C" void func_02075d58(struct Struct_02075cdc* arg0);
 extern "C" void func_ov023_021dcd18(void* arg0);
 extern "C" void func_ov023_021dc134(void* arg0, int arg1, int arg2);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 #if defined(jpn)
 struct Struct_ov023_021ff9e0_4 { unsigned int unknown_0_[5]; void* unknown_4_; };
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov023_021dc354(struct Struct_ov023_021dc354* arg0) {
 
     if (data_ov023_021ff9e0.unknown_4_) {
         if (!arg0->unknown_79b_0_) {
-            func_02012da4(&data_02114e20, data_ov023_021ff9e0.unknown_4_);
+            FreeMemory_02012da4(&gMainHeap_02114e20, data_ov023_021ff9e0.unknown_4_);
         }
         data_ov023_021ff9e0.unknown_4_ = 0;
     }

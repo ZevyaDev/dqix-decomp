@@ -6,7 +6,7 @@
 
 struct Struct_ov004_021549e4_2;
 struct Struct_0202656c;
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 
 struct Struct_ov004_021636b0 {
     TreasureMapMetadata unknown_0_[99];
@@ -30,9 +30,9 @@ struct Struct_ov004_02171010 {
 extern struct Struct_ov004_02171010 data_ov004_02171010;
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
-extern "C" struct Struct_02072a68_2* func_ov023_021fa598(void* arg0);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
+extern "C" struct StringList_02072a68_2* func_ov023_021fa598(void* arg0);
 extern "C" int func_ov004_0216f8c0(unsigned short arg0);
 extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" void* __clear(void* arg0, int arg1);
@@ -46,7 +46,7 @@ extern "C" void func_02026528(char* arg0, char* arg1);
 extern "C" void func_0202656c(struct Struct_0202656c* arg0, int arg1);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_020265a8(char* arg0, int arg1, const char* arg2, int arg3);
-extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
 extern "C" void* func_020e5294(void* arg0, int arg1);
 extern "C" void func_020263c8(unsigned char* arg0, int arg1);
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov004_021636b0(void* arg0, const char* arg1) {
 #endif
     void* var4;
     char* var5;
-    struct Struct_02072a68_2* var6;
+    struct StringList_02072a68_2* var6;
     unsigned char* var7;
     GameResources* var8 = GetGameResources();
     var7 = (unsigned char*)var8->unknown_ptr_36d0;
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov004_021636b0(void* arg0, const char* arg1) {
     func_02026418(var7, 1);
     *(int*)(var7 + 0x14) = 1;
 
-    void* var9 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0xa);
+    void* var9 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0xa);
     if (var9 == NULL) return;
     if (func_ov023_021f6f10(var9) != 7) return;
 
@@ -119,9 +119,9 @@ extern "C" ARM void func_ov004_021636b0(void* arg0, const char* arg1) {
 
 #endif
 
-    var4 = func_ov011_021849c8(arg0);
+    var4 = GetMenuObjectList_ov011_021849c8(arg0);
 #if defined(jpn)
-    void* var11 = func_ov023_021f6880(var4, 0x258);
+    void* var11 = FindMenuObjectById_ov023_021f6880(var4, 0x258);
     if (var11 == NULL) return;
     if (func_ov023_021f6f10(var11) != 4) return;
     var6 = func_ov023_021fa598(var11);
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov004_021636b0(void* arg0, const char* arg1) {
             continue;
         }
         if (!func_ov004_0216ff54(data_ov004_02171010.unknown_0_->unknown_ad4_[var10].treasureItemIDs_[var12], var1)) {
-            const char* var13 = (const char*)func_02072a68(var6, (short)data_ov004_02171010.unknown_0_->unknown_ad4_[var10].treasureItemIDs_[var12]);
+            const char* var13 = (const char*)FindStringInList_02072a68(var6, (short)data_ov004_02171010.unknown_0_->unknown_ad4_[var10].treasureItemIDs_[var12]);
             if (var13 != NULL) {
                 func_02041f50(var13, var1);
             }
@@ -156,11 +156,11 @@ extern "C" ARM void func_ov004_021636b0(void* arg0, const char* arg1) {
         memset(var5, 0, 0x80);
         int var17 = func_ov004_0216f8c0(var3->treasureItemIDs_[var15]);
         if (var17 != 0) {
-            void* var18 = func_ov023_021f6880(var4, 0x32);
+            void* var18 = FindMenuObjectById_ov023_021f6880(var4, 0x32);
             if (var18 == NULL) return;
             if (func_ov023_021f6f10(var18) != 4) return;
-            struct Struct_02072a68_2* var19 = func_ov023_021fa598(var18);
-            func_0206819c((const char*)func_02072a68(var19, (short)var17), var1, 0);
+            struct StringList_02072a68_2* var19 = func_ov023_021fa598(var18);
+            func_0206819c((const char*)FindStringInList_02072a68(var19, (short)var17), var1, 0);
             func_02046608(var16, 0, var1, var5, 0x60, 0, 0);
         } else {
             char** var20 = (char**)func_020e5294(data_ov004_02171010.unknown_8_, (short)var3->treasureItemIDs_[var15]);

@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 
 struct Struct_0205faf4_11;
 extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 extern "C" void __clear(void* arg0, int arg1);
 
@@ -17,7 +17,7 @@ extern "C" int func_02053dfc(struct Struct_02053dfc* arg0);
 
 extern "C" unsigned short func_0202053c(void* arg0);
 
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 struct Struct_0202b2f0;
 extern "C" int func_0202c1c0(struct Struct_0202b2f0* arg0, int arg1);
@@ -37,12 +37,12 @@ extern "C" ARM int func_ov023_021f4098(void* arg0, int arg1, int arg2) {
  enum {Enum_ov023_021f4098_2240=0x8c0, Enum_ov023_021f4098_22528=0x5800, Enum_ov023_021f4098_204=0xcc, Enum_ov023_021f4098_672=0x2a0, Enum_ov023_021f4098_336=0x150};
 #endif
     GameState* var0 = GameState::GetInstance();
-    struct Struct_0202b2f0* var1 = (struct Struct_0202b2f0*)func_0202ae18();
+    struct Struct_0202b2f0* var1 = (struct Struct_0202b2f0*)GetLocalWireless_0202ae18();
     GameObject* var2 = func_0200ff1c(var0, arg1);
     if (var2 == 0 || func_02061bd8((struct Struct_0205faf4_11*)var2) != 0) {
         return 0;
     }
-    if (func_02053c6c((unsigned char*)var2) == 0) {
+    if (GetPartyMemberData_02053c6c((unsigned char*)var2) == 0) {
         return 0;
     }
 
@@ -65,7 +65,7 @@ extern "C" ARM int func_ov023_021f4098(void* arg0, int arg1, int arg2) {
     }
 
     float var9 = 1.0f;
-    if (func_0202b7d8((int*)var1)) {
+    if (IsLocalWirelessOn_0202b7d8((int*)var1)) {
         var9 = 0.0f;
         for (var7 = 0; var7 < 4; var7++) {
             if (func_020a35e0(*(unsigned char**)((char*)arg0 + Enum_ov023_021f4098_672), var7) && func_0202c1c0(var1, var7)) {

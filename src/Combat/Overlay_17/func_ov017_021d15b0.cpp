@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 struct Struct_ov017_021d1118_8 { unsigned char unknown_0_[6]; };
 struct Struct_ov017_021d15b0 {
     Struct_ov017_021d1118_8 unknown_0_;
@@ -43,13 +43,13 @@ struct Struct_ov017_021d1118 {
     unsigned char unknown_13_6_ : 1;
     unsigned char unknown_13_7_ : 1;
 };
-extern "C" signed char func_0202c1a4(Struct_0202c1a4*);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void func_ov017_021a99dc(void*, void*, int, int, int);
 
 // USA: func_ov017_021d15b0
-extern "C" ARM void func_ov017_021d15b0(int arg0, Struct_ov017_021d1118* arg1, Struct_ov017_021d15b0_3* arg2, Struct_ov017_021d15b0_4* arg3, Struct_0202c1a4* arg4) {
+extern "C" ARM void func_ov017_021d15b0(int arg0, Struct_ov017_021d1118* arg1, Struct_ov017_021d15b0_3* arg2, Struct_ov017_021d15b0_4* arg3, LocalWireless_0202c1a4* arg4) {
     void* var0 = arg3->unknown_3b84_;
-    int var1 = func_0202c1a4(arg4);
+    int var1 = GetOwnProtagonistObjectIndex_0202c1a4(arg4);
     if (!arg1->unknown_13_7_) {
         if (var1 == arg1->unknown_12_0_) func_ov017_021a99dc(var0, arg1->unknown_4_, arg1->unknown_13_0_, arg1->unknown_13_2_, arg1->unknown_13_6_);
         return;

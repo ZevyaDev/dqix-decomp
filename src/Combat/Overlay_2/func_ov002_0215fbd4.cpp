@@ -5,11 +5,11 @@ struct Struct_0201099c_3;
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" int func_02041ea4(char* arg0, int arg1);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_02041a28(char* arg0, int arg1);
 extern "C" int func_02041fac(char* arg0, int arg1, int arg2);
 extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 #if defined(jpn)
 extern "C" int func_02042638(char* arg0, int arg1, int arg2);
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov002_0215fbd4(char* arg0, char* arg1, int arg2) {
 
     func_02041a28(arg1, 0xf);
     struct Struct_0201099c_3* var2 = (struct Struct_0201099c_3*)(arg0 + 0x8);
-    var0 = func_020e0434(var2, 0x109a);
+    var0 = FindStringInTable_020e0434(var2, 0x109a);
     func_02042638(arg1, var0, 0x10);
 
     char* var3;
@@ -40,10 +40,10 @@ extern "C" ARM void func_ov002_0215fbd4(char* arg0, char* arg1, int arg2) {
         var3 = arg0 + 0x1000;
         short var5 = var1;
         var1++;
-        int var6 = func_020e0434(var2, var5);
+        int var6 = FindStringInTable_020e0434(var2, var5);
         func_02041b70(arg1, var4, (const char*)var6);
         if (var4 != 5) {
-            func_02042058(arg1, *(char**)(var3 + 0xaa4));
+            AppendText_02042058(arg1, *(char**)(var3 + 0xaa4));
         }
     }
 }
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov002_0215fbd4(char* arg0, char* arg1, int arg2) {
     func_02041ea4(arg1, var7);
 
     struct Struct_0201099c_3* var9 = (struct Struct_0201099c_3*)(arg0 + 0x20);
-    var7 = func_020e0434(var9, 0x109a);
+    var7 = FindStringInTable_020e0434(var9, 0x109a);
     int var10 = func_020420e8((const char*)var7, 0);
     func_02041a28(arg1, (0x78 - var10) >> 1);
     func_02041fac(arg1, var7, 0x10);
@@ -72,10 +72,10 @@ extern "C" ARM void func_ov002_0215fbd4(char* arg0, char* arg1, int arg2) {
     for (; var12 < 6; var12++) {
         short var13 = var8;
         var8++;
-        int var14 = func_020e0434(var9, var13);
+        int var14 = FindStringInTable_020e0434(var9, var13);
         func_02041b70(arg1, var12, (const char*)var14);
         if (var12 != 5) {
-            func_02042058(arg1, *(char**)(var11 + 0xbdc));
+            AppendText_02042058(arg1, *(char**)(var11 + 0xbdc));
         }
     }
 }

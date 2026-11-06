@@ -28,9 +28,9 @@ struct Struct_ov023_021e540c_4 {
     unsigned int unknown_6c_;
 };
 
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_020730e0_2;
-struct Struct_0201099c_9 { void* unknown_0_; };
+struct ItemData_0201099c_9 { void* unknown_0_; };
 
 struct Struct_ov023_021e540c_5 {
     Object3D unknown_0_[10];
@@ -38,7 +38,7 @@ struct Struct_ov023_021e540c_5 {
     SafeAllocator unknown_780_;
     Struct_ov023_021e540c_4 unknown_794_[10];
     short unknown_bf4_[12];
-    Struct_0201099c_10* unknown_c0c_;
+    ItemTable_0201099c_10* unknown_c0c_;
     char unknown_c10_[5];
     unsigned char unknown_c15_;
     char unknown_c16_[2];
@@ -55,7 +55,7 @@ struct Struct_ov023_021e540c {
 
 extern "C" unsigned short (*func_02099cac())[2];
 extern "C" void func_ov023_021e5fdc(void* arg0, short* arg1, short* arg2);
-extern "C" Struct_0201099c_9* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
+extern "C" ItemData_0201099c_9* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
 extern "C" int func_020de2a4(Struct_020730e0_2* arg0, int arg1, int arg2);
 extern short data_ov023_021fd68a[];
 
@@ -75,13 +75,13 @@ extern "C" ARM void func_ov023_021e540c(Struct_ov023_021e540c_5* arg0) {
     int var6 = 0;
     int var7;
     for (; (var7 = data_ov023_021fd68a[var6]) >= 0; var6++) {
-        Struct_0201099c_10* var8 = arg0->unknown_c0c_;
+        ItemTable_0201099c_10* var8 = arg0->unknown_c0c_;
         int var9 = var5[var7];
         int var10 = var0->unknown_14_0_;
         if (var8 != NULL) {
           Struct_ov023_021e540c_4* var11 = &arg0->unknown_794_[var7];
           if (var11 != NULL) {
-            Struct_0201099c_9* var12 = func_020dedd0(var8, (short)var9);
+            ItemData_0201099c_9* var12 = func_020dedd0(var8, (short)var9);
             if (var12 != NULL && var12->unknown_0_ != NULL) {
                 int var13 = func_020de2a4((Struct_020730e0_2*)var12, 0, var10);
                 if (var13 != 0) {

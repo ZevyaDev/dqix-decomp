@@ -17,7 +17,7 @@
 
 struct Struct_0205d6a0;
 extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 struct Struct_02038598_4;
 extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
 
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov008_0218b240(Struct_ov008_0218b240* arg0) {
     arg0->unknown_e9b_ = 2;
     arg0->unknown_e9c_ = 0;
 
-    void* var1 = func_020d6c00();
+    void* var1 = GetGlobalFlags_020d6c00();
     func_020466f4((Struct_02038598_4*)var1, 0x2f);
     ClearFlags00(GetGameResources(), 0x10);
 

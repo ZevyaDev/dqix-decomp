@@ -4,7 +4,7 @@
 // USA: func_ov003_02169938
 extern "C" ARM int func_ov003_02169938(int arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_02010828(var0);
+    void* var1 = GetParty_02010828(var0);
     int var2 = *(int*)((char*)var1 + 0xf6c);
     if (var2 < -arg1) {
         return 0;

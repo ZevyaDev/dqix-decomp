@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct Struct_ov017_021ccaf8 {
 	unsigned short unknown_0_[6];
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov017_021ccaf8(int arg0, char* arg1, GameState* arg2) {
 	GameObject* var1 = func_0200ff1c(arg2, var0->unknown_c_);
 	if (!var1) return;
 
-	int var2 = func_02053c6c((unsigned char*)var1);
+	int var2 = GetPartyMemberData_02053c6c((unsigned char*)var1);
 	if (!var2) return;
 
 	unsigned char var3 = var0->unknown_e_;

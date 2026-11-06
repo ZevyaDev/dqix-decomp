@@ -12,7 +12,7 @@ struct Struct_020fdd44;
 struct Struct_0201a300_11;
 struct Struct_02033834_2;
 struct Struct_02033b68;
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 
 struct Struct_02076fdc {
     unsigned char unknown_0_;
@@ -29,9 +29,9 @@ extern "C" struct Struct_02076fdc* func_020283c0(struct Struct_0201a300_11* arg0
 extern "C" int fix32_Atan2(int arg0, int arg1);
 extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
 extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* arg0);
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" int _s32_div_f(int a, int b);
 extern "C" void func_ov017_021c9168(int arg0, int arg1, int arg2, int arg3,
         Vector3fix arg4, Vector3fix arg5, int arg6);
@@ -87,9 +87,9 @@ extern "C" ARM int func_02076fdc(Struct_02076a8c* arg0) {
     } else {
         arg0->unknown_0_.unknown_0_.unknown_0_.EnableFlag(0x80);
     }
-    void* var5 = func_0202ae18();
-    if (func_0202b7d8((int*)var5)) {
-        if (func_0202c1a4((struct Struct_0202c1a4*)var5) == 0) {
+    void* var5 = GetLocalWireless_0202ae18();
+    if (IsLocalWirelessOn_0202b7d8((int*)var5)) {
+        if (GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var5) == 0) {
             int var6 = arg0->unknown_0_.unknown_0_.unknown_0_.GetField06();
             int var7 = arg0->unknown_0_.unknown_0_.unknown_0_.unknown_4_;
             var7 -= 0x70;

@@ -3,7 +3,7 @@
 #include "std_library_functions.h"
 
 extern "C" int func_020ac460(void* arg0);
-extern "C" int func_020ac4c0(void* arg0);
+extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" int func_020ac3c8(unsigned int* arg0, short* arg1, int arg2);
 extern "C" int func_020ac494(void* arg0);
 
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov023_021ed724(void* arg0, short* arg1, int arg2) {
         var0[var4] = arg1[var4];
     }
     func_020ac3c8(var2, var0, arg2);
-    func_020ac4c0(var1);
+    GetBattleRecords_020ac4c0(var1);
     if (((struct Struct_020a03c4*)var1)->unknown_10_0_ == 0) {
         var3 |= 1;
     }

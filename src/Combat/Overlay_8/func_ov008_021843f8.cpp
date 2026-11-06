@@ -58,7 +58,7 @@ struct Struct_02020cb8;
 struct Struct_0205cfd4;
 struct Struct_0205bef8;
 
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
 extern "C" void func_020a13c4(Struct_020a13c4* arg0);
@@ -126,7 +126,7 @@ extern "C" void func_ov008_02186cec(Struct_ov008_021842a0_2* arg0);
 // USA: func_ov008_021843f8
 extern "C" ARM void func_ov008_021843f8(Struct_ov008_021842a0_2* arg0)
 {
-    func_020466e4((unsigned int*)func_020d6c00(), 0xf);
+    func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0xf);
     arg0->unknown_0_.ResetAllocatorPointer();
     arg0->unknown_14_.ResetAllocatorPointer();
     arg0->unknown_28_.ResetAllocatorPointer();

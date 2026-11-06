@@ -87,24 +87,24 @@ struct Struct_ov003_0216b07c {
 struct Struct_02018300_3;
 struct Struct_0204b12c;
 struct Struct_02020cb8_5;
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 struct Struct_02020cb8_2;
 struct Struct_0204c7a8;
 struct Struct_0205cf78;
 struct Struct_0205cf78_2;
 
 extern "C" void func_020397cc(Struct_02018300_3 *arg0, int arg1);
-extern "C" int func_02042058(char *arg0, const char *arg1);
+extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" const char *func_020e51cc(int arg0);
 extern "C" void func_0204b11c(unsigned char *arg0, int arg1);
-extern "C" int func_02046900(Struct_02020cb8_4 *arg0);
-extern "C" void *func_020467f0(Struct_02020aec *arg0, int arg1, void **arg2, int *arg3);
-extern "C" int func_0202b7d8(int *arg0);
-extern "C" void *func_0202ae18();
-extern "C" int func_0202c508();
-extern "C" int func_0202c540(void *arg0);
-extern "C" void func_02046380(void *arg0);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4 *pac);
+extern "C" void *GetPacEntryData_020467f0(PacEntry_02020aec *pac, int index, void **outEntry, int *outSize);
+extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
+extern "C" void *GetLocalWireless_0202ae18();
+extern "C" int IsNotLocalWirelessGuest_0202c508();
+extern "C" int IsLocalWirelessGuest_0202c540(void *wireless);
+extern "C" void ClearMessageParams_02046380(void *window);
 #if defined(jpn)
 struct Struct_02046574_2;
 extern "C" void func_02046574(Struct_02046574_2 *arg0, int arg1, char *arg2);
@@ -149,17 +149,17 @@ extern "C" ARM void func_ov003_0216b07c(Struct_ov003_0216b07c *arg0) {
     if (arg0->unknown_6_ == 0) {
         func_020397cc((Struct_02018300_3 *) var1->GetUnknownGameObject(), 1);
         ColorEffect_ConfigureAlphaBlend(0x4000050, 0x10, 1, 0x1f, 0);
-        func_0202ae18();
-        if (func_0202c508() != 0 && *(short *) ((char *) var1->GetUnknownGameObject() + 4) == 0) {
+        GetLocalWireless_0202ae18();
+        if (IsNotLocalWirelessGuest_0202c508() != 0 && *(short *) ((char *) var1->GetUnknownGameObject() + 4) == 0) {
             if (arg0->unknown_a_ == 3) {
                 var0->unknown_998_ = 1;
 #if defined(jpn)
-                func_02042058(var0->unknown_28_, data_ov003_0217e930);
+                AppendText_02042058(var0->unknown_28_, data_ov003_0217e930);
                 StartMessage_0204500c(var0, var0->unknown_28_, 0);
 #else
                 char *var3      = var0->unknown_5c_;
-                func_02042058(var3, func_020e51cc(0x44));
-                func_02046380(var0);
+                AppendText_02042058(var3, func_020e51cc(0x44));
+                ClearMessageParams_02046380(var0);
                 StartMessage_0204500c(var0, var0->unknown_5c_, 0, 0xe3);
 #endif
                 var0->unknown_19b2_ = 1;
@@ -222,10 +222,10 @@ extern "C" ARM void func_ov003_0216b07c(Struct_ov003_0216b07c *arg0) {
         int var13 = arg0->unknown_13fc_[2];
 #endif
         var2->GetLoadedFileByID(var13, &var10, &var11);
-        int var14            = func_02046900((Struct_02020cb8_4 *) var10);
+        int var14            = CountPacEntries_02046900((PacEntry_02020cb8_4 *) var10);
         SafeAllocator *var15 = &arg0->unknown_12fc_[1];
         for (int var16 = 0; var16 < var14; var16++) {
-            void *var17 = func_020467f0((Struct_02020aec *) var10, var16, &var9, &var12);
+            void *var17 = GetPacEntryData_020467f0((PacEntry_02020aec *) var10, var16, &var9, &var12);
 #if defined(jpn)
             func_0205a528((char *) arg0 + 0x10fc, var17, var12, var15);
 #else
@@ -263,9 +263,9 @@ extern "C" ARM void func_ov003_0216b07c(Struct_ov003_0216b07c *arg0) {
         int var22[2];
         int var23 = arg0->unknown_13fc_[1];
         var2->GetLoadedFileByID(var23, &var19, &var21);
-        int var24 = func_02046900((Struct_02020cb8_4 *) var19);
+        int var24 = CountPacEntries_02046900((PacEntry_02020cb8_4 *) var19);
         for (int var25 = 0; var25 < var24; var25++) {
-            var20[var25] = func_020467f0((Struct_02020aec *) var19, var25, &var18, &var22[var25]);
+            var20[var25] = GetPacEntryData_020467f0((PacEntry_02020aec *) var19, var25, &var18, &var22[var25]);
         }
         for (int var26 = 0; var26 < var24; var26++) {
             if (var20[var26] != 0) func_0204b174(arg0->unknown_12c4_, var20[var26], arg0->unknown_12d0_, var22[var26]);
@@ -318,10 +318,10 @@ extern "C" ARM void func_ov003_0216b07c(Struct_ov003_0216b07c *arg0) {
         int var34[2];
         int var35 = arg0->unknown_13fc_[1];
         var2->GetLoadedFileByID(var35, &var31, &var33);
-        int var36  = func_02046900((Struct_02020cb8_4 *) var31);
+        int var36  = CountPacEntries_02046900((PacEntry_02020cb8_4 *) var31);
         var28 = arg0->unknown_12c4_;
         for (int var37 = 0; var37 < var36; var37++) {
-            var32[var37] = func_020467f0((Struct_02020aec *) var31, var37, &var30, &var34[var37]);
+            var32[var37] = GetPacEntryData_020467f0((PacEntry_02020aec *) var31, var37, &var30, &var34[var37]);
         }
         for (int var38 = 0; var38 < var36; var38++) {
             if (var32[var38] != 0) func_0204b174(var28, var32[var38], arg0->unknown_12d0_, var34[var38]);
@@ -388,8 +388,8 @@ extern "C" ARM void func_ov003_0216b07c(Struct_ov003_0216b07c *arg0) {
 #if defined(jpn)
         func_02046574((Struct_02046574_2 *) var0, 0, *(char **) ((char *) var1->GetUnknownGameObject() + 0x134));
 #endif
-        void *var49 = func_0202ae18();
-        if ((func_0202b7d8((int *) var49) != 0 && func_0202c540(var49) != 0) ||
+        void *var49 = GetLocalWireless_0202ae18();
+        if ((IsLocalWirelessOn_0202b7d8((int *) var49) != 0 && IsLocalWirelessGuest_0202c540(var49) != 0) ||
             *(short *) ((char *) var1->GetUnknownGameObject() + 4) != 0)
         {
             arg0->unknown_4_ = 3;

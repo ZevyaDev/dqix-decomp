@@ -2,8 +2,8 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-struct Struct_02072a68_2;
-struct Struct_020465c0;
+struct StringList_02072a68_2;
+struct MessageWindow_020465c0;
 struct Struct_ov004_021549e4_3;
 struct Struct_02046574_2;
 #if defined(jpn)
@@ -13,29 +13,26 @@ extern "C" void func_020474a8(void* arg0, int arg1, char* arg2, char* arg3);
 extern "C" void* func_ov023_021f6524(void* arg0, int arg1);
 #endif
 #if defined(jpn)
-extern "C" struct Struct_02072a68_2* func_ov004_02169040(void* arg0, int arg1);
+extern "C" struct StringList_02072a68_2* func_ov004_02169040(void* arg0, int arg1);
 #else
-extern "C" struct Struct_02072a68_2* func_ov004_02168b08(void* arg0, int arg1);
+extern "C" struct StringList_02072a68_2* func_ov004_02168b08(void* arg0, int arg1);
 #endif
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void* func_02053c6c(unsigned char* arg0);
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
-extern "C" void* func_0205ec34(void* arg0);
+extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" void* GetFlagManager_0205ec34(void* arg0);
 extern "C" int func_ov023_021f9bc8(char* arg0);
 extern "C" unsigned int func_ov023_021f9b6c(struct Struct_ov004_021549e4_3* arg0, unsigned int arg1, unsigned int arg2);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02042764(const char* arg0, char* arg1, int arg2);
 extern "C" void* func_ov004_02168a6c(void* arg0, int arg1);
-extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
-extern "C" void func_02046380(void* arg0);
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
 extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" char* func_020d2f88(char* arg0, char* arg1);
-extern "C" int func_020ac4c0(void* arg0);
-extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" int GetBattleRecords_020ac4c0(void* records);
+extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
 #if defined(jpn)
@@ -142,27 +139,27 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
     struct Struct_ov004_02169b4c_5* var1 = static_cast<Struct_ov004_02169b4c_5*>(func_ov023_021f6524(arg0, 0x64));
 #endif
 #if defined(jpn)
-    struct Struct_02072a68_2* var2 = func_ov004_02169040(arg0, 3);
+    struct StringList_02072a68_2* var2 = func_ov004_02169040(arg0, 3);
 #else
-    struct Struct_02072a68_2* var2 = func_ov004_02168b08(arg0, 3);
+    struct StringList_02072a68_2* var2 = func_ov004_02168b08(arg0, 3);
 #endif
     void* var3 = (void*)GetMessageWindow_020421a0();
-    unsigned char* var4 = (unsigned char*)func_02053c6c((unsigned char*)GameState::GetInstance()->GetProtagonist());
-    unsigned char* var5 = (unsigned char*)func_0205ec34(var4);
+    unsigned char* var4 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)GameState::GetInstance()->GetProtagonist());
+    unsigned char* var5 = (unsigned char*)GetFlagManager_0205ec34(var4);
 #if defined(jpn)
-    struct Struct_02072a68_2* var6 = func_ov004_02169040(arg0, 9);
+    struct StringList_02072a68_2* var6 = func_ov004_02169040(arg0, 9);
 #else
-    struct Struct_02072a68_2* var6 = func_ov004_02168b08(arg0, 9);
+    struct StringList_02072a68_2* var6 = func_ov004_02168b08(arg0, 9);
 #endif
 #if defined(jpn)
-    struct Struct_02072a68_2* var7 = func_ov004_02169040(arg0, 6);
+    struct StringList_02072a68_2* var7 = func_ov004_02169040(arg0, 6);
 #else
-    struct Struct_02072a68_2* var7 = func_ov004_02168b08(arg0, 6);
+    struct StringList_02072a68_2* var7 = func_ov004_02168b08(arg0, 6);
 #endif
 #if defined(jpn)
-    struct Struct_02072a68_2* var8 = func_ov004_02169040(arg0, 7);
+    struct StringList_02072a68_2* var8 = func_ov004_02169040(arg0, 7);
 #else
-    struct Struct_02072a68_2* var8 = func_ov004_02168b08(arg0, 7);
+    struct StringList_02072a68_2* var8 = func_ov004_02168b08(arg0, 7);
 #endif
     short var9 = var1->unknown_5c_;
     int var10 = func_ov023_021f9bc8((char*)var1);
@@ -194,12 +191,12 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
     Struct_ov004_02169b4c_7* var17;
 
 #if defined(jpn)
-    func_02046380(var3);
-    char* var18 = static_cast<char*>(func_02072a68(var2, 0x23));
-    func_020465c0(static_cast<Struct_020465c0*>(var3), 0, var15->unknown_0_0_);
+    ClearMessageParams_02046380(var3);
+    char* var18 = static_cast<char*>(FindStringInList_02072a68(var2, 0x23));
+    SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 0, var15->unknown_0_0_);
     func_020465f0(static_cast<unsigned char*>(var3), 0, 4);
     func_020465d8(static_cast<unsigned char*>(var3), 0, 1);
-    func_020465c0(static_cast<Struct_020465c0*>(var3), 1, var15->unknown_8_0_);
+    SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 1, var15->unknown_8_0_);
     func_020465f0(static_cast<unsigned char*>(var3), 1, 2);
     func_020465d8(static_cast<unsigned char*>(var3), 1, 1);
     func_020474a8(var3, 8, var18, var16);
@@ -207,14 +204,14 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
     var17->unknown_20_ = var16;
     var16 += strlen(var16) + 1;
 
-    func_02046380(var3);
-    func_020465c0(static_cast<Struct_020465c0*>(var3), 0, var15->unknown_4_0_);
+    ClearMessageParams_02046380(var3);
+    SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 0, var15->unknown_4_0_);
     func_020465f0(static_cast<unsigned char*>(var3), 0, 4);
     func_020465d8(static_cast<unsigned char*>(var3), 0, 1);
-    func_020465c0(static_cast<Struct_020465c0*>(var3), 1, var15->unknown_8_7_);
+    SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 1, var15->unknown_8_7_);
     func_020465f0(static_cast<unsigned char*>(var3), 1, 2);
     func_020465d8(static_cast<unsigned char*>(var3), 1, 1);
-    func_020474a8(var3, 8, static_cast<char*>(func_02072a68(var2, 0x23)), var16);
+    func_020474a8(var3, 8, static_cast<char*>(FindStringInList_02072a68(var2, 0x23)), var16);
     var17 = static_cast<Struct_ov004_02169b4c_7*>(func_ov004_02168a6c(arg0, 0x191));
     var17->unknown_20_ = var16;
     var16 += strlen(var16) + 1;
@@ -222,44 +219,44 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
 #else
     var17 = static_cast<Struct_ov004_02169b4c_7*>(func_ov004_02168a6c(arg0, 0x190));
     var17->unknown_45_1_ = 2;
-    sprintf(var16, static_cast<char*>(func_02072a68(var2, 0x23)), var15->unknown_0_0_);
+    sprintf(var16, static_cast<char*>(FindStringInList_02072a68(var2, 0x23)), var15->unknown_0_0_);
     var17->unknown_20_ = var16;
     var16 += strlen(var16) + 1;
 
     var17 = static_cast<Struct_ov004_02169b4c_7*>(func_ov004_02168a6c(arg0, 0x1c2));
     var17->unknown_45_1_ = 2;
-    sprintf(var16, static_cast<char*>(func_02072a68(var2, 0x23)), var15->unknown_8_0_);
+    sprintf(var16, static_cast<char*>(FindStringInList_02072a68(var2, 0x23)), var15->unknown_8_0_);
     var17->unknown_20_ = var16;
     var16 += strlen(var16) + 1;
 
     var17 = static_cast<Struct_ov004_02169b4c_7*>(func_ov004_02168a6c(arg0, 0x191));
     var17->unknown_45_1_ = 2;
-    sprintf(var16, static_cast<char*>(func_02072a68(var2, 0x23)), var15->unknown_4_0_);
+    sprintf(var16, static_cast<char*>(FindStringInList_02072a68(var2, 0x23)), var15->unknown_4_0_);
     var17->unknown_20_ = var16;
     var16 += strlen(var16) + 1;
 
     var17 = static_cast<Struct_ov004_02169b4c_7*>(func_ov004_02168a6c(arg0, 0x1c3));
     var17->unknown_45_1_ = 2;
-    sprintf(var16, static_cast<char*>(func_02072a68(var2, 0x23)), var15->unknown_8_7_);
+    sprintf(var16, static_cast<char*>(FindStringInList_02072a68(var2, 0x23)), var15->unknown_8_7_);
     var17->unknown_20_ = var16;
     var16 += strlen(var16) + 1;
 
 #endif
-    func_02046380(var3);
+    ClearMessageParams_02046380(var3);
     char* var19;
     if (var15->unknown_14_ >= 700) {
-        var19 = static_cast<char*>(func_02072a68(var6, (short)(var15->unknown_14_ + 20000)));
+        var19 = static_cast<char*>(FindStringInList_02072a68(var6, (short)(var15->unknown_14_ + 20000)));
     } else if (var15->unknown_16_0_) {
-        var19 = static_cast<char*>(func_02072a68(var8, var15->unknown_14_));
+        var19 = static_cast<char*>(FindStringInList_02072a68(var8, var15->unknown_14_));
     } else {
-        var19 = static_cast<char*>(func_02072a68(var7, var15->unknown_14_));
+        var19 = static_cast<char*>(FindStringInList_02072a68(var7, var15->unknown_14_));
     }
     func_02046574((struct Struct_02046574_2*)var3, 0, var19);
     func_02046574((struct Struct_02046574_2*)var3, 1, var14);
 #if defined(jpn)
-    func_020474a8(var3, 0xa, static_cast<char*>(func_02072a68(var2, 0x22)), var16);
+    func_020474a8(var3, 0xa, static_cast<char*>(FindStringInList_02072a68(var2, 0x22)), var16);
 #else
-    func_02046608(var3, 0xa, static_cast<char*>(func_02072a68(var2, 0x22)), var16, 0xf0, 1, 0);
+    func_02046608(var3, 0xa, static_cast<char*>(FindStringInList_02072a68(var2, 0x22)), var16, 0xf0, 1, 0);
 #endif
 
     var17 = static_cast<Struct_ov004_02169b4c_7*>(func_ov004_02168a6c(arg0, 0x192));
@@ -272,30 +269,30 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
 #endif
     var16 += strlen(var16) + 1;
 
-    func_02046380(var3);
+    ClearMessageParams_02046380(var3);
     unsigned char var21 = 0;
     unsigned char var22 = 0;
     struct Struct_ov004_02169b4c_3 var23;
-    func_020ac4c0(&var23);
+    GetBattleRecords_020ac4c0(&var23);
     var22 |= 1;
-    func_020465c0(static_cast<Struct_020465c0*>(var3), var21++, var15->unknown_5_6_);
-    if (func_0206dfb0((int)var5, var5 + 0x8c, 0x1198)) {
+    SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), var21++, var15->unknown_5_6_);
+    if (IsFlagSet_0206dfb0((int)var5, var5 + 0x8c, 0x1198)) {
         var22 |= 2;
-        func_020465c0(static_cast<Struct_020465c0*>(var3), var21++, var15->unknown_1_6_);
+        SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), var21++, var15->unknown_1_6_);
     }
     var22 |= 4;
-    func_020465c0(static_cast<Struct_020465c0*>(var3), var21++, var15->unknown_c_0_);
+    SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), var21++, var15->unknown_c_0_);
     if (var23.unknown_b_0_) {
         var22 |= 8;
-        func_020465c0(static_cast<Struct_020465c0*>(var3), var21++, var15->unknown_10_0_);
+        SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), var21++, var15->unknown_10_0_);
     }
     if (var23.unknown_d_6_) {
         var22 |= 0x10;
-        func_020465c0(static_cast<Struct_020465c0*>(var3), var21++, var15->unknown_d_2_);
+        SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), var21++, var15->unknown_d_2_);
     }
-    if (func_0206dfb0((int)var5, var5 + 0x8c, 0x1199)) {
+    if (IsFlagSet_0206dfb0((int)var5, var5 + 0x8c, 0x1199)) {
         var22 |= 0x20;
-        func_020465c0(static_cast<Struct_020465c0*>(var3), var21++, var15->unknown_11_1_);
+        SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), var21++, var15->unknown_11_1_);
     }
 
     unsigned char var24 = 0;
@@ -304,16 +301,16 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
         if (var22 & (1 << var25)) {
             func_020465f0(static_cast<unsigned char*>(var3), var24, 5);
             func_020465d8(static_cast<unsigned char*>(var3), var24, 1);
-            strcpy(var16, static_cast<char*>(func_02072a68(var2, (short)(var25 + 0x28))));
+            strcpy(var16, static_cast<char*>(FindStringInList_02072a68(var2, (short)(var25 + 0x28))));
             int var26 = var24 * 3;
             var17 = static_cast<Struct_ov004_02169b4c_7*>(func_ov004_02168a6c(arg0, var26 + 0x1f4));
             if (!var17) continue;
             var17->unknown_20_ = var16;
             var16 += strlen(var16) + 1;
 #if defined(jpn)
-            func_020474a8(var3, 8, static_cast<char*>(func_02072a68(var2, (short)(var24 + 0x14))), var16);
+            func_020474a8(var3, 8, static_cast<char*>(FindStringInList_02072a68(var2, (short)(var24 + 0x14))), var16);
 #else
-            func_02046608(var3, 8, static_cast<char*>(func_02072a68(var2, (short)(var24 + 0x14))), var16, 0x100, 0, 0);
+            func_02046608(var3, 8, static_cast<char*>(FindStringInList_02072a68(var2, (short)(var24 + 0x14))), var16, 0x100, 0, 0);
 #endif
             var17 = static_cast<Struct_ov004_02169b4c_7*>(func_ov004_02168a6c(arg0, var26 + 0x1f5));
             if (!var17) continue;
@@ -327,7 +324,7 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
             } else {
                 var27 = 0x2e;
             }
-            strcpy(var16, static_cast<char*>(func_02072a68(var2, var27)));
+            strcpy(var16, static_cast<char*>(FindStringInList_02072a68(var2, var27)));
             var17 = static_cast<Struct_ov004_02169b4c_7*>(func_ov004_02168a6c(arg0, var26 + 0x1f6));
             if (!var17) continue;
             var17->unknown_20_ = var16;
@@ -342,26 +339,26 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
         (static_cast<Struct_ov004_02169b4c_7*>(func_ov004_02168a6c(arg0, var29 + 0x1f6)))->unknown_c_3_ = 1;
     }
 
-    func_02046380(var3);
-    func_020465c0(static_cast<Struct_020465c0*>(var3), 0, var15->unknown_9_6_);
+    ClearMessageParams_02046380(var3);
+    SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 0, var15->unknown_9_6_);
     func_020465f0(static_cast<unsigned char*>(var3), 0, 3);
     func_020465d8(static_cast<unsigned char*>(var3), 0, 1);
-    func_020465c0(static_cast<Struct_020465c0*>(var3), 1, var15->unknown_f_0_);
+    SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 1, var15->unknown_f_0_);
     func_020465f0(static_cast<unsigned char*>(var3), 1, 3);
     func_020465d8(static_cast<unsigned char*>(var3), 1, 1);
-    func_020465c0(static_cast<Struct_020465c0*>(var3), 2, var15->unknown_a_5_);
+    SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 2, var15->unknown_a_5_);
     func_020465f0(static_cast<unsigned char*>(var3), 2, 3);
     func_020465d8(static_cast<unsigned char*>(var3), 2, 1);
-    func_020465c0(static_cast<Struct_020465c0*>(var3), 3, var15->unknown_12_7_);
+    SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), 3, var15->unknown_12_7_);
     func_020465f0(static_cast<unsigned char*>(var3), 3, 3);
     func_020465d8(static_cast<unsigned char*>(var3), 3, 1);
 
     int var30 = (var22 & 2) ? 4 : 3;
     for (int var31 = 0; var31 < var30; var31++) {
 #if defined(jpn)
-        func_020474a8(var3, 8, static_cast<char*>(func_02072a68(var2, (short)(var31 + 0x1e))), var16);
+        func_020474a8(var3, 8, static_cast<char*>(FindStringInList_02072a68(var2, (short)(var31 + 0x1e))), var16);
 #else
-        func_02046608(var3, 8, static_cast<char*>(func_02072a68(var2, (short)(var31 + 0x1e))), var16, 0x100, 0, 0);
+        func_02046608(var3, 8, static_cast<char*>(FindStringInList_02072a68(var2, (short)(var31 + 0x1e))), var16, 0x100, 0, 0);
 #endif
         (static_cast<Struct_ov004_02169b4c_7*>(func_ov004_02168a6c(arg0, var31 * 2 + 6 + 0x200)))->unknown_20_ = var16;
         var16 += strlen(var16) + 1;

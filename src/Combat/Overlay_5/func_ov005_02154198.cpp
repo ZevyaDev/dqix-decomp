@@ -16,7 +16,7 @@ struct Struct_02020cb8_3;
 
 extern "C" void func_ov023_021dc354(void* arg0);
 extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" unsigned int* func_0200fb8c(int* arg0);
+extern "C" unsigned int* GetResources_0200fb8c(int* gameState);
 extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
 extern "C" void func_0205d048(void* arg0);
 extern "C" void func_02074bd0(Struct_02074bd0* arg0);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov005_02154198(Struct_ov005_02153954* arg0) {
     func_ov023_021dc354(arg0->unknown_1244_);
     func_020c5588(arg0->unknown_3dc2_, 0x10, 0x7fff, 0, 0);
     GameState* var1 = GameState::GetInstance();
-    ClearFlags04((GameResources*)(func_0200fb8c((int*)var1)), 0x800);
+    ClearFlags04((GameResources*)(GetResources_0200fb8c((int*)var1)), 0x800);
     REG_DISPCNT = (REG_DISPCNT & ~0x1f00) | (arg0->unknown_e80_ << 8);
     func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ee4_, 1);
     func_0205d048(arg0->unknown_ee4_);

@@ -37,11 +37,11 @@ extern "C" Struct_020fdd44* func_02028bac(Struct_02028bac*, int);
 extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44*, int);
 extern "C" void func_02076b58(Struct_02076a8c_2*);
 extern "C" int func_0201b5d8(int);
-extern "C" int func_0202b7d8(int*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov017_021c9544(int, int, int, int);
-extern "C" int* func_0202ae18();
+extern "C" int* GetLocalWireless_0202ae18();
 extern "C" unsigned short* GetZone3D_02012fe4();
-extern "C" int func_0202c508(int*);
+extern "C" int IsNotLocalWirelessGuest_0202c508(int*);
 extern "C" void func_02034104(Vector3fix*, GameObject*);
 extern "C" int func_02031118(Vector3fix*, Struct_ov017_021a1ad0_2*);
 extern "C" void func_02076a8c(Struct_ov017_021a1ad0*);
@@ -50,9 +50,9 @@ extern "C" void func_02076a8c(Struct_ov017_021a1ad0*);
 extern "C" ARM void func_ov017_021a1ad0() {
     GameState* var0 = GameState::GetInstance();
     Struct_020fdd44* var1 = func_02027ca4();
-    int* var2 = func_0202ae18();
+    int* var2 = GetLocalWireless_0202ae18();
     unsigned short* var3 = GetZone3D_02012fe4();
-    if (func_0202c508(var2)) {
+    if (IsNotLocalWirelessGuest_0202c508(var2)) {
         int var4;
         int var5;
         Struct_020fdd44* var6;
@@ -104,7 +104,7 @@ collisionComplete:
                 if (var11 && var9->unknown_130_ != 8 && var9->unknown_130_ != 9) {
                     func_02076a8c(var9);
                     var9->unknown_0_.MakeHidden();
-                    if (func_0202b7d8(var2) && var6) {
+                    if (IsLocalWirelessOn_0202b7d8(var2) && var6) {
                         func_ov017_021c9544(var6->unknown_0_, var8, var9->unknown_0_.unknown_2_, var7);
                     }
                 }

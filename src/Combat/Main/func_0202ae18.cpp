@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-extern int data_020fefec;
+extern int gLocalWireless_020fefec;
 
-// USA: func_0202ae18
-extern "C" ARM void* func_0202ae18(void) {
-    return &data_020fefec;
+// USA: GetLocalWireless_0202ae18
+extern "C" ARM void* GetLocalWireless_0202ae18(void) {
+    return &gLocalWireless_020fefec;
 }

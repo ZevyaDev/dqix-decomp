@@ -36,7 +36,7 @@ struct Struct_ov023_021e4bc8 {
 };
 extern "C" Struct_02045cac* GetMessageWindow_020421a0();
 extern "C" void func_02045cac(Struct_02045cac*);
-extern "C" int func_020e0434(Struct_0201099c_3*, int);
+extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_ov023_021e4250(char*);
 extern "C" {
 void func_020469b0(Struct_02045cac*, const char*, unsigned short*, int);
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov023_021e4bc8(Struct_ov023_021e4bc8_4* arg0) {
     for (int var7 = 0; var7 < 2; var7++) arg0->unknown_554_[var7] = 0xffff;
     func_02045cac(var2);
     var0 = &arg0->unknown_0_->unknown_df8_;
-    func_020469b0(var2, (const char*)func_020e0434(var0, 0x258), arg0->unknown_554_, 10);
+    func_020469b0(var2, (const char*)FindStringInTable_020e0434(var0, 0x258), arg0->unknown_554_, 10);
     for (int var8 = 0; var8 < 4; var8++) {
         Struct_ov023_021e4bc8* var9 = (Struct_ov023_021e4bc8*)func_0200ff1c(var1, var8);
         if (var9 != 0) {
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov023_021e4bc8(Struct_ov023_021e4bc8_4* arg0) {
             short var11 = var9->unknown_144_->unknown_8b8_ + 500;
             if (func_ov017_021bdbcc(GetGameResources())) var11 = 500;
             if (inline_ov023_021e4bc8(var9->unknown_130_) <= 0) var11 = 0x226;
-            func_020469b0(var2, (const char*)func_020e0434(var0, var11), arg0->unknown_53c_[var8], 10);
+            func_020469b0(var2, (const char*)FindStringInTable_020e0434(var0, var11), arg0->unknown_53c_[var8], 10);
             char var12[3];
             var12[0] = -24;
             var12[1] = func_ov023_021e4250((char*)var9) + 0x3f;

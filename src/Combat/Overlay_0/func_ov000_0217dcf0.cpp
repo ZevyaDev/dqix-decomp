@@ -11,10 +11,10 @@ enum { Enum_ov000_0217dcf0_7520 = 0x1d60, Enum_ov000_0217dcf0_7528 = 0x1d68,
 
 struct Struct_0205c570;
 struct Struct_0205d6a0;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
 extern "C" int func_0205d794(struct Struct_0205c570* arg0);
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
 extern "C" int func_ov000_0217c5f4(void* arg0);
 extern "C" int func_ov000_0217c594(void* arg0, int arg1);
@@ -22,7 +22,7 @@ extern "C" void func_ov000_02176e3c(void* arg0, int arg1, int arg2, int arg3, in
 extern "C" void func_ov000_0217c638(void* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021c847c(void);
 
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 
 struct Struct_ov000_0217dcf0 {
     char unknown_0_[0x3c];
@@ -46,9 +46,9 @@ extern "C" ARM void func_ov000_0217dcf0(char* arg0, int arg1, int arg2) {
     *(unsigned short*)(arg0 + Enum_ov000_0217dcf0_7538) |= 0x100;
     *(unsigned char*)(arg0 + Enum_ov000_0217dcf0_7531) = func_0205d794((struct Struct_0205c570*)(arg0 + 0x188));
     if (func_ov000_0217c594(arg0, 0)) {
-        func_0205eaa0((struct Struct_02108760*)data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
         GameState* var0 = GameState::GetInstance();
-        unsigned char* var1 = (unsigned char*)func_02010828(var0);
+        unsigned char* var1 = (unsigned char*)GetParty_02010828(var0);
         signed char var2 = *(signed char*)(arg0 + Enum_ov000_0217dcf0_7531);
         if (var2 < var1[0xf7c]) {
             struct Struct_ov000_0217dcf0_2* var3 = &((struct Struct_ov000_0217dcf0_2*)(arg0 + 0x958))[*(signed char*)(arg0 + var2 + 0x70)];

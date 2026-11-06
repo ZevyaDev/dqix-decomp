@@ -14,7 +14,7 @@ extern "C" void func_020103f0(struct Struct_020103f0* arg0, unsigned short* arg1
 struct Struct_020104cc;
 extern "C" void func_020104cc(struct Struct_020104cc* arg0, unsigned short* arg1, unsigned char* arg2, unsigned char* arg3);
 
-extern "C" int func_020ac4c0(void* arg0);
+extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" int func_020ac494(void* arg0);
 
 unsigned long long GetCurrentTimestamp(void);
@@ -30,7 +30,7 @@ extern "C" ARM int func_020ac4f8(int arg0) {
     Struct_02061c04_2* var6;
 
     var0 = GameState::GetInstance();
-    func_020ac4c0(&var1);
+    GetBattleRecords_020ac4c0(&var1);
 
     var2 = 0;
     var3 = 0;

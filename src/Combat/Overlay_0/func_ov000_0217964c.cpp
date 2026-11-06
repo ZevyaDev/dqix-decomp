@@ -51,7 +51,7 @@ struct Struct_ov000_02176e3c {
 };
 
 extern "C" Struct_ov000_0217964c* GetMessageWindow_020421a0();
-extern "C" void* func_02053c6c(unsigned char* arg0);
+extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" Struct_ov000_02171ffc_5* func_ov000_02171b9c(void* arg0, int arg1);
 extern "C" void func_02046608(Struct_ov000_0217964c* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" void* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov000_0217964c(Struct_ov000_02176e3c* arg0, Struct_ov00
     if (var4 == NULL) {
         return;
     }
-    func_02053c6c((unsigned char*)var4);
+    GetPartyMemberData_02053c6c((unsigned char*)var4);
     Struct_ov000_02171ffc_5* var5 = func_ov000_02171b9c(arg1, arg1->unknown_22_);
     if (var5 == NULL) {
         return;

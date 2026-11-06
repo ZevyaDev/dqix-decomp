@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 struct Struct_0208ab34_2 {
     unsigned char unknown_0_;
@@ -12,11 +12,11 @@ struct Struct_0208ab34_2 {
 };
 extern "C" struct Struct_0208ab34_2* func_020e3054(struct Struct_0208ab34_2* arg0, int arg1);
 
-struct Struct_0202c1a4 {
+struct LocalWireless_0202c1a4 {
     char unknown_0_[0x1038];
-    signed char unknown_1038_[16];
+    signed char protagonistObjectIndexByConsole_1038_[16];
 };
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
 struct Struct_0208ab34 {
     struct Struct_0208ab34_2 unknown_0_[8];
@@ -32,8 +32,8 @@ extern "C" ARM int func_020e34bc(struct Struct_0208ab34* arg0, int arg1) {
     struct Struct_0208ab34_2* var3;
     signed char var4;
 
-    var2 = func_0202ae18();
-    if (!func_0202b7d8((int*)var2)) return 1;
+    var2 = GetLocalWireless_0202ae18();
+    if (!IsLocalWirelessOn_0202b7d8((int*)var2)) return 1;
 
     var1 = 0;
     for (var0 = arg0->unknown_20_; var1 < 8; var0++) {
@@ -43,7 +43,7 @@ extern "C" ARM int func_020e34bc(struct Struct_0208ab34* arg0, int arg1) {
 
     var3 = func_020e3054(arg0->unknown_0_, arg1);
     if (var3 != NULL) {
-        var4 = func_0202c1a4((struct Struct_0202c1a4*)var2);
+        var4 = GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var2);
         if (var3->unknown_0_ == var4) return var3->unknown_2_;
         return 3;
     }

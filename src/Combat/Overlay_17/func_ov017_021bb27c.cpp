@@ -56,19 +56,19 @@ struct Struct_ov017_021bb27c {
 };
 struct Struct_ov017_021d6c20 { int unknown_0_; Vector3fix unknown_4_, unknown_10_, unknown_1c_; };
 extern "C" int func_020100f8(char*);
-extern "C" int* func_0202ae18();
+extern "C" int* GetLocalWireless_0202ae18();
 extern "C" Struct_ov017_021bb27c_4* GetZone3D_02012fe4();
 extern "C" void func_ov001_0215aa5c();
 extern "C" void func_02033fdc(Struct_02033fdc*);
 extern "C" void func_02033b58(Struct_02033b58*, unsigned char);
 extern "C" int func_02039d7c(char*);
 extern "C" void func_02033874(Struct_02033834*, int);
-extern "C" int func_0202b7d8(int*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_02053ec8(void*, int);
 extern "C" void func_02053f04(void*);
 extern "C" int func_020100b0(GameState*);
-extern "C" void func_02012da4(AllocatorUnion*, void*);
-extern "C" Struct_02038598_4* func_020d6c00();
+extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
+extern "C" Struct_02038598_4* GetGlobalFlags_020d6c00();
 extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
 extern "C" void func_ov017_02191fec(GameResources*, int);
 extern "C" void* func_0200fd0c(GameState*);
@@ -88,7 +88,7 @@ extern "C" void func_ov017_021bd4d0(Struct_ov017_021bb27c_7*, unsigned char, int
 #define data_ov017_021d6c20 data_ov017_021d7018
 #endif
 extern const char data_ov017_021d7d6c[], data_ov017_021d7d72[];
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 extern const Struct_ov017_021d6c20 data_ov017_021d6c20[3];
 
 static inline Struct_ov017_021bb27c_6* inline_ov017_021bb27c(GameResources* arg0) {
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
     Struct_ov017_021bb27c_6* var4 = inline_ov017_021bb27c(var2);
     GameObject* var5 = var1->GetUnknownGameObject();
     void* var6 = (void*)func_020100f8((char*)var1);
-    var0 = func_0202ae18();
+    var0 = GetLocalWireless_0202ae18();
     Struct_ov017_021bb27c_4* var7 = GetZone3D_02012fe4();
     if (!TestFlags00(var2, 0x1000)) {
         func_ov001_0215aa5c();
@@ -126,8 +126,8 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
         func_02033874((Struct_02033834*)var9, var9->obj3D_.rotation_.y);
         var9->obj3D_.DisableFlag(0x10);
     }
-    if (func_0202b7d8(var0)) {
-        Struct_ov017_021bb27c_3* var10 = (Struct_ov017_021bb27c_3*)func_02010828(var1);
+    if (IsLocalWirelessOn_0202b7d8(var0)) {
+        Struct_ov017_021bb27c_3* var10 = (Struct_ov017_021bb27c_3*)GetParty_02010828(var1);
         for (int var11 = 0; var11 < var10->unknown_f7c_; var11++) {
             Struct_ov017_021bb27c_2* var12 = (Struct_ov017_021bb27c_2*)func_0200ff1c(var1, var10->unknown_f78_[var11]);
             if (var12) { func_02053ec8(var12, 0); func_02053f04(var12); }
@@ -158,16 +158,16 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
     if (var16) { arg0->unknown_124_.Destroy(); arg0->unknown_7c_.Free(var16); }
     if (!TestFlags00(var2, 0x1000)) {
         var16 = arg0->unknown_7c_.GetSignedAllocator();
-        if (var16) { arg0->unknown_7c_.Destroy(); func_02012da4(&data_02114e20, var16); }
+        if (var16) { arg0->unknown_7c_.Destroy(); FreeMemory_02012da4(&gMainHeap_02114e20, var16); }
     }
     if (arg0->unknown_138_) {
         var16 = arg0->unknown_138_->GetSignedAllocator();
-        if (var16) { arg0->unknown_138_->Destroy(); func_02012da4(&data_02114e20, var16); }
+        if (var16) { arg0->unknown_138_->Destroy(); FreeMemory_02012da4(&gMainHeap_02114e20, var16); }
         arg0->unknown_138_ = 0;
     }
-    func_020466f4(func_020d6c00(), 0x20000);
+    func_020466f4(GetGlobalFlags_020d6c00(), 0x20000);
     for (int var17 = 0; var17 < 4; var17++) func_ov017_02191fec(var2, var17);
-    func_020466f4(func_020d6c00(), 0x400f);
+    func_020466f4(GetGlobalFlags_020d6c00(), 0x400f);
     Struct_ov017_021bb27c_5* var18 = (Struct_ov017_021bb27c_5*)func_0200fd0c(var1);
     if (arg0->unknown_104_ && !var4->unknown_2_ && (!var18->unknown_2_ || arg0->unknown_10c_) &&
         !func_02046b60(var3, 10) && !(arg0->unknown_16_ == 1 && arg0->unknown_cf_ == 2)) {
@@ -193,7 +193,7 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
     arg0->unknown_cf_ = 0xff; arg0->unknown_9a_ = 0;
     Struct_ov017_021bb27c* var24 = (Struct_ov017_021bb27c*)var2;
     if (arg0->unknown_18_ == var24->unknown_44ac_) var24->unknown_44ac_ = 0;
-    if (func_0202b7d8(var0)) {
+    if (IsLocalWirelessOn_0202b7d8(var0)) {
         if (arg0->unknown_a_ <= 2 && arg0->unknown_fd_) return;
         Struct_ov017_021bb27c_5* var25 = (Struct_ov017_021bb27c_5*)func_0200fd0c(var1);
         if (var25->unknown_2_ && arg0->unknown_108_) var25->unknown_e_ = 1;

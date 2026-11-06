@@ -93,6 +93,6 @@ struct Struct_02061c04 {
 };
 
 
-extern "C" int func_020ac4c0(void* arg0);
+extern "C" int GetBattleRecords_020ac4c0(void* records);
 
 #endif

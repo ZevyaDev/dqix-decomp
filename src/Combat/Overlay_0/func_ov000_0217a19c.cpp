@@ -28,7 +28,7 @@ struct Struct_ov000_02170cf8 {
 extern "C" int GetMessageWindow_020421a0();
 extern "C" struct Struct_ov000_02170cf8* func_ov000_02170cf8(char* arg0, int arg1);
 extern "C" void func_020dd040(int arg0, char* arg1);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" void* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
 #if defined(jpn)
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov000_0217a19c(char* arg0, char* arg1) {
     if (var4 != 0) {
         func_020dd040(var4->unknown_4_0_, var2);
     } else {
-        var2 = (char*)func_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0x20);
+        var2 = (char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0x20);
     }
 #if !defined(jpn)
     func_02046608(GetMessageWindow_020421a0(), 0xa, var2, var1, 0x98, 0, 0);

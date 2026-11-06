@@ -4,7 +4,7 @@
 
 extern "C" void func_02052d7c(void* arg0, int arg1, int arg2);
 extern "C" void func_02072afc(int arg0, void* arg1, void* arg2);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern char data_020f0cf4[];
 
 struct Struct_02072c9c {
@@ -19,7 +19,7 @@ extern "C" ARM void func_02072c9c(int arg0, char* arg1) {
     if (var0 == NULL) {
         return;
     }
-    int var1 = func_02053c6c((unsigned char*)var0);
+    int var1 = GetPartyMemberData_02053c6c((unsigned char*)var0);
     if (var1 == 0) {
         return;
     }

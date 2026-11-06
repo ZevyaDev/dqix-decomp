@@ -29,7 +29,7 @@ struct Struct_ov000_02171c04_3 {
     Struct_ov000_02171c04* unknown_3f0_[16];
 };
 extern "C" {
-    void* func_02053c6c(void*);
+    void* GetPartyMemberData_02053c6c(void*);
     extern unsigned char data_ov000_02183380[8];
     void func_ov000_02171b68(Struct_ov000_02171c04_3*, int, Struct_ov000_02171c04*);
 }
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov000_02171c04(Struct_ov000_02171c04_3* arg0)
     int var1 = var0 >= 0 && var0 <= 3;
     if (var1) {
         char* var2 = (char*)func_0200ff1c(GameState::GetInstance(), var0);
-        if (var2 && func_02053c6c(var2)) {
+        if (var2 && GetPartyMemberData_02053c6c(var2)) {
             arg0->unknown_86_ = 0;
             for (signed char var3 = 0; var3 < 16; ++var3) {
                 Struct_ov000_02171c04* var4 = arg0->unknown_3f0_[var3];

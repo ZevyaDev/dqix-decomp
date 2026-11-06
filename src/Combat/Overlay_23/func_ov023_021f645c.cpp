@@ -60,14 +60,14 @@ struct Struct_ov023_021f645c {
     unsigned short unknown_38_;
 };
 
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" struct Struct_ov023_021f645c* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" struct Struct_ov023_021f645c* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void);
 
 // USA: func_ov023_021f645c
 extern "C" ARM void func_ov023_021f645c(void* arg0, int arg1, unsigned short arg2, void* arg3) {
-    void* var0 = func_ov011_021849c8(arg0);
-    struct Struct_ov023_021f645c* var1 = func_ov023_021f6880(var0, arg1);
+    void* var0 = GetMenuObjectList_ov011_021849c8(arg0);
+    struct Struct_ov023_021f645c* var1 = FindMenuObjectById_ov023_021f6880(var0, arg1);
     if (!var1) return;
     int var2 = func_ov023_021f6f10();
     if (var2 != 8) return;

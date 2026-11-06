@@ -26,8 +26,8 @@ struct Struct_ov004_02164c18_2 {
 
 extern "C" void GetZone3D_02012fe4(GameState* arg0);
 extern "C" int func_ov004_021634dc(void* arg0);
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" struct Struct_ov004_02164c18_2* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" struct Struct_ov004_02164c18_2* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" void func_ov023_021f9ba8(void* arg0, unsigned short arg1);
 extern "C" void func_ov004_021636b0(void* arg0, void* arg1);
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov004_02164c18(void* arg0) {
     }
 
     if (var0 + 1 == data_ov004_02171010->unknown_18f4_ && var0 != 0) {
-        struct Struct_ov004_02164c18_2* var3 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0xa);
+        struct Struct_ov004_02164c18_2* var3 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0xa);
         if (var3 == 0) {
             return 0;
         }

@@ -11,14 +11,14 @@ struct Struct_ov004_021707c8 { void* unknown_0_; void* unknown_4_; void* unknown
 enum { Enum_ov004_02156a00_12 = 12, Enum_ov004_02156a00_0 = 0 };
 #endif
 extern Struct_ov004_021707c8 data_ov004_021707c8;
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 struct Struct_020a1698;
 extern "C" void func_020a1698(struct Struct_020a1698*, void*);
 extern "C" void func_020a1614(void* arg0, int arg1);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" short func_ov023_021f9bc8(void* arg0);
 extern "C" void* func_ov023_021fa598(void* arg0);
@@ -28,10 +28,10 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" ARM int func_020ac460(void* arg0);
 struct Struct_ov004_021549e4_5;
 extern "C" void func_ov023_021f9bdc(struct Struct_ov004_021549e4_5*, int);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760*, int, int);
-struct Struct_02072a68_2;
-extern "C" void* func_02072a68(struct Struct_02072a68_2*, int);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760*, int, int);
+struct StringList_02072a68_2;
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2*, int);
 
 struct Struct_ov004_02156a00 { unsigned int unknown_0_0_ : 9; char unknown_2_[4]; struct Struct_ov004_02156a00* unknown_8_; };
 struct Struct_ov004_02156a00_2 { char unknown_0_[8]; struct Struct_ov004_02156a00* unknown_8_; char unknown_c_[4]; unsigned char unknown_10_; };
@@ -46,9 +46,9 @@ extern "C" ARM int func_ov004_02156a00(void* arg0) {
     int var0[15];
 
     func_ov011_021845f8(arg0, 4);
-    void* var1 = func_ov011_021849c8(arg0);
+    void* var1 = GetMenuObjectList_ov011_021849c8(arg0);
     short var2;
-    struct Struct_ov004_02156a00_3* var3 = (struct Struct_ov004_02156a00_3*)func_ov023_021f6880(var1, 3);
+    struct Struct_ov004_02156a00_3* var3 = (struct Struct_ov004_02156a00_3*)FindMenuObjectById_ov023_021f6880(var1, 3);
     if (var3 == 0) {
         return 0;
     }
@@ -93,9 +93,9 @@ extern "C" ARM int func_ov004_02156a00(void* arg0) {
     var3->unknown_5e_ = var2;
     func_ov023_021f9bdc((struct Struct_ov004_021549e4_5*)var3, (unsigned short)(var11 % Enum_ov004_02156a00_12));
 
-    func_0205eaa0((struct Struct_02108760*)&data_02108760, 1, 0);
+    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
 
-    void* var13 = func_ov023_021f6880(var1, 0xa);
+    void* var13 = FindMenuObjectById_ov023_021f6880(var1, 0xa);
     if (var13 == 0) {
         return 0;
     }
@@ -104,16 +104,16 @@ extern "C" ARM int func_ov004_02156a00(void* arg0) {
     }
     void* var14 = func_ov023_021fa598(var13);
 
-    void* var15 = func_ov023_021f6880(var1, 0x66);
+    void* var15 = FindMenuObjectById_ov023_021f6880(var1, 0x66);
     if (var15 == 0) {
         return 0;
     }
     if (func_ov023_021f6f10(var15) != 8) {
         return 0;
     }
-    ((struct Struct_ov004_02156a00_6*)var15)->unknown_20_ = func_02072a68((struct Struct_02072a68_2*)var14, (short)(((struct Struct_ov004_02156a00_2*)data_ov004_021707c8.unknown_c_)->unknown_10_ + 0x3e7));
+    ((struct Struct_ov004_02156a00_6*)var15)->unknown_20_ = FindStringInList_02072a68((struct StringList_02072a68_2*)var14, (short)(((struct Struct_ov004_02156a00_2*)data_ov004_021707c8.unknown_c_)->unknown_10_ + 0x3e7));
 
-    void* var16 = func_ov023_021f6880(var1, 0x34);
+    void* var16 = FindMenuObjectById_ov023_021f6880(var1, 0x34);
     if (var16 == 0) {
         return 0;
     }

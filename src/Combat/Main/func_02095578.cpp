@@ -52,7 +52,7 @@ extern "C" ARM int func_02095578(void) {
     var9 = func_020107d0((char*)var2);
     BackgroundLoader::AddLockGlobal();
     sprintf(var0, (const char*)&data_020f1474);
-    var10 = LoadFileIntoMemory(var0, data_0211e33c, &var1);
+    var10 = LoadFileIntoMemory(var0, gFileScratchSpace_0211e33c, &var1);
     if (var10 != NULL) {
         func_0209562c(var4, (int)var6, (struct Struct_02013fb4*)var10, var1, var7, var8, var9);
     }

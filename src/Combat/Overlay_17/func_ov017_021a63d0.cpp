@@ -8,9 +8,9 @@
 #define func_020daf90 func_020dc998
 #endif
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" int func_0202c540(void* arg0);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_0205ac40(void* arg0, void* arg1);
 
 extern "C" int func_02039750(void* arg0);
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov017_021a63d0(unsigned char* arg0) {
     if (*(int*)(arg0 + OFF_41c0) == 0) return;
     if (*(int*)(arg0 + OFF_41b4) == 0) return;
 
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     int var2 = func_02039750(GameState::GetInstance()->GetProtagonist());
     int var3 = GetMessageWindow_020421a0();
     void* var4 = GetZone3D_02012fe4();
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov017_021a63d0(unsigned char* arg0) {
     if (var2 != -1) return;
 
     if (!func_02046b08(*(void***)(arg0 + OFF_36fc))) return;
-    if (func_0202c540(var1)) return;
+    if (IsLocalWirelessGuest_0202c540(var1)) return;
 
     if (func_020117f0(GameState::GetInstance()) != 0) return;
     if (*(int*)((char*)var3 + OFF_998) != 0) return;

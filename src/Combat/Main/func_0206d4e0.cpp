@@ -5,9 +5,6 @@
 #include "Resource/Script.h"
 #include "Combat/WorkRecord.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_0201c1c8;
 struct Struct_0201d530;
@@ -15,8 +12,8 @@ struct Vector3i;
 
 struct GameState;
 
-extern "C" char* func_0205ec34();
-extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" char* GetFlagManager_0205ec34();
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" int func_0206eb98(unsigned char*, int);
 extern "C" void func_0206dd68(void*, int);
 
@@ -42,7 +39,7 @@ extern "C" ARM int func_0206d4e0(void* arg0, int arg1) {
     int var1;
     int var2;
     int var3 = (var0 ? arg1 - 8 : arg1 - 7) / 2;
-    char* var4 = func_0205ec34();
+    char* var4 = GetFlagManager_0205ec34();
     struct Struct_0201c1c8* var5 = (struct Struct_0201c1c8*)arg0;
     for (var1 = var3; var1 > 0; var1--) {
         int var6 = ((Script::Parameter*)var5)->ToInt();
@@ -51,7 +48,7 @@ extern "C" ARM int func_0206d4e0(void* arg0, int arg1) {
         var2 = ((Script::Parameter*)var7)->ToInt();
         int var8 = var6 >> 16;
         if (var8 == 1) {
-            int var9 = func_0206dfb0((int)var4, (unsigned char*)(var4 + 0x8c), (unsigned short)var6);
+            int var9 = IsFlagSet_0206dfb0((int)var4, (unsigned char*)(var4 + 0x8c), (unsigned short)var6);
             if ((var2 != 0 && var9 == 0) || (var2 == 0 && var9 != 0)) {
                 return 1;
             }

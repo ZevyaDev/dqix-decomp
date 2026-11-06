@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_020d8654(void);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* func_0202c19c(void* arg0);
 extern "C" void func_020d8694(void);
 
@@ -30,7 +30,7 @@ extern "C" ARM int func_0205e4f8(void* arg0, int arg1) {
         var1 = var1->unknown_18_;
     }
     if (!var0) {
-        struct Struct_0205e4f8_2* var2 = (struct Struct_0205e4f8_2*)func_0202c19c(func_0202ae18());
+        struct Struct_0205e4f8_2* var2 = (struct Struct_0205e4f8_2*)func_0202c19c(GetLocalWireless_0202ae18());
         for (int var3 = 0; var3 < 5; var3++) {
             if (var2[var3].unknown_10_ == arg1) {
                 var0 = 1;

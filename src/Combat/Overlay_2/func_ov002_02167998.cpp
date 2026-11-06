@@ -33,7 +33,7 @@ struct Struct_ov002_02167998_4 {
     unsigned int unknown_3_7_ : 1;
 };
 
-extern "C" int func_020100a8(GameState *arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
 extern "C" void func_0205def8(struct Struct_ov002_02155960_3 *arg0, int arg1, int arg2);
 extern "C" void func_0205de24(struct Struct_ov002_0215624c_11 *arg0, unsigned char arg1,
                                                                         unsigned char arg2);
@@ -43,9 +43,9 @@ extern "C" void func_0204c654(Struct_ov002_02167998_2*, int, short, short, short
 extern "C" int func_0205d794(struct Struct_ov002_0215624c_15 *arg0);
 extern "C" void func_0205d7a0(unsigned char *arg0, int arg1);
 extern "C" int func_0205da38(struct Struct_ov002_02164748 *arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_ov002_02157d40_7 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct Struct_ov002_02157d40_7 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
-extern "C" unsigned char *func_02053c6c(unsigned char *arg0);
+extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 extern "C" void func_ov002_02161cf0(void *arg0);
 extern "C" void func_ov002_0215f6a4(void *arg0);
 extern "C" void func_ov002_02161a8c(void);
@@ -54,7 +54,7 @@ extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
 extern "C" void func_ov002_02156e90(void *arg0);
 
 extern unsigned char data_ov002_0216cc98[];
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 
 // USA: func_ov002_02167998
 extern "C" ARM void func_ov002_02167998(char *arg0) {
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov002_02167998(char *arg0) {
         for (int var7 = 0; var7 < 5; var7++) {
             func_0205def8((struct Struct_ov002_02155960_3 *) var0, 0, data_ov002_0216cc98[var7]);
         }
-        arg0[RG(0x1c20, 0x1ae8)]               = func_020100a8(var5);
+        arg0[RG(0x1c20, 0x1ae8)]               = GetProtagonistObjectIndex_020100a8(var5);
         *(short *) (arg0 + RG(0x1c02, 0x1aca)) = 0;
         func_0205de24((struct Struct_ov002_0215624c_11 *) var0, 0, 2);
         func_ov002_02161cf0(arg0);
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov002_02167998(char *arg0) {
     int var19 = (var18 | func_0205da38((struct Struct_ov002_02164748 *) OBJ, 0x14)) ? 1 : 0;
     if (var19) {
         if (var15 == *(signed char *) (arg0 + RG(0x1c73, 0x1b37))) {
-            func_0205eaa0((struct Struct_ov002_02157d40_7 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7 *) gSoundEffectManager_02108760, 1, 0);
             for (int var20 = 0; var20 < 5; var20++) {
                 func_0205def8((struct Struct_ov002_02155960_3 *) var0, 1, data_ov002_0216cc98[var20]);
             }
@@ -146,12 +146,12 @@ extern "C" ARM void func_ov002_02167998(char *arg0) {
         if (var22 == 0) return;
         switch (var14) {
         case 0:
-            if (var21 == func_020100a8(var5)) return;
+            if (var21 == GetProtagonistObjectIndex_020100a8(var5)) return;
             func_ov002_0215b9a4(arg0, *(int *) (arg0 + RG(0x1bb8, 0x1a80)) & 0xff, 1);
-            func_0205eaa0((struct Struct_ov002_02157d40_7 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7 *) gSoundEffectManager_02108760, 1, 0);
             *(int *) (arg0 + RG(0x1bb8, 0x1a80))   = RG(0x19, 0x1a);
             *(int *) (arg0 + RG(0x1bc0, 0x1a88))   = 0;
-            *(short *) (arg0 + RG(0x1c04, 0x1acc)) = (signed char) *(int *) (func_02053c6c(var22) + RG(0x94c, 0x8b4));
+            *(short *) (arg0 + RG(0x1c04, 0x1acc)) = (signed char) *(int *) (GetPartyMemberData_02053c6c(var22) + RG(0x94c, 0x8b4));
             break;
         case 1: {
             struct Struct_ov002_02167998_4 *var23 = (struct Struct_ov002_02167998_4 *) (*(unsigned char **) (var22 + 0x134) + 0x3c);
@@ -160,14 +160,14 @@ extern "C" ARM void func_ov002_02167998(char *arg0) {
             var24 %= 2;
             var23->unknown_3_6_ = var24;
             func_ov002_0215b9a4(arg0, *(int *) (arg0 + RG(0x1bb8, 0x1a80)) & 0xff, 0);
-            func_0205eaa0((struct Struct_ov002_02157d40_7 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7 *) gSoundEffectManager_02108760, 1, 0);
             break;
         }
         case 2: {
-            unsigned char *var25 = func_02053c6c(var22);
+            unsigned char *var25 = GetPartyMemberData_02053c6c(var22);
             var0[0xb8]        = *(int *) (arg0 + RG(0x1bb8, 0x1a80));
             *(int *) (arg0 + RG(0x247c, 0x22ac)) &= ~4;
-            func_0205eaa0((struct Struct_ov002_02157d40_7 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7 *) gSoundEffectManager_02108760, 1, 0);
             *(int *) (arg0 + RG(0x1bb8, 0x1a80))   = RG(0x1c, 0x1d);
             *(int *) (arg0 + RG(0x1bc0, 0x1a88))   = 0;
             *(short *) (arg0 + RG(0x1c06, 0x1ace)) = var25[0x56a];

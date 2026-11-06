@@ -55,19 +55,19 @@ struct Struct_ov003_0216bcfc_3 {
 
 struct AllocatorUnion;
 struct Struct_ov003_0216bcfc;
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 
-extern "C" int func_0202b7d8(int *arg0);
-extern "C" int func_02046900(Struct_02020cb8_4 *arg0);
-extern "C" void *func_020467f0(Struct_02020aec *arg0, int arg1, void **arg2, int *arg3);
-extern "C" void *func_02012d88(AllocatorUnion *arg0, unsigned int arg1);
-extern "C" void func_02012da4(AllocatorUnion *arg0, void *arg1);
+extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4 *pac);
+extern "C" void *GetPacEntryData_020467f0(PacEntry_02020aec *pac, int index, void **outEntry, int *outSize);
+extern "C" void *AllocateRoundedSize_02012d88(AllocatorUnion *allocator, unsigned int size);
+extern "C" void FreeMemory_02012da4(AllocatorUnion *allocator, void *block);
 extern "C" void func_0205a494(void *arg0);
 extern "C" void func_ov003_021700bc(Struct_ov003_0216bcfc *arg0);
-extern "C" void *func_0202ae18();
+extern "C" void *GetLocalWireless_0202ae18();
 extern "C" void func_0202c288();
-extern "C" void func_02043124(void *arg0);
+extern "C" void CloseMessageWindow_02043124(void *window);
 extern "C" void func_0205a528(void *arg0, void *arg1, unsigned int arg2, SafeAllocator *arg3);
 #if defined(jpn)
 extern "C" void func_ov003_0216d8d4(void *arg0, int arg1);
@@ -84,18 +84,18 @@ extern "C" void func_ov003_021700dc(void *arg0);
 extern "C" void *GetMessageWindow_020421a0();
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 
-extern char data_02114e20;
+extern char gMainHeap_02114e20;
 extern char data_ov003_021801c9[];
 
 // USA: func_ov003_0216bcfc
 extern "C" ARM void func_ov003_0216bcfc(Struct_ov003_0216bcfc_3 *arg0) {
     Struct_ov003_0216bcfc_2 *var0   = (Struct_ov003_0216bcfc_2 *) GetMessageWindow_020421a0();
     BackgroundLoader *var1 = BackgroundLoader::GetInstance();
-    void *var2                = func_0202ae18();
+    void *var2                = GetLocalWireless_0202ae18();
 
     if (arg0->unknown_6_ == 0) {
         func_0202c288();
-        if (func_0202b7d8((int *) var2) != 0 && (int) *((unsigned char *) var2 + 0x100d) > 1) {
+        if (IsLocalWirelessOn_0202b7d8((int *) var2) != 0 && (int) *((unsigned char *) var2 + 0x100d) > 1) {
             func_ov003_0216d8d4(arg0, 0x5d, -1, -1, -1);
             arg0->unknown_6_  = 0;
             arg0->unknown_4_ = 2;
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov003_0216bcfc(Struct_ov003_0216bcfc_3 *arg0) {
 #else
         memset(var3->unknown_5c_, 0, 0x960);
 #endif
-        void *var4 = func_02012d88((AllocatorUnion *) &data_02114e20, 0x8000);
+        void *var4 = AllocateRoundedSize_02012d88((AllocatorUnion *) &gMainHeap_02114e20, 0x8000);
         VectorizedMemset(var4, 0, 0x8000);
         arg0->unknown_12d4_.CreateTypeA(var4, 0x8000);
         arg0->unknown_12d4_.Reset();
@@ -120,7 +120,7 @@ extern "C" ARM void func_ov003_0216bcfc(Struct_ov003_0216bcfc_3 *arg0) {
         DC_FlushRange(var5, 0x20);
         LoadToMainBG1CharacterData(var5, 0, 0x20);
         arg0->unknown_6_ = 1;
-        func_02043124(var3);
+        CloseMessageWindow_02043124(var3);
     }
     if (arg0->unknown_6_ == 1) {
         if (func_ov003_0216e124(arg0->unknown_410_) == 0) arg0->unknown_6_ = 2;
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov003_0216bcfc(Struct_ov003_0216bcfc_3 *arg0) {
         SignedAllocatorHeader *var6 = arg0->unknown_12d4_.GetSignedAllocator();
         if (var6 != 0) {
             arg0->unknown_12d4_.Destroy();
-            func_02012da4((AllocatorUnion *) &data_02114e20, var6);
+            FreeMemory_02012da4((AllocatorUnion *) &gMainHeap_02114e20, var6);
         }
 #if defined(jpn)
         func_0205a494((char *) arg0 + 0x10fc);
@@ -151,10 +151,10 @@ extern "C" ARM void func_ov003_0216bcfc(Struct_ov003_0216bcfc_3 *arg0) {
         unsigned int var9;
         int var10;
         var1->GetLoadedFileByID(arg0->unknown_c_, &var8, &var9);
-        int var11            = func_02046900((Struct_02020cb8_4 *) var8);
+        int var11            = CountPacEntries_02046900((PacEntry_02020cb8_4 *) var8);
         SafeAllocator *var12 = &arg0->unknown_1310_[0];
         for (int var13 = 0; var13 < var11; var13++) {
-            void *var14 = func_020467f0((Struct_02020aec *) var8, var13, &var7, &var10);
+            void *var14 = GetPacEntryData_020467f0((PacEntry_02020aec *) var8, var13, &var7, &var10);
 #if defined(jpn)
             func_0205a528((char *) arg0 + 0x10fc, var14, var10, var12);
 #else

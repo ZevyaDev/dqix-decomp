@@ -6,20 +6,20 @@ struct Struct_0205de24_2;
 extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
 
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
 
 struct Struct_02046574_2;
 extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
 
-extern "C" void func_02046380(void* arg0);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
 #if defined(jpn)
 extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
-extern "C" void func_02042058(char*, const char*);
+extern "C" void AppendText_02042058(char*, const char*);
 #else
 extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
@@ -72,19 +72,19 @@ extern "C" ARM void func_ov023_021ed4b8(char* arg0) {
     memset(*(void**)(arg0 + 0x1c), var1, Enum_ov023_021ed4b8_2400);
 
 #if defined(jpn)
-    int var5 = func_020e0434((struct Struct_0201099c_3*)(arg0 + 4), 0x64);
-    func_02042058(*(char**)(arg0 + 0x1c), (char*)var5);
+    int var5 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 4), 0x64);
+    AppendText_02042058(*(char**)(arg0 + 0x1c), (char*)var5);
     GameState* var6 = GameState::GetInstance();
 #else
     GameState* var6 = GameState::GetInstance();
 #endif
 
-    int var7 = func_020100a8(var6);
+    int var7 = GetProtagonistObjectIndex_020100a8(var6);
     GameObject* var8 = func_0200ff1c(var6, var7);
     if (var8 == NULL) return;
 
     int var9 = GetMessageWindow_020421a0();
-    func_02046380((void*)var9);
+    ClearMessageParams_02046380((void*)var9);
 
 #if defined(jpn)
     func_02046574((struct Struct_02046574_2*)var9, 0, *(char**)((char*)var8 + 0x134));
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov023_021ed4b8(char* arg0) {
     *(void**)((char*)var9 + 0x0) = var10;
     func_02046574((struct Struct_02046574_2*)var9, 1, var4 + 0xc);
 
-    int var12 = func_020e0434((struct Struct_0201099c_3*)(arg0 + 0x4), 0x64);
+    int var12 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0x4), 0x64);
     func_02046608(var9, 1, (void*)(long)var12, *(void**)(arg0 + 0x1c), 0xe3, 0, 1);
 
 #endif

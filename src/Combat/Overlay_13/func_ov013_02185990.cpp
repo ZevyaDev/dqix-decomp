@@ -17,7 +17,7 @@ struct Struct_0205bacc;
 extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
 
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 extern "C" void func_0205cb74(char* arg0, int arg1);
 
@@ -33,12 +33,12 @@ extern "C" void func_0205c77c(struct Struct_0205c77c* arg0, int arg1);
 extern "C" void func_0205cd28(unsigned char* arg0);
 extern "C" void func_0205cd94(unsigned char* arg0);
 
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 extern "C" void func_0205c790(char* arg0);
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 // USA: func_ov013_02185990
 extern "C" ARM void func_ov013_02185990(unsigned char* arg0) {
@@ -54,10 +54,10 @@ extern "C" ARM void func_ov013_02185990(unsigned char* arg0) {
     func_0205bacc((struct Struct_0205bacc*)(var0 + LOW_REGION(0x3f0, 0x20)), 2);
     func_0205bacc((struct Struct_0205bacc*)(var0 + LOW_REGION(0x440, 0x70)), 2);
 
-    int var1 = func_020e0434((struct Struct_0201099c_3*)(arg0 + LOW_REGION(0x5ac, 0x620)), 0xa);
+    int var1 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + LOW_REGION(0x5ac, 0x620)), 0xa);
     func_0205cb74((char*)(var0 + LOW_REGION(0x3d0, 0)), var1);
 
-    int var2 = func_020e0434((struct Struct_0201099c_3*)(arg0 + LOW_REGION(0x5ac, 0x620)), 0xb);
+    int var2 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + LOW_REGION(0x5ac, 0x620)), 0xb);
     func_0205cb74((char*)(var0 + LOW_REGION(0x3d0, 0)), var2);
 
     *(unsigned short*)(var0 + LOW_REGION(0x484, 0xb4)) = 0xc2;
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov013_02185990(unsigned char* arg0) {
     func_0205cd28(var0 + LOW_REGION(0x3d0, 0));
     func_0205cd94(var0 + LOW_REGION(0x3d0, 0));
 
-    func_0205eaa0((struct Struct_02108760*)&data_02108760, 5, 0);
+    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 5, 0);
 
 #if !defined(jpn)
     short var3 = *(short*)(var0 + 0xb6);

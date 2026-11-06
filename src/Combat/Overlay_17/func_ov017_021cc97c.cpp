@@ -8,7 +8,7 @@ enum {Enum_ov017_021cc97c_2388=0x954};
 
 extern "C" void* func_0202ae24(void);
 extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct Struct_ov017_021cc97c {
     unsigned char unknown_0_;
@@ -23,7 +23,7 @@ extern "C" ARM void func_ov017_021cc97c(int arg0) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = func_0200ff1c(var0, arg0);
     if (var1 == NULL) return;
-    int var2 = func_02053c6c((unsigned char*)var1);
+    int var2 = GetPartyMemberData_02053c6c((unsigned char*)var1);
     if (var2 == 0) return;
 
     void* var3 = func_0202ae24();

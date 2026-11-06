@@ -4,12 +4,12 @@
 #include "Resource/MonsterDefinition.h"
 
 struct Struct_ov023_021edc08_5 { unsigned int unknown_0_, unknown_4_, unknown_8_; };
-struct Struct_02072a68_2 { int unknown_0_[4]; };
+struct StringList_02072a68_2 { int unknown_0_[4]; };
 struct Struct_ov023_021ed7e0 {
     unsigned int unknown_0_0_ : 11; unsigned int unknown_1_3_ : 7; unsigned int unknown_2_2_ : 7;
     unsigned int unknown_3_1_ : 7;
 };
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_ov023_021f2a48_5 {
     unsigned short unknown_0_; unsigned short unknown_2_0_ : 15; unsigned short unknown_3_7_ : 1;
     unsigned char unknown_4_; signed char unknown_5_;
@@ -20,7 +20,7 @@ struct Struct_020a95a4_8 {
 struct Struct_ov023_021f2a48_6 {
     char unknown_0_[0x2a0]; Struct_020a95a4_8* unknown_2a0_; char unknown_2a4_[0xeac - 0x2a4]; int unknown_eac_;
     char unknown_eb0_[0x58d0 - 0xeb0]; Struct_ov023_021f2a48_5 unknown_58d0_[8]; unsigned char unknown_5900_;
-    char unknown_5901_[3]; Struct_02072a68_2 unknown_5904_;
+    char unknown_5901_[3]; StringList_02072a68_2 unknown_5904_;
 };
 struct Struct_ov023_021f2a48_7 { int unknown_0_; char unknown_4_[0xe4 - 4]; signed char unknown_e4_; };
 struct Struct_ov023_021f2a48_8 { Struct_ov023_021f2a48_7* unknown_0_; int unknown_4_; int unknown_8_; };
@@ -34,9 +34,9 @@ struct Struct_ov023_021f2a48_2 { char unknown_0_[0x130]; Struct_ov023_021f2a48* 
 struct Struct_ov023_021f2a48_3 { char unknown_0_[0x10]; unsigned short unknown_10_; };
 struct Struct_ov023_021f2a48_4 { char* unknown_0_; char* unknown_4_; int unknown_8_; };
 extern "C" Struct_ov023_021f2a48_8 _ZZ21inline_ov023_021f4c04vE1s;
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" Struct_02081870* GetMessageWindow_020421a0();
-extern "C" void func_02046380(Struct_02081870*);
+extern "C" void ClearMessageParams_02046380(Struct_02081870*);
 extern "C" void func_020114ec(char*, void*);
 extern "C" int func_020a35e0(unsigned char*, unsigned char);
 extern "C" Struct_ov023_021f2a48_3* func_0206f4f0(Struct_0206f01c_2*, int);
@@ -44,10 +44,10 @@ extern "C" void func_020e46c4(void*);
 extern "C" Struct_ov023_021edc08_5 func_ov023_021ed804(Struct_ov023_021edc08_5, Struct_ov023_021f2a48_3*);
 extern "C" void func_ov023_021edf38(void*, Struct_ov023_021edc08_5*);
 extern "C" void func_020dcf7c(int, void*);
-extern "C" const char* func_02072a68(Struct_02072a68_2*, int);
+extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void func_020e4bf4(void*, int);
 extern "C" void func_020e4c74(void*, GameObject*);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void StartMessage_0204500c(Struct_02081870*, const char*, int, int);
 extern "C" void func_ov023_021ed7e0(Struct_ov023_021ed7e0*);
 extern "C" int func_020ac020(void*, short*, int*, int);
@@ -59,7 +59,7 @@ extern "C" ARM int func_ov023_021f2a48(Struct_ov023_021f2a48_6* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov023_021f2a48_7* var1 = _ZZ21inline_ov023_021f4c04vE1s.unknown_0_;
     Struct_02081870* var2 = GetMessageWindow_020421a0();
-    func_02046380(var2);
+    ClearMessageParams_02046380(var2);
     if (var1->unknown_0_ == 0) {
         ++var1->unknown_e4_;
         if (arg0->unknown_5900_ <= var1->unknown_e4_) return 14;
@@ -99,20 +99,20 @@ extern "C" ARM int func_ov023_021f2a48(Struct_ov023_021f2a48_6* arg0) {
         char var19[512] = {0};
         if (var7 >= 0) {
             func_0200ff1c(var0, var7);
-            sprintf(var19, func_02072a68(&arg0->unknown_5904_, 0x25));
+            sprintf(var19, FindStringInList_02072a68(&arg0->unknown_5904_, 0x25));
             func_020e4bf4(&var15, var7);
             var2->unknown_0_ = &var15;
         } else {
             char var20[0x164] = {0};
-            sprintf(var19, func_02072a68(&arg0->unknown_5904_, 0x11));
+            sprintf(var19, FindStringInList_02072a68(&arg0->unknown_5904_, 0x11));
             func_020e4c74(&var15, var9);
             var2->unknown_10_ = &var15;
-            if (!var6) sprintf(var20, func_02072a68(&arg0->unknown_5904_, 0x12));
-            else sprintf(var20, func_02072a68(&arg0->unknown_5904_, 0x13));
+            if (!var6) sprintf(var20, FindStringInList_02072a68(&arg0->unknown_5904_, 0x12));
+            else sprintf(var20, FindStringInList_02072a68(&arg0->unknown_5904_, 0x13));
             strcat(var19, var20);
-            if (var1->unknown_e4_ < arg0->unknown_5900_ - 1) strcat(var19, func_02072a68(&arg0->unknown_5904_, 0x22));
+            if (var1->unknown_e4_ < arg0->unknown_5900_ - 1) strcat(var19, FindStringInList_02072a68(&arg0->unknown_5904_, 0x22));
         }
-        func_0205eaa0(&data_02108760, 0x15, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x15, 0);
         StartMessage_0204500c(var2, var19, 1, 0xe3);
         var2->unknown_19b2_ = 0;
         var2->unknown_998_ = 1;

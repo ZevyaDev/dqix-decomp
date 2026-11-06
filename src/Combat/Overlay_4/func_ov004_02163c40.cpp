@@ -16,9 +16,9 @@ struct Struct_ov004_02163c40 {
     unsigned char unknown_18fe_;
 };
 struct Struct_ov004_02163c40_2 { char unknown_0_[0xc]; unsigned char unknown_c_; char unknown_d_[0x38 - 0xd]; unsigned short unknown_38_; };
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 extern Struct_ov004_02163c40* data_ov004_02171010;
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 #if defined(jpn)
 extern unsigned short data_ov004_02170660[3];
 #else
@@ -26,10 +26,10 @@ extern unsigned short data_ov004_0216fef8[3];
 #endif
 extern "C" void func_ov023_021f809c(void*, void*);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
-extern "C" int func_0205eaa0(Struct_02108760*, int, int);
+extern "C" int PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov004_02163478(Struct_ov004_02163c40*);
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" Struct_ov004_02163c40_2* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" Struct_ov004_02163c40_2* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" short func_ov023_021f6f10(void*);
 extern "C" void func_ov023_021f6680(void*, int);
 extern "C" void func_ov023_021f6600(void*, int, int);
@@ -54,7 +54,7 @@ extern "C" ARM int func_ov004_02163c40(void* arg0) {
     if (!data_ov004_02171010->unknown_18f4_) return 0;
     if (GetMessageWindow_020421a0()->unknown_998_) return 0;
     if (!data_ov004_02171010->unknown_18fe_) {
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
     }
 #if defined(jpn)
     COPY_ARRAY(var4, data_ov004_02170660);
@@ -127,10 +127,10 @@ extern "C" ARM int func_ov004_02163c40(void* arg0) {
         VectorizedInvertedMemcpy(&var0[var1[var22]], &data_ov004_02171010->unknown_0_[var22], sizeof(TreasureMapMetadata));
     }
     func_ov004_02163478(data_ov004_02171010);
-    Struct_ov004_02163c40_2* var23 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x35);
+    Struct_ov004_02163c40_2* var23 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x35);
     if (var23 && func_ov023_021f6f10(var23) == 8) var23->unknown_38_ = var10;
 #if defined(jpn)
-    Struct_ov004_02163c40_2* var24 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x16);
+    Struct_ov004_02163c40_2* var24 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x16);
     if (!var24) return 0;
     if (func_ov023_021f6f10(var24) != 6) return 0;
     func_ov023_021f809c(var24, arg0);

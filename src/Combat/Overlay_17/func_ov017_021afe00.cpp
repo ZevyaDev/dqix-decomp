@@ -5,7 +5,7 @@
 #include "NitroSDK/Graphics.h"
 
 struct Struct_0202b2f0;
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 struct Struct_0201e830;
 struct AllocatorUnion;
 
@@ -71,36 +71,36 @@ struct Struct_ov017_021afe00_2 {
     unsigned char unknown_0_;
 };
 
-extern "C" void* func_0202ae18();
+extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void* GetZone3D_02012fe4();
 extern "C" void func_020531f0(void* arg0);
 extern "C" void func_ov017_021cff8c(int arg0, int arg1);
 extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
 
 extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
-extern "C" signed char func_0202c1a4(Struct_0202c1a4* arg0);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" unsigned short func_0201e830(Struct_0201e830* arg0);
 extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" int func_ov017_021a193c(int* arg0);
-extern "C" int func_020100a8(GameState* arg0);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
 extern "C" unsigned int func_02012078(void* arg0);
 extern "C" void func_020116c8(void* arg0);
 extern "C" void func_020dc2d0(int arg0);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov017_021afe00
 extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Struct_0202b2f0* var1 = (Struct_0202b2f0*)func_0202ae18();
+    Struct_0202b2f0* var1 = (Struct_0202b2f0*)GetLocalWireless_0202ae18();
     for (int var2 = 0; var2 < 4; var2++) {
         if (func_0202c1c0(var1, var2) == 0) {
             continue;
         }
-        if (var2 == func_0202c1a4((Struct_0202c1a4*)var1)) {
+        if (var2 == GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1)) {
             continue;
         }
         Struct_0202b2f0_2* var3 = func_0202c178(var1, var2);
@@ -174,10 +174,10 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
         }
     }
     if (arg0->unknown_9_ == 1) {
-        func_ov017_021cff8c(func_020100a8(var0), 0);
+        func_ov017_021cff8c(GetProtagonistObjectIndex_020100a8(var0), 0);
     }
     if (arg0->unknown_9_ == 2 || arg0->unknown_9_ == 0) {
-        arg0->unknown_288_ = (Struct_ov017_021afe00_4*)func_02012d88(&data_02114e20, 0x2e0);
+        arg0->unknown_288_ = (Struct_ov017_021afe00_4*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x2e0);
     }
     if (arg0->unknown_9_ == 0) {
         Struct_ov017_021afe00_4* var12 = arg0->unknown_288_;
@@ -219,7 +219,7 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
         for (int var15 = 0; var15 < 4; var15++) {
             GameObject* var16 = var0->GetGameObjectByIndex(var15);
             if (var16 != 0) {
-                if ((var16->obj3D_.unknown_0_ & 0x200) != 0) {
+                if ((var16->obj3D_.classFlags_0_ & 0x200) != 0) {
                     arg0->unknown_1b_[var15] = 1;
                 } else {
                     arg0->unknown_1b_[var15] = 2;

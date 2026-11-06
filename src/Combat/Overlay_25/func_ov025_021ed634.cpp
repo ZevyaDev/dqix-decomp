@@ -7,7 +7,7 @@ struct Struct_ov025_021ed634 { char unknown_0_[0xc]; short unknown_c_; };
 struct Struct_ov000_02159f7c;
 struct Struct_020e4e38;
 struct Struct_02054000;
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 
 struct Struct_ov000_0215440c {
     unsigned short unknown_0_;
@@ -90,7 +90,7 @@ extern Struct_ov025_021ef020 data_ov025_021ef020;
 
 extern "C" int func_ov025_021ed2f4(void* arg0);
 extern "C" void* GetMessageWindow_020421a0(void);
-extern "C" void func_02046380(void* arg0);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" ARM void* __clear(void* arg0, int arg1);
 extern "C" void func_ov025_021ed1f0(void* arg0);
 extern "C" Struct_ov000_0215440c_4* func_ov000_02160094(Struct_ov000_0215440c_2* arg0, int arg1);
@@ -101,7 +101,7 @@ extern "C" short func_ov000_0215ffa0(void* arg0);
 extern "C" void* func_ov017_021b8470(void* arg0);
 extern "C" int func_ov000_02159f7c(void* arg0, Struct_ov000_02159f7c* arg1);
 extern "C" int func_ov000_0215fd90(void* arg0, int arg1);
-extern "C" void func_020465c0(Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
 class GameObject;
 extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov025_021ed634(Struct_ov025_021e9fc4* arg0) {
 #if defined(jpn)
 
 #else
-    func_02046380(var1);
+    ClearMessageParams_02046380(var1);
 #endif
 #if defined(jpn)
     char var2[0x100];
@@ -312,7 +312,7 @@ extern "C" ARM void func_ov025_021ed634(Struct_ov025_021e9fc4* arg0) {
             #if defined(jpn)
 func_02047410(var1, var56);
 #else
-func_020465c0((Struct_020465c0*)var1, 0, var56);
+SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var56);
 #endif
         } else if (var33[0] != 0) {
             int var57 = var28 / var33[0];
@@ -321,13 +321,13 @@ func_020465c0((Struct_020465c0*)var1, 0, var56);
             #if defined(jpn)
 func_02047410(var1, var57);
 #else
-func_020465c0((Struct_020465c0*)var1, 0, var57);
+SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var57);
 #endif
         } else {
             #if defined(jpn)
 func_02047410(var1, var28);
 #else
-func_020465c0((Struct_020465c0*)var1, 0, var28);
+SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var28);
 #endif
         }
         if (var18 == 5) {

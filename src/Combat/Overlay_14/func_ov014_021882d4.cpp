@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
@@ -14,7 +14,7 @@ struct Struct_ov014_021882d4 {
 
 // USA: func_ov014_021882d4
 extern "C" ARM void func_ov014_021882d4(struct Struct_ov014_021882d4* arg0) {
-	int var0 = func_0200fb8c((int*)GameState::GetInstance());
+	int var0 = GetResources_0200fb8c((int*)GameState::GetInstance());
 	if (arg0->unknown_17b_ == 0) {
 		SetBrightness((GameResources*)var0, -16, 8);
 		arg0->unknown_17b_++;

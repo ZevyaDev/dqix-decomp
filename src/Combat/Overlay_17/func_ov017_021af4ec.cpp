@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "Resource/Brightness.h"
 
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" int* func_020936f8(void);
 struct Struct_0209494c;
 extern "C" int func_0209494c(struct Struct_0209494c* arg0);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* func_0202ae24(void);
 extern "C" void func_0202b0f4(void* arg0);
 extern "C" void func_ov017_02195748(unsigned char* arg0);
@@ -31,12 +31,12 @@ extern "C" ARM unsigned char func_ov017_021af4ec(Struct_ov017_021af4ec* arg0) {
 #else
  enum {Enum_ov017_021af4ec_17123=0x42e3, Enum_ov017_021af4ec_17122=0x42e2};
 #endif
-	unsigned int* var0 = (unsigned int*)func_020d6c00();
+	unsigned int* var0 = (unsigned int*)GetGlobalFlags_020d6c00();
 	struct Struct_0209494c* var1 = (struct Struct_0209494c*)func_020936f8();
 	if (func_0209494c(var1)) {
 		func_020466e4(var0, 0x20);
 		int var2 = (int)GetGameResources();
-		void* var3 = func_0202ae18();
+		void* var3 = GetLocalWireless_0202ae18();
 		struct Struct_0205e854* var4 = (struct Struct_0205e854*)func_0202ae24();
 		arg0->unknown_f_ = 0;
 		SetFlags00((GameResources*)var2, 2);

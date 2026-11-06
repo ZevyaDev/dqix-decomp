@@ -24,7 +24,7 @@ extern "C" void func_ov000_021704d8(struct Struct_0203c1c8* arg0, int* arg1, int
 extern "C" int func_ov000_021719f8(int* arg0);
 #if defined(jpn)
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 #endif
 extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
 extern "C" void func_0203c198(char* arg0);
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov000_02170538(struct Struct_ov000_02170538_2* arg0, in
     if (func_ov000_021719f8((int*)arg0)) {
         if (var10 != var11) {
 #if defined(jpn)
-            char* var12 = (char*)func_020e0434(*(struct Struct_0201099c_3**)((char*)arg0 + 4), func_ov000_02171a74(arg0));
+            char* var12 = (char*)FindStringInTable_020e0434(*(struct Struct_0201099c_3**)((char*)arg0 + 4), func_ov000_02171a74(arg0));
             if (var12 != NULL) {
                 func_0203c108((struct Struct_0203c108_3*)&arg0->unknown_50_, var12);
             }

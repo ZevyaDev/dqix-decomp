@@ -8,8 +8,8 @@
 #endif
 #include <globaldefs.h>
 
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 #if defined(jpn)
 #define func_ov024_021f6f10 func_ov023_021f6f10
 extern "C" int func_ov024_021f6f10(void* arg0);
@@ -19,7 +19,7 @@ extern "C" int func_ov024_021f6f10(void* arg0);
 extern "C" int func_ov023_021f9bc8(char* arg0);
 extern "C" int func_ov004_02167a0c(void* arg0, int arg1);
 extern "C" int func_ov004_02167a6c(void* arg0, void* arg1);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 extern char data_ov004_0216fff8;
 extern char data_ov004_0216fffa;
@@ -27,7 +27,7 @@ extern char data_ov004_0216fffa;
 // USA: func_ov004_02168400
 #pragma opt_common_subs off
 extern "C" ARM int func_ov004_02168400(void* arg0) {
-    void* var0 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0xe);
+    void* var0 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0xe);
     if (!var0) {
         return 0;
     }
@@ -39,6 +39,6 @@ extern "C" ARM int func_ov004_02168400(void* arg0) {
         func_ov004_02167a0c(arg0, *(short*)(&data_ov004_0216fff8 + var1 * 4));
         func_ov004_02167a6c(arg0, (void*)(int)*(short*)(&data_ov004_0216fffa + var1 * 4));
     }
-    func_ov011_021848a0(arg0, 0x8c);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x8c);
     return 0;
 }

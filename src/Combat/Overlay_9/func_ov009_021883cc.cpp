@@ -5,7 +5,7 @@
 #include "Resource/CharacterCreationUI.h"
 #include "NitroSDK/ColorEffects.h"
 
-extern "C" int func_0200fb8c(int*);
+extern "C" int GetResources_0200fb8c(int*);
 struct Struct_0205d6a0;
 extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
 #if defined(jpn)
@@ -16,7 +16,7 @@ extern "C" void func_ov009_021855dc(unsigned char*, int);
 
 extern "C" ARM void func_ov009_021883cc(unsigned char* arg0) {
     Struct_ov009_021842a0* var0 = (Struct_ov009_021842a0*)arg0;
-    GameResources* var1 = (GameResources*)func_0200fb8c((int*)GameState::GetInstance());
+    GameResources* var1 = (GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance());
     unsigned char var2 = var0->unknown_c59_;
     if (var2 == 0) {
         SetBrightness(var1, -16, 15);

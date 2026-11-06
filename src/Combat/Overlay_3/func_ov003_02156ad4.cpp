@@ -6,17 +6,17 @@ int func_02080468(void*, int);
 void func_020813ec(void*, int);
 void func_0208203c(void*);
 int func_ov003_021550dc(void*);
-void func_0205eaa0(void*, int, int);
-int func_020100a8(void*);
+void PlaySoundEffect_0205eaa0(void*, int, int);
+int GetProtagonistObjectIndex_020100a8(void*);
 int func_ov003_02155f88(void*, int);
 void func_0207fe44(void*);
-void* func_02010828(void*);
+void* GetParty_02010828(void*);
 void* _ZN9GameState21GetPartyMemberByIndexEi(void*, int);
 int func_0202053c(void*);
 int func_ov003_02155208(void*);
 }
 
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 
 struct Struct_ov003_02156ad4_3 {
     short unknown_0_;
@@ -88,14 +88,14 @@ extern "C" ARM void func_ov003_02156ad4(struct Struct_ov003_02156ad4_4* arg0) {
     }
     arg0->unknown_8_ = &arg0->unknown_1e0_;
     if (func_ov003_021550dc(arg0) != 0) {
-        func_0205eaa0(data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(gSoundEffectManager_02108760, 1, 0);
         func_0208203c(arg0->unknown_80_);
         arg0->unknown_8_ = 0;
         void* var3 = _ZN9GameState11GetInstanceEv();
         switch (arg0->unknown_1e0_) {
         case 8:
             if (arg0->unknown_1fb_ == 0) {
-                arg0->unknown_1f7_ = func_020100a8(var3);
+                arg0->unknown_1f7_ = GetProtagonistObjectIndex_020100a8(var3);
                 arg0->unknown_1f9_ = 0;
                 if (func_ov003_02155f88(arg0, arg0->unknown_1f7_)) {
                     var1->unknown_0_ = 8;
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov003_02156ad4(struct Struct_ov003_02156ad4_4* arg0) {
         case 9: {
             unsigned char var4;
             if (arg0->unknown_1fb_ == 0) {
-                arg0->unknown_1f7_ = func_020100a8(var3);
+                arg0->unknown_1f7_ = GetProtagonistObjectIndex_020100a8(var3);
                 var1->unknown_0_ = 0xe;
                 arg0->unknown_1f8_ = 4;
                 var4 = 2;
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov003_02156ad4(struct Struct_ov003_02156ad4_4* arg0) {
             unsigned char var5;
             struct Struct_ov003_02156ad4_2* var6;
             void* var7 = _ZN9GameState11GetInstanceEv();
-            var6 = (struct Struct_ov003_02156ad4_2*)func_02010828(var7);
+            var6 = (struct Struct_ov003_02156ad4_2*)GetParty_02010828(var7);
             var5 = var6->unknown_f7c_;
             int var8;
             for (var2 = 0; var2 < var5; var2++) {

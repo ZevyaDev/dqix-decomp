@@ -5,10 +5,10 @@
 #include "Resource/Brightness.h"
 
 extern "C" void func_ov017_0218d5c8(unsigned char* arg0);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" int func_020100f8(char* arg0);
 extern "C" void func_020a27ac(void* arg0);
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov017_021bf490
 extern "C" ARM void func_ov017_021bf490(void* arg0) {
@@ -26,13 +26,13 @@ extern "C" ARM void func_ov017_021bf490(void* arg0) {
     SignedAllocatorHeader* var5 = var1->GetSignedAllocator();
     if (var5 != NULL) {
         var1->Destroy();
-        func_02012da4(&data_02114e20, var5);
+        FreeMemory_02012da4(&gMainHeap_02114e20, var5);
     }
 
     SignedAllocatorHeader* var6 = var2->GetSignedAllocator();
     if (var6 != NULL) {
         var2->Destroy();
-        func_02012da4(&data_02114e20, var6);
+        FreeMemory_02012da4(&gMainHeap_02114e20, var6);
     }
 
     int var7 = func_020100f8((char*)GameState::GetInstance());

@@ -6,7 +6,7 @@ extern "C" short func_02086bf4(char* arg0, int arg1);
 // USA: func_ov003_02179da8
 extern "C" ARM int func_ov003_02179da8(void* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_02010828(var0);
+    void* var1 = GetParty_02010828(var0);
     int var2 = 1;
     if (arg1 != 0) {
         short var3 = *(short*)((char*)arg0 + 0x18);

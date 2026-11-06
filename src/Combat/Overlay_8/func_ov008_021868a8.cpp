@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int* func_0200fb8c(int*);
+extern "C" int* GetResources_0200fb8c(int*);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 void SetSubBrightness(GameResources*, int, int);
@@ -16,7 +16,7 @@ extern "C" short func_0209cae8(struct Struct_0209cae8* arg0);
 struct Struct_02109bf4_4;
 extern "C" void func_0209c678(struct Struct_02109bf4_4* arg0, int arg1);
 
-extern int data_02109bf4;
+extern int gMusicManager_02109bf4;
 
 struct Struct_ov008_021868a8 {
     char unknown_0_[0xb10];
@@ -30,14 +30,14 @@ struct Struct_ov008_021868a8 {
 
 // USA: func_ov008_021868a8
 extern "C" ARM void func_ov008_021868a8(struct Struct_ov008_021868a8* arg0) {
-    int* var0 = func_0200fb8c((int*)GameState::GetInstance());
+    int* var0 = GetResources_0200fb8c((int*)GameState::GetInstance());
     unsigned char var1 = arg0->unknown_b11_;
     if (var1 == 0) {
         if (arg0->unknown_b24_ == 0) {
             SetBrightness((GameResources*)var0, -16, 15);
             if (arg0->unknown_b13_ == 0) {
-                if (func_0209cae8((struct Struct_0209cae8*)&data_02109bf4) != 0x29) {
-                    func_0209c678((struct Struct_02109bf4_4*)&data_02109bf4, 15);
+                if (func_0209cae8((struct Struct_0209cae8*)&gMusicManager_02109bf4) != 0x29) {
+                    func_0209c678((struct Struct_02109bf4_4*)&gMusicManager_02109bf4, 15);
                 }
             }
         } else {
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov008_021868a8(struct Struct_ov008_021868a8* arg0) {
     }
     if (var1 != 1) return;
     if (IsBrightnessTransitionActive((GameResources*)var0) != 0) return;
-    if (func_0209ca2c(&data_02109bf4) != 0) return;
+    if (func_0209ca2c(&gMusicManager_02109bf4) != 0) return;
     func_0205d6a0((Struct_0205d6a0*)((char*)arg0 + 0x130), 1);
     arg0->unknown_b10_ = 0xe;
     arg0->unknown_b11_ = 0;

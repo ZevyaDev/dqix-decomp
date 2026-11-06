@@ -8,7 +8,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_0201099c_3;
-extern "C" char* func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 struct Struct_0203c108_3 {
     char unknown_0_[0x14];
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov000_02171e60(struct Struct_ov000_02171e60* arg0) {
         arg0->unknown_18_++;
         arg0->unknown_10_[arg0->unknown_18_] = 0xe;
         arg0->unknown_1d_ = 0;
-        func_0203c108(&arg0->unknown_50_, func_020e0434(arg0->unknown_4_, 5));
+        func_0203c108(&arg0->unknown_50_, FindStringInTable_020e0434(arg0->unknown_4_, 5));
         return;
     }
     void* var1 = func_02079e2c((char*)func_020797dc(), var0->unknown_16_);
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov000_02171e60(struct Struct_ov000_02171e60* arg0) {
         arg0->unknown_18_++;
         arg0->unknown_10_[arg0->unknown_18_] = 0xe;
         arg0->unknown_1d_ = 0;
-        func_0203c108(&arg0->unknown_50_, func_020e0434(arg0->unknown_4_, 5));
+        func_0203c108(&arg0->unknown_50_, FindStringInTable_020e0434(arg0->unknown_4_, 5));
         return;
     }
     arg0->unknown_18_++;
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov000_02171e60(struct Struct_ov000_02171e60* arg0) {
     if (arg0->unknown_10_[arg0->unknown_18_] == 0x13) {
         arg0->unknown_21_ = 0;
         arg0->unknown_2e_ = arg0->unknown_4c_;
-        if (((struct Struct_ov000_02171e60_2*)func_02010828(GameState::GetInstance()))->unknown_f7c_ == 1) {
+        if (((struct Struct_ov000_02171e60_2*)GetParty_02010828(GameState::GetInstance()))->unknown_f7c_ == 1) {
             arg0->unknown_10_[arg0->unknown_18_] = 100;
         }
     }

@@ -1,9 +1,6 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
@@ -49,13 +46,13 @@ struct Struct_ov003_02154af4_3 {
     unsigned char unknown_4ad_;
 };
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 extern "C" void func_020813ec(void *, int);
 struct Struct_02081f20_2;
 extern "C" void func_0208203c(Struct_02081f20_2*);
 extern "C" int func_02080468(void *, int);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(Struct_02108760 *, int, int);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
 struct Struct_0207fe44;
 extern "C" void func_0207fe44(Struct_0207fe44*);
 extern "C" int func_ov003_02160b84(void *);
@@ -63,11 +60,11 @@ extern "C" int func_ov003_02160a68(Struct_ov003_02154af4_3 *);
 extern "C" int func_ov003_02160854(Struct_ov003_02154af4_3 *);
 extern "C" void func_ov003_02160c58(Struct_ov003_02154af4_3 *, short *, short *);
 extern "C" void func_02080c68(void *, int, int);
-extern "C" void *func_0205ec34();
-extern "C" unsigned char *func_02053c6c(unsigned char *);
+extern "C" void *GetFlagManager_0205ec34();
+extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *);
 extern "C" int func_02011494(char*, void*);
 extern "C" void func_0206df6c(void *, unsigned char *, int, int);
-extern "C" int func_0206dfb0(int, unsigned char *, int);
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char *, int);
 extern "C" int func_02083b00(unsigned char *, int);
 extern "C" void func_02083acc(unsigned char *, int);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
@@ -76,16 +73,16 @@ extern "C" void func_ov017_021ccfd0(int);
 // USA: func_ov003_0216201c
 extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
     GameState *var0        = GameState::GetInstance();
-    unsigned char *var1    = (unsigned char *)func_02010828(var0);
-    unsigned char *var2  = (unsigned char *) func_0205ec34();
-    unsigned char *var3 = func_02053c6c((unsigned char *) var0->GetPartyMemberByIndex(0));
+    unsigned char *var1    = (unsigned char *)GetParty_02010828(var0);
+    unsigned char *var2  = (unsigned char *) GetFlagManager_0205ec34();
+    unsigned char *var3 = GetPartyMemberData_02053c6c((unsigned char *) var0->GetPartyMemberByIndex(0));
     unsigned char var4  = arg0->unknown_4a4_;
     Struct_ov003_0216201c *var5     = arg0->unknown_324_;
 
     if (var4 == 0) {
         func_0207fe44((Struct_0207fe44*)var5);
         arg0->unknown_488_ = 0x1e;
-        if (*((unsigned char *)func_02010828(GameState::GetInstance()) + 0xf7c) == 1) {
+        if (*((unsigned char *)GetParty_02010828(GameState::GetInstance()) + 0xf7c) == 1) {
             arg0->unknown_488_ = 0x1d;
         }
         arg0->unknown_48a_   = func_02080468(var5, arg0->unknown_488_);
@@ -100,7 +97,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
         arg0->unknown_470_ = &arg0->unknown_48a_;
         func_02080c68(var5, arg0->unknown_488_, 0);
         if (func_ov003_02160854(arg0) != 0) {
-            func_0205eaa0((Struct_02108760 *) &data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
             func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
             arg0->unknown_470_ = 0;
             switch (arg0->unknown_48a_) {
@@ -111,7 +108,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                     if (var6 == 4) {
                         arg0->unknown_484_ = 6;
                         arg0->unknown_486_ = 2;
-                    } else if (*((unsigned char *)func_02010828(GameState::GetInstance()) + 0x2000 + 0xc8c) == 0) {
+                    } else if (*((unsigned char *)GetParty_02010828(GameState::GetInstance()) + 0x2000 + 0xc8c) == 0) {
                         func_0207fe44((Struct_0207fe44*)var5);
                         arg0->unknown_4a3_  = 2;
                         arg0->unknown_4a4_ = 0;
@@ -139,7 +136,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                     short var12;
                     arg0->unknown_4ad_ = arg0->unknown_4ad_ - 1;
                     func_ov003_02160c58(arg0, &var11, &var12);
-                    if (*((unsigned char *)func_02010828(GameState::GetInstance()) + 0xf7c) == 1) {
+                    if (*((unsigned char *)GetParty_02010828(GameState::GetInstance()) + 0xf7c) == 1) {
                         arg0->unknown_484_ = 0x10;
                         arg0->unknown_486_ = 2;
                     } else if (var12 == 0) {
@@ -173,7 +170,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                 }
                 case 0xb5:
                 case 0xb9:
-                    if (*((unsigned char *)func_02010828(GameState::GetInstance()) + 0x2000 + 0xc8c) != 0) {
+                    if (*((unsigned char *)GetParty_02010828(GameState::GetInstance()) + 0x2000 + 0xc8c) != 0) {
                         func_0207fe44((Struct_0207fe44*)var5);
                         arg0->unknown_4a3_ = 5;
                         arg0->unknown_49f_ = 0;
@@ -188,7 +185,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                 case 0xb6:
                 case 0xba:
                     func_0207fe44((Struct_0207fe44*)var5);
-                    if (func_0206dfb0((int) var2, var2 + 0x8c, 0x784) != 0 && var3 != 0 &&
+                    if (IsFlagSet_0206dfb0((int) var2, var2 + 0x8c, 0x784) != 0 && var3 != 0 &&
                         func_02083b00(var3, 0x11e) == 0)
                     {
                         arg0->unknown_484_ = 0x59;
@@ -205,7 +202,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
             func_02080c68(var5, arg0->unknown_488_, 1);
         } else if (func_ov003_02160a68(arg0) != 0) {
             func_0207fe44((Struct_0207fe44*)var5);
-            if (func_0206dfb0((int) var2, var2 + 0x8c, 0x784) != 0 && var3 != 0 &&
+            if (IsFlagSet_0206dfb0((int) var2, var2 + 0x8c, 0x784) != 0 && var3 != 0 &&
                 func_02083b00(var3, 0x11e) == 0)
             {
                 arg0->unknown_484_ = 0x59;

@@ -1,27 +1,26 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-#define func_0205ec34 func_0205ff20
 #define data_ov002_0216d2b4 data_ov002_0216da66
 extern "C" void __clear(void *arg0, int arg1);
 extern "C" void *GetMessageWindow_020421a0(void);
-extern "C" void func_02046380(void *arg0);
-extern "C" void func_020465c0(void *arg0, int arg1, int arg2);
+extern "C" void ClearMessageParams_02046380(void *window);
+extern "C" void SetMessageNumber_020465c0(void *window, int index, int number);
 extern "C" void func_020465f0(void *arg0, int arg1, int arg2);
 extern "C" void func_020474a8(void *arg0, int arg1, const char *arg2, char *arg3);
 #endif
 
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3 *arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int func_02041c08(char *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" int func_02041ea4(char *arg0, int arg1);
 extern "C" int func_02041e70(char *arg0, int arg1);
 extern "C" int func_02041b70(char *arg0, int arg1, const char *arg2);
-extern "C" int func_02042058(char *arg0, const char *arg1);
+extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_ov002_0215a9b4(void *arg0, short arg1);
 extern "C" int func_0206e3d4(int arg0, int arg1);
 extern "C" void func_ov002_0215b918(unsigned char *arg0, int arg1, int arg2, int arg3);
-extern "C" char *func_0205ec34(void);
+extern "C" char *GetFlagManager_0205ec34(void);
 extern "C" char data_ov002_0216d2b4[];
 
 // USA: func_ov002_02160aa0
@@ -41,47 +40,47 @@ extern "C" ARM void func_ov002_02161938(unsigned char *arg0, char *arg1, int arg
     unsigned char var3;
     unsigned char var4 = *(unsigned char *) (arg0 + 0x2000 + 0x2b4) << 4;
     var3             = var4 + 0x10;
-    char *var5      = func_0205ec34();
+    char *var5      = GetFlagManager_0205ec34();
     for (; var4 < var3; var4++) {
         var1 = func_0206e3d4((int) var5, func_ov002_0215a9b4(arg0, var4));
         if (var1 == 0) {
             func_02041e70(arg1, 0xf);
             func_02041b70(arg1, var2,
-                          (const char *) func_020e0434(
+                          (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 8), 0x119c + 1));
         } else if (*(unsigned int *) (arg0 + 0x2000 + 0x2b0) & (1 << (var1 - 1))) {
             func_02041e70(arg1, 0xf);
             func_02041b70(arg1, var2,
-                          (const char *) func_020e0434(
+                          (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 8), (short) (var1 + 0x119d)));
         } else {
             func_02041e70(arg1, 0xf);
             func_02041b70(arg1, var2,
-                          (const char *) func_020e0434(
+                          (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 8), 0x119c));
         }
         var2++;
         if (var4 & 1) {
-            func_02042058(arg1, *(const char **) (arg0 + 0x1000 + 0xaa4));
+            AppendText_02042058(arg1, *(const char **) (arg0 + 0x1000 + 0xaa4));
         } else {
-            func_02042058(arg1, data_ov002_0216d2b4);
+            AppendText_02042058(arg1, data_ov002_0216d2b4);
         }
     }
     func_02041e70(arg1, 0xf);
     char var6[0x40];
     __clear(var6, 0x40);
     void *var7 = GetMessageWindow_020421a0();
-    func_02046380(var7);
-    func_020465c0(var7, 0, *(unsigned char *) (arg0 + 0x2000 + 0x2b4) + 1);
+    ClearMessageParams_02046380(var7);
+    SetMessageNumber_020465c0(var7, 0, *(unsigned char *) (arg0 + 0x2000 + 0x2b4) + 1);
     func_020465f0(var7, 0, 1);
-    func_020465c0(var7, 1, 2);
+    SetMessageNumber_020465c0(var7, 1, 2);
     func_020465f0(var7, 1, 1);
     func_020474a8(var7, 8,
-                  (const char *) func_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x119a),
+                  (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x119a),
                   var6);
-    func_02042058(arg1, var6);
-    func_02042058(arg1,
-                  (const char *) func_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x119b));
+    AppendText_02042058(arg1, var6);
+    AppendText_02042058(arg1,
+                  (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x119b));
 }
 #else
 extern "C" ARM void func_ov002_02160aa0(unsigned char *arg0, char *arg1, int arg2) {
@@ -99,30 +98,30 @@ extern "C" ARM void func_ov002_02160aa0(unsigned char *arg0, char *arg1, int arg
     unsigned char var3;
     unsigned char var4 = *(unsigned char *) (arg0 + 0x2000 + 0x484) << 4;
     var3             = var4 + 0x10;
-    char *var5      = func_0205ec34();
+    char *var5      = GetFlagManager_0205ec34();
     for (; var4 < var3; var4++) {
         var1 = func_0206e3d4((int) var5, func_ov002_0215a9b4(arg0, var4));
         if (var1 == 0) {
             func_02041e70(arg1, 0xf);
             func_02041b70(arg1, var2,
-                          (const char *) func_020e0434(
+                          (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 0x20), 0x119c + 1));
         } else if (*(unsigned int *) (arg0 + 0x2000 + 0x480) & (1 << (var1 - 1))) {
             func_02041e70(arg1, 0xf);
             func_02041b70(arg1, var2,
-                          (const char *) func_020e0434(
+                          (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 0x20), (short) (var1 + 0x119d)));
         } else {
             func_02041e70(arg1, 0xf);
             func_02041b70(arg1, var2,
-                          (const char *) func_020e0434(
+                          (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 0x20), 0x119c));
         }
         var2++;
         if (var4 & 1) {
-            func_02042058(arg1, *(const char **) (arg0 + 0x1000 + 0xbdc));
+            AppendText_02042058(arg1, *(const char **) (arg0 + 0x1000 + 0xbdc));
         } else {
-            func_02042058(arg1, data_ov002_0216d2b4);
+            AppendText_02042058(arg1, data_ov002_0216d2b4);
         }
     }
     func_02041e70(arg1, 0xf);

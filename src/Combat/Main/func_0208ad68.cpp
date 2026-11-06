@@ -22,8 +22,8 @@ extern "C" int func_020482e0(struct Struct_020482e0* arg0, int arg1, int arg2);
 extern "C" void func_02026f08(unsigned char* arg0, int arg1, int arg2);
 extern "C" void func_02026f20(int arg0, int arg1);
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 
 // USA: func_0208ad68
@@ -40,7 +40,7 @@ extern "C" ARM void func_0208ad68(void* arg0, int arg1) {
         func_02026f08((unsigned char*)var2, arg1, 1);
         func_02026f20((int)var2, arg1);
     }
-    if (func_0202b7d8((int*)func_0202ae18())) {
+    if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18())) {
         func_ov017_021c9e00(arg1, 1, 0, 1);
     }
 }

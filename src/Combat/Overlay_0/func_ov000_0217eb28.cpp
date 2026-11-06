@@ -49,13 +49,13 @@ struct Struct_ov000_0217e870_2 {
     unsigned char unknown_0_[0xf7c];
     unsigned char unknown_f7c_;
 };
-extern Struct_02109bf4_5 data_02109bf4;
+extern Struct_02109bf4_5 gMusicManager_02109bf4;
 extern "C" int func_0209ca2c(void*);
 extern "C" void func_0209c73c(Struct_02109bf4_5*);
 extern "C" int func_0205d97c(void*);
 extern "C" int func_ov000_021815c8(void*);
-extern "C" int* func_0202ae18();
-extern "C" int func_0202b7d8(int*);
+extern "C" int* GetLocalWireless_0202ae18();
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov017_021c3fb4(int, int);
 extern "C" void func_ov017_0218f5a4(GameResources*, int, int, int, int);
 extern "C" Struct_ov000_0217e870* func_ov000_02161318(Struct_ov004_021707e8*, int);
@@ -69,8 +69,8 @@ extern "C" void func_0205def8(Struct_0205def8*, int, int);
 // USA: func_ov000_0217eb28
 extern "C" ARM void func_ov000_0217eb28(Struct_ov004_021707e8* arg0, int arg1, int arg2) {
     if (arg0->unknown_1d7a_) {
-        if (func_0209ca2c(&data_02109bf4)) return;
-        func_0209c73c(&data_02109bf4);
+        if (func_0209ca2c(&gMusicManager_02109bf4)) return;
+        func_0209c73c(&gMusicManager_02109bf4);
     }
     int var0 = g_keyManager.TestKeysPressed(0x601);
     var0 |= g_keyManager.TestKeysPressed(0x802);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov000_0217eb28(Struct_ov004_021707e8* arg0, int arg1, i
             arg0->unknown_1d68_--;
         }
         int var1 = func_ov000_021815c8(arg0);
-        if (func_0202b7d8(func_0202ae18()))
+        if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18()))
             func_ov017_021c3fb4(var1, 1);
         GameResources* var2 = GetGameResources();
         BackgroundLoader::GetInstance();
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov000_0217eb28(Struct_ov004_021707e8* arg0, int arg1, i
             func_0205d6a0((Struct_0205d6a0*)arg0->unknown_188_, 0);
             var4 = func_0205d888((Struct_0205d0e0_2*)arg0->unknown_188_);
         }
-        unsigned char var5 = ((Struct_ov000_0217e870_2*)func_02010828(GameState::GetInstance()))->unknown_f7c_;
+        unsigned char var5 = ((Struct_ov000_0217e870_2*)GetParty_02010828(GameState::GetInstance()))->unknown_f7c_;
         for (unsigned char var6 = 0; var6 < var5; var6++) {
             int var7 = arg0->unknown_70_[var6];
             Struct_ov000_0217e870* var8 = func_ov000_02161318(arg0, var7);

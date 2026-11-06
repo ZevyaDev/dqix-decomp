@@ -30,8 +30,8 @@ struct Struct_0205cfd4;
 struct Struct_02020cb8;
 struct Struct_0204b12c;
 struct Struct_02020cb8_5;
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 struct Struct_02020cb8_2;
 struct Struct_0204c7a8;
 struct Struct_0205cf78;
@@ -39,7 +39,7 @@ struct Struct_0205cf78_2;
 struct Struct_0205d228;
 struct Struct_0205d274;
 struct Struct_0205d2bc;
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 struct Struct_02045cac;
 struct Struct_0205bcdc;
 struct Struct_0205e8ec;
@@ -58,21 +58,21 @@ extern "C" void func_020c38d4();
 extern "C" void func_ov020_0218d7ac(Struct_ov020_0218b710* arg0, int arg1, int arg2);
 extern "C" void func_ov020_0218d800(Struct_ov020_0218b710_2* arg0, int arg1, int arg2);
 extern "C" void func_020d86d0(int arg0, int arg1);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_0205cfd4(Struct_0205cfd4* arg0);
 extern "C" void func_0204af64(Struct_02020cb8* arg0);
 extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
 extern "C" void func_0204b12c(Struct_0204b12c* arg0, SafeAllocator* arg1);
 extern "C" void func_0204b5e8(Struct_02020cb8_5* arg0, int arg1, int arg2);
-extern "C" int func_02046900(Struct_02020cb8_4* arg0);
-extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0204b0e8(Struct_02020cb8_2* arg0, void* arg1);
 extern "C" void func_0204c7a8(Struct_0204c7a8* arg0, SafeAllocator* arg1, int arg2, unsigned int arg3);
 extern "C" void func_0205cf78(Struct_0205cf78* arg0, Struct_0205cf78_2* arg1, unsigned char arg2);
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02042084(char* arg0, char* arg1, int arg2, int arg3);
 extern "C" void func_0205d228(Struct_0205d228* arg0);
 extern "C" void func_0205d274(Struct_0205d274* arg0);
@@ -85,9 +85,9 @@ extern "C" void func_020bb780(void* arg0, int arg1);
 void UpdateVRAMStagingVRAMBanks();
 void UnlockStagedTextureVRAMCopying();
 extern "C" void func_020440a4(void* arg0);
-extern "C" void func_0207df50(Struct_0203d028* arg0);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_02045cac(Struct_02045cac* arg0);
 extern "C" void func_0205c790(char* arg0);
@@ -125,7 +125,7 @@ extern "C" void func_0205d304(void* arg0, char* arg1, int, int, int, int, int, i
 extern "C" void func_0205d0e0(void* arg0, int arg1);
 extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
 extern "C" void func_02042c68(char* arg0);
-extern "C" void func_02043124(char* arg0);
+extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void func_020432c4(char* arg0);
 extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 #if defined(jpn)
@@ -142,9 +142,9 @@ extern "C" void MapVRAMBanksToMainObj(int);
 extern "C" void MapVRAMBanksToTextureImage(int);
 extern "C" void MapVRAMBanksToTexturePalette(int);
 
-extern AllocatorUnion data_02114e20;
-extern char data_02108760[];
-extern char data_02109bf4[];
+extern AllocatorUnion gMainHeap_02114e20;
+extern char gSoundEffectManager_02108760[];
+extern char gMusicManager_02109bf4[];
 extern char data_ov020_0218dbdc[];
 extern char data_ov020_0218dbef[];
 extern char data_ov020_0218dbf5[];
@@ -289,7 +289,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
     func_020c39a0((short*)0x400106c, -16);
 
     if (func_0200fb9c((char*)var0) != 6) {
-        arg0->unknown_470_.CreateTypeA(func_02012d88(&data_02114e20, 0x10000), 0x10000);
+        arg0->unknown_470_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x10000), 0x10000);
         arg0->unknown_470_.Reset();
         func_0205cfd4((Struct_0205cfd4*)arg0->unknown_2b4_);
         func_0204af64((Struct_02020cb8*)arg0->unknown_370_);
@@ -313,10 +313,10 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 void* var5;
                 unsigned int var6;
                 var3->GetLoadedFileByID(var2, &var5, &var6);
-                int var7 = func_02046900((Struct_02020cb8_4*)var5);
+                int var7 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var5);
                 for (int var8 = 0; var8 < var7; var8++) {
                     int var9;
-                    void* var10 = func_020467f0((Struct_02020aec*)var5, var8, &var4, &var9);
+                    void* var10 = GetPacEntryData_020467f0((PacEntry_02020aec*)var5, var8, &var4, &var9);
                     if (var10 != 0) {
                         func_0204b174(arg0->unknown_370_, var10, &arg0->unknown_470_, var9);
                     }
@@ -357,32 +357,32 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         char var12[0x80] = {0};
         func_02041a90(var11, 4, 0x68);
         sprintf(var12, data_ov020_0218dbef, data_ov020_0218dbf5, data_ov020_0218dbfc);
-        func_02042058(var11, var12);
+        AppendText_02042058(var11, var12);
         func_02041a90(var11, 4, 0x74);
         sprintf(var12, data_ov020_0218dc08, 4, 2, 0x7539);
-        func_02042058(var11, var12);
+        AppendText_02042058(var11, var12);
         func_02041a90(var11, 4, 0x80);
         sprintf(var12, data_ov020_0218dc1b, 0x13242d6);
-        func_02042058(var11, var12);
+        AppendText_02042058(var11, var12);
         func_02041a90(var11, 4, 0x8c);
         sprintf(var12, data_ov020_0218dc2b, 2, 1, 0x7533);
-        func_02042058(var11, var12);
+        AppendText_02042058(var11, var12);
         func_02041a90(var11, 4, 0x98);
         sprintf(var12, data_ov020_0218dc3f, 2, 1, 0x7533);
-        func_02042058(var11, var12);
+        AppendText_02042058(var11, var12);
         func_02041a90(var11, 4, 0xa4);
         sprintf(var12, data_ov020_0218dc55, 3, 1, 0x7536);
-        func_02042058(var11, var12);
+        AppendText_02042058(var11, var12);
         func_02041a90(var11, 4, 0xb0);
         sprintf(var12, data_ov020_0218dc65, 3, 0, 0x7531);
-        func_02042058(var11, var12);
+        AppendText_02042058(var11, var12);
 #if defined(jpn)
         func_02041a90(var11, 0x4e, 0x28);
-        func_02042058(var11, data_ov020_0218dc72);
+        AppendText_02042058(var11, data_ov020_0218dc72);
         func_02041a90(var11, 0x4b, 0x36);
-        func_02042058(var11, data_ov020_0218dc82);
+        AppendText_02042058(var11, data_ov020_0218dc82);
         func_02041a90(var11, 0x4b, 0x50);
-        func_02042058(var11, data_ov020_0218dc91);
+        AppendText_02042058(var11, data_ov020_0218dc91);
 #else
         func_02041a90(var11, 0, 0x28);
         func_02042084(var11, data_ov020_0218dc72, 0x100, 0);
@@ -424,7 +424,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
 
         void* var14 = arg0->unknown_470_.GetSignedAllocator();
         arg0->unknown_470_.Destroy();
-        func_02012da4(&data_02114e20, var14);
+        FreeMemory_02012da4(&gMainHeap_02114e20, var14);
     }
 
     func_020c9820();
@@ -449,21 +449,21 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
     UpdateVRAMStagingVRAMBanks();
     UnlockStagedTextureVRAMCopying();
 
-    arg0->unknown_470_.CreateTypeA(func_02012d88(&data_02114e20, 0x10000), 0x10000);
+    arg0->unknown_470_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x10000), 0x10000);
     func_0207de48(arg0->unknown_244_, 0x4000, 0x400);
     char* var17 = GetMessageWindow_020421a0();
     func_02042c68(var17);
-    func_02043124(var17);
+    CloseMessageWindow_02043124(var17);
     func_020440a4(var17);
 #if defined(jpn)
     *(char**)(var17 + 0x1c4c) = arg0->unknown_244_;
 #else
     *(char**)(var17 + 0x1e28) = arg0->unknown_244_;
 #endif
-    func_0207df50((Struct_0203d028*)arg0->unknown_244_);
-    func_0207df90(arg0->unknown_244_);
+    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_244_);
+    RestoreTextureVRAMState_0207df90(arg0->unknown_244_);
     func_020432c4(var17);
-    func_0207dfac(arg0->unknown_244_);
+    SaveTextureVRAMState_0207dfac(arg0->unknown_244_);
     arg0->unknown_0_ = 100;
     arg0->unknown_4_ = -1;
 
@@ -665,8 +665,8 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
 
         char* var28 = func_0203bd08();
         func_0203bd24(var28);
-        func_0205e8ec((Struct_0205e8ec*)data_02108760);
-        func_0209c3b4((Struct_0209c3b4_2*)data_02109bf4, 2);
+        func_0205e8ec((Struct_0205e8ec*)gSoundEffectManager_02108760);
+        func_0209c3b4((Struct_0209c3b4_2*)gMusicManager_02109bf4, 2);
         while (arg0->unknown_0_ != -1) {
             func_02012efc();
             if (++arg0->unknown_4_ >= 0xffffff) {
@@ -701,7 +701,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
     }
 
     func_ov020_0218d8d8((Struct_ov020_0218b710_3*)arg0);
-    func_0207df50((Struct_0203d028*)arg0->unknown_244_);
+    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_244_);
     func_020c39a0((short*)0x400006c, -16);
     func_020c39a0((short*)0x400106c, -16);
 }

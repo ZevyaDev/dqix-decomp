@@ -3,13 +3,10 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_020fdd44;
 struct Struct_02018300_2;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_02018300_3;
 struct Struct_02018300_4 {
     char unknown_0_[0xb2];
@@ -26,7 +23,7 @@ struct Struct_02018300_5 {
     short unknown_28_;
     char unknown_2a_[0xa];
 };
-extern "C" void* func_0205ec34();
+extern "C" void* GetFlagManager_0205ec34();
 extern "C" int func_02064b24(void*, int, unsigned short, void*);
 #if defined(jpn)
 #define data_020e6e74 data_020e7718
@@ -36,14 +33,14 @@ int fix32cos(int);
 int fix32sin(int);
 void Vector3fixMultiplyScalar(const Vector3i*, int, Vector3i*);
 extern "C" void* func_0201e838(unsigned char*, unsigned int);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void func_ov017_021d196c(unsigned short, unsigned short, int);
 extern "C" Struct_020fdd44* func_02027ca4();
 extern "C" Struct_02018300_2* func_02028bd0(Struct_020fdd44*, int);
 extern "C" void func_02028c64(Struct_02018300_2*, int);
 extern const Struct_020e6e74 data_020e6e74;
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 // USA: func_02018300
 extern "C" ARM void func_02018300(Zone3D* arg0, Struct_020134e0::Struct_02018300* arg1, int arg2, int arg3, int arg4) {
@@ -52,7 +49,7 @@ extern "C" ARM void func_02018300(Zone3D* arg0, Struct_020134e0::Struct_02018300
     if (!arg3 && (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 8)) return;
     if (!arg3 && (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 4)) return;
     if (!arg3) {
-        void* var1 = func_0205ec34();
+        void* var1 = GetFlagManager_0205ec34();
         Struct_02018300_5 var2;
         var2.unknown_28_ = arg1->unknown_20_;
         var2.unknown_1e_ = arg1->unknown_2c_.unknown1_0_.unknown_1_;
@@ -122,7 +119,7 @@ extern "C" ARM void func_02018300(Zone3D* arg0, Struct_020134e0::Struct_02018300
     }
     if (arg2) {
         Struct_020e6e74 var12 = data_020e6e74;
-        func_0205eaa0(&data_02108760, var12.unknown_0_[arg1->unknown_2c_.unknown1_0_.unknown_2_0_], 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, var12.unknown_0_[arg1->unknown_2c_.unknown1_0_.unknown_2_0_], 0);
     }
     if (arg3 && (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 8)) {
         GameObject* var13 = GameState::GetInstance()->GetProtagonist();

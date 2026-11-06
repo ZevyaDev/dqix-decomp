@@ -8,7 +8,7 @@
 #define func_0200b454 func_0200b318
 #endif
 
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_02015ef4;
 struct Struct_02052df8;
 
@@ -86,7 +86,7 @@ extern const Vector3fix data_ov005_0215cc84[8];
 extern const signed char data_ov005_0215cc14[8];
 extern unsigned char data_ov005_0215cd58[8];
 extern unsigned char data_ov005_0215cd50[8];
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
 extern "C" int func_ov005_02157ae8(Struct_ov005_02153954* arg0, int arg1);
@@ -101,10 +101,10 @@ extern "C" int func_ov005_02158560(Struct_ov005_02153954* arg0, unsigned char ar
 extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
 extern "C" void func_0205bb04(void* arg0, int arg1);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 // USA: func_ov005_0215690c
 extern "C" ARM void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, int arg2) {
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, i
         func_ov005_02158560(arg0, var6, 1);
         arg0->unknown_3dcc_ |= 0x100;
     }
-    short* var35 = func_0207c5f8((unsigned char*)func_02010828(var0) + 0x1d4, data_ov005_0215cd50[arg0->unknown_3dbc_]);
+    short* var35 = func_0207c5f8((unsigned char*)GetParty_02010828(var0) + 0x1d4, data_ov005_0215cd50[arg0->unknown_3dbc_]);
     int var36 = -1;
     int var37 = -1;
     for (short var38 = 0; var38 < arg0->unknown_3d98_[arg0->unknown_3dbc_]; var38++) {
@@ -235,7 +235,7 @@ extern "C" ARM void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, i
     func_0205bb04(arg0->unknown_19f4_, arg0->unknown_3d78_);
     arg0->unknown_3dc0_ = 1;
     arg0->unknown_3dcc_ |= 0x80;
-    func_0205eaa0((Struct_02108760*)&data_02108760, 2, 0);
+    PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 2, 0);
     var3->unknown_634_ &= ~1;
     var3->unknown_634_ &= ~0x80;
     arg0->unknown_3dcc_ &= ~4;

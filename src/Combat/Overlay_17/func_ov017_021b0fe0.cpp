@@ -69,7 +69,7 @@ extern "C" ARM void func_ov017_021b0fe0(int arg0) {
 	func_ov017_021c9e00(arg0, 1, 0, 1);
 	func_ov017_021d25f4(arg0 & 0xff);
 
-	if (!func_02086ef0((Struct_02048150*)func_02010828(GameState::GetInstance()), arg0)) {
+	if (!func_02086ef0((Struct_02048150*)GetParty_02010828(GameState::GetInstance()), arg0)) {
 		return;
 	}
 

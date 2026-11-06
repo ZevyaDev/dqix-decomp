@@ -2,7 +2,7 @@
 
 extern "C" int func_020420e8(void* arg0, int arg1);
 extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02041bac(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 
 #if defined(jpn)
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov023_021ed254(char* arg0, char* arg1) {
     int var6 = 6;
     if (var4 != func_020d2ff0(var2 + 0xc)) var6 = 8;
     func_02041a90(arg1, var5, var6);
-    func_02042058(arg1, var2 + 0xc);
+    AppendText_02042058(arg1, var2 + 0xc);
 #else
     char* var7 = var1 + var0 * 0x244 + 0xc;
     int var8 = func_020420e8(var7, 1);
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov023_021ed254(char* arg0, char* arg1) {
     func_02041a90(arg1, var10, 6);
 
     if (var7 != 0) {
-        func_02042058(arg1, var7);
+        AppendText_02042058(arg1, var7);
     }
 
     #endif

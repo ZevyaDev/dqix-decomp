@@ -53,7 +53,7 @@ extern "C" void func_020daf9c(int, int, int, int);
 void SetAndLockBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" GameObject *func_0200ff1c(GameState *, int);
-extern "C" int func_020100a8(GameState *);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState *);
 struct Struct_02033834;
 extern "C" void func_02033874(Struct_02033834*, int);
 extern "C" void func_ov017_021af59c(Struct_ov000_0215b278 *);
@@ -62,21 +62,21 @@ struct Struct_020469f8_2;
 extern "C" void func_020469f8(Struct_020469f8*, Struct_020469f8_2*);
 struct Struct_ov003_021638e4_2;
 extern "C" void func_ov017_021b11b0(Struct_ov003_021638e4_2*);
-extern "C" int *func_0202ae18();
-extern "C" int func_0202b7d8(int *);
+extern "C" int *GetLocalWireless_0202ae18();
+extern "C" int IsLocalWirelessOn_0202b7d8(int *);
 extern "C" void func_ov017_021d1810(int, int, signed char);
 extern "C" void *func_020936f8();
 extern "C" void func_02094030(void *, int, int, int);
-extern "C" unsigned int *func_020d6c00();
+extern "C" unsigned int *GetGlobalFlags_020d6c00();
 struct Struct_02038598_4;
 extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
 extern "C" int func_020100b0(GameState *);
 struct Struct_02052e2c;
 extern "C" Struct_0209a678_2 * func_02052e2c(Struct_02052e2c*);
 extern "C" void func_ov017_021bbae4(Struct_ov000_0215b278 *, int, int);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(Struct_0201bdac_2*, Struct_0201bdac*);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 struct Struct_02038598_5;
 extern "C" int func_02046b60(Struct_02038598_5*, int);
 struct GameResources;
@@ -84,9 +84,9 @@ void SetBrightness(GameResources*, int, int);
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
 extern "C" int *func_0200fd0c(GameState *);
 extern "C" char *GetMessageWindow_020421a0();
-extern "C" void func_02043204(char *);
-extern "C" void func_02043124(char *);
-extern "C" unsigned char *func_02053c6c(unsigned char *);
+extern "C" void ResetMessageWindow_02043204(char *);
+extern "C" void CloseMessageWindow_02043124(char *);
+extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *);
 extern "C" void func_02086380(unsigned char *);
 struct Struct_ov003_021638e4;
 extern "C" void func_ov017_021b6b8c(Struct_ov003_021638e4*);
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
     var3   = *(void **) (var0 + 0x3000 + RES_LIST_021638e4);
     var1     = GameState::GetInstance();
     var4 = BackgroundLoader::GetInstance();
-    var2     = (unsigned char *)func_02010828(var1);
+    var2     = (unsigned char *)GetParty_02010828(var1);
     GetZone3D_02012fe4();
     unsigned char var5 = arg0->unknown_4a4_;
 
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
     } else if (var5 == 2) {
         if (IsBrightnessTransitionActive((GameResources*)var0) == 0 && var4->GetNumQueuedTasks() <= 0) {
             if (arg0->unknown_464_ & 0x40) {
-                GameObject *var8 = func_0200ff1c(var1, func_020100a8(var1));
+                GameObject *var8 = func_0200ff1c(var1, GetProtagonistObjectIndex_020100a8(var1));
                 if (var8 != 0) {
                     Vector3i *var9 = &var8->obj3D_.position_;
                     var9->x        = 0x5800;
@@ -169,8 +169,8 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
                     var14->obj3D_.MakeVisible();
                 }
             }
-            if (func_0202b7d8(func_0202ae18()) != 0) {
-                func_ov017_021d1810(0, -1, (signed char) func_020100a8(var1));
+            if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18()) != 0) {
+                func_ov017_021d1810(0, -1, (signed char) GetProtagonistObjectIndex_020100a8(var1));
                 func_02094030(func_020936f8(), 1, -1, 0);
             }
         } else {
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
         arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
     } else if (var5 == 4) {
         if (IsBrightnessTransitionActive((GameResources*)var0) == 0) {
-            func_020466f4((Struct_02038598_4*)func_020d6c00(), 0x80000);
+            func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x80000);
             Struct_020bc1ec *var19   = GetZone3D_02012fe4();
             Struct_ov000_0215b278 *var20     = *(Struct_ov000_0215b278 **) (var0 + 0x3000 + RES_NODE_C_021638e4);
             Struct_0209a678_2 *var21 = func_02052e2c((Struct_02052e2c*)(var1->GetGameObjectByIndex(func_020100b0(var1))));
@@ -203,9 +203,9 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
             var20->unknown_ce_ = var21->unknown_14_0_;
             if (arg0->unknown_464_ & 0x40) {
                 arg0->unknown_464_ &= ~0x40;
-                if (func_0202b7d8(func_0202ae18()) != 0) {
+                if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18()) != 0) {
                     var20->unknown_cf_ = 2;
-                    func_020469b4((Struct_0201bdac_2*)var3, (Struct_0201bdac*)var20);
+                    AppendToQueue_020469b4((Queue_0201bdac_2*)var3, (QueueNode_0201bdac*)var20);
                 }
                 if (func_02046b60((Struct_02038598_5*)var3, 3) == 0) {
                     SetBrightness((GameResources*)var0, 0, 8);
@@ -223,14 +223,14 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
                 *((unsigned char *) var22 + 0xa)   = 0;
             }
             char *var23 = GetMessageWindow_020421a0();
-            func_02043204(var23);
-            func_02043124(var23);
+            ResetMessageWindow_02043204(var23);
+            CloseMessageWindow_02043124(var23);
             arg0->unknown_4a3_  = 0x10;
             arg0->unknown_4a4_ = 0;
             for (signed char var24 = 0; var24 < 4; var24++) {
                 GameObject *var25 = var1->GetPartyMemberByIndex(var24);
                 if (var25 != 0) {
-                    unsigned char *var26 = func_02053c6c((unsigned char *) var25);
+                    unsigned char *var26 = GetPartyMemberData_02053c6c((unsigned char *) var25);
                     if (var26 != 0) {
                         func_02086380(var26);
                     }

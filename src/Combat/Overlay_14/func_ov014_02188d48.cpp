@@ -2,9 +2,6 @@
 #include <std_library_functions.h>
 #include "Memory/SafeAllocator.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_ov014_02188d48 {
     unsigned short unknown_0_;
@@ -46,8 +43,8 @@ extern "C" void func_ov014_02189244(Struct_ov014_02188d48_4* arg0, Struct_ov014_
 extern "C" int func_ov014_02188b18(Struct_ov014_02188d48* arg0);
 extern "C" Struct_ov014_02188d48* func_ov014_021892d4(Struct_ov014_02188d48_3* arg0, int arg1, int (*arg2)(Struct_ov014_02188d48* entry));
 extern "C" char* func_ov014_02188ba0(Struct_ov014_02188d48_3* arg0, char* arg1, char* arg2);
-extern "C" char* func_0205ec34();
-extern "C" bool func_0206dfb0(int, unsigned char*, int arg2);
+extern "C" char* GetFlagManager_0205ec34();
+extern "C" bool IsFlagSet_0206dfb0(int, unsigned char*, int flagIndex);
 extern "C" void* GetZone3D_02012fe4();
 extern "C" char* func_020da150(SafeAllocator* arg0, const char* arg1);
 extern "C" bool func_0201b588(int arg0);
@@ -103,8 +100,8 @@ extern "C" ARM bool func_ov014_02188d48(Struct_ov014_02188bfc* arg0, SafeAllocat
             Struct_ov014_02188d48_3 var15;
             char* var16;
 
-            var5 = func_0205ec34();
-            var6 = func_0206dfb0((int)var5, (unsigned char*)(var5 + 0x8c), 0x79d) != false;
+            var5 = GetFlagManager_0205ec34();
+            var6 = IsFlagSet_0206dfb0((int)var5, (unsigned char*)(var5 + 0x8c), 0x79d) != false;
             var7 = GetZone3D_02012fe4();
 
             var8 = (Struct_ov014_02188d48_2*)(var2.unknown_c_ + var2.unknown_0_);

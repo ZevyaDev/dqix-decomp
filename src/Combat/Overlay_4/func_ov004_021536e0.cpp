@@ -10,18 +10,18 @@ public:
     virtual Struct_ov004_021536e0 inline_ov004_021536e0_9();
 };
 
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" Struct_ov004_021536e0_2* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" Struct_ov004_021536e0_2* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6378(void* arg0, int arg1);
 extern "C" void* func_ov023_021f63ac(void* arg0, int arg1, int arg2);
 
 // USA: func_ov004_021536e0
 extern "C" ARM void func_ov004_021536e0(void* arg0, int arg1, int arg2) {
-    Struct_ov004_021536e0_2* var0 = func_ov023_021f6880(func_ov011_021849c8(arg0), arg1);
+    Struct_ov004_021536e0_2* var0 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), arg1);
     if (!var0) return;
     char* var1 = (char*)func_ov023_021f63ac(arg0, 4, func_ov023_021f6378(arg0, arg2));
     if (var1 != 0 && *var1 != 0) return;
-    Struct_ov004_021536e0_2* var2 = func_ov023_021f6880(func_ov011_021849c8(arg0), arg2);
+    Struct_ov004_021536e0_2* var2 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), arg2);
     if (!var2) return;
     const Struct_ov004_021536e0& var3 = var2->inline_ov004_021536e0_9();
     var0->inline_ov004_021536e0_8(var3);

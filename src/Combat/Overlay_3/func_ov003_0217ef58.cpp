@@ -34,7 +34,7 @@ struct Struct_ov003_0217ef58_2 {
 extern "C" void func_02074af4(void* arg0);
 extern "C" void func_020a0cc4(unsigned int arg0);
 extern "C" void func_020a0c0c(void);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void VectorizedMemset(void* dst, int val, unsigned int len);
 extern "C" void func_020a1df8(int arg0);
 extern "C" void func_ov003_0216d63c(Struct_ov003_0217ef58* arg0);
@@ -50,7 +50,7 @@ extern "C" void func_020397c0(void* arg0);
 extern "C" void func_020a27ac(void* arg0);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
 extern "C" void func_ov003_0217f1b8(unsigned char* arg0);
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov003_0217ef58
 extern "C" ARM void func_ov003_0217ef58(Struct_ov003_0217ef58_2* arg0) {
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov003_0217ef58(Struct_ov003_0217ef58_2* arg0) {
         func_02074af4(arg0->unknown_2a_);
         SetFlags04(GetGameResources(), 0xc0);
         func_020a0cc4(0x1e800);
-        void* var1 = func_02012d88(&data_02114e20, 0xb000);
+        void* var1 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0xb000);
         if (var1 == 0) {
             func_020a0c0c();
             arg0->unknown_1_ = 1;

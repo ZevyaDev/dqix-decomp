@@ -6,10 +6,10 @@ struct Struct_ov023_021db45c;
 extern "C" void func_0204c684(void* arg0);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
-extern "C" void* func_0205ff20();
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" void* GetFlagManager_0205ec34();
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_020dd19c(unsigned int arg0, int arg1);
-extern "C" int func_020e0434(int arg0, short arg1);
+extern "C" int FindStringInTable_020e0434(int stringTable, short stringId);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov023_021db45c(void* arg0, struct Struct_ov023_021db45c* arg1, int arg2, short* arg3, short* arg4);
 extern "C" void func_ov023_021e257c(void* arg0);
@@ -87,10 +87,10 @@ extern "C" ARM void func_ov023_021df218(Struct_ov023_021df218_4* arg0)
             memcpy(var1, data_ov023_021fc90e, 0xd);
 
             {
-                void* var17 = func_0205ff20();
+                void* var17 = GetFlagManager_0205ec34();
                 for (var10 = 7; var10 < 0xd; var10++)
                 {
-                    if (func_0206dfb0((int)var17, (unsigned char*)var17 + 0x8c, 0x113f + var10))
+                    if (IsFlagSet_0206dfb0((int)var17, (unsigned char*)var17 + 0x8c, 0x113f + var10))
                         var1[var10] = 1;
                 }
             }
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov023_021df218(Struct_ov023_021df218_4* arg0)
                             var13 = 0xf;
                     }
                     int var18 = var12;
-                    func_ov023_021e23d0(&arg0->unknown_cc_, data_ov023_021fc91c[var12], func_020e0434(data_ov023_021ff9e0.unknown_0_, var18), 0xa, var13);
+                    func_ov023_021e23d0(&arg0->unknown_cc_, data_ov023_021fc91c[var12], FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_0_, var18), 0xa, var13);
                 }
             }
 
@@ -143,8 +143,8 @@ struct Struct_ov023_021db45c;
 extern "C" void func_0204c684(void* arg0);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
-extern "C" void* func_0205ec34();
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" void* GetFlagManager_0205ec34();
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_020dd19c(unsigned int arg0, int arg1);
 extern "C" void func_ov023_021e29b8(void* arg0, int arg1, unsigned char arg2);
 extern "C" void* func_ov023_021e2550(void* arg0, int arg1, int arg2);
@@ -238,10 +238,10 @@ extern "C" ARM void func_ov023_021df218(Struct_ov023_021df218_4* arg0)
             memcpy(var1, data_ov023_021fd626, 0xd);
 
             {
-                void* var17 = func_0205ec34();
+                void* var17 = GetFlagManager_0205ec34();
                 for (var12 = 7; var12 < 0xd; var12++)
                 {
-                    if (func_0206dfb0((int)var17, (unsigned char*)var17 + 0x8c, 0x113f + var12))
+                    if (IsFlagSet_0206dfb0((int)var17, (unsigned char*)var17 + 0x8c, 0x113f + var12))
                         var1[var12] = 1;
                 }
             }

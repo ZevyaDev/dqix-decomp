@@ -31,29 +31,29 @@ struct Struct_ov003_0215af9c {
 };
 
 extern "C" Struct_ov003_0215af9c* GetMessageWindow_020421a0(void);
-extern "C" GameResources* func_0200fb8c(int*);
+extern "C" GameResources* GetResources_0200fb8c(int*);
 struct Struct_02109bf4_4;
 extern "C" void func_0209c678(Struct_02109bf4_4*, int);
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 int IsMainBrightnessTransitionActive(GameResources*);
 void SetMainBrightness(GameResources*, int, int);
-extern "C" void func_02043124(Struct_ov003_0215af9c*);
-extern "C" void func_02043204(char*);
+extern "C" void CloseMessageWindow_02043124(Struct_ov003_0215af9c*);
+extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_ov003_0215c270(Struct_ov003_021594c4_2*, unsigned int, unsigned int);
 struct Struct_0201099c_3;
-extern "C" void* func_020e0434(Struct_0201099c_3*, int);
+extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov003_02159250(Struct_ov003_021594c4_2*, void*);
-extern "C" int* func_0202ae18(void);
-extern "C" int func_0202b7d8(int*);
+extern "C" int* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov017_021c37a4(void);
 
-extern unsigned char data_02109bf4;
+extern unsigned char gMusicManager_02109bf4;
 
 // USA: func_ov003_0215b1dc
 extern "C" ARM void func_ov003_0215b1dc(Struct_ov003_021594c4_2* arg0) {
     Struct_ov003_0215af9c* var0 = GetMessageWindow_020421a0();
-    GameResources* var1 = func_0200fb8c((int*)GameState::GetInstance());
+    GameResources* var1 = GetResources_0200fb8c((int*)GameState::GetInstance());
 
     if (var0->unknown_9a0_ == 3) {
         var0->unknown_19ae_ = 0;
@@ -63,15 +63,15 @@ extern "C" ARM void func_ov003_0215b1dc(Struct_ov003_021594c4_2* arg0) {
 
     if (var2 == 0) {
         if (var0->unknown_9a0_ != 3) return;
-        func_0209c678((Struct_02109bf4_4*)&data_02109bf4, 0xb4);
+        func_0209c678((Struct_02109bf4_4*)&gMusicManager_02109bf4, 0xb4);
         SetBrightness(var1, -16, 0xb4);
         arg0->unknown_580_++;
     }
 
     if (var2 == 1) {
         if (IsBrightnessTransitionActive(var1)) return;
-        func_02043124(var0);
-        func_02043204((char*)var0);
+        CloseMessageWindow_02043124(var0);
+        ResetMessageWindow_02043204((char*)var0);
         SetMainBrightness(var1, 0, 0x3c);
         arg0->unknown_580_++;
     }
@@ -81,8 +81,8 @@ extern "C" ARM void func_ov003_0215b1dc(Struct_ov003_021594c4_2* arg0) {
         if (IsMainBrightnessTransitionActive(var1)) return;
         if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() > 0) return;
         var0->unknown_998_ = 1;
-        func_ov003_02159250(arg0, func_020e0434((Struct_0201099c_3*)arg0->unknown_64_, 0x6e));
-        if (func_0202b7d8(func_0202ae18())) {
+        func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, 0x6e));
+        if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18())) {
             func_ov017_021c37a4();
         }
         arg0->unknown_580_++;

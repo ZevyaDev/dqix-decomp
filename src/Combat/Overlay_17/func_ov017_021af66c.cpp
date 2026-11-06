@@ -69,13 +69,13 @@ struct Struct_ov017_021af66c_3 {
 
 struct Struct_0202b2f0;
 struct Struct_02018300_3;
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
 struct Struct_02046968;
 struct Struct_02038598_4;
 struct AllocatorUnion;
 
-extern "C" void* func_0202ae18();
+extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void func_ov017_021c37a4();
 extern "C" Struct_ov017_021af66c_3* GetZone3D_02012fe4();
 extern "C" void func_ov017_021baedc(Struct_ov017_021af66c* arg0, int arg1);
@@ -86,13 +86,13 @@ extern "C" void* func_ov017_021b8468(Struct_ov017_021af66c* arg0);
 extern "C" void func_ov017_021afb8c(Struct_ov017_021af66c_4* arg0, unsigned char* arg1);
 extern "C" void func_ov017_0218b5c0(int arg0, int arg1);
 
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void* func_020936f8();
 extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 extern "C" int func_0202bd34(Struct_0202b2f0* arg0, int arg1);
 extern "C" unsigned char func_020100b0(GameState* arg0);
-extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
+extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_02093a14(char* arg0);
 extern "C" void func_020dc2d0(int arg0);
 extern "C" void func_ov000_02163b14(void* arg0, void* arg1);
@@ -104,11 +104,11 @@ extern "C" void func_02039830(void* arg0);
 extern "C" void func_0205ce94(unsigned char* arg0);
 extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
 extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 
 extern Struct_ov017_021d6aec data_ov017_021d6aec;
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 struct Struct_ov017_021af66c_5 {
     char unknown_0_[0xb2];
@@ -125,9 +125,9 @@ struct Struct_ov017_021af66c_5 {
 extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg1) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
-    Struct_0202b2f0* var2 = (Struct_0202b2f0*)func_0202ae18();
+    Struct_0202b2f0* var2 = (Struct_0202b2f0*)GetLocalWireless_0202ae18();
     Struct_ov017_021af66c_5* var3 = (Struct_ov017_021af66c_5*)var0->GetUnknownGameObject();
-    Struct_02038598_4* var4 = (Struct_02038598_4*)func_020d6c00();
+    Struct_02038598_4* var4 = (Struct_02038598_4*)GetGlobalFlags_020d6c00();
     char* var5 = (char*)func_020936f8();
     Struct_ov017_021af66c* var6 = static_cast<Struct_ov017_021af66c*>(var1->unknown_ptr_3718);
     func_020397cc((Struct_02018300_3*)var3, 0);
@@ -166,7 +166,7 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
                 var10->unknown_ce_ = var3->unknown_150_->unknown_49c_0_;
                 var10->unknown_cc_ = 1;
                 var10->unknown_cf_ = 3;
-                func_020469b4((Struct_0201bdac_2*)arg1, (Struct_0201bdac*)var10);
+                AppendToQueue_020469b4((Queue_0201bdac_2*)arg1, (QueueNode_0201bdac*)var10);
             }
             ClearFlags00(var1, 0x40);
         } else {
@@ -220,13 +220,13 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
         }
     }
     func_0205ce94(arg0->unknown_48_);
-    func_020466f4((Struct_02038598_4*)func_020d6c00(), 0x800000);
+    func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x800000);
     func_ov017_0218b5c0(1, -1);
     func_020daf9c(0, 1, 0, 1);
     DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_280_ << 8);
     ClearFlags04(var1, 0x40);
     if (arg0->unknown_288_ != 0) {
-        func_02012da4(&data_02114e20, arg0->unknown_288_);
+        FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_288_);
         arg0->unknown_288_ = 0;
     }
     MessageWindow_02021b84* var18 = GetMessageWindow_020421a0();

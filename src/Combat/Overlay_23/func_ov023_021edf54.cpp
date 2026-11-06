@@ -4,7 +4,7 @@
 #include <Filesystem/BackgroundLoader.h>
 #include "Resource/GameResources.h"
 
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 struct Struct_02010088;
 struct Struct_ov023_021edf54;
 struct Struct_020e385c;
@@ -222,7 +222,7 @@ extern "C" Struct_ov023_021edf54_10 _ZZ21inline_ov023_021f4c04vE1s;
 
 extern "C" {
 int func_ov023_021f5340(void* arg0);
-void* func_0202ae18();
+void* GetLocalWireless_0202ae18();
 int func_ov000_0215e9fc(Struct_ov023_021edf54_14* arg0, short* arg1, int arg2, unsigned int arg3);
 int func_ov000_0215ec1c(Struct_ov023_021edf54_14* arg0, short* arg1, int arg2, int arg3);
 int func_ov023_021f4098(Struct_ov023_021edf54_16* arg0, int arg1, int arg2);
@@ -231,7 +231,7 @@ void func_ov017_021cd218(unsigned short arg0, unsigned short arg1, unsigned shor
 void func_ov017_021cd590(unsigned short arg0, int* arg1, int arg2, int arg3);
 void func_ov017_021cd35c(unsigned short arg0, char* arg1, unsigned char arg2, signed char arg3);
 void func_ov017_021cd4c8(unsigned short arg0, unsigned short arg1, signed char arg2);
-int func_0202c540(void* arg0);
+int IsLocalWirelessGuest_0202c540(void* wireless);
 int func_020abe84(void* arg0, short* arg1, Struct_ov023_021ed7e0* arg2, int arg3);
 int func_ov023_021f5150(Struct_ov023_021edf54_16* arg0, Struct_ov023_021edf54_15* arg1, int* arg2, int* arg3, int arg4);
 }
@@ -239,11 +239,11 @@ int func_ov023_021f5150(Struct_ov023_021edf54_16* arg0, Struct_ov023_021edf54_15
 extern "C" Struct_ov023_021edf54_20* GetMessageWindow_020421a0();
 extern "C" void func_02049ae4(unsigned char* arg0);
 extern "C" void func_ov023_021f50fc();
-extern "C" int func_0202b7d8(int* arg0);
-extern "C" int func_0202c1a4(Struct_0202c1a4* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
+extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
-extern "C" int func_020100a8(GameState* arg0);
-extern "C" int func_020ac4c0(void* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
+extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" void func_020a0858(Struct_020a0858* arg0, unsigned int arg1);
 extern "C" void func_020a0300(Struct_020a0300* arg0, unsigned int arg1);
 extern "C" int func_020ac494(void* arg0);
@@ -254,7 +254,7 @@ extern "C" int func_020ac020(void* arg0, short* arg1, int* arg2, int arg3);
 extern "C" unsigned short func_0202053c(void* arg0);
 extern "C" int func_02010088(Struct_02010088* arg0);
 extern "C" int func_ov023_021eea98(Struct_ov023_021edf54* arg0);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
 extern "C" Struct_020e385c* func_020e3808();
 extern "C" void func_020e39d4(Struct_020e385c* arg0, int arg1, int arg2, int arg3);
@@ -282,7 +282,7 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
 
     Struct_ov023_021edf54_19* var6 = (Struct_ov023_021edf54_19*)GetGameResources();
     Struct_ov023_021edf54_20* var7 = GetMessageWindow_020421a0();
-    var0 = func_0202ae18();
+    var0 = GetLocalWireless_0202ae18();
 
     Struct_ov023_021edf54_14* var8 = arg0->unknown_29c_;
     if (var8 != 0) {
@@ -300,7 +300,7 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
     }
     func_ov023_021f50fc();
 
-    if (!func_0202b7d8((int*)var0) || arg0->unknown_2a0_->unknown_2a_ == func_0202c1a4((Struct_0202c1a4*)var0)) {
+    if (!IsLocalWirelessOn_0202b7d8((int*)var0) || arg0->unknown_2a0_->unknown_2a_ == GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var0)) {
         {
             int var13 = arg0->unknown_29c_->inline_ov023_021edf54_2();
             float var14 = arg0->unknown_29c_->unknown_8e3c_;
@@ -395,9 +395,9 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
                         var2[var33] = func_ov023_021f4098(arg0, var33, var31);
                 }
                 func_ov017_021cd590(arg0->unknown_2a0_->unknown_8_, var2, 0, 1);
-                int var34 = func_020100a8(var32);
+                int var34 = GetProtagonistObjectIndex_020100a8(var32);
                 Struct_ov023_021edf54_21 var35;
-                func_020ac4c0(&var35);
+                GetBattleRecords_020ac4c0(&var35);
                 func_020a0858((Struct_020a0858*)&var35, var2[var34]);
                 func_020a0300((Struct_020a0300*)var35.unknown_68_, var2[var34]);
                 func_020ac494(&var35);
@@ -406,7 +406,7 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
     } else {
         if (var6->unknown_42e2_ != 0)
             func_ov000_02160fa8(arg0, 0x2000000);
-        if (func_0202c540(var0) && arg0->unknown_2a0_->unknown_25_ != 0)
+        if (IsLocalWirelessGuest_0202c540(var0) && arg0->unknown_2a0_->unknown_25_ != 0)
             var7->unknown_19b2_ = 0;
         if (!func_ov000_02160fd4(arg0, 0x2000))
             return arg0->unknown_eac_;
@@ -449,7 +449,7 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
                 var44->unknown_2_ = func_0202053c(var46);
                 var44->unknown_3_ = func_02010088((Struct_02010088*)var46);
                 var44->unknown_4_ = arg0->unknown_5758_[var45] + func_ov023_021eea98((Struct_ov023_021edf54*)var46);
-                Struct_ov023_021edf54_7* var47 = (Struct_ov023_021edf54_7*)func_02053c6c((unsigned char*)var46);
+                Struct_ov023_021edf54_7* var47 = (Struct_ov023_021edf54_7*)GetPartyMemberData_02053c6c((unsigned char*)var46);
                 var44->unknown_38_.unknown_0_ = var47->unknown_0_;
                 var44->unknown_38_.unknown_18_ = var47->unknown_18_;
                 var44->unknown_38_.unknown_3c_ = var47->unknown_3c_;
@@ -505,7 +505,7 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
     if (arg0->unknown_2a0_->unknown_25_ == 0)
         _ZZ21inline_ov023_021f4c04vE1s.unknown_0_->unknown_10_ = func_ov023_021f5150(arg0, arg0->unknown_2a0_, arg0->unknown_5758_, &arg0->unknown_5768_, 0) ? 1 : 0;
 
-    if (func_0202c540(var0) && arg0->unknown_2a0_->unknown_c_ == 0x13)
+    if (IsLocalWirelessGuest_0202c540(var0) && arg0->unknown_2a0_->unknown_c_ == 0x13)
         func_020e39d4(func_020e3808(), 0, 1, 0x71e8);
     return 2;
 }

@@ -6,9 +6,9 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-struct Struct_02072a68 { short unknown_0_; void* unknown_4_; };
-struct Struct_02072a68_2 { Struct_02072a68* unknown_0_; short unknown_4_; };
-struct Struct_ov017_021bf014 { char unknown_0_[8]; int unknown_8_; Struct_02072a68_2 unknown_c_; SafeAllocator unknown_14_; int unknown_28_; };
+struct StringListEntry_02072a68 { short id_0_; void* pText_4_; };
+struct StringList_02072a68_2 { StringListEntry_02072a68* unknown_0_; short capacity_4_; };
+struct Struct_ov017_021bf014 { char unknown_0_[8]; int unknown_8_; StringList_02072a68_2 unknown_c_; SafeAllocator unknown_14_; int unknown_28_; };
 struct Struct_02046574_2;
 #if defined(jpn)
 enum { Enum_ov017_021bf014_92 = 0x28, Enum_ov017_021bf014_712 = 0x218, Enum_ov017_021bf014_2456 = 0x868,
@@ -21,10 +21,10 @@ enum { Enum_ov017_021bf014_92 = 0x5c, Enum_ov017_021bf014_712 = 0x2c8, Enum_ov01
 
 struct Struct_020d7aa0_2;
 struct Struct_02018300_3;
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 extern char data_ov017_021d7ec0[];
 extern char data_ov017_021d7ed5[];
-extern "C" void func_0202ae18();
+extern "C" void GetLocalWireless_0202ae18();
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void* GetZone3D_02012fe4();
 extern "C" unsigned char* func_020100f8(char*);
@@ -32,11 +32,11 @@ extern "C" Struct_020d7aa0_2* func_020d7a50();
 extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020a27b8(unsigned char*);
-extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void func_020728ac(Struct_02072a68_2*, SafeAllocator*, void*, unsigned int, int, int, int);
-extern "C" void func_02046380(Struct_02046574_2*);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void func_020728ac(StringList_02072a68_2*, SafeAllocator*, void*, unsigned int, int, int, int);
+extern "C" void ClearMessageParams_02046380(Struct_02046574_2*);
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
-extern "C" char* func_02072a68(Struct_02072a68_2*, int);
+extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void StartMessage_0204500c(Struct_02046574_2*, char*, int
 #if !defined(jpn)
     , int
@@ -45,14 +45,14 @@ extern "C" void StartMessage_0204500c(Struct_02046574_2*, char*, int
 extern "C" int func_020457e0(Struct_02046574_2*);
 extern "C" void func_020116c8(void*);
 extern "C" void func_020dc2d0(int);
-extern "C" void func_02043204(char*);
+extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_020397c0(void*);
 extern "C" void func_ov017_021bf398(char*);
 
 // USA: func_ov017_021bf014
 extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     GetGameResources();
     Struct_02046574_2* var1 = GetMessageWindow_020421a0();
     GetZone3D_02012fe4();
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
         func_020d7aa0(func_020d7a50());
         func_020397cc((Struct_02018300_3*)var3, 1);
         func_020a27b8(var4);
-        void* var5 = func_02012d88(&data_02114e20, Enum_ov017_021bf014_800);
+        void* var5 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021bf014_800);
         arg0->unknown_14_.CreateTypeA(var5, Enum_ov017_021bf014_800);
 #if defined(jpn)
         arg0->unknown_28_ = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov017_021d86d4, 0);
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
         func_020728ac(&arg0->unknown_c_, &arg0->unknown_14_, var6, var7, 0, 0, 0);
         BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_28_);
         arg0->unknown_28_ = -1;
-        func_02046380(var1);
+        ClearMessageParams_02046380(var1);
         func_02046574(var1, 0, var0->GetUnknownGameObject()->baseStats_->unk);
         func_02094b30(func_02094a00(), 0x203, 0);
         arg0->unknown_8_ = 2;
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
         else arg0->unknown_8_ = 4;
     } else if (arg0->unknown_8_ == 3) {
         char* var8 = (*reinterpret_cast<char**>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_92));
-        strcpy(var8, func_02072a68(&arg0->unknown_c_, 1));
+        strcpy(var8, FindStringInList_02072a68(&arg0->unknown_c_, 1));
         StartMessage_0204500c(var1, var8, 0
 #if !defined(jpn)
             , 0xe3
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
         arg0->unknown_8_ = 5;
     } else if (arg0->unknown_8_ == 4) {
         char* var9 = (*reinterpret_cast<char**>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_92));
-        strcpy(var9, func_02072a68(&arg0->unknown_c_, 2));
+        strcpy(var9, FindStringInList_02072a68(&arg0->unknown_c_, 2));
         StartMessage_0204500c(var1, var9, 0
 #if !defined(jpn)
             , 0xe3
@@ -130,9 +130,9 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
         func_020397cc((Struct_02018300_3*)var3, 1);
         if (!(*reinterpret_cast<int*>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_2464))) arg0->unknown_8_ = 9;
     } else if (arg0->unknown_8_ == 9) {
-        func_02043204((char*)var1);
+        ResetMessageWindow_02043204((char*)var1);
         func_020397c0(var3);
-        Struct_0208cb08* var11 = func_02094a00();
+        FontLoader_0208cb08* var11 = func_02094a00();
         func_02094b38(var11, 0x203);
         func_02094ab0(var11);
         func_ov017_021bf398((char*)arg0);

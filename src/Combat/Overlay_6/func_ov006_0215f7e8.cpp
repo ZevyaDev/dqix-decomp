@@ -125,7 +125,7 @@ extern "C" Struct_ov006_021537d0* func_ov006_02158d50(Struct_ov006_02158d50_2* a
 extern "C" void func_02080bac(void* arg0, int arg1);
 extern "C" void func_0208065c(void* arg0, int arg1);
 extern "C" void func_02080fa8(Struct_02080fa8* arg0, int arg1, int arg2);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_02080f8c(Struct_02080f8c* arg0, int arg1, int arg2);
 extern "C" void func_02080cc0(Struct_02080cc0* arg0, int arg1, int arg2);
 extern "C" Struct_ov006_021555b0* func_ov006_02153c6c(void* arg0, short arg1);
@@ -155,7 +155,7 @@ extern "C" ARM void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0) {
     func_02080fa8((Struct_02080fa8*)var1, 0x3a, arg0->unknown_388_ + 1);
     func_02080fa8((Struct_02080fa8*)var1, 0x3b, arg0->unknown_389_);
     Struct_ov006_021537d0* var2 = arg0->unknown_30_;
-    const char* var3 = func_020e0434((Struct_0201099c_3*)arg0->unknown_158_, 0x25);
+    const char* var3 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_158_, 0x25);
     short var4 = 0x29;
     for (unsigned char var5 = 0; var5 < 0x10; var5++)
     {
@@ -169,7 +169,7 @@ extern "C" ARM void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0) {
                 const char* var7 = var3;
 #if defined(jpn)
                 if (var6->unknown_2_1_)
-                    var7 = func_020e0434((Struct_0201099c_3*)arg0->unknown_170_, var2->unknown_2_);
+                    var7 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_170_, var2->unknown_2_);
                 func_02080f8c((Struct_02080f8c*)var1, var4, (int)var7);
 #else
                 if (var6->unknown_2_1_)

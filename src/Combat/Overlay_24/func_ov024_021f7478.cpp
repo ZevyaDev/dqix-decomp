@@ -179,7 +179,7 @@ extern "C" int func_ov000_0215e9fc(int arg0, short* arg1, int arg2, int arg3);
 extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" double func_02008f5c(double);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_ov000_02159cb4(int arg0, int arg1);
 extern "C" void* func_ov000_02160130(void);
@@ -341,7 +341,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
     }
     arg0->unknown_c_ = var28;
 
-    func_02053c6c((unsigned char*)var23);
+    GetPartyMemberData_02053c6c((unsigned char*)var23);
     arg0->unknown_174_ = 0;
     struct Struct_ov024_021f7478_6* var31 = arg0->unknown_178_;
     GetZone3D_02012fe4();

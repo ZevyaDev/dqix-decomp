@@ -33,13 +33,13 @@ struct Struct_ov008_02186b18 {
     unsigned char unknown_b29_;
 };
 
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 extern char data_ov008_0218b490[];
 extern "C" {
     int func_0205bafc(void*);
     int func_0205bb84(void*);
     void func_0205bb04(void*, int);
-    void func_0205eaa0(void*, int, int);
+    void PlaySoundEffect_0205eaa0(void*, int, int);
 
     int func_ov008_02186b18(Struct_ov008_02186b18* arg0, int arg1, int arg2) {
         if (!arg1 || !arg2)
@@ -77,7 +77,7 @@ extern "C" {
             return -2;
 
         if (!(arg0->unknown_b18_ & 0x80) && arg2 > 16 && arg2 < 96 && arg1 > 176 && arg1 < 208 && !(arg0->unknown_b18_ & 0x4000)) {
-            func_0205eaa0(data_02108760, 0x5e, 0);
+            PlaySoundEffect_0205eaa0(gSoundEffectManager_02108760, 0x5e, 0);
             arg0->unknown_790_.MaybeSetRegularAnimation(data_ov008_0218b490, 0);
             arg0->unknown_b18_ |= 0x4000;
         }

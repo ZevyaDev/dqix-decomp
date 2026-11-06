@@ -26,7 +26,7 @@ struct Struct_0203d028_11;
 extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
 
 extern char data_ov015_02194078;
-extern int data_0211e33c;
+extern int gFileScratchSpace_0211e33c;
 
 // USA: func_ov015_0218cb2c
 extern "C" ARM void func_ov015_0218cb2c(void* arg0, int arg1) {
@@ -45,13 +45,13 @@ extern "C" ARM void func_ov015_0218cb2c(void* arg0, int arg1) {
 
         unsigned int var3 = 0;
         sprintf(var2, &data_ov015_02194078, arg1);
-        void* var4 = LoadFileIntoMemory(var2, &data_0211e33c, &var3);
+        void* var4 = LoadFileIntoMemory(var2, &gFileScratchSpace_0211e33c, &var3);
 
         if (var4 != 0) {
             ObjectArchiveLoadInfo var5;
             func_0203dafc((struct Struct_0203d028_11*)&var5);
             var5.allocator = &var1;
-            var5.fileData = &data_0211e33c;
+            var5.fileData = &gFileScratchSpace_0211e33c;
             var5.unk_8 = var3;
             var5.unk_10 = 1;
             var5.packageID = 3;

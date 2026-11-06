@@ -10,7 +10,7 @@ enum { Enum_ov017_021ab280_2096 = 0x830, Enum_ov017_021ab280_1804 = 0x70c, Enum_
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 
 struct Struct_02018300_3;
@@ -36,13 +36,13 @@ int IsBrightnessTransitionActive(GameResources*);
 extern "C" unsigned char func_02011494(char* arg0, void* arg1);
 
 extern "C" void* func_0200fd0c(GameState* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void VectorizedMemset(void* dst, int val, int size);
 struct Vector3i;
 extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 struct Struct_ov017_021ab280 {
     char unknown_0_[8];
@@ -70,7 +70,7 @@ struct Struct_ov017_021ab280_2 {
 // USA: func_ov017_021ab280
 extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     unsigned char* var1 = (unsigned char*)GetGameResources();
     GameObject* var2 = var0->GetUnknownGameObject();
     void* var3 = GetZone3D_02012fe4();
@@ -150,7 +150,7 @@ extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
         }
 
         void* var20 = func_0200fd0c(var0);
-        func_020100a8(var0);
+        GetProtagonistObjectIndex_020100a8(var0);
         VectorizedMemset(var20, 0, 0x70);
         unsigned char* var21 = (unsigned char*)var20;
         unsigned char var22 = 1;
@@ -181,8 +181,8 @@ extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
         func_0200fcfc(var0, var20);
 
         func_ov017_0219e310(*(unsigned char**)(var1 + 0x3000 + Enum_ov017_021ab280_1804), 0);
-        func_020469b4(*(struct Struct_0201bdac_2**)(var1 + 0x3000 + Enum_ov017_021ab280_1788),
-                          *(struct Struct_0201bdac**)(var1 + 0x3000 + Enum_ov017_021ab280_1804));
+        AppendToQueue_020469b4(*(struct Queue_0201bdac_2**)(var1 + 0x3000 + Enum_ov017_021ab280_1788),
+                          *(struct QueueNode_0201bdac**)(var1 + 0x3000 + Enum_ov017_021ab280_1804));
 
         arg0->unknown_1_ = 1;
     }

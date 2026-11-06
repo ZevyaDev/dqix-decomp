@@ -31,7 +31,7 @@ struct Struct_0204fbf8_2 {
 };
 extern "C" void func_0204fbf8(struct Struct_0204fbf8_2* arg0);
 
-extern int data_0211e33c;
+extern int gFileScratchSpace_0211e33c;
 
 extern "C" int func_ov017_021d60f4(void*);
 
@@ -64,7 +64,7 @@ extern "C" ARM int func_ov001_0215e7c0(void* arg0) {
     struct Struct_0204fbf8_2 var1;
     func_0204c684(&var1);
     var1.unknown_4_ = &var0;
-    var1.unknown_8_ = &data_0211e33c;
+    var1.unknown_8_ = &gFileScratchSpace_0211e33c;
     var1.unknown_a8_ = 0x20;
     var1.unknown_aa_ = 0x18;
     var1.unknown_a4_ = 0x6000;

@@ -4,9 +4,9 @@
 #include "Resource/FontGlyphTable.h"
 #include "Resource/MessageSystem.h"
 
-struct Struct_0203d028 {
+struct TextureVRAMArea_0203d028 {
     unsigned int unknown_0_[10];
-    unsigned int unknown_28_[10];
+    unsigned int savedImageState_28_[10];
     unsigned int unknown_50_;
 };
 
@@ -29,7 +29,7 @@ extern "C" unsigned char* func_02043110(int arg0, int arg1);
 extern "C" void func_02041c10(Struct_0204166c*, const char*, unsigned char*, int, unsigned int, unsigned char);
 extern "C" void func_02046458(int, short, unsigned char, unsigned char*, short, short, unsigned char*, short, short);
 
-static inline unsigned int inline_02046530(Struct_0203d028* arg0) {
+static inline unsigned int inline_02046530(TextureVRAMArea_0203d028* arg0) {
     return (arg0->unknown_50_ << 16) >> 13;
 }
 

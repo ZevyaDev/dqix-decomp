@@ -3,10 +3,10 @@
 struct Struct_02109bf4_2;
 extern "C" void func_0209c830(Struct_02109bf4_2*, int);
 
-extern struct Struct_02109bf4_2 data_02109bf4;
+extern struct Struct_02109bf4_2 gMusicManager_02109bf4;
 
 // USA: func_ov004_0216dfbc
 extern "C" ARM int func_ov004_0216dfbc(void) {
-    func_0209c830(&data_02109bf4, 0x3d);
+    func_0209c830(&gMusicManager_02109bf4, 0x3d);
     return 0;
 }

@@ -25,8 +25,8 @@ struct Struct_02020cb8;
 struct Struct_0204b12c;
 struct Struct_02020cb8_5;
 struct Struct_0204c7a8;
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 struct Struct_0207f914;
 struct Struct_0207f7f0;
 struct Struct_0207f7f0_2;
@@ -39,24 +39,24 @@ struct Struct_0207fdcc_2;
 struct Struct_0207fc6c;
 struct Struct_ov017_021aa59c_5;
 struct Struct_ov017_021aa59c_6;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0207fe44;
 struct Struct_02038598_4;
 struct Struct_02038598_5;
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_ov017_021959b4(void);
 extern "C" void func_ov017_021aaf08(void* arg0);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int func_02086b98(struct Struct_0201bdac_4* arg0);
 extern "C" void func_ov017_021ab010(void* arg0, int arg1);
 extern "C" int func_02046c78(struct Struct_02046c78* arg0);
 extern "C" void func_0209c678(struct Struct_02109bf4_4* arg0, int arg1);
 extern "C" void func_020a0cc4(unsigned int arg0);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020a0c0c(void);
 extern "C" void func_02081ee4(struct Struct_02081ee4* arg0, struct Struct_02081ee4_2* arg1);
 extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
@@ -66,8 +66,8 @@ extern "C" void func_0204b12c(struct Struct_0204b12c* arg0, SafeAllocator* arg1)
 extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
 extern "C" void func_0204c684(void* arg0);
 extern "C" void func_0204c7a8(struct Struct_0204c7a8* arg0, SafeAllocator* arg1, int arg2, unsigned int arg3);
-extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
-extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
+extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0204b174(void* arg0, void* arg1, SafeAllocator* arg2, unsigned int arg3);
 #if defined(jpn)
 extern "C" void func_02080654(struct Struct_0207f914* arg0, int arg1, int arg2);
@@ -88,7 +88,7 @@ extern "C" void func_02081f20(void* arg0, int arg1);
 extern "C" int func_020800fc(void* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char arg4, bool arg5);
 extern "C" void func_020804fc(void* arg0, int arg1);
 extern "C" int func_ov017_021ab0c0(struct Struct_ov017_021aa59c_5* arg0);
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_0207fe44(struct Struct_0207fe44* arg0);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" int func_ov017_021ab1a4(struct Struct_ov017_021aa59c_6* arg0);
@@ -101,8 +101,8 @@ extern "C" void func_02010604(GameState* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0201075c(char* arg0, unsigned char arg1);
 extern "C" void func_0209c20c(struct Struct_02109bf4_3* arg0);
 
-extern AllocatorUnion data_02114e20;
-extern struct Struct_02108760 data_02108760;
+extern AllocatorUnion gMainHeap_02114e20;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 #if defined(jpn)
 extern char data_ov017_021d7ddc[];
 extern char data_ov017_021d7def[];
@@ -115,7 +115,7 @@ extern char data_ov017_021d789c[];
 struct Struct_02109bf4_10 {
     char unknown_0_[0xd0];
 };
-extern Struct_02109bf4_10 data_02109bf4;
+extern Struct_02109bf4_10 gMusicManager_02109bf4;
 
 struct Struct_ov017_021aa59c {
     unsigned short unknown_0_;
@@ -164,19 +164,19 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
     GameResources* var0;
     Struct_ov017_021aa59c_2* var1;
     GameState* var2 = GameState::GetInstance();
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     var0 = GetGameResources();
     GetMessageWindow_020421a0();
     Struct_02046c78* var3 = (Struct_02046c78*)var0->unknown_ptr_array_36fc[0];
     var1 = (Struct_ov017_021aa59c_2*)GetZone3D_02012fe4();
-    unsigned int* var4 = (unsigned int*)func_020d6c00();
+    unsigned int* var4 = (unsigned int*)GetGlobalFlags_020d6c00();
 
     if (arg0->unknown_14_ < 6 && (func_ov017_021959b4() != 0 || var0->unknown_42e2_ != 0)) {
         func_ov017_021aaf08(arg0);
         arg0->unknown_1_ = 1;
         return;
     }
-    if (!func_02086b98((Struct_0201bdac_4*)func_02010828(var2))) {
+    if (!func_02086b98((Struct_0201bdac_4*)GetParty_02010828(var2))) {
         func_ov017_021ab010(arg0, 1);
         return;
     }
@@ -186,12 +186,12 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
         return;
     }
 
-    func_0209c678((Struct_02109bf4_4*)&data_02109bf4, 0);
+    func_0209c678((Struct_02109bf4_4*)&gMusicManager_02109bf4, 0);
     BackgroundLoader* var5 = BackgroundLoader::GetInstance();
     int var6 = arg0->unknown_14_;
     if (var6 == 0) {
         func_020a0cc4(0x7800);
-        void* var7 = func_02012d88(&data_02114e20, 0x7800);
+        void* var7 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x7800);
         if (var7 == NULL) {
             func_020a0c0c();
             func_ov017_021aaf08(arg0);
@@ -247,11 +247,11 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
             void* var13;
             unsigned int var14;
             var5->GetLoadedFileByID(arg0->unknown_50_, &var13, &var14);
-            int var15 = func_02046900((Struct_02020cb8_4*)var13);
+            int var15 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var13);
             Struct_02020cb8* var16 = arg0->unknown_1c_;
             for (int var17 = 0; var17 < var15; var17++) {
                 int var18;
-                void* var19 = func_020467f0((Struct_02020aec*)var13, var17, &var12, &var18);
+                void* var19 = GetPacEntryData_020467f0((PacEntry_02020aec*)var13, var17, &var12, &var18);
                 func_0204b174(var16, var19, NULL, var18);
             }
             var5->RemoveTask(arg0->unknown_50_);
@@ -324,7 +324,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
                     if (arg0->unknown_4e_ != *arg0->unknown_44_) {
                         return;
                     }
-                    func_0205eaa0(&data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
                     func_0208203c((Struct_02081f20_2*)arg0->unknown_3c_);
                     arg0->unknown_44_ = NULL;
                     if (arg0->unknown_4c_ == 0) {
@@ -355,7 +355,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
         if (var1->unknown_0_ == 10000) {
             func_ov017_021d1a18(var1->unknown_2786_, var1->unknown_2784_, var1->unknown_2788_, 1);
         }
-        func_020466e4((unsigned int*)func_020d6c00(), 0x200000);
+        func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x200000);
         SetBrightness(var0, -16, 120);
         arg0->unknown_14_ = 7;
     } else if (var6 == 7) {
@@ -371,7 +371,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
             func_0201075c((char*)var2, 0);
             DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_c_ << 8);
             func_020a0c0c();
-            func_0209c20c((Struct_02109bf4_3*)&data_02109bf4);
+            func_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
             func_ov017_021aaf08(arg0);
             arg0->unknown_1_ = 1;
         }

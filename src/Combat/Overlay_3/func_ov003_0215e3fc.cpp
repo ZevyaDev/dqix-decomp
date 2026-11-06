@@ -13,8 +13,8 @@ extern "C" void* func_020e2ff8(void);
 extern "C" void func_0205e944(void* arg0, int arg1);
 extern "C" void func_ov003_0215c800(void* arg0);
 
-extern int data_02109bf4;
-extern int data_02108760;
+extern int gMusicManager_02109bf4;
+extern int gSoundEffectManager_02108760;
 
 struct Struct_ov003_0215c924_2 {
     char unknown_0_[Enum_ov003_0215e3fc_948];
@@ -28,14 +28,14 @@ struct Struct_ov003_0215c924_2 {
 
 // USA: func_ov003_0215e3fc
 extern "C" ARM void func_ov003_0215e3fc(struct Struct_ov003_0215c924_2* arg0) {
-    if (func_0209ca2c(&data_02109bf4) != 0) {
+    if (func_0209ca2c(&gMusicManager_02109bf4) != 0) {
         return;
     }
     if (arg0->unknown_3ec_ != 0) {
         return;
     }
 
-    func_0205e944(&data_02108760, 0x7f);
+    func_0205e944(&gSoundEffectManager_02108760, 0x7f);
     func_020e2ff8();
 
     if (arg0->unknown_3b4_ != NULL) {

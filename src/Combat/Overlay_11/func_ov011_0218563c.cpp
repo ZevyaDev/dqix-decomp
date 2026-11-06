@@ -18,7 +18,7 @@ struct Struct_ov011_0218563c_2 {
 extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
 extern "C" ARM void* func_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f8(void* arg0, int arg1);
-extern "C" ARM void* func_ov011_021849c8(void* arg0);
+extern "C" ARM void* GetMenuObjectList_ov011_021849c8(void* menu);
 
 struct Struct_ov011_0218563c_3;
 extern "C" ARM int func_ov023_021fa298(struct Struct_ov011_0218563c_3* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
@@ -76,6 +76,6 @@ extern "C" ARM int func_ov011_0218563c(struct Struct_ov011_0218563c_2* arg0) {
     if (func_ov023_021fa298((struct Struct_ov011_0218563c_3*)var6, (int)var3, var0, var1, 0, var2, var5) == 0) return 0;
 #endif
 
-    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)func_ov011_021849c8(var3), (struct Struct_ov004_0215c30c_2*)var6);
+    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)GetMenuObjectList_ov011_021849c8(var3), (struct Struct_ov004_0215c30c_2*)var6);
     return 1;
 }

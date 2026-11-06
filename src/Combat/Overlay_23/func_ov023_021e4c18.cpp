@@ -7,9 +7,9 @@ extern "C" void func_ov023_021e2ce8(int arg0, void* arg1);
 struct Struct_0204af14;
 extern "C" void* func_0204af14(struct Struct_0204af14* arg0, unsigned int arg1);
 extern "C" void func_020dc7e8(int arg0, int arg1);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
-extern struct Struct_02108760 data_02108760;
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" void func_ov005_021551d4(void* arg0);
 extern "C" void func_ov005_021551fc(char* arg0, int arg1, int arg2);
 typedef void (*Type_ov023_021e4c18)(char*, int, int);
@@ -104,14 +104,14 @@ extern "C" ARM void func_ov023_021e4c18(struct Struct_ov023_021e4c18* arg0) {
 #endif
 
     var5 = var1->GetGameObjectByIndex(arg0->unknown_4ec_[var2]);
-    unsigned short var9 = var5->obj3D_.unknown_0_;
+    unsigned short var9 = var5->obj3D_.classFlags_0_;
     if ((var9 & 0x1000) || (var9 & 0x800) || (var9 & 0x200)) {
         if (arg0->unknown_134_ > 0) return;
 
         arg0->unknown_4fc_ = arg0->unknown_4ec_[var2];
         arg0->unknown_634_ = arg0->unknown_634_ | 0x54;
 
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
 
         if (arg0->unknown_4e5_ != 3) return;
         if (arg0->unknown_0_ == 0) return;

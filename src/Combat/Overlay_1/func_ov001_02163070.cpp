@@ -5,7 +5,7 @@
 #endif
 #include <globaldefs.h>
 
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" int func_020aad1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021d6134(void* arg0, int arg1);
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov001_02163070(void* arg0) {
     if (data_ov001_021658b8.unknown_4b4_ == 0) {
         return 0;
     }
-    unsigned int* var0 = (unsigned int*)func_020d6c00();
+    unsigned int* var0 = (unsigned int*)GetGlobalFlags_020d6c00();
     func_020466e4(var0, 0x80);
     int var1 = func_020aad1c(data_ov001_021658b8.unknown_4b4_, data_ov001_021658b8.unknown_4b8_, 0xa, 0);
     int var2 = (var1 != 0);

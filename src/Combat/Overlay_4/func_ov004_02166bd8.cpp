@@ -1,9 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_ov004_02153e20 {
     char unknown_0_[0x5c];
@@ -60,7 +57,7 @@ struct Struct_ov004_0217101c_3 {
 #endif
 };
 
-extern "C" void* func_0205ec34();
+extern "C" void* GetFlagManager_0205ec34();
 extern "C" void func_ov004_02166608(void*);
 extern "C" Struct_ov004_02153e20* func_ov023_021f6524(void*, int);
 extern "C" Struct_02065990_3* func_02094d6c();
@@ -76,7 +73,7 @@ extern "C" int func_02096100(int, unsigned char*, int);
 extern "C" const char* func_ov023_021f63ac(void*, int, int);
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" void func_02041a28(char*, int);
-extern "C" void func_02042058(char*, const char*);
+extern "C" void AppendText_02042058(char*, const char*);
 extern "C" void func_ov023_021f63f8(void*, int, char*, int);
 extern "C" void func_ov023_021f6600(void*, int, int);
 extern "C" void func_ov023_021f9d14(Struct_ov004_02153e20*, void*);
@@ -86,8 +83,8 @@ extern Struct_ov004_0217101c_3 data_ov004_0217101c;
 
 #if defined(jpn)
 struct Struct_ov004_0215de9c;
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" Struct_ov004_0215de9c* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" Struct_ov004_0215de9c* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(Struct_ov004_0215de9c*);
 extern "C" void func_ov023_021fb27c(Struct_ov004_0215de9c*, int);
 extern "C" void func_ov023_021fa62c(Struct_ov004_0215de9c*, int);
@@ -110,7 +107,7 @@ static inline Struct_ov004_0215de9c* inline_ov004_02166bd8(Struct_ov004_0215de9c
 // USA: func_ov004_02166bd8
 // JPN: func_ov004_02166bd8
 extern "C" ARM int func_ov004_02166bd8(void* arg0) {
-    func_0205ec34();
+    GetFlagManager_0205ec34();
     func_ov004_02166608(arg0);
     short var0 = 0;
     short var1 = 1;
@@ -155,7 +152,7 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
                 int var15 = 0;
                 if (!var3->unknown_2_4_) {
 #if defined(jpn)
-                    Struct_ov004_0215de9c* var25 = inline_ov004_02166bd8(func_ov023_021f6880(func_ov011_021849c8(arg0), var7));
+                    Struct_ov004_0215de9c* var25 = inline_ov004_02166bd8(FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), var7));
                     Struct_ov004_0215de9c* var16 = (var25 == NULL) ? NULL : var25->inline_ov004_02166bd8_2(6);
                     func_ov023_021fa62c(var16, 0x40004000);
                     func_ov023_021fa634(var16, -1);
@@ -235,15 +232,15 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
 #endif
                 memset(var23, 0, 0x80);
 #if defined(jpn)
-                func_02042058(var23, var3->unknown_4_);
+                AppendText_02042058(var23, var3->unknown_4_);
                 func_02041a28(var23, 0x30);
 #else
                 func_02041a28(var23, 0x1c);
-                func_02042058(var23, var3->unknown_4_);
+                AppendText_02042058(var23, var3->unknown_4_);
                 func_02041a28(var23, 0x2e);
 #endif
                 if (var22)
-                    func_02042058(var23, var22);
+                    AppendText_02042058(var23, var22);
                 func_ov023_021f63f8(arg0, var4, var23, 0xf);
 #if defined(jpn)
                 func_ov023_021f645c(arg0, var6, var21, var24);

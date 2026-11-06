@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
 extern "C" int GetZone3D_02012fe4(void);
-extern "C" int func_0202c508(void* arg0);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021d0490(int arg0);
 extern "C" void func_ov017_021c3e18(int arg0);
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void func_ov017_021bd2f0(void* arg0, void* arg1);
 
 struct Struct_ov017_021d069c {
@@ -42,7 +42,7 @@ struct Struct_ov017_021d069c_2 {
 };
 
 // USA: func_ov017_021d069c
-extern "C" ARM void func_ov017_021d069c(int arg0, struct Struct_ov017_021d069c* arg1, int arg2, unsigned char* arg3, struct Struct_0202c1a4* arg4) {
+extern "C" ARM void func_ov017_021d069c(int arg0, struct Struct_ov017_021d069c* arg1, int arg2, unsigned char* arg3, struct LocalWireless_0202c1a4* arg4) {
 #if defined(jpn)
  enum {Enum_ov017_021d069c_1844=0x524};
 #else
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_021d069c(int arg0, struct Struct_ov017_021d069c* 
 #endif
     GetZone3D_02012fe4();
     unsigned char* var0 = *(unsigned char**)((char*)arg3 + 0x3000 + Enum_ov017_021d069c_1844);
-    if (func_0202c508(arg4)) {
+    if (IsNotLocalWirelessGuest_0202c508(arg4)) {
         func_ov017_021d0490(arg0);
         func_ov017_021c3e18(1);
         return;
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_021d069c(int arg0, struct Struct_ov017_021d069c* 
     if (arg0 != 0) {
         return;
     }
-    if (func_0202c1a4(arg4) != arg1->unknown_7_0_) {
+    if (GetOwnProtagonistObjectIndex_0202c1a4(arg4) != arg1->unknown_7_0_) {
         return;
     }
 

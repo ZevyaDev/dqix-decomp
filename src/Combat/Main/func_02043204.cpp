@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "Resource/MessageUpdate.h"
 
-extern "C" void func_02043124(char* arg0);
+extern "C" void CloseMessageWindow_02043124(char* window);
 
-// USA: func_02043204
-extern "C" ARM void func_02043204(char* arg0) {
-    MessageWindow_02021b84* var0 = (MessageWindow_02021b84*)arg0;
-    func_02043040(var0);
-    func_02043124(arg0);
-    func_020430b0(var0);
+// USA: ResetMessageWindow_02043204
+extern "C" ARM void ResetMessageWindow_02043204(char* window) {
+    MessageWindow_02021b84* messageWindow = (MessageWindow_02021b84*)window;
+    func_02043040(messageWindow);
+    CloseMessageWindow_02043124(window);
+    func_020430b0(messageWindow);
 }

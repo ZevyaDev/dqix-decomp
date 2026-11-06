@@ -39,7 +39,7 @@ extern "C" void func_020a27a0(void *arg0);
 extern "C" void func_020a27ac(void *arg0);
 extern "C" int func_0202e7f0(void *arg0);
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_02043204(char *arg0);
+extern "C" void ResetMessageWindow_02043204(char *window);
 extern "C" void func_ov003_0217c974(Struct_ov003_0217bf78_2 *arg0);
 extern "C" void func_0202e694(void *arg0, int *arg1);
 extern "C" void func_0200fd38(GameState *arg0, int arg1, GameObject *arg2);
@@ -56,7 +56,7 @@ extern char data_ov003_02180d08[];
 extern char data_ov003_02180c07[];
 extern Vector3i data_ov003_02180ce0;
 extern int data_ov003_02180cec[3];
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 // USA: func_ov003_0217bf78
 extern "C" ARM void func_ov003_0217bf78(Struct_ov003_0217bf78_2 *arg0) {
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov003_0217bf78(Struct_ov003_0217bf78_2 *arg0) {
             arg0->unknown_141_ = 0;
         }
         GameState *var4 = GameState::GetInstance();
-        func_02043204((char *) GetMessageWindow_020421a0());
+        ResetMessageWindow_02043204((char *) GetMessageWindow_020421a0());
         func_ov003_0217c974(arg0);
         Struct_ov003_0217bf78 *var5 = (Struct_ov003_0217bf78*)func_020100bc(var4);
         arg0->unknown_144_   = var5->unknown_10_;
@@ -121,6 +121,6 @@ extern "C" ARM void func_ov003_0217bf78(Struct_ov003_0217bf78_2 *arg0) {
         *(volatile unsigned int *) 0x4001000 &= ~0x1f00;
         arg0->unknown_140_  = 2;
         arg0->unknown_141_ = 0;
-        func_0205ebc0(&data_02108760, 0x8b, 0x8b);
+        func_0205ebc0(&gSoundEffectManager_02108760, 0x8b, 0x8b);
     }
 }

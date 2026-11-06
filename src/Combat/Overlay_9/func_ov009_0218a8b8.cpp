@@ -4,7 +4,7 @@
 extern int data_ov009_0218a9ac[];
 
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 // USA: func_ov009_0218a8b8
 extern "C" ARM void func_ov009_0218a8b8(void* arg0) {
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov009_0218a8b8(void* arg0) {
     var8 += 0xe20;
     var8 += 0x4000;
     var4 = (short)(var3 + var8);
-    var5 = func_020e0434((struct Struct_0201099c_3*)(var0 + 0xe0), var4);
+    var5 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(var0 + 0xe0), var4);
 
     sprintf((char*)var2, (const char*)(long)var5);
 }

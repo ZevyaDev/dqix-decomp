@@ -6,8 +6,8 @@ enum { Enum_ov017_021d0f94_1788 = 0x4ec, Enum_ov017_021d0f94_2880 = 0x920, Enum_
 enum { Enum_ov017_021d0f94_1788 = 0x6fc, Enum_ov017_021d0f94_2880 = 0xb40, Enum_ov017_021d0f94_2016 = 0x7e0 };
 #endif
 
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 struct Struct_02015438;
 extern "C" int func_02046b24(struct Struct_02015438** arg0);
 extern "C" int func_ov003_0217f278(int* arg0);
@@ -23,8 +23,8 @@ struct Struct_ov017_021d0f94 {
 };
 
 // USA: func_ov017_021d0f94
-extern "C" ARM void func_ov017_021d0f94(void* arg0, struct Struct_ov017_021d0f94* arg1, int arg2, char* arg3, struct Struct_0202c1a4* arg4) {
-    signed char var0 = func_0202c1a4(arg4);
+extern "C" ARM void func_ov017_021d0f94(void* arg0, struct Struct_ov017_021d0f94* arg1, int arg2, char* arg3, struct LocalWireless_0202c1a4* arg4) {
+    signed char var0 = GetOwnProtagonistObjectIndex_0202c1a4(arg4);
     if (arg1->unknown_4_ != var0) return;
 
     struct Struct_02015438** var1 = *(struct Struct_02015438***)(arg3 + 0x3000 + Enum_ov017_021d0f94_1788);

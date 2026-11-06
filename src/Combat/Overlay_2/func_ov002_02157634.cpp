@@ -3,9 +3,6 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
@@ -119,17 +116,17 @@ extern "C" int func_0201b868(void* arg0, int arg1);
 extern "C" void func_ov017_021a6b9c(void* arg0, int arg1);
 extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
 extern "C" unsigned char func_020100b0(GameState* arg0);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
 extern "C" void func_ov002_02157ce0(char* arg0);
 extern "C" void func_020a8170(struct Struct_ov002_02157634_6* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" int func_0202c540(void* arg0);
-extern "C" int func_0202c508(void* arg0);
-extern "C" unsigned char* func_0205ec34(void);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
+extern "C" unsigned char* GetFlagManager_0205ec34(void);
 extern "C" void func_020a818c(void* arg0, void* arg1);
 extern "C" void func_020a8304(void* arg0);
 extern "C" int func_ov017_021ab860(signed char arg0, int arg1);
@@ -161,12 +158,12 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
     int var5 = 0;
     int var6 = Enum_ov002_02157634_38;
     if (arg0->unknown_1bb8_ == Enum_ov002_02157634_6) {
-        void* var7 = func_0202ae18();
+        void* var7 = GetLocalWireless_0202ae18();
         unsigned short* var8 = (unsigned short*)GetZone3D_02012fe4();
         unsigned short var9 = *var8;
         switch (var3->unknown_18_) {
         case 0x5612:
-            if (func_0202c540(var7) != 0) {
+            if (IsLocalWirelessGuest_0202c540(var7) != 0) {
                 arg0->unknown_1c28_ = 0x797c;
                 arg0->unknown_1c2a_ = -1;
                 arg0->unknown_1bb8_ = Enum_ov002_02157634_38;
@@ -176,7 +173,7 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
             }
             break;
         case 0x56f0:
-            if (func_0202c508(var7) != 0) {
+            if (IsNotLocalWirelessGuest_0202c508(var7) != 0) {
                 if (func_0201b868(var8, var9) != 0) {
                     func_ov017_021a6b9c(GetGameResources(), 1);
                     arg0->unknown_1c28_ = 0x7530;
@@ -199,7 +196,7 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
             }
             arg0->unknown_1bb8_ = var6;
             {
-                unsigned char* var10 = func_0205ec34();
+                unsigned char* var10 = GetFlagManager_0205ec34();
                 func_0206df6c(var10, var10 + 0x8c, 0x1141, 1);
             }
             return;
@@ -281,7 +278,7 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
             var16 = func_020100b0(var4);
         }
         Struct_02108e10* var19 = func_020797dc();
-        func_02010828(var4);
+        GetParty_02010828(var4);
         func_ov002_02157ce0((char*)&var0);
         func_ov002_02157ce0((char*)&var0);
         if (arg0->unknown_1c85_.unknown_0_0_) {

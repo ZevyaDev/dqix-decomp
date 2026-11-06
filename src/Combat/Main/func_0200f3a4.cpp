@@ -15,7 +15,7 @@ extern "C" void func_0209a338(Struct_0200f3a4_8* arg0);
 struct Struct_0200f3a4_9;
 extern "C" void func_02010124(Struct_0200f3a4_9* arg0);
 extern "C" void func_020118fc(void* arg0);
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 struct Struct_0200f3a4_10;
 extern "C" void func_02046730(Struct_0200f3a4_10* arg0);
 struct Struct_0200f3a4_11;
@@ -119,7 +119,7 @@ extern "C" ARM void func_0200f3a4(void* arg0) {
 
     func_0208660c(var1 + J(0x2a04));
 
-    var0->unknown_3b0_ = 0;
+    var0->pCamera_3b0_ = 0;
     var0->protagonistObjectIndex_ = 0;
     for (int var4 = 0; var4 < 4; var4++) {
         func_02082828((Struct_0200f3a4_7*)(var1 + 0x474 + var4 * J_PARTY_STRIDE));
@@ -299,7 +299,7 @@ extern "C" ARM void func_0200f3a4(void* arg0) {
     *(int*)(var1 + J(0x71f0)) = 0;
     *(int*)(var1 + J(0x71f4)) = 0;
 
-    func_02046730((Struct_0200f3a4_10*)func_020d6c00());
+    func_02046730((Struct_0200f3a4_10*)GetGlobalFlags_020d6c00());
 
     memset(var1 + J(0x7504), 0, 0xec);
     memset(var1 + J(0x75f0), 0, 0x4d0);

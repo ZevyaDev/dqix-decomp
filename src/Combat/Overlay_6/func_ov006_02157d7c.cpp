@@ -14,7 +14,7 @@ struct Struct_020e263c_2;
 extern "C" int func_ov017_021959b4(void);
 extern "C" void func_ov006_021585ac(void* arg0);
 extern "C" int func_0209ca2c(void* arg0);
-extern char data_02109bf4[];
+extern char gMusicManager_02109bf4[];
 extern "C" void func_ov006_021549ac(void* arg0, int arg1);
 extern "C" void func_0207fc6c(struct Struct_0207fc6c* arg0, int arg1);
 extern "C" void func_ov006_0215a00c(void* arg0, int arg1);
@@ -91,7 +91,7 @@ extern "C" ARM int func_ov006_02157d7c(struct Struct_ov006_02157d7c* arg0, int a
         arg0->unknown_42c_ = (signed char)(((signed char*)((char*)arg0 + 0x400))[0x2c] & 0x3f);
     }
 
-    if (func_0209ca2c(data_02109bf4) == 0)
+    if (func_0209ca2c(gMusicManager_02109bf4) == 0)
         arg0->unknown_42f_ = 0;
 
     func_ov006_021549ac(arg0->unknown_10_, arg1);

@@ -13,7 +13,7 @@ enum { Enum_ov002_02163bd0_13 = 0xd, Enum_ov002_02163bd0_38 = 0x26 };
 struct Struct_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0205d81c;
 struct Struct_0205dee8;
 struct Struct_0205def8;
@@ -22,30 +22,30 @@ struct Struct_0207cf30_3;
 struct Struct_02061c04_23;
 struct Struct_0207cf30_4;
 struct Struct_02083994;
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 extern "C" int func_ov002_02154f4c(unsigned char *arg0);
-extern "C" void *func_02053c6c(unsigned char *arg0);
+extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
                                                                         unsigned char arg2);
 extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
 extern "C" int func_020dcc20(int arg0, int arg1);
-extern "C" void *func_02010828(GameState *arg0);
+extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" int func_02086ef0(struct Struct_02048150 *arg0, int arg1);
 extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
 extern "C" int func_0205df38(void *arg0, int arg1);
 extern "C" int func_020dcbbc(unsigned char *arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_0205deb4(struct Struct_0205d81c *arg0, int arg1, int arg2);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_020a0b3c(struct Struct_0207cf30_3 *arg0, int arg1);
 extern "C" int func_020a0a08(Struct_02061c04_23*, int, int);
 extern "C" int func_020a095c(struct Struct_0207cf30_4 *arg0, int arg1, signed char arg2);
 extern "C" int func_02083994(struct Struct_02083994 *arg0, int arg1);
 extern "C" int func_020dc920(int arg0, int arg1, int arg2, int arg3);
-extern "C" int *func_0202ae18(void);
-extern "C" int func_0202b7d8(int *arg0);
-extern "C" char *func_020dedd0(struct Struct_0201099c_10 *arg0, int arg1);
-extern "C" int func_020100a8(GameState *arg0);
+extern "C" int *GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
+extern "C" char *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
 extern "C" void func_0205dee8(struct Struct_0205dee8 *arg0, int arg1);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_ov002_0215b814(char *arg0);
@@ -57,7 +57,7 @@ extern "C" void func_ov002_0215a7b4(char *arg0, int arg1, short arg2, int arg3, 
 extern "C" void func_ov002_0215b2c8(char *arg0);
 extern "C" void func_ov002_0216bfd4(char *arg0, int arg1);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 #define L(base) ((base) + REGIONAL_OFFSET(0xe20, 0x2c8 + 0xc00))
 
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                     (*(unsigned char *) (arg0 + REGIONAL_OFFSET(0x31 + 0x1b00, 0x6d + 0x1c00)))--;
                 }
             }
-            int var5 = *(short *) ((char *) func_02053c6c((unsigned char *) var0->GetProtagonist()) + REGIONAL_OFFSET(0x800 + 0xc6, 0x900 + 0x5e));
+            int var5 = *(short *) ((char *) GetPartyMemberData_02053c6c((unsigned char *) var0->GetProtagonist()) + REGIONAL_OFFSET(0x800 + 0xc6, 0x900 + 0x5e));
             int var6;
             for (var6 = 0; var6 <= *(unsigned char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xb31, 0xc6d)); var6++) {
                 if (var5 == *(unsigned char *) (arg0 + var6 + 0x1000 + REGIONAL_OFFSET(0xb2c, 0xc68))) {
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
             return;
         }
         int var8 = 0;
-        if (!func_02086ef0((struct Struct_02048150 *) func_02010828(var0),
+        if (!func_02086ef0((struct Struct_02048150 *) GetParty_02010828(var0),
                                *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe9, 0x1c00 + 0x21))) &&
             *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe9, 0x1c00 + 0x21)) != 4)
         {
@@ -139,13 +139,13 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
             GameObject *var11 = var0->GetProtagonist();
             if (var11 != NULL) {
                 int var12 = *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe9, 0x1c00 + 0x21));
-                *(short *) ((char *) func_02053c6c((unsigned char *) var11) + REGIONAL_OFFSET(0x800 + 0xc6, 0x900 + 0x5e)) = var12;
+                *(short *) ((char *) GetPartyMemberData_02053c6c((unsigned char *) var11) + REGIONAL_OFFSET(0x800 + 0xc6, 0x900 + 0x5e)) = var12;
             }
             if (*(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe9, 0x1c00 + 0x21)) == 4) {
-                func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+                PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
                 *(unsigned int *) (arg0 + 0x2000 + REGIONAL_OFFSET(0x2ac, 0x47c)) &= ~4;
                 if (*(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe8, 0x1c00 + 0x20)) == 4) {
-                    void *var13 = func_02010828(GameState::GetInstance());
+                    void *var13 = GetParty_02010828(GameState::GetInstance());
                     int var14     = func_020a0b3c((struct Struct_0207cf30_3 *) var13,
                                                                                *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)));
                     func_020a0a08((struct Struct_02061c04_23 *) var13, *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)), (signed char)var14);
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                     *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xf0, 0x1c00 + 0x28)) = 0x236e;
                 } else {
                     GameState *var15 = GameState::GetInstance();
-                    void *var16     = func_02010828(var15);
+                    void *var16     = GetParty_02010828(var15);
                     char *var17       = (char *)func_0200ff1c(var15, *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe8, 0x1c00 + 0x20)));
                     if (var17 != NULL) {
                         func_ov002_0215a7b4(arg0, *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe8, 0x1c00 + 0x20)), *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)),
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                         }
                         if (*(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)) == 0x570a &&
                             func_02083994(
-                                (struct Struct_02083994 *) func_02053c6c((unsigned char *) var17), 0x570a) == 0)
+                                (struct Struct_02083994 *) GetPartyMemberData_02053c6c((unsigned char *) var17), 0x570a) == 0)
                         {
                             *(unsigned char *) (*(char **) (var17 + 0x130) + 8) = 0;
                             func_ov017_021c9e00(*(short *) (var17 + 4), 0, 0, 1);
@@ -188,10 +188,10 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                 *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa88, 0xbc0))           = 0;
                 *(unsigned char *) (arg0 + 0x2000 + REGIONAL_OFFSET(0x2a8, 0x478)) = 1;
             } else if (func_020dc920(*(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe9, 0x1c00 + 0x21)) & 0xff, 0, 0, 0)) {
-                func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+                PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
                 *(unsigned int *) (arg0 + 0x2000 + REGIONAL_OFFSET(0x2ac, 0x47c)) &= ~4;
                 func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa80, 0xbb8)), 1);
-                if (func_0202b7d8(func_0202ae18())) {
+                if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18())) {
                     int var18 = 1;
                     int var19  = 0;
                     for (; var19 < *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xafc, 0xc38)); var19++) {
@@ -200,7 +200,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                     if (var18) {
                         int var20 = 0;
                         char *var21  = func_020dedd0(
-                            (struct Struct_0201099c_10 *) (arg0 + REGIONAL_OFFSET(0x750, 0x3ec + 0x400)), *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)));
+                            (struct ItemTable_0201099c_10 *) (arg0 + REGIONAL_OFFSET(0x750, 0x3ec + 0x400)), *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)));
                         if (var21 != NULL && ((*(unsigned int *) (var21 + 8) << 14) >> 30) == 1) var20 = 1;
                         if (!var20) {
                             *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xf0, 0x1c00 + 0x28)) = 0x2376;
@@ -211,7 +211,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                             return;
                         }
                         if (*(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe8, 0x1c00 + 0x20)) == 4) {
-                            *(signed char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xae8, 0xc20))   = func_020100a8(GameState::GetInstance());
+                            *(signed char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xae8, 0xc20))   = GetProtagonistObjectIndex_020100a8(GameState::GetInstance());
                             *(unsigned char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xb3c, 0xc78)) = 1;
                         }
                         func_ov002_0216bfd4(arg0, 0);

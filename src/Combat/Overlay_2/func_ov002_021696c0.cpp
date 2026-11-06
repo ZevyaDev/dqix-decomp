@@ -11,7 +11,7 @@ extern "C" void func_0205de24(struct Struct_ov002_0215624c_11 *arg0, unsigned ch
 extern "C" void func_0205def8(struct Struct_ov002_02155960_3 *arg0, int arg1, int arg2);
 extern "C" int func_0205d794(struct Struct_ov002_0215624c_15 *arg0);
 extern "C" int func_0205da38(struct Struct_ov002_02164748* arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_ov002_02157d40_7 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct Struct_ov002_02157d40_7 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_ov002_0215aa5c(char *arg0);
 extern "C" void func_ov002_0215aa14(char *arg0);
@@ -19,7 +19,7 @@ extern "C" void func_ov002_02160734(unsigned char *arg0);
 extern "C" void func_ov002_02161cf0(void *arg0);
 extern "C" void func_ov002_02156e90(void *arg0);
 extern "C" void func_ov002_0215f3a0(void *arg0);
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 #if defined(jpn)
 #define OBJ (arg0 + 0xe20)
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov002_021696c0(char *arg0) {
             func_0205d794((struct Struct_ov002_0215624c_15 *) OBJ);
         if (inline_ov002_021696c0(arg0) && *(short *) (arg0 + 0x1a00 + 0xd2) == 7) {
             func_ov002_0215aa14(arg0);
-            func_0205eaa0((struct Struct_ov002_02157d40_7 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7 *) gSoundEffectManager_02108760, 1, 0);
             *(int *) (arg0 + 0x1000 + 0xa80) = 0x16;
             *(short *) (arg0 + 0x1a00 + 0xd2) = 0;
             *(unsigned int *) (arg0 + 0x2000 + 0x2ac) &= ~4;
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov002_021696c0(char *arg0) {
         } else if (inline_ov002_021696c0(arg0)) {
             *(unsigned char *) (arg0 + 0xed8) = *(int *) (arg0 + 0x1000 + 0xa80);
             *(unsigned int *) (arg0 + 0x2000 + 0x2ac) &= ~4;
-            func_0205eaa0((struct Struct_ov002_02157d40_7 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7 *) gSoundEffectManager_02108760, 1, 0);
             *(int *) (arg0 + 0x1000 + 0xa80) = 0x25;
             *(int *) (arg0 + 0x1000 + 0xa88) = 0;
         } else if (func_ov002_02161b48(arg0, 1)) {
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov002_021696c0(char *arg0) {
             func_0205d794((struct Struct_ov002_0215624c_15 *) (arg0 + 0x2c8 + 0xc00));
         if (inline_ov002_021696c0(arg0) && *(short *) (arg0 + 0x1c00 + 0xa) == 7) {
             func_ov002_0215aa14(arg0);
-            func_0205eaa0((struct Struct_ov002_02157d40_7 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7 *) gSoundEffectManager_02108760, 1, 0);
             *(unsigned int *) (arg0 + 0x2000 + 0x47c) &= ~4;
             func_ov002_02156e90(arg0);
             *(int *) (arg0 + 0x1000 + 0xbb8) = 0x21;
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov002_021696c0(char *arg0) {
         } else if (inline_ov002_021696c0(arg0)) {
             *(unsigned char *) (arg0 + 0xf80) = *(int *) (arg0 + 0x1000 + 0xbb8);
             *(unsigned int *) (arg0 + 0x2000 + 0x47c) &= ~4;
-            func_0205eaa0((struct Struct_ov002_02157d40_7 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7 *) gSoundEffectManager_02108760, 1, 0);
             *(int *) (arg0 + 0x1000 + 0xbb8) = 0x22;
             *(int *) (arg0 + 0x1000 + 0xbc0) = 0;
         } else if (func_ov002_02161b48(arg0, 1)) {

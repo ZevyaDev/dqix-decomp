@@ -5,7 +5,7 @@
 extern "C" int func_02094a00(void);
 extern "C" void func_02094ab0(void);
 extern "C" void func_020397c0(void* arg0);
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 
 struct Struct_02038598_4;
 extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
@@ -35,7 +35,7 @@ extern "C" ARM void func_020e455c(struct Struct_020e455c_2* arg0) {
     if (var1 != 0) {
         func_020397c0(var1);
     }
-    func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 2);
+    func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 2);
 
     unsigned int var2 = 0x1000000;
     int var3;

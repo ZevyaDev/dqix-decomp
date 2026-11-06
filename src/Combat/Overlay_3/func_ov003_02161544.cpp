@@ -9,12 +9,12 @@ enum { Enum_ov003_02161544_1024 = 0x400 };
 enum { Enum_ov003_02161544_130 = 0x82 };
 #endif
 
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 
 // USA: func_ov003_02161544
 extern "C" ARM int func_ov003_02161544(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    unsigned char* var1 = (unsigned char*)func_02010828(var0);
+    unsigned char* var1 = (unsigned char*)GetParty_02010828(var0);
     unsigned char var2 = 0;
     unsigned char var3 = 0;
     while (var3 < var1[0xf7c]) {

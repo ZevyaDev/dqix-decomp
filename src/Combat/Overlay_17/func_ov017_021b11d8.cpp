@@ -4,7 +4,7 @@
 #include "Resource/GameResources.h"
 
 struct Struct_0202b2f0;
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 
 struct Struct_0202b2f0 {
     char unknown_0_[0xfc0];
@@ -30,7 +30,7 @@ struct Struct_ov017_021b11d8_2 {
     unsigned short unknown_c_;
 };
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_ov017_021c37a4(void);
 extern "C" void func_ov017_021d1118(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021d1014(int arg0, int arg1, int arg2);
@@ -40,8 +40,8 @@ extern "C" int func_0202c660(Struct_0202b2f0* arg0, int arg1);
 extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
 extern "C" int func_0202bd34(Struct_0202b2f0* arg0, int arg1);
 extern "C" int func_0202c648(int* arg0);
-extern "C" signed char func_0202c1a4(Struct_0202c1a4* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_ov017_02195658(GameResources* arg0);
 
 // USA: func_ov017_021b11d8
@@ -49,10 +49,10 @@ extern "C" ARM void func_ov017_021b11d8(void* arg0, void* arg1) {
     Struct_ov017_021b11d8_2* var0 = (Struct_ov017_021b11d8_2*)arg0;
     GameState* var1 = GameState::GetInstance();
     GameResources* var2 = GetGameResources();
-    Struct_0202b2f0* var3 = (Struct_0202b2f0*)func_0202ae18();
+    Struct_0202b2f0* var3 = (Struct_0202b2f0*)GetLocalWireless_0202ae18();
     unsigned char var4 = var0->unknown_8_;
     if (var4 == 0) {
-        var0->unknown_9_ = (unsigned char)func_0202c1a4((Struct_0202c1a4*)var3);
+        var0->unknown_9_ = (unsigned char)GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var3);
         var0->unknown_a_ = 0;
         for (int var5 = 0; var5 < 4; var5++) {
             if (var5 != var0->unknown_9_) {
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_021b11d8(void* arg0, void* arg1) {
                 }
             }
         }
-        func_ov017_021d1810(2, -1, (signed char)func_020100a8(var1));
+        func_ov017_021d1810(2, -1, (signed char)GetProtagonistObjectIndex_020100a8(var1));
         func_ov017_021d1118(-1, 1, 1, 2);
         func_ov017_021d1014(-1, 1, 0);
         var0->unknown_8_++;

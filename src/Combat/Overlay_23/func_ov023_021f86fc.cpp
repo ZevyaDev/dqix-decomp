@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov011_021849c8(int arg0);
-extern "C" void* func_ov023_021f6880(void** arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(int menu);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void** objectList, int id);
 extern "C" void* func_ov023_021f79e4(void* arg0);
 extern "C" int func_0204c7e0(unsigned char* arg0);
 extern "C" int func_0204fd00(void* arg0, int arg1);
@@ -9,8 +9,8 @@ extern "C" void func_0204bc74(void* arg0, int arg1, short arg2, short arg3, shor
 
 // USA: func_ov023_021f86fc
 extern "C" ARM void func_ov023_021f86fc(unsigned char* arg0, int arg1) {
-    void* var0 = func_ov011_021849c8(arg1);
-    void* var1 = func_ov023_021f6880((void**)var0, arg0[0x108]);
+    void* var0 = GetMenuObjectList_ov011_021849c8(arg1);
+    void* var1 = FindMenuObjectById_ov023_021f6880((void**)var0, arg0[0x108]);
     if (!var1) return;
     void* var2 = func_ov023_021f79e4(var1);
     if (!func_0204c7e0(arg0 + 0x20)) return;

@@ -11,11 +11,11 @@ enum { Enum_ov003_02155e38_336 = 0x150 };
 enum { Enum_ov003_02155e38_2384 = 0x950 };
 #endif
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
 extern "C" void func_02083e28(void* arg0, int arg1);
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 extern "C" void func_ov017_021cc730(int arg0, unsigned char arg1, unsigned char arg2, unsigned char arg3);
 extern "C" void func_ov017_021cf078(int arg0, unsigned short arg1, unsigned char arg2);
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov003_02155e38(void* arg0) {
     }
     int var4 = *(int*)((char*)var3 + Enum_ov003_02155e38_336);
     int var5 = *(int*)((char*)var4 + Enum_ov003_02155e38_2384);
-    int var6 = func_02053c6c((unsigned char*)var3);
+    int var6 = GetPartyMemberData_02053c6c((unsigned char*)var3);
     char* var7 = (char*)var6;
     *(short*)(var7 + var5 * 2 + 0x16c) = 1;
     unsigned char* var8 = (unsigned char*)(var7 + 0x186);
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov003_02155e38(void* arg0) {
     func_02083e28(var7, 0);
     *(unsigned short*)(*(char**)((char*)var3 + 0x130) + 4) = *(unsigned short*)(*(char**)((char*)var3 + 0x134) + 0x30);
     *(unsigned short*)(*(char**)((char*)var3 + 0x130) + 6) = *(unsigned short*)(*(char**)((char*)var3 + 0x134) + 0x32);
-    if (func_0202b7d8((int*)func_0202ae18()) == 0) {
+    if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18()) == 0) {
         return;
     }
     signed char var10 = *(signed char*)(var0 + Enum_ov003_02155e38_503);

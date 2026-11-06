@@ -42,10 +42,10 @@ extern "C" ARM void func_02042804(void *arg0, const char *arg1, int *arg2, int *
     __clear(var1, sizeof(var1));
     sprintf(var1, data_020f0049, arg1);
     unsigned int var2 = 0;
-    LoadFileIntoMemory(var1, data_0211e33c, &var2);
+    LoadFileIntoMemory(var1, gFileScratchSpace_0211e33c, &var2);
     if (var2 != 0) {
         *arg2 = reinterpret_cast<int>(var0->Allocate(var2));
-        memcpy(reinterpret_cast<void *>(*arg2), data_0211e33c, var2);
+        memcpy(reinterpret_cast<void *>(*arg2), gFileScratchSpace_0211e33c, var2);
         Struct_02042804 *var3 = reinterpret_cast<Struct_02042804 *>(*arg2);
         char *var4               = reinterpret_cast<char *>(var3);
         var3->unknown_c_             = reinterpret_cast<Struct_020425e4 *>(var4 + reinterpret_cast<int>(var3->unknown_c_));
@@ -59,10 +59,10 @@ extern "C" ARM void func_02042804(void *arg0, const char *arg1, int *arg2, int *
     memset(var1, 0, sizeof(var1));
     sprintf(var1, data_020f0061, arg1);
     var2 = 0;
-    LoadFileIntoMemory(var1, data_0211e33c, &var2);
+    LoadFileIntoMemory(var1, gFileScratchSpace_0211e33c, &var2);
     if (var2 != 0) {
         *arg3 = reinterpret_cast<int>(var0->Allocate(var2));
-        memcpy(reinterpret_cast<void *>(*arg3), data_0211e33c, var2);
+        memcpy(reinterpret_cast<void *>(*arg3), gFileScratchSpace_0211e33c, var2);
         Struct_02042804_2 *var6 = reinterpret_cast<Struct_02042804_2 *>(*arg3);
         var6->unknown_c_            = reinterpret_cast<char *>(var6) + reinterpret_cast<int>(var6->unknown_c_);
     }

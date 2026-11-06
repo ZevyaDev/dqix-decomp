@@ -4,7 +4,7 @@
 extern "C" void* func_ov017_021b8478(void*);
 extern "C" void* func_ov017_021b8468(void*);
 extern "C" void* func_ov017_021b8470(void*);
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 
 struct Struct_ov017_021c787c {
     unsigned char unknown_0_[8];
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov017_021c787c(int arg0, Struct_ov017_021c787c_3* arg1,
     if (!var1) return;
     if (!func_ov017_021b8468(var0)) return;
     if (!func_ov017_021b8470(var0)) return;
-    int var2 = func_020100a8(arg2);
+    int var2 = GetProtagonistObjectIndex_020100a8(arg2);
     if (var1->unknown_2a_ == var2) return;
     if (var1->unknown_8_ != arg1->unknown_4_) return;
     GameObject* var3 = arg2->GetCombatantByIndex(arg1->unknown_6_);

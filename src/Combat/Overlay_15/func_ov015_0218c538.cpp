@@ -50,7 +50,7 @@ extern "C" ARM void func_ov015_0218c538(Struct_ov015_0218bcb0* arg0, char* arg1)
     __clear(var2, 0x80);
 
     unsigned int var3 = 0;
-    unsigned char* var4 = data_0211e33c;
+    unsigned char* var4 = gFileScratchSpace_0211e33c;
     unsigned int var5 = 0x30000;
     GPCReadPair var6;
     func_02079a3c(&var6);
@@ -131,11 +131,11 @@ var9.allocator = &var0;
         } else {
             sprintf(var2, data_ov015_02194078, arg1);
         }
-        if (LoadFileIntoMemory(var2, data_0211e33c, &var3)) {
+        if (LoadFileIntoMemory(var2, gFileScratchSpace_0211e33c, &var3)) {
             ObjectArchiveLoadInfo var12;
             func_0203dafc((Struct_0203d028_11*)&var12);
             var12.allocator = &var0;
-            var12.fileData = data_0211e33c;
+            var12.fileData = gFileScratchSpace_0211e33c;
             var12.unk_8 = var3;
             var12.unk_10 = 1;
             var12.packageID = 4;

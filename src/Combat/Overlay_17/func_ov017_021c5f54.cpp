@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0202c1a4 {
+struct LocalWireless_0202c1a4 {
     char unknown_0_[0x1038];
-    signed char unknown_1038_[16];
+    signed char protagonistObjectIndexByConsole_1038_[16];
 };
-extern "C" signed char func_0202c1a4(Struct_0202c1a4* arg0);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 
 extern "C" void* func_0207d78c(void);
 
@@ -31,9 +31,9 @@ struct Struct_ov017_021c5f54 {
 };
 
 // USA: func_ov017_021c5f54
-extern "C" ARM void func_ov017_021c5f54(int arg0, Struct_ov017_021c5f54* arg1, int arg2, void* arg3, Struct_0202c1a4* arg4) {
+extern "C" ARM void func_ov017_021c5f54(int arg0, Struct_ov017_021c5f54* arg1, int arg2, void* arg3, LocalWireless_0202c1a4* arg4) {
     Struct_0207d7f4* var0;
-    if (func_0202c1a4(arg4) != 0)
+    if (GetOwnProtagonistObjectIndex_0202c1a4(arg4) != 0)
         return;
     var0 = (Struct_0207d7f4*)func_0207d78c();
     if (arg1->unknown_9_ == 0 && arg1->unknown_a_ == 0

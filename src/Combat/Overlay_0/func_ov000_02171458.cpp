@@ -9,7 +9,7 @@
 extern "C" void* GetZone3D_02012fe4(void);
 
 struct Struct_0201099c_3;
-extern "C" char* func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 struct Struct_0203c108_3 {
     char unknown_0_[0x14];
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov000_02171458(struct Struct_ov000_02171458_2* arg0) {
         var0->unknown_10_++;
         var0->unknown_8_[arg0->unknown_8_.unknown_10_] = 0xe;
         var0->unknown_15_ = 0;
-        func_0203c108(&arg0->unknown_50_, func_020e0434(arg0->unknown_4_, 5));
+        func_0203c108(&arg0->unknown_50_, FindStringInTable_020e0434(arg0->unknown_4_, 5));
         return;
     }
     GameObject* var2 = func_0200ff1c(GameState::GetInstance(), arg0->unknown_4c_);

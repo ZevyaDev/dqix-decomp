@@ -9,15 +9,15 @@ enum { Enum_ov017_021991e4_14012 = 0x36bc };
 extern "C" void func_ov017_021bf410(void* arg0);
 extern "C" int func_ov017_021bf5f4(void* arg0);
 
-struct Struct_0201bdac;
-struct Struct_0201bdac_2;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct QueueNode_0201bdac;
+struct Queue_0201bdac_2;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 struct Struct_ov017_021991e4 {
     char unknown_0_[Enum_ov017_021991e4_14012];
     int unknown_36bc_;
     char unknown_36c0_[0x3c];
-    struct Struct_0201bdac_2* unknown_36fc_;
+    struct Queue_0201bdac_2* unknown_36fc_;
     char unknown_3700_[0x20];
     void* unknown_3720_;
 };
@@ -32,5 +32,5 @@ extern "C" ARM void func_ov017_021991e4(struct Struct_ov017_021991e4* arg0) {
         return;
     }
 
-    func_020469b4(arg0->unknown_36fc_, (struct Struct_0201bdac*)arg0->unknown_3720_);
+    AppendToQueue_020469b4(arg0->unknown_36fc_, (struct QueueNode_0201bdac*)arg0->unknown_3720_);
 }

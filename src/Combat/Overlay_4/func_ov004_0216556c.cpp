@@ -7,12 +7,12 @@ enum { Enum_ov004_0216556c_2292 = 0x9f4, Enum_ov004_0216556c_2301 = 0x9fd, Enum_
 enum { Enum_ov004_0216556c_2292 = 0x8f4, Enum_ov004_0216556c_2301 = 0x8fd, Enum_ov004_0216556c_6144 = 0x1800, Enum_ov004_0216556c_452 = 0x1c4 };
 #endif
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 struct GameResources;
 int IsBrightnessTransitionActive(GameResources*);
 extern char* data_ov004_02171010;
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 #if defined(jpn)
 extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 #define NODE_KIND_CALL func_ov023_021f6f10
@@ -27,7 +27,7 @@ extern "C" void func_ov004_021636b0(void* arg0, void* arg1);
 // USA: func_ov004_0216556c
 extern "C" ARM int func_ov004_0216556c(void* arg0) {
     if (*(unsigned char*)(data_ov004_02171010 + 0x1000 + Enum_ov004_0216556c_2292) == 0) return 0;
-    if (IsBrightnessTransitionActive((GameResources*)((int*)func_0200fb8c((int*)GameState::GetInstance()))) != 0) return 0;
+    if (IsBrightnessTransitionActive((GameResources*)((int*)GetResources_0200fb8c((int*)GameState::GetInstance()))) != 0) return 0;
 
     {
         char* var0 = data_ov004_02171010;
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov004_0216556c(void* arg0) {
         }
     }
 
-    void* var3 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0xa);
+    void* var3 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0xa);
     if (var3 == NULL) return 0;
     if (NODE_KIND_CALL(var3) != 7) return 0;
 

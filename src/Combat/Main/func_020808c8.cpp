@@ -2,7 +2,7 @@
 
 extern "C" int func_020d2ff0(const char*);
 
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 struct Struct_0207f524 {
     void* unknown_0_;
     short unknown_4_;
@@ -10,12 +10,12 @@ struct Struct_0207f524 {
 };
 
 struct Struct_020808c8 {
-    Struct_02072a68_2* unknown_0_;
+    StringList_02072a68_2* unknown_0_;
     Struct_0207f524 unknown_4_;
 };
 
 extern "C" void* func_0207f6ac(struct Struct_0207f524* arg0, int arg1);
-extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" int func_02042190(int arg0);
 extern "C" int func_020420e8(void* arg0, int arg1);
 
@@ -47,7 +47,7 @@ extern "C" ARM void func_020808c8(void* arg0, int arg1, short* arg2, short* arg3
 
     switch (var3) {
     case 0: {
-        void* var4 = func_02072a68(var0->unknown_0_, var1->unknown_e_);
+        void* var4 = FindStringInList_02072a68(var0->unknown_0_, var1->unknown_e_);
         if (var4 == NULL) {
             return;
         }

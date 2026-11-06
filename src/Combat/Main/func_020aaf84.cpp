@@ -4,9 +4,6 @@
 #include "Graphics/LightingManager.h"
 #include "std_library_functions.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
@@ -85,11 +82,11 @@ struct Struct_020aaf84_5 { char unknown_0_[0xa0]; char unknown_a0_[0xd8]; char u
 struct Struct_02011544;
 struct Struct_02038598_4;
 
-extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 extern const char data_020f1bf0[];
 extern "C" int func_02075910(int, void*, unsigned int, int);
 extern "C" int func_01ff85b8(void*, int);
-extern "C" Struct_020aaf84_4* func_0205ec34();
+extern "C" Struct_020aaf84_4* GetFlagManager_0205ec34();
 #if defined(jpn)
 extern "C" int func_020a95a4(void*, void*);
 #else
@@ -101,7 +98,7 @@ extern "C" void func_020a9c14(void*);
 extern "C" void func_020a9e30(void*);
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" int func_020a94f8(Struct_020a94f8_2*, int);
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void func_020466e4(unsigned int*, unsigned int);
 extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
 extern "C" void func_02011544(Struct_02011544*);
@@ -110,7 +107,7 @@ extern "C" void* func_020108d8(char*, int);
 extern "C" void func_020a9af8(unsigned char*);
 extern "C" void func_020a9ba4(void*);
 extern "C" void func_020a9d78(void*);
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 extern "C" void func_020865ec(char*);
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 
@@ -154,7 +151,7 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
     BackgroundLoader::FreeAllocationsGlobal();
     if (arg2) var7 = 0x8084;
     else var7 = 0x84;
-    var12 = &((Struct_020aaf84*)data_0211e33c)->unknown_28000_;
+    var12 = &((Struct_020aaf84*)gFileScratchSpace_0211e33c)->unknown_28000_;
     if (!func_02075910(var7, var12, 0x6f60, 0)) var2 = 0;
     if (!strcmp(var1.unknown_8_, data_020f1bf0) && var2) {
         if (func_01ff85b8(var12->unknown_4_, 0x6f5c) != var12->unknown_0_) {
@@ -171,7 +168,7 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
         BackgroundLoader::RemoveLockGlobal();
         return 0;
     }
-    var4 = func_0205ec34();
+    var4 = GetFlagManager_0205ec34();
     var6 = func_02094d6c();
     func_020a95a4(var12->unknown_4_, func_020108d8((char*)var0, 0));
     func_020a9a50(var12->unknown_2cac_, var4, 0);
@@ -190,7 +187,7 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
         func_020a9e30(&var12->unknown_6d4c_);
     } else {
         var11 = &var12->unknown_6d4c_;
-        var10 = (Struct_020aaf84_3*)func_02010828(GameState::GetInstance());
+        var10 = (Struct_020aaf84_3*)GetParty_02010828(GameState::GetInstance());
         for (var9 = 0; var9 < 3; var9++) {
             func_020865ec((char*)&var10->unknown_f2c_[var9]);
         }
@@ -236,11 +233,11 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
     if (!func_020a94f8(&var14, arg2 != 0)) var15 = 0;
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
-    var17 = (unsigned int*)func_020d6c00();
+    var17 = (unsigned int*)GetGlobalFlags_020d6c00();
     func_020466e4(var17, 0x2000000);
     if (arg2) var21 = 0x8084;
     else var21 = 0x84;
-    var27 = &((Struct_020aaf84*)data_0211e33c)->unknown_28000_;
+    var27 = &((Struct_020aaf84*)gFileScratchSpace_0211e33c)->unknown_28000_;
     if (!func_02075910(var21, var27, 0x6f60, 0)) var15 = 0;
     if (!strcmp(var14.unknown_8_, data_020f1bf0) && var15) {
         if (func_01ff85b8(var27->unknown_4_, 0x6f5c) != var27->unknown_0_) {
@@ -259,7 +256,7 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
         BackgroundLoader::RemoveLockGlobal();
         return 0;
     }
-    var26 = func_0205ec34();
+    var26 = GetFlagManager_0205ec34();
     var20 = func_02094d6c();
     var18 = 0;
     func_020a95a4(var27->unknown_4_, func_020108d8((char*)var13, 0), &var18);
@@ -279,7 +276,7 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
         func_020a9e30(&var27->unknown_6d4c_);
     } else if (var18) {
         var25 = &var27->unknown_6d4c_;
-        var24 = (Struct_020aaf84_3*)func_02010828(GameState::GetInstance());
+        var24 = (Struct_020aaf84_3*)GetParty_02010828(GameState::GetInstance());
         for (var23 = 0; var23 < 3; var23++) {
             func_020865ec((char*)&var24->unknown_f2c_[var23]);
         }

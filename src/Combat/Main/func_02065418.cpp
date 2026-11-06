@@ -12,7 +12,7 @@ enum { Enum_02065418_14076 = 0x36fc };
 struct Struct_02015438;
 
 extern "C" int func_020a18f4(unsigned int arg0);
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int func_02046b24(Struct_02015438** arg0);
 
 static inline int inline_02065418() {
@@ -28,7 +28,7 @@ extern "C" ARM void func_02065418(int arg0) {
     if (!func_020a18f4(OVERLAY_ID(17))) {
         return;
     }
-    Struct_02015438** var0 = *(Struct_02015438***)((char*)func_0200fb8c((int*)GameState::GetInstance()) + Enum_02065418_14076);
+    Struct_02015438** var0 = *(Struct_02015438***)((char*)GetResources_0200fb8c((int*)GameState::GetInstance()) + Enum_02065418_14076);
     if (var0 == NULL) {
         return;
     }

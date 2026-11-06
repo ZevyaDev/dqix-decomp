@@ -1,13 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
-extern "C" void* func_0205ec34();
+extern "C" void* GetFlagManager_0205ec34();
 struct GameState;
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 extern "C" int func_0209645c(void* arg0, int arg1);
 struct Struct_0205faf4_3;
 extern "C" int func_0206e120(Struct_0205faf4_3*, int);
@@ -39,8 +36,8 @@ extern "C" ARM int func_02095d30(struct Struct_02095d30_2* arg0, int arg1, int a
         return 0;
     }
     void* var0 = GameState::GetInstance();
-    void* var1 = func_0205ec34();
-    void* var2 = func_02010828((GameState*)var0);
+    void* var1 = GetFlagManager_0205ec34();
+    void* var2 = GetParty_02010828((GameState*)var0);
     struct Struct_02095d30* var3;
     for (var3 = arg0->unknown_a4_; var3 != 0; var3 = var3->unknown_28_) {
         if (var3->unknown_0_0_ != arg1) {

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 extern char* data_ov004_02171010;
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 #if defined(jpn)
 enum { Enum_ov004_02163530_6144 = 0x1900 };
@@ -19,7 +19,7 @@ extern "C" ARM int func_ov004_02163530(void* arg0) {
         (*(short*)(data_ov004_02171010 + Enum_ov004_02163530_6144 + 0xf8))++;
     }
 
-    void* var0 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0xa);
+    void* var0 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0xa);
     if (var0 == NULL) {
         return (int)var0;
     }

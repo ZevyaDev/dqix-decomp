@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void* __clear(void*, int);
-extern "C" int func_020ac4c0(void*);
+extern "C" int GetBattleRecords_020ac4c0(void*);
 extern "C" int func_020ac494(void*);
 
 struct Struct_ov006_02154138 {
@@ -53,7 +53,7 @@ extern "C" ARM int func_ov006_02154138(void* arg0) {
     for (unsigned short var8 = 1; var8 < 472; var8++) {
         if (var1[var8] == 3) var3++;
     }
-    func_020ac4c0(&var2);
+    GetBattleRecords_020ac4c0(&var2);
     var2.unknown_12_7_ = var3;
     func_020ac494(&var2);
     return (short)var3;

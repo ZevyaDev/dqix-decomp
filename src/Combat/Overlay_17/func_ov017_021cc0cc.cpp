@@ -2,11 +2,11 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* func_0202ae24(void);
 
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void* func_02052a10(char* arg0);
 extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
@@ -22,14 +22,14 @@ struct Struct_ov017_021cc0cc {
 // USA: func_ov017_021cc0cc
 extern "C" ARM void func_ov017_021cc0cc(void) {
 	GameState* var0 = GameState::GetInstance();
-	void* var1 = func_0202ae18();
+	void* var1 = GetLocalWireless_0202ae18();
 	void* var2 = func_0202ae24();
 	GameObject* var3 = var0->GetProtagonist();
 	if (!var3) return;
 
 	Struct_ov017_021cc0cc var4;
 	var4.unknown_0_ = 0x2b;
-	var4.unknown_4_ = func_0202c1a4((struct Struct_0202c1a4*)var1);
+	var4.unknown_4_ = GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var1);
 	var4.unknown_5_ = 1;
 	#if defined(jpn)
     const char* var5 = var3->baseStats_->unk;

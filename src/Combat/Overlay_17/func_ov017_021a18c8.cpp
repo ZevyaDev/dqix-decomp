@@ -5,9 +5,9 @@
 extern "C" void func_ov023_021e2f38(void* arg0);
 extern "C" void func_020a1e54(int arg0);
 extern "C" void func_020a1f4c(int arg0);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 
-extern int data_02114e20;
+extern int gMainHeap_02114e20;
 
 struct Struct_ov017_021a18c8 {
 	char unknown_0_[0x8];
@@ -27,6 +27,6 @@ extern "C" ARM void func_ov017_021a18c8(struct Struct_ov017_021a18c8* arg0) {
 	void* var1 = arg0->unknown_8_.GetSignedAllocator();
 	if (var1 != NULL) {
 		arg0->unknown_8_.Destroy();
-		func_02012da4((AllocatorUnion*)&data_02114e20, var1);
+		FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var1);
 	}
 }

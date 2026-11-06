@@ -34,7 +34,7 @@ struct Struct_020a212c_2 {
     short unknown_2c6_;
 };
 
-extern "C" GameResources* func_0200fb8c(int* arg0);
+extern "C" GameResources* GetResources_0200fb8c(int* gameState);
 extern "C" int func_0202e7f0(void* arg0);
 int IsBrightnessTransitionActive(GameResources* resources);
 int fix32SignedAngleDistance(int a, int b);
@@ -63,7 +63,7 @@ static inline int inline_02061c04_5(int arg0, int arg1) {
 extern "C" ARM void func_020a212c(Struct_020a212c_2* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetGameObjectByIndex(arg0->unknown_21c_);
-    GameResources* var2 = func_0200fb8c((int*)var0);
+    GameResources* var2 = GetResources_0200fb8c((int*)var0);
     int var3 = func_0202e7f0(arg0);
     int var4 = 0;
     int var5 = 0;

@@ -2,13 +2,13 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 // USA: func_0206483c
 extern "C" ARM int func_0206483c(void* arg0, char* arg1) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = func_0200ff1c(var0, 0);
-    char* var2 = (char*)func_02053c6c((unsigned char*)var1) + 0x3c;
+    char* var2 = (char*)GetPartyMemberData_02053c6c((unsigned char*)var1) + 0x3c;
     int var3 = strlen(var2);
     int var4;
     int var5;

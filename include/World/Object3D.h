@@ -60,7 +60,7 @@ struct ObjectArchiveLoadInfo
 class Object3D
 {
 public:
-    unsigned short unknown_0_;
+    unsigned short classFlags_0_;
     short unknown_2_;
     short unknown_4_;
     unsigned short unknown_6_;

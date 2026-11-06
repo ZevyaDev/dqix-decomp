@@ -7,10 +7,10 @@ struct Struct_020fdd44;
 extern "C" struct Struct_020fdd44* func_02027ca4(void);
 extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1);
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 
-struct Struct_0202c508 { int unknown_0_; };
-extern "C" int func_0202c508(struct Struct_0202c508* arg0);
+struct LocalWireless_0202c508 { int state_0_; };
+extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202c508* wireless);
 
 struct Struct_02076df4;
 extern "C" unsigned short func_02079040(struct Struct_02076df4* arg0, unsigned char* arg1);
@@ -37,7 +37,7 @@ struct Struct_02076df4_2 {
 // USA: func_02076df4
 extern "C" ARM void func_02076df4(struct Struct_02076df4_2* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     struct Struct_020fdd44* var2 = func_02027ca4();
     GameObject* var3 = var0->GetPartyMemberByIndex(arg0->unknown_166_);
     int var4 = ((Object3D*)((struct Struct_02039df4*)arg0))->GetField06();
@@ -45,7 +45,7 @@ extern "C" ARM void func_02076df4(struct Struct_02076df4_2* arg0) {
     if (var5 == 0) {
         return;
     }
-    if (func_0202c508((struct Struct_0202c508*)var1) == 0) {
+    if (IsNotLocalWirelessGuest_0202c508((struct LocalWireless_0202c508*)var1) == 0) {
         return;
     }
     if (arg0->unknown_17c_ != 0) {

@@ -10,7 +10,7 @@ enum { Enum_0209d8a8_1816 = 0x718 };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* func_0209dccc();
 extern "C" int func_ov017_021d60f4(void* arg0);
 extern "C" void* func_ov017_021b8468(int arg0);
@@ -18,15 +18,15 @@ extern "C" void* func_ov000_02160f08(void* arg0);
 extern "C" void* func_020de824(void* arg0);
 extern "C" void func_0207cbe8(char* arg0);
 
-struct Struct_0201099c_10;
-extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+struct ItemTable_0201099c_10;
+extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
 
 struct Struct_0207ccf0_4;
 extern "C" int func_0207d200(struct Struct_0207ccf0_4* arg0, short arg1, int arg2);
 
 struct Struct_0209d8a8 {
     char unknown_0_[0x2c];
-    struct Struct_0201099c_10* unknown_2c_;
+    struct ItemTable_0201099c_10* unknown_2c_;
     void* unknown_30_;
     char unknown_34_[4];
 };
@@ -42,7 +42,7 @@ extern "C" ARM int func_0209d8a8(void* arg0) {
     Struct_0209d8a8 var0;
     int var1;
     int var2;
-    func_02010828(GameState::GetInstance());
+    GetParty_02010828(GameState::GetInstance());
     Struct_0209d8a8_2* var3 = (Struct_0209d8a8_2*)func_0209dccc();
     if (var3 == NULL) {
         return 0;
@@ -59,7 +59,7 @@ extern "C" ARM int func_0209d8a8(void* arg0) {
     if (var7 == NULL) {
         return 1;
     }
-    struct Struct_0201099c_10* var8 = (struct Struct_0201099c_10*)((char*)var7 + 0xd0);
+    struct ItemTable_0201099c_10* var8 = (struct ItemTable_0201099c_10*)((char*)var7 + 0xd0);
     ((SafeAllocator*)&var0)->ResetAllocatorPointer();
     func_020de824(var0.unknown_0_ + 0x14);
     func_0207cbe8(var0.unknown_0_);

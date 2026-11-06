@@ -17,13 +17,13 @@ struct Struct_ov000_02161e30;
 struct Struct_ov000_0217e870_2;
 struct Struct_02049f50;
 
-struct Struct_0203d028 {
+struct TextureVRAMArea_0203d028 {
     unsigned int unknown_0_[10];
-    unsigned int unknown_28_[10];
+    unsigned int savedImageState_28_[10];
     unsigned int unknown_50_;
     unsigned int unknown_54_;
-    unsigned int unknown_58_[2];
-    unsigned int unknown_60_[2];
+    unsigned int basePaletteState_58_[2];
+    unsigned int savedPaletteState_60_[2];
 };
 
 struct Struct_02078398_2 {
@@ -90,7 +90,7 @@ struct Struct_ov000_02160da0 {
     unsigned char unknown_7749_;
     char unknown_774a_[0x2];
     SafeAllocator unknown_774c_;
-    Struct_0203d028 unknown_7760_;
+    TextureVRAMArea_0203d028 unknown_7760_;
 };
 
 struct Struct_ov026_021db5a4 {
@@ -111,7 +111,7 @@ struct Struct_ov026_021de6a0 {
 #endif
 };
 
-extern "C" void func_0207df50(Struct_0203d028* arg0);
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 void SetMainBrightness(GameResources*, int, int);
@@ -128,7 +128,7 @@ extern "C" void func_ov000_02167e6c(unsigned char* arg0);
 
 extern "C" {
 void* func_02057924();
-int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, Struct_0203d028* arg5);
+int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, TextureVRAMArea_0203d028* arg5);
 void func_02057f00(void* arg0, int arg1);
 int func_ov000_021759f4(void* arg0);
 void func_ov000_02175808(void* arg0);
@@ -144,7 +144,7 @@ extern const char data_ov026_021dee23[];
 extern const char data_ov026_021dee3a[];
 extern const char data_ov026_021dedec[];
 extern const Struct_ov026_021de6a0 data_ov026_021de6a0;
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 
 // USA: func_ov026_021db5a4
 extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
     if (arg0->unknown_7712_ == 0) {
         if (func_ov000_021759f4(arg0->unknown_3760_)) {
             arg0->unknown_774c_.Reset();
-            func_0207df50(&arg0->unknown_7760_);
+            ResetTextureVRAMState_0207df50(&arg0->unknown_7760_);
             arg0->unknown_7714_ = arg0->unknown_771e_ = arg0->unknown_7720_ = -1;
             SetBrightness(var0, -0x10, 0xf);
             arg0->unknown_7714_ = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov026_021dee0c, &arg0->unknown_774c_);
@@ -190,8 +190,8 @@ extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
         }
     } else if (arg0->unknown_7712_ == 2) {
         Struct_02078398_2 var9;
-        func_0205eb54(data_02108760, 0x1b3, 0x1b3);
-        func_0205eb90(data_02108760, 1, 0);
+        func_0205eb54(gSoundEffectManager_02108760, 0x1b3, 0x1b3);
+        func_0205eb90(gSoundEffectManager_02108760, 1, 0);
         arg0->unknown_7711_ = 1;
         func_ov000_021626a0(arg0, 0x26, 0);
         func_ov000_021626a0(arg0, 0x27, 0);
@@ -240,7 +240,7 @@ extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
         }
     } else if (arg0->unknown_7712_ == 5) {
         Struct_02078398_2 var15;
-        func_0205eb80(data_02108760);
+        func_0205eb80(gSoundEffectManager_02108760);
         arg0->unknown_7711_ = 0;
         SetMainBrightness(var0, -0x10, 0);
         GameState* var16 = GameState::GetInstance();
@@ -261,8 +261,8 @@ extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
         func_ov000_02163894(arg0);
         func_ov000_021636ac(arg0);
         arg0->unknown_7712_ = 6;
-        func_0205eb54(data_02108760, 0x1b3, 0x1b3);
-        func_0205eb90(data_02108760, 2, 0);
+        func_0205eb54(gSoundEffectManager_02108760, 0x1b3, 0x1b3);
+        func_0205eb90(gSoundEffectManager_02108760, 2, 0);
         arg0->unknown_7711_ = 1;
     } else if (arg0->unknown_7712_ == 6) {
         func_ov000_02163928(arg0);

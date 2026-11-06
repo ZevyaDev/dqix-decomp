@@ -13,7 +13,7 @@ struct Struct_02000c9c_8;
 extern "C" int func_0200fb08(Struct_02000c9c_8 *arg0);
 extern "C" int func_0209890c(void *arg0, void *arg1);
 #if defined(jpn)
-extern "C" void *func_0202ae18(void);
+extern "C" void *GetLocalWireless_0202ae18(void);
 extern "C" void func_0202bad4(void *arg0, unsigned char arg1);
 #endif
 
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov003_02171fe8(Struct_ov003_02171fe8_3 *arg0, int arg1,
         memcpy((char *) &arg0->unknown_2a0_ + arg4, arg2, arg3);
         if (arg4 + arg3 >= 0xe0) {
             arg0->unknown_71c_ = 1;
-            func_0202bad4(func_0202ae18(), arg0->unknown_199_);
+            func_0202bad4(GetLocalWireless_0202ae18(), arg0->unknown_199_);
             arg0->unknown_2a0_.unknown_c4_.SetDiscoveryState(DiscoveryState_Undiscovered);
             arg0->unknown_2a0_.unknown_c4_.ClearInitialByteUnknownBit();
             strcpy((char *) &var2.unknown_0_, (char *) &arg0->unknown_2a0_.unknown_0_);

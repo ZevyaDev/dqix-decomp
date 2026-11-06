@@ -20,10 +20,10 @@ struct Struct_ov003_02165278 {
     unsigned char unknown_3c9_0_ : 1;
 };
 
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" Struct_ov003_02165278* func_020936f8(void);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
 extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
 
@@ -50,16 +50,16 @@ struct Struct_ov003_02165730_2 {
 // USA: func_ov003_02165730
 extern "C" ARM void func_ov003_02165730(Struct_ov003_02165730_2* arg0) {
     GameResources* var0 = GetGameResources();
-    void* var1 = func_020d6c00();
+    void* var1 = GetGlobalFlags_020d6c00();
 
     if (arg0->unknown_4a4_ == 0) {
         func_020936f8()->unknown_3c9_0_ = 1;
-        func_02043204((char*)GetMessageWindow_020421a0());
+        ResetMessageWindow_02043204((char*)GetMessageWindow_020421a0());
         arg0->unknown_484_ = arg0->unknown_486_ = -1;
         arg0->unknown_4a5_ = 0;
 
         GameState* var2 = GameState::GetInstance();
-        Struct_ov003_02165730* var3 = (Struct_ov003_02165730*)func_02010828(var2);
+        Struct_ov003_02165730* var3 = (Struct_ov003_02165730*)GetParty_02010828(var2);
         for (int var4 = 0; var4 < var3->unknown_f7c_; var4++) {
             GameObject* var5 = func_0200ff1c(var2, var3->unknown_f78_[var4]);
             if (var5 != NULL) {
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov003_02165730(Struct_ov003_02165730_2* arg0) {
         }
         arg0->unknown_4a4_ = 2;
     } else if (arg0->unknown_4a4_ == 2) {
-        func_02043204((char*)GetMessageWindow_020421a0());
+        ResetMessageWindow_02043204((char*)GetMessageWindow_020421a0());
         arg0->unknown_484_ = arg0->unknown_486_ = -1;
         arg0->unknown_4a5_ = 0;
         arg0->unknown_4a3_ = 0x10;

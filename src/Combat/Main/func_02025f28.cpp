@@ -1,11 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void* func_0203b628(void);
 extern "C" void* GetZone3D_02012fe4(void);
 
@@ -18,7 +15,7 @@ extern "C" int func_0201bb78(struct Struct_0201bb78* arg0, unsigned int arg1);
 extern "C" void func_0202756c(void* arg0, int arg1, int arg2, int arg3,
         unsigned char arg4, unsigned char arg5, unsigned short arg6, unsigned char arg7, int arg8, int arg9);
 
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void func_0202630c(void* arg0, int* arg1, int arg2);
 
 extern "C" int _u32_div_f(int arg0, int arg1);
@@ -47,7 +44,7 @@ struct Struct_02025f28_2 {
 // USA: func_02025f28
 extern "C" ARM void func_02025f28(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
-    unsigned char* var1 = (unsigned char*)func_0205ec34();
+    unsigned char* var1 = (unsigned char*)GetFlagManager_0205ec34();
     func_0203b628();
     void* var2 = GetZone3D_02012fe4();
     unsigned short var3 = *(unsigned short*)var2;
@@ -76,7 +73,7 @@ extern "C" ARM void func_02025f28(unsigned char* arg0) {
         }
     }
 
-    int var12 = (var3 != 10000) && (func_0206dfb0((int)var1, var1 + 0x8c, 0x2b) != 0);
+    int var12 = (var3 != 10000) && (IsFlagSet_0206dfb0((int)var1, var1 + 0x8c, 0x2b) != 0);
     int var13[3];
     int var14 = 1;
     if (var3 == 10000 || var3 == 10100) {

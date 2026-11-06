@@ -35,7 +35,7 @@ extern "C" int func_0208ca00(Struct_0208bb78*, int);
 extern "C" void func_0208bf78(Struct_0208bb78*);
 extern "C" void func_0208b788(int, float, Struct_0208baec*, int);
 extern "C" int func_0208baec(int, Struct_0208baec_2*, Struct_0208baec*, int, float, int, unsigned char);
-extern "C" int func_0200fb8c(int*);
+extern "C" int GetResources_0200fb8c(int*);
 extern "C" unsigned char func_0200fb08(Struct_02000c9c_8*);
 extern "C" int func_02046b24(Struct_02015438**);
 extern "C" int* func_02094d6c();
@@ -63,7 +63,7 @@ extern "C" ARM int func_0208bb78(Struct_0208bb78* arg0, int arg1) {
         (arg0->*var1.unknown_0_[arg0->unknown_d4_])();
     }
     GameState* var2 = GameState::GetInstance();
-    GameResources* var3 = (GameResources*)func_0200fb8c((int*)var2);
+    GameResources* var3 = (GameResources*)GetResources_0200fb8c((int*)var2);
     float var4;
     unsigned char var5;
     Struct_02015438** var6 = (Struct_02015438**)var3->unknown_ptr_array_36fc[0];

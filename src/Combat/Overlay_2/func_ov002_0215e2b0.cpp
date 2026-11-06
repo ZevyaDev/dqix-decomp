@@ -2,9 +2,9 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_0201099c_3;
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 
 struct Struct_ov002_0215e2b0 {
     int unknown_0_;
@@ -25,15 +25,15 @@ struct Struct_ov002_0215e2b0_2 {
     unsigned int unknown_9_2_ : 22;
 };
 
-extern "C" void *func_02053c6c(unsigned char *arg0);
-extern "C" char *func_020dedd0(struct Struct_0201099c_10 *arg0, int arg1);
+extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" char *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
 extern "C" char *GetMessageWindow_020421a0();
-extern "C" void func_02046380(void *arg0);
+extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" void func_020465f0(unsigned char *arg0, int arg1, unsigned char arg2);
 extern "C" void func_020465d8(unsigned char *arg0, int arg1, unsigned char arg2);
 extern "C" int func_ov002_02159774(void *arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" char *func_020e0434(struct Struct_0201099c_3 *arg0, int arg1);
-extern "C" void func_020465c0(struct Struct_020465c0 *arg0, int arg1, int arg2);
+extern "C" char *FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
+extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
 extern "C" void func_020474a8(void *arg0, int arg1, const char *arg2, char *arg3);
 
 // JPN: func_ov002_0215e2b0
@@ -54,15 +54,15 @@ extern "C" ARM void func_ov002_0215e2b0(char *arg0, char *arg1) {
     int var6 = var4[*(short *) (arg0 + 0x1a00 + 0xb4)];
     char *var7 = (char *) func_0200ff1c(var3, var6);
     if (var7 == 0) return;
-    Struct_ov002_0215e2b0_2 *var8 = (Struct_ov002_0215e2b0_2 *) func_02053c6c((unsigned char *) var7);
+    Struct_ov002_0215e2b0_2 *var8 = (Struct_ov002_0215e2b0_2 *) GetPartyMemberData_02053c6c((unsigned char *) var7);
     if (var8 == 0) return;
     char *var9 = 0;
     if (*(short *) (arg0 + 0x1a00 + 0xee) < 0) {
-        var9 = func_020dedd0((struct Struct_0201099c_10 *) (arg0 + 0x750), *(short *) (arg0 + 0x1a00 + 0xea));
+        var9 = func_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + 0x750), *(short *) (arg0 + 0x1a00 + 0xea));
         if (var9 == 0) return;
     }
     char *var10 = GetMessageWindow_020421a0();
-    func_02046380(var10);
+    ClearMessageParams_02046380(var10);
     func_020465f0((unsigned char *) var10, 0, 3);
     func_020465d8((unsigned char *) var10, 0, 1);
     func_020465f0((unsigned char *) var10, 1, 3);
@@ -140,10 +140,10 @@ extern "C" ARM void func_ov002_0215e2b0(char *arg0, char *arg1) {
     if (var17 == 3) {
         var18 = 3;
     }
-    func_020465c0((Struct_020465c0 *) var10, 3, var18);
-    func_020465c0((Struct_020465c0 *) var10, 0, var14);
-    func_020465c0((Struct_020465c0 *) var10, 1, var15);
-    func_020465c0((Struct_020465c0 *) var10, 2, var17);
-    func_020474a8(var10, 10, func_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), var11), arg1);
+    SetMessageNumber_020465c0((MessageWindow_020465c0 *) var10, 3, var18);
+    SetMessageNumber_020465c0((MessageWindow_020465c0 *) var10, 0, var14);
+    SetMessageNumber_020465c0((MessageWindow_020465c0 *) var10, 1, var15);
+    SetMessageNumber_020465c0((MessageWindow_020465c0 *) var10, 2, var17);
+    func_020474a8(var10, 10, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), var11), arg1);
 }
 #endif

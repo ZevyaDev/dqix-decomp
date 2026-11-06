@@ -2,14 +2,11 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 extern "C" {
 }
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_0206461c(void* arg0, int arg1);
 extern int data_ov017_021d7c3c;
 
@@ -32,7 +29,7 @@ extern "C" ARM void func_ov017_021b8c84(struct Struct_ov017_021a3544_4* arg0, vo
     }
     if (!((BackgroundLoader*)(var0))->GetTaskStatus((int)(arg0->unknown_8_))) return;
     if (((BackgroundLoader*)((struct Struct_020534ac_2*)var0))->GetDetailedTaskStatus((int)(arg0->unknown_8_)) == 2) {
-        void* var1 = func_0205ec34();
+        void* var1 = GetFlagManager_0205ec34();
         func_0206461c(var1, *(int*)((char*)GetZone3D_02012fe4() + 8));
     }
     ((BackgroundLoader*)(var0))->RemoveTask((int)(arg0->unknown_8_));

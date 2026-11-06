@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 #if defined(jpn)
 extern "C" int func_ov023_021f6f10(void* arg0);
 #else
@@ -34,8 +34,8 @@ public:
 
 // USA: func_ov004_021551a8
 extern "C" ARM int func_ov004_021551a8(void* arg0) {
-    void* var0 = func_ov011_021849c8(arg0);
-    void* var1 = func_ov023_021f6880(var0, 0x2c);
+    void* var0 = GetMenuObjectList_ov011_021849c8(arg0);
+    void* var1 = FindMenuObjectById_ov023_021f6880(var0, 0x2c);
     if (!var1) return 0;
 #if defined(jpn)
     if (func_ov023_021f6f10(var1) != 7) return 0;
@@ -48,7 +48,7 @@ extern "C" ARM int func_ov004_021551a8(void* arg0) {
     func_ov004_0215513c(arg0, &var3, &var4, &var5);
     int var6 = func_ov023_021f9bc8((char*)var1) + (var2 << 4);
 
-    void* var7 = func_ov023_021f6880(var0, 0x2d);
+    void* var7 = FindMenuObjectById_ov023_021f6880(var0, 0x2d);
     if (!var7) return 0;
 #if defined(jpn)
     if (func_ov023_021f6f10(var7) != 0x11) return 0;
@@ -56,7 +56,7 @@ extern "C" ARM int func_ov004_021551a8(void* arg0) {
     if (func_ov024_021f6f10(var7) != 0x11) return 0;
 #endif
 
-    void* var8 = func_ov023_021f6880(var0, 0x39);
+    void* var8 = FindMenuObjectById_ov023_021f6880(var0, 0x39);
     if (!var8) return 0;
 #if defined(jpn)
     if (func_ov023_021f6f10(var8) != 0x12) return 0;

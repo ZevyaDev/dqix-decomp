@@ -36,17 +36,17 @@ struct Struct_02094030 {
 extern "C" void func_02093980(char* arg0);
 extern "C" void func_02093b54(struct Struct_02093ad8* arg0, struct Struct_02093ad8* arg1);
 extern "C" int func_0209372c(int arg0);
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 
 // USA: func_02094030
 
 extern "C" ARM int func_02094030(struct Struct_02094030* arg0, int arg1, int arg2, int arg3) {
     GameObject* var0 = GameState::GetInstance()->GetPartyMemberByIndex(arg3);
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     GameResources* var2 = GetGameResources();
 
-    if (func_0202c540(var1) != 0) {
+    if (IsLocalWirelessGuest_0202c540(var1) != 0) {
         if (arg1 == 10000) return 1;
     }
     if (arg0->unknown_3cb_ >= 8) return 1;

@@ -3,9 +3,9 @@
 #include "std_library_functions.h"
 
 
-struct Struct_0201099c_9;
-struct Struct_0201099c_10;
-extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+struct ItemData_0201099c_9;
+struct ItemTable_0201099c_10;
+extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
 
 extern "C" void func_ov023_021db0d4(void* arg0, int arg1);
 extern int data_ov023_021ffa0c;
@@ -40,7 +40,7 @@ extern "C" ARM int func_ov023_021dfc90(void* arg0) {
 
     if (*(void**)((char*)arg0 + 0x48) != 0) {
         short var1 = *(short*)((char*)arg0 + Enum_ov023_021dfc90_1792 + Enum_ov023_021dfc90_112);
-        *(void**)((char*)arg0 + 0x50) = func_020dedd0((struct Struct_0201099c_10*)*(void**)((char*)arg0 + 0x48), var1);
+        *(void**)((char*)arg0 + 0x50) = func_020dedd0((struct ItemTable_0201099c_10*)*(void**)((char*)arg0 + 0x48), var1);
     }
 
     int var2 = 0;

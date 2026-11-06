@@ -7,15 +7,15 @@
 #include "Memory/SafeAllocator.h"
 struct Struct_ov009_021842a0;
 
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 struct Struct_02038598_4;
 extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
 extern "C" void func_ov023_021e4f18(void* arg0);
 extern "C" int GetMessageWindow_020421a0();
 struct Struct_02045cac;
 extern "C" void func_02045cac(struct Struct_02045cac* arg0);
-extern "C" void func_02043204(char* arg0);
-extern "C" void func_02043124(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
+extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void func_0205a494(void* arg0);
 extern "C" void* func_0203bd14();
 extern "C" void func_0203c4c4(char* arg0);
@@ -33,7 +33,7 @@ extern "C" void* __clear(void* arg0, int arg1);
 extern "C" ARM void func_ov009_02184848(Struct_ov009_021842a0* arg0) {
     char* var0 = (char*)arg0;
     if (*(unsigned char*)(var0 + R(0xd59,0xd95)) == 1) {
-        func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 0xf);
+        func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0xf);
     }
 
     func_ov023_021e4f18(*(void**)(var0 + R(0x7b4,0x7f0)));
@@ -41,8 +41,8 @@ extern "C" ARM void func_ov009_02184848(Struct_ov009_021842a0* arg0) {
 
     void* var1 = (void*)GetMessageWindow_020421a0();
     func_02045cac((struct Struct_02045cac*)var1);
-    func_02043204((char*)var1);
-    func_02043124((char*)var1);
+    ResetMessageWindow_02043204((char*)var1);
+    CloseMessageWindow_02043124((char*)var1);
 
     if (*(void**)(var0 + R(0x79c,0x7d8)) != 0) {
         func_0205a494(*(void**)(var0 + R(0x79c,0x7d8)));

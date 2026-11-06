@@ -36,11 +36,11 @@ struct Struct_ov003_0216af14 { unsigned int unknown_0_; unsigned int unknown_4_;
 struct Struct_ov003_0217f578 { struct Struct_ov003_0216af14 unknown_0_[8]; };
 extern struct Struct_ov003_0217f578 data_ov003_0217f578;
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 extern "C" int func_ov003_0215c924(void* arg0, int arg1);
 extern "C" void func_ov003_0215c800(void* arg0);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_ov003_0216d818(char* arg0);
 extern "C" void func_ov003_0216d84c(void* arg0);
 extern "C" int func_0205d0e0(void* arg0, unsigned int arg1);
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov003_0216af14(Struct_ov003_0216af14_2* arg0) {
             void* var1 = arg0->unknown_12d4_.GetSignedAllocator();
             if (var1 != 0) {
                 arg0->unknown_12d4_.Destroy();
-                func_02012da4(&data_02114e20, var1);
+                FreeMemory_02012da4(&gMainHeap_02114e20, var1);
             }
         }
         func_ov003_0216d818((char*)arg0);

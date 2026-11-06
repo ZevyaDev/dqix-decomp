@@ -4,7 +4,7 @@
 
 struct Struct_0205c508;
 struct Struct_0201099c_3;
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_02054000;
 struct Struct_ov000_0217831c {
     unsigned int unknown_0_;
@@ -32,14 +32,14 @@ struct Struct_ov000_0217831c_3 {
 };
 
 extern "C" void func_0205c508(struct Struct_0205c508* arg0, int* arg1, int* arg2);
-extern "C" const char* func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" struct Struct_ov000_0217831c_2* func_02054000(struct Struct_02054000* arg0);
 extern "C" int func_ov000_0217542c(void* arg0);
 extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" int func_02041ea4(char* arg0, int arg1);
-extern "C" struct Struct_ov000_0217831c* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+extern "C" struct Struct_ov000_0217831c* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
 extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 #if defined(jpn)
 extern "C" int func_02042158(char* arg0, int arg1);
 #define func_02041acc func_02042158
@@ -58,9 +58,9 @@ extern "C" ARM void func_ov000_0217831c(Struct_ov000_0217831c_3* arg0, char* arg
     signed char var2 = var0;
     signed char var3 = var1;
     struct Struct_0201099c_3* var4 = (struct Struct_0201099c_3*)arg0->unknown_b8_;
-    const char* var5 = func_020e0434(var4, 0);
+    const char* var5 = FindStringInTable_020e0434(var4, 0);
     signed char var6 = arg0->unknown_1d6f_;
-    const char* var7 = func_020e0434(var4, 5);
+    const char* var7 = FindStringInTable_020e0434(var4, 5);
     int var8 = 0;
     signed char var9 = arg0->unknown_70_[arg0->unknown_1d6b_];
     int var10 = -1;
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov000_0217831c(Struct_ov000_0217831c_3* arg0, char* arg
         char var15[0x40];
         __clear(var15, sizeof(var15));
         int var16 = arg0->unknown_26_[var14];
-        struct Struct_ov000_0217831c* var17 = func_020dedd0((struct Struct_0201099c_10*)arg0->unknown_100_, var16);
+        struct Struct_ov000_0217831c* var17 = func_020dedd0((struct ItemTable_0201099c_10*)arg0->unknown_100_, var16);
         const char* var18 = var7;
         if (var17 != NULL) {
 #if defined(jpn)
@@ -91,17 +91,17 @@ extern "C" ARM void func_ov000_0217831c(Struct_ov000_0217831c_3* arg0, char* arg
 #endif
         }
         if (var10 == var16) {
-            func_02042058(var15, func_020e0434(var4, 0x13));
+            AppendText_02042058(var15, FindStringInTable_020e0434(var4, 0x13));
 #if !defined(jpn)
             func_02041acc(var15, 3);
 #endif
         } else {
             func_02041acc(var15, 8);
         }
-        func_02042058(var15, var18);
+        AppendText_02042058(var15, var18);
         func_02041b70(arg1, var8, var15);
         if (var14 != var3 - 1) {
-            func_02042058(arg1, var5);
+            AppendText_02042058(arg1, var5);
         }
         var8++;
     }

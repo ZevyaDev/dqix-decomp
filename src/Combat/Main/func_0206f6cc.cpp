@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void func_ov017_021bac24(int arg0);
 extern "C" void func_ov017_021ba8e0(int arg0);
 extern "C" void func_ov003_0217e300(int arg0);
@@ -18,7 +18,7 @@ extern "C" ARM int func_0206f6cc(unsigned char* arg0, int arg1) {
         return 1;
     }
 
-    int var0 = func_0200fb8c((int*)GameState::GetInstance());
+    int var0 = GetResources_0200fb8c((int*)GameState::GetInstance());
     unsigned char var1 = arg0[arg1];
     switch (var1) {
         case 1: func_ov017_021bac24(var0); break;

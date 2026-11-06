@@ -4,7 +4,7 @@ struct Struct_ov011_02184c30;
 extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
 
 extern "C" void* func_ov017_021b2164(void);
-extern "C" void* func_ov011_021849c8(void*);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 
 // The dispatched object is a C++ polymorphic type; the call site
 // (obj->vtable[0xac])(obj, ...) is a real virtual call. Modelling it as a
@@ -26,7 +26,7 @@ public:
     virtual void inline_ov011_02187cd8_24(); virtual void inline_ov011_02187cd8_25(); virtual void inline_ov011_02187cd8_26();
     virtual void inline_ov011_02187cd8_27(int arg0, int arg1, int arg2);
 };
-extern "C" struct Struct_ov011_02187cd8* func_ov023_021f6880(void*, int);
+extern "C" struct Struct_ov011_02187cd8* FindMenuObjectById_ov023_021f6880(void*, int);
 
 // USA: func_ov011_02187cd8
 extern "C" ARM int func_ov011_02187cd8(struct Struct_ov011_02184c30* arg0) {
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov011_02187cd8(struct Struct_ov011_02184c30* arg0) {
     int var1 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 8));
     int var2 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 0x10));
     int var3 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 0x18));
-    struct Struct_ov011_02187cd8* var4 = func_ov023_021f6880(func_ov011_021849c8(func_ov017_021b2164()), var0);
+    struct Struct_ov011_02187cd8* var4 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(func_ov017_021b2164()), var0);
     if (var4) {
         var4->inline_ov011_02187cd8_27(var1, var2, var3);
     }

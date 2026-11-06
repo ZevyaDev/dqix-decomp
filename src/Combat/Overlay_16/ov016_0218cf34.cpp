@@ -137,7 +137,7 @@ Alarm data_ov016_0219d190;
 extern int data_ov016_0219d0c0;
 extern SafeAllocator* data_ov016_0219d0c8;
 #endif
-extern char data_02109bf4;
+extern char gMusicManager_02109bf4;
 extern Struct_021052b4 data_021052b4[];
 extern char data_027e0000;
 
@@ -273,8 +273,8 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 	data_ov016_0219d0c0 = arg4.unknown_0_;
 	func_020bc078(&data_ov016_0219d14c);
 	if (data_ov016_0219d154->unknown_10_ == 0) {
-		func_0203aa44(&data_02109bf4);
-		func_0203aaf8(&data_02109bf4, data_ov016_0219d154->unknown_12_, 0);
+		func_0203aa44(&gMusicManager_02109bf4);
+		func_0203aaf8(&gMusicManager_02109bf4, data_ov016_0219d154->unknown_12_, 0);
 	}
 #endif
 
@@ -407,12 +407,12 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 				unsigned long long var31 = (GetCurrentTimestamp() << 6) / 0x82ea;
 				if (data_ov016_0219d180 + var30->unknown_14_ <= var31) {
 #if defined(jpn)
-					func_0203ad14(&data_02109bf4, var30->unknown_10_, 0, 0);
+					func_0203ad14(&gMusicManager_02109bf4, var30->unknown_10_, 0, 0);
 #else
 					if (var30->unknown_10_ != 0) {
-						func_0203ad14(&data_02109bf4, var30->unknown_12_, 0, 0);
+						func_0203ad14(&gMusicManager_02109bf4, var30->unknown_12_, 0, 0);
 					} else {
-						func_0203aba8(&data_02109bf4, var30->unknown_12_, &data_ov016_0219d14c);
+						func_0203aba8(&gMusicManager_02109bf4, var30->unknown_12_, &data_ov016_0219d14c);
 					}
 #endif
 					func_020bbd9c();
@@ -423,18 +423,18 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 			if ((*(unsigned short*)0x27fffa8 & 0x8000) >> 15) {
 				data_ov016_0219d158 = 1;
 #if defined(jpn)
-				func_0203ae4c(&data_02109bf4, 1, 0);
+				func_0203ae4c(&gMusicManager_02109bf4, 1, 0);
 				func_020ce89c(0xc, 0, 0);
-				*(unsigned int*)(&data_02109bf4 + 0xa8) =
+				*(unsigned int*)(&gMusicManager_02109bf4 + 0xa8) =
 					(unsigned int)(1000.0f * ((float)(var23 - var12) / var13));
-				func_0203ae4c(&data_02109bf4, 0, 0);
+				func_0203ae4c(&gMusicManager_02109bf4, 0, 0);
 #else
 				if (data_ov016_0219d154->unknown_10_ != 0) {
-					func_0203ae4c(&data_02109bf4, 1, 0);
+					func_0203ae4c(&gMusicManager_02109bf4, 1, 0);
 					func_020ce89c(0xc, 0, 0);
-					*(unsigned int*)(&data_02109bf4 + 0xa8) =
+					*(unsigned int*)(&gMusicManager_02109bf4 + 0xa8) =
 						(unsigned int)(1000.0f * ((float)(var23 - var12) / var13));
-					func_0203ae4c(&data_02109bf4, 0, 0);
+					func_0203ae4c(&gMusicManager_02109bf4, 0, 0);
 				} else {
 					func_020ce89c(0xc, 0, 0);
 				}
@@ -562,15 +562,15 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 		NitroVM_FinishRead(&var0);
 #if defined(jpn)
 		if (data_ov016_0219d154->unknown_10_ > -1) {
-			func_0203ad88(&data_02109bf4, 0, 0);
+			func_0203ad88(&gMusicManager_02109bf4, 0, 0);
 			func_020bbd9c();
 		}
 #else
 		if (data_ov016_0219d154->unknown_12_ > -1) {
 			if (data_ov016_0219d154->unknown_10_ != 0) {
-				func_0203ad88(&data_02109bf4, 0, 0);
+				func_0203ad88(&gMusicManager_02109bf4, 0, 0);
 			} else {
-				func_0203ac10(&data_02109bf4, &data_ov016_0219d14c, 0);
+				func_0203ac10(&gMusicManager_02109bf4, &data_ov016_0219d14c, 0);
 			}
 			func_020bbd9c();
 		}

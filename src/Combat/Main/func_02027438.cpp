@@ -2,7 +2,7 @@
 
 class Struct_02012de8;
 
-extern "C" Struct_02012de8* func_020d6c00();
+extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
 extern "C" bool func_02046708(Struct_02012de8* arg0, unsigned int arg1);
 
 #define TILE_PHASE02027438(v) ((v) < 0 ? (v) % 8 + 8 : (v) % 8)
@@ -17,7 +17,7 @@ struct Struct_0202343c_4 {
 
 // USA: func_02027438
 extern "C" ARM void func_02027438(struct Struct_0202343c_4* arg0) {
-    if (func_02046708(func_020d6c00(), 0x41)) {
+    if (func_02046708(GetGlobalFlags_020d6c00(), 0x41)) {
         return;
     }
     switch (arg0->unknown_14_) {

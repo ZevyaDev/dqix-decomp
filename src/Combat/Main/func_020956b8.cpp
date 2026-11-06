@@ -18,7 +18,7 @@ extern "C" ARM void func_020956b8(struct Struct_020956b8* arg0, SafeAllocator* a
     }
 
     BackgroundLoader::AddLockGlobal();
-    void* var1 = LoadFileIntoMemory(data_020f1474, data_0211e33c, &var0);
+    void* var1 = LoadFileIntoMemory(data_020f1474, gFileScratchSpace_0211e33c, &var0);
     if (var1 != 0) {
         data_02109404.unknown_8_ = 0;
         data_02109404.unknown_3_ = 0;

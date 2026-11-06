@@ -29,10 +29,10 @@ extern "C" void MapVRAMBanksToSubObj(unsigned short value);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void func_ov020_0218cd64(int, int, int, int, int);
 void LoadFileIntoMemory(const char*, void*, unsigned int*);
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(Struct_02020cb8_4*);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void func_0204b2e0(void*, char*);
 struct Struct_02020cb8_6;
 extern "C" void func_0204b3a0(Struct_02020cb8_6*, char*);
@@ -44,7 +44,7 @@ extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int* out, unsigned char
 
 extern char data_ov020_0218dce2;
 extern char data_ov020_0218dcf8;
-extern int data_0211e33c;
+extern int gFileScratchSpace_0211e33c;
 
 struct Struct_ov020_0218d32c {
     unsigned char unknown_0_[0x1c];
@@ -116,15 +116,15 @@ extern "C" ARM void func_ov020_0218d32c(struct Struct_ov020_0218d32c_2* arg0, in
     BackgroundLoader::AddLockGlobal();
 
     if (arg1 == 1) {
-        LoadFileIntoMemory((const char*)&data_ov020_0218dce2, (void*)&data_0211e33c, &var1);
+        LoadFileIntoMemory((const char*)&data_ov020_0218dce2, (void*)&gFileScratchSpace_0211e33c, &var1);
     } else {
-        LoadFileIntoMemory((const char*)&data_ov020_0218dcf8, (void*)&data_0211e33c, &var1);
+        LoadFileIntoMemory((const char*)&data_ov020_0218dcf8, (void*)&gFileScratchSpace_0211e33c, &var1);
     }
 
-    int var9 = func_02046900((Struct_02020cb8_4*)&data_0211e33c);
+    int var9 = CountPacEntries_02046900((PacEntry_02020cb8_4*)&gFileScratchSpace_0211e33c);
 
     for (int var10 = 0; var10 < var9; var10++) {
-        var3[var10] = (char*)func_020467f0((Struct_02020aec*)&data_0211e33c, var10, &var2, &var4[var10]);
+        var3[var10] = (char*)GetPacEntryData_020467f0((PacEntry_02020aec*)&gFileScratchSpace_0211e33c, var10, &var2, &var4[var10]);
     }
 
     func_0204af64((Struct_02020cb8*)var5);

@@ -30,15 +30,15 @@ struct Struct_0205da38;
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" int func_ov000_021761c8(char* arg0, int arg1);
 extern "C" int func_ov000_02175348(void* arg0, int arg1);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov000_0217ab48(void* arg0);
 extern "C" void func_ov000_02170db0(void* arg0);
 extern "C" void func_ov000_0217629c(void* arg0);
 extern "C" void func_ov000_0217ab8c(void* arg0, int arg1, int arg2);
 extern "C" void func_ov000_02176e3c(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
 
-extern struct Struct_02108760 data_02108760;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 struct Struct_ov000_0217b380 {
     char unknown_0_[0x10];
@@ -63,7 +63,7 @@ extern "C" ARM int func_ov000_0217b380(struct Struct_ov000_0217b380* arg0, int a
             int var4 = func_ov000_02175348(data_ov000_02184294.unknown_8_, var3);
             arg0->unknown_1d_ = NextRandomMax(GetBTRandom(), var4 * 100) / 100 + (signed char)var0;
         }
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         arg0->unknown_18_++;
         arg0->unknown_10_[arg0->unknown_18_] = 100;
         func_ov000_02170db0(arg0);

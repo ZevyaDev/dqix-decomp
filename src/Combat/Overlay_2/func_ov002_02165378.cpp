@@ -6,7 +6,7 @@ struct Struct_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205d81c;
 struct Struct_0205d5d0;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_020d7aa0_2;
 
 extern "C" int func_ov002_0215edc8(unsigned char *arg0);
@@ -26,12 +26,12 @@ extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" int func_0205df38(void *arg0, int arg1);
 extern "C" Struct_020d7aa0_2 *func_020d7a50();
 extern "C" void func_020d7aa0(Struct_020d7aa0_2 *arg0);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_0216364c(void *arg0);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_ov002_02156e90(void *arg0);
 
-extern "C" char data_02108760;
+extern "C" char gSoundEffectManager_02108760;
 
 // USA: func_ov002_02165378
 #if defined(jpn)
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov002_02165378(char *arg0) {
         func_020d7aa0(func_020d7a50());
         *(unsigned char *) (arg0 + 0xed8) = *(int *) (arg0 + 0x1a80);
         *(unsigned int *) (arg0 + 0x22ac) &= ~4;
-        func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
         *(int *) (arg0 + 0x1a80) = 0x12;
         *(int *) (arg0 + 0x1a88) = 0;
         if (func_ov002_0216364c(
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov002_02165378(char *arg0) {
         func_020d7aa0(func_020d7a50());
         *(unsigned char *) (arg0 + 0xf80) = *(int *) (arg0 + 0x1bb8);
         *(unsigned int *) (arg0 + 0x247c) &= ~4;
-        func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
         *(int *) (arg0 + 0x1bb8) = 0x11;
         *(int *) (arg0 + 0x1bc0) = 0;
         if (func_ov002_0216364c(

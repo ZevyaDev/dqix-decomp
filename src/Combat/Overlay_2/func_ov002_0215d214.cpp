@@ -1,9 +1,9 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_0201099c_3;
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 struct Struct_02000c9c_8;
 
 struct Struct_ov002_0215d214 {
@@ -33,18 +33,18 @@ struct Struct_ov002_0215d214_3 {
     unsigned int unknown_b_2_ : 6;
 };
 
-extern "C" void *func_02053c6c(unsigned char *arg0);
-extern "C" char *func_020dedd0(struct Struct_0201099c_10 *arg0, int arg1);
+extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" char *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
 extern "C" char *GetMessageWindow_020421a0();
-extern "C" void func_02046380(void *arg0);
+extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" void func_020e4bf4(void *arg0, int arg1);
 extern "C" int func_ov002_02159774(void *arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" int func_0200fb08(Struct_02000c9c_8 *arg0);
-extern "C" char *func_020e0434(struct Struct_0201099c_3 *arg0, int arg1);
+extern "C" char *FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int sprintf(char *arg0, const char *arg1, ...);
 extern "C" char *strstr(const char *arg0, const char *arg1);
 extern "C" void *memcpy(void *arg0, const void *arg1, unsigned int arg2);
-extern "C" void func_020465c0(Struct_020465c0 *arg0, int arg1, int arg2);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0 *window, int index, int number);
 extern "C" void func_02046608(void *arg0, int arg1, const char *arg2, char *arg3, int arg4, int arg5, int arg6);
 
 extern "C" unsigned char data_ov002_0216cac4[];
@@ -73,16 +73,16 @@ extern "C" ARM void func_ov002_0215d214(char *arg0, char *arg1, int arg2) {
     int var6 = var4[*(short *) (arg0 + 0x1bec)];
     char *var7 = (char *) func_0200ff1c(var3, var6);
     if (var7 == 0) return;
-    Struct_ov002_0215d214_2 *var8 = (Struct_ov002_0215d214_2 *) func_02053c6c((unsigned char *) var7);
+    Struct_ov002_0215d214_2 *var8 = (Struct_ov002_0215d214_2 *) GetPartyMemberData_02053c6c((unsigned char *) var7);
     if (var8 == 0) return;
     char *var9 = 0;
     if (*(short *) (arg0 + 0x1c26) < 0) {
-        var9 = func_020dedd0((struct Struct_0201099c_10 *) (arg0 + 0x3ec + 0x400),
+        var9 = func_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + 0x3ec + 0x400),
                                                               *(short *) (arg0 + 0x1c22));
         if (var9 == 0) return;
     }
     char *var10 = GetMessageWindow_020421a0();
-    func_02046380(var10);
+    ClearMessageParams_02046380(var10);
     func_020e4bf4(&var1, var6);
     *(void **) var10 = &var1;
     int var11;
@@ -172,7 +172,7 @@ extern "C" ARM void func_ov002_0215d214(char *arg0, char *arg1, int arg2) {
     if (var17 == 3) {
         var18 = 3;
     }
-    sprintf(var2, func_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), var11), var18, var17);
+    sprintf(var2, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), var11), var18, var17);
     if (var19 != 0) {
         char *var24 = strstr(var2, data_ov002_0216d280);
         if (var24 != 0) {
@@ -180,7 +180,7 @@ extern "C" ARM void func_ov002_0215d214(char *arg0, char *arg1, int arg2) {
             memcpy(var24 + 4, var0, 2);
         }
     }
-    func_020465c0((Struct_020465c0 *) var10, 0, var14);
-    func_020465c0((Struct_020465c0 *) var10, 1, var15);
+    SetMessageNumber_020465c0((MessageWindow_020465c0 *) var10, 0, var14);
+    SetMessageNumber_020465c0((MessageWindow_020465c0 *) var10, 1, var15);
     func_02046608(var10, 10, var2, arg1, 0x100, 0, 0);
 }

@@ -20,7 +20,7 @@ extern "C" void func_0204b878(struct Struct_0204b878*, int, int, int, short, sho
 extern "C" void func_ov000_0217f5e4(struct Struct_ov000_02173954*, int);
 
 extern "C" void func_0204b04c(void*, int);
-extern "C" void* func_0202ae18(void*);
+extern "C" void* GetLocalWireless_0202ae18(void*);
 extern "C" void func_0203bd08(void*);
 extern "C" void func_ov000_0217a8f4(void*);
 extern "C" void func_ov000_021750e4(void*);
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov000_02173954(char* arg0) {
         func_ov000_02180bac(arg0);
         return;
     }
-    func_0203bd08(func_0202ae18(GameState::GetInstance()));
+    func_0203bd08(GetLocalWireless_0202ae18(GameState::GetInstance()));
     signed char* var0;
 #if defined(jpn)
     int var10, var11;

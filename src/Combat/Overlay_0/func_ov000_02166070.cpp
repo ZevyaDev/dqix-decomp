@@ -31,7 +31,7 @@ struct Struct_0203d028_11 {
     int unknown_18_;
     int unknown_1c_;
 };
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 
 struct Struct_ov000_02166070_3 { int unknown_0_; const char* unknown_4_; };
 struct Struct_ov000_02166070_4 {
@@ -64,13 +64,13 @@ struct Struct_ov000_02166070_2 {
 
 extern "C" Struct_ov000_02166070_3* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" void func_020484d0(void*);
-extern "C" void func_0207df90(char*);
-extern "C" void func_0207dfac(char*);
+extern "C" void RestoreTextureVRAMState_0207df90(char*);
+extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_0203dafc(struct Struct_0203d028_11*);
 extern "C" Struct_ov000_02166070_4* func_02070fd0(struct Struct_02070b6c_3*, int);
 extern "C" void func_ov000_0216d1c4(int, struct Struct_02013fb4*, int, int*);
 extern "C" void func_020484f8(Object3D*, Struct_020484f8_2*);
-extern "C" void func_0207df50(struct Struct_0203d028*);
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028*);
 extern "C" void _ZN8Object3D10SetField78Et(Object3D*, unsigned int);
 extern "C" void _ZN8Object3D10SetField7aEt(Object3D*, unsigned int);
 extern "C" void func_0207de48(char*, int, int);
@@ -94,24 +94,24 @@ extern "C" ARM void func_ov000_02166070(Struct_ov000_02166070_2* arg0, GPCReadPa
     Struct_ov000_02166070_3* var14 = func_0206f4f0(var1, (short)arg3);
     if (var14 == 0) return;
     sprintf(var4, data_ov000_02183a47, var14->unknown_4_);
-    if (!DecompressFileFromGPCByName(arg1->pGPCFile, arg1->machine, data_0211e33c + arg5, var7, 0x30000 - arg5, var4)) {
+    if (!DecompressFileFromGPCByName(arg1->pGPCFile, arg1->machine, gFileScratchSpace_0211e33c + arg5, var7, 0x30000 - arg5, var4)) {
         arg1->Reset();
         if (arg4) BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    if (!FindFilesInNarcBySubstring(data_0211e33c + arg5, data_ov000_02183a4e, &var8, &var9, 1)) {
+    if (!FindFilesInNarcBySubstring(gFileScratchSpace_0211e33c + arg5, data_ov000_02183a4e, &var8, &var9, 1)) {
         arg1->Reset();
         if (arg4) BackgroundLoader::RemoveLockGlobal();
         return;
     }
     void* var15 = DecompressLZ77FileIntoAllocatedSpace(*var2, var8, var10);
-    if (!FindFilesInNarcBySubstring(data_0211e33c + arg5, data_ov000_02183a54, &var8, &var9, 1)) {
+    if (!FindFilesInNarcBySubstring(gFileScratchSpace_0211e33c + arg5, data_ov000_02183a54, &var8, &var9, 1)) {
         arg1->Reset();
         if (arg4) BackgroundLoader::RemoveLockGlobal();
         return;
     }
     void* var16 = DecompressLZ77FileIntoAllocatedSpace(*var2, var8, var11);
-    if (!FindFilesInNarcBySubstring(data_0211e33c + arg5, data_ov000_021839e2, &var12, &var13, 1)) {
+    if (!FindFilesInNarcBySubstring(gFileScratchSpace_0211e33c + arg5, data_ov000_021839e2, &var12, &var13, 1)) {
         var12 = 0;
         var13 = 0;
     }
@@ -123,13 +123,13 @@ extern "C" ARM void func_ov000_02166070(Struct_ov000_02166070_2* arg0, GPCReadPa
     }
     func_020484d0(var17);
     var17->unknown_2_ = arg3;
-    func_0207df90(arg0->unknown_1bc_);
+    RestoreTextureVRAMState_0207df90(arg0->unknown_1bc_);
     func_0203dafc(&var5);
     var5.unknown_4_ = (int)var15;
     var5.unknown_8_ = var10;
     var5.unknown_c_ = var2;
     var17->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var5, 0);
-    func_0207dfac(arg0->unknown_1bc_);
+    SaveTextureVRAMState_0207dfac(arg0->unknown_1bc_);
     func_0203dafc(&var5);
     var5.unknown_4_ = (int)var16;
     var5.unknown_8_ = var11;
@@ -150,8 +150,8 @@ extern "C" ARM void func_ov000_02166070(Struct_ov000_02166070_2* arg0, GPCReadPa
     _ZN8Object3D10SetField7aEt(var17, var19);
     arg0->unknown_eb8_[arg2] = var17;
     if (arg3 == 0x13f || arg3 == 0x13d || arg3 == 0x321) {
-        func_0207df50((struct Struct_0203d028*)arg0->unknown_14c_);
-        func_0207df90(arg0->unknown_14c_);
+        ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)arg0->unknown_14c_);
+        RestoreTextureVRAMState_0207df90(arg0->unknown_14c_);
         func_0207de48(arg0->unknown_14c_, 0x800, 0);
         func_0207de48(arg0->unknown_14c_, 0xb800, 0x400);
     }

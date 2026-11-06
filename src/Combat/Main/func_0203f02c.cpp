@@ -4,8 +4,8 @@
 extern "C" int func_0204027c(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" int func_020bb588(int arg0, int arg1, int arg2);
 
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 struct Struct_02040468;
 struct Struct_0203f02c {
@@ -34,7 +34,7 @@ struct Struct_0203d028_14 {
 
 // USA: func_0203f02c
 extern "C" ARM void func_0203f02c(struct Struct_0203d028_14* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5) {
-    func_0207df90(arg3);
+    RestoreTextureVRAMState_0207df90(arg3);
 
     int var0;
     if (arg4) {
@@ -52,5 +52,5 @@ extern "C" ARM void func_0203f02c(struct Struct_0203d028_14* arg0, int arg1, int
         arg0->unknown_5a_ = StageMemoryToVRAM(VRAMSubregion_TexturePalette, var1->unknown_20_, var1->unknown_24_, var1->unknown_1c_ << 1, false, false);
     }
 
-    func_0207dfac(arg3);
+    SaveTextureVRAMState_0207dfac(arg3);
 }

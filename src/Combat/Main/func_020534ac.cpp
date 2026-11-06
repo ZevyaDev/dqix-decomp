@@ -9,17 +9,17 @@
 #include "Memory/SafeAllocator.h"
 
 struct Struct_02012de8;
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
 
 struct Struct_020534ac_2;
 
 struct Struct_020534ac;
 
-struct Struct_0203d028;
-extern "C" void func_0207df50(struct Struct_0203d028* arg0);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+struct TextureVRAMArea_0203d028;
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 extern "C" void func_0204719c(void);
 extern "C" void func_02047b40(void* arg0, int arg1, void* arg2);
@@ -35,7 +35,7 @@ extern "C" ARM void func_020534ac(char* arg0) {
     int var5;
     int var6;
 
-    if (func_02046708((struct Struct_02012de8*)func_020d6c00(), 2)) {
+    if (func_02046708((struct Struct_02012de8*)GetGlobalFlags_020d6c00(), 2)) {
         return;
     }
     if (*(unsigned char*)(arg0 + (IS_JPN ? 0x179 : 0x185)) == 0) {
@@ -50,8 +50,8 @@ extern "C" ARM void func_020534ac(char* arg0) {
             var0 = *(int*)(arg0 + (IS_JPN ? 0x148 : 0x154));
             var1 = (char*)(var0 + 0x168);
             var2 = (char*)(var0 + 0x154);
-            func_0207df50((struct Struct_0203d028*)(var1 + 0x400));
-            func_0207df90(var1 + 0x400);
+            ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)(var1 + 0x400));
+            RestoreTextureVRAMState_0207df90(var1 + 0x400);
             var4 = ((SafeAllocator*)(var2 + 0x400))->Allocate(0x88);
             *(void**)(arg0 + (IS_JPN ? 0x184 : 0x190)) = var4;
             if (var4 != NULL) {
@@ -59,7 +59,7 @@ extern "C" ARM void func_020534ac(char* arg0) {
                 *(unsigned char*)((char*)(*(void**)(arg0 + (IS_JPN ? 0x184 : 0x190))) + 0x84) |= 4;
                 func_02047b40(*(void**)(arg0 + (IS_JPN ? 0x184 : 0x190)), var5, var2 + 0x400);
             }
-            func_0207dfac(var1 + 0x400);
+            SaveTextureVRAMState_0207dfac(var1 + 0x400);
         }
     }
 

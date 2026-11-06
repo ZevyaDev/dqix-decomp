@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 int IsSubBrightnessTransitionActive(GameResources*);
 
 struct Struct_02074bf4;
@@ -26,7 +26,7 @@ struct Struct_0208d340 {
 
 // USA: func_0208d340
 extern "C" ARM void func_0208d340(struct Struct_0208d340* arg0) {
-    int var0 = func_0200fb8c((int*)GameState::GetInstance());
+    int var0 = GetResources_0200fb8c((int*)GameState::GetInstance());
 
     if (arg0->unknown_d5_ == 0) {
         if (!(arg0->unknown_da_ & 0x10)) {
@@ -55,5 +55,5 @@ extern "C" ARM void func_0208d340(struct Struct_0208d340* arg0) {
     *(short*)((char*)var1 + 0x50) = 0;
     arg0->unknown_d5_ = arg0->unknown_d5_ + 1;
     func_0208ba54((struct Struct_0208ba54*)arg0);
-    ClearFlags00((GameResources*)(func_0200fb8c((int*)GameState::GetInstance())), 0x6000);
+    ClearFlags00((GameResources*)(GetResources_0200fb8c((int*)GameState::GetInstance())), 0x6000);
 }

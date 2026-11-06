@@ -5,13 +5,13 @@ extern "C" int func_0209ca68(char* arg0);
 extern "C" void func_0209c530(void* arg0);
 extern "C" void* GetZone3D_02012fe4(void);
 
-extern char data_02109bf4;
+extern char gMusicManager_02109bf4;
 
 // USA: func_ov001_02156b20
 extern "C" ARM void func_ov001_02156b20(void*) {
 	unsigned int* var0 = (unsigned int*)GetGameResources();
-	if (func_0209ca68(&data_02109bf4) == 2) {
-		func_0209c530(&data_02109bf4);
+	if (func_0209ca68(&gMusicManager_02109bf4) == 2) {
+		func_0209c530(&gMusicManager_02109bf4);
 	}
 	unsigned short var1 = *(unsigned short*)GetZone3D_02012fe4();
 	if (var1 != 0x2710) {

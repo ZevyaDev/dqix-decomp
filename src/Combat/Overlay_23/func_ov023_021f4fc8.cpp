@@ -3,9 +3,9 @@
 
 extern "C" int GetMessageWindow_020421a0(void);
 
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
-extern struct Struct_02108760 data_02108760;
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 // USA: func_ov023_021f4fc8
 extern "C" ARM int func_ov023_021f4fc8(void) {
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov023_021f4fc8(void) {
         if (g_touchInput.released_) var2 = 1;
     }
     if (var2) {
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         return 1;
     }
     int var3 = *(int*)((char*)var0 + Enum_ov023_021f4fc8_2456) == 0;

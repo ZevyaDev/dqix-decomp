@@ -2,7 +2,7 @@
 #include "Combat/ActorAction.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 struct Struct_0202b2f0;
 extern "C" int func_0202c578(struct Struct_0202b2f0* arg0, int arg1);
 extern "C" void* func_0202ae24(void);
@@ -29,7 +29,7 @@ struct Struct_ov017_021d3f00_2 {
 extern "C" ARM void func_ov017_021d3f00(Struct_02037d10* arg0, unsigned char arg1, unsigned char arg2) {
     if (!arg0) return;
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     if (func_0202c578((struct Struct_0202b2f0*)var1, 0)) return;
     void* var2 = func_0202ae24();
 

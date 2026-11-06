@@ -4,7 +4,7 @@
 
 
 extern char data_ov000_02183a2f[];
-extern char data_0211e33c[];
+extern char gFileScratchSpace_0211e33c[];
 
 // USA: func_ov000_02166008
 extern "C" ARM unsigned int func_ov000_02166008(void* arg0, GPCReadPair* arg1, int arg2) {
@@ -15,6 +15,6 @@ extern "C" ARM unsigned int func_ov000_02166008(void* arg0, GPCReadPair* arg1, i
     }
     arg1->ZeroInitialize();
     LoadAndDecompressGPCHeaderAndInnerFileInfo(&arg1->pGPCFile, arg1->machine,
-        data_ov000_02183a2f, data_0211e33c, var0, 0x30000, false, NULL);
+        data_ov000_02183a2f, gFileScratchSpace_0211e33c, var0, 0x30000, false, NULL);
     return var0;
 }

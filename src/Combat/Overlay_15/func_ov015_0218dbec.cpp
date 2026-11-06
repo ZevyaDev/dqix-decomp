@@ -3,13 +3,13 @@
 #include "Memory/SafeAllocator.h"
 #include "World/Object3D.h"
 #include "Filesystem/GPC.h"
-extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 #include "Filesystem/FileIO.h"
 #include "Filesystem/BackgroundLoader.h"
 
 struct Struct_0206f01c_2;
 struct Struct_02070b6c_3;
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 struct Struct_0203d028_11;
 
 extern "C" void* func_0206f4f0(Struct_0206f01c_2*, int);
@@ -17,9 +17,9 @@ extern "C" void* func_02070fd0(Struct_02070b6c_3*, int);
 extern "C" void func_0203dafc(struct Struct_0203d028_11*);
 
 extern "C" void* __clear(void* arg0, int arg1);
-extern "C" void func_0207df50(Struct_0203d028*);
-extern "C" void func_0207df90(char*);
-extern "C" void func_0207dfac(char*);
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
+extern "C" void RestoreTextureVRAMState_0207df90(char*);
+extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_02079a3c(void*);
 extern "C" void _ZN8Object3D10SetField7aEt(Object3D*, unsigned int);
 extern "C" void func_0205ebc0(void*, int, int);
@@ -63,7 +63,7 @@ extern char data_ov015_02194105;
 extern char data_ov015_0219411d;
 extern char data_ov015_02194123;
 extern struct Struct_ov015_02193cf0 data_ov015_02193cf0;
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 // USA: func_ov015_0218dbec
 extern "C" ARM int func_ov015_0218dbec(Struct_ov015_0218dbec_3* arg0, Struct_ov015_0218dbec* arg1) {
@@ -78,8 +78,8 @@ extern "C" ARM int func_ov015_0218dbec(Struct_ov015_0218dbec_3* arg0, Struct_ov0
 
     int var1 = 1;
     char* var2 = *arg0->unknown_4_;
-    func_0207df50((Struct_0203d028*)var2);
-    func_0207df90(var2);
+    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var2);
+    RestoreTextureVRAMState_0207df90(var2);
 
     if (arg0->unknown_0_->unknown_1a1_ != 0) {
         sprintf(var0, &data_ov015_021940f5, arg0->unknown_10_->unknown_4_);
@@ -94,9 +94,9 @@ extern "C" ARM int func_ov015_0218dbec(Struct_ov015_0218dbec_3* arg0, Struct_ov0
     func_02079a3c(&var3);
     unsigned int var4;
     if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var3.pGPCFile, var3.machine, &data_ov015_02194105,
-                                                   data_0211e33c, var4, 0x30000, false, 0)) {
+                                                   gFileScratchSpace_0211e33c, var4, 0x30000, false, 0)) {
         unsigned int var5;
-        char* var6 = (char*)data_0211e33c + var4;
+        char* var6 = (char*)gFileScratchSpace_0211e33c + var4;
         if (DecompressFileFromGPCByName(var3.pGPCFile, var3.machine, var6, var5, 0x30000 - var4, var0)) {
             const void* var7 = 0;
             unsigned int var8 = 0;
@@ -139,7 +139,7 @@ extern "C" ARM int func_ov015_0218dbec(Struct_ov015_0218dbec_3* arg0, Struct_ov0
     }
 
     BackgroundLoader::RemoveLockGlobal();
-    func_0207dfac(var2);
+    SaveTextureVRAMState_0207dfac(var2);
 
     int var15;
     if (var1 == 0) {
@@ -152,7 +152,7 @@ extern "C" ARM int func_ov015_0218dbec(Struct_ov015_0218dbec_3* arg0, Struct_ov0
         if (var16 != 0) {
             arg0->unknown_24_->SetField78(var16->unknown_14_ & 0xffff);
             _ZN8Object3D10SetField7aEt(arg0->unknown_24_, var16->unknown_14_ >> 16);
-            func_0205ebc0(&data_02108760, var16->unknown_14_ & 0xffff, var16->unknown_14_ >> 16);
+            func_0205ebc0(&gSoundEffectManager_02108760, var16->unknown_14_ & 0xffff, var16->unknown_14_ >> 16);
         }
         arg0->unknown_c_ = arg0->unknown_10_->unknown_0_;
         var15 = 1;

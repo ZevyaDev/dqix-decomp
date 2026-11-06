@@ -15,9 +15,9 @@ extern "C" ARM void* func_020e0968(const char* arg0, unsigned int* arg1) {
     *arg1 = 0;
     func_020e12ec(var0, arg0);
     BackgroundLoader::FreeAllocationsGlobal();
-    func_020da930(var0, data_0211e33c, arg1, sizeof(data_0211e33c), false);
+    func_020da930(var0, gFileScratchSpace_0211e33c, arg1, sizeof(gFileScratchSpace_0211e33c), false);
     if (*arg1 != 0)
-        return data_0211e33c;
+        return gFileScratchSpace_0211e33c;
     return 0;
 }
 #endif

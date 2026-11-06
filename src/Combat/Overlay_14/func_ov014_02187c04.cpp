@@ -69,14 +69,14 @@ struct Struct_ov014_02186bc8 {
 };
 
 struct Struct_0207fdcc_2;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_02081f20_2;
 
 extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" void func_0208203c(Struct_02081f20_2*);
 extern "C" void func_0207fdcc(Struct_0207fdcc_2*, int);
 extern "C" int func_ov014_02186ff0(char*);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 
 extern "C" {
 Struct_ov014_02184f78* func_020974b0(Struct_020974b0* arg0, int arg1, int, bool arg3, int, short* arg5);
@@ -85,7 +85,7 @@ void func_020813ec(Struct_ov000_0217ab8c* arg0, short arg1);
 bool func_ov014_02186f10(Struct_ov014_02186bc8* arg0);
 }
 
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 
 // USA: func_ov014_02187c04
 extern "C" ARM void func_ov014_02187c04(Struct_ov014_02186bc8* arg0)
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov014_02187c04(Struct_ov014_02186bc8* arg0)
         arg0->unknown_d0_ = &arg0->unknown_172_;
         if (func_ov014_02186f10(arg0))
         {
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             func_0208203c((Struct_02081f20_2*)arg0->unknown_14c_);
             switch (*arg0->unknown_d0_)
             {

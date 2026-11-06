@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 struct Struct_02038598_5;
 struct Struct_02015438;
 struct Struct_020113e0;
@@ -39,7 +39,7 @@ struct Struct_ov017_021cf86c_2 { char unknown_0_[0x26a4]; char unknown_2664_[4];
 struct Struct_ov017_021cf86c_2 { char unknown_0_[0x2664]; char unknown_2664_[4]; };
 #endif
 struct Struct_ov017_021cf86c_3 { char unknown_0_[0xc]; int unknown_c_; };
-extern "C" int func_0202c1a4(Struct_0202c1a4*);
+extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" Struct_ov017_021cf86c_2* GetZone3D_02012fe4();
 extern "C" void* func_0200fd0c(GameState*);
 extern "C" int func_02046b60(Struct_02038598_5*, int);
@@ -49,8 +49,8 @@ extern "C" void func_020113e0(Struct_020113e0*);
 extern "C" int func_0201b588(int);
 
 // USA: func_ov017_021cf86c
-extern "C" ARM void func_ov017_021cf86c(void*, Struct_ov017_021cf730_2* arg1, GameState* arg2, Struct_ov017_021cf86c* arg3, Struct_0202c1a4* arg4) {
-    if (arg1->unknown_7_.unknown1_0_.unknown_0_3_ >= 0 && func_0202c1a4(arg4) != arg1->unknown_7_.unknown1_0_.unknown_0_3_) return;
+extern "C" ARM void func_ov017_021cf86c(void*, Struct_ov017_021cf730_2* arg1, GameState* arg2, Struct_ov017_021cf86c* arg3, LocalWireless_0202c1a4* arg4) {
+    if (arg1->unknown_7_.unknown1_0_.unknown_0_3_ >= 0 && GetOwnProtagonistObjectIndex_0202c1a4(arg4) != arg1->unknown_7_.unknown1_0_.unknown_0_3_) return;
     Struct_ov017_021cf86c_2* var0 = GetZone3D_02012fe4();
     GrottoStruct* var1;
     Struct_02038598_5* var2 = arg3->unknown_36fc_;

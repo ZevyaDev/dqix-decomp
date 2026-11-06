@@ -25,7 +25,7 @@ struct Struct_ov031_022439d8 {
 extern SafeAllocator data_ov031_02291e3c;
 extern "C" void func_ov023_021f5b9c(void* arg0, void* arg1, int arg2, void* arg3);
 extern "C" void func_020397c0(void* arg0);
-extern "C" Struct_02038598_4* func_020d6c00(void);
+extern "C" Struct_02038598_4* GetGlobalFlags_020d6c00(void);
 extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
 
 // USA: func_ov031_022439d8
@@ -75,7 +75,7 @@ extern "C" ARM int func_ov031_022439d8(Struct_ov031_022439d8* arg0) {
 		}
 	}
 	if ((arg0->unknown_374_ & 0x20) == 0) {
-		func_020466f4(func_020d6c00(), 0x80);
+		func_020466f4(GetGlobalFlags_020d6c00(), 0x80);
 	}
 	arg0->unknown_30_ = 1;
 	return 2;

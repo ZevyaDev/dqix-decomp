@@ -22,8 +22,8 @@ extern "C" void func_020e2110(void*);
 extern "C" void func_020e23f4(void*);
 extern "C" void func_020e2478(int*);
 extern "C" void func_020e2cc4(Struct_020439b0*, int);
-extern "C" void func_0207df50(Struct_0203d028*);
-extern int data_02108760;
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
+extern int gSoundEffectManager_02108760;
 
 #else
 
@@ -56,9 +56,9 @@ extern "C" void func_020e2110(void*);
 extern "C" void func_020e23f4(void*);
 extern "C" void func_020e2478(int*);
 extern "C" void func_020e2cc4(struct Struct_020439b0*, int);
-extern "C" void func_0207df50(struct Struct_0203d028*);
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028*);
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 #endif
 
@@ -97,7 +97,7 @@ extern "C" ARM void StartMessage_0204500c(MessageWindow_02021b84* window, const 
         window->unknown_19bf_ = 1;
         window->unknown_17ff_.unknown_0_1_ = 1;
         window->unknown_1778_[0] = window->unknown_1778_[1] = window->unknown_1778_[2] = window->unknown_1778_[3] = 0x7f;
-        func_0205e944(&data_02108760, 0x7f);
+        func_0205e944(&gSoundEffectManager_02108760, 0x7f);
         memset(window->unknown_2cc_, 0, sizeof(window->unknown_2cc_));
         memset(window->unknown_14_, 0, 0x800);
         memset(window->unknown_4c_, 0, 0x140);
@@ -195,7 +195,7 @@ extern "C" ARM void StartMessage_0204500c(MessageWindow_02021b84* window, const 
         for (int var7 = 0; var7 < 2; var7++) {
             func_020e2cc4(&window->unknown_1964_[var7].unknown_0_, 0);
         }
-        if (window->unknown_1e28_ != 0) func_0207df50(window->unknown_1e28_);
+        if (window->unknown_1e28_ != 0) ResetTextureVRAMState_0207df50(window->unknown_1e28_);
     }
 }
 #else
@@ -263,7 +263,7 @@ extern "C" ARM void StartMessage_0204500c(struct MessageWindow_02021b84* window,
         window->unknown_19bf_ = 1;
         window->unknown_19cf_ = 1;
         window->unknown_194a_[0] = window->unknown_194a_[1] = window->unknown_194a_[2] = window->unknown_194a_[3] = 0x7f;
-        func_0205e944(&data_02108760, 0x7f);
+        func_0205e944(&gSoundEffectManager_02108760, 0x7f);
         memset(window->unknown_2cc_, 0, sizeof(window->unknown_2cc_));
         memset(window->unknown_48_, 0, 0x960);
         memset(window->unknown_4c_, 0, 0x280);
@@ -367,7 +367,7 @@ extern "C" ARM void StartMessage_0204500c(struct MessageWindow_02021b84* window,
             func_020e2cc4(&window->unknown_1964_[var24], 0);
         }
         if (window->unknown_1e28_ != 0) {
-            func_0207df50(window->unknown_1e28_);
+            ResetTextureVRAMState_0207df50(window->unknown_1e28_);
         }
     }
     window->unknown_30_ = -1;

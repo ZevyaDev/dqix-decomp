@@ -16,7 +16,7 @@ struct Struct_02095d18 {
 };
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void func_0209651c(Struct_0208cb08* arg0);
+extern "C" void func_0209651c(FontLoader_0208cb08* arg0);
 extern "C" Struct_02095d18* func_020429bc(int arg0);
 
 extern char data_020f151f[];
@@ -26,7 +26,7 @@ static inline int inline_02095d18(int arg0, int arg1, int arg2) {
 }
 
 // JPN: func_02095d18
-extern "C" ARM void func_02095d18(Struct_0208cb08* arg0) {
+extern "C" ARM void func_02095d18(FontLoader_0208cb08* arg0) {
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
     for (unsigned char var1 = 0; var1 < arg0->unknown_54_; var1++) {
         if (var0->GetTaskStatus(arg0->unknown_14_[var1]) == 0) return;

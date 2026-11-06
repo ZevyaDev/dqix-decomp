@@ -9,7 +9,7 @@ struct Struct_ov017_021d26a4 {
     unsigned char unknown_5_1_ : 1;
 };
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov017_0218d4b8(unsigned char* arg0, int arg1);
 extern "C" void func_ov017_0218d4d0(void* arg0, int arg1);
 extern "C" void func_ov017_02191aac(void* arg0, int arg1, int arg2, unsigned char arg3);
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov017_021d26a4(void* arg0, Struct_ov017_021d26a4* arg1,
     if (var1 == 0) {
         return;
     }
-    unsigned char* var2 = (unsigned char*)func_02053c6c((unsigned char*)var1);
+    unsigned char* var2 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var1);
     if (var2 == 0) {
         return;
     }

@@ -28,7 +28,7 @@ struct Struct_0201f040_3;
 
 #if defined(jpn)
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
-extern char data_0211e33c[];
+extern char gFileScratchSpace_0211e33c[];
 #else
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 #endif
@@ -60,7 +60,7 @@ extern "C" ARM void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned sho
         BackgroundLoader::AddLockGlobal();
         var0 = 0;
         #if defined(jpn)
-        var1 = LoadFileIntoMemory((const char*)&data_020f1917, data_0211e33c, (unsigned int*)&var0);
+        var1 = LoadFileIntoMemory((const char*)&data_020f1917, gFileScratchSpace_0211e33c, (unsigned int*)&var0);
 #else
         var1 = ExtractFileFromGP2((const char*)&data_020f1917, (const char*)&data_020f192c, (unsigned int*)&var0);
 #endif

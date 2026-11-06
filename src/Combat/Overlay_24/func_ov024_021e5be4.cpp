@@ -10,7 +10,7 @@ struct Struct_ov024_021e5be4_2 { char unknown_0_[0x32]; short unknown_32_; };
 // USA: func_ov024_021e5be4
 extern "C" ARM void func_ov024_021e5be4(struct Struct_ov024_021e5be4* arg0, int arg1, struct Struct_ov024_021e5be4_2* arg2, int arg3) {
 	GameState* var0 = GameState::GetInstance();
-	void* var1 = func_02010828(var0);
+	void* var1 = GetParty_02010828(var0);
 	if (func_ov000_0215fd24((int)arg0->unknown_10_, arg1)) {
 		*(int*)((char*)var1 + 0xf6c) -= arg2->unknown_32_;
 		return;

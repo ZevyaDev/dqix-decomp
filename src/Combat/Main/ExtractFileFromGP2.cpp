@@ -2,13 +2,13 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/GPC.h"
 #include "GameState/GameState.h"
-extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 #include "Filesystem/FileIO.h"
 
 struct Struct_02000c9c_8;
 struct Struct_02012de8;
 extern "C" int func_0200fb08(Struct_02000c9c_8*);
-extern "C" Struct_02012de8* func_020d6c00();
+extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
 extern "C" int func_02046708(Struct_02012de8*, unsigned int);
 extern "C" void __clear(void*, unsigned int);
 
@@ -32,9 +32,9 @@ extern "C" ARM void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsi
     void* var2;
     unsigned int var3;
     unsigned int var4 = 0;
-    unsigned char* var5 = data_0211e33c;
+    unsigned char* var5 = gFileScratchSpace_0211e33c;
     unsigned int var6 = 0x30000;
-    if (func_02046708(func_020d6c00(), 0x02000000)) var6 -= 0x8000;
+    if (func_02046708(GetGlobalFlags_020d6c00(), 0x02000000)) var6 -= 0x8000;
     Struct_0207568c var7;
     if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var7.pGPCFile, var7.machine, arg0, var5, var4, var6, false, NULL)) {
         var3 = var4;

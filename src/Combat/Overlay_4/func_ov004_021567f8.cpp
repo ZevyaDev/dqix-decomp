@@ -33,7 +33,7 @@ extern "C" ARM int func_ov004_021567f8(void* arg0) {
     *(void**)((char*)&data_ov004_021707c8 + 8) = var2->Allocate(0x14);
     BackgroundLoader::AddLockGlobal();
     unsigned int var3 = 0;
-    void* var5 = LoadFileIntoMemory(data_ov004_02170c94, data_0211e33c, &var3);
+    void* var5 = LoadFileIntoMemory(data_ov004_02170c94, gFileScratchSpace_0211e33c, &var3);
 #else
     *(void**)((char*)&data_ov004_021707c8 + 12) = var2->Allocate(0x14);
     int var4 = var1->QueueLoadFileInGP2(data_ov004_0217039a, data_ov004_021703af, 0);

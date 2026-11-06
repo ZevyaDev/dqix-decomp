@@ -16,7 +16,7 @@ extern "C" ARM void func_0206819c(const char* arg0, char* arg1, int arg2);
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_020420e8(void* arg0, int arg1);
-extern "C" void func_02046380(void* arg0);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" int func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
 extern "C" int func_0204f41c(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, void* arg6, void* arg7, int arg8);
 
@@ -49,7 +49,7 @@ extern "C" ARM void func_02081b3c(void* arg0, void* arg1, void* arg2) {
 
     int var10 = GetMessageWindow_020421a0();
     memset(*(void**)(var0 + 0x18), 0, 0x800);
-    func_02046380((void*)var10);
+    ClearMessageParams_02046380((void*)var10);
     func_020474a8((void*)var10, F13(var2)->unknown_0_0_, *(void**)(var2 + 0x0), *(void**)(var0 + 0x18));
 
     int var11 = F13(var2)->unknown_0_0_;
@@ -101,7 +101,7 @@ extern "C" ARM void func_02081b3c(void* arg0, void* arg1, void* arg2) {
 
     int var10 = GetMessageWindow_020421a0();
     memset(*(void**)(var0 + 0x18), 0, 0x960);
-    func_02046380((void*)var10);
+    ClearMessageParams_02046380((void*)var10);
     func_02046608(var10, F13(var2)->unknown_0_0_, var6, *(void**)(var0 + 0x18), 0x100, 0, 0);
 
     int var11 = F13(var2)->unknown_0_0_;

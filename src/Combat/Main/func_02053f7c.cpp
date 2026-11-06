@@ -25,11 +25,11 @@ struct Struct_02053f7c_3 {
     struct Struct_02053f7c_2 unknown_100_;
 };
 
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 
 // USA: func_02053f7c
 extern "C" ARM void func_02053f7c(Struct_02053f7c_3* arg0, unsigned short arg1, int arg2) {
-    struct Struct_02053f7c* var0 = (struct Struct_02053f7c*)func_02010828(GameState::GetInstance());
+    struct Struct_02053f7c* var0 = (struct Struct_02053f7c*)GetParty_02010828(GameState::GetInstance());
     int var1 = 0;
     int var2;
     if (var0 != NULL) {

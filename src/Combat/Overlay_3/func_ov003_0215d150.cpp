@@ -4,7 +4,7 @@
 
 struct Struct_0205c570;
 struct Struct_0205cf1c;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
 #if defined(jpn)
 enum { Enum_ov003_0215d150_0 = 0x18, Enum_ov003_0215d150_0_2 = -0x34, Enum_ov003_0215d150_0_3 = -0x130, Enum_ov003_0215d150_0_4 = -0x1d0, Enum_ov003_0215d150_0_5 = 0x20 };
@@ -60,19 +60,19 @@ static inline Struct_01ff91ac_29 *inline_ov003_0215d150(Struct_ov003_0215d150 *a
 static inline int inline_ov003_0215d150_2(Struct_01ff91ac_29 *arg0) { return arg0->unknown_b3c_; }
 
 extern "C" Struct_ov003_0215d150_2 *GetMessageWindow_020421a0();
-extern "C" int *func_0202ae18();
+extern "C" int *GetLocalWireless_0202ae18();
 extern "C" Struct_ov003_0215d150 *GetZone3D_02012fe4();
-extern "C" void func_02046380(void *arg0);
-struct Struct_020465c0;
-extern "C" void func_020465c0(Struct_020465c0*, int, int);
+extern "C" void ClearMessageParams_02046380(void *window);
+struct MessageWindow_020465c0;
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void func_020465f0(unsigned char *, int, unsigned char);
-extern "C" int func_0202b7d8(int *arg0);
-extern "C" int func_0202c540(int *arg0);
-extern "C" int func_0202c508(int *arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
+extern "C" int IsLocalWirelessGuest_0202c540(int *wireless);
+extern "C" int IsNotLocalWirelessGuest_0202c508(int *wireless);
 struct Struct_02046574_2;
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
-extern "C" const char * func_020e0434(Struct_0201099c_3*, int);
-extern "C" int func_02042058(char *arg0, const char *arg1);
+extern "C" const char * FindStringInTable_020e0434(Struct_0201099c_3*, int);
+extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" void func_ov003_0215cab0(char *arg0, void *arg1);
 extern "C" void func_ov003_0215ddc0(char *arg0);
 extern "C" void func_ov003_0215df1c(void *arg0);
@@ -84,19 +84,19 @@ extern "C" void func_0205cf04(void *arg0);
 extern "C" int func_0205d794(Struct_0205c570 *);
 struct Struct_0205d6a0;
 extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
-extern "C" void func_0205eaa0(Struct_02108760 *, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
 extern "C" void func_0205cf10(void *arg0);
 extern "C" void func_0205cf1c(Struct_0205cf1c *);
 extern "C" int func_ov003_0215dcb8(char *arg0);
 extern "C" ARM int func_ov003_0215dd00(char *arg0);
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 // USA: func_ov003_0215d150
 extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
     GameState *var0 = GameState::GetInstance();
     Struct_ov003_0215d150_2 *var1       = GetMessageWindow_020421a0();
-    int *var2       = func_0202ae18();
+    int *var2       = GetLocalWireless_0202ae18();
     Struct_ov003_0215d150 *var3      = GetZone3D_02012fe4();
 
     if (var1->unknown_9a0_ == 3) {
@@ -107,16 +107,16 @@ extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
     int var5;
 
     if (var4 == 0) {
-        func_02046380(var1);
-        func_020465c0((Struct_020465c0*)var1, 0, arg0->unknown_3c3_);
+        ClearMessageParams_02046380(var1);
+        SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, arg0->unknown_3c3_);
         func_020465f0((unsigned char *) var1, 0, 0);
-        func_020465c0((Struct_020465c0*)var1, 1, arg0->unknown_3cc_);
+        SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 1, arg0->unknown_3cc_);
         func_020465f0((unsigned char *) var1, 1, 0);
 
         int var6;
         var6 = (arg0->unknown_3d0_ == 0) ? 1 : 0;
-        if (func_0202b7d8(var2) != 0) {
-            if (func_0202c540(var2) != 0) {
+        if (IsLocalWirelessOn_0202b7d8(var2) != 0) {
+            if (IsLocalWirelessGuest_0202c540(var2) != 0) {
                 var6 = 2;
             }
         }
@@ -127,12 +127,12 @@ extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
             func_02046574((Struct_02046574_2*)var1, 0, (char*)(*(void **) ((char *) var0->GetPartyMemberByIndex(0) + 0x134)));
 
             int var8 = 0;
-            if (func_0202c508(var2) != 0) {
+            if (IsNotLocalWirelessGuest_0202c508(var2) != 0) {
                 var8 = (*(short *) ((char *) var0->GetUnknownGameObject() + 4) == 0) ? 1 : 0;
             }
 
             if (var8 != 0) {
-                func_02042058(var7, func_020e0434(&arg0->unknown_64_, (short)0x64));
+                AppendText_02042058(var7, FindStringInTable_020e0434(&arg0->unknown_64_, (short)0x64));
             }
 
             if (inline_ov003_0215d150_2(inline_ov003_0215d150(var3)) == 6) {
@@ -142,18 +142,18 @@ extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
             } else {
                 var5 = 0x68;
             }
-            func_02042058(var7, func_020e0434(&arg0->unknown_64_, (short)var5));
+            AppendText_02042058(var7, FindStringInTable_020e0434(&arg0->unknown_64_, (short)var5));
 
             if (var8 == 0) {
-                func_02042058(var7, func_020e0434(&arg0->unknown_64_, (short)0x6f));
+                AppendText_02042058(var7, FindStringInTable_020e0434(&arg0->unknown_64_, (short)0x6f));
             } else {
                 int var9;
                 var9 = (arg0->unknown_3d0_ != 0) ? 0x66 : 0x69;
-                func_02042058(var7, func_020e0434(&arg0->unknown_64_, (short)var9));
+                AppendText_02042058(var7, FindStringInTable_020e0434(&arg0->unknown_64_, (short)var9));
             }
         } else {
             int var10 = var6 + 0x3e8;
-            func_02042058(var7, func_020e0434(&arg0->unknown_64_, (short)var10));
+            AppendText_02042058(var7, FindStringInTable_020e0434(&arg0->unknown_64_, (short)var10));
         }
 
         func_ov003_0215cab0((char *) arg0, var7);
@@ -192,7 +192,7 @@ extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
         if (func_ov003_0215dcb8((char *) arg0) != 0) {
             arg0->unknown_3c2_ = 0;
             func_0205d6a0((Struct_0205d6a0*)arg0->unknown_98_, 0);
-            func_0205eaa0((Struct_02108760 *) &data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
             func_0205cf10(arg0->unknown_98_);
             func_0205cf1c((Struct_0205cf1c *) arg0->unknown_98_);
             switch (arg0->unknown_3bd_[arg0->unknown_3c1_]) {

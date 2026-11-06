@@ -6,7 +6,7 @@
 #define LOW_REGION(j, u) (u)
 #endif
 
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
 struct Struct_ov005_02153954 {
     char unknown_0_[LOW_REGION(0x3d22, 0x3daa)];
@@ -22,16 +22,16 @@ struct Struct_ov005_02153954 {
     unsigned char unknown_3dfc_[8];
 };
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 // USA: func_ov005_02158560
 extern "C" ARM int func_ov005_02158560(Struct_ov005_02153954* arg0, unsigned char arg1, int arg2) {
     if (arg1 == arg0->unknown_3dbc_)
         return 0;
     if (arg2 == 0)
-        func_0205eaa0((Struct_02108760*)&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
     arg0->unknown_3dbe_ = arg0->unknown_3dbc_;
     arg0->unknown_3dbf_ = arg0->unknown_3dbd_;
     arg0->unknown_3dfc_[arg0->unknown_3dbc_] = arg0->unknown_3dbd_;

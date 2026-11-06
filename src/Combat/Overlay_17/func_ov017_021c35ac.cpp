@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* func_0202ae24(void);
 extern "C" void* func_020e2ff8(void);
 extern "C" void* func_020e3580(void);
@@ -16,7 +16,7 @@ extern "C" void func_020e3004(struct Struct_020e3004* arg0);
 struct Struct_020e358c;
 extern "C" void func_020e358c(struct Struct_020e358c* arg0);
 extern "C" void func_ov017_02195748(unsigned char* arg0);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_0202c360(void* arg0, int arg1);
 extern "C" void func_0202b2f0(void* arg0);
 extern "C" void func_0202b828(unsigned char* arg0);
@@ -31,7 +31,7 @@ extern "C" void func_ov017_02195520(void* arg0);
 extern "C" ARM void func_ov017_021c35ac(void) {
     GameState* var0 = GameState::GetInstance();
     int var1 = ((int)GetGameResources());
-    void* var2 = func_0202ae18();
+    void* var2 = GetLocalWireless_0202ae18();
     void* var3 = func_0202ae24();
     void* var4 = func_020e2ff8();
     void* var5 = func_020e3580();
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov017_021c35ac(void) {
     func_ov017_02195748((unsigned char*)var1);
 
     GameObject* var6 = var0->GetProtagonist();
-    func_02053c6c((unsigned char*)var6);
+    GetPartyMemberData_02053c6c((unsigned char*)var6);
     int var7 = *(int*)((char*)var6 + 0x134);
     func_0202c360(var2, var7);
     func_0202b2f0(var2);

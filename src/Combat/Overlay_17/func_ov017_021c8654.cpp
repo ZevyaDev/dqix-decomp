@@ -3,8 +3,8 @@
 
 extern "C" void* func_0202ae24(void);
 extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
-extern "C" void func_0202ae18(void);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void GetLocalWireless_0202ae18(void);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
 
 struct Struct_ov017_021c8654 {
@@ -16,7 +16,7 @@ struct Struct_ov017_021c8654 {
 // USA: func_ov017_021c8654
 extern "C" ARM void func_ov017_021c8654(void) {
     GameState* var0 = GameState::GetInstance();
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     void* var1 = func_0202ae24();
     struct Struct_ov017_021c8654 var2;
     var2.unknown_0_ = 0x77;
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov017_021c8654(void) {
         var3[var4] = -1;
     }
 
-    unsigned char* var5 = (unsigned char*)func_02010828(var0);
+    unsigned char* var5 = (unsigned char*)GetParty_02010828(var0);
     for (int var6 = 0; var6 < var5[0xf7c]; var6++) {
         unsigned char* var7 = var5 + var6;
         unsigned char var8 = var7[0xf78];

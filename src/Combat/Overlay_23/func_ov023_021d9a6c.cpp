@@ -4,10 +4,10 @@
 #include "Resource/CharacterCreationUI.h"
 #include "Combat/TryApplyElemFields.h"
 
-extern "C" int func_020e0434(Struct_0201099c_3*, int);
+extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_02041e70(char*, int);
 extern "C" int func_02042158(char*, int);
-extern "C" int func_02042058(char*, const char*);
+extern "C" int AppendText_02042058(char*, const char*);
 extern "C" int func_020d2ff0(const char*);
 extern "C" int func_020d3018(const char*, const char*);
 extern "C" int func_02001aec(const void*, const void*, unsigned int);
@@ -41,12 +41,12 @@ extern "C" ARM void func_ov023_021d9a6c(char* arg0) {
             func_02041e70(var0->unknown_f8_, 15);
         if (var5 < 7) {
             short var6 = var4[var5];
-            func_02042158(var0->unknown_f8_, (10 - func_020d2ff0((const char*)func_020e0434(&var0->unknown_e0_, var6))) * 5);
-            func_02042058(var0->unknown_f8_, (const char*)func_020e0434(&var0->unknown_e0_, var6));
-            func_02042058(var0->unknown_f8_, (const char*)func_020e0434(&var0->unknown_e0_, 0x4273));
+            func_02042158(var0->unknown_f8_, (10 - func_020d2ff0((const char*)FindStringInTable_020e0434(&var0->unknown_e0_, var6))) * 5);
+            AppendText_02042058(var0->unknown_f8_, (const char*)FindStringInTable_020e0434(&var0->unknown_e0_, var6));
+            AppendText_02042058(var0->unknown_f8_, (const char*)FindStringInTable_020e0434(&var0->unknown_e0_, 0x4273));
         } else if (var5 == 7) {
-            if (func_020d3018(var0->unknown_d74_[var0->unknown_da3_], (const char*)func_020e0434(&var0->unknown_e0_, 0x4272)) == 0) {
-                func_02042058(var0->unknown_f8_, (const char*)func_020e0434(&var0->unknown_e0_, 0x4274));
+            if (func_020d3018(var0->unknown_d74_[var0->unknown_da3_], (const char*)FindStringInTable_020e0434(&var0->unknown_e0_, 0x4272)) == 0) {
+                AppendText_02042058(var0->unknown_f8_, (const char*)FindStringInTable_020e0434(&var0->unknown_e0_, 0x4274));
             } else {
                 char var7[11] = {};
                 memcpy(var7, var0->unknown_d74_[var0->unknown_da3_], sizeof(var7));
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov023_021d9a6c(char* arg0) {
                     }
                 }
                 func_02042158(var0->unknown_f8_, (10 - func_020d2ff0(var7)) * 5);
-                func_02042058(var0->unknown_f8_, var7);
+                AppendText_02042058(var0->unknown_f8_, var7);
             }
         }
     }
@@ -71,10 +71,10 @@ extern "C" ARM void func_ov023_021d9a6c(char* arg0) {
 #include "std_library_functions.h"
 
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(Struct_0201099c_3*, int);
+extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_02041e70(char*, int);
 extern "C" int func_02041a28(char*, int);
-extern "C" int func_02042058(char*, const char*);
+extern "C" int AppendText_02042058(char*, const char*);
 extern "C" int func_020420e8(void*, int);
 
 struct Struct_0205d5d0;
@@ -115,16 +115,16 @@ extern "C" ARM void func_ov023_021d9a6c(char* arg0) {
 
         if (var16 < 7) {
             short var19 = var15[var16];
-            func_02041a28(var12, 0x32 - func_020420e8((void*)func_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), var19), 0));
-            func_02042058(var12, (const char*)func_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), var19));
-            func_02042058(var12, (const char*)func_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), 0x4273));
+            func_02041a28(var12, 0x32 - func_020420e8((void*)FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), var19), 0));
+            AppendText_02042058(var12, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), var19));
+            AppendText_02042058(var12, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), 0x4273));
         } else if (var16 == 7) {
             char* var20 = (*(char***)(arg0 + 0xdb0))[*(unsigned char*)(arg0 + 0xda3)];
             if (*(signed char*)var20 != 0) {
                 func_02041a28(var12, 0x32 - func_020420e8(var20, 0));
-                func_02042058(var12, var20);
+                AppendText_02042058(var12, var20);
             } else {
-                func_02042058(var12, (const char*)func_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), 0x4274));
+                AppendText_02042058(var12, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), 0x4274));
             }
         }
     }

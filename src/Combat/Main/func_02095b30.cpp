@@ -1,13 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_0205faf4_3;
 struct Struct_0205faf4_13;
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 struct Struct_02064490_3;
 struct Struct_0206dee8;
 struct Struct_02095924 {
@@ -26,12 +23,12 @@ struct Struct_02095924 {
 };
 struct Struct_02095924_2 { char unknown_0_[0xa0]; Struct_02095924* unknown_a0_; };
 struct Struct_02095924_3 { char unknown_0_[0xc]; int unknown_c_; char unknown_10_[0x24]; };
-extern "C" Struct_0205faf4_3* func_0205ec34();
-extern "C" Struct_0202c1a4* func_0202ae18();
+extern "C" Struct_0205faf4_3* GetFlagManager_0205ec34();
+extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18();
 extern "C" unsigned short* GetZone3D_02012fe4();
 extern "C" int func_0206e2dc(Struct_0205faf4_13*, int);
-extern "C" int func_0202b7d8(int*);
-extern "C" signed char func_0202c1a4(Struct_0202c1a4*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" int func_02064704(void*, Struct_02064490_3*, void*);
 extern "C" int func_0206e120(Struct_0205faf4_3*, int);
 extern "C" int func_02095ae0(Struct_0205faf4_3*, int);
@@ -45,13 +42,13 @@ static inline int inline_02095924(Struct_0205faf4_3* arg0, int arg1, int arg2) {
 // USA: func_02095b30
 extern "C" ARM void func_02095b30(Struct_02095924_2* arg0, int arg1) {
     GameState::GetInstance();
-    Struct_0205faf4_3* var0 = func_0205ec34();
-    Struct_0202c1a4* var1 = func_0202ae18();
+    Struct_0205faf4_3* var0 = GetFlagManager_0205ec34();
+    LocalWireless_0202c1a4* var1 = GetLocalWireless_0202ae18();
     unsigned char var2[3];
     Struct_02095924_3 var3;
     for (Struct_02095924* var4 = arg0->unknown_a0_; var4; var4 = var4->unknown_c_) {
         if (var4->unknown_3_2_ && !func_0206e2dc((Struct_0205faf4_13*)var0, var4->unknown_2_0_)) continue;
-        if (func_0202b7d8((int*)var1) && func_0202c1a4(var1) && !var4->unknown_3_1_) continue;
+        if (IsLocalWirelessOn_0202b7d8((int*)var1) && GetOwnProtagonistObjectIndex_0202c1a4(var1) && !var4->unknown_3_1_) continue;
         if (arg1) {
             func_0206dee8((Struct_0206dee8*)var0, 0, &var2[2], &var2[1], &var2[0]);
             if (!var4->unknown_3_2_) continue;

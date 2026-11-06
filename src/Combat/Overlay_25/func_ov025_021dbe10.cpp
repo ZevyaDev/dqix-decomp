@@ -9,7 +9,7 @@
 #define RG(u, j) (u)
 #endif
 
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 struct Struct_ov000_0215440c_2 { unsigned short unknown_0_; };
 struct Struct_ov025_021dbe10_2 { unsigned char unknown_0_[0x20]; unsigned short unknown_20_; };
 struct Struct_ov025_021d8a40;
@@ -65,7 +65,7 @@ extern char data_ov025_021ef40c[];
 extern char data_ov025_021ef424[];
 extern char data_ov025_021ef43c[];
 extern int data_ov025_021ef404;
-extern "C" void func_0207df50(Struct_0203d028*);
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void func_ov025_021dee20(Struct_ov025_021dbe10_4*);
 extern "C" Struct_ov000_0215440c_2* func_ov000_02160f20(void*);
 extern "C" Struct_ov025_021dbe10_2* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov025_021dbe10(Struct_ov025_021dbe10_4* arg0) {
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     char* var2 = arg0->unknown_29c_;
     arg0->unknown_30_.Reset();
-    func_0207df50((Struct_0203d028*)arg0->unknown_14c_);
+    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_14c_);
     func_ov025_021dee20(arg0);
     Struct_ov000_0215440c_2* var3 = func_ov000_02160f20(arg0);
     if (!var3) return;

@@ -11,9 +11,9 @@ struct Struct_ov003_02160c58 {
 // USA: func_ov003_02160c58
 extern "C" ARM void func_ov003_02160c58(int arg0, short* arg1, short* arg2) {
     short var0 = 12;
-    unsigned char var1 = ((Struct_ov003_02160c58*)func_02010828(GameState::GetInstance()))->unknown_2c8c_;
+    unsigned char var1 = ((Struct_ov003_02160c58*)GetParty_02010828(GameState::GetInstance()))->unknown_2c8c_;
     var0 -= 4;
-    Struct_ov003_02160c58* var2 = (Struct_ov003_02160c58*)func_02010828(GameState::GetInstance());
+    Struct_ov003_02160c58* var2 = (Struct_ov003_02160c58*)GetParty_02010828(GameState::GetInstance());
     if (var2->unknown_f70_ > 4) {
         var2->unknown_f70_ = 4;
     }

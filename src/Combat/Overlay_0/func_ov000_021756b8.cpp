@@ -3,13 +3,13 @@
 
 extern "C" void* func_ov000_02161318(void* arg0, int arg1);
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov000_021719f8(int* arg0);
 
 // USA: func_ov000_021756b8
 extern "C" ARM void func_ov000_021756b8(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    unsigned char* var1 = (unsigned char*)func_02010828(var0);
+    unsigned char* var1 = (unsigned char*)GetParty_02010828(var0);
     unsigned char var2 = var1[0xf7c];
     unsigned char var3;
     for (var3 = 0; var3 < var2; var3++) {
@@ -18,7 +18,7 @@ extern "C" ARM void func_ov000_021756b8(void* arg0) {
         if (var5 == 0) {
             continue;
         }
-        int var6 = func_02053c6c((unsigned char*)var5);
+        int var6 = GetPartyMemberData_02053c6c((unsigned char*)var5);
 #if defined(jpn)
         enum { Enum_ov000_021756b8_2380 = 0x8b4 };
 #else

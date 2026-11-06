@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_ov000_021719f8(int* arg0);
-extern "C" void* func_02053c6c(unsigned char* arg0);
+extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" ARM void* func_ov000_02161318(void* arg0, int arg1);
 
 struct Struct_ov000_0217f990 {
@@ -26,7 +26,7 @@ struct Struct_ov000_0217f990 {
 // USA: func_ov000_0217f990
 extern "C" ARM int func_ov000_0217f990(char* arg0) {
     GameState* var0 = GameState::GetInstance();
-    unsigned char* var1 = (unsigned char*)func_02010828(var0);
+    unsigned char* var1 = (unsigned char*)GetParty_02010828(var0);
     unsigned char var2 = var1[0xf7c];
     int var3 = 0;
     unsigned char var4;
@@ -46,7 +46,7 @@ extern "C" ARM int func_ov000_0217f990(char* arg0) {
 #else
         enum { Enum_ov000_0217f990_2380 = 0x94c };
 #endif
-        if (var8 != 0 && (signed char)(*(int*)((char*)func_02053c6c((unsigned char*)var8) + Enum_ov000_0217f990_2380)) != 5) continue;
+        if (var8 != 0 && (signed char)(*(int*)((char*)GetPartyMemberData_02053c6c((unsigned char*)var8) + Enum_ov000_0217f990_2380)) != 5) continue;
         *(int*)(arg0 + 0x17c) = var5;
         var3 = 1;
         break;

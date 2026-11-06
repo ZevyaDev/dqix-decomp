@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include <NitroSDK/Matrix.h>
 
-struct Struct_02108760;
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 int fix32sin(int);
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 struct Struct_02015ae4 {
     char unknown_0_[0xe];
@@ -17,8 +17,8 @@ extern "C" ARM int func_02015ae4(Struct_02015ae4* arg0) {
     unsigned short var0 = arg0->unknown_10_;
     int var1 = 0xbff4;
     if ((float)var0 <= (float)var1 / 4096.0f) {
-        if (var0 == 0) func_0205eaa0((Struct_02108760*)&data_02108760, 13, 0);
-        else if (var0 == 16) func_0205eaa0((Struct_02108760*)&data_02108760, 14, 0);
+        if (var0 == 0) PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 13, 0);
+        else if (var0 == 16) PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 14, 0);
         unsigned int var2 = arg0->unknown_10_;
         int var3 = (arg0->unknown_10_ * var2) << 12;
         int var4 = fix32_Divide(-7290, 0x8fee0);

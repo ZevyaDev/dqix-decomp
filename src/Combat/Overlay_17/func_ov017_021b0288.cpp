@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 struct Struct_0205e854;
 
 struct Struct_ov017_021b0288 {
@@ -24,8 +24,8 @@ struct Struct_ov017_021b0288_2 {
     unsigned char unknown_47_;
 };
 
-extern "C" Struct_0202c1a4* func_0202ae18(void);
-extern "C" unsigned char func_0202c1a4(struct Struct_0202c1a4* arg0);
+extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18(void);
+extern "C" unsigned char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
 extern "C" void func_020546a0(void* arg0, int arg1);
 extern "C" void func_ov017_021c32b0(Struct_ov017_021b0288* arg0, int arg1);
@@ -45,16 +45,16 @@ extern "C" ARM int func_ov017_021b0288(Struct_ov017_021b0288_2* arg0) {
             int var2;
             int var3;
             GameResources* var4;
-            Struct_0202c1a4* var5;
+            LocalWireless_0202c1a4* var5;
             GameState* var6;
             unsigned char var7[4];
             Struct_ov017_021b0288 var8[4];
             var6 = GameState::GetInstance();
-            var5 = func_0202ae18();
+            var5 = GetLocalWireless_0202ae18();
             var4 = GetGameResources();
             var3 = 0;
             var8[var3].unknown_0_ = 0;
-            var8[var3].unknown_1_ = func_0202c1a4(var5);
+            var8[var3].unknown_1_ = GetOwnProtagonistObjectIndex_0202c1a4(var5);
             var3++;
             memcpy(var7, arg0->unknown_1b_, 4);
             for (var2 = 3; var2 >= 1; var2--) {
@@ -64,7 +64,7 @@ extern "C" ARM int func_ov017_021b0288(Struct_ov017_021b0288_2* arg0) {
                     if (var7[var1] == 3) {
                         var8[var3].unknown_0_ = var2;
                         var8[var3].unknown_1_ = var1;
-                        func_020546a0(var0, func_0202c1a4(var5));
+                        func_020546a0(var0, GetOwnProtagonistObjectIndex_0202c1a4(var5));
                         var7[var1] = 0;
                         var3++;
                         break;
@@ -76,7 +76,7 @@ extern "C" ARM int func_ov017_021b0288(Struct_ov017_021b0288_2* arg0) {
             for (int var9 = 0; var9 < var3; var9++) {
                 arg0->unknown_43_[var9] = var8[var9].unknown_1_;
             }
-            func_020100a0(var6, func_0202c1a4(var5));
+            func_020100a0(var6, GetOwnProtagonistObjectIndex_0202c1a4(var5));
             int var10 = 1;
             if (arg0->unknown_4_ != 0 && *arg0->unknown_4_ == 10) var10 = 0;
             func_ov017_02191108(var4, 1, var10, 1, 1);

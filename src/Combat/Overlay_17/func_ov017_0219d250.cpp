@@ -6,9 +6,6 @@
 #include "Resource/MessageSystem.h"
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_ov017_0219d250_6 {
     unsigned short unknown_0_;
@@ -121,20 +118,20 @@ extern "C" void* func_02027ca4(void);
 extern "C" void* func_02057924(void);
 extern "C" void* func_02011584(void*);
 extern "C" Struct_ov017_0219d250_7* func_0200fd0c(GameState* arg0);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* func_0203cf4c(void);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_ov017_02191bdc(unsigned char*, int);
 struct Struct_02095924_2;
 extern "C" Struct_ov017_0219d250_6* func_02099950(Struct_02095924_2*, int);
-extern "C" int func_0202c540(void* arg0);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_02010774(char*, int);
 extern "C" void func_020107a8(char*, int);
 extern "C" void func_020107dc(char*, int);
 struct Struct_0202b2f0;
 extern "C" int func_0202c1c0(Struct_0202b2f0*, int);
-struct Struct_0202c1a4;
-extern "C" int func_0202c1a4(Struct_0202c1a4*);
+struct LocalWireless_0202c1a4;
+extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" int func_0206e558(void* arg0);
 extern "C" int func_ov017_0219c774(Struct_ov017_0219d250_6* arg0, int arg1, int arg2);
 extern "C" void* func_020936f8(void);
@@ -153,15 +150,15 @@ extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" void func_020531f0(void* arg0);
 extern "C" void func_0203409c(unsigned char* arg0);
-extern "C" void func_02043204(char* arg0);
-extern "C" void func_02043124(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
+extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void func_ov017_0219e290(void*, unsigned short);
 extern "C" void func_0206ebc8(void* arg0);
 extern "C" void func_0206ebdc(unsigned char*);
 extern "C" void func_ov017_021a316c(Struct_ov017_0219d250_5* arg0);
 extern "C" void func_ov017_0219de70(Struct_ov017_0219d250_5* arg0, Struct_ov017_0219d250_6* arg1, Struct_ov017_0219d250_6* arg2);
 extern "C" void func_02012040(void*);
-extern "C" unsigned char func_020100a8(GameState* arg0);
+extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov017_0218f5a4(Struct_ov017_0219d250_5* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_0208fa8c(void* arg0);
 struct Struct_020fdd44;
@@ -178,12 +175,12 @@ extern "C" void func_ov017_0219e234(Struct_ov017_0219d250_5*, Struct_ov017_0219d
 extern "C" void func_ov017_0219fda0(Struct_ov017_0219d250_5* arg0);
 extern "C" void func_ov017_0219fec0(void* arg0);
 extern "C" int func_020981e4(int, int);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_ov017_02191108(Struct_ov017_0219d250_5* arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" int func_0202c508(void* arg0);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
 
-extern char data_02109bf4;
+extern char gMusicManager_02109bf4;
 
 #if defined(jpn)
 enum { Enum_ov017_0219d250_10198 = 0x2816 };
@@ -230,11 +227,11 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
     var10 = var5->GetUnknownGameObject();
     var11 = func_02011584(var5);
     var1 = func_0200fd0c(var5);
-    var12 = func_0202ae18();
+    var12 = GetLocalWireless_0202ae18();
     var13 = func_0203cf4c();
-    var14 = (Struct_ov017_0219d250_4*)func_02010828(var5);
+    var14 = (Struct_ov017_0219d250_4*)GetParty_02010828(var5);
     char* var28 = (char*)&((Zone3D*)var27)->grotto_;
-    func_0205ec34();
+    GetFlagManager_0205ec34();
     var23 = arg0->unknown_370c_;
     if (var9 == NULL || var10 == NULL) {
         return;
@@ -247,13 +244,13 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
     var4 = func_02099950((Struct_02095924_2*)var11, var15);
     var0 = arg0->unknown_3734_;
 
-    if (var0->unknown_2_ != 0 && var0->unknown_178_0_ && func_0202c540(var12)) {
+    if (var0->unknown_2_ != 0 && var0->unknown_178_0_ && IsLocalWirelessGuest_0202c540(var12)) {
         func_02010774((char*)var5, var0->unknown_179_);
         func_020107a8((char*)var5, var0->unknown_17a_);
         func_020107dc((char*)var5, var0->unknown_17b_);
     } else {
         var16 = var5->GetTimeOfDay();
-        if (func_0202c540(var12) && var1->unknown_60_ == 0 && arg0->unknown_3734_->unknown_2_ == 0) {
+        if (IsLocalWirelessGuest_0202c540(var12) && var1->unknown_60_ == 0 && arg0->unknown_3734_->unknown_2_ == 0) {
             GameObject* var29 = var5->GetPartyMemberByIndex(0);
             if ((var29 != NULL && var2 == var29->obj3D_.GetField06()) || var1->unknown_62_ != 0) {
                 if (var1->unknown_62_ != 0) {
@@ -262,14 +259,14 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
                     var25 = 0;
                 }
                 var22 = GameState::GetInstance();
-                var21 = func_0202ae18();
-                var20 = func_0205ec34();
+                var21 = GetLocalWireless_0202ae18();
+                var20 = GetFlagManager_0205ec34();
                 var19 = 1;
                 var26 = var3->unknown_0_;
                 var24 = 0;
                 for (var18 = 1; var18 < 4; var18++) {
                     if (func_0202c1c0((Struct_0202b2f0*)var21, var18) &&
-                        var18 != func_0202c1a4((Struct_0202c1a4*)var21)) {
+                        var18 != GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var21)) {
                         Struct_ov017_0219d250* var30 = (Struct_ov017_0219d250*)func_0200ff1c(var22, var18);
                         if (var30 != NULL && (var26 == var30->unknown_0_.GetField06() || var26 == var30->unknown_15c_)) {
                             var19 = 0;
@@ -296,9 +293,9 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
                     var1->unknown_6e_ &= ~2;
                     func_0203e074((char*)var13);
                 }
-                if (func_0209cd50(var2) != func_0209cae8((Struct_0209cae8*)&data_02109bf4) &&
+                if (func_0209cd50(var2) != func_0209cae8((Struct_0209cae8*)&gMusicManager_02109bf4) &&
                     var1->unknown_20_ <= 0) {
-                    func_0209c678((Struct_02109bf4_4*)&data_02109bf4, 0);
+                    func_0209c678((Struct_02109bf4_4*)&gMusicManager_02109bf4, 0);
                     var23[0xa] = 1;
                 }
             }
@@ -347,9 +344,9 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
     }
     func_0203409c((unsigned char*)var9);
     if (((MessageWindow_02021b84*)var6)->unknown_998_ != NULL) {
-        func_02043204(var6);
+        ResetMessageWindow_02043204(var6);
     }
-    func_02043124(var6);
+    CloseMessageWindow_02043124(var6);
 
     int var36;
     if (var4 == NULL) {
@@ -381,7 +378,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
         func_02012040(var5);
     }
     if (var1->unknown_3_ != 0) {
-        func_ov017_0218f5a4(arg0, func_020100a8(var5), 1, 0, 0);
+        func_ov017_0218f5a4(arg0, GetProtagonistObjectIndex_020100a8(var5), 1, 0, 0);
         var1->unknown_3_ = 0;
     }
     func_0208fa8c(var28);
@@ -406,11 +403,11 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
     arg0->unknown_3658_ = 0;
     ((Zone3D*)var27)->SwitchZone(var1->unknown_0_, var1->unknown_4_);
     if (func_020981e4((int)(((Zone3D*)var27)->unk_840), var2) || func_020981e4((int)(((Zone3D*)var27)->unk_840), var15)) {
-        if (func_0202b7d8((int*)var12) == 0) {
+        if (IsLocalWirelessOn_0202b7d8((int*)var12) == 0) {
             func_ov017_02191108(arg0, 1, 1, 1, 1);
         } else {
             for (int var37 = 0; var37 < 4; var37++) {
-                if (func_0202c508(var12)) {
+                if (IsNotLocalWirelessGuest_0202c508(var12)) {
                     func_ov017_02191108(arg0, 1, 1, 1, 1);
                 } else {
                     func_ov017_021907dc((int)arg0, 0, 1, 1, 1);

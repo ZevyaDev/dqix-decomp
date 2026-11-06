@@ -78,7 +78,7 @@ extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
 extern "C" int func_020457e0(void* arg0);
 extern "C" void* func_0200fd0c(GameState* arg0);
 extern "C" void VectorizedMemset(void*, int, int);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_020a7f34(unsigned char* arg0);
 
 // USA: func_ov017_021a9454
@@ -156,12 +156,12 @@ extern "C" ARM void func_ov017_021a9454(Struct_ov017_021a9454_2* arg0) {
             var8->unknown_10_.z = 0x570;
             var8->unknown_1c_ = 0x4b66;
         }
-        func_02043204((char*)var1);
+        ResetMessageWindow_02043204((char*)var1);
         arg0->unknown_1_ = 1;
         return;
     }
 
-    func_02043204((char*)var1);
+    ResetMessageWindow_02043204((char*)var1);
     void* var9 = func_0200ffc0((struct Struct_0200ffc0*)var0);
     func_020a7f34((unsigned char*)var9);
     arg0->unknown_1_ = 1;

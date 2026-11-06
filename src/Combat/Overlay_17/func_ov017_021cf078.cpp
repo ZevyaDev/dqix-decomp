@@ -8,7 +8,7 @@ enum { Enum_ov017_021cf078_2128 = 0x850 };
 #endif
 
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void* func_0202ae24(void);
 extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov017_021cf078(int arg0, unsigned short arg1, unsigned 
     GameObject* var2 = func_0200ff1c(var1, arg0);
     if (!var2) return;
 
-    int var3 = func_02053c6c((unsigned char*)var2);
+    int var3 = GetPartyMemberData_02053c6c((unsigned char*)var2);
     if (!var3) return;
 
     Struct_ov017_021cf078_2* var4 = (Struct_ov017_021cf078_2*)((char*)var3 + Enum_ov017_021cf078_2128);

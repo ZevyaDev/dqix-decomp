@@ -39,8 +39,8 @@ struct Struct_ov003_0217f380 {
 struct Struct_0201099c_3;
 struct Struct_02020cb8_5;
 struct Struct_0204b12c;
-struct Struct_02020aec;
-struct Struct_02020cb8_4;
+struct PacEntry_02020aec;
+struct PacEntry_02020cb8_4;
 struct Struct_02020cb8_2;
 struct Struct_0204c7a8;
 struct Struct_0205cf78;
@@ -50,7 +50,7 @@ struct Struct_ov003_0215917c;
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov017_021d243c(int arg0);
 extern "C" void func_020dfec0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_02005a94(const char* arg0);
 extern "C" void func_ov003_02159250(void* arg0, void* arg1);
 extern "C" void func_ov003_02159464(void* arg0);
@@ -58,8 +58,8 @@ extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
 extern "C" void func_0204b5b4(Struct_ov003_021594c4* arg0, int arg1);
 extern "C" void func_0204b12c(Struct_0204b12c* arg0, SafeAllocator* arg1);
 extern "C" void func_0204b5e8(Struct_02020cb8_5* arg0, int arg1, int arg2);
-extern "C" int func_02046900(Struct_02020cb8_4* arg0);
-extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0204b174(Struct_ov003_021594c4* arg0, void* arg1, SafeAllocator* arg2, unsigned int arg3);
 extern "C" void func_0204bc74(Struct_ov003_021594c4* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 extern "C" void func_0204b0e8(Struct_02020cb8_2* arg0, void* arg1);
@@ -144,7 +144,7 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
         LoadFileIntoMemory(var4, var3, &var5);
         arg0->unknown_0_[0].Reset();
         func_020dfec0(arg0->unknown_64_, &arg0->unknown_0_[0], var3, var5);
-        const char* var6 = func_020e0434((Struct_0201099c_3*)arg0->unknown_64_, 0x32);
+        const char* var6 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, 0x32);
         if (var6 != NULL) {
             arg0->unknown_5b1_ = func_02005a94(var6);
         }
@@ -199,9 +199,9 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
             void* var15[2];
             int var16[2];
             var11->GetLoadedFileByID(arg0->unknown_578_, &var13, &var14);
-            int var17 = func_02046900((Struct_02020cb8_4*)var13);
+            int var17 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var13);
             for (int var18 = 0; var18 < var17; var18++) {
-                var15[var18] = func_020467f0((Struct_02020aec*)var13, var18, (void**)var12, &var16[var18]);
+                var15[var18] = GetPacEntryData_020467f0((PacEntry_02020aec*)var13, var18, (void**)var12, &var16[var18]);
             }
             for (int var19 = 0; var19 < var17; var19++) {
                 if (var15[var19] != NULL) {
@@ -242,10 +242,10 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
             arg0->unknown_e4_ = 0xe;
             arg0->unknown_d4_ = arg0->unknown_f0_;
             var0->GetLoadedFileByID(arg0->unknown_578_, &var25, &var26);
-            int var28 = func_02046900((Struct_02020cb8_4*)var25);
+            int var28 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var25);
             arg0->unknown_0_[3].Reset();
             for (int var29 = 0; var29 < var28; var29++) {
-                void* var30 = func_020467f0((Struct_02020aec*)var25, var29, (void**)var24, &var27);
+                void* var30 = GetPacEntryData_020467f0((PacEntry_02020aec*)var25, var29, (void**)var24, &var27);
                 func_0205a528(arg0->unknown_98_, var30, var27, &arg0->unknown_0_[3]);
             }
             var0->RemoveTask(arg0->unknown_578_);
@@ -271,7 +271,7 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1700;
         unsigned char var31 = 0x3f;
         for (int var32 = 0; var32 < 6; var32++) {
-            const char* var33 = func_020e0434((Struct_0201099c_3*)arg0->unknown_64_, (short)var32);
+            const char* var33 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, (short)var32);
             if (func_020d3018(data_ov003_0217fe7e, var33) == 0) {
                 var31 &= ~(1 << var32);
             }
@@ -306,7 +306,7 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
         func_020dfec0(arg0->unknown_64_, &arg0->unknown_0_[0], var39, var40);
         var34->RemoveTask(arg0->unknown_578_);
         arg0->unknown_578_ = -1;
-        const char* var41 = func_020e0434((Struct_0201099c_3*)arg0->unknown_64_, 0x32);
+        const char* var41 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, 0x32);
         if (var41 != NULL) {
             arg0->unknown_5b1_ = func_02005a94(var41);
         }
@@ -361,9 +361,9 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
             void* var50[2];
             int var51[2];
             var46->GetLoadedFileByID(arg0->unknown_578_, &var48, &var49);
-            int var52 = func_02046900((Struct_02020cb8_4*)var48);
+            int var52 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var48);
             for (int var53 = 0; var53 < var52; var53++) {
-                var50[var53] = func_020467f0((Struct_02020aec*)var48, var53, (void**)var47, &var51[var53]);
+                var50[var53] = GetPacEntryData_020467f0((PacEntry_02020aec*)var48, var53, (void**)var47, &var51[var53]);
             }
             for (int var54 = 0; var54 < var52; var54++) {
                 if (var50[var54] != NULL) {
@@ -404,10 +404,10 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
             arg0->unknown_e4_ = 0xe;
             arg0->unknown_d4_ = arg0->unknown_f0_;
             var34->GetLoadedFileByID(arg0->unknown_578_, &var60, &var61);
-            int var63 = func_02046900((Struct_02020cb8_4*)var60);
+            int var63 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var60);
             arg0->unknown_0_[3].Reset();
             for (int var64 = 0; var64 < var63; var64++) {
-                void* var65 = func_020467f0((Struct_02020aec*)var60, var64, (void**)var59, &var62);
+                void* var65 = GetPacEntryData_020467f0((PacEntry_02020aec*)var60, var64, (void**)var59, &var62);
                 func_0205a528(arg0->unknown_98_, var65, var62, &arg0->unknown_0_[3]);
             }
             var34->RemoveTask(arg0->unknown_578_);
@@ -433,7 +433,7 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1700;
         unsigned char var66 = 0x3f;
         for (int var67 = 0; var67 < 6; var67++) {
-            const char* var68 = func_020e0434((Struct_0201099c_3*)arg0->unknown_64_, (short)var67);
+            const char* var68 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, (short)var67);
             if (func_020d3018(data_ov003_0217fe7e, var68) == 0) {
                 var66 &= ~(1 << var67);
             }

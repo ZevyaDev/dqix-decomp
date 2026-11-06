@@ -3,8 +3,8 @@
 extern "C" int _s32_div_f(int a, int b);
 extern char* data_ov004_021707c0; // pointer to struct with fields at 0x78 (short), 0x7a (short)
 
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" void func_ov004_021536e0(void*, int, int);
 extern "C" int func_ov023_021f809c(void*, void*);
 #if defined(jpn)
@@ -29,12 +29,12 @@ extern "C" ARM int func_ov004_02154250(void* arg0) {
     if (var2 > 100) var2 = 100;
     if (var2 < 0) var2 = 0;
 
-    void* var3 = func_ov011_021849c8(arg0);
-    struct Struct_ov004_02154250_2* var4 = (struct Struct_ov004_02154250_2*)func_ov023_021f6880(var3, 0x13);
+    void* var3 = GetMenuObjectList_ov011_021849c8(arg0);
+    struct Struct_ov004_02154250_2* var4 = (struct Struct_ov004_02154250_2*)FindMenuObjectById_ov023_021f6880(var3, 0x13);
     if (!var4) return 0;
     var4->unknown_0_->unknown_e0_(var4, var2);
 
-    struct Struct_ov004_02154250_2* var5 = (struct Struct_ov004_02154250_2*)func_ov023_021f6880(var3, 0x14);
+    struct Struct_ov004_02154250_2* var5 = (struct Struct_ov004_02154250_2*)FindMenuObjectById_ov023_021f6880(var3, 0x14);
     if (!var5) return 0;
     var5->unknown_0_->unknown_e0_(var5, var0);
 
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov004_02154250(void* arg0) {
     func_ov004_021536e0(arg0, 0x14, 0x19);
 #endif
 
-    void* var6 = func_ov023_021f6880(var3, 0x10);
+    void* var6 = FindMenuObjectById_ov023_021f6880(var3, 0x10);
     if (!var6) return 0;
     if (NODE_KIND_CALL(var6) != 6) return 0;
     func_ov023_021f809c(var6, arg0);

@@ -14,15 +14,15 @@ struct Struct_ov004_02164928_2 { int unknown_0_, unknown_4_, unknown_8_; };
 struct Struct_0201165c { Struct_ov004_02164928_2 unknown_0_; unsigned int unknown_c_, unknown_10_; };
 struct Struct_ov004_021549e4_2;
 struct Struct_020d8080;
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
 extern Struct_ov004_02164928* data_ov004_02171010;
-extern "C" GameResources* func_0200fb8c(int*);
+extern "C" GameResources* GetResources_0200fb8c(int*);
 extern "C" Zone3D* GetZone3D_02012fe4();
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" int func_ov004_021634dc(void*);
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" Struct_ov004_021549e4_2* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" Struct_ov004_021549e4_2* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(Struct_ov004_021549e4_2*);
 extern "C" unsigned int func_ov023_021f9bb0(Struct_ov004_021549e4_2*);
 extern "C" void func_0201165c(char*, const void*, int, Struct_0201165c);
@@ -31,20 +31,20 @@ extern "C" unsigned char func_02090294(ActiveGrottoClass*);
 extern "C" void func_0208f748(char*, int*);
 extern "C" void func_ov017_021cfcec(unsigned char);
 extern "C" void func_02011408(void*);
-extern "C" int* func_0202ae18();
-extern "C" int func_0202b7d8(int*);
-extern "C" int func_0202c508(int*);
+extern "C" int* GetLocalWireless_0202ae18();
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
+extern "C" int IsNotLocalWirelessGuest_0202c508(int*);
 extern "C" void func_ov017_021cfabc();
 extern "C" void func_ov017_021cf730(int, int);
 extern "C" void func_ov017_021d3ec8();
 extern "C" void func_020d8080(Struct_020d8080*);
-extern "C" void func_020469b4(Struct_0201bdac_2*, Struct_0201bdac*);
+extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 
 // JPN: 0x02164fe8; USA/EUR: 0x02164928.
 extern "C" ARM int func_ov004_02164928(void* arg0) {
     if (data_ov004_02171010->unknown_18f4_ == 0) return 0;
     GameState* var0 = GameState::GetInstance();
-    GameResources* var1 = func_0200fb8c(((int*)(var0)));
+    GameResources* var1 = GetResources_0200fb8c(((int*)(var0)));
     Zone3D* var2 = GetZone3D_02012fe4();
     ActiveGrottoClass* var3 = var2->inline_02024518_2();
     GrottoStruct* var4 = var0->GetGrottoStruct();
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov004_02164928(void* arg0) {
     for (int var7 = 0; var7 < 99; ++var7)
         data_ov004_02171010->unknown_0_[var7].ClearInitialByteUnknownBit();
     data_ov004_02171010->unknown_0_[var6].SetInitialByteUnknownBit();
-    Struct_ov004_021549e4_2* var8 = func_ov023_021f6880(func_ov011_021849c8(arg0), 10);
+    Struct_ov004_021549e4_2* var8 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 10);
     if (!var8) return 0;
     if (func_ov023_021f6f10(var8) != 7) return 0;
     unsigned int var9 = func_ov023_021f9bb0(var8);
@@ -111,8 +111,8 @@ extern "C" ARM int func_ov004_02164928(void* arg0) {
     var16->unknown_0[3] = 0;
     func_ov017_021cfcec(1);
     func_02011408(var0);
-    int* var18 = func_0202ae18();
-    if (func_0202b7d8(var18) && func_0202c508(var18)) {
+    int* var18 = GetLocalWireless_0202ae18();
+    if (IsLocalWirelessOn_0202b7d8(var18) && IsNotLocalWirelessGuest_0202c508(var18)) {
         func_ov017_021cfabc();
         func_ov017_021cf730(-1, 0);
         func_ov017_021d3ec8();
@@ -122,11 +122,11 @@ extern "C" ARM int func_ov004_02164928(void* arg0) {
 #else
     if (var13->discoveryState_ == 1) {
 #endif
-        Struct_0201bdac_2* var19;
+        Queue_0201bdac_2* var19;
         Struct_020d8080* var20 = static_cast<Struct_020d8080*>(var1->unknown_ptr_array_3afc[42]);
-        var19 = static_cast<Struct_0201bdac_2*>(var1->unknown_ptr_array_36fc[0]);
+        var19 = static_cast<Queue_0201bdac_2*>(var1->unknown_ptr_array_36fc[0]);
         func_020d8080(var20);
-        func_020469b4(var19, ((Struct_0201bdac*)(var20)));
+        AppendToQueue_020469b4(var19, ((QueueNode_0201bdac*)(var20)));
     }
     return 0;
 }

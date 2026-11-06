@@ -12,8 +12,8 @@ extern struct Struct_ov004_02170010 data_ov004_02170010[];
 
 // USA: func_ov004_0216794c
 extern "C" ARM void func_ov004_0216794c(short* arg0, short* arg1, short* arg2, char* arg3, int* arg4) {
-    *arg0 = *(int*)((char*)func_02010828(GameState::GetInstance()) + 0xf74);
-    *arg1 = func_02086aec((struct Struct_02053f7c*)func_02010828(GameState::GetInstance()), 0x5617);
+    *arg0 = *(int*)((char*)GetParty_02010828(GameState::GetInstance()) + 0xf74);
+    *arg1 = func_02086aec((struct Struct_02053f7c*)GetParty_02010828(GameState::GetInstance()), 0x5617);
     *arg3 = 0;
     short var0 = *arg0;
     int var1;

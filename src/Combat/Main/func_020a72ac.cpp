@@ -32,8 +32,8 @@ struct Struct_020a72ac_3 {
     unsigned char unknown_2788_;
 };
 
-extern "C" void* func_0202ae18();
-extern "C" int func_0202c540(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18();
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_020a6aa4(Vector3i* arg0, int arg1, int arg2, int arg3);
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
 extern "C" struct Struct_02017a94* func_0201b600(Struct_02017a94* arg0, int arg1, unsigned short arg2);
@@ -46,7 +46,7 @@ extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
 extern "C" ARM void func_020a72ac(struct Struct_020a72ac_3* arg0) {
     GameState* var0 = GameState::GetInstance();
     GetGameResources();
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     LightingManager::GetInstance();
     Object3D* var2 = static_cast<Object3D*>(func_0200ffc0((struct Struct_0200ffc0*)var0));
     GameObject* var3 = var0->GetUnknownGameObject();
@@ -94,7 +94,7 @@ extern "C" ARM void func_020a72ac(struct Struct_020a72ac_3* arg0) {
             if (var7) func_02013380((struct Struct_02013380*)var7, 0, 0);
         } else if (arg0->unknown_0_ == 0x2774) {
             if (var2) var2->MakeVisible();
-        } else if (func_0202c540(var1) && arg0->unknown_0_ == 0x2710) {
+        } else if (IsLocalWirelessGuest_0202c540(var1) && arg0->unknown_0_ == 0x2710) {
             if (var2) var2->MakeVisible();
         } else if (var2) {
             var2->MakeHidden();

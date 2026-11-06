@@ -22,7 +22,7 @@ struct Struct_02000c9c_16;
 struct Struct_02000c9c_17;
 struct Struct_02000c9c_18;
 
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void func_020c3898();
 extern "C" void func_02012c34();
 extern "C" void func_020a0c0c();
@@ -102,10 +102,10 @@ extern "C" int func_020d6be4(void (*arg0)());
 extern "C" void func_020d6c68();
 extern "C" void func_02012bd8();
 
-extern AllocatorUnion data_02114e20;
-extern char data_0211e33c[];
-extern char data_02109bf4[];
-extern char data_02108760[];
+extern AllocatorUnion gMainHeap_02114e20;
+extern char gFileScratchSpace_0211e33c[];
+extern char gMusicManager_02109bf4[];
+extern char gSoundEffectManager_02108760[];
 extern char data_02114ec4[];
 
 #if defined(jpn)
@@ -134,59 +134,59 @@ extern "C" void func_020d8614();
 #define RUNTITLE() \
     do { \
         func_020a1940(&OVERLAY_19_ID); \
-        void* scene = func_02012db0(&data_02114e20, TITLE_SCENE_SIZE); \
+        void* scene = func_02012db0(&gMainHeap_02114e20, TITLE_SCENE_SIZE); \
         func_ov019_0218b5a0(scene); \
-        func_02012de4(&data_02114e20); \
+        func_02012de4(&gMainHeap_02114e20); \
         func_ov019_0218b5a8(scene); \
         func_ov019_0218b5a4(scene); \
-        func_02012dbc(&data_02114e20, scene, TITLE_SCENE_SIZE); \
+        func_02012dbc(&gMainHeap_02114e20, scene, TITLE_SCENE_SIZE); \
         func_020a1bb4(&OVERLAY_19_ID); \
     } while (0)
 
 #define RUNOV20() \
     do { \
         func_020a1940(&OVERLAY_20_ID); \
-        void* scene = func_02012db0(&data_02114e20, WORLD_SCENE_SIZE); \
+        void* scene = func_02012db0(&gMainHeap_02114e20, WORLD_SCENE_SIZE); \
         func_ov020_0218b5a0(scene); \
-        func_02012de4(&data_02114e20); \
+        func_02012de4(&gMainHeap_02114e20); \
         func_ov020_0218b710(scene); \
         func_ov020_0218b700(scene); \
-        func_02012dbc(&data_02114e20, scene, WORLD_SCENE_SIZE); \
+        func_02012dbc(&gMainHeap_02114e20, scene, WORLD_SCENE_SIZE); \
         func_020a1bb4(&OVERLAY_20_ID); \
     } while (0)
 
 #define RUNOV16(again16) \
     do { \
-        void* scene = func_02012db0(&data_02114e20, 0x98); \
+        void* scene = func_02012db0(&gMainHeap_02114e20, 0x98); \
         func_ov016_0218b5a0(scene); \
-        func_02012de4(&data_02114e20); \
+        func_02012de4(&gMainHeap_02114e20); \
         func_ov016_0218b5c4(scene); \
         again16 = *(int*)((char*)scene + 0x94); \
         func_ov016_0218b5c0(scene); \
-        func_02012dbc(&data_02114e20, scene, 0x98); \
+        func_02012dbc(&gMainHeap_02114e20, scene, 0x98); \
     } while (0)
 
 #define RUNOV21() \
     do { \
         func_020a1940(&OVERLAY_21_ID); \
-        void* scene = func_02012db0(&data_02114e20, 0xbc); \
+        void* scene = func_02012db0(&gMainHeap_02114e20, 0xbc); \
         func_ov021_0218b5a0(scene); \
-        func_02012de4(&data_02114e20); \
+        func_02012de4(&gMainHeap_02114e20); \
         func_ov021_0218b5fc(scene); \
         func_ov021_0218b5c4((Struct_02000c9c_10*)scene); \
-        func_02012dbc(&data_02114e20, scene, 0xbc); \
+        func_02012dbc(&gMainHeap_02114e20, scene, 0xbc); \
         func_020a1bb4(&OVERLAY_21_ID); \
     } while (0)
 
 #define RUNOV15() \
     do { \
         func_020a1940(&OVERLAY_15_ID); \
-        void* scene = func_02012db0(&data_02114e20, 0x358); \
+        void* scene = func_02012db0(&gMainHeap_02114e20, 0x358); \
         func_ov015_02193294(scene); \
-        func_02012de4(&data_02114e20); \
+        func_02012de4(&gMainHeap_02114e20); \
         func_ov015_021934f8(scene); \
         func_ov015_021933bc(scene); \
-        func_02012dbc(&data_02114e20, scene, 0x358); \
+        func_02012dbc(&gMainHeap_02114e20, scene, 0x358); \
         func_020a1bb4(&OVERLAY_15_ID); \
     } while (0)
 
@@ -221,7 +221,7 @@ inline void inline_02000c9c_4(GameState* arg0) {
 // USA: func_02000c9c
 extern "C" ARM void main() {
     GameState* var0 = GameState::GetInstance();
-    char* var1 = (char*)func_02010828(var0);
+    char* var1 = (char*)GetParty_02010828(var0);
     func_020c3898();
     DISPCNTSUB &= ~0x10000;
     func_02012c34();
@@ -237,7 +237,7 @@ extern "C" ARM void main() {
     if (!inline_02000c9c() && !inline_02000c9c_2() && !inline_02000c9c_3() && BackgroundLoader::GetInstance() == 0) {
 #endif
         func_020a1940(&OVERLAY_33_ID);
-        PopulateOv33BackgroundLoader(data_0211e33c, 0x30000, 0x14);
+        PopulateOv33BackgroundLoader(gFileScratchSpace_0211e33c, 0x30000, 0x14);
     }
     func_020a1bb4(&OVERLAY_29_ID);
     func_020a1940(&OVERLAY_32_ID);
@@ -246,10 +246,10 @@ extern "C" ARM void main() {
     func_020dafd4();
     func_020db0f0(var2);
     func_020db228(var2);
-    func_0209c174((Struct_02000c9c_16*)data_02109bf4);
-    func_0209c290(data_02109bf4);
-    func_0205e88c((Struct_02000c9c_17*)data_02108760);
-    func_0205ea20(data_02108760, 100);
+    func_0209c174((Struct_02000c9c_16*)gMusicManager_02109bf4);
+    func_0209c290(gMusicManager_02109bf4);
+    func_0205e88c((Struct_02000c9c_17*)gSoundEffectManager_02108760);
+    func_0205ea20(gSoundEffectManager_02108760, 100);
     SafeAllocator var3;
     var3.ResetAllocatorPointer();
     var3.CreateTypeA(data_02114ec4, STARTUP_ALLOCATOR_SIZE);
@@ -356,8 +356,8 @@ extern "C" ARM void main() {
                 }
                 break;
             case 8:
-                func_0205e8d4(data_02108760);
-                func_0203a950(data_02109bf4);
+                func_0205e8d4(gSoundEffectManager_02108760);
+                func_0203a950(gMusicManager_02109bf4);
                 g_touchInput.Pause();
                 func_020a1940(&OVERLAY_27_ID);
                 func_020a1940(&OVERLAY_31_ID);
@@ -394,8 +394,8 @@ extern "C" ARM void main() {
                 func_020c98f0(1);
                 func_020a1940(&OVERLAY_32_ID);
                 g_touchInput.Unpause();
-                func_0209c174((Struct_02000c9c_16*)data_02109bf4);
-                func_0209c290(data_02109bf4);
+                func_0209c174((Struct_02000c9c_16*)gMusicManager_02109bf4);
+                func_0209c290(gMusicManager_02109bf4);
                 SetInterruptHandler(1, (const void*)func_02012bd8);
                 EnableSpecificInterrupts(1);
                 func_020d6c9c();

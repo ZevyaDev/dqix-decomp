@@ -48,7 +48,7 @@ extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_0205deb4(Struct_0205d81c* arg0, int arg1, int arg2);
 
 extern "C" {
-void func_02046380(MessageWindow_02021b84* arg0);
+void ClearMessageParams_02046380(MessageWindow_02021b84* window);
 void func_ov023_021e7cec(Struct_ov023_021e7d8c* arg0, int arg1, short arg2, short arg3);
 #if defined(jpn)
 void func_0205d304(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov023_021e7d8c(Struct_ov023_021e7d8c* arg0)
 #endif
     for (unsigned char var3 = 0; var3 < 3; var3++)
     {
-        func_02046380(var0);
+        ClearMessageParams_02046380(var0);
         func_ov023_021e7cec(arg0, var3, 2, var2[var3]);
 #if defined(jpn)
         memset(arg0->unknown_5d8_, 0, 0x800);

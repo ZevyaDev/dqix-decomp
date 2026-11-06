@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Struct_0202c1a4 {
+struct LocalWireless_0202c1a4 {
     char unknown_0_[0x1038];
-    signed char unknown_1038_[16];
+    signed char protagonistObjectIndexByConsole_1038_[16];
 };
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
-extern "C" void* func_0202ae18(void);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_ov017_021d1874(unsigned char arg0, unsigned char arg1, unsigned char arg2, int arg3, int arg4, int arg5, int arg6);
 
 struct Struct_020a8a34 {
@@ -28,7 +28,7 @@ extern "C" ARM void func_020a8a34(struct Struct_020a8a34* arg0, int arg1, int ar
         arg0->unknown_5_ |= (1 << arg2);
         arg0->unknown_7_ = arg3;
     } else if (arg1 == 2) {
-        signed char var0 = func_0202c1a4((struct Struct_0202c1a4*)func_0202ae18());
+        signed char var0 = GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)GetLocalWireless_0202ae18());
         func_ov017_021d1874(arg0->unknown_0_, arg0->unknown_1_, arg0->unknown_2_, arg0->unknown_4_, (unsigned char)var0, 1, 0);
     }
 }

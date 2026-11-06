@@ -96,7 +96,7 @@ struct Struct_01ff8b48 {
     unsigned short unknown_36_;
 };
 
-struct Struct_0201099c_9 {
+struct ItemData_0201099c_9 {
     unsigned int unknown_0_[8];
 };
 
@@ -105,7 +105,7 @@ struct Struct_02086f24_2 {
     unsigned char unknown_10_[0x2c];
     Struct_01ff8b48 unknown_3c_;
     unsigned char unknown_74_[0x120];
-    Struct_0201099c_9 unknown_194_[11];
+    ItemData_0201099c_9 unknown_194_[11];
 #if defined(jpn)
     unsigned char unknown_2f4_[0x5d8];
 #else
@@ -113,12 +113,12 @@ struct Struct_02086f24_2 {
 #endif
 };
 
-struct Struct_0201099c_10 {
+struct ItemTable_0201099c_10 {
     unsigned short unknown_0_;
     unsigned char unknown_2_[10];
-    Struct_0201099c_9* unknown_c_;
+    ItemData_0201099c_9* pItems_c_;
     unsigned char unknown_10_[4];
-    unsigned char unknown_14_;
+    unsigned char isSorted_14_;
 };
 
 struct Struct_02086f24_4 {
@@ -154,7 +154,7 @@ extern const char* data_020f2a38;
 extern const char* data_020f2a30;
 extern const signed char data_020e8a94[10];
 extern const char data_020f102e[];
-extern unsigned char data_0211e33c[];
+extern unsigned char gFileScratchSpace_0211e33c[];
 #if defined(jpn)
 extern "C" void* func_020e0968(const char* arg0, unsigned int* arg1);
 extern const char data_020f1150[];
@@ -194,7 +194,7 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
 #if !defined(jpn)
     unsigned char var5[12];
 #endif
-    Struct_0201099c_10 var6;
+    ItemTable_0201099c_10 var6;
     unsigned char var7[20];
     unsigned int var8;
     unsigned int var9;
@@ -250,7 +250,7 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
         for (int var16 = 0; var16 < 10; var16++) {
             short var17 = inline_02086f24_4(var11, var16);
 #if defined(jpn)
-            func_020def44((int)&var2.unknown_194_[data_020e8a94[var16]], (int)data_0211e33c, var8, var17);
+            func_020def44((int)&var2.unknown_194_[data_020e8a94[var16]], (int)gFileScratchSpace_0211e33c, var8, var17);
 #else
             func_020def44((int)&var2.unknown_194_[data_020e8a94[var16]], (int)var15, var8, var17);
 #endif
@@ -280,7 +280,7 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
     func_02089ddc(&var3);
     var4.Reset();
     if (var13) {
-        void* var18 = LoadFileIntoMemory(data_020f102e, data_0211e33c, &var9);
+        void* var18 = LoadFileIntoMemory(data_020f102e, gFileScratchSpace_0211e33c, &var9);
         if (var18 != NULL) {
             func_0209a804((int*)&var10);
             func_0209a8b4(&var10, &var4, (Struct_02013fb4*)var18, var9);

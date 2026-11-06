@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_0200fb8c
-extern "C" ARM int func_0200fb8c(int* arg0) {
-    return *arg0;
+// USA: GetResources_0200fb8c
+extern "C" ARM int GetResources_0200fb8c(int* gameState) {
+    return *gameState;
 }

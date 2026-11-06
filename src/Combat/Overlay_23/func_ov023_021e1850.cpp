@@ -21,7 +21,7 @@ extern "C" ARM void func_ov023_021e1850(int arg0, int arg1, const char* arg2, in
     unsigned int var0;
     Script var1;
     BackgroundLoader::AddLockGlobal();
-    void* var2 = LoadFileIntoMemory(arg2, data_0211e33c,&var0);
+    void* var2 = LoadFileIntoMemory(arg2, gFileScratchSpace_0211e33c,&var0);
     if (var2 != NULL) {
         data_ov023_021ffa34.unknown_c_ = arg0;
         data_ov023_021ffa34.unknown_8_ = arg1;

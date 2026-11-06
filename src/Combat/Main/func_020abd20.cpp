@@ -5,15 +5,12 @@
 #include "NitroSDK/Matrix.h"
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
-extern char data_0211e33c[];
+extern char gFileScratchSpace_0211e33c[];
 
 extern "C" void* GetZone3D_02012fe4();
 extern "C" int func_020aaf84(void* arg0, int arg1, int arg2, int arg3);
-extern "C" void* func_0205ec34();
+extern "C" void* GetFlagManager_0205ec34();
 extern "C" void func_020a9a50(void* arg0, char* arg1, int arg2);
 extern "C" void func_020a9ba4(void* arg0);
 extern "C" void func_020a9af8(unsigned char* arg0);
@@ -41,8 +38,8 @@ extern "C" ARM int func_020abd20() {
     {
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
-        unsigned char* var3 = (unsigned char*)&data_0211e33c[0] + 0x28000;
-        func_020a9a50(var3 + 0x2cac, (char*)func_0205ec34(), 1);
+        unsigned char* var3 = (unsigned char*)&gFileScratchSpace_0211e33c[0] + 0x28000;
+        func_020a9a50(var3 + 0x2cac, (char*)GetFlagManager_0205ec34(), 1);
 #if defined(jpn)
         memcpy(((unsigned char*)GameState::GetInstance()) + 0x5c0c, var3 + 0x6c3c, 0x110);
 #else

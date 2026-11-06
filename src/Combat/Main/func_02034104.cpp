@@ -4,12 +4,12 @@
 #include "World/Object3D.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* arg0);
-extern "C" int func_0202c508(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 struct Struct_0202b2f0;
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 struct Struct_02034104 {
     unsigned char unknown_0_0_ : 2;
 };
@@ -17,14 +17,14 @@ struct Struct_02034104 {
 // USA: func_02034104
 extern "C" ARM Vector3fix func_02034104(void* arg0) {
     Object3D* var0 = (Object3D*)arg0;
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     GetGameResources();
-    if (func_0202b7d8((int*)var1)) {
-        if (func_0202c508(var1)) {
+    if (IsLocalWirelessOn_0202b7d8((int*)var1)) {
+        if (IsNotLocalWirelessGuest_0202c508(var1)) {
             short var2 = var0->unknown_4_;
             if (func_0202c178((struct Struct_0202b2f0*)var1, var2)) {
                 var2 = var0->unknown_4_;
-                signed char var3 = func_0202c1a4((struct Struct_0202c1a4*)var1);
+                signed char var3 = GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var1);
                 if (var3 != var2) {
                     Struct_02034104* var4 = (Struct_02034104*)((char*)arg0 + 0xc1);
                     if (var4->unknown_0_0_ & 1) {

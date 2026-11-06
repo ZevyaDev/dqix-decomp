@@ -48,7 +48,7 @@ struct Struct_02052bfc_2 {
 };
 
 extern "C" int func_02086ef0(Struct_02048150*, int);
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" long long _ll_udiv(long long arg0, long long arg1);
 extern "C" int func_02046b08(void** arg0);
@@ -65,7 +65,7 @@ extern "C" ARM void func_02052bfc(struct Struct_02052bfc_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     void* var2 = *(void**)((char*)var1 + 0x3000 + Enum_02052bfc_1788);
-    Struct_02048150* var3 = (Struct_02048150*)func_02010828(var0);
+    Struct_02048150* var3 = (Struct_02048150*)GetParty_02010828(var0);
     Struct_0201bc94* var4 = (Struct_0201bc94*)GetZone3D_02012fe4();
     unsigned char var5 = arg0->unknown_4_ & 0xff;
 

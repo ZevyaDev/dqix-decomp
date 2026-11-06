@@ -3,8 +3,8 @@
 #include "Input/Input.h"
 
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" void* func_ov023_021f6880(void** arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void** objectList, int id);
 extern "C" void* func_ov023_021fad18(void* arg0);
 
 struct Struct_ov023_021faed0;
@@ -12,9 +12,9 @@ extern "C" ARM void* func_ov023_021fa854(char* arg0, unsigned int arg1);
 
 extern "C" void func_0205ac40(void* arg0, void* arg1);
 
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
-extern struct Struct_02108760 data_02108760;
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 extern "C" void func_ov011_02184a40(void* arg0, int arg1);
 
@@ -81,8 +81,8 @@ struct Struct_ov023_021faed0_2 {
 // USA: func_ov023_021faed0
 extern "C" ARM void func_ov023_021faed0(struct Struct_ov023_021faed0_2* arg0, void* arg1) {
     if ((arg0->unknown_c_ & 8) == 0) {
-        void** var0 = (void**)func_ov011_021849c8(arg1);
-        void* var1 = func_ov023_021f6880(var0, arg0->unknown_20_);
+        void** var0 = (void**)GetMenuObjectList_ov011_021849c8(arg1);
+        void* var1 = FindMenuObjectById_ov023_021f6880(var0, arg0->unknown_20_);
         void* var2 = func_ov023_021fad18(var1);
         struct Struct_ov023_021faed0* var3 = (struct Struct_ov023_021faed0*)func_ov023_021fa854((char*)var2, arg0->unknown_22_);
         int* var4 = (int*)GetMessageWindow_020421a0();
@@ -221,7 +221,7 @@ DONE:
         if (var39 != 0) {
             if (var29 == 0) return;
             if (arg0->unknown_c_ & 0x40) {
-                func_0205eaa0(&data_02108760, 1, 0);
+                PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             }
             func_ov011_02184a40(arg1, var29);
         } else {

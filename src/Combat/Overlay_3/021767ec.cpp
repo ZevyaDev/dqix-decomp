@@ -27,9 +27,9 @@ extern "C" void func_02080b54(void* arg0, int arg1);
 extern "C" void func_02080608(void* arg0, int arg1);
 extern "C" void func_02081130(void* arg0, int arg1, int arg2);
 
-struct Struct_0201099c_10;
-struct Struct_0201099c_9;
-extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+struct ItemTable_0201099c_10;
+struct ItemData_0201099c_9;
+extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
 extern "C" unsigned int func_ov003_02175898(char* arg0, void* arg1);
 
 extern "C" void func_0208077c(void* arg0, int arg1, short arg2);
@@ -78,7 +78,7 @@ extern "C" ARM int func_ov003_021767ec(char* arg0) {
         unsigned char var10 = *(unsigned char*)(arg0 + Enum_ov003_021767ec_2101);
         if (var7 < var10) {
             short var11 = *(short*)(arg0 + Enum_ov003_021767ec_2120 + var7 * 2);
-            struct Struct_0201099c_9* var12 = func_020dedd0((struct Struct_0201099c_10*)(arg0 + Enum_ov003_021767ec_2164), var11);
+            struct ItemData_0201099c_9* var12 = func_020dedd0((struct ItemTable_0201099c_10*)(arg0 + Enum_ov003_021767ec_2164), var11);
             if (var12 != NULL) {
                 var8 = *(unsigned int*)((char*)var12 + 4);
                 var9 = func_ov003_02175898(arg0, var12);

@@ -24,7 +24,7 @@ extern "C" ARM void func_ov015_0218c920(void* arg0, int arg1) {
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
     unsigned int var2 = 0;
-    unsigned char* var3 = data_0211e33c;
+    unsigned char* var3 = gFileScratchSpace_0211e33c;
     unsigned int var4 = 0x30000;
     GPCReadPair var5;
     func_02079a3c(&var5);

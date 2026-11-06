@@ -16,7 +16,7 @@ extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2)
 extern "C" void LoadToMainBG1ScreenData(void* p, int a, int b);
 extern "C" int func_ov023_021f6bb8(void* arg0);
 
-extern char data_0211e33c[];
+extern char gFileScratchSpace_0211e33c[];
 
 // USA: func_ov011_02184770
 extern "C" ARM void func_ov011_02184770(char* arg0) {
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov011_02184770(char* arg0) {
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
 
-    void* var3 = data_0211e33c;
+    void* var3 = gFileScratchSpace_0211e33c;
     memset(var3, 0, 0x600);
     DC_FlushRange(var3, 0x20);
     LoadToMainBG1CharacterData((int)var3, 0, 0x20);

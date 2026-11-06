@@ -7,21 +7,18 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 struct Struct_02033834;
 struct Struct_02053f7c_3;
 struct Struct_02083508_2 { char unknown_0_[0x20]; };
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0202c288(void*);
 extern "C" void func_02039880(unsigned char*, int);
 extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
-extern "C" signed char func_0202c1a4(Struct_0202c1a4* arg0);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
 extern "C" signed char func_02039888(void*);
@@ -30,7 +27,7 @@ extern "C" void func_020120d4(unsigned char*, unsigned char);
 extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
 extern "C" void func_0201206c(void*, int);
 extern "C" void func_02053f7c(Struct_02053f7c_3*, unsigned short, int);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_0206dfe8(void*, int, int);
 extern "C" void func_0206e70c(char*);
 extern "C" void func_0206df14(unsigned char*);
@@ -49,7 +46,7 @@ extern "C" void* func_020e08f0(int arg0, unsigned int* arg1);
 extern "C" int func_020def44(int, int, int, short);
 extern "C" void func_0207cbe8(char*);
 extern "C" void func_0207cc18(void*, void*);
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 struct Struct_0207cf30_4;
 extern "C" void func_020a095c(Struct_0207cf30_4*, int, int);
 extern "C" void func_020dbc5c(char*, int);
@@ -151,7 +148,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
 
     GameState* var5 = GameState::GetInstance();
     GameResources* var6 = GetGameResources();
-    Struct_0202b2f0* var7 = (Struct_0202b2f0*)func_0202ae18();
+    Struct_0202b2f0* var7 = (Struct_0202b2f0*)GetLocalWireless_0202ae18();
     Struct_ov017_021b0bc0_2* var8 = (Struct_ov017_021b0bc0_2*)GetZone3D_02012fe4();
 #if defined(jpn)
     Struct_ov017_021b0bc0* var9 = inline_ov017_021b0bc0(var8);
@@ -178,7 +175,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
         if (func_0202c1c0(var7, var15) == 0) {
             continue;
         }
-        if (var15 == func_0202c1a4((Struct_0202c1a4*)var7)) {
+        if (var15 == GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var7)) {
             if (arg0->unknown_284_ == 0) {
                 var10 = 0;
             }
@@ -198,7 +195,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
             if (var16 == func_02039888(var17)) {
                 continue;
             }
-            if (var16 != 0 && !(var17->obj3D_.unknown_0_ & 0x1000)) {
+            if (var16 != 0 && !(var17->obj3D_.classFlags_0_ & 0x1000)) {
                 continue;
             }
             func_02033874((Struct_02033834*)var17, *var12);
@@ -238,7 +235,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
             }
         }
 
-        void* var21 = func_0205ec34();
+        void* var21 = GetFlagManager_0205ec34();
         func_0206dfe8(var21, 0x38e, 0x3e8);
         func_0206dfe8(var21, 0x79e, 0x2bc);
         func_0206e70c((char*)var21);
@@ -270,10 +267,10 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
         func_0207cbe8((char*)&var2);
         func_0207cbe8((char*)&var2);
         func_0207cc18(&var2, &var1);
-        func_020a095c((Struct_0207cf30_4*)func_02010828(var5), 0x5612, 1);
+        func_020a095c((Struct_0207cf30_4*)GetParty_02010828(var5), 0x5612, 1);
     } else if (arg0->unknown_9_ == 0) {
         func_020dbc5c((char*)var6, arg0->unknown_c_);
-        unsigned char* var24 = (unsigned char*)func_02010828(var5) + 0xf78;
+        unsigned char* var24 = (unsigned char*)GetParty_02010828(var5) + 0xf78;
         for (int var25 = 0; var25 < 4; var25++, var24++) {
             unsigned char var26 = *var24;
             if (var26 != func_020100b0(var5)) {

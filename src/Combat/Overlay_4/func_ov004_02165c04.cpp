@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov024_021f6f10(void* arg0);
 struct Struct_02000c9c_8;
 extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* arg0);
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov004_02165c04(void* arg0) {
     case 5: var2 = 4; var1 = 0x78; break;
     }
 
-    void* var3 = func_ov023_021f6880(func_ov011_021849c8(arg0), 3);
+    void* var3 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 3);
     if (!var3) return 0;
     if (func_ov024_021f6f10(var3) != 2) return 0;
 
@@ -44,7 +44,7 @@ extern "C" ARM int func_ov004_02165c04(void* arg0) {
     }
     func_0204b0e8((struct Struct_02020cb8_2*)var4, 0);
 
-    void* var5 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x1f8);
+    void* var5 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x1f8);
     if (var5 && func_ov024_021f6f10(var5) == 1) {
         if (!var5) return 0;
         func_ov023_021fb25c((struct Struct_ov004_0215de9c*)var5, 0, 0, var1, 0x11);

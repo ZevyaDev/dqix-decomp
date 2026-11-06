@@ -32,10 +32,10 @@ struct Struct_ov015_0218b810
     int unknown_c_;
 };
 
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_ov015_0218b810(Struct_ov015_0218b810* arg0);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov015_0218b828
 extern "C" ARM void func_ov015_0218b828(Struct_ov015_0218b810* arg0)
@@ -44,12 +44,12 @@ extern "C" ARM void func_ov015_0218b828(Struct_ov015_0218b810* arg0)
     {
         if (arg0->unknown_0_[var0].unknown_0_ != NULL)
         {
-            func_02012da4(&data_02114e20, arg0->unknown_0_[var0].unknown_0_);
+            FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_0_[var0].unknown_0_);
             arg0->unknown_0_[var0].unknown_0_ = NULL;
         }
         if (arg0->unknown_0_[var0].unknown_4_ != NULL)
         {
-            func_02012da4(&data_02114e20, arg0->unknown_0_[var0].unknown_4_);
+            FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_0_[var0].unknown_4_);
             arg0->unknown_0_[var0].unknown_4_ = NULL;
         }
     }
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov015_0218b828(Struct_ov015_0218b810* arg0)
     {
         if (arg0->unknown_4_[var1].unknown_0_ != NULL)
         {
-            func_02012da4(&data_02114e20, arg0->unknown_4_[var1].unknown_0_);
+            FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_4_[var1].unknown_0_);
             arg0->unknown_4_[var1].unknown_0_ = NULL;
         }
         Struct_ov015_0218b828* var2 = arg0->unknown_4_[var1].unknown_4_;
@@ -66,21 +66,21 @@ extern "C" ARM void func_ov015_0218b828(Struct_ov015_0218b810* arg0)
             Struct_ov015_0218b828* var3 = var2->unknown_8_;
             if (var2->unknown_0_ != NULL)
             {
-                func_02012da4(&data_02114e20, var2->unknown_0_);
+                FreeMemory_02012da4(&gMainHeap_02114e20, var2->unknown_0_);
                 var2->unknown_0_ = NULL;
             }
-            func_02012da4(&data_02114e20, var2);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var2);
             var2 = var3;
         }
     }
     if (arg0->unknown_0_ != NULL)
     {
-        func_02012da4(&data_02114e20, arg0->unknown_0_);
+        FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_0_);
         arg0->unknown_0_ = NULL;
     }
     if (arg0->unknown_4_ != NULL)
     {
-        func_02012da4(&data_02114e20, arg0->unknown_4_);
+        FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_4_);
         arg0->unknown_4_ = NULL;
     }
     func_ov015_0218b810(arg0);

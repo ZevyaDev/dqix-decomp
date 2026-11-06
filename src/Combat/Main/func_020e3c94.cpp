@@ -9,8 +9,8 @@ struct GameObject;
 struct Struct_020e3b8c_2;
 extern "C" void func_020e3c34(Struct_020e3b8c_2* arg0);
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
-extern "C" int func_02053c6c(unsigned char* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_020897b4(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
 extern "C" int func_ov017_0218f5a4(char* arg0, int arg1, int arg2, int arg3, int arg4);
 extern char* data_020ee9cc[];
@@ -39,7 +39,7 @@ extern "C" ARM void func_020e3c94(Struct_020e3b8c_2* arg0) {
     unsigned char* var3 = 0;
 
     if (var2) {
-        var3 = (unsigned char*)func_02053c6c((unsigned char*)var2);
+        var3 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var2);
     }
 
     if (arg0->unknown_1c_ == 0) {
@@ -87,7 +87,7 @@ extern "C" ARM void func_020e3c94(Struct_020e3b8c_2* arg0) {
                  arg0->unknown_24_, (int)var8, (int)var10, (int)var9, (int)var11);
 
     if (var3) {
-        if ((arg0->unknown_20_ & 1) && (arg0->unknown_9_ == func_020100a8(var0))) {
+        if ((arg0->unknown_20_ & 1) && (arg0->unknown_9_ == GetProtagonistObjectIndex_020100a8(var0))) {
             *(unsigned short*)(var3 + 0x564) = var12;
         }
         if (arg0->unknown_20_ & 2) {

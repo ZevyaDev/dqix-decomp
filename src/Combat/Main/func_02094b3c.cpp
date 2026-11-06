@@ -2,7 +2,7 @@
 #include "Resource/FontBankLoader.h"
 
 // USA: func_02094b3c
-extern "C" ARM void func_02094b3c(Struct_0208cb08* arg0, int arg1) {
+extern "C" ARM void func_02094b3c(FontLoader_0208cb08* arg0, int arg1) {
 #if defined(jpn)
     switch (arg1) {
     case 8:

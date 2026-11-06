@@ -15,7 +15,7 @@ enum { Enum_ov003_02160e34_1192 = 0x4a8 };
 enum { Enum_ov003_02160e34_1128 = 0x468 };
 #endif
 
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
@@ -36,7 +36,7 @@ struct Struct_ov003_02160e34 {
 // USA: func_ov003_02160e34
 extern "C" ARM int func_ov003_02160e34(struct Struct_ov003_02160e34* arg0) {
 	int var0 = 0;
-	void* var1 = func_020d6c00();
+	void* var1 = GetGlobalFlags_020d6c00();
 	GameResources* var2 = GetGameResources();
 	unsigned char var3 = arg0->unknown_4a8_;
 

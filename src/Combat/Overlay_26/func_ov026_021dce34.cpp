@@ -118,7 +118,7 @@ extern "C" void func_ov000_02181694(void*, int);
 extern "C" void func_ov000_0217f5d0(void*);
 
 extern "C" {
-int* func_0202ae18();
+int* GetLocalWireless_0202ae18();
 int func_ov000_0215fad4(Struct_ov000_02161e30*);
 int func_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
 void func_ov000_02174738(void*, int);
@@ -127,7 +127,7 @@ void func_02049c88(void*, void*);
 void func_ov026_021dc8fc(Struct_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, void*, int);
 void func_020531f0(void*);
 void func_ov000_02167fb0(void*, GameObject*);
-int func_0202c540(int*);
+int IsLocalWirelessGuest_0202c540(int*);
 int func_ov017_0219c774(int, int, int);
 void func_ov017_021917f0(int, int);
 void func_ov000_021675a0(Struct_ov000_02160da0*);
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, Struct_ov000_02160da0* arg1, S
     short var2[4];
     GameState* var3 = GameState::GetInstance();
     GetGameResources();
-    int* var4 = func_0202ae18();
+    int* var4 = GetLocalWireless_0202ae18();
     if (!func_020a36a8((Struct_020a36a8*)arg3) && !func_ov000_02160fd4(arg1, 0x80000000)) {
         return;
     }
@@ -208,7 +208,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, Struct_ov000_02160da0* arg1, S
             func_ov000_02168644((char*)arg1, var6);
             func_02039894((unsigned char*)var11);
             func_ov000_02167fb0(arg1, var11);
-            if (var11->obj3D_.unknown_4_ == 0 && func_0202c540(var4)) {
+            if (var11->obj3D_.unknown_4_ == 0 && IsLocalWirelessGuest_0202c540(var4)) {
                 func_ov017_0219c774(arg5->unknown_8_, 0, 0);
             }
         }
@@ -267,7 +267,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, Struct_ov000_02160da0* arg1, S
         }
     }
     if (func_ov000_0215fc60((char*)arg2) != 0) {
-        if (func_0202c540(func_0202ae18()) != 0) {
+        if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) != 0) {
             func_ov000_02181364(arg4);
             func_ov000_0217fcc4(arg4, -1);
             func_ov000_021816e8(arg4, -1);

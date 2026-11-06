@@ -4,8 +4,8 @@
 
 extern "C" float _fmul(float a, float b);
 extern "C" int _ffix(float value);
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 
 struct Struct_02071208 {
     unsigned char unknown_0_;
@@ -105,7 +105,7 @@ extern "C" ARM int func_02071208(Script::Parameter* arg0) {
         }
 
         data_02108d70.unknown_20_->unknown_44_ = arg0[6].ToInt();
-        if (func_0202c540(func_0202ae18())) {
+        if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18())) {
             data_02108d70.unknown_20_->unknown_44_ = data_02108d70.unknown_20_->unknown_44_ & ~8;
         }
 

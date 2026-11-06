@@ -1,16 +1,13 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
 #endif
 
-struct Struct_0202c1a4;
-extern "C" int func_0202c1a4(struct Struct_0202c1a4*);
-extern "C" void* func_0205ec34(void);
+struct LocalWireless_0202c1a4;
+extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4*);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_02010774(char* arg0, int arg1);
 extern "C" void func_020107a8(char* arg0, int arg1);
 extern "C" void func_020107dc(char* arg0, int arg1);
@@ -27,14 +24,14 @@ struct Struct_ov017_021ce174 {
 };
 
 // USA: func_ov017_021ce174
-extern "C" ARM void func_ov017_021ce174(void* arg0, struct Struct_ov017_021ce174* arg1, char* arg2, int arg3, struct Struct_0202c1a4* arg4) {
+extern "C" ARM void func_ov017_021ce174(void* arg0, struct Struct_ov017_021ce174* arg1, char* arg2, int arg3, struct LocalWireless_0202c1a4* arg4) {
     if (!arg1->unknown_4_7_) {
-        if (func_0202c1a4(arg4) == 0) {
+        if (GetOwnProtagonistObjectIndex_0202c1a4(arg4) == 0) {
             return;
         }
     }
 
-    unsigned char* var0 = (unsigned char*)func_0205ec34();
+    unsigned char* var0 = (unsigned char*)GetFlagManager_0205ec34();
 
     switch (arg1->unknown_4_0_) {
     case 0:

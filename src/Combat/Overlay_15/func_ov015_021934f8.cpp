@@ -22,7 +22,7 @@
 struct Struct_ov015_0218b810;
 struct Struct_ov015_02192600_3;
 struct Struct_0204a120_2;
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 struct Struct_0200f3a4_9;
 struct Struct_0203bdb0;
 
@@ -78,7 +78,7 @@ void UnlockStagedTextureVRAMCopying();
 void Finish3DRendering();
 extern "C" void func_020c51dc();
 extern "C" void func_020c537c();
-extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_02028ddc(void*);
 extern "C" void func_02028d68(int);
 extern "C" void func_02028dec(int);
@@ -110,10 +110,10 @@ extern "C" void func_020c3a0c(int);
 unsigned long long GetCurrentTimestamp();
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02042b30(void*, void*);
-extern "C" void func_0207df50(struct Struct_0203d028*);
-extern "C" void func_0207df90(char*);
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028*);
+extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void func_020432c4(void*);
-extern "C" void func_0207dfac(char*);
+extern "C" void SaveTextureVRAMState_0207dfac(char*);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, const void*, int);
 #else
@@ -139,11 +139,11 @@ extern "C" int func_020c39c8(unsigned short volatile*);
 extern "C" void func_0203bdb0(Struct_0203bdb0*);
 extern "C" void func_020290ac(int);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 extern const char* data_020f2a38;
 extern const char* data_020f2a30;
 extern int data_ov015_02193cdc[];
-extern char data_02108760;
+extern char gSoundEffectManager_02108760;
 extern int data_ov015_02194528[];
 #if defined(jpn)
 extern int data_ov015_0219480c[];
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     func_0200fb84((int*)var0, (int)arg0);
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     var1->MaybeReset();
-    Struct_0208cb08* var2 = func_02094a00();
+    FontLoader_0208cb08* var2 = func_02094a00();
     func_02094b3c(var2, 10);
     func_02094b3c(var2, 12);
     func_02094b34(var2, 0x69, 0, 0, 0);
@@ -209,7 +209,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     BG0CNT = (BG0CNT & ~3) | 1;
     BG0CNTSUB = BG0CNTSUB & ~3;
     BG0HOFS_SUB = 0;
-    arg0->unknown_84_ = func_02012d88(&data_02114e20, 0x6000);
+    arg0->unknown_84_ = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x6000);
     func_02028ddc(arg0->unknown_84_);
     func_02028d68(4);
     func_02028dec(1);
@@ -223,9 +223,9 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
 
     arg0->unknown_88_.ResetAllocatorPointer();
 #if defined(jpn)
-    arg0->unknown_88_.CreateTypeA(func_02012d88(&data_02114e20, 0x16c00), 0x16c00);
+    arg0->unknown_88_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x16c00), 0x16c00);
 #else
-    arg0->unknown_88_.CreateTypeA(func_02012d88(&data_02114e20, 0x17600), 0x17600);
+    arg0->unknown_88_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x17600), 0x17600);
 #endif
     arg0->unknown_88_.Reset();
     func_020de848(arg0->unknown_4c_);
@@ -243,13 +243,13 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
 #endif
 
     arg0->unknown_9c_.ResetAllocatorPointer();
-    arg0->unknown_9c_.CreateTypeA(func_02012d88(&data_02114e20, 0x20000), 0x20000);
+    arg0->unknown_9c_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x20000), 0x20000);
     arg0->unknown_9c_.Reset();
     func_0206efc4(arg0->unknown_64_);
     func_0206efd8(arg0->unknown_64_, &arg0->unknown_9c_);
 
     arg0->unknown_b0_.ResetAllocatorPointer();
-    arg0->unknown_b0_.CreateTypeA(func_02012d88(&data_02114e20, 0x20000), 0x20000);
+    arg0->unknown_b0_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x20000), 0x20000);
     arg0->unknown_b0_.Reset();
     func_020709d8(arg0->unknown_70_);
     func_020709ec(arg0->unknown_70_, &arg0->unknown_b0_);
@@ -261,7 +261,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     func_020a27a0(&var6);
     func_020100c4(var0, (int)&var6);
     func_ov015_02192544(arg0);
-    func_0205ea20(&data_02108760, 0x65);
+    func_0205ea20(&gSoundEffectManager_02108760, 0x65);
     func_020c9820();
     func_020c38d4();
     DISPCNTSUB |= 0x10000;
@@ -270,10 +270,10 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     GetCurrentTimestamp();
     Struct_ov015_021934f8_2* var7 = (Struct_ov015_021934f8_2*)GetMessageWindow_020421a0();
     func_02042b30(var7, arg0->unknown_124_);
-    func_0207df50((struct Struct_0203d028*)arg0->unknown_124_);
-    func_0207df90(arg0->unknown_124_);
+    ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)arg0->unknown_124_);
+    RestoreTextureVRAMState_0207df90(arg0->unknown_124_);
     func_020432c4(var7);
-    func_0207dfac(arg0->unknown_124_);
+    SaveTextureVRAMState_0207dfac(arg0->unknown_124_);
 #if defined(jpn)
     StartMessage_0204500c(var7, data_ov015_0219511b, 0);
 #else
@@ -289,7 +289,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     arg0->unknown_198_ = 2;
     arg0->unknown_1a4_ = 0;
     func_ov015_02192700(arg0);
-    func_02012de4(&data_02114e20);
+    func_02012de4(&gMainHeap_02114e20);
     unsigned long long var9 = GetCurrentTimestamp();
 
     for (;;)
@@ -324,7 +324,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
         func_ov015_02190d7c(arg0);
         func_ov015_021901c8(arg0);
         func_0203bd88(var3);
-        func_0203aa08(&data_02108760);
+        func_0203aa08(&gSoundEffectManager_02108760);
         func_020bbd9c();
 
         unsigned long long var11 = arg0->unknown_240_;
@@ -356,7 +356,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
 
     func_02094b38(var2, 0x69);
     func_02094ab0(var2);
-    func_0205ea20(&data_02108760, 0x64);
+    func_0205ea20(&gSoundEffectManager_02108760, 0x64);
     func_020a2010(&var6);
     func_020a2cf0((struct Struct_0204a120_2*)&var6);
     func_0202df68(&var6);

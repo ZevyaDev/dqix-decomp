@@ -45,7 +45,7 @@ struct Struct_ov023_021e49a4 {
 extern "C" Struct_02045cac* GetMessageWindow_020421a0();
 extern "C" void func_02045cac(Struct_02045cac*);
 extern "C" char* func_020e51cc(int);
-extern "C" int func_020e0434(Struct_0201099c_3*, int);
+extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_ov023_021e4250(char*);
 extern const char data_ov023_021fdcd8[];
 extern "C" {
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov023_021e49a4(Struct_ov023_021e49a4_4* arg0) {
             if (inline_ov023_021e49a4(var12->unknown_130_) <= 0) {
                 func_02045d14(var5, arg0->unknown_640_[var12->unknown_150_->unknown_49c_0_], var3[var11], 0);
             } else {
-                func_02045d14(var5, (const char*)func_020e0434(&var0->unknown_c00_, var14), var3[var11], 0);
+                func_02045d14(var5, (const char*)FindStringInTable_020e0434(&var0->unknown_c00_, var14), var3[var11], 0);
             }
             unsigned char var15 = func_ov023_021e4250((char*)var12);
             char var16[16];

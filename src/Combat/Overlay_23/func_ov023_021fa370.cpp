@@ -3,13 +3,13 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 
 struct Struct_021f6bb8 { int unknown_0_; int unknown_4_; };
 extern "C" int func_ov023_021f6bb8(struct Struct_021f6bb8* arg0);
 extern "C" void func_ov023_021f6bb0(void* arg0, int arg1);
 
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 extern "C" void* __clear(void* arg0, int arg1);
 
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov023_021fa370(struct Struct_ov023_021fa370_2* arg0, voi
     char var4[0x20];
     char var5[0x40];
 
-    var0 = func_ov011_021849c8(arg1);
+    var0 = GetMenuObjectList_ov011_021849c8(arg1);
     var1 = func_ov023_021f6bb8((struct Struct_021f6bb8*)var0);
     if (var1 >= 0) goto earlyOut;
 
@@ -66,7 +66,7 @@ extern "C" ARM int func_ov023_021fa370(struct Struct_ov023_021fa370_2* arg0, voi
     var3 = 0;
     if (arg0->unknown1_2c_ == 1) {
         GameState* var6 = GameState::GetInstance();
-        int var7 = func_020100a8(var6);
+        int var7 = GetProtagonistObjectIndex_020100a8(var6);
         struct Struct_ov023_021fa370_4* var8 = (struct Struct_ov023_021fa370_4*)var6->GetPartyMemberByIndex(var7);
         if (var8 != 0) {
             var3 = var8->unknown_150_->unknown_49c_0_;

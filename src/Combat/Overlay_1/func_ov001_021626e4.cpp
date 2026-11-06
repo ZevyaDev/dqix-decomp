@@ -13,10 +13,10 @@ struct Struct_ov001_021626e4 {
 extern "C" int func_ov017_021d612c(void* arg0);
 extern "C" int func_ov017_021d60f4(void* arg0);
 extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(Struct_02020cb8_4*);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void func_ov001_02162678(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_020c3984(unsigned int arg0);
 extern "C" void func_ov001_021628d4(int arg0, int arg1, int arg2, int arg3);
@@ -70,9 +70,9 @@ extern "C" ARM int func_ov001_021626e4(void* arg0) {
         }
     }
 
-    var10 = func_02046900((Struct_02020cb8_4*)var4);
+    var10 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var4);
     for (int var12 = 0; var12 < var10; var12++) {
-        var1[var12] = func_020467f0((Struct_02020aec*)var4, var12, &var6, &var2[var12]);
+        var1[var12] = GetPacEntryData_020467f0((PacEntry_02020aec*)var4, var12, &var6, &var2[var12]);
     }
 
     DISPCNT = (DISPCNT & ~0x1f00) | 0x800;

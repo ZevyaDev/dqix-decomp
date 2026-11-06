@@ -4,8 +4,8 @@
 #include "Memory/SafeAllocator.h"
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" void* memcpy(void*, const void*, unsigned int);
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
 extern "C" void func_ov023_021fa598(void*);
 extern "C" int GetMessageWindow_020421a0();
@@ -19,7 +19,7 @@ static inline char* inline_ov004_0216d718(GameState* arg0) { return (char*)arg0 
 static inline Struct_ov004_0216d718_2* inline_ov004_0216d718_2(char* arg0) { return (Struct_ov004_0216d718_2*)(arg0 + 0x6000); }
 extern "C" ARM int func_ov004_0216d718(void* arg0)
 {
-    void* var0 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x192);
+    void* var0 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x192);
     if (var0 != 0 && func_ov023_021f6f10(var0) == 4)
         func_ov023_021fa598(var0);
     GetMessageWindow_020421a0();
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov004_0216d718(void* arg0)
     SafeAllocator* var2 = (SafeAllocator*)((char*)func_ov011_021845f8(arg0, 5) + 4);
     char* var3 = (char*)var2->Allocate(0x400);
     memset(var3, 0, 0x400);
-    Struct_ov004_0216d718* var4 = (Struct_ov004_0216d718*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0x4f);
+    Struct_ov004_0216d718* var4 = (Struct_ov004_0216d718*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x4f);
     if (var4 == 0 || func_ov023_021f6f10(var4) != 8)
         var4 = 0;
     if (var4 != 0) {

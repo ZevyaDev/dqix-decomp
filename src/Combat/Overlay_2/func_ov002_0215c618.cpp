@@ -9,7 +9,7 @@ struct Struct_020a0bcc;
 struct Struct_020a095c;
 struct Struct_0207cf30_4;
 struct Struct_ov002_0215b2c8;
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_0205d81c;
 extern "C" int func_020a0b8c(struct Struct_020a0b8c *arg0);
 extern "C" void func_020a0bcc(struct Struct_020a0bcc *arg0);
@@ -18,7 +18,7 @@ extern "C" void func_020a095c(struct Struct_0207cf30_4 *arg0, int arg1, int arg2
 extern "C" void func_ov023_021e1318(void *arg0);
 extern "C" void func_ov023_021e1330(void *arg0);
 extern "C" void func_ov023_021e1518(void *arg0);
-extern "C" void func_ov023_021e1474(struct Struct_ov002_0215b2c8 *arg0, struct Struct_0201099c_10 *arg1);
+extern "C" void func_ov023_021e1474(struct Struct_ov002_0215b2c8 *arg0, struct ItemTable_0201099c_10 *arg1);
 extern "C" void func_ov023_021e1850(void *arg0, void *arg1, const char *arg2, short *arg3, int arg4);
 extern "C" void func_ov023_021e1870(void *arg0, void *arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov023_021e1814(void *arg0, void *arg1, int arg2, int arg3, int arg4);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov002_0215c618(char *arg0, int arg1) {
     struct Struct_ov002_0215b458_2 *var7;
     SafeAllocator var8;
     var0 = GameState::GetInstance();
-    var4 = (struct Struct_ov002_0215b458_3 *) func_02010828(var0);
+    var4 = (struct Struct_ov002_0215b458_3 *) GetParty_02010828(var0);
     var2 = GetInventoryItemByID(arg0, *(short *) (arg0 + 0x1a00 + 0xb0), *(signed char *) (arg0 + 0x1a00 + 0xe8));
     var3 = var4->unknown_0_;
     var6 = var4->unknown_4_;
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov002_0215c618(char *arg0, int arg1) {
     func_ov023_021e1318(var1 + 0x400);
     func_ov023_021e1850(var1 + 0x400, &var8, data_ov002_0216d5b6, var3, var5);
     func_ov023_021e1518(var1 + 0x400);
-    func_ov023_021e1474((struct Struct_ov002_0215b2c8 *) (var1 + 0x400), (struct Struct_0201099c_10 *) (arg0 + 0x750));
+    func_ov023_021e1474((struct Struct_ov002_0215b2c8 *) (var1 + 0x400), (struct ItemTable_0201099c_10 *) (arg0 + 0x750));
     if (*(unsigned char *) (arg0 + 0x2000 + 0x2bd) == 2) {
         func_ov023_021e1870(var1 + 0x400, (void *) 1, -1, -1, 0);
         *(unsigned char *) (arg0 + 0x2000 + 0x2bd) = 1;

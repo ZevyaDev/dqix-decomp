@@ -10,9 +10,6 @@ enum { Enum_ov004_02166ac4_2402 = 0x962 };
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 extern char* data_ov004_0217101c[2];
@@ -21,7 +18,7 @@ extern char* data_ov004_0217101c[2];
 extern char* data_ov004_0217101c;
 #define CurrentBase0217101c data_ov004_0217101c
 #endif
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int* func_02094d6c(void);
 extern "C" int GetMessageWindow_020421a0(void);
 
@@ -44,7 +41,7 @@ extern "C" ARM int func_ov004_02166ac4() {
     var0->unknown_44_ = -1;
     var0->unknown_1c_[1].Destroy();
     var0->unknown_1c_[0].Destroy();
-    char* var3 = (char*)func_0205ec34();
+    char* var3 = (char*)GetFlagManager_0205ec34();
     memcpy(var3 + 0x2cc, ((Struct_ov004_02166ac4*)CurrentBase0217101c)->unknown_51_, 0x66);
     int* var4 = func_02094d6c();
     *(int*)((char*)var4 + 0xa0) = ((Struct_ov004_02166ac4*)CurrentBase0217101c)->unknown_b8_;

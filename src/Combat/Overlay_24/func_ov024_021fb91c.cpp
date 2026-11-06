@@ -67,7 +67,7 @@ struct Struct_ov024_021fb91c_3 {
 struct Struct_ov024_021da670_6;
 struct Struct_ov024_021dd028_5;
 struct Struct_02010088;
-extern "C" int func_02053c6c(unsigned char*);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" int func_020a35e0(unsigned char*, unsigned char);
 extern "C" int func_02010088(Struct_02010088*);
 extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov024_021fb91c(Struct_ov024_021fb91c_2* arg0) {
     if (arg0->unknown_114_[arg0->unknown_128_] >= var1) var2 = 0;
     if (!var2 && var0->unknown_18_0_ == 0) return;
     GameObject* var3 = arg0->unknown_8_;
-    func_02053c6c((unsigned char*)var3);
+    GetPartyMemberData_02053c6c((unsigned char*)var3);
     func_020797dc();
     int var4 = arg0->unknown_25c_.unknown_3ec_;
     float var5 = 0;

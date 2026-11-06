@@ -3,15 +3,12 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
-extern char data_0211e33c[];
+extern char gFileScratchSpace_0211e33c[];
 
 extern "C" int func_020aaf84(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_020a93e0(char* arg0);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int func_020a9a50(void* arg0, char* arg1, int arg2);
 extern "C" void func_02042764(unsigned char* arg0, char* arg1, int arg2);
 extern "C" void __clear(void* arg0, int arg1);
@@ -19,11 +16,11 @@ extern "C" void __clear(void* arg0, int arg1);
 struct Struct_0201099c_16;
 extern "C" int func_020865b0(struct Struct_0201099c_16* arg0);
 
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 struct Struct_02038598_4;
 extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_020ac864(int arg0);
 
 struct Struct_020ab5d4_5 {
@@ -70,7 +67,7 @@ extern "C" ARM int func_020ab5d4(void* arg0, int arg1, int arg2, void* arg3) {
     }
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
-    unsigned char* var0 = (unsigned char*)&data_0211e33c[0] + 0x28000;
+    unsigned char* var0 = (unsigned char*)&gFileScratchSpace_0211e33c[0] + 0x28000;
     GameState* var1 = GameState::GetInstance();
     unsigned char* var2 = var0 + 4;
     struct Struct_020ab5d4_4 var3;
@@ -90,11 +87,11 @@ extern "C" ARM int func_020ab5d4(void* arg0, int arg1, int arg2, void* arg3) {
         }
     }
     unsigned char* var9 = var0 + 0x2cac;
-    void* var10 = func_0205ec34();
+    void* var10 = GetFlagManager_0205ec34();
     func_020a9a50(var9, (char*)var10, 0);
-    var3.unknown_45_ = func_0206dfb0((int)var10, (unsigned char*)var10 + 0x8c, 0x796);
+    var3.unknown_45_ = IsFlagSet_0206dfb0((int)var10, (unsigned char*)var10 + 0x8c, 0x796);
     var3.unknown_46_ = *(int*)var9;
-    var3.unknown_47_ = func_0206dfb0((int)var10, (unsigned char*)var10 + 0x8c, 0x1142) != 0;
+    var3.unknown_47_ = IsFlagSet_0206dfb0((int)var10, (unsigned char*)var10 + 0x8c, 0x1142) != 0;
     memcpy((char*)var1 + 0x7c40, &var3, 0x48);
     memcpy(arg3, (char*)(((struct Struct_020ab5d4_2*)(var0 + 0x1d8)) + 1) + 0x3c, 4);
     if (func_020ac864(0) == 0) {
@@ -111,9 +108,9 @@ extern "C" ARM int func_020ab5d4(void* arg0, int arg1, int arg2, void* arg3) {
     }
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
-    unsigned int* var11 = (unsigned int*)func_020d6c00();
+    unsigned int* var11 = (unsigned int*)GetGlobalFlags_020d6c00();
     func_020466e4(var11, 0x2000000);
-    unsigned char* var12 = (unsigned char*)&data_0211e33c[0] + 0x28000;
+    unsigned char* var12 = (unsigned char*)&gFileScratchSpace_0211e33c[0] + 0x28000;
     GameState* var13 = GameState::GetInstance();
     unsigned char* var14 = var12 + 4;
     func_020a93e0((char*)var14);
@@ -137,11 +134,11 @@ extern "C" ARM int func_020ab5d4(void* arg0, int arg1, int arg2, void* arg3) {
         }
     }
     unsigned char* var22 = var12 + 0x2cac;
-    void* var23 = func_0205ec34();
+    void* var23 = GetFlagManager_0205ec34();
     func_020a9a50(var22, (char*)var23, 0);
-    var16.unknown_d5_ = func_0206dfb0((int)var23, (unsigned char*)var23 + 0x8c, 0x796);
+    var16.unknown_d5_ = IsFlagSet_0206dfb0((int)var23, (unsigned char*)var23 + 0x8c, 0x796);
     var16.unknown_d6_ = *(int*)var22;
-    var16.unknown_d7_ = func_0206dfb0((int)var23, (unsigned char*)var23 + 0x8c, 0x1142) != 0;
+    var16.unknown_d7_ = IsFlagSet_0206dfb0((int)var23, (unsigned char*)var23 + 0x8c, 0x1142) != 0;
     memcpy((char*)var13 + 0x7e80, &var16, 0xd8);
     memcpy(arg3, (char*)(((struct Struct_020ab5d4_2*)(var12 + 0x1d8)) + 1) + 0x3c, 4);
     if (func_020ac864(0) == 0) {

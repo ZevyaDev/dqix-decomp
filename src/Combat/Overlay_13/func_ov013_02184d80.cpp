@@ -22,10 +22,10 @@ struct Struct_0204b12c;
 extern "C" void func_0204b12c(Struct_0204b12c* arg0, SafeAllocator* arg1);
 struct Struct_02020cb8_5;
 extern "C" void func_0204b5e8(Struct_02020cb8_5* arg0, int arg1, int arg2);
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(Struct_02020cb8_4* arg0);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0204b174(void* arg0, void* arg1, SafeAllocator* arg2, unsigned int arg3);
 extern "C" void func_0204bc74(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 struct Struct_02020cb8_2;
@@ -151,7 +151,7 @@ extern "C" ARM void func_ov013_02184d80(Struct_ov013_02184d80_4* arg0) {
     {
         if (arg0->unknown_63e_ == 0)
         {
-            Struct_0208cb08* var3 = func_02094a00();
+            FontLoader_0208cb08* var3 = func_02094a00();
             func_02094b3c(var3, 0xc);
             func_02094b30(var3, 0x1f7, 0);
             arg0->unknown_63e_++;
@@ -210,10 +210,10 @@ extern "C" ARM void func_ov013_02184d80(Struct_ov013_02184d80_4* arg0) {
                 void* var9[2];
                 unsigned int var10[2];
                 var0->GetLoadedFileByID(arg0->unknown_650_, &var7, &var8);
-                int var11 = func_02046900((Struct_02020cb8_4*)var7);
+                int var11 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var7);
                 for (int var12 = 0; var12 < var11; var12++)
                 {
-                    var9[var12] = func_020467f0((Struct_02020aec*)var7, var12, &var6, (int*)&var10[var12]);
+                    var9[var12] = GetPacEntryData_020467f0((PacEntry_02020aec*)var7, var12, &var6, (int*)&var10[var12]);
                 }
                 for (int var13 = 0; var13 < var11; var13++)
                 {

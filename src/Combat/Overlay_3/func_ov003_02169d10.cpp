@@ -26,14 +26,14 @@ struct Struct_ov003_02169d10
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
 extern "C" void func_02041e70(char* arg0, int arg1);
-extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" void func_02041ed8(char* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02041f24(char* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02041d9c(char* arg0, int arg1);
 extern "C" void func_02041b70(char* arg0, int arg1, const char* arg2);
 extern "C" void func_02041a28(char* arg0, int arg1);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 
 extern "C" const char data_ov003_02180137[];
 extern "C" const char data_ov003_02180145[];
@@ -55,13 +55,13 @@ extern "C" ARM void func_ov003_02169d10(Struct_ov003_02169d10* arg0, char* arg1,
         func_02041e70(arg1, 0xd);
     else
         func_02041e70(arg1, 0xf);
-    func_02042058(arg1, data_ov003_02180137);
+    AppendText_02042058(arg1, data_ov003_02180137);
     func_02041a90(arg1, var1 * 8 + 0x23, 0x1b);
     if (arg0->unknown_5a7_)
         func_02041e70(arg1, 0xd);
     else
         func_02041e70(arg1, 0xf);
-    func_02042058(arg1, data_ov003_02180145);
+    AppendText_02042058(arg1, data_ov003_02180145);
     func_02041e70(arg1, 0xf);
  #endif
     if (arg2)
@@ -79,10 +79,10 @@ extern "C" ARM void func_ov003_02169d10(Struct_ov003_02169d10* arg0, char* arg1,
         if (var2 < 4)
             func_02041b70(arg1, var2, var0);
         else
-            func_02042058(arg1, data_ov003_02180159);
+            AppendText_02042058(arg1, data_ov003_02180159);
     }
 #if !defined(jpn)
     func_02041a28(arg1, 0x5c);
 #endif
-    func_02042058(arg1, func_020e0434((Struct_0201099c_3*)arg0->unknown_64_, 0x66));
+    AppendText_02042058(arg1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, 0x66));
 }

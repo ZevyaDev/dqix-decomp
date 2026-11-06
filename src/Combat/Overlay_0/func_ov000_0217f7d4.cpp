@@ -4,7 +4,7 @@
 extern "C" int func_ov000_021719f8(int* arg0);
 struct Struct_ov000_02170fd0;
 extern "C" void func_ov000_02170fd0(struct Struct_ov000_02170fd0* arg0, int arg1);
-extern "C" void* func_02053c6c(unsigned char* arg0);
+extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct Struct_ov000_0217f7d4 {
     char unknown_0_[0x18];
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov000_0217f7d4(char* arg0) {
 #else
         enum { Enum_ov000_0217f7d4_2380 = 0x94c };
 #endif
-        if (var5 == NULL || (signed char)*(int*)((char*)func_02053c6c((unsigned char*)var5) + Enum_ov000_0217f7d4_2380) == 5) {
+        if (var5 == NULL || (signed char)*(int*)((char*)GetPartyMemberData_02053c6c((unsigned char*)var5) + Enum_ov000_0217f7d4_2380) == 5) {
             signed char var6 = *(signed char*)((char*)var2 + var2->unknown_18_ + 0x10);
             if (var6 == 0x64) var0 = var2->unknown_4c_;
         }

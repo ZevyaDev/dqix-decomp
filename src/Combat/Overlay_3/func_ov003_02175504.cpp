@@ -2,18 +2,18 @@
 #include <globaldefs.h>
 
 struct Struct_0207fdcc_2;
-struct Struct_0201099c_10 {
+struct ItemTable_0201099c_10 {
     unsigned short unknown_0_;
     unsigned char unknown_2_[10];
-    void* unknown_c_;
+    void* pItems_c_;
     unsigned char unknown_10_[4];
-    unsigned char unknown_14_;
+    unsigned char isSorted_14_;
 };
 struct Struct_020dee58;
 
 extern "C" unsigned char *func_02081da8(Struct_0207fdcc_2 *, int);
 extern "C" bool func_0204c7cc(unsigned char *);
-extern "C" Struct_020dee58 *func_020dedd0(Struct_0201099c_10 *, int);
+extern "C" Struct_020dee58 *func_020dedd0(ItemTable_0201099c_10 *, int);
 extern "C" void func_020809c4(void *, int, int, short *, short *);
 extern "C" int func_020dee58(Struct_020dee58 *);
 extern "C" void func_ov003_0217585c(void *, int, int, int, unsigned char);
@@ -41,7 +41,7 @@ struct Struct_ov003_02175504_2 {
 #endif
     short unknown_848_[12];
     unsigned char unknown_860_[0x14];
-    Struct_0201099c_10 unknown_874_;
+    ItemTable_0201099c_10 unknown_874_;
     unsigned char unknown_88c_[0x10];
     Struct_0207fdcc_2* unknown_89c_;
     unsigned char unknown_8a0_[0xff8 - 0x8a0];

@@ -25,8 +25,8 @@ void func_0204b5b4(void*,int);
 void func_0204b12c(void*,SafeAllocator*);
 void func_0204b5e8(void*,int,int);
 void ColorEffect_ConfigureAlphaBlend(unsigned int*,unsigned char,unsigned char,unsigned char,int);
-int func_02046900(void*);
-void* func_020467f0(void*,int,void**,int*);
+int CountPacEntries_02046900(void*);
+void* GetPacEntryData_020467f0(void*,int,void**,int*);
 void func_0204b174(void*,void*,SafeAllocator*,int);
 void func_0204bc74(void*,int,int,int,int,int,int);
 void func_0204b0e8(void*,void*);
@@ -92,8 +92,8 @@ extern "C" ARM void func_ov003_02168654(Struct_ov003_02168654_5* arg0) {
         if (var8->GetTaskStatus(arg0->unknown_4e0_)!=0) {
             void* var9; void* var10; unsigned int var11; void* var12[2]; int var13[2];
             var8->GetLoadedFileByID(arg0->unknown_4e0_,&var10,&var11);
-            int var14=func_02046900(var10);
-            for (int var15=0;var15<var14;var15++) var12[var15]=func_020467f0(var10,var15,&var9,var13+var15);
+            int var14=CountPacEntries_02046900(var10);
+            for (int var15=0;var15<var14;var15++) var12[var15]=GetPacEntryData_020467f0(var10,var15,&var9,var13+var15);
             for (int var16=0;var16<var14;var16++) {
                 if (var12[var16]) {
                     func_0204b174(arg0->unknown_1a0_+1,var12[var16],arg0->unknown_0_+1,var13[var16]);
@@ -133,10 +133,10 @@ extern "C" ARM void func_ov003_02168654(Struct_ov003_02168654_5* arg0) {
         if (var21->GetTaskStatus(arg0->unknown_4e0_)!=0) {
             void* var22; void* var23; unsigned int var24; int var25;
             var21->GetLoadedFileByID(arg0->unknown_4e0_,&var23,&var24);
-            int var26=func_02046900(var23);
+            int var26=CountPacEntries_02046900(var23);
             arg0->unknown_0_[3].Reset();
             for (int var27=0;var27<var26;var27++) {
-                void* var28=func_020467f0(var23,var27,&var22,&var25);
+                void* var28=GetPacEntryData_020467f0(var23,var27,&var22,&var25);
                 func_0205a528(arg0->unknown_480_,var28,var25,arg0->unknown_0_+3);
             }
             var21->RemoveTask(arg0->unknown_4e0_);

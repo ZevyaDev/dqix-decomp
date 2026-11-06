@@ -11,9 +11,9 @@ enum { Enum_ov003_021753a0_58 = 0x3a };
 #include "Combat/Main/MessageSlotTable.h"
 #include "GameState/GameState.h"
 
-struct Struct_0201099c_10;
-struct Struct_0201099c_9;
-extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+struct ItemTable_0201099c_10;
+struct ItemData_0201099c_9;
+extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
 
 extern "C" GameObject* func_0200ff94(GameState* arg0, int arg1);
 
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov003_021753a0(char* arg0, int arg1, int arg2, int arg3)
     if (var2 == 0) return var0;
 
     int var3 = *(short*)(arg0 + Enum_ov003_021753a0_4096 + Enum_ov003_021753a0_58);
-    struct Struct_0201099c_9* var4 = func_020dedd0((struct Struct_0201099c_10*)(arg0 + Enum_ov003_021753a0_2164), var3);
+    struct ItemData_0201099c_9* var4 = func_020dedd0((struct ItemTable_0201099c_10*)(arg0 + Enum_ov003_021753a0_2164), var3);
     if (var4 == 0) return var0;
 
     func_020dd4c4((void*)arg1, var4);

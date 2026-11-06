@@ -12,7 +12,7 @@ enum { Enum_ov026_021db090_668 = 0x29c, Enum_ov026_021db090_10416 = 0x28b0, Enum
 
 struct Struct_ov000_02161e30;
 struct GameResources;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
 struct Struct_ov000_0217e870_2 {
     char unknown_0_[0x8];
@@ -99,8 +99,8 @@ extern "C" int func_02010088(struct Struct_02010088*);
 extern "C" void func_020e4c74(void*, GameObject*);
 extern "C" void func_02053ec8(void*, int);
 extern "C" void func_ov017_021c9ad4(unsigned short);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
-extern "C" void func_02043204(char*);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
+extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_ov000_02160d80(void*, int);
 extern "C" Struct_ov026_021db090_4* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
 
@@ -115,7 +115,7 @@ void StartMessage_0204500c(Struct_ov000_0217964c_3*, char*, int);
 #else
 void StartMessage_0204500c(Struct_ov000_0217964c_3*, char*, int, int);
 #endif
-void func_02043124(Struct_ov000_0217964c_3*);
+void CloseMessageWindow_02043124(Struct_ov000_0217964c_3*);
 void func_ov000_02160da0(Struct_ov000_02160da0*);
 }
 
@@ -128,7 +128,7 @@ extern char data_ov026_021df465[];
 
 extern char data_ov026_021dedee[];
 extern Struct_ov000_02182c74 data_ov026_021de6bc;
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 // USA: func_ov026_021db090
 extern "C" ARM void func_ov026_021db090(Struct_ov000_02160da0* arg0) {
@@ -217,7 +217,7 @@ extern "C" ARM void func_ov026_021db090(Struct_ov000_02160da0* arg0) {
             Struct_ov000_02182a60* var17;
             GameState* var18;
             var18 = GameState::GetInstance();
-            var17 = (Struct_ov000_02182a60*)func_02010828(var18);
+            var17 = (Struct_ov000_02182a60*)GetParty_02010828(var18);
             for (var16 = 0; var16 < var17->unknown_f7c_; var16++) {
                 GameObject* var19 = func_0200ff1c(var18, var17->unknown_f78_[var16]);
                 if (var19 != NULL) {
@@ -260,13 +260,13 @@ extern "C" ARM void func_ov026_021db090(Struct_ov000_02160da0* arg0) {
         var1->unknown_19be_ = 1;
         var1->unknown_195b_ |= 2;
         var1->unknown_998_ = 1;
-        func_0205eaa0(&data_02108760, 9, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 9, 0);
         arg0->unknown_eac_++;
     } else if (var1->unknown_9a0_ == 0) {
         arg0->unknown_eac_++;
         if (arg0->unknown_eac_ >= 0x1e) {
-            func_02043204((char*)var1);
-            func_02043124(var1);
+            ResetMessageWindow_02043204((char*)var1);
+            CloseMessageWindow_02043124(var1);
             if (arg0->unknown_5950_ == 2) {
                 func_ov000_02160d80(arg0, 4);
             } else {

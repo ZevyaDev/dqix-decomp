@@ -19,17 +19,17 @@ extern "C" int func_020a090c(Struct_02061c04* arg0);
 extern "C" int func_0201e830(struct Struct_0201e830* arg0);
 extern "C" int func_0202ba00(int* arg0);
 extern "C" int func_020ac4f8(int arg0);
-extern "C" int func_020ac4c0(void* arg0);
+extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" int func_020ac0b4(void* arg0);
 extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_020e2d24(int* arg0, int arg1, int arg2);
 extern "C" void* func_ov004_02168ad4(void* arg0, int arg1);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 #if defined(jpn)
 extern "C" void* func_ov004_02168f08(void* arg0, int arg1);
 #define NODE_LOOKUP_CALL func_ov004_02168f08
@@ -109,7 +109,7 @@ extern struct Struct_ov004_021700d4 data_ov004_021700d4;
 // USA: func_ov004_02168b44
 extern "C" ARM int func_ov004_02168b44(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     struct Struct_ov004_02168b44* var2 = (struct Struct_ov004_02168b44*)((char*)var0 + Enum_ov004_02168b44_29888);
     int var3;
     for (var3 = 0; var3 < 3; var3++, var2++) {
@@ -142,7 +142,7 @@ extern "C" ARM int func_ov004_02168b44(void* arg0) {
     data_ov004_02171030->unknown_190_ = (unsigned char*)var0 + Enum_ov004_02168b44_29180;
 
     Struct_02061c04 var9;
-    int var10 = func_020ac4c0(&var9);
+    int var10 = GetBattleRecords_020ac4c0(&var9);
     unsigned int var11 = 0;
     func_020ac0b4(&var11);
     if (var11 > 0x1869f) var11 = 0x1869f;
@@ -206,18 +206,18 @@ extern "C" ARM int func_ov004_02168b44(void* arg0) {
 
     unsigned char* var19 = *(unsigned char**)((char*)var17 + Enum_ov004_02168b44_15236);
     if (data_ov004_02171030->unknown_190_[0] == 0) {
-        func_ov011_021848a0(arg0, 0x65);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x65);
     } else if (var19[9] != 0) {
-        func_ov011_021848a0(arg0, 0x67);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x67);
         struct Struct_ov004_02168b44_7* var20 = (struct Struct_ov004_02168b44_7*)func_ov004_02168ad4(arg0, 2);
         struct Struct_ov004_021700d4 var21 = data_ov004_021700d4;
         var20->inline_ov004_02168b44_8(&var21);
     } else {
-        func_ov011_021848a0(arg0, 0x64);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x64);
     }
 
     char* var22 = (char*)GetMessageWindow_020421a0();
-    func_02043204(var22);
+    ResetMessageWindow_02043204(var22);
     *(unsigned char*)(var22 + Enum_ov004_02168b44_6498) = 1;
     func_020e2d24((int*)(var22 + Enum_ov004_02168b44_6500), 9, 1);
     func_020e2d24((int*)(var22 + Enum_ov004_02168b44_6536), 0x19, 1);

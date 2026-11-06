@@ -18,14 +18,14 @@ struct Struct_0204254c {
 };
 extern "C" struct Struct_0204254c* func_0204254c(int arg0, int arg1);
 extern "C" int func_02041a28(char* arg0, int arg1);
-extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02041a5c(char* arg0, int arg1);
 
 #if defined(jpn)
 extern "C" void func_020420e8(char*, int);
 extern "C" void func_02042428(char*, int);
-struct Struct_02072a68_2;
-extern "C" char* func_02072a68(Struct_02072a68_2*, int);
+struct StringList_02072a68_2;
+extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" int func_02041a90(char*, int, int);
 #endif
 
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov023_021e8cdc(char* arg0) {
     char* var2 = (char*)GameState::GetInstance() + 0x3c + 0x5400;
     func_020420e8(var1, 8);
     func_02042428(var1, 12);
-    func_02042058(var1, func_02072a68(*(Struct_02072a68_2**)(arg0 + 0x5f4), 0x73));
+    AppendText_02042058(var1, FindStringInList_02072a68(*(StringList_02072a68_2**)(arg0 + 0x5f4), 0x73));
     var1 += strlen(var1);
     char* var3 = var2 + 8;
     if (*(char**)(arg0 + 0x600)) var3 = *(char**)(arg0 + 0x600);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov023_021e8cdc(char* arg0) {
         if (var4 != 2) {
             func_02041a90(var1, 1, var4 * 0x13 + 0x1b);
             var1 += strlen(var1);
-            memcpy(var1, func_02072a68(*(Struct_02072a68_2**)(arg0 + 0x5f4), 0x7b), 2);
+            memcpy(var1, FindStringInList_02072a68(*(StringList_02072a68_2**)(arg0 + 0x5f4), 0x7b), 2);
             var1 += 2;
         }
     }
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov023_021e8cdc(char* arg0) {
         struct Struct_0204254c* var15 = func_0204254c((int)var9, var14);
         if (var15 != 0) {
             func_02041a28(var1, var10);
-            func_02042058(var1, (const char*)var15->unknown_0_);
+            AppendText_02042058(var1, (const char*)var15->unknown_0_);
             var14 = var15->unknown_5_0_;
         }
         var13++;

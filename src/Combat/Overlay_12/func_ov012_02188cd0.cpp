@@ -4,13 +4,13 @@
 #include "std_library_functions.h"
 #include "Input/Input.h"
 
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 struct Struct_0205d6a0;
 struct Struct_ov003_0215e6d8;
 struct Struct_ov003_0215efb8;
 struct Struct_0205de24_2;
 struct Struct_0205def8;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
 struct Struct_ov012_02188cd0_2
 {
@@ -97,7 +97,7 @@ extern "C" void func_ov003_0215f41c(void* arg0, const char* arg1);
 extern "C" void func_ov012_0218ab34(Struct_ov012_02188cd0* arg0, char* arg1, int arg2);
 extern "C" int func_0205d97c(void* arg0);
 extern "C" int func_ov003_0215f000(void* arg0, int arg1);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov023_021e8270(void* arg0);
 extern "C" void func_ov012_021845f8(void* arg0);
 extern "C" int func_ov012_02184d80(void* arg0, char* arg1);
@@ -105,12 +105,12 @@ extern "C" void func_0205def8(Struct_0205def8* arg0, int arg1, int arg2);
 extern "C" void func_020426bc(const char* arg0, char* arg1, int arg2);
 extern "C" void func_ov012_0218943c(Struct_ov012_02188cd0* arg0);
 extern "C" Struct_ov012_02188cd0_4* GetMessageWindow_020421a0();
-extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void StartMessage_0204500c(Struct_ov012_02188cd0_4* window, const char* text, int arg2, int arg3);
 
 extern "C" const char data_ov012_0218b2ea[];
 extern "C" const char data_ov012_0218b303[];
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 static inline Struct_ov012_02188cd0_3* inline_ov012_02188cd0(GameState* arg0)
 {
@@ -199,13 +199,13 @@ extern "C" ARM void func_ov012_02188cd0(Struct_ov012_02188cd0* arg0)
         switch (func_ov003_0215f000(var5, arg0->unknown_13a4_))
         {
             case 1:
-                func_0205eaa0((Struct_02108760*)data_02108760, 2, 0);
+                PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 2, 0);
                 return;
 
             case 2:
             case 3:
             case 8:
-                func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+                PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
                 if (var6 != ((Struct_ov012_02188cd0_2*)arg0->unknown_0_)->unknown_20_)
                     func_ov012_0218ab34(arg0, 0, 0);
                 func_ov023_021e8270(arg0->unknown_d28_);
@@ -216,16 +216,16 @@ extern "C" ARM void func_ov012_02188cd0(Struct_ov012_02188cd0* arg0)
             case 6:
             case 7:
             case 11:
-                func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+                PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
                 func_ov012_0218ab34(arg0, 0, 0);
                 return;
 
             case 9:
-                func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+                PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
                 return;
 
             case 10:
-                func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+                PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
                 if (*arg0->unknown_13d0_ != 0)
                 {
                     GameState::GetInstance();
@@ -271,7 +271,7 @@ extern "C" ARM void func_ov012_02188cd0(Struct_ov012_02188cd0* arg0)
     else if (arg0->unknown_1370_ == 10)
     {
         Struct_ov012_02188cd0_4* var8 = GetMessageWindow_020421a0();
-        StartMessage_0204500c(var8, func_02072a68((Struct_02072a68_2*)arg0->unknown_133c_, 501), 0, 0xe3);
+        StartMessage_0204500c(var8, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 501), 0, 0xe3);
         var8->unknown_998_ = 1;
         arg0->unknown_1370_++;
         return;

@@ -4,11 +4,11 @@
 extern "C" int func_ov004_0215f74c(int arg0, int arg1);
 extern "C" void func_ov004_0215fdfc(void*);
 extern "C" void func_ov004_0215eb40(void*);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" void func_ov023_021f66bc(void* arg0, int arg1, void* arg2);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
-extern struct Struct_02108760 data_02108760;
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 extern unsigned char data_ov004_021707e8;
 extern unsigned char data_ov004_02170b90;
@@ -43,7 +43,7 @@ extern "C" ARM int func_ov004_02162c30(void* arg0) {
 #else
         *(unsigned char*)(D021707e8 + 6) = *(signed char*)(D021707e8 + 5);
 #endif
-        func_ov011_021848a0(arg0, 0x65);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x65);
         break;
     case 1:
 #if defined(jpn)
@@ -51,7 +51,7 @@ extern "C" ARM int func_ov004_02162c30(void* arg0) {
 #else
         *(unsigned char*)(D021707e8 + 6) = *(unsigned char*)(D02170b90 + 0x23f);
 #endif
-        func_ov011_021848a0(arg0, 0x66);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x66);
         break;
     case 2:
 #if defined(jpn)
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov004_02162c30(void* arg0) {
         *(unsigned char*)(D021707e8 + 6) = *(unsigned char*)(D02170b90 + 0x47f);
 #endif
         func_ov004_0215eb40(arg0);
-        func_ov011_021848a0(arg0, 0x67);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x67);
         break;
     case 3:
 #if defined(jpn)
@@ -68,7 +68,7 @@ extern "C" ARM int func_ov004_02162c30(void* arg0) {
 #else
         *(unsigned char*)(D021707e8 + 6) = 1;
 #endif
-        func_ov011_021848a0(arg0, 0x68);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x68);
         break;
     case 4:
 #if defined(jpn)
@@ -78,7 +78,7 @@ extern "C" ARM int func_ov004_02162c30(void* arg0) {
         *(unsigned char*)(D021707e8 + 6) = *(signed char*)(D021707e8 + 9);
         *(unsigned char*)(D021707e8 + 8) = *(unsigned char*)(D021707e8 + 3);
 #endif
-        func_ov011_021848a0(arg0, 0x64);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x64);
         break;
     }
 
@@ -94,6 +94,6 @@ extern "C" ARM int func_ov004_02162c30(void* arg0) {
     *(unsigned char*)(D021707e8 + 0) = 0;
 #endif
     func_ov023_021f66bc(arg0, 0x84, (void*)1);
-    func_0205eaa0(&data_02108760, 1, 0);
+    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
     return 0;
 }

@@ -25,7 +25,7 @@ void func_020ac104(void*, Struct_ov006_02153cbc*, int);
 Struct_ov006_02153cbc_2* func_02071d60(void*, short);
 bool func_020ac0b4(unsigned int*);
 void func_020ac08c(unsigned int*);
-int func_020ac4c0(void*);
+int GetBattleRecords_020ac4c0(void*);
 void func_020a0228(void*, int);
 int func_020ac494(void*);
 }
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov006_02153cbc(void* arg0, short arg1, short arg2, void
     if (func_020ac2d4(0, &arg1, &var0, 1)) {
         var0.unknown_2_0_ = 1;
         var0.unknown_2_1_ = 1;
-        func_020ac104(data_0211e33c, &var0, 1);
+        func_020ac104(gFileScratchSpace_0211e33c, &var0, 1);
         func_ov006_02153e8c(arg0, &var0);
         if (arg3) {
             Struct_ov006_02153cbc_2* var1 = func_02071d60(arg3, arg1);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov006_02153cbc(void* arg0, short arg1, short arg2, void
         if (func_020ac2d4(0, &arg2, &var0, 1)) {
             var0.unknown_0_ = arg2;
             var0.unknown_2_1_ = 1;
-            func_020ac104(data_0211e33c, &var0, 1);
+            func_020ac104(gFileScratchSpace_0211e33c, &var0, 1);
             func_ov006_02153e8c(arg0, &var0);
             if (arg3) {
                 Struct_ov006_02153cbc_2* var2 = func_02071d60(arg3, arg2);
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov006_02153cbc(void* arg0, short arg1, short arg2, void
         if (var3 > 99999) var3 = 99999;
         func_020ac08c(&var3);
         Struct_ov006_02153cbc_3 var4;
-        func_020ac4c0(&var4);
+        GetBattleRecords_020ac4c0(&var4);
         func_020a0228(var4.unknown_68_, 1);
         func_020ac494(&var4);
     }

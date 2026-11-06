@@ -7,44 +7,41 @@
 #include "Resource/Brightness.h"
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
 #endif
 
-struct Struct_02072a68;
-struct Struct_02072a68_2 { Struct_02072a68* unknown_0_; short unknown_4_; short unknown_6_; };
+struct StringListEntry_02072a68;
+struct StringList_02072a68_2 { StringListEntry_02072a68* unknown_0_; short capacity_4_; short unknown_6_; };
 struct Struct_020d80b0_3 {
     unsigned char unknown_0_[4];
     int unknown_4_;
     int unknown_8_;
-    Struct_02072a68_2 unknown_c_;
+    StringList_02072a68_2 unknown_c_;
     SafeAllocator unknown_14_;
     int unknown_28_;
 };
 struct Struct_02018300_3;
-struct Struct_02108760;
-extern Struct_02108760 data_02108760;
-extern AllocatorUnion data_02114e20;
+struct SoundEffectManager_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
+extern AllocatorUnion gMainHeap_02114e20;
 extern char data_020f235c[];
 extern char data_020f2371[];
-extern "C" void func_0202ae18(GameState*);
+extern "C" void GetLocalWireless_0202ae18(GameState*);
 extern "C" Zone3D* GetZone3D_02012fe4();
-extern "C" void* func_0205ec34();
+extern "C" void* GetFlagManager_0205ec34();
 extern "C" int GetMessageWindow_020421a0();
 extern "C" int func_020100f8(char*);
 extern "C" void func_020d8484(Struct_020d80b0_3*);
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020a27b8(unsigned char*);
-extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void func_020728ac(Struct_02072a68_2*, SafeAllocator*, void*, unsigned int, int, int, int);
-extern "C" void func_02046380(void*);
-extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void func_020728ac(StringList_02072a68_2*, SafeAllocator*, void*, unsigned int, int, int, int);
+extern "C" void ClearMessageParams_02046380(void*);
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
-extern "C" void* func_02072a68(Struct_02072a68_2*, int);
+extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, char*, int);
 #define SHOW_TEXT_020d80b0(d, t) StartMessage_0204500c(d, t, 0)
@@ -53,7 +50,7 @@ extern char data_020f24b8[];
 extern "C" void StartMessage_0204500c(void*, char*, int, int);
 #define SHOW_TEXT_020d80b0(d, t) StartMessage_0204500c(d, t, 0, 0xe3)
 #endif
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_020397c0(void*);
 extern "C" void func_020dc2d0(int);
 struct Struct_020d80b0 {
@@ -77,7 +74,7 @@ struct Struct_020d80b0_2 { unsigned char unknown_0_[0x8c]; unsigned char unknown
 // USA: func_020d80b0
 extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_0202ae18(var0);
+    GetLocalWireless_0202ae18(var0);
     GameResources* var1 = GetGameResources();
     Struct_020d80b0* var2 = (Struct_020d80b0*)GetMessageWindow_020421a0();
     GameObject* var3;
@@ -85,7 +82,7 @@ extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
     Zone3D_StructPtr_8* var5 = GetZone3D_02012fe4()->pUnknownStruct_8_;
     GrottoStruct* var6 = var0->GetGrottoStruct();
     var3 = var0->GetUnknownGameObject();
-    var4 = (Struct_020d80b0_2*)func_0205ec34();
+    var4 = (Struct_020d80b0_2*)GetFlagManager_0205ec34();
     unsigned char* var7 = (unsigned char*)func_020100f8((char*)var0);
     if (var6->activeMapData.GetDiscoveryState() != 1) {
         arg0->unknown_8_ = 7;
@@ -94,7 +91,7 @@ extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
     if (arg0->unknown_8_ == 0) {
         func_020397cc((Struct_02018300_3*)var3, 1);
         func_020a27b8(var7);
-        arg0->unknown_14_.CreateTypeA(func_02012d88(&data_02114e20, 0x300), 0x300);
+        arg0->unknown_14_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x300), 0x300);
 #if defined(jpn)
         arg0->unknown_28_ = BackgroundLoader::GetInstance()->QueueLoadFile(data_020f24b8, 0);
 #else
@@ -110,13 +107,13 @@ extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
             func_020728ac(&arg0->unknown_c_, &arg0->unknown_14_, var8, var9, 0, 0, 0);
             BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_28_);
             arg0->unknown_28_ = -1;
-            func_02046380(var2);
+            ClearMessageParams_02046380(var2);
             func_02094b30(func_02094a00(), 0x203, 0);
             arg0->unknown_8_ = 2;
         }
     } else if (arg0->unknown_8_ == 2) {
         if (func_02094b4c(func_02094a00())) {
-            if (func_0206dfb0((int)var4, var4->unknown_8c_, 0x119e)) arg0->unknown_8_ = 5;
+            if (IsFlagSet_0206dfb0((int)var4, var4->unknown_8c_, 0x119e)) arg0->unknown_8_ = 5;
             else {
                 arg0->unknown_8_ = 3;
                 func_0206df6c(var4, var4->unknown_8c_, 0x119e, 1);
@@ -124,31 +121,31 @@ extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
         }
     } else if (arg0->unknown_8_ == 3) {
         char* var10 = var2->unknown_5c_;
-        strcpy(var10, (char*)func_02072a68(&arg0->unknown_c_, 2));
+        strcpy(var10, (char*)FindStringInList_02072a68(&arg0->unknown_c_, 2));
         SHOW_TEXT_020d80b0(var2, var10);
         var2->unknown_19b2_ = 0;
         var2->unknown_998_ = 1;
         arg0->unknown_8_ = 4;
     } else if (arg0->unknown_8_ == 4) {
         if (!var2->unknown_998_) {
-            func_0205eaa0(&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             arg0->unknown_8_ = 5;
         }
     } else if (arg0->unknown_8_ == 5) {
         char* var11 = var2->unknown_5c_;
-        strcpy(var11, (char*)func_02072a68(&arg0->unknown_c_, 1));
+        strcpy(var11, (char*)FindStringInList_02072a68(&arg0->unknown_c_, 1));
         SHOW_TEXT_020d80b0(var2, var11);
         var2->unknown_19b2_ = 0;
         var2->unknown_998_ = 1;
         arg0->unknown_8_ = 6;
     } else if (arg0->unknown_8_ == 6) {
         if (!var2->unknown_998_) {
-            func_0205eaa0(&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             arg0->unknown_8_ = 7;
         }
     } else if (arg0->unknown_8_ == 7) {
         func_020397c0(var3);
-        Struct_0208cb08* var12 = func_02094a00();
+        FontLoader_0208cb08* var12 = func_02094a00();
         func_02094b38(var12, 0x203);
         func_02094ab0(var12);
         if (var5 && !var5->unknown_c_low_) func_020d8484(arg0);

@@ -91,8 +91,8 @@ struct Struct_ov024_021df924_6 {
 extern float data_ov024_021fe860[];
 
 extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int func_ov000_0215fd24(int arg0, int arg1);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 static inline int inline_ov024_021df924() { return *GetZone3D_02012fe4(); }
@@ -106,7 +106,7 @@ extern "C" void func_ov000_0215fa70(void*, short, short, short);
 extern "C" int func_0207ccf0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 extern "C" int func_020ac020(void* arg0, short* arg1, int* arg2, int arg3);
 extern "C" void func_020abe84(void* arg0, short* arg1, Struct_ov024_021df924_5* arg2, int arg3);
-extern "C" void func_020ac4c0(void* arg0);
+extern "C" void GetBattleRecords_020ac4c0(void* records);
 extern "C" void func_020a0720(Struct_020a0720* arg0, unsigned int arg1);
 extern "C" void func_0209fffc(Struct_0209fffc* arg0, unsigned int arg1);
 extern "C" void func_020a0750(Struct_020a0750* arg0, unsigned int arg1);
@@ -147,8 +147,8 @@ extern "C" ARM void* func_ov024_021df924(Struct_ov024_021df924_2* arg0, short ar
         var11 = 0;
         var12 = 0;
         int var16 = 0;
-        void* var17 = func_0202ae18();
-        if (arg0->unknown_10_->unknown_8e4a_ == 0 && func_0202c508(var17) && func_ov000_0215fd24((int)arg0->unknown_10_, arg1)) {
+        void* var17 = GetLocalWireless_0202ae18();
+        if (arg0->unknown_10_->unknown_8e4a_ == 0 && IsNotLocalWirelessGuest_0202c508(var17) && func_ov000_0215fd24((int)arg0->unknown_10_, arg1)) {
             var16 = func_ov024_021df71c(var1, inline_ov024_021df924(), var15 != 0, &var10, &var12, &var11);
         }
         if (((Struct_ov024_021df924_7*)var1->currentStats_)->unknown_3d_ != 0 && !var16) continue;
@@ -209,7 +209,7 @@ extern "C" ARM void* func_ov024_021df924(Struct_ov024_021df924_2* arg0, short ar
         break;
     }
     char var26[0xb0];
-    func_020ac4c0(var26);
+    GetBattleRecords_020ac4c0(var26);
     char* var27 = var26 + 0x68;
     func_020a0720((Struct_020a0720*)var26, 1);
     func_0209fffc((Struct_0209fffc*)var27, 1);

@@ -51,7 +51,7 @@ extern "C" ARM void func_ov024_021fd66c(struct Struct_ov024_021fd66c* arg0) {
 	float var4 = var2 * ((float)var3 / 100.0f);
 	unsigned int var5 = var1->unknown_4_.unknown_0_0_;
 	if (var5 == 0x58) {
-		if (var0->obj3D_.unknown_0_ & 0x400) {
+		if (var0->obj3D_.classFlags_0_ & 0x400) {
 			struct Struct_ov024_021fd66c_5* var6 = *(struct Struct_ov024_021fd66c_5**)((char*)var0 + 0x144);
 			if (var6 != NULL && var6->unknown_b_4_) {
 				arg0->unknown_2c_ = 1;

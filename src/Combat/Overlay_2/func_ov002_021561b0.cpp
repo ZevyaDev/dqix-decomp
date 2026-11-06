@@ -25,7 +25,7 @@ extern "C" ARM void func_ov002_021561b0(struct Struct_ov002_021561b0* arg0) {
     }
     unsigned char var1 = arg0->unknown_2000_.unknown_47a_;
     if (var1 == 0) {
-        Struct_0208cb08* var2 = func_02094a00();
+        FontLoader_0208cb08* var2 = func_02094a00();
         func_02094ab0(var2);
         func_02094b3c(var2, 0xc);
         func_02094b34(var2, 0x64, 0x208, 0, 0);

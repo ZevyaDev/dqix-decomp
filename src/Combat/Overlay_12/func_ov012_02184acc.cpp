@@ -118,12 +118,12 @@ extern "C" void func_ov012_021845f8(void* arg0);
 extern "C" int func_ov012_02184d80(void* arg0, char* arg1);
 #if defined(jpn)
 struct Struct_0202b2f0;
-extern "C" Struct_0202b2f0* func_0202ae18();
+extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18();
 extern "C" int func_0202c578(Struct_0202b2f0*, int);
 #endif
 extern "C" void func_0205def8(Struct_0205def8* arg0, int arg1, int arg2);
 extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 
 extern "C" const Struct_ov012_0218b188 data_ov012_0218b188;
 extern "C" Type_01ff91ac_5 data_020e6d5c;
@@ -165,7 +165,7 @@ extern "C" ARM int func_ov012_02184acc(Struct_ov012_02184acc* arg0, int arg1)
 #endif
 #if defined(jpn)
         if ((var1->unknown_998_ == 0 && g_keyManager.TestKeysPressed(0x800)) ||
-            func_0202c578(func_0202ae18(), 0))
+            func_0202c578(GetLocalWireless_0202ae18(), 0))
 #else
         if (func_ov017_021959b4())
 #endif
@@ -201,7 +201,7 @@ extern "C" ARM int func_ov012_02184acc(Struct_ov012_02184acc* arg0, int arg1)
             arg0->unknown_1371_ = 15;
             arg0->unknown1_1370_ = 0;
             if (var1->unknown_998_ != 0)
-                func_02043204((char*)var1);
+                ResetMessageWindow_02043204((char*)var1);
 
             BackgroundLoader* var4 = BackgroundLoader::GetInstance();
             for (int var5 = 0; var5 < (int)(sizeof(arg0->unknown_1380_) / sizeof(arg0->unknown_1380_[0])); var5++)

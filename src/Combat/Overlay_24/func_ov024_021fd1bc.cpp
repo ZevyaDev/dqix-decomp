@@ -50,7 +50,7 @@ extern "C" ARM void func_ov024_021fd1bc(struct Struct_ov024_021fd1bc_5* arg0) {
 	if (!func_02088418((struct Struct_02088418*)var0->currentStats_, var2, var3)) return;
 	if (func_ov024_021da9c8((struct Struct_ov024_021da670_8*)var0)) return;
 	var1 = arg0->unknown_64c_;
-	if (var1->unknown_30_ == 2 && (var0->obj3D_.unknown_0_ & 0x400)) {
+	if (var1->unknown_30_ == 2 && (var0->obj3D_.classFlags_0_ & 0x400)) {
 		struct Struct_ov024_021fd1bc_4* var4 = *(struct Struct_ov024_021fd1bc_4**)((char*)var0 + 0x144);
 		if (var4 && var4->unknown_b_3_) return;
 	}

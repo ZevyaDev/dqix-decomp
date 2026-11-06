@@ -5,9 +5,6 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Combat/Main/CopyRecord0200fbb4.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 enum { Enum_ov017_021ab860_1276 = 0x4fc, Enum_ov017_021ab860_1260 = 0x4ec,
@@ -20,11 +17,11 @@ enum { Enum_ov017_021ab860_1804 = 0x70c, Enum_ov017_021ab860_1788 = 0x6fc,
        Enum_ov017_021ab860_17582 = 0x44ae, Enum_ov017_021ab860_17584 = 0x44b0 };
 #endif
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
-extern "C" unsigned char* func_0205ec34(void);
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" unsigned char* GetFlagManager_0205ec34(void);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_020117f0(GameState* arg0);
 struct Struct_ov017_021ab860;
 extern "C" void func_ov017_021abb68(struct Struct_ov017_021ab860* arg0, unsigned char arg1);
@@ -35,9 +32,9 @@ extern "C" int func_ov017_0219ff58(GameResources* arg0, int arg1, int arg2, int 
 extern "C" void* func_0200fd0c(GameState* arg0);
 extern "C" void VectorizedMemset(void* dst, int val, int size);
 extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 struct Struct_ov017_021ab860_2 {
     unsigned short unknown_0_;
@@ -91,15 +88,15 @@ struct Struct_ov017_021ab860_4 {
 // USA: func_ov017_021ab860
 extern "C" ARM int func_ov017_021ab860(int arg0, unsigned char arg1) {
     GameState* var0 = GameState::GetInstance();
-    func_0200fb8c((int*)var0);
+    GetResources_0200fb8c((int*)var0);
     data_ov017_021d83b0.unknown_0_ = ((Struct_ov017_021ab860_2*)GetZone3D_02012fe4())->unknown_8_;
     data_ov017_021d83b0.unknown_4_ = 0;
     data_ov017_021d83b0.unknown_6_ = 0;
     data_ov017_021d83b0.unknown_8_ = 0;
     memset(&data_ov017_021d83bc, 0, sizeof(Vector3i));
     data_ov017_021d83b0.unknown_18_ = 0;
-    unsigned char* var1 = func_0205ec34();
-    if (func_0206dfb0((int)var1, var1 + 0x8c, 0x113a) != 0) {
+    unsigned char* var1 = GetFlagManager_0205ec34();
+    if (IsFlagSet_0206dfb0((int)var1, var1 + 0x8c, 0x113a) != 0) {
         return 1;
     }
     if (func_020117f0(var0) != 0) {
@@ -182,11 +179,11 @@ extern "C" ARM int func_ov017_021ab860(int arg0, unsigned char arg1) {
             var14->unknown_7_ = 1;
             func_0200fcfc(var0, var14);
         }
-        struct Struct_0201bdac_2* var15;
+        struct Queue_0201bdac_2* var15;
         unsigned char* var16 = (unsigned char*)var12->unknown_ptr_array_36fc[4];
-        var15 = (struct Struct_0201bdac_2*)var12->unknown_ptr_array_36fc[0];
+        var15 = (struct Queue_0201bdac_2*)var12->unknown_ptr_array_36fc[0];
         func_ov017_0219e310(var16, 0);
-        func_020469b4(var15, (struct Struct_0201bdac*)var16);
+        AppendToQueue_020469b4(var15, (struct QueueNode_0201bdac*)var16);
         *(short*)((unsigned char*)var12 + Enum_ov017_021ab860_17582) = 0;
         *(short*)((unsigned char*)var12 + Enum_ov017_021ab860_17584) = 0;
         return 3;

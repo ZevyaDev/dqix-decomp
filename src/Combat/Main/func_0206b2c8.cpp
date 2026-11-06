@@ -3,8 +3,8 @@
 #if defined(jpn)
 #include "Resource/MessageSystem.h"
 extern "C" unsigned short* func_0206c730(void*, unsigned short, unsigned short*);
-extern "C" void func_02043204(char*);
-extern "C" void func_02043124(void*);
+extern "C" void ResetMessageWindow_02043204(char*);
+extern "C" void CloseMessageWindow_02043124(void*);
 extern "C" void func_0206b104(void*);
 extern "C" void func_0206aa28(void*);
 
@@ -14,8 +14,8 @@ extern "C" ARM void func_0206cbe8(void* arg0, unsigned short arg1, unsigned shor
     char* var1 = static_cast<char*>(arg0);
     unsigned short* var2 = func_0206c730(arg0, arg1, arg2);
     if (var2 == NULL) {
-        func_02043204(var1);
-        func_02043124(arg0);
+        ResetMessageWindow_02043204(var1);
+        CloseMessageWindow_02043124(arg0);
         return;
     }
     func_0206b104(arg0);
@@ -29,8 +29,8 @@ extern "C" ARM void func_0206cbe8(void* arg0, unsigned short arg1, unsigned shor
 #else
 
 extern "C" void* func_0206ac94(void* arg0);
-extern "C" void func_02043204(char* arg0);
-extern "C" void func_02043124(void* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
+extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void func_0206b104(void* arg0);
 extern "C" void func_0206aa28(void* arg0);
 extern "C" void func_0206b974(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6, int arg7);
@@ -52,8 +52,8 @@ struct Struct_020678bc {
 extern "C" ARM void func_0206b2c8(Struct_020678bc* arg0, int, void*) {
     void* var0 = func_0206ac94(arg0);
     if (var0 == NULL) {
-        func_02043204((char*)arg0);
-        func_02043124(arg0);
+        ResetMessageWindow_02043204((char*)arg0);
+        CloseMessageWindow_02043124(arg0);
         return;
     }
 

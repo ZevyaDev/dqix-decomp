@@ -9,8 +9,8 @@ enum { Enum_ov004_0216033c_7=7,Enum_ov004_0216033c_11=0xb,Enum_ov004_0216033c_6=
 #endif
 
 extern "C" void func_ov004_0215f6f4(void* arg0, short arg1, short arg2, int arg3);
-extern "C" int func_02053c6c(unsigned char* arg0);
-extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" int func_02085fb4(unsigned char* arg0);
 extern "C" int func_02086020(unsigned char* arg0);
 extern "C" int func_0208608c(unsigned char* arg0);
@@ -111,7 +111,7 @@ public:
     char unknown_24_[0x38 - 0x24];
     short unknown_38_;
 };
-extern "C" Struct_ov004_0216033c* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" Struct_ov004_0216033c* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 
 struct Struct_02000c9c_90 {
     char unknown_0_[0x30];
@@ -147,19 +147,19 @@ extern "C" ARM int func_ov004_0216033c(void* arg0) {
     GameState* var9 = GameState::GetInstance();
     var4 = (unsigned char*)func_0200ff1c(var9, var7);
     if (!var4) goto stats_done;
-    var3 = (unsigned char*)func_02053c6c(var4);
+    var3 = (unsigned char*)GetPartyMemberData_02053c6c(var4);
     if (!var3) goto stats_done;
     {
 
     short var10, var11, var12, var13, var14, var15, var16, var17, var18, var19, var20;
-    void* var21 = func_ov011_021849c8(arg0);
+    void* var21 = GetMenuObjectList_ov011_021849c8(arg0);
 
     int var22 = D1[var8];
     int var23 = var7 * 0xc + (var22 - 1);
     var1 = (Struct_ov003_021539a0_3*)(*(int*)((char*)D0 + 0x14) + var23 * 0x18);
 
     for (var0 = 0; var0 < 0xe; var0++) {
-        var2 = func_ov023_021f6880(var21, var0 + 0x51);
+        var2 = FindMenuObjectById_ov023_021f6880(var21, var0 + 0x51);
         if (!var2) continue;
 
         int var24 = D1[var8];
@@ -185,7 +185,7 @@ extern "C" ARM int func_ov004_0216033c(void* arg0) {
             }
             var2->inline_ov004_0216033c_57(0xf);
         } else {
-            int var28 = func_02053c6c(var4) + Enum_ov004_0216033c_2128;
+            int var28 = GetPartyMemberData_02053c6c(var4) + Enum_ov004_0216033c_2128;
             int var29 = D1[var8];
             int var30 = (var29 & 0xff) * 0xc;
             Struct_ov003_021539a0_3* var31 = (Struct_ov003_021539a0_3*)(var28 + var30);
@@ -247,7 +247,7 @@ extern "C" ARM int func_ov004_0216033c(void* arg0) {
     }
 
     {
-        Struct_ov004_0216033c* var35 = func_ov023_021f6880(var21, 0xe);
+        Struct_ov004_0216033c* var35 = FindMenuObjectById_ov023_021f6880(var21, 0xe);
         if (var35) {
             if (*(unsigned char*)((char*)D0 + 2) == D1[var8]) {
                 var35->inline_ov004_0216033c_57(0xf);
@@ -258,11 +258,11 @@ extern "C" ARM int func_ov004_0216033c(void* arg0) {
     }
 
     {
-        Struct_ov004_0216033c* var36 = func_ov023_021f6880(var21, 0xc);
+        Struct_ov004_0216033c* var36 = FindMenuObjectById_ov023_021f6880(var21, 0xc);
         if (var36) {
             if (func_ov023_021f6f10(var36) == 8) {
                 var36->unknown_20_ = *(int*)((char*)var4 + 0x134);
-                Struct_ov004_0216033c* var37 = func_ov023_021f6880(var21, 0xe);
+                Struct_ov004_0216033c* var37 = FindMenuObjectById_ov023_021f6880(var21, 0xe);
                 if (var37) {
                     if (*(unsigned char*)((char*)D0 + 2) == D1[var8]) {
                         var37->inline_ov004_0216033c_57(0xf);
@@ -276,7 +276,7 @@ extern "C" ARM int func_ov004_0216033c(void* arg0) {
 
     {
         for (int var38 = 0; var38 < 0x13; var38++) {
-            Struct_ov004_0216033c* var39 = func_ov023_021f6880(var21, var38 + 0x12c);
+            Struct_ov004_0216033c* var39 = FindMenuObjectById_ov023_021f6880(var21, var38 + 0x12c);
             if (var39 && func_ov023_021f6f10(var39) == 8) {
                 if (*(unsigned char*)((char*)D0 + 2) == D1[var8]) {
                     var39->inline_ov004_0216033c_57(0xf);
@@ -290,7 +290,7 @@ extern "C" ARM int func_ov004_0216033c(void* arg0) {
     {
         int var40 = D1[var8];
         unsigned char var41 = *(unsigned char*)(var3 + var40 + 0x186);
-        Struct_ov004_0216033c* var42 = func_ov023_021f6880(var21, 0xc8);
+        Struct_ov004_0216033c* var42 = FindMenuObjectById_ov023_021f6880(var21, 0xc8);
         if (var42) {
             if (var41 != 0) {
                 var42->unknown_c_ &= ~8;
@@ -359,7 +359,7 @@ stats_done:
     Struct_ov004_0216033c* var59;
     int var60;
     int var61;
-    void* var62 = func_ov011_021849c8(arg0);
+    void* var62 = GetMenuObjectList_ov011_021849c8(arg0);
     var58 = 0;
     var61 = 0;
     var60 = 0;
@@ -397,7 +397,7 @@ stats_done:
         }
         func_ov004_0215e49c(arg0, var58 + 0x2a, var61);
 
-        var59 = func_ov023_021f6880(var62, var57 + 0x5f);
+        var59 = FindMenuObjectById_ov023_021f6880(var62, var57 + 0x5f);
         if (var59) {
             var59->inline_ov004_0216033c_59(*(unsigned char*)(*(unsigned char**)(var53 + Enum_ov004_0216033c_336) + var55 + 0x464));
             if (*(unsigned char*)((char*)D0 + 2) != D1[var51]) {
@@ -409,10 +409,10 @@ stats_done:
             }
 
             var56 = 0;
-            Struct_ov004_0216033c* var63 = func_ov023_021f6880(var62, var58 + 0x2a);
+            Struct_ov004_0216033c* var63 = FindMenuObjectById_ov023_021f6880(var62, var58 + 0x2a);
             if (var63 && func_ov023_021f6f10(var63) == 8) var56 = var63;
             var54 = 0;
-            Struct_ov004_0216033c* var64 = func_ov023_021f6880(var62, var57 + 0x13a);
+            Struct_ov004_0216033c* var64 = FindMenuObjectById_ov023_021f6880(var62, var57 + 0x13a);
             if (var64 && func_ov023_021f6f10(var64) == 8) var54 = var64;
 
             if (var60 != 0) {
@@ -432,25 +432,25 @@ stats_done:
     unsigned char var65 = *(unsigned char*)((char*)D0 + Enum_ov004_0216033c_8);
     int var66;
     int var67;
-    void* var68 = func_ov011_021849c8(arg0);
+    void* var68 = GetMenuObjectList_ov011_021849c8(arg0);
     var67 = 0;
     var66 = 0xf;
     if (*(unsigned char*)((char*)D0 + 2) == D1[var65]) {
         for (int var69 = 0; var69 < 0x28; var69++) {
-            Struct_ov004_0216033c* var70 = func_ov023_021f6880(var68, var69 + 0xc);
+            Struct_ov004_0216033c* var70 = FindMenuObjectById_ov023_021f6880(var68, var69 + 0xc);
             if (var70) var70->inline_ov004_0216033c_57(var66);
         }
         for (int var71 = 0; var71 < 3; var71++) {
-            Struct_ov004_0216033c* var72 = func_ov023_021f6880(var68, var71 + 0x64);
+            Struct_ov004_0216033c* var72 = FindMenuObjectById_ov023_021f6880(var68, var71 + 0x64);
             if (var72) var72->inline_ov004_0216033c_57(var66);
         }
     } else {
         for (var67 = 0; var67 < 0x28; var67++) {
-            Struct_ov004_0216033c* var73 = func_ov023_021f6880(var68, var67 + 0xc);
+            Struct_ov004_0216033c* var73 = FindMenuObjectById_ov023_021f6880(var68, var67 + 0xc);
             if (var73) var73->inline_ov004_0216033c_57(3);
         }
         for (var67 = 0; var67 < 3; var67++) {
-            Struct_ov004_0216033c* var74 = func_ov023_021f6880(var68, var67 + 0x64);
+            Struct_ov004_0216033c* var74 = FindMenuObjectById_ov023_021f6880(var68, var67 + 0x64);
             if (var74) var74->inline_ov004_0216033c_57(3);
         }
         var67 = 1;

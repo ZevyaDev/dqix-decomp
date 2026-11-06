@@ -7,9 +7,6 @@
 #include "NitroSDK/Graphics.h"
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
@@ -44,7 +41,7 @@ extern "C" void func_0204bc74(void* arg0, int arg1, int arg2, int arg3, int arg4
 extern "C" void func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
 extern "C" int func_0207f9f4(void* arg0);
 extern "C" void func_02081224(void* arg0, int arg1);
-extern "C" void* func_0205ec34();
+extern "C" void* GetFlagManager_0205ec34();
 struct Struct_02020cb8;
 extern "C" void func_0204af64(Struct_02020cb8*);
 extern "C" void func_0204b11c(unsigned char*, int);
@@ -56,10 +53,10 @@ struct Struct_0204af38;
 extern "C" void func_0204af38(Struct_0204af38*, int, SafeAllocator*);
 struct Struct_0204c7a8;
 extern "C" void func_0204c7a8(Struct_0204c7a8*, SafeAllocator*, int, unsigned int);
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(Struct_02020cb8_4*);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 struct Struct_0207f914;
 extern "C" void func_0207f914(Struct_0207f914*, int, int, int);
 extern "C" void* GetMessageWindow_020421a0();
@@ -79,7 +76,7 @@ struct Struct_0207f7f0;
 struct Struct_0207f7f0_2;
 extern "C" void func_0207f7f0(Struct_0207f7f0*, Struct_0207f7f0_2*, int);
 extern "C" unsigned char func_ov003_02160b50(void* arg0);
-extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int* out, unsigned char a, unsigned char b, unsigned char c, int d);
 
@@ -249,9 +246,9 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
             void* var12;
             unsigned int var13;
             var0->GetLoadedFileByID(arg0->unknown_46c_, &var12, &var13);
-            int var14 = func_02046900((Struct_02020cb8_4*)var12);
+            int var14 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var12);
             for (int var15 = 0; var15 < var14; var15++) {
-                var9[var15] = func_020467f0((Struct_02020aec*)var12, var15, &var11, &var10[var15]);
+                var9[var15] = GetPacEntryData_020467f0((PacEntry_02020aec*)var12, var15, &var11, &var10[var15]);
             }
             for (int var16 = 0; var16 < var14; var16++) {
                 if (var9[var16] != NULL) {
@@ -359,9 +356,9 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
             unsigned int var31;
             int var32;
             var0->GetLoadedFileByID(arg0->unknown_46c_, &var30, &var31);
-            int var33 = func_02046900((Struct_02020cb8_4*)var30);
+            int var33 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var30);
             for (int var34 = 0; var34 < var33; var34++) {
-                void* var35 = func_020467f0((Struct_02020aec*)var30, var34, &var29, &var32);
+                void* var35 = GetPacEntryData_020467f0((PacEntry_02020aec*)var30, var34, &var29, &var32);
                 func_0205a528(arg0->unknown_334_, var35, var32, &arg0->unknown_2a0_);
             }
             func_0205aed0(arg0->unknown_334_, (char*)arg0->unknown_388_, 0x19, 0x40);
@@ -392,7 +389,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
         func_02081224(var36, 0x1b);
         arg0->unknown_49e_ = func_ov003_02160b50(arg0);
 #endif
-        char* var37 = (char*)func_0205ec34();
+        char* var37 = (char*)GetFlagManager_0205ec34();
         if (arg0->unknown_464_ & 0x10000) {
             arg0->unknown_4a3_ = 0xa;
             arg0->unknown_4a4_ = 0;
@@ -439,7 +436,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
                 var39 = 0;
             }
             if (var39 != 0 && arg0->unknown_49e_ != 2) {
-                if (func_0206dfb0((int)var37, (unsigned char*)(var37 + 0x8c), 0x77e) == 0) {
+                if (IsFlagSet_0206dfb0((int)var37, (unsigned char*)(var37 + 0x8c), 0x77e) == 0) {
                     func_0206df6c(var37, (unsigned char*)(var37 + 0x8c), 0x77e, 1);
                     arg0->unknown_484_ = 0x4b;
                     arg0->unknown_486_ = var3;

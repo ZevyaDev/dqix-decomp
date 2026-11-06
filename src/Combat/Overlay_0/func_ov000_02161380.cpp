@@ -13,9 +13,9 @@ struct Struct_02048934;
 struct Random;
 struct Struct_02048850;
 struct Struct_02048850_2;
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" unsigned char* func_02070fd0(Struct_02070b6c_3* arg0, int arg1);
@@ -32,8 +32,8 @@ extern "C" void func_02048850(Struct_02048850* arg0, Struct_02048850_2* arg1);
 extern "C" void func_020488ec(char* arg0);
 extern "C" void func_02049f3c(unsigned char* arg0);
 extern "C" void func_0200fd38(GameState* arg0, int arg1, GameObject* arg2);
-extern "C" int func_0202b7d8(int* arg0);
-extern "C" signed char func_0202c1a4(Struct_0202c1a4* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 
 struct Struct_ov000_02161380 {
     unsigned short unknown_0_;
@@ -164,7 +164,7 @@ extern "C" ARM int func_ov000_02161380(Struct_ov000_02161380_10* arg0, int arg1,
     if (!var18) return -1;
 
     var1 = GameState::GetInstance();
-    var2 = func_0202ae18();
+    var2 = GetLocalWireless_0202ae18();
     var0 = (Struct_02070b6c_3*)((unsigned char*)arg0->unknown_2a0_ + 0x684);
     var3 = (Struct_0206f01c_2*)((unsigned char*)arg0->unknown_2a0_ + 0x678);
     var4 = -1;
@@ -332,8 +332,8 @@ extern "C" ARM int func_ov000_02161380(Struct_ov000_02161380_10* arg0, int arg1,
             var16->unknown_4_[arg2].unknown_a_4_++;
             var16->unknown_0_++;
             var16->unknown_1_0_++;
-            if (func_0202b7d8((int*)var2)) {
-                func_0202c1a4((Struct_0202c1a4*)var2);
+            if (IsLocalWirelessOn_0202b7d8((int*)var2)) {
+                GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var2);
             }
             return var4;
         }

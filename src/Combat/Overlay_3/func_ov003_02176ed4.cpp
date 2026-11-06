@@ -11,19 +11,19 @@ enum { Enum_ov003_02176ed4_2204 = 0x89c };
 
 #include "GameState/GameState.h"
 
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 
 struct Struct_0207fdcc_2;
 extern "C" void func_02080c20(struct Struct_0207fdcc_2* arg0, int arg1);
 extern "C" void func_02080c04(struct Struct_0207fdcc_2* arg0, int arg1);
 extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
 
-struct Struct_0201099c_10;
-struct Struct_0201099c_9 {
+struct ItemTable_0201099c_10;
+struct ItemData_0201099c_9 {
     char unknown_0_[8];
     unsigned int unknown_8_0_ : 4;
 };
-extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
 
 struct Struct_02053f7c;
 extern "C" short func_02086aec(struct Struct_02053f7c* arg0, int arg1);
@@ -36,11 +36,11 @@ extern "C" void func_020813ec(void* arg0, int arg1);
 // USA: func_ov003_02176ed4
 extern "C" ARM void func_ov003_02176ed4(char* arg0) {
     struct Struct_0207fdcc_2* var0 = *(struct Struct_0207fdcc_2**)(arg0 + Enum_ov003_02176ed4_2204);
-    struct Struct_02053f7c* var1 = (struct Struct_02053f7c*)func_02010828(GameState::GetInstance());
+    struct Struct_02053f7c* var1 = (struct Struct_02053f7c*)GetParty_02010828(GameState::GetInstance());
     func_02080c20(var0, 8);
     func_02080c68(var0, 8, 0);
     int var2 = 0;
-    struct Struct_0201099c_9* var3 = func_020dedd0((struct Struct_0201099c_10*)(arg0 + Enum_ov003_02176ed4_2164), *(short*)(arg0 + Enum_ov003_02176ed4_4154));
+    struct ItemData_0201099c_9* var3 = func_020dedd0((struct ItemTable_0201099c_10*)(arg0 + Enum_ov003_02176ed4_2164), *(short*)(arg0 + Enum_ov003_02176ed4_4154));
     if (var3 != NULL) {
         int var4 = (var3->unknown_8_0_ <= 7) ? 1 : var2;
         var2 = (var4 != 0);

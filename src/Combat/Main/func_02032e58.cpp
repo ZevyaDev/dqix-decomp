@@ -7,7 +7,7 @@ extern "C" ARM void func_02032e58(void *arg0) {
     Struct_02032e58 *var0 = (Struct_02032e58*)arg0;
 
     var0->unknown_0_.Initialize();
-    var0->unknown_0_.unknown_0_ |= 2;
+    var0->unknown_0_.classFlags_0_ |= 2;
     var0->unknown_0_.EnableFlag(4);
     var0->unknown_be_     = 0;
     var0->unknown_bf_     = 0;

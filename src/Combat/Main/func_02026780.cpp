@@ -5,8 +5,8 @@
 #include "NitroSDK/Matrix.h"
 struct Struct_02020554;
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void* GetZone3D_02012fe4(void);
 
 extern "C" void func_02026644(char* arg0);
@@ -84,7 +84,7 @@ extern "C" ARM int func_02026780(Struct_02020554* arg0, void* arg1, unsigned int
         return 0;
     }
 
-    if (func_0202c540(func_0202ae18()) != 0) {
+    if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) != 0) {
         func_02026644((char*)var0);
         return 0;
     }

@@ -1,14 +1,11 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void* func_0202ae24(void);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
 struct Struct_ov017_021d2184 {
@@ -26,13 +23,13 @@ struct Struct_ov017_021d2184_2 {
 
 // USA: func_ov017_021d2184
 extern "C" ARM void func_ov017_021d2184(unsigned short arg0) {
-    if (func_0202c508(func_0202ae18())) {
+    if (IsNotLocalWirelessGuest_0202c508(GetLocalWireless_0202ae18())) {
         struct Struct_ov017_021d2184_2 var0;
         void* var1 = func_0202ae24();
         struct Struct_ov017_021d2184* var2 = &var0.unknown_4_;
         var0.unknown_0_ = 0x9c;
         var2->unknown_e_4_ = arg0;
-        char* var3 = (char*)func_0205ec34() + 0x2cc;
+        char* var3 = (char*)GetFlagManager_0205ec34() + 0x2cc;
         int var4 = 0x66;
         unsigned char var5 = 0;
         while (var4 > 0) {

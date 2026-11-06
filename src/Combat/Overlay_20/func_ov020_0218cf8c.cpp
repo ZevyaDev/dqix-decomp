@@ -22,10 +22,10 @@ struct Struct_02020cb8_5;
 extern "C" void func_0204b5e8(Struct_02020cb8_5*, int, int);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void func_ov020_0218cd64(int, int, int, int, int);
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(Struct_02020cb8_4*);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void func_0204b174(void*, void*, void*, int);
 struct Struct_0204b8d0;
 extern "C" void func_0204b8d0(Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
@@ -94,12 +94,12 @@ extern "C" ARM void func_ov020_0218cf8c(struct Struct_ov020_0218cf8c* arg0) {
     void* var4;
     unsigned int var5;
     ((BackgroundLoader*)var2)->GetLoadedFileByID(var1, &var4, &var5);
-    int var6 = func_02046900((Struct_02020cb8_4*)var4);
+    int var6 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var4);
 
     void* var7[6];
     int var8[6];
     for (int var9 = 0; var9 < var6; var9++) {
-        var7[var9] = func_020467f0((Struct_02020aec*)var4, var9, &var3, &var8[var9]);
+        var7[var9] = GetPacEntryData_020467f0((PacEntry_02020aec*)var4, var9, &var3, &var8[var9]);
     }
 
     Struct_ov020_0218d944 var10 = data_ov020_0218d950;

@@ -5,7 +5,7 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-extern "C" void* func_0200fb8c(int*);
+extern "C" void* GetResources_0200fb8c(int*);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 
@@ -23,7 +23,7 @@ extern "C" void func_ov028_021d8b90(void* arg0);
 // USA: func_ov028_021d8c20
 extern "C" ARM void func_ov028_021d8c20(char* arg0) {
     void* var0 = GameState::GetInstance();
-    void* var1 = func_0200fb8c((int*)var0);
+    void* var1 = GetResources_0200fb8c((int*)var0);
     SetBrightness((GameResources*)var1, -16, 0);
 
     *(int*)0x4000014 = 0;

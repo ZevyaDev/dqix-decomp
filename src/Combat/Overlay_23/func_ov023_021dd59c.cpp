@@ -5,7 +5,7 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 
 extern "C" int func_ov023_021ddbb8(void* arg0, int arg1, int arg2);
 struct Struct_ov023_021dd59c;
@@ -17,18 +17,18 @@ extern "C" void func_02074b64(struct Struct_02074b64* arg0);
 extern "C" void func_02074af4(void* arg0);
 
 struct Struct_020534ac;
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
 extern "C" void func_020dfec0(void* arg0, void* arg1, void* arg2, unsigned int arg3);
 
 extern "C" void func_ov023_021dcc58(void* arg0);
 extern "C" ARM void func_ov023_021db2e4(volatile int* arg0);
 
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern AllocatorUnion data_02114e20;
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern AllocatorUnion gMainHeap_02114e20;
 
 #if defined(jpn)
 struct Struct_ov023_021ff9e0_8 { unsigned int unknown_0_[5]; void* unknown_4_; };
@@ -58,11 +58,11 @@ extern "C" ARM void func_ov023_021dd59c(void* arg0) {
 #endif
     char* var0 = (char*)arg0;
     int var1 = (int)BackgroundLoader::GetInstance();
-    func_0200fb8c((int*)GameState::GetInstance());
+    GetResources_0200fb8c((int*)GameState::GetInstance());
 
     if (*(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) == 0) {
         if (data_ov023_021ff9e0.unknown_4_ == 0) {
-            data_ov023_021ff9e0.unknown_4_ = func_02012d88(&data_02114e20, 0x1800);
+            data_ov023_021ff9e0.unknown_4_ = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x1800);
         }
         if (!(*(unsigned short*)(var0 + Enum_ov023_021dd59c_1908) & 0x40)) {
             *(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) = 2;
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov023_021dd59c(void* arg0) {
             *(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) = 4;
             return;
         }
-        Struct_0208cb08* var2 = func_02094a00();
+        FontLoader_0208cb08* var2 = func_02094a00();
         func_02094b30(var2, 0x1fa, 0);
         *(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) = *(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) + 1;
     } else if (*(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) == 3) {
@@ -126,9 +126,9 @@ extern "C" ARM void func_ov023_021dd59c(void* arg0) {
             if (var4 != 0 && var5 != 0) {
 #endif
 
-                int var7 = func_02046900((struct Struct_02020cb8_4*)var4);
+                int var7 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var4);
                 for (int var8 = 0; var8 < var7; var8++) {
-                    void* var9 = func_020467f0((struct Struct_02020aec*)var4, var8, &var3, &var6);
+                    void* var9 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var4, var8, &var3, &var6);
                     func_0205a528(var0 + Enum_ov023_021dd59c_300, var9, var6, *(void**)(var0 + 0x44));
                 }
             }

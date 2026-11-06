@@ -10,9 +10,9 @@ extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int ar
 #else
 extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 struct Struct_ov000_02177454 {
     char unknown_0_[0x44];
@@ -38,8 +38,8 @@ extern "C" ARM void func_ov000_02177454(void* arg0, struct Struct_ov000_02177454
     *(short*)(var3 + 0xaa) = 7;
     *(short*)(var3 + 0xac) = 0xa;
     *(short*)(var3 + 0xae) = 0xd;
-    if (func_0202b7d8((int*)func_0202ae18())) {
-        if (func_020100a8(GameState::GetInstance()) == 0) {
+    if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18())) {
+        if (GetProtagonistObjectIndex_020100a8(GameState::GetInstance()) == 0) {
             *(short*)(var3 + 0xa8) = 0xc;
             *(short*)(var3 + 0xaa) = 4;
             *(short*)(var3 + 0xac) = 0xa;

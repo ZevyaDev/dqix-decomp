@@ -10,7 +10,7 @@ extern "C" int func_ov023_021e6194(int arg0);
 
 struct Struct_0208f410;
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 extern "C" int func_ov023_021e5974(int arg0, int arg1, int arg2, int arg3, int arg4);
 
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov023_021e456c(void* arg0) {
     char* var5 = (char*)func_ov023_021e6194(*(int*)(var0 + Enum_ov023_021e456c_300));
     ((Object3D*)var5)->MaybeSetRegularAnimation((char const*)(*(int*)(var4 + 0x14)), 0);
     ((Object3D*)((struct Struct_0208f410*)var5))->SetCurrentAnimationTime(*(unsigned int*)(var4 + 0x1c));
-    int var6 = func_02053c6c((unsigned char*)var2);
+    int var6 = GetPartyMemberData_02053c6c((unsigned char*)var2);
     func_ov023_021e5974(*(int*)(var0 + Enum_ov023_021e456c_300), var6, *(int*)(var0 + Enum_ov023_021e456c_1276), var3, 1);
     *(unsigned short*)(var0 + Enum_ov023_021e456c_1588) &= ~4;
     *(unsigned short*)(var0 + Enum_ov023_021e456c_1588) &= ~0x10;

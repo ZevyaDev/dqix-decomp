@@ -8,7 +8,7 @@ enum { Enum_ov000_0217cb5c_7520 = 0x1d60 };
 #endif
 
 struct Struct_0205c570;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0205d6a0;
 struct Struct_ov000_021735d0_3;
 struct Struct_ov000_021735d0_2;
@@ -42,11 +42,11 @@ struct Struct_ov000_0215ab88 {
 };
 
 extern "C" int func_0205d794(Struct_0205c570*);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
-extern "C" void* func_02010828(GameState*);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
+extern "C" void* GetParty_02010828(GameState*);
 extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
 extern "C" Struct_ov000_021735d0_2* func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" {
 void GetZone3D_02012fe4();
 int func_ov000_0217c594(void*, int);
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov000_0217cb5c(Struct_ov000_0215767c_2* arg0, int arg1,
     if (var0 < 0) var0 = 0;
     arg0->unknown_1d69_ = var0;
     if (func_ov000_0217c594(arg0, 0)) {
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         int var1[4];
         func_ov000_02174da4(arg0, var1);
         switch (var1[arg0->unknown_1d69_]) {
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov000_0217cb5c(Struct_ov000_0215767c_2* arg0, int arg1,
                 arg0->unknown_1d72_ &= ~4;
                 arg0->unknown_17c_ = -1;
                 GameState* var2 = GameState::GetInstance();
-                Struct_ov000_02182a74* var3 = (Struct_ov000_02182a74*)func_02010828(var2);
+                Struct_ov000_02182a74* var3 = (Struct_ov000_02182a74*)GetParty_02010828(var2);
                 unsigned char var4 = var3->unknown_f7c_;
                 for (unsigned char var5 = 0; var5 < var4; var5++) {
                     Struct_ov000_0215ab88* var6 = func_ov000_02161318(arg0, arg0->unknown_70_[var5]);

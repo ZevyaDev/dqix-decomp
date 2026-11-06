@@ -53,7 +53,7 @@ extern "C" ARM int func_0206461c(Struct_0206461c* arg0, Struct_0206461c_2* arg1)
     if (var4[0] == 'F') var4[1] = 0;
     BackgroundLoader::AddLockGlobal();
     sprintf(var5, data_020f05dc, var4);
-    Struct_02013fb4* var8 = (Struct_02013fb4*)LoadFileIntoMemory(var5, data_0211e33c, &var3);
+    Struct_02013fb4* var8 = (Struct_02013fb4*)LoadFileIntoMemory(var5, gFileScratchSpace_0211e33c, &var3);
     if (var8) func_02064574(var1, (int)var2, var8, var3, arg1->unknown_0_, var6, var7);
     BackgroundLoader::RemoveLockGlobal();
     func_02095578(func_02094d6c());

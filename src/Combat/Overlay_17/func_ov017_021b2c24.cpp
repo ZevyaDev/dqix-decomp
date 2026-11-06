@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct Struct_0201bdac;
-struct Struct_0201bdac_2;
+struct QueueNode_0201bdac;
+struct Queue_0201bdac_2;
 extern "C" void func_ov017_021b2c4c(void* arg0);
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 #if defined(jpn)
 #define NODE_OFFSET 0x3528
@@ -21,5 +21,5 @@ extern "C" ARM void func_ov017_021b2c24(char* arg0) {
 	char* var0 = arg0 + 0x3000;
 	void* var1 = *(void**)(var0 + LIST_TAIL);
 	void* var2 = *(void**)(var0 + NODE_TAIL);
-	func_020469b4((struct Struct_0201bdac_2*)var1, (struct Struct_0201bdac*)var2);
+	AppendToQueue_020469b4((struct Queue_0201bdac_2*)var1, (struct QueueNode_0201bdac*)var2);
 }

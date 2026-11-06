@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-struct Struct_02108760;
-extern struct Struct_02108760 data_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov000_02182498(void* arg0, int arg1);
 
 // USA: func_ov000_021823dc
@@ -22,14 +22,14 @@ extern "C" ARM void func_ov000_021823dc(unsigned char* arg0, int arg1) {
         *(short*)(arg0 + 0x600 + 0xea) = 0x1e;
         *(short*)(arg0 + 0x600 + 0xec) = 0;
         if (arg1 == 1) {
-            func_0205eaa0(&data_02108760, 0x1a, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x1a, 0);
             return;
         }
         if (arg1 == 2) {
-            func_0205eaa0(&data_02108760, 0x17, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x17, 0);
             return;
         }
-        func_0205eaa0(&data_02108760, 0x18, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x18, 0);
         return;
     }
     if (arg0[0x6e8] != 0) {

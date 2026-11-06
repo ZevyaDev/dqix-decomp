@@ -4,22 +4,22 @@
 
 struct Struct_0207d538 { int unknown_0_[3]; };
 struct Struct_0207d538_2 { char* unknown_0_; char* unknown_4_; int unknown_8_; };
-struct Struct_020465c0 {
+struct MessageWindow_020465c0 {
     Struct_0207d538* unknown_0_;
     char unknown_4_[0x18 - 4];
     Struct_0207d538_2* unknown_18_;
 };
 extern "C" int func_0207d300(void*, int, int, int);
 extern "C" void func_0207d2c4(void*, int);
-extern "C" void func_02046380(Struct_020465c0*);
-extern "C" void func_02046608(Struct_020465c0*, int, const char*, char*, int, int, int);
-extern "C" Struct_020465c0* GetMessageWindow_020421a0();
+extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0*);
+extern "C" void func_02046608(MessageWindow_020465c0*, int, const char*, char*, int, int, int);
+extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0();
 extern "C" unsigned char func_020100b0(GameState*);
 extern "C" void func_020e4bf4(void*, int);
 extern "C" void* func_020e46c4(void*);
 extern "C" void func_020dcf7c(int, void*);
 extern "C" char* func_020e51cc(int);
-extern "C" void func_020465c0(Struct_020465c0*, int, int);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 
 #if defined(jpn)
 extern "C" void func_020de968(int, char*);
@@ -59,8 +59,8 @@ extern "C" ARM int func_0207d538(void* arg0, int arg1, int arg2, char* arg3) {
                 sprintf(arg3, &data_020f1050, *(char**)((char*)arg0 + 0x30));
             }
 #else
-            Struct_020465c0* var3 = GetMessageWindow_020421a0();
-            func_02046380(var3);
+            MessageWindow_020465c0* var3 = GetMessageWindow_020421a0();
+            ClearMessageParams_02046380(var3);
             Struct_0207d538 var4;
             func_020e4bf4(&var4, func_020100b0(GameState::GetInstance()));
             var3->unknown_0_ = &var4;
@@ -85,9 +85,9 @@ extern "C" ARM int func_0207d538(void* arg0, int arg1, int arg2, char* arg3) {
 #if defined(jpn)
         sprintf(arg3, &data_020f106e, arg2);
 #else
-        Struct_020465c0* var9 = GetMessageWindow_020421a0();
-        func_02046380(var9);
-        func_020465c0(var9, 0, arg2);
+        MessageWindow_020465c0* var9 = GetMessageWindow_020421a0();
+        ClearMessageParams_02046380(var9);
+        SetMessageNumber_020465c0(var9, 0, arg2);
         char* var10 = func_020e51cc(0x3f4);
         func_02046608(var9, 12, var10, arg3, 0xe3, 0, 1);
 #endif

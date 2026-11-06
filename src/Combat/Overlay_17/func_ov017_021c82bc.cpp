@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void func_ov017_021c812c(int arg0, int arg1);
 extern "C" void func_02049390(unsigned char* arg0, unsigned char arg1);
 extern "C" void* func_ov017_021b8468(void* arg0);
@@ -18,13 +18,13 @@ struct Struct_ov017_021c82bc {
 };
 
 // USA: func_ov017_021c82bc
-extern "C" ARM void func_ov017_021c82bc(int arg0, struct Struct_ov017_021c82bc* arg1, int arg2, int arg3, struct Struct_0202c1a4* arg4) {
+extern "C" ARM void func_ov017_021c82bc(int arg0, struct Struct_ov017_021c82bc* arg1, int arg2, int arg3, struct LocalWireless_0202c1a4* arg4) {
 #if defined(jpn)
  enum {Enum_ov017_021c82bc_1816=0x508};
 #else
  enum {Enum_ov017_021c82bc_1816=0x718};
 #endif
-    signed char var0 = func_0202c1a4(arg4);
+    signed char var0 = GetOwnProtagonistObjectIndex_0202c1a4(arg4);
     if (arg1->unknown_4_0_ != var0) return;
     if (arg1->unknown_4_4_) {
         func_ov017_021c812c((unsigned char)arg0, 0);

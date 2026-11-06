@@ -5,7 +5,7 @@
 struct Struct_02017098;
 struct Struct_02017098_2;
 struct Struct_02017098_3;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
 extern "C" struct Struct_02017098_4* func_0201777c(struct Struct_02017098* arg0, int arg1);
 extern "C" void func_0204792c(struct Struct_02017098_2* arg0, char* arg1);
@@ -13,10 +13,10 @@ extern "C" void func_020478bc(struct Struct_02017098_3* arg0, int arg1);
 extern "C" float _fflt(int value);
 extern "C" float _fmul(float a, float b);
 extern "C" int _ffix(float value);
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 extern char data_020ef222[];
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 struct Struct_02017098_5 {
     char unknown_0_[0x1c];
@@ -59,9 +59,9 @@ extern "C" ARM void func_02017098(struct Struct_02017098* arg0, int arg1) {
         LootableContainerManager::GetMainInstance()->GetContainerByID(var0->unknown_0_, NULL);
     if (var7 != NULL) {
         if (var7->containerType == 1) {
-            func_0205eaa0((struct Struct_02108760*)&data_02108760, 0x10, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0x10, 0);
         } else if (var7->containerType == 2) {
-            func_0205eaa0((struct Struct_02108760*)&data_02108760, 0x11, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0x11, 0);
         }
     }
 

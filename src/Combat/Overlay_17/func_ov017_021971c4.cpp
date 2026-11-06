@@ -29,7 +29,7 @@ extern "C" ARM unsigned short func_ov017_021971c4(unsigned char* arg0) {
     if (var1 == NULL) {
         return 0;
     }
-    struct Struct_ov017_021971c4* var2 = (struct Struct_ov017_021971c4*)func_02010828(var0);
+    struct Struct_ov017_021971c4* var2 = (struct Struct_ov017_021971c4*)GetParty_02010828(var0);
     int var3[4];
     unsigned short var4 = 0;
     __clear(var3, 0x10);

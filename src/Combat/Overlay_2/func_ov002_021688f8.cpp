@@ -32,7 +32,7 @@ extern "C" void *func_020dfc2c(void *arg0);
 extern "C" void func_020dfc40(struct Struct_0201099c_14 *arg0);
 extern "C" void func_ov002_02168c38(struct Struct_ov002_021688f8 *arg0);
 extern "C" void func_ov002_02168d10(unsigned char *arg0, int arg1);
-extern "C" int func_020e0434(struct Struct_0201099c_3 *arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void *ExtractFileFromGP2(const char *arg0, const char *arg1, unsigned int *arg2);
 extern "C" int func_ov023_021ed724(void *arg0, short *arg1, int arg2);
 extern "C" void func_020e0028(void *arg0, void *arg1, void *arg2, unsigned int arg3, short *arg4, unsigned short arg5);
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov002_021688f8(char *arg0) {
             void *var12 =
                 func_020a15bc(*(struct Struct_020a15bc **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)), var4[var6]);
             if (var12 == NULL) continue;
-            int var13 = func_020e0434((struct Struct_0201099c_3 *) var0, var4[var6]);
+            int var13 = FindStringInTable_020e0434((struct Struct_0201099c_3 *) var0, var4[var6]);
             if (var13 == 0) continue;
             func_ov002_02168ca8(var5 + var6 * sizeof(Struct_ov002_021688f8), var12);
             func_ov002_02168d10(var5 + var6 * sizeof(Struct_ov002_021688f8), var13);

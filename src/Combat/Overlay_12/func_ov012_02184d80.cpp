@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
-extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 #include "Filesystem/FileIO.h"
 
 struct Struct_ov009_02189a4c_2;
@@ -101,13 +101,13 @@ extern "C" ARM int func_ov012_02184d80(Struct_ov012_02184d80* arg0, char* arg1, 
     Struct_ov012_02184d80_2 var18;
     unsigned short var19 = 0;
     var18.unknown_0_ = 0;
-    LoadFileIntoMemory(data_020f285c, data_0211e33c, &var18.unknown_0_);
+    LoadFileIntoMemory(data_020f285c, gFileScratchSpace_0211e33c, &var18.unknown_0_);
     memset(&arg0->unknown_18_, 0, 12);
-    unsigned char* var20 = data_0211e33c;
+    unsigned char* var20 = gFileScratchSpace_0211e33c;
     if (var20) {
-        memcpy(&arg0->unknown_18_, data_0211e33c, 4);
+        memcpy(&arg0->unknown_18_, gFileScratchSpace_0211e33c, 4);
         unsigned int var21 = inline_ov009_02189a4c_4(sizeof(Struct_ov009_02189a4c_4), 4);
-        unsigned char* var22 = data_0211e33c;
+        unsigned char* var22 = gFileScratchSpace_0211e33c;
         arg0->unknown_18_.unknown_4_ = (Struct_ov009_02189a4c_3*)(var22 + var21);
         unsigned int var23 = inline_ov009_02189a4c_3(0, arg0->unknown_18_.unknown_0_.unknown_0_0_, sizeof(Struct_ov009_02189a4c_3), 4);
         arg0->unknown_18_.unknown_8_ = (char*)(var22 + (var21 + var23));
@@ -123,13 +123,13 @@ extern "C" ARM int func_ov012_02184d80(Struct_ov012_02184d80* arg0, char* arg1, 
                 }
             }
             arg0->unknown_18_.unknown_0_.unknown_3_7_ = 1;
-            ((Struct_ov009_02189a4c_4*)data_0211e33c)->unknown_3_7_ = 1;
+            ((Struct_ov009_02189a4c_4*)gFileScratchSpace_0211e33c)->unknown_3_7_ = 1;
         }
     }
     arg0->unknown_24_ = 0;
     arg0->unknown_28_ = 0;
     if (var19) {
-        arg0->unknown_24_ = data_0211e33c + var19;
+        arg0->unknown_24_ = gFileScratchSpace_0211e33c + var19;
         arg0->unknown_28_ = var19;
     }
     __clear(var17, 180);

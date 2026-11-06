@@ -10,30 +10,30 @@ void func_ov003_02158480(void *);
 void func_0208203c(void *);
 void func_ov003_021538f4(void *, int);
 int func_ov003_02156034(void *);
-void *func_0200fb8c(void *);
+void *GetResources_0200fb8c(void *);
 int _Z31IsSubBrightnessTransitionActiveP13GameResources(void *);
 int func_ov003_021550dc(void *);
-void func_0205eaa0(void *, int, int);
+void PlaySoundEffect_0205eaa0(void *, int, int);
 void func_0207fe44(void *);
 int func_ov003_02155f40(void *, int);
 int func_ov003_02155208(void *);
 void func_ov003_02153874(void *);
 void func_ov003_02155580(void *, int);
 int func_ov003_02155618(void *);
-void *func_02053c6c(void *);
+void *GetPartyMemberData_02053c6c(void *);
 void *func_ov003_02155e14(void *, int);
 void func_020de9a4(void *, void *, void *, unsigned int, void *, int);
 void _ZN13SafeAllocator5ResetEv(void *);
 void func_ov003_0215873c(void *);
 void *GetMessageWindow_020421a0(void);
-void func_02043204(void *);
+void ResetMessageWindow_02043204(void *);
 void func_ov003_02158a50(void *);
 void func_0209c830(void *, int);
 void func_ov003_0215582c(void *);
 int func_02046b24(void *);
 int _ZNK8Object3D19HasAnimationStoppedEv(void *);
-int func_0202ae18(void);
-int func_0202b7d8(int);
+int GetLocalWireless_0202ae18(void);
+int IsLocalWirelessOn_0202b7d8(int);
 void func_ov017_021c3fb4(int, int);
 void func_ov017_021c4418(int, int);
 void func_ov017_021cf078(int, int, int);
@@ -51,8 +51,8 @@ int func_ov003_02158754(void *);
 #define JPN_OFS(j, u) (u)
 #endif
 
-extern char data_02108760[];
-extern char data_02109bf4[];
+extern char gSoundEffectManager_02108760[];
+extern char gMusicManager_02109bf4[];
 extern const char *data_020f2a38;
 extern const char *data_020f2a30;
 
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
         if (var3->unknown_5d_ & 1) {
             var4 = 0;
         }
-        void *var5 = func_0200fb8c(GameState::GetInstance());
+        void *var5 = GetResources_0200fb8c(GameState::GetInstance());
         if (IsBrightnessWithinValidRange((GameResources*)var5, true) == 0) {
             var4 = 0;
         }
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
             var4 = 0;
         }
         if (func_ov003_021550dc(arg0) != 0 && var4 != 0) {
-            func_0205eaa0(data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0(gSoundEffectManager_02108760, 1, 0);
             func_0208203c(arg0->unknown_80_);
             arg0->unknown_8_   = 0;
             arg0->unknown_1ec_   = 0xa;
@@ -216,7 +216,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
             _ZN13SafeAllocator5ResetEv((char *) arg0->unknown_0_ + 0x78);
             void *var11 = GameState::GetInstance()->GetPartyMemberByIndex(arg0->unknown_1f7_);
             if (var11 != 0) {
-                char *var12 = (char *) func_02053c6c(var11);
+                char *var12 = (char *) GetPartyMemberData_02053c6c(var11);
                 if (var12 != 0) {
                     void *var13 =
                         func_ov003_02155e14(var12 + 0xa4 + 0x400, func_ov003_02156034(arg0));
@@ -231,9 +231,9 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
         }
     } else if (var1 == 6) {
         arg0->unknown_1d4_ = 0;
-        func_02043204(GetMessageWindow_020421a0());
+        ResetMessageWindow_02043204(GetMessageWindow_020421a0());
         func_ov003_02158a50(arg0);
-        func_0209c830(data_02109bf4, 0x34);
+        func_0209c830(gMusicManager_02109bf4, 0x34);
         arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
     } else if (var1 == 7) {
         arg0->unknown_1d4_ = arg0->unknown_1d4_ + arg0->unknown_1dc_;
@@ -252,7 +252,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
             return;
         }
         arg0->unknown_32c_ = 0;
-        if (func_0202b7d8(func_0202ae18()) != 0) {
+        if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18()) != 0) {
             func_ov017_021c3fb4(arg0->unknown_1f7_, 0);
             func_ov017_021c4418(arg0->unknown_1f7_, -1);
             func_ov017_021cf078(arg0->unknown_1f7_, (unsigned char) func_ov003_02156034(arg0), 0);

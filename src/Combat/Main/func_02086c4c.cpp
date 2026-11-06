@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 struct Struct_02083994;
 extern "C" int func_02083994(struct Struct_02083994* arg0, int arg1);
 struct Struct_0207cf30_3;
@@ -28,7 +28,7 @@ after:
         if (var3 == NULL) {
             return 0;
         }
-        void* var4 = (void*)func_02053c6c((unsigned char*)var3);
+        void* var4 = (void*)GetPartyMemberData_02053c6c((unsigned char*)var3);
         if (var4 == NULL) {
             return 0;
         }

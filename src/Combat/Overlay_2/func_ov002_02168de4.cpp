@@ -13,15 +13,15 @@ extern "C" int func_ov002_021574d4(void *arg0, int arg1);
 extern "C" void func_ov013_02184c8c(void *arg0, void *arg1);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" unsigned char func_0209a678(char *arg0, void *arg1, unsigned short *arg2);
-extern "C" void *func_0202ae18();
-extern "C" int func_0202b7d8(int *arg0);
+extern "C" void *GetLocalWireless_0202ae18();
+extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021ccc34(int arg0);
 extern "C" void func_ov017_021cd0d8(int arg0, unsigned short *arg1, int arg2);
-extern "C" const char *func_020e0434(Struct_0201099c_3 *arg0, int arg1);
+extern "C" const char *FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void func_020727d8(Struct_020727d8 *arg0);
 extern "C" void func_02073864(void *arg0, void *arg1, const char *arg2, short *arg3, unsigned short arg4, unsigned char arg5);
-extern "C" void *func_02053c6c(unsigned char *arg0);
+extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 extern "C" void func_02083e28(void *arg0, int arg1);
 extern "C" void func_ov013_0218782c(void *arg0, signed char arg1, unsigned char arg2);
 extern "C" void func_ov013_021870c0(void *arg0);
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov002_02168de4(char *arg0) {
                 memset(*(void **) (arg0 + 0x2284), 0, 0x6e);
                 *(unsigned char *) (arg0 + 0x2289) =
                     func_0209a678(arg0 + 0x274 + 0x2000, var2, *(unsigned short **) (arg0 + 0x2284));
-                if (func_0202b7d8((int *) func_0202ae18())) {
+                if (IsLocalWirelessOn_0202b7d8((int *) GetLocalWireless_0202ae18())) {
                     int var3 = func_ov002_021574d4(arg0, *(short *) (arg0 + 0x1ad0));
                     func_ov017_021c9e00(var3, 0, 0, 0);
                     func_ov017_021ccc34(var3);
@@ -58,8 +58,8 @@ extern "C" ARM void func_ov002_02168de4(char *arg0) {
                 *(void **) (arg0 + 0x2280) = ((SafeAllocator *) (arg0 + 0x3c8 + 0x400))->Allocate(8);
                 func_020727d8(*(Struct_020727d8 **) (arg0 + 0x2280));
                 func_02073864(*(void **) (arg0 + 0x2280), arg0 + 0x3c8 + 0x400,
-                              func_020e0434((Struct_0201099c_3 *) (arg0 + 8), 0x64), 0, 0, 0);
-                func_02083e28(func_02053c6c((unsigned char *) var2), 0);
+                              FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 8), 0x64), 0, 0, 0);
+                func_02083e28(GetPartyMemberData_02053c6c((unsigned char *) var2), 0);
             }
         }
         *(int *) (arg0 + 0x1a88) += 1;

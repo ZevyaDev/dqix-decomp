@@ -13,11 +13,11 @@ struct Struct_ov002_02168d54_9;
 struct Struct_ov002_02169efc_2;
 
 extern "C" char *GetMessageWindow_020421a0();
-extern "C" int func_0200fb8c(int *arg0);
-extern "C" void *func_020d6c00();
+extern "C" int GetResources_0200fb8c(int *gameState);
+extern "C" void *GetGlobalFlags_020d6c00();
 extern "C" void func_0205deb4(struct Struct_ov002_02155960_2 *arg0, int arg1, int arg2);
-extern "C" void *func_0202ae18();
-extern "C" int func_0202b7d8(int *arg0);
+extern "C" void *GetLocalWireless_0202ae18();
+extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void func_0205def8(struct Struct_ov002_02155960_3 *arg0, int arg1, int arg2);
 extern "C" void func_020466e4(unsigned int *arg0, unsigned int arg1);
 struct Struct_ov002_0215624c_23;
@@ -25,7 +25,7 @@ extern "C" void func_0205a198(Struct_ov002_0215624c_23*);
 struct Struct_ov002_0215624c_24;
 extern "C" void func_0205a234(Struct_ov002_0215624c_24*);
 extern "C" void func_0205a444(char *arg0);
-extern "C" void *func_020467f0(Struct_ov002_0215624c_25 *arg0, int arg1, void **arg2, int *arg3);
+extern "C" void *GetPacEntryData_020467f0(Struct_ov002_0215624c_25 *pac, int index, void **outEntry, int *outSize);
 extern "C" void func_0205a528(void *arg0, void *arg1, unsigned int arg2, SafeAllocator *arg3);
 extern "C" void func_020a9ea4(struct Struct_ov002_02169efc *arg0);
 extern "C" int func_020aad1c(void *arg0, void *arg1, int arg2, int arg3);
@@ -35,8 +35,8 @@ extern "C" void func_0209c678(Struct_ov002_02169efc_2 *arg0, int arg1);
 extern "C" void func_ov017_0218d258(void *arg0);
 
 extern "C" char data_ov002_0216d384[] __attribute__((aligned(4)));
-extern "C" char data_0211e33c;
-extern "C" char data_02109bf4;
+extern "C" char gFileScratchSpace_0211e33c;
+extern "C" char gMusicManager_02109bf4;
 
 static inline char *inline_ov002_02169efc(char *arg0, int arg1) {
     return *(char **) (arg0 + arg1);
@@ -58,8 +58,8 @@ extern "C" ARM void func_ov002_02169efc(char *arg0) {
     int var2;
     void *var3;
     char *var4                  = GetMessageWindow_020421a0();
-    GameResources *var5       = (GameResources *) func_0200fb8c((int *) GameState::GetInstance());
-    void *var6              = func_020d6c00();
+    GameResources *var5       = (GameResources *) GetResources_0200fb8c((int *) GameState::GetInstance());
+    void *var6              = GetGlobalFlags_020d6c00();
     BackgroundLoader *var7 = BackgroundLoader::GetInstance();
     int var8                = *(int *) (arg0 + RG(0x1bc0, 0x1a88));
     if (var8 == 0) {
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov002_02169efc(char *arg0) {
         *(unsigned char *) (arg0 + RG(0x1c2e, 0x1af6)) = 1;
         func_0205deb4((struct Struct_ov002_02155960_2 *) OBJ, RG(0x15, 0x16), 1);
         func_0205deb4((struct Struct_ov002_02155960_2 *) OBJ, RG(0x16, 0x17), 1);
-        if (func_0202b7d8((int *) func_0202ae18())) {
+        if (IsLocalWirelessOn_0202b7d8((int *) GetLocalWireless_0202ae18())) {
             *(short *) (arg0 + RG(0x1c28, 0x1af0))         = 0x125f;
             *(int *) (arg0 + RG(0x1bbc, 0x1a84))           = RG(0x15, 0x16);
             *(unsigned char *) (arg0 + RG(0x1c2e, 0x1af6)) = 0;
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov002_02169efc(char *arg0) {
         ((SafeAllocator *) (arg0 + RG(0x78 + 0x800, 0x3dc + 0x400)))->Reset();
         var7->GetLoadedFileByID(*(int *) (arg0 + RG(0x1bc4, 0x1a8c)), &var0, &var1);
         for (int var11 = 0; var11 < 4; var11++) {
-            void *var12 = func_020467f0((Struct_ov002_0215624c_25 *) var0, var11, &var3, &var2);
+            void *var12 = GetPacEntryData_020467f0((Struct_ov002_0215624c_25 *) var0, var11, &var3, &var2);
             func_0205a528(*(void **) (arg0 + RG(0x1a68, 0x19c0)), var12, var2, (SafeAllocator *) (arg0 + RG(0x78 + 0x800, 0x3dc + 0x400)));
         }
         var7->RemoveTask(*(int *) (arg0 + RG(0x1bc4, 0x1a8c)));
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov002_02169efc(char *arg0) {
         *(unsigned char *) (var4 + RG(0x19af, 0x17df)) = 0;
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
-        if (func_020aad1c(arg0 + RG(0x98 + 0x2400, 0x2c8 + 0x2000), &data_0211e33c, 0, 1) == 1) {
+        if (func_020aad1c(arg0 + RG(0x98 + 0x2400, 0x2c8 + 0x2000), &gFileScratchSpace_0211e33c, 0, 1) == 1) {
             *(unsigned char *) (arg0 + RG(0x1cc2, 0x1b86)) = 1;
             *(int *) (arg0 + RG(0x1bc0, 0x1a88))           = 0x65;
         }
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov002_02169efc(char *arg0) {
         func_0200fb94((char *) GameState::GetInstance(), 0);
     } else if (var8 == 3) {
         *(unsigned char *) (var4 + RG(0x19af, 0x17df)) = 0;
-        func_0209c678((Struct_ov002_02169efc_2 *) &data_02109bf4, 0x3c);
+        func_0209c678((Struct_ov002_02169efc_2 *) &gMusicManager_02109bf4, 0x3c);
         SetBrightness(var5, -16, 0xb4);
         *(int *) (arg0 + RG(0x1bc0, 0x1a88)) += 1;
     } else if (var8 == 4) {

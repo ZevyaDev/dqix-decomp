@@ -6,9 +6,6 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "std_library_functions.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_020a99d0_3 {
     unsigned short unknown_0_[70];
@@ -327,21 +324,21 @@ struct Struct_020a9eb8_15 {
 
 extern "C" int func_01ff85b8(void* arg0, int arg1);
 extern "C" Struct_020a95a4_2* GetZone3D_02012fe4(void);
-extern "C" Struct_ov031_0224e6e0* func_0202ae18(void);
-extern "C" Struct_020a99d0_3* func_0205ec34(void);
-extern "C" int func_0202c540(Struct_ov031_0224e6e0* arg0);
-extern "C" int func_0202c508(Struct_ov031_0224e6e0* arg0);
+extern "C" Struct_ov031_0224e6e0* GetLocalWireless_0202ae18(void);
+extern "C" Struct_020a99d0_3* GetFlagManager_0205ec34(void);
+extern "C" int IsLocalWirelessGuest_0202c540(Struct_ov031_0224e6e0* wireless);
+extern "C" int IsNotLocalWirelessGuest_0202c508(Struct_ov031_0224e6e0* wireless);
 extern "C" int func_02075acc(int arg0, void* arg1, unsigned int arg2, int arg3);
 extern "C" void func_020830cc(Struct_020a95a4_5* arg0, Struct_020a95a4_7* arg1);
 extern "C" void func_020a0c0c(void);
 extern "C" void func_020a0cc4(unsigned int arg0);
 
 extern "C" Struct_020a95a4_3* func_02094d6c(void);
-extern "C" int func_020100a8(GameState* arg0);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int func_0202ba00(int* arg0);
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
-extern "C" Struct_020a95a4_5* func_02053c6c(unsigned char* arg0);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" Struct_020a95a4_5* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" unsigned short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
 extern "C" unsigned char* func_0207c60c(void* arg0, unsigned int arg1);
 extern "C" short func_0207c620(unsigned char* arg0, unsigned int arg1);
@@ -355,8 +352,8 @@ extern "C" int func_02010804(char* arg0);
 extern "C" int func_0201081c(char* arg0);
 extern "C" void func_020ac4f8(int arg0);
 extern "C" int func_0201b588(int arg0);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" int func_02011494(char* arg0, void* arg1);
 extern "C" void func_020a99d0(Struct_020a99d0_3* arg0, Struct_020a99d0_3* arg1);
 extern "C" int func_020ac7b4(int arg0);
@@ -368,9 +365,9 @@ extern "C" int func_0203e524(Struct_0203dce4_2* arg0, Struct_02028460_3* arg1, S
 extern "C" Struct_02087574_2* func_02087574(Struct_02087574* arg0, int arg1);
 
 extern char data_020f1bf0[];
-extern AllocatorUnion data_02114e20;
-extern Struct_02109bf4_7 data_02109bf4;
-extern unsigned char data_02108760[];
+extern AllocatorUnion gMainHeap_02114e20;
+extern Struct_02109bf4_7 gMusicManager_02109bf4;
+extern unsigned char gSoundEffectManager_02108760[];
 
 static inline int inline_020a9eb8(void* arg0, unsigned int arg1) {
     return func_01ff85b8((unsigned char*)arg0 + 4, arg1 - 4);
@@ -400,18 +397,18 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
     int var15;
     var0 = GameState::GetInstance();
     Struct_020a95a4_2* var16 = GetZone3D_02012fe4();
-    Struct_ov031_0224e6e0* var17 = func_0202ae18();
-    var1 = func_0205ec34();
+    Struct_ov031_0224e6e0* var17 = GetLocalWireless_0202ae18();
+    var1 = GetFlagManager_0205ec34();
     var2 = func_02094d6c();
-    var3 = static_cast<Struct_020a95a4_8*>(func_02010828(var0));
+    var3 = static_cast<Struct_020a95a4_8*>(GetParty_02010828(var0));
     reinterpret_cast<Struct_020a9eb8_2*>(var0)->unknown_5cc8_ = 1;
 
     var4 = false;
     var5 = 0;
     if ((arg2 & 1) || (arg2 & 8)) {
         var4 = true;
-        if (func_0202b7d8(&var17->unknown_0_)) {
-            if (func_0202c540(var17)) {
+        if (IsLocalWirelessOn_0202b7d8(&var17->unknown_0_)) {
+            if (IsLocalWirelessGuest_0202c540(var17)) {
                 var4 = false;
             }
         }
@@ -419,7 +416,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             var4 = true;
         }
         if (var4) {
-            if (func_0206dfb0((int)var1, var1->unknown_8c_, 0x113c)) {
+            if (IsFlagSet_0206dfb0((int)var1, var1->unknown_8c_, 0x113c)) {
                 var5 = var3->unknown_2c94_;
             }
             var3->unknown_2c94_ = var16->unknown_0_;
@@ -465,13 +462,13 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
         Struct_020a95a4_6* var22;
         Struct_020a95a4_2* var23;
         GameState* var24 = GameState::GetInstance();
-        Struct_020a95a4_8* var25 = static_cast<Struct_020a95a4_8*>(func_02010828(var24));
-        var13 = func_0202ae18();
+        Struct_020a95a4_8* var25 = static_cast<Struct_020a95a4_8*>(GetParty_02010828(var24));
+        var13 = GetLocalWireless_0202ae18();
         var23 = GetZone3D_02012fe4();
         GetGameResources();
         var12 = func_02094d6c();
         func_020a0cc4(sizeof(Struct_020a95a4_6));
-        var22 = (Struct_020a95a4_6*)func_02012d88(&data_02114e20, sizeof(Struct_020a95a4_6));
+        var22 = (Struct_020a95a4_6*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, sizeof(Struct_020a95a4_6));
         if (var22 != NULL) {
             memset(var22, 0, sizeof(Struct_020a95a4_6));
             Struct_020a9eb8_2::Struct_020a9eb8_3 var26;
@@ -482,7 +479,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
                 var10 = var11 + var25->unknown_2c8c_;
                 GameObject* var28 = func_0200ff1c(var24, var27[var11]);
                 if (var28 != NULL) {
-                    Struct_020a95a4_5* var29 = func_02053c6c((unsigned char*)var28);
+                    Struct_020a95a4_5* var29 = GetPartyMemberData_02053c6c((unsigned char*)var28);
                     if (var29 != NULL) {
                         func_020830cc(var29, &var22->unknown_0_[var10]);
                     }
@@ -492,12 +489,12 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             for (var9 = 0; var9 < var15; var9++) {
                 GameObject* var30 = func_0200ff1c(var24, var27[var9]);
                 if (var30 != NULL) {
-                    memcpy(&var22->unknown_1d12_[var9], func_02053c6c((unsigned char*)var30)->unknown_454_, 0x10);
+                    memcpy(&var22->unknown_1d12_[var9], GetPartyMemberData_02053c6c((unsigned char*)var30)->unknown_454_, 0x10);
                 }
             }
             memcpy(var22->unknown_1d0d_, var27, 4);
             var22->unknown_1d11_ = var15;
-            if (func_020100a8(var24) != 0 || func_0202c540(var13) != 0) {
+            if (GetProtagonistObjectIndex_020100a8(var24) != 0 || IsLocalWirelessGuest_0202c540(var13) != 0) {
                 var22->unknown_1d0d_[0] = 0;
                 var22->unknown_1d11_ = 1;
             }
@@ -523,20 +520,20 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             if (var4) {
                 var22->unknown_2c4c_ = var25->unknown_2c94_;
                 var34->unknown_7e74_ = var25->unknown_2c94_;
-                if (func_0202c508(var13)) {
+                if (IsNotLocalWirelessGuest_0202c508(var13)) {
                     func_ov017_021d0d58();
                 }
             } else {
                 var22->unknown_2c4c_ = var34->unknown_7e74_;
             }
             var22->unknown_2c4e_ = 0;
-            unsigned short* var35 = func_020120a0((char*)var24, func_020100a8(var24));
+            unsigned short* var35 = func_020120a0((char*)var24, GetProtagonistObjectIndex_020100a8(var24));
             var22->unknown_2c50_[0] = var35[0];
             var22->unknown_2c50_[1] = var35[1];
             var22->unknown_2c50_[2] = var35[2];
             var22->unknown_2c50_[3] = var35[3];
-            var22->unknown_2c58_ = func_0209ca98((char*)&data_02109bf4);
-            var22->unknown_2c59_ = func_0205ea18(data_02108760);
+            var22->unknown_2c58_ = func_0209ca98((char*)&gMusicManager_02109bf4);
+            var22->unknown_2c59_ = func_0205ea18(gSoundEffectManager_02108760);
             var22->unknown_2c5a_ = var25->unknown_f7d_;
             var22->unknown_2c5b_ = var34->unknown_63dc_;
             Struct_020a9eb8_2::Struct_020a9eb8_3* var36 = &var26;
@@ -545,7 +542,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
 #if defined(jpn)
             Struct_020a95a4* var37 = &var23->unknown_840_;
 #endif
-            if (func_0202c540(var13)) {
+            if (IsLocalWirelessGuest_0202c540(var13)) {
 #if !defined(jpn)
                 Struct_020a95a4* var37 = &var23->unknown_840_;
 #endif
@@ -592,17 +589,17 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             var22->unknown_2ca2_ = var6;
 #endif
             func_02075acc((char*)&arg1->unknown_4_ - var21, var22, sizeof(Struct_020a95a4_6), 0);
-            func_02012da4(&data_02114e20, var22);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var22);
         }
         func_020a0c0c();
-        if (func_0206dfb0((int)var1, var1->unknown_8c_, 0x113c)) {
+        if (IsFlagSet_0206dfb0((int)var1, var1->unknown_8c_, 0x113c)) {
             var3->unknown_2c94_ = var5;
         }
     }
 
     {
         GameState* var38 = GameState::GetInstance();
-        func_0202ae18();
+        GetLocalWireless_0202ae18();
         if (var14) {
             func_02075acc((char*)&arg1->unknown_2cac_ - var21 + 0x1fb, var1->unknown_1eb_, sizeof(var1->unknown_1eb_), 0);
         } else {
@@ -618,18 +615,18 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
 
     if (!var14) {
         Struct_020a9eb8_2* var40 = reinterpret_cast<Struct_020a9eb8_2*>(GameState::GetInstance());
-        Struct_020a9eb8_7* var41 = (Struct_020a9eb8_7*)func_02012d88(&data_02114e20, sizeof(Struct_020a9eb8_7));
+        Struct_020a9eb8_7* var41 = (Struct_020a9eb8_7*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, sizeof(Struct_020a9eb8_7));
         if (var41 != NULL) {
             var41->unknown_0_ = var40->unknown_5cda_;
             memcpy(var41->unknown_4_, var40->unknown_5cdc_, sizeof(var41->unknown_4_));
             func_02075acc((char*)&arg1->unknown_33c0_ - var21, var41, sizeof(Struct_020a9eb8_7), 0);
-            func_02012da4(&data_02114e20, var41);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var41);
         }
         int var42 = (char*)arg1->unknown_3ec4_ - var21;
         Struct_020a95a4* var43 = &GetZone3D_02012fe4()->unknown_840_;
         func_02075acc(var42, var43->unknown_0_, sizeof(var43->unknown_0_), 0);
         func_020a0cc4(sizeof(Struct_020a9eb8_8));
-        Struct_020a9eb8_8* var44 = (Struct_020a9eb8_8*)func_02012d88(&data_02114e20, sizeof(Struct_020a9eb8_8));
+        Struct_020a9eb8_8* var44 = (Struct_020a9eb8_8*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, sizeof(Struct_020a9eb8_8));
         if (var44 != NULL) {
             VectorizedInvertedMemcpy(var43->unknown_d98_, var44->unknown_0_, sizeof(var43->unknown_d98_));
             var44->unknown_d98_ = var43->unknown_1b38_;
@@ -639,7 +636,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             var44->unknown_da6_ = var43->unknown_1b61_;
             var44->unknown_da7_ = 0;
             func_02075acc(var42 + sizeof(var43->unknown_0_), var44, sizeof(Struct_020a9eb8_8), 0);
-            func_02012da4(&data_02114e20, var44);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var44);
         }
         func_020a0c0c();
         Struct_020a9eb8_2* var45 = reinterpret_cast<Struct_020a9eb8_2*>(GameState::GetInstance());
@@ -655,7 +652,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
     func_02075acc((char*)arg1->unknown_3554_ - var21, reinterpret_cast<Struct_020a9eb8_2*>(var0)->unknown_75f0_, 0x4d0, 0);
     func_02075acc((char*)arg1->unknown_3a24_ - var21, reinterpret_cast<Struct_020a9eb8_2*>(var0)->unknown_7ac0_, 0x3b4, 0);
 
-    Struct_ov031_0224e6e0* var47 = func_0202ae18();
+    Struct_ov031_0224e6e0* var47 = GetLocalWireless_0202ae18();
     int var48 = func_0202ba00(&var47->unknown_0_);
     int var49 = var47->unknown_100d_;
     int var50 = 0;
@@ -713,7 +710,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             var58.unknown_12_ = var61->unknown_4_;
             var58.unknown_10_ = var61->unknown_2_4_;
         }
-        var58.unknown_14_ = data_02109bf4.unknown_c8_2_;
+        var58.unknown_14_ = gMusicManager_02109bf4.unknown_c8_2_;
         var58.unknown_15_ = func_0203e524(func_0203cf4c(), (Struct_02028460_3*)&var59->obj3D_.position_, &var58.unknown_16_);
         func_02075acc((char*)&arg1->unknown_695c_ - var21, &var58, sizeof(var58), 0);
     }
@@ -738,7 +735,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
     } else if ((arg2 & 0x10) && arg3 == 0) {
         int var66;
         int var67;
-        Struct_020a95a4_8* var68 = static_cast<Struct_020a95a4_8*>(func_02010828(GameState::GetInstance()));
+        Struct_020a95a4_8* var68 = static_cast<Struct_020a95a4_8*>(GetParty_02010828(GameState::GetInstance()));
         Struct_020a9eb8_12 var69;
         memset(&var69, 0, sizeof(var69));
         var67 = 0;

@@ -5,9 +5,6 @@
 #include "World/Object3D.h"
 #include "Input/Input.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" unsigned char func_020100b0(GameState* arg0);
@@ -18,11 +15,11 @@ extern "C" void func_020531f0(void* arg0);
 struct ObjectArchiveLoadInfo;
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0205308c(void* arg0, int arg1);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_0206f81c(void* arg0);
 
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 extern "C" void func_0205eabc(void* arg0, void* arg1, int arg2);
 extern "C" int func_02064a9c(void* arg0, void* arg1);
@@ -47,7 +44,7 @@ extern struct Struct_020e7c94 data_020e7c94[];
 
 extern char data_020f0477;
 extern char data_020f047e;
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 extern char data_020f0481;
 extern char data_020f0486;
 
@@ -147,7 +144,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                 }
                 unsigned short var17 = *(unsigned short*)GetZone3D_02012fe4();
                 if (var17 == ((Object3D*)var0)->GetField06()) {
-                    func_0205eaa0((struct Struct_02108760*)&data_02108760, var15->unknown_2_, (int)var16);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, var15->unknown_2_, (int)var16);
                 }
                 break;
             }
@@ -192,7 +189,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                 }
                 short var20 = *(short*)(var0 + 4);
                 if (var20 == func_020100b0(var1)) {
-                    void* var21 = func_0205ec34();
+                    void* var21 = GetFlagManager_0205ec34();
                     unsigned char var22[0x34];
                     for (int var23 = 0; var23 < 4; var23++) {
                         char* var24 = var0 + var23 + 0x100;
@@ -209,7 +206,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                 if (var0[OBJECT_OFFSET(0x17c)] > 1) {
                     var25 = 1;
                     if (func_02053604((signed char*)var0) == 0x19) {
-                        func_0205eabc((void*)&data_02108760, var0 + OBJECT_OFFSET(0x198), 0);
+                        func_0205eabc((void*)&gSoundEffectManager_02108760, var0 + OBJECT_OFFSET(0x198), 0);
                     }
                 }
                 if (((Object3D*)var0)->MaybeSetRegularAnimation(&data_020f0481, var25) != 0) {
@@ -271,7 +268,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                 return;
             }
             if (func_02053604((signed char*)var0) == 0x19) {
-                func_0205eabc((void*)&data_02108760, var0 + OBJECT_OFFSET(0x198), 0);
+                func_0205eabc((void*)&gSoundEffectManager_02108760, var0 + OBJECT_OFFSET(0x198), 0);
             }
             var0[OBJECT_OFFSET(0x17d)] = var0[OBJECT_OFFSET(0x17d)] + 1;
             if (var0[OBJECT_OFFSET(0x17d)] < var0[OBJECT_OFFSET(0x17c)]) {
@@ -281,7 +278,7 @@ extern "C" ARM void func_02053634(void* arg0) {
             }
             short var33 = *(short*)(var0 + 4);
             if (var33 == func_020100b0(var1)) {
-                void* var34 = func_0205ec34();
+                void* var34 = GetFlagManager_0205ec34();
                 unsigned char var35[0x34];
                 for (int var36 = 0; var36 < 4; var36++) {
                     char* var37 = var0 + var36 + 0x100;

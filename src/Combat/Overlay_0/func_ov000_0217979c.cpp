@@ -3,14 +3,14 @@
 struct Struct_0205c508;
 extern "C" void func_0205c508(struct Struct_0205c508* arg0, int* arg1, int* arg2);
 struct Struct_0201099c_3;
-extern "C" char* func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_ov000_0217542c(void* arg0);
 extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" int func_02041ea4(char* arg0, int arg1);
 extern "C" void* func_ov000_02171b9c(void* arg0, int arg1);
 extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 #if defined(jpn)
 extern "C" int func_02042158(char* arg0, int arg1);
 #define func_02041acc func_02042158
@@ -47,8 +47,8 @@ extern "C" ARM void func_ov000_0217979c(char* arg0, struct Struct_ov000_0217979c
     signed char var3 = var1;
     signed char var4 = arg1->unknown_22_;
 #if !defined(jpn)
-    char* var5 = func_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0x13);
-    char* var6 = func_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0);
+    char* var5 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0x13);
+    char* var6 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0);
 #endif
     if (func_ov000_0217542c(arg0)) {
         func_02041c08(arg2, var4 - var2, 8, 5, 5, 5);
@@ -65,28 +65,28 @@ extern "C" ARM void func_ov000_0217979c(char* arg0, struct Struct_ov000_0217979c
         int var10 = var8->unknown_8_0_ <= 7;
         if (var10) {
 #if defined(jpn)
-            func_02042058(var9, func_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0x13));
+            AppendText_02042058(var9, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0x13));
 #else
-            func_02042058(var9, var5);
+            AppendText_02042058(var9, var5);
             func_02041acc(var9, 3);
 #endif
         } else {
             func_02041acc(var9, 8);
         }
 #if defined(jpn)
-        func_02042058(var9, var8->unknown_4_);
+        AppendText_02042058(var9, var8->unknown_4_);
 #else
         char var11[0x100];
         __clear(var11, 0x100);
         func_0206819c(var8->unknown_4_, var11, 0);
-        func_02042058(var9, var11);
+        AppendText_02042058(var9, var11);
 #endif
         func_02041b70(arg2, var7 - var2, var9);
         if (var7 != var3 - 1) {
 #if defined(jpn)
-            func_02042058(arg2, func_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0));
+            AppendText_02042058(arg2, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0));
 #else
-            func_02042058(arg2, var6);
+            AppendText_02042058(arg2, var6);
 #endif
         }
     }

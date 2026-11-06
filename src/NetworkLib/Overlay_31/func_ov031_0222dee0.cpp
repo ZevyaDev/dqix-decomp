@@ -7,7 +7,7 @@ extern "C" void func_ov031_0223cbbc(int, int);
 extern "C" void func_ov031_022274d0(int, int);
 extern "C" void func_ov031_02227520(int*, int*);
 extern "C" void func_ov031_0222750c(int, int);
-extern "C" void func_ov031_022274c0(int arg0);
+extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
 extern "C" void func_ov031_0222ea24(void);
 extern "C" unsigned int func_ov031_0223cf70(void** arg0);
 
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov031_0222dee0(void) {
 
 	func_ov031_022274d0(2, 1);
 	func_ov031_0222750c(0, var0 + 3);
-	func_ov031_022274c0((int)func_ov031_0222ea24);
+	SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222ea24);
 #if defined(jpn)
 	void** var1 = &DuplicatePool::data_ov031_02290c98;
 #else

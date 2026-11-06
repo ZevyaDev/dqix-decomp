@@ -5,7 +5,7 @@
 struct Struct_0205e57c_6;
 extern "C" int func_0205e830(struct Struct_0205e57c_6* arg0, int arg1);
 extern "C" void* func_0202ae24(void);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 
 struct Struct_ov017_021d48f0 { unsigned char unknown_0_; };
 extern "C" Struct_ov017_021d48f0* func_0205e41c(void* arg0, int* arg1);
@@ -18,7 +18,7 @@ extern "C" ARM void func_ov017_021d48f0(void) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     void* var2 = func_0202ae24();
-    void* var3 = func_0202ae18();
+    void* var3 = GetLocalWireless_0202ae18();
     int var4;
     Struct_ov017_021d48f0* var5;
     while ((var5 = func_0205e41c(var2, &var4)) != NULL) {

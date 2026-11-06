@@ -9,7 +9,7 @@ extern "C" void func_ov004_02168eac(void* arg0, int arg1, int arg2);
 extern "C" void func_ov023_021f6600(void* arg0, int arg1, int arg2);
 extern "C" void func_ov023_021f65d4(void* arg0, int arg1, int arg2);
 #endif
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern void* data_ov004_02171030;
 
 #if defined(jpn)
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov004_02169adc(void* arg0) {
     void* var0 = *(void**)((char*)data_ov004_02171030 + Enum_ov004_02169adc_400);
     if (!var0) return 0;
     if (*(unsigned char*)var0 != 0) {
-        func_ov011_021848a0(arg0, 0x48);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x48);
     }
     return 0;
 }

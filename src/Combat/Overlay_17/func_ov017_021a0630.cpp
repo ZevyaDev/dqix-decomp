@@ -8,12 +8,12 @@ enum { Enum_ov017_021a0630_632 = 0x278, Enum_ov017_021a0630_2768 = 0xad0, Enum_o
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Memory/SafeAllocator.h"
 
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020bb740(int* arg0);
 extern "C" void func_020bb92c(int* arg0);
 extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 struct Struct_ov017_021d66c8 { int unknown_0_; int unknown_4_; };
 struct Struct_ov017_021d66cc { int unknown_0_; int unknown_4_; };
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov017_021a0630(char* arg0) {
     int var0;
     int var1;
     for (var0 = 0; (var1 = data_ov017_021d66cc[var0].unknown_0_) != 0; var0++) {
-        void* var2 = func_02012d88(&data_02114e20, var1);
+        void* var2 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var1);
         int var3 = data_ov017_021d66c8[var0].unknown_0_;
         SafeAllocator* var4 = (SafeAllocator*)(arg0 + 0x38 + var3 * 0x14);
         var4->CreateTypeA(var2, var1);

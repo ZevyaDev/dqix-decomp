@@ -6,8 +6,8 @@
 struct Struct_02048260_2;
 struct Struct_02010604_3;
 struct Struct_02010604;
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
 
 struct Struct_ov017_0219ff58 {
     short unknown_0_;
@@ -37,7 +37,7 @@ struct Struct_ov017_0219ff58_3 {
 
 extern "C" int func_02011b50(void* arg0, int arg1);
 extern "C" void func_02011b3c(void* arg0, unsigned char arg1);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_02048150(void* arg0, int arg1, int arg2);
 extern "C" int func_02048260(struct Struct_02048260_2* arg0);
 extern "C" int func_020482bc(struct Struct_02010604_3* arg0);
@@ -51,7 +51,7 @@ extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
 extern "C" int func_020546a8(void* arg0);
 extern "C" void func_02070378(char* arg0);
 extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 // USA: func_ov017_0219ff58
 extern "C" ARM int func_ov017_0219ff58(unsigned char* arg0, int arg1, int arg2, int arg3) {
@@ -64,7 +64,7 @@ extern "C" ARM int func_ov017_0219ff58(unsigned char* arg0, int arg1, int arg2, 
     if (func_02011b50(var0, 1) != 0) {
         if (arg3 != 0) {
             GetGameResources();
-            signed char var1 = func_020100a8(var0);
+            signed char var1 = GetProtagonistObjectIndex_020100a8(var0);
             Struct_ov017_0219ff58_3* var2 = (Struct_ov017_0219ff58_3*)var0->GetPartyMemberByIndex(var1);
             if (var2 != NULL) {
                 func_02048150(var2, 0, 1);
@@ -111,8 +111,8 @@ extern "C" ARM int func_ov017_0219ff58(unsigned char* arg0, int arg1, int arg2, 
 
         if (arg2 != 0) {
             func_ov017_0219e310(*(unsigned char**)(arg0 + 0x3000 + Enum_ov017_0219ff58_1804), 0);
-            func_020469b4(*(struct Struct_0201bdac_2**)(arg0 + 0x3000 + Enum_ov017_0219ff58_1788),
-                             *(struct Struct_0201bdac**)(arg0 + 0x3000 + Enum_ov017_0219ff58_1804));
+            AppendToQueue_020469b4(*(struct Queue_0201bdac_2**)(arg0 + 0x3000 + Enum_ov017_0219ff58_1788),
+                             *(struct QueueNode_0201bdac**)(arg0 + 0x3000 + Enum_ov017_0219ff58_1804));
         }
         return 1;
     }

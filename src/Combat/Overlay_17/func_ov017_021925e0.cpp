@@ -9,8 +9,8 @@ struct Struct_ov017_021925e0 {
     unsigned int unknown_3_3_ : 5;
 };
 
-extern "C" struct Struct_0202b2f0* func_0202ae18(void);
-extern "C" int func_0202c540(struct Struct_0202b2f0* arg0);
+extern "C" struct Struct_0202b2f0* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessGuest_0202c540(struct Struct_0202b2f0* wireless);
 extern "C" int func_ov017_021bd3a4(struct Struct_ov017_0218e674* arg0);
 
 // USA: func_ov017_021925e0
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov017_021925e0(void) {
 #endif
     char* var0 = (char*)GetGameResources();
     unsigned char* var1 = *(unsigned char**)(var0 + 0x3000 + Enum_ov017_021925e0_1844);
-    if (!func_0202c540(func_0202ae18())) {
+    if (!IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18())) {
         goto ret0;
     }
     if (func_ov017_021bd3a4((struct Struct_ov017_0218e674*)var1)) {

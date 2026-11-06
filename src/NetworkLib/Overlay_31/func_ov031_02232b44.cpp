@@ -12,7 +12,7 @@ extern "C" void func_ov031_022234d8(int arg0, Type_ov031_022234d8 arg1);
 extern "C" extern int LoadToMainObjStandardPalette(int, int, unsigned int);
 extern "C" void func_ov031_0223cbbc(int, int);
 extern "C" void func_ov031_022274d0(int, int);
-extern "C" void func_ov031_022274c0(int);
+extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_02228024(void);
 extern "C" char* func_ov031_02235c70(void);
 extern "C" void func_ov031_02233248(void);
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov031_02232b44(void) {
 
 	if (data_ov031_02290cc0.unknown_4_->unknown_1d_ == 2) {
 		func_ov031_022274d0(0, 0);
-		func_ov031_022274c0((int)func_ov031_02228024);
+		SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02228024);
 	} else {
 		switch (data_ov031_02290cc0.unknown_0_) {
 		case 0:
@@ -83,16 +83,16 @@ extern "C" ARM void func_ov031_02232b44(void) {
 		case 2:
 			func_ov031_022274d0(2, 0);
 			if (*(unsigned char*)(func_ov031_02235c70() + 0xe7) == 0xff) {
-				func_ov031_022274c0((int)func_ov031_02233248);
+				SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02233248);
 			} else {
 				func_ov031_0222750c(0, 0);
 				func_ov031_02230ef0(0);
-				func_ov031_022274c0((int)func_ov031_0222ea24);
+				SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222ea24);
 			}
 			break;
 		case 3:
 			func_ov031_022274d0(2, 1);
-			func_ov031_022274c0((int)func_ov031_02234520);
+			SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02234520);
 			break;
 		}
 	}

@@ -111,7 +111,7 @@ extern "C" int func_ov017_021959b4();
 extern "C" void func_020e4524(char* arg0);
 extern "C" void func_ov004_0216fa48(void* arg0);
 extern "C" void func_02076b58(struct Struct_02076a8c_2* arg0);
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_02033b88(struct Struct_02010604* arg0, int arg1);
 extern "C" void func_02037d88(GameObject* arg0);
@@ -131,32 +131,32 @@ extern "C" struct Struct_020d7aa0_2* func_020d7a50();
 extern "C" void func_020d7aa0(struct Struct_020d7aa0_2* arg0);
 extern "C" void func_ov017_021c3e18(int arg0);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void* func_020dfc2c(void* arg0);
 extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
 extern "C" void func_020dfec0(void* arg0, void* arg1, void* arg2, unsigned int arg3);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, void* text, int arg2);
 #else
 extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int arg3);
 #endif
-extern "C" void func_02043124(void* arg0);
+extern "C" void CloseMessageWindow_02043124(void* window);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 #if defined(jpn)
 struct Struct_020727d8 {
     void* unknown_0_;
     void* unknown_4_;
 };
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 #include "Filesystem/FileIO.h"
 extern "C" int func_020d3018(const char* arg0, const char* arg1);
 extern "C" void func_020727d8(struct Struct_020727d8* arg0);
 extern "C" void func_020728ac(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
-extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern const char data_020f2e30[];
 extern const char data_020f2e3b[];
 extern const char data_020f2e4d[];
@@ -174,7 +174,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
     GameState* var1 = GameState::GetInstance();
     struct Struct_020e3f1c_3* var2 = GetMessageWindow_020421a0();
-    Struct_0208cb08* var3 = func_02094a00();
+    FontLoader_0208cb08* var3 = func_02094a00();
     ActiveGrottoClass* var4 = &GetZone3D_02012fe4()->unknown_23ec_;
     struct Struct_020e3f1c_2* var5 = (struct Struct_020e3f1c_2*)func_020100f8((char*)var1);
     struct Struct_020e3f1c_8* var6 = (struct Struct_020e3f1c_8*)var1->GetUnknownGameObject();
@@ -203,7 +203,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
         return;
     }
     func_02076b58((struct Struct_02076a8c_2*)var10);
-    func_020466e4((unsigned int*)func_020d6c00(), 2);
+    func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 2);
 
     int var11;
     for (var11 = 0; var11 < 4; var11++) {
@@ -249,7 +249,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
             return;
         }
         struct Struct_ov009_0218aa28 var15 = var10->unknown_44_;
-        struct Struct_020e3f1c* var16 = (struct Struct_020e3f1c*)func_02010828(var1);
+        struct Struct_020e3f1c* var16 = (struct Struct_020e3f1c*)GetParty_02010828(var1);
         for (int var17 = 0; var17 < var16->unknown_f7c_; var17++) {
             struct Struct_020e3f1c_8* var18 = (struct Struct_020e3f1c_8*)var1->GetPartyMemberByIndex(var16->unknown_f78_[var17]);
             if (var18 != NULL) {
@@ -322,7 +322,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
         if (!GetFileInNarc(var24, var26, &var27, &var28, 0)) {
             return;
         }
-        void* var30 = func_02012d88(&data_02114e20, 0x400);
+        void* var30 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x400);
         if (var30 == NULL) {
             func_ov004_0216fa48(arg0);
             return;
@@ -335,9 +335,9 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
         func_020728ac(&var29, &var31, (void*)var27, var28, 0, 0, 0);
         var0->RemoveTask(arg0->unknown_c_);
         arg0->unknown_c_ = -1;
-        void* var33 = func_02072a68((struct Struct_02072a68_2*)&var29, var8);
+        void* var33 = FindStringInList_02072a68((struct StringList_02072a68_2*)&var29, var8);
 #else
-        void* var30 = func_02012d88(&data_02114e20, 0x500);
+        void* var30 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x500);
         if (var30 == NULL) {
             func_ov004_0216fa48(arg0);
             return;
@@ -351,11 +351,11 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
         func_020dfec0(&var32, &var31, var24, var25);
         var0->RemoveTask(arg0->unknown_c_);
         arg0->unknown_c_ = -1;
-        void* var33 = (void*)func_020e0434((struct Struct_0201099c_3*)&var32, var8);
+        void* var33 = (void*)FindStringInTable_020e0434((struct Struct_0201099c_3*)&var32, var8);
 #endif
         if (var33 == NULL) {
             var31.Destroy();
-            func_02012da4(&data_02114e20, var30);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var30);
             func_ov004_0216fa48(arg0);
             return;
         }
@@ -369,13 +369,13 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
 #endif
         var2->unknown_998_ = 1;
         var31.Destroy();
-        func_02012da4(&data_02114e20, var30);
+        FreeMemory_02012da4(&gMainHeap_02114e20, var30);
         arg0->unknown_a_ = 5;
     } else if (arg0->unknown_a_ == 5) {
         var2->unknown_99c_ = 1;
         if (var2->unknown_998_ == 0) {
             var2->unknown_99c_ = 0;
-            func_02043124(var2);
+            CloseMessageWindow_02043124(var2);
             func_ov004_0216fa48(arg0);
         }
     }

@@ -17,12 +17,12 @@ extern "C"
 {
     void* func_02011584(GameState*);
 
-    void* func_02053c6c(void*);
+    void* GetPartyMemberData_02053c6c(void*);
     void _Z25RunBufferedStream0205e104iiP12StreamHeaderi(const char*, SafeAllocator*, const void*, unsigned int);
 
-    void* func_0207df50(void*);
-    void func_0207df90(void*);
-    void func_0207dfac(void*);
+    void* ResetTextureVRAMState_0207df50(void*);
+    void RestoreTextureVRAMState_0207df90(void*);
+    void SaveTextureVRAMState_0207dfac(void*);
 
     void* func_0208a9b4();
     void func_02094d00(void*);
@@ -84,7 +84,7 @@ void Zone3D::SwitchZone(unsigned short newID, int)
     pAllocator_68_ = pAllocator_4c_;
     pAllocator_68_->Reset();
 
-    func_0207df50(unknown_ptr_50_);
+    ResetTextureVRAMState_0207df50(unknown_ptr_50_);
     func_02013750(this, true);
 
     previousZoneID_ = currentZoneID_;
@@ -136,7 +136,7 @@ void Zone3D::SwitchZone(unsigned short newID, int)
         GameObject* iVar5 = gameState->GetProtagonist();
         if (iVar5 != NULL)
         {
-            void* iVar6 = func_02053c6c(iVar5);
+            void* iVar6 = GetPartyMemberData_02053c6c(iVar5);
             if (iVar6 != NULL)
                 *(unsigned short*)((int)iVar6 + 0x566) = pUnknownStruct_8_->unknown_0_;
         }

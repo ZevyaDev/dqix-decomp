@@ -6,11 +6,11 @@ extern "C" void func_02087628(char* arg0);
 
 extern "C" unsigned char func_02011494(char* arg0, void* arg1);
 
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 extern "C" void __clear(void* arg0, int arg1);
 
-extern "C" void* func_02053c6c(unsigned char* arg0);
+extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 extern "C" signed char func_ov017_021b6c2c(int arg0, int arg1);
 
@@ -25,7 +25,7 @@ extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
 // USA: func_ov017_021b6c78
 extern "C" ARM void func_ov017_021b6c78(void) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_02010828(var0);
+    void* var1 = GetParty_02010828(var0);
     func_02087628((char*)var1);
 
     if (*((unsigned char*)var1 + 0xf7c) <= 1) {
@@ -38,11 +38,11 @@ extern "C" ARM void func_ov017_021b6c78(void) {
 
     for (unsigned char var5 = 0; var5 < var4; var5 = (unsigned char)(var5 + 1)) {
         char var6 = var2[var5];
-        if (var6 != func_020100a8(var0)) {
+        if (var6 != GetProtagonistObjectIndex_020100a8(var0)) {
             __clear(var3, 0x10);
             GameObject* var7 = func_0200ff1c(var0, var6);
             if (var7) {
-                unsigned char* var8 = (unsigned char*)func_02053c6c((unsigned char*)var7);
+                unsigned char* var8 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var7);
                 memcpy(var3, var8 + 0x54 + 0x400, 0x10);
             }
             signed char var9 = func_ov017_021b6c2c(var6, 1);

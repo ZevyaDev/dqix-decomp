@@ -3,8 +3,8 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
 extern "C" void func_ov001_0215aa5c(void);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
-extern int data_02114e20;
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern int gMainHeap_02114e20;
 
 // USA: func_ov017_021bb108
 extern "C" ARM void func_ov017_021bb108(char* arg0) {
@@ -23,12 +23,12 @@ extern "C" ARM void func_ov017_021bb108(char* arg0) {
 		}
 		void* var2 = ((SafeAllocator*)(arg0 + Enum_ov017_021bb108_124))->GetSignedAllocator();
 		((SafeAllocator*)(arg0 + Enum_ov017_021bb108_124))->Destroy();
-		func_02012da4((AllocatorUnion*)&data_02114e20, var2);
+		FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var2);
 	}
 	if (*(SafeAllocator**)(arg0 + Enum_ov017_021bb108_312) == NULL) return;
 	void* var3 = (*(SafeAllocator**)(arg0 + Enum_ov017_021bb108_312))->GetSignedAllocator();
 	if (var3 == NULL) return;
 	(*(SafeAllocator**)(arg0 + Enum_ov017_021bb108_312))->Destroy();
-	func_02012da4((AllocatorUnion*)&data_02114e20, var3);
+	FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var3);
 	*(SafeAllocator**)(arg0 + Enum_ov017_021bb108_312) = NULL;
 }

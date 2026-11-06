@@ -9,7 +9,7 @@
 #endif
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 
 extern "C" void func_ov013_02186c64(void* arg0, int arg1, int arg2);
 extern "C" void func_ov013_02185cc0(void* arg0);
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov013_021864f0(void* arg0) {
 
     var0[LOW_REGION(0x5c8, 0x63c)] = 1;
     g_keyManager.CancelCurrentKeyRepeat();
-    func_02043204((char*)var2);
+    ResetMessageWindow_02043204((char*)var2);
     var0[LOW_REGION(0x5c5, 0x639)] = 0;
     func_ov013_02186c64(arg0, 0, 0);
     func_ov013_02185cc0(arg0);

@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 extern "C" unsigned char func_02039d7c(char* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_020100f8(char* arg0);
 extern "C" int func_020a277c(void* arg0);
 extern "C" void func_020a2770(void* arg0, short arg1);
@@ -12,7 +12,7 @@ extern "C" void func_0202c3e0(void* arg0);
 
 struct Struct_ov017_02191108 { int unknown_0_[4]; };
 extern "C" void func_ov017_02190884(int arg0, struct Struct_ov017_02191108* arg1, int* arg2, int arg3, int arg4, int arg5);
-extern "C" void* func_0202ae18(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void* arg0);
 
 extern "C" void func_020a2be8(void* arg0);
 
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov017_02191108(void* arg0, int arg1, int arg2, int arg3
     }
 
     int var3 = 0;
-    int var4 = func_020100a8(var0);
+    int var4 = GetProtagonistObjectIndex_020100a8(var0);
     struct Struct_ov017_02191108 var5;
     func_ov017_02190884(var4, &var5, &var3, arg1, arg2, arg3);
     int var6 = var5.unknown_0_[0];
@@ -50,12 +50,12 @@ extern "C" ARM void func_ov017_02191108(void* arg0, int arg1, int arg2, int arg3
         }
     }
 
-    unsigned char* var10 = (unsigned char*)func_02010828(var0);
+    unsigned char* var10 = (unsigned char*)GetParty_02010828(var0);
     int var11;
     for (var11 = 0; var11 < var3; var11++) {
         unsigned char* var12 = var10 + var11;
         var12[0xf78] = (unsigned char)var5.unknown_0_[var11];
     }
     var10[0xf7c] = (unsigned char)var3;
-    func_0202c3e0(func_0202ae18(var10));
+    func_0202c3e0(GetLocalWireless_0202ae18(var10));
 }

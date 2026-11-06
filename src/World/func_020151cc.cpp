@@ -20,10 +20,10 @@ extern "C" ARM int func_020151cc(Zone3D *arg0, Struct_02012ff0 *arg1, Struct_020
         if (var9 != NULL && arg1->unknown_4_ != 0) {
             Object3D *var10 = arg1->unknown_4_;
             var10->Initialize();
-            func_0207df90(var2);
+            RestoreTextureVRAMState_0207df90(var2);
             var10 = arg1->unknown_4_;
             var10->SetModelFromFile(var1, var9, var6, Model3D::TextureStagingMode_Normal);
-            func_0207dfac(var2);
+            SaveTextureVRAMState_0207dfac(var2);
             Model3D *var11 = arg1->unknown_4_->pModel_;
             if (var11 != NULL) {
                 NSBXXTex *var12 = var11->GetTEX0();

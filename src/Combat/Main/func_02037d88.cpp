@@ -4,7 +4,7 @@
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
 
-extern "C" void func_0202ae18(void);
+extern "C" void GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_020391ac(void* arg0);
 extern "C" void func_02038138(void* arg0);
@@ -43,7 +43,7 @@ extern "C" int func_02052e44(Struct_02037d88*, signed char);
 struct Struct_02037d88_2;
 extern "C" int func_02052f44(struct Struct_02037d88_2* arg0, signed char* arg1, int arg2);
 
-extern "C" int func_020ac4c0(void* arg0);
+extern "C" int GetBattleRecords_020ac4c0(void* records);
 
 struct Struct_02037d88_3;
 extern "C" void func_020a06b0(struct Struct_02037d88_3* arg0, unsigned int arg1);
@@ -99,7 +99,7 @@ struct Struct_02037d88_7 {
 // USA: func_02037d88
 extern "C" ARM void func_02037d88(struct Struct_02037d88_7* arg0) {
     void* var0 = GameState::GetInstance();
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     unsigned char* var1 = (unsigned char*)((int)GetGameResources());
 
     int var2 = (arg0->unknown_1ce_ & 4) != 0;
@@ -160,7 +160,7 @@ extern "C" ARM void func_02037d88(struct Struct_02037d88_7* arg0) {
             && func_0203402c((struct Struct_0203402c*)arg0) == 0
             && ((struct Struct_02037d88_6*)GetMessageWindow_020421a0())->unknown_1000_.unknown_9b1_ == 0) {
 
-            unsigned char* var14 = (unsigned char*)func_02010828((GameState*)var5);
+            unsigned char* var14 = (unsigned char*)GetParty_02010828((GameState*)var5);
 
             void* var15 = GameState::GetInstance();
             short var16 = arg0->unknown_4_;
@@ -196,7 +196,7 @@ extern "C" ARM void func_02037d88(struct Struct_02037d88_7* arg0) {
 
             if (var19 != 0) {
                 char var23[0xb0];
-                func_020ac4c0(var23);
+                GetBattleRecords_020ac4c0(var23);
                 func_020a06b0((struct Struct_02037d88_3*)var23, 1);
                 func_020a0140((struct Struct_02037d88_4*)(var23 + 0x68), 1);
                 func_020ac494(var23);

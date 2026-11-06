@@ -2,10 +2,10 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int func_0201079c(char* arg0);
-struct Struct_02072a68_2;
-extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
+struct StringList_02072a68_2;
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 
 struct Struct_ov023_021e6594 {
     unsigned int : 29;
@@ -41,9 +41,9 @@ extern "C" ARM void func_ov023_021e6594(char* arg0) {
     if (!var1->unknown_3_5_) {
         void* var2;
         if (func_0201079c((char*)var0) == 1) {
-            var2 = func_02072a68((struct Struct_02072a68_2*)(arg0 + Enum_ov023_021e6594_4924), 0x50e9);
+            var2 = FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + Enum_ov023_021e6594_4924), 0x50e9);
         } else {
-            func_0202ae18();
+            GetLocalWireless_0202ae18();
             GameObject* var3 = var0->GetProtagonist();
             struct Struct_ov023_021e6594_2* var4 = *(struct Struct_ov023_021e6594_2**)((char*)var3 + Enum_ov023_021e6594_336);
 #if defined(jpn)
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov023_021e6594(char* arg0) {
             var5 += var4->unknown_950_;
 #endif
 
-            var2 = func_02072a68((struct Struct_02072a68_2*)(arg0 + Enum_ov023_021e6594_4924), (short)var5);
+            var2 = FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + Enum_ov023_021e6594_4924), (short)var5);
         }
         memset(arg0 + Enum_ov023_021e6594_5120, 0, 0x40);
         int var6 = strlen((char*)var2);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov023_021e6594(char* arg0) {
     }
     if (var1->unknown_5_1_ != 0x12c) return;
     memset(arg0 + Enum_ov023_021e6594_5184, 0, 0x40);
-    void* var7 = func_02072a68((struct Struct_02072a68_2*)(arg0 + Enum_ov023_021e6594_4924), 0x283c);
+    void* var7 = FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + Enum_ov023_021e6594_4924), 0x283c);
     int var8 = strlen((char*)var7);
     memcpy(arg0 + Enum_ov023_021e6594_5184, (char*)var7, var8);
 }

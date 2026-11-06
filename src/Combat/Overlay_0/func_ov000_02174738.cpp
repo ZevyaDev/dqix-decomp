@@ -54,7 +54,7 @@ struct Struct_ov000_02174738_7 {
     short unknown_a_;
 };
 
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_0205b20c(struct Struct_ov000_02174738_6* arg0);
 extern "C" void func_0205b220(void* arg0, int arg1);
 extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
@@ -107,8 +107,8 @@ checkvalid:
         if (var7->unknown_4c_ >= 0) {
             continue;
         }
-        func_ov000_021710ac(var7, arg1, arg1 == func_020100a8(var5));
-        func_ov000_02174a38(var7, arg1 == func_020100a8(var5));
+        func_ov000_021710ac(var7, arg1, arg1 == GetProtagonistObjectIndex_020100a8(var5));
+        func_ov000_02174a38(var7, arg1 == GetProtagonistObjectIndex_020100a8(var5));
         func_ov000_02171138(var7);
         data_ov000_02183ff0 = data_ov000_02183ff0 + 1;
         func_ov000_02174b14(arg0);
@@ -215,8 +215,8 @@ checkvalid:
         if (var35->unknown_4c_ >= 0) {
             continue;
         }
-        func_ov000_021710ac(var35, arg1, arg1 == func_020100a8(var33));
-        func_ov000_02174a38(var35, arg1 == func_020100a8(var33));
+        func_ov000_021710ac(var35, arg1, arg1 == GetProtagonistObjectIndex_020100a8(var33));
+        func_ov000_02174a38(var35, arg1 == GetProtagonistObjectIndex_020100a8(var33));
         func_ov000_02171138(var35);
         data_ov000_02183ff0 = data_ov000_02183ff0 + 1;
         func_ov000_02174b14(arg0);

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_ov002_0215b918(unsigned char* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov002_0215ece4
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov002_0215ece4(void* arg0, char* arg1, int arg2, int ar
                 const char* var7 = *(const char**)var6;
                 func_02041b70(arg1, var3, var7);
                 if (var5 != var2) {
-                    func_02042058(arg1, *(char**)(var1 + 0xbdc));
+                    AppendText_02042058(arg1, *(char**)(var1 + 0xbdc));
                 }
                 var3++;
             }

@@ -12,7 +12,7 @@
 
 #include "GameState/GameState.h"
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov000_02171674(void* arg0, int arg1);
 extern "C" int func_ov000_0217199c(void* arg0, int arg1);
 
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov000_0217aa78(void* arg0, int arg1, int arg2) {
     if (var2 == 0) {
         return 0;
     }
-    int var3 = func_02053c6c((unsigned char*)var2);
+    int var3 = GetPartyMemberData_02053c6c((unsigned char*)var2);
     if (var3 == 0) {
         return 0;
     }

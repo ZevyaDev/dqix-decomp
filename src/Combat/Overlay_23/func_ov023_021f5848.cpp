@@ -10,9 +10,9 @@ struct Struct_0201d530 {
     union { int unknown_0_; float unknown1_0_; } unknown_4_;
 };
 
-struct Struct_0201099c_9;
-struct Struct_0201099c_10;
-extern "C" Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10*, int);
+struct ItemData_0201099c_9;
+struct ItemTable_0201099c_10;
+extern "C" ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10*, int);
 
 struct Struct_ov023_021f5848 {
     unsigned short unknown_0_0_ : 13;
@@ -32,7 +32,7 @@ struct Struct_ov023_021fff08_6 {
     char unknown_0_[1];
     unsigned char unknown_1_;
     char unknown_2_[2];
-    struct Struct_0201099c_10* unknown_4_;
+    struct ItemTable_0201099c_10* unknown_4_;
     char unknown_8_[4];
     struct Struct_ov023_021f5848_2* unknown_c_;
 };
@@ -57,7 +57,7 @@ extern "C" ARM int func_ov023_021f5848(struct Struct_0201c1c8* arg0) {
             data_ov023_021fff08.unknown_c_->unknown_10c_.unknown_0_0_ |= 2;
             return 0;
         }
-        func_02010828(GameState::GetInstance());
+        GetParty_02010828(GameState::GetInstance());
         float var3 = ((Script::Parameter*)((struct Struct_0201d530*)((char*)arg0 + 8)))->ToFloat();
         float var4 = ((Script::Parameter*)((struct Struct_0201d530*)((char*)arg0 + 0x10)))->ToFloat();
         struct Random* var5 = GetBTRandom();

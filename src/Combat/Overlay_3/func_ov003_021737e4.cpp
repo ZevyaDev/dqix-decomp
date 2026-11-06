@@ -9,12 +9,12 @@
 #include "NitroSDK/Memory.h"
 #include "Resource/GameResources.h"
 
-struct Struct_02072a68_2 {
-    struct Struct_02072a68* unknown_0_;
-    short unknown_4_;
+struct StringList_02072a68_2 {
+    struct StringListEntry_02072a68* unknown_0_;
+    short capacity_4_;
 };
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 
 struct Struct_ov003_021737e4 {
     void* unknown_0_;
@@ -50,8 +50,8 @@ struct Struct_ov003_021737e4_2 {
 };
 
 extern "C" void func_020a620c(void* arg0);
-extern "C" int func_02046900(Struct_02020cb8_4* arg0);
-extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0204c684(void* arg0);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void __clear(void*, unsigned int);
@@ -85,9 +85,9 @@ extern "C" ARM void func_ov003_021737e4(Struct_ov003_021737e4_2* arg0) {
         void* var4[3];
         int var5[3];
         var0->GetLoadedFileByID(arg0->unknown_f8_, &var2, &var3);
-        int var6 = func_02046900((Struct_02020cb8_4*)var2);
+        int var6 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var2);
         for (int var7 = 0; var7 < var6; var7++) {
-            var4[var7] = func_020467f0((Struct_02020aec*)var2, var7, &var1, &var5[var7]);
+            var4[var7] = GetPacEntryData_020467f0((PacEntry_02020aec*)var2, var7, &var1, &var5[var7]);
         }
         void* var8 = arg0->unknown_1_ ? var4[1] : var4[0];
         Struct_ov003_021737e4 var9;
@@ -193,15 +193,15 @@ struct Struct_ov003_021737e4_2 {
     char unknown_f0_[0xf4 - 0xf0];
     int unknown_f4_;
     char unknown_f8_[0x1d8 - 0xf8];
-    Struct_02072a68_2 unknown_1d8_;
+    StringList_02072a68_2 unknown_1d8_;
 };
 
 extern "C" void func_020a620c(void* arg0);
-extern "C" int func_02046900(Struct_02020cb8_4* arg0);
-extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0204c684(void* arg0);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_ov003_02172618(void* arg0, int arg1, char** arg2);
 
 extern char data_ov003_02180a76[];
@@ -224,9 +224,9 @@ extern "C" ARM void func_ov003_021737e4(Struct_ov003_021737e4_2* arg0) {
         void* var25[3];
         int var26[3];
         var21->GetLoadedFileByID(arg0->unknown_f4_, &var23, &var24);
-        int var27 = func_02046900((Struct_02020cb8_4*)var23);
+        int var27 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var23);
         for (int var28 = 0; var28 < var27; var28++) {
-            var25[var28] = func_020467f0((Struct_02020aec*)var23, var28, &var22, &var26[var28]);
+            var25[var28] = GetPacEntryData_020467f0((PacEntry_02020aec*)var23, var28, &var22, &var26[var28]);
         }
         void* var29 = arg0->unknown_1_ ? var25[1] : var25[0];
         Struct_ov003_021737e4 var30;
@@ -242,10 +242,10 @@ extern "C" ARM void func_ov003_021737e4(Struct_ov003_021737e4_2* arg0) {
             var31[1] = arg0->unknown_4_;
             int var32 = 4;
             if (arg0->unknown_2_ == 1) {
-                var31[0] = func_02072a68(&arg0->unknown_1d8_, 0xc8);
+                var31[0] = FindStringInList_02072a68(&arg0->unknown_1d8_, 0xc8);
                 var32 = 0xf;
             } else if (arg0->unknown_2_ == 2) {
-                var31[0] = func_02072a68(&arg0->unknown_1d8_, 0xc9);
+                var31[0] = FindStringInList_02072a68(&arg0->unknown_1d8_, 0xc9);
                 var32 = 0xf;
             }
             func_ov003_02172618(&var30, var32, var31);

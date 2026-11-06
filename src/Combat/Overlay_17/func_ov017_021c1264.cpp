@@ -12,7 +12,7 @@ enum { Enum_ov017_021c1404_147456 = 0x24000, Enum_ov017_021c1404_828 = 0x33c, En
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/Brightness.h"
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int func_020100f8(char* arg0);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
@@ -23,8 +23,8 @@ extern "C" void func_020a1ef0(int arg0);
 struct Struct_02018300_3;
 extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
 
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern AllocatorUnion data_02114e20;
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern AllocatorUnion gMainHeap_02114e20;
 extern "C" void func_020a0cc4(unsigned int);
 extern "C" void func_020a0c0c(void);
 
@@ -51,7 +51,7 @@ struct Struct_ov017_021c1404 {
 // USA: func_ov017_021c1404
 extern "C" ARM void func_ov017_021c1404(struct Struct_ov017_021c1404* arg0) {
 	GameState* var0 = GameState::GetInstance();
-	int* var1 = (int*)func_0200fb8c((int*)var0);
+	int* var1 = (int*)GetResources_0200fb8c((int*)var0);
 	GameObject* var2 = var0->GetUnknownGameObject();
 	int var3 = func_020100f8((char*)var0);
 	SetFlags04((GameResources*)var1, 0xc0);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov017_021c1404(struct Struct_ov017_021c1404* arg0) {
 
 	if (var4 == 0) {
 		func_020a0cc4(Enum_ov017_021c1404_147456);
-		void* var5 = func_02012d88(&data_02114e20, Enum_ov017_021c1404_147456);
+		void* var5 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021c1404_147456);
 		if (!var5) {
 			func_020a0c0c();
 			arg0->unknown_1_ = 1;
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov017_021c1404(struct Struct_ov017_021c1404* arg0) {
 	if (var4 == 1) {
 		unsigned int var7 = var0->GetTickCount();
 		if (func_ov003_02154af4((void*)data_ov017_021d8478, var7) == 0) return;
-		Struct_0208cb08* var8 = func_02094a00();
+		FontLoader_0208cb08* var8 = func_02094a00();
 		func_02094b40(var8);
 		func_02094ab0(var8);
 		func_02094b34(var8, 0x6f, 0x1388, 1, 1);

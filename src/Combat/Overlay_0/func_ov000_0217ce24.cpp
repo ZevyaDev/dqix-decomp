@@ -22,21 +22,21 @@ struct Struct_ov000_021682ec_5 {
 struct Struct_ov000_02182a74 {char unknown_0_[0xf78];signed char unknown_f78_[4];unsigned char unknown_f7c_;};
 struct Struct_ov000_0217ce24_2 {char unknown_0_[0x56b];unsigned char unknown_56b_0_:4,unknown_56b_4_:4;};
 struct Struct_ov000_0217ce24 {char unknown_0_[Enum_ov000_0217ce24_336];Struct_ov000_0217ce24_2* unknown_150_;};
-struct Struct_0205c570;struct Struct_02108760;struct Struct_ov000_021735d0_3;struct Struct_ov000_021735d0_2;
+struct Struct_0205c570;struct SoundEffectManager_02108760;struct Struct_ov000_021735d0_3;struct Struct_ov000_021735d0_2;
 struct Struct_0205d81c;struct Struct_0205d6a0;struct Struct_02092aa4;
 extern "C" int func_0205d794(Struct_0205c570*);
-extern "C" void func_0205eaa0(Struct_02108760*,int,int);
-extern "C" void* func_02010828(GameState*);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*,int,int);
+extern "C" void* GetParty_02010828(GameState*);
 extern "C" GameObject* func_0200ff1c(GameState*,int);
 extern "C" Struct_ov000_021735d0_2* func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_ov000_0218155c(void*);
 extern "C" void func_ov000_0217a9d0(int,int,int,Struct_0205d81c*);
 extern "C" void func_02092aa4(Struct_02092aa4*, int);
 extern "C" void func_02092a74(SafeAllocator*,SafeAllocator*);
 extern "C" int func_ov000_0217c5f4(void*);
 extern "C" void func_0205d6a0(Struct_0205d6a0*,int);
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" {
 void GetZone3D_02012fe4();int func_ov000_0217c594(void*,int);
 void* func_ov000_02161318(void*,int);int func_ov000_0217f5dc(void*);
@@ -57,9 +57,9 @@ extern "C" ARM void func_ov000_0217ce24(Struct_ov000_021682ec_5* arg0,int arg1,i
     arg0->unknown_1d6a_=var0;
     if(func_ov000_0217c594(arg0,5)){
         arg0->unknown_956_=0;
-        func_0205eaa0(&data_02108760,1,0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760,1,0);
         GameState* var1=GameState::GetInstance();
-        Struct_ov000_02182a74* var2=(Struct_ov000_02182a74*)func_02010828(var1);
+        Struct_ov000_02182a74* var2=(Struct_ov000_02182a74*)GetParty_02010828(var1);
         signed char var3=0;bool var4=false;
         unsigned char var5=0;unsigned char var6=var2->unknown_f7c_;
         for(;var5<var6;var5++){
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov000_0217ce24(Struct_ov000_021682ec_5* arg0,int arg1,i
             func_ov000_02177038(arg0,0,arg0->unknown_1d60_[arg0->unknown_1d68_],arg1,arg2);
             arg0->unknown_1d6e_=0;arg0->unknown_1d6b_=0;arg0->unknown_1d68_++;arg0->unknown_1d60_[arg0->unknown_1d68_]=5;
             if(var2->unknown_f7c_==1||var4||var3==1){
-                int var11=(signed char)func_020100a8(var1);
+                int var11=(signed char)GetProtagonistObjectIndex_020100a8(var1);
                 arg0->unknown_68_=func_020dd3cc(var11);
                 arg0->unknown_68_=func_ov000_0217c514(var11,arg0->unknown_68_);
                 arg0->unknown_1d60_[arg0->unknown_1d68_]=6;

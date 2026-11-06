@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
 struct Struct_02052e2c;
 extern "C" short* func_02052e2c(struct Struct_02052e2c* arg0);
@@ -34,13 +34,13 @@ struct Struct_ov017_021c44d8_2 {
 };
 
 // USA: func_ov017_021c44d8
-extern "C" ARM void func_ov017_021c44d8(int arg0, struct Struct_ov017_021c44d8* arg1, GameState* arg2, int arg3, struct Struct_0202c1a4* arg4) {
+extern "C" ARM void func_ov017_021c44d8(int arg0, struct Struct_ov017_021c44d8* arg1, GameState* arg2, int arg3, struct LocalWireless_0202c1a4* arg4) {
     if (arg1->unknown_10_ >= 0) {
-        signed char var0 = func_0202c1a4(arg4);
+        signed char var0 = GetOwnProtagonistObjectIndex_0202c1a4(arg4);
         if (arg1->unknown_10_ != var0) return;
     }
     unsigned char var1 = arg1->unknown_4_;
-    signed char var2 = func_0202c1a4(arg4);
+    signed char var2 = GetOwnProtagonistObjectIndex_0202c1a4(arg4);
     if (var1 == var2) return;
 
     GameObject* var3 = func_0200ff1c(arg2, var1);

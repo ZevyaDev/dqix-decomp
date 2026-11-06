@@ -38,7 +38,7 @@ struct Struct_0205faf4_20 {
     struct Struct_0205faf4_20* unknown_c_;
 };
 
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void func_02010890(GameState*, int*, int*);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_020457e0(int);
@@ -51,10 +51,10 @@ extern "C" int func_0206e120(struct Struct_0205faf4_3* arg0, int arg1);
 extern "C" int func_0206e31c(int arg0, int arg1);
 struct Struct_0205faf4_4;
 extern "C" int func_0206e260(struct Struct_0205faf4_4* arg0, int arg1);
-extern "C" void* func_0202ae18(void* arg0);
-extern "C" int func_0202b7d8(int* arg0);
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" int func_0206eb98(unsigned char* arg0, int arg1);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void* func_02094d6c(void);
@@ -64,7 +64,7 @@ extern "C" void* func_0203df78(void* arg0, int arg1);
 struct Struct_0203e0a0;
 extern "C" void* func_02040538(struct Struct_0203e0a0* arg0);
 extern "C" int func_02010804(char* arg0);
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 struct Struct_02010834;
 extern "C" void func_02010834(struct Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
 
@@ -76,7 +76,7 @@ struct Struct_0205faf4_5 {
     unsigned int unknown_10_0_:10, unknown_11_2_:10, unknown_12_4_:10;
     unsigned int unknown_14_0_:10;
 };
-extern "C" void* func_02053c6c(unsigned char* arg0);
+extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" unsigned char func_020100b0(GameState*);
 struct Struct_0205faf4_6 { char unknown_0_[8]; unsigned int unknown_8_0_:18, unknown_a_2_:1; };
 struct Struct_0205faf4_7;
@@ -85,8 +85,8 @@ extern "C" struct Struct_0205faf4_8* func_02096134(struct Struct_0205faf4_7* arg
 extern "C" int func_0206474c(struct Struct_0203d028_2* arg0, int arg1, int arg2);
 extern "C" int func_0206483c(struct Struct_0203d028_2* arg0, char* arg1);
 extern "C" void* func_02064904(void* arg0, int arg1, unsigned int arg2);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
 extern "C" short func_0207c638(void* arg0, unsigned int arg1);
 struct Struct_0205faf4_9 { int unknown_0_[6]; };
@@ -107,7 +107,7 @@ struct Struct_0205faf4_13;
 extern "C" int func_0206e2dc(struct Struct_0205faf4_13* arg0, int arg1);
 extern "C" void* func_0200fd0c(GameState*);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 extern const char* data_020f2a38;
 extern const char* data_020f2a30;
 
@@ -153,24 +153,24 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     unsigned short var0 = *(unsigned short*)arg1;
     switch (var0) {
     case 0:
-        return func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2));
+        return IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2));
     case 1:
-        return !func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2));
+        return !IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2));
     case 2: {
         unsigned char var1 = *(OBJB + 0x332);
-        return func_0206dfb0((int)arg0, OBJB + var1 * 0x1c + 3, CU16(2));
+        return IsFlagSet_0206dfb0((int)arg0, OBJB + var1 * 0x1c + 3, CU16(2));
     }
     case 3: {
         unsigned char var2 = *(OBJB + 0x332);
-        return !func_0206dfb0((int)arg0, OBJB + var2 * 0x1c + 3, CU16(2));
+        return !IsFlagSet_0206dfb0((int)arg0, OBJB + var2 * 0x1c + 3, CU16(2));
     }
     case 4: {
         unsigned char var3 = *(OBJB + 0x332);
-        return func_0206dfb0((int)arg0, OBJB + var3 * 0x1c + 0x10, CU16(2));
+        return IsFlagSet_0206dfb0((int)arg0, OBJB + var3 * 0x1c + 0x10, CU16(2));
     }
     case 5: {
         unsigned char var4 = *(OBJB + 0x332);
-        return !func_0206dfb0((int)arg0, OBJB + var4 * 0x1c + 0x10, CU16(2));
+        return !IsFlagSet_0206dfb0((int)arg0, OBJB + var4 * 0x1c + 0x10, CU16(2));
     }
     case 6:
         return CU16(2) == EW(0);
@@ -211,9 +211,9 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return ((GameState*)((struct Struct_0205faf4*)var11))->IsMorningDayOrEvening();
     }
     case 18:
-        return func_02086aec((struct Struct_02053f7c*)func_02010828((GameState*)(void*)GameState::GetInstance()), CS16(2)) > 0;
+        return func_02086aec((struct Struct_02053f7c*)GetParty_02010828((GameState*)(void*)GameState::GetInstance()), CS16(2)) > 0;
     case 19:
-        return func_02086aec((struct Struct_02053f7c*)func_02010828((GameState*)(void*)GameState::GetInstance()), CS16(2)) <= 0;
+        return func_02086aec((struct Struct_02053f7c*)GetParty_02010828((GameState*)(void*)GameState::GetInstance()), CS16(2)) <= 0;
     case 20: {
         int var12 = 0;
         int var13 = func_0206e120((struct Struct_0205faf4_3*)arg0, CU16(2)) == 2;
@@ -237,27 +237,27 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return var14;
     }
     case 23: {
-        void* var16 = func_0202ae18((void*)GameState::GetInstance());
+        void* var16 = GetLocalWireless_0202ae18((void*)GameState::GetInstance());
         int var17 = 0;
         switch (CU16(2)) {
         case 1:
-            if (func_0202b7d8((int*)var16)) var17 = 1;
+            if (IsLocalWirelessOn_0202b7d8((int*)var16)) var17 = 1;
             break;
         case 0:
-            if (!func_0202b7d8((int*)var16)) var17 = 1;
+            if (!IsLocalWirelessOn_0202b7d8((int*)var16)) var17 = 1;
             break;
         case 2:
-            if (func_0202b7d8((int*)var16)) {
-                if (func_0202c1a4((struct Struct_0202c1a4*)var16) == 0) {
+            if (IsLocalWirelessOn_0202b7d8((int*)var16)) {
+                if (GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var16) == 0) {
                     var17 = 1;
                     break;
                 }
             }
-            if (func_0202b7d8((int*)var16) == 0) var17 = 1;
+            if (IsLocalWirelessOn_0202b7d8((int*)var16) == 0) var17 = 1;
             break;
         case 3:
-            if (func_0202b7d8((int*)var16)) {
-                if (func_0202c1a4((struct Struct_0202c1a4*)var16)) var17 = 1;
+            if (IsLocalWirelessOn_0202b7d8((int*)var16)) {
+                if (GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var16)) var17 = 1;
             }
             break;
         }
@@ -318,7 +318,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return 1;
     }
     case 34: {
-        void* var29 = func_02010828((GameState*)(void*)GameState::GetInstance());
+        void* var29 = GetParty_02010828((GameState*)(void*)GameState::GetInstance());
         unsigned short var30 = CU16(2);
         if (var30 != 0 && *((unsigned char*)var29 + 0xf7c) > 1) return 1;
         if (var30 == 0 && *((unsigned char*)var29 + 0xf7c) <= 1) return 1;
@@ -346,9 +346,9 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return 0;
     }
     case 39:
-        return func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x776);
+        return IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x776);
     case 40:
-        return !func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x776);
+        return !IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x776);
     case 41: {
         struct Struct_0205faf4_2 { int unknown_0_; int unknown_4_; int unknown_8_; };
         void* var33 = func_0203df78(func_0203cf4c(), EW(0));
@@ -375,7 +375,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         struct Struct_0203d028_2* var40 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
         int var41[4];
         int var42;
-        func_02010834((struct Struct_02010834*)var40, func_020100a8((GameState*)var40), var41, &var42);
+        func_02010834((struct Struct_02010834*)var40, GetProtagonistObjectIndex_020100a8((GameState*)var40), var41, &var42);
         int var43;
         for (var43 = 0; var43 < var42; var43++) {
             struct Struct_0203d028_3* var44 = (Struct_0203d028_3*)((GameState*)var40)->GetGameObjectByIndex(var41[var43]);
@@ -446,7 +446,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return 0;
     }
     case 48: {
-        void* var60 = func_02010828((GameState*)(void*)GameState::GetInstance());
+        void* var60 = GetParty_02010828((GameState*)(void*)GameState::GetInstance());
         if (!var60) return 0;
         return func_02086aec((struct Struct_02053f7c*)var60, CS16(2)) >= CU16(4) ? 1 : 0;
     }
@@ -454,7 +454,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         struct Struct_0203d028_2* var61 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
         int var62[4];
         int var63;
-        func_02010834((struct Struct_02010834*)var61, func_020100a8((GameState*)var61), var62, &var63);
+        func_02010834((struct Struct_02010834*)var61, GetProtagonistObjectIndex_020100a8((GameState*)var61), var62, &var63);
         int var64;
         for (var64 = 0; var64 < var63; var64++) {
             struct Struct_0203d028_3* var65 = (Struct_0203d028_3*)func_0200ff1c((GameState*)var61, var62[var64]);
@@ -463,7 +463,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
             if (*(int*)var66 & 1) continue;
             if (CU16(2) != inline_0205faf4_6(var65)) continue;
             if (inline_0205faf4_2(var66) <= 0) continue;
-            void* var67 = func_02053c6c((unsigned char*)var65);
+            void* var67 = GetPartyMemberData_02053c6c((unsigned char*)var65);
             if (!var67) continue;
             if (*(unsigned short*)((char*)var67 + CU16(2) * 2 + 0x16c) >= CU16(4)) return 1;
         }
@@ -472,7 +472,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     case 50:
     case 82: {
         struct Struct_0203d028_2* var68 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
-        unsigned char* var69 = (unsigned char*)func_02010828((GameState*)var68);
+        unsigned char* var69 = (unsigned char*)GetParty_02010828((GameState*)var68);
         int var70 = var69[0xf7c];
         int var71 = 0;
         if (CU16(0) == 0x52) var70 = 1;
@@ -630,14 +630,14 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return 1;
     }
     case 66: {
-        int var92 = func_02086aec((struct Struct_02053f7c*)func_02010828((GameState*)(void*)GameState::GetInstance()), CS16(4)) > CU16(6);
+        int var92 = func_02086aec((struct Struct_02053f7c*)GetParty_02010828((GameState*)(void*)GameState::GetInstance()), CS16(4)) > CU16(6);
         if (CU16(2) != 0) return var92;
         return var92 == 0;
     }
     case 67:
-        return func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x1136);
+        return IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x1136);
     case 68:
-        return !func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x1136);
+        return !IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x1136);
     case 69: {
         int var93 = func_0206483c(arg0, *(char**)((char*)arg1 + 4));
         if (CU16(2) != 0) return var93;
@@ -677,8 +677,8 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 77: {
         int var99 = 0;
-        if (func_0206dfb0((int)arg0, OBJB + 0x8c, 0x364)) {
-            if (func_0206dfb0((int)arg0, OBJB + 0x8c, 0x365)) var99 = 1;
+        if (IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, 0x364)) {
+            if (IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, 0x365)) var99 = 1;
         }
         return var99;
     }
@@ -701,7 +701,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         struct Struct_0203d028_2* var102 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
         int var103[4];
         int var104;
-        func_02010834((struct Struct_02010834*)var102, func_020100a8((GameState*)var102), var103, &var104);
+        func_02010834((struct Struct_02010834*)var102, GetProtagonistObjectIndex_020100a8((GameState*)var102), var103, &var104);
         int var105;
         for (var105 = 0; var105 < var104; var105++) {
             struct Struct_0203d028_3* var106 = (Struct_0203d028_3*)((GameState*)var102)->GetPartyMemberByIndex(var103[var105]);
@@ -715,12 +715,12 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return 0;
     }
     case 81: {
-        int var109 = func_0202b7d8((int*)func_0202ae18((void*)GameState::GetInstance()));
+        int var109 = IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18((void*)GameState::GetInstance()));
         if (CU16(2) != 0) return var109;
         return var109 == 0;
     }
     case 83: {
-        void* var110 = func_02012d88(&data_02114e20, 0xc000);
+        void* var110 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0xc000);
         if (var110 == NULL) return 0;
         SafeAllocator var111;
         struct Struct_0205faf4_9 var112;
@@ -728,7 +728,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         var111.ResetAllocatorPointer();
         var111.ResetAllocatorPointer();
         var111.CreateTypeA(var110, 0xc000);
-        unsigned char* var114 = (unsigned char*)func_02010828((GameState*)(void*)GameState::GetInstance());
+        unsigned char* var114 = (unsigned char*)GetParty_02010828((GameState*)(void*)GameState::GetInstance());
         void* var115 = func_0207c5f8(var114 + 0x1d4, CU16(2));
         short var116 = func_0207c638(var114 + 0x1d4, CU16(2));
         func_020de824(&var112);
@@ -757,7 +757,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         SignedAllocatorHeader* var121 = var111.GetSignedAllocator();
         if (var121 != NULL) {
             var111.Destroy();
-            func_02012da4(&data_02114e20, var121);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var121);
         }
         return var118;
     }
@@ -767,7 +767,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return var122 == CU16(2);
     }
     case 85: {
-        char* var123 = (char*)func_02010828((GameState*)(void*)GameState::GetInstance());
+        char* var123 = (char*)GetParty_02010828((GameState*)(void*)GameState::GetInstance());
         if (CU16(2) != 0) return *(unsigned int*)(var123 + 0xf6c) >= *(unsigned int*)((char*)arg1 + 4);
         return *(unsigned int*)(var123 + 0xf6c) < *(unsigned int*)((char*)arg1 + 4);
     }
@@ -791,9 +791,9 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 88:
         if (CU16(2) >= 0x49) return 0;
-        return func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x33e);
+        return IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x33e);
     case 89:
-        if (CU16(2) < 0x49) return !func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x33e);
+        if (CU16(2) < 0x49) return !IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x33e);
         return 1;
     case 90: {
         struct Struct_0205faf4_15 var128;
@@ -843,7 +843,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         struct Struct_0203d028_2* var136 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
         int var137[4];
         int var138;
-        func_02010834((struct Struct_02010834*)var136, func_020100a8((GameState*)var136), var137, &var138);
+        func_02010834((struct Struct_02010834*)var136, GetProtagonistObjectIndex_020100a8((GameState*)var136), var137, &var138);
         int var139;
         for (var139 = 0; var139 < var138; var139++) {
             struct Struct_0203d028_3* var140 = (Struct_0203d028_3*)func_0200ff1c((GameState*)var136, var137[var139]);
@@ -860,8 +860,8 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     case 502:
         return func_02098ee8((struct Struct_0205faf4_12*)((char*)GetZone3D_02012fe4() + REGION_VALUE(0x860, 0x840)));
     case 503:
-        if (CU16(2) != 0) return func_0206dfb0((int)arg0, OBJB + 0x8c, 0x798);
-        return !func_0206dfb0((int)arg0, OBJB + 0x8c, 0x798);
+        if (CU16(2) != 0) return IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, 0x798);
+        return !IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, 0x798);
     case 504: {
         char* var141 = (char*)(void*)GameState::GetInstance();
         struct Struct_0205faf4_15 var142;

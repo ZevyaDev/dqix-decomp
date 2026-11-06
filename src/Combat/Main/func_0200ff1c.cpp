@@ -14,7 +14,7 @@ extern "C" ARM GameObject* func_0200ff1c(GameState* arg0, int arg1) {
     if (var0 == 0) {
         return 0;
     }
-    if ((var0->obj3D_.unknown_0_ & 0x100) == 0) {
+    if ((var0->obj3D_.classFlags_0_ & 0x100) == 0) {
         var0 = 0;
     }
     return var0;

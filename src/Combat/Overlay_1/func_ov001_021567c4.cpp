@@ -11,7 +11,7 @@ extern "C" void func_ov001_02154da0(void);
 extern "C" void func_ov001_02156b20(void* arg0);
 extern "C" void func_ov017_021bb27c(void* arg0);
 
-extern char data_02109bf4;
+extern char gMusicManager_02109bf4;
 
 struct Struct_ov001_021567c4 {
 	unsigned char unknown_0_;
@@ -39,7 +39,7 @@ extern "C" ARM unsigned short func_ov001_021567c4(Struct_ov001_021567c4* arg0) {
 	SetBrightness(var1, 0, 0x1e);
 	func_020a2794(var2);
 	func_020a2718(var2);
-	func_0209c2e0(&data_02109bf4, arg0->unknown_94_, 0);
+	func_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
 	func_ov001_02156b20(arg0);
 	func_ov017_021bb27c(arg0);
 	arg0->unknown_1_ = 1;

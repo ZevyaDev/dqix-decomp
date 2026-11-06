@@ -4,7 +4,7 @@
 
 extern "C" void func_0208b9a0(void*, int);
 
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 struct Struct_02038598_4;
 extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
 
@@ -32,6 +32,6 @@ extern "C" ARM void func_0208ba54(struct Struct_0208ba54* arg0) {
         }
     }
 
-    func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 1);
+    func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 1);
     func_0208b9a0(arg0, 0);
 }

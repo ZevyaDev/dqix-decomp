@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void func_ov023_021dc520(void* arg0);
 extern "C" void func_ov023_021dd404(void* arg0);
 extern "C" int func_ov023_021ddbb8(void* arg0, int arg1, int arg2);
@@ -25,7 +25,7 @@ struct Struct_ov023_021dda04 {
 
 // USA: func_ov023_021dda04
 extern "C" ARM void func_ov023_021dda04(struct Struct_ov023_021dda04* arg0) {
-    func_0200fb8c((int*)GameState::GetInstance());
+    GetResources_0200fb8c((int*)GameState::GetInstance());
 
     if (arg0->unknown_777_ == 0) {
         func_ov023_021dc520(arg0);

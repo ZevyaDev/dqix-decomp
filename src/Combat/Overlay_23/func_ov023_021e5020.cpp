@@ -4,13 +4,13 @@
 #include "Graphics/Model3D.h"
 #include "World/Object3D.h"
 
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 struct Struct_ov009_02188454;
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 
-extern "C" void func_0207df50(struct Struct_0203d028* arg0);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_ov023_021e60c4(void* arg0, struct Struct_ov009_02188454* arg1);
 extern "C" void func_ov023_021e5fdc(void* arg0, short* arg1, short* arg2);
 extern "C" void __clear(void* arg0, unsigned long arg1);
@@ -43,7 +43,7 @@ struct Struct_ov023_021e5020
     unsigned int unknown_9_1_ : 3;
 };
 
-extern "C" Struct_ov023_021e5020* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+extern "C" Struct_ov023_021e5020* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
 
 struct Struct_02000c9c_71
 {
@@ -64,7 +64,7 @@ struct Struct_ov023_021e5020_3
     SafeAllocator unknown_780_;
     Struct_02000c9c_71 unknown_794_[10];
     short unknown_bf4_[12];
-    struct Struct_0201099c_10* unknown_c0c_;
+    struct ItemTable_0201099c_10* unknown_c0c_;
     unsigned char unknown_c10_;
     unsigned char unknown_c11_;
     unsigned char unknown_c12_;
@@ -105,10 +105,10 @@ extern "C" ARM void func_ov023_021e5020(Struct_ov023_021e5020_3* arg0)
                     var2->GetLoadedFileByID(arg0->unknown_bf4_[var3], &var0, &var1);
                     if (var1 != 0)
                     {
-                        func_0207df50((Struct_0203d028*)&arg0->unknown_794_[var3]);
-                        func_0207df90((char*)&arg0->unknown_794_[var3]);
+                        ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)&arg0->unknown_794_[var3]);
+                        RestoreTextureVRAMState_0207df90((char*)&arg0->unknown_794_[var3]);
                         arg0->unknown_0_[var3].SetModelFromFileCopy(&arg0->unknown_6b8_[var3], var0, var1, Model3D::TextureStagingMode_Normal);
-                        func_0207dfac((char*)&arg0->unknown_794_[var3]);
+                        SaveTextureVRAMState_0207dfac((char*)&arg0->unknown_794_[var3]);
                         if (var3 == 4 && arg0->unknown_0_[3].pModel_ != NULL)
                             arg0->unknown_0_[3].pModel_->ApplyTexturesFromModel(arg0->unknown_0_[var3].pModel_);
                     }

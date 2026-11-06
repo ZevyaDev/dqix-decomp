@@ -66,7 +66,7 @@ extern "C" int func_020c39a0(short* arg0, int arg1);
 extern "C" void MapVRAMBanksToMainBG(int v);
 extern "C" void func_020c391c(int arg0, int arg1, int arg2);
 extern "C" void func_020a0cc4(unsigned int);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_02028d68(int arg0);
 extern "C" void func_02028ddc(void* arg0);
 extern "C" void func_02028dec(int);
@@ -115,7 +115,7 @@ extern "C" void func_0209c174(Struct_02000c9c_16* arg0);
 extern "C" void func_0209c2b8(void* arg0);
 extern "C" void func_0205ea20(void* arg0, int arg1);
 extern "C" void func_0209c290(void* arg0);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_020a0c0c();
 #if defined(jpn)
 extern "C" void func_ov016_0218d2f4(char* arg0, char* arg1, Struct_ov016_0218b5c4* arg2, Struct_ov016_0218b5c4_2* arg3, int arg4);
@@ -127,9 +127,9 @@ extern "C" void func_ov016_0218caa8(char* arg0, Struct_ov016_0218b5c4* arg1, Str
 #define SCRIPT_ARG_0218b5c4 , &var4
 #endif
 
-extern AllocatorUnion data_02114e20;
-extern char data_02109bf4;
-extern char data_02108760;
+extern AllocatorUnion gMainHeap_02114e20;
+extern char gMusicManager_02109bf4;
+extern char gSoundEffectManager_02108760;
 extern const char data_ov016_0219cfc0[];
 extern const char data_ov016_0219cfc6[];
 extern const char data_ov016_0219cfcc[];
@@ -168,7 +168,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
     ColorEffect_ConfigureAlphaBlend(0x4000050, BLEND_TARGET_BG0, BLEND_TARGET_BACKDROP, 0x1f, 0x1f);
     ColorEffect_ConfigureAlphaBlend(0x4000050, BLEND_TARGET_BG1, BLEND_TARGET_BG0, 0x1f, 0);
     func_020a0cc4(0x100000);
-    arg0->unknown_0_.CreateTypeB(func_02012d88(&data_02114e20, 0x100000), 0x100000, 4);
+    arg0->unknown_0_.CreateTypeB(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x100000), 0x100000, 4);
     void* var10 = arg0->unknown_0_.Allocate(0x6000);
     func_02028d68(3);
     func_02028ddc(var10);
@@ -281,14 +281,14 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
         if (var19 != 0) {
 #if !defined(jpn)
             if (var19->unknown_11_ != 0) {
-                func_0209c678((Struct_02109bf4_4*)&data_02109bf4, 0);
-                func_0203ad88(&data_02109bf4, 0, 0);
+                func_0209c678((Struct_02109bf4_4*)&gMusicManager_02109bf4, 0);
+                func_0203ad88(&gMusicManager_02109bf4, 0, 0);
                 func_020bbd9c();
-                func_0205e8d4(&data_02108760);
-                func_0203a950(&data_02109bf4);
-                func_0205e88c((Struct_02000c9c_17*)&data_02108760);
-                func_0209c174((Struct_02000c9c_16*)&data_02109bf4);
-                func_0209c2b8(&data_02109bf4);
+                func_0205e8d4(&gSoundEffectManager_02108760);
+                func_0203a950(&gMusicManager_02109bf4);
+                func_0205e88c((Struct_02000c9c_17*)&gSoundEffectManager_02108760);
+                func_0209c174((Struct_02000c9c_16*)&gMusicManager_02109bf4);
+                func_0209c2b8(&gMusicManager_02109bf4);
             }
 #endif
             if (var19->unknown_8_ != 0 && var19->unknown_c_ != 0) {
@@ -307,12 +307,12 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
             }
 #if !defined(jpn)
             if (var19->unknown_11_ != 0) {
-                func_0205e8d4(&data_02108760);
-                func_0203a950(&data_02109bf4);
-                func_0205e88c((Struct_02000c9c_17*)&data_02108760);
-                func_0209c174((Struct_02000c9c_16*)&data_02109bf4);
-                func_0205ea20(&data_02108760, 100);
-                func_0209c290(&data_02109bf4);
+                func_0205e8d4(&gSoundEffectManager_02108760);
+                func_0203a950(&gMusicManager_02109bf4);
+                func_0205e88c((Struct_02000c9c_17*)&gSoundEffectManager_02108760);
+                func_0209c174((Struct_02000c9c_16*)&gMusicManager_02109bf4);
+                func_0205ea20(&gSoundEffectManager_02108760, 100);
+                func_0209c290(&gMusicManager_02109bf4);
             }
 #endif
         }
@@ -322,7 +322,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
     func_020c39a0((short*)0x400106c, -16);
     SignedAllocatorHeader* var20 = arg0->unknown_0_.GetSignedAllocator();
     arg0->unknown_0_.Destroy();
-    func_02012da4(&data_02114e20, var20);
+    FreeMemory_02012da4(&gMainHeap_02114e20, var20);
     func_020a0c0c();
     func_02028ddc(0);
 }

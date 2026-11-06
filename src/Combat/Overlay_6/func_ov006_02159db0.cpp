@@ -35,11 +35,11 @@ struct Struct_020e280c {
     Struct_ov006_02159db0_2* unknown_c_;
     Struct_ov006_02159db0_3* unknown_10_;
 };
-struct Struct_02108760;
-extern Struct_02108760 data_02108760;
+struct SoundEffectManager_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" int func_020813ec(void*, int);
 extern "C" void func_0208203c(Struct_02081f20_2*);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_02080c04(Struct_0207fdcc_2*, int);
 extern "C" void func_020e280c(Struct_020e280c*, void*);
 extern "C" void func_020e2d24(int*, int, int);
@@ -71,7 +71,7 @@ struct Struct_ov006_02159db0 {
 };
 
 extern "C" ARM void func_ov006_02159db0(Struct_ov006_02159db0* arg0) {
-    func_0205eaa0(&data_02108760, 5, 0);
+    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 5, 0);
     arg0->unknown_36e_ = 7;
     arg0->unknown_35e_ = arg0->unknown_36c_ = 0x22;
     arg0->unknown1_14_->unknown_36_ = arg0->unknown_36c_;

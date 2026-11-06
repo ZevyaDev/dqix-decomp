@@ -42,7 +42,7 @@ struct Struct_ov003_021592d8_5 {
 
 struct Struct_0201099c_3;
 struct Struct_02046574_2;
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 
 struct Struct_ov003_021592d8_6 {
     char unknown_0_[0x64];
@@ -50,19 +50,19 @@ struct Struct_ov003_021592d8_6 {
 };
 
 extern "C" struct Struct_ov003_021592d8_3* GetMessageWindow_020421a0();
-extern "C" struct Struct_ov003_021592d8* func_02053c6c(unsigned char* arg0);
-extern "C" void func_02046380(void* arg0);
+extern "C" struct Struct_ov003_021592d8* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
 extern "C" void* func_0208247c(void* arg0);
 extern "C" int func_02082490(void* arg0, void* arg1, unsigned int arg2, int arg3, int arg4);
-extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 extern "C" void func_02046608(void* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
 
 extern char data_ov003_0217fe18[];
-extern unsigned char data_0211e33c[0x30000];
+extern unsigned char gFileScratchSpace_0211e33c[0x30000];
 
 // USA: func_ov003_021592d8
 extern "C" ARM void func_ov003_021592d8(struct Struct_ov003_021592d8_6* arg0, struct Struct_ov003_021592d8_2* arg1,
@@ -71,9 +71,9 @@ extern "C" ARM void func_ov003_021592d8(struct Struct_ov003_021592d8_6* arg0, st
         return;
     }
     struct Struct_ov003_021592d8_3* var0 = GetMessageWindow_020421a0();
-    struct Struct_ov003_021592d8* var1 = func_02053c6c((unsigned char*)arg1);
+    struct Struct_ov003_021592d8* var1 = GetPartyMemberData_02053c6c((unsigned char*)arg1);
     int var2 = var1->unknown_950_;
-    func_02046380(var0);
+    ClearMessageParams_02046380(var0);
 #if defined(jpn)
     func_02046574((struct Struct_02046574_2*)var0, 0, arg1->unknown_134_);
 #else
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov003_021592d8(struct Struct_ov003_021592d8_6* arg0, st
     int var4;
     if (var1->unknown_16c_[var2] == 99) {
         func_02046574((struct Struct_02046574_2*)var0, 1,
-                               (char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_,
+                               (char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_,
                                                             (short)(var1->unknown_950_ + 0x1e)));
         var4 = 0x3fe;
     } else {
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov003_021592d8(struct Struct_ov003_021592d8_6* arg0, st
         unsigned int var6;
         sprintf(var5, data_ov003_0217fe18, var1->unknown_950_);
         BackgroundLoader::AddLockGlobal();
-        void* var7 = LoadFileIntoMemory(var5, data_0211e33c, &var6);
+        void* var7 = LoadFileIntoMemory(var5, gFileScratchSpace_0211e33c, &var6);
         struct Struct_ov003_021592d8_4 var8;
         func_0208247c(&var8);
         if (var7 != NULL) {
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov003_021592d8(struct Struct_ov003_021592d8_6* arg0, st
             var10 = var9->unknown_0_ - var1->unknown_138_[var2];
         }
         if (var10 > 0) {
-            func_020465c0((struct Struct_020465c0*)var0, 0, var10);
+            SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var0, 0, var10);
             func_020465f0((unsigned char*)var0, 0, 0);
             var4 = 0x3fd;
         } else {
@@ -113,9 +113,9 @@ extern "C" ARM void func_ov003_021592d8(struct Struct_ov003_021592d8_6* arg0, st
         BackgroundLoader::RemoveLockGlobal();
     }
 #if defined(jpn)
-    func_020474a8(var0, 0xc, (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, var4), arg2);
+    func_020474a8(var0, 0xc, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, var4), arg2);
 #else
-    func_02046608(var0, 0xc, (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, var4), arg2,
+    func_02046608(var0, 0xc, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, var4), arg2,
                   0xe3, 0, 1);
 #endif
 }

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 extern "C" int func_ov004_0215513c(void*, short*, short*, short*);
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 #if defined(jpn)
 extern "C" int func_ov023_021f6f10(void* arg0);
 #else
@@ -38,8 +38,8 @@ extern "C" ARM int func_ov004_021555b0(void* arg0) {
     short var0, var1, var2;
     func_ov004_0215513c(arg0, &var0, &var1, &var2);
 
-    void* var3 = func_ov011_021849c8(arg0);
-    void* var4 = func_ov023_021f6880(var3, 0x39);
+    void* var3 = GetMenuObjectList_ov011_021849c8(arg0);
+    void* var4 = FindMenuObjectById_ov023_021f6880(var3, 0x39);
     if (!var4) return 0;
 #if defined(jpn)
     if (func_ov023_021f6f10(var4) != 0x12) return 0;

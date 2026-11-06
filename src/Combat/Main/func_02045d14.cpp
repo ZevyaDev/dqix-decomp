@@ -30,8 +30,8 @@ struct Struct_02045c00_2 {
 typedef Struct_02045c00_2 Struct_02045c00_2;
 extern "C" void __clear(void*, unsigned int);
 extern "C" void func_0204483c(Struct_02045c00_2*, const char*, char*);
-extern "C" void func_0207df90(char*);
-extern "C" void func_0207dfac(char*);
+extern "C" void RestoreTextureVRAMState_0207df90(char*);
+extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" int func_02044420(void*, void*);
 extern "C" Struct_02045d14_3* func_0204254c(int, int);
 extern "C" int func_020424e4(int, int);
@@ -53,7 +53,7 @@ extern "C" ARM unsigned short func_02045d14(Struct_02045c00_2* arg0, const char*
     var0 = 0;
     var1 = 0;
     var2 = 0;
-    if (arg0->unknown_1e28_) func_0207df90(arg0->unknown_1e28_);
+    if (arg0->unknown_1e28_) RestoreTextureVRAMState_0207df90(arg0->unknown_1e28_);
     while (1) {
         if (var2 > 0 && arg2[var2 - 1] == 0xff01) break;
         memcpy(&var6.unknown_0_, var6.unknown_4_ + var1, 2);
@@ -93,6 +93,6 @@ extern "C" ARM unsigned short func_02045d14(Struct_02045c00_2* arg0, const char*
             ++var0;
         }
     }
-    if (arg0->unknown_1e28_) func_0207dfac(arg0->unknown_1e28_);
+    if (arg0->unknown_1e28_) SaveTextureVRAMState_0207dfac(arg0->unknown_1e28_);
     return var0;
 }

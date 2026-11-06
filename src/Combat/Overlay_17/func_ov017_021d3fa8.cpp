@@ -25,7 +25,7 @@ extern const char data_ov017_021d82b1[], data_ov017_021d82bb[], data_ov017_021d8
 extern "C" void func_020dc548(signed char, Struct_ov017_021d6cfc*, signed char*);
 extern "C" void func_02039d48(unsigned char*);
 extern "C" void func_02039d24(unsigned char*);
-extern "C" int func_0202c540(void*);
+extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
 extern "C" void func_02033b68(Struct_02033b68*, int);
 extern "C" void func_02033b88(Struct_02010604*, int);
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov017_021d3fa8(int arg0, Struct_ov017_021d3fa8* arg1, G
             }
             func_02039d24((unsigned char*)var10);
         }
-        if (func_0202c540(arg4)) func_ov017_021907dc((int)arg3, 0, 1, 1, 1);
+        if (IsLocalWirelessGuest_0202c540(arg4)) func_ov017_021907dc((int)arg3, 0, 1, 1, 1);
     }
     if (var1 == 0) return;
     unsigned int var12 = var1->obj3D_.GetField06();
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov017_021d3fa8(int arg0, Struct_ov017_021d3fa8* arg1, G
                 }
                 func_02039d24((unsigned char*)var16);
             }
-            if (func_0202c540(arg4)) func_ov017_021907dc((int)arg3, 0, 1, 1, 1);
+            if (IsLocalWirelessGuest_0202c540(arg4)) func_ov017_021907dc((int)arg3, 0, 1, 1, 1);
         }
     } else if (var5 == 0) {
         var1->obj3D_.DisableFlag(0x1000);

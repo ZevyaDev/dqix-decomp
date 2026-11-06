@@ -13,7 +13,7 @@ struct Struct_ov015_0218fff8;
 struct Struct_ov015_02190020;
 struct Struct_ov015_0218ff7c;
 struct Struct_ov015_0219005c;
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_020deda4;
 struct Struct_ov015_021900dc;
 
@@ -69,7 +69,7 @@ extern "C" void func_ov015_0218ffd0(Struct_ov015_0218ffd0* arg0, int arg1);
 extern "C" void func_ov015_0218fff8(Struct_ov015_0218fff8* arg0, int arg1);
 extern "C" void func_ov015_02190020(Struct_ov015_02190020* arg0, unsigned char arg1);
 extern "C" void func_ov015_0218ff7c(Struct_ov015_0218ff7c* arg0, int arg1, int arg2);
-extern "C" Struct_ov005_021556e4* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
+extern "C" Struct_ov005_021556e4* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
 extern "C" Struct_ov005_021556e4* func_020deda4(int arg0, int arg1, Struct_020deda4* arg2);
 extern "C" void func_ov015_0219005c(Struct_ov015_0219005c* arg0, short arg1, short arg2);
 
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov015_02192158(Struct_ov015_02190acc* arg0, int arg1)
         {
             func_ov015_0218ff7c((Struct_ov015_0218ff7c*)var4->unknown_0_, (unsigned char)var2, var3->unknown_8_);
             Struct_ov005_021556e4* var5 = func_020deda4((int)&arg0->unknown_4c_, 0x61,
-                (Struct_020deda4*)func_020dedd0((Struct_0201099c_10*)&arg0->unknown_4c_, (short)var4->unknown_0_->unknown_20_[0]));
+                (Struct_020deda4*)func_020dedd0((ItemTable_0201099c_10*)&arg0->unknown_4c_, (short)var4->unknown_0_->unknown_20_[0]));
             if (var5 != NULL)
                 func_ov015_0218ff7c((Struct_ov015_0218ff7c*)var4->unknown_0_, 5, var5->unknown_18_);
             else

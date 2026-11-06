@@ -3,10 +3,10 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_0201079c(char* arg0);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 
-struct Struct_02072a68_2 { struct Struct_02072a68* unknown_0_; short unknown_4_; };
-extern "C" void* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+struct StringList_02072a68_2 { struct StringListEntry_02072a68* unknown_0_; short capacity_4_; };
+extern "C" void* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 
 struct Struct_ov023_021e66ac_3 {
     unsigned int unknown_0_0_ : 29;
@@ -30,11 +30,11 @@ struct Struct_ov023_021e66ac_4 {
 struct Struct_ov023_021e66ac_5 {
 #if defined(jpn)
     unsigned char unknown_0_[0x1314];
-    Struct_02072a68_2 unknown_133c_;
+    StringList_02072a68_2 unknown_133c_;
     unsigned char unknown_131c_[0x1458 - 0x131c];
 #else
     unsigned char unknown1_0_[0x133c];
-    Struct_02072a68_2 unknown_133c_;
+    StringList_02072a68_2 unknown_133c_;
     unsigned char unknown_1344_[0x1400 - 0x1344];
 #endif
     char unknown_1400_[0x40];
@@ -69,10 +69,10 @@ extern "C" ARM void func_ov023_021e66ac(void* arg0) {
 
     if (!var2->unknown_3_5_) {
         memset(var0->unknown_1400_, 0, sizeof(var0->unknown_1400_));
-        void* var3 = func_02072a68(&var0->unknown_133c_, 0x6d);
+        void* var3 = FindStringInList_02072a68(&var0->unknown_133c_, 0x6d);
         memcpy(var0->unknown_1400_, var3, 7);
     } else if (var2->unknown_3_6_) {
-        func_0202ae18();
+        GetLocalWireless_0202ae18();
         Struct_ov023_021e66ac_2* var4 = (Struct_ov023_021e66ac_2*)var1->GetProtagonist();
         int var5 = var4->unknown_150_->unknown_950_;
         if (func_0201079c((char*)var1) == 1) {
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov023_021e66ac(void* arg0) {
         }
 #endif
         short var7 = (short)(var6 + var5);
-        char* var8 = (char*)func_02072a68(&var0->unknown_133c_, var7);
+        char* var8 = (char*)FindStringInList_02072a68(&var0->unknown_133c_, var7);
         memset(var0->unknown_1400_, 0, sizeof(var0->unknown_1400_));
         unsigned int var9 = strlen(var8);
         memcpy(var0->unknown_1400_, var8, var9);
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov023_021e66ac(void* arg0) {
     }
 
     memset(var0->unknown_1440_, 0, sizeof(var0->unknown_1440_));
-    char* var10 = (char*)func_02072a68(&var0->unknown_133c_, 0x6d);
+    char* var10 = (char*)FindStringInList_02072a68(&var0->unknown_133c_, 0x6d);
     unsigned int var11 = strlen(var10);
     memcpy(var0->unknown_1440_, var10, var11);
 }

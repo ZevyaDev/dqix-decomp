@@ -14,7 +14,7 @@ struct Struct_ov006_0215a00c_2 { char unknown_0_[4]; short unknown_4_; };
 #endif
 struct Struct_0207d538 { int unknown_0_[3]; };
 
-struct Struct_020465c0 {
+struct MessageWindow_020465c0 {
 #if defined(jpn)
     char unknown_0_[0x28];
 #else
@@ -78,13 +78,13 @@ struct Struct_ov006_0215a00c_5 {
 
 extern "C" void func_02080c20(struct Struct_0207fdcc_2*, int);
 extern "C" void func_020813ec(void*, int);
-extern "C" int func_020e0434(struct Struct_0201099c_3*, int);
-extern "C" struct Struct_020465c0* GetMessageWindow_020421a0();
-extern "C" void func_02046380(struct Struct_020465c0*);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
+extern "C" struct MessageWindow_020465c0* GetMessageWindow_020421a0();
+extern "C" void ClearMessageParams_02046380(struct MessageWindow_020465c0*);
 extern "C" void* func_020e5294(void*, int);
-extern "C" void func_020465c0(struct Struct_020465c0*, int, int);
+extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0*, int, int);
 extern "C" void func_020e4bf4(void*, int);
-extern "C" void func_02046608(struct Struct_020465c0*, int, const char*, char*, int, int, int);
+extern "C" void func_02046608(struct MessageWindow_020465c0*, int, const char*, char*, int, int, int);
 extern "C" char* func_0204254c(int, int);
 extern "C" void __clear(void*, int);
 extern "C" void func_02080f8c(Struct_02080f8c*, int, int);
@@ -92,8 +92,8 @@ extern "C" void func_ov006_02159fb0(struct Struct_ov006_02159fb0*);
 extern char data_ov006_0215ffd2[];
 extern char data_ov006_0215ffea[];
 #if defined(jpn)
-extern "C" void func_02046574(struct Struct_020465c0*, int, char*);
-extern "C" void func_020474a8(struct Struct_020465c0*, int, const char*, char*);
+extern "C" void func_02046574(struct MessageWindow_020465c0*, int, char*);
+extern "C" void func_020474a8(struct MessageWindow_020465c0*, int, const char*, char*);
 extern char data_ov006_021615c8[];
 extern char data_ov006_021615cb[];
 #endif
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov006_0215a00c(struct Struct_ov006_0215a00c_5* arg0) {
         }
         arg0->unknown_300_.unknown_94_ &= ~0x20;
         arg0->unknown_300_.unknown_80_ = 0;
-        if (func_020e0434(&arg0->unknown_158_, arg0->unknown_300_.unknown_7e_) == 0) {
+        if (FindStringInTable_020e0434(&arg0->unknown_158_, arg0->unknown_300_.unknown_7e_) == 0) {
             arg0->unknown_300_.unknown_7e_ = -1;
         }
         arg0->unknown_3b0_ = -1;
@@ -120,19 +120,19 @@ extern "C" ARM void func_ov006_0215a00c(struct Struct_ov006_0215a00c_5* arg0) {
         return;
     }
     if (var3 == 1) {
-        struct Struct_020465c0* var4 = GetMessageWindow_020421a0();
+        struct MessageWindow_020465c0* var4 = GetMessageWindow_020421a0();
         char* var5 = var4->unknown_5c_;
 #if defined(jpn)
         memset(var5, 0, 0x800);
 #else
         memset(var5, 0, 0x960);
 #endif
-        func_02046380(var4);
+        ClearMessageParams_02046380(var4);
 
         unsigned short var6 = 0;
         if (arg0->unknown_34_ != 0) {
 #if defined(jpn)
-            func_02046574(var4, 0, (char*)func_020e0434(&arg0->unknown_170_, arg0->unknown_1ec_));
+            func_02046574(var4, 0, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_1ec_));
 #else
             void* var7 = func_020e5294(&arg0->unknown_170_, arg0->unknown_1ec_);
             if (var7 != 0) {
@@ -141,8 +141,8 @@ extern "C" ARM void func_ov006_0215a00c(struct Struct_ov006_0215a00c_5* arg0) {
 #endif
             var6 = (unsigned short)((arg0->unknown_300_.unknown_82_ / 10) * 10);
         }
-        func_020465c0(var4, 0, arg0->unknown_300_.unknown_87_);
-        func_020465c0(var4, 1, var6);
+        SetMessageNumber_020465c0(var4, 0, arg0->unknown_300_.unknown_87_);
+        SetMessageNumber_020465c0(var4, 1, var6);
 
         struct Struct_ov006_0215a00c_2* var8 = (struct Struct_ov006_0215a00c_2*)((GameState*)((struct Struct_ov006_0215a00c*)GameState::GetInstance()))->GetUnknownGameObject();
         if (var8 != 0) {
@@ -155,9 +155,9 @@ extern "C" ARM void func_ov006_0215a00c(struct Struct_ov006_0215a00c_5* arg0) {
         }
 
 #if defined(jpn)
-        func_02046574(var4, 2, (char*)func_020e0434(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[0]));
-        func_02046574(var4, 3, (char*)func_020e0434(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[1]));
-        func_02046574(var4, 4, (char*)func_020e0434(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[2]));
+        func_02046574(var4, 2, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[0]));
+        func_02046574(var4, 3, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[1]));
+        func_02046574(var4, 4, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[2]));
 #else
         short* var9 = (short*)data_ov006_0215ffd2;
         for (var2 = 0; ; var2++) {
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov006_0215a00c(struct Struct_ov006_0215a00c_5* arg0) {
         }
 #endif
 
-        const char* var12 = (const char*)func_020e0434(&arg0->unknown_158_, arg0->unknown_300_.unknown_7e_);
+        const char* var12 = (const char*)FindStringInTable_020e0434(&arg0->unknown_158_, arg0->unknown_300_.unknown_7e_);
 #if defined(jpn)
         func_020474a8(var4, 0xc, var12, var5);
 #else

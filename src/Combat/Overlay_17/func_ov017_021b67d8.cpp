@@ -9,13 +9,13 @@ enum {Enum_ov017_021b67d8_1788=0x6fc, Enum_ov017_021b67d8_1844=0x734, Enum_ov017
 #include "Resource/GameResources.h"
 
 extern "C" void func_020a1e54(int arg0);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_020a0c0c(void);
 struct Struct_02038598_5;
 extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 
-extern int data_02114e20;
+extern int gMainHeap_02114e20;
 
 struct Struct_ov017_021b67d8 {
     unsigned char unknown_0_[0x8];
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov017_021b67d8(struct Struct_ov017_021b67d8* arg0) {
     void* var0 = arg0->unknown_8_.GetSignedAllocator();
     if (var0 != NULL) {
         arg0->unknown_8_.Destroy();
-        func_02012da4((AllocatorUnion*)&data_02114e20, var0);
+        FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
     }
 
     func_020a0c0c();
@@ -63,6 +63,6 @@ extern "C" ARM void func_ov017_021b67d8(struct Struct_ov017_021b67d8* arg0) {
         return;
     }
 
-    char* var5 = (char*)func_0202ae18();
+    char* var5 = (char*)GetLocalWireless_0202ae18();
     var5[0x1000 + 0x11] = 1;
 }

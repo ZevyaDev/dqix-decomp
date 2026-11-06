@@ -5,20 +5,20 @@
 struct Struct_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0205d81c;
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
                                                                         unsigned char arg2);
 extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_0205deb4(struct Struct_0205d81c *arg0, int arg1, int arg2);
-extern "C" unsigned char *func_02053c6c(unsigned char *arg0);
+extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 extern "C" void func_ov002_0215ccc4(char *arg0);
 extern "C" int func_ov002_0216364c(void *arg0);
-extern "C" char *func_020dedd0(struct Struct_0201099c_10 *arg0, int arg1);
+extern "C" char *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
 extern "C" void func_ov002_021575d4(char *arg0);
 extern "C" int func_ov002_02157500(char *arg0, int, int);
 extern "C" int func_ov002_0215b7d0(char* arg0);
@@ -27,7 +27,7 @@ extern "C" void func_ov002_0215b814(char *arg0);
 extern "C" int func_ov002_0215b720(char *arg0, int arg1);
 extern "C" void func_ov002_02157634(char *arg0);
 extern "C" void func_ov002_02156e90(char *arg0);
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov002_021631e8(char *arg0) {
         if (var1 == NULL) {
             *(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2)) = 0;
         } else {
-            *(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2)) = *(short *) (func_02053c6c((unsigned char *) var1) + RG(0x900 + 0x5c, 0x8c4));
+            *(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2)) = *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var1) + RG(0x900 + 0x5c, 0x8c4));
         }
         func_0205de24((struct Struct_0205de24_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0, 2);
         func_ov002_02161cf0(arg0);
@@ -69,11 +69,11 @@ extern "C" ARM void func_ov002_021631e8(char *arg0) {
             GameObject *var5 = GameState::GetInstance()->GetProtagonist();
             if (var5 != NULL) {
                 short var6                                                        = *(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2));
-                *(short *) (func_02053c6c((unsigned char *) var5) + RG(0x900 + 0x5c, 0x8c4)) = var6;
+                *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var5) + RG(0x900 + 0x5c, 0x8c4)) = var6;
             }
             switch (*(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2))) {
                 case 0:
-                    func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
                     int var7 = 0;
                     int var8 = *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8));
                     if (var8 >= 0 && var8 <= 3) var7 = 1;
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov002_021631e8(char *arg0) {
                     }
                     {
                         char *var9 = func_020dedd0(
-                            (struct Struct_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)), *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1aea)));
+                            (struct ItemTable_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)), *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1aea)));
                         if (var9 != NULL && func_ov002_0215b720(arg0, *(short *) (var9 + 0x14))) {
                             *(int *) (arg0 + RG(0x1000 + 0xbc0, 0x1a88)) = 2;
                             return;
@@ -105,12 +105,12 @@ extern "C" ARM void func_ov002_021631e8(char *arg0) {
                     func_ov002_02157634(arg0);
                     return;
                 case 1:
-                    func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
                     *(int *) (arg0 + RG(0x1000 + 0xbb8, 0x1a80)) = RG(9, 0xa);
                     *(int *) (arg0 + RG(0x1000 + 0xbc0, 0x1a88)) = 0;
                     return;
                 case 2: {
-                    func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
                     int var10 = func_ov002_02157500(
                         arg0, *(short *) (arg0 + RG(0x1b00 + 0xe8, 0x1ab0)), *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)));
                     if (var10 != 0) {

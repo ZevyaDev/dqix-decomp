@@ -24,7 +24,7 @@ struct Struct_020439b0_2 {
     unsigned char unknown_0_5_ : 1;
     unsigned char unknown_0_6_ : 2;
 };
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 struct Struct_0204394c;
 struct Struct_0204500c_5;
 
@@ -139,7 +139,7 @@ struct MessageWindow_02021b84 {
     unsigned char unknown_19cd_;
     Struct_020439b0_2 unknown_17ff_;
     unsigned char unknown_1800_[0x1c4c - 0x1800];
-    Struct_0203d028* unknown_1e28_;
+    TextureVRAMArea_0203d028* unknown_1e28_;
     int func_020656e4(int arg0);
     int func_02042a90(unsigned char* arg0, unsigned int arg1);
     void func_020444d4(int arg0);
@@ -168,7 +168,7 @@ struct Struct_020439b0 {
     unsigned char unknown_0_[0x24];
 };
 
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 struct Struct_0204394c;
 struct Struct_0204500c_3;
 struct Struct_0204500c_4;
@@ -296,7 +296,7 @@ struct MessageWindow_02021b84 {
     unsigned char unknown_19d4_[0x8];
     unsigned char unknown_19dc_;
     unsigned char unknown_19dd_[0x44b];
-    Struct_0203d028* unknown_1e28_;
+    TextureVRAMArea_0203d028* unknown_1e28_;
     int func_020656e4(int arg0);
     int func_02042a90(unsigned char* arg0, unsigned int arg1);
     void func_020444d4(int arg0);

@@ -3,13 +3,13 @@
 #include "Input/Input.h"
 
 struct Struct_0205c570;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_02010088;
 
 extern "C" int func_0205d794(struct Struct_0205c570* arg0);
 struct Struct_0205da38;
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov000_0217ab48(void* arg0);
 extern "C" int func_02010088(struct Struct_02010088* arg0);
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
@@ -82,7 +82,7 @@ struct Struct_ov000_0217bb2c_2 {
 };
 
 extern Struct_ov000_02184294_7 data_ov000_02184294;
-extern char data_02108760;
+extern char gSoundEffectManager_02108760;
 
 // USA: func_ov000_0217bb2c
 extern "C" ARM int func_ov000_0217bb2c(Struct_ov000_0217bb2c_2* arg0, int arg1, int arg2) {
@@ -135,7 +135,7 @@ extern "C" ARM int func_ov000_0217bb2c(Struct_ov000_0217bb2c_2* arg0, int arg1, 
         if (var4) {
             arg0->unknown_43d_ = arg0->unknown_10_[arg0->unknown_18_];
             arg0->unknown_2e_ = arg0->unknown_30_[arg0->unknown_21_];
-            func_0205eaa0((struct Struct_02108760*)&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
             arg0->unknown_18_++;
             arg0->unknown_10_[arg0->unknown_18_] = 100;
         }

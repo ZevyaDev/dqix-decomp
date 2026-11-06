@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 struct Struct_ov024_021db3a4;
 struct Struct_ov024_021db3a4_3;
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 struct Struct_02048150;
 extern "C" int func_02086ef0(Struct_02048150*, int);
 extern "C" float func_ov024_021db358(GameObject*);
@@ -25,7 +25,7 @@ extern "C" ARM void* func_ov024_021db3a4(Struct_ov024_021db3a4* arg0, short arg1
     if (!var0) return 0;
     unsigned short var1 = arg3->unknown_4_.unknown_0_0_;
     if (var1 == 0x21 || var1 == 0x310) arg4 = var0->currentStats_->primaryStats.maxHP;
-    void* var2 = func_02010828(GameState::GetInstance());
+    void* var2 = GetParty_02010828(GameState::GetInstance());
     if (arg3->unknown_4_.unknown_0_0_ == 0x20 && func_02086ef0((Struct_02048150*)var2, arg1) && func_ov024_021db358(var0) <= 0.08f && arg6 && arg4 > 0)
         func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 7);
     short var3 = 0;

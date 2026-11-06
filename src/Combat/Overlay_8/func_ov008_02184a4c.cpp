@@ -23,9 +23,6 @@
 #include "World/Object3D.h"
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
@@ -40,8 +37,8 @@ extern const char data_ov008_0218b3e0[];
 extern const char data_ov008_0218b465[];
 extern const char data_ov008_0218b47c[];
 extern const char data_ov008_0218b48f[];
-extern char data_0211e33c[];
-extern int data_02109bf4;
+extern char gFileScratchSpace_0211e33c[];
+extern int gMusicManager_02109bf4;
 
 struct Struct_ov008_0218b31c { int unknown_0_; int unknown_4_; int unknown_8_; };
 extern const Struct_ov008_0218b31c data_ov008_0218b328;
@@ -190,12 +187,12 @@ struct Struct_ov008_02184a4c_12 {
     int inline_ov008_02184a4c_12(unsigned int arg0) volatile { return (unknown_b18_ & arg0) != 0; }
 };
 
-extern "C" void* func_0202ae18(void);
-extern "C" char* func_0205ec34(void);
-extern "C" int func_0206dfb0(char* arg0, char* arg1, int arg2);
-extern "C" int func_020ac4c0(void* arg0);
-extern "C" int func_0202c508(void* arg0);
-extern "C" int func_0202c540(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" char* GetFlagManager_0205ec34(void);
+extern "C" int IsFlagSet_0206dfb0(char* flagManager, char* flags, int flagIndex);
+extern "C" int GetBattleRecords_020ac4c0(void* records);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 struct Struct_020727d8;
 extern "C" void func_020727d8(Struct_020727d8*);
 extern "C" void func_020727f8(void* arg0, const char* arg1, int arg2, void* arg3, unsigned char arg4);
@@ -218,11 +215,11 @@ extern "C" void func_0204b12c(Struct_0204b12c*, SafeAllocator*);
 struct Struct_0204af38;
 extern "C" void func_0204af38(Struct_0204af38*, int, SafeAllocator*);
 struct Struct_0201099c_3;
-extern "C" const char* func_020e0434(Struct_0201099c_3*, int);
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(Struct_02020cb8_4*);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void func_0204b174(void* arg0, void* arg1, SafeAllocator* arg2, int arg3);
 struct Struct_0204b8d0;
 extern "C" void func_0204b8d0(Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
@@ -236,10 +233,10 @@ struct Struct_02043368;
 extern "C" void func_0205a234(Struct_02043368*);
 extern "C" int func_0205a528(void* arg0, void* arg1, int arg2, SafeAllocator* arg3);
 extern "C" int func_ov008_02188d74(Struct_ov008_02184a4c_12* arg0);
-struct Struct_0203d028;
-extern "C" void func_0207df50(Struct_0203d028*);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+struct TextureVRAMArea_0203d028;
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 int LoadFileIntoMemory(const char* path, void* dst, unsigned int* outSize);
 struct ObjectArchiveLoadInfo;
 struct Vector3i;
@@ -258,7 +255,7 @@ extern "C" Struct_ov008_02184a4c_6* func_020a15bc(Struct_020a15bc*, int);
 extern "C" void func_020e046c(char* arg0, void* arg1, unsigned int arg2, int arg3);
 extern "C" int func_0201081c(char*);
 extern "C" int func_020d3018(const char* arg0, const char* arg1);
-extern "C" int func_0202b7d8(int*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov008_0218712c(Struct_ov008_02184a4c_12* arg0, int arg1);
 struct Struct_ov008_02184a4c_13;
 extern "C" void func_ov008_02187664(Struct_ov008_02184a4c_13*, int);
@@ -300,24 +297,24 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
     Struct_ov008_02184a4c_2* var1 = (Struct_ov008_02184a4c_2*)GetGameResources();
 #endif
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
-    void* var3 = func_0202ae18();
+    void* var3 = GetLocalWireless_0202ae18();
 
     unsigned char var4 = arg0->unknown_b11_;
     if (var4 == 0) {
         arg0->unknown_b18_ |= 0x200000;
-        char* var5 = func_0205ec34();
-        int var6 = func_0206dfb0(var5, var5 + 0x8c, 0x113b);
+        char* var5 = GetFlagManager_0205ec34();
+        int var6 = IsFlagSet_0206dfb0(var5, var5 + 0x8c, 0x113b);
         if (var6 != 0) {
             arg0->unknown_b18_ |= 0x80;
             arg0->unknown_b18_ &= ~1;
         }
         Struct_ov008_02184a4c_4 var7;
-        func_020ac4c0(&var7);
+        GetBattleRecords_020ac4c0(&var7);
         Struct_ov008_02184a4c_4* var8 = &var7;
         unsigned int var9 = var8->inline_ov008_02184a4c_2()->inline_ov008_02184a4c();
         if (var9 == 0) {
-            if (func_0206dfb0(var5, var5 + 0x8c, 0x796) != 0) {
-                if (func_0202c508(var3) != 0) {
+            if (IsFlagSet_0206dfb0(var5, var5 + 0x8c, 0x796) != 0) {
+                if (IsNotLocalWirelessGuest_0202c508(var3) != 0) {
                     arg0->unknown_b18_ |= 2;
                 }
             }
@@ -381,7 +378,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
                 return;
             }
         }
-        Struct_0208cb08* var14 = func_02094a00();
+        FontLoader_0208cb08* var14 = func_02094a00();
         func_02094b40(var14);
         func_02094b34(var14, 0x6b, 0x1fc, 0, 0);
         arg0->unknown_b11_++;
@@ -414,7 +411,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
                 func_0204b5e8((Struct_02020cb8_5*)arg0->unknown_d0_, 0, 0);
                 func_0204b12c((Struct_0204b12c*)arg0->unknown_d0_, &arg0->unknown_0_);
                 func_0204af38((Struct_0204af38*)arg0->unknown_d0_, 1, &arg0->unknown_0_);
-                arg0->unknown_b20_ = var2->QueueLoadFile(func_020e0434((Struct_0201099c_3*)arg0->unknown_a0_, 0), NULL);
+                arg0->unknown_b20_ = var2->QueueLoadFile(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_a0_, 0), NULL);
                 arg0->unknown_b11_++;
             }
         }
@@ -425,9 +422,9 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
             unsigned int var21;
             int var22;
             var2->GetLoadedFileByID(arg0->unknown_b20_, &var20, &var21);
-            int var23 = func_02046900((Struct_02020cb8_4*)var20);
+            int var23 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var20);
             for (int var24 = 0; var24 < var23; var24++) {
-                void* var25 = func_020467f0((Struct_02020aec*)var20, var24, &var19, &var22);
+                void* var25 = GetPacEntryData_020467f0((PacEntry_02020aec*)var20, var24, &var19, &var22);
                 if (var25 != NULL) {
                     func_0204b174(arg0->unknown_d0_, var25, &arg0->unknown_0_, var22);
                 }
@@ -451,10 +448,10 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
                 }
                 func_0205a234((Struct_02043368*)arg0->unknown_738_);
 #if defined(jpn)
-                arg0->unknown_b20_ = var2->QueueLoadFile(func_020e0434((Struct_0201099c_3*)arg0->unknown_a0_, 3), NULL);
+                arg0->unknown_b20_ = var2->QueueLoadFile(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_a0_, 3), NULL);
 #else
-                const char* var28 = func_020e0434((Struct_0201099c_3*)arg0->unknown_a0_, 6);
-                arg0->unknown_b20_ = var2->QueueLoadFileInGP2(func_020e0434((Struct_0201099c_3*)arg0->unknown_a0_, 5), var28, NULL);
+                const char* var28 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_a0_, 6);
+                arg0->unknown_b20_ = var2->QueueLoadFileInGP2(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_a0_, 5), var28, NULL);
 #endif
                 arg0->unknown_b11_++;
             } else {
@@ -468,10 +465,10 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
             unsigned int var31;
             int var32;
             var2->GetLoadedFileByID(arg0->unknown_b20_, &var30, &var31);
-            int var33 = func_02046900((Struct_02020cb8_4*)var30);
+            int var33 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var30);
             arg0->unknown_3c_.Reset();
             for (int var34 = 0; var34 < var33; var34++) {
-                void* var35 = func_020467f0((Struct_02020aec*)var30, var34, &var29, &var32);
+                void* var35 = GetPacEntryData_020467f0((PacEntry_02020aec*)var30, var34, &var29, &var32);
                 if (var35 != NULL) {
                     func_0205a528(arg0->unknown_730_, var35, var32, &arg0->unknown_3c_);
                 }
@@ -491,18 +488,18 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
         }
     } else if (var4 == 8) {
         char* var36 = var1->unknown_2cc_;
-        func_0207df50((Struct_0203d028*)(var36 + 0x230));
-        func_0207df90(var36 + 0x230);
+        ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)(var36 + 0x230));
+        RestoreTextureVRAMState_0207df90(var36 + 0x230);
         BackgroundLoader::AddLockGlobal();
         unsigned int var37 = 0;
-        if (LoadFileIntoMemory(func_020e0434((Struct_0201099c_3*)arg0->unknown_a0_, 10), data_0211e33c, &var37) != 0) {
+        if (LoadFileIntoMemory(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_a0_, 10), gFileScratchSpace_0211e33c, &var37) != 0) {
             Struct_ov008_02184a4c_14 var38;
             var38.unknown_0_ = 0;
             var38.unknown_14_ = 0;
             var38.unknown_18_ = 0;
             var38.unknown_1c_ = 0;
             var38.unknown_c_ = &arg0->unknown_64_;
-            var38.unknown_4_ = data_0211e33c;
+            var38.unknown_4_ = gFileScratchSpace_0211e33c;
             var38.unknown_8_ = var37;
             var38.unknown_10_ = 1;
             ((Object3D*)&arg0->unknown_790_)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var38, (int (*)(BCFG::AnimationRecord*))NULL);
@@ -515,7 +512,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
             ((Object3D*)&arg0->unknown_790_)->MaybeSetBCFGAnimation(0, 0);
         }
         BackgroundLoader::RemoveLockGlobal();
-        func_0207dfac(var36 + 0x230);
+        SaveTextureVRAMState_0207dfac(var36 + 0x230);
         func_020a2010(arg0->unknown_83c_);
         func_0202e5c0((Struct_0202e5c0*)arg0->unknown_83c_, 0, 0x8000, 0x40000);
         func_0202e5c8((unsigned char*)arg0->unknown_83c_, 0, 0, 0);
@@ -598,7 +595,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
             }
             if (arg0->unknown_b14_ <= 0) {
                 int var55 = func_0201081c((char*)var0);
-                if (func_0202c540(var3) != 0) {
+                if (IsLocalWirelessGuest_0202c540(var3) != 0) {
                     arg0->unknown_b18_ |= 0x100;
                     var55 = 0x3eb;
                 }
@@ -640,7 +637,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
             if (arg0->inline_ov008_02184a4c_12(0x100)) {
                 arg0->unknown_b18_ &= ~0x100;
                 arg0->unknown_b16_ = 0x3ea;
-                if (func_0202c540(var3) != 0) {
+                if (IsLocalWirelessGuest_0202c540(var3) != 0) {
                     arg0->unknown_b16_ = 0x3eb;
                 }
             }
@@ -651,10 +648,10 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
             arg0->unknown_b18_ &= ~0x100;
             arg0->unknown_b11_ = 0xff;
         } else {
-            void* var59 = func_0202ae18();
+            void* var59 = GetLocalWireless_0202ae18();
             int var60 = 0x3ea;
-            if (func_0202b7d8((int*)var59) != 0) {
-                if (func_0202c540(var59) != 0) {
+            if (IsLocalWirelessOn_0202b7d8((int*)var59) != 0) {
+                if (IsLocalWirelessGuest_0202c540(var59) != 0) {
                     var60++;
                 }
             }
@@ -684,11 +681,11 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
         if (arg0->unknown_b24_ == 0) {
             char* var64 = var1->unknown_2cc_;
             char* var65 = GetMessageWindow_020421a0();
-            func_0207df50((Struct_0203d028*)(var64 + 0x5b0));
-            func_0207df90(var64 + 0x5b0);
+            ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)(var64 + 0x5b0));
+            RestoreTextureVRAMState_0207df90(var64 + 0x5b0);
             func_020432c4(var65);
-            func_0207dfac(var64 + 0x5b0);
-            func_0209c3b4((Struct_0209c3b4_2*)&data_02109bf4, 0x29);
+            SaveTextureVRAMState_0207dfac(var64 + 0x5b0);
+            func_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, 0x29);
             arg0->unknown_b10_ = 3;
             arg0->unknown_b11_ = 0;
             if (arg0->unknown_b0c_ == NULL) {

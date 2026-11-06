@@ -28,7 +28,7 @@ struct Struct_ov017_021b38c8 {
     unsigned char unknown_b_;
     char unknown_c_[4]; int unknown_10_[11]; int unknown_3c_; int unknown_40_; int unknown_44_;
 };
-extern "C" Struct_0206f81c* func_02053c6c(unsigned char*);
+extern "C" Struct_0206f81c* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" Struct_ov017_021b38c8_6* func_02052e2c(Struct_02052e2c*);
 extern "C" void func_020543ec(char*, char*);
 extern "C" void func_02072afc(int, int*, short*);
@@ -54,7 +54,7 @@ extern "C" ARM int func_ov017_021b38c8(Struct_ov017_021b38c8* arg0) {
     if (!var4) return 0;
     Struct_ov017_021b38c8_4* var5 = ((Struct_ov017_021b38c8_5*)var4)->inline_ov017_021b38c8_2();
     if (!var5) return 0;
-    Struct_0206f81c* var6 = func_02053c6c((unsigned char*)var4);
+    Struct_0206f81c* var6 = GetPartyMemberData_02053c6c((unsigned char*)var4);
     if (!var6) return 0;
     Struct_ov017_021b38c8_6* var7 = func_02052e2c((Struct_02052e2c*)var4);
     if (!var7) return 0;

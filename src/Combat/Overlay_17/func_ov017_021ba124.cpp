@@ -6,10 +6,10 @@ struct Struct_0201c1c8 { int unknown_0_; union { int unknown_0_; float unknown1_
 
 struct Struct_01ff91ac_24;
 
-struct Struct_0202c1a4 { char unknown_0_[0x1038]; signed char unknown_1038_[16]; };
-extern "C" int* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* arg0);
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4 { char unknown_0_[0x1038]; signed char protagonistObjectIndexByConsole_1038_[16]; };
+extern "C" int* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
 struct Struct_0205faf4;
 
@@ -39,9 +39,9 @@ extern "C" ARM int func_ov017_021ba124(struct Struct_0201c1c8* arg0, int arg1) {
     if (data_ov017_021d7c54.unknown_1_ > -1) return 1;
 
     GameState::GetInstance();
-    struct Struct_0202c1a4* var0 = (struct Struct_0202c1a4*)func_0202ae18();
-    if (!func_0202b7d8((int*)var0)) return 1;
-    if (func_0202c1a4(var0) != 0) return 1;
+    struct LocalWireless_0202c1a4* var0 = (struct LocalWireless_0202c1a4*)GetLocalWireless_0202ae18();
+    if (!IsLocalWirelessOn_0202b7d8((int*)var0)) return 1;
+    if (GetOwnProtagonistObjectIndex_0202c1a4(var0) != 0) return 1;
 
     int var1 = ((Script::Parameter*)arg0)->ToInt();
     struct Struct_0201c1c8* var2 = (struct Struct_0201c1c8*)((char*)arg0 + 8);

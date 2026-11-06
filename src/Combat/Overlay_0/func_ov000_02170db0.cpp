@@ -14,8 +14,8 @@ struct Struct_ov000_02170db0_2 {
 };
 
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
-extern "C" struct Struct_ov000_02170db0_2* func_02053c6c(unsigned char* arg0);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
+extern "C" struct Struct_ov000_02170db0_2* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct Struct_0203c108_3 {
     #if defined(jpn)
@@ -79,11 +79,11 @@ extern "C" ARM void func_ov000_02170db0(struct Struct_ov000_02170db0_3* arg0) {
     if (var2 == NULL) {
         return;
     }
-    struct Struct_ov000_02170db0_2* var3 = func_02053c6c((unsigned char*)var2);
+    struct Struct_ov000_02170db0_2* var3 = GetPartyMemberData_02053c6c((unsigned char*)var2);
     arg0->unknown_50_.unknown_10_ = 1;
     if (func_ov000_021719f8((int*)arg0)) {
 #if defined(jpn)
-        char* var4 = (char*)func_020e0434(arg0->unknown_4_, func_ov000_02171a74(arg0));
+        char* var4 = (char*)FindStringInTable_020e0434(arg0->unknown_4_, func_ov000_02171a74(arg0));
         if (var4 != NULL) {
             func_0203c108(&arg0->unknown_50_, var4);
         }
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov000_02170db0(struct Struct_ov000_02170db0_3* arg0) {
         }
 #endif
     } else if (var3 != NULL && (signed char)var3->unknown_94c_ != 5 && arg0->unknown_1c_ != 6) {
-        char* var6 = (char*)func_020e0434(arg0->unknown_4_, (short)((signed char)var3->unknown_94c_ + 0x753e));
+        char* var6 = (char*)FindStringInTable_020e0434(arg0->unknown_4_, (short)((signed char)var3->unknown_94c_ + 0x753e));
         if (var6 != NULL) {
             func_0203c108(&arg0->unknown_50_, var6);
         } else {
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov000_02170db0(struct Struct_ov000_02170db0_3* arg0) {
 #endif
         }
     } else if (arg0->unknown_1c_ == 6) {
-        func_0203c108(&arg0->unknown_50_, (char*)func_020e0434(arg0->unknown_4_, 0x7531));
+        func_0203c108(&arg0->unknown_50_, (char*)FindStringInTable_020e0434(arg0->unknown_4_, 0x7531));
     } else {
         func_0203c108(&arg0->unknown_50_, data_ov000_02183ff4);
     }

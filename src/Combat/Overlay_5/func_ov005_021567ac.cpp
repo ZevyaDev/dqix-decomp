@@ -11,7 +11,7 @@ enum { Enum_ov005_021567ac_1588 = 0x634, Enum_ov005_021567ac_6644 = 0x19f4 };
 #include <GameState/GameState.h>
 #include "Resource/GameResources.h"
 
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
 struct Struct_ov005_02153ba4_2 {
     char unknown_0_[Enum_ov005_021567ac_1276];
@@ -54,11 +54,11 @@ struct Struct_ov005_02153954 {
     short unknown_3de0_;
 };
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
 extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" int func_ov005_02157ae8(Struct_ov005_02153954* arg0, int arg1);
 extern "C" void func_0205bb04(void* arg0, int arg1);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov005_021567ac(Struct_ov005_02153954* arg0, int arg1, i
         arg0->unknown_3de0_ = (arg0->unknown_3dbb_ - 8) + arg0->unknown_3dbd_ * 16;
         arg0->unknown_3dc0_ = 0;
         arg0->unknown_3dcc_ |= 0x80;
-        func_0205eaa0((Struct_02108760*)&data_02108760, 2, 0);
+        PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 2, 0);
         var0->unknown_634_ &= ~1;
         var0->unknown_634_ &= ~0x80;
         arg0->unknown_3dcc_ &= ~4;

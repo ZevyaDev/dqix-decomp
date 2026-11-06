@@ -6,20 +6,20 @@
 struct Struct_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0205d81c;
 struct Struct_0205dee8;
 extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
                                                                         unsigned char arg2);
 extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_0205deb4(struct Struct_0205d81c *arg0, int arg1, int arg2);
 extern "C" void func_0205dee8(struct Struct_0205dee8 *arg0, int arg1);
-extern "C" void *func_020d6c00();
+extern "C" void *GetGlobalFlags_020d6c00();
 extern "C" void func_020466e4(unsigned int *arg0, unsigned int arg1);
-extern "C" unsigned char *func_02053c6c(unsigned char *arg0);
+extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 extern "C" int GetInventoryItemByID(char *arg0, int arg1, int arg2);
 extern "C" void func_ov002_02161cf0(void *arg0);
 extern "C" void func_ov002_02161b98(char *arg0);
@@ -31,7 +31,7 @@ extern "C" void func_ov023_021dc134(char *arg0, int arg1, int arg2);
 extern "C" void func_ov023_021dbfd0(char *arg0, SafeAllocator *arg1);
 extern "C" void func_ov023_021dcae0(char *arg0, int arg1);
 extern "C" void func_ov023_021dca88(char *arg0);
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 static inline int inline_02000c9c_6(int arg0) {
     return (arg0 >= 0 && arg0 <= 3) ? 1 : 0;
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
         func_0205deb4((struct Struct_0205d81c *) (arg0 + 0xe20), 5, 0);
         func_0205dee8((struct Struct_0205dee8 *) (arg0 + 0xe20), 5);
         int var2 = GetInventoryItemByID(arg0, *(short *) (arg0 + 0x1ab0), *(signed char *) (arg0 + 0x1ae8));
-        func_020466e4((unsigned int *) func_020d6c00(), 1);
+        func_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
         if (*(unsigned int *) (arg0 + 0x22ac) & 1) {
             ((SafeAllocator *) (arg0 + 0x7c8))->Reset();
             func_ov023_021dc9e8(var1, (SafeAllocator *) (arg0 + 0x7c8), var2, arg0 + 0x750, 0x50);
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
         if ((var4 | var5) ? 1 : 0) {
             *(unsigned char *) (arg0 + 0xed8) = *(int *) (arg0 + 0x1a80);
             *(unsigned int *) (arg0 + 0x22ac) &= ~4;
-            func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
             if (*(unsigned char *) (arg0 + 0x22b5))
                 *(int *) (arg0 + 0x1a80) = 0x2a;
             else
@@ -106,7 +106,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
             if (var6) return;
             GameObject *var8 = GameState::GetInstance()->GetProtagonist();
             if (var8 == NULL) return;
-            *(short *) (func_02053c6c((unsigned char *) var8) + 0x800 + 0xc0) = *(short *) (arg0 + 0x1aea);
+            *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var8) + 0x800 + 0xc0) = *(short *) (arg0 + 0x1aea);
         } else if (func_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1aea) = -1;
             *(short *) (arg0 + 0x1ab0) = -1;
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
         func_0205deb4((struct Struct_0205d81c *) (arg0 + 0x2c8 + 0xc00), 5, 0);
         func_0205dee8((struct Struct_0205dee8 *) (arg0 + 0x2c8 + 0xc00), 5);
         int var10 = GetInventoryItemByID(arg0, *(short *) (arg0 + 0x1b00 + 0xe8), *(signed char *) (arg0 + 0x1c00 + 0x20));
-        func_020466e4((unsigned int *) func_020d6c00(), 1);
+        func_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
         if (*(unsigned int *) (arg0 + 0x2000 + 0x47c) & 1) {
             ((SafeAllocator *) (arg0 + 0x64 + 0x800))->Reset();
             func_ov023_021dc9e8(arg0 + 0x50, (SafeAllocator *) (arg0 + 0x64 + 0x800), var10, arg0 + 0x3ec + 0x400, 0x50);
@@ -172,7 +172,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
         if ((var12 | var13) ? 1 : 0) {
             *(unsigned char *) (arg0 + 0xf80) = *(int *) (arg0 + 0x1000 + 0xbb8);
             *(unsigned int *) (arg0 + 0x2000 + 0x47c) &= ~4;
-            func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
             if (*(unsigned char *) (arg0 + 0x2000 + 0x485))
                 *(int *) (arg0 + 0x1000 + 0xbb8) = 0x27;
             else
@@ -184,7 +184,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
             if (var14) return;
             GameObject *var16 = GameState::GetInstance()->GetProtagonist();
             if (var16 == NULL) return;
-            *(short *) (func_02053c6c((unsigned char *) var16) + 0x900 + 0x58) = *(short *) (arg0 + 0x1c00 + 0x22);
+            *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var16) + 0x900 + 0x58) = *(short *) (arg0 + 0x1c00 + 0x22);
         } else if (func_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1c00 + 0x22) = -1;
             *(short *) (arg0 + 0x1b00 + 0xe8) = -1;

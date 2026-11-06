@@ -14,8 +14,8 @@ extern "C" void* func_0203bd14();
 extern "C" void* func_0203bd08(void);
 extern "C" void* func_0203be4c(void);
 
-struct Struct_02020aec;
-extern "C" int func_0205a498(void* arg0, struct Struct_02020aec* arg1, int arg2, void* arg3);
+struct PacEntry_02020aec;
+extern "C" int func_0205a498(void* arg0, struct PacEntry_02020aec* arg1, int arg2, void* arg3);
 
 extern "C" void func_0205af38(int arg0, char* arg1, int arg2, int arg3);
 
@@ -38,7 +38,7 @@ extern "C" ARM void func_02020aec(Struct_02020554* arg0, Type_02020aec arg1, Saf
     var3 = (char*)func_0203bd14();
     *(char**)var3 = var4;
 
-    func_0205a498(&arg0->unknown_94_, (Struct_02020aec*)var1, var2, arg2);
+    func_0205a498(&arg0->unknown_94_, (PacEntry_02020aec*)var1, var2, arg2);
 
     var0 = BackgroundLoader::GetInstance();
 #if defined(jpn)

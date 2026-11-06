@@ -138,7 +138,7 @@ struct Struct_020a0644;
 extern "C" void func_020a0840(Struct_020a0840*, unsigned int);
 extern "C" void func_020a02d0(Struct_020a02d0*, unsigned int);
 extern "C" void func_020a0644(Struct_020a0644*, unsigned int);
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_020ac494(void*);
 
 extern const signed char data_ov000_02182a7c[9];
@@ -148,7 +148,7 @@ static inline int inline_ov000_021554f4_8(int arg0) { return arg0 >= 0 && arg0 <
 // USA: func_ov000_021554f4
 extern "C" ARM void func_ov000_021554f4(Struct_ov000_021554f4_6* arg0, int arg1, int arg2, Struct_ov000_021554f4_7* arg3, unsigned char arg4, int arg5) {
     GameState* var0 = GameState::GetInstance();
-    Struct_02048150* var1 = (Struct_02048150*)func_02010828(GameState::GetInstance());
+    Struct_02048150* var1 = (Struct_02048150*)GetParty_02010828(GameState::GetInstance());
     Struct_ov000_021554f4_2* var2 = func_0200fea4(var0, arg1);
     if (!var2) return;
     if (var2->inline_ov000_021554f4_7()->unknown_0_ == 0 && arg5 == 8) {
@@ -221,9 +221,9 @@ extern "C" ARM void func_ov000_021554f4(Struct_ov000_021554f4_6* arg0, int arg1,
     if (arg5 & 0x10) return;
     if (arg5 & 0x20) return;
     Struct_02061c04 var12;
-    func_020ac4c0(&var12);
+    GetBattleRecords_020ac4c0(&var12);
     func_020a0840((Struct_020a0840*)&var12, 1);
     func_020a02d0((Struct_020a02d0*)&var12.unknown_68_, 1);
-    if (arg2 == func_020100a8(var0)) func_020a0644((Struct_020a0644*)&var12, 1);
+    if (arg2 == GetProtagonistObjectIndex_020100a8(var0)) func_020a0644((Struct_020a0644*)&var12, 1);
     func_020ac494(&var12);
 }

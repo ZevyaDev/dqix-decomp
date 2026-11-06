@@ -77,7 +77,7 @@ extern "C" int func_ov000_02171698(Struct_ov000_02171640*);
 struct Struct_ov000_02171968;
 extern "C" int func_ov000_021719c0(Struct_ov000_02171968*);
 extern "C" GameObject* func_0200ff1c(GameState*, int);
-extern "C" int func_02053c6c(unsigned char*);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" int func_02083960(Struct_0207d300*);
 extern "C" void func_0205cf10(void*);
 struct Struct_0205cf1c;
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov000_0217ab8c(Struct_ov000_0217ab8c* arg0, int arg1, i
     case 17: {
         GameState* var6 = GameState::GetInstance();
         GameObject* var7 = func_0200ff1c(var6, arg0->unknown_4c_);
-        int var8 = func_02053c6c((unsigned char*)var7);
+        int var8 = GetPartyMemberData_02053c6c((unsigned char*)var7);
         if (var8 != 0) {
             int var9 = func_02083960((Struct_0207d300*)var8);
             var2 = (arg0->unknown_86_ - var9 + 3) / 4 + (var9 + 3) / 4;

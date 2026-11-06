@@ -4,9 +4,9 @@ struct Struct_0201099c_3;
 struct Struct_0205de24_2;
 struct Struct_02020cb8_5;
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* arg0);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
 extern "C" char* GetMessageWindow_020421a0(void);
@@ -57,12 +57,12 @@ struct Struct_ov003_0215df1c {
 
 // USA: func_ov003_0215df1c
 extern "C" ARM void func_ov003_0215df1c(struct Struct_ov003_0215df1c* arg0) {
-    void* var0 = func_0202ae18();
+    void* var0 = GetLocalWireless_0202ae18();
     arg0->unknown_3c0_ = 3;
     arg0->unknown_3bd_[0] = 0;
     arg0->unknown_3bd_[1] = 1;
     arg0->unknown_3bd_[2] = 2;
-    if (func_0202c540(var0)) {
+    if (IsLocalWirelessGuest_0202c540(var0)) {
         arg0->unknown_3c0_ = 2;
         arg0->unknown_3bd_[0] = 1;
         arg0->unknown_3bd_[1] = 2;
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov003_0215df1c(struct Struct_ov003_0215df1c* arg0) {
 #else
     int var2 = 0;
     for (int var3 = 0; var3 < arg0->unknown_3c0_; var3++) {
-        short var4 = func_020420e8((char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, arg0->unknown_3bd_[var3]), 0);
+        short var4 = func_020420e8((char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, arg0->unknown_3bd_[var3]), 0);
         if (var2 < var4) {
             var2 = var4;
         }

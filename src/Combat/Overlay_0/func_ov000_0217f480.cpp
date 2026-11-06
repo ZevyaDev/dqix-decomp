@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 struct Struct_0203c108_3;
 extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov000_0217f480(char* arg0) {
     *(var0 + 0x14) = 6;
     *(unsigned short*)(var0 + 0x1e) = 0;
     if (!func_ov000_021719f8((int*)arg0)) {
-        int var4 = func_020e0434(*(struct Struct_0201099c_3**)(arg0 + 4), 0x7531);
+        int var4 = FindStringInTable_020e0434(*(struct Struct_0201099c_3**)(arg0 + 4), 0x7531);
         func_0203c108((struct Struct_0203c108_3*)(arg0 + 0x50), (char*)var4);
     }
     *(unsigned char*)(arg0 + 0x24) &= ~4;

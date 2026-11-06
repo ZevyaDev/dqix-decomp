@@ -23,14 +23,14 @@ struct Struct_0209ab7c_4 {
     int unknown_950_;
 };
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 // USA: func_0209ab7c
 extern "C" ARM int func_0209ab7c(struct Struct_0209ab7c_3* arg0, unsigned char* arg1, unsigned char* arg2,
                                  int arg3) {
     if (&arg0->unknown_0_->unknown_100_[0].unknown_c_[0] == NULL) return 0;
     if (&arg0->unknown_0_->unknown_51c_[0] == NULL) return 0;
-    struct Struct_0209ab7c_4* var0 = (struct Struct_0209ab7c_4*)func_02053c6c(arg1);
+    struct Struct_0209ab7c_4* var0 = (struct Struct_0209ab7c_4*)GetPartyMemberData_02053c6c(arg1);
     if (var0 == 0) return 0;
     int var1 = var0->unknown_950_;
     int var2;

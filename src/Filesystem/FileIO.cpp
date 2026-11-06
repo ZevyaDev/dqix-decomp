@@ -22,7 +22,7 @@
 extern "C"
 {
     bool func_02046708(void*, unsigned int);
-    void* func_020d6c00();
+    void* GetGlobalFlags_020d6c00();
 
     int func_0200fb08(GameState*);
 
@@ -34,7 +34,7 @@ extern "C"
 
 int MakeCharUpperCase(char ch);
 
-extern unsigned char data_0211e33c[0x30000];
+extern unsigned char gFileScratchSpace_0211e33c[0x30000];
 
 extern const char data_020e692c[];
 
@@ -63,7 +63,7 @@ void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength
 
     void* alwaysNull = NULL;
 
-    if (buffer >= data_0211e33c && buffer < &data_0211e33c[0x30000])
+    if (buffer >= gFileScratchSpace_0211e33c && buffer < &gFileScratchSpace_0211e33c[0x30000])
         BackgroundLoader::FreeAllocationsGlobal();
 
     ExtendedNitroVM reader;

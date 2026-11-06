@@ -5,7 +5,6 @@
 
 #if defined(jpn)
 #include <std_library_functions.h>
-#define func_0205ec34 func_0205ff20
 #endif
 
 struct Struct_ov001_0215657c_2 {
@@ -54,8 +53,8 @@ struct Struct_02070900_2;
 struct Struct_020707c8;
 struct Struct_ov001_0215657c { char unknown_0_[0x8c]; unsigned char unknown_8c_[1]; };
 extern "C" char* func_020100f8(char*);
-extern "C" Struct_ov001_0215657c* func_0205ec34();
-extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" Struct_ov001_0215657c* GetFlagManager_0205ec34();
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" unsigned short* GetZone3D_02012fe4();
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
@@ -77,7 +76,7 @@ void SetBrightness(GameResources*, int, int);
 extern "C" void func_020a2794(void*);
 extern "C" void func_020a2718(char*);
 extern "C" void func_ov017_021bb27c(void*);
-extern int data_02109bf4 __attribute__((aligned(4)));
+extern int gMusicManager_02109bf4 __attribute__((aligned(4)));
 
 // USA: func_ov001_0215657c
 extern "C" ARM int func_ov001_0215657c(Struct_ov001_0215657c_2* arg0, void* arg1) {
@@ -92,8 +91,8 @@ extern "C" ARM int func_ov001_0215657c(Struct_ov001_0215657c_2* arg0, void* arg1
     if (arg0->unknown_16_ == arg0->unknown_152_) var3 = 1;
     else if (arg0->unknown_18_ == arg0->unknown_158_) var3 = 1;
     else {
-        Struct_ov001_0215657c* var6 = func_0205ec34();
-        if (func_0206dfb0((int)var6, var6->unknown_8c_, arg0->unknown_154_ + 0x38e)) var3 = 1;
+        Struct_ov001_0215657c* var6 = GetFlagManager_0205ec34();
+        if (IsFlagSet_0206dfb0((int)var6, var6->unknown_8c_, arg0->unknown_154_ + 0x38e)) var3 = 1;
         else if (arg0->unknown_156_ == *GetZone3D_02012fe4()) var4 = 1;
     }
     if (var3) {
@@ -127,7 +126,7 @@ extern "C" ARM int func_ov001_0215657c(Struct_ov001_0215657c_2* arg0, void* arg1
     }
     if (var4) {
         arg0->unknown_8_ = arg0->unknown_152_;
-        func_0209c2e0(&data_02109bf4, arg0->unknown_94_, 0);
+        func_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
         func_02046a8c(arg1, var5);
         func_ov017_021bb0c4((unsigned char*)arg0);
         return 0;
@@ -135,7 +134,7 @@ extern "C" ARM int func_ov001_0215657c(Struct_ov001_0215657c_2* arg0, void* arg1
     SetBrightness(var1, 0, 30);
     func_020a2794(var2);
     func_020a2718(var2);
-    func_0209c2e0(&data_02109bf4, arg0->unknown_94_, 0);
+    func_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
     func_ov017_021bb27c(arg0);
     arg0->unknown_1_ = 1;
     func_02046a8c(arg1, var5);

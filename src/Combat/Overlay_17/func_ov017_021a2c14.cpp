@@ -47,7 +47,7 @@ extern "C" void* GetZone3D_02012fe4();
 extern "C" Struct_ov017_021a2c14_2* func_0203dce4(Struct_0203dce4_2*, int);
 extern "C" int func_02018fbc(void*, Vector3i*);
 extern char data_ov017_021d76a6[];
-extern unsigned char data_0211e33c[];
+extern unsigned char gFileScratchSpace_0211e33c[];
 extern char data_ov017_021d76bb[];
 extern char data_ov017_021d76bf[];
 extern char data_ov017_021d76c9[];
@@ -79,12 +79,12 @@ extern "C" ARM int func_ov017_021a2c14(GameResources* arg0, Zone3D_StructPtr_8* 
     if (var14[0] == 'F') var14[1] = 0;
     BackgroundLoader::AddLockGlobal();
     sprintf(var9, data_ov017_021d76a6, var14);
-    if (!LoadFileIntoMemory(var9, data_0211e33c, &var15)) {
+    if (!LoadFileIntoMemory(var9, gFileScratchSpace_0211e33c, &var15)) {
         func_020401fc(func_0203d004(var2), 12, var3);
         BackgroundLoader::RemoveLockGlobal();
         return 0;
     }
-    if (!var10.Initialize(data_ov017_021d76bb, data_0211e33c)) {
+    if (!var10.Initialize(data_ov017_021d76bb, gFileScratchSpace_0211e33c)) {
         BackgroundLoader::RemoveLockGlobal();
         return 0;
     }

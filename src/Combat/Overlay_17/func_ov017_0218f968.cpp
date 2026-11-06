@@ -5,10 +5,10 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "NitroSDK/Cache.h"
 
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 static inline unsigned short inline_ov017_0218f968(unsigned short arg0) {
     return arg0 & 0x1f;
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov017_0218f968(unsigned char* arg0, int arg1, unsigned 
                 unsigned int var8 = var6->block4NumEightBytes_ << 3;
                 unsigned int var9 = (var7 & 0xffff) << 3;
                 unsigned short* var10 = (unsigned short*)((char*)var6 + var6->block4Offset_);
-                var4 = (unsigned short*)func_02012d88(&data_02114e20, var8);
+                var4 = (unsigned short*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var8);
                 if (var4 != NULL) {
                     for (unsigned int var11 = 0; var11 < var8 / 2; var11++) {
                         unsigned short var12 = var10[var11];
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov017_0218f968(unsigned char* arg0, int arg1, unsigned 
                 var16 = var5->obj3D_.GetTexturePaletteOffset() != 0 ? var5->obj3D_.GetTexturePaletteOffset() : var16;
                 unsigned int var17 = var6->block4NumEightBytes_ << 3;
                 unsigned int var18 = (var16 & 0xffff) << 3;
-                var4 = (unsigned short*)func_02012d88(&data_02114e20, var17);
+                var4 = (unsigned short*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var17);
                 if (var4 != NULL) {
                     for (unsigned int var19 = 0; var19 < var17 / 2; var19++) {
                         var4[var19] = arg2;
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov017_0218f968(unsigned char* arg0, int arg1, unsigned 
                 unsigned int var22 = var6->block4NumEightBytes_ << 3;
                 var21 = (var21 & 0xffff) << 3;
                 var20 = (unsigned short*)((char*)var6 + var6->block4Offset_);
-                var4 = (unsigned short*)func_02012d88(&data_02114e20, var22);
+                var4 = (unsigned short*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var22);
                 if (var4 != NULL) {
                     float var23 = var1 / 31.0f;
                     float var24 = var2 / 31.0f;
@@ -112,6 +112,6 @@ extern "C" ARM void func_ov017_0218f968(unsigned char* arg0, int arg1, unsigned 
     UnlockStagedTextureVRAMCopying();
 
     if (var4 != NULL) {
-        func_02012da4(&data_02114e20, var4);
+        FreeMemory_02012da4(&gMainHeap_02114e20, var4);
     }
 }

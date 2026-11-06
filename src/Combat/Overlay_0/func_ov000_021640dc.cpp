@@ -9,7 +9,7 @@ extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a367c(unsigned char* arg0, int arg1);
 
 extern "C" void func_ov017_021c8b78(unsigned short arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov000_0215f03c(struct Struct_02000c9c_33* arg0);
 extern "C" void func_ov000_021663a0(struct Struct_ov000_021640dc_4* arg0);
 extern "C" void func_ov000_02164d74(struct Struct_ov000_021640dc_4* arg0);
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov000_021640dc(struct Struct_ov000_021640dc_4* arg0) {
     if (!func_ov000_02160fd4(arg0, 0x200000)) {
         return;
     }
-    if (arg0->unknown_2a0_->unknown_2a_ != func_020100a8(var0)) {
+    if (arg0->unknown_2a0_->unknown_2a_ != GetProtagonistObjectIndex_020100a8(var0)) {
         func_ov000_0215f03c(arg0->unknown_29c_);
     }
     func_ov000_021663a0(arg0);

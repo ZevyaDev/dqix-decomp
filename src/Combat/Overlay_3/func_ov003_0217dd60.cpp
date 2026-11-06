@@ -65,18 +65,18 @@ extern "C" void func_0205cef8(void*);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void GetZone3D_02012fe4();
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_02041b70(char* arg0, int arg1, const char* arg2);
-extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" unsigned char* func_0205e00c(struct Struct_0205d81c* arg0, int arg1);
 extern "C" void func_02050400(unsigned char* arg0, int arg1);
 extern "C" void func_0205042c(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_02050440(unsigned char* arg0, int arg1);
 #if defined(jpn)
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 extern "C" void func_0205d304(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
-extern "C" void func_02046380(void* arg0);
-extern "C" void func_020465c0(struct Struct_020465c0*, int, int);
+extern "C" void ClearMessageParams_02046380(void* window);
+extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0*, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern "C" void func_02042428(char* arg0, int arg1);
@@ -93,7 +93,7 @@ extern const char data_ov003_02180c7f[];
 extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
     char var0[0x400];
     GetZone3D_02012fe4();
-    struct Struct_020465c0* var1 = (struct Struct_020465c0*)GetMessageWindow_020421a0();
+    struct MessageWindow_020465c0* var1 = (struct MessageWindow_020465c0*)GetMessageWindow_020421a0();
     func_0205de24((struct Struct_0205de24_2*)arg0->unknown_8c_, 0, 1);
     arg0->unknown_8c_->unknown_b1_ = 0;
     {
@@ -128,22 +128,22 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
         var6 = arg0->unknown_2c_;
     }
     for (var7 = var8 * 6; var7 < var6; var7++) {
-        const char* var9 = (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_c8_, (short)(arg0->unknown_14_[var7] + 100));
+        const char* var9 = (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_c8_, (short)(arg0->unknown_14_[var7] + 100));
         func_02041b70(var0, var7 % 6, var9);
         if (var7 != var6 - 1) {
-            func_02042058(var0, data_ov003_02180c7f);
+            AppendText_02042058(var0, data_ov003_02180c7f);
         }
     }
     if (arg0->unknown_2e_ > 1) {
-        func_02046380(var1);
-        func_020465c0(var1, 0, var8 + 1);
-        func_020465c0(var1, 1, arg0->unknown_2e_);
+        ClearMessageParams_02046380(var1);
+        SetMessageNumber_020465c0(var1, 0, var8 + 1);
+        SetMessageNumber_020465c0(var1, 1, arg0->unknown_2e_);
         func_020465f0((unsigned char*)var1, 0, 2);
         func_020465f0((unsigned char*)var1, 1, 2);
         func_020465d8((unsigned char*)var1, 0, 1);
         func_020465d8((unsigned char*)var1, 1, 0);
         func_02042428(var0, 8);
-        func_02042058(var0, (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_c8_, 200));
+        AppendText_02042058(var0, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_c8_, 200));
     }
     if (arg0->unknown_2e_ > 1) {
         func_0205d304(arg0->unknown_8c_, var0, 0, 0, 1, 1, 0);
@@ -208,10 +208,10 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
         var21 = arg0->unknown_30_;
     }
     for (var22 = var23 * 6; var22 < var21; var22++) {
-        const char* var24 = (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_cc_, (short)(arg0->unknown_18_[var22] + 100));
+        const char* var24 = (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_cc_, (short)(arg0->unknown_18_[var22] + 100));
         func_02041b70(var13, var22 % 6, var24);
         if (var22 != var21 - 1) {
-            func_02042058(var13, data_ov003_02180c7f);
+            AppendText_02042058(var13, data_ov003_02180c7f);
         }
     }
     if (arg0->unknown_32_ > 1) {

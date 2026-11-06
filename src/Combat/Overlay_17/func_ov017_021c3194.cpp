@@ -24,7 +24,7 @@ extern "C" Struct_ov017_021c3194_2* GetMessageWindow_020421a0(void);
 extern "C" void func_020531f0(void* arg0);
 struct Struct_02018300_3;
 extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
-extern "C" void func_02046380(void* arg0);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" int func_020e51cc(int arg0);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov017_021c3194(Struct_ov017_021c3194* arg0) {
             func_020531f0(var1);
             func_020397cc((struct Struct_02018300_3*)var1, 1);
         }
-        func_02046380(var3);
+        ClearMessageParams_02046380(var3);
         char* var5 = var3->unknown_5c_;
 #if defined(jpn)
         sprintf(var5, data_ov017_021d882c, (char*)var2->baseStats_);

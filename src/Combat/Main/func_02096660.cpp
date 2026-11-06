@@ -11,7 +11,7 @@ struct Struct_02096660 {
 };
 
 // JPN: func_02096660
-extern "C" ARM int func_02096660(Struct_0208cb08* arg0, int arg1, Struct_02096660* arg2, unsigned int arg3) {
+extern "C" ARM int func_02096660(FontLoader_0208cb08* arg0, int arg1, Struct_02096660* arg2, unsigned int arg3) {
     if (arg2 == NULL) return 1;
     if (arg3 == 0) return 1;
     arg2->unknown_8_ = (char*)arg2 + (int)arg2->unknown_8_;

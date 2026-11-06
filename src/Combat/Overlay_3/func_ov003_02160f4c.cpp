@@ -1,6 +1,6 @@
 #include "GameState/GameState.h"
 
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 struct Struct_02046574_2;
 struct Struct_0201099c_3;
 struct Struct_020444bc;
@@ -10,12 +10,12 @@ struct Struct_ov003_02160f4c {
 };
 
 extern "C" void *GetMessageWindow_020421a0(void);
-extern "C" void func_02046380(void *arg0);
-extern "C" void *func_02010828(GameState *arg0);
-extern "C" void func_020465c0(Struct_020465c0 *arg0, int arg1, int arg2);
+extern "C" void ClearMessageParams_02046380(void *window);
+extern "C" void *GetParty_02010828(GameState *gameState);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0 *window, int index, int number);
 extern "C" void *__clear(void *arg0, int arg1);
 extern "C" void func_02046574(Struct_02046574_2 *arg0, int arg1, char *arg2);
-extern "C" void *func_020e0434(Struct_0201099c_3 *arg0, int arg1);
+extern "C" void *FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void func_020e4bf4(void *arg0, int arg1);
 extern "C" void *func_ov003_02160bf8(void *arg0, int arg1);
 extern "C" void func_02042764(void *arg0, void *arg1, int arg2);
@@ -25,8 +25,8 @@ extern "C" void func_020e4b34(void *, const char *, void *, unsigned int, unsign
 extern "C" void StartMessage_0204500c(void *window, void *text, int arg2, int arg3);
 #endif
 extern "C" void func_020444bc(Struct_020444bc *arg0);
-extern "C" void func_02043204(char *arg0);
-extern "C" void func_02043124(char *arg0);
+extern "C" void ResetMessageWindow_02043204(char *window);
+extern "C" void CloseMessageWindow_02043124(char *window);
 extern "C" void func_ov003_02166f80(void *arg0, int arg1, int arg2);
 
 // USA: func_ov003_02160f4c
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
     unsigned char *var0 = (unsigned char *) GetMessageWindow_020421a0();
 
     if (arg0[0x2cd] == 0) {
-        func_02046380(var0);
+        ClearMessageParams_02046380(var0);
         if (*(unsigned int *) (arg0 + 0x28c) & 4) {
             unsigned char *var1 = arg0 + *(short *) (arg0 + 0x200 + 0xc0) * 0x1b;
             if ((signed char) var1[1] != 0) {
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
             } else {
                 func_02046574(
                     (Struct_02046574_2 *) var0, 0,
-                    (char *) func_020e0434((Struct_0201099c_3 *) (arg0 + 0x1c4), 0x7530));
+                    (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x1c4), 0x7530));
             }
             *(unsigned int *) (arg0 + 0x28c) &= ~4u;
         }
@@ -67,11 +67,11 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
         short var4            = *(short *) (arg0 + 0x200 + 0xac);
         unsigned char var5 = 1;
         if (var4 == 8 || var4 == 0x3d) var5 = 0;
-        void *var6 = func_020e0434((Struct_0201099c_3 *) (arg0 + 0x1c4), var4);
+        void *var6 = FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x1c4), var4);
         if (var6 == 0) {
             *(short *) (arg0 + 0x200 + 0xac) = *(short *) (arg0 + 0x200 + 0xae);
             *(short *) (arg0 + 0x200 + 0xae) = -1;
-            var6 = func_020e0434((Struct_0201099c_3 *) (arg0 + 0x1c4),
+            var6 = FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x1c4),
                                                                  *(short *) (arg0 + 0x200 + 0xac));
         }
         StartMessage_0204500c(var0, var6, 0);
@@ -104,8 +104,8 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
             *(short *) (arg0 + 0x200 + 0xae) = -1;
             if (*(short *) (arg0 + 0x200 + 0xac) < 0) {
                 if (*(unsigned int *) (arg0 + 0x28c) & 2) {
-                    func_02043204((char *) var0);
-                    func_02043124((char *) var0);
+                    ResetMessageWindow_02043204((char *) var0);
+                    CloseMessageWindow_02043124((char *) var0);
                     *(unsigned int *) (arg0 + 0x28c) &= ~2u;
                 }
                 if (*(unsigned int *) (arg0 + 0x28c) & 0x2000) {
@@ -124,10 +124,10 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
     char var9[0xc];
 
     if (arg0[0x4a5] == 0) {
-        func_02046380(var7);
+        ClearMessageParams_02046380(var7);
         GameState *var10    = GameState::GetInstance();
-        unsigned char *var11 = (unsigned char *) func_02010828(var10);
-        func_020465c0((Struct_020465c0 *) var7, 0, var11[0xf7c] - 1);
+        unsigned char *var11 = (unsigned char *) GetParty_02010828(var10);
+        SetMessageNumber_020465c0((MessageWindow_020465c0 *) var7, 0, var11[0xf7c] - 1);
         __clear(var8, 0x30);
         if (*(unsigned int *) (arg0 + 0x464) & 4) {
             unsigned char *var12 = arg0 + *(short *) (arg0 + 0x400 + 0x98) * 0x37;
@@ -136,7 +136,7 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
             } else {
                 func_02046574(
                     (Struct_02046574_2 *) var7, 0,
-                    (char *) func_020e0434((Struct_0201099c_3 *) (arg0 + 0x2dc), 0x7530));
+                    (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x2dc), 0x7530));
             }
             *(unsigned int *) (arg0 + 0x464) &= ~4u;
         }
@@ -159,11 +159,11 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
         short var14            = *(short *) (arg0 + 0x400 + 0x84);
         unsigned char var15 = 1;
         if (var14 == 8 || var14 == 0x3d) var15 = 0;
-        void *var16 = func_020e0434((Struct_0201099c_3 *) (arg0 + 0x2dc), var14);
+        void *var16 = FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x2dc), var14);
         if (var16 == 0) {
             *(short *) (arg0 + 0x400 + 0x84) = *(short *) (arg0 + 0x400 + 0x86);
             *(short *) (arg0 + 0x400 + 0x86) = -1;
-            var16 = func_020e0434((Struct_0201099c_3 *) (arg0 + 0x2dc),
+            var16 = FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x2dc),
                                                                  *(short *) (arg0 + 0x400 + 0x84));
         }
         StartMessage_0204500c(var7, var16, 0, 0xe3);
@@ -196,8 +196,8 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
             *(short *) (arg0 + 0x400 + 0x86) = -1;
             if (*(short *) (arg0 + 0x400 + 0x84) < 0) {
                 if (*(unsigned int *) (arg0 + 0x464) & 2) {
-                    func_02043204((char *) var7);
-                    func_02043124((char *) var7);
+                    ResetMessageWindow_02043204((char *) var7);
+                    CloseMessageWindow_02043124((char *) var7);
                     *(unsigned int *) (arg0 + 0x464) &= ~2u;
                 }
                 if (*(unsigned int *) (arg0 + 0x464) & 0x2000) {

@@ -5,7 +5,6 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
-#define func_0205ec34 func_0205ff20
 #define data_020e88a8 data_020e89bc
 struct Struct_020733d8_2;
 enum { Enum_020733d8_24 = 0x14, Enum_020733d8_96 = 0x5c };
@@ -13,13 +12,13 @@ enum { Enum_020733d8_24 = 0x14, Enum_020733d8_96 = 0x5c };
 enum { Enum_020733d8_24 = 0x18, Enum_020733d8_96 = 0x60 };
 #endif
 
-extern "C" void* func_0205ec34(void);
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_ov017_021a20c0(int arg0, int arg1, int arg2);
 extern "C" void* __clear(void* arg0, int arg1);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void VectorizedInvertedMemcpy(const void* src, void* dst, unsigned int length);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 struct Struct_0202b2f0;
 extern "C" int func_0202c1c0(struct Struct_0202b2f0* arg0, int arg1);
@@ -98,8 +97,8 @@ extern "C" ARM void func_020733d8(unsigned char* arg0, int arg1) {
         return;
     }
 
-    void* var0 = func_0205ec34();
-    if (func_0206dfb0((int)var0, (unsigned char*)var0 + 0x8c, 0x79a) != 0 &&
+    void* var0 = GetFlagManager_0205ec34();
+    if (IsFlagSet_0206dfb0((int)var0, (unsigned char*)var0 + 0x8c, 0x79a) != 0 &&
         *(unsigned short*)arg0 >= 0x190 && *(unsigned short*)arg0 <= 0x199) {
         return;
     }
@@ -172,11 +171,11 @@ extern "C" ARM void func_020733d8(unsigned char* arg0, int arg1) {
             GameState* var47;
 
             var47 = GameState::GetInstance();
-            var46 = (int*)func_0202ae18();
+            var46 = (int*)GetLocalWireless_0202ae18();
             VectorizedInvertedMemcpy(var7.unknown_0_, var45, 0x10);
 
             var44 = 0;
-            if (func_0202b7d8(var46) == 0) {
+            if (IsLocalWirelessOn_0202b7d8(var46) == 0) {
                 var42 = var47->GetUnknownGameObject();
                 if (var42 != 0 && var45[0] == -1) {
                     var43[0] = var42->obj3D_.unknown_4_;

@@ -5,12 +5,12 @@
 #include "Graphics/Vector.h"
 #include "World/ZoneResourceTree.h"
 
-struct Struct_02108760;
-extern "C" void func_0205eaa0(Struct_02108760 *, int, int);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
 extern "C" int func_0209ca2c(void *);
 
-extern Struct_02108760 data_02108760;
-extern char data_02109bf4[];
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
+extern char gMusicManager_02109bf4[];
 extern char data_020ef1f3[];
 extern char data_020ef1f8[];
 extern char data_020ef1fe[];
@@ -76,9 +76,9 @@ extern "C" ARM void func_02015554(void *arg0, void *arg1) {
         if (var0->unknown1_34_ == 0) {
             var0->unknown_54_->SetAnimationPlaybackSpeed(0x1800, 0);
             if (var0->unknown_54_->MaybeSetRegularAnimation(data_020ef1f3, 1))
-                func_0205eaa0(&data_02108760, 0x12, 0);
+                PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x12, 0);
             else if (var0->unknown_54_->MaybeSetRegularAnimation(data_020ef1f8, 1))
-                func_0205eaa0(&data_02108760, 0x62, 0);
+                PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x62, 0);
             var0->unknown1_34_ = 1;
         } else if (var0->unknown1_34_ == 1) {
             if (var0->unknown_54_->HasAnimationStopped()) {
@@ -89,11 +89,11 @@ extern "C" ARM void func_02015554(void *arg0, void *arg1) {
             unsigned int var9 = var1->GetEffectiveDeltaTime();
             if (var9 < var0->unknown1_36_) {
                 var0->unknown1_36_ -= var9;
-            } else if (!func_0209ca2c(data_02109bf4)) {
+            } else if (!func_0209ca2c(gMusicManager_02109bf4)) {
                 if (var0->unknown_54_->MaybeSetRegularAnimation(data_020ef1fe, 5))
-                    func_0205eaa0(&data_02108760, 0x13, 0);
+                    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x13, 0);
                 else if (var0->unknown_54_->MaybeSetRegularAnimation(data_020ef204, 5))
-                    func_0205eaa0(&data_02108760, 0x62, 0);
+                    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x62, 0);
                 var0->unknown_2_ &= ~0x100;
             }
         }

@@ -12,9 +12,6 @@ enum { Enum_ov004_02166844_0 = 0, Enum_ov004_02166844_1 = 1, Enum_ov004_02166844
 #include "NitroSDK/LoadToVRAM.h"
 #include "std_library_functions.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_0208b9a0 {
     unsigned int unknown_0_;
@@ -26,7 +23,7 @@ extern "C" void func_0208d82c(struct Struct_0208b9a0* arg0);
 extern "C" int* func_02094d6c(void);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_020e2d24(int* arg0, int arg1, int arg2);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_02095b30(int* arg0, int arg1);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void* func_ov004_02165e70(void* arg0, int arg1);
@@ -52,7 +49,7 @@ extern "C" ARM int func_ov004_02166844(void* arg0) {
     char* var0;
     data_ov004_0217101c[Enum_ov004_02166844_0] = 0;
     int* var1 = func_02094d6c();
-    char* var2 = (char*)func_0205ec34();
+    char* var2 = (char*)GetFlagManager_0205ec34();
     var0 = (char*)func_ov011_021845f8(arg0, 0);
     if (var0 == 0) {
         return 0;

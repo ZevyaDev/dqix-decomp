@@ -24,7 +24,7 @@ extern "C" void func_02080b40(void*, int);
 extern "C" void func_0208108c(void*, int);
 struct Struct_ov003_0215570c;
 extern "C" int func_ov003_0215570c(Struct_ov003_0215570c*);
-extern "C" unsigned char* func_02053c6c(unsigned char*);
+extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" void func_020806c4(void*, int);
 extern "C" void func_0208103c(void*, int, int);
 struct Struct_02080fa8;
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov003_02158480(Struct_ov003_02158334_3* arg0) {
     GameState* var7 = GameState::GetInstance();
     unsigned char* var8 = (unsigned char*)var7->GetPartyMemberByIndex(arg0->unknown_1f7_);
     if (var8 != NULL) {
-        unsigned char* var9 = func_02053c6c(var8);
+        unsigned char* var9 = GetPartyMemberData_02053c6c(var8);
         for (unsigned char var10 = 0; var10 < 12; var10++) {
             int var11 = arg0->unknown_20_[var10];
             if (var11 != 0) {

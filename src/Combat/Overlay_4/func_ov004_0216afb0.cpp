@@ -3,7 +3,7 @@
 #include "Memory/SafeAllocator.h"
 
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
-extern "C" void* func_ov011_021849c8(void*);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 struct Struct_ov004_0216afb0;
 extern "C" void func_ov023_021f89f4(struct Struct_ov004_0216afb0* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10);
 
@@ -30,5 +30,5 @@ extern "C" ARM void func_ov004_0216afb0(void* arg0, int arg1, int arg2, int arg3
     if (arg8 == 0) var3 = 3;
     func_ov023_021f89f4((struct Struct_ov004_0216afb0*)var1, arg0, arg1, arg2, arg3, 0x192, arg4, arg5, arg6, arg7, var3);
 
-    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)func_ov011_021849c8(arg0), (struct Struct_ov004_0215c30c_2*)var1);
+    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)GetMenuObjectList_ov011_021849c8(arg0), (struct Struct_ov004_0215c30c_2*)var1);
 }

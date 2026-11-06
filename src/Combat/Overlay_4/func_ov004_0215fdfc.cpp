@@ -5,9 +5,9 @@
 extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
 extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
 extern "C" unsigned short func_ov004_0215eb20(void* arg0, int arg1);
-struct Struct_02108760;
-extern struct Struct_02108760 data_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void* func_ov004_0215e4c0(void* arg0, int arg1);
 struct Struct_ov004_0215fdfc;
 extern "C" void func_ov023_021f809c(struct Struct_ov004_0215fdfc*, void*);
@@ -247,7 +247,7 @@ extern "C" ARM int func_ov004_0215fdfc(void* arg0) {
     func_ov004_0215ef14();
 #endif
     data_ov004_021707e8.unknown_1_ = 1;
-    func_0205eaa0(&data_02108760, 1, 0);
+    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
     Struct_ov004_0215fdfc_4* var17 = func_ov004_0215e47c(arg0, 0x82);
     func_ov023_021fc71c(var17, data_ov004_021707e8.unknown_1c_, 1);
     data_ov004_021707e8.unknown_b_ = 0;

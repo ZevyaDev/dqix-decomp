@@ -15,14 +15,14 @@ enum { Enum_ov003_021735c4_216 = 0xd8 };
 #include "NitroSDK/Cache.h"
 #include "NitroSDK/LoadToVRAM.h"
 
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void func_020a620c(void* arg0);
 extern "C" int func_020a64a8(unsigned char* arg0);
-extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
-extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
+extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
 extern char data_ov003_02180a76[];
 
@@ -59,9 +59,9 @@ extern "C" ARM void func_ov003_021735c4(struct Struct_ov003_021735c4* arg0) {
             unsigned char* var5[3];
             int var6[3];
             var1->GetLoadedFileByID(arg0->unknown_f4_, &var3, &var4);
-            int var7 = func_02046900((struct Struct_02020cb8_4*)var3);
+            int var7 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var3);
             for (int var8 = 0; var8 < var7; var8++) {
-                var5[var8] = (unsigned char*)func_020467f0((struct Struct_02020aec*)var3, var8, &var2, &var6[var8]);
+                var5[var8] = (unsigned char*)GetPacEntryData_020467f0((struct PacEntry_02020aec*)var3, var8, &var2, &var6[var8]);
             }
             memset((void*)GetSubBG0ScreenBase(), 0, 0x800);
             unsigned char* var9 = var5[2];

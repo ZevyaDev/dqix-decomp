@@ -7,9 +7,6 @@ enum { Enum_ov017_0219814c_108 = 0x6c };
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_ov017_0219814c {
     char unknown_0_[0x2c];
@@ -30,7 +27,7 @@ struct Struct_ov017_0219814c_3 {
 };
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
 extern "C" int func_02094b9c(struct Struct_ov017_0219814c* arg0, struct Struct_ov017_0219814c_2* arg1);
 extern "C" struct Struct_ov017_0219814c* func_02053ccc(unsigned char* arg0);
@@ -42,7 +39,7 @@ extern "C" void func_0206f81c(void* arg0);
 extern "C" ARM void func_ov017_0219814c(void) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetZone3D_02012fe4();
-    void* var2 = func_0205ec34();
+    void* var2 = GetFlagManager_0205ec34();
     GameObject* var3 = var0->GetUnknownGameObject();
     struct Struct_ov017_0219814c_2 var4 = *(struct Struct_ov017_0219814c_2*)((char*)var3 + 0x44);
     struct Struct_ov017_0219814c_3 var5;

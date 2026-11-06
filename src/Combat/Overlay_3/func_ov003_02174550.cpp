@@ -26,7 +26,7 @@ struct Struct_020e28dc;
 struct Struct_020e25e8;
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 extern "C" void func_0207fe44(struct Struct_0207fe44* arg0);
 extern "C" void func_ov003_021749c0(char* arg0);
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov003_02174550(char* arg0) {
     if (*(unsigned char*)(arg0 + Enum_ov003_02174550_4174) != 0) return;
     *(unsigned char*)(arg0 + Enum_ov003_02174550_4174) = 1;
 
-    func_02043204((char*)GetMessageWindow_020421a0());
+    ResetMessageWindow_02043204((char*)GetMessageWindow_020421a0());
     func_0208203c((struct Struct_02081f20_2*)(arg0 + Enum_ov003_02174550_2188));
 
     *(int*)(arg0 + Enum_ov003_02174550_4088) = 0;

@@ -17,7 +17,7 @@ extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
 extern "C" void func_02083e28(void* arg0, int arg1);
 
 extern char data_020f1019[];
-extern unsigned char data_0211e33c[0x30000];
+extern unsigned char gFileScratchSpace_0211e33c[0x30000];
 struct Struct_02082fc4 { unsigned int unknown_0_[5]; };
 struct Struct_02082fc4_2 { unsigned char unknown_0_[0x18]; };
 struct Struct_02082fc4_3 {
@@ -33,7 +33,7 @@ extern "C" ARM void func_02082fc4(void* arg0, void* arg1) {
     sprintf(var0, data_020f1019, *(int*)((char*)arg0 + Enum_02082fc4_2384));
     BackgroundLoader::AddLockGlobal();
     unsigned int var1;
-    void* var2 = LoadFileIntoMemory(var0, &data_0211e33c, &var1);
+    void* var2 = LoadFileIntoMemory(var0, &gFileScratchSpace_0211e33c, &var1);
     if (var2 != NULL) {
         Struct_02082fc4_3 var3;
         func_0208247c(&var3);

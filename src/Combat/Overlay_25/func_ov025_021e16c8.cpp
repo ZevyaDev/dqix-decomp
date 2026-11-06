@@ -66,7 +66,7 @@ extern "C" ARM void func_ov025_021e16c8(Struct_ov025_021e16c8_3* arg0, Struct_ov
     Struct_ov025_021e16c8* var11 = 0;
     int var12 = 2;
     int var13 = 1;
-    if (arg1->unknown_8_->obj3D_.unknown_0_ & 0x400) var11 = arg1->unknown_8_->unknown_148_;
+    if (arg1->unknown_8_->obj3D_.classFlags_0_ & 0x400) var11 = arg1->unknown_8_->unknown_148_;
     if (var11) {
         unsigned int var14 = (var11->unknown_10_ << 1) >> 30;
         if (var14) { var12 += var14; var13 += var14; }

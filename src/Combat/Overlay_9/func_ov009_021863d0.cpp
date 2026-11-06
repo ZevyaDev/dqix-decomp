@@ -8,7 +8,7 @@ struct Struct_ov009_021863d0 {
     unsigned char unknown_c12_;
 };
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void func_ov009_02188c2c(Struct_ov009_021842a0* arg0);
 extern "C" void func_ov009_02188d9c(Struct_ov009_021842a0* arg0);
 extern "C" void func_ov009_02188e70(Struct_ov009_021842a0* arg0, int arg1);
@@ -26,7 +26,7 @@ extern "C" void func_ov009_021855dc(unsigned char* arg0, int arg1);
 extern "C" ARM void func_ov009_021863d0(Struct_ov009_021842a0* arg0)
 {
     GameState* var0 = GameState::GetInstance();
-    GameResources* var1 = (GameResources*)func_0200fb8c((int*)var0);
+    GameResources* var1 = (GameResources*)GetResources_0200fb8c((int*)var0);
     if (arg0->unknown_c59_ == 0)
     {
         if (GetBrightness((GameResources*)var1, false) == -16 &&

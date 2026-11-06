@@ -4,38 +4,38 @@
 #include "NitroSDK/Memory/SignedAllocator.h"
 #include "GameState/GameState.h"
 
-struct Struct_0201099c_10;
-struct Struct_0201099c_9;
+struct ItemTable_0201099c_10;
+struct ItemData_0201099c_9;
 struct Struct_0205faf4_11;
 struct Struct_0207d300;
 
 struct Struct_0207ccf0_4 {
     char unknown_0_[0x2c];
-    struct Struct_0201099c_10* unknown_2c_;
+    struct ItemTable_0201099c_10* unknown_2c_;
 };
 
-struct Struct_0201099c_9 {
+struct ItemData_0201099c_9 {
     char unknown_0_[8];
     unsigned int unknown_8_0_ : 4;
     unsigned int unknown_8_4_ : 21;
     unsigned int unknown_b_1_ : 1;
 };
 
-extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
 extern "C" void* func_0207d6dc(SafeAllocator* arg0, int arg1, int arg2);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
 extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
-extern "C" unsigned char* func_02053c6c(unsigned char* arg0);
+extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_02083960(struct Struct_0207d300* arg0);
 extern "C" int func_0207ccf0(struct Struct_0207ccf0_4* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 extern "C" int func_0207cf30(struct Struct_0207ccf0_4* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0207d134(struct Struct_0207ccf0_4* arg0, int arg1, int arg2);
 extern "C" int func_0207d200(struct Struct_0207ccf0_4* arg0, short arg1, int arg2);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
-extern AllocatorUnion data_02114e20;
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern AllocatorUnion gMainHeap_02114e20;
 
-static inline int inline_0207d300(struct Struct_0201099c_9* arg0) {
+static inline int inline_0207d300(struct ItemData_0201099c_9* arg0) {
     return arg0->unknown_8_0_ <= 7;
 }
 
@@ -47,7 +47,7 @@ extern "C" ARM int func_0207d300(struct Struct_0207ccf0_4* arg0, short arg1, sho
         var0 = 1;
     }
     int var1 = -1;
-    struct Struct_0201099c_9* var2 = func_020dedd0(arg0->unknown_2c_, arg1);
+    struct ItemData_0201099c_9* var2 = func_020dedd0(arg0->unknown_2c_, arg1);
     if (var2 == NULL) {
         var1 = -2;
     } else if (inline_0207d300(var2) != 0) {
@@ -62,7 +62,7 @@ extern "C" ARM int func_0207d300(struct Struct_0207ccf0_4* arg0, short arg1, sho
         }
     } else {
         GameState* var3 = GameState::GetInstance();
-        char* var4 = (char*)func_02010828(var3);
+        char* var4 = (char*)GetParty_02010828(var3);
         unsigned char var5;
         for (var5 = 0; var5 < *(unsigned char*)(var4 + 0xf7c); var5++) {
             int var6 = *(signed char*)(var4 + var5 + 0xf78);
@@ -82,7 +82,7 @@ extern "C" ARM int func_0207d300(struct Struct_0207ccf0_4* arg0, short arg1, sho
                     continue;
                 }
             }
-            unsigned char* var9 = func_02053c6c((unsigned char*)var7);
+            unsigned char* var9 = GetPartyMemberData_02053c6c((unsigned char*)var7);
             if (var9 == NULL) {
                 continue;
             }
@@ -107,7 +107,7 @@ extern "C" ARM int func_0207d300(struct Struct_0207ccf0_4* arg0, short arg1, sho
         SafeAllocator* var10 = (SafeAllocator*)arg0;
         SignedAllocatorHeader* var11 = var10->GetSignedAllocator();
         var10->Destroy();
-        func_02012da4(&data_02114e20, var11);
+        FreeMemory_02012da4(&gMainHeap_02114e20, var11);
         arg0->unknown_2c_ = NULL;
     }
     return var1;

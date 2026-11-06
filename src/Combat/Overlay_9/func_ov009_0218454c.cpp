@@ -31,7 +31,7 @@ struct Struct_ov009_021847c4 {
     int unknown_1c_;
 };
 
-extern "C" unsigned int* func_020d6c00();
+extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_020de848(void* arg0);
 extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov009_0218454c(Struct_ov009_021842a0_2* arg0, int arg1,
 {
     arg0->unknown_d95_ = arg2;
     if (arg0->unknown_d95_ == 1)
-        func_020466e4(func_020d6c00(), 0xf);
+        func_020466e4(GetGlobalFlags_020d6c00(), 0xf);
     arg0->unknown_0_[0].ResetAllocatorPointer();
     arg0->unknown_0_[1].ResetAllocatorPointer();
     arg0->unknown_0_[2].ResetAllocatorPointer();

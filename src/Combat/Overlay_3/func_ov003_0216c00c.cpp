@@ -24,17 +24,17 @@ struct Struct_0203d028_3 {
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0202ae18();
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* GetGlobalFlags_020d6c00(void);
 #if defined(jpn)
 extern "C" void func_ov003_0216d8d4(char* arg0, int arg1);
 #else
 extern "C" void func_ov003_0216d8d4(char* arg0, int arg1, int arg2, int arg3, int arg4);
 #endif
 extern "C" int func_020457e0(char* arg0);
-extern "C" void func_02043204(char* arg0);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern "C" void func_02012da4(AllocatorUnion*, void*);
+extern "C" void ResetMessageWindow_02043204(char* window);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
 extern "C" void func_ov003_02170d38(char*);
 class Struct_ov003_0216c00c;
 extern "C" int func_ov003_021714a0(Struct_ov003_0216c00c* arg0);
@@ -49,9 +49,9 @@ extern "C" int func_ov003_021727c8(char* arg0);
 extern "C" void func_ov003_02173d40(char* arg0);
 
 extern "C" void func_020119f8(char*, void*);
-extern "C" int func_0202b7d8(int*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_02011a40(char*);
-extern "C" void* func_02053c6c(unsigned char*);
+extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
 struct GameState;
 extern "C" int func_02011804(GameState*);
 extern "C" void func_020119d8(void*);
@@ -75,14 +75,14 @@ struct Struct_02059cfc_3;
 extern "C" void func_02059f38(Struct_02059cfc_2*, Struct_02059cfc_3*);
 struct Struct_02033834;
 extern "C" void func_02033874(Struct_02033834*, int);
-struct Struct_0203d028;
-extern "C" void func_0207df50(struct Struct_0203d028* arg0);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+struct TextureVRAMArea_0203d028;
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" int func_ov017_021b1fa8(void* arg0);
 extern "C" int func_ov017_021b1fb0(void* arg0);
 extern "C" void* func_ov017_021b1fb8(void* arg0);
-extern "C" int func_020ac4c0(void* arg0);
+extern "C" int GetBattleRecords_020ac4c0(void* records);
 struct Struct_020a03f8;
 extern "C" void func_020a03f8(Struct_020a03f8*, unsigned int);
 extern "C" void func_020ac494(void* arg0);
@@ -94,9 +94,9 @@ extern "C" void func_02011818(void*, Struct_02011818*);
 extern "C" void func_02011ab8(char*);
 extern "C" void func_02011a74(char*, unsigned int, char const*);
 
-extern int data_02109bf4;
-extern AllocatorUnion data_02114e20;
-extern unsigned char data_0211e33c[];
+extern int gMusicManager_02109bf4;
+extern AllocatorUnion gMainHeap_02114e20;
+extern unsigned char gFileScratchSpace_0211e33c[];
 extern char data_ov003_021801e0[];
 extern char data_ov003_021801f8[];
 extern char data_ov003_021801fc[];
@@ -133,10 +133,10 @@ static inline void inline_ov003_0216c00c_8(struct Struct_ov003_0216c00c_11* arg0
 #if defined(jpn)
 struct Struct_02046574_2;
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
-struct Struct_020465c0;
-extern "C" void func_020465c0(Struct_020465c0*, int, int);
+struct MessageWindow_020465c0;
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 struct Struct_0201099c_3;
-extern "C" char* func_020e0434(Struct_0201099c_3*, int);
+extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern char data_ov003_0217e99c[];
 extern char data_ov003_0217e9b4[];
 extern char data_ov003_0217e9b8[];
@@ -159,8 +159,8 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     char* var2 = (char*)GetMessageWindow_020421a0();
     struct Struct_ov003_0216c00c_17* var3 = (struct Struct_ov003_0216c00c_17*)GetZone3D_02012fe4();
     struct Struct_ov003_0216c00c_11* var4 = &var3->unknown_860_;
-    void* var5 = func_0202ae18();
-    void* var6 = func_020d6c00();
+    void* var5 = GetLocalWireless_0202ae18();
+    void* var6 = GetGlobalFlags_020d6c00();
 
     short var7 = *(short*)(arg0 + 0xa);
     if (var7 == 1) {
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (inline_ov003_0216c00c_7(var4) == 0) {
             func_ov003_0216d8d4(arg0, 0x47);
             *(short*)(arg0 + 6) = 0x63;
-        } else if (func_0202b7d8((int*)var5) != 0) {
+        } else if (IsLocalWirelessOn_0202b7d8((int*)var5) != 0) {
             func_ov003_0216d8d4(arg0, 0x3f);
             *(short*)(arg0 + 6) = 0x63;
         } else {
@@ -216,7 +216,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
             *(short*)(arg0 + 6) = 3;
             struct Struct_0203d028_3* var10 = (Struct_0203d028_3*)((GameState*)var0)->GetProtagonist();
             if (var10 != 0) {
-                struct Struct_ov003_0216c00c_2* var11 = inline_ov003_0216c00c((struct Struct_ov003_0215d4fc*)func_02053c6c((unsigned char*)var10), 1);
+                struct Struct_ov003_0216c00c_2* var11 = inline_ov003_0216c00c((struct Struct_ov003_0215d4fc*)GetPartyMemberData_02053c6c((unsigned char*)var10), 1);
                 struct Struct_ov003_0216c00c_5* var12 = &((struct Struct_ov003_0216c00c_15*)var0)->unknown_3c_.unknown_5400_;
                 var12->unknown_3_1_ = var11->unknown_414_0_;
                 var12->unknown_2_5_ = var11->unknown_414_0_;
@@ -224,7 +224,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
                 var13->unknown_6_3_ = ((struct Struct_ov003_0216c00c_13*)var10)->unknown_144_->unknown_8b8_ + 700;
             }
         } else {
-            func_02043204(var2);
+            ResetMessageWindow_02043204(var2);
             *(short*)(arg0 + 4) = 7;
             *(short*)(arg0 + 6) = 0;
             func_ov017_021c1798(var1, 0);
@@ -280,7 +280,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     } else if (var9 == 0x65) {
         *(unsigned char*)(var2 + 0x1000 + 0x7de) = 0;
         if (*(int*)(var2 + 0x870) != 0) return;
-        func_02043204(var2);
+        ResetMessageWindow_02043204(var2);
         *(short*)(arg0 + 4) = 7;
         *(short*)(arg0 + 6) = 0;
         func_020119d8(var0);
@@ -302,8 +302,8 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
             if (*(int*)(arg0 + 0x1000 + 0x298) < 0x12c) return;
         }
         *(int*)(arg0 + 0x1000 + 0x298) = 0;
-        func_02043204(var2);
-        func_0209c2e0(&data_02109bf4, 0, 0x12);
+        ResetMessageWindow_02043204(var2);
+        func_0209c2e0(&gMusicManager_02109bf4, 0, 0x12);
         func_ov003_02170d88(arg0 + 0x368 + 0x400);
         struct TreasureMapMetadata var14;
         func_020119f8((char*)var0, &var14);
@@ -321,7 +321,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         } else {
             *(unsigned char*)(arg0 + 0x911) = 0;
         }
-        void* var16 = func_02012d88(&data_02114e20, 0x13800);
+        void* var16 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x13800);
         ((SafeAllocator*)(arg0 + 0x164 + 0x1000))->CreateTypeA(var16, 0x13800);
         func_ov003_02173c40(arg0 + 0xda0);
         func_ov003_021726f8(arg0 + 0xda0, (SafeAllocator*)(arg0 + 0x164 + 0x1000));
@@ -329,7 +329,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (var17 != 0) {
             *(Struct_ov003_0216c00c**)(arg0 + 0xe6c) = var17;
         }
-        func_020466e4((unsigned int*)func_020d6c00(), 0x10080);
+        func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x10080);
         SetMainBrightness(var1, -16, 0x24);
         SetSubBrightness(var1, -16, 0x24);
         *(short*)(arg0 + 6) = 6;
@@ -352,7 +352,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         }
         if (func_ov003_021727c8(arg0 + 0xda0) == 0) {
         *(unsigned char*)(arg0 + 0x1000 + 0x27b) = 1;
-        func_020466f4((Struct_02038598_4*)func_020d6c00(), 0x10080);
+        func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x10080);
         *(unsigned char*)(arg0 + 0x1000 + 0x27e) = 0;
         *(unsigned char*)(arg0 + 0x1000 + 0x27e) = *(unsigned char*)(arg0 + 0xe70);
         int var20 = *(unsigned char*)(arg0 + 0xd97);
@@ -362,10 +362,10 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         void* var21 = ((SafeAllocator*)(arg0 + 0x164 + 0x1000))->GetSignedAllocator();
         if (var21 != 0) {
             ((SafeAllocator*)(arg0 + 0x164 + 0x1000))->Destroy();
-            func_02012da4(&data_02114e20, var21);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var21);
         }
         int var22[0x2c];
-        func_020ac4c0(var22);
+        GetBattleRecords_020ac4c0(var22);
         func_020a03f8((Struct_020a03f8*)var22, *(unsigned char*)(arg0 + 0x1000 + 0x27e));
         func_020ac494(var22);
         { int var23 = inline_ov003_0216c00c_5(var4); inline_ov003_0216c00c_6(var4, *(unsigned char*)(arg0 + 0x1000 + 0x27d) + var23); }
@@ -417,7 +417,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         func_ov003_0216d8d4(arg0, 0x38);
         *(short*)(arg0 + 6) = 8;
     } else if (var9 == 0xc) {
-        Struct_0208cb08* var29 = func_02094a00();
+        FontLoader_0208cb08* var29 = func_02094a00();
         struct Struct_0203d028_3* var30 = (Struct_0203d028_3*)((GameState*)var0)->GetUnknownGameObject();
         if (var30 != 0) {
             func_020397cc((Struct_02018300_3*)var30, 1);
@@ -427,8 +427,8 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (IsBrightnessTransitionActive(var1) != 0) return;
         void* var31 = *(void**)((char*)var3 + 8);
         int var32 = ((struct Struct_ov003_0216c00c_8*)var31)->unknown_d_0_;
-        func_0209c3b4((struct Struct_0209c3b4_2*)&data_02109bf4, var32);
-        func_0209c2e0(&data_02109bf4, 0x7f, 0);
+        func_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var32);
+        func_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
         if (*(unsigned char*)(arg0 + 0x1000 + 0x279) != 0) {
             *(int*)(var2 + 0x868) = 1;
             func_ov003_0216d8d4(arg0, 0x4b);
@@ -470,7 +470,7 @@ phase2:;
         *(unsigned char*)(var2 + 0x1000 + 0x7de) = 0;
         *(unsigned char*)(arg0 + 0x1000 + 0x27c) |= 4;
         BackgroundLoader::AddLockGlobal();
-        if (func_020aad1c((int)(arg0 + 0x29c + 0x1000), (int)data_0211e33c, 8, 0) == 1) {
+        if (func_020aad1c((int)(arg0 + 0x29c + 0x1000), (int)gFileScratchSpace_0211e33c, 8, 0) == 1) {
             *(unsigned char*)(arg0 + 0x1000 + 0x27c) &= ~4;
             func_ov003_0216d8d4(arg0, 0xc9);
             *(short*)(arg0 + 6) = 0x12f;
@@ -499,7 +499,7 @@ phase2:;
         return;
     } else if (var9 == 0xe) {
         ((SafeAllocator*)(arg0 + 0x178 + 0x1000))->ResetAllocatorPointer();
-        void* var35 = func_02012d88(&data_02114e20, 0xc800);
+        void* var35 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0xc800);
         ((SafeAllocator*)(arg0 + 0x178 + 0x1000))->CreateTypeA(var35, 0xc800);
         ((SafeAllocator*)(arg0 + 0x178 + 0x1000))->Reset();
         unsigned int var36;
@@ -508,9 +508,9 @@ phase2:;
             *(short*)(arg0 + 6) = 0xf;
             return;
         }
-        struct Struct_0203d028* var38 = (struct Struct_0203d028*)((char (*)[0x70])var1->unknown_2cc_)[0x1c];
-        func_0207df50(var38);
-        func_0207df90((char*)var38);
+        struct TextureVRAMArea_0203d028* var38 = (struct TextureVRAMArea_0203d028*)((char (*)[0x70])var1->unknown_2cc_)[0x1c];
+        ResetTextureVRAMState_0207df50(var38);
+        RestoreTextureVRAMState_0207df90((char*)var38);
         struct ObjectArchiveLoadInfo var39;
         var39.unk_0 = 0;
         var39.unk_14 = 0;
@@ -521,7 +521,7 @@ phase2:;
         var39.fileData = var37;
         var39.unk_8 = var36;
         ((Object3D*)(arg0 + 0x1cc + 0x1000))->LoadFromCHRArchive(&var39);
-        func_0207dfac((char*)var38);
+        SaveTextureVRAMState_0207dfac((char*)var38);
         *(unsigned char*)(arg0 + 0x1000 + 0x278) = 1;
         ((Object3D*)(arg0 + 0x1cc + 0x1000))->MaybeSetRegularAnimation(data_ov003_0217e9b4, 1);
         struct Struct_0203d028_3* var40 = (Struct_0203d028_3*)((GameState*)var0)->GetUnknownGameObject();
@@ -537,13 +537,13 @@ phase2:;
         void* var41 = ((SafeAllocator*)(arg0 + 0x178 + 0x1000))->GetSignedAllocator();
         if (var41 != 0) {
             ((SafeAllocator*)(arg0 + 0x178 + 0x1000))->Destroy();
-            func_02012da4(&data_02114e20, var41);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var41);
         }
         *(unsigned char*)(arg0 + 0x1000 + 0x278) = 0;
         void* var42 = *(void**)((char*)var1 + 0x3928);
-        func_020465c0((Struct_020465c0*)var2, 1, func_ov017_021b1fb0(var42));
+        SetMessageNumber_020465c0((MessageWindow_020465c0*)var2, 1, func_ov017_021b1fb0(var42));
         short var43 = func_ov017_021b1fa8(var42) + 0x64;
-        func_02046574((Struct_02046574_2*)var2, 5, func_020e0434((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000), var43));
+        func_02046574((Struct_02046574_2*)var2, 5, FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000), var43));
         *(int*)(var2 + 0x868) = 1;
         func_ov003_0216d8d4(arg0, 0x4f);
         *(short*)(arg0 + 6) = 0x10;
@@ -577,8 +577,8 @@ phase2:;
     } else if (var9 == 0x12) {
         void* var49 = GetZone3D_02012fe4();
         int var50 = (*(struct Struct_ov003_0216c00c_8**)((char*)var49 + 8))->unknown_d_0_;
-        func_0209c3b4((struct Struct_0209c3b4_2*)&data_02109bf4, var50);
-        func_0209c2e0(&data_02109bf4, 0x7f, 0);
+        func_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var50);
+        func_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
         if ((unsigned int)func_02011804((GameState*)var0) >= 0x63) {
             *(short*)(arg0 + 6) = 0x13;
             char* var51 = (char*)GetMessageWindow_020421a0();
@@ -634,8 +634,8 @@ phase2:;
         char var65[0x20];
         sprintf(var65, data_ov003_0217e9b8, var64);
         func_02011ab8((char*)var0);
-        func_02011a74((char*)var0, 0, func_020e0434((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000), (short)(func_ov017_021b1fa8(var61) + 0x64)));
-        func_02011a74((char*)var0, 1, func_020e0434((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000), 0x64));
+        func_02011a74((char*)var0, 0, FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000), (short)(func_ov017_021b1fa8(var61) + 0x64)));
+        func_02011a74((char*)var0, 1, FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000), 0x64));
         func_02011a74((char*)var0, 3, var65);
         func_ov017_021a9ff0(1);
         *(short*)(arg0 + 6) = 0x14;
@@ -657,7 +657,7 @@ phase2:;
         return;
     } else if (var9 == 0x62) {
         if (*(int*)(var2 + 0x870) != 0 || *(int*)(var2 + 0x868) != 0) return;
-        func_02043204(var2);
+        ResetMessageWindow_02043204(var2);
         *(short*)(arg0 + 4) = 7;
         *(short*)(arg0 + 6) = 0;
     }
@@ -669,8 +669,8 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     GameResources* var69 = GetGameResources();
     char* var70 = (char*)GetMessageWindow_020421a0();
     void* var71 = GetZone3D_02012fe4();
-    void* var72 = func_0202ae18();
-    void* var73 = func_020d6c00();
+    void* var72 = GetLocalWireless_0202ae18();
+    void* var73 = GetGlobalFlags_020d6c00();
 
     short var74 = *(short*)(arg0 + 0xa);
     if (var74 == 1) {
@@ -700,7 +700,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (inline_ov003_0216c00c_7(inline_ov003_0216c00c_4(var71)) == 0) {
             func_ov003_0216d8d4(arg0, 0x47, -1, -1, -1);
             *(short*)(arg0 + 6) = 0x63;
-        } else if (func_0202b7d8((int*)var72) != 0) {
+        } else if (IsLocalWirelessOn_0202b7d8((int*)var72) != 0) {
             func_ov003_0216d8d4(arg0, 0x3f, -1, -1, -1);
             *(short*)(arg0 + 6) = 0x63;
         } else {
@@ -725,7 +725,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
             *(short*)(arg0 + 6) = 3;
             struct Struct_0203d028_3* var77 = (Struct_0203d028_3*)((GameState*)var68)->GetProtagonist();
             if (var77 != 0) {
-                struct Struct_ov003_0216c00c_2* var78 = inline_ov003_0216c00c((struct Struct_ov003_0215d4fc*)func_02053c6c((unsigned char*)var77), 1);
+                struct Struct_ov003_0216c00c_2* var78 = inline_ov003_0216c00c((struct Struct_ov003_0215d4fc*)GetPartyMemberData_02053c6c((unsigned char*)var77), 1);
                 struct Struct_ov003_0216c00c_5* var79 = &((struct Struct_ov003_0216c00c_7*)var68)->unknown_29c_.unknown_5400_;
                 var79->unknown_3_1_ = var78->unknown_414_0_;
                 var79->unknown_2_5_ = var78->unknown_414_0_;
@@ -735,7 +735,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
                 var80->unknown_6_3_ = var81 - 20000 + ((struct Struct_ov003_0216c00c_4*)var77)->unknown_150_->unknown_950_;
             }
         } else {
-            func_02043204(var70);
+            ResetMessageWindow_02043204(var70);
             *(short*)(arg0 + 4) = 7;
             *(short*)(arg0 + 6) = 0;
             func_ov017_021c1798(var69, 0);
@@ -791,7 +791,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     } else if (var76 == 0x65) {
         *(unsigned char*)(var70 + 0x1000 + 0x9ae) = 0;
         if (*(int*)(var70 + 0x9a0) != 0) return;
-        func_02043204(var70);
+        ResetMessageWindow_02043204(var70);
         *(short*)(arg0 + 4) = 7;
         *(short*)(arg0 + 6) = 0;
         func_020119d8(var68);
@@ -813,8 +813,8 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
             if (*(int*)(arg0 + 0x1000 + 0x408) < 0x12c) return;
         }
         *(int*)(arg0 + 0x1000 + 0x408) = 0;
-        func_02043204(var70);
-        func_0209c2e0(&data_02109bf4, 0, 0x12);
+        ResetMessageWindow_02043204(var70);
+        func_0209c2e0(&gMusicManager_02109bf4, 0, 0x12);
         func_ov003_02170d88(arg0 + 0x7e0);
         struct TreasureMapMetadata var82;
         func_020119f8((char*)var68, &var82);
@@ -832,7 +832,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         } else {
             *(unsigned char*)(arg0 + 0x9ad) = 0;
         }
-        void* var84 = func_02012d88(&data_02114e20, 0x13800);
+        void* var84 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x13800);
         ((SafeAllocator*)(arg0 + 0x2d4 + 0x1000))->CreateTypeA(var84, 0x13800);
         func_ov003_02173c40(arg0 + 0x31c + 0xc00);
         func_ov003_021726f8(arg0 + 0x31c + 0xc00, (SafeAllocator*)(arg0 + 0x2d4 + 0x1000));
@@ -840,7 +840,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (var85 != 0) {
             *(Struct_ov003_0216c00c**)(arg0 + 0xfec) = var85;
         }
-        func_020466e4((unsigned int*)func_020d6c00(), 0x10080);
+        func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x10080);
         SetMainBrightness(var69, -16, 0x24);
         SetSubBrightness(var69, -16, 0x24);
         *(short*)(arg0 + 6) = 6;
@@ -863,7 +863,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         }
         if (func_ov003_021727c8(arg0 + 0x31c + 0xc00) == 0) {
         *(unsigned char*)(arg0 + 0x1000 + 0x3eb) = 1;
-        func_020466f4((Struct_02038598_4*)func_020d6c00(), 0x10080);
+        func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x10080);
         *(unsigned char*)(arg0 + 0x1000 + 0x3ee) = 0;
         *(unsigned char*)(arg0 + 0x1000 + 0x3ee) = *(unsigned char*)(arg0 + 0xff0);
         int var88 = *(unsigned char*)(arg0 + 0xf13);
@@ -873,10 +873,10 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         void* var89 = ((SafeAllocator*)(arg0 + 0x2d4 + 0x1000))->GetSignedAllocator();
         if (var89 != 0) {
             ((SafeAllocator*)(arg0 + 0x2d4 + 0x1000))->Destroy();
-            func_02012da4(&data_02114e20, var89);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var89);
         }
         int var90[0x2c];
-        func_020ac4c0(var90);
+        GetBattleRecords_020ac4c0(var90);
         func_020a03f8((Struct_020a03f8*)var90, *(unsigned char*)(arg0 + 0x1000 + 0x3ee));
         func_020ac494(var90);
         inline_ov003_0216c00c_6(inline_ov003_0216c00c_4(var71), *(unsigned char*)(arg0 + 0x1000 + 0x3ed) + inline_ov003_0216c00c_5(inline_ov003_0216c00c_4(var71)));
@@ -930,7 +930,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         func_ov003_0216d8d4(arg0, 0x38, -1, -1, -1);
         *(short*)(arg0 + 6) = 8;
     } else if (var76 == 0xc) {
-        Struct_0208cb08* var98 = func_02094a00();
+        FontLoader_0208cb08* var98 = func_02094a00();
         struct Struct_0203d028_3* var99 = (Struct_0203d028_3*)((GameState*)var68)->GetUnknownGameObject();
         if (var99 != 0) {
             func_020397cc((Struct_02018300_3*)var99, 1);
@@ -940,8 +940,8 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (IsBrightnessTransitionActive(var69) != 0) return;
         void* var100 = *(void**)((char*)var71 + 8);
         int var101 = ((struct Struct_ov003_0216c00c_8*)var100)->unknown_d_0_;
-        func_0209c3b4((struct Struct_0209c3b4_2*)&data_02109bf4, var101);
-        func_0209c2e0(&data_02109bf4, 0x7f, 0);
+        func_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var101);
+        func_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
         if (*(unsigned char*)(arg0 + 0x1000 + 0x3e9) != 0) {
             *(int*)(var70 + 0x998) = 1;
             func_ov003_0216d8d4(arg0, 0x4b, -1, -1, -1);
@@ -983,7 +983,7 @@ phase2:;
         *(unsigned char*)(var70 + 0x1000 + 0x9ae) = 0;
         *(unsigned char*)(arg0 + 0x1000 + 0x3ec) |= 4;
         BackgroundLoader::AddLockGlobal();
-        if (func_020aad1c((int)(arg0 + 0xc + 0x1400), (int)data_0211e33c, 8, 0) == 1) {
+        if (func_020aad1c((int)(arg0 + 0xc + 0x1400), (int)gFileScratchSpace_0211e33c, 8, 0) == 1) {
             *(unsigned char*)(arg0 + 0x1000 + 0x3ec) &= ~4;
             func_ov003_0216d8d4(arg0, 0xc9, -1, -1, -1);
             *(short*)(arg0 + 6) = 0x12f;
@@ -1012,7 +1012,7 @@ phase2:;
         return;
     } else if (var76 == 0xe) {
         ((SafeAllocator*)(arg0 + 0x2e8 + 0x1000))->ResetAllocatorPointer();
-        void* var104 = func_02012d88(&data_02114e20, 0xc800);
+        void* var104 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0xc800);
         ((SafeAllocator*)(arg0 + 0x2e8 + 0x1000))->CreateTypeA(var104, 0xc800);
         ((SafeAllocator*)(arg0 + 0x2e8 + 0x1000))->Reset();
         unsigned int var105;
@@ -1021,9 +1021,9 @@ phase2:;
             *(short*)(arg0 + 6) = 0xf;
             return;
         }
-        struct Struct_0203d028* var107 = (struct Struct_0203d028*)((char (*)[0x70])var69->unknown_2cc_)[0x1c];
-        func_0207df50(var107);
-        func_0207df90((char*)var107);
+        struct TextureVRAMArea_0203d028* var107 = (struct TextureVRAMArea_0203d028*)((char (*)[0x70])var69->unknown_2cc_)[0x1c];
+        ResetTextureVRAMState_0207df50(var107);
+        RestoreTextureVRAMState_0207df90((char*)var107);
         struct ObjectArchiveLoadInfo var108;
         var108.unk_0 = 0;
         var108.unk_14 = 0;
@@ -1034,7 +1034,7 @@ phase2:;
         var108.fileData = var106;
         var108.unk_8 = var105;
         ((Object3D*)(arg0 + 0x33c + 0x1000))->LoadFromCHRArchive(&var108);
-        func_0207dfac((char*)var107);
+        SaveTextureVRAMState_0207dfac((char*)var107);
         *(unsigned char*)(arg0 + 0x1000 + 0x3e8) = 1;
         ((Object3D*)(arg0 + 0x33c + 0x1000))->MaybeSetRegularAnimation(data_ov003_021801f8, 1);
         struct Struct_0203d028_3* var109 = (Struct_0203d028_3*)((GameState*)var68)->GetUnknownGameObject();
@@ -1050,7 +1050,7 @@ phase2:;
         void* var110 = ((SafeAllocator*)(arg0 + 0x2e8 + 0x1000))->GetSignedAllocator();
         if (var110 != 0) {
             ((SafeAllocator*)(arg0 + 0x2e8 + 0x1000))->Destroy();
-            func_02012da4(&data_02114e20, var110);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var110);
         }
         *(unsigned char*)(arg0 + 0x1000 + 0x3e8) = 0;
         void* var111 = *(void**)((char*)var69 + 0x3b48);
@@ -1089,8 +1089,8 @@ phase2:;
     } else if (var76 == 0x12) {
         void* var119 = GetZone3D_02012fe4();
         int var120 = (*(struct Struct_ov003_0216c00c_8**)((char*)var119 + 8))->unknown_d_0_;
-        func_0209c3b4((struct Struct_0209c3b4_2*)&data_02109bf4, var120);
-        func_0209c2e0(&data_02109bf4, 0x7f, 0);
+        func_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var120);
+        func_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
         if ((unsigned int)func_02011804((GameState*)var68) >= 0x63) {
             *(short*)(arg0 + 6) = 0x13;
             char* var121 = (char*)GetMessageWindow_020421a0();
@@ -1174,7 +1174,7 @@ phase2:;
         return;
     } else if (var76 == 0x62) {
         if (*(int*)(var70 + 0x9a0) != 0 || *(int*)(var70 + 0x998) != 0) return;
-        func_02043204(var70);
+        ResetMessageWindow_02043204(var70);
         *(short*)(arg0 + 4) = 7;
         *(short*)(arg0 + 6) = 0;
     }

@@ -16,7 +16,7 @@ struct Struct_0205d5d0;
 struct Struct_0205d81c;
 struct Struct_0205d6a0;
 struct Struct_ov005_02158e04;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
 struct Struct_ov005_02158ed0 {
     int unknown_0_;
@@ -38,7 +38,7 @@ struct Struct_ov005_02153954 {
     char unknown_3dd3_[LOW_REGION(0x3d54, 0x3ddc) - LOW_REGION(0x3d4b, 0x3dd3)];
 };
 
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 extern "C" void func_0205d0e0(void* arg0);
 extern "C" void func_ov005_021589f4(Struct_ov005_02153954* arg0);
@@ -46,7 +46,7 @@ extern "C" int func_ov005_02158b3c(void* arg0, void* arg1);
 extern "C" Struct_ov005_02158e04* func_0205d81c(Struct_0205d81c* arg0, int arg1);
 extern "C" int func_0204c7cc(unsigned char*);
 extern "C" int func_ov005_02157190(void* arg0);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
 // USA: func_ov005_02158878
 extern "C" ARM void func_ov005_02158878(Struct_ov005_02153954* arg0) {
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov005_02158878(Struct_ov005_02153954* arg0) {
     var0 = 0;
     int var2 = func_ov005_02157190(arg0);
     if (var2 | var1) {
-        func_0205eaa0((Struct_02108760*)data_02108760, 1, var0);
+        PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, var0);
         if (arg0->unknown_3dd2_ != 0) {
             arg0->unknown_3dd1_ = arg0->unknown_3dd2_;
             arg0->unknown_3dd2_ = 0;

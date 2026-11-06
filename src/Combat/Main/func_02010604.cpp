@@ -8,23 +8,20 @@ enum { Enum_02010604_2428 = 0x97c, Enum_02010604_396 = 0x18c, Enum_02010604_2432
 
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
 #endif
 
-extern "C" void* func_0202ae18(void);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_ov017_021d2400(void);
 extern "C" void func_02048150(void* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021cedf4(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_0219bfb4(int arg0, int arg1);
 
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 struct Struct_02010604_3;
 extern "C" int func_020482bc(struct Struct_02010604_3* arg0);
@@ -45,11 +42,11 @@ struct Struct_02010604_2 {
 
 // USA: func_02010604
 extern "C" ARM void func_02010604(GameState* arg0, int arg1, int arg2, int arg3) {
-    void* var0 = func_0202ae18();
+    void* var0 = GetLocalWireless_0202ae18();
     int var1;
 
     if (arg1 != 0) {
-        if (func_0202b7d8((int*)var0)) {
+        if (IsLocalWirelessOn_0202b7d8((int*)var0)) {
             func_ov017_021d2400();
         }
     }
@@ -65,7 +62,7 @@ extern "C" ARM void func_02010604(GameState* arg0, int arg1, int arg2, int arg3)
         func_020482bc((struct Struct_02010604_3*)var3);
         var4->unknown_18c_ &= ~1;
         func_02033b88((struct Struct_02010604*)var3, 0);
-        if (func_0202b7d8((int*)var0)) {
+        if (IsLocalWirelessOn_0202b7d8((int*)var0)) {
             func_ov017_021cedf4(var2, 1, 0);
             func_ov017_021c9e00(var2, 0, 0, 1);
         }
@@ -80,7 +77,7 @@ extern "C" ARM void func_02010604(GameState* arg0, int arg1, int arg2, int arg3)
 
     if (*(int*)((char*)arg0 + 0x5000 + Enum_02010604_3248) == 0x10 && *(int*)((char*)arg0 + 0x5000 + Enum_02010604_3252) == 2 &&
         *(int*)((char*)arg0 + 0x5000 + Enum_02010604_3256) == 1) {
-        void* var6 = func_0205ec34();
+        void* var6 = GetFlagManager_0205ec34();
         func_0206df6c(var6, (unsigned char*)((char*)var6 + 0x8c), 0x113a, 0);
     }
 

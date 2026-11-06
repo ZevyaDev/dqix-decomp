@@ -11,8 +11,8 @@
 #define data_ov010_02184aa6 data_ov010_02185b54
 #endif
 
-extern AllocatorUnion data_02114e20;
-extern int data_02108760;
+extern AllocatorUnion gMainHeap_02114e20;
+extern int gSoundEffectManager_02108760;
 extern const char data_ov010_02184a80[];
 extern const char data_ov010_02184a95[];
 extern const char data_ov010_02184aa6[];
@@ -22,7 +22,7 @@ extern "C" void func_ov010_021842d8(struct Struct_ov010_021842d8* arg0);
 
 struct Struct_02018300_3;
 extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 
 struct Struct_020727d8 {
     void* unknown_0_;
@@ -32,11 +32,11 @@ struct Struct_020727d8 {
 extern "C" void func_020727d8(struct Struct_020727d8* arg0);
 extern "C" void func_020728ac(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
 
-struct Struct_02072a68_2;
-extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
+struct StringList_02072a68_2;
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
 extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
 extern "C" void func_0205ebec(void* arg0);
@@ -57,7 +57,7 @@ extern "C" struct Struct_02099950* func_02099950(struct Struct_02095924_2* arg0,
 
 extern "C" void* func_02033fa0(void* arg0);
 extern "C" void* func_02011584(void* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
 extern "C" unsigned char func_020100b0(GameState* arg0);
 
@@ -65,13 +65,13 @@ struct Struct_020340b4;
 extern "C" void func_020340b4(struct Struct_020340b4* arg0);
 
 extern "C" void func_020e4bf4(void* arg0, int arg1);
-extern "C" void func_02046380(void* arg0);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" int func_020457e0(void* arg0);
 
-struct Struct_0203d028;
-extern "C" void func_0207df50(struct Struct_0203d028* arg0);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+struct TextureVRAMArea_0203d028;
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 struct Struct_02057de0_2;
 extern "C" void* func_02057924(void);
@@ -85,9 +85,9 @@ extern "C" void* func_02079e2c(char* arg0, int arg1);
 struct Struct_02048350_2;
 extern "C" int func_02048350(struct Struct_02048350_2* arg0, int arg1);
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" int func_0202c508(void* arg0);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 
 struct Struct_ov010_02184354 { short unknown_0_; short unknown_2_; short unknown_4_; };
 extern "C" void func_ov017_021d360c(int arg0, unsigned char arg1, int arg2, struct Struct_ov010_02184354 arg3);
@@ -170,7 +170,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
 #endif
     var3 = var2->GetPartyMemberByIndex(var5->unknown_c_);
     GameObject* var6 = var2->GetPartyMemberByIndex(func_020100b0(var2));
-    void* var7 = func_0202ae18();
+    void* var7 = GetLocalWireless_0202ae18();
     void* var8 = GetGameResources();
     var4 = (struct Struct_ov010_02184354_2*)GetZone3D_02012fe4();
 #if defined(jpn)
@@ -185,7 +185,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
     unsigned char var10 = arg0->unknown_0_;
     if (var10 == 0) {
         func_020397cc((struct Struct_02018300_3*)var6, 1);
-        void* var11 = func_02012d88(&data_02114e20, 0x7800);
+        void* var11 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x7800);
         if (var11 == NULL) {
             func_ov010_021842d8((struct Struct_ov010_021842d8*)arg0);
             return 1;
@@ -210,7 +210,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         func_020728ac(&arg0->unknown_c_, &arg0->unknown_14_, var12, var13, 0, 0, 0);
         var0->RemoveTask(arg0->unknown_4_);
 
-        unsigned short* var14 = (unsigned short*)func_020120a0((char*)var2, func_020100a8(var2));
+        unsigned short* var14 = (unsigned short*)func_020120a0((char*)var2, GetProtagonistObjectIndex_020100a8(var2));
         if (var14 == NULL) {
             func_ov010_021842d8((struct Struct_ov010_021842d8*)arg0);
             return 1;
@@ -251,10 +251,10 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         } else {
             var21 = 0;
             arg0->unknown_0_ = 4;
-            func_0205eaa0((struct Struct_02108760*)&data_02108760, 0x64, var21);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0x64, var21);
         }
 
-        void* var22 = func_02072a68((struct Struct_02072a68_2*)&arg0->unknown_c_, (short)var21);
+        void* var22 = FindStringInList_02072a68((struct StringList_02072a68_2*)&arg0->unknown_c_, (short)var21);
 #if defined(jpn)
         sprintf(var9, (const char*)var22, *(char**)((char*)var3 + 0x134));
         StartMessage_0204500c(var1, var9, 0);
@@ -262,7 +262,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
 #else
         struct Struct_ov010_02184354_6 var23;
         func_020e4bf4(&var23, var5->unknown_c_);
-        func_02046380(var1);
+        ClearMessageParams_02046380(var1);
         *(void**)var1 = &var23;
         StartMessage_0204500c(var1, (const char*)var22, 0, 0xe3);
         var1->unknown_998_ = 1;
@@ -274,7 +274,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         if (var1->unknown_998_ != 0) return 0;
 #endif
         if (func_020457e0(var1) == 0) {
-            void* var24 = func_02072a68((struct Struct_02072a68_2*)&arg0->unknown_c_, 0);
+            void* var24 = FindStringInList_02072a68((struct StringList_02072a68_2*)&arg0->unknown_c_, 0);
 #if defined(jpn)
             sprintf(var9, (const char*)var24, *(char**)((char*)var3 + 0x134));
             StartMessage_0204500c(var1, var9, 0);
@@ -282,13 +282,13 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
 #else
             struct Struct_ov010_02184354_6 var25;
             func_020e4bf4(&var25, var5->unknown_c_);
-            func_02046380(var1);
+            ClearMessageParams_02046380(var1);
             *(void**)var1 = &var25;
             StartMessage_0204500c(var1, (const char*)var24, 0, 0xe3);
             var1->unknown_998_ = 1;
 #endif
-            func_0205eaa0((struct Struct_02108760*)&data_02108760, 0x64, 0);
-            unsigned short* var26 = (unsigned short*)func_020120a0((char*)var2, func_020100a8(var2));
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0x64, 0);
+            unsigned short* var26 = (unsigned short*)func_020120a0((char*)var2, GetProtagonistObjectIndex_020100a8(var2));
             if (var26 != NULL) *var26 = 0;
             arg0->unknown_0_ = 4;
         } else {
@@ -309,8 +309,8 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
             arg0->unknown_2_ = arg0->unknown_2_ + 1;
             return 0;
         }
-        func_0205ebc0(&data_02108760, 0x74, 0x74);
-        func_0205ebfc(&data_02108760, 0, 0);
+        func_0205ebc0(&gSoundEffectManager_02108760, 0x74, 0x74);
+        func_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
 
         void* var27;
         unsigned int var28;
@@ -322,12 +322,12 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         char* var29 = (char*)var8 + 0x2cc;
 #endif
         struct Struct_ov010_02184354_6 var30 = *(struct Struct_ov010_02184354_6*)((char*)var3 + 0x44);
-        func_0207df50((struct Struct_0203d028*)(var29 + 0xc40));
-        func_0207df90(var29 + 0xc40);
+        ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)(var29 + 0xc40));
+        RestoreTextureVRAMState_0207df90(var29 + 0xc40);
         void* var31 = func_02057924();
         func_02057de0((struct Struct_02057de0_2*)var31, 0x11, &arg0->unknown_14_,
                                       (int)var27, (int)var28);
-        func_0207dfac(var29 + 0xc40);
+        SaveTextureVRAMState_0207dfac(var29 + 0xc40);
 
         struct Struct_ov010_02184354_6 var32;
         var32.unknown_0_ = 0x10a;
@@ -373,8 +373,8 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         var34.unknown_2_ = (short)(var30.unknown_4_ >> 4);
         var34.unknown_4_ = (short)(var30.unknown_8_ >> 4);
 
-        if (func_0202c508(var7) != 0) {
-            unsigned short* var35 = (unsigned short*)func_020120a0((char*)var2, func_020100a8(var2));
+        if (IsNotLocalWirelessGuest_0202c508(var7) != 0) {
+            unsigned short* var35 = (unsigned short*)func_020120a0((char*)var2, GetProtagonistObjectIndex_020100a8(var2));
             if (var35 != NULL) {
                 var35[0] = var4->unknown_0_;
                 var35[1] = var34.unknown_0_;
@@ -392,7 +392,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         if (var37 != NULL) {
             func_020340b4((struct Struct_020340b4*)var37);
         }
-        func_ov017_021d360c(0, func_020100a8(var2), var4->unknown_0_, var34);
+        func_ov017_021d360c(0, GetProtagonistObjectIndex_020100a8(var2), var4->unknown_0_, var34);
         arg0->unknown_0_ = 3;
     } else if (var10 == 3) {
         GameState* var38 = GameState::GetInstance();
@@ -414,7 +414,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         }
         if (var39 != 0) {
             func_ov010_021842d8((struct Struct_ov010_021842d8*)arg0);
-            func_0205ebec(&data_02108760);
+            func_0205ebec(&gSoundEffectManager_02108760);
             return 1;
         }
     }

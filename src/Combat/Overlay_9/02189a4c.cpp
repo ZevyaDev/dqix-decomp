@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
-extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
 
@@ -80,7 +80,7 @@ extern "C" void __clear(void*, unsigned int);
 extern "C" Struct_ov009_02186e00* func_0204254c(int, int);
 extern "C" void func_ov009_0218a484(int, char*, char*);
 extern "C" unsigned int func_020e0424(Struct_020e0424*);
-extern "C" int func_020e0434(Struct_0201099c_3*, int);
+extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_020424e4(int, int);
 extern "C" Struct_ov009_02186e00* func_020425b4(int, int);
 extern "C" int func_020426bc(const char*, unsigned char*, int);
@@ -116,17 +116,17 @@ extern "C" ARM void func_ov009_02189a4c(Struct_ov009_021842a0_2* arg0) {
         func_ov009_021847ec((&arg0->unknown_fc_));
     var10[0] = 0;
     var10[1] = 0;
-    LoadFileIntoMemory(data_020f285c, data_0211e33c, &var10[0]);
+    LoadFileIntoMemory(data_020f285c, gFileScratchSpace_0211e33c, &var10[0]);
     unsigned int var12 = (var10[0] + 511) & ~511;
-    LoadFileIntoMemory(data_020f2858, data_0211e33c + var12, &var10[1]);
+    LoadFileIntoMemory(data_020f2858, gFileScratchSpace_0211e33c + var12, &var10[1]);
     func_020dfc40(&arg0->unknown_fc_.unknown_0_);
-    func_020e038c((&arg0->unknown_fc_), data_0211e33c + var12, var10[1]);
+    func_020e038c((&arg0->unknown_fc_), gFileScratchSpace_0211e33c + var12, var10[1]);
     memset((&arg0->unknown_fc_.unknown_18_), 0, 12);
-    unsigned char* var13 = data_0211e33c;
+    unsigned char* var13 = gFileScratchSpace_0211e33c;
     if (var13) {
-        memcpy((&arg0->unknown_fc_.unknown_18_), data_0211e33c, 4);
+        memcpy((&arg0->unknown_fc_.unknown_18_), gFileScratchSpace_0211e33c, 4);
         unsigned int var14 = inline_ov009_02189a4c_4(sizeof(Struct_ov009_02189a4c_4), 4);
-        unsigned char* var15 = data_0211e33c;
+        unsigned char* var15 = gFileScratchSpace_0211e33c;
         arg0->unknown_fc_.unknown_18_.unknown_4_ = (Struct_ov009_02189a4c_3*)(var15 + var14);
         unsigned int var16 = inline_ov009_02189a4c_3(0, arg0->unknown_fc_.unknown_18_.unknown_0_.unknown_0_0_, sizeof(Struct_ov009_02189a4c_3), 4);
         arg0->unknown_fc_.unknown_18_.unknown_8_ = (char*)(var15 + (var14 + var16));
@@ -142,13 +142,13 @@ extern "C" ARM void func_ov009_02189a4c(Struct_ov009_021842a0_2* arg0) {
                 }
             }
             (&arg0->unknown_fc_.unknown_18_)->unknown_0_.unknown_3_7_ = 1;
-            ((Struct_ov009_02189a4c_4*)data_0211e33c)->unknown_3_7_ = 1;
+            ((Struct_ov009_02189a4c_4*)gFileScratchSpace_0211e33c)->unknown_3_7_ = 1;
         }
     }
     (&arg0->unknown_fc_)->unknown_24_ = 0;
     (&arg0->unknown_fc_)->unknown_28_ = 0;
     if (var10[1]) {
-        (&arg0->unknown_fc_)->unknown_24_ = data_0211e33c + var12;
+        (&arg0->unknown_fc_)->unknown_24_ = gFileScratchSpace_0211e33c + var12;
         (&arg0->unknown_fc_)->unknown_28_ = var10[1];
     }
     int var20;
@@ -175,7 +175,7 @@ __clear(var7, 64);
     int var28;
     int var29 = func_020e0424(&arg0->unknown_fc_.unknown_0_);
     for (var28 = 0; var28 < var29; ++var28) {
-        char* var30 = (char*)func_020e0434(&arg0->unknown_fc_.unknown_0_, (short)var28);
+        char* var30 = (char*)FindStringInTable_020e0434(&arg0->unknown_fc_.unknown_0_, (short)var28);
         if (var30 && *var30) {
             int var31 = strlen(var30);
             if (var31 == var27 && strcmp(var30, var7) == 0) { var21 = 1; goto exact_done; }

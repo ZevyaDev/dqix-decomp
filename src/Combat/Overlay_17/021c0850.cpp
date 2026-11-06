@@ -99,7 +99,7 @@ struct Struct_ov017_021c0850_2 {
 extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
 extern "C" void func_020a0cc4(unsigned int arg0);
 extern "C" void func_020a0c0c(void);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020a1940(unsigned int arg0);
 extern "C" void func_020a1ef0(int arg0);
 extern "C" void func_ov008_021843f8(void* arg0);
@@ -143,10 +143,10 @@ extern "C" void* func_ov008_021845ac(void* arg0);
 extern "C" void func_ov017_0218f79c(void* arg0);
 extern "C" void func_ov017_0219b624(GameResources* arg0);
 extern "C" int GetMessageWindow_020421a0(void);
-struct Struct_0203d028;
-extern "C" void func_0207df50(Struct_0203d028*);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+struct TextureVRAMArea_0203d028;
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_020432c4(void* arg0);
 extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021c0820(Struct_ov017_021c0580*);
@@ -168,8 +168,8 @@ extern "C" int func_ov004_02156dc8(SafeAllocator* arg0, int arg1);
 extern "C" int func_ov004_021677b4(SafeAllocator* arg0, void* arg1);
 extern "C" int func_ov004_0216aa70(SafeAllocator* arg0, void* arg1);
 
-extern AllocatorUnion data_02114e20;
-extern int data_02109bf4;
+extern AllocatorUnion gMainHeap_02114e20;
+extern int gMusicManager_02109bf4;
 extern char data_ov017_021d7f00[];
 extern char data_ov017_021d7f07[];
 extern char data_ov017_021d7f12[];
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
 
     if (arg0->unknown_20_ == 0) {
         func_020a0cc4(Enum_ov017_021c0850_123784);
-        void* var3 = func_02012d88(&data_02114e20, Enum_ov017_021c0850_123784);
+        void* var3 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021c0850_123784);
         if (var3 == NULL) {
             func_020a0c0c();
             arg0->unknown_1_ = 1;
@@ -233,8 +233,8 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         }
         if (arg0->unknown_bc_) {
             arg0->unknown_1c_->unknown_b18_ |= 1;
-            if (func_0209cae8((Struct_0209cae8*)&data_02109bf4) != 0x29) {
-                func_0209c678((Struct_02109bf4_4*)&data_02109bf4, 0xf);
+            if (func_0209cae8((Struct_0209cae8*)&gMusicManager_02109bf4) != 0x29) {
+                func_0209c678((Struct_02109bf4_4*)&gMusicManager_02109bf4, 0xf);
             }
         }
         unsigned short* var5 = (unsigned short*)GetZone3D_02012fe4();
@@ -364,10 +364,10 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         func_ov017_0219b624(var1);
         char* var14 = var1->unknown_2cc_;
         void* var15 = (void*)GetMessageWindow_020421a0();
-        func_0207df50((Struct_0203d028*)(var14 + 0x5b0));
-        func_0207df90(var14 + 0x5b0);
+        ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)(var14 + 0x5b0));
+        RestoreTextureVRAMState_0207df90(var14 + 0x5b0);
         func_020432c4(var15);
-        func_0207dfac(var14 + 0x5b0);
+        SaveTextureVRAMState_0207dfac(var14 + 0x5b0);
         if (arg0->unknown_1c_->unknown_b13_ == 0) {
             func_ov017_0219bd1c(1, 0, 0, 0);
         }
@@ -417,7 +417,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
             return;
         case 0: {
             SetMainBrightness(var1, 0, 0xf);
-            func_0209c3b4((Struct_0209c3b4_2*)&data_02109bf4, func_0209cd50(*(unsigned short*)GetZone3D_02012fe4()));
+            func_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, func_0209cd50(*(unsigned short*)GetZone3D_02012fe4()));
             char* var19 = (char*)GetMessageWindow_020421a0();
             *(int*)(var19 + Enum_ov017_021c0850_728) = 0;
             *(unsigned char*)(var19 + Enum_ov017_021c0850_742) = 1;

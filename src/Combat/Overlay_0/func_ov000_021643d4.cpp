@@ -163,7 +163,7 @@ struct Struct_ov000_021643d4_7 {
     int unknown_77f0_;
 };
 
-extern "C" int func_0202ae18(BackgroundLoader*);
+extern "C" int GetLocalWireless_0202ae18(BackgroundLoader*);
 extern "C" int func_02027cb0();
 extern "C" Struct_ov000_0215f7a8* func_ov017_021a278c(void*, int);
 extern "C" int func_020a35e0(unsigned char*, unsigned char);
@@ -178,15 +178,15 @@ void Vector3fixMultiplyScalar(const Vector3i* v, int s, Vector3i* out);
 extern "C" void func_020338d4(Struct_020338d4*, Struct_ov009_0218aa28*);
 extern "C" void func_ov017_021cee78(int arg0, unsigned char arg1);
 extern "C" void func_02053ec8(void*, int);
-extern "C" int func_0202b7d8(int*);
-struct Struct_0202c1a4;
-extern "C" int func_0202c1a4(Struct_0202c1a4*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
+struct LocalWireless_0202c1a4;
+extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void func_02076ccc(void*, int);
 extern "C" void func_02076a8c(Struct_ov000_0215f7a8* arg0);
 extern "C" void func_ov017_0219bf74();
 extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" struct Struct_ov017_0219e384* func_0200fd0c(GameState*);
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_ov017_021a27e8(void* arg0);
 extern "C" void func_ov017_0219b938(int arg0);
 extern "C" int func_0203cf4c();
@@ -211,10 +211,10 @@ struct Struct_02053da0;
 extern "C" void func_02053da0(char*, Struct_02053da0*);
 extern "C" void func_ov000_02161300(Struct_ov000_021643d4_7* arg0, int arg1);
 extern "C" void func_02039894(unsigned char*);
-extern "C" int func_0202c540(int arg0);
+extern "C" int IsLocalWirelessGuest_0202c540(int wireless);
 extern "C" void func_ov017_0219c774(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_021cdaa0();
-extern "C" void func_020ac4c0(void*);
+extern "C" void GetBattleRecords_020ac4c0(void*);
 struct Struct_020a07e0;
 extern "C" void func_020a07e0(Struct_020a07e0*, unsigned int);
 struct Struct_020a00d4;
@@ -234,12 +234,12 @@ extern float data_ov000_0218423c[5];
 // USA: func_ov000_021643d4
 extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     GameState* var0 = GameState::GetInstance();
-    int var1 = func_0202ae18(BackgroundLoader::GetInstance());
+    int var1 = GetLocalWireless_0202ae18(BackgroundLoader::GetInstance());
     GameResources* var2 = GetGameResources();
     int var3 = (int)var2;
     Struct_ov000_021643d4* var4 = (Struct_ov000_021643d4*)func_02027cb0();
     Zone3D* var5 = GetZone3D_02012fe4();
-    Struct_ov000_021643d4_2* var6 = (Struct_ov000_021643d4_2*)func_02010828(var0);
+    Struct_ov000_021643d4_2* var6 = (Struct_ov000_021643d4_2*)GetParty_02010828(var0);
     Struct_ov000_0215f7a8* var7 = (Struct_ov000_0215f7a8*)var0->GetProtagonist();
     Struct_ov000_0215f7a8* var8 = func_ov017_021a278c((void*)var3, arg0->unknown_2a0_->unknown_8_);
     var0->GetUnknownGameObject();
@@ -309,7 +309,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     var7->unknown_15c_ = ((Object3D*)var7)->GetField06();
     func_02053ec8(var7, 1);
     if (var8) {
-        if (!func_0202b7d8((int*)var1) || !func_0202c1a4((Struct_0202c1a4*)var1)) {
+        if (!IsLocalWirelessOn_0202b7d8((int*)var1) || !GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1)) {
             func_02076ccc(var8, 9);
         } else {
             func_02076a8c(var8);
@@ -319,7 +319,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     func_ov017_0219bf74();
     func_ov017_0219bd1c(0, 4, 1, 0);
     char* var25 = (char*)func_0200fd0c(var0);
-    int var26 = func_020100a8(var0);
+    int var26 = GetProtagonistObjectIndex_020100a8(var0);
     *(Vector3i*)(var25 + 0x10) = arg0->unknown_5910_[var26].unknown_0_;
     *(short*)(var25 + 0x1c) = arg0->unknown_5910_[var26].unknown_c_;
 #if defined(jpn)
@@ -410,12 +410,12 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
             func_02053ec8(var39, 1);
         }
     }
-    if (!func_0202b7d8((int*)var1)) {
+    if (!IsLocalWirelessOn_0202b7d8((int*)var1)) {
         func_ov000_02160fa8(arg0, 2);
-    } else if (func_020100a8(var0) == arg0->unknown_2a0_->unknown_2a_) {
+    } else if (GetProtagonistObjectIndex_020100a8(var0) == arg0->unknown_2a0_->unknown_2a_) {
         func_ov000_02160fa8(arg0, 2);
     }
-    if (func_0202c540(var1)) {
+    if (IsLocalWirelessGuest_0202c540(var1)) {
         func_ov017_0219c774(0, 1, 0);
     }
     Struct_ov000_021643d4_4* var40 = (Struct_ov000_021643d4_4*)LightingManager::GetInstance();
@@ -440,7 +440,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     }
     ClearFlags00((GameResources*)var3, 0x800);
     Struct_ov000_021643d4_3 var42;
-    func_020ac4c0(&var42);
+    GetBattleRecords_020ac4c0(&var42);
     func_020a07e0((Struct_020a07e0*)&var42, 1);
     func_020a00d4((Struct_020a00d4*)&var42.unknown_68_, 1);
     func_020ac494(&var42);

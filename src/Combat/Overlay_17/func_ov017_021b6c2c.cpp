@@ -11,7 +11,7 @@ extern "C" ARM int func_ov017_021b6c2c(int arg0, int arg1) {
 		return -1;
 	}
 	GameState* var1 = GameState::GetInstance();
-	void* var2 = func_02010828(var1);
+	void* var2 = GetParty_02010828(var1);
 	func_02086778(var2, var0, 0, arg1);
 	int var3 = var0[0];
 	var3 = (var3 << 26) >> 26;

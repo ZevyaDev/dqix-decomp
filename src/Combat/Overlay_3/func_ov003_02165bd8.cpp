@@ -10,7 +10,7 @@ enum { Enum_ov003_02165bd8_1183 = 0x49f };
 #endif
 
 extern "C" void func_ov003_02160c58(unsigned char* arg0, short* arg1, short* arg2);
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 
 extern "C" void func_ov003_02165c9c(unsigned char* arg0);
 
@@ -19,10 +19,10 @@ extern "C" ARM void func_ov003_02165bd8(unsigned char* arg0) {
     short var0, var1;
     func_ov003_02160c58(arg0, &var0, &var1);
 
-    unsigned char var2 = *((unsigned char*)func_02010828(GameState::GetInstance()) + 0xf7c);
+    unsigned char var2 = *((unsigned char*)GetParty_02010828(GameState::GetInstance()) + 0xf7c);
     var1 = var1 - (var2 - 1);
 
-    unsigned char* var3 = (unsigned char*)func_02010828(GameState::GetInstance()) + 0x2000;
+    unsigned char* var3 = (unsigned char*)GetParty_02010828(GameState::GetInstance()) + 0x2000;
     int var4 = var3[0xc8c];
     if (var1 != 0) {
         var4 += 1;

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0203a48c_3;
 struct Struct_0203a588_2;
 struct Struct_ov000_021537b8_6;
@@ -76,10 +76,10 @@ extern "C" void func_0203a48c(Struct_0203a48c_3*, int, Struct_0203a48c_2*, int, 
 extern "C" void* func_02057924(void);
 extern "C" void func_02078484(struct Struct_02078398_2* arg0);
 extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov000_02176150(struct Struct_ov000_021537b8_6* arg0, unsigned short arg1);
 
-extern struct Struct_02108760 data_02108760;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 // USA: func_ov025_021e9d14
 extern "C" ARM void func_ov025_021e9d14(void) {
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov025_021e9d14(void) {
                 var13.unknown_2c_.y += var8->obj3D_.GetHeight() / 2;
                 var13.unknown_14_ = var5;
                 func_02057fb4(var12, 0x10, &var13);
-                func_0205eaa0(&data_02108760, 0x65, 0);
+                PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x65, 0);
             }
         }
         int var14 = (var5 >= 0 && var5 <= 3) ? 1 : 0;

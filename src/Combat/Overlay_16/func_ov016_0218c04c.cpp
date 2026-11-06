@@ -111,7 +111,7 @@ unsigned long long data_ov016_0219d100;
 long long data_ov016_0219d110;
 Alarm data_ov016_0219d118;
 #endif
-extern char data_02109bf4;
+extern char gMusicManager_02109bf4;
 
 // USA: func_ov016_0218c04c
 #if defined(jpn)
@@ -198,12 +198,12 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 				unsigned long long var23 = (GetCurrentTimestamp() << 6) / 0x82ea;
 				if (data_ov016_0219d100 + var22->unknown_14_ <= var23) {
 #if defined(jpn)
-					func_0203ad14(&data_02109bf4, var22->unknown_10_, 0, 0);
+					func_0203ad14(&gMusicManager_02109bf4, var22->unknown_10_, 0, 0);
 #else
 					if (var22->unknown_10_ != 0) {
-						func_0203ad14(&data_02109bf4, var22->unknown_12_, 0, 0);
+						func_0203ad14(&gMusicManager_02109bf4, var22->unknown_12_, 0, 0);
 					} else {
-						func_0203aba8((Struct_0203aba8*)&data_02109bf4, (void*)var22->unknown_12_, &data_ov016_0219d0cc);
+						func_0203aba8((Struct_0203aba8*)&gMusicManager_02109bf4, (void*)var22->unknown_12_, &data_ov016_0219d0cc);
 					}
 #endif
 					func_020bbd9c();
@@ -213,20 +213,20 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 			}
 			if ((*(unsigned short*)0x27fffa8 & 0x8000) >> 15) {
 #if defined(jpn)
-				func_0203ae4c(&data_02109bf4, 1, 0);
+				func_0203ae4c(&gMusicManager_02109bf4, 1, 0);
 				data_ov016_0219d0f8 = 1;
 				func_020ce89c(0xc, 0, 0);
-				*(unsigned int*)(&data_02109bf4 + 0xa8) =
+				*(unsigned int*)(&gMusicManager_02109bf4 + 0xa8) =
 					(unsigned int)(1000.0f * ((float)(var18 - var10) / var9));
-				func_0203ae4c(&data_02109bf4, 0, 0);
+				func_0203ae4c(&gMusicManager_02109bf4, 0, 0);
 #else
 				data_ov016_0219d0f8 = 1;
 				if (data_ov016_0219d0f4->unknown_10_ != 0) {
-					func_0203ae4c(&data_02109bf4, 1, 0);
+					func_0203ae4c(&gMusicManager_02109bf4, 1, 0);
 					func_020ce89c(0xc, 0, 0);
-					*(unsigned int*)(&data_02109bf4 + 0xa8) =
+					*(unsigned int*)(&gMusicManager_02109bf4 + 0xa8) =
 						(unsigned int)(1000.0f * ((float)(var18 - var10) / var9));
-					func_0203ae4c(&data_02109bf4, 0, 0);
+					func_0203ae4c(&gMusicManager_02109bf4, 0, 0);
 				} else {
 					func_020ce89c(0xc, 0, 0);
 				}
@@ -404,15 +404,15 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 		NitroVM_FinishRead((NitroVM*)var0);
 #if defined(jpn)
 		if (data_ov016_0219d0f4->unknown_10_ > -1) {
-			func_0203ad88(&data_02109bf4, 0, 0);
+			func_0203ad88(&gMusicManager_02109bf4, 0, 0);
 			func_020bbd9c();
 		}
 #else
 		if (data_ov016_0219d0f4->unknown_12_ > -1) {
 			if (data_ov016_0219d0f4->unknown_10_ != 0) {
-				func_0203ad88(&data_02109bf4, 0, 0);
+				func_0203ad88(&gMusicManager_02109bf4, 0, 0);
 			} else {
-				func_0203ac10(&data_02109bf4, &data_ov016_0219d0cc, 0);
+				func_0203ac10(&gMusicManager_02109bf4, &data_ov016_0219d0cc, 0);
 			}
 			func_020bbd9c();
 		}

@@ -40,9 +40,9 @@ struct Struct_ov003_0216b7bc_3 {
 
 extern "C" struct Struct_ov003_0216b7bc* GetMessageWindow_020421a0();
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" const char* func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
-extern "C" int func_02042058(char* arg0, const char* arg1);
-extern "C" void func_02046380(struct Struct_ov003_0216b7bc* arg0);
+extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
+extern "C" void ClearMessageParams_02046380(struct Struct_ov003_0216b7bc* window);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(struct Struct_ov003_0216b7bc* window, char* text, int arg2, int arg3);
 #endif
@@ -74,28 +74,28 @@ extern "C" ARM void func_ov003_0216b7bc(struct Struct_ov003_0216b7bc_3* arg0) {
         char* var2 = var0->unknown_5c_;
 #endif
         memset(var2, 0, REGION_LAYOUT(0x800, 0x960));
-        func_02042058(var2, func_020e0434((struct Struct_0201099c_3*)arg0->unknown_1324_, 0));
+        AppendText_02042058(var2, FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_1324_, 0));
         if (var1->unknown_1b42_ == 0) {
-            func_02042058(var2, data_ov003_021801b2);
+            AppendText_02042058(var2, data_ov003_021801b2);
         } else {
-            func_02042058(var2, data_ov003_021801c2);
+            AppendText_02042058(var2, data_ov003_021801c2);
         }
         unsigned char var3 = var1->unknown_1b42_;
 #if defined(jpn)
         if (var3 & 0x1) {
-            func_02042058(var2, func_020e0434((struct Struct_0201099c_3*)arg0->unknown_1324_, 1));
+            AppendText_02042058(var2, FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_1324_, 1));
         }
         else if (var3 & 0x2) {
-            func_02042058(var2, func_020e0434((struct Struct_0201099c_3*)arg0->unknown_1324_, 2));
+            AppendText_02042058(var2, FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_1324_, 2));
         }
         else if (var3 & 0x4) {
-            func_02042058(var2, func_020e0434((struct Struct_0201099c_3*)arg0->unknown_1324_, 3));
+            AppendText_02042058(var2, FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_1324_, 3));
         }
         else if (var3 & 0x8) {
-            func_02042058(var2, func_020e0434((struct Struct_0201099c_3*)arg0->unknown_1324_, 4));
+            AppendText_02042058(var2, FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_1324_, 4));
         }
         else if (var3 & 0x10) {
-            func_02042058(var2, func_020e0434((struct Struct_0201099c_3*)arg0->unknown_1324_, 5));
+            AppendText_02042058(var2, FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_1324_, 5));
         }
 #else
         int var4 = -1;
@@ -111,14 +111,14 @@ extern "C" ARM void func_ov003_0216b7bc(struct Struct_ov003_0216b7bc_3* arg0) {
             var4 = 5;
         }
         if (var4 >= 0) {
-            func_02042058(var2, func_020e0434((struct Struct_0201099c_3*)arg0->unknown_1324_, var4));
+            AppendText_02042058(var2, FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_1324_, var4));
         }
 #endif
         var1->unknown_1b42_ &= ~0xff;
 #if defined(jpn)
         StartMessage_0204500c(var0, var2, 0);
 #else
-        func_02046380(var0);
+        ClearMessageParams_02046380(var0);
         StartMessage_0204500c(var0, var2, 0, 0xe3);
 #endif
         var0->unknown_19b2_ = 1;

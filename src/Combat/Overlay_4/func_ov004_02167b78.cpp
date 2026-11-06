@@ -8,19 +8,19 @@
 
 extern "C" void func_ov004_0216794c(short* arg0, short* arg1, short* arg2, char* arg3, int* arg4);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_02046380(void* arg0);
+extern "C" void ClearMessageParams_02046380(void* window);
 struct Struct_02046574_2;
 extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
 #if defined(jpn)
-struct Struct_0201099c_10;
-struct Struct_0201099c_9;
-extern "C" Struct_0201099c_9* func_020dedd0(Struct_0201099c_10*, int);
-extern "C" Struct_0201099c_10* func_ov004_02167908(void* arg0, int arg1);
+struct ItemTable_0201099c_10;
+struct ItemData_0201099c_9;
+extern "C" ItemData_0201099c_9* func_020dedd0(ItemTable_0201099c_10*, int);
+extern "C" ItemTable_0201099c_10* func_ov004_02167908(void* arg0, int arg1);
 #else
 extern "C" int func_ov004_02167908(void* arg0, int arg1);
 #endif
-struct Struct_020465c0;
-extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+struct MessageWindow_020465c0;
+extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" void* func_020e46c4(void* arg0);
 extern "C" void func_020dcf7c(int arg0, void* arg1);
 
@@ -59,7 +59,7 @@ extern "C" ARM int func_ov004_02167b78(void* arg0, struct Struct_ov004_02170010_
     if (var1 > 0x50) var1 = 0x50;
 
     void* var2 = (void*)GetMessageWindow_020421a0();
-    func_02046380(var2);
+    ClearMessageParams_02046380(var2);
 
     GameObject* var3 = GameState::GetInstance()->GetUnknownGameObject();
     if (var3 != 0) {
@@ -67,15 +67,15 @@ extern "C" ARM int func_ov004_02167b78(void* arg0, struct Struct_ov004_02170010_
     }
 
 #if defined(jpn)
-    Struct_0201099c_10* var4 = func_ov004_02167908(arg0, 5);
+    ItemTable_0201099c_10* var4 = func_ov004_02167908(arg0, 5);
 #else
     int var4 = func_ov004_02167908(arg0, 5);
 #endif
 
-    func_020465c0((struct Struct_020465c0*)var2, 0, var0.unknown_6_);
-    func_020465c0((struct Struct_020465c0*)var2, 1, var0.unknown_4_);
-    func_020465c0((struct Struct_020465c0*)var2, 2, var0.unknown_2_);
-    func_020465c0((struct Struct_020465c0*)var2, 3, var1);
+    SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var2, 0, var0.unknown_6_);
+    SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var2, 1, var0.unknown_4_);
+    SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var2, 2, var0.unknown_2_);
+    SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var2, 3, var1);
 
     if (var4 != 0) {
         if (arg1 == 0) {
@@ -86,7 +86,7 @@ extern "C" ARM int func_ov004_02167b78(void* arg0, struct Struct_ov004_02170010_
         }
         if (arg1 != 0) {
 #if defined(jpn)
-            Struct_0201099c_9* var6 = func_020dedd0(var4, arg1->unknown_2_);
+            ItemData_0201099c_9* var6 = func_020dedd0(var4, arg1->unknown_2_);
             if (var6 != 0) {
                 func_02046574((struct Struct_02046574_2*)var2, 1, *(char**)((char*)var6 + 4));
             }
@@ -101,7 +101,7 @@ extern "C" ARM int func_ov004_02167b78(void* arg0, struct Struct_ov004_02170010_
             func_020dcf7c(arg1->unknown_2_, data_ov004_02171024.unknown_4_);
             *(void**)((char*)var2 + 0x18) = data_ov004_02171024.unknown_4_;
 #endif
-            func_020465c0((struct Struct_020465c0*)var2, 2, arg1->unknown_0_);
+            SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var2, 2, arg1->unknown_0_);
         }
     }
     return 0;

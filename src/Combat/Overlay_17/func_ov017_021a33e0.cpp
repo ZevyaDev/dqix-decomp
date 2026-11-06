@@ -2,11 +2,11 @@
 #include "GameState/GameState.h"
 
 extern "C" void GetZone3D_02012fe4(void);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 struct Struct_020fdd44;
 extern "C" struct Struct_020fdd44* func_02027ccc(int arg0);
-extern "C" int func_0202b7d8(int* arg0);
-extern "C" int func_0202c508(void* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_02076a8c(void* arg0);
 extern "C" void func_ov017_021c9544(int arg0, int arg1, int arg2, int arg3);
 
@@ -16,7 +16,7 @@ struct Struct_ov017_021a33e0 { unsigned char unknown_0_[2]; unsigned short unkno
 extern "C" ARM void func_ov017_021a33e0(void* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
     GetZone3D_02012fe4();
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     struct Struct_020fdd44* var2 = func_02027ccc(arg1);
     if (var2 == NULL) return;
 
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov017_021a33e0(void* arg0, int arg1) {
         if (var6) {
             func_02076a8c(var6);
             ((Object3D*)((unsigned char*)var6))->MakeHidden();
-            if (func_0202b7d8((int*)var1) && func_0202c508(var1)) {
+            if (IsLocalWirelessOn_0202b7d8((int*)var1) && IsNotLocalWirelessGuest_0202c508(var1)) {
                 func_ov017_021c9544(arg1, var3, var6->obj3D_.unknown_2_, -1);
             }
         }

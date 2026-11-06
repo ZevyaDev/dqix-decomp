@@ -3,9 +3,6 @@
 #include "World/LootableContainer.h"
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_0201777c {
     unsigned short unknown_0_;
@@ -42,11 +39,11 @@ struct Struct_ov017_021b5aec_2 {
 };
 
 extern "C" Struct_02017098* GetZone3D_02012fe4(void);
-extern "C" unsigned char* func_0205ec34(void);
+extern "C" unsigned char* GetFlagManager_0205ec34(void);
 extern "C" Struct_0201777c* func_0201777c(Struct_02017098* arg0, int arg1);
 extern "C" void func_020397c0(void* arg0);
 extern "C" void func_ov017_021b5a30(Struct_ov017_021b5aec_2* arg0);
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void* func_020de824(void* arg0);
 extern "C" void func_0207cbe8(char* arg0);
 extern "C" void func_0207d538(Struct_ov017_021b5aec* arg0, int arg1, int arg2, int arg3, int arg4);
@@ -61,7 +58,7 @@ extern "C" ARM int func_ov017_021b5aec(Struct_ov017_021b5aec_2* arg0) {
  enum { Enum_ov017_021b5aec_10068 = 0x2754 };
 #endif
     Struct_02017098* var0 = GetZone3D_02012fe4();
-    unsigned char* var1 = func_0205ec34();
+    unsigned char* var1 = GetFlagManager_0205ec34();
     LootableContainerManager* var2 = LootableContainerManager::GetMainInstance();
     Struct_0201777c* var3 = func_0201777c(var0, arg0->unknown_10_);
     if (var2 == 0 || var1 == 0 || var3 == 0) {
@@ -81,7 +78,7 @@ extern "C" ARM int func_ov017_021b5aec(Struct_ov017_021b5aec_2* arg0) {
     LootableContainerManager::Container* var8 = var2->GetContainerByID(var3->unknown_0_, &var6);
     if (var8 != 0) {
         var7 = var8->uniqueID;
-        var4 = func_0206dfb0((int)var1, var1 + 0x8c, var7 + 0x79e);
+        var4 = IsFlagSet_0206dfb0((int)var1, var1 + 0x8c, var7 + 0x79e);
         if (!var4) {
             arg0->unknown_24_ = var8;
             if (var8->lootType) {

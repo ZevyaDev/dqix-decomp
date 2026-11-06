@@ -9,7 +9,7 @@ enum { Enum_ov017_021b3780_336 = 0x150 };
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct Struct_020534ac;
 extern "C" void* func_02099ff0(void* arg0);
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov017_021b3780(struct Struct_ov017_021b3780_2* arg0) {
     if (!var2) {
         return 0;
     }
-    int var3 = func_02053c6c((unsigned char*)var2);
+    int var3 = GetPartyMemberData_02053c6c((unsigned char*)var2);
     if (!var3) {
         return 0;
     }

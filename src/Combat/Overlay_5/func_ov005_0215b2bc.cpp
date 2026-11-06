@@ -13,8 +13,8 @@ struct Struct_ov005_0215b2bc_2 {
     int unknown_4fc_;
 };
 
-struct Struct_02108760;
-extern Struct_02108760 data_02108760;
+struct SoundEffectManager_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 struct Struct_ov005_02156ecc_2;
 struct Struct_ov005_02156ecc;
@@ -26,7 +26,7 @@ extern "C" int func_0205bf58(void*, int);
 extern "C" int func_ov005_02157190(void*);
 extern "C" char* func_ov017_021a193c(int*);
 extern "C" void func_ov005_021551fc(char*, int, int);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov005_021555c0(void*);
 extern "C" void func_ov005_0215792c(void*, unsigned char);
 extern "C" unsigned char func_ov005_021586c4(void*, int, int);
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov005_0215b2bc(Struct_ov000_0217ab8c* arg0) {
         Struct_ov005_0215b2bc_2* var10 = (Struct_ov005_0215b2bc_2*)func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
         func_ov005_021551fc((char*)arg0, var10->unknown_4fc_, 0);
         if (var1 == 0) return;
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         func_ov005_021555c0(arg0);
         arg0->unknown_3dcc_ |= 0x40;
         arg0->unknown_3daa_ = 0;

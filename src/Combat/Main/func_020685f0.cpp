@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 
 struct Struct_020685f0 {
     char unknown_0_[0x49c];
@@ -14,7 +14,7 @@ struct Struct_020685f0_2 {
 
 // USA: func_020685f0
 extern "C" ARM int func_020685f0(GameState* arg0) {
-    unsigned char* var0 = (unsigned char*)func_02010828(arg0);
+    unsigned char* var0 = (unsigned char*)GetParty_02010828(arg0);
     int var1;
     for (var1 = 0; var1 < var0[0xf7c]; var1++) {
         GameObject* var2 = arg0->GetPartyMemberByIndex(((struct Struct_020685f0_2*)(var0 + var1))->unknown_f78_);

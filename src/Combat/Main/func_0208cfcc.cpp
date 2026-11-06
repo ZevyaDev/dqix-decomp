@@ -28,19 +28,19 @@ struct Struct_02065990_2 {
     signed char unknown_d9_;
     unsigned short unknown_da_;
 };
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 #if defined(jpn)
 extern char data_020f12cc[];
 #endif
 extern char data_020f11eb[];
 extern char data_020f11fe[];
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 void SetSubBrightness(GameResources*, int, int);
 extern "C" void func_0208bf28(Struct_02065990_2*, int, unsigned char);
-extern "C" int func_02046900(Struct_02020cb8_4*);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
 extern "C" void func_0205a444(char*);
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void func_0205a528(Struct_0208cfcc_2*, void*, int, SafeAllocator*);
 extern "C" void func_0205aed0(void*, char*, unsigned int, int);
 extern "C" void func_0205af38(int, char*, int, int);
@@ -85,14 +85,14 @@ extern "C" ARM void func_0208cfcc(Struct_02065990_2* arg0) {
             void* var6;
             unsigned int var7;
             var1->GetLoadedFileByID(arg0->unknown_c0_, &var6, &var7);
-            int var8 = func_02046900((Struct_02020cb8_4*)var6);
+            int var8 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var6);
             func_0205a444((char*)&arg0->unknown_60_);
             arg0->unknown_60_.unknown_50_ = 1;
             arg0->unknown_60_.unknown_40_ = arg0->unknown_b4_;
             arg0->unknown_60_.unknown_4c_ = 3;
             for (int var9 = 0; var9 < var8; var9++) {
                 int var10;
-                void* var11 = func_020467f0((Struct_02020aec*)var6, var9, &var5, &var10);
+                void* var11 = GetPacEntryData_020467f0((PacEntry_02020aec*)var6, var9, &var5, &var10);
                 func_0205a528(&arg0->unknown_60_, var11, var10, &var0->unknown_3c_);
             }
             func_0205aed0(&arg0->unknown_60_, (char*)arg0->unknown_b4_, 3, 64);
@@ -117,8 +117,8 @@ extern "C" ARM void func_0208cfcc(Struct_02065990_2* arg0) {
         if (arg0->unknown_cc_ < 1.0f) arg0->unknown_cc_ += 0.2f;
         else {
             arg0->unknown_cc_ = 1.0f;
-            func_0205eb54(data_02108760, 110, 110);
-            func_0205eb90(data_02108760, 0, 0);
+            func_0205eb54(gSoundEffectManager_02108760, 110, 110);
+            func_0205eb90(gSoundEffectManager_02108760, 0, 0);
             arg0->unknown_d5_++;
             arg0->unknown_d9_ = 30;
         }
@@ -134,7 +134,7 @@ extern "C" ARM void func_0208cfcc(Struct_02065990_2* arg0) {
             }
         }
     } else if (arg0->unknown_d5_ == 6 && arg0->unknown_d9_ == 0) {
-        func_0205eb80(data_02108760);
+        func_0205eb80(gSoundEffectManager_02108760);
         arg0->unknown_d4_ = 1;
         arg0->unknown_d5_ = 0;
     }

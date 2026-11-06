@@ -8,8 +8,8 @@ extern "C" void func_02041bbc(struct Struct_0204166c* arg0);
 extern "C" void func_020416c0(struct Struct_0204166c* arg0);
 #endif
 
-struct Struct_0203d028;
-extern "C" void func_0207df50(struct Struct_0203d028* arg0);
+struct TextureVRAMArea_0203d028;
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
 
 struct Struct_02045cac {
 #if defined(jpn)
@@ -51,6 +51,6 @@ extern "C" ARM void func_02045cac(struct Struct_02045cac* arg0) {
         arg0->unknown_17b8_[var0] = 0;
     }
     if (arg0->unknown_1e28_ != NULL) {
-        func_0207df50((struct Struct_0203d028*)arg0->unknown_1e28_);
+        ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)arg0->unknown_1e28_);
     }
 }

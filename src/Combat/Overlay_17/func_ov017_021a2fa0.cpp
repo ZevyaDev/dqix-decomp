@@ -83,7 +83,7 @@ extern "C" ARM void func_ov017_021a2fa0(unsigned char* arg0) {
     ((SafeAllocator*)(arg0 + Enum_ov017_021a2fa0_4544))->CreateTypeA(var3, var2);
     func_0207dfc8((struct Struct_02015ef4_5*)(arg0 + Enum_ov017_021a2fa0_4432), (struct Struct_02015ef4_5*)(arg0 + Enum_ov017_021a2fa0_4564));
 
-    Struct_ov017_021a2fa0_3* var6 = (Struct_ov017_021a2fa0_3*)func_02010828(var0);
+    Struct_ov017_021a2fa0_3* var6 = (Struct_ov017_021a2fa0_3*)GetParty_02010828(var0);
     if (var6->unknown_f7d_ != 0) {
         func_ov017_021913d0(arg0, var6->unknown_f7d_);
     } else {

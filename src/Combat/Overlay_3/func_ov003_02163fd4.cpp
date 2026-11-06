@@ -44,14 +44,14 @@ struct Struct_ov003_02154af4_3 {
 #define REGION_OFF_354 0x354
 #endif
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 extern "C" void func_020813ec(void *, int);
 struct Struct_02081f20_2;
 extern "C" void func_0208203c(Struct_02081f20_2*);
 extern "C" int func_02080468(void *, int);
-extern "C" char * func_0200fb8c(int*);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(Struct_02108760 *, int, int);
+extern "C" char * GetResources_0200fb8c(int*);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
 struct Struct_0207fe44;
 extern "C" void func_0207fe44(Struct_0207fe44*);
 extern "C" int func_ov003_02160b84(void *);
@@ -89,18 +89,18 @@ extern "C" ARM void func_ov003_02163fd4(Struct_ov003_02154af4_3 *arg0) {
         func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
         arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
         arg0->unknown_464_ &= ~0x300;
-        *(unsigned char *) (func_0200fb8c((int*)GameState::GetInstance()) + 0x4000 + REGION_OFF_354) = 0xa;
+        *(unsigned char *) (GetResources_0200fb8c((int*)GameState::GetInstance()) + 0x4000 + REGION_OFF_354) = 0xa;
     } else if (var0 == 1) {
         arg0->unknown_470_ = &arg0->unknown_48a_;
         func_02080c68(var1, arg0->unknown_488_, 0);
         short *var3 = &arg0->unknown_484_;
         if (func_ov003_02160854(arg0) != 0) {
-            func_0205eaa0((Struct_02108760 *) &data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
             func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
             arg0->unknown_470_ = 0;
             switch (arg0->unknown_48a_) {
                 case 0xa6:
-                    if ((int) *((unsigned char *)func_02010828(GameState::GetInstance()) + 0xf7c) > 1) {
+                    if ((int) *((unsigned char *)GetParty_02010828(GameState::GetInstance()) + 0xf7c) > 1) {
                         var3[0]        = 3;
                         var3[1]        = 4;
                         arg0->unknown_4a3_  = 0xb;
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov003_02163fd4(Struct_ov003_02154af4_3 *arg0) {
                     }
                     break;
                 case 0xa7:
-                    if (*((unsigned char *)func_02010828(GameState::GetInstance()) + 0xf7c) == 4) {
+                    if (*((unsigned char *)GetParty_02010828(GameState::GetInstance()) + 0xf7c) == 4) {
                         var3[0] = 0x14;
                         var3[1] = 1;
                     } else {

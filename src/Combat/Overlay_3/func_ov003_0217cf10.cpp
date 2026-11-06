@@ -106,9 +106,9 @@ struct Struct_ov003_0217cf10_5 {
 };
 
 struct Struct_02018300_3;
-struct Struct_02108760;
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct SoundEffectManager_02108760;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 struct Struct_0204b12c;
 struct Struct_02020cb8_5;
 struct Struct_02020cb8_2;
@@ -119,15 +119,15 @@ struct Struct_0205cf78_2;
 extern "C" Struct_ov003_0217cf10_6 *GetMessageWindow_020421a0();
 extern "C" Struct_ov003_0217cf10_9 *GetZone3D_02012fe4(void);
 extern "C" void func_020397cc(Struct_02018300_3 *arg0, int arg1);
-extern "C" void func_0205eaa0(Struct_02108760 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" const char *func_020e51cc(int arg0);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_ov003_0217cf10_6 *window, const char *text, int arg2);
 #else
 extern "C" void StartMessage_0204500c(Struct_ov003_0217cf10_6 *window, const char *text, int arg2, int arg3);
 #endif
-extern "C" int func_02046900(Struct_02020cb8_4 *arg0);
-extern "C" void *func_020467f0(Struct_02020aec *arg0, int arg1, void **arg2, int *arg3);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4 *pac);
+extern "C" void *GetPacEntryData_020467f0(PacEntry_02020aec *pac, int index, void **outEntry, int *outSize);
 extern "C" void func_0205a528(Struct_ov003_0217cf10_4 *arg0, void *arg1, int arg2, SafeAllocator *arg3);
 extern "C" void func_0204b11c(unsigned char *arg0, int arg1);
 extern "C" void func_0204b5b4(Struct_ov003_0217cf10 *arg0, int arg1);
@@ -139,10 +139,10 @@ extern "C" void func_0204b0e8(Struct_02020cb8_2 *arg0, void *arg1);
 extern "C" void func_0204c7a8(Struct_0204c7a8 *arg0, SafeAllocator *arg1, int arg2, unsigned int arg3);
 extern "C" void func_0205cf78(Struct_0205cf78 *arg0, Struct_0205cf78_2 *arg1, unsigned char arg2);
 extern "C" void func_020dfec0(void *arg0, SafeAllocator *arg1, void *arg2, unsigned int arg3);
-extern "C" const char *func_020e0434(Struct_0201099c_3 *arg0, int arg1);
+extern "C" const char *FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int func_020420e8(const char *arg0, int arg1);
 
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern char data_ov003_02180c2c[];
 extern char data_ov003_02180c43[];
 extern char data_ov003_02180c56[];
@@ -168,7 +168,7 @@ extern "C" ARM void func_ov003_0217cf10(Struct_ov003_0217cf10_5 *arg0) {
     if (var5 == 0) {
         func_020397cc((Struct_02018300_3 *)var1->GetUnknownGameObject(), 1);
         var0->unknown_868_ = 1;
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         if (inline_ov003_0217cf10_2(&var4->unknown_1000_, 0xffffffff)) {
             StartMessage_0204500c(var0, data_ov003_0217ee58, 0);
             var0->unknown_17e2_ = 0;
@@ -203,9 +203,9 @@ extern "C" ARM void func_ov003_0217cf10(Struct_ov003_0217cf10_5 *arg0) {
         unsigned int var10;
         int var11;
         var2->GetLoadedFileByID(arg0->unknown_c_, &var9, &var10);
-        int var12 = func_02046900((Struct_02020cb8_4 *)var9);
+        int var12 = CountPacEntries_02046900((PacEntry_02020cb8_4 *)var9);
         for (int var13 = 0; var13 < var12; var13++) {
-            void *var14 = func_020467f0((Struct_02020aec *)var9, var13, &var8, &var11);
+            void *var14 = GetPacEntryData_020467f0((PacEntry_02020aec *)var9, var13, &var8, &var11);
             func_0205a528(&arg0->unknown_3c_, var14, var11, &arg0->unknown_b8_);
         }
         var2->RemoveTask(arg0->unknown_c_);
@@ -234,9 +234,9 @@ extern "C" ARM void func_ov003_0217cf10(Struct_ov003_0217cf10_5 *arg0) {
         unsigned int var18;
         int var19[2];
         var2->GetLoadedFileByID(arg0->unknown_c_, &var16, &var18);
-        int var20 = func_02046900((Struct_02020cb8_4 *)var16);
+        int var20 = CountPacEntries_02046900((PacEntry_02020cb8_4 *)var16);
         for (int var21 = 0; var21 < var20; var21++) {
-            var17[var21] = func_020467f0((Struct_02020aec *)var16, var21, &var15, &var19[var21]);
+            var17[var21] = GetPacEntryData_020467f0((PacEntry_02020aec *)var16, var21, &var15, &var19[var21]);
         }
         for (int var22 = 0; var22 < var20; var22++) {
             if (var17[var22] != 0) {
@@ -290,7 +290,7 @@ extern "C" ARM void func_ov003_0217cf10(Struct_ov003_0217cf10_5 *arg0) {
         Struct_ov003_0217cf10_8 *var31 = &var29->unknown_840_;
         func_020397cc((Struct_02018300_3 *)var27->GetUnknownGameObject(), 1);
         var26->unknown_998_ = 1;
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         if (inline_ov003_0217cf10_2(&var31->unknown_1000_, 0xffffffff)) {
             StartMessage_0204500c(var26, func_020e51cc(0x42), 0, 0xe3);
             var26->unknown_19b2_ = 0;
@@ -325,9 +325,9 @@ extern "C" ARM void func_ov003_0217cf10(Struct_ov003_0217cf10_5 *arg0) {
         unsigned int var36;
         int var37;
         var28->GetLoadedFileByID(arg0->unknown_c_, &var35, &var36);
-        int var38 = func_02046900((Struct_02020cb8_4 *)var35);
+        int var38 = CountPacEntries_02046900((PacEntry_02020cb8_4 *)var35);
         for (int var39 = 0; var39 < var38; var39++) {
-            void *var40 = func_020467f0((Struct_02020aec *)var35, var39, &var34, &var37);
+            void *var40 = GetPacEntryData_020467f0((PacEntry_02020aec *)var35, var39, &var34, &var37);
             func_0205a528(&arg0->unknown_3c_, var40, var37, &arg0->unknown_b8_);
         }
         var28->RemoveTask(arg0->unknown_c_);
@@ -356,9 +356,9 @@ extern "C" ARM void func_ov003_0217cf10(Struct_ov003_0217cf10_5 *arg0) {
         unsigned int var44;
         int var45[2];
         var28->GetLoadedFileByID(arg0->unknown_c_, &var42, &var44);
-        int var46 = func_02046900((Struct_02020cb8_4 *)var42);
+        int var46 = CountPacEntries_02046900((PacEntry_02020cb8_4 *)var42);
         for (int var47 = 0; var47 < var46; var47++) {
-            var43[var47] = func_020467f0((Struct_02020aec *)var42, var47, &var41, &var45[var47]);
+            var43[var47] = GetPacEntryData_020467f0((PacEntry_02020aec *)var42, var47, &var41, &var45[var47]);
         }
         for (int var48 = 0; var48 < var46; var48++) {
             if (var43[var48] != 0) {
@@ -398,7 +398,7 @@ extern "C" ARM void func_ov003_0217cf10(Struct_ov003_0217cf10_5 *arg0) {
         int var52 = 0;
         for (int var53 = 0x64; var53 < 0x7c; var53++) {
             int var54 = 0;
-            const char *var55 = func_020e0434((Struct_0201099c_3 *)arg0->unknown_cc_, (short)var53);
+            const char *var55 = FindStringInTable_020e0434((Struct_0201099c_3 *)arg0->unknown_cc_, (short)var53);
             if (var55 != 0) {
                 var54 = func_020420e8(var55, 0);
             }

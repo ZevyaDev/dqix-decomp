@@ -10,7 +10,7 @@ enum { Enum_ov004_0216aa10_2456 = 0x998 };
 extern "C" void func_ov004_02169144(void);
 extern "C" void func_020dc2d0(int arg0);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 
 // USA: func_ov004_0216aa10
 extern "C" ARM int func_ov004_0216aa10(void) {
@@ -21,7 +21,7 @@ extern "C" ARM int func_ov004_0216aa10(void) {
     func_020dc2d0(0);
     int var0 = GetMessageWindow_020421a0();
     if (*(int*)((char*)var0 + Enum_ov004_0216aa10_2456) != 0) {
-        func_02043204((char*)var0);
+        ResetMessageWindow_02043204((char*)var0);
     }
     return 0;
 }

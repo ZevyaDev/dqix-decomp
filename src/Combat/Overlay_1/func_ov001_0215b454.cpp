@@ -3,7 +3,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" int func_ov017_021d60f4(void*);
-extern "C" void* func_0200fb8c(int*);
+extern "C" void* GetResources_0200fb8c(int*);
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
 
@@ -21,7 +21,7 @@ extern "C" ARM int func_ov001_0215b454(void* arg0, int arg1) {
         var0 = func_ov017_021d60f4((char*)arg0 + 0x8);
     }
     void* var2 = GameState::GetInstance();
-    void* var3 = func_0200fb8c((int*)var2);
+    void* var3 = GetResources_0200fb8c((int*)var2);
     if (var3 != NULL) {
         SetSubBrightness((GameResources*)var3, var0, var1);
         char* var4 = *(char**)(((char*)GetGameResources()) + 0x3000 + Enum_ov001_0215b454_1844);

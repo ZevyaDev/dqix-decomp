@@ -266,29 +266,29 @@ struct Struct_ov004_0215f0c0_9 {
 };
 
 struct Struct_02000c9c_8;
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 
 extern "C" int func_020d2ff0(const char*);
-extern "C" unsigned char* func_02053c6c(unsigned char* arg0);
+extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" struct Struct_ov004_0215f0c0_10* func_ov004_0215e47c(void* arg0, int arg1);
 extern "C" void* func_ov023_021fad18(void* arg0);
 extern "C" struct Struct_ov004_0215f0c0_8* func_ov004_0215e438(void* arg0, int arg1);
 extern "C" int func_ov017_021bdbcc(void* arg0);
 extern "C" void* func_020421b0(int arg0);
 extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* arg0);
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" Struct_ov004_0215f0c0_5* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" Struct_ov004_0215f0c0_5* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(Struct_ov004_0215f0c0_5* arg0);
 extern "C" int func_02042190(int arg0);
 extern "C" int func_020420e8(void* arg0, int arg1);
 extern "C" int func_020e51cc(int arg0);
 extern "C" int func_ov004_0215e460(void);
 extern "C" void func_ov004_0215e49c(void*, int, int);
-extern "C" struct Struct_02072a68_2* func_ov023_021fa598(Struct_ov004_0215f0c0_5* arg0);
+extern "C" struct StringList_02072a68_2* func_ov023_021fa598(Struct_ov004_0215f0c0_5* arg0);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_02046380(void* arg0);
-extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
+extern "C" void ClearMessageParams_02046380(void* window);
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
 extern "C" void* func_ov004_0215e4c0(void* arg0, int arg1);
 extern "C" void func_ov023_021f809c(void* arg0, void* arg1);
@@ -301,7 +301,7 @@ extern unsigned short data_ov004_0216fdd0[];
 extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
     GameState* var0 = GameState::GetInstance();
     struct Struct_ov004_0215f0c0_2* var1 = (struct Struct_ov004_0215f0c0_2*)func_0200ff1c(var0, data_ov004_02170804);
-    struct Struct_ov004_0215f0c0_6* var2 = (struct Struct_ov004_0215f0c0_6*)func_02053c6c((unsigned char*)var1);
+    struct Struct_ov004_0215f0c0_6* var2 = (struct Struct_ov004_0215f0c0_6*)GetPartyMemberData_02053c6c((unsigned char*)var1);
     int var3 = 0;
     int var4 = 0xf;
     if ((int)var1->unknown_130_->unknown_4_ <= 0) {
@@ -355,15 +355,15 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
 
     unsigned char var18 = func_0200fb08((struct Struct_02000c9c_8*)var0);
 #endif
-    void* var19 = func_ov011_021849c8(arg0);
-    Struct_ov004_0215f0c0_5* var20 = func_ov023_021f6880(var19, 0x7f);
+    void* var19 = GetMenuObjectList_ov011_021849c8(arg0);
+    Struct_ov004_0215f0c0_5* var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7f);
     if (var20 == 0) {
         return;
     }
     var20->inline_ov004_0215f0c0_24(var2->unknown_16c_[data_ov004_021707ea]);
 
     {
-        Struct_ov004_0215f0c0_5* var21 = func_ov023_021f6880(var19, 0x7b);
+        Struct_ov004_0215f0c0_5* var21 = FindMenuObjectById_ov023_021f6880(var19, 0x7b);
         if (func_ov023_021f6f10(var21) == 8) {
             void* var22 = var21->unknown_20_ = var1->unknown_134_;
             int var23 = 0;
@@ -387,7 +387,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
     }
     int var25 = var2->unknown_186_[data_ov004_021707ea];
     if (var25 != 0) {
-        var20 = func_ov023_021f6880(var19, 0x7e);
+        var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7e);
         if (var20 == 0) {
             return;
         }
@@ -413,21 +413,21 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
 #endif
         }
 #if defined(jpn)
-        var20 = func_ov023_021f6880(var19, 0x7c);
+        var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7c);
         if (var20 != 0) {
             Vector3i var27;
             var27 = var20->inline_ov004_0215f0c0_33();
             var27.x = 0x42000;
             var20->inline_ov004_0215f0c0_32(&var27);
         }
-        var20 = func_ov023_021f6880(var19, 0x7d);
+        var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7d);
         if (var20 != 0) {
             Vector3i var28;
             var28 = var20->inline_ov004_0215f0c0_33();
             var28.x = 0x5f000;
             var20->inline_ov004_0215f0c0_32(&var28);
         }
-        var20 = func_ov023_021f6880(var19, 0x7f);
+        var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7f);
         if (var20 != 0) {
             Vector3i var29;
             var29 = var20->inline_ov004_0215f0c0_33();
@@ -435,41 +435,41 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
             var20->inline_ov004_0215f0c0_32(&var29);
         }
 #else
-        var20 = func_ov023_021f6880(var19, 0x7f);
+        var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7f);
         if (var20 != 0) {
             Vector3i var30;
             var30 = var20->inline_ov004_0215f0c0_33();
             var30.x = (data_ov004_0216fe04[var18] + 0x72) << 12;
             var20->inline_ov004_0215f0c0_32(&var30);
         }
-        var20 = func_ov023_021f6880(var19, 0x7d);
+        var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7d);
         if (var20 != 0) {
             var20->unknown_20_ = (void*)func_020e51cc(0x3f3);
         }
 #endif
     } else {
-        var20 = func_ov023_021f6880(var19, 0x7e);
+        var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7e);
         if (var20 != 0) {
             if (func_ov023_021f6f10(var20) == 8) {
                 var20->unknown_38_ = 0x3a;
             }
         }
 #if defined(jpn)
-        var20 = func_ov023_021f6880(var19, 0x7c);
+        var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7c);
         if (var20 != 0) {
             Vector3i var31;
             var31 = var20->inline_ov004_0215f0c0_33();
             var31.x = 0x46000;
             var20->inline_ov004_0215f0c0_32(&var31);
         }
-        var20 = func_ov023_021f6880(var19, 0x7d);
+        var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7d);
         if (var20 != 0) {
             Vector3i var32;
             var32 = var20->inline_ov004_0215f0c0_33();
             var32.x = 0x5c000;
             var20->inline_ov004_0215f0c0_32(&var32);
         }
-        var20 = func_ov023_021f6880(var19, 0x7f);
+        var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7f);
         if (var20 != 0) {
             Vector3i var33;
             var33 = var20->inline_ov004_0215f0c0_33();
@@ -477,14 +477,14 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
             var20->inline_ov004_0215f0c0_32(&var33);
         }
 #else
-        var20 = func_ov023_021f6880(var19, 0x7f);
+        var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7f);
         if (var20 != 0) {
             Vector3i var34;
             var34 = var20->inline_ov004_0215f0c0_33();
             var34.x = (data_ov004_0216fe04[var18] + 0x72) << 12;
             var20->inline_ov004_0215f0c0_32(&var34);
         }
-        var20 = func_ov023_021f6880(var19, 0x7d);
+        var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7d);
         if (var20 != 0) {
             var20->unknown_20_ = (void*)func_020e51cc(0x3f3);
         }
@@ -513,7 +513,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
 #endif
 
     if (var3) {
-        Struct_ov004_0215f0c0_5* var37 = func_ov023_021f6880(var19, 0x7c);
+        Struct_ov004_0215f0c0_5* var37 = FindMenuObjectById_ov023_021f6880(var19, 0x7c);
         if (var37 != 0) {
             Vector3i var38;
             var38 = var37->inline_ov004_0215f0c0_33();
@@ -527,31 +527,31 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
 #if defined(jpn)
         func_ov004_0215e49c(arg0, 0x7c, 0x202);
 #else
-        Struct_ov004_0215f0c0_5* var39 = func_ov023_021f6880(var19, 6);
+        Struct_ov004_0215f0c0_5* var39 = FindMenuObjectById_ov023_021f6880(var19, 6);
         if (var39 != 0 && func_ov023_021f6f10(var39) == 4) {
-            struct Struct_02072a68_2* var40 = func_ov023_021fa598(var39);
+            struct StringList_02072a68_2* var40 = func_ov023_021fa598(var39);
             struct Struct_ov004_0215f0c0_9 var41;
             func_020e4bf4(&var41, data_ov004_02170804);
             int var42 = GetMessageWindow_020421a0();
-            func_02046380((void*)var42);
+            ClearMessageParams_02046380((void*)var42);
             *(struct Struct_ov004_0215f0c0_9**)var42 = &var41;
-            func_02046608(var42, 0, func_02072a68(var40, 0x202), var35, 0x1e, 0, 0);
+            func_02046608(var42, 0, FindStringInList_02072a68(var40, 0x202), var35, 0x1e, 0, 0);
             var37->unknown_20_ = var35;
         }
 #endif
         for (int var43 = 0; var43 < 3; var43++) {
-            Struct_ov004_0215f0c0_5* var44 = func_ov023_021f6880(var19, var36[var43]);
+            Struct_ov004_0215f0c0_5* var44 = FindMenuObjectById_ov023_021f6880(var19, var36[var43]);
             if (var44 != 0) {
                 var44->unknown_c_ |= 8;
             }
         }
     } else {
-        Struct_ov004_0215f0c0_5* var45 = func_ov023_021f6880(var19, 0x7c);
+        Struct_ov004_0215f0c0_5* var45 = FindMenuObjectById_ov023_021f6880(var19, 0x7c);
         if (var45 != 0) {
             var45->inline_ov004_0215f0c0_22(var4);
         }
         for (int var46 = 0; var46 < 3; var46++) {
-            Struct_ov004_0215f0c0_5* var47 = func_ov023_021f6880(var19, var36[var46]);
+            Struct_ov004_0215f0c0_5* var47 = FindMenuObjectById_ov023_021f6880(var19, var36[var46]);
             if (var47 != 0) {
                 var47->unknown_c_ &= ~8;
             }
@@ -729,7 +729,7 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
         for (var16 = 0; var16 < 8; var16++) {
             var19 = func_02052df8((struct Struct_ov004_0215f770_3*)var22, data_ov004_0216fdf4[var16]);
             var17 = 0;
-            var24 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x81);
+            var24 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x81);
             if (var24 != 0 && func_ov023_021f6f10(var24) != 0x11) {
                 var17 = func_020dedd0(var24->inline_ov004_0215f770_2(), var19);
             }
@@ -797,9 +797,9 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
 
 #if !defined(jpn)
     struct Struct_ov004_0215f0c0_10* var28 = func_ov004_0215e47c(arg0, 0x1f5);
-    void* var29 = func_ov011_021849c8(arg0);
+    void* var29 = GetMenuObjectList_ov011_021849c8(arg0);
     if (var28 != 0 && var29 != 0) {
-        void* var30 = func_ov023_021f6880(var29, 0x1f4);
+        void* var30 = FindMenuObjectById_ov023_021f6880(var29, 0x1f4);
         if (var28 != 0 && var30 != 0) {
             var28->unknown_24_ = 0x7e;
             unsigned short* var31 = (unsigned short*)func_ov004_0215e438(func_ov023_021fad18(var30), var28->unknown_22_);

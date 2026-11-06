@@ -4,7 +4,7 @@
 
 extern int data_020e7a94[];
 extern "C" int func_020424e4(int, int);
-extern "C" Struct_020420e8* func_020425b4(int arg0, int arg1);
+extern "C" FontGlyph_020420e8* func_020425b4(int arg0, int arg1);
 extern "C" int func_020425e4(int arg0, int arg1, int arg2);
 
 #if defined(jpn)
@@ -70,11 +70,11 @@ extern "C" ARM int func_020420e8(char* arg0, int arg1) {
             arg0++;
         } else {
             var3 = var6 & 0xff;
-            Struct_020420e8* var7 = func_020425b4(var6, arg1);
+            FontGlyph_020420e8* var7 = func_020425b4(var6, arg1);
             int var8 = func_020425e4(var2, var3, arg1);
             var2 = var3;
-            var5 = (var7->unknown_4_ + 1) + var8;
-            arg0 = arg0 + var7->unknown_5_0_;
+            var5 = (var7->width_4_ + 1) + var8;
+            arg0 = arg0 + var7->codeLength_5_0_;
         }
         var4 += var5;
     }

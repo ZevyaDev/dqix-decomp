@@ -11,12 +11,12 @@ extern "C" void func_ov003_021714f0(void*);
 #include "GameState/GameState.h"
 
 struct Struct_0202b2f0;
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 struct Struct_ov003_021714f0;
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_0202b0f4(void* arg0);
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void func_0202c1e8(struct Struct_0202b2f0* arg0, int arg1);
 extern "C" void func_0202c288(void* arg0);
 extern "C" void func_ov003_02172518(struct Struct_ov003_021714f0* arg0, int arg1);
@@ -36,7 +36,7 @@ struct Struct_ov003_02171af0 {
 // USA: func_ov003_02171af0
 extern "C" ARM void func_ov003_02171af0(struct Struct_ov003_02171af0* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
 
     arg0->unknown_72c_ += var0->GetEffectiveDeltaTime();
     if (arg0->unknown_72c_ > 0xbb8) {
@@ -45,11 +45,11 @@ extern "C" ARM void func_ov003_02171af0(struct Struct_ov003_02171af0* arg0) {
         arg0->unknown_0_ = 0;
     }
 
-    if (func_0202c1a4((struct Struct_0202c1a4*)var1) <= 0) {
+    if (GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var1) <= 0) {
         return;
     }
 
-    signed char var2 = func_0202c1a4((struct Struct_0202c1a4*)var1);
+    signed char var2 = GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var1);
     func_0202c1e8((struct Struct_0202b2f0*)var1, var2);
     func_0202c1e8((struct Struct_0202b2f0*)var1, arg0->unknown_199_);
     func_0202c288(var1);

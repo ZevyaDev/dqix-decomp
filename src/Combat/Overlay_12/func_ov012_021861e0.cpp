@@ -13,10 +13,10 @@ extern "C" void func_0205a198(Struct_02043368_2*);
 struct Struct_02043368;
 extern "C" void func_0205a234(Struct_02043368*);
 extern "C" void func_0205a444(char*);
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(Struct_02020cb8_4*);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void func_0205a528(void*, void*, int, void*);
 
 // USA: func_ov012_021861e0
@@ -39,10 +39,10 @@ extern "C" ARM void func_ov012_021861e0(char* arg0) {
     unsigned int var7;
     int var8;
     var0->GetLoadedFileByID(*(int*)(arg0 + Enum_ov012_021861e0_5008), &var6, &var7);
-    int var9 = func_02046900((Struct_02020cb8_4*)var6);
+    int var9 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var6);
     ((SafeAllocator*)(arg0 + Enum_ov012_021861e0_92))->Reset();
     for (int var10 = 0; var10 < var9; ++var10) {
-        void* var11 = func_020467f0((Struct_02020aec*)var6, var10, &var5, &var8);
+        void* var11 = GetPacEntryData_020467f0((PacEntry_02020aec*)var6, var10, &var5, &var8);
         func_0205a528(*(char**)(arg0 + Enum_ov012_021861e0_4956), var11, var8, arg0 + Enum_ov012_021861e0_92);
     }
     var0->RemoveTask(*(int*)(arg0 + Enum_ov012_021861e0_5008));

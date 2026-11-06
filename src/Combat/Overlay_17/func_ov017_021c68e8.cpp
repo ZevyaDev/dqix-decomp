@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
 extern "C" void* func_ov017_021b8478(void* arg0);
 extern "C" void* func_ov017_021b8468(void* arg0);
 extern "C" void* func_ov017_021b8470(void* arg0);
 extern "C" void func_ov000_02162b70(void* arg0, int arg1, unsigned char arg2);
 extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov000_02162c90(char* arg0, int arg1, int arg2);
 
 struct Struct_ov000_02162aac {
@@ -48,7 +48,7 @@ struct Struct_ov017_021c68e8_2 {
 };
 
 // USA: func_ov017_021c68e8
-extern "C" ARM void func_ov017_021c68e8(int arg0, Struct_ov017_021c68e8_2* arg1, GameState* arg2, unsigned char* arg3, struct Struct_0202c1a4* arg4) {
+extern "C" ARM void func_ov017_021c68e8(int arg0, Struct_ov017_021c68e8_2* arg1, GameState* arg2, unsigned char* arg3, struct LocalWireless_0202c1a4* arg4) {
 #if defined(jpn)
     void* var0 = *(void**)(arg3 + 0x3000 + 0x508);
 #else
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov017_021c68e8(int arg0, Struct_ov017_021c68e8_2* arg1,
     if (!var3) return;
     if (var1->unknown_8_ != arg1->unknown_4_) return;
 
-    if (arg1->unknown_12_ > -1 && arg1->unknown_12_ != func_0202c1a4(arg4)) {
+    if (arg1->unknown_12_ > -1 && arg1->unknown_12_ != GetOwnProtagonistObjectIndex_0202c1a4(arg4)) {
         if (arg1->unknown_11_1_) {
             func_ov000_02162b70(var2, (signed char)arg1->unknown_6_, 1);
         }
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov017_021c68e8(int arg0, Struct_ov017_021c68e8_2* arg1,
         if (func_0200ff58(arg2, arg1->unknown_6_) != NULL) {
             GameObject* var6 = func_0200ff1c(arg2, arg1->unknown_6_);
             if (var6 != NULL) {
-                int var7 = func_02053c6c((unsigned char*)var6);
+                int var7 = GetPartyMemberData_02053c6c((unsigned char*)var6);
                 if (var7 != 0) {
 #if defined(jpn)
                     var5 = (signed char)*(int*)(var7 + 0x8b4) == 5;

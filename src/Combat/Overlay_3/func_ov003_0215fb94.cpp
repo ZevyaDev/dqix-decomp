@@ -23,7 +23,7 @@ struct Struct_0207fcb8;
 struct Struct_0207fd44_2;
 struct Struct_0207fd88;
 
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
 extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
 extern "C" void func_0207fcb8(struct Struct_0207fcb8* arg0);
@@ -33,8 +33,8 @@ extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_02043204(char* arg0);
-extern "C" void func_02043124(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
+extern "C" void CloseMessageWindow_02043124(char* window);
 
 struct Struct_ov003_0215fb94 {
     unsigned char unknown_0_[Enum_ov003_0215fb94_552];
@@ -60,7 +60,7 @@ struct Struct_ov003_0215fb94 {
 
 // USA: func_ov003_0215fb94
 extern "C" ARM void func_ov003_0215fb94(Struct_ov003_0215fb94* arg0) {
-    func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 0x80000);
+    func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x80000);
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
     if (arg0->unknown_46c_ >= 0) {
         var0->RemoveTask(arg0->unknown_46c_);
@@ -93,8 +93,8 @@ extern "C" ARM void func_ov003_0215fb94(Struct_ov003_0215fb94* arg0) {
 
     char* var4 = (char*)GetMessageWindow_020421a0();
     if (*(int*)(var4 + Enum_ov003_0215fb94_2456) != 0) {
-        func_02043204(var4);
-        func_02043124(var4);
+        ResetMessageWindow_02043204(var4);
+        CloseMessageWindow_02043124(var4);
     }
     *(int*)(var4 + Enum_ov003_0215fb94_728) = 0;
     var4[Enum_ov003_0215fb94_742] = 1;

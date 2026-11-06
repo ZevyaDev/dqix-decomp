@@ -16,7 +16,7 @@
 extern "C" void func_0202f1dc(char*);
 
 extern "C" void func_02043224(void* arg0);
-extern "C" void func_02043124(void* arg0);
+extern "C" void CloseMessageWindow_02043124(void* window);
 
 // USA: func_02043000
 extern "C" ARM void func_02043000(char* arg0) {
@@ -24,7 +24,7 @@ extern "C" ARM void func_02043000(char* arg0) {
     func_02043224(arg0);
     MessageWindow_02021b84* var0 = (MessageWindow_02021b84*)arg0;
     func_02043040(var0);
-    func_02043124(arg0);
+    CloseMessageWindow_02043124(arg0);
     func_020430b0(var0);
     *(int*)(arg0 + CONTROLLER_STATE_OFFSET) = 0;
 }

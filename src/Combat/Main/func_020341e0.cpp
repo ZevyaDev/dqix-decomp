@@ -2,11 +2,11 @@
 #include "Combat/SearchEntry.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 struct Struct_0202b2f0;
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 struct Struct_020341e0 {
     signed short unknown_0_;
     signed short unknown_2_;
@@ -25,13 +25,13 @@ struct Struct_020341e0_3 {
 
 // USA: func_020341e0
 extern "C" ARM void func_020341e0(Struct_020341e0_2* arg0, void* arg1) {
-    void* var0 = func_0202ae18();
+    void* var0 = GetLocalWireless_0202ae18();
     (int)GetGameResources();
-    if (func_0202b7d8((int*)var0)) {
+    if (IsLocalWirelessOn_0202b7d8((int*)var0)) {
         short var1 = *(short*)((char*)arg1 + 4);
         if (func_0202c178((struct Struct_0202b2f0*)var0, var1)) {
             var1 = *(short*)((char*)arg1 + 4);
-            signed char var2 = func_0202c1a4((struct Struct_0202c1a4*)var0);
+            signed char var2 = GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var0);
             if (var2 != var1) {
                 Struct_020341e0_3* var3 = (Struct_020341e0_3*)((char*)arg1 + 0xc1);
                 if (var3->unknown_0_0_ & 1) {

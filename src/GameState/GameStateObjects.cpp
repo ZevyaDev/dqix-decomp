@@ -18,7 +18,7 @@ GameObject* GameState::GetMaybeWanderingMonsterByIndex(int idx)
         return NULL;
     if (objects_[idx] == NULL)
         return NULL;
-    if (!(objects_[idx]->obj3D_.unknown_0_ & 2))
+    if (!(objects_[idx]->obj3D_.classFlags_0_ & 2))
         return NULL;
     return objects_[idx];
 }
@@ -41,7 +41,7 @@ GameObject* GameState::GetPartyMemberByIndex(int idx)
         return NULL;
     if (objects_[idx] == NULL)
         return NULL;
-    if (!(objects_[idx]->obj3D_.unknown_0_ & 0x800))
+    if (!(objects_[idx]->obj3D_.classFlags_0_ & 0x800))
         return NULL;
     return objects_[idx];
 }
@@ -54,7 +54,7 @@ GameObject* GameState::GetMaybeFieldMonsterByIndex(int idx)
         return NULL;
     if (objects_[idx] == NULL)
         return NULL;
-    if (!(objects_[idx]->obj3D_.unknown_0_ & 0x20))
+    if (!(objects_[idx]->obj3D_.classFlags_0_ & 0x20))
         return NULL;
     return objects_[idx];
 }
@@ -67,7 +67,7 @@ GameObject* GameState::GetCombatantByIndex(int idx)
         return NULL;
     if (objects_[idx] == NULL)
         return NULL;
-    if (!(objects_[idx]->obj3D_.unknown_0_ & 0x80))
+    if (!(objects_[idx]->obj3D_.classFlags_0_ & 0x80))
         return NULL;
     return objects_[idx];
 }

@@ -104,11 +104,11 @@ struct Struct_02104b18
     Matrix4x3 boneMatrixWithView;
 } boneTracking;
 
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 
 void Object3D::Initialize()
 {
-    unknown_0_ = 1;
+    classFlags_0_ = 1;
     unknown_2_ = -1;
     unknown_4_ = -1;
     unknown_6_ = -1;
@@ -299,15 +299,15 @@ void Object3D::AdvanceAnimations_v0()
         if (loopEntry->triggerTime == 0)
         {
             if (unknown_40_bit_1_ || (animationReachedEnd_ && !(animationFlags_ & OBJECT_ANIMATION_DONT_LOOP)))
-                func_0203ac40(data_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
+                func_0203ac40(gSoundEffectManager_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
         }
         else if (loopEntry->triggerTime == 1.0)
         {
             if (animationEnded_)
-                func_0203ac40(data_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
+                func_0203ac40(gSoundEffectManager_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
         }
         else if (prevFrameNormalizedAnimationTime_ < loopEntry->triggerTime && loopEntry->triggerTime <= normalizedAnimationTime_)
-            func_0203ac40(data_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
+            func_0203ac40(gSoundEffectManager_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
     }
 }
 
@@ -411,15 +411,15 @@ void Object3D::AdvanceAnimations_v1()
             if (loopEntry->triggerTime == 0)
             {
                 if (unknown_40_bit_1_ || (animationReachedEnd_ && !(animationFlags_ & OBJECT_ANIMATION_DONT_LOOP)))
-                    func_0203ac40(data_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
+                    func_0203ac40(gSoundEffectManager_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
             }
             else if (loopEntry->triggerTime == 1.0)
             {
                 if (animationEnded_)
-                    func_0203ac40(data_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
+                    func_0203ac40(gSoundEffectManager_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
             }
             else if (prevFrameNormalizedAnimationTime_ < loopEntry->triggerTime && loopEntry->triggerTime <= normalizedAnimationTime_)
-                func_0203ac40(data_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
+                func_0203ac40(gSoundEffectManager_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
         }
     }
 }
@@ -883,13 +883,13 @@ void Object3D::LoadType0AnimationFromFile(int slot, const char* filename, SafeAl
     {
         BackgroundLoader::AddLockGlobal();
         unsigned int length;
-        if (LoadFileIntoMemory(filename, data_0211e33c, &length))
+        if (LoadFileIntoMemory(filename, gFileScratchSpace_0211e33c, &length))
         {
             unsigned int lengthAgain = length;
             void* allocation = alloc->Allocate(lengthAgain);
             if (allocation != NULL)
             {
-                memcpy(allocation, data_0211e33c, lengthAgain);
+                memcpy(allocation, gFileScratchSpace_0211e33c, lengthAgain);
                 LoadType0AnimationFromPersistentMemory(slot, alloc, allocation, lengthAgain);
             }
         }
@@ -931,7 +931,7 @@ void Object3D::LoadType0AnimationPackageFromBCFGScript(const char *filename, Saf
 {
     BackgroundLoader::AddLockGlobal();
     unsigned int length;
-    const void* data = LoadFileIntoMemory(filename, data_0211e33c, &length);
+    const void* data = LoadFileIntoMemory(filename, gFileScratchSpace_0211e33c, &length);
     if (data != NULL)
         LoadType0AnimationPackageFromBCFGScript(alloc, data, length);
     BackgroundLoader::RemoveLockGlobal();

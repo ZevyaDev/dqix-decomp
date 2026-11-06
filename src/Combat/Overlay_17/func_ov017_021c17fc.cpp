@@ -21,7 +21,7 @@ extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
 extern "C" void func_020397c0(void* arg0);
 extern "C" void func_020a0cc4(unsigned int arg0);
 extern "C" void func_020a0c0c(void);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020a1940(unsigned int arg0);
 extern "C" void func_020a1df8(int arg0);
 extern "C" void func_020a1ef0(int arg0);
@@ -32,7 +32,7 @@ extern "C" void func_ov012_02185af0(void* arg0);
 extern "C" void func_020dc2d0(int arg0);
 extern "C" void func_ov017_021a5530(char* arg0);
 extern "C" void func_ov017_0218d77c(GameResources* arg0, int arg1);
-extern char data_02114e20;
+extern char gMainHeap_02114e20;
 
 struct Struct_ov017_021c17fc {
     char unknown_0_[Enum_ov017_021c17fc_28];
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov017_021c17fc(Struct_ov017_021c17fc_2* arg0) {
     func_020a28a0(var3, 3);
     if (arg0->unknown_1c_ == 0) {
         func_020a0cc4(Enum_ov017_021c17fc_189632);
-        void* var4 = func_02012d88((AllocatorUnion*)&data_02114e20, Enum_ov017_021c17fc_189632);
+        void* var4 = AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, Enum_ov017_021c17fc_189632);
         if (var4 == NULL) {
             func_020a0c0c();
             arg0->unknown_1_ = 1;

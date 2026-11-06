@@ -83,7 +83,7 @@ extern "C" void func_ov006_0215a33c(Struct_ov006_0215a33c*, int);
 extern "C" int func_ov006_0215a384(Struct_ov006_0215cc70_3* arg0, int arg1);
 extern "C" void func_ov006_0215fe34(Struct_ov006_0215cc70_3* arg0, void* arg1);
 extern "C" int func_ov006_0215fecc(Struct_ov006_0215cc70_3* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_020dd4c4(signed char arg0, void* arg1);
 extern "C" void func_ov006_02159db0(Struct_ov006_0215cc70_3* arg0);
 extern "C" int func_ov006_02159e50(Struct_ov006_0215cc70_3* arg0);
@@ -98,18 +98,18 @@ extern "C" int func_ov006_02158c70(Struct_ov006_0215cc70_3* arg0);
 extern "C" void func_ov006_02153cbc(void* arg0, int arg1, int arg2, void* arg3);
 extern "C" void func_ov006_0215759c(void* arg0, Struct_ov006_0215cc70* arg1, int arg2);
 extern "C" void func_ov006_02158de0(Struct_ov006_0215cc70_3* arg0);
-extern "C" unsigned int* func_020d6c00(void);
+extern "C" unsigned int* GetGlobalFlags_020d6c00(void);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 struct Struct_020a9ea4;
 extern "C" void func_020a9ea4(Struct_020a9ea4*);
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_020aad1c(void* arg0, void* arg1, int arg2, int arg3);
 struct Struct_02038598_4;
 extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
 #if defined(jpn)
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3*, int);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
 #else
 extern "C" void** func_020e5294(void* arg0, int arg1);
 #endif
@@ -133,8 +133,8 @@ static inline Struct_ov006_0215cc70* inline_ov006_0215cc70_4(Struct_ov006_0215cc
 static inline Struct_ov006_0215cc70* inline_ov006_0215cc70_4(Struct_ov006_0215cc70_3* arg0) { return *(Struct_ov006_0215cc70**)((char*)arg0 + 0x34); }
 #endif
 
-extern int data_0211e33c;
-extern int data_02109bf4;
+extern int gFileScratchSpace_0211e33c;
+extern int gMusicManager_02109bf4;
 
 // USA: func_ov006_0215cc70
 extern "C" ARM void func_ov006_0215cc70(Struct_ov006_0215cc70_3* arg0) {
@@ -168,7 +168,7 @@ extern "C" ARM void func_ov006_0215cc70(Struct_ov006_0215cc70_3* arg0) {
                 func_ov006_0215fe34(arg0, arg0->unknown_17c_);
             }
         } else if (func_ov006_0215fecc(arg0)) {
-            int var2 = func_020dd4c4(func_020100a8(GameState::GetInstance()), arg0->unknown_17c_);
+            int var2 = func_020dd4c4(GetProtagonistObjectIndex_020100a8(GameState::GetInstance()), arg0->unknown_17c_);
             arg0->unknown_390_ = 5;
             if (var2 & 0x10) {
                 arg0->unknown_394_ |= 0x20;
@@ -323,7 +323,7 @@ extern "C" ARM void func_ov006_0215cc70(Struct_ov006_0215cc70_3* arg0) {
     } else if (arg0->unknown_390_ == 0xe) {
         arg0->unknown_394_ |= 0x200;
         if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() <= 0) {
-            func_020466e4(func_020d6c00(), 0x80);
+            func_020466e4(GetGlobalFlags_020d6c00(), 0x80);
             func_020a9ea4((Struct_020a9ea4*)arg0->unknown_3c_);
             arg0->unknown_390_++;
         }
@@ -332,11 +332,11 @@ extern "C" ARM void func_ov006_0215cc70(Struct_ov006_0215cc70_3* arg0) {
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
         var8 = 8;
-        if (func_0202c540(func_0202ae18())) {
+        if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18())) {
             var8 = 0x14;
         }
-        if (func_020aad1c(arg0->unknown_3c_, &data_0211e33c, var8, 0) == 1) {
-            func_020466f4((Struct_02038598_4*)func_020d6c00(), 0x80);
+        if (func_020aad1c(arg0->unknown_3c_, &gFileScratchSpace_0211e33c, var8, 0) == 1) {
+            func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
             arg0->unknown_390_++;
             arg0->unknown_394_ &= ~0x200;
         }
@@ -378,7 +378,7 @@ extern "C" ARM void func_ov006_0215cc70(Struct_ov006_0215cc70_3* arg0) {
         arg0->unknown_3b4_ = 1;
 #if defined(jpn)
         func_02080f8c((Struct_02080f8c*)arg0->unknown_14_, 0x7f,
-                                   func_020e0434((Struct_0201099c_3*)arg0->unknown_164_, arg0->unknown_1ec_));
+                                   FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_164_, arg0->unknown_1ec_));
 #else
         var9 = func_020e5294(arg0->unknown_170_, arg0->unknown_1ec_);
         if (var9 != 0) {
@@ -396,7 +396,7 @@ extern "C" ARM void func_ov006_0215cc70(Struct_ov006_0215cc70_3* arg0) {
             var10 = 0x3f;
             func_ov006_021571fc((char*)arg0->unknown_10_);
         }
-        func_0209c830((Struct_02109bf4_2*)&data_02109bf4, var10);
+        func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, var10);
         arg0->unknown_37e_ = 0xc;
         arg0->unknown_392_ = 0;
         arg0->unknown_390_++;
@@ -446,7 +446,7 @@ extern "C" ARM void func_ov006_0215cc70(Struct_ov006_0215cc70_3* arg0) {
             arg0->unknown_3b4_ = 1;
 #if defined(jpn)
             func_02080f8c((Struct_02080f8c*)arg0->unknown_14_, 0x7f,
-                                       func_020e0434((Struct_0201099c_3*)arg0->unknown_164_, arg0->unknown_1ec_));
+                                       FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_164_, arg0->unknown_1ec_));
 #else
             var13 = func_020e5294(arg0->unknown_170_, arg0->unknown_1ec_);
             if (var13 != 0) {
@@ -462,7 +462,7 @@ extern "C" ARM void func_ov006_0215cc70(Struct_ov006_0215cc70_3* arg0) {
             func_ov006_02158de0(arg0);
             arg0->unknown_364_ = -1;
             arg0->unknown_42f_ = 1;
-            func_0209c830((Struct_02109bf4_2*)&data_02109bf4, 0x3e);
+            func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x3e);
             var0->unknown_ae2_ |= 0x400;
             func_02080c04((Struct_0207fdcc_2*)arg0->unknown_14_, 0);
             arg0->unknown_37e_ = 0xc;

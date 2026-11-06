@@ -7,7 +7,7 @@
 #if defined(jpn)
 struct GameState { static GameState* GetInstance(); };
 struct GameObject { char unknown_0_[0x134]; const char* unknown_134_; };
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" GameObject* func_0200ff1c(GameState*, int);
 extern "C" int func_020d2ff0(const char*);
 #endif
@@ -48,8 +48,8 @@ struct Struct_ov008_02188730_2 {
 };
 
 extern "C" {
-    void* func_0202ae18();
-    bool func_0202c540(void*);
+    void* GetLocalWireless_0202ae18();
+    bool IsLocalWirelessGuest_0202c540(void*);
     int func_0205bb84(void*);
     void func_0205afb0(void*, void*, int);
     void func_0205af84(void*, void*, int);
@@ -71,7 +71,7 @@ extern "C" {
                     var5 = 2;
                 else if (arg0->unknown_b10_ == 12)
                     var5 = 3;
-                if (func_0202c540(func_0202ae18()) && var2 == 5)
+                if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) && var2 == 5)
                     var5 = 3;
                 func_0205afb0(arg0->unknown_730_, &arg0->unknown_734_[var2], var5);
                 func_0205af84(arg0->unknown_730_, &arg0->unknown_734_[var2], 1);
@@ -83,7 +83,7 @@ extern "C" {
             Struct_ov008_02188730* var6 = arg0->unknown_740_;
 #if defined(jpn)
             GameState* var7 = GameState::GetInstance();
-            GameObject* var8 = func_0200ff1c(var7, func_020100a8(var7));
+            GameObject* var8 = func_0200ff1c(var7, GetProtagonistObjectIndex_020100a8(var7));
             var6->unknown_14_ = ((func_020d2ff0(var8->unknown_134_) >> 1) * 10 + 0x74) << 12;
             var6->unknown_18_ = 0;
 #else

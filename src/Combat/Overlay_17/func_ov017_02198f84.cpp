@@ -3,9 +3,6 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_ov017_02198f84 {
     unsigned short unknown_0_;
@@ -39,7 +36,7 @@ struct Struct_ov017_02198f84_3 {
     unsigned char unknown_36b8_;
     unsigned char unknown_36b9_[3];
     Struct_020134e0::Struct_02018300* unknown_36bc_[0x10];
-    struct Struct_0201bdac_2* unknown_36fc_;
+    struct Queue_0201bdac_2* unknown_36fc_;
 #if defined(jpn)
     unsigned char unknown_34f0_[0x38f0 - 0x34f0];
 #else
@@ -51,14 +48,14 @@ struct Struct_ov017_02198f84_3 {
 };
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
 extern "C" void func_0206f81c(void* arg0);
 extern "C" void func_ov017_021ab250(struct Struct_ov017_021ab250* arg0);
 extern "C" Struct_ov017_02198f84* func_0200fd0c(GameState* arg0);
 extern "C" void func_ov017_021ab698(char* arg0, int arg1);
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 // USA: func_ov017_02198f84
 extern "C" ARM void func_ov017_02198f84(Struct_ov017_02198f84_3* arg0) {
@@ -69,7 +66,7 @@ extern "C" ARM void func_ov017_02198f84(Struct_ov017_02198f84_3* arg0) {
             continue;
         }
         int var3 = 0;
-        void* var4 = func_0205ec34();
+        void* var4 = GetFlagManager_0205ec34();
         Struct_ov017_02198f84_2 var5;
         var5.unknown_28_ = var2->unknown_20_;
         var5.unknown_1e_ = var2->unknown_2c_.unknown1_0_.unknown_1_;
@@ -93,7 +90,7 @@ extern "C" ARM void func_ov017_02198f84(Struct_ov017_02198f84_3* arg0) {
                     var6->unknown_2_ = 0;
                 }
                 func_ov017_021ab698((char*)arg0->unknown_3b10_, (int)var2);
-                func_020469b4(arg0->unknown_36fc_, (struct Struct_0201bdac*)arg0->unknown_3b10_);
+                AppendToQueue_020469b4(arg0->unknown_36fc_, (struct QueueNode_0201bdac*)arg0->unknown_3b10_);
             } else if (!(var2->unknown_2c_.unknown1_0_.unknown_2_4_ & 8)) {
                 var3 = 1;
             }

@@ -50,7 +50,7 @@ extern char data_ov017_021d7868[];
 // USA: func_ov017_021aa1ac
 extern "C" ARM void func_ov017_021aa1ac(Struct_ov017_021aa1ac_3* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Struct_ov017_021aa1ac* var1 = (Struct_ov017_021aa1ac*)func_02010828(var0);
+    Struct_ov017_021aa1ac* var1 = (Struct_ov017_021aa1ac*)GetParty_02010828(var0);
     Struct_ov017_021aa1ac_2* var2 = GetMessageWindow_020421a0();
     int var3 = var1->unknown_f7c_;
     if (arg0->unknown_12_ == 0) {

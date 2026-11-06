@@ -5,8 +5,8 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02042764(char* arg0, void* arg1, int arg2);
 extern "C" void func_ov017_0219558c(unsigned char* arg0, int arg1);
 
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void func_ov017_021954c4(void* arg0, int arg1);
 extern "C" void func_ov017_0219541c(void* arg0, int arg1, char* arg2);
 extern "C" void func_ov017_021afae8(unsigned char* arg0, int arg1);
@@ -32,7 +32,7 @@ struct Struct_ov017_021d0bd4 {
 };
 
 // USA: func_ov017_021d0bd4
-extern "C" ARM void func_ov017_021d0bd4(int arg0, Struct_ov017_021d0bd4_2* arg1, int arg2, unsigned char* arg3, struct Struct_0202c1a4* arg4) {
+extern "C" ARM void func_ov017_021d0bd4(int arg0, Struct_ov017_021d0bd4_2* arg1, int arg2, unsigned char* arg3, struct LocalWireless_0202c1a4* arg4) {
 #if defined(jpn)
  enum {Enum_ov017_021d0bd4_2864=0x910, Enum_ov017_021d0bd4_860=0x13c, Enum_ov017_021d0bd4_48=0xc};
 #else
@@ -61,12 +61,12 @@ extern "C" ARM void func_ov017_021d0bd4(int arg0, Struct_ov017_021d0bd4_2* arg1,
         break;
     }
     case 1:
-        if (func_0202c1a4(arg4) == 0) {
+        if (GetOwnProtagonistObjectIndex_0202c1a4(arg4) == 0) {
             func_ov017_021afae8(var0, (unsigned char)arg0);
         }
         break;
     case 2:
-        if (func_0202c1a4(arg4) == 0) {
+        if (GetOwnProtagonistObjectIndex_0202c1a4(arg4) == 0) {
             func_ov017_021afafc(var0, (unsigned char)arg0);
         }
         break;

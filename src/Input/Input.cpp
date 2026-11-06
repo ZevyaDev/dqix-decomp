@@ -7,7 +7,6 @@ unsigned short ComputeCurrentKeys();
 
 #if defined(jpn)
 #define func_0200b454 func_0200b318
-#define func_0205ec34 func_0205ff20
 #define func_0206df6c func_0206f0c0
 #define func_020c39c8 func_020c5494
 #define func_020c9be0 func_020cb6ac
@@ -21,7 +20,7 @@ extern "C"
     // could it be a compiler intrinsic (it's between other compiler intrinsics)?
     double func_0200b454(double);
 
-    void* func_0205ec34();
+    void* GetFlagManager_0205ec34();
     // set flag in some big flag mask
     void func_0206df6c(void*, void*, int, bool);
     // get signed brightness
@@ -79,7 +78,7 @@ dont_ignore:
         currentKeys_ = ComputeCurrentKeys();
         if (currentKeys_ != 0)
         {
-            void* flagManager = func_0205ec34();
+            void* flagManager = GetFlagManager_0205ec34();
             func_0206df6c(flagManager, (unsigned char*)flagManager + 0x8c, 0x113e, true);
         }
     }

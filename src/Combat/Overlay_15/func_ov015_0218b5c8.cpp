@@ -6,7 +6,7 @@
 struct Struct_0201c3a4;
 struct Struct_0201c1c8;
 extern "C" int func_020d2ff0(const char* arg0);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 
 struct Struct_ov015_0218b5c8 {
     int unknown_0_;
@@ -22,7 +22,7 @@ struct Struct_ov015_0218b9d4 {
 };
 extern "C" void func_ov015_0218b9d4(struct Struct_ov015_0218b9d4* arg0, struct Struct_ov015_0218b5c8* arg1);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 extern struct Struct_ov015_0218b9d4* data_ov015_02194560;
 
 // USA: func_ov015_0218b5c8
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov015_0218b5c8(char* arg0) {
 
     if (var0 != 0) {
         int var6 = func_020d2ff0(var0);
-        char* var7 = (char*)func_02012d88(&data_02114e20, var6 + 1);
+        char* var7 = (char*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var6 + 1);
         var5.unknown_0_ = (int)var7;
         if (var7 != 0) {
             strcpy(var7, var0);
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov015_0218b5c8(char* arg0) {
     }
     if (var1 != 0) {
         int var8 = func_020d2ff0(var1);
-        char* var9 = (char*)func_02012d88(&data_02114e20, var8 + 1);
+        char* var9 = (char*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var8 + 1);
         var5.unknown_4_ = (int)var9;
         if (var9 != 0) {
             strcpy(var9, var1);

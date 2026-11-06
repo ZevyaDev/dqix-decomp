@@ -18,11 +18,11 @@ extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
 struct Struct_02020cb8_5;
 extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
 
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 
-struct Struct_02020aec;
-extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
 extern "C" void func_0204b2e0(void* arg0, char* arg1);
 
@@ -92,9 +92,9 @@ extern "C" ARM int func_ov023_021dfecc(void* arg0) {
             }
 
             if (var10 == 0 && *(unsigned char*)(var0 + Enum_ov023_021dfecc_1912) != 0) {
-                int var14 = func_02046900((struct Struct_02020cb8_4*)var2);
+                int var14 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var2);
                 for (unsigned char var15 = 0; var15 < var14; var15++) {
-                    var3 = func_020467f0((struct Struct_02020aec*)var2, var15, &var6, &var5);
+                    var3 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var2, var15, &var6, &var5);
                     if (var3) {
                         func_0204b2e0(&var1, (char*)var3);
                         func_0204b3a0((struct Struct_02020cb8_6*)&var1, (char*)var3);

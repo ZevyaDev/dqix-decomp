@@ -20,9 +20,9 @@ struct Struct_ov017_021bd704_2 {
     unsigned char unknown_f78_[4];
     unsigned char unknown_f7c_;
 };
-extern "C" void* func_0202ae18();
+extern "C" void* GetLocalWireless_0202ae18();
 extern "C" unsigned char func_020100b0(GameState*);
-extern "C" int func_0202c508(void*);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" void func_02039d48(unsigned char*);
 int fix32sin(int);
 int fix32cos(int);
@@ -36,7 +36,7 @@ extern "C" void func_ov017_021c3e18(int);
 // USA: func_ov017_021bd704
 extern "C" ARM void func_ov017_021bd704(Struct_ov017_021bd704* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     int var2 = (arg0->unknown_44_ & 0x40) != 0;
     int var3 = (arg0->unknown_44_ & 0x1000) != 0 && arg0->unknown_5_ != 0;
     if (arg0->unknown_5_ == 0 && !var2 && !var3) return;
@@ -46,13 +46,13 @@ extern "C" ARM void func_ov017_021bd704(Struct_ov017_021bd704* arg0) {
         var4 = var0->GetUnknownGameObject()->obj3D_.position_;
         var5 = var0->GetUnknownGameObject()->obj3D_.rotation_.y;
     }
-    Struct_ov017_021bd704_2* var6 = (Struct_ov017_021bd704_2*)func_02010828(var0);
+    Struct_ov017_021bd704_2* var6 = (Struct_ov017_021bd704_2*)GetParty_02010828(var0);
     if (var6 != 0) {
         for (int var7 = 0; var7 < var6->unknown_f7c_; var7++) {
             int var8 = var6->unknown_f78_[var7];
             GameObject* var9 = var0->GetPartyMemberByIndex(var8);
             if (var9 == 0) continue;
-            if (func_0202c508(var1)) {
+            if (IsNotLocalWirelessGuest_0202c508(var1)) {
                 int var10 = var9->obj3D_.unknown_4_;
                 if (var10 != func_020100b0(var0) && var2) {
                     var9->obj3D_.SetInheritedAlpha(0);
@@ -90,5 +90,5 @@ extern "C" ARM void func_ov017_021bd704(Struct_ov017_021bd704* arg0) {
             func_02039d24((unsigned char*)var9);
         }
     }
-    if (func_0202c508(var1)) func_ov017_021c3e18(0);
+    if (IsNotLocalWirelessGuest_0202c508(var1)) func_ov017_021c3e18(0);
 }

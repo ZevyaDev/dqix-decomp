@@ -13,8 +13,8 @@
 struct Struct_0205de24_2;
 struct Struct_0205def8;
 struct Struct_ov002_021650d4;
-extern "C" int func_0200fb8c(int *arg0);
-extern "C" void *func_020d6c00();
+extern "C" int GetResources_0200fb8c(int *gameState);
+extern "C" void *GetGlobalFlags_020d6c00();
 extern "C" void func_020466e4(unsigned int *arg0, unsigned int arg1);
 extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
                                                                         unsigned char arg2);
@@ -23,7 +23,7 @@ extern "C" void func_ov023_021e71b4(void *arg0, SafeAllocator *arg1);
 extern "C" void func_020dc2bc();
 extern "C" void func_020dc2d0(int arg0);
 extern "C" void func_ov023_021e7bc4(struct Struct_ov002_021650d4 *arg0, unsigned int arg1, int arg2);
-extern "C" int func_020100a8(GameState *arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_020dc7e8(int arg0, int arg1);
 extern "C" void func_ov002_02161cf0(void *arg0);
@@ -39,11 +39,11 @@ extern "C" unsigned char data_ov002_0216cc88[];
 // USA: func_ov002_021650d4
 extern "C" ARM void func_ov002_021650d4(char *arg0) {
     GameState *var0      = GameState::GetInstance();
-    GameResources *var1 = (GameResources *) func_0200fb8c((int *) var0);
+    GameResources *var1 = (GameResources *) GetResources_0200fb8c((int *) var0);
     if (*(unsigned char *) (arg0 + 0x1000 + RG(0xcc3, 0xb87)) == 0) {
         int var2 = *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88));
         if (var2 == 0) {
-            func_020466e4((unsigned int *) func_020d6c00(), 1);
+            func_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
             func_020dc7e8(1, -1);
             func_0205de24((struct Struct_0205de24_2 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0, 3);
             func_ov002_02161cf0(arg0);
@@ -75,9 +75,9 @@ extern "C" ARM void func_ov002_021650d4(char *arg0) {
             *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) += 1;
         } else if (var4 == 2) {
             if (!func_ov023_021e76c4(arg0 + RG(0xb4, 0x18) + 0x800)) return;
-            func_ov023_021e7b34(arg0 + RG(0xb4, 0x18) + 0x800, func_020100a8(var0));
+            func_ov023_021e7b34(arg0 + RG(0xb4, 0x18) + 0x800, GetProtagonistObjectIndex_020100a8(var0));
             func_ov023_021e7bc4((struct Struct_ov002_021650d4 *) (arg0 + RG(0xb4, 0x18) + 0x800), 0,
-                                                                 func_020100a8(var0));
+                                                                 GetProtagonistObjectIndex_020100a8(var0));
             *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) += 1;
         } else if (var4 == 3) {
             SetSubBrightness(var1, 0, 0xf);

@@ -5,9 +5,9 @@
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_ov017_021acd7c(void* arg0);
 extern "C" void func_ov017_021adb50(char* arg0);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 struct Struct_02000c9c_54;
 extern "C" Struct_02000c9c_54* func_0200fd0c(GameState* arg0);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int length);
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov017_0219577c(unsigned char arg0, int arg1, int arg2) 
     if (arg0 == 0 && arg2 != 0) {
         func_ov017_021adb50((char*)var3);
     }
-    func_020469b4((struct Struct_0201bdac_2*)var2, (struct Struct_0201bdac*)var3);
+    AppendToQueue_020469b4((struct Queue_0201bdac_2*)var2, (struct QueueNode_0201bdac*)var3);
 
     if (arg1) {
         Struct_ov017_0219577c_2* var4 = (Struct_ov017_0219577c_2*)func_0200fd0c(var0);

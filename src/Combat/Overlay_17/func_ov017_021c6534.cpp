@@ -3,7 +3,7 @@
 
 extern "C" void* func_ov017_021b8478(void* arg0);
 extern "C" void* func_ov017_021b8470(void* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 struct Struct_ov017_021c6534 {
     unsigned char unknown_0_0_ : 4;
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov017_021c6534(int arg0, Struct_ov017_021c6534_3* arg1,
     void* var2 = func_ov017_021b8470(var0);
     if (!var2) return;
 
-    if (var1->unknown_2a_ == func_020100a8(arg2)) return;
+    if (var1->unknown_2a_ == GetProtagonistObjectIndex_020100a8(arg2)) return;
     Struct_ov017_021c6534_2* var3 = &arg1->unknown_4_;
     if (var1->unknown_8_ != var3->unknown_0_) return;
 

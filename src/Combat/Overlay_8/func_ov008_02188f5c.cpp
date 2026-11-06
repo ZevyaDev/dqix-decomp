@@ -55,7 +55,7 @@ struct Struct_ov008_02188f5c_2
 };
 
 extern "C" void __clear(void* arg0, unsigned long arg1);
-extern "C" void* func_0202ae18();
+extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void func_02074af4(void* arg0);
 extern "C" void func_0204c684(void* arg0);
 extern "C" void func_020426bc(const char* arg0, char* arg1, int);
@@ -67,8 +67,8 @@ extern "C" void func_0204af64(Struct_02020cb8* arg0);
 extern "C" void func_020727d8(Struct_020727d8* arg0);
 extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
 extern "C" void func_ov008_02189228(void* arg0);
-extern "C" Struct_ov005_0215840c_2* func_02053c6c(unsigned char* arg0);
-extern "C" int func_0202b7d8(int*);
+extern "C" Struct_ov005_0215840c_2* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 
 struct Struct_ov008_02188f5c_3
 {
@@ -133,7 +133,7 @@ struct Struct_ov008_02188f5c_3
 extern "C" ARM void func_ov008_02188f5c(Struct_ov008_02188f5c_3* arg0, signed char arg1, Struct_ov008_02188f5c_2* arg2)
 {
     GameState* var0 = GameState::GetInstance();
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     arg0->unknown_10_ = 0;
     arg0->unknown_11_ = 0;
     func_02074af4(arg0);
@@ -210,7 +210,7 @@ extern "C" ARM void func_ov008_02188f5c(Struct_ov008_02188f5c_3* arg0, signed ch
         GameObject* var1 = var0->GetPartyMemberByIndex(arg1);
         if (var1 != NULL)
         {
-            Struct_ov005_0215840c_2* var2 = func_02053c6c((unsigned char*)var1);
+            Struct_ov005_0215840c_2* var2 = GetPartyMemberData_02053c6c((unsigned char*)var1);
             if (var2 != NULL)
             {
                 func_ov008_02189228(&arg0->unknown_df0_);
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov008_02188f5c(Struct_ov008_02188f5c_3* arg0, signed ch
                 memcpy(arg0->unknown_df0_.unknown_6_, var3, sizeof(arg0->unknown_df0_.unknown_6_));
 #endif
                 arg0->unknown_df0_.unknown_13_6_ = 1;
-                if (func_0202b7d8((int*)func_0202ae18()))
+                if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18()))
                 {
                     func_ov017_021d1014(arg1, 0, 0);
                     func_ov017_021d1118(arg1, 1, 1, 0);

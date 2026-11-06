@@ -5,7 +5,7 @@
 extern "C" void* func_ov017_021b8478(void* arg0);
 extern "C" void* func_ov017_021b8468(void* arg0);
 extern "C" void* func_ov017_021b8470(void* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 // USA: func_ov017_021c70e0
 extern "C" ARM void func_ov017_021c70e0(int arg0, unsigned char* arg1, GameState* arg2, unsigned char* arg3) {
@@ -20,7 +20,7 @@ extern "C" ARM void func_ov017_021c70e0(int arg0, unsigned char* arg1, GameState
     if (!func_ov017_021b8468(var0)) return;
     if (!func_ov017_021b8470(var0)) return;
 
-    int var2 = func_020100a8(arg2);
+    int var2 = GetProtagonistObjectIndex_020100a8(arg2);
     if (*(signed char*)(var1 + 0x2a) == var2) return;
 
     if (*(unsigned short*)(var1 + 0x8) != *(unsigned short*)(arg1 + 0x4)) return;

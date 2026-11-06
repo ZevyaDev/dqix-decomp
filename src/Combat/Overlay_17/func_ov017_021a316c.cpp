@@ -28,8 +28,8 @@ extern "C" void* func_0200ffd0(struct Struct_0200ffd0* arg0);
 
 extern "C" void func_0200fd48(GameState* arg0, int arg1);
 
-struct Struct_0203d028;
-extern "C" void func_0207df50(struct Struct_0203d028* arg0);
+struct TextureVRAMArea_0203d028;
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
 
 // USA: func_ov017_021a316c
 extern "C" ARM void func_ov017_021a316c(unsigned char* arg0) {
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov017_021a316c(unsigned char* arg0) {
     }
 
     ((SafeAllocator*)(arg0 + 0xc4))->Reset();
-    func_0207df50((struct Struct_0203d028*)(arg0 + Enum_ov017_021a316c_1500));
+    ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)(arg0 + Enum_ov017_021a316c_1500));
 
     for (var3 = 0; var3 < 0x30; var3++) {
         GameObject* var6 = var0->GetMaybeFieldMonsterByIndex(var3 + 0x70);

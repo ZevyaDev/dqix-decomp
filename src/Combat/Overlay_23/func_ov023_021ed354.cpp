@@ -7,7 +7,7 @@ extern "C" int GetMessageWindow_020421a0(void);
 extern "C" ARM void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
 #if defined(jpn)
 extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
-extern "C" void func_02042058(char*, const char*);
+extern "C" void AppendText_02042058(char*, const char*);
 #else
 extern "C" ARM void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov023_021ed354(char* arg0) {
 #if defined(jpn)
     char* var1 = *(char**)(arg0 + 0x20) + *(unsigned char*)(arg0 + 0x28) * 0x15c;
     memset(*(void**)(arg0 + 0x1c), 0, 0x800);
-    func_02042058(*(char**)(arg0 + 0x1c), *(char**)(var1 + 4));
+    AppendText_02042058(*(char**)(arg0 + 0x1c), *(char**)(var1 + 4));
 
 #else
     void* var2 = (void*)GetMessageWindow_020421a0();

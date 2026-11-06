@@ -5,9 +5,9 @@
 
 extern "C" Vector3fix func_02034104(void* arg0);
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* arg0);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 struct Struct_02033834_2;
 extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
@@ -29,8 +29,8 @@ extern "C" ARM int func_02077a34(Struct_02076a8c* arg0) {
 
     int var2 = 0;
     arg0->unknown_17d_ |= 0x40;
-    void* var3 = func_0202ae18();
-    if (func_0202c508(var3)) {
+    void* var3 = GetLocalWireless_0202ae18();
+    if (IsNotLocalWirelessGuest_0202c508(var3)) {
         Vector3fix var4 = func_02034104(var1);
         Vector3fix var5;
         Vector3fix_Subtract(&var4, &arg0->unknown_0_.unknown_0_.unknown_0_.position_, &var5);
@@ -52,8 +52,8 @@ extern "C" ARM int func_02077a34(Struct_02076a8c* arg0) {
     }
     arg0->unknown_17a_ = 0;
 
-    if (func_0202b7d8((int*)var3)) {
-        if (func_0202c508(var3)) {
+    if (IsLocalWirelessOn_0202b7d8((int*)var3)) {
+        if (IsNotLocalWirelessGuest_0202c508(var3)) {
             int var8 = arg0->unknown_0_.unknown_0_.unknown_0_.GetField06();
             int var9 = arg0->unknown_0_.unknown_0_.unknown_0_.unknown_2_;
             Vector3fix* var10 = &arg0->unknown_158_;

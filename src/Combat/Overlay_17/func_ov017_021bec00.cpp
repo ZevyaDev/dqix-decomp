@@ -5,8 +5,8 @@
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "Resource/Brightness.h"
 struct Struct_02018300_3;
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
 struct Struct_ov017_021bec00_3 {
 #if defined(jpn)
     char unknown_0_[0x240c];
@@ -64,7 +64,7 @@ struct Struct_ov017_021bec00_2 {
     SafeAllocator unknown_44_;
     char unknown_58_[0xa4];
 };
-extern "C" void func_0202ae18();
+extern "C" void GetLocalWireless_0202ae18();
 extern "C" Struct_ov017_021bec00_3* GetZone3D_02012fe4();
 extern "C" void VectorizedMemset(void*, int, unsigned int);
 extern "C" int sprintf(char*, const char*, ...);
@@ -82,13 +82,13 @@ extern "C" void func_02042b98(Struct_ov017_021bec00_5*, int, int, int, int);
 extern "C" void func_ov017_021bef84(Struct_ov017_021bec00_2*);
 extern "C" Struct_ov017_021bec00_5* GetMessageWindow_020421a0();
 extern "C" void func_020397cc(Struct_02018300_3*, int);
-extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" Struct_ov017_021bec00* func_0200fd0c(GameState*);
 extern "C" void func_ov017_0219e310(unsigned char*, int);
-extern "C" void func_020469b4(Struct_0201bdac_2*, Struct_0201bdac*);
-extern "C" void func_02043204(char*);
+extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
+extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_020397c0(void*);
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 #if defined(jpn)
 extern char data_ov017_021d86ac[], data_ov017_021d86c6[];
 #else
@@ -97,7 +97,7 @@ extern char data_ov017_021d7e98[], data_ov017_021d7eb2[];
 // USA: func_ov017_021bec00
 extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     GameResources* var1 = GetGameResources();
     Struct_ov017_021bec00_5* var2 = GetMessageWindow_020421a0();
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
@@ -108,11 +108,11 @@ extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
     if (arg0->unknown_38_ == 0) {
         func_020397cc((Struct_02018300_3*)var0->GetUnknownGameObject(), 1);
         SetFlags04(var1, 0xc0);
-        Struct_0208cb08* var6 = func_02094a00();
+        FontLoader_0208cb08* var6 = func_02094a00();
         func_02094b30(var6, 0x203, 0);
         if (func_02094b4c(var6)) {
             arg0->unknown_38_ = 1;
-            arg0->unknown_44_.CreateTypeA(func_02012d88(&data_02114e20, 0xc00), 0xc00);
+            arg0->unknown_44_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0xc00), 0xc00);
 #if defined(jpn)
             arg0->unknown_40_ = var3->QueueLoadFile(data_ov017_021d86ac, 0);
 #else
@@ -153,11 +153,11 @@ extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
                 var9->unknown_18_ = var10.z;
                 var9->unknown_1c_ = 0x3244;
                 var9->unknown_7_ = 1;
-                Struct_0201bdac_2* var11;
+                Queue_0201bdac_2* var11;
                 unsigned char* var12 = (unsigned char*)var1->unknown_ptr_array_36fc[4];
-                var11 = (Struct_0201bdac_2*)var1->unknown_ptr_array_36fc[0];
+                var11 = (Queue_0201bdac_2*)var1->unknown_ptr_array_36fc[0];
                 func_ov017_0219e310(var12, 0);
-                func_020469b4(var11, (Struct_0201bdac*)var12);
+                AppendToQueue_020469b4(var11, (QueueNode_0201bdac*)var12);
                 var4->unknown_260_[2] = 0;
                 func_ov017_021bef84(arg0);
                 arg0->unknown_1_ = 1;
@@ -187,9 +187,9 @@ extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
             }
         }
     } else if (arg0->unknown_38_ == 3 && var2->unknown_9a0_ == 0) {
-        func_02043204((char*)var2);
+        ResetMessageWindow_02043204((char*)var2);
         func_020397c0(var0->GetUnknownGameObject());
-        Struct_0208cb08* var16 = func_02094a00();
+        FontLoader_0208cb08* var16 = func_02094a00();
         func_02094b38(var16, 0x1f9);
         func_02094ab0(var16);
         func_ov017_021bef84(arg0);

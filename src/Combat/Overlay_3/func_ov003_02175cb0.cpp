@@ -14,16 +14,16 @@ enum { Enum_ov003_02175cb0_4156 = 0x103c };
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
-struct Struct_0201099c_10;
-struct Struct_0201099c_9 {
+struct ItemTable_0201099c_10;
+struct ItemData_0201099c_9 {
     char unknown_0_[8];
     unsigned int unknown_8_0_ : 4;
     char unknown_9_[0x18 - 0xc];
     short unknown_16_;
 };
 
-extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void func_020de824(void* arg0);
 extern "C" void func_0207cbe8(char* arg0);
 extern "C" void func_0207cc0c(char* arg0);
@@ -33,13 +33,13 @@ extern "C" void func_0207cf30(void* arg0, int arg1, int arg2, int arg3);
 // USA: func_ov003_02175cb0
 extern "C" ARM int func_ov003_02175cb0(char* arg0, int arg1) {
     *(unsigned char*)(arg0 + Enum_ov003_02175cb0_4175) = 0;
-    struct Struct_0201099c_9* var0 =
-        func_020dedd0((struct Struct_0201099c_10*)(arg0 + Enum_ov003_02175cb0_2164), *(short*)(arg0 + Enum_ov003_02175cb0_4154));
+    struct ItemData_0201099c_9* var0 =
+        func_020dedd0((struct ItemTable_0201099c_10*)(arg0 + Enum_ov003_02175cb0_2164), *(short*)(arg0 + Enum_ov003_02175cb0_4154));
     if (var0 == NULL) {
         return 0;
     }
 
-    func_02010828(GameState::GetInstance());
+    GetParty_02010828(GameState::GetInstance());
 
     char var1[0x38];
     ((SafeAllocator*)var1)->ResetAllocatorPointer();

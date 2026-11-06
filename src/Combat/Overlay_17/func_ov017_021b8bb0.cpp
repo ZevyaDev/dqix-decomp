@@ -3,12 +3,12 @@
 #include "Resource/GameResources.h"
 
 extern "C" void func_ov017_021b6f18(void* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov017_021b6e70(void* arg0, unsigned short arg1);
 extern "C" void func_ov017_021b7104(void* arg0, void* arg1);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 struct Struct_ov017_021b8bb0 {
     unsigned char unknown_0_;
@@ -36,8 +36,8 @@ extern "C" ARM void func_ov017_021b8bb0(int arg0) {
 #endif
     GameState* var0 = GameState::GetInstance();
     char* var1 = (char*)(long)((int)GetGameResources()) + 0x3000;
-    struct Struct_0201bdac_2* var2 = *(struct Struct_0201bdac_2**)(var1 + Enum_ov017_021b8bb0_1788);
-    struct Struct_0201bdac* var3 = *(struct Struct_0201bdac**)(var1 + Enum_ov017_021b8bb0_1816);
+    struct Queue_0201bdac_2* var2 = *(struct Queue_0201bdac_2**)(var1 + Enum_ov017_021b8bb0_1788);
+    struct QueueNode_0201bdac* var3 = *(struct QueueNode_0201bdac**)(var1 + Enum_ov017_021b8bb0_1816);
     func_ov017_021b6f18(var3);
 
     struct Struct_ov017_021b8bb0 var4;
@@ -54,11 +54,11 @@ extern "C" ARM void func_ov017_021b8bb0(int arg0) {
     var4.unknown_f_ = 0;
     var4.unknown_14_ = 0;
 
-    var4.unknown_1_ = func_020100a8(var0);
+    var4.unknown_1_ = GetProtagonistObjectIndex_020100a8(var0);
     var4.unknown_2_ = 0xffff;
     var4.unknown_4_ = (unsigned short)(arg0 + 0x8005);
     var4.unknown_8_ = arg0;
     func_ov017_021b6e70(&var4, var4.unknown_2_);
     func_ov017_021b7104(var3, &var4);
-    func_020469b4(var2, var3);
+    AppendToQueue_020469b4(var2, var3);
 }

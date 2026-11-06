@@ -14,8 +14,8 @@
 
 struct Struct_0201099c_3;
 struct Struct_02043368_2;
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 
 struct Struct_ov006_021580b8
 {
@@ -41,11 +41,11 @@ struct Struct_ov008_02188d74
     }
 };
 
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_0205a444(char* arg0);
 extern "C" void func_0205a198(Struct_02043368_2* arg0);
-extern "C" int func_02046900(Struct_02020cb8_4* arg0);
-extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0205a528(Struct_ov008_02188d74* arg0, void* arg1, unsigned int arg2, SafeAllocator* arg3);
 
 struct Struct_ov008_021842a0_2
@@ -81,7 +81,7 @@ extern "C" ARM int func_ov008_02188d74(Struct_ov008_021842a0_2* arg0)
         var2->inline_ov008_02188d74(arg0->unknown_740_, 1);
         for (int var3 = 0; var3 < 1; var3++)
             func_0205a198((Struct_02043368_2*)&arg0->unknown_740_[var3]);
-        arg0->unknown_b20_ = var0->QueueLoadFile(func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, LOW_REGION(4, 7)), NULL);
+        arg0->unknown_b20_ = var0->QueueLoadFile(FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, LOW_REGION(4, 7)), NULL);
         arg0->unknown_b12_++;
     }
     if (var1 == 1 && var0->GetTaskStatus(arg0->unknown_b20_))
@@ -90,11 +90,11 @@ extern "C" ARM int func_ov008_02188d74(Struct_ov008_021842a0_2* arg0)
         void* var5;
         unsigned int var6;
         var0->GetLoadedFileByID(arg0->unknown_b20_, &var5, &var6);
-        int var7 = func_02046900((Struct_02020cb8_4*)var5);
+        int var7 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var5);
         for (int var8 = 0; var8 < var7; var8++)
         {
             unsigned int var9;
-            void* var10 = func_020467f0((Struct_02020aec*)var5, var8, (void**)var4, (int*)&var9);
+            void* var10 = GetPacEntryData_020467f0((PacEntry_02020aec*)var5, var8, (void**)var4, (int*)&var9);
             if (var10 != NULL)
                 func_0205a528(arg0->unknown_73c_, var10, var9, &arg0->unknown_50_);
         }

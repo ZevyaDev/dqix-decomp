@@ -4,7 +4,7 @@
 
 struct Struct_02010088;
 struct Struct_ov026_021d8ba0_10;
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 struct Struct_ov026_021d8ba0_4;
 
 struct Struct_ov026_021dd8a8_2 {
@@ -82,7 +82,7 @@ struct Struct_ov023_021f4c04 {
 };
 
 extern "C" void __clear(void*, int);
-extern "C" void func_02046380(Struct_ov023_021f4c04*);
+extern "C" void ClearMessageParams_02046380(Struct_ov023_021f4c04*);
 extern "C" void func_020e4ce8(Struct_ov026_021db090_3*, GameObject*, int);
 extern "C" Struct_ov026_021d8ba0_8* func_ov017_021b8478(void*);
 extern "C" void* func_ov017_021b8468(void*);
@@ -93,7 +93,7 @@ extern "C" Struct_ov023_021f4c04* GetMessageWindow_020421a0();
 extern "C" GameObject* func_0200fea4(GameState*, int);
 extern "C" int func_02010088(Struct_02010088*);
 extern "C" int func_ov026_021dd3c4(Struct_ov026_021d8ba0_10*);
-extern "C" void func_020465c0(Struct_020465c0*, int, int);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" unsigned char func_020114ec(char*, void*);
 extern "C" void* func_ov000_02160130();
 extern "C" void* func_ov000_02160f08(void*);
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
     if (arg0->unknown_8e24_ != 0) {
         return;
     }
-    func_02046380(var8);
+    ClearMessageParams_02046380(var8);
     var17 = &arg0->unknown_81b0_;
     var9 = 0;
     __clear(var3, sizeof(var3));
@@ -197,10 +197,10 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
     }
     var13 = 0;
     if (var4[0] > 1 || var3[0] == 1) {
-        func_020465c0((Struct_020465c0*)var8, 0, 0);
+        SetMessageNumber_020465c0((MessageWindow_020465c0*)var8, 0, 0);
         var13 = 1;
     } else {
-        func_020465c0((Struct_020465c0*)var8, 0, 1);
+        SetMessageNumber_020465c0((MessageWindow_020465c0*)var8, 0, 1);
     }
 
     var20 = func_020114ec((char*)var6, var5);
@@ -235,7 +235,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
             if (var4[1] > 1 || var3[1] == 1) {
                 var31 = 0;
             }
-            func_020465c0((Struct_020465c0*)var8, 1, var31);
+            SetMessageNumber_020465c0((MessageWindow_020465c0*)var8, 1, var31);
         }
         var13 = 1;
         break;

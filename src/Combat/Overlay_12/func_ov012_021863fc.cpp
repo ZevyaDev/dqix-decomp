@@ -9,9 +9,6 @@
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_ov012_021863fc_3
 {
@@ -115,11 +112,11 @@ struct Struct_ov012_021863fc_2
     unsigned int* unknown_13cc_;
 };
 
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int func_02046b08(void** arg0);
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" Struct_ov012_021863fc_3* GetMessageWindow_020421a0();
 extern "C" void func_020dc2bc();
@@ -135,12 +132,12 @@ int IsSubBrightnessTransitionActive(GameResources* resources);
 extern "C" void func_ov023_021e7220(void* arg0, int arg1);
 extern "C" void func_ov023_021e71b4(void* arg0, SafeAllocator* arg1);
 extern "C" int func_ov023_021e76c4(void* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov023_021e7b34(void* arg0, int arg1);
 extern "C" void func_ov012_0218adac(Struct_ov012_021863fc_2* arg0, int arg1, int arg2, int arg3);
-extern "C" void* func_0205ec34();
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
-extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" void* GetFlagManager_0205ec34();
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_ov012_021863fc_3* window, const char* text, int arg2, int arg3);
 #endif
@@ -251,7 +248,7 @@ extern "C" const char data_ov012_0218bfad[];
 extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_10* arg0)
 {
     GameState* var0 = GameState::GetInstance();
-    GameResources* var1 = (GameResources*)func_0200fb8c((int*)var0);
+    GameResources* var1 = (GameResources*)GetResources_0200fb8c((int*)var0);
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
     func_02094a00();
     if (arg0->unknown_1340_ == 0)
@@ -259,7 +256,7 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_10* arg0)
         if (func_02046b08(*(void***)((char*)var1 + 0x34f0)))
         {
             SetFlags00(var1, 0x10);
-            func_020466e4((unsigned int*)func_020d6c00(), 0xf);
+            func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0xf);
             arg0->unknown_1344_ = (char*)((Struct_ov012_021863fc_4*)GetMessageWindow_020421a0())->unknown_28_;
             unsigned int var3 = 0;
             Struct_ov012_021863fc_6* var4 = (Struct_ov012_021863fc_6*)var0->GetProtagonist();
@@ -318,7 +315,7 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_10* arg0)
         BG2CNT = (BG2CNT & ~3) | 1;
         BG3CNT = (BG3CNT & ~3) | 0;
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1f00;
-        Struct_0208cb08* var8 = func_02094a00();
+        FontLoader_0208cb08* var8 = func_02094a00();
         func_02094ab0(var8);
         func_02094b34(var8, 0x6e, 0x1ff, 0, 0);
         SetSubBrightness(var1, -16, 15);
@@ -349,13 +346,13 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_10* arg0)
     {
         if (func_ov012_02186f3c(&arg0->unknown_14d8_) && func_ov023_021e76c4(&arg0->unknown_d0c_))
         {
-            func_ov023_021e7b34(&arg0->unknown_d0c_, func_020100a8(var0));
+            func_ov023_021e7b34(&arg0->unknown_d0c_, GetProtagonistObjectIndex_020100a8(var0));
             func_ov012_0218bba0(arg0, 1, -1);
             SetSubBrightness(var1, 0, 15);
-            void* var9 = func_0205ec34();
+            void* var9 = GetFlagManager_0205ec34();
             for (int var10 = 0; var10 < 0x12; var10++)
             {
-                if (func_0206dfb0((int)var9, (unsigned char*)var9 + 0x8c, var10 + 0x200))
+                if (IsFlagSet_0206dfb0((int)var9, (unsigned char*)var9 + 0x8c, var10 + 0x200))
                 {
                     arg0->unknown_1418_[arg0->unknown_141c_0_] = var10;
                     arg0->unknown_141c_0_++;
@@ -383,7 +380,7 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_10* arg0)
     else if (arg0->unknown_1340_ == 5)
     {
         Struct_ov012_021863fc_4* var13 = (Struct_ov012_021863fc_4*)GetMessageWindow_020421a0();
-        StartMessage_0204500c(var13, func_02072a68((Struct_02072a68_2*)arg0->unknown_1314_, 500), 0);
+        StartMessage_0204500c(var13, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_1314_, 500), 0);
         var13->unknown_868_ = 1;
         arg0->unknown_1340_++;
         return;
@@ -404,7 +401,7 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_10* arg0)
 extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_2* arg0)
 {
     GameState* var15 = GameState::GetInstance();
-    GameResources* var16 = (GameResources*)func_0200fb8c((int*)var15);
+    GameResources* var16 = (GameResources*)GetResources_0200fb8c((int*)var15);
     BackgroundLoader* var17 = BackgroundLoader::GetInstance();
     func_02094a00();
     if (arg0->unknown_1370_ == 0)
@@ -412,7 +409,7 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_2* arg0)
         if (func_02046b08(*(void***)((char*)var16 + 0x3700)))
         {
             SetFlags00(var16, 0x10);
-            func_020466e4((unsigned int*)func_020d6c00(), 0xf);
+            func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0xf);
             arg0->unknown_1374_ = (char*)GetMessageWindow_020421a0()->unknown_5c_;
             unsigned int var18 = 0;
             Struct_ov012_021863fc_12* var19 = (Struct_ov012_021863fc_12*)var15->GetProtagonist();
@@ -481,7 +478,7 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_2* arg0)
         BG2CNT = (BG2CNT & ~3) | 1;
         BG3CNT = (BG3CNT & ~3) | 0;
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1f00;
-        Struct_0208cb08* var24 = func_02094a00();
+        FontLoader_0208cb08* var24 = func_02094a00();
         func_02094ab0(var24);
         func_02094b34(var24, 0x6e, 0x1ff, 0, 0);
         SetSubBrightness(var16, -16, 15);
@@ -509,13 +506,13 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_2* arg0)
     {
         if (func_ov023_021e76c4(&arg0->unknown_d28_))
         {
-            func_ov023_021e7b34(&arg0->unknown_d28_, func_020100a8(var15));
+            func_ov023_021e7b34(&arg0->unknown_d28_, GetProtagonistObjectIndex_020100a8(var15));
             func_ov012_0218adac(arg0, 1, -1, 0);
             SetSubBrightness(var16, 0, 15);
-            void* var25 = func_0205ec34();
+            void* var25 = GetFlagManager_0205ec34();
             for (int var26 = 0; var26 < 0x12; var26++)
             {
-                if (func_0206dfb0((int)var25, (unsigned char*)var25 + 0x8c, var26 + 0x200))
+                if (IsFlagSet_0206dfb0((int)var25, (unsigned char*)var25 + 0x8c, var26 + 0x200))
                 {
                     arg0->unknown_13c0_[arg0->unknown_13c4_0_] = var26;
                     arg0->unknown_13c4_0_++;
@@ -557,7 +554,7 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_2* arg0)
     else if (arg0->unknown_1370_ == 5)
     {
         Struct_ov012_021863fc_3* var33 = GetMessageWindow_020421a0();
-        StartMessage_0204500c(var33, func_02072a68((Struct_02072a68_2*)arg0->unknown_133c_, 500), 0, 0xe3);
+        StartMessage_0204500c(var33, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 500), 0, 0xe3);
         var33->unknown_998_ = 1;
         arg0->unknown_1370_++;
         return;

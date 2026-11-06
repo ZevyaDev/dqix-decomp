@@ -21,7 +21,7 @@ extern "C" void func_02041bbc(struct Struct_0204166c* arg0);
 struct Struct_0204166c;
 extern "C" void func_020416c0(struct Struct_0204166c* arg0);
 
-extern "C" void func_02043124(void* arg0);
+extern "C" void CloseMessageWindow_02043124(void* window);
 
 struct Struct_020430b0;
 extern "C" void func_02043110(struct Struct_020430b0* arg0);
@@ -36,7 +36,7 @@ extern "C" ARM void func_02043224(char* arg0) {
         *(unsigned char*)(arg0 + var0 + Enum_02043224_6072) = 0;
     }
 
-    func_02043124(arg0);
+    CloseMessageWindow_02043124(arg0);
     func_02043110((struct Struct_020430b0*)(arg0 + Enum_02043224_6624));
     *(int*)(arg0 + Enum_02043224_7712) = (int)(arg0 + Enum_02043224_2352);
     func_02043110((struct Struct_020430b0*)(arg0 + Enum_02043224_6624));

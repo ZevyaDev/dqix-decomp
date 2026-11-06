@@ -59,23 +59,23 @@ extern "C" void func_02081130(void *arg0, int arg1, int arg2);
 extern "C" void func_020806b0(void *arg0, int arg1);
 extern "C" int func_02080b2c(void *arg0, int arg1);
 extern "C" int func_0207c6b8(unsigned char *arg0, unsigned int arg1, int arg2);
-struct Struct_0201099c_9;
-struct Struct_0201099c_10 {
+struct ItemData_0201099c_9;
+struct ItemTable_0201099c_10 {
     unsigned short unknown_0_;
     unsigned char unknown_2_[10];
-    struct Struct_0201099c_9* unknown_c_;
+    struct ItemData_0201099c_9* pItems_c_;
     unsigned char unknown_10_[4];
-    unsigned char unknown_14_;
+    unsigned char isSorted_14_;
 };
-struct Struct_0201099c_9 {
+struct ItemData_0201099c_9 {
     char unknown_0_[4];
     int unknown_4_;
     char unknown_8_[0x1a - 8];
     unsigned short unknown_1a_;
 };
-extern "C" struct Struct_0201099c_9 *func_020dedd0(struct Struct_0201099c_10 *arg0, int arg1);
+extern "C" struct ItemData_0201099c_9 *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
 extern "C" short func_0207c72c(void *arg0, unsigned int arg1, short arg2);
-extern "C" void func_ov003_0217818c(void *arg0, struct Struct_0201099c_9 *arg1, int arg2, int arg3);
+extern "C" void func_ov003_0217818c(void *arg0, struct ItemData_0201099c_9 *arg1, int arg2, int arg3);
 extern "C" void func_020805f4(void *arg0, int arg1);
 struct Struct_02080f8c;
 extern "C" void func_02080f8c(struct Struct_02080f8c *arg0, int arg1, int arg2);
@@ -86,8 +86,8 @@ extern "C" void func_020813ec(void *arg0, int arg1);
 
 struct Struct_ov003_02177dd4 {
     unsigned char unknown_0_[Enum_ov003_02177dd4_2048 + 0x74];
-    struct Struct_0201099c_10 unknown_874_;
-    unsigned char unknown_88c_[Enum_ov003_02177dd4_2204 - Enum_ov003_02177dd4_2048 - 0x74 - sizeof(Struct_0201099c_10)];
+    struct ItemTable_0201099c_10 unknown_874_;
+    unsigned char unknown_88c_[Enum_ov003_02177dd4_2204 - Enum_ov003_02177dd4_2048 - 0x74 - sizeof(ItemTable_0201099c_10)];
     struct Struct_0207fdcc_2 *unknown_89c_;
     unsigned char unknown_8a0_[Enum_ov003_02177dd4_4108 - Enum_ov003_02177dd4_2208];
     short unknown_100c_;
@@ -101,7 +101,7 @@ struct Struct_ov003_02177dd4 {
 // JPN: func_ov003_02177dd4 (02176d60)
 // USA: func_ov003_02177dd4
 extern "C" ARM void func_ov003_02177dd4(Struct_ov003_02177dd4 *arg0) {
-    Struct_ov003_02177dd4_2* var0 = static_cast<Struct_ov003_02177dd4_2*>(func_02010828(GameState::GetInstance()));
+    Struct_ov003_02177dd4_2* var0 = static_cast<Struct_ov003_02177dd4_2*>(GetParty_02010828(GameState::GetInstance()));
     unsigned int var1  = 0;
     short var2;
     short var3;
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov003_02177dd4(Struct_ov003_02177dd4 *arg0) {
             } else {
                 var22 = func_0207c6b8(((unsigned char*)(&var0->unknown_1d4_)), var1, var18);
             }
-            struct Struct_0201099c_9 *var23 = func_020dedd0(&arg0->unknown_874_, var22);
+            struct ItemData_0201099c_9 *var23 = func_020dedd0(&arg0->unknown_874_, var22);
             if (var23 != NULL) {
                 var20 = var23->unknown_4_;
                 var21   = var23->unknown_1a_;

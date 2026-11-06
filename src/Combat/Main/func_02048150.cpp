@@ -10,7 +10,7 @@ extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
 extern "C" ARM void func_02048150(GameObject* arg0, int arg1, int arg2) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
-    Struct_02048150* var2 = (Struct_02048150*)func_02010828(var0);
+    Struct_02048150* var2 = (Struct_02048150*)GetParty_02010828(var0);
     Struct_020200c0* var3 = arg0->unknown_ac_.unknown_84_;
     int var4 = 0;
     if (var3->unknown_0_ & 1) var4 = 1;

@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_ov017_021b8470(void* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 struct Struct_ov017_021cb2f4_2 {
     unsigned int unknown_0_0_ : 3;
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_021cb2f4(int arg0, Struct_ov017_021cb2f4_3* arg1,
     if (!var1) return;
     Struct_ov017_021cb2f4* var2 = *(Struct_ov017_021cb2f4**)((unsigned char*)var1 + 0x8000 + 0xe18);
     if (!var2) return;
-    int var3 = func_020100a8(arg2);
+    int var3 = GetProtagonistObjectIndex_020100a8(arg2);
     if (var2->unknown_2a_ == var3) return;
     if (var2->unknown_8_ != arg1->unknown_4_) return;
     int var4 = (int)arg1->unknown_6_ - 0xc0;

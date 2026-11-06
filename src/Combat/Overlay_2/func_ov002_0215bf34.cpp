@@ -24,14 +24,14 @@ struct Struct_ov002_0215bf34_2 {
 };
 }
 
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_020465c0(Struct_020465c0*, int, int);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" int func_020e51cc(int);
 extern "C" void func_ov002_0215be00(void*, int, short, short);
-extern "C" void func_02046380(void*);
+extern "C" void ClearMessageParams_02046380(void*);
 extern "C" void func_0205d0e0(void*, int);
 #if defined(jpn)
 extern const char data_ov002_0216d908[];
@@ -51,10 +51,10 @@ extern "C" ARM void func_ov002_0215bf34(char* arg0) {
     Struct_ov002_0215bf34* var0 = ((Struct_ov002_0215bf34*)(arg0));
     func_ov002_0215be00(var0, Enum_ov002_0215bf34_41, 0x15, 0x15);
 
-    Struct_ov002_0215bf34_2* var1 = static_cast<Struct_ov002_0215bf34_2*>(func_02010828(GameState::GetInstance()));
-    Struct_020465c0* var2 = ((Struct_020465c0*)(GetMessageWindow_020421a0()));
-    func_02046380(var2);
-    func_020465c0(var2, 0, var1->unknown_f6c_);
+    Struct_ov002_0215bf34_2* var1 = static_cast<Struct_ov002_0215bf34_2*>(GetParty_02010828(GameState::GetInstance()));
+    MessageWindow_020465c0* var2 = ((MessageWindow_020465c0*)(GetMessageWindow_020421a0()));
+    ClearMessageParams_02046380(var2);
+    SetMessageNumber_020465c0(var2, 0, var1->unknown_f6c_);
     unsigned char* var3 = ((unsigned char*)(var2));
     func_020465d8(var3, 0, 1);
     func_020465f0(var3, 0, 7);

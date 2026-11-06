@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* func_02057924(void);
 extern "C" void __clear(void* arg0, int arg1);
 
@@ -36,10 +36,10 @@ struct Vector3i;
 
 extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
 
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
 struct Struct_02039df4;
 
@@ -61,7 +61,7 @@ struct Struct_0207853c_2 {
 
 // USA: func_0207853c
 extern "C" ARM int func_0207853c(struct Struct_0207853c_2* arg0) {
-    void* var0 = func_0202ae18();
+    void* var0 = GetLocalWireless_0202ae18();
     arg0->unknown_b2_ = 0;
     ((Object3D*)((struct Struct_02037d88_9*)arg0))->TransitionInheritedAlpha(0, 0x7d);
 
@@ -75,7 +75,7 @@ extern "C" ARM int func_0207853c(struct Struct_0207853c_2* arg0) {
         func_02057fb4(var1, arg0->unknown_178_, &var2);
     }
 
-    if (func_0202b7d8((int*)var0) && func_0202c1a4((struct Struct_0202c1a4*)var0) == 0) {
+    if (IsLocalWirelessOn_0202b7d8((int*)var0) && GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var0) == 0) {
         int var4 = ((Object3D*)((struct Struct_02039df4*)arg0))->GetField06();
         int var5 = arg0->unknown_2_;
         int var6 = (arg0->unknown_4_ - 0x70) % 0xc;

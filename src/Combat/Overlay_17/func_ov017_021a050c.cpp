@@ -5,10 +5,10 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
 class AllocatorUnion;
-extern "C" int func_02012da4(AllocatorUnion*, void*);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" int FreeMemory_02012da4(AllocatorUnion*, void*);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 extern int data_ov017_021d669c[];
 
 // USA: func_ov017_021a050c
@@ -22,10 +22,10 @@ extern "C" ARM void func_ov017_021a050c(GameResources* arg0) {
         arg0->allocator_array_38[var2].Destroy();
         arg0->allocator_array_38[var2].ResetAllocatorPointer();
         if (var3 != NULL) {
-            func_02012da4(&data_02114e20, var3);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var3);
         }
     }
 
-    void* var4 = func_02012d88(&data_02114e20, 0x6f78);
+    void* var4 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x6f78);
     arg0->allocator_array_38[5].CreateTypeA(var4, 0x6f78);
 }

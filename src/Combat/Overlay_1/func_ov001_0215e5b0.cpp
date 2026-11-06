@@ -12,21 +12,21 @@ struct Struct_ov001_0215e5b0 {
     void* unknown_2c_;
 };
 
-extern "C" struct Struct_ov001_0215e5b0* func_0200fb8c(int* arg0);
+extern "C" struct Struct_ov001_0215e5b0* GetResources_0200fb8c(int* gameState);
 extern "C" void func_ov001_0215e758(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov001_0215e78c(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
 extern "C" void func_0204b174(void* arg0, void* arg1, void* arg2, int arg3);
 
-extern char data_0211e33c[] __attribute__((aligned(4)));
+extern char gFileScratchSpace_0211e33c[] __attribute__((aligned(4)));
 
 // USA: func_ov001_0215e5b0
 extern "C" ARM int func_ov001_0215e5b0(void) {
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
-    struct Struct_ov001_0215e5b0* var0 = func_0200fb8c((int*)GameState::GetInstance());
+    struct Struct_ov001_0215e5b0* var0 = GetResources_0200fb8c((int*)GameState::GetInstance());
 
-    char* var1 = data_0211e33c;
+    char* var1 = gFileScratchSpace_0211e33c;
     volatile unsigned int* var2 = (volatile unsigned int*)0x4001000;
     *var2 = (*var2 & ~0x1f00) | 0x300;
     func_ov001_0215e758(0, 0, 0xe, 0, 0);

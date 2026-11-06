@@ -3,9 +3,6 @@
 #include <NitroSDK/ColorEffects.h>
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #define GUIDE_WINDOW_MAIN_SCREEN 8
 #define GUIDE_WINDOW_NO_DIMMING 0x20
@@ -89,8 +86,8 @@ struct Struct_ov023_021ec480_2 {
 };
 
 extern unsigned char data_ov023_021fd844[];
-extern char data_02108760[];
-extern char data_02109bf4[];
+extern char gSoundEffectManager_02108760[];
+extern char gMusicManager_02109bf4[];
 
 extern "C" Struct_ov023_021ec480_4* GetMessageWindow_020421a0();
 int IsBrightnessTransitionActive(GameResources* resources);
@@ -98,14 +95,14 @@ extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
 extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
 extern "C" void func_0205deb4(Struct_0205d81c* arg0, int arg1, int arg2);
 extern "C" void func_0209c830(Struct_02109bf4_2* arg0, int arg1);
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_0209ca2c(void* arg0);
 extern "C" int func_ov023_021ed014(struct Struct_ov023_021ec480* arg0);
 extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
 extern "C" void func_0205ebec(void* arg0);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
-extern "C" void func_02042058(char* arg0, const char* arg1);
-extern "C" void func_02043204(char* arg0);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
+extern "C" void AppendText_02042058(char* buffer, const char* text);
+extern "C" void ResetMessageWindow_02043204(char* window);
 
 extern "C" {
 int func_ov023_021ed064(Struct_ov023_021ec480* arg0);
@@ -114,7 +111,7 @@ void func_ov023_021ed194(Struct_ov023_021ec480* arg0);
 void func_ov023_021ed354(Struct_ov023_021ec480* arg0);
 void func_ov023_021ed4b8(Struct_ov023_021ec480* arg0);
 void func_ov023_021ed600(Struct_ov023_021ec480* arg0);
-void* func_0205ec34();
+void* GetFlagManager_0205ec34();
 #if defined(jpn)
 void StartMessage_0204500c(Struct_ov023_021ec480_4* window, const char* text, int arg2);
 #else
@@ -157,7 +154,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
         int var3 = 0x8c;
         if (arg0->unknown_430_ == 2 || (arg0->unknown_430_ == 7 && (arg0->unknown_438_ & GUIDE_WINDOW_MAIN_SCREEN)))
             var3 = 0x1b4;
-        func_0205ebc0(data_02108760, var3, var3);
+        func_0205ebc0(gSoundEffectManager_02108760, var3, var3);
         func_ov023_021ecbbc(arg0);
         arg0->unknown_432_++;
     }
@@ -167,7 +164,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
             return;
         func_ov023_021ed194(arg0);
         arg0->unknown_438_ |= GUIDE_WINDOW_TITLE_SCROLLING;
-        func_0205ebfc(data_02108760, 0, 0);
+        func_0205ebfc(gSoundEffectManager_02108760, 0, 0);
         arg0->unknown_432_++;
     }
     if (var2 == 2)
@@ -180,7 +177,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
         *(Struct_ov023_021ec480_2*)var4 = *(Struct_ov023_021ec480_2*)&data_ov023_021fd844[0xa];
         for (int var5 = 0; var5 < 2; var5++)
             func_0205deb4((Struct_0205d81c*)arg0->unknown_c4_, var4[var5], 0);
-        func_0209c830((Struct_02109bf4_2*)data_02109bf4, 0x40);
+        func_0209c830((Struct_02109bf4_2*)gMusicManager_02109bf4, 0x40);
         arg0->unknown_432_++;
     }
     if (var2 == 3)
@@ -195,9 +192,9 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
             return;
         if (arg0->unknown_438_ & GUIDE_WINDOW_UNK_400)
         {
-            void* var6 = func_0205ec34();
-            if (arg0->unknown_28_ == arg0->unknown_24_ - 1 && func_0206dfb0((int)var6, (unsigned char*)var6 + 0x8c, 0x119a) &&
-                func_0209ca2c(data_02109bf4))
+            void* var6 = GetFlagManager_0205ec34();
+            if (arg0->unknown_28_ == arg0->unknown_24_ - 1 && IsFlagSet_0206dfb0((int)var6, (unsigned char*)var6 + 0x8c, 0x119a) &&
+                func_0209ca2c(gMusicManager_02109bf4))
                 return;
         }
         if (inline_ov023_021ec480(arg0))
@@ -219,7 +216,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
     if (var2 == 6)
     {
         func_0205d6a0((Struct_0205d6a0*)arg0->unknown_c4_, 0);
-        func_0205ebec(data_02108760);
+        func_0205ebec(gSoundEffectManager_02108760);
         if (!(arg0->unknown_438_ & GUIDE_WINDOW_NO_DIMMING))
         {
             if (arg0->unknown_84_[1].unknown_1c_0_ == 0)
@@ -231,8 +228,8 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
             ColorEffect_ConfigureAlphaBlend(REG_BLDCNT, 1, 2, 0xf, 0x1f);
         if (arg0->unknown_438_ & GUIDE_WINDOW_UNK_400)
         {
-            void* var8 = func_0205ec34();
-            if (func_0206dfb0((int)var8, (unsigned char*)var8 + 0x8c, 0x119a))
+            void* var8 = GetFlagManager_0205ec34();
+            if (IsFlagSet_0206dfb0((int)var8, (unsigned char*)var8 + 0x8c, 0x119a))
             {
                 arg0->unknown_432_++;
                 return;
@@ -251,8 +248,8 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
         if (arg0->unknown_84_[1].unknown_1c_0_ == 0)
         {
             memset(arg0->unknown_1c_, 0, Enum_ov023_021ec480_2400);
-            func_02042058(arg0->unknown_1c_, func_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1000));
-            func_02042058(arg0->unknown_1c_, func_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1002));
+            AppendText_02042058(arg0->unknown_1c_, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1000));
+            AppendText_02042058(arg0->unknown_1c_, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1002));
             var1->unknown_998_ = 1;
 #if defined(jpn)
             StartMessage_0204500c(var1, arg0->unknown_1c_, 0);
@@ -271,13 +268,13 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
             for (int var10 = 0; var10 < 2; var10++)
                 func_0205deb4((Struct_0205d81c*)arg0->unknown_c4_, var9[var10], 0);
         }
-        func_0209c830((Struct_02109bf4_2*)data_02109bf4, 0x40);
+        func_0209c830((Struct_02109bf4_2*)gMusicManager_02109bf4, 0x40);
         arg0->unknown_432_++;
     }
     if (var2 == 8)
     {
         var1->unknown_19ae_ = 0;
-        if (func_0209ca2c(data_02109bf4))
+        if (func_0209ca2c(gMusicManager_02109bf4))
             return;
         arg0->unknown_432_++;
         var2++;
@@ -301,8 +298,8 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
     if (var2 == 10)
     {
         memset(arg0->unknown_1c_, 0, Enum_ov023_021ec480_2400);
-        func_02042058(arg0->unknown_1c_, func_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1001));
-        func_02042058(arg0->unknown_1c_, func_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1002));
+        AppendText_02042058(arg0->unknown_1c_, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1001));
+        AppendText_02042058(arg0->unknown_1c_, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1002));
         var1->unknown_998_ = 1;
 #if defined(jpn)
         StartMessage_0204500c(var1, arg0->unknown_1c_, 0);
@@ -312,19 +309,19 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
         var1->unknown_19b2_ = 0;
         var1->unknown_19c8_ = 0;
         var1->unknown_19ae_ = 0;
-        func_0209c830((Struct_02109bf4_2*)data_02109bf4, 0x40);
+        func_0209c830((Struct_02109bf4_2*)gMusicManager_02109bf4, 0x40);
         arg0->unknown_432_++;
     }
     if (var2 == 11)
     {
         var1->unknown_19ae_ = 0;
-        if (func_0209ca2c(data_02109bf4))
+        if (func_0209ca2c(gMusicManager_02109bf4))
             return;
         if (!inline_ov023_021ec480(arg0))
             return;
         if (arg0->unknown_84_[1].unknown_1c_0_ == 0)
         {
-            func_02043204((char*)var1);
+            ResetMessageWindow_02043204((char*)var1);
             arg0->unknown_431_ = 2;
             arg0->unknown_432_ = 0;
             return;

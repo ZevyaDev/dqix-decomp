@@ -47,12 +47,12 @@ extern "C" ARM void func_0208e520(struct Struct_0208e4f8* arg0, char* arg1) {
     BackgroundLoader::AddLockGlobal();
     var1 = 0;
     if (func_02001aec(arg1, data_020f12b8, 6) == 0 && func_02001aec(arg1, arg0->unknown_0_, 3) != 0 &&
-        LoadFileIntoMemory(data_020f12bf, data_0211e33c, &var1)) {
+        LoadFileIntoMemory(data_020f12bf, gFileScratchSpace_0211e33c, &var1)) {
         func_0208e4f8(arg0);
         Script var5;
         var5.Initialize();
         var5.SetOpcodeLookup(data_020f1278);
-        var5.Load(data_0211e33c, var1);
+        var5.Load(gFileScratchSpace_0211e33c, var1);
         var5.Execute();
         strncpy(arg0->unknown_0_, arg1, 3);
     }
@@ -68,8 +68,8 @@ extern "C" ARM void func_0208e520(struct Struct_0208e4f8* arg0, char* arg1) {
     strncpy(var2, arg1, 3);
     __clear(var0, 0x40);
     sprintf(var0, data_020f12d3, var2);
-    if (LoadFileIntoMemory(data_020f12e1, data_0211e33c, &var1)) {
-        if (arg0->unknown_a_ == 0 && GetFileInNarc(data_0211e33c, data_020f12fb, &var4, &var3, 0)) {
+    if (LoadFileIntoMemory(data_020f12e1, gFileScratchSpace_0211e33c, &var1)) {
+        if (arg0->unknown_a_ == 0 && GetFileInNarc(gFileScratchSpace_0211e33c, data_020f12fb, &var4, &var3, 0)) {
             Script var6;
             var6.Initialize();
             var6.SetOpcodeLookup(data_020f1290);
@@ -78,7 +78,7 @@ extern "C" ARM void func_0208e520(struct Struct_0208e4f8* arg0, char* arg1) {
             arg0->unknown_a_ = 1;
         }
         func_0208e4f8(arg0);
-        if (GetFileInNarc(data_0211e33c, var0, &var4, &var3, 0)) {
+        if (GetFileInNarc(gFileScratchSpace_0211e33c, var0, &var4, &var3, 0)) {
             Script var7;
             var7.Initialize();
             var7.SetOpcodeLookup(data_020f1290);

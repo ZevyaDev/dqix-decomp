@@ -1,9 +1,6 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
@@ -11,7 +8,7 @@
 
 extern "C" char *GetMessageWindow_020421a0(void);
 extern "C" char *GetZone3D_02012fe4(void);
-extern "C" void *func_0205ec34(void);
+extern "C" void *GetFlagManager_0205ec34(void);
 extern "C" void func_ov003_02170960(void *arg0, int arg1, int arg2);
 #if defined(jpn)
 extern "C" void func_ov003_021701e4(void *arg0, int arg1);
@@ -20,7 +17,7 @@ extern "C" void func_ov003_021701e4(void *arg0, int arg1);
 struct Struct_ov003_0216efdc_2;
 struct Struct_ov003_0216efdc_3;
 extern "C" Struct_ov003_0216efdc_3 *func_ov003_0216f414(Struct_ov003_0216efdc_2 *arg0, int arg1);
-extern "C" int func_0206dfb0(int arg0, unsigned char *arg1, int arg2);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char *flags, int flagIndex);
 extern "C" void func_0206df6c(void *arg0, unsigned char *arg1, int arg2, int arg3);
 
 struct Struct_ov003_0216efdc_3 {
@@ -97,8 +94,8 @@ extern "C" ARM void func_ov003_0216efdc(Struct_ov003_0216efdc *arg0) {
                 var5->unknown_16_ &= ~2;
             }
         }
-        void *var6 = func_0205ec34();
-        if (func_0206dfb0((int) var6, (unsigned char *) var6 + 0x8c, 0x783) != 0) {
+        void *var6 = GetFlagManager_0205ec34();
+        if (IsFlagSet_0206dfb0((int) var6, (unsigned char *) var6 + 0x8c, 0x783) != 0) {
             arg0->unknown_2_ = 1;
             return;
         }

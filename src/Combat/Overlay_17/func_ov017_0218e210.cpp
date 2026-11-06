@@ -28,7 +28,7 @@ extern "C" ARM void func_ov017_0218e210(int arg0, int arg1) {
     int var4 = Vector3fix_Distance(&var2, &var3);
     int var5 = var1->obj3D_.unknown_4_;
     int var6 = 1;
-    if (var5 == func_020100b0(var0) && !(var1->obj3D_.unknown_0_ & 0x8000) && var4 > 0x333) var6 = 2;
+    if (var5 == func_020100b0(var0) && !(var1->obj3D_.classFlags_0_ & 0x8000) && var4 > 0x333) var6 = 2;
     int var7 = 0;
     int var8 = 0;
     if (var6 == 1 && arg0 == func_020100b0(var0)) {

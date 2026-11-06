@@ -18,8 +18,8 @@ enum { Enum_0206aa28_72 = 0x48, Enum_0206aa28_80 = 0x50, Enum_0206aa28_84 = 0x54
 #endif
 
 struct Struct_02043124;
-extern "C" void func_02043204(char*);
-extern "C" void func_02043124(Struct_02043124*);
+extern "C" void ResetMessageWindow_02043204(char*);
+extern "C" void CloseMessageWindow_02043124(Struct_02043124*);
 
 #if defined(jpn)
 extern "C" int func_02069430(void*, unsigned short);
@@ -81,8 +81,8 @@ extern "C" ARM void func_0206aa28(char* arg0) {
                 var0 = func_0206c730(arg0, var3, *(Type_0206aa28**)(arg0 + Enum_0206aa28_20));
                 if (!var0) {
                     unsigned char var4 = *(unsigned char*)(arg0 + 0x17fd);
-                    func_02043204(arg0);
-                    func_02043124((Struct_02043124*)(arg0));
+                    ResetMessageWindow_02043204(arg0);
+                    CloseMessageWindow_02043124((Struct_02043124*)(arg0));
                     arg0[0x17fd] = var4;
                     break;
                 }
@@ -115,8 +115,8 @@ extern "C" ARM void func_0206aa28(char* arg0) {
                     break;
                 }
                 unsigned char var7 = *(unsigned char*)(arg0 + 0x19cc);
-                func_02043204(arg0);
-                func_02043124((Struct_02043124*)(arg0));
+                ResetMessageWindow_02043204(arg0);
+                CloseMessageWindow_02043124((Struct_02043124*)(arg0));
                 arg0[0x19cc] = var7;
                 break;
             }
@@ -128,8 +128,8 @@ extern "C" ARM void func_0206aa28(char* arg0) {
                 var0 = func_0206ac94(arg0, var8, *(Type_0206aa28**)(arg0 + Enum_0206aa28_72));
                 if (!var0) {
                     unsigned char var9 = *(unsigned char*)(arg0 + 0x19cc);
-                    func_02043204(arg0);
-                    func_02043124((Struct_02043124*)(arg0));
+                    ResetMessageWindow_02043204(arg0);
+                    CloseMessageWindow_02043124((Struct_02043124*)(arg0));
                     arg0[0x19cc] = var9;
                     break;
                 }

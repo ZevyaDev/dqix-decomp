@@ -30,7 +30,7 @@ extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
 
 // USA: func_ov013_02186fa0
 extern "C" ARM void func_ov013_02186fa0(unsigned char* arg0) {
-    Struct_0208cb08* var0 = func_02094a00();
+    FontLoader_0208cb08* var0 = func_02094a00();
     func_02094b38(var0, 0x68);
     func_02094ab0(var0);
 

@@ -102,7 +102,7 @@ extern "C" ARM int func_02046170(struct Struct_02046170* arg0, unsigned short* a
             var1 += func_020425e4(var3, var7, arg3);
             var3 = var7;
             int var8 = var0;
-            if (var6->unknown2_18_ != 0) var8 = var6->unknown2_18_->unknown_4_;
+            if (var6->unknown2_18_ != 0) var8 = var6->unknown2_18_->width_4_;
             var1 += var8 + 1;
         }
     }

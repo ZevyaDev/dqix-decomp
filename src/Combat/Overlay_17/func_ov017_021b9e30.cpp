@@ -2,9 +2,6 @@
 #include "GameState/GameState.h"
 #include "Resource/Script.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_ov017_021d8438_3 {
     unsigned char unknown_0_, unknown_1_, unknown_2_, unknown_3_;
@@ -18,7 +15,7 @@ extern Struct_ov017_021d7c54_2 data_ov017_021d7c54;
 struct Struct_0205faf4_3;
 struct Struct_0205faf4_4;
 struct Struct_0205faf4_13;
-extern "C" Struct_0205faf4_3* func_0205ec34(GameState*);
+extern "C" Struct_0205faf4_3* GetFlagManager_0205ec34(GameState*);
 extern "C" int func_0206e31c(int, int);
 extern "C" int func_0206e120(Struct_0205faf4_3*, int);
 extern "C" int func_0206e260(Struct_0205faf4_4*, int);
@@ -33,7 +30,7 @@ extern "C" ARM int func_ov017_021b9e30(Script::Parameter* arg0, int arg1) {
     if (data_ov017_021d8438.unknown_10_) return 1;
     if (data_ov017_021d8438.unknown_1_) return 1;
     if (data_ov017_021d7c54.unknown_1_ > -1) return 1;
-    Struct_0205faf4_3* var0 = func_0205ec34(GameState::GetInstance());
+    Struct_0205faf4_3* var0 = GetFlagManager_0205ec34(GameState::GetInstance());
     int var1 = arg0->ToInt();
     if (!func_0206e31c((int)var0, var1)) return 1;
     if (data_ov017_021d7c54.unknown_0_ != var1 && data_ov017_021d7c54.unknown_0_ > -1 && !inline_ov017_021b9e30(var0, var1, 1) && !inline_ov017_021b9e30(var0, var1, 2)) {

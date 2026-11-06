@@ -7,9 +7,6 @@ enum { Enum_ov017_02198e30_17478 = 0x4446 };
 #endif
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_ov017_02198e30 {
     unsigned short unknown_0_;
@@ -34,7 +31,7 @@ struct Struct_ov017_02198e30_3 {
     int unknown_30_;
 };
 
-extern "C" struct Struct_ov017_02198e30_2* func_0205ec34(void);
+extern "C" struct Struct_ov017_02198e30_2* GetFlagManager_0205ec34(void);
 extern "C" int func_020321e0(Vector3fix* arg0, void* arg1, int arg2, void* arg3, unsigned int arg4);
 extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
 extern "C" void func_0206f81c(void* arg0);
@@ -42,7 +39,7 @@ extern "C" void func_0206f81c(void* arg0);
 // USA: func_ov017_02198e30
 extern "C" ARM void func_ov017_02198e30(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_ov017_02198e30_2* var1 = func_0205ec34();
+    struct Struct_ov017_02198e30_2* var1 = GetFlagManager_0205ec34();
     struct Struct_ov017_02198e30* var2 = var1->unknown_494_;
     GameObject* var3 = var0->GetUnknownGameObject();
 
@@ -85,5 +82,5 @@ extern "C" ARM void func_ov017_02198e30(unsigned char* arg0) {
     }
 
     unsigned short var7 = var2->unknown_0_;
-    func_0205ec34()->unknown_491_ = var7;
+    GetFlagManager_0205ec34()->unknown_491_ = var7;
 }

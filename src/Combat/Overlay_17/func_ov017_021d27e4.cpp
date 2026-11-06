@@ -12,8 +12,8 @@ extern "C" void func_ov017_021c3fb4(int arg0, int arg1);
 extern "C" void func_ov017_021c4418(int arg0, int arg1);
 extern "C" void func_ov017_0218f5a4(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
-extern "C" int func_020100a8(GameState*);
-extern "C" void* func_02010828(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" int func_020535c8(signed char*);
 extern "C" int func_02046b08(void**);
@@ -70,8 +70,8 @@ extern Struct_ov017_021d6d0c data_ov017_021d6d0c;
 
 // USA: func_ov017_021d27e4
 extern "C" ARM void func_ov017_021d27e4(void* arg0, Struct_ov017_021d27e4_2* arg1, GameState* arg2, GameResources* arg3) {
-    func_020100a8(arg2);
-    unsigned char* var0 = static_cast<unsigned char*>(func_02010828(arg2));
+    GetProtagonistObjectIndex_020100a8(arg2);
+    unsigned char* var0 = static_cast<unsigned char*>(GetParty_02010828(arg2));
     signed char var1 = arg1->unknown_5_;
     signed char var2 = arg1->unknown_6_;
     unsigned char* var3 = var0 + 0xf78;
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov017_021d27e4(void* arg0, Struct_ov017_021d27e4_2* arg
                 if (**(unsigned int**)((char*)var11 + 0x130) & 4) var10 = 1;
             }
             if (var10) {
-                var0 = static_cast<unsigned char*>(func_02010828(arg2));
+                var0 = static_cast<unsigned char*>(GetParty_02010828(arg2));
 #if defined(jpn)
                 Struct_ov017_021d6d0c var12 = data_ov017_021d7154;
 #else

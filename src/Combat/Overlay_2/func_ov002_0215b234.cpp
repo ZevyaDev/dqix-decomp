@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-extern unsigned char data_02108760;
-extern char data_02109bf4;
+extern unsigned char gSoundEffectManager_02108760;
+extern char gMusicManager_02109bf4;
 extern "C" unsigned char func_0205ea18(unsigned char*);
 extern "C" unsigned char func_0209ca98(char*);
 
@@ -13,6 +13,6 @@ extern "C" unsigned char func_0209ca98(char*);
 
 // USA: func_ov002_0215b234
 extern "C" ARM void func_ov002_0215b234(unsigned char* arg0) {
-    arg0[FIELDS_0215b234] = func_0209ca98(&data_02109bf4);
-    arg0[FIELDS_0215b234 + 1] = func_0205ea18(&data_02108760);
+    arg0[FIELDS_0215b234] = func_0209ca98(&gMusicManager_02109bf4);
+    arg0[FIELDS_0215b234 + 1] = func_0205ea18(&gSoundEffectManager_02108760);
 }

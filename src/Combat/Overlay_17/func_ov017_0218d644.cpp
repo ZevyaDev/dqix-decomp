@@ -11,10 +11,10 @@ enum { Enum_ov017_0218d644_17560 = 0x4498 };
 extern "C" void func_ov017_0218cbcc(int* arg0, int arg1, int arg2, int arg3);
 struct Struct_020dbfa4;
 extern "C" void func_020dbfa4(struct Struct_020dbfa4* arg0, int arg1);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 extern char data_ov017_021d739f;
 
 struct Struct_ov017_0218d644 {
@@ -73,5 +73,5 @@ extern "C" ARM void func_ov017_0218d644(GameResources* arg0, void* arg1, int arg
     int* var2 = (int*)arg1;
     func_ov017_0218cbcc(var1.unknown_2c_, var2[0], var2[1], var2[2]);
     func_020dbfa4(var0, (int)&var1);
-    func_0205eaa0((struct Struct_02108760*)&data_02108760, 0x5f, 0);
+    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0x5f, 0);
 }

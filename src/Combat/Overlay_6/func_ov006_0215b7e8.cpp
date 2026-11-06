@@ -8,7 +8,7 @@ enum { Enum_ov006_0215b7e8_54 = 0x36, Enum_ov006_0215b7e8_76 = 0x4c, Enum_ov006_
 #endif
 
 struct Struct_02081f20_2;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0207fdcc_2;
 struct Struct_ov006_0215b7e8_2;
 struct Struct_0207fe44;
@@ -129,13 +129,13 @@ extern "C" void func_02080c04(Struct_0207fdcc_2* arg0, int arg1);
 extern "C" void func_02080c20(Struct_0207fdcc_2* arg0, int arg1);
 extern "C" unsigned char func_ov006_02158a28(Struct_ov006_02157a60* arg0);
 extern "C" unsigned char func_ov006_02158b78(Struct_ov006_02157a60* arg0);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int, int);
 extern "C" void func_0207fe44(Struct_0207fe44* arg0);
 extern "C" Struct_ov006_0215b7e8* func_ov006_02157368(void* arg0, short arg1);
 extern "C" void func_ov006_02158de0(Struct_ov006_02157a60* arg0);
 extern "C" void func_0207fdcc(Struct_0207fdcc_2* arg0, int arg1);
 
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 // USA: func_ov006_0215b7e8
 extern "C" ARM void func_ov006_0215b7e8(Struct_ov006_02157a60* arg0) {
@@ -173,7 +173,7 @@ extern "C" ARM void func_ov006_0215b7e8(Struct_ov006_02157a60* arg0) {
         arg0->unknown_42c_ = 0;
         if (func_ov006_02158a28(arg0))
         {
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             func_0208203c((Struct_02081f20_2*)arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             switch (arg0->unknown_360_)

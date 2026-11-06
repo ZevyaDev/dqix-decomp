@@ -51,18 +51,18 @@ struct Struct_ov003_0215d4fc {
     int unknown_12c_;
 };
 
-extern int data_02109bf4;
-extern int data_02108760;
+extern int gMusicManager_02109bf4;
+extern int gSoundEffectManager_02108760;
 
-extern "C" int *func_0202ae18();
-extern "C" void * func_0200fb8c(int*);
+extern "C" int *GetLocalWireless_0202ae18();
+extern "C" void * GetResources_0200fb8c(int*);
 extern "C" Struct_ov003_0215d150_2 *GetMessageWindow_020421a0();
 extern "C" void *func_0203cf4c();
 extern "C" unsigned char *func_020e2ff8();
-extern "C" int func_0202c508(int *);
-extern "C" void func_02043204(char*);
+extern "C" int IsNotLocalWirelessGuest_0202c508(int *);
+extern "C" void ResetMessageWindow_02043204(char*);
 struct Struct_0201099c_3;
-extern "C" void * func_020e0434(Struct_0201099c_3*, int);
+extern "C" void * FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov003_0215cab0(Struct_ov003_02154af4_3 *, void *);
 extern "C" void *func_0203df78(void *, int);
 struct Struct_0205d6a0;
@@ -98,9 +98,9 @@ extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 // USA: func_ov003_0215d4fc
 extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
     GameState *var0    = GameState::GetInstance();
-    void *var1        = func_0200fb8c((int*)var0);
+    void *var1        = GetResources_0200fb8c((int*)var0);
     Struct_ov003_0215d150_2 *var2         = GetMessageWindow_020421a0();
-    int *var3           = func_0202ae18();
+    int *var3           = GetLocalWireless_0202ae18();
     void *var4          = func_0203cf4c();
     GameObject *var5    = var0->GetUnknownGameObject();
     unsigned char *var6 = func_020e2ff8();
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
     int var8;
     int var9;
     var9 = 0;
-    if (func_0202c508(var3) != 0) {
+    if (IsNotLocalWirelessGuest_0202c508(var3) != 0) {
         if (*(short *) ((char *) var0->GetUnknownGameObject() + 4) == 0) {
             var9 = 1;
         }
@@ -117,12 +117,12 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
 
     if (var7 == 0) {
         if (arg0->unknown_3f3_ != 0) {
-            func_02043204((char*)var2);
+            ResetMessageWindow_02043204((char*)var2);
             arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;
             return;
         }
         int var10 = 0x3f2;
-        if (arg0->unknown_3cc_ > *(unsigned int *) ((unsigned char *)func_02010828(var0) + 0xf6c)) {
+        if (arg0->unknown_3cc_ > *(unsigned int *) ((unsigned char *)GetParty_02010828(var0) + 0xf6c)) {
             var10 = 0x3fc;
             if (arg0->unknown_3f0_ != 0) {
                 if (var9 != 0) {
@@ -132,14 +132,14 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
                     var10 = 0x72;
                 }
             }
-            func_ov003_0215cab0(arg0, func_020e0434((Struct_0201099c_3*)arg0->unknown_64_, var10));
+            func_ov003_0215cab0(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, var10));
             arg0->unknown_3b8_ = 8;
             return;
         }
         if (arg0->unknown_3f0_ != 0) {
             var10 = 0x6a;
         }
-        func_ov003_0215cab0(arg0, func_020e0434((Struct_0201099c_3*)arg0->unknown_64_, var10));
+        func_ov003_0215cab0(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, var10));
         arg0->unknown_3bb_ = 2;
         void *var11 = func_0203df78(var4, (*(Struct_ov003_0215d4fc **) ((char *) GetGameResources() + 0x3000 + Enum_ov003_0215d4fc_1808))->unknown_12c_);
         if (var11 != 0) {
@@ -152,9 +152,9 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
             return;
         }
         func_0205d6a0((Struct_0205d6a0*)arg0->unknown_98_, 0);
-        func_0209c678((Struct_02109bf4_4*)&data_02109bf4, 0x10);
+        func_0209c678((Struct_02109bf4_4*)&gMusicManager_02109bf4, 0x10);
         SetBrightness((GameResources*)var1, -16, 0x3c);
-        func_0205e944(&data_02108760, 0);
+        func_0205e944(&gSoundEffectManager_02108760, 0);
         arg0->unknown_3f5_  = 1;
         arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;
     }
@@ -162,8 +162,8 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
         if (IsBrightnessTransitionActive((GameResources*)var1) != 0) {
             return;
         }
-        func_0209c20c((Struct_02109bf4_3*)&data_02109bf4);
-        func_0209c6d8(&data_02109bf4, 0x37);
+        func_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
+        func_0209c6d8(&gMusicManager_02109bf4, 0x37);
         arg0->unknown_3e8_  = 0xb4;
         arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;
     }
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
     if (var7 == 4) {
         int var12 = func_020e34bc((Struct_0208ab34*)var6, 1);
         if (var12 == 1 || arg0->unknown_3f4_ != 0) {
-            unsigned char *var13              = (unsigned char *)func_02010828(var0);
+            unsigned char *var13              = (unsigned char *)GetParty_02010828(var0);
             *(unsigned int *) (var13 + 0xf6c) = *(unsigned int *) (var13 + 0xf6c) - arg0->unknown_3cc_;
             for (var8 = 0; var8 < 4; var8++) {
                 if (arg0->unknown_3c4_[var8] != 0xff) {
@@ -184,7 +184,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
                     func_ov017_021c9e00(arg0->unknown_3c4_[var8], 0, 0, 1);
                 }
             }
-            if (func_0202c508(var3) != 0) {
+            if (IsNotLocalWirelessGuest_0202c508(var3) != 0) {
                 switch (arg0->unknown_3bc_) {
                     case 2: var0->SetDayTimer(arg0->unknown_3d8_); break;
                     case 3: var0->SetDayTimer(arg0->unknown_3e0_); break;
@@ -207,12 +207,12 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
         }
     }
     if (var7 == 6) {
-        if (func_0209ca2c(&data_02109bf4) != 0) {
+        if (func_0209ca2c(&gMusicManager_02109bf4) != 0) {
             return;
         }
-        func_0209c7fc(&data_02109bf4);
+        func_0209c7fc(&gMusicManager_02109bf4);
         SetBrightness((GameResources*)var1, 0, 0x3c);
-        func_0205e944(&data_02108760, 0x7f);
+        func_0205e944(&gSoundEffectManager_02108760, 0x7f);
         arg0->unknown_3ec_ = 1;
         arg0->unknown_3ed_ = 0;
         void *var15 = func_0203df78(var4, (*(Struct_ov003_0215d4fc **) ((char *) GetGameResources() + 0x3000 + Enum_ov003_0215d4fc_1808))->unknown_12c_);
@@ -247,7 +247,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
                 var16 = 0x6d;
             }
         }
-        func_ov003_0215cab0(arg0, func_020e0434((Struct_0201099c_3*)arg0->unknown_64_, var16));
+        func_ov003_0215cab0(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, var16));
         arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;
     }
     if (arg0->unknown_3b8_ == 8 && var2->unknown_998_ == 0) {

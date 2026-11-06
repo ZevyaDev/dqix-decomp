@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/GPC.h"
@@ -83,7 +83,7 @@ extern "C" void func_020952e4(int);
 extern "C" void func_02042998(struct Struct_020421c4_3*);
 
 static inline void* inline_020421c4(const char* arg0, unsigned int* arg1) {
-    return LoadFileIntoMemory(arg0, data_0211e33c, arg1);
+    return LoadFileIntoMemory(arg0, gFileScratchSpace_0211e33c, arg1);
 }
 
 // JPN: func_020421c4
@@ -140,14 +140,14 @@ extern "C" ARM void func_020421c4(SafeAllocator* arg0) {
     var6 = func_0204aa48((struct Struct_020421c4_2*)&var1);
     var8 = arg0->Allocate(var6);
     data_02107744 = var8;
-    memcpy(var8, (void*)((int)data_0211e33c + 0x10), var6);
+    memcpy(var8, (void*)((int)gFileScratchSpace_0211e33c + 0x10), var6);
 
     GPCReadPair* var13 = &var2;
     var18 = 0;
     var3 = var18;
     var17 = var18;
     var10 = var18;
-    var11 = data_0211e33c;
+    var11 = gFileScratchSpace_0211e33c;
     var12 = 0x30000;
     ZeroInitGPCPointer(&var13->pGPCFile);
     var13->ZeroInitializeMachine();
@@ -281,7 +281,7 @@ extern "C" ARM void func_020421c4(SafeAllocator* arg0) {
     BackgroundLoader::AddLockGlobal();
 
     var0 = 0;
-    var7 = LoadFileIntoMemory(&data_020f000b, data_0211e33c, &var0);
+    var7 = LoadFileIntoMemory(&data_020f000b, gFileScratchSpace_0211e33c, &var0);
     func_0204a82c(&var1);
     if (var7 != 0) {
         memcpy(&var1, var7, 0xc);
@@ -289,12 +289,12 @@ extern "C" ARM void func_020421c4(SafeAllocator* arg0) {
     var6 = func_0204aa48((struct Struct_020421c4_2*)&var1);
     var8 = arg0->Allocate(var6);
     data_02107800.unknown_4_ = var8;
-    memcpy(var8, (void*)((int)data_0211e33c + 0x10), var6);
+    memcpy(var8, (void*)((int)gFileScratchSpace_0211e33c + 0x10), var6);
 
     GPCReadPair* var13 = &var2;
     var10 = 0;
     var3 = var10;
-    var11 = data_0211e33c;
+    var11 = gFileScratchSpace_0211e33c;
     var12 = 0x30000;
     ZeroInitGPCPointer(&var13->pGPCFile);
     var13->ZeroInitializeMachine();

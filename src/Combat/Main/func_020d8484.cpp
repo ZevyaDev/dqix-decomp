@@ -24,8 +24,8 @@ struct Struct_020d80b0_3 {
 extern "C" int func_020100f8(char* arg0);
 extern "C" void func_020a27ac(void* arg0);
 extern "C" void func_020727ec(struct Struct_020727d8* arg0);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
-extern int data_02114e20;
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern int gMainHeap_02114e20;
 
 // USA: func_020d8484
 extern "C" ARM void func_020d8484(struct Struct_020d80b0_3* arg0) {
@@ -35,7 +35,7 @@ extern "C" ARM void func_020d8484(struct Struct_020d80b0_3* arg0) {
         arg0->unknown_14_.Reset();
         arg0->unknown_14_.Destroy();
         func_020727ec(&arg0->unknown_c_);
-        func_02012da4((AllocatorUnion*)&data_02114e20, var0);
+        FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
     }
     arg0->unknown_0_.unknown_1_ = 1;
 }

@@ -6,15 +6,15 @@ enum {Enum_ov017_021913d0_2976=0xba0, Enum_ov017_021913d0_3936=0xf60, Enum_ov017
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void func_0202ae18(void);
-extern "C" int func_0202c508(void);
+extern "C" void GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_ov017_0218f574(int* arg0, int arg1, int arg2, int arg3);
 struct Struct_ov017_021913d0;
 extern "C" void func_ov017_021c1e40(struct Struct_ov017_021913d0* arg0);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 extern "C" void func_ov017_021ce400(int arg0, int arg1);
 
 struct Struct_ov017_021913d0_2 { int unknown_0_; int unknown_4_; int unknown_8_; };
@@ -33,11 +33,11 @@ extern "C" ARM void func_ov017_021913d0(unsigned char* arg0, int arg1) {
             }
             func_ov017_021c1e40((struct Struct_ov017_021913d0*)var0);
             var0[0xb] = (unsigned char)arg1;
-            struct Struct_0201bdac_2* var5 = *(struct Struct_0201bdac_2**)(arg0 + 0x3000 + Enum_ov017_021913d0_1792);
-            func_020469b4(var5, (struct Struct_0201bdac*)var0);
+            struct Queue_0201bdac_2* var5 = *(struct Queue_0201bdac_2**)(arg0 + 0x3000 + Enum_ov017_021913d0_1792);
+            AppendToQueue_020469b4(var5, (struct QueueNode_0201bdac*)var0);
         }
-        func_0202ae18();
-        if (func_0202c508()) {
+        GetLocalWireless_0202ae18();
+        if (IsNotLocalWirelessGuest_0202c508()) {
             unsigned short* var6 = (unsigned short*)GetZone3D_02012fe4();
             func_ov017_021ce400(arg1, (unsigned short)*var6);
         }

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov017_0218f5a4(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
 struct Struct_ov017_021d0e64 {
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov017_021d0e64(void* arg0, Struct_ov017_021d0e64* arg1,
 #endif
     GameObject* var0 = arg2->GetPartyMemberByIndex(arg1->unknown_4_);
     if (!var0) return;
-    int var1 = func_02053c6c((unsigned char*)var0);
+    int var1 = GetPartyMemberData_02053c6c((unsigned char*)var0);
     if (!var1) return;
 
     unsigned char* var2 = (unsigned char*)var1;

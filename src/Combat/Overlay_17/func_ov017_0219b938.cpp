@@ -3,7 +3,7 @@
 #include "Memory/SafeAllocator.h"
 
 struct Struct_020966a0;
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 
 struct Struct_ov017_0219b938 {
 #if defined(jpn)
@@ -21,7 +21,7 @@ extern "C" void func_020966a0(struct Struct_020966a0* arg0);
 extern "C" void func_0204719c(void* arg0);
 extern "C" void* func_0208e9e8(void);
 extern "C" void func_0208f36c(void* arg0, int arg1);
-extern "C" void func_0207df50(struct Struct_0203d028* arg0);
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
 
 struct Struct_ov017_021d64b0 {
     int unknown_0_[17];
@@ -67,5 +67,5 @@ extern "C" ARM void func_ov017_0219b938(struct Struct_ov017_0219b938_2* arg0) {
     func_0204719c(&arg0->unknown_2b90_[0x13]);
     func_0208f36c(func_0208e9e8(), 0);
     arg0->unknown_9c_.Reset();
-    func_0207df50((struct Struct_0203d028*)arg0->unknown_4fc_);
+    ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)arg0->unknown_4fc_);
 }

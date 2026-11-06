@@ -99,10 +99,10 @@ struct Struct_ov006_02154614 {
     unsigned char unknown_12bd_;
 };
 
-struct Struct_02020cb8_4;
+struct PacEntry_02020cb8_4;
 struct Struct_02020cb8;
 struct Struct_02020cb8_5;
-struct Struct_02020aec;
+struct PacEntry_02020aec;
 struct Struct_02020cb8_6;
 
 struct Struct_ov003_021594c4 {
@@ -114,12 +114,12 @@ struct Struct_ov003_021594c4 {
 };
 
 extern "C" void func_ov023_021dcd90(Struct_ov006_02154614_2* arg0, unsigned char arg1);
-extern "C" int func_02046900(Struct_02020cb8_4* arg0);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void func_0204af64(Struct_02020cb8* arg0);
 extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
 extern "C" void func_0204b5b4(void* arg0, int arg1);
 extern "C" void func_0204b5e8(Struct_02020cb8_5* arg0, int arg1, int arg2);
-extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0204b2e0(void* arg0, char* arg1);
 extern "C" void func_0204b3a0(Struct_02020cb8_6* arg0, char* arg1);
 
@@ -144,7 +144,7 @@ extern "C" ARM void func_ov006_02156bd8(Struct_ov006_02154614* arg0) {
             void* var2;
             unsigned int var3;
             var0->GetLoadedFileByID(arg0->unknown_ad8_, &var2, &var3);
-            int var4 = func_02046900((Struct_02020cb8_4*)var2);
+            int var4 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var2);
             Struct_ov003_021594c4 var5;
             func_0204af64((Struct_02020cb8*)&var5);
             func_0204b11c((unsigned char*)&var5, 0);
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov006_02156bd8(Struct_ov006_02154614* arg0) {
             func_0204b5e8((Struct_02020cb8_5*)&var5, 0, 0);
             for (int var6 = 0; var6 < var4; var6++) {
                 int var7;
-                void* var8 = func_020467f0((Struct_02020aec*)var2, var6, &var1, &var7);
+                void* var8 = GetPacEntryData_020467f0((PacEntry_02020aec*)var2, var6, &var1, &var7);
                 if (var8 != 0) {
                     func_0204b2e0(&var5, (char*)var8);
                     func_0204b3a0((Struct_02020cb8_6*)&var5, (char*)var8);

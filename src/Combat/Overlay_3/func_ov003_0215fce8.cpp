@@ -26,10 +26,10 @@ extern struct Struct_020e6d5c_14 data_020e6d5c;
 extern struct Struct_020e6d5c_14 data_ov003_0217ff68[];
 
 extern "C" int func_ov017_021959b4();
-extern "C" void *func_020d6c00(void);
+extern "C" void *GetGlobalFlags_020d6c00(void);
 extern "C" int *func_020936f8(void);
 extern "C" void func_020466e4(unsigned int *arg0, unsigned int arg1);
-extern "C" void *func_0202ae18();
+extern "C" void *GetLocalWireless_0202ae18();
 extern "C" void *func_0202ae24(void);
 extern "C" void func_0202b0f4(void *arg0);
 extern "C" void func_ov017_02195748(unsigned char *arg0);
@@ -39,7 +39,7 @@ struct Struct_0205e854;
 extern "C" void *func_0205e854(Struct_0205e854 *arg0);
 struct Struct_ov003_021549a8;
 extern "C" Struct_ov003_021549a8 *GetMessageWindow_020421a0(void);
-extern "C" void func_02043204(char *arg0);
+extern "C" void ResetMessageWindow_02043204(char *window);
 struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc *arg0);
 struct Struct_020e25e8;
@@ -75,11 +75,11 @@ extern "C" ARM int func_ov003_0215fce8(unsigned char *arg0, int arg1) {
     if (arg0[SO(0x4c0)] == 0 && func_ov017_021959b4() != 0) {
         unsigned char var0 = arg0[SO(0x4a3)];
         if ((var0 == 0xb && arg0[SO(0x4a4)] == 0x11) || (var0 == 6 && arg0[SO(0x4a4)] == 0)) {
-            void *var1 = func_020d6c00();
+            void *var1 = GetGlobalFlags_020d6c00();
             int *var2  = func_020936f8();
             func_020466e4((unsigned int *) var1, 0x20);
             unsigned char *var3 = (unsigned char*)GetGameResources();
-            void *var4          = func_0202ae18();
+            void *var4          = GetLocalWireless_0202ae18();
             void *var5           = func_0202ae24();
             SetFlags00((GameResources*)var3, 2);
             func_0202b0f4(var4);
@@ -105,7 +105,7 @@ extern "C" ARM int func_ov003_0215fce8(unsigned char *arg0, int arg1) {
         short *var6 = *(short **) (arg0 + SO(0x470));
         if (var6 != 0) *var6 = -1;
         *(int *) (arg0 + SO(0x470)) = 0;
-        func_02043204((char *) GetMessageWindow_020421a0());
+        ResetMessageWindow_02043204((char *) GetMessageWindow_020421a0());
         *(short *) (arg0 + SO(0x486)) = -1;
         *(short *) (arg0 + SO(0x484)) = *(short *) (arg0 + SO(0x486));
         arg0[SO(0x4a5)]                      = 0;

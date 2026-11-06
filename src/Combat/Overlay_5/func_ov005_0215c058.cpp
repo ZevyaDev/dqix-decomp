@@ -7,7 +7,7 @@
 #endif
 
 struct GameState;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
 struct Struct_ov005_0215c058
 {
@@ -91,14 +91,14 @@ extern "C" void func_ov005_02154d7c(Struct_ov005_0215c058_3* arg0, int arg1, int
 extern "C" void func_ov005_021537bc(Struct_ov005_0215c058_3* arg0, int arg1, unsigned short arg2);
 struct Struct_0205bb84;
 extern "C" int func_0205bb84(Struct_0205bb84*);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" int func_ov005_02157190(void* arg0);
-extern "C" unsigned char* func_02010828(GameState*);
+extern "C" unsigned char* GetParty_02010828(GameState*);
 extern "C" short* func_0207c5f8(unsigned char*, unsigned int);
 extern "C" signed char* func_0207c60c(void*, unsigned int);
 extern "C" void func_ov005_0215792c(Struct_ov005_0215c058_4* arg0, int arg1);
 
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 extern unsigned char data_ov005_0215cd10[];
 
 // USA: func_ov005_0215c058
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov005_0215c058(Struct_ov005_0215c058_4* arg0)
         if (var17 != arg0->unknown_3dbb_)
         {
             arg0->unknown_3dbb_ = var17;
-            func_0205eaa0((Struct_02108760*)data_02108760, 2, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 2, 0);
             func_ov005_021579ec(arg0, arg0->unknown_3db8_, arg0->unknown_3dbb_);
         }
         else if (var17 == arg0->unknown_3dbb_)
@@ -211,7 +211,7 @@ extern "C" ARM void func_ov005_0215c058(Struct_ov005_0215c058_4* arg0)
         if (func_ov005_02157190(arg0) != 0 || var3)
         {
             short var18 = arg0->unknown_3dbb_ - 8 + arg0->unknown_3dbd_ * 16;
-            unsigned char* var19 = func_02010828(var1);
+            unsigned char* var19 = GetParty_02010828(var1);
             short* var20 = func_0207c5f8(var19 + 0x1d4, data_ov005_0215cd10[arg0->unknown_3dbc_]);
             signed char* var21 = func_0207c60c(var19 + 0x1d4, data_ov005_0215cd10[arg0->unknown_3dbc_]);
             short var22 = var20[arg0->unknown_3de0_];
@@ -225,7 +225,7 @@ extern "C" ARM void func_ov005_0215c058(Struct_ov005_0215c058_4* arg0)
             arg0->unknown_3daa_ = 0;
             arg0->unknown_3de0_ = -1;
             func_ov005_0215792c(arg0, 4);
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             var0->unknown_634_ |= 0x81;
 #if defined(jpn)
             arg0->unknown_1a34_ = (char*)arg0 + 0x19e8;

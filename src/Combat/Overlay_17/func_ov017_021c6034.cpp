@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-extern "C" void* func_0202ae18(void);
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void func_02027288(unsigned char* arg0, int arg1);
 extern "C" void func_0202738c(void* arg0, int arg1, int arg2, int arg3);
 
@@ -14,8 +14,8 @@ extern "C" ARM void func_ov017_021c6034(signed char* arg0) {
 #else
  enum {Enum_ov017_021c6034_1744=0x6d0};
 #endif
-    struct Struct_0202c1a4* var0 = (struct Struct_0202c1a4*)func_0202ae18();
-    signed char var1 = func_0202c1a4(var0);
+    struct LocalWireless_0202c1a4* var0 = (struct LocalWireless_0202c1a4*)GetLocalWireless_0202ae18();
+    signed char var1 = GetOwnProtagonistObjectIndex_0202c1a4(var0);
     if (arg0[var1] == 1) return;
     int var2 = (int)GetGameResources() + 0x3000;
     unsigned char* var3 = *(unsigned char**)(var2 + Enum_ov017_021c6034_1744);

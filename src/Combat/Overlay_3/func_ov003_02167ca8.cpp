@@ -50,7 +50,7 @@ struct Struct_ov003_02167ca8_2 {
 
 extern "C" ARM void func_ov003_02167ca8(Struct_ov003_02167ca8_2* arg0) {
     Struct_ov003_02167ca8_3* var0 = (Struct_ov003_02167ca8_3*)func_02086e50(
-        (Struct_02086e50*)func_02010828(GameState::GetInstance()),
+        (Struct_02086e50*)GetParty_02010828(GameState::GetInstance()),
         arg0->unknown_46_);
     if (var0 == 0) {
         return;
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov003_02167ca8(Struct_ov003_02167ca8_2* arg0) {
 #else
 extern "C" ARM void func_ov003_02167ca8(Struct_ov003_02167ca8* arg0) {
     Struct_ov003_02167ca8_3* var19 = (Struct_ov003_02167ca8_3*)func_02086e50(
-        (Struct_02086e50*)func_02010828(GameState::GetInstance()),
+        (Struct_02086e50*)GetParty_02010828(GameState::GetInstance()),
         arg0->unknown_76_);
     if (var19 == 0) {
         return;

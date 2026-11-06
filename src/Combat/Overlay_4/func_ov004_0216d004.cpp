@@ -2,9 +2,9 @@
 #include "GameState/GameState.h"
 
 extern "C" int GetMessageWindow_020421a0(void);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
-extern struct Struct_02108760 data_02108760;
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" void func_02012028(void* arg0, unsigned char arg1);
 struct Struct_020a9ea4;
 extern "C" void func_020a9ea4(struct Struct_020a9ea4* arg0);
@@ -40,7 +40,7 @@ extern "C" ARM int func_ov004_0216d004(void* arg0) {
 #else
     var0[0x1000 + 0x9ca] = 0;
 #endif
-    func_0205eaa0(&data_02108760, 5, 0);
+    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 5, 0);
 
     func_02012028((void*)GameState::GetInstance(), 0);
     func_020a9ea4(data_ov004_02171034.unknown_10_);

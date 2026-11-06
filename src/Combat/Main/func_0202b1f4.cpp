@@ -8,7 +8,7 @@ enum { Enum_0202b1f4_23752 = 0x5cc8 };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 struct Struct_02012de8;
 extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
 extern "C" int func_0202b284(int arg0, int arg1);
@@ -23,7 +23,7 @@ extern "C" void func_02011544(struct Struct_02011544* arg0);
 extern "C" ARM int func_0202b1f4(int* arg0) {
     GameState* var0 = GameState::GetInstance();
     int var1 = ((int)GetGameResources());
-    struct Struct_02012de8* var2 = (struct Struct_02012de8*)func_020d6c00();
+    struct Struct_02012de8* var2 = (struct Struct_02012de8*)GetGlobalFlags_020d6c00();
     if (func_02046708(var2, 0x1000000)) {
         return 3;
     }

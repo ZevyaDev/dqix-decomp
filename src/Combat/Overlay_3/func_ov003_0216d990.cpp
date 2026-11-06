@@ -8,11 +8,11 @@ struct Struct_0205d0e0 {
 
 struct Struct_0205d81c;
 extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_0204f138(unsigned char* arg0, unsigned char** arg1, unsigned char** arg2, unsigned char** arg3,
                               unsigned char** arg4);
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_0205ac40(void* arg0, void* arg1);
 
 struct Struct_ov003_0216d990 {
@@ -23,9 +23,9 @@ struct Struct_ov003_0216d990 {
 
 // USA: func_ov003_0216d990
 extern "C" ARM void func_ov003_0216d990(char* arg0) {
-    void* var0 = func_0202ae18();
+    void* var0 = GetLocalWireless_0202ae18();
     if (*(short*)(arg0 + 4) != 2 || *(short*)(arg0 + 6) != 2) return;
-    if (func_0202b7d8((int*)var0) != 0) return;
+    if (IsLocalWirelessOn_0202b7d8((int*)var0) != 0) return;
 
     struct Struct_ov003_0216d990* var1 = 0;
 #if defined(jpn)

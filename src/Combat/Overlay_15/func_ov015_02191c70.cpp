@@ -29,10 +29,10 @@ struct Struct_ov015_02191c70_4 {
     unsigned char unknown_b_;
 };
 struct AllocatorUnion;
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 extern "C" Struct_ov015_0218bb14* func_ov015_0218bb14(Struct_ov015_0218bb14_2*, int);
-extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void func_02012da4(AllocatorUnion*, void*);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
 extern "C" void func_ov015_0218eef0(Struct_ov015_0218eef0*);
 extern "C" int func_ov015_0218f02c(Struct_ov015_0218f02c*, int, int);
 extern "C" void func_ov015_0218f0c4(Struct_ov015_0218f02c*);
@@ -47,10 +47,10 @@ extern "C" ARM void func_ov015_02191c70(Struct_ov015_02191c70_3* arg0, int arg1)
         Struct_ov015_02191c70* var1 = arg0->unknown_2c_;
         while (var1) {
             func_ov015_0218f0c4(var1->unknown_0_);
-            func_02012da4(&data_02114e20, var1->unknown_0_);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var1->unknown_0_);
             Struct_ov015_02191c70* var2 = var1;
             var1 = var1->unknown_4_;
-            func_02012da4(&data_02114e20, var2);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var2);
         }
         arg0->unknown_2c_ = 0;
     }
@@ -71,20 +71,20 @@ extern "C" ARM void func_ov015_02191c70(Struct_ov015_02191c70_3* arg0, int arg1)
         } else if (var3->unknown_6_ == 11) {
             if (var6) func_ov015_0218f308(var6, var3->unknown_0_);
         } else {
-            var5 = (Struct_ov015_02191c70*)func_02012d88(&data_02114e20, 8);
+            var5 = (Struct_ov015_02191c70*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 8);
             if (!var5) return;
             var5->unknown_0_ = 0;
             var5->unknown_4_ = 0;
-            var6 = var5->unknown_0_ = (Struct_ov015_0218f02c*)func_02012d88(&data_02114e20, 0x5c);
+            var6 = var5->unknown_0_ = (Struct_ov015_0218f02c*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x5c);
             if (!var6) {
-                func_02012da4(&data_02114e20, var5);
+                FreeMemory_02012da4(&gMainHeap_02114e20, var5);
                 return;
             }
             func_ov015_0218eef0(var6);
             if (!func_ov015_0218f02c(var6, (int)arg0, var3->unknown_6_)) {
-                func_02012da4(&data_02114e20, var5->unknown_0_);
+                FreeMemory_02012da4(&gMainHeap_02114e20, var5->unknown_0_);
                 var5->unknown_0_ = 0;
-                func_02012da4(&data_02114e20, var5);
+                FreeMemory_02012da4(&gMainHeap_02114e20, var5);
                 return;
             }
             Struct_ov015_02191c70_4 var7;
@@ -98,9 +98,9 @@ extern "C" ARM void func_ov015_02191c70(Struct_ov015_02191c70_3* arg0, int arg1)
             var7.unknown_8_ = var3->unknown_4_;
             if (!func_ov015_0218f27c(var6, &var7)) {
                 func_ov015_0218f0c4(var5->unknown_0_);
-                func_02012da4(&data_02114e20, var5->unknown_0_);
+                FreeMemory_02012da4(&gMainHeap_02114e20, var5->unknown_0_);
                 var5->unknown_0_ = 0;
-                func_02012da4(&data_02114e20, var5);
+                FreeMemory_02012da4(&gMainHeap_02114e20, var5);
                 return;
             }
             Struct_ov015_02191c70** var8 = &arg0->unknown_2c_;

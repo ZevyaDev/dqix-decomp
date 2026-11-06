@@ -18,7 +18,7 @@ extern "C" void func_ov023_021dfb4c(void* arg0);
 extern "C" void func_ov023_021ddae4(void* arg0);
 extern "C" void func_ov023_021dc520(void* arg0);
 extern "C" void func_ov023_021dd404(void* arg0);
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int func_ov023_021ddbb8(void* arg0, int arg1, int arg2);
 
 // USA: func_ov023_021dd974
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov023_021dd974(void* arg0) {
 
     if (!(var0->unknown_774_ & 0x40)) return;
 
-    func_0200fb8c((int*)GameState::GetInstance());
+    GetResources_0200fb8c((int*)GameState::GetInstance());
 
     if (!(var0->unknown_774_ & 0x20)) return;
 

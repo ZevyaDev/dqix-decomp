@@ -4,7 +4,7 @@
 struct Struct_ov023_021f7688_3;
 extern "C" void func_ov023_021f7ca0(struct Struct_ov023_021f7688_3* arg0, void* arg1);
 
-extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" int func_ov023_021f6bb8(void* arg0);
 extern "C" void func_ov023_021f6bb0(void* arg0, int arg1);
 
@@ -13,9 +13,9 @@ struct Struct_020534ac_2;
 struct Struct_020534ac;
 
 struct Struct_ov023_021f7688;
-struct Struct_02020aec;
-extern "C" void func_ov023_021f7aac(struct Struct_ov023_021f7688* arg0, void* arg1, struct Struct_02020aec* arg2, unsigned int arg3);
-extern "C" void func_ov023_021f7b98(struct Struct_ov023_021f7688* arg0, void* arg1, int arg2, struct Struct_02020aec* arg3, unsigned int arg4);
+struct PacEntry_02020aec;
+extern "C" void func_ov023_021f7aac(struct Struct_ov023_021f7688* arg0, void* arg1, struct PacEntry_02020aec* arg2, unsigned int arg3);
+extern "C" void func_ov023_021f7b98(struct Struct_ov023_021f7688* arg0, void* arg1, int arg2, struct PacEntry_02020aec* arg3, unsigned int arg4);
 
 struct Struct_ov023_021f7688_2 {
     char unknown_0_[0xc];
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov023_021f7688(struct Struct_ov023_021f7688_2* arg0, voi
         return 2;
     }
 
-    void* var0 = func_ov011_021849c8(arg1);
+    void* var0 = GetMenuObjectList_ov011_021849c8(arg1);
     int var1 = (int)BackgroundLoader::GetInstance();
     int var2 = func_ov023_021f6bb8(var0);
     int var3;
@@ -43,9 +43,9 @@ extern "C" ARM int func_ov023_021f7688(struct Struct_ov023_021f7688_2* arg0, voi
             ((BackgroundLoader*)((struct Struct_020534ac*)var1))->GetLoadedFileByID((int)(var2), (void**)(&var4), (unsigned int*)(&var5));
             if (var4 != 0 && var5 != 0) {
                 if (arg0->unknown_c_ & 0x2) {
-                    func_ov023_021f7b98((struct Struct_ov023_021f7688*)arg0, arg1, 1, (struct Struct_02020aec*)var4, var5);
+                    func_ov023_021f7b98((struct Struct_ov023_021f7688*)arg0, arg1, 1, (struct PacEntry_02020aec*)var4, var5);
                 } else {
-                    func_ov023_021f7aac((struct Struct_ov023_021f7688*)arg0, arg1, (struct Struct_02020aec*)var4, var5);
+                    func_ov023_021f7aac((struct Struct_ov023_021f7688*)arg0, arg1, (struct PacEntry_02020aec*)var4, var5);
                 }
             }
         }

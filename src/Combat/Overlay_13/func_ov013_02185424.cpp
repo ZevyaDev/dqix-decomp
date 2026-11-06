@@ -40,11 +40,11 @@ struct Struct_ov013_021846a0_2 {
 };
 
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" int func_02041a28(char* arg0, int arg1);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02041fac(char* arg0, int arg1, int arg2);
 extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" int func_02041ea4(char* arg0, int arg1);
@@ -62,14 +62,14 @@ extern "C" ARM void func_ov013_02185424(Struct_ov013_021846a0_2* arg0, char* arg
 #if defined(jpn)
     int var1 = 0x10;
     int var2 = 0x78 - (int)(((float)var1 / 4.0f) * 12.0f);
-    int var3 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2718);
+    int var3 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2718);
     sprintf(var0, (const char*)var3, var2);
-    func_02042058(arg1, var0);
+    AppendText_02042058(arg1, var0);
 #else
-    char* var4 = (char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2718);
+    char* var4 = (char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2718);
     int var5 = func_020420e8(var4, 0);
     func_02041a28(var0, (0xf0 - var5) >> 1);
-    func_02042058(var0, var4);
+    AppendText_02042058(var0, var4);
     func_02041fac(arg1, (int)var0, 0x10);
 
 #endif
@@ -86,15 +86,15 @@ extern "C" ARM void func_ov013_02185424(Struct_ov013_021846a0_2* arg0, char* arg
             func_02041e70(arg1, 3);
         }
         int var7 = (short)(arg0->unknown_6a9_[var6] + 0x64);
-        int var8 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, var7);
-        int var9 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2711);
+        int var8 = FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, var7);
+        int var9 = FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2711);
         sprintf(var0, (const char*)var9, var6, var8);
-        func_02042058(arg1, var0);
+        AppendText_02042058(arg1, var0);
         if (var6 != 4) {
-            int var10 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0);
+            int var10 = FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0);
             sprintf(var0, (const char*)var10);
         }
-        func_02042058(arg1, var0);
+        AppendText_02042058(arg1, var0);
     }
 
 #if defined(jpn)
@@ -107,47 +107,47 @@ extern "C" ARM void func_ov013_02185424(Struct_ov013_021846a0_2* arg0, char* arg
     for (int var11 = 0; var11 < 5; var11++) {
         int var12;
         if (arg0->unknown_69c_[var11] == 1) {
-            var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2712);
+            var12 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2712);
             sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, arg0->unknown_688_[var11], arg0->unknown_674_[var11]);
         } else if (var11 == arg0->unknown_65c_) {
             if (arg0->unknown_688_[var11] == 0x64) {
-                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2713);
+                var12 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2713);
                 sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, var11 + 5, arg0->unknown_688_[var11], var11 + 0xa, arg0->unknown_674_[var11], arg0->unknown_674_[var11] + arg0->unknown_688_[var11]);
             }
             else if (arg0->unknown_688_[var11] >= 0xa) {
-                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2713);
+                var12 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2713);
                 sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, var11 + 5, arg0->unknown_688_[var11], var11 + 0xa, arg0->unknown_674_[var11], arg0->unknown_674_[var11] + arg0->unknown_688_[var11]);
             }
             else if (arg0->unknown_688_[var11] != 0) {
-                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2713);
+                var12 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2713);
                 sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, var11 + 5, arg0->unknown_688_[var11], var11 + 0xa, arg0->unknown_674_[var11], arg0->unknown_674_[var11] + arg0->unknown_688_[var11]);
             }
             else {
-                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2714);
+                var12 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2714);
                 sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, var11 + 5, arg0->unknown_688_[var11], var11 + 0xa, arg0->unknown_674_[var11]);
             }
         } else {
             if (arg0->unknown_688_[var11] == 0x64) {
-                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2715);
+                var12 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2715);
                 sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, arg0->unknown_688_[var11], arg0->unknown_674_[var11], arg0->unknown_674_[var11] + arg0->unknown_688_[var11]);
             }
             else if (arg0->unknown_688_[var11] >= 0xa) {
-                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2715);
+                var12 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2715);
                 sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, arg0->unknown_688_[var11], arg0->unknown_674_[var11], arg0->unknown_674_[var11] + arg0->unknown_688_[var11]);
             }
             else if (arg0->unknown_688_[var11] != 0) {
-                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2715);
+                var12 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2715);
                 sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, arg0->unknown_688_[var11], arg0->unknown_674_[var11], arg0->unknown_674_[var11] + arg0->unknown_688_[var11]);
             }
             else {
-                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2716);
+                var12 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2716);
                 sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, arg0->unknown_688_[var11], arg0->unknown_674_[var11]);
             }
         }
-        func_02042058(arg1, var0);
+        AppendText_02042058(arg1, var0);
         if (var11 != 4) {
-            int var13 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0);
-            func_02042058(arg1, (const char*)var13);
+            int var13 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0);
+            AppendText_02042058(arg1, (const char*)var13);
         }
     }
 
@@ -159,29 +159,29 @@ extern "C" ARM void func_ov013_02185424(Struct_ov013_021846a0_2* arg0, char* arg
         int var17 = arg0->unknown_688_[var15];
         int var18;
         if (arg0->unknown_69c_[var15] == 1) {
-            var18 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2712);
+            var18 = FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2712);
             sprintf(var0, (const char*)var18, var14 + 0x16, var17, var16);
         } else if (var15 == arg0->unknown_65c_) {
             if (var17 == 0) {
-                var18 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2714);
+                var18 = FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2714);
                 sprintf(var0, (const char*)var18, var14 + 0x16, 0xa, var17, 0xb, var16);
             } else {
-                var18 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2713);
+                var18 = FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2713);
                 sprintf(var0, (const char*)var18, var14 + 0x16, 0xa, var17, 0xb, var16, var16 + var17);
             }
         } else {
             if (var17 == 0) {
-                var18 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2716);
+                var18 = FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2716);
                 sprintf(var0, (const char*)var18, var14 + 0x16, var17, var16);
             } else {
-                var18 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2715);
+                var18 = FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2715);
                 sprintf(var0, (const char*)var18, var14 + 0x16, var17, var16, var16 + var17);
             }
         }
-        func_02042058(arg1, var0);
+        AppendText_02042058(arg1, var0);
         if (var15 != 4) {
-            int var19 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0);
-            func_02042058(arg1, (const char*)var19);
+            int var19 = FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0);
+            AppendText_02042058(arg1, (const char*)var19);
         }
     }
 
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov013_02185424(Struct_ov013_021846a0_2* arg0, char* arg
     func_02041d48(arg1, 0x7fff, 0x5a, 0x10, 0x57);
 #endif
 
-    int var20 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2717);
+    int var20 = FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2717);
     sprintf(var0, (const char*)var20, arg0->unknown_66c_);
-    func_02042058(arg1, var0);
+    AppendText_02042058(arg1, var0);
 }

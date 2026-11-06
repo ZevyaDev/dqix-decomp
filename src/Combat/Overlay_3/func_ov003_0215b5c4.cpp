@@ -13,7 +13,7 @@ struct Struct_0201099c_3;
 struct Struct_0205de24_2;
 
 extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
-extern "C" const char* func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void func_ov003_0215b6f0(char* arg0, char* arg1, int arg2);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov003_0215b5c4(Struct_ov003_0215b5c4* arg0) {
 #else
     int var1 = 0;
     for (int var2 = 0; var2 < arg0->unknown_589_; var2++) {
-        short var3 = func_020420e8(func_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, arg0->unknown_58a_[var2]), 0);
+        short var3 = func_020420e8(FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, arg0->unknown_58a_[var2]), 0);
         if (var1 < var3) {
             var1 = var3;
         }

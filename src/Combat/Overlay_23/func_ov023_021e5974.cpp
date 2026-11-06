@@ -6,7 +6,7 @@
 #include "Graphics/Model3D.h"
 #include "World/Object3D.h"
 
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 
 struct Struct_ov023_021e5974_2
 {
@@ -64,7 +64,7 @@ struct Struct_ov023_021e5974
     SafeAllocator unknown_780_;
     Struct_02000c9c_72 unknown_794_[10];
     short unknown_bf4_[12];
-    struct Struct_0201099c_10* unknown_c0c_;
+    struct ItemTable_0201099c_10* unknown_c0c_;
     unsigned char unknown_c10_;
     unsigned char unknown_c11_;
     unsigned char unknown_c12_;
@@ -83,9 +83,9 @@ struct Struct_ov023_021fd678
     char unknown_0_[8];
 };
 
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov023_021e5fdc(void* arg0, short* arg1, short* arg2);
-extern "C" Struct_02015ef4_4* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+extern "C" Struct_02015ef4_4* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
 extern "C" unsigned short func_020de234(Struct_02015ef4_4* arg0, int arg1);
 extern "C" void func_ov023_021e61a0(Struct_ov023_021e5974* arg0);
 
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov023_021e5974(Struct_ov023_021e5974* arg0, Struct_ov02
     if (arg2 < 0)
         arg2 = arg1->unknown_568_;
     if (arg2 < 0)
-        arg2 = func_020100a8(var4);
+        arg2 = GetProtagonistObjectIndex_020100a8(var4);
     arg0->unknown_c15_ = arg2;
     func_ov023_021e5fdc((void*)arg2, var2, var6->unknown_0_);
     arg0->unknown_0_[3].unknown_2_ = -1;

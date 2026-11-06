@@ -5,7 +5,7 @@ extern "C" int func_02086d88(unsigned char* arg0, int arg1);
 
 // USA: func_ov004_02167a0c
 extern "C" ARM int func_ov004_02167a0c(void* arg0, int arg1) {
-	unsigned char* var0 = (unsigned char*)func_02010828(GameState::GetInstance());
+	unsigned char* var0 = (unsigned char*)GetParty_02010828(GameState::GetInstance());
 	int var1;
 	int var2;
 	for (var1 = 0; var1 < arg1; var1++) {

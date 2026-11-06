@@ -156,26 +156,26 @@ struct Struct_020727d8;
 struct Struct_02013fb4;
 struct Struct_0201099c_3;
 struct Struct_0205d81c;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
 extern char data_ov008_0218b400[] __attribute__((aligned(4)));
-extern unsigned char data_0211e33c[];
-extern Struct_02108760 data_02108760;
+extern unsigned char gFileScratchSpace_0211e33c[];
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
-extern "C" GameResources* func_0200fb8c(int* arg0);
+extern "C" GameResources* GetResources_0200fb8c(int* gameState);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 void SetSubBrightness(GameResources* resources, int brightness, int frames);
 int IsBrightnessTransitionActive(GameResources* resources);
 void* LoadFileIntoMemory(const char* path, void* archive, unsigned int* size);
 extern "C" void func_020727d8(Struct_020727d8* arg0);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
-extern "C" int func_020100a8(GameState* arg0);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
-extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
+extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" Struct_ov006_02158478* func_0205d81c(Struct_0205d81c* arg0, int arg1);
 struct Struct_ov008_02184a4c_13;
 extern "C" void func_ov008_02187664(Struct_ov008_02184a4c_13*, int);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 #if defined(jpn)
 extern "C" void func_020727f8(void* arg0, const char* arg1, int arg2, void* arg3, unsigned char arg4);
 #endif
@@ -208,7 +208,7 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
     Struct_ov008_021843f8* var0;
 #endif
     GameState* var1 = GameState::GetInstance();
-    GameResources* var2 = func_0200fb8c((int*)var1);
+    GameResources* var2 = GetResources_0200fb8c((int*)var1);
     BackgroundLoader::GetInstance();
     MessageWindow_02021b84* var3 = GetMessageWindow_020421a0();
 #if defined(jpn)
@@ -261,7 +261,7 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
             Struct_ov008_02185dc0 var9;
             func_020727d8((Struct_020727d8*)&var9);
             func_020727f8(&var9, data_ov008_0218b400, 1001, var8, 0);
-            Struct_ov000_02179cdc_4* var10 = (Struct_ov000_02179cdc_4*)func_0200ff1c(var1, func_020100a8(var1));
+            Struct_ov000_02179cdc_4* var10 = (Struct_ov000_02179cdc_4*)func_0200ff1c(var1, GetProtagonistObjectIndex_020100a8(var1));
             func_020727d8((Struct_020727d8*)&var9);
             unsigned char var11 = var10->unknown_150_->unknown_49c_0_;
             func_020727f8(&var9, var8, CLEAR_TITLE, var14, var11);
@@ -272,7 +272,7 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
             BackgroundLoader::AddLockGlobal();
             Struct_ov008_02185dc0 var15;
             unsigned int var16;
-            void* var17 = LoadFileIntoMemory(data_ov008_0218b400, data_0211e33c, &var16);
+            void* var17 = LoadFileIntoMemory(data_ov008_0218b400, gFileScratchSpace_0211e33c, &var16);
             if (var17 != NULL)
             {
                 func_020727d8((Struct_020727d8*)&var15);
@@ -283,14 +283,14 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
             var17 = ExtractFileFromGP2(var12, var13, &var16);
             if (var17 != NULL)
             {
-                Struct_ov000_02179cdc_4* var18 = (Struct_ov000_02179cdc_4*)func_0200ff1c(var1, func_020100a8(var1));
+                Struct_ov000_02179cdc_4* var18 = (Struct_ov000_02179cdc_4*)func_0200ff1c(var1, GetProtagonistObjectIndex_020100a8(var1));
                 func_020727d8((Struct_020727d8*)&var15);
                 unsigned char var19 = var18->unknown_150_->unknown_49c_0_;
                 func_02072928(&var15, (Struct_02013fb4*)var17, var16, CLEAR_TITLE, var14, var19);
             }
             BackgroundLoader::RemoveLockGlobal();
 #endif
-            func_02042058(var14, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 1000));
+            AppendText_02042058(var14, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 1000));
 #if defined(jpn)
             StartMessage_0204500c(var3, var14, 0);
 #else
@@ -333,7 +333,7 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
         }
         if (var22)
         {
-            func_0205eaa0(&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             arg0->unknown_b11_++;
         }
     }

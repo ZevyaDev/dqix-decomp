@@ -18,9 +18,9 @@ struct Struct_ov004_021652e8 {
     unsigned char unknown_18fc_;
 };
 extern "C" void func_02026420(unsigned char* arg0, unsigned char arg1);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
-extern struct Struct_02108760 data_02108760;
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" int func_ov004_021651c8(void* arg0);
 
 #if defined(jpn)
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov004_021652e8(void* arg0) {
         }
 
         func_ov004_021651c8(arg0);
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         return 0;
     }
 }

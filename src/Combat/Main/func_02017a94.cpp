@@ -3,11 +3,8 @@
 #include <World/Zone3D.h>
 #include <GameState/GameState.h>
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void* func_0200fd0c(GameState* arg0);
 extern "C" int func_0206eaec(unsigned char* arg0, int arg1, int arg2);
 extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
@@ -53,7 +50,7 @@ extern "C" ARM void func_02017a94(Zone3D* arg0) {
 #else
     enum { Enum_02017a94_10269 = 0x281d };
 #endif
-    unsigned char* var1 = (unsigned char*)func_0205ec34();
+    unsigned char* var1 = (unsigned char*)GetFlagManager_0205ec34();
     int var2;
     int var3;
     int var4;

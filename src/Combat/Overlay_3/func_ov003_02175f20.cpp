@@ -17,7 +17,7 @@ extern "C" int func_0207c6b8(unsigned char* arg0, unsigned int arg1, int arg2);
 // USA: func_ov003_02175f20
 extern "C" ARM int func_ov003_02175f20(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_02010828(var0);
+    void* var1 = GetParty_02010828(var0);
     short var2 = *(short*)((char*)arg0 + Enum_ov003_02175f20_4114);
     int var3 = (short)(var2 - 286);
     unsigned char var4 = func_0207ca94(var3);

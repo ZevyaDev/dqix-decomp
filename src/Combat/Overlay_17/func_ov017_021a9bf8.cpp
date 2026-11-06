@@ -6,9 +6,6 @@
 #include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_02018300_3;
 struct Struct_02046574_2;
@@ -81,7 +78,7 @@ extern "C" void func_02011818(void*, Struct_02011818*);
 extern "C" void func_02011ab8(char*);
 extern "C" void func_02011a74(char*, unsigned int, const char*);
 extern "C" void func_ov017_021a9ff0(int);
-extern "C" void* func_0205ec34();
+extern "C" void* GetFlagManager_0205ec34();
 extern "C" int func_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void*);
 extern "C" void func_020397c0(void*);
@@ -100,7 +97,7 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
     GameObject* var5 = var0->GetUnknownGameObject();
     if (!var5) { arg0->unknown_1_ = 1; return; }
     if (arg0->unknown_8_ == 0) {
-        Struct_0208cb08* var6 = func_02094a00();
+        FontLoader_0208cb08* var6 = func_02094a00();
         func_02094ab0(var6);
         func_02094b3c(var6, 12);
         func_02094b30(var6, 0x203, 0);
@@ -200,7 +197,7 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
     } else if (arg0->unknown_8_ == 4) {
         if ((*reinterpret_cast<int*>(GetMessageWindow_020421a0() + Enum_ov017_021a9bf8_2456))) return;
         func_02094ab0(func_02094a00());
-        if (func_020649b0(func_0205ec34(), 0x1b, var4)) func_0206f81c(var4);
+        if (func_020649b0(GetFlagManager_0205ec34(), 0x1b, var4)) func_0206f81c(var4);
         arg0->unknown_8_ = 5;
     }
     if (arg0->unknown_8_ == 5) {

@@ -11,8 +11,8 @@ struct Struct_0205cf78;
 struct Struct_0205cf78_2;
 struct Struct_02043368_2;
 struct Struct_02043368;
-struct Struct_02020aec;
-struct Struct_02020cb8_4;
+struct PacEntry_02020aec;
+struct PacEntry_02020cb8_4;
 struct Struct_0201099c_3;
 struct Struct_0206f7f4;
 
@@ -31,8 +31,8 @@ extern "C" void func_0204b12c(struct Struct_0204b12c *arg0,
                                                                                          SafeAllocator *arg1);
 extern "C" int func_0204b5e8(struct Struct_02020cb8_5 *arg0, int arg1, int arg2);
 extern "C" void ColorEffect_ConfigureAlphaBlend(int reg, int a, int b, int c, int d);
-extern "C" int func_02046900(struct Struct_02020cb8_4 *arg0);
-extern "C" void *func_020467f0(struct Struct_02020aec *arg0, int arg1, void **arg2, int *arg3);
+extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4 *pac);
+extern "C" void *GetPacEntryData_020467f0(struct PacEntry_02020aec *pac, int index, void **outEntry, int *outSize);
 extern "C" void func_0204b174(void *arg0, void *arg1, SafeAllocator *arg2, int arg3);
 extern "C" void func_0204bc74(void *arg0, unsigned short arg1, int arg2, int arg3, int arg4, int arg5, unsigned short arg6);
 extern "C" void func_0204b0e8(struct Struct_02020cb8_2 *arg0, void *arg1);
@@ -45,7 +45,7 @@ extern "C" void func_0205a198(struct Struct_02043368_2 *arg0);
 extern "C" void func_0205a234(struct Struct_02043368 *arg0);
 extern "C" void func_0205a528(void *arg0, void *arg1, int arg2, void *arg3);
 extern "C" void func_020dfec0(void *arg0, void *arg1, void *arg2, unsigned int arg3);
-extern "C" int func_020e0434(struct Struct_0201099c_3 *arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 
 struct Struct_ov003_0215caf0 {
     unsigned char unknown_0_[2];
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov003_0215caf0(char *arg0) {
             var0->GetLoadedFileByID(((int *) S32(0x3b4))[0], &var7, &var8);
             ((SafeAllocator *) arg0)->Reset();
             func_020dfec0(arg0 + 0x64, arg0, var7, var8);
-            if (func_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x64), 0x32) != 0) {
+            if (FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x64), 0x32) != 0) {
                 U8(0x3ee) = func_02005a94();
             }
             if (U8(0x3ee) == 3) {
@@ -200,9 +200,9 @@ extern "C" ARM void func_ov003_0215caf0(char *arg0) {
             unsigned int var17;
             int var18;
             var0->GetLoadedFileByID(((int *) S32(0x3b4))[1 + Enum_ov003_0215caf0_0_2], &var16, &var17);
-            int var19 = func_02046900((struct Struct_02020cb8_4 *) var16);
+            int var19 = CountPacEntries_02046900((struct PacEntry_02020cb8_4 *) var16);
             for (int var20 = 0; var20 < var19; var20++) {
-                void *var21 = func_020467f0((struct Struct_02020aec *) var16, var20, &var15, &var18);
+                void *var21 = GetPacEntryData_020467f0((struct PacEntry_02020aec *) var16, var20, &var15, &var18);
                 if (var21 != 0) {
                     func_0204b174(arg0 + 0x174 + Enum_ov003_0215caf0_0, var21, (SafeAllocator *) (arg0 + 0x28), var18);
                 }
@@ -251,9 +251,9 @@ extern "C" ARM void func_ov003_0215caf0(char *arg0) {
             unsigned int var29;
             int var30;
             var0->GetLoadedFileByID(((int *) S32(0x3b4))[2 + Enum_ov003_0215caf0_0_2], &var28, &var29);
-            int var31 = func_02046900((struct Struct_02020cb8_4 *) var28);
+            int var31 = CountPacEntries_02046900((struct PacEntry_02020cb8_4 *) var28);
             for (int var32 = 0; var32 < var31; var32++) {
-                void *var33 = func_020467f0((struct Struct_02020aec *) var28, var32, &var27, &var30);
+                void *var33 = GetPacEntryData_020467f0((struct PacEntry_02020aec *) var28, var32, &var27, &var30);
                 func_0205a528(arg0 + 0x358 + Enum_ov003_0215caf0_0, var33, var30, arg0 + 0x50);
             }
             var0->RemoveTask(((int *) S32(0x3b4))[2 + Enum_ov003_0215caf0_0_2]);
@@ -276,7 +276,7 @@ extern "C" ARM void func_ov003_0215caf0(char *arg0) {
         if (U8(0x3f0) != 0) {
             func_ov003_0215ca90(arg0, 3);
         } else {
-            int var36 = func_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x64), 0x2710);
+            int var36 = FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x64), 0x2710);
             int var37 = 1;
             if (var36 != 0) {
                 var37 = func_02005a94();

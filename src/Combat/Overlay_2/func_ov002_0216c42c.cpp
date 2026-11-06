@@ -46,18 +46,18 @@ struct Struct_ov002_0216c42c_6 {
     unsigned int unknown_18_5_ : 7;
 };
 
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" int func_02086ef0(Struct_ov002_0216c42c* arg0, int arg1);
 
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov017_021d2cc0(void* arg0);
 
 // USA: func_ov002_0216c42c
 extern "C" ARM void func_ov002_0216c42c(char* arg0, Struct_ov002_0216c42c_5* arg1, Struct_ov002_0216c42c_6* arg2) {
     if (arg1 == NULL || arg2 == NULL) return;
     GameState* var0 = GameState::GetInstance();
-    Struct_ov002_0216c42c* var1 = (Struct_ov002_0216c42c*)func_02010828(var0);
+    Struct_ov002_0216c42c* var1 = (Struct_ov002_0216c42c*)GetParty_02010828(var0);
     Struct_ov002_0216c42c_3 var2;
     memset(&var2, 0, 0x10);
     var2.unknown_0_ = 1;
@@ -101,6 +101,6 @@ extern "C" ARM void func_ov002_0216c42c(char* arg0, Struct_ov002_0216c42c_5* arg
         }
     }
     var2.unknown_7_ = var3;
-    var2.unknown_e_ = func_020100a8(var0);
+    var2.unknown_e_ = GetProtagonistObjectIndex_020100a8(var0);
     func_ov017_021d2cc0(&var2);
 }

@@ -27,7 +27,7 @@ extern "C" int func_020a0b8c(struct Struct_020a0b8c* arg0);
 // USA: func_ov003_02179e44
 extern "C" ARM int func_ov003_02179e44(char* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_02010828(var0);
+    void* var1 = GetParty_02010828(var0);
     int var2 = *(int*)(arg0 + Enum_ov003_02179e44_4144);
     void* var3 = *(void**)(arg0 + Enum_ov003_02179e44_2204);
     int var4;

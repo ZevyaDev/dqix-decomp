@@ -2,7 +2,7 @@
 #include <GameState/GameState.h>
 #include <Filesystem/BackgroundLoader.h>
 #include <Filesystem/GPC.h>
-extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 #include <Filesystem/FileIO.h>
 #include <std_library_functions.h>
 
@@ -44,14 +44,14 @@ extern "C" ARM int func_ov001_0215ca4c(Struct_ov001_0215b72c* arg0, int arg1) {
         unsigned int var14;
         int var15;
         if (!LoadAndDecompressGPCHeaderAndInnerFileInfo(&var13->pGPCFile, var12.machine,
-                data_ov001_0216572d, data_0211e33c, var14, 0x30000, false, 0)) {
+                data_ov001_0216572d, gFileScratchSpace_0211e33c, var14, 0x30000, false, 0)) {
             BackgroundLoader::RemoveLockGlobal();
             var15 = 0;
             var13->Reset();
             ZeroDestroyGPCPointer(&var13->pGPCFile);
             return var15;
         }
-        void* var16 = data_0211e33c + var14;
+        void* var16 = gFileScratchSpace_0211e33c + var14;
         unsigned int var17;
         if (!DecompressFileFromGPCByName(var12.pGPCFile, var12.machine, var16,
                 var17, 0x30000 - var14, var2)) {

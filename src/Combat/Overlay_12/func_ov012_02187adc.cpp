@@ -78,7 +78,7 @@ struct Struct_ov012_0218af9e
 };
 
 struct Struct_0205d6a0;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_ov012_02186a7c;
 
 extern "C" int func_ov023_021e63bc(Struct_ov012_02187adc* arg0);
@@ -86,7 +86,7 @@ extern "C" void func_ov023_021e61f4(Struct_ov012_02187adc* arg0);
 extern "C" void func_ov012_02185bf0(Struct_ov012_02187adc* arg0, unsigned char arg1, int arg2);
 extern "C" int func_0205df38(void* arg0, int arg1);
 extern "C" void func_ov023_021e6378(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov023_021e6de4(Struct_ov012_02187adc* arg0);
 extern "C" int func_02098f20(int arg0, int arg1, int arg2);
 extern "C" void func_ov012_0218adac(Struct_ov012_02187adc* arg0, int arg1, int arg2, int arg3);
@@ -108,7 +108,7 @@ extern "C" void func_ov012_02189d18(Struct_ov012_02187adc* arg0);
 #define func_ov012_0218943c func_ov012_02189d18
 #endif
 
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 extern "C" const Struct_ov012_0218af9e data_ov012_0218af9e;
 
 static inline Struct_ov012_02187adc_2* inline_ov012_02187adc(GameState* arg0)
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov012_02187adc(Struct_ov012_02187adc* arg0)
         if (var0)
         {
             func_ov012_02185bf0(arg0, arg0->unknown_1371_, 1);
-            func_0205eaa0((Struct_02108760*)data_02108760, 2, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 2, 0);
         }
 
         int var6 = 0;
@@ -232,7 +232,7 @@ extern "C" ARM void func_ov012_02187adc(Struct_ov012_02187adc* arg0)
             GameState* var7 = GameState::GetInstance();
             Struct_ov012_02187adc_2* var8 = inline_ov012_02187adc(var7);
             func_ov012_02185bf0(arg0, arg0->unknown_1371_, 1);
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             var8->unknown_0_0_ = arg0->unknown_13fc_;
             var8->unknown_1_4_ = arg0->unknown_13fe_;
             var8->unknown_2_0_ = arg0->unknown_13ff_;

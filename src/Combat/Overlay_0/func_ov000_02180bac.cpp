@@ -4,8 +4,8 @@ struct Struct_0204bbb4;
 extern "C" void func_0204bbb4(struct Struct_0204bbb4* arg0, unsigned int arg1, int arg2, int arg3,
                            short arg4, short arg5, short arg6, short arg7, unsigned short arg8);
 extern "C" void func_0205ac40(void* arg0, void* arg1);
-extern "C" int* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" int* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 extern const int data_ov000_021836a0[];
 
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov000_02180bac(struct Struct_ov000_02180bac_2* arg0) {
         func_0205ac40(arg0->unknown_11c_, var0);
     }
     int var1 = (arg0->unknown_1d72_ & 0x400) ? 1 : 0;
-    if (var1 & func_0202b7d8(func_0202ae18())) {
+    if (var1 & IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18())) {
         struct Struct_ov000_02180bac* var2 = &arg0->unknown_170_[6];
         int var3 = arg0->unknown_1a_ - 2;
         if (arg0->unknown_1a_ < 0) {

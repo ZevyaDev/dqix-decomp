@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov011_021849c8(void*);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 
 class Struct_ov004_0216b20c {
 public:
@@ -16,11 +16,11 @@ public:
     virtual void inline_ov004_0216b20c_31();
     virtual void inline_ov004_0216b20c_32(int arg0);
 };
-extern "C" Struct_ov004_0216b20c* func_ov023_021f6880(void*, int);
+extern "C" Struct_ov004_0216b20c* FindMenuObjectById_ov023_021f6880(void*, int);
 
 // USA: func_ov004_0216b20c
 extern "C" ARM void func_ov004_0216b20c(void* arg0, int arg1, int arg2, int arg3) {
-    Struct_ov004_0216b20c* var0 = func_ov023_021f6880(func_ov011_021849c8(arg0), arg1);
+    Struct_ov004_0216b20c* var0 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), arg1);
     if (!var0) return;
     if (arg3 != 0) goto merge;
     if (arg2 > 0xc8) goto big;

@@ -27,7 +27,7 @@ extern "C" void func_0208103c(void*, int, int);
 extern "C" void func_02080828(void*, int, short*, short*);
 extern "C" void func_020808c8(void*, int, short*, short*);
 extern "C" void func_02080854(void*, int, int, int);
-extern "C" int func_020e0434(struct Struct_0201099c_3*, int);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
 extern "C" void func_ov003_0215f5e8(void* arg0, int arg1, int arg2);
 extern "C" void func_ov003_02160c58(void* arg0, short* arg1, short* arg2);
 extern "C" void func_02081198(struct Struct_02081198* arg0, int arg1, int arg2);
@@ -55,10 +55,10 @@ struct Struct_ov003_02165c9c_2 {
     unsigned char unknown1_2c8c_;
 };
 
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 
 static inline Struct_ov003_02165c9c_2* inline_ov003_02165c9c() {
-    return (Struct_ov003_02165c9c_2*)func_02010828(GameState::GetInstance());
+    return (Struct_ov003_02165c9c_2*)GetParty_02010828(GameState::GetInstance());
 }
 
 struct Struct_ov003_02165c9c_3 {
@@ -152,8 +152,8 @@ extern "C" ARM void func_ov003_02165c9c(Struct_ov003_02165c9c_4* arg0) {
     var5 = arg0->unknown_49f_ * 4;
     var6 = -1;
     var13 = 0xcb;
-    var7 = func_020e0434(&arg0->unknown_2dc_, 0x7530);
-    var8 = func_020e0434(&arg0->unknown_2dc_, 0x7531);
+    var7 = FindStringInTable_020e0434(&arg0->unknown_2dc_, 0x7530);
+    var8 = FindStringInTable_020e0434(&arg0->unknown_2dc_, 0x7531);
     arg0->unknown_4bd_ = (unsigned char)var12;
     memset(arg0->unknown_468_, 0, 4);
     if (func_ov003_021614e8((int)arg0) == 0) {

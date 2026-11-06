@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 struct Struct_020839dc;
 extern "C" int func_020839dc(struct Struct_020839dc* arg0, unsigned char* arg1, int arg2);
 extern "C" void* func_0202ae24(void);
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov017_021ccdac(int arg0) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = func_0200ff1c(var0, arg0);
     if (!var1) return;
-    int var2 = func_02053c6c((unsigned char*)var1);
+    int var2 = GetPartyMemberData_02053c6c((unsigned char*)var1);
     if (!var2) return;
 
     unsigned char var3[0x44];

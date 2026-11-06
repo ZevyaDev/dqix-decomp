@@ -3,7 +3,7 @@
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "Util/Random.h"
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_02032370(int arg0);
 
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov023_021f454c(struct Struct_ov023_021f454c_6* arg0) {
 
     var1 = GameState::GetInstance();
     var12 = (struct Struct_02070b6c_3*)((char*)arg0->unknown_2a0_ + 0x684);
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     var13 = ((ActiveGrottoClass*)((char*)GetZone3D_02012fe4() + Enum_ov023_021f454c_9196))->GetDetailedData();
     var2 = 0;
     if (IsSpecial(arg0->unknown_2a0_)) {

@@ -10,13 +10,13 @@ extern "C" void func_0205de24(struct Struct_ov002_0215624c_11 *arg0, unsigned ch
                                                                         unsigned char arg2);
 extern "C" int func_0205d794(struct Struct_ov002_0215624c_15 *arg0);
 extern "C" int func_0205da38(struct Struct_ov002_02164748* arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_ov002_02157d40_7 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct Struct_ov002_02157d40_7 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_021574d4(void *arg0, int arg1);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_ov002_02161cf0(void *arg0);
 extern "C" void func_ov002_02160274(void *arg0);
 extern "C" void func_ov002_02156e90(void *arg0);
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 #if defined(jpn)
 extern "C" void func_ov002_0215bba8(char *arg0);
 #endif
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov002_02169520(char *arg0) {
     if (var3) {
         *(unsigned char *) (arg0 + 0xf80 + Enum_ov002_02169520_0_2) = *(int *) (arg0 + 0x1bb8 + Enum_ov002_02169520_0);
         *(int *) (arg0 + 0x247c + Enum_ov002_02169520_0_3) &= ~4;
-        func_0205eaa0((struct Struct_ov002_02157d40_7 *) data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7 *) gSoundEffectManager_02108760, 1, 0);
         int var4                     = 0;
         *(short *) (arg0 + 0x1c12 + Enum_ov002_02169520_0) = var4;
         int var5                    = *(signed char *) (arg0 + 0x1c20 + Enum_ov002_02169520_0);

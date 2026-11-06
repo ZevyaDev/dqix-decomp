@@ -22,7 +22,7 @@ extern "C" ARM void func_02089de8(void* arg0, void* arg1, const char* arg2) {
     unsigned int var0;
     Script var1;
     void* var2;
-    void* var3 = data_0211e33c;
+    void* var3 = gFileScratchSpace_0211e33c;
     unsigned int* var4 = &var0;
     if (arg2 != 0) {
         var2 = LoadFileIntoMemory(arg2, var3, var4);

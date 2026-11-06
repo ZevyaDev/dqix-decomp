@@ -8,7 +8,7 @@ enum {Enum_ov023_021e2f38_1584=0x630, Enum_ov023_021e2f38_292=0x124, Enum_ov023_
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 struct Struct_02038598_4;
 extern "C" void func_020466f4(struct Struct_02038598_4*, unsigned int);
 extern "C" void func_ov005_02154198(void*);
@@ -19,14 +19,14 @@ extern "C" void func_0205a494(void* arg0);
 extern "C" int GetMessageWindow_020421a0(void);
 struct Struct_02045cac;
 extern "C" void func_02045cac(struct Struct_02045cac*);
-extern "C" void func_02043204(char*);
-extern "C" void func_02043124(int);
+extern "C" void ResetMessageWindow_02043204(char*);
+extern "C" void CloseMessageWindow_02043124(int);
 
 // USA: func_ov023_021e2f38
 extern "C" ARM void func_ov023_021e2f38(void* arg0) {
     char* var0 = (char*)arg0;
 
-    func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 0xf);
+    func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0xf);
 
     int var1 = (int)BackgroundLoader::GetInstance();
     if (*(int*)(var0 + Enum_ov023_021e2f38_1584) > 0) {
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov023_021e2f38(void* arg0) {
         *(int*)(var0 + Enum_ov023_021e2f38_1584) = -1;
     }
 
-    Struct_0208cb08* var2 = func_02094a00();
+    FontLoader_0208cb08* var2 = func_02094a00();
     func_02094b40(var2);
     func_02094ab0(var2);
 
@@ -64,8 +64,8 @@ extern "C" ARM void func_ov023_021e2f38(void* arg0) {
 
     int var3 = GetMessageWindow_020421a0();
     func_02045cac((struct Struct_02045cac*)var3);
-    func_02043204((char*)var3);
-    func_02043124(var3);
+    ResetMessageWindow_02043204((char*)var3);
+    CloseMessageWindow_02043124(var3);
 
     *(int*)((char*)var3 + Enum_ov023_021e2f38_728) = 0;
     *(int*)((char*)var3 + Enum_ov023_021e2f38_732) = 0;

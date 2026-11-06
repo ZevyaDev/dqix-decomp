@@ -5,12 +5,12 @@
 #include "Resource/Brightness.h"
 
 extern "C" void func_ov017_0218d5c8(unsigned char* arg0);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_020397c0(void* arg0);
 extern "C" int func_020100f8(char* arg0);
 extern "C" void func_020a2794(void* arg0);
 
-extern int data_02114e20;
+extern int gMainHeap_02114e20;
 
 struct Struct_ov017_021ae760 {
     unsigned char unknown_0_;
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov017_021ae760(struct Struct_ov017_021ae760* arg0) {
         void* var2 = arg0->unknown_2c_.GetSignedAllocator();
         if (var2 != NULL) {
             arg0->unknown_2c_.Destroy();
-            func_02012da4((AllocatorUnion*)&data_02114e20, var2);
+            FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var2);
         }
         arg0->unknown_b_ = 0;
     }

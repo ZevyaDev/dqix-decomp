@@ -4,5 +4,5 @@
 
 // USA: func_020100bc
 extern "C" ARM void* func_020100bc(GameState* arg0) {
-    return arg0->unknown_3b0_;
+    return arg0->pCamera_3b0_;
 }

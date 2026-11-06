@@ -19,7 +19,7 @@ struct Struct_ov023_021fa644 {
     unsigned char unknown_49c_0_ : 1;
 };
 
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 struct Struct_020727d8;
 extern "C" void func_020727d8(struct Struct_020727d8* arg0);
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov023_021fa644(Struct_ov023_021fa644_2* arg0, void* arg
     int var4 = 0;
     if (var3 == 1) {
         GameState* var5 = GameState::GetInstance();
-        int var6 = func_020100a8(var5);
+        int var6 = GetProtagonistObjectIndex_020100a8(var5);
         GameObject* var7 = var5->GetPartyMemberByIndex(var6);
         if (var7 != 0) {
             Struct_ov023_021fa644* var8 = *(Struct_ov023_021fa644**)((char*)var7 + Enum_ov023_021fa644_336);

@@ -24,8 +24,8 @@ void func_0204b5e8(void*,int,int);
 void func_0204af38(void*,int,SafeAllocator*);
 void DisableSubBGVRAMBanks();
 void MapVRAMBanksToSubBG(int);
-int func_02046900(void*);
-void* func_020467f0(void*,int,void**,int*);
+int CountPacEntries_02046900(void*);
+void* GetPacEntryData_020467f0(void*,int,void**,int*);
 void func_0204b174(void*,void*,SafeAllocator*,int);
 void func_0204bc74(void*,int,int,int,int,int,int);
 void func_0204b0e8(void*,void*);
@@ -91,11 +91,11 @@ extern "C" ARM int func_ov003_0216759c(Struct_ov003_0216759c* arg0) {
         if (var1->GetTaskStatus(arg0->unknown_64_) != 0) {
             void* var6; void* var7; unsigned int var8; int var9;
             var1->GetLoadedFileByID(arg0->unknown_64_,&var7,&var8);
-            int var10 = func_02046900(var7);
+            int var10 = CountPacEntries_02046900(var7);
             SafeAllocator* var11=arg0->unknown_4_;
             Struct_02020cb8* var12=arg0->unknown_8_;
             for (int var13=0;var13<var10;var13++) {
-                void* var14=func_020467f0(var7,var13,&var6,&var9);
+                void* var14=GetPacEntryData_020467f0(var7,var13,&var6,&var9);
                 if (var14) {
                     func_0204b174(var12,var14,var11,var9);
                     var12=arg0->unknown_8_+1;

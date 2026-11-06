@@ -18,15 +18,15 @@ struct Struct_020e0688_2 {
 
 struct Struct_02012de8;
 extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_02022b90(void* arg0, int* arg1);
 extern "C" void func_020c9820(void);
 
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 
-struct Struct_02020aec;
-extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
 struct Struct_02020cb8;
 extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
@@ -62,7 +62,7 @@ extern "C" ARM void func_020e0688(struct Struct_020e0688_2* arg0) {
         return;
     }
 
-    if (func_02046708((struct Struct_02012de8*)func_020d6c00(), 0x41)) {
+    if (func_02046708((struct Struct_02012de8*)GetGlobalFlags_020d6c00(), 0x41)) {
         return;
     }
 
@@ -84,9 +84,9 @@ extern "C" ARM void func_020e0688(struct Struct_020e0688_2* arg0) {
         Struct_020e0688 var7;
 
         var0->GetLoadedFileByID(arg0->unknown_a0c_, (void**)(&var2), (unsigned int*)(&var3));
-        int var8 = func_02046900((struct Struct_02020cb8_4*)var2);
+        int var8 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var2);
         for (int var9 = 0; var9 < var8; var9++) {
-            var5[var9] = func_020467f0((struct Struct_02020aec*)var2, var9, &var4, &var6[var9]);
+            var5[var9] = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var2, var9, &var4, &var6[var9]);
         }
 
         func_020c9820();

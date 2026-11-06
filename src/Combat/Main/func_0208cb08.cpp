@@ -16,8 +16,8 @@ struct Struct_02074b64 { unsigned char unknown_0_[0x14]; };
 struct Struct_0204b12c;
 struct Struct_0204af38;
 struct Struct_02020cb8_5;
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 struct Struct_0208cb08_3 {
     unsigned char unknown_0_[0x1c];
     unsigned char unknown_1c_;
@@ -50,8 +50,8 @@ struct Struct_0208cb08_5 {
     unsigned char unknown_d7_[3];
     unsigned short unknown_da_;
 };
-extern "C" int func_0200fb8c(int*);
-extern "C" unsigned int* func_020d6c00();
+extern "C" int GetResources_0200fb8c(int*);
+extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void func_020466e4(unsigned int*, unsigned int);
 extern "C" int func_02046b24(Struct_02015438**);
 extern "C" void func_02074b64(Struct_02074b64*);
@@ -63,8 +63,8 @@ extern "C" void func_0204b12c(Struct_0204b12c*, SafeAllocator*);
 extern "C" void func_0204af38(Struct_0204af38*, int, SafeAllocator*);
 extern "C" void func_0204b5e8(Struct_02020cb8_5*, int, int);
 extern "C" void func_0208c9cc(int, int, int, int, int);
-extern "C" int func_02046900(Struct_02020cb8_4*);
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void func_0205aed0(void*, char*, unsigned int, int);
 extern "C" void func_0204b5b4(void*, int);
 extern "C" int func_0205a528(void*, void*, int, int);
@@ -80,11 +80,11 @@ extern char data_020f129e[], data_020f12b2[];
 extern "C" ARM void func_0208cb08(Struct_0208cb08_5* arg0) {
     if (arg0->unknown_d2_ < 0) return;
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
-    GameResources* var1 = (GameResources*)func_0200fb8c((int*)GameState::GetInstance());
+    GameResources* var1 = (GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance());
     if (arg0->unknown_d5_ == 0) {
         SetFlags00(var1, 0x6000);
-        func_020466e4(func_020d6c00(), 1);
-        Struct_0208cb08* var2 = func_02094a00();
+        func_020466e4(GetGlobalFlags_020d6c00(), 1);
+        FontLoader_0208cb08* var2 = func_02094a00();
         int var3 = 0x67;
         if (func_02046b24((Struct_02015438**)var1->unknown_ptr_array_36fc[0]) != 0x2d) {
             if (arg0->unknown_d2_ < 0) var3 = 0x32;
@@ -132,11 +132,11 @@ extern "C" ARM void func_0208cb08(Struct_0208cb08_5* arg0) {
         void* var8;
         unsigned int var9;
         var0->GetLoadedFileByID(arg0->unknown_bc_, &var8, &var9);
-        int var10 = func_02046900((Struct_02020cb8_4*)var8);
+        int var10 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var8);
         int var11 = 0;
         int var12;
         for (; var11 < var10; ++var11) {
-            void* var13 = func_020467f0((Struct_02020aec*)var8, var11, &var7, &var12);
+            void* var13 = GetPacEntryData_020467f0((PacEntry_02020aec*)var8, var11, &var7, &var12);
             func_0205a528(arg0->unknown_60_, var13, var12, (int)&var6->unknown_3c_);
         }
         func_0205aed0(arg0->unknown_60_, arg0->unknown_b4_, 3, 0x40);

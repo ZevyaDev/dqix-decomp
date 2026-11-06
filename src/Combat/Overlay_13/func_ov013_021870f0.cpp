@@ -13,15 +13,15 @@ extern char data_ov013_02188dfa[];
 extern "C" void func_0205a444(char* arg0);
 struct Struct_02043368_2;
 extern "C" void func_0205a198(Struct_02043368_2* arg0);
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(Struct_02020cb8_4* arg0);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0205a528(void* arg0, void* arg1, unsigned int arg2, SafeAllocator* arg3);
 extern "C" void func_020728ac(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, int, int, int);
 struct Struct_0208df10;
 extern "C" void func_0208df10(Struct_0208df10* arg0);
-extern "C" void* func_02053c6c(unsigned char* arg0);
+extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" signed char func_020dd11c(unsigned int arg0, unsigned int arg1);
 struct Struct_0208df20;
 extern "C" void func_0208df20(Struct_0208df20* arg0, void* arg1, int arg2, int arg3, int arg4, void* arg5);
@@ -138,7 +138,7 @@ extern "C" ARM bool func_ov013_021870f0(Struct_ov013_021870f0_6* arg0) {
     if (arg0->unknown_66_ == 0)
     {
 #if defined(jpn)
-        Struct_0208cb08* var3 = func_02094a00();
+        FontLoader_0208cb08* var3 = func_02094a00();
         func_02094b3c(var3, 10);
         func_02094b30(var3, 0x68, 0);
 #else
@@ -183,11 +183,11 @@ extern "C" ARM bool func_ov013_021870f0(Struct_ov013_021870f0_6* arg0) {
             void* var10;
             unsigned int var11;
             var2->GetLoadedFileByID(arg0->unknown_5c_, &var10, &var11);
-            int var12 = func_02046900((Struct_02020cb8_4*)var10);
+            int var12 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var10);
             for (int var13 = 0; var13 < var12; var13++)
             {
                 unsigned int var14;
-                void* var15 = func_020467f0((Struct_02020aec*)var10, var13, &var9, (int*)&var14);
+                void* var15 = GetPacEntryData_020467f0((PacEntry_02020aec*)var10, var13, &var9, (int*)&var14);
                 func_0205a528(arg0->unknown_48_, var15, var14, &var8[4]);
             }
             var2->RemoveTask(arg0->unknown_5c_);
@@ -250,7 +250,7 @@ extern "C" ARM bool func_ov013_021870f0(Struct_ov013_021870f0_6* arg0) {
             GameObject* var24 = func_0200ff1c(GameState::GetInstance(), arg0->unknown_67_);
             if (var24 != NULL)
             {
-                Struct_ov013_021870f0_5* var25 = (Struct_ov013_021870f0_5*)func_02053c6c((unsigned char*)var24);
+                Struct_ov013_021870f0_5* var25 = (Struct_ov013_021870f0_5*)GetPartyMemberData_02053c6c((unsigned char*)var24);
                 if (var25 != NULL)
                 {
                     for (unsigned char var26 = 0; var26 < 5; var26++)
@@ -311,13 +311,13 @@ extern "C" ARM bool func_ov013_021870f0(Struct_ov013_021870f0_6* arg0) {
             void* var31;
             unsigned int var32;
             var2->GetLoadedFileByID(arg0->unknown_5c_, &var31, &var32);
-            int var33 = func_02046900((Struct_02020cb8_4*)var31);
+            int var33 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var31);
             var0 = arg0->unknown_0_;
             var0[1].Reset();
             for (int var34 = 0; var34 < var33; var34++)
             {
                 unsigned int var35;
-                var29 = func_020467f0((Struct_02020aec*)var31, var34, &var30, (int*)&var35);
+                var29 = GetPacEntryData_020467f0((PacEntry_02020aec*)var31, var34, &var30, (int*)&var35);
                 if (var29 != NULL)
                 {
                     if (var34 == 0)

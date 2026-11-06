@@ -13,7 +13,7 @@ extern "C" void* func_ov023_021db4e4(void* arg0, int arg1);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_ov023_021dbb34(void* arg0, struct Struct_ov023_021dbb34* arg1);
 extern "C" void func_ov023_021dbc58(void*, Struct_ov023_021dbc58_2*, int);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4);
 extern "C" void func_ov023_021e2bdc(void* arg0, int arg1, short* arg2, short* arg3);
 extern "C" void func_0204f41c(void* arg0, short arg1, short arg2, int arg3, int arg4, int arg5, short* arg6, short* arg7, int arg8);
@@ -178,7 +178,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
         for (var1 = 0; var1 < var8; var1++) {
             var4 = var16[var1];
             var3 = (short)(var18[var1] + 12);
-            func_ov023_021e23d0(arg0->unknown_cc_, data_ov023_021fd5c6[var1], func_020e0434(data_ov023_021ff9e0.unknown_14_, var3), 10, 0xf);
+            func_ov023_021e23d0(arg0->unknown_cc_, data_ov023_021fd5c6[var1], FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, var3), 10, 0xf);
             var5 = data_ov023_021fd5d6[var1];
             func_ov023_021e2bdc(arg0->unknown_cc_, var5, &var11, &var10);
             switch (var3) {
@@ -188,15 +188,15 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
             case 17:
                 if (data_ov023_021ff9e0.unknown1_4_) {
 #if defined(jpn)
-                    func_02050678(var0, var11 + 16, var10, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, 0xf, &var13, &var12);
+                    func_02050678(var0, var11 + 16, var10, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, 0xf, &var13, &var12);
 #else
 #if defined(jpn)
-                    func_02050678(var0, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
+                    func_02050678(var0, p0 + 16, p1, FindStringInTable_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
 #else
 #if defined(jpn)
-                    func_02050678(var0, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
+                    func_02050678(var0, p0 + 16, p1, FindStringInTable_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
 #else
-                    func_0204f41c(var0, var11 + 1, var10, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, 0xf, &var13, &var12, 0);
+                    func_0204f41c(var0, var11 + 1, var10, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, 0xf, &var13, &var12, 0);
 #endif
 
 #endif
@@ -226,7 +226,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
                 if (var4 < 0.0f) {
                     var6 = data_ov023_021fd5ce[var1];
                     SetEntryOn(arg0, var6);
-                    func_ov023_021e23d0(arg0->unknown_cc_, var6, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x19), 8, 0xf);
+                    func_ov023_021e23d0(arg0->unknown_cc_, var6, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x19), 8, 0xf);
                 }
                 var7 = labs((int)var4);
                 func_ov023_021e24b0(arg0->unknown_cc_, data_ov023_021fd5d6[var1], var7, 8, 0xf, 1, 3, 0, 0);
@@ -293,7 +293,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
         for (var1 = 0; var1 < var25; var1++) {
             var21 = var34[var1];
             var20 = (short)(var37[var1] + 12);
-            func_ov023_021e23d0(arg0->unknown_cc_, data_ov023_021fd5e6[var1], func_020e0434(data_ov023_021ff9e0.unknown_14_, var20), 10, 0xf);
+            func_ov023_021e23d0(arg0->unknown_cc_, data_ov023_021fd5e6[var1], FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, var20), 10, 0xf);
             var22 = data_ov023_021fd5f6[var1];
             func_ov023_021e2bdc(arg0->unknown_cc_, var22, &var29, &var28);
             switch (var20) {
@@ -303,15 +303,15 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
             case 17:
                 if (data_ov023_021ff9e0.unknown1_4_) {
 #if defined(jpn)
-                    func_02050678(var0, var29 + 16, var28, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, 0xf, &var31, &var30);
+                    func_02050678(var0, var29 + 16, var28, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, 0xf, &var31, &var30);
 #else
 #if defined(jpn)
-                    func_02050678(var0, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
+                    func_02050678(var0, p0 + 16, p1, FindStringInTable_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
 #else
 #if defined(jpn)
-                    func_02050678(var0, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
+                    func_02050678(var0, p0 + 16, p1, FindStringInTable_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
 #else
-                    func_0204f41c(var0, var29 + 1, var28, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, 0xf, &var31, &var30, 0);
+                    func_0204f41c(var0, var29 + 1, var28, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, 0xf, &var31, &var30, 0);
 #endif
 
 #endif
@@ -345,7 +345,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
             }
             var24 = data_ov023_021fd5ee[var1];
             SetEntryOn(arg0, var24);
-            func_ov023_021e23d0(arg0->unknown_cc_, var24, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x22), 8, 0xf);
+            func_ov023_021e23d0(arg0->unknown_cc_, var24, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x22), 8, 0xf);
         }
         FlushList(arg0, var0);
         func_ov023_021db544(arg0->unknown_cc_, (void*)0xb, var33, var32);
@@ -420,7 +420,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
         for (var1 = 0; var1 < var48; var1++) {
             var40 = var61[var1];
             var41 = var40 + 12;
-            func_ov023_021e23d0(arg0->unknown_cc_, data_ov023_021fd606[var1], func_020e0434(data_ov023_021ff9e0.unknown_14_, var41), 10, 0xf);
+            func_ov023_021e23d0(arg0->unknown_cc_, data_ov023_021fd606[var1], FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, var41), 10, 0xf);
             var42 = data_ov023_021fd60e[var1];
             func_ov023_021e2bdc(arg0->unknown_cc_, var42, &var52, &var51);
             var43 = var59[var40];
@@ -431,15 +431,15 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
             case 17:
                 if (data_ov023_021ff9e0.unknown1_4_) {
 #if defined(jpn)
-                    func_02050678(var0, var52 + 16, var51, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, 0xf, &var54, &var53);
+                    func_02050678(var0, var52 + 16, var51, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, 0xf, &var54, &var53);
 #else
 #if defined(jpn)
-                    func_02050678(var0, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
+                    func_02050678(var0, p0 + 16, p1, FindStringInTable_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
 #else
 #if defined(jpn)
-                    func_02050678(var0, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
+                    func_02050678(var0, p0 + 16, p1, FindStringInTable_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
 #else
-                    func_0204f41c(var0, var52 + 1, var51, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, 0xf, &var54, &var53, 0);
+                    func_0204f41c(var0, var52 + 1, var51, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, 0xf, &var54, &var53, 0);
 #endif
 
 #endif
@@ -471,7 +471,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
                 SetEntryOn(arg0, data_ov023_021fd60e[var1]);
                 break;
             }
-            func_ov023_021e23d0(arg0->unknown_cc_, data_ov023_021fd616[var1], func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x20), 8, 0xf);
+            func_ov023_021e23d0(arg0->unknown_cc_, data_ov023_021fd616[var1], FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x20), 8, 0xf);
             var44 = var58[var40];
             var45 = 9;
             if (var43 == var44) var45 = 0xf;
@@ -485,9 +485,9 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
             case 17:
                 if (data_ov023_021ff9e0.unknown1_4_) {
 #if defined(jpn)
-                    func_02050678(var0, var52 + 16, var51, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, var45, &var54, &var53);
+                    func_02050678(var0, var52 + 16, var51, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, var45, &var54, &var53);
 #else
-                    func_0204f41c(var0, var52 + 1, var51, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, var45, &var54, &var53, 0);
+                    func_0204f41c(var0, var52 + 1, var51, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1a), 8, var45, &var54, &var53, 0);
 #endif
 
 #if defined(jpn)
@@ -523,7 +523,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
         }
 
 #endif
-        func_ov023_021e23d0(arg0->unknown_cc_, 0x2c, func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x21), 10, 0xf);
+        func_ov023_021e23d0(arg0->unknown_cc_, 0x2c, FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x21), 10, 0xf);
         SetEntryOff(arg0, 0xa);
         SetEntryOff(arg0, 0xc);
         SetEntryOff(arg0, 0xd);

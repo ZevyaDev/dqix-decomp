@@ -13,7 +13,7 @@ struct Struct_ov000_0217fe30 {
 extern "C" ARM int func_ov000_0217fe30(char* arg0) {
     int var0 = 0;
     GameState* var1 = GameState::GetInstance();
-    char* var2 = (char*)func_02010828(var1);
+    char* var2 = (char*)GetParty_02010828(var1);
     unsigned char var3 = *(unsigned char*)(var2 + 0xf7c);
     unsigned char var4;
     for (var4 = 0; var4 < var3; var4++) {

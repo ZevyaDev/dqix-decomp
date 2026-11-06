@@ -37,13 +37,13 @@ extern "C" int func_ov002_02155960(char*, int);
 extern "C" void func_ov002_021556fc(char*);
 extern "C" void func_ov017_021a55b0(Struct_ov017_021a5600_2*);
 extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
-extern "C" Struct_02012de8* func_020d6c00();
+extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" unsigned char* func_020100f8(char*);
 extern "C" void func_020a28a0(unsigned char*, unsigned char);
 extern "C" void func_020a28b0(unsigned char*, int);
 extern "C" void func_02027288(unsigned char*, int);
-extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_020a1df8(int);
 extern "C" void func_020a1ef0(int);
 extern "C" void func_ov002_021556ec(void*, int, int);
@@ -54,14 +54,14 @@ extern "C" int func_02046708(Struct_02012de8*, unsigned int);
 extern "C" void func_ov017_021a01bc(unsigned char*);
 extern "C" void func_02039830(void*);
 extern "C" void func_ov017_021a5974(char*);
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 extern char* data_ov017_021d83ac;
 // USA: func_ov017_021a5600
 extern "C" ARM void func_ov017_021a5600(Struct_ov017_021a5600_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     Struct_02018300_3* var2 = (Struct_02018300_3*)var0->GetUnknownGameObject();
-    Struct_02012de8* var3 = func_020d6c00();
+    Struct_02012de8* var3 = GetGlobalFlags_020d6c00();
     func_020397cc(var2, 1);
     var2->unknown_b2_ = 0;
     SetFlags04(var1, 0xc0);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov017_021a5600(Struct_ov017_021a5600_2* arg0) {
         func_02027288(var6, -1);
         func_0202738c(var6, 1, 2, -1);
         func_020a0cc4(Enum_ov017_021a5600_179632);
-        void* var7 = func_02012d88(&data_02114e20, Enum_ov017_021a5600_173456);
+        void* var7 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021a5600_173456);
         if (!var7) {
             func_020a0c0c();
             arg0->unknown_1_ = 1;
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov017_021a5600(Struct_ov017_021a5600_2* arg0) {
         if (func_ov002_02155960(data_ov017_021d83ac, var5)) ++arg0->unknown_8_;
     } else if (arg0->unknown_8_ == 2) {
         func_ov002_021556fc(data_ov017_021d83ac);
-        Struct_0208cb08* var10 = func_02094a00();
+        FontLoader_0208cb08* var10 = func_02094a00();
         func_02094b40(var10);
         func_02094ab0(var10);
         func_02094b34(var10, 5000, 0x6f, 1, 1);

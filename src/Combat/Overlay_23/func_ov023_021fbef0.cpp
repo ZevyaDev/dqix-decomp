@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 
-extern "C" void* func_ov011_021849c8(void*);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" int func_ov023_021f6bb8(void*);
 extern "C" void func_ov023_021f6bb0(void*, int);
 
@@ -11,7 +11,7 @@ extern int data_020f2a30;
 // USA: func_ov023_021fbef0
 #if defined(jpn)
 extern "C" ARM int func_ov023_021fbef0(void* arg0, void* arg1) {
-    void* var0 = func_ov011_021849c8(arg1);
+    void* var0 = GetMenuObjectList_ov011_021849c8(arg1);
     if (func_ov023_021f6bb8(var0) >= 0) {
         return *(int*)((char*)arg0 + 0x1c);
     }
@@ -21,7 +21,7 @@ extern "C" ARM int func_ov023_021fbef0(void* arg0, void* arg1) {
 }
 #else
 extern "C" ARM int func_ov023_021fbef0(void* arg0, void* arg1) {
-    void* var2 = func_ov011_021849c8(arg1);
+    void* var2 = GetMenuObjectList_ov011_021849c8(arg1);
     if (func_ov023_021f6bb8(var2) >= 0) {
         return *(int*)((char*)arg0 + 0x1c);
     }

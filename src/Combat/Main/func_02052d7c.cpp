@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
@@ -14,7 +11,7 @@ enum { Enum_02052d7c_336 = 0x150 };
 #endif
 
 extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 
 struct Struct_02052d7c {
     unsigned char unknown_0_[Enum_02052d7c_336];
@@ -29,7 +26,7 @@ extern "C" ARM void func_02052d7c(struct Struct_02052d7c* arg0, int arg1, short 
     if (arg2 == var1) return;
 
     if (arg1 != 7 && arg1 != 8) {
-        void* var2 = func_0205ec34();
+        void* var2 = GetFlagManager_0205ec34();
         func_0206df6c(var2, (unsigned char*)var2 + 0x8c, 0x113f, 1);
     }
 

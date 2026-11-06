@@ -28,11 +28,11 @@ struct Struct_020941f8 {
     unsigned char unknown_50_;
 };
 
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 
-extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
-extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
+extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" unsigned char func_020938cc();
 extern "C" ARM void func_0205a444(char* arg0);
 extern "C" ARM void func_0205a494(void* arg0);
@@ -63,7 +63,7 @@ extern "C" ARM int func_020941f8(struct Struct_020941f8_2* arg0) {
         int var5;
         if (var1 == 1 && var0->GetTaskStatus(arg0->unknown_340_) != 0) {
             var0->GetLoadedFileByID(arg0->unknown_340_, &var3, &var4);
-            int var6 = func_02046900((struct Struct_02020cb8_4*)var3);
+            int var6 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var3);
             arg0->unknown_3c8_7_ = func_020938cc();
             int var7 = func_020937f0(arg0->unknown_3c8_7_);
             if (var7 != 0) {
@@ -76,7 +76,7 @@ extern "C" ARM int func_020941f8(struct Struct_020941f8_2* arg0) {
                 for (var9 = 0; var9 < var6; var9++) {
                     void* var10;
                     var5 = 0;
-                    var10 = func_020467f0((struct Struct_02020aec*)var3, var9, &var2, &var5);
+                    var10 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var3, var9, &var2, &var5);
                     func_0205a528(&var8, var10, var5, 0);
                 }
                 func_0205a494(&var8);

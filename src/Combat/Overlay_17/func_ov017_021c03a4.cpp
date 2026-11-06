@@ -8,7 +8,7 @@ struct Struct_020979c0;
 
 extern "C" void func_020a0cc4(unsigned int arg0);
 extern "C" void func_020a0c0c(void);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020979c0(Struct_020979c0* arg0, unsigned char arg1);
 extern "C" void func_020a1940(unsigned int arg0);
 extern "C" void func_020a1ef0(int arg0);
@@ -19,7 +19,7 @@ extern "C" int func_ov014_02186bc8(void* arg0, unsigned int arg1);
 extern "C" void func_ov014_02186b30(void* arg0);
 extern "C" int func_02097a04(void* arg0);
 extern "C" void func_02097b34(void* arg0);
-extern char data_02114e20;
+extern char gMainHeap_02114e20;
 
 struct Struct_ov017_021c03a4 {
     char unknown_0_;
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov017_021c03a4(Struct_ov017_021c03a4* arg0) {
     if (arg0->unknown_24_ == 0) {
         *(unsigned short*)0x4000304 |= 0x8000;
         func_020a0cc4(0x3f000);
-        void* var0 = func_02012d88((AllocatorUnion*)&data_02114e20, 0x3f000);
+        void* var0 = AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, 0x3f000);
         if (var0 == NULL) {
             func_020a0c0c();
             arg0->unknown_1_ = 1;

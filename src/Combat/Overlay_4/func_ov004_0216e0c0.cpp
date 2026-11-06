@@ -11,7 +11,7 @@ enum { Enum_ov004_0216e0c0_84 = 0x54, Enum_ov004_0216e0c0_32625 = 0x7f71 };
 #include "GameState/GameState.h"
 
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
-extern "C" void* func_ov011_021849c8(void*);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 #if defined(jpn)
 extern "C" void func_ov023_021f745c(void* arg0, void* arg1, int arg2, int arg3, void* arg4, int arg5, int arg6, int arg7);
 #else
@@ -77,6 +77,6 @@ extern "C" ARM int func_ov004_0216e0c0(void* arg0) {
     func_ov023_021f745c(var4, arg0, 0x69, 3, var1, var0, 1, 2, 0);
 #endif
 
-    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)func_ov011_021849c8(arg0), (struct Struct_ov004_0215c30c_2*)var4);
+    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)GetMenuObjectList_ov011_021849c8(arg0), (struct Struct_ov004_0215c30c_2*)var4);
     return 0;
 }

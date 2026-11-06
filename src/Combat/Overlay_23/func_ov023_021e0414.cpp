@@ -2,13 +2,13 @@
 #include "Filesystem/BackgroundLoader.h"
 
 
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_ov023_021e0414 {
     char unknown_0_[8];
     unsigned int unknown_8_0_ : 4;
     unsigned int unknown_8_4_ : 28;
 };
-extern "C" Struct_ov023_021e0414* func_020dedd0(struct Struct_0201099c_10*, int);
+extern "C" Struct_ov023_021e0414* func_020dedd0(struct ItemTable_0201099c_10*, int);
 
 extern "C" void func_ov023_021e20c0(void*);
 
@@ -18,7 +18,7 @@ extern int data_ov023_021fdc61;
 
 struct Struct_ov023_021e0414_2 {
     char unknown_0_[0x48];
-    Struct_0201099c_10* unknown_48_;
+    ItemTable_0201099c_10* unknown_48_;
     Struct_ov023_021e0414* unknown_4c_;
 #if defined(jpn)
     char unknown_50_[0x6b8 - 0x50];

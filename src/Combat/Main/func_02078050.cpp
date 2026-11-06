@@ -9,14 +9,14 @@ enum { Enum_02078050_1058 = 0x422 };
 
 struct Struct_ov009_0218aa28 { int unknown_0_; int unknown_4_; int unknown_8_; };
 
-extern "C" void* func_0202ae18(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void* arg0);
 
 struct Struct_02033f44;
 extern "C" int* func_02033f44(struct Struct_02033f44* arg0);
 
 extern "C" void func_02076ccc(void* arg0, int arg1);
 
-extern "C" int func_0202b7d8(int*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 
 extern "C" void func_020794f8(void* arg0, int arg1, int arg2);
 
@@ -26,7 +26,7 @@ extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
 struct Struct_02033834_2;
 extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
 
-extern "C" int func_0202c540(void* arg0);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 
 extern "C" void* GetZone3D_02012fe4(void);
 
@@ -36,8 +36,8 @@ extern "C" int func_02018fbc(int arg0, void* arg1);
 
 struct Vector3i;
 
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
 struct Struct_02078050_2 {
     unsigned short unknown_0_;
@@ -58,12 +58,12 @@ struct Struct_02078050 {
 
 // USA: func_02078050
 extern "C" ARM void func_02078050(struct Struct_02078050* arg0) {
-    void* var0 = func_0202ae18(arg0);
+    void* var0 = GetLocalWireless_0202ae18(arg0);
 
     if (func_02033f44((struct Struct_02033f44*)arg0) != 0) {
         func_02076ccc(arg0, 1);
         arg0->unknown_154_ = 0;
-        if (func_0202b7d8((int*)var0) == 0) {
+        if (IsLocalWirelessOn_0202b7d8((int*)var0) == 0) {
             return;
         }
         func_020794f8(arg0, 0, 0);
@@ -86,7 +86,7 @@ extern "C" ARM void func_02078050(struct Struct_02078050* arg0) {
     Vector3fix_Normalize((const Vector3fix*)&var3, (Vector3fix*)&var3);
     func_02033834((struct Struct_02033834_2*)arg0, fix32_Atan2(var3.unknown_0_, var3.unknown_8_));
 
-    if (func_0202c540(var0) != 0) {
+    if (IsLocalWirelessGuest_0202c540(var0) != 0) {
         return;
     }
 
@@ -105,10 +105,10 @@ extern "C" ARM void func_02078050(struct Struct_02078050* arg0) {
 
     func_02076ccc(arg0, 1);
     arg0->unknown_154_ = 0;
-    if (func_0202b7d8((int*)var0) == 0) {
+    if (IsLocalWirelessOn_0202b7d8((int*)var0) == 0) {
         return;
     }
-    if (func_0202c1a4((struct Struct_0202c1a4*)var0) != 0) {
+    if (GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var0) != 0) {
         return;
     }
     func_020794f8(arg0, 0, 0);

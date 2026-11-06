@@ -24,7 +24,7 @@ struct Struct_02028a54 {
 extern "C" void func_020289c4(Struct_020288e0*);
 extern "C" void func_0200fd48(GameState*, int);
 extern "C" void func_0200fd38(GameState*, int, GameObject*);
-extern "C" void func_0202ae18();
+extern "C" void GetLocalWireless_0202ae18();
 extern "C" void GetZone3D_02012fe4();
 extern "C" void func_02076a8c(GameObject*);
 
@@ -32,7 +32,7 @@ extern "C" void func_02076a8c(GameObject*);
 extern "C" ARM int func_02028a54(Struct_020288e0* arg0, int arg1)
 {
     GameState* var0 = GameState::GetInstance();
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     GetGameResources();
     GetZone3D_02012fe4();
     var0->GetGrottoStruct();

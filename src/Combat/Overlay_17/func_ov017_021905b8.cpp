@@ -3,14 +3,14 @@
 #include "World/ZoneResourceTree.h"
 
 struct Struct_0202b2f0;
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 struct Struct_0207da94;
 struct Struct_020e3544;
 struct Struct_020e3b08;
 struct Struct_0207959c;
 struct Struct_0207958c;
 
-extern "C" Struct_0202b2f0* func_0202ae18(void);
+extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" void func_0207dba8(void* arg0);
 extern "C" void func_ov017_02190264(void* arg0, int arg1);
 extern "C" void func_ov000_0215fb04(void* arg0, int arg1);
@@ -18,9 +18,9 @@ extern "C" void func_ov017_02192654(int arg0, int arg1, int arg2);
 extern "C" void* func_ov017_021b8468(void* arg0);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 
-extern "C" signed char func_0202c1a4(Struct_0202c1a4* arg0);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" unsigned char func_020100b0(GameState* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_0202c600(Struct_0202b2f0* arg0, int arg1);
 extern "C" void func_0202c718(Struct_0202b2f0* arg0, int arg1);
 extern "C" void func_0202c21c(Struct_0202b2f0* arg0, int arg1);
@@ -71,12 +71,12 @@ struct Struct_ov017_021905b8_5 {
 // USA: func_ov017_021905b8
 extern "C" ARM void func_ov017_021905b8(GameResources* arg0, int arg1, int arg2) {
     GameState* var0 = GameState::GetInstance();
-    Struct_0202b2f0* var1 = func_0202ae18();
+    Struct_0202b2f0* var1 = GetLocalWireless_0202ae18();
     if (arg1 <= 0) {
         return;
     }
-    if (arg1 == func_0202c1a4((Struct_0202c1a4*)var1) || arg1 == func_020100b0(var0) ||
-        arg1 == func_020100a8(var0)) {
+    if (arg1 == GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1) || arg1 == func_020100b0(var0) ||
+        arg1 == GetProtagonistObjectIndex_020100a8(var0)) {
         func_0202c600(var1, arg1);
         func_0202c718(var1, arg1);
         return;
@@ -134,7 +134,7 @@ extern "C" ARM void func_ov017_021905b8(GameResources* arg0, int arg1, int arg2)
                     }
                 }
             }
-            func_ov017_02192654(func_0202c1a4((Struct_0202c1a4*)var1), var8->unknown_16a_, var9);
+            func_ov017_02192654(GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1), var8->unknown_16a_, var9);
             func_0207958c((Struct_0207958c*)var8);
         }
     }

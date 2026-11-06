@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-extern "C" void func_0202ae18(void);
-extern "C" int func_0202c508(void);
+extern "C" void GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void);
 extern "C" void func_ov017_021ca2a0(int arg0, int arg1);
 extern "C" void* func_0207d78c(void);
 struct Struct_0207d7f4;
@@ -18,8 +18,8 @@ extern "C" ARM void func_ov017_021c5a8c(int arg0, int arg1) {
 #else
  enum {Enum_ov017_021c5a8c_1816=0x718};
 #endif
-    func_0202ae18();
-    if (func_0202c508()) {
+    GetLocalWireless_0202ae18();
+    if (IsNotLocalWirelessGuest_0202c508()) {
         func_ov017_021ca2a0(arg0, (unsigned short)arg1);
 
         void* var0 = func_0207d78c();

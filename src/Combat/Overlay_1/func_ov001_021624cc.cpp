@@ -10,11 +10,11 @@ extern char data_ov001_02165745[];
 extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
 extern "C" void func_ov001_02162678(int arg0, int arg1, int arg2, int arg3);
 
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 
-struct Struct_02020aec;
-extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
 struct Struct_02020cb8;
 extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
@@ -70,9 +70,9 @@ extern "C" ARM int func_ov001_021624cc(void* arg0) {
             return 0;
         }
     }
-    int var9 = func_02046900((struct Struct_02020cb8_4*)var4);
+    int var9 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var4);
     for (int var10 = 0; var10 < var9; var10++) {
-        var1[var10] = (char*)func_020467f0((struct Struct_02020aec*)var4, var10, &var6, &var2[var10]);
+        var1[var10] = (char*)GetPacEntryData_020467f0((struct PacEntry_02020aec*)var4, var10, &var6, &var2[var10]);
     }
     ReleaseMainBGVRAMBanks();
     MapVRAMBanksToMainBG(0x10);

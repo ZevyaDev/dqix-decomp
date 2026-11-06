@@ -2,8 +2,8 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
-extern int data_02114e20;
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern int gMainHeap_02114e20;
 
 // USA: func_ov017_021a9714
 extern "C" ARM void func_ov017_021a9714(char* arg0) {
@@ -11,7 +11,7 @@ extern "C" ARM void func_ov017_021a9714(char* arg0) {
     void* var1 = var0->GetSignedAllocator();
     if (var1 != NULL) {
         var0->Destroy();
-        func_02012da4((AllocatorUnion*)&data_02114e20, var1);
+        FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var1);
     }
     var0->ResetAllocatorPointer();
     arg0[8] = 0;

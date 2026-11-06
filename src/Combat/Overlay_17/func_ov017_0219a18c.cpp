@@ -6,7 +6,7 @@
 
 extern "C" void func_020534ac(char* arg0);
 extern "C" int func_02039750(void* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_02053604(signed char* arg0);
 
 struct Struct_ov017_02199684 { unsigned char unknown_0_[0x14]; int unknown_14_; unsigned char unknown_18_[0x20 - 0x18]; };
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov017_0219a18c(unsigned char* arg0) {
     func_0205da88(*(void**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248), 1, 2, 1);
 
     GameObject* var3 = var2->GetProtagonist();
-    GameObject* var4 = func_0200ff1c(var2, func_020100a8(var2));
+    GameObject* var4 = func_0200ff1c(var2, GetProtagonistObjectIndex_020100a8(var2));
     int var5 = 0;
     int var6;
     int var7 = func_02039750(var3);

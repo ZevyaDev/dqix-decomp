@@ -5,7 +5,7 @@
 
 extern "C" void* GetZone3D_02012fe4(void* arg0);
 struct Vector3i;
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern int data_020e8d48;
 
 struct Struct_0208f748 { int unknown_0_, unknown_4_, unknown_8_; };
@@ -19,7 +19,7 @@ extern "C" ARM int func_0208f748(unsigned char* arg0) {
     GameState* var2 = GameState::GetInstance();
     var2->GetProtagonist();
     ((int)GetGameResources());
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     GrottoStruct* var3 = var2->GetGrottoStruct();
     Struct_0208f748 var4;
     *(Vector3i*)((int*)&var4) = *(Vector3i const*)(&var3->entranceX);

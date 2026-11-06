@@ -18,12 +18,12 @@ extern "C" void* func_02057924(void);
 extern "C" void func_020a0cc4(unsigned int);
 extern "C" int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, int arg3, int arg4, Struct_02015ef4_5* arg5);
 extern "C" unsigned int func_02012dd0(Struct_02114e20*);
-extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_0207dfc8(Struct_02015ef4_5*, Struct_02015ef4_5*);
 extern "C" void func_02057fb4(void*, int, void*);
 extern "C" void func_ov017_021d24a8(int);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 extern char data_ov017_021d7f6c[];
 
 struct Struct_ov017_021c2b6c_2 {
@@ -68,11 +68,11 @@ extern "C" ARM void func_ov017_021c2b6c(Struct_ov017_021c2b6c* arg0) {
     Struct_ov017_021c2b6c_2 var3[4];
     unsigned int var4;
     if (arg0->unknown_8d_ == 0) {
-        if (func_02012dd0((Struct_02114e20*)&data_02114e20) < 0x8000) {
+        if (func_02012dd0((Struct_02114e20*)&gMainHeap_02114e20) < 0x8000) {
             func_020a0cc4(0x8000);
             arg0->unknown_96_ = 1;
         }
-        void* var5 = func_02012d88(&data_02114e20, 0x8000);
+        void* var5 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x8000);
         arg0->unknown_8_.CreateTypeA(var5, 0x8000);
         arg0->unknown_8_.Reset();
         char* var6 = var1->unknown_2cc_;

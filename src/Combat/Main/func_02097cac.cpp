@@ -13,10 +13,10 @@ struct Struct_02097cac_2 {
     unsigned int unknown_1b3c_;
 };
 
-extern "C" void* func_0202ae18();
+extern "C" void* GetLocalWireless_0202ae18();
 extern "C" Struct_0208fa8c* GetZone3D_02012fe4();
-extern "C" int func_0202c508(void* arg0);
-extern "C" int func_0202c540(void* arg0);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void* func_0200fd0c(GameState* arg0);
 extern "C" int func_020981e4(int arg0, int arg1);
 extern "C" int func_02098240(int arg0, int arg1);
@@ -28,7 +28,7 @@ extern "C" void func_ov017_021d3e3c(unsigned char arg0);
 
 // USA: func_02097cac
 extern "C" ARM void func_02097cac(Struct_02097cac_2* arg0) {
-    void* var0 = func_0202ae18();
+    void* var0 = GetLocalWireless_0202ae18();
     GameState* var1 = GameState::GetInstance();
     Struct_02097cac* var2 = (Struct_02097cac*)func_0200fd0c(var1);
     Struct_0208fa8c* var3 = GetZone3D_02012fe4();
@@ -43,7 +43,7 @@ extern "C" ARM void func_02097cac(Struct_02097cac_2* arg0) {
 
     if (func_02098210((int)arg0, var4) &&
         (!func_02098210((int)arg0, var6) || var2->unknown_65_ != 0)) {
-        if (func_0202c508(var0) != 0 && (FLAG130(var5) & 1) == 0) {
+        if (IsNotLocalWirelessGuest_0202c508(var0) != 0 && (FLAG130(var5) & 1) == 0) {
             func_020989cc(arg0);
         }
         int var7 = arg0->unknown_1b3c_;
@@ -58,7 +58,7 @@ extern "C" ARM void func_02097cac(Struct_02097cac_2* arg0) {
         }
         func_0200fcfc(var1, var2);
     } else {
-        if (func_0202c540(var0) == 0 || var2->unknown_65_ == 0) return;
+        if (IsLocalWirelessGuest_0202c540(var0) == 0 || var2->unknown_65_ == 0) return;
         int var8 = arg0->unknown_1b3c_;
         if (!func_020981e4((int)arg0, var4)) return;
         if (func_02098240((int)arg0, var4)) return;

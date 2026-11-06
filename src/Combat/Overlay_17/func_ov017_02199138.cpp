@@ -1,18 +1,15 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
 extern "C" void func_0206f81c(void* arg0);
 extern "C" void func_ov017_021b57fc(void* arg0);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 struct Struct_ov017_02199138 {
     char unknown_0_[0xc];
@@ -35,7 +32,7 @@ extern "C" ARM void func_ov017_02199138(char* arg0) {
     if (*((unsigned char*)(*(void**)(arg0 + 0x3000 + Enum_ov017_02199138_2812)) + 2) != 0) {
         return;
     }
-    void* var3 = func_0205ec34();
+    void* var3 = GetFlagManager_0205ec34();
     struct Struct_ov017_02199138 var4;
     var4.unknown_c_ = *var2;
     var4.unknown_24_ = *(unsigned short*)(*(void**)(arg0 + 0x3000 + Enum_ov017_02199138_1724));
@@ -47,6 +44,6 @@ extern "C" ARM void func_ov017_02199138(char* arg0) {
     *(int*)((char*)(*(void**)(arg0 + 0x3000 + Enum_ov017_02199138_2812)) + 0x1c) = (int)var1;
     *(unsigned short*)((char*)(*(void**)(arg0 + 0x3000 + Enum_ov017_02199138_2812)) + 0x10) =
         *(unsigned short*)(arg0 + Enum_ov017_02199138_13824 + Enum_ov017_02199138_182);
-    func_020469b4((struct Struct_0201bdac_2*)(*(void**)(arg0 + 0x3000 + Enum_ov017_02199138_1788)),
-                      (struct Struct_0201bdac*)(*(void**)(arg0 + 0x3000 + Enum_ov017_02199138_2812)));
+    AppendToQueue_020469b4((struct Queue_0201bdac_2*)(*(void**)(arg0 + 0x3000 + Enum_ov017_02199138_1788)),
+                      (struct QueueNode_0201bdac*)(*(void**)(arg0 + 0x3000 + Enum_ov017_02199138_2812)));
 }

@@ -248,7 +248,7 @@ func_0200fad4 kind:function(arm,size=0x34) addr:0x0200fad4
 func_0200fb08 kind:function(arm,size=0x38) addr:0x0200fb08
 func_0200fb40 kind:function(arm,size=0x44) addr:0x0200fb40
 func_0200fb84 kind:function(arm,size=0x8) addr:0x0200fb84
-func_0200fb8c kind:function(arm,size=0x8) addr:0x0200fb8c
+GetResources_0200fb8c kind:function(arm,size=0x8) addr:0x0200fb8c
 func_0200fb94 kind:function(arm,size=0x8) addr:0x0200fb94
 func_0200fb9c kind:function(arm,size=0x8) addr:0x0200fb9c
 func_0200fba4 kind:function(arm,size=0x10) addr:0x0200fba4
@@ -277,7 +277,7 @@ func_0200ffe0 kind:function(arm,size=0x58) addr:0x0200ffe0
 func_02010038 kind:function(arm,size=0x50) addr:0x02010038
 func_02010088 kind:function(arm,size=0x18) addr:0x02010088
 func_020100a0 kind:function(arm,size=0x8) addr:0x020100a0
-func_020100a8 kind:function(arm,size=0x8) addr:0x020100a8
+GetProtagonistObjectIndex_020100a8 kind:function(arm,size=0x8) addr:0x020100a8
 func_020100b0 kind:function(arm,size=0xc) addr:0x020100b0
 func_020100bc kind:function(arm,size=0x8) addr:0x020100bc
 func_020100c4 kind:function(arm,size=0x8) addr:0x020100c4
@@ -315,7 +315,7 @@ func_020107dc kind:function(arm,size=0x28) addr:0x020107dc
 func_02010804 kind:function(arm,size=0xc) addr:0x02010804
 func_02010810 kind:function(arm,size=0xc) addr:0x02010810
 func_0201081c kind:function(arm,size=0xc) addr:0x0201081c
-func_02010828 kind:function(arm,size=0xc) addr:0x02010828
+GetParty_02010828 kind:function(arm,size=0xc) addr:0x02010828
 func_02010834 kind:function(arm,size=0x5c) addr:0x02010834
 func_02010890 kind:function(arm,size=0x48) addr:0x02010890
 func_020108d8 kind:function(arm,size=0x18) addr:0x020108d8
@@ -436,8 +436,8 @@ _Z24TouchInputMessageHandlerihh kind:function(arm,size=0x1c) addr:0x02012bbc
 func_02012bd8 kind:function(arm,size=0x5c) addr:0x02012bd8
 func_02012c34 kind:function(arm,size=0xe4) addr:0x02012c34
 func_02012d18 kind:function(arm,size=0x70) addr:0x02012d18
-func_02012d88 kind:function(arm,size=0x1c) addr:0x02012d88
-func_02012da4 kind:function(arm,size=0xc) addr:0x02012da4
+AllocateRoundedSize_02012d88 kind:function(arm,size=0x1c) addr:0x02012d88
+FreeMemory_02012da4 kind:function(arm,size=0xc) addr:0x02012da4
 func_02012db0 kind:function(arm,size=0xc) addr:0x02012db0
 func_02012dbc kind:function(arm,size=0x14) addr:0x02012dbc
 func_02012dd0 kind:function(arm,size=0x14) addr:0x02012dd0
@@ -884,7 +884,7 @@ func_0202ad30 kind:function(arm,size=0x1c) addr:0x0202ad30
 func_0202ad4c kind:function(arm,size=0x4c) addr:0x0202ad4c
 func_0202ad98 kind:function(arm,size=0x58) addr:0x0202ad98
 func_0202adf0 kind:function(arm,size=0x28) addr:0x0202adf0
-func_0202ae18 kind:function(arm,size=0xc) addr:0x0202ae18
+GetLocalWireless_0202ae18 kind:function(arm,size=0xc) addr:0x0202ae18
 func_0202ae24 kind:function(arm,size=0xc) addr:0x0202ae24
 func_0202ae30 kind:function(arm,size=0x1c) addr:0x0202ae30
 func_0202ae4c kind:function(arm,size=0x70) addr:0x0202ae4c
@@ -896,7 +896,7 @@ func_0202b0f4 kind:function(arm,size=0x100) addr:0x0202b0f4
 func_0202b1f4 kind:function(arm,size=0x90) addr:0x0202b1f4
 func_0202b284 kind:function(arm,size=0x6c) addr:0x0202b284
 func_0202b2f0 kind:function(arm,size=0x4e8) addr:0x0202b2f0
-func_0202b7d8 kind:function(arm,size=0x14) addr:0x0202b7d8
+IsLocalWirelessOn_0202b7d8 kind:function(arm,size=0x14) addr:0x0202b7d8
 func_0202b7ec kind:function(arm,size=0x14) addr:0x0202b7ec
 func_0202b800 kind:function(arm,size=0x28) addr:0x0202b800
 func_0202b828 kind:function(arm,size=0x18) addr:0x0202b828
@@ -921,7 +921,7 @@ func_0202bf40 kind:function(arm,size=0x10c) addr:0x0202bf40
 func_0202c04c kind:function(arm,size=0x12c) addr:0x0202c04c
 func_0202c178 kind:function(arm,size=0x24) addr:0x0202c178
 func_0202c19c kind:function(arm,size=0x8) addr:0x0202c19c
-func_0202c1a4 kind:function(arm,size=0x1c) addr:0x0202c1a4
+GetOwnProtagonistObjectIndex_0202c1a4 kind:function(arm,size=0x1c) addr:0x0202c1a4
 func_0202c1c0 kind:function(arm,size=0x28) addr:0x0202c1c0
 func_0202c1e8 kind:function(arm,size=0x34) addr:0x0202c1e8
 func_0202c21c kind:function(arm,size=0x6c) addr:0x0202c21c
@@ -930,8 +930,8 @@ func_0202c360 kind:function(arm,size=0x80) addr:0x0202c360
 func_0202c3e0 kind:function(arm,size=0x30) addr:0x0202c3e0
 func_0202c410 kind:function(arm,size=0x68) addr:0x0202c410
 func_0202c478 kind:function(arm,size=0x90) addr:0x0202c478
-func_0202c508 kind:function(arm,size=0x38) addr:0x0202c508
-func_0202c540 kind:function(arm,size=0x38) addr:0x0202c540
+IsNotLocalWirelessGuest_0202c508 kind:function(arm,size=0x38) addr:0x0202c508
+IsLocalWirelessGuest_0202c540 kind:function(arm,size=0x38) addr:0x0202c540
 func_0202c578 kind:function(arm,size=0x44) addr:0x0202c578
 func_0202c5bc kind:function(arm,size=0x44) addr:0x0202c5bc
 func_0202c600 kind:function(arm,size=0x48) addr:0x0202c600
@@ -1656,7 +1656,7 @@ func_02041f70 kind:function(arm,size=0x3c) addr:0x02041f70
 func_02041fac kind:function(arm,size=0x3c) addr:0x02041fac
 func_02041fe8 kind:function(arm,size=0x34) addr:0x02041fe8
 func_0204201c kind:function(arm,size=0x3c) addr:0x0204201c
-func_02042058 kind:function(arm,size=0x2c) addr:0x02042058
+AppendText_02042058 kind:function(arm,size=0x2c) addr:0x02042058
 func_02042084 kind:function(arm,size=0x64) addr:0x02042084
 func_020420e8 kind:function(arm,size=0xa8) addr:0x020420e8
 func_02042190 kind:function(arm,size=0x10) addr:0x02042190
@@ -1697,8 +1697,8 @@ func_02043000 kind:function(arm,size=0x40) addr:0x02043000
 func_02043040 kind:function(arm,size=0x70) addr:0x02043040
 func_020430b0 kind:function(arm,size=0x60) addr:0x020430b0
 func_02043110 kind:function(arm,size=0x14) addr:0x02043110
-func_02043124 kind:function(arm,size=0xe0) addr:0x02043124
-func_02043204 kind:function(arm,size=0x20) addr:0x02043204
+CloseMessageWindow_02043124 kind:function(arm,size=0xe0) addr:0x02043124
+ResetMessageWindow_02043204 kind:function(arm,size=0x20) addr:0x02043204
 func_02043224 kind:function(arm,size=0xa0) addr:0x02043224
 func_020432c4 kind:function(arm,size=0xa4) addr:0x020432c4
 func_02043368 kind:function(arm,size=0x234) addr:0x02043368
@@ -1744,7 +1744,7 @@ func_02045d14 kind:function(arm,size=0x228) addr:0x02045d14
 func_02045f3c kind:function(arm,size=0x234) addr:0x02045f3c
 func_02046170 kind:function(arm,size=0x160) addr:0x02046170
 func_020462d0 kind:function(arm,size=0xb0) addr:0x020462d0
-func_02046380 kind:function(arm,size=0x124) addr:0x02046380
+ClearMessageParams_02046380 kind:function(arm,size=0x124) addr:0x02046380
 func_020464a4 kind:function(arm,size=0x38) addr:0x020464a4
 func_020464dc kind:function(arm,size=0xc) addr:0x020464dc
 func_020464e8 kind:function(arm,size=0x1c) addr:0x020464e8
@@ -1753,7 +1753,7 @@ func_02046520 kind:function(arm,size=0x1c) addr:0x02046520
 func_0204653c kind:function(arm,size=0x1c) addr:0x0204653c
 func_02046558 kind:function(arm,size=0x1c) addr:0x02046558
 func_02046574 kind:function(arm,size=0x4c) addr:0x02046574
-func_020465c0 kind:function(arm,size=0x18) addr:0x020465c0
+SetMessageNumber_020465c0 kind:function(arm,size=0x18) addr:0x020465c0
 func_020465d8 kind:function(arm,size=0x18) addr:0x020465d8
 func_020465f0 kind:function(arm,size=0x18) addr:0x020465f0
 func_02046608 kind:function(arm,size=0xc0) addr:0x02046608
@@ -1767,13 +1767,13 @@ func_02046724 kind:function(arm,size=0xc) addr:0x02046724
 func_02046730 kind:function(arm,size=0xc) addr:0x02046730
 func_0204673c kind:function(arm,size=0x84) addr:0x0204673c
 func_020467c0 kind:function(arm,size=0x30) addr:0x020467c0
-func_020467f0 kind:function(arm,size=0x5c) addr:0x020467f0
+GetPacEntryData_020467f0 kind:function(arm,size=0x5c) addr:0x020467f0
 func_0204684c kind:function(arm,size=0xb4) addr:0x0204684c
-func_02046900 kind:function(arm,size=0x3c) addr:0x02046900
+CountPacEntries_02046900 kind:function(arm,size=0x3c) addr:0x02046900
 func_0204693c kind:function(arm,size=0x1c) addr:0x0204693c
 func_02046958 kind:function(arm,size=0x10) addr:0x02046958
 func_02046968 kind:function(arm,size=0x4c) addr:0x02046968
-func_020469b4 kind:function(arm,size=0x44) addr:0x020469b4
+AppendToQueue_020469b4 kind:function(arm,size=0x44) addr:0x020469b4
 func_020469f8 kind:function(arm,size=0x44) addr:0x020469f8
 func_02046a3c kind:function(arm,size=0x50) addr:0x02046a3c
 func_02046a8c kind:function(arm,size=0x7c) addr:0x02046a8c
@@ -2086,7 +2086,7 @@ func_020535f4 kind:function(arm,size=0x10) addr:0x020535f4
 func_02053604 kind:function(arm,size=0x30) addr:0x02053604
 func_02053634 kind:function(arm,size=0x618) addr:0x02053634
 func_02053c4c kind:function(arm,size=0x20) addr:0x02053c4c
-func_02053c6c kind:function(arm,size=0x8) addr:0x02053c6c
+GetPartyMemberData_02053c6c kind:function(arm,size=0x8) addr:0x02053c6c
 func_02053c74 kind:function(arm,size=0x50) addr:0x02053c74
 func_02053cc4 kind:function(arm,size=0x8) addr:0x02053cc4
 func_02053ccc kind:function(arm,size=0x8) addr:0x02053ccc
@@ -2376,7 +2376,7 @@ func_0205e944 kind:function(arm,size=0xb0) addr:0x0205e944
 func_0205e9f4 kind:function(arm,size=0x24) addr:0x0205e9f4
 func_0205ea18 kind:function(arm,size=0x8) addr:0x0205ea18
 func_0205ea20 kind:function(arm,size=0x80) addr:0x0205ea20
-func_0205eaa0 kind:function(arm,size=0x1c) addr:0x0205eaa0
+PlaySoundEffect_0205eaa0 kind:function(arm,size=0x1c) addr:0x0205eaa0
 func_0205eabc kind:function(arm,size=0xc) addr:0x0205eabc
 func_0205eac8 kind:function(arm,size=0x8) addr:0x0205eac8
 func_0205ead0 kind:function(arm,size=0x38) addr:0x0205ead0
@@ -2393,7 +2393,7 @@ func_0205ebfc kind:function(arm,size=0x24) addr:0x0205ebfc
 func_0205ec20 kind:function(arm,size=0xc) addr:0x0205ec20
 func_0205ec2c kind:function(arm,size=0x4) addr:0x0205ec2c
 func_0205ec30 kind:function(arm,size=0x4) addr:0x0205ec30
-func_0205ec34 kind:function(arm,size=0xc) addr:0x0205ec34
+GetFlagManager_0205ec34 kind:function(arm,size=0xc) addr:0x0205ec34
 func_0205ec40 kind:function(arm,size=0x30) addr:0x0205ec40
 func_0205ec70 kind:function(arm,size=0xd4c) addr:0x0205ec70
 func_0205f9bc kind:function(arm,size=0x8) addr:0x0205f9bc
@@ -2630,7 +2630,7 @@ func_0206dec8 kind:function(arm,size=0x20) addr:0x0206dec8
 func_0206dee8 kind:function(arm,size=0x2c) addr:0x0206dee8
 func_0206df14 kind:function(arm,size=0x58) addr:0x0206df14
 func_0206df6c kind:function(arm,size=0x44) addr:0x0206df6c
-func_0206dfb0 kind:function(arm,size=0x38) addr:0x0206dfb0
+IsFlagSet_0206dfb0 kind:function(arm,size=0x38) addr:0x0206dfb0
 func_0206dfe8 kind:function(arm,size=0x98) addr:0x0206dfe8
 func_0206e080 kind:function(arm,size=0x50) addr:0x0206e080
 func_0206e0d0 kind:function(arm,size=0x30) addr:0x0206e0d0
@@ -2761,7 +2761,7 @@ func_020728ac kind:function(arm,size=0x7c) addr:0x020728ac
 func_02072928 kind:function(arm,size=0x8c) addr:0x02072928
 func_020729b4 kind:function(arm,size=0x74) addr:0x020729b4
 func_02072a28 kind:function(arm,size=0x40) addr:0x02072a28
-func_02072a68 kind:function(arm,size=0x40) addr:0x02072a68
+FindStringInList_02072a68 kind:function(arm,size=0x40) addr:0x02072a68
 func_02072aa8 kind:function(arm,size=0x1c) addr:0x02072aa8
 func_02072ac4 kind:function(arm,size=0x18) addr:0x02072ac4
 func_02072adc kind:function(arm,size=0x20) addr:0x02072adc
@@ -3022,9 +3022,9 @@ func_0207dcf0 kind:function(arm,size=0x100) addr:0x0207dcf0
 func_0207ddf0 kind:function(arm,size=0x2c) addr:0x0207ddf0
 func_0207de1c kind:function(arm,size=0x2c) addr:0x0207de1c
 func_0207de48 kind:function(arm,size=0x108) addr:0x0207de48
-func_0207df50 kind:function(arm,size=0x40) addr:0x0207df50
-func_0207df90 kind:function(arm,size=0x1c) addr:0x0207df90
-func_0207dfac kind:function(arm,size=0x1c) addr:0x0207dfac
+ResetTextureVRAMState_0207df50 kind:function(arm,size=0x40) addr:0x0207df50
+RestoreTextureVRAMState_0207df90 kind:function(arm,size=0x1c) addr:0x0207df90
+SaveTextureVRAMState_0207dfac kind:function(arm,size=0x1c) addr:0x0207dfac
 func_0207dfc8 kind:function(arm,size=0x98) addr:0x0207dfc8
 _ZN11Animation3D17DefaultInitializeEv kind:function(arm,size=0x1c) addr:0x0207e060
 _ZN11Animation3D10SetRawFileEP14NSBXXContainer kind:function(arm,size=0x14) addr:0x0207e07c
@@ -4341,7 +4341,7 @@ func_020ac2d4 kind:function(arm,size=0xf4) addr:0x020ac2d4
 func_020ac3c8 kind:function(arm,size=0x98) addr:0x020ac3c8
 func_020ac460 kind:function(arm,size=0x34) addr:0x020ac460
 func_020ac494 kind:function(arm,size=0x2c) addr:0x020ac494
-func_020ac4c0 kind:function(arm,size=0x38) addr:0x020ac4c0
+GetBattleRecords_020ac4c0 kind:function(arm,size=0x38) addr:0x020ac4c0
 func_020ac4f8 kind:function(arm,size=0x11c) addr:0x020ac4f8
 func_020ac614 kind:function(arm,size=0x30) addr:0x020ac614
 func_020ac644 kind:function(arm,size=0x74) addr:0x020ac644
@@ -5696,7 +5696,7 @@ func_020d6b34 kind:function(arm,size=0x78) addr:0x020d6b34
 func_020d6bac kind:function(arm,size=0x1c) addr:0x020d6bac
 func_020d6bc8 kind:function(arm,size=0x1c) addr:0x020d6bc8
 func_020d6be4 kind:function(arm,size=0x1c) addr:0x020d6be4
-func_020d6c00 kind:function(arm,size=0xc) addr:0x020d6c00
+GetGlobalFlags_020d6c00 kind:function(arm,size=0xc) addr:0x020d6c00
 func_020d6c0c kind:function(arm,size=0x28) addr:0x020d6c0c
 func_020d6c34 kind:function(arm,size=0x34) addr:0x020d6c34
 func_020d6c68 kind:function(arm,size=0x34) addr:0x020d6c68
@@ -6022,7 +6022,7 @@ func_020e038c kind:function(arm,size=0x2c) addr:0x020e038c
 func_020e03b8 kind:function(arm,size=0x38) addr:0x020e03b8
 func_020e03f0 kind:function(arm,size=0x34) addr:0x020e03f0
 func_020e0424 kind:function(arm,size=0x10) addr:0x020e0424
-func_020e0434 kind:function(arm,size=0xc) addr:0x020e0434
+FindStringInTable_020e0434 kind:function(arm,size=0xc) addr:0x020e0434
 func_020e0440 kind:function(arm,size=0x2c) addr:0x020e0440
 func_020e046c kind:function(arm,size=0x88) addr:0x020e046c
 func_020e04f4 kind:function(arm,size=0x80) addr:0x020e04f4
@@ -7677,7 +7677,7 @@ data_020fe9cc kind:bss addr:0x020fe9cc
 _ZZ15inline_0202c04cvE1s kind:bss addr:0x020fefcc
 data_020fefd4 kind:bss addr:0x020fefd4
 data_020fefe0 kind:bss addr:0x020fefe0
-data_020fefec kind:bss addr:0x020fefec
+gLocalWireless_020fefec kind:bss addr:0x020fefec
 data_020feffc kind:bss addr:0x020feffc
 data_02100044 kind:bss addr:0x02100044
 data_02100a0f kind:bss addr:0x02100a0f
@@ -7749,7 +7749,7 @@ sSeq$22 kind:bss addr:0x02108748 local
 data_0210874c kind:bss addr:0x0210874c local
 data_02108750 kind:bss addr:0x02108750 local
 data_02108754 kind:bss addr:0x02108754
-data_02108760 kind:bss addr:0x02108760
+gSoundEffectManager_02108760 kind:bss addr:0x02108760
 data_02108830 kind:bss addr:0x02108830
 data_02108844 kind:bss addr:0x02108844
 data_02108ce0 kind:bss addr:0x02108ce0
@@ -7827,7 +7827,7 @@ data_02109bc8 kind:bss addr:0x02109bc8
 data_02109bcc kind:bss addr:0x02109bcc
 data_02109be0 kind:bss addr:0x02109be0
 data_02109be8 kind:bss addr:0x02109be8
-data_02109bf4 kind:bss addr:0x02109bf4
+gMusicManager_02109bf4 kind:bss addr:0x02109bf4
 data_02109cc4 kind:bss addr:0x02109cc4
 data_02109d88 kind:bss addr:0x02109d88
 data_02109d8c kind:bss addr:0x02109d8c
@@ -8004,12 +8004,12 @@ data_02114e00 kind:bss addr:0x02114e00
 data_02114e04 kind:bss addr:0x02114e04
 data_02114e08 kind:bss addr:0x02114e08
 data_02114e14 kind:bss addr:0x02114e14
-data_02114e20 kind:bss addr:0x02114e20
+gMainHeap_02114e20 kind:bss addr:0x02114e20
 g_keyManager kind:bss addr:0x02114e30
 data_02114e50 kind:bss addr:0x02114e50
 g_touchInput kind:bss addr:0x02114e54
 data_02114ec4 kind:bss addr:0x02114ec4
-data_0211e33c kind:bss addr:0x0211e33c
+gFileScratchSpace_0211e33c kind:bss addr:0x0211e33c
 data_0212020d kind:bss addr:0x0212020d
 data_0212633c kind:bss addr:0x0212633c
 data_02130f02 kind:bss addr:0x02130f02

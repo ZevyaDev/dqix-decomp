@@ -7,9 +7,6 @@
 #include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 enum { Enum_ov004_02164738_2292 = 0x9f4, Enum_ov004_02164738_2299 = 0x9fb, Enum_ov004_02164738_2320 = 0xa10, Enum_ov004_02164738_6399 = 0x19ff, Enum_ov004_02164738_452 = 0x1e4, Enum_ov004_02164738_1246 = 0x29e, Enum_ov004_02164738_2402 = 0x790 };
@@ -28,7 +25,7 @@ extern "C" void func_020dc2d0(int arg0);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void func_020a39d8(SafeAllocator* arg0);
 extern "C" unsigned char func_02011930(void* arg0, struct Struct_02011930* arg1, void* arg2, void* arg3);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
 extern "C" void func_0206f81c(void* arg0);
 extern "C" int func_0201b5d8(int arg0);
@@ -82,7 +79,7 @@ extern "C" ARM int func_ov004_02164738(void* arg0) {
 
     if (func_02011930(var3, NULL, NULL, NULL) != 0) {
         if (*((unsigned char*)var3 + 0x6000 + Enum_ov004_02164738_1246) != 0) {
-            if (func_020649b0(func_0205ec34(), 0x1b, var0)) {
+            if (func_020649b0(GetFlagManager_0205ec34(), 0x1b, var0)) {
                 func_0206f81c(var0);
             }
         }

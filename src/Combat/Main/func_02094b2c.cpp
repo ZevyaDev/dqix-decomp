@@ -9,7 +9,7 @@ extern "C" int sprintf(char*, const char*, ...);
 #endif
 
 // USA: func_02094b2c
-extern "C" ARM void func_02094b2c(Struct_0208cb08* arg0, int arg1, const char* arg2, unsigned char arg3,
+extern "C" ARM void func_02094b2c(FontLoader_0208cb08* arg0, int arg1, const char* arg2, unsigned char arg3,
                                unsigned char arg4) {
 #if defined(jpn)
     if (arg0->unknown_34_ >= 0) return;

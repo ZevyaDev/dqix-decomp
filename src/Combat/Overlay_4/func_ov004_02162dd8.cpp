@@ -38,11 +38,11 @@ struct Struct_ov004_021707e8_8 {
 extern Struct_ov004_021707e8_8 data_ov004_021707e8;
 extern int data_ov004_02170854[];
 extern char data_ov004_0217052d[];
-extern unsigned char data_0211e33c[0x30000];
+extern unsigned char gFileScratchSpace_0211e33c[0x30000];
 
 extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
 extern "C" Struct_ov004_02162dd8* func_ov011_021845f8(void*, int);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_0208274c(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3);
 
 static inline Struct_ov004_02162dd8_2* inline_ov000_0217fa60_2(int arg0, Struct_ov004_02162dd8_2* arg1, int arg2) {
@@ -83,12 +83,12 @@ extern "C" ARM int func_ov004_02162dd8(void* arg0) {
                     unsigned int var6;
                     Struct_0201099c_2 var7;
                     sprintf(var5, data_ov004_0217052d, data_ov004_02170854[var4]);
-                    if (LoadFileIntoMemory(var5, &data_0211e33c, &var6) != 0) {
+                    if (LoadFileIntoMemory(var5, &gFileScratchSpace_0211e33c, &var6) != 0) {
                         GameObject* var8 = func_0200ff1c(var0, var1[var3]);
                         if (var8 != 0) {
-                            unsigned char* var9 = (unsigned char*)func_02053c6c((unsigned char*)var8);
+                            unsigned char* var9 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var8);
                             if (var9 != 0) {
-                                func_0208274c(&var7, (Struct_02013fb4*)&data_0211e33c, var6, *(unsigned short*)(var9 + data_ov004_02170854[var4] * 2 + 0x16c));
+                                func_0208274c(&var7, (Struct_02013fb4*)&gFileScratchSpace_0211e33c, var6, *(unsigned short*)(var9 + data_ov004_02170854[var4] * 2 + 0x16c));
                                 Struct_ov004_02162dd8_2* var10 = inline_ov000_0217fa60_2(data_ov004_02170854[var4], data_ov004_021707e8.unknown_14_, var1[var3]);
                                 var10->unknown_0_[0].unknown_0_0_ = inline_ov004_02162dd8(&var7.unknown_0_.unknown_8_);
                                 var10->unknown_0_[0].unknown_1_2_ = inline_ov004_02162dd8_2(&var7.unknown_0_.unknown_8_) & 0x3ff;

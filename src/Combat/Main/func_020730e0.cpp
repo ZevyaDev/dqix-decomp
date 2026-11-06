@@ -7,8 +7,8 @@ enum { Enum_020730e0_340 = 0x154 };
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_020100a8(GameState* arg0);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct Struct_02052e2c;
 extern "C" short* func_02052e2c(struct Struct_02052e2c* arg0);
@@ -53,7 +53,7 @@ extern "C" ARM void func_020730e0(int arg0, int arg1) {
     short var8[12];
 
     if (arg0 < 0) {
-        arg0 = func_020100a8(var0);
+        arg0 = GetProtagonistObjectIndex_020100a8(var0);
     }
 
     var1 = func_0200ff1c(var0, arg0);
@@ -61,7 +61,7 @@ extern "C" ARM void func_020730e0(int arg0, int arg1) {
         return;
     }
 
-    var2 = func_02053c6c((unsigned char*)var1);
+    var2 = GetPartyMemberData_02053c6c((unsigned char*)var1);
     if (var2 == 0) {
         return;
     }

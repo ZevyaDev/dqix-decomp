@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-// USA: func_02012d88
-extern "C" ARM void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1) {
-    void* var0 = arg0->Allocate((arg1 + 3) & ~3);
-    if (var0 == NULL)
+// USA: AllocateRoundedSize_02012d88
+extern "C" ARM void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size) {
+    void* block = allocator->Allocate((size + 3) & ~3);
+    if (block == NULL)
         return NULL;
-    return var0;
+    return block;
 }

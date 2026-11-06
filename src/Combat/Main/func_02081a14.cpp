@@ -6,14 +6,14 @@
 #define func_0204f41c func_02050678
 #endif
 
-struct Struct_02072a68_2;
-struct Struct_020465c0;
+struct StringList_02072a68_2;
+struct MessageWindow_020465c0;
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
-extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
+extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 
-extern "C" void func_02046380(int arg0);
+extern "C" void ClearMessageParams_02046380(int window);
 #if defined(jpn)
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
@@ -26,7 +26,7 @@ extern "C" void func_0204f41c(void* arg0, short arg1, int arg2, void* arg3, int 
 #endif
 
 struct Struct_02081a14 {
-    struct Struct_02072a68_2* unknown_0_;
+    struct StringList_02072a68_2* unknown_0_;
     char unknown_4_[0x18 - 0x4];
     void* unknown_18_;
 };
@@ -68,13 +68,13 @@ extern "C" ARM void func_02081a14(struct Struct_02081a14* arg0, struct Struct_02
     int var1 = GetMessageWindow_020421a0();
 #if defined(jpn)
     memset(arg0->unknown_18_, 0, 0x800);
-    func_02046380(var1);
+    ClearMessageParams_02046380(var1);
     int var2 = arg2->unknown_10_;
-    func_020465c0((struct Struct_020465c0*)var1, var2, arg2->unknown_0_);
+    SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var1, var2, arg2->unknown_0_);
     func_020465d8((unsigned char*)var1, var2, arg2->unknown_14_0_);
     func_020465f0((unsigned char*)var1, var2, arg2->unknown_14_2_);
 
-    void* var3 = func_02072a68(arg0->unknown_0_, arg2->unknown_e_);
+    void* var3 = FindStringInList_02072a68(arg0->unknown_0_, arg2->unknown_e_);
     func_02046608(var1, arg2->unknown_13_0_, var3, arg0->unknown_18_);
 
     int var4 = arg2->unknown_13_0_;
@@ -85,10 +85,10 @@ extern "C" ARM void func_02081a14(struct Struct_02081a14* arg0, struct Struct_02
                   arg2->unknown_13_0_, var0, &arg2->unknown_a_, &arg2->unknown_c_);
 #else
     memset(arg0->unknown_18_, 0, 0x960);
-    func_02046380(var1);
-    func_020465c0((struct Struct_020465c0*)var1, arg2->unknown_10_, arg2->unknown_0_);
+    ClearMessageParams_02046380(var1);
+    SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var1, arg2->unknown_10_, arg2->unknown_0_);
 
-    void* var5 = func_02072a68(arg0->unknown_0_, arg2->unknown_e_);
+    void* var5 = FindStringInList_02072a68(arg0->unknown_0_, arg2->unknown_e_);
     func_02046608(var1, arg2->unknown_13_0_, var5, arg0->unknown_18_, 0x100, 0, 0);
 
     int var6 = 0;

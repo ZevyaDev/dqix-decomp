@@ -5,7 +5,7 @@
 #include "Memory/SafeAllocator.h"
 #include "World/Zone3D.h"
 
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 struct Struct_02000c9c_8;
 #if defined(jpn)
 enum { Enum_ov017_0219b624_1276 = 0x4ac };
@@ -19,15 +19,15 @@ enum { Enum_ov017_0219b624_1276 = 0x4fc };
 #endif
 struct Struct_ov017_021d656c { int unknown_0_; const char* unknown_4_; };
 extern const Struct_ov017_021d656c data_ov017_021d656c[];
-extern int data_0211e33c __attribute__((aligned(4)));
+extern int gFileScratchSpace_0211e33c __attribute__((aligned(4)));
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
 bool GetFileInNarc(const void*, const char*, const void**, unsigned int*, unsigned int);
 extern const char data_ov017_021d7504[], data_ov017_021d7510[], data_ov017_021d751b[];
 extern const char data_ov017_021d751f[], data_ov017_021d7526[], data_ov017_021d7530[], data_ov017_021d753a[];
 extern const char data_ov017_021d7544[], data_ov017_021d7555[], data_ov017_021d7567[];
-extern "C" void func_0207df50(Struct_0203d028*);
-extern "C" void func_0207df90(char*);
-extern "C" void func_0207dfac(char*);
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
+extern "C" void RestoreTextureVRAMState_0207df90(char*);
+extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" int func_0200fb08(Struct_02000c9c_8*);
 extern "C" void* func_0208e9e8();
 extern "C" void func_02096604(char*, int);
@@ -53,24 +53,24 @@ extern "C" ARM void func_ov017_0219b624(GameResources* arg0) {
     var1 = GetZone3D_02012fe4();
     BackgroundLoader::GetInstance();
     var2 = &arg0->allocator_array_38[5];
-    Struct_0203d028* var4 = reinterpret_cast<Struct_0203d028*>(reinterpret_cast<char*>(arg0) + Enum_ov017_0219b624_1276);
+    TextureVRAMArea_0203d028* var4 = reinterpret_cast<TextureVRAMArea_0203d028*>(reinterpret_cast<char*>(arg0) + Enum_ov017_0219b624_1276);
     var2->Reset();
-    func_0207df50(var4);
+    ResetTextureVRAMState_0207df50(var4);
     BackgroundLoader::AddLockGlobal();
     char var5[0x50];
     unsigned int var6;
     sprintf(var5, data_ov017_021d7504, data_ov017_021d7510);
-    if (!LoadFileIntoMemory(var5, &data_0211e33c, &var6)) {
+    if (!LoadFileIntoMemory(var5, &gFileScratchSpace_0211e33c, &var6)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    func_0207df90((char*)var4);
+    RestoreTextureVRAMState_0207df90((char*)var4);
     NarcHandle var7;
-    if (!var7.Initialize(data_ov017_021d751b, (const unsigned char*)&data_0211e33c)) {
+    if (!var7.Initialize(data_ov017_021d751b, (const unsigned char*)&gFileScratchSpace_0211e33c)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    func_02018d28(var1, var2, &data_0211e33c, var6);
+    func_02018d28(var1, var2, &gFileScratchSpace_0211e33c, var6);
     char var8[0x50];
     int var9 = 0;
     for (; data_ov017_021d656c[var9].unknown_0_ >= 0; var9++) {
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov017_0219b624(GameResources* arg0) {
     var7.Destroy();
     func_02057924();
     unsigned int var14;
-    if (GetFileInNarc(&data_0211e33c, data_ov017_021d7567, &var13, &var14, 0)) {
+    if (GetFileInNarc(&gFileScratchSpace_0211e33c, data_ov017_021d7567, &var13, &var14, 0)) {
         Object3D* var15 = (Object3D*)var2->Allocate(0xac);
         if (var15 != 0) {
             var15->Initialize();
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov017_0219b624(GameResources* arg0) {
     }
     BackgroundLoader::RemoveLockGlobal();
     func_02096604(static_cast<char*>(arg0->unknown_ptr_4328), (int)var2);
-    func_0207dfac((char*)var4);
+    SaveTextureVRAMState_0207dfac((char*)var4);
     var1->unknown_480_[0] = &arg0->substruct_array_2b90[5];
     var1->unknown_480_[1] = &arg0->substruct_array_2b90[6];
     var1->unknown_480_[2] = &arg0->substruct_array_2b90[7];

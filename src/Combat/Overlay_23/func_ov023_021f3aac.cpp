@@ -119,7 +119,7 @@ extern const char data_ov023_021fe2a0[];
 extern const char data_ov023_021fe2b7[];
 
 extern "C" char* GetMessageWindow_020421a0();
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_ov023_021d8b6c(void* arg0);
 extern "C" void func_0209fe9c(char* arg0);
 extern "C" void func_0209fee4(Struct_0209fee4* arg0, SafeAllocator* arg1, int arg2, int arg3);
@@ -131,7 +131,7 @@ extern "C" void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short a
 extern "C" void* func_020dfc2c(void* arg0);
 extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
 extern "C" void* func_020a15bc(Struct_020a15bc* arg0, int arg1);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_ov023_021f222c(Struct_ov023_021f1868_11* arg0);
 extern "C" void func_ov023_021f2304(void* arg0, char* arg1);
 extern "C" void func_ov023_021f2348(void* arg0, int arg1);
@@ -158,7 +158,7 @@ extern "C" ARM int func_ov023_021f3aac(Struct_ov023_021f3aac_4* arg0)
     int var2 = var0->unknown_0_;
     if (var2 == 0)
     {
-        func_02043204(GetMessageWindow_020421a0());
+        ResetMessageWindow_02043204(GetMessageWindow_020421a0());
         if (arg0->unknown_5588_ != NULL)
         {
             func_ov023_021f1818(arg0->unknown_3760_, 1);
@@ -231,7 +231,7 @@ extern "C" ARM int func_ov023_021f3aac(Struct_ov023_021f3aac_4* arg0)
                 void* var15 = func_020a15bc((Struct_020a15bc*)arg0->unknown_55c8_, var7[var9]);
                 if (var15 == NULL)
                     continue;
-                const char* var16 = func_020e0434((Struct_0201099c_3*)&var14, var7[var9]);
+                const char* var16 = FindStringInTable_020e0434((Struct_0201099c_3*)&var14, var7[var9]);
                 if (var16 == NULL)
                     continue;
                 func_ov023_021f222c((Struct_ov023_021f1868_11*)&var8[var9]);
@@ -267,7 +267,7 @@ extern "C" ARM int func_ov023_021f3aac(Struct_ov023_021f3aac_4* arg0)
                 void* var21 = func_020a15bc((Struct_020a15bc*)arg0->unknown_55c8_, var7[var9]);
                 if (var21 == NULL)
                     continue;
-                const char* var22 = func_020e0434((Struct_0201099c_3*)&var14, var7[var9]);
+                const char* var22 = FindStringInTable_020e0434((Struct_0201099c_3*)&var14, var7[var9]);
                 if (var22 == NULL)
                     continue;
                 func_ov023_021f222c((Struct_ov023_021f1868_11*)&arg0->unknown_55d0_[var9]);

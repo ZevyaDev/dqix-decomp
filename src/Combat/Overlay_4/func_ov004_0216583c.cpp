@@ -17,7 +17,7 @@ struct Struct_ov004_0216342c {
 };
 
 extern char* data_ov004_02171010;
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 #if defined(jpn)
 // USA: func_ov004_0216583c
@@ -28,6 +28,6 @@ extern "C" ARM int func_ov004_0216583c(void* arg0) {
 #endif
     Struct_ov004_0216342c* var0 = (Struct_ov004_0216342c*)data_ov004_02171010;
     var0->unknown_18fd_ = 1;
-    func_ov011_021848a0(arg0, 0x65);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x65);
     return 0;
 }

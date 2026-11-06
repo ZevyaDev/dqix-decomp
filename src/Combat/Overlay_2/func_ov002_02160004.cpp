@@ -2,8 +2,8 @@
 
 struct Struct_0201099c_3;
 
-extern "C" int func_020e0434(struct Struct_0201099c_3 *arg0, int arg1);
-extern "C" int func_02042058(char *arg0, const char *arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
+extern "C" int AppendText_02042058(char *buffer, const char *text);
 
 struct Struct_ov002_02160004 {
     char unknown_0_[0x6c];
@@ -31,6 +31,6 @@ extern "C" ARM void func_ov002_02160004(char *arg0, char *arg1) {
         return;
     }
 
-    int var4 = func_020e0434((struct Struct_0201099c_3 *) (arg0 + RG(0x20, 8)), (short) (var3 + 0xfbe));
-    func_02042058(arg1, (const char *) var4);
+    int var4 = FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + RG(0x20, 8)), (short) (var3 + 0xfbe));
+    AppendText_02042058(arg1, (const char *) var4);
 }

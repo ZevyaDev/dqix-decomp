@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
 struct Struct_ov009_0218aa28 {
     int unknown_0_;
@@ -61,8 +61,8 @@ extern "C" ARM int func_020781e8(struct Struct_020781e8* arg0) {
     }
 
     int var2 = 0;
-    void* var3 = func_0202ae18();
-    if (!func_0202b7d8((int*)var3) || func_0202c1a4((struct Struct_0202c1a4*)var3) == 0) {
+    void* var3 = GetLocalWireless_0202ae18();
+    if (!IsLocalWirelessOn_0202b7d8((int*)var3) || GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var3) == 0) {
         struct Struct_ov009_0218aa28 var4 = func_02034104(var1);
         struct Struct_ov009_0218aa28 var5;
         Vector3fix_Subtract((const Vector3fix*)&var4, (const Vector3fix*)&arg0->unknown_44_, (Vector3fix*)&var5);
@@ -83,7 +83,7 @@ extern "C" ARM int func_020781e8(struct Struct_020781e8* arg0) {
     ((Object3D*)((unsigned char*)arg0))->DisableFlag(0x80);
     arg0->unknown_17a_ = 0;
 
-    if (func_0202b7d8((int*)var3) && func_0202c1a4((struct Struct_0202c1a4*)var3) == 0) {
+    if (IsLocalWirelessOn_0202b7d8((int*)var3) && GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var3) == 0) {
         int var6 = ((Object3D*)((struct Struct_02039df4*)arg0))->GetField06();
         int var7 = arg0->unknown_2_;
         struct Struct_ov009_0218aa28* var8 = &arg0->unknown_158_;

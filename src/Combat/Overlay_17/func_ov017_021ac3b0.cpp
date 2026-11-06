@@ -6,9 +6,6 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
@@ -22,7 +19,7 @@ enum { Enum_ov017_021ac3b0_2400 = 0x960 };
 
 struct Struct_02018300_3;
 struct Struct_02033834_2;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_020d805c;
 struct Struct_020d7aa0_2;
 struct Struct_02013fb4;
@@ -58,11 +55,11 @@ extern "C" Struct_ov017_021ac3b0_8* GetZone3D_02012fe4();
 extern "C" Struct_ov017_021ac3b0_3* GetMessageWindow_020421a0();
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" int func_ov017_021959b4();
-extern "C" void func_02043204(char*);
+extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_ov017_021ac32c(Struct_ov017_021ac3b0_2*);
 extern "C" int func_020100f8(char*);
 extern "C" void func_020a28a0(unsigned char*, unsigned char);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void* func_020d7a50();
 extern "C" int func_020d805c(Struct_020d805c*);
 extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
@@ -74,11 +71,11 @@ extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 extern "C" void func_020a0cc4(unsigned int);
 extern "C" void func_02033834(Struct_02033834_2*, int);
 extern "C" void func_020a0c0c();
-extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_ov017_021acc8c(void*, Struct_02013fb4*, int, int);
-extern "C" Struct_ov017_021ac3b0_4* func_0205ec34();
-extern "C" int func_0206dfb0(int, unsigned char*, int);
-extern "C" void func_02042058(char*, const char*);
+extern "C" Struct_ov017_021ac3b0_4* GetFlagManager_0205ec34();
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" void AppendText_02042058(char*, const char*);
 extern "C" const char* func_020e51cc(int);
 extern "C" char* func_0206f504();
 extern "C" void func_0206f510(char*);
@@ -89,14 +86,14 @@ extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 extern "C" void func_020397c0(void*);
 extern "C" int func_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(Struct_ov017_021ac3b0_5*);
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 #if defined(jpn)
 extern const char data_ov017_021d7e88[], data_ov017_021d7e96[];
 extern const char data_ov017_021d7eb0[], data_ov017_021d7ed2[];
 #else
 extern const char data_ov017_021d7920[], data_ov017_021d792f[], data_ov017_021d7949[];
 #endif
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov017_021ac3b0
 extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
@@ -106,16 +103,16 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
     Struct_ov017_021ac3b0_8* var2 = GetZone3D_02012fe4();
     Struct_ov017_021ac3b0_3* var3 = GetMessageWindow_020421a0();
     BackgroundLoader* var4 = BackgroundLoader::GetInstance();
-    Struct_0208cb08* var5 = func_02094a00();
+    FontLoader_0208cb08* var5 = func_02094a00();
     func_020397cc((Struct_02018300_3*)var1, 1);
     if (!arg0->unknown_29_ && func_ov017_021959b4()) {
-        arg0->unknown_29_ = 1; func_02043204((char*)var3);
+        arg0->unknown_29_ = 1; ResetMessageWindow_02043204((char*)var3);
         func_ov017_021ac32c(arg0); arg0->unknown_1_ = 1; return;
     }
     if (arg0->unknown_28_ == 0) {
         int var6 = func_020100f8((char*)var0);
         if (var6) func_020a28a0((unsigned char*)var6, 3);
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         void* var7 = func_020d7a50();
         if (func_020d805c((Struct_020d805c*)var7)) func_020d7aa0((Struct_020d7aa0_2*)var7);
 #if defined(jpn)
@@ -153,7 +150,7 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
         }
         void* var11; unsigned int var12;
         var4->GetLoadedFileByID(arg0->unknown_24_, &var11, &var12);
-        arg0->unknown_10_.CreateTypeA(func_02012d88(&data_02114e20, 0x2800), 0x2800);
+        arg0->unknown_10_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x2800), 0x2800);
         arg0->unknown_10_.Reset();
         Struct_ov017_021ac3b0_8* var13 = GetZone3D_02012fe4();
         Struct_ov017_021ac3b0_9* var14 = (Struct_ov017_021ac3b0_9*)arg0->unknown_10_.Allocate(0x18);
@@ -171,20 +168,20 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
         if (arg0->unknown_c_->unknown_17_) {
             const char* var17 = arg0->unknown_c_->unknown_0_;
             if (arg0->unknown_c_->unknown_14_ == 1) {
-                Struct_ov017_021ac3b0_4* var18 = func_0205ec34();
-                if (func_0206dfb0((int)var18, var18->unknown_8c_, 0x777)) {
+                Struct_ov017_021ac3b0_4* var18 = GetFlagManager_0205ec34();
+                if (IsFlagSet_0206dfb0((int)var18, var18->unknown_8c_, 0x777)) {
                     var17 = arg0->unknown_c_->unknown_4_;
-                    if (func_0206dfb0((int)var18, var18->unknown_8c_, arg0->unknown_c_->unknown_15_ + 0x114c) && arg0->unknown_c_->unknown_8_)
+                    if (IsFlagSet_0206dfb0((int)var18, var18->unknown_8c_, arg0->unknown_c_->unknown_15_ + 0x114c) && arg0->unknown_c_->unknown_8_)
                         var17 = arg0->unknown_c_->unknown_8_;
                 }
             }
-            if (var17) func_02042058(var16, var17);
+            if (var17) AppendText_02042058(var16, var17);
 #if defined(jpn)
-            else func_02042058(var16, data_ov017_021d7eb0);
-        } else func_02042058(var16, data_ov017_021d7ed2);
+            else AppendText_02042058(var16, data_ov017_021d7eb0);
+        } else AppendText_02042058(var16, data_ov017_021d7ed2);
 #else
-            else func_02042058(var16, func_020e51cc(0x3f2));
-        } else func_02042058(var16, func_020e51cc(0x53));
+            else AppendText_02042058(var16, func_020e51cc(0x3f2));
+        } else AppendText_02042058(var16, func_020e51cc(0x53));
 #endif
         if (strlen(var16) >= Enum_ov017_021ac3b0_2400) var16[Enum_ov017_021ac3b0_2400 - 1] = 0;
         char* var19 = func_0206f504();
@@ -197,9 +194,9 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
         var3->unknown_998_ = 1; var3->unknown_19b2_ = 0; arg0->unknown_28_ = 5;
     } else if (arg0->unknown_28_ == 5) {
         if (var3->unknown_998_) return;
-        Struct_ov017_021ac3b0_4* var20 = func_0205ec34();
-        if (func_0206dfb0((int)var20, var20->unknown_8c_, 0x777) && arg0->unknown_c_->unknown_14_ == 1 &&
-            !func_0206dfb0((int)var20, var20->unknown_8c_, arg0->unknown_c_->unknown_15_ + 0x114c)) {
+        Struct_ov017_021ac3b0_4* var20 = GetFlagManager_0205ec34();
+        if (IsFlagSet_0206dfb0((int)var20, var20->unknown_8c_, 0x777) && arg0->unknown_c_->unknown_14_ == 1 &&
+            !IsFlagSet_0206dfb0((int)var20, var20->unknown_8c_, arg0->unknown_c_->unknown_15_ + 0x114c)) {
             unsigned char var21 = arg0->unknown_c_->unknown_16_;
             if (var21) {
                 Struct_ov017_021ac3b0* var22 = (Struct_ov017_021ac3b0*)arg0->unknown_10_.Allocate(var21 * 4);
@@ -213,13 +210,13 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
             }
             func_0206df6c(var20, var20->unknown_8c_, arg0->unknown_c_->unknown_15_ + 0x114c, 1);
         }
-        Struct_0208cb08* var25 = func_02094a00(); func_02094ab0(var25);
+        FontLoader_0208cb08* var25 = func_02094a00(); func_02094ab0(var25);
         func_02094b34(var25, 0x6f, 0x1388, 1, 1);
         arg0->unknown_28_ = 6;
     } else if (arg0->unknown_28_ == 6) {
         if (!func_02094b4c(func_02094a00())) return;
         func_ov017_021ac32c(arg0); func_020397c0(var1); arg0->unknown_1_ = 1;
-        Struct_ov017_021ac3b0_4* var26 = func_0205ec34();
+        Struct_ov017_021ac3b0_4* var26 = GetFlagManager_0205ec34();
         Struct_ov017_021ac3b0_5 var27;
         var27.unknown_c_ = var2->unknown_0_; var27.unknown_24_ = arg0->unknown_8_->unknown_0_;
         if (func_020649b0(var26, 0x18, &var27)) func_0206f81c(&var27);

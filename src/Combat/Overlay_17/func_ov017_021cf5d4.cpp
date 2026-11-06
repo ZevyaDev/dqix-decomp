@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_02046b1c;
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_02046b1c(struct Struct_02046b1c* arg0);
 extern "C" void func_02070378(char*);
 struct Struct_02011b24;
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov017_021cf5d4(void* arg0, struct Struct_ov017_021cf5d4
 #else
  enum {Enum_ov017_021cf5d4_1788=0x6fc};
 #endif
-    int var0 = func_020100a8(arg2);
+    int var0 = GetProtagonistObjectIndex_020100a8(arg2);
     if (arg1->unknown_6_ != var0) {
         return;
     }

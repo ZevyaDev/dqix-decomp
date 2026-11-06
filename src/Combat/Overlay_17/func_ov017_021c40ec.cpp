@@ -7,7 +7,7 @@ enum { Enum_ov017_021c40ec_14132 = 0x3734, Enum_ov017_021c40ec_384 = 0x180 };
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
 extern "C" void func_02052d7c(void* arg0, int arg1, short arg2);
 extern "C" void func_ov017_0218f5a4(void* arg0, int arg1, int arg2, int arg3, int arg4);
@@ -23,7 +23,7 @@ struct Struct_ov017_021c40ec {
 // USA: func_ov017_021c40ec
 extern "C" ARM void func_ov017_021c40ec(void* arg0, struct Struct_ov017_021c40ec* arg1, GameState* arg2, void* arg3) {
     int var0 = arg1->unknown_4_0_;
-    char* var1 = (char*)func_02010828(arg2);
+    char* var1 = (char*)GetParty_02010828(arg2);
     if (var1 != NULL) {
         int var2;
         for (var2 = 0; var2 < *(unsigned char*)(var1 + 0xf7c); var2++) {

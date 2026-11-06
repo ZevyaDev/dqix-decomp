@@ -45,7 +45,7 @@ extern "C" ARM void func_ov024_021e5c7c(Struct_ov024_021e5c7c_3* arg0, int arg1,
     if ((int)(float)NextRandomMax((Random*)arg0->unknown_10_, 2) <= 0) return;
     void* var1 = func_ov000_0215e958(arg0->unknown_10_);
     if (!var1) return;
-    Struct_ov024_021e5c7c_4* var2 = (Struct_ov024_021e5c7c_4*)func_02010828(GameState::GetInstance());
+    Struct_ov024_021e5c7c_4* var2 = (Struct_ov024_021e5c7c_4*)GetParty_02010828(GameState::GetInstance());
     int var3;
     int var4;
     Struct_ov024_021e5c7c_2* var5 = arg0->unknown_c_;

@@ -11,9 +11,6 @@
 #endif
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_ov004_02153e20;
 
@@ -68,33 +65,33 @@ public:
     virtual Struct_ov004_02153e20_3** inline_ov004_02153e20_60();
 };
 
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
-extern "C" unsigned char* func_0205ec34(void);
+extern "C" unsigned char* GetFlagManager_0205ec34(void);
 extern "C" int func_ov023_021f9b30(struct Struct_ov004_02153e20* arg0, unsigned short arg1, unsigned int arg2, unsigned int arg3);
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void func_ov023_021f9d14(void* arg0, void* arg1);
 extern "C" void func_ov023_021f809c(void* arg0, void* arg1);
 extern "C" int func_ov004_02153d8c(void* arg0);
 
 // USA: func_ov004_02153e20
 extern "C" ARM int func_ov004_02153e20(void* arg0) {
-    void* var0 = func_ov011_021849c8(arg0);
+    void* var0 = GetMenuObjectList_ov011_021849c8(arg0);
     short var1, var2;
-    Struct_ov004_02153e20_4* var3 = (Struct_ov004_02153e20_4*)func_ov023_021f6880(var0, 0x2c);
+    Struct_ov004_02153e20_4* var3 = (Struct_ov004_02153e20_4*)FindMenuObjectById_ov023_021f6880(var0, 0x2c);
     if (!var3) return 0;
     if (func_ov023_021f6f10(var3) != 7) return 0;
     var1 = var3->unknown_5c_;
     var2 = var3->unknown_5e_;
-    Struct_ov004_02153e20_7* var4 = (Struct_ov004_02153e20_7*)func_ov023_021f6880(var0, 0x39);
+    Struct_ov004_02153e20_7* var4 = (Struct_ov004_02153e20_7*)FindMenuObjectById_ov023_021f6880(var0, 0x39);
     if (!var4) return 0;
     if (func_ov023_021f6f10(var4) != 0x12) return 0;
     Struct_ov004_02153e20_3** var5 = var4->inline_ov004_02153e20_60();
     if (!var5) return 0;
     Struct_ov004_02153e20_3* var6 = *var5;
     if (!var6) return 0;
-    unsigned char* var7 = func_0205ec34();
+    unsigned char* var7 = GetFlagManager_0205ec34();
 
     short var8 = var1 * 16;
     short var9 = 0;
@@ -106,7 +103,7 @@ extern "C" ARM int func_ov004_02153e20(void* arg0) {
 
     for (short var10 = 0; var10 < 16; var10++) {
         int var11 = var10 + 0x1a;
-        Struct_ov004_02153e20_5* var12 = (Struct_ov004_02153e20_5*)func_ov023_021f6880(var0, var11);
+        Struct_ov004_02153e20_5* var12 = (Struct_ov004_02153e20_5*)FindMenuObjectById_ov023_021f6880(var0, var11);
         if (var12 && func_ov023_021f6f10(var12) == 8) {
             var12->unknown_20_ = 0;
             var12->unknown_c_ &= ~8;
@@ -119,7 +116,7 @@ extern "C" ARM int func_ov004_02153e20(void* arg0) {
                 if (var13) {
                     int var14 = (unsigned short)((var13->unknown_c_ << 9) >> 21);
                     if (var14 > 0) {
-                        if (func_0206dfb0((int)var7, var7 + 0x8c, var14 + 0x76 + 0xc00)) {
+                        if (IsFlagSet_0206dfb0((int)var7, var7 + 0x8c, var14 + 0x76 + 0xc00)) {
                             var12->unknown_20_ = var13->unknown_4_;
                         }
                     }
@@ -130,7 +127,7 @@ extern "C" ARM int func_ov004_02153e20(void* arg0) {
     }
 
     func_ov023_021f9d14(var3, arg0);
-    Struct_ov004_02153e20_6* var15 = (Struct_ov004_02153e20_6*)func_ov023_021f6880(var0, 3);
+    Struct_ov004_02153e20_6* var15 = (Struct_ov004_02153e20_6*)FindMenuObjectById_ov023_021f6880(var0, 3);
     if (!var15) return 0;
     if (func_ov023_021f6f10(var15) != 6) return 0;
     var15->unknown_104_ = var1;

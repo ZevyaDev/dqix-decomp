@@ -5,10 +5,10 @@
 
 struct Struct_02048150;
 extern "C" int func_02086ef0(Struct_02048150 *arg0, int arg1);
-extern "C" int func_0202b7d8(int *arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" int func_ov002_02154b94(void *arg0, int arg1);
 extern "C" int func_ov002_02154a34(void *arg0, int arg1);
-extern "C" int *func_0202ae18(void);
+extern "C" int *GetLocalWireless_0202ae18(void);
 extern "C" void func_ov002_02153e90(char *arg0);
 extern "C" int func_ov002_02154a6c(char *arg0, int arg1, int arg2);
 extern "C" int func_ov002_02153be0(char *arg0, int arg1, int arg2);
@@ -37,8 +37,8 @@ extern "C" ARM int func_ov002_02154230(char *arg0, struct Struct_ov002_02154230 
     if (arg2 == 0) return 0;
     GameState *var0                  = GameState::GetInstance();
     GameResources *var1             = GetGameResources();
-    Struct_02048150 *var2 = (Struct_02048150 *) func_02010828(var0);
-    int *var3                       = func_0202ae18();
+    Struct_02048150 *var2 = (Struct_02048150 *) GetParty_02010828(var0);
+    int *var3                       = GetLocalWireless_0202ae18();
     struct Struct_ov002_02154230_2 *var4       = (struct Struct_ov002_02154230_2 *) ((char *) arg1 + 8);
     unsigned char var5              = 0;
     if (arg3) var4 = (struct Struct_ov002_02154230_2 *) ((char *) arg1 + 0x20);
@@ -87,7 +87,7 @@ extern "C" ARM int func_ov002_02154230(char *arg0, struct Struct_ov002_02154230 
         } else {
             func_02048150(var12, var10, 1);
         }
-        if (func_0202b7d8(var3) && func_02086ef0(var2, var9)) {
+        if (IsLocalWirelessOn_0202b7d8(var3) && func_02086ef0(var2, var9)) {
             func_ov017_021c9e00(var9, 1, 0, 1);
         }
         if (func_02086ef0(var2, var9)) {

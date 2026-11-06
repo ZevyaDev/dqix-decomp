@@ -26,7 +26,7 @@ struct Struct_0201099c_14;
 extern "C" void func_020dfc40(Struct_0201099c_14*);
 extern "C" void func_ov023_021e20c0(void*);
 extern "C" void func_020de848(void*);
-extern "C" unsigned int func_020100a8(GameState*);
+extern "C" unsigned int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void* memset(void*,int,unsigned int);
 extern "C" unsigned int func_020114ec(char*, void*);
 extern "C" void func_ov003_0215873c(void*);
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov003_02154720(void* arg0,unsigned char arg1) {
  var1->unknown_174_=(*(volatile unsigned int*)0x04000000&0x1f00)>>8;
  *(volatile unsigned int*)0x04000000=(*(volatile unsigned int*)0x04000000&~0x1f00)|0x100;
  var5=GameState::GetInstance();
- var2=(Struct_ov003_02154720*)func_02010828(var5);
+ var2=(Struct_ov003_02154720*)GetParty_02010828(var5);
  var1->unknown_0_=0;var1->unknown_4_=0;var1->unknown_c_=0;var1->unknown_8_=0;var1->unknown_10_=0;var1->unknown_14_=0;var1->unknown_18_=0;var1->unknown_20_=0;var1->unknown_24_=0;var1->unknown_28_=0;
  func_0205a444((char*)var1->unknown_2c_);
  func_02081ee4((Struct_02081ee4*)var1->unknown_80_, (Struct_02081ee4_2*)var1->unknown_8c_);
@@ -54,12 +54,12 @@ extern "C" ARM void func_ov003_02154720(void* arg0,unsigned char arg1) {
  func_020de848(var1->unknown_178_);
  var1->unknown_1d0_=-1;var1->unknown_1d4_=0;var1->unknown_1d8_=0;var1->unknown_1dc_=0;
  var1->unknown_1e0_=-1;var1->unknown_1e2_=-1;var1->unknown_1e4_=-1;var1->unknown_1e6_=-1;var1->unknown_1e8_=-1;var1->unknown_1ea_=-1;var1->unknown_1ee_=-1;var1->unknown_1ec_=var1->unknown_1ee_;var1->unknown_1f0_=-1;
- var1->unknown_1f7_=func_020100a8(var5);
+ var1->unknown_1f7_=GetProtagonistObjectIndex_020100a8(var5);
  var1->unknown_1f8_=0;var1->unknown_1f9_=0;var1->unknown_1fa_=0;var1->unknown_1fb_=0;var1->unknown_1fc_=0;var1->unknown_200_=0;var1->unknown_204_=0;
  var1->unknown_330_=0;var1->unknown_334_=0;var1->unknown_338_=0;var1->unknown_339_=0;var1->unknown_33a_=0;
  for(var6=0;var6<4;var6++) { var1->unknown_1f2_[var6]=0;memset(&var1->unknown_190_[var6],0,4); }
  var1->unknown_1f6_=func_020114ec((char*)var5, var1->unknown_1f2_);
- Struct_ov003_02154720* var7=(Struct_ov003_02154720*)func_02010828(var5);
+ Struct_ov003_02154720* var7=(Struct_ov003_02154720*)GetParty_02010828(var5);
  var3=var1->unknown_1f6_;
  for(int var8=0;var8<var3;var8++) {
   int var9;

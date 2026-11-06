@@ -8,7 +8,7 @@ enum { Enum_020235c8_2497 = 0x9c1, Enum_020235c8_2711 = 0xa97, Enum_020235c8_327
 
 #include "GameState/GameState.h"
 
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 
 struct Struct_02012de8;
 extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
@@ -50,7 +50,7 @@ struct Struct_0202343c_3 {
 extern "C" ARM void func_020235c8(struct Struct_0202343c_3* arg0) {
     GameState* var0 = GameState::GetInstance();
 
-    if (func_02046708((struct Struct_02012de8*)func_020d6c00(), 0x41)) {
+    if (func_02046708((struct Struct_02012de8*)GetGlobalFlags_020d6c00(), 0x41)) {
         return;
     }
 

@@ -17,8 +17,8 @@ extern "C" ARM void func_0206efd8(void* arg0, void* arg1) {
     BackgroundLoader::AddLockGlobal();
     unsigned int var0;
 #if defined(jpn)
-    LoadFileIntoMemory(&data_020f0bc0, data_0211e33c, &var0);
-    void* var1 = data_0211e33c;
+    LoadFileIntoMemory(&data_020f0bc0, gFileScratchSpace_0211e33c, &var0);
+    void* var1 = gFileScratchSpace_0211e33c;
 #else
     void* var1 = ExtractFileFromGP2(&data_020f0a64, &data_020f0a7a, &var0);
 #endif

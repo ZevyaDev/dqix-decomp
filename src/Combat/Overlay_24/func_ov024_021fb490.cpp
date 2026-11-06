@@ -81,7 +81,7 @@ struct Struct_ov024_021fb490_6 { unsigned int unknown_0_0_ : 1; unsigned int unk
 struct Struct_ov024_021da670_6;
 struct Struct_ov024_021dd028_5;
 
-extern "C" int func_02053c6c(unsigned char*);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" void* func_020797dc();
 extern "C" void* func_02079ee0(void*, int);
 extern "C" float func_02074948(int);
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov024_021fb490(Struct_ov024_021fb490_5* arg0) {
     unsigned char* var7;
     Struct_ov024_021fb490_3** var8;
     var7 = arg0->unknown_8_;
-    func_02053c6c(arg0->unknown_8_);
+    GetPartyMemberData_02053c6c(arg0->unknown_8_);
     var4 = func_020797dc();
     var3 = arg0->unknown_25c_.unknown_3f0_;
     int var9 = arg0->unknown_25c_.unknown_3ec_;

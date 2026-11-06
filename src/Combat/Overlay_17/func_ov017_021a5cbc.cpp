@@ -37,8 +37,8 @@ struct Struct_0204c7a8 {
     unsigned short unknown_c2_;
 };
 struct Struct_02020cb8_5;
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 struct Struct_02020cb8_2;
 struct Struct_0205cf78;
 struct Struct_0205cf78_2;
@@ -55,8 +55,8 @@ extern "C" void func_0204b11c(unsigned char*, int);
 extern "C" void func_0204b5b4(Struct_ov017_021a5ad0*, unsigned char);
 extern "C" void func_0204b5e8(Struct_02020cb8_5*, int, int);
 extern "C" void ColorEffect_ConfigureAlphaBlend(void*, int, int, int, int);
-extern "C" int func_02046900(Struct_02020cb8_4*);
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void func_0204b174(Struct_ov017_021a5ad0*, void*, SafeAllocator*, int);
 extern "C" void func_0205a198(Struct_02043368_2*);
 extern "C" void func_0205a444(char*);
@@ -114,10 +114,10 @@ extern "C" ARM void func_ov017_021a5cbc(GameResources* arg0) {
         void* var6;
         unsigned int var7;
         var4->GetLoadedFileByID((*reinterpret_cast<int*>(arg0->unknown_4094 + 0x128)), &var6, &var7);
-        int var8 = func_02046900((Struct_02020cb8_4*)var6);
+        int var8 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var6);
         void* var9[4];
         int var10[4];
-        for (int var11 = 0; var11 < var8; ++var11) var9[var11] = func_020467f0((Struct_02020aec*)var6, var11, &var5, &var10[var11]);
+        for (int var11 = 0; var11 < var8; ++var11) var9[var11] = GetPacEntryData_020467f0((PacEntry_02020aec*)var6, var11, &var5, &var10[var11]);
         for (int var12 = 0; var12 < var8; ++var12) {
             if (var9[var12]) func_0204b174(reinterpret_cast<Struct_ov017_021a5ad0*>(arg0->unknown_4094 + sizeof(Struct_ov017_021a5ad0)), var9[var12], &arg0->allocator_array_38[16], var10[var12]);
         }
@@ -142,10 +142,10 @@ extern "C" ARM void func_ov017_021a5cbc(GameResources* arg0) {
         void* var17;
         unsigned int var18;
         var15->GetLoadedFileByID((*reinterpret_cast<int*>(arg0->unknown_4094 + 0x128)), &var17, &var18);
-        int var19 = func_02046900((Struct_02020cb8_4*)var17);
+        int var19 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var17);
         int var20;
         for (int var21 = 0; var21 < var19; ++var21) {
-            void* var22 = func_020467f0((Struct_02020aec*)var17, var21, &var16, &var20);
+            void* var22 = GetPacEntryData_020467f0((PacEntry_02020aec*)var17, var21, &var16, &var20);
             func_0205a528(static_cast<Struct_02021578*>(arg0->unknown_ptr_41c4), var22, var20, &arg0->allocator_array_38[16]);
         }
         var15->RemoveTask((*reinterpret_cast<int*>(arg0->unknown_4094 + 0x128)));

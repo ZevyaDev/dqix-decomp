@@ -6,10 +6,10 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Struct_02072a68;
-struct Struct_02072a68_2 {
-    Struct_02072a68 *unknown_0_;
-    short unknown_4_;
+struct StringListEntry_02072a68;
+struct StringList_02072a68_2 {
+    StringListEntry_02072a68 *unknown_0_;
+    short capacity_4_;
 };
 struct Struct_0205a330;
 
@@ -135,8 +135,8 @@ struct Struct_ov003_02172e84_7 {
     char unknown_13c_[0x1cc - 0x13c];
     int unknown_1cc_;
     char unknown_1d0_[0x1dc - 0x1d0];
-    Struct_02072a68_2 unknown_1dc_;
-    Struct_02072a68_2 unknown_1e4_;
+    StringList_02072a68_2 unknown_1dc_;
+    StringList_02072a68_2 unknown_1e4_;
     char unknown_1ec_[0x319 - 0x1ec];
     unsigned char unknown_319_;
     char unknown_31a_[0x34c - 0x31a];
@@ -169,8 +169,8 @@ struct Struct_ov003_02172e84_7 {
     char unknown_130_[0x1c0 - 0x130];
     int unknown_1c0_;
     char unknown_1c4_[0x1d0 - 0x1c4];
-    Struct_02072a68_2 unknown_1d0_;
-    Struct_02072a68_2 unknown_1d8_;
+    StringList_02072a68_2 unknown_1d0_;
+    StringList_02072a68_2 unknown_1d8_;
     char unknown_1e0_[0x30d - 0x1e0];
     unsigned char unknown_30d_;
     char unknown_30e_[0x340 - 0x30e];
@@ -180,7 +180,7 @@ struct Struct_ov003_02172e84_7 {
 #endif
 
 extern "C" Struct_ov003_02172e84_3 *GetMessageWindow_020421a0();
-extern "C" const char *func_02072a68(Struct_02072a68_2 *arg0, int arg1);
+extern "C" const char *FindStringInList_02072a68(StringList_02072a68_2 *stringList, int stringId);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_ov003_02172e84_3 *window, const char *text, int arg2);
 extern "C" void func_020e2168(char *arg0, const char *arg1, int arg2, int arg3, int arg4);
@@ -198,8 +198,8 @@ extern "C" void *ExtractFileFromGP2(const char *arg0, const char *arg1, unsigned
 extern "C" char *func_020e046c(char *arg0, void *arg1, unsigned int arg2, int arg3);
 extern "C" void func_ov003_0217bd38(void *arg0, int arg1);
 extern "C" unsigned char func_ov017_021b1fa8(void *arg0);
-extern "C" void *func_0202ae18(void);
-extern "C" int func_0202b7d8(int *arg0);
+extern "C" void *GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void func_0202b0f4(void *arg0);
 extern "C" int func_ov003_021734dc(int arg0, int arg1, int arg2);
 extern "C" void func_0205a330(Struct_0205a330 *arg0, int arg1);
@@ -244,7 +244,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
             }
             var4->unknown_1000_.unknown_b48_ |= 1 << var7;
             var4->unknown_1000_.unknown_b4c_ |= 1 << var7;
-            sprintf(arg0->unknown_2_, data_ov003_0217ebff, func_02072a68(&arg0->unknown_1e4_, (short) var7));
+            sprintf(arg0->unknown_2_, data_ov003_0217ebff, FindStringInList_02072a68(&arg0->unknown_1e4_, (short) var7));
             arg0->unknown_c2_++;
             arg0->unknown_ea_ = 99;
         } else if (arg0->unknown_d1_ != var5 && arg0->unknown_d0_ < 3) {
@@ -258,7 +258,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
                 func_020e2168(arg0->unknown_42_, data_ov003_0217ec02, (short) var9, var8->unknown_6c_.unknown_3_1_, 1);
             } else {
                 sprintf(arg0->unknown_42_, data_ov003_0217ebff,
-                        func_02072a68(&arg0->unknown_1dc_, (short) (var8->unknown_6c_.unknown_6_3_ + 20000)));
+                        FindStringInList_02072a68(&arg0->unknown_1dc_, (short) (var8->unknown_6c_.unknown_6_3_ + 20000)));
             }
             arg0->unknown_ea_ = 99;
         } else if (arg0->unknown_350_ != 0 && !((*(unsigned short *) 0x27fffa8 & 0x8000) >> 15)) {
@@ -327,7 +327,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
     Struct_ov003_02172e84_2 *var18 = (Struct_ov003_02172e84_2 *) var16->unknown_ptr_array_3afc[19];
     if (arg0->unknown_ee_ == 0) {
         if (IsMainBrightnessTransitionActive(var16) == 0) {
-            StartMessage_0204500c(var17, func_02072a68(&arg0->unknown_1d8_, 100), 0, 0xe3);
+            StartMessage_0204500c(var17, FindStringInList_02072a68(&arg0->unknown_1d8_, 100), 0, 0xe3);
             var17->unknown_19be_ = 1;
             var17->unknown_998_ = 1;
             arg0->unknown_ee_ = 1;
@@ -353,7 +353,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
             }
             var20->unknown_1000_.unknown_b48_ |= 1 << var23;
             var20->unknown_1000_.unknown_b4c_ |= 1 << var23;
-            sprintf(arg0->unknown_4_, data_ov003_02180a49, func_02072a68(&arg0->unknown_1d8_, (short) var23));
+            sprintf(arg0->unknown_4_, data_ov003_02180a49, FindStringInList_02072a68(&arg0->unknown_1d8_, (short) var23));
             arg0->unknown_2_ = var23;
             arg0->unknown_c4_++;
             arg0->unknown_ee_ = 99;
@@ -382,7 +382,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
                 BackgroundLoader::RemoveLockGlobal();
             } else {
                 sprintf(arg0->unknown_44_, data_ov003_02180a49,
-                        func_02072a68(&arg0->unknown_1d0_, (short) (var24->unknown_6c_.unknown_6_3_ + 20000)));
+                        FindStringInList_02072a68(&arg0->unknown_1d0_, (short) (var24->unknown_6c_.unknown_6_3_ + 20000)));
             }
             arg0->unknown_ee_ = 99;
         } else if (arg0->unknown_344_ != 0 && !((*(unsigned short *) 0x27fffa8 & 0x8000) >> 15)) {
@@ -390,8 +390,8 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
             func_ov003_0217bd38(arg0->unknown_1e0_, arg0->unknown_1c0_);
             arg0->unknown_30d_ = func_ov017_021b1fa8(var18);
             arg0->unknown_d0_->unknown_0_ = 10;
-            void *var30 = func_0202ae18();
-            if (func_0202b7d8((int *) var30)) {
+            void *var30 = GetLocalWireless_0202ae18();
+            if (IsLocalWirelessOn_0202b7d8((int *) var30)) {
                 func_0202b0f4(var30);
             }
             arg0->unknown_ec_ = 5;
@@ -415,7 +415,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
             }
         }
     } else if (arg0->unknown_ee_ == 2) {
-        StartMessage_0204500c(var17, func_02072a68(&arg0->unknown_1d8_, 101), 0, 0xe3);
+        StartMessage_0204500c(var17, FindStringInList_02072a68(&arg0->unknown_1d8_, 101), 0, 0xe3);
         var17->unknown_998_ = 1;
         arg0->unknown_ee_ = 3;
     } else if (arg0->unknown_ee_ == 3) {

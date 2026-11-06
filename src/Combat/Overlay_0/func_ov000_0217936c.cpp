@@ -25,8 +25,8 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_020e4864(int arg0, char* arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
 extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 // USA: func_ov000_0217936c
 extern "C" ARM void func_ov000_0217936c(struct Struct_ov000_0217936c* arg0, struct Struct_ov000_0217936c_2* arg1, char* arg2) {
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov000_0217936c(struct Struct_ov000_0217936c* arg0, stru
         func_02041b70(arg2, var7 - var4, var0);
 #endif
         if (var7 != var5 - 1) {
-            func_02042058(arg2, (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_b8_, 0));
+            AppendText_02042058(arg2, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_b8_, 0));
         }
     }
 }

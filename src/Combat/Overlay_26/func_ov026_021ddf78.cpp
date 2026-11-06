@@ -82,7 +82,7 @@ struct Struct_02010088;
 struct Struct_ov026_021d8ba0_10;
 
 extern "C" Struct_ov026_021ddf78_7* GetMessageWindow_020421a0();
-extern "C" void func_02046380(Struct_ov026_021ddf78_7*);
+extern "C" void ClearMessageParams_02046380(Struct_ov026_021ddf78_7*);
 extern "C" Struct_ov026_021ddf78_8* func_0200fea4(GameState*, int);
 extern "C" int func_02010088(Struct_02010088*);
 extern "C" int func_ov026_021dd3c4(Struct_ov026_021d8ba0_10*);
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov026_021ddf78(Struct_ov026_021ddf78_5* arg0, Struct_ov
     if (arg0->unknown_8e24_ != 0) {
         return;
     }
-    func_02046380(var5);
+    ClearMessageParams_02046380(var5);
     Struct_ov026_021ddf78_4* var6 = &arg0->unknown_81b0_;
     int var7 = 0;
     Struct_ov026_021ddf78_2* var8 = var6->unknown_4_;

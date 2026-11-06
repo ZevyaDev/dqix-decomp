@@ -10,7 +10,7 @@
 #include "Combat/Main/MessageSlotTable.h"
 #include "Resource/FontBankLoader.h"
 #include "World/ZoneLootableRecord.h"
-extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 #include "Filesystem/FileIO.h"
 #include "Resource/Brightness.h"
 
@@ -110,8 +110,8 @@ struct Struct_ov004_021571f4_3 {
     int unknown_28_;
 };
 
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" void* func_ov023_021f6880(void**, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void**, int);
 extern "C" int func_ov023_021f6f10(void*);
 extern "C" void func_ov023_021fa078(void* arg0, void* arg1, unsigned short arg2, Struct_ov004_021571f4* arg3, int arg4, int arg5);
 
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov004_021571f4(void* arg0, int arg1) {
         int var5 = var4->unknown_1c_[var2];
         int var6 = var4->unknown_28_ + 0x578 + var1;
 
-        Struct_ov004_021571f4_2* var7 = ((Struct_ov004_021571f4_2*)func_ov023_021f6880((void**)(func_ov011_021849c8(arg0)), var6));
+        Struct_ov004_021571f4_2* var7 = ((Struct_ov004_021571f4_2*)FindMenuObjectById_ov023_021f6880((void**)(GetMenuObjectList_ov011_021849c8(arg0)), var6));
         if (var7 == 0 || func_ov023_021f6f10(var7) != 0) {
             var7 = 0;
         }
@@ -149,7 +149,7 @@ extern "C" ARM void func_ov004_021571f4(void* arg0, int arg1) {
         var9.unknown_4_ = (0xc0 - var5 * 19) << 12;
         var9.unknown_8_ = 0;
 
-        void* var10 = ((Struct_ov004_021571f4_2*)func_ov023_021f6880((void**)(func_ov011_021849c8(arg0)), 0xffff));
+        void* var10 = ((Struct_ov004_021571f4_2*)FindMenuObjectById_ov023_021f6880((void**)(GetMenuObjectList_ov011_021849c8(arg0)), 0xffff));
         if (!var10) return;
         func_ov023_021fa078(var10, arg0, var6, &var9, 0xd000, 0xd000);
     }
@@ -166,20 +166,20 @@ extern "C" ARM void func_ov004_021571f4(void* arg0, int arg1) {
 #undef func_ov014_021885bc
 #undef func_ov015_0219050c
 
-struct Struct_02072a68 { short unknown_0_; void* unknown_4_; };
-struct Struct_02072a68_2 { struct Struct_02072a68* unknown_0_; short unknown_4_; };
-extern "C" void* func_02072a68(struct Struct_02072a68_2*, int);
+struct StringListEntry_02072a68 { short id_0_; void* pText_4_; };
+struct StringList_02072a68_2 { struct StringListEntry_02072a68* unknown_0_; short capacity_4_; };
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2*, int);
 extern "C" int func_ov004_02157018(void*, int);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_02046380(void* arg0);
-struct Struct_020465c0;
-extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" void ClearMessageParams_02046380(void* window);
+struct MessageWindow_020465c0;
+extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 
 // USA: func_ov004_02157374
 extern "C" ARM void func_ov004_02157374(void* arg0, int arg1, int arg2, char* arg3, unsigned char arg4) {
     if (arg1 <= 0) return;
 
-    struct Struct_02072a68_2* var0 = (struct Struct_02072a68_2*)func_ov004_02157018(arg0, 4);
+    struct StringList_02072a68_2* var0 = (struct StringList_02072a68_2*)func_ov004_02157018(arg0, 4);
     int var1 = 0;
     const char* var2;
 
@@ -194,26 +194,26 @@ extern "C" ARM void func_ov004_02157374(void* arg0, int arg1, int arg2, char* ar
         (arg1 >= 0xcbec && arg1 <= 0xcbf1) ||
         (arg1 >= 0xcbf5 && arg1 < 0xccb0) ||
         (arg1 >= 0xcf08 && arg1 < 0xd034)) {
-        var2 = (const char*)func_02072a68(var0, 0x64);
+        var2 = (const char*)FindStringInList_02072a68(var0, 0x64);
     } else if ((arg1 == 0x4e85) || (arg1 >= 0x59d8 && arg1 < 0x5dc0)) {
-        var2 = (const char*)func_02072a68(var0, 0x65);
+        var2 = (const char*)FindStringInList_02072a68(var0, 0x65);
     } else if (arg1 == 0x4e8c) {
-        var2 = (const char*)func_02072a68(var0, 0x66);
+        var2 = (const char*)FindStringInList_02072a68(var0, 0x66);
     } else if (arg1 == 0x4e8e) {
-        var2 = (const char*)func_02072a68(var0, 0x67);
+        var2 = (const char*)FindStringInList_02072a68(var0, 0x67);
     } else if (arg1 >= 0xc800 && arg1 < 0xc864) {
-        var2 = (const char*)func_02072a68(var0, 0x68);
+        var2 = (const char*)FindStringInList_02072a68(var0, 0x68);
     } else if (arg1 >= 0xc350 && arg1 < 0xc3b4) {
-        var2 = (const char*)func_02072a68(var0, 0x69);
+        var2 = (const char*)FindStringInList_02072a68(var0, 0x69);
     } else if ((arg1 >= 0xc738 && arg1 <= 0xc79e) ||
                (arg1 >= 0xc7a0 && arg1 < 0xc800) ||
                (arg1 >= 0xc864 && arg1 < 0xc8c8)) {
-        var2 = (const char*)func_02072a68(var0, 0x6a);
+        var2 = (const char*)FindStringInList_02072a68(var0, 0x6a);
     } else if (arg1 == 0xc79f) {
 #if defined(jpn)
-        var2 = (const char*)func_02072a68(var0, 0x6b);
+        var2 = (const char*)FindStringInList_02072a68(var0, 0x6b);
 #else
-        var2 = (const char*)func_02072a68(var0, 0x6a);
+        var2 = (const char*)FindStringInList_02072a68(var0, 0x6a);
 #endif
     } else if ((arg1 >= 0xcb20 && arg1 <= 0xcb23) ||
                (arg1 >= 0xcb2a && arg1 <= 0xcb2c) ||
@@ -227,20 +227,20 @@ extern "C" ARM void func_ov004_02157374(void* arg0, int arg1, int arg2, char* ar
                (arg1 >= 0xcd1e && arg1 <= 0xcd20) ||
                (arg1 >= 0xcddc && arg1 <= 0xcddf) ||
                (arg1 >= 0xcde6 && arg1 <= 0xcde8)) {
-        var2 = (const char*)func_02072a68(var0, 0x6c);
+        var2 = (const char*)FindStringInList_02072a68(var0, 0x6c);
     } else {
         var1 = 1;
 #if defined(jpn)
         if (arg2 == 1) {
-            var2 = (const char*)func_02072a68(var0, 0x6d);
+            var2 = (const char*)FindStringInList_02072a68(var0, 0x6d);
         }
 #endif
         if (arg2 == 2) {
-            var2 = (const char*)func_02072a68(var0, 0x70);
+            var2 = (const char*)FindStringInList_02072a68(var0, 0x70);
         } else if (arg1 >= 0x7918 && arg1 < 0x7d00) {
-            var2 = (const char*)func_02072a68(var0, 0x6f);
+            var2 = (const char*)FindStringInList_02072a68(var0, 0x6f);
         } else {
-            var2 = (const char*)func_02072a68(var0, 0x6e);
+            var2 = (const char*)FindStringInList_02072a68(var0, 0x6e);
         }
     }
 
@@ -250,8 +250,8 @@ extern "C" ARM void func_ov004_02157374(void* arg0, int arg1, int arg2, char* ar
     if (var2 == 0) return;
 
     void* var3 = (void*)GetMessageWindow_020421a0();
-    func_02046380(var3);
-    func_020465c0((struct Struct_020465c0*)var3, 0, arg1);
+    ClearMessageParams_02046380(var3);
+    SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var3, 0, arg1);
     memcpy(arg3, (void*)var2, strlen(var2));
 }
 
@@ -337,7 +337,7 @@ extern "C" ARM int func_ov004_0215799c(void* arg0, int arg1, unsigned int arg2, 
     return var0;
 }
 
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_02052df8;
 struct Struct_0207c484;
 struct Struct_02015438;
@@ -376,13 +376,13 @@ extern Struct_ov004_0216fb90 data_ov004_0216fb90;
 struct Struct_ov004_02157a28_4 {
     SafeAllocator unknown_0_;
     char unknown_14_[0x18];
-    Struct_0201099c_10* unknown_2c_;
+    ItemTable_0201099c_10* unknown_2c_;
     int unknown_30_;
     int unknown_34_;
 };
 
 extern "C" signed char func_ov004_02157128(void*);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int func_ov004_02156fd4(void*, int);
 extern "C" void func_0207cc18(void*, Struct_ov004_02157a28_2*);
 extern "C" void func_02052d7c(struct Struct_02052d7c*, int, short);
@@ -391,28 +391,28 @@ extern "C" void func_ov017_021c3fb4(int, int);
 extern "C" void func_ov017_021c4418(int, int);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 extern "C" void func_ov017_0218f5a4(GameResources*, int, int, int, int);
-extern "C" void func_ov011_021848a0(void*, int);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void*, int);
 
-extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10*, int);
+extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10*, int);
 extern "C" void* func_020de824(void*);
 extern "C" void func_0207cbe8(char*);
 extern "C" void func_0207cc0c(char*);
-extern "C" void* func_02010828(struct GameState*);
+extern "C" void* GetParty_02010828(struct GameState*);
 extern "C" int func_02052df8(Struct_02052df8*, int);
 extern "C" int func_0207c484(struct Struct_0207c484*, int, int, int);
 extern "C" void func_020483f0(unsigned char*, unsigned short);
-extern "C" int func_0202b7d8(int*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int func_02046b24(Struct_02015438**);
 extern "C" void func_ov017_021a3498(Struct_0203d028_4*);
 
 // USA: func_ov004_02157a28
 extern "C" ARM int func_ov004_02157a28(void* arg0, int arg1) {
     short var0 = ((short)func_ov004_02157128(arg0));
-    int* var1 = ((int*)func_0202ae18());
+    int* var1 = ((int*)GetLocalWireless_0202ae18());
     GameState* var2 = GameState::GetInstance();
     GameObject* var3 = func_0200ff1c(var2, var0);
     if (!var3) return 0;
-    Struct_0201099c_10* var4 = (Struct_0201099c_10*)((void*)func_ov004_02156fd4(arg0, 5));
+    ItemTable_0201099c_10* var4 = (ItemTable_0201099c_10*)((void*)func_ov004_02156fd4(arg0, 5));
     if (!var4) return 0;
     Struct_ov004_02157a28_2* var5 = ((Struct_ov004_02157a28_2*)func_020dedd0(var4, ((Struct_ov004_02157a28_3*)data_ov004_021707e0)->unknown_e_));
     if (!var5) return 0;
@@ -439,7 +439,7 @@ extern "C" ARM int func_ov004_02157a28(void* arg0, int arg1) {
     int var11 = var10.unknown_0_[var9];
     if (var11 < 0) return 0;
 
-    char* var12 = (char*)func_02010828(var2);
+    char* var12 = (char*)GetParty_02010828(var2);
     int var13 = func_02052df8((Struct_02052df8*)var3, var11);
     int var14 = ((Struct_ov004_02157a28_3*)data_ov004_021707e0)->unknown_e_ == var13;
     func_02052d7c((Struct_02052d7c*)var3, var11, ((Struct_ov004_02157a28_3*)data_ov004_021707e0)->unknown_e_);
@@ -466,7 +466,7 @@ extern "C" ARM int func_ov004_02157a28(void* arg0, int arg1) {
             func_020483f0((unsigned char*)var3, 4);
             var18 = 1;
         }
-        if (func_0202b7d8(var1)) {
+        if (IsLocalWirelessOn_0202b7d8(var1)) {
             func_ov017_021c3fb4(var0, 1);
             func_ov017_021c4418(var0, -1);
             if (var18) func_ov017_021c9e00(var0, 0, 0, 1);
@@ -484,13 +484,13 @@ extern "C" ARM int func_ov004_02157a28(void* arg0, int arg1) {
             }
         }
         if (var18) {
-            if (var15) func_ov011_021848a0(arg0, 0x3e9);
-            else func_ov011_021848a0(arg0, 0x3e8);
+            if (var15) QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3e9);
+            else QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3e8);
             return 0;
         }
     }
-    if (var15) func_ov011_021848a0(arg0, 0x23bf);
-    else func_ov011_021848a0(arg0, 0x393);
+    if (var15) QueueMenuScriptEntry_ov011_021848a0(arg0, 0x23bf);
+    else QueueMenuScriptEntry_ov011_021848a0(arg0, 0x393);
     return 0;
 }
 
@@ -580,7 +580,7 @@ enum { Enum_ov004_02157db8_620 = 0xc, Enum_ov004_02157db8_9088 = 0x120, Enum_ov0
 enum { Enum_ov004_02157db8_620 = 0x26c, Enum_ov004_02157db8_9088 = 0x2380, Enum_ov004_02157db8_16384 = 0x4000, Enum_ov004_02157db8_108 = 0x6c };
 #endif
 
-extern char data_02109bf4[];
+extern char gMusicManager_02109bf4[];
 
 extern "C" void* func_ov011_021845f8(unsigned char*, unsigned int);
 extern "C" void func_020a9ea4(struct Struct_020a9ea4*);
@@ -601,7 +601,7 @@ extern "C" void func_020cf1a8(int);
 struct Struct_02018300_3;
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" unsigned char func_0209ca98(char*);
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void func_020466e4(unsigned int*, unsigned int);
 extern "C" unsigned char func_02011494(char*, void*);
 
@@ -710,10 +710,10 @@ extern "C" ARM int func_ov004_02157db8(void* arg0) {
     ((Struct_ov004_02157db8_4*)data_ov004_021707e0)->unknown_18_.unknown_3_2_ = var17[1];
 
     func_020397cc((Struct_02018300_3*)var0->GetUnknownGameObject(), 1);
-    ((Struct_ov004_02157db8_4*)data_ov004_021707e0)->unknown_2d_ = func_0209ca98(data_02109bf4);
+    ((Struct_ov004_02157db8_4*)data_ov004_021707e0)->unknown_2d_ = func_0209ca98(gMusicManager_02109bf4);
     unsigned int var18 = *(unsigned int*)(var4 + 0x50);
     ((Struct_ov004_02157db8_4*)data_ov004_021707e0)->unknown_2f_ = (var18 & 1) ? 1 : 0;
-    func_020466e4((unsigned int*)func_020d6c00(), 0xf);
+    func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0xf);
 
     short* var19 = (short*)(var3 + 4);
     for (int var20 = 0; var20 < 6; ) {
@@ -779,7 +779,7 @@ extern "C" void func_0201e828(Struct_0201e828*, unsigned short);
 
 extern "C" void func_020397c0(void* arg0);
 
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 struct Struct_02038598_4;
 extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
 
@@ -810,7 +810,7 @@ extern "C" ARM int func_ov004_02158298(void) {
     struct Struct_ov004_02158298_3* var3 = (struct Struct_ov004_02158298_3*)((char*)var0 + Enum_ov004_02158298_620);
     var3->unknown_5d00_.unknown_c_0_ &= ~0x20;
 
-    func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 0xf);
+    func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0xf);
 
     unsigned char* var4 = *(unsigned char**)((char*)var1 + Enum_ov004_02158298_14096);
     if (var4[2] != 0) {
@@ -857,7 +857,7 @@ extern "C" char* strstr(const char*, const char*);
 extern "C" unsigned int strlen(const char*);
 extern "C" void* memcpy(void*, const void*, unsigned int);
 extern "C" void* memset(void*, int, unsigned int);
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 extern "C" void func_ov004_0215781c(void*);
 struct Struct_ov004_021583a8_2;
 extern "C" int func_ov017_021b1ffc(Struct_ov004_021583a8_2*);
@@ -871,7 +871,7 @@ extern "C" unsigned char func_ov017_021b2038(struct Struct_ov004_021583a8_5*);
 extern "C" void func_ov004_02157874(void*);
 struct Struct_ov004_021583a8;
 extern "C" unsigned char func_ov017_021b1fe8(struct Struct_ov004_021583a8*);
-extern "C" void func_020ac4c0(void*);
+extern "C" void GetBattleRecords_020ac4c0(void*);
 struct Struct_020a059c;
 extern "C" void func_020a059c(Struct_020a059c*, unsigned int);
 extern "C" void func_020ac494(void*);
@@ -886,7 +886,7 @@ extern "C" ARM int func_ov004_021583a8(void* arg0) {
     static unsigned char sShown1;
     GameState* var0 = GameState::GetInstance();
     Struct_ov004_021583a8_6* var1 = (Struct_ov004_021583a8_6*)GetGameResources();
-    Struct_02072a68_2* var2;
+    StringList_02072a68_2* var2;
     Struct_ov004_021583a8_8* var3;
     int var4;
     char* var5;
@@ -894,7 +894,7 @@ extern "C" ARM int func_ov004_021583a8(void* arg0) {
     void* var7;
     var6 = *(int*)((char*)var1 + Enum_ov004_021583a8_14076);
     var7 = *(void**)((char*)var1 + Enum_ov004_021583a8_15176);
-    var2 = ((Struct_02072a68_2*)func_ov004_02157018(arg0, 4));
+    var2 = ((StringList_02072a68_2*)func_ov004_02157018(arg0, 4));
     var3 = (Struct_ov004_021583a8_8*)((void*)GetMessageWindow_020421a0());
     int var8 = ((Struct_ov004_021583a8_7*)data_ov004_021707e0)->unknown_13_;
     if (var8 == 2) {
@@ -934,9 +934,9 @@ extern "C" ARM int func_ov004_021583a8(void* arg0) {
         int var12 = ((int)func_ov017_021b2038((Struct_ov004_021583a8_5*)var7));
         if (sShown2 == 0 && var11 == 4 && var12 == 0) {
 #if defined(jpn)
-            StartMessage_0204500c(var3, ((char*)func_02072a68(var2, 0x2e)), 0);
+            StartMessage_0204500c(var3, ((char*)FindStringInList_02072a68(var2, 0x2e)), 0);
 #else
-            StartMessage_0204500c(var3, ((char*)func_02072a68(var2, 0x2e)), 0, 0xe3);
+            StartMessage_0204500c(var3, ((char*)FindStringInList_02072a68(var2, 0x2e)), 0, 0xe3);
 #endif
             var3->unknown_998_ = 1;
             sShown2 = 1;
@@ -945,15 +945,15 @@ extern "C" ARM int func_ov004_021583a8(void* arg0) {
             if ((var11 == 4 && var12 == 5) || (sShown4 != 0 && var4 > 0)) {
 #if defined(jpn)
                 if (sShown4 == 0) {
-                    StartMessage_0204500c(var3, ((char*)func_02072a68(var2, 0x25)), 0);
+                    StartMessage_0204500c(var3, ((char*)FindStringInList_02072a68(var2, 0x25)), 0);
                 } else {
-                    StartMessage_0204500c(var3, ((char*)func_02072a68(var2, 0x33)), 0);
+                    StartMessage_0204500c(var3, ((char*)FindStringInList_02072a68(var2, 0x33)), 0);
                 }
 #else
                 if (sShown4 == 0) {
-                    StartMessage_0204500c(var3, ((char*)func_02072a68(var2, 0x25)), 0, 0xe3);
+                    StartMessage_0204500c(var3, ((char*)FindStringInList_02072a68(var2, 0x25)), 0, 0xe3);
                 } else {
-                    StartMessage_0204500c(var3, ((char*)func_02072a68(var2, 0x33)), 0, 0xe3);
+                    StartMessage_0204500c(var3, ((char*)FindStringInList_02072a68(var2, 0x33)), 0, 0xe3);
                 }
 #endif
                 var3->unknown_998_ = 1;
@@ -976,30 +976,30 @@ extern "C" ARM int func_ov004_021583a8(void* arg0) {
         int var15 = ((int)func_ov017_021b1fe8((Struct_ov004_021583a8*)var7));
         if (var15 & 1) {
             unsigned char var16[0xb0];
-            func_020ac4c0(var16);
+            GetBattleRecords_020ac4c0(var16);
             func_020a059c((Struct_020a059c*)var16, 1);
             func_020ac494(var16);
-            char* var17 = ((char*)func_02072a68(var2, 0x26));
+            char* var17 = ((char*)FindStringInList_02072a68(var2, 0x26));
             memcpy(var13, var17, strlen(var17));
             ((Struct_ov004_021583a8_7*)data_ov004_021707e0)->unknown_14_ = 1;
-            func_ov011_021848a0(arg0, 0x3af);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3af);
         } else {
 #if defined(jpn)
             if (var15 & 0x80) {
-                var14 = ((char*)func_02072a68(var2, 0x35));
+                var14 = ((char*)FindStringInList_02072a68(var2, 0x35));
             } else if (sShown2 == 0) {
-                var14 = ((char*)func_02072a68(var2, 0x15));
+                var14 = ((char*)FindStringInList_02072a68(var2, 0x15));
             } else {
-                var14 = ((char*)func_02072a68(var2, 0x2f));
+                var14 = ((char*)FindStringInList_02072a68(var2, 0x2f));
             }
             int var18 = strlen(var14);
             memcpy(var13, var14, var18);
             var13 += var18;
 #else
             if (var15 & 0x80) {
-                var14 = ((char*)func_02072a68(var2, 0x35));
+                var14 = ((char*)FindStringInList_02072a68(var2, 0x35));
             } else if (sShown2 != 0) {
-                var14 = ((char*)func_02072a68(var2, 0x2f));
+                var14 = ((char*)FindStringInList_02072a68(var2, 0x2f));
             }
             if (var14 != 0) {
                 int var19 = strlen(var14);
@@ -1013,7 +1013,7 @@ extern "C" ARM int func_ov004_021583a8(void* arg0) {
                 func_ov004_02157374(arg0, var20, var21, var13, (int)0);
                 var13 += strlen(var13);
             }
-            char* var22 = ((char*)func_02072a68(var2, 0x27));
+            char* var22 = ((char*)FindStringInList_02072a68(var2, 0x27));
             memcpy(var13, var22, strlen(var22));
             func_ov011_02184be0(arg0, 0x47, 0x46);
             ((Struct_ov004_021583a8_7*)data_ov004_021707e0)->unknown_14_ = 0;
@@ -1067,18 +1067,18 @@ extern "C" ARM int func_ov004_0215883c(void* arg0) {
     {
         void* var4 = func_ov011_021845f8((unsigned char*)arg0, (int)1);
         if (!var4) {
-            func_ov011_021848a0(arg0, 0x395);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x395);
             data_ov004_021707e0[0x13] = 0;
             return 0;
         }
         if (!((void*)func_ov017_021b1d44((unsigned char*)var3, 1, 1))) {
-            func_ov011_021848a0(arg0, 0x3ac);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3ac);
             data_ov004_021707e0[0x13] = 0;
             return 0;
         }
         int var5 = 0x12;
         data_ov004_021707e4 = var5;
-        func_0209c678((Struct_02109bf4_4*)data_02109bf4, var5);
+        func_0209c678((Struct_02109bf4_4*)gMusicManager_02109bf4, var5);
         *(void**)((char*)var3 + 8) = (char*)var4 + 4;
         int var6 = func_ov011_02184548((struct Struct_ov004_0215883c_2*)arg0);
         int var7 = func_ov011_02184540((struct Struct_ov004_0215883c*)arg0);
@@ -1097,13 +1097,13 @@ notZero:
         if (!func_ov017_021b2060((Struct_ov004_0215883c_4*)var3)) goto retTrue;
         if (func_ov017_021b204c((Struct_ov004_0215883c_3*)var3)) {
             if (*(int*)((char*)var0 + 0x4000 + Enum_ov004_0215883c_1172) == 0) {
-                func_ov011_021848a0(arg0, 0x233d);
+                QueueMenuScriptEntry_ov011_021848a0(arg0, 0x233d);
                 return 0;
             }
         }
         if (func_ov017_021b204c((Struct_ov004_0215883c_3*)var3)) goto retTrue;
         data_ov004_021707e0[0x13]++;
-        func_ov011_021848a0(arg0, 0x385);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x385);
         return 0;
     }
 retTrue:
@@ -1119,7 +1119,7 @@ struct Struct_ov004_021589e8 {
 };
 
 extern "C" int func_ov017_021b213c(Struct_ov004_021589e8 arg0, Struct_ov004_021589e8 arg1);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_ov023_021f65d4(void* arg0, int arg1, int arg2);
 
 // USA: func_ov004_021589e8
@@ -1129,10 +1129,10 @@ extern "C" ARM int func_ov004_021589e8(void* arg0) {
     Struct_ov004_021589e8 var2 = *(Struct_ov004_021589e8*)(data_ov004_021707e0 + 0x18);
     if (func_ov017_021b213c(var1, var2) != 0) {
         char* var3 = (char*)GetMessageWindow_020421a0();
-        func_02043204(var3);
-        func_ov011_021848a0(arg0, 0x387);
+        ResetMessageWindow_02043204(var3);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x387);
     } else {
-        func_ov011_021848a0(arg0, 0x3a2);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3a2);
     }
     func_ov023_021f65d4(arg0, 2, 8);
     return 0;
@@ -1144,11 +1144,11 @@ struct Struct_02046574_2;
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 #endif
 
-extern "C" void func_02046380(void* arg0);
-struct Struct_0201099c_9;
+extern "C" void ClearMessageParams_02046380(void* window);
+struct ItemData_0201099c_9;
 extern "C" void* func_020e5294(void*, int);
-extern "C" int func_0202c540(void* arg0);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 struct Struct_ov004_02158a60 {
     unsigned char unknown_0_[0xf8];
@@ -1175,9 +1175,9 @@ extern "C" ARM int func_ov004_02158a60(void* arg0) {
     short var1 = var0->unknown_f8_;
     if (var1 > 0 || var0->unknown_fa_ != 0) {
         void* var2 = (void*)GetMessageWindow_020421a0();
-        func_02046380(var2);
-        struct Struct_0201099c_10* var3 = ((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
-        struct Struct_0201099c_9* var4 = func_020dedd0(var3, var0->unknown_f8_);
+        ClearMessageParams_02046380(var2);
+        struct ItemTable_0201099c_10* var3 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+        struct ItemData_0201099c_9* var4 = func_020dedd0(var3, var0->unknown_f8_);
 #if defined(jpn)
         char var5[80];
         func_020e207c((Struct_0201099c_3*)(((char*)data_ov004_021707e0) + 0x8c), var5, *(short*)((char*)var4 + 0x18));
@@ -1186,24 +1186,24 @@ extern "C" ARM int func_ov004_02158a60(void* arg0) {
         int var6 = ((int)func_020e5294(((char*)data_ov004_021707e0) + 0x8c, *(short*)((char*)var4 + 0x18)));
         *(int*)((char*)var2 + 0x18) = var6;
 #endif
-        func_ov011_021848a0(arg0, 0x3a3);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3a3);
         return 0;
     }
 
-    void* var7 = func_0202ae18();
-    if (func_0202c540(var7) != 0) {
-        func_ov011_021848a0(arg0, 0x3ae);
+    void* var7 = GetLocalWireless_0202ae18();
+    if (IsLocalWirelessGuest_0202c540(var7) != 0) {
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3ae);
         return 0;
     }
-    if (func_0202b7d8((int*)var7) != 0) {
-        func_ov011_021848a0(arg0, 0x24cd);
+    if (IsLocalWirelessOn_0202b7d8((int*)var7) != 0) {
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x24cd);
         return 0;
     }
     if (var0->unknown_10c_0_ & 0x10) {
-        func_ov011_021848a0(arg0, 0x3a6);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3a6);
         return 0;
     }
-    func_ov011_021848a0(arg0, 0x3b0);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3b0);
     return 0;
 }
 
@@ -1235,7 +1235,7 @@ public:
 extern "C" ARM int func_ov004_02158b78(void* arg0) {
     Struct_ov004_02158b78_2* var0 = (Struct_ov004_02158b78_2*)func_ov004_02156f38(arg0, 0xc9);
     if (var0) {
-        struct Struct_ov004_02158b78* var1 = (struct Struct_ov004_02158b78*)func_02010828(GameState::GetInstance());
+        struct Struct_ov004_02158b78* var1 = (struct Struct_ov004_02158b78*)GetParty_02010828(GameState::GetInstance());
         var0->inline_ov004_02158b78_57(var1->unknown_f6c_);
         void* var2 = func_ov004_02156f6c(arg0, 0x16);
         if (var2) func_ov023_021f809c(var2, arg0);
@@ -1250,7 +1250,7 @@ extern "C" void* func_ov004_02157054(void*, int);
 struct Struct_ov004_02158bd4;
 extern "C" void func_ov023_021fbdf4(Struct_ov004_02158bd4*, int);
 extern "C" void func_ov023_021fbdcc(void*, int);
-struct Struct_0201099c_9 { unsigned int unknown_0_[8]; };
+struct ItemData_0201099c_9 { unsigned int unknown_0_[8]; };
 extern "C" void func_ov023_021f6eb8(void* arg0, int arg1);
 extern "C" int func_ov004_0215d738(void*);
 extern "C" void func_ov023_021f6600(void*, int, int);
@@ -1291,10 +1291,10 @@ extern "C" ARM int func_ov004_02158bd4(void* arg0) {
 
     void* var4 = (void*)func_ov004_02156fd4(arg0, 5);
     if (!var4) return 0;
-    Struct_0201099c_9* var5 = func_020dedd0((Struct_0201099c_10*)var4, *(short*)((char*)var1 + 0));
+    ItemData_0201099c_9* var5 = func_020dedd0((ItemTable_0201099c_10*)var4, *(short*)((char*)var1 + 0));
     if (!var5) return 0;
 
-    void* var6 = func_ov011_021849c8(arg0);
+    void* var6 = GetMenuObjectList_ov011_021849c8(arg0);
     func_ov023_021f6eb8(var6, 0);
 
     char var7[0x16];
@@ -1398,7 +1398,7 @@ extern "C" ARM int func_ov004_02158dcc(void* arg0) {
     if (var0 < 0) return 0;
     Struct_ov004_02158dcc_3* var1 = ((Struct_ov004_02158dcc_3*)func_ov004_021570a4(arg0, (unsigned char)var0));
     if (!var1) return 0;
-    Struct_ov004_02158dcc_4* var2 = ((Struct_ov004_02158dcc_4*)func_020dedd0(((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5)), var1->unknown_0_));
+    Struct_ov004_02158dcc_4* var2 = ((Struct_ov004_02158dcc_4*)func_020dedd0(((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5)), var1->unknown_0_));
     if (!var2) return 0;
 #if defined(jpn)
     char var3[80];
@@ -1410,19 +1410,19 @@ extern "C" ARM int func_ov004_02158dcc(void* arg0) {
 #endif
     if (var1->unknown_4_0_ == 0) return 0;
 
-    Struct_ov004_02158dcc_5* var5 = (Struct_ov004_02158dcc_5*)func_02010828(GameState::GetInstance());
+    Struct_ov004_02158dcc_5* var5 = (Struct_ov004_02158dcc_5*)GetParty_02010828(GameState::GetInstance());
     if (func_ov004_0215799c(var5, var1->unknown_0_, var2->unknown_8_0_, ((Struct_ov004_02158dcc_2*)data_ov004_021707e0)->unknown_3a_) == 0) {
         func_ov011_021849e0((struct Struct_ov004_02158dcc*)arg0, 0);
-        func_ov011_021848a0(arg0, 0x236b);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x236b);
         return 0;
     }
     if (var5->unknown_f6c_ < var1->unknown_4_7_) {
         func_ov011_021849e0((struct Struct_ov004_02158dcc*)arg0, 0);
-        func_ov011_021848a0(arg0, 0x2365);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2365);
         return 0;
     }
 
-    func_ov011_021848a0(arg0, 0x5e);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x5e);
     ((Struct_ov004_02158dcc_2*)data_ov004_021707e0)->unknown_e_ = var1->unknown_0_;
     ((Struct_ov004_02158dcc_2*)data_ov004_021707e0)->unknown_11_ = 1;
     ((Struct_ov004_02158dcc_2*)data_ov004_021707e0)->unknown_12_ = -1;
@@ -1550,7 +1550,7 @@ extern "C" ARM int func_ov004_02158fec(void* arg0) {
         var5->unknown_5c_ = 0;
         var5->unknown_5e_ = 1;
     }
-    Struct_0201099c_10* var6 = ((Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    ItemTable_0201099c_10* var6 = ((ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
     if (!var6) return 0;
     Struct_ov004_0216fb28 var7 = data_ov004_0216fb28;
     for (unsigned char var8 = 0; var8 < 6; var8++) {
@@ -1694,7 +1694,7 @@ public:
 // USA: func_ov004_02159470
 extern "C" ARM int func_ov004_02159470(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_02010828(var0);
+    GetParty_02010828(var0);
     char* var1 = ((char*)data_ov004_021707e0);
     unsigned char var2 = (unsigned char)(*(short*)(var1 + 0x3a));
     int var3 = 0x322;
@@ -1837,9 +1837,9 @@ struct Struct_ov004_02159650_5 { unsigned int unknown_0_0_ : 18; unsigned int un
 // USA: func_ov004_02159650
 extern "C" ARM int func_ov004_02159650(void* arg0) {
     int var0 = GetMessageWindow_020421a0();
-    func_02046380((void*)var0);
+    ClearMessageParams_02046380((void*)var0);
 
-    struct Struct_0201099c_10* var1 = ((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    struct ItemTable_0201099c_10* var1 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
 
     struct Struct_ov004_02159650_3* var2 = 0;
     struct Struct_ov004_02159650_2* var3 = 0;
@@ -1903,10 +1903,10 @@ extern "C" ARM int func_ov004_02159650(void* arg0) {
     }
 
     if (var3 != 0) {
-        func_020465c0((struct Struct_020465c0*)var0, 0, data_ov004_021707e0[0x11] * (var3->unknown_4_ >> 7));
+        SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var0, 0, data_ov004_021707e0[0x11] * (var3->unknown_4_ >> 7));
     }
 
-    func_020465c0((struct Struct_020465c0*)var0, 1, data_ov004_021707e0[0x11]);
+    SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var0, 1, data_ov004_021707e0[0x11]);
     return 0;
 }
 extern "C" void func_ov023_021f66bc(void* arg0, int arg1, void* arg2);
@@ -1925,11 +1925,11 @@ extern "C" ARM int func_ov004_02159888(void* arg0) {
 
     if (data_ov004_021707e0[0x11] >= var1->unknown_4_0_) return 0;
 
-    void* var2 = func_02010828(GameState::GetInstance());
+    void* var2 = GetParty_02010828(GameState::GetInstance());
     unsigned int var3 = *(unsigned int*)((char*)var1 + 4) >> 7;
     if (*(unsigned int*)((char*)var2 + 0xf6c) < (data_ov004_021707e0[0x11] + 1) * var3) return 0;
 
-    struct Struct_0201099c_10* var4 = ((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    struct ItemTable_0201099c_10* var4 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
     if (!var4) return 0;
 
     struct Struct_ov004_02159888_2* var5 = ((struct Struct_ov004_02159888_2*)func_020dedd0(var4, *(short*)(data_ov004_021707e0 + 0xe)));
@@ -1986,7 +1986,7 @@ extern "C" ARM int func_ov004_02159a2c(void* arg0) {
     if (var1 < 0) return 0;
     void* var2 = func_ov004_021570a4(arg0, var1 & 0xff);
     if (!var2) return 0;
-    struct Struct_0201099c_10* var3 = ((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    struct ItemTable_0201099c_10* var3 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
     if (!var3) return 0;
     struct Struct_ov004_02159a2c_2* var4 = ((struct Struct_ov004_02159a2c_2*)func_020dedd0(var3, *(short*)var2));
     if (!var4) return 0;
@@ -2006,10 +2006,10 @@ extern "C" ARM int func_ov004_02159a2c(void* arg0) {
         if (var9 == var8) {
             func_ov004_02159bcc(arg0);
         } else {
-            func_ov011_021848a0(arg0, 0x38b);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x38b);
         }
     } else {
-        func_ov011_021848a0(arg0, 0x2384);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2384);
     }
     return 0;
 }
@@ -2019,17 +2019,17 @@ extern "C" ARM int func_ov004_02159a2c(void* arg0) {
 
 // USA: func_ov004_02159b74
 extern "C" ARM int func_ov004_02159b74(void* arg0) {
-    func_ov011_021848a0(arg0, 0x2368);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2368);
     return 0;
 }
 
 // USA: func_ov004_02159b8c
 extern "C" ARM int func_ov004_02159b8c(void* arg0) {
-    func_02010828(GameState::GetInstance());
+    GetParty_02010828(GameState::GetInstance());
     short var0 = *(short*)(((char*)data_ov004_021707e0) + 0x3a);
     int var1 = 0x38d;
     var1 += var0 & 0xff;
-    func_ov011_021848a0(arg0, var1);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, var1);
     return 0;
 }
 
@@ -2040,7 +2040,7 @@ extern "C" ARM int func_ov004_02159b8c(void* arg0) {
 struct Struct_ov004_02159bcc {
     SafeAllocator unknown_0_;
     unsigned char unknown_14_[0x18];
-    Struct_0201099c_10* unknown_2c_;
+    ItemTable_0201099c_10* unknown_2c_;
     void* unknown_30_;
     int unknown_34_;
 };
@@ -2052,16 +2052,16 @@ extern "C" int func_0207d134(struct Struct_0207d134*, short, int);
 // USA: func_ov004_02159bcc
 extern "C" ARM int func_ov004_02159bcc(void* arg0) {
 #if !defined(jpn)
-    struct Struct_0201099c_10* var0 = ((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    struct ItemTable_0201099c_10* var0 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
     if (var0 == NULL) return 0;
-    struct Struct_0201099c_9* var1 = func_020dedd0(var0, *(short*)(((char*)data_ov004_021707e0) + 0xe));
+    struct ItemData_0201099c_9* var1 = func_020dedd0(var0, *(short*)(((char*)data_ov004_021707e0) + 0xe));
     if (var1 == NULL) return 0;
     int var2 = ((int)func_020e5294(((char*)data_ov004_021707e0) + 0x8c, *(short*)((char*)var1 + 0x18)));
     *(int*)((char*)(int)GetMessageWindow_020421a0() + 0x18) = var2;
     ((char*)data_ov004_021707e0)[0x12] = (char)0xff;
 #endif
     if (*(unsigned char*)(((char*)data_ov004_021707e0) + 0x47) == 0) {
-        Struct_0201099c_10* var3 = ((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+        ItemTable_0201099c_10* var3 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
         if (var3 != NULL) {
             Struct_ov004_02159bcc var4;
             var4.unknown_0_.ResetAllocatorPointer();
@@ -2072,11 +2072,11 @@ extern "C" ARM int func_ov004_02159bcc(void* arg0) {
             func_0207d134((Struct_0207d134*)(&var4), *(short*)(((char*)data_ov004_021707e0) + 0xe), *(signed char*)(((char*)data_ov004_021707e0) + 0x11));
             func_0207cc0c((char*)&var4);
         }
-        func_ov011_021848a0(arg0, 0x38c);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x38c);
         ((char*)data_ov004_021707e0)[R(0xa9, 0x9d)] = 0;
         return 0;
     }
-    func_ov011_021848a0(arg0, 0x2379);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2379);
     return 0;
 }
 
@@ -2102,11 +2102,11 @@ struct Struct_ov004_02159ce0_7 { unsigned int unknown_0_0_ : 4; unsigned int unk
 // USA: func_ov004_02159ce0
 extern "C" ARM int func_ov004_02159ce0(void* arg0) {
     int var0 = func_ov004_02157128(arg0);
-    Struct_0201099c_10* var1 = (Struct_0201099c_10*)((void*)func_ov004_02156fd4(arg0, 5));
+    ItemTable_0201099c_10* var1 = (ItemTable_0201099c_10*)((void*)func_ov004_02156fd4(arg0, 5));
     if (!var1) return 0;
 
     short var2 = *(short*)(data_ov004_021707e0 + 0xe);
-    Struct_0201099c_9* var3 = func_020dedd0(var1, var2);
+    ItemData_0201099c_9* var3 = func_020dedd0(var1, var2);
     if (!var3) return 0;
 
     Struct_020dd7ac var4;
@@ -2140,17 +2140,17 @@ extern "C" ARM int func_ov004_02159ce0(void* arg0) {
         Struct_ov004_02159ce0_2* var12 = (Struct_ov004_02159ce0_2*)func_ov004_02156f38(arg0, 0x3ed);
         if (var12) var12->unknown_0_->unknown_e0_(var12, var8);
 
-        Struct_ov004_02159ce0_4* var13 = (Struct_ov004_02159ce0_4*)func_ov023_021f6880((void**)(func_ov011_021849c8(arg0)), 0x3eb);
+        Struct_ov004_02159ce0_4* var13 = (Struct_ov004_02159ce0_4*)FindMenuObjectById_ov023_021f6880((void**)(GetMenuObjectList_ov011_021849c8(arg0)), 0x3eb);
         if (var13) var13->unknown_0_->unknown_d8_(var13, 0xf);
 
         if (var7 == var8) {
-            Struct_ov004_02159ce0_4* var14 = (Struct_ov004_02159ce0_4*)func_ov023_021f6880((void**)(func_ov011_021849c8(arg0)), 0x3ed);
+            Struct_ov004_02159ce0_4* var14 = (Struct_ov004_02159ce0_4*)FindMenuObjectById_ov023_021f6880((void**)(GetMenuObjectList_ov011_021849c8(arg0)), 0x3ed);
             if (var14) var14->unknown_0_->unknown_d8_(var14, 0xf);
         } else if (var7 < var8) {
-            Struct_ov004_02159ce0_4* var15 = (Struct_ov004_02159ce0_4*)func_ov023_021f6880((void**)(func_ov011_021849c8(arg0)), 0x3ed);
+            Struct_ov004_02159ce0_4* var15 = (Struct_ov004_02159ce0_4*)FindMenuObjectById_ov023_021f6880((void**)(GetMenuObjectList_ov011_021849c8(arg0)), 0x3ed);
             if (var15) var15->unknown_0_->unknown_d8_(var15, 0x5);
         } else {
-            Struct_ov004_02159ce0_4* var16 = (Struct_ov004_02159ce0_4*)func_ov023_021f6880((void**)(func_ov011_021849c8(arg0)), 0x3ed);
+            Struct_ov004_02159ce0_4* var16 = (Struct_ov004_02159ce0_4*)FindMenuObjectById_ov023_021f6880((void**)(GetMenuObjectList_ov011_021849c8(arg0)), 0x3ed);
             if (var16) var16->unknown_0_->unknown_d8_(var16, 0x9);
         }
 
@@ -2218,16 +2218,16 @@ static inline Struct_ov004_02159fcc_2* inline_ov004_02159fcc(Struct_ov004_02159f
 extern "C" ARM int func_ov004_02159fcc(void* arg0) {
     int var0 = func_ov004_02157128(arg0);
     ((Struct_ov004_02159fcc_4*)data_ov004_021707e0)->unknown_3c_ = var0;
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     GameObject* var1 = func_0200ff1c(GameState::GetInstance(), var0);
     if (!var1) return 0;
-    Struct_0201099c_10* var2 = ((Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    ItemTable_0201099c_10* var2 = ((ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
     if (!var2) return 0;
     Struct_ov000_0215767c_8* var3 = ((Struct_ov000_0215767c_8*)func_020dedd0(var2, ((Struct_ov004_02159fcc_4*)data_ov004_021707e0)->unknown_e_));
     if (!var3) return 0;
     unsigned int var4 = var3->unknown_8_0_;
     if (func_020dd4c4(var0, (Struct_020dd4c4_3*)var3)) {
-        func_ov011_021848a0(arg0, 0x392);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x392);
         return 0;
     }
     Struct_ov004_0216fbf8 var5 = data_ov004_0216fbf8;
@@ -2244,7 +2244,7 @@ extern "C" ARM int func_ov004_02159fcc(void* arg0) {
 #else
             var8->unknown_18_ = func_020e5294(((Struct_ov004_02159fcc_4*)data_ov004_021707e0)->unknown_8c_, var7->unknown_18_);
 #endif
-            func_ov011_021848a0(arg0, 0x23b6);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x23b6);
             return 0;
         }
     }
@@ -2277,7 +2277,7 @@ extern "C" ARM int func_ov004_02159fcc(void* arg0) {
         }
     checked:
         if (var10) {
-            func_ov011_021848a0(arg0, 0x23b5);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x23b5);
             return 0;
         }
     }
@@ -2294,13 +2294,13 @@ extern "C" void func_ov023_021f65d4(void* arg0, int arg1, int arg2);
 // USA: func_ov004_0215a294
 extern "C" ARM int func_ov004_0215a294(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_02010828(var0);
+    GetParty_02010828(var0);
     unsigned char* var1 __attribute__((aligned(4))) = data_ov004_021707e0;
     unsigned char var2 = (unsigned char)*(short*)(var1 + 0x3a);
     short var3 = 0x396;
     short var4 = *(short*)(var1 + 0x32);
     *(short*)(var1 + 0x3c) = var4;
-    func_ov011_021848a0(arg0, var3 + var2);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, var3 + var2);
     func_ov004_0215a2f8(data_ov004_021707e0);
     func_ov023_021f65d4(arg0, 2, 8);
     return 0;
@@ -2354,7 +2354,7 @@ struct Struct_ov004_0215a31c_3 {
 };
 struct Struct_020a0b8c;
 extern "C" int func_020a0b8c(Struct_020a0b8c* arg0);
-extern "C" int func_02053c6c(unsigned char*);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" int func_020dcc98(signed char arg0);
 typedef int (*Type_ov004_0215a31c)(Struct_ov004_0215a31c_2*, unsigned short, unsigned int, unsigned int);
 extern "C" void func_ov023_021f9ba8(Struct_ov004_0215a31c_2* arg0, int arg1);
@@ -2364,21 +2364,21 @@ extern "C" void func_ov023_021dcae0(struct Struct_ov003_02178910*, int);
 // USA: func_ov004_0215a31c
 extern "C" ARM int func_ov004_0215a31c(void* arg0) {
     signed char var0 = func_ov004_02157128(arg0);
-    Struct_0201099c_10* var1 = ((Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
-    Struct_02072a68_2* var2 = ((Struct_02072a68_2*)func_ov004_02157018(arg0, 3));
+    ItemTable_0201099c_10* var1 = ((ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    StringList_02072a68_2* var2 = ((StringList_02072a68_2*)func_ov004_02157018(arg0, 3));
     short* var3;
     Struct_ov004_0215a31c_2* var4 = ((Struct_ov004_0215a31c_2*)func_ov004_02156ed0(arg0, 0x63));
     int var5;
     int var6;
 
     if (var0 == -1) {
-        unsigned char* var7 = (unsigned char*)func_02010828(GameState::GetInstance());
+        unsigned char* var7 = (unsigned char*)GetParty_02010828(GameState::GetInstance());
         if (!var7) return 0;
         var3 = (short*)(var7 + 0xc);
         signed char* var8 = (signed char*)(var7 + 0x13c);
         Struct_ov004_0215a31c* var9 = ((Struct_ov004_0215a31c*)func_ov004_02156f04(arg0, 0x454));
         if (var9) {
-            var9->unknown_20_ = func_02072a68(var2, 0xb);
+            var9->unknown_20_ = FindStringInList_02072a68(var2, 0xb);
         }
         short var10 = var4->unknown_5c_;
         short var11 = var4->unknown_5e_;
@@ -2406,7 +2406,7 @@ extern "C" ARM int func_ov004_0215a31c(void* arg0) {
     } else {
         GameObject* var12 = func_0200ff1c(GameState::GetInstance(), var0);
         if (!var12) return 0;
-        var3 = (short*)(((unsigned char*)func_02053c6c((unsigned char*)var12)) + 0x454);
+        var3 = (short*)(((unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var12)) + 0x454);
         Struct_ov004_0215a31c* var13 = ((Struct_ov004_0215a31c*)func_ov004_02156f04(arg0, 0x454));
         if (var13) {
             var13->unknown_20_ = var12->baseStats_;
@@ -2499,7 +2499,7 @@ extern "C" ARM int func_ov004_0215a738(void* arg0) {
     short var0;
     short var1;
     GameState* var2 = GameState::GetInstance();
-    unsigned char* var3 = (unsigned char*)func_02010828(var2);
+    unsigned char* var3 = (unsigned char*)GetParty_02010828(var2);
     if (!var3) return 0;
     Struct_ov004_0215a738* var4 = ((Struct_ov004_0215a738*)func_ov004_02156ed0(arg0, 0x63));
     var0 = var4->unknown_5c_;
@@ -2516,7 +2516,7 @@ extern "C" ARM int func_ov004_0215a738(void* arg0) {
         var5 = (short*)(var3 + 0xc);
         var6 = (signed char*)(var3 + 0x13c);
     }
-    Struct_0201099c_10* var8 = (Struct_0201099c_10*)((void*)func_ov004_02156fd4(arg0, 5));
+    ItemTable_0201099c_10* var8 = (ItemTable_0201099c_10*)((void*)func_ov004_02156fd4(arg0, 5));
     for (int var9 = 0; var9 < 8; var9++) {
         int var10 = var9 + var0 * 8;
         Struct_ov004_0215a738_2* var11 = ((Struct_ov004_0215a738_2*)func_020dedd0(var8, var5[var10]));
@@ -2563,7 +2563,7 @@ extern "C" ARM int func_ov004_0215aa10(void* arg0) {
     if (func_ov004_021571d8((int)arg0)) {
         int var2 = func_ov004_02156e2c(arg0, 0x65);
         if (var2 < 0) return 0;
-        void* var3 = func_02010828(var0);
+        void* var3 = GetParty_02010828(var0);
         if (!var3) return 0;
         unsigned char var4 = *(data_ov004_021707e0 + var2 + 0x7c);
         var1 = func_0207c638((char*)var3 + 0x1d4, var4);
@@ -2571,18 +2571,18 @@ extern "C" ARM int func_ov004_0215aa10(void* arg0) {
     } else {
         int var5 = ((int)func_ov004_02157128(arg0));
         if (var5 == -1) {
-            void* var6 = func_02010828(var0);
+            void* var6 = GetParty_02010828(var0);
             if (!var6) return 0;
             var1 = func_020a0b8c((struct Struct_020a0b8c*)var6);
         } else {
             GameObject* var7 = func_0200ff1c(var0, var5);
             if (!var7) return 0;
-            int var8 = func_02053c6c((unsigned char*)var7);
+            int var8 = GetPartyMemberData_02053c6c((unsigned char*)var7);
             var1 = func_02083960((struct Struct_0207d300*)var8);
         }
     }
     if (var1 > 0) {
-        func_ov011_021848a0(arg0, 0x6a);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x6a);
     }
     return 0;
 }
@@ -2597,8 +2597,8 @@ extern "C" int func_020de194(void* arg0);
 // USA: func_ov004_0215aaf0
 extern "C" ARM int func_ov004_0215aaf0(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_0201099c_10* var1 = ((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
-    unsigned char* var2 = (unsigned char*)func_02010828(var0);
+    struct ItemTable_0201099c_10* var1 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    unsigned char* var2 = (unsigned char*)GetParty_02010828(var0);
     if (!var2) return 0;
 
     int var3 = func_ov004_02156e2c(arg0, 0x63);
@@ -2614,7 +2614,7 @@ extern "C" ARM int func_ov004_0215aaf0(void* arg0) {
         unsigned char* var8 = (unsigned char*)func_0207c60c(var2 + 0x1d4, *(unsigned int*)(data_ov004_021707e0 + 0x74));
         var6 = ((struct Struct_ov004_0215aaf0_3*)func_020dedd0(var1, ((short*)var7)[var5]));
         if (var6->unknown_8_.unknown_1_4_ == 0) {
-            func_ov011_021848a0(arg0, 0x3a1);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3a1);
             return 0;
         }
         *(short*)(data_ov004_021707e0 + 0x6c) = ((short*)var7)[var5];
@@ -2624,7 +2624,7 @@ extern "C" ARM int func_ov004_0215aaf0(void* arg0) {
         if (var9 == -1) {
             var6 = ((struct Struct_ov004_0215aaf0_3*)func_020dedd0(var1, *(short*)(var2 + var5 * 2 + 0xc)));
             if (var6->unknown_8_.unknown_1_4_ == 0) {
-                func_ov011_021848a0(arg0, 0x3a1);
+                QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3a1);
                 return 0;
             }
             *(short*)(data_ov004_021707e0 + 0x6c) = ((short*)(var2 + 0xc))[var5];
@@ -2633,10 +2633,10 @@ extern "C" ARM int func_ov004_0215aaf0(void* arg0) {
         } else {
             GameObject* var11 = func_0200ff1c(var0, var9);
             if (!var11) return 0;
-            int var12 = func_02053c6c((unsigned char*)var11);
+            int var12 = GetPartyMemberData_02053c6c((unsigned char*)var11);
             var6 = ((struct Struct_ov004_0215aaf0_3*)func_020dedd0(var1, ((short*)((char*)var12 + 0x400 + 0x54))[var3]));
             if (var6->unknown_8_.unknown_1_4_ == 0) {
-                func_ov011_021848a0(arg0, 0x3a1);
+                QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3a1);
                 return 0;
             }
             *(short*)(data_ov004_021707e0 + 0x6c) = ((short*)((char*)var12 + 0x400 + 0x54))[var3];
@@ -2649,14 +2649,14 @@ extern "C" ARM int func_ov004_0215aaf0(void* arg0) {
     int var14 = (int)((float)(unsigned int)var13 * 0.75f);
     *(int*)(data_ov004_021707e0 + 0x78) = var14;
     data_ov004_021707e0[0x6e] = 1;
-    func_ov011_021848a0(arg0, 0x6c);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x6c);
     return 0;
 }
 extern "C" void func_ov023_021fb27c(void* arg0, int arg1);
 
 // USA: func_ov004_0215ad34
 extern "C" ARM int func_ov004_0215ad34(void* arg0) {
-    struct Struct_0201099c_9* var0 = func_020dedd0(((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5)), *(short*)(((char*)data_ov004_021707e0) + 0x6c));
+    struct ItemData_0201099c_9* var0 = func_020dedd0(((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5)), *(short*)(((char*)data_ov004_021707e0) + 0x6c));
     int var1;
     int var2;
     if (var0 == NULL) return 0;
@@ -2693,9 +2693,9 @@ extern "C" ARM int func_ov004_0215adf8(void* arg0) {
     }
     *(unsigned char*)(((char*)data_ov004_021707e0) + 0x6e) = 1;
     if (*(unsigned char*)(((char*)data_ov004_021707e0) + 0x6f) == 1) {
-        func_ov011_021848a0(arg0, 0x39c);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x39c);
     } else {
-        func_ov011_021848a0(arg0, 0x6d);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x6d);
     }
     return 0;
 }
@@ -2777,9 +2777,9 @@ extern "C" ARM int func_ov004_0215af80(void* arg0) {
 // USA: func_ov004_0215aff0
 extern "C" ARM int func_ov004_0215aff0(void* arg0) {
     if (data_ov004_021707e0[0x6e] == 1) {
-        func_ov011_021848a0(arg0, 0x39c);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x39c);
     } else {
-        func_ov011_021848a0(arg0, 0x39b);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x39b);
     }
     return 0;
 }
@@ -2895,9 +2895,9 @@ struct Struct_ov004_0215b120_3 {
 // USA: func_ov004_0215b120
 extern "C" ARM int func_ov004_0215b120(void* arg0) {
     void* var0 = (void*)GetMessageWindow_020421a0();
-    func_02046380(var0);
+    ClearMessageParams_02046380(var0);
 
-    struct Struct_0201099c_10* var1 = ((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    struct ItemTable_0201099c_10* var1 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
     struct Struct_ov004_0215b120* var2 = ((struct Struct_ov004_0215b120*)func_020dedd0(var1, ((Struct_ov004_0215b120_3*)data_ov004_021707e0)->unknown_6c_));
 
     Struct_ov004_0215b120_3* var3 = ((Struct_ov004_0215b120_3*)data_ov004_021707e0);
@@ -2913,7 +2913,7 @@ extern "C" ARM int func_ov004_0215b120(void* arg0) {
         void* var7 = func_020e5294(var5, var2->unknown_18_);
         *(void**)((char*)var0 + 0x18) = var7;
 #endif
-        func_020465c0((struct Struct_020465c0*)var0, 0, ((Struct_ov004_0215b120_3*)data_ov004_021707e0)->unknown_78_);
+        SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var0, 0, ((Struct_ov004_0215b120_3*)data_ov004_021707e0)->unknown_78_);
     } else {
 #if defined(jpn)
         char var8[80];
@@ -2923,8 +2923,8 @@ extern "C" ARM int func_ov004_0215b120(void* arg0) {
         void* var9 = func_020e5294(var5, var2->unknown_18_);
         *(void**)((char*)var0 + 0x18) = var9;
 #endif
-        func_020465c0((struct Struct_020465c0*)var0, 0, ((Struct_ov004_0215b120_3*)data_ov004_021707e0)->unknown_78_);
-        func_020465c0((struct Struct_020465c0*)var0, 1, ((Struct_ov004_0215b120_3*)data_ov004_021707e0)->unknown_6e_);
+        SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var0, 0, ((Struct_ov004_0215b120_3*)data_ov004_021707e0)->unknown_78_);
+        SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var0, 1, ((Struct_ov004_0215b120_3*)data_ov004_021707e0)->unknown_6e_);
     }
     return 0;
 }
@@ -2936,7 +2936,7 @@ extern "C" int func_020838c4(struct Struct_020838c4* arg0, int arg1);
 struct Struct_ov004_0215b1d4 { unsigned short unknown_0_0_ : 13; unsigned short unknown_1_5_ : 3; };
 
 #if defined(jpn)
-extern "C" void* func_02010828(struct GameState*);
+extern "C" void* GetParty_02010828(struct GameState*);
 extern "C" struct GameObject* func_0200ff1c(struct GameState*, int);
 
 #endif
@@ -2955,14 +2955,14 @@ extern "C" ARM int func_ov004_0215b1d4(void* arg0) {
 
     int var2 = *(int*)(data_ov004_021707e0 + 0x74);
     if (var2 >= 0) {
-        void* var3 = func_02010828(var0);
+        void* var3 = GetParty_02010828(var0);
         if (!var3) return 0;
         short var4 = *(short*)(data_ov004_021707e0 + 0x6c);
         signed char var5 = *(signed char*)(data_ov004_021707e0 + 0x6e);
         int var6 = *(int*)(data_ov004_021707e0 + 0x74);
         func_0207c484((struct Struct_0207c484*)((char*)var3 + 0x1d4), var4, var5, var6);
     } else if (*(signed char*)(data_ov004_021707e0 + 0x70) == -1) {
-        void* var7 = func_02010828(var0);
+        void* var7 = GetParty_02010828(var0);
         if (!var7) return 0;
         short var8 = *(short*)(data_ov004_021707e0 + 0x6c);
         signed char var9 = *(signed char*)(data_ov004_021707e0 + 0x6e);
@@ -2971,7 +2971,7 @@ extern "C" ARM int func_ov004_0215b1d4(void* arg0) {
         int var10 = *(signed char*)(data_ov004_021707e0 + 0x70);
         GameObject* var11 = func_0200ff1c(var0, var10);
         if (!var11) return 0;
-        int var12 = func_02053c6c((unsigned char*)var11);
+        int var12 = GetPartyMemberData_02053c6c((unsigned char*)var11);
         short var13 = *(short*)(data_ov004_021707e0 + 0x6c);
         func_020838c4((struct Struct_020838c4*)var12, var13);
     }
@@ -2983,9 +2983,9 @@ extern "C" ARM int func_ov004_0215b1d4(void* arg0) {
 
     unsigned char var15 = *(data_ov004_021707e0 + 0x6e);
     if (var15 > 1) {
-        func_ov011_021848a0(arg0, 0x2423);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2423);
     } else {
-        func_ov011_021848a0(arg0, 0x39d);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x39d);
     }
     return 0;
 }
@@ -2993,7 +2993,7 @@ extern "C" ARM int func_ov004_0215b1d4(void* arg0) {
 // USA: func_ov004_0215b330
 extern "C" ARM void* func_ov004_0215b330(void* arg0) {
     func_ov004_0215a2f8(data_ov004_021707e0);
-    func_ov011_021848a0(arg0, 0x39e);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x39e);
     return 0;
 }
 
@@ -3086,16 +3086,16 @@ extern "C" ARM int func_ov004_0215b360(void* arg0) {
     short* var0 = NULL;
     signed char* var1 = NULL;
     int var2 = 0;
-    Struct_0201099c_10* var3 = ((Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
-    Struct_02072a68_2* var4 = ((Struct_02072a68_2*)func_ov004_02157018(arg0, 3));
+    ItemTable_0201099c_10* var3 = ((ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    StringList_02072a68_2* var4 = ((StringList_02072a68_2*)func_ov004_02157018(arg0, 3));
     int var5 = func_ov004_02156e2c(arg0, 0x65);
     if (var5 < 0) return 0;
-    Struct_ov004_0215b360_4* var6 = (Struct_ov004_0215b360_4*)func_02010828(GameState::GetInstance());
+    Struct_ov004_0215b360_4* var6 = (Struct_ov004_0215b360_4*)GetParty_02010828(GameState::GetInstance());
     if (!var6) return 0;
     for (int var7 = 0; var7 < 8; var7++) {
         if (var7 == var5) {
             Struct_ov004_0215b360* var8 = ((Struct_ov004_0215b360*)func_ov004_02156f04(arg0, 0x454));
-            if (var8) var8->unknown_20_ = func_02072a68(var4, (short)(var7 + 0x1b));
+            if (var8) var8->unknown_20_ = FindStringInList_02072a68(var4, (short)(var7 + 0x1b));
             func_ov023_021f6600(arg0, var7 + 0x38c, 8);
             var0 = ((short*)func_0207c5f8(var6->unknown_1d4_, ((Struct_ov004_0215b360_3*)data_ov004_021707e0)->unknown_7c_[var5]));
             var1 = ((signed char*)func_0207c60c(var6->unknown_1d4_, ((Struct_ov004_0215b360_3*)data_ov004_021707e0)->unknown_7c_[var5]));
@@ -3143,7 +3143,7 @@ extern "C" int func_0207c51c(unsigned char* arg0, int arg1);
 
 // USA: func_ov004_0215b694
 extern "C" ARM int func_ov004_0215b694(void* arg0) {
-    void* var0 = func_02010828(GameState::GetInstance());
+    void* var0 = GetParty_02010828(GameState::GetInstance());
     if (!var0) {
         return 0;
     }
@@ -3152,7 +3152,7 @@ extern "C" ARM int func_ov004_0215b694(void* arg0) {
         func_0207c51c((unsigned char*)var0 + 0x1d4, var2);
     }
     func_ov004_0215a2f8(data_ov004_021707e0);
-    func_ov011_021848a0(arg0, 0x3a0);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3a0);
     func_ov023_021f65d4(arg0, 2, 8);
     return 0;
 }
@@ -3187,7 +3187,7 @@ extern "C" ARM int func_ov004_0215b740(void* arg0) {
     signed char var4 = *(unsigned short*)(var0 + 0xfa);
     func_0207d300(var2, var3, var4, 0);
     func_ov004_0215b7c8((Struct_ov004_0215b740*)(var0 + 0xf8));
-    func_ov011_021848a0(arg0, 0x3a4);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3a4);
     return 0;
 }
 
@@ -3202,7 +3202,7 @@ extern "C" ARM void func_ov004_0215b7c8(Struct_ov004_0215b740* arg0) {
 
 // USA: func_ov004_0215b7e0
 extern "C" ARM int func_ov004_0215b7e0(void* arg0) {
-    func_ov011_021848a0(arg0, 0x3a5);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3a5);
     return 0;
 }
 
@@ -3236,7 +3236,7 @@ struct Struct_ov004_0215b7f8_5 {
     int unknown_998_;
     int unknown_99c_;
 };
-extern "C" int func_0202c508(struct Struct_0202c508*);
+extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202c508*);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, const char*, int);
 #else
@@ -3251,15 +3251,15 @@ static inline void inline_ov004_0215b7f8(char* arg0, const char* arg1) {
 }
 
 #if defined(jpn)
-extern "C" void func_02096660(Struct_0208cb08*, int, char*, int);
+extern "C" void func_02096660(FontLoader_0208cb08*, int, char*, int);
 #endif
 
 // USA: func_ov004_0215b7f8
 extern "C" ARM int func_ov004_0215b7f8(void* arg0) {
-    if (!((struct Struct_02072a68_2*)func_ov004_02157018(arg0, 4))) return 0;
+    if (!((struct StringList_02072a68_2*)func_ov004_02157018(arg0, 4))) return 0;
     GameState* var0 = GameState::GetInstance();
     Struct_ov004_0215b7f8_3* var1 = (Struct_ov004_0215b7f8_3*)((char*)var0 + Enum_ov004_0215b7f8_620 + 0x5c00);
-    if (func_0202c508((Struct_0202c508*)(func_0202ae18())) && func_ov017_021b213c(var1->unknown_100_.unknown_0_, ((Struct_ov004_0215b7f8*)data_ov004_021707e0)->unknown_18_)) {
+    if (IsNotLocalWirelessGuest_0202c508((LocalWireless_0202c508*)(GetLocalWireless_0202ae18())) && func_ov017_021b213c(var1->unknown_100_.unknown_0_, ((Struct_ov004_0215b7f8*)data_ov004_021707e0)->unknown_18_)) {
         char var2[0x200];
         char var3[0x220];
         int var4 = ((Struct_ov004_0215b7f8_4*)var0)->unknown_5f6c_.unknown_10_;
@@ -3284,7 +3284,7 @@ extern "C" ARM int func_ov004_0215b7f8(void* arg0) {
     int var7;
     for (var7 = 0; var7 < var6; var7++) {
     }
-    func_ov011_021848a0(arg0, var6 + 0x2486);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, var6 + 0x2486);
     return 0;
 }
 
@@ -3341,20 +3341,20 @@ extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* ar
 extern "C" ARM int func_ov004_0215b934(void* arg0) {
     if (((Struct_ov004_0215b934*)data_ov004_021707e0)->unknown_14_) {
         GameState* var0 = GameState::GetInstance();
-        Struct_ov004_0215b934_4* var1 = (Struct_ov004_0215b934_4*)func_02010828(var0);
+        Struct_ov004_0215b934_4* var1 = (Struct_ov004_0215b934_4*)GetParty_02010828(var0);
         Struct_ov004_0215b934_5* var2;
         Struct_ov004_0215b934_6* var3;
         unsigned int var4;
         Struct_ov004_0215b934_3* var5 = (Struct_ov004_0215b934_3*)((char*)var0 + Enum_ov004_0215b934_620 + 0x5c00);
         if (var5->unknown_f8_.unknown_0_ <= 0 || var5->unknown_f8_.unknown_2_ == 0) {
-            func_ov011_021848a0(arg0, 0x387);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x387);
             return 0;
         }
-        struct Struct_0201099c_10* var6 = ((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+        struct ItemTable_0201099c_10* var6 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
         var2 = ((Struct_ov004_0215b934_5*)func_020dedd0(var6, var5->unknown_f8_.unknown_0_));
         if (!var2) return 0;
         var3 = ((Struct_ov004_0215b934_6*)GetMessageWindow_020421a0());
-        func_02046380(var3);
+        ClearMessageParams_02046380(var3);
         unsigned int var7 = var5->unknown_f8_.unknown_14_0_;
         if (var7 & 1) {
             var4 = var5->unknown_f8_.unknown_2_ * var5->unknown_f8_.unknown_4_;
@@ -3362,7 +3362,7 @@ extern "C" ARM int func_ov004_0215b934(void* arg0) {
                 var4 = 9999999 - var1->unknown_f6c_;
             }
             var1->unknown_f6c_ += var4;
-            struct Struct_02072a68_2* var8 = ((struct Struct_02072a68_2*)func_ov004_02157018(arg0, 9));
+            struct StringList_02072a68_2* var8 = ((struct StringList_02072a68_2*)func_ov004_02157018(arg0, 9));
 #if defined(jpn)
             char var9[80];
             func_020e207c((Struct_0201099c_3*)(((Struct_ov004_0215b934*)data_ov004_021707e0)->unknown_8c_), var9, var2->unknown_18_);
@@ -3370,10 +3370,10 @@ extern "C" ARM int func_ov004_0215b934(void* arg0) {
 #else
             var3->unknown_18_ = ((int)func_020e5294(((Struct_ov004_0215b934*)data_ov004_021707e0)->unknown_8c_, var2->unknown_18_));
 #endif
-            func_02046574((struct Struct_02046574_2*)var3, 2, ((char*)func_02072a68(var8, (short)(rand() % 0x3a))));
-            func_02046574((struct Struct_02046574_2*)var3, 3, ((char*)func_02072a68(var8, (short)(rand() % 6 + 1000))));
-            func_020465c0((struct Struct_020465c0*)var3, 0, var4);
-            func_ov011_021848a0(arg0, 0x3a8);
+            func_02046574((struct Struct_02046574_2*)var3, 2, ((char*)FindStringInList_02072a68(var8, (short)(rand() % 0x3a))));
+            func_02046574((struct Struct_02046574_2*)var3, 3, ((char*)FindStringInList_02072a68(var8, (short)(rand() % 6 + 1000))));
+            SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var3, 0, var4);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3a8);
         } else if (var7 & 2) {
             char var10[0x38];
             ((SafeAllocator*)var10)->ResetAllocatorPointer();
@@ -3388,13 +3388,13 @@ extern "C" ARM int func_ov004_0215b934(void* arg0) {
 #else
             var3->unknown_18_ = ((int)func_020e5294(((Struct_ov004_0215b934*)data_ov004_021707e0)->unknown_8c_, var2->unknown_18_));
 #endif
-            func_ov011_021848a0(arg0, 0x3a9);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3a9);
         } else {
-            func_ov011_021848a0(arg0, 0x387);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x387);
         }
         func_ov004_0215b7c8((Struct_ov004_0215b740*)(&var5->unknown_f8_));
     } else {
-        func_ov011_021848a0(arg0, 0x387);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x387);
     }
     return 0;
 }
@@ -3418,7 +3418,7 @@ extern "C" ARM int func_ov004_0215bb54(void* arg0) {
         void* var2 = func_ov011_021845f8((unsigned char*)arg0, (int)1);
         if (var2 == 0) {
             func_ov004_0215a2f8(data_ov004_021707e0);
-            func_ov011_021848a0(arg0, 0x39e);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x39e);
             data_ov004_021707e0[0x13] = 0;
             return 0;
         }
@@ -3429,10 +3429,10 @@ extern "C" ARM int func_ov004_0215bb54(void* arg0) {
         *(int*)((char*)var0 + 0x34) = var4;
         *(int*)((char*)var0 + 0x38) = var3;
         data_ov004_021707e0[0x13]++;
-        func_ov011_021848a0(arg0, 0x3aa);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3aa);
         void* var5 = (void*)func_ov004_02157018(arg0, 4);
         int var6 = GetMessageWindow_020421a0();
-        void* var7 = func_02072a68((struct Struct_02072a68_2*)var5, 0x13);
+        void* var7 = FindStringInList_02072a68((struct StringList_02072a68_2*)var5, 0x13);
 #if defined(jpn)
         StartMessage_0204500c((void*)var6, (const char*)var7, 0);
 #else
@@ -3440,7 +3440,7 @@ extern "C" ARM int func_ov004_0215bb54(void* arg0) {
 #endif
         *(int*)((char*)var6 + Enum_ov004_0215bb54_2456) = 1;
     } else if (var1 == 1) {
-        func_ov011_021848a0(arg0, 0x3ab);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3ab);
         data_ov004_021707e0[0x13]++;
         return 0;
     }
@@ -3492,12 +3492,12 @@ extern "C" ARM int func_ov004_0215bc9c(void* arg0) {
 
         if (func_ov017_021b1fe8((Struct_ov004_021583a8*)var3) & 4) {
             data_ov004_021707e0[0x15] = 1;
-            const char* var8 = (const char*)func_02072a68((struct Struct_02072a68_2*)var4, 0x26);
+            const char* var8 = (const char*)FindStringInList_02072a68((struct StringList_02072a68_2*)var4, 0x26);
             memcpy(var7, var8, strlen(var8));
-            func_ov011_021848a0(arg0, 0x3af);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3af);
         } else {
             data_ov004_021707e0[0x15] = 0;
-            const char* var9 = (const char*)func_02072a68((struct Struct_02072a68_2*)var4, 0x15);
+            const char* var9 = (const char*)FindStringInList_02072a68((struct StringList_02072a68_2*)var4, 0x15);
             int var10 = strlen(var9);
             memcpy(var7, var9, var10);
 
@@ -3505,7 +3505,7 @@ extern "C" ARM int func_ov004_0215bc9c(void* arg0) {
             int var12 = func_ov017_021b2010((Struct_ov004_021583a8_3*)var3);
             func_ov004_02157374(arg0, var11, var12, var7 + var10, 0);
             strlen(var7 + var10);
-            func_ov011_021848a0(arg0, 0x242d);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x242d);
         }
 
         *((unsigned char*)var3 + 1) = 1;
@@ -3533,7 +3533,7 @@ extern "C" int func_ov004_02156e2c(void* arg0, int arg1);
 // USA: func_ov004_0215be9c
 extern "C" ARM int func_ov004_0215be9c(int arg0) {
     GameState* var0 = GameState::GetInstance();
-    unsigned char* var1 = (unsigned char*)func_02010828(var0);
+    unsigned char* var1 = (unsigned char*)GetParty_02010828(var0);
     if (var1 == 0) {
         return 0;
     }
@@ -3553,7 +3553,7 @@ extern "C" ARM int func_ov004_0215be9c(int arg0) {
             if (var7 == 0) {
                 return 0;
             }
-            unsigned char* var8 = (unsigned char*)((void*)func_02053c6c((unsigned char*)var7)) + 0x54;
+            unsigned char* var8 = (unsigned char*)((void*)GetPartyMemberData_02053c6c((unsigned char*)var7)) + 0x54;
             var4 = var8 + 0x400;
             var3 = 0;
         } else {
@@ -3634,8 +3634,8 @@ extern "C" ARM int func_ov004_0215bf94() {
     };
     Struct_ov004_0215bf94_3* var2 = (Struct_ov004_0215bf94_3*)GetZone3D_02012fe4();
     unsigned char var3 = var2->unknown_8_->unknown_d_0_;
-    func_0209c3b4((struct Struct_0209c3b4_2*)data_02109bf4, var3);
-    func_0209ca70(data_02109bf4, ((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_2d_);
+    func_0209c3b4((struct Struct_0209c3b4_2*)gMusicManager_02109bf4, var3);
+    func_0209ca70(gMusicManager_02109bf4, ((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_2d_);
     func_020dc2bc();
 #if defined(jpn)
     unsigned int var4;
@@ -3656,7 +3656,7 @@ extern "C" ARM int func_ov004_0215bf94() {
 
 // USA: func_ov004_0215c064
 extern "C" ARM int func_ov004_0215c064(void* arg0) {
-	func_ov011_021848a0(arg0, 0x50);
+	QueueMenuScriptEntry_ov011_021848a0(arg0, 0x50);
 	func_ov023_021f65d4(arg0, 2, 8);
 	return 0;
 }
@@ -3668,13 +3668,13 @@ extern "C" ARM int func_ov004_0215c08c(void) {
 
 // USA: func_ov004_0215c094
 extern "C" ARM int func_ov004_0215c094(void* arg0) {
-    func_ov011_021848a0(arg0, 0x387);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x387);
     return 0;
 }
 
 // USA: func_ov004_0215c0ac
 extern "C" ARM int func_ov004_0215c0ac(int arg0) {
-	func_ov011_021848a0((void*)arg0, 0x65);
+	QueueMenuScriptEntry_ov011_021848a0((void*)arg0, 0x65);
 	return 0;
 }
 
@@ -3687,7 +3687,7 @@ extern "C" ARM int func_ov004_0215c0c0(void* arg0) {
     if (var0 < 0) return 0;
     void* var1 = func_ov004_021570a4(arg0, var0 & 0xff);
     if (!var1) return 0;
-    struct Struct_ov004_0215c0c0_2* var2 = (struct Struct_ov004_0215c0c0_2*)func_02010828(GameState::GetInstance());
+    struct Struct_ov004_0215c0c0_2* var2 = (struct Struct_ov004_0215c0c0_2*)GetParty_02010828(GameState::GetInstance());
     struct Struct_ov004_0215c0c0* var3 = (struct Struct_ov004_0215c0c0*)((char*)var1 + 4);
     unsigned char var4 = data_ov004_021707e0[0x11];
     unsigned int var5 = var3->unknown_0_7_;
@@ -3703,16 +3703,16 @@ extern "C" ARM int func_ov004_0215c0c0(void* arg0) {
     data_ov004_021707e0[0x9d] = 1;
 #endif
     if (var6 >= 50000) {
-        func_ov011_021848a0(arg0, 0x2366);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2366);
     } else {
-        func_ov011_021848a0(arg0, 0x2364);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2364);
     }
     return 0;
 }
 
 // USA: func_ov004_0215c194
 extern "C" ARM int func_ov004_0215c194(void* arg0) {
-    func_ov011_021848a0(arg0, 0x39f);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x39f);
     return 0;
 }
 extern "C" void func_ov023_021f8240(void*, void*);
@@ -3747,25 +3747,25 @@ extern "C" ARM int func_ov004_0215c1ac(void* arg0) {
     if (var2) {
         func_ov023_021f8240(var2, arg0);
     }
-    func_ov011_021848a0(arg0, 0x6b);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x6b);
     return 0;
 }
 
 // USA: func_ov004_0215c228
 extern "C" ARM int func_ov004_0215c228(int arg0) {
-	func_ov011_021848a0((void*)arg0, 0x6a);
+	QueueMenuScriptEntry_ov011_021848a0((void*)arg0, 0x6a);
 	return 0;
 }
 
 // USA: func_ov004_0215c23c
 extern "C" ARM int func_ov004_0215c23c(int arg0) {
-	func_ov011_021848a0((void*)arg0, 0x6c);
+	QueueMenuScriptEntry_ov011_021848a0((void*)arg0, 0x6c);
 	return 0;
 }
 
 // USA: func_ov004_0215c250
 extern "C" ARM int func_ov004_0215c250(void* arg0) {
-    func_ov011_021848a0(arg0, 0x396);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x396);
     return 0;
 }
 
@@ -3777,7 +3777,7 @@ extern "C" ARM int func_ov004_0215c268(void* arg0) {
 	unsigned char* var1 = (unsigned char*)((char*)data_ov004_021707e0);
 	if (var1[0x30] == 0) goto skip;
 	{
-		Struct_0208cb08* var2 = func_02094a00();
+		FontLoader_0208cb08* var2 = func_02094a00();
 		unsigned char* var3 = (unsigned char*)((char*)data_ov004_021707e0);
 		if (var3[0x2c] != 0) goto elseBranch;
 		func_02094b34(var2, 0x72, 0x202, 0, 0);
@@ -3804,17 +3804,17 @@ done:
 }
 
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
-extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 extern "C" void* func_ov004_0215c448(void* arg0);
 extern "C" void* func_ov004_0215c474(void* arg0);
 extern "C" ARM int func_ov023_021f6f20(void* arg0, int arg1, int arg2, int arg3, int arg4, unsigned int arg5);
 extern "C" ARM void* func_ov023_021f7318(void* arg0);
 extern "C" ARM void func_ov023_021f7320(void* arg0);
 
-struct Struct_0203d028;
-extern "C" void func_0207df50(struct Struct_0203d028* arg0);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+struct TextureVRAMArea_0203d028;
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_0204719c(void* arg0);
 extern "C" void func_02047b30(void* arg0, int arg1, int arg2, int arg3);
 
@@ -3849,19 +3849,19 @@ extern "C" ARM int func_ov004_0215c30c(void* arg0) {
 
     BackgroundLoader::AddLockGlobal();
     unsigned int var4;
-    void* var5 = LoadFileIntoMemory("data/menu/dqa_rox.spr", data_0211e33c, &var4);
+    void* var5 = LoadFileIntoMemory("data/menu/dqa_rox.spr", gFileScratchSpace_0211e33c, &var4);
     char* var6 = inline_ov004_0215c30c(GetGameResources(), 0);
     void* var7 = func_ov023_021f7318(var1);
-    func_0207df50((struct Struct_0203d028*)var6);
-    func_0207df90(var6);
+    ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)var6);
+    RestoreTextureVRAMState_0207df90(var6);
     func_0204719c(var7);
     if (var5 != 0) {
         func_02047b30(var7, (int)var5, var4, (int)((char*)var0 + 4));
     }
-    func_0207dfac(var6);
+    SaveTextureVRAMState_0207dfac(var6);
     BackgroundLoader::RemoveLockGlobal();
     func_ov023_021f7320(var1);
-    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)func_ov011_021849c8(arg0), (struct Struct_ov004_0215c30c_2*)var1);
+    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)GetMenuObjectList_ov011_021849c8(arg0), (struct Struct_ov004_0215c30c_2*)var1);
 
     int var8 = 0;
     func_ov004_0215c474(&var2);
@@ -3924,7 +3924,7 @@ extern "C" ARM int func_ov004_0215c50c(void* arg0) {
     unsigned char var2 = data_ov004_021707e0[0x11];
     data_ov004_021707e0[0x11] = (unsigned char)((unsigned int)(var1->unknown_4_ << 25) >> 25);
 
-    void* var3 = func_02010828(GameState::GetInstance());
+    void* var3 = GetParty_02010828(GameState::GetInstance());
     unsigned int var4 = (unsigned int)var1->unknown_4_ >> 7;
     unsigned int var5 = data_ov004_021707e0[0x11] * var4;
     int var6 = *(int*)((char*)var3 + 0xf6c);
@@ -3938,7 +3938,7 @@ extern "C" ARM int func_ov004_0215c50c(void* arg0) {
     if (!var8) return 0;
 
     short var9 = *(short*)(data_ov004_021707e0 + 0xe);
-    Struct_0201099c_9* var10 = func_020dedd0((Struct_0201099c_10*)var8, var9);
+    ItemData_0201099c_9* var10 = func_020dedd0((ItemTable_0201099c_10*)var8, var9);
     if (!var10) return 0;
 
     int var11 = *(int*)((char*)var10 + 8);
@@ -4034,10 +4034,10 @@ extern "C" int func_ov023_021f6f20(void*, int, int, int, int, unsigned int);
 extern "C" void* ExtractFileFromGP2(const char*, const char*, unsigned int*);
 extern "C" void* func_ov023_021f7318(void*);
 extern "C" Struct_ov004_0215c774_3* func_ov011_0218466c(void*, unsigned short);
-extern "C" void func_0207df90(char*);
+extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void func_0204719c(void*);
 extern "C" void func_02047b30(void*, int, int, int);
-extern "C" void func_0207dfac(char*);
+extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_ov023_021f7320(void*);
 extern "C" void func_ov023_021f67ac(Struct_ov004_0215c30c*, Struct_ov004_0215c30c_2*);
 
@@ -4067,7 +4067,7 @@ extern "C" ARM int func_ov004_0215c774(void* arg0) {
     sprintf(var4, "data/menu/dqa_%02d.spr", ((Struct_ov004_0215c774_4*)data_ov004_021707e0)->unknown_19_4_);
     BackgroundLoader::AddLockGlobal();
     unsigned int var7;
-    void* var8 = LoadFileIntoMemory(var4, data_0211e33c, &var7);
+    void* var8 = LoadFileIntoMemory(var4, gFileScratchSpace_0211e33c, &var7);
 #else
     char var5[32];
     char var6[32];
@@ -4082,15 +4082,15 @@ extern "C" ARM int func_ov004_0215c774(void* arg0) {
     void* var9 = func_ov023_021f7318(var1);
     Struct_ov004_0215c774_3* var10 = func_ov011_0218466c(arg0, 0);
     char* var11 = var10->unknown_4_;
-    func_0207df90(var11);
+    RestoreTextureVRAMState_0207df90(var11);
     func_0204719c(var9);
     if (var8 != 0) {
         func_02047b30(var9, (int)var8, var7, (int)&var0->unknown_4_);
     }
-    func_0207dfac(var11);
+    SaveTextureVRAMState_0207dfac(var11);
     BackgroundLoader::RemoveLockGlobal();
     func_ov023_021f7320(var1);
-    func_ov023_021f67ac(((Struct_ov004_0215c30c*)func_ov011_021849c8(arg0)), &var1->unknown_0_);
+    func_ov023_021f67ac(((Struct_ov004_0215c30c*)GetMenuObjectList_ov011_021849c8(arg0)), &var1->unknown_0_);
 #if defined(jpn)
     int var12 = 0;
     func_ov004_0215c474(&var2);
@@ -4134,22 +4134,22 @@ extern "C" ARM int func_ov004_0215c900(void* arg0) {
     const Struct_ov004_0215c900* var0 = (const Struct_ov004_0215c900*)((const char*)GameState::GetInstance() + 0x5e6c);
 #endif
     if (var0->unknown_10c_0_ & 0x20) {
-        func_ov011_021848a0(arg0, 2);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 2);
     } else {
-        func_ov011_021848a0(arg0, 1);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 1);
     }
     return 0;
 }
 
 // USA: func_ov004_0215c948
 extern "C" ARM int func_ov004_0215c948(int arg0) {
-	func_ov011_021848a0((void*)arg0, 0x384);
+	QueueMenuScriptEntry_ov011_021848a0((void*)arg0, 0x384);
 	return 0;
 }
 
 // USA: func_ov004_0215c95c
 extern "C" ARM int func_ov004_0215c95c(void* arg0) {
-    func_ov011_021848a0(arg0, 0x395);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x395);
     return 0;
 }
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
@@ -4179,7 +4179,7 @@ extern "C" ARM int func_ov004_0215c974(void* arg0) {
     char* var2;
     int var3;
     char* var4;
-    struct Struct_02072a68_2* var5;
+    struct StringList_02072a68_2* var5;
     const char* var6;
     int var7;
     char* var8;
@@ -4188,12 +4188,12 @@ extern "C" ARM int func_ov004_0215c974(void* arg0) {
 
     func_ov023_021f6600(arg0, 0x36, 8);
 
-    var0 = func_020d6c00();
+    var0 = GetGlobalFlags_020d6c00();
     func_020466e4((unsigned int*)var0, 0x80);
 
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
-    var1 = func_020aad1c(data_ov004_021707e0 + 0x84, data_0211e33c, 0xa, 0) != 0;
+    var1 = func_020aad1c(data_ov004_021707e0 + 0x84, gFileScratchSpace_0211e33c, 0xa, 0) != 0;
     BackgroundLoader::RemoveLockGlobal();
     if (!var1) return 1;
 
@@ -4212,9 +4212,9 @@ extern "C" ARM int func_ov004_0215c974(void* arg0) {
 #else
     var2 = (char*)GameState::GetInstance() + Enum_ov004_0215c974_620;
 #endif
-    var5 = (struct Struct_02072a68_2*)func_ov004_02157018(arg0, 4);
+    var5 = (struct StringList_02072a68_2*)func_ov004_02157018(arg0, 4);
 
-    var6 = (const char*)func_02072a68(var5, 0x21);
+    var6 = (const char*)FindStringInList_02072a68(var5, 0x21);
     var7 = strlen(var6);
     memcpy(var4, var6, var7);
     var4 += var7;
@@ -4223,8 +4223,8 @@ extern "C" ARM int func_ov004_0215c974(void* arg0) {
         func_ov004_0215b1d4(arg0);
         void* var13 = GetZone3D_02012fe4();
         Struct_ov004_0215c974_2* var14 = (Struct_ov004_0215c974_2*)((char*)(*(void**)((char*)var13 + 8)) + 0xd);
-        func_0209c3b4((struct Struct_0209c3b4_2*)data_02109bf4, var14->unknown_0_0_);
-        func_0209ca70(data_02109bf4, data_ov004_021707e0[0x2d]);
+        func_0209c3b4((struct Struct_0209c3b4_2*)gMusicManager_02109bf4, var14->unknown_0_0_);
+        func_0209ca70(gMusicManager_02109bf4, data_ov004_021707e0[0x2d]);
     } else if (data_ov004_021707e0[0x14] != 0) {
         void* var15 = GetGameResources();
         void* var16 = *(void**)((char*)var15 + Enum_ov004_0215c974_15176);
@@ -4241,16 +4241,16 @@ extern "C" ARM int func_ov004_0215c974(void* arg0) {
         }
 
         if (var10 != 4) {
-            func_ov011_021848a0(arg0, 0x394);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x394);
         } else {
-            func_ov011_021848a0(arg0, 0x3ad);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3ad);
         }
 
         int var17 = *(unsigned short*)(var2 + 0x5d00 + 0xc);
         var17 = var17 << 0x13;
         var17 = (unsigned)var17 >> 0x13;
         if (var17 & 0x40) {
-            const char* var18 = (const char*)func_02072a68(var5, 0x1c);
+            const char* var18 = (const char*)FindStringInList_02072a68(var5, 0x1c);
             int var19 = strlen(var18);
             memcpy(var4, var18, var19);
             var4 += var19;
@@ -4260,9 +4260,9 @@ extern "C" ARM int func_ov004_0215c974(void* arg0) {
         if (data_ov004_021707e0[0x2f] != var20) {
             const char* var21;
             if (var20) {
-                var21 = (const char*)func_02072a68(var5, 0x1d);
+                var21 = (const char*)FindStringInList_02072a68(var5, 0x1d);
             } else {
-                var21 = (const char*)func_02072a68(var5, 0x1e);
+                var21 = (const char*)FindStringInList_02072a68(var5, 0x1e);
             }
             int var22 = strlen(var21);
             memcpy(var4, var21, var22);
@@ -4273,7 +4273,7 @@ extern "C" ARM int func_ov004_0215c974(void* arg0) {
         var17 = var17 << 0x13;
         var17 = (unsigned)var17 >> 0x13;
         if (var17 & 0x200) {
-            const char* var23 = (const char*)func_02072a68(var5, 0x1f);
+            const char* var23 = (const char*)FindStringInList_02072a68(var5, 0x1f);
             memcpy(var4, var23, strlen(var23));
         }
     }
@@ -4290,20 +4290,20 @@ extern "C" ARM int func_ov004_0215c974(void* arg0) {
 // USA: func_ov004_0215cbec
 extern "C" ARM int func_ov004_0215cbec(void* arg0) {
     func_ov023_021f65d4(arg0, 2, 8);
-    func_ov011_021848a0(arg0, 0x68);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x68);
     return 0;
 }
 
 // USA: func_ov004_0215cc14
 extern "C" ARM int func_ov004_0215cc14(void* arg0) {
     func_ov023_021f65d4(arg0, 2, 8);
-    func_ov011_021848a0(arg0, 0x396);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x396);
     return 0;
 }
 
 // USA: func_ov004_0215cc40
 extern "C" ARM int func_ov004_0215cc40(void* arg0) {
-    func_ov011_021848a0(arg0, 0x3b1);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3b1);
     return 0;
 }
 
@@ -4483,7 +4483,7 @@ extern "C" ARM int func_ov004_0215cec4(void* arg0) {
     if (var1 < 0) return 0;
     Struct_ov004_0215cec4_2* var2 = ((Struct_ov004_0215cec4_2*)func_ov004_021570a4(arg0, var1 & 0xff));
     if (!var2) return 0;
-    Struct_0201099c_10* var3 = ((Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    ItemTable_0201099c_10* var3 = ((ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
     if (!var3) return 0;
     Struct_ov004_0215cec4_3* var4 = ((Struct_ov004_0215cec4_3*)func_020dedd0(var3, var2->unknown_0_));
     if (!var4) return 0;
@@ -4545,17 +4545,17 @@ extern "C" ARM int func_ov004_0215cec4(void* arg0) {
                 Struct_ov004_0215cec4_5* var19 = (Struct_ov004_0215cec4_5*)func_ov004_02156f38(arg0, var12 + 0x1ca);
                 if (var19) var19->unknown_0_->unknown_e0_(var19, var17);
 
-                Struct_ov004_0215cec4_7* var20 = (Struct_ov004_0215cec4_7*)func_ov023_021f6880((void**)(func_ov011_021849c8(arg0)), var12 + 0x1c6);
+                Struct_ov004_0215cec4_7* var20 = (Struct_ov004_0215cec4_7*)FindMenuObjectById_ov023_021f6880((void**)(GetMenuObjectList_ov011_021849c8(arg0)), var12 + 0x1c6);
                 if (var20) var20->unknown_0_->unknown_d8_(var20, 0xf);
 
                 if (var16 == var17) {
-                    Struct_ov004_0215cec4_7* var21 = (Struct_ov004_0215cec4_7*)func_ov023_021f6880((void**)(func_ov011_021849c8(arg0)), var12 + 0x1ca);
+                    Struct_ov004_0215cec4_7* var21 = (Struct_ov004_0215cec4_7*)FindMenuObjectById_ov023_021f6880((void**)(GetMenuObjectList_ov011_021849c8(arg0)), var12 + 0x1ca);
                     if (var21) var21->unknown_0_->unknown_d8_(var21, 0xf);
                 } else if (var16 < var17) {
-                    Struct_ov004_0215cec4_7* var22 = (Struct_ov004_0215cec4_7*)func_ov023_021f6880((void**)(func_ov011_021849c8(arg0)), var12 + 0x1ca);
+                    Struct_ov004_0215cec4_7* var22 = (Struct_ov004_0215cec4_7*)FindMenuObjectById_ov023_021f6880((void**)(GetMenuObjectList_ov011_021849c8(arg0)), var12 + 0x1ca);
                     if (var22) var22->unknown_0_->unknown_d8_(var22, 5);
                 } else {
-                    Struct_ov004_0215cec4_7* var23 = (Struct_ov004_0215cec4_7*)func_ov023_021f6880((void**)(func_ov011_021849c8(arg0)), var12 + 0x1ca);
+                    Struct_ov004_0215cec4_7* var23 = (Struct_ov004_0215cec4_7*)FindMenuObjectById_ov023_021f6880((void**)(GetMenuObjectList_ov011_021849c8(arg0)), var12 + 0x1ca);
                     if (var23) var23->unknown_0_->unknown_d8_(var23, 9);
                 }
             }
@@ -4617,14 +4617,14 @@ extern "C" ARM int func_ov004_0215d384(void* arg0) {
     Struct_ov004_0215d384_2* var3 = (Struct_ov004_0215d384_2*)func_ov004_02156f38(arg0, 0x1dc);
     if (!var3) return 0;
 
-    int var4 = func_02086aec((struct Struct_02053f7c*)func_02010828(var0), *(short*)var2);
+    int var4 = func_02086aec((struct Struct_02053f7c*)GetParty_02010828(var0), *(short*)var2);
     var3->inline_ov004_0215d384_57(var4);
 
     void* var5 = func_ov004_02156f6c(arg0, 0x1b);
     if (var5) func_ov023_021f809c(var5, arg0);
 
 #if !defined(jpn)
-    Struct_ov004_0215d384_3* var6 = (Struct_ov004_0215d384_3*)func_ov023_021f6880((void**)(func_ov011_021849c8(arg0)), 0x1dd);
+    Struct_ov004_0215d384_3* var6 = (Struct_ov004_0215d384_3*)FindMenuObjectById_ov023_021f6880((void**)(GetMenuObjectList_ov011_021849c8(arg0)), 0x1dd);
     if (!var6) return 0;
     if (func_ov024_021f6f10(var6) != 8) return 0;
 
@@ -4665,19 +4665,19 @@ extern "C" ARM int func_ov004_0215d534(void* arg0) {
     int var0 = func_ov004_02156e2c(arg0, 0x5b);
     if (var0 < 0) return 0;
 
-    Struct_0202b2f0* var1 = ((Struct_0202b2f0*)func_0202ae18());
-    if (!func_0202b7d8((int*)var1)) {
+    Struct_0202b2f0* var1 = ((Struct_0202b2f0*)GetLocalWireless_0202ae18());
+    if (!IsLocalWirelessOn_0202b7d8((int*)var1)) {
         func_ov004_0215c0c0(arg0);
     } else {
         int var2 = ((Struct_ov004_0215d534*)func_ov004_02156ed0(arg0, 0x5b))->unknown_5c_ * 6 + var0;
         Struct_ov004_0215d534_2* var3 = (Struct_ov004_0215d534_2*)func_ov004_021570a4(arg0, (unsigned char)var0);
 
-        if (func_0202c508((Struct_0202c508*)var1)) {
+        if (IsNotLocalWirelessGuest_0202c508((LocalWireless_0202c508*)var1)) {
             if (var3->unknown_4_0_ >= ((Struct_ov004_0215d534_3*)data_ov004_021707e0)->unknown_11_) {
                 func_ov004_0215c0c0(arg0);
                 func_ov017_021d3bbc(var2, ((Struct_ov004_0215d534_3*)data_ov004_021707e0)->unknown_11_, 1, 0);
             } else {
-                func_ov011_021848a0(arg0, 0x2367);
+                QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2367);
             }
         } else if (!func_0202c578(var1, 0)) {
             char* var4 = (char*)GameState::GetInstance() + Enum_ov004_0215d534_620;
@@ -4685,7 +4685,7 @@ extern "C" ARM int func_ov004_0215d534(void* arg0) {
             func_ov017_021d3bbc(var2, ((Struct_ov004_0215d534_3*)data_ov004_021707e0)->unknown_11_, 3, 0);
             func_ov011_02184a40(arg0, 0x5c);
         } else {
-            func_ov011_021848a0(arg0, 0x2369);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2369);
         }
     }
     return 0;
@@ -4699,7 +4699,7 @@ extern "C" ARM int func_ov004_0215d670(void* arg0) {
  enum { Enum_ov004_0215d670_620 = 0x26c };
 #endif
     char* var0 = (char*)GameState::GetInstance() + Enum_ov004_0215d670_620;
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     unsigned short var2 = *(unsigned short*)(var0 + 0x5d00 + 0xc);
     int var3 = (unsigned int)(var2 << 16) >> 29;
     if (var3 == 1) {
@@ -4707,13 +4707,13 @@ extern "C" ARM int func_ov004_0215d670(void* arg0) {
         return 0;
     }
     if (var3 == 2) {
-        func_ov011_021848a0(arg0, 0x2367);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2367);
         return 0;
     }
     if (!func_0202c578((struct Struct_0202b2f0*)var1, 0)) {
         return 1;
     }
-    func_ov011_021848a0(arg0, 0x2369);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2369);
     return 0;
 }
 
@@ -4721,9 +4721,9 @@ extern "C" ARM int func_ov004_0215d670(void* arg0) {
 extern "C" ARM int func_ov004_0215d6f8(void* arg0) {
     void* var0 = data_ov004_021707e0;
     if (*(unsigned char*)((char*)var0 + 0x11) == 1) {
-        func_ov011_021848a0(arg0, 0x236a);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x236a);
     } else {
-        func_ov011_021848a0(arg0, 0x38a);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x38a);
     }
     return 0;
 }
@@ -4761,14 +4761,14 @@ extern const Struct_ov004_0216fb80 data_ov004_0216fb80;
 // USA: func_ov004_0215d738
 extern "C" ARM int func_ov004_0215d738(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    unsigned char* var1 = (unsigned char*)func_02010828(var0);
+    unsigned char* var1 = (unsigned char*)GetParty_02010828(var0);
     int var2 = func_ov004_02156e2c(arg0, 0x5b);
     if (var2 < 0) return 0;
     short* var3 = (short*)func_ov004_021570a4(arg0, var2 & 0xff);
     if (!var3) return 0;
     void* var4 = ((void*)func_ov004_02156fd4(arg0, 5));
     if (!var4) return 0;
-    if (!func_020dedd0((struct Struct_0201099c_10*)var4, *var3)) return 0;
+    if (!func_020dedd0((struct ItemTable_0201099c_10*)var4, *var3)) return 0;
 
     int var5[4];
     *(Struct_ov004_0216fb80*)var5 = data_ov004_0216fb80;
@@ -4825,7 +4825,7 @@ extern "C" void func_0207cf30(void*, int, int, int);
 
 // USA: func_ov004_0215da0c
 extern "C" ARM int func_ov004_0215da0c(void* arg0) {
-    void* var0 = func_02010828(GameState::GetInstance());
+    void* var0 = GetParty_02010828(GameState::GetInstance());
     int var1 = func_02086bf4((char*)var0, *(short*)(data_ov004_021707e0 + 0xe));
 
 #if !defined(jpn)
@@ -4854,9 +4854,9 @@ extern "C" ARM int func_ov004_0215da0c(void* arg0) {
 
     int var5 = var1 + data_ov004_021707e0[0x11];
     if (var5 > 0x63) {
-        func_ov011_021848a0(arg0, 0x2385);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2385);
     } else {
-        func_ov011_021848a0(arg0, 0x38d);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x38d);
     }
     func_ov023_021f65d4(arg0, 2, 8);
     return 0;
@@ -4915,10 +4915,10 @@ extern "C" ARM int func_ov004_0215db14(void* arg0) {
     var2 = func_0200ff1c(var0, ((Struct_ov004_0215db14*)data_ov004_021707e0)->unknown_12_);
     var3 = 0;
     if (var2) {
-        Struct_0207d300* var9 = ((Struct_0207d300*)func_02053c6c((unsigned char*)var2));
+        Struct_0207d300* var9 = ((Struct_0207d300*)GetPartyMemberData_02053c6c((unsigned char*)var2));
         if (var9) var3 = 8 - func_02083960(var9);
     }
-    int var10 = func_02086bf4((char*)func_02010828(var0), ((Struct_ov004_0215db14*)data_ov004_021707e0)->unknown_e_);
+    int var10 = func_02086bf4((char*)GetParty_02010828(var0), ((Struct_ov004_0215db14*)data_ov004_021707e0)->unknown_e_);
     int var11 = func_ov004_02156fd4(arg0, 5);
     if (var11) {
         Struct_ov004_0215db14_2 var12;
@@ -4932,13 +4932,13 @@ extern "C" ARM int func_ov004_0215db14(void* arg0) {
         ((Struct_ov004_0215db14*)data_ov004_021707e0)->unknown_9d_ = 0;
     }
     if (((Struct_ov004_0215db14*)data_ov004_021707e0)->unknown_11_ > var3 && var10 < 99) {
-        func_ov011_021848a0(arg0, 0x2383);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2383);
     } else if (((Struct_ov004_0215db14*)data_ov004_021707e0)->unknown_11_ > var3 && var10 >= 99) {
-        func_ov011_021848a0(arg0, 0x2386);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2386);
     } else if (var2 && (*((Struct_ov004_0215db14_3*)var2)->unknown_130_ & 1)) {
-        func_ov011_021848a0(arg0, 0x2387);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2387);
     } else {
-        func_ov011_021848a0(arg0, 0x2382);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2382);
     }
     func_ov023_021f65d4(arg0, 2, 8);
     return 0;
@@ -4963,7 +4963,7 @@ extern "C" ARM int func_ov004_0215dd3c(void* arg0) {
     GameState* var1 = GameState::GetInstance();
     GameObject* var2 = func_0200ff1c(var1, var0);
     if (!var2) return 0;
-    void* var3 = func_02010828(var1);
+    void* var3 = GetParty_02010828(var1);
     Struct_ov004_0216fb20 var4;
     var4 = data_ov004_0216fb20;
     unsigned char var5[2];
@@ -5007,7 +5007,7 @@ extern "C" void func_0209c830(Struct_02109bf4_2*, int);
 
 // USA: func_ov004_0215de80
 extern "C" ARM int func_ov004_0215de80(void) {
-    func_0209c830((Struct_02109bf4_2*)data_02109bf4, 0x3d);
+    func_0209c830((Struct_02109bf4_2*)gMusicManager_02109bf4, 0x3d);
     return 0;
 }
 #if !defined(jpn)
@@ -5026,8 +5026,8 @@ public:
 // USA: func_ov004_0215de9c
 extern "C" ARM int func_ov004_0215de9c(void* arg0) {
 	GameState* var0 = GameState::GetInstance();
-	void* var1 = func_ov011_021849c8(arg0);
-	Struct_ov004_0215de9c_3* var2 = (Struct_ov004_0215de9c_3*)func_ov023_021f6880((void**)var1, 0x2be);
+	void* var1 = GetMenuObjectList_ov011_021849c8(arg0);
+	Struct_ov004_0215de9c_3* var2 = (Struct_ov004_0215de9c_3*)FindMenuObjectById_ov023_021f6880((void**)var1, 0x2be);
 	if (!var2) return 0;
 	if (func_ov024_021f6f10(var2) != 1) return 0;
 	Struct_ov004_0215de9c_2 var3;
@@ -5060,7 +5060,7 @@ extern "C" ARM int func_ov004_0215de9c(void* arg0) {
 		func_ov023_021fb25c((struct Struct_ov004_0215de9c*)var2, 0, 0, 0x32, 0xc);
 		break;
 	}
-	void* var4 = func_ov023_021f6880((void**)var1, 0x2bf);
+	void* var4 = FindMenuObjectById_ov023_021f6880((void**)var1, 0x2bf);
 	if (!var4) return 0;
 	if (func_ov024_021f6f10(var4) != 1) return 0;
 	switch (func_0200fb08((struct Struct_02000c9c_8*)var0)) {
@@ -5091,7 +5091,7 @@ extern "C" ARM int func_ov004_0215e148(void* arg0) {
         if (var0 < 0) return 0;
         void* var1 = func_ov004_021570a4(arg0, var0 & 0xff);
         if (!var1) return 0;
-        struct Struct_0201099c_10* var2 = ((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+        struct ItemTable_0201099c_10* var2 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
         if (!var2) return 0;
         struct Struct_ov004_0215e148* var3 = ((struct Struct_ov004_0215e148*)func_020dedd0(var2, *(short*)var1));
         if (!var3) return 0;

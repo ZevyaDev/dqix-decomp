@@ -4,9 +4,6 @@
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_020a75ec {
     Object3D unknown_0_;
@@ -36,12 +33,12 @@ extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_020332ac(Struct_020a75ec*);
 extern "C" void func_020a78dc(Struct_020a75ec*);
 extern "C" int func_02046b60(Struct_02038598_5*, int);
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 extern "C" void* func_020100bc(GameState*);
 extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
-extern "C" void* func_0205ec34();
+extern "C" void* GetFlagManager_0205ec34();
 extern "C" int func_02046b08(void**);
-extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" int func_02033b88(Struct_02010604*, int);
 extern "C" void func_ov017_021a93f0(GameResources*, int, int);
 
@@ -91,7 +88,7 @@ extern "C" ARM void func_020a75ec(Struct_020a75ec* arg0) {
     GameResources* var5 = GetGameResources();
     void* var6 = var5->unknown_ptr_array_36fc[0];
     if (!func_02046b60((Struct_02038598_5*)var6, 3) && !func_02046b60((Struct_02038598_5*)var6, 1)) {
-        unsigned char* var7 = (unsigned char*)func_02010828(var0);
+        unsigned char* var7 = (unsigned char*)GetParty_02010828(var0);
         for (int var8 = 0; var8 < var7[0xf7c]; var8++) {
             Struct_020a75ec_2* var9 = (Struct_020a75ec_2*)var0->GetPartyMemberByIndex(*(var7 + 0xf78 + var8));
             if (var9) {
@@ -116,12 +113,12 @@ extern "C" ARM void func_020a75ec(Struct_020a75ec* arg0) {
         if (var10 - 16 < var14 && var14 < var10 + 16 && var11 - 20 < var15 && var15 < var11 + 8) var13 = 1;
     }
 #if !defined(jpn)
-    unsigned char* var16 = (unsigned char*)func_0205ec34();
+    unsigned char* var16 = (unsigned char*)GetFlagManager_0205ec34();
 #endif
     if (g_keyManager.TestKeysPressed(2) || var13) {
         if (func_02046b08((void**)var6)
 #if !defined(jpn)
-            && func_0206dfb0((int)var16, var16 + 0x8c, 43)
+            && IsFlagSet_0206dfb0((int)var16, var16 + 0x8c, 43)
 #endif
         ) {
             arg0->unknown_15a_ = 0;

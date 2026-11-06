@@ -7,8 +7,8 @@ enum { Enum_ov017_021d1b10_1804 = 0x70c, Enum_ov017_021d1b10_1844 = 0x734, Enum_
 #include <globaldefs.h>
 #include <NitroSDK/Matrix.h>
 
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_020a72ac(void* arg0, int arg1);
 
@@ -53,8 +53,8 @@ struct Struct_ov017_021d1b10 {
 };
 
 // USA: func_ov017_021d1b10
-extern "C" ARM void func_ov017_021d1b10(int arg0, Struct_ov017_021d1b10_3* arg1, int arg2, unsigned char* arg3, struct Struct_0202c1a4* arg4) {
-    if (func_0202c1a4(arg4) == 0) return;
+extern "C" ARM void func_ov017_021d1b10(int arg0, Struct_ov017_021d1b10_3* arg1, int arg2, unsigned char* arg3, struct LocalWireless_0202c1a4* arg4) {
+    if (GetOwnProtagonistObjectIndex_0202c1a4(arg4) == 0) return;
 
     Struct_ov017_021d1b10* var0 = (Struct_ov017_021d1b10*)GetZone3D_02012fe4();
     Struct_ov017_021d1b10_4* var1 = *(Struct_ov017_021d1b10_4**)(arg3 + 0x3000 + Enum_ov017_021d1b10_1804);

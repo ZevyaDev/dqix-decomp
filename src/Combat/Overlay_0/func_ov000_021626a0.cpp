@@ -65,7 +65,7 @@ extern "C" ARM void func_ov000_021626a0(Struct_ov000_02160da0* arg0, int arg1, i
             continue;
         }
         var7 = arg2;
-        if (var6->obj3D_.unknown_0_ & 0x400) {
+        if (var6->obj3D_.classFlags_0_ & 0x400) {
             var10 = func_0200fea4(var1, var0[var3]);
             if (var10 != NULL) {
                 var11 = var10->unknown_148_;

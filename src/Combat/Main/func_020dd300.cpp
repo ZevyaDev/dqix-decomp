@@ -8,7 +8,7 @@ extern short data_020f29dc[];
 // USA: func_020dd300
 extern "C" ARM int func_020dd300(int arg0) {
     GameState* var0 = GameState::GetInstance();
-    unsigned char* var1 = (unsigned char*)func_02010828(var0);
+    unsigned char* var1 = (unsigned char*)GetParty_02010828(var0);
     signed short* var2 = (signed short*)func_0207c5f8(var1 + 0x1d4, 0);
     short var3 = func_0207c620(var1 + 0x1d4, 0);
     short var4 = 0;

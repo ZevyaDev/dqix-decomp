@@ -2,14 +2,14 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020bb700(int* arg0);
 extern "C" void func_020bb910(int* arg0);
 extern "C" int func_020bb588(unsigned int arg0, int arg1, int arg2);
 extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
 extern "C" void func_020542b4(void* arg0, void* arg1, void* arg2);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 struct Struct_ov017_021d6984 {
     int unknown_0_;
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov017_021a02f0(Struct_ov017_021a02f0_3* arg0) {
     unsigned int var1;
 
     for (var0 = 0; (var1 = data_ov017_021d6984[var0].unknown_4_) != 0; var0++) {
-        void* var2 = func_02012d88(&data_02114e20, var1);
+        void* var2 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var1);
         arg0->unknown_38_[data_ov017_021d6984[var0].unknown_0_].CreateTypeA(var2, var1);
     }
 

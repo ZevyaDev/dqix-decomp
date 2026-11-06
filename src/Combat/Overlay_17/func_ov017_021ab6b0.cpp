@@ -6,7 +6,7 @@ struct Struct_ov017_021ab6b0_2 {
     unsigned char unknown_0_[0x566];
     unsigned short unknown_566_;
 };
-extern "C" Struct_ov017_021ab6b0_2* func_02053c6c(unsigned char* arg0);
+extern "C" Struct_ov017_021ab6b0_2* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct Struct_ov017_021ab6b0 {
     unsigned short unknown_0_;
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov017_021ab6b0(Script::Parameter* arg0, int arg1) {
         }
         return 0;
     }
-    Struct_ov017_021ab6b0_2* var3 = func_02053c6c((unsigned char*)GameState::GetInstance()->GetProtagonist());
+    Struct_ov017_021ab6b0_2* var3 = GetPartyMemberData_02053c6c((unsigned char*)GameState::GetInstance()->GetProtagonist());
     unsigned short var4;
     float var5, var6, var7, var8;
     for (int var9 = 0; var9 < var2; var9++) {

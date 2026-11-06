@@ -3,13 +3,13 @@
 #include "Memory/SafeAllocator.h"
 #include "Graphics/Vector.h"
 
-struct Struct_0201bdac;
+struct QueueNode_0201bdac;
 struct Struct_02012fa4;
 
 struct Struct_ov017_021986fc {
     signed char unknown_0_;
     unsigned char unknown_1_, unknown_2_, unknown_3_;
-    Struct_0201bdac* unknown_4_;
+    QueueNode_0201bdac* unknown_4_;
     unsigned char unknown_8_, unknown_9_;
     unsigned short unknown_a_;
     short unknown_c_, unknown_e_;

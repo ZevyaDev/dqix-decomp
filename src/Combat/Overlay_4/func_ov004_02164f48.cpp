@@ -11,7 +11,7 @@ struct Struct_02011930 {
     unsigned short unknown_2_;
 };
 extern "C" unsigned char func_02011930(void* arg0, struct Struct_02011930* arg1, void* arg2, void* arg3);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern char* data_ov004_02171010;
 extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_020985ec {
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov004_02164f48(void* arg0) {
     var3[0] = 0;
 
     if (func_02011930(var0, &var1, var2, var3) != 0) {
-        func_ov011_021848a0(arg0, 0x69);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x69);
 
         srand(GetMain16BitTimerCounter());
 
@@ -110,7 +110,7 @@ extern "C" ARM int func_ov004_02164f48(void* arg0) {
         *(int*)(var0 + 0x6000 + 0x474) = -1;
 #endif
     } else {
-        func_ov011_021848a0(arg0, 0x69);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x69);
     }
     return 0;
 }

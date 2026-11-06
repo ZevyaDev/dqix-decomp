@@ -21,7 +21,7 @@ extern "C" void func_02042b98(void* arg0, int arg1, int arg2, int arg3, int arg4
 extern "C" void func_0204408c(struct Struct_020439b0_7* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" void func_02043600(void* arg0, void* arg1);
 #include "Resource/MessageUpdate.h"
-extern "C" void func_02043124(void* arg0);
+extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void func_020437bc(void* arg0, void* arg1, int arg2);
 
 struct Struct_0204394c;
@@ -33,10 +33,10 @@ extern "C" void func_0204394c(struct Struct_0204394c* arg0);
 struct Struct_020439b0;
 extern "C" void func_020e2cc4(struct Struct_020439b0* arg0, int arg1);
 
-extern "C" void func_0207df90(char* arg0);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 struct Struct_0200f3a4_13;
 extern "C" void func_02041754(Struct_0204166c* arg0);
-extern "C" void func_0207dfac(char* arg0);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_02042af4(int arg0, unsigned char* arg1, int arg2);
 
 struct Struct_020439b0_3;
@@ -224,7 +224,7 @@ extern "C" ARM void func_020439b0(char* arg0, int arg1) {
 
         if (var0->unknown_998_ == 0) {
             func_02043040((MessageWindow_02021b84*)arg0);
-            func_02043124(arg0);
+            CloseMessageWindow_02043124(arg0);
             func_020430b0((MessageWindow_02021b84*)arg0);
         }
     }
@@ -264,9 +264,9 @@ extern "C" ARM void func_020439b0(char* arg0, int arg1) {
         ) != 0) {
                             var31->unknown_16_0_ = 0;
                         } else {
-                            func_0207df90((char*)var0->unknown_1e28_);
+                            RestoreTextureVRAMState_0207df90((char*)var0->unknown_1e28_);
                             func_02041754(var31);
-                            func_0207dfac((char*)var0->unknown_1e28_);
+                            SaveTextureVRAMState_0207dfac((char*)var0->unknown_1e28_);
                         }
                         func_02042af4((int)arg0, var0->unknown_2cc_, var31->unknown_8_);
                     }

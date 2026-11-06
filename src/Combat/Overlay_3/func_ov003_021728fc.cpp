@@ -24,7 +24,7 @@ extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" int* func_020936f8(void);
 extern "C" void func_020941b0(struct Struct_02093b90_2* arg0);
 extern "C" void func_020939dc(void* arg0);
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 
 struct Struct_ov003_021728fc {
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov003_021728fc(Struct_ov003_021728fc* arg0) {
     ((unsigned char*)var5)[Enum_ov003_021728fc_969] = (((unsigned char*)var5)[Enum_ov003_021728fc_969] & ~1) | 1;
     func_020939dc(var5);
 
-    func_020466e4((unsigned int*)func_020d6c00(), 0x1000);
+    func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x1000);
 
     arg0->unknown_ec_ = 1;
     arg0->unknown_ee_ = 0;

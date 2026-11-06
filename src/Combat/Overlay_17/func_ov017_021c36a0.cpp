@@ -3,7 +3,7 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* func_0202ae24(void);
 extern "C" void* func_020e2ff8(void);
 extern "C" void* func_020e3580(void);
@@ -28,7 +28,7 @@ extern "C" void func_ov017_02195520(void* arg0);
 extern "C" ARM void func_ov017_021c36a0(void) {
 	GameState* var0 = GameState::GetInstance();
 	void* var1 = (void*)(int)((int)GetGameResources());
-	void* var2 = func_0202ae18();
+	void* var2 = GetLocalWireless_0202ae18();
 	GameObject* var3 = var0->GetProtagonist();
 	void* var4 = func_0202ae24();
 	void* var5 = func_020e2ff8();

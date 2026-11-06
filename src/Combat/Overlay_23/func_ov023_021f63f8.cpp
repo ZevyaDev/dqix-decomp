@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov011_021849c8(void*);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" int func_ov023_021f6f10(void*);
 
 // virtual call at vtable idx 0xd8/4 = 54; class w/ virtuals mirrors the
@@ -25,11 +25,11 @@ public:
     char unknown_4_[0x1c];
     void* unknown_20_;
 };
-extern "C" Struct_ov023_021f63f8* func_ov023_021f6880(void*, int);
+extern "C" Struct_ov023_021f63f8* FindMenuObjectById_ov023_021f6880(void*, int);
 
 // USA: func_ov023_021f63f8
 extern "C" ARM void func_ov023_021f63f8(void* arg0, int arg1, void* arg2, int arg3) {
-    Struct_ov023_021f63f8* var0 = func_ov023_021f6880(func_ov011_021849c8(arg0), arg1);
+    Struct_ov023_021f63f8* var0 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), arg1);
     if (var0 == 0) return;
     if (func_ov023_021f6f10(var0) != 8) return;
     var0->unknown_20_ = arg2;

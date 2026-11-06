@@ -72,7 +72,7 @@ extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
 extern "C" void func_ov005_02157174(Struct_ov005_02156ecc* arg0, Struct_ov005_02156ecc_2* arg1);
 extern "C" void func_ov005_02157b74(Struct_ov005_02153954* arg0, int arg1, int arg2);
 extern "C" int func_ov005_02155670(Struct_ov005_02153954* arg0, int arg1, int arg2);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
 extern "C" signed char* func_0207c60c(void* arg0, unsigned int arg1);
 extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov005_02156ecc(Struct_ov005_02153954* arg0, int arg1, i
         int var3 = func_ov005_02155670(arg0, arg1, arg2);
         if (var3 >= 8 && var3 < 24 && arg0->unknown_3dbb_ != var3) {
             short var4 = (var3 - 8) + arg0->unknown_3dbd_ * 16;
-            char* var5 = (char*)func_02010828(GameState::GetInstance());
+            char* var5 = (char*)GetParty_02010828(GameState::GetInstance());
             short* var6 = func_0207c5f8((unsigned char*)var5 + 0x1d4, data_ov005_0215cd48[arg0->unknown_3dbc_]);
             signed char* var7 = func_0207c60c(var5 + 0x1d4, data_ov005_0215cd48[arg0->unknown_3dbc_]);
             short var8 = arg0->unknown_3de0_;

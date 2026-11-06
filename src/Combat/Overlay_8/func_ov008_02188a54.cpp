@@ -15,8 +15,8 @@ struct Struct_0205d6a0;
 struct Struct_02020cb8_5;
 struct Struct_0204b12c;
 struct Struct_0204af38;
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 struct Struct_0204b8d0;
 struct Struct_02020cb8_2;
 struct Struct_0204c7a8;
@@ -51,7 +51,7 @@ struct Struct_ov008_021842a0_2 {
     int unknown_b20_;
 };
 
-extern "C" const char* func_020e0434(Struct_0201099c_3*, int);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
 extern "C" void func_0204af64(Struct_02020cb8*);
 extern "C" void func_0204b11c(unsigned char*, int);
@@ -59,8 +59,8 @@ extern "C" void func_0204b5b4(Struct_02020cb8*, int);
 extern "C" void func_0204b5e8(Struct_02020cb8_5*, int, int);
 extern "C" void func_0204b12c(Struct_0204b12c*, SafeAllocator*);
 extern "C" void func_0204af38(Struct_0204af38*, int, SafeAllocator*);
-extern "C" int func_02046900(Struct_02020cb8_4*);
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void func_0204b174(Struct_02020cb8*, void*, SafeAllocator*, int);
 extern "C" void func_0204b8d0(Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 extern "C" void func_0204b0e8(Struct_02020cb8_2*, void*);
@@ -77,7 +77,7 @@ extern "C" ARM int func_ov008_02188a54(Struct_ov008_021842a0_2* arg0, int arg1) 
 #if defined(jpn)
         int var3 = 1;
         if (arg1) var3 = 2;
-        const char* var4 = func_020e0434(&arg0->unknown_a0_, var3);
+        const char* var4 = FindStringInTable_020e0434(&arg0->unknown_a0_, var3);
         arg0->unknown_b20_ = var1->QueueLoadFile(var4, 0);
 #else
         int var5 = 1;
@@ -86,8 +86,8 @@ extern "C" ARM int func_ov008_02188a54(Struct_ov008_021842a0_2* arg0, int arg1) 
             var5 = 3;
             var6 = 4;
         }
-        const char* var7 = func_020e0434(&arg0->unknown_a0_, var6);
-        const char* var8 = func_020e0434(&arg0->unknown_a0_, var5);
+        const char* var7 = FindStringInTable_020e0434(&arg0->unknown_a0_, var6);
+        const char* var8 = FindStringInTable_020e0434(&arg0->unknown_a0_, var5);
         arg0->unknown_b20_ = var1->QueueLoadFileInGP2(var8, var7, 0);
 #endif
         ++arg0->unknown_b12_;
@@ -119,10 +119,10 @@ extern "C" ARM int func_ov008_02188a54(Struct_ov008_021842a0_2* arg0, int arg1) 
             void* var10;
             unsigned int var11;
             var1->GetLoadedFileByID(arg0->unknown_b20_, &var10, &var11);
-            int var12 = func_02046900((Struct_02020cb8_4*)var10);
+            int var12 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var10);
             int var13;
             for (int var14 = 0; var14 < var12; ++var14) {
-                void* var15 = func_020467f0((Struct_02020aec*)var10, var14, &var9, &var13);
+                void* var15 = GetPacEntryData_020467f0((PacEntry_02020aec*)var10, var14, &var9, &var13);
                 if (var15) {
                     if (var14 == var12 - 1) func_0204b174(&arg0->unknown_110_, var15, &arg0->unknown_14_, var13);
                     else func_0204b174(&arg0->unknown_f0_, var15, &arg0->unknown_14_, var13);

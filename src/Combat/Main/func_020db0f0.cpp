@@ -9,15 +9,15 @@
 #define func_020c9be0 func_020cb6ac
 #endif
 
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" char* func_020467c0(void* arg0, char* arg1, unsigned int* arg2);
 extern "C" int func_020b01a4(void* arg0, void** arg1);
 struct Struct_0205ab78;
 extern "C" int func_020b01f0(struct Struct_0205ab78* arg0, void** arg1);
 extern "C" void func_020c9be0(void);
 
-extern AllocatorUnion data_02114e20;
-extern unsigned char data_0211e33c[0x30000];
+extern AllocatorUnion gMainHeap_02114e20;
+extern unsigned char gFileScratchSpace_0211e33c[0x30000];
 extern const char data_020f290c;
 extern const char data_020f2925;
 extern const char data_020f2936;
@@ -53,11 +53,11 @@ extern "C" ARM void func_020db0f0(Struct_02000c9c_18* arg0) {
     Struct_020db0f0_2* var6;
     void* var7;
 
-    arg0->unknown_0_.CreateTypeA(func_02012d88(&data_02114e20, 0x300), 0x300);
+    arg0->unknown_0_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x300), 0x300);
     arg0->unknown_0_.Reset();
     BackgroundLoader::AddLockGlobal();
 
-    var7 = data_0211e33c;
+    var7 = gFileScratchSpace_0211e33c;
 
     var0 = 0;
     LoadFileIntoMemory(&data_020f290c, var7, &var0);

@@ -25,7 +25,7 @@ extern "C" ARM int func_02073dfc(unsigned short* arg0, struct Struct_02028460_3*
         struct Struct_02073dfc var4 = func_02034104(var1);
         if (*(int*)((char*)var1 + Enum_02073dfc_348) != -1) {
             var3 = *(int*)((char*)var1 + Enum_02073dfc_348);
-            if (var2 == 0 || (var1->obj3D_.unknown_0_ & 0x1000)) {
+            if (var2 == 0 || (var1->obj3D_.classFlags_0_ & 0x1000)) {
                 *(Vector3i*)((int*)&var4) = *(Vector3i const*)((int*)((char*)var1 + Enum_02073dfc_352));
             }
         }

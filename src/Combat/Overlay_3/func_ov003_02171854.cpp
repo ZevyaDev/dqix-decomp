@@ -16,7 +16,7 @@ enum { Enum_ov003_02171854_1824 = 0x720 };
 enum { Enum_ov003_02171854_1828 = 0x724 };
 #endif
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int func_0202b000(void* arg0);
 extern "C" void func_0202b0f4(void* arg0);
 extern "C" int func_0202b800(int* arg0);
@@ -32,7 +32,7 @@ extern "C" unsigned int _u32_div_f(unsigned int arg0, unsigned int arg1);
 // USA: func_ov003_02171854
 extern "C" ARM void func_ov003_02171854(char* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     GameObject* var2 = var0->GetProtagonist();
 
     int var3 = func_0202b000(var1);

@@ -127,7 +127,7 @@ extern "C" void func_02049ae4(unsigned char* arg0);
 extern "C" int func_02049ee8(unsigned char* arg0);
 extern "C" int func_02033b88(struct Struct_02010604* arg0, int arg1);
 extern "C" void* GetMessageWindow_020421a0(void);
-extern "C" void func_02043124(void* arg0);
+extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" struct Struct_0203a588_2* func_02039e70(void);
 extern "C" void func_0203a588(struct Struct_0203a588_2* arg0);
 extern "C" void func_ov000_02182a44(void* arg0);
@@ -153,7 +153,7 @@ extern "C" void func_ov000_0216df00(void* arg0, int arg1, int arg2, int arg3, fl
 extern "C" void func_ov000_021626a0(void* arg0, int arg1, int arg2);
 extern "C" void func_ov025_021ecb90(struct Struct_ov025_021ebb90_6* arg0, struct Struct_ov025_021ebb90_6* arg1);
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 extern "C" void __clear(void* arg0, unsigned int arg1);
 
 static inline int inline_ov025_021ebb90(unsigned int arg0) { return arg0 <= 3; }
@@ -325,7 +325,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
                                 func_02033b88((struct Struct_02010604*)var44, 0);
                             }
                         }
-                        func_02043124(GetMessageWindow_020421a0());
+                        CloseMessageWindow_02043124(GetMessageWindow_020421a0());
                         func_0203a588(func_02039e70());
                         func_ov000_02182a44(var12 + Enum_ov025_021ebb90_28668);
                     }
@@ -476,7 +476,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
         }
 
         if (!(arg0->unknown_0_[var17].unknown_6_ & 4) && var24 <= arg0->unknown_0_[var17].unknown_24_ && arg0->unknown_0_[var17].unknown_24_ < var25) {
-            func_0205ebfc(&data_02108760, arg0->unknown_0_[var17].unknown_22_, 0);
+            func_0205ebfc(&gSoundEffectManager_02108760, arg0->unknown_0_[var17].unknown_22_, 0);
             arg0->unknown_0_[var17].unknown_6_ |= 4;
         }
 

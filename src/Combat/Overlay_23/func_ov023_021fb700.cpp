@@ -6,7 +6,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
 
-extern "C" void* func_ov011_021849c8(void*);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" int func_ov023_021f6bb8(void*);
 extern "C" void func_ov023_021f6bb0(void*, int);
 
@@ -21,7 +21,7 @@ struct Struct_ov023_021fb700 {
 
 // USA: func_ov023_021fb700
 extern "C" ARM int func_ov023_021fb700(Struct_ov023_021fb700* arg0, void* arg1) {
-    void* var0 = func_ov011_021849c8(arg1);
+    void* var0 = GetMenuObjectList_ov011_021849c8(arg1);
     if (func_ov023_021f6bb8(var0) >= 0) {
         return arg0->unknown_1c_;
     }

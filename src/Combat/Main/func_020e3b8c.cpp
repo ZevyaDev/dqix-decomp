@@ -37,17 +37,17 @@ struct Struct_020e3b8c_2 {
 };
 extern "C" void func_020e3c34(struct Struct_020e3b8c_2* arg0);
 
-struct Struct_0201bdac {
+struct QueueNode_0201bdac {
     char unknown_0_[2];
-    unsigned char unknown_2_;
+    unsigned char isQueued_2_;
     char unknown_3_;
-    struct Struct_0201bdac* unknown_4_;
+    struct QueueNode_0201bdac* pNext_4_;
 };
-struct Struct_0201bdac_2 {
-    struct Struct_0201bdac* unknown_0_;
-    struct Struct_0201bdac* unknown_4_;
+struct Queue_0201bdac_2 {
+    struct QueueNode_0201bdac* pHead_0_;
+    struct QueueNode_0201bdac* pTail_4_;
 };
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 extern "C" void func_02046a8c(void* arg0, void* arg1);
 
@@ -71,5 +71,5 @@ extern "C" ARM void func_020e3b8c(char* arg0, int arg1, int arg2, int arg3, int 
     var0->unknown_10_ = arg6;
     var0->unknown_24_ = arg7;
 
-    func_020469b4(*(struct Struct_0201bdac_2**)(arg0 + Enum_020e3b8c_14084), (struct Struct_0201bdac*)var0);
+    AppendToQueue_020469b4(*(struct Queue_0201bdac_2**)(arg0 + Enum_020e3b8c_14084), (struct QueueNode_0201bdac*)var0);
 }

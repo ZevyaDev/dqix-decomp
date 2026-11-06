@@ -53,7 +53,7 @@ extern "C" Struct_ov017_021a2128_3* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" void* func_0206ef18(void*, int);
 extern "C" int func_ov017_021a20c0(int, int, int);
 extern "C" unsigned short* GetZone3D_02012fe4();
-extern "C" int* func_0202ae18();
+extern "C" int* GetLocalWireless_0202ae18();
 extern "C" void func_02076a8c(void*);
 extern "C" Struct_02072adc* func_ov017_021a2738(void*, int);
 extern "C" void func_02072adc(Struct_02072adc*, Struct_02072adc*);
@@ -66,7 +66,7 @@ extern "C" void func_020795e8(Struct_020795e8*, Struct_020795e8_2*);
 extern "C" void func_02076ccc(void*, int);
 extern "C" void func_02076cc4(Struct_02076cc4*, int);
 extern "C" int func_ov017_021a1944();
-extern "C" int func_0202b7d8(int*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov017_021c8f3c(int, int);
 
 // USA: func_ov017_021a2128
@@ -79,7 +79,7 @@ extern "C" ARM int func_ov017_021a2128(Struct_ov017_021a2128* arg0, unsigned sho
     if (!var2) return 0;
     GameState* var3 = GameState::GetInstance();
     unsigned short* var4 = GetZone3D_02012fe4();
-    int* var5 = func_0202ae18();
+    int* var5 = GetLocalWireless_0202ae18();
     int var6 = func_ov017_021a20c0((int)arg0, var0->unknown_2_0_, 12);
     if (var6 < 0) return 0;
     Struct_ov017_021a2128_5* var7 = (Struct_ov017_021a2128_5*)var3->GetMaybeFieldMonsterByIndex(var6);
@@ -114,6 +114,6 @@ extern "C" ARM int func_ov017_021a2128(Struct_ov017_021a2128* arg0, unsigned sho
     var7->unknown_17d_ |= arg7;
     var7->unknown_0_.MakeVisible();
     ++var0->unknown_6_;
-    if (func_0202b7d8(var5)) func_ov017_021c8f3c(var6, -1);
+    if (IsLocalWirelessOn_0202b7d8(var5)) func_ov017_021c8f3c(var6, -1);
     return var6;
 }

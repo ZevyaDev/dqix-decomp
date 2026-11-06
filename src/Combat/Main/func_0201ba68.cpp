@@ -1,16 +1,13 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
 #endif
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* arg0);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int func_02012f68(int arg0);
 extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
 extern "C" int func_0201b588(int arg0);
@@ -26,9 +23,9 @@ enum { Enum_0201ba68_10272 = 0x2820 };
 // USA: func_0201ba68
 extern "C" ARM void func_0201ba68(void* arg0) {
     unsigned char* var0 = (unsigned char*)arg0;
-    if (func_0202c540(func_0202ae18()) != 0 || var0[Enum_0201ba68_10272] != 0) return;
+    if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) != 0 || var0[Enum_0201ba68_10272] != 0) return;
 
-    void* var1 = func_0205ec34();
+    void* var1 = GetFlagManager_0205ec34();
     if (*(unsigned short*)var0 >= 20000 && *(unsigned short*)var0 <= 0x752f) {
         int var2 = func_02012f68(*(unsigned short*)var0);
         if (var2 < 0) return;

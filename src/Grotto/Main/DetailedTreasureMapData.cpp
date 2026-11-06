@@ -1156,4 +1156,4 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
 extern char data_020f1ae4[];
 extern char data_020f1af8[];
 
-extern unsigned char data_0211e33c[];
+extern unsigned char gFileScratchSpace_0211e33c[];

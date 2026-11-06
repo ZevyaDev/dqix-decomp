@@ -2,20 +2,20 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_ov017_021d60f4(void*);
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 
-struct Struct_0207df50 { unsigned int unknown_0_[10]; };
-struct Struct_0207df50_2 { unsigned int unknown_0_[2]; };
-struct Struct_0203d028 {
-    struct Struct_0207df50 unknown_0_;
-    struct Struct_0207df50 unknown_28_;
+struct TextureImageVRAMState_0207df50 { unsigned int unknown_0_[10]; };
+struct TexturePaletteVRAMState_0207df50_2 { unsigned int unknown_0_[2]; };
+struct TextureVRAMArea_0203d028 {
+    struct TextureImageVRAMState_0207df50 unknown_0_;
+    struct TextureImageVRAMState_0207df50 savedImageState_28_;
     unsigned int unknown_50_;
     unsigned int unknown_54_;
-    struct Struct_0207df50_2 unknown_58_;
-    struct Struct_0207df50_2 unknown_60_;
+    struct TexturePaletteVRAMState_0207df50_2 basePaletteState_58_;
+    struct TexturePaletteVRAMState_0207df50_2 savedPaletteState_60_;
 };
-extern "C" void func_0207df50(struct Struct_0203d028* arg0);
-extern "C" void func_0207df90(char* arg0);
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 
 // USA: func_ov001_0215eab0
 extern "C" ARM int func_ov001_0215eab0(void* arg0, int arg1) {
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov001_0215eab0(void* arg0, int arg1) {
     if (var0 == NULL) {
         return 0;
     }
-    int var1 = func_0200fb8c((int*)var0);
+    int var1 = GetResources_0200fb8c((int*)var0);
     if (var1 == 0) {
         return 0;
     }
@@ -48,8 +48,8 @@ extern "C" ARM int func_ov001_0215eab0(void* arg0, int arg1) {
         var4 = func_ov017_021d60f4((char*)arg0 + 0x8);
     }
     if (var4 != 0) {
-        func_0207df50((struct Struct_0203d028*)var3);
+        ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)var3);
     }
-    func_0207df90((char*)var3);
+    RestoreTextureVRAMState_0207df90((char*)var3);
     return 1;
 }

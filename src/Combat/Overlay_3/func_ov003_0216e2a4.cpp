@@ -59,16 +59,16 @@ struct Struct_ov003_0216e2a4_4 {
 
 struct Struct_0204b12c;
 struct Struct_02020cb8_5;
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 struct Struct_02020cb8_2;
 struct Struct_0204c7a8;
 struct Struct_0205cf78;
 struct Struct_0205cf78_2;
 
 extern "C" void func_0204b11c(unsigned char *arg0, int arg1);
-extern "C" int func_02046900(Struct_02020cb8_4 *arg0);
-extern "C" void *func_020467f0(Struct_02020aec *arg0, int arg1, void **arg2, int *arg3);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4 *pac);
+extern "C" void *GetPacEntryData_020467f0(PacEntry_02020aec *pac, int index, void **outEntry, int *outSize);
 extern "C" void func_0204b5b4(Struct_ov003_0216e2a4 *arg0, int arg1);
 extern "C" void func_0204b12c(Struct_0204b12c *arg0,
                                                                                          SafeAllocator *arg1);
@@ -132,9 +132,9 @@ extern "C" ARM void func_ov003_0216e2a4(Struct_ov003_0216e2a4_4 *arg0) {
             unsigned int var4;
             int var5[2];
             var0->GetLoadedFileByID(arg0->unknown_1c_, &var2, &var4);
-            int var6 = func_02046900((Struct_02020cb8_4 *) var2);
+            int var6 = CountPacEntries_02046900((PacEntry_02020cb8_4 *) var2);
             for (int var7 = 0; var7 < var6; var7++)
-                var3[var7] = func_020467f0((Struct_02020aec *) var2, var7, &var1, &var5[var7]);
+                var3[var7] = GetPacEntryData_020467f0((PacEntry_02020aec *) var2, var7, &var1, &var5[var7]);
             for (int var8 = 0; var8 < var6; var8++) {
                 if (var3[var8] != 0) func_0204b174(arg0->unknown_40_, var3[var8], arg0->unknown_d0_, var5[var8]);
             }
@@ -170,9 +170,9 @@ extern "C" ARM void func_ov003_0216e2a4(Struct_ov003_0216e2a4_4 *arg0) {
             unsigned int var12;
             int var13;
             var0->GetLoadedFileByID(arg0->unknown_1c_, &var11, &var12);
-            int var14 = func_02046900((Struct_02020cb8_4 *) var11);
+            int var14 = CountPacEntries_02046900((PacEntry_02020cb8_4 *) var11);
             for (int var15 = 0; var15 < var14; var15++) {
-                void *var16 = func_020467f0((Struct_02020aec *) var11, var15, &var10, &var13);
+                void *var16 = GetPacEntryData_020467f0((PacEntry_02020aec *) var11, var15, &var10, &var13);
                 func_0205a528((char *) arg0 + 0x68, var16, var13, &arg0->unknown_bc_);
             }
             var0->RemoveTask(arg0->unknown_1c_);
@@ -232,9 +232,9 @@ extern "C" ARM void func_ov003_0216e2a4(Struct_ov003_0216e2a4_4 *arg0) {
             unsigned int var27;
             int var28[2];
             var21->GetLoadedFileByID(arg0->unknown_1c_, &var25, &var27);
-            int var29 = func_02046900((Struct_02020cb8_4 *) var25);
+            int var29 = CountPacEntries_02046900((PacEntry_02020cb8_4 *) var25);
             for (int var30 = 0; var30 < var29; var30++)
-                var26[var30] = func_020467f0((Struct_02020aec *) var25, var30, &var24, &var28[var30]);
+                var26[var30] = GetPacEntryData_020467f0((PacEntry_02020aec *) var25, var30, &var24, &var28[var30]);
             for (int var31 = 0; var31 < var29; var31++) {
                 if (var26[var31] != 0) func_0204b174(arg0->unknown_40_, var26[var31], arg0->unknown_d0_, var28[var31]);
             }
@@ -274,9 +274,9 @@ extern "C" ARM void func_ov003_0216e2a4(Struct_ov003_0216e2a4_4 *arg0) {
             unsigned int var39;
             int var40;
             var21->GetLoadedFileByID(arg0->unknown_1c_, &var38, &var39);
-            int var41 = func_02046900((Struct_02020cb8_4 *) var38);
+            int var41 = CountPacEntries_02046900((PacEntry_02020cb8_4 *) var38);
             for (int var42 = 0; var42 < var41; var42++) {
-                void *var43 = func_020467f0((Struct_02020aec *) var38, var42, &var37, &var40);
+                void *var43 = GetPacEntryData_020467f0((PacEntry_02020aec *) var38, var42, &var37, &var40);
                 func_0205a528((char *) arg0 + 0x68, var43, var40, &arg0->unknown_bc_);
             }
             var21->RemoveTask(arg0->unknown_1c_);

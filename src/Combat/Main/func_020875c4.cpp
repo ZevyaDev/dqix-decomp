@@ -13,7 +13,7 @@ struct Struct_02087574 {
     struct Struct_02087574_2 unknown_f2c_[3];
 };
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" struct Struct_02087574_2* func_02087574(struct Struct_02087574* arg0, int arg1);
 
 // USA: func_020875c4
@@ -27,7 +27,7 @@ extern "C" ARM void func_020875c4(
     if (var1 == 0) {
         return;
     }
-    unsigned char* var2 = (unsigned char*)func_02053c6c((unsigned char*)var1);
+    unsigned char* var2 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var1);
     if (var2 == 0) {
         return;
     }

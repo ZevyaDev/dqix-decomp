@@ -19,9 +19,9 @@ extern "C" void func_020469f8(struct Struct_020469f8* arg0, struct Struct_020469
 struct Struct_02046a3c_2;
 struct Struct_02046a3c;
 extern "C" void func_02046a3c(struct Struct_02046a3c_2* arg0, struct Struct_02046a3c* arg1);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 struct Struct_ov017_0219bd1c_2 {
     char unknown_0_[2];
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_0219bd1c(int arg0, unsigned char arg1, int arg2, 
     } else if (arg2) {
         func_02046a3c((struct Struct_02046a3c_2*)var4, (struct Struct_02046a3c*)var5);
     } else {
-        func_020469b4((struct Struct_0201bdac_2*)var4, (struct Struct_0201bdac*)var5);
+        AppendToQueue_020469b4((struct Queue_0201bdac_2*)var4, (struct QueueNode_0201bdac*)var5);
     }
     ClearFlags00((GameResources*)var1, 4);
 }

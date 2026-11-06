@@ -134,7 +134,7 @@ extern "C" ARM void func_ov008_02185a70(Struct_ov008_021842a0_2* arg0, unsigned 
     MessageWindow_02021b84* var0 = GetMessageWindow_020421a0();
     GameResources* var1 = GetGameResources();
     BackgroundLoader::GetInstance();
-    Struct_0208cb08* var2 = func_02094a00();
+    FontLoader_0208cb08* var2 = func_02094a00();
     unsigned char var3 = arg0->unknown_b11_;
     if (var3 >= 2)
         var0->unknown_19ae_ = 0;

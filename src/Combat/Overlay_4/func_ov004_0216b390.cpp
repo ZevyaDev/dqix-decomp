@@ -10,8 +10,8 @@ public:
 };
 
 extern "C" int func_ov004_0216af24(void* arg0, int arg1);
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" Struct_ov004_0216b390* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" Struct_ov004_0216b390* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 
 // USA: func_ov004_0216b390
 extern "C" ARM void func_ov004_0216b390(void* arg0, int arg1, int arg2) {
@@ -19,14 +19,14 @@ extern "C" ARM void func_ov004_0216b390(void* arg0, int arg1, int arg2) {
     Vector3i var1;
 
     int var2 = func_ov004_0216af24(arg0, (short)arg1);
-    Struct_ov004_0216b390* var3 = func_ov023_021f6880(func_ov011_021849c8(arg0), arg1);
+    Struct_ov004_0216b390* var3 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), arg1);
     if (!var3) return;
 
     const Vector3i& var4 = var3->inline_ov004_0216b390_9();
     var0 = var4;
     var0.x = var0.x + ((var2 + 0xa) << 12);
 
-    Struct_ov004_0216b390* var5 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0xc);
+    Struct_ov004_0216b390* var5 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0xc);
     if (!var5) return;
 
     const Vector3i& var6 = var5->inline_ov004_0216b390_9();

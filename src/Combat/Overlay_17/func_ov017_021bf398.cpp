@@ -5,8 +5,8 @@
 extern "C" void func_020397c0(void* arg0);
 extern "C" int func_020100f8(char* arg0);
 extern "C" void func_020a27ac(void* arg0);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
-extern int data_02114e20;
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern int gMainHeap_02114e20;
 
 struct Struct_020727d8;
 extern "C" void func_020727ec(struct Struct_020727d8* arg0);
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov017_021bf398(char* arg0) {
 		var3->Reset();
 		var3->Destroy();
 		func_020727ec((struct Struct_020727d8*)(arg0 + 0xc));
-		func_02012da4((AllocatorUnion*)&data_02114e20, var4);
+		FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var4);
 	}
 	arg0[1] = 1;
 }

@@ -2,11 +2,11 @@
 #include "Resource/FontBankLoader.h"
 
 #if defined(jpn)
-extern "C" int func_020965c0(Struct_0208cb08*, int);
+extern "C" int func_020965c0(FontLoader_0208cb08*, int);
 #endif
 
 // USA: func_02094b34
-extern "C" ARM void func_02094b34(Struct_0208cb08* arg0, int arg1, int arg2, unsigned char arg3,
+extern "C" ARM void func_02094b34(FontLoader_0208cb08* arg0, int arg1, int arg2, unsigned char arg3,
                                const volatile unsigned char arg4) {
 #if defined(jpn)
     if (arg0->unknown_34_ >= 0) return;

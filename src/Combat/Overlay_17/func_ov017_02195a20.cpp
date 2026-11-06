@@ -9,9 +9,9 @@ struct Struct_02012de8;
 struct Struct_02015438;
 
 unsigned long long GetCurrentTimestamp(void);
-extern "C" Struct_02012de8* func_020d6c00();
+extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
 extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_020c52e8();
 extern "C" void func_020c5414();
 extern "C" void func_ov017_02195ecc(unsigned char* arg0, int arg1);
@@ -19,8 +19,8 @@ extern "C" void func_ov017_021959ec(void* arg0);
 extern "C" void func_020c3a0c(int arg0);
 extern "C" void func_ov017_02195bbc(unsigned char* arg0);
 extern "C" int func_02046b24(struct Struct_02015438** arg0);
-extern "C" int func_0202c508(void* arg0);
-extern "C" int func_0202c540(void* arg0);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_020d9834(int arg0);
 extern "C" void func_ov017_021960b8(unsigned char* arg0);
 
@@ -32,8 +32,8 @@ extern "C" ARM void func_ov017_02195a20(unsigned char* arg0) {
  enum {Enum_ov017_02195a20_17546=0x448a,Enum_ov017_02195a20_14076=0x36fc};
 #endif
     GetCurrentTimestamp();
-    Struct_02012de8* var0 = func_020d6c00();
-    void* var1 = func_0202ae18();
+    Struct_02012de8* var0 = GetGlobalFlags_020d6c00();
+    void* var1 = GetLocalWireless_0202ae18();
     func_020c52e8();
     func_020c5414();
     RenderConfig::Reset();
@@ -66,8 +66,8 @@ extern "C" ARM void func_ov017_02195a20(unsigned char* arg0) {
     if (var2) {
         while (1) {
             int var3 = VCOUNT;
-            if (func_0202c508(var1) && var3 < 0xd2) break;
-            if (func_0202c540(var1) && (var3 < 0xbe || var3 > 0xf0)) break;
+            if (IsNotLocalWirelessGuest_0202c508(var1) && var3 < 0xd2) break;
+            if (IsLocalWirelessGuest_0202c540(var1) && (var3 < 0xbe || var3 > 0xf0)) break;
             func_020d9834(0);
         }
     }

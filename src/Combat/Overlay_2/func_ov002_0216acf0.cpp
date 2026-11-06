@@ -19,7 +19,7 @@ extern "C" GameState* _ZN9GameState11GetInstanceEv(void);
 extern "C" unsigned int _ZNK9GameState21GetEffectiveDeltaTimeEv(GameState* arg0);
 extern "C" int _ZNK9GameState12GetTickCountEv(GameState* arg0);
 extern "C" char* GetMessageWindow_020421a0(void);
-extern "C" Struct_ov002_0216acf0_4* func_0202ae18(void);
+extern "C" Struct_ov002_0216acf0_4* GetLocalWireless_0202ae18(void);
 extern "C" char* func_0200ff1c(GameState* arg0, int arg1);
 extern "C" void _ZN8Vector3iaSERKS_(int* arg0, const void* arg1);
 extern "C" int func_0202c578(Struct_ov002_0216acf0_4* arg0, int arg1);
@@ -29,7 +29,7 @@ extern "C" void func_ov002_0215a7b4(char* arg0, int arg1, int arg2, int arg3, in
 extern "C" void func_ov002_02159900(char* arg0, char* arg1, int arg2);
 extern "C" void func_ov002_0215a0a4(char* arg0, char* arg1, int arg2);
 struct Struct_ov002_02157d40_7;
-extern "C" void func_0205eaa0(Struct_ov002_02157d40_7*, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(Struct_ov002_02157d40_7*, int, int);
 extern "C" void func_ov002_02157ce0(char* arg0);
 struct Struct_ov002_0215624c_11;
 extern "C" void func_0205de24(Struct_ov002_0215624c_11*, unsigned char, unsigned char);
@@ -67,7 +67,7 @@ extern "C" void func_0205d5d0(Struct_ov002_0215bba8_3*, int, int, int, unsigned 
 extern "C" void func_ov002_0215b9a4(char* arg0, int arg1, int arg2);
 extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
 extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 struct Struct_ov002_0216acf0_3;
 extern "C" void func_0205d6a0(Struct_ov002_0216acf0_3*, int);
 extern "C" char* func_0205d81c(Struct_ov002_02155960_2*, int);
@@ -91,7 +91,7 @@ struct Struct_ov002_0216acf0_5 {
 };
 
 extern Struct_020fdcb0_2 data_020fdcb0[];
-extern char data_02108760;
+extern char gSoundEffectManager_02108760;
 
 #define U8(o) (*(unsigned char*)(arg0 + (o)))
 #define S8(o) (*(signed char*)(arg0 + (o)))
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
 
     GameState* var0 = _ZN9GameState11GetInstanceEv();
     char* var1 = GetMessageWindow_020421a0();
-    Struct_ov002_0216acf0_4* var2 = func_0202ae18();
+    Struct_ov002_0216acf0_4* var2 = GetLocalWireless_0202ae18();
 
     int var3 = 0;
     int var4 = 0;
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
             }
             if (U8(RG(0x1cc7, 0x1b8b)) != 0) {
                 func_ov002_0215a0a4(arg0, arg0 + RG(0xc8 + 0x1c00, 0x1b8c), var19);
-                func_0205eaa0((Struct_ov002_02157d40_7*)&data_02108760, 100, 0);
+                PlaySoundEffect_0205eaa0((Struct_ov002_02157d40_7*)&gSoundEffectManager_02108760, 100, 0);
                 if (S32(RG(0x1d00, 0x1bc4)) != 0) {
                     S32(RG(0x1bb8, 0x1a80)) = K(0x26, 0x29);
                     S32(RG(0x1bbc, 0x1a84)) = K(0x2b, 0x2e);
@@ -327,7 +327,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                     U8(RG(0x2523, 0x2353)) = 1;
                     if (*(int*)(var1 + RG(0x9a0, 0x870)) == 2 && S32(RG(0x2530, 0x2360)) >= 1000) {
                         func_020444bc((Struct_ov002_0216acf0*)var1);
-                        func_0205eaa0((Struct_ov002_02157d40_7*)&data_02108760, 1, 0);
+                        PlaySoundEffect_0205eaa0((Struct_ov002_02157d40_7*)&gSoundEffectManager_02108760, 1, 0);
                         U8(RG(0x2522, 0x2352)) = 0;
                         U8(RG(0x2523, 0x2353)) = 0;
                         memset(arg0 + RG(0x124 + 0x2400, 0x2354), 0, 0xc);
@@ -402,8 +402,8 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
             U8(RG(0x248a, 0x22ba)) = 0;
             S32(RG(0x1bc0, 0x1a88)) = 0;
             if (S16(RG(0x1c28, 0x1af0)) == 0x7532 || S16(RG(0x1c28, 0x1af0)) == 0x7531) {
-                func_0205ebc0(&data_02108760, 0x75, 0x75);
-                func_0205ebfc(&data_02108760, 0, 0);
+                func_0205ebc0(&gSoundEffectManager_02108760, 0x75, 0x75);
+                func_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
             }
             return;
         }
@@ -415,7 +415,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
             S32(RG(0x1bb8, 0x1a80)) = S32(RG(0x1bbc, 0x1a84));
             S32(RG(0x1bc0, 0x1a88)) = 0;
         } else {
-            func_02043204(var1);
+            ResetMessageWindow_02043204(var1);
             func_ov016_0218b5c0(1, -1);
             func_ov017_0218b5f8(-1);
             if (S8(RG(0x1caf, 0x1b73)) == 4) {
@@ -423,8 +423,8 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                 U8(RG(0x1caf, 0x1b73)) = 0;
             }
             if (S16(RG(0x1c28, 0x1af0)) == 0x7530) {
-                func_0205ebc0(&data_02108760, 0x75, 0x75);
-                func_0205ebfc(&data_02108760, 0, 0);
+                func_0205ebc0(&gSoundEffectManager_02108760, 0x75, 0x75);
+                func_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
             }
             char* var30 = func_0205d888((Struct_ov002_0216acf0_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)));
             if (U8(RG(0x2521, 0x2351)) != 0) {

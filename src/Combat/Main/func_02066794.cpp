@@ -21,7 +21,7 @@ struct Struct_0205ce28_2;
 struct Struct_0202f6a4;
 struct Struct_02065990;
 struct Struct_020456d0;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_02038598_5;
 struct Struct_0203de84_2;
 struct Struct_02065990_2;
@@ -514,7 +514,7 @@ extern "C" void func_0206cba0(struct Struct_0206b224* arg0);
 extern "C" void func_020665bc(char*, int, const char*, const char*);
 extern "C" void func_0205a42c(Struct_0205a254*, int, int);
 extern "C" void func_0205a330(Struct_0205a330*, int);
-extern "C" void func_02043204(char*);
+extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" int func_02065758(Struct_02065758* arg0, int arg1);
 extern "C" void func_0202f380(void* arg0, int arg1);
 extern "C" int func_0205ce28(Struct_0205ce28_2* arg0);
@@ -526,9 +526,9 @@ extern "C" int func_0209ca2c(void* arg0);
 extern "C" void func_020456d0(Struct_020456d0*);
 extern "C" void func_02065920(unsigned char* arg0, unsigned int arg1);
 extern "C" void func_020676e0(Struct_020676e0_4* arg0, int arg1);
-extern "C" void func_02043124(void* arg0);
+extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void func_ov017_0218d7b0(unsigned char* arg0, char* arg1);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov016_0218b5c0(int arg0, signed char arg1);
 extern "C" void func_ov017_0218b5f8(signed char arg0);
 extern "C" int func_02046b60(Struct_02038598_5*, int);
@@ -539,7 +539,7 @@ int fix32ReduceAngle0To2Pi(int angle);
 extern "C" void func_02065418(int arg0);
 extern "C" int func_020e51cc(int arg0);
 extern "C" void func_020652d0(char* arg0, int arg1, int arg2, int arg3);
-extern "C" unsigned char* func_0200fb8c(int* arg0);
+extern "C" unsigned char* GetResources_0200fb8c(int* gameState);
 extern "C" void func_0208bf28(Struct_02065990_2*, int, unsigned char);
 extern "C" unsigned char* func_02094d6c();
 extern "C" int func_020965ac(Struct_02065990_3*, unsigned char);
@@ -598,7 +598,7 @@ extern "C" int func_020d857c(const char* arg0, const char* arg1);
 extern "C" int func_020d2ff0(const char* arg0);
 extern "C" int func_02005a94(const char* arg0);
 extern "C" unsigned char func_020100b0(GameState* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_020474b4(Struct_020698d8* arg0, int arg1);
 extern "C" void func_020de968(int arg0, char* arg1);
 extern "C" const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* arg1);
@@ -625,8 +625,8 @@ extern "C" int func_0206cc50(Struct_0206cc50* arg0, unsigned short* arg1);
 extern "C" int func_02067ad8(int arg0, void* arg1);
 
 extern const char data_020f07b4[], data_020f07b9[], data_020f07c0[], data_020f07c7[];
-extern unsigned char data_02109bf4;
-extern Struct_02108760 data_02108760;
+extern unsigned char gMusicManager_02109bf4;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern int data_0210773c;
 extern Type_02000c9c_11 data_020f079c[2];
 extern const char data_020f07ce[];
@@ -946,7 +946,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
         arg0->unknown_1958_ = *(signed char*)(var0 + 0x1786) - var9;
         if (*(signed char*)(var0 + 0x1786) >= 0) return;
         func_0206b104((Struct_0206b104*)var0);
-        func_02043204((char*)var0);
+        ResetMessageWindow_02043204((char*)var0);
         return;
     }
 
@@ -985,14 +985,14 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
     func_020658ac((unsigned char*)var0, var9);
 
     if ((arg0->unknown_195b_ & 1) != 0) {
-        if (func_0209ca2c(&data_02109bf4) == 0) {
+        if (func_0209ca2c(&gMusicManager_02109bf4) == 0) {
             arg0->unknown_195b_ = arg0->unknown_195b_ & ~1;
         }
     } else {
         if (arg0->unknown_8c_ != 0 && (arg0->unknown_8c_)[0xd4] == 2) return;
 
         if (arg0->unknown_19c9_ != 0) {
-            if (func_0209ca2c(&data_02109bf4) != 0) return;
+            if (func_0209ca2c(&gMusicManager_02109bf4) != 0) return;
             *(int*)(var0 + 0x44) = *(int*)(var0 + 0x44) + 1;
             arg0->unknown_19c9_ = 0;
             return;
@@ -1057,8 +1057,8 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
             } else if (var1 == 0xff03) {
                 arg0->unknown_9a0_ = 0;
                 arg0->func_02045688();
-                func_02043204((char*)var0);
-                func_02043124(var0);
+                ResetMessageWindow_02043204((char*)var0);
+                CloseMessageWindow_02043124(var0);
                 return;
             } else if (var1 == 0xff0b) {
                 arg0->unknown_9a0_ = 4;
@@ -1103,7 +1103,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     int var18 = *(signed char*)(arg0->unknown_1952_ + var16);
                     var17 = *(signed char*)(var0 + 0x177c + var16);
                     if (var18 > 0) {
-                        func_0205eaa0((Struct_02108760*)&data_02108760, 0x65, 0);
+                        PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0x65, 0);
                         if (var18 == 2) {
                             var17 = -1;
                             func_ov016_0218b5c0(1, var17);
@@ -1211,7 +1211,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                 (var0 + 0x1000)[0x78a] = 0;
                 *(int*)(var0 + 0x44) = *(int*)(var0 + 0x44) + 1;
                 *(signed char*)(var0 + 0x7e2) = 0;
-                func_0205eaa0((Struct_02108760*)&data_02108760, 6, 0);
+                PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 6, 0);
                 return;
             } else if (var1 == 0xff31) {
                 arg0->func_02045688();
@@ -1220,7 +1220,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                 (var0 + 0x1000)[0x78a] = 1;
                 *(int*)(var0 + 0x44) = *(int*)(var0 + 0x44) + 1;
                 *(signed char*)(var0 + 0x7e2) = 0;
-                func_0205eaa0((Struct_02108760*)&data_02108760, 0x1c, 0);
+                PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0x1c, 0);
                 return;
             } else if (var1 == 0xff04 || var1 == 0xff05 || var1 == 0xff06 || var1 == 0xff07) {
                 func_02065418(arg0->unknown_19cc_);
@@ -1233,10 +1233,10 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                 *(int*)(var0 + 0x85c) = 0;
                 arg0->unknown_9a0_ = 6;
                 arg0->func_02045688();
-                func_0205eaa0((Struct_02108760*)&data_02108760, 5, 0);
+                PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 5, 0);
                 int var28 = 1;
                 unsigned char* var29 = (unsigned char*)GameState::GetInstance();
-                unsigned char* var30 = func_0200fb8c((int*)var29);
+                unsigned char* var30 = GetResources_0200fb8c((int*)var29);
                 if ((var29 + 0x5000)[0xa68] == 2) var28 = 0;
                 if (var30 != 0 && var28 != 0) (var30 + 0x4000)[0x134] = 0xa;
                 return;
@@ -1252,8 +1252,8 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                 *(int*)(var0 + 0x85c) = 1;
                 arg0->unknown_9a0_ = 6;
                 arg0->func_02045688();
-                func_0205eaa0((Struct_02108760*)&data_02108760, 5, 0);
-                unsigned char* var36 = func_0200fb8c((int*)GameState::GetInstance());
+                PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 5, 0);
+                unsigned char* var36 = GetResources_0200fb8c((int*)GameState::GetInstance());
                 if (var36 != 0) (var36 + 0x4000)[0x134] = 0xa;
                 return;
             } else if (var1 == 0xff0f) {
@@ -1272,18 +1272,18 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     var3.unknown1_0_.unknown_2_0_ = var7.unknown_0_;
                     var3.unknown1_0_.unknown_2_5_ = var7.unknown_4_;
                     *(unsigned int*)(var38 + var39 * 4 + 0x178) = var3.unknown_0_;
-                    func_0209c830((Struct_02109bf4_2*)&data_02109bf4, 0x32);
+                    func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x32);
                 }
             } else if (var1 > 0xff39 && var1 < 0xff4e) {
                 arg0->func_02045688();
-                func_0209c830((Struct_02109bf4_2*)&data_02109bf4, var1 - 0xff08);
+                func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, var1 - 0xff08);
                 arg0->unknown_19c9_ = 1;
                 return;
             } else if (var1 >= 0xff4f && var1 <= 0xff51) {
                 int var40 = -1;
                 if (var1 == 0xff50) var40 = 0xe;
                 if (var40 >= 0) {
-                    func_0205eaa0((Struct_02108760*)&data_02108760, 0xe, 0);
+                    PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0xe, 0);
                 }
             } else if (var1 == 0xff10) {
                 unsigned char* var41 = arg0->unknown_8c_;
@@ -1294,7 +1294,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     *(unsigned short*)(var42 + 0xda) = *(unsigned short*)(var42 + 0xda) | 0x200;
                     func_0208be94((unsigned char*)(arg0->unknown_8c_));
                     *&arg0->unknown_195b_ |= 1;
-                    func_0209c830((Struct_02109bf4_2*)&data_02109bf4, 0x33);
+                    func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x33);
                 }
             } else if (var1 == 0xff13) {
                 unsigned char* var43 = arg0->unknown_8c_;
@@ -1302,7 +1302,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     *(unsigned short*)(var43 + 0xda) = *(unsigned short*)(var43 + 0xda) | 0x300;
                     func_0208be94((unsigned char*)(arg0->unknown_8c_));
                     *&arg0->unknown_195b_ |= 1;
-                    func_0209c830((Struct_02109bf4_2*)&data_02109bf4, 0x44);
+                    func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x44);
                 }
             } else if (var1 == 0xff12) {
                 if (arg0->unknown_8c_ != 0) {
@@ -1314,7 +1314,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                 var12 = false;
             } else if (var1 >= 0xff52 && var1 <= 0xff55) {
                 int var44 = *(signed char*)(var0 + 0x1778 + (var1 - 0xff52));
-                func_0205e944(&data_02108760, ((var44 * 0x21dd) >> 10) & 0x7f);
+                func_0205e944(&gSoundEffectManager_02108760, ((var44 * 0x21dd) >> 10) & 0x7f);
             } else if (var1 == 0xff0e) {
                 arg0->unknown_19c0_ = 1;
                 arg0->unknown_195d_ = 0x1e;
@@ -1782,7 +1782,7 @@ extern "C" ARM void func_020676e0(Struct_020676e0_4* arg0, int arg1) {
     int var5 = arg0->unknown_98c_;
     var3 = GameState::GetInstance();
     Struct_020676e0* var6 = (Struct_020676e0*)func_020100f8((char*)var3);
-    var4 = (unsigned char*)func_0200fb8c((int*)var3);
+    var4 = (unsigned char*)GetResources_0200fb8c((int*)var3);
     if (var5 != 1 && arg0->unknown_19d2_) {
         if (var6) {
             if ((var6->unknown_244_ & 2) || !func_020a27c4(var6))
@@ -1822,7 +1822,7 @@ extern "C" ARM void func_0206917c(MessageWindow_02021b84* arg0, int arg1) {
     case 0:
         func_0206b104((Struct_0206b104*)arg0);
         if (!var3) {
-            func_0205eaa0((struct Struct_02108760*)&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
         }
         func_0206cbe8(arg0, 0xff14, arg0->unknown_24_);
         func_0205c840(arg0->unknown_50_);
@@ -1831,7 +1831,7 @@ extern "C" ARM void func_0206917c(MessageWindow_02021b84* arg0, int arg1) {
         return;
     case 1:
         if (!var3 && !var4) {
-            func_0205eaa0((struct Struct_02108760*)&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
         }
     case -2:
         arg0->unknown_94c_[2] = 1;
@@ -1850,14 +1850,14 @@ extern "C" ARM void func_02069294(MessageWindow_02021b84* arg0, int arg1) {
     switch (arg1) {
     case 0:
         func_0206b104((Struct_0206b104*)arg0);
-        func_0205eaa0((struct Struct_02108760*)&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
         func_0206cbe8(arg0, 0xff16, arg0->unknown_24_);
         func_0205c840(arg0->unknown_50_);
         arg0->unknown_19cd_ = 1;
         arg0->unknown_40_ = 0;
         return;
     case 1:
-        func_0205eaa0((struct Struct_02108760*)&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
     case -2:
         arg0->unknown_94c_[2] = 1;
         func_0206b104((Struct_0206b104*)arg0);
@@ -1879,11 +1879,11 @@ extern "C" ARM void func_0206935c(Struct_0206935c* arg0, int arg1) {
         case 3:
         case 4:
         case 5:
-            func_0205eaa0((Struct_02108760*)&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
             func_0206cbe8(arg0, arg1 + 0xff56, arg0->unknown_24_);
             break;
         case 6:
-            func_0205eaa0((Struct_02108760*)&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
         case -2:
             func_0206cbe8(arg0, 0xff5c, arg0->unknown_24_);
             break;
@@ -2043,7 +2043,7 @@ extern "C" ARM void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* 
             signed char var2[5];
             __clear(var2, 5);
             var2[2] = func_020100b0(var1);
-            var2[3] = func_020100a8(var1);
+            var2[3] = GetProtagonistObjectIndex_020100a8(var1);
             var2[4] = func_020100b0(var1);
             unsigned char var3 = 0;
             int var4 = 0;
@@ -2648,7 +2648,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             }
             if (func_020d857c(var140, data_020f0951)) {
                 GameState* var77 = GameState::GetInstance();
-                int var142 = func_020100a8(var77);
+                int var142 = GetProtagonistObjectIndex_020100a8(var77);
                 int var78[4];
                 int var79[4];
                 int var80 = 0;
@@ -2730,7 +2730,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 continue;
             }
             if (func_020d857c(var140, data_020f09c3)) {
-                Struct_02069ecc_3* var85 = (Struct_02069ecc_3*)func_02010828(GameState::GetInstance());
+                Struct_02069ecc_3* var85 = (Struct_02069ecc_3*)GetParty_02010828(GameState::GetInstance());
                 var140 += 9;
                 if (var85->unknown_f7c_ > 1) {
                     var4 = 1;
@@ -3057,7 +3057,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
             arg0->unknown_1000_.unknown_9b7_ = 1;
             arg0->unknown_1000_.unknown_95c_ = 0;
             arg1 += 5;
-            func_0205eaa0(&data_02108760, 6, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 6, 0);
         }
         else if (func_020d857c(arg1, data_020f0a5a))
         {
@@ -3065,7 +3065,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
             arg0->unknown_1000_.unknown_9b7_ = 1;
             arg0->unknown_1000_.unknown_95c_ = 1;
             arg1 += 5;
-            func_0205eaa0(&data_02108760, 28, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 28, 0);
         }
         else if (func_020d85dc(arg1, data_020f0abb))
         {
@@ -3305,8 +3305,8 @@ extern "C" ARM void func_0206aa28(char* arg0) {
                 var0 = func_0206c730(arg0, var3, *(Type_0206aa28**)(arg0 + Enum_0206aa28_20));
                 if (!var0) {
                     unsigned char var4 = *(unsigned char*)(arg0 + 0x17fd);
-                    func_02043204(arg0);
-                    func_02043124((Struct_02043124*)(arg0));
+                    ResetMessageWindow_02043204(arg0);
+                    CloseMessageWindow_02043124((Struct_02043124*)(arg0));
                     arg0[0x17fd] = var4;
                     break;
                 }
@@ -3460,8 +3460,8 @@ extern "C" ARM void func_0206cbe8(void* arg0, unsigned short arg1, unsigned shor
     char* var1 = static_cast<char*>(arg0);
     unsigned short* var2 = func_0206c730(arg0, arg1, arg2);
     if (var2 == NULL) {
-        func_02043204(var1);
-        func_02043124(arg0);
+        ResetMessageWindow_02043204(var1);
+        CloseMessageWindow_02043124(arg0);
         return;
     }
     func_0206b104((Struct_0206b104*)arg0);

@@ -4,8 +4,8 @@
 
 struct Struct_0202b2f0;
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void);
 extern "C" int func_0202c578(struct Struct_0202b2f0* arg0, int arg1);
 extern "C" void func_0207dcf0(int arg0);
 extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
@@ -48,8 +48,8 @@ extern "C" ARM void func_0207dba8(struct Struct_0207d798* arg0) {
             var1->unknown_6_ = (unsigned short)var3;
         }
     }
-    struct Struct_0202b2f0* var9 = (struct Struct_0202b2f0*)func_0202ae18();
-    if (func_0202c508() == 0) return;
+    struct Struct_0202b2f0* var9 = (struct Struct_0202b2f0*)GetLocalWireless_0202ae18();
+    if (IsNotLocalWirelessGuest_0202c508() == 0) return;
     int var10;
     for (var10 = var4; var10 < 4; var10++) {
         if (!func_0202c578(var9, var10)) continue;

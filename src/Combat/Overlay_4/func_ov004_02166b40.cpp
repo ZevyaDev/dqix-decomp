@@ -4,7 +4,7 @@ extern "C" int func_ov023_021f6558(void* arg0, int arg1);
 extern "C" void func_ov004_021660f4(void);
 extern "C" void func_ov004_02165f2c(void);
 extern "C" void func_ov004_02165ef4(void* arg0);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 struct Struct_ov004_02166b40 {
     char unknown_0_[0x48];
@@ -44,9 +44,9 @@ extern "C" ARM int func_ov004_02166b40(void* arg0) {
         func_ov004_021660f4();
         func_ov004_02165f2c();
         func_ov004_02165ef4(arg0);
-        func_ov011_021848a0(arg0, 0x12d);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x12d);
     } else {
-        func_ov011_021848a0(arg0, 0x66);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x66);
     }
     return 0;
 }

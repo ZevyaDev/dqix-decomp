@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 
 extern "C" ARM void func_ov000_0217ee7c(signed char* arg0, signed char* arg1,
                                      int arg2, int arg3)
 {
-    unsigned char* var0 = static_cast<unsigned char*>(func_02010828(GameState::GetInstance()));
+    unsigned char* var0 = static_cast<unsigned char*>(GetParty_02010828(GameState::GetInstance()));
     signed char var1 = *arg1;
     switch (arg3) {
     case 0:

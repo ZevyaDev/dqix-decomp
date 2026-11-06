@@ -11,8 +11,8 @@ enum { Enum_ov003_02159b20_2464 = 0x9a0 };
 
 extern "C" void* GetMessageWindow_020421a0(void);
 struct Struct_0201099c_3;
-extern "C" void* func_020e0434(Struct_0201099c_3*, int);
-extern "C" void func_02042058(char*, const char*);
+extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
+extern "C" void AppendText_02042058(char*, const char*);
 struct Struct_0205d81c;
 extern "C" void func_0205deb4(Struct_0205d81c*, int, int);
 extern "C" void func_ov003_02159250(void*, void*);
@@ -32,8 +32,8 @@ extern "C" ARM void func_ov003_02159b20(void* arg0) {
         int var3 = ((GameState*)((void*)GameState::GetInstance()))->IsMorningDayOrEvening();
         int var4 = 0x3e8;
         if (!var3) var4 += 1;
-        void* var5 = func_020e0434((Struct_0201099c_3*)(var0 + 0x64), var4);
-        func_02042058(*(char**)(var0 + 0x7c), (const char*)var5);
+        void* var5 = FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), var4);
+        AppendText_02042058(*(char**)(var0 + 0x7c), (const char*)var5);
 
         *(int*)(var1 + Enum_ov003_02159b20_2456) = 1;
         func_ov003_02159250(arg0, *(void**)(var0 + 0x7c));

@@ -15,7 +15,7 @@ extern "C" ARM void func_ov003_021749f0(char* arg0) {
 	}
 	unsigned char var0 = *(unsigned char*)(arg0 + Enum_ov003_021749f0_4161);
 	if (var0 == 0) {
-		Struct_0208cb08* var1 = func_02094a00();
+		FontLoader_0208cb08* var1 = func_02094a00();
 		func_02094b34(var1, 0x1fb, 0x66, 0, 0);
 		*(unsigned char*)(arg0 + Enum_ov003_021749f0_4161) = *(unsigned char*)(arg0 + Enum_ov003_021749f0_4161) + 1;
 	} else if (var0 == 1) {

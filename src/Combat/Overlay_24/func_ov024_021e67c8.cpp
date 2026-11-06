@@ -50,7 +50,7 @@ extern "C" ARM int func_ov024_021e67c8(struct Struct_ov024_021e67c8_2* arg0, int
         if (func_ov024_021e67b0((GameObject*)var3)) {
             var2 = var2 * func_02074938(1);
         }
-        if (func_02086ef0((Struct_02048150*)(func_02010828(GameState::GetInstance())), arg2) &&
+        if (func_02086ef0((Struct_02048150*)(GetParty_02010828(GameState::GetInstance())), arg2) &&
             var3 && var3->unknown_138_->unknown_21_ == 1) {
             func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 0);
         }

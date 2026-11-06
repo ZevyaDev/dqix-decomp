@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 #if defined(jpn)
 extern "C" int func_ov023_021f6f10(void* arg0);
 #else
@@ -36,7 +36,7 @@ public:
 
 // USA: func_ov004_02154c78
 extern "C" ARM int func_ov004_02154c78(void* arg0) {
-	Struct_ov004_02154c78* var0 = (Struct_ov004_02154c78*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0x39);
+	Struct_ov004_02154c78* var0 = (Struct_ov004_02154c78*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x39);
 	if (!var0) return 0;
 #if defined(jpn)
 	if (func_ov023_021f6f10(var0) != 0x12) return 0;
@@ -48,22 +48,22 @@ extern "C" ARM int func_ov004_02154c78(void* arg0) {
 	if (!var0) return 0;
 
 	if (*(short*)(data_ov004_021707c0 + 0x7a) == 0) {
-		Struct_ov004_02154c78* var1 = (Struct_ov004_02154c78*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0x1a);
+		Struct_ov004_02154c78* var1 = (Struct_ov004_02154c78*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x1a);
 		if (var1) var1->inline_ov004_02154c78_58(0);
 	}
 
 	if (func_ov004_021537e0() == 0) {
-		Struct_ov004_02154c78* var2 = (Struct_ov004_02154c78*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0x1b);
+		Struct_ov004_02154c78* var2 = (Struct_ov004_02154c78*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x1b);
 		if (var2) var2->inline_ov004_02154c78_58(0);
 	}
 
 	if (func_ov004_02153860() == 0) {
-		Struct_ov004_02154c78* var3 = (Struct_ov004_02154c78*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0x1c);
+		Struct_ov004_02154c78* var3 = (Struct_ov004_02154c78*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x1c);
 		if (var3) var3->inline_ov004_02154c78_58(0);
 	}
 
 	if (func_ov004_021538f0() == 0) {
-		Struct_ov004_02154c78* var4 = (Struct_ov004_02154c78*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0x1d);
+		Struct_ov004_02154c78* var4 = (Struct_ov004_02154c78*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x1d);
 		if (var4) var4->inline_ov004_02154c78_58(0);
 	}
 

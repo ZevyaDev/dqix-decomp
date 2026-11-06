@@ -79,15 +79,15 @@ struct Struct_ov004_021707c8 {
     short* unknown_8_;
     void* unknown_c_;
 };
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 extern Struct_ov004_021707c8 data_ov004_021707c8;
 extern char data_ov004_02170398[];
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
-extern "C" Struct_02072a68_2* func_ov023_021fa598(void*);
+extern "C" StringList_02072a68_2* func_ov023_021fa598(void*);
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void* func_02072a68(Struct_02072a68_2*, int);
+extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void func_02046608(void*, int, void*, char*, int, int, int);
 extern "C" char* func_020d2f88(char*, char*);
 extern "C" void func_ov023_021f9b30(Struct_ov004_02153e20*, short, unsigned int, unsigned int);
@@ -100,17 +100,17 @@ extern "C" int func_ov004_021560e8(void*);
 
 // USA: func_ov004_021561b0
 extern "C" ARM int func_ov004_021561b0(void* arg0) {
-    void* var0 = func_ov011_021849c8(arg0);
+    void* var0 = GetMenuObjectList_ov011_021849c8(arg0);
     short var1;
-    Struct_ov004_02153e20* var2 = (Struct_ov004_02153e20*)func_ov023_021f6880(var0, 3);
+    Struct_ov004_02153e20* var2 = (Struct_ov004_02153e20*)FindMenuObjectById_ov023_021f6880(var0, 3);
     if (!var2) return 0;
     if (func_ov023_021f6f10(var2) != 7) return 0;
     var1 = var2->unknown_5c_;
     short var3 = var2->unknown_5e_;
-    void* var4 = func_ov023_021f6880(var0, 11);
+    void* var4 = FindMenuObjectById_ov023_021f6880(var0, 11);
     if (!var4) return 0;
     if (func_ov023_021f6f10(var4) != 4) return 0;
-    Struct_02072a68_2* var5 = func_ov023_021fa598(var4);
+    StringList_02072a68_2* var5 = func_ov023_021fa598(var4);
     memset(data_ov004_021707c8.unknown_0_, 0, 0x1000);
     short var6 = var1 * 12;
     int var7 = 0;
@@ -118,7 +118,7 @@ extern "C" ARM int func_ov004_021561b0(void* arg0) {
     int var9;
     for (short var10 = 0; var10 < 12; var10++) {
         int var11 = var10 + 0x6e;
-        Struct_ov004_021561b0* var12 = (Struct_ov004_021561b0*)func_ov023_021f6880(var0, var11);
+        Struct_ov004_021561b0* var12 = (Struct_ov004_021561b0*)FindMenuObjectById_ov023_021f6880(var0, var11);
         if (!var12 || func_ov023_021f6f10(var12) != 8) continue;
         var12->unknown_20_ = NULL;
         var12->unknown_c_ &= ~8;
@@ -126,7 +126,7 @@ extern "C" ARM int func_ov004_021561b0(void* arg0) {
         if (data_ov004_021707c8.unknown_8_[var13] > 0) {
             void* var14 = GetMessageWindow_020421a0();
             memset(var8->unknown_f00_.unknown_0_, 0, 0x100);
-            void* var15 = func_02072a68(var5, data_ov004_021707c8.unknown_8_[var13]);
+            void* var15 = FindStringInList_02072a68(var5, data_ov004_021707c8.unknown_8_[var13]);
             func_02046608(var14, 0, var15, var8->unknown_f00_.unknown_0_, 0x60, 0, 0);
             Vector3fix var16 = var12->inline_ov004_021561b0_32();
             Vector3fix var17 = var12->inline_ov004_021561b0_25();
@@ -153,7 +153,7 @@ extern "C" ARM int func_ov004_021561b0(void* arg0) {
     if (var7 == 0) func_ov023_021f9b30(var2, 0x6e, 0, 0);
     func_ov023_021f9d14(var2, arg0);
     var2->unknown_61_ = 0;
-    Struct_ov004_021561b0* var20 = (Struct_ov004_021561b0*)func_ov023_021f6880(var0, 0x33);
+    Struct_ov004_021561b0* var20 = (Struct_ov004_021561b0*)FindMenuObjectById_ov023_021f6880(var0, 0x33);
     if (!var20) return 0;
     if (func_ov023_021f6f10(var20) != 6) return 0;
     ((Type_ov004_021561b0_2)func_ov023_021f8960)((char*)var20, 0, 0xffff);

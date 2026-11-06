@@ -9,10 +9,10 @@ struct Struct_02072e34 {
 };
 extern "C" void func_02072e34(int arg0, struct Struct_02072e34* arg1);
 
-struct Struct_0203d028;
-extern "C" void func_0207df50(struct Struct_0203d028* arg0);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+struct TextureVRAMArea_0203d028;
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_020730e0(int arg0, int arg1);
 extern "C" int NSBXX_Model_GetMaterialPolygonID(NSBXXInternalModel* model, unsigned int materialIndex);
 extern "C" int func_ov017_021b8470(void* arg0);
@@ -33,13 +33,13 @@ extern "C" void func_02026bc8(unsigned char* arg0, int arg1);
 struct Struct_02010604;
 extern "C" int func_02033b88(struct Struct_02010604* arg0, int arg1);
 struct Struct_0202b2f0;
-extern "C" struct Struct_0202b2f0* func_0202ae18(void);
+extern "C" struct Struct_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
 extern "C" int func_020546a8(void* arg0);
 extern "C" int func_0202be08(struct Struct_0202b2f0* arg0, int arg1);
 struct Struct_02054000;
 extern "C" void* func_02054000(struct Struct_02054000* arg0);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_020483f0(unsigned char* arg0, unsigned short arg1);
 extern "C" void func_02083e28(void* arg0, int arg1);
 void ApplyCombatantBuffs(int world, int id);
@@ -162,10 +162,10 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
         var9->GetLoadedFileByID(arg0->unknown_10_[var7], &var12, &var13);
         SafeAllocator* var14 = &var5->allocator_array_4[var7];
         char* var15 = var5->unknown_cc_ + var7 * 0x70;
-        func_0207df50((struct Struct_0203d028*)var15);
-        func_0207df90(var15);
+        ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)var15);
+        RestoreTextureVRAMState_0207df90(var15);
         var2->obj3D_.SetModelFromFile(var14, var12, var13, (Model3D::TextureStagingMode)arg0->unknown_c_);
-        func_0207dfac(var15);
+        SaveTextureVRAMState_0207dfac(var15);
         var6 = var2->obj3D_.pModel_;
         if (var7 == 0) {
             var6->CreateBoneMatrixAndMaterialArrays(var14, 7);
@@ -290,7 +290,7 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
         var10->unknown_0_.EnableFlag(4);
 
         if (var3 == 0) {
-            struct Struct_0202b2f0* var37 = func_0202ae18();
+            struct Struct_0202b2f0* var37 = GetLocalWireless_0202ae18();
             int var38 = var10->unknown_0_.unknown_4_;
             GameObject* var39 = func_0200ff58(var8, var38);
             if (var39 != NULL) {
@@ -317,7 +317,7 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
                 if (var41 != NULL) {
                     struct Struct_ov017_021b3e14_4* var42 = (struct Struct_ov017_021b3e14_4*)func_02054000((struct Struct_02054000*)var41);
                     if (var42 != NULL && var42->unknown_18_ > 0 && var42->unknown_a_2_) {
-                        int* var43 = (int*)func_02053c6c((unsigned char*)var41);
+                        int* var43 = (int*)GetPartyMemberData_02053c6c((unsigned char*)var41);
                         if (var43 != NULL) {
                             func_020483f0((unsigned char*)var41, 4);
                             var43[0xa8 / 4] |= 4;

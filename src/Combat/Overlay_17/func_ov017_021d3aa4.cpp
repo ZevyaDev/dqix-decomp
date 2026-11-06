@@ -7,10 +7,10 @@ enum { Enum_ov017_021d3aa4_2856 = 0xb28 };
 #include <globaldefs.h>
 #include "Combat/LootPointEvent.h"
 
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void func_0208e0a8(void);
-extern "C" int func_0202c508(void* arg0);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" ARM int* func_020120b8(char* arg0, int arg1);
 extern "C" int func_ov017_021d3950(void* arg0);
 
@@ -24,11 +24,11 @@ struct Struct_ov017_021d3aa4 {
 };
 
 // USA: func_ov017_021d3aa4
-extern "C" ARM void func_ov017_021d3aa4(int arg0, struct Struct_ov017_021d3aa4* arg1, char* arg2, int arg3, struct Struct_0202c1a4* arg4) {
+extern "C" ARM void func_ov017_021d3aa4(int arg0, struct Struct_ov017_021d3aa4* arg1, char* arg2, int arg3, struct LocalWireless_0202c1a4* arg4) {
     func_0208e0a8();
     unsigned char* var0 = *(unsigned char**)((char*)arg3 + 0x3000 + Enum_ov017_021d3aa4_2856);
 
-    if (func_0202c508(arg4)) {
+    if (IsNotLocalWirelessGuest_0202c508(arg4)) {
         if (arg1->unknown_4_ != 1) return;
 
         if (func_ov017_021d3950(&arg1->unknown_4_) != 0) {
@@ -45,13 +45,13 @@ extern "C" ARM void func_ov017_021d3aa4(int arg0, struct Struct_ov017_021d3aa4* 
         int* var1 = func_020120b8(arg2, arg1->unknown_7_);
         if (var1) *var1 = arg1->unknown_8_.unknown1_0_;
     } else if (arg1->unknown_4_ == 1) {
-        signed char var2 = func_0202c1a4(arg4);
+        signed char var2 = GetOwnProtagonistObjectIndex_0202c1a4(arg4);
         if (arg1->unknown_5_ == var2) {
             if (var0[2] != 0) var0[9] = 1;
         }
         func_ov017_021d3950(&arg1->unknown_4_);
     } else if (arg1->unknown_4_ == 2) {
-        signed char var3 = func_0202c1a4(arg4);
+        signed char var3 = GetOwnProtagonistObjectIndex_0202c1a4(arg4);
         if (arg1->unknown_5_ == var3) {
             var0[9] = 2;
         }

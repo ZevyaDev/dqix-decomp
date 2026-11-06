@@ -29,7 +29,7 @@ struct Struct_0202b2f0 {
 };
 struct Struct_02012de8;
 extern "C" unsigned short func_0202df58();
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" int func_02046708(Struct_02012de8*, unsigned int);
 extern "C" int func_0202d6a8();
 extern "C" int func_0202d8e8();
@@ -37,7 +37,7 @@ extern "C" void func_0202db64(int, int, int);
 extern "C" void func_0202bc00(Struct_0202b2f0*, int);
 extern "C" void func_0202bf40(Struct_0202b2f0*);
 extern "C" void func_0202c04c(Struct_0202b2f0*);
-extern "C" int func_0202c508(Struct_0202b2f0*);
+extern "C" int IsNotLocalWirelessGuest_0202c508(Struct_0202b2f0*);
 extern "C" unsigned short func_0202bc8c(Struct_0202b2f0*);
 extern "C" signed char func_0202bcbc(Struct_0202b2f0*, int);
 extern "C" int func_0202bd34(Struct_0202b2f0*, int);
@@ -69,7 +69,7 @@ extern "C" ARM void func_0202b2f0(Struct_0202b2f0* arg0) {
         var4->unknown_4_ = var6 & ~0xffff;
     }
     GameState::GetInstance();
-    if (func_02046708((Struct_02012de8*)func_020d6c00(), 0x1000000)) {
+    if (func_02046708((Struct_02012de8*)GetGlobalFlags_020d6c00(), 0x1000000)) {
         arg0->unknown_0_ = -1;
         return;
     }
@@ -113,7 +113,7 @@ extern "C" ARM void func_0202b2f0(Struct_0202b2f0* arg0) {
             var9->unknown_0_.unknown_0_0_ = var1[var8];
             var9->unknown_4_ = (var9->unknown_4_ & ~0xffff) | var2[var8];
         }
-    } else if (func_0202c508(arg0)) {
+    } else if (IsNotLocalWirelessGuest_0202c508(arg0)) {
         if (arg0->unknown_1011_) {
             unsigned int var10 = func_0202bc8c(arg0);
             var0 = &arg0->unknown_7c0_;

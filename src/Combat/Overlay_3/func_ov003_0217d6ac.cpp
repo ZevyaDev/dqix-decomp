@@ -17,14 +17,14 @@ extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" int func_0205d97c(void *arg0);
 struct Struct_0205d6a0;
 extern "C" void func_0205d6a0(struct Struct_0205d6a0 *arg0, int arg1);
-extern "C" void func_02043204(char *arg0);
-struct Struct_02108760;
-extern struct Struct_02108760 data_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
+extern "C" void ResetMessageWindow_02043204(char *window);
+struct SoundEffectManager_02108760;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" void func_ov017_021baedc(void *arg0, int arg1);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2 *arg0, struct Struct_0201bdac *arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2 *queue, struct QueueNode_0201bdac *node);
 extern "C" void func_ov017_0219e310(unsigned char *arg0, int arg1);
 extern "C" void *func_0200fd0c(GameState *arg0);
 extern "C" void func_02070378(char *arg0);
@@ -90,14 +90,14 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
     char *var2;
     int var3;
     int var4;
-    struct Struct_0201bdac_2 *var5;
+    struct Queue_0201bdac_2 *var5;
 #if defined(jpn)
     struct Struct_ov003_0217d53c_4 *var6;
 #else
     struct Struct_ov003_0217d6ac *var7;
 #endif
     var1     = (char *) GetGameResources();
-    var5    = *(struct Struct_0201bdac_2 **) (var1 + RG(0x36fc, 0x34ec));
+    var5    = *(struct Queue_0201bdac_2 **) (var1 + RG(0x36fc, 0x34ec));
 #if defined(jpn)
     var6 = inline_ov003_0216e714_2(GetZone3D_02012fe4());
 #else
@@ -139,16 +139,16 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
         arg0->unknown_4_ = 4;
         arg0->unknown_5_  = 0;
         func_0205d6a0((struct Struct_0205d6a0 *) arg0->unknown_90_, 0);
-        func_02043204(var2);
+        ResetMessageWindow_02043204(var2);
         return;
     }
     if (var4 == -1) return;
 
     arg0->unknown_4_ = 4;
     arg0->unknown_5_  = 0;
-    func_0205eaa0(&data_02108760, 1, 0);
+    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
     func_0205d6a0((struct Struct_0205d6a0 *) arg0->unknown_90_, 0);
-    func_02043204(var2);
+    ResetMessageWindow_02043204(var2);
     Struct_ov003_0217d6ac_3 *var9 = *(Struct_ov003_0217d6ac_3 **) (var1 + RG(0x3734, 0x3524));
     func_ov017_021baedc(var9, 1);
     var9->unknown_10b_ = 1;
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
         case 5: var9->unknown_8_ = 0xd069; break;
         case 6: var9->unknown_8_ = 0xd06a; break;
     }
-    func_020469b4(var5, (struct Struct_0201bdac *) var9);
+    AppendToQueue_020469b4(var5, (struct QueueNode_0201bdac *) var9);
     if (var4 != 0) {
         unsigned char *var10 = *(unsigned char **) (var1 + RG(0x370c, 0x34fc));
         func_ov017_0219e310(var10, 0);
@@ -176,7 +176,7 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
         var11->unknown_14_ = 0x2b8;
         var11->unknown_18_ = -0x7b33;
         var11->unknown_c_  = 1;
-        func_020469b4(var5, (struct Struct_0201bdac *) var10);
+        AppendToQueue_020469b4(var5, (struct QueueNode_0201bdac *) var10);
     } else {
         unsigned char *var12 = *(unsigned char **) (var1 + RG(0x370c, 0x34fc));
         func_ov017_0219e310(var12, 0);
@@ -187,6 +187,6 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
         var13->unknown_14_ = 0x266;
         var13->unknown_18_ = -0x7b33;
         var13->unknown_c_  = 1;
-        func_020469b4(var5, (struct Struct_0201bdac *) var12);
+        AppendToQueue_020469b4(var5, (struct QueueNode_0201bdac *) var12);
     }
 }

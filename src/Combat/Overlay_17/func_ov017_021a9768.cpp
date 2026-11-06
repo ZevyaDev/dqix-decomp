@@ -12,11 +12,11 @@ struct Struct_0202b2f0;
 struct Struct_ov008_02189284;
 struct Struct_ov008_0218936c;
 
-extern "C" Struct_0202b2f0* func_0202ae18(void);
+extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
 extern "C" void func_020a0cc4(unsigned int arg0);
 extern "C" void func_020a0c0c(void);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" Struct_020d7aa0_2* func_020d7a50();
 extern "C" void func_020d7aa0(Struct_020d7aa0_2* arg0);
 extern "C" void func_020a1ef0(int arg0);
@@ -29,7 +29,7 @@ extern "C" int func_0202c578(Struct_0202b2f0* arg0, int arg1);
 extern "C" void func_ov008_0218b240(void* arg0);
 extern "C" void func_ov008_021894b8(void* arg0);
 extern "C" void func_020397c0(void* arg0);
-extern char data_02114e20;
+extern char gMainHeap_02114e20;
 
 struct Struct_ov017_021a9768 {
     char unknown_0_[0x14];
@@ -56,16 +56,16 @@ extern "C" ARM void func_ov017_021a9768(Struct_ov017_021a9768_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     GameObject* var2 = var0->GetUnknownGameObject();
-    Struct_0202b2f0* var3 = func_0202ae18();
+    Struct_0202b2f0* var3 = GetLocalWireless_0202ae18();
     func_020397cc((Struct_02018300_3*)var2, 1);
     SetFlags04((GameResources*)var1, 0xc0);
     if (arg0->unknown_8_ == 0) {
 #if defined(jpn)
         func_020a0cc4(0x1c704);
-        void* var4 = func_02012d88((AllocatorUnion*)&data_02114e20, 0x1c704);
+        void* var4 = AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, 0x1c704);
 #else
         func_020a0cc4(0x1c70c);
-        void* var4 = func_02012d88((AllocatorUnion*)&data_02114e20, 0x1c70c);
+        void* var4 = AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, 0x1c70c);
 #endif
         if (var4 == NULL) {
             func_020a0c0c();

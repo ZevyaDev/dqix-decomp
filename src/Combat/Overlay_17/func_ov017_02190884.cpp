@@ -6,7 +6,7 @@
 struct Struct_02012de8;
 struct Struct_02018300_3;
 struct Struct_02033834;
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 
 struct Struct_ov017_02190884 {
     unsigned int unknown_0_;
@@ -40,11 +40,11 @@ struct Struct_ov017_021d61dc {
     int unknown_0_[8];
 };
 
-extern "C" Struct_02012de8* func_020d6c00();
+extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
 extern "C" int func_02046708(Struct_02012de8* arg0, unsigned int arg1);
 extern "C" void func_020dc548(signed char arg0, signed char* arg1, signed char* arg2);
 extern "C" int func_02039d7c(char* arg0);
-extern "C" Struct_0202c1a4* func_0202ae18();
+extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18();
 extern "C" GameObject* func_0200fee0(GameState* arg0, int arg1);
 extern "C" char* GetZone3D_02012fe4();
 extern "C" int func_020981e4(int arg0, int arg1);
@@ -64,8 +64,8 @@ extern "C" void func_02039858(unsigned char*, int);
 extern "C" void func_020397c0(void* arg0);
 extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
 extern "C" void func_02039d58(unsigned char* arg0);
-extern "C" int func_0202b7d8(int* arg0);
-extern "C" int func_0202c1a4(Struct_0202c1a4* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
+extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" void func_020340e4(unsigned char* arg0);
 extern "C" void func_02039d24(unsigned char* arg0);
 extern "C" void func_0203986c(unsigned char*, int);
@@ -83,8 +83,8 @@ extern Struct_ov017_021d61dc data_ov017_021d61dc;
 extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3, int arg4, int arg5) {
     GameState* var0 = GameState::GetInstance();
 
-    if (func_02046708(func_020d6c00(), 0x2000) != 0) {
-        unsigned char* var1 = (unsigned char*)func_02010828(var0);
+    if (func_02046708(GetGlobalFlags_020d6c00(), 0x2000) != 0) {
+        unsigned char* var1 = (unsigned char*)GetParty_02010828(var0);
         int var2;
         for (var2 = 0; var2 < var1[0xf7c]; var2++) {
             arg1[var2] = (var1 + var2)[0xf78];
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
         }
     }
 
-    Struct_0202c1a4* var8 = func_0202ae18();
+    LocalWireless_0202c1a4* var8 = GetLocalWireless_0202ae18();
     GameResources* var9 = GetGameResources();
     if (var9 == NULL) {
         return;
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
         }
     }
 
-    func_02010828(var0);
+    GetParty_02010828(var0);
     var0->GetProtagonist();
     int var33 = 1;
     GameObject* var34 = var0->GetPartyMemberByIndex(func_02039888(var10));
@@ -262,7 +262,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
             }
             func_02039d58((unsigned char*)var46);
             var46->unknown_0_.SetInheritedAlpha(0x1f);
-            if (func_0202b7d8((int*)var8) && arg0 != func_0202c1a4(var8)) {
+            if (IsLocalWirelessOn_0202b7d8((int*)var8) && arg0 != GetOwnProtagonistObjectIndex_0202c1a4(var8)) {
                 func_020340e4((unsigned char*)var46);
             }
         } else {

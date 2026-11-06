@@ -38,8 +38,8 @@ extern "C" void func_0205d048(void* arg0);
 extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_02043124(void* arg0);
-extern "C" void func_02043204(char* arg0);
+extern "C" void CloseMessageWindow_02043124(void* window);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void* __clear(void* arg0, int arg1);
 
 // USA: func_ov003_0215c800
@@ -62,8 +62,8 @@ extern "C" ARM void func_ov003_0215c800(char* arg0) {
     LoadToMainBG1CharacterData((int)*(void**)(arg0 + Enum_ov003_0215c800_124), 0, 0x20);
 
     void* var1 = (void*)GetMessageWindow_020421a0();
-    func_02043124(var1);
-    func_02043204((char*)var1);
+    CloseMessageWindow_02043124(var1);
+    ResetMessageWindow_02043204((char*)var1);
 
     if (*(unsigned char*)(arg0 + Enum_ov003_0215c800_1009) == 0) {
         *(int*)((char*)var1 + Enum_ov003_0215c800_728) = 0;

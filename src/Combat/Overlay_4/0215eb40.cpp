@@ -38,7 +38,7 @@ struct Struct_ov004_0215eb40_4 {
 
 struct Struct_0209a654_2 { struct Struct_ov004_0215eb40_4* unknown_0_; int unknown_4_; };
 
-struct Struct_0201099c_9 {
+struct ItemData_0201099c_9 {
     unsigned int unknown_0_;
     unsigned int unknown_4_;
     unsigned int unknown_8_0_ : 4;
@@ -48,7 +48,7 @@ struct Struct_0201099c_9 {
     unsigned short unknown_14_;
 };
 
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 
 class Struct_ov004_0215eb40 {
 public:
@@ -67,7 +67,7 @@ public:
     virtual void inline_ov004_0215eb40_49(); virtual void inline_ov004_0215eb40_50(); virtual void inline_ov004_0215eb40_51(); virtual void inline_ov004_0215eb40_52();
     virtual void inline_ov004_0215eb40_53(); virtual void inline_ov004_0215eb40_54(); virtual void inline_ov004_0215eb40_55(); virtual void inline_ov004_0215eb40_56();
     virtual void inline_ov004_0215eb40_57(); virtual void inline_ov004_0215eb40_58();
-    virtual Struct_0201099c_10* inline_ov004_0215eb40_59();
+    virtual ItemTable_0201099c_10* inline_ov004_0215eb40_59();
 };
 
 struct Struct_ov004_0215eb40_3 { unsigned char unknown_0_[0x454]; short unknown_454_[8]; };
@@ -85,8 +85,8 @@ extern "C" struct Struct_ov004_0215eb40_4* func_0209a654(struct Struct_0209a654_
 extern "C" void func_02083acc(unsigned char*, int);
 extern "C" void func_02083b28(unsigned char*, int);
 extern "C" int func_02083b00(unsigned char*, int);
-extern "C" void* func_02053c6c(unsigned char*);
-extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10*, int);
+extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10*, int);
 extern "C" void* func_ov004_0215e47c(void*, int);
 extern "C" void func_ov004_0215ee90(void*);
 
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov004_0215eb40(void* arg0) {
     unsigned char* var2;
     unsigned char* var3;
     BackgroundLoader* var4;
-    struct Struct_0201099c_10* var5;
+    struct ItemTable_0201099c_10* var5;
     int var6;
     int var7;
     short* var8;
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov004_0215eb40(void* arg0) {
     func_ov004_0215ee90(data_ov004_02170b90);
     var1 = GameState::GetInstance();
     var2 = (unsigned char*)(void*)func_0200ff1c(var1, *(int*)((char*)&data_ov004_021707e8 + 0x1c));
-    var3 = (unsigned char*)func_02053c6c(var2);
+    var3 = (unsigned char*)GetPartyMemberData_02053c6c(var2);
     if (var2 == 0 || var3 == 0) {
         return;
     }
@@ -119,7 +119,7 @@ extern "C" ARM void func_ov004_0215eb40(void* arg0) {
     char* var14 = data_0212633c;
     func_0209a338((struct Struct_0200f3a4_8*)&var0);
     func_0209a348(&var0, var14);
-    func_02010828(var1);
+    GetParty_02010828(var1);
 
     var5 = 0;
     {
@@ -146,7 +146,7 @@ extern "C" ARM void func_ov004_0215eb40(void* arg0) {
                 break;
             }
         }
-        struct Struct_0201099c_9* var16 = func_020dedd0(var5, (short)var6);
+        struct ItemData_0201099c_9* var16 = func_020dedd0(var5, (short)var6);
         if (var16 == 0) {
             continue;
         }

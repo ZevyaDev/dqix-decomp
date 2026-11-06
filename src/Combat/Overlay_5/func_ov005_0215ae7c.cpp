@@ -11,7 +11,7 @@
 
 struct MessageWindow_02021b84;
 struct Struct_02052e14;
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_0201099c_3;
 
 struct Struct_ov005_02153ba4_2
@@ -20,7 +20,7 @@ struct Struct_ov005_02153ba4_2
     int unknown_4fc_;
 };
 
-struct Struct_0201099c_9
+struct ItemData_0201099c_9
 {
     int unknown_0_;
     const char* unknown_4_;
@@ -29,7 +29,7 @@ struct Struct_0201099c_9
 struct Struct_ov005_02153954
 {
     char unknown_0_[0xdf4];
-    Struct_0201099c_10* unknown_df4_;
+    ItemTable_0201099c_10* unknown_df4_;
     char unknown_df8_[LOW_REGION(0x3d7c,0x3e04) - 0xdf8];
     signed char unknown_3e04_;
     char unknown_3e05_[0x3e84 - 0x3e05];
@@ -41,11 +41,11 @@ extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
 extern "C" short* func_02052e14(Struct_02052e14* arg0);
 extern "C" void func_020462d0(MessageWindow_02021b84* arg0, unsigned short* arg1, int arg2);
-extern "C" Struct_0201099c_9* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
+extern "C" ItemData_0201099c_9* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
 extern "C" void func_02046608(MessageWindow_02021b84* arg0, int, const char* arg2, char* arg3, int arg4, int, int);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_020d2f88(char* arg0, char* arg1);
 extern "C" void func_02045d14(MessageWindow_02021b84* arg0, const char* arg1, unsigned short* arg2, int);
 extern "C" void func_020439b0(MessageWindow_02021b84* arg0, int);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov005_0215ae7c(Struct_ov005_02153954* arg0)
     for (int var6 = 0; var6 < 8; var6++)
     {
         short var7 = var3[data_ov005_0215cc04[var6]];
-        Struct_0201099c_9* var8 = func_020dedd0(arg0->unknown_df4_, var7);
+        ItemData_0201099c_9* var8 = func_020dedd0(arg0->unknown_df4_, var7);
 #if defined(jpn)
         if (var8 != NULL)
         {
@@ -91,11 +91,11 @@ extern "C" ARM void func_ov005_0215ae7c(Struct_ov005_02153954* arg0)
         }
         else if (var7 <= 0)
         {
-            func_020469b0(var0, func_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x2ee0), arg0->unknown_3e84_[var6], 0xa);
+            func_020469b0(var0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x2ee0), arg0->unknown_3e84_[var6], 0xa);
         }
         else
         {
-            func_020469b0(var0, func_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x32c7), arg0->unknown_3e84_[var6], 0xa);
+            func_020469b0(var0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x32c7), arg0->unknown_3e84_[var6], 0xa);
         }
 #else
         char var9[0x80];
@@ -109,11 +109,11 @@ extern "C" ARM void func_ov005_0215ae7c(Struct_ov005_02153954* arg0)
         }
         else if (var7 <= 0)
         {
-            func_02046608(var0, 0, func_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x2ee0), var9, 0x58, 0, 0);
+            func_02046608(var0, 0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x2ee0), var9, 0x58, 0, 0);
         }
         else
         {
-            func_02046608(var0, 0, func_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x32c7), var9, 0x58, 0, 0);
+            func_02046608(var0, 0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x32c7), var9, 0x58, 0, 0);
         }
         if (func_020d2f88(var9, data_ov005_0215ce08))
             arg0->unknown_4284_[var6] = 1;

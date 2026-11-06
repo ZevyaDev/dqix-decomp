@@ -6,14 +6,14 @@ struct Struct_0205bacc;
 struct Struct_0205bcdc;
 struct Struct_0205cf1c;
 
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 extern "C" void func_ov000_02174da4(int, void*);
-extern "C" void* func_0202ae18();
-extern "C" int func_0202b7d8(int*);
-extern "C" int func_020100a8(GameState*);
+extern "C" void* GetLocalWireless_0202ae18();
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_ov000_0218155c(void*);
 extern "C" void* func_ov000_02161318(void*, int);
-extern "C" void* func_02053c6c(unsigned char*);
+extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" void func_0205cf10(void*);
 extern "C" void func_0205cf1c(Struct_0205cf1c*);
 extern "C" void func_0205cef8(void*);
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov000_0217c638(Struct_ov000_0217c638_3* arg0, int arg1,
     data_ov000_02184294[0] = arg2;
 #endif
     GameState* var5 = GameState::GetInstance();
-    Struct_ov000_02182a74* var6 = (Struct_ov000_02182a74*)func_02010828(var5);
+    Struct_ov000_02182a74* var6 = (Struct_ov000_02182a74*)GetParty_02010828(var5);
     switch (arg0->unknown_1d60_[arg0->unknown_1d68_]) {
     case 1: {
         int var7[4];
@@ -103,10 +103,10 @@ extern "C" ARM void func_ov000_0217c638(Struct_ov000_0217c638_3* arg0, int arg1,
         break;
     }
     case 2: {
-        void* var9 = func_0202ae18();
+        void* var9 = GetLocalWireless_0202ae18();
         var2 = 3;
-        if (func_0202b7d8((int*)var9)) {
-            if (func_020100a8(var5) == 0) var2 = 4;
+        if (IsLocalWirelessOn_0202b7d8((int*)var9)) {
+            if (GetProtagonistObjectIndex_020100a8(var5) == 0) var2 = 4;
         }
         var1 = var2;
         var4 = arg0->unknown_1d69_[1];
@@ -149,7 +149,7 @@ extern "C" ARM void func_ov000_0217c638(Struct_ov000_0217c638_3* arg0, int arg1,
         if (var13 && func_ov000_02161318(arg0, var11)) {
             GameObject* var14 = var5->GetPartyMemberByIndex(var11);
             if (var14) {
-                var12 = (signed char)((Struct_ov000_0217c638*)func_02053c6c((unsigned char*)var14))->unknown_94c_;
+                var12 = (signed char)((Struct_ov000_0217c638*)GetPartyMemberData_02053c6c((unsigned char*)var14))->unknown_94c_;
             }
         }
         arg0->unknown_1d69_[3] = var12;

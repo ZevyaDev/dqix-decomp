@@ -8,16 +8,16 @@ struct Struct_ov003_0216e714;
 #if !defined(jpn)
 extern "C" struct Struct_ov003_0216e714 *GetZone3D_02012fe4(void);
 #endif
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(Struct_02020cb8_4 *arg0);
-struct Struct_02020aec;
-extern "C" void *func_020467f0(Struct_02020aec *arg0, int arg1, void **arg2, int *arg3);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4 *pac);
+struct PacEntry_02020aec;
+extern "C" void *GetPacEntryData_020467f0(PacEntry_02020aec *pac, int index, void **outEntry, int *outSize);
 extern "C" void func_0204c684(void *arg0);
 extern "C" void __clear(void *arg0, int arg1);
 extern "C" void func_02042764(void *arg0, void *arg1, int arg2);
 extern "C" void func_0204f41c(void *arg0, short arg1, short arg2, void *arg3, int arg4, int arg5, short *arg6, short *arg7, int arg8);
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(Struct_0201099c_3 *arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int func_020420e8(void *arg0, int arg1);
 extern "C" void func_0204e038(void *arg0, char *arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 struct Struct_02020cb8;
@@ -182,9 +182,9 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
             short var17;
             int var18;
             var6->GetLoadedFileByID(arg0->unknown_1c_, &var14, &var15);
-            int var19 = func_02046900((Struct_02020cb8_4 *) var14);
+            int var19 = CountPacEntries_02046900((PacEntry_02020cb8_4 *) var14);
             for (int var20 = 0; var20 < var19; var20++) {
-                var10[var20] = (Struct_ov003_0216e714_6 *) func_020467f0((Struct_02020aec *) var14, var20, &var13, &var11[var20]);
+                var10[var20] = (Struct_ov003_0216e714_6 *) GetPacEntryData_020467f0((PacEntry_02020aec *) var14, var20, &var13, &var11[var20]);
             }
             func_0204c684(&var8);
             var8.unknown_8_   = (char *) var10[0] + 0x10;
@@ -225,14 +225,14 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
                 }
                 func_02050678(&var8, 0x51, var0 * 16 + 0x2f, var9, 10, 15, &var16, &var17);
                 switch (var3->unknown_c_4_) {
-                    case 2: sprintf(var9, (char *) func_020e0434((Struct_0201099c_3 *) arg0->unknown_dc_, 0)); break;
+                    case 2: sprintf(var9, (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) arg0->unknown_dc_, 0)); break;
                     case 3:
-                    case 4: sprintf(var9, (char *) func_020e0434((Struct_0201099c_3 *) arg0->unknown_dc_, 1)); break;
+                    case 4: sprintf(var9, (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) arg0->unknown_dc_, 1)); break;
                     case 5:
-                    case 6: sprintf(var9, (char *) func_020e0434((Struct_0201099c_3 *) arg0->unknown_dc_, 2)); break;
+                    case 6: sprintf(var9, (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) arg0->unknown_dc_, 2)); break;
                     case 9:
-                    case 10: sprintf(var9, (char *) func_020e0434((Struct_0201099c_3 *) arg0->unknown_dc_, 3)); break;
-                    default: sprintf(var9, (char *) func_020e0434((Struct_0201099c_3 *) arg0->unknown_dc_, 4)); break;
+                    case 10: sprintf(var9, (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) arg0->unknown_dc_, 3)); break;
+                    default: sprintf(var9, (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) arg0->unknown_dc_, 4)); break;
                 }
                 func_02050678(&var8, 0x80, var0 * 16 + 0x2f, var9, 10, 15, &var16, &var17);
                 var8.unknown_b4_ = 8;
@@ -330,9 +330,9 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
             int var42;
             int var43;
             var26->GetLoadedFileByID(arg0->unknown_1c_, &var34, &var35);
-            int var44 = func_02046900((Struct_02020cb8_4 *) var34);
+            int var44 = CountPacEntries_02046900((PacEntry_02020cb8_4 *) var34);
             for (int var45 = 0; var45 < var44; var45++) {
-                var29[var45] = (Struct_ov003_0216e714_6 *) func_020467f0((Struct_02020aec *) var34, var45, &var33, &var30[var45]);
+                var29[var45] = (Struct_ov003_0216e714_6 *) GetPacEntryData_020467f0((PacEntry_02020aec *) var34, var45, &var33, &var30[var45]);
             }
             func_0204c684(&var27);
             var27.unknown_8_   = (char *) var29[0] + 0x10;
@@ -372,14 +372,14 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
                     case 9:
                     case 10: var46 = 3; break;
                 }
-                sprintf(var28, (char *) func_020e0434((Struct_0201099c_3 *) arg0->unknown_dc_, var46));
+                sprintf(var28, (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) arg0->unknown_dc_, var46));
                 func_0204f41c(&var27, 0xb0 - func_020420e8(var28, 0), var42, var28, 10, 15, &var36, &var37, 0);
                 var27.unknown_b4_ = 8;
                 var27.unknown_b6_ = 8;
                 sprintf(var28, data_ov003_021802b6, var41->unknown_e_3_);
                 func_0204f41c(&var27, 0xc8 - func_020420e8(var28, 0), var42, var28, 10, 15, &var36, &var37, 0);
                 sprintf(var28, data_ov003_021802b3,
-                        (char *) func_020e0434((Struct_0201099c_3 *) arg0->unknown_dc_,
+                        (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) arg0->unknown_dc_,
                                                                                 (short) (var41->unknown_d_7_ + 0xe)));
                 func_0204f41c(&var27, 0xce, var42, var28, 10, 15, &var36, &var37, 0);
                 sprintf(var28, data_ov003_021802b6, var41->unknown_b_0_ + 2000);

@@ -7,9 +7,9 @@
 extern "C" {
 void func_0207dfc8(void *, void *);
 void _ZN13SafeAllocator5ResetEv(void *);
-void func_0207df50(void *);
-void func_0207df90(void *);
-void func_0207dfac(void *);
+void ResetTextureVRAMState_0207df50(void *);
+void RestoreTextureVRAMState_0207df90(void *);
+void SaveTextureVRAMState_0207dfac(void *);
 void func_02059f38(void *, void *);
 void func_020407b4(void *, int, int, int);
 int func_02098210(int, int);
@@ -73,8 +73,8 @@ extern "C" ARM int func_ov003_02158754(struct Struct_ov003_02158754_3 *arg0) {
         char *var3 = (char *) GetGameResources();
         func_0207dfc8(var3 + Enum_ov003_02158754_716, arg0->unknown_210_);
         _ZN13SafeAllocator5ResetEv((char *) arg0->unknown_0_ + 0x8c);
-        func_0207df50(arg0->unknown_210_);
-        func_0207df90(arg0->unknown_210_);
+        ResetTextureVRAMState_0207df50(arg0->unknown_210_);
+        RestoreTextureVRAMState_0207df90(arg0->unknown_210_);
         Object3D *var4 = (Object3D *) arg0->unknown_280_;
         var4->Initialize();
         ObjectArchiveLoadInfo var5;
@@ -115,7 +115,7 @@ extern "C" ARM int func_ov003_02158754(struct Struct_ov003_02158754_3 *arg0) {
         } else {
             var4->EnableFlag(1);
         }
-        func_0207dfac(arg0->unknown_210_);
+        SaveTextureVRAMState_0207dfac(arg0->unknown_210_);
         arg0->unknown_32c_ = 1;
         var0->RemoveTask(arg0->unknown_20c_);
         arg0->unknown_20c_  = -1;

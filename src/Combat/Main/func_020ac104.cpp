@@ -26,7 +26,7 @@ struct Struct_020a0434 {
     unsigned int unknown_12_7_ : 9;
     unsigned char unknown_14_[0xb0 - 0x14];
 };
-extern "C" int func_020ac4c0(void*);
+extern "C" int GetBattleRecords_020ac4c0(void*);
 extern "C" void func_020a0434(Struct_020a0434*, unsigned int);
 extern "C" int func_020ac494(void*);
 // USA: func_020ac104
@@ -59,7 +59,7 @@ extern "C" ARM int func_020ac104(int arg0, Struct_020ac104* arg1, int arg2) {
         memcpy(&var0->unknown_7ac4_[var6], &var10, 2);
     }
     Struct_020a0434 var11;
-    func_020ac4c0(&var11);
+    GetBattleRecords_020ac4c0(&var11);
     func_020a0434(&var11, var1);
     func_020ac494(&var11);
     return 1;

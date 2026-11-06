@@ -15,7 +15,7 @@ extern "C" int GetMessageWindow_020421a0();
 #if !defined(jpn)
 extern "C" void func_ov003_0216d8d4(char* arg0, int arg1, int arg2, int arg3, int arg4);
 #endif
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 
 // USA: func_ov003_0216d3f0
 extern "C" ARM void func_ov003_0216d3f0(char* arg0) {
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov003_0216d3f0(char* arg0) {
     case 1:
         if (*(int*)(var0 + Enum_ov003_0216d3f0_2464) != 0) break;
         if (*(int*)(var0 + Enum_ov003_0216d3f0_2456) != 0) break;
-        func_02043204(var0);
+        ResetMessageWindow_02043204(var0);
         *(short*)(arg0 + 4) = 7;
         *(short*)(arg0 + 6) = 0;
         break;

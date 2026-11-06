@@ -5,9 +5,6 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
@@ -45,24 +42,24 @@ struct Struct_ov001_021561e0_3 { char unknown_0_[0x8c]; unsigned char unknown_8c
 struct Struct_020fdd44;
 struct Struct_02018300_2;
 extern "C" int func_ov001_02153994();
-extern "C" int* func_0202ae18();
+extern "C" int* GetLocalWireless_0202ae18();
 extern "C" void func_ov001_0215aac8();
 extern "C" void func_ov027_021d8c20(void*);
 extern "C" void func_ov001_0215aaa8(int, int);
 extern "C" void func_ov001_02154974(void*);
-extern "C" void func_02012da4(AllocatorUnion*, void*);
+extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
 extern "C" void func_ov001_0215aa5c();
 extern "C" void* GetZone3D_02012fe4();
 extern "C" void* func_0201e838(unsigned char*, unsigned int);
 extern "C" Struct_020fdd44* func_02027ca4();
 extern "C" Struct_02018300_2* func_02028bd0(Struct_020fdd44*, int);
 extern "C" void func_02028c64(Struct_02018300_2*, int);
-extern "C" Struct_ov001_021561e0_3* func_0205ec34();
+extern "C" Struct_ov001_021561e0_3* GetFlagManager_0205ec34();
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
-extern "C" int func_0202b7d8(int*);
-extern "C" int func_0202c508(void*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" void func_ov017_021d0490(int);
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov001_021561e0
 extern "C" ARM int func_ov001_021561e0(Struct_ov001_021561e0_4* arg0) {
@@ -71,7 +68,7 @@ extern "C" ARM int func_ov001_021561e0(Struct_ov001_021561e0_4* arg0) {
     if (!func_02094b4c(func_02094a00())) return 11;
     GameResources* var0 = GetGameResources();
     GameState* var1 = GameState::GetInstance();
-    int* var2 = func_0202ae18();
+    int* var2 = GetLocalWireless_0202ae18();
     if (arg0->unknown_15c_) ((Struct_ov001_021561e0*)var1)->unknown_5cac_ = 0;
     func_ov001_0215aac8();
     if (arg0->unknown_160_) {
@@ -90,7 +87,7 @@ extern "C" ARM int func_ov001_021561e0(Struct_ov001_021561e0_4* arg0) {
             SignedAllocatorHeader* var4 = arg0->unknown_138_->GetSignedAllocator();
             if (var4) {
                 arg0->unknown_138_->Destroy();
-                func_02012da4(&data_02114e20, var4);
+                FreeMemory_02012da4(&gMainHeap_02114e20, var4);
                 arg0->unknown_138_ = 0;
             }
         }
@@ -99,7 +96,7 @@ extern "C" ARM int func_ov001_021561e0(Struct_ov001_021561e0_4* arg0) {
         SignedAllocatorHeader* var5 = arg0->unknown_7c_.GetSignedAllocator();
         if (var5) {
             arg0->unknown_7c_.Destroy();
-            func_02012da4(&data_02114e20, var5);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var5);
         }
         func_ov001_0215aa5c();
     }
@@ -115,7 +112,7 @@ extern "C" ARM int func_ov001_021561e0(Struct_ov001_021561e0_4* arg0) {
         var7 = var7->unknown_70_;
     }
     if (arg0->unknown_8_ == 0x730a) {
-        Struct_ov001_021561e0_3* var10 = func_0205ec34();
+        Struct_ov001_021561e0_3* var10 = GetFlagManager_0205ec34();
         func_0206df6c(var10, var10->unknown_8c_, 0x1142, 0);
     }
     for (int var11 = 0; var11 < 4; ++var11) {
@@ -125,7 +122,7 @@ extern "C" ARM int func_ov001_021561e0(Struct_ov001_021561e0_4* arg0) {
             var12->unknown_18c_ &= ~2;
         }
     }
-    if (!func_0202b7d8(var2) || func_0202c508(var2)) return 10;
+    if (!IsLocalWirelessOn_0202b7d8(var2) || IsNotLocalWirelessGuest_0202c508(var2)) return 10;
     func_ov017_021d0490(0);
     arg0->unknown_fc_ = 0;
     arg0->unknown_103_ = 0;

@@ -5,16 +5,16 @@ extern "C" void func_020474a8(void*, int, int, char*);
 #include "GameState/GameState.h"
 
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_02046380(void* arg0);
-struct Struct_020465c0;
-extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" void ClearMessageParams_02046380(void* window);
+struct MessageWindow_020465c0;
+extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 struct Struct_02046574_2;
 extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5, int arg6);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 struct Struct_ov003_0216abd8 {
     char unknown_0_[0xf68];
@@ -44,13 +44,13 @@ extern "C" ARM void func_ov003_0216abd8(struct Struct_ov003_0216abd8_3* arg0, ch
     }
     GameState* var1 = GameState::GetInstance();
     void* var2 = GetMessageWindow_020421a0();
-    struct Struct_ov003_0216abd8* var3 = (struct Struct_ov003_0216abd8*)func_02010828(var1);
+    struct Struct_ov003_0216abd8* var3 = (struct Struct_ov003_0216abd8*)GetParty_02010828(var1);
     struct Struct_ov003_0216abd8_2* var4 = var0->unknown_7c_;
-    func_02046380(var2);
+    ClearMessageParams_02046380(var2);
     if (var3->unknown_f68_ != 0) {
-        func_020465c0((struct Struct_020465c0*)var2, 0, var3->unknown_f68_);
+        SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var2, 0, var3->unknown_f68_);
         func_020465f0((unsigned char*)var2, 0, 0);
-        int var5 = func_020e0434((struct Struct_0201099c_3*)var0->unknown_64_, 0x443);
+        int var5 = FindStringInTable_020e0434((struct Struct_0201099c_3*)var0->unknown_64_, 0x443);
 #if defined(jpn)
         func_020474a8(var2, 0xc, var5, var4->unknown_600_);
 #else
@@ -60,11 +60,11 @@ extern "C" ARM void func_ov003_0216abd8(struct Struct_ov003_0216abd8_3* arg0, ch
         func_02046608(var2, 0xc, var5, var4->unknown_600_, 0xe3, 0, 1);
 #endif
 #endif
-        func_02042058(arg1, var4->unknown_600_);
+        AppendText_02042058(arg1, var4->unknown_600_);
     } else {
         char* var6 = (char*)var1->GetProtagonist()->baseStats_;
         func_02046574((struct Struct_02046574_2*)var2, 0, var6);
-        int var7 = func_020e0434((struct Struct_0201099c_3*)var0->unknown_64_, 0x442);
+        int var7 = FindStringInTable_020e0434((struct Struct_0201099c_3*)var0->unknown_64_, 0x442);
 #if defined(jpn)
         func_020474a8(var2, 0xc, var7, var4->unknown_600_);
 #else
@@ -74,6 +74,6 @@ extern "C" ARM void func_ov003_0216abd8(struct Struct_ov003_0216abd8_3* arg0, ch
         func_02046608(var2, 0xc, var7, var4->unknown_600_, 0xe3, 0, 1);
 #endif
 #endif
-        func_02042058(arg1, var4->unknown_600_);
+        AppendText_02042058(arg1, var4->unknown_600_);
     }
 }

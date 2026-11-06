@@ -9,7 +9,7 @@ extern "C" int func_02001aec(const char* arg0, const char* arg1, int arg2);
 extern "C" int func_0201079c(char* arg0);
 
 // JPN: func_0209651c
-extern "C" ARM void func_0209651c(Struct_0208cb08* arg0) {
+extern "C" ARM void func_0209651c(FontLoader_0208cb08* arg0) {
     arg0->unknown_34_ = arg0->unknown_38_;
     arg0->unknown_38_ = -1;
     arg0->unknown_61_ = arg0->unknown_62_;
@@ -31,7 +31,7 @@ extern "C" ARM void func_0209651c(Struct_0208cb08* arg0) {
 }
 
 // JPN: func_020965c0
-extern "C" ARM int func_020965c0(Struct_0208cb08* arg0, int arg1) {
+extern "C" ARM int func_020965c0(FontLoader_0208cb08* arg0, int arg1) {
     int var0 = 0;
     if (arg1 >= 0) {
         if (arg0->unknown_3c_ == arg1) var0 = 1;

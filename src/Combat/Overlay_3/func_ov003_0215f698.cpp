@@ -29,7 +29,7 @@ struct Struct_ov003_0215f698_2 {
     unsigned char unknown_31_[6];
 };
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int func_0202bae4(void* arg0);
 extern "C" struct Struct_0202bad4* func_0202bad4(struct Struct_0202bad4_2* arg0, int arg1);
 extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
@@ -50,7 +50,7 @@ struct Struct_ov003_0215f698 {
 };
 
 extern "C" ARM void func_ov003_0215f698(struct Struct_ov003_0215f698* arg0, short* arg1) {
-    void* var0 = func_0202ae18();
+    void* var0 = GetLocalWireless_0202ae18();
     int var1 = func_0202bae4(var0);
 
     struct Struct_ov003_0215f698* var2 = arg0;
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov003_0215f698(struct Struct_ov003_0215f698* arg0, shor
 }
 #else
 extern "C" ARM void func_ov003_0215f698(struct Struct_ov003_0215f698_2* arg0, short* arg1) {
-    void* var9 = func_0202ae18();
+    void* var9 = GetLocalWireless_0202ae18();
     int var10 = func_0202bae4(var9);
 
     struct Struct_ov003_0215f698_2* var11 = arg0;

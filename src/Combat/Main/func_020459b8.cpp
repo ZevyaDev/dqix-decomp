@@ -2,9 +2,9 @@
 #include <std_library_functions.h>
 #include "Resource/MessageSystem.h"
 
-struct Struct_0203d028 {
+struct TextureVRAMArea_0203d028 {
     unsigned int unknown_0_[10];
-    unsigned int unknown_28_[10];
+    unsigned int savedImageState_28_[10];
     unsigned int unknown_50_;
 };
 
@@ -18,15 +18,15 @@ extern const short data_020e7aa6[];
 extern const short data_020e7ab0[];
 
 extern "C" void func_020416e0(Struct_0204166c*, unsigned char, int, int, int, int, unsigned char);
-extern "C" void func_02045864(int arg0, int arg1, Struct_020420e8* arg2, unsigned char* arg3, int arg4, int arg5,
+extern "C" void func_02045864(int arg0, int arg1, FontGlyph_020420e8* arg2, unsigned char* arg3, int arg4, int arg5,
                               unsigned char arg6, unsigned char arg7);
 
-static inline unsigned int inline_020459b8(Struct_0203d028* arg0) {
+static inline unsigned int inline_020459b8(TextureVRAMArea_0203d028* arg0) {
     return (arg0->unknown_50_ << 16) >> 13;
 }
 
 // USA: func_020459b8
-extern "C" ARM int func_020459b8(MessageWindow_02021b84* arg0, unsigned char arg1, Struct_020420e8* arg2,
+extern "C" ARM int func_020459b8(MessageWindow_02021b84* arg0, unsigned char arg1, FontGlyph_020420e8* arg2,
                                  unsigned char arg3) {
     if (arg2 == NULL) {
         return 0;

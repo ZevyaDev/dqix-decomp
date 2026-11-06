@@ -2,9 +2,9 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
-extern "C" void* func_02053c6c(unsigned char* arg0);
+extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_02032370(int arg0);
 
 struct Struct_ov017_021970a0 {
@@ -22,7 +22,7 @@ struct Struct_ov017_021970a0_2 {
 extern "C" ARM int func_ov017_021970a0(int arg0) {
     GameState* var0 = GameState::GetInstance();
     GetBTRandom();
-    struct Struct_ov017_021970a0* var1 = (struct Struct_ov017_021970a0*)func_02010828(var0);
+    struct Struct_ov017_021970a0* var1 = (struct Struct_ov017_021970a0*)GetParty_02010828(var0);
 
     int var2 = 0;
     for (int var3 = 0; var3 < var1->unknown_f7c_; var3++) {
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov017_021970a0(int arg0) {
         if (var4 == NULL) continue;
         int* var5 = *(int**)((char*)var4 + 0x130);
         if (*var5 & 1) continue;
-        void* var6 = func_02053c6c((unsigned char*)var4);
+        void* var6 = GetPartyMemberData_02053c6c((unsigned char*)var4);
         if (var6 == NULL) continue;
         unsigned int var7 = ((struct Struct_ov017_021970a0_2*)((char*)var6 + 4))->unknown_0_0_;
         if (var2 < var7) var2 = var7;

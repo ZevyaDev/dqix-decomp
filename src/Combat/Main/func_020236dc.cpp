@@ -6,9 +6,6 @@
 #include "World/Zone3D.h"
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_020236dc_5 : Struct_020236dc_2 {
     unsigned char unknown_190_[0x1b2 - 0x190];
@@ -32,16 +29,16 @@ struct Struct_020236dc_6 {
 struct Struct_02012de8;
 struct Struct_020236dc_7;
 extern "C" void* GetZone3D_02012fe4();
-extern "C" void* func_0202ae18();
-extern "C" void* func_0205ec34();
-extern "C" void* func_020d6c00();
+extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* GetFlagManager_0205ec34();
+extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" GameObject* func_0200ff58(GameState*, int);
 extern "C" int func_02046708(Struct_02012de8*, unsigned int);
 extern "C" void func_02053f58(Struct_020236dc_7*, int*, int*);
 extern "C" unsigned char func_02053f74(void*);
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_02039874(void*);
-extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" int func_02021394(Struct_02021394_2*, int, int, short*, short*);
 #if defined(jpn)
 #define data_020e704c data_020e78e8
@@ -59,9 +56,9 @@ extern "C" ARM int func_020236dc(Struct_020236dc* arg0, unsigned char* arg1, Vec
     GameResources* var1 = GetGameResources();
     GameObject* var2 = var0->GetProtagonist();
     Zone3D* var3 = (Zone3D*)GetZone3D_02012fe4();
-    func_0202ae18();
-    Struct_020236dc_6* var4 = (Struct_020236dc_6*)func_0205ec34();
-    Struct_02012de8* var5 = (Struct_02012de8*)func_020d6c00();
+    GetLocalWireless_0202ae18();
+    Struct_020236dc_6* var4 = (Struct_020236dc_6*)GetFlagManager_0205ec34();
+    Struct_02012de8* var5 = (Struct_02012de8*)GetGlobalFlags_020d6c00();
     Struct_02021394_2* var6 = (Struct_02021394_2*)var1->unknown_ptr_36d0;
     Struct_020236dc_4 var7;
     var7.unknown_0_ = arg0;
@@ -91,7 +88,7 @@ extern "C" ARM int func_020236dc(Struct_020236dc* arg0, unsigned char* arg1, Vec
             var13->unknown_10_ = func_02053f74(var9);
             var13->unknown_f_ = arg1[var13->unknown_10_];
             ++arg1[var13->unknown_10_];
-            if (var8 == func_020100a8(var0)) {
+            if (var8 == GetProtagonistObjectIndex_020100a8(var0)) {
                 arg2->x = var13->unknown_0_.x;
                 arg2->z = var13->unknown_0_.z;
             }
@@ -128,7 +125,7 @@ extern "C" ARM int func_020236dc(Struct_020236dc* arg0, unsigned char* arg1, Vec
             }
         }
     }
-    if (var17 && func_0206dfb0((int)var4, var4->unknown_8c_, 0x2b)) {
+    if (var17 && IsFlagSet_0206dfb0((int)var4, var4->unknown_8c_, 0x2b)) {
         short var23 = 0;
         short var24 = 0;
         if (func_02021394(var6, var3->unknown_2774_.unknown_12_, (unsigned char)var3->unknown_2774_.unknown_10_, &var23, &var24)) {

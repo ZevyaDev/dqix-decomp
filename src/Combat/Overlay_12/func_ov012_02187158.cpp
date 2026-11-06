@@ -35,11 +35,11 @@ struct Struct_0205de24_2;
 extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
 struct Struct_0205c570;
 extern "C" int func_0205d794(struct Struct_0205c570* arg0);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
-extern int data_02108760;
-struct Struct_02072a68_2;
-extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
+extern int gSoundEffectManager_02108760;
+struct StringList_02072a68_2;
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 
 struct Struct_ov012_02187158 { unsigned short unknown_0_0_ : 5; unsigned short unknown_0_5_ : 11; };
 
@@ -70,11 +70,11 @@ extern "C" ARM void func_ov012_02187158(char* arg0) {
         *(int*)(arg0 + R(0x143c,0x13e4)) = func_0205d794((struct Struct_0205c570*)(arg0 + R(0x90,0xac)));
     }
     if (func_ov023_021e6de4(arg0)) {
-        func_0205eaa0((struct Struct_02108760*)&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
         GameState* var3 = GameState::GetInstance();
         int var4 = (*(signed char**)(arg0 + 0x1000 + R(0x418,0x3c0)))[*(int*)(arg0 + 0x1000 + R(0x43c,0x3e4))];
         short var5 = (short)(var4 + 0x2710);
-        char* var6 = (char*)func_02072a68((struct Struct_02072a68_2*)(arg0 + R(0x1314,0x133c)), var5);
+        char* var6 = (char*)FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + R(0x1314,0x133c)), var5);
         char* var7 = (char*)var3 + R(0x3c,0x29c) + 0x5400;
         memset(arg0 + R(0x1498,0x1440), 0, 0x40);
         memcpy(arg0 + R(0x1498,0x1440), var6, strlen(var6));

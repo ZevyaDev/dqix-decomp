@@ -5,9 +5,6 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct FifoCommandInfo
 {
@@ -65,9 +62,9 @@ extern "C"
 
     void func_0202ec84(void*, const Vector3fix*, int*, int*);
 
-    bool func_0206dfb0(void*, void*, int);
+    bool IsFlagSet_0206dfb0(void*, void*, int);
 
-    char* func_0205ec34();
+    char* GetFlagManager_0205ec34();
 
     void func_0207ba28(LightingInfo*, int, float*, float*, float*);
 
@@ -634,13 +631,13 @@ void LightingManager::ModelTransformTintBrightnessContrast(NSBXXInternalModel *m
     int totalNumOperands;
     readPos = (uintptr_t)lightingInfo;
 
-    char* struct0205ec34 = func_0205ec34();
+    char* struct0205ec34 = GetFlagManager_0205ec34();
 
     if (((LightingInfo*)readPos)->maybeMode_ != 1)
         return;
 
     int index;
-    if (zone->currentZoneID_ == 6401 && func_0206dfb0(struct0205ec34, struct0205ec34 + 0x8c, 0x2a))
+    if (zone->currentZoneID_ == 6401 && IsFlagSet_0206dfb0(struct0205ec34, struct0205ec34 + 0x8c, 0x2a))
         index = 4;
     else
     {
@@ -744,7 +741,7 @@ void LightingManager::ProcessZoneChange(Zone3D *newZone)
     LightingInfo* info = &zone->lighting_;
     gameState = GameState::GetInstance();
     GetGameResources();
-    char* struct0205ec34 = func_0205ec34();
+    char* struct0205ec34 = GetFlagManager_0205ec34();
 
     if (info->maybeMode_ == 2)
     {
@@ -758,7 +755,7 @@ void LightingManager::ProcessZoneChange(Zone3D *newZone)
     {
         info->basic_.FillMissingEntries();
 
-        if (zone->currentZoneID_ == 6401 && func_0206dfb0(struct0205ec34, struct0205ec34 + 0x8c, 0x2a))
+        if (zone->currentZoneID_ == 6401 && IsFlagSet_0206dfb0(struct0205ec34, struct0205ec34 + 0x8c, 0x2a))
         {
             index = 4;
         }

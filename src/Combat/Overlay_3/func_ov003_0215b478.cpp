@@ -20,12 +20,12 @@ struct Struct_0205de24_2;
 extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_02046380(void* arg0);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" int func_020e51cc(int arg0);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 
-struct Struct_020465c0;
-extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+struct MessageWindow_020465c0;
+extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
 
@@ -55,19 +55,19 @@ extern "C" ARM void func_ov003_0215b478(unsigned char* arg0) {
 
 #if defined(jpn)
     func_02042428(*(void**)(arg0 + 0x7c), 8);
-    func_02042058(*(char**)(arg0 + 0x7c), data_ov003_0217e68e);
+    AppendText_02042058(*(char**)(arg0 + 0x7c), data_ov003_0217e68e);
     func_02042158(*(void**)(arg0 + 0x7c), 2);
-    func_02042058(*(char**)(arg0 + 0x7c), data_ov003_0217e696);
+    AppendText_02042058(*(char**)(arg0 + 0x7c), data_ov003_0217e696);
 #else
     int var2 = func_020e51cc(0x3f1);
-    func_02042058((char*)*(void**)(arg0 + 0x7c), (const char*)var2);
+    AppendText_02042058((char*)*(void**)(arg0 + 0x7c), (const char*)var2);
 #endif
 
-    func_02046380((void*)var1);
+    ClearMessageParams_02046380((void*)var1);
 
-    void* var3 = func_02010828(var0);
+    void* var3 = GetParty_02010828(var0);
     int var4 = *(int*)((char*)var3 + 0xf6c);
-    func_020465c0((struct Struct_020465c0*)var1, 0, var4);
+    SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var1, 0, var4);
     func_020465f0((unsigned char*)var1, 0, 7);
     func_020465d8((unsigned char*)var1, 0, 1);
 

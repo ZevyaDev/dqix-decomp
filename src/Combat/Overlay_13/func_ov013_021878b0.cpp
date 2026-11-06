@@ -6,10 +6,10 @@
 #include "Filesystem/BackgroundLoader.h"
 
 struct Struct_020534ac;
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
 extern "C" void func_0204c684(void* arg0);
 extern "C" void func_ov013_02187a58(void* arg0, void* arg1);
@@ -83,8 +83,8 @@ extern "C" ARM void func_ov013_021878b0(Struct_ov013_021878b0* arg0) {
             unsigned int var5;
             int var6;
             var0->GetLoadedFileByID(arg0->unknown_5c_, &var4, &var5);
-            func_02046900((struct Struct_02020cb8_4*)var4);
-            void* var7 = func_020467f0((struct Struct_02020aec*)var4, 0, &var3, &var6);
+            CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var4);
+            void* var7 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var4, 0, &var3, &var6);
             if (var7 != 0) {
                 Struct_ov013_021878b0_2 var8;
                 func_0204c684(&var8);

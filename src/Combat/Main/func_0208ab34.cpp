@@ -21,10 +21,10 @@ public:
     unsigned char unknown_7_[17];
     unsigned char unknown_18_[17];
 };
-extern "C" int* func_0202ae18();
+extern "C" int* GetLocalWireless_0202ae18();
 extern "C" Struct_0208ab34* func_020e2ff8();
 extern "C" int func_020e34bc(Struct_0208ab34*, int);
-extern "C" int func_0202b7d8(int*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_020e3368(unsigned char*, unsigned char);
 extern "C" void func_020e3468(Struct_0208ab34_2*, int);
 extern "C" void func_0208ad1c(void*);
@@ -34,16 +34,16 @@ extern unsigned char data_020e8cc5[];
 
 // USA: func_0208ab34
 extern "C" ARM void func_0208ab34(Struct_0208ab34_4* arg0, void* arg1) {
-    Struct_0208ab34_3* var0 = (Struct_0208ab34_3*)func_02010828(GameState::GetInstance());
-    int* var1 = func_0202ae18();
+    Struct_0208ab34_3* var0 = (Struct_0208ab34_3*)GetParty_02010828(GameState::GetInstance());
+    int* var1 = GetLocalWireless_0202ae18();
     int var2 = 0;
     int var3 = 0;
     Struct_0208ab34* var4 = func_020e2ff8();
     for (int var5 = 0; var5 < var0->unknown_f7c_; ++var5) {
         int var6 = func_020e34bc(var4, 1);
         int var7 = var0->unknown_f78_[var5];
-        if ((!func_0202b7d8(var1) ||
-             (func_0202b7d8(var1) && var6 != 1)) &&
+        if ((!IsLocalWirelessOn_0202b7d8(var1) ||
+             (IsLocalWirelessOn_0202b7d8(var1) && var6 != 1)) &&
             !arg0->inline_0208ab34(var7, arg1)) {
             for (int var8 = 0; var8 < 3; ++var8) {
                 if (arg0->unknown_18_[var7] == data_020e8cc5[var8 * 2])

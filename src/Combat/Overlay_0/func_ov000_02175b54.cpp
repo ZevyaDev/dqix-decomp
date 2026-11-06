@@ -18,7 +18,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_02079e2c(char* arg0, int arg1);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* func_ov000_02161318(void* arg0, int arg1);
 extern "C" int func_ov000_02171210(void* arg0, void* arg1);
 
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov000_02175b54(void* arg0) {
         return;
     }
     GameState* var4 = GameState::GetInstance();
-    unsigned char* var5 = (unsigned char*)func_02010828(var4);
+    unsigned char* var5 = (unsigned char*)GetParty_02010828(var4);
     signed char var6 = *(signed char*)(var5 + 0xf00 + 0x78);
     char* var7 = (char*)func_ov000_02161318(arg0, var6);
     if (var7 == 0) {

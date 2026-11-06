@@ -4,7 +4,6 @@
 
 #if defined(jpn)
 #define RG(u, j) (j)
-#define func_0205ec34 func_0205ff20
 #else
 #define RG(u, j) (u)
 #endif
@@ -91,7 +90,7 @@ extern "C" int func_020e28dc(Struct_0201079c*);
 extern "C" void func_020e263c(Struct_0201079c_2*, int);
 extern "C" int func_0205d0e0(Struct_ov002_02155960_2*, int);
 extern "C" int func_ov002_02161b48(char*, int);
-extern "C" void* func_0205ec34();
+extern "C" void* GetFlagManager_0205ec34();
 extern "C" int func_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void*);
 extern "C" void func_ov023_021dca88(void*);
@@ -143,7 +142,7 @@ extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) 
         }
         if (arg0->unknown_2487_ == 1) {
             Struct_ov002_02155960 var2;
-            if (func_020649b0(func_0205ec34(), 0x16, &var2) != 0)
+            if (func_020649b0(GetFlagManager_0205ec34(), 0x16, &var2) != 0)
                 func_0206f81c(&var2);
             if (arg0->unknown_247c_ & 1)
                 func_ov023_021dca88(arg0->unknown_50_);

@@ -21,10 +21,10 @@ extern "C" void func_0204af38(Struct_0204af38*, int, SafeAllocator*);
 struct Struct_02020cb8_5;
 extern "C" void func_0204b5e8(Struct_02020cb8_5*, int, int);
 void LoadFileIntoMemory(const char*, void*, unsigned int*);
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(Struct_02020cb8_4*);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void func_0204b174(void*, void*, void*, int);
 struct Struct_0204b8d0;
 extern "C" void func_0204b8d0(Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
@@ -32,7 +32,7 @@ struct Struct_02020cb8_2;
 extern "C" void func_0204b0e8(Struct_02020cb8_2*, void*);
 
 extern char data_ov020_0218dcb3;
-extern int data_0211e33c;
+extern int gFileScratchSpace_0211e33c;
 
 struct Struct_ov020_0218cd98 {
     char unknown_0_[0x470];
@@ -64,13 +64,13 @@ extern "C" ARM void func_ov020_0218cd98(struct Struct_ov020_0218cd98* arg0) {
     BackgroundLoader::AddLockGlobal();
 
     unsigned int var4 = 0;
-    LoadFileIntoMemory((const char*)&data_ov020_0218dcb3, (void*)&data_0211e33c, &var4);
-    int var5 = func_02046900((Struct_02020cb8_4*)&data_0211e33c);
+    LoadFileIntoMemory((const char*)&data_ov020_0218dcb3, (void*)&gFileScratchSpace_0211e33c, &var4);
+    int var5 = CountPacEntries_02046900((PacEntry_02020cb8_4*)&gFileScratchSpace_0211e33c);
 
     for (int var6 = 0; var6 < var5; var6++) {
         int var7;
         void* var8;
-        void* var9 = func_020467f0((Struct_02020aec*)&data_0211e33c, var6, &var8, &var7);
+        void* var9 = GetPacEntryData_020467f0((PacEntry_02020aec*)&gFileScratchSpace_0211e33c, var6, &var8, &var7);
         if (var9 != 0) {
             func_0204b174(var0 + 0xbc + 0x400, var9, &arg0->unknown_470_, var7);
         }

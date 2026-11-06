@@ -9,7 +9,7 @@
 #endif
 #include "GameState/GameState.h"
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void func_ov014_02188330(void* arg0);
 extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" void func_020813ec(void* arg0, int arg1);
@@ -19,7 +19,7 @@ int IsBrightnessTransitionActive(GameResources*);
 
 // USA: func_ov014_02187b38
 extern "C" ARM void func_ov014_02187b38(void* arg0) {
-    int var0 = func_0200fb8c((int*)GameState::GetInstance());
+    int var0 = GetResources_0200fb8c((int*)GameState::GetInstance());
     unsigned char var1 = *((unsigned char*)arg0 + 0x17b);
     if (var1 == 0) {
         *(void**)((char*)arg0 + 0x5c) = (char*)arg0 + 0xe0;

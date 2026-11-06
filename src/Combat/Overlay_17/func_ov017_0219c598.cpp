@@ -28,7 +28,7 @@ extern "C" ARM void func_ov017_0219c598(int* arg0, short* arg1, int arg2) {
     unsigned char* var1 = (unsigned char*)func_0200fd0c(var0);
     void* var2 = GetZone3D_02012fe4();
     ((int)GetGameResources());
-    unsigned char* var3 = (unsigned char*)func_02010828(var0);
+    unsigned char* var3 = (unsigned char*)GetParty_02010828(var0);
     GameObject* var4 = var0->GetUnknownGameObject();
 
     if (var1[0xa] != 0 && arg2 == 0) {

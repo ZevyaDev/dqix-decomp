@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Struct_02072a68 { short unknown_0_; void* unknown_4_; };
-struct Struct_02072a68_2 { struct Struct_02072a68* unknown_0_; short unknown_4_; };
-extern "C" ARM void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
+struct StringListEntry_02072a68 { short id_0_; void* pText_4_; };
+struct StringList_02072a68_2 { struct StringListEntry_02072a68* unknown_0_; short capacity_4_; };
+extern "C" ARM void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 
 struct Struct_0208166c {
     unsigned char unknown_0_0_ : 4;
@@ -37,7 +37,7 @@ extern "C" ARM void func_0208166c(void* arg0, void* arg1, void* arg2) {
 
     int var4 = func_02042190(F13(var2)->unknown_0_0_);
 
-    void* var5 = func_02072a68((struct Struct_02072a68_2*)*(void**)(var0 + 0x0), *(short*)(var2 + 0xe));
+    void* var5 = FindStringInList_02072a68((struct StringList_02072a68_2*)*(void**)(var0 + 0x0), *(short*)(var2 + 0xe));
     if (var5) {
         if (*(unsigned char*)(var2 + 0x2a) & 0x8) {
             int var6 = *(short*)(var1 + 0xa8) << 0x13;

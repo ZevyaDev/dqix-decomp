@@ -21,8 +21,8 @@ struct Struct_ov012_02188640 {
     int unknown_7_6_ : 1;
     unsigned int unknown_7_7_ : 1;
 };
-struct Struct_02072a68_2;
-struct Struct_02108760;
+struct StringList_02072a68_2;
+struct SoundEffectManager_02108760;
 struct Struct_ov012_02186a7c;
 struct Struct_0205de24_2;
 struct Struct_0205c570;
@@ -32,14 +32,14 @@ extern "C" void func_ov012_0218a574(char*);
 extern "C" int func_0205d794(Struct_0205c570*);
 extern "C" int func_ov023_021e6448(void*);
 extern "C" int func_ov023_021e7148(void*);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
-extern "C" void func_0202ae18();
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
+extern "C" void GetLocalWireless_0202ae18();
 extern "C" int func_0201079c(char*);
-extern "C" const char* func_02072a68(Struct_02072a68_2*, int);
+extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void func_ov012_0218bba0(void*, int, int);
 extern "C" void func_ov012_02189be8(void*, int);
 extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c*);
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 static inline Struct_ov012_02188640* inline_ov012_02188640(GameState* arg0) {
     return (Struct_ov012_02188640*)((char*)arg0 + 0x543c);
@@ -67,10 +67,10 @@ extern "C" ARM void func_ov012_02188640(char* arg0) {
         if (func_ov023_021e6448(arg0))
             *(int*)(arg0 + 0x1444) = func_0205d794((Struct_0205c570*)(arg0 + 0x90));
         if (func_ov023_021e7148(arg0)) {
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             Struct_ov012_02188640* var3 = inline_ov012_02188640(GameState::GetInstance());
             GameState* var4 = GameState::GetInstance();
-            func_0202ae18();
+            GetLocalWireless_0202ae18();
             if (*(int*)(arg0 + 0x1444) == 0) {
                 char* var5 = *(char**)((char*)var4->GetProtagonist() + 0x144);
                 int var6 = *(int*)(var5 + 0x8b8);
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov012_02188640(char* arg0) {
                 var3->unknown_6_3_ = *(int*)(arg0 + 0x1444) + 799;
                 var3->unknown_3_6_ = 0;
             }
-            const char* var7 = func_02072a68((Struct_02072a68_2*)(arg0 + 0x1314), (short)(var3->unknown_6_3_ + 20000));
+            const char* var7 = FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x1314), (short)(var3->unknown_6_3_ + 20000));
             memset(arg0 + 0x1458, 0, 0x40);
             memcpy(arg0 + 0x1458, var7, strlen(var7));
             var3->unknown_3_5_ = 1;
@@ -159,8 +159,8 @@ struct Struct_ov012_02188640_6
     char unknown_1400_[0x40];
 };
 
-struct Struct_02072a68_2;
-struct Struct_02108760;
+struct StringList_02072a68_2;
+struct SoundEffectManager_02108760;
 struct Struct_ov012_02186a7c;
 struct Struct_0205de24_2;
 struct Struct_0205c570;
@@ -171,15 +171,15 @@ extern "C" void func_ov012_0218a574(char* arg0);
 extern "C" int func_0205d794(Struct_0205c570* arg0);
 extern "C" int func_ov023_021e6448(Struct_ov012_02188640_6* arg0);
 extern "C" int func_ov023_021e6de4(Struct_ov012_02188640_6* arg0);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
-extern "C" void func_0202ae18();
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
+extern "C" void GetLocalWireless_0202ae18();
 extern "C" int func_0201079c(char* arg0);
-extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_ov012_0218adac(Struct_ov012_02188640_6* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov012_0218930c(Struct_ov012_02188640_6* arg0, int arg1);
 extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c* arg0);
 
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 static inline Struct_ov012_02188640_2* inline_ov012_02188640_2(GameState* arg0)
 {
@@ -225,10 +225,10 @@ extern "C" ARM void func_ov012_02188640(Struct_ov012_02188640_6* arg0)
             arg0->unknown_13d8_[5] = func_0205d794((Struct_0205c570*)arg0->unknown_ac_);
         if (func_ov023_021e6de4(arg0))
         {
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             Struct_ov012_02188640_2* var11 = inline_ov012_02188640_2(GameState::GetInstance());
             GameState* var12 = GameState::GetInstance();
-            func_0202ae18();
+            GetLocalWireless_0202ae18();
             Struct_ov012_02188640_5* var13 = (Struct_ov012_02188640_5*)var12->GetProtagonist();
             if (arg0->unknown_13d8_[5] == 0)
             {
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov012_02188640(Struct_ov012_02188640_6* arg0)
                 var11->unknown_6_3_ = var17 + arg0->unknown_13d8_[5] - 0x4e21;
                 var11->unknown_3_6_ = 0;
             }
-            const char* var18 = func_02072a68((Struct_02072a68_2*)arg0->unknown_133c_, (short)(var11->unknown_6_3_ + 20000));
+            const char* var18 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, (short)(var11->unknown_6_3_ + 20000));
             memset(arg0->unknown_1400_, 0, sizeof(arg0->unknown_1400_));
             memcpy(arg0->unknown_1400_, var18, strlen(var18));
             var11->unknown_3_5_ = 1;

@@ -20,7 +20,7 @@ struct Struct_02049b54_3 {
     Vector3fix unknown_0_;
 };
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
 extern "C" Struct_02049b54_3 func_02049b54(Struct_02049b54_2* arg0);
 extern "C" void func_02033874(Struct_02033834* arg0, int arg1);
@@ -37,7 +37,7 @@ void func_0203232c(int*, int);
 extern "C" ARM void func_ov026_021daec8(Struct_ov000_02161e30* arg0, Struct_ov026_021daec8* arg1, int arg2) {
     short var0[8];
     GameState* var1 = GameState::GetInstance();
-    func_0200fb8c((int*)var1);
+    GetResources_0200fb8c((int*)var1);
 
     int var2 = func_ov000_0215eb1c(arg0, var0, 8, 0);
     int var3 = 0;

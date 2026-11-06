@@ -126,7 +126,7 @@ struct Struct_ov024_021f9874_5 {
 
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void func_ov024_021f6830(void* arg0, struct Struct_ov024_021f9874_7* arg1);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov024_021eadfc(GameObject* arg0);
 
 static inline unsigned short inline_ov024_021dc700(GameObject* arg0) { return arg0->currentStats_->primaryStats.maxHP; }
@@ -459,7 +459,7 @@ extern "C" ARM void func_ov024_021f9874(struct Struct_ov024_021f9874_3* arg0, st
     }
 
     if (arg0->unknown_6_ != 0 && arg0->unknown_64c_->unknown_4_0_ == 1) {
-        unsigned char* var68 = (unsigned char*)func_02053c6c((unsigned char*)arg0->unknown_8_);
+        unsigned char* var68 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)arg0->unknown_8_);
         int var69;
         int var70;
         if (var68 != 0 && *(short*)(var68 + 0x2ac) > 0 &&

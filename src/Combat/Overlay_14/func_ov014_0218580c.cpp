@@ -47,8 +47,8 @@ struct Struct_ov006_021580b8 {
 };
 
 struct Struct_ov008_02188d74;
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 
 struct Struct_ov014_02184dcc {
     void** unknown_0_;
@@ -84,8 +84,8 @@ extern char data_ov014_021896a7[];
 extern "C" void func_ov023_021e20c0(void* arg0);
 extern "C" int func_ov023_021e20f0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
 extern "C" Struct_ov006_0215b7e8* func_ov014_021842a0(void* arg0, short arg1);
-extern "C" int func_02046900(Struct_02020cb8_4* arg0);
-extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0205a528(Struct_ov008_02188d74* arg0, void* arg1, unsigned int arg2, SafeAllocator* arg3);
 extern "C" void func_ov023_021e2bdc(void* arg0, int arg1, short* arg2, short* arg3);
 extern "C" void* func_020100f8(char* arg0);
@@ -142,10 +142,10 @@ extern "C" ARM void func_ov014_0218580c(Struct_ov014_02184dcc* arg0) {
         unsigned int var6;
         int var7;
         var0->GetLoadedFileByID(arg0->unknown_6c_, &var5, &var6);
-        int var8 = func_02046900((Struct_02020cb8_4*)var5);
+        int var8 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var5);
         arg0->unknown_3c_[5].Reset();
         for (int var9 = 0; var9 < var8; var9++) {
-            void* var10 = func_020467f0((Struct_02020aec*)var5, var9, &var4, &var7);
+            void* var10 = GetPacEntryData_020467f0((PacEntry_02020aec*)var5, var9, &var4, &var7);
             if (var10 != NULL)
                 func_0205a528(arg0->unknown_4_, var10, var7, &arg0->unknown_3c_[5]);
         }

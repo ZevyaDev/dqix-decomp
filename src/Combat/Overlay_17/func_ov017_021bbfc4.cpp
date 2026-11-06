@@ -6,9 +6,6 @@
 #include <std_library_functions.h>
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
@@ -86,7 +83,7 @@ struct Struct_ov017_021bbfc4_3 { char unknown_0_[0x5a4c]; unsigned char unknown_
 struct Struct_ov017_021bbfc4_3 { char unknown_0_[0x5cac]; unsigned char unknown_5cac_; char unknown_5cad_[0x1547]; int unknown_71f4_; };
 #endif
 int IsSubBrightnessTransitionActive(GameResources*);
-extern "C" int* func_0202ae18();
+extern "C" int* GetLocalWireless_0202ae18();
 extern "C" unsigned char* func_020100f8(char*);
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_020531f0(GameObject*);
@@ -99,14 +96,14 @@ extern "C" Struct_ov017_021bbfc4_2* func_0200fd0c(GameState*);
 extern "C" void func_020213fc(Struct_020213fc*, int);
 extern "C" void func_02070378(char*);
 extern "C" int func_02071488(Struct_02013fb4*, int, int, Struct_02071488*);
-extern "C" unsigned int* func_020d6c00();
+extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void func_020466e4(unsigned int*, unsigned int);
-extern "C" void* func_0205ec34();
+extern "C" void* GetFlagManager_0205ec34();
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
-extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" Struct_0204bd7c* func_02033fa0(void*);
 extern "C" int func_0204bd7c(Struct_0204bd7c*);
-extern "C" int func_0202c540(int*);
+extern "C" int IsLocalWirelessGuest_0202c540(int*);
 extern "C" int func_0201079c(char*);
 extern "C" int func_020107d0(char*);
 extern "C" int func_02010804(char*);
@@ -114,21 +111,21 @@ TimeOfDay ConvertToTimeOfDay(float);
 extern "C" void func_02010774(char*, int);
 extern "C" void func_020107a8(char*, int);
 extern "C" void func_020107dc(char*, int);
-extern "C" int func_0202b7d8(int*);
-extern "C" int func_0202c508(int*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
+extern "C" int IsNotLocalWirelessGuest_0202c508(int*);
 extern "C" void func_ov017_021d0924(int, int, int, unsigned short);
 extern "C" void func_ov017_021bc6e0(Struct_ov017_021bbfc4_5*, int, int);
 extern "C" int func_0209c3ac(char*);
 extern "C" void func_0209c2e0(void*, int, int);
 void SetMainBrightness(GameResources*, int, int);
-extern char data_02109bf4[];
+extern char gMusicManager_02109bf4[];
 
 // USA: func_ov017_021bbfc4
 extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     GameResources* var2 = GetGameResources();
-    int* var3 = func_0202ae18();
+    int* var3 = GetLocalWireless_0202ae18();
     GameObject* var4 = var0->GetUnknownGameObject();
     func_020100f8((char*)var0);
     Zone3D* var5 = GetZone3D_02012fe4();
@@ -185,16 +182,16 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
         return arg0->unknown_a_;
     }
     var1->RemoveTask(arg0->unknown_74_);
-    if (arg0->unknown_50_ & 0x100) func_020466e4(func_020d6c00(), 1);
+    if (arg0->unknown_50_ & 0x100) func_020466e4(GetGlobalFlags_020d6c00(), 1);
     arg0->unknown_118_ = arg0->unknown_c_.unknown_c_;
     int var15;
     int var16;
     int var17;
     int var18;
-    Struct_ov017_021bbfc4* var19 = (Struct_ov017_021bbfc4*)func_0205ec34();
+    Struct_ov017_021bbfc4* var19 = (Struct_ov017_021bbfc4*)GetFlagManager_0205ec34();
     if (arg0->unknown_98_) func_0206df6c(var19, var19->unknown_8c_, arg0->unknown_52_ + 0x38e, 0);
     var18 = 0;
-    if (func_0206dfb0((int)var19, var19->unknown_8c_, arg0->unknown_52_ + 0x38e)) var18 = 1;
+    if (IsFlagSet_0206dfb0((int)var19, var19->unknown_8c_, arg0->unknown_52_ + 0x38e)) var18 = 1;
     if (var18) {
         SetBrightness(var2, 0, 0x28);
         ((Struct_ov017_021bbfc4_3*)var0)->unknown_71f4_ = 0;
@@ -209,7 +206,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     if (arg0->unknown_98_) var15 = 1;
     if (arg0->unknown_50_ & 0x80) arg0->unknown_c_.unknown_e_ = func_0204bd7c(func_02033fa0(var4));
     if (arg0->unknown_c_.unknown_e_ != var5->currentZoneID_) var15 = 1;
-    if (func_0202c540(var3) && arg0->unknown_178_0_) {
+    if (IsLocalWirelessGuest_0202c540(var3) && arg0->unknown_178_0_) {
         if (arg0->unknown_179_ != func_0201079c((char*)var0) || arg0->unknown_17a_ != func_020107d0((char*)var0) || arg0->unknown_17b_ != func_02010804((char*)var0) || ConvertToTimeOfDay(arg0->unknown_17c_) != var0->GetTimeOfDay()) {
             func_02010774((char*)var0, arg0->unknown_179_);
             func_020107a8((char*)var0, arg0->unknown_17a_);
@@ -232,10 +229,10 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     if (!var15 && !arg0->unknown_c_.unknown_8_ && var24 <= 19 && (var24 && var25) && var23 < var26) {
         func_02010774((char*)var0, var24);
         func_020107a8((char*)var0, arg0->unknown_c_.unknown_1_);
-        if (func_0202b7d8(var3)) {
-            if (func_0202c540(var3)) { var17 = var16 = 1; }
+        if (IsLocalWirelessOn_0202b7d8(var3)) {
+            if (IsLocalWirelessGuest_0202c540(var3)) { var17 = var16 = 1; }
         }
-        if (func_0202c508(var3)) {
+        if (IsNotLocalWirelessGuest_0202c508(var3)) {
             int var27 = func_0201079c((char*)var0);
             int var28 = func_020107d0((char*)var0);
             int var29 = func_02010804((char*)var0);
@@ -263,9 +260,9 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;
     }
-    if (func_0202b7d8(var3) && arg0->unknown_c_.unknown_6_ && arg0->unknown_116_ < 0 && func_0202c508(var3)) func_ov017_021bc6e0(arg0, -1, arg0->unknown_50_);
-    arg0->unknown_94_ = func_0209c3ac(data_02109bf4);
-    if (arg0->unknown_c_.unknown_4_ == 3) func_0209c2e0(data_02109bf4, 0, 0);
+    if (IsLocalWirelessOn_0202b7d8(var3) && arg0->unknown_c_.unknown_6_ && arg0->unknown_116_ < 0 && IsNotLocalWirelessGuest_0202c508(var3)) func_ov017_021bc6e0(arg0, -1, arg0->unknown_50_);
+    arg0->unknown_94_ = func_0209c3ac(gMusicManager_02109bf4);
+    if (arg0->unknown_c_.unknown_4_ == 3) func_0209c2e0(gMusicManager_02109bf4, 0, 0);
     if (((arg0->unknown_50_ & 1) || (arg0->unknown_50_ & 4)) && !arg0->unknown_fd_) {
         int var32 = GetBrightness((GameResources*)var2, false);
         if (var32 > 0) SetMainBrightness(var2, 16, 30);

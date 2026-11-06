@@ -2,9 +2,6 @@
 #include "Combat/LootPointEvent.h"
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_01ff91ac_7;
 
@@ -12,12 +9,12 @@ struct Struct_0204a054;
 struct Struct_0204a054_2;
 
 extern "C" void func_0208e0a8(void);
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* arg0);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_0208f048(unsigned char* arg0);
 extern "C" int rand(void);
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 
 struct Struct_0208ec78_2 {
     char unknown_0_[0x10];
@@ -43,7 +40,7 @@ extern "C" ARM void func_0208ec78(struct Struct_0208ec78_3* arg0) {
 #else
     Struct_0208ec78* var3 = (Struct_0208ec78*)((char*)var0 + 0x5cdc);
 #endif
-    var1 = func_0202ae18();
+    var1 = GetLocalWireless_0202ae18();
 
     if (arg0->unknown_8_ != 0) {
         void* var4 = ((Object3D*)arg0->unknown_8_)->GetCurrentAnimationConfig();
@@ -66,7 +63,7 @@ extern "C" ARM void func_0208ec78(struct Struct_0208ec78_3* arg0) {
         }
     }
 
-    if (func_0202c540(var1) != 0) {
+    if (IsLocalWirelessGuest_0202c540(var1) != 0) {
         return;
     }
 
@@ -85,10 +82,10 @@ extern "C" ARM void func_0208ec78(struct Struct_0208ec78_3* arg0) {
     if (var11->unknown_0_.unknown_3_7_ == 0) var12 = 1;
     unsigned int var13 = var11->unknown_0_.unknown_3_5_;
     if (var13 != 1) {
-        void* var14 = func_0205ec34();
-        if (var11->unknown_0_.unknown_3_5_ == 2 && func_0206dfb0((int)var14, (unsigned char*)var14 + 0x8c, 1944) == 0) {
+        void* var14 = GetFlagManager_0205ec34();
+        if (var11->unknown_0_.unknown_3_5_ == 2 && IsFlagSet_0206dfb0((int)var14, (unsigned char*)var14 + 0x8c, 1944) == 0) {
             var12 = 1;
-        } else if (var11->unknown_0_.unknown_3_5_ == 3 && func_0206dfb0((int)var14, (unsigned char*)var14 + 0x8c, 1942) == 0) {
+        } else if (var11->unknown_0_.unknown_3_5_ == 3 && IsFlagSet_0206dfb0((int)var14, (unsigned char*)var14 + 0x8c, 1942) == 0) {
             var12 = 1;
         }
     }

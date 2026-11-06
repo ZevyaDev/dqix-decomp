@@ -19,8 +19,8 @@ extern "C" void func_ov005_02157174(Struct_ov005_02156ecc*, Struct_ov005_02156ec
 struct Struct_02015ef4_2;
 extern "C" void func_020473c8(Struct_02015ef4_2*, int);
 extern "C" void func_02047554(void* arg0, int arg1, int arg2);
-struct Struct_0201099c_10;
-extern "C" void* func_020dedd0(Struct_0201099c_10*, int);
+struct ItemTable_0201099c_10;
+extern "C" void* func_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
 extern "C" int func_020dd4c4(char arg0, void* arg1);
 extern "C" void func_ov005_02154d18(void* arg0, int arg1, int arg2);
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov005_02159c88(Struct_ov005_02159c88_4* arg0) {
             }
             int var25 = var20->unknown_0_;
             if (var25 >= 0) {
-                void* var26 = func_020dedd0((Struct_0201099c_10*)arg0->unknown_df4_, (short)var25);
+                void* var26 = func_020dedd0((ItemTable_0201099c_10*)arg0->unknown_df4_, (short)var25);
                 if (var26 != 0) {
                     Struct_ov005_02159c88_2* var27 = var20->unknown_8_;
                     GameResources* var28 = GetGameResources();

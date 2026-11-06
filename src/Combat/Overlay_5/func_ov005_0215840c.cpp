@@ -33,18 +33,18 @@ struct Struct_02052df8 {
     Struct_ov005_0215840c_2* unknown_150_;
 };
 
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 
 struct Struct_ov005_02153954 {
     char unknown_0_[0xdf4];
-    Struct_0201099c_10* unknown_df4_;
+    ItemTable_0201099c_10* unknown_df4_;
 };
 
 extern "C" const unsigned char data_ov005_0215cc0c[];
 
 extern "C" int func_02052df8(Struct_02052df8* arg0, int arg1);
-extern "C" Struct_ov005_021556e4* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
-extern "C" Struct_ov005_0215840c_2* func_02053c6c(unsigned char* arg0);
+extern "C" Struct_ov005_021556e4* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
+extern "C" Struct_ov005_0215840c_2* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_02052d7c(Struct_02052df8* arg0, int arg1, short arg2);
 extern "C" void func_0208358c(Struct_ov005_0215840c_2* arg0, Struct_ov005_021556e4* arg1, int arg2);
 extern "C" void func_02083738(Struct_ov005_0215840c_2* arg0, int arg1);
@@ -76,13 +76,13 @@ extern "C" ARM int func_ov005_0215840c(Struct_ov005_02153954* arg0, int arg1) {
             var9 = 1000;
         }
         func_02052d7c(var1, var5, -1);
-        Struct_ov005_0215840c_2* var11 = func_02053c6c((unsigned char*)var1);
+        Struct_ov005_0215840c_2* var11 = GetPartyMemberData_02053c6c((unsigned char*)var1);
         Struct_ov005_021556e4* var12 = func_020dedd0(arg0->unknown_df4_, var9);
         if (var12 != NULL)
             func_0208358c(var11, var12, var10);
         else
             func_02083738(var11, var7->unknown_8_0_);
-        func_0207c378((char*)func_02010828(var0) + 0x1d4, var6, 1, var7->unknown_8_0_);
+        func_0207c378((char*)GetParty_02010828(var0) + 0x1d4, var6, 1, var7->unknown_8_0_);
         var2 = 1;
     }
     return var2;

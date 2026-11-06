@@ -10,7 +10,7 @@ struct Struct_02018300_3;
 struct Struct_0203402c;
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" Zone3D* GetZone3D_02012fe4();
-extern "C" Struct_02012de8* func_020d6c00();
+extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
 extern "C" int func_02046b08(void**);
 extern "C" int func_02046b24(Struct_02015438**);
 extern "C" int func_02046708(Struct_02012de8*, unsigned int);
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov017_0219a6b8(GameResources* arg0) {
     unsigned char* var1;
     GetMessageWindow_020421a0();
     unsigned short var2 = GetZone3D_02012fe4()->currentZoneID_;
-    Struct_02012de8* var3 = func_020d6c00();
+    Struct_02012de8* var3 = GetGlobalFlags_020d6c00();
     if (!func_02046b08((void**)arg0->unknown_ptr_array_36fc[0])) return;
     if (func_02046b24((Struct_02015438**)(void**)arg0->unknown_ptr_array_36fc[0]) == 2) return;
     if (func_02046708(var3, 0x800)) return;

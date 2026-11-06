@@ -8,8 +8,8 @@ enum { Enum_ov004_021653e4_2292=0x9f4,Enum_ov004_021653e4_6144=0x1900 };
 enum { Enum_ov004_021653e4_2292=0x8f4,Enum_ov004_021653e4_6144=0x1800 };
 #endif
 
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 #if defined(jpn)
 extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 #define NODE_KIND_CALL func_ov023_021f6f10
@@ -27,7 +27,7 @@ extern "C" void func_ov004_02164084(void* arg0);
 extern "C" ARM int func_ov004_021653e4(void* arg0) {
     GameState::GetInstance();
     struct Struct_ov004_02164670* var0 = ((struct Struct_ov004_02164670*)GetGameResources());
-    void* var1 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0xa);
+    void* var1 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0xa);
     if (var1 == NULL) return 0;
     if (NODE_KIND_CALL(var1) != 7) return 0;
 

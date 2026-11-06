@@ -7,7 +7,7 @@
 #include "Resource/GameResources.h"
 
 struct Struct_0206f01c_2;
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 struct Struct_ov023_021edc08_5;
 struct Struct_ov023_021eeaac_2;
 struct Struct_020a0110;
@@ -139,7 +139,7 @@ struct Struct_ov023_021eefd0_7 {
 extern "C" Struct_ov023_021eefd0_6* _ZZ21inline_ov023_021f4c04vE1s;
 extern const char data_ov023_021fe230[];
 extern const char data_ov023_021fe246[];
-extern char data_02109bf4[];
+extern char gMusicManager_02109bf4[];
 #if defined(jpn)
 extern const char data_ov023_021fd4ec[];
 extern const char data_ov023_021fd504[];
@@ -151,8 +151,8 @@ extern "C" void func_0206efc4(void* arg0);
 extern "C" void func_0206f200(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void* func_0206f4f0(Struct_0206f01c_2* arg0, int arg1);
 extern "C" void func_020e46c4(void* arg0);
-extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
-extern "C" void func_020ac4c0(void* arg0);
+extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
+extern "C" void GetBattleRecords_020ac4c0(void* records);
 extern "C" void func_020a0330(Struct_020a0330* arg0, unsigned int arg1);
 extern "C" void func_020a0110(Struct_020a0110* arg0, unsigned int arg1);
 extern "C" void func_020a0388(Struct_020a0388* arg0, unsigned int arg1);
@@ -170,9 +170,9 @@ Struct_ov023_021eefd0_8 func_ov023_021ed804(Struct_ov023_021eefd0_8 arg0, void* 
 #if !defined(jpn)
 void StartMessage_0204500c(Struct_ov023_021eefd0_9* window, const char* text, int arg2, int arg3);
 #endif
-void* func_0202ae18();
-int func_0202c508(void* arg0);
-int func_0202c540(void* arg0);
+void* GetLocalWireless_0202ae18();
+int IsNotLocalWirelessGuest_0202c508(void* wireless);
+int IsLocalWirelessGuest_0202c540(void* wireless);
 int func_ov023_021f4fc8();
 Struct_ov023_021eefd0_2* GetZone3D_02012fe4();
 void func_020426bc(void* arg0, char* arg1, int arg2);
@@ -249,15 +249,15 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
             void* var12 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
             if (var12 != NULL)
                 strcpy(var11, *(const char**)var12);
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 1), var11);
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 1), var11);
             break;
         }
         case 1:
         {
             void* var13 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
             if (var13 != NULL)
-                sprintf(var11, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 5), *(const char**)var13);
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 1), var11);
+                sprintf(var11, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 5), *(const char**)var13);
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 1), var11);
             break;
         }
         case 2:
@@ -265,8 +265,8 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
             if (var10 == 0x36 || var10 == 0x43 || var10 == 0x50)
                 strcpy(var11, data_ov023_021fd504);
             else
-                strcpy(var11, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 4));
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 1), var11);
+                strcpy(var11, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 4));
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 1), var11);
             break;
         }
         case 3:
@@ -274,21 +274,21 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
             void* var14 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
             if (var14 != NULL)
                 strcpy(var11, *(const char**)var14);
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 3), var11);
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 3), var11);
             break;
         }
         case 4:
         {
             void* var15 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
             if (var15 != NULL)
-                sprintf(var11, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 5), *(const char**)var15);
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 3), var11);
+                sprintf(var11, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 5), *(const char**)var15);
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 3), var11);
             break;
         }
         case 5:
         {
-            strcpy(var11, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 4));
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 3), var11);
+            strcpy(var11, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 4));
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 3), var11);
             break;
         }
         case 6:
@@ -296,21 +296,21 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
             void* var16 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
             if (var16 != NULL)
                 strcpy(var11, *(const char**)var16);
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 2), var11);
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 2), var11);
             break;
         }
         case 7:
         {
             void* var17 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
             if (var17 != NULL)
-                sprintf(var11, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 5), *(const char**)var17);
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 2), var11);
+                sprintf(var11, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 5), *(const char**)var17);
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 2), var11);
             break;
         }
         case 8:
         {
-            strcpy(var11, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 4));
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 2), var11);
+            strcpy(var11, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 4));
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 2), var11);
             break;
         }
         }
@@ -333,45 +333,45 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
         switch (arg0->unknown_58c9_)
         {
         case 0:
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 1));
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 1));
             break;
         case 1:
             var2->unknown_19d7_ = 1;
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 1));
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 1));
             break;
         case 2:
             if (var10 == 0x36 || var10 == 0x43 || var10 == 0x50)
-                sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 1));
+                sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 1));
             else
-                sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x32));
+                sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 0x32));
             break;
         case 3:
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 3));
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 3));
             break;
         case 4:
             var2->unknown_19d7_ = 1;
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 3));
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 3));
             break;
         case 5:
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x34));
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 0x34));
             break;
         case 6:
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 2));
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 2));
             break;
         case 7:
             var2->unknown_19d7_ = 1;
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 2));
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 2));
             break;
         case 8:
-            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x33));
+            sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 0x33));
             break;
         }
 
 #endif
         if (arg0->unknown_2a0_->unknown_25_ != 0)
-            strcat(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x22));
+            strcat(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 0x22));
         else if (var0->unknown_10_ == 0)
-            strcat(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x22));
+            strcat(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 0x22));
 #if defined(jpn)
         StartMessage_0204500c(var2, var20, 1);
 #else
@@ -383,13 +383,13 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
         if (arg0->unknown_29c_->unknown_8e30_ > 0)
         {
             Struct_ov023_021eefd0 var21;
-            func_020ac4c0(&var21);
+            GetBattleRecords_020ac4c0(&var21);
             func_020a0330((Struct_020a0330*)&var21, 1);
             func_020a0110((Struct_020a0110*)var21.unknown_68_, 1);
             func_020ac494(&var21);
         }
-        if (!func_0202c540(func_0202ae18()) || arg0->unknown_2a0_->unknown_25_ == 0)
-            func_0209c6d8(data_02109bf4, 0x36);
+        if (!IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) || arg0->unknown_2a0_->unknown_25_ == 0)
+            func_0209c6d8(gMusicManager_02109bf4, 0x36);
         var0->unknown_0_++;
         if (arg0->unknown_2a0_->unknown_24_ != 0 || arg0->unknown_2a0_->unknown_25_ != 0)
         {
@@ -417,7 +417,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
     else if (var0->unknown_0_ == 2)
     {
         func_ov023_021eefac((Struct_ov023_021eeaac_2*)var0);
-        void* var23 = func_0202ae18();
+        void* var23 = GetLocalWireless_0202ae18();
         Struct_ov023_021eefd0_2* var24 = GetZone3D_02012fe4();
         DetailedTreasureMapData* var25 = var24->unknown_23ec_.GetDetailedData();
         if (arg0->unknown_2a0_->unknown_25_ != 0)
@@ -425,7 +425,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
             if (func_0201b588(var24->unknown_0_))
             {
                 Struct_ov023_021eefd0 var26;
-                func_020ac4c0(&var26);
+                GetBattleRecords_020ac4c0(&var26);
                 func_020a0388((Struct_020a0388*)&var26, 1);
                 if (var25 != NULL && var25->mapType_ == 2 && var25->legacy_.level_ > var26.unknown_c_7_)
                     var26.unknown_c_7_ = var25->legacy_.level_;
@@ -437,7 +437,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
         {
             DetailedTreasureMapData* var27 = GetZone3D_02012fe4()->unknown_23ec_.GetDetailedData();
             GameState* var28 = GameState::GetInstance();
-            if (func_0202c508(var23))
+            if (IsNotLocalWirelessGuest_0202c508(var23))
             {
                 void* var29 = var28->GetProtagonist()->baseStats_;
 #if defined(jpn)
@@ -462,7 +462,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
             if (func_0201b588(var24->unknown_0_))
             {
                 Struct_ov023_021eefd0 var31;
-                func_020ac4c0(&var31);
+                GetBattleRecords_020ac4c0(&var31);
                 func_020a0388((Struct_020a0388*)&var31, 1);
                 if (var25 != NULL && var25->mapType_ == 1 && var25->regular_.level_ > var31.unknown_c_0_)
                     var31.unknown_c_0_ = var25->regular_.level_;

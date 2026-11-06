@@ -15,23 +15,20 @@ extern "C" int func_020e04f8(void*, void*, const char*, short, bool);
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 struct Struct_0203d028_2 {
     int unknown_0_;
     int unknown_4_;
     struct Struct_0203d028_3* unknown_8_[0xe9];
 };
 
-extern "C" void* func_0202ae18(void);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_020703c8(int arg0, int arg1, int arg2, int arg3);
 extern "C" void* func_ov017_021baedc(void* arg0, int arg1);
 
-struct Struct_0201bdac;
-struct Struct_0201bdac_2;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct QueueNode_0201bdac;
+struct Queue_0201bdac_2;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 struct Struct_020213fc;
 extern "C" void func_020213fc(struct Struct_020213fc* arg0, int arg1);
@@ -54,7 +51,7 @@ struct Vector3i;
 
 extern "C" void func_ov017_021b6f18(void* arg0);
 extern "C" void func_ov017_021b6e70(void* arg0, unsigned short arg1);
-extern "C" int func_0202c540(void* arg0);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_ov017_021b7104(void* arg0, void* arg1);
 
 struct GameState;
@@ -70,11 +67,11 @@ extern "C" void func_0207d300(void* arg0, short arg1, int arg2, int arg3);
 extern "C" int func_02086d88(unsigned char* arg0, int arg1);
 extern "C" unsigned char func_02011494(char* arg0, void* arg1);
 struct Struct_0203d028_3;
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 struct Struct_0206f81c;
 extern "C" void* func_02083554(struct Struct_0206f81c* arg0, int arg1);
 extern "C" void func_02083738(void* arg0, int arg1);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_ov017_021c3fb4(int arg0, int arg1);
 extern "C" void func_ov017_021c4418(int arg0, signed char arg1);
 extern "C" void func_ov017_0218f5a4(void* arg0, int arg1, int arg2, int arg3, int arg4);
@@ -86,7 +83,7 @@ extern "C" int func_02046b24(struct Struct_02015438** arg0);
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0206461c(void* arg0, int arg1);
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 
 extern "C" void func_ov017_021c16a8(unsigned char* arg0);
 
@@ -171,14 +168,14 @@ extern "C" ARM void func_0206f81c(void* arg0) {
     short var6;
     struct Struct_0203d028_2* var7;
     BackgroundLoader* var8;
-    struct Struct_0201bdac_2* var9;
+    struct Queue_0201bdac_2* var9;
     int var10[3];
     struct Struct_0203d028_2* var11 = (Struct_0203d028_2*)GameState::GetInstance();
     void* var12 = GetGameResources();
     void* var13 = (char*)var12 + 0x3000;
-    var9 = *(struct Struct_0201bdac_2**)((char*)var13 + REGION_VALUE(0x4ec, 0x6fc));
-    var0 = func_0202ae18();
-    var1 = func_0205ec34();
+    var9 = *(struct Queue_0201bdac_2**)((char*)var13 + REGION_VALUE(0x4ec, 0x6fc));
+    var0 = GetLocalWireless_0202ae18();
+    var1 = GetFlagManager_0205ec34();
     unsigned char* var14 = *(unsigned char**)((char*)arg0 + 0x30);
     unsigned char var15;
     var2 = 0;
@@ -212,10 +209,10 @@ extern "C" ARM void func_0206f81c(void* arg0) {
             }
 
             case 0x77: case 0x80: case 0x9b: {
-                struct Struct_0201bdac* var18 = *(struct Struct_0201bdac**)((char*)var12 + 0x3000 + REGION_VALUE(0x524, 0x734));
+                struct QueueNode_0201bdac* var18 = *(struct QueueNode_0201bdac**)((char*)var12 + 0x3000 + REGION_VALUE(0x524, 0x734));
                 func_ov017_021baedc(var18, 1);
                 *(unsigned short*)((char*)var18 + 8) = *(unsigned short*)(var14 + 2);
-                func_020469b4(var9, var18);
+                AppendToQueue_020469b4(var9, var18);
                 func_020213fc(*(struct Struct_020213fc**)((char*)var12 + 0x3000 + REGION_VALUE(0x4c0, 0x6d0)), 1);
                 func_020e1154((void*)0x1f4);
                 break;
@@ -254,7 +251,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                     *(int*)(var23 + 0x114) = var21;
                     *(int*)(var23 + 0x124) = *(unsigned short*)(var14 + 4);
                     *(unsigned char*)(var23 + 0x139) = (var22 != 0) ? 1 : 0;
-                    func_020469b4(var9, (struct Struct_0201bdac*)var23);
+                    AppendToQueue_020469b4(var9, (struct QueueNode_0201bdac*)var23);
                     int var25 = func_020100f8((char*)var11);
                     if (var25 != 0) {
                         func_020a27b8((unsigned char*)var25);
@@ -288,9 +285,9 @@ extern "C" ARM void func_0206f81c(void* arg0) {
             }
 
             case 0x78: {
-                struct Struct_0201bdac_2* var27;
+                struct Queue_0201bdac_2* var27;
                 unsigned char* var28 = *(unsigned char**)((char*)var12 + 0x3000 + REGION_VALUE(0x508, 0x718));
-                var27 = *(struct Struct_0201bdac_2**)((char*)var12 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
+                var27 = *(struct Queue_0201bdac_2**)((char*)var12 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
                 void* var29 = LightingManager::GetInstance();
                 func_ov017_021b6f18(var28);
 
@@ -308,20 +305,20 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                 var30.unknown_12_ = 2;
                 var30.unknown_8_ = -1;
 
-                var30.unknown_1_ = func_020100a8((GameState*)var11);
+                var30.unknown_1_ = GetProtagonistObjectIndex_020100a8((GameState*)var11);
                 var30.unknown_4_ = *(unsigned short*)(var14 + 2) + 5 + 0x8000;
                 var30.unknown_2_ = 0xffff;
                 var30.unknown_8_ = *(unsigned short*)(var14 + 2);
                 func_ov017_021b6e70(&var30, var30.unknown_2_);
                 var30.unknown_12_ = *(int*)((char*)var29 + 0x98);
 
-                if (func_0202c540(var0) != 0) {
+                if (IsLocalWirelessGuest_0202c540(var0) != 0) {
                     if (var30.unknown_c_ == 0 && var30.unknown_d_ == 0) {
                         var30.unknown_14_ = 1;
                     }
                 }
                 func_ov017_021b7104(var28, &var30);
-                func_020469b4(var27, (struct Struct_0201bdac*)var28);
+                AppendToQueue_020469b4(var27, (struct QueueNode_0201bdac*)var28);
                 break;
             }
 
@@ -334,7 +331,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
             }
 
             case 0x72: case 0x74: {
-                if (func_02010828((GameState*)var11) != NULL) {
+                if (GetParty_02010828((GameState*)var11) != NULL) {
                     unsigned char var32[0x18];
 #if defined(jpn)
                     SafeAllocator* var33 = ((Struct_0206f81c_6*)var12)->inline_0206f81c(1);
@@ -366,7 +363,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
             }
 
             case 0x73: case 0x75: {
-                void* var38 = func_02010828((GameState*)var11);
+                void* var38 = GetParty_02010828((GameState*)var11);
                 if (var38 != NULL) {
                     int var39 = 0;
                     for (int var40 = 0; var40 < *(unsigned short*)(var14 + 4); var40++) {
@@ -381,7 +378,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                         for (int var45 = 0; var45 < var44; var45++) {
                             struct Struct_0203d028_3* var46 = (Struct_0203d028_3*)func_0200ff1c((GameState*)var7, var41[var45]);
                             if (var46 != NULL) {
-                                int var47 = func_02053c6c((unsigned char*)var46);
+                                int var47 = GetPartyMemberData_02053c6c((unsigned char*)var46);
                                 if (var47 != 0) {
                                     struct Struct_0206f81c_8* var48 = (struct Struct_0206f81c_8*)func_02083554((struct Struct_0206f81c*)var47, *(unsigned short*)(var14 + 2));
                                     if (var48 != NULL) {
@@ -396,7 +393,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                         }
                         int var49 = -1;
                         for (int var50 = 0; var50 < var43; var50++) {
-                            if (func_0202b7d8((int*)func_0202ae18())) {
+                            if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18())) {
                                 int var51 = var42[var50];
                                 func_ov017_021c3fb4(var51, 1);
                                 func_ov017_021c4418(var51, var49);
@@ -421,7 +418,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
 
             case 0x9c: case 0x9d: {
                 if (var16 == 0x9c) {
-                    void* var55 = func_02010828((GameState*)var11);
+                    void* var55 = GetParty_02010828((GameState*)var11);
                     if (var55 == NULL) break;
                     int var56 = 0;
                     if (func_02086d88((unsigned char*)var55, *(short*)(var14 + 4)) != 0) var56 = 1;
@@ -432,12 +429,12 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                             int var60 = var57[var59];
                             struct Struct_0203d028_3* var61 = (Struct_0203d028_3*)func_0200ff1c((GameState*)var11, var60);
                             if (var61 != NULL) {
-                                int var62 = func_02053c6c((unsigned char*)var61);
+                                int var62 = GetPartyMemberData_02053c6c((unsigned char*)var61);
                                 if (var62 != 0) {
                                     struct Struct_0206f81c_8* var63 = (struct Struct_0206f81c_8*)func_02083554((struct Struct_0206f81c*)var62, *(short*)(var14 + 4));
                                     if (var63 != NULL) {
                                         func_02083738((void*)var62, var63->unknown_8_0_);
-                                        if (func_0202b7d8((int*)func_0202ae18())) {
+                                        if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18())) {
                                             func_ov017_021c3fb4(var60, 1);
                                             func_ov017_021c4418(var60, -1);
                                         }
@@ -460,7 +457,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                         }
                     }
                 }
-                if (func_02010828((GameState*)var11) != NULL) {
+                if (GetParty_02010828((GameState*)var11) != NULL) {
                     unsigned char var68[0x18];
 #if defined(jpn)
                     SafeAllocator* var69 = ((Struct_0206f81c_6*)var12)->inline_0206f81c(1);
@@ -555,7 +552,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
         }
         BackgroundLoader* var82 = BackgroundLoader::GetInstance();
         if (var2 != 0 && var82->GetNumQueuedTasks() <= 0) {
-            void* var83 = func_0205ec34();
+            void* var83 = GetFlagManager_0205ec34();
             void* var84 = GetZone3D_02012fe4();
             func_0206461c(var83, *(int*)((char*)var84 + 8));
         }
@@ -563,7 +560,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
             unsigned char* var85 = *(unsigned char**)((char*)var12 + 0x3000 + REGION_VALUE(0x938, 0xb58));
             if (var85[2] == 0) {
                 func_ov017_021c16a8(var85);
-                func_020469b4(var9, (struct Struct_0201bdac*)var85);
+                AppendToQueue_020469b4(var9, (struct QueueNode_0201bdac*)var85);
             }
         }
     }

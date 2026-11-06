@@ -3,7 +3,7 @@
 
 extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" int func_020981e4(int arg0, int arg1);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 static inline unsigned short inline_ov004_02162b3c(Zone3D* arg0) {
     return arg0->currentZoneID_;
@@ -16,9 +16,9 @@ extern "C" ARM int func_ov004_02162b3c(void* arg0) {
     if (var1 != 0) {
         unsigned short var2 = inline_ov004_02162b3c(var0);
         if (func_020981e4((int)var1, var2) != 0) {
-            func_ov011_021848a0(arg0, 0x32);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x32);
         } else {
-            func_ov011_021848a0(arg0, 0x33);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x33);
         }
     }
     return 0;

@@ -6,7 +6,7 @@
 #endif
 #include <globaldefs.h>
 
-extern "C" void* func_ov011_021849c8(void*);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 #if defined(jpn)
 #define func_ov024_021f6f10 func_ov023_021f6f10
 extern "C" int func_ov024_021f6f10(void* arg0);
@@ -35,11 +35,11 @@ public:
     virtual void inline_ov004_02154e64_36(); virtual void inline_ov004_02154e64_37(); virtual void inline_ov004_02154e64_38();
     virtual void* inline_ov004_02154e64_39();
 };
-extern "C" Struct_ov004_02154e64* func_ov023_021f6880(void*, int);
+extern "C" Struct_ov004_02154e64* FindMenuObjectById_ov023_021f6880(void*, int);
 
 // USA: func_ov004_02154e64
 extern "C" ARM int func_ov004_02154e64(void* arg0) {
-    Struct_ov004_02154e64* var0 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x39);
+    Struct_ov004_02154e64* var0 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x39);
     if (!var0) return 0;
     if (func_ov024_021f6f10(var0) != 0x12) return 0;
     void* var1 = var0->inline_ov004_02154e64_39();

@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" void func_ov023_021f6ed8(void* arg0);
-extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" int func_ov023_021f6c90(void* arg0, int arg1, int arg2);
 extern "C" ARM void func_ov023_021f6bec(void* arg0, int arg1, unsigned int arg2, unsigned int arg3);
 struct Struct_02075cdc;
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov023_021fb534(void* arg0, void* arg1, unsigned short ar
     *(unsigned short*)((char*)arg0 + 0x8) = arg3;
     *(unsigned short*)((char*)arg0 + 0xa) = 0;
     *(unsigned int*)((char*)arg0 + 0x10) = arg4;
-    void* var0 = func_ov011_021849c8(arg1);
+    void* var0 = GetMenuObjectList_ov011_021849c8(arg1);
     int var1 = func_ov023_021f6c90(var0, arg5, 1);
     func_ov023_021f6bec(var0, arg5, var1, 1);
     func_02075cdc((struct Struct_02075cdc*)((char*)arg0 + 0x20));

@@ -22,14 +22,14 @@
 
 #include "GameState/GameState.h"
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct Struct_0203c108_3;
 extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
 
 extern "C" void func_ov000_0216fe9c(void* arg0);
 
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 // USA: func_ov000_02171138
 extern "C" ARM void func_ov000_02171138(void* arg0) {
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov000_02171138(void* arg0) {
     if (!var3) {
         return;
     }
-    char* var4 = (char*)(int)func_02053c6c((unsigned char*)var3);
+    char* var4 = (char*)(int)GetPartyMemberData_02053c6c((unsigned char*)var3);
     if (!var4) {
         return;
     }
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov000_02171138(void* arg0) {
     *(unsigned short*)(var0 + REGION_OFFSET_5) = 0;
     *(unsigned short*)(var0 + REGION_OFFSET_6) = 0;
     *(unsigned char*)(var0 + REGION_OFFSET_7) = 0;
-    int var13 = func_020100a8(var2);
+    int var13 = GetProtagonistObjectIndex_020100a8(var2);
     if (*(int*)(var0 + 0x4c) == var13) {
         *(unsigned char*)(var0 + 0x24) |= 2;
     }

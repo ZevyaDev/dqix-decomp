@@ -16,7 +16,7 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
 extern "C" signed char* func_0207c60c(void* arg0, unsigned int arg1);
 
@@ -44,7 +44,7 @@ struct Struct_ov005_02153954 {
 
 // USA: func_ov005_021555c0
 extern "C" ARM void func_ov005_021555c0(Struct_ov005_02153954* arg0) {
-    char* var0 = (char*)func_02010828(GameState::GetInstance());
+    char* var0 = (char*)GetParty_02010828(GameState::GetInstance());
     short* var1 = func_0207c5f8((unsigned char*)(var0 + 0x1d4), data_ov005_0215cd60[arg0->unknown_3dbc_]);
     signed char* var2 = func_0207c60c(var0 + 0x1d4, data_ov005_0215cd60[arg0->unknown_3dbc_]);
     signed char var3 = arg0->unknown_3dbd_;

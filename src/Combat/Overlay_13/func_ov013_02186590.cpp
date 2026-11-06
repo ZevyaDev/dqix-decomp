@@ -15,11 +15,11 @@ extern "C" void func_0205bb04(void* arg0, int arg1);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" int func_0205cecc(void* arg0);
 extern "C" int func_0205cb64(void* arg0);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0205ce94(unsigned char* arg0);
 
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 struct Struct_0205d6a0;
 extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
@@ -28,7 +28,7 @@ extern "C" void func_ov013_02185990(void* arg0);
 extern "C" void func_ov013_02186c64(void* arg0, int arg1, int arg2);
 extern "C" void func_ov013_02185cc0(void* arg0);
 
-extern struct Struct_02108760 data_02108760;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 // USA: func_ov013_02186590
 extern "C" ARM void func_ov013_02186590(void* arg0) {
@@ -77,17 +77,17 @@ caseReset:
         unsigned char var7 = var0[R(0x5c8,0x63c)];
         if (var7 == 4) {
             var0[R(0x5c8,0x63c)] = 5;
-            func_02043204((char*)var2);
+            ResetMessageWindow_02043204((char*)var2);
             func_0205ce94(var0 + R(0x3d0,0x3d4));
             var0[R(0x5ec,0x664)] = 0;
-            func_0205eaa0(&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         } else {
             var0[R(0x5c8,0x63c)] = 5;
             var0[R(0x5ec,0x664)] = 1;
-            func_02043204((char*)var2);
+            ResetMessageWindow_02043204((char*)var2);
             func_0205ce94(var0 + R(0x3d0,0x3d4));
             func_0205d6a0((struct Struct_0205d6a0*)(var0 + R(0x34,0x38)), 1);
-            func_0205eaa0(&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         }
         var0[R(0x5ca,0x63e)] = 0;
         return;
@@ -98,10 +98,10 @@ caseInvalidate:
     var0[R(0x5ca,0x63e)] = 0;
     g_keyManager.CancelCurrentKeyRepeat();
     if (var3 != 0) {
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
     }
     var0[R(0x5ec,0x664)] = 0;
-    func_02043204((char*)var2);
+    ResetMessageWindow_02043204((char*)var2);
     func_0205ce94(var0 + R(0x3d0,0x3d4));
     var0[R(0x5c5,0x639)] = 0;
     func_ov013_02186c64(arg0, 0, 0);

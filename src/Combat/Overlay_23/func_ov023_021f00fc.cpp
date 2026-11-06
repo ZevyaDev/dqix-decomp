@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 struct Struct_ov023_021edf54;
 
 struct Struct_ov023_021f00fc {
@@ -51,8 +51,8 @@ struct Struct_ov023_021f00fc_4 {
 extern "C" Struct_ov023_021f00fc_3* _ZZ21inline_ov023_021f4c04vE1s;
 
 extern "C" void GetMessageWindow_020421a0();
-extern "C" int func_0202b7d8(int* arg0);
-extern "C" int func_0202c1a4(Struct_0202c1a4* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
+extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" int func_02010038(GameState* arg0, unsigned char* arg1);
 extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
 extern "C" Struct_ov023_021f00fc_2* func_ov023_021f0360(void* arg0, int arg1);
@@ -63,7 +63,7 @@ extern "C" int func_ov000_02160fd4(void* arg0, int arg1);
 
 extern "C" {
 void __clear(void* arg0, unsigned long arg1);
-void* func_0202ae18();
+void* GetLocalWireless_0202ae18();
 void func_ov017_021cd590(unsigned short arg0, int* arg1, unsigned char arg2, int arg3);
 void func_ov017_021cd35c(unsigned short arg0, void* arg1, unsigned char arg2, signed char arg3);
 int func_ov023_021f5150(Struct_ov023_021f00fc_4* arg0, Struct_ov023_021f00fc* arg1, int* arg2, int* arg3, int arg4);
@@ -74,9 +74,9 @@ extern "C" ARM int func_ov023_021f00fc(Struct_ov023_021f00fc_4* arg0)
 {
     GameState* var0 = GameState::GetInstance();
     GetMessageWindow_020421a0();
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     GameResources* var2 = GetGameResources();
-    if (!func_0202b7d8((int*)var1) || arg0->unknown_2a0_->unknown_2a_ == func_0202c1a4((Struct_0202c1a4*)var1))
+    if (!IsLocalWirelessOn_0202b7d8((int*)var1) || arg0->unknown_2a0_->unknown_2a_ == GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1))
     {
         unsigned char var3[4];
         __clear(var3, sizeof(var3));

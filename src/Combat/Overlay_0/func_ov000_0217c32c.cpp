@@ -35,7 +35,7 @@ extern "C" struct Struct_ov000_0217c32c_4* func_02054000(struct Struct_02054000*
 
 struct Struct_02052e14;
 extern "C" short* func_02052e14(struct Struct_02052e14* arg0);
-extern "C" void* func_02053c6c(unsigned char* arg0);
+extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct Struct_0200f3a4_8;
 extern "C" void func_0209a338(struct Struct_0200f3a4_8* arg0);
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov000_0217c32c(struct Struct_ov000_0217c32c_3* arg0) {
             var2 = NULL;
         }
     }
-    if (func_02053c6c((unsigned char*)var0) == NULL) {
+    if (GetPartyMemberData_02053c6c((unsigned char*)var0) == NULL) {
         return;
     }
     memset(arg0->unknown_88_, 0, sizeof(arg0->unknown_88_));

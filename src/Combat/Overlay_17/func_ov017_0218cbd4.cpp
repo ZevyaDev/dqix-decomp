@@ -6,7 +6,7 @@
 #include "World/Zone3D.h"
 #include "Resource/Brightness.h"
 
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 struct Struct_02015438;
 struct Struct_0203d028_4;
 struct Struct_0208b088;
@@ -14,7 +14,7 @@ struct Struct_0203dd20_2;
 struct Struct_020579b4;
 struct Struct_0214e34c;
 struct Struct_ov017_021d82fc_6 { char unknown_0_[0xe]; unsigned char unknown_e_; };
-extern "C" void* func_0202ae18();
+extern "C" void* GetLocalWireless_0202ae18();
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" Struct_020579b4* func_02057924();
 extern "C" void* func_02039e70();
@@ -46,8 +46,8 @@ extern "C" void func_020a20d8(void*);
 extern "C" void func_ov000_0216d464(void*);
 extern "C" void func_0204a170(void*);
 extern "C" void func_ov017_0218d0ec(GameResources*);
-extern "C" int func_0202b7d8(int*);
-extern "C" signed char func_0202c1a4(Struct_0202c1a4*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void func_ov017_021a205c(GameResources*);
 extern "C" int func_ov017_02196430(GameResources*);
 extern "C" int func_ov017_02196c4c(GameResources*);
@@ -83,7 +83,7 @@ extern Struct_ov017_021d82fc_6 data_ov017_021d82fc;
 // USA: func_ov017_0218cbd4
 extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     Zone3D* var2 = GetZone3D_02012fe4();
     Struct_020579b4* var3 = func_02057924();
     func_02039e70();
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     }
     func_ov017_0218d0ec(arg0);
     if (func_02046b24((Struct_02015438**)arg0->unknown_ptr_array_36fc[0]) != 3) {
-        if (!func_0202b7d8((int*)var1) || func_0202c1a4((Struct_0202c1a4*)var1) == 0)
+        if (!IsLocalWirelessOn_0202b7d8((int*)var1) || GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1) == 0)
             func_ov017_021a205c(arg0);
     }
     int var14 = func_ov017_02196430(arg0);

@@ -7,7 +7,7 @@
 enum { Enum_020678bc_120 = 0x78, Enum_020678bc_76 = 0x4c, Enum_020678bc_88 = 0x58, Enum_020678bc_144 = 0x90, Enum_020678bc_6605 = 0x19cd, Enum_020678bc_64 = 0x40, Enum_020678bc_2388 = 0x954 };
 #endif
 
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
 extern "C" void func_0206b104(void* arg0);
 #if defined(jpn)
@@ -22,8 +22,8 @@ extern "C" void func_0205c840(char* arg0);
 #else
 extern "C" void func_0205c840(char* arg0);
 #endif
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
-extern char data_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
+extern char gSoundEffectManager_02108760;
 
 // JPN: func_0206917c
 // USA: func_020678bc
@@ -44,7 +44,7 @@ extern "C" ARM void func_020678bc(char* arg0, int arg1) {
     case 0:
         func_0206b104(arg0);
         if (!var3) {
-            func_0205eaa0((struct Struct_02108760*)&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
         }
 #if defined(jpn)
         func_0206cbe8(arg0, 0xff14, arg0->unknown_24_);
@@ -63,7 +63,7 @@ extern "C" ARM void func_020678bc(char* arg0, int arg1) {
         return;
     case 1:
         if (!var3 && !var4) {
-            func_0205eaa0((struct Struct_02108760*)&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
         }
     case -2:
 #if defined(jpn)

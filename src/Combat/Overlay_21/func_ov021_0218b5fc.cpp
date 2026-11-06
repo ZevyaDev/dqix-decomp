@@ -24,7 +24,7 @@ enum { Enum_ov021_0218b5fc_1288 = 0x508, Enum_ov021_0218b5fc_7720 = 0x1e28, Enum
 #endif
 
 struct AllocatorUnion;
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 struct Struct_0200f3a4_9;
 struct Struct_0203bdb0;
 struct GameResources;
@@ -66,15 +66,15 @@ extern "C" void func_020c555c(int arg0);
 extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02042c68(void* arg0);
-extern "C" void func_02043124(void* arg0);
+extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void func_020440a4(void* arg0);
-extern "C" void func_0207df50(Struct_0203d028* arg0);
-extern "C" void func_0207df90(char* arg0);
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void func_020432c4(void* arg0);
-extern "C" void func_0207dfac(char* arg0);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_020100a0(GameState* arg0, int arg1);
-extern "C" int func_020100a8(GameState* arg0);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_ov009_0218454c(void* arg0, int arg1, int arg2);
 extern "C" void* func_02010954(char* arg0);
 extern "C" void func_ov009_021842a0(void* arg0, SafeAllocator* arg1);
@@ -95,8 +95,8 @@ extern "C" void func_0203ad88(void* arg0, void* arg1, int arg2);
 extern "C" void func_0203aa08(void* arg0);
 extern "C" void func_0209c20c(Struct_02109bf4_3* arg0);
 extern "C" void func_02043000(char* arg0);
-extern char data_02114e20;
-extern char data_02109bf4;
+extern char gMainHeap_02114e20;
+extern char gMusicManager_02109bf4;
 extern int data_02114e50;
 
 struct Struct_ov021_0218bbc4 {
@@ -194,23 +194,23 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     func_0207de48(arg0->unknown_44_, 0x4000, 0x40);
     void* var5 = GetMessageWindow_020421a0();
     func_02042c68(var5);
-    func_02043124(var5);
+    CloseMessageWindow_02043124(var5);
     func_020440a4(var5);
     *(char**)((char*)var5 + Enum_ov021_0218b5fc_7720) = arg0->unknown_44_;
-    func_0207df50((Struct_0203d028*)arg0->unknown_44_);
-    func_0207df90(arg0->unknown_44_);
+    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_44_);
+    RestoreTextureVRAMState_0207df90(arg0->unknown_44_);
     func_020432c4(var5);
-    func_0207dfac(arg0->unknown_44_);
+    SaveTextureVRAMState_0207dfac(arg0->unknown_44_);
     func_020100a0(var0, 0);
-    arg0->unknown_2c_.CreateTypeA(func_02012d88((AllocatorUnion*)&data_02114e20, Enum_ov021_0218b5fc_307768), Enum_ov021_0218b5fc_307768);
+    arg0->unknown_2c_.CreateTypeA(AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, Enum_ov021_0218b5fc_307768), Enum_ov021_0218b5fc_307768);
     arg0->unknown_2c_.Reset();
     arg0->unknown_40_ = arg0->unknown_2c_.Allocate(Enum_ov021_0218b5fc_3512);
     func_ov009_0218454c(arg0->unknown_40_, 0, 0);
     arg0->unknown_b4_ = (char*)func_02010954((char*)var0);
-    *(short*)(arg0->unknown_b4_ + 0x568) = func_020100a8(var0);
+    *(short*)(arg0->unknown_b4_ + 0x568) = GetProtagonistObjectIndex_020100a8(var0);
     *(char**)((char*)arg0->unknown_40_ + Enum_ov021_0218b5fc_3464) = arg0->unknown_b4_;
     func_ov009_021842a0(arg0->unknown_40_, &arg0->unknown_2c_);
-    func_0209c3b4((Struct_0209c3b4_2*)&data_02109bf4, 2);
+    func_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, 2);
     func_020c9820();
     func_020c38d4();
     DISPCNTSUB |= 0x10000;
@@ -234,12 +234,12 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     }
 
     func_ov009_02184848(arg0->unknown_40_);
-    func_0209c678((Struct_02109bf4_4*)&data_02109bf4, 0);
-    func_0203ad88(&data_02109bf4, 0, 0);
-    func_0203aa08(&data_02109bf4);
-    func_0209c20c((Struct_02109bf4_3*)&data_02109bf4);
+    func_0209c678((Struct_02109bf4_4*)&gMusicManager_02109bf4, 0);
+    func_0203ad88(&gMusicManager_02109bf4, 0, 0);
+    func_0203aa08(&gMusicManager_02109bf4);
+    func_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
     func_02043000((char*)var5);
-    func_0207df50((Struct_0203d028*)arg0->unknown_44_);
+    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_44_);
     func_0200fb84((int*)var0, 0);
 #if !defined(jpn)
     func_020a1e54(1);

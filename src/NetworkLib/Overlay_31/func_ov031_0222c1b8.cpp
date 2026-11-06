@@ -46,7 +46,7 @@ extern "C" void* func_ov031_02235c70();
 extern "C" void func_ov031_02236094(int);
 extern "C" void func_ov031_022274d0(int, int);
 extern "C" void func_ov031_0222750c(int, int);
-extern "C" void func_ov031_022274c0(int);
+extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_02235cac(void*);
 extern "C" void func_ov031_02233248();
 extern "C" void func_ov031_02232024();
@@ -82,22 +82,22 @@ extern "C" ARM void func_ov031_0222c1b8() {
         func_ov031_022357b4();
         func_ov031_02236094(((Struct_ov031_0222c1b8_3*)func_ov031_02235c70())->unknown_f4_);
         func_ov031_022274d0(2, 0);
-        func_ov031_022274c0((int)func_ov031_02233248);
+        SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02233248);
     } else if (data_ov031_02290c8c.unknown_0_ == 4) {
         func_ov031_022357b4();
         func_ov031_022274d0(0, 1);
-        func_ov031_022274c0((int)func_ov031_02232024);
+        SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02232024);
     } else {
         func_ov031_02235cac(&data_ov031_02290c8c.unknown_4_->unknown_0_[data_ov031_02290c8c.unknown_4_->unknown_52_]);
         func_ov031_022274d0(0, 0);
         if (data_ov031_02290c8c.unknown_4_->unknown_0_[data_ov031_02290c8c.unknown_4_->unknown_52_].unknown_28_ != 0) {
             func_ov031_022274d0(0, 1);
             func_ov031_0222750c(1, 1);
-            func_ov031_022274c0((int)func_ov031_0222cbe0);
+            SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222cbe0);
         } else {
             func_ov031_022274d0(0, 1);
             func_ov031_0222750c(0, 1);
-            func_ov031_022274c0((int)func_ov031_022340c0);
+            SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_022340c0);
         }
     }
     func_ov031_0223cf70(&data_ov031_02290c90);

@@ -6,8 +6,8 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_02010038(GameState* arg0, unsigned char* arg1);
 struct Struct_02053f7c_3;
 extern "C" void func_02053f7c(Struct_02053f7c_3*, unsigned short, int);
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021cdaa0(void);
 extern "C" int func_ov017_021c5bf8(int arg0, int arg1);
 extern "C" void func_ov017_021c5e28(int, int);
@@ -33,9 +33,9 @@ extern "C" void func_ov017_021b6f18(void* arg0);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
 extern "C" bool func_ov017_021b6e70(void* arg0, int arg1);
 extern "C" void func_ov017_021b7104(void* arg0, void* arg1);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 extern "C" void func_ov017_021a7a74(void* arg0, void* arg1);
 extern "C" int func_ov017_0219735c(unsigned char* arg0, unsigned short arg1);
 extern "C" void func_ov017_021972f8(void* arg0, unsigned short arg1);
@@ -190,7 +190,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
         }
     }
 
-    if (func_0202c508(arg4)) {
+    if (IsNotLocalWirelessGuest_0202c508(arg4)) {
         func_ov017_021cdaa0();
         if (!inline_ov017_021c530c(arg1->unknown_4_)) {
             if (arg1->unknown_9_ != 0) {
@@ -201,7 +201,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
                 }
             } else if (func_ov017_021c5a1c(arg1->unknown_4_)) {
                 if (func_ov017_021c5bf8(arg0, arg1->unknown_4_) == 0) {
-                    if (!func_0202c508(func_0202ae18())) {
+                    if (!IsNotLocalWirelessGuest_0202c508(GetLocalWireless_0202ae18())) {
                         var2 = false;
                     } else {
                         var26 = func_0207d78c();
@@ -297,7 +297,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
                     func_ov017_021b6e70(&var39, var39.unknown_2_);
                     var39.unknown_12_ = var34;
                     func_ov017_021b7104(var36, &var39);
-                    func_020469b4((Struct_0201bdac_2*)var35, (Struct_0201bdac*)var36);
+                    AppendToQueue_020469b4((Queue_0201bdac_2*)var35, (QueueNode_0201bdac*)var36);
                 }
                 var12 = (Struct_ov017_021c530c_5*)arg2->GetUnknownGameObject();
                 if (var12 != NULL) {

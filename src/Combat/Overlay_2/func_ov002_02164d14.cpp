@@ -11,7 +11,7 @@ struct Struct_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205def8;
 struct Struct_0205da38;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0205faf4_11;
 extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
                                                                         unsigned char arg2);
@@ -21,8 +21,8 @@ extern "C" void func_020dc4d0(signed char *arg0, signed char *arg1);
 extern "C" GameObject *func_0200ff1c(GameState *arg0, int arg1);
 extern "C" int func_02061bd8(struct Struct_0205faf4_11 *arg0);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
-extern "C" int func_020d6c00(void);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
+extern "C" int GetGlobalFlags_020d6c00(void);
 extern "C" void func_020466e4(unsigned int *arg0, unsigned int arg1);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_ov002_0215b814(char *arg0);
@@ -32,7 +32,7 @@ extern "C" void func_ov002_02156e90(char *arg0);
 extern "C" void func_020d79e0(char *arg0, int arg1);
 extern "C" void GetZone3D_02012fe4(void);
 extern "C" void func_02017c58(void);
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 extern "C" unsigned short data_ov002_0216cca4[];
 extern "C" unsigned short data_ov002_0216cc86[];
 
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
             if (*(unsigned int *) (arg0 + OFF_FLAGS_02164d14) & 2) return;
             if (*(short *) (arg0 + OFF_SEL_02164d14) == var4) {
                 *(unsigned int *) (arg0 + OFF_FLAGS_02164d14) &= ~4;
-                func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+                PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
                 *(int *) (arg0 + OFF_NEXT_02164d14) = K_0F_02164d14;
                 *(int *) (arg0 + OFF_STATE_02164d14) = 0;
                 for (int var12 = 0; var12 < 4; var12++) {
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
                 return;
             }
             if (var3[*(short *) (arg0 + OFF_SEL_02164d14)] < 0) return;
-            func_020466e4((unsigned int *) func_020d6c00(), 1);
+            func_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
             if (func_02061bd8(
                     (struct Struct_0205faf4_11 *) func_0200ff1c(var1, var3[*(short *) (arg0 + OFF_SEL_02164d14)])))
             {

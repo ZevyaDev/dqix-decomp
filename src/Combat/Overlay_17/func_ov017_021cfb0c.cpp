@@ -10,9 +10,9 @@ enum { Enum_ov017_021cfb0c_14076 = 0x36fc, Enum_ov017_021cfb0c_15116 = 0x3b0c };
 
 struct Struct_02015438;
 struct Struct_02038598_5;
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-struct Struct_0202c1a4;
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+struct LocalWireless_0202c1a4;
 
 struct Struct_ov017_021be40c {
     unsigned char unknown_0_[0x10];
@@ -40,17 +40,17 @@ struct Struct_ov017_021cfb0c_3 {
     Vector3i unknown_10_;
 };
 
-extern "C" int func_0202c508(struct Struct_0202c1a4* arg0);
+extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202c1a4* wireless);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void* func_0200fd0c(GameState* arg0);
 extern "C" int func_02046b24(Struct_02015438** arg0);
 extern "C" int func_0201b588(int arg0);
 extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
 extern "C" void func_ov017_021be40c(struct Struct_ov017_021be40c* arg0);
-extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
+extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 
 // USA: func_ov017_021cfb0c
-extern "C" ARM void func_ov017_021cfb0c(int arg0, void* arg1, GameState* arg2, struct Struct_ov017_021cfb0c_2* arg3, struct Struct_0202c1a4* arg4) {
+extern "C" ARM void func_ov017_021cfb0c(int arg0, void* arg1, GameState* arg2, struct Struct_ov017_021cfb0c_2* arg3, struct LocalWireless_0202c1a4* arg4) {
     int var0;
     unsigned short* var1;
     struct Struct_ov017_021cfb0c_3* var2;
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov017_021cfb0c(int arg0, void* arg1, GameState* arg2, s
     unsigned short* var5;
     struct Struct_ov017_021be40c* var6;
 
-    if (func_0202c508(arg4) != 0) {
+    if (IsNotLocalWirelessGuest_0202c508(arg4) != 0) {
         return;
     }
 
@@ -104,5 +104,5 @@ extern "C" ARM void func_ov017_021cfb0c(int arg0, void* arg1, GameState* arg2, s
     func_ov017_021be40c(var6);
     var6->unknown_10_ = var7;
     var6->unknown_1c_ = var2->unknown_c_;
-    func_020469b4((Struct_0201bdac_2*)var4, (Struct_0201bdac*)var6);
+    AppendToQueue_020469b4((Queue_0201bdac_2*)var4, (QueueNode_0201bdac*)var6);
 }

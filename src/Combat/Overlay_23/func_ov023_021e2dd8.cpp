@@ -3,7 +3,7 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_020de848(void* arg0);
 extern "C" void func_ov023_021e20c0(void* arg0);
@@ -23,7 +23,7 @@ extern "C" ARM void func_ov023_021e2dd8(unsigned char* arg0) {
     int var4;
     int var5;
 
-    var0 = func_020d6c00();
+    var0 = GetGlobalFlags_020d6c00();
     func_020466e4((unsigned int*)var0, 0xf);
 
     *(unsigned int*)(arg0 + 0x0) = 0;

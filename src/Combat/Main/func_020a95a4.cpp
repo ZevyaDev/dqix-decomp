@@ -138,8 +138,8 @@ struct Struct_020a95a4_6 {
     unsigned char unknown_2ca3_[5];
 };
 
-extern "C" void* func_02010828(GameState* arg0);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetParty_02010828(GameState* gameState);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" Struct_020a95a4_2* GetZone3D_02012fe4(void);
 extern "C" Struct_020a95a4_3* func_02094d6c(void);
 extern "C" void func_020a93e0(char* arg0);
@@ -156,8 +156,8 @@ extern "C" unsigned short* func_020120a0(char* arg0, unsigned int arg1);
 extern "C" void func_0209ca70(void* arg0, int arg1);
 extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
 
-extern unsigned char data_02109bf4[];
-extern unsigned char data_02108760[];
+extern unsigned char gMusicManager_02109bf4[];
+extern unsigned char gSoundEffectManager_02108760[];
 
 // USA: func_020a95a4
 #if defined(jpn)
@@ -166,8 +166,8 @@ extern "C" ARM int func_020a95a4(Struct_020a95a4_6* arg0, Struct_020a95a4_5* arg
 extern "C" ARM int func_020a95a4(Struct_020a95a4_6* arg0, Struct_020a95a4_5* arg1, unsigned char* arg2) {
 #endif
     GameState* var0 = GameState::GetInstance();
-    Struct_020a95a4_8* var1 = static_cast<Struct_020a95a4_8*>(func_02010828(var0));
-    func_0202ae18();
+    Struct_020a95a4_8* var1 = static_cast<Struct_020a95a4_8*>(GetParty_02010828(var0));
+    GetLocalWireless_0202ae18();
     Struct_020a95a4_2* var2 = GetZone3D_02012fe4();
     GetGameResources();
     Struct_020a95a4_3* var3 = func_02094d6c();
@@ -235,8 +235,8 @@ extern "C" ARM int func_020a95a4(Struct_020a95a4_6* arg0, Struct_020a95a4_5* arg
     var1->unknown_2c94_ = arg0->unknown_2c4c_;
     var14->unknown_7e74_ = arg0->unknown_2c4c_;
     memcpy(func_020120a0((char*)var0, 0), arg0->unknown_2c50_, sizeof(arg0->unknown_2c50_));
-    func_0209ca70(data_02109bf4, arg0->unknown_2c58_);
-    func_0205e9f4((struct Struct_02108760_2*)data_02108760, arg0->unknown_2c59_);
+    func_0209ca70(gMusicManager_02109bf4, arg0->unknown_2c58_);
+    func_0205e9f4((struct Struct_02108760_2*)gSoundEffectManager_02108760, arg0->unknown_2c59_);
     var1->unknown_f7d_ = arg0->unknown_2c5a_;
     var14->unknown_63dc_ = arg0->unknown_2c5b_;
     var2->unknown_2786_ = arg0->unknown_2c5c_;

@@ -10,8 +10,8 @@
 #include "Resource/GameResources.h"
 
 struct Struct_0206f81c_2;
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
 struct SafeAllocator;
 
 extern "C" void func_ov008_02184a3c(char* arg0, unsigned char arg1);
@@ -21,7 +21,7 @@ extern "C" void func_020dc2d0(int arg0);
 extern "C" void func_ov017_021b2174(unsigned char* arg0);
 extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1);
 extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
-extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
+extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_ov004_0216aa70(SafeAllocator* arg0, void* arg1);
 extern char data_ov008_0218b594;
 
@@ -83,13 +83,13 @@ extern "C" ARM void func_ov008_0218b084(Struct_ov008_0218b084* arg0) {
     var2[2] = (var2[2] & ~3);
     func_020dc2d0(0);
     if (arg0->unknown_eba_ != 0) {
-        Struct_0201bdac_2* var3;
+        Queue_0201bdac_2* var3;
         unsigned char* var4 = *(unsigned char**)((char*)var0 + R(0x392c,0x3b4c));
-        var3 = *(Struct_0201bdac_2**)((char*)var0 + R(0x34ec,0x36fc));
+        var3 = *(Queue_0201bdac_2**)((char*)var0 + R(0x34ec,0x36fc));
         func_ov017_021b2174(var4);
         func_ov017_021b2ba0((Struct_0206f81c_2*)var4, &data_ov008_0218b594);
         func_ov017_021b2bd0(var4, (int)func_ov004_0216aa70, OVERLAY_ID(4));
-        func_020469b4(var3, (Struct_0201bdac*)var4);
+        AppendToQueue_020469b4(var3, (QueueNode_0201bdac*)var4);
     }
     arg0->unknown_eb8_ = 1;
 }

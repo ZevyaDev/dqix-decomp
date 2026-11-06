@@ -147,7 +147,7 @@ struct Struct_ov003_02170d88_12 {
 struct Struct_02052e2c;
 struct Struct_02000c9c_8;
 struct Struct_ov003_02170d88_13;
-extern "C" void* func_0202ae18();
+extern "C" void* GetLocalWireless_0202ae18();
 struct Struct_0202aec0_2;
 extern "C" void func_0202aec0(Struct_0202aec0_2*);
 extern "C" void* func_0202ae24();
@@ -161,7 +161,7 @@ extern "C" int func_020a0870(Struct_02061c04*);
 extern "C" int func_020a08a4(Struct_02061c04*);
 extern "C" int func_020a08d8(Struct_02061c04*);
 extern "C" int func_020a090c(Struct_02061c04*);
-extern "C" Struct_ov003_02170d88_7* func_02053c6c(unsigned char*);
+extern "C" Struct_ov003_02170d88_7* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" unsigned char func_0200fb08(Struct_02000c9c_8*);
 extern "C" unsigned char func_020119f8(char*, void*);
 extern "C" void func_ov003_02171f80(Struct_ov003_02170d88_13*);
@@ -182,7 +182,7 @@ extern "C" ARM void func_ov003_02170d88(Struct_ov003_02170d88_4* arg0) {
     arg0->unknown_71c_ = 0;
     arg0->unknown_720_ = 0;
     arg0->unknown_724_ = 0;
-    Struct_0202aec0_2* var1 = static_cast<Struct_0202aec0_2*>(func_0202ae18());
+    Struct_0202aec0_2* var1 = static_cast<Struct_0202aec0_2*>(GetLocalWireless_0202ae18());
     func_0202aec0(var1);
     void* var2 = func_0202ae24();
     func_0205e22c(var2);
@@ -237,7 +237,7 @@ extern "C" ARM void func_ov003_02170d88(Struct_ov003_02170d88_4* arg0) {
     var7->unknown_0_.unknown_14_ = var14->unknown_0_.unknown_6_3_;
     var7->unknown_0_.unknown_16_0_ = (unsigned char)var9;
     var7->unknown_0_.unknown_16_1_ = (unsigned char)var10;
-    var7->unknown_0_.unknown_17_ = func_02053c6c((unsigned char*)var12)->unknown_56a_;
+    var7->unknown_0_.unknown_17_ = GetPartyMemberData_02053c6c((unsigned char*)var12)->unknown_56a_;
 #if !defined(jpn)
     var7->unknown_0_.unknown_3_7_ = 1;
 #endif

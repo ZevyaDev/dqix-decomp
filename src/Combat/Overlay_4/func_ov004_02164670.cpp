@@ -8,8 +8,8 @@ enum { Enum_ov004_02164670_2292 = 0x9f4, Enum_ov004_02164670_2301 = 0x9fd, Enum_
 enum { Enum_ov004_02164670_2292 = 0x8f4, Enum_ov004_02164670_2301 = 0x8fd, Enum_ov004_02164670_6144 = 0x1800 };
 #endif
 
-extern "C" void* func_ov011_021849c8(void);
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 #if defined(jpn)
 extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 #define NODE_KIND_CALL func_ov023_021f6f10
@@ -25,7 +25,7 @@ extern "C" void func_ov004_02164084(void* arg0);
 
 // USA: func_ov004_02164670
 extern "C" ARM int func_ov004_02164670(void* arg0) {
-    void* var0 = func_ov023_021f6880(func_ov011_021849c8(), 0xa);
+    void* var0 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(), 0xa);
     if (var0 == NULL) return 0;
     int var1 = NODE_KIND_CALL(var0);
     if (var1 != 7) return 0;

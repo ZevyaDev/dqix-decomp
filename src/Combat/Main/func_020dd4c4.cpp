@@ -3,7 +3,7 @@
 
 struct Struct_02052df8;
 extern "C" int func_02052df8(Struct_02052df8*, int);
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_020dd200(int, int);
 extern "C" int func_020dd154(int, int);
 struct Struct_020dd4c4_2 {
@@ -67,7 +67,7 @@ extern "C" ARM int func_020dd4c4(int arg0, Struct_020dd4c4_3* arg1) {
     if (!arg1->unknown_0_) return 8;
     int var2 = 0;
     GameState* var3 = GameState::GetInstance();
-    var2 |= (arg1->unknown_0_->unknown_3_5_ && arg0 != func_020100a8(var3)) ? 0x100 : 0;
+    var2 |= (arg1->unknown_0_->unknown_3_5_ && arg0 != GetProtagonistObjectIndex_020100a8(var3)) ? 0x100 : 0;
     int var4;
     if (arg1->unknown_8_0_ != 0 && arg1->unknown_8_0_ != 1) var4 = 0;
     else if (func_020dd200(arg0 & 0xff, arg1->unknown_0_->unknown_0_7_ & 0xff)) var4 = 0;

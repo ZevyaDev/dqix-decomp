@@ -17,7 +17,7 @@ struct Struct_0202343c_2;
 struct Struct_0202343c_3;
 struct Struct_0202343c_4;
 
-extern "C" void *func_020d6c00();
+extern "C" void *GetGlobalFlags_020d6c00();
 extern "C" int func_02046708(Struct_02012de8 *arg0, unsigned int arg1);
 extern "C" int *func_020936f8();
 extern "C" int func_0209497c(Struct_0202343c *arg0, int arg1);
@@ -48,7 +48,7 @@ struct Struct_0202343c_5 {
 // USA: func_0202343c
 extern "C" ARM void func_0202343c(void *arg0) {
     Struct_0202343c_5 *var0 = static_cast<Struct_0202343c_5 *>(arg0);
-    if (func_02046708(static_cast<Struct_02012de8 *>(func_020d6c00()), 0x41)) return;
+    if (func_02046708(static_cast<Struct_02012de8 *>(GetGlobalFlags_020d6c00()), 0x41)) return;
 
     GameResources *var1 = GetGameResources();
     int *var2                = func_020936f8();

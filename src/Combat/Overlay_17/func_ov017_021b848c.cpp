@@ -37,10 +37,10 @@ struct Struct_ov017_021b848c_2 {
 };
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov017_021c9c64(unsigned short arg0, unsigned char arg1);
 extern "C" void func_ov017_021c8b78(unsigned short arg0);
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov017_021b848c(Struct_ov017_021b848c_2* arg0, signed ch
     GetMessageWindow_020421a0();
     unsigned short var1 = arg0->unknown_6b4_;
     if (var1 == 4 || var1 == 6 || var1 == 0) return;
-    if (arg1[func_020100a8(var0)] == 0) return;
+    if (arg1[GetProtagonistObjectIndex_020100a8(var0)] == 0) return;
 
     int var2 = arg2 >= 0 && arg2 <= 3;
     if (!var2 || arg1[arg2] == 0 || var0->GetGameObjectByIndex(arg2) == NULL) {
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov017_021b848c(Struct_ov017_021b848c_2* arg0, signed ch
         return;
     }
 
-    void* var3 = func_020d6c00();
+    void* var3 = GetGlobalFlags_020d6c00();
     func_020466f4((Struct_02038598_4*)var3, 0x200);
     func_020466e4((unsigned int*)var3, 0x40000);
     GameObject* var4 = var0->GetUnknownGameObject();
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov017_021b848c(Struct_ov017_021b848c_2* arg0, signed ch
     }
     arg0->unknown_46_ = arg2;
     if (func_020a35e0(arg0->unknown_1c_, arg0->unknown_46_) == 0) func_020c9be0();
-    if (arg3 == 0) func_020100a8(var0);
+    if (arg3 == 0) GetProtagonistObjectIndex_020100a8(var0);
     arg0->unknown_48_ = arg3;
     arg0->unknown_1e_ = arg4;
     if (arg7 >= 0) arg0->unknown_28_ = arg7;
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov017_021b848c(Struct_ov017_021b848c_2* arg0, signed ch
         if (arg0->unknown_6b0_ != NULL) arg0->unknown_6b0_->unknown_8e49_ = arg5;
     }
     func_ov017_021c3f70(arg0->unknown_24_);
-    if (arg2 != func_020100a8(var0)) {
+    if (arg2 != GetProtagonistObjectIndex_020100a8(var0)) {
         if (arg6 != 0) arg0->unknown_6c6_ = 1;
         arg0->unknown_6b8_ = 0;
         arg0->unknown_6b4_ = 4;

@@ -54,7 +54,7 @@ extern "C" int func_ov000_02155f9c(int arg0, int arg1, int arg2);
 int NextRandomMax(struct Random* random, int maximum);
 extern "C" void func_ov000_0215ff20(void* arg0, short arg1, unsigned char arg2);
 extern "C" float func_ov024_021db358(struct Struct_ov024_021e9b74* arg0);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int func_02086ef0(struct Struct_02048150* arg0, int arg1);
 extern "C" void func_ov000_0215a8d4(unsigned char* arg0, int arg1);
 
@@ -138,7 +138,7 @@ extern "C" ARM int func_ov024_021e9b74(struct Struct_ov024_021e9b74_2* arg0, int
             arg2->unknown_0_ = var8.unknown_0_[NextRandomMax(var3, var1)];
             func_ov000_0215ff20(var0, arg2->unknown_0_, 8);
             arg0->unknown_79_ = 1;
-            if (func_02086ef0((struct Struct_02048150*)func_02010828(GameState::GetInstance()),
+            if (func_02086ef0((struct Struct_02048150*)GetParty_02010828(GameState::GetInstance()),
                                   arg2->unknown_0_)) {
                 func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 4);
             }

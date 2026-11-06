@@ -7,12 +7,12 @@
 #include "std_library_functions.h"
 #include "Input/Input.h"
 
-struct Struct_02072a68;
+struct StringListEntry_02072a68;
 
-struct Struct_02072a68_2
+struct StringList_02072a68_2
 {
-    Struct_02072a68* unknown_0_;
-    short unknown_4_;
+    StringListEntry_02072a68* unknown_0_;
+    short capacity_4_;
 };
 
 struct Struct_0205bef8
@@ -53,7 +53,7 @@ struct Struct_ov012_02189314
     char unknown_90_[0x130c - 0x90];
     char* unknown_130c_;
     char unknown_1310_[4];
-    Struct_02072a68_2 unknown_1314_;
+    StringList_02072a68_2 unknown_1314_;
     char unknown_131c_[0x1340 - 0x131c];
     unsigned char unknown_1340_;
     unsigned char unknown_1341_;
@@ -97,14 +97,14 @@ extern "C" void func_0205bacc(Struct_0205bef8* arg0, int arg1);
 extern "C" void func_0205bb04(Struct_0205bef8* arg0, int arg1);
 extern "C" int func_0205bf58(Struct_0205bef8* arg0, unsigned int arg1);
 extern "C" int func_0205bb84(Struct_0205bef8* arg0);
-extern "C" void func_0205eaa0(void* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(void* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov023_021e2868(void* arg0);
 extern "C" int func_ov023_021e7148(Struct_ov012_02189314* arg0);
 extern "C" int func_ov023_021e6e20(Struct_ov012_02189314* arg0);
 extern "C" void func_ov012_02186248(Struct_ov012_02189314* arg0, unsigned char arg1, int arg2);
 extern "C" void func_ov023_021e6808(Struct_ov012_02189314* arg0, char* arg1);
 extern "C" void func_ov023_021e68d8(Struct_ov012_02189314* arg0, char* arg1);
-extern "C" char* func_02072a68(Struct_02072a68_2* arg0, short arg1);
+extern "C" char* FindStringInList_02072a68(StringList_02072a68_2* stringList, short stringId);
 extern "C" void func_ov012_0218bba0(Struct_ov012_02189314* arg0, int arg1, int arg2);
 extern "C" int func_ov012_02185db4(void* arg0, const char* arg1);
 extern "C" void func_0205def8(void* arg0, int arg1, int arg2);
@@ -113,7 +113,7 @@ extern "C" Struct_ov012_02189314_3* GetMessageWindow_020421a0();
 extern "C" void StartMessage_0204500c(Struct_ov012_02189314_3* window, const char* text, int arg2);
 
 extern "C" const char data_ov012_0218bfc1[];
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 static inline Struct_ov012_02189314_2* inline_ov012_02189314(GameState* arg0)
 {
@@ -210,7 +210,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
                         var10 = 5;
                     var8 = var9 * 7 + var10;
                 }
-                func_0205eaa0(data_02108760, 2, 0);
+                PlaySoundEffect_0205eaa0(gSoundEffectManager_02108760, 2, 0);
                 arg0->unknown_13b8_ = var8;
                 func_0205bb04(&arg0->unknown_1378_, var8);
             }
@@ -226,7 +226,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
         int var15 = 0;
         if (func_ov023_021e7148(arg0) || var13)
         {
-            func_0205eaa0(data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0(gSoundEffectManager_02108760, 1, 0);
             int var16 = arg0->unknown_13b8_ / 7;
             int var17 = arg0->unknown_13b8_ % 7;
             if (var16 >= 10)
@@ -256,7 +256,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
                         char* var18 = arg0->unknown_1428_;
                         arg0->unknown_1375_ -= 2;
                         var18 += arg0->unknown_1375_;
-                        memcpy(var18, func_02072a68(&arg0->unknown_1314_, 0x71), 2);
+                        memcpy(var18, FindStringInList_02072a68(&arg0->unknown_1314_, 0x71), 2);
                     }
                 }
                 else if (var17 == 4)
@@ -265,7 +265,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
                     if (arg0->unknown_1375_ >= 0x72)
                         arg0->unknown_1375_ = 0x70;
                     var19 += arg0->unknown_1375_;
-                    memcpy(var19, func_02072a68(&arg0->unknown_1314_, 0x7b), 2);
+                    memcpy(var19, FindStringInList_02072a68(&arg0->unknown_1314_, 0x7b), 2);
                     arg0->unknown_1375_ += 2;
                 }
                 else if (var17 == 5)
@@ -282,9 +282,9 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
                 }
                 char* var20;
                 if (arg0->unknown_1374_ == 0)
-                    var20 = func_02072a68(&arg0->unknown_1314_, var17 + 200);
+                    var20 = FindStringInList_02072a68(&arg0->unknown_1314_, var17 + 200);
                 else
-                    var20 = func_02072a68(&arg0->unknown_1314_, var17 + 300);
+                    var20 = FindStringInList_02072a68(&arg0->unknown_1314_, var17 + 300);
                 var20 += var16 * 2;
                 char var21[3];
                 memcpy(var21, var20, 2);
@@ -342,7 +342,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
     else if (arg0->unknown_1340_ == 10)
     {
         Struct_ov012_02189314_3* var22 = GetMessageWindow_020421a0();
-        StartMessage_0204500c(var22, func_02072a68(&arg0->unknown_1314_, 501), 0);
+        StartMessage_0204500c(var22, FindStringInList_02072a68(&arg0->unknown_1314_, 501), 0);
         var22->unknown_868_ = 1;
         arg0->unknown_1340_++;
         return;

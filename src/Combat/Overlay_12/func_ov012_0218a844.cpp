@@ -42,9 +42,9 @@ extern "C" void func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4
 extern "C" void func_02041ea4(char* arg0, int arg1);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_0205c508(Struct_0205c508* arg0, int* arg1, int* arg2);
-extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_02041a28(char* arg0, int arg1);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_02041b70(char* arg0, int arg1, const char* arg2);
 extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
 #if !defined(jpn)
@@ -54,14 +54,14 @@ extern "C" const char data_ov012_0218b310[];
 #endif
 
 #if defined(jpn)
-struct Struct_020465c0;
-struct Struct_02072a68_2;
-extern "C" void func_02046380(void*);
-extern "C" void func_020465c0(Struct_020465c0*, int, int);
+struct MessageWindow_020465c0;
+struct StringList_02072a68_2;
+extern "C" void ClearMessageParams_02046380(void*);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern "C" void func_02042428(char*, int);
-extern "C" const char* func_02072a68(Struct_02072a68_2*, int);
+extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 #endif
 
 // USA: func_ov012_0218a844
@@ -91,30 +91,30 @@ extern "C" ARM void func_ov012_0218a844(Struct_ov012_0218a844_2* arg0, char* arg
         if (var2 % 2 == 0)
         {
             if (var2 != var6)
-                func_02042058(arg1, arg0->unknown_1378_);
+                AppendText_02042058(arg1, arg0->unknown_1378_);
         }
         else
         {
             func_02041a28(arg1, LOW_REGION(0x7c, 0x88));
         }
-        func_02041b70(arg1, var2 & 0xf, func_020e0434((Struct_0201099c_3*)arg0->unknown_1344_, arg0->unknown_13c8_[var2]));
+        func_02041b70(arg1, var2 & 0xf, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_1344_, arg0->unknown_13c8_[var2]));
     }
     if (var5 > 1)
     {
 #if defined(jpn)
-        func_02046380(var1);
-        func_020465c0((Struct_020465c0*)var1, 0, var4 + 1);
-        func_020465c0((Struct_020465c0*)var1, 1, var5);
+        ClearMessageParams_02046380(var1);
+        SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var4 + 1);
+        SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 1, var5);
         func_020465f0((unsigned char*)var1, 0, 2);
         func_020465f0((unsigned char*)var1, 1, 2);
         func_020465d8((unsigned char*)var1, 0, 1);
         func_020465d8((unsigned char*)var1, 1, 0);
         func_02042428(arg1, 8);
-        func_02042058(arg1, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x1314), 0x7a));
+        AppendText_02042058(arg1, FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x1314), 0x7a));
 #else
         func_ov012_021842a0(arg0, 12, var4, var5);
         func_02041a90(arg1, 0x56, 0x94);
-        func_02042058(arg1, data_ov012_0218b310);
+        AppendText_02042058(arg1, data_ov012_0218b310);
 #endif
     }
 }

@@ -23,8 +23,8 @@ extern "C" unsigned short func_ov023_021f9bc0(struct Struct_ov004_021549e4_4* ar
 struct Struct_ov004_021549e4_3;
 extern "C" unsigned int func_ov023_021f9b6c(struct Struct_ov004_021549e4_3* arg0, unsigned int arg1, unsigned int arg2);
 
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 #if defined(jpn)
 extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 #else
@@ -58,8 +58,8 @@ extern "C" ARM int func_ov004_02166730(void* arg0, short arg1) {
     unsigned short var7 = func_ov023_021f9bc0((struct Struct_ov004_021549e4_4*)var4);
     unsigned int var8 = func_ov023_021f9b6c((struct Struct_ov004_021549e4_3*)var4, var6, var7);
 
-    void* var9 = func_ov011_021849c8(arg0);
-    void* var10 = func_ov023_021f6880(var9, var8);
+    void* var9 = GetMenuObjectList_ov011_021849c8(arg0);
+    void* var10 = FindMenuObjectById_ov023_021f6880(var9, var8);
     if (!var10) return (int)var10;
 
 #if defined(jpn)

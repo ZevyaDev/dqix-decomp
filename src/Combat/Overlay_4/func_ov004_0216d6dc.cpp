@@ -8,13 +8,13 @@
 
 extern "C" void func_0200fb94(char* arg0, unsigned char arg1);
 extern "C" void func_02012028(void* arg0, unsigned char arg1);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 // USA: func_ov004_0216d6dc
 extern "C" ARM int func_ov004_0216d6dc(void* arg0) {
     GameState* var0 = GameState::GetInstance();
     func_0200fb94((char*)var0, 9);
     func_02012028(var0, 0);
-    func_ov011_021848a0(arg0, 0x3e7);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3e7);
     return 0;
 }

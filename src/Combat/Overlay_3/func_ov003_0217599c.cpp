@@ -3,13 +3,13 @@
 #include "Memory/SafeAllocator.h"
 #include <globaldefs.h>
 
-struct Struct_0201099c_9;
-struct Struct_0201099c_10 {
+struct ItemData_0201099c_9;
+struct ItemTable_0201099c_10 {
     unsigned short unknown_0_;
     unsigned char unknown_2_[10];
-    struct Struct_0201099c_9* unknown_c_;
+    struct ItemData_0201099c_9* pItems_c_;
     unsigned char unknown_10_[4];
-    unsigned char unknown_14_;
+    unsigned char isSorted_14_;
 };
 struct Struct_02052e2c;
 struct Struct_02052df8;
@@ -51,7 +51,7 @@ struct Struct_ov003_0217e33c {
 struct Struct_0206b37c {
     SafeAllocator unknown_0_;
     char unknown_14_[0x18];
-    Struct_0201099c_10 *unknown_2c_;
+    ItemTable_0201099c_10 *unknown_2c_;
     int unknown_30_;
     int unknown_34_;
 };
@@ -66,18 +66,18 @@ struct Struct_ov003_0217599c_2 {
 #else
     char unknown1_0_[0x874];
 #endif
-    Struct_0201099c_10 unknown_874_;
-    char unknown_88c_[0x103a - 0x874 - sizeof(Struct_0201099c_10)];
+    ItemTable_0201099c_10 unknown_874_;
+    char unknown_88c_[0x103a - 0x874 - sizeof(ItemTable_0201099c_10)];
     short unknown_103a_;
     unsigned char unknown_103c_;
     char unknown_103d_[6];
     signed char unknown_1043_;
 };
 
-extern "C" int *func_0202ae18();
-extern "C" int func_0202b7d8(int *);
+extern "C" int *GetLocalWireless_0202ae18();
+extern "C" int IsLocalWirelessOn_0202b7d8(int *);
 extern "C" short *func_02052e2c(Struct_02052e2c *);
-extern "C" Struct_ov003_0217599c_4 *func_020dedd0(Struct_0201099c_10 *, int);
+extern "C" Struct_ov003_0217599c_4 *func_020dedd0(ItemTable_0201099c_10 *, int);
 extern "C" void *func_020de824(void *);
 extern "C" void func_0207cbe8(char *);
 extern "C" void func_0207cc18(void *, Struct_ov003_0217599c_4 *);
@@ -85,7 +85,7 @@ extern "C" void func_0207cc0c(char *);
 extern "C" int func_020dd4c4(int, void *);
 extern "C" int func_02052df8(Struct_02052df8 *, int);
 extern "C" void func_02052d7c(Struct_ov003_0217599c *, int, short);
-extern "C" void *func_02053c6c(unsigned char *);
+extern "C" void *GetPartyMemberData_02053c6c(unsigned char *);
 extern "C" void func_0208358c(void *, Struct_ov003_0217599c_4 *, int);
 extern "C" void func_0207c378(char *, int, int, int);
 static inline int inline_ov003_0217599c(unsigned int arg0) {
@@ -108,7 +108,7 @@ extern Struct_ov003_0217e33c data_ov003_0217faac;
 // USA: func_ov003_0217599c
 extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
     GameState *var0        = GameState::GetInstance();
-    int *var1          = func_0202ae18();
+    int *var1          = GetLocalWireless_0202ae18();
     Struct_ov003_0217599c *var2 = (Struct_ov003_0217599c *) func_0200ff1c(var0, arg0->unknown_1043_);
     if (!var2) return 0;
     if (!func_02052e2c((Struct_02052e2c *) var2)) return 0;
@@ -132,12 +132,12 @@ extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
     int var6 = data_ov003_0217faf4[var4];
 #endif
     if (var6 < 0) return 1;
-    char *var7      = (char *) func_02010828(var0);
+    char *var7      = (char *) GetParty_02010828(var0);
     int var8 = func_02052df8((Struct_02052df8 *) var2, var6);
     int var9       = arg0->unknown_103a_ == var8;
     if (!var9) {
         func_02052d7c(var2, var6, arg0->unknown_103a_);
-        func_0208358c(func_02053c6c((unsigned char *) var2), var3, -1);
+        func_0208358c(GetPartyMemberData_02053c6c((unsigned char *) var2), var3, -1);
     }
     if (func_020dedd0(&arg0->unknown_874_, var8)) {
         func_0207c378(var7 + 0x1d4, var8, 1, var4);
@@ -170,7 +170,7 @@ extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
             func_0207c378(var7 + 0x1d4, var14->unknown_18_, 1, var14->unknown_8_0_);
         }
     }
-    if (func_0202b7d8(var1)) {
+    if (IsLocalWirelessOn_0202b7d8(var1)) {
         func_ov017_021c3fb4(arg0->unknown_1043_, 1);
         func_ov017_021c4418(arg0->unknown_1043_, -1);
     }

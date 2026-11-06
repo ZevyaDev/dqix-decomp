@@ -19,11 +19,11 @@ struct Struct_0201099c_3;
 struct Struct_0205d6a0;
 
 extern "C" char* GetMessageWindow_020421a0();
-extern "C" void func_02043204(char* arg0);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" void ResetMessageWindow_02043204(char* window);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov003_0215cab0(void* arg0, int arg1);
 
 struct Struct_ov003_0215da0c {
@@ -51,21 +51,21 @@ extern "C" ARM void func_ov003_0215da0c(struct Struct_ov003_0215da0c* arg0) {
 
     var1 = GameState::GetInstance();
     var0 = GetMessageWindow_020421a0();
-    var2 = func_0202ae18();
+    var2 = GetLocalWireless_0202ae18();
 
     var4 = 0;
-    if (func_0202c508(var2) && var1->GetUnknownGameObject()->obj3D_.unknown_4_ == 0) {
+    if (IsNotLocalWirelessGuest_0202c508(var2) && var1->GetUnknownGameObject()->obj3D_.unknown_4_ == 0) {
         var4 = 1;
     }
     var5 = 0;
-    if (func_0202c508(var2) && var1->GetUnknownGameObject()->obj3D_.unknown_4_ != 0) {
+    if (IsNotLocalWirelessGuest_0202c508(var2) && var1->GetUnknownGameObject()->obj3D_.unknown_4_ != 0) {
         var5 = 1;
     }
 
     var3 = arg0->unknown_3b8_;
     if (var3 == 0) {
         if (arg0->unknown_3f3_) {
-            func_02043204(var0);
+            ResetMessageWindow_02043204(var0);
             arg0->unknown_3b8_++;
             return;
         }
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov003_0215da0c(struct Struct_ov003_0215da0c* arg0) {
                 var6 = 0x73;
             }
         }
-        func_ov003_0215cab0(arg0, func_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, var6));
+        func_ov003_0215cab0(arg0, FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, var6));
         arg0->unknown_3b8_++;
     }
     if (var3 == 1 && *(int*)(var0 + Enum_ov003_0215da0c_2456) == 0) {

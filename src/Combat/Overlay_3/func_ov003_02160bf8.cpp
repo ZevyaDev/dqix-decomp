@@ -9,7 +9,7 @@ extern "C" ARM void* func_ov003_02160bf8(void* arg0, int arg1) {
     if (arg1 < 0) {
         return 0;
     }
-    var1 = (unsigned char*)func_02010828(GameState::GetInstance());
+    var1 = (unsigned char*)GetParty_02010828(GameState::GetInstance());
     var0 = (signed char*)var1 + 0xf80;
     var1 += 0x2000;
     var2 = 0;

@@ -7,17 +7,17 @@ struct Struct_02093428_5;
 extern "C" void GetZone3D_02012fe4();
 extern "C" int func_020457e0(char* arg0);
 extern "C" void func_020531f0(GameObject* arg0);
-extern "C" void func_02043124(char* arg0);
+extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void func_020945ac(struct Struct_02093428_5* arg0);
 extern "C" void func_0200fb40(void* arg0);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_02011b24(struct Struct_02011b24* arg0);
 extern "C" void func_02011af0(void* arg0);
 extern "C" void func_ov017_021acd30(char* arg0, unsigned char arg1, unsigned char arg2, unsigned char arg3);
 extern "C" void func_ov017_021cf4b0(int arg0, int arg1);
 extern "C" void func_ov017_021d1810(int, int, signed char);
-extern "C" int func_020100a8(GameState* arg0);
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int* func_020936f8(void);
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" int func_020535c8(signed char* arg0);
@@ -73,11 +73,11 @@ extern "C" ARM void func_02093428(struct Struct_02093428_6* arg0) {
     GameState* var0 = GameState::GetInstance();
     char* var1 = GetMessageWindow_020421a0();
     GetZone3D_02012fe4();
-    unsigned char var2 = func_020100a8(var0);
+    unsigned char var2 = GetProtagonistObjectIndex_020100a8(var0);
     unsigned char var3 = arg0->unknown_35_;
 
     if (var3 == 0) {
-        struct Struct_02093428* var4 = (struct Struct_02093428*)func_02010828(var0);
+        struct Struct_02093428* var4 = (struct Struct_02093428*)GetParty_02010828(var0);
         unsigned char var5 = var4->unknown_f7c_;
         for (unsigned char var6 = 0; var6 < var5; var6++) {
             GameObject* var7 = func_0200ff1c(var0, var4->unknown_f78_[var6]);
@@ -105,7 +105,7 @@ extern "C" ARM void func_02093428(struct Struct_02093428_6* arg0) {
         arg0->unknown_30_ = 3;
         arg0->unknown_35_ = 4;
         func_ov017_021cf4b0(var2, 3);
-        func_ov017_021d1810(10000, -1, (signed char)func_020100a8(var0));
+        func_ov017_021d1810(10000, -1, (signed char)GetProtagonistObjectIndex_020100a8(var0));
         return;
     }
 
@@ -130,7 +130,7 @@ extern "C" ARM void func_02093428(struct Struct_02093428_6* arg0) {
                 }
             }
         }
-        func_ov017_021acd30((char*)func_0200fb8c((int*)var0), 1, var9, 0);
+        func_ov017_021acd30((char*)GetResources_0200fb8c((int*)var0), 1, var9, 0);
         func_02011af0(var0);
         if (((struct Struct_02093428_3*)var0)->unknown_7f75_ != 0) {
             func_02011b24((struct Struct_02011b24*)var0);
@@ -142,8 +142,8 @@ extern "C" ARM void func_02093428(struct Struct_02093428_6* arg0) {
     }
 
     if (var3 == 3) {
-        func_02043204(var1);
-        func_02043124(var1);
+        ResetMessageWindow_02043204(var1);
+        CloseMessageWindow_02043124(var1);
         func_020945ac((struct Struct_02093428_5*)func_020936f8());
         arg0->unknown_34_ = 4;
         arg0->unknown_35_ = 0;

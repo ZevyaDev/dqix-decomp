@@ -16,7 +16,7 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0205bb84;
 
 struct Struct_ov005_02153954 {
@@ -35,10 +35,10 @@ struct Struct_ov005_02153954 {
     unsigned int unknown_3dcc_;
 };
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov005_02157190(void* arg0);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" int func_0205bb84(Struct_0205bb84* arg0);
@@ -51,9 +51,9 @@ extern "C" ARM void func_ov005_0215742c(Struct_ov005_02153954* arg0) {
         func_ov005_0215792c(arg0, 3);
         arg0->unknown_3dbb_ = arg0->unknown_3dbc_;
         if (g_keyManager.TestKeysPressed(0x80))
-            func_0205eaa0((Struct_02108760*)&data_02108760, 2, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 2, 0);
         else if (func_ov005_02157190(arg0))
-            func_0205eaa0((Struct_02108760*)&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
         func_ov005_021579ec(arg0, arg0->unknown_3db8_, arg0->unknown_3dbb_);
         return;
     }

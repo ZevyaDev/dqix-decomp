@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_0202ae24(void);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
 struct Struct_ov017_021c6814 {
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_021c6814(unsigned short arg0, unsigned short arg1
 	var2->unknown_6_ = arg2->unknown_8_;
 	var2->unknown_d_0_ = arg3;
 
-	var2->unknown_d_2_ = func_020100a8(var3);
+	var2->unknown_d_2_ = GetProtagonistObjectIndex_020100a8(var3);
 	var2->unknown_e_ = arg4;
 	var2->unknown_d_1_ = arg5;
 

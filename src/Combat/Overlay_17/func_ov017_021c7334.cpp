@@ -10,7 +10,7 @@ enum { Enum_ov017_021c7334_14104 = 0x3718 };
 extern "C" void* func_ov017_021b8478(void* arg0);
 extern "C" void* func_ov017_021b8468(void* arg0);
 extern "C" ARM void* func_ov017_021b8470(void* arg0);
-extern "C" ARM int func_020100a8(GameState* arg0);
+extern "C" ARM int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 struct Struct_ov017_021c7334 {
     char unknown_0_[4];
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov017_021c7334(void* arg0, struct Struct_ov017_021c7334
     if (!func_ov017_021b8470(var0)) {
         return;
     }
-    int var2 = func_020100a8(arg2);
+    int var2 = GetProtagonistObjectIndex_020100a8(arg2);
     if (*(signed char*)((char*)var1 + 0x2a) == var2) {
         return;
     }

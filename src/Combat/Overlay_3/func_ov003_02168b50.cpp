@@ -40,7 +40,7 @@ struct Struct_ov003_02168b50_3 {
 
 struct Struct_0201099c_3;
 struct Struct_02046574_2;
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 struct Struct_0205d81c;
 
 struct Struct_ov003_02168b50_4 {
@@ -59,11 +59,11 @@ struct Struct_ov003_02168b50_4 {
 extern "C" struct Struct_ov003_02168b50* GetMessageWindow_020421a0();
 extern "C" struct Struct_ov003_02168b50_2* func_0206f504();
 extern "C" int func_02041fe8(char* arg0, int arg1);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
-extern "C" int func_02042058(char* arg0, const char* arg1);
-extern "C" void func_02046380(void* arg0);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
-extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 
 #if defined(jpn)
@@ -86,17 +86,17 @@ extern "C" ARM void func_ov003_02168b50(struct Struct_ov003_02168b50_4* arg0) {
         if (var2->unknown_10_[0] != 0) {
             func_02041fe8(arg0->unknown_7c_, (int)var2->unknown_10_);
         }
-        func_02042058(arg0->unknown_7c_, (const char*)func_020e0434(var1, 0x3e8));
+        AppendText_02042058(arg0->unknown_7c_, (const char*)FindStringInTable_020e0434(var1, 0x3e8));
         GameState* var3 = GameState::GetInstance();
-        struct Struct_ov003_02168b50_3* var4 = (struct Struct_ov003_02168b50_3*)func_02010828(var3);
-        func_02046380(var0);
+        struct Struct_ov003_02168b50_3* var4 = (struct Struct_ov003_02168b50_3*)GetParty_02010828(var3);
+        ClearMessageParams_02046380(var0);
         func_02046574((struct Struct_02046574_2*)var0, 0, (char*)var3->GetProtagonist()->baseStats_);
         if (var4->unknown_f68_ != 0) {
-            func_020465c0((struct Struct_020465c0*)var0, 0, var4->unknown_f68_);
+            SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var0, 0, var4->unknown_f68_);
             func_020465f0((unsigned char*)var0, 0, 0);
-            func_02042058(arg0->unknown_7c_, (const char*)func_020e0434(var1, 0x3ea));
+            AppendText_02042058(arg0->unknown_7c_, (const char*)FindStringInTable_020e0434(var1, 0x3ea));
         } else {
-            func_02042058(arg0->unknown_7c_, (const char*)func_020e0434(var1, 0x3e9));
+            AppendText_02042058(arg0->unknown_7c_, (const char*)FindStringInTable_020e0434(var1, 0x3e9));
         }
         var0->unknown_998_ = 1;
 #if defined(jpn)

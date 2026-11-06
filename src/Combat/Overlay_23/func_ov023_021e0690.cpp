@@ -4,7 +4,7 @@
 
 struct Struct_020534ac;
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3*, int);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
 extern "C" char* func_020e046c(char* arg0, void* arg1, void* arg2, int arg3);
 extern "C" void func_020df83c(void* arg0);
 struct Struct_0201099c_14;
@@ -52,7 +52,7 @@ extern "C" ARM int func_ov023_021e0690(void* arg0) {
 #if defined(jpn)
             strcpy(var0 + Enum_ov023_021e0690_1584, data_ov023_021fcf09);
 #else
-            char* var3 = (char*)func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x29);
+            char* var3 = (char*)FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x29);
             strcpy(var0 + Enum_ov023_021e0690_1584, var3);
 #endif
 

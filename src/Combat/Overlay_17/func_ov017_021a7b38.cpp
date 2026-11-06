@@ -17,9 +17,9 @@ extern "C" int func_02046b38(struct Struct_02046b38* arg0, struct Struct_02046b3
 extern "C" int _s32_div_f(int a, int b);
 extern "C" void func_ov017_021b6f18(void* arg0);
 extern "C" void func_ov017_021b7104(void* arg0, void* arg1);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 struct Struct_ov017_021a3544_2 {
     char unknown_0_[0x1];
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov017_021a7b38(struct Struct_ov017_021a3544_2* arg0, vo
         arg0->unknown_20_ = 1;
         func_ov017_021b6f18(var2);
         func_ov017_021b7104(var2, (char*)arg0 + 0xc);
-        func_020469b4((struct Struct_0201bdac_2*)var1, (struct Struct_0201bdac*)var2);
+        AppendToQueue_020469b4((struct Queue_0201bdac_2*)var1, (struct QueueNode_0201bdac*)var2);
     }
     arg0->unknown_8_ = arg0->unknown_8_ + 1;
     arg0->unknown_1_ = 1;

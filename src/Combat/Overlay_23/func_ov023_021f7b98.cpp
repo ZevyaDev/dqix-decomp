@@ -21,11 +21,11 @@ struct Struct_02020cb8 {
 };
 extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
 
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 
-struct Struct_02020aec;
-extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
 extern "C" void func_0204b2e0(void* arg0, char* arg1);
 
@@ -42,7 +42,7 @@ struct Struct_ov023_021f7b98 {
 };
 
 // USA: func_ov023_021f7b98
-extern "C" ARM void func_ov023_021f7b98(struct Struct_ov023_021f7b98* arg0, void* arg1, int arg2, struct Struct_02020aec* arg3, unsigned int arg4) {
+extern "C" ARM void func_ov023_021f7b98(struct Struct_ov023_021f7b98* arg0, void* arg1, int arg2, struct PacEntry_02020aec* arg3, unsigned int arg4) {
     int var0;
     void* var1;
     struct Struct_02020cb8 var2;
@@ -50,9 +50,9 @@ extern "C" ARM void func_ov023_021f7b98(struct Struct_ov023_021f7b98* arg0, void
     if (arg3 == 0 || arg4 == 0) {
         return;
     }
-    int var3 = func_02046900((struct Struct_02020cb8_4*)arg3);
+    int var3 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)arg3);
     for (int var4 = 0; var4 < var3; var4++) {
-        char* var5 = (char*)func_020467f0(arg3, var4, &var1, &var0);
+        char* var5 = (char*)GetPacEntryData_020467f0(arg3, var4, &var1, &var0);
         if (var5) {
             func_0204af64(&var2);
             var2.inline_ov023_021f7b98_3(arg0->unknown_28_.inline_ov023_021f7b98());

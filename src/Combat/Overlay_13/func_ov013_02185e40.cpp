@@ -9,12 +9,12 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_020420e8(void* arg0, int arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 #if defined(jpn)
-extern "C" void func_02046380(void*);
+extern "C" void ClearMessageParams_02046380(void*);
 extern "C" unsigned int strlen(const char*);
 extern "C" int func_02042638(char*, const char*, int);
 extern char data_ov013_02188d4c[];
 #else
-extern "C" void func_02046380(void);
+extern "C" void ClearMessageParams_02046380(void);
 #endif
 
 struct Struct_ov013_021846a0_2 {
@@ -51,20 +51,20 @@ struct Struct_ov013_021846a0_2 {
 };
 
 struct Struct_0201099c_3;
-extern "C" ARM int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" ARM int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" ARM int func_02041a5c(char* arg0, int arg1);
 extern "C" ARM int func_02041a28(char* arg0, int arg1);
 extern "C" ARM int func_02041acc(char* arg0, int arg1);
 extern "C" ARM int func_02041e70(char* arg0, int arg1);
-extern "C" ARM int func_02042058(char* arg0, const char* arg1);
+extern "C" ARM int AppendText_02042058(char* buffer, const char* text);
 extern "C" ARM int func_020e51cc(int arg0);
 extern "C" ARM int func_02041fac(char* arg0, int arg1, int arg2);
 extern "C" void* GetMessageWindow_020421a0(void);
 
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 extern "C" ARM void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
 extern "C" ARM void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
-extern "C" ARM void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" ARM void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 
 extern char data_ov013_02187e3c;
 extern char data_ov013_02187e3f;
@@ -96,8 +96,8 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
     var5 = 5;
     if (var6 == 0xa) var5 = 0xd;
     int var7 = 0x31 - (int)(((float)var2 / 4.0f) * 10.0f);
-    int var8 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, (short)(var6 + 0x12c));
-    int var9 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, (short)(arg0->unknown_6a8_ + 0xc8));
+    int var8 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, (short)(var6 + 0x12c));
+    int var9 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, (short)(arg0->unknown_6a8_ + 0xc8));
     sprintf(arg1, data_ov013_02188d4c, var7, arg0->unknown_6a4_, var9, var3, var5, var8, var4, arg0->unknown_6b0_);
 #else
     char var10[0x200];
@@ -106,35 +106,35 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
     int var11 = func_020420e8((void*)arg0->unknown_6a4_, 0);
     if (arg0->unknown_6b8_ != 0) {
         int var12 = (short)(arg0->unknown_6b8_ + 0x12c);
-        int var13 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, var12);
+        int var13 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, var12);
         int var14 = 5;
         if (arg0->unknown_6b8_ == 0xa) var14 = 0xd;
 
         func_02041a5c(var10, 4);
-        func_02042058(var10, arg0->unknown_6a4_);
+        AppendText_02042058(var10, arg0->unknown_6a4_);
         func_02041acc(var10, 0x10);
         func_02041e70(var10, var14);
-        func_02042058(var10, (const char*)var13);
+        AppendText_02042058(var10, (const char*)var13);
         func_02041acc(var10, 4);
         func_02041e70(var10, 0xf);
         int var15 = func_020e51cc(0x3f3);
-        func_02042058(var10, (const char*)var15);
+        AppendText_02042058(var10, (const char*)var15);
 
         char var16[0x10];
         __clear(var16, 0x10);
         sprintf(var16, &data_ov013_02187e3c, arg0->unknown_6b0_);
-        func_02042058(var10, var16);
+        AppendText_02042058(var10, var16);
     } else {
         func_02041a5c(var10, 4);
-        func_02042058(var10, arg0->unknown_6a4_);
+        AppendText_02042058(var10, arg0->unknown_6a4_);
         func_02041acc(var10, 0x12);
         int var17 = func_020e51cc(0x3f3);
-        func_02042058(var10, (const char*)var17);
+        AppendText_02042058(var10, (const char*)var17);
 
         char var18[0x10];
         __clear(var18, 0x10);
         sprintf(var18, &data_ov013_02187e3c, arg0->unknown_6b0_);
-        func_02042058(var10, var18);
+        AppendText_02042058(var10, var18);
     }
 
     char var19[0x100];
@@ -150,7 +150,7 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
     arg0->unknown_1e_ = (short)(var11 + (var22 >> 1) + 1);
     func_02041a28(arg1, var22 >> 1);
 
-    func_02042058(arg1, var10);
+    AppendText_02042058(arg1, var10);
 #endif
 #if defined(jpn)
     func_02042638(arg1, &data_ov013_02187e44, 0x10);
@@ -160,9 +160,9 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
 
     void* var23 = GetMessageWindow_020421a0();
 #if defined(jpn)
-    func_02046380(var23);
+    ClearMessageParams_02046380(var23);
 #else
-    func_02046380();
+    ClearMessageParams_02046380();
 #endif
 
     int var24[7] = {
@@ -173,21 +173,21 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
     for (int var25 = 0; var25 < 7; var25++) {
         func_020465d8((unsigned char*)var23, var25, 1);
         func_020465f0((unsigned char*)var23, var25, 3);
-        func_020465c0((struct Struct_020465c0*)var23, var25, var24[var25]);
+        SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var23, var25, var24[var25]);
     }
 
     for (int var26 = 0; var26 < 5; var26++) {
-        int var27 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, var0++);
-        func_02042058(arg1, (const char*)var27);
+        int var27 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, var0++);
+        AppendText_02042058(arg1, (const char*)var27);
 
         short var28 = data_ov013_02187dac[var26];
         func_02041a28(arg1, var28);
 
-        int var29 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, var1++);
-        func_02042058(arg1, (const char*)var29);
+        int var29 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, var1++);
+        AppendText_02042058(arg1, (const char*)var29);
 
         if (var26 != 4) {
-            func_02042058(arg1, &data_ov013_02187e45);
+            AppendText_02042058(arg1, &data_ov013_02187e45);
         }
     }
 }

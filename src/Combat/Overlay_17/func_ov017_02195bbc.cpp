@@ -23,7 +23,7 @@ extern "C" void func_0202343c(void* arg0);
 extern "C" Struct_0203dde0_2* func_0203cf4c();
 extern "C" void func_0203de84(void* arg0);
 extern "C" void func_0203dde0(Struct_0203dde0_2* arg0);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int NSBXX_Model_GetMaterialPolygonID(NSBXXInternalModel* model, unsigned int materialIndex);
 extern "C" void func_0208f87c(const void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_02057a10(Struct_02057a10* arg0);
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov017_02195bbc(Struct_ov017_02195bbc* arg0) {
 
     if (TestFlags04((GameResources*)(arg0->unknown_0_), 0x100) == 0) {
         var10 = GameState::GetInstance();
-        func_0202ae18();
+        GetLocalWireless_0202ae18();
         var0 = GetZone3D_02012fe4();
         var9 = var0->substruct_c_.unknown_2c_;
         for (var8 = 0xa0; var8 <= 0xbf; var8++) {

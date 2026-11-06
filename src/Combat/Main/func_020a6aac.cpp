@@ -4,17 +4,14 @@
 #include "World/Zone3D.h"
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define data_020e909c data_020e91a8
 #endif
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0202ae18(void);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void* func_020100f8(char* arg0);
 
 struct Struct_0200ffc0
@@ -32,8 +29,8 @@ extern "C" void func_020a2770(void* arg0, short arg1);
 
 extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
 
-extern "C" int func_0202c508(void* arg0);
-extern "C" int func_0202c540(void* arg0);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 
 extern "C" void func_ov017_021d1a18(int arg0, short arg1, short arg2, unsigned char arg3);
 
@@ -118,8 +115,8 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
     GameState* var0 = GameState::GetInstance();
     Zone3D* var1 = (Zone3D*)GetZone3D_02012fe4();
     LightingManager::GetInstance();
-    void* var2 = func_0202ae18();
-    func_0205ec34();
+    void* var2 = GetLocalWireless_0202ae18();
+    GetFlagManager_0205ec34();
     Struct_020a6aac_2* var3 = (Struct_020a6aac_2*)func_020100f8((char*)var0);
     Struct_020a6aac_3* var4 = (Struct_020a6aac_3*)func_0200ffc0((struct Struct_0200ffc0*)var0);
     GameObject* var5 = var0->GetUnknownGameObject();
@@ -162,11 +159,11 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
         var4->unknown_144_ = var10->unknown_0_;
         int var11 = var1->unknown_2774_.unknown_c_;
         func_0203db34((unsigned char*)var4, 0, var11, 0);
-        if (func_0202c508(var2) != 0 && var8 == 0) {
+        if (IsNotLocalWirelessGuest_0202c508(var2) != 0 && var8 == 0) {
             var1->unknown_2774_.unknown_14_ = 1;
             func_ov017_021d1a18(1, -1, 1, 0);
         }
-        if (func_0202c540(var2) != 0) {
+        if (IsLocalWirelessGuest_0202c540(var2) != 0) {
             var4->unknown_0_.position_.x = 0x19000;
             var4->unknown_0_.position_.y = 0x199;
             var4->unknown_0_.position_.z = 0x38ccc;
@@ -239,7 +236,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
             func_020a2770(var3, var23->obj3D_.unknown_4_);
             ClearFlags04((GameResources*)arg0, 0x10004);
             func_0200fd48(var0, 0xc9);
-            if (func_0202c540(var2) != 0) {
+            if (IsLocalWirelessGuest_0202c540(var2) != 0) {
                 if (var1->unknown_2774_.unknown_14_ == 0) {
                     func_0201b8c8((struct Struct_02017a94*)var1, 0, 1, 0);
                 } else {

@@ -8,9 +8,6 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
@@ -99,13 +96,13 @@ struct Struct_ov003_021575dc_4 {
     unsigned char unknown_338_;
 };
 
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetParty_02010828(GameState*);
 
 extern "C" int func_02080468(void* arg0, int arg1);
 struct Struct_02081f20_2;
 extern "C" void func_0208203c(Struct_02081f20_2*);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 struct Struct_0207fe44;
 extern "C" void func_0207fe44(Struct_0207fe44*);
 extern "C" int func_ov003_02155ffc(void* arg0, int arg1);
@@ -131,12 +128,12 @@ extern "C" void* func_020a15bc(Struct_020a15bc*, int);
 struct Struct_ov003_021575dc_2;
 extern "C" void func_ov003_02158140(Struct_ov003_021575dc_2*, int);
 
-extern "C" int func_020100a8(GameState*);
-extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" void func_020de848(void* arg0);
 extern "C" ARM int func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_020dc2d0(int);
 struct GameResources;
 ARM int IsBrightnessTransitionActive(GameResources*);
@@ -146,7 +143,7 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" ARM int func_020813ec(void* arg0, int arg1);
 extern "C" void func_0207d300(void* arg0, int arg1, int arg2, int arg3);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_020e046c(void* arg0, void* arg1, int arg2, int arg3);
 extern "C" void func_02082490(void* arg0, void* arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov003_02158334(void* arg0);
@@ -165,12 +162,12 @@ extern "C" void func_ov023_021eb564(void* arg0, void* arg1, int arg2);
 extern "C" void func_ov023_021eb43c(void* arg0);
 extern "C" void func_ov023_021eb26c(void* arg0);
 
-extern char data_02108760;
+extern char gSoundEffectManager_02108760;
 extern char data_ov003_0217fdbb;
 extern const char* data_020f2a38;
 extern const char* data_020f2a30;
 extern short data_ov003_0217f2e8[];
-extern char data_02109bf4;
+extern char gMusicManager_02109bf4;
 extern short data_ov003_0217f2ce[];
 extern char data_ov003_0217fdd0;
 extern char data_ov003_0217fde7;
@@ -179,7 +176,7 @@ extern char data_ov003_0217fde7;
 extern "C" ARM void func_ov003_021575dc(void* arg0) {
     Struct_ov003_021575dc_4* var0 = (Struct_ov003_021575dc_4*)arg0;
     GameState* var1 = GameState::GetInstance();
-    void* var2 = func_02010828(var1);
+    void* var2 = GetParty_02010828(var1);
     unsigned char var3 = var0->unknown_1f9_;
     void* var4;
     short* var5 = var0->unknown_1ec_;
@@ -205,7 +202,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
     } else if (var3 == 1) {
         var0->unknown_8_ = &var0->unknown_1e2_;
         if (func_ov003_021550dc(arg0) != 0) {
-            func_0205eaa0((Struct_02108760*)&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
             func_0208203c((Struct_02081f20_2*)var0->unknown_80_);
             var0->unknown_8_ = 0;
             int var9 = func_02080468(var6, var0->unknown_1e6_);
@@ -320,12 +317,12 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
             var0->unknown_1f9_ = 0x32;
         }
     } else if (var3 == 9) {
-        func_02043204((char*)GetMessageWindow_020421a0());
+        ResetMessageWindow_02043204((char*)GetMessageWindow_020421a0());
         func_ov003_02158a50((unsigned char*)arg0);
-        func_0209c830((Struct_02109bf4_2*)&data_02109bf4, 0x34);
+        func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x34);
         var0->unknown_1f9_ = var0->unknown_1f9_ + 1;
     } else if (var3 == 0xa) {
-        if (func_0209ca2c(&data_02109bf4) != 0) {
+        if (func_0209ca2c(&gMusicManager_02109bf4) != 0) {
             goto tail;
         }
         if (var0->unknown_280_.HasAnimationStopped() == 0) {
@@ -341,8 +338,8 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
             var34 = var35->unknown_950_;
         }
         if (var34 > 0) {
-            void* var36 = func_0205ec34();
-            if (func_0206dfb0((int)var36, (unsigned char*)var36 + 0x8c, var34 + 0x8b + 0x1100) == 0) {
+            void* var36 = GetFlagManager_0205ec34();
+            if (IsFlagSet_0206dfb0((int)var36, (unsigned char*)var36 + 0x8c, var34 + 0x8b + 0x1100) == 0) {
                 func_0206df6c(var36, (unsigned char*)var36 + 0x8c, var34 + 0x8b + 0x1100, 1);
                 var5[0] = 0x16;
                 var5[1] = 0x17;
@@ -371,7 +368,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
         short var38[12];
         __clear(var38, 0x18);
         unsigned short var39 = 0;
-        int var40 = func_020100a8(var1);
+        int var40 = GetProtagonistObjectIndex_020100a8(var1);
         Struct_ov003_021575dc_7* var41 = (Struct_ov003_021575dc_7*)func_0200ff1c(var1, var40);
         for (int var42 = 1; var42 < 13; var42++) {
             Struct_ov003_021575dc_6* var43 = var41->unknown_150_;
@@ -484,7 +481,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
             }
         }
     } else if (var3 == 0x66) {
-        Struct_0208cb08* var68 = func_02094a00();
+        FontLoader_0208cb08* var68 = func_02094a00();
         func_02094b40(var68);
         func_02094b34(var68, 0x66, 501, 0, 0);
         var0->unknown_1f9_ = var0->unknown_1f9_ + 1;

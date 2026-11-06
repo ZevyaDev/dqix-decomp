@@ -2,7 +2,7 @@
 
 struct Struct_02038598_4;
 extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
 
 struct Struct_ov017_021a3544_3 {
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov017_021aef0c(Struct_ov017_021a3544_3* arg0, void* arg
 	arg0->unknown_8_ = var0.unknown_0_[arg0->unknown_8_](arg0);
 
 	if (arg0->unknown_1_ != 0) {
-		func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 0x800000);
+		func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x800000);
 		func_020daf9c(0, 1, 0, 1);
 	}
 }

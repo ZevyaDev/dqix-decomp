@@ -7,7 +7,7 @@ enum { Enum_ov004_021652bc_2456 = 0x998 };
 #endif
 
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 // USA: func_ov004_021652bc
 #if defined(jpn)
@@ -17,7 +17,7 @@ extern "C" ARM int func_ov004_021652bc(void* arg0)
 #endif
 {
     if (*(int*)((char*)GetMessageWindow_020421a0() + Enum_ov004_021652bc_2456) == 0) {
-        func_ov011_021848a0(arg0, 0x65);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x65);
     }
     return 0;
 }

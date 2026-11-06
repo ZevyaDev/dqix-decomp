@@ -8,8 +8,8 @@ extern "C" void* func_ov004_02168fa4(void*, int);
 
 extern "C" void* func_ov004_02168aa0(void* arg0, int arg1);
 #define TYPE1_LOOKUP func_ov004_02168aa0
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" int func_0204c7e0(unsigned char* arg0);
 extern "C" void func_ov023_021f8120(void* arg0);
@@ -22,10 +22,10 @@ struct Struct_ov004_021698f4;
 extern "C" void* func_ov023_021f9c0c(struct Struct_ov004_021698f4* arg0);
 extern "C" void func_ov023_021fb274(void* arg0, int arg1);
 extern "C" void func_ov004_02169658(void* arg0);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 struct Struct_ov004_0216986c {
 #if defined(jpn)
  char unknown_0_[0x20];
@@ -34,7 +34,7 @@ struct Struct_ov004_0216986c {
 #endif
  unsigned char unknown_1a0_; };
 extern Struct_ov004_0216986c* data_ov004_02171030;
-extern struct Struct_02108760 data_02108760;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 // USA: func_ov004_021698f4
 extern "C" ARM int func_ov004_021698f4(void* arg0) {
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov004_021698f4(void* arg0) {
 #if defined(jpn)
     void* var2 = func_ov004_02168fa4(arg0, 0x15);
 #else
-    void* var2 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x15);
+    void* var2 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x15);
     if (!var2 || func_ov023_021f6f10(var2) != 6) var2 = 0;
 #endif
 
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov004_021698f4(void* arg0) {
             func_ov023_021f8120(var2);
             void* var4 = func_ov011_021845f8(arg0, 2);
             if (var4) {
-                func_ov023_021f6844(func_ov011_021849c8(arg0), 2);
+                func_ov023_021f6844(GetMenuObjectList_ov011_021849c8(arg0), 2);
                 ((SafeAllocator*)((char*)var4 + 4))->Reset();
             }
             func_ov011_021849e0((struct Struct_ov004_02158dcc*)arg0, 0);
@@ -69,13 +69,13 @@ extern "C" ARM int func_ov004_021698f4(void* arg0) {
 
     func_ov023_021fb274(var1, 2);
     func_ov004_02169658(arg0);
-    func_ov011_021848a0(arg0, 0x53);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x53);
     if (var0) {
         func_ov011_021849e0((struct Struct_ov004_02158dcc*)arg0, 0x64);
     }
 
     if (data_ov004_02171030->unknown_1a0_ != 0) {
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
     }
     data_ov004_02171030->unknown_1a0_ = 0;
     return 0;

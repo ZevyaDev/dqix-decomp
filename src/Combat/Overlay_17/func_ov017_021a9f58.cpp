@@ -3,7 +3,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" int func_02094a00(void);
 extern "C" void func_02094ab0(void);
 struct GameResources;
@@ -14,7 +14,7 @@ extern "C" void func_ov017_021a9fa0(int arg0);
 // USA: func_ov017_021a9f58
 extern "C" ARM void func_ov017_021a9f58(int arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_02043204((char*)(long)GetMessageWindow_020421a0());
+    ResetMessageWindow_02043204((char*)(long)GetMessageWindow_020421a0());
     func_02094a00();
     func_02094ab0();
     SetMainBrightness(GetGameResources(), 0, 0x14);

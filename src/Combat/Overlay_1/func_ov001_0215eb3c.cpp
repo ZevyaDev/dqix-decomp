@@ -9,8 +9,8 @@ enum { Enum_ov001_0215eb3c_716 = 0x2cc };
 #endif
 
 extern "C" int func_ov017_021d60f4(void*);
-extern "C" int func_0200fb8c(int* arg0);
-extern "C" void func_0207dfac(char* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 struct Struct_ov001_0215eb3c {
     int unknown_0_[10];
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov001_0215eb3c(void* arg0, int arg1) {
     if (var0 == NULL) {
         return 0;
     }
-    var1 = func_0200fb8c((int*)var0);
+    var1 = GetResources_0200fb8c((int*)var0);
     if (var1 == 0) {
         return 0;
     }
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov001_0215eb3c(void* arg0, int arg1) {
     if (var2 == 0) {
         return 0;
     }
-    func_0207dfac((char*)var2);
+    SaveTextureVRAMState_0207dfac((char*)var2);
     if (arg1 >= 2 && func_ov017_021d60f4((char*)arg0 + 0x8) != 0) {
         var2 = var1 + Enum_ov001_0215eb3c_716;
         var3 = (Struct_ov001_0215eb3c*)(var2 + 0xbd0);

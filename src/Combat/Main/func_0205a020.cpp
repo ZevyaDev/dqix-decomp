@@ -20,10 +20,10 @@ extern "C" int func_02057854(struct Struct_02057334_2* arg0);
 
 extern "C" int func_02055774(int* arg0);
 
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 // USA: func_0205a020
 extern "C" ARM void func_0205a020(unsigned char* arg0, int arg1) {
@@ -42,7 +42,7 @@ extern "C" ARM void func_0205a020(unsigned char* arg0, int arg1) {
             if (var1 <= var2) {
                 int var3 = *(int*)(arg0 + 0x24);
                 if (var2 < var3) {
-                    func_0205eaa0((struct Struct_02108760*)&data_02108760, *(int*)(arg0 + 0xb8), 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, *(int*)(arg0 + 0xb8), 0);
                 }
             }
         }

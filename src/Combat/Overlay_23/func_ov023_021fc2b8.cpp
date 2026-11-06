@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 
-extern "C" void* func_ov011_021849c8(void*);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" int func_ov023_021f6bb8(void*);
 extern "C" void func_ov023_021f6bb0(void*, int);
 
@@ -15,7 +15,7 @@ struct Struct_ov023_021fc2b8 { char unknown_0_[0x1c]; int unknown_1c_; };
 extern char data_ov023_021fe718;
 
 extern "C" ARM int func_ov023_021fc2b8(struct Struct_ov023_021fc2b8* arg0, void* arg1) {
-    void* var0 = func_ov011_021849c8(arg1);
+    void* var0 = GetMenuObjectList_ov011_021849c8(arg1);
     int var1 = func_ov023_021f6bb8(var0);
     if (var1 >= 0) {
         return arg0->unknown_1c_;
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov023_021fc2b8(struct Struct_ov023_021fc2b8* arg0, void*
 }
 #else
 extern "C" ARM int func_ov023_021fc2b8(struct Struct_ov023_021fc2b8* arg0, void* arg1) {
-    void* var4 = func_ov011_021849c8(arg1);
+    void* var4 = GetMenuObjectList_ov011_021849c8(arg1);
     int var5 = func_ov023_021f6bb8(var4);
     if (var5 >= 0) {
         return arg0->unknown_1c_;

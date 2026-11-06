@@ -2,10 +2,10 @@
 #include "GameState/GameState.h"
 #include "Resource/Script.h"
 
-struct Struct_0202c1a4;
-extern "C" Struct_0202c1a4* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* arg0);
-extern "C" signed char func_0202c1a4(Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 
 extern "C" int func_ov017_021b9bcc(int arg0, const char* arg1);
 
@@ -34,9 +34,9 @@ extern "C" ARM int func_ov017_021ba280(Script::Parameter* arg0, int arg1) {
     if (data_ov017_021d7c54.unknown_1_ > -1) return 1;
 
     GameState::GetInstance();
-    Struct_0202c1a4* var0 = func_0202ae18();
-    if (!func_0202b7d8((int*)var0)) return 1;
-    if (func_0202c1a4(var0) == 0) return 1;
+    LocalWireless_0202c1a4* var0 = GetLocalWireless_0202ae18();
+    if (!IsLocalWirelessOn_0202b7d8((int*)var0)) return 1;
+    if (GetOwnProtagonistObjectIndex_0202c1a4(var0) == 0) return 1;
 
     int var1 = arg0[0].ToInt();
     Script::Parameter* var2 = &arg0[1];

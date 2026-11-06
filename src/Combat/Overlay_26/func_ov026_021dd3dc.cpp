@@ -39,9 +39,9 @@ struct Struct_ov000_021643d4_3 {
 extern "C" const Struct_ov026_021de6cc data_ov026_021de6cc;
 extern "C" const Struct_ov026_021de6cc data_ov026_021de6d4;
 
-extern "C" Struct_0202b2f0* func_0202ae18();
+extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18();
 extern "C" int func_ov000_0215fc60(char*);
-extern "C" int func_0202b7d8(int*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int func_020a35e0(unsigned char*, unsigned char);
 extern "C" GameObject* func_0200ff58(GameState*, int);
 extern "C" Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
@@ -52,7 +52,7 @@ extern "C" int func_ov026_021dce1c(Struct_ov026_021dc8fc_4*);
 extern "C" int func_020882f8(unsigned char*);
 extern "C" int func_ov000_0215f7a8(Struct_ov000_02161e30*, short*, unsigned char);
 extern "C" int func_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
-extern "C" void func_020ac4c0(void*);
+extern "C" void GetBattleRecords_020ac4c0(void*);
 extern "C" void func_020a0780(struct Struct_020a0780*, unsigned int);
 extern "C" void func_020a0068(struct Struct_020a0068*, unsigned int);
 extern "C" void func_020a07b0(struct Struct_020a07b0*, unsigned int);
@@ -67,14 +67,14 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
     int var3[4];
     Struct_ov000_021643d4_3 var4;
     GameState* var5 = GameState::GetInstance();
-    Struct_0202b2f0* var6 = func_0202ae18();
+    Struct_0202b2f0* var6 = GetLocalWireless_0202ae18();
     int var7;
     int var8;
     int var9 = 0;
     if (func_ov000_0215fc60((char*)arg0) != 0) {
         return 1;
     }
-    if (func_0202b7d8((int*)var6) == 0 || func_020a35e0((unsigned char*)arg1, var9)) {
+    if (IsLocalWirelessOn_0202b7d8((int*)var6) == 0 || func_020a35e0((unsigned char*)arg1, var9)) {
         var8 = 0;
         for (var7 = 0; var7 < 4; var7++) {
             if (!func_020a35e0((unsigned char*)arg1, var7)) continue;
@@ -101,7 +101,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
         var3[var9] = var8;
         var9++;
     }
-    if (func_0202b7d8((int*)var6)) {
+    if (IsLocalWirelessOn_0202b7d8((int*)var6)) {
         for (var7 = 1; var7 < 4; var7++) {
             if (!func_020a35e0((unsigned char*)arg1, var7)) continue;
             if (func_0200ff58(var5, var7)) continue;
@@ -174,7 +174,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
         }
     }
     if (var8 != 1) {
-        func_020ac4c0(&var4);
+        GetBattleRecords_020ac4c0(&var4);
         Struct_ov026_021dd3dc* var26 = &var4.unknown_68_;
         func_020a0780((Struct_020a0780*)&var4, 1);
         func_020a0068((Struct_020a0068*)var26, 1);

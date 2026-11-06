@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 #include "Filesystem/GPC.h"
 #include "Filesystem/FileIO.h"
 #include "Filesystem/BackgroundLoader.h"
@@ -22,7 +22,7 @@ extern "C" ARM void func_02079900(Struct_02108e10* arg0, SafeAllocator* arg1) {
     BackgroundLoader::AddLockGlobal();
     GPCReadPair var0;
     unsigned int var1 = 0;
-    unsigned char* var2 = data_0211e33c;
+    unsigned char* var2 = gFileScratchSpace_0211e33c;
     int var3 = 0x30000;
     func_02079a3c(&var0);
     unsigned int var4;

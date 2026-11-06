@@ -24,7 +24,7 @@ extern "C" int func_0200fb08(Struct_02000c9c_8*);
 struct Struct_02079808;
 extern "C" void* func_02079a3c(void* arg0);
 
-extern unsigned char data_0211e33c[0x30000];
+extern unsigned char gFileScratchSpace_0211e33c[0x30000];
 extern const char data_020f0e02[];
 extern const char data_020f0e17[];
 extern const char data_020f0e28[];
@@ -39,8 +39,8 @@ extern "C" ARM void func_02079cf8(Struct_02108e10* arg0, SafeAllocator* arg1, Sa
 #endif
     unsigned int var0;
     unsigned char* var1;
-    var1 = data_0211e33c;
-    int var2 = sizeof(data_0211e33c);
+    var1 = gFileScratchSpace_0211e33c;
+    int var2 = sizeof(gFileScratchSpace_0211e33c);
     GPCReadPair var3;
     func_02079a3c(&var3);
 

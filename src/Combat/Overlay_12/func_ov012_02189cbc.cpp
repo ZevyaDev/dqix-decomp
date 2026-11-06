@@ -9,10 +9,10 @@ enum { Enum_ov012_02189cbc_5088 = 0x13e0, Enum_ov012_02189cbc_4924 = 0x133c, Enu
 extern "C" ARM int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" ARM int func_02041ea4(char* arg0, int arg1);
 extern "C" ARM int func_02041b70(char* arg0, int arg1, const char* arg2);
-extern "C" ARM int func_02042058(char* arg0, const char* arg1);
+extern "C" ARM int AppendText_02042058(char* buffer, const char* text);
 
-struct Struct_02072a68_2;
-extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
+struct StringList_02072a68_2;
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 
 // USA: func_ov012_02189cbc
 extern "C" ARM void func_ov012_02189cbc(char* arg0, char* arg1, int arg2) {
@@ -27,9 +27,9 @@ extern "C" ARM void func_ov012_02189cbc(char* arg0, char* arg1, int arg2) {
     int var1;
     for (var1 = 0; var1 < 8; var1++) {
         if (var1 != 0) {
-            func_02042058(arg1, *(const char**)(arg0 + Enum_ov012_02189cbc_4984));
+            AppendText_02042058(arg1, *(const char**)(arg0 + Enum_ov012_02189cbc_4984));
         }
-        const char* var2 = (const char*)func_02072a68((struct Struct_02072a68_2*)(arg0 + Enum_ov012_02189cbc_4924), (short)(var1 + 0x27d8));
+        const char* var2 = (const char*)FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + Enum_ov012_02189cbc_4924), (short)(var1 + 0x27d8));
         func_02041b70(arg1, var1, var2);
     }
 }

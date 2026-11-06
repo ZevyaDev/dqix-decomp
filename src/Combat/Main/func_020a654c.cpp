@@ -22,7 +22,7 @@ struct Struct_020a654c_3 {
 };
 
 extern "C" void* GetZone3D_02012fe4();
-extern "C" void func_0202ae18();
+extern "C" void GetLocalWireless_0202ae18();
 struct Struct_0200ffc0;
 extern "C" void* func_0200ffc0(Struct_0200ffc0*);
 struct Struct_02015438;
@@ -44,7 +44,7 @@ extern "C" ARM void func_020a654c(struct Struct_020a654c* arg0) {
     unsigned short* var1;
     void* var2 = arg0->unknown_36fc_;
     var1 = (unsigned short*)GetZone3D_02012fe4();
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     void* var3 = func_0200ffc0((Struct_0200ffc0*)var0);
     ((GameState*)var0)->GetUnknownGameObject();
     int var4 = func_02046b24((Struct_02015438**)var2);

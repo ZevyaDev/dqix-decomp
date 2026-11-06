@@ -6,7 +6,7 @@ extern "C" void* memset(void*, int, unsigned int);
 #endif
 
 // USA: func_02094b40
-extern "C" ARM void func_02094b40(Struct_0208cb08* arg0) {
+extern "C" ARM void func_02094b40(FontLoader_0208cb08* arg0) {
 #if defined(jpn)
     arg0->unknown_3c_ = -1;
     arg0->unknown_c_ = 0;

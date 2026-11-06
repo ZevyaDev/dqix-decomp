@@ -5,7 +5,7 @@
 struct Struct_02048150;
 struct Struct_02038598_5;
 struct Struct_020d805c;
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 struct Struct_02000c9c_62;
 struct Struct_ov017_021d2d64_2 { unsigned char unknown_0_; unsigned short unknown_2_; unsigned char unknown_4_; };
 
@@ -68,8 +68,8 @@ struct Struct_ov017_021d6ce8_2 {
     Struct_ov017_021d2d64 unknown_18_;
 };
 
-extern "C" int func_020100a8(GameState* arg0);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void func_ov017_021d2d00(void* arg0, void* arg1);
 extern "C" void func_ov017_021d35f8(Struct_ov017_021d2d64_2* arg0);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
@@ -87,9 +87,9 @@ extern "C" void func_020e1154(void* arg0);
 extern "C" int func_02048418(unsigned char* arg0, unsigned short arg1);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void __clear(void* arg0, unsigned int arg1);
-extern "C" void func_02046380(void* arg0);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
-extern "C" void func_020465c0(Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 #if defined(jpn)
 extern "C" int func_020e2168(char* arg0, const char* arg1, int arg2, int arg3, bool arg4);
 extern "C" void func_02046574(void* arg0, int arg1, char* arg2);
@@ -121,8 +121,8 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
     Struct_02038598_5* var5;
     short var6;
     Struct_ov017_021d2d64_4* var7 = &arg1->unknown_4_;
-    var1 = func_020100a8(arg2);
-    var2 = (Struct_02048150*)func_02010828(arg2);
+    var1 = GetProtagonistObjectIndex_020100a8(arg2);
+    var2 = (Struct_02048150*)GetParty_02010828(arg2);
     Struct_ov017_021d2d64_4 var8;
     Struct_ov017_021d2d64_2 var9[4];
     Struct_ov017_021d2d64_2 var10[4];
@@ -276,22 +276,22 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
                         char var38[0x80];
                         __clear(var38, 0x80);
                         func_020e2168(var38, data_ov017_021d8b4c, var6, 0, true);
-                        func_02046380(var0);
+                        ClearMessageParams_02046380(var0);
                         func_02046574(var0, 2, inline_ov017_021d2d64(var24));
 #else
                         char var38[0x100];
                         __clear(var38, 0x100);
                         func_020e04f4((int)var38, data_ov017_021d8288, var6, 0, 1, (int)data_ov017_021d8298);
-                        func_02046380(var0);
+                        ClearMessageParams_02046380(var0);
                         char var39[0xc];
                         func_020e46c4(var39);
                         func_020e4bf4(var39, var24->obj3D_.unknown_4_);
                         *(char**)((char*)var0 + 0x10) = var39;
 #endif
                         func_020465f0((unsigned char*)var0, 0, 0);
-                        func_020465c0((Struct_020465c0*)var0, 0, var25->unknown_0_0_);
+                        SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 0, var25->unknown_0_0_);
                         func_020465f0((unsigned char*)var0, 9, 0);
-                        func_020465c0((Struct_020465c0*)var0, 9, var24->obj3D_.unknown_4_);
+                        SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 9, var24->obj3D_.unknown_4_);
                         char var40[0x80];
                         __clear(var40, 0x80);
 #if defined(jpn)

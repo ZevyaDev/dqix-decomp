@@ -4,8 +4,8 @@
 #include "Filesystem/FileIO.h"
 #include "std_library_functions.h"
 
-extern "C" void func_0207df90(char*);
-extern "C" void func_0207dfac(char*);
+extern "C" void RestoreTextureVRAMState_0207df90(char*);
+extern "C" void SaveTextureVRAMState_0207dfac(char*);
 
 // USA: func_0201445c
 ARM bool Zone3D::func_0201445c(const void* arg0, unsigned int arg1, const char* arg2)
@@ -30,11 +30,11 @@ ARM bool Zone3D::func_0201445c(const void* arg0, unsigned int arg1, const char* 
             firstModel_418_ = var4;
             var3 = DecompressLZ77FileIntoScratchSpace(*var0, arg0, var2);
             if (var3) {
-                func_0207df90(var1);
+                RestoreTextureVRAMState_0207df90(var1);
                 var5->SetRawFile(var3, var2);
                 var5->ClearRawFileCache();
                 var5->ProcessRawFile(Model3D::TextureStagingMode_Immediate);
-                func_0207dfac(var1);
+                SaveTextureVRAMState_0207dfac(var1);
 
                 NSBXXTex* var6 = var5->GetTEX0();
                 if (var6) {

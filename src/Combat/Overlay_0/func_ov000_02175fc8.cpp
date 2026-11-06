@@ -12,7 +12,7 @@
 
 extern "C" void* func_ov000_02161318(void* arg0, int arg1);
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 // USA: func_ov000_02175fc8
 extern "C" ARM void func_ov000_02175fc8(void* arg0) {
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov000_02175fc8(void* arg0) {
         if (*var4 & 4) {
             *(int*)(var0 + 0x28) |= 4;
         }
-        int var5 = func_02053c6c((unsigned char*)var3);
+        int var5 = GetPartyMemberData_02053c6c((unsigned char*)var3);
         if (var5 != 0) {
             *(unsigned char*)(var0 + REGION_OFFSET_1) = (unsigned char)*(int*)(var5 + REGION_OFFSET_0);
         }

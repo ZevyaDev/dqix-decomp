@@ -5,14 +5,11 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0205d81c;
 struct Struct_0205dee8;
 struct Struct_020a83b0;
@@ -25,42 +22,42 @@ struct Struct_ov002_02165b44 {
     unsigned int unknown_9_2_ : 2;
     unsigned int unknown_9_4_ : 20;
 };
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
 extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1, unsigned char arg2);
 extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_0205deb4(struct Struct_0205d81c *arg0, int arg1, int arg2);
 extern "C" void func_0205dee8(struct Struct_0205dee8 *arg0, int arg1);
 extern "C" void func_ov002_02156ff0(unsigned char *arg0, int arg1);
 extern "C" int func_020100b0(GameState *arg0);
 extern "C" GameObject *func_0200ff94(GameState *arg0, int arg1);
-extern "C" int func_0206dfb0(int arg0, unsigned char *arg1, int arg2);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char *flags, int flagIndex);
 extern "C" char *func_020a83b0(struct Struct_020a83b0 *arg0, int arg1);
 extern "C" char *func_02079e2c(char *arg0, int arg1);
 extern "C" void func_02048350(struct Struct_02048350_2 *arg0, int arg1);
-extern "C" int func_0202b7d8(int *arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void *func_0200fd0c(GameState *arg0);
 extern "C" void VectorizedMemset(void *dst, int value, unsigned int length);
 extern "C" void *func_0200fcfc(void *arg0, const void *arg1);
 extern "C" void func_ov017_021acd30(char *arg0, unsigned char arg1, unsigned char arg2, unsigned char arg3);
 extern "C" void func_ov017_0219e310(unsigned char *arg0, int arg1);
-extern "C" void func_020469b4(struct Struct_0201bdac_2 *arg0, struct Struct_0201bdac *arg1);
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2 *queue, struct QueueNode_0201bdac *node);
 extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_0215f170(char *arg0);
 extern "C" void func_ov002_02161b98(char *arg0);
 extern "C" void func_ov002_0215a7b4(char *arg0, int arg1, short arg2, int arg3, int arg4);
 extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
-extern "C" char *func_0205ec34(void);
+extern "C" char *GetFlagManager_0205ec34(void);
 extern "C" char *GetZone3D_02012fe4(void);
-extern "C" int *func_0202ae18(void);
-extern "C" int func_0202c508(int *arg0);
+extern "C" int *GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(int *wireless);
 extern "C" void func_ov023_021dca88(char *arg0);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021d1a18(int arg0, int arg1, int arg2, int arg3);
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 // USA: func_ov002_02165b44
 extern "C" ARM void func_ov002_02165b44(char *arg0) {
@@ -93,11 +90,11 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                 return;
             }
             *(int *) (arg0 + 0x1a88) = 0;
-            func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
-            int var6    = (int) func_0205ec34();
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
+            int var6    = (int) GetFlagManager_0205ec34();
             char *var7 = GetZone3D_02012fe4();
             int var8    = 0;
-            if (!func_0206dfb0(var6, (unsigned char *) ((char *) var6 + 0x8c), 0x113a)) {
+            if (!IsFlagSet_0206dfb0(var6, (unsigned char *) ((char *) var6 + 0x8c), 0x113a)) {
                 char *var9 = *(char **) (var7 + 8);
                 if (var9 != NULL) var8 = (unsigned int) (*(unsigned char *) (var9 + 0xe) << 30) >> 30;
             }
@@ -106,7 +103,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                 char *var10 = func_020a83b0(*(struct Struct_020a83b0 **) (arg0 + 0x22a4),
                                                     *(short *) (arg0 + 0x1ac4));
                 if (var10 != NULL) {
-                    int *var11                          = func_0202ae18();
+                    int *var11                          = GetLocalWireless_0202ae18();
                     *(short *) (arg0 + 0x1af2) = -1;
                     *(int *) (arg0 + 0x1a80)  = 0x29;
                     *(int *) (arg0 + 0x1a84)  = 0x2e;
@@ -119,12 +116,12 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                         func_ov002_0215a7b4(arg0, *(signed char *) (arg0 + 0x1ae8), *(short *) (arg0 + 0x1aea),
                                             *(short *) (arg0 + 0x1ab0), 0);
                     } else {
-                        func_0205eaa0((struct Struct_02108760 *) data_02108760, 0x64, 0);
+                        PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 0x64, 0);
                         char *var12 = func_02079e2c((char*)func_020797dc(), 0xca);
                         func_02048350(
                             (struct Struct_02048350_2 *) func_0200ff94(var3, *(signed char *) (arg0 + 0x1ae8)),
                             ((struct Struct_ov002_02165b44 *) var12)->unknown_8_0_);
-                        if (func_0202b7d8(var11)) func_ov017_021c9e00(*(signed char *) (arg0 + 0x1ae8), 0, 0, 1);
+                        if (IsLocalWirelessOn_0202b7d8(var11)) func_ov017_021c9e00(*(signed char *) (arg0 + 0x1ae8), 0, 0, 1);
                     }
                     unsigned char *var13 = (unsigned char *) func_0200fd0c(var3);
                     VectorizedMemset(var13, 0, 0x70);
@@ -148,7 +145,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     var13[7]                       = 1;
                     var13[0x63]                    = 0;
                     func_0200fcfc(var3, var13);
-                    if (func_0202c508(var11) && func_0206dfb0(var6, (unsigned char *) ((char *) var6 + 0x8c), 0x2b)) {
+                    if (IsNotLocalWirelessGuest_0202c508(var11) && IsFlagSet_0206dfb0(var6, (unsigned char *) ((char *) var6 + 0x8c), 0x2b)) {
                         *(unsigned short *) (var7 + 0x27c6) = *(unsigned short *) (var10 + 0x1a);
                         *(unsigned short *) (var7 + 0x27c4) = *(unsigned short *) (var10 + 0x1c);
                         Vector3i *var14                               = (Vector3i *) (var7 + 0x27b4);
@@ -160,11 +157,11 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     }
                     char *var16 = (char *) GetGameResources();
                     func_ov017_021acd30(var16, 0, 0, 0);
-                    struct Struct_0201bdac_2 *var17;
+                    struct Queue_0201bdac_2 *var17;
                     unsigned char *var18 = *(unsigned char **) (var16 + 0x34fc);
-                    var17                  = *(struct Struct_0201bdac_2 **) (var16 + 0x34ec);
+                    var17                  = *(struct Queue_0201bdac_2 **) (var16 + 0x34ec);
                     func_ov017_0219e310(var18, 0);
-                    func_020469b4(var17, (struct Struct_0201bdac *) var18);
+                    AppendToQueue_020469b4(var17, (struct QueueNode_0201bdac *) var18);
                     return;
                 }
                 var8 = 0;
@@ -179,7 +176,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     *(unsigned char *) (arg0 + 0x22ba) = 0;
                     if (*(unsigned int *) (arg0 + 0x22ac) & 1) func_ov023_021dca88(arg0 + 0x38);
                 } else {
-                    func_0205eaa0((struct Struct_02108760 *) data_02108760, 0x64, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 0x64, 0);
                 }
                 func_ov017_021acd30((char *) GetGameResources(), 0, 0, 1);
                 return;
@@ -196,7 +193,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                 } else {
                     *(short *) (arg0 + 0x22b8)          = 0x2338;
                     *(unsigned char *) (arg0 + 0x22ba) = 1;
-                    func_0205eaa0((struct Struct_02108760 *) data_02108760, 0x64, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 0x64, 0);
                     *(int *) (arg0 + 0x1a80) = 0x29;
                     *(int *) (arg0 + 0x1a84) = 0x12;
                 }
@@ -247,11 +244,11 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                 return;
             }
             *(int *) (arg0 + 0x1000 + 0xbc0) = 0;
-            func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
-            int var25    = (int) func_0205ec34();
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
+            int var25    = (int) GetFlagManager_0205ec34();
             char *var26 = GetZone3D_02012fe4();
             int var27    = 0;
-            if (!func_0206dfb0(var25, (unsigned char *) ((char *) var25 + 0x8c), 0x113a)) {
+            if (!IsFlagSet_0206dfb0(var25, (unsigned char *) ((char *) var25 + 0x8c), 0x113a)) {
                 char *var28 = *(char **) (var26 + 8);
                 if (var28 != NULL) var27 = (unsigned int) (*(unsigned char *) (var28 + 0xe) << 30) >> 30;
             }
@@ -260,7 +257,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                 char *var29 = func_020a83b0(*(struct Struct_020a83b0 **) (arg0 + 0x2000 + 0x474),
                                                     *(short *) (arg0 + 0x1b00 + 0xfc));
                 if (var29 != NULL) {
-                    int *var30                          = func_0202ae18();
+                    int *var30                          = GetLocalWireless_0202ae18();
                     *(short *) (arg0 + 0x1c00 + 0x2a) = -1;
                     *(int *) (arg0 + 0x1000 + 0xbb8)  = 0x26;
                     *(int *) (arg0 + 0x1000 + 0xbbc)  = 0x2b;
@@ -273,12 +270,12 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                         func_ov002_0215a7b4(arg0, *(signed char *) (arg0 + 0x1c00 + 0x20), *(short *) (arg0 + 0x1c00 + 0x22),
                                             *(short *) (arg0 + 0x1b00 + 0xe8), 0);
                     } else {
-                        func_0205eaa0((struct Struct_02108760 *) data_02108760, 0x64, 0);
+                        PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 0x64, 0);
                         char *var31 = func_02079e2c((char*)func_020797dc(), 0xca);
                         func_02048350(
                             (struct Struct_02048350_2 *) func_0200ff94(var22, *(signed char *) (arg0 + 0x1c00 + 0x20)),
                             ((struct Struct_ov002_02165b44 *) var31)->unknown_8_0_);
-                        if (func_0202b7d8(var30)) func_ov017_021c9e00(*(signed char *) (arg0 + 0x1c00 + 0x20), 0, 0, 1);
+                        if (IsLocalWirelessOn_0202b7d8(var30)) func_ov017_021c9e00(*(signed char *) (arg0 + 0x1c00 + 0x20), 0, 0, 1);
                     }
                     unsigned char *var32 = (unsigned char *) func_0200fd0c(var22);
                     VectorizedMemset(var32, 0, 0x70);
@@ -302,7 +299,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     var32[7]                       = 1;
                     var32[0x63]                    = 0;
                     func_0200fcfc(var22, var32);
-                    if (func_0202c508(var30) && func_0206dfb0(var25, (unsigned char *) ((char *) var25 + 0x8c), 0x2b)) {
+                    if (IsNotLocalWirelessGuest_0202c508(var30) && IsFlagSet_0206dfb0(var25, (unsigned char *) ((char *) var25 + 0x8c), 0x2b)) {
                         *(unsigned short *) (var26 + 0x2700 + 0x86) = *(unsigned short *) (var29 + 0x1a);
                         *(unsigned short *) (var26 + 0x2700 + 0x84) = *(unsigned short *) (var29 + 0x1c);
                         Vector3i *var33                               = (Vector3i *) (var26 + 0x374 + 0x2400);
@@ -314,11 +311,11 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     }
                     char *var35 = (char *) GetGameResources();
                     func_ov017_021acd30(var35, 0, 0, 0);
-                    struct Struct_0201bdac_2 *var36;
+                    struct Queue_0201bdac_2 *var36;
                     unsigned char *var37 = *(unsigned char **) (var35 + 0x3000 + 0x70c);
-                    var36                  = *(struct Struct_0201bdac_2 **) (var35 + 0x3000 + 0x6fc);
+                    var36                  = *(struct Queue_0201bdac_2 **) (var35 + 0x3000 + 0x6fc);
                     func_ov017_0219e310(var37, 0);
-                    func_020469b4(var36, (struct Struct_0201bdac *) var37);
+                    AppendToQueue_020469b4(var36, (struct QueueNode_0201bdac *) var37);
                     return;
                 }
                 var27 = 0;
@@ -333,7 +330,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     *(unsigned char *) (arg0 + 0x2000 + 0x48a) = 0;
                     if (*(unsigned int *) (arg0 + 0x2000 + 0x47c) & 1) func_ov023_021dca88(arg0 + 0x50);
                 } else {
-                    func_0205eaa0((struct Struct_02108760 *) data_02108760, 0x64, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 0x64, 0);
                 }
                 func_ov017_021acd30((char *) GetGameResources(), 0, 0, 1);
                 return;
@@ -350,7 +347,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                 } else {
                     *(short *) (arg0 + 0x2400 + 0x88)          = 0x2338;
                     *(unsigned char *) (arg0 + 0x2000 + 0x48a) = 1;
-                    func_0205eaa0((struct Struct_02108760 *) data_02108760, 0x64, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 0x64, 0);
                     *(int *) (arg0 + 0x1000 + 0xbb8) = 0x26;
                     *(int *) (arg0 + 0x1000 + 0xbbc) = 0x11;
                 }

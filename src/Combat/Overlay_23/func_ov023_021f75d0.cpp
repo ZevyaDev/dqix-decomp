@@ -2,7 +2,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
 
-extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" int func_ov023_021f6bb8(void* arg0);
 extern "C" void func_ov023_021f6bb0(void* arg0, int arg1);
 
@@ -22,7 +22,7 @@ struct Struct_ov023_021f75d0 {
 extern char data_ov023_021fd8b8;
 
 extern "C" ARM int func_ov023_021f75d0(struct Struct_ov023_021f75d0* arg0, void* arg1) {
-    void* var0 = func_ov011_021849c8(arg1);
+    void* var0 = GetMenuObjectList_ov011_021849c8(arg1);
     if (arg0->unknown_10_ == 0) return 1;
     if (func_ov023_021f6bb8(var0) >= 0) {
         return arg0->unknown_1c_;
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov023_021f75d0(struct Struct_ov023_021f75d0* arg0, void*
 }
 #else
 extern "C" ARM int func_ov023_021f75d0(struct Struct_ov023_021f75d0* arg0, void* arg1) {
-    void* var4 = func_ov011_021849c8(arg1);
+    void* var4 = GetMenuObjectList_ov011_021849c8(arg1);
     if (arg0->unknown_10_ == 0) return 1;
     int var5 = func_ov023_021f6bb8(var4);
     if (var5 < 0) {

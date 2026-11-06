@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int func_ov000_0215eb1c(struct Random* arg0, short* arg1, int arg2, int arg3);
 extern "C" int func_020493a4(unsigned char* arg0);
 extern "C" void func_02049390(unsigned char* arg0, unsigned char arg1);
@@ -20,7 +20,7 @@ extern struct Struct_ov000_021830cc data_ov000_021830cc;
 // USA: func_ov000_02167cd4
 extern "C" ARM void func_ov000_02167cd4(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_0200fb8c((int*)var0);
+    GetResources_0200fb8c((int*)var0);
 #if defined(jpn)
     struct Random* var1 = *(struct Random**)(arg0 + 0x218);
 #else

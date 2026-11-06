@@ -21,8 +21,8 @@ struct Struct_02020cb8;
 struct Struct_02020cb8_5;
 struct Struct_0204b12c;
 struct Struct_0204af38;
-struct Struct_02020aec;
-struct Struct_02020cb8_4;
+struct PacEntry_02020aec;
+struct PacEntry_02020cb8_4;
 struct Struct_0204b8d0;
 struct Struct_02020cb8_2;
 struct Struct_02020cb8_6;
@@ -35,8 +35,8 @@ extern "C" void func_0204b5b4(Struct_ov003_021594c4* arg0, int arg1);
 extern "C" void func_0204b5e8(Struct_02020cb8_5* arg0, int arg1, int arg2);
 extern "C" void func_0204b12c(Struct_0204b12c* arg0, SafeAllocator* arg1);
 extern "C" void func_0204af38(Struct_0204af38* arg0, int arg1, SafeAllocator* arg2);
-extern "C" int func_02046900(Struct_02020cb8_4* arg0);
-extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0204b174(Struct_ov003_021594c4* arg0, void* arg1, SafeAllocator* arg2, unsigned int arg3);
 extern "C" void func_0204b8d0(Struct_0204b8d0* arg0, unsigned int arg1, int arg2, int arg3, short arg4, short arg5, short arg6, short arg7,
                            unsigned short arg8);
@@ -136,13 +136,13 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_02184e58_2* arg0)
         void* var7;
         unsigned int var8;
         var2->GetLoadedFileByID(arg0->unknown_d54_, &var7, &var8);
-        int var9 = func_02046900((Struct_02020cb8_4*)var7);
+        int var9 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var7);
         if (arg0->unknown_d59_ == 1)
             var9--;
         for (int var10 = 0; var10 < var9; var10++)
         {
             unsigned int var11;
-            void* var12 = func_020467f0((Struct_02020aec*)var7, var10, (void**)var6, (int*)&var11);
+            void* var12 = GetPacEntryData_020467f0((PacEntry_02020aec*)var7, var10, (void**)var6, (int*)&var11);
             if (var12 != NULL)
             {
                 if (var10 == 2)
@@ -204,7 +204,7 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_02184e58_2* arg0)
     unsigned int var21;
     var2->GetLoadedFileByID(arg0->unknown_d54_, &var19, &var20);
     void* var22;
-    int var23 = func_02046900((Struct_02020cb8_4*)var19);
+    int var23 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var19);
     if (arg0->unknown_c1c_ == 8)
     {
         if (arg0->unknown_d8f_ != 0)
@@ -218,7 +218,7 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_02184e58_2* arg0)
     var1 = var0 + 1;
     for (int var25 = 0; var25 < var23; var25++)
     {
-        var22 = func_020467f0((Struct_02020aec*)var19, var25, (void**)var18, (int*)&var21);
+        var22 = GetPacEntryData_020467f0((PacEntry_02020aec*)var19, var25, (void**)var18, (int*)&var21);
         if (var22 == NULL)
             continue;
         if (arg0->unknown_c1c_ == 8)
@@ -318,13 +318,13 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_021842a0_2* arg0)
         void* var38;
         unsigned int var39;
         var30->GetLoadedFileByID(arg0->unknown_d90_, &var38, &var39);
-        int var40 = func_02046900((Struct_02020cb8_4*)var38);
+        int var40 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var38);
         if (arg0->unknown_d95_ == 1)
             var40--;
         for (int var41 = 0; var41 < var40; var41++)
         {
             unsigned int var42;
-            void* var43 = func_020467f0((Struct_02020aec*)var38, var41, (void**)var37, (int*)&var42);
+            void* var43 = GetPacEntryData_020467f0((PacEntry_02020aec*)var38, var41, (void**)var37, (int*)&var42);
             if (var43 != NULL)
             {
                 if (var41 == 2)
@@ -385,7 +385,7 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_021842a0_2* arg0)
     unsigned int var51;
     unsigned int var52;
     var30->GetLoadedFileByID(arg0->unknown_d90_, &var50, &var51);
-    int var53 = func_02046900((Struct_02020cb8_4*)var50);
+    int var53 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var50);
     if (var33 == 8)
         arg0->unknown_db6_ = arg0->unknown_db6_ == 0 ? 1 : 0;
     unsigned char var54 = 0;
@@ -394,7 +394,7 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_021842a0_2* arg0)
     void* var55;
     for (int var56 = 0; var56 < var53; var56++)
     {
-        var55 = func_020467f0((Struct_02020aec*)var50, var56, (void**)var49, (int*)&var52);
+        var55 = GetPacEntryData_020467f0((PacEntry_02020aec*)var50, var56, (void**)var49, (int*)&var52);
         if (var55 == NULL)
             continue;
         char var57[5] = {};

@@ -33,7 +33,7 @@ struct Struct_0201f040_3;
 extern "C" void func_ov015_0218b828();
 void* LoadFileIntoMemory(const char* path, void* buf, unsigned int* outLen);
 
-extern int data_0211e33c;
+extern int gFileScratchSpace_0211e33c;
 extern int data_ov015_02193fc8;
 extern void* data_ov015_02194560;
 extern int data_ov015_02193fa0;
@@ -46,9 +46,9 @@ extern "C" ARM void func_ov015_0218ba44(void* arg0, const char* arg1) {
     unsigned int var0;
     void* var1;
     if (arg1 != 0) {
-        var1 = LoadFileIntoMemory(arg1, &data_0211e33c, &var0);
+        var1 = LoadFileIntoMemory(arg1, &gFileScratchSpace_0211e33c, &var0);
     } else {
-        var1 = LoadFileIntoMemory((const char*)&data_ov015_02193fc8, &data_0211e33c, &var0);
+        var1 = LoadFileIntoMemory((const char*)&data_ov015_02193fc8, &gFileScratchSpace_0211e33c, &var0);
     }
 
     if (var1 != 0) {

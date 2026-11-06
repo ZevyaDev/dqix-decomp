@@ -8,7 +8,7 @@ enum { Enum_ov017_021ca6dc_14104 = 0x3718 };
 #include "GameState/GameState.h"
 
 extern "C" void* func_ov017_021b8478(void* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 struct Struct_ov017_021ca6dc {
     unsigned short unknown_0_0_ : 2;
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_021ca6dc(void* arg0, struct Struct_ov017_021ca6dc
     if (!var0) {
         return;
     }
-    int var1 = func_020100a8(arg2);
+    int var1 = GetProtagonistObjectIndex_020100a8(arg2);
     if (*(signed char*)((char*)var0 + 0x2a) == var1) {
         return;
     }

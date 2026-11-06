@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Cache.h"
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" extern int LoadToMainObjStandardPalette(int arg0, int arg1, unsigned int arg2);
 extern "C" extern int LoadToSubObjStandardPalette(int arg0, int arg1, unsigned int arg2);
 
@@ -21,7 +21,7 @@ extern "C" ARM void func_020e16f4(struct Struct_020e1674_2* arg0) {
     int var0;
 
     if (arg0->unknown_4_ == NULL) return;
-    var0 = *(int*)(func_0200fb8c((int*)GameState::GetInstance()) + 0x2c);
+    var0 = *(int*)(GetResources_0200fb8c((int*)GameState::GetInstance()) + 0x2c);
     if (var0 == 0) return;
     DC_FlushRange((void*)(var0 + 0xc), 0x20);
     if (arg0->unknown_4_->unknown_3e_ == 0) {

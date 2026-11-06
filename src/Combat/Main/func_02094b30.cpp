@@ -15,7 +15,7 @@ extern "C" int func_0201079c(char* arg0);
 #endif
 
 // USA: func_02094b30
-extern "C" ARM void func_02094b30(Struct_0208cb08* arg0, int arg1, int arg2) {
+extern "C" ARM void func_02094b30(FontLoader_0208cb08* arg0, int arg1, int arg2) {
 #if defined(jpn)
     if (arg1 < 0 || arg0->unknown_34_ >= 0 || arg0->unknown_3c_ == arg1) return;
     if (arg0->unknown_40_ == arg1) {

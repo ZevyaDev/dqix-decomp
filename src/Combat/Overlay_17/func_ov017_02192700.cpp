@@ -3,11 +3,8 @@
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 struct Struct_02048150;
 
 struct Struct_ov017_02192700_2 {
@@ -69,19 +66,19 @@ struct Struct_ov017_02192700 {
     unsigned char unknown_8c_[1];
 };
 
-extern "C" Struct_0202c1a4* func_0202ae18(void);
-extern "C" Struct_ov017_02192700* func_0205ec34(void);
+extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18(void);
+extern "C" Struct_ov017_02192700* GetFlagManager_0205ec34(void);
 extern "C" struct Struct_020fdd44* func_02027ca4(void);
-extern "C" int func_0202b7d8(int* arg0);
-extern "C" signed char func_0202c1a4(Struct_0202c1a4* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" int func_ov017_02194140(Struct_ov017_02192700_5* arg0, Struct_ov017_02192700_5* arg1);
 extern "C" int func_02039d68(unsigned char* arg0);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
 extern "C" void func_ov017_0219b33c(Struct_ov017_02192700_4* arg0, Struct_01ff91ac_18* arg1);
 extern "C" void func_ov017_021c316c(Struct_ov017_02192700_2* arg0, int arg1);
 extern "C" int func_ov017_0218d4ec(void* arg0, int arg1);
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_02039860(void* arg0);
 extern "C" void func_ov017_0219344c(Struct_ov017_02192700_5* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 
@@ -114,8 +111,8 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
         return;
     }
     GameState* var0 = GameState::GetInstance();
-    Struct_0202c1a4* var1 = func_0202ae18();
-    Struct_ov017_02192700* var2 = func_0205ec34();
+    LocalWireless_0202c1a4* var1 = GetLocalWireless_0202ae18();
+    Struct_ov017_02192700* var2 = GetFlagManager_0205ec34();
     Struct_ov017_02192700_5* var3 = (Struct_ov017_02192700_5*)var0->GetUnknownGameObject();
     if (var3 == NULL) {
         return;
@@ -123,7 +120,7 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
     unsigned short var4 = var3->unknown_0_.GetField06();
     func_02027ca4();
     Struct_ov017_02192700_3* var5 = arg0->unknown_36f8_;
-    if (func_0202b7d8((int*)var1)) {
+    if (IsLocalWirelessOn_0202b7d8((int*)var1)) {
         for (int var6 = 0; var6 <= 3; var6++) {
             Struct_ov017_02192700_5* var7 = (Struct_ov017_02192700_5*)var0->GetPartyMemberByIndex(var6);
             if (var7 == NULL || var7 == var3) {
@@ -153,7 +150,7 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
                 if (func_02039d68((unsigned char*)var9)) {
                     continue;
                 }
-                Struct_02048150* var10 = (Struct_02048150*)func_02010828(var8);
+                Struct_02048150* var10 = (Struct_02048150*)GetParty_02010828(var8);
                 if (var10 == NULL) {
                     continue;
                 }
@@ -167,7 +164,7 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
                 continue;
             }
             if (func_ov017_0218d4ec(arg0, var7->unknown_0_.unknown_4_) &&
-                func_0206dfb0((int)var2, var2->unknown_8c_, 0x799) &&
+                IsFlagSet_0206dfb0((int)var2, var2->unknown_8c_, 0x799) &&
                 func_ov017_02194140(var3, var7)) {
                 inline_ov017_02192700_3((Struct_ov017_02192700_4*)GetGameResources(), var7);
             }
@@ -188,7 +185,7 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
             }
         }
     }
-    if (!func_0202b7d8((int*)var1) || !func_0202c1a4(var1)) {
+    if (!IsLocalWirelessOn_0202b7d8((int*)var1) || !GetOwnProtagonistObjectIndex_0202c1a4(var1)) {
         for (int var13 = 0x70; var13 <= 0x9f; var13++) {
             Struct_ov017_02192700_5* var14 = (Struct_ov017_02192700_5*)GameState::GetInstance()->GetMaybeFieldMonsterByIndex(var13);
             if (var14 == NULL || var14->unknown_0_.unknown_2_ < 0) {

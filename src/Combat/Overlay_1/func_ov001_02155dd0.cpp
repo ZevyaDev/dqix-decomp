@@ -7,9 +7,6 @@
 #include "World/Object3D.h"
 #include "std_library_functions.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_02000c9c_36;
 struct Struct_0203dce4_2;
@@ -34,8 +31,8 @@ extern "C" int func_02040404(Struct_0204027c_2*, char const*);
 extern "C" void func_0204039c(Struct_0204039c* arg0, int arg1);
 extern "C" void func_02040504(int* arg0);
 extern "C" void func_0203dd10(Struct_0203dd10*, unsigned int, int);
-extern "C" void func_02043204(char* arg0);
-extern "C" void func_02043124(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
+extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" int func_0203adfc(void* arg0, void* arg1);
 extern "C" void func_0203ad88(void* arg0, void* arg1, int arg2);
 extern "C" void func_0202e874(unsigned char*, unsigned short);
@@ -48,16 +45,16 @@ extern "C" void func_0209c290(void* arg0);
 extern "C" void func_0205ea20(void* arg0, int arg1);
 extern "C" void func_ov028_021d9714();
 extern "C" void func_020a1f4c(int arg0);
-extern "C" void* func_0205ec34();
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" void* GetFlagManager_0205ec34();
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 struct Struct_02010604;
 extern "C" void func_02033b88(Struct_02010604*, int);
 extern "C" void func_0200fd48(GameState* arg0, int arg1);
 extern "C" void func_020100c4(GameState* arg0, int arg1);
 
 extern char data_ov001_02164c4a[];
-extern char data_02108760[];
-extern char data_02109bf4[];
+extern char gSoundEffectManager_02108760[];
+extern char gMusicManager_02109bf4[];
 
 #define REG_DISPSTAT_304 (*(volatile unsigned short*)0x04000304)
 
@@ -142,11 +139,11 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
         }
     }
 
-    func_02043204(var2);
-    func_02043124(var2);
+    ResetMessageWindow_02043204(var2);
+    CloseMessageWindow_02043124(var2);
     ClearFlags04(var6, 8);
-    if (func_0203adfc(data_02108760, 0) != 0) {
-        func_0203ad88(data_02109bf4, 0, 0);
+    if (func_0203adfc(gSoundEffectManager_02108760, 0) != 0) {
+        func_0203ad88(gMusicManager_02109bf4, 0, 0);
     }
     ClearFlags04(var6, 0x2000);
     func_0202e874((unsigned char*)var10, 0);
@@ -157,9 +154,9 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
     REG_DISPSTAT_304 &= ~0x8000;
     if (TestFlags00(var6, 0x1000) != 0) {
 #if !defined(jpn)
-        func_0209c278(data_02109bf4);
-        func_0209c290(data_02109bf4);
-        func_0205ea20(data_02108760, 0x64);
+        func_0209c278(gMusicManager_02109bf4);
+        func_0209c290(gMusicManager_02109bf4);
+        func_0205ea20(gSoundEffectManager_02108760, 0x64);
 #endif
         ClearFlags00((GameResources*)var6, 0x1000);
         func_ov028_021d9714();
@@ -168,14 +165,14 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
 
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
 
-    void* var21 = func_0205ec34();
+    void* var21 = GetFlagManager_0205ec34();
     Struct_02013454* var22 = func_020196fc((Zone3D*)GetZone3D_02012fe4(), 0);
     Struct_02016874_2* var23;
     int var24 = var22->unknown_4_.unknown_10_;
     if (var22 != 0) {
         for (int var25 = 0; var25 < var24; var25++) {
             var23 = &var22->unknown_44_[var25];
-            if (func_0206dfb0((int)var21, (unsigned char*)((char*)var21 + 0x45b), var25 & 0xff) != 0) {
+            if (IsFlagSet_0206dfb0((int)var21, (unsigned char*)((char*)var21 + 0x45b), var25 & 0xff) != 0) {
                 if (var23 != 0) {
                     var23->unknown_2_ &= ~4;
                 }

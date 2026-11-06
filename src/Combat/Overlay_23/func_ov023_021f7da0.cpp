@@ -4,8 +4,8 @@
 extern "C" void func_ov023_021f6ed8(void* arg0);
 extern "C" void func_0204c684(void* arg0);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 
 struct Struct_ov011_021844ec;
 extern "C" int func_ov011_021844ec(struct Struct_ov011_021844ec* arg0);
@@ -71,15 +71,15 @@ extern "C" ARM int func_ov023_021f7da0(struct Struct_ov011_02185318_3* arg0, voi
 
     func_0204c7a8((struct Struct_0204c7a8*)&arg0->unknown_20_, var3, var1, var2);
 
-    void* var4 = func_ov011_021849c8(arg1);
-    void* var5 = func_ov023_021f6880(var4, arg4);
+    void* var4 = GetMenuObjectList_ov011_021849c8(arg1);
+    void* var5 = FindMenuObjectById_ov023_021f6880(var4, arg4);
     if (var5 == NULL) {
         return 0;
     }
     arg0->unknown_24_ = func_ov023_021f79e4(var5);
 
     arg0->unknown_108_ = (unsigned char)arg7;
-    void* var6 = func_ov023_021f6880(var4, arg8);
+    void* var6 = FindMenuObjectById_ov023_021f6880(var4, arg8);
     if (var6 != NULL) {
         arg0->unknown_20_ = (char*)var6 + 0x20;
     }

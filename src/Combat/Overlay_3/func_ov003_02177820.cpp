@@ -21,14 +21,14 @@ struct Struct_02080cc0;
 extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
 extern "C" int func_020dcc98(int arg0);
 extern "C" void func_020813ec(void* arg0, int arg1);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 
 // USA: func_ov003_02177820
 #pragma opt_common_subs off
 extern "C" ARM void func_ov003_02177820(char* arg0) {
     struct Struct_0207fdcc_2* var0 = *(struct Struct_0207fdcc_2**)(arg0 + Enum_ov003_02177820_2204);
     GameState* var1 = GameState::GetInstance();
-    func_02010828(var1);
+    GetParty_02010828(var1);
 
     int var2 = *(int*)(arg0 + Enum_ov003_02177820_4144);
     int var3 = 0x11, var4 = 0x79;

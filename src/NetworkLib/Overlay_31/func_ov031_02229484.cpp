@@ -5,7 +5,7 @@ extern "C" void func_ov031_02222e40(int arg0);
 extern "C" void func_ov031_0221ae00(void* arg0);
 extern "C" int func_ov031_02236878(int arg0);
 extern "C" int func_ov031_02229748(void);
-extern "C" void func_ov031_022274c0(int arg0);
+extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
 extern "C" void func_ov031_02229528(void);
 
 struct Struct_ov031_02229484 { unsigned long long unknown_0_; unsigned long long unknown_8_; int unknown_10_; };
@@ -36,5 +36,5 @@ extern "C" ARM void func_ov031_02229484(void) {
 	default:
 		return;
 	}
-	func_ov031_022274c0((int)func_ov031_02229528);
+	SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02229528);
 }

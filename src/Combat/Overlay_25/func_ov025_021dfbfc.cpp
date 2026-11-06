@@ -10,7 +10,7 @@ struct Struct_ov025_021dfbfc_4 {
     int unknown_94c_;
 };
 
-extern "C" struct Struct_ov025_021dfbfc_4* func_02053c6c(unsigned char* arg0);
+extern "C" struct Struct_ov025_021dfbfc_4* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_02049458(unsigned char* arg0, unsigned char arg1);
 
 struct Struct_ov025_021dfbfc {
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov025_021dfbfc(Struct_ov025_021dfbfc_6* arg0) {
             } else {
                 GameObject* var7 = func_0200ff1c(var0, var5);
                 if (var7 != 0) {
-                    struct Struct_ov025_021dfbfc_4* var8 = func_02053c6c((unsigned char*)var7);
+                    struct Struct_ov025_021dfbfc_4* var8 = GetPartyMemberData_02053c6c((unsigned char*)var7);
                     if (var8 != 0 && (signed char)var8->unknown_94c_ != 5) {
                         var6 = 1;
                     }

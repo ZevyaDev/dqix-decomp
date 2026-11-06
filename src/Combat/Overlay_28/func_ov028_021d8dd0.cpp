@@ -18,7 +18,7 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-extern "C" void* func_0200fb8c(int*);
+extern "C" void* GetResources_0200fb8c(int*);
 extern "C" void func_020dc2bc();
 extern "C" void func_02074af4(void*);
 struct GameResources;
@@ -48,10 +48,10 @@ extern int data_ov028_021d9aa0;
 
 // USA: func_ov028_021d8dd0
 extern "C" ARM void func_ov028_021d8dd0(unsigned char* arg0) {
-    Struct_0208cb08* var0 = func_02094a00();
+    FontLoader_0208cb08* var0 = func_02094a00();
     void* var1 = BackgroundLoader::GetInstance();
     void* var2 = GameState::GetInstance();
-    void* var3 = func_0200fb8c((int*)var2);
+    void* var3 = GetResources_0200fb8c((int*)var2);
     unsigned char var4 = arg0[0x81];
 
     if (var4 == 0) {

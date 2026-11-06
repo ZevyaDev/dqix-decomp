@@ -1,11 +1,8 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
-extern "C" void* func_0205ec34(void);
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 
 extern int data_ov003_0217f304[];
 
@@ -25,10 +22,10 @@ extern "C" ARM void func_ov003_02156054(struct Struct_ov003_02156054* arg0) {
         arg0->unknown_20_[var0] = var1;
         var0++;
     }
-    unsigned char* var2 = (unsigned char*)func_0205ec34();
+    unsigned char* var2 = (unsigned char*)GetFlagManager_0205ec34();
     for (unsigned char var3 = 0; data_ov003_0217f304[var3] != 0; var3++) {
         int var4 = inline_ov003_02156054(var3);
-        if (func_0206dfb0((int)var2, var2 + 0x8c, var4 + 0x113f)) {
+        if (IsFlagSet_0206dfb0((int)var2, var2 + 0x8c, var4 + 0x113f)) {
             arg0->unknown_20_[var0] = var4;
             var0++;
         }

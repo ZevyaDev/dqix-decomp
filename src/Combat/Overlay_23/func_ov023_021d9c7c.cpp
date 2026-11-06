@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 #include "Resource/CharacterCreationUI.h"
 
-extern "C" int func_020e0434(Struct_0201099c_3*, int);
+extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 struct Struct_0205d304;
 extern "C" void func_0205d304(Struct_0205d304* arg0, const char* arg1, int arg2,
                             unsigned char arg3, unsigned char arg4,
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov023_021d9c7c(void* arg0) {
     var0->unknown_1f8_[1].unknown_b5_ = 1;
     var0->unknown_1f8_[1].unknown_b6_ = 1;
     memset(var0->unknown_f8_, 0, 0x800);
-    int var1 = func_020e0434(&var0->unknown_e0_, 0x4274);
+    int var1 = FindStringInTable_020e0434(&var0->unknown_e0_, 0x4274);
     sprintf(var0->unknown_f8_, (const char*)var1);
     func_0205d304((Struct_0205d304*)&var0->unknown_1f8_[1], var0->unknown_f8_, 0, 0, 0, 1, 0);
 #else
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov023_021d9c7c(void* arg0) {
     var2->unknown_b6_ = 1;
     char* var3 = var0->unknown_f8_;
     memset(var3, 0, 0x960);
-    int var4 = func_020e0434(&var0->unknown_e0_, 0x4274);
+    int var4 = FindStringInTable_020e0434(&var0->unknown_e0_, 0x4274);
     sprintf(var3, (const char*)var4);
     func_0205d304((Struct_0205d304*)var2, var3, 0, 0, 0, 1, 0, 0);
 #endif

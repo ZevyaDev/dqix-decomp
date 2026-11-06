@@ -30,7 +30,7 @@ extern "C" void* func_ov017_021b8478(void*);
 extern "C" void func_0209c480(Struct_02109bf4_4*, int);
 extern "C" void func_0209c2e0(Struct_02109bf4_4*, int, int);
 extern "C" void func_0205e944(void*, int);
-extern "C" void func_02043124(void*);
+extern "C" void CloseMessageWindow_02043124(void*);
 extern "C" int abs(int);
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void func_0209c678(Struct_02109bf4_4*, int);
@@ -39,7 +39,7 @@ extern "C" void* GetMessageWindow_020421a0();
 extern "C" Struct_0203e5d8* func_0203cf4c();
 extern "C" void func_0203e5d8(Struct_0203e5d8*, int);
 extern "C" float func_020709ac(unsigned char*);
-extern "C" unsigned int* func_020d6c00();
+extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void func_020466e4(unsigned int*, unsigned int);
 extern "C" void func_02047198(Struct_02046f84*);
 extern "C" void func_02046f84(Struct_02046f84*);
@@ -47,8 +47,8 @@ extern "C" void func_ov017_0218d274(void* arg0);
 extern "C" void func_ov017_0218f79c(void*);
 extern "C" void func_ov017_021a2840(GameResources*);
 extern char data_ov017_021d7c10[];
-extern Struct_02109bf4_4 data_02109bf4;
-extern char data_02108760[];
+extern Struct_02109bf4_4 gMusicManager_02109bf4;
+extern char gSoundEffectManager_02108760[];
 // USA: func_ov017_021b6290
 extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
     GameState* var0 = GameState::GetInstance();
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
         var2->unknown_b2_ = 0;
         if (arg0->unknown_fe_ >= 0) {
             arg0->unknown_100_ = var4->QueueLoadFile(data_ov017_021d7c10, 0);
-            func_0209c678(&data_02109bf4, 10);
+            func_0209c678(&gMusicManager_02109bf4, 10);
         }
         if (arg0->unknown_fe_ <= 0) arg0->unknown_fd_ = 0;
         if (arg0->unknown_8_) func_02017c58(GetZone3D_02012fe4());
@@ -90,11 +90,11 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
                 var4->RemoveTask(arg0->unknown_100_);
                 arg0->unknown_100_ = BackgroundLoader::TaskStatus_Invalid;
             }
-            func_0209c480(&data_02109bf4, var6);
-            func_0209c2e0(&data_02109bf4, 127, 0);
-            func_0205e944(data_02108760, 127);
+            func_0209c480(&gMusicManager_02109bf4, var6);
+            func_0209c2e0(&gMusicManager_02109bf4, 127, 0);
+            func_0205e944(gSoundEffectManager_02108760, 127);
             SetFlags04(var1, 0x40);
-            func_02043124(GetMessageWindow_020421a0());
+            CloseMessageWindow_02043124(GetMessageWindow_020421a0());
             func_0203e5d8(func_0203cf4c(), 0);
             if ((int)func_020709ac(var3) > 30 || abs(GetBrightness((GameResources*)var1, false)) == 16) {
                 SetMainBrightness(var1, -16, 0);
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
             SetFlags04(var1, 16);
             SetFlags04(var1, 2);
             SetFlags00(var1, 4);
-            func_020466e4(func_020d6c00(), 1);
+            func_020466e4(GetGlobalFlags_020d6c00(), 1);
             func_02047198(&arg0->unknown_c_);
             func_02046f84(&arg0->unknown_c_);
             func_ov017_0218d274(var1);

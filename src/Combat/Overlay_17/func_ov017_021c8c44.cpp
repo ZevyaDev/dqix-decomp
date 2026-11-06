@@ -36,7 +36,7 @@ extern "C" int func_020546a8(void* arg0);
 extern "C" void func_0202738c(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02027304(void* arg0, int arg1);
 extern "C" void func_ov017_021b86f8(void* arg0, int arg1, int arg2, int arg3);
-extern "C" int func_0202c508(void* arg0);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" Struct_0207d7f4* func_0207d78c(void);
 extern "C" void func_0207da7c(Struct_0207d7f4* arg0, unsigned short arg1);
 extern "C" void func_ov017_021a33e0(void* arg0, int arg1);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov017_021c8c44(int arg0, Struct_ov017_021c8c44* arg1, G
     func_ov017_021b86f8(*(void**)(arg3 + 0x3718), var1, 1, var2);
 #endif
 
-    if (func_0202c508(arg4)) {
+    if (IsNotLocalWirelessGuest_0202c508(arg4)) {
         func_0207da7c(func_0207d78c(), var1);
         if (var3 != -1) {
             Struct_ov017_021d6d18 var8 = data_ov017_021d6d18;
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov017_021c8c44(int arg0, Struct_ov017_021c8c44* arg1, G
         if (var12 != NULL) {
             if (arg0 == var12->unknown_0_.unknown_4_) {
                 func_02053f7c((Struct_02053f7c_3*)var12, 0, 1);
-            } else if (var12->unknown_0_.unknown_0_ & 0x1000) {
+            } else if (var12->unknown_0_.classFlags_0_ & 0x1000) {
                 Struct_ov017_021c8c44_2* var13 = (Struct_ov017_021c8c44_2*)func_0200ff1c(arg2, 0);
                 if (var13 != NULL) {
                     func_02053f7c((Struct_02053f7c_3*)var12, var13->unknown_1b2_, 1);

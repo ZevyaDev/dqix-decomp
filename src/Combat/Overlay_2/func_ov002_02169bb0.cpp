@@ -10,7 +10,7 @@
 struct Struct_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0205d81c;
 struct Struct_0205bcdc;
 struct Struct_0204c610;
@@ -18,7 +18,7 @@ extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1
                                                                         unsigned char arg2);
 extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" char *func_0205d81c(struct Struct_0205d81c *arg0, int arg1);
 extern "C" void func_0204c610(struct Struct_0204c610 *arg0, int arg1, short *arg2, short *arg3, short *arg4, short *arg5);
@@ -29,7 +29,7 @@ extern "C" void func_ov002_02161cf0(void *arg0);
 extern "C" void func_ov002_02160c68(void *arg0);
 extern "C" void func_ov002_02156e90(void *arg0);
 extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 // USA: func_ov002_02169bb0
 extern "C" ARM void func_ov002_02169bb0(char *arg0) {
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov002_02169bb0(char *arg0) {
         int var19 = g_keyManager.TestKeysPressed(0x601);
         int var20 = func_0205da38((struct Struct_0205da38*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0x14);
         if (((var19 | var20) ? 1 : 0) && *(short *) (arg0 + RG(0x1c00 + 0xe, 0x1a00 + 0xd6)) == 2) {
-            func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
             *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
             func_ov002_02156e90(arg0);
         } else if (func_ov002_02161b48(arg0, 1)) {

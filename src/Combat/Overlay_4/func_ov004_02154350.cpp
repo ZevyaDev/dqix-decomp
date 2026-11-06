@@ -4,15 +4,15 @@
 struct Struct_ov004_02154350_3 { unsigned int unknown_0_; SafeAllocator unknown_4_; };
 struct Struct_ov004_02154350 { short unknown_0_; short unknown_2_; unsigned char unknown_4_; unsigned char unknown_5_; };
 struct Struct_ov004_02154350_2 { Struct_ov004_02154350 unknown_0_[20]; unsigned short unknown_78_; unsigned short unknown_7a_; unsigned char unknown_7c_; };
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_ov002_0215b2c8;
 extern "C" Struct_ov004_02154350_3* func_ov011_021845f8(void*, int);
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" void func_ov004_02153b6c(void*, int, int, int, short*, short*);
 extern "C" void func_ov004_021545f0(Struct_ov004_02154350_2*, int, short, short, unsigned char, unsigned char);
 extern "C" void func_ov023_021e1518(void*);
-extern "C" void func_ov023_021e1474(Struct_ov002_0215b2c8*, Struct_0201099c_10*);
+extern "C" void func_ov023_021e1474(Struct_ov002_0215b2c8*, ItemTable_0201099c_10*);
 extern Struct_ov004_02154350_2* data_ov004_021707c0;
 
 class Struct_ov004_02154350_4 {
@@ -32,7 +32,7 @@ public:
     virtual void inline_ov004_02154350_48(); virtual void inline_ov004_02154350_49(); virtual void inline_ov004_02154350_50(); virtual void inline_ov004_02154350_51();
     virtual void inline_ov004_02154350_52(); virtual void inline_ov004_02154350_53(); virtual void inline_ov004_02154350_54(); virtual void inline_ov004_02154350_55();
     virtual void inline_ov004_02154350_56(); virtual void inline_ov004_02154350_57();
-    virtual Struct_0201099c_10* inline_ov004_02154350_58();
+    virtual ItemTable_0201099c_10* inline_ov004_02154350_58();
     virtual Struct_ov002_0215b2c8* inline_ov004_02154350_59();
 };
 
@@ -73,8 +73,8 @@ extern "C" ARM int func_ov004_02154350(void* arg0) {
         var7->unknown_78_ += var9->unknown_4_;
         var7->unknown_7a_ += var9->unknown_5_;
     }
-    Struct_ov004_02154350_4* var10 = (Struct_ov004_02154350_4*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0x2d);
-    Struct_ov004_02154350_4* var11 = (Struct_ov004_02154350_4*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0x39);
+    Struct_ov004_02154350_4* var10 = (Struct_ov004_02154350_4*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x2d);
+    Struct_ov004_02154350_4* var11 = (Struct_ov004_02154350_4*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x39);
     if (var10 && var11) {
         Struct_ov002_0215b2c8* var12 = var11->inline_ov004_02154350_59();
         if (var12) {

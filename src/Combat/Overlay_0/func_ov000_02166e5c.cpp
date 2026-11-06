@@ -13,7 +13,7 @@ enum { Enum_ov000_02166e5c_724 = 0x2c8 };
 enum { Enum_ov000_02166e5c_724 = 0x2d4 };
 #endif
 
-extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
 unsigned int FindFilesInNarcBySubstring(const void* narcBuffer, const char* substr, const void** pOutFilePtrs, unsigned int* pOutFileSizes, unsigned int maxOutputs);
 struct Struct_020545b8;
@@ -105,10 +105,10 @@ struct Struct_ov000_02166e5c_8 {
 struct Struct_ov000_02183014 { unsigned char unknown_0_[4]; };
 
 extern "C" void func_020545b8(Struct_020545b8*);
-struct Struct_0203d028;
-extern "C" void func_0207df50(Struct_0203d028*);
-extern "C" void func_0207df90(char*);
-extern "C" void func_0207dfac(char*);
+struct TextureVRAMArea_0203d028;
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
+extern "C" void RestoreTextureVRAMState_0207df90(char*);
+extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_0203dafc(Struct_0203d028_11*);
 struct Struct_02054664;
 extern "C" void func_02054664(Struct_02054664*);
@@ -118,7 +118,7 @@ extern "C" void func_ov000_0216d1c4(int, Struct_02013fb4*, int, int*);
 extern "C" void func_ov000_02165480(void*, int);
 extern "C" void func_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_02053c74(char*, int);
-extern "C" Struct_ov000_02166e5c_6* func_02053c6c(unsigned char*);
+extern "C" Struct_ov000_02166e5c_6* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" void func_020d3c08(char*);
 struct Struct_02061c04_12;
 extern "C" void func_020d3c28(Struct_02061c04_12*);
@@ -157,11 +157,11 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
 #endif
     func_020545b8((Struct_020545b8*)func_ov017_021a11f4(var2, 2));
     var3->Reset();
-    func_0207df50((Struct_0203d028*)&blocks_3);
-    func_0207df90(blocks_3.unknown_0_);
+    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)&blocks_3);
+    RestoreTextureVRAMState_0207df90(blocks_3.unknown_0_);
     BackgroundLoader::AddLockGlobal();
     unsigned int var5;
-    if (!LoadFileIntoMemory(data_ov000_02183aa5, data_0211e33c, &var5)) {
+    if (!LoadFileIntoMemory(data_ov000_02183aa5, gFileScratchSpace_0211e33c, &var5)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
@@ -172,7 +172,7 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
     }
     Struct_ov000_02166e5c_9 var7;
     func_0203dafc(&var7.unknown_0_);
-    var7.unknown1_0_.fileData = data_0211e33c;
+    var7.unknown1_0_.fileData = gFileScratchSpace_0211e33c;
     var7.unknown1_0_.unk_8 = var5;
     var7.unknown1_0_.allocator = var3;
     var7.unknown1_0_.unk_10 = 1;
@@ -186,17 +186,17 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
     func_02049c88(var6, &arg0->unknown_5cac_);
     const void* var8;
     unsigned int var9;
-    if (FindFilesInNarcBySubstring(data_0211e33c, data_ov000_021839e2, &var8, &var9, 1)) {
+    if (FindFilesInNarcBySubstring(gFileScratchSpace_0211e33c, data_ov000_021839e2, &var8, &var9, 1)) {
         int var10 = 0;
         func_ov000_0216d1c4((int)var3, (Struct_02013fb4*)var8, var9, &var10);
         func_ov000_02165480(var6, var10);
     }
-    if (!LoadFileIntoMemory(data_ov000_02183abe, data_0211e33c, &var5)) {
+    if (!LoadFileIntoMemory(data_ov000_02183abe, gFileScratchSpace_0211e33c, &var5)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
     func_0203dafc(&var7.unknown_0_);
-    var7.unknown1_0_.fileData = data_0211e33c;
+    var7.unknown1_0_.fileData = gFileScratchSpace_0211e33c;
     var7.unknown1_0_.unk_8 = var5;
     var7.unknown1_0_.allocator = var3;
     var7.unknown1_0_.unk_10 = 1;
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
     }
     func_0200fd38(var1, 1, (GameObject*)var6);
     func_02053c74((char*)var6, 1);
-    Struct_ov000_02166e5c_6* var11 = func_02053c6c((unsigned char*)var6);
+    Struct_ov000_02166e5c_6* var11 = GetPartyMemberData_02053c6c((unsigned char*)var6);
     if (!var11) {
         BackgroundLoader::RemoveLockGlobal();
         return;
@@ -240,13 +240,13 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
     var11->unknown_56a_ = 0xb;
     var11->unknown_94c_ = 3;
     func_020a35cc(arg0->unknown_2a0_, 1);
-    Struct_ov000_02166e5c_8* var15 = (Struct_ov000_02166e5c_8*)func_02010828(var1);
+    Struct_ov000_02166e5c_8* var15 = (Struct_ov000_02166e5c_8*)GetParty_02010828(var1);
     var15->unknown_f78_[var15->unknown_f7c_++] = 1;
     func_02033b88((Struct_02010604*)var6, 0);
     func_020397cc((Struct_02018300_3*)var6, 1);
     func_0208936c(var6->unknown_138_, (char*)var6->unknown_130_, (char*)var6->unknown_134_);
     var6->unknown_c2_ |= 0x20;
-    func_0207dfac(blocks_3.unknown_0_);
+    SaveTextureVRAMState_0207dfac(blocks_3.unknown_0_);
     int var16 = var13->unknown_10_0_;
     Struct_ov000_02166e5c_6* var17 = var6->unknown_150_;
     if (var17) var17->unknown_56b_0_ = (unsigned char)var16;

@@ -59,7 +59,7 @@ struct Struct_ov000_021707f0 {
     float unknown_434_;
 };
 
-extern "C" int func_0200fb8c(int*);
+extern "C" int GetResources_0200fb8c(int*);
 extern "C" void* func_ov000_02160f08(void*);
 extern "C" Struct_0205d0e0* func_0205d81c(Struct_0205d81c*, int);
 extern "C" int func_0204c7cc(unsigned char*);
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov000_021707f0(Struct_ov000_021707f0* arg0) {
     if (!var1) {
         return;
     }
-    GameResources* var2 = (GameResources*)func_0200fb8c((int*)var1);
+    GameResources* var2 = (GameResources*)GetResources_0200fb8c((int*)var1);
     if (!var2 || !var2->unknown_ptr_3718) {
         return;
     }

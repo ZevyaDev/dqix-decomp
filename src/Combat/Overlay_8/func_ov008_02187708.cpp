@@ -55,7 +55,7 @@ struct MessageWindow_02021b84;
 struct Struct_ov008_021843f8_2;
 struct Struct_020727d8;
 struct Struct_0201099c_3;
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 struct Struct_02013fb4;
 
 struct Struct_ov008_02185dc0 {
@@ -67,12 +67,12 @@ extern char data_ov008_0218c0fc[];
 
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_020727d8(Struct_020727d8* arg0);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
-extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
+extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
 extern "C" void func_02046574(MessageWindow_02021b84* arg0, int arg1, const void* arg2);
-extern "C" void func_02042058(char* arg0, const char* arg1);
-extern "C" void func_02046380(MessageWindow_02021b84* arg0);
+extern "C" void AppendText_02042058(char* buffer, const char* text);
+extern "C" void ClearMessageParams_02046380(MessageWindow_02021b84* window);
 extern "C" void func_020474a8(MessageWindow_02021b84* arg0, int arg1, const char* arg2, char* arg3);
 extern "C" const char* func_020e2168(char* arg0, const char* arg1, short arg2, unsigned int arg3, int arg4);
 extern "C" void __clear(void* arg0, unsigned long arg1);
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
     char var4[0x40];
     __clear(var4, sizeof(var4));
     unsigned int var5 = 0;
-    func_02046380(var1);
+    ClearMessageParams_02046380(var1);
     if (!inline_ov008_02187708_2(arg0))
     {
         char* var9 = inline_ov008_02187708(var0);
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
         {
             if (arg0->unknown_b38_ != NULL)
             {
-                var15 = func_020e0434((Struct_0201099c_3*)arg0->unknown_b38_, var3);
+                var15 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b38_, var3);
             }
             else
             {
@@ -141,14 +141,14 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
         {
             if (arg0->unknown_b34_ != NULL)
             {
-                var15 = func_02072a68((Struct_02072a68_2*)arg0->unknown_b34_, (short)(var3 + 20000));
+                var15 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_b34_, (short)(var3 + 20000));
             }
             else
             {
                 char var17[0x40] = "data/bin/";
-                func_02042058(var17, data_ov008_0218c0fc);
+                AppendText_02042058(var17, data_ov008_0218c0fc);
                 BackgroundLoader::AddLockGlobal();
-                void* var21 = LoadFileIntoMemory(var17, data_0211e33c, &var16);
+                void* var21 = LoadFileIntoMemory(var17, gFileScratchSpace_0211e33c, &var16);
                 if (var21 != NULL)
                 {
                     func_02072928(&var14, (Struct_02013fb4*)var21, var16, (short)(var3 + 20000), var4, 0);
@@ -162,7 +162,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
     int var23 = 100;
     if (arg2 != NULL)
         var23 = 101;
-    func_020474a8(var1, 10, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, var23), arg1);
+    func_020474a8(var1, 10, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, var23), arg1);
 }
 #else
 
@@ -314,7 +314,7 @@ struct Struct_ov008_02187708_2 {
 
 struct Struct_020727d8;
 struct Struct_0201099c_3;
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 struct Struct_02013fb4;
 struct Struct_02046574_2;
 
@@ -328,19 +328,19 @@ extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_020e46c4(void* arg0);
 extern "C" void func_020e4c74(void* arg0, GameObject* arg1);
 extern "C" void func_020727d8(Struct_020727d8* arg0);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
-extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
+extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
 extern "C" void func_02046574(Struct_02046574_2* arg0, int arg1, char* arg2);
 extern "C" char* func_020d2f88(char* arg0, char* arg1);
 extern "C" void func_02041a5c(char* arg0, int arg1);
-extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" void AppendText_02042058(char* buffer, const char* text);
 
 extern "C" {
 void __clear(void* arg0, unsigned long arg1);
 int sprintf(char* arg0, const char* arg1, ...);
 void* ExtractFileFromGP2(char* arg0, char* arg1, unsigned int* arg2);
-void func_02046380(MessageWindow_02021b84* arg0);
+void ClearMessageParams_02046380(MessageWindow_02021b84* window);
 void func_02042764(const void* arg0, char* arg1, int arg2);
 void func_020e4b34(Struct_ov008_02187708_2* arg0, char* arg1, char* arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8,
                    int arg9, int arg10, int arg11);
@@ -363,7 +363,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
     char var4[0x40];
     __clear(var4, sizeof(var4));
     unsigned int var5 = 0;
-    func_02046380(var1);
+    ClearMessageParams_02046380(var1);
     Struct_ov008_02187708_2 var6;
     Struct_ov008_02187708_2 var7;
     const void* var8 = arg0->unknown_b30_;
@@ -409,7 +409,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
         {
             if (arg0->unknown_b3c_ != NULL)
             {
-                var15 = func_020e0434((Struct_0201099c_3*)arg0->unknown_b3c_, var3);
+                var15 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b3c_, var3);
             }
             else
             {
@@ -431,7 +431,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
         {
             if (arg0->unknown_b38_ != NULL)
             {
-                var15 = func_02072a68((Struct_02072a68_2*)arg0->unknown_b38_, (short)(var3 + 20000));
+                var15 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_b38_, (short)(var3 + 20000));
             }
             else
             {
@@ -455,7 +455,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
         var23 = 101;
         var24 = 0xdf;
     }
-    func_02046608(var1, 10, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, var23), var22 + 0x760, var24, 1, 0);
+    func_02046608(var1, 10, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, var23), var22 + 0x760, var24, 1, 0);
     int var25 = 7;
     if (func_020d2f88(var22 + 0x760, data_ov008_0218b4c1) != NULL)
         var25 = 2;
@@ -466,6 +466,6 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
             arg0->unknown_b2c_ = 0xe0000;
     }
     func_02041a5c(arg1, var25);
-    func_02042058(arg1, var22 + 0x760);
+    AppendText_02042058(arg1, var22 + 0x760);
 }
 #endif

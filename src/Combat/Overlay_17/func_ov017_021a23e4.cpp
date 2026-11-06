@@ -2,9 +2,6 @@
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_020fdd44;
 struct Struct_0206f01c_2;
@@ -46,11 +43,11 @@ struct Struct_ov017_021a23e4_4 {
     unsigned short unknown_16a_;
 };
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_ov017_021a26e8(GameResources* arg0, int arg1);
-extern "C" void* func_0205ec34(void);
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" Struct_020fdd44* func_02027ca4();
 extern "C" Struct_ov017_021a23e4_2* func_02028bd0(Struct_020fdd44*, int);
 extern "C" Struct_02073ec4_3* func_02073ec4(int arg0, void* arg1);
@@ -65,13 +62,13 @@ extern "C" int func_ov017_021a2128(void* arg0, int arg1, int arg2, int arg3, con
 // USA: func_ov017_021a23e4
 extern "C" ARM int func_ov017_021a23e4(GameResources* arg0, int arg1, int arg2, int arg3) {
     GameState* var0 = GameState::GetInstance();
-    if (func_0202c540(func_0202ae18())) return 0;
+    if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18())) return 0;
     GameObject* var1 = func_0200ff1c(var0, arg1);
     if (!var1) return 0;
     if (arg2 == 0) arg2 = func_ov017_021a26e8(arg0, arg1);
     int var2 = var1->obj3D_.GetField06();
-    void* var3 = func_0205ec34();
-    if (func_0206dfb0((int)var3, (unsigned char*)var3 + 0x8c, 0x79a) != 0 &&
+    void* var3 = GetFlagManager_0205ec34();
+    if (IsFlagSet_0206dfb0((int)var3, (unsigned char*)var3 + 0x8c, 0x79a) != 0 &&
         arg3 != 0x26 && arg3 != 0x27 && arg3 != 0x28 &&
         var2 >= 0x190 && var2 <= 0x199) {
         return 0;

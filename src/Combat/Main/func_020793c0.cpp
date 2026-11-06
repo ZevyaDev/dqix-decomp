@@ -13,7 +13,7 @@ struct Struct_020793c0 {
 struct Struct_020793c0_2 { char unknown_0_[0x56c]; unsigned char unknown_56c_; };
 extern "C" int func_02039860(void*);
 extern "C" int func_020342ac(GameObject*);
-extern "C" Struct_020793c0_2* func_02053c6c(unsigned char*);
+extern "C" Struct_020793c0_2* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" int func_02034340(void*);
 struct Struct_020793c0_3 { int unknown_0_, unknown_4_, unknown_8_; };
 extern "C" Struct_020793c0_3 func_02034104(GameObject*);
@@ -33,7 +33,7 @@ extern "C" ARM short func_020793c0(Object3D* arg0, int arg1) {
         Struct_020793c0* var3 = (Struct_020793c0*)var2;
         if (var3->unknown_c0_ == 6) continue;
         if (var2->obj3D_.GetField06() != arg0->GetField06()) continue;
-        if (func_02053c6c((unsigned char*)var2)->unknown_56c_ != 0) continue;
+        if (GetPartyMemberData_02053c6c((unsigned char*)var2)->unknown_56c_ != 0) continue;
         if (var3->unknown_130_->unknown_0_ & 1) continue;
         if ((int)var3->unknown_c3_ > 0) continue;
         if (func_02034340(var2)) continue;

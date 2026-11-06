@@ -94,12 +94,12 @@ struct Struct_ov006_02154614 {
     unsigned char unknown_12bd_;
 };
 
-extern "C" void* func_0200fb8c(int* arg0);
+extern "C" void* GetResources_0200fb8c(int* gameState);
 extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
 extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
 extern "C" void func_0205ebec(void* arg0);
 
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 extern char data_ov006_02160080[];
 extern char data_ov006_02160087[];
 extern char data_ov006_02160089[];
@@ -113,7 +113,7 @@ extern char data_ov006_021600a9[];
 
 // USA: func_ov006_02155068
 extern "C" ARM void func_ov006_02155068(Struct_ov006_02154614* arg0) {
-    unsigned int* var0 = (unsigned int*)func_0200fb8c((int*)GameState::GetInstance());
+    unsigned int* var0 = (unsigned int*)GetResources_0200fb8c((int*)GameState::GetInstance());
     unsigned short var1 = arg0->unknown_ae2_;
     if (var1 & 0x2000) {
         SetFlags04((GameResources*)var0, 0x2000);
@@ -123,8 +123,8 @@ extern "C" ARM void func_ov006_02155068(Struct_ov006_02154614* arg0) {
     }
     if (var1 & 0x80) {
         if (arg0->unknown_ae1_ == 0) {
-            func_0205ebc0(data_02108760, 0x7a, 0x7a);
-            func_0205ebfc(data_02108760, 0, 0);
+            func_0205ebc0(gSoundEffectManager_02108760, 0x7a, 0x7a);
+            func_0205ebfc(gSoundEffectManager_02108760, 0, 0);
             arg0->unknown_2e4_.MaybeSetRegularAnimation(data_ov006_02160080, 1);
             arg0->unknown_43c_.MaybeSetRegularAnimation(data_ov006_02160087, 1);
             arg0->unknown_4e8_.MaybeSetRegularAnimation(data_ov006_02160080, 9);
@@ -166,7 +166,7 @@ extern "C" ARM void func_ov006_02155068(Struct_ov006_02154614* arg0) {
             return;
         }
         ClearFlags04((GameResources*)var0, 0x2000);
-        func_0205ebec(data_02108760);
+        func_0205ebec(gSoundEffectManager_02108760);
         arg0->unknown_ae1_ = 0;
         arg0->unknown_2e4_.MaybeSetRegularAnimation(data_ov006_021600a0, 1);
         arg0->unknown_43c_.StopCurrentAnimation();

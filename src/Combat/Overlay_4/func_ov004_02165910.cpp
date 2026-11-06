@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 extern "C" int func_ov004_021635d0(int* arg0, int* arg1);
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 #if defined(jpn)
 extern "C" int func_ov023_021f6f10(void* arg0);
 #else
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov004_02165910(void* arg0) {
     var1 = 0;
     var0 = 0;
     if (func_ov004_021635d0(&var1, &var0)) {
-        struct Struct_ov004_02165910* var2 = (struct Struct_ov004_02165910*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0xa);
+        struct Struct_ov004_02165910* var2 = (struct Struct_ov004_02165910*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0xa);
         if (var2) {
 #if defined(jpn)
             if (func_ov023_021f6f10(var2) == 7) {
@@ -48,7 +48,7 @@ extern "C" ARM int func_ov004_02165910(void* arg0) {
         }
     }
 
-    struct Struct_ov004_02165910* var5 = (struct Struct_ov004_02165910*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0xa);
+    struct Struct_ov004_02165910* var5 = (struct Struct_ov004_02165910*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0xa);
     if (!var5) {
         goto ret0;
     }

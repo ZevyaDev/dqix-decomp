@@ -3,9 +3,9 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_020397c0(void* arg0);
 
 extern "C" void* func_02057924();
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov010_021842d8(struct Struct_ov010_021842d8* arg0) {
     void* var0 = arg0->unknown_14_.GetSignedAllocator();
     if (var0 != NULL) {
         arg0->unknown_14_.Destroy();
-        func_02012da4(&data_02114e20, var0);
+        FreeMemory_02012da4(&gMainHeap_02114e20, var0);
     }
     if (arg0->unknown_4_ >= 0) {
         int var1 = (int)BackgroundLoader::GetInstance();

@@ -5,9 +5,6 @@
 #endif
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
@@ -21,8 +18,8 @@ struct Struct_02071be8;
 struct Struct_0201099c_14;
 struct Struct_ov006_02157a60_2;
 
-extern "C" void* func_0205ec34();
-extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" void* GetFlagManager_0205ec34();
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 extern "C" void func_0204af64(Struct_02020cb8*);
 extern "C" void func_ov006_021536e0(Struct_ov006_021536e0*);
@@ -153,8 +150,8 @@ struct Struct_ov006_02157a60 {
 // USA: func_ov006_02157a60
 extern "C" ARM void func_ov006_02157a60(Struct_ov006_02157a60* arg0)
 {
-    char* var0 = (char*)func_0205ec34();
-    if (!func_0206dfb0((int)var0, (unsigned char*)(var0 + 0x8c), 0x777))
+    char* var0 = (char*)GetFlagManager_0205ec34();
+    if (!IsFlagSet_0206dfb0((int)var0, (unsigned char*)(var0 + 0x8c), 0x777))
         func_0206df6c(var0, (unsigned char*)(var0 + 0x8c), 0x777, 1);
 #if !defined(jpn)
     arg0->unknown_0_ = 0;

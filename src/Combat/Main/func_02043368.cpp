@@ -6,14 +6,14 @@
 
 struct Struct_02043368_2;
 struct Struct_02043368;
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 
 extern "C" void func_0205a444(char* arg0);
 extern "C" void func_0205a198(struct Struct_02043368_2* arg0);
 extern "C" void func_0205a234(struct Struct_02043368* arg0);
-extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
-extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
+extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
 
 extern char data_020f007f;
@@ -98,9 +98,9 @@ extern "C" ARM void func_02043368(struct Struct_02043368_4* arg0) {
             unsigned int var6;
             int var7;
             var0->GetLoadedFileByID(arg0->unknown_2d0_, &var5, &var6);
-            int var8 = func_02046900((struct Struct_02020cb8_4*)var5);
+            int var8 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var5);
             for (int var9 = 0; var9 < var8; var9++) {
-                void* var10 = func_020467f0((struct Struct_02020aec*)var5, var9, &var4, &var7);
+                void* var10 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var5, var9, &var4, &var7);
                 func_0205a528(arg0->unknown_2d8_, var10, var7, arg0->unknown_2d4_);
             }
         }

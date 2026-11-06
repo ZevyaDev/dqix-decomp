@@ -36,14 +36,14 @@ struct Struct_0201afd0_5;
 struct Struct_02011430;
 struct Struct_0201afd0_6;
 struct Struct_0201afd0_7;
-extern "C" void* func_0202ae18();
+extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void func_020105a8(Struct_020105a8*, int*);
 int GenerateGrottoObjectPositionOrientation(void*, int, int, int*, int*, const TileFeaturePlacementData*, bool);
 extern "C" Struct_0201e690* func_0201e690(Struct_0201afd0_4*, int);
 extern "C" void func_02094d00(Struct_020134e0_2*);
 extern "C" void func_02094cdc(Struct_0201afd0_5*, int, SafeAllocator*);
 extern "C" int func_02011430(Struct_02011430*, int, int);
-extern "C" int func_0202b7d8(int*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_02094d14(Struct_0201afd0_6*, Struct_0201afd0_7*, int);
 extern "C" void func_020de848(void*);
 extern "C" int func_020de9a4(void*, SafeAllocator*, void*, unsigned int, unsigned short*, unsigned short);
@@ -85,7 +85,7 @@ extern "C" ARM int func_0201afd0(Zone3D* arg0, const void* arg1, unsigned int ar
     ActiveGrottoClass* var2 = &arg0->grotto_;
     int var3;
     FloorMap* var4 = &var2->floorMap_;
-    void* var5 = func_0202ae18();
+    void* var5 = GetLocalWireless_0202ae18();
     Struct_0201afd0_2* var6 = (Struct_0201afd0_2*)(arg0->unknown_struct_2724_);
 
     arg0->numChests_ = var4->chestCount;
@@ -224,7 +224,7 @@ extern "C" ARM int func_0201afd0(Zone3D* arg0, const void* arg1, unsigned int ar
                     var32->unknown_16_ = 1;
                     var32->unknown_e_ = 0x647a;
                 }
-                if (func_0202b7d8((int*)(var5))) {
+                if (IsLocalWirelessOn_0202b7d8((int*)(var5))) {
                     var32->unknown_18_ = 1;
                 }
                 if (var31->lootType == 2) {

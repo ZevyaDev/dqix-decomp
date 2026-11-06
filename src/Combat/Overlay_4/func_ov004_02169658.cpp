@@ -64,7 +64,7 @@ struct Struct_ov004_02169658_2 {
     short unknown_1be_;
 };
 
-extern "C" unsigned char* func_02053c6c(unsigned char* arg0);
+extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" Struct_ov004_02169658_3* func_ov023_021f6524(void* arg0, int arg1);
 extern "C" Struct_ov004_02169658_3* func_ov004_02168a6c(void* arg0, int arg1);
 extern "C" Struct_ov004_02169658_3* func_ov004_02168a38(void* arg0, int arg1);
@@ -89,7 +89,7 @@ extern struct Struct_ov004_02169658* data_ov004_02171030;
 
 // USA: func_ov004_02169658
 extern "C" ARM int func_ov004_02169658(struct Struct_ov004_02169658_2* arg0) {
-    unsigned char* var0 = func_02053c6c((unsigned char*)GameState::GetInstance()->GetUnknownGameObject()) + 0x3c;
+    unsigned char* var0 = GetPartyMemberData_02053c6c((unsigned char*)GameState::GetInstance()->GetUnknownGameObject()) + 0x3c;
     Struct_ov004_02169658_3* var1 = func_ov023_021f6524(arg0, 0x64);
     int var2;
     for (var2 = 0; var2 < 8; var2++) {

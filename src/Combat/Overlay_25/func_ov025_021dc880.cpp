@@ -5,7 +5,7 @@ extern "C" void* func_ov000_02163524(void* arg0);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void func_ov000_0216dbf0(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov000_021626a0(void* arg0, int arg1, int arg2);
-extern "C" void func_02043124(void* arg0);
+extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void* func_ov000_02160f20(void* arg0);
 struct Struct_ov025_021d8a40;
 extern "C" void func_ov025_021d8a40(void* arg0, struct Struct_ov025_021d8a40* arg1);
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov025_021dc880(unsigned char* arg0) {
         func_ov000_0216dbf0(arg0 + 0xc18, 0, 0, 0);
 #endif
         func_ov000_021626a0(arg0, 4, 1);
-        func_02043124(var0);
+        CloseMessageWindow_02043124(var0);
         _ZZ21inline_ov025_021dcf14vE1s.unknown_8_ = 1;
     }
 

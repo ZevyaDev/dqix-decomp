@@ -24,7 +24,7 @@ extern "C" ARM void func_ov003_021668fc(char* arg0) {
     if (*(short*)(arg0 + Enum_ov003_021668fc_1152) < 0) return;
 
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_02010828(var0);
+    void* var1 = GetParty_02010828(var0);
     void* var2 = func_ov003_02160bf8(arg0, *(short*)(arg0 + Enum_ov003_021668fc_1152));
     if (var2 == 0) return;
 

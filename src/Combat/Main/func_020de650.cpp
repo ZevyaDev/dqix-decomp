@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 
-struct Struct_0201099c_9 {
+struct ItemData_0201099c_9 {
     unsigned int unknown_0_[8];
 };
 
 struct Struct_020de5b0_2 {
     unsigned short unknown_0_;
     unsigned char unknown_2_[10];
-    struct Struct_0201099c_9* unknown_c_;
+    struct ItemData_0201099c_9* unknown_c_;
 };
 
-typedef int (*Type_020de5fc)(struct Struct_0201099c_9*);
+typedef int (*Type_020de5fc)(struct ItemData_0201099c_9*);
 
 // USA: func_020de650
-extern "C" ARM struct Struct_0201099c_9* func_020de650(struct Struct_020de5b0_2* arg0, int arg1, Type_020de5fc arg2) {
-    struct Struct_0201099c_9* var0;
+extern "C" ARM struct ItemData_0201099c_9* func_020de650(struct Struct_020de5b0_2* arg0, int arg1, Type_020de5fc arg2) {
+    struct ItemData_0201099c_9* var0;
     int var1;
     int var2;
     int var3;
     int var4;
-    struct Struct_0201099c_9* var5;
+    struct ItemData_0201099c_9* var5;
     int var6;
 
     var0 = arg0->unknown_c_;

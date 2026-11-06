@@ -223,7 +223,7 @@ extern "C" ARM int func_ov017_02192b48(Struct_02017d90* arg0, Struct_ov017_02192
         Vector3i var27 = var6;
         var27.y += 0x800;
         int var28 = 0x800;
-        if (arg3->unknown_0_ & 0x20) {
+        if (arg3->classFlags_0_ & 0x20) {
             int var29 = arg3->GetRadius() >> 2;
             if (var29 > 0x800) {
                 var28 = var29;

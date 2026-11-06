@@ -9,8 +9,8 @@ extern "C" void NSBXX_Model_SetPolygonID(void* obj, unsigned int value);
 struct Struct_02040774_2;
 extern "C" void func_020407b4(struct Struct_02040774_2* arg0, int arg1, int arg2, int arg3);
 
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern AllocatorUnion data_02114e20;
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_02046e70
 extern "C" ARM void func_02046e70(void* arg0, void* arg1, Object3D* arg2) {
@@ -41,7 +41,7 @@ extern "C" ARM void func_02046e70(void* arg0, void* arg1, Object3D* arg2) {
     if (arg1 != NULL) {
         return;
     }
-    void* var3 = func_02012d88(&data_02114e20, 0x301c);
+    void* var3 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x301c);
     if (var3 != NULL) {
         SafeAllocator* var4 = (SafeAllocator*)((char*)arg0 + 0x24);
         var4->ResetAllocatorPointer();

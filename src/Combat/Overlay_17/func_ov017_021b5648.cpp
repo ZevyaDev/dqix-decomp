@@ -9,11 +9,11 @@ enum { Enum_ov017_021b5648_24 = 0x14, Enum_ov017_021b5648_9196 = 0x240c };
 enum { Enum_ov017_021b5648_24 = 0x18, Enum_ov017_021b5648_9196 = 0x23ec };
 #endif
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
 struct Struct_02039df4;
 extern "C" unsigned short func_02028460(void* arg0, void* arg1);
-extern "C" int func_0202c508(void* arg0);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_ov017_021a2128(void* arg0, int arg1, int arg2, int arg3, void* arg4, int arg5, int arg6, int arg7);
 
@@ -23,7 +23,7 @@ extern struct Struct_ov017_021d6bcc data_ov017_021d6bcc;
 // USA: func_ov017_021b5648
 extern "C" ARM void func_ov017_021b5648(char* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
 
     int var2;
     for (var2 = 0; var2 < 4; var2++) {
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov017_021b5648(char* arg0) {
         ((unsigned char*)var3)[0xc2] |= 0x40;
     }
 
-    if (func_0202c508(var1) != 0 && *(unsigned short*)(arg0 + 0x12) != 0) {
+    if (IsNotLocalWirelessGuest_0202c508(var1) != 0 && *(unsigned short*)(arg0 + 0x12) != 0) {
         GameState* var6 = GameState::GetInstance();
         void* var7 = GetGameResources();
         var6->GetGrottoStruct();

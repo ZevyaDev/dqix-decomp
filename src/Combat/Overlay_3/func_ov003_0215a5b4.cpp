@@ -44,8 +44,8 @@ struct Struct_0205d81c;
 
 extern "C" struct Struct_ov003_0215a5b4_3* GetMessageWindow_020421a0();
 extern "C" void func_0205deb4(struct Struct_0205d81c* arg0, int arg1, int arg2);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
 extern "C" void func_ov003_021592d8(struct Struct_ov003_0215a5b4_4* arg0, struct Struct_ov003_0215a5b4_2* arg1, char* arg2);
@@ -62,8 +62,8 @@ extern "C" ARM void func_ov003_0215a5b4(struct Struct_ov003_0215a5b4_4* arg0) {
         func_0205deb4((struct Struct_0205d81c*)arg0->unknown_f4_, 1, 1);
         func_0205deb4((struct Struct_0205d81c*)arg0->unknown_f4_, 2, 1);
         memset(arg0->unknown_7c_, 0, Enum_ov003_0215a5b4_2400);
-        func_02042058(arg0->unknown_7c_,
-                             (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, 0x3fc));
+        AppendText_02042058(arg0->unknown_7c_,
+                             (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, 0x3fc));
         unsigned char var3[4];
         char* var4 = arg0->unknown_7c_ + Enum_ov003_0215a5b4_2144;
         __clear(var3, sizeof(var3));
@@ -85,10 +85,10 @@ extern "C" ARM void func_ov003_0215a5b4(struct Struct_ov003_0215a5b4_4* arg0) {
             }
             memset(var4, 0, 0x80);
             func_ov003_021592d8(arg0, var7, var4);
-            func_02042058(arg0->unknown_7c_, var4);
+            AppendText_02042058(arg0->unknown_7c_, var4);
         }
-        func_02042058(arg0->unknown_7c_,
-                             (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, 0x42e));
+        AppendText_02042058(arg0->unknown_7c_,
+                             (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, 0x42e));
         func_ov003_02159250(arg0, arg0->unknown_7c_);
         arg0->unknown_580_++;
     }

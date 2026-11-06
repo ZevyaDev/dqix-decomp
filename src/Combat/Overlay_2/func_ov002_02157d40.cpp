@@ -62,7 +62,7 @@ extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020e2ff8(void);
 extern "C" void* func_02079e2c(char* arg0, int arg1);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int func_0202053c(void* arg0);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 extern "C" void func_ov017_021c2b28(void* arg0, unsigned char arg1, unsigned char arg2);
@@ -70,18 +70,18 @@ extern "C" void func_020e3428(void* arg0, int arg1);
 extern "C" int func_0201b588(int arg0);
 extern "C" int func_0201b5b0(int arg0);
 extern "C" void func_020541a4(struct Struct_ov002_02157d40_5* arg0, unsigned char arg1);
-extern "C" void func_020465c0(struct Struct_ov002_02157d40_2* arg0, int arg1, int arg2);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" void SetMessageNumber_020465c0(struct Struct_ov002_02157d40_2* window, int index, int number);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 void* LoadFileIntoMemory(const char* path, void* buf, unsigned int* outSize);
 extern "C" void func_02048418(unsigned char* arg0, unsigned short arg1);
 extern "C" void func_020a8170(struct Struct_ov002_02157634_6* arg0);
 extern "C" int func_020114ec(char* arg0, void* arg1);
 extern "C" int func_0202663c(unsigned char* arg0);
 extern "C" void func_02046a3c(struct Struct_ov002_02157d40_9* arg0, struct Struct_ov002_02157d40_10* arg1);
-extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_02026644(char* arg0);
 extern "C" void func_ov017_021c2744(struct Struct_ov002_02157d40_13* arg0);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_0208247c(void* arg0);
 extern "C" void func_02048350(struct Struct_ov002_02157d40_8* arg0, int arg1);
 extern "C" void func_ov002_02157ce0(char* arg0);
@@ -95,7 +95,7 @@ extern "C" void func_ov017_021d27a0(int, int, int);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_ov017_021acd30(char* arg0, unsigned char arg1, unsigned char arg2, unsigned char arg3);
 extern "C" int func_02026a78(char* arg0);
-extern "C" void func_0205eaa0(struct Struct_ov002_02157d40_7* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct Struct_ov002_02157d40_7* manager, int soundEffectIndex, int handle);
 struct GameObject;
 extern "C" void func_020e4c74(void*, GameObject*);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
@@ -105,11 +105,11 @@ extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 
 extern "C" int func_02026780(void* arg0, void* arg1, unsigned int arg2);
-extern "C" int func_0202c540(void* arg0);
-extern "C" void func_02046380(void* arg0);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" void func_02052d7c(void* arg0, signed char arg1, int arg2);
 extern "C" void func_0207c378(void* arg0, short arg1, int arg2, unsigned int arg3);
@@ -132,10 +132,10 @@ extern "C" void func_ov017_021c3fb4(signed char arg0, int arg1);
 extern "C" void func_ov017_021c4418(signed char arg0, int arg1);
 extern "C" void func_ov017_021c9e00(signed char arg0, int arg1, int arg2, int arg3);
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 extern unsigned char data_ov002_0216c992;
 extern int data_ov002_0216cf51;
-extern int data_0211e33c;
+extern int gFileScratchSpace_0211e33c;
 extern int data_ov002_0216cf66;
 
 struct Struct_ov002_02157d40_14 {
@@ -290,7 +290,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
     struct Struct_ov002_02157d40_21 var0;
     char* var1;
     struct Struct_ov002_02157d40_19* var2 = (Struct_ov002_02157d40_19*)GameState::GetInstance();
-    int var3 = func_0200fb8c((int*)var2);
+    int var3 = GetResources_0200fb8c((int*)var2);
     unsigned short* var4 = (unsigned short*)GetZone3D_02012fe4();
     Struct_02108e10* var5 = func_020797dc();
     var1 = (char*)var5;
@@ -300,7 +300,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
 #else
     struct Struct_ov002_02157d40_17* var7 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)func_0200ff1c((GameState*)var2, arg0->unknown_1c20_);
 #endif
-    int* var8 = (int*)func_0202ae18();
+    int* var8 = (int*)GetLocalWireless_0202ae18();
     int var9 = 0;
     int var10;
     bool var11;
@@ -336,7 +336,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 arg0->unknown_1c21_ = arg0->unknown_1c20_;
                 arg0->unknown_1c28_ = 0x754a;
                 var10 = 1;
-                struct Struct_ov002_02157d40_18* var13 = (struct Struct_ov002_02157d40_18*)func_02010828((GameState*)var2);
+                struct Struct_ov002_02157d40_18* var13 = (struct Struct_ov002_02157d40_18*)GetParty_02010828((GameState*)var2);
                 for (int var14 = 0; var14 < var13->unknown_f7c_; var14++) {
                     func_020541a4((struct Struct_ov002_02157d40_5*)(Struct_ov002_02157d40*)((GameState*)var2)->GetPartyMemberByIndex(var13->unknown_f78_[var14]), 0);
                 }
@@ -416,7 +416,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     return;
                 }
                 unsigned char* var26 = (unsigned char*)GetMessageWindow_020421a0();
-                func_02046380(var26);
+                ClearMessageParams_02046380(var26);
                 memset(arg0->unknown_1bd0_, 0, RG(0x960, 0x800));
                 var1 = arg0->unknown_1bd0_;
                 if (var7 != 0) {
@@ -428,8 +428,8 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 }
                 func_02046574((struct Struct_ov002_02157d40_6*)var26, 1, var17->unknown_0_);
                 if (var16 != 0) {
-                    FMT(var26, 0xc, func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x232d), (char*)(var1 + RG(0x860, 0x700)));
-                    func_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
+                    FMT(var26, 0xc, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x232d), (char*)(var1 + RG(0x860, 0x700)));
+                    AppendText_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
                     struct Struct_ov002_02157634_3* var27 = var0.unknown_c8_.unknown_8_;
                     for (int var28 = 0; var28 < var0.unknown_c8_.unknown_3_; var28++) {
                         Enum_ov002_02157d40 var29;
@@ -445,19 +445,19 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                         if (var30 == 0) {
                             continue;
                         }
-                        func_02046380(var26);
+                        ClearMessageParams_02046380(var26);
                         func_02046574((struct Struct_ov002_02157d40_6*)var26, 2, inline_ov002_02157d40_5(var30));
 #if !defined(jpn)
                         func_020e4bf4(arg0->unknown_14_, var0.unknown_c8_.unknown_4_[var28]);
                         *(void**)(var26 + 0x10) = arg0->unknown_14_;
 #endif
-                        func_020465c0((struct Struct_ov002_02157d40_2*)var26, 9, var30->unknown_4_);
-                        FMT(var26, 0xc, func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), var29), (char*)(var1 + RG(0x860, 0x700)));
-                        func_02042058(arg0->unknown_1bd0_, (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 8));
-                        func_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
+                        SetMessageNumber_020465c0((struct Struct_ov002_02157d40_2*)var26, 9, var30->unknown_4_);
+                        FMT(var26, 0xc, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), var29), (char*)(var1 + RG(0x860, 0x700)));
+                        AppendText_02042058(arg0->unknown_1bd0_, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 8));
+                        AppendText_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
                     }
                     func_02048350((struct Struct_ov002_02157d40_8*)var7, var17->unknown_8_0_);
-                    if (func_0202b7d8(var8) != 0) {
+                    if (IsLocalWirelessOn_0202b7d8(var8) != 0) {
                         func_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
                     }
                 } else {
@@ -469,12 +469,12 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                         *(void**)(var26 + 0x10) = arg0->unknown_14_;
 #endif
                     }
-                    func_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x2333));
-                    func_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 8));
+                    AppendText_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x2333));
+                    AppendText_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 8));
                     if (var18 == 1) {
-                        func_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x2334));
+                        AppendText_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x2334));
                     } else {
-                        func_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x2335));
+                        AppendText_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x2335));
                     }
                     FMT(var26, 0xc, (int)(var1 + RG(0x860, 0x700)), arg0->unknown_1bd0_);
                 }
@@ -524,14 +524,14 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
             var1 = arg0->unknown_1bd0_;
             struct Struct_ov002_02157d40_17* var36 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)func_0200ff1c((GameState*)var2, arg0->unknown_1c20_);
             if (var36 != 0) {
-                func_02046380(var35);
+                ClearMessageParams_02046380(var35);
                 func_02046574((struct Struct_ov002_02157d40_6*)var35, 0, var36->unknown_134_);
 #if !defined(jpn)
                 func_020e4bf4(arg0->unknown_8_, arg0->unknown_1c20_);
                 *(void**)var35 = arg0->unknown_8_;
 #endif
-                FMT(var35, 0xc, func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x7537), (char*)(var1 + RG(0x860, 0x700)));
-                func_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
+                FMT(var35, 0xc, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x7537), (char*)(var1 + RG(0x860, 0x700)));
+                AppendText_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
             }
             __clear(var0.unknown_10_, 4);
             int var37 = func_020114ec((char*)var2, var0.unknown_10_);
@@ -552,7 +552,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 if (var42) {
                     continue;
                 }
-                func_02046380(var35);
+                ClearMessageParams_02046380(var35);
                 func_02046574((struct Struct_ov002_02157d40_6*)var35, 0, var40->unknown_134_);
 #if !defined(jpn)
                 func_020e4bf4(arg0->unknown_8_, var0.unknown_10_[var39]);
@@ -565,7 +565,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     BackgroundLoader::AddLockGlobal();
                     var41 = var40->unknown_150_;
                     sprintf(var0.unknown_a0_, (const char*)&data_ov002_0216cf51, var41->unknown_950_);
-                    void* var44 = LoadFileIntoMemory(var0.unknown_a0_, &data_0211e33c, &var0.unknown_c_);
+                    void* var44 = LoadFileIntoMemory(var0.unknown_a0_, &gFileScratchSpace_0211e33c, &var0.unknown_c_);
                     func_0208247c(var0.unknown_104_);
                     if (var44 != 0) {
                         func_02082490(var0.unknown_104_, var44, var0.unknown_c_, func_0202053c((void*)var40) + 1, 0);
@@ -575,15 +575,15 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     if (var45 <= 0) {
                         var43 = 0x753a;
                     } else {
-                        func_020465c0((struct Struct_ov002_02157d40_2*)var35, 0, var45);
+                        SetMessageNumber_020465c0((struct Struct_ov002_02157d40_2*)var35, 0, var45);
                         func_020465f0(var35, 0, 0);
                         var43 = 0x7538;
                     }
                 }
                 memset(var1 + RG(0x860, 0x700), 0, 0x100);
-                FMT(var35, 0xc, func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), var43), (char*)(var1 + RG(0x860, 0x700)));
-                func_02042058(arg0->unknown_1bd0_, (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 8));
-                func_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
+                FMT(var35, 0xc, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), var43), (char*)(var1 + RG(0x860, 0x700)));
+                AppendText_02042058(arg0->unknown_1bd0_, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 8));
+                AppendText_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
             }
             arg0->unknown_1c31_ = 1;
             memcpy(arg0->unknown_1bd4_, arg0->unknown_1bd0_, RG(0x960, 0x800));
@@ -608,7 +608,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
             unsigned char* var48 = *(unsigned char**)((unsigned char*)GetGameResources() + RG(0x36d0, 0x34c0));
             arg0->unknown_1c28_ = 0x7543;
             var9 = 1;
-            if (func_0202c540(var8) != 0 && func_0201b588(*var4) == 0) {
+            if (IsLocalWirelessGuest_0202c540(var8) != 0 && func_0201b588(*var4) == 0) {
                 arg0->unknown_248a_ = 1;
                 arg0->unknown_2488_ = 0x7548;
                 var9 = 0;
@@ -632,7 +632,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
             var9 = var49;
             arg0->unknown_248a_ = var9;
             arg0->unknown_1c28_ = 0x7544;
-            if (func_0202c540(var8) != 0) {
+            if (IsLocalWirelessGuest_0202c540(var8) != 0) {
                 arg0->unknown_2488_ = 0x7549;
                 var9 = 0;
             } else {
@@ -645,7 +645,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     func_02026644((char*)var50);
                     BackgroundLoader::AddLockGlobal();
                     var0.unknown_8_ = 0;
-                    void* var51 = LoadFileIntoMemory((const char*)&data_ov002_0216cf66, &data_0211e33c, &var0.unknown_8_);
+                    void* var51 = LoadFileIntoMemory((const char*)&data_ov002_0216cf66, &gFileScratchSpace_0211e33c, &var0.unknown_8_);
                     if (func_02026780(var50, var51, var0.unknown_8_) == 0) {
                         var49 = 0;
                     } else {
@@ -717,7 +717,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     arg0->unknown_248c_ = 1;
                 }
                 func_02048350((struct Struct_ov002_02157d40_8*)var7, var56->unknown_8_0_);
-                if (func_0202b7d8(var8) != 0) {
+                if (IsLocalWirelessOn_0202b7d8(var8) != 0) {
                     func_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
                 }
             } else {
@@ -731,14 +731,14 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
         }
         arg0->unknown_1bc0_ = 0;
         if (var10 != 0) {
-            func_0205eaa0((struct Struct_ov002_02157d40_7*)&data_02108760, 0x64, 0);
+            PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7*)&gSoundEffectManager_02108760, 0x64, 0);
             arg0->unknown_1bb8_ = ST(0x26);
             arg0->unknown_1bbc_ = ST(0x2b);
             if (arg0->unknown_1c26_ == 0xd7) {
                 arg0->unknown_1bb8_ = ST(0x2b);
             }
         } else if (var11 == 0) {
-            func_0205eaa0((struct Struct_ov002_02157d40_7*)&data_02108760, 0x64, 0);
+            PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7*)&gSoundEffectManager_02108760, 0x64, 0);
             arg0->unknown_1bb8_ = ST(0x26);
             arg0->unknown_1bbc_ = ST(0x11);
         }
@@ -795,7 +795,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
             return;
         }
         if (arg0->unknown_1c26_ == 0xd1) {
-            if (func_0202b7d8((int*)func_0202ae18()) != 0) {
+            if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18()) != 0) {
                 int var65 = 1;
                 int var66;
                 for (var66 = 0; var66 < arg0->unknown_1c38_; var66++) {
@@ -806,7 +806,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 if (var65) {
                     func_ov016_0218b5c0(0, -1);
                     func_ov017_021d27a0(1, arg0->unknown_1c20_, arg0->unknown_1c21_);
-                    func_0205eaa0((struct Struct_ov002_02157d40_7*)&data_02108760, 0x64, 0);
+                    PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7*)&gSoundEffectManager_02108760, 0x64, 0);
                     arg0->unknown_1c28_ = 0x7536;
                     arg0->unknown_1c2a_ = -1;
                     arg0->unknown_1bb8_ = ST(0x26);
@@ -829,12 +829,12 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 var67 = 1;
             }
             if (var67) {
-                int* var69 = (int*)func_0202ae18();
+                int* var69 = (int*)GetLocalWireless_0202ae18();
                 func_02048418((unsigned char*)var68, 4);
-                if (func_0202b7d8(var69) != 0) {
+                if (IsLocalWirelessOn_0202b7d8(var69) != 0) {
                     func_ov017_021c9e00(arg0->unknown_1c21_, 0, 0, 1);
                 }
-                unsigned char* var70 = (unsigned char*)func_02010828((GameState*)var2);
+                unsigned char* var70 = (unsigned char*)GetParty_02010828((GameState*)var2);
                 var0.unknown_1c_ = *(struct Struct_ov002_02157d40_20*)&data_ov002_0216c992;
                 int var71 = 0;
                 int var72;
@@ -854,7 +854,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     var71 = 1;
                 }
                 if (var71) {
-                    if (func_0202b7d8(var69) != 0) {
+                    if (IsLocalWirelessOn_0202b7d8(var69) != 0) {
                         func_ov017_021c3fb4(arg0->unknown_1c21_, 1);
                         func_ov017_021c4418(arg0->unknown_1c21_, -1);
                     }
@@ -898,14 +898,14 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 }
             }
         }
-        func_0205eaa0((struct Struct_ov002_02157d40_7*)&data_02108760, 0x64, 0);
+        PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7*)&gSoundEffectManager_02108760, 0x64, 0);
         arg0->unknown_1bb8_ = ST(0x26);
         arg0->unknown_1bbc_ = ST(0x11);
         arg0->unknown_1bc0_ = 0;
     }
     if (var9 != 0) {
         func_02048350((struct Struct_ov002_02157d40_8*)var7, var6->unknown_8_0_);
-        if (func_0202b7d8(var8) != 0) {
+        if (IsLocalWirelessOn_0202b7d8(var8) != 0) {
             func_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
         }
     }

@@ -78,12 +78,12 @@ extern "C" void func_ov015_02192158(Struct_ov015_02190acc* arg0, int arg1);
 extern "C" void func_ov015_0218f308(Struct_ov015_0218c03c_2* arg0, const char* arg1);
 extern "C" void func_ov015_021900dc(Struct_ov015_021900dc* arg0);
 extern "C" void func_ov015_0218f0c4(Struct_ov015_0218c03c_2* arg0);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" Struct_ov015_0218c03c_2* func_ov015_021919e4(Struct_ov015_02190acc* arg0, Struct_ov015_0218b828_3* arg1);
 extern "C" void func_ov015_02192544(Struct_ov015_02190acc* arg0);
 extern "C" void func_ov015_02190090(Struct_ov015_0218c03c_2* arg0);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov015_02190e88
 extern "C" ARM void func_ov015_02190e88(Struct_ov015_02190acc* arg0)
@@ -140,10 +140,10 @@ extern "C" ARM void func_ov015_02190e88(Struct_ov015_02190acc* arg0)
                 while (var3 != NULL)
                 {
                     func_ov015_0218f0c4(var3->unknown_0_);
-                    func_02012da4(&data_02114e20, var3->unknown_0_);
+                    FreeMemory_02012da4(&gMainHeap_02114e20, var3->unknown_0_);
                     Struct_ov015_02190e88* var4 = var3;
                     var3 = var3->unknown_4_;
-                    func_02012da4(&data_02114e20, var4);
+                    FreeMemory_02012da4(&gMainHeap_02114e20, var4);
                 }
                 arg0->unknown_2c_ = NULL;
             }

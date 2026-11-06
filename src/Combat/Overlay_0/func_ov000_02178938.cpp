@@ -3,7 +3,7 @@
 
 struct Struct_0201099c_3;
 struct Struct_ov000_02178938_3 { char* unknown_0_; char* unknown_4_; unsigned int unknown_8_; };
-struct Struct_020465c0 { char unknown_0_[0x20]; Struct_ov000_02178938_3* unknown_20_; };
+struct MessageWindow_020465c0 { char unknown_0_[0x20]; Struct_ov000_02178938_3* unknown_20_; };
 #if defined(jpn)
 struct Struct_ov000_02178938 { char unknown_0_[0xb8]; char unknown_b8_[0x20]; char unknown_d8_[0x1d94 - 0xd8]; char unknown_1d94_[8][0x38]; int unknown_1d1c_[8]; int unknown_1f74_[8]; };
 #else
@@ -12,27 +12,27 @@ struct Struct_ov000_02178938 { char unknown_0_[0xb8]; char unknown_b8_[0x20]; ch
 struct Struct_ov000_02178938_2 { char unknown_0_[0x1d]; signed char unknown_1d_; };
 extern "C" int func_ov000_02175348(void*, int);
 extern "C" int func_ov000_0217542c(void*);
-extern "C" Struct_020465c0* GetMessageWindow_020421a0();
-extern "C" int func_020e0434(Struct_0201099c_3*, int);
+extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0();
+extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_02041c08(char*, int, int, int, int, int);
 extern "C" void func_02041ea4(char*, int);
-extern "C" void func_02042058(char*, const char*);
+extern "C" void AppendText_02042058(char*, const char*);
 extern "C" void __clear(void*, int);
-extern "C" void func_02046380(Struct_020465c0*);
+extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0*);
 extern "C" void func_020e46c4(void*);
 extern "C" GameObject* func_0200fea4(GameState*, int);
 extern "C" void func_020e4ce8(Struct_ov000_02178938_3*, GameObject*, int);
 extern "C" void func_ov000_0217aa08(char*, char*);
 extern "C" void func_020e4f18(Struct_ov000_02178938_3*, Struct_ov000_02178938_3*, int);
-extern "C" void func_020465c0(Struct_020465c0*, int, int);
-extern "C" void func_02046608(Struct_020465c0*, int, const char*, char*, int, int, int);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
+extern "C" void func_02046608(MessageWindow_020465c0*, int, const char*, char*, int, int, int);
 extern "C" void func_02041b70(char*, int, const char*);
 extern const char data_ov000_02184060[];
 
 #if defined(jpn)
 extern "C" void func_0203bdf4(char*, char*);
-extern "C" void func_02046574(Struct_020465c0*, int, char*);
-extern "C" void func_020474a8(Struct_020465c0*, int, const char*, char*);
+extern "C" void func_02046574(MessageWindow_020465c0*, int, char*);
+extern "C" void func_020474a8(MessageWindow_020465c0*, int, const char*, char*);
 #endif
 
 // USA: func_ov000_02178938
@@ -58,11 +58,11 @@ extern "C" ARM void func_ov000_02178938(Struct_ov000_02178938* arg0, Struct_ov00
         }
     }
     int var7 = func_ov000_0217542c(arg0);
-    Struct_020465c0* var8 = GetMessageWindow_020421a0();
+    MessageWindow_020465c0* var8 = GetMessageWindow_020421a0();
 #if !defined(jpn)
     GameState* var9 = GameState::GetInstance();
-    const char* var10 = (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0);
-    const char* var11 = (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x754f);
+    const char* var10 = (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0);
+    const char* var11 = (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x754f);
 #endif
     var0 = -1;
     if (var7) {
@@ -76,9 +76,9 @@ extern "C" ARM void func_ov000_02178938(Struct_ov000_02178938* arg0, Struct_ov00
             int var14 = func_ov000_02175348(arg0, var13);
             if (var14) {
 #if defined(jpn)
-                if (var2) func_02042058(arg3, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0));
+                if (var2) AppendText_02042058(arg3, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0));
 #else
-                if (var2) func_02042058(arg3, var10);
+                if (var2) AppendText_02042058(arg3, var10);
 #endif
 #if defined(jpn)
                 char var15[0x20];
@@ -100,12 +100,12 @@ extern "C" ARM void func_ov000_02178938(Struct_ov000_02178938* arg0, Struct_ov00
                     memset(var15, 0, sizeof(var15));
                     func_ov000_0217aa08(var18, var15);
                 }
-                func_02046380(var8);
+                ClearMessageParams_02046380(var8);
                 func_02046574(var8, 0, var15);
-                func_020465c0(var8, 0, var14);
-                func_020474a8(var8, 10, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x754f), var16);
+                SetMessageNumber_020465c0(var8, 0, var14);
+                func_020474a8(var8, 10, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x754f), var16);
 #else
-                func_02046380(var8);
+                ClearMessageParams_02046380(var8);
                 Struct_ov000_02178938_3 var19;
                 func_020e46c4(&var19);
                 GameObject* var20 = func_0200fea4(var9, arg0->unknown_1d3c_[var17]);
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov000_02178938(Struct_ov000_02178938* arg0, Struct_ov00
                     var19.unknown_8_ &= ~0x80000000;
                 }
                 var8->unknown_20_ = &var19;
-                func_020465c0(var8, 0, var14);
+                SetMessageNumber_020465c0(var8, 0, var14);
                 func_02046608(var8, 10, var11, var16, 256, 0, 0);
 #endif
                 func_02041b70(arg3, var12, var16);
@@ -134,6 +134,6 @@ extern "C" ARM void func_ov000_02178938(Struct_ov000_02178938* arg0, Struct_ov00
         }
     }
 #if !defined(jpn)
-    func_02042058(arg3, data_ov000_02184060);
+    AppendText_02042058(arg3, data_ov000_02184060);
 #endif
 }

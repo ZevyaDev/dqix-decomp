@@ -7,7 +7,7 @@ enum { Enum_ov006_0215daf0_54 = 0x36, Enum_ov006_0215daf0_76 = 0x4c, Enum_ov006_
 #endif
 
 struct Struct_02081f20_2;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0207fdcc_2;
 struct Struct_0207fe44;
 struct Struct_02071ffc_4;
@@ -126,7 +126,7 @@ extern "C" void func_020813ec(void* arg0, int arg1);
 extern "C" void func_0208203c(Struct_02081f20_2* arg0);
 extern "C" unsigned char func_ov006_02158a28(Struct_ov006_02157a60* arg0);
 extern "C" unsigned char func_ov006_02158b78(Struct_ov006_02157a60* arg0);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int, int);
 extern "C" void func_02071ffc(Struct_02071ffc_4* arg0, int arg1, int arg2, int arg3, short arg4, short* arg5);
 extern "C" void func_ov006_02158cac(void* arg0);
 extern "C" void func_0207fdcc(Struct_0207fdcc_2* arg0, int arg1);
@@ -135,7 +135,7 @@ extern "C" void func_ov006_02157184(Struct_ov006_02157184* arg0);
 extern "C" void func_ov006_0215745c(short arg0, signed char* arg1, signed char* arg2);
 extern "C" void func_ov006_02158c28(Struct_ov006_02158c28* arg0);
 
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 // USA: func_ov006_0215daf0
 extern "C" ARM void func_ov006_0215daf0(Struct_ov006_02157a60* arg0) {
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov006_0215daf0(Struct_ov006_02157a60* arg0) {
         arg0->unknown_44_ = &arg0->unknown_366_;
         if (func_ov006_02158a28(arg0))
         {
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             func_0208203c((Struct_02081f20_2*)arg0->unknown_9c_);
             int var0 = 0;
             arg0->unknown_44_ = 0;
@@ -244,7 +244,7 @@ extern "C" ARM void func_ov006_0215daf0(Struct_ov006_02157a60* arg0) {
         arg0->unknown_44_ = &arg0->unknown_368_;
         if (func_ov006_02158a28(arg0))
         {
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             func_0208203c((Struct_02081f20_2*)arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             arg0->unknown_36a_ = -1;

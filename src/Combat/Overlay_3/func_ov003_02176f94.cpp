@@ -40,10 +40,10 @@ struct Struct_0207fdcc_2;
 extern "C" void func_02080c20(struct Struct_0207fdcc_2 *arg0, int arg1);
 extern "C" void func_02080c68(void *arg0, int arg1, int arg2);
 extern "C" void func_02080bac(void *arg0, int arg1);
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_ov003_02176f94;
-extern "C" struct Struct_ov003_02176f94 *func_020dedd0(struct Struct_0201099c_10 *arg0, int arg1);
-extern "C" void *func_02053c6c(unsigned char *arg0);
+extern "C" struct Struct_ov003_02176f94 *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
+extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 struct Struct_02083994;
 extern "C" int func_02083994(struct Struct_02083994 *arg0, int arg1);
 struct Struct_02080f8c;
@@ -58,7 +58,7 @@ extern "C" void func_02080b54(void *arg0, int arg1);
 extern "C" void func_02080c04(struct Struct_0207fdcc_2 *arg0, int arg1);
 extern "C" short func_02086bf4(char *arg0, int arg1);
 extern "C" void func_020813ec(void *arg0, int arg1);
-extern "C" void *func_02010828(GameState *arg0);
+extern "C" void *GetParty_02010828(GameState *gameState);
 
 struct Struct_ov003_02176f94 {
     char unknown_0_[8];
@@ -84,7 +84,7 @@ static inline int inline_ov003_02176f94(unsigned int arg0) {
 extern "C" ARM void func_ov003_02176f94(Struct_ov003_02176f94_2* arg0) {
     struct Struct_0207fdcc_2 *var0 = arg0->unknown_89c_;
     GameState *var1    = GameState::GetInstance();
-    char *var2            = (char *) func_02010828(var1);
+    char *var2            = (char *) GetParty_02010828(var1);
 
     int var3    = 0x19;
     short var4    = 0xe9;
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov003_02176f94(Struct_ov003_02176f94_2* arg0) {
 
     bool var8                 = true;
     struct Struct_ov003_02176f94 *var9 = func_020dedd0(
-        (struct Struct_0201099c_10 *) ((char*)arg0 + Enum_ov003_02176f94_2164), arg0->unknown_103a_);
+        (struct ItemTable_0201099c_10 *) ((char*)arg0 + Enum_ov003_02176f94_2164), arg0->unknown_103a_);
     if (var9 != NULL) var8 = inline_ov003_02176f94(var9->unknown_8_0_);
     if (!var8) {
         for (unsigned char var10 = 0; var10 < arg0->unknown_1030_; var10++) {
@@ -135,7 +135,7 @@ extern "C" ARM void func_ov003_02176f94(Struct_ov003_02176f94_2* arg0) {
             if (var14 != NULL) {
                 var11 = (int)var14->baseStats_;
                 var12 = func_02083994(
-                    (struct Struct_02083994 *) func_02053c6c((unsigned char *) var14), arg0->unknown_103a_);
+                    (struct Struct_02083994 *) GetPartyMemberData_02053c6c((unsigned char *) var14), arg0->unknown_103a_);
             }
             func_02080f8c((struct Struct_02080f8c *) var0, var4, var11);
             func_02080cc0((struct Struct_02080cc0 *) var0, var4, func_020dcc98(var13));

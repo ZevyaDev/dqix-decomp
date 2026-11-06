@@ -11,5 +11,5 @@ extern "C" ARM int func_ov003_02160b84(void*) {
 	for (var2 = 0; var2 < 4; var2++) {
 		if (func_0200ff94(var0, var2) != 0) var1++;
 	}
-	return var1 - *((unsigned char*)func_02010828(GameState::GetInstance()) + 0xf7c);
+	return var1 - *((unsigned char*)GetParty_02010828(GameState::GetInstance()) + 0xf7c);
 }

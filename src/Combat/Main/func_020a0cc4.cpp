@@ -11,18 +11,18 @@ struct NitroHandle;
 NitroHandle* NitroHandle_FindBySignature(const char* sig, int a);
 void NitroHandle_ReleaseFileTables(NitroHandle* h);
 
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 
 struct Struct_020a0cc4;
 
-extern struct Struct_02114e20 data_02114e20;
+extern struct Struct_02114e20 gMainHeap_02114e20;
 extern void* data_02109d90;
 extern const char data_020f18e8[];
 
 // USA: func_020a0cc4
 extern "C" ARM int func_020a0cc4(int arg0) {
     if (arg0 >= 0) {
-        unsigned int var0 = func_02012dd0(&data_02114e20);
+        unsigned int var0 = func_02012dd0(&gMainHeap_02114e20);
         if (var0 >= arg0) goto fail;
     }
     if (data_02109d90 == NULL) goto fail;
@@ -34,7 +34,7 @@ extern "C" ARM int func_020a0cc4(int arg0) {
         }
 
         NitroHandle_ReleaseFileTables(NitroHandle_FindBySignature(data_020f18e8, 3));
-        func_02012da4((AllocatorUnion*)&data_02114e20, data_02109d90);
+        FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, data_02109d90);
         data_02109d90 = NULL;
 
         if (var1 != 0) {

@@ -4,9 +4,6 @@
 #include <Filesystem/FileIO.h>
 #include <World/ZoneChest.h>
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_0201647c {
     unsigned int unknown_0_0_ : 16;
@@ -23,12 +20,12 @@ struct Struct_0201647c_2 {
     short* unknown_c_;
 };
 struct Struct_020130b0;
-extern "C" void* func_0205ec34();
-extern "C" int* func_0202ae18();
+extern "C" void* GetFlagManager_0205ec34();
+extern "C" int* GetLocalWireless_0202ae18();
 extern "C" void* func_0208e0a8();
 extern "C" int func_0208e824(void*, char*);
-extern "C" int func_0206dfb0(int, unsigned char*, int);
-extern "C" int func_0202b7d8(int*);
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" Struct_020130b0* func_0201e844(void*, int, int);
 extern "C" void func_020de848(void*);
 extern "C" int func_020de9a4(void*, SafeAllocator*, void*, unsigned int, short*, unsigned short);
@@ -44,8 +41,8 @@ extern "C" int func_020e0484(void*, SafeAllocator*, const char*, short*, unsigne
 extern "C" ARM void func_0201647c(Zone3D* arg0) {
     SafeAllocator* var0 = arg0->pAllocator_68_;
     LootableContainerManager* var1 = LootableContainerManager::GetMainInstance();
-    unsigned char* var2 = (unsigned char*)func_0205ec34();
-    int* var3 = func_0202ae18();
+    unsigned char* var2 = (unsigned char*)GetFlagManager_0205ec34();
+    int* var3 = GetLocalWireless_0202ae18();
     Struct_0201647c_2* var4 = (Struct_0201647c_2*)func_0208e0a8();
     LootableContainerManager::Container* var5 = var1->pContainerList_;
     bool var6 = false;
@@ -70,9 +67,9 @@ extern "C" ARM void func_0201647c(Zone3D* arg0) {
             var8->unknown_17_ = 0;
             if (var5->containerType == 4) var8->unknown_17_ = 1;
             if ((var5->containerType == 0 &&
-                 func_0206dfb0((int)var2, var2 + 0x8c, var5->uniqueID + 0x212)) ||
+                 IsFlagSet_0206dfb0((int)var2, var2 + 0x8c, var5->uniqueID + 0x212)) ||
                 (var5->containerType == 4 &&
-                 func_0206dfb0((int)var2, var2 + 0x8c, var5->uniqueID + 0x79e))) {
+                 IsFlagSet_0206dfb0((int)var2, var2 + 0x8c, var5->uniqueID + 0x79e))) {
                 var8->unknown_16_ = 8;
                 var8->unknown_e_ = 0x4000;
                 var5->lootType = 0;
@@ -80,7 +77,7 @@ extern "C" ARM void func_0201647c(Zone3D* arg0) {
                 var8->unknown_16_ = 1;
                 var8->unknown_e_ = 0x647a;
             }
-            if (func_0202b7d8(var3) && var5->containerType == 4)
+            if (IsLocalWirelessOn_0202b7d8(var3) && var5->containerType == 4)
                 var8->unknown_18_ = 1;
             arg0->numChests_++;
         } else if (var5->containerType == 3) {

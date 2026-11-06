@@ -7,15 +7,15 @@
 
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* func_ov023_021f6524(void* arg0, int arg1);
-struct Struct_02072a68_2;
-extern "C" Struct_02072a68_2* func_ov004_02168b08(void* arg0, int arg1);
+struct StringList_02072a68_2;
+extern "C" StringList_02072a68_2* func_ov004_02168b08(void* arg0, int arg1);
 extern "C" int func_ov023_021f9bc8(char* arg0);
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void func_02046380(void* arg0);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void func_02042764(unsigned char* arg0, char* arg1, int arg2);
 struct Struct_02046574_2;
 extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 extern void* data_ov004_02171030;
 
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov004_02169a28(void* arg0) {
     char var5[0x30];
     __clear(var5, 0x30);
 #endif
-    func_02046380(var1);
+    ClearMessageParams_02046380(var1);
 
     char (*var6)[0x2c] = (char (*)[0x2c])(var0 + 4);
     char* var7 = var6[var4 + var3 * 8] + 6;
@@ -49,6 +49,6 @@ extern "C" ARM int func_ov004_02169a28(void* arg0) {
     func_02042764((unsigned char*)var7, var5, 1);
     func_02046574((struct Struct_02046574_2*)var1, 0, var5);
 #endif
-    func_ov011_021848a0(arg0, 0x51);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x51);
     return 0;
 }

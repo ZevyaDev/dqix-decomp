@@ -6,7 +6,7 @@ extern "C" void func_ov017_021d6134(void* arg0, int arg1);
 // USA: func_ov023_021ea9dc
 extern "C" ARM int func_ov023_021ea9dc(void* arg0) {
 	GameState* var0 = GameState::GetInstance();
-	void* var1 = func_02010828(var0);
+	void* var1 = GetParty_02010828(var0);
 	int var2 = *(int*)((char*)var1 + 0xf6c);
 	func_ov017_021d6134(arg0, var2);
 	return 1;

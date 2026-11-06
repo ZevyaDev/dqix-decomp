@@ -20,8 +20,8 @@ extern "C" void func_020dae08(void*);
 
 struct Struct_02114e20;
 extern "C" unsigned int func_02012dd0(struct Struct_02114e20* arg0);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern AllocatorUnion data_02114e20;
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern AllocatorUnion gMainHeap_02114e20;
 
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
 extern "C" int func_020100f8(char* arg0);
@@ -50,11 +50,11 @@ extern "C" ARM void func_020dac94(void* arg0, void*) {
     int var2 = var0->unknown_10_;
     if (var2 == 0) {
         SetFlags04(GetGameResources(), 0xc0);
-        unsigned int var3 = func_02012dd0((struct Struct_02114e20*)&data_02114e20);
+        unsigned int var3 = func_02012dd0((struct Struct_02114e20*)&gMainHeap_02114e20);
         if (var3 < 0x6000) {
             func_020a0cc4(0x6000);
         }
-        void* var4 = func_02012d88(&data_02114e20, 0x6000);
+        void* var4 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x6000);
         if (var4 == NULL) {
             func_020a0c0c();
             var0->unknown_1_ = 1;

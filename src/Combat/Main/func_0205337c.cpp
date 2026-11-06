@@ -2,7 +2,7 @@
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
 
 struct Struct_02015ef4 { int unknown_0_; int unknown_4_; int unknown_8_; };
@@ -42,7 +42,7 @@ struct Struct_0205337c_2 {
 
 // USA: func_0205337c
 extern "C" ARM void func_0205337c(struct Struct_0205337c_2* arg0) {
-    if (func_02046708((struct Struct_02012de8*)func_020d6c00(), 2)) return;
+    if (func_02046708((struct Struct_02012de8*)GetGlobalFlags_020d6c00(), 2)) return;
     if (arg0->unknown_190_ == NULL) return;
 
     void* var0 = func_020100bc(GameState::GetInstance());

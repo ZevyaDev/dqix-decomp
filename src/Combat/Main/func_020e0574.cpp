@@ -13,16 +13,16 @@ extern "C" ARM void* func_020e21e8(const char* arg0, unsigned int* arg1, int arg
         return NULL;
     *arg1 = 0;
     ((Type_020e0574)func_020e05f8)(var0, arg0, arg2);
-    LoadFileIntoMemory(var0, data_0211e33c, arg1);
+    LoadFileIntoMemory(var0, gFileScratchSpace_0211e33c, arg1);
     if (*arg1 != 0)
-        return data_0211e33c;
+        return gFileScratchSpace_0211e33c;
     return NULL;
 }
 #else
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 
-extern char data_0211e33c[];
+extern char gFileScratchSpace_0211e33c[];
 
 // USA: func_020e0574
 extern "C" ARM int func_020e0574(void* arg0, int* arg1, int arg2, int arg3) {
@@ -33,9 +33,9 @@ extern "C" ARM int func_020e0574(void* arg0, int* arg1, int arg2, int arg3) {
     *arg1 = 0;
     ((Type_020e0574)func_020e05f8)(var0, (char*)arg0, arg2);
     if (arg3 == 0) {
-        LoadFileIntoMemory(var0, data_0211e33c, (unsigned int*)arg1);
+        LoadFileIntoMemory(var0, gFileScratchSpace_0211e33c, (unsigned int*)arg1);
         if (*arg1 != 0) {
-            return (int)data_0211e33c;
+            return (int)gFileScratchSpace_0211e33c;
         }
     } else {
         void* var1 = ExtractFileFromGP2((const char*)arg3, var0, (unsigned int*)arg1);

@@ -10,7 +10,7 @@
 
 struct Struct_0205de24_2;
 struct Struct_0205c570;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_020d7aa0_2;
 
 extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
@@ -19,9 +19,9 @@ extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 struct Struct_0205da38;
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
-extern "C" int func_0200fb8c(int *arg0);
-extern "C" void *func_02053c6c(unsigned char *arg0);
-extern "C" void func_0205eaa0(Struct_02108760 *arg0, int arg1, int arg2);
+extern "C" int GetResources_0200fb8c(int *gameState);
+extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
 extern "C" Struct_020d7aa0_2 *func_020d7a50();
 extern "C" void func_020d7aa0(Struct_020d7aa0_2 *arg0);
@@ -30,7 +30,7 @@ extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_0215c474(char *arg0);
 extern "C" void func_ov002_02156e90(char *arg0);
 
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 // USA: func_ov002_02162714
 extern "C" ARM void func_ov002_02162714(char *arg0) {
@@ -57,21 +57,21 @@ extern "C" ARM void func_ov002_02162714(char *arg0) {
             if (var5 & 2) return;
             if (!(var5 & 0x10)) return;
             GameState *var6 = GameState::GetInstance();
-            func_0200fb8c((int *) var6);
+            GetResources_0200fb8c((int *) var6);
             GameObject *var7 = var6->GetProtagonist();
             if (var7 != 0) {
-                *(short *) ((char *) func_02053c6c((unsigned char *) var7) + RG(0x95a, 0x8c2)) = *(short *) (arg0 + RG(0x1be4, 0x1aac));
+                *(short *) ((char *) GetPartyMemberData_02053c6c((unsigned char *) var7) + RG(0x95a, 0x8c2)) = *(short *) (arg0 + RG(0x1be4, 0x1aac));
             }
             switch (*(short *) (arg0 + RG(0x1be4, 0x1aac))) {
                 case 0:
-                    func_0205eaa0(&data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
                     *(int *) (arg0 + RG(0x1bb8, 0x1a80)) = 4;
                     *(int *) (arg0 + RG(0x1bc0, 0x1a88)) = 0;
                     break;
                 case 1:
                     *(unsigned char *) (arg0 + RG(0xf80, 0xed8)) = *(int *) (arg0 + RG(0x1bb8, 0x1a80));
                     *(int *) (arg0 + RG(0x247c, 0x22ac)) &= ~4;
-                    func_0205eaa0(&data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
                     *(signed char *) (arg0 + RG(0x1c20, 0x1ae8)) = 5;
                     *(int *) (arg0 + RG(0x1bb8, 0x1a80))         = RG(10, 0xb);
                     *(int *) (arg0 + RG(0x1bc0, 0x1a88))         = 0;

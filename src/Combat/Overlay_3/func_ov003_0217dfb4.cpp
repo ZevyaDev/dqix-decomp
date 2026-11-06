@@ -2,9 +2,9 @@
 #include <globaldefs.h>
 #if defined(jpn)
 enum { Enum_ov003_0217dfb4_20=0x10 };
-extern "C" void func_02046380(void*);
-struct Struct_020465c0;
-extern "C" void func_020465c0(Struct_020465c0*,int,int);
+extern "C" void ClearMessageParams_02046380(void*);
+struct MessageWindow_020465c0;
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*,int,int);
 extern "C" void func_020465f0(unsigned char*,int,unsigned char);
 extern "C" void func_020465d8(unsigned char*,int,unsigned char);
 extern "C" void func_02042428(char*, int);
@@ -40,9 +40,9 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_0205d794(struct Struct_0205c570* arg0);
 extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" unsigned char* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
 extern "C" void func_02050400(unsigned char* arg0, int arg1);
 extern "C" void func_0205042c(unsigned char* arg0, unsigned char arg1);
@@ -70,23 +70,23 @@ extern "C" ARM void func_ov003_0217dfb4(struct Struct_ov003_0217dfb4_2* arg0) {
         func_02041c08(var0, func_0205d794((struct Struct_0205c570*)arg0->unknown_90_) % 6, 8, 5, 5, 5);
     }
     for (var3 = var4 * 6; var3 < var2; var3++) {
-        const char* var5 = (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_cc_, (short)(arg0->unknown_18_[var3] + 100));
+        const char* var5 = (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_cc_, (short)(arg0->unknown_18_[var3] + 100));
         func_02041b70(var0, var3 % 6, var5);
         if (var3 != var2 - 1) {
-            func_02042058(var0, data_ov003_02180c7f);
+            AppendText_02042058(var0, data_ov003_02180c7f);
         }
     }
     if (arg0->unknown_32_ > 1) {
 #if defined(jpn)
-        func_02046380((void*)var1);
-        func_020465c0((Struct_020465c0*)var1, 0, var4 + 1);
-        func_020465c0((Struct_020465c0*)var1, 1, arg0->unknown_32_);
+        ClearMessageParams_02046380((void*)var1);
+        SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var4 + 1);
+        SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 1, arg0->unknown_32_);
         func_020465f0((unsigned char*)var1, 0, 2);
         func_020465f0((unsigned char*)var1, 1, 2);
         func_020465d8((unsigned char*)var1, 0, 1);
         func_020465d8((unsigned char*)var1, 1, 0);
         func_02042428(var0, 8);
-        func_02042058(var0, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_cc_, 0xc8));
+        AppendText_02042058(var0, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_cc_, 0xc8));
 #else
         unsigned char* var6 = func_0205d81c((struct Struct_0205d81c*)arg0->unknown_90_, 0);
         if (var6 != NULL) {

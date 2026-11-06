@@ -77,10 +77,10 @@ struct SafeAllocator;
 extern "C" void __clear(void*, int);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void* func_0208247c(void*);
-extern "C" unsigned char* func_02053c6c(unsigned char*);
+extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" int func_02082490(void*, void*, unsigned int, int, int);
-struct Struct_02020aec;
-extern "C" char* func_020467f0(Struct_02020aec*, int, void**, int*);
+struct PacEntry_02020aec;
+extern "C" char* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void func_0204b11c(unsigned char*, int);
 extern "C" void func_0204b5b4(void*, int);
 struct Struct_02020cb8_5;
@@ -91,7 +91,7 @@ extern "C" void func_0204b988(Struct_0204b988*, unsigned int, int, int, unsigned
 struct Struct_02020cb8_2;
 extern "C" void func_0204b0e8(Struct_02020cb8_2*, void*);
 struct Struct_0201099c_3;
-extern "C" char* func_020e0434(Struct_0201099c_3*, int);
+extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02046608(void*, int, char*, char*, int, int, int);
 extern "C" void func_ov023_021e23d0(void*, int, int, unsigned char, unsigned char);
@@ -108,7 +108,7 @@ extern "C" void func_ov023_021e24b0(void*, int, int, unsigned char, unsigned cha
 extern "C" void func_ov023_021e257c(void*);
 extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" void LoadToSubBG0CharacterData(int, int, unsigned int);
-extern "C" void* func_0200fb8c(int*);
+extern "C" void* GetResources_0200fb8c(int*);
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
 
@@ -158,13 +158,13 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
         unsigned char* var11 = 0;
         unsigned char* var12;
         if (var10 != 0 && var5 != 0) {
-            var11 = func_02053c6c(var10);
+            var11 = GetPartyMemberData_02053c6c(var10);
             func_02082490(arg0->unknown_8_, var5, var6, *(unsigned short*)(var11 + 0x100 + arg0->unknown_14_ * 2 + 0x6c), 0);
         }
         ((BackgroundLoader*)var0)->RemoveTask(arg0->unknown_50_);
         arg0->unknown_50_ = -1;
         ((BackgroundLoader*)var0)->GetLoadedFileByID(arg0->unknown_54_, &var5, &var6);
-        var10 = (unsigned char*)func_020467f0((Struct_02020aec*)var5, 0, &var7, &var8);
+        var10 = (unsigned char*)GetPacEntryData_020467f0((PacEntry_02020aec*)var5, 0, &var7, &var8);
         if (var10 != 0) {
             var3.unknown_1c_0_ = 1;
             var3.unknown_1c_4_ = 0;
@@ -219,9 +219,9 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
                 var2.unknown_b8_ = 0xa;
                 var2.unknown_ba_ = 0x10;
                 unsigned char var23 = var22 + var22 * 2;
-                func_ov023_021e23d0(var13, 7, (int)func_020e0434((Struct_0201099c_3*)var16, var23), 0xc, 0xf);
-                func_ov023_021e23d0(var13, 8, (int)func_020e0434((Struct_0201099c_3*)var16, (short)(var23 + 1)), 0xc, 0xf);
-                func_ov023_021e23d0(var13, 9, (int)func_020e0434((Struct_0201099c_3*)var16, (short)(var23 + 2)), 0xc, 0xf);
+                func_ov023_021e23d0(var13, 7, (int)FindStringInTable_020e0434((Struct_0201099c_3*)var16, var23), 0xc, 0xf);
+                func_ov023_021e23d0(var13, 8, (int)FindStringInTable_020e0434((Struct_0201099c_3*)var16, (short)(var23 + 1)), 0xc, 0xf);
+                func_ov023_021e23d0(var13, 9, (int)FindStringInTable_020e0434((Struct_0201099c_3*)var16, (short)(var23 + 2)), 0xc, 0xf);
                 int var24 = (var15 & 0xff) * 0xc;
                 unsigned char* var25 = var11 + 0x7b8;
                 struct Struct_ov003_021539a0_3* var26 = (struct Struct_ov003_021539a0_3*)(var25 + var24);
@@ -247,7 +247,7 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
         ((BackgroundLoader*)var0)->RemoveTask(arg0->unknown_54_);
         arg0->unknown_54_ = -1;
         arg0->unknown_10_ = arg0->unknown_14_;
-        void* var28 = func_0200fb8c((int*)var9);
+        void* var28 = GetResources_0200fb8c((int*)var9);
         if ((arg0->unknown_5d_ & 2) || !IsBrightnessWithinValidRange((GameResources*)var28, true)) {
             arg0->unknown_5d_ &= ~2;
             arg0->unknown_5c_++;
@@ -256,7 +256,7 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
             arg0->unknown_5c_ = 0;
         }
     } else if (arg0->unknown_5c_ == 2) {
-        SetSubBrightness((GameResources*)(func_0200fb8c((int*)GameState::GetInstance())), 0, 1);
+        SetSubBrightness((GameResources*)(GetResources_0200fb8c((int*)GameState::GetInstance())), 0, 1);
         arg0->unknown_5c_ = 0;
         arg0->unknown_5d_ &= ~1;
     }
@@ -292,13 +292,13 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
         unsigned char* var42 = 0;
         unsigned char* var43;
         if (var41 != 0 && var36 != 0) {
-            var42 = func_02053c6c(var41);
+            var42 = GetPartyMemberData_02053c6c(var41);
             func_02082490(arg0->unknown_8_, var36, var37, *(unsigned short*)(var42 + 0x100 + arg0->unknown_14_ * 2 + 0x6c), 0);
         }
         ((BackgroundLoader*)var29)->RemoveTask(arg0->unknown_50_);
         arg0->unknown_50_ = -1;
         ((BackgroundLoader*)var29)->GetLoadedFileByID(arg0->unknown_54_, &var36, &var37);
-        var41 = (unsigned char*)func_020467f0((Struct_02020aec*)var36, 0, &var38, &var39);
+        var41 = (unsigned char*)GetPacEntryData_020467f0((PacEntry_02020aec*)var36, 0, &var38, &var39);
         if (var41 != 0) {
             var34.unknown_1c_0_ = 1;
             var34.unknown_1c_4_ = 0;
@@ -355,9 +355,9 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
                 var44->unknown_4a_ = 0x10;
                 __clear(var32, 0x400);
                 unsigned char var54 = var53 + var53 * 2;
-                char* var55 = func_020e0434((Struct_0201099c_3*)var47, (short)(var54 + 2));
-                char* var56 = func_020e0434((Struct_0201099c_3*)var47, (short)(var54 + 1));
-                char* var57 = func_020e0434((Struct_0201099c_3*)var47, (short)var54);
+                char* var55 = FindStringInTable_020e0434((Struct_0201099c_3*)var47, (short)(var54 + 2));
+                char* var56 = FindStringInTable_020e0434((Struct_0201099c_3*)var47, (short)(var54 + 1));
+                char* var57 = FindStringInTable_020e0434((Struct_0201099c_3*)var47, (short)var54);
                 sprintf(var33, data_ov003_0217fcd5, var57, var56, var55);
                 func_02046608(GetMessageWindow_020421a0(), 0xc, var33, var32, 0xdc, 0, 1);
                 func_ov023_021e23d0(var44, 7, (int)var32, 0xc, 0xf);
@@ -389,7 +389,7 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
         ((BackgroundLoader*)var29)->RemoveTask(arg0->unknown_54_);
         arg0->unknown_54_ = -1;
         arg0->unknown_10_ = arg0->unknown_14_;
-        void* var62 = func_0200fb8c((int*)var40);
+        void* var62 = GetResources_0200fb8c((int*)var40);
         if ((arg0->unknown_5d_ & 2) || !IsBrightnessWithinValidRange((GameResources*)var62, true)) {
             arg0->unknown_5d_ &= ~2;
             arg0->unknown_5c_++;
@@ -398,7 +398,7 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
             arg0->unknown_5c_ = 0;
         }
     } else if (arg0->unknown_5c_ == 2) {
-        SetSubBrightness((GameResources*)(func_0200fb8c((int*)GameState::GetInstance())), 0, 1);
+        SetSubBrightness((GameResources*)(GetResources_0200fb8c((int*)GameState::GetInstance())), 0, 1);
         arg0->unknown_5c_ = 0;
         arg0->unknown_5d_ &= ~1;
     }

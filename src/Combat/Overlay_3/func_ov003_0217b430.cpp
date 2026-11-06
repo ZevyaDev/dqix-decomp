@@ -10,13 +10,13 @@
 
 struct Struct_0207fdcc_2;
 struct Struct_0207fdf0_2;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_02081f20_2;
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_ov003_02179e18;
 struct Struct_ov003_02178910;
 
-extern "C" void *func_02010828(GameState *arg0);
+extern "C" void *GetParty_02010828(GameState *gameState);
 
 extern "C" int func_ov003_02179f34(char *arg0);
 extern "C" short func_02080468(void *arg0, int arg1);
@@ -30,12 +30,12 @@ extern "C" void func_ov003_021748c4(unsigned char *arg0);
 extern "C" void func_ov003_0217a14c(void *arg0);
 extern "C" void func_ov023_021dcae0(struct Struct_ov003_02178910 *arg0, int arg1);
 extern "C" int func_ov003_021765b4(void *arg0);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
-struct Struct_0201099c_9 {
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
+struct ItemData_0201099c_9 {
     char unknown_0_[8];
     unsigned int unknown_8_;
 };
-extern "C" struct Struct_0201099c_9 *func_020dedd0(struct Struct_0201099c_10 *arg0, int arg1);
+extern "C" struct ItemData_0201099c_9 *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
 extern "C" void func_0207fdf0(struct Struct_0207fdf0_2 *arg0, int arg1);
 extern "C" int func_ov003_02179da8(void *arg0, int arg1);
 extern "C" int func_ov003_021766e8(void *arg0);
@@ -53,9 +53,9 @@ extern "C" int func_ov003_021764f4(unsigned char *arg0);
 extern "C" void func_ov003_02175d78(char *arg0);
 extern "C" void func_ov003_02175df4(void *arg0);
 
-extern struct Struct_02108760 data_02108760;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
-static inline int inline_ov003_0217b430(struct Struct_0201099c_9 *arg0) {
+static inline int inline_ov003_0217b430(struct ItemData_0201099c_9 *arg0) {
     unsigned int var0 = arg0->unknown_8_;
     return (int) ((var0 << 18) >> 30);
 }
@@ -63,7 +63,7 @@ static inline int inline_ov003_0217b430(struct Struct_0201099c_9 *arg0) {
 // USA: func_ov003_0217b430
 extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
     GameState *var0 = GameState::GetInstance();
-    char *var1   = (char *) func_02010828(var0);
+    char *var1   = (char *) GetParty_02010828(var0);
     void *var2     = *(void **) (arg0 + REGIONAL_OFFSET(0x818, 0x89c));
     int var3         = *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f);
 
@@ -97,11 +97,11 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
         func_ov003_0217a14c(arg0);
         func_ov023_021dcae0((struct Struct_ov003_02178910 *) (arg0 + 0x3c), *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a));
         if (func_ov003_021765b4(arg0) != 0 && var6 == *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a)) {
-            func_0205eaa0(&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
             *(void **) (arg0 + REGIONAL_OFFSET(0xf74, 0xff8)) = 0;
             *(void **) (arg0 + 8) =
-                func_020dedd0((struct Struct_0201099c_10 *) (arg0 + REGIONAL_OFFSET(0x7f0, 0x874)), *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a));
+                func_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + REGIONAL_OFFSET(0x7f0, 0x874)), *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a));
             if (*(void **) (arg0 + 8) == 0) return;
             *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x78, 0xfc)) = *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe));
             func_02080c68(var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 1);
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
             func_02080c68(var2, 6, 1);
             func_02080c68(var2, 7, 1);
             *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 2;
-            if (inline_ov003_0217b430(*(struct Struct_0201099c_9 **) (arg0 + 8)) == 0) {
+            if (inline_ov003_0217b430(*(struct ItemData_0201099c_9 **) (arg0 + 8)) == 0) {
                 func_0207fdf0((struct Struct_0207fdf0_2 *) var2, 0);
                 *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)          = 0x12;
                 *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 0;
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
                     *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 6;
                     *(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) =
                         (unsigned short) (*(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x2000);
-                    if (inline_ov003_0217b430(*(struct Struct_0201099c_9 **) (arg0 + 8)) != 2) return;
+                    if (inline_ov003_0217b430(*(struct ItemData_0201099c_9 **) (arg0 + 8)) != 2) return;
                     *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0x11;
                     *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 4;
                     return;
@@ -205,7 +205,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
         }
         int var18 = func_ov003_021782a0((struct Struct_0207fdcc_2 *) arg0);
         if (g_keyManager.TestKeysPressed(0x401) != 0 || var18 == 1) {
-            func_0205eaa0(&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             func_0207fdf0((struct Struct_0207fdf0_2 *) var2, 0);
             *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36) = 0xd;
             if (*(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) > 1) {
@@ -215,7 +215,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
             *(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) =
                 (unsigned short) (*(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x2000);
             func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
-            if (inline_ov003_0217b430(*(struct Struct_0201099c_9 **) (arg0 + 8)) != 2) return;
+            if (inline_ov003_0217b430(*(struct ItemData_0201099c_9 **) (arg0 + 8)) != 2) return;
             *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0x11;
             *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 4;
             return;

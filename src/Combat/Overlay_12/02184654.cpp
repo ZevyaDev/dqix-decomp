@@ -31,13 +31,13 @@ struct Struct_ov012_02184654_9 {
     short unknown_0_[10];
     Struct_ov012_02184654_8 unknown_14_;
 };
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 struct Struct_0201099c_3;
-extern "C" void* func_0202ae18();
-extern "C" unsigned char* func_02053c6c(unsigned char*);
+extern "C" void* GetLocalWireless_0202ae18();
+extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" int func_02098f20(int, int, int);
-extern "C" void* func_02072a68(Struct_02072a68_2*, int);
-extern "C" int func_020e0434(Struct_0201099c_3*, int);
+extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
+extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov023_021e66ac(void*);
 
 static inline Struct_ov012_02184654* inline_ov012_02184654(GameState* arg0) {
@@ -49,12 +49,12 @@ extern "C" ARM void func_ov012_02184654(char* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov012_02184654* var1 = inline_ov012_02184654(var0);
     signed char var2[3];
-    memcpy(var2, func_02072a68((Struct_02072a68_2*)(arg0 + 0x1314), 113), 3);
-    func_0202ae18();
+    memcpy(var2, FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x1314), 113), 3);
+    GetLocalWireless_0202ae18();
     unsigned char* var3 = 0;
     GameObject* var4 = var0->GetProtagonist();
     if (var4)
-        var3 = func_02053c6c((unsigned char*)var4);
+        var3 = GetPartyMemberData_02053c6c((unsigned char*)var4);
     if (!var3) return;
     *(void**)(arg0 + 0x1408) = var3 + 0x3c;
 
@@ -83,12 +83,12 @@ extern "C" ARM void func_ov012_02184654(char* arg0) {
         *(unsigned char*)(arg0 + 0x1375) += 2;
         var9 += 2;
     }
-    const char* var10 = (const char*)func_02072a68((Struct_02072a68_2*)(arg0 + 0x1314), (short)(var1->unknown_5_1_ + 10000));
+    const char* var10 = (const char*)FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x1314), (short)(var1->unknown_5_1_ + 10000));
     memcpy(arg0 + 0x1498, var10, strlen(var10));
     if (var1->unknown_6_3_ < 700)
-        var10 = (const char*)func_020e0434((Struct_0201099c_3*)(arg0 + 0x131c), (short)var1->unknown_6_3_);
+        var10 = (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0x131c), (short)var1->unknown_6_3_);
     else
-        var10 = (const char*)func_02072a68((Struct_02072a68_2*)(arg0 + 0x1314), (short)(var1->unknown_6_3_ + 20000));
+        var10 = (const char*)FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x1314), (short)(var1->unknown_6_3_ + 20000));
     memcpy(arg0 + 0x1458, var10, strlen(var10));
     func_ov023_021e66ac(arg0);
 }
@@ -157,7 +157,7 @@ struct Struct_ov012_02184654_6
     Struct_ov012_02184654_5* unknown_150_;
 };
 
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 struct Struct_0201099c_3;
 
 struct Struct_ov012_02184654_7
@@ -171,11 +171,11 @@ struct Struct_ov012_02184654_7
     char unknown_1440_[0x40];
 };
 
-extern "C" void* func_0202ae18();
-extern "C" unsigned char* func_02053c6c(unsigned char* arg0);
+extern "C" void* GetLocalWireless_0202ae18();
+extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_02098f20(int arg0, int arg1, int arg2);
-extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_ov023_021e66ac(Struct_ov012_02184654_7* arg0);
 
 static inline Struct_ov012_02184654_2* inline_ov012_02184654(GameState* arg0)
@@ -193,11 +193,11 @@ extern "C" ARM void func_ov012_02184654(Struct_ov012_02184654_7* arg0)
 {
     GameState* var11 = GameState::GetInstance();
     Struct_ov012_02184654_2* var12 = inline_ov012_02184654(var11);
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     Struct_ov012_02184654_4* var13 = 0;
     Struct_ov012_02184654_6* var14 = (Struct_ov012_02184654_6*)var11->GetProtagonist();
     if (var14 != 0)
-        var13 = (Struct_ov012_02184654_4*)func_02053c6c((unsigned char*)var14);
+        var13 = (Struct_ov012_02184654_4*)GetPartyMemberData_02053c6c((unsigned char*)var14);
     if (var13 == 0)
         return;
 
@@ -225,13 +225,13 @@ extern "C" ARM void func_ov012_02184654(Struct_ov012_02184654_7* arg0)
 
     var12->unknown_4_0_ = func_02098f20(var12->unknown_0_0_, var12->unknown_1_4_, var12->unknown_2_0_);
 
-    var15 = func_02072a68((struct Struct_02072a68_2*)arg0->unknown_133c_, (short)(var12->unknown_5_1_ + 10000));
+    var15 = FindStringInList_02072a68((struct StringList_02072a68_2*)arg0->unknown_133c_, (short)(var12->unknown_5_1_ + 10000));
     memcpy(arg0->unknown_1440_, var15, strlen((char*)var15));
 
     if (var12->unknown_6_3_ < 700)
-        var15 = (void*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_1344_, (short)var12->unknown_6_3_);
+        var15 = (void*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_1344_, (short)var12->unknown_6_3_);
     else
-        var15 = func_02072a68((struct Struct_02072a68_2*)arg0->unknown_133c_, (short)(var12->unknown_6_3_ + 20000));
+        var15 = FindStringInList_02072a68((struct StringList_02072a68_2*)arg0->unknown_133c_, (short)(var12->unknown_6_3_ + 20000));
     memcpy(arg0->unknown_1400_, var15, strlen((char*)var15));
 
     func_ov023_021e66ac(arg0);

@@ -5,7 +5,7 @@
 struct Struct_02081198;
 struct Struct_02081164;
 struct Struct_02081f20_2;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0207fe44;
 
 struct Struct_ov003_02162ba8 {
@@ -38,15 +38,15 @@ extern "C" void func_0208203c(Struct_02081f20_2 *);
 extern "C" void func_ov003_02165888(unsigned char *, int);
 extern "C" void func_ov003_02160794(unsigned char *);
 extern "C" int func_ov003_02160854(unsigned char *);
-extern "C" void func_0205eaa0(Struct_02108760 *, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
 extern "C" int func_ov003_02161544(void *);
 extern "C" void func_0207fe44(Struct_0207fe44 *);
 extern "C" int func_ov003_02160a68(unsigned char *);
-extern "C" unsigned char *func_02053c6c(unsigned char *);
+extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *);
 extern "C" void func_ov003_02161480(unsigned char *);
 extern "C" void func_ov003_02166f40(unsigned char *);
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 #if defined(jpn)
 #define RO(o) ((o) >= 0x464 ? (o) - 0x1d8 : (o) - 0x118)
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov003_02162ba8(unsigned char *arg0) {
             short var4 = *(short *) (arg0 + RO(0x48e)) - func_02080468(var2, *(short *) (arg0 + RO(0x488)));
             if (arg0[RO(0x4ad)] <= var4) return;
             *(short *) (arg0 + RO(0x482)) = (arg0 + var4)[RO(0x4a9)];
-            func_0205eaa0((Struct_02108760 *) &data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
             func_0208203c((Struct_02081f20_2 *) (arg0 + RO(0x308)));
             *(int *) (arg0 + RO(0x470)) = 0;
             if (func_ov003_02161544(arg0) == 0) {
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov003_02162ba8(unsigned char *arg0) {
         arg0[RO(0x4a3)]         = 0x10;
         GameObject *var6       = func_0200ff1c(var0, *(short *) (arg0 + RO(0x482)));
         if (var6 == 0) return;
-        unsigned char *var7 = func_02053c6c((unsigned char *) var6);
+        unsigned char *var7 = GetPartyMemberData_02053c6c((unsigned char *) var6);
         arg0[RO(0x4a3)]      = var5;
         int var8            = (*(short *) (var7 + 0x454) > 0);
         if (var6->unknown_ac_.unknown_84_->unknown_0_ & 1) {

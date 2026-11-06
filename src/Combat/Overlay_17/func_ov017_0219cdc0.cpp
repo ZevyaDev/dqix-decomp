@@ -8,8 +8,8 @@ enum { Enum_ov017_0219cdc0_396 = 0x180 };
 #else
 enum { Enum_ov017_0219cdc0_396 = 0x18c };
 #endif
-extern "C" void* func_0202ae18();
-extern "C" int func_020100a8(GameState*);
+extern "C" void* GetLocalWireless_0202ae18();
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_02048150(GameObject*, int, int);
 extern "C" int func_02033b88(Struct_02010604*, int);
 extern "C" void func_ov017_021cedf4(int, int, int);
@@ -19,8 +19,8 @@ extern "C" GameObject* func_0200ff58(GameState*, int);
 extern "C" int func_020546a8(void*);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
 extern "C" void func_02039d58(unsigned char*);
-extern "C" int func_0202c508(void*);
-extern "C" void* func_02010828(GameState*);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
+extern "C" void* GetParty_02010828(GameState*);
 
 static inline int inline_ov017_0219cdc0(unsigned short arg0, unsigned short arg1) { return arg0 == arg1; }
 static inline int inline_ov017_0219cdc0_2(unsigned short arg0, unsigned short arg1) { return !inline_ov017_0219cdc0(arg0, arg1); }
@@ -28,7 +28,7 @@ static inline int inline_ov017_0219cdc0_2(unsigned short arg0, unsigned short ar
 // USA: func_ov017_0219cdc0
 extern "C" ARM void func_ov017_0219cdc0(unsigned short arg0, int arg1, signed char arg2) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     GameResources* var2 = GetGameResources();
     int var3 = !inline_ov017_0219cdc0_2(arg0, 10100);
     unsigned short var4 = (arg0 / 100) * 100;
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov017_0219cdc0(unsigned short arg0, int arg1, signed ch
     var7 = (var7 | (arg0 == 50301)) != 0;
     var7 = (var7 | (arg0 == 50401)) != 0;
     if (var5) {
-        int var8 = func_020100a8(var0);
+        int var8 = GetProtagonistObjectIndex_020100a8(var0);
         if (!arg1) var8 = arg2;
         GameObject* var9 = (GameObject*)var0->GetPartyMemberByIndex(var8);
         if (var9 && (**(unsigned int**)((char*)var9 + 0x130) & 1)) {
@@ -69,8 +69,8 @@ extern "C" ARM void func_ov017_0219cdc0(unsigned short arg0, int arg1, signed ch
             }
         }
     }
-    if (var7 && func_0202c508(var1) && arg1) {
-        unsigned char* var12 = (unsigned char*)func_02010828(var0);
+    if (var7 && IsNotLocalWirelessGuest_0202c508(var1) && arg1) {
+        unsigned char* var12 = (unsigned char*)GetParty_02010828(var0);
         GameObject* var13;
         int var14;
         int var15;

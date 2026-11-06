@@ -8,8 +8,8 @@ struct GameResources;
 struct Struct_0201099c_3;
 struct Struct_0205cf78;
 struct Struct_0205cf78_2;
-struct Struct_02020aec;
-struct Struct_02020cb8_4;
+struct PacEntry_02020aec;
+struct PacEntry_02020cb8_4;
 struct Struct_02020cb8_5;
 struct Struct_0204b12c;
 struct Struct_02020cb8;
@@ -20,11 +20,11 @@ struct Struct_0204b8d0;
 struct Struct_02043368_2;
 struct Struct_02043368;
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 void SetSubBrightness(GameResources* resources, int brightness, int duration);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_020dc2bc(void);
 extern "C" void func_020dfec0(void* arg0, void* arg1, void* arg2, unsigned int arg3);
@@ -39,14 +39,14 @@ extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
 extern "C" void func_0204b5b4(void*, int);
 extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
 extern "C" void func_0204b12c(struct Struct_0204b12c* arg0, SafeAllocator* arg1);
-extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
-extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
+extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0204b174(void* arg0, void* arg1, SafeAllocator* arg2, int arg3);
 extern "C" void func_0204bc74(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 extern "C" void func_0204b0e8(struct Struct_02020cb8_2* arg0, void* arg1);
 extern "C" void func_0204c7a8(struct Struct_0204c7a8* arg0, SafeAllocator* arg1, int arg2, unsigned int arg3);
 extern "C" void func_0205cf78(struct Struct_0205cf78* arg0, struct Struct_0205cf78_2* arg1, unsigned char arg2);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
 extern "C" void func_0204af38(struct Struct_0204af38* arg0, int arg1, SafeAllocator* arg2);
 extern "C" void func_0204b8d0(struct Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
@@ -128,11 +128,11 @@ struct Struct_ov023_021eb578_4 {
 // USA: func_ov023_021eb578
 extern "C" ARM void func_ov023_021eb578(Struct_ov023_021eb578_4* arg0) {
     SafeAllocator* var0;
-    Struct_0208cb08* var1;
+    FontLoader_0208cb08* var1;
     GameResources* var2;
     BackgroundLoader* var3;
     unsigned char var4;
-    var2 = (GameResources*)func_0200fb8c((int*)GameState::GetInstance());
+    var2 = (GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance());
     var1 = func_02094a00();
     var3 = BackgroundLoader::GetInstance();
     var4 = arg0->unknown_432_;
@@ -156,7 +156,7 @@ extern "C" ARM void func_ov023_021eb578(Struct_ov023_021eb578_4* arg0) {
             return;
         }
         if (arg0->unknown_438_ & 0x10) {
-            func_020466e4((unsigned int*)func_020d6c00(), 1);
+            func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 1);
             func_020dc2bc();
         }
 #if defined(jpn)
@@ -253,9 +253,9 @@ extern "C" ARM void func_ov023_021eb578(Struct_ov023_021eb578_4* arg0) {
         }
         var0 = arg0->unknown_0_;
         var3->GetLoadedFileByID(arg0->unknown_434_, &var11, &var12);
-        var16 = func_02046900((struct Struct_02020cb8_4*)var11);
+        var16 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var11);
         for (var17 = 0; var17 < var16; var17++) {
-            var14 = func_020467f0((struct Struct_02020aec*)var11, var17, &var10, &var13);
+            var14 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var11, var17, &var10, &var13);
             if (var14 != NULL && var17 != 1) {
                 func_0204b174(&arg0->unknown_84_[0], var14, &var0[1], var13);
                 func_0204b174(&arg0->unknown_84_[1], var14, &var0[1], var13);
@@ -280,7 +280,7 @@ extern "C" ARM void func_ov023_021eb578(Struct_ov023_021eb578_4* arg0) {
         arg0->unknown_15c_ = &arg0->unknown_84_[0];
         arg0->unknown_176_ = 2;
         func_0205cf78((struct Struct_0205cf78*)arg0->unknown_c4_, (struct Struct_0205cf78_2*)arg0->unknown_180_, 3);
-        arg0->unknown_434_ = var3->QueueLoadFile((const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_4_, 3), NULL);
+        arg0->unknown_434_ = var3->QueueLoadFile((const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_4_, 3), NULL);
         arg0->unknown_432_++;
     }
 
@@ -322,9 +322,9 @@ extern "C" ARM void func_ov023_021eb578(Struct_ov023_021eb578_4* arg0) {
             func_0204af38((struct Struct_0204af38*)var34, var29[var33], var0);
         }
         var3->GetLoadedFileByID(arg0->unknown_434_, &var23, &var24);
-        var31 = func_02046900((struct Struct_02020cb8_4*)var23);
+        var31 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var23);
         for (var32 = 0; var32 < var31; var32++) {
-            var26 = func_020467f0((struct Struct_02020aec*)var23, var32, &var22, &var25);
+            var26 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var23, var32, &var22, &var25);
             if (var26 != NULL) {
                 if (var32 < 3) {
                     func_0204b174(&arg0->unknown_44_[0], var26, var0, var25);
@@ -352,7 +352,7 @@ extern "C" ARM void func_ov023_021eb578(Struct_ov023_021eb578_4* arg0) {
         } else if (arg0->unknown_430_ == 6) {
             SET_LAYER_PRIORITIES(3, 1, 2, 0, 0x19, 3, 2, 1, 0, 0x1e);
         }
-        arg0->unknown_434_ = var3->QueueLoadFile((const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_4_, 4), NULL);
+        arg0->unknown_434_ = var3->QueueLoadFile((const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_4_, 4), NULL);
         arg0->unknown_432_++;
     }
 
@@ -383,10 +383,10 @@ extern "C" ARM void func_ov023_021eb578(Struct_ov023_021eb578_4* arg0) {
         }
         func_0205a234((struct Struct_02043368*)arg0->unknown_42c_);
         var3->GetLoadedFileByID(arg0->unknown_434_, &var36, &var37);
-        var42 = func_02046900((struct Struct_02020cb8_4*)var36);
+        var42 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var36);
         var0[3].Reset();
         for (var43 = 0; var43 < var42; var43++) {
-            var39 = func_020467f0((struct Struct_02020aec*)var36, var43, &var35, &var38);
+            var39 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var36, var43, &var35, &var38);
             if (var39 != NULL) {
                 func_0205a528(arg0->unknown_424_, var39, var38, &var0[3]);
             }

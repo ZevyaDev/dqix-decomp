@@ -4,7 +4,7 @@
 
 struct Struct_02048150;
 extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
 extern "C" void func_ov000_0215a8d4(unsigned char* arg0, int arg1);
 extern "C" void* func_ov000_0215e958(void* arg0);
@@ -48,7 +48,7 @@ extern "C" ARM void* func_ov024_021dc0b8(struct Struct_ov024_021dc0b8_2* arg0, i
 		var2 = func_ov024_021e4b14(arg0, arg1, arg2, arg3, 1);
 		if (var2 != 0) {
 			var1 = func_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
-			void* var5 = func_02010828(GameState::GetInstance());
+			void* var5 = GetParty_02010828(GameState::GetInstance());
 			if (var3 && func_02086ef0((Struct_02048150*)var5, arg1) && arg3->unknown_4_0_ == 0xa9) {
 				func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 5);
 			}

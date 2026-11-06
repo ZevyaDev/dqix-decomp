@@ -8,7 +8,7 @@ enum { Enum_ov017_02195658_1052 = 0x41c, Enum_ov017_02195658_2864 = 0xb30 };
 #include "GameState/GameState.h"
 
 struct Struct_0202b2f0;
-extern "C" struct Struct_0202b2f0* func_0202ae18(void);
+extern "C" struct Struct_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" int func_0202c578(struct Struct_0202b2f0* arg0, int arg1);
 extern "C" GameObject* func_0200fee0(GameState* arg0, int arg1);
 extern "C" void func_ov017_021905b8(void* arg0, int arg1, int arg2);
@@ -16,7 +16,7 @@ extern "C" void func_ov017_021905b8(void* arg0, int arg1, int arg2);
 // USA: func_ov017_02195658
 extern "C" ARM int func_ov017_02195658(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_0202b2f0* var1 = func_0202ae18();
+    struct Struct_0202b2f0* var1 = GetLocalWireless_0202ae18();
     for (int var2 = 1; var2 < 4; var2++) {
         int var3 = 0;
         int var4 = 1;

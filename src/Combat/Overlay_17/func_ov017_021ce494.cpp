@@ -3,8 +3,8 @@
 
 extern "C" void* func_0202ae24(void);
 extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 
 struct Struct_ov017_021ce494 {
 	unsigned char unknown_0_;
@@ -13,8 +13,8 @@ struct Struct_ov017_021ce494 {
 
 // USA: func_ov017_021ce494
 extern "C" ARM void func_ov017_021ce494(void) {
-	void* var0 = func_0202ae18();
-	if (func_0202c508(var0) != 0) {
+	void* var0 = GetLocalWireless_0202ae18();
+	if (IsNotLocalWirelessGuest_0202c508(var0) != 0) {
 		return;
 	}
 	if (GameState::GetInstance()->GetPartyMemberByIndex(0xce) != NULL) {

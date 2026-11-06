@@ -8,7 +8,7 @@ extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1
                                                                         unsigned char arg2);
 extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
-extern "C" void *func_020d6c00(void);
+extern "C" void *GetGlobalFlags_020d6c00(void);
 extern "C" void func_020466e4(unsigned int *arg0, unsigned int arg1);
 extern "C" int GetInventoryItemByID(char *arg0, int arg1, int arg2);
 extern "C" void func_ov002_02161cf0(char *arg0);
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov002_021642e4(char *arg0) {
         func_0205de24((struct Struct_0205de24_2 *) (arg0 + 0xe20), 0, 2);
         func_ov002_02161cf0(arg0);
         func_ov002_0215d864(arg0);
-        func_020466e4((unsigned int *) func_020d6c00(), 1);
+        func_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
         if (*(int *) (arg0 + 0x22ac) & 1) {
             ((SafeAllocator *) (arg0 + 0x7c8))->Reset();
             func_ov023_021dc9e8(var1, (SafeAllocator *) (arg0 + 0x7c8),
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov002_021642e4(char *arg0) {
         func_0205de24((struct Struct_0205de24_2 *) (arg0 + 0xec8), 0, 2);
         func_ov002_02161cf0(arg0);
         func_ov002_0215d864(arg0);
-        func_020466e4((unsigned int *) func_020d6c00(), 1);
+        func_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
         if (*(int *) (arg0 + 0x247c) & 1) {
             ((SafeAllocator *) (arg0 + 0x864))->Reset();
             func_ov023_021dc9e8(arg0 + 0x50, (SafeAllocator *) (arg0 + 0x864),

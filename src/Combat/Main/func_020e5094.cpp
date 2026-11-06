@@ -7,7 +7,7 @@ struct Struct_0201099c_14 {
     int unknown_10_;
 };
 extern "C" void func_020dfc6c(Struct_0201099c_14* arg0);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 
 struct Struct_02153694 {
     Struct_0201099c_14 unknown_0_;
@@ -16,7 +16,7 @@ struct Struct_02153694 {
 
 extern Struct_02153694 data_02153694[2];
 extern SafeAllocator data_02153680;
-extern int data_02114e20;
+extern int gMainHeap_02114e20;
 
 // USA: func_020e5094
 extern "C" ARM void func_020e5094(void) {
@@ -26,7 +26,7 @@ extern "C" ARM void func_020e5094(void) {
     }
     void* var1 = data_02153680.GetSignedAllocator();
     if (var1 != NULL) {
-        func_02012da4((AllocatorUnion*)&data_02114e20, var1);
+        FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var1);
         data_02153680.Destroy();
     }
 }

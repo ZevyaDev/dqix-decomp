@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" void* func_ov004_0216b1c4(void* arg0, int arg1);
 extern "C" void func_ov004_0216afb0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
 extern "C" int func_ov004_0216b2c8(void* arg0, int arg1, int arg2, int arg3);
@@ -31,7 +31,7 @@ public:
 
 // USA: func_ov004_0216d820
 extern "C" ARM int func_ov004_0216d820(void* arg0) {
-    void* var0 = func_ov023_021f6880(func_ov011_021849c8(arg0), 1);
+    void* var0 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 1);
     if (var0) {
         *((unsigned char*)var0 + 0xc) |= 0x8;
     }
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov004_0216d820(void* arg0) {
     func_ov004_0216afb0(arg0, 0x37, 2, 0xd4, 0x3b, 0xa, 0xa, 0xc, 1);
     func_ov004_0216b2c8(arg0, 0x12c, 0x37, 0);
 
-    Struct_ov004_0216d820* var2 = (Struct_ov004_0216d820*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0x37);
+    Struct_ov004_0216d820* var2 = (Struct_ov004_0216d820*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x37);
     if (var2) {
         var2->inline_ov004_0216d820_3(0x10);
         var2->inline_ov004_0216d820_17(0x10);

@@ -5,7 +5,7 @@ struct Struct_0202b2f0;
 struct Struct_0202bad4;
 struct Struct_0202bad4_2;
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_0202b0f4(void* arg0);
 extern "C" void func_0202c288(void* arg0);
 extern "C" unsigned short func_0202bc8c(struct Struct_0202b2f0* arg0);
@@ -24,7 +24,7 @@ struct Struct_ov003_02171640 {
 // USA: func_ov003_02171640
 extern "C" ARM void func_ov003_02171640(struct Struct_ov003_02171640* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     unsigned int var2 = var0->GetEffectiveDeltaTime();
 
     if (var2 < arg0->unknown_4_) {

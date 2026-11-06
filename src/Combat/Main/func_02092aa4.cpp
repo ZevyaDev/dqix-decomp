@@ -38,7 +38,7 @@ extern "C" ARM void func_02092aa4(Struct_02092aa4* arg0, int arg1) {
     arg0->unknown_3a_ = 0;
     arg0->unknown_3b_ = 0;
 
-    unsigned char* var0 = (unsigned char*)func_02010828(GameState::GetInstance());
+    unsigned char* var0 = (unsigned char*)GetParty_02010828(GameState::GetInstance());
     unsigned char var1;
     for (var1 = 0; var1 < var0[0xf7c]; var1++) {
         unsigned char* var2 = var0 + var1;

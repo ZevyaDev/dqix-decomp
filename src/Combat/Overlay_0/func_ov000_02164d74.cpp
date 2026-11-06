@@ -87,7 +87,7 @@ extern "C" ARM void func_ov000_02164d74(struct Struct_ov000_02164d74_5* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     func_ov000_02163524(arg0);
-    struct Struct_ov000_02164d74* var2 = (Struct_ov000_02164d74*)func_02010828(var0);
+    struct Struct_ov000_02164d74* var2 = (Struct_ov000_02164d74*)GetParty_02010828(var0);
     int var3;
     for (var3 = 0; var3 < var2->unknown_f7c_; var3++) {
         func_ov000_0217feb0(arg0->unknown_3760_, 1, var2->unknown_f78_[var3]);

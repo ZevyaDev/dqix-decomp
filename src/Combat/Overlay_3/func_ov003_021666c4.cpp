@@ -48,12 +48,12 @@ struct Struct_ov003_021666c4_2 {
 };
 
 extern "C" void func_02080b54(void*, int);
-extern "C" void func_0202ae18();
+extern "C" void GetLocalWireless_0202ae18();
 extern "C" void func_02080cc0(Struct_02080cc0*, int, int);
 extern "C" void func_02080b40(void*, int);
 extern "C" void func_02080f8c(Struct_02080f8c*, int, int);
 extern "C" void func_02080fa8(Struct_02080fa8*, Type_ov003_021666c4, int);
-extern "C" int func_020e0434(Struct_0201099c_3*, int);
+extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_02081198(Struct_02081198*, int, int);
 extern "C" void func_02081164(Struct_02081164*, int, int);
 extern "C" void func_020813ec(void*, int);
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov003_021666c4(Struct_ov003_021666c4_2* arg0) {
     Struct_02080cc0* var0 = arg0->unknown_324_;
     func_02080b54(var0, 16);
     int var1 = 69;
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     arg0->unknown_4bd_ = var1;
     int var2 = arg0->unknown_4a0_ * 4;
     int var3 = var2 + 4;
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov003_021666c4(Struct_ov003_021666c4_2* arg0) {
             func_02080fa8((Struct_02080fa8*)var0, (Type_ov003_021666c4)(var1 + 4), var7);
 #endif
         } else {
-            int var10 = func_020e0434(&arg0->unknown_2dc_, 30000);
+            int var10 = FindStringInTable_020e0434(&arg0->unknown_2dc_, 30000);
             func_02080f8c((Struct_02080f8c*)var0, (Type_ov003_021666c4)var1, var10);
         }
         func_02080b40(var0, var1);

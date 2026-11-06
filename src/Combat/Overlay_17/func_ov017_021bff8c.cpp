@@ -18,9 +18,9 @@ extern "C" int* func_020936f8(void);
 extern "C" void func_02094030(int*, short, short, int);
 struct Struct_ov017_021c0124;
 extern "C" void func_ov017_021c0124(Struct_ov017_021c0124* arg0, unsigned char arg1);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 
 struct Struct_ov017_021bff8c {
 #if defined(jpn)
@@ -28,7 +28,7 @@ struct Struct_ov017_021bff8c {
 #else
     char unknown1_0_[0x36fc];
 #endif
-    Struct_0201bdac_2* unknown_36fc_;
+    Queue_0201bdac_2* unknown_36fc_;
     char unknown_3700_[0x3718 - 0x3700];
     void* unknown_3718_;
 #if defined(jpn)
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov017_021bff8c(Struct_ov017_021bff8c* arg0, unsigned ch
 #else
  enum {Enum_ov017_021bff8c_434=0x1b2,Enum_ov017_021bff8c_2456=0x998};
 #endif
-    if (func_02086ef0((Struct_02048150*)func_02010828(GameState::GetInstance()), 0) == 0) {
+    if (func_02086ef0((Struct_02048150*)GetParty_02010828(GameState::GetInstance()), 0) == 0) {
         int var0 = 0;
         int var1 = 0;
         GameState* var2 = GameState::GetInstance();
@@ -97,5 +97,5 @@ extern "C" ARM void func_ov017_021bff8c(Struct_ov017_021bff8c* arg0, unsigned ch
         func_02094030(func_020936f8(), 0x2712, -1, arg1);
     }
     func_ov017_021c0124(arg0->unknown_3b1c_, arg1);
-    func_020469b4(arg0->unknown_36fc_, (Struct_0201bdac*)arg0->unknown_3b1c_);
+    AppendToQueue_020469b4(arg0->unknown_36fc_, (QueueNode_0201bdac*)arg0->unknown_3b1c_);
 }

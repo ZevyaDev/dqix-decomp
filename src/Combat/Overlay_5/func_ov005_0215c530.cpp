@@ -64,12 +64,12 @@ struct Struct_ov005_0215c530_2
     char unknown_2_[0x1c - 2];
 };
 
-struct Struct_0201099c_10;
-struct Struct_0201099c_9;
+struct ItemTable_0201099c_10;
+struct ItemData_0201099c_9;
 struct Struct_ov003_02178910 {
     char unknown_0_[0x48];
-    Struct_0201099c_10* unknown_48_;
-    Struct_0201099c_9* unknown_4c_;
+    ItemTable_0201099c_10* unknown_48_;
+    ItemData_0201099c_9* unknown_4c_;
 #if defined(jpn)
     char unknown_50_[0x680];
 #else
@@ -136,7 +136,7 @@ struct Struct_ov005_0215c530_5
 };
 
 struct Struct_02083508_2;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
 extern "C" short* func_0207c5f8(unsigned char*, unsigned int);
 extern "C" signed char* func_0207c60c(void*, unsigned int);
@@ -152,7 +152,7 @@ extern "C" Struct_ov005_0215c530_7* func_ov023_021db08c(void*, int);
 extern "C" int func_020dd4c4(int, Struct_ov005_0215c530_6*);
 extern "C" void func_ov005_021579ec(Struct_ov005_0215c530_3*, unsigned int, unsigned char);
 extern "C" void func_0205bb04(void*, int);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov005_021555c0(Struct_ov005_0215c530_3*);
 extern "C" void func_ov023_021dcae0(Struct_ov003_02178910*, int);
 extern "C" void func_ov005_0215792c(Struct_ov005_0215c530_3*, unsigned char);
@@ -163,12 +163,12 @@ extern "C" void func_ov005_0215792c(Struct_ov005_0215c530_3*, unsigned char);
 #endif
 extern unsigned char data_ov005_0215cd08[];
 extern unsigned char data_ov005_0215cd00[];
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 
 // USA: func_ov005_0215c530
 extern "C" ARM void func_ov005_0215c530(Struct_ov005_0215c530_3* arg0)
 {
-    unsigned char* var0 = (unsigned char*)func_02010828(GameState::GetInstance());
+    unsigned char* var0 = (unsigned char*)GetParty_02010828(GameState::GetInstance());
     int var1 = arg0->unknown_3d98_[arg0->unknown_3dbc_];
     short* var2 = func_0207c5f8(var0 + 0x1d4, data_ov005_0215cd08[arg0->unknown_3dbc_]);
     signed char* var3 = func_0207c60c(var0 + 0x1d4, data_ov005_0215cd08[arg0->unknown_3dbc_]);
@@ -304,7 +304,7 @@ extern "C" ARM void func_ov005_0215c530(Struct_ov005_0215c530_3* arg0)
                 }
             }
         }
-        func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
     }
 
     if (arg0->unknown_3dd4_[arg0->unknown_3dbc_] == 0 || arg0->unknown_3dd4_[arg0->unknown_3dbc_] == 1)

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
-extern int data_02114e20;
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern int gMainHeap_02114e20;
 extern int data_ov017_021d6674[];
 
 // USA: func_ov017_021a0964
@@ -12,7 +12,7 @@ extern "C" ARM void func_ov017_021a0964(char* arg0) {
 		void* var2 = ((SafeAllocator*)(arg0 + 0x38 + var1))->GetSignedAllocator();
 		if (var2) {
 			((SafeAllocator*)(arg0 + 0x38 + var1))->Destroy();
-			func_02012da4((AllocatorUnion*)&data_02114e20, var2);
+			FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var2);
 		}
 	}
 }

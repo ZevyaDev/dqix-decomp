@@ -2,9 +2,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 struct Struct_0205c508;
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 struct Struct_ov012_02189af4 {
     int unknown_0_;
     int unknown_4_;
@@ -24,16 +24,16 @@ extern "C" void func_02041c08(char*, int, int, int, int, int);
 extern "C" int func_02041ea4(char*, int);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_0205c508(Struct_0205c508*, int*, int*);
-extern "C" int func_02042058(char*, const char*);
-extern "C" const char* func_02072a68(Struct_02072a68_2*, int);
+extern "C" int AppendText_02042058(char*, const char*);
+extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" int func_02041b70(char*, int, const char*);
 extern "C" int func_02041a28(char*, int);
-extern "C" void func_02046380(void*);
-extern "C" void func_020465c0(Struct_020465c0*, int, int);
+extern "C" void ClearMessageParams_02046380(void*);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern "C" void func_02042428(char*, int);
-extern "C" void func_0202ae18();
+extern "C" void GetLocalWireless_0202ae18();
 
 struct Struct_ov012_021884f4 {
     unsigned short unknown_0_0_ : 5;
@@ -55,20 +55,20 @@ extern "C" ARM void func_ov012_02189dfc(char* arg0, char* arg1, int arg2) {
     func_0205c508((Struct_0205c508*)var3, &var6, &var7);
     for (var2 = var6; var2 < var7; ++var2) {
         if (var2 != var6)
-            func_02042058(arg1, *(const char**)(arg0 + 0x1348));
-        const char* var8 = func_02072a68((Struct_02072a68_2*)(arg0 + 0x1314), (short)((*(signed char**)(arg0 + 0x1418))[var2] + 10000));
+            AppendText_02042058(arg1, *(const char**)(arg0 + 0x1348));
+        const char* var8 = FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x1314), (short)((*(signed char**)(arg0 + 0x1418))[var2] + 10000));
         func_02041b70(arg1, var2 % 9, var8);
     }
     if (((Struct_ov012_021884f4*)(arg0 + 0x141c))->unknown_0_0_ > 9) {
-        func_02046380(var1);
-        func_020465c0((Struct_020465c0*)var1, 0, var4 + 1);
-        func_020465c0((Struct_020465c0*)var1, 1, var5);
+        ClearMessageParams_02046380(var1);
+        SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var4 + 1);
+        SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 1, var5);
         func_020465f0((unsigned char*)var1, 0, 2);
         func_020465f0((unsigned char*)var1, 1, 2);
         func_020465d8((unsigned char*)var1, 0, 1);
         func_020465d8((unsigned char*)var1, 1, 0);
         func_02042428(arg1, 8);
-        func_02042058(arg1, func_02072a68((Struct_02072a68_2*)(arg0 + 0x1314), 0x6b));
+        AppendText_02042058(arg1, FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x1314), 0x6b));
     }
 }
 
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov012_02189dfc(char* arg0, char* arg1, int arg2) {
 #include <globaldefs.h>
 
 struct Struct_0205c508;
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 
 struct Struct_ov012_02189dfc
 {
@@ -114,8 +114,8 @@ extern "C" void func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4
 extern "C" void func_02041ea4(char* arg0, int arg1);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_0205c508(Struct_0205c508* arg0, int* arg1, int* arg2);
-extern "C" void func_02042058(char* arg0, const char* arg1);
-extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" void AppendText_02042058(char* buffer, const char* text);
+extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_02041b70(char* arg0, int arg1, const char* arg2);
 extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
 extern "C" void func_ov012_021842a0(Struct_ov012_02189dfc_2* arg0, int arg1, int arg2, int arg3);
@@ -143,14 +143,14 @@ extern "C" ARM void func_ov012_02189dfc(Struct_ov012_02189dfc_2* arg0, char* arg
     for (var10 = var14; var10 < var15; var10++)
     {
         if (var10 != var14)
-            func_02042058(arg1, arg0->unknown_1378_);
-        func_02041b70(arg1, var10 % 9, func_02072a68((Struct_02072a68_2*)arg0->unknown_133c_, (short)(arg0->unknown_13c0_[var10] + 10000)));
+            AppendText_02042058(arg1, arg0->unknown_1378_);
+        func_02041b70(arg1, var10 % 9, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, (short)(arg0->unknown_13c0_[var10] + 10000)));
     }
     if (arg0->unknown_13c4_0_ > 9)
     {
         func_ov012_021842a0(arg0, 5, var12, var13);
         func_02041a90(arg1, 0x2a, 0x94);
-        func_02042058(arg1, data_ov012_0218b310);
+        AppendText_02042058(arg1, data_ov012_0218b310);
     }
 }
 

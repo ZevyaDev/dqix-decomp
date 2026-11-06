@@ -41,13 +41,13 @@ struct Struct_ov017_021be0c4_2 {
 };
 struct Struct_02018300_3;
 extern "C" Struct_ov017_021be0c4_2* GetZone3D_02012fe4();
-extern "C" int* func_0202ae18();
+extern "C" int* GetLocalWireless_0202ae18();
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void func_0205ebc0(void*, int, int);
 extern "C" void func_0205ebfc(void*, int, int);
 extern "C" void func_0205ebec(void*);
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 extern "C" int func_0208f748(void*, int*);
 extern "C" void __clear(void*, unsigned int);
 extern "C" void func_020426bc(BaseCombatStats*, char*, int);
@@ -58,34 +58,34 @@ extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 #if defined(jpn)
 extern char data_ov017_021d8658[];
 #endif
-extern "C" int func_0202b7d8(int*);
-extern "C" int func_0202c508(int*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
+extern "C" int IsNotLocalWirelessGuest_0202c508(int*);
 extern "C" void func_ov017_021cf730(int, int);
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_ov017_021d1810(int, int, signed char);
 extern "C" void func_02011408(void*);
 extern "C" void func_ov017_021d3ec8();
-extern "C" void func_02043204(char*);
+extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_020397c0(void*);
 
 // USA: func_ov017_021be0c4
 // JPN: func_ov017_021be6bc
 extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     GameResources* var1 = GetGameResources();
     Struct_02046574_2* var2 = GetMessageWindow_020421a0();
     GetZone3D_02012fe4();
     GrottoStruct* var3 = var0->GetGrottoStruct();
     if (arg0->unknown_8_ == 0) {
         func_020397cc((Struct_02018300_3*)var0->GetUnknownGameObject(), 1);
-        Struct_0208cb08* var4 = func_02094a00();
+        FontLoader_0208cb08* var4 = func_02094a00();
         func_02094b30(var4, 0x203, 0);
         if (func_02094b4c(var4)) arg0->unknown_8_ = 1;
     } else if (arg0->unknown_8_ == 1) {
         SetMainBrightness(var1, 0x10, 0xf);
-        func_0205ebc0(data_02108760, 0x83, 0x83);
-        func_0205ebfc(data_02108760, 0, 0);
+        func_0205ebc0(gSoundEffectManager_02108760, 0x83, 0x83);
+        func_0205ebfc(gSoundEffectManager_02108760, 0, 0);
         arg0->unknown_8_ = 2;
     } else if (arg0->unknown_8_ == 2) {
         if (!IsMainBrightnessTransitionActive(var1)) {
@@ -123,10 +123,10 @@ extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
 #endif
             var2->unknown_19b2_ = 0;
             var2->unknown_998_ = 1;
-            int* var7 = func_0202ae18();
-            if (func_0202b7d8(var7) && func_0202c508(var7)) {
+            int* var7 = GetLocalWireless_0202ae18();
+            if (IsLocalWirelessOn_0202b7d8(var7) && IsNotLocalWirelessGuest_0202c508(var7)) {
                 func_ov017_021cf730(-1, 0);
-                func_ov017_021d1810(0x2713, -1, func_020100a8(var0));
+                func_ov017_021d1810(0x2713, -1, GetProtagonistObjectIndex_020100a8(var0));
             }
             func_02011408(var0);
             func_ov017_021d3ec8();
@@ -135,12 +135,12 @@ extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
     } else if (arg0->unknown_8_ == 5) {
         var2->unknown_19ae_ = 0;
         if (!var2->unknown_9a0_) {
-            func_02043204((char*)var2);
+            ResetMessageWindow_02043204((char*)var2);
             func_020397c0(var0->GetUnknownGameObject());
-            Struct_0208cb08* var8 = func_02094a00();
+            FontLoader_0208cb08* var8 = func_02094a00();
             func_02094b38(var8, 0x203);
             func_02094ab0(var8);
-            func_0205ebec(data_02108760);
+            func_0205ebec(gSoundEffectManager_02108760);
             arg0->unknown_1_ = 1;
         }
     }

@@ -4,9 +4,6 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 extern "C" int GetMessageWindow_020421a0(void);
 struct Struct_02048150;
@@ -15,8 +12,8 @@ struct Struct_0209a9dc_2;
 struct Struct_0209a9dc_3 { unsigned short unknown_0_; unsigned short unknown_2_; };
 extern "C" struct Struct_0209a9dc_3* func_0209a9dc(struct Struct_0209a9dc_2* arg0, int arg1);
 extern "C" void* func_02079e2c(char* arg0, int arg1);
-struct Struct_02072a68_2;
-extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
+struct StringList_02072a68_2;
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
 struct Struct_02046574_2;
 extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
@@ -26,10 +23,10 @@ extern "C" void StartMessage_0204500c(void* window, char* text, int arg2);
 extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int arg3);
 #endif
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov023_021f5228(int arg0);
-extern "C" void* func_0205ec34(void);
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_ov023_021f4438(void* arg0);
 extern "C" int func_ov023_021f4fc8(void);
 struct Struct_ov023_021eeaac_2;
@@ -68,7 +65,7 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* arg0) {
     unsigned char* var3 = (unsigned char*)var2;
     (int)BackgroundLoader::GetInstance();
     int var4 = var1->unknown_18_;
-    int var5 = func_02086ef0((struct Struct_02048150*)func_02010828(var0), var4);
+    int var5 = func_02086ef0((struct Struct_02048150*)GetParty_02010828(var0), var4);
 
     if (var1->unknown_0_ == 0) {
         struct Struct_0209a9dc_3* var6 = func_0209a9dc((struct Struct_0209a9dc_2*)((char*)var1 + 0xf0),
@@ -88,18 +85,18 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* arg0) {
 #if defined(jpn)
                     char* var11 = *(char**)((char*)var10 + 0x134);
                     char var12[0x100];
-                    char* var13 = (char*)func_02072a68((struct Struct_02072a68_2*)(arg0 + Enum_ov023_021f2368_23284), 0xc);
+                    char* var13 = (char*)FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + Enum_ov023_021f2368_23284), 0xc);
                     sprintf(var12, var13, var11, *(char**)var9);
-                    char* var14 = (char*)func_02072a68((struct Struct_02072a68_2*)(arg0 + Enum_ov023_021f2368_23284), 0x22);
+                    char* var14 = (char*)FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + Enum_ov023_021f2368_23284), 0x22);
                     strcat(var12, var14);
                     StartMessage_0204500c(var3, var12, 1);
 
 #else
                     char var15[0xc];
                     char var16[0x80];
-                    char* var17 = (char*)func_02072a68((struct Struct_02072a68_2*)(arg0 + Enum_ov023_021f2368_22788), 0xc);
+                    char* var17 = (char*)FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + Enum_ov023_021f2368_22788), 0xc);
                     sprintf(var16, var17);
-                    char* var18 = (char*)func_02072a68((struct Struct_02072a68_2*)(arg0 + Enum_ov023_021f2368_22788), 0x22);
+                    char* var18 = (char*)FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + Enum_ov023_021f2368_22788), 0x22);
                     strcat(var16, var18);
                     func_020e4bf4(var15, var4);
                     *(void**)(var3 + 0x10) = var15;
@@ -115,9 +112,9 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* arg0) {
         }
         var1->unknown_70_ = var1->unknown_70_ + 1;
         if (var1->unknown_6c_[var4] <= var1->unknown_70_) {
-            void* var20 = func_02010828(var0);
+            void* var20 = GetParty_02010828(var0);
             GameObject* var21 = func_0200ff1c(var0, var4);
-            unsigned char* var22 = (unsigned char*)func_02053c6c((unsigned char*)var21);
+            unsigned char* var22 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var21);
             struct Struct_ov023_021f2368_3* var23 = (struct Struct_ov023_021f2368_3*)(arg0 + var4 * 0x54 + Enum_ov023_021f2368_22272 + Enum_ov023_021f2368_156);
             if (var23->unknown_0_7_ != 0) {
                 var1->unknown_e5_ = 0xc;
@@ -125,8 +122,8 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* arg0) {
                        func_ov023_021f5228(var4) != 0 &&
                        *(unsigned short*)(var22 + 0x564) != 0) {
                 var1->unknown_e5_ = 8;
-                void* var24 = func_0205ec34();
-                if (func_0206dfb0((int)var24, (unsigned char*)var24 + 0x8c, 0x119c)) {
+                void* var24 = GetFlagManager_0205ec34();
+                if (IsFlagSet_0206dfb0((int)var24, (unsigned char*)var24 + 0x8c, 0x119c)) {
                     var3[Enum_ov023_021f2368_6602] = 0;
                 }
             } else {

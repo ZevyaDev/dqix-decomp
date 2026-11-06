@@ -16,9 +16,9 @@
 #define func_020daf90 func_020dc998
 #endif
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" Zone3D* GetZone3D_02012fe4(void);
-extern "C" int func_0202c540(void* arg0);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 
 extern "C" int func_02039750(void* arg0);
 extern "C" int GetMessageWindow_020421a0();
@@ -58,7 +58,7 @@ static inline Struct_ov017_021a624c inline_ov017_021a624c_2() {
 
 // USA: func_ov017_021a624c
 extern "C" ARM void func_ov017_021a624c(GameResources* arg0) {
-    void* var0 = func_0202ae18();
+    void* var0 = GetLocalWireless_0202ae18();
     GameState* var1 = GameState::GetInstance();
     GameObject* var2 = var1->GetProtagonist();
     if (var2 == 0) return;
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov017_021a624c(GameResources* arg0) {
     if (var1->GetGrottoStruct()->unknown_0[0] == 0 ||
         arg0->unknown_4080_ != 0 || var3 != -1 ||
         !func_02046b08((void**)arg0->unknown_ptr_array_36fc[0]) ||
-        func_0202c540(var0) ||
+        IsLocalWirelessGuest_0202c540(var0) ||
         func_020117f0(GameState::GetInstance()) != 0 ||
         *(int*)((char*)var4 + GLOB1C_FLAG_021a624c) != 0 ||
         func_02015a2c((struct Struct_02015a2c_2*)var7) ||

@@ -17,7 +17,7 @@ struct Struct_ov017_021d82e0 {
 extern "C" int func_ov000_0215fc60(char* arg0);
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
 extern "C" GameObject* func_0200ff94(GameState* arg0, int arg1);
-extern "C" unsigned char* func_02053c6c(unsigned char* arg0);
+extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" float func_02084ee8(void* arg0);
 extern "C" int func_02085b88(unsigned char* arg0);
 extern "C" Struct_ov000_02156118* func_02070fd0(Struct_02070b6c_3* arg0, int arg1);
@@ -41,7 +41,7 @@ extern "C" ARM float func_ov000_02156118(Struct_ov017_021d82e0* arg0, int arg1) 
         if (var4 == 0) {
             return 0;
         }
-        unsigned char* var5 = func_02053c6c((unsigned char*)var4);
+        unsigned char* var5 = GetPartyMemberData_02053c6c((unsigned char*)var4);
         if (var5 == 0) {
             return 0;
         }

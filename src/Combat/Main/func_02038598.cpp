@@ -82,11 +82,11 @@ struct Struct_02033b58;
 struct Struct_02033ec8;
 struct Struct_02038598_4 { unsigned int unknown_0_; };
 struct Struct_02038598_5;
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_ov017_02191108(void*, int, int, int, int);
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void func_02033834(Struct_02033834_2*, int);
 extern "C" void func_02033874(Struct_02033834*, int);
 extern "C" void func_020397cc(Struct_02018300_3*, int);
@@ -96,12 +96,12 @@ extern "C" int func_02033ec8(Struct_02033ec8*);
 extern "C" void func_02038500(Struct_02038500*, int, int, int);
 extern "C" void func_02033e18(void*, int*, short);
 extern "C" int func_ov017_0218d268(void*);
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_02046b60(Struct_02038598_5*, int);
 extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
 extern "C" void func_020466e4(unsigned int*, unsigned int);
 extern "C" void func_ov017_0219e310(unsigned char*, int);
-extern "C" void func_020469b4(Struct_0201bdac_2*, Struct_0201bdac*);
+extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern const char data_020efb44[];
 extern const char data_020efb4e[];
 extern const char data_020efb5a[];
@@ -120,7 +120,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
     var1 = GetZone3D_02012fe4();
     var2 = (Struct_02038598_7*)arg0->unknown_0_.unk_ac;
     var3 = &arg0->unknown_26c_;
-    var4 = (unsigned int*)func_020d6c00();
+    var4 = (unsigned int*)GetGlobalFlags_020d6c00();
 
     if (arg0->unknown_0_.obj3D_.unknown_4_ != arg0->unknown_1ca_) return;
     if (var3->unknown_0_ == 0) return;
@@ -407,7 +407,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
         GameState* var44 = GameState::GetInstance();
         Struct_02038598_2* var45 = (Struct_02038598_2*)func_0200fd0c(var44);
         GameResources* var46 = GetGameResources();
-        func_020100a8(var44);
+        GetProtagonistObjectIndex_020100a8(var44);
         VectorizedMemset(var45, 0, 0x70);
         var45->unknown_4_ = 1;
         var45->unknown_8_ = 1;
@@ -442,8 +442,8 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
         func_0200fcfc(var44, var45);
 
         func_ov017_0219e310((unsigned char*)var46->unknown_ptr_array_36fc[4], 0);
-        func_020469b4((struct Struct_0201bdac_2*)var46->unknown_ptr_array_36fc[0],
-            (struct Struct_0201bdac*)var46->unknown_ptr_array_36fc[4]);
+        AppendToQueue_020469b4((struct Queue_0201bdac_2*)var46->unknown_ptr_array_36fc[0],
+            (struct QueueNode_0201bdac*)var46->unknown_ptr_array_36fc[4]);
         func_020466f4((struct Struct_02038598_4*)var4, 0x400);
 
         func_02038508(var3);

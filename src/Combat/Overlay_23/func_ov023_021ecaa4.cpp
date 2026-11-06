@@ -11,8 +11,8 @@ struct Struct_0205d6a0;
 extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
 struct Struct_02038598_4;
 extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
-extern "C" void* func_020d6c00(void);
-extern int data_02109bf4;
+extern "C" void* GetGlobalFlags_020d6c00(void);
+extern int gMusicManager_02109bf4;
 
 struct Struct_ov023_021ecaa4 {
     char unknown_0_[0x60];
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov023_021ecaa4(Struct_ov023_021ecaa4* arg0) {
     if (IsBrightnessTransitionActive(var0)) return;
     if (arg0->unknown_44a_ != 0) {
         if (!(arg0->unknown_430_ == 0 || arg0->unknown_430_ == 1)) {
-            if (func_0209ca2c((void*)&data_02109bf4)) return;
+            if (func_0209ca2c((void*)&gMusicManager_02109bf4)) return;
         }
         if (!(arg0->unknown_438_ & 0x20)) {
             if (arg0->unknown_c0_0_ == 0)
@@ -58,6 +58,6 @@ extern "C" ARM void func_ov023_021ecaa4(Struct_ov023_021ecaa4* arg0) {
     func_0205d6a0((struct Struct_0205d6a0*)((char*)arg0 + 0xc4), 1);
     arg0->unknown_438_ |= 4;
     if (arg0->unknown_438_ & 0x10)
-        func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 1);
+        func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 1);
     arg0->unknown_432_++;
 }

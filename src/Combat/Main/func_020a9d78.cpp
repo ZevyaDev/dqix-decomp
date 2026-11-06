@@ -22,7 +22,7 @@ struct Struct_02109bf4_6 {
     unsigned char unknown_c8_2_ : 1;
     unsigned char unknown_c8_3_ : 1;
 };
-extern struct Struct_02109bf4_6 data_02109bf4;
+extern struct Struct_02109bf4_6 gMusicManager_02109bf4;
 
 struct Struct_020a9d78_3 {
     unsigned short unknown_0_;
@@ -74,7 +74,7 @@ extern "C" ARM int func_020a9d78(void* arg0) {
     func_0201bc7c((struct Struct_0201bc7c*)var3, var0->unknown_12_);
     func_0201bc88((struct Struct_0201bc88*)var3, var0->unknown_10_);
 
-    data_02109bf4.unknown_c8_3_ = (var0->unknown_14_ != 0);
+    gMusicManager_02109bf4.unknown_c8_3_ = (var0->unknown_14_ != 0);
 
     Struct_020a9d78* var4 = &reinterpret_cast<Struct_020a9d78_2*>(var1)->unknown_7e78_;
     var4->unknown_0_ = var0->unknown_16_;

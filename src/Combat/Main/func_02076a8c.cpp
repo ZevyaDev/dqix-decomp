@@ -6,7 +6,7 @@
 extern "C" ARM void func_02076a8c(Struct_02076a8c* arg0) {
     func_02032e58(&arg0->unknown_0_.unknown_0_);
 
-    arg0->unknown_0_.unknown_0_.unknown_0_.unknown_0_ |= 0x20;
+    arg0->unknown_0_.unknown_0_.unknown_0_.classFlags_0_ |= 0x20;
     arg0->unknown_0_.unknown_0_.unknown_b4_ = 0x1c2;
     arg0->unknown_0_.unknown_130_ = 1;
     arg0->unknown_0_.unknown_134_ = 1;

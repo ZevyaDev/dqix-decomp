@@ -3,8 +3,8 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 struct Struct_020553ac;
 extern "C" void func_020553ac(struct Struct_020553ac* arg0);
@@ -40,7 +40,7 @@ extern "C" ARM int func_020d6d90(Struct_020d6d90_3* arg0, const void* arg1, Safe
     arg0->unknown_a3c_ = 0;
     arg0->unknown_a20_ = NULL;
 
-    func_0207df90(arg3);
+    RestoreTextureVRAMState_0207df90(arg3);
 
     var1 = data_020ee230;
     var0 = data_020ee218;
@@ -72,6 +72,6 @@ extern "C" ARM int func_020d6d90(Struct_020d6d90_3* arg0, const void* arg1, Safe
         var3++;
     }
 
-    func_0207dfac(arg3);
+    SaveTextureVRAMState_0207dfac(arg3);
     return 1;
 }

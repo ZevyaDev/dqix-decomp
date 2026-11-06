@@ -22,8 +22,8 @@ extern "C" void func_0205bef8(struct Struct_0205bef8* arg0);
 extern "C" void func_0204c684(void* arg0);
 extern "C" void func_02092aa4(Struct_02092aa4* arg0, int arg1);
 extern "C" void func_0205a444(char* arg0);
-extern "C" void* func_0202ae18(GameState* arg0);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" void* GetLocalWireless_0202ae18(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_0203c0cc(struct Struct_0203c0cc* arg0);
 
 struct Struct_ov000_021723a8;
@@ -219,8 +219,8 @@ extern "C" ARM void func_ov000_021723a8(struct Struct_ov000_021723a8* arg0, int 
     arg0->unknown_1d5c_ = 0;
     arg0->unknown_1d7a_ = 0;
     GameState* var6 = GameState::GetInstance();
-    func_0202ae18(var6);
-    int var7 = func_020100a8(var6);
+    GetLocalWireless_0202ae18(var6);
+    int var7 = GetProtagonistObjectIndex_020100a8(var6);
     if (var7 < 0) {
         var7 = 0;
     }
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov000_021723a8(struct Struct_ov000_021723a8* arg0, int 
         var11->unknown_0_ = arg0->unknown_d0_;
     }
     func_ov000_0217feb0(arg0, 0, -1);
-    func_ov000_0217feb0(arg0, 1, func_020100a8(var6));
+    func_ov000_0217feb0(arg0, 1, GetProtagonistObjectIndex_020100a8(var6));
     func_ov000_02174b14(arg0);
     arg0->unknown_1d7c_ = 0;
     arg0->unknown_1d78_ = 0;

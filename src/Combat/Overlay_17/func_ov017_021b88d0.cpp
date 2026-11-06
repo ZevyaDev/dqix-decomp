@@ -39,7 +39,7 @@ struct Struct_ov017_021b88d0_3 {
 };
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
 extern "C" int func_020546a8(void* arg0);
 extern "C" void func_ov000_0215fab0(struct Struct_ov000_0215fab0* arg0, unsigned char arg1);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_021b88d0(struct Struct_ov017_021b88d0_3* arg0, in
     }
 
     GameState* var0 = GameState::GetInstance();
-    if (arg1 == func_020100a8(var0)) {
+    if (arg1 == GetProtagonistObjectIndex_020100a8(var0)) {
         if (arg0->unknown_6b4_ == 1) {
             arg0->unknown_4c_ = 1;
             arg0->unknown_6b4_ = 2;

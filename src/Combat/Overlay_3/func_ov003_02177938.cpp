@@ -56,7 +56,7 @@ struct Struct_02080f8c;
 extern "C" void func_02080f8c(struct Struct_02080f8c *arg0, int arg1, int arg2);
 struct Struct_02080cc0;
 extern "C" void func_02080cc0(struct Struct_02080cc0 *arg0, int arg1, int arg2);
-extern "C" unsigned char *func_02053c6c(unsigned char *arg0);
+extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 struct Struct_0207d300;
 extern "C" int func_02083960(struct Struct_0207d300 *arg0);
 extern "C" int func_020dcc98(int arg0);
@@ -64,17 +64,17 @@ struct Struct_020a0b8c;
 extern "C" int func_020a0b8c(struct Struct_020a0b8c *arg0);
 struct Struct_02080fa8;
 extern "C" void func_02080fa8(struct Struct_02080fa8 *arg0, int arg1, int arg2);
-struct Struct_0201099c_10;
-struct Struct_0201099c_9 {
+struct ItemTable_0201099c_10;
+struct ItemData_0201099c_9 {
     char unknown_0_[4];
     int unknown_4_;
     char unknown_8_[0x1a - 8];
     unsigned short unknown_1a_;
 };
-extern "C" struct Struct_0201099c_9 *func_020dedd0(struct Struct_0201099c_10 *arg0, int arg1);
+extern "C" struct ItemData_0201099c_9 *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
 extern "C" void func_020805f4(void *arg0, int arg1);
 extern "C" void func_020806c4(void *arg0, int arg1);
-extern "C" void func_ov003_0217818c(void *arg0, struct Struct_0201099c_9 *arg1, int arg2, int arg3);
+extern "C" void func_ov003_0217818c(void *arg0, struct ItemData_0201099c_9 *arg1, int arg2, int arg3);
 extern "C" void func_0208103c(void *arg0, int arg1, int arg2);
 extern "C" void func_0208108c(void *arg0, int arg1);
 extern "C" void func_020813ec(void *arg0, int arg1);
@@ -97,7 +97,7 @@ struct Struct_ov003_02177938 {
 extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
     func_ov003_02179e44(arg0);
     GameState *var0       = GameState::GetInstance();
-    unsigned char *var1     = (unsigned char *) func_02010828(var0);
+    unsigned char *var1     = (unsigned char *) GetParty_02010828(var0);
     struct Struct_0207fdcc_2 *var2 = arg0->unknown_89c_;
     int var3              = 1;
     short var4               = 0x8b;
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
         if (var14) {
             GameObject *var15 = var0->GetPartyMemberByIndex(arg0->unknown_1043_);
             if (var15 != NULL) {
-                unsigned char *var16 = func_02053c6c((unsigned char *) var15);
+                unsigned char *var16 = GetPartyMemberData_02053c6c((unsigned char *) var15);
                 int var17              = func_02083960((struct Struct_0207d300 *) var16);
                 for (int var18 = 0; var18 < var17; var18++) {
                     var9[var18] = ((short *) (var16 + 0x454))[var18];
@@ -184,7 +184,7 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
         int var22 = 0;
         int var23 = 0;
         if (var9[var21] > 0) {
-            struct Struct_0201099c_9 *var24 = func_020dedd0((struct Struct_0201099c_10 *) ((unsigned char *) arg0 + Enum_ov003_02177938_2048 + 0x74), var9[var21]);
+            struct ItemData_0201099c_9 *var24 = func_020dedd0((struct ItemTable_0201099c_10 *) ((unsigned char *) arg0 + Enum_ov003_02177938_2048 + 0x74), var9[var21]);
             if (var24 != NULL) {
                 var23 = var24->unknown_1a_;
                 var22 = var24->unknown_4_;

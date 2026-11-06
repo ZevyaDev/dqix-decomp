@@ -101,11 +101,11 @@ struct Struct_ov000_0215440c_6 {
     unsigned char unknown_f_[9];
 };
 
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
 extern "C" Struct_ov023_021f4c04* GetMessageWindow_020421a0();
 extern "C" void* func_0202ae24();
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" unsigned char* func_020e3580();
 extern "C" int func_ov000_0215fc60(char*);
 extern "C" void func_ov000_02160d80(void*, int);
@@ -114,7 +114,7 @@ extern "C" void func_ov000_02160fbc(void*, int);
 extern "C" int func_ov000_02160fd4(void*, int);
 extern "C" void func_ov000_0218173c(void*);
 extern "C" int func_02012060(void*);
-extern "C" int func_0202b7d8(int*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int func_020a36a8(Struct_020a36a8*);
 extern "C" void func_ov000_0215e8e8(void*);
 extern "C" void func_0209a338(Struct_0200f3a4_8*);
@@ -135,7 +135,7 @@ extern "C" void func_ov000_02163a7c(Struct_ov000_02163a7c*);
 extern "C" int func_020493a4(unsigned char*);
 extern "C" void func_02049390(unsigned char*, unsigned char);
 extern "C" void func_02049bd4(unsigned char*, int*);
-extern "C" void func_02043204(char*);
+extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_ov000_02174dc0(void*);
 extern "C" GameObject* func_0200fea4(GameState*, int);
 extern "C" char* func_0200ff58(GameState*, int);
@@ -161,7 +161,7 @@ void SetBrightness(GameResources*, int, int);
 extern "C" int func_02046b08(void**);
 extern "C" void func_ov000_02174514(void*);
 extern "C" void func_02088e64(unsigned char*);
-extern "C" void* func_020e0434(Struct_0201099c_3*, int);
+extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 extern "C" int func_02046708(Struct_02012de8*, unsigned int);
 extern "C" void func_020466e4(unsigned int*, unsigned int);
@@ -183,7 +183,7 @@ extern "C" void func_02053dd0(Struct_02053dd0*);
 extern "C" void func_ov000_021637c8(void*);
 
 extern "C" {
-int* func_0202ae18();
+int* GetLocalWireless_0202ae18();
 void func_ov026_021d8aac( Struct_ov000_02160da0*, int arg1, int arg2);
 void func_ov000_02181608(void*);
 void func_ov000_0218048c(void*);
@@ -194,7 +194,7 @@ int func_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
 int func_ov000_0215ec1c(Struct_ov000_02161e30*, short*, int, int);
 int func_ov000_0215eb1c(Struct_ov000_02161e30*, short*, int, int);
 Struct_ov026_021d8ba0_2 func_ov000_0216f74c(int* arg0);
-void func_02043124(Struct_ov023_021f4c04*);
+void CloseMessageWindow_02043124(Struct_ov023_021f4c04*);
 void func_ov026_021daec8(Struct_ov000_02161e30*, void*, int);
 void func_ov000_02174614(void*, int);
 void func_020e4864(void*, char*, int, int, int, int);
@@ -209,7 +209,7 @@ void func_ov000_021814bc(void*);
 void func_ov026_021dc8fc( Struct_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, void*, int);
 void* memset(void*, int, unsigned int);
 void func_ov000_0217fcc4(void*, int);
-int func_0202c540(int*);
+int IsLocalWirelessGuest_0202c540(int*);
 void func_ov017_021c6814(unsigned short, unsigned short, Struct_ov026_021d8ba0*, unsigned char, int, int);
 int func_ov026_021ddd84(GameResources*, Struct_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, int);
 void func_ov017_021c847c();
@@ -223,11 +223,11 @@ int func_ov026_021d8a40();
 void func_ov026_021dce34(int, Struct_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, void*, void*, void*, void*, void*, void*);
 void func_ov026_021dd8a8(Struct_ov000_02161e30*, Struct_ov000_0217e870_2*);
 void func_ov000_0217fbf4(void*, int);
-void func_02046380(Struct_ov023_021f4c04*);
+void ClearMessageParams_02046380(Struct_ov023_021f4c04*);
 void func_020e4ce8(void*, char*, int);
 void func_ov000_0216258c( Struct_ov000_02160da0*);
 void func_ov026_021db3d8( Struct_ov000_02160da0*);
-int func_0202c508(int*);
+int IsNotLocalWirelessGuest_0202c508(int*);
 void func_ov000_02175be4(void*);
 void func_ov026_021db5a4( Struct_ov000_02160da0*);
 void func_ov026_021dbba8( Struct_ov000_02160da0*);
@@ -250,7 +250,7 @@ void func_ov000_02163928( Struct_ov000_02160da0*);
 
 extern char data_ov026_021dedbc[];
 extern char data_ov026_021dedd4[];
-extern char data_02108760;
+extern char gSoundEffectManager_02108760;
 extern Struct_ov026_021de6dc data_ov026_021de6dc;
 extern Struct_020e6e88 data_ov026_021de6f8;
 extern Struct_020e6e88 data_ov026_021de778;
@@ -504,13 +504,13 @@ extern "C" ARM void func_ov026_021d8ba0(Struct_ov000_02160da0* arg0) {
 
     var17 = GameState::GetInstance();
     var18 = GetGameResources();
-    var22 = func_0202ae18();
+    var22 = GetLocalWireless_0202ae18();
     var19 = arg0->unknown_29c_;
-    var20 = func_ov026_021dae60((Struct_ov026_021d8ba0_4*)arg0->unknown_3760_, func_020100a8(var17));
+    var20 = func_ov026_021dae60((Struct_ov026_021d8ba0_4*)arg0->unknown_3760_, GetProtagonistObjectIndex_020100a8(var17));
     var21 = GetMessageWindow_020421a0();
     var23 = BackgroundLoader::GetInstance();
     var24 = func_0202ae24();
-    var25 = func_020d6c00();
+    var25 = GetGlobalFlags_020d6c00();
     var47 = (void**)var18->unknown_ptr_array_36fc[2];
     var26 = func_020e3580();
 
@@ -544,7 +544,7 @@ extern "C" ARM void func_ov026_021d8ba0(Struct_ov000_02160da0* arg0) {
         ((SafeAllocator*)(arg0->unknown_30_))->Reset();
         inline_ov026_021d8ba0_2().unknown_18_ = var23->QueueLoadFile(data_ov026_021dedbc, 0);
         arg0->unknown_eac_ = 1;
-        if (func_0202b7d8(var22) && func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
+        if (IsLocalWirelessOn_0202b7d8(var22) && func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
             func_ov000_0215e8e8(arg0->unknown_29c_);
         }
     }
@@ -579,12 +579,12 @@ state1:
     if (arg0->unknown_eac_ == 3) {
         int var56;
         if (arg0->unknown_7711_ != 0) {
-            func_0205eb80(&data_02108760);
+            func_0205eb80(&gSoundEffectManager_02108760);
             arg0->unknown_7711_ = 0;
         }
         arg0->unknown_7734_ = arg0->unknown_55f4_;
         arg0->unknown_7710_ = 0;
-        arg0->unknown_7738_ = func_0204671c((Struct_0204671c*)func_020d6c00());
+        arg0->unknown_7738_ = func_0204671c((Struct_0204671c*)GetGlobalFlags_020d6c00());
         arg0->unknown_eb4_ = 0;
         func_ov000_02160fa8(arg0, 0x80000);
         ClearFlags00(var18, 0x10);
@@ -692,8 +692,8 @@ state1:
             }
         }
     shifted:
-        func_02043204((char*)var21);
-        func_02043124(var21);
+        ResetMessageWindow_02043204((char*)var21);
+        CloseMessageWindow_02043124(var21);
         func_ov026_021daec8(arg0->unknown_29c_, arg0->unknown_c18_, var49);
         {
             Struct_ov000_02161e30* var71 = arg0->unknown_29c_;
@@ -778,7 +778,7 @@ state1:
                 func_ov000_0217f518(var75);
             }
         }
-        func_ov000_02162c14(arg0, func_020100a8(var17), &arg0->unknown_54e4_);
+        func_ov000_02162c14(arg0, GetProtagonistObjectIndex_020100a8(var17), &arg0->unknown_54e4_);
         func_ov000_0217fa60(arg0->unknown_3760_);
         func_ov000_02176054(arg0->unknown_3760_);
         func_ov000_02175258(arg0->unknown_3760_);
@@ -818,7 +818,7 @@ state1:
             arg0->unknown_772f_ = 0;
         }
         if (func_ov000_0215fc60((char*)var19) != 0) {
-            if (func_0202c540(var22) != 0) {
+            if (IsLocalWirelessGuest_0202c540(var22) != 0) {
                 func_ov000_02181364(arg0->unknown_3760_);
                 func_ov000_0217fcc4(arg0->unknown_3760_, -1);
                 func_ov000_021816e8(arg0->unknown_3760_, -1);
@@ -843,7 +843,7 @@ state1:
         }
         arg0->unknown_eac_ = 0xe;
         {
-            Struct_ov026_021d8ba0_5* var80 = (Struct_ov026_021d8ba0_5*)func_02010828(var17);
+            Struct_ov026_021d8ba0_5* var80 = (Struct_ov026_021d8ba0_5*)GetParty_02010828(var17);
             unsigned char var81;
             for (var81 = 0; var81 < var80->unknown_f7c_; var81++) {
                 if (arg0->unknown_774a_ != 0) {
@@ -888,7 +888,7 @@ state1:
             unsigned char* var87 = func_020e385c(var86, 1, -1);
             int var88 = 0;
             int var89;
-            if (var87 != 0 && (var87[5] & (1 << func_020100a8(var17)))) {
+            if (var87 != 0 && (var87[5] & (1 << GetProtagonistObjectIndex_020100a8(var17)))) {
                 var88 = 1;
             }
             var89 = 0;
@@ -896,7 +896,7 @@ state1:
                 var89 = 1;
             }
             if (var89 || !var88 || !var87) {
-                func_02043204((char*)var21);
+                ResetMessageWindow_02043204((char*)var21);
                 arg0->unknown_eac_ = 4;
                 func_020e3994(var86, 1, -1);
                 return;
@@ -971,9 +971,9 @@ state1:
             Struct_ov023_021f4c04* var99 = GetMessageWindow_020421a0();
             Struct_0201099c_3* var100 = arg0->inline_ov026_021d8ba0();
             GameObject* var101 = func_0200fea4(var17, var28);
-            void* var102 = func_020e0434(var100, 0x28);
+            void* var102 = FindStringInTable_020e0434(var100, 0x28);
             if (var102 != 0 && var101 != 0) {
-                func_02046380(var99);
+                ClearMessageParams_02046380(var99);
                 func_02046574((Struct_02046574_2*)var99, 0, (char*)var101 + 0x14c);
 #if defined(jpn)
                 StartMessage_0204500c(var99, var102, 0);
@@ -1008,11 +1008,11 @@ state1:
         }
         func_ov000_0216258c(arg0);
         {
-            int var106 = (signed char)func_020100a8(var17);
+            int var106 = (signed char)GetProtagonistObjectIndex_020100a8(var17);
             int var107 = 0;
             int var108 = var107;
             int var109 = var107;
-            if (func_0202b7d8(var22) && var19->unknown_8e20_ == 0 && arg0->unknown_29c_->unknown_8e49_ == 2) {
+            if (IsLocalWirelessOn_0202b7d8(var22) && var19->unknown_8e20_ == 0 && arg0->unknown_29c_->unknown_8e49_ == 2) {
                 if (var21->unknown_998_ != 0) {
                     var109 = 1;
                 }
@@ -1027,8 +1027,8 @@ state1:
             if (func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
                 var45 = arg0->unknown_2a0_;
                 var107 = 1;
-                var46 = func_0202ae18();
-                if (func_0202b7d8(var46)) {
+                var46 = GetLocalWireless_0202ae18();
+                if (IsLocalWirelessOn_0202b7d8(var46)) {
                     for (var92 = 0; var92 < 4; var92++) {
                         if (func_020a35e0((unsigned char*)var45, var92) && func_0202c1c0((Struct_0202b2f0*)var46, var92)) {
                             var107 = (var107 & arg0->unknown_54f4_[var92]) ? 1 : 0;
@@ -1046,12 +1046,12 @@ state1:
             if (func_ov000_02168720((char*)arg0) > 0 || var21->unknown_998_ != 0) {
                 var107 = 0;
             }
-            if (var107 && func_0202b7d8(var22) && func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
+            if (var107 && IsLocalWirelessOn_0202b7d8(var22) && func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
                 if (func_ov026_021d8a40() == 0) {
                     var107 = 0;
                 }
             }
-            if (func_0202b7d8(var22)) {
+            if (IsLocalWirelessOn_0202b7d8(var22)) {
                 int var110 = arg0->unknown_54f0_;
                 int var111 = 0;
                 int var112;
@@ -1072,8 +1072,8 @@ state1:
                         arg0->unknown_54e4_.unknown_4_ = var6.unknown_4_;
                         arg0->unknown_54e4_.unknown_6_ = var6.unknown_6_;
                         arg0->unknown_54e4_.unknown_8_ = var6.unknown_8_;
-                        if (func_0202c508(var22) != 0 && ((var6.unknown_0_[0] == 100 && var6.unknown_0_[1] == 6) || var6.unknown_0_[0] == 0xd)) {
-                            Struct_ov026_021d8ba0_5* var114 = (Struct_ov026_021d8ba0_5*)func_02010828(var17);
+                        if (IsNotLocalWirelessGuest_0202c508(var22) != 0 && ((var6.unknown_0_[0] == 100 && var6.unknown_0_[1] == 6) || var6.unknown_0_[0] == 0xd)) {
+                            Struct_ov026_021d8ba0_5* var114 = (Struct_ov026_021d8ba0_5*)GetParty_02010828(var17);
                             int var115;
                             for (var115 = 0; var115 < var114->unknown_f7c_; var115++) {
                                 if (arg0->unknown_54f0_ == var115) continue;
@@ -1117,10 +1117,10 @@ state1:
                 func_ov000_0217457c(arg0->unknown_3760_, -1);
                 if (arg0->unknown_7712_ == -1) {
                     arg0->unknown_7710_ = 60;
-                    func_0205eb80(&data_02108760);
+                    func_0205eb80(&gSoundEffectManager_02108760);
                     arg0->unknown_7711_ = 0;
-                    func_0205eb54(&data_02108760, 0x1b3, 0x1b3);
-                    func_0205eb90(&data_02108760, 0, 0);
+                    func_0205eb54(&gSoundEffectManager_02108760, 0x1b3, 0x1b3);
+                    func_0205eb90(&gSoundEffectManager_02108760, 0, 0);
                     arg0->unknown_7711_ = 1;
                 }
                 {
@@ -1135,7 +1135,7 @@ state1:
                     }
                 }
                 func_ov000_02160fbc(arg0, 0x40000000);
-                if (!func_0202b7d8(var22)) {
+                if (!IsLocalWirelessOn_0202b7d8(var22)) {
                     Random* var118;
                     arg0->unknown_5950_ = func_ov026_021dd3dc(arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_);
                     var118 = &arg0->unknown_29c_->unknown_0_;
@@ -1231,7 +1231,7 @@ state1:
         }
     } else if (arg0->unknown_eac_ == 5) {
         int var124;
-        if (func_0202b7d8(var22) && var22[0xfc0 / 4] != 0) {
+        if (IsLocalWirelessOn_0202b7d8(var22) && var22[0xfc0 / 4] != 0) {
             return;
         }
         if (arg0->unknown_7711_ != 0 && arg0->unknown_7710_ != 0) {
@@ -1294,7 +1294,7 @@ state1:
                     func_02053dd0((Struct_02053dd0*)var134);
                 }
             }
-            var133 = (Struct_ov026_021d8ba0_5*)func_02010828(var17);
+            var133 = (Struct_ov026_021d8ba0_5*)GetParty_02010828(var17);
             if (var133 != 0) {
                 for (var132 = 0; var132 < var133->unknown_f7c_; var132++) {
                     GameObject* var135 = func_0200ff1c(var17, var133->unknown_f78_[var132]);
@@ -1310,7 +1310,7 @@ state1:
         ((SafeAllocator*)(arg0->unknown_30_))->Reset();
         arg0->unknown_55d8_ = 0;
         func_ov000_0215d588(var19);
-        if (func_0202b7d8(var22) && func_020e37e8(var26)) {
+        if (IsLocalWirelessOn_0202b7d8(var22) && func_020e37e8(var26)) {
             func_020e3798(var26);
         }
         if (arg0->unknown_5950_ == 1) {

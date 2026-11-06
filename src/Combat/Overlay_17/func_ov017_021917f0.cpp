@@ -21,7 +21,7 @@ struct Struct_ov017_021917f0 {
 };
 
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
-extern "C" Struct_ov017_021917f0_2* func_02053c6c(unsigned char* arg0);
+extern "C" Struct_ov017_021917f0_2* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" Struct_ov017_021917f0* func_02099f60(void);
 extern "C" int func_02053eb4(void*, int);
 extern "C" void func_02053ec0(unsigned char*, int);
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov017_021917f0(int arg0, int arg1) {
     GameObject* var2 = func_0200ff1c(var0, arg0);
     GameObject* var3 = var0->GetGameObjectByIndex(arg0 * 12 + 0x1c);
     if (var2 == NULL || var3 == NULL) return;
-    var1 = func_02053c6c((unsigned char*)var2);
+    var1 = GetPartyMemberData_02053c6c((unsigned char*)var2);
     if (var1 == NULL) return;
     Struct_ov017_021917f0* var4 = &func_02099f60()[var1->unknown_29c_4_];
     if (arg1 == 1) {

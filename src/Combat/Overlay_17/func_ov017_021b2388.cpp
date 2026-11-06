@@ -23,7 +23,7 @@ extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a27b8(unsigned char* arg0);
 extern "C" int func_02046b08(void** arg0);
 extern "C" void func_020a0cc4(unsigned int);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020c9be0(void);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
@@ -32,7 +32,7 @@ extern "C" struct Struct_0214e34c* func_020d7a50();
 struct Struct_020d7aa0_2;
 extern "C" void func_020d7aa0(struct Struct_020d7aa0_2* arg0);
 
-extern int data_02114e20;
+extern int gMainHeap_02114e20;
 extern char data_ov017_021d7a28;
 
 struct Struct_ov017_021b2388 {
@@ -83,7 +83,7 @@ extern "C" ARM int func_ov017_021b2388(struct Struct_ov017_021b2388_2* arg0) {
 
     SetFlags00((GameResources*)var1, 0x10);
     func_020a0cc4(0x2f800);
-    void* var7 = func_02012d88((AllocatorUnion*)&data_02114e20, 0x2f800);
+    void* var7 = AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, 0x2f800);
     if (!var7) {
         func_020c9be0();
     }

@@ -162,7 +162,7 @@ extern "C" void func_ov023_021dc134(void* arg0, int arg1, int arg2);
 extern "C" void func_ov023_021e1318(Struct_ov002_0215505c_2* arg0);
 extern "C" void func_ov023_021dad78(void* arg0);
 extern "C" void func_ov005_021536e0(void* arg0);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" unsigned char func_ov005_0215a948(void* arg0, int arg1);
 extern "C" unsigned char func_ov005_0215a918(void* arg0, int arg1);
 extern "C" short func_0207c620(unsigned char* arg0, unsigned int arg1);
@@ -235,7 +235,7 @@ extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
         arg0->unknown_2d90_[var5].unknown_18_ = -1;
     }
     GameState* var6 = GameState::GetInstance();
-    char* var7 = (char*)func_02010828(var6);
+    char* var7 = (char*)GetParty_02010828(var6);
     for (int var8 = 0; var8 < 8; var8++)
         arg0->unknown_3d98_[var8] = func_0207c620((unsigned char*)(var7 + 0x1d4), func_ov005_0215a948(arg0, var8));
     arg0->unknown_3da8_ = 0;

@@ -24,7 +24,7 @@ extern const char data_020f2ba2[];
 #endif
 
 struct Struct_02043368_2 { char unknown_0_[0x28]; };
-struct Struct_02020aec;
+struct PacEntry_02020aec;
 struct Struct_020213fc;
 struct Struct_02021410;
 struct Struct_020e081c {
@@ -47,7 +47,7 @@ extern "C" void func_0203b66c(char*);
 extern "C" void func_0203bd24(char*);
 extern "C" void func_0205a198(Struct_02043368_2*);
 extern "C" void func_0205a444(char*);
-extern "C" int func_0205a498(void*, Struct_02020aec*, int, void*);
+extern "C" int func_0205a498(void*, PacEntry_02020aec*, int, void*);
 extern "C" void* func_0203bd14();
 extern "C" void* func_0203be4c(char*);
 extern "C" void func_020c9be0();
@@ -105,7 +105,7 @@ extern "C" ARM void func_020e081c(char* arg0) {
         void* var7 = 0;
         unsigned int var8 = 0;
         var0->GetLoadedFileByID(*(int*)(arg0 + Enum_020e081c_2568), &var7, &var8);
-        func_0205a498(arg0 + 0x94, (Struct_02020aec*)var7, var8, var4);
+        func_0205a498(arg0 + 0x94, (PacEntry_02020aec*)var7, var8, var4);
         *(int*)((char*)func_0203bd14() + Enum_020e081c_1288) = 0x2800;
         void* var9 = (char*)func_0203be4c(func_0203bd08()) + Enum_020e081c_600;
         *(void**)func_0203bd14() = var9;

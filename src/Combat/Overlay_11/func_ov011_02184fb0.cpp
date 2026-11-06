@@ -5,8 +5,8 @@ struct Struct_ov011_02184c30;
 extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
 extern "C" void* func_ov017_021b2164(void);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 // USA: func_ov011_02184fb0
 extern "C" ARM int func_ov011_02184fb0(struct Struct_ov011_02184c30* arg0) {
@@ -19,7 +19,7 @@ extern "C" ARM int func_ov011_02184fb0(struct Struct_ov011_02184c30* arg0) {
     SafeAllocator* var3 = (SafeAllocator*)((char*)var2 + 4);
     void* var4 = var3->Allocate(0x7c);
     if (var4 == 0) return 0;
-    func_0207df90((char*)var4 + 4);
-    func_0207dfac((char*)var4 + 4);
+    RestoreTextureVRAMState_0207df90((char*)var4 + 4);
+    SaveTextureVRAMState_0207dfac((char*)var4 + 4);
     return 1;
 }

@@ -7,7 +7,7 @@
 #include <Filesystem/FileIO.h>
 #include <std_library_functions.h>
 
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_02015ef4_4;
 struct Struct_0201099c_3;
 struct Struct_0203a46c;
@@ -24,9 +24,9 @@ struct Struct_ov005_021556e4 {
 };
 
 extern "C" void __clear(void* arg0, unsigned long arg1);
-extern "C" Struct_ov005_021556e4* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
+extern "C" Struct_ov005_021556e4* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
 extern "C" int func_020de234(Struct_02015ef4_4* arg0, int arg1);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_0203a46c(Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov005_02155d38(Struct_ov005_021556e4_2* arg0);
 
@@ -44,7 +44,7 @@ struct Struct_ov005_02153ba4 {
 
 struct Struct_ov005_02153954 {
     char unknown_0_[0xdf4];
-    Struct_0201099c_10* unknown_df4_;
+    ItemTable_0201099c_10* unknown_df4_;
     char unknown_df8_[R(0x2d08, 0x2d90) - 0xdf8];
     Struct_ov005_02153ba4 unknown_2d90_[24];
     char unknown_3030_[0x3cf0 - 0x3030];
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov005_021556e4(Struct_ov005_02153954* arg0) {
                 char var2[0x80];
                 __clear(var2, sizeof(var2));
                 int var3 = func_020de234((Struct_02015ef4_4*)var1, 0);
-                sprintf(var2, func_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d1), (char)var1->unknown_12_4_, var3);
+                sprintf(var2, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d1), (char)var1->unknown_12_4_, var3);
                 if (LoadFileIntoMemory(var2, arg0->unknown_3d8c_, NULL))
                     var0->unknown_14_ = 0;
                 int var4;
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov005_021556e4(Struct_ov005_02153954* arg0) {
                 char var8[0x80];
                 __clear(var8, sizeof(var8));
                 int var9 = func_020de234((Struct_02015ef4_4*)var7, 0);
-                sprintf(var8, func_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d1), (char)var7->unknown_12_4_, var9);
+                sprintf(var8, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d1), (char)var7->unknown_12_4_, var9);
                 if (LoadFileIntoMemory(var8, arg0->unknown_3d94_, NULL))
                     var6->unknown_14_ = 0;
                 arg0->unknown_3da8_++;
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov005_021556e4(Struct_ov005_02153954* arg0) {
                     char var17[0x80];
                     __clear(var17, sizeof(var17));
                     int var18 = func_020de234((Struct_02015ef4_4*)var15, 0);
-                    sprintf(var17, func_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d1), (char)var15->unknown_12_4_, var18);
+                    sprintf(var17, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d1), (char)var15->unknown_12_4_, var18);
                     if (LoadFileIntoMemory(var17, arg0->unknown_3d90_ + var11, &var16)) {
                         var14->unknown_14_ = var11;
                         var16 = (var16 + 3) & ~3;
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov005_021556e4(Struct_ov005_02153954* arg0) {
                     char var27[0x80];
                     __clear(var27, sizeof(var27));
                     int var28 = func_020de234((Struct_02015ef4_4*)var25, 0);
-                    sprintf(var27, func_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d1), (char)var25->unknown_12_4_, var28);
+                    sprintf(var27, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d1), (char)var25->unknown_12_4_, var28);
                     if (LoadFileIntoMemory(var27, arg0->unknown_3d88_ + var21, &var26)) {
                         var24->unknown_14_ = var21;
                         var26 = (var26 + 3) & ~3;

@@ -61,15 +61,15 @@ extern "C" Struct_ov000_0217df08_7* func_ov000_02161318(void* arg0, int arg1);
 extern "C" int func_ov000_02171a60(void*);
 extern "C" void func_020e46c4(void*);
 struct Struct_0201099c_3;
-extern "C" const char* func_020e0434(Struct_0201099c_3*, int);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" Struct_ov000_0217df08_6* func_0200fea4(GameState*, int);
 extern "C" void func_020e4ce8(Struct_ov000_0217df08*, Struct_ov000_0217df08_6*, int);
 extern "C" int func_ov000_0217ff34(void* arg0, int arg1, int* arg2);
-extern "C" void func_02046380(Struct_ov000_0217df08_8*);
+extern "C" void ClearMessageParams_02046380(Struct_ov000_0217df08_8*);
 extern "C" void func_020e4bf4(void*, int);
-extern "C" void func_02042058(char*, const char*);
+extern "C" void AppendText_02042058(char*, const char*);
 extern "C" char* func_020e046c(char* arg0, void* arg1, unsigned int arg2, int arg3);
 extern "C" void func_02046608(Struct_ov000_0217df08_8*, int, char*, char*, int, int, int);
 extern "C" void __clear(void*, int);
@@ -78,8 +78,8 @@ extern "C" void func_020e4f18(Struct_ov000_0217df08*, Struct_ov000_0217df08*, in
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_ov000_0217df08_8*, char*, int, int);
 #endif
-extern "C" void func_02043124(Struct_ov000_0217df08_8*);
-extern "C" void func_02043204(char*);
+extern "C" void CloseMessageWindow_02043124(Struct_ov000_0217df08_8*);
+extern "C" void ResetMessageWindow_02043204(char*);
 #if !defined(jpn)
 extern "C" void func_ov000_0217c638(Struct_ov000_0217df08_9* arg0, int arg1, int arg2);
 #endif
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_5* arg0, int arg1,
             unsigned int var4;
             var2->GetLoadedFileByID(arg0->unknown_90c_, &var3, &var4);
             if (var3 != 0) {
-                const char* var5 = func_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 6);
+                const char* var5 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 6);
                 char* var6 = var1->unknown_28_;
                 char* var7 = var1->unknown_2c_;
                 memset(var6, 0, 0x800);
@@ -190,16 +190,16 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_5* arg0, int arg1,
                             if (var19 != 0) {
                                 var18 = *(char**)((char*)var19 + 0x134);
                             }
-                            func_02046380((Struct_ov000_0217df08_8*)var1);
+                            ClearMessageParams_02046380((Struct_ov000_0217df08_8*)var1);
                             func_02046574((Struct_02046574_2*)var1, 0, var13->unknown_14c_);
                             func_02046574((Struct_02046574_2*)var1, 1, var18);
                             if (var10 != 0) {
-                                func_02042058(var7, var5);
+                                AppendText_02042058(var7, var5);
                             }
                             var10 = 1;
                             memset(var6, 0, 0x800);
                             func_020e046c(var6, var3, var4, var14);
-                            func_02042058(var7, var6);
+                            AppendText_02042058(var7, var6);
                             memset(var6, 0, 0x800);
                             func_020474a8(var1, 0xc, var7, var6);
                             memset(var7, 0, 0x800);
@@ -221,7 +221,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_5* arg0, int arg1,
                     if (var9 != 0) {
                         func_ov000_0217aa08(var9, var21);
                     }
-                    func_02046380((Struct_ov000_0217df08_8*)var1);
+                    ClearMessageParams_02046380((Struct_ov000_0217df08_8*)var1);
                     func_02046574((Struct_02046574_2*)var1, 2, var21);
                     func_020e046c(var7, var3, var4, var20);
                     func_020474a8(var1, 0xc, var7, var6);
@@ -235,8 +235,8 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_5* arg0, int arg1,
         }
     } else if (arg0->unknown_1fa8_ == 2) {
         if (var1->unknown_868_ == 0 || g_keyManager.TestKeysPressed(0x800) != 0) {
-            func_02043124((Struct_ov000_0217df08_8*)var1);
-            func_02043204((char*)var1);
+            CloseMessageWindow_02043124((Struct_ov000_0217df08_8*)var1);
+            ResetMessageWindow_02043204((char*)var1);
             arg0->unknown_1fa8_ = 0;
             arg0->unknown_1f98_[arg0->unknown_1fa0_] = 0;
             arg0->unknown_1fa0_ = arg0->unknown_1fa0_ - 1;
@@ -284,7 +284,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
                 Struct_ov000_0217df08 var33;
                 func_020e46c4(&var31);
                 func_020e46c4(&var32);
-                const char* var34 = func_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 6);
+                const char* var34 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 6);
                 char* var35 = var23->unknown_5c_;
                 char* var36 = var23->unknown_60_;
                 memset(var35, 0, 0x960);
@@ -316,19 +316,19 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
                         int var45 = -1;
                         var41 = func_ov000_0217ff34(arg0, arg0->unknown_1d3c_[var39], &var45);
                         if (var41 >= 0) {
-                            func_02046380(var23);
+                            ClearMessageParams_02046380(var23);
                             func_020e4ce8(&var32, var44, 1);
                             func_020e4ce8(&var33, var44, 0);
                             func_020e4bf4(&var31, var45);
                             var23->unknown_20_ = &var32;
                             var23->unknown_10_ = &var31;
                             if (var40 != 0) {
-                                func_02042058(var36, var34);
+                                AppendText_02042058(var36, var34);
                             }
                             var40 = 1;
                             memset(var35, 0, 0x960);
                             func_020e046c(var35, var25, var26, var41);
-                            func_02042058(var36, var35);
+                            AppendText_02042058(var36, var35);
                             memset(var35, 0, 0x960);
                             var23->unknown_30_ = var27;
                             var23->unknown_31_ = var28;
@@ -347,7 +347,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
                     if (arg2 > 1) {
                         var46 = var46 + 2;
                     }
-                    func_02046380(var23);
+                    ClearMessageParams_02046380(var23);
                     char var47[0x80];
                     __clear(var47, 0x80);
                     char var48[0x80];
@@ -376,8 +376,8 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
         }
     } else if (arg0->unknown_1d70_ == 2) {
         if (var23->unknown_998_ == 0 || g_keyManager.TestKeysPressed(0x800) != 0) {
-            func_02043124(var23);
-            func_02043204((char*)var23);
+            CloseMessageWindow_02043124(var23);
+            ResetMessageWindow_02043204((char*)var23);
             arg0->unknown_1d70_ = 0;
             arg0->unknown_1d60_[arg0->unknown_1d68_] = 0;
             arg0->unknown_1d68_ = arg0->unknown_1d68_ - 1;

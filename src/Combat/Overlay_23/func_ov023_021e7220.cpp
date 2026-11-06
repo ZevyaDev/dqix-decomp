@@ -19,7 +19,7 @@ extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
 
 extern "C" void func_0204c684(void*);
 
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 struct Struct_ov023_021e71a0;
 extern "C" void func_ov023_021e71a0(struct Struct_ov023_021e71a0* arg0);
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov023_021e7220(void* arg0, int arg1) {
     *(int*)((char*)arg0 + 0x5e4) = -1;
     *(int*)((char*)arg0 + 0x5ec) = 0;
     *(int*)((char*)arg0 + 0x5e8) = 0;
-    *(int*)((char*)arg0 + 0x5f0) = func_020100a8(var0);
+    *(int*)((char*)arg0 + 0x5f0) = GetProtagonistObjectIndex_020100a8(var0);
     *(int*)((char*)arg0 + 0x5f4) = 0;
     *(int*)((char*)arg0 + 0x5f8) = 0;
     *(int*)((char*)arg0 + 0x5fc) = 0;

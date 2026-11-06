@@ -11,7 +11,7 @@ struct Struct_02010088;
 struct Struct_02010604;
 struct Struct_0205d6a0 { char unknown_0_[4]; };
 struct Struct_ov023_021d9988;
-struct Struct_02072a68_2 { char unknown_0_[4]; };
+struct StringList_02072a68_2 { char unknown_0_[4]; };
 struct Struct_ov023_021eeaac_2 {
     int unknown_0_, unknown_4_; char unknown_8_[9]; signed char unknown_11_;
     unsigned char unknown_12_[4]; char unknown_16_[2]; int unknown_18_;
@@ -60,9 +60,9 @@ struct Struct_ov000_02160da0 {
 #endif
 
 #if defined(jpn)
-    char unknown_595d_[3]; Struct_ov023_021f0a5c_3 unknown_5770_[4]; char unknown_5ab0_[0x5af4-0x5ab0]; Struct_02072a68_2 unknown_5904_;
+    char unknown_595d_[3]; Struct_ov023_021f0a5c_3 unknown_5770_[4]; char unknown_5ab0_[0x5af4-0x5ab0]; StringList_02072a68_2 unknown_5904_;
 #else
-    char unknown_576d_[3]; Struct_ov023_021f0a5c_3 unknown_5770_[4]; char unknown_58c0_[0x5904-0x58c0]; Struct_02072a68_2 unknown_5904_;
+    char unknown_576d_[3]; Struct_ov023_021f0a5c_3 unknown_5770_[4]; char unknown_58c0_[0x5904-0x58c0]; StringList_02072a68_2 unknown_5904_;
 #endif
 
 };
@@ -89,7 +89,7 @@ struct Struct_02092e0c {
 struct Struct_020391ac { char unknown_0_[0xc1]; unsigned char unknown_c1_; unsigned char unknown_c2_0_ : 4; unsigned char unknown_c2_4_ : 1; unsigned char unknown_c2_5_ : 3; };
 extern "C" Struct_ov023_021eeaac_2* _ZZ21inline_ov023_021f4c04vE1s;
 extern "C" Struct_02092e0c* GetMessageWindow_020421a0();
-extern "C" void* func_0202ae18();
+extern "C" void* GetLocalWireless_0202ae18();
 extern "C" int func_02086ef0(Struct_02048150*, int);
 extern "C" void func_ov023_021ed988(char*, int);
 extern "C" void func_ov000_02163b90(Struct_ov000_02160da0*, int);
@@ -114,11 +114,11 @@ extern "C" void func_ov000_02160fa8(void*, int);
 extern "C" void func_ov023_021d8a40(Struct_ov023_021f03a0_2*);
 extern "C" void func_ov023_021d8cb4(void*, void*);
 extern "C" void func_ov023_021d9988(Struct_ov023_021d9988*, void*, unsigned int);
-extern "C" void func_02046380(Struct_02092e0c*);
+extern "C" void ClearMessageParams_02046380(Struct_02092e0c*);
 extern "C" void func_ov023_021d8ddc(Struct_ov023_021f03a0_2*, int*);
 extern "C" int func_02011518(void*, unsigned int);
 extern "C" void func_020e4bf4(void*, int);
-extern "C" char* func_02072a68(Struct_02072a68_2*, int);
+extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_02092e0c*, char*, int, int);
 #endif
@@ -146,10 +146,10 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
     GameState* var5 = GameState::GetInstance();
     Struct_ov023_021eeaac_2* var6 = _ZZ21inline_ov023_021f4c04vE1s;
     Struct_02092e0c* var7 = GetMessageWindow_020421a0();
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     GameResources* var8 = GetGameResources();
     BackgroundLoader* var9 = BackgroundLoader::GetInstance();
-    func_02086ef0((Struct_02048150*)func_02010828(var5), var6->unknown_18_);
+    func_02086ef0((Struct_02048150*)GetParty_02010828(var5), var6->unknown_18_);
     if (var6->unknown_0_ == 0) {
         if (arg0->unknown_576c_) func_ov023_021ed988((char*)arg0, 0);
         func_ov000_02163b90(arg0, 1);
@@ -204,7 +204,7 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
 #if defined(jpn)
 
 #else
-        func_02046380(var7);
+        ClearMessageParams_02046380(var7);
 #endif
 
         func_ov023_021d8ddc(arg0->unknown_5588_, arg0->unknown_5758_);
@@ -265,16 +265,16 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
             }
         }
 #if defined(jpn)
-        if (var30 > 1) sprintf(var1, func_02072a68(&arg0->unknown_5904_, 0x1a), var23);
-        else sprintf(var1, func_02072a68(&arg0->unknown_5904_, 0x19), var23);
+        if (var30 > 1) sprintf(var1, FindStringInList_02072a68(&arg0->unknown_5904_, 0x1a), var23);
+        else sprintf(var1, FindStringInList_02072a68(&arg0->unknown_5904_, 0x19), var23);
 #else
         var7->unknown1_10_ = var2;
         int var34 = 0x19;
         if (var30 > 1) var34 = 0x1a;
-        sprintf(var1, func_02072a68(&arg0->unknown_5904_, var34));
+        sprintf(var1, FindStringInList_02072a68(&arg0->unknown_5904_, var34));
 #endif
 
-        strcat(var1, func_02072a68(&arg0->unknown_5904_, 0x22));
+        strcat(var1, FindStringInList_02072a68(&arg0->unknown_5904_, 0x22));
 #if defined(jpn)
         StartMessage_0204500c(var7, var1, 1);
 #else
@@ -291,7 +291,7 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
             if (var6->unknown_11_ >= 4) var6->unknown_0_ = 4;
             return arg0->unknown_eac_;
         }
-        sprintf(var3, func_02072a68(&arg0->unknown_5904_, 0), var35->unknown_1_);
+        sprintf(var3, FindStringInList_02072a68(&arg0->unknown_5904_, 0), var35->unknown_1_);
         var6->unknown_4_ = var9->QueueLoadFile(var3, 0);
         var6->unknown_0_++;
     } else if (var6->unknown_0_ == 3) {

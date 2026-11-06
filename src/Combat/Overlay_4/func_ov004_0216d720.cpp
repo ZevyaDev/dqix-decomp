@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void** func_ov011_021849c8(void* arg0);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void** GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" void func_ov023_021f9c60(void* arg0, unsigned short arg1);
 
 class Struct_ov004_0216d720 {
@@ -21,27 +21,27 @@ public:
     char unknown_4_[8];
     unsigned char unknown_c_;
 };
-extern "C" Struct_ov004_0216d720* func_ov023_021f6880(void** arg0, int arg1);
+extern "C" Struct_ov004_0216d720* FindMenuObjectById_ov023_021f6880(void** objectList, int id);
 
 // USA: func_ov004_0216d720
 extern "C" ARM int func_ov004_0216d720(void* arg0) {
     GameState::GetInstance();
-    Struct_ov004_0216d720* var0 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x38);
+    Struct_ov004_0216d720* var0 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x38);
     if (var0) {
         var0->inline_ov004_0216d720_18(0);
         var0->inline_ov004_0216d720_32(0);
         var0->unknown_c_ |= 0x50;
     }
-    Struct_ov004_0216d720* var1 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x39);
+    Struct_ov004_0216d720* var1 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x39);
     if (var1) {
         var1->inline_ov004_0216d720_18(0);
         var1->inline_ov004_0216d720_32(0);
         var1->unknown_c_ |= 0x50;
     }
-    Struct_ov004_0216d720* var2 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x12d);
+    Struct_ov004_0216d720* var2 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x12d);
     if (var2) {
         func_ov023_021f9c60(var2, 0);
     }
-    func_ov011_021848a0(arg0, 0x2bd);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2bd);
     return 0;
 }

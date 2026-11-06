@@ -83,7 +83,7 @@ extern "C" ARM void func_ov000_0215a908(Struct_ov000_0215a908* arg0, int arg1) {
     func_ov000_02160068(var5, var0);
     func_ov000_021600cc(inline_ov000_0215a908_4(var5), var1);
     Struct_ov000_0215a908_3* var7 = ((Struct_ov000_0215a908_4*)var2)->unknown_144_;
-    if (func_02086ef0((Struct_02048150*)func_02010828(GameState::GetInstance()), var1->unknown_c_) && var7 && var7->unknown_8_ == 0x143) func_ov000_0215a8d4((unsigned char*)arg0, 9);
+    if (func_02086ef0((Struct_02048150*)GetParty_02010828(GameState::GetInstance()), var1->unknown_c_) && var7 && var7->unknown_8_ == 0x143) func_ov000_0215a8d4((unsigned char*)arg0, 9);
     arg0->unknown_8e0b_++;
     arg0->unknown_8e0c_++;
     arg0->unknown_8e0d_++;

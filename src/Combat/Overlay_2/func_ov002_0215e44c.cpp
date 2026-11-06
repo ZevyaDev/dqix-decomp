@@ -10,7 +10,7 @@ struct Struct_ov002_0216c9fb {
 };
 
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
-extern "C" void *func_02010828(GameState *arg0);
+extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" void func_020dc4d0(signed char *arg0, signed char *arg1);
 extern "C" void func_ov002_0215be00(void *arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov002_0215e644(unsigned char *arg0, void *arg1, int arg2);
@@ -36,7 +36,7 @@ extern Struct_ov002_0216c9fb data_ov002_0216c9fb;
 
 // USA: func_ov002_0215e44c
 extern "C" ARM void func_ov002_0215e44c(unsigned char *arg0) {
-    func_02010828(GameState::GetInstance());
+    GetParty_02010828(GameState::GetInstance());
     signed char var0    = 0;
     Struct_ov002_0216c9fb var1 = data_ov002_0216c9fb;
     func_020dc4d0(var1.unknown_0_, &var0);

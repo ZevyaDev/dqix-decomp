@@ -8,7 +8,7 @@ enum { Enum_ov006_0215bb7c_2786 = 0xae2 };
 #endif
 
 struct Struct_02081f20_2;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0207fdcc_2;
 struct Struct_ov006_0215951c;
 struct Struct_0207fe44;
@@ -132,7 +132,7 @@ extern "C" void func_0208203c(Struct_02081f20_2* arg0);
 extern "C" void func_ov006_02155710(Struct_ov006_02154614* arg0, short arg1, unsigned char arg2);
 extern "C" int func_ov006_021595b4(Struct_ov006_02157a60* arg0);
 extern "C" unsigned char func_ov006_02158a28(Struct_ov006_02157a60* arg0);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int, int);
 extern "C" int func_ov006_02159218(Struct_ov006_02157a60* arg0);
 extern "C" unsigned char func_ov006_02158b78(Struct_ov006_02157a60* arg0);
 extern "C" void func_0207fe44(Struct_0207fe44* arg0);
@@ -144,7 +144,7 @@ extern "C" void func_ov006_021596f0(Struct_ov006_021596f0* arg0);
 extern "C" int func_ov006_02159834(Struct_ov006_02157a60* arg0);
 extern "C" void func_ov006_02159108(Struct_ov006_02157a60* arg0, unsigned char arg1, short arg2, unsigned char arg3);
 
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 static inline unsigned char inline_ov006_0215bb7c(Struct_ov006_02157a60* arg0) { return arg0->unknown_38a_; }
 
@@ -199,7 +199,7 @@ extern "C" ARM void func_ov006_0215bb7c(Struct_ov006_02157a60* arg0) {
         }
         if (func_ov006_02158a28(arg0))
         {
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             func_0208203c((Struct_02081f20_2*)arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             if (!func_ov006_02159218(arg0))
@@ -249,7 +249,7 @@ extern "C" ARM void func_ov006_0215bb7c(Struct_ov006_02157a60* arg0) {
             func_ov006_02159274(arg0, &var3, &var5, &var4);
             if (var4)
             {
-                func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+                PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
                 func_0208203c((Struct_02081f20_2*)arg0->unknown_9c_);
                 arg0->unknown_44_ = 0;
                 func_02081ea4((Struct_0207fdcc_2*)arg0->unknown_14_, 0x11, 1);
@@ -287,7 +287,7 @@ extern "C" ARM void func_ov006_0215bb7c(Struct_ov006_02157a60* arg0) {
             return;
         if (g_keyManager.TestKeysPressed(1) || var6 == 2)
         {
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             func_0208203c((Struct_02081f20_2*)arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             arg0->unknown_394_ &= ~8;

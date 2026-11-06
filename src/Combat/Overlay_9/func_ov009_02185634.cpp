@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
 #include "Filesystem/GPC.h"
@@ -166,8 +166,8 @@ struct Struct_02020cb8;
 struct Struct_02020cb8_5;
 struct Struct_0204b12c;
 struct Struct_0204af38;
-struct Struct_02020aec;
-struct Struct_02020cb8_4;
+struct PacEntry_02020aec;
+struct PacEntry_02020cb8_4;
 struct Struct_0204b8d0;
 struct Struct_02020cb8_2;
 struct Struct_0204c7a8;
@@ -175,10 +175,10 @@ struct Struct_0205cf78;
 struct Struct_0205cf78_2;
 struct Struct_0205d81c;
 struct Struct_0201099c_3;
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 
 struct GameResources;
-extern "C" GameResources* func_0200fb8c(int* arg0);
+extern "C" GameResources* GetResources_0200fb8c(int* gameState);
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" void func_020de848(void* arg0);
 extern "C" void func_020de9a4(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, const void* arg4, int arg5);
@@ -187,11 +187,11 @@ extern "C" void func_ov023_021e4e8c(void* arg0);
 extern "C" void func_ov023_021e4f64(void* arg0, SafeAllocator* arg1);
 extern "C" void func_ov023_021e4fd8(void* arg0);
 extern "C" void func_ov023_021e6198(void* arg0, int arg1);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
-extern "C" void func_0207df50(Struct_0203d028* arg0);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_020a2010(void* arg0);
 struct Struct_0202e5c0;
 extern "C" void func_0202e5c0(Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
@@ -210,8 +210,8 @@ extern "C" void func_0204b5b4(Struct_ov003_021594c4* arg0, int arg1);
 extern "C" void func_0204b5e8(Struct_02020cb8_5* arg0, int arg1, int arg2);
 extern "C" void func_0204b12c(Struct_0204b12c* arg0, SafeAllocator* arg1);
 extern "C" void func_0204af38(Struct_0204af38* arg0, int arg1, SafeAllocator* arg2);
-extern "C" int func_02046900(Struct_02020cb8_4* arg0);
-extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0204b174(Struct_ov003_021594c4* arg0, void* arg1, SafeAllocator* arg2, unsigned int arg3);
 extern "C" void func_0204b8d0(Struct_0204b8d0* arg0, unsigned int arg1, int arg2, int arg3, short arg4, short arg5, short arg6, short arg7,
                            unsigned short arg8);
@@ -295,7 +295,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
 {
     unsigned int var0;
     GameState* var1 = GameState::GetInstance();
-    func_0200fb8c((int*)var1);
+    GetResources_0200fb8c((int*)var1);
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
     unsigned char var3 = arg0->unknown_c59_;
     if (var3 == 0)
@@ -356,7 +356,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
             GPCReadPair var12;
             GPCReadPair* var13 = &var12;
             unsigned int var14 = 0;
-            unsigned char* var15 = data_0211e33c;
+            unsigned char* var15 = gFileScratchSpace_0211e33c;
             int var16 = 0x30000;
             ZeroInitGPCPointer(&var13->pGPCFile);
             var13->ZeroInitializeMachine();
@@ -370,14 +370,14 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
                 Enum_ov009_02185634_B var18 = Enum_ov009_02185634_B_48;
 #endif
                 if (DecompressFileFromGPCByName(var12.pGPCFile, var12.machine, var15 + var0, var14, var16,
-                                                func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 0x7d0)))
+                                                FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 0x7d0)))
                 {
                     func_0207de48(arg0->unknown_808_, var17, var18);
-                    func_0207df50((Struct_0203d028*)arg0->unknown_808_);
-                    func_0207df90(arg0->unknown_808_);
+                    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_808_);
+                    RestoreTextureVRAMState_0207df90(arg0->unknown_808_);
                     ((Object3D*)arg0->unknown_878_)->SetModelFromFileCopy(arg0->unknown_b4_, var15 + var0, var14,
                                                        Model3D::TextureStagingMode_Normal);
-                    func_0207dfac(arg0->unknown_808_);
+                    SaveTextureVRAMState_0207dfac(arg0->unknown_808_);
                 }
             }
             BackgroundLoader::RemoveLockGlobal();
@@ -420,9 +420,9 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
             arg0->unknown_dae_[1] = 0;
         }
 #if defined(jpn)
-        memcpy(arg0->unknown_d74_, func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 0x4272), 0xb);
+        memcpy(arg0->unknown_d74_, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 0x4272), 0xb);
         arg0->unknown_d8a_ = 0;
-        memcpy(arg0->unknown_d7f_, func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 0x4272), 0xb);
+        memcpy(arg0->unknown_d7f_, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 0x4272), 0xb);
         arg0->unknown_d8b_ = 0;
 #endif
 
@@ -548,11 +548,11 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
         }
 
 #if defined(jpn)
-        arg0->unknown_d90_ = var2->QueueLoadFile(func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, arg0->unknown_c58_), NULL);
+        arg0->unknown_d90_ = var2->QueueLoadFile(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, arg0->unknown_c58_), NULL);
 #else
         signed char var42 = arg0->unknown_c58_;
-        const char* var43 = func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, (short)(var42 + 0x32));
-        arg0->unknown_d90_ = var2->QueueLoadFileInGP2(func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, var42),
+        const char* var43 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, (short)(var42 + 0x32));
+        arg0->unknown_d90_ = var2->QueueLoadFileInGP2(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, var42),
                                                  var43, NULL);
 #endif
         arg0->unknown_c59_++;
@@ -566,12 +566,12 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
             unsigned int var46;
             int var47;
             var2->GetLoadedFileByID(arg0->unknown_d90_, &var45, &var46);
-            int var48 = func_02046900((Struct_02020cb8_4*)var45);
+            int var48 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var45);
             if (arg0->unknown_d95_ == 1)
                 var48--;
             for (int var49 = 0; var49 < var48; var49++)
             {
-                void* var50 = func_020467f0((Struct_02020aec*)var45, var49, (void**)var44, &var47);
+                void* var50 = GetPacEntryData_020467f0((PacEntry_02020aec*)var45, var49, (void**)var44, &var47);
                 if (var50 != NULL)
                 {
                     if (var49 == 0)
@@ -670,10 +670,10 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
             func_0205a234((Struct_02043368*)arg0->unknown_7ec_);
 
 #if defined(jpn)
-            arg0->unknown_d90_ = var2->QueueLoadFile(func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 1000), NULL);
+            arg0->unknown_d90_ = var2->QueueLoadFile(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 1000), NULL);
 #else
-            const char* var60 = func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 0x41a);
-            arg0->unknown_d90_ = var2->QueueLoadFileInGP2(func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 1000),
+            const char* var60 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 0x41a);
+            arg0->unknown_d90_ = var2->QueueLoadFileInGP2(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 1000),
                                                      var60, NULL);
 #endif
             arg0->unknown_c59_++;
@@ -688,11 +688,11 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
             unsigned int var63;
             int var64;
             var2->GetLoadedFileByID(arg0->unknown_d90_, &var62, &var63);
-            int var65 = func_02046900((Struct_02020cb8_4*)var62);
+            int var65 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var62);
             arg0->unknown_0_[6].Reset();
             for (int var66 = 0; var66 < var65; var66++)
             {
-                void* var67 = func_020467f0((Struct_02020aec*)var62, var66, (void**)var61, &var64);
+                void* var67 = GetPacEntryData_020467f0((PacEntry_02020aec*)var62, var66, (void**)var61, &var64);
                 if (var67 != NULL)
                 {
                     if (var66 < 4)

@@ -52,8 +52,8 @@ struct Struct_ov001_0215686c_4 {
 };
 
 extern "C" int func_020c39c8(volatile unsigned short* arg0);
-extern "C" void* func_0202ae18(void);
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_020dc2bc();
 extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov001_0215686c(void) {
 
     Struct_ov001_0215686c_2* var6 = ((struct Struct_ov001_0215686c_3*)((char*)var4 + 0x3000))->unknown_734_;
     Struct_ov001_0215686c* var7 = var6->unknown_120_;
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
 
     if (!(var6->unknown_50_ & 0x20)) {
         if (TestFlags00(var4, 0x1000) == 0) {
@@ -116,7 +116,7 @@ cont:
         }
     }
 
-    func_020466e4((unsigned int*)func_020d6c00(), 1);
+    func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 1);
     func_020dc2bc();
 
     volatile unsigned int* var8 = (volatile unsigned int*)0x4001000;

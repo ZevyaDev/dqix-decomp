@@ -7,8 +7,8 @@ struct Struct_020340c4;
 struct Struct_020340b4;
 struct Struct_0203402c;
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021d360c(int arg0, int arg1, int arg2, Vector3s arg3);
 
 struct Struct_ov017_021c2380 {
@@ -17,7 +17,7 @@ struct Struct_ov017_021c2380 {
 };
 
 extern "C" Struct_ov017_021c2380* func_020120a0(char* arg0, unsigned int arg1);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_020340d4(Struct_020340d4* arg0);
 extern "C" void func_020340c4(Struct_020340c4* arg0);
 extern "C" void func_020340b4(Struct_020340b4* arg0);
@@ -29,7 +29,7 @@ extern "C" void func_020397c0(void* arg0);
 // USA: func_ov017_021c2380
 extern "C" ARM int func_ov017_021c2380(int arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     Struct_ov017_021c2380* var2 = func_020120a0((char*)var0, arg0);
     if (var2 == NULL) {
         return 0;
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov017_021c2380(int arg0, int arg1) {
     }
 
     int var5 = 0;
-    if (arg0 == func_020100a8(var0) && func_020340d4((Struct_020340d4*)var3)) {
+    if (arg0 == GetProtagonistObjectIndex_020100a8(var0) && func_020340d4((Struct_020340d4*)var3)) {
         var5 = func_020340d4((Struct_020340d4*)var3);
         func_020340c4((Struct_020340c4*)var3);
     }
@@ -81,7 +81,7 @@ extern "C" ARM int func_ov017_021c2380(int arg0, int arg1) {
         return 0;
     }
 
-    if (func_0202c508(var1)) {
+    if (IsNotLocalWirelessGuest_0202c508(var1)) {
         func_02034044((unsigned char*)var3, 5000);
         if (var4 != NULL) {
             func_020397c0(var4);

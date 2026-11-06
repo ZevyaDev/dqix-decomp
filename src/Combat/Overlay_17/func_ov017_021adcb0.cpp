@@ -8,7 +8,6 @@
 #include "Resource/TextQueue.h"
 
 #if defined(jpn)
-#define func_0205ec34 func_0205ff20
 #define func_0206df6c func_0206f0c0
 enum { Enum_ov017_021adcb0_10020 = 0x2764, Enum_ov017_021adcb0_10068 = 0x2794, Enum_ov017_021adcb0_96 = 0x2c, Enum_ov017_021adcb0_2400 = 0x800 };
 extern const char* data_ov017_021d7f9c[];
@@ -27,15 +26,15 @@ struct Struct_02053f7c;
 struct Struct_020d7aa0_2;
 struct Struct_020d805c;
 struct Struct_ov017_0218d618_2;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_02046574_2;
 struct Struct_ov017_021adcb0;
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
 struct Struct_02046a3c_2;
 struct Struct_02046a3c;
 struct Struct_02015ef4_3;
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 
 typedef LootableContainerManager::Container Container;
 
@@ -58,7 +57,7 @@ struct Struct_ov017_021adcb0_3 {
 };
 
 struct Struct_ov017_021a7e14_4 {
-    SafeAllocator unknown_0_; char unknown_14_[0x18]; Struct_0201099c_10* unknown_2c_;
+    SafeAllocator unknown_0_; char unknown_14_[0x18]; ItemTable_0201099c_10* unknown_2c_;
     int unknown_30_; int unknown_34_;
 };
 
@@ -89,12 +88,12 @@ extern "C" void* func_020100f8(char* arg0);
 extern "C" void func_020a27a0(void* arg0);
 extern "C" void func_020a2794(void* arg0);
 extern "C" void func_02033834(Struct_02033834_2* arg0, int arg1);
-extern "C" int* func_0202ae18(void);
+extern "C" int* GetLocalWireless_0202ae18(void);
 extern "C" unsigned char* func_020177a8(unsigned char* arg0, int arg1);
 extern "C" Container* func_02094d5c(Struct_02015ef4_3* arg0, int arg1);
-extern "C" void* func_02010828(GameState* arg0);
-extern "C" int func_0202b7d8(int* arg0);
-extern "C" int func_0202c540(void* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
 extern "C" int func_020e51cc(int arg0);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5, int arg6);
@@ -105,7 +104,7 @@ extern "C" short func_02086aec(Struct_02053f7c* arg0, int arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void func_020113a8(void* arg0, int arg1, int arg2);
 extern "C" void func_02033b68(Struct_02033b68* arg0, int arg1);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_ov017_0218d510(GameResources* arg0, SafeAllocator* arg1);
 extern "C" void func_020397c0(void* arg0);
 struct Struct_02015a98;
@@ -113,10 +112,10 @@ extern "C" void func_02015a98(Struct_02015a98*, int, int, int);
 extern "C" void func_ov017_021cfd5c(unsigned char arg0, unsigned short arg1, unsigned short arg2);
 extern "C" int func_ov017_0218d618(Struct_ov017_0218d618_2* arg0);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_ov017_021a9bc4(void* arg0, int arg1);
 extern "C" void func_ov017_021a9a9c(void* arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
+extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void* func_020de824(void*);
 extern "C" void func_0207cbe8(char*);
 extern "C" int func_0207d538(void*, int, int, char*, int);
@@ -124,7 +123,7 @@ extern "C" void func_ov017_0218d644(GameResources*, Vector3fix*, int);
 extern "C" void func_0205eb80(void* arg0);
 extern "C" void func_0205eb54(void* arg0, int arg1, int arg2);
 extern "C" void func_0205eb90(void* arg0, int arg1, int arg2);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
 extern "C" void func_ov017_021cdb00(int, int, int, int);
 extern "C" int func_ov017_0218d75c(void* arg0);
@@ -134,8 +133,8 @@ extern "C" void func_02046a3c(Struct_02046a3c_2* arg0, Struct_02046a3c* arg1);
 
 extern char data_ov017_021d799c[];
 extern char data_ov017_021d79a2[];
-extern AllocatorUnion data_02114e20;
-extern char data_02108760;
+extern AllocatorUnion gMainHeap_02114e20;
+extern char gSoundEffectManager_02108760;
 extern short data_ov017_021d6ac4[];
 extern unsigned char data_ov017_021d6ac0[];
 
@@ -150,7 +149,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
     void* var5 = func_020d7a50();
     GameObject* var6 = var0->GetPartyMemberByIndex(arg0->unknown_8_);
     GameResources* var7 = GetGameResources();
-    Struct_0201bdac_2* var8 = (Struct_0201bdac_2*)var7->unknown_ptr_array_36fc[0];
+    Queue_0201bdac_2* var8 = (Queue_0201bdac_2*)var7->unknown_ptr_array_36fc[0];
 
     if (var6 == NULL) {
         func_ov017_021ae760(arg0);
@@ -171,7 +170,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
         }
         *(unsigned short*)((char*)var6 + 0xb2) = 0;
         func_02033834((Struct_02033834_2*)var6, arg0->unknown_10_);
-        int* var11 = func_0202ae18();
+        int* var11 = GetLocalWireless_0202ae18();
         Struct_ov017_021adcb0_2* var12 = (Struct_ov017_021adcb0_2*)func_020177a8(var2, arg0->unknown_a_);
         Container* var13 = NULL;
         if (var12) {
@@ -181,8 +180,8 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                 var13 = var3->GetContainerByID(var12->unknown_1c_, NULL);
             }
         }
-        Struct_02053f7c* var14 = (Struct_02053f7c*)func_02010828(var9);
-        if (func_0202b7d8(var11) && func_0202c540(var11) && var13 && var13->containerType == 0) {
+        Struct_02053f7c* var14 = (Struct_02053f7c*)GetParty_02010828(var9);
+        if (IsLocalWirelessOn_0202b7d8(var11) && IsLocalWirelessGuest_0202c540(var11) && var13 && var13->containerType == 0) {
 #if !defined(jpn)
             char var15[0xc];
 #endif
@@ -265,7 +264,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
         if ((arg0->unknown_9_ == 1 || arg0->unknown_9_ == 9) && var13 && var13->itemIDOrRank == 0x5617) {
             arg0->unknown_b_ = 1;
             arg0->unknown_2c_.ResetAllocatorPointer();
-            arg0->unknown_2c_.CreateTypeA(func_02012d88(&data_02114e20, 0x4000), 0x4000);
+            arg0->unknown_2c_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x4000), 0x4000);
             arg0->unknown_2c_.Reset();
             func_ov017_0218d510(GetGameResources(), &arg0->unknown_2c_);
         }
@@ -325,7 +324,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
             memset(var35, 0, Enum_ov017_021adcb0_2400);
             int var36 = 0;
             if (var34) {
-                func_0205ec34();
+                GetFlagManager_0205ec34();
                 unsigned short var37 = 0;
                 Container* var38;
                 if (arg0->unknown_20_) {
@@ -338,7 +337,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                         void* var39 = var7->unknown_ptr_array_3afc[0x1b];
                         func_ov017_021a9bc4(var39, 0);
                         func_ov017_021a9a9c(var39, 1, 0, 0, 0);
-                        func_020469b4(var8, (Struct_0201bdac*)var39);
+                        AppendToQueue_020469b4(var8, (QueueNode_0201bdac*)var39);
                         var36 = 1;
                     } else if (var38->lootType == 3) {
                         var36 = 1;
@@ -351,7 +350,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                         func_0207cbe8((char*)&var40);
                         char var41[0x80] = {};
                         func_0207cbe8((char*)&var40);
-                        var40.unknown_2c_ = (Struct_0201099c_10*)(var2 + Enum_ov017_021adcb0_10068);
+                        var40.unknown_2c_ = (ItemTable_0201099c_10*)(var2 + Enum_ov017_021adcb0_10068);
                         if (func_0207d538(&var40, var38->lootType, var38->itemIDOrRank, var41, 1)) {
 #if defined(jpn)
                             sprintf(var35, data_ov017_021d80b0, var41);
@@ -394,15 +393,15 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                     func_020d7e10(var5, *(char**)((char*)var1 + Enum_ov017_021adcb0_96), var47 == 2, var45->lootType == 2, 0, 0);
 #endif
                     if (arg0->unknown_21_) {
-                        func_0205eb80(&data_02108760);
-                        func_0205eb54(&data_02108760, 0x15e, 0x15e);
-                        func_0205eb90(&data_02108760, 0, 0);
+                        func_0205eb80(&gSoundEffectManager_02108760);
+                        func_0205eb54(&gSoundEffectManager_02108760, 0x15e, 0x15e);
+                        func_0205eb90(&gSoundEffectManager_02108760, 0, 0);
                     } else if (var45->lootType != 0 && var45->itemIDOrRank != 0x5617) {
-                        func_0205eaa0((Struct_02108760*)&data_02108760, 0xe, 0);
+                        PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0xe, 0);
                     }
                 }
                 int var48 = var45->uniqueID;
-                unsigned char* var49 = (unsigned char*)func_0205ec34();
+                unsigned char* var49 = (unsigned char*)GetFlagManager_0205ec34();
                 if (var45->containerType == 0) {
                     func_0206df6c(var49, var49 + 0x8c, var48 + 0x212, 1);
                     func_ov017_021cdb00(1, var48, 1, -1);

@@ -14,8 +14,8 @@ struct Struct_ov017_021cd608_3 {
 
 extern "C" struct Struct_ov017_021cd608_3* func_ov017_021b8478(void* arg0);
 extern "C" void* func_ov017_021b8468(void* arg0);
-extern "C" int func_020100a8(GameState* arg0);
-extern "C" int func_020ac4c0(void* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
+extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" int func_020ac494(void* arg0);
 extern "C" void func_ov000_02163378(void* arg0, int* arg1, unsigned char arg2);
 
@@ -74,8 +74,8 @@ extern "C" ARM void func_ov017_021cd608(int arg0, struct Struct_ov017_021cd608_2
         var3[var0] = var2->unknown_2_[var0] + (var2->unknown_a_[var0] << 16);
     }
     if (var2->unknown_f_) {
-        int var7 = func_020100a8(GameState::GetInstance());
-        func_020ac4c0(&var4);
+        int var7 = GetProtagonistObjectIndex_020100a8(GameState::GetInstance());
+        GetBattleRecords_020ac4c0(&var4);
         func_020a0858(&var4.unknown_0_, var3[var7]);
         func_020a0300(&var4.unknown_68_, var3[var7]);
         func_020ac494(&var4);

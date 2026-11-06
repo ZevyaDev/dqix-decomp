@@ -23,7 +23,7 @@ struct Struct_02014d80 {
 
 extern "C" void *func_0200fd0c(GameState *arg0);
 extern "C" void func_02014d18(int arg0, char *arg1, char *arg2);
-extern "C" void func_0207df90(char *arg0);
-extern "C" void func_0207dfac(char *arg0);
+extern "C" void RestoreTextureVRAMState_0207df90(char *area);
+extern "C" void SaveTextureVRAMState_0207dfac(char *area);
 extern char data_020ef1e8[];
 extern const Struct_020e6f48 data_020e6f48;

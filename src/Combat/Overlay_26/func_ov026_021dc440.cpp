@@ -2,7 +2,7 @@
 #include <GameState/GameState.h>
 #include "GameState/Field3b0.h"
 #include <Filesystem/BackgroundLoader.h>
-extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
 #include <Filesystem/GPC.h>
 #include <Memory/SafeAllocator.h>
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, Struct_ov000_02160d
     BackgroundLoader::FreeAllocationsGlobal();
 
     GPCReadPair* var6 = &var0;
-    unsigned char* var7 = data_0211e33c;
+    unsigned char* var7 = gFileScratchSpace_0211e33c;
     unsigned int var8 = 0x30000;
     ZeroInitGPCPointer(&var6->pGPCFile);
     var6->ZeroInitializeMachine();
@@ -183,8 +183,8 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, Struct_ov000_02160d
 #endif
                     if (*(int*)((char*)var26 + Enum_ov026_021dc440_452)) {
                         sprintf(var2, data_ov026_021dee9c);
-                        LoadFileIntoMemory(var2, data_0211e33c, &var1);
-                        var7 = data_0211e33c;
+                        LoadFileIntoMemory(var2, gFileScratchSpace_0211e33c, &var1);
+                        var7 = gFileScratchSpace_0211e33c;
                     } else {
                         sprintf(var2, data_ov026_021deeb5, var27);
                         DecompressFileFromGPCByName(var0.pGPCFile, var0.machine, var7, var1, var8, var2);

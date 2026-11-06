@@ -14,7 +14,7 @@
 
 struct Struct_02012de8;
 struct AllocatorUnion;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_02093b90 {
     char unknown_0_[ENTRY_TEXT_02093b90];
     short unknown_30_;
@@ -37,17 +37,17 @@ struct Struct_02093b90_3 {
     unsigned short unknown_4_, unknown_6_, unknown_8_, unknown_a_;
 };
 struct Struct_020200c0_4 { void* unknown_0_; Struct_02093b90_3* unknown_4_; unsigned char unknown_8_; };
-extern AllocatorUnion data_02114e20;
-extern Struct_02108760 data_02108760;
+extern AllocatorUnion gMainHeap_02114e20;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" char* func_0203bd08();
 extern "C" unsigned char func_020938cc();
 extern "C" void func_0203be58(char*, int, int);
-extern "C" Struct_02012de8* func_020d6c00();
+extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
 extern "C" int func_02046708(Struct_02012de8*, unsigned int);
 extern "C" void func_020941b0(Struct_02093b90_2*);
 extern "C" int func_020941f8(Struct_02093b90_2*);
 extern "C" int func_020943dc(Struct_02093b90_2*);
-extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" int func_0209378c(int);
 extern "C" int func_020937f0(int);
 extern "C" void func_0205b20c(Struct_020200c0_4*);
@@ -57,8 +57,8 @@ extern "C" void func_0205b234(void*, int, int, void*, int, int);
 extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" void LoadToMainObjVRAM(const void*, unsigned int, unsigned int);
 extern "C" void LoadToSubObjVRAM(const void*, unsigned int, unsigned int);
-extern "C" void func_02012da4(AllocatorUnion*, void*);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_020945ac(Struct_02093b90_2*);
 
 static inline unsigned char* inline_02093b90(Struct_02093b90_2* arg0) { return arg0->unknown_348_; }
@@ -67,7 +67,7 @@ static inline unsigned char* inline_02093b90(Struct_02093b90_2* arg0) { return a
 extern "C" ARM void func_02093b90(Struct_02093b90_2* arg0, int arg1) {
     char* var0 = func_0203bd08();
     func_0203be58(var0, func_020938cc(), 1);
-    Struct_02012de8* var1 = func_020d6c00();
+    Struct_02012de8* var1 = GetGlobalFlags_020d6c00();
     if (func_02046708(var1, 0x20)) {
         func_020941b0(arg0);
         return;
@@ -90,7 +90,7 @@ extern "C" ARM void func_02093b90(Struct_02093b90_2* arg0, int arg1) {
     if (func_020943dc(arg0)) return;
     if (func_02046708(var1, 0x8000)) return;
     if (arg0->unknown_348_[0]) {
-        void* var3 = func_02012d88(&data_02114e20, 0x800);
+        void* var3 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x800);
         if (!var3) return;
         int var4 = arg0->unknown_3c8_7_;
         if (var3) {
@@ -135,11 +135,11 @@ extern "C" ARM void func_02093b90(Struct_02093b90_2* arg0, int arg1) {
             }
           }
         }
-        func_02012da4(&data_02114e20,var3);
+        FreeMemory_02012da4(&gMainHeap_02114e20,var3);
         memset(arg0->unknown_348_,0,TEXT_LEN_02093b90);
         arg0->unknown_3cd_ |=4;
         if (!arg0->unknown_0_[0].unknown_33_) {
-            func_0205eaa0(&data_02108760,29,0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760,29,0);
             arg0->unknown_0_[0].unknown_33_=1;
         }
         return;
@@ -153,7 +153,7 @@ extern "C" ARM void func_02093b90(Struct_02093b90_2* arg0, int arg1) {
     }
     if (arg0->unknown_3cb_>0 && arg0->unknown_0_[0].unknown_30_==0x4e23) var14=150;
     if (var14>=arg0->unknown_3ca_) return;
-    void* var15 = func_02012d88(&data_02114e20,0x800);
+    void* var15 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20,0x800);
     if (var15) {
         int var16=arg0->unknown_3c8_7_;
         if (var15) {
@@ -165,7 +165,7 @@ extern "C" ARM void func_02093b90(Struct_02093b90_2* arg0, int arg1) {
                 else LoadToSubObjVRAM(var15,var17-0x800,0x800);
             }
         }
-        func_02012da4(&data_02114e20,var15);
+        FreeMemory_02012da4(&gMainHeap_02114e20,var15);
     }
     func_020945ac(arg0);
     arg0->unknown_3ca_=0;

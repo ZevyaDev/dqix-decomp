@@ -6,13 +6,13 @@
 
 struct GameResources;
 struct Struct_02048150;
-struct Struct_02072a68_2 { char unknown_0_[4]; };
+struct StringList_02072a68_2 { char unknown_0_[4]; };
 struct Struct_0200f3a4_8;
 struct Struct_0209a470;
 struct Struct_02013fb4;
 struct Struct_020727d8;
 struct Struct_02046574_2;
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 struct Struct_0209fee4;
 struct Struct_0209ff64;
 struct Struct_0209ff6c;
@@ -132,7 +132,7 @@ struct Struct_ov023_021f1868_9 {
     char unknown_371c_[0x1bf8];
     SafeAllocator unknown_5314_;
     char unknown_5328_[0x5770 - 0x5328];
-    Struct_02072a68_2* unknown_5770_;
+    StringList_02072a68_2* unknown_5770_;
     char unknown_5774_[0x57b4 - 0x5774];
     Struct_ov023_021f1868_4* unknown_57b4_;
     void* unknown_57b8_;
@@ -141,7 +141,7 @@ struct Struct_ov023_021f1868_9 {
     unsigned char unknown_55d4_;
     unsigned char unknown_55d5_;
     char unknown_57c6_[0x5af4 - 0x57c6];
-    Struct_02072a68_2 unknown_5af4_;
+    StringList_02072a68_2 unknown_5af4_;
     char unknown_5af8_[0x79c1 - 0x5af8];
     unsigned char unknown_77d1_;
 #else
@@ -152,7 +152,7 @@ struct Struct_ov023_021f1868_9 {
     char unknown_3760_[0x1af8];
     SafeAllocator unknown_5258_;
     char unknown_526c_[0x557c - 0x526c];
-    Struct_02072a68_2* unknown_557c_;
+    StringList_02072a68_2* unknown_557c_;
     void* unknown_5580_;
     char unknown_5584_[0x55c4 - 0x5584];
     Struct_ov023_021f1868_4* unknown_55c4_;
@@ -162,7 +162,7 @@ struct Struct_ov023_021f1868_9 {
     unsigned char unknown_55d4_;
     unsigned char unknown_55d5_;
     char unknown_55d6_[0x5904 - 0x55d6];
-    Struct_02072a68_2 unknown_5904_;
+    StringList_02072a68_2 unknown_5904_;
     char unknown_5908_[0x77d1 - 0x5908];
     unsigned char unknown_77d1_;
 #endif
@@ -175,21 +175,21 @@ extern const char data_ov023_021fe273[];
 extern const char data_ov023_021fe284[];
 extern const char data_ov023_021fe2a0[];
 extern const char data_ov023_021fe2b7[];
-extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 #if defined(jpn)
 extern const char data_ov023_021fd517[];
 extern const char data_ov023_021fd533[];
-extern "C" void func_02073864(Struct_02072a68_2* arg0, SafeAllocator* arg1, const char* arg2, int arg3, int arg4, int arg5);
+extern "C" void func_02073864(StringList_02072a68_2* arg0, SafeAllocator* arg1, const char* arg2, int arg3, int arg4, int arg5);
 extern "C" void func_020e1fc4(Struct_ov023_021f1868_7* arg0, SafeAllocator* arg1, const char* arg2, short* arg3, unsigned short arg4, int arg5, int arg6);
 #endif
 
 extern "C" Struct_ov023_021f1868_3* GetMessageWindow_020421a0();
-extern "C" Struct_02048150* func_02010828(GameState* arg0);
+extern "C" Struct_02048150* GetParty_02010828(GameState* gameState);
 extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
 extern "C" void func_0209a338(Struct_0200f3a4_8* arg0);
 extern "C" void func_0209a470(Struct_0209a470* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
-extern "C" char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_020727d8(Struct_020727d8* arg0);
 extern "C" void func_020e526c(void* arg0);
 extern "C" void func_0209fe9c(char* arg0);
@@ -198,22 +198,22 @@ extern "C" void func_0209ff64(Struct_0209ff64* arg0, int arg1);
 extern "C" void func_0209ff6c(Struct_0209ff6c* arg0);
 extern "C" int func_ov023_021f21f4(Struct_ov023_021f1868_10* arg0);
 extern "C" Struct_ov023_021f1868* func_0200ff1c(GameState* arg0, int arg1);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_02046574(Struct_02046574_2* arg0, int arg1, char* arg2);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
 extern "C" void** func_020e5294(void* arg0, int arg1);
-extern "C" void func_020465c0(Struct_020465c0* arg0, int arg1, int arg2);
-extern "C" void func_02043204(char* arg0);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_020a13c4(Struct_020a13c4* arg0);
 extern "C" void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short arg3, unsigned char arg4);
 extern "C" void* func_020dfc2c(void* arg0);
 extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
 extern "C" void* func_020a15bc(Struct_020a15bc* arg0, int arg1);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_ov023_021f222c(Struct_ov023_021f1868_11* arg0);
 extern "C" void func_ov023_021f2304(void* arg0, char* arg1);
 extern "C" void func_ov023_021f2348(void* arg0, int arg1);
-extern "C" GameResources* func_0200fb8c(int* arg0);
+extern "C" GameResources* GetResources_0200fb8c(int* gameState);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2* arg0);
@@ -224,7 +224,7 @@ void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2)
 void func_020728ac(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
 void func_020e5604(void* arg0, SafeAllocator* arg1, void* arg2, int arg3);
 Struct_ov023_021f1868_2* func_0209a594(void* arg0, int arg1);
-void func_02046380(Struct_ov023_021f1868_3* arg0);
+void ClearMessageParams_02046380(Struct_ov023_021f1868_3* window);
 void func_020e4864(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5);
 #if defined(jpn)
 void StartMessage_0204500c(Struct_ov023_021f1868_3* window, char* text, int arg2);
@@ -252,14 +252,14 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
     Struct_ov023_021f1868_3* var0 = GetMessageWindow_020421a0();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     int var2 = var20->unknown_18_;
-    int var3 = func_02086ef0(func_02010828(var19), var2);
+    int var3 = func_02086ef0(GetParty_02010828(var19), var2);
     if (var20->unknown_0_ == 0)
     {
         arg0->unknown_77d1_ = 1;
         arg0->unknown_30_.Reset();
-        arg0->unknown_5770_ = (Struct_02072a68_2*)arg0->unknown_30_.Allocate(8);
+        arg0->unknown_5770_ = (StringList_02072a68_2*)arg0->unknown_30_.Allocate(8);
         func_020727d8((Struct_020727d8*)arg0->unknown_5770_);
-        func_02073864(arg0->unknown_5770_, &arg0->unknown_30_, func_02072a68(&arg0->unknown_5af4_, 0x21), 0, 0, 0);
+        func_02073864(arg0->unknown_5770_, &arg0->unknown_30_, FindStringInList_02072a68(&arg0->unknown_5af4_, 0x21), 0, 0, 0);
         arg0->unknown_57b4_ = NULL;
         var20->unknown_4_ = var1->QueueLoadFile(data_ov023_021fd517, NULL);
         var20->unknown_0_++;
@@ -288,7 +288,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
     {
         while (var20->unknown_e3_ < var20->unknown_e2_)
         {
-            char* var6 = func_02072a68(arg0->unknown_5770_, var20->unknown_74_[var20->unknown_e3_]);
+            char* var6 = FindStringInList_02072a68(arg0->unknown_5770_, var20->unknown_74_[var20->unknown_e3_]);
             if (var6 != NULL)
             {
                 Struct_ov023_021f1868* var7 = func_0200ff1c(var19, var2);
@@ -296,9 +296,9 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
                 {
                     char var8[0x80];
                     __clear(var8, sizeof(var8));
-                    func_02042058(var8, var6);
-                    func_02042058(var8, func_02072a68(&arg0->unknown_5af4_, 0x22));
-                    func_02046380(var0);
+                    AppendText_02042058(var8, var6);
+                    AppendText_02042058(var8, FindStringInList_02072a68(&arg0->unknown_5af4_, 0x22));
+                    ClearMessageParams_02046380(var0);
                     func_02046574((Struct_02046574_2*)var0, 0, var7->unknown_134_);
                     if (var3)
                     {
@@ -337,7 +337,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
         int var11 = arg0->unknown_57b4_->unknown_68_;
         if (var11 > 0)
         {
-            func_02043204((char*)var0);
+            ResetMessageWindow_02043204((char*)var0);
             SafeAllocator* var12 = &arg0->unknown_5314_;
             var12->Reset();
             var11 = arg0->unknown_57b4_->unknown_68_;
@@ -362,7 +362,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
                 void* var16 = func_020a15bc((Struct_020a15bc*)arg0->unknown_57b8_, var9[var10]);
                 if (var16 == NULL)
                     continue;
-                const char* var17 = func_020e0434((Struct_0201099c_3*)&var15, var9[var10]);
+                const char* var17 = FindStringInTable_020e0434((Struct_0201099c_3*)&var15, var9[var10]);
                 if (var17 == NULL)
                     continue;
                 func_ov023_021f222c((Struct_ov023_021f1868_11*)&arg0->unknown_55d0_[var10]);
@@ -380,7 +380,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             arg0->unknown_5770_ = NULL;
             arg0->unknown_57b4_ = NULL;
             arg0->unknown_77d1_ = 0;
-            Struct_0208cb08* var18 = func_02094a00();
+            FontLoader_0208cb08* var18 = func_02094a00();
             func_02094b40(var18);
             func_02094b34(var18, 0x65, 500, 0, 0);
             var20->unknown_0_ = 8;
@@ -392,7 +392,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
     Struct_ov023_021f1868_3* var21 = GetMessageWindow_020421a0();
     BackgroundLoader* var22 = BackgroundLoader::GetInstance();
     int var23 = var20->unknown_18_;
-    int var24 = func_02086ef0(func_02010828(var19), var23);
+    int var24 = func_02086ef0(GetParty_02010828(var19), var23);
     if (var20->unknown_0_ == 0)
     {
         arg0->unknown_77d1_ = 1;
@@ -400,12 +400,12 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
         BackgroundLoader::FreeAllocationsGlobal();
         arg0->unknown_30_.Reset();
         unsigned int var25;
-        void* var26 = LoadFileIntoMemory(data_ov023_021fe200, data_0211e33c, &var25);
+        void* var26 = LoadFileIntoMemory(data_ov023_021fe200, gFileScratchSpace_0211e33c, &var25);
         func_0209a338((Struct_0200f3a4_8*)arg0->unknown_e98_);
         if (var26 != NULL)
             func_0209a470((Struct_0209a470*)arg0->unknown_e98_, &arg0->unknown_30_, (Struct_02013fb4*)var26, var25);
-        var26 = ExtractFileFromGP2(func_02072a68(&arg0->unknown_5904_, 0x2b), func_02072a68(&arg0->unknown_5904_, 0x21), &var25);
-        arg0->unknown_557c_ = (Struct_02072a68_2*)arg0->unknown_30_.Allocate(8);
+        var26 = ExtractFileFromGP2(FindStringInList_02072a68(&arg0->unknown_5904_, 0x2b), FindStringInList_02072a68(&arg0->unknown_5904_, 0x21), &var25);
+        arg0->unknown_557c_ = (StringList_02072a68_2*)arg0->unknown_30_.Allocate(8);
         func_020727d8((Struct_020727d8*)arg0->unknown_557c_);
         if (var26 != NULL)
             func_020728ac(arg0->unknown_557c_, &arg0->unknown_30_, var26, var25, 0, 0, 0);
@@ -446,7 +446,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             Struct_ov023_021f1868_2* var29 = func_0209a594(arg0->unknown_e98_, var20->unknown1_74_[var20->unknown_e3_]);
             char* var30 = NULL;
             if (var29 != NULL)
-                var30 = func_02072a68(arg0->unknown_557c_, var29->unknown_6_4_);
+                var30 = FindStringInList_02072a68(arg0->unknown_557c_, var29->unknown_6_4_);
             if (var30 != NULL)
             {
                 Struct_ov023_021f1868* var31 = func_0200ff1c(GameState::GetInstance(), var23);
@@ -456,9 +456,9 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
                     char var33[12];
                     char var34[0x80];
                     __clear(var32, sizeof(var32));
-                    func_02042058(var32, var30);
-                    func_02042058(var32, func_02072a68(&arg0->unknown_5904_, 0x22));
-                    func_02046380(var21);
+                    AppendText_02042058(var32, var30);
+                    AppendText_02042058(var32, FindStringInList_02072a68(&arg0->unknown_5904_, 0x22));
+                    ClearMessageParams_02046380(var21);
                     func_02046574((Struct_02046574_2*)var21, 0, var31->unknown_134_);
                     func_020e4bf4(var33, var23);
                     var21->unknown1_0_ = var33;
@@ -472,13 +472,13 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
                     }
                     else
                     {
-                        func_02046574((Struct_02046574_2*)var21, 1, func_02072a68(arg0->unknown_557c_, (short)(var29->unknown_4_0_ + 100)));
+                        func_02046574((Struct_02046574_2*)var21, 1, FindStringInList_02072a68(arg0->unknown_557c_, (short)(var29->unknown_4_0_ + 100)));
                     }
                     int var36 = 2;
                     if (var29->unknown_6_4_ == 4 || var29->unknown_6_4_ == 0x10)
                         var36 = 1;
-                    func_02046574((Struct_02046574_2*)var21, var36, func_02072a68(arg0->unknown_557c_, (short)(var29->unknown_1_3_ + 200)));
-                    func_020465c0((Struct_020465c0*)var21, 0, var29->unknown_5_4_);
+                    func_02046574((Struct_02046574_2*)var21, var36, FindStringInList_02072a68(arg0->unknown_557c_, (short)(var29->unknown_1_3_ + 200)));
+                    SetMessageNumber_020465c0((MessageWindow_020465c0*)var21, 0, var29->unknown_5_4_);
                     if (var24)
                     {
                         StartMessage_0204500c(var21, var32, 1, 0xe3);
@@ -514,7 +514,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
         int var37 = arg0->unknown_55c4_->unknown_68_;
         if (var37 > 0)
         {
-            func_02043204((char*)var21);
+            ResetMessageWindow_02043204((char*)var21);
             char* var38 = arg0->unknown_3760_; SafeAllocator* var39 = (SafeAllocator*)(var38 + 0x1af8);
             var39->Reset();
             var37 = arg0->unknown_55c4_->unknown_68_;
@@ -552,7 +552,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
                 void* var50 = func_020a15bc((Struct_020a15bc*)arg0->unknown_55c8_, var40[var49]);
                 if (var50 == NULL)
                     continue;
-                const char* var51 = func_020e0434((Struct_0201099c_3*)&var43, var40[var49]);
+                const char* var51 = FindStringInTable_020e0434((Struct_0201099c_3*)&var43, var40[var49]);
                 if (var51 == NULL)
                     continue;
                 func_ov023_021f222c((Struct_ov023_021f1868_11*)&arg0->unknown_55d0_[var49]);
@@ -571,7 +571,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             arg0->unknown_5580_ = NULL;
             arg0->unknown_55c4_ = NULL;
             arg0->unknown_77d1_ = 0;
-            Struct_0208cb08* var52 = func_02094a00();
+            FontLoader_0208cb08* var52 = func_02094a00();
             func_02094b40(var52);
             func_02094b34(var52, 0x65, 500, 0, 0);
             var20->unknown_0_ = 8;
@@ -607,8 +607,8 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
         arg0->unknown_55d4_ = 0;
         arg0->unknown_55d5_ = 0;
         arg0->unknown_77d1_ = 0;
-        SetMainBrightness(func_0200fb8c((int*)var19), 0, 0xf);
-        Struct_0208cb08* var53 = func_02094a00();
+        SetMainBrightness(GetResources_0200fb8c((int*)var19), 0, 0xf);
+        FontLoader_0208cb08* var53 = func_02094a00();
         func_02094b40(var53);
         func_02094b34(var53, 0x65, 500, 0, 0);
         var20->unknown_0_++;
@@ -620,7 +620,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
     }
     else if (var20->unknown_0_ == 9)
     {
-        if (!IsBrightnessTransitionActive(func_0200fb8c((int*)var19)))
+        if (!IsBrightnessTransitionActive(GetResources_0200fb8c((int*)var19)))
         {
             func_ov023_021eefac((Struct_ov023_021eeaac_2*)var20);
             return 7;

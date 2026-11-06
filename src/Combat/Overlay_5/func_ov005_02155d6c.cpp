@@ -14,7 +14,7 @@
 #include <std_library_functions.h>
 
 struct Struct_02012fa4;
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 struct Struct_0203a46c;
 struct Struct_ov005_021556e4_2;
 
@@ -30,10 +30,10 @@ struct Struct_ov005_02155d6c {
 };
 
 extern "C" void func_02047230(Struct_02012fa4* arg0);
-extern "C" void func_0207df50(Struct_0203d028* arg0);
-extern "C" void func_0207df90(char* arg0);
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void func_02047b40(Struct_ov005_02155d6c_2* arg0, void* arg1, SafeAllocator* arg2);
-extern "C" void func_0207dfac(char* arg0);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_0203a46c(Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov005_02155d38(Struct_ov005_021556e4_2* arg0);
 
@@ -91,11 +91,11 @@ extern "C" ARM void func_ov005_02155d6c(Struct_ov005_02153954* arg0) {
             Struct_ov005_02153ba4* var1 = &arg0->unknown_2d90_[arg0->unknown_3d78_];
             if (var1->unknown_14_ == 0) {
                 func_02047230((Struct_02012fa4*)&arg0->unknown_3cf0_);
-                func_0207df50((Struct_0203d028*)&arg0->unknown_d84_);
-                func_0207df90((char*)&arg0->unknown_d84_);
+                ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)&arg0->unknown_d84_);
+                RestoreTextureVRAMState_0207df90((char*)&arg0->unknown_d84_);
                 arg0->unknown_208_.Reset();
                 func_02047b40(&arg0->unknown_3cf0_, arg0->unknown_3d8c_, &arg0->unknown_208_);
-                func_0207dfac((char*)&arg0->unknown_d84_);
+                SaveTextureVRAMState_0207dfac((char*)&arg0->unknown_d84_);
             }
             var1->unknown_14_ = -1;
             var1->unknown_3_ = 0;
@@ -108,11 +108,11 @@ extern "C" ARM void func_ov005_02155d6c(Struct_ov005_02153954* arg0) {
             Struct_ov005_02155d6c_2* var4 = var2->unknown_8_;
             if (var2->unknown_14_ == 0) {
                 func_ov005_02155d38((Struct_ov005_021556e4_2*)var2);
-                func_0207df90((char*)var3);
+                RestoreTextureVRAMState_0207df90((char*)var3);
                 arg0->unknown_28_[arg0->unknown_3dac_].Reset();
                 func_02047b40(var4, arg0->unknown_3d94_, &arg0->unknown_28_[arg0->unknown_3dac_]);
                 var2->unknown_18_ = var2->unknown_0_;
-                func_0207dfac((char*)var3);
+                SaveTextureVRAMState_0207dfac((char*)var3);
             }
             var4->unknown_82_ = 0x1f;
             var4->unknown_80_ = 0x7fff;
@@ -138,11 +138,11 @@ extern "C" ARM void func_ov005_02155d6c(Struct_ov005_02153954* arg0) {
                 Struct_ov005_02155d6c_2* var11 = var8->unknown_8_;
                 if (var10 >= 0) {
                     func_ov005_02155d38((Struct_ov005_021556e4_2*)var8);
-                    func_0207df90((char*)var9);
+                    RestoreTextureVRAMState_0207df90((char*)var9);
                     arg0->unknown_28_[var7].Reset();
                     func_02047b40(var11, arg0->unknown_3d90_ + var10, &arg0->unknown_28_[var7]);
                     var8->unknown_18_ = var8->unknown_0_;
-                    func_0207dfac((char*)var9);
+                    SaveTextureVRAMState_0207dfac((char*)var9);
                 }
                 var11->unknown_82_ = 0x1f;
                 var11->unknown_80_ = 0x7fff;
@@ -178,11 +178,11 @@ extern "C" ARM void func_ov005_02155d6c(Struct_ov005_02153954* arg0) {
                 int var18 = var15->unknown_14_;
                 if (var18 >= 0) {
                     func_ov005_02155d38((Struct_ov005_021556e4_2*)var15);
-                    func_0207df90((char*)var16);
+                    RestoreTextureVRAMState_0207df90((char*)var16);
                     arg0->unknown_c8_[var14 - 8].Reset();
                     func_02047b40(var17, arg0->unknown_3d88_ + var18, &arg0->unknown_c8_[var14 - 8]);
                     var15->unknown_18_ = var15->unknown_0_;
-                    func_0207dfac((char*)var16);
+                    SaveTextureVRAMState_0207dfac((char*)var16);
                 }
                 var17->unknown_82_ = 0x1f;
                 var17->unknown_80_ = 0x7fff;

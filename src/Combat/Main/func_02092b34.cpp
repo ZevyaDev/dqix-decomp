@@ -20,8 +20,8 @@ struct Struct_02092b34 {
 };
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_02043204(char* arg0);
-extern "C" void func_02043124(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
+extern "C" void CloseMessageWindow_02043124(char* window);
 struct Struct_02092aa4;
 extern "C" void func_02092aa4(Struct_02092aa4* arg0, int arg1);
 
@@ -33,10 +33,10 @@ extern "C" ARM void func_02092b34(struct Struct_02092b34* arg0) {
         arg0->unknown_2c_ = -1;
     }
     void* var1 = (void*)GetMessageWindow_020421a0();
-    func_02043204((char*)var1);
-    func_02043124((char*)var1);
+    ResetMessageWindow_02043204((char*)var1);
+    CloseMessageWindow_02043124((char*)var1);
     if (!(arg0->unknown_37_ & 8)) {
-        Struct_0208cb08* var2 = func_02094a00();
+        FontLoader_0208cb08* var2 = func_02094a00();
         func_02094ab0(var2);
         func_02094b34(var2, 0x6f, 0x1388, 1, 1);
     }

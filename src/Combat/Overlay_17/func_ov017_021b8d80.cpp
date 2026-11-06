@@ -13,7 +13,7 @@ enum { Enum_ov017_021b8d80_140 = 0x8c };
 extern "C" int GetMessageWindow_020421a0();
 struct Struct_0208ba54;
 extern "C" void func_0208ba54(struct Struct_0208ba54* arg0);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_ov008_021845ac(void* arg0);
 extern "C" void func_020dc2d0(int arg0);
 struct GameResources;
@@ -22,7 +22,7 @@ struct Struct_02061c04_11;
 extern "C" void func_ov017_021b994c(struct Struct_02061c04_11* arg0);
 extern "C" void func_020a0c0c(void);
 
-extern int data_02114e20;
+extern int gMainHeap_02114e20;
 
 // USA: func_ov017_021b8d80
 extern "C" ARM void func_ov017_021b8d80(unsigned char* arg0) {
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov017_021b8d80(unsigned char* arg0) {
         void* var3 = var2->GetSignedAllocator();
         if (var3) {
             var2->Destroy();
-            func_02012da4((AllocatorUnion*)&data_02114e20, var3);
+            FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var3);
         }
     }
 
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov017_021b8d80(unsigned char* arg0) {
         void* var5 = var4->GetSignedAllocator();
         if (var5) {
             var4->Destroy();
-            func_02012da4((AllocatorUnion*)&data_02114e20, var5);
+            FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var5);
         }
         *(int*)(arg0 + 0x118) = 0;
 

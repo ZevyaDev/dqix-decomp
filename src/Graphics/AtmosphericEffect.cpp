@@ -35,8 +35,8 @@ extern "C"
     void* func_02033fa0(void*);
     bool func_0204be20(void*);
 
-    void func_0207df90(void*);
-    void func_0207dfac(void*);
+    void RestoreTextureVRAMState_0207df90(void*);
+    void SaveTextureVRAMState_0207dfac(void*);
 }
 
 void AtmosphericEffect::Initialize()
@@ -436,13 +436,13 @@ void AtmosphericEffectSet::ProcessArchive(AtmosphericEffectSet *target, SafeAllo
                 fileID++;
             }
             narc.Destroy();
-            func_0207df90(pZone50Thing);
+            RestoreTextureVRAMState_0207df90(pZone50Thing);
             loadInfo.allocator = allocator;
             loadInfo.fileData = loopObject->archiveFileData_;
             loadInfo.unk_8 = loopObject->archiveFileSize_;
             loadInfo.unk_10 = 1;
             loopObject->object_.LoadFromCHRArchive(&loadInfo);
-            func_0207dfac(pZone50Thing);
+            SaveTextureVRAMState_0207dfac(pZone50Thing);
         }
     }
 

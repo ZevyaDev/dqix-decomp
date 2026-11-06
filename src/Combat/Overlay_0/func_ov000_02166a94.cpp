@@ -44,8 +44,8 @@ struct Struct_020d76fc;
 struct Struct_020d6ec8;
 extern "C" Struct_02057de0_2* func_02057924();
 extern "C" void func_020c9be0();
-extern "C" void func_0207df90(char*);
-extern "C" void func_0207dfac(char*);
+extern "C" void RestoreTextureVRAMState_0207df90(char*);
+extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_02057de0(Struct_02057de0_2*, int, SafeAllocator*, int, int);
 extern "C" void func_0203dafc(Struct_0203d028_11*);
 extern "C" void func_02047b30(void*, int, int, int);
@@ -83,9 +83,9 @@ extern "C" ARM void func_ov000_02166a94(Struct_ov000_02166a94_3* arg0) {
     unsigned int var5;
     const void* var6;
     BackgroundLoader::AddLockGlobal();
-    if (!LoadFileIntoMemory(data_ov000_02183a5a, data_0211e33c, &var5)) func_020c9be0();
-    func_0207df90(var1->unknown_230_);
-    if (GetFileInNarc(data_0211e33c, data_ov000_02183a6f, &var6, &var5, 0)) {
+    if (!LoadFileIntoMemory(data_ov000_02183a5a, gFileScratchSpace_0211e33c, &var5)) func_020c9be0();
+    RestoreTextureVRAMState_0207df90(var1->unknown_230_);
+    if (GetFileInNarc(gFileScratchSpace_0211e33c, data_ov000_02183a6f, &var6, &var5, 0)) {
         void* var7 = var0->Allocate(var5);
         if (var7) {
             memcpy(var7, var6, var5);
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov000_02166a94(Struct_ov000_02166a94_3* arg0) {
     var11 = var8;
     var12 = var9;
     for (; data_ov000_021838fc[var10] >= 0; ++var10, ++var11, ++var12) {
-        if (GetFileInNarc(data_0211e33c, data_ov000_02183910[var10], &var6, &var5, 0)) {
+        if (GetFileInNarc(gFileScratchSpace_0211e33c, data_ov000_02183910[var10], &var6, &var5, 0)) {
             void* var13 = (*var11)->Allocate(var5);
             if (var13) {
                 memcpy(var13, var6, var5);
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov000_02166a94(Struct_ov000_02166a94_3* arg0) {
     for (var19 = 0; data_ov000_02183028.unknown_0_[var19] > 0; ++var19) {
         var18 = &data_ov000_02183028;
         sprintf(var15, data_ov000_02183a7a, var18->inline_ov000_02166a94(var19));
-        GetFileInNarc(data_0211e33c, var15, &var6, &var5, 0);
+        GetFileInNarc(gFileScratchSpace_0211e33c, var15, &var6, &var5, 0);
         if (var6) {
             var17 = var14;
             var20 = var17[var19];
@@ -139,29 +139,29 @@ extern "C" ARM void func_ov000_02166a94(Struct_ov000_02166a94_3* arg0) {
             var20->SetScale(0x10a, 0x10a, 0x10a);
         }
     }
-    if (GetFileInNarc(data_0211e33c, data_ov000_02183a85, &var6, &var5, 0)) {
+    if (GetFileInNarc(gFileScratchSpace_0211e33c, data_ov000_02183a85, &var6, &var5, 0)) {
         func_02047b30(&arg0->unknown_5600_[0], (int)var6, var5, (int)var3);
         arg0->unknown_5600_[0].unknown_0_ = 0x3e;
     }
-    if (GetFileInNarc(data_0211e33c, data_ov000_02183a93, &var6, &var5, 0)) {
+    if (GetFileInNarc(gFileScratchSpace_0211e33c, data_ov000_02183a93, &var6, &var5, 0)) {
         func_02047b30(&arg0->unknown_5600_[1], (int)var6, var5, (int)var3);
         arg0->unknown_5600_[1].unknown_0_ = 0x3e;
     }
     char* var23 = arg0->unknown_6ffc_;
     func_ov000_02182114(var23);
-    func_ov000_0218214c(var23, var3, data_0211e33c);
+    func_ov000_0218214c(var23, var3, gFileScratchSpace_0211e33c);
     char* var24 = func_02039e70();
     func_02039e7c(var24);
-    func_02039f04(var24, (int)var3, data_0211e33c);
-    func_0207dfac(var1->unknown_230_);
+    func_02039f04(var24, (int)var3, gFileScratchSpace_0211e33c);
+    SaveTextureVRAMState_0207dfac(var1->unknown_230_);
     arg0->unknown_ea4_ = var3->Allocate(0xa48);
     func_020d6d18((Struct_020d6d18_2*)arg0->unknown_ea4_);
-    func_020d6d90((Struct_020d6d90_3*)arg0->unknown_ea4_, data_0211e33c, var3, var1->unknown_230_);
+    func_020d6d90((Struct_020d6d90_3*)arg0->unknown_ea4_, gFileScratchSpace_0211e33c, var3, var1->unknown_230_);
     func_020d76fc((Struct_020d76fc*)arg0->unknown_ea4_);
     func_020d771c((unsigned char*)arg0->unknown_ea4_);
     func_020d6ec8((Struct_020d6ec8*)arg0->unknown_ea4_, arg0->unknown_4_);
-    func_0207df90(var1->unknown_230_);
-    func_0207dfac(var1->unknown_230_);
+    RestoreTextureVRAMState_0207df90(var1->unknown_230_);
+    SaveTextureVRAMState_0207dfac(var1->unknown_230_);
     func_ov000_02160fa8(arg0, 0x40);
     BackgroundLoader::RemoveLockGlobal();
 }

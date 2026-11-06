@@ -100,17 +100,17 @@ struct Struct_ov023_021fc518_2 {
 };
 
 struct Struct_ov023_021f6ed8;
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 struct Struct_0202e5c0;
 struct Struct_0202df68;
 
 extern "C" void func_ov023_021f6ed8(Struct_ov023_021f6ed8* arg0);
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" Struct_ov023_021fc518_3* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" Struct_ov023_021fc518_3* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" Struct_ov023_021fc518_2* func_ov011_021845f8(void* arg0, int arg1);
-extern "C" void func_0207df50(Struct_0203d028* arg0);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_ov023_021e4e8c(void* arg0);
 extern "C" void func_ov023_021e4f64(void* arg0, SafeAllocator* arg1);
 extern "C" void func_ov023_021e4fd8(void* arg0);
@@ -141,7 +141,7 @@ extern "C" ARM int func_ov023_021fc518(Struct_ov023_021fc518* arg0, void* arg1, 
     arg0->unknown_1868_ = NULL;
     arg0->unknown_186c_ = NULL;
 
-    Struct_ov023_021fc518_3* var0 = func_ov023_021f6880(func_ov011_021849c8(arg1), arg4);
+    Struct_ov023_021fc518_3* var0 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg1), arg4);
     Struct_ov023_021fc518_2* var1 = func_ov011_021845f8(arg1, arg3);
     int var2 = var0->inline_ov023_021fc518_53();
 
@@ -150,8 +150,8 @@ extern "C" ARM int func_ov023_021fc518(Struct_ov023_021fc518* arg0, void* arg1, 
 #else
     char* var3 = GetGameResources()->unknown_2cc_;
 #endif
-    func_0207df50((Struct_0203d028*)var3);
-    func_0207df90(var3);
+    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var3);
+    RestoreTextureVRAMState_0207df90(var3);
     for (int var4 = 0; var4 < 2; var4++) {
         func_ov023_021e4e8c(&arg0->unknown_20_[var4]);
         func_ov023_021e4f64(&arg0->unknown_20_[var4], &var1->unknown_4_);
@@ -159,7 +159,7 @@ extern "C" ARM int func_ov023_021fc518(Struct_ov023_021fc518* arg0, void* arg1, 
         func_ov023_021e6198(&arg0->unknown_20_[var4], var2);
         func_ov023_021e6150(&arg0->unknown_20_[var4], 1);
     }
-    func_0207dfac(var3);
+    SaveTextureVRAMState_0207dfac(var3);
 
     func_ov023_021e60e0(&arg0->unknown_20_[0], 0x1eb);
     func_ov023_021e60e0(&arg0->unknown_20_[1], 0x1eb);

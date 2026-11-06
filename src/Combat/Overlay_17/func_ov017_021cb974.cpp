@@ -35,14 +35,14 @@ struct Struct_ov017_021d82e0 {
 #endif
  void* unknown_3718_; };
 extern "C" void* func_ov017_021b8470(void*);
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 
 // USA: func_ov017_021cb974
 extern "C" ARM void func_ov017_021cb974(int, Struct_ov017_021cb974* arg1, GameState* arg2, Struct_ov017_021d82e0* arg3) {
     Struct_ov017_021cb974_4* var0 = (Struct_ov017_021cb974_4*)func_ov017_021b8470(arg3->unknown_3718_);
     Struct_ov017_021cb974_3* var1;
     if (!var0 || !(var1 = var0->unknown_8e18_)) return;
-    if (var1->unknown_2a_ == func_020100a8(arg2)) return;
+    if (var1->unknown_2a_ == GetProtagonistObjectIndex_020100a8(arg2)) return;
     if (var1->unknown_8_ != arg1->unknown_4_) return;
     int var2 = arg1->unknown_6_ - 0xc0;
     if (var2 < 0 || var2 >= 8) return;

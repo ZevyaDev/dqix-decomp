@@ -3,10 +3,10 @@
 
 struct Struct_0202b2f0;
 
-extern "C" Struct_0202b2f0* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" unsigned char* func_0200ff58(GameState* arg0, int arg1);
 extern "C" int func_020546a8(void* arg0);
 extern "C" void func_02026348(char* arg0, unsigned char* arg1, int arg2);
@@ -21,18 +21,18 @@ extern "C" ARM void func_ov017_02191234(unsigned char* arg0) {
  enum {Enum_ov017_02191234_722=0x2d2, Enum_ov017_02191234_14032=0x36d0};
 #endif
     GameState* var0 = GameState::GetInstance();
-    Struct_0202b2f0* var1 = func_0202ae18();
+    Struct_0202b2f0* var1 = GetLocalWireless_0202ae18();
     unsigned char var2 = 0;
     unsigned char var3 = 0;
     unsigned char var4[4];
     unsigned char var5[4];
 
-    if (func_0202b7d8((int*)var1)) {
+    if (IsLocalWirelessOn_0202b7d8((int*)var1)) {
         for (int var6 = 0; var6 < 4; var6++) {
             if (!func_0202c1c0(var1, var6)) continue;
             var4[var2++] = var6;
             int var7 = 0;
-            if (var6 == func_020100a8(var0)) {
+            if (var6 == GetProtagonistObjectIndex_020100a8(var0)) {
                 var5[var3++] = var6;
                 var7 = 1;
             }

@@ -5,8 +5,8 @@ struct Struct_0201099c_3;
 extern "C" int func_ov000_0217542c(void* arg0);
 extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" int func_02041ea4(char* arg0, int arg1);
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02041dd0(char* arg0, int arg1);
 #if defined(jpn)
 extern "C" void func_0203bdf4(char* arg0, int arg1);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov000_02179a70(struct Struct_ov000_02179a70* arg0, stru
         var2 = &arg0->unknown_958_[arg0->unknown_74_[var3]];
         if (var2->unknown_4c_ >= 0) {
             if (var1 != 0) {
-                func_02042058(arg3, (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_b8_, 0));
+                AppendText_02042058(arg3, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_b8_, 0));
             }
             func_02041dd0(arg3, func_ov000_02170c7c(var2));
 #if defined(jpn)

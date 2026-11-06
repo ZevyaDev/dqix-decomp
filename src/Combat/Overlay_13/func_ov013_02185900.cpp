@@ -23,8 +23,8 @@ enum { Enum_ov013_02185900_1000 = 1000, Enum_ov013_02185900_1001 = 1001, Enum_ov
 #endif
 extern "C" int func_02041d9c(char* arg0, int arg1);
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(Struct_0201099c_3* arg0, int arg1);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 // USA: func_ov013_02185900
 extern "C" ARM void func_ov013_02185900(Struct_ov013_021846a0_2* arg0, char* arg1) {
@@ -32,10 +32,10 @@ extern "C" ARM void func_ov013_02185900(Struct_ov013_021846a0_2* arg0, char* arg
 
     unsigned char var0 = arg0->unknown_63c_;
     if (var0 == 4) {
-        func_02042058(arg1, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, Enum_ov013_02185900_1000));
+        AppendText_02042058(arg1, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, Enum_ov013_02185900_1000));
     } else if (var0 == 3) {
-        func_02042058(arg1, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, Enum_ov013_02185900_1001));
+        AppendText_02042058(arg1, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, Enum_ov013_02185900_1001));
     } else if (var0 == 2) {
-        func_02042058(arg1, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, Enum_ov013_02185900_1002));
+        AppendText_02042058(arg1, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, Enum_ov013_02185900_1002));
     }
 }

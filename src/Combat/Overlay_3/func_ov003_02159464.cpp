@@ -4,7 +4,7 @@
 // USA: func_ov003_02159464
 extern "C" ARM void func_ov003_02159464(void* arg0) {
     unsigned char* var0 = (unsigned char*)arg0;
-    Struct_0208cb08* var1;
+    FontLoader_0208cb08* var1;
     unsigned char var2;
     if (var0[0x59d] == 0) return;
     var1 = func_02094a00();

@@ -50,7 +50,7 @@ struct Struct_02033f44;
 
 extern "C" Struct_ov017_021c96c0_2* GetZone3D_02012fe4(void);
 extern "C" int func_ov017_021d446c(void* arg0, Struct_ov017_021c96c0* arg1, int arg2);
-extern "C" int func_0202c540(void* arg0);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_02018fbc(Struct_ov017_021c96c0_2* arg0, Vector3i* arg1);
 extern "C" int* func_02033f44(Struct_02033f44* arg0);
 struct Struct_02033834_2;
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov017_021c96c0(int arg0, Struct_ov017_021c96c0_4* arg1,
         int var5 = arg1->unknown_6_7_ ? 1 : 0;
 
         if (!(arg1->unknown_4_ == var0->unknown_0_ && var1.unknown_8_->unknown_130_ == 1) && !(var2.x == 0 && var2.y == 0 && var2.z == 0)) {
-            if (func_0202c540(arg4)) {
+            if (IsLocalWirelessGuest_0202c540(arg4)) {
                 if (func_02033f44((Struct_02033f44*)var1.unknown_8_) == 0) {
                     var1.unknown_8_->unknown_44_ = var2;
                 } else {

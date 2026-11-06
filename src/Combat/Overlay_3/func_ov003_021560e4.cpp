@@ -6,9 +6,6 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 enum { Enum_ov003_021560e4_464 = 0x1cc, Enum_ov003_021560e4_1820 = 0x50c, Enum_ov003_021560e4_2456 = 0x868, Enum_ov003_021560e4_32 = 0x20, Enum_ov003_021560e4_44 = 0x2c, Enum_ov003_021560e4_46 = 0x2e };
@@ -26,14 +23,14 @@ enum { Enum_ov003_021560e4_464 = 0x1d0, Enum_ov003_021560e4_1820 = 0x71c, Enum_o
 
 extern "C" {
 void ColorEffect_ConfigureAlphaBlend(int, int, int, int, int);
-int func_020467f0(void*, int, void**, int*);
-int func_02046900(void*);
-int func_020100a8(void*);
+int GetPacEntryData_020467f0(void*, int, void**, int*);
+int CountPacEntries_02046900(void*);
+int GetProtagonistObjectIndex_020100a8(void*);
 void func_0205a444(void*);
-int func_0206dfb0(void*, void*, int);
+int IsFlagSet_0206dfb0(void*, void*, int);
 void func_020dfc40(void*);
 void func_ov023_021e20c0(void*);
-void* func_020e0434(void*, int);
+void* FindStringInTable_020e0434(void*, int);
 void func_0204c7a8(void*, void*, int, int);
 void func_0207fcb8(void*);
 void func_0204b5e8(void*, int, int);
@@ -61,11 +58,11 @@ int func_020420e8(int, int);
 #if !defined(jpn)
 void StartMessage_0204500c(void*, void*, int, int);
 #endif
-void func_02046380(void*);
+void ClearMessageParams_02046380(void*);
 void func_0204b174(void*, void*, int, int);
 void func_0204b5b4(void*, int);
 void func_0205a528(void*, void*, int, void*);
-void* func_0205ec34(void);
+void* GetFlagManager_0205ec34(void);
 int func_0207f9f4(void*);
 void func_020dfec0(void*, void*, void*, unsigned int);
 void func_ov003_02156054(void*);
@@ -145,7 +142,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             func_020d7aa0(func_020d7a50());
         }
         func_ov003_02156054(arg0);
-        Struct_0208cb08* var3 = func_02094a00();
+        FontLoader_0208cb08* var3 = func_02094a00();
         func_02094ab0(var3);
         func_02094b34(var3, 0x66, 0x1f5, 0, 0);
         arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
@@ -179,9 +176,9 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
                 GameState* var12 = GameState::GetInstance();
                 GameObject* var13 = var12->GetPartyMemberByIndex(var11);
                 if (var13 == 0) {
-                    var13 = var12->GetPartyMemberByIndex(func_020100a8(var12));
+                    var13 = var12->GetPartyMemberByIndex(GetProtagonistObjectIndex_020100a8(var12));
                 }
-                func_02046380(var8);
+                ClearMessageParams_02046380(var8);
 #if defined(jpn)
                 if (var13 != 0) {
                     func_02046574(var8, 0, *(char**)((char*)var13 + 0x134));
@@ -191,8 +188,8 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
                 *(void**)var8 = var4;
 #endif
             } else {
-                char* var14 = (char*)func_0205ec34();
-                if (func_0206dfb0(var14, var14 + 0x8c, 0x799)) {
+                char* var14 = (char*)GetFlagManager_0205ec34();
+                if (IsFlagSet_0206dfb0(var14, var14 + 0x8c, 0x799)) {
                     var9 = 0;
                 } else {
                     arg0->unknown_1ec_ = 0;
@@ -200,7 +197,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
                     arg0->unknown_1f8_ = 7;
                 }
             }
-            void* var15 = func_020e0434(arg0->unknown_e4_, var9);
+            void* var15 = FindStringInTable_020e0434(arg0->unknown_e4_, var9);
             if (var15) {
 #if defined(jpn)
                 StartMessage_0204500c(var8, var15, 0);
@@ -231,11 +228,11 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             unsigned int var18;
             int var19;
             var2->GetLoadedFileByID(arg0->unknown_1d0_, &var17, &var18);
-            int var20 = func_02046900(var17);
+            int var20 = CountPacEntries_02046900(var17);
             var0 = (char*)arg0->unknown_0_;
             _ZN13SafeAllocator5ResetEv(var0 + 0x3c);
             for (int var21 = 0; var21 < var20; var21++) {
-                void* var22 = (void*)func_020467f0(var17, var21, &var16, &var19);
+                void* var22 = (void*)GetPacEntryData_020467f0(var17, var21, &var16, &var19);
                 func_0205a528(arg0->unknown_2c_, var22, var19, var0 + 0x3c);
             }
             var2->RemoveTask(arg0->unknown_1d0_);
@@ -266,10 +263,10 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             unsigned int var29;
             int var30;
             var2->GetLoadedFileByID(arg0->unknown_1d0_, &var28, &var29);
-            int var31 = func_02046900(var28);
+            int var31 = CountPacEntries_02046900(var28);
             Struct_02020cb8* var32 = arg0->unknown_10_;
             for (int var33 = 0; var33 < var31; var33++) {
-                void* var34 = (void*)func_020467f0(var28, var33, &var27, &var30);
+                void* var34 = (void*)GetPacEntryData_020467f0(var28, var33, &var27, &var30);
                 func_0204b174(var32, var34, 0, var30);
             }
             var2->RemoveTask(arg0->unknown_1d0_);
@@ -388,7 +385,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             if (arg0->unknown_1fc_ & 1) {
                 GameState* var61 = GameState::GetInstance();
                 if (arg0->unknown_1fb_ == 0) {
-                    arg0->unknown_1f7_ = func_020100a8(var61);
+                    arg0->unknown_1f7_ = GetProtagonistObjectIndex_020100a8(var61);
                     arg0->unknown_1f9_ = 0;
                     if (func_ov003_02155f88(arg0, arg0->unknown_1f7_)) {
                         arg0->unknown_1ec_ = 8;
@@ -407,8 +404,8 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
                     arg0->unknown_1f9_ = 2;
                 }
             } else {
-                char* var62 = (char*)func_0205ec34();
-                if (func_0206dfb0(var62, var62 + 0x8c, 0x796)) {
+                char* var62 = (char*)GetFlagManager_0205ec34();
+                if (IsFlagSet_0206dfb0(var62, var62 + 0x8c, 0x796)) {
                     arg0->unknown_1ec_ = 4;
                     arg0->unknown_1f8_ = 1;
                 } else {

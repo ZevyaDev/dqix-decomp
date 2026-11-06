@@ -5,7 +5,6 @@
 
 #if defined(jpn)
 #define RG(u, j) (j)
-#define func_0205ec34 func_0205ff20
 #else
 #define RG(u, j) (u)
 #endif
@@ -13,18 +12,18 @@
 struct Struct_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
                                                                         unsigned char arg2);
 extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_ov002_0215bf34(char *arg0);
-extern "C" int func_0200fb8c(int *arg0);
-extern "C" int func_020100a8(GameState *arg0);
-extern "C" int func_0206dfb0(int arg0, unsigned char *arg1, int arg2);
-extern "C" char *func_0205ec34(void);
+extern "C" int GetResources_0200fb8c(int *gameState);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char *flags, int flagIndex);
+extern "C" char *GetFlagManager_0205ec34(void);
 extern "C" void func_ov002_02161cf0(void *arg0);
 extern "C" void func_ov002_0215c0f8(void *arg0);
 extern "C" void func_ov002_02161a8c(int arg0);
@@ -32,7 +31,7 @@ extern "C" void func_ov017_021c05f4(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov023_021dca88(void *arg0);
 extern "C" void GetZone3D_02012fe4(void);
 extern "C" void func_02017c58(void);
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 static inline int inline_ov002_021622ec(char *arg0) {
     return (g_keyManager.TestKeysPressed(0x601) |
@@ -58,7 +57,7 @@ extern "C" ARM void func_ov002_021622ec(char *arg0) {
         if (var1 != *(short *) (arg0 + RG(0x1b00, 0x1a00) + RG(0xe0, 0xa8))) return;
         if (inline_ov002_021622ec(arg0) || *(unsigned char *) (arg0 + 0x1000 + RG(0xc2f, 0xaf7)) == 1) {
             GameState *var2                              = GameState::GetInstance();
-            int var3                                      = func_0200fb8c((int *) var2);
+            int var3                                      = GetResources_0200fb8c((int *) var2);
             *(unsigned char *) (arg0 + 0x1000 + RG(0xc2f, 0xaf7)) = 0;
             switch (*(short *) (arg0 + RG(0x1b00, 0x1a00) + RG(0xe0, 0xa8))) {
                 case 0:
@@ -70,7 +69,7 @@ extern "C" ARM void func_ov002_021622ec(char *arg0) {
                         *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = 2;
                         *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 0;
                     } else {
-                        func_ov017_021a120c((GameResources*)var3, 3, func_020100a8(var2));
+                        func_ov017_021a120c((GameResources*)var3, 3, GetProtagonistObjectIndex_020100a8(var2));
                         *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = RG(0x2b, 0x2e);
                         *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 0;
                         GetZone3D_02012fe4();
@@ -88,8 +87,8 @@ extern "C" ARM void func_ov002_021622ec(char *arg0) {
                     *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 0;
                     break;
                 case 4: {
-                    char *var4 = func_0205ec34();
-                    if (!func_0206dfb0((int) var4, (unsigned char *) var4 + 0x8c, 0x119a)) return;
+                    char *var4 = GetFlagManager_0205ec34();
+                    if (!IsFlagSet_0206dfb0((int) var4, (unsigned char *) var4 + 0x8c, 0x119a)) return;
                     func_ov017_021c05f4(var3, 1, 0, 0);
                     *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = RG(0x2b, 0x2e);
                     *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 0;
@@ -101,7 +100,7 @@ extern "C" ARM void func_ov002_021622ec(char *arg0) {
                     *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 0;
                     break;
             }
-            func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
         } else if (func_ov002_02161b48(arg0, 1)) {
             *(unsigned char *) (arg0 + 0x1000 + RG(0xc2f, 0xaf7)) = 0;
             if (*(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) & 1) {

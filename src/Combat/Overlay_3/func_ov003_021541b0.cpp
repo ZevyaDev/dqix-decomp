@@ -4,8 +4,8 @@
 #include "NitroSDK/Graphics.h"
 #include "Resource/Brightness.h"
 
-extern "C" int func_0200fb8c(int* arg0);
-extern "C" void* func_020d6c00(void);
+extern "C" int GetResources_0200fb8c(int* gameState);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_020dc2bc(void);
 extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
@@ -22,10 +22,10 @@ struct Struct_0204b988;
 extern "C" void func_0204b988(struct Struct_0204b988* arg0, unsigned int arg1, int arg2, int arg3, unsigned short arg4);
 struct Struct_02020cb8_2;
 extern "C" void func_0204b0e8(struct Struct_02020cb8_2* arg0, void* arg1);
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0204b174(void* arg0, void* arg1, SafeAllocator* arg2, int arg3);
 
 extern char data_ov003_0217fcb5[];
@@ -52,7 +52,7 @@ struct Struct_ov003_021541b0 {
 
 // USA: func_ov003_021541b0
 extern "C" ARM void func_ov003_021541b0(struct Struct_ov003_021541b0* arg0) {
-    GameResources* var0 = (GameResources*)func_0200fb8c((int*)GameState::GetInstance());
+    GameResources* var0 = (GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance());
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
 
     if (arg0->unknown_5b_ == 0) {
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov003_021541b0(struct Struct_ov003_021541b0* arg0) {
         }
     } else if (arg0->unknown_5b_ == 1) {
         if (IsSubBrightnessTransitionActive(var0) == 0) {
-            func_020466e4((unsigned int*)func_020d6c00(), 1);
+            func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 1);
             func_020dc2bc();
             arg0->unknown_5b_++;
         }
@@ -97,10 +97,10 @@ extern "C" ARM void func_ov003_021541b0(struct Struct_ov003_021541b0* arg0) {
             void* var5;
             unsigned int var6;
             var1->GetLoadedFileByID(arg0->unknown_50_, &var5, &var6);
-            int var7 = func_02046900((struct Struct_02020cb8_4*)var5);
+            int var7 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var5);
             for (int var8 = 0; var8 < var7; var8++) {
                 int var9;
-                void* var10 = func_020467f0((struct Struct_02020aec*)var5, var8, &var4, &var9);
+                void* var10 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var5, var8, &var4, &var9);
                 func_0204b174(arg0->unknown_18_, var10, var3, var9);
             }
             var1->RemoveTask(arg0->unknown_50_);

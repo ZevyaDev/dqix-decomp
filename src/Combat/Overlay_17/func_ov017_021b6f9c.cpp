@@ -11,7 +11,7 @@ enum { Enum_ov017_021b6f9c_17408 = 0x4400, Enum_ov017_021b6f9c_174 = 0xae, Enum_
 #include "Resource/Brightness.h"
 
 extern "C" void func_ov000_021604f0(void);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_020a1e54(int arg0);
 extern "C" void func_020a1f4c(int arg0);
 extern "C" void func_020397c0(void* arg0);
@@ -23,13 +23,13 @@ struct Struct_02038598_5;
 extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_02017d68(void* arg0);
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 struct Struct_02038598_4;
 extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
 struct Struct_020a3578;
 extern "C" void func_020a3578(Struct_020a3578* arg0);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov017_021b6f9c
 extern "C" ARM void func_ov017_021b6f9c(char* arg0) {
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_021b6f9c(char* arg0) {
     void* var7 = var6->GetSignedAllocator();
     if (var7) {
         var6->Destroy();
-        func_02012da4(&data_02114e20, var7);
+        FreeMemory_02012da4(&gMainHeap_02114e20, var7);
     }
 
     if (*(unsigned short*)(arg0 + 0x600 + 0xb6) & 0x800) {
@@ -92,5 +92,5 @@ extern "C" ARM void func_ov017_021b6f9c(char* arg0) {
         func_02017d68(var12);
     }
 
-    func_020466f4((Struct_02038598_4*)func_020d6c00(), 0x40000);
+    func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x40000);
 }

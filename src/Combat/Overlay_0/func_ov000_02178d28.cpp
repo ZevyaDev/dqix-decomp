@@ -48,7 +48,7 @@ struct Struct_ov000_02184294 {
     char* unknown_5c_;
 };
 
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 
 extern "C" Struct_ov000_02184294* GetMessageWindow_020421a0(void);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
@@ -56,12 +56,12 @@ extern "C" Struct_ov000_0215767c* func_ov000_02171674(void*, int);
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
 extern "C" void func_020dd040(int arg0, char* arg1);
 extern "C" void func_02046608(Struct_ov000_02184294* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
-extern "C" void func_02046380(Struct_ov000_02184294* arg0);
+extern "C" void ClearMessageParams_02046380(Struct_ov000_02184294* window);
 extern "C" int func_ov000_02153a8c(GameObject* arg0);
 extern "C" int func_020dd290(void*, unsigned int);
-extern "C" void func_020465c0(Struct_020465c0*, int, int);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" const char* func_020e51cc(int arg0);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 struct Struct_0205d81c;
 extern "C" void* func_0205d81c(Struct_0205d81c*, int);
 #if defined(jpn)
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov000_02178d28(Struct_ov000_02178d28_2* arg0, Struct_ov
     var0 = var8;
 #endif
     var4 = GetMessageWindow_020421a0();
-    func_02046380(var4);
+    ClearMessageParams_02046380(var4);
     int var9;
     if (func_ov000_02153a8c(var1)) {
         var9 = 0;
@@ -125,16 +125,16 @@ extern "C" ARM void func_ov000_02178d28(Struct_ov000_02178d28_2* arg0, Struct_ov
     } else {
         var9 = func_020dd290(var3, var2->unknown_8_0_);
     }
-    func_020465c0((Struct_020465c0*)var4, 0, var9);
-    func_020465c0((Struct_020465c0*)var4, 1, arg1->unknown_e_);
+    SetMessageNumber_020465c0((MessageWindow_020465c0*)var4, 0, var9);
+    SetMessageNumber_020465c0((MessageWindow_020465c0*)var4, 1, arg1->unknown_e_);
 #if defined(jpn)
     func_020465f0((unsigned char*)var4, 0, 3);
     func_020465f0((unsigned char*)var4, 1, 3);
     func_020465d8((unsigned char*)var4, 0, 1);
     func_020465d8((unsigned char*)var4, 1, 1);
-    func_02042058(var0, data_ov000_02185169);
+    AppendText_02042058(var0, data_ov000_02185169);
 #else
-    func_02042058(var0, func_020e51cc(0x3ec));
+    AppendText_02042058(var0, func_020e51cc(0x3ec));
 #endif
     Struct_ov000_0217636c* var10 = &arg0->unknown_188_;
     if (func_0205d81c((Struct_0205d81c*)var10, 0x22) != NULL) {

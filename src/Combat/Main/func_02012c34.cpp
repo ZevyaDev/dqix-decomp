@@ -28,7 +28,7 @@ extern "C" {
 
 extern int data_020f2270;
 extern unsigned char data_02114e00;
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 extern int data_02114e50;
 
 // USA: func_02012c34
@@ -51,7 +51,7 @@ extern "C" ARM void func_02012c34(void) {
     *var0;
     *var0 = 1;
     func_020c3864(1);
-    func_02012d18(&data_02114e20);
+    func_02012d18(&gMainHeap_02114e20);
     _Z24EnableSpecificInterruptsj(0x40000);
     _Z23InitializeROMFilesystemi(2);
     _Z23ChangeROMLoadDMAChannelj(2);

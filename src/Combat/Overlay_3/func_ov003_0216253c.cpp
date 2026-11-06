@@ -52,8 +52,8 @@ struct Struct_ov003_0216253c {
     unsigned char unknown_13f_0_ : 3;
 };
 
-extern int data_02108760;
-extern "C" unsigned int *func_020d6c00();
+extern int gSoundEffectManager_02108760;
+extern "C" unsigned int *GetGlobalFlags_020d6c00();
 struct Struct_02081198;
 extern "C" void func_02081198(Struct_02081198*, int, int);
 struct Struct_02081164;
@@ -68,14 +68,14 @@ extern "C" void func_ov003_02165bd8(Struct_ov003_02154af4_3 *);
 extern "C" void func_ov003_02161438(void*);
 extern "C" int func_ov003_02160854(Struct_ov003_02154af4_3 *);
 extern "C" int func_ov003_021614e8(int);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(Struct_02108760 *, int, int);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
 struct Struct_0207fe44;
 extern "C" void func_0207fe44(Struct_0207fe44*);
 extern "C" Struct_ov003_0216253c * func_ov003_02160bd0(void*, int);
-extern "C" int *func_0202ae18();
-extern "C" int func_0202b7d8(int *);
-extern "C" int func_0202c508(int *);
+extern "C" int *GetLocalWireless_0202ae18();
+extern "C" int IsLocalWirelessOn_0202b7d8(int *);
+extern "C" int IsNotLocalWirelessGuest_0202c508(int *);
 extern "C" void func_ov017_02195540(unsigned char *);
 extern "C" int func_ov003_02160b84(void *);
 extern "C" int func_ov003_02160a68(Struct_ov003_02154af4_3 *);
@@ -87,7 +87,7 @@ extern "C" int func_ov003_021669f0(Struct_ov003_02154af4_3 *);
 // USA: func_ov003_0216253c
 extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
     Struct_ov003_0216201c *var0    = arg0->unknown_324_;
-    unsigned int *var1  = func_020d6c00();
+    unsigned int *var1  = GetGlobalFlags_020d6c00();
     unsigned char var2 = arg0->unknown_4a4_;
 
     if (var2 == 0) {
@@ -145,11 +145,11 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
         int var3 = arg0->unknown_48c_ - 0x15 + arg0->unknown_49f_ * 4;
         func_ov003_02161438(arg0);
         if (func_ov003_02160854(arg0) != 0) {
-            if (var3 == *((unsigned char *)func_02010828(GameState::GetInstance()) + 0x2000 + 0xc8c)) {
+            if (var3 == *((unsigned char *)GetParty_02010828(GameState::GetInstance()) + 0x2000 + 0xc8c)) {
                 if (func_ov003_021614e8((int) arg0) != 0) {
                     return;
                 }
-                func_0205eaa0((Struct_02108760 *) &data_02108760, 1, 0);
+                PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                 func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
                 arg0->unknown_470_ = 0;
                 func_0207fe44((Struct_0207fe44*)var0);
@@ -167,18 +167,18 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
                 return;
             }
             arg0->unknown_480_ = var5;
-            func_0205eaa0((Struct_02108760 *) &data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
             func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
             arg0->unknown_470_ = 0;
             func_0207fe44((Struct_0207fe44*)var0);
             arg0->unknown_464_ |= 0x80000;
             arg0->unknown_464_ |= 8;
             unsigned char *var6 = (unsigned char *) GetGameResources();
-            int *var7           = func_0202ae18();
-            if (func_0202b7d8(var7) != 0 && func_0202c508(var7) != 0) {
+            int *var7           = GetLocalWireless_0202ae18();
+            if (IsLocalWirelessOn_0202b7d8(var7) != 0 && IsNotLocalWirelessGuest_0202c508(var7) != 0) {
                 func_ov017_02195540(var6);
             }
-            int var8 = *((unsigned char *)func_02010828(GameState::GetInstance()) + 0xf7c);
+            int var8 = *((unsigned char *)GetParty_02010828(GameState::GetInstance()) + 0xf7c);
             int var9 = func_ov003_02160b84(arg0);
             if (var8 + var9 == 4) {
                 func_0207fe44((Struct_0207fe44*)var0);
@@ -266,7 +266,7 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
                 arg0->unknown_464_ |= 2;
             }
         } else {
-            if (*((unsigned char *)func_02010828(GameState::GetInstance()) + 0x2000 + 0xc8c) == 0) {
+            if (*((unsigned char *)GetParty_02010828(GameState::GetInstance()) + 0x2000 + 0xc8c) == 0) {
                 arg0->unknown_4a4_ = 0;
             } else {
                 arg0->unknown_484_  = 4;

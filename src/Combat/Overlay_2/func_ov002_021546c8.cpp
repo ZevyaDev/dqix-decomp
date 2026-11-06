@@ -1,14 +1,14 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 
-extern "C" void *func_0202ae18(void);
+extern "C" void *GetLocalWireless_0202ae18(void);
 extern "C" void func_ov002_02153e90(void *arg0);
 extern "C" int func_ov002_02154a6c(void *arg0, int arg1, int arg2);
 extern "C" int func_ov002_02154b94(void *arg0, int arg1);
 extern "C" GameObject *func_0200ff1c(GameState *arg0, int arg1);
 extern "C" short func_02084a64(void *arg0, int arg1);
 extern "C" void func_02083e28(void *arg0, int arg1);
-extern "C" int func_0202b7d8(int *arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void func_ov017_021cf078(int arg0, unsigned char arg1, int arg2);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov002_021546c8(void *arg0, struct Struct_ov002_021546c8_
     if (arg2 == NULL) return 0;
 
     GameState *var0              = GameState::GetInstance();
-    void *var1                    = func_0202ae18();
+    void *var1                    = GetLocalWireless_0202ae18();
     int var2                    = 0;
     struct Struct_ov002_021546c8 *var3 = arg1->unknown_8_;
     if (arg3) var3 = arg1->unknown_20_;
@@ -66,7 +66,7 @@ extern "C" ARM int func_ov002_021546c8(void *arg0, struct Struct_ov002_021546c8_
         if (var5->unknown_2_ <= 0) continue;
         var5->unknown_0_ = 3;
         func_02083e28(*(void **) ((char *) var7 + Enum_ov002_021546c8_336), 0);
-        if (func_0202b7d8((int *) var1)) {
+        if (IsLocalWirelessOn_0202b7d8((int *) var1)) {
             func_ov017_021cf078(var6, *(int *) (*(char **) ((char *) var7 + Enum_ov002_021546c8_336) + Enum_ov002_021546c8_2384) & 0xff, 1);
             func_ov017_021c9e00(var6, 0, 0, 1);
         }

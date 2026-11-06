@@ -26,27 +26,27 @@ struct Struct_02043124 {
 };
 #define REG_BG_OFFSET (*(volatile unsigned int*)0x04000018)
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
-// USA: func_02043124
-extern "C" ARM void func_02043124(Struct_02043124* arg0) {
-    arg0->unknown_9a0_ = 0;
-    arg0->unknown_998_ = 0;
-    if (arg0->unknown_19cc_) {
-        arg0->unknown_19cc_ = 0;
+// USA: CloseMessageWindow_02043124
+extern "C" ARM void CloseMessageWindow_02043124(Struct_02043124* window) {
+    window->unknown_9a0_ = 0;
+    window->unknown_998_ = 0;
+    if (window->unknown_19cc_) {
+        window->unknown_19cc_ = 0;
         #if defined(jpn)
-        void* var0 = data_02107800.unknown_30_;
+        void* screenBuffer = data_02107800.unknown_30_;
 #else
-        void* var0 = data_02107800;
+        void* screenBuffer = data_02107800;
 #endif
-        memset(var0, 0, 0x1000);
-        StageMemoryToVRAM((VRAMSubregion)7, var0, 0, 0x800, true, false);
-        StageMemoryToVRAM((VRAMSubregion)9, var0, 0, 0x800, true, false);
-        void* var1 = (void*)GetMainBG1ScreenBase();
-        if (var1) memset(var1, 0, 0x800);
+        memset(screenBuffer, 0, 0x1000);
+        StageMemoryToVRAM((VRAMSubregion)7, screenBuffer, 0, 0x800, true, false);
+        StageMemoryToVRAM((VRAMSubregion)9, screenBuffer, 0, 0x800, true, false);
+        void* bg1Screen = (void*)GetMainBG1ScreenBase();
+        if (bg1Screen) memset(bg1Screen, 0, 0x800);
         REG_BG_OFFSET = 0;
         REG_DISPCNT = (REG_DISPCNT & ~0x1f00) | 0x1300;
     }
-    if (arg0->unknown_38_) {
-        func_020e1cb8(arg0->unknown_38_);
+    if (window->unknown_38_) {
+        func_020e1cb8(window->unknown_38_);
     }
-    arg0->unknown_38_ = 0;
+    window->unknown_38_ = 0;
 }

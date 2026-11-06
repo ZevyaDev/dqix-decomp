@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
 #include "Combat/Main/BattleList.h"
@@ -70,7 +70,7 @@ struct Struct_0203d028_8 {
     struct Struct_0203d028_7* inline_0203d028_2() { return &unknown_1840_; }
 };
 extern "C" struct Struct_0203d028_8* GetZone3D_02012fe4(void);
-extern "C" unsigned int* func_020d6c00(void);
+extern "C" unsigned int* GetGlobalFlags_020d6c00(void);
 
 extern "C" int func_020981e4(int arg0, int arg1);
 extern "C" int func_02098210(int arg0, int arg1);
@@ -129,8 +129,8 @@ struct Struct_0203d028_11 {
 };
 extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
 
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 struct Struct_0203d028_12;
 extern "C" struct Struct_0203d028_12* func_0209854c(struct Struct_0203d028_12* arg0, int arg1);
@@ -169,8 +169,8 @@ extern "C" void func_0203f138(void* arg0, int arg1);
 
 extern "C" void func_0203e8f8(void* arg0, void* arg1, void* arg2);
 
-struct Struct_0203d028;
-extern "C" void func_0207df50(struct Struct_0203d028* arg0);
+struct TextureVRAMArea_0203d028;
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
 
 struct GameState;
 extern "C" void func_0200fd48(GameState*, int);
@@ -342,7 +342,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
 #else
 #define GLOBAL_SUB ((char*)var3 + 0x840)
 #endif
-    unsigned int* var5 = func_020d6c00();
+    unsigned int* var5 = GetGlobalFlags_020d6c00();
     unsigned int var6 = *(unsigned short*)var3;
     void* var7 = 0;
     unsigned int var8 = 0;
@@ -394,12 +394,12 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
             if (var25 == 0) goto abort_unlock;
             struct Struct_0203d028_11 var26;
             func_0203dafc(&var26);
-            func_0207df90(arg3);
+            RestoreTextureVRAMState_0207df90(arg3);
             var26.unknown_c_ = (int)arg2;
             var26.unknown_4_ = (int)var25;
             var26.unknown_8_ = (int)var13;
             ((Object3D*)var10->unknown_18_)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var26, 0);
-            func_0207dfac(arg3);
+            SaveTextureVRAMState_0207dfac(arg3);
         }
         else if (var2->unknown_2_ == 4) {
 #if defined(jpn)
@@ -476,7 +476,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
                     char* var38 = &inline_0203d028_5(var1, 0x930);
                     var2->unknown_2_ = 0;
                     var37->Reset();
-                    func_0207df50((struct Struct_0203d028*)var38);
+                    ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)var38);
                     func_0200fd48((GameState*)var0, 5);
                     func_020466f4((struct Struct_02038598_4*)var5, 0x400000);
                 }
@@ -502,14 +502,14 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
             sprintf(var41, &data_020efde9, var2->unknown1_4_);
 
             if (!LoadAndDecompressGPCHeaderAndInnerFileInfo(&PAIR.pGPCFile, var39.machine,
-                    &data_020efdf0, data_0211e33c, var14, 0x30000, false, NULL))
+                    &data_020efdf0, gFileScratchSpace_0211e33c, var14, 0x30000, false, NULL))
             {
                 PAIR.Reset();
                 ZeroDestroyGPCPointer(&PAIR.pGPCFile);
                 goto abort_unlock;
             }
 
-            unsigned char* var42 = data_0211e33c + var14;
+            unsigned char* var42 = gFileScratchSpace_0211e33c + var14;
             if (!DecompressFileFromGPCByName(var39.pGPCFile, var39.machine,
                     var42, var15, 0x30000 - var14, var41))
             {
@@ -530,12 +530,12 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
 
             struct Struct_0203d028_11 var43;
             func_0203dafc(&var43);
-            func_0207df90(arg3);
+            RestoreTextureVRAMState_0207df90(arg3);
             var43.unknown_c_ = (int)arg2;
             var43.unknown_4_ = (int)var23;
             var43.unknown_8_ = (int)var18;
             ((Object3D*)var10->unknown_18_)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var43, 0);
-            func_0207dfac(arg3);
+            SaveTextureVRAMState_0207dfac(arg3);
 
             var10->unknown_18_->unknown_d4_ |= 2;
             var39.Reset();
@@ -619,12 +619,12 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
                     if (var22 != 0) {
                         struct Struct_0203d028_11 var52;
                         func_0203dafc(&var52);
-                        func_0207df90(arg3);
+                        RestoreTextureVRAMState_0207df90(arg3);
                         var52.unknown_4_ = (int)var22;
                         var52.unknown_8_ = (int)var20;
                         var52.unknown_c_ = (int)arg2;
                         ((Object3D*)((int)var7))->LoadFromCHRArchive((ObjectArchiveLoadInfo*)((int)&var52));
-                        func_0207dfac(arg3);
+                        SaveTextureVRAMState_0207dfac(arg3);
                     }
                     ((Object3D*)((struct Struct_0203d028_18*)var7))->SetScale(0x10a, 0x10a, 0x10a);
                     ((Object3D*)((unsigned char*)var7))->SetFlag16();

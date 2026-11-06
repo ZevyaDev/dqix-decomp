@@ -7,13 +7,13 @@
 struct Struct_02011544;
 struct Struct_02038598_4;
 
-extern int data_0211e33c;
+extern int gFileScratchSpace_0211e33c;
 extern int data_02108e00;
 
 extern "C" int func_02075910(int arg0, void* arg1, int arg2, int arg3);
 extern "C" void func_02075acc(int arg0, void* arg1, int arg2, int arg3);
 extern "C" int func_020a9eb8(void* arg0, int arg1, int arg2, int arg3);
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 void SetBrightness(struct GameResources* res, int a, int b);
@@ -49,14 +49,14 @@ extern "C" ARM int func_020aad1c(struct Struct_020aad1c* arg0, int arg1, int arg
         } else {
             BackgroundLoader::FreeAllocationsGlobal();
 #if !defined(jpn)
-            unsigned int* var3 = (unsigned int*)func_020d6c00();
+            unsigned int* var3 = (unsigned int*)GetGlobalFlags_020d6c00();
             func_020466e4(var3, 0x2000000);
             SetFlags00(var1, 0x10);
 #endif
-            int var4 = (int)&data_0211e33c + 0x1c + 0x29000;
+            int var4 = (int)&gFileScratchSpace_0211e33c + 0x1c + 0x29000;
             if (func_02075910(0x8000, (void*)(arg0->unknown_4_ = var4), 0x6fe4, 1) == 0) {
 #if !defined(jpn)
-                var3 = (unsigned int*)func_020d6c00();
+                var3 = (unsigned int*)GetGlobalFlags_020d6c00();
                 func_020466f4((struct Struct_02038598_4*)var3, 0x2000000);
                 ClearFlags00(var1, 0x10);
 #endif
@@ -74,7 +74,7 @@ extern "C" ARM int func_020aad1c(struct Struct_020aad1c* arg0, int arg1, int arg
         data_02108e00 = arg0->unknown_4_;
         if (func_020a9eb8(arg0, arg1, arg2, arg3) == 0) {
 #if !defined(jpn)
-            func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 0x2000000);
+            func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x2000000);
             ClearFlags00(GetGameResources(), 0x10);
 #endif
             arg0->unknown_0_ = 4;
@@ -91,7 +91,7 @@ extern "C" ARM int func_020aad1c(struct Struct_020aad1c* arg0, int arg1, int arg
         func_02075cb8();
         if (arg3 != 0) {
 #if !defined(jpn)
-            func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 0x2000000);
+            func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x2000000);
             ClearFlags00(GetGameResources(), 0x10);
 #endif
             arg0->unknown_0_ = 4;
@@ -106,7 +106,7 @@ extern "C" ARM int func_020aad1c(struct Struct_020aad1c* arg0, int arg1, int arg
         }
         func_02075cb8();
 #if !defined(jpn)
-        func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 0x2000000);
+        func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x2000000);
         ClearFlags00(GetGameResources(), 0x10);
 #endif
         arg0->unknown_0_ = 4;

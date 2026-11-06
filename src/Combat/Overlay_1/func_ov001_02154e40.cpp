@@ -6,8 +6,8 @@
 
 extern "C" void func_0208beb4(unsigned char* arg0);
 extern "C" void func_0208bb78(void* arg0, int arg1);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
-extern AllocatorUnion data_02114e20;
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern AllocatorUnion gMainHeap_02114e20;
 
 struct Struct_ov001_02154e40 {
     char unknown_0_[0xa];
@@ -42,13 +42,13 @@ extern "C" ARM int func_ov001_02154e40(struct Struct_ov001_02154e40* arg0) {
         void* var2 = (void*)arg0->unknown_138_->GetSignedAllocator();
         if (var2) {
             arg0->unknown_138_->Destroy();
-            func_02012da4(&data_02114e20, var2);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var2);
             arg0->unknown_138_ = 0;
         }
         arg0->unknown_120_ = 0;
     }
 
-    Struct_0208cb08* var3 = func_02094a00();
+    FontLoader_0208cb08* var3 = func_02094a00();
     unsigned char var4 = 1;
     if (arg0->unknown_13_ != 0) {
         var4 = 0;

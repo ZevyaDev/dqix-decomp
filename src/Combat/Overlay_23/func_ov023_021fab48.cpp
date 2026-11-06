@@ -2,7 +2,7 @@
 #include "Memory/SafeAllocator.h"
 
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
-extern "C" void* func_ov011_021849c8(void*);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 
 struct Struct_0205af18;
 extern "C" int func_0205af18(int arg0, struct Struct_0205af18* arg1);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov023_021fab48(void* arg0, void* arg1, const void* arg2
     ((SafeAllocator*)((char*)var0 + 4))->GetSizeWithLargestBlockRemoved();
     void* var4;
     int var5 = *(int*)((char*)arg0 + Enum_ov023_021fab48_108);
-    var4 = func_ov011_021849c8(arg1);
+    var4 = GetMenuObjectList_ov011_021849c8(arg1);
     *(int*)((char*)arg0 + Enum_ov023_021fab48_120) = 0;
     *(int*)((char*)arg0 + Enum_ov023_021fab48_124) = var5;
     func_ov023_021f6d14((struct Struct_ov023_021f6d14*)var4, (struct Struct_ov023_021f6d14_2*)((char*)arg0 + Enum_ov023_021fab48_120));

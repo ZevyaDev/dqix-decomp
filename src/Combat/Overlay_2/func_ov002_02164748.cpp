@@ -15,14 +15,14 @@ extern "C" void func_0205de24(struct Struct_ov002_0215624c_11 *arg0, unsigned ch
                                                                         unsigned char arg2);
 extern "C" int func_0205d794(struct Struct_ov002_0215624c_15 *arg0);
 extern "C" int func_0205da38(struct Struct_ov002_02164748* arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_ov002_02157d40_7 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct Struct_ov002_02157d40_7 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_0205deb4(struct Struct_ov002_02155960_2 *arg0, int arg1, int arg2);
 extern "C" void func_0205dee8(struct Struct_ov002_02164748_2 *arg0, int arg1);
-extern "C" unsigned char *func_02053c6c(unsigned char *arg0);
+extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
 extern "C" GameObject *func_0200ff1c(GameState *arg0, int arg1);
-extern "C" void *func_02010828(GameState *arg0);
+extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" void func_02083834(struct Struct_ov002_02164748_3 *arg0, int arg1);
 extern "C" int func_02083994(struct Struct_ov002_02164748_4 *arg0, int arg1);
 extern "C" void func_020a095c(struct Struct_ov002_02164748_5 *arg0, int arg1, int arg2);
@@ -31,7 +31,7 @@ extern "C" void func_ov002_0215bba8(char *arg0);
 extern "C" void func_ov002_0215a7b4(char *arg0, int arg1, short arg2, int arg3, int arg4);
 extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -63,11 +63,11 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
         int var2 = g_keyManager.TestKeysPressed(0x601);
         int var3 = func_0205da38((struct Struct_ov002_02164748*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0x14);
         if ((var2 | var3) ? 1 : 0) {
-            func_0205eaa0((struct Struct_ov002_02157d40_7 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7 *) gSoundEffectManager_02108760, 1, 0);
             GameState *var4 = GameState::GetInstance();
             GameObject *var5 = func_0200ff1c(var4, *(signed char *) (arg0 + RG(0x1c00 + 0x21, 0x1ae9)));
             if (var5 == NULL) return;
-            unsigned char *var6 = func_02053c6c((unsigned char *) var5);
+            unsigned char *var6 = GetPartyMemberData_02053c6c((unsigned char *) var5);
             GameObject *var7     = func_0200ff1c(var4, *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)));
             if (var7 == NULL && *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)) != 4) return;
             int var8                          = 0;
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
             } else if (var9 > 0) {
                 var8 = 1;
                 if (*(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)) == 4) {
-                    void *var11 = func_02010828(var4);
+                    void *var11 = GetParty_02010828(var4);
                     func_ov002_0215a7b4(arg0, *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)), *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1aea)),
                                         *(short *) (arg0 + RG(0x1b00 + 0xe8, 0x1ab0)), 0);
                     func_020a095c((struct Struct_ov002_02164748_5 *) var11,
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
                 } else {
                     GameObject *var12 = func_0200ff1c(var4, *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)));
                     if (var12 == NULL) return;
-                    unsigned char *var13                           = func_02053c6c((unsigned char *) var12);
+                    unsigned char *var13                           = GetPartyMemberData_02053c6c((unsigned char *) var12);
                     SLOT(var13, *(short *) (arg0 + RG(0x1b00 + 0xe8, 0x1ab0))) = *(short *) (arg0 + RG(0x1c00 + 0x24, 0x1aec));
                     SLOT(var6, *(short *) (arg0 + RG(0x1b00 + 0xf4, 0x1abc))) = *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1aea));
                     if (*(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)) == *(signed char *) (arg0 + RG(0x1c00 + 0x21, 0x1ae9))) {
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
                     var14 = 1;
                 if (*(short *) (arg0 + RG(0x1c00 + 0x22, 0x1aea)) == 0x570a && var15 != 4) {
                     short var16 = func_02083994(
-                        (struct Struct_ov002_02164748_4 *) func_02053c6c((unsigned char *) var7), 0x570a);
+                        (struct Struct_ov002_02164748_4 *) GetPartyMemberData_02053c6c((unsigned char *) var7), 0x570a);
                     if (var16 == 0 || (var16 == 1 && var14)) {
                         *(unsigned char *) (*(char **) ((char *) var7 + 0x130) + 8) = 0;
                         func_ov017_021c9e00(var7->obj3D_.unknown_4_, 0, 0, 1);

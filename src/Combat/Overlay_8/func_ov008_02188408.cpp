@@ -3,33 +3,30 @@
 #include <std_library_functions.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_0201099c_3;
 struct MessageWindow_02021b84;
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" const char* func_020e046c(char* arg0, void* arg1, unsigned int arg2, short arg3);
 extern "C" int func_020420e8(const char* arg0, int arg1);
-extern "C" char* func_0205ec34();
-extern "C" void func_02046380(MessageWindow_02021b84* arg0);
+extern "C" char* GetFlagManager_0205ec34();
+extern "C" void ClearMessageParams_02046380(MessageWindow_02021b84* window);
 
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
 extern "C" void func_02041a5c(char* arg0, int arg1);
-extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_0204201c(char* arg0, int arg1, int);
-extern "C" int func_0206dfb0(int, unsigned char*, int);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_020a0870(Struct_02061c04* arg0);
 extern "C" int func_020a08d8(Struct_02061c04* arg0);
 extern "C" int func_020a08a4(Struct_02061c04* arg0);
 extern "C" int func_020a090c(Struct_02061c04* arg0);
-extern "C" void func_020465c0(Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 
 #if defined(jpn)
 extern char data_ov008_0218c0d5[];
@@ -128,7 +125,7 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
         int var6 = 6;
         if (var4 != func_020d2ff0(var2)) var6 = 8;
         func_02041a90(arg1, var5, var6);
-        func_02042058(arg1, var2);
+        AppendText_02042058(arg1, var2);
 #else
         char* var7 = arg0->unknown_b8_ + 0x8e0;
         BackgroundLoader::AddLockGlobal();
@@ -148,20 +145,20 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
             var12 = 0;
         func_02041a90(arg1, var12, 6);
         if (var7 != NULL)
-            func_02042058(arg1, var7);
+            AppendText_02042058(arg1, var7);
 #endif
         return;
     }
     int var13 = 3;
-    char* var14 = func_0205ec34();
-    if (func_0206dfb0((int)var14, (unsigned char*)var14 + 0x8c, 0x1198))
+    char* var14 = GetFlagManager_0205ec34();
+    if (IsFlagSet_0206dfb0((int)var14, (unsigned char*)var14 + 0x8c, 0x1198))
         var13 = 4;
     if (arg2 == 0)
     {
         for (int var15 = 0; var15 < var13; var15++)
         {
             func_02041a90(arg1, 4, var15 * 15 + 4);
-            func_02042058(arg1, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var15 + 0x82)));
+            AppendText_02042058(arg1, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var15 + 0x82)));
         }
     }
     else if (arg2 == 1)
@@ -181,7 +178,7 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
         else
         {
             Struct_02061c04 var21;
-            func_020ac4c0(&var21);
+            GetBattleRecords_020ac4c0(&var21);
             int var22 = var21.unknown_14_0_;
             int var23 = var21.unknown_16_2_;
             int var24 = var21.unknown_15_1_;
@@ -199,23 +196,23 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
             if (var19 == 0 && var25 > 0)
                 var19 = 1;
         }
-        func_02046380(var0);
-        func_020465c0((Struct_020465c0*)var0, 0, var16);
+        ClearMessageParams_02046380(var0);
+        SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 0, var16);
 #if defined(jpn)
         func_020465f0((unsigned char*)var0, 0, 3);
         func_020465d8((unsigned char*)var0, 0, 1);
 #endif
-        func_020465c0((Struct_020465c0*)var0, 1, var17);
+        SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 1, var17);
 #if defined(jpn)
         func_020465f0((unsigned char*)var0, 1, 3);
         func_020465d8((unsigned char*)var0, 1, 1);
 #endif
-        func_020465c0((Struct_020465c0*)var0, 2, var18);
+        SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 2, var18);
 #if defined(jpn)
         func_020465f0((unsigned char*)var0, 2, 3);
         func_020465d8((unsigned char*)var0, 2, 1);
 #endif
-        func_020465c0((Struct_020465c0*)var0, 3, var19);
+        SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 3, var19);
 #if defined(jpn)
         func_020465f0((unsigned char*)var0, 3, 3);
         func_020465d8((unsigned char*)var0, 3, 1);
@@ -223,10 +220,10 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
         for (int var26 = 0; var26 < var13; var26++)
         {
 #if defined(jpn)
-            func_02042058(arg1, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var26 + 0x8c)));
+            AppendText_02042058(arg1, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var26 + 0x8c)));
 #else
             func_02041a5c(arg1, var26 * 15 + 4);
-            func_0204201c(arg1, (int)func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var26 + 0x8c)), 0x18);
+            func_0204201c(arg1, (int)FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var26 + 0x8c)), 0x18);
 #endif
         }
     }

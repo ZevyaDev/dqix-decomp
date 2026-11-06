@@ -88,7 +88,7 @@ extern "C" ARM void func_ov002_0215ab60(Struct_ov002_0215ab60* arg0) {
         Struct_0205d0e0* var5 = func_0205d81c(&arg0->unknown_ec8_, Enum_ov002_0215ab60_24);
         if (var5) {
             GameState* var6 = GameState::GetInstance();
-            func_02010828(var6);
+            GetParty_02010828(var6);
             Type_020b1300 var7 = arg0->unknown_1c73_;
             short var8 = var5->unknown_ac_ * 8;
             short var9 = var5->unknown_ae_ * 8;

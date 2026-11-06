@@ -16,9 +16,6 @@
 #include "NitroSDK/OverlayId.h"
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
@@ -252,30 +249,30 @@ extern "C" void func_020474a8(Struct_ov008_02189c70_12*, int, char*, char*);
 extern "C" void StartMessage_0204500c(Struct_ov008_02189c70_12*, char*, int);
 #endif
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" int func_0202ae18();
+extern "C" int GetLocalWireless_0202ae18();
 extern "C" void func_020728ac(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, int arg4, int arg5, int arg6);
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 struct Struct_02038598_4;
 extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" void func_ov008_0218b240(Struct_ov008_02189c70_16* arg0);
-extern "C" Struct_ov008_02189c70_9* func_02053c6c(unsigned char*);
+extern "C" Struct_ov008_02189c70_9* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
-struct Struct_02072a68_2;
-extern "C" char* func_02072a68(Struct_02072a68_2*, int);
+struct StringList_02072a68_2;
+extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 struct Struct_0201099c_3;
-extern "C" char* func_020e0434(Struct_0201099c_3*, int);
+extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_02099304(void* arg0, void* arg1, void* arg2, unsigned int arg3, char* arg4, int arg5, int arg6, char* arg7, char* arg8);
-extern "C" void func_02046380(void* arg0);
-extern "C" void* func_0205ec34();
-extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" void ClearMessageParams_02046380(void* window);
+extern "C" void* GetFlagManager_0205ec34();
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
 extern "C" void func_02046608(Struct_ov008_02189c70_12* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_ov008_02189c70_12* window, char* text, int arg2, int arg3);
 #endif
-extern "C" int func_0202c508(int arg0);
+extern "C" int IsNotLocalWirelessGuest_0202c508(int wireless);
 extern "C" int func_020457e0(Struct_ov008_02189c70_12* arg0);
 extern "C" void func_ov008_0218b1e0(void* arg0);
 struct Struct_0205d6a0;
@@ -324,7 +321,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
     Struct_ov008_02189c70_12* var11 = (Struct_ov008_02189c70_12*)GetMessageWindow_020421a0();
     Struct_ov008_02189c70_15* var12 = (Struct_ov008_02189c70_15*)GetGameResources();
     Struct_ov008_02189c70_13* var13 = var12->unknown_3b84_;
-    int var14 = func_0202ae18();
+    int var14 = GetLocalWireless_0202ae18();
 
     if (arg0->unknown_e9a_ == 0) {
 #if defined(jpn)
@@ -354,7 +351,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             }
             arg0->unknown_ec4_ = var16;
             arg0->unknown_ec8_ = var18;
-            func_020466f4((Struct_02038598_4*)func_020d6c00(), 0x2f);
+            func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x2f);
             ClearFlags00(GetGameResources(), 0x10);
             arg0->unknown_e9a_ = arg0->unknown_e9a_ + 1;
         }
@@ -370,7 +367,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             var10->GetLoadedFileByID(arg0->unknown_eb0_, &var20, &var21);
             arg0->unknown_ec4_ = var20;
             arg0->unknown_ec8_ = var21;
-            func_020466f4((Struct_02038598_4*)func_020d6c00(), 0x2f);
+            func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x2f);
             ClearFlags00(GetGameResources(), 0x10);
             arg0->unknown_e9a_ = arg0->unknown_e9a_ + 1;
         }
@@ -389,7 +386,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
                 func_ov008_0218b240(arg0);
                 return;
             }
-            var23 = func_02053c6c((unsigned char*)var22);
+            var23 = GetPartyMemberData_02053c6c((unsigned char*)var22);
             var24 = (signed char)var22->unknown_150_->unknown_950_;
 #if defined(jpn)
             var25 = (char*)arg0 + 0xdf2;
@@ -423,29 +420,29 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             arg0->unknown_e24_ = 0;
         }
         int var29 = arg0->unknown_ebc_ != 0 ? 3 : 1;
-        char* var30 = func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x280), (short)(arg0->unknown_e21_1_ + 10000));
+        char* var30 = FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x280), (short)(arg0->unknown_e21_1_ + 10000));
         char* var31;
         int var32 = arg0->unknown_e22_3_;
         if (var32 < 700) {
-            var31 = func_020e0434((Struct_0201099c_3*)((char*)arg0 + 0x288), (short)var32);
+            var31 = FindStringInTable_020e0434((Struct_0201099c_3*)((char*)arg0 + 0x288), (short)var32);
         } else if (var32 < 800) {
             int var33 = 20700;
 #if !defined(jpn)
             if (arg0->unknown_e1f_1_ == 1) var33 += 50;
 #endif
-            var31 = func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x280), (short)(var24 + var33));
+            var31 = FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x280), (short)(var24 + var33));
         } else {
-            var31 = func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x280), (short)(var32 + 20000));
+            var31 = FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x280), (short)(var32 + 20000));
         }
         func_02099304((char*)arg0 + LOW_REGION(0xe18,0xe1c), var25, arg0->unknown_ec4_, arg0->unknown_ec8_, var0, 0x400, var29, var30, var31);
-        func_02046380(var11);
+        ClearMessageParams_02046380(var11);
         int var34 = 0;
         char* var35 = var0;
         var35 += strlen(var0);
         if (arg0->unknown_ebc_ == 0) {
-            void* var36 = func_0205ec34();
-            if (!func_0206dfb0((int)var36, (unsigned char*)((char*)var36 + 0x8c), 0x119b)) {
-                char* var37 = func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0x66);
+            void* var36 = GetFlagManager_0205ec34();
+            if (!IsFlagSet_0206dfb0((int)var36, (unsigned char*)((char*)var36 + 0x8c), 0x119b)) {
+                char* var37 = FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0x66);
                 int var38 = strlen(var37);
                 memcpy(var35, var37, var38);
                 var35 += var38;
@@ -490,7 +487,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             }
             memset(var1, 0, 0x100);
             if (!var34) {
-                char* var46 = func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0x64);
+                char* var46 = FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0x64);
 #if defined(jpn)
                 func_02046574((Struct_02046574_2*)var11, 0, var25);
                 func_020474a8(var11, 0xc, var46, var1);
@@ -519,7 +516,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
         arg0->unknown_eb0_ = -1;
 #endif
         if (arg0->unknown_ebc_ != 0) {
-            if (arg0->unknown_ebc_->unknown_b_7_ && func_0202c508(var14)) {
+            if (arg0->unknown_ebc_->unknown_b_7_ && IsNotLocalWirelessGuest_0202c508(var14)) {
                 arg0->unknown_e9a_ = 3;
             } else {
                 arg0->unknown_e9a_ = 2;
@@ -534,16 +531,16 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
         if (func_020457e0(var11) == 0) {
             memset(var2, 0, 0x80);
             if (*((unsigned char*)var9 + LOW_REGION(0x6000 + 0xfbc,0x7000 + 0x1fc)) >= 0x10) {
-                char* var47 = func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0x69);
+                char* var47 = FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0x69);
                 memcpy(var2, var47, strlen(var47));
                 arg0->unknown_ebb_ = 1;
             } else {
 #if defined(jpn)
                 func_02046574((Struct_02046574_2*)var11, 0, (char*)arg0 + 0xdf2);
-                char* var48 = func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0x68);
+                char* var48 = FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0x68);
                 func_020474a8(var11, 0xc, var48, var2);
 #else
-                char* var49 = func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0x68);
+                char* var49 = FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0x68);
                 func_020e4bf4(var8, arg0->unknown_eb9_);
                 var11->unknown_10_ = var8;
                 func_02046608(var11, 0xc, var49, var2, 0xe3, 0, 1);
@@ -583,7 +580,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             Struct_ov008_02189c70_19* var51 = &var3.unknown_4c_.unknown_0_;
             func_02046574((Struct_02046574_2*)var11, 2, var51->unknown_3b_);
             func_02046574((Struct_02046574_2*)var11, 3, var51->unknown_5b_);
-            func_02046574((Struct_02046574_2*)var11, 4, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xc8));
+            func_02046574((Struct_02046574_2*)var11, 4, FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0xc8));
             func_02046574((Struct_02046574_2*)var11, 5, var51->unknown_9b_);
         } else if (var3.unknown_1_ == 2) {
             Struct_ov008_02189c70* var52 = &var3.unknown_4c_.unknown1_0_;
@@ -618,15 +615,15 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
 #endif
         if (func_02011804(var9) >= 0x63) {
 #if defined(jpn)
-            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xc9), 0);
+            StartMessage_0204500c(var11, FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0xc9), 0);
 #else
-            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xc9), 0, 0xe3);
+            StartMessage_0204500c(var11, FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0xc9), 0, 0xe3);
 #endif
         } else {
 #if defined(jpn)
-            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0);
+            StartMessage_0204500c(var11, FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0);
 #else
-            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0, 0xe3);
+            StartMessage_0204500c(var11, FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0, 0xe3);
 #endif
         }
         var11->unknown_998_ = 1;
@@ -638,7 +635,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
 #if defined(jpn)
             char* var54 = var11->unknown_2c_;
             char* var55 = *(char**)((char*)var9->GetUnknownGameObject() + 0x134);
-            sprintf(var54, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xcb), var55);
+            sprintf(var54, FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0xcb), var55);
             var11->unknown_2c8_ = 1;
             StartMessage_0204500c(var11, var54, 0);
 #else
@@ -646,9 +643,9 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             var11->unknown_0_ = var7;
             var11->unknown_2c8_ = 1;
 #if defined(jpn)
-            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xcb), 0);
+            StartMessage_0204500c(var11, FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0xcb), 0);
 #else
-            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xcb), 0, 0xe3);
+            StartMessage_0204500c(var11, FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0xcb), 0, 0xe3);
 #endif
 #endif
             var11->unknown_998_ = 1;
@@ -707,7 +704,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             func_02011ab8((char*)var9);
             func_02011a74((char*)var9, 0, var61->unknown_3b_);
             func_02011a74((char*)var9, 1, var61->unknown_5b_);
-            func_02011a74((char*)var9, 2, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xc8));
+            func_02011a74((char*)var9, 2, FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0xc8));
             func_02011a74((char*)var9, 3, var61->unknown_9b_);
         } else if (((TreasureMapMetadata*)&var59)->GetMapType() == 2) {
             Struct_ov008_02189c70* var62 = &var5.unknown_4c_.unknown1_0_;
@@ -746,7 +743,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             Struct_ov008_02189c70_19* var65 = &var6.unknown_4c_.unknown_0_;
                 func_02046574((Struct_02046574_2*)var11, 2, var65->unknown_3b_);
                 func_02046574((Struct_02046574_2*)var11, 3, var65->unknown_5b_);
-                func_02046574((Struct_02046574_2*)var11, 4, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xc8));
+                func_02046574((Struct_02046574_2*)var11, 4, FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0xc8));
                 func_02046574((Struct_02046574_2*)var11, 5, var65->unknown_9b_);
             } else if (var6.unknown_1_ == 2) {
             Struct_ov008_02189c70* var66 = &var6.unknown_4c_.unknown1_0_;
@@ -771,9 +768,9 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
 #endif
             func_02046574((Struct_02046574_2*)var11, 1, *(char**)((char*)var9->GetUnknownGameObject() + 0x134));
 #if defined(jpn)
-            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0);
+            StartMessage_0204500c(var11, FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0);
 #else
-            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0, 0xe3);
+            StartMessage_0204500c(var11, FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0, 0xe3);
 #endif
             var11->unknown_998_ = 1;
             var11->unknown_19b2_ = 0;

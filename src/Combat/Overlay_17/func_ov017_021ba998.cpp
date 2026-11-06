@@ -12,13 +12,13 @@ struct Struct_ov017_021ba998_2 {
     Struct_ov017_021ba998* unknown_1c_;
     unsigned char unknown_20_; signed char unknown_21_; unsigned char unknown_22_;
 };
-extern "C" unsigned int* func_0200fb8c(int*);
+extern "C" unsigned int* GetResources_0200fb8c(int*);
 extern "C" unsigned char* func_020100f8(char*);
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020a28a0(unsigned char*, unsigned char);
 extern "C" void func_020a28b0(unsigned char*, int);
 extern "C" void func_020a0cc4(unsigned int);
-extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_020a0c0c();
 extern "C" void func_020a1df8(int);
 extern "C" Struct_0206f7f4* func_0206f504();
@@ -34,13 +34,13 @@ extern "C" void func_ov003_02158d4c(Struct_ov017_021ba998*);
 extern "C" int func_ov003_0215916c(void*);
 extern "C" void func_020397c0(void*);
 extern "C" void func_ov017_021ba94c(Struct_ov017_021ba998_2*);
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
 
 // USA: func_ov017_021ba998
 extern "C" ARM void func_ov017_021ba998(Struct_ov017_021ba998_2* arg0) {
     GameState* var0 = GameState::GetInstance();
-    unsigned int* var1 = func_0200fb8c((int*)var0);
+    unsigned int* var1 = GetResources_0200fb8c((int*)var0);
     GameObject* var2 = var0->GetUnknownGameObject();
     unsigned char* var3 = func_020100f8((char*)var0);
     SetFlags04((GameResources*)var1, 0xc0);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_021ba998(Struct_ov017_021ba998_2* arg0) {
     if (var4 < 0) var4 = 1;
     if (arg0->unknown_22_ == 0) {
         func_020a0cc4(0x16e00);
-        void* var5 = func_02012d88(&data_02114e20, 0x16e00);
+        void* var5 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x16e00);
         if (!var5) {
             func_020a0c0c(); arg0->unknown_1_ = 1;
             return;

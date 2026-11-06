@@ -3,7 +3,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" void* func_0202ae24(void);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov017_0218d4ec(void* arg0, int arg1);
 extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov017_021d25f4(int arg0) {
     if (var4 == 0) return;
     GameObject* var5 = var4->GetPartyMemberByIndex(arg0);
     if (var5 == 0) return;
-    int var6 = func_02053c6c((unsigned char*)var5);
+    int var6 = GetPartyMemberData_02053c6c((unsigned char*)var5);
     if (var6 == 0) return;
 
     var3->unknown_0_ = (unsigned char)arg0;

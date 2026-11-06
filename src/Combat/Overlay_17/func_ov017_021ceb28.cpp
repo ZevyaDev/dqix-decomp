@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
 extern "C" void* func_020e2ff8(void);
-extern "C" int func_0202c508(void*);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" void func_020e321c(void*, int, int);
 extern "C" void func_020e33b4(void*, int, int);
 
-struct Struct_0202c1a4;
-extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
 struct Struct_0208ab34_2 {
     unsigned char unknown_0_;
@@ -25,9 +25,9 @@ struct Struct_ov017_021ceb28 {
 };
 
 // USA: func_ov017_021ceb28
-extern "C" ARM void func_ov017_021ceb28(int arg0, struct Struct_ov017_021ceb28* arg1, int arg2, int arg3, struct Struct_0202c1a4* arg4) {
+extern "C" ARM void func_ov017_021ceb28(int arg0, struct Struct_ov017_021ceb28* arg1, int arg2, int arg3, struct LocalWireless_0202c1a4* arg4) {
     void* var0 = func_020e2ff8();
-    int var1 = func_0202c508(arg4);
+    int var1 = IsNotLocalWirelessGuest_0202c508(arg4);
     if (var1 != 0 && arg0 > 0) {
         if (arg1->unknown_4_ != 0) {
             func_020e321c(var0, arg1->unknown_5_, arg1->unknown_7_);
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov017_021ceb28(int arg0, struct Struct_ov017_021ceb28* 
         return;
     }
     if (arg0 != 0) return;
-    signed char var2 = func_0202c1a4(arg4);
+    signed char var2 = GetOwnProtagonistObjectIndex_0202c1a4(arg4);
     if (arg1->unknown_7_ != var2) return;
     struct Struct_0208ab34_2* var3 = func_020e3054((struct Struct_0208ab34_2*)var0, arg1->unknown_5_);
     if (var3 == NULL) return;

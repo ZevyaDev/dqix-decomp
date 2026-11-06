@@ -19,15 +19,15 @@ extern "C" int fix32_Atan2(int, int);
 struct Struct_02033834_2;
 extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
 
-extern "C" int func_0202ae18(void);
-extern "C" int func_0202c508(void);
+extern "C" int GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void);
 
 extern "C" int func_02011b50(void* arg0, int arg1);
 extern "C" void func_02011b3c(void* arg0, unsigned char arg1);
 
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
-extern struct Struct_02108760 data_02108760;
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 // USA: func_ov004_021688d4
 extern "C" ARM int func_ov004_021688d4(void) {
@@ -64,11 +64,11 @@ extern "C" ARM int func_ov004_021688d4(void) {
         func_02033834((struct Struct_02033834_2*)var3, var12);
     }
 
-    func_0202ae18();
-    if (func_0202c508()) {
+    GetLocalWireless_0202ae18();
+    if (IsNotLocalWirelessGuest_0202c508()) {
         GameState* var13 = GameState::GetInstance();
         if (func_02011b50(var13, 0x10)) {
-            func_0205eaa0(&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         }
         func_02011b3c(var13, 0x10);
     }

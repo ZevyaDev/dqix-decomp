@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
 
 struct Struct_02052e2c;
@@ -33,7 +33,7 @@ enum { Enum_020732cc_336 = 0x150 };
 extern "C" ARM void func_020732cc(int arg0) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetGameResources();
-    void* var2 = func_02010828(var0);
+    void* var2 = GetParty_02010828(var0);
     GameObject* var3 = func_0200ff1c(var0, arg0);
     if (var3 != NULL) {
         int var4;

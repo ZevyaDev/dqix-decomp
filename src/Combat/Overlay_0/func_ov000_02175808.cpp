@@ -39,7 +39,7 @@ struct Struct_ov000_02175808_4 { char unknown_0_[0xf78]; signed char unknown_f78
 struct Struct_ov000_02175808 { char unknown_0_[0x10]; unsigned char unknown_10_[8]; signed char unknown_18_; };
 extern "C" void __clear(void*, unsigned long);
 extern "C" void func_ov000_021757ac(Struct_ov000_021735d0_3*, unsigned short);
-extern "C" int func_020100a8(GameState*);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" Struct_ov000_02175808* func_ov000_02161318(Struct_ov000_021735d0_3*, int);
 extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
 extern "C" int func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
@@ -71,9 +71,9 @@ extern "C" ARM void func_ov000_02175808(Struct_ov000_021735d0_3* arg0) {
     }
     if (!var1) return;
     GameState* var7 = GameState::GetInstance();
-    arg0->unknown_17c_ = func_020100a8(var7);
+    arg0->unknown_17c_ = GetProtagonistObjectIndex_020100a8(var7);
     func_ov000_021757ac(arg0, 0);
-    Struct_ov000_02175808_4* var8 = (Struct_ov000_02175808_4*)func_02010828(var7);
+    Struct_ov000_02175808_4* var8 = (Struct_ov000_02175808_4*)GetParty_02010828(var7);
     unsigned char var9 = var8->unknown_f7c_;
     for (unsigned char var10 = 0; var10 < var9; ++var10) {
         Struct_ov000_02175808* var11 = func_ov000_02161318(arg0, var8->unknown_f78_[var10]);

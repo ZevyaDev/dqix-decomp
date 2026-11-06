@@ -9,7 +9,7 @@ enum { Enum_02027100_1880 = 0x758, Enum_02027100_1884 = 0x75c, Enum_02027100_188
 #include "Resource/GameResources.h"
 
 extern "C" void func_0203bd08(void);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_0202756c(void* arg0, int arg1, int arg2, int arg3,
         unsigned char arg4, unsigned char arg5, unsigned short arg6, unsigned char arg7, int arg8, int arg9);
 extern Struct_020fdc60_2 data_020fdc60[];
@@ -30,7 +30,7 @@ extern "C" ARM void func_02027100(unsigned char* arg0) {
         if (var4 == NULL) {
             continue;
         }
-        if (func_02053c6c((unsigned char*)var4) == 0) {
+        if (GetPartyMemberData_02053c6c((unsigned char*)var4) == 0) {
             continue;
         }
         if (*(int*)((char*)&data_020fdcb0 + (var3 << 5)) < 0) {

@@ -18,7 +18,7 @@ struct Struct_020995c0;
 extern struct Struct_020995c0* data_02109924;
 
 extern char data_020f155c[];
-extern char data_0211e33c[];
+extern char gFileScratchSpace_0211e33c[];
 extern char data_020f1524[];
 
 // USA: func_020998c4
@@ -28,7 +28,7 @@ extern "C" ARM void func_020998c4(struct Struct_020995c0* arg0) {
 
     BackgroundLoader::AddLockGlobal();
 
-    struct Struct_02013fb4* var2 = (struct Struct_02013fb4*)LoadFileIntoMemory(data_020f155c, data_0211e33c, (unsigned int*)&var0);
+    struct Struct_02013fb4* var2 = (struct Struct_02013fb4*)LoadFileIntoMemory(data_020f155c, gFileScratchSpace_0211e33c, (unsigned int*)&var0);
     if (var2 != 0) {
         data_02109924 = arg0;
         ((Script*)((struct Struct_0201f040*)var1))->Initialize();

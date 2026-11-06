@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_ov000_0215fc60(char* arg0);
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" float func_02084f58(void* arg0);
 extern "C" int func_02085c08(unsigned char* arg0);
 extern "C" int func_02083b00(unsigned char* arg0, int arg1);
@@ -42,7 +42,7 @@ extern "C" ARM float func_ov000_02156270(struct Struct_ov000_02156270* arg0, int
         if (var4 == NULL) {
             return 0.0f;
         }
-        unsigned char* var5 = (unsigned char*)func_02053c6c((unsigned char*)var4);
+        unsigned char* var5 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var4);
         if (var5 == NULL) {
             return 0.0f;
         }

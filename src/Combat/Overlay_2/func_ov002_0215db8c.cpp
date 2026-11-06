@@ -15,11 +15,11 @@ extern "C" void func_ov002_02157424(void *arg0, int *arg1);
 extern "C" int func_ov002_02159774(void *arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_02041c08(char *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" void func_02041ea4(char *arg0, int arg1);
-extern "C" const char *func_020e0434(Struct_0201099c_3 *arg0, int arg1);
+extern "C" const char *FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void func_02041fac(char *arg0, int arg1, int arg2);
 extern "C" void func_02041e70(char *arg0, int arg1);
 extern "C" void func_02041b70(char *arg0, int arg1, const char *arg2);
-extern "C" void func_02042058(char *arg0, const char *arg1);
+extern "C" void AppendText_02042058(char *buffer, const char *text);
 
 // USA: func_ov002_0215db8c
 extern "C" ARM void func_ov002_0215db8c(char *arg0, char *arg1, int arg2) {
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov002_0215db8c(char *arg0, char *arg1, int arg2) {
     if (arg2) func_02041c08(arg1, var2, 8, 5, 5, 5);
     func_02041ea4(arg1, var2);
     func_02041fac(
-        arg1, (int) func_020e0434((Struct_0201099c_3 *) (arg0 + RG(0x20, 0x8)), 0x76c), 0x10);
+        arg1, (int) FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + RG(0x20, 0x8)), 0x76c), 0x10);
     int var4;
     int var5 = *(int *) (arg0 + RG(0x1c38, 0x1afc)) + 1;
     int var6;
@@ -47,8 +47,8 @@ extern "C" ARM void func_ov002_0215db8c(char *arg0, char *arg1, int arg2) {
                 func_02041e70(arg1, 0xf);
             }
         } else {
-            func_02041b70(arg1, var6, func_020e0434((Struct_0201099c_3 *) (arg0 + RG(0x20, 0x8)), var3++));
+            func_02041b70(arg1, var6, FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + RG(0x20, 0x8)), var3++));
         }
-        if (var6 != var5 - 1) func_02042058(arg1, *(const char **) (arg0 + RG(0x1bdc, 0x1aa4)));
+        if (var6 != var5 - 1) AppendText_02042058(arg1, *(const char **) (arg0 + RG(0x1bdc, 0x1aa4)));
     }
 }

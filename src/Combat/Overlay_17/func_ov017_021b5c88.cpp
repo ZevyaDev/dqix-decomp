@@ -9,12 +9,12 @@ struct Struct_02015ef4_4 {
     short unknown_14_, unknown_16_, unknown_18_, unknown_1a_, unknown_1c_;
 };
 
-struct Struct_0201099c_10 {
+struct ItemTable_0201099c_10 {
     unsigned short unknown_0_;
     unsigned char unknown_2_[10];
-    Struct_02015ef4_4* unknown_c_;
+    Struct_02015ef4_4* pItems_c_;
     unsigned char unknown_10_[4];
-    unsigned char unknown_14_;
+    unsigned char isSorted_14_;
 };
 
 struct Struct_ov017_021b5c88 {
@@ -23,7 +23,7 @@ struct Struct_ov017_021b5c88 {
 #else
     unsigned char unknown1_0_[0x2754];
 #endif
-    Struct_0201099c_10 unknown_2754_;
+    ItemTable_0201099c_10 unknown_2754_;
 };
 
 struct Struct_ov017_021b5c88_2 {
@@ -44,12 +44,12 @@ struct Struct_ov017_021b5c88_3 {
 };
 
 extern "C" Struct_ov017_021b5c88* GetZone3D_02012fe4(void);
-extern "C" Struct_02015ef4_4* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
+extern "C" Struct_02015ef4_4* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
 extern "C" unsigned short func_020de234(Struct_02015ef4_4* arg0, int arg1);
 
 // USA: func_ov017_021b5c88
 extern "C" ARM int func_ov017_021b5c88(Struct_ov017_021b5c88_3* arg0) {
-    Struct_0201099c_10* var0 = &GetZone3D_02012fe4()->unknown_2754_;
+    ItemTable_0201099c_10* var0 = &GetZone3D_02012fe4()->unknown_2754_;
     if (arg0->unknown_24_->unknown_4_2_ == 1) {
         arg0->unknown_17_ = 0x69;
         arg0->unknown_14_ = 0x7f;

@@ -9,7 +9,7 @@
 extern "C" void func_ov004_0216794c(short* arg0, short* arg1, short* arg2, unsigned char* arg3, int* arg4);
 extern "C" void func_ov004_02167b78(void* arg0, int arg1);
 extern "C" void func_ov004_02167adc(void* arg0);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 // USA: func_ov004_02167eb0
 extern "C" ARM int func_ov004_02167eb0(void* arg0) {
@@ -20,9 +20,9 @@ extern "C" ARM int func_ov004_02167eb0(void* arg0) {
 	func_ov004_02167b78(arg0, 0);
 	func_ov004_02167adc(arg0);
 	if (var3 != 0) {
-		func_ov011_021848a0(arg0, 0x28);
+		QueueMenuScriptEntry_ov011_021848a0(arg0, 0x28);
 	} else {
-		func_ov011_021848a0(arg0, 0x33);
+		QueueMenuScriptEntry_ov011_021848a0(arg0, 0x33);
 	}
 	return 0;
 }

@@ -13,14 +13,14 @@ struct Struct_ov000_02171c04_2 {
     unsigned char unknown_0_[0x194];
     Struct_ov000_02171c04 unknown_194_[8];
 };
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_ov000_02171c04_3 {
-    Struct_0201099c_10* unknown_0_;
+    ItemTable_0201099c_10* unknown_0_;
     unsigned char unknown_4_[0x4c - 0x4];
     int unknown_4c_;
 };
 
-extern "C" Struct_ov000_02171c04* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
+extern "C" Struct_ov000_02171c04* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
 extern "C" unsigned char data_ov000_02183388[8];
 
 // USA: func_ov000_02171d90

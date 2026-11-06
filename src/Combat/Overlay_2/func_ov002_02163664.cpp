@@ -5,23 +5,23 @@
 struct Struct_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0205d81c;
 struct Struct_0205dee8;
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
                                                                         unsigned char arg2);
 extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_0205deb4(struct Struct_0205d81c *arg0, int arg1, int arg2);
 extern "C" void func_0205dee8(struct Struct_0205dee8 *arg0, int arg1);
-extern "C" unsigned char *func_02053c6c(unsigned char *arg0);
+extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 extern "C" int func_ov002_02154f4c(unsigned char *arg0);
 extern "C" int func_020dcc20(int arg0, int arg1);
 extern "C" int func_020dcbbc(unsigned char *arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" char *func_020dedd0(struct Struct_0201099c_10 *arg0, int arg1);
+extern "C" char *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
 extern "C" void func_ov002_02156ff0(unsigned char *arg0, int arg1);
 extern "C" int func_ov002_0215b7d0(char* arg0);
 extern "C" int func_020dc920(int arg0, int arg1, int arg2, int arg3);
@@ -33,7 +33,7 @@ extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
 extern "C" int func_ov002_0215b720(char *arg0, int arg1);
 extern "C" void func_ov002_02157d40(char *arg0);
 extern "C" void func_ov002_02157634(char *arg0);
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 // USA: func_ov002_02163664
 #if defined(jpn)
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
         *(short *) (arg0 + 0x1ab4) = func_ov002_02154f4c((unsigned char *) arg0);
         GameObject *var1 = GameState::GetInstance()->GetProtagonist();
         if (var1 != NULL) {
-            short var2 = *(short *) (func_02053c6c((unsigned char *) var1) + 0x800 + 0xc6);
+            short var2 = *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var1) + 0x800 + 0xc6);
             for (int var3 = 0; var3 < *(unsigned char *) (arg0 + 0x1000 + 0xb31); var3++) {
                 if (var2 == *(unsigned char *) (arg0 + var3 + 0x1000 + 0xb2c)) {
                     *(short *) (arg0 + 0x1ab4) = var3;
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
             func_ov002_0215b814(arg0);
             *(unsigned char *) (arg0 + 0xed8)          = *(int *) (arg0 + 0x1a80);
             *(unsigned char *) (arg0 + 0x1ae9) = var6[*(short *) (arg0 + 0x1ab4)];
-            func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
             *(unsigned int *) (arg0 + 0x22ac) &= ~4;
             func_ov002_0215b9a4(arg0, 0x11, 1);
             func_0205deb4((struct Struct_0205d81c *) (arg0 + 0xe20), 0x11, 1);
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
                 func_ov002_02157d40(arg0);
                 return;
             }
-            char *var11 = func_020dedd0((struct Struct_0201099c_10 *) (arg0 + 0x750),
+            char *var11 = func_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + 0x750),
                                                                         *(short *) (arg0 + 0x1aea));
             if (var11 != NULL && func_ov002_0215b720(arg0, *(short *) (var11 + 0x14))) {
                 *(int *) (arg0 + 0x1a88) = 2;
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
             GameObject *var12 = GameState::GetInstance()->GetProtagonist();
             if (var12 != NULL) {
                 short var13                                                        = *(signed char *) (arg0 + 0x1ae9);
-                *(short *) (func_02053c6c((unsigned char *) var12) + 0x800 + 0xc6) = var13;
+                *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var12) + 0x800 + 0xc6) = var13;
             }
             func_ov002_02157634(arg0);
         } else if (func_ov002_02161b48(arg0, 1)) {
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
             GameObject *var15 = GameState::GetInstance()->GetProtagonist();
             if (var15 != NULL) {
                 short var16                                                        = *(signed char *) (arg0 + 0x1ae9);
-                *(short *) (func_02053c6c((unsigned char *) var15) + 0x800 + 0xc6) = var16;
+                *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var15) + 0x800 + 0xc6) = var16;
             }
             func_ov002_02157634(arg0);
         } else if (var14 < 0) {
@@ -175,7 +175,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
         GameObject *var20 = GameState::GetInstance()->GetProtagonist();
         if (var20 != NULL) {
             int var21 = 0;
-            short var22   = *(short *) (func_02053c6c((unsigned char *) var20) + 0x900 + 0x5e);
+            short var22   = *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var20) + 0x900 + 0x5e);
             for (int var23 = 0; var23 < var18; var23++) {
                 if (var22 == var19[var23]) {
                     *(short *) (arg0 + 0x1b00 + 0xec) = var23;
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
             func_ov002_0215b814(arg0);
             *(unsigned char *) (arg0 + 0xf80)          = *(int *) (arg0 + 0x1000 + 0xbb8);
             *(unsigned char *) (arg0 + 0x1000 + 0xc21) = var26[*(short *) (arg0 + 0x1b00 + 0xec)];
-            func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
             *(unsigned int *) (arg0 + 0x2000 + 0x47c) &= ~4;
             func_ov002_0215b9a4(arg0, 0x10, 1);
             func_0205deb4((struct Struct_0205d81c *) (arg0 + 0x2c8 + 0xc00), 0x10, 1);
@@ -238,7 +238,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
                 func_ov002_02157d40(arg0);
                 return;
             }
-            char *var31 = func_020dedd0((struct Struct_0201099c_10 *) (arg0 + 0x3ec + 0x400),
+            char *var31 = func_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + 0x3ec + 0x400),
                                                                         *(short *) (arg0 + 0x1c00 + 0x22));
             if (var31 != NULL && func_ov002_0215b720(arg0, *(short *) (var31 + 0x14))) {
                 *(int *) (arg0 + 0x1000 + 0xbc0) = 2;
@@ -247,7 +247,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
             GameObject *var32 = GameState::GetInstance()->GetProtagonist();
             if (var32 != NULL) {
                 short var33                                                        = *(signed char *) (arg0 + 0x1c00 + 0x21);
-                *(short *) (func_02053c6c((unsigned char *) var32) + 0x900 + 0x5e) = var33;
+                *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var32) + 0x900 + 0x5e) = var33;
             }
             func_ov002_02157634(arg0);
         } else if (func_ov002_02161b48(arg0, 1)) {
@@ -275,7 +275,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
             GameObject *var35 = GameState::GetInstance()->GetProtagonist();
             if (var35 != NULL) {
                 short var36                                                        = *(signed char *) (arg0 + 0x1c00 + 0x21);
-                *(short *) (func_02053c6c((unsigned char *) var35) + 0x900 + 0x5e) = var36;
+                *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var35) + 0x900 + 0x5e) = var36;
             }
             func_ov002_02157634(arg0);
         } else if (var34 < 0) {

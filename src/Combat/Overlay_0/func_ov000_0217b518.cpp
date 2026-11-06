@@ -4,7 +4,7 @@
 
 struct Struct_0205c570;
 struct Struct_0205def8;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 
 struct Struct_ov000_0217b518 {
     unsigned char unknown_0_[0x188];
@@ -62,14 +62,14 @@ struct Struct_ov000_0217b518_3 {
 };
 
 extern Struct_ov000_02184294_4 data_ov000_02184294;
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 extern "C" int func_0205d794(struct Struct_0205c570* arg0);
 extern "C" void func_0205def8(struct Struct_0205def8* arg0, int arg1, int arg2);
 struct Struct_0205da38;
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
-extern "C" unsigned char* func_02053c6c(unsigned char* arg0);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
+extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov000_0217ab48(void* arg0);
 extern "C" void func_ov000_02171458(Struct_ov000_0217b518_3* arg0);
 extern "C" void func_ov000_0217629c(Struct_ov000_0217b518_3* arg0);
@@ -97,11 +97,11 @@ extern "C" ARM int func_ov000_0217b518(Struct_ov000_0217b518_3* arg0, int arg1, 
     bool var4 = (var3 | func_0205da38((struct Struct_0205da38*)arg0->unknown_38_, 0x14)) ? 1 : 0;
     if (var4 || arg0->unknown_444_) {
         func_0205def8((struct Struct_0205def8*)var0->unknown_188_, 0, 0x22);
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         func_ov000_02171458(arg0);
         GameObject* var5 = GameState::GetInstance()->GetPartyMemberByIndex(arg0->unknown_4c_);
         if (var5 != NULL) {
-            unsigned char* var6 = func_02053c6c((unsigned char*)var5);
+            unsigned char* var6 = GetPartyMemberData_02053c6c((unsigned char*)var5);
             if (var6 != NULL) {
                 *(unsigned short*)(var6 + 0x8c8) = arg0->unknown_26_;
             }
@@ -144,11 +144,11 @@ extern "C" ARM int func_ov000_0217b518(Struct_ov000_0217b518_3* arg0, int arg1, 
     int var11 = (var10 | func_0205da38((struct Struct_0205da38*)arg0->unknown_38_, 0x14)) ? 1 : 0;
     if (var11 || arg0->unknown_444_) {
         func_0205def8((struct Struct_0205def8*)var8->unknown1_188_, 0, 0x22);
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         func_ov000_02171458(arg0);
         GameObject* var12 = GameState::GetInstance()->GetPartyMemberByIndex(arg0->unknown_4c_);
         if (var12 != NULL) {
-            unsigned char* var13 = func_02053c6c((unsigned char*)var12);
+            unsigned char* var13 = GetPartyMemberData_02053c6c((unsigned char*)var12);
             if (var13 != NULL) {
                 *(unsigned short*)(var13 + 0x960) = arg0->unknown_26_;
             }

@@ -24,8 +24,8 @@ public:
     virtual void inline_ov023_021fa108_8(Vector3i* arg0);
 };
 
-extern "C" Struct_ov023_021fa108_2* func_ov023_021f6880(void* arg0, int arg1);
-extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" Struct_ov023_021fa108_2* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 
 // USA: func_ov023_021fa108
 extern "C" ARM void func_ov023_021fa108(void* arg0, void* arg1, struct Struct_ov023_021fa108* arg2) {
@@ -65,8 +65,8 @@ extern "C" ARM void func_ov023_021fa108(void* arg0, void* arg1, struct Struct_ov
         }
     }
 
-    void* var12 = func_ov011_021849c8(arg1);
-    Struct_ov023_021fa108_2* var13 = func_ov023_021f6880(var12, arg2->unknown_0_);
+    void* var12 = GetMenuObjectList_ov011_021849c8(arg1);
+    Struct_ov023_021fa108_2* var13 = FindMenuObjectById_ov023_021f6880(var12, arg2->unknown_0_);
     if (var13 != NULL) {
         var13->inline_ov023_021fa108_8(&arg2->unknown_10_);
     }

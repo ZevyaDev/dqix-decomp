@@ -85,7 +85,7 @@ extern "C" ARM void func_0203348c(Struct_020332ac* arg0) {
         }
         var4 = var4 * var2;
         int var12 = var7;
-        if (arg0->unknown_0_ & 0x100) {
+        if (arg0->classFlags_0_ & 0x100) {
             var12 = arg0->unknown_ae_;
         }
         Vector3fix var13;

@@ -11,14 +11,14 @@
 #include <Resource/CharacterCreationUI.h>
 
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_02046380(void* arg0);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" int* func_ov017_021a193c(int* arg0);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void func_020e46c4(void* arg0);
 extern "C" short func_ov005_0215a930(void* arg0, int arg1);
 extern "C" void func_020dcf7c(int arg0, void* arg1);
-extern "C" char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_02046608(void* arg0, unsigned char arg1, const char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 
 struct Struct_ov005_02158b3c_6 {
@@ -90,7 +90,7 @@ extern "C" void func_02046574(void*, int, char*);
 extern "C" ARM int func_ov005_02158b3c(void* arg0, void* arg1) {
     if (arg1 == 0) return 0;
     Struct_ov005_02158b3c_2* var0 = (Struct_ov005_02158b3c_2*)GetMessageWindow_020421a0();
-    func_02046380(var0);
+    ClearMessageParams_02046380(var0);
     GameState* var1 = GameState::GetInstance();
 #if defined(jpn)
     int var3 = ((Struct_ov005_02158b3c_6*)func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]))->unknown_4fc_;
@@ -121,7 +121,7 @@ extern "C" ARM int func_ov005_02158b3c(void* arg0, void* arg1) {
         unsigned char var9 = func_ov005_0215a930(arg0, var8->unknown_3dbc_);
         Struct_ov005_02158b3c* var10 = (Struct_ov005_02158b3c*)((char*)var4->unknown_150_ + 0x194) + var9;
         if (var10) {
-            func_02046380(var0);
+            ClearMessageParams_02046380(var0);
 #if defined(jpn)
             char var11[0x40];
             __clear(var11, 0x40);
@@ -170,7 +170,7 @@ extern "C" ARM int func_ov005_02158b3c(void* arg0, void* arg1) {
     }
 
     if (var17 >= 0) {
-        sprintf((char*)arg1, func_020e0434(&var8->unknown_df8_, var17));
+        sprintf((char*)arg1, FindStringInTable_020e0434(&var8->unknown_df8_, var17));
     }
 #if !defined(jpn)
     char var18[0x800];

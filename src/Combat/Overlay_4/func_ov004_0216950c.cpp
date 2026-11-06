@@ -10,7 +10,7 @@ extern "C" int func_ov023_021f9bc8(char* arg0);
 struct Struct_ov004_0216950c;
 extern "C" void func_ov004_021695fc(struct Struct_ov004_0216950c* arg0);
 extern "C" void func_ov004_0216920c(void* arg0);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" int func_ov004_02169adc(void* arg0);
 
 extern void* data_ov004_02171030;
@@ -56,7 +56,7 @@ extern "C" ARM int func_ov004_0216950c(void* arg0) {
     func_ov004_0216920c(arg0);
 
     if (var0[0] == 0) {
-        func_ov011_021848a0(arg0, 0x66);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x66);
         return 0;
     }
     func_ov004_02169adc(arg0);

@@ -87,13 +87,13 @@ struct Struct_ov005_02157b74_2 {
 extern "C" GameState* _ZN9GameState11GetInstanceEv();
 extern "C" Struct_ov005_02157b74_9* func_ov017_021a193c(int*);
 extern "C" Struct_ov005_02157b74_8* func_0200ff1c(GameState* arg0, int arg1);
-extern "C" char* func_02010828(GameState* arg0);
+extern "C" char* GetParty_02010828(GameState* gameState);
 struct Struct_02052df8;
 extern "C" short func_02052df8(Struct_02052df8*, int);
-struct Struct_0201099c_10;
-extern "C" Struct_ov005_02157b74_5* func_020dedd0(Struct_0201099c_10*, int);
+struct ItemTable_0201099c_10;
+extern "C" Struct_ov005_02157b74_5* func_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" void func_02052d7c(Struct_ov005_02157b74_8* arg0, int arg1, short arg2);
-extern "C" void* func_02053c6c(unsigned char*);
+extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" void func_0208358c(void* arg0, Struct_ov005_02157b74_5* arg1, int arg2);
 extern "C" void func_02083738(void* arg0, int arg1);
 struct Struct_ov005_02157b74_3;
@@ -107,8 +107,8 @@ extern "C" void func_0207c378(char* arg0, short arg1, int arg2, int arg3);
 extern "C" void func_ov005_021551fc(char*, int, int);
 extern "C" void func_ov005_02155544(Struct_ov005_02157b74_2* arg0);
 extern "C" void func_ov005_021555c0(Struct_ov005_02157b74_2* arg0);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" int func_020dd4c4(signed char arg0, Struct_ov005_02157b74_5* arg1);
 struct Struct_020deda4;
 extern "C" Struct_ov005_02157b74_6* func_020deda4(int, int, Struct_020deda4*);
@@ -124,7 +124,7 @@ extern "C" void func_ov005_02154d50(void* arg0, int arg1, int arg2);
 
 extern signed char data_ov005_0215cd40[];
 extern unsigned char data_ov005_0215cd38[];
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 extern unsigned char data_ov005_0215cd30[];
 
 // USA: func_ov005_02157b74
@@ -137,12 +137,12 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
     Struct_ov005_02157b74_8* var5 = func_0200ff1c(var1, var4);
     if (var5 == 0) return;
 
-    var0 = func_02010828(var1);
+    var0 = GetParty_02010828(var1);
 
     if (arg1 == 0xffff) {
         int var6 = data_ov005_0215cd40[arg0->unknown_3dbc_];
         short var7 = func_02052df8((Struct_02052df8*)var5, var6);
-        Struct_ov005_02157b74_5* var8 = func_020dedd0((Struct_0201099c_10*)arg0->unknown_df4_, (short)var7);
+        Struct_ov005_02157b74_5* var8 = func_020dedd0((ItemTable_0201099c_10*)arg0->unknown_df4_, (short)var7);
         if (var8 == 0) return;
 
         if (var8->unknown_a_2_ == 1) {
@@ -158,8 +158,8 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
             var9 = 0x3e8;
         }
         func_02052d7c(var5, var6, -1);
-        void* var10 = func_02053c6c((unsigned char*)var5);
-        Struct_ov005_02157b74_5* var11 = func_020dedd0((Struct_0201099c_10*)arg0->unknown_df4_, (short)var9);
+        void* var10 = GetPartyMemberData_02053c6c((unsigned char*)var5);
+        Struct_ov005_02157b74_5* var11 = func_020dedd0((ItemTable_0201099c_10*)arg0->unknown_df4_, (short)var9);
         if (var11 != 0) {
             func_0208358c(var10, var11, var3);
         } else {
@@ -202,13 +202,13 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
                 }
             }
         }
-        func_0205eaa0((Struct_02108760*)data_02108760, 0x5c, 0);
+        PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 0x5c, 0);
         arg0->unknown_3dcc_ |= 0x200;
         arg0->unknown_3dcc_ |= 1;
         return;
     }
 
-    Struct_ov005_02157b74_5* var13 = func_020dedd0((Struct_0201099c_10*)arg0->unknown_df4_, (short)arg1);
+    Struct_ov005_02157b74_5* var13 = func_020dedd0((ItemTable_0201099c_10*)arg0->unknown_df4_, (short)arg1);
     if (var13 == 0) return;
 
     unsigned int var14 = var13->unknown_12_4_;
@@ -259,7 +259,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
     short var17 = func_02052df8((Struct_02052df8*)var5, var15);
     if (var17 == (short)arg1) return;
 
-    Struct_ov005_02157b74_5* var18 = func_020dedd0((Struct_0201099c_10*)arg0->unknown_df4_, (short)var17);
+    Struct_ov005_02157b74_5* var18 = func_020dedd0((ItemTable_0201099c_10*)arg0->unknown_df4_, (short)var17);
     if (var18 != 0 && var18->unknown_a_2_ == 1) {
         arg0->unknown_3dd1_ = 0xc;
         arg0->unknown_3dcc_ |= 0x8000;
@@ -273,7 +273,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
             }
         }
         func_02052d7c(var5, var15, (unsigned short)arg1);
-        void* var19 = func_02053c6c((unsigned char*)var5);
+        void* var19 = GetPartyMemberData_02053c6c((unsigned char*)var5);
         func_0208358c(var19, var13, -1);
         func_02083e28(var19, 0);
         func_ov017_021c9e00(var5->unknown_4_, 0, 0, 1);
@@ -301,9 +301,9 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
     }
 
     if (var13->unknown_0_->unknown_3_3_ == 1) {
-        func_0205eaa0((Struct_02108760*)data_02108760, 3, 0);
+        PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 3, 0);
     } else if (var13->unknown_0_->unknown_3_3_ == 2) {
-        func_0205eaa0((Struct_02108760*)data_02108760, 4, 0);
+        PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 4, 0);
     }
 
     var2->unknown_634_ |= 4;

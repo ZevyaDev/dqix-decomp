@@ -25,10 +25,10 @@ struct Struct_ov005_02153954 {
 
 extern "C" void func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" void func_02041ea4(char* arg0, int arg1);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void func_02041b70(char* arg0, int arg1, const char* arg2);
-extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" void AppendText_02042058(char* buffer, const char* text);
 
 // USA: func_ov005_02159a30
 extern "C" ARM void func_ov005_02159a30(Struct_ov005_02153954* arg0, char* arg1, int arg2) {
@@ -48,18 +48,18 @@ extern "C" ARM void func_ov005_02159a30(Struct_ov005_02153954* arg0, char* arg1,
     for (int var3 = 0; var3 < var1; var3++) {
         if (var2) {
             if (var3 == 0)
-                func_02041b70(arg1, var3, func_020e0434(&arg0->unknown_df8_, 4));
+                func_02041b70(arg1, var3, FindStringInTable_020e0434(&arg0->unknown_df8_, 4));
             else
-                func_02041b70(arg1, var3, func_020e0434(&arg0->unknown_df8_, (short)(var3 + 1)));
+                func_02041b70(arg1, var3, FindStringInTable_020e0434(&arg0->unknown_df8_, (short)(var3 + 1)));
         } else {
-            func_02041b70(arg1, var3, func_020e0434(&arg0->unknown_df8_, (short)var3));
+            func_02041b70(arg1, var3, FindStringInTable_020e0434(&arg0->unknown_df8_, (short)var3));
         }
         if (var3 != var1 - 1)
-            func_02042058(arg1, func_020e0434(&arg0->unknown_df8_, 0x64));
+            AppendText_02042058(arg1, FindStringInTable_020e0434(&arg0->unknown_df8_, 0x64));
     }
 #else
     Struct_0201099c_3* var4 = &arg0->unknown_df8_;
-    const char* var5 = func_020e0434(var4, 0x64);
+    const char* var5 = FindStringInTable_020e0434(var4, 0x64);
     int var6 = 0;
     for (int var7 = 0; var7 < var1; var7++) {
         short var8 = var7;
@@ -68,13 +68,13 @@ extern "C" ARM void func_ov005_02159a30(Struct_ov005_02153954* arg0, char* arg1,
             if (var7 == 0)
                 var8 = 4;
         }
-        const char* var9 = func_020e0434(var4, var8);
+        const char* var9 = FindStringInTable_020e0434(var4, var8);
         int var10 = func_020420e8(var9, 0);
         if (var6 < var10)
             var6 = var10;
         func_02041b70(arg1, var7, var9);
         if (var7 != var1 - 1)
-            func_02042058(arg1, var5);
+            AppendText_02042058(arg1, var5);
     }
     int var11 = ((var6 + 0x1b) & ~7) >> 3;
     var11 += var11 & 1;

@@ -11,9 +11,6 @@
 #include "Filesystem/FileIO.h"
 #endif
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
@@ -23,9 +20,9 @@ struct Struct_02043368_2;
 struct Struct_02043368;
 struct Struct_0208b8c4;
 struct Struct_0203d028_6;
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
-struct Struct_0203d028;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
+struct TextureVRAMArea_0203d028;
 struct Struct_020213fc;
 
 struct Struct_ov001_021552a8_3 {
@@ -83,7 +80,7 @@ struct Struct_ov001_021552a8_2 {
 };
 
 extern "C" char* func_020100f8(char* arg0);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021bb27c(void* arg0);
 extern "C" void func_0208b9a0(void* arg0, unsigned char arg1);
@@ -95,8 +92,8 @@ extern "C" void func_020401fc(Struct_0203d028_6* arg0, unsigned int arg1, SafeAl
 extern "C" void func_0205a198(Struct_02043368_2* arg0);
 extern "C" void func_0205a234(Struct_02043368* arg0);
 extern "C" void func_0205a444(char* arg0);
-extern "C" int func_02046900(Struct_02020cb8_4* arg0);
-extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" int func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
 extern "C" void func_ov001_0215a850(SafeAllocator* arg0);
 extern "C" void func_ov001_0215a8dc(void);
@@ -104,22 +101,22 @@ extern "C" void func_ov001_021538d4(int arg0, void* arg1, SafeAllocator* arg2);
 extern "C" void func_ov001_0215aa14(SafeAllocator* arg0);
 extern "C" void func_ov001_0215aaa8(int arg0, int arg1);
 extern "C" void func_ov001_0215acf8(int arg0, int arg1);
-extern "C" void func_0207df50(Struct_0203d028* arg0);
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" int func_ov001_02153948(unsigned short arg0);
-extern "C" Struct_ov001_021552a8_2* func_0205ec34(void);
+extern "C" Struct_ov001_021552a8_2* GetFlagManager_0205ec34(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
-extern "C" void* func_0202ae18(void);
-extern "C" void* func_02010828(GameState* arg0);
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* GetParty_02010828(GameState* gameState);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_02019568(void* arg0, int arg1);
 extern "C" Object3D* func_ov017_021bdbc0(unsigned char* arg0);
 extern "C" void func_020a27a0(void* arg0);
 extern "C" void func_020a27b8(unsigned char* arg0);
 extern "C" void func_020213fc(Struct_020213fc* arg0, int arg1);
 
-extern AllocatorUnion data_02114e20;
-extern char data_02109bf4;
+extern AllocatorUnion gMainHeap_02114e20;
+extern char gMusicManager_02109bf4;
 #if defined(jpn)
 extern const char data_ov001_021661d7[];
 extern const char data_ov001_021661dc[];
@@ -160,13 +157,13 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
 #endif
         SignedAllocatorHeader* var6 = arg0->unknown_7c_.GetSignedAllocator();
         arg0->unknown_7c_.Destroy();
-        func_02012da4(&data_02114e20, var6);
+        FreeMemory_02012da4(&gMainHeap_02114e20, var6);
         var3->RemoveTask(arg0->unknown_74_);
 #if !defined(jpn)
         var3->RemoveTask(arg0->unknown_78_);
 #endif
         var3->RemoveTask(arg0->unknown_110_);
-        func_0209c2e0(&data_02109bf4, arg0->unknown_94_, 0);
+        func_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
         func_ov017_021bb27c(arg0);
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;
@@ -220,9 +217,9 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
         unsigned int var15;
         int var16;
         var3->GetLoadedFileByID(arg0->unknown_110_, &var14, &var15);
-        int var17 = func_02046900((Struct_02020cb8_4*)var14);
+        int var17 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var14);
         for (int var18 = 0; var18 < var17; var18++) {
-            void* var19 = func_020467f0((Struct_02020aec*)var14, var18, &var13, &var16);
+            void* var19 = GetPacEntryData_020467f0((PacEntry_02020aec*)var14, var18, &var13, &var16);
             func_0205a528(arg0->unknown_168_, var19, var16, &arg0->unknown_7c_);
         }
         var3->RemoveTask(arg0->unknown_110_);
@@ -261,7 +258,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
 #if !defined(jpn)
     var3->RemoveTask(arg0->unknown_78_);
 #endif
-    func_0207df50((Struct_0203d028*)(var0 + 0xbd0));
+    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)(var0 + 0xbd0));
 
     if (func_ov001_02153948(arg0->unknown_c_.unknown_40_) == 0) {
         SignedAllocatorHeader* var21 = arg0->unknown_124_.GetSignedAllocator();
@@ -271,7 +268,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
         }
         SignedAllocatorHeader* var22 = arg0->unknown_7c_.GetSignedAllocator();
         arg0->unknown_7c_.Destroy();
-        func_02012da4(&data_02114e20, var22);
+        FreeMemory_02012da4(&gMainHeap_02114e20, var22);
         func_ov017_021bb27c(arg0);
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;
@@ -280,7 +277,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
     int var23;
     int var24;
     Struct_02013454* var25;
-    Struct_ov001_021552a8_2* var26 = func_0205ec34();
+    Struct_ov001_021552a8_2* var26 = GetFlagManager_0205ec34();
     var25 = func_020196fc((Zone3D*)GetZone3D_02012fe4(), 0);
     var24 = var25->unknown_4_.unknown_10_;
     if (var25 != NULL) {
@@ -298,13 +295,13 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
     GameState* var30 = GameState::GetInstance();
     GameResources* var31 = GetGameResources();
     void* var32 = (Zone3D*)GetZone3D_02012fe4();
-    func_0202ae18();
-    func_02010828(var30);
-    func_020d6c00();
+    GetLocalWireless_0202ae18();
+    GetParty_02010828(var30);
+    GetGlobalFlags_020d6c00();
     if (!(var29.unknown_44_ & 0x400)) {
         func_02019568(var32, var28);
     }
-    *((char*)func_0205ec34() + 0x490) = -1;
+    *((char*)GetFlagManager_0205ec34() + 0x490) = -1;
     if (var29.unknown_7_ != 0) {
         Object3D* var33 = func_ov017_021bdbc0((unsigned char*)var31);
         if (var33 != NULL) {

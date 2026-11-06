@@ -35,8 +35,8 @@ struct Struct_ov017_021b71d8_3 {
 
 extern "C" Struct_ov017_021b71d8_2* GetZone3D_02012fe4(void);
 extern "C" void func_020a0cc4(unsigned int arg0);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern AllocatorUnion data_02114e20;
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern AllocatorUnion gMainHeap_02114e20;
 extern "C" void func_ov000_0215ce80(Struct_ov017_021b71d8* arg0);
 extern "C" void func_ov000_0215fab0(Struct_ov017_021b71d8* arg0, unsigned char arg1);
 
@@ -44,9 +44,9 @@ extern "C" void func_ov000_0215fab0(Struct_ov017_021b71d8* arg0, unsigned char a
 extern "C" ARM void func_ov017_021b71d8(Struct_ov017_021b71d8_3* arg0) {
     GameState::GetInstance();
     Struct_ov017_021b71d8_2* var0 = GetZone3D_02012fe4();
-    func_02012de4(&data_02114e20);
+    func_02012de4(&gMainHeap_02114e20);
     func_020a0cc4(Enum_ov017_021b71d8_128988);
-    arg0->unknown_8_.CreateTypeA(func_02012d88(&data_02114e20, Enum_ov017_021b71d8_128988), Enum_ov017_021b71d8_128988);
+    arg0->unknown_8_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021b71d8_128988), Enum_ov017_021b71d8_128988);
     arg0->unknown1_1c_ = var0->unknown_0_;
     arg0->unknown_6b0_ = (Struct_ov017_021b71d8*)arg0->unknown_8_.Allocate(sizeof(Struct_ov017_021b71d8));
     func_ov000_0215ce80(arg0->unknown_6b0_);

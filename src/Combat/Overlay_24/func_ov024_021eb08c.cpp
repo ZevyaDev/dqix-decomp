@@ -6,8 +6,8 @@ extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
 extern "C" int func_02088dd8(unsigned char* arg0);
 extern "C" void func_02088e48(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020488ac(unsigned char* arg0, int arg1);
-extern "C" int func_020100a8(GameState* arg0);
-extern "C" int func_020ac4c0(void* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
+extern "C" int GetBattleRecords_020ac4c0(void* records);
 struct Struct_020a056c;
 extern "C" void func_020a056c(struct Struct_020a056c* arg0, unsigned int arg1);
 extern "C" int func_020ac494(void* arg0);
@@ -56,9 +56,9 @@ extern "C" ARM int func_ov024_021eb08c(struct Struct_ov024_021eb08c* arg0, int a
 			*(short*)((char*)var1->currentStats_ + 0x2e) = arg1;
 		}
 	}
-	if (var5 && arg1 == func_020100a8(GameState::GetInstance())) {
+	if (var5 && arg1 == GetProtagonistObjectIndex_020100a8(GameState::GetInstance())) {
 		char var6[0xb0];
-		func_020ac4c0(var6);
+		GetBattleRecords_020ac4c0(var6);
 		func_020a056c((struct Struct_020a056c*)var6, 1);
 		func_020ac494(var6);
 	}

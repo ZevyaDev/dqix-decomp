@@ -19,7 +19,7 @@ extern "C" int func_02010088(struct Struct_02010088* arg0);
 // USA: func_ov000_02163c80
 extern "C" ARM int func_ov000_02163c80(struct Struct_ov000_02163c80* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_0201bdac_4* var1 = (struct Struct_0201bdac_4*)func_02010828(var0);
+    struct Struct_0201bdac_4* var1 = (struct Struct_0201bdac_4*)GetParty_02010828(var0);
     int var2 = 1;
     int var3;
     int var4;

@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_ov004_02167434_2 {
     short unknown_0_;
@@ -33,7 +30,7 @@ struct Struct_02065990_2;
 extern "C" short func_ov004_02166684(int arg0);
 extern "C" short func_ov004_021666bc(void* arg0, char* arg1);
 extern "C" struct Struct_02065990_3* func_02094d6c(void);
-extern "C" struct Struct_0205d594* func_0205ec34(void);
+extern "C" struct Struct_0205d594* GetFlagManager_0205ec34(void);
 extern "C" unsigned char func_020965ac(Struct_02065990_3* arg0, unsigned char arg1);
 extern "C" int func_02095d30(struct Struct_02065990_3* arg0, int arg1, int arg2);
 extern "C" void func_ov004_02166198(void);
@@ -43,7 +40,7 @@ extern "C" void func_ov004_02166730(void* arg0, int arg1);
 extern "C" void* func_ov004_02165e70(void* arg0, int arg1);
 extern "C" void func_0208bf28(struct Struct_02065990_2* arg0, int arg1, unsigned char arg2);
 extern "C" void func_ov004_02166bd8(void* arg0);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 extern struct Struct_ov004_02167434* data_ov004_0217101c;
 static inline Struct_ov004_02167434* inline_ov004_02167434() {
@@ -63,7 +60,7 @@ extern "C" ARM int func_ov004_02167434(void* arg0) {
     char var2;
     short var3 = func_ov004_021666bc(arg0, &var2);
     struct Struct_02065990_3* var4 = func_02094d6c();
-    struct Struct_0205d594* var5 = func_0205ec34();
+    struct Struct_0205d594* var5 = GetFlagManager_0205ec34();
     unsigned char var6 = func_020965ac(var4, (unsigned char)var3);
     func_02095d30(var4, var6, 1);
 
@@ -97,7 +94,7 @@ extern "C" ARM int func_ov004_02167434(void* arg0) {
             func_0208bf28((struct Struct_02065990_2*)((char*)var15 + 0x34), var1, var14);
         }
         func_ov004_02166bd8(arg0);
-        func_ov011_021848a0(arg0, 0x6c);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x6c);
     } else {
         unsigned char var16 = var2;
         void* var17 = func_ov004_02165e70(arg0, 7);
@@ -106,9 +103,9 @@ extern "C" ARM int func_ov004_02167434(void* arg0) {
         }
         func_ov004_02166bd8(arg0);
         if (var11->unknown_48_ == 0 && var11->unknown_4a_ == 0) {
-            func_ov011_021848a0(arg0, 0x6b);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x6b);
         } else {
-            func_ov011_021848a0(arg0, 0x12c);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x12c);
         }
     }
     return 0;

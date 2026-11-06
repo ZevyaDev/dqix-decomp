@@ -5,8 +5,8 @@ struct Struct_0205faf4_3 {
     unsigned char unknown_2cc_[1];
 };
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021d0924(unsigned char arg0, unsigned char arg1, unsigned short arg2, unsigned short arg3);
 
 // USA: func_0206e164
@@ -26,7 +26,7 @@ extern "C" ARM void func_0206e164(struct Struct_0205faf4_3* arg0, int arg1, int 
         arg0->unknown_2cc_[var0] &= 0xf0;
         arg0->unknown_2cc_[var0] |= var2;
     }
-    if (func_0202c508(func_0202ae18()) == 0) {
+    if (IsNotLocalWirelessGuest_0202c508(GetLocalWireless_0202ae18()) == 0) {
         return;
     }
     if (arg1 < 0xAE) {

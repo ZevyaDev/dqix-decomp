@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_0207c484;
 struct Struct_02052e14;
 struct Struct_02052e2c;
@@ -113,27 +113,27 @@ struct Struct_ov003_0215582c_7 {
     char unknown_1d4_[1];
 };
 
-extern "C" void* func_02010828(GameState* arg0);
-extern "C" struct Struct_ov003_0215582c* func_02053c6c(unsigned char* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
+extern "C" struct Struct_ov003_0215582c* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov003_02155e14(int arg0, int arg1);
 extern "C" short* func_02052e14(struct Struct_02052e14* arg0);
 extern "C" int func_0207c378(void* arg0, int arg1, int arg2, int arg3);
 extern "C" int func_ov003_02156034(void* arg0);
 extern "C" void func_02083ca0(unsigned char* arg0, int arg1);
-extern "C" int func_020100a8(GameState* arg0);
-extern "C" int func_020ac4c0(void* arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
+extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" void func_020a06ec(struct Struct_020a06ec* arg0, unsigned int arg1);
 extern "C" void func_020a0258(struct Struct_020a0258* arg0, unsigned int arg1);
 extern "C" int func_020ac494(void* arg0);
 extern "C" int func_0207c7a0(void* arg0, int arg1, int arg2);
-extern "C" struct Struct_ov003_0215582c_10* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+extern "C" struct Struct_ov003_0215582c_10* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
 extern "C" void func_02052d7c(void* arg0, int arg1, int arg2);
 extern "C" int func_0207c484(struct Struct_0207c484* arg0, int arg1, int arg2, int arg3);
 extern "C" short* func_02052e2c(struct Struct_02052e2c* arg0);
 extern "C" void func_02083738(void* arg0, int arg1);
 extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
 extern "C" void func_02083b60(unsigned char* arg0, int arg1);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_ov017_0218f5a4(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
 extern const unsigned char data_ov003_0217f2c4[];
@@ -147,12 +147,12 @@ static inline int inline_ov003_0215582c(unsigned int arg0) {
 // USA: func_ov003_0215582c
 extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_ov003_0215582c_7* var1 = (struct Struct_ov003_0215582c_7*)func_02010828(var0);
+    struct Struct_ov003_0215582c_7* var1 = (struct Struct_ov003_0215582c_7*)GetParty_02010828(var0);
     struct Struct_ov003_0215582c_4* var2 = (struct Struct_ov003_0215582c_4*)var0->GetPartyMemberByIndex(arg0->unknown_1f7_);
     if (var2 == NULL) {
         return;
     }
-    struct Struct_ov003_0215582c* var3 = func_02053c6c((unsigned char*)var2);
+    struct Struct_ov003_0215582c* var3 = GetPartyMemberData_02053c6c((unsigned char*)var2);
     if (var3 == NULL) {
         return;
     }
@@ -190,7 +190,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
 
     func_02083ca0((unsigned char*)var3, func_ov003_02156034(arg0));
 
-    var5 = func_020100a8(var0);
+    var5 = GetProtagonistObjectIndex_020100a8(var0);
     if (var5 == var2->unknown_4_) {
         GameState* var12 = GameState::GetInstance();
 #if defined(jpn)
@@ -213,7 +213,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
 #endif
         }
         int var18[0x2c];
-        func_020ac4c0(var18);
+        GetBattleRecords_020ac4c0(var18);
         func_020a06ec((struct Struct_020a06ec*)var18, 1);
         func_020a0258((struct Struct_020a0258*)(var18 + 0x1a), 1);
         func_020ac494(var18);
@@ -231,7 +231,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
     if (var8[7] == 0x4680 && func_0207c7a0(var1->unknown_1d4_, 0x4680, 7) == 0) {
         bool var20[2];
         for (int var21 = 0; var21 < 7; var21++) {
-            struct Struct_ov003_0215582c_10* var22 = func_020dedd0((struct Struct_0201099c_10*)arg0->unknown_178_, var8[var21]);
+            struct Struct_ov003_0215582c_10* var22 = func_020dedd0((struct ItemTable_0201099c_10*)arg0->unknown_178_, var8[var21]);
             struct Struct_ov003_0215582c_9* var23;
             if (var22 != NULL && (var23 = var22->unknown_0_) != NULL) {
                 var20[0] = var23->unknown_7_3_;
@@ -276,7 +276,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
                     }
                 }
                 if (var9[data_ov003_0217f2bc[var24]] != -1) {
-                    struct Struct_ov003_0215582c* var30 = func_02053c6c((unsigned char*)var2);
+                    struct Struct_ov003_0215582c* var30 = GetPartyMemberData_02053c6c((unsigned char*)var2);
                     func_02083738(var30, var27);
                     var30->unknown_2f4_[var24].unknown_0_[0] = 0;
                     var30->unknown_2f4_[var24].unknown_0_[1] = 0;
@@ -307,7 +307,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
 
     if (var19 == 0) {
         GameResources* var31 = GetGameResources();
-        func_0202ae18();
+        GetLocalWireless_0202ae18();
         func_ov017_0218f5a4(var31, arg0->unknown_1f7_, 1, 0, 0);
     }
 }

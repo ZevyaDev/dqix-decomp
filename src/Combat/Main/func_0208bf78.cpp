@@ -7,7 +7,6 @@
 #include "std_library_functions.h"
 
 #if defined(jpn)
-#define func_0205ec34 func_0205ff20
 #define data_020f114d data_020f1251
 #define data_020f116b data_020f126f
 #define data_020f117f data_020f1283
@@ -16,8 +15,8 @@
 
 struct Struct_0208b9a0;
 struct Struct_02013fb4;
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 struct Struct_0208bf78_5;
 struct Struct_0205faf4_3;
 struct Struct_0205faf4_4;
@@ -50,7 +49,7 @@ struct Struct_0208bf78_7 {
     unsigned short unknown_a_[3];
 };
 
-struct Struct_020465c0 {
+struct MessageWindow_020465c0 {
 #if defined(jpn)
     unsigned char unknown_0_[0x2c];
 #else
@@ -113,24 +112,24 @@ extern "C" void func_0208d854(Struct_0208b9a0*);
 extern "C" Struct_02065990_3* func_02094d6c();
 extern "C" unsigned char func_020965ac(Struct_02065990_3*, unsigned char);
 extern "C" int func_02095870(void*, Struct_02013fb4*, int, int, unsigned char*);
-extern "C" int func_02046900(Struct_02020cb8_4*);
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" int func_0208d9e8(Struct_0208bf78_5*, int);
 extern "C" int func_02096088(void*, int);
 extern "C" int func_02096100(int, unsigned char*, int);
-extern "C" int func_020e0434(Struct_0201099c_3*, int);
+extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_0206e120(Struct_0205faf4_3*, int);
 extern "C" unsigned char func_0209618c(Struct_0205faf4_7*, int);
 extern "C" int func_0208da18(Struct_0208bf78_5*, int, int);
 extern "C" int func_0208dac4(Struct_0208bf78_5*, int);
 extern "C" int func_0208da00(Struct_0208bf78_5*, int);
-extern "C" int func_0200fb8c(int*);
+extern "C" int GetResources_0200fb8c(int*);
 extern "C" int func_02046b24(Struct_02015438**);
 extern "C" int func_0208dadc(Struct_0208bf78_5*, int);
 extern "C" int func_0206e260(Struct_0205faf4_4*, int);
-extern "C" Struct_020465c0* GetMessageWindow_020421a0();
+extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0();
 extern "C" Struct_0208bf78_7* func_02096134(Struct_0205faf4_7*, int);
-extern "C" void func_020465c0(Struct_020465c0*, int, int);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void func_0204af64(Struct_02020cb8*);
 extern "C" void func_0204b11c(unsigned char*, int);
 extern "C" void func_0204b5e8(Struct_02020cb8_5*, int, int);
@@ -138,18 +137,18 @@ extern "C" void func_0208c9cc(int, int, int, int, int);
 extern "C" void func_0204b2e0(void*, char*);
 extern "C" void func_0204b3a0(Struct_02020cb8_6*, char*);
 extern "C" void func_0204c684(Struct_0208bf78_2*);
-extern "C" Struct_0205faf4_3* func_0205ec34();
-extern "C" void func_02046380(Struct_020465c0*);
+extern "C" Struct_0205faf4_3* GetFlagManager_0205ec34();
+extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0*);
 extern "C" void func_0208d42c(void*, Struct_0208bf78_2*, short, short, int, unsigned char, unsigned char, unsigned char, unsigned char);
 extern "C" void func_0204b5b4(void*, int);
 #if defined(jpn)
 extern "C" void func_02050678(void*, short, short, const char*, int, unsigned char, short*, short*);
-extern "C" void func_020474a8(Struct_020465c0*, int, const char*, char*);
+extern "C" void func_020474a8(MessageWindow_020465c0*, int, const char*, char*);
 extern "C" int func_020d2ff0(const char*);
 extern char data_020f1234[], data_020f129b[];
 #else
 extern "C" void func_0204f41c(Struct_0208bf78_2*, short, short, const char*, int, unsigned char, short*, short*, int);
-extern "C" void func_02046608(Struct_020465c0*, int, const char*, char*, int, int, int);
+extern "C" void func_02046608(MessageWindow_020465c0*, int, const char*, char*, int, int, int);
 extern "C" int func_020420e8(char*, int);
 extern char data_020f1120[], data_020f113b[], data_020f1197[];
 #endif
@@ -165,7 +164,7 @@ static inline Struct_0208bf78_6 inline_0208bf78_3(Struct_02065990_3* arg0, unsig
 }
 
 static inline bool inline_0208bf78_4(unsigned char arg0, int arg1) {
-    return func_0206e120(func_0205ec34(), arg0) == arg1;
+    return func_0206e120(GetFlagManager_0205ec34(), arg0) == arg1;
 }
 
 static inline bool inline_0208bf78_5(Struct_0205faf4_3* arg0, unsigned char arg1, int arg2) {
@@ -241,10 +240,10 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
         void* var10;
         unsigned int var11;
         var0->GetLoadedFileByID(arg0->unknown_bc_, &var10, &var11);
-        int var12 = func_02046900((Struct_02020cb8_4*)var10);
+        int var12 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var10);
         int var13[4];
         for (int var14 = 0; var14 < var12; var14++) {
-            var8[var14] = func_020467f0((Struct_02020aec*)var10, var14, &var9, &var13[var14]);
+            var8[var14] = GetPacEntryData_020467f0((PacEntry_02020aec*)var10, var14, &var9, &var13[var14]);
         }
         Struct_0208bf78_2 var15;
         short var16;
@@ -262,7 +261,7 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
 #endif
         arg0->unknown_da_ &= ~8;
         if (arg0->unknown_d2_ != 9999) {
-            func_0205ec34();
+            GetFlagManager_0205ec34();
             Struct_02065990_3* var19 = func_02094d6c();
             short var20 = arg0->unknown_d2_;
             char var21[8] = {0};
@@ -277,7 +276,7 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
             if (arg0->unknown_dd_ && !func_02096088(var19, inline_0208bf78_2(var19, var20))) {
                 if (!func_02096100((int)var19, var19->unknown_4a8_, inline_0208bf78_2(var19, var20))) var23 = 1;
             }
-            if (var23) var22 = func_020e0434(&arg0->unknown_4_, 3);
+            if (var23) var22 = FindStringInTable_020e0434(&arg0->unknown_4_, 3);
 #if defined(jpn)
             func_02050678(&var15, 0x48, 0x16, (const char*)var22, 0xc, 0xf, &var16, &var17);
             int var24 = 0;
@@ -300,29 +299,29 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
                 var24 = 2;
             } else {
                 unsigned char var25 = inline_0208bf78_2(var19, var20);
-                Struct_0205faf4_3* var26 = func_0205ec34();
+                Struct_0205faf4_3* var26 = GetFlagManager_0205ec34();
                 bool var27 = inline_0208bf78_5(var26, var25, 0) || inline_0208bf78_5(var26, var25, 1);
                 if (var27) {
                     var22 = func_0208da00((Struct_0208bf78_5*)&arg0->unknown_1c_, var20);
                     if (arg0->unknown_da_ & 0x40) var24 = 1;
                     if (arg0->unknown_dd_) {
                         if (inline_0208bf78_4(inline_0208bf78_2(var19, var20), 0)) {
-                            var22 = func_020e0434(&arg0->unknown_4_, 4);
+                            var22 = FindStringInTable_020e0434(&arg0->unknown_4_, 4);
                         } else if (inline_0208bf78_4(inline_0208bf78_2(var19, var20), 1)) {
-                            GameResources* var28 = (GameResources*)func_0200fb8c((int*)GameState::GetInstance());
+                            GameResources* var28 = (GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance());
                             if (func_02046b24((Struct_02015438**)var28->unknown_ptr_array_36fc[0]) == 0x2d) {
                                 var22 = func_0208dadc((Struct_0208bf78_5*)&arg0->unknown_1c_, var20);
                             }
                         }
                     }
                 } else {
-                    Struct_0205faf4_4* var29 = (Struct_0205faf4_4*)func_0205ec34();
+                    Struct_0205faf4_4* var29 = (Struct_0205faf4_4*)GetFlagManager_0205ec34();
                     if (func_0206e260(var29, inline_0208bf78_2(var19, var20))) {
                         var22 = func_0208da00((Struct_0208bf78_5*)&arg0->unknown_1c_, var20);
                     }
                 }
             }
-            Struct_020465c0* var30 = GetMessageWindow_020421a0();
+            MessageWindow_020465c0* var30 = GetMessageWindow_020421a0();
             char* var31 = var30->unknown_60_;
 #if defined(jpn)
             memset(var31, 0, 0x800);
@@ -331,18 +330,18 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
 #endif
             Struct_0208bf78_7* var32 = func_02096134((Struct_0205faf4_7*)var19, inline_0208bf78_2(var19, var20));
             if (var32) {
-                func_02046380(var30);
+                ClearMessageParams_02046380(var30);
                 if (var32->unknown_2_0_) {
                     for (int var33 = 0; var33 < 3; var33++) {
                         int var34 = var32->unknown_a_[var33];
                         if (var34 > 99) var34 = 99;
-                        func_020465c0(var30, var33, var34);
+                        SetMessageNumber_020465c0(var30, var33, var34);
                     }
                 }
                 for (int var35 = 0; var35 < 2; var35++) {
                     int var36 = var32->unknown_4_[var35];
                     if (var36 > 99) var36 = 99;
-                    func_020465c0(var30, var35 + 3, var36);
+                    SetMessageNumber_020465c0(var30, var35 + 3, var36);
                 }
             }
 #if defined(jpn)
@@ -355,9 +354,9 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
             var15.unknown_8c_.unknown_28_ = 0xa;
             var15.unknown_8c_.unknown_2a_ = 0x10;
 #if defined(jpn)
-            func_02050678(&var15, 0, 0, (const char*)func_020e0434(&arg0->unknown_4_, var24), 0xa, 0xe, &var16, &var17);
+            func_02050678(&var15, 0, 0, (const char*)FindStringInTable_020e0434(&arg0->unknown_4_, var24), 0xa, 0xe, &var16, &var17);
 #else
-            func_0204f41c(&var15, 0, 0, (const char*)func_020e0434(&arg0->unknown_4_, var24), 0xa, 0xe, &var16, &var17, 0);
+            func_0204f41c(&var15, 0, 0, (const char*)FindStringInTable_020e0434(&arg0->unknown_4_, var24), 0xa, 0xe, &var16, &var17, 0);
 #endif
             var15.unknown_8c_.unknown_28_ = 8;
             var15.unknown_8c_.unknown_2a_ = 0x10;
@@ -377,7 +376,7 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
             if (var24) {
                 Struct_0208bf78_6 var37 = inline_0208bf78_3(var19, inline_0208bf78_2(var19, var20));
                 char var38[0x100] = {0};
-                sprintf(var38, data_020f1197, var37.unknown_1_3_, func_020e0434(&arg0->unknown_4_, (short)(var37.unknown_0_7_ + 4)), var37.unknown_0_0_ + 2000);
+                sprintf(var38, data_020f1197, var37.unknown_1_3_, FindStringInTable_020e0434(&arg0->unknown_4_, (short)(var37.unknown_0_7_ + 4)), var37.unknown_0_0_ + 2000);
                 func_0204f41c(&var15, 0xc6 - func_020420e8(var38, 0), 0xa8, var38, 8, 0xf, &var16, &var17, 0);
                 func_0208d42c(arg0, &var15, 0xd7, 0xa8, var37.unknown_2_0_, 0xf, 2, 1, 1);
                 func_0208d42c(arg0, &var15, 0xda, 0xa8, var37.unknown_2_5_, 0xf, 2, 0, 1);

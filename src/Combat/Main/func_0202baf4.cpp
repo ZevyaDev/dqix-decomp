@@ -26,17 +26,17 @@ struct Struct_020feffc {
     struct Struct_0202ae4c_3 unknown_40_;
 };
 
-struct Struct_020fefec {
+struct LocalWireless_020fefec {
     char unknown_0_[0xc];
-    int unknown_c_;
-    struct Struct_020feffc unknown_10_[10];
-    int unknown_790_[10];
+    int foundHostCount_c_;
+    struct Struct_020feffc foundHosts_10_[10];
+    int foundHostTimeouts_790_[10];
 };
 
 extern struct Struct_020feffc data_020feffc[];
 
 // USA: func_0202baf4
-extern "C" ARM void func_0202baf4(struct Struct_020fefec* arg0, struct Struct_020feffc* arg1) {
+extern "C" ARM void func_0202baf4(struct LocalWireless_020fefec* arg0, struct Struct_020feffc* arg1) {
     signed char var0 = *(signed char*)((char*)arg1 + 0x50);
     if (var0 == 0) {
         return;
@@ -46,7 +46,7 @@ extern "C" ARM void func_0202baf4(struct Struct_020fefec* arg0, struct Struct_02
         return;
     }
 
-    int var2 = arg0->unknown_c_;
+    int var2 = arg0->foundHostCount_c_;
     if (var2 > 0) {
         int var3;
         for (var3 = 0; var3 < var2; var3++) {
@@ -59,8 +59,8 @@ extern "C" ARM void func_0202baf4(struct Struct_020fefec* arg0, struct Struct_02
             }
         }
         if (var3 != var2) {
-            func_0202ba08((struct Struct_0202ba08_2*)&arg0->unknown_10_[var3], (struct Struct_0202ba08_2*)arg1);
-            arg0->unknown_790_[var3] = 0xfa0;
+            func_0202ba08((struct Struct_0202ba08_2*)&arg0->foundHosts_10_[var3], (struct Struct_0202ba08_2*)arg1);
+            arg0->foundHostTimeouts_790_[var3] = 0xfa0;
             return;
         }
     }
@@ -68,7 +68,7 @@ extern "C" ARM void func_0202baf4(struct Struct_020fefec* arg0, struct Struct_02
     if (var2 >= 0xa) {
         return;
     }
-    func_0202ba08((struct Struct_0202ba08_2*)&arg0->unknown_10_[var2], (struct Struct_0202ba08_2*)arg1);
-    arg0->unknown_790_[arg0->unknown_c_] = 0xfa0;
-    arg0->unknown_c_ = arg0->unknown_c_ + 1;
+    func_0202ba08((struct Struct_0202ba08_2*)&arg0->foundHosts_10_[var2], (struct Struct_0202ba08_2*)arg1);
+    arg0->foundHostTimeouts_790_[arg0->foundHostCount_c_] = 0xfa0;
+    arg0->foundHostCount_c_ = arg0->foundHostCount_c_ + 1;
 }

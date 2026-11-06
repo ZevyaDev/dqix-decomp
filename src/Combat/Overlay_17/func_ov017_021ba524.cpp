@@ -2,9 +2,6 @@
 #include "GameState/GameState.h"
 #include "Resource/Script.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_0205faf4_3;
 struct Struct_0205faf4_4;
@@ -13,9 +10,9 @@ extern "C" int func_0206e120(Struct_0205faf4_3* arg0, int arg1);
 extern "C" int func_0206e260(Struct_0205faf4_4* arg0, int arg1);
 extern "C" int func_0206e2dc(Struct_0205faf4_13* arg0, int arg1);
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* arg0);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int func_ov017_021b9bcc(int arg0, const char* arg1);
 
 static inline int inline_ov017_021ba524(Struct_0205faf4_3* arg0, int arg1, int arg2) {
@@ -49,14 +46,14 @@ extern "C" ARM int func_ov017_021ba524(Script::Parameter* arg0, int arg1) {
     if (data_ov017_021d8438.unknown_10_ != 0) return 1;
 
     GameState* var0 = GameState::GetInstance();
-    if (func_0202c540(func_0202ae18()) != 0) return 1;
+    if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) != 0) return 1;
 
     GameObject* var1 = var0->GetGameObjectByIndex(0);
     struct Struct_ov017_021ba524* var2 = *(struct Struct_ov017_021ba524**)((char*)var1 + 0x130);
     int var3 = var2->unknown_4_;
     if (var3 > 0) return 1;
 
-    Struct_0205faf4_3* var4 = (Struct_0205faf4_3*)func_0205ec34();
+    Struct_0205faf4_3* var4 = (Struct_0205faf4_3*)GetFlagManager_0205ec34();
     int var5 = arg0[0].ToInt();
     int var6 = data_ov017_021d7c54.unknown_0_;
     if (var6 != var5 && var6 > -1) {

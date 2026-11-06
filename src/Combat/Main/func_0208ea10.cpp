@@ -68,8 +68,8 @@ extern "C" ARM void func_0208ea10(void* arg0, int arg1) {
     __clear(var2, 0x40);
     var3 = 0;
 
-    if (LoadFileIntoMemory(data_020f1330, data_0211e33c, &var3) != 0) {
-        if (GetFileInNarc(data_0211e33c, data_020f134a, &var5, &var4, 0) != 0) {
+    if (LoadFileIntoMemory(data_020f1330, gFileScratchSpace_0211e33c, &var3) != 0) {
+        if (GetFileInNarc(gFileScratchSpace_0211e33c, data_020f134a, &var5, &var4, 0) != 0) {
             ((Script*)((struct Struct_0208ea10_2*)var0))->Initialize();
             ((Script*)((struct Struct_0208ea10_2*)var0))->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f1308);
             ((Script*)((struct Struct_0208ea10_2*)var0))->Load(var5, var4);
@@ -81,7 +81,7 @@ extern "C" ARM void func_0208ea10(void* arg0, int arg1) {
         for (var7 = 1; var7 <= 0x3f; var7++) {
             sprintf(var2, data_020f1356, var7);
             var3 = 0;
-            if (GetFileInNarc(data_0211e33c, var2, &var5, &var4, 0) != 0) {
+            if (GetFileInNarc(gFileScratchSpace_0211e33c, var2, &var5, &var4, 0) != 0) {
                 ((Script*)((struct Struct_0208ea10_2*)var1))->Initialize();
                 ((Script*)((struct Struct_0208ea10_2*)var1))->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f1308);
                 ((Script*)((struct Struct_0208ea10_2*)var1))->Load(var5, var4);

@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_ov004_02171048_7 { char unknown_0_[0x4]; unsigned char* unknown_4_; };
@@ -19,13 +19,13 @@ extern "C" ARM int func_ov004_0216f788(void* arg0) {
     char var1[0x40];
     memcpy(var1, var0 + 4, 0x40);
     if (data_ov004_02171048.unknown_4_[0x32] == 0) {
-        func_ov011_021848a0(arg0, 0x65);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x65);
         data_ov004_02171048.unknown_4_[0x31] = 1;
     } else if (data_ov004_02171048.unknown_4_[0x33] == 0) {
-        func_ov011_021848a0(arg0, 0x66);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0x66);
         *(int*)((char*)GetMessageWindow_020421a0() + Enum_ov004_0216f788_712) = 1;
     } else {
-        func_ov011_021848a0(arg0, 0xc8);
+        QueueMenuScriptEntry_ov011_021848a0(arg0, 0xc8);
     }
     return 0;
 }

@@ -16,14 +16,14 @@ extern "C" void func_0205def8(Struct_0205def8*, int, int);
 extern "C" void * func_0205d81c(Struct_0205d81c*, int);
 struct Struct_0205da38;
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_ov002_02156e90(char *arg0);
 struct Struct_0205dee8;
 extern "C" void func_0205dee8(Struct_0205dee8*, int);
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 // USA: func_ov002_021644a8
 #if defined(jpn)
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov002_021644a8(char *arg0) {
             *(char *) (arg0 + 0xed8) = *(int *) (arg0 + 0x1a80);
             *(int *) (arg0 + 0x22ac) &= ~4;
             func_0205deb4((Struct_0205d81c*)(arg0 + 0xe20), 0xc, 1);
-            func_0205eaa0((Struct_02108760*)&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
             *(short *) (arg0 + 0x1ada) = 0;
             *(short *) (arg0 + 0x1af0) = 0x238d;
             *(short *) (arg0 + 0x1af2) = -1;
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov002_021644a8(char *arg0) {
             *(char *) (arg0 + 0xf80) = *(int *) (arg0 + 0x1bb8);
             *(int *) (arg0 + 0x247c) &= ~4;
             func_0205deb4((Struct_0205d81c*)(arg0 + 0xec8), 0xb, 1);
-            func_0205eaa0((Struct_02108760*)&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
             *(short *) (arg0 + 0x1c12) = 0;
             *(short *) (arg0 + 0x1c28) = 0x238d;
             *(short *) (arg0 + 0x1c2a) = -1;

@@ -27,13 +27,13 @@ struct Struct_ov023_021fd75c_2 {
 
 extern "C" int GetMessageWindow_020421a0(void);
 
-struct Struct_020465c0;
-extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+struct MessageWindow_020465c0;
+extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 #if defined(jpn)
 extern "C" void func_020474a8(void* arg0, unsigned char arg1, const char* arg2, char* arg3);
@@ -71,12 +71,12 @@ extern "C" ARM void func_ov023_021e83c8(void* arg0) {
     var2 = var5;
     var3 = 0;
     for (; var3 < 2; var3++) {
-        func_020465c0((struct Struct_020465c0*)var1, var3, var4[var3]);
+        SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var1, var3, var4[var3]);
         func_020465d8((unsigned char*)var1, var3, 1);
         func_020465f0((unsigned char*)var1, var3, var2[var3] & 0xff);
     }
 
-    int var6 = func_020e0434(&var0->unknown_4c_, 0);
+    int var6 = FindStringInTable_020e0434(&var0->unknown_4c_, 0);
 #if defined(jpn)
     func_020474a8(((void*)(var1)), 0xa, ((const char*)(var6)), var0->unknown_5d8_);
 #else

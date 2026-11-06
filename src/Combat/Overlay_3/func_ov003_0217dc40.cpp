@@ -9,7 +9,7 @@ extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_0205d6a0;
 extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_ov003_0217db88(void* arg0);
 
 struct Struct_ov003_0217dc40 {
@@ -36,6 +36,6 @@ extern "C" ARM void func_ov003_0217dc40(Struct_ov003_0217dc40* arg0) {
 
 #endif
     func_0205d6a0(arg0->unknown_90_, 0);
-    func_02043204((char*)var0);
+    ResetMessageWindow_02043204((char*)var0);
     func_ov003_0217db88(arg0);
 }

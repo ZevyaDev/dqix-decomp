@@ -6,11 +6,11 @@
 #include <globaldefs.h>
 
 extern "C" void func_0203ac40(void*, int, int, int);
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 extern int data_ov001_0216587c;
 
 // USA: func_ov001_02159990
 extern "C" ARM int func_ov001_02159990(void* arg0) {
-    func_0203ac40(&data_02108760, *(int*)((char*)arg0 + 0x10), 0, (int)&data_ov001_0216587c);
+    func_0203ac40(&gSoundEffectManager_02108760, *(int*)((char*)arg0 + 0x10), 0, (int)&data_ov001_0216587c);
     return 0;
 }

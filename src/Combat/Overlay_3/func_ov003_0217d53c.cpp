@@ -19,9 +19,9 @@ extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" char* GetZone3D_02012fe4(void);
 extern "C" int func_020457e0(char* arg0);
 extern "C" void func_ov017_021baedc(void* arg0, int arg1);
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
 extern "C" void* func_0200fd0c(GameState* arg0);
 extern "C" void func_02070378(char* arg0);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov003_0217d53c(Struct_ov003_0217d53c_3* arg0) {
     GameState* var0 = GameState::GetInstance();
     char* var1 = GetMessageWindow_020421a0();
     char* var2 = (char*)GetGameResources();
-    struct Struct_0201bdac_2* var3 = *(struct Struct_0201bdac_2**)(var2 + Enum_ov003_0217d53c_14076);
+    struct Queue_0201bdac_2* var3 = *(struct Queue_0201bdac_2**)(var2 + Enum_ov003_0217d53c_14076);
 #if defined(jpn)
     Struct_ov003_0217d53c_4* var4 = (Struct_ov003_0217d53c_4*)(GetZone3D_02012fe4() + 0x860);
 #else
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov003_0217d53c(Struct_ov003_0217d53c_3* arg0) {
                 var6->unknown_8_ = 0xd06a;
                 break;
         }
-        func_020469b4(var3, (struct Struct_0201bdac*)var6);
+        AppendToQueue_020469b4(var3, (struct QueueNode_0201bdac*)var6);
         unsigned char* var7 = *(unsigned char**)(var2 + Enum_ov003_0217d53c_14092);
         func_ov017_0219e310(var7, 0);
         Struct_ov003_0217d53c_2* var8 = (Struct_ov003_0217d53c_2*)func_0200fd0c(var0);
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov003_0217d53c(Struct_ov003_0217d53c_3* arg0) {
         var8->unknown_14_ = 0x266;
         var8->unknown_18_ = -0x7b33;
         var8->unknown_c_ = 1;
-        func_020469b4(var3, (struct Struct_0201bdac*)var7);
+        AppendToQueue_020469b4(var3, (struct QueueNode_0201bdac*)var7);
         arg0->unknown_4_ = 4;
         arg0->unknown_5_ = 0;
     } else {

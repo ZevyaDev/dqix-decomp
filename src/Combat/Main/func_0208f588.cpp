@@ -48,8 +48,8 @@ extern const struct Struct_020e8d54 data_020e8d54;
 extern "C" struct Struct_0208f588_3* GetZone3D_02012fe4(void);
 struct ObjectArchiveLoadInfo;
 
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 // USA: func_0208f588
 extern "C" ARM int func_0208f588(struct Struct_0208f588_4* arg0, SafeAllocator* arg1, char* arg2) {
@@ -87,10 +87,10 @@ extern "C" ARM int func_0208f588(struct Struct_0208f588_4* arg0, SafeAllocator* 
     var2.unknown_4_ = arg0->unknown_0_;
     var2.unknown_8_ = arg0->unknown_4_;
 
-    func_0207df90(arg2);
+    RestoreTextureVRAMState_0207df90(arg2);
     ((Object3D*)&arg0->unknown_8_)->Initialize();
     ((Object3D*)&arg0->unknown_8_)->LoadFromCHRArchive((ObjectArchiveLoadInfo*)&var2);
     ((Object3D*)&arg0->unknown_8_)->MakeHidden();
-    func_0207dfac(arg2);
+    SaveTextureVRAMState_0207dfac(arg2);
     return 1;
 }

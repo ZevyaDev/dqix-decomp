@@ -21,7 +21,7 @@ struct Struct_ov011_0218438c_2 {
     int unknown_b0_;
     int unknown_b4_;
     char unknown_b8_[0x54];
-    int unknown_10c_;
+    int pendingScriptEntry_10c_;
     int unknown_110_;
     int unknown_114_;
     char unknown_118_[0x72];
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov011_0218438c(struct Struct_ov011_0218438c_2* arg0) {
     arg0->unknown_b4_ = 0;
     memset(arg0->unknown_b8_, 0, 0x54);
     arg0->unknown_110_ = -1;
-    arg0->unknown_10c_ = 0;
+    arg0->pendingScriptEntry_10c_ = 0;
     arg0->unknown_114_ = 0;
     func_ov023_021f672c((struct Struct_ov011_0218438c*)((char*)arg0 + 0x118));
     arg0->unknown_18c_ = -1;

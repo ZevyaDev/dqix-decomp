@@ -31,10 +31,10 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 
 extern "C" void func_0205a444(char* arg0);
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
 
 struct Struct_02020cb8 {
@@ -96,13 +96,13 @@ static inline struct Struct_ov003_0217d53c_4* inline_ov003_0216e714_2(void* arg0
     return (struct Struct_ov003_0217d53c_4*)((char*)arg0 + R(0x1860,0x1840));
 }
 
-extern "C" char* func_0200fb8c(int* arg0);
+extern "C" char* GetResources_0200fb8c(int* gameState);
 extern "C" int func_020100f8(char* arg0);
 extern "C" void func_020100c4(GameState* arg0, int arg1);
-struct Struct_0203d028;
-extern "C" void func_0207df50(struct Struct_0203d028* arg0);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+struct TextureVRAMArea_0203d028;
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 struct Struct_02040774_2;
 extern "C" void func_020407b4(struct Struct_02040774_2* arg0, int arg1, int arg2, int arg3);
 struct Struct_02059cfc_2;
@@ -205,11 +205,11 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         unsigned int var4;
         int var5;
         var0->GetLoadedFileByID(arg0->unknown_ad4_, &var3, &var4);
-        int var6 = func_02046900((struct Struct_02020cb8_4*)var3);
+        int var6 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var3);
         SafeAllocator* var7 = arg0->unknown_180_;
         var7->Reset();
         for (int var8 = 0; var8 < var6; var8++) {
-            void* var9 = func_020467f0((struct Struct_02020aec*)var3, var8, &var2, &var5);
+            void* var9 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var3, var8, &var2, &var5);
             if (var9 != NULL) {
                 func_0205a528(&arg0->unknown_1e4_, var9, var5, var7);
             }
@@ -254,10 +254,10 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         unsigned int var20;
         int var21;
         var0->GetLoadedFileByID(arg0->unknown_ad4_, &var19, &var20);
-        int var22 = func_02046900((struct Struct_02020cb8_4*)var19);
+        int var22 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var19);
         SafeAllocator* var23 = arg0->unknown_180_;
         for (int var24 = 0; var24 < var22; var24++) {
-            void* var25 = func_020467f0((struct Struct_02020aec*)var19, var24, &var18, &var21);
+            void* var25 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var19, var24, &var18, &var21);
             if (var25 != NULL) {
                 func_0204b174(arg0->unknown_1cc_, var25, &var23[2], var21);
             }
@@ -352,11 +352,11 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         unsigned int var40;
         var0->GetLoadedFileByID(arg0->unknown_ad4_, &var39, &var40);
         if (var39 != NULL) {
-            GameResources* var41 = (GameResources*)func_0200fb8c((int*)GameState::GetInstance());
+            GameResources* var41 = (GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance());
             SafeAllocator* var42 = inline_ov000_02166804(var41, 0);
             var42->Reset();
-            func_0207df50((struct Struct_0203d028*)var41->unknown_2cc_);
-            func_0207df90(var41->unknown_2cc_);
+            ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)var41->unknown_2cc_);
+            RestoreTextureVRAMState_0207df90(var41->unknown_2cc_);
             ObjectArchiveLoadInfo var43;
             var43.fileData = var39;
             var43.unk_8 = var40;
@@ -364,7 +364,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             var43.unk_10 = 1;
             arg0->unknown_238_[0].LoadFromCHRArchive(&var43);
             arg0->unknown_238_[0].MaybeSetBCFGAnimation(0, 0);
-            func_0207dfac(var41->unknown_2cc_);
+            SaveTextureVRAMState_0207dfac(var41->unknown_2cc_);
             func_020407b4((struct Struct_02040774_2*)&arg0->unknown_238_[0], -0x3800, -0xb3b, 0x60a3);
         }
         var0->RemoveTask(arg0->unknown_ad4_);
@@ -379,9 +379,9 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         unsigned int var45;
         var0->GetLoadedFileByID(arg0->unknown_ad4_, &var44, &var45);
         if (var44 != NULL) {
-            GameResources* var46 = (GameResources*)func_0200fb8c((int*)GameState::GetInstance());
+            GameResources* var46 = (GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance());
             SafeAllocator* var47 = inline_ov000_02166804(var46, 0);
-            func_0207df90(var46->unknown_2cc_);
+            RestoreTextureVRAMState_0207df90(var46->unknown_2cc_);
             ObjectArchiveLoadInfo var48;
             var48.fileData = var44;
             var48.unk_8 = var45;
@@ -389,7 +389,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             var48.unk_10 = 1;
             arg0->unknown_238_[1].LoadFromCCHROrCMOTArchive(&var48, NULL);
             arg0->unknown_238_[1].MaybeSetBCFGAnimation(0, 0);
-            func_0207dfac(var46->unknown_2cc_);
+            SaveTextureVRAMState_0207dfac(var46->unknown_2cc_);
             arg0->unknown_238_[1].SetScale(0x10a, 0x10a, 0x10a);
             func_020407b4((struct Struct_02040774_2*)&arg0->unknown_238_[1], -0x41, -0xaac, 0x61f3);
         }
@@ -405,9 +405,9 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         unsigned int var50;
         var0->GetLoadedFileByID(arg0->unknown_ad4_, &var49, &var50);
         if (var49 != NULL) {
-            GameResources* var51 = (GameResources*)func_0200fb8c((int*)GameState::GetInstance());
+            GameResources* var51 = (GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance());
             SafeAllocator* var52 = inline_ov000_02166804(var51, 0);
-            func_0207df90(var51->unknown_2cc_);
+            RestoreTextureVRAMState_0207df90(var51->unknown_2cc_);
             ObjectArchiveLoadInfo var53;
             var53.fileData = var49;
             var53.unk_8 = var50;
@@ -415,7 +415,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             var53.unk_10 = 1;
             arg0->unknown_238_[2].LoadFromCCHROrCMOTArchive(&var53, NULL);
             arg0->unknown_238_[2].MaybeSetBCFGAnimation(0, 0);
-            func_0207dfac(var51->unknown_2cc_);
+            SaveTextureVRAMState_0207dfac(var51->unknown_2cc_);
             arg0->unknown_238_[2].SetScale(0x10a, 0x10a, 0x10a);
             func_02059f38((struct Struct_02059cfc_2*)&arg0->unknown_238_[2], (struct Struct_02059cfc_3*)&arg0->unknown_238_[1].position_);
         }
@@ -430,7 +430,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         GameResources* var54 = GetGameResources();
         arg0->unknown_18c_.CreateTypeA(var54->allocator_array_38[0].Allocate(0x8000), 0x8000);
         arg0->unknown_18c_.Reset();
-        func_0207df90(var54->unknown_2cc_);
+        RestoreTextureVRAMState_0207df90(var54->unknown_2cc_);
         void* var55;
         unsigned int var56;
         var0->GetLoadedFileByID(arg0->unknown_ad4_, &var55, &var56);
@@ -446,7 +446,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             func_02059f38((struct Struct_02059cfc_2*)&arg0->unknown_238_[3], (struct Struct_02059cfc_3*)&arg0->unknown_238_[1].position_);
             arg0->unknown_238_[3].StopCurrentAnimation();
         }
-        func_0207dfac(var54->unknown_2cc_);
+        SaveTextureVRAMState_0207dfac(var54->unknown_2cc_);
         var0->RemoveTask(arg0->unknown_ad4_);
         arg0->unknown_ad4_ = -1;
         arg0->unknown_add_++;
@@ -459,9 +459,9 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         unsigned int var59;
         var0->GetLoadedFileByID(arg0->unknown_ad4_, &var58, &var59);
         if (var58 != NULL) {
-            GameResources* var60 = (GameResources*)func_0200fb8c((int*)GameState::GetInstance());
+            GameResources* var60 = (GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance());
             SafeAllocator* var61 = inline_ov000_02166804(var60, 0);
-            func_0207df90(var60->unknown_2cc_);
+            RestoreTextureVRAMState_0207df90(var60->unknown_2cc_);
             ObjectArchiveLoadInfo var62;
             var62.fileData = var58;
             var62.unk_8 = var59;
@@ -470,7 +470,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             Object3D* var63 = &arg0->unknown_238_[4];
             var63->LoadFromCCHROrCMOTArchive(&var62, NULL);
             var63->MaybeSetBCFGAnimation(0, 0);
-            func_0207dfac(var60->unknown_2cc_);
+            SaveTextureVRAMState_0207dfac(var60->unknown_2cc_);
             var63->SetScale(0x10a, 0x10a, 0x10a);
             func_02059f38((struct Struct_02059cfc_2*)var63, (struct Struct_02059cfc_3*)&arg0->unknown_238_[1].position_);
             var63->StopCurrentAnimation();
@@ -517,7 +517,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         ColorEffect_ConfigureAlphaBlend((unsigned int*)0x4000050, 4, 1, 10, 6);
         arg0->unknown_ae2_ = arg0->unknown_ae2_ | 0x1000;
         arg0->unknown_ae2_ = arg0->unknown_ae2_ & ~0x40;
-        GameResources* var70 = (GameResources*)func_0200fb8c((int*)var67);
+        GameResources* var70 = (GameResources*)GetResources_0200fb8c((int*)var67);
         func_020dbf18(&arg0->unknown_12a0_, (int)data_ov006_0216019a, (int)&arg0->unknown_180_[5],
                           (int)var70->unknown_2cc_, 0x18);
         arg0->unknown_add_++;

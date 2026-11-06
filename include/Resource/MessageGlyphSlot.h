@@ -2,10 +2,10 @@
 
 #include <globaldefs.h>
 
-struct Struct_020420e8 {
+struct FontGlyph_020420e8 {
     const char* unknown_0_;
-    signed char unknown_4_;
-    signed char unknown_5_0_ : 6;
+    signed char width_4_;
+    signed char codeLength_5_0_ : 6;
     signed char unknown_5_6_ : 1;
     signed char unknown_5_7_ : 1;
     char unknown_6_[2];
@@ -39,7 +39,7 @@ struct Struct_0204166c {
     unsigned char unknown_16_3_ : 1;
     unsigned char unknown_16_4_ : 4;
     unsigned char unknown_17_;
-    Struct_020420e8* unknown2_18_;
+    FontGlyph_020420e8* unknown2_18_;
 #endif
 };
 

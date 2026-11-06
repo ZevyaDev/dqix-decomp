@@ -7,7 +7,7 @@ extern "C" void* func_020e08f0(int arg0, unsigned int* arg1);
 #endif
 
 struct Struct_0205c570;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0205d6a0;
 struct Struct_0205d81c;
 struct Struct_0205def8;
@@ -56,12 +56,12 @@ struct Struct_ov000_02178d28_2 {
     unsigned short unknown_1d72_;
 };
 
-extern struct Struct_02108760 data_02108760;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern const char* data_020f2a34;
 extern const char* data_020f2a2c;
 
 extern "C" int func_0205d794(Struct_0205c570*);
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
 extern "C" struct Struct_ov000_021735d0_2* func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
 extern "C" int func_ov000_0217c5f4(void*);
@@ -92,13 +92,13 @@ extern "C" ARM void func_ov000_0217d87c(Struct_ov000_02178d28_2* arg0, int arg1,
     if (func_ov000_0217c594(arg0, 5) != 0) {
         arg0->unknown_956_ = 0;
         GameState* var3 = GameState::GetInstance();
-        unsigned char* var4 = (unsigned char*)func_02010828(var3);
+        unsigned char* var4 = (unsigned char*)GetParty_02010828(var3);
         int var5 = func_ov000_0218158c(arg0, arg0->unknown_1d6e_);
         if (func_0207c984(var4 + 0x1d4, var2, var5 & 0xff, arg0->unknown_26_, &arg0->unknown_66_) != 0) {
             return;
         }
         arg0->unknown_240_ = 6;
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         BackgroundLoader::AddLockGlobal();
 #if defined(jpn)
         ((SafeAllocator*)((char*)arg0 + 0x1bf8))->Reset();
@@ -136,7 +136,7 @@ extern "C" ARM void func_ov000_0217d87c(Struct_ov000_02178d28_2* arg0, int arg1,
             var8->unknown_24_ &= ~4;
         }
         GameState* var9 = GameState::GetInstance();
-        unsigned char var10 = ((unsigned char*)func_02010828(var9))[0xf7c];
+        unsigned char var10 = ((unsigned char*)GetParty_02010828(var9))[0xf7c];
         for (unsigned char var11 = 0; var11 < var10; var11++) {
             int var12 = arg0->unknown_70_[var11];
             Struct_ov000_0217d674* var13 = func_ov000_02161318(arg0, var12);

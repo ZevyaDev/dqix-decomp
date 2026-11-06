@@ -40,7 +40,7 @@ struct Struct_ov017_021ce524_5 {
     Struct_ov017_021ce524_4 unknown_100_;
 };
 
-extern "C" Struct_ov017_021ce524_5* func_02053c6c(unsigned char* arg0);
+extern "C" Struct_ov017_021ce524_5* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct Struct_ov017_021ce524_6 {
     short unknown_0_;
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov017_021ce524(short arg0) {
     GameObject* var3 = func_0200ff1c(GameState::GetInstance(), arg0);
     if (var3 == NULL) return;
 
-    Struct_ov017_021ce524_5* var4 = func_02053c6c((unsigned char*)var3);
+    Struct_ov017_021ce524_5* var4 = GetPartyMemberData_02053c6c((unsigned char*)var3);
     if (var4 == NULL) return;
 
     Struct_ov017_021ce524_2* var5 = &var4->unknown_100_.unknown_34_.unknown_800_;

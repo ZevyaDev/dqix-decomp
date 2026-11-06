@@ -12,7 +12,7 @@
 #include <GameState/GameState.h>
 #include "Resource/GameResources.h"
 
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_02052e14;
 struct Struct_ov005_0215acc0_2 { char unknown_0_[LOW_REGION(0x4f8, 0x4fc)]; int unknown_4fc_; };
 struct Struct_ov005_0215b0a0 {
@@ -22,10 +22,10 @@ struct Struct_ov005_0215b0a0 {
     char unknown1_0_[0x80];
 #endif
 };
-struct Struct_ov005_0215acc0 { char unknown_0_[0xdf4]; Struct_0201099c_10* unknown_df4_; char unknown_df8_[LOW_REGION(0x2f38, 0x2fc0)]; unsigned char unknown_3db8_; char unknown_3db9_[3]; unsigned char unknown_3dbc_; char unknown_3dbd_[0xc7]; Struct_ov005_0215b0a0 unknown_3e84_[8]; unsigned char unknown_4284_[8]; };
+struct Struct_ov005_0215acc0 { char unknown_0_[0xdf4]; ItemTable_0201099c_10* unknown_df4_; char unknown_df8_[LOW_REGION(0x2f38, 0x2fc0)]; unsigned char unknown_3db8_; char unknown_3db9_[3]; unsigned char unknown_3dbc_; char unknown_3dbd_[0xc7]; Struct_ov005_0215b0a0 unknown_3e84_[8]; unsigned char unknown_4284_[8]; };
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" short* func_02052e14(Struct_02052e14*);
-extern "C" void* func_020dedd0(Struct_0201099c_10*, int);
+extern "C" void* func_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" Struct_ov005_0215acc0_2* func_ov017_021a193c(int*);
 #if defined(jpn)
 extern "C" void func_02045f3c(void*, unsigned short*, int, int, int, int, int, int);

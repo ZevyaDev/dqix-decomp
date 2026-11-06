@@ -47,8 +47,8 @@ struct Struct_ov003_021594c4 {
 struct Struct_02020cb8;
 struct Struct_0204b12c;
 struct Struct_0204af38;
-struct Struct_02020aec;
-struct Struct_02020cb8_4;
+struct PacEntry_02020aec;
+struct PacEntry_02020cb8_4;
 struct Struct_0204b8d0;
 struct Struct_02020cb8_2;
 struct Struct_02000c9c_8;
@@ -62,14 +62,14 @@ extern "C" void func_02012bd8();
 extern "C" int func_020c3864(int);
 extern "C" int func_0201201c(void*);
 extern "C" void func_020c3984(unsigned int);
-extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void func_02012da4(AllocatorUnion*, void*);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
 extern "C" void func_0204af64(Struct_02020cb8*);
 extern "C" void func_0204b11c(unsigned char*, int);
 extern "C" void func_0204b12c(Struct_0204b12c*, SafeAllocator*);
 extern "C" void func_0204af38(Struct_0204af38*, int, SafeAllocator*);
-extern "C" int func_02046900(Struct_02020cb8_4*);
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" int func_0200fb08(Struct_02000c9c_8*);
 extern "C" void func_0204b8d0(Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 extern "C" void func_0204b0e8(Struct_02020cb8_2*, void*);
@@ -83,8 +83,8 @@ extern "C" void func_ov016_0218c04c(char*, void*);
 extern Struct_ov016_0219d0c0_9 data_ov016_0219d0c0;
 #endif
 extern int data_ov016_0219d0cc;
-extern int data_02109bf4;
-extern AllocatorUnion data_02114e20;
+extern int gMusicManager_02109bf4;
+extern AllocatorUnion gMainHeap_02114e20;
 extern const char data_ov016_0219d030[];
 
 #if defined(jpn)
@@ -161,7 +161,7 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
             if (var4->GetTaskStatus(var3) != 0)
             {
                 var4->GetLoadedFileByID(var3, &var6, &var7);
-                int var8 = func_02046900((Struct_02020cb8_4*)var6);
+                int var8 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var6);
                 Struct_ov003_021594c4 var9;
                 func_0204af64((Struct_02020cb8*)&var9);
                 var9.unknown_1c_0_ = 1;
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
                 for (int var10 = 0; var10 < var8; var10++)
                 {
                     int var11;
-                    char* var12 = (char*)func_020467f0((Struct_02020aec*)var6, var10, &var5, &var11);
+                    char* var12 = (char*)GetPacEntryData_020467f0((PacEntry_02020aec*)var6, var10, &var5, &var11);
                     if (var12 != NULL)
                     {
                         func_0204b2e0(&var9, var12);
@@ -216,8 +216,8 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
     func_020bc078(&data_ov016_0219d0cc);
     if (data_ov016_0219d0c0.unknown_34_->unknown_10_ == 0)
     {
-        func_0203aa44(&data_02109bf4);
-        func_0203aaf8(&data_02109bf4, (void*)(int)data_ov016_0219d0c0.unknown_34_->unknown_12_, NULL);
+        func_0203aa44(&gMusicManager_02109bf4);
+        func_0203aaf8(&gMusicManager_02109bf4, (void*)(int)data_ov016_0219d0c0.unknown_34_->unknown_12_, NULL);
     }
     SetInterruptHandler(1, (const void*)func_ov016_0218be1c);
     EnableSpecificInterrupts(0x60078);
@@ -244,7 +244,7 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
         BG0CNTSUB = var15;
         SUB_BG0_SCROLL = 0;
 
-        void* var16 = func_02012d88(&data_02114e20, 0x2000);
+        void* var16 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x2000);
         SafeAllocator var17;
         var17.ResetAllocatorPointer();
         var17.ResetAllocatorPointer();
@@ -269,11 +269,11 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
             if (var20->GetTaskStatus(var19) != 0)
             {
                 var20->GetLoadedFileByID(var19, &var22, &var23);
-                int var24 = func_02046900((Struct_02020cb8_4*)var22);
+                int var24 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var22);
                 for (int var25 = 0; var25 < var24; var25++)
                 {
                     int var26;
-                    void* var27 = func_020467f0((Struct_02020aec*)var22, var25, &var21, &var26);
+                    void* var27 = GetPacEntryData_020467f0((PacEntry_02020aec*)var22, var25, &var21, &var26);
                     if (var27 != NULL)
                     {
                         func_0204b174(&var18, var27, &var17, var26);
@@ -312,7 +312,7 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
         }
         if (var16 != NULL)
         {
-            func_02012da4(&data_02114e20, var16);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var16);
         }
     }
     else

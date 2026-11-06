@@ -17,7 +17,7 @@ struct Struct_0201f040_3;
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
 
 extern char data_020f15d4[];
-extern char data_0211e33c[];
+extern char gFileScratchSpace_0211e33c[];
 extern char data_020f15c4[];
 
 // USA: func_02099f6c
@@ -28,7 +28,7 @@ extern "C" ARM void func_02099f6c(char* arg0) {
     memset(arg0, 0, 0x150);
     BackgroundLoader::AddLockGlobal();
 
-    struct Struct_02013fb4* var2 = (struct Struct_02013fb4*)LoadFileIntoMemory(data_020f15d4, data_0211e33c, (unsigned int*)&var0);
+    struct Struct_02013fb4* var2 = (struct Struct_02013fb4*)LoadFileIntoMemory(data_020f15d4, gFileScratchSpace_0211e33c, (unsigned int*)&var0);
     if (var2 != 0) {
         ((Script*)((struct Struct_0201f040*)var1))->Initialize();
         ((Script*)var1)->SetOpcodeLookup((Script::OpcodeLookupEntry*)data_020f15c4);

@@ -10,7 +10,7 @@ enum { Enum_ov017_0219a544_16516 = 0x4084, Enum_ov017_0219a544_0 = 0 };
 extern "C" int func_02041f70(char* arg0, int arg1, int arg2);
 extern "C" int func_02041a28(char* arg0, int arg1);
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_02039730(void* arg0, int arg1);
 extern "C" int func_02042084(char* arg0, char* arg1, int arg2, int arg3);
 
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov017_0219a544(unsigned char* arg0, char* arg1, int arg
 	}
 	int var5 = (var0 < 0) ? 0 : var0;
 	struct Struct_0201099c_3* var6 = *(struct Struct_0201099c_3**)(arg0 + Enum_ov017_0219a544_16516);
-	int var7 = func_020e0434(var6, var5);
+	int var7 = FindStringInTable_020e0434(var6, var5);
 	if (!var7) return;
 	func_02041a28(arg1, 0);
 	int var8 = data_ov017_021d6460[arg2];

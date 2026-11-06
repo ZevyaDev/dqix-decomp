@@ -38,7 +38,7 @@ struct Struct_ov006_02157a60 {
     char unknown_14c_[0xc];
 };
 
-extern "C" Struct_ov000_02182a74* func_02010828(GameState* arg0);
+extern "C" Struct_ov000_02182a74* GetParty_02010828(GameState* gameState);
 extern "C" void* func_0200ff1c(GameState* arg0, int arg1);
 extern "C" short func_0207c620(unsigned char* arg0, unsigned int arg1);
 extern "C" short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov006_02158de0(Struct_ov006_02157a60* arg0) {
         arg0->unknown_50_[var1] = 0;
     }
     GameState* var3 = GameState::GetInstance();
-    Struct_ov000_02182a74* var4 = func_02010828(var3);
+    Struct_ov000_02182a74* var4 = GetParty_02010828(var3);
     for (unsigned short var5 = 0; var5 < 0x98; var5++)
         func_ov006_02158fd8(arg0, 8, *(short*)((char*)var4 + 0xc + var5 * 2), *((char*)var4 + 0x13c + var5));
     for (unsigned char var6 = 0; var6 < var4->unknown_f7c_; var6++) {

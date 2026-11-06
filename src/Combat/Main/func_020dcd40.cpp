@@ -19,11 +19,11 @@ extern "C" void func_02082d6c(void* arg0, void* arg1);
 extern "C" void func_ov017_0218f064(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
 extern "C" void func_020875c4(Struct_02087574* arg0, int arg1, int arg2);
-extern "C" unsigned char func_020100a8(GameState* arg0);
+extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_020546a0(void* arg0, int arg1);
 extern "C" int func_020546a8(void* arg0);
 extern "C" void func_020546b4(void*, int);
-extern "C" unsigned char* func_02053c6c(unsigned char* arg0);
+extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
 extern "C" int func_020865b0(Struct_0201099c_16* arg0);
@@ -36,7 +36,7 @@ extern "C" ARM int func_020dcd40() {
     int var0 = 0;
     GameResources* var1 = GetGameResources();
     GameState* var2 = GameState::GetInstance();
-    void* var3 = func_02010828(var2);
+    void* var3 = GetParty_02010828(var2);
     unsigned short* var4 = GetZone3D_02012fe4(var3);
     while (true) {
         int var5 = func_02086e9c((Struct_02086e9c*)var3);
@@ -69,11 +69,11 @@ extern "C" ARM int func_020dcd40() {
         if (var10 == NULL) {
             break;
         }
-        void* var11 = func_02010828(var2);
+        void* var11 = GetParty_02010828(var2);
         func_020875c4((Struct_02087574*)var11, var5, (signed char)var7);
         var10->obj3D_.SetField06(*var4);
         var2->GetProtagonist();
-        unsigned char var12 = func_020100a8(var2);
+        unsigned char var12 = GetProtagonistObjectIndex_020100a8(var2);
         func_020546a0(var10, var12);
         int var13 = 0;
         for (int var14 = 0; var14 < 4; var14++) {
@@ -83,8 +83,8 @@ extern "C" ARM int func_020dcd40() {
             }
         }
         func_020546b4(var10, var13);
-        func_02010828(var2);
-        unsigned char* var16 = func_02053c6c((unsigned char*)var10);
+        GetParty_02010828(var2);
+        unsigned char* var16 = GetPartyMemberData_02053c6c((unsigned char*)var10);
 #if defined(jpn)
         strcpy((char*)var10->baseStats_, (const char*)var6 + 0x140);
 #else

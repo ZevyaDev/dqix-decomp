@@ -13,9 +13,9 @@ struct Struct_ov017_021d1e50_2 {
 #endif
     Vector3i unknown_27b8_;
 };
-struct Struct_0201bdac_2;
-struct Struct_0201bdac { char unknown_0_[8]; };
-struct Struct_ov017_021d1e50_3 : Struct_0201bdac {
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac { char unknown_0_[8]; };
+struct Struct_ov017_021d1e50_3 : QueueNode_0201bdac {
     unsigned short unknown_8_;
 #if defined(jpn)
     char unknown_a_[0xf7];
@@ -24,14 +24,14 @@ struct Struct_ov017_021d1e50_3 : Struct_0201bdac {
 #endif
     unsigned char unknown_105_;
 };
-struct Struct_0202c1a4;
-extern "C" int func_0202c1a4(Struct_0202c1a4*);
+struct LocalWireless_0202c1a4;
+extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" int func_02046b08(void**);
 extern "C" Struct_ov017_021d1e50_2* GetZone3D_02012fe4();
 extern "C" void func_ov017_021baedc(Struct_ov017_021d1e50_3*, int);
 extern "C" void func_ov017_021bbbf8(void*, unsigned short);
 extern "C" int func_0201079c(char*);
-extern "C" void func_020469b4(Struct_0201bdac_2*, Struct_0201bdac*);
+extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" void* func_0200fd0c(GameState*);
 extern "C" void func_02070378(char*);
 extern "C" void func_0200fcfc(void*, const void*);
@@ -39,15 +39,15 @@ extern "C" void func_ov017_0219e310(unsigned char*, int);
 extern "C" void func_ov017_021a65c4(void*, unsigned char, int);
 
 // USA: func_ov017_021d1e50
-extern "C" ARM void func_ov017_021d1e50(int arg0, Struct_ov017_021cd748_6* arg1, GameState* arg2, GameResources* arg3, Struct_0202c1a4* arg4) {
+extern "C" ARM void func_ov017_021d1e50(int arg0, Struct_ov017_021cd748_6* arg1, GameState* arg2, GameResources* arg3, LocalWireless_0202c1a4* arg4) {
     Struct_ov017_021d1e50* var0;
     int var1;
     int var2;
     int var3;
-    Struct_0201bdac_2* var4;
+    Queue_0201bdac_2* var4;
     Struct_ov017_021d1e50_3* var5;
-    if (!func_0202c1a4(arg4)) return;
-    var4 = (Struct_0201bdac_2*)arg3->unknown_ptr_array_36fc[0];
+    if (!GetOwnProtagonistObjectIndex_0202c1a4(arg4)) return;
+    var4 = (Queue_0201bdac_2*)arg3->unknown_ptr_array_36fc[0];
     if (!func_02046b08((void**)var4)) return;
     Struct_ov017_021d1e50_2* var6 = GetZone3D_02012fe4();
     var2 = var6->unknown_0_;
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_021d1e50(int arg0, Struct_ov017_021cd748_6* arg1,
         var5->unknown_8_ = var3;
         func_ov017_021bbbf8(var5, var7);
         if (func_0201079c((char*)arg2) >= 0x13 && var3 == 0x7345 && (unsigned int)(var2 - 0x1901) <= 3) var5->unknown_105_ = 1;
-        func_020469b4(var4, var5);
+        AppendToQueue_020469b4(var4, var5);
     } else {
         var0 = (Struct_ov017_021d1e50*)func_0200fd0c(arg2);
         func_02070378((char*)var0);
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov017_021d1e50(int arg0, Struct_ov017_021cd748_6* arg1,
             func_0200fcfc(arg2, var0);
             unsigned char* var8 = (unsigned char*)arg3->unknown_ptr_array_36fc[4];
             func_ov017_0219e310(var8, 0);
-            func_020469b4(var4, (Struct_0201bdac*)var8);
+            AppendToQueue_020469b4(var4, (QueueNode_0201bdac*)var8);
             if (var1) func_ov017_021a65c4(arg3, 1, 0);
         } else if (arg1->unknown_6_) {
             var0->unknown_61_ = 1;
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov017_021d1e50(int arg0, Struct_ov017_021cd748_6* arg1,
             func_0200fcfc(arg2, var0);
             unsigned char* var10 = (unsigned char*)arg3->unknown_ptr_array_36fc[4];
             func_ov017_0219e310(var10, 0);
-            func_020469b4(var4, (Struct_0201bdac*)var10);
+            AppendToQueue_020469b4(var4, (QueueNode_0201bdac*)var10);
             func_ov017_021a65c4(arg3, var1, 0);
         }
     }

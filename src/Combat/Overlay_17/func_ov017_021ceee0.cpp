@@ -13,7 +13,7 @@ extern "C" int func_02046b24(struct Struct_02015438** arg0);
 struct Struct_02048150;
 extern "C" int func_02086ef0(struct Struct_02048150* arg0, int arg1);
 
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
 struct Vector3i;
 
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov017_021ceee0(void* arg0, struct Struct_ov017_021ceee0
     GameObject* var0;
     struct Struct_02015438** var1 = *(struct Struct_02015438***)(arg3 + 0x3000 + Enum_ov017_021ceee0_1788);
     var0 = arg2->GetMaybeWanderingMonsterByIndex(arg1->unknown_12_);
-    if (func_02086ef0((struct Struct_02048150*)func_02010828(arg2), arg1->unknown_12_)) {
+    if (func_02086ef0((struct Struct_02048150*)GetParty_02010828(arg2), arg1->unknown_12_)) {
         return;
     }
     if (!var0) {
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov017_021ceee0(void* arg0, struct Struct_ov017_021ceee0
         if (!var2) {
             return;
         }
-        if (!(var0->obj3D_.unknown_0_ & 0x80)) {
+        if (!(var0->obj3D_.classFlags_0_ & 0x80)) {
             return;
         }
         GameObject* var3 = func_0200ff1c(arg2, arg1->unknown_12_);

@@ -6,14 +6,14 @@
 #include "Input/Input.h"
 
 struct Struct_0203dce4_2;
-struct Struct_02108760;
-extern Struct_02108760 data_02108760;
+struct SoundEffectManager_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" void* func_0203cf4c();
 extern "C" Struct_0203dce4* func_0203dce4(Struct_0203dce4_2*, int);
 extern "C" void func_0206b104(MessageWindow_02021b84*);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_0208beb4(unsigned char*);
-extern "C" void func_02043124(MessageWindow_02021b84*);
+extern "C" void CloseMessageWindow_02043124(MessageWindow_02021b84*);
 
 #if defined(jpn)
 extern "C" void func_0206cba0(MessageWindow_02021b84*);
@@ -67,11 +67,11 @@ ARM int MessageWindow_02021b84::func_020440cc() {
 #if defined(jpn)
         func_0206cba0(this);
         unknown_9a0_ = 5;
-        if (!unknown_17ff_.unknown_0_5_) func_0205eaa0(&data_02108760, 1, 0);
+        if (!unknown_17ff_.unknown_0_5_) PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
 #else
         unknown_9a0_ = 5;
         func_0206b224(this);
-        if (!unknown_19d3_) func_0205eaa0(&data_02108760, 1, 0);
+        if (!unknown_19d3_) PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
 #endif
         break;
     case 3:
@@ -120,13 +120,13 @@ ARM int MessageWindow_02021b84::func_020440cc() {
             func_02045688();
             unknown_9a0_ = 0;
             func_02043040(this);
-            func_02043124(this);
+            CloseMessageWindow_02043124(this);
             func_020430b0(this);
         } else {
 #if defined(jpn)
-            if (!unknown_17ff_.unknown_0_5_) func_0205eaa0(&data_02108760, 1, 0);
+            if (!unknown_17ff_.unknown_0_5_) PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
 #else
-            if (!unknown_19d3_) func_0205eaa0(&data_02108760, 1, 0);
+            if (!unknown_19d3_) PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
 #endif
             unknown_9a0_ = 5;
             ++unknown_78_;

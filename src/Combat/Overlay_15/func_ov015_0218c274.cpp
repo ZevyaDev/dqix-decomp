@@ -2,9 +2,9 @@
 #include "std_library_functions.h"
 #include "Combat/Overlay15ViewerContext.h"
 
-struct Struct_0201099c_10;
-struct Struct_0201099c_9;
-extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+struct ItemTable_0201099c_10;
+struct ItemData_0201099c_9;
+extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
 extern "C" void* __clear(void* arg0, int arg1);
 
 struct Struct_ov015_0218c274 {
@@ -22,9 +22,9 @@ extern char data_ov015_02194013[13];
 // USA: func_ov015_0218c274
 extern "C" ARM void func_ov015_0218c274(struct Struct_ov015_0218bcb0* arg0, char* arg1, int arg2) {
     short var0 = (short)arg0->unknown_20_[8];
-    struct Struct_0201099c_9* var1 = func_020dedd0((struct Struct_0201099c_10*)((char*)arg0->unknown_0_ + 0x4c), var0);
+    struct ItemData_0201099c_9* var1 = func_020dedd0((struct ItemTable_0201099c_10*)((char*)arg0->unknown_0_ + 0x4c), var0);
     short var2 = (short)arg0->unknown_20_[0];
-    struct Struct_0201099c_9* var3 = func_020dedd0((struct Struct_0201099c_10*)((char*)arg0->unknown_0_ + 0x4c), var2);
+    struct ItemData_0201099c_9* var3 = func_020dedd0((struct ItemTable_0201099c_10*)((char*)arg0->unknown_0_ + 0x4c), var2);
 
     int var4 = 0;
     int var5 = var4;

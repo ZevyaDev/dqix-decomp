@@ -10,10 +10,10 @@ extern "C" void Vector3fix_Add(struct Struct_ov009_0218aa28* arg0, struct Struct
 struct Struct_ov011_02184a18;
 extern "C" unsigned short func_ov011_02184a18(struct Struct_ov011_02184a18* arg0);
 
-extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void func_ov011_02184a40(void* arg0, int arg1);
 
-extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f9bc8(void* arg0);
 extern "C" unsigned short func_ov023_021f6f10(void* arg0);
 extern "C" struct Struct_ov009_0218aa28 func_ov023_021f8b78(void* arg0, void* arg1);
@@ -48,11 +48,11 @@ public:
 // USA: func_ov023_021f98e0
 extern "C" ARM void func_ov023_021f98e0(void* arg0, void* arg1) {
     unsigned short var0 = func_ov011_02184a18((struct Struct_ov011_02184a18*)arg1);
-    void* var1 = func_ov011_021849c8(arg1);
-    Struct_ov023_021f98e0* var2 = (Struct_ov023_021f98e0*)func_ov023_021f6880(var1, var0);
+    void* var1 = GetMenuObjectList_ov011_021849c8(arg1);
+    Struct_ov023_021f98e0* var2 = (Struct_ov023_021f98e0*)FindMenuObjectById_ov023_021f6880(var1, var0);
 
     unsigned short var3 = (*(unsigned short**)((char*)arg0 + 0x20))[func_ov023_021f9bc8(arg0)];
-    Struct_ov023_021f98e0_2* var4 = (Struct_ov023_021f98e0_2*)func_ov023_021f6880(var1, var3);
+    Struct_ov023_021f98e0_2* var4 = (Struct_ov023_021f98e0_2*)FindMenuObjectById_ov023_021f6880(var1, var3);
 
     if (var2 != 0 && var4 != 0) {
         if (func_ov023_021f6f10(var4) == 0) {

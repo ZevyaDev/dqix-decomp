@@ -11,7 +11,7 @@ struct Struct_0201f040_3;
 
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
 
-extern char data_0211e33c[];
+extern char gFileScratchSpace_0211e33c[];
 extern int data_020f0cc8;
 
 struct Struct_02108db0_3 {
@@ -32,7 +32,7 @@ extern "C" ARM void func_020727f8(void* arg0, const char* arg1, int arg2, void* 
 
     BackgroundLoader::AddLockGlobal();
 
-    struct Struct_02013fb4* var2 = (struct Struct_02013fb4*)LoadFileIntoMemory(arg1, data_0211e33c, &var0);
+    struct Struct_02013fb4* var2 = (struct Struct_02013fb4*)LoadFileIntoMemory(arg1, gFileScratchSpace_0211e33c, &var0);
     if (var2 != 0) {
         data_02108db0.unknown_10_ = arg0;
         data_02108db0.unknown_c_ = 0;

@@ -28,9 +28,9 @@ struct Struct_ov017_021c46ec_3 {
     struct Struct_ov017_021c46ec_2* unknown_3734_;
 };
 
-struct Struct_0202c1a4;
-extern "C" int func_0202c540(struct Struct_0202c1a4* arg0);
-extern "C" int func_0202c508(struct Struct_0202c1a4* arg0);
+struct LocalWireless_0202c1a4;
+extern "C" int IsLocalWirelessGuest_0202c540(struct LocalWireless_0202c1a4* wireless);
+extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202c1a4* wireless);
 extern "C" void func_020103c8(GameState* arg0, int arg1);
 extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
 extern "C" signed char func_020546a8(void* arg0);
@@ -38,9 +38,9 @@ extern "C" void func_ov017_0219dac4(struct Struct_ov017_021c46ec_3* arg0, int ar
 extern "C" void func_ov017_021c4fa0(int arg0, int arg1);
 
 // USA: func_ov017_021c46ec
-extern "C" ARM void func_ov017_021c46ec(int arg0, struct Struct_ov017_021c46ec* arg1, GameState* arg2, struct Struct_ov017_021c46ec_3* arg3, struct Struct_0202c1a4* arg4) {
+extern "C" ARM void func_ov017_021c46ec(int arg0, struct Struct_ov017_021c46ec* arg1, GameState* arg2, struct Struct_ov017_021c46ec_3* arg3, struct LocalWireless_0202c1a4* arg4) {
     unsigned short var0 = arg1->unknown_4_;
-    if (func_0202c540(arg4) != 0 && arg0 == 0) {
+    if (IsLocalWirelessGuest_0202c540(arg4) != 0 && arg0 == 0) {
         func_020103c8(arg2, arg1->unknown_10_);
     }
 
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov017_021c46ec(int arg0, struct Struct_ov017_021c46ec* 
     }
 
     func_ov017_0219dac4(arg3, arg0, var0);
-    if (func_0202c508(arg4) != 0) {
+    if (IsNotLocalWirelessGuest_0202c508(arg4) != 0) {
         func_ov017_021c4fa0(arg0, var0);
     }
 }

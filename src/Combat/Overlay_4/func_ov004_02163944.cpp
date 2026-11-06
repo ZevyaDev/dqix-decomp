@@ -47,7 +47,7 @@ extern "C" void func_020dc3b8();
 void SetSubBrightness(GameResources*, int, int);
 extern "C" void func_ov004_021636b0(void*, const char*);
 extern "C" char* GetMessageWindow_020421a0();
-extern "C" void func_02043204(char*);
+extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_020e2d24(int*, int, int);
 
 // JPN: 0x02163efc; USA/EUR: 0x02163944.
@@ -100,7 +100,7 @@ extern "C" ARM int func_ov004_02163944(void* arg0) {
     if (IsBrightnessWithinValidRange((GameResources*)var12, true)) SetSubBrightness(var12, -16, 0);
     func_ov004_021636b0(arg0, data_ov004_02171010.unknown_0_->unknown_ad4_[var5].mapImageName_);
     Struct_ov004_02163944_4* var13 = (Struct_ov004_02163944_4*)GetMessageWindow_020421a0();
-    func_02043204((char*)var13);
+    ResetMessageWindow_02043204((char*)var13);
     var13->unknown_1962_ = 1;
     func_020e2d24(var13->unknown_1964_, 9, 1);
     func_020e2d24(var13->unknown_1988_, 25, 1);

@@ -106,8 +106,8 @@ struct Struct_0201099c_3;
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02041e70(char* arg0, int arg1);
 extern "C" void func_02041a5c(char* arg0, int arg1);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
-extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
+extern "C" void AppendText_02042058(char* buffer, const char* text);
 
 extern "C" {
 void __clear(void* arg0, unsigned long arg1);
@@ -115,9 +115,9 @@ int sprintf(char* arg0, const char* arg1, ...);
 }
 
 #if defined(jpn)
-struct Struct_020465c0;
-extern "C" void func_02046380(void*);
-extern "C" void func_020465c0(Struct_020465c0*, int, int);
+struct MessageWindow_020465c0;
+extern "C" void ClearMessageParams_02046380(void*);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern "C" void func_020474a8(void*, int, const char*, char*);
@@ -168,25 +168,25 @@ extern "C" ARM void func_ov008_02187278(Struct_ov008_021842a0_2* arg0, char* arg
     void* var4 = GetMessageWindow_020421a0();
     char var5[0x40];
     __clear(var5, sizeof(var5));
-    func_02046380(var4);
-    func_020465c0((Struct_020465c0*)var4, 0, var0->unknown_0_);
+    ClearMessageParams_02046380(var4);
+    SetMessageNumber_020465c0((MessageWindow_020465c0*)var4, 0, var0->unknown_0_);
     func_020465f0((unsigned char*)var4, 0, 4);
     func_020465d8((unsigned char*)var4, 0, 1);
-    func_020465c0((Struct_020465c0*)var4, 1, var0->unknown_2_);
+    SetMessageNumber_020465c0((MessageWindow_020465c0*)var4, 1, var0->unknown_2_);
     func_020465f0((unsigned char*)var4, 1, 2);
     func_020465d8((unsigned char*)var4, 1, 1);
-    func_020474a8(var4, 10, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 0x6e), var5);
+    func_020474a8(var4, 10, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 0x6e), var5);
     func_02041e70(arg1, 0xe);
-    func_02042058(arg1, var5);
+    AppendText_02042058(arg1, var5);
 #else
     GetMessageWindow_020421a0();
     func_02041e70(arg1, 0xe);
     func_02041a5c(arg1, 2);
     char var6[0x40];
     __clear(var6, sizeof(var6));
-    const char* var7 = func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 0x6e);
+    const char* var7 = FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 0x6e);
     if (var7 != NULL)
         sprintf(var6, var7, var0->unknown_0_, var0->unknown_2_);
-    func_02042058(arg1, var6);
+    AppendText_02042058(arg1, var6);
 #endif
 }

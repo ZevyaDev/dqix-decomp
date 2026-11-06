@@ -7,13 +7,13 @@
 #endif
 
 extern "C" void __clear(void* arg0, int arg1);
-struct Struct_020fefec;
+struct LocalWireless_020fefec;
 struct Struct_020feffc;
-extern "C" ARM void func_0202baf4(struct Struct_020fefec* arg0, struct Struct_020feffc* arg1);
+extern "C" ARM void func_0202baf4(struct LocalWireless_020fefec* arg0, struct Struct_020feffc* arg1);
 extern "C" ARM int func_020d2f28(char* arg0, const char* arg1, int arg2);
 
 extern char data_020ef7a0[];
-extern struct Struct_020fefec data_020fefec;
+extern struct LocalWireless_020fefec gLocalWireless_020fefec;
 
 struct Struct_0202ae4c {
     char unknown_0_[0x3c];
@@ -40,5 +40,5 @@ extern "C" ARM void func_0202ae4c(struct Struct_0202ae4c* arg0) {
     } else {
         func_020d2f28(var0, data_020ef7a0, 0x15);
     }
-    func_0202baf4(&data_020fefec, (struct Struct_020feffc*)arg0);
+    func_0202baf4(&gLocalWireless_020fefec, (struct Struct_020feffc*)arg0);
 }

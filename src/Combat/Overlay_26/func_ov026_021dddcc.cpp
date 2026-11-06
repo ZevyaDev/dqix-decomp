@@ -84,7 +84,7 @@ struct Struct_ov026_021def00 {
 extern "C" {
 GameState* _ZN9GameState11GetInstanceEv();
 Struct_ov000_0215ab88* _ZN9GameState21GetPartyMemberByIndexEi(GameState* arg0, int arg1);
-unsigned char* func_02053c6c(unsigned char* arg0);
+unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 char* func_020a6084();
 Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4* arg0, int arg1);
 int func_ov000_021719f8(int* arg0);
@@ -161,7 +161,7 @@ extern "C" ARM void func_ov026_021dddcc(Struct_ov000_02160da0* arg0) {
     for (var9 = 0; var9 < 4; var9++) {
         Struct_ov000_0215ab88* var15 = _ZN9GameState21GetPartyMemberByIndexEi(var6, var9);
         if (var15 != 0) {
-            unsigned char* var16 = func_02053c6c((unsigned char*)var15);
+            unsigned char* var16 = GetPartyMemberData_02053c6c((unsigned char*)var15);
             if (var16 != 0) {
                 var3[var9] = *(unsigned short*)(var8 + var16[0x56a] * 0x20 + 0x1e);
             }

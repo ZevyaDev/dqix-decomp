@@ -4,7 +4,7 @@
 #include "Resource/Brightness.h"
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* func_020100f8(char* arg0);
 struct Struct_0200ffd0;
 extern "C" void* func_0200ffd0(struct Struct_0200ffd0* arg0);
@@ -20,7 +20,7 @@ struct Struct_02033834;
 extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
 extern "C" void func_020da244(void* arg0);
 extern "C" void func_0205ebec(void* arg0);
-extern "C" unsigned char func_020100a8(GameState*);
+extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_02018fbc(void* arg0, Vector3i* arg1);
 extern "C" void func_ov017_0219c598(int* arg0, short* arg1, int arg2);
 
@@ -84,14 +84,14 @@ extern "C" Struct_020acecc_3* func_0201b78c(Struct_020acecc_2* arg0, Vector3i* a
 extern "C" void func_020adfa8(Struct_020acecc_5* arg0);
 
 extern Struct_ov017_021d82fc_4 data_ov017_021d82fc;
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 // USA: func_020acecc
 extern "C" ARM void func_020acecc(unsigned int* arg0, int arg1, int arg2)
 {
     GameState* var0 = GameState::GetInstance();
     Struct_020acecc_2* var1 = (Struct_020acecc_2*)GetZone3D_02012fe4();
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     void* var2 = func_020100f8((char*)var0);
     Struct_020acecc_5* var3 = (Struct_020acecc_5*)func_0200ffd0((struct Struct_0200ffd0*)var0);
     Struct_020acecc_4* var4 = (Struct_020acecc_4*)func_0200fd0c(var0);
@@ -115,7 +115,7 @@ extern "C" ARM void func_020acecc(unsigned int* arg0, int arg1, int arg2)
         var8.unknown_4_ = 0;
         var8.unknown_0_ = var3->unknown_0_.unknown_4_;
         func_020da77c(&data_ov017_021d82fc, 3, &var8);
-        func_0205ebc0(&data_02108760, 0xa0, 0xa0);
+        func_0205ebc0(&gSoundEffectManager_02108760, 0xa0, 0xa0);
         func_020a2770(var2, 0xca);
         var3->unknown_19c_ = 1;
         var3->unknown_13c_ = 0;
@@ -150,9 +150,9 @@ extern "C" ARM void func_020acecc(unsigned int* arg0, int arg1, int arg2)
         if (data_ov017_021d82fc.unknown_e_ == 3) {
             func_020da244(&data_ov017_021d82fc);
         }
-        func_0205ebec(&data_02108760);
+        func_0205ebec(&gSoundEffectManager_02108760);
         func_ov017_021d1c2c(var1->unknown_27b4_.unknown_0_, (unsigned char)var1->unknown_27b4_.unknown_2_);
-        func_020a2770(var2, func_020100a8(var0));
+        func_020a2770(var2, GetProtagonistObjectIndex_020100a8(var0));
         ClearFlags04((GameResources*)arg0, 0x10044);
         SetFlags04((GameResources*)arg0, 0x40000);
     }

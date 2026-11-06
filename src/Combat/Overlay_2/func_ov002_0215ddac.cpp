@@ -3,7 +3,7 @@
 #if defined(jpn)
 
 extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_0204234c(char* arg0, int arg1);
 
 extern char data_ov002_0216d933[];
@@ -14,13 +14,13 @@ extern "C" ARM void func_ov002_0215ddac(void* arg0, char* arg1) {
     if (arg1 == NULL) return;
     var0 = (const char*)data_ov002_0216d933;
     func_02041a90(arg1, 0x59, 4);
-    func_02042058(arg1, var0);
+    AppendText_02042058(arg1, var0);
     func_0204234c(arg1, 0x10);
     func_02041a90(arg1, 4, 0x14);
-    func_02042058(arg1, var0);
+    AppendText_02042058(arg1, var0);
     func_0204234c(arg1, 0x20);
     func_02041a90(arg1, 4, 0x22);
-    func_02042058(arg1, var0);
+    AppendText_02042058(arg1, var0);
 }
 
 #endif

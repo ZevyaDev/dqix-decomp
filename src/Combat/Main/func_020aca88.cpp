@@ -34,8 +34,8 @@ struct Struct_02033fdc;
 extern "C" void* func_0200ffd0(struct Struct_0200ffd0* arg0);
 extern "C" void func_020ad59c(void* arg0);
 extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void GetZone3D_02012fe4();
 extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
 extern "C" void func_02033fdc(struct Struct_02033fdc* arg0);
@@ -75,12 +75,12 @@ extern "C" ARM void func_020aca88(GameResources* arg0, int arg1) {
         }
         func_020ad59c(var7);
         func_0203dafc((struct Struct_0203d028_11*)&var5);
-        func_0207df90(var3);
+        RestoreTextureVRAMState_0207df90(var3);
         var5.unk_8 = var4;
         var5.fileData = var6;
         var5.allocator = var2;
         var7->unknown_0_.LoadFromCHRArchive(&var5);
-        func_0207dfac(var3);
+        SaveTextureVRAMState_0207dfac(var3);
         GetZone3D_02012fe4();
 
         GameObject* var8 = var0->GetUnknownGameObject();
@@ -111,12 +111,12 @@ extern "C" ARM void func_020aca88(GameResources* arg0, int arg1) {
         }
         var12->Initialize();
         func_0203dafc((struct Struct_0203d028_11*)&var5);
-        func_0207df90(var3);
+        RestoreTextureVRAMState_0207df90(var3);
         var5.unk_8 = var4;
         var5.fileData = var6;
         var5.allocator = var2;
         var12->LoadFromCHRArchive(&var5);
-        func_0207dfac(var3);
+        SaveTextureVRAMState_0207dfac(var3);
         var12->position_ = var9;
         var12->SetScale(&var10);
         var12->MakeVisible();
@@ -134,12 +134,12 @@ extern "C" ARM void func_020aca88(GameResources* arg0, int arg1) {
         }
         var12->Initialize();
         func_0203dafc((struct Struct_0203d028_11*)&var5);
-        func_0207df90(var3);
+        RestoreTextureVRAMState_0207df90(var3);
         var5.unk_8 = var4;
         var5.fileData = var6;
         var5.allocator = var2;
         var12->LoadFromCHRArchive(&var5);
-        func_0207dfac(var3);
+        SaveTextureVRAMState_0207dfac(var3);
         var9 = var8->obj3D_.position_;
         var9.y = 0;
         var10.y = 0x300;
@@ -161,12 +161,12 @@ extern "C" ARM void func_020aca88(GameResources* arg0, int arg1) {
         }
         var12->Initialize();
         func_0203dafc((struct Struct_0203d028_11*)&var5);
-        func_0207df90(var3);
+        RestoreTextureVRAMState_0207df90(var3);
         var5.unk_8 = var4;
         var5.fileData = var6;
         var5.allocator = var2;
         var12->LoadFromCHRArchive(&var5);
-        func_0207dfac(var3);
+        SaveTextureVRAMState_0207dfac(var3);
         var9 = var8->obj3D_.position_;
         var9.y = 0;
         var10.y = 0x300;

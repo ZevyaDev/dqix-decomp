@@ -41,7 +41,7 @@ extern "C" int func_020957f4(void*, Struct_02013fb4*, int);
 extern "C" int func_02095e90(Struct_02095e90*, SafeAllocator*);
 extern "C" int func_02095ee0(Struct_02095ee0*);
 extern "C" void func_ov004_02166198();
-extern "C" void func_ov011_021848a0(void*, int);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void*, int);
 extern "C" int func_ov004_02166b40(void*);
 extern "C" short func_ov004_021666bc(void*, char*);
 extern "C" void* func_ov004_02165e70(void*, int);
@@ -102,12 +102,12 @@ extern "C" ARM int func_ov004_02167068(void* arg0) {
         var3 = 0;
         char var8 = 0;
         if (var0->unknown_48_ == 0 && var0->unknown_4a_ == 0) {
-            func_ov011_021848a0(arg0, 0x65);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x65);
         } else if (var0->unknown_4a_ == 0) {
             func_ov004_02166b40(arg0);
             func_ov004_021666bc(arg0, &var8);
         } else {
-            func_ov011_021848a0(arg0, 0x12c);
+            QueueMenuScriptEntry_ov011_021848a0(arg0, 0x12c);
         }
         unsigned char var9 = var8;
         Struct_ov004_02167068* var10 = (Struct_ov004_02167068*)func_ov004_02165e70(arg0, 7);

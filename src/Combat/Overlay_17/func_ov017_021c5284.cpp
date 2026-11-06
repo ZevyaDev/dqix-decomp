@@ -2,8 +2,8 @@
 
 extern "C" void* func_0202ae24(void);
 extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
-extern "C" void func_0202ae18(void);
-extern "C" int func_0202c508(void);
+extern "C" void GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void);
 extern "C" void func_ov017_021cdaa0(void);
 
 struct Struct_ov017_021b7284_10 {
@@ -49,8 +49,8 @@ extern "C" ARM void func_ov017_021c5284(Struct_ov017_021b7284_10* arg0) {
     var1.unknown_10_ = arg0->unknown_c_;
     func_0205e330(var0, &var1, 0);
 
-    func_0202ae18();
-    if (func_0202c508()) {
+    GetLocalWireless_0202ae18();
+    if (IsNotLocalWirelessGuest_0202c508()) {
         func_ov017_021cdaa0();
     }
 }

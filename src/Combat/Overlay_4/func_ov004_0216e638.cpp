@@ -13,12 +13,12 @@ struct Struct_020a9ea4;
 extern "C" void func_020a9ea4(struct Struct_020a9ea4* arg0);
 extern unsigned char data_ov004_02171034;
 
-extern "C" void* func_ov011_021849c8(void*);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void func_ov004_0216afb0(void* arg0, int arg1, int arg2, int arg3,
     int arg4, int arg5, int arg6, int arg7, unsigned char arg8);
 extern "C" int func_ov004_0216b2c8(void* arg0, int arg1, int arg2, int arg3);
 
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 #if defined(jpn)
 extern "C" int func_ov023_021f6f10(void* arg0);
 #else
@@ -49,9 +49,9 @@ public:
 };
 
 extern "C" int func_ov004_0216b7bc(void* arg0, int arg1, int arg2, int arg3);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
-extern unsigned char data_02108760;
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
+extern unsigned char gSoundEffectManager_02108760;
 
 // USA: func_ov004_0216e638
 extern "C" ARM int func_ov004_0216e638(void* arg0) {
@@ -69,9 +69,9 @@ extern "C" ARM int func_ov004_0216e638(void* arg0) {
         func_ov004_0216b2c8(var0, 0x44c, var1 + 0x4b0, var1);
     }
 
-    void* var2 = func_ov011_021849c8(var0);
+    void* var2 = GetMenuObjectList_ov011_021849c8(var0);
     for (int var3 = 0; var3 < 2; var3 = var3 + 1) {
-        void* var4 = func_ov023_021f6880(var2, var3 + 0x65);
+        void* var4 = FindMenuObjectById_ov023_021f6880(var2, var3 + 0x65);
         if (!var4) continue;
 #if defined(jpn)
         if (func_ov023_021f6f10(var4) != 2) continue;
@@ -80,7 +80,7 @@ extern "C" ARM int func_ov004_0216e638(void* arg0) {
 #endif
         func_0204b5e8((struct Struct_02020cb8_5*)func_ov023_021f79e4(var4), 2, 4);
 
-        void* var5 = func_ov023_021f6880(var2, var3 + 0x4b0);
+        void* var5 = FindMenuObjectById_ov023_021f6880(var2, var3 + 0x4b0);
         if (!var5) continue;
 #if defined(jpn)
         if (func_ov023_021f6f10(var5) != 8) continue;
@@ -98,6 +98,6 @@ extern "C" ARM int func_ov004_0216e638(void* arg0) {
     }
 
     func_ov004_0216b7bc(var0, 0x3e8, 0x60, 0);
-    func_0205eaa0((struct Struct_02108760*)&data_02108760, 5, 0);
+    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 5, 0);
     return 0;
 }

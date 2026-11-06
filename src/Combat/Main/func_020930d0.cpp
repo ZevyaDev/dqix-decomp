@@ -10,8 +10,8 @@ extern "C" int func_020457e0(char* arg0);
 extern "C" unsigned char* func_ov017_021b8478(void* arg0);
 extern "C" void func_02094030(int* arg0, short arg1, short arg2, int arg3);
 extern "C" char* GetMessageWindow_020421a0(void);
-extern "C" void func_02043204(char* arg0);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int* func_020936f8(void);
 extern "C" unsigned int func_02092cd0(Struct_02092cd0* arg0, int arg1);
 extern "C" int func_02092d18(Struct_02092cd0* arg0, int arg1);
@@ -73,7 +73,7 @@ extern "C" ARM void func_020930d0(struct Struct_02092cd0* arg0) {
     var2 = (Struct_020930d0_3*)GetMessageWindow_020421a0();
     var0 = GetGameResources();
     var8 = (struct Struct_02038598_5*)var0->unknown_ptr_array_36fc[0];
-    var7 = (struct Struct_020930d0*)func_02010828(var1);
+    var7 = (struct Struct_020930d0*)GetParty_02010828(var1);
     var3 = func_020936f8();
     var9 = arg0->unknown_35_;
 
@@ -104,7 +104,7 @@ extern "C" ARM void func_020930d0(struct Struct_02092cd0* arg0) {
         }
         if (var13) {
             if (arg0->unknown_32_ != 0) return;
-            func_02043204((char*)var2);
+            ResetMessageWindow_02043204((char*)var2);
             int var15;
             int var16 = func_02092cd0(arg0, 0);
             int var17 = func_02092cd0(arg0, 5);

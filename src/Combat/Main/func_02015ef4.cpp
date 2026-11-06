@@ -9,7 +9,7 @@ struct Struct_02012fa4;
 struct Struct_02015ef4_2;
 struct Struct_02015ef4_3;
 struct Struct_020159c0_2;
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_02015ef4_4;
 struct Struct_02015438;
 struct Struct_02015ef4_5;
@@ -61,15 +61,15 @@ extern "C" int func_02015ae4(Struct_02015ef4_8*);
 extern "C" int func_02015cd0(Struct_02015ef4_8*);
 extern "C" void* func_02094d5c(Struct_02015ef4_3*, int);
 extern "C" void func_020159c0(Struct_020159c0_2*, int);
-extern "C" void* func_020dedd0(Struct_0201099c_10*, int);
+extern "C" void* func_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" int func_020de234(Struct_02015ef4_4*, int);
 extern "C" int sprintf(char*, const char*, ...);
 extern "C" int func_02046b24(Struct_02015438**);
 extern "C" void func_0204719c(void*);
 extern "C" void func_0207dfc8(Struct_02015ef4_5*, Struct_02015ef4_5*);
-extern "C" void func_0207df90(char*);
+extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void func_02047b30(void*, int, int, int);
-extern "C" void func_0207dfac(char*);
+extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void* func_020100bc(GameState*);
 extern "C" void func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void func_020473c8(Struct_02015ef4_2*, int);
@@ -120,7 +120,7 @@ extern "C" ARM int func_02015ef4(Zone3D* arg0, int arg1) {
                 var1->unknown_16_ = 4;
                 return 0;
             } else if (var9->unknown_4_2_ == 2) {
-                Struct_02015ef4_7* var11 = (Struct_02015ef4_7*)func_020dedd0((Struct_0201099c_10*)arg0->unknown_struct_2754_, var9->unknown_2_);
+                Struct_02015ef4_7* var11 = (Struct_02015ef4_7*)func_020dedd0((ItemTable_0201099c_10*)arg0->unknown_struct_2754_, var9->unknown_2_);
                 if (var11 && var11->unknown_18_ != 0x5617) {
                     int var12 = func_020de234((Struct_02015ef4_4*)var11, 0);
                     char var13[0x50];
@@ -149,9 +149,9 @@ extern "C" ARM int func_02015ef4(Zone3D* arg0, int arg1) {
             var1->unknown_20_->unknown_84_2_ = 1;
             char var19[0x70];
             func_0207dfc8((Struct_02015ef4_5*)arg0->unknown_ptr_50_, (Struct_02015ef4_5*)var19);
-            func_0207df90(var19);
+            RestoreTextureVRAMState_0207df90(var19);
             func_02047b30(var1->unknown_20_, (int)var14, var15, (int)arg0->pAllocator_68_);
-            func_0207dfac(var19);
+            SaveTextureVRAMState_0207dfac(var19);
             *reinterpret_cast<int*>(arg0->unknown_600_ + 0x220) = 0x1f;
             var1->unknown_19_ = 0;
         } else {

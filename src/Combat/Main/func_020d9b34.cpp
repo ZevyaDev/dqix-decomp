@@ -9,26 +9,26 @@
 #define REGION_VALUE(jpnValue, usaValue) jpnValue
 extern const char data_020f2a18[];
 extern "C" void func_020728ac(int, int, void*, int, int, unsigned short, unsigned char);
-struct Struct_02072a68_2;
-extern "C" void* func_02072a68(Struct_02072a68_2*, int);
+struct StringList_02072a68_2;
+extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void StartMessage_0204500c(void*, void*, int);
 #else
 #define REGION_VALUE(jpnValue, usaValue) usaValue
 #endif
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 extern const char data_020f2810[];
 extern const char data_020f2826[];
 
 struct Struct_02114e20;
 extern "C" unsigned int func_02012dd0(Struct_02114e20* arg0);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern "C" void* func_020d6c00(void);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 struct Struct_02018300_3;
 extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_02046380(void* arg0);
+extern "C" void ClearMessageParams_02046380(void* window);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int arg3);
 #endif
@@ -36,7 +36,7 @@ extern "C" void func_020dfec0(void* arg0, void* arg1, void* arg2, unsigned int a
 struct Struct_02046574_2;
 extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 struct Struct_020d9b34 {
     char unknown_0_[REGION_VALUE(0x24, 0x58)];
@@ -60,14 +60,14 @@ struct Struct_020d9b34_2 {
 // USA: func_020d9b34
 extern "C" ARM void func_020d9b34(struct Struct_020d9b34_2* arg0) {
     if (arg0->unknown_9_ == 0) {
-        if (func_02012dd0((Struct_02114e20*)&data_02114e20) < 0x400) {
+        if (func_02012dd0((Struct_02114e20*)&gMainHeap_02114e20) < 0x400) {
             arg0->unknown_1_ = 1;
             return;
         }
         func_020397cc((struct Struct_02018300_3*)GameState::GetInstance()->GetUnknownGameObject(), 1);
-        func_020466e4((unsigned int*)func_020d6c00(), 0xe);
+        func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0xe);
         arg0->unknown_58_.ResetAllocatorPointer();
-        arg0->unknown_58_.CreateTypeA(func_02012d88(&data_02114e20, 0x400), 0x400);
+        arg0->unknown_58_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x400), 0x400);
         arg0->unknown_58_.Reset();
 #if defined(jpn)
         arg0->unknown_c_ = BackgroundLoader::GetInstance()->QueueLoadFile(data_020f2a18, NULL);
@@ -97,7 +97,7 @@ extern "C" ARM void func_020d9b34(struct Struct_020d9b34_2* arg0) {
             arg0->unknown_9_++;
         }
     } else if (arg0->unknown_9_ == 2) {
-        Struct_0208cb08* var3 = func_02094a00();
+        FontLoader_0208cb08* var3 = func_02094a00();
         func_02094b40(var3);
         func_02094ab0(var3);
         func_02094b30(var3, 0x207, 0);
@@ -105,12 +105,12 @@ extern "C" ARM void func_020d9b34(struct Struct_020d9b34_2* arg0) {
     } else if (arg0->unknown_9_ == 3) {
         if (func_02094b4c(func_02094a00()) == 0) return;
         void* var4 = (void*)GetMessageWindow_020421a0();
-        func_02046380(var4);
+        ClearMessageParams_02046380(var4);
         func_02046574((struct Struct_02046574_2*)var4, 0, arg0->unknown_10_);
 #if defined(jpn)
-        StartMessage_0204500c(var4, func_02072a68((Struct_02072a68_2*)&arg0->unknown_40_, arg0->unknown_8_), 0);
+        StartMessage_0204500c(var4, FindStringInList_02072a68((StringList_02072a68_2*)&arg0->unknown_40_, arg0->unknown_8_), 0);
 #else
-        StartMessage_0204500c(var4, (void*)func_020e0434((struct Struct_0201099c_3*)&arg0->unknown_40_, arg0->unknown_8_), 0, 0xe3);
+        StartMessage_0204500c(var4, (void*)FindStringInTable_020e0434((struct Struct_0201099c_3*)&arg0->unknown_40_, arg0->unknown_8_), 0, 0xe3);
 #endif
         *(int*)((char*)var4 + REGION_VALUE(0x868, 0x998)) = 1;
         arg0->unknown_9_++;

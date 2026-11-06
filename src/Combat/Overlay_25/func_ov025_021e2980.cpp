@@ -42,12 +42,12 @@ struct Struct_0204a438;
 struct Struct_0202df68;
 struct Struct_02048c90;
 struct Struct_02010604;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 extern Struct_ov025_021ef988_4 data_ov025_021ef988;
 extern char data_ov025_021ef7d9[];
 extern char data_ov025_021ef7df[];
 extern char data_ov025_021ef7e6[];
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" int func_0202e09c(int);
 extern "C" Object3D* func_0204a438(Struct_0204a438*);
 extern "C" void func_0202e9a4(Struct_0202df68*, int);
@@ -57,7 +57,7 @@ extern "C" void func_02048c90(Struct_02048c90*);
 extern "C" void func_02049ae4(unsigned char*);
 extern "C" void func_02033b88(Struct_02010604*, int);
 extern "C" Struct_ov025_021e2980_4* func_ov000_02160130();
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 
 // USA: func_ov025_021e2980
 extern "C" ARM int func_ov025_021e2980(Struct_ov025_021e2980* arg0, Struct_ov025_021e2980_2* arg1, int arg2, void* arg3) {
@@ -80,7 +80,7 @@ extern "C" ARM int func_ov025_021e2980(Struct_ov025_021e2980* arg0, Struct_ov025
         for (int var5 = 0; var5 < var4; var5++) {
             Struct_ov025_021e2980_3* var6 = (Struct_ov025_021e2980_3*)var0->GetGameObjectByIndex(var3[var5]);
             if (!var6) continue;
-            if (var6->unknown_0_.unknown_0_ & 0x80) {
+            if (var6->unknown_0_.classFlags_0_ & 0x80) {
                 func_02048c90((Struct_02048c90*)var6);
                 func_02049ae4((unsigned char*)var6);
                 int var7 = var6->unknown_be_;
@@ -108,8 +108,8 @@ extern "C" ARM int func_ov025_021e2980(Struct_ov025_021e2980* arg0, Struct_ov025
             strcmp(var10, data_ov025_021ef7d9) == 0 ||
             strcmp(var10, data_ov025_021ef7df) == 0) {
             if (!(arg0->unknown_f_ & 1)) {
-                if (arg1->unknown_a_ & 1) func_0205eaa0(&data_02108760, 0x66, 0);
-                else func_0205eaa0(&data_02108760, 0x64, 0);
+                if (arg1->unknown_a_ & 1) PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x66, 0);
+                else PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x64, 0);
             }
             var8->BeginFade(0x4cc, 1000);
             data_ov025_021ef988.unknown_1c_ |= 0x200;

@@ -20,7 +20,7 @@ extern "C" void func_02042c24(struct Struct_02042b98_3* arg0, int arg1, int arg2
 struct Struct_02042b98;
 extern "C" void func_02042c3c(struct Struct_02042b98* arg0, int arg1, int arg2);
 
-extern "C" void func_02043124(void* arg0);
+extern "C" void CloseMessageWindow_02043124(void* window);
 
 struct Struct_02042c68_2;
 extern "C" void func_02045824(struct Struct_02042c68_2* arg0, int arg1, int arg2);
@@ -90,7 +90,7 @@ extern "C" ARM void func_02042c68(char* arg0) {
     *(unsigned char*)(arg0 + REGION_OFFSET(0x17e1, 0x19b1)) = 1;
     *(int*)(arg0 + REGION_OFFSET(0x1c4c, 0x1e28)) = 0;
     *(unsigned char*)(arg0 + REGION_OFFSET(0x17fd, 0x19cc)) = 0;
-    func_02043124(arg0);
+    CloseMessageWindow_02043124(arg0);
 
     *(unsigned char*)(arg0 + REGION_OFFSET(0x17eb, 0x19bb)) = 1;
     *(int*)(arg0 + REGION_OFFSET(0x864, 0x994)) = -1;

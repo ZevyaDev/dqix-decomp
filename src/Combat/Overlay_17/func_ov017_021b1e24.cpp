@@ -14,8 +14,8 @@ extern "C" void func_0205e92c(void* arg0);
 extern "C" void func_0209c278(void* arg0);
 extern "C" void func_0209c290(void* arg0);
 extern "C" void func_0205ea20(void* arg0, int arg1);
-extern char data_02108760;
-extern char data_02109bf4;
+extern char gSoundEffectManager_02108760;
+extern char gMusicManager_02109bf4;
 
 struct Struct_ov017_021b1e24_2 {
     char unknown_0_[0x28];
@@ -66,8 +66,8 @@ extern "C" ARM void func_ov017_021b1e24(Struct_ov017_021b1e24_3* arg0) {
         unsigned int var0 = arg0->unknown_8_->GetMaxPossibleAllocation();
         arg0->unknown_c_.CreateTypeA(arg0->unknown_8_->Allocate(var0), var0);
         arg0->unknown_c_.Reset();
-        func_0205e92c(&data_02108760);
-        func_0209c278(&data_02109bf4);
+        func_0205e92c(&gSoundEffectManager_02108760);
+        func_0209c278(&gMusicManager_02109bf4);
         func_020a1940(OVERLAY_ID(31));
         func_ov031_02243518(arg0->unknown_24_, arg0->unknown_21_);
         arg0->unknown_24_->unknown_28_ = &arg0->unknown_c_;
@@ -84,10 +84,10 @@ extern "C" ARM void func_ov017_021b1e24(Struct_ov017_021b1e24_3* arg0) {
         return;
     }
     func_020a1940(OVERLAY_ID(32));
-    func_0209c278(&data_02109bf4);
-    func_0209c290(&data_02109bf4);
-    func_0205e92c(&data_02108760);
-    func_0205ea20(&data_02108760, 100);
+    func_0209c278(&gMusicManager_02109bf4);
+    func_0209c290(&gMusicManager_02109bf4);
+    func_0205e92c(&gSoundEffectManager_02108760);
+    func_0205ea20(&gSoundEffectManager_02108760, 100);
     SignedAllocatorHeader* var1 = arg0->unknown_c_.GetSignedAllocator();
     if (var1 != NULL) {
         arg0->unknown_c_.Destroy();

@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Combat/CombatantRecovery.h"
 
-struct Struct_0202c1a4;
+struct LocalWireless_0202c1a4;
 struct Struct_ov017_021c9f18 {
     unsigned char unknown_0_;
     unsigned char unknown_1_[3];
@@ -23,7 +23,7 @@ struct Struct_ov017_021c9f18_2 {
     unsigned char unknown_0_[2];
     unsigned char unknown_2_;
 };
-extern "C" void* func_02053c6c(unsigned char*);
+extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" void func_02083e28(void*, int);
 extern "C" unsigned short func_ov017_021b8480(void*);
 extern "C" void func_02054224(void*);
@@ -33,12 +33,12 @@ extern "C" void func_02026f08(unsigned char*, int, int);
 extern "C" void func_02026f20(int, int);
 extern "C" int func_020546a8(void*);
 extern "C" int func_020100b0(GameState*);
-extern "C" signed char func_0202c1a4(Struct_0202c1a4*);
+extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
 extern "C" void func_ov017_02191108(void*, int, int, int, int);
 
 // USA: func_ov017_021c9f18
-extern "C" ARM void func_ov017_021c9f18(void* arg0, const Struct_ov017_021c9f18* arg1, GameState* arg2, GameResources* arg3, Struct_0202c1a4* arg4) {
+extern "C" ARM void func_ov017_021c9f18(void* arg0, const Struct_ov017_021c9f18* arg1, GameState* arg2, GameResources* arg3, LocalWireless_0202c1a4* arg4) {
     int var0;
     Struct_020236dc_2* var1;
     int var2;
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov017_021c9f18(void* arg0, const Struct_ov017_021c9f18*
     if (var5 == 0) return;
     var1 = static_cast<Struct_020236dc_2*>(arg2->GetPartyMemberByIndex(var4));
     if (var1 == NULL) return;
-    void* var6 = func_02053c6c((unsigned char*)var1);
+    void* var6 = GetPartyMemberData_02053c6c((unsigned char*)var1);
     if (var6 == NULL) return;
     var2 = 0;
     int var7 = var1->unknown_ac_.unknown_84_->unknown_0_ & 1;
@@ -82,8 +82,8 @@ extern "C" ARM void func_ov017_021c9f18(void* arg0, const Struct_ov017_021c9f18*
     }
     if (var2 == 0) return;
     var0 = var4;
-    if ((var1->obj3D_.unknown_0_ & 0x1000) != 0) var0 = func_020546a8(var1);
+    if ((var1->obj3D_.classFlags_0_ & 0x1000) != 0) var0 = func_020546a8(var1);
     func_020100b0(arg2);
-    if (var0 != func_0202c1a4(arg4)) func_ov017_021907dc((int)arg3, var0, 1, 1, 1);
+    if (var0 != GetOwnProtagonistObjectIndex_0202c1a4(arg4)) func_ov017_021907dc((int)arg3, var0, 1, 1, 1);
     else func_ov017_02191108(arg3, 1, 1, 1, 1);
 }

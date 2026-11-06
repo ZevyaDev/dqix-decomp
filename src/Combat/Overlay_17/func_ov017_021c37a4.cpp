@@ -3,9 +3,6 @@
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_ov017_021c37a4_6 {
     char unknown_0_[0x100d];
@@ -111,8 +108,8 @@ struct Struct_02039d84;
 struct Struct_0205faf4_13;
 struct Struct_0206e2a0;
 struct Struct_02061c04_7;
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
 struct Struct_020e3004;
 struct Struct_020e358c;
 struct Struct_020e3814;
@@ -120,13 +117,13 @@ struct Struct_02109bf4_4;
 struct Struct_02109bf4_3;
 struct Struct_02038598_4;
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* func_0202ae24(void);
 extern "C" void* func_020e2ff8(void);
 extern "C" void* func_020e3580(void);
 extern "C" void* func_020e3808(void);
-extern "C" void* func_020d6c00(void);
-extern "C" int func_0202c540(void* arg0);
+extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_0202ba00(int* arg0);
 extern "C" void func_020ac4f8(int arg0);
 extern "C" void __clear(void* arg0, int arg1);
@@ -136,7 +133,7 @@ extern "C" void func_02046a8c(void* arg0, void* arg1);
 extern "C" void func_020d84e0(void);
 extern "C" void func_0202b0f4(void* arg0);
 extern "C" void func_0205e22c(void* arg0);
-extern "C" unsigned char func_020100a8(GameState* arg0);
+extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_02039d7c(char* arg0);
 extern "C" void func_02039d84(Struct_02039d84* arg0);
 extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
@@ -154,13 +151,13 @@ extern "C" void func_02039858(unsigned char* arg0, int arg1);
 extern "C" void func_02039d24(unsigned char* arg0);
 extern "C" void* func_020100f8(char* arg0);
 extern "C" void func_020a2770(void* arg0, short arg1);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int func_0206e2dc(Struct_0205faf4_13* arg0, int arg1);
 extern "C" void func_020abd20(int arg0);
 extern "C" void func_0206e2a0(Struct_0206e2a0* arg0, int arg1);
 extern "C" void func_020d9ae8(Struct_02061c04_7* arg0, int arg1);
 extern "C" void func_020d9dc4(char* arg0, char* arg1);
-extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
+extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_02086d88(unsigned char* arg0, int arg1);
 extern "C" void func_ov017_0218d500(void* arg0);
 extern "C" void func_020116c8(void* arg0);
@@ -184,20 +181,20 @@ extern "C" void func_0209c20c(Struct_02109bf4_3* arg0);
 extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
 extern "C" Struct_ov017_021c37a4_5* GetMessageWindow_020421a0(void);
 
-extern Struct_02109bf4_11 data_02109bf4;
+extern Struct_02109bf4_11 gMusicManager_02109bf4;
 
 // USA: func_ov017_021c37a4
 extern "C" ARM void func_ov017_021c37a4(void) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov017_021c37a4_10* var1 = (Struct_ov017_021c37a4_10*)var0;
-    Struct_ov017_021c37a4_6* var2 = (Struct_ov017_021c37a4_6*)func_0202ae18();
+    Struct_ov017_021c37a4_6* var2 = (Struct_ov017_021c37a4_6*)GetLocalWireless_0202ae18();
     GameResources* var3 = GetGameResources();
     void* var4 = func_0202ae24();
     void* var5 = func_020e2ff8();
     void* var6 = func_020e3580();
     void* var7 = func_020e3808();
-    void* var8 = func_020d6c00();
-    int var9 = func_0202c540(var2);
+    void* var8 = GetGlobalFlags_020d6c00();
+    int var9 = IsLocalWirelessGuest_0202c540(var2);
     int var10 = func_0202ba00((int*)var2);
     int var11 = var2->unknown_100d_;
 #if defined(jpn)
@@ -239,21 +236,21 @@ extern "C" ARM void func_ov017_021c37a4(void) {
 #endif
 
     for (int var18 = 0; var18 < 4; var18++) {
-        if (var18 == func_020100a8(var0)) {
+        if (var18 == GetProtagonistObjectIndex_020100a8(var0)) {
             GameObject* var19 = var0->GetPartyMemberByIndex(var18);
             if (var9 && var19 && func_02039d7c((char*)var19)) {
                 func_02039d84((Struct_02039d84*)var19);
             }
         } else {
             GameObject* var20 = func_0200ff58(var0, var18);
-            if (var20 && func_020546a8(var20) == func_020100a8(var0)) {
+            if (var20 && func_020546a8(var20) == GetProtagonistObjectIndex_020100a8(var0)) {
                 continue;
             }
             func_ov017_02190264(var3, var18);
         }
     }
 
-    var14.unknown_0_ = func_020100a8(var0);
+    var14.unknown_0_ = GetProtagonistObjectIndex_020100a8(var0);
     var14.unknown_1_ = 0;
     if (var14.unknown_0_ != var14.unknown_1_) {
         func_ov017_021c32b0(&var14, 1);
@@ -261,7 +258,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
 
     for (int var21 = 3; var21 >= 0; var21--) {
         GameObject* var22 = var0->GetGameObjectByIndex(var21);
-        if (var22 && (var22->obj3D_.unknown_0_ & 0x1000)) {
+        if (var22 && (var22->obj3D_.classFlags_0_ & 0x1000)) {
             int var23 = -1;
             for (int var24 = 3; var21 < var24; var24--) {
                 if (var0->GetGameObjectByIndex(var24) == NULL) {
@@ -292,8 +289,8 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     for (int var25 = 0; var25 < 4; var25++) {
         GameObject* var26 = func_0200ff58(var0, var25);
         if (var26) {
-            func_020546a0(var26, func_020100a8(var0));
-            func_02039858((unsigned char*)var26, func_020100a8(var0));
+            func_020546a0(var26, GetProtagonistObjectIndex_020100a8(var0));
+            func_02039858((unsigned char*)var26, GetProtagonistObjectIndex_020100a8(var0));
             func_02039d24((unsigned char*)var26);
         }
     }
@@ -306,9 +303,9 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     func_ov017_02191234(var3);
     var1->unknown_5ccc_ |= 2;
 
-    Struct_ov017_021c37a4* var28 = (Struct_ov017_021c37a4*)func_02010828(var0);
+    Struct_ov017_021c37a4* var28 = (Struct_ov017_021c37a4*)GetParty_02010828(var0);
     if (var9) {
-        void* var29 = func_0205ec34();
+        void* var29 = GetFlagManager_0205ec34();
         memset(var13, 0, 0x1a);
         unsigned char* var30 = var13;
         unsigned char var31 = 0;
@@ -347,7 +344,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
             var35 = var3->unknown_ptr_array_36fc[0];
             func_020d9ae8((Struct_02061c04_7*)var36, 0);
             func_020d9dc4((char*)var36, var12);
-            func_020469b4((Struct_0201bdac_2*)var35, (Struct_0201bdac*)var36);
+            AppendToQueue_020469b4((Queue_0201bdac_2*)var35, (QueueNode_0201bdac*)var36);
         }
     }
 
@@ -364,7 +361,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         var37->unknown_18c_ &= ~1;
     }
 
-    Struct_ov017_021c37a4* var38 = (Struct_ov017_021c37a4*)func_02010828(var0);
+    Struct_ov017_021c37a4* var38 = (Struct_ov017_021c37a4*)GetParty_02010828(var0);
     for (int var39 = 0; var39 < var38->unknown_f7c_; var39++) {
         unsigned char var40 = var38->unknown_f78_[var39];
         if (func_0200ff1c(var0, var40)) {
@@ -393,14 +390,14 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     func_020e3814((Struct_020e3814*)var7);
     var43->unknown_2820_ = 1;
 
-    if (func_0209c3ac((char*)&data_02109bf4) != 0x7f) {
-        func_0209c2e0(&data_02109bf4, 0x7f, 0);
-        func_0209c678((Struct_02109bf4_4*)&data_02109bf4, 0);
+    if (func_0209c3ac((char*)&gMusicManager_02109bf4) != 0x7f) {
+        func_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
+        func_0209c678((Struct_02109bf4_4*)&gMusicManager_02109bf4, 0);
         func_020bbd9c();
     }
-    data_02109bf4.unknown_c8_ &= ~4;
-    if (!func_0209c6bc(&data_02109bf4)) {
-        func_0209c20c((Struct_02109bf4_3*)&data_02109bf4);
+    gMusicManager_02109bf4.unknown_c8_ &= ~4;
+    if (!func_0209c6bc(&gMusicManager_02109bf4)) {
+        func_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
     }
     func_020466f4((Struct_02038598_4*)var8, 0x800);
     GetMessageWindow_020421a0()->unknown_1962_ = 0;

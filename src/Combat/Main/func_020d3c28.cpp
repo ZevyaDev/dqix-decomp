@@ -31,7 +31,7 @@ extern "C" ARM void func_020d3c28(struct Struct_02061c04_12* arg0) {
     arg0->unknown_b4_ = 0;
     BackgroundLoader::AddLockGlobal();
 #if defined(jpn)
-    var1 = (int)LoadFileIntoMemory(data_020f244c, data_0211e33c, (unsigned int*)&var0);
+    var1 = (int)LoadFileIntoMemory(data_020f244c, gFileScratchSpace_0211e33c, (unsigned int*)&var0);
 #else
     var1 = (int)ExtractFileFromGP2((const char*)&data_020f22e0, (const char*)&data_020f22f4, (unsigned int*)&var0);
 #endif

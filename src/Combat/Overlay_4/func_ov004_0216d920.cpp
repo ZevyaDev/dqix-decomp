@@ -22,8 +22,8 @@ extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
 struct Struct_02011544;
 extern "C" void func_02011544(struct Struct_02011544* arg0);
 
-extern int data_02109bf4;
-extern int data_02108760;
+extern int gMusicManager_02109bf4;
+extern int gSoundEffectManager_02108760;
 extern unsigned char data_ov004_02171034[];
 
 #if defined(jpn)
@@ -37,12 +37,12 @@ extern "C" ARM int func_ov004_0216d920() {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     if (func_0200fb9c((char*)var0) != 2) {
-        func_0209c678((struct Struct_02109bf4_4*)&data_02109bf4, 0);
-        func_0209c20c((struct Struct_02109bf4_3*)&data_02109bf4);
-        func_0205e8ec((struct Struct_0205e8ec*)&data_02108760);
+        func_0209c678((struct Struct_02109bf4_4*)&gMusicManager_02109bf4, 0);
+        func_0209c20c((struct Struct_02109bf4_3*)&gMusicManager_02109bf4);
+        func_0205e8ec((struct Struct_0205e8ec*)&gSoundEffectManager_02108760);
     }
-    func_0209ca70((void*)&data_02109bf4, data_ov004_02171034[Enum_ov004_0216d920_4]);
-    func_0205e9f4((struct Struct_02108760_2*)&data_02108760, data_ov004_02171034[Enum_ov004_0216d920_1]);
+    func_0209ca70((void*)&gMusicManager_02109bf4, data_ov004_02171034[Enum_ov004_0216d920_4]);
+    func_0205e9f4((struct Struct_02108760_2*)&gSoundEffectManager_02108760, data_ov004_02171034[Enum_ov004_0216d920_1]);
     ClearFlags00(var1, -1);
     ClearFlags04(var1, -1);
     ClearFlags08(var1, -1);

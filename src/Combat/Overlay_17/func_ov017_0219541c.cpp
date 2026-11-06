@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 struct Struct_0202b2f0;
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_0202c600(struct Struct_0202b2f0* arg0, int arg1);
 extern "C" void func_ov017_02195214(void* arg0, void* arg1);
 
@@ -13,7 +13,7 @@ extern "C" ARM void func_ov017_0219541c(void* arg0, int arg1, char* arg2) {
 #else
  enum {Enum_ov017_0219541c_241=0xf1, Enum_ov017_0219541c_16896=0x4200, Enum_ov017_0219541c_1052=0x41c};
 #endif
-	void* var0 = func_0202ae18();
+	void* var0 = GetLocalWireless_0202ae18();
 	int var1 = arg1 - 1;
 	unsigned char* var2;
 	if (var1 < 0) return;

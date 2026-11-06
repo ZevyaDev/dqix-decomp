@@ -6,10 +6,10 @@ struct Struct_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205d81c;
 struct Struct_0205def8;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_020d7aa0_2;
 
-extern "C" int func_0200fb8c(int *arg0);
+extern "C" int GetResources_0200fb8c(int *gameState);
 extern "C" void GetZone3D_02012fe4(void);
 extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
                                                                         unsigned char arg2);
@@ -27,15 +27,15 @@ extern "C" Struct_020d7aa0_2 *func_020d7a50();
 extern "C" void func_020d7aa0(Struct_020d7aa0_2 *arg0);
 extern "C" void func_ov002_02156080(void *arg0, short *arg1, short *arg2);
 extern "C" int func_ov002_02161920(void *arg0);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" void func_ov017_021c1798(GameResources *arg0, unsigned char arg1);
 extern "C" void func_ov002_0215a878(char *arg0);
-extern "C" int func_020100a8(GameState *arg0);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
 extern "C" void func_ov017_021bff8c(int arg0, int arg1);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_ov002_02156e90(void *arg0);
 
-extern "C" char data_02108760;
+extern "C" char gSoundEffectManager_02108760;
 
 #define OBJ (arg0 + 0x2c8 + 0xc00)
 
@@ -45,7 +45,7 @@ extern "C" char data_02108760;
 #define OBJ (arg0 + 0xe20)
 extern "C" ARM void func_ov002_02166168(char *arg0) {
     GameState *var0      = GameState::GetInstance();
-    GameResources *var1 = (GameResources *) func_0200fb8c((int *) var0);
+    GameResources *var1 = (GameResources *) GetResources_0200fb8c((int *) var0);
     GetZone3D_02012fe4();
     int var2 = *(int *) (arg0 + 0x1a88);
     if (var2 == 0) {
@@ -83,49 +83,49 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
             func_ov002_02161920(arg0);
             switch (var10[*(short *) (arg0 + 0x1ac6)]) {
                 case 0:
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                     *(unsigned char *) (arg0 + 0xed8) = *(int *) (arg0 + 0x1a80);
                     *(unsigned int *) (arg0 + 0x22ac) &= ~4;
                     *(int *) (arg0 + 0x1a80) = 0x18;
                     *(int *) (arg0 + 0x1a88) = 0;
                     break;
                 case 1:
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                     *(int *) (arg0 + 0x1a80) = 0x19;
                     *(int *) (arg0 + 0x1a88) = 0;
                     break;
                 case 2:
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                     *(unsigned char *) (arg0 + 0xed8) = *(int *) (arg0 + 0x1a80);
                     *(unsigned int *) (arg0 + 0x22ac) &= ~4;
                     *(int *) (arg0 + 0x1a80) = 0x20;
                     *(int *) (arg0 + 0x1a88) = 0;
                     break;
                 case 3:
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                     *(int *) (arg0 + 0x1a80) = 0x24;
                     *(int *) (arg0 + 0x1a88) = 0;
                     break;
                 case 4:
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                     func_ov017_021c1798(var1, 1);
                     func_ov002_0215a878(arg0);
                     *(int *) (arg0 + 0x1a80) = 0x2e;
                     *(int *) (arg0 + 0x1a88) = 0;
                     break;
                 case 5:
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                     *(int *) (arg0 + 0x1a80) = 0x26;
                     *(int *) (arg0 + 0x1a88) = 0;
                     break;
                 case 7:
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                     *(int *) (arg0 + 0x1a80) = 0x27;
                     *(int *) (arg0 + 0x1a88) = 0;
                     break;
                 case 8: {
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
-                    int var11 = (signed char) func_020100a8(var0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
+                    int var11 = (signed char) GetProtagonistObjectIndex_020100a8(var0);
                     for (int var12 = 0; var12 < *(int *) (arg0 + 0x1b14); var12++) {
                         char *var13 = (char *) func_0200ff1c(var0, *(int *) (arg0 + var12 * 4 + 0x1b18));
                         if (var13 != 0 && !(**(int **) (var13 + 0x130) & 1)) {
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
 #else
 extern "C" ARM void func_ov002_02166168(char *arg0) {
     GameState *var14      = GameState::GetInstance();
-    GameResources *var15 = (GameResources *) func_0200fb8c((int *) var14);
+    GameResources *var15 = (GameResources *) GetResources_0200fb8c((int *) var14);
     GetZone3D_02012fe4();
     int var16 = *(int *) (arg0 + 0x1bc0);
     if (var16 == 0) {
@@ -194,49 +194,49 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
             func_ov002_02161920(arg0);
             switch (var24[*(short *) (arg0 + 0x1bfe)]) {
                 case 0:
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                     *(unsigned char *) (arg0 + 0xf80) = *(int *) (arg0 + 0x1bb8);
                     *(unsigned int *) (arg0 + 0x247c) &= ~4;
                     *(int *) (arg0 + 0x1bb8) = 0x17;
                     *(int *) (arg0 + 0x1bc0) = 0;
                     break;
                 case 1:
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                     *(int *) (arg0 + 0x1bb8) = 0x18;
                     *(int *) (arg0 + 0x1bc0) = 0;
                     break;
                 case 2:
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                     *(unsigned char *) (arg0 + 0xf80) = *(int *) (arg0 + 0x1bb8);
                     *(unsigned int *) (arg0 + 0x247c) &= ~4;
                     *(int *) (arg0 + 0x1bb8) = 0x1f;
                     *(int *) (arg0 + 0x1bc0) = 0;
                     break;
                 case 3:
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                     *(int *) (arg0 + 0x1bb8) = 0x21;
                     *(int *) (arg0 + 0x1bc0) = 0;
                     break;
                 case 4:
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                     func_ov017_021c1798(var15, 1);
                     func_ov002_0215a878(arg0);
                     *(int *) (arg0 + 0x1bb8) = 0x2b;
                     *(int *) (arg0 + 0x1bc0) = 0;
                     break;
                 case 5:
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                     *(int *) (arg0 + 0x1bb8) = 0x23;
                     *(int *) (arg0 + 0x1bc0) = 0;
                     break;
                 case 7:
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                     *(int *) (arg0 + 0x1bb8) = 0x24;
                     *(int *) (arg0 + 0x1bc0) = 0;
                     break;
                 case 8: {
-                    func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
-                    int var25 = (signed char) func_020100a8(var14);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
+                    int var25 = (signed char) GetProtagonistObjectIndex_020100a8(var14);
                     for (int var26 = 0; var26 < *(int *) (arg0 + 0x1c50); var26++) {
                         char *var27 = (char *) func_0200ff1c(var14, *(int *) (arg0 + var26 * 4 + 0x1c54));
                         if (var27 != 0 && !(**(int **) (var27 + 0x130) & 1)) {

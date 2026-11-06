@@ -7,20 +7,17 @@ enum { Enum_ov017_0219922c_1724 = 0x6bc, Enum_ov017_0219922c_13824 = 0x3600, Enu
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
 extern "C" void func_0206f81c(void* arg0);
 extern "C" void func_ov017_021adc58(unsigned char* arg0);
 extern "C" unsigned char func_020100b0(GameState* arg0);
 int fix32ReduceAngle0To2Pi(int angle);
 struct Vector3i;
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
-extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
+extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 struct Struct_ov017_0219922c {
     char unknown_0_[0x20];
@@ -37,7 +34,7 @@ extern "C" ARM void func_ov017_0219922c(unsigned char* arg0) {
     signed short var4 = *(signed short*)(arg0 + Enum_ov017_0219922c_13824 + Enum_ov017_0219922c_198);
 
     if (!var2) {
-        void* var5 = func_0205ec34();
+        void* var5 = GetFlagManager_0205ec34();
         struct Struct_ov017_0219922c var6;
         var6.unknown_20_ = *(unsigned short*)(var1 + 0x1c);
         if (func_020649b0(var5, 0x12, &var6)) {
@@ -69,7 +66,7 @@ extern "C" ARM void func_ov017_0219922c(unsigned char* arg0) {
     }
 
     unsigned char* var11 = arg0 + 0x3000;
-    struct Struct_0201bdac_2* var12 = *(struct Struct_0201bdac_2**)(var11 + Enum_ov017_0219922c_1788);
-    struct Struct_0201bdac* var13 = *(struct Struct_0201bdac**)(var11 + Enum_ov017_0219922c_2852);
-    func_020469b4(var12, var13);
+    struct Queue_0201bdac_2* var12 = *(struct Queue_0201bdac_2**)(var11 + Enum_ov017_0219922c_1788);
+    struct QueueNode_0201bdac* var13 = *(struct QueueNode_0201bdac**)(var11 + Enum_ov017_0219922c_2852);
+    AppendToQueue_020469b4(var12, var13);
 }

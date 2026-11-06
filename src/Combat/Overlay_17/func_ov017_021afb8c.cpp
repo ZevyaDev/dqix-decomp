@@ -23,7 +23,7 @@ extern char data_ov017_021d8104[];
 struct Struct_0205c77c;
 extern "C" void func_0205c77c(struct Struct_0205c77c* arg0, int arg1);
 extern "C" void func_0205cd28(unsigned char* arg0);
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 
 // USA: func_ov017_021afb8c
@@ -77,6 +77,6 @@ extern "C" ARM void func_ov017_021afb8c(char* arg0, char* arg1) {
         *(short*)(arg0 + 0xfe) = 0x40;
 
         func_0205cd28((unsigned char*)(arg0 + 0x48));
-        func_020466e4((unsigned int*)func_020d6c00(), 0x800000);
+        func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x800000);
     }
 }

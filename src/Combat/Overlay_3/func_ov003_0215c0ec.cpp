@@ -36,16 +36,16 @@ struct Struct_ov003_0215c0ec_3 {
 };
 
 struct Struct_0205d5d0;
-struct Struct_020465c0;
+struct MessageWindow_020465c0;
 
 extern "C" void func_ov003_0215b6f0(struct Struct_ov003_0215c0ec_3* arg0, char* arg1, int arg2);
 extern "C" void func_ov003_0215b964(struct Struct_ov003_0215c0ec_3* arg0, char* arg1, int arg2);
 extern "C" void func_ov003_0215be70(struct Struct_ov003_0215c0ec_3* arg0, char* arg1, int arg2);
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_02046380(void* arg0);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" int func_020e51cc(int arg0);
-extern "C" int func_02042058(char* arg0, const char* arg1);
-extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
+extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
 
@@ -85,15 +85,15 @@ extern "C" ARM void func_ov003_0215c0ec(struct Struct_ov003_0215c0ec_3* arg0) {
         memset(arg0->unknown_7c_, 0, Enum_ov003_0215c0ec_2400);
 #if defined(jpn)
         func_02042428(arg0->unknown_7c_, 8);
-        func_02042058(arg0->unknown_7c_, data_ov003_0217e68e);
+        AppendText_02042058(arg0->unknown_7c_, data_ov003_0217e68e);
         func_02042158(arg0->unknown_7c_, 2);
-        func_02042058(arg0->unknown_7c_, data_ov003_0217e696);
+        AppendText_02042058(arg0->unknown_7c_, data_ov003_0217e696);
 #else
-        func_02042058(arg0->unknown_7c_, (const char*)func_020e51cc(0x3f1));
+        AppendText_02042058(arg0->unknown_7c_, (const char*)func_020e51cc(0x3f1));
 #endif
-        func_02046380((void*)var4);
-        func_020465c0((struct Struct_020465c0*)var4, 0,
-                          ((struct Struct_ov003_0215c0ec_2*)func_02010828(var3))->unknown_f6c_);
+        ClearMessageParams_02046380((void*)var4);
+        SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var4, 0,
+                          ((struct Struct_ov003_0215c0ec_2*)GetParty_02010828(var3))->unknown_f6c_);
         func_020465f0((unsigned char*)var4, 0, 7);
         func_020465d8((unsigned char*)var4, 0, 1);
 #if defined(jpn)

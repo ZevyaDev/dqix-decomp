@@ -6,28 +6,28 @@ enum { Enum_020ddcbc_336 = 0x150 };
 #endif
 #include "GameState/GameState.h"
 
-struct Struct_0201099c_9 { unsigned int unknown_0_[8]; };
+struct ItemData_0201099c_9 { unsigned int unknown_0_[8]; };
 struct Struct_020ddcbc {
     unsigned int unknown_0_0_ : 4;
     unsigned int : 27;
     unsigned int unknown_3_7_ : 1;
 };
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_02061c04_22 { unsigned char unknown_0_[0x454]; short unknown_454_[8]; };
 struct Struct_020a0504;
 
-extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
 extern "C" int func_020ddb20(unsigned int* arg0);
 extern "C" void func_0208386c(struct Struct_02061c04_22* arg0, int arg1);
-extern "C" int func_020ac4c0(void* arg0);
+extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" void func_020a0504(struct Struct_020a0504* arg0, unsigned int arg1);
 extern "C" int func_020ac494(void* arg0);
 
 // USA: func_020ddcbc
-extern "C" ARM int func_020ddcbc(int arg0, int arg1, struct Struct_0201099c_10* arg2) {
+extern "C" ARM int func_020ddcbc(int arg0, int arg1, struct ItemTable_0201099c_10* arg2) {
     GameObject* var0;
     short* var1;
-    struct Struct_0201099c_9* var2;
+    struct ItemData_0201099c_9* var2;
     int var3;
     char var4[0xb0];
 
@@ -55,7 +55,7 @@ extern "C" ARM int func_020ddcbc(int arg0, int arg1, struct Struct_0201099c_10* 
     }
 
     if (((struct Struct_020ddcbc*)&var2->unknown_0_[2])->unknown_3_7_) {
-        func_020ac4c0(var4);
+        GetBattleRecords_020ac4c0(var4);
         func_020a0504((struct Struct_020a0504*)var4, 1);
         func_020ac494(var4);
     }

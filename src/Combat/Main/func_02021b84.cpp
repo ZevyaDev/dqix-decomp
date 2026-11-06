@@ -40,8 +40,8 @@ extern "C" void func_02026470(void* arg0, int arg1);
 struct Struct_02043368_2;
 extern "C" void func_0205a198(struct Struct_02043368_2* arg0);
 extern "C" void func_0205a444(char* arg0);
-struct Struct_02020aec;
-extern "C" int func_0205a498(void* arg0, struct Struct_02020aec* arg1, int arg2, void* arg3);
+struct PacEntry_02020aec;
+extern "C" int func_0205a498(void* arg0, struct PacEntry_02020aec* arg1, int arg2, void* arg3);
 extern "C" void func_0205af38(int arg0, char* arg1, int arg2, int arg3);
 extern "C" void* func_0203bd14();
 extern "C" int func_020233b8(void* arg0, int arg1);
@@ -192,7 +192,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
         arg0->unknown_94_.unknown_50_ = 1;
         arg0->unknown_94_.unknown_40_ = arg0->unknown_e8_;
         arg0->unknown_94_.unknown_4c_ = 0x18;
-        func_0205a498((char*)&arg0->unknown_94_, (struct Struct_02020aec*)var1, var2, var8);
+        func_0205a498((char*)&arg0->unknown_94_, (struct PacEntry_02020aec*)var1, var2, var8);
         func_0205af38((int)((char*)&arg0->unknown_94_), (char*)&arg0->unknown_e8_[9], 1, 1);
         func_0205af38((int)((char*)&arg0->unknown_94_), (char*)&arg0->unknown_e8_[11], 1, 1);
         *(int*)((char*)func_0203bd14() +

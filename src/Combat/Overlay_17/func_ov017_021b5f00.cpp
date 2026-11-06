@@ -2,9 +2,9 @@
 #include "Resource/GameResources.h"
 #include "Resource/TextQueue.h"
 
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
-extern int data_02108760;
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
+extern int gSoundEffectManager_02108760;
 extern "C" void func_ov017_0218d644(GameResources* arg0, void* arg1, int arg2);
 extern "C" void* func_020d7a50(void);
 extern "C" void func_ov017_021b6090(void* arg0);
@@ -44,7 +44,7 @@ extern "C" ARM int func_ov017_021b5f00(Struct_ov017_021b5f00* arg0) {
 #else
         func_020d7e10(var2, arg0->unknown_3c_, 0, 0, 1, 0);
 #endif
-        func_0205eaa0((struct Struct_02108760*)&data_02108760, 0xe, 0);
+        PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0xe, 0);
         return 5;
     }
     func_ov017_021b5a30(arg0);

@@ -30,9 +30,9 @@ extern "C" struct Struct_02089fb0* func_02089fb0(struct Struct_02086f24_5* arg0,
 
 extern "C" int func_020426bc(char* arg0, unsigned char* arg1, int arg2);
 
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
-extern AllocatorUnion data_02114e20;
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern AllocatorUnion gMainHeap_02114e20;
 
 struct Struct_020a93e0 {
     unsigned char unknown_0_[0x13f];
@@ -51,7 +51,7 @@ extern "C" ARM void func_020a93e0(char* arg0) {
             SafeAllocator var5;
             var5.ResetAllocatorPointer();
             var5.ResetAllocatorPointer();
-            void* var6 = func_02012d88(&data_02114e20, 0x800);
+            void* var6 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x800);
             var5.CreateTypeA(var6, 0x800);
             func_02089db4(&var4);
             func_02089de8(&var4, &var5, 0);
@@ -69,7 +69,7 @@ extern "C" ARM void func_020a93e0(char* arg0) {
             SignedAllocatorHeader* var10 = var5.GetSignedAllocator();
             func_02089ddc(&var4);
             var5.Destroy();
-            func_02012da4(&data_02114e20, var10);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var10);
             return;
         }
     }

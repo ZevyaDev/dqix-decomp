@@ -11,20 +11,20 @@
 struct Struct_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
-struct Struct_02108760;
-struct Struct_0201099c_10;
+struct SoundEffectManager_02108760;
+struct ItemTable_0201099c_10;
 extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
                                                                         unsigned char arg2);
 extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
-extern "C" char *func_020dedd0(struct Struct_0201099c_10 *arg0, int arg1);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
+extern "C" char *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_ov002_02161798(char *arg0);
 extern "C" void func_ov002_02161cf0(void *arg0);
 extern "C" void func_ov002_02156e90(void *arg0);
 extern "C" void func_ov002_0215a7b4(char *arg0, int arg1, short arg2, int arg3, int arg4);
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 // USA: func_ov002_0216bd34
 extern "C" ARM void func_ov002_0216bd34(char *arg0) {
@@ -54,9 +54,9 @@ extern "C" ARM void func_ov002_0216bd34(char *arg0) {
             *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
             switch (*(short *) (arg0 + RG(0x1c00 + 0x14, 0x1a00 + 0xdc))) {
                 case 0:
-                    func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
                     *(unsigned char *) (arg0 + 0x2000 + RG(0x487, 0x2b7)) = 1;
-                    if (func_020dedd0((struct Struct_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)),
+                    if (func_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)),
                                                                           (short) var3) == NULL)
                         break;
 #if defined(jpn)
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov002_0216bd34(char *arg0) {
                     var4 = 1;
                     break;
                 case 1:
-                    func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
                     *(short *) (arg0 + RG(0x1c00 + 0x14, 0x1a00 + 0xdc)) = -1;
                     func_ov002_02156e90(arg0);
                     var4 = 1;

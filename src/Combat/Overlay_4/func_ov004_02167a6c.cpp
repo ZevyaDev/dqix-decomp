@@ -9,7 +9,7 @@ extern "C" void func_0207d300(void* arg0, void* arg1, int arg2, int arg3);
 
 // USA: func_ov004_02167a6c
 extern "C" ARM int func_ov004_02167a6c(void* arg0, void* arg1) {
-	func_02010828(GameState::GetInstance());
+	GetParty_02010828(GameState::GetInstance());
 	void* var0 = (void*)func_ov004_02167908(arg0, 5);
 	if (var0 != NULL) {
 		char var1[0x38];

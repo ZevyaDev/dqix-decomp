@@ -4,16 +4,13 @@
 #include "World/Zone3D.h"
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_02012de8 { unsigned int unknown_0_; };
 
-extern "C" void* func_020d6c00(void);
+extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0205ec34(void);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
 extern "C" int func_02094b5c(void* arg0, int arg1);
 extern "C" unsigned char func_020100b0(GameState* arg0);
@@ -33,15 +30,15 @@ struct Struct_020a84e0 {
 extern "C" void func_020a8874(struct Struct_020a84e0* arg0);
 extern "C" void func_020a88e8(void* arg0);
 extern "C" void func_020aeb34(void);
-extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 
 // USA: func_020a84e0
 extern "C" ARM void func_020a84e0() {
     GameState* var0 = GameState::GetInstance();
     GetGameResources();
-    struct Struct_02012de8* var1 = (struct Struct_02012de8*)func_020d6c00();
+    struct Struct_02012de8* var1 = (struct Struct_02012de8*)GetGlobalFlags_020d6c00();
     Zone3D* var2 = (Zone3D*)GetZone3D_02012fe4();
-    int var3 = (int)func_0205ec34();
+    int var3 = (int)GetFlagManager_0205ec34();
     unsigned char* var4;
     int var5;
     GameObject* var6;
@@ -56,7 +53,7 @@ extern "C" ARM void func_020a84e0() {
             continue;
         }
         unsigned char* var9 = (unsigned char*)&var8->unknown_2c_.unknown7_0_;
-        var4 = (unsigned char*)func_02010828(var0);
+        var4 = (unsigned char*)GetParty_02010828(var0);
         var5 = 0;
         while (var5 < *(unsigned char*)(var4 + 0xf7c)) {
             var6 = var0->GetPartyMemberByIndex(*(unsigned char*)(var4 + 0xf78 + var5));
@@ -100,7 +97,7 @@ extern "C" ARM void func_020a84e0() {
     if (var2->currentZoneID_ != 0x1644) {
         return;
     }
-    if (func_0206dfb0(var3, (unsigned char*)var3 + 0x8c, 0x384) == 0) {
+    if (IsFlagSet_0206dfb0(var3, (unsigned char*)var3 + 0x8c, 0x384) == 0) {
         return;
     }
     func_020aeb34();

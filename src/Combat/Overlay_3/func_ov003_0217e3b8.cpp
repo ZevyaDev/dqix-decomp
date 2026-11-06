@@ -22,7 +22,7 @@ struct Struct_ov003_0217e3b8
     void* unknown_20_;
 };
 
-extern "C" unsigned int* func_0200fb8c(int* arg0);
+extern "C" unsigned int* GetResources_0200fb8c(int* gameState);
 extern "C" char* func_020100f8(char* arg0);
 extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
 extern "C" void func_020397c0(void* arg0);
@@ -30,7 +30,7 @@ extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
 extern "C" void func_020a0cc4(unsigned int arg0);
 extern "C" void func_020a0c0c(void);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020a1df8(int arg0);
 extern "C" void func_ov003_021681c8(void* arg0);
 extern "C" void func_ov003_021680d4(void* arg0, SafeAllocator* arg1);
@@ -41,13 +41,13 @@ extern "C" void func_ov003_02168324(void* arg0);
 extern "C" int func_ov003_021685c4(void* arg0);
 extern "C" void func_ov003_0217e36c(Struct_ov003_0217e3b8* arg0);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov003_0217e3b8
 extern "C" ARM void func_ov003_0217e3b8(Struct_ov003_0217e3b8* arg0)
 {
     GameState* var0 = GameState::GetInstance();
-    unsigned int* var1 = func_0200fb8c((int*)var0);
+    unsigned int* var1 = GetResources_0200fb8c((int*)var0);
     GameObject* var2 = var0->GetUnknownGameObject();
     char* var3 = func_020100f8((char*)var0);
     SetFlags04((GameResources*)var1, 0xc0);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov003_0217e3b8(Struct_ov003_0217e3b8* arg0)
     if (arg0->unknown_8_ == 0)
     {
         func_020a0cc4(R(0x16e14,0x16e18));
-        void* var5 = func_02012d88(&data_02114e20, R(0x16e14,0x16e18));
+        void* var5 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, R(0x16e14,0x16e18));
         if (var5 == 0)
         {
             func_020a0c0c();

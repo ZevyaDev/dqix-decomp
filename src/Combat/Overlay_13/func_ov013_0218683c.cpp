@@ -16,9 +16,9 @@ struct Struct_0205dee8;
 extern "C" void func_0205dee8(struct Struct_0205dee8* arg0, int arg1);
 struct Struct_0205c570;
 extern "C" int func_0205d794(struct Struct_0205c570* arg0);
-struct Struct_02108760;
-extern struct Struct_02108760 data_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 struct Struct_0205d6a0;
 extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
 extern "C" void func_ov013_02186c64(void* arg0, int arg1, int arg2);
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov013_0218683c(void* arg0) {
 
     if (var0[LOW_REGION(0x5c9, 0x63d)] == var0[LOW_REGION(0x5c8, 0x63c)]) {
         if (g_keyManager.TestKeysPressed(0x601) != 0) {
-            func_0205eaa0(&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             if (var0[LOW_REGION(0x5c8, 0x63c)] == 4) {
                 int var2 = 1;
                 if (*(int*)(var0 + LOW_REGION(0x5e8, 0x660)) == 0) {
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov013_0218683c(void* arg0) {
             if (g_keyManager.TestKeysPressed(2) != 0 ||
                 (*(int*)(var0 + LOW_REGION(0x5e8, 0x660)) == 1 && func_0205da38((struct Struct_0205da38*)(var0 + LOW_REGION(0x34, 0x38)), 0x14) != 0)) {
                 if (g_keyManager.TestKeysPressed(2) == 0) {
-                    func_0205eaa0(&data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
                 }
                 func_0205dee8((struct Struct_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 3);
                 func_0205d6a0((struct Struct_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov013_0218683c(void* arg0) {
             } else {
                 if (*(int*)(var0 + LOW_REGION(0x5e8, 0x660)) == 0 &&
                     func_0205da38((struct Struct_0205da38*)(var0 + LOW_REGION(0x34, 0x38)), 0x14) != 0) {
-                    func_0205eaa0(&data_02108760, 1, 0);
+                    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
                     int var4 = 1;
                     if (var0[LOW_REGION(0x5c8, 0x63c)] == 4) {
                         var0[LOW_REGION(0x5c8, 0x63c)] = 5;

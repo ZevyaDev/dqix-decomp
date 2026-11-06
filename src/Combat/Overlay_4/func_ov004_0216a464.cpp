@@ -14,15 +14,15 @@ enum{Enum_ov004_0216a464_400=0x190,Enum_ov004_0216a464_2456=0x998};
 #include "Resource/GameResources.h"
 
 extern "C" void* func_ov023_021f6524(void* arg0, int arg1);
-struct Struct_02072a68_2;
-extern "C" Struct_02072a68_2* func_ov004_02168b08(void* arg0, int arg1);
+struct StringList_02072a68_2;
+extern "C" StringList_02072a68_2* func_ov004_02168b08(void* arg0, int arg1);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_ov023_021f9bc8(char* arg0);
 extern "C" void func_ov004_0216950c(void* arg0);
 extern "C" void func_ov004_0216920c(void* arg0);
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
-extern "C" void func_02046380(void* arg0);
+extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
+extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
 extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
 #if defined(jpn)
@@ -33,9 +33,9 @@ extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int ar
 extern "C" void func_ov023_021f65d4(void* arg0, int arg1, int arg2);
 struct Struct_ov004_02158dcc;
 extern "C" void func_ov011_021849e0(struct Struct_ov004_02158dcc* arg0, unsigned short arg1);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
-struct Struct_02072a68_2 { struct Struct_02072a68* unknown_0_; short unknown_4_; };
+struct StringList_02072a68_2 { struct StringListEntry_02072a68* unknown_0_; short capacity_4_; };
 extern void* data_ov004_02171030;
 
 struct Struct_ov004_0216a464 {
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov004_0216a464(void* arg0) {
     if (!*(void**)((char*)data_ov004_02171030 + Enum_ov004_0216a464_400)) return 0;
 
     void* var0 = func_ov023_021f6524(arg0, 0x64);
-    Struct_02072a68_2* var1 = func_ov004_02168b08(arg0, 3);
+    StringList_02072a68_2* var1 = func_ov004_02168b08(arg0, 3);
     int var2 = GetMessageWindow_020421a0();
     func_ov023_021f9bc8((char*)var0);
     func_ov004_0216950c(arg0);
@@ -85,8 +85,8 @@ extern "C" ARM int func_ov004_0216a464(void* arg0) {
     __clear(var8, 0x30);
 #endif
 
-    void* var9 = func_02072a68(var1, 0xd);
-    func_02046380((void*)var2);
+    void* var9 = FindStringInList_02072a68(var1, 0xd);
+    ClearMessageParams_02046380((void*)var2);
 #if defined(jpn)
     func_02046574((struct Struct_02046574_2*)var2, 0, (char*)var0+0x2e);
     StartMessage_0204500c((void*)var2, var9, 0);
@@ -101,6 +101,6 @@ extern "C" ARM int func_ov004_0216a464(void* arg0) {
     func_ov023_021f65d4(arg0, 0x1f, 8);
     func_ov023_021f65d4(arg0, 2, 8);
     func_ov011_021849e0((struct Struct_ov004_02158dcc*)arg0, 0x66);
-    func_ov011_021848a0(arg0, 0x68);
+    QueueMenuScriptEntry_ov011_021848a0(arg0, 0x68);
     return 0;
 }

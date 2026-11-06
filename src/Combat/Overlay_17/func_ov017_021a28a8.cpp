@@ -34,8 +34,8 @@ struct Struct_ov017_021a28a8_4 {
 extern "C" void func_ov017_021a27e8(void*);
 extern "C" Struct_ov017_021a28a8* func_02027cb0();
 extern "C" int func_0209c0ec(char*);
-extern "C" void func_0207df90(char*);
-extern "C" void func_0207dfac(char*);
+extern "C" void RestoreTextureVRAMState_0207df90(char*);
+extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" int func_0209c0a8(void*, int);
 extern "C" Struct_ov017_021a28a8_2* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" void* func_0206ef18(void*, int);
@@ -46,7 +46,7 @@ extern "C" void func_02072ac4(void*);
 extern "C" void func_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_ov017_021a2b1c(void*);
 extern char data_ov017_021d7668[];
-extern char data_0211e33c[] __attribute__((aligned(4)));
+extern char gFileScratchSpace_0211e33c[] __attribute__((aligned(4)));
 extern char data_ov017_021d7680[];
 extern char data_ov017_021d7689[];
 
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_021a28a8(Struct_ov017_021a28a8_4* arg0) {
     if (!var3) return;
     Struct_ov017_021a28a8_3* var4 = (Struct_ov017_021a28a8_3*)var1->Allocate(func_0209c0ec(var3->unknown_44_) * 0xb0);
     if (!var4) return;
-    func_0207df90(var2);
+    RestoreTextureVRAMState_0207df90(var2);
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
     GPCReadPair var5;
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov017_021a28a8(Struct_ov017_021a28a8_4* arg0) {
     ZeroInitGPCPointer(&var5.pGPCFile);
     var6->ZeroInitializeMachine();
     unsigned int var7;
-    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var5.pGPCFile, var5.machine, data_ov017_021d7668, data_0211e33c, var7, 0x30000, false, 0)) {
+    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var5.pGPCFile, var5.machine, data_ov017_021d7668, gFileScratchSpace_0211e33c, var7, 0x30000, false, 0)) {
         unsigned int var8 = var7;
         unsigned int var9 = 0x30000 - var8;
         for (int var10 = 0; var10 < func_0209c0ec(var3->unknown_44_); ++var10) {
@@ -80,10 +80,10 @@ extern "C" ARM void func_ov017_021a28a8(Struct_ov017_021a28a8_4* arg0) {
                 char var14[16];
                 sprintf(var14, data_ov017_021d7680, var12->unknown_4_);
                 unsigned int var15 = 0;
-                if (DecompressFileFromGPCByName(var5.pGPCFile, var5.machine, data_0211e33c + var8, var15, var9, var14)) {
+                if (DecompressFileFromGPCByName(var5.pGPCFile, var5.machine, gFileScratchSpace_0211e33c + var8, var15, var9, var14)) {
                     const void* var16;
                     unsigned int var17;
-                    if (FindFilesInNarcBySubstring(data_0211e33c + var8, data_ov017_021d7689, &var16, &var17, 1)) {
+                    if (FindFilesInNarcBySubstring(gFileScratchSpace_0211e33c + var8, data_ov017_021d7689, &var16, &var17, 1)) {
                         unsigned int var18;
                         void* var19 = DecompressLZ77FileIntoAllocatedSpace(*var1, var16, var18);
                         if (!var19) {
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov017_021a28a8(Struct_ov017_021a28a8_4* arg0) {
         var5.Reset();
     }
     BackgroundLoader::RemoveLockGlobal();
-    func_0207dfac(var2);
+    SaveTextureVRAMState_0207dfac(var2);
     func_ov017_021a2b1c(arg0);
     var5.Reset();
     ZeroDestroyGPCPointer(&var5.pGPCFile);

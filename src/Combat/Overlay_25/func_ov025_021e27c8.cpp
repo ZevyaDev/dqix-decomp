@@ -105,9 +105,9 @@ extern "C" ARM void func_ov025_021e27c8(char* arg0, int arg1) {
                 var14->unknown_0_ = 1;
                 var14->unknown_4_ = arg1;
                 func_ov025_021e8bac((Struct_ov025_021e267c_2*)data_ov025_021ef988.unknown_c_, var14);
-                func_0207df90(var10);
+                RestoreTextureVRAMState_0207df90(var10);
                 func_02057de0(var13, arg1, var11, (int)var12, var9);
-                func_0207dfac(var10);
+                SaveTextureVRAMState_0207dfac(var10);
                 data_ov025_021ef988.unknown1_8_++;
             }
         }

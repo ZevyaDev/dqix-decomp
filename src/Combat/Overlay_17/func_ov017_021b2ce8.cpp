@@ -10,12 +10,12 @@
 struct Struct_02018300_3;
 struct Struct_ov017_021b2c88;
 
-extern "C" GameResources* func_0200fb8c(int* arg0);
+extern "C" GameResources* GetResources_0200fb8c(int* gameState);
 extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
 extern "C" int func_020100f8(char* arg0);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020a1df8(int arg0);
 extern "C" void func_020a1ef0(int arg0);
 extern "C" void func_020397c0(void* arg0);
@@ -34,7 +34,7 @@ struct Struct_ov017_021b2ce8 {
     SafeAllocator unknown_c_;
 };
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov017_021b2ce8
 extern "C" ARM void func_ov017_021b2ce8(Struct_ov017_021b2ce8* arg0) {
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov017_021b2ce8(Struct_ov017_021b2ce8* arg0) {
  enum { Enum_ov017_021b2ce8_4176 = 0x1050 };
 #endif
     GameState* var0 = GameState::GetInstance();
-    GameResources* var1 = func_0200fb8c((int*)var0);
+    GameResources* var1 = GetResources_0200fb8c((int*)var0);
     SetFlags04(var1, 0xc0);
     GameObject* var2 = var0->GetUnknownGameObject();
     func_020397cc((Struct_02018300_3*)var2, 1);
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov017_021b2ce8(Struct_ov017_021b2ce8* arg0) {
 
     if (arg0->unknown_8_ == 0) {
         func_020a0cc4(0x33820, var4);
-        void* var5 = func_02012d88(&data_02114e20, 0x32000);
+        void* var5 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x32000);
         if (var5 == NULL) {
             func_020a0c0c();
             arg0->unknown_1_ = 1;
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov017_021b2ce8(Struct_ov017_021b2ce8* arg0) {
         arg0->unknown_8_++;
     } else if (arg0->unknown_8_ == 1) {
         if (func_ov003_021745fc(data_ov017_021d840c)) {
-            Struct_0208cb08* var6 = func_02094a00();
+            FontLoader_0208cb08* var6 = func_02094a00();
             func_02094b40(var6);
             func_02094ab0(var6);
             func_02094b34(var6, 0x6f, 5000, 1, 1);

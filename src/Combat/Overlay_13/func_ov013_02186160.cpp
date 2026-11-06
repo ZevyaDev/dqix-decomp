@@ -60,9 +60,9 @@ extern "C" void func_0205d7a0(unsigned char* arg0, int arg1);
 struct Struct_0205d81c;
 extern "C" int func_0205d97c(Struct_0205d81c* arg0);
 extern "C" int func_ov013_021842a0(void* arg0, int arg1);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
-extern int data_02108760;
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
+extern int gSoundEffectManager_02108760;
 extern "C" void func_ov013_02185774(void* arg0);
 extern "C" void func_ov013_02185828(unsigned char* arg0);
 struct Struct_0205d6a0;
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov013_02186160(Struct_ov013_021846a0_2* arg0) {
                 if (arg0->unknown_688_[arg0->unknown_65c_] < 0)
                     arg0->unknown_688_[arg0->unknown_65c_] = 0;
                 else
-                    func_0205eaa0((Struct_02108760*)&data_02108760, 0x5d, 0);
+                    PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0x5d, 0);
             }
         } else if (arg0->unknown_66c_ > 0 && arg0->unknown_674_[arg0->unknown_65c_] != 0x64) {
             if (arg0->unknown_674_[arg0->unknown_65c_] > arg0->unknown_670_) {
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov013_02186160(Struct_ov013_021846a0_2* arg0) {
                     }
                 }
                 if (var5)
-                    func_0205eaa0((Struct_02108760*)&data_02108760, 0x5d, 0);
+                    PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0x5d, 0);
             }
         }
     }
@@ -197,10 +197,10 @@ extern "C" ARM void func_ov013_02186160(Struct_ov013_021846a0_2* arg0) {
         var3 = true;
         var2 = true;
         if (arg0->unknown_640_ == 0) {
-            func_0205eaa0((Struct_02108760*)&data_02108760, var3, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, var3, 0);
             arg0->inline_ov013_02186160();
         } else {
-            func_0205eaa0((Struct_02108760*)&data_02108760, 5, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 5, 0);
         }
         if (arg0->unknown_640_) func_ov013_02185828((unsigned char*)arg0);
                         else func_ov013_02185774(arg0);
@@ -271,7 +271,7 @@ extern "C" ARM void func_ov013_02186160(Struct_ov013_021846a0_2* arg0) {
                     arg0->unknown_688_[arg0->unknown_65c_]--;
                     var11 = 1;
                     if (arg0->unknown_688_[arg0->unknown_65c_] >= 0) {
-                        func_0205eaa0((struct Struct_02108760*)&data_02108760, 0x5d, 0);
+                        PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0x5d, 0);
                     } else {
                         arg0->unknown_688_[arg0->unknown_65c_] = 0;
                     }
@@ -292,7 +292,7 @@ extern "C" ARM void func_ov013_02186160(Struct_ov013_021846a0_2* arg0) {
                             }
                         }
                         if (var17 != 0) {
-                            func_0205eaa0((struct Struct_02108760*)&data_02108760, 0x5d, 0);
+                            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0x5d, 0);
                         }
                     }
                 }
@@ -314,11 +314,11 @@ extern "C" ARM void func_ov013_02186160(Struct_ov013_021846a0_2* arg0) {
         var12 = 1;
         var11 = 1;
         if (arg0->unknown_640_ == 0) {
-            func_0205eaa0((struct Struct_02108760*)&data_02108760, var12, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, var12, 0);
             func_0205dee8((struct Struct_0205dee8*)arg0->unknown_38_, 4);
             func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_38_, 0);
         } else {
-            func_0205eaa0((struct Struct_02108760*)&data_02108760, 5, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 5, 0);
         }
         if (arg0->unknown_640_ != 0) {
             func_ov013_02185828((unsigned char*)arg0);

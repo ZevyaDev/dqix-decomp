@@ -21,7 +21,7 @@ extern "C" void func_02080b2c(void* arg0, int arg1);
 extern "C" void func_02081130(void* arg0, int arg1, int arg2);
 extern "C" int func_020813ec(void* arg0, int arg1);
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 struct Struct_ov014_02186bc8_3;
 extern "C" short func_ov014_021874f8(struct Struct_ov014_02186bc8_3* arg0);
 struct Struct_ov014_021872dc;
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov014_021885bc(void* arg0) {
     short var4 = 0;
     for (; var4 < 0x10; var3++, var4++) {
         if (var2 != NULL) {
-            int var5 = func_020e0434((struct Struct_0201099c_3*)((char*)arg0 + 0xe0), 0x15);
+            int var5 = FindStringInTable_020e0434((struct Struct_0201099c_3*)((char*)arg0 + 0xe0), 0x15);
             func_02080f8c((struct Struct_02080f8c*)var0, var3, var5);
             if (var2->unknown_13_1_) {
                 func_02080f8c((struct Struct_02080f8c*)*(void**)((char*)arg0 + 0xc0), var3, var2->unknown_8_);

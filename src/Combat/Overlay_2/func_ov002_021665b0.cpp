@@ -123,7 +123,7 @@ struct Struct_ov002_021665b0_6 {
 extern "C" void func_ov002_02157ce0(char*);
 extern "C" void func_ov002_0215b814(Struct_ov002_021665b0_2* arg0);
 extern "C" Struct_ov002_021665b0_8* func_0200ff94(GameState* arg0, int arg1);
-extern "C" Struct_ov002_021665b0_9* func_02053c6c(unsigned char*);
+extern "C" Struct_ov002_021665b0_9* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" int func_02083bc0(unsigned char*, int);
 extern "C" int func_0209ac28(char* arg0, Struct_ov002_021665b0_8* arg1, int arg2);
 extern "C" Struct_ov002_021665b0_10* func_02079e2c(char*, int);
@@ -139,7 +139,7 @@ struct Struct_0205da38;
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" int func_0205d97c(char* arg0);
 extern "C" int func_ov002_02161b48(char*, int);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 struct Struct_0205def8;
 extern "C" void func_0205def8(Struct_0205def8*, int, int);
 extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
@@ -210,7 +210,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             if (var11 == NULL) {
                 continue;
             }
-            var2 = func_02053c6c((unsigned char*)var11);
+            var2 = GetPartyMemberData_02053c6c((unsigned char*)var11);
             if (var2 == NULL) {
                 continue;
             }
@@ -260,7 +260,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
                     if (var24 == NULL) {
                         continue;
                     }
-                    Struct_ov002_021665b0_9* var25 = func_02053c6c((unsigned char*)var24);
+                    Struct_ov002_021665b0_9* var25 = GetPartyMemberData_02053c6c((unsigned char*)var24);
                     if (var25 == NULL) {
                         continue;
                     }
@@ -307,7 +307,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             if (var11 == NULL) {
                 continue;
             }
-            var2 = func_02053c6c((unsigned char*)var11);
+            var2 = GetPartyMemberData_02053c6c((unsigned char*)var11);
             if (var2 == NULL) {
                 continue;
             }
@@ -417,7 +417,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
         for (var47 = 0, var46 = 0x1a; var47 < 5; var47++, var46++) {
             arg0->unknown_1c96_[var47].unknown_0_ = 0;
             arg0->unknown_1c96_[var47].unknown_2_ = 0;
-            if (!func_02083bc0((unsigned char*)(func_02053c6c((unsigned char*)var44)), var46)) {
+            if (!func_02083bc0((unsigned char*)(GetPartyMemberData_02053c6c((unsigned char*)var44)), var46)) {
                 continue;
             }
             if (!func_0209ac28((char*)arg0 + SPELLS_021665b0, var44, var46)) {
@@ -461,7 +461,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
                     var60++;
                     continue;
                 }
-                Struct_ov002_021665b0_9* var62 = func_02053c6c((unsigned char*)var61);
+                Struct_ov002_021665b0_9* var62 = GetPartyMemberData_02053c6c((unsigned char*)var61);
                 if (var62 == NULL) {
                     var60++;
                     continue;
@@ -547,7 +547,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             return;
         }
         Struct_ov002_021665b0_8* var69 = (Struct_ov002_021665b0_8*)func_0200ff1c(var0, var53);
-        if (func_02083bc0((unsigned char*)(func_02053c6c((unsigned char*)var69)), 0x1e) && arg0->unknown_1c96_[4].unknown_2_ > 0) {
+        if (func_02083bc0((unsigned char*)(GetPartyMemberData_02053c6c((unsigned char*)var69)), 0x1e) && arg0->unknown_1c96_[4].unknown_2_ > 0) {
             var1.unknown_0_ = 0x22;
             if (func_02048448((Struct_02048448_2*)var69, (unsigned short)func_02079e2c((char*)var4, (short)0x22)->unknown_8_0_)) {
                 var50 = arg0->unknown_1c96_[0].unknown_0_;
@@ -717,7 +717,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             int var99 = func_ov002_02161b48((char*)arg0, 1);
             int var100 = g_keyManager.TestKeysPressed(0xf0);
             if (var98 | (var99 | (var97 | (var100 | g_keyManager.TestKeysPressed(0x100))))) {
-                func_02043204(var94);
+                ResetMessageWindow_02043204(var94);
                 arg0->unknown_1bb8_ = NEXT_BACK_021665b0;
                 arg0->unknown_1bbc_ = NEXT_MENU_021665b0;
                 func_0205def8((Struct_0205def8*)((char*)arg0 + LIST_021665b0), 1, FLAG_KEY_021665b0);
@@ -728,7 +728,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
                 arg0->unknown_1cb1_ = 0;
                 var93 = 1;
             } else if (g_keyManager.TestKeysPressed(0x800)) {
-                func_02043204(var94);
+                ResetMessageWindow_02043204(var94);
                 arg0->unknown_1bb8_ = NEXT_MENU_021665b0;
                 arg0->unknown_1bbc_ = NEXT_MENU_021665b0;
                 arg0->unknown_1caf_ = 0;

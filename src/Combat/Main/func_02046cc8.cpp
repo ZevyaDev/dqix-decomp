@@ -12,10 +12,10 @@ enum { Enum_02046cc8_716 = 0x2cc };
 
 extern "C" void NSBXX_Model_SetPolygonID(void* obj, unsigned int value);
 
-struct Struct_0203d028;
-extern "C" void func_0207df50(struct Struct_0203d028* arg0);
-extern "C" void func_0207df90(char* arg0);
-extern "C" void func_0207dfac(char* arg0);
+struct TextureVRAMArea_0203d028;
+extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
+extern "C" void RestoreTextureVRAMState_0207df90(char* area);
+extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 struct Struct_02040774_2;
 extern "C" void func_020407b4(struct Struct_02040774_2* arg0, int arg1, int arg2, int arg3);
 
@@ -47,8 +47,8 @@ extern "C" ARM int func_02046cc8(void* arg0) {
     if (var2->GetTaskStatus(*(int*)((char*)arg0 + 0xec)) != 0) {
         var0 = (char*)var1 + Enum_02046cc8_716;
         if (*(unsigned char*)((char*)arg0 + 0x1d) != 0) {
-            func_0207df50((struct Struct_0203d028*)(var0 + 0xc40));
-            func_0207df90(var0 + 0xc40);
+            ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)(var0 + 0xc40));
+            RestoreTextureVRAMState_0207df90(var0 + 0xc40);
 
             var2->GetLoadedFileByID(*(int*)((char*)arg0 + 0xec), &var4, &var5);
             if (var4 != NULL && var3->GetSignedAllocator() != NULL) {
@@ -64,7 +64,7 @@ extern "C" ARM int func_02046cc8(void* arg0) {
                 func_020407b4((struct Struct_02040774_2*)var7, 0, -0xa000, 0x1000);
                 var7->MaybeSetBCFGAnimation(0, 0);
             }
-            func_0207dfac(var0 + 0xc40);
+            SaveTextureVRAMState_0207dfac(var0 + 0xc40);
         }
         var2->RemoveTask(*(int*)((char*)arg0 + 0xec));
         *(int*)((char*)arg0 + 0xec) = -1;

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 
-extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" int func_ov023_021f6bb8(void* arg0);
 extern "C" void func_ov023_021f6bb0(void* arg0, int arg1);
 
@@ -21,7 +21,7 @@ struct Struct_ov023_021fc30c {
 
 // USA: func_ov023_021fc30c
 extern "C" ARM int func_ov023_021fc30c(struct Struct_ov023_021fc30c* arg0, void* arg1) {
-    void* var0 = func_ov011_021849c8(arg1);
+    void* var0 = GetMenuObjectList_ov011_021849c8(arg1);
     int var1 = (int)BackgroundLoader::GetInstance();
     int var2 = func_ov023_021f6bb8(var0);
     if (((BackgroundLoader*)(var1))->GetTaskStatus((int)(var2))) {

@@ -5,7 +5,7 @@
 #include <std_library_functions.h>
 #include "Resource/CharacterCreationUI.h"
 
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_ov005_0215840c_2 { char unknown_0_[0x3c]; char unknown_3c_[1]; };
 extern "C" void func_ov009_02188c2c(Struct_ov009_021842a0*);
 extern "C" void func_ov009_02188d9c(void*);
@@ -14,10 +14,10 @@ extern "C" int func_ov009_02185c58(void*);
 extern "C" int func_ov009_02188ee8(Struct_ov009_021842a0*);
 extern "C" void func_ov009_0218ad0c(void*);
 extern "C" void func_ov009_021867bc(unsigned char*, int);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern char data_ov009_0218bc59[];
 extern const char data_020ef078[];
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 extern "C" ARM void func_ov009_02186e00(Struct_ov009_021842a0* arg0)
 {
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov009_02186e00(Struct_ov009_021842a0* arg0)
         }
     } else if (arg0->unknown_c59_ == 2) {
         if (g_keyManager.TestKeysPressed(0x401) || g_touchInput.pressed_ != 0) {
-            func_0205eaa0(&data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             arg0->unknown_d9c_ = (arg0->unknown_d9c_ & ~0x400000) | 0x2000;
             arg0->unknown_c59_ = 1;
         } else if (g_keyManager.TestKeysPressed(2)) {
@@ -135,7 +135,7 @@ struct Struct_ov005_0215840c_2 {
     char unknown_3c_[1];
 };
 
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0205bef8;
 struct Struct_0205ba68;
 struct Struct_0205bacc;
@@ -146,7 +146,7 @@ extern "C" int func_ov003_0215f000(Struct_ov003_0215f4e4* arg0, int arg1);
 extern "C" int func_ov009_02188ee8(void* arg0);
 extern "C" void func_ov009_02189a4c(void* arg0);
 extern "C" void func_ov009_021855dc(unsigned char* arg0, int arg1);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov023_021d9e60(char* arg0);
 extern "C" Struct_ov003_0215f4e4_2* func_ov003_0215f4a4(Struct_ov003_0215f4e4* arg0, int arg1);
 extern "C" void func_ov009_0218a8b8(void* arg0);
@@ -159,7 +159,7 @@ extern "C" void func_ov003_0215ec68(int arg0, short* arg1, short* arg2);
 
 extern char data_ov009_0218ad26[];
 extern char data_ov009_0218ad2a[];
-extern char data_02108760[];
+extern char gSoundEffectManager_02108760[];
 extern const char data_020ef078[];
 
 struct Struct_ov009_021842a0_2 {
@@ -252,13 +252,13 @@ extern "C" ARM void func_ov009_02186e00(Struct_ov009_021842a0_2* arg0)
         switch (arg0->unknown_db5_)
         {
         case 1:
-            func_0205eaa0((Struct_02108760*)data_02108760, 2, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 2, 0);
             break;
         case 9:
             if (!g_keyManager.TestKeysPressed(1) && g_touchInput.pressed_ == 0)
                 func_ov009_021855dc((unsigned char*)arg0, 7);
             else
-                func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+                PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             arg0->unknown_d9c_ |= 0x8100;
             break;
         case 2:
@@ -269,11 +269,11 @@ extern "C" ARM void func_ov009_02186e00(Struct_ov009_021842a0_2* arg0)
         case 8:
         case 11:
             if (!g_keyManager.TestKeysPressed(2))
-                func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+                PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             arg0->unknown_d9c_ |= 0x8100;
             break;
         case 3:
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             arg0->unknown_d9c_ |= 0x8100;
             func_ov023_021d9e60((char*)arg0);
             if (g_keyManager.TestKeysPressed(1))
@@ -285,19 +285,19 @@ extern "C" ARM void func_ov009_02186e00(Struct_ov009_021842a0_2* arg0)
             break;
         case 10:
             if (*arg0->unknown_db0_[arg0->unknown_da3_] == 0)
-                func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+                PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             if (var6 == 0)
             {
                 var6 = 1;
-                func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+                PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
                 func_ov009_02189a4c(arg0);
             }
             break;
         case 13:
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             break;
         case 12:
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             func_ov009_0218a8b8(arg0);
             arg0->unknown_d9c_ |= 0x8100;
             return;
@@ -354,7 +354,7 @@ extern "C" ARM void func_ov009_02186e00(Struct_ov009_021842a0_2* arg0)
     {
         if (g_keyManager.TestKeysPressed(0x401) || g_touchInput.pressed_ != 0)
         {
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             arg0->unknown_d9c_ = (arg0->unknown_d9c_ & ~0x1400000) | 0x2000;
             arg0->unknown_c59_ = 2;
         }

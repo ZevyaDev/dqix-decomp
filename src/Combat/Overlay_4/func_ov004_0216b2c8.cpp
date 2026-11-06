@@ -7,16 +7,16 @@
 
 struct Struct_ov004_02153e20;
 
-extern "C" void* func_ov011_021849c8(void* arg0);
-extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" int func_ov023_021f9b30(struct Struct_ov004_02153e20* arg0, unsigned short arg1, unsigned int arg2, unsigned int arg3);
 
 // USA: func_ov004_0216b2c8
 extern "C" ARM void func_ov004_0216b2c8(void* arg0, int arg1, int arg2, int arg3) {
-    void* var0 = func_ov011_021849c8(arg0);
-    void* var1 = func_ov023_021f6880(var0, arg1);
-    void* var2 = func_ov023_021f6880(var0, arg2);
+    void* var0 = GetMenuObjectList_ov011_021849c8(arg0);
+    void* var1 = FindMenuObjectById_ov023_021f6880(var0, arg1);
+    void* var2 = FindMenuObjectById_ov023_021f6880(var0, arg2);
     if (var1 == NULL || var2 == NULL) {
         return;
     }

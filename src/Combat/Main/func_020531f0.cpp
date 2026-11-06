@@ -17,7 +17,7 @@ extern "C" void func_02033b88(struct Struct_02010604* arg0, int arg1);
 
 extern "C" void func_ov017_021cc1f8(int arg0, const char* arg1, int arg2, int arg3);
 
-extern char data_02108760;
+extern char gSoundEffectManager_02108760;
 
 struct Struct_020531f0 {
     unsigned char unknown_0_0_ : 2;
@@ -69,7 +69,7 @@ extern "C" ARM void func_020531f0(struct Struct_020531f0_2* arg0) {
     }
 
     if (func_02053604((signed char*)arg0) == 0x19) {
-        func_0205eabc((void*)&data_02108760, (char*)arg0 + Enum_020531f0_408, 0);
+        func_0205eabc((void*)&gSoundEffectManager_02108760, (char*)arg0 + Enum_020531f0_408, 0);
     }
 
     memset(arg0->unknown_178_, 0, 4);
@@ -90,7 +90,7 @@ extern "C" ARM void func_020531f0(struct Struct_020531f0_2* arg0) {
     arg0->unknown_185_ = 0;
     arg0->unknown_186_ = 0;
 
-    if ((arg0->unknown_0_.unknown_0_ & 0x200) != 0) {
+    if ((arg0->unknown_0_.classFlags_0_ & 0x200) != 0) {
         if (func_02039d7c((char*)arg0) != 0) {
             return;
         }

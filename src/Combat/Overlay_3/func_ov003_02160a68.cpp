@@ -16,7 +16,7 @@ enum { Enum_ov003_02160a68_1160 = 0x488 };
 enum { Enum_ov003_02160a68_916 = 0x394 };
 #endif
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int func_ov017_021a4e70(unsigned char* arg0);
 
 struct Struct_020e28dc;
@@ -38,7 +38,7 @@ struct Struct_ov003_02160a68 {
 // USA: func_ov003_02160a68
 extern "C" ARM int func_ov003_02160a68(struct Struct_ov003_02160a68* arg0) {
     int var0 = 0;
-    unsigned char* var1 = (unsigned char*)func_0200fb8c((int*)GameState::GetInstance());
+    unsigned char* var1 = (unsigned char*)GetResources_0200fb8c((int*)GameState::GetInstance());
     if (g_keyManager.TestKeysPressed(2)) {
         if (func_ov017_021a4e70(var1)) {
             var0 = 1;

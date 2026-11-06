@@ -3,13 +3,13 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Matrix.h"
 
-struct Struct_0203d028 {
+struct TextureVRAMArea_0203d028 {
     unsigned int unknown_0_[10];
-    unsigned int unknown_28_[10];
+    unsigned int savedImageState_28_[10];
     unsigned int unknown_50_;
     unsigned int unknown_54_;
-    unsigned int unknown_58_[2];
-    unsigned int unknown_60_[2];
+    unsigned int basePaletteState_58_[2];
+    unsigned int savedPaletteState_60_[2];
 };
 
 struct Struct_ov000_02161e30 {
@@ -75,17 +75,17 @@ struct Struct_ov000_02160da0 {
     signed char unknown_772e_;
     char unknown_772f_[0x1d];
     SafeAllocator unknown_774c_;
-    Struct_0203d028 unknown_7760_;
+    TextureVRAMArea_0203d028 unknown_7760_;
 };
 
 extern "C" Struct_ov023_021f4c04* GetMessageWindow_020421a0();
-extern "C" void func_0207df50(Struct_0203d028* arg0);
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void func_02078484(Struct_02078398_2* arg0);
 extern "C" int func_02057fb4(void* arg0, int arg1, void* arg2);
 
 extern "C" {
 void* func_02057924();
-int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, Struct_0203d028* arg5);
+int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, TextureVRAMArea_0203d028* arg5);
 }
 
 extern char data_ov026_021dedf0[];
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov026_021db3d8(Struct_ov000_02160da0* arg0) {
 
         if (arg0->unknown_7728_ == 0) {
             arg0->unknown_774c_.Reset();
-            func_0207df50(&arg0->unknown_7760_);
+            ResetTextureVRAMState_0207df50(&arg0->unknown_7760_);
             arg0->unknown_772a_ = var0->QueueLoadFile(data_ov026_021dedf0, &arg0->unknown_774c_);
             arg0->unknown_7728_ = 1;
         } else if (arg0->unknown_7728_ == 1) {

@@ -18,8 +18,8 @@ enum { Enum_ov003_021764f4_4088 = 0xff8 };
 extern "C" int func_ov003_021765b4(void* arg0);
 extern "C" int func_ov003_021766e8(void* arg0);
 
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 struct Struct_0207fdcc_2;
 extern "C" void func_0207fdcc(struct Struct_0207fdcc_2* arg0, int arg1);
@@ -30,7 +30,7 @@ extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 struct Struct_020e25e8;
 extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
 
-extern struct Struct_02108760 data_02108760;
+extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 // USA: func_ov003_021764f4
 extern "C" ARM int func_ov003_021764f4(unsigned char* arg0) {
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov003_021764f4(unsigned char* arg0) {
         goto alt;
     }
 dispatch:
-    func_0205eaa0(&data_02108760, 1, 0);
+    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
     var0 = -1;
     if (*(short*)(arg0 + Enum_ov003_021764f4_4098) == 2) {
         var0 = 1;

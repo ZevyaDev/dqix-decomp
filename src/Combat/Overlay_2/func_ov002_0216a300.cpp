@@ -12,7 +12,7 @@
 
 struct Struct_0205de24_2;
 struct Struct_0205c570;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0205def8;
 struct Struct_0205d81c;
 struct Struct_0205dee8;
@@ -21,13 +21,13 @@ struct Struct_020676e0;
 struct Struct_020e25e8;
 struct Struct_0205d6a0;
 struct Struct_0205bcdc;
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
                                                                         unsigned char arg2);
 extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_02160fb4(char *arg0);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
 extern "C" char *func_020e1b24(void *arg0);
 extern "C" void func_020e280c(struct Struct_020e280c *arg0, void *arg1);
@@ -37,7 +37,7 @@ extern "C" int func_020a27c4(struct Struct_020676e0 *arg0);
 extern "C" int func_020e2918(signed char *arg0);
 extern "C" int func_020e2910(signed char *arg0);
 extern "C" void func_020e25e8(struct Struct_020e25e8 *arg0);
-extern "C" char *func_020dedd0(struct Struct_0201099c_10 *arg0, int arg1);
+extern "C" char *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
 extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
 extern "C" void func_0205d6a0(struct Struct_0205d6a0 *arg0, int arg1);
 extern "C" void func_ov017_0219577c(int arg0, int arg1, int arg2);
@@ -47,12 +47,12 @@ extern "C" void func_ov017_021d0198(int arg0, int arg1, int arg2, int arg3);
 extern "C" int func_ov002_0215753c(unsigned char *arg0);
 extern "C" void func_ov002_02156e90(void *arg0);
 extern "C" void func_0205deb4(struct Struct_0205d81c *arg0, int arg1, int arg2);
-extern "C" void func_02043204(char *arg0);
+extern "C" void ResetMessageWindow_02043204(char *window);
 extern "C" void func_0205dee8(struct Struct_0205dee8 *arg0, int arg1);
 extern "C" void func_0205bcdc(struct Struct_0205bcdc *arg0, int arg1);
 extern "C" void func_0205bb04(void *arg0, int arg1);
 extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 extern "C" unsigned char data_ov002_0216d3ac;
 
 struct Struct_ov002_0216a300 {
@@ -63,7 +63,7 @@ struct Struct_ov002_0216a300 {
 
 #define CONFIRM_0216A300() \
     do { \
-        char *e = func_020dedd0((struct Struct_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)), \
+        char *e = func_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)), \
                                                                     *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1a00 + 0xea))); \
         if (e != NULL && *(short *) (e + 0x18) == 0x5612) { \
             func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)), 1); \
@@ -86,7 +86,7 @@ struct Struct_ov002_0216a300 {
             return; \
         } \
         func_ov002_02156e90(arg0); \
-        func_02043204(var0); \
+        ResetMessageWindow_02043204(var0); \
         if (*(unsigned char *) (arg0 + 0x2000 + RG(0x521, 0x351)) != 0) { \
             *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = *(int *) (arg0 + 0x1000 + RG(0xbbc, 0xa84)); \
             func_0205dee8((struct Struct_0205dee8 *) LST(arg0), 4); \
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
         func_0205de24((struct Struct_0205de24_2 *) LST(arg0), 0, 3);
         func_ov002_02161cf0(arg0);
         func_ov002_02160fb4(arg0);
-        func_0205eaa0((struct Struct_02108760 *) data_02108760, 5, 0);
+        PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 5, 0);
         func_0205def8((struct Struct_0205def8 *) LST(arg0), 0, K(0x25, 0x28));
         char *var2 = func_020e1b24(*(void **) (*(char **) arg0 + 0x10));
         if (((struct Struct_ov002_0216a300 *) var2)->unknown_3f_0_) {
@@ -150,14 +150,14 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
         if (*(short *) (arg0 + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) >= 0 || var3) {
             *(short *) (arg0 + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) = func_020e2910(*(signed char **) (arg0 + 4));
             func_020e25e8(*(struct Struct_020e25e8 **) (arg0 + 4));
-            func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
             data_ov002_0216d3ac = 0;
             switch (*(short *) (arg0 + RG(0x1c00 + 0x12, 0x1a00 + 0xda))) {
                 case 0: {
                     *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
                     *(unsigned char *) (arg0 + RG(0xf80, 0xed8)) = *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80));
                     char *var5                           = func_020dedd0(
-                        (struct Struct_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)), *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1a00 + 0xea)));
+                        (struct ItemTable_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)), *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1a00 + 0xea)));
                     if (var5 != NULL && *(short *) (var5 + 0x18) == 0x5612) {
                         func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)), 1);
                         func_0205d6a0((struct Struct_0205d6a0 *) LST(arg0), 0);

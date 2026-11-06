@@ -2,7 +2,7 @@
 #include "Combat/Main/BattleList.h"
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_02046380(void);
+extern "C" void ClearMessageParams_02046380(void);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void func_02042764(unsigned char* arg0, char* arg1, int arg2);
 
@@ -14,7 +14,7 @@ extern "C" void func_020e4b34(Struct_020e4b34* arg0, void* arg1, int arg2, unsig
 extern "C" int func_020e51cc(int arg0);
 
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 extern "C" void StartMessage_0204500c(void*, int, int, int);
 
@@ -31,7 +31,7 @@ struct Struct_ov003_02170960_2 { char unknown_0_[0xd8]; struct Struct_0201099c_3
 // USA: func_ov003_02170960
 extern "C" ARM void func_ov003_02170960(struct Struct_ov003_02170960_2* arg0, int arg1, struct Struct_ov003_02170960* arg2) {
     int var0 = GetMessageWindow_020421a0();
-    func_02046380();
+    ClearMessageParams_02046380();
 
     Struct_020e4b34 var1;
     Struct_020e4b34 var2;
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov003_02170960(struct Struct_ov003_02170960_2* arg0, in
         *(void**)(var0 + 0x28) = &var2;
     }
 
-    int var5 = func_020e0434(arg0->unknown_d8_, (short)arg1);
+    int var5 = FindStringInTable_020e0434(arg0->unknown_d8_, (short)arg1);
     StartMessage_0204500c((void*)var0, var5, 0, 0xe3);
 
     *(unsigned char*)(var0 + 0x1000 + 0x9b2) = 1;

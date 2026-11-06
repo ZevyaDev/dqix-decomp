@@ -14,7 +14,7 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int func_ov017_021959b4(void);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
@@ -35,7 +35,7 @@ struct Struct_ov011_02184694 {
 // USA: func_ov011_02184694
 extern "C" ARM int func_ov011_02184694(Struct_ov011_02184694* arg0) {
     int var0 = (int)GetGameResources();
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     if (arg0->unknown_1cd_ == 0) {
         int var1 = func_ov017_021959b4();
         if (var1) {

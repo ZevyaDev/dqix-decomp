@@ -13,11 +13,11 @@ struct Struct_02018300_3 {
 };
 
 struct Struct_0202b2f0;
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_0201099c_3;
 struct Struct_0201099c_14;
 
-struct Struct_020465c0 {
+struct MessageWindow_020465c0 {
 #if defined(jpn)
     char unknown_0_[0x28];
     char* unknown_5c_;
@@ -67,7 +67,7 @@ struct Struct_ov017_021a7e14_3 {
 struct Struct_ov017_021a7e14_4 {
     SafeAllocator unknown_0_;
     char unknown_14_[0x18];
-    Struct_0201099c_10* unknown_2c_;
+    ItemTable_0201099c_10* unknown_2c_;
     int unknown_30_;
     int unknown_34_;
 };
@@ -81,7 +81,7 @@ struct Struct_ov017_021a7e14_5 {
     char* unknown_20_;
     int unknown_24_;
     int unknown_28_;
-    Struct_0201099c_10* unknown_2c_;
+    ItemTable_0201099c_10* unknown_2c_;
     short unknown_30_;
     short unknown_32_;
     int unknown_34_;
@@ -96,12 +96,12 @@ struct Struct_ov017_021a7e14_5 {
 #endif
 };
 
-extern "C" Struct_020465c0* GetMessageWindow_020421a0();
-extern "C" Struct_0202b2f0* func_0202ae18();
-extern "C" int func_020100a8(GameState* arg0);
+extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0();
+extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18();
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
 extern "C" void func_020a0cc4(unsigned int arg0);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020a0c0c();
 #if defined(jpn)
 #define func_ov017_021a7dd8 func_ov017_021a8754
@@ -115,27 +115,27 @@ extern "C" void func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int 
 extern "C" void func_020e46c4(void* arg0);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void func_020dcf7c(int arg0, void* arg1);
-extern "C" Struct_ov017_021a7e14_3* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
+extern "C" Struct_ov017_021a7e14_3* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
 extern "C" void func_ov017_021d0198(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
 extern "C" char* func_020e51cc(int arg0);
 extern "C" void func_020e4b34(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10, int arg11);
-extern "C" void func_02046380(Struct_020465c0* arg0);
-extern "C" void func_020465c0(Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0* window);
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
-extern "C" char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
-extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
+extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02086bf4(char* arg0, int arg1);
-extern "C" int func_020457e0(Struct_020465c0* arg0);
+extern "C" int func_020457e0(MessageWindow_020465c0* arg0);
 extern "C" int func_0202c578(Struct_0202b2f0* arg0, int arg1);
 extern "C" int func_ov017_021a85e8(unsigned char* arg0, int arg1);
 extern "C" void* func_020de824(void* arg0);
 extern "C" void func_0207cbe8(char* arg0);
 extern "C" void func_0207cf30(void* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_020397c0(void* arg0);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 #if defined(jpn)
 extern const char data_ov017_021d7bf0[];
 extern "C" void func_020de968(int, char*);
@@ -155,19 +155,19 @@ extern const char* data_020f2a0c;
 extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
-    Struct_020465c0* var2 = GetMessageWindow_020421a0();
-    Struct_0208cb08* var3 = func_02094a00();
+    MessageWindow_020465c0* var2 = GetMessageWindow_020421a0();
+    FontLoader_0208cb08* var3 = func_02094a00();
     GetGameResources();
-    Struct_0202b2f0* var4 = func_0202ae18();
+    Struct_0202b2f0* var4 = GetLocalWireless_0202ae18();
     Struct_02018300_3* var5 = (Struct_02018300_3*)var0->GetUnknownGameObject();
-    int var6 = func_020100a8(var0);
+    int var6 = GetProtagonistObjectIndex_020100a8(var0);
     func_020397cc(var5, 1);
     int var7 = 0;
     var5->unknown_b2_ = 0;
 
     if (arg0->unknown_24_ == 0) {
         func_020a0cc4(0x2000);
-        void* var8 = func_02012d88(&data_02114e20, 0x2000);
+        void* var8 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x2000);
         if (var8 == NULL) {
             func_020a0c0c();
             arg0->unknown_1_ = 1;
@@ -217,7 +217,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
 #else
         void* var13 = ExtractFileFromGP2(data_020f2a18, data_020f2a0c, &var12);
 #endif
-        arg0->unknown_2c_ = (Struct_0201099c_10*)arg0->unknown_8_.Allocate(0x18);
+        arg0->unknown_2c_ = (ItemTable_0201099c_10*)arg0->unknown_8_.Allocate(0x18);
         func_020de848(arg0->unknown_2c_);
         if (var13 != NULL) {
             func_020de980(arg0->unknown_2c_, &arg0->unknown_8_, var13, var12, arg0->unknown_30_);
@@ -255,7 +255,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
             return;
         }
 #if defined(jpn)
-        func_02046380(var2);
+        ClearMessageParams_02046380(var2);
         func_02046574((Struct_02046574_2*)var2, 0, ((GameObject*)var14)->baseStats_->unk);
         func_02046574((Struct_02046574_2*)var2, 1, var11);
 #else
@@ -264,8 +264,8 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
         func_020e46c4(arg0->unknown_44_);
         char* var15 = func_020e51cc((short)var14->unknown_150_->unknown_950_);
         func_020e4b34(arg0->unknown_44_, var15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-        func_02046380(var2);
-        func_020465c0(var2, 0, 1);
+        ClearMessageParams_02046380(var2);
+        SetMessageNumber_020465c0(var2, 0, 1);
         func_020465f0((unsigned char*)var2, 0, 1);
         var2->unknown1_0_ = arg0->unknown_40_;
         var2->unknown_18_ = arg0->unknown_3c_;
@@ -277,13 +277,13 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
 #else
         memset(var16, 0, 0x960);
 #endif
-        func_02042058(var16, (char*)func_020e0434(arg0->unknown_1c_, 0x64));
-        func_02042058(var16, (char*)func_020e0434(arg0->unknown_1c_, 0x78));
-        if (func_02086bf4((char*)func_02010828(var0), arg0->unknown_30_) == 0x63) {
-            func_02042058(var16, (char*)func_020e0434(arg0->unknown_1c_, 0x70));
+        AppendText_02042058(var16, (char*)FindStringInTable_020e0434(arg0->unknown_1c_, 0x64));
+        AppendText_02042058(var16, (char*)FindStringInTable_020e0434(arg0->unknown_1c_, 0x78));
+        if (func_02086bf4((char*)GetParty_02010828(var0), arg0->unknown_30_) == 0x63) {
+            AppendText_02042058(var16, (char*)FindStringInTable_020e0434(arg0->unknown_1c_, 0x70));
             arg0->unknown_3a_ |= 1;
         } else {
-            func_02042058(var16, (char*)func_020e0434(arg0->unknown_1c_, 0x6e));
+            AppendText_02042058(var16, (char*)FindStringInTable_020e0434(arg0->unknown_1c_, 0x6e));
         }
         var2->unknown_998_ = 1;
 #if defined(jpn)
@@ -325,9 +325,9 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
         }
         if (var7) {
 #if defined(jpn)
-            StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0);
+            StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)FindStringInTable_020e0434(arg0->unknown_1c_, 0x71), 0);
 #else
-            StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0, 0xe3);
+            StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)FindStringInTable_020e0434(arg0->unknown_1c_, 0x71), 0, 0xe3);
 #endif
             arg0->unknown_24_ = 7;
         }
@@ -340,9 +340,9 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
         if (func_ov017_021a85e8((unsigned char*)arg0, var19) == 0 && var2->unknown_9a0_ == 3) {
             if (func_0202c578(var4, 0) || func_0202c578(var4, arg0->unknown_34_)) {
 #if defined(jpn)
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)FindStringInTable_020e0434(arg0->unknown_1c_, 0x71), 0);
 #else
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0, 0xe3);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)FindStringInTable_020e0434(arg0->unknown_1c_, 0x71), 0, 0xe3);
 #endif
                 arg0->unknown_24_ = 7;
             } else {
@@ -357,28 +357,28 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
                     func_0207cf30(&var21, arg0->unknown_30_, 1, 0);
                 }
 #if !defined(jpn)
-                func_02046380(var2);
-                func_020465c0(var2, 0, 1);
+                ClearMessageParams_02046380(var2);
+                SetMessageNumber_020465c0(var2, 0, 1);
                 func_020465f0((unsigned char*)var2, 0, 1);
                 var2->unknown1_0_ = arg0->unknown_40_;
                 var2->unknown_18_ = arg0->unknown_3c_;
                 var2->unknown_28_ = arg0->unknown_44_;
 #endif
 #if defined(jpn)
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x6f), 0);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)FindStringInTable_020e0434(arg0->unknown_1c_, 0x6f), 0);
 #else
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x6f), 0, 0xe3);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)FindStringInTable_020e0434(arg0->unknown_1c_, 0x6f), 0, 0xe3);
 #endif
                 arg0->unknown_24_ = 7;
             }
         }
     } else if (arg0->unknown_24_ == 6) {
-        func_02043204((char*)var2);
+        ResetMessageWindow_02043204((char*)var2);
         var2->unknown_998_ = 1;
 #if defined(jpn)
-        StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x65), var7);
+        StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)FindStringInTable_020e0434(arg0->unknown_1c_, 0x65), var7);
 #else
-        StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x65), var7, 0xe3);
+        StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)FindStringInTable_020e0434(arg0->unknown_1c_, 0x65), var7, 0xe3);
 #endif
         arg0->unknown_24_ = 7;
     } else if (arg0->unknown_24_ == 7) {
@@ -386,7 +386,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
             var7 = 1;
         }
         if (var7) {
-            func_02043204((char*)var2);
+            ResetMessageWindow_02043204((char*)var2);
             func_020397c0(var5);
             func_ov017_021a7dd8(arg0);
             func_020a0c0c();

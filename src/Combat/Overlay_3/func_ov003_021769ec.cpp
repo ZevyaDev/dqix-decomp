@@ -10,17 +10,17 @@ enum { Enum_ov003_021769ec_4096 = 0x1000 };
 #endif
 #include "GameState/GameState.h"
 
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 struct Struct_0207fdcc_2;
 extern "C" void func_02080c20(Struct_0207fdcc_2*, int);
 extern "C" void func_02080c04(struct Struct_0207fdcc_2* arg0, short arg1);
 extern "C" void func_02080c68(void*, int, int);
 extern "C" void func_02080b54(void*, int);
-struct Struct_0201099c_10 {
+struct ItemTable_0201099c_10 {
     char unknown_0_;
 };
 struct Struct_ov003_021769ec;
-extern "C" struct Struct_ov003_021769ec* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+extern "C" struct Struct_ov003_021769ec* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
 struct Struct_02080f8c;
 extern "C" void func_02080f8c(struct Struct_02080f8c* arg0, int arg1, int arg2);
 struct Struct_02080cc0;
@@ -61,7 +61,7 @@ struct Struct_ov003_021769ec_2 {
 
 struct Struct_ov003_021769ec_3 {
     char unknown_0_[Enum_ov003_021769ec_2164];
-    struct Struct_0201099c_10 unknown_874_;
+    struct ItemTable_0201099c_10 unknown_874_;
     char unknown_875_[Enum_ov003_021769ec_2204 - Enum_ov003_021769ec_2164 - 1];
     struct Struct_0207fdcc_2* unknown_89c_;
     char unknown_8a0_[Enum_ov003_021769ec_4096 - Enum_ov003_021769ec_2204 - 4];
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
     short var8 = 0x146;
     struct Struct_0207fdcc_2* var9 = arg0->unknown_89c_;
     GameState* var10 = GameState::GetInstance();
-    func_02010828(var10);
+    GetParty_02010828(var10);
     unsigned char var11 = arg0->unknown_1000_.unknown_30_;
 
     switch (var11) {

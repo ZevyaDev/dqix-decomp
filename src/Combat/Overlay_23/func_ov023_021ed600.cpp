@@ -5,9 +5,9 @@ struct Struct_0205de24_2;
 extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
 
 struct Struct_0201099c_3;
-extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
-extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 #if defined(jpn)
 extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
@@ -41,8 +41,8 @@ extern "C" ARM void func_ov023_021ed600(char* arg0) {
     memset(*(void**)(arg0 + 0x1c), var1, 0x960);
 #endif
 
-    int var2 = func_020e0434((struct Struct_0201099c_3*)(arg0 + 0x4), 0x3e8);
-    func_02042058(*(char**)(arg0 + 0x1c), (const char*)(long)var2);
+    int var2 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0x4), 0x3e8);
+    AppendText_02042058(*(char**)(arg0 + 0x1c), (const char*)(long)var2);
 
 #if defined(jpn)
     func_0205d304(arg0 + 0xc4, *(void**)(arg0 + 0x1c), 0, 0, 0, 1, 0);

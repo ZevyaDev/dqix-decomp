@@ -9,10 +9,10 @@ extern "C" void* func_02011aa0(char*, unsigned int);
 #include "NitroSDK/Memory.h"
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_02046380(void* arg0);
-extern "C" int func_020100a8(GameState* arg0);
-extern "C" void* func_ov011_021849c8(void*);
-extern "C" void* func_ov023_021f6880(void*, int);
+extern "C" void ClearMessageParams_02046380(void* window);
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
+extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
 
 struct Struct_ov004_021549e4_2 {
@@ -34,13 +34,13 @@ extern unsigned char* data_ov004_02171010;
 // USA: func_ov004_02164e40
 extern "C" ARM int func_ov004_02164e40(void* arg0) {
     void* var0 = (void*)GetMessageWindow_020421a0();
-    func_02046380(var0);
+    ClearMessageParams_02046380(var0);
 
     GameState* var1 = GameState::GetInstance();
-    func_020100a8(var1);
+    GetProtagonistObjectIndex_020100a8(var1);
     GameObject* var2 = var1->GetUnknownGameObject();
 
-    void* var3 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0xa);
+    void* var3 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0xa);
     if (!var3) return 0;
     if (func_ov023_021f6f10(var3) != 7) return 0;
 

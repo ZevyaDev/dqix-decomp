@@ -4,7 +4,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" int func_ov017_021d60f4(void* arg0);
-extern "C" GameResources* func_0200fb8c(int* arg0);
+extern "C" GameResources* GetResources_0200fb8c(int* gameState);
 
 // USA: func_ov001_0215b074
 extern "C" ARM int func_ov001_0215b074(int arg0, char* arg1, int arg2) {
@@ -15,7 +15,7 @@ extern "C" ARM int func_ov001_0215b074(int arg0, char* arg1, int arg2) {
     if (arg2 >= 2) {
         var0 = func_ov017_021d60f4(arg1 + 8);
     }
-    GameResources* var3 = func_0200fb8c((int*)GameState::GetInstance());
+    GameResources* var3 = GetResources_0200fb8c((int*)GameState::GetInstance());
     if (var3 == NULL) return 0;
     var1 = 0;
     if (arg0 == 0) {

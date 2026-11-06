@@ -13,9 +13,9 @@ enum { Enum_ov005_02159274_3684 = 0xe64, Enum_ov005_02159274_2400 = 0x960, Enum_
 
 struct Struct_020e28dc;
 struct Struct_020e263c_2;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0205d5d0;
-struct Struct_0201099c_10;
+struct ItemTable_0201099c_10;
 struct Struct_020dd768;
 
 struct Struct_ov005_02159274 {
@@ -39,7 +39,7 @@ struct Struct_ov005_02159274_2 {
 
 struct Struct_ov005_02159274_3 {
     char unknown_0_[0xdf4];
-    Struct_0201099c_10* unknown_df4_;
+    ItemTable_0201099c_10* unknown_df4_;
     char unknown_df8_[0xe10 - 0xdf8];
     char* unknown_e10_;
     char unknown_e14_[Enum_ov005_02159274_3684 - 0xe14];
@@ -65,7 +65,7 @@ struct Struct_ov005_02159274_3 {
     unsigned char unknown_3ddf_;
 };
 
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 extern "C" int func_020e28dc(Struct_020e28dc* arg0);
 extern "C" void func_020e263c(Struct_020e263c_2* arg0, int arg1);
@@ -73,11 +73,11 @@ extern "C" void func_ov005_021589f4(void* arg0);
 extern "C" void func_ov005_02159b74(void* arg0);
 extern "C" int func_ov005_02158b3c(void* arg0, void* arg1);
 extern "C" int func_020e2918(signed char*);
-extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 struct Struct_020e25e8;
 extern "C" void func_020e25e8(Struct_020e25e8*);
 extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
-extern "C" void* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
+extern "C" void* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
 extern "C" int func_020dd768(Struct_020dd768* arg0);
 extern "C" void func_ov005_02157b74(void* arg0, int arg1, int arg2);
 struct Struct_0207c484;
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
     if (arg0->unknown_3ddc_ == 1) {
         var0 = func_020e2918((signed char*)arg0->unknown_e64_);
         if (var0 >= 0) {
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             func_020e25e8((Struct_020e25e8*)arg0->unknown_e64_);
         } else if (func_020e2984((struct Struct_020e28dc*)arg0->unknown_e64_)) {
             func_020e25e8((Struct_020e25e8*)arg0->unknown_e64_);
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
                     func_ov005_02157b74(arg0, 0xffff, 1);
                 } else if (arg0->unknown_3dbb_ >= 8 &&
                        arg0->unknown_3dbb_ < 0x18) {
-                    char* var4 = (char*)func_02010828(GameState::GetInstance());
+                    char* var4 = (char*)GetParty_02010828(GameState::GetInstance());
                     int var5 = ((Struct_ov005_02159274*)((char*)var1 + 8))->unknown_0_0_;
                     var0 = *(short*)((char*)var1 + 0x18);
                     func_0207c484((Struct_0207c484*)(var4 + 0x1d4), var0, 1, var5);
@@ -204,7 +204,7 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
     if (arg0->unknown_3ddc_ == 3) {
         var0 = func_020e2918((signed char*)arg0->unknown_e64_);
         if (var0 >= 0) {
-            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             func_020e25e8((Struct_020e25e8*)arg0->unknown_e64_);
         } else if (func_020e2984((struct Struct_020e28dc*)arg0->unknown_e64_)) {
             func_020e25e8((Struct_020e25e8*)arg0->unknown_e64_);
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
                 }
                 func_ov005_02157b74(arg0, 0xffff, 1);
             } else if (arg0->unknown_3dbb_ >= 8 && arg0->unknown_3dbb_ < 0x18) {
-                char* var9 = (char*)func_02010828(GameState::GetInstance());
+                char* var9 = (char*)GetParty_02010828(GameState::GetInstance());
                 var7 = func_020dedd0(
                     arg0->unknown_df4_,
                     arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_);

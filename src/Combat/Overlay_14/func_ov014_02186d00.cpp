@@ -88,17 +88,17 @@ struct Struct_ov014_02185c90 {
     char unknown_b8_[0x28];
 };
 
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(Struct_02020cb8_4*);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void func_0204c684(void*);
 struct Struct_02097054_5;
 extern "C" int func_02097224(Struct_02097054_5*, int);
 extern "C" void func_ov023_021e24b0(void*, int, int, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
 extern "C" void func_ov023_021e23d0(void*, int, int, unsigned char, unsigned char);
 struct Struct_0201099c_3;
-extern "C" void* func_020e0434(Struct_0201099c_3*, unsigned short);
+extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, unsigned short);
 extern "C" struct Struct_ov003_0215d4fc* func_ov014_021842a0(void*, short);
 struct Struct_ov014_02185c90_3;
 extern "C" void* func_ov014_021893c4(Struct_ov014_02185c90_3*, int);
@@ -132,9 +132,9 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
         struct Struct_ov014_02185c90_6 var11;
         int var12;
         var0->GetLoadedFileByID(arg0->unknown_8c_, &var2, &var3);
-        var12 = func_02046900((Struct_02020cb8_4*)var2);
+        var12 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var2);
         if (var12 != 0) {
-            char* var13 = (char*)func_020467f0((Struct_02020aec*)var2, 0, &var1, &var4);
+            char* var13 = (char*)GetPacEntryData_020467f0((PacEntry_02020aec*)var2, 0, &var1, &var4);
             if (var13 != 0) {
                 func_0204c684(&var5);
                 var5.unknown_a8_ = 0x20;
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
                 if (var18 && var21 && var19 && var20 && var20->unknown_0_0_) {
                     func_ov023_021e24b0(var18, 2, var21->unknown_1a_, 8, 0xf, 1, 3, 0, 1);
                     func_ov023_021e23d0(var18, 3, var21->unknown_8_, 0xa, 0xf);
-                    func_ov023_021e23d0(var18, 4, (int)(func_020e0434((Struct_0201099c_3*)var19, var21->unknown_12_)), 0xa, 0xf);
+                    func_ov023_021e23d0(var18, 4, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)var19, var21->unknown_12_)), 0xa, 0xf);
                     if (&arg0->unknown_9c_ && arg0->unknown_9c_.unknown_4_ > 0) {
                         func_ov023_021e24b0(var18, 5, arg0->unknown_9c_.unknown_0_, 8, 0xf, 1, 6, 0, 0);
                         func_ov023_021e24b0(var18, 6, arg0->unknown_9c_.unknown_6_, 8, 0xf, 1, 6, 0, 0);
@@ -195,7 +195,7 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
                             SetBit0(var18, 0xc);
                             func_ov023_021e23d0(var18, 8, (int)var14, 0xa, 0xf);
                             func_ov023_021e24b0(var18, 0xa, var20->unknown_1_3_, 8, 0xf, 1, 3, 0, 0);
-                            func_ov023_021e23d0(var18, 0xc, (int)(func_020e0434((Struct_0201099c_3*)var19, 0xf)), 0xa, 0xf);
+                            func_ov023_021e23d0(var18, 0xc, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)var19, 0xf)), 0xa, 0xf);
                             var25 = 9;
                             var24 = 0xb;
                             var23 = 0xd;
@@ -209,18 +209,18 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
                             SetBit0(var18, var23);
                             func_ov023_021e23d0(var18, var25, (int)var15, 0xa, 0xf);
                             func_ov023_021e24b0(var18, var24, var20->unknown_2_2_, 8, 0xf, 1, 3, 0, 0);
-                            func_ov023_021e23d0(var18, var23, (int)(func_020e0434((Struct_0201099c_3*)var19, 0xf)), 0xa, 0xf);
+                            func_ov023_021e23d0(var18, var23, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)var19, 0xf)), 0xa, 0xf);
                         }
                     }
                     if (var26 == 0) {
                         SetBit0(var18, 0x16);
-                        func_ov023_021e23d0(var18, 0x16, (int)(func_020e0434((Struct_0201099c_3*)var19, 0xe)), 0xa, 0xf);
+                        func_ov023_021e23d0(var18, 0x16, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)var19, 0xe)), 0xa, 0xf);
                     }
                     func_ov023_021e23d0(var18, 0x13, (int)var16, 0xa, 0xf);
                     if (var20->unknown_1_2_) {
                         ClrBit0(var18, 0x14);
                         SetBit0(var18, 0x17);
-                        func_ov023_021e23d0(var18, 0x17, (int)(func_020e0434((Struct_0201099c_3*)var19, 0x1c)), 8, 0xf);
+                        func_ov023_021e23d0(var18, 0x17, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)var19, 0x1c)), 8, 0xf);
                         SetBit0(var18, 0x18);
                         func_ov023_021e24b0(var18, 0x18, var22 + 1, 8, 0xf, 1, 1, 0, 0);
                         SetBit0(var18, 0x19);
@@ -242,7 +242,7 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
                                 if (var30->unknown_2_0_) {
                                     func_ov023_021e23d0(var18, var28, (int)((void*)*var31), 0xa, 0xf);
                                 } else {
-                                    func_ov023_021e23d0(var18, var28, (int)(func_020e0434((Struct_0201099c_3*)var19, 0x15)), 0xa, 0xf);
+                                    func_ov023_021e23d0(var18, var28, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)var19, 0x15)), 0xa, 0xf);
                                 }
                                 var28++;
                             }
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
                         if (var29->unknown_3_4_ >= 3) {
                             if (func_ov014_0218940c(arg0->unknown_1c_, 2, var29)->unknown_2_0_) {
                                 SetBit0(var18, 0x10);
-                                func_ov023_021e23d0(var18, 0x10, (int)(func_020e0434((Struct_0201099c_3*)var19, 0x10)), 0xa, 0xf);
+                                func_ov023_021e23d0(var18, 0x10, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)var19, 0x10)), 0xa, 0xf);
                             }
                         }
                     }
@@ -266,7 +266,7 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
                 func_0204b5b4(&var11, 1);
                 func_0204b5e8((Struct_02020cb8_5*)&var11, 0, 0);
                 for (int var33 = 0; var33 < var12; var33++) {
-                    void* var34 = func_020467f0((Struct_02020aec*)var2, var33, &var1, &var4);
+                    void* var34 = GetPacEntryData_020467f0((PacEntry_02020aec*)var2, var33, &var1, &var4);
                     if (var34) {
                         memcpy(arg0->unknown_0_[var33], var34, var4);
                         func_0204b4c0(&var11, arg0->unknown_0_[var33]);
@@ -286,7 +286,7 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
         int var38;
         struct Struct_ov014_02185c90_6 var39;
         var0->GetLoadedFileByID(arg0->unknown_70_, &var36, &var37);
-        int var40 = func_02046900((Struct_02020cb8_4*)var36);
+        int var40 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var36);
         func_0204af64((Struct_02020cb8*)&var39);
         func_0204b11c((unsigned char*)&var39, 0);
         var39.unknown_1c_0_ = 0;
@@ -294,7 +294,7 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
         func_0204b5b4(&var39, 1);
         func_0204b5e8((Struct_02020cb8_5*)&var39, 0, 0);
         for (int var41 = 0; var41 < var40; var41++) {
-            void* var42 = func_020467f0((Struct_02020aec*)var36, var41, &var35, &var38);
+            void* var42 = GetPacEntryData_020467f0((PacEntry_02020aec*)var36, var41, &var35, &var38);
             if (var42) {
                 func_0204b2e0(&var39, (char*)var42);
                 func_0204b3a0((Struct_02020cb8_6*)&var39, (char*)var42);

@@ -122,10 +122,10 @@ struct Struct_02020cb8_5;
 extern "C" void func_0204b5e8(Struct_02020cb8_5*, int, int);
 extern "C" void MapVRAMBanksToMainBG(int);
 extern "C" void MapVRAMBanksToMainObj(int);
-struct Struct_02020cb8_4;
-extern "C" int func_02046900(Struct_02020cb8_4*);
-struct Struct_02020aec;
-extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+struct PacEntry_02020cb8_4;
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
+struct PacEntry_02020aec;
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void func_0204b174(void*, void*, SafeAllocator*, int);
 extern "C" void func_0204bc74(void*, int, int, int, int, int, int);
 struct Struct_02020cb8_2;
@@ -275,9 +275,9 @@ extern "C" ARM void func_ov003_02174a80(Struct_ov003_02174a80_5* arg0) {
             void* var19[12];
             int var20[12];
             var1->GetLoadedFileByID(arg0->unknown_fec_, &var17, &var18);
-            int var21 = func_02046900((Struct_02020cb8_4*)var17);
+            int var21 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var17);
             for (var3 = 0; var3 < var21; var3++) {
-                var19[var3] = func_020467f0((Struct_02020aec*)var17, var3, (void**)&var16, &var20[var3]);
+                var19[var3] = GetPacEntryData_020467f0((PacEntry_02020aec*)var17, var3, (void**)&var16, &var20[var3]);
             }
             var0 = arg0->unknown_4_;
             for (var3 = 0; var3 < var21; var3++) {
@@ -360,11 +360,11 @@ extern "C" ARM void func_ov003_02174a80(Struct_ov003_02174a80_5* arg0) {
             unsigned int var28;
             int var29;
             var1->GetLoadedFileByID(arg0->unknown_fec_, &var27, &var28);
-            int var30 = func_02046900((Struct_02020cb8_4*)var27);
+            int var30 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var27);
             var0 = arg0->unknown_4_;
             var0->unknown_0_[3].Reset();
             for (var3 = 0; var3 < var30; var3++) {
-                void* var31 = func_020467f0((Struct_02020aec*)var27, var3, (void**)&var26, &var29);
+                void* var31 = GetPacEntryData_020467f0((PacEntry_02020aec*)var27, var3, (void**)&var26, &var29);
                 func_0205a528((char*)arg0 + Enum_ov003_02174a80_2008, var31, var29, &var0->unknown_0_[3]);
             }
             var1->RemoveTask(arg0->unknown_fec_);

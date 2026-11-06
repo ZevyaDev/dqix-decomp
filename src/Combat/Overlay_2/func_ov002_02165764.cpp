@@ -6,7 +6,7 @@ struct Struct_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205d81c;
 struct Struct_0205def8;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_0205dee8;
 struct Struct_ov002_02165764 {
     int unknown_0_;
@@ -28,14 +28,14 @@ extern "C" int func_ov002_0216197c(int arg0, struct Struct_0205d81c *arg1);
 struct Struct_0205da38;
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" char *func_0200ff94(GameState *arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_0215b720(char *arg0, int arg1);
 extern "C" void func_ov002_02157d40(char *arg0);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_ov002_02156ff0(unsigned char *arg0, int arg1);
 extern "C" int func_ov002_0215b7d0(char* arg0);
 
-extern "C" char data_02108760;
+extern "C" char gSoundEffectManager_02108760;
 
 #define OBJ (arg0 + 0x2c8 + 0xc00)
 
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
                 *(int *) (arg0 + 0x1a80)   = 0x12;
                 return;
             }
-            func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
             *(short *) (arg0 + 0x1aee) = -1;
             short var6                    = *(short *) (arg0 + 0x1ac2);
             if (var6 >= 0 && var6 < 0x20) {
@@ -179,7 +179,7 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
                 *(int *) (arg0 + 0x1bb8)   = 0x11;
                 return;
             }
-            func_0205eaa0((struct Struct_02108760 *) &data_02108760, 1, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
             *(short *) (arg0 + 0x1c26) = -1;
             short var14                    = *(short *) (arg0 + 0x1bfa);
             if (var14 >= 0 && var14 < 0x20) {

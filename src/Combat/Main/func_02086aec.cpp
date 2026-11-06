@@ -7,7 +7,7 @@ struct Struct_02053f7c {
     unsigned char unknown_f7c_;
 };
 
-extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct Struct_02083994;
 extern "C" int func_02083994(struct Struct_02083994* arg0, int arg1);
@@ -33,7 +33,7 @@ extern "C" ARM short func_02086aec(struct Struct_02053f7c* arg0, int arg1) {
     for (var2 = 0; var2 < arg0->unknown_f7c_; var2++) {
         var3 = func_0200ff1c(var1, arg0->unknown_f78_[var2]);
         if (var3 != NULL) {
-            var4 = (void*)func_02053c6c((unsigned char*)var3);
+            var4 = (void*)GetPartyMemberData_02053c6c((unsigned char*)var3);
             if (var4 != NULL) {
                 var0 = var0 + func_02083994((struct Struct_02083994*)var4, arg1);
                 if (func_02083554((struct Struct_0206f81c*)var4, arg1) != NULL) {

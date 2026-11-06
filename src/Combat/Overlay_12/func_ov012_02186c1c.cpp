@@ -15,16 +15,16 @@ struct Struct_ov012_02186c1c_2 {
 };
 struct Struct_0205de24_2;
 struct Struct_0205c570;
-struct Struct_02072a68_2;
-struct Struct_02108760;
+struct StringList_02072a68_2;
+struct SoundEffectManager_02108760;
 struct Struct_ov012_02186a7c;
 extern "C" void func_0205de24(Struct_0205de24_2*, unsigned char, unsigned char);
 extern "C" int func_0205d794(Struct_0205c570*);
 extern "C" void func_ov012_021898bc(char*);
-extern "C" void* func_02072a68(Struct_02072a68_2*, int);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c*);
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" void func_ov023_021e6e60(void*);
 extern "C" int func_ov023_021e7148(void*);
 extern "C" void func_ov012_0218bba0(void*, int, int);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov012_02186c1c(char* arg0) {
             break;
         case 3: {
             GameState* var3 = GameState::GetInstance();
-            const char* var4 = (const char*)func_02072a68((Struct_02072a68_2*)(arg0 + 0x1314), 109);
+            const char* var4 = (const char*)FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x1314), 109);
             inline_ov012_02186c1c(var3)->unknown_5_1_ = 300;
             memset(arg0 + 0x1498, 0, 64);
             memcpy(arg0 + 0x1498, var4, strlen(var4));
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov012_02186c1c(char* arg0) {
         }
         }
         if (!var2) return;
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
     } else {
         if (!func_ov023_021e6e20((Struct_ov012_02186a7c*)arg0)) return;
         func_ov012_02189be8(arg0, 1);
@@ -105,9 +105,9 @@ struct Struct_0205de24_2 {
     unsigned char unknown_b4_;
 };
 struct Struct_0205c570;
-struct Struct_02072a68 { short unknown_0_; void* unknown_4_; };
-struct Struct_02072a68_2 { Struct_02072a68* unknown_0_; short unknown_4_; };
-struct Struct_02108760;
+struct StringListEntry_02072a68 { short id_0_; void* pText_4_; };
+struct StringList_02072a68_2 { StringListEntry_02072a68* unknown_0_; short capacity_4_; };
+struct SoundEffectManager_02108760;
 struct Struct_ov012_02186a7c;
 struct Struct_ov012_02186c1c_3 {
     char unknown_0_[4];
@@ -123,7 +123,7 @@ struct Struct_ov012_02185ab8 {
     char unknown_0_[0xac];
     Struct_0205de24_2 unknown_ac_;
     char unknown_164_[0x133c - 0x164];
-    Struct_02072a68_2 unknown_133c_;
+    StringList_02072a68_2 unknown_133c_;
     char unknown_1344_[0x1370 - 0x1344];
     unsigned char unknown_1370_;
     unsigned char unknown_1371_;
@@ -145,10 +145,10 @@ static inline Struct_ov012_02186c1c_3* inline_ov012_02186c1c_2(GameState* arg0) 
 extern "C" void func_0205de24(Struct_0205de24_2*, unsigned char, unsigned char);
 extern "C" int func_0205d794(Struct_0205c570*);
 extern "C" void func_ov012_021898bc(char*);
-extern "C" void* func_02072a68(Struct_02072a68_2*, int);
-extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
+extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c*);
-extern Struct_02108760 data_02108760;
+extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" void func_ov023_021e6e60(Struct_ov012_02185ab8*);
 extern "C" int func_ov023_021e6de4(Struct_ov012_02185ab8*);
 extern "C" void func_ov012_0218adac(Struct_ov012_02185ab8*, int, int, int);
@@ -201,7 +201,7 @@ extern "C" ARM void func_ov012_02186c1c(Struct_ov012_02185ab8* arg0) {
             break;
         case 3: {
             GameState* var8 = GameState::GetInstance();
-            const char* var9 = (const char*)func_02072a68(&arg0->unknown_133c_, 0x6d);
+            const char* var9 = (const char*)FindStringInList_02072a68(&arg0->unknown_133c_, 0x6d);
             inline_ov012_02186c1c_2(var8)->unknown_5_1_ = 300;
             memset(arg0->unknown_1440_, 0, sizeof(arg0->unknown_1440_));
             int var10 = strlen(var9);
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov012_02186c1c(Struct_ov012_02185ab8* arg0) {
         }
         }
         if (!var7) return;
-        func_0205eaa0(&data_02108760, 1, 0);
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
     } else {
         if (!func_ov023_021e6e20((Struct_ov012_02186a7c*)arg0)) return;
         func_ov012_0218930c(arg0, 1);

@@ -16,15 +16,15 @@ struct Struct_0208fa8c_2 {
 extern "C" void* func_0200fd0c(GameState*);
 extern "C" int func_0201b588(int);
 extern "C" void func_02027ad8(int, int);
-extern "C" int func_0202b7d8(int*);
+extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" {
-int* func_0202ae18();
+int* GetLocalWireless_0202ae18();
 Struct_0208fa8c* GetZone3D_02012fe4();
 void func_020a0cc4(int);
 void func_020a3720();
 void func_020a395c();
 void func_020a0c0c();
-int func_0202c540(int*);
+int IsLocalWirelessGuest_0202c540(int*);
 }
 void ExportDetailedTreasureMapData(const TreasureMapMetadata*, DetailedTreasureMapData*, bool, const unsigned char*);
 
@@ -33,7 +33,7 @@ extern "C" ARM void func_0208fa8c(DetailedTreasureMapData* arg0) {
     Struct_0208fa8c* var0;
     GameState* var1 = GameState::GetInstance();
     GameResources* var2 = GetGameResources();
-    int* var3 = func_0202ae18();
+    int* var3 = GetLocalWireless_0202ae18();
     var0 = (Struct_0208fa8c*)func_0200fd0c(var1);
     GrottoStruct* var4 = var1->GetGrottoStruct();
     int var5;
@@ -51,11 +51,11 @@ extern "C" ARM void func_0208fa8c(DetailedTreasureMapData* arg0) {
         func_020a0c0c();
         if (!var4->unknown_0[0]) ((Struct_0208fa8c_2*)arg0)->unknown_260_ = 1;
         var4->unknown_0[1] = 0;
-        if (func_0202c540(var3)) var4->activeMapLevel = arg0->GetLevel();
+        if (IsLocalWirelessGuest_0202c540(var3)) var4->activeMapLevel = arg0->GetLevel();
         if (var6 && var8) func_02027ad8((int)var6, arg0->discoveryState_ == 3);
     } else if (!func_0201b588(var5) && func_0201b588(var8) &&
                (var5 < 30000 || var5 > 39999)) {
-        if (func_0202b7d8(var3) && func_0202c540(var3) && !var4->unknown_0[1])
+        if (IsLocalWirelessOn_0202b7d8(var3) && IsLocalWirelessGuest_0202c540(var3) && !var4->unknown_0[1])
             var4->unknown_0[1] = 0;
         else var4->unknown_0[1] = 1;
         if (var6) func_02027ad8((int)var6, 0);

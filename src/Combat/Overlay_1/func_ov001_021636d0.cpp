@@ -2,7 +2,7 @@
 
 extern "C" int func_ov017_021d60f4(void* arg0);
 extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
-extern int data_02109bf4;
+extern int gMusicManager_02109bf4;
 
 // USA: func_ov001_021636d0
 extern "C" ARM int func_ov001_021636d0(void* arg0, int arg1) {
@@ -16,6 +16,6 @@ extern "C" ARM int func_ov001_021636d0(void* arg0, int arg1) {
 	if (arg1 >= 2) {
 		var1 = func_ov017_021d60f4((char*)arg0 + 8);
 	}
-	func_0209c2e0(&data_02109bf4, var0, var1);
+	func_0209c2e0(&gMusicManager_02109bf4, var0, var1);
 	return 1;
 }

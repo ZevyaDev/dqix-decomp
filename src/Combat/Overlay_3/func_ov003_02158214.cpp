@@ -21,9 +21,9 @@ enum { Enum_ov003_02158214_512 = 0x200 };
 enum { Enum_ov003_02158214_504 = 0x1f8 };
 #endif
 
-extern "C" int func_0200fb8c(int* arg0);
+extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 
 struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
@@ -41,12 +41,12 @@ extern "C" void func_ov023_021eb26c(void* arg0);
 extern "C" ARM void func_ov003_02158214(void* arg0) {
     char* var0 = (char*)arg0;
     GameState* var1 = GameState::GetInstance();
-    int var2 = func_0200fb8c((int*)var1);
+    int var2 = GetResources_0200fb8c((int*)var1);
     unsigned char var3 = *(unsigned char*)(var0 + Enum_ov003_02158214_505);
 
     if (var3 == 0) {
         *(int*)(var0 + Enum_ov003_02158214_812) = 0;
-        func_02043204((char*)GetMessageWindow_020421a0());
+        ResetMessageWindow_02043204((char*)GetMessageWindow_020421a0());
 
         *(short*)(var0 + Enum_ov003_02158214_494) = -1;
         *(short*)(var0 + Enum_ov003_02158214_492) = *(short*)(var0 + Enum_ov003_02158214_494);

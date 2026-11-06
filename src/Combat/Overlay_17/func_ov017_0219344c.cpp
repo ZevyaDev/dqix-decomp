@@ -121,7 +121,7 @@ extern "C" ARM int func_ov017_0219344c(Struct_ov017_0219344c_2* arg0, int arg1, 
     if (TestFlags00(var19, 0x400) != 0 && g_keyManager.TestKeysHeld(1) != 0) {
         var8 = 0;
     }
-    if ((arg0->unknown_0_ & 0x100) && (arg0->unknown_18c_ & 1)) {
+    if ((arg0->classFlags_0_ & 0x100) && (arg0->unknown_18c_ & 1)) {
         var8 = 0;
     }
     Struct_ov017_0219344c_4 var22;

@@ -8,9 +8,6 @@
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
@@ -18,14 +15,14 @@
 
 struct Struct_02018300_3;
 struct Struct_0209494c;
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 struct Struct_02010834;
 struct Struct_0206f81c_2;
 struct Struct_0206f81c_3;
 struct Struct_0206f81c_4;
 struct Struct_0206f81c_5;
-struct Struct_0201bdac_2;
-struct Struct_0201bdac;
+struct Queue_0201bdac_2;
+struct QueueNode_0201bdac;
 struct Struct_020469f8;
 struct Struct_020469f8_2;
 struct Struct_ov003_021638e4_2;
@@ -97,7 +94,7 @@ struct Struct_ov017_021acdf4 {
     unsigned char unknown_282_;
 };
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* func_02057924(void);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
@@ -108,21 +105,21 @@ extern "C" void func_020a0c0c(void);
 extern "C" void func_ov017_021adb50(char* arg0);
 extern "C" unsigned char* func_0200fd0c(GameState* arg0);
 extern "C" void func_02070378(char* arg0);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern "C" void func_0207df50(Struct_0203d028* arg0);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void func_0205ce94(unsigned char* arg0);
-extern "C" int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, Struct_0203d028* arg5);
+extern "C" int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, TextureVRAMArea_0203d028* arg5);
 extern "C" void func_02010834(Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
-extern "C" int func_0202c508(void* arg0);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_ov017_021ce014(int arg0, unsigned short arg1, unsigned short arg2, unsigned short arg3);
 extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
 extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
 extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
-extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
+extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_0200fb40(void* arg0);
 extern "C" int func_02011b50(void* arg0, int arg1);
 extern "C" void func_ov017_021b2174(unsigned char* arg0);
@@ -132,7 +129,7 @@ extern "C" void func_ov017_021b2bf4(Struct_0206f81c_3* arg0, unsigned int arg1);
 extern "C" void func_ov017_021b2c0c(Struct_0206f81c_4* arg0, unsigned int arg1);
 extern "C" void func_ov017_021b2bdc(Struct_0206f81c_5* arg0, unsigned int arg1);
 extern "C" void func_ov004_021689d8(SafeAllocator* arg0, void* arg1);
-extern "C" void* func_0205ec34(void);
+extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void func_02057f00(void* arg0, int arg1);
@@ -155,13 +152,13 @@ extern "C" int func_020a277c(void* arg0);
 extern "C" void func_020a2770(void* arg0, short arg1);
 extern "C" void func_0205ec20(void* arg0, void* arg1, int arg2);
 extern "C" void func_ov017_02191108(GameResources* arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_ov017_021adb1c(Struct_ov017_021acdf4* arg0);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 extern char data_ov017_021d795c;
 extern char data_ov017_021d7978;
-extern char data_02108760;
+extern char gSoundEffectManager_02108760;
 extern char data_ov017_021d798f;
 
 struct Struct_01ff91ac_21 {
@@ -212,7 +209,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
             var6[0x66] = 1;
             var6[0x65] = 1;
         }
-        arg0->unknown_8_.CreateTypeA(func_02012d88(&data_02114e20, 0x7000), 0x7000);
+        arg0->unknown_8_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x7000), 0x7000);
         arg0->unknown_8_.Reset();
         if (arg0->unknown_280_) {
             arg0->unknown_40_ = var4->QueueLoadFile(&data_ov017_021d795c, &arg0->unknown_8_);
@@ -229,8 +226,8 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
                 return;
             }
         }
-        Struct_0203d028* var7 = (Struct_0203d028*)((char (*)[0x70])var1->unknown_2cc_)[0x1c];
-        func_0207df50(var7);
+        TextureVRAMArea_0203d028* var7 = (TextureVRAMArea_0203d028*)((char (*)[0x70])var1->unknown_2cc_)[0x1c];
+        ResetTextureVRAMState_0207df50(var7);
         unsigned int var8;
         void* var9;
         var4->GetLoadedFileByID(arg0->unknown_40_, &var9, &var8);
@@ -252,12 +249,12 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
         int var11[5];
         Struct_ov017_021abba8_2 var12[5];
         Vector3i var13;
-        void* var14 = func_0202ae18();
+        void* var14 = GetLocalWireless_0202ae18();
         func_02010834((Struct_02010834*)var0, *(short*)((char*)var2 + 4), var11, &var10);
         for (int var15 = 0; var15 < var10; var15++) {
             arg0->unknown_1e_ |= 1 << var11[var15];
         }
-        if (var0->GetGameObjectByIndex(0xce) && func_0202c508(var14)) {
+        if (var0->GetGameObjectByIndex(0xce) && IsNotLocalWirelessGuest_0202c508(var14)) {
             var11[var10] = 0xce;
             arg0->unknown_1e_ |= 0x10;
             var10++;
@@ -307,16 +304,16 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
         }
         int var20;
         unsigned char var21;
-        if (func_0202b7d8((int*)func_0202ae18()) && (var21 = arg0->unknown_1e_) != 0) {
+        if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18()) && (var21 = arg0->unknown_1e_) != 0) {
             var20 = *(short*)((char*)var2 + 4);
             func_ov017_021ce014(var20, 3, (int)((Object3D*)var2)->GetField06(), var21);
         }
         if (arg0->unknown_280_) {
-            func_0205ebc0(&data_02108760, 0xa3, 0xa3);
-            func_0205ebfc(&data_02108760, 5, 0);
+            func_0205ebc0(&gSoundEffectManager_02108760, 0xa3, 0xa3);
+            func_0205ebfc(&gSoundEffectManager_02108760, 5, 0);
         } else {
-            func_0205ebc0(&data_02108760, 0xb2, 0xb2);
-            func_0205ebfc(&data_02108760, 0, 0);
+            func_0205ebc0(&gSoundEffectManager_02108760, 0xb2, 0xb2);
+            func_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
         }
         arg0->unknown1_1c_++;
     } else if (arg0->unknown1_1c_ == 2) {
@@ -395,23 +392,23 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
                     }
                 }
                 func_ov017_0219e310((unsigned char*)var28->unknown_ptr_array_36fc[4], 0);
-                func_020469b4((Struct_0201bdac_2*)var28->unknown_ptr_array_36fc[0], (Struct_0201bdac*)var28->unknown_ptr_array_36fc[4]);
+                AppendToQueue_020469b4((Queue_0201bdac_2*)var28->unknown_ptr_array_36fc[0], (QueueNode_0201bdac*)var28->unknown_ptr_array_36fc[4]);
                 func_0200fb40(var29);
                 func_ov017_021a65c4(var1, 0, arg0->unknown_27d_);
             } else if (func_02011b50(var0, 1)) {
-                Struct_0201bdac_2* var31;
+                Queue_0201bdac_2* var31;
                 unsigned char* var32 = (unsigned char*)var1->unknown_ptr_array_3afc[0x14];
-                var31 = (Struct_0201bdac_2*)var1->unknown_ptr_array_36fc[0];
+                var31 = (Queue_0201bdac_2*)var1->unknown_ptr_array_36fc[0];
                 func_ov017_021b2174(var32);
                 func_ov017_021b2ba0((Struct_0206f81c_2*)var32, &data_ov017_021d798f);
                 func_ov017_021b2bd0(var32, (int)func_ov004_021689d8, OVERLAY_ID(4));
                 func_ov017_021b2bf4((Struct_0206f81c_3*)var32, 1);
                 func_ov017_021b2c0c((Struct_0206f81c_4*)var32, 1);
                 func_ov017_021b2bdc((Struct_0206f81c_5*)var32, 0);
-                func_020469b4(var31, (Struct_0201bdac*)var32);
+                AppendToQueue_020469b4(var31, (QueueNode_0201bdac*)var32);
             }
-            if (func_0202c508(func_0202ae18())) {
-                unsigned char* var33 = (unsigned char*)func_0205ec34();
+            if (IsNotLocalWirelessGuest_0202c508(GetLocalWireless_0202ae18())) {
+                unsigned char* var33 = (unsigned char*)GetFlagManager_0205ec34();
                 func_0206df6c(var33, var33 + 0x8c, 0x113d, 1);
             }
             if (arg0->unknown_27f_) {
@@ -425,7 +422,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
             return;
         }
         func_02057f00(var3, 8);
-        func_0205ebec(&data_02108760);
+        func_0205ebec(&gSoundEffectManager_02108760);
         func_ov017_02197528();
         arg0->unknown_1_ = 1;
         func_020397c0(var2);
@@ -478,8 +475,8 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
             arg0->unknown_1f_ = func_020a277c(var39);
             func_020a2770(var39, -1);
             *(Vector3i*)(var39 + 0x10) = arg0->unknown_20_;
-            func_0205ec20(&data_02108760, 0, 0);
-            func_0205ebfc(&data_02108760, 1, 0);
+            func_0205ec20(&gSoundEffectManager_02108760, 0, 0);
+            func_0205ebfc(&gSoundEffectManager_02108760, 1, 0);
             arg0->unknown1_1c_++;
         }
     } else if (arg0->unknown1_1c_ == 0xb) {
@@ -507,7 +504,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
         char* var43 = (char*)GetMessageWindow_020421a0();
         func_020a2770((void*)func_020100f8((char*)var0), arg0->unknown_1f_);
         func_02057f00(var3, 8);
-        func_0205ebec(&data_02108760);
+        func_0205ebec(&gSoundEffectManager_02108760);
         for (int var44 = 0; var44 < 5; var44++) {
             if (arg0->unknown_1e_ & (1 << var44)) {
                 GameObject* var45 = var0->GetGameObjectByIndex(var44 != 4 ? var44 : 0xce);
@@ -519,7 +516,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
         arg0->unknown_1_ = 1;
         func_ov017_02191108(var1, 1, 1, 1, 1);
         func_020397c0(var2);
-        func_02043204(var43);
+        ResetMessageWindow_02043204(var43);
         func_ov017_021adb1c(arg0);
         func_020a0c0c();
     }

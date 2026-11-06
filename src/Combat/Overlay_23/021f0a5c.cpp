@@ -3,16 +3,13 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct GameState {
     static GameState* GetInstance();
 };
 struct GameObject;
 struct Struct_02048150;
-struct Struct_02072a68_2 { char unknown_0_[4]; };
+struct StringList_02072a68_2 { char unknown_0_[4]; };
 struct Struct_ov023_021d9988;
 struct Struct_ov023_021f03a0 { unsigned char unknown_0_, unknown_1_, unknown_2_, unknown_3_; unsigned int unknown_4_; };
 struct Struct_ov023_021f03a0_2 { char unknown_0_[0x11b]; unsigned char unknown_11b_; char unknown_11c_[2]; unsigned char unknown_11e_; char unknown_11f_; void* unknown_120_; };
@@ -40,7 +37,7 @@ struct Struct_ov000_02160da0 {
     char unknown_e2c_[0x371c - 0xe2c]; char unknown_3760_[0x5778 - 0x371c];
     Struct_ov023_021f03a0_2* unknown_5588_;
     char unknown_577c_[0x5960 - 0x577c]; Struct_ov023_021f0a5c_3 unknown_5770_[4];
-    char unknown_5ab0_[0x5af4 - 0x5ab0]; Struct_02072a68_2 unknown_5904_;
+    char unknown_5ab0_[0x5af4 - 0x5ab0]; StringList_02072a68_2 unknown_5904_;
 };
 #else
 struct Struct_ov000_02160da0 {
@@ -49,7 +46,7 @@ struct Struct_ov000_02160da0 {
     char unknown_eb0_[0x3760 - 0xeb0]; char unknown_3760_[0x5588 - 0x3760];
     Struct_ov023_021f03a0_2* unknown_5588_;
     char unknown_558c_[0x5770 - 0x558c]; Struct_ov023_021f0a5c_3 unknown_5770_[4];
-    char unknown_58c0_[0x5904 - 0x58c0]; Struct_02072a68_2 unknown_5904_;
+    char unknown_58c0_[0x5904 - 0x58c0]; StringList_02072a68_2 unknown_5904_;
 };
 #endif
 struct Struct_ov023_021f0a5c {
@@ -80,19 +77,19 @@ struct Struct_02092e0c {
 #endif
 
 extern "C" Struct_ov023_021f0a5c* _ZZ21inline_ov023_021f4c04vE1s;
-extern char data_02109bf4[];
+extern char gMusicManager_02109bf4[];
 
 extern "C" Struct_02092e0c* GetMessageWindow_020421a0();
-extern "C" void func_02046380(Struct_02092e0c*);
-extern "C" char* func_02072a68(Struct_02072a68_2*, int);
-extern "C" void* func_02010828(GameState*);
+extern "C" void ClearMessageParams_02046380(Struct_02092e0c*);
+extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
+extern "C" void* GetParty_02010828(GameState*);
 extern "C" int func_02086ef0(Struct_02048150*, int);
 struct Struct_ov023_021eeaac_2;
 extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2*);
 extern "C" Struct_ov023_021f03a0* func_ov023_021f0360(void*, int);
 extern "C" int func_02082490(Struct_ov023_021f0a5c_3*, void*, unsigned int, unsigned char, unsigned int);
 extern "C" GameObject* func_0200ff1c(GameState*, int);
-extern "C" Struct_ov000_0215d63c_2* func_02053c6c(unsigned char*);
+extern "C" Struct_ov000_0215d63c_2* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" void func_02083cbc(Struct_ov000_0215d63c_2*, Struct_ov023_021f0a5c_2*, Struct_ov023_021f0a5c_2*);
 extern "C" void func_02083e28(Struct_ov000_0215d63c_2*, int);
 extern "C" unsigned char func_0209aa54(void*, GameObject*, unsigned char*, int);
@@ -104,8 +101,8 @@ extern "C" void func_ov023_021d8a40(Struct_ov023_021f03a0_2*);
 extern "C" void func_ov023_021d8cb4(void*, void*);
 extern "C" void func_ov023_021d9988(Struct_ov023_021d9988*, void*, unsigned int);
 extern "C" void func_ov023_021d8e4c(Struct_ov023_021f03a0_2*, int, Struct_ov023_021f0a5c_2*, Struct_ov023_021f0a5c_2*);
-struct Struct_020465c0;
-extern "C" void func_020465c0(Struct_020465c0*, int, int);
+struct MessageWindow_020465c0;
+extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void func_020e4bf4(void*, int);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_02092e0c*, char*, int);
@@ -118,8 +115,8 @@ extern "C" void func_ov017_021cc730(int, int, int, int);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 extern "C" int func_ov023_021f4fc8();
 extern "C" int func_ov023_021f5228(int);
-extern "C" void* func_0205ec34();
-extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" void* GetFlagManager_0205ec34();
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" int func_0209ca2c(void*);
 
 static inline int inline_ov023_021f0a5c(Struct_ov000_0215d63c_2* arg0) { return arg0->unknown1_16c_[arg0->unknown_950_]; }
@@ -135,11 +132,11 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
     Struct_ov023_021f0a5c* var6 = _ZZ21inline_ov023_021f4c04vE1s;
     Struct_02092e0c* var7 = GetMessageWindow_020421a0();
 #if !defined(jpn)
-    func_02046380(var7);
+    ClearMessageParams_02046380(var7);
 #endif
     BackgroundLoader* var8 = BackgroundLoader::GetInstance();
-    char* var9 = func_02072a68(&arg0->unknown_5904_, 0x22);
-    int var10 = func_02086ef0((Struct_02048150*)func_02010828(var5), var6->unknown_18_);
+    char* var9 = FindStringInList_02072a68(&arg0->unknown_5904_, 0x22);
+    int var10 = func_02086ef0((Struct_02048150*)GetParty_02010828(var5), var6->unknown_18_);
     if (var6->unknown_0_ == 0) {
         var6->unknown_18_++;
         if (var6->unknown_18_ >= 4) {
@@ -148,7 +145,7 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
         }
         Struct_ov023_021f03a0* var11 = func_ov023_021f0360(_ZZ21inline_ov023_021f4c04vE1s, var6->unknown_18_);
         if (!var11) return arg0->unknown_eac_;
-        sprintf(var2, func_02072a68(&arg0->unknown_5904_, 0), var11->unknown_1_);
+        sprintf(var2, FindStringInList_02072a68(&arg0->unknown_5904_, 0), var11->unknown_1_);
         var6->unknown_4_ = var8->QueueLoadFile(var2, 0);
         var6->unknown_0_++;
     } else if (var6->unknown_0_ == 1) {
@@ -171,7 +168,7 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
             if (var10) {
                 GameObject* var21 = func_0200ff1c(var5, var14);
                 if (var21) {
-                    Struct_ov000_0215d63c_2* var22 = func_02053c6c((unsigned char*)var21);
+                    Struct_ov000_0215d63c_2* var22 = GetPartyMemberData_02053c6c((unsigned char*)var21);
                     var22->unknown1_16c_[var22->unknown_950_] = var19;
                     unsigned short var23 = 0xa28 - var22->unknown_564_;
                     if (var23 < var17->unknown_4_7_) var17->unknown_4_7_ = var23;
@@ -188,7 +185,7 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
         if (var10) {
             GameObject* var24 = func_0200ff1c(var5, var14);
             if (var24) {
-                Struct_ov000_0215d63c_2* var25 = func_02053c6c((unsigned char*)var24);
+                Struct_ov000_0215d63c_2* var25 = GetPartyMemberData_02053c6c((unsigned char*)var24);
                 if (inline_ov023_021f0a5c(var25) >= 99) {
                     unsigned int var26 = arg0->unknown_5770_[var14].unknown_0_.unknown_0_;
                     if (var15) var26 = arg0->unknown_5770_[var14].unknown_14_.unknown_0_;
@@ -239,9 +236,9 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
             var31 = &arg0->unknown_5770_[(unsigned int)var30].unknown_14_;
             char* var35 = (char*)(var34 + 1);
             if (var31->unknown_4_0_ - var33->unknown_4_0_ > 1) {
-                sprintf(var0, func_02072a68(&arg0->unknown_5904_, 0x16), var35, var33->unknown_4_0_, var31->unknown_4_0_, var35);
+                sprintf(var0, FindStringInList_02072a68(&arg0->unknown_5904_, 0x16), var35, var33->unknown_4_0_, var31->unknown_4_0_, var35);
             } else {
-                sprintf(var0, func_02072a68(&arg0->unknown_5904_, 0xa), var35, var31->unknown_4_0_, var35);
+                sprintf(var0, FindStringInList_02072a68(&arg0->unknown_5904_, 0xa), var35, var31->unknown_4_0_, var35);
             }
             strcat(var0, var9);
             StartMessage_0204500c(var7, var0, 1);
@@ -252,12 +249,12 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
         if (func_ov023_021f0360(_ZZ21inline_ov023_021f4c04vE1s, var30)) {
             var31 = &arg0->unknown_5770_[(unsigned int)var30].unknown_14_;
             if (var31->unknown_4_0_ - var33->unknown_4_0_ > 1) {
-                sprintf(var0, func_02072a68(&arg0->unknown_5904_, 0x16));
-                func_020465c0((Struct_020465c0*)var7, 0, var33->unknown_4_0_);
-                func_020465c0((Struct_020465c0*)var7, 1, var31->unknown_4_0_);
+                sprintf(var0, FindStringInList_02072a68(&arg0->unknown_5904_, 0x16));
+                SetMessageNumber_020465c0((MessageWindow_020465c0*)var7, 0, var33->unknown_4_0_);
+                SetMessageNumber_020465c0((MessageWindow_020465c0*)var7, 1, var31->unknown_4_0_);
             } else {
-                sprintf(var0, func_02072a68(&arg0->unknown_5904_, 0xa));
-                func_020465c0((Struct_020465c0*)var7, 0, var31->unknown_4_0_);
+                sprintf(var0, FindStringInList_02072a68(&arg0->unknown_5904_, 0xa));
+                SetMessageNumber_020465c0((MessageWindow_020465c0*)var7, 0, var31->unknown_4_0_);
             }
             strcat(var0, var9);
             func_020e4bf4(var3, var30);
@@ -268,7 +265,7 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
         }
 #endif
         if (var10) {
-            func_0209c6d8(data_02109bf4, 0x35);
+            func_0209c6d8(gMusicManager_02109bf4, 0x35);
             func_ov017_021ce704(var30);
             func_ov017_021cc730(var30, 0, 0, 1);
             func_ov017_021c9e00(var30, 0, 0, 0);
@@ -281,7 +278,7 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
 #if defined(jpn)
             Struct_ov023_021f03a0* var36 = func_ov023_021f0360(_ZZ21inline_ov023_021f4c04vE1s, var6->unknown_18_);
             if (var36) {
-                sprintf(var1, func_02072a68(&arg0->unknown_5904_, 0x26), (char*)(var36 + 1));
+                sprintf(var1, FindStringInList_02072a68(&arg0->unknown_5904_, 0x26), (char*)(var36 + 1));
                 strcat(var1, var9);
                 StartMessage_0204500c(var7, var1, 1);
                 var7->unknown_17e2_ = 0;
@@ -290,7 +287,7 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
 #else
             int var37 = var6->unknown_18_;
             if (func_ov023_021f0360(_ZZ21inline_ov023_021f4c04vE1s, var37)) {
-                sprintf(var1, func_02072a68(&arg0->unknown_5904_, 0x26));
+                sprintf(var1, FindStringInList_02072a68(&arg0->unknown_5904_, 0x26));
                 strcat(var1, var9);
                 func_020e4bf4(var4, var37);
                 var7->unknown_10_ = var4;
@@ -308,23 +305,23 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
             unsigned short var40 = 0;
             GameObject* var41 = func_0200ff1c(var5, var38);
             if (var41) {
-                Struct_ov000_0215d63c_2* var42 = func_02053c6c((unsigned char*)var41);
+                Struct_ov000_0215d63c_2* var42 = GetPartyMemberData_02053c6c((unsigned char*)var41);
                 if (var42) var40 = var42->unknown_564_;
             }
-            func_02010828(var5);
+            GetParty_02010828(var5);
             if (var6->unknown_6c_[var38]) {
                 var6->unknown_e5_ = 10;
             } else if (var39->unknown_4_7_) {
                 var6->unknown_e5_ = 12;
             } else if (var40 && func_ov023_021f5228(var38)) {
                 var6->unknown_e5_ = 8;
-                void* var43 = func_0205ec34();
-                if (func_0206dfb0((int)var43, (unsigned char*)var43 + 0x8c, 0x119c)) var7->unknown_19ca_ = 0;
+                void* var43 = GetFlagManager_0205ec34();
+                if (IsFlagSet_0206dfb0((int)var43, (unsigned char*)var43 + 0x8c, 0x119c)) var7->unknown_19ca_ = 0;
             }
         }
         var6->unknown_0_++;
     } else if (var6->unknown_0_ == 7) {
-        if (func_0209ca2c(data_02109bf4)) return arg0->unknown_eac_;
+        if (func_0209ca2c(gMusicManager_02109bf4)) return arg0->unknown_eac_;
         if (func_ov023_021f4fc8()) {
             signed char var44 = var6->unknown_e5_;
             func_ov023_021eefac((Struct_ov023_021eeaac_2*)var6);

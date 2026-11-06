@@ -10,9 +10,6 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_0201099c_3;
 struct MessageWindow_02021b84;
@@ -21,7 +18,7 @@ extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" const char* func_020e046c(char* arg0, void* arg1, unsigned int arg2, short arg3);
 extern "C" int func_020420e8(const char* arg0, int arg1);
-extern "C" char* func_0205ec34();
+extern "C" char* GetFlagManager_0205ec34();
 
 struct Struct_02081870_2;
 #if defined(jpn)
@@ -36,9 +33,9 @@ extern "C" void func_0205d304(Struct_02081870_2* arg0, char* arg1, int, int, int
 
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
-extern "C" void func_02042058(char* arg0, const char* arg1);
-extern "C" int func_0206dfb0(int, unsigned char*, int);
-extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" void AppendText_02042058(char* buffer, const char* text);
+extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 
 extern char data_ov008_0218b465[];
 extern char data_ov008_0218b47c[];
@@ -141,7 +138,7 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
             var5 = 6;
             if (var4 != func_020d2ff0(var2)) var5 = 8;
             func_02041a90(var0, var6, var5);
-            func_02042058(var0, var2);
+            AppendText_02042058(var0, var2);
 #else
             Struct_ov008_02187f6c_3* var7 = (Struct_ov008_02187f6c_3*)GameState::GetInstance()->GetProtagonist();
                 char* var8 = arg0->unknown_b8_ + 0x8e0;
@@ -162,20 +159,20 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
                     var13 = 0;
                 func_02041a90(var0, var13, 6);
                 if (var8 != NULL)
-                    func_02042058(var0, var8);
+                    AppendText_02042058(var0, var8);
 #endif
             }
             else
             {
                 int var14;
                 int var15 = 3;
-                char* var16 = func_0205ec34();
-                if (func_0206dfb0((int)var16, (unsigned char*)var16 + 0x8c, 0x1198))
+                char* var16 = GetFlagManager_0205ec34();
+                if (IsFlagSet_0206dfb0((int)var16, (unsigned char*)var16 + 0x8c, 0x1198))
                     var15 = 4;
                 for (var14 = 0; var14 < var15; var14++)
                 {
                     func_02041a90(var0, 4, var14 * 15 + 4);
-                    func_02042058(var0, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var14 + 0x82)));
+                    AppendText_02042058(var0, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var14 + 0x82)));
                 }
             }
         }
@@ -218,7 +215,7 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
             var22 = 6;
             if (var21 != func_020d2ff0(var19)) var22 = 8;
             func_02041a90(var17, var23, var22);
-            func_02042058(var17, var19);
+            AppendText_02042058(var17, var19);
 #else
             Struct_ov008_02187f6c_3* var24 = (Struct_ov008_02187f6c_3*)GameState::GetInstance()->GetProtagonist();
             char* var25 = arg0->unknown_b8_ + 0x8e0;
@@ -239,20 +236,20 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
                 var30 = 0;
             func_02041a90(var17, var30, 6);
             if (var25 != NULL)
-                func_02042058(var17, var25);
+                AppendText_02042058(var17, var25);
 #endif
         }
         else
         {
             int var31;
             int var32 = 3;
-            char* var33 = func_0205ec34();
-            if (func_0206dfb0((int)var33, (unsigned char*)var33 + 0x8c, 0x1198))
+            char* var33 = GetFlagManager_0205ec34();
+            if (IsFlagSet_0206dfb0((int)var33, (unsigned char*)var33 + 0x8c, 0x1198))
                 var32 = 4;
             for (var31 = 0; var31 < var32; var31++)
             {
                 func_02041a90(var17, 4, var31 * 15 + 4);
-                func_02042058(var17, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var31 + 0x82)));
+                AppendText_02042058(var17, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var31 + 0x82)));
             }
         }
     }

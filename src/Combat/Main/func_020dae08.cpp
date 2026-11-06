@@ -3,8 +3,8 @@
 
 extern "C" void func_ov003_0217db88(void);
 extern "C" int func_020a1e54(int arg0);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
-extern int data_02114e20;
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern int gMainHeap_02114e20;
 extern "C" void func_020a0c0c(void);
 
 struct Struct_020dae08 {
@@ -26,7 +26,7 @@ extern "C" ARM void func_020dae08(struct Struct_020dae08* arg0) {
     void* var0 = arg0->unknown_14_.GetSignedAllocator();
     if (var0 != NULL) {
         arg0->unknown_14_.Destroy();
-        func_02012da4((AllocatorUnion*)&data_02114e20, var0);
+        FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
     }
     func_020a0c0c();
     arg0->unknown_1_ = 1;

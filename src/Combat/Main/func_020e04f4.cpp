@@ -16,7 +16,7 @@ extern "C" ARM int func_020e2168(char* arg0, const char* arg1,
         BackgroundLoader::AddLockGlobal();
     unsigned int var0;
     func_020e21e8(arg1, &var0, arg3);
-    char* var1 = func_020e046c(arg0, data_0211e33c, (void*)var0, arg2);
+    char* var1 = func_020e046c(arg0, gFileScratchSpace_0211e33c, (void*)var0, arg2);
     if (arg4)
         BackgroundLoader::RemoveLockGlobal();
     return (int)var1;

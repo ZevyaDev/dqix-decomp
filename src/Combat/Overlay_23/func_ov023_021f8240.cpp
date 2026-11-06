@@ -164,15 +164,15 @@ public:
 };
 
 struct Struct_ov023_021f68b8;
-struct Struct_02072a68_2;
+struct StringList_02072a68_2;
 struct Struct_ov023_021f8240_7;
 
-extern "C" Struct_ov023_021f68b8* func_ov011_021849c8(void* arg0);
+extern "C" Struct_ov023_021f68b8* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" Struct_ov023_021f8240* func_ov023_021f68b8(Struct_ov023_021f68b8* arg0, int arg1);
 extern "C" unsigned short func_ov023_021f6f10(Struct_ov023_021f8240* arg0);
-extern "C" Struct_ov023_021f8240* func_ov023_021f6880(Struct_ov023_021f68b8* arg0, int arg1);
-extern "C" Struct_02072a68_2* func_ov023_021fa598(Struct_ov023_021f8240* arg0);
-extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" Struct_ov023_021f8240* FindMenuObjectById_ov023_021f6880(Struct_ov023_021f68b8* objectList, int id);
+extern "C" StringList_02072a68_2* func_ov023_021fa598(Struct_ov023_021f8240* arg0);
+extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" int func_02042190(int arg0);
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
@@ -204,7 +204,7 @@ extern "C" ARM void func_ov023_021f8240(Struct_ov023_021f8240_6* arg0, void* arg
 #if defined(jpn)
     short var0 = *(short*)((char*)arg0 + 0xc8) * 8;
 #endif
-    Struct_ov023_021f68b8* var1 = func_ov011_021849c8(arg1);
+    Struct_ov023_021f68b8* var1 = GetMenuObjectList_ov011_021849c8(arg1);
     for (Struct_ov023_021f8240* var2 = func_ov023_021f68b8(var1, 0); var2 != NULL;
          var2 = func_ov023_021f6f18(var2))
     {
@@ -246,9 +246,9 @@ extern "C" ARM void func_ov023_021f8240(Struct_ov023_021f8240_6* arg0, void* arg
 #endif
             if (var6 == NULL)
             {
-                Struct_ov023_021f8240* var9 = func_ov023_021f6880(var1, var4->unknown_36_);
+                Struct_ov023_021f8240* var9 = FindMenuObjectById_ov023_021f6880(var1, var4->unknown_36_);
                 if (var9 != NULL && func_ov023_021f6f10(var9) == 4)
-                    var6 = func_02072a68(func_ov023_021fa598(var9), var4->unknown_38_);
+                    var6 = FindStringInList_02072a68(func_ov023_021fa598(var9), var4->unknown_38_);
             }
             if (var6 == NULL)
                 continue;

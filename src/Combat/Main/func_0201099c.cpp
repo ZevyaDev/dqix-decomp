@@ -109,16 +109,16 @@ struct Struct_0201099c_8 {
     unsigned char unknown_51c_[0x34];
 };
 
-struct Struct_0201099c_9 {
+struct ItemData_0201099c_9 {
     unsigned int unknown_0_[8];
 };
 
-struct Struct_0201099c_10 {
+struct ItemTable_0201099c_10 {
     unsigned short unknown_0_;
     unsigned char unknown_2_[10];
-    Struct_0201099c_9* unknown_c_;
+    ItemData_0201099c_9* pItems_c_;
     unsigned char unknown_10_[4];
-    unsigned char unknown_14_;
+    unsigned char isSorted_14_;
 };
 
 struct Struct_0201099c_11 {
@@ -134,7 +134,7 @@ struct Struct_0201099c_13 {
     unsigned char unknown_10_[0x2c];
     Struct_0201099c_11 unknown_3c_;
     unsigned char unknown_74_[0x120];
-    Struct_0201099c_9 unknown_194_[8];
+    ItemData_0201099c_9 unknown_194_[8];
 #if defined(jpn)
     unsigned char unknown_294_[0x638];
 #else
@@ -168,8 +168,8 @@ struct Struct_0201099c_18 {
     int unknown_0_;
 };
 
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_020dfc2c(void* arg0);
 extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
 extern "C" void func_020dfc6c(Struct_0201099c_14* arg0);
@@ -180,7 +180,7 @@ extern "C" void func_02089de8(void* arg0, void* arg1, const char* arg2);
 extern "C" void* func_0208a018(unsigned char* arg0, int arg1);
 extern "C" void func_02086404(Struct_0201099c_20* arg0);
 extern "C" void func_02086598(Struct_0201099c_15* arg0, int arg1);
-extern "C" char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" int func_020426bc(void* arg0, void* arg1, int arg2);
 extern "C" void func_0209a804(int* arg0);
@@ -193,10 +193,10 @@ extern "C" int func_020dea64(void* arg0, void* arg1, void* arg2, unsigned int ar
 extern "C" void* func_0208247c(void* arg0);
 extern "C" void func_02082828(Struct_0201099c_13* arg0);
 extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
-extern "C" Struct_0201099c_9* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
+extern "C" ItemData_0201099c_9* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
 extern "C" void func_02083e28(void* arg0, int arg1);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 extern char data_020ef08c[];
 extern char data_020ef0a5[];
 extern const Struct_020e6d64 data_020e6d64;
@@ -205,7 +205,7 @@ extern const char* data_020f2a38;
 extern const char* data_020f2a30;
 extern const char data_020e6d6c[];
 extern const char data_020ef0b5[];
-extern unsigned char data_0211e33c[];
+extern unsigned char gFileScratchSpace_0211e33c[];
 extern const Struct_020e6d74 data_020e6d74[];
 #if defined(jpn)
 extern const Struct_020e6d98 data_020e763c[];
@@ -265,7 +265,7 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
     SafeAllocator var9;
     var9.ResetAllocatorPointer();
     var9.ResetAllocatorPointer();
-    var9.CreateTypeA(func_02012d88(&data_02114e20, 0x5000), 0x5000);
+    var9.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x5000), 0x5000);
     Struct_0201099c_14 var10;
     func_020dfc2c(&var10);
     func_020dfc40(&var10);
@@ -283,10 +283,10 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
     SafeAllocator var15;
     var15.ResetAllocatorPointer();
 #if defined(jpn)
-    var15.CreateTypeA(func_02012d88(&data_02114e20, 0x1400), 0x1400);
+    var15.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x1400), 0x1400);
 #else
     var15.ResetAllocatorPointer();
-    var15.CreateTypeA(func_02012d88(&data_02114e20, 0x800), 0x800);
+    var15.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x800), 0x800);
 #endif
     func_02089db4(&var14);
     func_02089de8(&var14, &var15, NULL);
@@ -361,7 +361,7 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
             }
         } while (var24);
         var13.unknown_0_[var5] = var23;
-        char* var26 = func_020e0434((Struct_0201099c_3*)&var10, var23);
+        char* var26 = FindStringInTable_020e0434((Struct_0201099c_3*)&var10, var23);
         unsigned char var27[12];
         __clear(var27, sizeof(var27));
         func_020426bc(var26, var27, 1);
@@ -383,13 +383,13 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
     func_02089ddc(&var14);
     SignedAllocatorHeader* var30 = var15.GetSignedAllocator();
     var15.Destroy();
-    func_02012da4(&data_02114e20, var30);
+    FreeMemory_02012da4(&gMainHeap_02114e20, var30);
 #if !defined(jpn)
     func_020dfc6c(&var10);
     SignedAllocatorHeader* var31 = var9.GetSignedAllocator();
     if (var31 != NULL) {
         var9.Destroy();
-        func_02012da4(&data_02114e20, var31);
+        FreeMemory_02012da4(&gMainHeap_02114e20, var31);
     }
 
 #endif
@@ -415,12 +415,12 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
         var39.ResetAllocatorPointer();
         var39.ResetAllocatorPointer();
 #if defined(jpn)
-        var39.CreateTypeA(func_02012d88(&data_02114e20, 0x12c00), 0x12c00);
+        var39.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x12c00), 0x12c00);
 #else
-        var39.CreateTypeA(func_02012d88(&data_02114e20, 0x13800), 0x13800);
+        var39.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x13800), 0x13800);
 #endif
         var39.Reset();
-        Struct_0201099c_10 var40;
+        ItemTable_0201099c_10 var40;
         func_020de824(&var40);
         func_020de848(&var40);
 #if defined(jpn)
@@ -444,12 +444,12 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
 #else
             sprintf(var45, data_020ef0b5, var44);
 #endif
-            if (LoadFileIntoMemory(var45, data_0211e33c, &var46) != NULL) {
+            if (LoadFileIntoMemory(var45, gFileScratchSpace_0211e33c, &var46) != NULL) {
                 Struct_0201099c_2* var47 = &var1;
                 for (int var48 = 0; var48 < arg0->unknown_5690_; var48++) {
                     var4 = &arg0->unknown_3984_[var48];
                     func_0208247c(var47);
-                    func_02082490(var47, data_0211e33c, var46, var4->unknown_2_[var44], 0);
+                    func_02082490(var47, gFileScratchSpace_0211e33c, var46, var4->unknown_2_[var44], 0);
                     var4->unknown_1c_[var44] = var47->unknown_0_.unknown_0_0_;
                     var4->unknown_f4_ += var47->unknown_0_.unknown_4_7_;
                     if (var44 == func_020865b0((Struct_0201099c_16*)var4)) {
@@ -459,9 +459,9 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
                         func_02083cbc(var43, &var1, var1.unknown_3c_);
                         short* var50 = var4->unknown_160_.unknown_0_;
                         for (int var51 = 0; var51 < 8; var51++) {
-                            Struct_0201099c_9* var52 = func_020dedd0(&var40, var50[inline_0201099c_2(var51)->unknown_0_]);
+                            ItemData_0201099c_9* var52 = func_020dedd0(&var40, var50[inline_0201099c_2(var51)->unknown_0_]);
                             if (var52 != NULL) {
-                                memcpy(&var32.unknown_194_[inline_0201099c_2(var51)->unknown_1_], var52, sizeof(Struct_0201099c_9));
+                                memcpy(&var32.unknown_194_[inline_0201099c_2(var51)->unknown_1_], var52, sizeof(ItemData_0201099c_9));
                             }
                         }
                         func_02083e28(&var32, 0);
@@ -487,6 +487,6 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
         BackgroundLoader::RemoveLockGlobal();
         SignedAllocatorHeader* var54 = var39.GetSignedAllocator();
         var39.Destroy();
-        func_02012da4(&data_02114e20, var54);
+        FreeMemory_02012da4(&gMainHeap_02114e20, var54);
     }
 }

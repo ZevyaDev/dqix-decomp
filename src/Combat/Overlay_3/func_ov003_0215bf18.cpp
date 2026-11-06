@@ -2,7 +2,7 @@
 
 #include "GameState/GameState.h"
 
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 
 struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
@@ -10,8 +10,8 @@ extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
 struct Struct_020e263c_2;
 extern "C" void func_020e263c(struct Struct_020e263c_2* arg0, int arg1);
 
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 struct Struct_020e29a8;
 extern "C" void func_020e29a8(struct Struct_020e29a8* arg0, int arg1);
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov003_0215bf18(void* arg0, int arg1) {
     }
     unsigned char var3 = *(unsigned char*)(var0 + 0x581);
     if (var3 == 0) {
-        func_0205eaa0((struct Struct_02108760*)&data_02108760, 5, 0);
+        PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 5, 0);
         func_020e29a8((struct Struct_020e29a8*)*(void**)(var0 + 0x570), (signed char)arg1);
         func_020e280c((struct Struct_020e280c*)*(void**)(var0 + 0x570), (void*)-1);
         *(unsigned char*)(var0 + 0x581) = *(unsigned char*)(var0 + 0x581) + 1;

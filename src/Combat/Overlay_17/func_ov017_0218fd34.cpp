@@ -6,14 +6,14 @@
 #include "NitroSDK/Cache.h"
 
 extern "C" GameObject* func_ov017_021bdbc0(unsigned char* arg0);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 
 struct Struct_ov017_021d6260 {
     int unknown_0_[14];
 };
 extern struct Struct_ov017_021d6260 data_ov017_021d6260;
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 
 static inline unsigned short inline_ov017_0218f968(unsigned short arg0) {
     return arg0 & 0x1f;
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov017_0218fd34(unsigned char* arg0, int arg1, unsigned 
         var15 = var13->block4NumEightBytes_ << 3;
 
         if (var7 == 0) {
-            var6[var9] = (unsigned short*)func_02012d88(&data_02114e20, var15);
+            var6[var9] = (unsigned short*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var15);
             if (var6[var9] == NULL) {
                 continue;
             }
@@ -119,7 +119,7 @@ extern "C" ARM void func_ov017_0218fd34(unsigned char* arg0, int arg1, unsigned 
             DC_FlushRange(var6[var9], var15);
             StageMemoryToVRAM(VRAMSubregion_TexturePalette, var6[var9], var16, var15, false, true);
         } else if (var7 == 1) {
-            var6[var9] = (unsigned short*)func_02012d88(&data_02114e20, var15);
+            var6[var9] = (unsigned short*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var15);
             if (var6[var9] == NULL) {
                 continue;
             }
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov017_0218fd34(unsigned char* arg0, int arg1, unsigned 
             DC_FlushRange(var6[var9], var15);
             StageMemoryToVRAM(VRAMSubregion_TexturePalette, var6[var9], var16, var15, false, true);
         } else if (var7 == 2) {
-            var6[var9] = (unsigned short*)func_02012d88(&data_02114e20, var15);
+            var6[var9] = (unsigned short*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var15);
             if (var6[var9] == NULL) {
                 continue;
             }
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov017_0218fd34(unsigned char* arg0, int arg1, unsigned 
 
     for (unsigned int var34 = 0; var34 < 13; var34++) {
         if (var6[var34] != NULL) {
-            func_02012da4(&data_02114e20, var6[var34]);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var6[var34]);
         }
     }
 }

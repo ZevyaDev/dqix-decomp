@@ -123,8 +123,8 @@ struct Struct_ov015_02192700_8 {
 };
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
-extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 struct Struct_02029634_3;
 extern "C" void func_0202a91c(Struct_02029634_3*);
 extern "C" void func_02029568(struct Struct_ov015_02192700_2* arg0);
@@ -139,8 +139,8 @@ extern "C" struct Struct_ov015_02192700_5* func_ov015_02193160(struct Struct_ov0
 struct Struct_0206f01c_2;
 extern "C" struct Struct_ov015_02192700_6* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" int func_ov015_02190d08(struct Struct_ov015_02192700_8* arg0);
-struct Struct_0201099c_10;
-extern "C" struct Struct_ov002_0215a658* func_020dedd0(Struct_0201099c_10*, int);
+struct ItemTable_0201099c_10;
+extern "C" struct Struct_ov002_0215a658* func_020dedd0(ItemTable_0201099c_10*, int);
 struct Struct_ov015_02192700_9;
 extern "C" void func_ov015_0219313c(Struct_ov015_02192700_9*, int, int);
 struct Struct_ov015_02192700_10;
@@ -149,7 +149,7 @@ extern "C" void func_0202a6c4(struct Struct_ov015_02192700_2* arg0);
 extern "C" void func_0202a8cc(char*, int);
 extern "C" struct Struct_ov015_02192700_7* func_ov015_0218f344(void* arg0);
 
-extern AllocatorUnion data_02114e20;
+extern AllocatorUnion gMainHeap_02114e20;
 extern const char data_ov015_021942a2[];
 extern const char data_ov015_021943a5[];
 extern const char data_ov015_021943b0[];
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov015_02192700(struct Struct_ov015_02192700_8* arg0, in
     int var4;
 
     if (arg0->unknown_344_ != 0) {
-        func_02012da4(&data_02114e20, arg0->unknown_344_);
+        FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_344_);
         arg0->unknown_344_ = 0;
     }
     arg0->unknown_354_ = arg1;
@@ -354,9 +354,9 @@ extern "C" ARM void func_ov015_02192700(struct Struct_ov015_02192700_8* arg0, in
                 var4++;
             }
             if (var4 == 0) {
-                arg0->unknown_344_ = (struct Struct_ov015_02192700*)func_02012d88(&data_02114e20, sizeof(struct Struct_ov015_02192700));
+                arg0->unknown_344_ = (struct Struct_ov015_02192700*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, sizeof(struct Struct_ov015_02192700));
             } else {
-                arg0->unknown_344_ = (struct Struct_ov015_02192700*)func_02012d88(&data_02114e20, var4 * sizeof(struct Struct_ov015_02192700));
+                arg0->unknown_344_ = (struct Struct_ov015_02192700*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var4 * sizeof(struct Struct_ov015_02192700));
             }
             if (var4 == 0) {
                 func_0202949c((char*)arg0->unknown_344_);
@@ -377,7 +377,7 @@ extern "C" ARM void func_ov015_02192700(struct Struct_ov015_02192700_8* arg0, in
                 }
             }
         } else if (arg0->unknown_1a4_ == 40) {
-            arg0->unknown_344_ = (struct Struct_ov015_02192700*)func_02012d88(&data_02114e20, arg0->unknown_3c_.unknown_c_ * sizeof(struct Struct_ov015_02192700));
+            arg0->unknown_344_ = (struct Struct_ov015_02192700*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, arg0->unknown_3c_.unknown_c_ * sizeof(struct Struct_ov015_02192700));
             for (; var4 < arg0->unknown_3c_.unknown_c_; var4++) {
                 struct Struct_ov015_0218bb14* var7 = func_ov015_0218bb14(&arg0->unknown_3c_, var4);
                 func_0202949c((char*)&arg0->unknown_344_[var4]);
@@ -394,7 +394,7 @@ extern "C" ARM void func_ov015_02192700(struct Struct_ov015_02192700_8* arg0, in
                 var4++;
                 var8 = func_ov015_02193160(arg0, arg0->unknown_1a4_, &var3);
             }
-            arg0->unknown_344_ = (struct Struct_ov015_02192700*)func_02012d88(&data_02114e20, var4 * sizeof(struct Struct_ov015_02192700));
+            arg0->unknown_344_ = (struct Struct_ov015_02192700*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var4 * sizeof(struct Struct_ov015_02192700));
             var4 = 0;
             var3 = 0;
             var8 = func_ov015_02193160(arg0, arg0->unknown_1a4_, &var3);
@@ -412,7 +412,7 @@ extern "C" ARM void func_ov015_02192700(struct Struct_ov015_02192700_8* arg0, in
                         func_020294cc(&arg0->unknown_344_[var4], data_ov015_0219450f);
                     }
                 } else if (func_ov015_02190d08(arg0) != 0) {
-                    struct Struct_ov002_0215a658* var10 = func_020dedd0((Struct_0201099c_10*)arg0->unknown_4c_, var8->unknown_8_);
+                    struct Struct_ov002_0215a658* var10 = func_020dedd0((ItemTable_0201099c_10*)arg0->unknown_4c_, var8->unknown_8_);
                     if (var10 != 0) {
                         if (var10->unknown_4_ != 0) {
                             func_020294cc(&arg0->unknown_344_[var4], var10->unknown_4_);
@@ -476,7 +476,7 @@ extern "C" ARM void func_ov015_02192700(struct Struct_ov015_02192700_8* arg0, in
                 var4 += var14->GetNumAnimations();
             }
         }
-        arg0->unknown_344_ = (struct Struct_ov015_02192700*)func_02012d88(&data_02114e20, var4 * sizeof(struct Struct_ov015_02192700));
+        arg0->unknown_344_ = (struct Struct_ov015_02192700*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var4 * sizeof(struct Struct_ov015_02192700));
         var13 = func_ov015_0218f344(arg0->unknown_30_);
         var3 = 0;
         for (; var13 != 0; var13 = var13->unknown_28_) {

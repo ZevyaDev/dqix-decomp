@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-extern "C" void* func_ov023_021f6880(void** arg0, int arg1);
-extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void* FindMenuObjectById_ov023_021f6880(void** objectList, int id);
+extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" void func_ov011_02184a40(void* arg0, int arg1);
 
 struct Struct_ov023_021f6ac8 {
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov023_021f6ac8(void* arg0, void* arg1) {
             int var3 = 0;
             int var4;
             for (var4 = 0; var4 < var2->unknown_0_ && !var3; var4++) {
-                void* var5 = func_ov023_021f6880((void**)arg0, var2->unknown_2_[var4]);
+                void* var5 = FindMenuObjectById_ov023_021f6880((void**)arg0, var2->unknown_2_[var4]);
                 if (var5 != 0) {
                     Struct_ov023_021f6ac8_3* var6 = (Struct_ov023_021f6ac8_3*)var5;
                     if (var6->inline_ov023_021f6ac8_38() != 0) {
@@ -66,7 +66,7 @@ extern "C" ARM int func_ov023_021f6ac8(void* arg0, void* arg1) {
 
             if (var3) continue;
 
-            if (var2->unknown_12_ > 0) func_ov011_021848a0(arg1, var2->unknown_12_);
+            if (var2->unknown_12_ > 0) QueueMenuScriptEntry_ov011_021848a0(arg1, var2->unknown_12_);
             if (var2->unknown_14_ > 0) func_ov011_02184a40(arg1, var2->unknown_14_);
             return 1;
         }

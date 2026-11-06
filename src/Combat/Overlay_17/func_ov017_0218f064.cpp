@@ -6,7 +6,7 @@
 #define func_020c9be0 func_020cb6ac
 #endif
 
-struct Struct_0203d028;
+struct TextureVRAMArea_0203d028;
 struct Struct_ov017_0218f064_6;
 struct Struct_02048104;
 struct Struct_02054664;
@@ -57,8 +57,8 @@ enum { Enum_ov017_0218f064_720 = 0x2d0, Enum_ov017_0218f064_724 = 0x2d4, Enum_ov
 #endif
 extern "C" void* func_0200fd0c(GameState*);
 extern "C" Zone3D* GetZone3D_02012fe4();
-extern "C" void func_0202ae18();
-extern "C" void func_0207df50(Struct_0203d028*);
+extern "C" void GetLocalWireless_0202ae18();
+extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void func_020545b8(Struct_020545b8*);
 extern "C" void func_020542b4(Struct_020545b8*, SafeAllocator*, Struct_ov017_0218f064_8*);
 extern "C" int func_ov017_021925e0();
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
 #else
     var1 = GetZone3D_02012fe4();
 #endif
-    func_0202ae18();
+    GetLocalWireless_0202ae18();
     int var4 = 1;
     SafeAllocator* var5;
     Struct_020545b8* var6;
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
         Struct_ov017_0218f064_8* var9 = inline_ov017_0218f064_2(arg0);
         var8->Reset();
         Struct_ov017_0218f064_8* var10 = &var9[21];
-        func_0207df50((Struct_0203d028*)var10);
+        ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var10);
         func_020545b8(var6);
         func_020542b4(var6, var8, var10);
     } else {

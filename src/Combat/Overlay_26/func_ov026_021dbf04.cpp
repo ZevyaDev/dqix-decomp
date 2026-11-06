@@ -67,7 +67,7 @@ struct Struct_ov000_02160da0 {
 extern "C" Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4* arg0, int arg1);
 extern "C" int func_ov000_02160fd4(void* arg0, int arg1);
 extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_ov000_02176038(Struct_ov000_02176038* arg0);
 
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov026_021dbf04(Struct_ov000_02160da0* arg0) {
     arg0->unknown_772f_ = 0;
     memset(arg0->unknown_54f4_, 0, sizeof(arg0->unknown_54f4_));
 
-    Struct_ov026_021d8ba0_5* var2 = (Struct_ov026_021d8ba0_5*)func_02010828(GameState::GetInstance());
+    Struct_ov026_021d8ba0_5* var2 = (Struct_ov026_021d8ba0_5*)GetParty_02010828(GameState::GetInstance());
     for (int var3 = 0; var3 < var2->unknown_f7c_; var3++) {
         int var4 = var2->unknown_f78_[var3];
         Struct_ov026_021d8ba0_6* var5 = func_ov026_021dae60(&arg0->unknown_3760_, var4);
@@ -110,6 +110,6 @@ extern "C" ARM void func_ov026_021dbf04(Struct_ov000_02160da0* arg0) {
     if (var6) {
         func_ov000_02160fa8(arg0, 0x2000000);
     }
-    func_020466e4((unsigned int*)func_020d6c00(), arg0->unknown_7738_);
+    func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), arg0->unknown_7738_);
     func_ov000_02176038((Struct_ov000_02176038*)&arg0->unknown_3760_);
 }

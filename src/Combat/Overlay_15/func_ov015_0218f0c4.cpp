@@ -2,8 +2,8 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-extern AllocatorUnion data_02114e20;
-extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern AllocatorUnion gMainHeap_02114e20;
+extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 
 struct Struct_ov015_0218eef0;
 extern "C" void func_ov015_0218eef0(struct Struct_ov015_0218eef0* arg0);
@@ -33,20 +33,20 @@ extern "C" ARM void func_ov015_0218f0c4(void* arg0) {
             for (int var2 = 0; var2 < 10; var2++, var1 = (SafeAllocator*)((char*)var1 + 0x14)) {
                 void* var3 = var1->GetSignedAllocator();
                 var1->Destroy();
-                func_02012da4(&data_02114e20, var3);
+                FreeMemory_02012da4(&gMainHeap_02114e20, var3);
             }
         } else {
             void* var4 = var0->unknown_8_->GetSignedAllocator();
             var0->unknown_8_->Destroy();
-            func_02012da4(&data_02114e20, var4);
+            FreeMemory_02012da4(&gMainHeap_02114e20, var4);
         }
-        func_02012da4(&data_02114e20, var0->unknown_8_);
+        FreeMemory_02012da4(&gMainHeap_02114e20, var0->unknown_8_);
     }
 
-    if (var0->unknown_20_ != 0) func_02012da4(&data_02114e20, var0->unknown_20_);
-    if (var0->unknown_14_ != 0) func_02012da4(&data_02114e20, var0->unknown_14_);
-    if (var0->unknown_24_ != 0) func_02012da4(&data_02114e20, var0->unknown_24_);
-    if (var0->unknown_28_ != 0) func_02012da4(&data_02114e20, var0->unknown_28_);
+    if (var0->unknown_20_ != 0) FreeMemory_02012da4(&gMainHeap_02114e20, var0->unknown_20_);
+    if (var0->unknown_14_ != 0) FreeMemory_02012da4(&gMainHeap_02114e20, var0->unknown_14_);
+    if (var0->unknown_24_ != 0) FreeMemory_02012da4(&gMainHeap_02114e20, var0->unknown_24_);
+    if (var0->unknown_28_ != 0) FreeMemory_02012da4(&gMainHeap_02114e20, var0->unknown_28_);
 
     if (var0->unknown_4_ != 0) {
         *((unsigned char*)var0->unknown_4_ + 4) = 0;

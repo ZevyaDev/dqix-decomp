@@ -5,9 +5,6 @@
 #include <NitroSDK/Graphics.h>
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_0205ec34 func_0205ff20
-#endif
 
 struct Struct_02018300_3;
 struct Struct_02038598_5;
@@ -43,12 +40,12 @@ struct Struct_ov017_021b688c_2 {
 };
 struct Struct_ov000_02175808_4 { char unknown_0_[0xf78]; signed char unknown_f78_[4]; unsigned char unknown_f7c_; };
 extern "C" void func_020397cc(Struct_02018300_3*, int);
-extern "C" int func_0200fb8c(int*);
+extern "C" int GetResources_0200fb8c(int*);
 extern "C" int func_020100f8(char*);
 extern "C" void func_020a28a0(unsigned char*, unsigned char);
 extern "C" void func_020a0cc4(int);
-extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
-extern AllocatorUnion data_02114e20;
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
+extern AllocatorUnion gMainHeap_02114e20;
 extern "C" void func_020a0c0c();
 extern "C" void func_020a1df8(int);
 extern "C" void func_ov003_0215f9c0(Struct_ov017_021b688c*, int);
@@ -62,8 +59,8 @@ extern "C" void func_020397c0(void*);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_020a27ac(void*);
 extern "C" void func_020a28b0(unsigned char*, int);
-extern "C" void* func_0205ec34();
-extern "C" void* func_02010828(GameState*);
+extern "C" void* GetFlagManager_0205ec34();
+extern "C" void* GetParty_02010828(GameState*);
 extern "C" void func_0206e424(void*, int);
 
 // USA: func_ov017_021b688c
@@ -71,12 +68,12 @@ extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_02018300_3* var1 = (Struct_02018300_3*)var0->GetUnknownGameObject();
     func_020397cc(var1, 1);
-    GameResources* var2 = (GameResources*)func_0200fb8c((int*)var0);
+    GameResources* var2 = (GameResources*)GetResources_0200fb8c((int*)var0);
     SetFlags04(var2, 0xc0);
     func_020a28a0((unsigned char*)func_020100f8((char*)var0), 1);
     if (arg0->unknown_1d_ == 0) {
         func_020a0cc4(0x1b800);
-        void* var3 = func_02012d88(&data_02114e20, 0x1b800);
+        void* var3 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x1b800);
         if (!var3) {
             func_020a0c0c();
             arg0->unknown_1_ = 1;
@@ -99,7 +96,7 @@ extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
         arg0->unknown_1d_++;
     } else if (arg0->unknown_1d_ == 1) {
         if (!func_ov003_0215fce8(arg0->unknown_24_, var0->GetTickCount())) return;
-        Struct_0208cb08* var4 = func_02094a00();
+        FontLoader_0208cb08* var4 = func_02094a00();
         func_02094b40(var4);
         func_02094ab0(var4);
         func_02094b34(var4, 0x6f, 0x1388, 1, 1);
@@ -123,9 +120,9 @@ extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
         unsigned char* var6 = (unsigned char*)func_020100f8((char*)var0);
         if (!func_ov017_021959b4()) func_020a27ac(var6);
         func_020a28b0(var6, 2);
-        void* var7 = func_0205ec34();
-        func_02010828(var0);
-        Struct_ov000_02175808_4* var8 = (Struct_ov000_02175808_4*)func_02010828(var0);
+        void* var7 = GetFlagManager_0205ec34();
+        GetParty_02010828(var0);
+        Struct_ov000_02175808_4* var8 = (Struct_ov000_02175808_4*)GetParty_02010828(var0);
         for (int var9 = 0; var9 < var8->unknown_f7c_; var9++) func_0206e424(var7, var8->unknown_f78_[var9]);
     }
 }

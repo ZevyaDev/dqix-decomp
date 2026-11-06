@@ -12,7 +12,7 @@ struct Struct_ov025_021e6340 {
 #endif
     unsigned short unknown_6f04_;
 };
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 extern "C" Struct_ov025_021e6340* func_ov000_02160130();
 extern "C" void func_0205ebfc(void*, int, int);
 
@@ -20,6 +20,6 @@ extern "C" void func_0205ebfc(void*, int, int);
 extern "C" ARM int func_ov025_021e6340(Struct_ov000_02175808* arg0) {
     Struct_ov025_021e6340* var0 = func_ov000_02160130();
     var0->unknown_6f04_ = arg0->unknown_8_;
-    func_0205ebfc(&data_02108760, arg0->unknown_8_, 0);
+    func_0205ebfc(&gSoundEffectManager_02108760, arg0->unknown_8_, 0);
     return 1;
 }

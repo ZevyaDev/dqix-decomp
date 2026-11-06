@@ -24,8 +24,8 @@ extern "C" void func_0205a444(char* arg0);
 
 extern "C" void* func_0203bd14();
 extern "C" void* func_0203be4c(void);
-struct Struct_02020aec;
-extern "C" int func_0205a498(void* arg0, struct Struct_02020aec* arg1, int arg2, void* arg3);
+struct PacEntry_02020aec;
+extern "C" int func_0205a498(void* arg0, struct PacEntry_02020aec* arg1, int arg2, void* arg3);
 extern "C" void func_0205af38(int arg0, char* arg1, int arg2, int arg3);
 extern "C" int func_0205a1f0(void* arg0, void* arg1, int arg2);
 extern "C" int GetMessageWindow_020421a0(void);
@@ -200,7 +200,7 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
         var4 = 0;
         var5 = 0;
         var11->GetLoadedFileByID(arg0->unknown_a10_, &var4, &var5);
-        func_0205a498((char*)&arg0->unknown_94_, (struct Struct_02020aec*)var4, var5, var17);
+        func_0205a498((char*)&arg0->unknown_94_, (struct PacEntry_02020aec*)var4, var5, var17);
         func_0205af38((int)((char*)&arg0->unknown_94_), (char*)&arg0->unknown_e8_[9], 1, 1);
         func_0205af38((int)((char*)&arg0->unknown_94_), (char*)&arg0->unknown_e8_[11], 1, 1);
         BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_a10_);

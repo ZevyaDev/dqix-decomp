@@ -24,7 +24,7 @@ extern "C" void func_0205eb90(void*, int, int);
 extern "C" void func_02033874(Struct_02033834*, int);
 extern "C" void func_020874bc(Struct_020874bc*, int);
 int fix32abs(int);
-extern char data_02108760;
+extern char gSoundEffectManager_02108760;
 // USA: func_020a8b0c
 extern "C" ARM void func_020a8b0c(Struct_020a8b0c* arg0, int arg1) {
     if (!(arg0->unknown_4_ & (1<<arg1))) return;
@@ -33,7 +33,7 @@ extern "C" ARM void func_020a8b0c(Struct_020a8b0c* arg0, int arg1) {
     Struct_020a8b0c_3* var2 = func_0200fd0c(var0);
     Struct_020874bc* var3;
     Struct_02015438** var4 = ((Struct_020a8b0c_4*)GetGameResources())->unknown_36fc_;
-    var3 = (Struct_020874bc*)func_02010828(var0);
+    var3 = (Struct_020874bc*)GetParty_02010828(var0);
     int var5 = var1->unknown_ac_;
     var2->unknown_c_ = 0;
     func_020397cc((Struct_02018300_3*)var1, 1);
@@ -44,9 +44,9 @@ extern "C" ARM void func_020a8b0c(Struct_020a8b0c* arg0, int arg1) {
     else {
         var6 = var5-arg0->unknown_8_;
         if (fix32abs(var6) < 40) {
-            func_0205eb80(&data_02108760);
-            func_0205eb54(&data_02108760, 114, 114);
-            func_0205eb90(&data_02108760, 3, 0);
+            func_0205eb80(&gSoundEffectManager_02108760);
+            func_0205eb54(&gSoundEffectManager_02108760, 114, 114);
+            func_0205eb90(&gSoundEffectManager_02108760, 3, 0);
         }
     }
     var1->unknown_ac_ = var6;

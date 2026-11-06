@@ -56,12 +56,12 @@ struct Struct_ov005_0215b520 {
     char unknown_0_[0x88];
 };
 
-struct Struct_0201099c_10;
-struct Struct_0201099c_9;
+struct ItemTable_0201099c_10;
+struct ItemData_0201099c_9;
 struct Struct_ov003_02178910 {
     char unknown_0_[0x48];
-    Struct_0201099c_10* unknown_48_;
-    Struct_0201099c_9* unknown_4c_;
+    ItemTable_0201099c_10* unknown_48_;
+    ItemData_0201099c_9* unknown_4c_;
     char unknown_50_[REGION(0x680,0x704)];
     int unknown_754_;
     char unknown_758_[0x18];

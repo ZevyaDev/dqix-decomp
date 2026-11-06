@@ -49,7 +49,7 @@ extern "C" short* func_02052e2c(Struct_02052e2c*);
 struct Struct_02052df8;
 extern "C" int func_02052df8(Struct_02052df8*, int);
 extern "C" void func_02052d7c(Struct_ov001_02162db0_2* arg0, int arg1, short arg2);
-extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void func_ov017_0218f5a4(GameResources* arg0, int arg1, int arg2, int arg3, int arg4);
 
 extern Struct_ov001_02165880_51 data_ov001_02165880;
@@ -104,7 +104,7 @@ extern "C" ARM int func_ov001_02162db0(void* arg0, int arg1) {
 
     var3 = GetGameResources();
     var4 = (Struct_ov001_02162db0_3*)var3->unknown_ptr_array_371c[6];
-    func_02010828(var0);
+    GetParty_02010828(var0);
     var0->GetGameObjectByIndex(data_ov001_02164d44[var6]);
 
     if (var2 == 0) {

@@ -2,10 +2,10 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_ov000_02161318(void* arg0, int arg1);
-extern "C" int func_020100a8(GameState* arg0);
-struct Struct_02108760;
-extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
-extern int data_02108760;
+extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
+struct SoundEffectManager_02108760;
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
+extern int gSoundEffectManager_02108760;
 struct Struct_ov000_02174428;
 extern "C" void func_ov000_02171d90(struct Struct_ov000_02174428* arg0, int arg1);
 extern "C" void func_ov000_02170db0(void* arg0);
@@ -16,12 +16,12 @@ extern "C" ARM void func_ov000_02174428(void* arg0, int arg1, int arg2, int arg3
     void* var0 = func_ov000_02161318(arg0, arg1);
     if (!var0) return;
     GameState* var1 = GameState::GetInstance();
-    int var2 = func_020100a8(var1);
+    int var2 = GetProtagonistObjectIndex_020100a8(var1);
     if (arg1 != var2 && arg2 == 0x64) {
         signed char var3 = *(signed char*)((char*)var0 + 0x18);
         signed char var4 = *(signed char*)((char*)var0 + var3 + 0x10);
         if (arg2 != var4) {
-            func_0205eaa0((struct Struct_02108760*)&data_02108760, 0x19, 0);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0x19, 0);
         }
     }
 #if defined(jpn)

@@ -12,20 +12,20 @@
 struct Struct_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
                                                                         unsigned char arg2);
 extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
-extern "C" int func_0200fb8c(int *arg0);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
+extern "C" int GetResources_0200fb8c(int *gameState);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_ov002_02161cf0(void *arg0);
 extern "C" void func_ov002_0215c2c8(void *arg0);
 extern "C" void func_ov002_02156e90(void *arg0);
 extern "C" void GetZone3D_02012fe4(void);
 extern "C" void func_02017c58(void);
-extern "C" char data_02108760[];
+extern "C" char gSoundEffectManager_02108760[];
 
 static inline int inline_ov002_0216257c(char *arg0, int arg1) {
     return *(int *) (arg0 + arg1 * 4 + 0x1000 + RG(0xc54, 0xb18));
@@ -56,8 +56,8 @@ extern "C" ARM void func_ov002_0216257c(char *arg0) {
             int var3 = *(signed char *) (arg0 + RG(0x1c00, 0x1a00) + RG(0x20, 0xe8));
             if (!inline_ov002_0216257c_2(var3)) return;
             *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
-            func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
-            func_ov017_021a120c((GameResources*)func_0200fb8c((int*)GameState::GetInstance()), 3, var3);
+            PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
+            func_ov017_021a120c((GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance()), 3, var3);
             *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = RG(0x2b, 0x2e);
             *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 0;
             GetZone3D_02012fe4();

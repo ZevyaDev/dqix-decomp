@@ -58,7 +58,7 @@ extern "C" ARM void func_02026bdc(void *arg0, int arg1) {
         if (&var4->substruct_c_ == 0 || var4->pUnknownStruct_8_ == 0) {
             return;
         }
-        if ((var3->obj3D_.unknown_0_ & 0x1000) != 0) {
+        if ((var3->obj3D_.classFlags_0_ & 0x1000) != 0) {
             if (var4->currentZoneID_ == 10000 || var4->currentZoneID_ == 10100) {
                 var3->unknown_18c_ &= ~8;
                 continue;

@@ -22,9 +22,9 @@ extern "C" int func_020482e0(struct Struct_020482e0* arg0, int arg1, int arg2);
 extern "C" void func_02026f08(unsigned char* arg0, int arg1, int arg2);
 extern "C" void func_02026f20(int arg0, int arg1);
 
-extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* arg0);
-extern "C" int func_0202b7d8(int* arg0);
+extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
+extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 
 // USA: func_0208aebc
@@ -38,10 +38,10 @@ extern "C" ARM void func_0208aebc(void* arg0, int arg1) {
 
     var4 = *(int**)(var1 + Enum_0208aebc_1744);
     var2 = (struct Struct_020482e0*)var0->GetPartyMemberByIndex(arg1);
-    var3 = func_0202ae18();
+    var3 = GetLocalWireless_0202ae18();
     var5 = var2->unknown_130_->unknown_4_;
 
-    if (func_0202c508(var3) == 0) {
+    if (IsNotLocalWirelessGuest_0202c508(var3) == 0) {
         var2->unknown_130_->unknown_4_ = 1;
     } else {
         unsigned char var6 = ((unsigned char*)arg0)[5];
@@ -54,7 +54,7 @@ extern "C" ARM void func_0208aebc(void* arg0, int arg1) {
         func_02026f20((int)var4, arg1);
     }
 
-    if (func_0202b7d8((int*)var3)) {
+    if (IsLocalWirelessOn_0202b7d8((int*)var3)) {
         func_ov017_021c9e00(arg1, 1, 0, 1);
     }
 }

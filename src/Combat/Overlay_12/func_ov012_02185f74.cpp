@@ -93,8 +93,8 @@ struct Struct_ov012_02185f74_2
 
 struct Struct_0204b12c;
 struct Struct_02020cb8_5;
-struct Struct_02020cb8_4;
-struct Struct_02020aec;
+struct PacEntry_02020cb8_4;
+struct PacEntry_02020aec;
 struct Struct_02020cb8_2;
 struct Struct_0204c7a8;
 struct Struct_0205cf78;
@@ -104,8 +104,8 @@ extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
 extern "C" void func_0204b5b4(Struct_ov012_02185f74_3* arg0, int arg1);
 extern "C" void func_0204b12c(Struct_0204b12c* arg0, SafeAllocator* arg1);
 extern "C" void func_0204b5e8(Struct_02020cb8_5* arg0, int arg1, int arg2);
-extern "C" int func_02046900(Struct_02020cb8_4* arg0);
-extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
+extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_0204b174(Struct_ov012_02185f74_3* arg0, void* arg1, SafeAllocator* arg2, unsigned int arg3);
 extern "C" void func_0204bc74(Struct_ov012_02185f74_3* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 extern "C" void func_0204b0e8(Struct_02020cb8_2* arg0, void* arg1);
@@ -144,10 +144,10 @@ extern "C" ARM void func_ov012_02185f74(Struct_ov012_02185f74_2* arg0)
     ColorEffect_ConfigureAlphaBlend(0x4000050, 2, 1, 10, 6);
 
     var2->GetLoadedFileByID(*(int*)((char*)arg0 + Enum_ov012_02185f74_5004), &var5, &var6);
-    var1 = func_02046900((Struct_02020cb8_4*)var5);
+    var1 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var5);
     for (int var9 = 0; var9 < var1; var9++)
     {
-        void* var10 = func_020467f0((Struct_02020aec*)var5, var9, &var4, &var7);
+        void* var10 = GetPacEntryData_020467f0((PacEntry_02020aec*)var5, var9, &var4, &var7);
         if (var10 != 0)
         {
             func_0204b174(&arg0->unknown_168_[1], var10, &arg0->unknown_20_[0], var7);

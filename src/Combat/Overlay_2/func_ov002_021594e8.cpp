@@ -8,22 +8,22 @@
 #define RG(u, j) (u)
 #endif
 
-struct Struct_02108760;
+struct SoundEffectManager_02108760;
 struct Struct_02048350_2;
 extern "C" void *func_02079e2c(char *arg0, int arg1);
 extern "C" GameObject *func_0200ff94(GameState *arg0, int arg1);
-extern "C" int *func_0202ae18(void);
+extern "C" int *GetLocalWireless_0202ae18(void);
 extern "C" void *__clear(void *arg0, int arg1);
 extern "C" int func_020114ec(char *arg0, void *arg1);
 extern "C" void func_02048350(struct Struct_02048350_2 *arg0, int arg1);
-extern "C" int func_0202b7d8(int *arg0);
-extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
+extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
+extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" void func_ov002_02157ce0(char *arg0);
 extern "C" void func_ov002_021536e0(void *arg0);
 extern "C" int func_ov002_021536ec(void *arg0, void *arg1, int arg2);
 extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
 extern "C" void func_ov017_021c9e00(signed char arg0, int arg1, int arg2, int arg3);
-extern "C" int data_02108760;
+extern "C" int gSoundEffectManager_02108760;
 
 struct Struct_ov002_021594e8_3 {
     char *unknown_0_;
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov002_021594e8(struct Struct_ov002_021594e8_2 *arg0, sh
     Struct_02108e10* var6                         = func_020797dc();
     struct Struct_ov002_021594e8_3 *var7 = (struct Struct_ov002_021594e8_3 *) func_02079e2c((char*)var6, arg0->unknown_1c26_);
     GameObject *var8                  = func_0200ff94(var5, arg2);
-    int *var9                     = func_0202ae18();
+    int *var9                     = GetLocalWireless_0202ae18();
     int var10                         = 0;
     if (arg0->unknown_1bb8_ == RG(0x17, 0x18)) {
         arg0->unknown_1c28_  = 0x232d;
@@ -129,13 +129,13 @@ extern "C" ARM void func_ov002_021594e8(struct Struct_ov002_021594e8_2 *arg0, sh
                 var10     = 1;
             }
         }
-        func_0205eaa0((struct Struct_02108760 *) &data_02108760, 0x64, 0);
+        PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 0x64, 0);
         arg0->unknown_1bb8_     = RG(0x26, 0x29);
         arg0->unknown_1bbc_ = RG(0x17, 0x18);
     }
     if (var10 != 0) {
         func_02048350((struct Struct_02048350_2 *) var8, var7->unknown_8_0_);
-        if (func_0202b7d8(var9) != 0) {
+        if (IsLocalWirelessOn_0202b7d8(var9) != 0) {
             func_ov017_021c9e00(arg2, 0, 0, 1);
         }
     }

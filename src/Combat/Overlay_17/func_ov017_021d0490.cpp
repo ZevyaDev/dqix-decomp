@@ -3,9 +3,9 @@
 #include "Resource/GameResources.h"
 #include "World/ZoneResourceTree.h"
 
-extern "C" void* func_0202ae18(void);
+extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" int func_0202c508(void* arg0);
+extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void* func_0202ae24(void);
 extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 extern "C" int func_0201079c(char* arg0);
@@ -90,7 +90,7 @@ static inline Struct_ov017_021d0490* inline_ov017_021d0490_3(GameResources* arg0
 // USA: func_ov017_021d0490
 extern "C" ARM void func_ov017_021d0490(int arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0202ae18();
+    void* var1 = GetLocalWireless_0202ae18();
     unsigned short* var2 = (unsigned short*)GetZone3D_02012fe4();
     GameResources* var3 = GetGameResources();
     Struct_ov017_021d0490_7* var4 = inline_ov017_021d0490(var3);
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov017_021d0490(int arg0) {
     var8.unknown_0_ = 0x97;
     Struct_ov017_021d0490_5* var9 = &var8.unknown_4_;
 
-    if (func_0202c508(var1) != 0) {
+    if (IsNotLocalWirelessGuest_0202c508(var1) != 0) {
         var9->unknown_3_0_ = arg0;
         var9->unknown_0_ = func_0201079c((char*)var0);
         var9->unknown_1_ = func_020107d0((char*)var0);

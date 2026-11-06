@@ -41,7 +41,7 @@ extern "C" void func_ov025_021ded50(void* arg0, void* arg1);
 extern int data_ov025_021ef990;
 extern int data_ov025_021ef9a4;
 extern int data_ov025_021ef9c0;
-extern int data_02108760;
+extern int gSoundEffectManager_02108760;
 extern int data_ov025_021ef9a8[6];
 extern int data_ov025_021ef8b4;
 extern int data_ov025_021ef8ca;
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
             if (var9 != 0) {
                 int var10 = ((Object3D*)var9)->GetField78();
                 int var11 = ((Object3D*)var9)->GetField7a();
-                func_0205ebc0(&data_02108760, var10, var11);
+                func_0205ebc0(&gSoundEffectManager_02108760, var10, var11);
             }
         }
     }
@@ -214,7 +214,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
                     if (func_ov000_0215fd90(var28, 0xc)) {
                         func_ov025_021eb148(arg0, 0x19, 0x38e, 2);
                     } else if (func_ov000_0215fd90(var28, 6) == 0) {
-                        func_0205eabc(&data_02108760, 0, 0);
+                        func_0205eabc(&gSoundEffectManager_02108760, 0, 0);
                         if (((unsigned char*)var28)[0x1c] != 0 && var7 != 0) {
                             unsigned int var29 = var6->unknown_0_;
                             if (var29 == 0xf4 || var29 == 0xf5 || var29 == 0x48 || var29 == 0x70) {

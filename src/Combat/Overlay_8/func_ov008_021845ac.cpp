@@ -113,16 +113,16 @@ struct Struct_02038598_4;
 extern "C" void func_0205a494(void* arg0);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_02045cac(Struct_02045cac* arg0);
-extern "C" void func_02043204(char* arg0);
+extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0204b010(Struct_0204b010* arg0, void* arg1);
 extern "C" void func_0204afb4(Struct_02020cb8_3* arg0);
 extern "C" void func_02017d68(void* arg0);
-extern "C" void* func_020d6c00();
+extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
 
 extern "C" {
 void func_ov023_021eb26c(void* arg0);
-void func_02043124(MessageWindow_02021b84* arg0);
+void CloseMessageWindow_02043124(MessageWindow_02021b84* window);
 void func_0204b04c(Struct_ov003_021594c4* arg0, int arg1);
 void func_0204b088(Struct_ov003_021594c4* arg0, int arg1);
 unsigned int GetMainBGAssignedVRAMSize();
@@ -148,8 +148,8 @@ extern "C" ARM void func_ov008_021845ac(Struct_ov008_021842a0_2* arg0)
         func_ov023_021eb26c(arg0->unknown_b08_);
     MessageWindow_02021b84* var1 = GetMessageWindow_020421a0();
     func_02045cac((Struct_02045cac*)var1);
-    func_02043204((char*)var1);
-    func_02043124(var1);
+    ResetMessageWindow_02043204((char*)var1);
+    CloseMessageWindow_02043124(var1);
     var1->unknown_2d8_ = NULL;
     var1->unknown_2dc_ = NULL;
     var1->unknown_2e0_ = NULL;
@@ -178,6 +178,6 @@ extern "C" ARM void func_ov008_021845ac(Struct_ov008_021842a0_2* arg0)
         {
             func_02017d68(GetZone3D_02012fe4());
         }
-        func_020466f4((Struct_02038598_4*)func_020d6c00(), 0xf);
+        func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0xf);
     }
 }

@@ -139,13 +139,13 @@ extern char data_ov001_02164bcb[];
 extern "C" {
 struct Struct_ov001_021539d8_5* func_0203cf4c(void);
 
-void* func_0202ae18(void);
-int func_0202c508(void* arg0);
+void* GetLocalWireless_0202ae18(void);
+int IsNotLocalWirelessGuest_0202c508(void* wireless);
 unsigned char func_020100b0(GameState* arg0);
-int func_020100a8(GameState* arg0);
-void func_0207df50(struct Struct_ov001_021539d8_7* arg0);
-void func_0207df90(struct Struct_ov001_021539d8_7* arg0);
-void func_0207dfac(struct Struct_ov001_021539d8_7* arg0);
+int GetProtagonistObjectIndex_020100a8(GameState* gameState);
+void ResetTextureVRAMState_0207df50(struct Struct_ov001_021539d8_7* area);
+void RestoreTextureVRAMState_0207df90(struct Struct_ov001_021539d8_7* area);
+void SaveTextureVRAMState_0207dfac(struct Struct_ov001_021539d8_7* area);
 void func_ov001_0215ab54(int arg0, int arg1, int arg2);
 struct Struct_ov001_021539d8* func_0203df78(void* arg0, int arg1);
 int func_0203dfdc(void* arg0, int arg1);
@@ -201,7 +201,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     struct Struct_ov001_021539d8_5* var2 = func_0203cf4c();
     char* var3 = (char*)GetGameResources();
-    void* var4 = func_0202ae18();
+    void* var4 = GetLocalWireless_0202ae18();
     struct Struct_ov001_021539d8_3* var5;
     struct Struct_ov001_021539d8_4* var6;
     bool var7;
@@ -222,7 +222,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
 
     for (var5 = arg0->unknown_d0_; var5 != 0; var5 = var5->unknown_34_) {
         if (var5->unknown_0_0_ == 1) {
-            if (func_0202c508(var4) == 0 || !(arg0->unknown_f8_0_ & 0x10)) {
+            if (IsNotLocalWirelessGuest_0202c508(var4) == 0 || !(arg0->unknown_f8_0_ & 0x10)) {
                 int var22 = func_020100b0(var0);
                 if (var22 != 0) {
                     struct Struct_ov001_021539d8_3* var23;
@@ -253,7 +253,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             var21 = &((struct Struct_ov001_021539d8_7*)(var3 + PAIR_TABLES_021539d8))[7];
             if (!var7) {
                 if ((arg0->unknown_50_ & 4) || (arg0->unknown_50_ & 1)) {
-                    func_0207df50(var21);
+                    ResetTextureVRAMState_0207df50(var21);
                     var7 = true;
                 }
             }
@@ -267,10 +267,10 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             }
             if ((arg0->unknown_f8_0_ & 0x10) || !(*var24->unknown_130_ & 1)) {
                 func_ov001_0215ab54(4, 0, var5->unknown_1_);
-            } else if (func_0202c508(var4) != 0) {
+            } else if (IsNotLocalWirelessGuest_0202c508(var4) != 0) {
                 func_ov001_0215ab54(5, func_020100b0(var0), var5->unknown_1_);
             } else {
-                int var25 = func_020100a8(var0);
+                int var25 = GetProtagonistObjectIndex_020100a8(var0);
                 int var26;
                 for (var26 = 3; var26 > 0; var26--) {
                     if (var25 != var26) {
@@ -335,7 +335,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
                 var1->RemoveTask(var5->unknown_2c_);
                 break;
             }
-            func_0207df90(var21);
+            RestoreTextureVRAMState_0207df90(var21);
             _ZN8Object3D10InitializeEv(var34);
             var29.unknown_c_ = var33;
             var29.unknown_4_ = var30;
@@ -346,7 +346,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             } else if (var32 == 1) {
                 _ZN8Object3D25LoadFromCCHROrCMOTArchiveEP21ObjectArchiveLoadInfoPFiPN4BCFG15AnimationRecordEE(var34, &var29, 0);
             }
-            func_0207dfac(var21);
+            SaveTextureVRAMState_0207dfac(var21);
             _ZN8Object3D8SetScaleEiii(var34, 0x10a, 0x10a, 0x10a);
             _ZN8Object3D21MaybeSetBCFGAnimationEii(var34, 0, 0);
             func_0200fd38(var0, var5->unknown_2_, var34);
@@ -512,7 +512,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             if (var56 == 0) {
                 break;
             }
-            func_0207df90(var21);
+            RestoreTextureVRAMState_0207df90(var21);
             _ZN8Object3D10InitializeEv(var55);
             var48.unknown_4_ = var56;
             var48.unknown_c_ = var54;
@@ -523,7 +523,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             } else if (var57 == 1) {
                 _ZN8Object3D25LoadFromCCHROrCMOTArchiveEP21ObjectArchiveLoadInfoPFiPN4BCFG15AnimationRecordEE(var55, &var48, 0);
             }
-            func_0207dfac(var21);
+            SaveTextureVRAMState_0207dfac(var21);
             _ZN8Object3D8SetScaleEiii(var55, 0x10a, 0x10a, 0x10a);
             _ZN8Object3D21MaybeSetBCFGAnimationEii(var55, 0, 0);
             func_0200fd38(var0, var5->unknown_2_, var55);
@@ -551,10 +551,10 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             }
             var61 = var60->Allocate(var59);
             memcpy(var61, var58, var59);
-            func_0207df90(var21);
+            RestoreTextureVRAMState_0207df90(var21);
             _ZN8Object3D10InitializeEv(var62);
             _ZN8Object3D16SetModelFromFileEP13SafeAllocatorPvjN7Model3D18TextureStagingModeE(var62, var60, var61, var59, 0);
-            func_0207dfac(var21);
+            SaveTextureVRAMState_0207dfac(var21);
             _ZN8Object3D8SetScaleEiii(var62, 0x10a, 0x10a, 0x10a);
             _ZN8Object3D21MaybeSetBCFGAnimationEii(var62, 0, 0);
             func_0200fd38(var0, var5->unknown_2_, var62);
@@ -580,14 +580,14 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
                 var1->RemoveTask(var5->unknown_2c_);
                 break;
             }
-            func_0207df90(var21);
+            RestoreTextureVRAMState_0207df90(var21);
             _ZN8Object3D10InitializeEv(var67);
             var63.unknown_4_ = var64;
             var63.unknown_8_ = var65;
             var63.unknown_10_ = 1;
             var63.unknown_c_ = var66;
             _ZN8Object3D18LoadFromCHRArchiveEP21ObjectArchiveLoadInfo(var67, &var63);
-            func_0207dfac(var21);
+            SaveTextureVRAMState_0207dfac(var21);
             NSBXX_Model_SetPolygonID(var67->unknown_8_->unknown_54_, 0x3d);
             var67->unknown_44_ = 0;
             var67->unknown_48_ = -0xa000;
