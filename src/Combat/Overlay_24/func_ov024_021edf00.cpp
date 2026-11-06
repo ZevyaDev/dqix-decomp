@@ -8,8 +8,8 @@ struct Struct_ov024_021e05e4 { char unknown_0_[0x18]; int unknown_18_; };
 struct Struct_ov024_021e04e0 { char unknown_0_[0x138]; struct Struct_ov024_021e05e4* unknown_138_; };
 extern "C" int func_ov024_021e05e4(struct Struct_ov024_021e04e0* arg0);
 
-struct Struct_02010088_2 { char unknown_0_[0x14]; int unknown_14_; };
-struct Struct_02010088 { char unknown_0_[0x138]; struct Struct_02010088_2* unknown_138_; };
+struct Struct_02010088_2 { char unknown_0_[0x14]; int statusFlags_14_; };
+struct Struct_02010088 { char unknown_0_[0x138]; struct Struct_02010088_2* pCurrentStats_138_; };
 extern "C" int func_02010088(struct Struct_02010088* arg0);
 
 // USA: func_ov024_021edf00

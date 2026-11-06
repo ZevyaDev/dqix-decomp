@@ -9,7 +9,7 @@ extern "C" void func_ov003_0216fe74(void *arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov003_02170960(void *arg0, int arg1, void *arg2);
 #if defined(jpn)
 struct Struct_02046574_2;
-extern "C" void func_02046574(Struct_02046574_2 *, int, char *);
+extern "C" void SetMessageString_02046574(Struct_02046574_2 *, int, char *);
 extern "C" void func_ov003_021701e4(void *arg0, int arg1);
 #define REGION_NOTIFY(self, a, item) func_ov003_021701e4(self, a)
 #else
@@ -180,7 +180,7 @@ extern "C" ARM void func_ov003_0216f474(Struct_ov003_0216f474_4 *arg0) {
     } else if (var2 == 2) {
         Struct_ov003_0216f474_3 *var7 = arg0->unknown_f4_[(arg0->unknown_0_ - 1) * 8 + arg0->unknown_6_];
 #if defined(jpn)
-        func_02046574((Struct_02046574_2 *) var1, 0, (char *) var7);
+        SetMessageString_02046574((Struct_02046574_2 *) var1, 0, (char *) var7);
 #endif
         if (var7->unknown_c_4_ == 9 || var7->unknown_c_4_ == 0xa) {
             REGION_NOTIFY(arg0, 0x25, var7);
@@ -222,7 +222,7 @@ extern "C" ARM void func_ov003_0216f474(Struct_ov003_0216f474_4 *arg0) {
         }
     } else if (var2 == 3) {
 #if defined(jpn)
-        func_02046574((Struct_02046574_2 *) var1, 0, (char *) arg0->unknown_f4_[(arg0->unknown_0_ - 1) * 8 + arg0->unknown_6_]);
+        SetMessageString_02046574((Struct_02046574_2 *) var1, 0, (char *) arg0->unknown_f4_[(arg0->unknown_0_ - 1) * 8 + arg0->unknown_6_]);
         func_ov003_021701e4(arg0, 0x26);
 #else
         func_ov003_02170960(arg0, 0x26, arg0->unknown_f4_[(arg0->unknown_0_ - 1) * 8 + arg0->unknown_6_]);

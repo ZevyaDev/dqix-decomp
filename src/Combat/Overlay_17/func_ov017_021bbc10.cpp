@@ -51,16 +51,16 @@ struct Struct_ov017_021bbc10 {
 
 extern "C" int func_02039d7c(char*);
 extern "C" int func_0202e7f0(void* arg0);
-extern "C" void* func_020100f8(char*);
+extern "C" void* GetFollowCamera_020100f8(char*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int func_020a1eb0(void);
 extern "C" void func_020a1df8(int);
 extern "C" unsigned int* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_020a27b8(unsigned char* arg0);
 extern "C" void* func_020d7a50(void);
 extern "C" void func_020d7aa0(Struct_020d7aa0_2* arg0);
-extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void func_02053ec8(void*, int);
 extern "C" void func_02053ed8(void* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
@@ -77,7 +77,7 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" ARM int func_ov017_021bb27c(Struct_ov017_021bbc10* arg0);
 
 extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 char* strstr(const char* arg0, const char* arg1);
 
@@ -94,7 +94,7 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     GameObject* var2 = var0->GetUnknownGameObject();
-    unsigned char* var3 = (unsigned char*)func_020100f8((char*)var0);
+    unsigned char* var3 = (unsigned char*)GetFollowCamera_020100f8((char*)var0);
     GameResources* var4 = GetGameResources();
     void* var5 = GetLocalWireless_0202ae18();
 
@@ -103,7 +103,7 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;
     }
-    func_020466e4(GetGlobalFlags_020d6c00(), 0x400e);
+    SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 0x400e);
     if (var4->unknown_4080_ != 0) {
         return arg0->unknown_a_;
     }
@@ -111,7 +111,7 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
     if (func_02039d7c((char*)var2) != 0 && var6->unknown_1_ != 2) {
         return arg0->unknown_a_;
     }
-    if (arg0->unknown_fd_ == 0 && func_02046b08((void**)var4->unknown_ptr_array_36fc[1]) == 0) {
+    if (arg0->unknown_fd_ == 0 && IsQueueEmpty_02046b08((void**)var4->unknown_ptr_array_36fc[1]) == 0) {
         return arg0->unknown_a_;
     }
     SetFlags00(var4, 0x10);
@@ -119,7 +119,7 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
         func_020a1df8(1);
     }
     func_ov001_0215aa14((SafeAllocator*)NULL);
-    func_020397cc((Struct_02018300_3*)var2, 1);
+    DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
     func_020a27b8(var3);
     func_020d7aa0((Struct_020d7aa0_2*)func_020d7a50());
     *(unsigned short*)(var3 + 0x21e) = func_0202e7f0(var3);
@@ -127,7 +127,7 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
     if (IsLocalWirelessOn_0202b7d8((int*)var5)) {
         char* var7 = (char*)GetParty_02010828(var0);
         for (int var8 = 0; var8 < *(unsigned char*)(var7 + 0xf7c); var8++) {
-            GameObject* var9 = func_0200ff1c(var0, *(unsigned char*)(var7 + var8 + 0xf78));
+            GameObject* var9 = GetPartyMemberBaseByIndex_0200ff1c(var0, *(unsigned char*)(var7 + var8 + 0xf78));
             if (var9 != NULL) {
                 func_02053ec8(var9, 3);
                 func_02053ed8(var9);

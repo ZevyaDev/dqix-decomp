@@ -33,10 +33,10 @@ extern "C" void func_ov012_0218a7a0(char* arg0);
 extern "C" void func_ov012_0218a7a0(char* arg0);
 #endif
 
-struct Struct_0205de24_2;
-extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+struct TextWindowManager_0205de24_2;
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
 struct Struct_0205c570;
-extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern int gSoundEffectManager_02108760;
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov012_02188924(char* arg0) {
         if (var3 < 0) {
             *(int*)(arg0 + 0x1000 + R(0x448,0x3f0)) = 0;
         }
-        func_0205de24((struct Struct_0205de24_2*)(arg0 + R(0x90,0xac)), 0, 3);
+        SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)(arg0 + R(0x90,0xac)), 0, 3);
         func_ov023_021e6e60(arg0);
         func_ov012_0218a7a0(arg0);
         (*(unsigned char*)(arg0 + R(0x1340,0x1370)))++;
@@ -65,9 +65,9 @@ extern "C" ARM void func_ov012_02188924(char* arg0) {
     }
     if (var0 != 1) return;
     *(unsigned char*)(arg0 + R(0x1368,0x13a0)) = 1;
-    *(int*)(arg0 + R(0x1448,0x13f0)) = func_0205d794((struct Struct_0205c570*)(arg0 + R(0x90,0xac)));
+    *(int*)(arg0 + R(0x1448,0x13f0)) = GetCursorIndex_0205d794((struct Struct_0205c570*)(arg0 + R(0x90,0xac)));
     if (func_ov023_021e6448(arg0)) {
-        *(int*)(arg0 + R(0x1448,0x13f0)) = func_0205d794((struct Struct_0205c570*)(arg0 + R(0x90,0xac)));
+        *(int*)(arg0 + R(0x1448,0x13f0)) = GetCursorIndex_0205d794((struct Struct_0205c570*)(arg0 + R(0x90,0xac)));
     }
     if (func_ov023_021e6de4(arg0)) {
         short* var4 = *(short**)(arg0 + 0x1000 + R(0x420,0x3c8));

@@ -18,7 +18,7 @@
 struct Struct_02013fb4;
 struct Struct_020e57e0 { int unknown_0_[3]; };
 struct Struct_02000c9c_12;
-struct Struct_02109bf4_4;
+struct MusicManager_02109bf4_4;
 struct Struct_02000c9c_16;
 struct Struct_02000c9c_17;
 
@@ -70,7 +70,7 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigne
 extern "C" void func_02028d68(int arg0);
 extern "C" void func_02028ddc(void* arg0);
 extern "C" void func_02028dec(int);
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_020c5770(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, void* arg8);
 extern "C" int func_ov016_0218bc70(int arg0);
 extern "C" void func_ov016_0218e00c(Struct_ov016_0218b5c4_3* arg0);
@@ -105,7 +105,7 @@ extern "C" void func_020e57f4(int, int, Struct_02013fb4*, int);
 extern "C" int func_0201201c(void* arg0);
 struct Struct_ov016_0218b5c4_6;
 extern "C" Struct_ov016_0218b5c4_2* func_ov016_0218e124(Struct_ov016_0218b5c4_6**, int);
-extern "C" void func_0209c678(Struct_02109bf4_4* arg0, int arg1);
+extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
 extern "C" void func_0203ad88(void* arg0, void* arg1, int arg2);
 extern "C" void func_020bbd9c();
 extern "C" void func_0205e8d4(void* arg0);
@@ -173,7 +173,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
     func_02028d68(3);
     func_02028ddc(var10);
     func_02028dec(0);
-    func_020c5588(0, 0x10, 0x7fff, 0x3f, 0);
+    Set3DClearColorAndDepth_020c5588(0, 0x10, 0x7fff, 0x3f, 0);
     func_020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, 0);
     *(volatile unsigned int*)0x400044c = 0;
     func_ov016_0218bc70(0);
@@ -281,7 +281,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
         if (var19 != 0) {
 #if !defined(jpn)
             if (var19->unknown_11_ != 0) {
-                func_0209c678((Struct_02109bf4_4*)&gMusicManager_02109bf4, 0);
+                func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
                 func_0203ad88(&gMusicManager_02109bf4, 0, 0);
                 func_020bbd9c();
                 func_0205e8d4(&gSoundEffectManager_02108760);

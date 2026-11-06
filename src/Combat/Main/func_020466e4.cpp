@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_020466e4
-extern "C" ARM void func_020466e4(unsigned int* arg0, unsigned int arg1) {
-    *arg0 |= arg1;
+// USA: SetGlobalFlags_020466e4
+extern "C" ARM void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask) {
+    *globalFlags |= mask;
 }

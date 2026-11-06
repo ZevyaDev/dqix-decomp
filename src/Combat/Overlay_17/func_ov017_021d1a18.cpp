@@ -16,10 +16,10 @@ struct LocalWireless_0202c1a4 {
 extern "C" int* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void* GetZone3D_02012fe4(void* arg0);
-extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021d1a18 { int unknown_0_, unknown_4_, unknown_8_; };
 
@@ -51,8 +51,8 @@ extern "C" ARM void func_ov017_021d1a18(int arg0, short arg1, short arg2, unsign
 
     ((int)GetGameResources());
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetZone3D_02012fe4(func_0200fd0c(var0));
-    void* var2 = func_0202ae24();
+    void* var1 = GetZone3D_02012fe4(GetZoneEntry_0200fd0c(var0));
+    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
 
     struct Struct_ov017_021d1a18_4 var3;
     var3.unknown_0_ = 0xb2;
@@ -67,5 +67,5 @@ extern "C" ARM void func_ov017_021d1a18(int arg0, short arg1, short arg2, unsign
 
     var3.unknown_4_.unknown_a_ = *(int*)((char*)var1 + Enum_ov017_021d1a18_10112);
     var3.unknown_4_.unknown_c_ = arg3;
-    func_0205e330(var2, &var3, 0);
+    QueueOutgoingPacket_0205e330(var2, &var3, 0);
 }

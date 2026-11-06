@@ -73,7 +73,7 @@ struct ItemData_0201099c_9 {
     char unknown_8_[0x1a - 8];
     unsigned short unknown_1a_;
 };
-extern "C" struct ItemData_0201099c_9 *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
+extern "C" struct ItemData_0201099c_9 *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" short func_0207c72c(void *arg0, unsigned int arg1, short arg2);
 extern "C" void func_ov003_0217818c(void *arg0, struct ItemData_0201099c_9 *arg1, int arg2, int arg3);
 extern "C" void func_020805f4(void *arg0, int arg1);
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov003_02177dd4(Struct_ov003_02177dd4 *arg0) {
             } else {
                 var22 = func_0207c6b8(((unsigned char*)(&var0->unknown_1d4_)), var1, var18);
             }
-            struct ItemData_0201099c_9 *var23 = func_020dedd0(&arg0->unknown_874_, var22);
+            struct ItemData_0201099c_9 *var23 = FindItemData_020dedd0(&arg0->unknown_874_, var22);
             if (var23 != NULL) {
                 var20 = var23->unknown_4_;
                 var21   = var23->unknown_1a_;

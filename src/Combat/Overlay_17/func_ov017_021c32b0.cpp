@@ -75,7 +75,7 @@ extern "C" ARM void func_ov017_021c32b0(Struct_ov017_021c32b0* arg0, int arg1) {
         func_0200fd38(var3, var7 * 12 + 0x1b, var0[var6].unknown_4_[6]);
         func_0200fd38(var3, var7 * 12 + 0x1c, var0[var6].unknown_4_[7]);
         func_0200fd38(var3, var7 * 12 + 0x1d, var0[var6].unknown_4_[8]);
-        Struct_ov017_021c32b0_6* var8 = (Struct_ov017_021c32b0_6*)func_0200ff1c(var3, var7);
+        Struct_ov017_021c32b0_6* var8 = (Struct_ov017_021c32b0_6*)GetPartyMemberBaseByIndex_0200ff1c(var3, var7);
         if (var8) {
             Struct_ov017_021c32b0_7* var9 = GetPartyMemberData_02053c6c((unsigned char*)var8);
             if (var9) var9->unknown_568_ = var7;

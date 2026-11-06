@@ -2,9 +2,6 @@
 #include <GameState/GameState.h>
 #include <World/Zone3D.h>
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 struct TextureVRAMArea_0203d028;
 struct Struct_ov017_0218f064_6;
@@ -55,7 +52,7 @@ enum { Enum_ov017_0218f064_720 = 0x2c4, Enum_ov017_0218f064_724 = 0x2c8, Enum_ov
 #else
 enum { Enum_ov017_0218f064_720 = 0x2d0, Enum_ov017_0218f064_724 = 0x2d4, Enum_ov017_0218f064_760 = 0x2f8 };
 #endif
-extern "C" void* func_0200fd0c(GameState*);
+extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void GetLocalWireless_0202ae18();
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
@@ -69,10 +66,10 @@ extern "C" void func_02048104(Struct_02048104*);
 extern "C" void func_02054664(Struct_02054664*);
 extern "C" int func_ov017_02192548();
 extern "C" void func_020415d8(Struct_020415d8*);
-extern "C" void func_020c9be0();
+extern "C" void HaltForever_020c9be0();
 extern "C" void func_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_0203db34(unsigned char*, int, int, int);
-extern "C" void func_02033b88(Struct_02010604*, int);
+extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02053c4c(char*, char*);
 extern "C" void func_02053c74(char*, int);
 extern "C" void func_ov017_0218f57c(void*, int);
@@ -91,7 +88,7 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
 #if !defined(jpn)
     Zone3D* var1;
 #endif
-    Struct_ov017_0218f064_4* var2 = (Struct_ov017_0218f064_4*)func_0200fd0c(var0);
+    Struct_ov017_0218f064_4* var2 = (Struct_ov017_0218f064_4*)GetZoneEntry_0200fd0c(var0);
 #if defined(jpn)
     Struct_ov017_0218f064_10* var3 = ((Struct_ov017_0218f064_3*)GetZone3D_02012fe4())->inline_ov017_0218f064_3();
 #else
@@ -159,14 +156,14 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
         if (var16) var16->unknown_2d2_ = func_ov017_02192548();
         var4 = 0;
     }
-    if (!var16) func_020c9be0();
+    if (!var16) HaltForever_020c9be0();
     var16->unknown_0_.unknown_4_ = (short)arg1;
     var16->unknown_154_ = var6;
     var6->unknown_0_ = (short)arg1;
     func_0200fd38(var0, arg1, (GameObject*)var16);
     if (var4) {
         Struct_ov017_0218f064_7* var17 = (Struct_ov017_0218f064_7*)var5->Allocate(0x764);
-        if (!var17) func_020c9be0();
+        if (!var17) HaltForever_020c9be0();
         var17->unknown_0_[0].Initialize();
         var17->unknown_0_[2].Initialize();
         var17->unknown_0_[1].Initialize();
@@ -202,7 +199,7 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
     var16->unknown_0_.MaybeSetRegularAnimation(data_ov017_021d73a4, 0);
     var16->unknown_0_.position_ = var2->unknown_10_;
     func_0203db34((unsigned char*)var16, var16->unknown_0_.rotation_.x, var2->unknown_1c_, var16->unknown_0_.rotation_.z);
-    func_02033b88((Struct_02010604*)var16, 0);
+    SetMotion_02033b88((Struct_02010604*)var16, 0);
     if (arg2 == 0x4000) {
 #if defined(jpn)
         char* var23 = var3->unknown_1b5c_;

@@ -84,7 +84,7 @@ struct Struct_ov023_021f4c04 {
 extern "C" void __clear(void*, int);
 extern "C" void ClearMessageParams_02046380(Struct_ov023_021f4c04*);
 extern "C" void func_020e4ce8(Struct_ov026_021db090_3*, GameObject*, int);
-extern "C" Struct_ov026_021d8ba0_8* func_ov017_021b8478(void*);
+extern "C" Struct_ov026_021d8ba0_8* GetBattleSetup_ov017_021b8478(void*);
 extern "C" void* func_ov017_021b8468(void*);
 extern "C" void func_020dd0b0(int, char*);
 extern "C" void StartMessage_0204500c(Struct_ov023_021f4c04*, char*, int, int);
@@ -95,7 +95,7 @@ extern "C" int func_02010088(Struct_02010088*);
 extern "C" int func_ov026_021dd3c4(Struct_ov026_021d8ba0_10*);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" unsigned char func_020114ec(char*, void*);
-extern "C" void* func_ov000_02160130();
+extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" void* func_ov000_02160f08(void*);
 extern "C" void* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
 extern "C" int func_020a35e0(unsigned char*, unsigned char);
@@ -190,7 +190,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
     }
     var11 = var15 - 1;
     if (var7 != NULL) {
-        var23 = func_ov017_021b8478(var7);
+        var23 = GetBattleSetup_ov017_021b8478(var7);
     }
     if (var23 != NULL) {
         var11 = var23->unknown_c_;
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
     var20 = func_020114ec((char*)var6, var5);
     var16 = 0;
     var19 = 0;
-    var21 = func_ov000_02160f08(func_ov000_02160130());
+    var21 = func_ov000_02160f08(GetBattleScene_ov000_02160130());
     for (var18 = 0; var18 < var20; var18++) {
         GameObject* var30 = var6->GetCombatantByIndex(var5[var18]);
         func_ov026_021dae60((Struct_ov026_021d8ba0_4*)var21, var5[var18]);

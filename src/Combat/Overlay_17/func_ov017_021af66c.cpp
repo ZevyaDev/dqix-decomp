@@ -72,7 +72,7 @@ struct Struct_02018300_3;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 struct Struct_02046968;
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 struct AllocatorUnion;
 
 extern "C" void* GetLocalWireless_0202ae18();
@@ -88,7 +88,7 @@ extern "C" void func_ov017_0218b5c0(int arg0, int arg1);
 
 extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void* func_020936f8();
-extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 extern "C" int func_0202bd34(Struct_0202b2f0* arg0, int arg1);
 extern "C" unsigned char func_020100b0(GameState* arg0);
@@ -97,12 +97,12 @@ extern "C" void func_02093a14(char* arg0);
 extern "C" void func_020dc2d0(int arg0);
 extern "C" void func_ov000_02163b14(void* arg0, void* arg1);
 extern "C" void func_ov000_02163b40(void* arg0);
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_02046968(Struct_02046968* arg0);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_02039830(void* arg0);
 extern "C" void func_0205ce94(unsigned char* arg0);
-extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
@@ -127,10 +127,10 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
     GameResources* var1 = GetGameResources();
     Struct_0202b2f0* var2 = (Struct_0202b2f0*)GetLocalWireless_0202ae18();
     Struct_ov017_021af66c_5* var3 = (Struct_ov017_021af66c_5*)var0->GetUnknownGameObject();
-    Struct_02038598_4* var4 = (Struct_02038598_4*)GetGlobalFlags_020d6c00();
+    GlobalFlags_02038598_4* var4 = (GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00();
     char* var5 = (char*)func_020936f8();
     Struct_ov017_021af66c* var6 = static_cast<Struct_ov017_021af66c*>(var1->unknown_ptr_3718);
-    func_020397cc((Struct_02018300_3*)var3, 0);
+    DisablePlayerControl_020397cc((Struct_02018300_3*)var3, 0);
     var3->unknown_b2_ = 0;
     Struct_ov017_021d6aec var7 = data_ov017_021d6aec;
     if (var7.unknown_0_[arg0->unknown_a_] != 0) {
@@ -201,7 +201,7 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
     }
     if (arg0->unknown_42_ != 0) {
         SetMainBrightness(var1, arg0->unknown_3c_, 0);
-        func_020c5588(arg0->unknown_40_, 0, 0x7fff, 0, 0);
+        Set3DClearColorAndDepth_020c5588(arg0->unknown_40_, 0, 0x7fff, 0, 0);
         ClearFlags04(var1, 0xffffffff);
         SetFlags04(var1, arg0->unknown_38_);
     }
@@ -215,12 +215,12 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
     if (var16) {
         GameObject* var17 = var0->GetUnknownGameObject();
         if (var17 != 0) {
-            func_020397c0(var17);
+            EnablePlayerControl_020397c0(var17);
             func_02039830(var17);
         }
     }
     func_0205ce94(arg0->unknown_48_);
-    func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x800000);
+    ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x800000);
     func_ov017_0218b5c0(1, -1);
     func_020daf9c(0, 1, 0, 1);
     DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_280_ << 8);
@@ -236,6 +236,6 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
     var18->unknown_19d0_ = 0;
 #endif
     if (static_cast<Struct_ov017_021af66c*>(var1->unknown_ptr_3718)->unknown_2_ == 0) {
-        func_020466f4(var4, 0x40000);
+        ClearGlobalFlags_020466f4(var4, 0x40000);
     }
 }

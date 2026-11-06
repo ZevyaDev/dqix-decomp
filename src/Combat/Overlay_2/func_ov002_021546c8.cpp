@@ -5,7 +5,7 @@ extern "C" void *GetLocalWireless_0202ae18(void);
 extern "C" void func_ov002_02153e90(void *arg0);
 extern "C" int func_ov002_02154a6c(void *arg0, int arg1, int arg2);
 extern "C" int func_ov002_02154b94(void *arg0, int arg1);
-extern "C" GameObject *func_0200ff1c(GameState *arg0, int arg1);
+extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *gameState, int index);
 extern "C" short func_02084a64(void *arg0, int arg1);
 extern "C" void func_02083e28(void *arg0, int arg1);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov002_021546c8(void *arg0, struct Struct_ov002_021546c8_
             var5->unknown_0_ = 2;
             continue;
         }
-        GameObject *var7 = func_0200ff1c(var0, var6);
+        GameObject *var7 = GetPartyMemberBaseByIndex_0200ff1c(var0, var6);
         if (var7 == NULL) continue;
         var5->unknown_2_ = func_02084a64(*(void **) ((char *) var7 + Enum_ov002_021546c8_336), arg1->unknown_0_);
         if (var5->unknown_2_ <= 0) continue;

@@ -185,7 +185,7 @@ extern "C" void func_02076ccc(void*, int);
 extern "C" void func_02076a8c(Struct_ov000_0215f7a8* arg0);
 extern "C" void func_ov017_0219bf74();
 extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
-extern "C" struct Struct_ov017_0219e384* func_0200fd0c(GameState*);
+extern "C" struct Struct_ov017_0219e384* GetZoneEntry_0200fd0c(GameState*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_ov017_021a27e8(void* arg0);
 extern "C" void func_ov017_0219b938(int arg0);
@@ -200,7 +200,7 @@ extern "C" void func_ov000_0216d2d0(void* arg0);
 extern "C" void func_ov000_0216f700(void* arg0, int arg1);
 struct Struct_0202df68;
 extern "C" void func_0202e9a4(Struct_0202df68*, int);
-extern "C" void func_020100c4(GameState*, int);
+extern "C" void SetCamera_020100c4(GameState*, int);
 extern "C" void func_020134e0(void* arg0);
 extern "C" void func_ov017_021a050c(GameResources* arg0);
 extern "C" int func_ov017_0219e008(void*);
@@ -318,7 +318,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     }
     func_ov017_0219bf74();
     func_ov017_0219bd1c(0, 4, 1, 0);
-    char* var25 = (char*)func_0200fd0c(var0);
+    char* var25 = (char*)GetZoneEntry_0200fd0c(var0);
     int var26 = GetProtagonistObjectIndex_020100a8(var0);
     *(Vector3i*)(var25 + 0x10) = arg0->unknown_5910_[var26].unknown_0_;
     *(short*)(var25 + 0x1c) = arg0->unknown_5910_[var26].unknown_c_;
@@ -328,7 +328,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     unsigned int var27 = *(unsigned short*)(*(char**)((char*)var3 + 0x3000 + 0x718) + 0x600 + 0xc4);
 #endif
     if (var27) {
-        char* var28 = (char*)func_0200fd0c(var0);
+        char* var28 = (char*)GetZoneEntry_0200fd0c(var0);
         *(unsigned short*)var28 = var27;
         var28[0xa] = 0;
     }
@@ -360,11 +360,11 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     func_ov000_0216f700(arg0->unknown_c18_, arg0->unknown_29c_);
     arg0->unknown_e20_ = 0x800;
     arg0->unknown_e24_ = 1;
-    arg0->unknown_2a4_ = func_020100bc(var0);
+    arg0->unknown_2a4_ = GetCamera_020100bc(var0);
     if (arg0->unknown_2a4_) {
         func_0202e9a4((Struct_0202df68*)((int)arg0->unknown_2a4_), 0xf);
     }
-    func_020100c4(var0, (int)arg0->unknown_c18_);
+    SetCamera_020100c4(var0, (int)arg0->unknown_c18_);
 #if defined(jpn)
     func_020134e0((char*)arg0 + 0x244 + 0xc00);
 #else

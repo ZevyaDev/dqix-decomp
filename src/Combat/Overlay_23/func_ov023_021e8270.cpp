@@ -2,12 +2,12 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-struct Struct_0205d81c;
-extern "C" void* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+struct TextWindowManager_0205d81c;
+extern "C" void* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" int func_02050064(void* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int func_020426bc(void* arg0, void* arg1, int arg2);
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" void func_ov023_021e709c(void* arg0, void* arg1, int arg2);
 extern "C" void* func_0204a5e4(int arg0, int arg1);
 extern "C" void DC_FlushRange(void const*, unsigned int);
@@ -27,7 +27,7 @@ struct Struct_ov023_021e8270 {
 // USA: func_ov023_021e8270
 extern "C" ARM void func_ov023_021e8270(char* arg0) {
     char* var0 = *(char**)(arg0 + 0x600);
-    void* var1 = func_0205d81c((struct Struct_0205d81c*)(arg0 + 0x78), 0xd);
+    void* var1 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)(arg0 + 0x78), 0xd);
     if (var1 == 0) return;
 
     char* var2 = *(char**)((char*)var1 + 0x8);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov023_021e8270(char* arg0) {
     if (var0 != 0) {
         var9 = func_020426bc(var0, var8, 1);
     } else {
-        var9 = func_020d2ff0(var7 + 8);
+        var9 = GetStringLength_020d2ff0(var7 + 8);
         memcpy(var8, var7 + 8, var9);
     }
 

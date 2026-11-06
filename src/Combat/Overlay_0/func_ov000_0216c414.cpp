@@ -10,7 +10,7 @@ struct Struct_ov000_02184264_23 {
     char unknown_0_[8];
     SafeAllocator* unknown_8_;
 };
-extern struct Struct_ov000_02184264_23 data_ov000_02184264;
+extern struct Struct_ov000_02184264_23 gBACTParseState_ov000_02184264;
 
 struct Struct_ov000_0216c414 {
     int unknown_0_;
@@ -20,17 +20,17 @@ struct Struct_ov000_0216c414 {
     unsigned short unknown_c_;
 };
 
-extern "C" void func_ov000_02169b78(struct Struct_ov000_0216c414*);
+extern "C" void AppendBACTCommand_ov000_02169b78(struct Struct_ov000_0216c414*);
 
 // USA: func_ov000_0216c414
 extern "C" ARM int func_ov000_0216c414(struct Struct_0201c1c8* arg0) {
-    struct Struct_ov000_0216c414* var0 = (struct Struct_ov000_0216c414*)data_ov000_02184264.unknown_8_->Allocate(0x10);
+    struct Struct_ov000_0216c414* var0 = (struct Struct_ov000_0216c414*)gBACTParseState_ov000_02184264.unknown_8_->Allocate(0x10);
     var0->unknown_0_ = 0;
     var0->unknown_4_ = 0;
     var0->unknown_0_ = 0x64;
     var0->unknown_8_ = (unsigned short)((Script::Parameter*)arg0)->ToInt();
     var0->unknown_a_ = (unsigned short)(int)(((Script::Parameter*)((struct Struct_0201d530*)((char*)arg0 + 8)))->ToFloat() * 4096.0f);
     var0->unknown_c_ = (unsigned short)((Script::Parameter*)((struct Struct_0201c1c8*)((char*)arg0 + 0x10)))->ToInt();
-    func_ov000_02169b78(var0);
+    AppendBACTCommand_ov000_02169b78(var0);
     return 1;
 }

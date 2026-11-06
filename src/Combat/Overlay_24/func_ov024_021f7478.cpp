@@ -175,14 +175,14 @@ struct Struct_ov024_021f7478_10* GetCombatantByID(int unused, int id);
 extern "C" int func_02010088(struct Struct_02010088* arg0);
 extern "C" int func_ov024_021e6798(GameObject* arg0);
 extern "C" float func_ov024_021db358(struct Struct_ov024_021f7478_10* arg0);
-extern "C" int func_ov000_0215e9fc(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" double func_02008f5c(double);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_ov000_02159cb4(int arg0, int arg1);
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f08(void* arg0);
 extern "C" void* func_ov024_021f69b4(char* arg0, int arg1);
 extern "C" int func_ov000_021719c0(struct Struct_ov000_02171968* arg0);
@@ -193,7 +193,7 @@ extern "C" int func_ov000_02171698(struct Struct_ov000_02171640* arg0);
 extern "C" struct Struct_ov024_021f7478* func_ov000_02171674(void* arg0, int arg1);
 extern "C" int func_ov000_02171bc0(void* arg0);
 extern "C" struct Struct_ov024_021f7478_2* func_ov000_02171b9c(void* arg0, int arg1);
-extern "C" struct Struct_ov024_021f7478* func_02079e2c(char* arg0, int arg1);
+extern "C" struct Struct_ov024_021f7478* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" int func_02085748(unsigned char* arg0);
 float NextRandomFloat01(struct Random* rng);
 int NextRandomMax(struct Random* rng, int max);
@@ -249,7 +249,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
     }
 
     GameState* var10 = GameState::GetInstance();
-    arg0->unknown_8_ = (struct Struct_ov024_021f7478_10*)(Struct_0203d028_3*)func_0200ff1c(var10, arg0->unknown_4_);
+    arg0->unknown_8_ = (struct Struct_ov024_021f7478_10*)(Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c(var10, arg0->unknown_4_);
     memset(arg0->unknown_b8_, 0, 0xc);
 
     int var11;
@@ -289,8 +289,8 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
         arg0->unknown_b8_[var5] = var11;
     }
 
-    arg0->unknown_74_ = func_ov000_0215e9fc((int)arg0->unknown_0_, var2, 4, 0);
-    arg0->unknown_78_ = func_ov000_0215e9fc((int)arg0->unknown_0_, var3, 4, 1);
+    arg0->unknown_74_ = CollectPartyCombatantIndices_ov000_0215e9fc((int)arg0->unknown_0_, var2, 4, 0);
+    arg0->unknown_78_ = CollectPartyCombatantIndices_ov000_0215e9fc((int)arg0->unknown_0_, var3, 4, 1);
 
     int var20 = 0;
     arg0->unknown_128_ = 0;
@@ -317,7 +317,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
     }
     if (arg0->unknown_134_ >= 2) arg0->unknown_139_ = 1;
 
-    struct Struct_ov024_021f7478_10* var23 = (struct Struct_ov024_021f7478_10*)(Struct_0203d028_3*)func_0200ff1c(var10, arg0->unknown_4_);
+    struct Struct_ov024_021f7478_10* var23 = (struct Struct_ov024_021f7478_10*)(Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c(var10, arg0->unknown_4_);
     memset(arg0->unknown_e4_, 0, 0x20);
     for (int var24 = 0; var24 < arg0->unknown_9c_; var24++) {
         float var25 = inline_ov024_021f7478(inline_ov024_021d8ad8_2(var23), inline_ov024_021d8ad8_3(arg0->unknown_7c_[var24]));
@@ -362,7 +362,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
         }
     }
 
-    void* var35 = func_ov024_021f69b4((char*)func_ov000_02160f08(func_ov000_02160130()), arg0->unknown_4_);
+    void* var35 = func_ov024_021f69b4((char*)func_ov000_02160f08(GetBattleScene_ov000_02160130()), arg0->unknown_4_);
     int var36 = func_ov000_021719c0((struct Struct_ov000_02171968*)var35);
     if (var36 > 0) {
         if (data_ov024_02200154[arg0->unknown_4_] == 0) {
@@ -396,7 +396,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
         if (arg0->unknown_174_ == 0x80) return;
     }
 
-    Struct_02108e10* var43 = func_020797dc();
+    ActionTables_02108e10* var43 = GetActionTables_020797dc();
     int var44 = func_ov000_02171bc0(var35);
     for (int var45 = 0; var45 < var44; var45++) {
         struct Struct_ov024_021f7478_2* var46 = func_ov000_02171b9c(var35, var45);
@@ -404,7 +404,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
         if (var46->unknown_18_ <= 0) continue;
         unsigned short var47 = var46->unknown_16_;
         if (var47 == 0) continue;
-        struct Struct_ov024_021f7478* var48 = func_02079e2c((char*)var43, (short)var47);
+        struct Struct_ov024_021f7478* var48 = FindActionData_02079e2c((char*)var43, (short)var47);
         if (var48 == 0) continue;
         if (!var48->unknown_b_3_) continue;
         unsigned char var49 = var46->unknown_a_3_ ? 1 : 0;
@@ -418,7 +418,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
 
     arg0->unknown_654_ = 0;
     const signed char* var51 = data_ov024_021fefb0;
-    var23 = (struct Struct_ov024_021f7478_10*)(Struct_0203d028_3*)func_0200ff1c(var10, arg0->unknown_4_);
+    var23 = (struct Struct_ov024_021f7478_10*)(Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c(var10, arg0->unknown_4_);
     if (var23 != 0) {
         for (; var51[0] != -1; var51 += 2) {
             if (var51[1] == func_02085748(var23->unknown_150_)) {
@@ -436,7 +436,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
         arg0->unknown_13c_[var52] = 0;
     }
 
-    Struct_02108e10* var53 = func_020797dc();
+    ActionTables_02108e10* var53 = GetActionTables_020797dc();
     for (int var54 = 0; var54 < arg0->unknown_9c_; var54++) {
         struct Struct_ov024_021f7478_10* var55 = arg0->unknown_7c_[var54];
         int var56 = var55->unknown_17c_;
@@ -454,7 +454,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
                     if (!((DetailedTreasureMapData::LegacyBossMapData*)(var60 + 0x4c))->CanUseLevelUpMove(var59)) continue;
                 }
             }
-            struct Struct_ov024_021f7478* var63 = func_02079e2c((char*)var53, (short)var59);
+            struct Struct_ov024_021f7478* var63 = FindActionData_02079e2c((char*)var53, (short)var59);
             if (var63 == 0) continue;
             if (var63->unknown_10_ & 1) arg0->unknown_69_[3] = 1;
             if (var63->unknown_9_0_ == 1 || var63->unknown_9_0_ == 3) {
@@ -484,13 +484,13 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
     int var65 = 1;
     for (int var66 = 0; var66 < 4; var66++) {
         if (!func_020a35e0(((struct Struct_ov024_021f7478_5*)arg0->unknown_0_)->unknown_8e18_, var66)) continue;
-        struct Struct_ov024_021f7478_10* var67 = (struct Struct_ov024_021f7478_10*)(Struct_0203d028_3*)func_0200ff1c(var10, var66);
+        struct Struct_ov024_021f7478_10* var67 = (struct Struct_ov024_021f7478_10*)(Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c(var10, var66);
         if (var67 == 0) continue;
         if (var67->unknown_134_->primaryStats.attack > var65) var65 = var67->unknown_134_->primaryStats.attack;
     }
     for (int var68 = 0; var68 < 4; var68++) {
         if (!func_020a35e0(((struct Struct_ov024_021f7478_5*)arg0->unknown_0_)->unknown_8e18_, var68)) continue;
-        struct Struct_ov024_021f7478_10* var69 = (struct Struct_ov024_021f7478_10*)(Struct_0203d028_3*)func_0200ff1c(var10, var68);
+        struct Struct_ov024_021f7478_10* var69 = (struct Struct_ov024_021f7478_10*)(Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c(var10, var68);
         if (var69 == 0) continue;
         arg0->unknown_44_[var68] = (float)var69->unknown_134_->primaryStats.attack / (float)var65;
     }

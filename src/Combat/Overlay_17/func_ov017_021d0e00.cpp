@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_0202ae24(void);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021d0e00 {
     unsigned char unknown_0_;
@@ -15,7 +15,7 @@ struct Struct_ov017_021d0e00 {
 
 // USA: func_ov017_021d0e00
 extern "C" ARM void func_ov017_021d0e00(int arg0) {
-    void* var0 = func_0202ae24();
+    void* var0 = GetLocalWirelessPacketQueue_0202ae24();
     struct Struct_ov017_021d0e00 var1;
     var1.unknown_0_ = 0x18;
     unsigned char* var2 = &var1.unknown_4_;
@@ -28,5 +28,5 @@ extern "C" ARM void func_ov017_021d0e00(int arg0) {
 
     var2[0] = (unsigned char)arg0;
     var2[1] = *(unsigned char*)((char*)var5 + 0x56a);
-    func_0205e330(var0, &var1, 0);
+    QueueOutgoingPacket_0205e330(var0, &var1, 0);
 }

@@ -14,7 +14,7 @@ extern unsigned short data_020f29f4[];
 // USA: func_020dd3cc
 extern "C" ARM int func_020dd3cc(int arg0) {
     GameState* var0 = GameState::GetInstance();
-    GameObject* var1 = func_0200ff1c(var0, arg0);
+    GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     if (var1 == 0) {
         return 0;
     }

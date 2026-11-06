@@ -4,7 +4,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_02000c9c_8;
-extern "C" int func_0200fb08(Struct_02000c9c_8*);
+extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void func_02047b40(Struct_02012fa4* arg0, const void* arg1, SafeAllocator* arg2);
 
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov000_0218214c(Struct_02012fa4* arg0, SafeAllocator* ar
     int var7;
     int var8;
     int var9;
-    int var10 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+    int var10 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
     int var11;
 
     var9 = 2;

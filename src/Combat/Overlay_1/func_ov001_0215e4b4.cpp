@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 
 // USA: func_ov001_0215e4b4
 extern "C" ARM int func_ov001_0215e4b4(void* arg0) {
@@ -12,7 +12,7 @@ extern "C" ARM int func_ov001_0215e4b4(void* arg0) {
 #endif
     char* var0 = (char*)GetMessageWindow_020421a0();
     if (var0 == NULL) return 0;
-    int var1 = func_ov017_021d60f4(arg0);
+    int var1 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     var0 += 0x1000;
     *(unsigned char*)(var0 + Enum_ov001_0215e4b4_2395) |= 0x4;
     *(int*)(var0 - 0x1000 + Enum_ov001_0215e4b4_2472) = var1;

@@ -25,7 +25,7 @@ extern Struct_ov031_0224fb18 data_ov031_0224fb20;
 extern Struct_ov031_0224fb18 data_ov031_0224fb18;
 extern Struct_ov031_0224b114_2 data_ov031_0224b114;
 extern "C" int func_ov031_022205d8(void* arg0);
-extern "C" int func_02001aec(const void* arg0, const void* arg1, unsigned int arg2);
+extern "C" int CompareBytes_02001aec(const void* left, const void* right, unsigned int count);
 extern "C" void func_ov031_022228f4(char* arg0, const Struct_ov031_0224fb18* arg1);
 
 #define COPY_ADDRESS(destination, source) do { \
@@ -57,7 +57,7 @@ extern "C" THUMB int func_ov031_022205e4(Struct_ov031_022205e4* arg0) {
     const Struct_ov031_0224fb18* var5 = &var2[0];
     COPY_ADDRESS(data_ov031_0224fb18, *var5);
     const Struct_ov031_0224fb18* var6;
-    if (func_02001aec(&var2[1], var5, 6) <= 0) {
+    if (CompareBytes_02001aec(&var2[1], var5, 6) <= 0) {
         COPY_ADDRESS(arg0->unknown_0_, var2[0]);
         var6 = &var2[1];
     } else {

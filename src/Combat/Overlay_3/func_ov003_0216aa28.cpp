@@ -24,7 +24,7 @@ struct Struct_02000c9c_86 {
 };
 
 struct Struct_0201099c_3;
-struct Struct_0205d5d0;
+struct TextWindowManager_0205d5d0;
 
 struct Struct_ov003_0216aa28_2 {
     char unknown_0_[0x64];
@@ -51,9 +51,9 @@ struct MessageWindow_020465c0;
 extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 #if defined(jpn)
-#define APPLY_MENU(a,b,c,d,e) func_0205d5d0(a,b,c,d)
+#define APPLY_MENU(a,b,c,d,e) SetTextWindowText_0205d5d0(a,b,c,d)
 #else
-#define APPLY_MENU(a,b,c,d,e) func_0205d5d0(a,b,c,d,e)
+#define APPLY_MENU(a,b,c,d,e) SetTextWindowText_0205d5d0(a,b,c,d,e)
 #endif
 extern "C" void func_ov003_02169a84(struct Struct_ov003_0216aa28_2* arg0, char* arg1, int arg2);
 extern "C" void func_ov003_02169d10(struct Struct_ov003_0216aa28_2* arg0, char* arg1, int arg2);
@@ -94,12 +94,12 @@ extern "C" ARM void func_ov003_0216aa28(struct Struct_ov003_0216aa28_2* arg0) {
             break;
         }
 #if defined(jpn)
-        APPLY_MENU((struct Struct_0205d5d0*)&arg0->unknown_e4_, var2, (int)arg0->unknown_7c_, 1, 0);
+        APPLY_MENU((struct TextWindowManager_0205d5d0*)&arg0->unknown_e4_, var2, (int)arg0->unknown_7c_, 1, 0);
 #else
         if (var2 == 2) {
-            APPLY_MENU((struct Struct_0205d5d0*)&arg0->unknown_e4_, var2, (int)arg0->unknown_7c_, 0, 1);
+            APPLY_MENU((struct TextWindowManager_0205d5d0*)&arg0->unknown_e4_, var2, (int)arg0->unknown_7c_, 0, 1);
         } else {
-            APPLY_MENU((struct Struct_0205d5d0*)&arg0->unknown_e4_, var2, (int)arg0->unknown_7c_, 1, 0);
+            APPLY_MENU((struct TextWindowManager_0205d5d0*)&arg0->unknown_e4_, var2, (int)arg0->unknown_7c_, 1, 0);
         }
 #endif
     }
@@ -118,6 +118,6 @@ extern "C" ARM void func_ov003_0216aa28(struct Struct_ov003_0216aa28_2* arg0) {
     SetMessageNumber_020465c0(var4, 0, var5->unknown_f6c_);
     func_020465f0((unsigned char*)var4, 0, 7);
     func_020465d8((unsigned char*)var4, 0, 1);
-    APPLY_MENU((struct Struct_0205d5d0*)&arg0->unknown_e4_, 0, (int)arg0->unknown_7c_, 1, 0);
+    APPLY_MENU((struct TextWindowManager_0205d5d0*)&arg0->unknown_e4_, 0, (int)arg0->unknown_7c_, 1, 0);
     arg0->unknown_4eb_ = 0;
 }

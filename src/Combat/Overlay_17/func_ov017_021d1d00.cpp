@@ -3,7 +3,7 @@
 
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 struct Struct_02039df4;
 struct Struct_02028460_3 { int unknown_0_; int unknown_4_; int unknown_8_; };
 extern "C" void func_ov017_021a6b9c(void* arg0, int arg1);
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov017_021d1d00(int arg0, int arg1, GameState* arg2, uns
 #endif
     if (!GetOwnProtagonistObjectIndex_0202c1a4(arg4)) return;
     void** var0 = *(void***)(arg3 + 0x3000 + Enum_ov017_021d1d00_1788);
-    if (!func_02046b08(var0)) return;
+    if (!IsQueueEmpty_02046b08(var0)) return;
 
     GameObject* var1 = arg2->GetPartyMemberByIndex(0);
     GameObject* var2 = arg2->GetUnknownGameObject();

@@ -52,21 +52,21 @@ static inline Struct_ov008_021843f8* inline_ov008_021843f8(GameState* arg0)
 #endif
 }
 
-struct Struct_0201099c_14;
+struct StringTable_0201099c_14;
 struct Struct_020a13c4;
-struct Struct_02020cb8;
+struct BGLayer_02020cb8;
 struct Struct_0205cfd4;
 struct Struct_0205bef8;
 
 extern "C" void* GetGlobalFlags_020d6c00();
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
-extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
+extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void func_020a13c4(Struct_020a13c4* arg0);
-extern "C" void func_0204af64(Struct_02020cb8* arg0);
+extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void func_0205cfd4(Struct_0205cfd4* arg0);
 extern "C" void func_0205bef8(Struct_0205bef8* arg0);
 extern "C" void func_020a2010(void* arg0);
-extern "C" void func_0204c684(void* arg0);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
 
 struct Struct_ov008_021842a0_2 {
     SafeAllocator unknown_0_;
@@ -126,7 +126,7 @@ extern "C" void func_ov008_02186cec(Struct_ov008_021842a0_2* arg0);
 // USA: func_ov008_021843f8
 extern "C" ARM void func_ov008_021843f8(Struct_ov008_021842a0_2* arg0)
 {
-    func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0xf);
+    SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0xf);
     arg0->unknown_0_.ResetAllocatorPointer();
     arg0->unknown_14_.ResetAllocatorPointer();
     arg0->unknown_28_.ResetAllocatorPointer();
@@ -135,15 +135,15 @@ extern "C" ARM void func_ov008_021843f8(Struct_ov008_021842a0_2* arg0)
     arg0->unknown_64_.ResetAllocatorPointer();
     arg0->unknown_78_.ResetAllocatorPointer();
     arg0->unknown_8c_.ResetAllocatorPointer();
-    func_020dfc40((Struct_0201099c_14*)arg0->unknown_a0_);
+    InitStringTable_020dfc40((StringTable_0201099c_14*)arg0->unknown_a0_);
     arg0->unknown_b8_ = NULL;
     func_020a13c4((Struct_020a13c4*)arg0->unknown_bc_);
-    func_0204af64((Struct_02020cb8*)arg0->unknown_d0_[0]);
-    func_0204af64((Struct_02020cb8*)arg0->unknown_d0_[1]);
-    func_0204af64((Struct_02020cb8*)arg0->unknown_d0_[2]);
+    InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_d0_[0]);
+    InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_d0_[1]);
+    InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_d0_[2]);
     func_0205cfd4((Struct_0205cfd4*)arg0->unknown_130_);
     for (int var0 = 0; var0 < 6; var0++)
-        func_0204c684(arg0->unknown_1ec_[var0]);
+        InitTextWindow_0204c684(arg0->unknown_1ec_[var0]);
     arg0->unknown_72c_ = NULL;
     arg0->unknown_730_ = NULL;
     arg0->unknown_734_ = NULL;

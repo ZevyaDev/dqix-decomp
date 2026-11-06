@@ -31,7 +31,7 @@ struct Struct_ov025_021ead5c {
     char unknown_5e8_[1];
 };
 
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" Struct_ov000_0215440c* func_ov000_02160f20(void* arg0);
 extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c* arg0, int arg1);
 extern "C" int func_ov000_0215fd90(Struct_ov025_021ead5c_2* arg0, int arg1);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov025_021ead5c(Struct_ov025_021ead5c* arg0, int arg1) {
         }
         arg0->unknown_5cb_ = 1;
     }
-    Struct_ov000_0215440c* var0 = func_ov000_02160f20(func_ov000_02160130());
+    Struct_ov000_0215440c* var0 = func_ov000_02160f20(GetBattleScene_ov000_02160130());
     unsigned char var1[4];
     int var2[4];
     __clear(var1, sizeof(var1));

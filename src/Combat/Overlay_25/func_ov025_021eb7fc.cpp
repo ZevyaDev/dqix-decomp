@@ -34,7 +34,7 @@ struct Struct_ov025_021eb7fc_5 {
     short unknown_e_;
 };
 
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" struct Struct_ov025_021eb7fc_2* func_ov000_02160f14(void* arg0);
 extern "C" void* func_ov000_02160f20(void* arg0);
 extern "C" void func_ov025_021eb00c(struct Struct_ov025_021e4450* arg0);
@@ -43,13 +43,13 @@ extern "C" void func_ov025_021eb8e8(struct Struct_ov025_021eb7fc* arg0);
 extern "C" struct Struct_ov025_021eb7fc_4* func_ov000_02160094(struct Struct_ov000_0215440c_2* arg0, int arg1);
 extern "C" struct Struct_ov025_021eb7fc_5* func_ov000_021600f8(struct Struct_ov000_0215440c* arg0, int arg1);
 extern "C" void func_02033920(struct Struct_ov025_021eb7fc_3* arg0, int arg1, int arg2);
-extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 
 // USA: func_ov025_021eb7fc
 extern "C" ARM void func_ov025_021eb7fc(struct Struct_ov025_021eb7fc* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
-    void* var2 = func_ov000_02160130();
+    void* var2 = GetBattleScene_ov000_02160130();
     struct Struct_ov025_021eb7fc_2* var3 = func_ov000_02160f14(var2);
     var3->unknown_27c_ = func_ov000_02160f20(var2);
     func_ov025_021eb00c((struct Struct_ov025_021e4450*)arg0);
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov025_021eb7fc(struct Struct_ov025_021eb7fc* arg0) {
                 struct Struct_ov025_021eb7fc_3* var7 = (Struct_ov025_021eb7fc_3*)var0->GetCombatantByIndex(var5->unknown_20_);
                 if (var7 != 0) {
                     func_02033920(var7, var6->unknown_e_, 0);
-                    func_02033874((struct Struct_02033834*)var7, var7->unknown_ae_);
+                    SetFacingInstantly_02033874((struct Struct_02033834*)var7, var7->unknown_ae_);
                 }
             }
         }

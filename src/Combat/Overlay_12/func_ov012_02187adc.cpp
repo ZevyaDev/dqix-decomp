@@ -77,7 +77,7 @@ struct Struct_ov012_0218af9e
     unsigned char unknown_0_[12];
 };
 
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 struct SoundEffectManager_02108760;
 struct Struct_ov012_02186a7c;
 
@@ -91,7 +91,7 @@ extern "C" int func_ov023_021e6de4(Struct_ov012_02187adc* arg0);
 extern "C" int func_02098f20(int arg0, int arg1, int arg2);
 extern "C" void func_ov012_0218adac(Struct_ov012_02187adc* arg0, int arg1, int arg2, int arg3);
 extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c* arg0);
-extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void func_ov023_021e6e60(Struct_ov012_02187adc* arg0);
 extern "C" void func_ov012_0218943c(Struct_ov012_02187adc* arg0);
 
@@ -248,7 +248,7 @@ extern "C" ARM void func_ov012_02187adc(Struct_ov012_02187adc* arg0)
         }
         if (var6)
         {
-            func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ac_, 1);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_ac_, 1);
             arg0->unknown_1370_++;
             return;
         }

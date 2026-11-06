@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" void* func_02058658(void* arg0, int arg1);
 extern "C" void* func_ov025_021e8cf0(char* arg0, int arg1);
 extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov025_021e5014(struct Struct_ov025_021e5014* arg0, int a
         return 1;
     }
     int var1 = *(int*)var0;
-    void* var2 = func_02057924();
+    void* var2 = GetEffectManager_02057924();
     void* var3 = func_02058658(var2, var1);
     if (!var3) {
         return 1;

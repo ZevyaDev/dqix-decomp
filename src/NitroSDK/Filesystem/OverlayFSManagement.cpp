@@ -10,7 +10,6 @@
 #define data_020f2e44 data_020f2e58
 #define data_020f2290 data_020f23fc
 
-#define func_020c9be0 func_020cb6ac
 #define func_020c0c3c func_020c2708
 #endif
 
@@ -35,7 +34,7 @@ extern struct
 extern "C"
 {
     int func_02000970(unsigned int);
-    void func_020c9be0();
+    void HaltForever_020c9be0();
     void func_020c0c3c(UnknownDownloadPlayStruct*, unsigned, unsigned, unsigned char*, unsigned);
 }
 
@@ -248,7 +247,7 @@ void DecompressAndStaticInitializeOverlay(const OverlayMetadata& overlay)
         if (!result)
         {
             VectorizedMemset((void*)overlay.loadAddress, 0, initialSize);
-            func_020c9be0();
+            HaltForever_020c9be0();
             return;
         }
     }

@@ -115,9 +115,9 @@ struct Struct_ov017_0219d250_5 {
 extern "C" char* GetZone3D_02012fe4(void);
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void* func_02027ca4(void);
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" void* func_02011584(void*);
-extern "C" Struct_ov017_0219d250_7* func_0200fd0c(GameState* arg0);
+extern "C" Struct_ov017_0219d250_7* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* func_0203cf4c(void);
 extern "C" void* GetFlagManager_0205ec34(void);
@@ -140,8 +140,8 @@ extern "C" void func_0203e074(char*);
 extern "C" int func_0209cd50(int arg0);
 struct Struct_0209cae8;
 extern "C" int func_0209cae8(Struct_0209cae8*);
-struct Struct_02109bf4_4;
-extern "C" void func_0209c678(Struct_02109bf4_4*, int);
+struct MusicManager_02109bf4_4;
+extern "C" void func_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" Struct_ov017_0219d250_6* func_020999d8(unsigned char*, unsigned int);
 extern "C" void func_ov017_0219cdc0(unsigned short arg0, int arg1, signed char arg2);
 extern "C" void _ZN8Object3D10SetField06Et(Object3D* arg0, int arg1);
@@ -222,11 +222,11 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
     char* var27 = GetZone3D_02012fe4();
     var6 = GetMessageWindow_020421a0();
     var7 = func_02027ca4();
-    var8 = func_02057924();
+    var8 = GetEffectManager_02057924();
     var9 = var5->GetProtagonist();
     var10 = var5->GetUnknownGameObject();
     var11 = func_02011584(var5);
-    var1 = func_0200fd0c(var5);
+    var1 = GetZoneEntry_0200fd0c(var5);
     var12 = GetLocalWireless_0202ae18();
     var13 = func_0203cf4c();
     var14 = (Struct_ov017_0219d250_4*)GetParty_02010828(var5);
@@ -267,14 +267,14 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
                 for (var18 = 1; var18 < 4; var18++) {
                     if (func_0202c1c0((Struct_0202b2f0*)var21, var18) &&
                         var18 != GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var21)) {
-                        Struct_ov017_0219d250* var30 = (Struct_ov017_0219d250*)func_0200ff1c(var22, var18);
+                        Struct_ov017_0219d250* var30 = (Struct_ov017_0219d250*)GetPartyMemberBaseByIndex_0200ff1c(var22, var18);
                         if (var30 != NULL && (var26 == var30->unknown_0_.GetField06() || var26 == var30->unknown_15c_)) {
                             var19 = 0;
                             break;
                         }
                     }
                 }
-                Struct_ov017_0219d250* var31 = (Struct_ov017_0219d250*)func_0200ff1c(var22, 0);
+                Struct_ov017_0219d250* var31 = (Struct_ov017_0219d250*)GetPartyMemberBaseByIndex_0200ff1c(var22, 0);
                 if (var31 != NULL && (var26 == var31->unknown_0_.GetField06() || var26 == var31->unknown_15c_)) {
                     var19 = 1;
                 }
@@ -295,7 +295,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
                 }
                 if (func_0209cd50(var2) != func_0209cae8((Struct_0209cae8*)&gMusicManager_02109bf4) &&
                     var1->unknown_20_ <= 0) {
-                    func_0209c678((Struct_02109bf4_4*)&gMusicManager_02109bf4, 0);
+                    func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
                     var23[0xa] = 1;
                 }
             }

@@ -3,7 +3,7 @@
 #include "Resource/Brightness.h"
 
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void* func_0202ae24(void);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 extern "C" void* func_020e2ff8(void);
 extern "C" void* func_020e3580(void);
 extern "C" int func_0202b000(void* arg0);
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov017_021c35ac(void) {
     GameState* var0 = GameState::GetInstance();
     int var1 = ((int)GetGameResources());
     void* var2 = GetLocalWireless_0202ae18();
-    void* var3 = func_0202ae24();
+    void* var3 = GetLocalWirelessPacketQueue_0202ae24();
     void* var4 = func_020e2ff8();
     void* var5 = func_020e3580();
 

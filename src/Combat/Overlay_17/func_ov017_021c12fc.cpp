@@ -2,7 +2,7 @@
 
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
-struct Struct_0204693c { signed char unknown_0_, unknown_1_, unknown_2_, unknown_3_; };
+struct QueueNode_0204693c { signed char type_0_, isFinished_1_, isQueued_2_, isRunning_3_; };
 struct Struct_ov017_021c12fc;
 
 extern "C" void func_ov017_021c1350(struct Struct_ov017_021c12fc* arg0, unsigned char arg1, unsigned char arg2);

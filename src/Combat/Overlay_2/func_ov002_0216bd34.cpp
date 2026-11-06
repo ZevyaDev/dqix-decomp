@@ -8,17 +8,17 @@
 #define RG(u, j) (u)
 #endif
 
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
 struct SoundEffectManager_02108760;
 struct ItemTable_0201099c_10;
-extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
-extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
-extern "C" char *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
+extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_ov002_02161798(char *arg0);
 extern "C" void func_ov002_02161cf0(void *arg0);
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov002_0216bd34(char *arg0) {
     int var1 = *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88));
     if (var1 == 0) {
         *(short *) (arg0 + RG(0x1c00 + 0x14, 0x1a00 + 0xdc)) = 0;
-        func_0205de24((struct Struct_0205de24_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0, 2);
+        SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0, 2);
         func_ov002_02161cf0(arg0);
         func_ov002_02161798(arg0);
         *(signed char *) (arg0 + 0x1000 + RG(0xc20, 0xae8)) = *(int *) (arg0 + *(short *) (arg0 + RG(0x1b00 + 0xe6, 0x1a00 + 0xae)) * 4 + 0x1000 + RG(0xc3c, 0xb00));
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov002_0216bd34(char *arg0) {
     } else if (var1 == 1) {
         *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) |= 4;
         *(short *) (arg0 + RG(0x1c00 + 0x14, 0x1a00 + 0xdc)) =
-            func_0205d794((struct Struct_0205c570 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)));
+            GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)));
         int var2 = *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1a00 + 0xe8));
         int var3   = *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1a00 + 0xea));
         int var4  = 0;
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov002_0216bd34(char *arg0) {
                 case 0:
                     PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
                     *(unsigned char *) (arg0 + 0x2000 + RG(0x487, 0x2b7)) = 1;
-                    if (func_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)),
+                    if (FindItemData_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)),
                                                                           (short) var3) == NULL)
                         break;
 #if defined(jpn)

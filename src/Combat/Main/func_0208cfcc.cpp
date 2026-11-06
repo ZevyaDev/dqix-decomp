@@ -39,9 +39,9 @@ extern char gSoundEffectManager_02108760[];
 void SetSubBrightness(GameResources*, int, int);
 extern "C" void func_0208bf28(Struct_02065990_2*, int, unsigned char);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
-extern "C" void func_0205a444(char*);
+extern "C" void InitSpriteSet_0205a444(char*);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
-extern "C" void func_0205a528(Struct_0208cfcc_2*, void*, int, SafeAllocator*);
+extern "C" void LoadSpriteSetFile_0205a528(Struct_0208cfcc_2*, void*, int, SafeAllocator*);
 extern "C" void func_0205aed0(void*, char*, unsigned int, int);
 extern "C" void func_0205af38(int, char*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
@@ -86,14 +86,14 @@ extern "C" ARM void func_0208cfcc(Struct_02065990_2* arg0) {
             unsigned int var7;
             var1->GetLoadedFileByID(arg0->unknown_c0_, &var6, &var7);
             int var8 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var6);
-            func_0205a444((char*)&arg0->unknown_60_);
+            InitSpriteSet_0205a444((char*)&arg0->unknown_60_);
             arg0->unknown_60_.unknown_50_ = 1;
             arg0->unknown_60_.unknown_40_ = arg0->unknown_b4_;
             arg0->unknown_60_.unknown_4c_ = 3;
             for (int var9 = 0; var9 < var8; var9++) {
                 int var10;
                 void* var11 = GetPacEntryData_020467f0((PacEntry_02020aec*)var6, var9, &var5, &var10);
-                func_0205a528(&arg0->unknown_60_, var11, var10, &var0->unknown_3c_);
+                LoadSpriteSetFile_0205a528(&arg0->unknown_60_, var11, var10, &var0->unknown_3c_);
             }
             func_0205aed0(&arg0->unknown_60_, (char*)arg0->unknown_b4_, 3, 64);
             var1->RemoveTask(arg0->unknown_c0_);

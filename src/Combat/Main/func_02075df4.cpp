@@ -55,10 +55,10 @@ extern "C" ARM int func_02075df4(Struct_02075df4_3* arg0, int arg1, int arg2, in
     if (inline_02075df4(arg0->unknown_4c_)) {
         var4 = true;
     }
-    Struct_0205ac40_3* var5 = NULL;
-    Struct_0205ac40_3 var6;
-    Struct_0205ac40_3 var7;
-    Struct_0205ac40_3 var8;
+    Matrix2x2_0205ac40_3* var5 = NULL;
+    Matrix2x2_0205ac40_3 var6;
+    Matrix2x2_0205ac40_3 var7;
+    Matrix2x2_0205ac40_3 var8;
     short var9;
 
     if (var4) {

@@ -3,7 +3,7 @@
 #include "Combat/Overlay_1/EventArgs.h"
 
 extern "C" float func_ov017_021d6110(void*);
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void* func_ov001_0215ab20(int arg0);
 extern "C" void* func_ov001_02158f30(void* arg0, Struct_ov001_02158efc arg1);
 
@@ -14,7 +14,7 @@ extern Struct_ov001_02165880_35 data_ov001_02165880;
 extern "C" ARM int func_ov001_0215ded8(void* arg0, int arg1) {
     void* var0 = arg0;
     arg0 = (char*)arg0 + 0x8;
-    int var1 = func_ov017_021d60f4(var0);
+    int var1 = GetScriptValueAsInt_ov017_021d60f4(var0);
     char* var2 = (char*)func_ov001_0215ab20(var1);
     if (!var2) {
         return 0;

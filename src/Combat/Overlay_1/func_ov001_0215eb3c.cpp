@@ -8,7 +8,7 @@ enum { Enum_ov001_0215eb3c_716 = 0x27c };
 enum { Enum_ov001_0215eb3c_716 = 0x2cc };
 #endif
 
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
@@ -40,7 +40,7 @@ extern "C" ARM int func_ov001_0215eb3c(void* arg0, int arg1) {
     if (var1 == 0) {
         return 0;
     }
-    var7 = func_ov017_021d60f4(arg0);
+    var7 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     if (var7 < 0) {
         var2 = var1 + Enum_ov001_0215eb3c_716;
         var2 = var2 + 0xbd0;
@@ -51,7 +51,7 @@ extern "C" ARM int func_ov001_0215eb3c(void* arg0, int arg1) {
         return 0;
     }
     SaveTextureVRAMState_0207dfac((char*)var2);
-    if (arg1 >= 2 && func_ov017_021d60f4((char*)arg0 + 0x8) != 0) {
+    if (arg1 >= 2 && GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8) != 0) {
         var2 = var1 + Enum_ov001_0215eb3c_716;
         var3 = (Struct_ov001_0215eb3c*)(var2 + 0xbd0);
         var4 = 0;

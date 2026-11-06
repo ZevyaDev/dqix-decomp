@@ -24,7 +24,7 @@ extern Type_ov024_021f8f20 data_020e6d5c;
 
 // USA: func_ov024_021f8f20
 extern "C" ARM void func_ov024_021f8f20(Struct_ov024_021f8f20* arg0, int arg1, int arg2, unsigned short* arg3) {
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg2);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg2);
     void* var1 = GetPartyMemberData_02053c6c((unsigned char*)var0);
     if (*arg3 != 1) {
         return;

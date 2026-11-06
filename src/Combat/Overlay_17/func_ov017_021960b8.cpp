@@ -48,7 +48,7 @@ extern "C" void func_020707c8(Struct_020707c8*);
 extern "C" int func_02046b24(Struct_02015438**);
 extern "C" void func_020444e0(Struct_020444e0*);
 extern "C" void func_ov017_0219ad84(Struct_ov017_021960b8*);
-extern "C" GameObject* func_0200ff1c(GameState*, int);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" void func_0205337c(GameObject*);
 extern "C" unsigned char func_02039820(void*);
 extern "C" int func_02039d7c(char*);
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov017_021960b8(Struct_ov017_021960b8* arg0) {
         func_ov017_0219ad84(arg0);
         if (TestFlags04((GameResources*)(arg0->unknown_0_), 4) == 0) {
             for (int var7 = 0; var7 < 4; var7++) {
-                GameObject* var8 = func_0200ff1c(var0, var7);
+                GameObject* var8 = GetPartyMemberBaseByIndex_0200ff1c(var0, var7);
                 if (var8 != NULL && var8->obj3D_.GetFlag(1) == 0) {
                     func_0205337c(var8);
                 }

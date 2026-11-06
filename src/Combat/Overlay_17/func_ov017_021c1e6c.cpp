@@ -64,11 +64,11 @@ extern "C" void func_02082828(void*);
 extern "C" void func_02054664(Struct_02054664*);
 extern "C" void func_02053c4c(char*, char*);
 extern "C" void func_0200fd38(GameState*, int, GameObject*);
-extern "C" GameObject* func_0200ff58(GameState*, int);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" void func_020546a0(void*, int);
 extern "C" void func_020546b4(void*, int);
 extern "C" void func_02059f38(Struct_02059cfc_2*, Struct_02059cfc_3*);
-extern "C" void func_02033874(Struct_02033834*, int);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_ov017_02191508(int, Struct_ov017_021c1e6c_7*);
 extern "C" void func_02039830(void*);
 extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
@@ -77,7 +77,7 @@ extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
-extern "C" void func_02033b88(Struct_02010604*, int);
+extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02039d58(unsigned char*);
 extern "C" int func_02039d68(unsigned char*);
 extern "C" void func_02039d48(unsigned char*);
@@ -164,14 +164,14 @@ extern "C" ARM void func_ov017_021c1e6c(Struct_ov017_021c1e6c_6* arg0) {
             arg0->unknown_a_ = 2;
         }
 configureCombatant:
-        GameObject* var17 = func_0200ff58(var0, var8);
+        GameObject* var17 = GetCompanionByIndex_0200ff58(var0, var8);
         if (var17) {
             func_020546a0(var17, 0);
             func_020546b4(var17, var9);
             var17->obj3D_.SetField06(*var3);
             if (var0->GetUnknownGameObject()) {
                 func_02059f38((Struct_02059cfc_2*)var17, (Struct_02059cfc_3*)&((Struct_ov017_021c1e6c_3*)var0)->unknown_7f60_);
-                func_02033874((Struct_02033834*)var17, ((Struct_ov017_021c1e6c_3*)var0)->unknown_7f5c_);
+                SetFacingInstantly_02033874((Struct_02033834*)var17, ((Struct_ov017_021c1e6c_3*)var0)->unknown_7f5c_);
             }
             if (var4->unknown_10_3_) func_ov017_02191508(var8, var4);
             GameObject* var18 = var0->GetUnknownGameObject();
@@ -194,23 +194,23 @@ configureCombatant:
                 var21.fileData = var19;
                 var21.unk_8 = var20;
                 char* var22 = var2->unknown_11d4_;
-                GameObject* var23 = func_0200ff58(var0, 0xce);
+                GameObject* var23 = GetCompanionByIndex_0200ff58(var0, 0xce);
                 if (var23) {
                     RestoreTextureVRAMState_0207df90(var22);
                     var23->obj3D_.LoadFromCCHROrCMOTArchive(&var21, 0);
                     SaveTextureVRAMState_0207dfac(var22);
                     var23->obj3D_.SetScale(0x10a, 0x10a, 0x10a);
                     func_020546a0(var23, 0);
-                    func_02033b88((Struct_02010604*)var23, 0);
+                    SetMotion_02033b88((Struct_02010604*)var23, 0);
                     func_02039d58((unsigned char*)var23);
                     for (int var24 = 0; var24 < 4; var24++) {
-                        GameObject* var25 = func_0200ff58(var0, var24);
+                        GameObject* var25 = GetCompanionByIndex_0200ff58(var0, var24);
                         if (var25 && func_02039d68((unsigned char*)var25)) func_02039d48((unsigned char*)var23);
                     }
                     GameObject* var26 = var0->GetGameObjectByIndex(0);
                     if (var26) {
                         func_02059f38((Struct_02059cfc_2*)var23, (Struct_02059cfc_3*)&((Struct_ov017_021c1e6c_3*)var0)->unknown_7f60_);
-                        func_02033874((Struct_02033834*)var23, ((Struct_ov017_021c1e6c_3*)var0)->unknown_7f5c_);
+                        SetFacingInstantly_02033874((Struct_02033834*)var23, ((Struct_ov017_021c1e6c_3*)var0)->unknown_7f5c_);
                         var23->obj3D_.SetField06(var26->obj3D_.GetField06());
                     }
                 }

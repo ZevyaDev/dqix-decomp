@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 
 struct Struct_ov023_021e68cc_3 {
     char unknown_0_[0xac];
@@ -55,8 +55,8 @@ struct Struct_ov023_021e68cc_2 {
     unsigned char unknown_13ab_;
 };
 
-extern "C" Struct_ov023_021e68cc_3* func_0205d81c(Struct_0205d81c* arg0, int arg1);
-extern "C" void func_0205ac40(void* arg0, void* arg1);
+extern "C" Struct_ov023_021e68cc_3* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 // USA: func_ov023_021e68cc
 extern "C" ARM void func_ov023_021e68cc(Struct_ov023_021e68cc_2* arg0) {
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov023_021e68cc(Struct_ov023_021e68cc_2* arg0) {
     signed char var2 = 0;
     unsigned char var3 = Enum_ov023_021e68cc_19;
     for (int var4 = 0; var4 < 3; var4++) {
-        Struct_ov023_021e68cc_3* var5 = func_0205d81c((Struct_0205d81c*)arg0->unknown_ac_, (unsigned char)(var4 + 7));
+        Struct_ov023_021e68cc_3* var5 = FindTextWindow_0205d81c((TextWindowManager_0205d81c*)arg0->unknown_ac_, (unsigned char)(var4 + 7));
         var1 = ((short)(var5->unknown_ac_ * 8) + 10) << 12;
         short var6 = var5->unknown_ae_ * 8;
         for (int var7 = 0; var7 < 2; var7++) {
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov023_021e68cc(Struct_ov023_021e68cc_2* arg0) {
             }
             if (!(arg0->unknown_13ab_ & (1 << var2)))
                 var11->unknown_25_ = 0xd;
-            func_0205ac40(arg0->unknown_135c_, var11);
+            DrawSprite_0205ac40(arg0->unknown_135c_, var11);
             var2++;
         }
     }

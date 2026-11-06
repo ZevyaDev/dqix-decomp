@@ -16,7 +16,7 @@ extern "C" void* func_ov000_0217f8c0(struct Struct_ov000_021735d0_3* arg0);
 extern "C" void func_ov000_021781f8(void*, void*);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov000_0217831c(void*, void*);
-struct Struct_0205d5d0;
+struct TextWindowManager_0205d5d0;
 // USA: func_ov000_0217819c
 extern "C" ARM void func_ov000_0217819c(void* arg0) {
     void* var0 = func_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0);
@@ -25,8 +25,8 @@ extern "C" ARM void func_ov000_0217819c(void* arg0) {
     memset(var1, 0, REGION_OFFSET_1);
     func_ov000_0217831c(arg0, var1);
 #if defined(jpn)
-    func_0205d5d0((struct Struct_0205d5d0*)((char*)arg0 + 0x188), 7, (int)var1, 1);
+    SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)((char*)arg0 + 0x188), 7, (int)var1, 1);
 #else
-    func_0205d5d0((struct Struct_0205d5d0*)((char*)arg0 + 0x188), 7, (int)var1, 1, 0);
+    SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)((char*)arg0 + 0x188), 7, (int)var1, 1, 0);
 #endif
 }

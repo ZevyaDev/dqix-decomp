@@ -8,15 +8,15 @@ struct Struct_02033834;
 struct Struct_02010604;
 struct Struct_02018300_3;
 struct Struct_02000c9c_21;
-extern "C" void func_02033874(Struct_02033834*, int);
-extern "C" void* func_0200fd0c(GameState*);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
+extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void* GetZone3D_02012fe4();
 extern "C" void func_02039d24(unsigned char*);
-extern "C" int func_02033b88(Struct_02010604*, int);
+extern "C" int SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_ov017_021d440c(int);
 int fix32cos(int);
 int fix32sin(int);
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 #if defined(jpn)
 #define data_020efb4e data_020efa3e
 #endif
@@ -48,23 +48,23 @@ enum { Enum_020399b0_0 = 0 };
 extern "C" ARM void func_020399b0(GameObject* arg0, unsigned short arg1, const Vector3i* arg2, int arg3) {
     arg0->obj3D_.SetField06(arg1);
     arg0->obj3D_.position_ = *arg2;
-    func_02033874(reinterpret_cast<Struct_02033834*>(arg0), arg3);
+    SetFacingInstantly_02033874(reinterpret_cast<Struct_02033834*>(arg0), arg3);
     *(short*)((char*)arg0 + 0xb2) = 0;
     if (((signed char*)arg0)[0x1c9 - Enum_020399b0_0] > 0) ((unsigned char*)arg0)[0x1ce - Enum_020399b0_0] |= 4;
     ((signed char*)arg0)[0x1cb - Enum_020399b0_0] = -1;
     ((unsigned char*)arg0)[0x1cc - Enum_020399b0_0] = 0;
-    unsigned char* var0 = static_cast<unsigned char*>(func_0200fd0c(GameState::GetInstance()));
+    unsigned char* var0 = static_cast<unsigned char*>(GetZoneEntry_0200fd0c(GameState::GetInstance()));
     Zone3D* var1 = static_cast<Zone3D*>(GetZone3D_02012fe4());
     func_02039d24(reinterpret_cast<unsigned char*>(arg0));
     if (var0[0x66]) {
         func_02038508((Struct_02037d10*)((char*)arg0 + 0x26c - Enum_020399b0_0));
         ((Struct_02038598*)((char*)arg0 + 0xe0))->unknown_0_0_ = 0;
         arg0->obj3D_.DisableFlag(0x1180);
-        func_02033b88(reinterpret_cast<Struct_02010604*>(arg0), 0);
+        SetMotion_02033b88(reinterpret_cast<Struct_02010604*>(arg0), 0);
         func_ov017_021d3f00((Struct_02037d10*)((char*)arg0 + 0x26c - Enum_020399b0_0), 0, 1);
     }
     if (*reinterpret_cast<short*>(var0 + 0x6c) < 0) {
-        func_02033b88(reinterpret_cast<Struct_02010604*>(arg0), 0);
+        SetMotion_02033b88(reinterpret_cast<Struct_02010604*>(arg0), 0);
         return;
     }
     if (*reinterpret_cast<short*>(var0 + 0x6c) == 9999) {
@@ -100,9 +100,9 @@ extern "C" ARM void func_020399b0(GameObject* arg0, unsigned short arg1, const V
     var9 = arg0->obj3D_.position_;
     var9.y = var8;
     arg0->obj3D_.position_ = var9;
-    func_02033874(reinterpret_cast<Struct_02033834*>(arg0), var3->unknown_20_);
+    SetFacingInstantly_02033874(reinterpret_cast<Struct_02033834*>(arg0), var3->unknown_20_);
     arg0->obj3D_.MaybeSetRegularAnimation(data_020efb4e, 0);
     arg0->obj3D_.EnableFlag(0x180);
     ((Struct_02038598*)((char*)arg0 + 0xe0))->unknown_0_0_ = 1;
-    func_020397cc(reinterpret_cast<Struct_02018300_3*>(arg0), 1);
+    DisablePlayerControl_020397cc(reinterpret_cast<Struct_02018300_3*>(arg0), 1);
 }

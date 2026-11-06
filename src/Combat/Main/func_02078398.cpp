@@ -13,7 +13,7 @@ struct Struct_02033f44 {
 };
 extern "C" int* func_02033f44(struct Struct_02033f44* arg0);
 
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 
 struct Struct_02078398_2 {
     unsigned char unknown_0_;
@@ -67,7 +67,7 @@ extern "C" ARM void func_02078398(struct Struct_02078398* arg0) {
             arg0->unknown_b2_ = 0;
             arg0->TransitionInheritedAlpha(0, 0x7d);
             if (arg0->unknown_178_ > 0) {
-                void* var2 = func_02057924();
+                void* var2 = GetEffectManager_02057924();
                 struct Struct_02078398_2 var3;
                 func_02078484(&var3);
                 var3.unknown_2c_ = arg0->position_;

@@ -54,7 +54,7 @@ extern "C" void* func_020d7a50(void);
 struct Struct_020d7aa0_2;
 extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
 struct Struct_02018300_3;
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void ColorEffect_ConfigureAlphaBlend(void* reg, int plane1, int plane2, int ev1, int ev2);
 extern "C" void* func_0203cf4c(void);
 extern "C" void* func_0203df78(void* arg0, int arg1);
@@ -67,36 +67,36 @@ extern "C" int fix32_Atan2(int arg0, int arg1);
 
 struct AllocatorUnion;
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void func_020dfec0(void* arg0, void* arg1, void* arg2, unsigned int arg3);
+extern "C" void LoadStringTable_020dfec0(void* stringTable, void* allocator, void* fileData, unsigned int fileSize);
 struct Struct_02046574_2;
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov017_021a933c(void* arg0, int arg1);
 extern "C" void func_0205c790(char*);
-struct Struct_0205ba68;
-extern "C" void func_0205ba68(Struct_0205ba68*, int, int, int);
-struct Struct_0205bacc;
-extern "C" void func_0205bacc(Struct_0205bacc*, int);
+struct MenuCursor_0205ba68;
+extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
+struct MenuCursor_0205bacc;
+extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
 struct Struct_0201099c_3;
 extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_0205cb74(char*, int);
 extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 struct Struct_0205bcdc;
 extern "C" void func_0205bcdc(Struct_0205bcdc*, int);
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 struct Struct_0205c77c;
 extern "C" void func_0205c77c(Struct_0205c77c*, int);
 extern "C" void func_0205cd28(unsigned char* arg0);
-struct Struct_0205a330;
-extern "C" void func_0205a330(Struct_0205a330*, int);
+struct SpriteAnimationList_0205a330;
+extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330*, int);
 extern "C" int func_0205cecc(void* arg0);
 extern "C" int func_0205cb64(void* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0205ce50(unsigned char* arg0);
 extern "C" int func_020457e0(char* arg0);
 extern "C" unsigned char* GetFlagManager_0205ec34(void);
-extern "C" unsigned char* func_0200fd0c(GameState*);
+extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 extern "C" void func_020e1154(void* arg0);
 extern "C" void func_ov017_021d1c2c(unsigned char, unsigned short);
@@ -113,7 +113,7 @@ extern "C" int func_02010804(char*);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" int func_ov017_021a01b4(char* arg0, int arg1);
 extern "C" void func_ov017_021bbbf8(void*, unsigned short);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_021a92a0(Struct_ov017_021a86d0* arg0);
 
 extern char data_ov017_021d77f0[];
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
         func_020d7aa0((Struct_020d7aa0_2*)func_020d7a50());
         arg0->unknown_24_ = inline_ov017_021a86d0();
         inline_ov017_021a86d0_2(0x11);
-        func_020397cc((Struct_02018300_3*)var0->GetProtagonist(), 1);
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var0->GetProtagonist(), 1);
         SetFlags04(GetGameResources(), 0x40);
         ColorEffect_ConfigureAlphaBlend((void*)0x4000050, 0x10, 1, 0x1f, 0);
         void* var4 = func_0203cf4c();
@@ -163,9 +163,9 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             }
             func_02040af0((Struct_0203dce4*)var5, var9);
         }
-        FontLoader_0208cb08* var10 = func_02094a00();
+        FontLoader_0208cb08* var10 = GetFontLoader_02094a00();
         func_02094b30(var10, 0x205, 0);
-        if (func_02094b4c(var10)) {
+        if (UpdateFontLoad_02094b4c(var10)) {
 #if defined(jpn)
             arg0->unknown_28_ = ((BackgroundLoader*)BackgroundLoader::GetInstance())->QueueLoadFile(data_ov017_021d7c0c, (SafeAllocator*)NULL);
 #else
@@ -181,10 +181,10 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             unsigned int var13;
             ((BackgroundLoader*)var11)->GetLoadedFileByID(arg0->unknown_28_, &var12, &var13);
             ((SafeAllocator*)arg0->unknown_264_)->Reset();
-            func_020dfec0(arg0->unknown_278_, arg0->unknown_264_, var12, var13);
+            LoadStringTable_020dfec0(arg0->unknown_278_, arg0->unknown_264_, var12, var13);
             ((BackgroundLoader*)var11)->RemoveTask(arg0->unknown_28_);
             arg0->unknown_28_ = -1;
-            func_02046574((Struct_02046574_2*)var1, 0, *(char**)((char*)var0->GetProtagonist() + 0x134));
+            SetMessageString_02046574((Struct_02046574_2*)var1, 0, *(char**)((char*)var0->GetProtagonist() + 0x134));
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             func_ov017_021a933c(arg0, 0x64);
             *(int*)(var1 + Enum_ov017_021a86d0_2456) = 1;
@@ -202,10 +202,10 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             var3->unknown_b1_ = 1;
             var3->unknown_b0_ = 1;
             int var15 = arg0->unknown_20_;
-            func_0205ba68((Struct_0205ba68*)var3->unknown_20_, 1, var15 + 1, 0);
-            func_0205ba68((Struct_0205ba68*)var3->unknown_70_, 1, var15 + 1, 0);
-            func_0205bacc((Struct_0205bacc*)var3->unknown_20_, var15 + 1);
-            func_0205bacc((Struct_0205bacc*)var3->unknown_70_, var15 + 1);
+            SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)var3->unknown_20_, 1, var15 + 1, 0);
+            SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)var3->unknown_70_, 1, var15 + 1, 0);
+            SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)var3->unknown_20_, var15 + 1);
+            SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)var3->unknown_70_, var15 + 1);
             int var16 = 0;
             for (int var17 = 0; var17 < arg0->unknown_20_; var17++) {
                 if (arg0->unknown_18_[var17] == 4) {
@@ -242,7 +242,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             func_0205cc50(arg0->unknown_2c_, 0, -4);
 #endif
             func_0205bcdc((Struct_0205bcdc*)var3->unknown_20_, 0);
-            func_0205bb04(var3->unknown_70_, 0);
+            SetMenuCursorIndex_0205bb04(var3->unknown_70_, 0);
             var3->unknown_234_ = 1;
             func_0205c77c((Struct_0205c77c*)var3->unknown_4_, 1);
             var3->unknown_233_ = 1;
@@ -253,7 +253,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
         }
     } else if (arg0->unknown_8_ == 3) {
         void* var25 = *(void**)(var1 + Enum_ov017_021a86d0_736);
-        func_0205a330((Struct_0205a330*)var25, var0->GetTickCount());
+        AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)var25, var0->GetTickCount());
         var1[Enum_ov017_021a86d0_6574] = 0;
         int var26 = func_0205cecc(arg0->unknown_2c_);
         if (g_keyManager.TestKeysPressed(1)) {
@@ -305,7 +305,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
         unsigned char* var29 = GetFlagManager_0205ec34();
         char* var30 = (char*)GetGameResources();
         void* var31 = *(void**)(var30 + Enum_ov017_021a86d0_14076);
-        unsigned char* var32 = func_0200fd0c(var0);
+        unsigned char* var32 = GetZoneEntry_0200fd0c(var0);
         VectorizedMemset(var32, 0, 0x70);
         var32[4] = 1;
         var32[8] = 1;
@@ -466,7 +466,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
     } else if (arg0->unknown_8_ == 100 && *(int*)(var1 + Enum_ov017_021a86d0_2464) == 0) {
         ResetMessageWindow_02043204(var1);
         func_0205ce50(arg0->unknown_2c_);
-        func_020397c0(var0->GetProtagonist());
+        EnablePlayerControl_020397c0(var0->GetProtagonist());
         func_ov017_021a92a0(arg0);
         arg0->unknown_1_ = 1;
     }

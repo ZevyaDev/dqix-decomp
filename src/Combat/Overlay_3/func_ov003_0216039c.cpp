@@ -26,30 +26,30 @@ enum { Enum_ov003_0216039c_1140 = 0x474 };
 
 struct Struct_0207fdcc_2;
 struct Struct_020e28dc;
-struct Struct_0205a254;
-struct Struct_0205a330;
-struct Struct_0205a254_2 {
+struct SpriteAnimationList_0205a254;
+struct SpriteAnimationList_0205a330;
+struct SpriteAnimation_0205a254_2 {
     char unknown_0_[0x15];
     unsigned char unknown_15_;
 };
 
 extern "C" unsigned char* func_02081da8(Struct_0207fdcc_2* arg0, int arg1);
 extern "C" int func_020e28dc(Struct_020e28dc* arg0);
-extern "C" void func_0205a42c(Struct_0205a254* arg0, int arg1, int arg2);
-extern "C" void func_0205ae8c(void* arg0);
+extern "C" void func_0205a42c(SpriteAnimationList_0205a254* arg0, int arg1, int arg2);
+extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
 extern "C" int func_0204c7e0(unsigned char* arg0);
 extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
-extern "C" void func_0205a370(Struct_0205a254* arg0, int arg1);
-extern "C" Struct_0205a254_2* func_0205a3d0(Struct_0205a254* arg0, int arg1);
-extern "C" void func_0205a330(Struct_0205a330* arg0, int arg1);
-extern "C" void func_020e27ec(Struct_0205a254* arg0, int arg1, short arg2, short arg3);
+extern "C" void PlaySpriteAnimation_0205a370(SpriteAnimationList_0205a254* animationList, int index);
+extern "C" SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(SpriteAnimationList_0205a254* animationList, int index);
+extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330* animationList, int ticks);
+extern "C" void func_020e27ec(SpriteAnimationList_0205a254* arg0, int arg1, short arg2, short arg3);
 
 struct Struct_ov003_0216039c {
     char unknown_0_[Enum_ov003_0216039c_804];
     Struct_0207fdcc_2* unknown_324_;
     char unknown_328_[Enum_ov003_0216039c_820 - Enum_ov003_0216039c_808];
     char unknown_334_[Enum_ov003_0216039c_908 - Enum_ov003_0216039c_820];
-    Struct_0205a254* unknown_38c_;
+    SpriteAnimationList_0205a254* unknown_38c_;
     Struct_020e28dc* unknown_390_;
     char unknown_394_[Enum_ov003_0216039c_1120 - Enum_ov003_0216039c_916];
     int unknown_460_;
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov003_0216039c(Struct_ov003_0216039c* arg0) {
     }
     if (arg0->unknown_390_ != NULL && func_020e28dc(arg0->unknown_390_) != 0) {
         func_0205a42c(arg0->unknown_38c_, 0, 0);
-        func_0205ae8c(arg0->unknown_334_);
+        DrawSpriteAnimations_0205ae8c(arg0->unknown_334_);
         return;
     }
     if (func_0204c7e0(var0) == 0) {
@@ -81,16 +81,16 @@ extern "C" ARM void func_ov003_0216039c(Struct_ov003_0216039c* arg0) {
     func_020809c4(arg0->unknown_324_, arg0->unknown_488_, *arg0->unknown_470_, &var1, &var2);
     var1 -= 0x10;
     var2 -= 3;
-    func_0205a370(arg0->unknown_38c_, 0);
-    Struct_0205a254_2* var3 = func_0205a3d0(arg0->unknown_38c_, 0);
+    PlaySpriteAnimation_0205a370(arg0->unknown_38c_, 0);
+    SpriteAnimation_0205a254_2* var3 = FindSpriteAnimation_0205a3d0(arg0->unknown_38c_, 0);
     if (var3 != NULL) {
         var3->unknown_15_ |= 8;
     }
-    var3 = func_0205a3d0(arg0->unknown_38c_, 1);
+    var3 = FindSpriteAnimation_0205a3d0(arg0->unknown_38c_, 1);
     if (var3 != NULL) {
         var3->unknown_15_ &= ~8;
     }
-    func_0205a330((Struct_0205a330*)arg0->unknown_38c_, arg0->unknown_460_);
+    AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)arg0->unknown_38c_, arg0->unknown_460_);
     func_020e27ec(arg0->unknown_38c_, 0, var1, var2);
-    func_0205ae8c(arg0->unknown_334_);
+    DrawSpriteAnimations_0205ae8c(arg0->unknown_334_);
 }

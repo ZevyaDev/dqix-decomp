@@ -46,11 +46,11 @@ extern "C" void func_0203a46c(Struct_0203a46c*, int, int, int);
 extern "C" void func_020478bc(Struct_02017098_3*, int);
 extern "C" void func_02047554(Struct_02012fa4*, int, int);
 extern "C" int func_020535c8(signed char*);
-extern "C" int func_02046b08(void**);
+extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
-extern "C" void* func_0200fd0c(GameState*);
+extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" int func_ov017_0218d4ec(void*, int);
 
@@ -67,9 +67,9 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
     if (TestFlags04(arg0, 0x40)) return;
     GameState* var0 = GameState::GetInstance();
     Struct_ov017_0219ad84* var1 = GetZone3D_02012fe4();
-    void* var2 = func_020100bc(var0);
+    void* var2 = GetCamera_020100bc(var0);
     Struct_ov017_0219ad84_2* var3 = GetMessageWindow_020421a0();
-    Struct_ov017_0219ad84_3* var4 = (Struct_ov017_0219ad84_3*)func_0200fd0c(var0);
+    Struct_ov017_0219ad84_3* var4 = (Struct_ov017_0219ad84_3*)GetZoneEntry_0200fd0c(var0);
     GameObject* var5 = var0->GetUnknownGameObject();
     if (!var5) return;
 
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
     }
 
     if (arg0->unknown_36b4_[1] != 0x12 && !func_020535c8((signed char*)var5) &&
-        func_02046b08((void**)arg0->unknown_ptr_array_36fc[0])) {
+        IsQueueEmpty_02046b08((void**)arg0->unknown_ptr_array_36fc[0])) {
         int var9 = 1;
         if (TestFlags04(arg0, 8) && arg0->unknown_36b4_[0] == 0) var9 = 0;
         if (arg0->unknown_36b4_[1] == 0x11) var9 = 0;
@@ -142,7 +142,7 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
     int var14 = 0;
     for (int var15 = 0; var15 < 4; var15++) {
         if (var15 == var13) continue;
-        Struct_ov017_0219ad84_4* var16 = (Struct_ov017_0219ad84_4*)func_0200ff1c(var0, var15);
+        Struct_ov017_0219ad84_4* var16 = (Struct_ov017_0219ad84_4*)GetPartyMemberBaseByIndex_0200ff1c(var0, var15);
         if (!var16) continue;
         if (!var16->unknown_0_.IsVisible()) continue;
         if (!var16->unknown_0_.GetInheritedAlpha()) continue;

@@ -22,13 +22,13 @@ extern "C" char* GetFlagManager_0205ec34();
 
 struct Struct_02081870_2;
 #if defined(jpn)
-extern "C" void func_0205d304(Struct_02081870_2* arg0, char* arg1, int, int, int, int, int);
+extern "C" void OpenTextWindow_0205d304(Struct_02081870_2* windowManager, char* text, int, int, int, int, int);
 extern "C" void func_020e2168(char*, const char*, unsigned int, unsigned char, int);
 extern "C" void func_02041f50(char*, char*);
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 extern char data_ov008_0218c0d5[];
 #else
-extern "C" void func_0205d304(Struct_02081870_2* arg0, char* arg1, int, int, int, int, int, int);
+extern "C" void OpenTextWindow_0205d304(Struct_02081870_2* windowManager, char* text, int, int, int, int, int, int);
 #endif
 
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
@@ -132,11 +132,11 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
             char var3[0x80];
             __clear(var3, sizeof(var3));
             func_02041f50(var2, var3);
-            int var4 = func_020d2ff0(var3);
+            int var4 = GetStringLength_020d2ff0(var3);
             int var5;
             int var6 = (0x80 - (var4 / 2) * 12) / 2;
             var5 = 6;
-            if (var4 != func_020d2ff0(var2)) var5 = 8;
+            if (var4 != GetStringLength_020d2ff0(var2)) var5 = 8;
             func_02041a90(var0, var6, var5);
             AppendText_02042058(var0, var2);
 #else
@@ -177,9 +177,9 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
             }
         }
         #if defined(jpn)
-    func_0205d304(&arg0->unknown_130_, arg0->unknown_b8_, 0, 0, 0, 0, 0);
+    OpenTextWindow_0205d304(&arg0->unknown_130_, arg0->unknown_b8_, 0, 0, 0, 0, 0);
 #else
-    func_0205d304(&arg0->unknown_130_, arg0->unknown_b8_, 0, 0, 0, 0, 0, 1);
+    OpenTextWindow_0205d304(&arg0->unknown_130_, arg0->unknown_b8_, 0, 0, 0, 0, 0, 1);
 #endif
         return;
     }
@@ -209,11 +209,11 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
             char var20[0x80];
             __clear(var20, sizeof(var20));
             func_02041f50(var19, var20);
-            int var21 = func_020d2ff0(var20);
+            int var21 = GetStringLength_020d2ff0(var20);
             int var22;
             int var23 = (0x80 - (var21 / 2) * 12) / 2;
             var22 = 6;
-            if (var21 != func_020d2ff0(var19)) var22 = 8;
+            if (var21 != GetStringLength_020d2ff0(var19)) var22 = 8;
             func_02041a90(var17, var23, var22);
             AppendText_02042058(var17, var19);
 #else
@@ -254,9 +254,9 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
         }
     }
     #if defined(jpn)
-    func_0205d304(&arg0->unknown_130_, arg0->unknown_b8_, 0, 0, 0, 0, 0);
+    OpenTextWindow_0205d304(&arg0->unknown_130_, arg0->unknown_b8_, 0, 0, 0, 0, 0);
 #else
-    func_0205d304(&arg0->unknown_130_, arg0->unknown_b8_, 0, 0, 0, 0, 0, 0);
+    OpenTextWindow_0205d304(&arg0->unknown_130_, arg0->unknown_b8_, 0, 0, 0, 0, 0, 0);
 #endif
     arg0->unknown_130_.unknown_a0_ = LOW_REGION(5,3);
     arg0->unknown_130_.unknown_a2_ = 8;
@@ -273,8 +273,8 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
     memset(arg0->unknown_b8_, 0, LOW_REGION(0x800,0x960));
     func_ov008_02188408(arg0, arg0->unknown_b8_, 1, arg1);
     #if defined(jpn)
-    func_0205d304(&arg0->unknown_130_, arg0->unknown_b8_, 0, 0, 0, 0, 0);
+    OpenTextWindow_0205d304(&arg0->unknown_130_, arg0->unknown_b8_, 0, 0, 0, 0, 0);
 #else
-    func_0205d304(&arg0->unknown_130_, arg0->unknown_b8_, 0, 0, 0, 0, 0, 0);
+    OpenTextWindow_0205d304(&arg0->unknown_130_, arg0->unknown_b8_, 0, 0, 0, 0, 0, 0);
 #endif
 }

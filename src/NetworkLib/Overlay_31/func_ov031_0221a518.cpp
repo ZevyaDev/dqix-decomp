@@ -3,9 +3,6 @@
 #include "NitroSDK/ProcessorContext.h"
 #include "std_library_functions.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 struct Struct_ov031_0221a518 {
     void* unknown_0_;
@@ -30,7 +27,7 @@ extern const char data_ov031_0224a264[];
 extern const char data_ov031_0224a284[];
 extern const char data_ov031_0224a28c[];
 extern const char data_ov031_0224a294[];
-extern "C" void func_020c9be0();
+extern "C" void HaltForever_020c9be0();
 extern "C" int func_ov031_02217c00(void*, Struct_ov031_0221a518_2*);
 extern "C" int func_ov031_022178b4(void*, void*, int);
 extern "C" void func_ov031_022183b4(void*);
@@ -45,7 +42,7 @@ extern "C" void func_ov031_02211b08(int, int);
 extern "C" ARM int func_ov031_0221a518(const void* arg0, void* arg1) {
     data_ov031_0224e69c->unknown_1c24_ = arg1;
     VectorizedMemset(arg1, 0, 0x174);
-    if (data_ov031_0224e69c->unknown_1b40_.uniqueID && !IsContextInactive(&data_ov031_0224e69c->unknown_1b40_)) func_020c9be0();
+    if (data_ov031_0224e69c->unknown_1b40_.uniqueID && !IsContextInactive(&data_ov031_0224e69c->unknown_1b40_)) HaltForever_020c9be0();
     Struct_ov031_0221a518_2 var0;
     Struct_ov031_0221a518* var1 = data_ov031_0224e69c;
     var0.unknown_0_ = data_ov031_02249b54;

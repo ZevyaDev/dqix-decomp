@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 struct AllocatorUnion;
 extern "C" void FreeMemory_02012da4(struct AllocatorUnion*, void*);
 struct Struct_02114e20;
@@ -12,7 +12,7 @@ extern struct AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov001_0215ea40
 extern "C" ARM int func_ov001_0215ea40(void* arg0) {
-    int var0 = func_ov017_021d60f4(arg0);
+    int var0 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     if (var0 < 0 || var0 >= 8) return 0;
     SafeAllocator* var1 = data_ov001_021658b8[var0];
     if (var1 == NULL) return 0;

@@ -7,7 +7,7 @@ extern "C" int func_02005a94(char* arg0);
 extern "C" char* func_020424ac(char* arg0);
 extern "C" int func_020d857c(signed char* arg0, signed char* arg1);
 extern "C" int func_020d85dc(const char* arg0, const char* arg1);
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 
 struct Struct_020e7f84 {
     const char* unknown_0_;
@@ -77,7 +77,7 @@ extern "C" ARM void func_02069fec(struct Struct_02069fec_2* arg0, int arg1, char
                 struct Struct_020e7f84* var10 = data_020e7f84;
                 while (var10->unknown_0_ != 0 && var10->unknown_4_ != 0) {
                     if (func_020d85dc(var8, var10->unknown_0_)) {
-                        int var11 = func_020d2ff0(var10->unknown_0_);
+                        int var11 = GetStringLength_020d2ff0(var10->unknown_0_);
                         int var12 = var10->unknown_4_(&var2, var8 + var11);
                         var2 += var12;
                         var1 = var7 + 1;

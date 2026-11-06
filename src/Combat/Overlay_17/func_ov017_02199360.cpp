@@ -10,7 +10,7 @@ enum { Enum_ov017_02199360_14008 = 0x36b8, Enum_ov017_02199360_14012 = 0x36bc, E
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 struct Struct_0200ffc0;
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
 struct Vector3i;
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov017_02199360(void* arg0) {
     void* var1 = GetLocalWireless_0202ae18();
     void* var2 = GetZone3D_02012fe4();
     void* var3 = *(void**)((char*)arg0 + Enum_ov017_02199360_14012);
-    void* var4 = func_0200fd0c(var0);
+    void* var4 = GetZoneEntry_0200fd0c(var0);
     void* var5 = func_0200ffc0((struct Struct_0200ffc0*)var0);
 
     if (IsNotLocalWirelessGuest_0202c508(var1)) {

@@ -22,7 +22,7 @@ struct ItemData_0201099c_9 {
     short unknown_16_;
 };
 
-extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void func_020de824(void* arg0);
 extern "C" void func_0207cbe8(char* arg0);
@@ -34,7 +34,7 @@ extern "C" void func_0207cf30(void* arg0, int arg1, int arg2, int arg3);
 extern "C" ARM int func_ov003_02175cb0(char* arg0, int arg1) {
     *(unsigned char*)(arg0 + Enum_ov003_02175cb0_4175) = 0;
     struct ItemData_0201099c_9* var0 =
-        func_020dedd0((struct ItemTable_0201099c_10*)(arg0 + Enum_ov003_02175cb0_2164), *(short*)(arg0 + Enum_ov003_02175cb0_4154));
+        FindItemData_020dedd0((struct ItemTable_0201099c_10*)(arg0 + Enum_ov003_02175cb0_2164), *(short*)(arg0 + Enum_ov003_02175cb0_4154));
     if (var0 == NULL) {
         return 0;
     }

@@ -26,7 +26,7 @@ struct Struct_ov002_0215e2b0_2 {
 };
 
 extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
-extern "C" char *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
+extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" void func_020465f0(unsigned char *arg0, int arg1, unsigned char arg2);
@@ -52,13 +52,13 @@ extern "C" ARM void func_ov002_0215e2b0(char *arg0, char *arg1) {
         }
     }
     int var6 = var4[*(short *) (arg0 + 0x1a00 + 0xb4)];
-    char *var7 = (char *) func_0200ff1c(var3, var6);
+    char *var7 = (char *) GetPartyMemberBaseByIndex_0200ff1c(var3, var6);
     if (var7 == 0) return;
     Struct_ov002_0215e2b0_2 *var8 = (Struct_ov002_0215e2b0_2 *) GetPartyMemberData_02053c6c((unsigned char *) var7);
     if (var8 == 0) return;
     char *var9 = 0;
     if (*(short *) (arg0 + 0x1a00 + 0xee) < 0) {
-        var9 = func_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + 0x750), *(short *) (arg0 + 0x1a00 + 0xea));
+        var9 = FindItemData_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + 0x750), *(short *) (arg0 + 0x1a00 + 0xea));
         if (var9 == 0) return;
     }
     char *var10 = GetMessageWindow_020421a0();

@@ -40,7 +40,7 @@ extern "C" ARM void func_ov000_02171c04(Struct_ov000_02171c04_3* arg0)
     signed char var0 = arg0->unknown_4c_;
     int var1 = var0 >= 0 && var0 <= 3;
     if (var1) {
-        char* var2 = (char*)func_0200ff1c(GameState::GetInstance(), var0);
+        char* var2 = (char*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), var0);
         if (var2 && GetPartyMemberData_02053c6c(var2)) {
             arg0->unknown_86_ = 0;
             for (signed char var3 = 0; var3 < 16; ++var3) {

@@ -45,7 +45,7 @@ extern Type_02000c9c_11 data_020f08b8[2];
 extern "C" void func_0205c904(unsigned char*, int);
 extern "C" int func_0205cde8(unsigned char*);
 extern "C" void func_0205cd94(unsigned char*);
-extern "C" int func_020100f8(char*);
+extern "C" int GetFollowCamera_020100f8(char*);
 extern "C" int GetResources_0200fb8c(int*);
 extern "C" int func_020a27c4(Struct_020676e0*);
 extern "C" int func_ov017_021a4e70(unsigned char*);
@@ -68,7 +68,7 @@ extern "C" ARM void func_020676e0(Struct_020676e0_4* arg0, int arg1) {
     unsigned char* var4;
     int var5 = arg0->unknown_98c_;
     var3 = GameState::GetInstance();
-    Struct_020676e0* var6 = (Struct_020676e0*)func_020100f8((char*)var3);
+    Struct_020676e0* var6 = (Struct_020676e0*)GetFollowCamera_020100f8((char*)var3);
     var4 = (unsigned char*)GetResources_0200fb8c((int*)var3);
     if (var5 != 1 && arg0->unknown_19d2_) {
         if (var6) {

@@ -9,29 +9,29 @@ struct Struct_0205df38 {
     short unknown_ae_;
 };
 
-struct Struct_0205d81c {
+struct TextWindowManager_0205d81c {
     char unknown_0_[0x98];
     void* unknown_98_;
-    struct Struct_0205df38* unknown_9c_;
+    struct Struct_0205df38* pTextWindows_9c_;
 };
 
-extern "C" struct Struct_0205df38* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+extern "C" struct Struct_0205df38* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 
 // USA: func_0205df38
-extern "C" ARM int func_0205df38(struct Struct_0205d81c* arg0, int arg1) {
+extern "C" ARM int func_0205df38(struct TextWindowManager_0205d81c* arg0, int arg1) {
     int var0, var1;
     struct Struct_0205df38* var2;
     short var3, var4, var5, var6;
     int var7, var8;
 
     if (arg0->unknown_98_ == 0) return 0;
-    if (arg0->unknown_9c_ == 0) return 0;
+    if (arg0->pTextWindows_9c_ == 0) return 0;
 
     if (!g_touchInput.pressed_) goto zero;
 
     g_touchInput.GetTouchPoint(&var0, &var1);
 
-    var2 = func_0205d81c(arg0, arg1);
+    var2 = FindTextWindow_0205d81c(arg0, arg1);
     if (var2 == 0) goto zero;
 
     var3 = var2->unknown_ac_;

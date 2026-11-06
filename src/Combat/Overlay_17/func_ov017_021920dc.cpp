@@ -18,7 +18,7 @@ extern "C" ARM int func_ov017_021920dc(int arg0, int arg1) {
 	}
 
 	if (var2 >= 0) {
-		GameObject* var4 = func_0200ff1c(var0, var2);
+		GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, var2);
 		if (var4 != NULL) {
 			int var5 = GetPartyMemberData_02053c6c((unsigned char*)var4);
 			GameObject* var6 = var0->GetCombatantByIndex(var2);

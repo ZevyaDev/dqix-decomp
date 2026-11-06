@@ -2,7 +2,7 @@
 #include "Memory/SafeAllocator.h"
 
 extern "C" void func_ov023_021f6ed8(void* arg0);
-extern "C" void func_0204c684(void* arg0);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
@@ -12,8 +12,8 @@ extern "C" int func_ov011_021844ec(struct Struct_ov011_021844ec* arg0);
 
 extern "C" void* func_ov023_021f79e4(void* arg0);
 
-struct Struct_0204c7a8;
-extern "C" void func_0204c7a8(struct Struct_0204c7a8* arg0, SafeAllocator* arg1, int arg2, unsigned int arg3);
+struct TextWindow_0204c7a8;
+extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
 
 struct Struct_ov011_02185318_3 {
     char unknown_0_[4];
@@ -51,7 +51,7 @@ extern "C" ARM int func_ov023_021f7da0(struct Struct_ov011_02185318_3* arg0, voi
     arg0->unknown_10a_ = 0xf;
     arg0->unknown_10c_ = 0;
     arg0->unknown_10e_ = 1;
-    func_0204c684(&arg0->unknown_20_);
+    InitTextWindow_0204c684(&arg0->unknown_20_);
 
     void* var0 = func_ov011_021845f8(arg1, arg0->unknown_8_);
     if (var0 == NULL) {
@@ -69,7 +69,7 @@ extern "C" ARM int func_ov023_021f7da0(struct Struct_ov011_02185318_3* arg0, voi
         return 0;
     }
 
-    func_0204c7a8((struct Struct_0204c7a8*)&arg0->unknown_20_, var3, var1, var2);
+    SetTextWindowBuffers_0204c7a8((struct TextWindow_0204c7a8*)&arg0->unknown_20_, var3, var1, var2);
 
     void* var4 = GetMenuObjectList_ov011_021849c8(arg1);
     void* var5 = FindMenuObjectById_ov023_021f6880(var4, arg4);

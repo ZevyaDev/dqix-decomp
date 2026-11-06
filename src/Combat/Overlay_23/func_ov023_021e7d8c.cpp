@@ -5,7 +5,7 @@
 #endif
 #include <std_library_functions.h>
 
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct MessageWindow_02021b84;
 
 struct Struct_ov023_021e7d8c {
@@ -45,15 +45,15 @@ extern Struct_ov023_021fd7cc data_ov023_021fd7cc;
 extern Struct_ov023_021fd75c data_ov023_021fd75c;
 
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
-extern "C" void func_0205deb4(Struct_0205d81c* arg0, int arg1, int arg2);
+extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c* windowManager, int windowId, int palette);
 
 extern "C" {
 void ClearMessageParams_02046380(MessageWindow_02021b84* window);
 void func_ov023_021e7cec(Struct_ov023_021e7d8c* arg0, int arg1, short arg2, short arg3);
 #if defined(jpn)
-void func_0205d304(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+void OpenTextWindow_0205d304(void* windowManager, char* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-void func_0205d304(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+void OpenTextWindow_0205d304(void* windowManager, char* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 }
 
@@ -81,11 +81,11 @@ extern "C" ARM void func_ov023_021e7d8c(Struct_ov023_021e7d8c* arg0)
 #endif
         (arg0->*var1[var3])();
 #if defined(jpn)
-        func_0205d304(arg0->unknown_78_, arg0->unknown_5d8_, 0, 0, 0, 1, 0);
+        OpenTextWindow_0205d304(arg0->unknown_78_, arg0->unknown_5d8_, 0, 0, 0, 1, 0);
 #else
-        func_0205d304(arg0->unknown_78_, arg0->unknown_5d8_, 0, 0, 0, 1, 0, 0);
+        OpenTextWindow_0205d304(arg0->unknown_78_, arg0->unknown_5d8_, 0, 0, 0, 1, 0, 0);
 #endif
     }
     for (int var4 = 0; var4 < 3; var4++)
-        func_0205deb4((Struct_0205d81c*)arg0->unknown_78_, (unsigned char)var4, 0);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_78_, (unsigned char)var4, 0);
 }

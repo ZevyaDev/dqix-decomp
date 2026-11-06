@@ -24,7 +24,7 @@ extern "C" void func_020340b4(Struct_020340b4* arg0);
 extern "C" int func_0203402c(Struct_0203402c* arg0);
 extern "C" void func_02034044(unsigned char* arg0, int arg1);
 extern "C" unsigned char func_02039d7c(char* arg0);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 
 // USA: func_ov017_021c2380
 extern "C" ARM int func_ov017_021c2380(int arg0, int arg1) {
@@ -84,7 +84,7 @@ extern "C" ARM int func_ov017_021c2380(int arg0, int arg1) {
     if (IsNotLocalWirelessGuest_0202c508(var1)) {
         func_02034044((unsigned char*)var3, 5000);
         if (var4 != NULL) {
-            func_020397c0(var4);
+            EnablePlayerControl_020397c0(var4);
         }
     }
     Vector3s var8 = {0};

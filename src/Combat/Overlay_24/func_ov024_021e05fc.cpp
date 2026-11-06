@@ -33,8 +33,8 @@ extern "C" signed char func_ov000_02159e60(void* arg0, int arg1);
 extern "C" void func_ov000_021554f4(void* arg0, int arg1, int arg2, struct Struct_ov024_021e05fc_2* arg3, int arg4, int arg5);
 extern "C" void func_02088f68(struct Struct_02088f68* arg0);
 extern "C" void func_ov000_02159eac(void* arg0, unsigned long long* arg1, int arg2);
-extern "C" void* func_ov000_0215e958(void* arg0);
-extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, GameObject* arg2, int arg3, unsigned long long arg4, int arg5);
 
 // USA: func_ov024_021e05fc
@@ -68,9 +68,9 @@ extern "C" ARM void* func_ov024_021e05fc(struct Struct_ov024_021e05fc_5* arg0, i
     } else {
         var6 = arg3->unknown_24_.unknown_2_4_;
     }
-    void* var9 = func_ov000_0215e958(arg0->unknown_10_);
+    void* var9 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var9) return 0;
-    func_ov000_0215a88c(arg0->unknown_10_, var9, var6);
+    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var9, var6);
     struct Struct_ov024_021e05fc_4* var10 = (struct Struct_ov024_021e05fc_4*)((char*)arg0->unknown_c_ + 0x1c);
     func_ov000_0215cd44(arg0->unknown_10_, var9, var0, 0, var7, var10->unknown_0_7_ != 0);
     return var9;

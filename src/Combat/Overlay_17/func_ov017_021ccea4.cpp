@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021ccea4 {
     unsigned char unknown_0_;
@@ -14,7 +14,7 @@ struct Struct_ov017_021ccea4 {
 
 // USA: func_ov017_021ccea4
 extern "C" ARM void func_ov017_021ccea4(int arg0, unsigned char* arg1, int arg2) {
-    void* var0 = func_0202ae24();
+    void* var0 = GetLocalWirelessPacketQueue_0202ae24();
     Struct_ov017_021ccea4 var1;
     var1.unknown_0_ = 0xf;
     var1.unknown_4_0_ = arg0;
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov017_021ccea4(int arg0, unsigned char* arg1, int arg2)
             var1.unknown_5_[var4] = arg1[var3 * 15 + var4];
         }
         var1.unknown_4_3_ = var4;
-        func_0205e330(var0, &var1, 0);
+        QueueOutgoingPacket_0205e330(var0, &var1, 0);
         var2 += var1.unknown_4_3_;
         var3++;
     }

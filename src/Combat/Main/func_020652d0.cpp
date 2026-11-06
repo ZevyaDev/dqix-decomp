@@ -8,11 +8,11 @@ enum { Enum_020652d0_564 = 0x234, Enum_020652d0_563 = 0x233 };
 
 extern "C" void func_0205c790(char* arg0);
 
-struct Struct_0205ba68;
-extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
+struct MenuCursor_0205ba68;
+extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 
-struct Struct_0205bacc;
-extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
+struct MenuCursor_0205bacc;
+extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
 
 extern "C" void func_0205cb74(char* arg0, int arg1);
 
@@ -29,7 +29,7 @@ extern "C" void func_0206b7b0(char* arg0);
 struct Struct_0205bcdc;
 extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
 
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
 struct Struct_0205c77c;
 extern "C" void func_0205c77c(struct Struct_0205c77c* arg0, int arg1);
@@ -47,11 +47,11 @@ extern "C" ARM void func_020652d0(char* arg0, int arg1, int arg2, int arg3) {
 
     arg0[0xb1] = 1;
     arg0[0xb0] = 1;
-    func_0205ba68((struct Struct_0205ba68*)(arg0 + 0x20), 1, 2, 0);
-    func_0205ba68((struct Struct_0205ba68*)(arg0 + 0x70), 1, 2, 0);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(arg0 + 0x20), 1, 2, 0);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(arg0 + 0x70), 1, 2, 0);
 
-    func_0205bacc((struct Struct_0205bacc*)(arg0 + 0x20), 2);
-    func_0205bacc((struct Struct_0205bacc*)(arg0 + 0x70), 2);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + 0x20), 2);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + 0x70), 2);
 
 #if defined(jpn)
     func_0205cb74(arg0, (int)arg2);
@@ -75,7 +75,7 @@ extern "C" ARM void func_020652d0(char* arg0, int arg1, int arg2, int arg3) {
 #endif
 
     func_0205bcdc((struct Struct_0205bcdc*)(arg0 + 0x20), arg1);
-    func_0205bb04(arg0 + 0x70, arg1);
+    SetMenuCursorIndex_0205bb04(arg0 + 0x70, arg1);
 
     arg0[Enum_020652d0_564] = 1;
     func_0205c77c((struct Struct_0205c77c*)(arg0 + 0x4), 1);

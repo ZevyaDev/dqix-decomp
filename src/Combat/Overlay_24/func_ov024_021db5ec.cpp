@@ -6,7 +6,7 @@ extern "C" int func_0208776c(void* arg0, int arg1);
 struct Struct_020877c0;
 extern "C" int func_020877c0(struct Struct_020877c0* arg0, int arg1);
 void UpdateCombatantAttack(int unused, int combatantId);
-extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 
 struct Struct_ov024_021db5ec {
     char unknown_0_[0x30];
@@ -25,7 +25,7 @@ struct Struct_ov024_021db5ec_3 {
 
 extern "C" unsigned long long func_ov024_021e4b14(struct Struct_ov024_021db5ec_3* arg0, short arg1, int arg2, struct Struct_ov024_021db5ec* arg3, int arg4);
 extern "C" int func_ov024_021e94c4(struct Struct_ov024_021db5ec_3* arg0, int arg1, struct Struct_ov024_021db5ec* arg2, unsigned char arg3, signed char arg4, unsigned char arg5, unsigned char arg6);
-extern "C" void* func_ov000_0215e958(void* arg0);
+extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov024_021e8bf0(struct Struct_ov024_021db5ec_3* arg0, struct Struct_ov024_021db5ec_2* arg1, unsigned short* arg2);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, GameObject* arg2, int arg3, unsigned long long arg4, unsigned char arg5);
 
@@ -53,7 +53,7 @@ extern "C" ARM void* func_ov024_021db5ec(struct Struct_ov024_021db5ec_3* arg0, s
     } else {
         arg0->unknown_75_ = 0;
     }
-    void* var6 = func_ov000_0215e958(arg0->unknown_10_);
+    void* var6 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var6) return 0;
     unsigned short var7 = func_ov024_021e94c4(arg0, arg2, arg3, var3, (signed char)var5, var2, arg6);
     if (var1 != 0 && !var2) {
@@ -64,7 +64,7 @@ extern "C" ARM void* func_ov024_021db5ec(struct Struct_ov024_021db5ec_3* arg0, s
         if (var3 == 0) arg0->unknown_72_ = 1;
     }
     func_ov024_021e8bf0(arg0, arg0->unknown_c_, &var7);
-    func_ov000_0215a88c(arg0->unknown_10_, var6, var7);
+    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var6, var7);
     func_ov000_0215cd44(arg0->unknown_10_, var6, var0, 0, var1, arg0->unknown_c_->unknown_1c_7_ != 0);
     return var6;
 }

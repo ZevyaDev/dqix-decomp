@@ -189,7 +189,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
         if (var6 != -1) {
             if (var6 == 1) {
                 arg0->unknown_1ec_             = 0xc;
-                struct Struct_ov003_0215704c_2 *var7 = (struct Struct_ov003_0215704c_2 *) func_0200ff1c((GameState *)var0, arg0->unknown_1f7_);
+                struct Struct_ov003_0215704c_2 *var7 = (struct Struct_ov003_0215704c_2 *) GetPartyMemberBaseByIndex_0200ff1c((GameState *)var0, arg0->unknown_1f7_);
                 if (var7 != 0) {
                     var7->unknown_130_[8] = 0;
                 }
@@ -259,7 +259,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
             func_ov017_021ccc34(arg0->unknown_1f7_);
             func_ov017_021cc730(arg0->unknown_1f7_, 1, 0, 0);
         }
-        void *var15 = func_0200ff1c((GameState *)var0, arg0->unknown_1f7_);
+        void *var15 = GetPartyMemberBaseByIndex_0200ff1c((GameState *)var0, arg0->unknown_1f7_);
         if (var15 != 0) {
             func_02083e28(*(void **) ((char *) var15 + JPN_OFS(0x144, 0x150)), 0);
         }

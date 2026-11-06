@@ -9,7 +9,7 @@ struct Struct_02015438;
 struct Struct_02015438_2;
 extern "C" int func_02046b24(struct Struct_02015438** arg0);
 extern "C" void func_02015518(void* arg0, char* arg1);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_02013e18(Zone3D* arg0);
 extern "C" void func_02017208(struct Struct_02015438_2* arg0);
 extern "C" void func_020158cc(Zone3D* arg0);
@@ -48,7 +48,7 @@ extern "C" ARM void func_02015438(Zone3D* arg0) {
             if (var3 != 0) {
                 if (func_02046b24(
                         *(struct Struct_02015438***)((char*)GetGameResources() + 0x3000 + Enum_02015438_1788)) != 4) {
-                    func_020397c0(var3);
+                    EnablePlayerControl_020397c0(var3);
                 }
             }
             arg0->unk_830[0] = 0;

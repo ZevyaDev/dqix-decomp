@@ -87,7 +87,7 @@ extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
 extern "C" int func_ov024_021e47dc(Struct_ov024_021e4604*);
 extern "C" int func_ov024_021dd010(Struct_ov024_021dced0_2*);
 extern "C" void func_02087704(void*);
-extern "C" void func_ov000_0215a88c(void*, void*, int);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 extern "C" int func_02088840(unsigned char*);
 extern "C" int func_0208830c(unsigned char*);
 extern "C" int func_020883ac(unsigned char*);
@@ -113,7 +113,7 @@ extern "C" int func_ov024_021e9464(Struct_ov024_021ddc80_4*, int, int);
 extern "C" void func_ov000_0215ffc4(void*, void*, int);
 struct Struct_ov024_021da9e0_4;
 extern "C" void func_ov024_021eb4e4(Struct_ov024_021da9e0_4*, int);
-extern "C" void* func_ov000_0215e958(void*);
+extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void func_ov000_02159eac(void*, void*, int);
 extern "C" int func_ov000_02156068(void*, int, int, int);
 extern "C" void func_ov000_0215a004(void*, int, int, int, void*, Struct_ov024_021e4c04_6*, int, int);
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = GetCombatantByID((int)arg0->unknown_10_, arg2);
     if (!var1) return;
-    void* var2 = func_ov000_0215e958(arg0->unknown_10_);
+    void* var2 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var2) return;
     short var3;
     float var4;
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
     int var9 = NextRandomMax((Random*)arg0->unknown_10_, 100);
     if (arg3->unknown_10_ & 0x80000) {
         if (!inline_ov000_02169850(arg1)) return;
-        Struct_ov024_021e4c04* var10 = (Struct_ov024_021e4c04*)func_0200ff1c(var0, arg1);
+        Struct_ov024_021e4c04* var10 = (Struct_ov024_021e4c04*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
         if (!var10) return;
 
         if (func_020851ac(var10->unknown_150_)
@@ -168,7 +168,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
             }
             func_ov000_02159eac(arg0->unknown_10_, &var8, 0x1d);
             if (var5 == 3) func_ov000_02159eac(arg0->unknown_10_, &var8, 8);
-            func_ov000_0215a88c(arg0->unknown_10_, var2, var7);
+            AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var7);
             var6 = 1;
         }
 
@@ -178,7 +178,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
             if ((float)var9 < (arg0->unknown_c_->unknown_1c_7_ ? 100.0f : 20.0f)) {
                 int var11 = func_ov024_021e9198(arg0, arg2, 1, 1);
                 if (!var11) var11 = 0x25;
-                func_ov000_0215a88c(arg0->unknown_10_, var2, var11);
+                AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var11);
                 var6 = 1;
                 func_02088854((unsigned char*)var1->currentStats_);
                 inline_ov000_0215a908_5(var1)->unknown_22_6_ = 1;
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
             if ((float)var9 < (arg0->unknown_c_->unknown_1c_7_ ? 100.0f : 20.5f)) {
                 var3 = func_ov024_021da998((Struct_ov024_021da670_6*)var1);
                 int var12 = func_ov024_021e929c((Struct_ov024_021dbd84_6*)arg0, arg2, 1);
-                func_ov000_0215a88c(arg0->unknown_10_, var2, var12);
+                AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var12);
                 var6 = 1;
                 func_02088338((unsigned char*)var1->currentStats_);
             }
@@ -206,13 +206,13 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
                     func_ov000_02159eac(arg0->unknown_10_, &var8, 0x29);
                     func_02088b34((unsigned char*)var13->currentStats_);
                     func_ov000_0215a004(arg0->unknown_10_, arg1, arg2, inline_ov000_0215a908_2(var13) - 1, &var8, arg3, arg0->unknown_c_->unknown_1c_7_ != 0, 0);
-                    func_ov000_0215a88c(arg0->unknown_10_, var2, 200);
+                    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, 200);
                 } else {
                     func_ov000_0215a004(arg0->unknown_10_, arg1, arg2, 0xffff, &var8, arg3, arg0->unknown_c_->unknown_1c_7_ != 0, 8);
                     var8.unknown_0_ = 0;
                     var8.unknown_4_ = 0;
                     func_ov000_02159eac(arg0->unknown_10_, &var8, 0xd);
-                    func_ov000_0215a88c(arg0->unknown_10_, var2, 0x257);
+                    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, 0x257);
                 }
                 arg0->unknown_c_->unknown_0_ = 0;
                 arg0->unknown_c_->unknown_18_ = 0;
@@ -227,7 +227,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
             && inline_ov000_0215a908_5(var1)->unknown_4a_ != 0) {
             if ((float)var9 < (arg0->unknown_c_->unknown_1c_7_ ? 100.0f : 10.5f)) {
                 int var14 = func_ov024_021e9320((Struct_ov024_021dd828*)arg0, arg2, 1);
-                func_ov000_0215a88c(arg0->unknown_10_, var2, var14);
+                AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var14);
                 var6 = 1;
                 func_020883cc((unsigned char*)var1->currentStats_);
             }
@@ -239,7 +239,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
             if ((float)var9 < (arg0->unknown_c_->unknown_1c_7_ ? 100.0f : 25.0f)) {
                 int var15 = 0x18;
                 if (func_ov024_021dd010((Struct_ov024_021dced0_2*)var1)) var15 = 0x1a;
-                func_ov000_0215a88c(arg0->unknown_10_, var2, var15);
+                AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var15);
                 var6 = 1;
                 func_020888a4((unsigned char*)var1->currentStats_);
             }
@@ -252,7 +252,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
                 var3 = func_ov024_021da998((Struct_ov024_021da670_6*)var1);
                 int var16 = 0x5e;
                 if (inline_ov000_0215a908_5(var1)->unknown_22_2_ == 5) var16 = 0x60;
-                func_ov000_0215a88c(arg0->unknown_10_, var2, var16);
+                AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var16);
                 var6 = 1;
                 func_02088474(var1->currentStats_, 5, 0);
             }
@@ -263,7 +263,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
             && inline_ov000_0215a908_5(var1)->unknown_4d_ != 0) {
             if ((float)var9 < (arg0->unknown_c_->unknown_1c_7_ ? 100.0f : 12.5f)) {
                 int var17 = func_ov024_021e939c((Struct_ov024_021dbaf4_4*)arg0, arg2, 1, 1);
-                func_ov000_0215a88c(arg0->unknown_10_, var2, var17);
+                AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var17);
                 var6 = 1;
                 func_02088560((unsigned char*)var1->currentStats_);
             }
@@ -275,7 +275,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
             if ((float)var9 < (arg0->unknown_c_->unknown_1c_7_ ? 100.0f : 10.0f)) {
                 var3 = func_ov024_021da998((Struct_ov024_021da670_6*)var1);
                 int var18 = func_ov024_021e9464((Struct_ov024_021ddc80_4*)arg0, arg2, 1);
-                func_ov000_0215a88c(arg0->unknown_10_, var2, var18);
+                AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var18);
                 var6 = 1;
                 func_0208826c((unsigned char*)var1->currentStats_);
             }
@@ -289,7 +289,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
                 int var19 = func_020877c0(var1->currentStats_, -1);
                 UpdateCombatantAttack((int)arg0->unknown_10_, arg2);
                 int var20 = func_ov024_021e94c4(arg0, arg2, arg3, 1, (signed char)var19, 1, 1);
-                func_ov000_0215a88c(arg0->unknown_10_, var2, var20);
+                AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var20);
                 var6 = 1;
             }
         }
@@ -302,7 +302,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
                 int var21 = func_020878b4(var1->currentStats_, -1);
                 UpdateCombatantDefense((int)arg0->unknown_10_, arg2);
                 int var22 = func_ov024_021e95d4(arg0, arg2, arg3, 1, (signed char)var21, 1, 1);
-                func_ov000_0215a88c(arg0->unknown_10_, var2, var22);
+                AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var22);
                 var6 = 1;
             }
         }
@@ -314,9 +314,9 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
         func_ov024_021eb4e4((Struct_ov024_021da9e0_4*)arg0, (int)arg0->unknown_c_);
     }
     if (var3) {
-        void* var23 = func_ov000_0215e958(arg0->unknown_10_);
+        void* var23 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
         if (!var23) return;
-        func_ov000_0215a88c(arg0->unknown_10_, var23, 0x25c);
+        AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var23, 0x25c);
         func_ov000_0215ffc4(arg0->unknown_c_, var23, 2);
         arg0->unknown_10_->unknown_8e02_++;
         func_ov000_0215cd44(arg0->unknown_10_, var23, var1, 0, 0, 0);

@@ -34,16 +34,16 @@ struct Struct_ov000_021735d0_2;
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 struct Struct_0205c570;
-extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 struct Struct_ov000_021735d0_3;
 extern "C" struct Struct_ov000_021735d0_2* func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
 extern "C" int func_ov000_0217c5f4(void*);
 extern "C" int func_ov000_0218155c(void*);
-struct Struct_0205d81c;
-extern "C" void func_ov000_0217a9d0(int, int, int, Struct_0205d81c*);
+struct TextWindowManager_0205d81c;
+extern "C" void func_ov000_0217a9d0(int, int, int, TextWindowManager_0205d81c*);
 struct Struct_0205def8;
 extern "C" void func_0205def8(Struct_0205def8*, int, int);
 extern "C" int func_020dd3cc(int arg0);
@@ -57,7 +57,7 @@ extern "C" void func_ov000_0217c638(Struct_ov000_02178d28_2* arg0, int arg1, int
 // USA: func_ov000_0217d674
 extern "C" ARM void func_ov000_0217d674(Struct_ov000_02178d28_2* arg0, int arg1, int arg2) {
     arg0->unknown_1d72_ |= 0x100;
-    arg0->unknown_1d6b_ = func_0205d794((Struct_0205c570*)arg0->unknown_188_);
+    arg0->unknown_1d6b_ = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_188_);
     if (func_ov000_0217c594(arg0, 0) != 0) {
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         int var0 = arg0->unknown_70_[arg0->unknown_1d6b_];
@@ -80,12 +80,12 @@ extern "C" ARM void func_ov000_0217d674(Struct_ov000_02178d28_2* arg0, int arg1,
         arg0->unknown_1d68_ = arg0->unknown_1d68_ + 1;
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 6;
         func_ov000_02176634(arg0, func_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0), 6, arg1, arg2);
-        func_ov000_0217a9d0(6, func_ov000_0218155c(arg0), 4, (Struct_0205d81c*)arg0->unknown_188_);
+        func_ov000_0217a9d0(6, func_ov000_0218155c(arg0), 4, (TextWindowManager_0205d81c*)arg0->unknown_188_);
         func_0205def8((Struct_0205def8*)arg0->unknown_188_, 0, 1);
         func_0205def8((Struct_0205def8*)arg0->unknown_188_, 0, 2);
         func_0205def8((Struct_0205def8*)arg0->unknown_188_, 0, 5);
     } else if (func_ov000_0217c5f4(arg0) != 0) {
-        func_0205d6a0((Struct_0205d6a0*)arg0->unknown_188_, 0);
+        CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_188_, 0);
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 0;
         arg0->unknown_1d68_ = arg0->unknown_1d68_ - 1;
         func_ov000_0217c638(arg0, arg1, arg2);

@@ -5,7 +5,7 @@ enum{Enum_ov001_0215e2a4_2104=0x708,Enum_ov001_0215e2a4_2456=0x868};
 enum{Enum_ov001_0215e2a4_2104=0x838,Enum_ov001_0215e2a4_2456=0x998};
 #endif
 
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void* func_ov017_021d612c(void*);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, int, int);
@@ -27,13 +27,13 @@ extern "C" ARM int func_ov001_0215e2a4(Struct_ov001_0215e2a4_2* arg0, int arg1) 
     int var1 = arg0->unknown_0_;
     switch (var1) {
     case 0: {
-        int var2 = func_ov017_021d60f4(arg0);
+        int var2 = GetScriptValueAsInt_ov017_021d60f4(arg0);
         Struct_ov001_0215e2a4* var3 = (Struct_ov001_0215e2a4*)func_ov001_02153884(&data_ov001_021658d8, var2);
         if (var3 == NULL) return 0;
         *(int*)(var0 + 0x1000 + Enum_ov001_0215e2a4_2104) = -1;
         int var4 = 1;
         if (arg1 >= 2) {
-            int var5 = func_ov017_021d60f4((char*)arg0 + 0x8);
+            int var5 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8);
             if (var5 & 1) var4 = 0;
         }
 #if defined(jpn)

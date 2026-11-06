@@ -10,8 +10,8 @@ struct Struct_ov000_0215f67c {
 extern unsigned short data_ov000_02182bb4[8];
 
 extern "C" int func_020a3694(int* arg0);
-extern "C" int func_ov000_0215e9fc(struct Struct_ov000_0215f67c* arg0, unsigned short* arg1, int arg2, int arg3);
-extern "C" int func_ov000_0215eb1c(struct Struct_ov000_0215f67c* arg0, unsigned short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(struct Struct_ov000_0215f67c* battle, unsigned short* indices, int maxCount, int filterFlags);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(struct Struct_ov000_0215f67c* battle, unsigned short* indices, int maxCount, int filterFlags);
 
 // USA: func_ov000_0215f67c
 extern "C" ARM unsigned short func_ov000_0215f67c(struct Struct_ov000_0215f67c* arg0, int arg1) {
@@ -30,7 +30,7 @@ extern "C" ARM unsigned short func_ov000_0215f67c(struct Struct_ov000_0215f67c* 
     int var7 = (arg1 >= 0 && arg1 <= 3);
     int var8;
     if (var7) {
-        if (func_ov000_0215e9fc(arg0, var1, 4, 1) < 2) {
+        if (CollectPartyCombatantIndices_ov000_0215e9fc(arg0, var1, 4, 1) < 2) {
             var0 = 1;
         }
         var5[0] = 0xdd;
@@ -39,7 +39,7 @@ extern "C" ARM unsigned short func_ov000_0215f67c(struct Struct_ov000_0215f67c* 
         var5[3] = 0x396;
         var8 = 4;
     } else {
-        if (func_ov000_0215eb1c(arg0, var1, 8, 1) < 2) {
+        if (CollectEnemyCombatantIndices_ov000_0215eb1c(arg0, var1, 8, 1) < 2) {
             var0 = 1;
         }
         var5[0] = 0xdd;

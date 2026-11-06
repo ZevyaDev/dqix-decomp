@@ -9,7 +9,7 @@ enum { Enum_020dbcc4_2112 = 0x840 };
 #include "GameState/GameState.h"
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0202ae24(void);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 struct Struct_0205e7d0;
 extern "C" int func_0205e7d0(struct Struct_0205e7d0* arg0);
 extern "C" int func_ov017_021d3d40(void* arg0, int arg1, int arg2, unsigned char arg3, int arg4);
@@ -31,7 +31,7 @@ extern "C" ARM void func_020dbcc4(struct Struct_020dbcc4* arg0, void* arg1) {
     GameState::GetInstance();
     char* var2 = (char*)GetZone3D_02012fe4() + Enum_020dbcc4_2112;
     if (arg0->unknown_10_ != 0) return;
-    if (func_0205e7d0((struct Struct_0205e7d0*)func_0202ae24()) < 0x76) return;
+    if (func_0205e7d0((struct Struct_0205e7d0*)GetLocalWirelessPacketQueue_0202ae24()) < 0x76) return;
 
     var0 = 0;
     for (var1 = 0; var1 < 4; var1++) {

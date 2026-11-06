@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 
 extern "C" void* func_0203cf4c(void);
 
@@ -13,8 +13,8 @@ extern struct Struct_ov001_02165880_16 data_ov001_02165880;
 
 // USA: func_ov001_0215d08c
 extern "C" ARM int func_ov001_0215d08c(void* arg0) {
-    int var0 = func_ov017_021d60f4(arg0);
-    int var1 = func_ov017_021d60f4((char*)arg0 + 0x8);
+    int var0 = GetScriptValueAsInt_ov017_021d60f4(arg0);
+    int var1 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8);
     void* var2 = func_0203cf4c();
     int var3 = *(int*)(data_ov001_02165880.unknown_4_ + var0 * 0x10 + 0x4);
     struct Struct_0203dce4* var4 = func_0203dce4((struct Struct_0203dce4_2*)var2, var3);

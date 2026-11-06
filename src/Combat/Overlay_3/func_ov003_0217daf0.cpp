@@ -37,9 +37,9 @@ enum { Enum_ov003_0217daf0_204 = 0xcc };
 #endif
 
 
-extern "C" void func_0205a444(char* arg0);
-struct Struct_0201099c_14;
-extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
+struct StringTable_0201099c_14;
+extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 
 // USA: func_ov003_0217daf0
 extern "C" ARM void func_ov003_0217daf0(char* arg0) {
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov003_0217daf0(char* arg0) {
 	VectorizedMemset(arg0 + Enum_ov003_0217daf0_24, 0, 0x18);
 	*(int*)(arg0 + Enum_ov003_0217daf0_52) = 0;
 	*(int*)(arg0 + Enum_ov003_0217daf0_56) = 0;
-	func_0205a444(arg0 + Enum_ov003_0217daf0_60);
+	InitSpriteSet_0205a444(arg0 + Enum_ov003_0217daf0_60);
 	*(int*)(arg0 + Enum_ov003_0217daf0_144) = 0;
 	*(int*)(arg0 + Enum_ov003_0217daf0_148) = 0;
 	*(int*)(arg0 + Enum_ov003_0217daf0_152) = 0;
@@ -63,5 +63,5 @@ extern "C" ARM void func_ov003_0217daf0(char* arg0) {
 	*(int*)(arg0 + Enum_ov003_0217daf0_160) = 0;
 	((SafeAllocator*)(arg0 + Enum_ov003_0217daf0_164))->ResetAllocatorPointer();
 	((SafeAllocator*)(arg0 + Enum_ov003_0217daf0_184))->ResetAllocatorPointer();
-	func_020dfc40((struct Struct_0201099c_14*)(arg0 + Enum_ov003_0217daf0_204));
+	InitStringTable_020dfc40((struct StringTable_0201099c_14*)(arg0 + Enum_ov003_0217daf0_204));
 }

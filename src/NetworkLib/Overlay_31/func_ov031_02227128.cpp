@@ -1,9 +1,6 @@
 #include <globaldefs.h>
 #include "NitroSDK/TouchScreen.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 extern "C" void func_020c3898(void);
 int Is64BitTimerInitialized();
@@ -11,7 +8,7 @@ int IsAlarmListInitialized();
 extern "C" int func_020c3864(int arg0);
 extern "C" void func_020c36ec(void);
 void InitializeROMFilesystem(int dmaChannel);
-extern "C" void func_020c9be0(void);
+extern "C" void HaltForever_020c9be0(void);
 extern "C" ARM void func_020cf020(void);
 
 extern "C" void func_ov031_0223dda8(void);
@@ -35,10 +32,10 @@ extern "C" ARM void func_ov031_02227128(void) {
     func_020c3898();
     *(volatile unsigned int*)0x4001000 &= ~0x10000;
     if (!Is64BitTimerInitialized()) {
-        func_020c9be0();
+        HaltForever_020c9be0();
     }
     if (!IsAlarmListInitialized()) {
-        func_020c9be0();
+        HaltForever_020c9be0();
     }
     func_020c3864(0);
     func_020c36ec();

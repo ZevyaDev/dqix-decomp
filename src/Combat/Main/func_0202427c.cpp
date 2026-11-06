@@ -3,7 +3,7 @@
 
 extern "C" void *GetZone3D_02012fe4(void);
 extern "C" int func_0201b588(int arg0);
-extern "C" int func_020d2ff0(const char *arg0);
+extern "C" int GetStringLength_020d2ff0(const char *string);
 extern "C" void func_0202756c(void *arg0, int arg1, int arg2, int arg3, unsigned char arg4, unsigned char arg5,
                               unsigned short arg6, unsigned char arg7, int arg8, int arg9);
 
@@ -22,7 +22,7 @@ extern "C" ARM void func_0202427c(void *arg0) {
 
     int var3 = 256;
 #if defined(jpn)
-    int var4 = 10 * (func_020d2ff0(var1->substruct_c_.unknown1_2a_) / 2);
+    int var4 = 10 * (GetStringLength_020d2ff0(var1->substruct_c_.unknown1_2a_) / 2);
     int var5 = var4 / 8 + 1;
     *reinterpret_cast<unsigned short *>(var0 + 0x4d0) = var5;
     int var6 = var5 * 8;

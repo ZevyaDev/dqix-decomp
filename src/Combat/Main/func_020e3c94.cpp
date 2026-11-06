@@ -8,7 +8,7 @@
 struct GameObject;
 struct Struct_020e3b8c_2;
 extern "C" void func_020e3c34(Struct_020e3b8c_2* arg0);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_020897b4(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
@@ -35,7 +35,7 @@ struct Struct_020e3b8c_2 {
 extern "C" ARM void func_020e3c94(Struct_020e3b8c_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
-    GameObject* var2 = func_0200ff1c(var0, arg0->unknown_9_);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0->unknown_9_);
     unsigned char* var3 = 0;
 
     if (var2) {

@@ -14,10 +14,10 @@ struct Struct_0201099c_3;
 extern "C" void func_0205c508(struct Struct_0205c508* arg0, int* arg1, int* arg2);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_ov000_0217542c(void* arg0);
-extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int func_ov000_0218158c(void* arg0, int arg1);
-extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 // USA: func_ov000_02177f74
@@ -33,15 +33,15 @@ extern "C" ARM void func_ov000_02177f74(void* arg0, char* arg1) {
     int var7 = 0;
 
     if (func_ov000_0217542c(arg0)) {
-        func_02041c08(arg1, var6 - var2, 8, 5, 5, 5);
+        AppendFrameTag_02041c08(arg1, var6 - var2, 8, 5, 5, 5);
     }
-    func_02041ea4(arg1, var6 - var2);
+    AppendCursorTag_02041ea4(arg1, var6 - var2);
 
     for (signed char var8 = var2; var8 < var3; var8++) {
         short var9 = func_ov000_0218158c(arg0, var8);
         short var10 = var9 + 7;
         int var11 = FindStringInTable_020e0434(var4, var10);
-        func_02041b70(arg1, var7, (const char*)var11);
+        AppendMenuEntry_02041b70(arg1, var7, (const char*)var11);
         if (var8 != var3 - 1) {
             AppendText_02042058(arg1, (const char*)var5);
         }

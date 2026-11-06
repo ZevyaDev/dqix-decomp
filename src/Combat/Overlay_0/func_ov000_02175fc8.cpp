@@ -11,7 +11,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_ov000_02161318(void* arg0, int arg1);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 // USA: func_ov000_02175fc8
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov000_02175fc8(void* arg0) {
         var0 = (char*)func_ov000_02161318(arg0, var1);
         if (var0 == NULL) continue;
         GameState* var2 = GameState::GetInstance();
-        GameObject* var3 = func_0200ff1c(var2, *(int*)(var0 + 0x4c));
+        GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var2, *(int*)(var0 + 0x4c));
         if (var3 == NULL) continue;
         int* var4 = *(int**)((char*)var3 + 0x130);
         if (*var4 & 4) {

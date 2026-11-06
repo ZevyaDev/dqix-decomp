@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_02010768(void* arg0);
-extern "C" int func_ov017_021d6134(void* arg0, int arg1);
+extern "C" int SetScriptRefInt_ov017_021d6134(void* value, int number);
 
 // USA: func_ov001_02163c28
 extern "C" ARM int func_ov001_02163c28(void* arg0) {
@@ -16,6 +16,6 @@ extern "C" ARM int func_ov001_02163c28(void* arg0) {
     if (var0 != NULL) {
         var1 = *(void**)((char*)var0 + Enum_ov001_02163c28_1060) != NULL;
     }
-    func_ov017_021d6134(arg0, var1);
+    SetScriptRefInt_ov017_021d6134(arg0, var1);
     return 1;
 }

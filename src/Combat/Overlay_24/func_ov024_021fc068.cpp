@@ -73,7 +73,7 @@ struct Struct_ov024_021fc068_4 {
 extern "C" ARM void func_ov024_021fc068(struct Struct_ov024_021fc068_2* arg0) {
 	struct Struct_ov024_021fc068_6* var0 = arg0->unknown_8_;
 	GetPartyMemberData_02053c6c((unsigned char*)var0);
-	func_020797dc();
+	GetActionTables_020797dc();
 	struct Struct_ov024_021fc068_7* var1 = arg0->unknown_64c_;
 	if (var1->unknown_9_0_ == 1) return;
 	GetCombatantByID((int)arg0->unknown_0_, (short)arg0->unknown_128_);

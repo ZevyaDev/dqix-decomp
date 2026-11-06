@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov000_02160130();
+extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" void* func_ov000_02160f20(void* arg0);
 struct Struct_ov000_0215440c;
 extern "C" void* func_ov000_021600f8(Struct_ov000_0215440c*, int);
@@ -29,7 +29,7 @@ static inline int inline_ov000_02156cc4_2(short arg0) {
 
 // USA: func_ov025_021eabd0
 extern "C" ARM void func_ov025_021eabd0(char* arg0, int arg1) {
-    Struct_ov025_021eabd0* var0 = (Struct_ov025_021eabd0*)func_ov000_02160f20(func_ov000_02160130());
+    Struct_ov025_021eabd0* var0 = (Struct_ov025_021eabd0*)func_ov000_02160f20(GetBattleScene_ov000_02160130());
     int var1 = -1;
     for (int var2 = 0; var2 < var0->unknown_9_; var2++) {
         void* var3 = func_ov000_021600f8((Struct_ov000_0215440c*)var0, var2);

@@ -10,8 +10,8 @@ extern "C" void func_0205d2bc(void*);
 #define KINDS_OFFSET 0x1d60
 #endif
 
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 
 struct Struct_ov000_0217c908;
 extern "C" int func_ov000_0217f910(struct Struct_ov000_0217c908* arg0);
@@ -48,7 +48,7 @@ struct Struct_ov000_0217c908 {
 // USA: func_ov000_0217c908
 extern "C" ARM void func_ov000_0217c908(struct Struct_ov000_0217c908* arg0, int arg1, int arg2) {
     if (func_ov000_0217f910(arg0) == 0) {
-        func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_188_, 1);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_188_, 1);
         return;
     }
     switch (arg0->unknown_1d60_[arg0->unknown_1d68_]) {
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov000_0217c908(struct Struct_ov000_0217c908* arg0, int 
         func_0205d1e0(arg0->unknown_188_);
         func_0205d274(arg0->unknown_188_);
         func_0205d2bc(arg0->unknown_188_);
-        func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_188_, 1);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_188_, 1);
         arg0->unknown_1faa_ |= 2;
     }
 #endif

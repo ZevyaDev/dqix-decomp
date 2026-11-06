@@ -10,7 +10,7 @@ struct Struct_02047b40_8 { int unknown_0_[3]; };
 extern "C" ARM int func_ov001_0215da14(char* arg0) {
     int var0;
     GameState* var1 = GameState::GetInstance();
-    void* var2 = func_020100bc(var1);
+    void* var2 = GetCamera_020100bc(var1);
     if (var2 == NULL) {
         var0 = 0;
     } else {

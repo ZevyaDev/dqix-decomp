@@ -7,14 +7,14 @@ void SetBrightness(GameResources*, int, int);
 void SetSubBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" int func_0209ca2c(void* arg0);
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 
 struct Struct_0209cae8;
 extern "C" short func_0209cae8(struct Struct_0209cae8* arg0);
 
-struct Struct_02109bf4_4;
-extern "C" void func_0209c678(struct Struct_02109bf4_4* arg0, int arg1);
+struct MusicManager_02109bf4_4;
+extern "C" void func_0209c678(struct MusicManager_02109bf4_4* arg0, int arg1);
 
 extern int gMusicManager_02109bf4;
 
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov008_021868a8(struct Struct_ov008_021868a8* arg0) {
             SetBrightness((GameResources*)var0, -16, 15);
             if (arg0->unknown_b13_ == 0) {
                 if (func_0209cae8((struct Struct_0209cae8*)&gMusicManager_02109bf4) != 0x29) {
-                    func_0209c678((struct Struct_02109bf4_4*)&gMusicManager_02109bf4, 15);
+                    func_0209c678((struct MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 15);
                 }
             }
         } else {
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov008_021868a8(struct Struct_ov008_021868a8* arg0) {
     if (var1 != 1) return;
     if (IsBrightnessTransitionActive((GameResources*)var0) != 0) return;
     if (func_0209ca2c(&gMusicManager_02109bf4) != 0) return;
-    func_0205d6a0((Struct_0205d6a0*)((char*)arg0 + 0x130), 1);
+    CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)((char*)arg0 + 0x130), 1);
     arg0->unknown_b10_ = 0xe;
     arg0->unknown_b11_ = 0;
 }

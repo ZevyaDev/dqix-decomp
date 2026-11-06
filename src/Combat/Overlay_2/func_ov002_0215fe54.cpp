@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
 extern "C" void* GetMessageWindow_020421a0(void);
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov002_0215fe54(void* arg0, char* arg1, int arg2, int ar
             void* var6 = *(void**)(var0 + (var5 << 2) + 0x2000 + 0x2d0);
             if (var6 != 0) {
                 const char* var7 = *(const char**)var6;
-                func_02041b70(arg1, var3, var7);
+                AppendMenuEntry_02041b70(arg1, var3, var7);
                 if (var5 != var2) {
                     AppendText_02042058(arg1, *(char**)(var1 + 0xaa4));
                 }

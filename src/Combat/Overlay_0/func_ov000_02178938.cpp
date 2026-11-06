@@ -14,8 +14,8 @@ extern "C" int func_ov000_02175348(void*, int);
 extern "C" int func_ov000_0217542c(void*);
 extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0();
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
-extern "C" void func_02041c08(char*, int, int, int, int, int);
-extern "C" void func_02041ea4(char*, int);
+extern "C" void AppendFrameTag_02041c08(char*, int, int, int, int, int);
+extern "C" void AppendCursorTag_02041ea4(char*, int);
 extern "C" void AppendText_02042058(char*, const char*);
 extern "C" void __clear(void*, int);
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0*);
@@ -26,12 +26,12 @@ extern "C" void func_ov000_0217aa08(char*, char*);
 extern "C" void func_020e4f18(Struct_ov000_02178938_3*, Struct_ov000_02178938_3*, int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void func_02046608(MessageWindow_020465c0*, int, const char*, char*, int, int, int);
-extern "C" void func_02041b70(char*, int, const char*);
+extern "C" void AppendMenuEntry_02041b70(char*, int, const char*);
 extern const char data_ov000_02184060[];
 
 #if defined(jpn)
 extern "C" void func_0203bdf4(char*, char*);
-extern "C" void func_02046574(MessageWindow_020465c0*, int, char*);
+extern "C" void SetMessageString_02046574(MessageWindow_020465c0*, int, char*);
 extern "C" void func_020474a8(MessageWindow_020465c0*, int, const char*, char*);
 #endif
 
@@ -66,9 +66,9 @@ extern "C" ARM void func_ov000_02178938(Struct_ov000_02178938* arg0, Struct_ov00
 #endif
     var0 = -1;
     if (var7) {
-        func_02041c08(arg3, var1, 8, 5, 5, 5);
+        AppendFrameTag_02041c08(arg3, var1, 8, 5, 5, 5);
     }
-    func_02041ea4(arg3, var1);
+    AppendCursorTag_02041ea4(arg3, var1);
     for (int var12 = 0; var12 < arg2; var12++) {
         int var13 = arg0->unknown_1d1c_[var12];
         if (var0 != var13) {
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov000_02178938(Struct_ov000_02178938* arg0, Struct_ov00
                     func_ov000_0217aa08(var18, var15);
                 }
                 ClearMessageParams_02046380(var8);
-                func_02046574(var8, 0, var15);
+                SetMessageString_02046574(var8, 0, var15);
                 SetMessageNumber_020465c0(var8, 0, var14);
                 func_020474a8(var8, 10, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x754f), var16);
 #else
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov000_02178938(Struct_ov000_02178938* arg0, Struct_ov00
                 SetMessageNumber_020465c0(var8, 0, var14);
                 func_02046608(var8, 10, var11, var16, 256, 0, 0);
 #endif
-                func_02041b70(arg3, var12, var16);
+                AppendMenuEntry_02041b70(arg3, var12, var16);
                 var2 = 1;
             }
         }

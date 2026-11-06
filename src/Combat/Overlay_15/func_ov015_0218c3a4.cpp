@@ -56,7 +56,7 @@ struct Struct_ov015_0218c03c_2
     unsigned char unknown_3e_;
 };
 
-extern "C" Struct_ov005_021556e4* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
+extern "C" Struct_ov005_021556e4* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" int func_020de2a4(Struct_020730e0_2* arg0, int arg1, int arg2);
 extern "C" Struct_02099d34* func_02099cac();
 extern "C" void func_02099d34(void* arg0, int arg1, int arg2, int arg3);
@@ -64,7 +64,7 @@ extern "C" void func_02099d34(void* arg0, int arg1, int arg2, int arg3);
 // USA: func_ov015_0218c3a4
 extern "C" ARM void func_ov015_0218c3a4(Struct_ov015_0218c03c_2* arg0, int arg1)
 {
-    Struct_ov005_021556e4* var0 = func_020dedd0((ItemTable_0201099c_10*)&arg0->unknown_0_->unknown_4c_, (short)arg0->unknown_20_[arg1]);
+    Struct_ov005_021556e4* var0 = FindItemData_020dedd0((ItemTable_0201099c_10*)&arg0->unknown_0_->unknown_4c_, (short)arg0->unknown_20_[arg1]);
     if (var0 == NULL || var0->unknown_0_ == NULL)
         return;
     Struct_ov005_02155d6c* var1 = &arg0->unknown_4_->unknown_0_[arg1];

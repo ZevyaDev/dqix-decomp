@@ -15,7 +15,7 @@ struct Struct_02072c9c {
 
 // USA: func_02072c9c
 extern "C" ARM void func_02072c9c(int arg0, char* arg1) {
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg0);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0);
     if (var0 == NULL) {
         return;
     }

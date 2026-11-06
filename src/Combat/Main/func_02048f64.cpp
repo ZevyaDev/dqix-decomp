@@ -43,7 +43,7 @@ struct Struct_02048c90;
 extern "C" void func_02048c90(Struct_02048c90*);
 extern "C" void func_02049390(unsigned char*, unsigned char);
 struct Struct_02010604;
-extern "C" void func_02033b88(Struct_02010604*, int);
+extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 struct Struct_02033834_2;
 extern "C" void func_02033834(Struct_02033834_2*, int);
 extern "C" Vector3i func_ov025_021ee488(Vector3i* arg0, int arg1, int arg2);
@@ -150,7 +150,7 @@ extern "C" ARM void func_02048f64(Struct_02048e2c* arg0) {
         ((Object3D*)arg0)->SetAnimationPlaybackSpeed(0x1000, 500);
         func_02049390((unsigned char*)arg0, var2->unknown_1d_);
         if (func_02049ee8((unsigned char*)arg0) && arg0->unknown_be_ == 1) {
-            func_02033b88((Struct_02010604*)arg0, 0);
+            SetMotion_02033b88((Struct_02010604*)arg0, 0);
         }
         func_020494c0((Struct_02048f64_2*)arg0);
         var22 = 0;

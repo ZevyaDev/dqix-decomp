@@ -21,7 +21,7 @@ extern "C" int func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg
 extern "C" int func_0204f41c(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, void* arg6, void* arg7, int arg8);
 
 #if defined(jpn)
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" void func_020474a8(void* arg0, int arg1, void* arg2, void* arg3);
 extern "C" void func_02050678(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, void* arg6, void* arg7);
 #endif
@@ -43,7 +43,7 @@ extern "C" ARM void func_02081b3c(void* arg0, void* arg1, void* arg2) {
 
     if ((*(unsigned char*)(var2 + 0x2a) & 0x8) && *(char**)(var2 + 0x0) != NULL) {
         short var7 = *(short*)(var1 + 0xa8) * 8;
-        int var8 = func_020d2ff0(*(char**)(var2 + 0x0)) >> 1;
+        int var8 = GetStringLength_020d2ff0(*(char**)(var2 + 0x0)) >> 1;
         *(short*)(var2 + 0x6) = (short)(var7 - var8 * F13(var2)->unknown_0_0_) >> 1;
     }
 

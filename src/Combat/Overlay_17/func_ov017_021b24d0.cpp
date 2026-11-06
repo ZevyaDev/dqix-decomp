@@ -5,9 +5,6 @@
 #include "Resource/GameResources.h"
 #include "NitroSDK/OverlayId.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 #if defined(jpn)
 enum { Enum_ov017_021b24d0_261 = 0x125, Enum_ov017_021b24d0_716 = 0x27c };
@@ -15,7 +12,7 @@ enum { Enum_ov017_021b24d0_261 = 0x125, Enum_ov017_021b24d0_716 = 0x27c };
 enum { Enum_ov017_021b24d0_261 = 0x105, Enum_ov017_021b24d0_716 = 0x2cc };
 #endif
 
-extern "C" void func_020c9be0(void);
+extern "C" void HaltForever_020c9be0(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_020a1940(unsigned int arg0);
 extern "C" void func_020a1ef0(int arg0);
@@ -25,7 +22,7 @@ extern "C" void func_ov011_02184550(char* arg0, SafeAllocator* arg1, void* arg2,
 extern "C" void func_ov011_021845c8(char* arg0, void* arg1, unsigned int arg2);
 extern "C" void func_ov011_02184640(char* arg0, char* arg1);
 extern "C" void func_ov011_02184694(char* arg0);
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 
 struct Struct_ov017_021b24d0 {
     char unknown_0_[Enum_ov017_021b24d0_261];
@@ -67,7 +64,7 @@ extern "C" ARM int func_ov017_021b24d0(Struct_ov017_021b24d0_3* arg0) {
         return arg0->unknown_8_;
     }
     if (var1->GetDetailedTaskStatus(arg0->unknown_c_) != 2) {
-        func_020c9be0();
+        HaltForever_020c9be0();
     }
     Struct_ov017_021b24d0* var2 = (Struct_ov017_021b24d0*)GetZone3D_02012fe4();
     if (var2 != NULL) {
@@ -77,14 +74,14 @@ extern "C" ARM int func_ov017_021b24d0(Struct_ov017_021b24d0_3* arg0) {
     void* var4;
     var1->GetLoadedFileByID(arg0->unknown_c_, &var4, &var3);
     if (var4 == NULL || var3 == 0) {
-        func_020c9be0();
+        HaltForever_020c9be0();
     }
     func_020a1940(OVERLAY_ID(11));
     func_020a1ef0(1);
     func_020a1df8(4);
     data_ov017_021d83f0.unknown_4_ = (char*)arg0->unknown_10_.Allocate(0x1e0);
     if (data_ov017_021d83f0.unknown_4_ == NULL) {
-        func_020c9be0();
+        HaltForever_020c9be0();
     }
     func_ov011_0218438c(data_ov017_021d83f0.unknown_4_);
     func_ov011_02184550(data_ov017_021d83f0.unknown_4_, &arg0->unknown_10_, var4, var3);
@@ -102,6 +99,6 @@ extern "C" ARM int func_ov017_021b24d0(Struct_ov017_021b24d0_3* arg0) {
     if (!arg0->unknown_38_5_) {
         SetFlags04(var0, 0x609fe);
     }
-    func_020c5588(0, 0, 0x7fff, 0, 0);
+    Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
     return 2;
 }

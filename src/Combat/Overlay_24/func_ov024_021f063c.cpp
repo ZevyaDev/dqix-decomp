@@ -6,7 +6,7 @@
 struct Struct_ov024_021de25c { char unknown_0_[0x14]; int unknown_14_; };
 struct Struct_ov024_021de124 { char unknown_0_[0x138]; struct Struct_ov024_021de25c* unknown_138_; };
 
-extern "C" int func_ov000_0215e9fc(int arg0, unsigned short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, unsigned short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov024_021de25c(struct Struct_ov024_021de124* arg0);
 extern "C" int func_ov024_021eda60(GameObject* arg0);
 
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov024_021f063c(int* arg0, int arg1, int arg2, int* arg3,
         *var4 = *var1++;
     } while (--var3);
 
-    int var5 = func_ov000_0215e9fc(*arg0, var0, 4, 1);
+    int var5 = CollectPartyCombatantIndices_ov000_0215e9fc(*arg0, var0, 4, 1);
     if (var5 <= 0) return 0;
 
     int var6 = 0;

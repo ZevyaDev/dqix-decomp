@@ -54,7 +54,7 @@ extern "C" void func_ov025_021e3158(struct Struct_ov025_021ef9a8* arg0);
 extern "C" void func_02078484(struct Struct_02078398_2* arg0);
 extern "C" int func_02057fb4(void*, int, void*);
 extern "C" void func_02057db8(void*, int);
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 
 extern struct Struct_ov025_021ef9a8 data_ov025_021ef9a8;
 extern struct Struct_ov025_021ef988_11 data_ov025_021ef988;
@@ -62,7 +62,7 @@ extern struct Struct_ov025_021ef988_11 data_ov025_021ef988;
 // USA: func_ov025_021e4624
 extern "C" ARM int func_ov025_021e4624(struct Struct_ov025_021e4624* arg0, void* arg1) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_02057924();
+    void* var1 = GetEffectManager_02057924();
     Struct_ov000_0215440c_4* var2 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, 0);
     Struct_ov000_0215440c_5* var3 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, 0);
     int var4 = var2->unknown_20_;

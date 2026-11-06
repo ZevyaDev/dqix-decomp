@@ -20,7 +20,7 @@ struct Struct_ov000_02171c04_3 {
     int unknown_4c_;
 };
 
-extern "C" Struct_ov000_02171c04* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
+extern "C" Struct_ov000_02171c04* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" unsigned char data_ov000_02183388[8];
 
 // USA: func_ov000_02171d90
@@ -28,7 +28,7 @@ extern "C" ARM Struct_ov000_02171c04* func_ov000_02171d90(Struct_ov000_02171c04_
     if (arg1 < 0) {
         return NULL;
     }
-    char* var0 = (char*)func_0200ff1c(GameState::GetInstance(), arg0->unknown_4c_);
+    char* var0 = (char*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_4c_);
     if (var0) {
         unsigned char var1[8];
         unsigned int var2 = sizeof(var1);
@@ -55,5 +55,5 @@ extern "C" ARM Struct_ov000_02171c04* func_ov000_02171d90(Struct_ov000_02171c04_
             }
         }
     }
-    return func_020dedd0(arg0->unknown_0_, arg1);
+    return FindItemData_020dedd0(arg0->unknown_0_, arg1);
 }

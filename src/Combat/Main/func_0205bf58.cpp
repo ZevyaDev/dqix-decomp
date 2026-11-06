@@ -34,7 +34,7 @@ struct Struct_020e7db0 { unsigned char unknown_0_[4]; };
 extern "C" void func_0205bf3c(Struct_0205bf3c*);
 extern "C" int func_0205bb84(Struct_0205bb84*);
 extern "C" void func_0205c4a8(Struct_0205c4a8*, int);
-extern "C" void func_0205bb04(Struct_0205bf3c*, int);
+extern "C" void SetMenuCursorIndex_0205bb04(Struct_0205bf3c*, int);
 extern const Struct_020e7db8 data_020e7db8;
 extern const Struct_020e7dc4 data_020e7dc4;
 extern const Struct_020e7db0 data_020e7db0, data_020e7db4;
@@ -72,7 +72,7 @@ extern "C" ARM int func_0205bf58(Struct_0205bf3c* arg0, unsigned int arg1) {
                     if (arg0->unknown_34_ == 0x40) {
                         int var9 = arg0->unknown_0_;
                         if (var9 <= func_0205bb84(arg0))
-                            func_0205bb04(arg0, var9 - 1);
+                            SetMenuCursorIndex_0205bb04(arg0, var9 - 1);
                     } else if (arg0->unknown_34_ == 0x80) {
                         if (arg0->unknown_0_ <= func_0205bb84(arg0))
                             arg0->unknown_1c_ = 0;
@@ -134,11 +134,11 @@ extern "C" ARM int func_0205bf58(Struct_0205bf3c* arg0, unsigned int arg1) {
                 else if (arg0->unknown_1c_ < 0) arg0->unknown_1c_ = 0;
                 int var12 = arg0->unknown_0_;
                 if (var12 <= func_0205bb84(arg0))
-                    func_0205bb04(arg0, var12 - 1);
+                    SetMenuCursorIndex_0205bb04(arg0, var12 - 1);
                 if (arg0->unknown_34_ == 0x40 || arg0->unknown_34_ == 0x20) {
                     int var13 = arg0->unknown_0_;
                     if (var13 <= func_0205bb84(arg0))
-                        func_0205bb04(arg0, var13 - 1);
+                        SetMenuCursorIndex_0205bb04(arg0, var13 - 1);
                 } else if (arg0->unknown_34_ == 0x80 || arg0->unknown_34_ == 0x10) {
                     if (arg0->unknown_0_ <= func_0205bb84(arg0))
                         arg0->unknown_1c_ = 0;

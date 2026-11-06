@@ -19,7 +19,7 @@ extern "C" ARM void func_ov000_02163928(char* arg0) {
         var3--;
         if (var3 <= 0) {
             *(signed char*)(arg0 + Enum_ov000_02163928_30524 + var1) = -1;
-            GameObject* var4 = func_0200ff1c(var0, var2);
+            GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, var2);
             if (var4 != 0) {
                 var4->obj3D_.MaybeSetRegularAnimation((char const*)data_ov000_021838df, 1);
             }

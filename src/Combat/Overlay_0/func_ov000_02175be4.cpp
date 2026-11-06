@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_0200ff58(GameState*,int);
+extern "C" void* GetCompanionByIndex_0200ff58(GameState*,int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_ov000_021761c8(char*,int);
 extern "C" int func_ov000_021761ec(char*,int);
@@ -30,14 +30,14 @@ static inline short inline_ov000_02175be4(Struct_ov000_02175be4* arg0) { return 
 extern "C" ARM void func_ov000_02175be4(Struct_ov000_02175be4_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     for (signed char var1=0;var1<4;var1++) {
-        if (!func_0200ff58(var0,var1)) func_ov000_02161318(arg0,var1);
+        if (!GetCompanionByIndex_0200ff58(var0,var1)) func_ov000_02161318(arg0,var1);
     }
     if (arg0->unknown_1b_ != GetProtagonistObjectIndex_020100a8(var0)) return;
     unsigned char var2 = 0;
     short var3[4] = {0};
     Struct_ov000_021833a8 var4(data_ov000_021833a8);
     for (signed char var5=0;var5<4;var5++) {
-        if (!func_0200ff58(var0,var5)) {
+        if (!GetCompanionByIndex_0200ff58(var0,var5)) {
             Struct_ov000_02175be4* var6 = func_ov000_02161318(arg0,var5);
             if (var6) {
                 var3[var2] = var6->unknown_26_;

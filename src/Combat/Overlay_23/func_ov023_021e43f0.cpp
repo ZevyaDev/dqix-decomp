@@ -7,7 +7,7 @@
 #endif
 
 extern "C" void func_ov023_021e2bdc(void* arg0, int arg1, short* arg2, short* arg3);
-extern "C" void func_0205ac40(void* arg0, void* arg1);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 // USA: func_ov023_021e43f0
 extern "C" ARM void func_ov023_021e43f0(void* arg0) {
@@ -23,5 +23,5 @@ extern "C" ARM void func_ov023_021e43f0(void* arg0) {
     *(int*)((char*)var2 + 0x40) = var1 << 12;
     *(unsigned char*)((char*)var2 + 0x4a) = 0x79;
     *(unsigned char*)((char*)var2 + 0x4e) = 2;
-    func_0205ac40(*(void**)((char*)arg0 + 0xc8), (char*)var2 + 0x28);
+    DrawSprite_0205ac40(*(void**)((char*)arg0 + 0xc8), (char*)var2 + 0x28);
 }

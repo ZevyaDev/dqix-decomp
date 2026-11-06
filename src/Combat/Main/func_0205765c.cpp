@@ -49,7 +49,7 @@ extern "C" ARM void func_0205765c(int arg0) {
     if (!var1->unknown_5_) {
         Struct_02056c3c var2[64];
         memset(var2, 0, sizeof(var2));
-        Vector3fix var3  = ((Struct_0205765c_3 *) func_020100bc(GameState::GetInstance()))->unknown_4_;
+        Vector3fix var3  = ((Struct_0205765c_3 *) GetCamera_020100bc(GameState::GetInstance()))->unknown_4_;
         var3.y           = 0;
         int var4                = 0;
         Struct_0205765c *var5 = var0->unknown_34_;

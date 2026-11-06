@@ -37,8 +37,8 @@ extern "C" {
 extern const Struct_ov000_02182b44 data_ov000_02182b44;
 extern const Struct_ov000_02182b44 data_ov000_02182b54;
 void __clear(void* arg0, int arg1);
-int func_ov000_0215e9fc(void* arg0, short* arg1, int arg2, int arg3);
-int func_ov000_0215eb1c(void* arg0, short* arg1, int arg2, int arg3);
+int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
+int CollectEnemyCombatantIndices_ov000_0215eb1c(void* battle, short* indices, int maxCount, int filterFlags);
 void func_ov000_0215c758(void* arg0, short* arg1, int arg2, int arg3, short* arg4, short* arg5,
                          unsigned long long* arg6);
 short func_ov000_0215a004(void* arg0, int arg1, int arg2, int arg3, unsigned long long* arg4, int arg5, int arg6, int arg7);
@@ -88,10 +88,10 @@ extern "C" ARM void func_ov000_0215a23c(void* arg0) {
     short var9 = 0;
     Struct_ov000_02182b44 var10 = data_ov000_02182b54;
     short* var11 = var10.unknown_0_;
-    int var12 = func_ov000_0215e9fc(arg0, var11, 8, 1);
+    int var12 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0, var11, 8, 1);
 
     for (int var13 = 0; var13 < var12; var13++) {
-        Struct_ov000_0215a23c_3* var14 = (Struct_ov000_0215a23c_3*)func_0200ff1c(var0, var11[var13]);
+        Struct_ov000_0215a23c_3* var14 = (Struct_ov000_0215a23c_3*)GetPartyMemberBaseByIndex_0200ff1c(var0, var11[var13]);
         if (var14 != 0) {
             int var15 = 0;
             if (func_02085230(var14->unknown_150_)) {
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov000_0215a23c(void* arg0) {
 
     var9 = 0;
     for (int var18 = 0; var18 < var12; var18++) {
-        Struct_ov000_0215a23c_3* var19 = (Struct_ov000_0215a23c_3*)func_0200ff1c(var0, var11[var18]);
+        Struct_ov000_0215a23c_3* var19 = (Struct_ov000_0215a23c_3*)GetPartyMemberBaseByIndex_0200ff1c(var0, var11[var18]);
         if (var19 == 0) {
             continue;
         }
@@ -178,7 +178,7 @@ extern "C" ARM void func_ov000_0215a23c(void* arg0) {
         func_ov000_0215c758(arg0, var6, var9, 2, var5, var7, var8);
     }
 
-    var12 = func_ov000_0215eb1c(arg0, var10.unknown_0_, 0x10, 1);
+    var12 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0, var10.unknown_0_, 0x10, 1);
     for (int var26 = 0; var26 < var12; var26++) {
         Struct_ov000_0215a23c_3* var27 = inline_ov000_0215a23c(var11[var26]);
         if (var27 != 0) {

@@ -2,9 +2,6 @@
 #include "NitroSDK/Interrupts.h"
 #include "NitroSDK/Memory.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 struct Struct_ov031_02238de4_2 {
 	unsigned char unknown_0_;
@@ -57,7 +54,7 @@ extern "C" void func_ov031_022389b0(int arg0);
 extern "C" void func_ov031_02238910(int arg0);
 extern "C" void func_ov031_02238a88(int arg0);
 extern "C" void* func_ov027_021d8a68(int arg0);
-extern "C" void func_020c9be0(void);
+extern "C" void HaltForever_020c9be0(void);
 
 extern struct Struct_ov031_02238de4_5* data_ov031_02290d14;
 #define sMbpState (data_ov031_02290d14->unknown_0_)
@@ -176,6 +173,6 @@ extern "C" ARM void func_ov031_02238de4(unsigned short arg0, unsigned int arg1, 
 		}
 		break;
 	default:
-		func_020c9be0();
+		HaltForever_020c9be0();
 	}
 }

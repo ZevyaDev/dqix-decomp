@@ -12,10 +12,10 @@ extern "C" void func_020474a8(void *arg0, int arg1, const char *arg2, char *arg3
 
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
-extern "C" int func_02041c08(char *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" int func_02041ea4(char *arg0, int arg1);
+extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" int func_02041e70(char *arg0, int arg1);
-extern "C" int func_02041b70(char *arg0, int arg1, const char *arg2);
+extern "C" int AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_ov002_0215a9b4(void *arg0, short arg1);
 extern "C" int func_0206e3d4(int arg0, int arg1);
@@ -32,9 +32,9 @@ extern "C" ARM void func_ov002_02161938(unsigned char *arg0, char *arg1, int arg
     int var1                                 = var0 % 16;
     *(unsigned char *) (arg0 + 0x2000 + 0x2b4) = var0 / 16;
     if (arg2) {
-        func_02041c08(arg1, var1, 8, 5, 5, 5);
+        AppendFrameTag_02041c08(arg1, var1, 8, 5, 5, 5);
     }
-    func_02041ea4(arg1, var1);
+    AppendCursorTag_02041ea4(arg1, var1);
 
     short var2 = 0;
     unsigned char var3;
@@ -45,17 +45,17 @@ extern "C" ARM void func_ov002_02161938(unsigned char *arg0, char *arg1, int arg
         var1 = func_0206e3d4((int) var5, func_ov002_0215a9b4(arg0, var4));
         if (var1 == 0) {
             func_02041e70(arg1, 0xf);
-            func_02041b70(arg1, var2,
+            AppendMenuEntry_02041b70(arg1, var2,
                           (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 8), 0x119c + 1));
         } else if (*(unsigned int *) (arg0 + 0x2000 + 0x2b0) & (1 << (var1 - 1))) {
             func_02041e70(arg1, 0xf);
-            func_02041b70(arg1, var2,
+            AppendMenuEntry_02041b70(arg1, var2,
                           (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 8), (short) (var1 + 0x119d)));
         } else {
             func_02041e70(arg1, 0xf);
-            func_02041b70(arg1, var2,
+            AppendMenuEntry_02041b70(arg1, var2,
                           (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 8), 0x119c));
         }
@@ -90,9 +90,9 @@ extern "C" ARM void func_ov002_02160aa0(unsigned char *arg0, char *arg1, int arg
     int var1                                 = var0 % 16;
     *(unsigned char *) (arg0 + 0x2000 + 0x484) = var0 / 16;
     if (arg2) {
-        func_02041c08(arg1, var1, 8, 5, 5, 5);
+        AppendFrameTag_02041c08(arg1, var1, 8, 5, 5, 5);
     }
-    func_02041ea4(arg1, var1);
+    AppendCursorTag_02041ea4(arg1, var1);
 
     short var2 = 0;
     unsigned char var3;
@@ -103,17 +103,17 @@ extern "C" ARM void func_ov002_02160aa0(unsigned char *arg0, char *arg1, int arg
         var1 = func_0206e3d4((int) var5, func_ov002_0215a9b4(arg0, var4));
         if (var1 == 0) {
             func_02041e70(arg1, 0xf);
-            func_02041b70(arg1, var2,
+            AppendMenuEntry_02041b70(arg1, var2,
                           (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 0x20), 0x119c + 1));
         } else if (*(unsigned int *) (arg0 + 0x2000 + 0x480) & (1 << (var1 - 1))) {
             func_02041e70(arg1, 0xf);
-            func_02041b70(arg1, var2,
+            AppendMenuEntry_02041b70(arg1, var2,
                           (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 0x20), (short) (var1 + 0x119d)));
         } else {
             func_02041e70(arg1, 0xf);
-            func_02041b70(arg1, var2,
+            AppendMenuEntry_02041b70(arg1, var2,
                           (const char *) FindStringInTable_020e0434(
                               (struct Struct_0201099c_3 *) (arg0 + 0x20), 0x119c));
         }

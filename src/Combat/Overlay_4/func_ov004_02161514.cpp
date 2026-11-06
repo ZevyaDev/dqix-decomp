@@ -121,7 +121,7 @@ extern "C" ARM int func_ov004_02161514(void* arg0) {
 
     var5 = data_ov004_02170854[data_ov004_021707e8.unknown_8_];
     if (var5 != 1 && var5 != 4 && var5 != 7) {
-        unsigned char* var16 = (unsigned char*)func_0200ff1c((GameState*)(void*)GameState::GetInstance(), data_ov004_021707e8.unknown_1c_);
+        unsigned char* var16 = (unsigned char*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)(void*)GameState::GetInstance(), data_ov004_021707e8.unknown_1c_);
         if (!var16) return 0;
         var6 = (unsigned char*)GetPartyMemberData_02053c6c(var16);
         if (!var6) return 0;

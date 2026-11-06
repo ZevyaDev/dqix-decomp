@@ -40,9 +40,9 @@ struct Struct_ov009_02186e00 {
 struct Struct_020e0424 { unsigned int unknown_0_0_ : 12; unsigned int unknown_1_4_ : 20; };
 struct Struct_01ff8b48_27 { int unknown_0_; char* unknown_4_; };
 struct Struct_0201099c_3 : Struct_020e0424 { Struct_01ff8b48_27* unknown_4_; char* unknown_8_; };
-struct Struct_0201099c_14 : Struct_0201099c_3 { short unknown_c_; short unknown_e_; int unknown_10_; void* unknown_14_; };
+struct StringTable_0201099c_14 : Struct_0201099c_3 { short unknown_c_; short unknown_e_; int unknown_10_; void* unknown_14_; };
 struct Struct_ov009_02189a4c_5 {
-    Struct_0201099c_14 unknown_0_;
+    StringTable_0201099c_14 unknown_0_;
     Struct_ov009_02189a4c_2 unknown_18_;
     void* unknown_24_;
     unsigned short unknown_28_;
@@ -73,7 +73,7 @@ extern const char* data_020f285c;
 extern const char* data_020f2858;
 extern char data_ov009_0218aca0[];
 extern "C" void func_ov009_021847ec(Struct_ov009_02189a4c_5*);
-extern "C" void func_020dfc40(Struct_0201099c_14*);
+extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14*);
 extern "C" int func_020e038c(void*, void*, int);
 extern "C" int func_ov009_0218a420(Struct_ov009_02189a4c_2*, Struct_ov009_02189a4c_3*);
 extern "C" void __clear(void*, unsigned int);
@@ -119,7 +119,7 @@ extern "C" ARM void func_ov009_02189a4c(Struct_ov009_021842a0_2* arg0) {
     LoadFileIntoMemory(data_020f285c, gFileScratchSpace_0211e33c, &var10[0]);
     unsigned int var12 = (var10[0] + 511) & ~511;
     LoadFileIntoMemory(data_020f2858, gFileScratchSpace_0211e33c + var12, &var10[1]);
-    func_020dfc40(&arg0->unknown_fc_.unknown_0_);
+    InitStringTable_020dfc40(&arg0->unknown_fc_.unknown_0_);
     func_020e038c((&arg0->unknown_fc_), gFileScratchSpace_0211e33c + var12, var10[1]);
     memset((&arg0->unknown_fc_.unknown_18_), 0, 12);
     unsigned char* var13 = gFileScratchSpace_0211e33c;

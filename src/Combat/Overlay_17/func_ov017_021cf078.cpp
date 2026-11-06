@@ -7,10 +7,10 @@ enum { Enum_ov017_021cf078_2128 = 0x7b8 };
 enum { Enum_ov017_021cf078_2128 = 0x850 };
 #endif
 
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021cf078 {
     unsigned int unknown_0_0_ : 10;
@@ -41,9 +41,9 @@ struct Struct_ov017_021cf078_4 {
 
 // USA: func_ov017_021cf078
 extern "C" ARM void func_ov017_021cf078(int arg0, unsigned short arg1, unsigned char arg2) {
-    void* var0 = func_0202ae24();
+    void* var0 = GetLocalWirelessPacketQueue_0202ae24();
     GameState* var1 = GameState::GetInstance();
-    GameObject* var2 = func_0200ff1c(var1, arg0);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var1, arg0);
     if (!var2) return;
 
     int var3 = GetPartyMemberData_02053c6c((unsigned char*)var2);
@@ -69,5 +69,5 @@ extern "C" ARM void func_ov017_021cf078(int arg0, unsigned short arg1, unsigned 
     var8->unknown_1_0_ = arg0;
     var8->unknown_1_3_ = arg2;
 
-    func_0205e330(var0, &var6, 0);
+    QueueOutgoingPacket_0205e330(var0, &var6, 0);
 }

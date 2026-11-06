@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "Graphics/SpriteAffineTransform.h"
-struct Struct_0205ac40;
+struct SpriteSet_0205ac40;
 
 // USA: func_0205b174
-extern "C" ARM int func_0205b174(Struct_0205ac40* arg0, Struct_0205ac40_2* arg1) {
+extern "C" ARM int func_0205b174(SpriteSet_0205ac40* arg0, Sprite_0205ac40_2* arg1) {
     if (arg1 == 0) {
         return 0;
     }

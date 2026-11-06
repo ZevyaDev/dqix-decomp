@@ -2,9 +2,6 @@
 #include <globaldefs.h>
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 struct Struct_ov003_0216201c {
 #if defined(jpn)
@@ -63,7 +60,7 @@ extern "C" void func_02080c68(void *, int, int);
 extern "C" void *GetFlagManager_0205ec34();
 extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *);
 extern "C" int func_02011494(char*, void*);
-extern "C" void func_0206df6c(void *, unsigned char *, int, int);
+extern "C" void SetFlag_0206df6c(void *, unsigned char *, int, int);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char *, int);
 extern "C" int func_02083b00(unsigned char *, int);
 extern "C" void func_02083acc(unsigned char *, int);
@@ -174,7 +171,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                         func_0207fe44((Struct_0207fe44*)var5);
                         arg0->unknown_4a3_ = 5;
                         arg0->unknown_49f_ = 0;
-                        func_0206df6c(var2, var2 + 0x8c, 0x785, 1);
+                        SetFlag_0206df6c(var2, var2 + 0x8c, 0x785, 1);
                         arg0->unknown_484_  = 0x1d;
                         arg0->unknown_4a4_ = 0x64;
                     } else {

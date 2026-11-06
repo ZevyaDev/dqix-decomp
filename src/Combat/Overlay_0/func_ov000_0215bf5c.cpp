@@ -29,7 +29,7 @@ extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*,Struct_ov000_021576
 extern "C" {
 GameObject* _ZN9GameState19GetCombatantByIndexEi(GameState*,int);
 int func_ov000_0215fd90(Struct_ov000_0215bf5c_3*,int);
-Struct_ov000_0215bf5c_6* func_ov000_0215e958(void*);
+Struct_ov000_0215bf5c_6* GetNextActionResult_ov000_0215e958(void*);
 void func_ov000_0215ccbc(void*,Struct_ov000_0215bf5c_6*,GameObject*,short,short,short,unsigned long long,unsigned char);
 }
 
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov000_0215bf5c(Struct_ov000_0215bf5c* arg0,Struct_ov000
         var6=(Struct_ov000_0215bf5c_5*)func_ov000_0215e938(arg0);
         if (!var6) continue;
         func_ov000_02157cdc(var6);
-        var7=func_ov000_0215e958(arg0);
+        var7=GetNextActionResult_ov000_0215e958(arg0);
         if (!var7) continue;
         memset(var7,0,0x20);var7->unknown_20_=0;
         var5->unknown_0_=0x3ae;

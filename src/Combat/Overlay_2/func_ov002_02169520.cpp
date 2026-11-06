@@ -6,9 +6,9 @@ struct Struct_ov002_0215624c_15;
 struct Struct_ov002_02164748;
 struct Struct_ov002_02157d40_7;
 
-extern "C" void func_0205de24(struct Struct_ov002_0215624c_11 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
-extern "C" int func_0205d794(struct Struct_ov002_0215624c_15 *arg0);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
+extern "C" int GetCursorIndex_0205d794(struct Struct_ov002_0215624c_15 *windowManager);
 extern "C" int func_0205da38(struct Struct_ov002_02164748* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct Struct_ov002_02157d40_7 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_021574d4(void *arg0, int arg1);
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov002_02169520(char *arg0) {
     int var0 = *(int *) (arg0 + 0x1bc0 + Enum_ov002_02169520_0);
     if (var0 == 0) {
         *(short *) (arg0 + 0x1c08 + Enum_ov002_02169520_0) = 0;
-        func_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + 0xec8 + Enum_ov002_02169520_0_2), 0, 2);
+        SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + 0xec8 + Enum_ov002_02169520_0_2), 0, 2);
         func_ov002_02161cf0(arg0);
         func_ov002_02160274(arg0);
         (*(int *) (arg0 + 0x1bc0 + Enum_ov002_02169520_0))++;
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov002_02169520(char *arg0) {
     if (var0 != 1) return;
     *(int *) (arg0 + 0x247c + Enum_ov002_02169520_0_3) |= 4;
     short var1                  = *(short *) (arg0 + 0x1c08 + Enum_ov002_02169520_0);
-    *(short *) (arg0 + 0x1c08 + Enum_ov002_02169520_0) = func_0205d794((struct Struct_ov002_0215624c_15 *) (arg0 + 0xec8 + Enum_ov002_02169520_0_2));
+    *(short *) (arg0 + 0x1c08 + Enum_ov002_02169520_0) = GetCursorIndex_0205d794((struct Struct_ov002_0215624c_15 *) (arg0 + 0xec8 + Enum_ov002_02169520_0_2));
     if (var1 != *(short *) (arg0 + 0x1c08 + Enum_ov002_02169520_0)) *(int *) (arg0 + 0x1bcc + Enum_ov002_02169520_0) = 1;
     *(signed char *) (arg0 + 0x1c20 + Enum_ov002_02169520_0) = func_ov002_021574d4(arg0, *(short *) (arg0 + 0x1c08 + Enum_ov002_02169520_0));
 #if defined(jpn)

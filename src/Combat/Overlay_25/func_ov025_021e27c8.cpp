@@ -34,8 +34,8 @@ struct Struct_ov025_021ef988_3 {
 
 extern "C" SafeAllocator* func_ov025_021e8a54(char* arg0);
 extern "C" char* func_ov025_021e8a64(char* arg0);
-extern "C" Struct_02057de0_2* func_02057924(void);
-extern "C" unsigned char func_0200fb08(Struct_02000c9c_8* arg0);
+extern "C" Struct_02057de0_2* GetEffectManager_02057924(void);
+extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" int func_ov025_021e24d0(char* arg0, char* arg1, char* arg2);
 extern "C" void func_ov025_021e8bac(Struct_ov025_021e267c_2* arg0, Struct_ov025_021e267c_3* arg1);
 extern "C" int func_02057de0(Struct_02057de0_2* arg0, int arg1, SafeAllocator* arg2, int arg3, int arg4);
@@ -59,11 +59,11 @@ extern "C" ARM void func_ov025_021e27c8(char* arg0, int arg1) {
     BackgroundLoader* var5 = BackgroundLoader::GetInstance();
     func_ov025_021e8a54(data_ov025_021ef988.unknown_c_);
     func_ov025_021e8a64(data_ov025_021ef988.unknown_c_);
-    func_02057924();
+    GetEffectManager_02057924();
 #if defined(jpn)
 
 #else
-    int var6 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+    int var6 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
 #endif
 
     var3 = 0;
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov025_021e27c8(char* arg0, int arg1) {
         Struct_02057de0_2* var13;
         var11 = func_ov025_021e8a54(data_ov025_021ef988.unknown_c_);
         var10 = func_ov025_021e8a64(data_ov025_021ef988.unknown_c_);
-        var13 = func_02057924();
+        var13 = GetEffectManager_02057924();
         var12 = var11->Allocate(var9);
         if (var12 != 0) {
             memcpy(var12, var8, var9);

@@ -28,7 +28,7 @@ struct Struct_ov017_0218e8c8_2 {
 extern "C" char* GetZone3D_02012fe4(void);
 extern "C" int func_020981e4(int, int);
 extern "C" unsigned short func_ov017_021b8480(void* arg0);
-extern "C" unsigned char* func_ov017_021b8478(void* arg0);
+extern "C" unsigned char* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" int func_ov017_02191b58(void*, int);
 extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_ov017_0218eafc(Struct_ov017_0218e8c8_2* arg0, int arg1);
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_0218e8c8(Struct_ov017_0218e8c8_2* arg0, int arg1,
     unsigned char* var3 = NULL;
     if ((arg0->unknown_3718_->unknown_3_ != 0 && func_ov017_021b8480(arg0->unknown_3718_) == 0) ||
         (arg0->unknown_3b30_->unknown_3_ != 0 && arg0->unknown_3718_->unknown_2_ != 0)) {
-        var3 = func_ov017_021b8478(arg0->unknown_3718_);
+        var3 = GetBattleSetup_ov017_021b8478(arg0->unknown_3718_);
     }
 
     for (int var4 = 0; var4 < 4; var4++) {
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov017_0218e8c8(Struct_ov017_0218e8c8_2* arg0, int arg1,
         }
 
         int var6 = 0;
-        GameObject* var7 = func_0200ff1c(var0, var4);
+        GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4);
         GameObject* var8 = var0->GetGameObjectByIndex(var4 * 0xc + 0x14);
         if (var7 == NULL) continue;
 

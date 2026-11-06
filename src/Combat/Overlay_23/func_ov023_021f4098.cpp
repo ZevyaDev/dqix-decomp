@@ -38,7 +38,7 @@ extern "C" ARM int func_ov023_021f4098(void* arg0, int arg1, int arg2) {
 #endif
     GameState* var0 = GameState::GetInstance();
     struct Struct_0202b2f0* var1 = (struct Struct_0202b2f0*)GetLocalWireless_0202ae18();
-    GameObject* var2 = func_0200ff1c(var0, arg1);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (var2 == 0 || func_02061bd8((struct Struct_0205faf4_11*)var2) != 0) {
         return 0;
     }
@@ -56,7 +56,7 @@ extern "C" ARM int func_ov023_021f4098(void* arg0, int arg1, int arg2) {
     int var7;
     for (var7 = 0; var7 < 4; var7++) {
         if (func_020a35e0(*(unsigned char**)((char*)arg0 + Enum_ov023_021f4098_672), var7)) {
-            GameObject* var8 = func_0200ff1c(var0, var7);
+            GameObject* var8 = GetPartyMemberBaseByIndex_0200ff1c(var0, var7);
             if (var8 != 0 && func_02061bd8((struct Struct_0205faf4_11*)var8) == 0) {
                 var6[var7] = (float)(unsigned int)func_02053dfc((struct Struct_02053dfc*)var8);
                 var5[var7] = (float)(unsigned int)func_0202053c(var8);
@@ -109,7 +109,7 @@ extern "C" ARM int func_ov023_021f4098(void* arg0, int arg1, int arg2) {
     if (arg2 == 0) {
         for (arg2 = 0; arg2 < 4; arg2++) {
             if (func_020a35e0(*(unsigned char**)((char*)arg0 + Enum_ov023_021f4098_672), arg2)) {
-                func_0200ff1c(var0, arg2);
+                GetPartyMemberBaseByIndex_0200ff1c(var0, arg2);
             }
         }
     }

@@ -32,7 +32,7 @@ extern char data_020f0d0a[];
 // USA: func_02072e94
 extern "C" ARM int func_02072e94(char* arg0, int arg1, int arg2,
                                 Struct_02015ef4_4* arg3, void* arg4) {
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg1);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1);
     unsigned char* var1 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var0);
     Struct_02072e94* var2 = (Struct_02072e94*)func_02052e2c((Struct_02052e2c*)var0);
     int var3 = var2->unknown_14_0_;

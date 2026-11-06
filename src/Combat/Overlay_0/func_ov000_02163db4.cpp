@@ -7,7 +7,7 @@ struct Struct_020708c8;
 struct Struct_020d7aa0_2;
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" Struct_020708c8* func_020704fc();
-extern "C" void* func_0202ae24();
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
 extern "C" void func_020708c8(Struct_020708c8*, unsigned int);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_020531f0(GameObject*);
@@ -26,10 +26,10 @@ extern "C" int func_020535e0(int*);
 extern "C" Struct_020d7aa0_2* func_020d7a50();
 extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
 extern "C" void func_ov017_021bd5d0(int);
-extern "C" int func_02046b08(void**);
+extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_ov017_02191234(GameResources*);
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
-extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void func_02012de8();
 extern "C" void func_ov000_02164280(void*);
 extern "C" void func_ov000_02166e5c(void*);
@@ -71,12 +71,12 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
     GetLocalWireless_0202ae18();
     Struct_020708c8* var3 = func_020704fc();
-    func_0202ae24();
+    GetLocalWirelessPacketQueue_0202ae24();
     SetBrightness(var1, -16, 0);
     func_020708c8(var3, 0);
     if (func_ov017_021959b4()) {
         for (int var4 = 0; var4 < 4; var4++) {
-            GameObject* var5 = func_0200ff1c(var0, var4);
+            GameObject* var5 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4);
             if (var5) func_020531f0(var5);
         }
         func_ov000_02160fa8(arg0, 0x2000000);
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
     }
     if (arg0->unknown_2a0_->unknown_2a_ != GetProtagonistObjectIndex_020100a8(var0) && !func_ov000_02160fd4(arg0, 2)) return;
     for (int var8 = 0; var8 < 4; var8++) {
-        GameObject* var9 = func_0200ff1c(var0, var8);
+        GameObject* var9 = GetPartyMemberBaseByIndex_0200ff1c(var0, var8);
         if (!var9) continue;
         if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var8 & 0xff)) {
             if (func_020535c8((signed char*)var9)) func_020531f0(var9);
@@ -103,13 +103,13 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
     func_020d7aa0(func_020d7a50());
     if (arg0->unknown_2a0_->unknown_c_ >= 0) func_ov017_021bd5d0(arg0->unknown_2a0_->unknown_c_);
     if (var2->GetNumQueuedTasks() > 0) return;
-    if (!func_02046b08((void**)var1->unknown_ptr_array_36fc[1])) return;
+    if (!IsQueueEmpty_02046b08((void**)var1->unknown_ptr_array_36fc[1])) return;
     func_ov017_02191234(var1);
     SetFlags00(var1, 0x10);
     unsigned int* var10 = GetGlobalFlags_020d6c00();
-    func_020466e4(var10, 1);
-    func_020466e4(var10, 2);
-    func_020466e4(var10, 0x2000);
+    SetGlobalFlags_020466e4(var10, 1);
+    SetGlobalFlags_020466e4(var10, 2);
+    SetGlobalFlags_020466e4(var10, 0x2000);
     func_02012de8();
     func_ov000_02164280(arg0);
     if (arg0->unknown_2a0_->unknown_c_ == 0x1a && !var0->GetGameObjectByIndex(1)) func_ov000_02166e5c(arg0);

@@ -12,7 +12,7 @@ struct Struct_ov017_021cd608_3 {
     unsigned short unknown_8_;
 };
 
-extern "C" struct Struct_ov017_021cd608_3* func_ov017_021b8478(void* arg0);
+extern "C" struct Struct_ov017_021cd608_3* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" void* func_ov017_021b8468(void* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov017_021cd608(int arg0, struct Struct_ov017_021cd608_2
     int var3[4];
     struct Struct_ov017_021cd608_4 var4;
 
-    struct Struct_ov017_021cd608_3* var5 = func_ov017_021b8478(var1);
+    struct Struct_ov017_021cd608_3* var5 = GetBattleSetup_ov017_021b8478(var1);
     if (var5->unknown_8_ != var2->unknown_0_) {
         return;
     }

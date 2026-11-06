@@ -7,7 +7,6 @@
 
 
 #if defined(jpn)
-#define func_0206df6c func_0206f0c0
 #define RG(u, j) (j)
 #else
 #define RG(u, j) (u)
@@ -55,7 +54,7 @@ extern "C" Struct_020fdd44* func_02027ca4();
 extern "C" Struct_02018300_2* func_02028bd0(Struct_020fdd44*, int);
 extern "C" void func_02028c64(Struct_02018300_2*, int);
 extern "C" Struct_ov001_021561e0_3* GetFlagManager_0205ec34();
-extern "C" void func_0206df6c(void*, unsigned char*, int, int);
+extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" void func_ov017_021d0490(int);
@@ -65,7 +64,7 @@ extern AllocatorUnion gMainHeap_02114e20;
 extern "C" ARM int func_ov001_021561e0(Struct_ov001_021561e0_4* arg0) {
     if (func_ov001_02153994() != 1) return arg0->unknown_a_;
     arg0->unknown_106_ = 1;
-    if (!func_02094b4c(func_02094a00())) return 11;
+    if (!UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) return 11;
     GameResources* var0 = GetGameResources();
     GameState* var1 = GameState::GetInstance();
     int* var2 = GetLocalWireless_0202ae18();
@@ -113,10 +112,10 @@ extern "C" ARM int func_ov001_021561e0(Struct_ov001_021561e0_4* arg0) {
     }
     if (arg0->unknown_8_ == 0x730a) {
         Struct_ov001_021561e0_3* var10 = GetFlagManager_0205ec34();
-        func_0206df6c(var10, var10->unknown_8c_, 0x1142, 0);
+        SetFlag_0206df6c(var10, var10->unknown_8c_, 0x1142, 0);
     }
     for (int var11 = 0; var11 < 4; ++var11) {
-        Struct_ov001_021561e0_2* var12 = (Struct_ov001_021561e0_2*)func_0200ff1c(var1, var11);
+        Struct_ov001_021561e0_2* var12 = (Struct_ov001_021561e0_2*)GetPartyMemberBaseByIndex_0200ff1c(var1, var11);
         if (var12) {
             var12->unknown_0_.DisableFlag(0x800000);
             var12->unknown_18c_ &= ~2;

@@ -32,20 +32,20 @@ static inline unsigned int inline_ov017_021c71a4_3(Struct_ov017_021c71a4* arg0) 
 static inline unsigned int inline_ov017_021c71a4_4(Struct_ov017_021c71a4* arg0) { return arg0->unknown_3b_.unknown_0_2_; }
 static inline unsigned int inline_ov017_021c71a4(Struct_ov017_021c71a4* arg0) { return arg0->unknown_3b_.unknown_0_3_; }
 static inline unsigned int inline_ov003_0216e714(Struct_ov017_021c71a4* arg0) { return arg0->unknown_3b_.unknown_0_4_; }
-extern "C" Struct_ov017_021c71a4_4* func_ov017_021b8478(void*);
-extern "C" void* func_0202ae24();
+extern "C" Struct_ov017_021c71a4_4* GetBattleSetup_ov017_021b8478(void*);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
 extern "C" int func_020a35e0(unsigned char*, unsigned char);
-extern "C" void func_0205e330(void*, void*, int);
+extern "C" void QueueOutgoingPacket_0205e330(void*, void*, int);
 
 // USA: func_ov017_021c71a4
 extern "C" ARM void func_ov017_021c71a4() {
     GameState* var0 = GameState::GetInstance();
 #if defined(jpn)
-    Struct_ov017_021c71a4_4* var1 = func_ov017_021b8478(*(void**)((char*)GetGameResources() + 0x3508));
+    Struct_ov017_021c71a4_4* var1 = GetBattleSetup_ov017_021b8478(*(void**)((char*)GetGameResources() + 0x3508));
 #else
-    Struct_ov017_021c71a4_4* var1 = func_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
+    Struct_ov017_021c71a4_4* var1 = GetBattleSetup_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
 #endif
-    void* var2 = func_0202ae24();
+    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
     Struct_ov017_021c71a4_3 var3;
     var3.unknown_0_ = 0x71;
     Struct_ov017_021c71a4_2* var4 = (Struct_ov017_021c71a4_2*)var3.unknown_4_;
@@ -61,6 +61,6 @@ extern "C" ARM void func_ov017_021c71a4() {
         var4->unknown_d_.unknown_0_3_ = (unsigned char)inline_ov017_021c71a4((Struct_ov017_021c71a4*)var6->currentStats_);
         var4->unknown_d_.unknown_0_4_ = (unsigned char)inline_ov003_0216e714((Struct_ov017_021c71a4*)var6->currentStats_);
         var4->unknown_f_7_ = ((Struct_ov017_021c71a4*)var6->currentStats_)->unknown_3a_;
-        func_0205e330(var2, &var3, 0);
+        QueueOutgoingPacket_0205e330(var2, &var3, 0);
     }
 }

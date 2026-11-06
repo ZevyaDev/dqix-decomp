@@ -90,7 +90,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_0209c6d8(void*, int);
 extern "C" void func_020117cc(char*, DetailedTreasureMapData*);
 extern "C" void func_ov023_021ed988(char*, int);
-extern "C" Struct_ov023_021ef524_2* func_02079e2c(char*, int);
+extern "C" Struct_ov023_021ef524_2* FindActionData_02079e2c(char*, int);
 extern "C" {
 void* GetLocalWireless_0202ae18();
 Struct_ov023_021ef524_4* GetZone3D_02012fe4();
@@ -200,7 +200,7 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
         }
     } else if (var1->unknown_0_ == 5) {
         if (func_ov023_021f4fc8()) {
-            char* var23 = ((Struct_ov023_021ef524*)func_0200ff1c(var0, GetProtagonistObjectIndex_020100a8(var0)))->unknown_134_;
+            char* var23 = ((Struct_ov023_021ef524*)GetPartyMemberBaseByIndex_0200ff1c(var0, GetProtagonistObjectIndex_020100a8(var0)))->unknown_134_;
             int var22 = arg0->unknown_5ab0_;
             sprintf(var5, FindStringInList_02072a68(&arg0->unknown_5af4_, 0x1e), var22, var4->legacy_.bossName_, var23, var22, var4->legacy_.bossName_, var4->legacy_.bossName_);
             StartMessage_0204500c(var2, var5, 1);
@@ -236,7 +236,7 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
         if (func_ov023_021f4fc8()) {
             int var26 = var4->legacy_.GetLearnedMove(var4->legacy_.level_, 1);
             if (var26) {
-                Struct_ov023_021ef524_2* var27 = func_02079e2c((char*)func_020797dc(), (short)var26);
+                Struct_ov023_021ef524_2* var27 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), (short)var26);
                 sprintf(var5, FindStringInList_02072a68(&arg0->unknown_5af4_, 0x20), var4->legacy_.bossName_, var27->unknown_0_);
                 StartMessage_0204500c(var2, var5, 1);
                 var2->unknown_17e2_ = 0;

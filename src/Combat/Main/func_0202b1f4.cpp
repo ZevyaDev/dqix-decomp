@@ -12,7 +12,7 @@ extern "C" void* GetGlobalFlags_020d6c00(void);
 struct Struct_02012de8;
 extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
 extern "C" int func_0202b284(int arg0, int arg1);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_ov017_021c37a4(void);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
@@ -31,7 +31,7 @@ extern "C" ARM int func_0202b1f4(int* arg0) {
     if ((unsigned int)((var3 + 0xfe) & 0xff) > 1) {
         return var3;
     }
-    func_020466e4((unsigned int*)var2, 0x1000000);
+    SetGlobalFlags_020466e4((unsigned int*)var2, 0x1000000);
     func_ov017_021c37a4();
     SetBrightness((GameResources*)var1, -16, 10);
     *(unsigned char*)((char*)var0 + Enum_0202b1f4_23752) = 4;

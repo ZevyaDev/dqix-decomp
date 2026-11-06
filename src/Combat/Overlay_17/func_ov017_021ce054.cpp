@@ -18,7 +18,7 @@ struct Struct_ov017_021ce054 {
 extern "C" ARM void func_ov017_021ce054(int arg0, struct Struct_ov017_021ce054* arg1, GameState* arg2, char* arg3) {
     int var0 = (arg0 >= 0) && (arg0 <= 3);
     if (!var0) return;
-    GameObject* var1 = func_0200ff1c(arg2, arg1->unknown_8_);
+    GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(arg2, arg1->unknown_8_);
     if (!var1) return;
     unsigned char* var2 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var1);
     void* var3 = GetLocalWireless_0202ae18();

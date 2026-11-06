@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_020531f0(void* arg0);
 struct Struct_02018300_3;
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 struct Struct_02039df4;
 extern "C" void func_ov017_021c2b6c(void* arg0);
 extern "C" void func_ov017_021c2e50(char* arg0);
@@ -14,7 +14,7 @@ extern "C" int func_02058618(void* arg0);
 unsigned long long GetCurrentTimestamp(void);
 extern "C" unsigned long long _ll_udiv(unsigned long long arg0, unsigned int arg1, unsigned int arg2);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_021c310c(void* arg0);
 extern "C" void func_020a0c0c(void);
 
@@ -22,7 +22,7 @@ extern "C" void func_020a0c0c(void);
 #pragma optimize_for_size off
 extern "C" ARM void func_ov017_021c2f3c(unsigned char* arg0) {
     GameObject* var0 = GameState::GetInstance()->GetUnknownGameObject();
-    void* var1 = func_02057924();
+    void* var1 = GetEffectManager_02057924();
     void* var2 = GetLocalWireless_0202ae18();
 
     if (var0 == 0) arg0[0x8c] = 3;
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov017_021c2f3c(unsigned char* arg0) {
     if (var3 == 0) {
         if (var0 != 0) {
             func_020531f0(var0);
-            func_020397cc((struct Struct_02018300_3*)var0, 1);
+            DisablePlayerControl_020397cc((struct Struct_02018300_3*)var0, 1);
         }
 
         if (((Object3D*)((struct Struct_02039df4*)var0))->GetField06() == 0x2710 ||
@@ -75,5 +75,5 @@ extern "C" ARM void func_ov017_021c2f3c(unsigned char* arg0) {
     arg0[0x1] = 1;
     func_ov017_021c310c(arg0);
     if (arg0[0x96] != 0) func_020a0c0c();
-    if (var0 != 0) func_020397c0(var0);
+    if (var0 != 0) EnablePlayerControl_020397c0(var0);
 }

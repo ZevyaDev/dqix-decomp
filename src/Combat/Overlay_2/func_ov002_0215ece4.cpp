@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_ov002_0215b918(unsigned char* arg0, int arg1, int arg2, int arg3);
 
@@ -20,7 +20,7 @@ extern "C" ARM void func_ov002_0215ece4(void* arg0, char* arg1, int arg2, int ar
             void* var6 = *(void**)(var0 + (var5 << 2) + 0x2000 + 0x4a0);
             if (var6 != 0) {
                 const char* var7 = *(const char**)var6;
-                func_02041b70(arg1, var3, var7);
+                AppendMenuEntry_02041b70(arg1, var3, var7);
                 if (var5 != var2) {
                     AppendText_02042058(arg1, *(char**)(var1 + 0xbdc));
                 }

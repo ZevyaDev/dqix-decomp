@@ -7,8 +7,8 @@ enum { Enum_ov023_021f7d14_80 = 0x4c, Enum_ov023_021f7d14_78 = 0x4e, Enum_ov023_
 enum { Enum_ov023_021f7d14_80 = 0x50, Enum_ov023_021f7d14_82 = 0x52, Enum_ov023_021f7d14_40 = 0x28 };
 #endif
 
-struct Struct_02020cb8_5;
-extern "C" int func_0204b5e8(struct Struct_02020cb8_5*, int, int);
+struct BGLayer_02020cb8_5;
+extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5*, int, int);
 
 struct Struct_ov023_021f7d14 { fix32_t unknown_0_; fix32_t unknown_4_; };
 
@@ -24,5 +24,5 @@ extern "C" ARM int func_ov023_021f7d14(char* arg0, struct Struct_ov023_021f7d14*
     Struct_ov023_021f7d14_2* var0 = (Struct_ov023_021f7d14_2*)arg0;
     var0->unknown_50_ = (short)(arg1->unknown_0_ >> 12);
     var0->unknown_52_ = (short)(arg1->unknown_4_ >> 12);
-    return func_0204b5e8((Struct_02020cb8_5*)var0->unknown_28_, var0->unknown_50_, var0->unknown_52_);
+    return SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var0->unknown_28_, var0->unknown_50_, var0->unknown_52_);
 }

@@ -5,15 +5,15 @@ enum { Enum_ov000_0218048c_7538 = 0x1faa };
 enum { Enum_ov000_0218048c_7538 = 0x1d72 };
 #endif
 
-struct Struct_0205d1e0;
-struct Struct_0205d274;
-struct Struct_0205d2bc;
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d1e0;
+struct TextWindowManager_0205d274;
+struct TextWindowManager_0205d2bc;
+struct TextWindowManager_0205d6a0;
 
-extern "C" void func_0205d1e0(struct Struct_0205d1e0*);
-extern "C" void func_0205d274(struct Struct_0205d274*);
-extern "C" void func_0205d2bc(struct Struct_0205d2bc*);
-extern "C" void func_0205d6a0(struct Struct_0205d6a0*, int);
+extern "C" void func_0205d1e0(struct TextWindowManager_0205d1e0*);
+extern "C" void func_0205d274(struct TextWindowManager_0205d274*);
+extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc*);
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0*, int);
 extern "C" void func_ov000_02174b14(void* arg0);
 
 struct Struct_ov000_0218048c {
@@ -31,10 +31,10 @@ struct Struct_ov000_0218048c {
 // USA: func_ov000_0218048c
 extern "C" ARM void func_ov000_0218048c(char* arg0) {
     int var0;
-    func_0205d1e0((struct Struct_0205d1e0*)(arg0 + 0x188));
-    func_0205d274((struct Struct_0205d274*)(arg0 + 0x188));
-    func_0205d2bc((struct Struct_0205d2bc*)(arg0 + 0x188));
-    func_0205d6a0((struct Struct_0205d6a0*)(arg0 + 0x188), 1);
+    func_0205d1e0((struct TextWindowManager_0205d1e0*)(arg0 + 0x188));
+    func_0205d274((struct TextWindowManager_0205d274*)(arg0 + 0x188));
+    func_0205d2bc((struct TextWindowManager_0205d2bc*)(arg0 + 0x188));
+    CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(arg0 + 0x188), 1);
     for (var0 = 0; var0 < 4; var0++) {
         signed char var1 = *(signed char*)(arg0 + var0 + 0x6c);
         struct Struct_ov000_0218048c* var2 = (struct Struct_ov000_0218048c*)(arg0 + 0x958) + var1;

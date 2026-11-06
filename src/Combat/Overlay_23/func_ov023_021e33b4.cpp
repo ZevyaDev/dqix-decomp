@@ -12,7 +12,7 @@ struct Struct_0205faf4_9;
 struct Struct_ov005_02159c24;
 struct TextureVRAMArea_0203d028;
 struct Struct_0202e5c0;
-struct Struct_02043368_2;
+struct Sprite_02043368_2;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct Struct_0201099c_3;
@@ -149,19 +149,19 @@ extern "C" void func_ov023_021e6150(void* arg0, unsigned char arg1);
 extern "C" void func_ov023_021e60e0(void* arg0, unsigned int arg1);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02042b30(void* arg0, void* arg1);
-extern "C" void func_020100c4(GameState* arg0, int arg1);
+extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_020a2010(void* arg0);
 extern "C" void func_0202e5c0(Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_020a27a0(void* arg0);
 extern "C" void func_020c54a4(int arg0, unsigned int arg1, unsigned int arg2, unsigned short arg3);
-extern "C" void func_0205a444(char* arg0);
-extern "C" void func_0205a198(Struct_02043368_2* arg0);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
+extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void func_020e46c4(void* arg0);
-extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_ov023_021e20c0(void* arg0);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
@@ -181,7 +181,7 @@ void func_ov005_0215ae7c(void* arg0);
 void func_020dea64(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, const void* arg4, int arg5);
 void func_0207de48(void* arg0, int arg1, int arg2);
 void func_020432c4(void* arg0);
-void func_0205a528(void* arg0, void* arg1, int arg2, SafeAllocator* arg3);
+void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, SafeAllocator* allocator);
 void ClearMessageParams_02046380(void* window);
 void func_02046608(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
 void func_ov023_021e20f0(void* arg0, void* arg1, void* arg2, unsigned int arg3);
@@ -206,14 +206,14 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
 
     if (arg0->unknown_4e4_ == 1)
     {
-        FontLoader_0208cb08* var3 = func_02094a00();
+        FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
         func_02094b40(var3);
-        func_02094b34(var3, 0x79, 0x1fa, 0, 0);
+        RequestFontLoad_02094b34(var3, 0x79, 0x1fa, 0, 0);
         arg0->unknown_4e4_++;
     }
     else if (arg0->unknown_4e4_ == 2)
     {
-        if (func_02094b4c(func_02094a00()))
+        if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()))
         {
             func_ov017_0219ba0c(var1, 1);
 #if defined(jpn)
@@ -316,12 +316,12 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             func_020432c4(var8);
             SaveTextureVRAMState_0207dfac(arg0->unknown_474_);
 
-            arg0->unknown_138_ = func_020100bc(var0);
+            arg0->unknown_138_ = GetCamera_020100bc(var0);
             func_020a2010(arg0->unknown_13c_);
             func_0202e5c0((Struct_0202e5c0*)arg0->unknown_13c_, 0xb666, 0xa800, 0x42ccc);
             func_0202e5c8((unsigned char*)arg0->unknown_13c_, 0xb666, 0xa800, 0);
             func_020a27a0(arg0->unknown_13c_);
-            func_020100c4(var0, (int)arg0->unknown_13c_);
+            SetCamera_020100c4(var0, (int)arg0->unknown_13c_);
             func_020c54a4(0, 0, 0, 0);
 
             var2->RemoveTask(arg0->unknown_630_);
@@ -343,12 +343,12 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             var2->RemoveTask(arg0->unknown_630_);
             arg0->unknown_630_ = -1;
 
-            func_0205a444((char*)arg0->unknown_c8_);
+            InitSpriteSet_0205a444((char*)arg0->unknown_c8_);
             arg0->unknown_c8_->unknown_50_ = 0;
             arg0->unknown_c8_->inline_ov023_021e33b4(arg0->unknown_cc_, SPRITE_COUNT_021e33b4);
             arg0->unknown_c8_->unknown_3c_ = arg0->unknown_d0_;
             for (int var11 = 0; var11 < SPRITE_COUNT_021e33b4; var11++)
-                func_0205a198((Struct_02043368_2*)(arg0->unknown_cc_ + var11 * 0x28));
+                InitSprite_0205a198((Sprite_02043368_2*)(arg0->unknown_cc_ + var11 * 0x28));
 
 #if defined(jpn)
             arg0->unknown_630_ = var2->QueueLoadFile(data_ov023_021fdca4, NULL);
@@ -373,7 +373,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
                 int var17;
                 void* var18 = GetPacEntryData_020467f0((PacEntry_02020aec*)var13, var16, &var12, &var17);
                 if (var18 != NULL)
-                    func_0205a528(arg0->unknown_c8_, var18, var17, &arg0->unknown_68_);
+                    LoadSpriteSetFile_0205a528(arg0->unknown_c8_, var18, var17, &arg0->unknown_68_);
             }
             var2->RemoveTask(arg0->unknown_630_);
             arg0->unknown_630_ = -1;
@@ -393,7 +393,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
 #if !defined(jpn)
         Struct_ov023_021e33b4_4 var19;
         func_020e46c4(&var19);
-        func_020e4bf4(&var19, GetProtagonistObjectIndex_020100a8(var0));
+        InitPartyMemberNoun_020e4bf4(&var19, GetProtagonistObjectIndex_020100a8(var0));
         void* var20 = GetMessageWindow_020421a0();
         Struct_0201099c_3* var21 = (Struct_0201099c_3*)((char*)arg0->unknown_0_ + 0xdf8);
         for (int var22 = 0; var22 < 2; var22++)
@@ -428,7 +428,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
     }
     else
     {
-        void* var25 = func_0200ff1c(GameState::GetInstance(), arg0->unknown_4fc_);
+        void* var25 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_4fc_);
         if (var25 != NULL)
         {
             func_ov023_021e60e0(arg0->unknown_120_[0], 0x1eb);

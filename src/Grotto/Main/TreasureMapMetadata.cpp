@@ -20,7 +20,7 @@ void* GetZone3D_02012fe4();
 unsigned short GenerateNewMapQuality()
 {
     GameState* gameState = GameState::GetInstance();
-    char* maybeMainCharDataPtr = (char*)func_0200ff1c(gameState, GetProtagonistObjectIndex_020100a8(gameState));
+    char* maybeMainCharDataPtr = (char*)GetPartyMemberBaseByIndex_0200ff1c(gameState, GetProtagonistObjectIndex_020100a8(gameState));
     (void)GetZone3D_02012fe4();
     GrottoStruct* grotto = gameState->GetGrottoStruct();
 

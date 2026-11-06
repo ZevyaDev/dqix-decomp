@@ -53,8 +53,8 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_0209c6d8(void*, int);
 extern "C" void func_020117cc(char*, DetailedTreasureMapData*);
 extern "C" void func_ov023_021ed988(char*, int);
-extern "C" Struct_ov023_021ef6f4_2* func_02079e2c(char*, int);
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" Struct_ov023_021ef6f4_2* FindActionData_02079e2c(char*, int);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" {
 void* GetLocalWireless_0202ae18();
 Struct_ov023_021ef6f4* GetZone3D_02012fe4();
@@ -179,7 +179,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
         }
     } else if (var1->unknown_0_ == 5) {
         if (func_ov023_021f4fc8()) {
-            func_0200ff1c(var0, GetProtagonistObjectIndex_020100a8(var0));
+            GetPartyMemberBaseByIndex_0200ff1c(var0, GetProtagonistObjectIndex_020100a8(var0));
             sprintf(var5, FindStringInList_02072a68(&arg0->unknown_5904_, 0x1e));
             Struct_ov000_0217964c_2* var24 = func_0200fea4(var0, arg0->unknown_6e30_[0]);
             if (var4->legacy_.bossID_ == 9) var24 = func_0200fea4(var0, arg0->unknown_6e30_[1]);
@@ -224,13 +224,13 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
         if (func_ov023_021f4fc8()) {
             int var26 = var4->legacy_.GetLearnedMove(var4->legacy_.level_, 1);
             if (var26) {
-                Struct_ov023_021ef6f4_2* var27 = func_02079e2c((char*)func_020797dc(), (short)var26);
+                Struct_ov023_021ef6f4_2* var27 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), (short)var26);
                 sprintf(var5, FindStringInList_02072a68(&arg0->unknown_5904_, 0x20));
                 Struct_ov000_0217964c_2* var28 = func_0200fea4(var0, arg0->unknown_6e30_[0]);
                 if (var4->legacy_.bossID_ == 9) var28 = func_0200fea4(var0, arg0->unknown_6e30_[1]);
                 func_020e4ce8(var6, var28, 1);
                 var2->unknown_20_ = var6;
-                func_02046574((Struct_02046574_2*)var2, 1, var27->unknown_0_);
+                SetMessageString_02046574((Struct_02046574_2*)var2, 1, var27->unknown_0_);
                 StartMessage_0204500c(var2, var5, 1, 0xe3);
                 var2->unknown_19b2_ = 0;
                 var2->unknown_998_ = 1;

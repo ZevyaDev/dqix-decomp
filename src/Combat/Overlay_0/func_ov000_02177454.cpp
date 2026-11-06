@@ -6,9 +6,9 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov000_0217c638(void* arg0, int arg1, int arg2);
 extern "C" void func_ov000_021775a4(void* arg0, void* arg1);
 #if defined(jpn)
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
@@ -59,8 +59,8 @@ extern "C" ARM void func_ov000_02177454(void* arg0, struct Struct_ov000_02177454
 #endif
     func_ov000_021775a4(var0, var4);
 #if defined(jpn)
-    func_0205d304(var3, var4, 0, 1, 0, 1, 0);
+    OpenTextWindow_0205d304(var3, var4, 0, 1, 0, 1, 0);
 #else
-    func_0205d304(var3, var4, 0, 1, 0, 1, 0, 0);
+    OpenTextWindow_0205d304(var3, var4, 0, 1, 0, 1, 0, 0);
 #endif
 }

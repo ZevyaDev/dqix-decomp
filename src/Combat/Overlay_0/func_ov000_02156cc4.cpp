@@ -52,7 +52,7 @@ extern "C" ARM int func_ov000_02156cc4(struct Random* arg0, int arg1, Struct_020
     GameState* var0 = GameState::GetInstance();
     float var1;
     if (inline_ov000_02156cc4_2(arg1)) {
-        GameObject* var2 = func_0200ff1c(var0, arg1);
+        GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
         unsigned char* var3 = GetPartyMemberData_02053c6c((unsigned char*)var2);
         int var4 = ((Struct_ov000_02156cc4*)var3)->unknown_4_0_;
         float var5 = func_02084e78(var3);

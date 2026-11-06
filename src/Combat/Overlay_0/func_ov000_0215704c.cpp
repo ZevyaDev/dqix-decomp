@@ -41,7 +41,7 @@ struct Struct_ov000_02182aa0 {
 extern struct Struct_ov000_02182a64 data_ov000_02182a64;
 extern struct Struct_ov000_02182aa0 data_ov000_02182aa0;
 
-extern "C" int func_ov000_0215e9fc(struct Random* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(struct Random* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov000_02155f9c(struct Random* arg0, int arg1, int arg2);
 extern "C" float func_ov000_0215641c(struct Random* arg0, int arg1);
 int NextRandomMax(struct Random* random, int maximum);
@@ -61,7 +61,7 @@ extern "C" ARM int func_ov000_0215704c(struct Random* arg0, int arg1) {
         return 0;
     }
     struct Struct_ov000_02182a64 var2 = data_ov000_02182a64;
-    var0 = func_ov000_0215e9fc(arg0, var2.unknown_0_, 4, 1);
+    var0 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0, var2.unknown_0_, 4, 1);
     struct Struct_ov000_0215704c_2* var3 = (struct Struct_ov000_0215704c_2*)GameState::GetInstance()->GetCombatantByIndex(arg1);
     if (var3 == NULL) {
         return 0;
@@ -74,7 +74,7 @@ extern "C" ARM int func_ov000_0215704c(struct Random* arg0, int arg1) {
     }
     var1 = GameState::GetInstance();
     for (int var4 = 0; var4 < var0; var4++) {
-        if (func_0200ff1c(var1, var2.unknown_0_[var4]) == NULL) {
+        if (GetPartyMemberBaseByIndex_0200ff1c(var1, var2.unknown_0_[var4]) == NULL) {
             continue;
         }
         float var5 = func_ov000_0215641c(arg0, var2.unknown_0_[var4]);

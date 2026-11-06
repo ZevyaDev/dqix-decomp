@@ -16,12 +16,12 @@ enum { Enum_ov003_0215da0c_2456 = 0x998 };
 #endif
 
 struct Struct_0201099c_3;
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov003_0215cab0(void* arg0, int arg1);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov003_0215da0c(struct Struct_ov003_0215da0c* arg0) {
         arg0->unknown_3b8_++;
     }
     if (var3 == 1 && *(int*)(var0 + Enum_ov003_0215da0c_2456) == 0) {
-        func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_98_, 1);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_98_, 1);
         arg0->unknown_3bc_ = 5;
         arg0->unknown_3b8_ = 0;
     }

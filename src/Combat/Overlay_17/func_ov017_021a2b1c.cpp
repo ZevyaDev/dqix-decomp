@@ -11,7 +11,7 @@ extern "C" GameObject* func_ov017_021a2738(void* arg0, int arg1);
 struct Struct_02072adc;
 extern "C" void func_02072adc(struct Struct_02072adc* arg0, struct Struct_02072adc* arg1);
 struct Struct_02010604;
-extern "C" int func_02033b88(struct Struct_02010604* arg0, int arg1);
+extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
 
 // USA: func_ov017_021a2b1c
 extern "C" ARM void func_ov017_021a2b1c(void* arg0) {
@@ -31,16 +31,16 @@ extern "C" ARM void func_ov017_021a2b1c(void* arg0) {
         func_02072adc((struct Struct_02072adc*)var6, (struct Struct_02072adc*)var5);
         switch (*(int*)((char*)var5 + 0x130)) {
             case 0:
-                func_02033b88((struct Struct_02010604*)var5, 5);
+                SetMotion_02033b88((struct Struct_02010604*)var5, 5);
                 break;
             case 2: case 4: case 5: case 6:
-                func_02033b88((struct Struct_02010604*)var5, 1);
+                SetMotion_02033b88((struct Struct_02010604*)var5, 1);
                 break;
             case 9:
-                func_02033b88((struct Struct_02010604*)var5, 2);
+                SetMotion_02033b88((struct Struct_02010604*)var5, 2);
                 break;
             default:
-                func_02033b88((struct Struct_02010604*)var5, 0);
+                SetMotion_02033b88((struct Struct_02010604*)var5, 0);
                 break;
         }
     }

@@ -43,7 +43,7 @@ struct Struct_ov012_0218ab34_2 {
     short unknown_ae_;
 };
 
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct StringList_02072a68_2;
 
 struct Struct_ov012_0218ab34_3 {
@@ -54,7 +54,7 @@ struct Struct_ov012_0218ab34_3 {
     char unknown_133c_[4];
 };
 
-extern "C" Struct_ov012_0218ab34_2* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+extern "C" Struct_ov012_0218ab34_2* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" const char* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void func_0204f160(unsigned char* arg0, int arg1, int arg2);
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov012_0218ab34(Struct_ov012_0218ab34_3* arg0, int arg1)
     if (arg1 != 0)
         return;
 
-    Struct_ov012_0218ab34_2* var0 = func_0205d81c((struct Struct_0205d81c*)arg0->unknown_ac_, 0xe);
+    Struct_ov012_0218ab34_2* var0 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)arg0->unknown_ac_, 0xe);
     if (var0 == NULL)
         return;
 

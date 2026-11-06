@@ -36,7 +36,7 @@ extern "C" void func_0208bf78(Struct_0208bb78*);
 extern "C" void func_0208b788(int, float, Struct_0208baec*, int);
 extern "C" int func_0208baec(int, Struct_0208baec_2*, Struct_0208baec*, int, float, int, unsigned char);
 extern "C" int GetResources_0200fb8c(int*);
-extern "C" unsigned char func_0200fb08(Struct_02000c9c_8*);
+extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" int func_02046b24(Struct_02015438**);
 extern "C" int* func_02094d6c();
 extern "C" unsigned char func_020965ac(Struct_02065990_3*, unsigned char);
@@ -86,7 +86,7 @@ extern "C" ARM int func_0208bb78(Struct_0208bb78* arg0, int arg1) {
             memcpy(&var9, &var8, sizeof(var9));
             var9.unknown_4_ += 0x38;
 #if !defined(jpn)
-            if (func_0200fb08((Struct_02000c9c_8*)var2) == 5) var9.unknown_4_ += 16;
+            if (GetGameLanguage_0200fb08((Struct_02000c9c_8*)var2) == 5) var9.unknown_4_ += 16;
 #endif
 #if defined(jpn)
             func_0208baec((int)&arg0->unknown_60_, &arg0->unknown_b4_[(unsigned char)(var5 + 1)], &var9, 0x60, var4, var0, 1);

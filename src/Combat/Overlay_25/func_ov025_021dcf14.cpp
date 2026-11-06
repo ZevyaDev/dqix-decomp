@@ -97,7 +97,7 @@ extern "C" void func_ov000_021626a0(void* arg0, int arg1, int arg2);
 struct Vector3i;
 extern "C" void func_ov000_02167f10(void* arg0);
 struct Struct_02033834;
-extern "C" void func_02033874(Struct_02033834*, int);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_ov025_021de110(void* arg0);
 struct Struct_ov025_021dcf14_7;
 struct Struct_ov025_021dcf14_8;
@@ -107,8 +107,8 @@ extern "C" void func_02033fcc(Struct_02033fcc*);
 struct Struct_02033fdc;
 extern "C" void func_02033fdc(Struct_02033fdc*);
 struct Struct_02010604;
-extern "C" int func_02033b88(Struct_02010604*, int);
-extern "C" struct Struct_ov025_021dcf14_4* func_02079e2c(char*, int);
+extern "C" int SetMotion_02033b88(Struct_02010604*, int);
+extern "C" struct Struct_ov025_021dcf14_4* FindActionData_02079e2c(char*, int);
 struct Struct_ov000_0215440c;
 extern "C" struct Struct_ov025_021dcf14_3* func_ov000_021600f8(Struct_ov000_0215440c*, int);
 struct Struct_ov000_0215440c_2;
@@ -127,7 +127,7 @@ extern "C" void func_0204a0c8(unsigned char*);
 extern "C" int func_ov000_0215ffa0(void* arg0);
 struct Struct_ov025_021dce7c;
 extern "C" int func_ov025_021dce7c(unsigned char*, Struct_ov025_021dce7c*, int);
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_02078484(struct Struct_02078398_2* arg0);
 extern "C" void func_02057fb4(void*, int, void*);
 extern "C" void func_0205ebfc(void*, int, int);
@@ -276,7 +276,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
                 Vector3fix_Normalize(&var24, &var24);
                 int var25 = fix32_Atan2(var24.x, var24.z);
                 var2[var15]->obj3D_.position_ = var23;
-                func_02033874((Struct_02033834*)var2[var15], var25);
+                SetFacingInstantly_02033874((Struct_02033834*)var2[var15], var25);
                 struct Struct_ov025_021dcf14_5 var26;
                 func_ov025_021de110(&var26);
                 var26.unknown_0_ = 0;
@@ -329,8 +329,8 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
                     var36 = -0x1922;
                 }
                 int var37 = var2[var35]->obj3D_.rotation_.y;
-                func_02033874((Struct_02033834*)var2[var35], fix32ReduceAngle0To2Pi(var37 + var36));
-                func_02033b88((Struct_02010604*)var2[var35], 0);
+                SetFacingInstantly_02033874((Struct_02033834*)var2[var35], fix32ReduceAngle0To2Pi(var37 + var36));
+                SetMotion_02033b88((Struct_02010604*)var2[var35], 0);
             }
             float var38 = 1.0f;
             if (var34 >= 0x1800) {
@@ -351,7 +351,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
         if (arg0[Enum_ov025_021dcf14_28235] == 6) {
             void* var40 = func_ov000_02160f20(arg0);
             struct Struct_ov025_021dcf14_4* var41 =
-                func_02079e2c((char*)func_020797dc(), *(short*)var40);
+                FindActionData_02079e2c((char*)GetActionTables_020797dc(), *(short*)var40);
             if (var41 && var41->unknown_19_4_ == 2) {
                 struct Struct_ov025_021dcf14_3* var42 = func_ov000_021600f8((Struct_ov000_0215440c*)var40, var1->unknown_c_);
                 if (var42 == NULL) {
@@ -584,7 +584,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
                 if (var63) {
                     int var81 = func_ov000_0215ffa0(var61);
                     struct Struct_ov025_021dcf14_6 var82 = inline_ov025_021dcf14_3(arg0);
-                    void* var83 = func_02057924();
+                    void* var83 = GetEffectManager_02057924();
                     struct Struct_02078398_2 var84;
                     func_02078484(&var84);
                     var84.unknown_14_ = var81;
@@ -695,7 +695,7 @@ extern "C" int func_ov025_021ed564(void* arg0, int arg1, int arg2, int arg3, int
 extern "C" void func_ov000_02163440(void* arg0, short arg1, unsigned short arg2, unsigned short arg3);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov000_0215ff80(char*, int);
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" int func_ov000_0215ffa0(void* arg0);
 extern "C" void func_ov025_021eabd0(void* arg0, bool arg1);
 extern "C" void func_ov025_021ead5c(void* arg0, bool arg1);
@@ -703,7 +703,7 @@ extern "C" void func_ov025_021ed344(void* arg0, int arg1);
 extern "C" int func_ov025_021ed2f4(void* arg0);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void CloseMessageWindow_02043124(int window);
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_02078484(struct Struct_02078398_2* arg0);
 extern "C" short func_ov000_0216352c(int arg0, float arg1, float arg2);
 extern "C" int func_ov000_021635e4(int arg0, int arg1);
@@ -795,7 +795,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
         }
         GameObject* var14 = var0->GetCombatantByIndex(var13);
         if (var14 && !var10) {
-            void* var15 = func_02057924();
+            void* var15 = GetEffectManager_02057924();
             struct Struct_02078398_2 var16;
             func_02078484(&var16);
             var16.unknown_14_ = var13;
@@ -859,7 +859,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
             if (var18->unknown_9_ <= arg0[Enum_ov025_021dcf14_28415]) {
                 arg0[Enum_ov025_021dcf14_28417] = 1;
                 bool var27 = inline_ov025_021de124(var19);
-                struct Struct_ov025_021de124* var28 = (struct Struct_ov025_021de124*)func_ov000_02160f20(func_ov000_02160130());
+                struct Struct_ov025_021de124* var28 = (struct Struct_ov025_021de124*)func_ov000_02160f20(GetBattleScene_ov000_02160130());
                 int var29 = -1;
                 for (int var30 = 0; var30 < var28->unknown_9_; var30++) {
                     struct Struct_ov025_021dcf14_3* var31 = func_ov000_021600f8((Struct_ov000_0215440c*)var28, var30);
@@ -918,7 +918,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
         }
         var1 = var2->unknown_0_;
         struct Struct_ov025_021dcf14_4* var37 =
-            func_02079e2c((char*)func_020797dc(), *(short*)var1);
+            FindActionData_02079e2c((char*)GetActionTables_020797dc(), *(short*)var1);
         int var38 = 0;
         int var39 = 0;
         int var40 = 0;
@@ -933,7 +933,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
         if (var1->unknown_0_ == 0x30f || var1->unknown_0_ == 0x243) {
             var40 = 1;
         }
-        void* var41 = func_02057924();
+        void* var41 = GetEffectManager_02057924();
         struct Struct_02078398_2 var42;
         func_02078484(&var42);
         if (var39 || (arg0[Enum_ov025_021dcf14_3640] != 3 && var38 != 0 && var40 == 0)) {

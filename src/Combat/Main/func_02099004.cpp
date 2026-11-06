@@ -132,8 +132,8 @@ extern unsigned char data_020e8dac[2];
 struct Struct_020e8dae { char unknown_0_[7]; };
 extern const Struct_020e8dae data_020e8dae;
 extern "C" int GetMessageWindow_020421a0();
-extern "C" int func_020d2ff0(const char*);
-extern "C" char* func_020e51cc(int);
+extern "C" int GetStringLength_020d2ff0(const char*);
+extern "C" char* GetStandardString_020e51cc(int);
 extern "C" void func_02098f70(int*, void*, int, int);
 extern "C" void func_02046608(int, int, const char*, char*, int, int, int);
 extern "C" void __clear(void*, int);
@@ -154,11 +154,11 @@ extern "C" ARM int func_02099004(Script::Parameter* arg0, int arg1) {
     char* var2 = data_021098e8.unknown_4_;
     char* var3 = var2 + strlen(var2);
     Struct_020e8dae var4 = data_020e8dae;
-    int var5 = func_020d2ff0(var4.unknown_0_);
+    int var5 = GetStringLength_020d2ff0(var4.unknown_0_);
     char var6[0x20];
     char var7[0x400];
     char var8[0x20];
-    const char* var9 = func_020e51cc(0x3ea);
+    const char* var9 = GetStandardString_020e51cc(0x3ea);
     func_02046608(var0, 12, var9, var6, 0xe3, 0, 1);
     char var10[2];
     var10[0] = data_020e8dac[0];
@@ -170,7 +170,7 @@ extern "C" ARM int func_02099004(Script::Parameter* arg0, int arg1) {
         int var12 = strlen(var6);
         memcpy(var3, var6, var12);
         var3 += var12;
-        int var13 = func_020d2ff0(var11);
+        int var13 = GetStringLength_020d2ff0(var11);
         int var14 = 0;
         do {
             int var15 = var13 - var14;

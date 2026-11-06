@@ -21,10 +21,10 @@ struct ItemData_0201099c_9 {
     unsigned int unknown_b_1_ : 1;
 };
 
-extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void* func_0207d6dc(SafeAllocator* arg0, int arg1, int arg2);
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
 extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_02083960(struct Struct_0207d300* arg0);
@@ -47,7 +47,7 @@ extern "C" ARM int func_0207d300(struct Struct_0207ccf0_4* arg0, short arg1, sho
         var0 = 1;
     }
     int var1 = -1;
-    struct ItemData_0201099c_9* var2 = func_020dedd0(arg0->unknown_2c_, arg1);
+    struct ItemData_0201099c_9* var2 = FindItemData_020dedd0(arg0->unknown_2c_, arg1);
     if (var2 == NULL) {
         var1 = -2;
     } else if (inline_0207d300(var2) != 0) {
@@ -66,7 +66,7 @@ extern "C" ARM int func_0207d300(struct Struct_0207ccf0_4* arg0, short arg1, sho
         unsigned char var5;
         for (var5 = 0; var5 < *(unsigned char*)(var4 + 0xf7c); var5++) {
             int var6 = *(signed char*)(var4 + var5 + 0xf78);
-            GameObject* var7 = func_0200ff1c(var3, var6);
+            GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var3, var6);
             if (var7 == NULL) {
                 continue;
             }

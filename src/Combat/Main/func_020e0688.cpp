@@ -28,23 +28,23 @@ extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
-struct Struct_02020cb8;
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
+struct BGLayer_02020cb8;
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
-extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
 
-extern "C" void func_0204b5b4(void*, int);
+extern "C" void SetBGPriority_0204b5b4(void*, int);
 
-struct Struct_02020cb8_5;
-extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
+struct BGLayer_02020cb8_5;
+extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 
 extern "C" void func_0204b2e0(void* arg0, char* arg1);
 
 struct Struct_02020cb8_6;
 extern "C" void func_0204b3a0(struct Struct_02020cb8_6* arg0, char* arg1);
 
-struct Struct_02020cb8_2;
-extern "C" void func_0204b0e8(struct Struct_02020cb8_2* arg0, void* arg1);
+struct BGLayer_02020cb8_2;
+extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2* layer, void* screenData);
 
 struct Struct_02020cb8_3;
 extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
@@ -90,19 +90,19 @@ extern "C" ARM void func_020e0688(struct Struct_020e0688_2* arg0) {
         }
 
         func_020c9820();
-        func_0204af64((struct Struct_02020cb8*)&var7);
+        InitBGLayer_0204af64((struct BGLayer_02020cb8*)&var7);
         var7.unknown_1c_0_ = 1;
         var7.unknown_1c_4_ = 0;
-        func_0204b5b4(&var7, 2);
-        func_0204b11c((unsigned char*)&var7, 0);
-        func_0204b5e8((struct Struct_02020cb8_5*)&var7, 0, 0);
+        SetBGPriority_0204b5b4(&var7, 2);
+        SetBGScreenSize_0204b11c((unsigned char*)&var7, 0);
+        SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)&var7, 0, 0);
 
         for (int var10 = 0; var10 < var8; var10++) {
             func_0204b2e0(&var7, (char*)var5[var10]);
             func_0204b3a0((struct Struct_02020cb8_6*)&var7, (char*)var5[var10]);
         }
 
-        func_0204b0e8((struct Struct_02020cb8_2*)&var7, 0);
+        LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)&var7, 0);
         func_0204afb4((struct Struct_02020cb8_3*)&var7);
     }
 

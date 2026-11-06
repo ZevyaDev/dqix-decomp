@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_0205ac40(void* arg0, void* arg1);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 // USA: func_ov002_02154bcc
 extern "C" ARM void func_ov002_02154bcc(int arg0, int arg1, void* arg2, int arg3, unsigned char arg4, unsigned char arg5) {
@@ -23,5 +23,5 @@ extern "C" ARM void func_ov002_02154bcc(int arg0, int arg1, void* arg2, int arg3
     if (arg4 != 0xff) {
         var1[0x22] = arg4;
     }
-    func_0205ac40(arg2, var1);
+    DrawSprite_0205ac40(arg2, var1);
 }

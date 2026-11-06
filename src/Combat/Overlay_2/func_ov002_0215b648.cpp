@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct Struct_0205d81c;
-struct Struct_0205d0e0;
+struct TextWindowManager_0205d81c;
+struct TextWindow_0205d0e0;
 
-extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" void func_ov002_0215b9a4(unsigned char* arg0, int arg1, int arg2);
 #if defined(jpn)
 #define data_ov002_0216c984 data_ov002_0216cfe0
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov002_0215b648(unsigned char* arg0) {
     int var0;
     for (var0 = 0; var0 < 6; var0++) {
         unsigned char var1 = data_ov002_0216c984[var0];
-        struct Struct_0205d0e0* var2 = func_0205d81c((struct Struct_0205d81c*)(arg0 + 0xe20), var1);
+        struct TextWindow_0205d0e0* var2 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)(arg0 + 0xe20), var1);
         if (var2 == 0) {
             continue;
         }
@@ -35,11 +35,11 @@ extern "C" ARM void func_ov002_0215b648(unsigned char* arg0) {
     if (arg0[0x1cc4] == 0) {
         return;
     }
-    struct Struct_0205d81c* var5 = (struct Struct_0205d81c*)(arg0 + 0x2c8 + 0xc00);
+    struct TextWindowManager_0205d81c* var5 = (struct TextWindowManager_0205d81c*)(arg0 + 0x2c8 + 0xc00);
     int var6;
     for (var6 = 0; var6 < 6; var6++) {
         unsigned char var7 = data_ov002_0216c984[var6];
-        struct Struct_0205d0e0* var8 = func_0205d81c(var5, var7);
+        struct TextWindow_0205d0e0* var8 = FindTextWindow_0205d81c(var5, var7);
         if (var8 == 0) {
             continue;
         }

@@ -39,9 +39,9 @@ struct Struct_ov017_021b688c_2 {
     Struct_ov017_021b688c* unknown_24_;
 };
 struct Struct_ov000_02175808_4 { char unknown_0_[0xf78]; signed char unknown_f78_[4]; unsigned char unknown_f7c_; };
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" int GetResources_0200fb8c(int*);
-extern "C" int func_020100f8(char*);
+extern "C" int GetFollowCamera_020100f8(char*);
 extern "C" void func_020a28a0(unsigned char*, unsigned char);
 extern "C" void func_020a0cc4(int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
@@ -55,7 +55,7 @@ extern "C" int func_ov003_0215fce8(Struct_ov017_021b688c*, unsigned int);
 extern "C" void func_ov003_0215fb94(Struct_ov017_021b688c*);
 extern "C" void func_ov017_021b67d8(Struct_ov017_021b688c_2*);
 extern "C" int func_02046b60(Struct_02038598_5*, int);
-extern "C" void func_020397c0(void*);
+extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_020a27ac(void*);
 extern "C" void func_020a28b0(unsigned char*, int);
@@ -67,10 +67,10 @@ extern "C" void func_0206e424(void*, int);
 extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_02018300_3* var1 = (Struct_02018300_3*)var0->GetUnknownGameObject();
-    func_020397cc(var1, 1);
+    DisablePlayerControl_020397cc(var1, 1);
     GameResources* var2 = (GameResources*)GetResources_0200fb8c((int*)var0);
     SetFlags04(var2, 0xc0);
-    func_020a28a0((unsigned char*)func_020100f8((char*)var0), 1);
+    func_020a28a0((unsigned char*)GetFollowCamera_020100f8((char*)var0), 1);
     if (arg0->unknown_1d_ == 0) {
         func_020a0cc4(0x1b800);
         void* var3 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x1b800);
@@ -92,17 +92,17 @@ extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
         arg0->unknown_24_->unknown_4a1_ = arg0->unknown_1f_;
         arg0->unknown_24_->unknown_480_ = arg0->unknown_20_;
         func_ov003_0215f8cc(arg0->unknown_24_, &arg0->unknown_8_);
-        func_020a27b8((unsigned char*)func_020100f8((char*)var0));
+        func_020a27b8((unsigned char*)GetFollowCamera_020100f8((char*)var0));
         arg0->unknown_1d_++;
     } else if (arg0->unknown_1d_ == 1) {
         if (!func_ov003_0215fce8(arg0->unknown_24_, var0->GetTickCount())) return;
-        FontLoader_0208cb08* var4 = func_02094a00();
+        FontLoader_0208cb08* var4 = GetFontLoader_02094a00();
         func_02094b40(var4);
-        func_02094ab0(var4);
-        func_02094b34(var4, 0x6f, 0x1388, 1, 1);
+        CancelFontLoad_02094ab0(var4);
+        RequestFontLoad_02094b34(var4, 0x6f, 0x1388, 1, 1);
         arg0->unknown_1d_++;
     } else if (arg0->unknown_1d_ == 2) {
-        if (!func_02094b4c(func_02094a00())) return;
+        if (!UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) return;
         func_ov003_0215fb94(arg0->unknown_24_);
         arg0->unknown_1d_++;
     } else if (arg0->unknown_1d_ == 3) {
@@ -112,12 +112,12 @@ extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
         arg0->unknown_1_ = 1;
         Struct_02038598_5* var5 = (Struct_02038598_5*)var2->unknown_ptr_array_36fc[0];
         if (func_02046b60(var5, 4) || func_02046b60(var5, 0x18)) {
-            func_020397cc(var1, 1);
+            DisablePlayerControl_020397cc(var1, 1);
             return;
         }
         ClearFlags04(var2, 0xc0);
-        func_020397c0(var1);
-        unsigned char* var6 = (unsigned char*)func_020100f8((char*)var0);
+        EnablePlayerControl_020397c0(var1);
+        unsigned char* var6 = (unsigned char*)GetFollowCamera_020100f8((char*)var0);
         if (!func_ov017_021959b4()) func_020a27ac(var6);
         func_020a28b0(var6, 2);
         void* var7 = GetFlagManager_0205ec34();

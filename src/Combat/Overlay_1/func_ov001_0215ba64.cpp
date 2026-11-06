@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" int func_ov001_0215ad2c(int arg0);
 extern SafeAllocator* data_ov001_021658b8[8];
 extern "C" void func_0200fd38(GameState* arg0, int arg1, GameObject* arg2);
@@ -14,12 +14,12 @@ extern "C" ARM int func_ov001_0215ba64(char* arg0, int arg1) {
 	GameState* var0 = GameState::GetInstance();
 	(int)BackgroundLoader::GetInstance();
 
-	int var1 = func_ov001_0215ad2c(func_ov017_021d60f4(arg0));
-	int var2 = func_ov001_0215ad2c(func_ov017_021d60f4(arg0 + 0x8));
+	int var1 = func_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(arg0));
+	int var2 = func_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(arg0 + 0x8));
 
 	int var3 = 0;
 	if (arg1 >= 3) {
-		var3 = func_ov017_021d60f4(arg0 + 0x10);
+		var3 = GetScriptValueAsInt_ov017_021d60f4(arg0 + 0x10);
 	}
 
 	SafeAllocator* var4 = data_ov001_021658b8[var3];

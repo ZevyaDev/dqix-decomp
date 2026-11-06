@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 struct Struct_0207cf30_4;
 extern "C" int func_020a095c(struct Struct_0207cf30_4* arg0, int arg1, int arg2);
@@ -11,7 +11,7 @@ extern "C" int func_020a095c(struct Struct_0207cf30_4* arg0, int arg1, int arg2)
 extern "C" ARM void func_ov017_021b6bb8(int arg0) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetParty_02010828(var0);
-    GameObject* var2 = func_0200ff1c(var0, arg0);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     if (var2 == NULL) {
         return;
     }

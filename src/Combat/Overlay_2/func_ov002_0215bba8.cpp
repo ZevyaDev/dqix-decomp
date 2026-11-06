@@ -34,14 +34,14 @@ extern Struct_ov002_0216cb18 data_ov002_0216cb18[];
 extern Struct_ov002_0216cb18 data_ov002_0216cb1c[];
 
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
-extern "C" unsigned char *func_0205d81c(char *arg0, unsigned char arg1);
+extern "C" unsigned char *FindTextWindow_0205d81c(char *windowManager, unsigned char windowId);
 struct Struct_ov002_0215bba8_3;
 #if defined(jpn)
-extern "C" void func_0205d5d0(Struct_ov002_0215bba8_3*, int, int, int);
-#define APPLY(s, k, t) func_0205d5d0(s, k, t, 1)
+extern "C" void SetTextWindowText_0205d5d0(Struct_ov002_0215bba8_3*, int, int, int);
+#define APPLY(s, k, t) SetTextWindowText_0205d5d0(s, k, t, 1)
 #else
-extern "C" void func_0205d5d0(Struct_ov002_0215bba8_3*, int, int, int, unsigned char);
-#define APPLY(s, k, t) func_0205d5d0(s, k, t, 0, 0)
+extern "C" void SetTextWindowText_0205d5d0(Struct_ov002_0215bba8_3*, int, int, int, unsigned char);
+#define APPLY(s, k, t) SetTextWindowText_0205d5d0(s, k, t, 0, 0)
 #endif
 
 struct Struct_ov002_0215bba8 {
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov002_0215bba8(Struct_ov002_0215bba8_2 *arg0) {
         return;
     }
 #if !defined(jpn)
-    if (func_0205d81c(OBJ, (unsigned char) var5) != 0) {
+    if (FindTextWindow_0205d81c(OBJ, (unsigned char) var5) != 0) {
 #endif
         (arg0->*data_ov002_0216d10c[*(int *) (var0 + 0x1000 + RG(0xbb8, 0xa80))])(*(void **) (var0 + 0x1000 + RG(0xbd0, 0xa98)), var2);
         APPLY((Struct_ov002_0215bba8_3*)OBJ, (unsigned char) *(int *) (var0 + 0x1000 + RG(0xbb8, 0xa80)), (int)(*(void **) (var0 + 0x1000 + RG(0xbd0, 0xa98))));
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov002_0215bba8(Struct_ov002_0215bba8_2 *arg0) {
                 break;
             }
 #if !defined(jpn)
-            if (func_0205d81c(OBJ, var7) == 0) {
+            if (FindTextWindow_0205d81c(OBJ, var7) == 0) {
                 continue;
             }
 #endif

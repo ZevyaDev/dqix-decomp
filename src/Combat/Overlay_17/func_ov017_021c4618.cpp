@@ -23,7 +23,7 @@ struct Struct_ov017_021c4618_2 {
 extern "C" ARM void func_ov017_021c4618(int arg0, char* arg1, GameState* arg2, GameResources* arg3) {
     Struct_ov017_021c4618* var0 = (Struct_ov017_021c4618*)arg1;
     unsigned char var1 = var0->unknown_4_;
-    GameObject* var2 = func_0200ff1c(arg2, var1);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var1);
     if (var2 == NULL) return;
 #if defined(jpn)
     sprintf(((Struct_ov017_021c4618_2*)var2)->unknown_134_, &data_020ef078, var0->unknown_5_);

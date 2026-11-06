@@ -115,9 +115,9 @@ struct Struct_ov012_021863fc_2
 struct StringList_02072a68_2;
 
 extern "C" int GetResources_0200fb8c(int* gameState);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void* GetGlobalFlags_020d6c00();
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" Struct_ov012_021863fc_3* GetMessageWindow_020421a0();
 extern "C" void func_020dc2bc();
 extern "C" void func_ov012_02185e18(Struct_ov012_021863fc_2* arg0);
@@ -250,13 +250,13 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_10* arg0)
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = (GameResources*)GetResources_0200fb8c((int*)var0);
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
-    func_02094a00();
+    GetFontLoader_02094a00();
     if (arg0->unknown_1340_ == 0)
     {
-        if (func_02046b08(*(void***)((char*)var1 + 0x34f0)))
+        if (IsQueueEmpty_02046b08(*(void***)((char*)var1 + 0x34f0)))
         {
             SetFlags00(var1, 0x10);
-            func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0xf);
+            SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0xf);
             arg0->unknown_1344_ = (char*)((Struct_ov012_021863fc_4*)GetMessageWindow_020421a0())->unknown_28_;
             unsigned int var3 = 0;
             Struct_ov012_021863fc_6* var4 = (Struct_ov012_021863fc_6*)var0->GetProtagonist();
@@ -315,16 +315,16 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_10* arg0)
         BG2CNT = (BG2CNT & ~3) | 1;
         BG3CNT = (BG3CNT & ~3) | 0;
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1f00;
-        FontLoader_0208cb08* var8 = func_02094a00();
-        func_02094ab0(var8);
-        func_02094b34(var8, 0x6e, 0x1ff, 0, 0);
+        FontLoader_0208cb08* var8 = GetFontLoader_02094a00();
+        CancelFontLoad_02094ab0(var8);
+        RequestFontLoad_02094b34(var8, 0x6e, 0x1ff, 0, 0);
         SetSubBrightness(var1, -16, 15);
         arg0->unknown_1340_++;
         return;
     }
     else if (arg0->unknown_1340_ == 3)
     {
-        if (func_02094b4c(func_02094a00()) && !IsSubBrightnessTransitionActive(var1))
+        if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()) && !IsSubBrightnessTransitionActive(var1))
         {
             func_020dc2bc();
             arg0->unknown_18_[2].Reset();
@@ -403,13 +403,13 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_2* arg0)
     GameState* var15 = GameState::GetInstance();
     GameResources* var16 = (GameResources*)GetResources_0200fb8c((int*)var15);
     BackgroundLoader* var17 = BackgroundLoader::GetInstance();
-    func_02094a00();
+    GetFontLoader_02094a00();
     if (arg0->unknown_1370_ == 0)
     {
-        if (func_02046b08(*(void***)((char*)var16 + 0x3700)))
+        if (IsQueueEmpty_02046b08(*(void***)((char*)var16 + 0x3700)))
         {
             SetFlags00(var16, 0x10);
-            func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0xf);
+            SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0xf);
             arg0->unknown_1374_ = (char*)GetMessageWindow_020421a0()->unknown_5c_;
             unsigned int var18 = 0;
             Struct_ov012_021863fc_12* var19 = (Struct_ov012_021863fc_12*)var15->GetProtagonist();
@@ -478,16 +478,16 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_2* arg0)
         BG2CNT = (BG2CNT & ~3) | 1;
         BG3CNT = (BG3CNT & ~3) | 0;
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1f00;
-        FontLoader_0208cb08* var24 = func_02094a00();
-        func_02094ab0(var24);
-        func_02094b34(var24, 0x6e, 0x1ff, 0, 0);
+        FontLoader_0208cb08* var24 = GetFontLoader_02094a00();
+        CancelFontLoad_02094ab0(var24);
+        RequestFontLoad_02094b34(var24, 0x6e, 0x1ff, 0, 0);
         SetSubBrightness(var16, -16, 15);
         arg0->unknown_1370_++;
         return;
     }
     else if (arg0->unknown_1370_ == 3)
     {
-        if (func_02094b4c(func_02094a00()) && !IsSubBrightnessTransitionActive(var16))
+        if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()) && !IsSubBrightnessTransitionActive(var16))
         {
             func_020dc2bc();
             arg0->unknown_20_[2].Reset();

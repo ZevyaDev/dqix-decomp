@@ -97,7 +97,7 @@ extern "C" void func_ov023_021dca88(void*);
 extern "C" void func_ov002_0215aa14(char*);
 extern "C" int func_0201079c(char*);
 extern "C" void func_0205def8(Struct_ov002_02155960_3*, int, int);
-extern "C" void func_0205deb4(Struct_ov002_02155960_2*, int, int);
+extern "C" void SetTextWindowPalette_0205deb4(Struct_ov002_02155960_2*, int, int);
 extern "C" void func_ov002_0215bba8(Struct_ov002_02155960_7*);
 extern unsigned int data_ov002_0216d3a8;
 extern Type_ov002_02155960 data_020e6d5c;
@@ -207,8 +207,8 @@ extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) 
     if (func_0201079c((char*)GameState::GetInstance()) == 1 || arg0->unknown_2485_ != 0) {
         func_0205def8((Struct_ov002_02155960_3*)&arg0->unknown_ec8_, 0, RG(0x29, 0x2c));
     }
-    func_0205deb4((Struct_ov002_02155960_2*)&arg0->unknown_ec8_, RG(0x29, 0x2c), 0);
-    func_0205deb4((Struct_ov002_02155960_2*)&arg0->unknown_ec8_, RG(0x28, 0x2b), 0);
+    SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)&arg0->unknown_ec8_, RG(0x29, 0x2c), 0);
+    SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)&arg0->unknown_ec8_, RG(0x28, 0x2b), 0);
     func_ov002_0215bba8(arg0);
     return 0;
 }

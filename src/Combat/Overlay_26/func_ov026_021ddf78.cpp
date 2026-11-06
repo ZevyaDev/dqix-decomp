@@ -86,8 +86,8 @@ extern "C" void ClearMessageParams_02046380(Struct_ov026_021ddf78_7*);
 extern "C" Struct_ov026_021ddf78_8* func_0200fea4(GameState*, int);
 extern "C" int func_02010088(Struct_02010088*);
 extern "C" int func_ov026_021dd3c4(Struct_ov026_021d8ba0_10*);
-extern "C" void func_02046574(Struct_ov026_021ddf78_7*, int, char*);
-extern "C" Struct_ov026_021ddf78_9* func_ov017_021b8478(void*);
+extern "C" void SetMessageString_02046574(Struct_ov026_021ddf78_7*, int, char*);
+extern "C" Struct_ov026_021ddf78_9* GetBattleSetup_ov017_021b8478(void*);
 extern "C" void* func_ov017_021b8468(void*);
 extern "C" void* func_ov000_02160f08(void*);
 extern "C" int func_02070094();
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov026_021ddf78(Struct_ov026_021ddf78_5* arg0, Struct_ov
             if (var13->unknown_148_ == 0) {
                 continue;
             }
-            func_02046574(var5, var7, var13->unknown_148_ + 0x2c);
+            SetMessageString_02046574(var5, var7, var13->unknown_148_ + 0x2c);
             var7++;
             break;
         }
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov026_021ddf78(Struct_ov026_021ddf78_5* arg0, Struct_ov
         var15 = var14->unknown_ptr_3718;
     }
     if (var15 != 0) {
-        var16 = func_ov017_021b8478(var15);
+        var16 = GetBattleSetup_ov017_021b8478(var15);
     }
     if (var16 != 0) {
         var18 = var16->unknown_c_;
@@ -209,7 +209,7 @@ extern "C" ARM void func_ov026_021ddf78(Struct_ov026_021ddf78_5* arg0, Struct_ov
             var25 = var24->unknown_ptr_3718;
         }
         if (var25 != 0) {
-            var26 = func_ov017_021b8478(var25);
+            var26 = GetBattleSetup_ov017_021b8478(var25);
         }
         if (var26 != 0) {
             var28 = var26->unknown_c_;

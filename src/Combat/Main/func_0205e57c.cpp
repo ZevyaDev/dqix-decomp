@@ -2,8 +2,8 @@
 #include "Combat/SearchEntry.h"
 
 struct Struct_0205e3ec { unsigned int unknown_0_[4]; };
-struct Struct_0205e330_3 { unsigned char unknown_0_; unsigned char unknown_1_; unsigned char unknown_2_[2]; struct Struct_0205e3ec unknown_4_; };
-extern "C" struct Struct_0205e330_3* func_0205e3ec(struct Struct_0205e330_3* arg0, struct Struct_0205e330_3* arg1);
+struct LocalWirelessPacket_0205e330_3 { unsigned char unknown_0_; unsigned char unknown_1_; unsigned char unknown_2_[2]; struct Struct_0205e3ec unknown_4_; };
+extern "C" struct LocalWirelessPacket_0205e330_3* func_0205e3ec(struct LocalWirelessPacket_0205e330_3* arg0, struct LocalWirelessPacket_0205e330_3* arg1);
 
 struct Struct_0205e1e4_2 {
     char unknown_0_[0x18];
@@ -43,11 +43,11 @@ struct Struct_0205e57c {
 
 struct Struct_0205e57c_2 {
     Struct_0202b2f0_2 unknown_0_;
-    struct Struct_0205e330_3 unknown_10_[5];
+    struct LocalWirelessPacket_0205e330_3 unknown_10_[5];
 };
 
 struct Struct_0205e57c_3 {
-    struct Struct_0205e330_3 unknown_0_;
+    struct LocalWirelessPacket_0205e330_3 unknown_0_;
     short unknown_14_;
     unsigned short unknown_16_;
     struct Struct_0205e57c_3* unknown_18_;

@@ -10,14 +10,14 @@ enum { Enum_ov017_021bacd8_62524 = 0xf454, Enum_ov017_021bacd8_1020 = 0x414 };
 enum { Enum_ov017_021bacd8_62524 = 0xf43c, Enum_ov017_021bacd8_1020 = 0x3fc };
 #endif
 
-extern "C" int func_020100f8(char* arg0);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_020a1df8(int arg0);
 
 struct Struct_02018300_3;
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 
 struct Struct_ov017_021bac8c;
 extern "C" void func_ov017_021bac8c(struct Struct_ov017_021bac8c* arg0);
@@ -49,9 +49,9 @@ extern "C" ARM void func_ov017_021bacd8(Struct_ov017_021bacd8* arg0) {
     GameState* var0 = GameState::GetInstance();
     unsigned int* var1 = ((unsigned int*)GetGameResources());
     GameObject* var2 = var0->GetUnknownGameObject();
-    int var3 = func_020100f8((char*)var0);
+    int var3 = GetFollowCamera_020100f8((char*)var0);
     SetFlags04((GameResources*)var1, 0xc0);
-    func_020397cc((struct Struct_02018300_3*)var2, 1);
+    DisablePlayerControl_020397cc((struct Struct_02018300_3*)var2, 1);
     func_020a28a0((unsigned char*)var3, 3);
     int var4 = (int)var0->GetTickCount();
     if (var4 < 0) {
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov017_021bacd8(Struct_ov017_021bacd8* arg0) {
     }
     func_ov017_021bac8c((struct Struct_ov017_021bac8c*)arg0);
     ClearFlags04((GameResources*)var1, 0xc0);
-    func_020397c0(var2);
+    EnablePlayerControl_020397c0(var2);
     func_020a28b0((unsigned char*)var3, 3);
     func_020a0c0c();
     arg0->unknown_1_ = 1;

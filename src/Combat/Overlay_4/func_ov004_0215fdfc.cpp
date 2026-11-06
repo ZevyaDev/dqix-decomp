@@ -126,13 +126,13 @@ extern "C" ARM int func_ov004_0215fdfc(void* arg0) {
     var4 = data_ov004_021707e8.unknown_1c_;
     var3 = 0;
     var2 = data_ov004_021707e8.unknown1_a_;
-    if (func_0200ff1c(var0, var4) == NULL) var3 = 1;
+    if (GetPartyMemberBaseByIndex_0200ff1c(var0, var4) == NULL) var3 = 1;
     if (!var3) {
         data_ov004_021707e8.unknown1_a_ = data_ov004_021707e8.unknown1_a_ + 1;
         data_ov004_021707e8.unknown1_a_ = (unsigned)data_ov004_021707e8.unknown1_a_ % var5;
     }
     data_ov004_021707e8.unknown_1c_ = var6[data_ov004_021707e8.unknown1_a_];
-    var1 = func_0200ff1c(var0, data_ov004_021707e8.unknown_1c_);
+    var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, data_ov004_021707e8.unknown_1c_);
     if (data_ov004_021707e8.unknown_1c_ == var4 && !var3) {
         var1 = NULL;
         while (var1 == NULL) {
@@ -147,7 +147,7 @@ extern "C" ARM int func_ov004_0215fdfc(void* arg0) {
                 if (var7) var7->unknown_c_ |= 0x78;
                 return 0;
             }
-            var1 = func_0200ff1c(var0, data_ov004_021707e8.unknown_1c_);
+            var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, data_ov004_021707e8.unknown_1c_);
             if (var1 != NULL) break;
         }
     }
@@ -164,7 +164,7 @@ extern "C" ARM int func_ov004_0215fdfc(void* arg0) {
                 if (var8) var8->unknown_c_ |= 0x78;
                 return 0;
             }
-            var1 = func_0200ff1c(var0, data_ov004_021707e8.unknown_1c_);
+            var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, data_ov004_021707e8.unknown_1c_);
             if (var1 != NULL) break;
         }
     }
@@ -180,7 +180,7 @@ extern "C" ARM int func_ov004_0215fdfc(void* arg0) {
                 data_ov004_021707e8.unknown_0_ = 0;
                 return 0;
             }
-            var1 = func_0200ff1c(var0, data_ov004_021707e8.unknown_1c_);
+            var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, data_ov004_021707e8.unknown_1c_);
             if (var1 == NULL) {
                 data_ov004_021707e8.unknown1_a_ = var2;
                 data_ov004_021707e8.unknown_1c_ = var4;

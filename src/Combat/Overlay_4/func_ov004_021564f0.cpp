@@ -33,7 +33,7 @@ extern "C" int func_02046608(void* arg0, int arg1, unsigned int arg2, void* arg3
 struct Struct_ov004_021707c8 { char unknown_0_[4]; short* unknown1_8_; struct Struct_020a15bc* unknown_8_; };
 extern "C" void func_02041f50(void* arg0, char* arg1);
 extern "C" void func_02042428(char* arg0, int arg1);
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" void func_ov023_021f8960(char* arg0, short arg1, unsigned short arg2);
 #else
 struct Struct_ov004_021707c8 { char unknown_0_[8]; short* unknown1_8_; struct Struct_020a15bc* unknown_c_; };
@@ -91,10 +91,10 @@ extern "C" ARM int func_ov004_021564f0(void* arg0) {
         memset(var10, 0, 0x800);
         void* var12 = FindStringInList_02072a68(var5, var7);
         func_02041f50(var12, var10 + 0x700);
-        int var13 = func_020d2ff0(var10 + 0x700);
+        int var13 = GetStringLength_020d2ff0(var10 + 0x700);
         int var14 = (0x80 - (var13 / 2) * 12) / 2;
         int var15 = 6;
-        if (var13 != func_020d2ff0((const char*)var12)) {
+        if (var13 != GetStringLength_020d2ff0((const char*)var12)) {
             var15 = 8;
         }
         func_02042428(var10, 0xc);

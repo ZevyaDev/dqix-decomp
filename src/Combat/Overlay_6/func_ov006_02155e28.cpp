@@ -30,37 +30,37 @@
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 
-extern "C" void func_0205a444(char* arg0);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 struct PacEntry_02020cb8_4;
 extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
+extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, void* allocator);
 
-struct Struct_02020cb8 {
+struct BGLayer_02020cb8 {
     unsigned char unknown_0_[0x1c];
     unsigned char unknown_1c_0_ : 4;
-    unsigned char unknown_1c_4_ : 4;
+    unsigned char bgIndex_1c_4_ : 4;
     unsigned char unknown_1d_[3];
 };
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
-extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
-extern "C" void func_0204b5b4(void* arg0, int arg1);
-struct Struct_0204b12c;
-extern "C" void func_0204b12c(struct Struct_0204b12c* arg0, SafeAllocator* arg1);
-struct Struct_02020cb8_5;
-extern "C" void func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
+extern "C" void SetBGPriority_0204b5b4(void* layer, int priority);
+struct BGLayer_0204b12c;
+extern "C" void AllocateBGScreenData_0204b12c(struct BGLayer_0204b12c* layer, SafeAllocator* allocator);
+struct BGLayer_02020cb8_5;
+extern "C" void SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 struct Struct_0204b010;
 extern "C" void func_0204b010(struct Struct_0204b010* arg0, void* arg1);
-extern "C" void func_0204b174(void* arg0, void* arg1, void* arg2, int arg3);
+extern "C" void LoadBGBlock_0204b174(void* layer, void* block, void* allocator, int arg3);
 
-struct Struct_0204c7a8 {
+struct TextWindow_0204c7a8 {
     int unknown_0_;
-    struct Struct_02020cb8* unknown_4_;
+    struct BGLayer_02020cb8* unknown_4_;
     unsigned char unknown_8_[0xe0 - 8];
 };
-extern "C" void func_0204c684(void* arg0);
-extern "C" void func_0204c7a8(struct Struct_0204c7a8* arg0, SafeAllocator* arg1, int arg2, unsigned int arg3);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
+extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
 
 struct Struct_0207f7f0_2;
 struct Struct_0207f914;
@@ -97,8 +97,8 @@ static inline struct Struct_ov003_0217d53c_4* inline_ov003_0216e714_2(void* arg0
 }
 
 extern "C" char* GetResources_0200fb8c(int* gameState);
-extern "C" int func_020100f8(char* arg0);
-extern "C" void func_020100c4(GameState* arg0, int arg1);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
+extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 struct TextureVRAMArea_0203d028;
 extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
@@ -163,8 +163,8 @@ struct Struct_ov006_02155e28_4 {
     int unknown_1a4_;
     unsigned char unknown_1a8_[0x20];
     struct Struct_ov006_02155e28_2* unknown_1c8_;
-    struct Struct_02020cb8* unknown_1cc_;
-    struct Struct_0204c7a8* unknown_1d0_;
+    struct BGLayer_02020cb8* unknown_1cc_;
+    struct TextWindow_0204c7a8* unknown_1d0_;
     struct Struct_0207f7f0* unknown_1d4_;
     unsigned char unknown_1d8_[8];
     int unknown_1e0_;
@@ -192,7 +192,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
     unsigned char var1 = arg0->unknown_add_;
 
     if (var1 == 0) {
-        func_0205a444((char*)&arg0->unknown_1e4_);
+        InitSpriteSet_0205a444((char*)&arg0->unknown_1e4_);
         arg0->unknown_1e4_.unknown_50_ = 0;
         arg0->unknown_1e4_.unknown_40_ = arg0->unknown_1e0_;
         arg0->unknown_1e4_.unknown_4c_ = 0x11;
@@ -211,7 +211,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         for (int var8 = 0; var8 < var6; var8++) {
             void* var9 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var3, var8, &var2, &var5);
             if (var9 != NULL) {
-                func_0205a528(&arg0->unknown_1e4_, var9, var5, var7);
+                LoadSpriteSetFile_0205a528(&arg0->unknown_1e4_, var9, var5, var7);
             }
         }
         var0->RemoveTask(arg0->unknown_ad4_);
@@ -226,23 +226,23 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         var11->Reset();
         struct Struct_ov006_0215ff54 var12 = data_ov006_0215ff54;
         for (unsigned char var13 = 0; var13 < 2; var13++) {
-            struct Struct_02020cb8* var14 = &arg0->unknown_1cc_[var13];
-            func_0204af64(var14);
+            struct BGLayer_02020cb8* var14 = &arg0->unknown_1cc_[var13];
+            InitBGLayer_0204af64(var14);
             var14->unknown_1c_0_ = 0;
-            var14->unknown_1c_4_ = var13 + 1;
-            func_0204b11c((unsigned char*)var14, 0);
-            func_0204b5b4(var14, var12.unknown_0_[var13]);
-            func_0204b12c((struct Struct_0204b12c*)var14, var11);
-            func_0204b5e8((struct Struct_02020cb8_5*)var14, 0, 0);
+            var14->bgIndex_1c_4_ = var13 + 1;
+            SetBGScreenSize_0204b11c((unsigned char*)var14, 0);
+            SetBGPriority_0204b5b4(var14, var12.unknown_0_[var13]);
+            AllocateBGScreenData_0204b12c((struct BGLayer_0204b12c*)var14, var11);
+            SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)var14, 0, 0);
         }
         func_0204b010((struct Struct_0204b010*)&arg0->unknown_1cc_[0], NULL);
         func_0204b010((struct Struct_0204b010*)&arg0->unknown_1cc_[1], NULL);
         SafeAllocator* var15 = arg0->unknown_180_;
         var15[3].Reset();
         for (unsigned char var16 = 0; var16 < 1; var16++) {
-            struct Struct_0204c7a8* var17 = &arg0->unknown_1d0_[var16];
-            func_0204c684(var17);
-            func_0204c7a8(var17, &var15[3], arg0->unknown_1a4_, 0x1c0);
+            struct TextWindow_0204c7a8* var17 = &arg0->unknown_1d0_[var16];
+            InitTextWindow_0204c684(var17);
+            SetTextWindowBuffers_0204c7a8(var17, &var15[3], arg0->unknown_1a4_, 0x1c0);
             var17->unknown_4_ = arg0->unknown_1cc_;
         }
         arg0->unknown_ad4_ = var0->QueueLoadFile(data_ov006_021600c4, NULL);
@@ -259,7 +259,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         for (int var24 = 0; var24 < var22; var24++) {
             void* var25 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var19, var24, &var18, &var21);
             if (var25 != NULL) {
-                func_0204b174(arg0->unknown_1cc_, var25, &var23[2], var21);
+                LoadBGBlock_0204b174(arg0->unknown_1cc_, var25, &var23[2], var21);
             }
         }
         var0->RemoveTask(arg0->unknown_ad4_);
@@ -504,9 +504,9 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         arg0->unknown_238_[1].MaybeSetBCFGAnimation(0, 0);
         arg0->unknown_238_[2].MaybeSetBCFGAnimation(0, 0);
         GameState* var67 = GameState::GetInstance();
-        arg0->unknown_1a0_ = func_020100f8((char*)var67);
+        arg0->unknown_1a0_ = GetFollowCamera_020100f8((char*)var67);
         func_ov006_021542f4(arg0->unknown_5cc_);
-        func_020100c4(var67, (int)arg0->unknown_5cc_);
+        SetCamera_020100c4(var67, (int)arg0->unknown_5cc_);
         struct Struct_0207f7f0* var68 = arg0->unknown_1d4_;
         var68->unknown_2c_ = arg0->unknown_1cc_;
         var68->unknown_38_ = 2;

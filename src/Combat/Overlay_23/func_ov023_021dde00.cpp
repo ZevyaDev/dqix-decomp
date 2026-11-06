@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_0204c684(void* arg0);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" int func_ov023_021ddc98(void* arg0, int arg1, unsigned short arg2, int arg3);
 extern int data_ov023_021ff9e0[];
@@ -14,7 +14,7 @@ extern "C" void func_ov023_021dd344(void* arg0);
 
 #if defined(jpn)
 extern "C" void func_02041f50(const char*, char*);
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 extern "C" int func_02050678(void*, int, int, const char*, int, int, void*, void*);
 #define LOG_OFFSET 0x6d8
 #define FLAGS_OFFSET 0x6f0
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov023_021dde00(void* arg0) {
     void* var1 = *(void**)(var0 + 0x50);
     if (var1) {
         char var2[0xe0];
-        func_0204c684(var2);
+        InitTextWindow_0204c684(var2);
         #if defined(jpn)
         if (func_ov023_021ddc34(var2, 5, 1, 0xe, 2)) {
 #else
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov023_021dde00(void* arg0) {
                 char var3[0x40];
                 __clear(var3, 0x40);
                 func_02041f50(*(const char**)((char*)var1 + 4), var3);
-                short var4 = func_020d2ff0(var3);
+                short var4 = GetStringLength_020d2ff0(var3);
                 short var5 = var4 >> 1;
                 short var6 = var5 * 10;
                 int var7 = ((0x70 - var6) << 15) >> 16;

@@ -13,7 +13,7 @@ extern "C" ARM int func_02086d20(unsigned char* arg0) {
     int var2 = 0;
     while (var2 < arg0[0xf7c]) {
         unsigned char* var3 = arg0 + var2;
-        GameObject* var4 = func_0200ff1c(var1, var3[0xf78]);
+        GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var1, var3[0xf78]);
         if (var4 != 0) {
             int var5 = GetPartyMemberData_02053c6c((unsigned char*)var4);
             if (var5 != 0) {

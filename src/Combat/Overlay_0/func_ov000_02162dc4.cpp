@@ -7,7 +7,7 @@ extern "C" void func_02048c50(unsigned char*);
 extern "C" void func_0203400c(Struct_02032e58*);
 extern "C" void func_020d76d8(unsigned char* arg0, int arg1);
 extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, unsigned int arg2);
-extern "C" void func_02033b88(Struct_02010604* arg0, int arg1);
+extern "C" void SetMotion_02033b88(Struct_02010604* object, int motion);
 extern "C" void func_02033fec(Struct_02032e58*);
 extern "C" void func_02048c38(unsigned char*);
 extern "C" void func_020d7334(unsigned char*, int);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov000_02162dc4(Struct_ov000_02162dc4* arg0, Struct_ov00
     if (inline_ov000_02162dc4(arg0, arg6, arg3, 8, 0x1a, 0x18) && var1) {
         if (var6 == Enum_ov000_02162dc4_5) var6 = Enum_ov000_02162dc4_3;
         arg2->unknown_c1_4_ = 0;
-        if (var4) func_02033b88((Struct_02010604*)arg2, 0);
+        if (var4) SetMotion_02033b88((Struct_02010604*)arg2, 0);
         func_02033fec((Struct_02032e58*)arg2);
         func_02048c38((unsigned char*)arg2);
     }
@@ -106,7 +106,7 @@ extern "C" ARM void func_ov000_02162dc4(Struct_ov000_02162dc4* arg0, Struct_ov00
     if (inline_ov000_02162dc4(arg0, arg6, arg3, 0x20, 0x19, 0x17) && var1) {
         if (var6 == Enum_ov000_02162dc4_5) var6 = Enum_ov000_02162dc4_4;
         arg2->unknown_c1_4_ = var5;
-        if (var4) func_02033b88((Struct_02010604*)arg2, 0);
+        if (var4) SetMotion_02033b88((Struct_02010604*)arg2, 0);
     }
     if (inline_ov000_02162dc4(arg0, arg6, arg3, 2, 0x11, 0xf)) {
         if (var6 == Enum_ov000_02162dc4_5) var6 = Enum_ov000_02162dc4_0;
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov000_02162dc4(Struct_ov000_02162dc4* arg0, Struct_ov00
         }
         if (var5 == Enum_ov000_02162dc4_B_0) {
             arg2->unknown_c1_4_ = 0;
-            if (var4) func_02033b88((Struct_02010604*)arg2, 0);
+            if (var4) SetMotion_02033b88((Struct_02010604*)arg2, 0);
         }
         func_02048c38((unsigned char*)arg2);
     } else {
@@ -147,9 +147,9 @@ extern "C" ARM void func_ov000_02162dc4(Struct_ov000_02162dc4* arg0, Struct_ov00
     if (var5 != Enum_ov000_02162dc4_B_0) arg2->unknown_c1_4_ = var5;
     if (var4) {
         if (arg1 == NULL) {
-            func_02033b88((Struct_02010604*)arg2, 0);
+            SetMotion_02033b88((Struct_02010604*)arg2, 0);
         } else if (arg1 != arg2) {
-            func_02033b88((Struct_02010604*)arg2, 0);
+            SetMotion_02033b88((Struct_02010604*)arg2, 0);
         }
     }
 }

@@ -19,7 +19,7 @@ enum { Enum_ov003_0215db2c_152 = 0x98 };
 #include "std_library_functions.h"
 #include "Input/Input.h"
 
-struct Struct_0205d5d0;
+struct TextWindowManager_0205d5d0;
 #if defined(jpn)
 #endif
 #if !defined(jpn)
@@ -57,9 +57,9 @@ extern "C" ARM void func_ov003_0215db2c(char* arg0) {
         }
         if (var2 != 0) {
 #if defined(jpn)
-            func_0205d5d0((struct Struct_0205d5d0*)(arg0 + Enum_ov003_0215db2c_152), var2, *(int*)(arg0 + Enum_ov003_0215db2c_124), 1);
+            SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)(arg0 + Enum_ov003_0215db2c_152), var2, *(int*)(arg0 + Enum_ov003_0215db2c_124), 1);
 #else
-            func_0205d5d0((struct Struct_0205d5d0*)(arg0 + Enum_ov003_0215db2c_152), var2, *(int*)(arg0 + Enum_ov003_0215db2c_124), 1, 0);
+            SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)(arg0 + Enum_ov003_0215db2c_152), var2, *(int*)(arg0 + Enum_ov003_0215db2c_124), 1, 0);
 #endif
         }
     }
@@ -67,9 +67,9 @@ extern "C" ARM void func_ov003_0215db2c(char* arg0) {
         memset(*(void**)(arg0 + Enum_ov003_0215db2c_124), 0, Enum_ov003_0215db2c_2400);
         func_ov003_0215de6c(arg0, *(void**)(arg0 + Enum_ov003_0215db2c_124));
 #if defined(jpn)
-        func_0205d5d0((struct Struct_0205d5d0*)(arg0 + Enum_ov003_0215db2c_152), 0, *(int*)(arg0 + Enum_ov003_0215db2c_124), 1);
+        SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)(arg0 + Enum_ov003_0215db2c_152), 0, *(int*)(arg0 + Enum_ov003_0215db2c_124), 1);
 #else
-        func_0205d5d0((struct Struct_0205d5d0*)(arg0 + Enum_ov003_0215db2c_152), 0, *(int*)(arg0 + Enum_ov003_0215db2c_124), 1, 0);
+        SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)(arg0 + Enum_ov003_0215db2c_152), 0, *(int*)(arg0 + Enum_ov003_0215db2c_124), 1, 0);
 #endif
         *(unsigned char*)(arg0 + Enum_ov003_0215db2c_955) = 0;
     }

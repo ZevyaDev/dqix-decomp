@@ -12,8 +12,8 @@ enum { Enum_ov020_0218d8d8_1136 = 0x470 };
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" unsigned char func_0200fb9c(char* arg0);
 
-struct Struct_02109bf4_4;
-extern "C" void func_0209c678(struct Struct_02109bf4_4* arg0, int arg1);
+struct MusicManager_02109bf4_4;
+extern "C" void func_0209c678(struct MusicManager_02109bf4_4* arg0, int arg1);
 
 struct Struct_02109bf4_3;
 extern "C" void func_0209c20c(struct Struct_02109bf4_3* arg0);
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov020_0218d8d8(struct Struct_ov020_0218b710_3* arg0) {
     if (func_0200fb9c((char*)var0) == 2) {
         return;
     }
-    func_0209c678((struct Struct_02109bf4_4*)&gMusicManager_02109bf4, 0);
+    func_0209c678((struct MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
     func_0209c20c((struct Struct_02109bf4_3*)&gMusicManager_02109bf4);
     func_0205e8ec((struct Struct_0205e8ec*)&gSoundEffectManager_02108760);
 }

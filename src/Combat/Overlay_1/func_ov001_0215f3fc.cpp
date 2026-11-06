@@ -62,9 +62,9 @@ extern "C" void* func_0203cf4c();
 extern "C" int GetResources_0200fb8c(int*);
 extern "C" const char* func_ov017_021d612c(void*);
 extern "C" int func_0203e03c(Struct_0203e03c*);
-extern "C" void func_ov017_021d6134(void*, int);
+extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
 extern "C" unsigned int func_ov001_0215a750(const char*, void**);
-extern "C" int func_ov017_021d60f4(Struct_ov001_0215f3fc_3*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_ov001_0215f3fc_3*);
 extern "C" void func_020404c0(int*);
 extern "C" void func_0203c794(void*);
 extern "C" void* func_0203d004(void*);
@@ -98,7 +98,7 @@ extern "C" ARM int func_ov001_0215f3fc(Struct_ov001_0215f3fc_3* arg0, int arg1)
     {
         return 0;
     }
-    func_ov017_021d6134(arg0++, var5);
+    SetScriptRefInt_ov017_021d6134(arg0++, var5);
     if (var5 >= 32)
     {
         return 0;
@@ -129,13 +129,13 @@ extern "C" ARM int func_ov001_0215f3fc(Struct_ov001_0215f3fc_3* arg0, int arg1)
     int var10 = 0;
     if (arg1 >= 3)
     {
-        var10 = func_ov017_021d60f4(arg0++);
+        var10 = GetScriptValueAsInt_ov017_021d60f4(arg0++);
     }
     SafeAllocator* var11 = data_ov001_021658b8[var10];
     int var12 = 27;
     if (arg1 >= 4)
     {
-        var12 = func_ov017_021d60f4(arg0);
+        var12 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     }
     Struct_ov001_0215f3fc_4* var13 = (Struct_ov001_0215f3fc_4*)var11->Allocate(0x20);
     if (!var13)

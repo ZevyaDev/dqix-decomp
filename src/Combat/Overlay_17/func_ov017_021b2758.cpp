@@ -10,13 +10,13 @@ enum { Enum_ov017_021b2758_261 = 0x125, Enum_ov017_021b2758_268 = 0x12c };
 enum { Enum_ov017_021b2758_261 = 0x105, Enum_ov017_021b2758_268 = 0x10c };
 #endif
 
-extern "C" void func_020100c4(GameState* arg0, int arg1);
-extern "C" void* func_0200fd0c(GameState* arg0);
-extern "C" int func_020100f8(char* arg0);
+extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a27ac(void* arg0);
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_ov017_0218f758(void* arg0);
 
 struct Struct_ov011_021849bc;
@@ -61,7 +61,7 @@ struct Struct_ov017_021b2758_3 {
 extern "C" ARM int func_ov017_021b2758(Struct_ov017_021b2758_3* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
-    func_020100c4(var0, arg0->unknown_44_);
+    SetCamera_020100c4(var0, arg0->unknown_44_);
 
     if (data_ov017_021d83f0.unknown_4_ != 0) {
         if (func_ov011_021849bc((struct Struct_ov011_021849bc*)data_ov017_021d83f0.unknown_4_, 1)) arg0->unknown_38_.unknown1_0_.unknown_0_0_ = 1;
@@ -77,7 +77,7 @@ extern "C" ARM int func_ov017_021b2758(Struct_ov017_021b2758_3* arg0) {
         ClearFlags00(var1, 4);
         func_ov017_0219bd1c(1, 0, 0, 0);
         arg0->unknown_38_.unknown_0_ &= ~2;
-        void* var2 = func_0200fd0c(var0);
+        void* var2 = GetZoneEntry_0200fd0c(var0);
         if (arg0->unknown_48_ != 0) ((char*)var2)[0x67] = 1;
         return 5;
     }
@@ -85,7 +85,7 @@ extern "C" ARM int func_ov017_021b2758(Struct_ov017_021b2758_3* arg0) {
     if (arg0->unknown_38_.unknown1_0_.unknown_0_2_) return 7;
 
     var0->GetUnknownGameObject();
-    int var3 = func_020100f8((char*)var0);
+    int var3 = GetFollowCamera_020100f8((char*)var0);
     unsigned char* var4 = (unsigned char*)GetZone3D_02012fe4();
     if (var3 != 0) {
         func_020a28b0((unsigned char*)var3, 2);
@@ -114,7 +114,7 @@ extern "C" ARM int func_ov017_021b2758(Struct_ov017_021b2758_3* arg0) {
     } else {
         var9 = *(unsigned short*)(var8 + var7 * 2 + 0x126);
     }
-    func_020c5588(var9, 0x10, 0x7fff, 0, 0);
+    Set3DClearColorAndDepth_020c5588(var9, 0x10, 0x7fff, 0, 0);
     func_ov017_0218f758(var1);
     return 4;
 }

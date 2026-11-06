@@ -50,7 +50,7 @@ struct Struct_02038138_4 {
 
 extern "C" char* GetZone3D_02012fe4();
 extern "C" struct Struct_02038138_3* func_ov017_0218d268(void*);
-extern "C" void func_02033b88(struct Struct_02010604*, int);
+extern "C" void SetMotion_02033b88(struct Struct_02010604*, int);
 extern "C" void func_02033b68(struct Struct_02033b68*, int);
 extern "C" void func_02033b58(struct Struct_02033b58*, unsigned char);
 extern "C" int func_0202e7f0(void*);
@@ -69,7 +69,7 @@ extern "C" ARM void func_02038138(struct Struct_02038138_4* arg0) {
     void* var1;
     GameResources* var2;
     int var3;
-    var1 = func_020100bc(GameState::GetInstance());
+    var1 = GetCamera_020100bc(GameState::GetInstance());
     var2 = GetGameResources();
     var0 = GetZone3D_02012fe4();
     var3 = 0;
@@ -130,7 +130,7 @@ extern "C" ARM void func_02038138(struct Struct_02038138_4* arg0) {
             arg0->unknown_250_ -= 8;
         }
         if (arg0->unknown_252_ != 0 && arg0->unknown_be_ == 1) {
-            func_02033b88((struct Struct_02010604*)arg0, 0);
+            SetMotion_02033b88((struct Struct_02010604*)arg0, 0);
         }
         arg0->unknown_255_ = -1;
     } else if (var3 == 1) {

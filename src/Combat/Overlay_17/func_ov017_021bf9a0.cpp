@@ -8,9 +8,6 @@
 #include "Resource/GameResources.h"
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 struct Struct_02015ef4_5 { unsigned int unknown_0_[28]; };
 struct MessageWindow_020465c0;
@@ -44,7 +41,7 @@ extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_02047b30(void*, int, int, int);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
-extern "C" void func_0206df6c(void*, unsigned char*, int, int);
+extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void func_ov017_021cdb00(int, int, int, int);
 extern "C" void __clear(void*, int);
 extern "C" void* func_020de824(void*);
@@ -101,7 +98,7 @@ extern "C" ARM int func_ov017_021bf9a0(Struct_ov017_021bf9a0_2* arg0) {
         int var11 = var10->uniqueID;
         int var12 = var11 + 0x79e;
         if (!IsFlagSet_0206dfb0((int)var4, var4 + 0x8c, var12)) {
-            func_0206df6c(var4, var4 + 0x8c, var12, 1);
+            SetFlag_0206df6c(var4, var4 + 0x8c, var12, 1);
             func_ov017_021cdb00(8, var11, 1, -1);
             char var13[128] = {};
             Struct_ov017_021bf9a0_3* var14 = GetZone3D_02012fe4();

@@ -46,8 +46,8 @@ struct Struct_ov000_02179194_5 {
     char* unknown_5c_;
 };
 struct MessageWindow_020465c0;
-struct Struct_0205d81c;
-struct Struct_0205d5d0;
+struct TextWindowManager_0205d81c;
+struct TextWindowManager_0205d5d0;
 extern "C" Struct_ov000_02179194_5* GetMessageWindow_020421a0();
 extern "C" Struct_ov000_02179194* func_ov000_0217199c(void*, int);
 extern "C" void func_020dd040(int, char*);
@@ -56,16 +56,16 @@ extern "C" void ClearMessageParams_02046380(Struct_ov000_02179194_5*);
 extern "C" int func_ov000_02153a8c(GameObject*);
 extern "C" unsigned int func_020dd290(void*, unsigned int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" const char* func_020e51cc(int);
+extern "C" const char* GetStandardString_020e51cc(int);
 extern "C" int AppendText_02042058(char*, const char*);
-extern "C" void* func_0205d81c(Struct_0205d81c*, int);
+extern "C" void* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 #if defined(jpn)
-extern "C" void func_0205d304(Struct_ov000_02179194_3*, char*, int, int, int, int, int);
+extern "C" void OpenTextWindow_0205d304(Struct_ov000_02179194_3*, char*, int, int, int, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern char data_ov000_02185169[];
 #else
-extern "C" void func_0205d304(Struct_ov000_02179194_3*, char*, int, int, int, int, int, int);
+extern "C" void OpenTextWindow_0205d304(Struct_ov000_02179194_3*, char*, int, int, int, int, int, int);
 #endif
 
 // USA: func_ov000_02179194
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov000_02179194(Struct_ov000_02179194_4* arg0, Struct_ov
     if (!var6) return;
     GameObject* var7 = var5->GetCombatantByIndex(arg1->unknown_4c_);
     if (!var7) return;
-    GameObject* var8 = func_0200ff1c(var5, arg1->unknown_4c_);
+    GameObject* var8 = GetPartyMemberBaseByIndex_0200ff1c(var5, arg1->unknown_4c_);
     if (!var8) return;
     func_020dd040(var6->unknown_4_0_, var4);
 #if defined(jpn)
@@ -115,14 +115,14 @@ extern "C" ARM void func_ov000_02179194(Struct_ov000_02179194_4* arg0, Struct_ov
     func_020465d8((unsigned char*)var1, 1, 1);
     AppendText_02042058(var0, data_ov000_02185169);
 #else
-    AppendText_02042058(var0, func_020e51cc(0x3ec));
+    AppendText_02042058(var0, GetStandardString_020e51cc(0x3ec));
 #endif
     Struct_ov000_02179194_3* var11 = &arg0->unknown_188_;
-    if (func_0205d81c((Struct_0205d81c*)var11, 0x23)) {
+    if (FindTextWindow_0205d81c((TextWindowManager_0205d81c*)var11, 0x23)) {
 #if defined(jpn)
-        func_0205d5d0((Struct_0205d5d0*)var11, 0x23, (int)var0, 1);
+        SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)var11, 0x23, (int)var0, 1);
 #else
-        func_0205d5d0((Struct_0205d5d0*)var11, 0x23, (int)var0, 1, 0);
+        SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)var11, 0x23, (int)var0, 1, 0);
 #endif
     } else {
         int var12 = arg1->unknown_44_;
@@ -153,9 +153,9 @@ extern "C" ARM void func_ov000_02179194(Struct_ov000_02179194_4* arg0, Struct_ov
         var11->unknown_ae_ = 14;
         var11->unknown_b1_ = 0x23;
 #if defined(jpn)
-        func_0205d304(var11, var0, 1, 0, 0, 1, 0);
+        OpenTextWindow_0205d304(var11, var0, 1, 0, 0, 1, 0);
 #else
-        func_0205d304(var11, var0, 1, 0, 0, 1, 0, 0);
+        OpenTextWindow_0205d304(var11, var0, 1, 0, 0, 1, 0, 0);
 #endif
     }
 }

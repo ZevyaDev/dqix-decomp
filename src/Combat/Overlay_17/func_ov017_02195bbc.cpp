@@ -13,7 +13,7 @@ struct Struct_0208f820;
 struct Struct_0208f410_3;
 
 extern "C" Zone3D* GetZone3D_02012fe4();
-extern "C" Struct_02057a10* func_02057924();
+extern "C" Struct_02057a10* GetEffectManager_02057924();
 extern "C" void* func_02010768(void* arg0);
 extern "C" void func_ov017_021a3dcc(int arg0);
 extern "C" void func_02016874(Zone3D* arg0);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov017_02195bbc(Struct_ov017_02195bbc* arg0) {
 
     var3 = GameState::GetInstance();
     var1 = GetZone3D_02012fe4();
-    var2 = func_02057924();
+    var2 = GetEffectManager_02057924();
     var4 = (Zone3D**)func_02010768(var3);
 
     if (IsBrightnessWithinValidRange((GameResources*)arg0, false)) {

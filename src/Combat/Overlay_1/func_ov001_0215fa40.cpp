@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 #include "World/ZoneChest.h"
 
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
 
 // USA: func_ov001_0215fa40
 extern "C" ARM int func_ov001_0215fa40(char* arg0, int arg1) {
-    int var0 = func_ov017_021d60f4(arg0);
+    int var0 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     char* var1 = arg0 + 0x8;
     arg0 += 0x10;
-    int var2 = func_ov017_021d60f4(var1);
+    int var2 = GetScriptValueAsInt_ov017_021d60f4(var1);
     int var3 = 1;
     int var4 = 1;
     if (arg1 > 2) {
-        var3 = func_ov017_021d60f4(arg0);
+        var3 = GetScriptValueAsInt_ov017_021d60f4(arg0);
         arg0 += 0x8;
     }
     if (arg1 > 3) {
-        var4 = func_ov017_021d60f4(arg0);
+        var4 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     }
 
     Zone3D* var5 = (Zone3D*)GetZone3D_02012fe4();

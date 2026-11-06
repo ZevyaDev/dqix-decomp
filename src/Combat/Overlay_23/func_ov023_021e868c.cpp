@@ -73,7 +73,7 @@ extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" int func_02041a5c(char* arg0, int arg1);
 #endif
 extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
-extern "C" void func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 #if defined(jpn)
 extern "C" int func_02042638(char* arg0, int arg1, int arg2);
 #define func_02041fac func_02042638
@@ -109,13 +109,13 @@ extern "C" ARM void func_ov023_021e868c(Struct_ov023_021e868c_3* arg0)
     Struct_ov023_021e868c_2* var3 = NULL;
     if (IsLocalWirelessOn_0202b7d8((int*)var2) == 0)
     {
-        void* var4 = func_0200ff1c(var0, 0);
+        void* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, 0);
         if (var4 != NULL)
             var3 = GetPartyMemberData_02053c6c((unsigned char*)var4);
     }
     else
     {
-        void* var5 = func_0200ff1c(var0, GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var2));
+        void* var5 = GetPartyMemberBaseByIndex_0200ff1c(var0, GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var2));
         if (var5 != NULL)
             var3 = GetPartyMemberData_02053c6c((unsigned char*)var5);
     }
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov023_021e868c(Struct_ov023_021e868c_3* arg0)
 #endif
     func_02041fac(var7, (int)var3->unknown_3c_, 0x10);
     const char* var9 = FindStringInList_02072a68(arg0->unknown_5f4_, (short)(var6->unknown_5_1_ + 10000));
-    func_02041b70(var7, 0, FindStringInList_02072a68(arg0->unknown_5f4_, 2));
+    AppendMenuEntry_02041b70(var7, 0, FindStringInList_02072a68(arg0->unknown_5f4_, 2));
     AppendText_02042058(var7, FindStringInList_02072a68(arg0->unknown_5f4_, 0x6c));
 #if defined(jpn)
     int var10 = (0x6e - strlen(var9) * 10 / 2) / 2 + 0x56;
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov023_021e868c(Struct_ov023_021e868c_3* arg0)
 #endif
     AppendText_02042058(var7, var9);
     AppendText_02042058(var7, FindStringInList_02072a68(arg0->unknown_5f4_, 0));
-    func_02041b70(var7, 1, FindStringInList_02072a68(arg0->unknown_5f4_, 3));
+    AppendMenuEntry_02041b70(var7, 1, FindStringInList_02072a68(arg0->unknown_5f4_, 3));
     func_02041a28(var7, 0x4c);
     AppendText_02042058(var7, FindStringInList_02072a68(arg0->unknown_5f4_, 0x6c));
     if (var6->unknown_3_7_)
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov023_021e868c(Struct_ov023_021e868c_3* arg0)
     const char* var16 = FindStringInList_02072a68(arg0->unknown_5f4_, var15);
 #endif
     func_02041a5c(var7, 0x42);
-    func_02041b70(var7, 2, FindStringInList_02072a68(arg0->unknown_5f4_, 4));
+    AppendMenuEntry_02041b70(var7, 2, FindStringInList_02072a68(arg0->unknown_5f4_, 4));
     func_02041a28(var7, 0x4c);
     AppendText_02042058(var7, FindStringInList_02072a68(arg0->unknown_5f4_, 0x6c));
 #if defined(jpn)
@@ -256,7 +256,7 @@ extern "C" ARM void func_ov023_021e868c(Struct_ov023_021e868c_3* arg0)
         var18 = var6->unknown_2_5_ + 30000;
     const char* var19 = FindStringInList_02072a68(arg0->unknown_5f4_, var18);
 #endif
-    func_02041b70(var7, 3, FindStringInList_02072a68(arg0->unknown_5f4_, 5));
+    AppendMenuEntry_02041b70(var7, 3, FindStringInList_02072a68(arg0->unknown_5f4_, 5));
     func_02041a28(var7, 0x4c);
     AppendText_02042058(var7, FindStringInList_02072a68(arg0->unknown_5f4_, 0x6c));
 #if defined(jpn)

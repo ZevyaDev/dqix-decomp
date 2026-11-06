@@ -9,7 +9,7 @@
 #define REGION_OFFSET_1 0x1a4
 #endif
 
-extern "C" void* func_02079e2c(char* arg0, int arg1);
+extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 
 struct Struct_ov000_02170cf8 {
     char unknown_0_[4];
@@ -22,11 +22,11 @@ extern "C" ARM void* func_ov000_02170cf8(char* arg0, int arg1) {
     if (arg1 == 0) {
         return 0;
     }
-    Struct_02108e10* var0 = func_020797dc();
+    ActionTables_02108e10* var0 = GetActionTables_020797dc();
     if (var0 == 0) {
         return 0;
     }
-    void* var1 = func_02079e2c((char*)var0, (short)arg1);
+    void* var1 = FindActionData_02079e2c((char*)var0, (short)arg1);
     if (var1 != 0) {
         return var1;
     }

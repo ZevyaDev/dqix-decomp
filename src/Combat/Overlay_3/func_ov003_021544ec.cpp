@@ -5,11 +5,11 @@
 
 struct Struct_020e2490;
 extern "C" void func_020e2490(struct Struct_020e2490* arg0, int arg1, int arg2, void* arg3, SafeAllocator* arg4, int arg5, unsigned char arg6);
-struct Struct_02020cb8;
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
-extern "C" void func_0204c684(void*);
-struct Struct_02043368_2;
-extern "C" void func_0205a198(struct Struct_02043368_2*);
+struct BGLayer_02020cb8;
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
+extern "C" void InitTextWindow_0204c684(void*);
+struct Sprite_02043368_2;
+extern "C" void InitSprite_0205a198(struct Sprite_02043368_2*);
 
 struct Struct_ov003_021544ec {
     char unknown_0_[4];
@@ -32,12 +32,12 @@ struct Struct_ov003_021544ec_2 {
     struct Struct_ov003_021544ec* unknown_4_;
     char unknown_8_[4];
     void* unknown_c_;
-    struct Struct_02020cb8* unknown_10_;
+    struct BGLayer_02020cb8* unknown_10_;
     char* unknown_14_;
     Struct_0207f7f0* unknown_18_;
     struct Struct_020e2490* unknown_1c_;
     int* unknown_20_;
-    struct Struct_02043368_2* unknown_24_;
+    struct Sprite_02043368_2* unknown_24_;
     void* unknown_28_;
     char unknown_2c_[0x90 - 0x2c];
     char unknown_90_[0xfc - 0x90];
@@ -57,11 +57,11 @@ extern "C" ARM void func_ov003_021544ec(struct Struct_ov003_021544ec_2* arg0, Sa
         arg0->unknown_0_ = (SafeAllocator*)arg1->Allocate(0xa0);
         arg0->unknown_4_ = (struct Struct_ov003_021544ec*)arg1->Allocate(0x60);
         arg0->unknown_c_ = arg1->Allocate(0x4c00);
-        arg0->unknown_10_ = (struct Struct_02020cb8*)arg1->Allocate(0x40);
+        arg0->unknown_10_ = (struct BGLayer_02020cb8*)arg1->Allocate(0x40);
         arg0->unknown_14_ = (char*)arg1->Allocate(0x2a0);
         arg0->unknown_18_ = static_cast<Struct_0207f7f0*>(arg1->Allocate(Enum_ov003_021544ec_128));
         arg0->unknown_20_ = (int*)arg1->Allocate(0x30);
-        arg0->unknown_24_ = (struct Struct_02043368_2*)arg1->Allocate(0x190);
+        arg0->unknown_24_ = (struct Sprite_02043368_2*)arg1->Allocate(0x190);
         arg0->unknown_28_ = arg1->Allocate(8);
         arg0->unknown_1c_ = (struct Struct_020e2490*)arg1->Allocate(0x24);
         func_020e2490(arg0->unknown_1c_, 0, 1, arg0->unknown_28_, arg1, Enum_ov003_021544ec_4, 0x40);
@@ -75,17 +75,17 @@ extern "C" ARM void func_ov003_021544ec(struct Struct_ov003_021544ec_2* arg0, Sa
             var2[var1].Reset();
         }
         for (unsigned char var4 = 0; var4 < 2; var4++) {
-            func_0204af64((struct Struct_02020cb8*)((char*)arg0->unknown_10_ + var4 * 0x20));
+            InitBGLayer_0204af64((struct BGLayer_02020cb8*)((char*)arg0->unknown_10_ + var4 * 0x20));
         }
         for (unsigned char var5 = 0; var5 < 3; var5++) {
-            func_0204c684(arg0->unknown_14_ + var5 * 0xe0);
+            InitTextWindow_0204c684(arg0->unknown_14_ + var5 * 0xe0);
         }
         func_0207f84c(arg0->unknown_18_);
         for (unsigned char var6 = 0; var6 < 12; var6++) {
             arg0->unknown_20_[var6] = 0;
         }
         for (unsigned char var7 = 0; var7 < 10; var7++) {
-            func_0205a198((struct Struct_02043368_2*)((char*)arg0->unknown_24_ + var7 * 0x28));
+            InitSprite_0205a198((struct Sprite_02043368_2*)((char*)arg0->unknown_24_ + var7 * 0x28));
         }
         GameState::GetInstance();
         struct Struct_ov003_021544ec* var8 = arg0->unknown_4_;

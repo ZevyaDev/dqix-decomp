@@ -26,7 +26,7 @@ extern "C" int func_020dd11c(unsigned int, unsigned int);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 extern "C" void __clear(void*, int);
 extern "C" void func_02050678(void*, short, short, const char*, int, unsigned char, short*, short*);
 extern "C" void func_020749ac(void*, int, int, int);
@@ -39,7 +39,7 @@ extern char data_ov013_02188e64[];
 extern "C" ARM void func_ov013_02187a58(void* arg0, void* arg1) {
     unsigned char* var0 = (unsigned char*)arg0;
     if (!arg1) return;
-    GameObject* var1 = func_0200ff1c(GameState::GetInstance(), *(signed char*)(var0 + 0x53));
+    GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), *(signed char*)(var0 + 0x53));
     if (!var1) return;
     int var2;
     unsigned char* var3 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var1);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov013_02187a58(void* arg0, void* arg1) {
     char var12[32];
     char var13[16];
 
-    func_02050678(arg1, (short)(128 - (func_020d2ff0(var7) >> 2) * 10), 12, var7, 10, 15, &var8, &var9);
+    func_02050678(arg1, (short)(128 - (GetStringLength_020d2ff0(var7) >> 2) * 10), 12, var7, 10, 15, &var8, &var9);
     memset(var10, 0, sizeof(var10));
     for (unsigned char var14 = 0; var14 < 10; var14++) {
         Struct_ov013_02187a58_2* var15 = &var10[var14];
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov013_02187a58(void* arg0, void* arg1) {
     }
 
     GameObject* var24 =
-        func_0200ff1c(GameState::GetInstance(), *(signed char*)(var23 + 0x67));
+        GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), *(signed char*)(var23 + 0x67));
     if (var24 == 0) {
         return;
     }

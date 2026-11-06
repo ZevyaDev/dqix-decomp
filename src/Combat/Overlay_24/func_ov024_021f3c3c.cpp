@@ -4,7 +4,7 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
 extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
-extern "C" int func_ov000_0215eb1c(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
 
 struct Struct_ov024_021f3c3c { int unknown_0_; };
@@ -19,7 +19,7 @@ extern "C" ARM int func_ov024_021f3c3c(struct Struct_ov024_021f3c3c* arg0, int a
 	if (!var0) return 0;
 	if (var0->currentStats_->primaryStats.currMP == 0) return 0;
 	struct Struct_ov024_021feeac var1 = data_ov024_021feeac;
-	int var2 = func_ov000_0215eb1c(arg0->unknown_0_, var1.unknown_0_, 8, 1);
+	int var2 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0->unknown_0_, var1.unknown_0_, 8, 1);
 	if (var2 <= 0) return 0;
 	*arg3 = 0;
 	for (int var3 = 0; var3 < var2; var3++) {

@@ -11,8 +11,8 @@ extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
-struct Struct_02020cb8;
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
+struct BGLayer_02020cb8;
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
 extern "C" void func_0204b2e0(void* arg0, char* arg1);
 
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov004_02163144() {
 
             ((BackgroundLoader*)((struct Struct_020534ac*)var1))->GetLoadedFileByID((int)(data_ov004_021707e8.unknown_20_), (void**)(&var2), (unsigned int*)(&var3));
             int var7 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var2);
-            func_0204af64((struct Struct_02020cb8*)&var6);
+            InitBGLayer_0204af64((struct BGLayer_02020cb8*)&var6);
             var6.unknown_1c_0_ = 1;
             var6.unknown_1c_4_ = 1;
             for (int var8 = 0; var8 < var7; var8++) {

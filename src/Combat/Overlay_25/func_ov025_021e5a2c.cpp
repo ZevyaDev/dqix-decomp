@@ -21,16 +21,16 @@ struct Struct_ov025_021e5a2c_2 {
     char unknown_0_[8];
     Vector3i unknown_8_;
 };
-extern "C" Struct_ov025_021e5a2c* func_ov000_02160130(void);
+extern "C" Struct_ov025_021e5a2c* GetBattleScene_ov000_02160130(void);
 
 // USA: func_ov025_021e5a2c
 extern "C" ARM int func_ov025_021e5a2c(Struct_ov025_021e5a2c_2* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Struct_ov001_02158ae4_3* var1 = (Struct_ov001_02158ae4_3*)func_020100bc(var0);
+    Struct_ov001_02158ae4_3* var1 = (Struct_ov001_02158ae4_3*)GetCamera_020100bc(var0);
     if (var1 != 0) {
         var1->unknown_4_ = arg0->unknown_8_;
     }
-    Struct_ov025_021e5a2c* var2 = func_ov000_02160130();
+    Struct_ov025_021e5a2c* var2 = GetBattleScene_ov000_02160130();
     if (var2) {
         var2->unknown_6fd5_ = 1;
     }

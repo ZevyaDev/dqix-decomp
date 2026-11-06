@@ -6,7 +6,7 @@
 extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
 struct Struct_ov024_021f1330;
 extern "C" int func_ov024_021f1440(struct Struct_ov024_021f1330* arg0);
-extern "C" int func_ov000_0215eb1c(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
 
 struct Struct_ov024_021f1578 { int unknown_0_; };
 struct Struct_ov024_021fef5c { short unknown_0_[8]; };
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov024_021f1578(struct Struct_ov024_021f1578* arg0, short
 	if (!func_ov024_021f1440((struct Struct_ov024_021f1330*)var0)) return 0;
 
 	struct Struct_ov024_021fef5c var1 = data_ov024_021fef5c;
-	int var2 = func_ov000_0215eb1c(arg0->unknown_0_, var1.unknown_0_, 8, 1);
+	int var2 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0->unknown_0_, var1.unknown_0_, 8, 1);
 	if (var2 <= 0) return 0;
 
 	int var3 = 0;

@@ -2,7 +2,7 @@
 
 struct Struct_ov003_02173b4c;
 extern "C" void* func_ov003_02173bb0(Struct_ov003_02173b4c*, unsigned int);
-extern "C" void func_0205ac40(void*, void*);
+extern "C" void DrawSprite_0205ac40(void*, void*);
 extern signed char data_ov003_0217fa14[];
 
 // USA: func_ov003_02173bd8
@@ -41,5 +41,5 @@ extern "C" ARM void func_ov003_02173bd8(void* arg0) {
 #endif
     *(int*)((char*)var2 + 0x14) = Enum_ov003_02173bd8_753664;
     *(int*)((char*)var2 + 0x18) = 0x2f000;
-    func_0205ac40((char*)arg0 + Enum_ov003_02173bd8_304, var2);
+    DrawSprite_0205ac40((char*)arg0 + Enum_ov003_02173bd8_304, var2);
 }

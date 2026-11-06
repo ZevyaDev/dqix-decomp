@@ -3,7 +3,7 @@
 #include "Util/Random.h"
 
 extern "C" int GetResources_0200fb8c(int* gameState);
-extern "C" int func_ov000_0215eb1c(struct Random* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(struct Random* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_020493a4(unsigned char* arg0);
 extern "C" void func_02049390(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_02049bd4(unsigned char* arg0, int* arg1);
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov000_02167cd4(unsigned char* arg0) {
     struct Random* var1 = *(struct Random**)(arg0 + 0x29c);
 #endif
     short var2[8];
-    int var3 = func_ov000_0215eb1c(var1, var2, 8, 0);
+    int var3 = CollectEnemyCombatantIndices_ov000_0215eb1c(var1, var2, 8, 0);
     int var4 = 0;
     while (var4 < var3) {
         GameObject* var5 = var0->GetCombatantByIndex(var2[var4]);

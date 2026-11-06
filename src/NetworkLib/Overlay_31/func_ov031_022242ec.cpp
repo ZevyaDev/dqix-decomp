@@ -4,7 +4,7 @@ struct Struct_ov031_022489c4 { unsigned short unknown_0_, unknown_2_; };
 struct Struct_ov031_022493b8 { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_; };
 extern Struct_ov031_022493b8 data_ov031_022493b8;
 extern "C" void func_ov031_0223cb34(Struct_ov031_022489c4*, Struct_ov031_022489c4*, Struct_ov031_022493b8*);
-extern "C" void func_ov031_02236878(int);
+extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
 
 struct Struct_ov031_022242ec {
     char unknown_0_[0x11e];
@@ -39,10 +39,10 @@ extern "C" ARM void func_ov031_022242ec() {
             func_ov031_0223cb34(var2, var1, &var0);
             if (func_ov031_0223d49c(&var0)) {
                 if (!data_ov031_02250bfc->unknown_124_) {
-                    func_ov031_02236878(9);
+                    PlayWifiSetupSoundEffect_ov031_02236878(9);
                     return;
                 }
-                func_ov031_02236878(0);
+                PlayWifiSetupSoundEffect_ov031_02236878(0);
                 data_ov031_02250bfc->unknown_11e_ = var3;
                 return;
             }
@@ -60,10 +60,10 @@ extern "C" ARM void func_ov031_022242ec() {
             func_ov031_0223cb34(var5, var4, &var0);
             if (func_ov031_0223d49c(&var0)) {
                 if ((var6 == 3 && !data_ov031_02250bfc->unknown_123_) || (var6 == 2 && !data_ov031_02250bfc->unknown_124_)) {
-                    func_ov031_02236878(9);
+                    PlayWifiSetupSoundEffect_ov031_02236878(9);
                     return;
                 }
-                func_ov031_02236878(data_ov031_0224b43c[var6]);
+                PlayWifiSetupSoundEffect_ov031_02236878(data_ov031_0224b43c[var6]);
                 data_ov031_02250bfc->unknown_11e_ = var6 + 47;
                 return;
             }
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov031_022242ec() {
         do {
             func_ov031_0223cb34(var8, var7, &var0);
             if (func_ov031_0223d49c(&var0)) {
-                func_ov031_02236878(0);
+                PlayWifiSetupSoundEffect_ov031_02236878(0);
                 data_ov031_02250bfc->unknown_11e_ = var9 + 51;
                 return;
             }

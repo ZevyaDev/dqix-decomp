@@ -24,7 +24,7 @@ extern "C" ARM int func_ov000_0217c2a0(void* arg0) {
     int var1 = 0;
     GameState* var2 = GameState::GetInstance();
     int var3 = *(int*)(var0 + 0x4c);
-    GameObject* var4 = func_0200ff1c(var2, var3);
+    GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var2, var3);
     if (var4 != 0) {
         void* var5 = func_02054000((struct Struct_02054000*)var4);
         if (var5 != 0) {

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 struct Struct_0205faf4_11;
 extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
 
@@ -23,7 +23,7 @@ extern "C" ARM void func_ov017_02191e5c(int arg0, int arg1, short arg2, unsigned
 	((Object3D*)((unsigned char*)var2))->SetField9e(arg3);
 	int var3 = (arg1 >= 0 && arg1 <= 3);
 	if (var3) {
-		GameObject* var4 = func_0200ff1c(var0, arg1);
+		GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
 		if (!var4) return;
 		if (!func_02061bd8((struct Struct_0205faf4_11*)var4)) {
 			func_ov017_0218fd34(arg0, arg1, arg4);

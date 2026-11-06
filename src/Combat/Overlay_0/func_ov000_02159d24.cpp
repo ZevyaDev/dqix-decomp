@@ -18,7 +18,7 @@ extern struct Struct_ov000_02182d8a data_ov000_02182d8a[];
 
 // USA: func_ov000_02159d24
 extern "C" ARM int func_ov000_02159d24(int arg0, int arg1) {
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg1);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1);
     if (var0 == 0) {
         return 0;
     }

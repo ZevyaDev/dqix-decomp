@@ -15,9 +15,6 @@ enum { Enum_ov017_021abba8_340 = 0x154 };
 #include "Resource/Brightness.h"
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 struct Struct_02018300_3;
 struct Struct_02038598_5;
@@ -74,14 +71,14 @@ struct Struct_ov017_021abba8 {
 };
 
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void* func_02057924(void);
-extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" void* GetEffectManager_02057924(void);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
 extern "C" void func_ov017_021ac2a8(void* arg0);
 extern "C" void func_02046a8c(void* arg0, void* arg1);
-extern "C" int func_02046b08(void** arg0);
-extern "C" int func_02094a00(void);
-extern "C" void func_02094ab0(int arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
+extern "C" int GetFontLoader_02094a00(void);
+extern "C" void CancelFontLoad_02094ab0(int loader);
 extern "C" void func_020a0cc4(unsigned int arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
@@ -94,10 +91,10 @@ extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void func_ov017_02197528(void);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_0205ebec(void* arg0);
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
+extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" int func_02011b50(void* arg0, int arg1);
 extern "C" void func_ov017_021b2174(unsigned char* arg0);
 extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1);
@@ -119,21 +116,21 @@ extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Struct_0203
     void* var1 = GetLocalWireless_0202ae18();
     GameResources* var2 = GetGameResources();
     GameObject* var3 = var0->GetUnknownGameObject();
-    void* var4 = func_02057924();
+    void* var4 = GetEffectManager_02057924();
     BackgroundLoader* var5 = BackgroundLoader::GetInstance();
     int var6 = var0->GetTickCount();
 
     if (arg0->unknown_8_ == 0) {
-        func_020397cc((Struct_02018300_3*)var3, 1);
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var3, 1);
         if (func_02046b60(arg1, 0x4e)) {
             arg0->unknown_1_ = 1;
             func_ov017_021ac2a8(arg0);
             if (func_02046b60(arg1, 3)) {
                 func_02046a8c(arg1, var2->unknown_ptr_array_36fc[4]);
             }
-        } else if (func_02046b08((void**)var2->unknown_ptr_array_36fc[1])) {
+        } else if (IsQueueEmpty_02046b08((void**)var2->unknown_ptr_array_36fc[1])) {
             SetFlags00(var2, 0x10);
-            func_02094ab0(func_02094a00());
+            CancelFontLoad_02094ab0(GetFontLoader_02094a00());
             func_020a0cc4(0x2800);
             arg0->unknown_24_ = var5->QueueLoadFile(&data_ov017_021d78da, NULL);
             arg0->unknown_8_++;
@@ -260,12 +257,12 @@ extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Struct_0203
             ClearFlags00(var2, 0x10);
             func_ov017_02197528();
             arg0->unknown_1_ = 1;
-            func_020397c0(var3);
+            EnablePlayerControl_020397c0(var3);
             func_ov017_021ac2a8(arg0);
             func_0205ebec(&gSoundEffectManager_02108760);
             if (IsNotLocalWirelessGuest_0202c508(var1)) {
                 unsigned char* var22 = (unsigned char*)GetFlagManager_0205ec34();
-                func_0206df6c(var22, var22 + 0x8c, 0x113d, 1);
+                SetFlag_0206df6c(var22, var22 + 0x8c, 0x113d, 1);
             }
             if (func_02011b50(var0, 1) && arg0->unknown_c_ != 0) {
                 Queue_0201bdac_2* var23;

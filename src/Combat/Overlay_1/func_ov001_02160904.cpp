@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 
 #if defined(jpn)
     enum { Enum_ov001_02160904_1744 = 0x4c0 };
@@ -13,7 +13,7 @@ struct Struct_ov001_02160904_2 { char unknown_0_[Enum_ov001_02160904_1744]; Stru
 
 // USA: func_ov001_02160904
 extern "C" ARM int func_ov001_02160904(void* arg0) {
-    int var0 = func_ov017_021d60f4(arg0);
+    int var0 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     struct Struct_ov001_02160904_2* var1 = (struct Struct_ov001_02160904_2*)((char*)GetGameResources() + 0x3000);
     struct Struct_ov001_02160904* var2 = var1->unknown_6d0_;
     if (var0 != 0) {

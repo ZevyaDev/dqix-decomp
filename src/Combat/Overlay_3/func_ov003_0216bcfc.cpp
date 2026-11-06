@@ -68,7 +68,7 @@ extern "C" void func_ov003_021700bc(Struct_ov003_0216bcfc *arg0);
 extern "C" void *GetLocalWireless_0202ae18();
 extern "C" void func_0202c288();
 extern "C" void CloseMessageWindow_02043124(void *window);
-extern "C" void func_0205a528(void *arg0, void *arg1, unsigned int arg2, SafeAllocator *arg3);
+extern "C" void LoadSpriteSetFile_0205a528(void *spriteSet, void *fileData, unsigned int size, SafeAllocator *allocator);
 #if defined(jpn)
 extern "C" void func_ov003_0216d8d4(void *arg0, int arg1);
 extern "C" void func_ov003_0216e02c(void *arg0, SafeAllocator *arg1);
@@ -156,9 +156,9 @@ extern "C" ARM void func_ov003_0216bcfc(Struct_ov003_0216bcfc_3 *arg0) {
         for (int var13 = 0; var13 < var11; var13++) {
             void *var14 = GetPacEntryData_020467f0((PacEntry_02020aec *) var8, var13, &var7, &var10);
 #if defined(jpn)
-            func_0205a528((char *) arg0 + 0x10fc, var14, var10, var12);
+            LoadSpriteSetFile_0205a528((char *) arg0 + 0x10fc, var14, var10, var12);
 #else
-            func_0205a528((char *) arg0 + 0x126c, var14, var10, var12);
+            LoadSpriteSetFile_0205a528((char *) arg0 + 0x126c, var14, var10, var12);
 #endif
         }
         var1->RemoveTask(arg0->unknown_c_);

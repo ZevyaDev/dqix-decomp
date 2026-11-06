@@ -13,12 +13,12 @@ struct Struct_ov006_02158054;
 struct Struct_0204b010;
 struct Struct_0204af14;
 struct Struct_02000c9c_8;
-struct Struct_0204b8d0;
+struct BGLayer_0204b8d0;
 struct Struct_0207fcb8;
 struct Struct_0207fd00;
 struct Struct_0207fd44_2;
-struct Struct_0205a254;
-struct Struct_0205a330;
+struct SpriteAnimationList_0205a254;
+struct SpriteAnimationList_0205a330;
 struct Struct_020e28dc;
 struct Struct_020e2794_2;
 struct Struct_02075db0;
@@ -61,17 +61,17 @@ extern "C" void func_ov006_02154a60(Struct_ov006_02154614*);
 extern "C" void func_0204b010(Struct_0204b010*, void*);
 extern "C" void* func_0204af14(Struct_0204af14*, unsigned int);
 extern "C" void func_0204b938(void*, void*, int, int, unsigned short);
-extern "C" int func_0200fb08(Struct_02000c9c_8*);
-extern "C" void func_0204b8d0(Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
+extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 extern "C" void func_0207fcb8(Struct_0207fcb8*);
 extern "C" void func_0207fd00(Struct_0207fd00*);
 extern "C" void func_0207fe80(void*, int, int, int);
 extern "C" void func_0204b04c(void*, int);
 extern "C" void func_0207fd44(Struct_0207fd44_2*);
-extern "C" void func_0205a370(Struct_0205a254*, int);
-extern "C" Struct_ov006_021580b8_2* func_0205a3d0(Struct_0205a254*, int);
-extern "C" void func_0205a330(Struct_0205a330*, int);
-extern "C" void func_0205ae8c(void*);
+extern "C" void PlaySpriteAnimation_0205a370(SpriteAnimationList_0205a254*, int);
+extern "C" Struct_ov006_021580b8_2* FindSpriteAnimation_0205a3d0(SpriteAnimationList_0205a254*, int);
+extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330*, int);
+extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 extern "C" int func_020e28dc(Struct_020e28dc*);
 extern "C" void func_020e2794(Struct_020e2794_2*, void*);
 extern "C" void func_ov006_021585c4(Struct_ov006_02157a60*);
@@ -79,7 +79,7 @@ extern "C" void func_ov006_0215868c(Struct_ov006_02157a60*);
 extern "C" void func_ov006_021587d0(Struct_ov006_02157a60*);
 extern "C" void func_ov006_02158914(Struct_ov006_02157a60*);
 extern "C" void func_020807c4(void*, int, short*, short*);
-extern "C" void func_0205ac40(void*, Struct_ov006_021580b8*);
+extern "C" void DrawSprite_0205ac40(void*, Struct_ov006_021580b8*);
 extern "C" void* func_0203bd08();
 extern "C" unsigned int func_0203be4c(void*);
 extern "C" void func_02076988(int*, int, int);
@@ -202,7 +202,7 @@ extern "C" ARM void func_ov006_021580b8(Struct_ov006_02157a60* arg0)
 #if !defined(jpn)
         if (arg0->unknown_397_ == 1)
         {
-            unsigned int var1 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+            unsigned int var1 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
             unsigned char var2 = 1;
             switch (var1)
             {
@@ -220,7 +220,7 @@ extern "C" ARM void func_ov006_021580b8(Struct_ov006_02157a60* arg0)
                 break;
             }
             if (var2 > 1)
-                func_0204b8d0((Struct_0204b8d0*)arg0->unknown_54_, var2, 0, 0, 0x16, 2, 9, 2, 0xffff);
+                CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)arg0->unknown_54_, var2, 0, 0, 0x16, 2, 9, 2, 0xffff);
         }
 #endif
         void* var3 = arg0->unknown_14_;
@@ -232,25 +232,25 @@ extern "C" ARM void func_ov006_021580b8(Struct_ov006_02157a60* arg0)
         if (arg0->unknown_394_ & 0x200)
         {
             arg0->unknown_42c_ = 0;
-            func_0205a370((Struct_0205a254*)arg0->unknown_28_, 1);
-            Struct_ov006_021580b8_2* var4 = func_0205a3d0((Struct_0205a254*)arg0->unknown_28_, 0);
+            PlaySpriteAnimation_0205a370((SpriteAnimationList_0205a254*)arg0->unknown_28_, 1);
+            Struct_ov006_021580b8_2* var4 = FindSpriteAnimation_0205a3d0((SpriteAnimationList_0205a254*)arg0->unknown_28_, 0);
             if (var4 != 0)
                 var4->unknown_15_ &= ~8;
-            var4 = func_0205a3d0((Struct_0205a254*)arg0->unknown_28_, 1);
+            var4 = FindSpriteAnimation_0205a3d0((SpriteAnimationList_0205a254*)arg0->unknown_28_, 1);
             if (var4 != 0)
                 var4->unknown_15_ |= 8;
-            func_0205a330((Struct_0205a330*)arg0->unknown_28_, arg0->unknown_34c_);
-            var4 = func_0205a3d0((Struct_0205a254*)arg0->unknown_28_, 1);
+            AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)arg0->unknown_28_, arg0->unknown_34c_);
+            var4 = FindSpriteAnimation_0205a3d0((SpriteAnimationList_0205a254*)arg0->unknown_28_, 1);
             if (var4 != 0)
             {
                 var4->unknown_4_ = 0xd7;
                 var4->unknown_6_ = 0x96;
             }
-            func_0205ae8c(arg0->unknown_ac_);
+            DrawSpriteAnimations_0205ae8c(arg0->unknown_ac_);
         }
         else
         {
-            Struct_ov006_021580b8_2* var5 = func_0205a3d0((Struct_0205a254*)arg0->unknown_28_, 1);
+            Struct_ov006_021580b8_2* var5 = FindSpriteAnimation_0205a3d0((SpriteAnimationList_0205a254*)arg0->unknown_28_, 1);
             if (var5 != 0)
                 var5->unknown_15_ &= ~8;
         }
@@ -282,7 +282,7 @@ extern "C" ARM void func_ov006_021580b8(Struct_ov006_02157a60* arg0)
             var9->unknown_18_ = (var8 + 4) << 12;
             var9->unknown_22_ = 0x32;
             var9->unknown_26_ = 1;
-            func_0205ac40(arg0->unknown_ac_, var9);
+            DrawSprite_0205ac40(arg0->unknown_ac_, var9);
         }
         unsigned int var10 = func_0203be4c(func_0203bd08());
         arg0->unknown_3b8_.unknown_4c_ = 0;

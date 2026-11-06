@@ -7,7 +7,7 @@ enum { Enum_ov003_021580d8_512 = 0x118 };
 enum { Enum_ov003_021580d8_512 = 0x200 };
 #endif
 
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern char data_ov003_0217fce0;
 
 struct Struct_ov003_021580d8 {
@@ -39,5 +39,5 @@ extern "C" ARM void func_ov003_021580d8(struct Struct_ov003_021580d8* arg0, stru
         return;
     }
     memset(arg0->unknown_44_, 0, Enum_ov003_021580d8_512);
-    sprintf(arg0->unknown_44_ + func_020d2ff0(arg0->unknown_44_), &data_ov003_0217fce0, var0);
+    sprintf(arg0->unknown_44_ + GetStringLength_020d2ff0(arg0->unknown_44_), &data_ov003_0217fce0, var0);
 }

@@ -100,11 +100,11 @@ struct Struct_ov024_021fefc2 {
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
 extern "C" int func_ov024_021e6798(GameObject* arg0);
 extern "C" Struct_ov024_021f9030_4* func_02053dc0(Struct_02053dc0* arg0);
-extern "C" Struct_ov024_021f9030_7* func_02079e2c(char* arg0, int arg1);
+extern "C" Struct_ov024_021f9030_7* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" int func_ov000_02155f9c(Struct_ov024_021f9030_5* arg0, int arg1, int arg2);
 extern "C" void func_ov024_021f7478(Struct_ov024_021f9030_2* arg0);
 extern "C" int func_ov024_021f8874(Struct_ov024_021f9030_2* arg0, Struct_ov024_021f9030_7* arg1, GameObject* arg2, int* arg3);
@@ -118,9 +118,9 @@ extern Struct_ov024_021fefc2 data_ov024_021fefc2;
 // USA: func_ov024_021f9030
 extern "C" ARM void func_ov024_021f9030(Struct_ov024_021f9030_2* arg0, Struct_ov024_021f9030_5* arg1, int arg2, unsigned short* arg3) {
     GameState* var0 = GameState::GetInstance();
-    GameObject* var1 = func_0200ff1c(var0, arg2);
+    GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg2);
     Struct_ov024_021f9030_6* var2 = (Struct_ov024_021f9030_6*)GetPartyMemberData_02053c6c((unsigned char*)var1);
-    Struct_02108e10* var3 = func_020797dc();
+    ActionTables_02108e10* var3 = GetActionTables_020797dc();
     unsigned char var4 = (signed char)var2->unknown_94c_;
     if (var4 >= 5) {
         return;
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov024_021f9030(Struct_ov024_021f9030_2* arg0, Struct_ov
     var9 = 0;
     var10 = 0;
     for (var16 = 0; var16 < 4; var16++) {
-        GameObject* var17 = func_0200ff1c(var0, var16);
+        GameObject* var17 = GetPartyMemberBaseByIndex_0200ff1c(var0, var16);
         if (var17 == 0) continue;
         if (!func_020a35e0(arg0->unknown_0_->unknown_8e18_, var16)) continue;
         if (func_ov024_021e6798(var17)) continue;
@@ -179,7 +179,7 @@ extern "C" ARM void func_ov024_021f9030(Struct_ov024_021f9030_2* arg0, Struct_ov
     }
     for (var16 = 0; var16 < arg0->unknown_174_; var16++) {
         Struct_ov024_021f9030* var20 = &arg0->unknown_178_[var16];
-        Struct_ov024_021f9030_7* var21 = func_02079e2c((char*)var3, var20->unknown_0_);
+        Struct_ov024_021f9030_7* var21 = FindActionData_02079e2c((char*)var3, var20->unknown_0_);
         int var22 = 0;
         if (var21->unknown_18_5_ == 2) {
             if (func_ov024_021f8874(arg0, var21, var1, &var22)) {
@@ -215,7 +215,7 @@ extern "C" ARM void func_ov024_021f9030(Struct_ov024_021f9030_2* arg0, Struct_ov
 skipRevive:
     if (var6[1] && arg0->unknown_9c_ <= 1 && (var12 || var13 || var14)) {
         GameObject* var26 = arg0->unknown_7c_[0];
-        arg0->unknown_64c_ = func_02079e2c((char*)var3, 0x45);
+        arg0->unknown_64c_ = FindActionData_02079e2c((char*)var3, 0x45);
         arg0->unknown_650_ = arg0->unknown_64c_->unknown_8_0_;
         float var27;
         float var28;

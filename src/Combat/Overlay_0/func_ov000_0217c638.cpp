@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0205ba68;
-struct Struct_0205bacc;
+struct MenuCursor_0205ba68;
+struct MenuCursor_0205bacc;
 struct Struct_0205bcdc;
 struct Struct_0205cf1c;
 
@@ -18,10 +18,10 @@ extern "C" void func_0205cf10(void*);
 extern "C" void func_0205cf1c(Struct_0205cf1c*);
 extern "C" void func_0205cef8(void*);
 extern "C" void func_0205cf04(void*);
-extern "C" void func_0205ba68(Struct_0205ba68*, int, int, int);
-extern "C" void func_0205bacc(Struct_0205bacc*, int);
+extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
+extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
 extern "C" void func_0205bcdc(Struct_0205bcdc*, int);
-extern "C" void func_0205bb04(void*, int);
+extern "C" void SetMenuCursorIndex_0205bb04(void*, int);
 
 #if defined(jpn)
 extern int data_ov000_02184294[3];
@@ -179,12 +179,12 @@ extern "C" ARM void func_ov000_0217c638(Struct_ov000_0217c638_3* arg0, int arg1,
     }
     func_0205cef8(arg0->unknown_188_);
     func_0205cf04(arg0->unknown_188_);
-    func_0205ba68((Struct_0205ba68*)&arg0->unknown_18c_, var0, var2, 0);
-    func_0205ba68((Struct_0205ba68*)&arg0->unknown_1dc_, var0, var2, 0);
-    func_0205bacc((Struct_0205bacc*)&arg0->unknown_18c_, var1);
-    func_0205bacc((Struct_0205bacc*)&arg0->unknown_1dc_, var1);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&arg0->unknown_18c_, var0, var2, 0);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&arg0->unknown_1dc_, var0, var2, 0);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&arg0->unknown_18c_, var1);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&arg0->unknown_1dc_, var1);
     arg0->unknown_18c_.unknown_4_ = var3;
     arg0->unknown_1dc_.unknown_4_ = var3;
     func_0205bcdc((Struct_0205bcdc*)&arg0->unknown_18c_, var4);
-    func_0205bb04(&arg0->unknown_1dc_, var4);
+    SetMenuCursorIndex_0205bb04(&arg0->unknown_1dc_, var4);
 }

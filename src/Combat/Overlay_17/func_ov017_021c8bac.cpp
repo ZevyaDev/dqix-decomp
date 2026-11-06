@@ -6,7 +6,7 @@ enum { Enum_ov017_021c8bac_14104 = 0x3508 };
 enum { Enum_ov017_021c8bac_14104 = 0x3718 };
 #endif
 
-extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" void* func_ov017_021b8468(void* arg0);
 extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
 
@@ -24,7 +24,7 @@ struct Struct_ov017_021c8bac_2 {
 extern "C" ARM void func_ov017_021c8bac(int arg0, Struct_ov017_021c8bac_2* arg1, int arg2, unsigned char* arg3) {
 	unsigned char* var0 = *(unsigned char**)(arg3 + Enum_ov017_021c8bac_14104);
 	if (var0[2] == 0) return;
-	Struct_ov017_021c8bac* var1 = (Struct_ov017_021c8bac*)func_ov017_021b8478(var0);
+	Struct_ov017_021c8bac* var1 = (Struct_ov017_021c8bac*)GetBattleSetup_ov017_021b8478(var0);
 	if (!var1) return;
 	if (var1->unknown_8_ != arg1->unknown_4_) return;
 	void* var2 = func_ov017_021b8468(var0);

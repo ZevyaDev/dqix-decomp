@@ -7,14 +7,14 @@ struct ItemTable_0201099c_10;
 struct Struct_0207cf30_3;
 
 extern "C" void *GetMessageWindow_020421a0();
-extern "C" int func_02041c08(char *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" int func_02041ea4(char *arg0, int arg1);
-extern "C" int func_02041b70(char *arg0, int arg1, const char *arg2);
+extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
+extern "C" int AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" void func_0205c508(struct Struct_0205c508 *arg0, int *arg1, int *arg2);
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0 *window, int index, int number);
-extern "C" char *func_020dedd0(ItemTable_0201099c_10 *arg0, int arg1);
+extern "C" char *FindItemData_020dedd0(ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" void func_0206819c(const char *arg0, char *arg1, int arg2);
 extern "C" int func_020a0b3c(Struct_0207cf30_3 *arg0, int arg1);
 extern "C" void func_ov002_0215b918(unsigned char *arg0, int arg1, int arg2, int arg3);
@@ -24,8 +24,8 @@ extern char data_ov002_0216d270[];
 #if defined(jpn)
 struct Struct_02046574_2;
 struct Struct_0201099c_3;
-extern "C" int func_020d2ff0(const char *arg0);
-extern "C" void func_02046574(struct Struct_02046574_2 *arg0, int arg1, char *arg2);
+extern "C" int GetStringLength_020d2ff0(const char *string);
+extern "C" void SetMessageString_02046574(struct Struct_02046574_2 *window, int index, char *text);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void func_020465f0(unsigned char *arg0, int arg1, unsigned char arg2);
 extern "C" void func_020465d8(unsigned char *arg0, int arg1, unsigned char arg2);
@@ -46,8 +46,8 @@ extern "C" ARM void func_ov002_0215d950(char *arg0, char *arg1, int arg2) {
     int var7;
     if (arg1 == 0) return;
     int var8 = *(short *) (arg0 + 0x1a00 + 0xb0) & 7;
-    if (arg2) func_02041c08(arg1, var8, 8, 5, 5, 5);
-    func_02041ea4(arg1, var8);
+    if (arg2) AppendFrameTag_02041c08(arg1, var8, 8, 5, 5, 5);
+    AppendCursorTag_02041ea4(arg1, var8);
     var3       = (char *) GetParty_02010828(GameState::GetInstance()) + 0xe04;
     var4       = GetMessageWindow_020421a0();
     char *var9 = arg0 + 0xe20;
@@ -58,10 +58,10 @@ extern "C" ARM void func_ov002_0215d950(char *arg0, char *arg1, int arg2) {
     for (var6 = var1; var6 < var2; var6++) {
         ClearMessageParams_02046380(var4);
         SetMessageNumber_020465c0((MessageWindow_020465c0 *) var4, 0, var5);
-        char *var11 = func_020dedd0((ItemTable_0201099c_10 *) (arg0 + 0x750), *(short *) (var3 + var6 * 2 + 0xc));
+        char *var11 = FindItemData_020dedd0((ItemTable_0201099c_10 *) (arg0 + 0x750), *(short *) (var3 + var6 * 2 + 0xc));
         if (var11 != 0) {
-            int var12 = func_020d2ff0(arg1);
-            func_02046574((struct Struct_02046574_2 *) var4, 0, *(char **) (var11 + 4));
+            int var12 = GetStringLength_020d2ff0(arg1);
+            SetMessageString_02046574((struct Struct_02046574_2 *) var4, 0, *(char **) (var11 + 4));
             func_020474a8(var4, 0xa, (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x480),
                           arg1 + var12);
             memset(var0, 0, sizeof(var0));
@@ -92,8 +92,8 @@ extern "C" ARM void func_ov002_0215d950(char *arg0, char *arg1, int arg2) {
     int var20;
     if (arg1 == 0) return;
     int var21 = *(short *) (arg0 + 0x1be8) & 7;
-    if (arg2) func_02041c08(arg1, var21, 8, 5, 5, 5);
-    func_02041ea4(arg1, var21);
+    if (arg2) AppendFrameTag_02041c08(arg1, var21, 8, 5, 5, 5);
+    AppendCursorTag_02041ea4(arg1, var21);
     var17       = (char *) GetParty_02010828(GameState::GetInstance()) + 0xe04;
     void *var22 = GetMessageWindow_020421a0();
     char *var23 = arg0 + 0x2c8 + 0xc00;
@@ -104,12 +104,12 @@ extern "C" ARM void func_ov002_0215d950(char *arg0, char *arg1, int arg2) {
     for (var19 = var15; var19 < var16; var19++) {
         ClearMessageParams_02046380(var22);
         SetMessageNumber_020465c0((MessageWindow_020465c0 *) var22, 0, var18);
-        char *var25 = func_020dedd0((ItemTable_0201099c_10 *) (arg0 + 0x3ec + 0x400),
+        char *var25 = FindItemData_020dedd0((ItemTable_0201099c_10 *) (arg0 + 0x3ec + 0x400),
                                                                     *(short *) (var17 + var19 * 2 + 0xc));
         if (var25 != 0) {
             __clear(var13, sizeof(var13));
             func_0206819c(*(const char **) (var25 + 4), var13, 0);
-            func_02041b70(arg1, var18, var13);
+            AppendMenuEntry_02041b70(arg1, var18, var13);
             __clear(var14, sizeof(var14));
             sprintf(var14, data_ov002_0216d270,
                     func_020a0b3c((Struct_0207cf30_3 *) var17, *(short *) (var25 + 0x18)));

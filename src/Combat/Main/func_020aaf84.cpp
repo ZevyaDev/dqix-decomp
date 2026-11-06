@@ -5,9 +5,6 @@
 #include "std_library_functions.h"
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 struct Struct_020a94f8_2 {
     int unknown_0_;
@@ -80,7 +77,7 @@ struct Struct_020aaf84_4 {
 
 struct Struct_020aaf84_5 { char unknown_0_[0xa0]; char unknown_a0_[0xd8]; char unknown_178_[0x330]; };
 struct Struct_02011544;
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 
 extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
 extern const char data_020f1bf0[];
@@ -99,8 +96,8 @@ extern "C" void func_020a9e30(void*);
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" int func_020a94f8(Struct_020a94f8_2*, int);
 extern "C" void* GetGlobalFlags_020d6c00();
-extern "C" void func_020466e4(unsigned int*, unsigned int);
-extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
+extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void func_02011544(Struct_02011544*);
 extern "C" Struct_020aaf84_5* func_02094d6c();
 extern "C" void* func_020108d8(char*, int);
@@ -109,7 +106,7 @@ extern "C" void func_020a9ba4(void*);
 extern "C" void func_020a9d78(void*);
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" void func_020865ec(char*);
-extern "C" void func_0206df6c(void*, unsigned char*, int, int);
+extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 
 // USA: func_020aaf84
 #if defined(jpn)
@@ -205,7 +202,7 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
     var5->timeOfDayIndex_ = var0->GetTimeOfDay();
     var5->SetZone(GetZone3D_02012fe4());
     var5->RecomputeAdvancedLighting();
-    func_0206df6c(var4, var4->unknown_8c_, 3, 0);
+    SetFlag_0206df6c(var4, var4->unknown_8c_, 3, 0);
     BackgroundLoader::RemoveLockGlobal();
     return 1;
 }
@@ -234,7 +231,7 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
     var17 = (unsigned int*)GetGlobalFlags_020d6c00();
-    func_020466e4(var17, 0x2000000);
+    SetGlobalFlags_020466e4(var17, 0x2000000);
     if (arg2) var21 = 0x8084;
     else var21 = 0x84;
     var27 = &((Struct_020aaf84*)gFileScratchSpace_0211e33c)->unknown_28000_;
@@ -246,13 +243,13 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
         }
     }
     if (arg3) {
-        func_020466f4((Struct_02038598_4*)var17, 0x2000000);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var17, 0x2000000);
         BackgroundLoader::RemoveLockGlobal();
         return var15;
     }
     if (!var15) {
         func_02011544((Struct_02011544*)var13);
-        func_020466f4((Struct_02038598_4*)var17, 0x2000000);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var17, 0x2000000);
         BackgroundLoader::RemoveLockGlobal();
         return 0;
     }
@@ -294,8 +291,8 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
     var19->timeOfDayIndex_ = var13->GetTimeOfDay();
     var19->SetZone(GetZone3D_02012fe4());
     var19->RecomputeAdvancedLighting();
-    func_0206df6c(var26, var26->unknown_8c_, 3, 0);
-    func_020466f4((Struct_02038598_4*)var17, 0x2000000);
+    SetFlag_0206df6c(var26, var26->unknown_8c_, 3, 0);
+    ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var17, 0x2000000);
     BackgroundLoader::RemoveLockGlobal();
     return 1;
 }

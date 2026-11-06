@@ -10,11 +10,11 @@ enum { Enum_ov002_02163bd0_13 = 0xe, Enum_ov002_02163bd0_38 = 0x29 };
 enum { Enum_ov002_02163bd0_13 = 0xd, Enum_ov002_02163bd0_38 = 0x26 };
 #endif
 
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
 struct SoundEffectManager_02108760;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct Struct_0205dee8;
 struct Struct_0205def8;
 struct Struct_02048150;
@@ -25,16 +25,16 @@ struct Struct_02083994;
 struct ItemTable_0201099c_10;
 extern "C" int func_ov002_02154f4c(unsigned char *arg0);
 extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
-extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
-extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int func_020dcc20(int arg0, int arg1);
 extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" int func_02086ef0(struct Struct_02048150 *arg0, int arg1);
 extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
 extern "C" int func_0205df38(void *arg0, int arg1);
 extern "C" int func_020dcbbc(unsigned char *arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" void func_0205deb4(struct Struct_0205d81c *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_020a0b3c(struct Struct_0207cf30_3 *arg0, int arg1);
@@ -44,7 +44,7 @@ extern "C" int func_02083994(struct Struct_02083994 *arg0, int arg1);
 extern "C" int func_020dc920(int arg0, int arg1, int arg2, int arg3);
 extern "C" int *GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
-extern "C" char *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
+extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
 extern "C" void func_0205dee8(struct Struct_0205dee8 *arg0, int arg1);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
         func_ov002_0215b814(arg0);
         *(unsigned char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xae9, 0xc21)) =
             *(unsigned char *) (arg0 + *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xb6, 0x1b00 + 0xee)) + 0x1000 + REGIONAL_OFFSET(0xb2c, 0xc68));
-        func_0205de24((struct Struct_0205de24_2 *) L(arg0), 0, 3);
+        SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) L(arg0), 0, 3);
         func_ov002_02161cf0(arg0);
         func_ov002_0215d654(arg0);
         *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa88, 0xbc0)) += 1;
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
         *(unsigned int *) (arg0 + 0x2000 + REGIONAL_OFFSET(0x2ac, 0x47c)) |= 4;
         int var7 = *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xb6, 0x1b00 + 0xee));
         *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xb6, 0x1b00 + 0xee)) =
-            func_0205d794((struct Struct_0205c570 *) L(arg0));
+            GetCursorIndex_0205d794((struct Struct_0205c570 *) L(arg0));
         if (var7 != *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xb6, 0x1b00 + 0xee))) *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa94, 0xbcc)) = 1;
         if (*(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xb6, 0x1b00 + 0xee)) < *(unsigned char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xb31, 0xc6d))) {
             *(unsigned char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xae9, 0xc21)) =
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
             *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa94, 0xbcc)) = 1;
             func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa80, 0xbb8)), 0);
         }
-        func_0205deb4((struct Struct_0205d81c *) L(arg0), Enum_ov002_02163bd0_13, 1);
+        SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) L(arg0), Enum_ov002_02163bd0_13, 1);
         if (var7 != *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xb6, 0x1b00 + 0xee))) return;
         int var9 = g_keyManager.TestKeysPressed(0x601);
         int var10 = func_0205da38((struct Struct_0205da38*)(L(arg0)), 0x14);
@@ -155,7 +155,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                 } else {
                     GameState *var15 = GameState::GetInstance();
                     void *var16     = GetParty_02010828(var15);
-                    char *var17       = (char *)func_0200ff1c(var15, *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe8, 0x1c00 + 0x20)));
+                    char *var17       = (char *)GetPartyMemberBaseByIndex_0200ff1c(var15, *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe8, 0x1c00 + 0x20)));
                     if (var17 != NULL) {
                         func_ov002_0215a7b4(arg0, *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe8, 0x1c00 + 0x20)), *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)),
                                             *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xb0, 0x1b00 + 0xe8)), 0);
@@ -199,7 +199,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                     }
                     if (var18) {
                         int var20 = 0;
-                        char *var21  = func_020dedd0(
+                        char *var21  = FindItemData_020dedd0(
                             (struct ItemTable_0201099c_10 *) (arg0 + REGIONAL_OFFSET(0x750, 0x3ec + 0x400)), *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)));
                         if (var21 != NULL && ((*(unsigned int *) (var21 + 8) << 14) >> 30) == 1) var20 = 1;
                         if (!var20) {

@@ -48,13 +48,13 @@ struct Struct_ov017_021a6c2c_2 {
     unsigned char unknown_0_, unknown_1_; char unknown_2_[6]; int unknown_8_, unknown_c_;
     unsigned char unknown_10_; char unknown_11_[0x1f]; SafeAllocator unknown_30_; int unknown_44_;
 };
-extern "C" void* func_02057924();
+extern "C" void* GetEffectManager_02057924();
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" Struct_ov017_021a6c2c_4* GetZone3D_02012fe4();
 extern "C" void func_020a0cc4(unsigned int);
 extern "C" void func_ov017_021d1cb8();
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void DC_FlushRange(const void*, unsigned int);
@@ -65,7 +65,7 @@ extern "C" void func_02057fb4(void*, int, void*);
 extern "C" void func_0205ebc0(void*, int, int);
 extern "C" void func_0205ebfc(void*, int, int);
 extern "C" int func_02039d7c(char*);
-extern "C" void* func_0200fd0c(GameState*);
+extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 #if defined(jpn)
 #define func_ov017_021a7280 func_ov017_021a7c28
 #define data_ov017_021d777c data_ov017_021d7bb8
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov017_021a6c2c(Struct_ov017_021a6c2c_2* arg0) {
     GameObject* var1 = var0->GetUnknownGameObject();
     GameResources* var2 = GetGameResources();
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
-    void* var4 = func_02057924();
+    void* var4 = GetEffectManager_02057924();
     GetLocalWireless_0202ae18();
     GetMessageWindow_020421a0();
     Struct_ov017_021a6c2c_4* var5 = GetZone3D_02012fe4();
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov017_021a6c2c(Struct_ov017_021a6c2c_2* arg0) {
             if (var5->unknown_0_ == 0x4e42) var5->unknown_27b4_ = 4;
         } else var5->unknown_27b4_ = 2;
         func_ov017_021d1cb8();
-        func_020397cc((Struct_02018300_3*)var1, 1);
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
         arg0->unknown_8_++;
     } else if (arg0->unknown_8_ == 1) {
         arg0->unknown_44_ = var3->QueueLoadFile(data_ov017_021d777c, 0);
@@ -176,7 +176,7 @@ extern "C" ARM void func_ov017_021a6c2c(Struct_ov017_021a6c2c_2* arg0) {
             var1->obj3D_.DisableFlag(0x1180);
             func_ov017_021d3f00(var23, 0, 1);
         }
-        Struct_ov017_021a6c2c_6* var24 = (Struct_ov017_021a6c2c_6*)func_0200fd0c(var0);
+        Struct_ov017_021a6c2c_6* var24 = (Struct_ov017_021a6c2c_6*)GetZoneEntry_0200fd0c(var0);
         VectorizedMemset(var24, 0, 0x70);
         var24->unknown_4_ = 1; var24->unknown_8_ = 1; var24->unknown_9_ = 1;
         var24->unknown_b_ = -1;

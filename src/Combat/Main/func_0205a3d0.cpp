@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 
-struct Struct_0205a254_2 {
+struct SpriteAnimation_0205a254_2 {
     char unknown_0_[8];
-    unsigned short unknown_8_;
+    unsigned short index_8_;
     char unknown_a_[0x18 - 0xa];
 };
 
-struct Struct_0205a254 {
-    struct Struct_0205a254_2* unknown_0_;
-    unsigned short unknown_4_;
+struct SpriteAnimationList_0205a254 {
+    struct SpriteAnimation_0205a254_2* pAnimations_0_;
+    unsigned short animationCount_4_;
 };
 
-// USA: func_0205a3d0
-extern "C" ARM struct Struct_0205a254_2* func_0205a3d0(struct Struct_0205a254* arg0, int arg1) {
-    struct Struct_0205a254_2* var0;
-    unsigned short var1;
-    if (arg0->unknown_0_ == NULL) {
+// USA: FindSpriteAnimation_0205a3d0
+extern "C" ARM struct SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index) {
+    struct SpriteAnimation_0205a254_2* animation;
+    unsigned short i;
+    if (animationList->pAnimations_0_ == NULL) {
         return NULL;
     }
-    if (arg0->unknown_4_ == 0) {
+    if (animationList->animationCount_4_ == 0) {
         return NULL;
     }
-    var0 = NULL;
-    for (var1 = 0; var1 < arg0->unknown_4_; var1++) {
-        if (arg1 == arg0->unknown_0_[var1].unknown_8_) {
-            var0 = &arg0->unknown_0_[var1];
+    animation = NULL;
+    for (i = 0; i < animationList->animationCount_4_; i++) {
+        if (index == animationList->pAnimations_0_[i].index_8_) {
+            animation = &animationList->pAnimations_0_[i];
             break;
         }
     }
-    return var0;
+    return animation;
 }

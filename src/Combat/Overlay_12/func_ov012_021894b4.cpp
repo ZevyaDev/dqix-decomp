@@ -65,13 +65,13 @@ struct Struct_ov012_021894b4_2
 #define func_02041d48 func_020423d4
 #endif
 
-extern "C" void func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" void func_02041ea4(char* arg0, int arg1);
+extern "C" void AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" void AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_02041a28(char* arg0, int arg1);
 extern "C" void func_02041fac(char* arg0, int arg1, int arg2);
 extern "C" void func_02041b00(char* arg0, int arg1);
-extern "C" void func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_02041b34(char* arg0, int arg1, int arg2);
 extern "C" void func_02041cf4(char* arg0, int arg1, int arg2, int arg3, int arg4);
@@ -88,7 +88,7 @@ extern "C" void func_020465f0(void* arg0, int arg1, int arg2);
 extern "C" void func_020474a8(void* arg0, int arg1, const char* arg2, char* arg3);
 #else
 extern "C" int func_020420e8(const char* arg0, int arg1);
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
 
 extern "C" const short data_ov012_0218af92[];
@@ -108,8 +108,8 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
 
     int var0 = arg0->unknown_13d4_;
     if (arg2)
-        func_02041c08(arg1, var0, 8, 5, 5, 5);
-    func_02041ea4(arg1, var0);
+        AppendFrameTag_02041c08(arg1, var0, 8, 5, 5, 5);
+    AppendCursorTag_02041ea4(arg1, var0);
 #if defined(jpn)
     func_02041a28(arg1, 0x3e);
     const char* var1 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 1);
@@ -119,24 +119,24 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
 #endif
     func_02041fac(arg1, (int)var1, 0x10);
     func_02041b00(arg1, 3);
-    func_02041b70(arg1, 0, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 2));
+    AppendMenuEntry_02041b70(arg1, 0, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 2));
 #if defined(jpn)
     AppendText_02042058(arg1, arg0->unknown_1378_);
     const char* var24 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 3);
-    func_02041b70(arg1, 1, var24);
+    AppendMenuEntry_02041b70(arg1, 1, var24);
     AppendText_02042058(arg1, arg0->unknown_1378_);
     var24 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 4);
-    func_02041b70(arg1, 2, var24);
+    AppendMenuEntry_02041b70(arg1, 2, var24);
     AppendText_02042058(arg1, arg0->unknown_1378_);
     var24 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 5);
-    func_02041b70(arg1, 3, var24);
+    AppendMenuEntry_02041b70(arg1, 3, var24);
     AppendText_02042058(arg1, arg0->unknown_1378_);
     var24 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 6);
-    func_02041b70(arg1, 4, var24);
+    AppendMenuEntry_02041b70(arg1, 4, var24);
     AppendText_02042058(arg1, arg0->unknown_1378_);
     func_02041b34(arg1, 3, 3);
     var24 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 0xc);
-    func_02041b70(arg1, 5, var24);
+    AppendMenuEntry_02041b70(arg1, 5, var24);
 #else
     int var2;
     const short* var3 = data_ov012_0218af92;
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
         AppendText_02042058(arg1, arg0->unknown_1378_);
         if (var2 == 5)
             func_02041b34(arg1, 3, 3);
-        func_02041b70(arg1, var2, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, var4));
+        AppendMenuEntry_02041b70(arg1, var2, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, var4));
     }
 #endif
     func_02041cf4(arg1, 0x7fff, 2, 0xdd, 0x66);
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
     else
     {
         const char* var11 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 0x78);
-        int var12 = func_020d2ff0(var11);
+        int var12 = GetStringLength_020d2ff0(var11);
         char var13[0x40];
         __clear(var13, sizeof(var13));
         memcpy(var13, var11 + 8, var12 - 0x11);

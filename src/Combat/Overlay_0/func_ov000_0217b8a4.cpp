@@ -7,10 +7,10 @@ struct Struct_0205bcdc;
 struct Struct_0205def8;
 struct Struct_0205da38;
 struct SoundEffectManager_02108760;
-extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" int abs(int);
 extern "C" void func_0205bcdc(Struct_0205bcdc*, int);
-extern "C" void func_0205bb04(void*, int);
+extern "C" void SetMenuCursorIndex_0205bb04(void*, int);
 extern "C" void func_0205def8(Struct_0205def8*, int, int);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
@@ -79,7 +79,7 @@ extern "C" ARM int func_ov000_0217b8a4(Struct_ov000_0217b8a4_3* arg0, int arg1, 
     data_ov000_02184294.unknown_8_->unknown_1d72_ |= 0x100;
     Struct_ov000_0217b8a4* var1 = arg0->unknown_38_;
     signed char var2 = arg0->unknown_22_;
-    signed char var3 = func_0205d794((Struct_0205c570*)arg0->unknown_38_);
+    signed char var3 = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_38_);
     var0 = var1->unknown_68_;
     signed char var4 = var3;
     signed char var5 = arg0->unknown_22_ & 3;
@@ -94,7 +94,7 @@ extern "C" ARM int func_ov000_0217b8a4(Struct_ov000_0217b8a4_3* arg0, int arg1, 
     }
     if (var4 != var3) {
         func_0205bcdc((Struct_0205bcdc*)var1->unknown_4_, var3);
-        func_0205bb04(var1->unknown_54_, var3);
+        SetMenuCursorIndex_0205bb04(var1->unknown_54_, var3);
     }
     arg0->unknown_22_ = var3;
     arg0->unknown_2c_ = -1;

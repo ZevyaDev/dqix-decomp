@@ -47,9 +47,9 @@ struct Struct_ov001_02161ab8_5 {
     Struct_ov001_02161ab8_4* unknown_d0_;
 };
 
-extern "C" int func_ov017_021d60f4(void* arg0);
-extern "C" void func_ov017_021d6134(void* arg0, int arg1);
-extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
+extern "C" void SetScriptRefInt_ov017_021d6134(void* value, int number);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int func_02061bd8(Struct_0205faf4_11* arg0);
 
 static inline int inline_ov000_0215a908_2(Struct_ov001_02161ab8* arg0) { return arg0->unknown_4_; }
@@ -58,14 +58,14 @@ static inline int inline_ov000_0215a908_2(Struct_ov001_02161ab8* arg0) { return 
 extern "C" ARM int func_ov001_02161ab8(char* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov001_02161ab8_5* var1 = (Struct_ov001_02161ab8_5*)GetGameResources()->unknown_ptr_array_371c[6];
-    int var2 = func_ov017_021d60f4(arg0);
+    int var2 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     Struct_ov001_02161ab8_4* var3;
     for (var3 = var1->unknown_d0_; var3 != NULL; var3 = var3->unknown_34_) {
         if (var3->unknown_1_ == var2) break;
     }
     if (var3 == NULL) {
-        func_ov017_021d6134(arg0 + 8, -1);
-        func_ov017_021d6134(arg0 + 0x10, 2);
+        SetScriptRefInt_ov017_021d6134(arg0 + 8, -1);
+        SetScriptRefInt_ov017_021d6134(arg0 + 0x10, 2);
         return 1;
     }
     int var4;
@@ -74,29 +74,29 @@ extern "C" ARM int func_ov001_02161ab8(char* arg0, int arg1) {
     var6 = -1;
     var5 = var3->unknown_0_4_;
     if (var5 == 0) {
-        func_ov017_021d6134(arg0 + 8, var5);
-        func_ov017_021d6134(arg0 + 0x10, 0);
+        SetScriptRefInt_ov017_021d6134(arg0 + 8, var5);
+        SetScriptRefInt_ov017_021d6134(arg0 + 0x10, 0);
         return 1;
     }
     if (var3->unknown_0_0_ == 10) {
-        Struct_ov001_02161ab8_3* var7 = (Struct_ov001_02161ab8_3*)func_0200ff58(var0, 0xce);
+        Struct_ov001_02161ab8_3* var7 = (Struct_ov001_02161ab8_3*)GetCompanionByIndex_0200ff58(var0, 0xce);
         if (var7 != NULL) {
             var4 = 0;
         } else {
             int var8;
             for (var8 = 0; var8 < 4; var8++) {
-                var7 = (Struct_ov001_02161ab8_3*)func_0200ff58(var0, var8);
+                var7 = (Struct_ov001_02161ab8_3*)GetCompanionByIndex_0200ff58(var0, var8);
                 if (var7 != NULL && func_02061bd8((Struct_0205faf4_11*)var7)) break;
             }
             if (var8 == 4) {
-                func_ov017_021d6134(arg0 + 8, var5);
-                func_ov017_021d6134(arg0 + 0x10, 2);
+                SetScriptRefInt_ov017_021d6134(arg0 + 8, var5);
+                SetScriptRefInt_ov017_021d6134(arg0 + 0x10, 2);
                 return 1;
             }
             var4 = inline_ov000_0215a908_2(var7->unknown_130_) <= 0 ? 1 : 0;
         }
     } else {
-        Struct_ov001_02161ab8_3* var9 = (Struct_ov001_02161ab8_3*)func_0200ff1c(var0, var3->unknown_2_);
+        Struct_ov001_02161ab8_3* var9 = (Struct_ov001_02161ab8_3*)GetPartyMemberBaseByIndex_0200ff1c(var0, var3->unknown_2_);
         if (var9 == NULL) return 0;
         var6 = var3->unknown_2_;
         Struct_ov001_02161ab8_2* var10 = var9->unknown_150_;
@@ -122,10 +122,10 @@ extern "C" ARM int func_ov001_02161ab8(char* arg0, int arg1) {
             var4 = 2;
         }
     }
-    func_ov017_021d6134(arg0 + 8, var5);
-    func_ov017_021d6134(arg0 + 0x10, var4);
+    SetScriptRefInt_ov017_021d6134(arg0 + 8, var5);
+    SetScriptRefInt_ov017_021d6134(arg0 + 0x10, var4);
     if (arg1 > 3) {
-        func_ov017_021d6134(arg0 + 0x18, var6);
+        SetScriptRefInt_ov017_021d6134(arg0 + 0x18, var6);
     }
     return 1;
 }

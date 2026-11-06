@@ -5,7 +5,7 @@ extern "C" int func_020795cc(unsigned char* arg0);
 struct Vector3i;
 int fix32ReduceAngle0To2Pi(int arg);
 struct Struct_02033834;
-extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 
 struct Struct_0207964c {
     char unknown_0_[0xc1];
@@ -25,7 +25,7 @@ extern "C" ARM void func_0207964c(unsigned char* arg0) {
                 int var5 = *(int*)(var2 + 0x54) + 0x3244;
                 int var6 = fix32ReduceAngle0To2Pi(var5);
                 *(Vector3i*)((int*)(arg0 + 0x44)) = *(Vector3i const*)((int*)&var4);
-                func_02033874((struct Struct_02033834*)arg0, var6);
+                SetFacingInstantly_02033874((struct Struct_02033834*)arg0, var6);
             }
         }
     }

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-extern "C" void func_ov017_021d6134(void* arg0, int arg1);
+extern "C" void SetScriptRefInt_ov017_021d6134(void* value, int number);
 
 // USA: func_ov001_0215ae1c
 extern "C" ARM int func_ov001_0215ae1c(void* arg0, int arg1) {
@@ -11,6 +11,6 @@ extern "C" ARM int func_ov001_0215ae1c(void* arg0, int arg1) {
     int var1 = g_keyManager.IsXHeld();
     int var2 = g_keyManager.IsAHeld();
     int var3 = g_keyManager.IsBHeld();
-    func_ov017_021d6134(arg0, var2 + var3 + var1 + var0);
+    SetScriptRefInt_ov017_021d6134(arg0, var2 + var3 + var1 + var0);
     return 1;
 }

@@ -51,10 +51,10 @@ union Struct_02065990_7 {
     } unknown1_0_;
 };
 
-struct Struct_0205a254;
-extern "C" void func_0205a42c(Struct_0205a254*, int, int);
-struct Struct_0205a330;
-extern "C" void func_0205a330(Struct_0205a330*, int);
+struct SpriteAnimationList_0205a254;
+extern "C" void func_0205a42c(SpriteAnimationList_0205a254*, int, int);
+struct SpriteAnimationList_0205a330;
+extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330*, int);
 extern "C" void func_0206b104(void* arg0);
 extern "C" void ResetMessageWindow_02043204(char*);
 struct Struct_02065758;
@@ -90,7 +90,7 @@ extern "C" void func_020406f8(Struct_0203de84*, Struct_0203de84_2*);
 extern "C" int fix32_Atan2(int arg0, int arg1);
 int fix32ReduceAngle0To2Pi(int angle);
 extern "C" void func_02065418(int arg0);
-extern "C" int func_020e51cc(int arg0);
+extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void func_020652d0(char* arg0, int arg1, int arg2, int arg3);
 extern "C" unsigned char* GetResources_0200fb8c(int*);
 struct Struct_02065990_2;
@@ -125,9 +125,9 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
 
     if (*(void**)(var0 + REGION_VALUE(0x230, 0x2e0)) != 0 && var0[REGION_VALUE(0x236, 0x2e6)] != 0 && arg0->unknown_9a0_ == 6) {
         if ((*(unsigned short*)0x4000304 & 0x8000) >> 15 == 1) {
-            func_0205a42c((Struct_0205a254*)(*(void**)(var0 + REGION_VALUE(0x230, 0x2e0))), 0, 0x1e);
+            func_0205a42c((SpriteAnimationList_0205a254*)(*(void**)(var0 + REGION_VALUE(0x230, 0x2e0))), 0, 0x1e);
         }
-        func_0205a330((Struct_0205a330*)(*(void**)(var0 + REGION_VALUE(0x230, 0x2e0))), var9);
+        AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)(*(void**)(var0 + REGION_VALUE(0x230, 0x2e0))), var9);
     }
 
     if (arg0->unknown_998_ == 0) return;
@@ -439,8 +439,8 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
 #if defined(jpn)
                 func_020665bc((char*)(var0 + REGION_VALUE(0x50, 0x90)), var25, data_020f07b4, data_020f07b9);
 #else
-                int var26 = func_020e51cc(0x1b);
-                int var27 = func_020e51cc(0x1c);
+                int var26 = GetStandardString_020e51cc(0x1b);
+                int var27 = GetStandardString_020e51cc(0x1c);
                 func_020652d0((char*)(var0 + REGION_VALUE(0x50, 0x90)), var25, var26, var27);
 #endif
                 arg0->unknown_94c_[2] = var25;
@@ -464,8 +464,8 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
 #if defined(jpn)
                 func_020665bc((char*)(var0 + REGION_VALUE(0x50, 0x90)), 0, data_020f07c0, data_020f07c7);
 #else
-                int var34 = func_020e51cc(0x1d);
-                int var35 = func_020e51cc(0x1e);
+                int var34 = GetStandardString_020e51cc(0x1d);
+                int var35 = GetStandardString_020e51cc(0x1e);
                 func_020652d0((char*)(var0 + REGION_VALUE(0x50, 0x90)), 0, var34, var35);
 #endif
                 arg0->unknown_94c_[2] = 0;

@@ -62,7 +62,7 @@ extern "C" ARM void func_ov024_021e556c(struct Struct_ov024_021e556c_4* arg0, in
     }
     if (arg3->unknown_18_.unknown_1_4_ != 2) return;
     if (arg0->unknown_75_ == 0) return;
-    struct Struct_ov024_021e556c_5* var3 = (struct Struct_ov024_021e556c_5*)func_0200ff1c(var0, arg2);
+    struct Struct_ov024_021e556c_5* var3 = (struct Struct_ov024_021e556c_5*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg2);
     if (var3 == 0) return;
     if (func_02010088((struct Struct_02010088*)var3)) return;
     if (!func_020854e8(var3->unknown_150_)) return;

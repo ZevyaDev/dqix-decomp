@@ -8,7 +8,7 @@ struct Struct_ov023_021e0414 {
     unsigned int unknown_8_0_ : 4;
     unsigned int unknown_8_4_ : 28;
 };
-extern "C" Struct_ov023_021e0414* func_020dedd0(struct ItemTable_0201099c_10*, int);
+extern "C" Struct_ov023_021e0414* FindItemData_020dedd0(struct ItemTable_0201099c_10*, int);
 
 extern "C" void func_ov023_021e20c0(void*);
 
@@ -37,7 +37,7 @@ struct Struct_ov023_021e0414_2 {
 extern "C" ARM int func_ov023_021e0414(struct Struct_ov023_021e0414_2* arg0) {
     int var0 = (int)BackgroundLoader::GetInstance();
     if (arg0->unknown_48_ != NULL) {
-        arg0->unknown_4c_ = func_020dedd0(arg0->unknown_48_, arg0->unknown_770_);
+        arg0->unknown_4c_ = FindItemData_020dedd0(arg0->unknown_48_, arg0->unknown_770_);
     }
     Struct_ov023_021e0414* var1 = arg0->unknown_4c_;
     if (var1 != NULL) {

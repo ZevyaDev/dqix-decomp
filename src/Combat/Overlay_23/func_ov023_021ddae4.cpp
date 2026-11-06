@@ -13,8 +13,8 @@ struct Struct_ov023_021ddae4 {
     char unknown_0_[0x44];
     SafeAllocator* unknown_44_;
     char unknown_48_[REGION(0x128,0x12c) - 0x48];
-    Struct_0205ac40 unknown_12c_;
-    char unknown_17d_[REGION(0x6f9,0x77d) - REGION(0x128,0x12c) - sizeof(Struct_0205ac40)];
+    SpriteSet_0205ac40 unknown_12c_;
+    char unknown_17d_[REGION(0x6f9,0x77d) - REGION(0x128,0x12c) - sizeof(SpriteSet_0205ac40)];
     signed char unknown_77d_;
     signed char unknown_77e_;
     int unknown_780_;
@@ -24,7 +24,7 @@ struct PacEntry_02020cb8_4;
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" int func_0205a528(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" int LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, int allocator);
 
 // USA: func_ov023_021ddae4
 extern "C" ARM void func_ov023_021ddae4(void* arg0) {
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov023_021ddae4(void* arg0) {
         int var6 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var3);
         for (int var7 = 0; var7 < var6; var7++) {
             void* var8 = GetPacEntryData_020467f0((PacEntry_02020aec*)var3, var7, &var2, &var5);
-            func_0205a528(&var0->unknown_12c_, var8, var5, (int)var0->unknown_44_);
+            LoadSpriteSetFile_0205a528(&var0->unknown_12c_, var8, var5, (int)var0->unknown_44_);
         }
     }
     var0->unknown_77d_ = var0->unknown_77e_;

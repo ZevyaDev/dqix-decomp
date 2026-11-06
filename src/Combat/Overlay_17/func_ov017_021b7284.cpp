@@ -151,12 +151,12 @@ extern "C" void func_ov000_0215d414(Struct_01ff91ac_22* arg0, Struct_ov017_021b7
 extern "C" void func_ov000_02160140(void* arg0);
 extern "C" void func_ov017_02195540(unsigned char* arg0);
 extern "C" void func_ov000_021605d0(unsigned char* arg0, Struct_ov000_021605d0* arg1);
-extern "C" Struct_0205859c* func_02057924(void);
+extern "C" Struct_0205859c* GetEffectManager_02057924(void);
 extern "C" void func_0205859c(Struct_0205859c* arg0);
 extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18(void);
 struct Struct_0200ffc0;
 extern "C" void* func_0200ffc0(Struct_0200ffc0* arg0);
-extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void func_02053f7c(Struct_02053f7c_3* arg0, unsigned short arg1, int arg2);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void __clear(void* arg0, int arg1);
@@ -293,14 +293,14 @@ done:
     var6.unknown_4_ = &arg0->unknown1_1c_;
     func_ov000_021605d0((unsigned char*)arg0->unknown_6ac_, &var6);
     var4->unknown_105_ |= 1;
-    func_0205859c(func_02057924());
+    func_0205859c(GetEffectManager_02057924());
     LocalWireless_0202c1a4* var32 = GetLocalWireless_0202ae18();
 
     if (arg0->unknown_20_ != 0) {
         Struct_02018300_3* var33 = (Struct_02018300_3*)var3->GetUnknownGameObject();
         void* var34 = func_0200ffc0((Struct_0200ffc0*)var3);
         Struct_ov017_021b7284_8* var35 = (Struct_ov017_021b7284_8*)GetParty_02010828(var3);
-        func_020397cc(var33, 1);
+        DisablePlayerControl_020397cc(var33, 1);
         var33->unknown_b2_ = 0;
         Struct_0204bd7c* var36;
         if (arg0->unknown_42_ != 0 && var34 != NULL) {

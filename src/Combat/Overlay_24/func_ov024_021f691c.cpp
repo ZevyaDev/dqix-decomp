@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f08(void* arg0);
 extern "C" void* func_ov024_021f69b4(char* arg0, int arg1);
 extern "C" void* func_ov000_02171b9c(void* arg0, int arg1);
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov024_021f691c(struct Struct_ov024_021f691c* arg0, unsig
 	if (arg0->unknown_4_ > 0.0f) {
 		unsigned short var0 = arg0->unknown_0_;
 		if (arg0->unknown_2_ >= 0) {
-			void* var1 = func_ov000_02160130();
+			void* var1 = GetBattleScene_ov000_02160130();
 			void* var2 = func_ov000_02160f08(var1);
 			struct Struct_ov024_021f691c_3* var3 = (struct Struct_ov024_021f691c_3*)func_ov024_021f69b4((char*)var2, arg3);
 			if (var3) {

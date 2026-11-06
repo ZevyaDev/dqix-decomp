@@ -16,8 +16,8 @@ extern "C" void func_0204719c(void* arg0);
 extern "C" void func_ov017_0219a674(unsigned char*);
 extern "C" void func_02020554(void* arg0);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int length);
-struct Struct_02020cb8;
-extern "C" void func_0204af64(Struct_02020cb8*);
+struct BGLayer_02020cb8;
+extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
 extern "C" void func_ov017_0218b664(char* arg0);
 struct Struct_02046958;
 extern "C" void func_02046958(Struct_02046958*);
@@ -32,8 +32,8 @@ extern "C" void func_ov017_021b8c70(Struct_ov017_021b8c70*);
 extern "C" void func_ov017_021bac58(void* arg0);
 struct Struct_ov017_0219bfb4;
 extern "C" void func_ov017_021ba90c(Struct_ov017_0219bfb4*);
-struct Struct_0204693c;
-extern "C" void func_0204693c(Struct_0204693c*);
+struct QueueNode_0204693c;
+extern "C" void ResetQueueNode_0204693c(QueueNode_0204693c*);
 extern "C" void func_ov017_021baedc(void* arg0, int arg1);
 extern "C" void func_ov017_021b2c4c(void* arg0);
 extern "C" void func_ov017_021b2f64(unsigned char*);
@@ -179,7 +179,7 @@ extern "C" ARM void func_ov030_021d9340(GameResources* arg0) {
 
     VectorizedMemset(var0 + R(0x34cc, (0x3400 + 0x2dc)), 0, 5);
     VectorizedMemset(var0 + R(0x34d1, (0x3600 + 0xe1)), 0, 9);
-    func_0204af64((Struct_02020cb8*)(*(void**)(var0 + R(0x34c8, (0x3000 + 0x6d8)))));
+    InitBGLayer_0204af64((BGLayer_02020cb8*)(*(void**)(var0 + R(0x34c8, (0x3000 + 0x6d8)))));
 
     *(int*)(var0 + R(0x34dc, (0x3000 + 0x6ec))) = -1;
     *(int*)(var0 + R(0x34e0, (0x3000 + 0x6f0))) = 0;
@@ -213,7 +213,7 @@ extern "C" ARM void func_ov030_021d9340(GameResources* arg0) {
     func_ov017_021bac58(*(void**)(var0 + R(0x3518, (0x3000 + 0x728))));
     func_ov017_021ba90c((Struct_ov017_0219bfb4*)(*(void**)(var0 + R(0x351c, (0x3000 + 0x72c)))));
 
-    func_0204693c((Struct_0204693c*)(*(void**)(var0 + R(0x3520, (0x3000 + 0x730)))));
+    ResetQueueNode_0204693c((QueueNode_0204693c*)(*(void**)(var0 + R(0x3520, (0x3000 + 0x730)))));
     **(unsigned char**)(var0 + R(0x3520, (0x3000 + 0x730))) = 0x11;
     *(int*)(*(unsigned char**)(var0 + R(0x3520, (0x3000 + 0x730))) + 8) = 0;
     ((SafeAllocator*)(*(unsigned char**)(var0 + R(0x3520, (0x3000 + 0x730))) + 0xc))->ResetAllocatorPointer();
@@ -232,7 +232,7 @@ extern "C" ARM void func_ov030_021d9340(GameResources* arg0) {
 
     func_ov017_021b57fc(*(void**)(var0 + R(0x38dc, (0x3000 + 0xafc))));
 
-    func_0204693c((Struct_0204693c*)(*(void**)(var0 + R(0x38e0, (0x3000 + 0xb00)))));
+    ResetQueueNode_0204693c((QueueNode_0204693c*)(*(void**)(var0 + R(0x38e0, (0x3000 + 0xb00)))));
     **(unsigned char**)(var0 + R(0x38e0, (0x3000 + 0xb00))) = 0x17;
     *(int*)(*(unsigned char**)(var0 + R(0x38e0, (0x3000 + 0xb00))) + 0x24) = 0;
     *(*(unsigned char**)(var0 + R(0x38e0, (0x3000 + 0xb00))) + 0x1f) = 0;
@@ -242,7 +242,7 @@ extern "C" ARM void func_ov030_021d9340(GameResources* arg0) {
     *(*(unsigned char**)(var0 + R(0x38e0, (0x3000 + 0xb00))) + 0x1e) = 0xff;
     *(signed char*)(*(unsigned char**)(var0 + R(0x38e0, (0x3000 + 0xb00))) + 0x20) = -1;
 
-    func_0204693c((Struct_0204693c*)(*(void**)(var0 + R(0x38e4, (0x3000 + 0xb04)))));
+    ResetQueueNode_0204693c((QueueNode_0204693c*)(*(void**)(var0 + R(0x38e4, (0x3000 + 0xb04)))));
     **(unsigned char**)(var0 + R(0x38e4, (0x3000 + 0xb04))) = 0x18;
     *(int*)(*(unsigned char**)(var0 + R(0x38e4, (0x3000 + 0xb04))) + 0x20) = 0;
     *(int*)(*(unsigned char**)(var0 + R(0x38e4, (0x3000 + 0xb04))) + 0x1c) = 0;
@@ -269,7 +269,7 @@ extern "C" ARM void func_ov030_021d9340(GameResources* arg0) {
     func_ov017_021c0334((Struct_ov017_021c0334*)(*(void**)(var0 + R(0x3918, (0x3000 + 0xb38)))));
     func_ov017_021c0760((unsigned char*)(*(void**)(var0 + R(0x391c, (0x3000 + 0xb3c)))), 1);
 
-    func_0204693c((Struct_0204693c*)(*(void**)(var0 + R(0x3920, (0x3000 + 0xb40)))));
+    ResetQueueNode_0204693c((QueueNode_0204693c*)(*(void**)(var0 + R(0x3920, (0x3000 + 0xb40)))));
     **(unsigned char**)(var0 + R(0x3920, (0x3000 + 0xb40))) = 0x2a;
     *(int*)(*(unsigned char**)(var0 + R(0x3920, (0x3000 + 0xb40))) + 0xc) = 0;
     *(int*)(*(unsigned char**)(var0 + R(0x3920, (0x3000 + 0xb40))) + 0x10) = 0;
@@ -292,7 +292,7 @@ extern "C" ARM void func_ov030_021d9340(GameResources* arg0) {
     func_ov017_021beba4((char*)(*(void**)(var0 + R(0x394c, (0x3000 + 0xb6c)))));
     func_ov017_021befe4((Struct_ov017_021befe4*)(*(void**)(var0 + R(0x3950, (0x3000 + 0xb70)))));
 
-    func_0204693c((Struct_0204693c*)(*(void**)(var0 + R(0x3954, (0x3000 + 0xb74)))));
+    ResetQueueNode_0204693c((QueueNode_0204693c*)(*(void**)(var0 + R(0x3954, (0x3000 + 0xb74)))));
     **(unsigned char**)(var0 + R(0x3954, (0x3000 + 0xb74))) = 0x36;
     *(unsigned short*)(*(unsigned char**)(var0 + R(0x3954, (0x3000 + 0xb74))) + 8) = 0;
     *(*(unsigned char**)(var0 + R(0x3954, (0x3000 + 0xb74))) + 0xa) = 0;

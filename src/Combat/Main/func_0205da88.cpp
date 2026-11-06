@@ -2,7 +2,7 @@
 
 extern "C" int func_0204c7e0(unsigned char* arg0);
 extern "C" int func_0204fd00(void* arg0, int arg1);
-extern "C" void func_0204bc74(void* arg0, int arg1, short arg2, short arg3, short arg4, short arg5, int arg6);
+extern "C" void FillBGScreenRect_0204bc74(void* layer, int screenEntry, short x, short y, short width, short height, int palette);
 
 struct Struct_0205da88 {
     char unknown_0_[0x1c];
@@ -68,16 +68,16 @@ extern "C" ARM void func_0205da88(struct Struct_0205da88_3* arg0, int arg1, int 
             short var6 = var3->unknown_ae_;
             short var7 = var3->unknown_a8_;
             short var8 = var3->unknown_c0_;
-            func_0204bc74(var0, arg3, var5, var6, var7, var8, 0);
+            FillBGScreenRect_0204bc74(var0, arg3, var5, var6, var7, var8, 0);
             if (var8 == 0 || arg3 == 0) continue;
             if (!func_0204fd00(var3, 1))
-                func_0204bc74(var0, 2, var5, var6, 1, 1, 0);
+                FillBGScreenRect_0204bc74(var0, 2, var5, var6, 1, 1, 0);
             if (!func_0204fd00(var3, 2))
-                func_0204bc74(var0, 0x402, (short)(var5 + var7 - 1), var6, 1, 1, 0);
+                FillBGScreenRect_0204bc74(var0, 0x402, (short)(var5 + var7 - 1), var6, 1, 1, 0);
             if (!func_0204fd00(var3, 4))
-                func_0204bc74(var0, 0x802, var5, (short)(var6 + var8 - 1), 1, 1, 0);
+                FillBGScreenRect_0204bc74(var0, 0x802, var5, (short)(var6 + var8 - 1), 1, 1, 0);
             if (!func_0204fd00(var3, 8))
-                func_0204bc74(var0, 0xc02, (short)(var5 + var7 - 1), (short)(var6 + var8 - 1), 1, 1, 0);
+                FillBGScreenRect_0204bc74(var0, 0xc02, (short)(var5 + var7 - 1), (short)(var6 + var8 - 1), 1, 1, 0);
         }
     }
 }

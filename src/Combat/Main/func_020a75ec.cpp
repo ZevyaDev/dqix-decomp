@@ -34,12 +34,12 @@ extern "C" void func_020332ac(Struct_020a75ec*);
 extern "C" void func_020a78dc(Struct_020a75ec*);
 extern "C" int func_02046b60(Struct_02038598_5*, int);
 extern "C" void* GetParty_02010828(GameState*);
-extern "C" void* func_020100bc(GameState*);
+extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void* GetFlagManager_0205ec34();
-extern "C" int func_02046b08(void**);
+extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
-extern "C" int func_02033b88(Struct_02010604*, int);
+extern "C" int SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_ov017_021a93f0(GameResources*, int, int);
 
 #if defined(jpn)
@@ -101,7 +101,7 @@ extern "C" ARM void func_020a75ec(Struct_020a75ec* arg0) {
     }
     int var10;
     int var11;
-    void* var12 = func_020100bc(var0);
+    void* var12 = GetCamera_020100bc(var0);
     int var13 = 0;
     if (func_0202ec84(var12, (Struct_02015ef4*)&arg0->unknown_0_.position_, &var10, &var11) == 0) {
         int var14;
@@ -116,14 +116,14 @@ extern "C" ARM void func_020a75ec(Struct_020a75ec* arg0) {
     unsigned char* var16 = (unsigned char*)GetFlagManager_0205ec34();
 #endif
     if (g_keyManager.TestKeysPressed(2) || var13) {
-        if (func_02046b08((void**)var6)
+        if (IsQueueEmpty_02046b08((void**)var6)
 #if !defined(jpn)
             && IsFlagSet_0206dfb0((int)var16, var16 + 0x8c, 43)
 #endif
         ) {
             arg0->unknown_15a_ = 0;
             arg0->unknown_154_ = 0;
-            func_02033b88((Struct_02010604*)arg0, 0);
+            SetMotion_02033b88((Struct_02010604*)arg0, 0);
             func_ov017_021a93f0(var5, 0, 1);
         }
     }

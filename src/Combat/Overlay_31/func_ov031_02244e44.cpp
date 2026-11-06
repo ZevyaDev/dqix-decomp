@@ -83,7 +83,7 @@ extern "C" Struct_ov031_02244e44* func_ov031_02207440(Struct_ov031_022075a4*);
 extern "C" int func_ov031_02207230(void*, Struct_ov031_02207230*);
 extern "C" int func_ov031_0220783c(int*, int, int, int);
 extern "C" int func_ov031_0220728c(int, int, int);
-extern "C" int func_02001aec(const void*, const void*, int);
+extern "C" int CompareBytes_02001aec(const void*, const void*, int);
 extern "C" int func_ov031_02245750(Struct_02245528*, Struct_ov031_02244e44_4*);
 extern "C" int func_ov031_02207434(Struct_ov031_022075a4*);
 extern "C" void func_ov031_022077c0();
@@ -193,7 +193,7 @@ extern "C" ARM void func_ov031_02244e44(Struct_02245528* arg0) {
                 if (data_ov031_02291e04.unknown_18_) {
                     Struct_ov031_02244e44_2* var13 = ((Struct_ov031_02244e44_3*)GameState::GetInstance())->inline_ov031_02244e44();
                     for (int var14 = 0; var14 < 8; var14++, var13++) {
-                        if (!func_02001aec(var13, data_ov031_02291e04.unknown_18_->unknown_4_, 6)) {
+                        if (!CompareBytes_02001aec(var13, data_ov031_02291e04.unknown_18_->unknown_4_, 6)) {
                             if (!data_ov031_02291e04.unknown_2_) var13->unknown_6_ = 0xff;
                             else memset(var13, 0, 8);
                             break;

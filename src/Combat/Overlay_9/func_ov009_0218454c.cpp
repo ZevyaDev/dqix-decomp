@@ -4,7 +4,7 @@
 #include "Combat/MapDisplay.h"
 #include "World/Object3D.h"
 
-struct Struct_0201099c_14 {
+struct StringTable_0201099c_14 {
     char unknown_0_[0x18];
 };
 
@@ -32,16 +32,16 @@ struct Struct_ov009_021847c4 {
 };
 
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_020de848(void* arg0);
-extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
+extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 #if defined(jpn)
 #define func_ov009_021847ec func_ov009_02185850
 #endif
 extern "C" void func_ov009_021847ec(void* arg0);
-extern "C" void func_0204af64(Struct_02020cb8* arg0);
+extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void func_0205cfd4(Struct_0205cfd4* arg0);
-extern "C" void func_0204c684(Struct_ov006_02158478* arg0);
+extern "C" void InitTextWindow_0204c684(Struct_ov006_02158478* textWindow);
 extern "C" void func_0205bef8(Struct_0205bef8* arg0);
 extern "C" void func_ov009_021847c4(Struct_ov009_021847c4* arg0);
 extern "C" int func_020424e4(int arg0, int arg1);
@@ -62,14 +62,14 @@ struct Struct_ov009_021842a0_2 {
     void* unknown_c4_;
 #endif
     char unknown_c8_[0x18];
-    Struct_0201099c_14 unknown_e0_;
+    StringTable_0201099c_14 unknown_e0_;
     void* unknown_f8_;
 #if defined(jpn)
     char unknown_fc_[0x20];
 #else
     char unknown_fc_[0x3c];
 #endif
-    Struct_02020cb8 unknown_138_[6];
+    BGLayer_02020cb8 unknown_138_[6];
     Struct_0205cfd4 unknown_1f8_[2];
     Struct_ov006_02158478 unknown_370_[1];
     Struct_ov006_02158478 unknown_450_[4];
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov009_0218454c(Struct_ov009_021842a0_2* arg0, int arg1,
 {
     arg0->unknown_d95_ = arg2;
     if (arg0->unknown_d95_ == 1)
-        func_020466e4(GetGlobalFlags_020d6c00(), 0xf);
+        SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 0xf);
     arg0->unknown_0_[0].ResetAllocatorPointer();
     arg0->unknown_0_[1].ResetAllocatorPointer();
     arg0->unknown_0_[2].ResetAllocatorPointer();
@@ -164,21 +164,21 @@ extern "C" ARM void func_ov009_0218454c(Struct_ov009_021842a0_2* arg0, int arg1,
     arg0->unknown_c4_ = NULL;
 #endif
     func_020de848(&arg0->unknown_c8_);
-    func_020dfc40(&arg0->unknown_e0_);
+    InitStringTable_020dfc40(&arg0->unknown_e0_);
     arg0->unknown_f8_ = NULL;
     func_ov009_021847ec(&arg0->unknown_fc_);
-    func_0204af64(&arg0->unknown_138_[0]);
-    func_0204af64(&arg0->unknown_138_[1]);
-    func_0204af64(&arg0->unknown_138_[2]);
-    func_0204af64(&arg0->unknown_138_[3]);
-    func_0204af64(&arg0->unknown_138_[4]);
-    func_0204af64(&arg0->unknown_138_[5]);
+    InitBGLayer_0204af64(&arg0->unknown_138_[0]);
+    InitBGLayer_0204af64(&arg0->unknown_138_[1]);
+    InitBGLayer_0204af64(&arg0->unknown_138_[2]);
+    InitBGLayer_0204af64(&arg0->unknown_138_[3]);
+    InitBGLayer_0204af64(&arg0->unknown_138_[4]);
+    InitBGLayer_0204af64(&arg0->unknown_138_[5]);
     func_0205cfd4(&arg0->unknown_1f8_[0]);
     func_0205cfd4(&arg0->unknown_1f8_[1]);
     for (int var0 = 0; var0 < 1; var0++)
-        func_0204c684(&arg0->unknown_370_[var0]);
+        InitTextWindow_0204c684(&arg0->unknown_370_[var0]);
     for (int var1 = 0; var1 < 4; var1++)
-        func_0204c684(&arg0->unknown_450_[var1]);
+        InitTextWindow_0204c684(&arg0->unknown_450_[var1]);
     arg0->unknown_7d0_ = NULL;
     arg0->unknown_7d4_ = NULL;
     arg0->unknown_7d8_ = NULL;

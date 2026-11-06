@@ -6,7 +6,7 @@ struct Struct_02070b6c_3;
 struct Struct_ov024_021e2298_3 { unsigned short unknown_0_; unsigned char unknown_2_; unsigned char unknown_3_; int unknown_4_; void* unknown_8_; unsigned short unknown_c_; };
 extern "C" Struct_ov024_021e2298_3* func_02070fd0(Struct_02070b6c_3*,int);
 extern "C" short func_ov000_0215cda0(void*);
-extern "C" void* func_ov000_0215e958(void*);
+extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,int,int,int,int);
 struct Struct_ov024_021fe6ec { int unknown_0_[3]; };
 extern Struct_ov024_021fe6ec data_ov024_021fe6ec;
@@ -67,7 +67,7 @@ extern "C" ARM void* func_ov024_021e2298(Struct_ov024_021e2298_2* arg0,int arg1,
         arg0->unknown_4_->unknown_1a_=arg0->unknown_4_->unknown_1c_;
         arg0->unknown_4_->unknown_6_=func_ov000_0215cda0(arg0->unknown_10_);
     }
-    void* var11=func_ov000_0215e958(arg0->unknown_10_);
+    void* var11=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if(!var11)return 0;
     func_ov000_0215cd44(arg0->unknown_10_,var11,var0,0,0,0,arg0->unknown_c_->unknown_1c_7_!=0);
     return var11;

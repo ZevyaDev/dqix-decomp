@@ -11,7 +11,7 @@ struct Struct_ov024_021f66cc {
 	unsigned short unknown_e_;
 };
 
-extern "C" struct Struct_ov024_021f66cc* func_02079e2c(char* arg0, int arg1);
+extern "C" struct Struct_ov024_021f66cc* FindActionData_02079e2c(char* actionTables, int actionId);
 
 class Struct_ov024_021f66cc_2 {
 public:
@@ -26,7 +26,7 @@ extern Type_02000c9c_16 data_ov024_021ff790[];
 extern "C" ARM int func_ov024_021f66cc(Struct_ov024_021f66cc_2* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5) {
 	arg0->unknown_0_ = arg1;
 	func_0200fea4(GameState::GetInstance(), arg3);
-	struct Struct_ov024_021f66cc* var0 = func_02079e2c((char*)func_020797dc(), (short)arg2);
+	struct Struct_ov024_021f66cc* var0 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), (short)arg2);
 	int var1 = 0;
 	int var2 = func_ov000_02159d94(arg0->unknown_0_, (short)arg3);
 	switch (var2) {

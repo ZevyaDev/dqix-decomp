@@ -63,7 +63,7 @@ extern "C" int func_ov017_021a2128(void* arg0, int arg1, int arg2, int arg3, con
 extern "C" ARM int func_ov017_021a23e4(GameResources* arg0, int arg1, int arg2, int arg3) {
     GameState* var0 = GameState::GetInstance();
     if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18())) return 0;
-    GameObject* var1 = func_0200ff1c(var0, arg1);
+    GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (!var1) return 0;
     if (arg2 == 0) arg2 = func_ov017_021a26e8(arg0, arg1);
     int var2 = var1->obj3D_.GetField06();

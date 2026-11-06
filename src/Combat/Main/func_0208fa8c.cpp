@@ -13,7 +13,7 @@ struct Struct_0208fa8c_2 {
 #endif
     unsigned char unknown_260_;
 };
-extern "C" void* func_0200fd0c(GameState*);
+extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" int func_0201b588(int);
 extern "C" void func_02027ad8(int, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -34,7 +34,7 @@ extern "C" ARM void func_0208fa8c(DetailedTreasureMapData* arg0) {
     GameState* var1 = GameState::GetInstance();
     GameResources* var2 = GetGameResources();
     int* var3 = GetLocalWireless_0202ae18();
-    var0 = (Struct_0208fa8c*)func_0200fd0c(var1);
+    var0 = (Struct_0208fa8c*)GetZoneEntry_0200fd0c(var1);
     GrottoStruct* var4 = var1->GetGrottoStruct();
     int var5;
     void* var6 = var2->unknown_ptr_36d0;

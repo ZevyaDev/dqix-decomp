@@ -60,7 +60,7 @@ extern "C" ARM int func_ov002_02154230(char *arg0, struct Struct_ov002_02154230 
         if (func_ov002_02154a34(arg0, var9)) continue;
         int var10       = 0;
         unsigned char var11 = 0;
-        GameObject *var12    = func_0200ff1c(var0, var9);
+        GameObject *var12    = GetPartyMemberBaseByIndex_0200ff1c(var0, var9);
         if (var12 == NULL) continue;
         if (arg1->unknown_0_ == 0x27) {
             var11     = 1;

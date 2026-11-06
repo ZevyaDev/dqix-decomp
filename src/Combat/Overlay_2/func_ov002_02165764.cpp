@@ -2,9 +2,9 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct Struct_0205def8;
 struct SoundEffectManager_02108760;
 struct Struct_0205dee8;
@@ -15,16 +15,16 @@ struct Struct_ov002_02165764 {
 };
 
 extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
-extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
 extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_0215eadc(void *arg0, int arg1);
 extern "C" void func_0205dee8(struct Struct_0205dee8 *arg0, int arg1);
-extern "C" void func_0205deb4(struct Struct_0205d81c *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
 extern "C" void func_ov002_02161b98(char *arg0);
-extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
-extern "C" int func_ov002_0216197c(int arg0, struct Struct_0205d81c *arg1);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
+extern "C" int func_ov002_0216197c(int arg0, struct TextWindowManager_0205d81c *arg1);
 struct Struct_0205da38;
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" char *func_0200ff94(GameState *arg0, int arg1);
@@ -48,11 +48,11 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
     int var0 = *(int *) (arg0 + 0x1a88);
     if (var0 == 0) {
         *(short *) (arg0 + 0x1ac2) = 0;
-        func_0205de24((struct Struct_0205de24_2 *) OBJ, 0, 2);
+        SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) OBJ, 0, 2);
         func_ov002_02161cf0(arg0);
         func_ov002_0215eadc(arg0, 0);
         func_0205dee8((struct Struct_0205dee8 *) OBJ, 0x12);
-        func_0205deb4((struct Struct_0205d81c *) OBJ, 0x12, 0);
+        SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x12, 0);
         *(int *) (arg0 + 0x1a88) += 1;
         return;
     }
@@ -60,12 +60,12 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
         *(unsigned int *) (arg0 + 0x22ac) |= 4;
         short var1 = *(short *) (arg0 + 0x1ac2);
         func_ov002_02161b98(arg0);
-        *(short *) (arg0 + 0x1ac2) = func_0205d794((struct Struct_0205c570 *) OBJ);
+        *(short *) (arg0 + 0x1ac2) = GetCursorIndex_0205d794((struct Struct_0205c570 *) OBJ);
         if (var1 != *(short *) (arg0 + 0x1ac2)) {
             *(int *) (arg0 + 0x1a94) = 1;
         }
-        func_0205deb4((struct Struct_0205d81c *) OBJ, 0x13, 0);
-        func_0205deb4((struct Struct_0205d81c *) OBJ, 0x14, 0);
+        SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x13, 0);
+        SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x14, 0);
         func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
         int var2  = g_keyManager.TestKeysPressed(0x601);
         int var3  = func_0205da38((struct Struct_0205da38*)OBJ, 0x14);
@@ -103,9 +103,9 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
             *(short *) (arg0 + 0x1aee) = -1;
             *(int *) (arg0 + 0x1a80)   = 0x11;
             func_ov002_02156ff0((unsigned char *) arg0, 0x12);
-            func_0205deb4((struct Struct_0205d81c *) OBJ, 0x12, 1);
+            SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x12, 1);
             func_0205dee8((struct Struct_0205dee8 *) OBJ, 0x11);
-            func_0205deb4((struct Struct_0205d81c *) OBJ, 0x11, 0);
+            SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x11, 0);
             *(int *) (arg0 + 0x1a88) = 1;
             *(int *) (arg0 + 0x1a80) = 0x11;
             func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
@@ -140,11 +140,11 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
     if (var8 == 0) {
         func_0205def8((struct Struct_0205def8 *) OBJ, 0, 0x29);
         *(short *) (arg0 + 0x1bfa) = 0;
-        func_0205de24((struct Struct_0205de24_2 *) OBJ, 0, 2);
+        SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) OBJ, 0, 2);
         func_ov002_02161cf0(arg0);
         func_ov002_0215eadc(arg0, 0);
         func_0205dee8((struct Struct_0205dee8 *) OBJ, 0x11);
-        func_0205deb4((struct Struct_0205d81c *) OBJ, 0x11, 0);
+        SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x11, 0);
         func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 0);
         *(int *) (arg0 + 0x1bc0) += 1;
         return;
@@ -153,14 +153,14 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
         *(unsigned int *) (arg0 + 0x247c) |= 4;
         short var9 = *(short *) (arg0 + 0x1bfa);
         func_ov002_02161b98(arg0);
-        *(short *) (arg0 + 0x1bfa) = func_0205d794((struct Struct_0205c570 *) OBJ);
+        *(short *) (arg0 + 0x1bfa) = GetCursorIndex_0205d794((struct Struct_0205c570 *) OBJ);
         if (var9 != *(short *) (arg0 + 0x1bfa)) {
             *(int *) (arg0 + 0x1bcc) = 1;
         }
-        func_0205deb4((struct Struct_0205d81c *) OBJ, 0x12, 0);
-        func_0205deb4((struct Struct_0205d81c *) OBJ, 0x13, 0);
+        SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x12, 0);
+        SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x13, 0);
         if (func_ov002_0216197c(*(int *) (arg0 + 0x1bb8) & 0xff,
-                                                                  (struct Struct_0205d81c *) OBJ))
+                                                                  (struct TextWindowManager_0205d81c *) OBJ))
         {
             func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 0);
         }
@@ -200,9 +200,9 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
             *(short *) (arg0 + 0x1c26) = -1;
             *(int *) (arg0 + 0x1bb8)   = 0x10;
             func_ov002_02156ff0((unsigned char *) arg0, 0x11);
-            func_0205deb4((struct Struct_0205d81c *) OBJ, 0x11, 1);
+            SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x11, 1);
             func_0205dee8((struct Struct_0205dee8 *) OBJ, 0x10);
-            func_0205deb4((struct Struct_0205d81c *) OBJ, 0x10, 0);
+            SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x10, 0);
             *(int *) (arg0 + 0x1bc0) = 1;
             *(int *) (arg0 + 0x1bb8) = 0x10;
             func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 0);

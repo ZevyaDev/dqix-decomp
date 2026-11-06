@@ -42,7 +42,7 @@ struct Struct_02098630_2
     int unknown_c_;
 };
 
-extern "C" int func_02001aec(const void*, const void*, int);
+extern "C" int CompareBytes_02001aec(const void*, const void*, int);
 extern "C" int func_02098a84(Struct_02097cac_2*);
 extern "C" Struct_02098630* func_02098834(Struct_02098630*, Struct_02098630*);
 extern "C" void func_020989cc(Struct_02097cac_2*);
@@ -55,7 +55,7 @@ extern "C" ARM int func_02098630(Struct_02097cac_2* arg0, Struct_02098630* arg1,
         return 0;
     for (int var0 = 0; var0 < 30; var0++)
     {
-        if (func_02001aec(arg0->unknown_0_[var0].unknown_14_, arg1->unknown_14_, 6) == 0)
+        if (CompareBytes_02001aec(arg0->unknown_0_[var0].unknown_14_, arg1->unknown_14_, 6) == 0)
             return 0;
     }
     int var1 = func_02098a84(arg0);

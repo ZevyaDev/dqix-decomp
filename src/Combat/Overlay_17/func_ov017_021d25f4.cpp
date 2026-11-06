@@ -2,10 +2,10 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_0202ae24(void);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov017_0218d4ec(void* arg0, int arg1);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021d25f4 {
     unsigned char unknown_0_;
@@ -24,7 +24,7 @@ struct Struct_ov017_021d25f4_2 {
 // USA: func_ov017_021d25f4
 extern "C" ARM void func_ov017_021d25f4(int arg0) {
     int var0 = ((int)GetGameResources());
-    void* var1 = func_0202ae24();
+    void* var1 = GetLocalWirelessPacketQueue_0202ae24();
     struct Struct_ov017_021d25f4_2 var2;
     var2.unknown_0_ = 0x20;
     struct Struct_ov017_021d25f4* var3 = &var2.unknown_4_;
@@ -41,5 +41,5 @@ extern "C" ARM void func_ov017_021d25f4(int arg0) {
     int var7 = func_ov017_0218d4ec((void*)var0, arg0);
     var3->unknown_1_1_ = (var7 != 0);
 
-    func_0205e330(var1, &var2, 0);
+    QueueOutgoingPacket_0205e330(var1, &var2, 0);
 }

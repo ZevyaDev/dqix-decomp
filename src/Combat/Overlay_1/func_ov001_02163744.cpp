@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" unsigned short func_ov017_021d60f4(int arg0);
+extern "C" unsigned short GetScriptValueAsInt_ov017_021d60f4(int value);
 
 struct Struct_02109bf4_2 {
 	char unknown_0_[0xc9];
@@ -14,6 +14,6 @@ extern struct Struct_02109bf4_2 gMusicManager_02109bf4;
 
 // USA: func_ov001_02163744
 extern "C" ARM int func_ov001_02163744(int arg0) {
-	func_0209c830(&gMusicManager_02109bf4, func_ov017_021d60f4(arg0));
+	func_0209c830(&gMusicManager_02109bf4, GetScriptValueAsInt_ov017_021d60f4(arg0));
 	return 1;
 }

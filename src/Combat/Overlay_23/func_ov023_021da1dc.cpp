@@ -3,8 +3,8 @@
 
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 
-struct Struct_0205d5d0;
-extern "C" int func_0205d5d0(struct Struct_0205d5d0* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
+struct TextWindowManager_0205d5d0;
+extern "C" int SetTextWindowText_0205d5d0(struct TextWindowManager_0205d5d0* windowManager, int windowId, int text, int arg3, unsigned char font);
 
 struct Struct_ov023_021da1dc {
     char unknown_0_[0x30];
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov023_021da1dc(Struct_ov023_021da1dc_3* arg0)
         }
         memset(arg0->unknown_d8_, 0, 0x800);
         func_ov023_021da100((Struct_ov023_021da1dc_2*)arg0, (char*)arg0->unknown_d8_, var1);
-        ((int (*)(struct Struct_0205d5d0*, int, int, int))func_0205d5d0)((Struct_0205d5d0*)arg0->unknown_278_, 1, (int)arg0->unknown_d8_, 0);
+        ((int (*)(struct TextWindowManager_0205d5d0*, int, int, int))SetTextWindowText_0205d5d0)((TextWindowManager_0205d5d0*)arg0->unknown_278_, 1, (int)arg0->unknown_d8_, 0);
     }
 }
 #else
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov023_021da1dc(Struct_ov023_021da1dc_2* arg0)
         char* var6 = (char*)arg0->unknown_f8_;
         memset(var6, 0, 0x960);
         func_ov023_021da100(arg0, var6, var4);
-        func_0205d5d0((Struct_0205d5d0*)arg0->unknown_2b4_, 1, (int)var6, 0, 1);
+        SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)arg0->unknown_2b4_, 1, (int)var6, 0, 1);
     }
 }
 #endif

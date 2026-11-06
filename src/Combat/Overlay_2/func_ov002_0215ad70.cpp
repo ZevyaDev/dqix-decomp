@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Resource/CharacterCreationUI.h"
 
-struct Struct_0205d81c;
-struct Struct_0205d0e0 {
+struct TextWindowManager_0205d81c;
+struct TextWindow_0205d0e0 {
     unsigned char unknown_0_[0xac];
     short unknown_ac_, unknown_ae_;
 };
@@ -12,7 +12,7 @@ struct Struct_ov002_0216c98a {
     short unknown_0_[4];
 };
 
-extern "C" struct Struct_0205d0e0 *func_0205d81c(struct Struct_0205d81c *arg0, int arg1);
+extern "C" struct TextWindow_0205d0e0 *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
 extern "C" void func_ov002_02154bcc(int arg0, int arg1, void *arg2, int arg3, unsigned char arg4, unsigned char arg5);
 extern "C" void func_0204c654(Struct_0204c654 *arg0, int arg1, short arg2, short arg3, short arg4, short arg5);
 
@@ -41,8 +41,8 @@ struct Struct_ov002_0215ad70 {
 // JPN: func_ov002_0215c0d8
 extern "C" ARM void func_ov002_0215ad70(unsigned char *arg0) {
     Struct_ov002_0215ad70* var0 = ((Struct_ov002_0215ad70*)(arg0));
-    struct Struct_0205d0e0 *var1 =
-        func_0205d81c(((Struct_0205d81c*)(&var0->unknown_ec8_)), Enum_ov002_0215ad70_28);
+    struct TextWindow_0205d0e0 *var1 =
+        FindTextWindow_0205d81c(((TextWindowManager_0205d81c*)(&var0->unknown_ec8_)), Enum_ov002_0215ad70_28);
     if (var1 == 0) {
         return;
     }
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov002_0215ad70(unsigned char *arg0) {
             var5++;
         }
     }
-    var1 = func_0205d81c(((Struct_0205d81c*)(&var0->unknown_ec8_)), Enum_ov002_0215ad70_29);
+    var1 = FindTextWindow_0205d81c(((TextWindowManager_0205d81c*)(&var0->unknown_ec8_)), Enum_ov002_0215ad70_29);
     if (var1 == 0) {
         return;
     }

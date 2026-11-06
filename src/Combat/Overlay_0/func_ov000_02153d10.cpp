@@ -2,7 +2,7 @@
 #include "Util/Random.h"
 
 extern short data_ov000_02182b14[8];
-extern "C" int func_ov000_0215eb1c(struct Random* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(struct Random* battle, short* indices, int maxCount, int filterFlags);
 
 // USA: func_ov000_02153d10
 extern "C" ARM void func_ov000_02153d10(struct Random* arg0, short* arg1) {
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov000_02153d10(struct Random* arg0, short* arg1) {
         var1++;
         var2++;
     } while (--var3);
-    var4 = func_ov000_0215eb1c(arg0, var0, 8, 1);
+    var4 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0, var0, 8, 1);
     var5 = NextRandomMax(arg0, var4);
     *arg1 = var0[var5];
 }

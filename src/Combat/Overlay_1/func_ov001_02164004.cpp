@@ -12,7 +12,7 @@ struct Struct_02000c9c_39 {
 };
 
 extern "C" float func_ov017_021d6110(void* arg0);
-extern "C" unsigned int func_ov017_021d60f4(void* arg0);
+extern "C" unsigned int GetScriptValueAsInt_ov017_021d60f4(void* value);
 
 // USA: func_ov001_02164004
 extern "C" ARM int func_ov001_02164004(void* arg0, int arg1) {
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov001_02164004(void* arg0, int arg1) {
     unsigned int var1 = 0;
     GameState* var2 = GameState::GetInstance();
     if (arg1 >= 2) {
-        var1 = func_ov017_021d60f4((char*)arg0 + 8);
+        var1 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 8);
     }
     unsigned short var3 = var1 * var2->GetEffectiveDeltaTime();
     LightingManager::GetInstance()->BeginFade(4096.0f * var0, var3);

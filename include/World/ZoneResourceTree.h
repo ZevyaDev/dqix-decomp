@@ -63,4 +63,4 @@ struct Struct_020177d4_2 {
     Vector3i unknown_48_;
 };
 
-extern "C" void *func_ov017_021b8478(void *arg0);
+extern "C" void *GetBattleSetup_ov017_021b8478(void *battleManager);

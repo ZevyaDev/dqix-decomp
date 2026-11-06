@@ -85,7 +85,7 @@ extern "C" void func_02028dec(int);
 extern "C" void func_020bb48c(unsigned int, int);
 extern "C" void func_020bb780(void*, int);
 extern "C" void func_ov015_02192600(struct Struct_ov015_02192600_3*);
-extern "C" void func_020c5588(int, int, int, int, int);
+extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
 extern "C" void func_ov015_0218b810(struct Struct_ov015_0218b810*);
 extern "C" void func_ov015_0218ba44(void*, int);
 extern "C" void* memset(void*, int, unsigned int);
@@ -100,7 +100,7 @@ extern "C" void func_0202df68(void*);
 extern "C" void func_020a2cf0(struct Struct_0204a120_2*);
 extern "C" void func_020a2010(void*);
 extern "C" void func_020a27a0(void*);
-extern "C" void func_020100c4(GameState*, int);
+extern "C" void SetCamera_020100c4(GameState*, int);
 extern "C" void func_ov015_02192544(void*);
 extern "C" void func_0205ea20(void*, int);
 extern "C" void func_020c9820();
@@ -165,13 +165,13 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     func_0200fb84((int*)var0, (int)arg0);
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     var1->MaybeReset();
-    FontLoader_0208cb08* var2 = func_02094a00();
+    FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
     func_02094b3c(var2, 10);
     func_02094b3c(var2, 12);
-    func_02094b34(var2, 0x69, 0, 0, 0);
+    RequestFontLoad_02094b34(var2, 0x69, 0, 0, 0);
     func_02094b38(var2, 0x69);
     func_02094b38(var2, 0);
-    while (!func_02094b4c(var2))
+    while (!UpdateFontLoad_02094b4c(var2))
         var1->RemoveAllLocks();
 
     func_020c39a0(MASTER_BRIGHT, -16);
@@ -216,7 +216,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     func_020bb48c(3, 1);
     func_020bb780((void*)0x8000, 1);
     func_ov015_02192600((struct Struct_ov015_02192600_3*)arg0);
-    func_020c5588(0x594a, 0x10, 0x7fff, 0, 0);
+    Set3DClearColorAndDepth_020c5588(0x594a, 0x10, 0x7fff, 0, 0);
     func_ov015_0218b810((struct Struct_ov015_0218b810*)&arg0->unknown_3c_);
     func_ov015_0218ba44(&arg0->unknown_3c_, 0);
     memset(arg0->unknown_26c_, 0, 0x52);
@@ -259,7 +259,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     func_020a2cf0((struct Struct_0204a120_2*)&var6);
     func_020a2010(&var6);
     func_020a27a0(&var6);
-    func_020100c4(var0, (int)&var6);
+    SetCamera_020100c4(var0, (int)&var6);
     func_ov015_02192544(arg0);
     func_0205ea20(&gSoundEffectManager_02108760, 0x65);
     func_020c9820();
@@ -355,7 +355,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     }
 
     func_02094b38(var2, 0x69);
-    func_02094ab0(var2);
+    CancelFontLoad_02094ab0(var2);
     func_0205ea20(&gSoundEffectManager_02108760, 0x64);
     func_020a2010(&var6);
     func_020a2cf0((struct Struct_0204a120_2*)&var6);

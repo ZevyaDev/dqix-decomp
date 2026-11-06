@@ -46,7 +46,7 @@ extern "C" ARM int func_ov017_021b3780(struct Struct_ov017_021b3780_2* arg0) {
     if (!((BackgroundLoader*)(var1))->GetTaskStatus((int)(arg0->unknown_10_))) {
         return 0;
     }
-    GameObject* var2 = func_0200ff1c(var0, arg0->unknown_8_);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0->unknown_8_);
     if (!var2) {
         return 0;
     }

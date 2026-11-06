@@ -50,16 +50,16 @@ struct Struct_ov017_021caea8_3 {
     unsigned char unknown_1_[3];
     Struct_ov017_021caea8_2 unknown_4_;
 };
-extern "C" void* func_ov017_021b8478(void*);
-extern "C" void* func_0202ae24();
-extern "C" void func_0205e330(void*, void*, int);
+extern "C" void* GetBattleSetup_ov017_021b8478(void*);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
+extern "C" void QueueOutgoingPacket_0205e330(void*, void*, int);
 
 // USA: func_ov017_021caea8
 extern "C" ARM void func_ov017_021caea8(Struct_ov017_021caea8_4* arg0) {
     GameState::GetInstance();
     GameResources* var0 = GetGameResources();
-    Struct_ov017_021caea8_6* var1 = (Struct_ov017_021caea8_6*)func_ov017_021b8478(var0->unknown_ptr_3718);
-    void* var2 = func_0202ae24();
+    Struct_ov017_021caea8_6* var1 = (Struct_ov017_021caea8_6*)GetBattleSetup_ov017_021b8478(var0->unknown_ptr_3718);
+    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
     for (int var3 = 0; var3 < arg0->unknown_1_4_; var3++) {
         Struct_ov017_021caea8* var4 = &arg0->unknown_4_[var3];
         Struct_ov017_021caea8_3 var5;
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov017_021caea8(Struct_ov017_021caea8_4* arg0) {
             var10->unknown_8_.unknown_3_0_ = var9->unknown_5c_[18];
             var10->unknown_8_.unknown_3_3_ = var9->unknown_5c_[19];
             var10->unknown_c_ = var9->unknown_36_;
-            func_0205e330(var2, &var5, 0);
+            QueueOutgoingPacket_0205e330(var2, &var5, 0);
             var10 = &var6.unknown_4_;
             var6.unknown_0_ = 0x60;
             var10->unknown_0_ = var1->unknown_8_;
@@ -120,7 +120,7 @@ extern "C" ARM void func_ov017_021caea8(Struct_ov017_021caea8_4* arg0) {
             var10->unknown_8_.unknown_2_5_ = var9->unknown_7f_[17];
             var10->unknown_8_.unknown_3_0_ = var9->unknown_7f_[18];
             var10->unknown_8_.unknown_3_3_ = var9->unknown_7f_[19];
-            func_0205e330(var2, &var6, 0);
+            QueueOutgoingPacket_0205e330(var2, &var6, 0);
         }
     }
 }

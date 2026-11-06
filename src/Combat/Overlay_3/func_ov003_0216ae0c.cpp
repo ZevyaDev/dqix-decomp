@@ -18,11 +18,11 @@ enum { Enum_ov003_0216ae0c_4812 = 0x12cc };
 
 struct Struct_0205cfd4;
 extern "C" ARM void func_0205cfd4(struct Struct_0205cfd4* arg0);
-struct Struct_02020cb8;
-extern "C" ARM void func_0204af64(struct Struct_02020cb8* arg0);
-extern "C" void func_0204c684(void* arg0);
-struct Struct_02043368_2;
-extern "C" void func_0205a198(struct Struct_02043368_2*);
+struct BGLayer_02020cb8;
+extern "C" ARM void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
+struct Sprite_02043368_2;
+extern "C" void InitSprite_0205a198(struct Sprite_02043368_2*);
 struct Struct_02043368;
 extern "C" void func_0205a234(struct Struct_02043368* arg0);
 
@@ -50,17 +50,17 @@ extern "C" ARM void func_ov003_0216ae0c(void* arg0, SafeAllocator* arg1) {
     func_0205cfd4((struct Struct_0205cfd4*)var0->unknown_12c0_);
 
     for (int var1 = 0; var1 < 2; var1++) {
-        func_0204af64((struct Struct_02020cb8*)((char*)var0->unknown_12c4_ + var1 * 0x20));
+        InitBGLayer_0204af64((struct BGLayer_02020cb8*)((char*)var0->unknown_12c4_ + var1 * 0x20));
     }
     for (int var2 = 0; var2 < 1; var2++) {
-        func_0204c684((char*)var0->unknown_12c8_ + var2 * 0xe0);
+        InitTextWindow_0204c684((char*)var0->unknown_12c8_ + var2 * 0xe0);
     }
 
     var0->unknown_1264_ = var0->unknown_12d0_->Allocate(0x258);
     var0->unknown_1268_ = var0->unknown_12d0_->Allocate(8);
 
     for (int var3 = 0; var3 < 0xf; var3++) {
-        func_0205a198((struct Struct_02043368_2*)((char*)var0->unknown_1264_ + var3 * 0x28));
+        InitSprite_0205a198((struct Sprite_02043368_2*)((char*)var0->unknown_1264_ + var3 * 0x28));
     }
     func_0205a234((struct Struct_02043368*)var0->unknown_1268_);
 }

@@ -42,9 +42,9 @@
 
 struct Struct_020466c8;
 struct Struct_02074bd0;
-struct Struct_0205d1e0;
-struct Struct_0205d274;
-struct Struct_0205d2bc;
+struct TextWindowManager_0205d1e0;
+struct TextWindowManager_0205d274;
+struct TextWindowManager_0205d2bc;
 struct Struct_0205d048;
 
 extern "C" char *GetMessageWindow_020421a0();
@@ -52,13 +52,13 @@ extern "C" void func_020466c8(Struct_020466c8 *arg0, int arg1);
 extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" void func_ov017_021cff8c(int arg0, int arg1);
 extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
-extern "C" void *func_02094a00();
-extern "C" void func_02094ab0(void *arg0);
+extern "C" void *GetFontLoader_02094a00();
+extern "C" void CancelFontLoad_02094ab0(void *loader);
 extern "C" void func_02074bd0(Struct_02074bd0 *arg0);
 extern "C" void ResetMessageWindow_02043204(char *window);
-extern "C" void func_0205d1e0(Struct_0205d1e0 *arg0);
-extern "C" void func_0205d274(Struct_0205d274 *arg0);
-extern "C" void func_0205d2bc(Struct_0205d2bc *arg0);
+extern "C" void func_0205d1e0(TextWindowManager_0205d1e0 *arg0);
+extern "C" void func_0205d274(TextWindowManager_0205d274 *arg0);
+extern "C" void func_0205d2bc(TextWindowManager_0205d2bc *arg0);
 extern "C" void func_0205d048(struct Struct_0205d048 *arg0);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void DC_FlushRange(const void *p, unsigned int len);
@@ -90,15 +90,15 @@ extern "C" ARM void func_ov002_021556fc(char *arg0) {
         var2->RemoveTask(*(int *) (arg0 + FIELD_1bc4));
         *(int *) (arg0 + FIELD_1bc4) = -1;
     }
-    func_02094ab0(func_02094a00());
+    CancelFontLoad_02094ab0(GetFontLoader_02094a00());
     *(volatile unsigned int *) 0x4000000   = (*(volatile unsigned int *) 0x4000000 & ~0x1f00) | 0x100;
     *(volatile unsigned short *) 0x4000050 = 0;
     func_02074bd0((Struct_02074bd0 *) (arg0 + FIELD_38));
     ResetMessageWindow_02043204(GetMessageWindow_020421a0());
     *(void **) (arg0 + FIELD_1bd0) = 0;
-    func_0205d1e0((Struct_0205d1e0 *) (arg0 + FIELD_ec8));
-    func_0205d274((Struct_0205d274 *) (arg0 + FIELD_ec8));
-    func_0205d2bc((Struct_0205d2bc *) (arg0 + FIELD_ec8));
+    func_0205d1e0((TextWindowManager_0205d1e0 *) (arg0 + FIELD_ec8));
+    func_0205d274((TextWindowManager_0205d274 *) (arg0 + FIELD_ec8));
+    func_0205d2bc((TextWindowManager_0205d2bc *) (arg0 + FIELD_ec8));
     func_0205d048((struct Struct_0205d048 *) (arg0 + FIELD_ec8));
     if (*(void **) (arg0 + FIELD_1bd8) != 0) {
         memset(*(void **) (arg0 + FIELD_1bd8), 0, 0x20);

@@ -2,15 +2,15 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_02094a00(void);
-extern "C" void func_02094ab0(void);
-extern "C" void func_020397c0(void* arg0);
+extern "C" int GetFontLoader_02094a00(void);
+extern "C" void CancelFontLoad_02094ab0(void);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 
-struct Struct_02038598_4;
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 
-extern "C" int func_020100f8(char* arg0);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a27ac(void* arg0);
 extern "C" void func_020e1154(void* arg0);
 
@@ -29,13 +29,13 @@ struct Struct_020e455c_2 {
 // USA: func_020e455c
 extern "C" ARM void func_020e455c(struct Struct_020e455c_2* arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_02094a00();
-    func_02094ab0();
+    GetFontLoader_02094a00();
+    CancelFontLoad_02094ab0();
     GameObject* var1 = var0->GetUnknownGameObject();
     if (var1 != 0) {
-        func_020397c0(var1);
+        EnablePlayerControl_020397c0(var1);
     }
-    func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 2);
+    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 2);
 
     unsigned int var2 = 0x1000000;
     int var3;
@@ -53,7 +53,7 @@ extern "C" ARM void func_020e455c(struct Struct_020e455c_2* arg0) {
         arg0->unknown_c_ = -1;
     }
 
-    func_020a27ac((void*)func_020100f8((char*)var0));
+    func_020a27ac((void*)GetFollowCamera_020100f8((char*)var0));
     func_020e1154((void*)0x3e8);
     arg0->unknown_1_ = 1;
 }

@@ -13,7 +13,7 @@ extern "C" void func_ov000_021682ec(void* arg0);
 extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_021b0bc0(void* arg0);
 extern "C" int func_ov017_021b0b4c(void*);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 
 struct Struct_ov017_021b08f4 {
     char unknown_0_[0x9];
@@ -50,7 +50,7 @@ extern "C" ARM unsigned char func_ov017_021b08f4(Struct_ov017_021b08f4* arg0) {
                 arg0->unknown_26_ = 2;
             }
         } else if (arg0->unknown_26_ == 1) {
-            if (func_02046b08((void**)var3) != 0) {
+            if (IsQueueEmpty_02046b08((void**)var3) != 0) {
                 arg0->unknown_26_ = arg0->unknown_26_ + 1;
             }
         } else if (arg0->unknown_26_ == 2) {
@@ -71,7 +71,7 @@ extern "C" ARM unsigned char func_ov017_021b08f4(Struct_ov017_021b08f4* arg0) {
                 }
             }
         } else if (arg0->unknown_26_ == 1) {
-            if (func_02046b08((void**)var3) != 0) {
+            if (IsQueueEmpty_02046b08((void**)var3) != 0) {
                 func_ov017_021d0b30(6, 0, 0);
                 arg0->unknown_26_ = arg0->unknown_26_ + 1;
             }

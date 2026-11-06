@@ -5,11 +5,11 @@
 #endif
 
 extern char data_020eff87;
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 
-// USA: func_02041ea4
-extern "C" ARM int func_02041ea4(char* arg0, int arg1) {
-    char* var0 = arg0 + func_020d2ff0(arg0);
-    return (var0 + sprintf(var0, &data_020eff87, arg1)) - arg0;
+// USA: AppendCursorTag_02041ea4
+extern "C" ARM int AppendCursorTag_02041ea4(char* buffer, int entryIndex) {
+    char* end = buffer + GetStringLength_020d2ff0(buffer);
+    return (end + sprintf(end, &data_020eff87, entryIndex)) - buffer;
 }

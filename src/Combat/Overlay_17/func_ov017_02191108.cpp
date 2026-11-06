@@ -4,7 +4,7 @@
 
 extern "C" unsigned char func_02039d7c(char* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" int func_020100f8(char* arg0);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" int func_020a277c(void* arg0);
 extern "C" void func_020a2770(void* arg0, short arg1);
 typedef void (*Type_ov017_02191108)(void* obj, int value);
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov017_02191108(void* arg0, int arg1, int arg2, int arg3
         ((Object3D*)((unsigned char*)var7))->DisableFlag(0x80);
     }
 
-    void* var8 = (void*)func_020100f8((char*)var0);
+    void* var8 = (void*)GetFollowCamera_020100f8((char*)var0);
     if (var8 != 0) {
         int var9 = func_020a277c(var8);
         if (var9 != 0xc9 && var9 != 0xca) {

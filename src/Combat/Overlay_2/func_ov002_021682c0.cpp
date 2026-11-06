@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 struct Struct_ov002_021682c0;
 struct SafeAllocator;
 extern "C" void func_ov013_02186e74(Struct_ov002_021682c0*, SafeAllocator*);
@@ -20,7 +20,7 @@ extern "C" void func_ov013_02186eec(void*, int);
 extern "C" ARM void func_ov002_021682c0(char* arg0) {
     *(unsigned int*)(arg0 + RG(0x247c, 0x22ac)) &= ~0x4;
     func_ov002_0215a878(arg0);
-    func_0205d6a0((Struct_0205d6a0*)(arg0 + RG(0xec8, 0xe20)), 1);
+    CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)(arg0 + RG(0xec8, 0xe20)), 1);
     *(unsigned char*)(arg0 + RG(0x2454, 0x2288)) = 0;
     *(unsigned char*)(arg0 + RG(0x2455, 0x2289)) = 0;
 #if !defined(jpn)

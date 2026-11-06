@@ -28,7 +28,7 @@ struct Struct_ov002_02157174_2 {
 extern "C" int func_020839dc(struct Struct_020839dc *arg0, unsigned char *arg1, int arg2);
 extern "C" void *__clear(void *arg0, int arg1);
 extern "C" int func_0209acdc(Struct_0209a9dc_2 *arg0, unsigned char *arg1, unsigned int arg2, unsigned short *arg3);
-extern "C" Struct_ov002_02157174 *func_02079e2c(char *arg0, int arg1);
+extern "C" Struct_ov002_02157174 *FindActionData_02079e2c(char *actionTables, int actionId);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" int func_0209ab7c(void *arg0, void *arg1, unsigned char *arg2);
 extern "C" int func_02083b00(unsigned char *arg0, int arg1);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov002_02157174(char *arg0, int arg1) {
     unsigned char *var5;
     int var6;
     int var7;
-    Struct_02108e10* var8;
+    ActionTables_02108e10* var8;
     int var9;
     int var10;
     unsigned short var11;
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov002_02157174(char *arg0, int arg1) {
     }
     *(unsigned char *) (arg0 + Enum_ov002_02157174_9504) = 0;
     var3                                = (Struct_ov002_02157174 **) (arg0 + Enum_ov002_02157174_1184 + 0x2000);
-    var4                             = (unsigned char *) func_0200ff1c(GameState::GetInstance(), arg1);
+    var4                             = (unsigned char *) GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1);
     if (var4 == 0) {
         return;
     }
@@ -71,9 +71,9 @@ extern "C" ARM void func_ov002_02157174(char *arg0, int arg1) {
     __clear(var1, 0x84);
     var6     = func_0209acdc((Struct_0209a9dc_2 *) (arg0 + Enum_ov002_02157174_68 + Enum_ov002_02157174_9216), var0, var6, (unsigned short *) var1);
     var7 = 0;
-    var8 = func_020797dc();
+    var8 = GetActionTables_020797dc();
     for (var9 = 0; var9 < var6; var9++) {
-        Struct_ov002_02157174 *var12 = func_02079e2c((char*)var8, var1[var9]);
+        Struct_ov002_02157174 *var12 = FindActionData_02079e2c((char*)var8, var1[var9]);
         if (var12 != 0 && var0[var9] == 0x3c) {
             if (var12->unknown_9_2_ & 1) {
                 var3[var7] = var12;
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov002_02157174(char *arg0, int arg1) {
     memset(var1, 0, 0x84);
     var6 = func_0209acdc((Struct_0209a9dc_2 *) (arg0 + Enum_ov002_02157174_68 + Enum_ov002_02157174_9216), var0, var6, (unsigned short *) var1);
     for (var10 = 0; var10 < var6; var10++) {
-        Struct_ov002_02157174 *var13 = func_02079e2c((char*)var8, var1[var10]);
+        Struct_ov002_02157174 *var13 = FindActionData_02079e2c((char*)var8, var1[var10]);
         if (var13 != 0 && var0[var10] != 0x3c) {
             if (var13->unknown_9_2_ & 1) {
                 var3[var7] = var13;
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov002_02157174(char *arg0, int arg1) {
         if (func_02083b00(var5, var11)) {
             Struct_ov002_02157174_2 *var14 = func_0209a594(arg0 + Enum_ov002_02157174_60 + Enum_ov002_02157174_9216, var11);
             if (var14 != 0 && var14->unknown_8_ != 0) {
-                Struct_ov002_02157174 *var15 = func_02079e2c((char*)var8, (short) var14->unknown_8_);
+                Struct_ov002_02157174 *var15 = FindActionData_02079e2c((char*)var8, (short) var14->unknown_8_);
                 if (var15 != 0 && var15->unknown_19_4_ == 1) {
                     if (var15->unknown_9_2_ & 1) {
                         var3[var7] = var15;

@@ -5,9 +5,6 @@
 #include "std_library_functions.h"
 
 #if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
-#if defined(jpn)
 enum { Enum_ov025_021e0638_668 = 0x218, Enum_ov025_021e0638_21976 = 0x57c8, Enum_ov025_021e0638_396 = 0x180, Enum_ov025_021e0638_3704 = 0xdf4 };
 #else
 enum { Enum_ov025_021e0638_668 = 0x29c, Enum_ov025_021e0638_21976 = 0x55d8, Enum_ov025_021e0638_396 = 0x18c, Enum_ov025_021e0638_3704 = 0xe78 };
@@ -104,7 +101,7 @@ extern "C" int func_ov025_021e1048(void* arg0, void* arg1);
 extern "C" void func_ov025_021e20ec(void* arg0, SafeAllocator* arg1);
 extern "C" int func_ov025_021e2148(void* arg0, int arg1, int arg2, void* arg3, int arg4);
 extern "C" void func_ov025_021e120c(void* arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" void func_020c9be0(void);
+extern "C" void HaltForever_020c9be0(void);
 extern "C" void func_ov000_0216f82c(Struct_ov025_021e0638_3* arg0, const int* arg1);
 extern "C" void func_ov000_0216f74c(Struct_ov025_021e0638_5* arg0, const int* arg1);
 struct Vector3i;
@@ -257,7 +254,7 @@ found:
                 var40[var41++] = var1->unknown_0_[var36];
             }
             if (var41 >= 0x10) {
-                func_020c9be0();
+                HaltForever_020c9be0();
             }
             unsigned char var47 = var11[var46 - 2];
             unsigned char var48 = var41 + 1;
@@ -369,7 +366,7 @@ found:
     }
     for (int var69 = 0; var69 < var0; var69++) {
         int var70 = 0;
-        unsigned char* var71 = (unsigned char*)(Struct_0203d028_3*)func_0200ff1c(var2, *(short*)(var5[var69].unknown_8_ + 4));
+        unsigned char* var71 = (unsigned char*)(Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c(var2, *(short*)(var5[var69].unknown_8_ + 4));
         if (var71 != 0 && (*(unsigned int*)(var71 + Enum_ov025_021e0638_396) & 1)) {
             var70 = 1;
         }

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov031_0223c054(int);
+extern "C" int IsBrightnessFadeActive_ov031_0223c054(int);
 extern "C" void func_ov031_02223c08(void);
-extern "C" void func_ov031_02236878(int);
+extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern void* data_ov031_02290c94;
 extern "C" void func_ov031_02223fb4(int arg0);
 extern "C" void func_ov031_02223fc8(int arg0);
@@ -11,11 +11,11 @@ extern "C" void func_ov031_0222cea0(void);
 
 // USA: func_ov031_0222ce24
 extern "C" ARM void func_ov031_0222ce24(void) {
-    if (func_ov031_0223c054(1) != 0) return;
-    if (func_ov031_0223c054(0) != 0) return;
+    if (IsBrightnessFadeActive_ov031_0223c054(1) != 0) return;
+    if (IsBrightnessFadeActive_ov031_0223c054(0) != 0) return;
 
     func_ov031_02223c08();
-    func_ov031_02236878(0x14);
+    PlayWifiSetupSoundEffect_ov031_02236878(0x14);
 
     unsigned char var0 = *((unsigned char*)data_ov031_02290c94 + 0x29);
     if (var0 == 0) {

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 struct Struct_ov017_021ca4a8 {
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov017_021ca4a8(int arg0, struct Struct_ov017_021ca4a8* 
  enum {Enum_ov017_021ca4a8_1816=0x718};
 #endif
 	void* var0 = *(void**)(arg3 + 0x3000 + Enum_ov017_021ca4a8_1816);
-	unsigned char* var1 = (unsigned char*)func_ov017_021b8478(var0);
+	unsigned char* var1 = (unsigned char*)GetBattleSetup_ov017_021b8478(var0);
 	if (var1 == NULL) {
 		return;
 	}

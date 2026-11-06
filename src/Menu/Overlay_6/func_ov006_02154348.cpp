@@ -36,9 +36,9 @@ extern unsigned int data_ov006_0215ff7c[];
 void func_ov023_021dbfd0(void*, SafeAllocator*);
 void func_ov023_021dbfa8(void*, void*);
 void func_ov023_021e20c0(void*);
-void func_0204af64(void*);
-void func_0204c684(void*);
-void func_0205a198(void*);
+void InitBGLayer_0204af64(void*);
+void InitTextWindow_0204c684(void*);
+void InitSprite_0205a198(void*);
 }
 // USA: func_ov006_02154348
 extern "C" ARM void func_ov006_02154348(Struct_ov006_02154348* arg0, SafeAllocator* arg1, void* arg2)
@@ -75,8 +75,8 @@ extern "C" ARM void func_ov006_02154348(Struct_ov006_02154348* arg0, SafeAllocat
     }
     arg0->unknown_1c4_[0] = 0;
     func_ov023_021e20c0(arg0->unknown_1c8_);
-    for (unsigned char var3 = 0; var3 < 2; var3++) func_0204af64(arg0->unknown_1cc_[var3]);
-    for (unsigned char var4 = 0; var4 < 1; var4++) func_0204c684(arg0->unknown_1d0_[var4]);
+    for (unsigned char var3 = 0; var3 < 2; var3++) InitBGLayer_0204af64(arg0->unknown_1cc_[var3]);
+    for (unsigned char var4 = 0; var4 < 1; var4++) InitTextWindow_0204c684(arg0->unknown_1d0_[var4]);
     func_0207f84c(arg0->unknown_1d4_);
-    for (unsigned char var5 = 0; var5 < 17; var5++) func_0205a198(arg0->unknown_1e0_[var5]);
+    for (unsigned char var5 = 0; var5 < 17; var5++) InitSprite_0205a198(arg0->unknown_1e0_[var5]);
 }

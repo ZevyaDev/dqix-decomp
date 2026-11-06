@@ -4,7 +4,7 @@
 extern "C" void* func_ov017_021b8468(void* arg0);
 extern "C" void* func_ov017_021b8470(void* arg0);
 extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct Struct_ov017_021c8588 {
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov017_021c8588(int arg0, signed char* arg1, GameState* 
 
     var1 = arg1 + 4;
     for (var2 = 0; var2 < 4; var2++) {
-        GameObject* var4 = func_0200ff1c(arg2, var2);
+        GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var2);
         if (var4 == 0) continue;
         int var5 = GetPartyMemberData_02053c6c((unsigned char*)var4);
         if (var5 == 0) continue;

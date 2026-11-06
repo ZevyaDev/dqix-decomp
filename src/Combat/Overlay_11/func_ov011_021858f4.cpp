@@ -6,10 +6,10 @@
 #endif
 #include <globaldefs.h>
 
-struct Struct_ov011_02184c30;
-extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
+struct ScriptValue_ov011_02184c30;
+extern "C" int func_ov011_02184c30(struct ScriptValue_ov011_02184c30* arg0);
 
-extern "C" void* func_ov017_021b2164(void);
+extern "C" void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void** objectList, int id);
 #if defined(jpn)
@@ -23,9 +23,9 @@ struct Struct_ov004_02158dcc { char unknown_0_[0x1b0]; unsigned short unknown_1b
 extern "C" void func_ov011_021849e0(struct Struct_ov004_02158dcc* arg0, unsigned short arg1);
 
 // USA: func_ov011_021858f4
-extern "C" ARM int func_ov011_021858f4(struct Struct_ov011_02184c30* arg0) {
+extern "C" ARM int func_ov011_021858f4(struct ScriptValue_ov011_02184c30* arg0) {
     int var0 = func_ov011_02184c30(arg0);
-    void* var1 = func_ov017_021b2164();
+    void* var1 = GetCurrentMenu_ov017_021b2164();
     void** var2 = (void**)GetMenuObjectList_ov011_021849c8(var1);
     void* var3 = FindMenuObjectById_ov023_021f6880(var2, var0);
     if (var3 == 0) return 0;

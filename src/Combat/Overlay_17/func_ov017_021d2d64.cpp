@@ -76,7 +76,7 @@ extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
 extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
 extern "C" void* func_020d7a50(void);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_020d805c(Struct_020d805c* arg0);
@@ -92,7 +92,7 @@ extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2)
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 #if defined(jpn)
 extern "C" int func_020e2168(char* arg0, const char* arg1, int arg2, int arg3, bool arg4);
-extern "C" void func_02046574(void* arg0, int arg1, char* arg2);
+extern "C" void SetMessageString_02046574(void* window, int index, char* text);
 extern "C" void func_020474a8(void* arg0, int arg1, char* arg2, char* arg3);
 extern "C" void func_020d7e10(void* arg0, void* arg1, int arg2, int arg3, int arg4);
 extern char data_ov017_021d8b4c[];
@@ -100,7 +100,7 @@ static inline char* inline_ov017_021d2d64(GameObject* arg0) { SDK_NULL_ASSERT(ar
 #else
 extern "C" int func_020e04f4(int arg0, void* arg1, int arg2, int arg3, unsigned char arg4, int arg5);
 extern "C" void func_020e46c4(void* arg0);
-extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" void func_020d7e10(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
 #endif
@@ -169,7 +169,7 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
         if (var19) {
             var3 = (Struct_ov017_021d2d64_7*)func_020d7a50();
             var19 = 1;
-            if (func_02046b08((void**)var5) == 0) var19 = 0;
+            if (IsQueueEmpty_02046b08((void**)var5) == 0) var19 = 0;
             if (func_02046b60(var5, 0x1a)) var19 = 1;
             GameObject* var20 = arg2->GetUnknownGameObject();
             if (var20 != 0 && func_020535c8((signed char*)var20)) var19 = 0;
@@ -183,7 +183,7 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
                 if (var3->unknown_150_0_ >= 3) var19 = 0;
                 int var22 = var8.unknown_4_[var21];
                 Struct_ov017_021d2d64 var23 = data_ov017_021d6ce8.unknown_18_;
-                GameObject* var24 = func_0200ff1c(arg2, var22);
+                GameObject* var24 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var22);
                 if (var24 == 0) continue;
                 var4 = func_ov017_0218b628(var22);
                 if (var19) func_ov017_0218b5c0(0, var22);
@@ -277,7 +277,7 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
                         __clear(var38, 0x80);
                         func_020e2168(var38, data_ov017_021d8b4c, var6, 0, true);
                         ClearMessageParams_02046380(var0);
-                        func_02046574(var0, 2, inline_ov017_021d2d64(var24));
+                        SetMessageString_02046574(var0, 2, inline_ov017_021d2d64(var24));
 #else
                         char var38[0x100];
                         __clear(var38, 0x100);
@@ -285,7 +285,7 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
                         ClearMessageParams_02046380(var0);
                         char var39[0xc];
                         func_020e46c4(var39);
-                        func_020e4bf4(var39, var24->obj3D_.unknown_4_);
+                        InitPartyMemberNoun_020e4bf4(var39, var24->obj3D_.unknown_4_);
                         *(char**)((char*)var0 + 0x10) = var39;
 #endif
                         func_020465f0((unsigned char*)var0, 0, 0);

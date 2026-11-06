@@ -28,7 +28,7 @@ extern "C" void func_02039d24(unsigned char*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
 extern "C" void func_02033b68(Struct_02033b68*, int);
-extern "C" void func_02033b88(Struct_02010604*, int);
+extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 
 // USA: func_ov017_021d3fa8
 extern "C" ARM void func_ov017_021d3fa8(int arg0, Struct_ov017_021d3fa8* arg1, GameState* arg2, void* arg3, void* arg4) {
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov017_021d3fa8(int arg0, Struct_ov017_021d3fa8* arg1, G
         var2->unknown_1_ = 1;
     } else if (var5 == 5) {
         var1->obj3D_.DisableFlag(0x1010);
-        func_02033b88((Struct_02010604*)var1, 1);
+        SetMotion_02033b88((Struct_02010604*)var1, 1);
         var2->unknown_0_ = 1;
         var2->unknown_1_ = 5;
     } else if (var5 == 4) {

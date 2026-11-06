@@ -9,12 +9,12 @@
 #endif
 #include <globaldefs.h>
 
-struct Struct_ov011_02184c30;
-extern "C" int func_ov011_02184c30(Struct_ov011_02184c30*);
+struct ScriptValue_ov011_02184c30;
+extern "C" int func_ov011_02184c30(ScriptValue_ov011_02184c30*);
 extern "C" int GetMessageWindow_020421a0();
 
 // USA: func_ov011_02188158
-extern "C" ARM int func_ov011_02188158(Struct_ov011_02184c30* arg0) {
+extern "C" ARM int func_ov011_02188158(ScriptValue_ov011_02184c30* arg0) {
     int var0 = func_ov011_02184c30(arg0);
     unsigned char* var1 = (unsigned char*)GetMessageWindow_020421a0();
     *(unsigned char*)(var1 + 0x1000 + R(0x7fb, 0x9ca)) = (var0 != 0) ? 1 : 0;

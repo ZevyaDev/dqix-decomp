@@ -38,7 +38,7 @@ extern "C" void func_ov028_021d8a40(void* arg0, unsigned int arg1);
 extern "C" int func_020420e8(void* arg0, int arg1);
 #if defined(jpn)
 extern "C" void func_0204f41c(void* arg0, int arg1, int arg2, void* arg3, unsigned char arg4, unsigned char arg5, short* arg6, short* arg7);
-extern "C" void func_0204c684(char* arg0);
+extern "C" void InitTextWindow_0204c684(char* textWindow);
 extern "C" int func_0204fc40(void* arg0, char** arg1, char* arg2, short* arg3, int arg4);
 extern char data_ov028_021da41d[];
 #else
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov028_021d9208(char* arg0, int arg1) {
             var4 = (unsigned char)var18->unknown_4_.unknown_0_0_;
             char* var26 = (char*)var18->unknown_8_;
             if (var26 != NULL) {
-                func_0204c684(var9);
+                InitTextWindow_0204c684(var9);
                 char* var27 = var26;
                 while (*var27 != 0) {
                     var10 = 0;

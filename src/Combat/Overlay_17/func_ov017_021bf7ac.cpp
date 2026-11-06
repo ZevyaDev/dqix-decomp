@@ -28,7 +28,7 @@ extern "C" unsigned char* GetFlagManager_0205ec34(void);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_02047230(struct Struct_02012fa4* arg0);
-extern "C" Struct_02015ef4_4* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" Struct_02015ef4_4* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_ov017_0218d510(int arg0, void* arg1);
 extern "C" unsigned short func_020de234(struct Struct_02015ef4_4* arg0, int arg1);
@@ -95,7 +95,7 @@ extern "C" ARM int func_ov017_021bf7ac(struct Struct_ov017_021bf7ac_2* arg0) {
             Struct_ov017_021d6ca4 var12 = data_ov017_021d6ca4;
             arg0->unknown_14_ = var3->QueueLoadFile(var12.unknown_0_, 0);
         } else {
-            Struct_02015ef4_4* var13 = func_020dedd0((struct ItemTable_0201099c_10*)(var11 + 0x2400), (short)var9->itemIDOrRank);
+            Struct_02015ef4_4* var13 = FindItemData_020dedd0((struct ItemTable_0201099c_10*)(var11 + 0x2400), (short)var9->itemIDOrRank);
             if (var13 != 0) {
                 if (var13->unknown_18_ == 0x5617) {
                     arg0->unknown_48_ = 1;

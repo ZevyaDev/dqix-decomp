@@ -15,7 +15,7 @@ extern "C" void func_0205308c(void* arg0, int arg1);
 extern "C" void func_ov017_021cc1f8(int arg0, void* arg1, int arg2, int arg3);
 
 extern "C" unsigned char func_020100b0(GameState* arg0);
-extern "C" int func_020100f8(char* arg0);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 
 struct Struct_02037d88_12;
 extern "C" int func_020a2c70(struct Struct_02037d88_12* arg0);
@@ -107,7 +107,7 @@ extern "C" ARM int func_02052f44(struct Struct_02037d88_2* arg0, signed char* ar
         arg0 = (struct Struct_02037d88_2*)var4;
         unsigned char var8 = func_020100b0((GameState*)arg0);
         if (var8 == var7) {
-            int var9 = func_020100f8((char*)arg0);
+            int var9 = GetFollowCamera_020100f8((char*)arg0);
             if (var9 != 0) {
                 func_020a2c70((struct Struct_02037d88_12*)var9);
             }

@@ -15,9 +15,9 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov000_0217c638(void* arg0, int arg1, int arg2);
 extern "C" void func_ov000_02177d04(void* arg0, void* arg1);
 #if defined(jpn)
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 struct Struct_ov000_02177bf0 {
@@ -49,8 +49,8 @@ extern "C" ARM void func_ov000_02177bf0(void* arg0, struct Struct_ov000_02177bf0
     memset(var4, 0, REGION_OFFSET_1);
     func_ov000_02177d04(var0, var4);
 #if defined(jpn)
-    func_0205d304(var0 + 0x188, var4, 0, 0, 0, 1, 0);
+    OpenTextWindow_0205d304(var0 + 0x188, var4, 0, 0, 0, 1, 0);
 #else
-    func_0205d304(var0 + 0x188, var4, 0, 0, 0, 1, 0, 0);
+    OpenTextWindow_0205d304(var0 + 0x188, var4, 0, 0, 0, 1, 0, 0);
 #endif
 }

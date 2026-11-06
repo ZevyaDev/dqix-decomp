@@ -54,7 +54,7 @@ extern Matrix4x3* data_ov006_0216038c[3];
 struct Struct_ov006_0215ff6c { unsigned char unknown_0_[4][4]; };
 extern Struct_ov006_0215ff6c data_ov006_0215ff6c;
 extern int data_0210a00c;
-void* func_020100bc(GameState*);
+void* GetCamera_020100bc(GameState*);
 void func_0202ec84(void*, const Vector3fix*, int*, int*);
 void func_0203bd08();
 void* func_0203be40();
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov006_02154a60(Struct_ov006_02154a60_2* arg0)
     }
     unsigned char var8 = arg0->unknown_12bb_;
     Struct_ov006_0215ff6c var9 = data_ov006_0215ff6c;
-    void* var10 = func_020100bc(GameState::GetInstance());
+    void* var10 = GetCamera_020100bc(GameState::GetInstance());
     if (var10) {
         Struct_ov006_02154a60* var11 = arg0->unknown_894_;
         for (unsigned char var12 = 0; var12 < 4; var12++, var11++) {

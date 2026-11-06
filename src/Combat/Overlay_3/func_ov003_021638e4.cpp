@@ -52,10 +52,10 @@ extern "C" Struct_020bc1ec *GetZone3D_02012fe4();
 extern "C" void func_020daf9c(int, int, int, int);
 void SetAndLockBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
-extern "C" GameObject *func_0200ff1c(GameState *, int);
+extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *, int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState *);
 struct Struct_02033834;
-extern "C" void func_02033874(Struct_02033834*, int);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_ov017_021af59c(Struct_ov000_0215b278 *);
 struct Struct_020469f8;
 struct Struct_020469f8_2;
@@ -68,8 +68,8 @@ extern "C" void func_ov017_021d1810(int, int, signed char);
 extern "C" void *func_020936f8();
 extern "C" void func_02094030(void *, int, int, int);
 extern "C" unsigned int *GetGlobalFlags_020d6c00();
-struct Struct_02038598_4;
-extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" int func_020100b0(GameState *);
 struct Struct_02052e2c;
 extern "C" Struct_0209a678_2 * func_02052e2c(Struct_02052e2c*);
@@ -82,7 +82,7 @@ extern "C" int func_02046b60(Struct_02038598_5*, int);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
-extern "C" int *func_0200fd0c(GameState *);
+extern "C" int *GetZoneEntry_0200fd0c(GameState *);
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char *);
 extern "C" void CloseMessageWindow_02043124(char *);
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
     } else if (var5 == 1) {
         if (IsBrightnessTransitionActive((GameResources*)var0) == 0) {
             for (int var6 = 0; var6 < var2[0xf7c]; var6++) {
-                GameObject *var7 = func_0200ff1c(var1, (var2 + var6)[0xf78]);
+                GameObject *var7 = GetPartyMemberBaseByIndex_0200ff1c(var1, (var2 + var6)[0xf78]);
                 if (var7 != 0) {
                     var7->obj3D_.MakeHidden();
                 }
@@ -140,13 +140,13 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
     } else if (var5 == 2) {
         if (IsBrightnessTransitionActive((GameResources*)var0) == 0 && var4->GetNumQueuedTasks() <= 0) {
             if (arg0->unknown_464_ & 0x40) {
-                GameObject *var8 = func_0200ff1c(var1, GetProtagonistObjectIndex_020100a8(var1));
+                GameObject *var8 = GetPartyMemberBaseByIndex_0200ff1c(var1, GetProtagonistObjectIndex_020100a8(var1));
                 if (var8 != 0) {
                     Vector3i *var9 = &var8->obj3D_.position_;
                     var9->x        = 0x5800;
                     var9->y        = 0x199;
                     var9->z        = -0x785;
-                    func_02033874((Struct_02033834*)var8, 0);
+                    SetFacingInstantly_02033874((Struct_02033834*)var8, 0);
                 }
                 Struct_ov000_0215b278 *var10 = *(Struct_ov000_0215b278 **) (var0 + 0x3000 + RES_NODE_A_021638e4);
                 func_ov017_021af59c(var10);
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
         if (arg0->unknown_464_ & 0x40) {
             Vector3i var12[4];
             for (int var13 = 0; var13 < 4; var13++) {
-                GameObject *var14 = func_0200ff1c(var1, (var2 + var13)[0xf78]);
+                GameObject *var14 = GetPartyMemberBaseByIndex_0200ff1c(var1, (var2 + var13)[0xf78]);
                 if (var14 != 0) {
                     var12[var13] = var14->obj3D_.position_;
                     var14->obj3D_.MakeVisible();
@@ -184,7 +184,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
                 var15 = *(Vector3i *) ((char *) var16 + 0x44);
             }
             for (int var17 = 0; var17 < 4; var17++) {
-                GameObject *var18 = func_0200ff1c(var1, var17);
+                GameObject *var18 = GetPartyMemberBaseByIndex_0200ff1c(var1, var17);
                 if (var18 != 0) {
                     var18->obj3D_.MakeVisible();
                     var18->obj3D_.position_ = var15;
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
         arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
     } else if (var5 == 4) {
         if (IsBrightnessTransitionActive((GameResources*)var0) == 0) {
-            func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x80000);
+            ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80000);
             Struct_020bc1ec *var19   = GetZone3D_02012fe4();
             Struct_ov000_0215b278 *var20     = *(Struct_ov000_0215b278 **) (var0 + 0x3000 + RES_NODE_C_021638e4);
             Struct_0209a678_2 *var21 = func_02052e2c((Struct_02052e2c*)(var1->GetGameObjectByIndex(func_020100b0(var1))));
@@ -214,7 +214,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
                 var20->unknown_cf_ = 3;
                 func_020469f8((Struct_020469f8*)var3, (Struct_020469f8_2*)var20);
                 func_ov017_0219bd1c(1, 0, 0, 1);
-                int *var22                         = func_0200fd0c(var1);
+                int *var22                         = GetZoneEntry_0200fd0c(var1);
                 var22[4]                           = 0x48cc;
                 var22[5]                           = 0x199;
                 var22[6]                           = -0x733;

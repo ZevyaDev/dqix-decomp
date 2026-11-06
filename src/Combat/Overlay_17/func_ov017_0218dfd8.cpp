@@ -53,7 +53,7 @@ extern "C" Struct_0201777c* func_0201777c(Struct_02017098* arg0, int arg1);
 extern "C" unsigned int func_02039dcc(unsigned char* arg0);
 struct Struct_ov009_0218aa28;
 extern "C" short func_ov017_021a4754(Vector3fix*, int, Vector3fix*);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" void func_ov017_0219a674(unsigned char* arg0);
 extern "C" void func_ov017_0219b33c(GameResources* arg0, Struct_ov017_0218dfd8_2* arg1);
@@ -110,7 +110,7 @@ extern "C" ARM int func_ov017_0218dfd8(Struct_ov017_0218dfd8* arg0) {
         }
     }
     void** var15 = (void**)var0->unknown_ptr_array_36fc[0];
-    if (var8 != NULL && func_02046b08(var15) != 0 &&
+    if (var8 != NULL && IsQueueEmpty_02046b08(var15) != 0 &&
         func_020535c8((signed char*)arg0) == 0 && !(arg0->unknown_18c_ & 0x40) && var6 < 0xc91) {
         Struct_ov017_0218dfd8_2 var16;
         func_ov017_0219a674((unsigned char*)&var16);

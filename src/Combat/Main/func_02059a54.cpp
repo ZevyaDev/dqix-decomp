@@ -26,7 +26,7 @@ struct Struct_02059a54_2 {
 };
 extern "C" int func_02059a2c(Struct_02059720*);
 extern "C" Struct_02059a54* func_02055108(Struct_020546c8*);
-extern "C" void* func_020100bc(GameState*);
+extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" void* func_0202ed74(void*);
 extern "C" void func_020ca528(void*, const void*);
 extern "C" void NSBXX_Model_SetPolygonID(void*, int);
@@ -57,7 +57,7 @@ extern "C" ARM void func_02059a54(Struct_02059a54_2* arg0) {
             NSBXX_Model_SetPolygonID(arg0->unknown_7c_.pModel_->rawInternalModel_, arg0->unknown_128_);
             Vector3fix var9 = arg0->unknown_7c_.position_;
             RenderConfig::SetObjectPosition(&var9);
-            void* var10 = func_020100bc(GameState::GetInstance());
+            void* var10 = GetCamera_020100bc(GameState::GetInstance());
             if (var10) {
                 func_020ca528(func_0202ed74(var10), &data_0210a0cc);
                 data_0210a010.flags &= ~0xa4;

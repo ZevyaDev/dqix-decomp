@@ -307,7 +307,7 @@ extern "C" ARM void func_020733d8(unsigned char* arg0, int arg1) {
             struct Struct_020733d8_7* var74;
             GameObject* var75;
 
-            var75 = func_0200ff1c(GameState::GetInstance(), var9);
+            var75 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), var9);
             if (var75 == 0) {
                 var10 = -1;
                 break;
@@ -503,7 +503,7 @@ extern "C" ARM void func_020733d8(unsigned char* arg0, int arg1) {
         return;
     }
 
-    var16 = func_0200ff1c(var1, var9);
+    var16 = GetPartyMemberBaseByIndex_0200ff1c(var1, var9);
     var17 = 0;
     if (var16 != 0) {
         func_02034104(&var20, var16);

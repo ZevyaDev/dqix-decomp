@@ -10,9 +10,9 @@ struct Struct_ov025_021e7b74 { char unknown_0_[0x400]; unsigned int unknown_400_
 struct Struct_ov025_021e7b74_2 { char unknown_0_[0x284]; Struct_ov025_021e7b74 unknown_284_; };
 struct Struct_ov001_02158ae4_3 { char unknown_0_[0x240]; Vector3i unknown_240_; };
 struct Struct_02033834;
-extern "C" Struct_ov025_021e7b74_2* func_ov017_021b8478(void*);
-extern "C" void* func_ov000_02160130();
-extern "C" int func_ov000_0215eb1c(void*, short*, int, int);
+extern "C" Struct_ov025_021e7b74_2* GetBattleSetup_ov017_021b8478(void*);
+extern "C" void* GetBattleScene_ov000_02160130();
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(void*, short*, int, int);
 extern "C" int func_ov000_0215ed34(void*, short*, int);
 extern "C" int func_ov000_02167484(short*, int);
 extern "C" int func_02070fe4(Struct_02070fe4*);
@@ -23,7 +23,7 @@ extern "C" void func_0200fd48(GameState*, int);
 extern "C" void func_ov000_021677fc(void*);
 extern "C" void func_ov000_02167e6c(unsigned char*);
 extern "C" Struct_ov001_02158ae4_3* func_ov000_02160f14(void*);
-extern "C" void func_02033874(Struct_02033834*, int);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" unsigned char* func_ov000_02163524(void*);
 extern "C" GameObject* func_0200fea4(GameState*, int);
 extern "C" int func_020493a4(unsigned char*);
@@ -36,10 +36,10 @@ extern "C" ARM int func_ov025_021e7b74(void*, void*, void*, void* arg3) {
     Struct_ov025_021e7b74* var1;
     GameResources* var2 = GetGameResources();
     GameState* var3 = GameState::GetInstance();
-    Struct_ov025_021e7b74_2* var4 = func_ov017_021b8478(var2->unknown_ptr_3718);
-    void* var5 = func_ov000_02160130();
+    Struct_ov025_021e7b74_2* var4 = GetBattleSetup_ov017_021b8478(var2->unknown_ptr_3718);
+    void* var5 = GetBattleScene_ov000_02160130();
     short var6[8];
-    var0 = (unsigned char)func_ov000_0215eb1c(arg3, var6, 8, 0x10);
+    var0 = (unsigned char)CollectEnemyCombatantIndices_ov000_0215eb1c(arg3, var6, 8, 0x10);
     short var7[12];
     unsigned char var8 = func_ov000_0215ed34(arg3, var7, 12);
     unsigned char var9 = func_ov000_02167484(var7, var8);
@@ -84,7 +84,7 @@ extern "C" ARM int func_ov025_021e7b74(void*, void*, void*, void* arg3) {
         Vector3fix_Subtract(&var26, &var27, &var28);
         var28.y = 0;
         Vector3fix_Normalize(&var28, &var28);
-        func_02033874((Struct_02033834*)var25, fix32_Atan2(var28.x, var28.z));
+        SetFacingInstantly_02033874((Struct_02033834*)var25, fix32_Atan2(var28.x, var28.z));
     }
     unsigned char* var29 = func_ov000_02163524(var5);
     short* var30 = var6;

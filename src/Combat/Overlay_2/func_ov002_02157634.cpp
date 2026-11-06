@@ -4,9 +4,6 @@
 #include "Resource/GameResources.h"
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 struct Struct_ov002_02157634_5;
 struct Struct_ov002_02157634_6 {
@@ -110,11 +107,11 @@ struct Struct_ov002_02157634_4 {
     int unknown_38_;
 };
 
-extern "C" struct Struct_ov002_02157634_7* func_020dedd0(struct Struct_ov002_02157634_5* arg0, int arg1);
-extern "C" void* func_02079e2c(char* arg0, int arg1);
+extern "C" struct Struct_ov002_02157634_7* FindItemData_020dedd0(struct Struct_ov002_02157634_5* itemTable, int itemId);
+extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" int func_0201b868(void* arg0, int arg1);
 extern "C" void func_ov017_021a6b9c(void* arg0, int arg1);
-extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
+extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" unsigned char func_020100b0(GameState* arg0);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
@@ -148,7 +145,7 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
     struct Struct_ov002_02157634_4 var0;
     unsigned char var1[4];
     void* var2;
-    struct Struct_ov002_02157634_7* var3 = func_020dedd0((struct Struct_ov002_02157634_5*)arg0->unknown_7ec_, arg0->unknown_1c22_);
+    struct Struct_ov002_02157634_7* var3 = FindItemData_020dedd0((struct Struct_ov002_02157634_5*)arg0->unknown_7ec_, arg0->unknown_1c22_);
     if (var3 == 0) {
         return;
     }
@@ -197,7 +194,7 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
             arg0->unknown_1bb8_ = var6;
             {
                 unsigned char* var10 = GetFlagManager_0205ec34();
-                func_0206df6c(var10, var10 + 0x8c, 0x1141, 1);
+                SetFlag_0206df6c(var10, var10 + 0x8c, 0x1141, 1);
             }
             return;
         case 0x5603:
@@ -241,12 +238,12 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
             return;
         }
         {
-            Struct_02108e10* var12 = func_020797dc();
+            ActionTables_02108e10* var12 = GetActionTables_020797dc();
             int var13 = var3->unknown_14_;
             if (var3->unknown_8_4_ == 0x1f) {
                 var13 = 0xfc;
             }
-            struct Struct_ov002_02157634_8* var14 = (struct Struct_ov002_02157634_8*)func_02079e2c((char*)var12, var13);
+            struct Struct_ov002_02157634_8* var14 = (struct Struct_ov002_02157634_8*)FindActionData_02079e2c((char*)var12, var13);
             if (var14 != 0) {
                 if (var14->unknown_9_2_ & 1) {
                     arg0->unknown_1c85_.unknown_0_0_ = 1;
@@ -277,7 +274,7 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
         if (!var18) {
             var16 = func_020100b0(var4);
         }
-        Struct_02108e10* var19 = func_020797dc();
+        ActionTables_02108e10* var19 = GetActionTables_020797dc();
         GetParty_02010828(var4);
         func_ov002_02157ce0((char*)&var0);
         func_ov002_02157ce0((char*)&var0);
@@ -290,7 +287,7 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
             var0.unknown_2_ = var16;
             var0.unknown_3_ = 1;
             var0.unknown_4_[0] = var17;
-            struct Struct_ov002_02157634_8* var21 = (struct Struct_ov002_02157634_8*)func_02079e2c((char*)var19, var20);
+            struct Struct_ov002_02157634_8* var21 = (struct Struct_ov002_02157634_8*)FindActionData_02079e2c((char*)var19, var20);
             if (var21 != 0) {
                 func_ov016_0218b5c0(0, -1);
                 if (var21->unknown_17_4_ == 3) {

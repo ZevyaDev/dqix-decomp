@@ -4,7 +4,7 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_020d857c(signed char* arg0, signed char* arg1);
 extern "C" char* strcpy(char* arg0, const char* arg1);
 extern "C" void* memcpy(void* arg0, void* arg1, unsigned int arg2);
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 
 struct Struct_ov003_0217f600 {
     signed char* unknown_0_;
@@ -26,7 +26,7 @@ extern Struct_ov003_0217f608 data_ov003_0217f608[];
 extern "C" ARM void func_ov003_02170a7c(signed char* arg0, void* arg1) {
     if (arg1 != 0 && arg0 != 0) {
         char var0[16];
-        int var1 = func_020d2ff0((const char*)arg0) + 1;
+        int var1 = GetStringLength_020d2ff0((const char*)arg0) + 1;
         unsigned char var2 = var1;
         unsigned char var3 = 0;
         __clear(var0, 0x10);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov003_02170a7c(signed char* arg0, void* arg1) {
             }
             const char* var6 = *(const char* const*)((char*)data_ov003_0217f608 + (int)var3 * 12);
             strcpy(var0 + var4, var6);
-            var4 += func_020d2ff0(var6);
+            var4 += GetStringLength_020d2ff0(var6);
             var2 = var2 - 2;
             arg0 += 2;
             var3 = 0;

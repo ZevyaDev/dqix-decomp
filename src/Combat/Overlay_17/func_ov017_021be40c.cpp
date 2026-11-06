@@ -2,11 +2,11 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory.h"
 
-struct Struct_0204693c { signed char unknown_0_, unknown_1_, unknown_2_, unknown_3_; };
-extern "C" void func_0204693c(Struct_0204693c* arg0);
+struct QueueNode_0204693c { signed char type_0_, isFinished_1_, isQueued_2_, isRunning_3_; };
+extern "C" void ResetQueueNode_0204693c(QueueNode_0204693c* node);
 
 struct Struct_ov017_021be40c {
-	Struct_0204693c unknown_0_;  // 0x0
+	QueueNode_0204693c unknown_0_;  // 0x0
 	unsigned char unknown_4_[4];      // 0x4
 	int unknown_8_;                     // 0x8
 	int unknown_c_;                     // 0xc
@@ -23,8 +23,8 @@ struct Struct_ov017_021be40c {
 
 // USA: func_ov017_021be40c
 extern "C" ARM void func_ov017_021be40c(Struct_ov017_021be40c* arg0) {
-	func_0204693c(&arg0->unknown_0_);
-	arg0->unknown_0_.unknown_0_ = 0x4e;
+	ResetQueueNode_0204693c(&arg0->unknown_0_);
+	arg0->unknown_0_.type_0_ = 0x4e;
 	arg0->unknown_8_ = 0;
 	arg0->unknown_c_ = 0;
 	arg0->unknown_20_ = -1;

@@ -14,7 +14,7 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void func_02042764(unsigned char* arg0, char* arg1, int arg2);
 struct Struct_02046574_2;
-extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
+extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 extern void* data_ov004_02171030;
@@ -44,10 +44,10 @@ extern "C" ARM int func_ov004_02169a28(void* arg0) {
     char (*var6)[0x2c] = (char (*)[0x2c])(var0 + 4);
     char* var7 = var6[var4 + var3 * 8] + 6;
 #if defined(jpn)
-    func_02046574((struct Struct_02046574_2*)var1, 0, var7);
+    SetMessageString_02046574((struct Struct_02046574_2*)var1, 0, var7);
 #else
     func_02042764((unsigned char*)var7, var5, 1);
-    func_02046574((struct Struct_02046574_2*)var1, 0, var5);
+    SetMessageString_02046574((struct Struct_02046574_2*)var1, 0, var5);
 #endif
     QueueMenuScriptEntry_ov011_021848a0(arg0, 0x51);
     return 0;

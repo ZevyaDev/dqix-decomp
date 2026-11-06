@@ -18,23 +18,23 @@ extern "C" void MapVRAMBanksToMainBG(int v);
 extern "C" void MapVRAMBanksToSubBG(int v);
 extern "C" void func_ov020_0218c7bc(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov020_0218cd64(int arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" void func_0204b5b4(void*, int);
+extern "C" void SetBGPriority_0204b5b4(void*, int);
 
-struct Struct_0204af38;
-extern "C" void func_0204b174(struct Struct_0204af38* arg0, void* arg1, SafeAllocator* arg2, int arg3);
+struct BGLayer_0204af38;
+extern "C" void LoadBGBlock_0204b174(struct BGLayer_0204af38* layer, void* block, SafeAllocator* allocator, int arg3);
 
-struct Struct_02020cb8;
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
+struct BGLayer_02020cb8;
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
-extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
 
-struct Struct_0204b12c;
-extern "C" void func_0204b12c(struct Struct_0204b12c* arg0, SafeAllocator* arg1);
+struct BGLayer_0204b12c;
+extern "C" void AllocateBGScreenData_0204b12c(struct BGLayer_0204b12c* layer, SafeAllocator* allocator);
 
-extern "C" void func_0204af38(struct Struct_0204af38* arg0, int arg1, SafeAllocator* arg2);
+extern "C" void AllocateBGScreenBlocks_0204af38(struct BGLayer_0204af38* layer, int capacity, SafeAllocator* allocator);
 
-struct Struct_02020cb8_5;
-extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
+struct BGLayer_02020cb8_5;
+extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 
 struct PacEntry_02020cb8_4;
 extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
@@ -42,11 +42,11 @@ extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
-struct Struct_0204b8d0;
-extern "C" void func_0204b8d0(struct Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+struct BGLayer_0204b8d0;
+extern "C" void CopyBGScreenBlockRect_0204b8d0(struct BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 
-struct Struct_02020cb8_2;
-extern "C" void func_0204b0e8(struct Struct_02020cb8_2* arg0, void* arg1);
+struct BGLayer_02020cb8_2;
+extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2* layer, void* screenData);
 
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int* out, unsigned char a, unsigned char b, unsigned char c, int d);
 
@@ -77,26 +77,26 @@ extern "C" ARM void func_ov020_0218c98c(void* arg0) {
     MapVRAMBanksToMainBG(8);
     func_ov020_0218c7bc(0, 1, 1, 1, 0);
 
-    func_0204af64((struct Struct_02020cb8*)(var0 + REGION(0x42c, 0x49c)));
-    func_0204b11c((unsigned char*)(var0 + REGION(0x42c, 0x49c)), 0);
+    InitBGLayer_0204af64((struct BGLayer_02020cb8*)(var0 + REGION(0x42c, 0x49c)));
+    SetBGScreenSize_0204b11c((unsigned char*)(var0 + REGION(0x42c, 0x49c)), 0);
     ((struct Struct_ov020_0218c98c_2*)arg0)->unknown_4b8_0_ = 0;
     ((struct Struct_ov020_0218c98c_2*)arg0)->unknown_4b8_4_ = 1;
-    func_0204b5b4(var0 + REGION(0x42c, 0x49c), 1);
-    func_0204b12c((struct Struct_0204b12c*)(var0 + REGION(0x42c, 0x49c)), (SafeAllocator*)(var0 + REGION(0x400, 0x470)));
-    func_0204af38((struct Struct_0204af38*)(var0 + REGION(0x42c, 0x49c)), 1, (SafeAllocator*)(var0 + REGION(0x400, 0x470)));
-    func_0204b5e8((struct Struct_02020cb8_5*)(var0 + REGION(0x42c, 0x49c)), 0, 0);
+    SetBGPriority_0204b5b4(var0 + REGION(0x42c, 0x49c), 1);
+    AllocateBGScreenData_0204b12c((struct BGLayer_0204b12c*)(var0 + REGION(0x42c, 0x49c)), (SafeAllocator*)(var0 + REGION(0x400, 0x470)));
+    AllocateBGScreenBlocks_0204af38((struct BGLayer_0204af38*)(var0 + REGION(0x42c, 0x49c)), 1, (SafeAllocator*)(var0 + REGION(0x400, 0x470)));
+    SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)(var0 + REGION(0x42c, 0x49c)), 0, 0);
 
     MapVRAMBanksToSubBG(4);
     func_ov020_0218cd64(0, 1, 1, 1, 0);
 
-    func_0204af64((struct Struct_02020cb8*)(var0 + REGION(0x44c, 0x4bc)));
-    func_0204b11c((unsigned char*)(var0 + REGION(0x44c, 0x4bc)), 0);
+    InitBGLayer_0204af64((struct BGLayer_02020cb8*)(var0 + REGION(0x44c, 0x4bc)));
+    SetBGScreenSize_0204b11c((unsigned char*)(var0 + REGION(0x44c, 0x4bc)), 0);
     ((struct Struct_ov020_0218c98c_2*)arg0)->unknown_4d8_0_ = 1;
     ((struct Struct_ov020_0218c98c_2*)arg0)->unknown_4d8_4_ = 0;
-    func_0204b5b4(var0 + REGION(0x44c, 0x4bc), 0);
-    func_0204b12c((struct Struct_0204b12c*)(var0 + REGION(0x44c, 0x4bc)), (SafeAllocator*)(var0 + REGION(0x400, 0x470)));
-    func_0204af38((struct Struct_0204af38*)(var0 + REGION(0x44c, 0x4bc)), 1, (SafeAllocator*)(var0 + REGION(0x400, 0x470)));
-    func_0204b5e8((struct Struct_02020cb8_5*)(var0 + REGION(0x44c, 0x4bc)), 0, 0);
+    SetBGPriority_0204b5b4(var0 + REGION(0x44c, 0x4bc), 0);
+    AllocateBGScreenData_0204b12c((struct BGLayer_0204b12c*)(var0 + REGION(0x44c, 0x4bc)), (SafeAllocator*)(var0 + REGION(0x400, 0x470)));
+    AllocateBGScreenBlocks_0204af38((struct BGLayer_0204af38*)(var0 + REGION(0x44c, 0x4bc)), 1, (SafeAllocator*)(var0 + REGION(0x400, 0x470)));
+    SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)(var0 + REGION(0x44c, 0x4bc)), 0, 0);
 
     int var1;
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
@@ -121,21 +121,21 @@ extern "C" ARM void func_ov020_0218c98c(void* arg0) {
             int var13 = 0;
             for (int var14 = 0; var14 < var6; var14++) {
                 if (var14 == ((int*)&var11)[var10]) {
-                    func_0204b174((struct Struct_0204af38*)(var0 + REGION(0x2c, 0x9c) + 0x400), var7[var14], (SafeAllocator*)(var0 + REGION(0x400, 0x470)), var8[var14]);
+                    LoadBGBlock_0204b174((struct BGLayer_0204af38*)(var0 + REGION(0x2c, 0x9c) + 0x400), var7[var14], (SafeAllocator*)(var0 + REGION(0x400, 0x470)), var8[var14]);
                     var10++;
                 }
                 if (var14 == ((int*)&var12)[var13]) {
-                    func_0204b174((struct Struct_0204af38*)(var0 + REGION(0x4c, 0xbc) + 0x400), var7[var14], (SafeAllocator*)(var0 + REGION(0x400, 0x470)), var8[var14]);
+                    LoadBGBlock_0204b174((struct BGLayer_0204af38*)(var0 + REGION(0x4c, 0xbc) + 0x400), var7[var14], (SafeAllocator*)(var0 + REGION(0x400, 0x470)), var8[var14]);
                     var13++;
                 }
             }
 
             var2->RemoveTask(var1);
 
-            func_0204b8d0((struct Struct_0204b8d0*)(var0 + REGION(0x42c, 0x49c)), 0, 0, 0, 0, 0, 0x20, 0x19, 0);
-            func_0204b8d0((struct Struct_0204b8d0*)(var0 + REGION(0x44c, 0x4bc)), 0, 0, 0, 0, 0, 0x20, 0x19, 0);
-            func_0204b0e8((struct Struct_02020cb8_2*)(var0 + REGION(0x42c, 0x49c)), 0);
-            func_0204b0e8((struct Struct_02020cb8_2*)(var0 + REGION(0x44c, 0x4bc)), 0);
+            CopyBGScreenBlockRect_0204b8d0((struct BGLayer_0204b8d0*)(var0 + REGION(0x42c, 0x49c)), 0, 0, 0, 0, 0, 0x20, 0x19, 0);
+            CopyBGScreenBlockRect_0204b8d0((struct BGLayer_0204b8d0*)(var0 + REGION(0x44c, 0x4bc)), 0, 0, 0, 0, 0, 0x20, 0x19, 0);
+            LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)(var0 + REGION(0x42c, 0x49c)), 0);
+            LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)(var0 + REGION(0x44c, 0x4bc)), 0);
             break;
         }
         var2->RemoveAllLocks();

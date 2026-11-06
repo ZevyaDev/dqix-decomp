@@ -13,15 +13,15 @@ enum { Enum_ov017_021c1404_147456 = 0x24000, Enum_ov017_021c1404_828 = 0x33c, En
 #include "Resource/Brightness.h"
 
 extern "C" int GetResources_0200fb8c(int* gameState);
-extern "C" int func_020100f8(char* arg0);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_020a1df8(int arg0);
 extern "C" void func_020a1ef0(int arg0);
 
 struct Struct_02018300_3;
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern AllocatorUnion gMainHeap_02114e20;
@@ -53,10 +53,10 @@ extern "C" ARM void func_ov017_021c1404(struct Struct_ov017_021c1404* arg0) {
 	GameState* var0 = GameState::GetInstance();
 	int* var1 = (int*)GetResources_0200fb8c((int*)var0);
 	GameObject* var2 = var0->GetUnknownGameObject();
-	int var3 = func_020100f8((char*)var0);
+	int var3 = GetFollowCamera_020100f8((char*)var0);
 	SetFlags04((GameResources*)var1, 0xc0);
 	if (var2) {
-		func_020397cc((struct Struct_02018300_3*)var2, 1);
+		DisablePlayerControl_020397cc((struct Struct_02018300_3*)var2, 1);
 	}
 	func_020a28a0((unsigned char*)var3, 3);
 	unsigned char var4 = arg0->unknown_1c_;
@@ -89,15 +89,15 @@ extern "C" ARM void func_ov017_021c1404(struct Struct_ov017_021c1404* arg0) {
 	if (var4 == 1) {
 		unsigned int var7 = var0->GetTickCount();
 		if (func_ov003_02154af4((void*)data_ov017_021d8478, var7) == 0) return;
-		FontLoader_0208cb08* var8 = func_02094a00();
+		FontLoader_0208cb08* var8 = GetFontLoader_02094a00();
 		func_02094b40(var8);
-		func_02094ab0(var8);
-		func_02094b34(var8, 0x6f, 0x1388, 1, 1);
+		CancelFontLoad_02094ab0(var8);
+		RequestFontLoad_02094b34(var8, 0x6f, 0x1388, 1, 1);
 		arg0->unknown_1c_ = arg0->unknown_1c_ + 1;
 		return;
 	}
 	if (var4 == 2) {
-		if (!func_02094b4c(func_02094a00())) return;
+		if (!UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) return;
 		func_ov003_021549a8((void*)data_ov017_021d8478);
 		arg0->unknown_1c_ = arg0->unknown_1c_ + 1;
 		return;
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov017_021c1404(struct Struct_ov017_021c1404* arg0) {
 	unsigned int var10 = *(unsigned int*)((char*)data_ov017_021d8478 + Enum_ov017_021c1404_372);
 	*var9 = (var10 << 8) | (*var9 & ~0x1f00);
 	ClearFlags04((GameResources*)var1, 0xc0);
-	func_020397c0(var2);
+	EnablePlayerControl_020397c0(var2);
 	func_020a28b0((unsigned char*)var3, 3);
 	func_ov017_021c1394(arg0);
 	func_020a0c0c();

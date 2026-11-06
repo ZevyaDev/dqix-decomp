@@ -9,16 +9,16 @@
 #endif
 
 struct Struct_0205d0e0_2;
-struct Struct_0205d6a0;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d6a0;
+struct TextWindowManager_0205d81c;
 struct Struct_ov002_02156e90 {
     char unknown_0_[0xc4];
     unsigned char unknown_c4_;
 };
 extern "C" struct Struct_ov002_02156e90 *func_0205d888(struct Struct_0205d0e0_2 *arg0);
-extern "C" void *func_0205d81c(struct Struct_0205d81c *arg0, int arg1);
-extern "C" void func_0205d6a0(struct Struct_0205d6a0 *arg0, int arg1);
-extern "C" void func_0205deb4(struct Struct_0205d81c *arg0, int arg1, int arg2);
+extern "C" void *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0 *windowManager, int isAll);
+extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" void func_ov002_02161cf0(void *arg0);
 extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
 extern "C" const unsigned char data_ov002_0216c99d[];
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov002_02156e90(char *arg0) {
             if (var3 >= RG(0x2c, 0x2f) && var3 <= RG(0x2f, 0x32)) {
                 var0 = 0;
                 for (unsigned char var5 = RG(0x2c, 0x2f); var5 <= RG(0x2f, 0x32); var5++) {
-                    if (func_0205d81c((struct Struct_0205d81c *) (arg0 + RG(0xec8, 0xe20)), var5) != NULL) {
+                    if (FindTextWindow_0205d81c((struct TextWindowManager_0205d81c *) (arg0 + RG(0xec8, 0xe20)), var5) != NULL) {
                         var0++;
                     }
                 }
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov002_02156e90(char *arg0) {
         }
     }
     for (int var6 = 0; var6 < var0; var6++) {
-        func_0205d6a0((struct Struct_0205d6a0 *) (arg0 + RG(0xec8, 0xe20)), 0);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) (arg0 + RG(0xec8, 0xe20)), 0);
     }
     var1 = func_0205d888((struct Struct_0205d0e0_2 *) (arg0 + RG(0xec8, 0xe20)));
     if (var1 == NULL) return;
@@ -58,8 +58,8 @@ extern "C" ARM void func_ov002_02156e90(char *arg0) {
         unsigned char var8 = data_ov002_0216c99d[var7 * 2];
         if (var8 == var1->unknown_c4_) {
             unsigned char var9 = data_ov002_0216c99e[var7 * 2];
-            func_0205d81c((struct Struct_0205d81c *) (arg0 + RG(0xec8, 0xe20)), var9);
-            func_0205deb4((struct Struct_0205d81c *) (arg0 + RG(0xec8, 0xe20)), var9, 0);
+            FindTextWindow_0205d81c((struct TextWindowManager_0205d81c *) (arg0 + RG(0xec8, 0xe20)), var9);
+            SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + RG(0xec8, 0xe20)), var9, 0);
             break;
         }
     }

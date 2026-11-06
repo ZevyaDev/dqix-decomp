@@ -3,20 +3,20 @@
 #include "GameState/GameState.h"
 #include "Resource/CharacterCreationUI.h"
 
-struct Struct_0205ba68;
-extern "C" void func_0205ba68(Struct_0205ba68*, int, int, int);
-struct Struct_0205bacc;
-extern "C" void func_0205bacc(Struct_0205bacc*, int);
+struct MenuCursor_0205ba68;
+extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
+struct MenuCursor_0205bacc;
+extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
 struct Struct_0205bcdc;
 extern "C" void func_0205bcdc(Struct_0205bcdc*, int);
-extern "C" void func_0205bb04(void*, int);
+extern "C" void SetMenuCursorIndex_0205bb04(void*, int);
 struct Struct_02000c9c_8;
-extern "C" unsigned char func_0200fb08(Struct_02000c9c_8*);
+extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" void func_ov023_021da100(char*, char*, int);
 #if defined(jpn)
-extern "C" void func_0205d304(void*, void*, int, int, int, int, int);
+extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);
 #else
-extern "C" void func_0205d304(void*, void*, int, int, int, int, int, int);
+extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int, int);
 #endif
 
 // USA: func_ov023_021d9f88
@@ -24,15 +24,15 @@ extern "C" ARM void func_ov023_021d9f88(void* arg0) {
     Struct_ov009_021842a0* var0 = (Struct_ov009_021842a0*)arg0;
     Struct_ov023_021d9c7c* var1 = &var0->unknown_1f8_[1];
     var0->unknown_d84_ = 0;
-    func_0205ba68((Struct_0205ba68*)var1->unknown_4_, 1, 2, 0);
-    func_0205ba68((Struct_0205ba68*)var1->unknown_54_, 1, 2, 0);
-    func_0205bacc((Struct_0205bacc*)var1->unknown_4_, 2);
-    func_0205bacc((Struct_0205bacc*)var1->unknown_54_, 2);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)var1->unknown_4_, 1, 2, 0);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)var1->unknown_54_, 1, 2, 0);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)var1->unknown_4_, 2);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)var1->unknown_54_, 2);
     var0->unknown_1f8_[1].unknown_4_[1] = 1;
     var0->unknown_1f8_[1].unknown_54_[1] = 1;
     signed char var2 = var0->unknown_d84_;
     func_0205bcdc((Struct_0205bcdc*)var1->unknown_4_, var2);
-    func_0205bb04(var0->unknown_1f8_[1].unknown_54_, var2);
+    SetMenuCursorIndex_0205bb04(var0->unknown_1f8_[1].unknown_54_, var2);
     var0->unknown_1f8_[1].unknown_94_[0] = 1;
     var0->unknown_1f8_[1].unknown_94_[1] = 1;
 
@@ -52,10 +52,10 @@ extern "C" ARM void func_ov023_021d9f88(void* arg0) {
     var0->unknown_1f8_[1].unknown_b6_ = 0;
     memset(var0->unknown_f8_, 0, 0x800);
     func_ov023_021da100((char*)var0, var0->unknown_f8_, 0);
-    func_0205d304(&var0->unknown_1f8_[1], var0->unknown_f8_, 0, 0, 0, 0, 0);
+    OpenTextWindow_0205d304(&var0->unknown_1f8_[1], var0->unknown_f8_, 0, 0, 0, 0, 0);
 #else
     int var4 = 0x10;
-    unsigned char var5 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+    unsigned char var5 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
     switch (var5) {
         case 2: var4 = 0xe; break;
         case 4: var4 = 0x15; break;
@@ -79,6 +79,6 @@ extern "C" ARM void func_ov023_021d9f88(void* arg0) {
     void* var7 = var0->unknown_f8_;
     memset(var7, 0, 0x960);
     func_ov023_021da100((char*)var0, (char*)var7, 0);
-    func_0205d304(var6, var7, 0, 0, 0, 0, 0, 1);
+    OpenTextWindow_0205d304(var6, var7, 0, 0, 0, 0, 0, 1);
 #endif
 }

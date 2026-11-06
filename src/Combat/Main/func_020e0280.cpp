@@ -4,10 +4,10 @@
 struct Struct_020dfec0_2;
 extern "C" int func_020dffb8(Struct_020dfec0_2* arg0);
 
-struct Struct_020dfec0;
+struct StringTable_020dfec0;
 struct Struct_020dffc8;
-typedef int (*Type_020dfec0)(Struct_020dfec0*, Struct_020dffc8*);
-extern "C" int func_020dffc8(Struct_020dfec0* arg0, Type_020dfec0 arg1);
+typedef int (*Type_020dfec0)(StringTable_020dfec0*, Struct_020dffc8*);
+extern "C" int func_020dffc8(StringTable_020dfec0* arg0, Type_020dfec0 arg1);
 
 struct Struct_020e0280 {
     unsigned int unknown_0_;
@@ -26,7 +26,7 @@ extern "C" ARM int func_020e0280(struct Struct_020e0280* arg0, struct Struct_020
         *arg2 = 1;
         return 1;
     }
-    func_020dffc8((Struct_020dfec0*)arg0, arg3);
+    func_020dffc8((StringTable_020dfec0*)arg0, arg3);
     arg0->unknown_0_ = (arg0->unknown_0_ & ~0x80000000) | 0x80000000;
     arg1->unknown_0_ = (arg1->unknown_0_ & ~0x80000000) | 0x80000000;
     return 1;

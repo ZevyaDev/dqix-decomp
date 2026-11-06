@@ -2,7 +2,7 @@
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_020426bc(void* arg0, void* arg1, int arg2);
-extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
+extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 #if !defined(jpn)
 extern "C" void func_0203bebc(void* arg0, void* arg1, void* arg2);
 #endif
@@ -134,7 +134,7 @@ extern "C" ARM void func_0203c5a8(void* arg0, void* arg1, short* arg2)
     struct Struct_0203c5a8* var18 = (struct Struct_0203c5a8*)((char*)arg0 + 4);
     for (short var19 = 0; var19 < 0x20; var18 = (struct Struct_0203c5a8*)((char*)var18 + 0x28), var19++) {
         if (var18->unknown_24_ != 0 && var18->unknown_20_ == var17) {
-            if (func_02001aec(var18, var16, var17) == 0) {
+            if (CompareBytes_02001aec(var18, var16, var17) == 0) {
                 var18->unknown_24_ = var18->unknown_24_ + 1;
                 *arg2 = var19;
                 return;

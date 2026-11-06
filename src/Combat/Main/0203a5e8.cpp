@@ -45,7 +45,7 @@ extern "C" ARM void func_0203a5e8(Struct_02039fec_2* arg0, int arg1) {
     Struct_0203a5e8_2* var1 = (Struct_0203a5e8_2*)arg0;
     signed char var2 = 0;
     int var3 = 0;
-    void* var4 = func_020100bc(GameState::GetInstance());
+    void* var4 = GetCamera_020100bc(GameState::GetInstance());
     if (var4 != NULL) {
         bool var5 = false;
         int var6 = var5;

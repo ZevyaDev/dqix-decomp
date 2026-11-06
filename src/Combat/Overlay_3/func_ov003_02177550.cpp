@@ -68,7 +68,7 @@ struct Struct_ov003_02177550_2 {
 // USA: func_ov003_02177550
 extern "C" ARM void func_ov003_02177550(Struct_ov003_02177550_2 *arg0) {
     GameState *var0     = GameState::GetInstance();
-    GameObject *var1 = func_0200ff1c(var0, arg0->unknown_1043_);
+    GameObject *var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0->unknown_1043_);
     if (var1 == NULL) {
         return;
     }

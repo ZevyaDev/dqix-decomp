@@ -219,7 +219,7 @@ extern "C" ARM void func_ov008_02185dc0(Struct_ov008_021842a0_2* arg0, unsigned 
                     Struct_ov008_02185dc0 var7;
                     func_020727d8((Struct_020727d8*)&var7);
                     func_020727f8(&var7, data_ov008_0218b400, arg0->unknown_b16_, var6, 0);
-                    Struct_ov000_02179cdc_4* var8 = (Struct_ov000_02179cdc_4*)func_0200ff1c(var0, GetProtagonistObjectIndex_020100a8(var0));
+                    Struct_ov000_02179cdc_4* var8 = (Struct_ov000_02179cdc_4*)GetPartyMemberBaseByIndex_0200ff1c(var0, GetProtagonistObjectIndex_020100a8(var0));
                     func_020727d8((Struct_020727d8*)&var7);
                     int var9 = var8->unknown_150_->unknown_49c_0_;
                     func_020727f8(&var7, var6, arg0->unknown_b14_, var12, var9);
@@ -241,7 +241,7 @@ extern "C" ARM void func_ov008_02185dc0(Struct_ov008_021842a0_2* arg0, unsigned 
                     var15 = ExtractFileFromGP2(var10, var11, &var14);
                     if (var15 != NULL)
                     {
-                        Struct_ov000_02179cdc_4* var16 = (Struct_ov000_02179cdc_4*)func_0200ff1c(var0, GetProtagonistObjectIndex_020100a8(var0));
+                        Struct_ov000_02179cdc_4* var16 = (Struct_ov000_02179cdc_4*)GetPartyMemberBaseByIndex_0200ff1c(var0, GetProtagonistObjectIndex_020100a8(var0));
                         func_020727d8((Struct_020727d8*)&var13);
                         int var17 = var16->unknown_150_->unknown_49c_0_;
                         func_02072928(&var13, (Struct_02013fb4*)var15, var14, arg0->unknown_b14_, var12, var17);

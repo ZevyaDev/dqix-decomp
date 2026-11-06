@@ -16,7 +16,7 @@ struct Struct_ov003_0216dee4 {
     struct Struct_ov003_0216dee4_2* unknown_40_;
 };
 
-extern "C" void func_0205ac40(void*, struct Struct_ov003_0216dee4_2*);
+extern "C" void DrawSprite_0205ac40(void*, struct Struct_ov003_0216dee4_2*);
 
 // USA: func_ov003_0216dee4
 extern "C" ARM void func_ov003_0216dee4(struct Struct_ov003_0216dee4* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
@@ -27,5 +27,5 @@ extern "C" ARM void func_ov003_0216dee4(struct Struct_ov003_0216dee4* arg0, int 
     if (arg4 >= 0) var0->unknown_22_ = (unsigned char)arg4;
     if (arg5 >= 0) var0->unknown_25_ = (unsigned char)arg5;
     if (arg6 >= 0) var0->unknown_26_ = (unsigned char)arg6;
-    func_0205ac40(arg0, var0);
+    DrawSprite_0205ac40(arg0, var0);
 }

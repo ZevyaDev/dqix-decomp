@@ -27,7 +27,7 @@ extern "C" void func_02042764(const char* arg0, char* arg1, int arg2);
 extern "C" void* func_ov004_02168a6c(void* arg0, int arg1);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
+extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" char* func_020d2f88(char* arg0, char* arg1);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
@@ -251,8 +251,8 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
     } else {
         var19 = static_cast<char*>(FindStringInList_02072a68(var7, var15->unknown_14_));
     }
-    func_02046574((struct Struct_02046574_2*)var3, 0, var19);
-    func_02046574((struct Struct_02046574_2*)var3, 1, var14);
+    SetMessageString_02046574((struct Struct_02046574_2*)var3, 0, var19);
+    SetMessageString_02046574((struct Struct_02046574_2*)var3, 1, var14);
 #if defined(jpn)
     func_020474a8(var3, 0xa, static_cast<char*>(FindStringInList_02072a68(var2, 0x22)), var16);
 #else

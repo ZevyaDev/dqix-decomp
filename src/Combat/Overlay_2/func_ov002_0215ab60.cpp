@@ -13,7 +13,7 @@ struct Struct_0204c610 {
     short unknown_54_[18];
     short unknown_78_[18];
 };
-struct Struct_0205d0e0 : Struct_0204c610 {
+struct TextWindow_0205d0e0 : Struct_0204c610 {
     Type_020b1300 unknown_9c_[0xac - 0x9c];
     short unknown_ac_;
     short unknown_ae_;
@@ -21,12 +21,12 @@ struct Struct_0205d0e0 : Struct_0204c610 {
     Type_020b1300 unknown_c5_;
     Type_020b1300 unknown_c6_[0xe0 - 0xc6];
 };
-struct Struct_0205d81c {
+struct TextWindowManager_0205d81c {
     Type_020b1300 unknown_0_[0x98];
     int unknown_98_;
-    Struct_0205d0e0* unknown_9c_;
+    TextWindow_0205d0e0* pTextWindows_9c_;
     Type_020b1300 unknown_a0_[0xb3 - 0xa0];
-    Type_020b1300 unknown_b3_;
+    Type_020b1300 textWindowCapacity_b3_;
     Type_020b1300 unknown_b4_;
     Type_020b1300 unknown_b5_[3];
 };
@@ -40,8 +40,8 @@ enum { Enum_ov002_0215ab60_3784 = 0xec8, Enum_ov002_0215ab60_6760 = 0x1a68, Enum
 
 struct Struct_ov002_0215ab60 {
     Type_020b1300 unknown_0_[Enum_ov002_0215ab60_3784];
-    Struct_0205d81c unknown_ec8_;
-    Type_020b1300 unknown_f80_[Enum_ov002_0215ab60_6760 - Enum_ov002_0215ab60_3784 - sizeof(Struct_0205d81c)];
+    TextWindowManager_0205d81c unknown_ec8_;
+    Type_020b1300 unknown_f80_[Enum_ov002_0215ab60_6760 - Enum_ov002_0215ab60_3784 - sizeof(TextWindowManager_0205d81c)];
     void* unknown_1a68_;
     Type_020b1300 unknown_1a6c_[Enum_ov002_0215ab60_7278 - Enum_ov002_0215ab60_6760 - 4];
     Type_ov002_0215ab60 unknown_1c6e_[5];
@@ -57,13 +57,13 @@ struct Struct_ov002_0215ab60_2 {
     Type_020b11c8 unknown_3f_6_ : 1;
     Type_020b11c8 : 1;
 };
-extern "C" Struct_0205d0e0* func_0205d81c(Struct_0205d81c*, int);
+extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 extern "C" void func_0204c610(Struct_0204c610*, int, short*, short*, short*, short*);
 extern "C" void func_ov002_02154bcc(int, int, void*, int, Type_020b1300, Type_020b1300);
 
 #if !defined(jpn)
-static inline short inline_ov002_0215ab60(Struct_0205d0e0* arg0) { SDK_NULL_ASSERT(arg0); return arg0->unknown_ac_; }
-static inline short inline_ov002_0215ab60_2(Struct_0205d0e0* arg0) { SDK_NULL_ASSERT(arg0); return arg0->unknown_ae_; }
+static inline short inline_ov002_0215ab60(TextWindow_0205d0e0* arg0) { SDK_NULL_ASSERT(arg0); return arg0->unknown_ac_; }
+static inline short inline_ov002_0215ab60_2(TextWindow_0205d0e0* arg0) { SDK_NULL_ASSERT(arg0); return arg0->unknown_ae_; }
 static inline short inline_ov002_0215ab60_3(Struct_ov002_0215ab60* arg0) { SDK_NULL_ASSERT(arg0); return arg0->unknown_245c_; }
 
 #endif
@@ -75,7 +75,7 @@ static inline short inline_ov002_0215ab60_5(short arg0, short arg1) { return arg
 // JPN: func_ov002_0215bf4c
 extern "C" ARM void func_ov002_0215ab60(Struct_ov002_0215ab60* arg0) {
 #if !defined(jpn)
-    Struct_0205d0e0* var0 = func_0205d81c(&arg0->unknown_ec8_, 0x1a);
+    TextWindow_0205d0e0* var0 = FindTextWindow_0205d81c(&arg0->unknown_ec8_, 0x1a);
     if (var0 && !(var0->unknown_c5_ & 0x20)) {
         short var1 = inline_ov002_0215ab60_2(var0) * 8;
         short var2 = inline_ov002_0215ab60(var0) * 8;
@@ -84,8 +84,8 @@ extern "C" ARM void func_ov002_0215ab60(Struct_ov002_0215ab60* arg0) {
         func_ov002_02154bcc(var4, var3, arg0->unknown_1a68_, 0x2a, 0xc, 0xff);
     }
 #endif
-    if (!func_0205d81c(&arg0->unknown_ec8_, Enum_ov002_0215ab60_25)) {
-        Struct_0205d0e0* var5 = func_0205d81c(&arg0->unknown_ec8_, Enum_ov002_0215ab60_24);
+    if (!FindTextWindow_0205d81c(&arg0->unknown_ec8_, Enum_ov002_0215ab60_25)) {
+        TextWindow_0205d0e0* var5 = FindTextWindow_0205d81c(&arg0->unknown_ec8_, Enum_ov002_0215ab60_24);
         if (var5) {
             GameState* var6 = GameState::GetInstance();
             GetParty_02010828(var6);

@@ -5,8 +5,8 @@
 #include "std_library_functions.h"
 
 extern "C" void* func_ov017_021d612c(void* arg0);
-struct Struct_ov001_0215f344 { int unknown_0_; union { int unknown_0_; float unknown1_0_; } unknown_4_; };
-extern "C" int func_ov017_021d60f4(Struct_ov001_0215f344* arg0);
+struct ScriptValue_ov001_0215f344 { int type_0_; union { int unknown_0_; float unknown1_0_; } value_4_; };
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(ScriptValue_ov001_0215f344* value);
 extern "C" int func_ov001_0215ad2c(int arg0);
 
 struct Struct_ov001_0215e1cc;
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov001_0215f344(void* arg0) {
     GameState* var4 = GameState::GetInstance();
     if (var4 == 0) return 0;
     sprintf(var0, data_ov001_02165745, var3);
-    int var5 = func_ov001_0215ad2c(func_ov017_021d60f4((Struct_ov001_0215f344*)((char*)arg0 + 8)));
+    int var5 = func_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4((ScriptValue_ov001_0215f344*)((char*)arg0 + 8)));
     GameObject* var6 = var4->GetGameObjectByIndex(var5);
     if (var6 == 0) return 0;
     SafeAllocator* var7 = (SafeAllocator*)data_ov001_021658b8.unknown_0_;

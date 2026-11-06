@@ -17,11 +17,11 @@ struct Struct_ov028_021d8a40 {
     unsigned short unknown_ae_;
 };
 
-extern "C" void func_0204c684(void* arg0);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
 
 // USA: func_ov028_021d8a40
 extern "C" ARM void func_ov028_021d8a40(Struct_ov028_021d8a40* arg0, unsigned int arg1) {
-    func_0204c684(arg0);
+    InitTextWindow_0204c684(arg0);
     arg0->unknown_8_ = arg1;
     arg0->unknown_ac_ = 0;
     arg0->unknown_ae_ = 0;

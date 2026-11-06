@@ -63,7 +63,7 @@ extern "C" void func_ov003_02165c9c(Struct_ov003_02154af4_3 *);
 struct Struct_02081f20_2;
 extern "C" void func_0208203c(Struct_02081f20_2*);
 extern "C" int func_02080468(void *, int);
-extern "C" void func_020466e4(unsigned int *, unsigned int);
+extern "C" void SetGlobalFlags_020466e4(unsigned int *, unsigned int);
 extern "C" void func_ov003_02165bd8(Struct_ov003_02154af4_3 *);
 extern "C" void func_ov003_02161438(void*);
 extern "C" int func_ov003_02160854(Struct_ov003_02154af4_3 *);
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
         func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
         arg0->unknown_470_  = 0;
         arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
-        func_020466e4(var1, 0x40);
+        SetGlobalFlags_020466e4(var1, 0x40);
         arg0->unknown_464_ |= 0x400;
     } else if (var2 == 5) {
         arg0->unknown_470_ = &arg0->unknown_48c_;

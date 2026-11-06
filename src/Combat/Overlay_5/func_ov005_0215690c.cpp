@@ -94,7 +94,7 @@ struct Struct_ov005_0215690c;
 extern "C" Struct_ov005_0215690c_2* func_ov023_021e4e20(Struct_ov005_0215690c*);
 extern "C" int func_ov005_02155670(Struct_ov005_02153954* arg0, int arg1, int arg2);
 extern "C" int func_0202ec84(void* arg0, Struct_02015ef4* arg1, int* arg2, int* arg3);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" double func_0200b454(double x);
 extern "C" short func_02052df8(Struct_02052df8* arg0, int arg1);
 extern "C" int func_ov005_02158560(Struct_ov005_02153954* arg0, unsigned char arg1, int arg2);
@@ -103,7 +103,7 @@ extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int ar
 extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 // USA: func_ov005_0215690c
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, i
         void* var8;
         int var9;
         int var10[8];
-        var8 = func_020100bc(var0);
+        var8 = GetCamera_020100bc(var0);
         int var11;
         Matrix4x3 var12;
         Vector3fix var13[8];
@@ -134,7 +134,7 @@ extern "C" ARM void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, i
             Mat4x3_ApplyToVector(&data_ov005_0215cc84[var14], &var12, &var13[var14]);
             func_0202ec84(var8, (Struct_02015ef4*)&var13[var14], &var7[var14], &var10[var14]);
         }
-        GameObject* var15 = func_0200ff1c(var0, var4);
+        GameObject* var15 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4);
         var11 = 0;
         float var16[8];
         int var17[8];
@@ -232,7 +232,7 @@ extern "C" ARM void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, i
     func_ov005_0215792c(arg0, 3);
     arg0->unknown_3d78_ = arg0->unknown_3dbc_;
     arg0->unknown_3dbb_ = arg0->unknown_3d78_;
-    func_0205bb04(arg0->unknown_19f4_, arg0->unknown_3d78_);
+    SetMenuCursorIndex_0205bb04(arg0->unknown_19f4_, arg0->unknown_3d78_);
     arg0->unknown_3dc0_ = 1;
     arg0->unknown_3dcc_ |= 0x80;
     PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 2, 0);

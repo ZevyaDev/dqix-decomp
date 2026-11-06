@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 
 // USA: func_ov001_021605d4
 extern "C" ARM int func_ov001_021605d4(void* arg0) {
-    int var0 = func_ov017_021d60f4(arg0);
-    int var1 = func_ov017_021d60f4((char*)arg0 + 0x8);
+    int var0 = GetScriptValueAsInt_ov017_021d60f4(arg0);
+    int var1 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8);
     GameState* var2 = GameState::GetInstance();
     int var3 = var0 * 0xc;
     GameObject* var4 = var2->GetGameObjectByIndex(var3 + 0x1c);

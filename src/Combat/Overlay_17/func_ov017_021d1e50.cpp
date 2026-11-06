@@ -26,13 +26,13 @@ struct Struct_ov017_021d1e50_3 : QueueNode_0201bdac {
 };
 struct LocalWireless_0202c1a4;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
-extern "C" int func_02046b08(void**);
+extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" Struct_ov017_021d1e50_2* GetZone3D_02012fe4();
 extern "C" void func_ov017_021baedc(Struct_ov017_021d1e50_3*, int);
 extern "C" void func_ov017_021bbbf8(void*, unsigned short);
 extern "C" int func_0201079c(char*);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
-extern "C" void* func_0200fd0c(GameState*);
+extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void func_02070378(char*);
 extern "C" void func_0200fcfc(void*, const void*);
 extern "C" void func_ov017_0219e310(unsigned char*, int);
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov017_021d1e50(int arg0, Struct_ov017_021cd748_6* arg1,
     Struct_ov017_021d1e50_3* var5;
     if (!GetOwnProtagonistObjectIndex_0202c1a4(arg4)) return;
     var4 = (Queue_0201bdac_2*)arg3->unknown_ptr_array_36fc[0];
-    if (!func_02046b08((void**)var4)) return;
+    if (!IsQueueEmpty_02046b08((void**)var4)) return;
     Struct_ov017_021d1e50_2* var6 = GetZone3D_02012fe4();
     var2 = var6->unknown_0_;
     if (var2 != 0x1901 && var2 != 0x1902 && var2 != 0x1903 && var2 != 0x1904) return;
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov017_021d1e50(int arg0, Struct_ov017_021cd748_6* arg1,
         if (func_0201079c((char*)arg2) >= 0x13 && var3 == 0x7345 && (unsigned int)(var2 - 0x1901) <= 3) var5->unknown_105_ = 1;
         AppendToQueue_020469b4(var4, var5);
     } else {
-        var0 = (Struct_ov017_021d1e50*)func_0200fd0c(arg2);
+        var0 = (Struct_ov017_021d1e50*)GetZoneEntry_0200fd0c(arg2);
         func_02070378((char*)var0);
         var1 = 1;
         var0->unknown_7_ = 1;

@@ -155,7 +155,7 @@ struct GameResources;
 struct Struct_020727d8;
 struct Struct_02013fb4;
 struct Struct_0201099c_3;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct SoundEffectManager_02108760;
 
 extern char data_ov008_0218b400[] __attribute__((aligned(4)));
@@ -172,7 +172,7 @@ extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int a
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
-extern "C" Struct_ov006_02158478* func_0205d81c(Struct_0205d81c* arg0, int arg1);
+extern "C" Struct_ov006_02158478* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
 struct Struct_ov008_02184a4c_13;
 extern "C" void func_ov008_02187664(Struct_ov008_02184a4c_13*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -182,7 +182,7 @@ extern "C" void func_020727f8(void* arg0, const char* arg1, int arg2, void* arg3
 
 extern "C" {
 void* ExtractFileFromGP2(char* arg0, char* arg1, unsigned int* arg2);
-void func_0205bb04(Struct_ov009_02186e00_2* arg0, int arg1);
+void SetMenuCursorIndex_0205bb04(Struct_ov009_02186e00_2* cursor, int index);
 int func_ov008_02188a54(Struct_ov008_021842a0_2* arg0, int arg1);
 void func_ov008_0218712c(Struct_ov008_021842a0_2* arg0, Struct_ov008_021843f8_2* arg1);
 void func_ov008_02187a70(Struct_ov008_021842a0_2* arg0, Struct_ov008_021843f8_2* arg1);
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
         func_ov008_02187f6c(arg0, CLEAR_RECORDS);
         for (int var6 = 0; var6 < 5; var6++)
         {
-            Struct_ov006_02158478* var7 = func_0205d81c((Struct_0205d81c*)&arg0->unknown_130_, (unsigned char)var6);
+            Struct_ov006_02158478* var7 = FindTextWindow_0205d81c((TextWindowManager_0205d81c*)&arg0->unknown_130_, (unsigned char)var6);
             if (var7 != NULL)
                 var7->unknown_c2_ = 0;
         }
@@ -261,7 +261,7 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
             Struct_ov008_02185dc0 var9;
             func_020727d8((Struct_020727d8*)&var9);
             func_020727f8(&var9, data_ov008_0218b400, 1001, var8, 0);
-            Struct_ov000_02179cdc_4* var10 = (Struct_ov000_02179cdc_4*)func_0200ff1c(var1, GetProtagonistObjectIndex_020100a8(var1));
+            Struct_ov000_02179cdc_4* var10 = (Struct_ov000_02179cdc_4*)GetPartyMemberBaseByIndex_0200ff1c(var1, GetProtagonistObjectIndex_020100a8(var1));
             func_020727d8((Struct_020727d8*)&var9);
             unsigned char var11 = var10->unknown_150_->unknown_49c_0_;
             func_020727f8(&var9, var8, CLEAR_TITLE, var14, var11);
@@ -283,7 +283,7 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
             var17 = ExtractFileFromGP2(var12, var13, &var16);
             if (var17 != NULL)
             {
-                Struct_ov000_02179cdc_4* var18 = (Struct_ov000_02179cdc_4*)func_0200ff1c(var1, GetProtagonistObjectIndex_020100a8(var1));
+                Struct_ov000_02179cdc_4* var18 = (Struct_ov000_02179cdc_4*)GetPartyMemberBaseByIndex_0200ff1c(var1, GetProtagonistObjectIndex_020100a8(var1));
                 func_020727d8((Struct_020727d8*)&var15);
                 unsigned char var19 = var18->unknown_150_->unknown_49c_0_;
                 func_02072928(&var15, (Struct_02013fb4*)var17, var16, CLEAR_TITLE, var14, var19);
@@ -350,7 +350,7 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
         func_ov008_02187f6c(arg0, NULL);
         for (int var24 = 0; var24 < 6; var24++)
         {
-            Struct_ov006_02158478* var25 = func_0205d81c((Struct_0205d81c*)&arg0->unknown_130_, (unsigned char)var24);
+            Struct_ov006_02158478* var25 = FindTextWindow_0205d81c((TextWindowManager_0205d81c*)&arg0->unknown_130_, (unsigned char)var24);
             if (var25 != NULL)
                 var25->unknown_c2_ = 0;
         }
@@ -380,7 +380,7 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
         {
             if (arg0->unknown_744_[var26] == 7)
             {
-                func_0205bb04(&arg0->unknown_750_, var26);
+                SetMenuCursorIndex_0205bb04(&arg0->unknown_750_, var26);
 #if defined(jpn)
                 int var27 = 5;
                 int var28 = arg0->unknown_b29_;

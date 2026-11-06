@@ -60,7 +60,7 @@ extern char data_020ef078[];
 // USA: func_ov017_02191508
 extern "C" ARM void func_ov017_02191508(int arg0, Struct_ov017_02191508_2* arg1) {
     Struct_ov017_02191508_5* var0 =
-        (Struct_ov017_02191508_5*)func_0200ff1c(GameState::GetInstance(), arg0);
+        (Struct_ov017_02191508_5*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0);
     if (var0 == NULL) return;
     Struct_ov017_02191508_6* var1 = GetPartyMemberData_02053c6c((unsigned char*)var0);
     if (var1 == NULL) return;

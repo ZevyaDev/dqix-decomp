@@ -26,7 +26,7 @@
 extern "C"
 {
     void* GetLocalWireless_0202ae18();
-    void* func_0202ae24();
+    void* GetLocalWirelessPacketQueue_0202ae24();
     void func_0202b2f0(void*);
     void func_0205e57c(void*);
 
@@ -649,7 +649,7 @@ void VRAMStagingManager::SendReadyDataToVRAM()
     }
 
     void* unknownPtr1 = GetLocalWireless_0202ae18();
-    void* unknownPtr2 = func_0202ae24();
+    void* unknownPtr2 = GetLocalWirelessPacketQueue_0202ae24();
     func_0202b2f0(unknownPtr1);
     func_0205e57c(unknownPtr2);
 

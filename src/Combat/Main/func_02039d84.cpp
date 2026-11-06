@@ -4,7 +4,7 @@
 
 struct Struct_02010604;
 
-extern "C" int func_02033b88(struct Struct_02010604* arg0, int arg1);
+extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
 
 struct Struct_02039d84 {
     unsigned char unknown_0_[0xe0];
@@ -20,5 +20,5 @@ extern "C" ARM void func_02039d84(struct Struct_02039d84* arg0) {
 #else
     func_02038508((struct Struct_02037d10*)((char*)arg0 + 0x26c));
 #endif
-    func_02033b88((struct Struct_02010604*)arg0, 0);
+    SetMotion_02033b88((struct Struct_02010604*)arg0, 0);
 }

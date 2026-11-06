@@ -29,7 +29,7 @@ int fix32cos(int);
 extern "C" unsigned char func_02039d7c(char*);
 extern "C" void func_02039d84(Struct_02039d84*);
 extern "C" void func_ov017_021d440c(int);
-extern "C" void func_02033874(Struct_02033834*, int);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_02039d24(unsigned char*);
 extern "C" void func_ov017_021c3e18(int);
 
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov017_021bd704(Struct_ov017_021bd704* arg0) {
                 func_ov017_021d440c(-1);
             }
             var9->obj3D_.position_ = var4;
-            func_02033874((Struct_02033834*)var9, var5);
+            SetFacingInstantly_02033874((Struct_02033834*)var9, var5);
             var9->obj3D_.EnableFlag(0x4000000);
             func_02039d24((unsigned char*)var9);
         }

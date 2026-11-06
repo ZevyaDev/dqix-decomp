@@ -8,8 +8,8 @@ extern "C" unsigned char func_02039d7c(char* arg0);
 extern "C" ARM int func_0208ae00(char* arg0, int arg1) {
     unsigned int* var0 = ((unsigned int*)GetGameResources());
     GameState* var1 = GameState::GetInstance();
-    GameObject* var2 = func_0200ff1c(var1, arg1);
-    GameObject* var3 = func_0200ff1c(var1, arg1);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var1, arg1);
+    GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var1, arg1);
     if (var2 == NULL || (**(int**)((char*)var2 + 0x130) & 1)) {
         return 0;
     }

@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Struct_0204693c;
-extern "C" void func_0204693c(struct Struct_0204693c* arg0);
+struct QueueNode_0204693c;
+extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
 
 // USA: func_ov004_0216fa08
 extern "C" ARM void func_ov004_0216fa08(void* arg0) {
-    func_0204693c((struct Struct_0204693c*)arg0);
+    ResetQueueNode_0204693c((struct QueueNode_0204693c*)arg0);
     unsigned char* var0 = (unsigned char*)arg0;
     var0[0] = 0x36;
     *(short*)(var0 + 8) = 0;

@@ -20,7 +20,7 @@ extern "C" void* func_ov017_021b0fe0(int arg0, int arg1);
 extern "C" void func_ov017_021d1118(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021d1014(int arg0, int arg1, int arg2);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void* func_0202ae24(void);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 extern "C" int func_0205e488(void* arg0);
 
 // USA: func_ov017_021b04e0
@@ -36,7 +36,7 @@ extern "C" ARM unsigned char func_ov017_021b04e0(struct Struct_ov017_021b04e0* a
         }
         unsigned char var4 = (var2 + var3)[0xf78];
         arg0->unknown_22_ = var3 + 1;
-        GameObject* var5 = func_0200ff1c(var0, var4);
+        GameObject* var5 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4);
         if (var5 == NULL) {
             return arg0->unknown_a_;
         }
@@ -47,7 +47,7 @@ extern "C" ARM unsigned char func_ov017_021b04e0(struct Struct_ov017_021b04e0* a
         func_ov017_021d1014(-1, 1, 1);
         arg0->unknown_21_ = arg0->unknown_21_ + 1;
     } else if (var1 == 1) {
-        void* var8 = func_0202ae24();
+        void* var8 = GetLocalWirelessPacketQueue_0202ae24();
         if (func_0205e488(var8) != 0) {
             arg0->unknown_21_ = 0;
         }

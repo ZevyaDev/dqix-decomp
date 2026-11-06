@@ -10,8 +10,8 @@
 #define RG(u, j) (u)
 #endif
 
-extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 
 struct Struct_0205c508;
 extern "C" void func_0205c508(struct Struct_0205c508* arg0, int* arg1, int* arg2);
@@ -27,9 +27,9 @@ extern "C" ARM void func_ov002_0215ec4c(void* arg0, char* arg1, int arg2) {
     }
     int var2 = *(short*)((char*)arg0 + RG(0x1bfa, 0x1ac2)) % 8;
     if (arg2) {
-        func_02041c08(arg1, var2, 8, 5, 5, 5);
+        AppendFrameTag_02041c08(arg1, var2, 8, 5, 5, 5);
     }
-    func_02041ea4(arg1, var2);
+    AppendCursorTag_02041ea4(arg1, var2);
     void* var3 = (void*)((char*)arg0 + RG(0x2c8 + 0xc00, 0xe20));
     func_0205c508((struct Struct_0205c508*)((unsigned char*)var3 + 0x54), &var0, &var1);
     int var4 = *(signed char*)((char*)arg0 + RG(0x1c20, 0x1ae8));

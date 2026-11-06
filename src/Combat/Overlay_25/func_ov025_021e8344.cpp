@@ -30,7 +30,7 @@ extern "C" ARM int func_ov025_021e8344(void* arg0, struct Struct_ov025_021e8344*
     func_ov025_021e8a54((char*)data_ov025_021ef988.unknown_c_);
     GameState* var1 = GameState::GetInstance();
     int var2 = *(unsigned short*)((char*)arg1->unknown_10_ + 0x20);
-    GameObject* var3 = func_0200ff1c(var1, var2);
+    GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var1, var2);
     struct Struct_ov025_021e8344_2* var4 = *(struct Struct_ov025_021e8344_2**)((char*)var3 + Enum_ov025_021e8344_336);
     char var5 = 'm';
     if (var4->unknown_49c_0_ == 1) {

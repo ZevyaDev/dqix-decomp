@@ -2,8 +2,8 @@
 #include <globaldefs.h>
 #include "Resource/CharacterCreationUI.h"
 
-struct Struct_0205d2bc;
-extern "C" void func_0205d2bc(Struct_0205d2bc*);
+struct TextWindowManager_0205d2bc;
+extern "C" void func_0205d2bc(TextWindowManager_0205d2bc*);
 extern "C" void func_0204b088(Struct_02000c9c_7*, void*);
 #if defined(jpn)
 extern "C" void func_ov009_02184e58(unsigned char*);
@@ -31,8 +31,8 @@ extern "C" ARM void func_ov009_02184ca4(unsigned char* arg0) {
         return;
     if (var0->unknown_d9c_ & 0x80)
         return;
-    func_0205d2bc((Struct_0205d2bc*)&var0->unknown_1f8_[0]);
-    func_0205d2bc((Struct_0205d2bc*)&var0->unknown_1f8_[1]);
+    func_0205d2bc((TextWindowManager_0205d2bc*)&var0->unknown_1f8_[0]);
+    func_0205d2bc((TextWindowManager_0205d2bc*)&var0->unknown_1f8_[1]);
     if (var0->unknown_d9c_ & 0x1000) {
         func_0204b088(&var0->unknown_158_[0], 0);
         var0->unknown_d9c_ &= ~0x1000;

@@ -10,13 +10,13 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
 
-struct Struct_ov011_02184c30 {
-    int unknown_0_;
-    union { int unknown_0_; float unknown1_0_; } unknown_4_;
+struct ScriptValue_ov011_02184c30 {
+    int type_0_;
+    union { int unknown_0_; float unknown1_0_; } value_4_;
 };
 
-extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
-extern "C" ARM void* func_ov017_021b2164(void);
+extern "C" int func_ov011_02184c30(struct ScriptValue_ov011_02184c30* arg0);
+extern "C" ARM void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" ARM void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" ARM int func_ov023_021fc518(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
@@ -48,7 +48,7 @@ struct Struct_ov011_02187720_3 {
 };
 
 // USA: func_ov011_02187720
-extern "C" ARM int func_ov011_02187720(struct Struct_ov011_02184c30* arg0, int arg1) {
+extern "C" ARM int func_ov011_02187720(struct ScriptValue_ov011_02184c30* arg0, int arg1) {
     Struct_ov011_02187720_3 var0;
     void* var1;
     SafeAllocator* var2;
@@ -64,7 +64,7 @@ extern "C" ARM int func_ov011_02187720(struct Struct_ov011_02184c30* arg0, int a
     var7 = func_ov011_02184c30(&arg0[1]);
     var8 = func_ov011_02184c30(&arg0[2]);
     func_ov011_02184c30(&arg0[3]);
-    var6 = func_ov017_021b2164();
+    var6 = GetCurrentMenu_ov017_021b2164();
     var5 = (Struct_ov011_02187720*)func_ov011_021845f8(var6, var7);
     if (var5 == 0)
         return 0;

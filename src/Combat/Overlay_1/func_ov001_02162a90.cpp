@@ -100,25 +100,25 @@ struct Struct_ov001_021658b8_13 {
     unsigned int unknown_4b0_;
 };
 extern Struct_ov001_021658b8_13 data_ov001_021658b8;
-union Struct_ov017_021d60f4 {
-    int unknown_0_;
-    float unknown1_0_;
+union ScriptValueData_ov017_021d60f4 {
+    int intValue_0_;
+    float floatValue_0_;
 };
-struct Struct_ov001_0215f344 {
-    int unknown_0_;
-    Struct_ov017_021d60f4 unknown_4_;
+struct ScriptValue_ov001_0215f344 {
+    int type_0_;
+    ScriptValueData_ov017_021d60f4 value_4_;
 };
-extern "C" int func_ov017_021d60f4(Struct_ov001_0215f344*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(ScriptValue_ov001_0215f344*);
 extern "C" void func_ov001_02162678(int, int, int, int);
 extern "C" void func_ov001_0215e758(int, int, int, int, int);
 extern "C" void func_ov001_0215e78c(int, int, int, int, int);
 extern "C" void func_ov001_021628d4(int, int, int, int);
 
 // USA: func_ov001_02162a90
-extern "C" ARM int func_ov001_02162a90(Struct_ov001_0215f344* arg0) {
+extern "C" ARM int func_ov001_02162a90(ScriptValue_ov001_0215f344* arg0) {
     Struct_ov001_02162a90 var0, var1, var2, var3;
     Struct_ov001_02162a90 var4, var5, var6, var7;
-    int var8 = func_ov017_021d60f4(arg0);
+    int var8 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     if (var8 == 0) {
         ReleaseMainBGVRAMBanks();
         MapVRAMBanksToMainBG(data_ov001_021658b8.unknown_494_);

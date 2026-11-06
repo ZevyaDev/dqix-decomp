@@ -5,10 +5,10 @@ extern "C" void func_0205c508(struct Struct_0205c508* arg0, int* arg1, int* arg2
 struct Struct_0201099c_3;
 extern "C" char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_ov000_0217542c(void* arg0);
-extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" void* func_ov000_02171b9c(void* arg0, int arg1);
-extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 #if defined(jpn)
@@ -51,13 +51,13 @@ extern "C" ARM void func_ov000_0217979c(char* arg0, struct Struct_ov000_0217979c
     char* var6 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0);
 #endif
     if (func_ov000_0217542c(arg0)) {
-        func_02041c08(arg2, var4 - var2, 8, 5, 5, 5);
+        AppendFrameTag_02041c08(arg2, var4 - var2, 8, 5, 5, 5);
     }
-    func_02041ea4(arg2, var4 - var2);
+    AppendCursorTag_02041ea4(arg2, var4 - var2);
     for (signed char var7 = var2; var7 < var3; var7++) {
         struct Struct_ov000_0217979c* var8 = (struct Struct_ov000_0217979c*)func_ov000_02171b9c(arg1, var7);
         if (var8 == NULL) {
-            func_02041b70(arg2, var7 - var2, data_ov000_02184069);
+            AppendMenuEntry_02041b70(arg2, var7 - var2, data_ov000_02184069);
             continue;
         }
         char var9[0x80];
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov000_0217979c(char* arg0, struct Struct_ov000_0217979c
         func_0206819c(var8->unknown_4_, var11, 0);
         AppendText_02042058(var9, var11);
 #endif
-        func_02041b70(arg2, var7 - var2, var9);
+        AppendMenuEntry_02041b70(arg2, var7 - var2, var9);
         if (var7 != var3 - 1) {
 #if defined(jpn)
             AppendText_02042058(arg2, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0));

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_0205ac40(void* arg0, void* arg1);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 struct Struct_ov000_02181164 {
     char unknown_0_[0x14];
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov000_02181164(void* arg0, int arg1, struct Struct_ov00
         var0->unknown_18_ = arg4 << 12;
         var0->unknown_22_ = arg6;
         var0->unknown_26_ = arg5 & 3;
-        func_0205ac40((char*)arg0 + 0x11c, var0);
+        DrawSprite_0205ac40((char*)arg0 + 0x11c, var0);
         arg6++;
         arg3 -= arg7;
         arg1 /= 10;

@@ -29,7 +29,7 @@ struct Struct_ov025_021db458_4 {
 };
 
 extern "C" void* func_ov000_02160f20(void*);
-extern "C" int func_ov000_0215e9fc(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov000_0215ec1c(void* arg0, short* arg1, int arg2, int arg3);
 extern "C" int func_02049afc(unsigned char* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov025_021db458(Struct_ov025_021db458_4* arg0) {
     void* var3;
     short var4[16];
     int var5 = 0;
-    var5 = var5 + func_ov000_0215e9fc(arg0->unknown_29c_, var4, 0x10, var5);
+    var5 = var5 + CollectPartyCombatantIndices_ov000_0215e9fc(arg0->unknown_29c_, var4, 0x10, var5);
     var5 = var5 + func_ov000_0215ec1c(arg0->unknown_29c_, var4 + var5, 0x10 - var5, 0);
     for (int var6 = 0; var6 < var5; var6++) {
         GameObject* var7 = var2->GetCombatantByIndex(var4[var6]);

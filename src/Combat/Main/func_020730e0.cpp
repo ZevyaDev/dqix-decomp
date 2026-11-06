@@ -56,7 +56,7 @@ extern "C" ARM void func_020730e0(int arg0, int arg1) {
         arg0 = GetProtagonistObjectIndex_020100a8(var0);
     }
 
-    var1 = func_0200ff1c(var0, arg0);
+    var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     if (!var1 || *(int*)((char*)var1 + Enum_020730e0_340) == 0) {
         return;
     }

@@ -41,7 +41,7 @@ extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 struct ItemTable_0201099c_10;
-extern "C" void* func_020dedd0(ItemTable_0201099c_10*, int);
+extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" int func_ov015_0218c03c(void* arg0, char* arg1, int arg2, int arg3);
 extern "C" void func_ov015_0218c3a4(void* arg0, int arg1);
 extern "C" void func_ov015_0218c920(void* arg0, int arg1);
@@ -119,7 +119,7 @@ extern "C" ARM int func_ov015_0218d50c(Struct_ov015_0218d50c_3* arg0) {
             if (arg0->unknown_20_[var11] < 0) {
                 continue;
             }
-            Struct_ov015_0218d50c_2* var13 = (Struct_ov015_0218d50c_2*)func_020dedd0((ItemTable_0201099c_10*)((char*)arg0->unknown_0_ + 0x4c), (short)arg0->unknown_20_[var11]);
+            Struct_ov015_0218d50c_2* var13 = (Struct_ov015_0218d50c_2*)FindItemData_020dedd0((ItemTable_0201099c_10*)((char*)arg0->unknown_0_ + 0x4c), (short)arg0->unknown_20_[var11]);
             if (var13 == 0) {
                 continue;
             }

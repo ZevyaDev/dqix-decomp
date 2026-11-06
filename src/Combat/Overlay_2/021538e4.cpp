@@ -34,7 +34,7 @@ extern "C" ARM int func_ov002_021538e4(void* arg0, struct Struct_ov002_021538e4_
     if (arg2 != 0) {
     if (arg1->unknown_1a_0_ == 2) {
         GameState* var2 = GameState::GetInstance();
-        GameObject* var3 = func_0200ff1c(var2, arg3);
+        GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var2, arg3);
         if (var3 == 0) {
             return 0;
         }

@@ -27,18 +27,18 @@
 struct Struct_ov020_0218b710;
 struct Struct_ov020_0218b710_2;
 struct Struct_0205cfd4;
-struct Struct_02020cb8;
-struct Struct_0204b12c;
-struct Struct_02020cb8_5;
+struct BGLayer_02020cb8;
+struct BGLayer_0204b12c;
+struct BGLayer_02020cb8_5;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
-struct Struct_02020cb8_2;
-struct Struct_0204c7a8;
+struct BGLayer_02020cb8_2;
+struct TextWindow_0204c7a8;
 struct Struct_0205cf78;
 struct Struct_0205cf78_2;
 struct Struct_0205d228;
-struct Struct_0205d274;
-struct Struct_0205d2bc;
+struct TextWindowManager_0205d274;
+struct TextWindowManager_0205d2bc;
 struct TextureVRAMArea_0203d028;
 struct Struct_02045cac;
 struct Struct_0205bcdc;
@@ -61,22 +61,22 @@ extern "C" void func_020d86d0(int arg0, int arg1);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_0205cfd4(Struct_0205cfd4* arg0);
-extern "C" void func_0204af64(Struct_02020cb8* arg0);
-extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
-extern "C" void func_0204b12c(Struct_0204b12c* arg0, SafeAllocator* arg1);
-extern "C" void func_0204b5e8(Struct_02020cb8_5* arg0, int arg1, int arg2);
+extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
+extern "C" void AllocateBGScreenData_0204b12c(BGLayer_0204b12c* layer, SafeAllocator* allocator);
+extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void func_0204b0e8(Struct_02020cb8_2* arg0, void* arg1);
-extern "C" void func_0204c7a8(Struct_0204c7a8* arg0, SafeAllocator* arg1, int arg2, unsigned int arg3);
+extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
+extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
 extern "C" void func_0205cf78(Struct_0205cf78* arg0, Struct_0205cf78_2* arg1, unsigned char arg2);
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02042084(char* arg0, char* arg1, int arg2, int arg3);
 extern "C" void func_0205d228(Struct_0205d228* arg0);
-extern "C" void func_0205d274(Struct_0205d274* arg0);
-extern "C" void func_0205d2bc(Struct_0205d2bc* arg0);
+extern "C" void func_0205d274(TextWindowManager_0205d274* arg0);
+extern "C" void func_0205d2bc(TextWindowManager_0205d2bc* arg0);
 extern "C" void func_020bbcb4();
 extern "C" void func_02012efc();
 void LockStagedTextureVRAMCopying();
@@ -88,7 +88,7 @@ extern "C" void func_020440a4(void* arg0);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_02045cac(Struct_02045cac* arg0);
 extern "C" void func_0205c790(char* arg0);
 extern "C" int func_020ab9c0(int arg0);
@@ -113,14 +113,14 @@ extern "C" void func_ov020_0218d32c(void* arg0, int arg1);
 extern "C" void func_ov020_0218c98c(void* arg0);
 extern "C" void func_ov020_0218c7f0(char* arg0, int arg1, int arg2);
 extern "C" void func_ov020_0218c840(void* arg0);
-extern "C" void func_0204c684(void* arg0);
-extern "C" void func_0204b5b4(void* arg0, int arg1);
-extern "C" void func_0204b174(void* arg0, void* arg1, SafeAllocator* arg2, int arg3);
-extern "C" void func_0204bc74(void* arg0, unsigned short arg1, int arg2, int arg3, int arg4, int arg5, unsigned short arg6);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
+extern "C" void SetBGPriority_0204b5b4(void* layer, int priority);
+extern "C" void LoadBGBlock_0204b174(void* layer, void* block, SafeAllocator* allocator, int arg3);
+extern "C" void FillBGScreenRect_0204bc74(void* layer, unsigned short screenEntry, int x, int y, int width, int height, unsigned short palette);
 #if defined(jpn)
-extern "C" void func_0205d304(void* arg0, char* arg1, int, int, int, int, int);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, char* text, int, int, int, int, int);
 #else
-extern "C" void func_0205d304(void* arg0, char* arg1, int, int, int, int, int, int);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, char* text, int, int, int, int, int, int);
 #endif
 extern "C" void func_0205d0e0(void* arg0, int arg1);
 extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
@@ -131,7 +131,7 @@ extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 #if defined(jpn)
 extern "C" void func_0205dfa8(void* arg0);
 #endif
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" void func_02043368(char* arg0);
 extern "C" void func_020439b0(char* arg0, int arg1);
 extern "C" char* func_0203bd08(void);
@@ -292,16 +292,16 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         arg0->unknown_470_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x10000), 0x10000);
         arg0->unknown_470_.Reset();
         func_0205cfd4((Struct_0205cfd4*)arg0->unknown_2b4_);
-        func_0204af64((Struct_02020cb8*)arg0->unknown_370_);
-        func_0204c684(arg0->unknown_390_);
+        InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_370_);
+        InitTextWindow_0204c684(arg0->unknown_390_);
         MapVRAMBanksToMainBG(4);
         func_ov020_0218c7bc(0, 0, 1, 1, 0);
-        func_0204b11c((unsigned char*)arg0->unknown_370_, 0);
+        SetBGScreenSize_0204b11c((unsigned char*)arg0->unknown_370_, 0);
         arg0->unknown_38c_.unknown_0_0_ = 0;
         arg0->unknown_38c_.unknown_0_4_ = 1;
-        func_0204b5b4(arg0->unknown_370_, 0);
-        func_0204b12c((Struct_0204b12c*)arg0->unknown_370_, &arg0->unknown_470_);
-        func_0204b5e8((Struct_02020cb8_5*)arg0->unknown_370_, 0, 0);
+        SetBGPriority_0204b5b4(arg0->unknown_370_, 0);
+        AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)arg0->unknown_370_, &arg0->unknown_470_);
+        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)arg0->unknown_370_, 0, 0);
 
         int var2;
         BackgroundLoader* var3 = BackgroundLoader::GetInstance();
@@ -318,14 +318,14 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                     int var9;
                     void* var10 = GetPacEntryData_020467f0((PacEntry_02020aec*)var5, var8, &var4, &var9);
                     if (var10 != 0) {
-                        func_0204b174(arg0->unknown_370_, var10, &arg0->unknown_470_, var9);
+                        LoadBGBlock_0204b174(arg0->unknown_370_, var10, &arg0->unknown_470_, var9);
                     }
                 }
                 var3->RemoveTask(var2);
-                func_0204bc74(arg0->unknown_370_, 0, 0, 0, 0x20, 0x19, 0);
-                func_0204b0e8((Struct_02020cb8_2*)arg0->unknown_370_, 0);
+                FillBGScreenRect_0204bc74(arg0->unknown_370_, 0, 0, 0, 0x20, 0x19, 0);
+                LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)arg0->unknown_370_, 0);
                 arg0->unknown_498_ = arg0->unknown_470_.Allocate(0x8000);
-                func_0204c7a8((Struct_0204c7a8*)arg0->unknown_390_, &arg0->unknown_470_, (int)arg0->unknown_498_, 0x800);
+                SetTextWindowBuffers_0204c7a8((TextWindow_0204c7a8*)arg0->unknown_390_, &arg0->unknown_470_, (int)arg0->unknown_498_, 0x800);
                 arg0->unknown_394_ = arg0->unknown_370_;
                 arg0->unknown_34c_ = arg0->unknown_370_;
                 arg0->unknown_366_ = 1;
@@ -393,15 +393,15 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
 #endif
 
 #if defined(jpn)
-        func_0205d304(arg0->unknown_2b4_, var11, 0, 0, 0, 1, 0);
+        OpenTextWindow_0205d304(arg0->unknown_2b4_, var11, 0, 0, 0, 1, 0);
 #else
-        func_0205d304(arg0->unknown_2b4_, var11, 0, 0, 0, 1, 0, 0);
+        OpenTextWindow_0205d304(arg0->unknown_2b4_, var11, 0, 0, 0, 1, 0, 0);
 #endif
         func_0205d0e0(arg0->unknown_2b4_, 1);
         func_0205d0e0(arg0->unknown_2b4_, 1);
         func_0205d228((Struct_0205d228*)arg0->unknown_2b4_);
-        func_0205d274((Struct_0205d274*)arg0->unknown_2b4_);
-        func_0205d2bc((Struct_0205d2bc*)arg0->unknown_2b4_);
+        func_0205d274((TextWindowManager_0205d274*)arg0->unknown_2b4_);
+        func_0205d2bc((TextWindowManager_0205d2bc*)arg0->unknown_2b4_);
         func_020d86d0(0, 1);
         func_020c9820();
         func_020c38d4();
@@ -521,7 +521,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             arg0->unknown_4e4_ = 1000;
             WAIT_TIMER(arg0)
 #else
-            func_020c5588(0x7fff, 0x1f, 0x7fff, 0, 0);
+            Set3DClearColorAndDepth_020c5588(0x7fff, 0x1f, 0x7fff, 0, 0);
             func_ov020_0218cd98(arg0);
             func_020c38d4();
             *(volatile unsigned int*)0x4001000 |= 0x10000;
@@ -588,7 +588,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             WAIT_FADE(arg0)
             arg0->unknown_4e4_ = 1000;
             WAIT_TIMER(arg0)
-            func_020c5588(0, 0x1f, 0x7fff, 0, 0);
+            Set3DClearColorAndDepth_020c5588(0, 0x1f, 0x7fff, 0, 0);
 #endif
         }
         func_02012010(var0, 5);
@@ -648,7 +648,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         func_0205cc50(arg0->unknown_c_, 0, -4);
 #endif
         func_0205bcdc((Struct_0205bcdc*)arg0->unknown_2c_, 0);
-        func_0205bb04(arg0->unknown_7c_, 0);
+        SetMenuCursorIndex_0205bb04(arg0->unknown_7c_, 0);
         MapVRAMBanksToMainObj(2);
 
         BackgroundLoader* var26 = BackgroundLoader::GetInstance();

@@ -64,7 +64,7 @@ struct Struct_ov025_021e9d14_3 {
     unsigned short unknown_e_;
 };
 
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f20(void* arg0);
 extern "C" int func_ov025_021def24(void* arg0);
 extern "C" void* func_ov000_02160f08(void* arg0);
@@ -73,7 +73,7 @@ extern "C" struct Struct_ov025_021e9d14_3* func_ov025_021dafd0(char* arg0, int a
 extern "C" struct Struct_0203a588_2* func_02039e70(void);
 struct Struct_0203a48c_2;
 extern "C" void func_0203a48c(Struct_0203a48c_3*, int, Struct_0203a48c_2*, int, int, int);
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_02078484(struct Struct_02078398_2* arg0);
 extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -83,13 +83,13 @@ extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 // USA: func_ov025_021e9d14
 extern "C" ARM void func_ov025_021e9d14(void) {
-    void* var0 = func_ov000_02160130();
+    void* var0 = GetBattleScene_ov000_02160130();
     struct Struct_ov025_021e9d14_6* var1 = (struct Struct_ov025_021e9d14_6*)func_ov000_02160f20(var0);
     if (func_ov025_021def24(var0) != 0) {
         return;
     }
     GameState* var2 = GameState::GetInstance();
-    char* var3 = (char*)func_ov000_02160f08(func_ov000_02160130());
+    char* var3 = (char*)func_ov000_02160f08(GetBattleScene_ov000_02160130());
     struct Struct_ov025_021e9d14_5* var4 = var1->unknown_10_;
     if (func_ov000_0215feb4((char*)var4, 0, 5) != NULL) {
         return;
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov025_021e9d14(void) {
                 Vector3fix var11 = var8->obj3D_.position_;
                 var11.y += var8->obj3D_.GetHeight();
                 func_0203a48c(var10, var9, (Struct_0203a48c_2*)&var11, 3, 0, 0);
-                void* var12 = func_02057924();
+                void* var12 = GetEffectManager_02057924();
                 struct Struct_02078398_2 var13;
                 func_02078484(&var13);
                 var13.unknown_2c_.y += var8->obj3D_.GetHeight() / 2;

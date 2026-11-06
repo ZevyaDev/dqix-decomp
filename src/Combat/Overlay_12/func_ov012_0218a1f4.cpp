@@ -25,7 +25,7 @@ extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2)
 extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
 extern "C" int func_02041d9c(char* arg0, int arg1);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
-extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
@@ -45,10 +45,10 @@ extern "C" ARM void func_ov012_0218a1f4(unsigned char* arg0, char* arg1) {
     func_02042428(arg1, 0xc);
     if (arg0[0x1341] == 9) {
         void* var1 = FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + 0x1314), 0x69);
-        func_02041b70(arg1, 0, (const char*)var1);
+        AppendMenuEntry_02041b70(arg1, 0, (const char*)var1);
     } else {
         void* var2 = FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + 0x1314), 0x66);
-        func_02041b70(arg1, 0, (const char*)var2);
+        AppendMenuEntry_02041b70(arg1, 0, (const char*)var2);
     }
 #else
     SetMessageNumber_020465c0(var0, 0, *(unsigned short*)(arg0 + 0x13fc));
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov012_0218a1f4(unsigned char* arg0, char* arg1) {
     int var3 = 0x64;
     if (arg0[0x1371] == 7) var3 = 0x67;
     void* var4 = FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + 0x133c), var3);
-    func_02041b70(arg1, 0, (const char*)var4);
+    AppendMenuEntry_02041b70(arg1, 0, (const char*)var4);
 
     void* var5 = FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + 0x133c), 0x2a);
     int var6 = func_020420e8((char*)var5, 0);

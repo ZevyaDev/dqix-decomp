@@ -9,7 +9,7 @@ enum { Enum_02017c58_1052 = 0x41c };
 #endif
 
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void func_0206eb20(void* arg0, void* arg1, int arg2, int arg3);
 extern "C" void func_0206ea8c(void* arg0, unsigned char arg1, short arg2, int arg3);
 
@@ -35,7 +35,7 @@ extern "C" ARM void func_02017c58(void* arg0) {
     if (var0 == NULL) {
         return;
     }
-    char* var1 = (char*)func_0200fd0c(var0);
+    char* var1 = (char*)GetZoneEntry_0200fd0c(var0);
     if (var1 == NULL) {
         return;
     }

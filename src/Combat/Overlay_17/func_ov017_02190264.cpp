@@ -34,7 +34,7 @@ extern "C" void func_020531f0(GameObject*);
 extern "C" void func_020545ac(short*);
 extern "C" int func_020115a8(Struct_02000c9c_12*);
 extern "C" void func_0200fd48(GameState*, int);
-extern "C" GameObject* func_0200ff58(GameState*, int);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void func_ov017_02190884(int, Struct_ov017_02190264_2*, int*, int, int, int);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov017_02190264(GameResources* arg0, int arg1) {
         func_02046a8c(arg0->unknown_ptr_array_36fc[1], var7);
         func_ov017_021b33d8(var7);
     }
-    GameObject* var8 = func_0200ff1c(var1, arg1);
+    GameObject* var8 = GetPartyMemberBaseByIndex_0200ff1c(var1, arg1);
     if (var8) {
         if (IsLocalWirelessOn_0202b7d8(var2) && (var8->obj3D_.classFlags_0_ & 0x200)) {
             short* var9 = (short*)func_020120a0((char*)var1, arg1);
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov017_02190264(GameResources* arg0, int arg1) {
     GameState* var15 = GameState::GetInstance();
     Struct_ov017_02190264* var16[4] = {};
     for (var14 = 1; var14 < 4; var14++) {
-        Struct_ov017_02190264* var17 = (Struct_ov017_02190264*)func_0200ff58(var15, var14);
+        Struct_ov017_02190264* var17 = (Struct_ov017_02190264*)GetCompanionByIndex_0200ff58(var15, var14);
         if (var17) var16[var17->unknown_2d2_] = var17;
     }
     int var18;

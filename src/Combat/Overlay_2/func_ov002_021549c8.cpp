@@ -3,7 +3,7 @@
 
 // USA: func_ov002_021549c8
 extern "C" ARM int func_ov002_021549c8(void* arg0, int arg1, int arg2, unsigned char* arg3) {
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg1);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1);
     if (!var0) {
         return 0;
     }

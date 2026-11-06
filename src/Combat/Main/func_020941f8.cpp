@@ -34,9 +34,9 @@ struct PacEntry_02020aec;
 extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" unsigned char func_020938cc();
-extern "C" ARM void func_0205a444(char* arg0);
+extern "C" ARM void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" ARM void func_0205a494(void* arg0);
-extern "C" ARM int func_0205a528(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" ARM int LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, int allocator);
 extern "C" int func_020937f0(int arg0);
 extern const char data_020f1394[];
 
@@ -69,15 +69,15 @@ extern "C" ARM int func_020941f8(struct Struct_020941f8_2* arg0) {
             if (var7 != 0) {
                 struct Struct_020941f8 var8;
                 int var9;
-                func_0205a444((char*)&var8);
-                func_0205a444((char*)&var8);
+                InitSpriteSet_0205a444((char*)&var8);
+                InitSpriteSet_0205a444((char*)&var8);
                 var8.unknown_50_ = (unsigned char)arg0->unknown_3c8_7_;
                 var8.unknown_44_ = var7 - 0xa00;
                 for (var9 = 0; var9 < var6; var9++) {
                     void* var10;
                     var5 = 0;
                     var10 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var3, var9, &var2, &var5);
-                    func_0205a528(&var8, var10, var5, 0);
+                    LoadSpriteSetFile_0205a528(&var8, var10, var5, 0);
                 }
                 func_0205a494(&var8);
             }

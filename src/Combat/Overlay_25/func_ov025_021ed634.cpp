@@ -102,10 +102,10 @@ extern "C" void* func_ov017_021b8470(void* arg0);
 extern "C" int func_ov000_02159f7c(void* arg0, Struct_ov000_02159f7c* arg1);
 extern "C" int func_ov000_0215fd90(void* arg0, int arg1);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
-extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 class GameObject;
 extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void func_020e4ce8(void* arg0, void* arg1, int arg2);
 extern "C" void func_02046504(char* arg0, char* arg1);
 extern "C" void func_020464dc(void*, signed char);
@@ -113,17 +113,17 @@ extern "C" void func_0204653c(void* arg0, char* arg1);
 extern "C" int func_ov000_0215fb9c(int arg0, unsigned short arg1);
 extern "C" void func_020488ec(char* arg0);
 extern "C" void func_02046558(void* arg0, char* arg1);
-extern "C" Struct_ov025_021ebb90* func_02079e2c(char* arg0, int arg1);
+extern "C" Struct_ov025_021ebb90* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" void func_020e4e38(void* arg0, Struct_020e4e38* arg1);
 extern "C" void func_02046520(char* arg0, char* arg1);
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" char* func_ov000_02160f08(void* arg0);
 extern "C" void* func_ov025_021dafd0(char* arg0, int arg1);
 extern "C" Struct_ov025_021ed634_7* func_02054000(Struct_02054000* arg0);
 extern "C" void func_020e46c4(void* arg0);
 extern "C" void func_020dcf7c(int arg0, void* arg1);
 extern "C" unsigned char func_020114ec(char*, void*);
-extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
 extern "C" char* func_ov000_0216fcfc(void* arg0, int arg1);
 extern "C" unsigned int strlen(const char* arg0);
@@ -140,7 +140,7 @@ extern "C" int func_ov025_021ed5a4(int, char*);
 extern "C" void* func_ov000_02171674(void*, int);
 extern "C" void* func_ov000_0217199c(void*, int);
 struct Struct_02046574_2;
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" void func_020474a8(void*, int, char*, char*);
 extern "C" void StartMessage_0204500c(void*, char*, int);
 extern "C" void func_02043270(void*, int, int, int, int);
@@ -344,7 +344,7 @@ SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var28);
 
 #else
             if (inline_ov025_021ed634(var20)) {
-                func_020e4bf4(var10, var20);
+                InitPartyMemberNoun_020e4bf4(var10, var20);
             } else {
                 GameObject* var59 = func_0200fea4(var0, var20);
                 if (var59 != 0) {
@@ -375,7 +375,7 @@ SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var28);
             if (var26 != 0) var25 = var26->unknown_20_;
             int var60 = inline_ov025_021ed634(var25) ? 1 : 0;
             if (var60 != 0) {
-                func_020e4bf4(var9, var25);
+                InitPartyMemberNoun_020e4bf4(var9, var25);
                 ((Struct_ov025_021ed634_2*)var1)->unknown_0_ = (int)var9;
             } else {
                 GameObject* var61 = func_0200fea4(var0, var25);
@@ -389,7 +389,7 @@ SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var28);
             func_020464dc(var1, (signed char)var25);
             int var62 = inline_ov025_021ed634(var25) ? 1 : 0;
             if (var62 != 0) {
-                func_020e4bf4(var9, var25);
+                InitPartyMemberNoun_020e4bf4(var9, var25);
                 ((Struct_ov025_021ed634_2*)var1)->unknown_0_ = (int)var9;
             } else {
                 GameObject* var63 = func_0200fea4(var0, var25);
@@ -426,7 +426,7 @@ SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var28);
 
 #else
             if (inline_ov025_021ed634(var20)) {
-                func_020e4bf4(var10, var20);
+                InitPartyMemberNoun_020e4bf4(var10, var20);
             } else {
                 GameObject* var66 = func_0200fea4(var0, var20);
                 func_020e4ce8(var10, var66, 1);
@@ -445,13 +445,13 @@ SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var28);
 #else
         func_02046558(var1, var17);
 #endif
-        Struct_02108e10* var68 = func_020797dc();
+        ActionTables_02108e10* var68 = GetActionTables_020797dc();
         Struct_ov000_0215440c* var69 = arg0->unknown_164_;
         Struct_ov025_021ebb90* var70;
         if (var69->unknown_0_ == 0x1f8 || var69->unknown_0_ == 0x3a9 || var69->unknown_0_ == 0x3a7 || var69->unknown_0_ == 0x3ac || var69->unknown_0_ == 0x3ad || var69->unknown_0_ == 0x392) {
-            var70 = func_02079e2c((char*)var68, var69->unknown_2_);
+            var70 = FindActionData_02079e2c((char*)var68, var69->unknown_2_);
         } else {
-            var70 = func_02079e2c((char*)var68, (short)var69->unknown_0_);
+            var70 = FindActionData_02079e2c((char*)var68, (short)var69->unknown_0_);
         }
         if (var70 != 0) {
 #if defined(jpn)
@@ -469,7 +469,7 @@ SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var28);
 #endif
 #if defined(jpn)
         if (var26 != 0) {
-            char* var71 = func_ov000_02160f08(func_ov000_02160130());
+            char* var71 = func_ov000_02160f08(GetBattleScene_ov000_02160130());
             int var72 = var26->unknown_20_;
             char* var73;
             if (inline_ov025_021ed634(var72)) {
@@ -488,7 +488,7 @@ found_entry:
                 if (*(signed char*)arg0->unknown_16c_ != 0) {
                     func_02046504(var1, arg0->unknown_16c_);
                     if (*(short*)((char*)arg0->unknown_164_ + 4) != 0)
-                        func_02046574((Struct_02046574_2*)var1, 0, arg0->unknown_16c_);
+                        SetMessageString_02046574((Struct_02046574_2*)var1, 0, arg0->unknown_16c_);
                 } else if (var75 != 0) func_02046504(var1, *(char**)var75);
                 else if (var76 != 0) func_02046504(var1, *(char**)var76);
             }
@@ -496,13 +496,13 @@ found_entry:
 
 #else
         if (var26 != 0) {
-            char* var77 = func_ov000_02160f08(func_ov000_02160130());
+            char* var77 = func_ov000_02160f08(GetBattleScene_ov000_02160130());
             Struct_ov025_021ed634_6* var78 = (Struct_ov025_021ed634_6*)func_ov025_021dafd0(var77, var26->unknown_20_);
             if (inline_ov025_021ed634_3(var26->unknown_20_)) {
                 int var79 = var78->unknown_2c_;
                 if (arg0->unknown_1ac_ != 0) var79 = (short)arg0->unknown_1ac_;
                 if (var19 == 0x257 || var19 == 0xc) {
-                    GameObject* var80 = func_0200ff1c(var0, var26->unknown_20_);
+                    GameObject* var80 = GetPartyMemberBaseByIndex_0200ff1c(var0, var26->unknown_20_);
                     if (var80 != 0) {
                         Struct_ov025_021ed634_7* var81 = func_02054000((Struct_02054000*)var80);
                         if (var81 != 0) var79 = var81->unknown_18_;
@@ -540,8 +540,8 @@ found_entry:
         int var82 = func_020114ec((char*)var0, var16);
         unsigned char var83 = 0;
         unsigned char var84 = 0;
-        unsigned char* var85 = (unsigned char*)func_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
-        char* var86 = func_ov000_02160f08(func_ov000_02160130());
+        unsigned char* var85 = (unsigned char*)GetBattleSetup_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
+        char* var86 = func_ov000_02160f08(GetBattleScene_ov000_02160130());
         for (int var87 = 0; var87 < var82; var87++) {
             Struct_ov025_021ed634_5* var88 = (Struct_ov025_021ed634_5*)func_ov025_021dafd0(var86, (unsigned char)var16[var87]);
             if (var88 != 0 && func_020a35e0(var85, var16[var87]) != 0) {

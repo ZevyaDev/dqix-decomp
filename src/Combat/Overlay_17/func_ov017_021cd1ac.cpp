@@ -27,7 +27,7 @@ struct Struct_ov017_021cd1ac_3 {
 extern "C" ARM void func_ov017_021cd1ac(int arg0, unsigned char* arg1, GameState* arg2) {
     Struct_ov017_021cd1ac_2* var0 = &((Struct_ov017_021cd1ac_3*)arg1)->unknown_4_;
     Struct_ov017_021cd1ac* var1 = &var0->unknown_0_;
-	GameObject* var2 = func_0200ff1c(arg2, var1->unknown_0_0_);
+	GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var1->unknown_0_0_);
 	if (!var2) return;
 	unsigned char* var3 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var2);
 	if (!var3) return;

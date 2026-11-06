@@ -32,7 +32,7 @@ struct Struct_ov003_0215f698_2 {
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int func_0202bae4(void* arg0);
 extern "C" struct Struct_0202bad4* func_0202bad4(struct Struct_0202bad4_2* arg0, int arg1);
-extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
+extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02042764(void* arg0, char* arg1, int arg2);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov003_0215f698(struct Struct_ov003_0215f698* arg0, shor
         int var6 = 0;
         for (short var7 = 0; var7 < *arg1; var7++) {
             var2 = &arg0[var7];
-            if (var5->unknown_43_ == 0 && func_02001aec(var2->unknown_15_, var5->unknown_4_, 6) == 0 && !var5->unknown_65_3_ && !var5->unknown_65_4_) {
+            if (var5->unknown_43_ == 0 && CompareBytes_02001aec(var2->unknown_15_, var5->unknown_4_, 6) == 0 && !var5->unknown_65_3_ && !var5->unknown_65_4_) {
                 var2->unknown_0_7_ = 1;
                 var2->unknown_0_0_ = 1;
                 memcpy(var2->unknown_1_, var5->unknown_50_, 0x14);
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov003_0215f698(struct Struct_ov003_0215f698_2* arg0, sh
         int var15 = 0;
         for (short var16 = 0; var16 < *arg1; var16++) {
             var11 = &arg0[var16];
-            if (var14->unknown_43_ == 0 && func_02001aec(var11->unknown_31_, var14->unknown_4_, 6) == 0 && !var14->unknown_65_3_ && var14->unknown_65_4_ &&
+            if (var14->unknown_43_ == 0 && CompareBytes_02001aec(var11->unknown_31_, var14->unknown_4_, 6) == 0 && !var14->unknown_65_3_ && var14->unknown_65_4_ &&
                 var14->unknown_65_5_) {
                 char var17[0x30];
                 var11->unknown_0_7_ = 1;

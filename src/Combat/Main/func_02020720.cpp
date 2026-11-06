@@ -9,8 +9,8 @@
 #include "Combat/MapDisplay.h"
 #include "Combat/CombatScriptContext.h"
 
-struct Struct_02020cb8;
-extern "C" ARM void func_0204af64(struct Struct_02020cb8* arg0);
+struct BGLayer_02020cb8;
+extern "C" ARM void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
 extern "C" ARM void func_0202445c(void* arg0);
 
@@ -45,7 +45,7 @@ extern "C" ARM void func_02020720(Struct_02020554* arg0) {
         arg0->unknown_558_[var1] = 1;
     }
 
-    func_0204af64(&arg0->unknown_4c_);
+    InitBGLayer_0204af64(&arg0->unknown_4c_);
 
     arg0->unknown_75c_ = 0;
     arg0->unknown_75d_ = 0;

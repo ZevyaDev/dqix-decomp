@@ -6,8 +6,8 @@
 #include <globaldefs.h>
 
 struct Struct_0205c53c;
-struct Struct_0205ba68;
-struct Struct_0205bacc;
+struct MenuCursor_0205ba68;
+struct MenuCursor_0205bacc;
 struct Struct_0205bcdc;
 
 struct Struct_ov005_021571d0 {
@@ -62,16 +62,16 @@ struct Struct_ov005_02153954 {
 };
 
 extern "C" void func_0205c53c(Struct_0205c53c* arg0);
-extern "C" void func_0205ba68(Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0205bacc(Struct_0205bacc* arg0, int arg1);
+extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
+extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc* cursor, int itemCount);
 extern "C" void func_0205bcdc(Struct_0205bcdc* arg0, int arg1);
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void func_ov005_02159a30(Struct_ov005_02153954* arg0, char* arg1, int arg2);
 #if defined(jpn)
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 // USA: func_ov005_02159904
@@ -80,39 +80,39 @@ extern "C" ARM void func_ov005_02159904(Struct_ov005_02153954* arg0) {
     func_0205c53c((Struct_0205c53c*)var0);
 #if defined(jpn)
     if (arg0->unknown_3dbb_ >= 0 && arg0->unknown_3dbb_ < 8) {
-    func_0205ba68((Struct_0205ba68*)&var0->unknown_4_, 1, 3, 0);
-    func_0205ba68((Struct_0205ba68*)&var0->unknown_54_, 1, 3, 0);
-    func_0205bacc((Struct_0205bacc*)&var0->unknown_4_, 3);
-    func_0205bacc((Struct_0205bacc*)&var0->unknown_54_, 3);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var0->unknown_4_, 1, 3, 0);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var0->unknown_54_, 1, 3, 0);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&var0->unknown_4_, 3);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&var0->unknown_54_, 3);
     var0->unknown_4_.unknown_4_ = 1;
     var0->unknown_54_.unknown_4_ = 1;
     int var1 = arg0->unknown_3dde_;
     func_0205bcdc((Struct_0205bcdc*)&var0->unknown_4_, var1);
-    func_0205bb04(&var0->unknown_54_, var1);
+    SetMenuCursorIndex_0205bb04(&var0->unknown_54_, var1);
     } else {
-    func_0205ba68((Struct_0205ba68*)&var0->unknown_4_, 1, 4, 0);
-    func_0205ba68((Struct_0205ba68*)&var0->unknown_54_, 1, 4, 0);
-    func_0205bacc((Struct_0205bacc*)&var0->unknown_4_, 4);
-    func_0205bacc((Struct_0205bacc*)&var0->unknown_54_, 4);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var0->unknown_4_, 1, 4, 0);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var0->unknown_54_, 1, 4, 0);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&var0->unknown_4_, 4);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&var0->unknown_54_, 4);
     var0->unknown_4_.unknown_4_ = 1;
     var0->unknown_54_.unknown_4_ = 1;
     int var2 = arg0->unknown_3dde_;
     func_0205bcdc((Struct_0205bcdc*)&var0->unknown_4_, var2);
-    func_0205bb04(&var0->unknown_54_, var2);
+    SetMenuCursorIndex_0205bb04(&var0->unknown_54_, var2);
     }
 #else
     int var3 = 4;
     if (arg0->unknown_3dbb_ >= 0 && arg0->unknown_3dbb_ < 8)
         var3 = 3;
-    func_0205ba68((Struct_0205ba68*)&var0->unknown_4_, 1, var3, 0);
-    func_0205ba68((Struct_0205ba68*)&var0->unknown_54_, 1, var3, 0);
-    func_0205bacc((Struct_0205bacc*)&var0->unknown_4_, var3);
-    func_0205bacc((Struct_0205bacc*)&var0->unknown_54_, var3);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var0->unknown_4_, 1, var3, 0);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var0->unknown_54_, 1, var3, 0);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&var0->unknown_4_, var3);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&var0->unknown_54_, var3);
     var0->unknown_4_.unknown_4_ = 1;
     var0->unknown_54_.unknown_4_ = 1;
     int var4 = arg0->unknown_3dde_;
     func_0205bcdc((Struct_0205bcdc*)&var0->unknown_4_, var4);
-    func_0205bb04(&var0->unknown_54_, var4);
+    SetMenuCursorIndex_0205bb04(&var0->unknown_54_, var4);
 #endif
 #if defined(jpn)
     arg0->unknown_ee4_.unknown_a0_ = 8;
@@ -141,8 +141,8 @@ extern "C" ARM void func_ov005_02159904(Struct_ov005_02153954* arg0) {
     memset(arg0->unknown_e10_, 0, LOW_REGION(0x800, 0x960));
     func_ov005_02159a30(arg0, arg0->unknown_e10_, 0);
 #if defined(jpn)
-    func_0205d304(arg0->inline_ov005_02158e04(), arg0->unknown_e10_, 0, 1, 0, 0, 0);
+    OpenTextWindow_0205d304(arg0->inline_ov005_02158e04(), arg0->unknown_e10_, 0, 1, 0, 0, 0);
 #else
-    func_0205d304(var0, arg0->unknown_e10_, 0, 1, 0, 0, 0, 0);
+    OpenTextWindow_0205d304(var0, arg0->unknown_e10_, 0, 1, 0, 0, 0, 0);
 #endif
 }

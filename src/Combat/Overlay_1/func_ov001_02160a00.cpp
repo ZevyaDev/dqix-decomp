@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void* GetLocalWireless_0202ae18(void*);
-extern "C" void func_ov017_021d6134(void*, int);
+extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
@@ -22,6 +22,6 @@ setOne:
 setZero:
     var1 = 0;
 call:
-    func_ov017_021d6134(arg0, var1);
+    SetScriptRefInt_ov017_021d6134(arg0, var1);
     return 1;
 }

@@ -25,7 +25,7 @@ struct Struct_ov002_0216ccc4 {
     int unknown_4_[2];
 };
 
-extern "C" void *func_02079e2c(char *arg0, int arg1);
+extern "C" void *FindActionData_02079e2c(char *actionTables, int actionId);
 
 extern "C" unsigned int data_ov002_0216d3a0[2];
 extern "C" Type_ov002_021536ec data_020e6d5c;
@@ -38,7 +38,7 @@ extern "C" struct Struct_ov002_0216ccc4 data_ov002_0216ccc4[3];
 extern "C" ARM int func_ov002_021536ec(Struct_ov002_021536ec *arg0, short *arg1) {
     if (arg0->unknown_0_ == NULL) return 0;
     if (arg1 == NULL) return 0;
-    struct Struct_ov002_021536ec_2 *var0 = (struct Struct_ov002_021536ec_2 *) func_02079e2c(arg0->unknown_0_, *arg1);
+    struct Struct_ov002_021536ec_2 *var0 = (struct Struct_ov002_021536ec_2 *) FindActionData_02079e2c(arg0->unknown_0_, *arg1);
     if (var0 == NULL) return 0;
     struct Struct_ov002_0216ccc0 *var1;
 

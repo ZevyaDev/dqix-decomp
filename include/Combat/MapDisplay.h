@@ -10,7 +10,7 @@ struct Struct_020210f8 {
     char unknown_8_[0x1c];
 };
 
-struct Struct_02043368_2 {
+struct Sprite_02043368_2 {
     unsigned short unknown_0_, unknown_2_;
     void* unknown_4_;
     void* unknown_8_;
@@ -23,7 +23,7 @@ struct Struct_02043368_2 {
 
 struct Struct_02021578 {
     unsigned char unknown_0_[0x40];
-    Struct_02043368_2* unknown_40_;
+    Sprite_02043368_2* unknown_40_;
     unsigned char unknown_44_[8];
     unsigned short unknown_4c_;
     unsigned short unknown_4e_;
@@ -31,15 +31,15 @@ struct Struct_02021578 {
     unsigned char unknown_51_[3];
 };
 
-struct Struct_02020cb8 {
+struct BGLayer_02020cb8 {
     int unknown_0_;
     char unknown_4_[8];
     unsigned char unknown_c_;
     unsigned char unknown_d_;
     unsigned short unknown_e_;
-    int unknown_10_, unknown_14_, unknown_18_;
+    int screenBlocks_10_, screenData_14_, screenSize_18_;
     unsigned char unknown_1c_0_ : 4;
-    unsigned char unknown_1c_4_ : 4;
+    unsigned char bgIndex_1c_4_ : 4;
     unsigned char unknown_1d_, unknown_1e_, unknown_1f_;
 };
 
@@ -68,13 +68,13 @@ struct Struct_02020554 {
     fix32_t unknown_40_;
     int unknown_44_;
     int unknown_48_;
-    Struct_02020cb8 unknown_4c_;
+    BGLayer_02020cb8 unknown_4c_;
     void* unknown_6c_;
     int unknown_70_;
     int unknown_74_;
     unsigned char unknown_78_[0x94 - 0x78];
     Struct_02021578 unknown_94_;
-    Struct_02043368_2 unknown_e8_[28];
+    Sprite_02043368_2 unknown_e8_[28];
     char unknown_548_[0x10];
     unsigned char unknown_558_[4];
     unsigned char unknown_55c_;

@@ -8,13 +8,13 @@ extern unsigned char data_ov004_02170838[];
 extern unsigned char data_ov004_021707e8;
 #if defined(jpn)
 
-extern "C" GameObject* func_0200ff1c(GameState*, int);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 #else
 #endif
 
 // USA: func_ov004_0215e9dc
 extern "C" ARM int func_ov004_0215e9dc(void* arg0, void* arg1, int arg2, int arg3) {
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), (int)arg1);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), (int)arg1);
     int var1 = arg2;
 
     if (data_ov004_02170854[var1] == 0) {

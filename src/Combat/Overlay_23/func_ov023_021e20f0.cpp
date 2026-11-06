@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-extern "C" int func_02001aec(unsigned char* arg0, unsigned char* arg1, int arg2);
+extern "C" int CompareBytes_02001aec(unsigned char* left, unsigned char* right, int count);
 extern "C" void memcpy(void* arg0, const void* arg1, int arg2);
 
 extern unsigned char data_ov023_021fdc90;
@@ -86,7 +86,7 @@ extern "C" ARM int func_ov023_021e20f0(struct Struct_ov023_021e20f0_5* arg0, Saf
     if (arg2 == 0) return 1;
     if (arg3 == 0) return 1;
 
-    if (func_02001aec((unsigned char*)((char*)arg2 + 8), &data_ov023_021fdc90, 3) != 0) {
+    if (CompareBytes_02001aec((unsigned char*)((char*)arg2 + 8), &data_ov023_021fdc90, 3) != 0) {
         return 1;
     }
 

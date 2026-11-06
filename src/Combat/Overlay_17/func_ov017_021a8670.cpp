@@ -9,15 +9,15 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-struct Struct_0204693c;
-extern "C" void func_0204693c(struct Struct_0204693c* arg0);
+struct QueueNode_0204693c;
+extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
 extern "C" void func_0205c790(char* arg0);
-struct Struct_0201099c_14;
-extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
+struct StringTable_0201099c_14;
+extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 
 // USA: func_ov017_021a8670
 extern "C" ARM void func_ov017_021a8670(char* arg0) {
-	func_0204693c((struct Struct_0204693c*)arg0);
+	ResetQueueNode_0204693c((struct QueueNode_0204693c*)arg0);
 	arg0[0] = 0x38;
 	*(int*)(arg0 + 0x8) = 0;
 	*(int*)(arg0 + 0x28) = -1;
@@ -28,5 +28,5 @@ extern "C" ARM void func_ov017_021a8670(char* arg0) {
 	*(int*)(arg0 + 0x20) = 0;
 	func_0205c790(arg0 + 0x2c);
 	((SafeAllocator*)(arg0 + ALLOC_OFFSET))->ResetAllocatorPointer();
-	func_020dfc40((struct Struct_0201099c_14*)(arg0 + RESET_OFFSET));
+	InitStringTable_020dfc40((struct StringTable_0201099c_14*)(arg0 + RESET_OFFSET));
 }

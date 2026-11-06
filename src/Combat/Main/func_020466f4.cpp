@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-struct Struct_02038598_4 {
-    unsigned int unknown_0_;
+struct GlobalFlags_02038598_4 {
+    unsigned int bits_0_;
 };
 
-// USA: func_020466f4
-extern "C" ARM void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1) {
-    arg0->unknown_0_ &= ~arg1;
+// USA: ClearGlobalFlags_020466f4
+extern "C" ARM void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask) {
+    globalFlags->bits_0_ &= ~mask;
 }

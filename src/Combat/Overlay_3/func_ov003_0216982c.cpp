@@ -31,19 +31,19 @@ enum { Enum_ov003_0216982c_409 = 0x199 };
 
 #if defined(jpn)
 extern "C" void func_02042428(void*, int);
-extern "C" void func_0205d304(void*, void*, int, int, int, int, int);
+extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 #endif
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-struct Struct_0205de24_2;
-extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+struct TextWindowManager_0205de24_2;
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" int func_020e51cc(int arg0);
+extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 struct MessageWindow_020465c0;
@@ -52,7 +52,7 @@ extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2)
 extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
 
 #if !defined(jpn)
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 // USA: func_ov003_0216982c
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov003_0216982c(unsigned char* arg0) {
     int var1 = GetMessageWindow_020421a0();
     void* var2 = GetParty_02010828(var0);
 
-    func_0205de24((struct Struct_0205de24_2*)(arg0 + Enum_ov003_0216982c_228), 0, 2);
+    SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)(arg0 + Enum_ov003_0216982c_228), 0, 2);
 
     *(short*)(arg0 + 0x100 + Enum_ov003_0216982c_132) = 0xb;
     *(short*)(arg0 + 0x100 + Enum_ov003_0216982c_134) = 2;
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov003_0216982c(unsigned char* arg0) {
     int var3 = FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0x64), 0x65);
     AppendText_02042058((char*)*(void**)(arg0 + 0x7c), (const char*)var3);
 #else
-    int var4 = func_020e51cc(0x3f1);
+    int var4 = GetStandardString_020e51cc(0x3f1);
     AppendText_02042058((char*)*(void**)(arg0 + 0x7c), (const char*)var4);
 #endif
 
@@ -93,8 +93,8 @@ extern "C" ARM void func_ov003_0216982c(unsigned char* arg0) {
     func_020465d8((unsigned char*)var1, 0, 1);
 
 #if defined(jpn)
-    func_0205d304(arg0 + Enum_ov003_0216982c_228, *(void**)(arg0 + 0x7c), 0, 0, 0, 1, 0);
+    OpenTextWindow_0205d304(arg0 + Enum_ov003_0216982c_228, *(void**)(arg0 + 0x7c), 0, 0, 0, 1, 0);
 #else
-    func_0205d304(arg0 + Enum_ov003_0216982c_228, *(void**)(arg0 + 0x7c), 0, 0, 0, 1, 0, 0);
+    OpenTextWindow_0205d304(arg0 + Enum_ov003_0216982c_228, *(void**)(arg0 + 0x7c), 0, 0, 0, 1, 0, 0);
 #endif
 }

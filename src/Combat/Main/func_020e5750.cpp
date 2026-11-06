@@ -15,7 +15,7 @@ struct Struct_020e5750 {
 };
 struct Struct_020e5750_2;
 
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" void func_020e587c(struct Struct_020e5750_2* arg0, struct Struct_020e5750* arg1);
 
 extern void* data_021536c4[2];
@@ -30,7 +30,7 @@ extern "C" ARM int func_020e5750(void* arg0) {
     var0.unknown_4_ = ((Script::Parameter*)((struct Struct_0201c1c8*)((char*)arg0 + 0x10)))->ToInt();
     var1 = (char*)(void*)((Script::Parameter*)((struct Struct_0201c3a4*)((char*)arg0 + 0x18)))->ToString();
     if (var1) {
-        int var2 = func_020d2ff0(var1);
+        int var2 = GetStringLength_020d2ff0(var1);
         char* var3 = (char*)((SafeAllocator*)data_021536c4[0])->Allocate(var2 + 1);
         var0.unknown_10_ = (int)var3;
         sprintf(var3, var1);

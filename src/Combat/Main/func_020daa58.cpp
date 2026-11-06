@@ -6,13 +6,13 @@ struct Struct_020daa58 { int unknown_0_; int unknown_4_; };
 
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
-extern "C" int func_02057924(void);
+extern "C" int GetEffectManager_02057924(void);
 extern "C" int func_02057e6c(int, int, int, int, int, int);
 extern const char data_020f28cb;
 
 // USA: func_020daa58
 extern "C" ARM int func_020daa58(Struct_020daa58* arg0, GPCFile* arg1, int arg2, int arg3) {
-    int var0 = func_02057924();
+    int var0 = GetEffectManager_02057924();
     int var1;
     int var2 = arg0->unknown_0_;
     int var3 = arg0->unknown_4_;

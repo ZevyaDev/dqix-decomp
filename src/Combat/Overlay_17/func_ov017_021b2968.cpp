@@ -10,7 +10,7 @@ struct Struct_02012de8;
 extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
 void SetMainBrightness(GameResources*, int, int);
 void SetBrightness(GameResources*, int, int);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 
 struct Struct_ov017_021b2968 {
     unsigned char unknown_0_;
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov017_021b2968(struct Struct_ov017_021b2968* arg0) {
     GameState* var4 = GameState::GetInstance();
     GameObject* var5 = var4->GetUnknownGameObject();
     if (var5) {
-        func_020397c0(var5);
+        EnablePlayerControl_020397c0(var5);
     }
 
     arg0->unknown_1_ = 1;

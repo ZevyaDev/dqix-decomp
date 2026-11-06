@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 
 struct Struct_ov001_02161524 { int unknown_0_; unsigned char unknown_4_[0x18 - 4]; void* unknown_18_; };
 struct Struct_ov001_02161524_2 { int unknown_0_; unsigned char unknown_4_[0xc - 4]; struct Struct_ov001_02161524* unknown_c_; };
@@ -10,8 +10,8 @@ extern struct Struct_ov001_02165880_45 data_ov001_02165880;
 
 // USA: func_ov001_02161524
 extern "C" ARM int func_ov001_02161524(void* arg0) {
-    int var0 = func_ov017_021d60f4(arg0);
-    int var1 = func_ov017_021d60f4((char*)arg0 + 0x8);
+    int var0 = GetScriptValueAsInt_ov017_021d60f4(arg0);
+    int var1 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8);
     switch (data_ov001_02165880.unknown_4_[var0].unknown_0_) {
         case 0:
         case 1:

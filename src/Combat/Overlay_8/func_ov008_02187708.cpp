@@ -70,7 +70,7 @@ extern "C" void func_020727d8(Struct_020727d8* arg0);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
-extern "C" void func_02046574(MessageWindow_02021b84* arg0, int arg1, const void* arg2);
+extern "C" void SetMessageString_02046574(MessageWindow_02021b84* window, int index, const void* text);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void ClearMessageParams_02046380(MessageWindow_02021b84* window);
 extern "C" void func_020474a8(MessageWindow_02021b84* arg0, int arg1, const char* arg2, char* arg3);
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
             if (var3 <= 0)
                 var3 = 700 + var10->unknown_144_->unknown_8b8_;
             var5 = var10->unknown_144_->unknown_49c_0_;
-            func_02046574(var1, 1, var10->unknown_134_);
+            SetMessageString_02046574(var1, 1, var10->unknown_134_);
         }
     }
     else
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
         if (arg0->unknown_b30_ != NULL)
             var3 = arg0->unknown_b30_->unknown_14_;
         var5 = inline_ov008_02187708_3(arg0);
-        func_02046574(var1, 1, arg0->unknown_b2c_);
+        SetMessageString_02046574(var1, 1, arg0->unknown_b2c_);
     }
     if (var3 > 0)
     {
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
                 BackgroundLoader::RemoveLockGlobal();
             }
         }
-        func_02046574(var1, 0, var15);
+        SetMessageString_02046574(var1, 0, var15);
     }
     int var23 = 100;
     if (arg2 != NULL)
@@ -331,7 +331,7 @@ extern "C" void func_020727d8(Struct_020727d8* arg0);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
-extern "C" void func_02046574(Struct_02046574_2* arg0, int arg1, char* arg2);
+extern "C" void SetMessageString_02046574(Struct_02046574_2* window, int index, char* text);
 extern "C" char* func_020d2f88(char* arg0, char* arg1);
 extern "C" void func_02041a5c(char* arg0, int arg1);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
@@ -445,7 +445,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
                 BackgroundLoader::RemoveLockGlobal();
             }
         }
-        func_02046574((Struct_02046574_2*)var1, 0, (char*)var15);
+        SetMessageString_02046574((Struct_02046574_2*)var1, 0, (char*)var15);
     }
     char* var22 = arg0->unknown_b8_;
     int var23 = 100;

@@ -46,8 +46,8 @@ int fix32ReduceAngle0To2Pi(int);
 extern "C" void func_02033834(Struct_02033834_2*, int);
 extern "C" void func_02039d24(unsigned char*);
 extern "C" void func_02033b58(Struct_02033b58*, unsigned char);
-extern "C" int func_02046b08(void**);
-extern "C" void func_02033874(Struct_02033834*, int);
+extern "C" int IsQueueEmpty_02046b08(void**);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 
 // USA: func_020391ac
 extern "C" ARM void func_020391ac(Struct_020391ac_3* arg0) {
@@ -171,7 +171,7 @@ extern "C" ARM void func_020391ac(Struct_020391ac_3* arg0) {
         arg0->unknown_b4_ = 0x189;
     var8 = var6 + 0xb33;
     var9 = 1;
-    if (!func_02046b08(var12))
+    if (!IsQueueEmpty_02046b08(var12))
         var9 = 0;
     if (var7 >= 1 || (var4 > var8 && var9) || var3) {
         Vector3fix var21 = arg0->unknown_0_.position_;
@@ -185,7 +185,7 @@ extern "C" ARM void func_020391ac(Struct_020391ac_3* arg0) {
         Vector3fix_Normalize(&var23, &var23);
         var10 = fix32ReduceAngle0To2Pi(fix32_Atan2(var23.x, var23.z));
         if (var3)
-            func_02033874((Struct_02033834*)arg0, var1->unknown_0_.rotation_.y);
+            SetFacingInstantly_02033874((Struct_02033834*)arg0, var1->unknown_0_.rotation_.y);
         else
             func_02033834((Struct_02033834_2*)arg0, var10);
         if (var24 <= 0x800 && arg0->unknown_1cc_ != arg0->unknown_1cb_) {

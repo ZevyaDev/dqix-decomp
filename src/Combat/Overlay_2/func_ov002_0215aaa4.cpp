@@ -6,15 +6,15 @@
 #define REGION_VALUE(j, u) (u)
 #endif
 
-struct Struct_0205d81c;
-struct Struct_0205d0e0;
-extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+struct TextWindowManager_0205d81c;
+struct TextWindow_0205d0e0;
+extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" void func_ov002_02154bcc(int arg0, int arg1, void* arg2, int arg3, unsigned char arg4, unsigned char arg5);
 
 // USA: func_ov002_0215aaa4
 // KEEP-NAME
 extern "C" ARM void func_ov002_0215aaa4(char* arg0) {
-    struct Struct_0205d0e0* var0 = func_0205d81c((struct Struct_0205d81c*)(arg0 + REGION_VALUE(0xe20, 0xec8)), REGION_VALUE(0x24, 0x21));
+    struct TextWindow_0205d0e0* var0 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)(arg0 + REGION_VALUE(0xe20, 0xec8)), REGION_VALUE(0x24, 0x21));
     if (var0) {
         short var1 = *(short*)((char*)var0 + 0xac);
         short var2 = var1 * 8;

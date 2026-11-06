@@ -17,7 +17,7 @@ extern "C" int func_02041a28(char *arg0, int arg1);
 extern "C" int func_02041acc(char *arg0, int arg1);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_02041fac(char *arg0, int arg1, int arg2);
-extern "C" const char *func_020e51cc(int arg0);
+extern "C" const char *GetStandardString_020e51cc(int stringId);
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
 extern "C" void func_020465f0(unsigned char *arg0, int arg1, unsigned char arg2);
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov002_0215fcc0(char *arg0, char *arg1) {
         func_02041acc(var0, 0x10);
         AppendText_02042058(var0, var13);
         func_02041acc(var0, 4);
-        AppendText_02042058(var0, func_020e51cc(0x3f3));
+        AppendText_02042058(var0, GetStandardString_020e51cc(0x3f3));
         __clear(var2, 0x10);
         sprintf(var2, data_ov002_0216d285, var11);
         AppendText_02042058(var0, var2);
@@ -67,13 +67,13 @@ extern "C" ARM void func_ov002_0215fcc0(char *arg0, char *arg1) {
         func_02041a5c(var0, 4);
         AppendText_02042058(var0, var8);
         func_02041acc(var0, 0x12);
-        AppendText_02042058(var0, func_020e51cc(0x3f3));
+        AppendText_02042058(var0, GetStandardString_020e51cc(0x3f3));
         __clear(var3, 0x10);
         sprintf(var3, data_ov002_0216d285, var11);
         AppendText_02042058(var0, var3);
     }
     __clear(var1, 0x100);
-    sprintf(var1, data_ov002_0216d2ae, func_020e51cc(0x3f3), var11);
+    sprintf(var1, data_ov002_0216d2ae, GetStandardString_020e51cc(0x3f3), var11);
     int var14 = var9 + 0x12 + func_020420e8(var1, 0);
     if (var12 != 0) var14 += 9;
     int var15                             = (0x80 - var14) >> 1;

@@ -39,7 +39,7 @@ extern "C" ARM int func_ov025_021e83c4(struct Struct_ov025_021e83c4_2* arg0, str
     func_ov025_021e8a54((char*)data_ov025_021ef988.unknown_c_);
 
     int var2 = *(unsigned short*)((char*)arg1->unknown_10_ + 0x20);
-    GameObject* var3 = func_0200ff1c(var0, var2);
+    GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var0, var2);
     struct Struct_ov025_021e83c4* var4 = *(struct Struct_ov025_021e83c4**)((char*)var3 + Enum_ov025_021e83c4_336);
     char var5 = 'm';
     if (var4->unknown_49c_0_ == 1) {

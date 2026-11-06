@@ -16,15 +16,15 @@ extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
-struct Struct_02020cb8;
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
+struct BGLayer_02020cb8;
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
-extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
 
-extern "C" void func_0204b5b4(void*, int);
+extern "C" void SetBGPriority_0204b5b4(void*, int);
 
-struct Struct_02020cb8_5;
-extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
+struct BGLayer_02020cb8_5;
+extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 
 extern "C" void func_020c9820();
 
@@ -33,8 +33,8 @@ extern "C" void func_0204b2e0(void* arg0, char* arg1);
 struct Struct_02020cb8_6;
 extern "C" void func_0204b3a0(struct Struct_02020cb8_6* arg0, char* arg1);
 
-struct Struct_02020cb8_2;
-extern "C" void func_0204b0e8(struct Struct_02020cb8_2* arg0, void* arg1);
+struct BGLayer_02020cb8_2;
+extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2* layer, void* screenData);
 
 struct Struct_02020cb8_3;
 extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
@@ -78,12 +78,12 @@ extern "C" ARM int func_ov001_021624cc(void* arg0) {
     MapVRAMBanksToMainBG(0x10);
     DISPCNT = (DISPCNT & ~0x1f00) | 0x800;
     func_ov001_02162678(0, 1, 1, 1);
-    func_0204af64((struct Struct_02020cb8*)&var3);
+    InitBGLayer_0204af64((struct BGLayer_02020cb8*)&var3);
     var3.unknown_1c_0_ = 0;
     var3.unknown_1c_4_ = 3;
-    func_0204b5b4(&var3, 0);
-    func_0204b11c((unsigned char*)&var3, 0);
-    func_0204b5e8((struct Struct_02020cb8_5*)&var3, 0, 0);
+    SetBGPriority_0204b5b4(&var3, 0);
+    SetBGScreenSize_0204b11c((unsigned char*)&var3, 0);
+    SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)&var3, 0, 0);
     func_020c9820();
     for (int var11 = 0; var11 < var9; var11++) {
         char* var12 = var1[var11];
@@ -93,7 +93,7 @@ extern "C" ARM int func_ov001_021624cc(void* arg0) {
     if (var8) {
         BackgroundLoader::RemoveLockGlobal();
     }
-    func_0204b0e8((struct Struct_02020cb8_2*)&var3, 0);
+    LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)&var3, 0);
     func_0204afb4((struct Struct_02020cb8_3*)&var3);
     return 1;
 }

@@ -8,7 +8,7 @@ extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" int func_ov004_021666bc(void*, int*);
 extern "C" Struct_0208d994* func_0208d994(Struct_0208bf78_5*, int);
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 
 #if defined(jpn)
 extern void* data_ov004_0217101c[2];
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov004_02167310(void* arg0) {
     int var3 = func_ov004_021666bc(arg0, &var2);
     Struct_0208d994* var4 = func_0208d994((Struct_0208bf78_5*)((char*)var0 + 0xc), var3);
     if (var4) {
-        func_02046574((Struct_02046574_2*)var1, 0, *(char**)((char*)var4 + 0x4));
+        SetMessageString_02046574((Struct_02046574_2*)var1, 0, *(char**)((char*)var4 + 0x4));
     }
     return 0;
 }

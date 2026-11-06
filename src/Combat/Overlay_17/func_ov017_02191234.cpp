@@ -7,7 +7,7 @@ extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" unsigned char* func_0200ff58(GameState* arg0, int arg1);
+extern "C" unsigned char* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int func_020546a8(void* arg0);
 extern "C" void func_02026348(char* arg0, unsigned char* arg1, int arg2);
 extern "C" void func_020114c0(char* arg0, int arg1, void* arg2);
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov017_02191234(unsigned char* arg0) {
                 var7 = 1;
             }
             for (int var8 = 1; var8 < 4; var8++) {
-                unsigned char* var9 = func_0200ff58(var0, var8);
+                unsigned char* var9 = GetCompanionByIndex_0200ff58(var0, var8);
                 if (var9 == 0) continue;
                 if (var6 != func_020546a8(var9)) continue;
                 var4[var9[Enum_ov017_02191234_722]] = var8;
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_02191234(unsigned char* arg0) {
         var4[var2++] = 0;
         var5[var3++] = 0;
         for (int var10 = 1; var10 < 4; var10++) {
-            unsigned char* var11 = func_0200ff58(var0, var10);
+            unsigned char* var11 = GetCompanionByIndex_0200ff58(var0, var10);
             if (var11 != 0) {
                 var4[var11[Enum_ov017_02191234_722]] = var10;
                 var2++;

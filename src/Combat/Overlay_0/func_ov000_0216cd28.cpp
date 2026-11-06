@@ -8,7 +8,7 @@ struct Struct_ov000_02184264_30 {
     char unknown_0_[8];
     SafeAllocator* unknown_8_;
 };
-extern struct Struct_ov000_02184264_30 data_ov000_02184264;
+extern struct Struct_ov000_02184264_30 gBACTParseState_ov000_02184264;
 
 struct Struct_ov000_0216cd28 {
     int unknown_0_;
@@ -16,11 +16,11 @@ struct Struct_ov000_0216cd28 {
     int unknown_8_;
 };
 
-extern "C" void func_ov000_02169b78(struct Struct_ov000_0216cd28*);
+extern "C" void AppendBACTCommand_ov000_02169b78(struct Struct_ov000_0216cd28*);
 
 // USA: func_ov000_0216cd28
 extern "C" ARM int func_ov000_0216cd28(struct Struct_0201d530* arg0, int arg1) {
-    struct Struct_ov000_0216cd28* var0 = (struct Struct_ov000_0216cd28*)data_ov000_02184264.unknown_8_->Allocate(0xc);
+    struct Struct_ov000_0216cd28* var0 = (struct Struct_ov000_0216cd28*)gBACTParseState_ov000_02184264.unknown_8_->Allocate(0xc);
     var0->unknown_0_ = 0x7b;
     int var1 = 0xf000;
     if (arg1 > 0) {
@@ -28,6 +28,6 @@ extern "C" ARM int func_ov000_0216cd28(struct Struct_0201d530* arg0, int arg1) {
         var1 = (int)(var2 * 4096.0f);
     }
     var0->unknown_8_ = var1;
-    func_ov000_02169b78(var0);
+    AppendBACTCommand_ov000_02169b78(var0);
     return 1;
 }

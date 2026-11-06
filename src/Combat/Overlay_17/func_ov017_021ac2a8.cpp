@@ -2,7 +2,7 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-extern "C" void* func_02057924(void* arg0);
+extern "C" void* GetEffectManager_02057924(void* arg0);
 extern "C" void func_02057f00(void* arg0, int arg1);
 extern "C" void func_020a0c0c(void);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
@@ -16,7 +16,7 @@ struct Struct_ov017_021ac2a8 {
 
 // USA: func_ov017_021ac2a8
 extern "C" ARM void func_ov017_021ac2a8(struct Struct_ov017_021ac2a8* arg0) {
-	func_02057f00(func_02057924(arg0), 5);
+	func_02057f00(GetEffectManager_02057924(arg0), 5);
 
 	void* var0 = arg0->unknown_10_.GetSignedAllocator();
 	if (var0 != NULL) {

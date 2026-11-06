@@ -3,11 +3,11 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_02057f00(void* arg0, int arg1);
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f14(void* arg0);
-extern "C" void func_020100c4(GameState* arg0, int arg1);
+extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void func_0200fd48(GameState* arg0, int arg1);
 struct Struct_ov001_0215bcc0;
 struct Struct_0208f410;
@@ -29,8 +29,8 @@ extern "C" ARM void func_ov025_021e8bc4(struct Struct_ov025_021e8bc4_2* arg0, in
     if (!arg0->unknown_1d8_) return;
 
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_02057924();
-    func_020100bc(var0);
+    void* var1 = GetEffectManager_02057924();
+    GetCamera_020100bc(var0);
 
     struct Struct_ov025_021e8bc4* var2 = arg0->unknown_1d8_;
     while (var2 != 0 && arg1 <= var2->unknown_1_) {
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov025_021e8bc4(struct Struct_ov025_021e8bc4_2* arg0, in
             func_02057f00(var1, var2->unknown_4_);
             break;
         case 3:
-            func_020100c4(var0, (int)func_ov000_02160f14(func_ov000_02160130()));
+            SetCamera_020100c4(var0, (int)func_ov000_02160f14(GetBattleScene_ov000_02160130()));
             break;
         case 4: {
             GameObject* var8 = var0->GetGameObjectByIndex(var2->unknown_2_);

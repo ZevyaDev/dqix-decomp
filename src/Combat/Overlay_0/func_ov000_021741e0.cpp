@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int fix32_Divide(unsigned int arg0, unsigned int arg1);
-extern "C" void func_0205ac40(void* arg0, void* arg1);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 struct Struct_ov000_021741e0 {
     char unknown_0_[0xc];
@@ -50,5 +50,5 @@ extern "C" ARM void func_ov000_021741e0(void* arg0, float arg1, float arg2, int 
     var2->unknown_20_ = arg7;
     var2->unknown_22_ = arg6;
     var2->unknown_26_ = arg8;
-    func_0205ac40((char*)arg0 + 0x11c, var2);
+    DrawSprite_0205ac40((char*)arg0 + 0x11c, var2);
 }

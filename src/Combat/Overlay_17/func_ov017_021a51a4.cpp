@@ -32,19 +32,19 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
-extern "C" unsigned char* func_0200fd0c(GameState* arg0);
-extern "C" int func_02046b08(void** arg0);
+extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState* gameState);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_02039820(void* arg0);
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" int func_02046708(Struct_02012de8* arg0, unsigned int arg1);
 extern "C" int func_0203402c(Struct_0203402c* arg0);
 extern "C" int func_020c39c8(volatile unsigned short* arg0);
-extern "C" int func_0200fb08(Struct_02000c9c_8* arg0);
+extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" int IsNotLocalWirelessGuest_0202c508(Struct_0202b2f0* wireless);
 extern "C" int IsLocalWirelessGuest_0202c540(Struct_0202b2f0* wireless);
 extern "C" void func_ov017_021befe4(Struct_ov017_021befe4* arg0);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
-extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov017_021a5568(void* arg0);
 extern "C" int func_02039d7c(char* arg0);
@@ -123,8 +123,8 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
     var3 = GetLocalWireless_0202ae18();
     var11 = *(Struct_ov017_021a51a4_3**)((char*)GetZone3D_02012fe4() + 8);
     var4 = GetGlobalFlags_020d6c00();
-    var5 = func_0200fd0c(var0);
-    if (!func_02046b08((void**)arg0->unknown_36fc_)) {
+    var5 = GetZoneEntry_0200fd0c(var0);
+    if (!IsQueueEmpty_02046b08((void**)arg0->unknown_36fc_)) {
         return;
     }
     if (!func_02039820(var1)) {
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
     var9 = (unsigned char*)var0->GetGrottoStruct();
 #if !defined(jpn)
     Struct_ov017_021d6a80 var12 = data_ov017_021d6a80;
-    var10 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+    var10 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
 #endif
     int var13;
     if (g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld &&
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
         return;
     }
     if (var6) {
-        func_020397cc((Struct_02018300_3*)var1, 1);
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
         var1->unknown_b2_ = 0;
         arg0->unknown_42e4_ = 0;
         PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
@@ -211,7 +211,7 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
     if (func_02039d7c((char*)var1)) {
         return;
     }
-    func_020397cc((Struct_02018300_3*)var1, 1);
+    DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
     var1->unknown_b2_ = 0;
     var2 = arg0->unknown_3b4c_;
     func_ov017_021b2174(var2);

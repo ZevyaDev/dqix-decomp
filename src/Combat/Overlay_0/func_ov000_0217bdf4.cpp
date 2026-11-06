@@ -10,14 +10,14 @@ struct Struct_0205c570;
 struct Struct_0205def8;
 struct SoundEffectManager_02108760;
 
-extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" void func_0205def8(struct Struct_0205def8* arg0, int arg1, int arg2);
 struct Struct_0205da38;
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
-extern "C" void* func_02079e2c(char* arg0, int arg1);
+extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" int func_ov000_0217ab48(void* arg0);
 extern "C" void func_ov000_021718a4(void* arg0);
 extern "C" void func_ov000_0217629c(void* arg0);
@@ -89,7 +89,7 @@ extern short data_ov000_02183658[];
 // USA: func_ov000_0217bdf4
 extern "C" ARM int func_ov000_0217bdf4(Struct_ov000_0217bdf4_3* arg0, int arg1, int arg2) {
     data_ov000_02184294.unknown_8_->unknown_1d72_ |= 0x100;
-    arg0->unknown_23_ = func_0205d794((struct Struct_0205c570*)arg0->unknown_38_);
+    arg0->unknown_23_ = GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_38_);
     Struct_ov000_0217bdf4_4* var0 = data_ov000_02184294.unknown_8_;
     func_0205def8((struct Struct_0205def8*)var0->unknown_188_, 1, 0x16);
     int var1 = g_keyManager.TestKeysPressed(0x601);
@@ -102,11 +102,11 @@ extern "C" ARM int func_ov000_0217bdf4(Struct_ov000_0217bdf4_3* arg0, int arg1, 
         int var4 = ((Struct_ov000_0217bdf4_2*)GetPartyMemberData_02053c6c((unsigned char*)var3))->unknown_950_;
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
         arg0->unknown_1d_ = 0;
-        Struct_02108e10* var5 = func_020797dc();
+        ActionTables_02108e10* var5 = GetActionTables_020797dc();
         if (var5 == NULL) {
             return -1;
         }
-        Struct_ov000_0217bdf4* var6 = (Struct_ov000_0217bdf4*)func_02079e2c((char*)var5, data_ov000_02183658[var4]);
+        Struct_ov000_0217bdf4* var6 = (Struct_ov000_0217bdf4*)FindActionData_02079e2c((char*)var5, data_ov000_02183658[var4]);
         if (var6 == NULL) {
             return -1;
         }

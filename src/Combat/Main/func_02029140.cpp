@@ -4,7 +4,7 @@
 #define func_02029140 func_02028a20
 #endif
 
-extern "C" void func_0204c684(void*);
+extern "C" void InitTextWindow_0204c684(void*);
 extern "C" int func_0204f41c(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, void* arg6, void* arg7, int arg8);
 
 #if defined(jpn)
@@ -37,7 +37,7 @@ extern "C" ARM void func_02029140(int arg0, int arg1, void* arg2) {
     if (arg2 == 0) return;
 
     Struct_02029140 var0;
-    func_0204c684(&var0);
+    InitTextWindow_0204c684(&var0);
 
     unsigned char var1 = var0.unknown_c5_;
     var0.unknown_a8_ = 0x20;

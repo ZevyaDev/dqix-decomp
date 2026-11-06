@@ -68,7 +68,7 @@ extern "C" void GetLocalWireless_0202ae18();
 extern "C" Struct_ov017_021bec00_3* GetZone3D_02012fe4();
 extern "C" void VectorizedMemset(void*, int, unsigned int);
 extern "C" int sprintf(char*, const char*, ...);
-extern "C" void func_020dfec0(void*, SafeAllocator*, void*, unsigned int);
+extern "C" void LoadStringTable_020dfec0(void*, SafeAllocator*, void*, unsigned int);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_ov017_021bec00_5*, char*, int);
 #else
@@ -81,13 +81,13 @@ extern "C" void func_02042b98(Struct_ov017_021bec00_5*, int, int, int, int);
 #endif
 extern "C" void func_ov017_021bef84(Struct_ov017_021bec00_2*);
 extern "C" Struct_ov017_021bec00_5* GetMessageWindow_020421a0();
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" Struct_ov017_021bec00* func_0200fd0c(GameState*);
+extern "C" Struct_ov017_021bec00* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void func_ov017_0219e310(unsigned char*, int);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" void ResetMessageWindow_02043204(char*);
-extern "C" void func_020397c0(void*);
+extern "C" void EnablePlayerControl_020397c0(void*);
 extern AllocatorUnion gMainHeap_02114e20;
 #if defined(jpn)
 extern char data_ov017_021d86ac[], data_ov017_021d86c6[];
@@ -106,11 +106,11 @@ extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
     char var5[0x100] = {};
     var2->unknown_19ae_ = 0;
     if (arg0->unknown_38_ == 0) {
-        func_020397cc((Struct_02018300_3*)var0->GetUnknownGameObject(), 1);
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var0->GetUnknownGameObject(), 1);
         SetFlags04(var1, 0xc0);
-        FontLoader_0208cb08* var6 = func_02094a00();
+        FontLoader_0208cb08* var6 = GetFontLoader_02094a00();
         func_02094b30(var6, 0x203, 0);
-        if (func_02094b4c(var6)) {
+        if (UpdateFontLoad_02094b4c(var6)) {
             arg0->unknown_38_ = 1;
             arg0->unknown_44_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0xc00), 0xc00);
 #if defined(jpn)
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
             unsigned int var8;
             var3->GetLoadedFileByID(arg0->unknown_40_, &var7, &var8);
             arg0->unknown_44_.Reset();
-            func_020dfec0(&arg0->unknown_58_, &arg0->unknown_44_, var7, var8);
+            LoadStringTable_020dfec0(&arg0->unknown_58_, &arg0->unknown_44_, var7, var8);
             var3->RemoveTask(arg0->unknown_40_);
             arg0->unknown_40_ = -1;
             arg0->unknown_38_ = 2;
@@ -133,7 +133,7 @@ extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
     } else if (arg0->unknown_38_ == 2) {
         if (!IsBrightnessTransitionActive(var1)) {
             if ((unsigned char&)var4->unknown_260_[2]) {
-                Struct_ov017_021bec00* var9 = func_0200fd0c(var0);
+                Struct_ov017_021bec00* var9 = GetZoneEntry_0200fd0c(var0);
                 VectorizedMemset(var9, 0, 0x70);
                 var9->unknown_4_ = 1;
                 var9->unknown_8_ = 1;
@@ -188,10 +188,10 @@ extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
         }
     } else if (arg0->unknown_38_ == 3 && var2->unknown_9a0_ == 0) {
         ResetMessageWindow_02043204((char*)var2);
-        func_020397c0(var0->GetUnknownGameObject());
-        FontLoader_0208cb08* var16 = func_02094a00();
+        EnablePlayerControl_020397c0(var0->GetUnknownGameObject());
+        FontLoader_0208cb08* var16 = GetFontLoader_02094a00();
         func_02094b38(var16, 0x1f9);
-        func_02094ab0(var16);
+        CancelFontLoad_02094ab0(var16);
         func_ov017_021bef84(arg0);
         arg0->unknown_1_ = 1;
     }

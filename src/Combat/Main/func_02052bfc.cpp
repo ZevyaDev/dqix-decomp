@@ -51,9 +51,9 @@ extern "C" int func_02086ef0(Struct_02048150*, int);
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" long long _ll_udiv(long long arg0, long long arg1);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_0201bc94(Struct_0201bc94* arg0);
-extern "C" int func_020e51cc(int arg0);
+extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void* func_020d7a50(void);
 extern "C" void func_ov017_02191aac(char* arg0, int arg1, int arg2, unsigned char arg3);
 extern "C" void func_ov017_021ce014(int arg0, unsigned short arg1, unsigned short arg2, unsigned short arg3);
@@ -75,7 +75,7 @@ extern "C" ARM void func_02052bfc(struct Struct_02052bfc_2* arg0) {
     uint64_t var6 = GetCurrentTimestamp() - arg0->unknown_150_->unknown_480_;
     long long var7 = _ll_udiv(var6 << 6, 0x1ff6210);
 
-    if (!func_02046b08((void**)var2)) return;
+    if (!IsQueueEmpty_02046b08((void**)var2)) return;
     if (var7 < 0x12c && func_0201bc94(var4)) return;
 
     char var8[0x80];
@@ -85,14 +85,14 @@ extern "C" ARM void func_02052bfc(struct Struct_02052bfc_2* arg0) {
             #if defined(jpn)
             strcpy(var8, (char*)data_020f0420[1]);
 #else
-            strcpy(var8, (char*)func_020e51cc(0x33));
+            strcpy(var8, (char*)GetStandardString_020e51cc(0x33));
 #endif
         }
         else {
             #if defined(jpn)
             strcpy(var8, (char*)data_020f0420[5]);
 #else
-            strcpy(var8, (char*)func_020e51cc(0x32));
+            strcpy(var8, (char*)GetStandardString_020e51cc(0x32));
 #endif
         }
         #if defined(jpn)

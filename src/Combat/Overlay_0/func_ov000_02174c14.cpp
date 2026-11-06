@@ -6,8 +6,8 @@ enum { Enum_ov000_02174c14_7520 = 0x1d60, Enum_ov000_02174c14_7528 = 0x1d68, Enu
 #endif
 #include "std_library_functions.h"
 
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" int func_ov000_021719f8(int* arg0);
 extern "C" void func_0204c804(void* arg0);
 
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov000_02174c14(char* arg0) {
     struct Struct_ov000_02174c14* var0;
     int var1;
 
-    func_0205d6a0((struct Struct_0205d6a0*)(arg0 + 0x188), 1);
+    CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(arg0 + 0x188), 1);
     memset(arg0 + Enum_ov000_02174c14_7520, 0, 8);
     *(signed char*)(arg0 + Enum_ov000_02174c14_7528) = 0;
     (arg0 + *(signed char*)(arg0 + Enum_ov000_02174c14_7528))[Enum_ov000_02174c14_7520] = 1;

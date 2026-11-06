@@ -98,10 +98,10 @@ extern "C" void func_02045f3c(void*, void*, int, int, int, int, int, int, int, i
 extern "C" void func_02046c78(void*, void*, int, int, int, int, int, int);
 #endif
 extern "C" int func_020420e8(const char*, int);
-extern "C" void func_0205ac40(void*, void*);
+extern "C" void DrawSprite_0205ac40(void*, void*);
 extern "C" unsigned char func_ov023_021e4250(char*);
-extern "C" char* func_020e51cc(int);
-extern "C" unsigned char func_0200fb08(Struct_02000c9c_8*);
+extern "C" char* GetStandardString_020e51cc(int);
+extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" void func_ov005_02155258(void*, int, int, int, int);
 
 // USA: func_ov023_021e3fc0
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov023_021e3fc0(Struct_ov003_02165888* arg0) {
     GameState* var1 = GameState::GetInstance();
     void* var2 = GetMessageWindow_020421a0();
     int var3 = 0x7fff;
-    Struct_ov023_021e3fc0_4* var4 = (Struct_ov023_021e3fc0_4*)func_0200ff1c(var1, arg0->unknown_4fc_);
+    Struct_ov023_021e3fc0_4* var4 = (Struct_ov023_021e3fc0_4*)GetPartyMemberBaseByIndex_0200ff1c(var1, arg0->unknown_4fc_);
     if (var4->inline_ov023_021e3fc0_2() <= 0) var3 = 0x1f;
     REG_MATRIX_PUSH = 0;
     REG_POLYGON_ATTR = 1;
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov023_021e3fc0(Struct_ov003_02165888* arg0) {
         var11->unknown_258_.unknown_18_ = 0xa2000;
         var11->unknown_258_.unknown_22_ = 0x70;
         var11->unknown_258_.unknown_26_ = 2;
-        func_0205ac40(arg0->unknown_c8_, &var11->unknown_258_);
+        DrawSprite_0205ac40(arg0->unknown_c8_, &var11->unknown_258_);
         if (func_ov023_021e4250((char*)var4)) {
             unsigned short var12 = 0xf0a;
             if (func_ov023_021e4250((char*)var4) >= 10)
@@ -166,8 +166,8 @@ extern "C" ARM void func_ov023_021e3fc0(Struct_ov003_02165888* arg0) {
             func_02045f3c(var2, &arg0->unknown_5f0_[arg0->unknown_4fc_], 0x50, 0xa1, var12, 10, 0, 0, 0, 0x11);
         }
         func_02045f3c(var2, arg0->unknown_5e0_, 0x5c, 0xa1, var3, 10, 0, 0, 0, 0x11);
-        short var13 = func_020420e8(func_020e51cc(0x3f3), 0) + 0x5e;
-        if (func_0200fb08((Struct_02000c9c_8*)var1) == 1) var13 += 2;
+        short var13 = func_020420e8(GetStandardString_020e51cc(0x3f3), 0) + 0x5e;
+        if (GetGameLanguage_0200fb08((Struct_02000c9c_8*)var1) == 1) var13 += 2;
         Struct_ov023_021e3fc0_3* var14 = var4->inline_ov023_021e3fc0();
         var0 = var3;
         var3 = var14->unknown_16c_[var14->unknown_950_];

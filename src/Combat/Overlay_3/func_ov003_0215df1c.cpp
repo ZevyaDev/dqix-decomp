@@ -1,22 +1,22 @@
 #include <globaldefs.h>
 
 struct Struct_0201099c_3;
-struct Struct_0205de24_2;
-struct Struct_02020cb8_5;
+struct TextWindowManager_0205de24_2;
+struct BGLayer_02020cb8_5;
 
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_020420e8(char* arg0, int arg1);
-extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
 extern "C" char* GetMessageWindow_020421a0(void);
-extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
+extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 extern "C" void memset(void* arg0, int arg1, int arg2);
 extern "C" void func_ov003_0215e13c(char* arg0, char* arg1, int arg2);
 #if defined(jpn)
-extern "C" void func_0205d304(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, char* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 struct Struct_ov003_0215df1c {
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov003_0215df1c(struct Struct_ov003_0215df1c* arg0) {
     short var5 = (var2 + 0x18) >> 3;
 #endif
 
-    func_0205de24((struct Struct_0205de24_2*)arg0->unknown_98_, 0, 2);
+    SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)arg0->unknown_98_, 0, 2);
     arg0->unknown_138_ = var5;
     arg0->unknown_13a_ = var1;
     arg0->unknown_13c_ = 0x1f - var5;
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov003_0215df1c(struct Struct_ov003_0215df1c* arg0) {
         arg0->unknown_13c_ = 0x20 - var5;
         arg0->unknown_13e_ = var7 - var1;
         for (int var9 = 0; var9 < 2; var9++) {
-            func_0204b5e8((struct Struct_02020cb8_5*)arg0->unknown_154_[var9], 2, -var8);
+            SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)arg0->unknown_154_[var9], 2, -var8);
         }
     }
 
@@ -124,8 +124,8 @@ extern "C" ARM void func_ov003_0215df1c(struct Struct_ov003_0215df1c* arg0) {
 #endif
     func_ov003_0215e13c((char*)arg0, arg0->unknown_7c_, 0);
 #if defined(jpn)
-    func_0205d304(arg0->unknown_98_, arg0->unknown_7c_, 0, 1, 0, 1, 0);
+    OpenTextWindow_0205d304(arg0->unknown_98_, arg0->unknown_7c_, 0, 1, 0, 1, 0);
 #else
-    func_0205d304(arg0->unknown_98_, arg0->unknown_7c_, 0, 1, 0, 1, 0, 0);
+    OpenTextWindow_0205d304(arg0->unknown_98_, arg0->unknown_7c_, 0, 1, 0, 1, 0, 0);
 #endif
 }

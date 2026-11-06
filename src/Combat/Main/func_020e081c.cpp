@@ -5,9 +5,6 @@
 #include "NitroSDK/Memory.h"
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 #if defined(jpn)
 enum { Enum_020e081c_1900 = 0x6c0, Enum_020e081c_1904 = 0x6c4, Enum_020e081c_1908 = 0x6c8,
@@ -23,13 +20,13 @@ extern const char data_020f2b90[];
 extern const char data_020f2ba2[];
 #endif
 
-struct Struct_02043368_2 { char unknown_0_[0x28]; };
+struct Sprite_02043368_2 { char unknown_0_[0x28]; };
 struct PacEntry_02020aec;
 struct Struct_020213fc;
 struct Struct_02021410;
 struct Struct_020e081c {
     char unknown_0_[0x40];
-    Struct_02043368_2* unknown_40_;
+    Sprite_02043368_2* unknown_40_;
     char unknown_44_[8];
     unsigned short unknown_4c_;
     char unknown_4e_[2];
@@ -45,12 +42,12 @@ extern "C" void func_02021428(void*, int);
 extern "C" void func_020209d0(void* arg0);
 extern "C" void func_0203b66c(char*);
 extern "C" void func_0203bd24(char*);
-extern "C" void func_0205a198(Struct_02043368_2*);
-extern "C" void func_0205a444(char*);
+extern "C" void InitSprite_0205a198(Sprite_02043368_2*);
+extern "C" void InitSpriteSet_0205a444(char*);
 extern "C" int func_0205a498(void*, PacEntry_02020aec*, int, void*);
 extern "C" void* func_0203bd14();
 extern "C" void* func_0203be4c(char*);
-extern "C" void func_020c9be0();
+extern "C" void HaltForever_020c9be0();
 extern "C" void func_020c9820();
 #if defined(jpn)
 extern "C" void func_02020cb8(void*, int);
@@ -83,11 +80,11 @@ extern "C" ARM void func_020e081c(char* arg0) {
         func_0203b66c(var3);
         func_0203bd24(var2);
         for (int var5 = 0; var5 < 28; ++var5)
-            func_0205a198(&((Struct_02043368_2*)(arg0 + 0xe8))[var5]);
-        func_0205a444(arg0 + 0x94);
+            InitSprite_0205a198(&((Sprite_02043368_2*)(arg0 + 0xe8))[var5]);
+        InitSpriteSet_0205a444(arg0 + 0x94);
         Struct_020e081c* var6 = (Struct_020e081c*)(arg0 + 0x94);
         var6->unknown_50_ = 1;
-        var6->unknown_40_ = (Struct_02043368_2*)(arg0 + 0xe8);
+        var6->unknown_40_ = (Sprite_02043368_2*)(arg0 + 0xe8);
         var6->unknown_4c_ = 5;
         var0->AddFence();
         *(int*)(arg0 + Enum_020e081c_2556) = var0->QueueLoadFile(data_020f2b78, 0);
@@ -109,7 +106,7 @@ extern "C" ARM void func_020e081c(char* arg0) {
         *(int*)((char*)func_0203bd14() + Enum_020e081c_1288) = 0x2800;
         void* var9 = (char*)func_0203be4c(func_0203bd08()) + Enum_020e081c_600;
         *(void**)func_0203bd14() = var9;
-        if (!*(SafeAllocator**)(arg0 + Enum_020e081c_1900)) func_020c9be0();
+        if (!*(SafeAllocator**)(arg0 + Enum_020e081c_1900)) HaltForever_020c9be0();
         if (*(SafeAllocator**)(arg0 + Enum_020e081c_1900) && *(void**)(arg0 + Enum_020e081c_1904))
             (*(SafeAllocator**)(arg0 + Enum_020e081c_1900))->Free(*(void**)(arg0 + Enum_020e081c_1904));
         *(unsigned int*)(arg0 + Enum_020e081c_1908) = Enum_020e081c_13312;

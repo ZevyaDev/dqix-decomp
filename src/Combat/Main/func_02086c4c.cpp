@@ -24,7 +24,7 @@ zero:
     var2 = 0;
 after:
     if (var2) {
-        GameObject* var3 = func_0200ff1c(var0, arg1);
+        GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
         if (var3 == NULL) {
             return 0;
         }

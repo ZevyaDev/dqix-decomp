@@ -50,7 +50,7 @@ extern "C" ARM void func_02026bdc(void *arg0, int arg1) {
             continue;
         }
         GetGameResources();
-        Struct_020236dc_2 *var3 = static_cast<Struct_020236dc_2 *>(func_0200ff1c(var1, var2));
+        Struct_020236dc_2 *var3 = static_cast<Struct_020236dc_2 *>(GetPartyMemberBaseByIndex_0200ff1c(var1, var2));
         if (var3 == 0) {
             continue;
         }

@@ -3,7 +3,7 @@
 struct Struct_ov031_02232d64 { unsigned char unknown_0_[0x1c]; unsigned char unknown_1c_; };
 struct Struct_ov031_02290cc0_7 { unsigned char unknown_0_; unsigned char unknown_1_[3]; Struct_ov031_02232d64* unknown_4_; };
 extern Struct_ov031_02290cc0_7 data_ov031_02290cc0;
-extern "C" void func_ov031_02236878(int arg0);
+extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
 extern "C" void func_ov031_02232ce8(void);
 
 // USA: func_ov031_02232d64
@@ -64,6 +64,6 @@ extern "C" ARM void func_ov031_02232d64(int arg0) {
     }
 
     if (!var0) return;
-    func_ov031_02236878(8);
+    PlayWifiSetupSoundEffect_ov031_02236878(8);
     func_ov031_02232ce8();
 }

@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
+extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 
 extern "C" void func_0204a8f4(char* arg0, char* arg1);
 
@@ -34,17 +34,17 @@ extern "C" ARM void func_0204b2e0(void* arg0, char* arg1) {
     __clear(var0, 5);
     memcpy(var0, arg1, 5);
 
-    if (func_02001aec(var0, &data_020f0238, 4) == 0) {
+    if (CompareBytes_02001aec(var0, &data_020f0238, 4) == 0) {
         func_0204a8f4((char*)arg0, arg1);
         return;
     }
 
-    if (func_02001aec(var0, &data_020f023d, 4) == 0) {
+    if (CompareBytes_02001aec(var0, &data_020f023d, 4) == 0) {
         func_0204ab4c((struct Struct_0204ab4c*)((char*)arg0 + 0xc), (struct Struct_0204ab4c_2*)arg1);
         return;
     }
 
-    if (func_02001aec(var0, &data_020f0242, 4) == 0) {
+    if (CompareBytes_02001aec(var0, &data_020f0242, 4) == 0) {
         struct Struct_02020cb8_7 var1;
         func_0204acb0(&var1);
         func_0204ad88(&var1, arg1);

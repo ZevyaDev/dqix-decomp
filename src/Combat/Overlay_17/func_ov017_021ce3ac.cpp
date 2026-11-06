@@ -7,7 +7,7 @@ enum { Enum_ov017_021ce3ac_722 = 0x2c6 };
 enum { Enum_ov017_021ce3ac_722 = 0x2d2 };
 #endif
 
-extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" void func_020546a0(void*, int);
 extern "C" void func_020546b4(void*, int);
 extern "C" void func_02039858(unsigned char*, int);
@@ -25,7 +25,7 @@ struct Struct_ov017_021ce3ac {
 
 // USA: func_ov017_021ce3ac
 extern "C" ARM void func_ov017_021ce3ac(int arg0, Struct_ov017_021ce3ac* arg1, GameState* arg2) {
-    GameObject* var0 = func_0200ff58(arg2, arg1->unknown_4_);
+    GameObject* var0 = GetCompanionByIndex_0200ff58(arg2, arg1->unknown_4_);
     if (var0 == NULL) {
         return;
     }

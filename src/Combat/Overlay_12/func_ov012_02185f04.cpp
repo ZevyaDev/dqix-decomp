@@ -9,8 +9,8 @@ enum { Enum_ov012_02185f04_5000 = 0x1354, Enum_ov012_02185f04_132 = 0x7c, Enum_o
 enum { Enum_ov012_02185f04_5000 = 0x1388, Enum_ov012_02185f04_132 = 0x84, Enum_ov012_02185f04_4932 = 0x1344 };
 #endif
 
-struct Struct_020dfec0;
-extern "C" int func_020dfec0(Struct_020dfec0*, SafeAllocator*, void*, unsigned int);
+struct StringTable_020dfec0;
+extern "C" int LoadStringTable_020dfec0(StringTable_020dfec0*, SafeAllocator*, void*, unsigned int);
 
 // USA: func_ov012_02185f04
 extern "C" ARM void func_ov012_02185f04(char* arg0) {
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov012_02185f04(char* arg0) {
     unsigned int var3;
     var0->GetLoadedFileByID(var1, &var2, &var3);
     ((SafeAllocator*)(arg0 + Enum_ov012_02185f04_132))->Reset();
-    func_020dfec0((Struct_020dfec0*)(arg0 + Enum_ov012_02185f04_4932), (SafeAllocator*)(arg0 + Enum_ov012_02185f04_132), var2, var3);
+    LoadStringTable_020dfec0((StringTable_020dfec0*)(arg0 + Enum_ov012_02185f04_4932), (SafeAllocator*)(arg0 + Enum_ov012_02185f04_132), var2, var3);
     var0->RemoveTask(*(int*)(arg0 + Enum_ov012_02185f04_5000));
     *(int*)(arg0 + Enum_ov012_02185f04_5000) = -1;
 }

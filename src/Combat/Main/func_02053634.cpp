@@ -23,7 +23,7 @@ extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* man
 
 extern "C" void func_0205eabc(void* arg0, void* arg1, int arg2);
 extern "C" int func_02064a9c(void* arg0, void* arg1);
-extern "C" int func_020100f8(char* arg0);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_ov017_021cc2f0(int);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
@@ -221,7 +221,7 @@ extern "C" ARM void func_02053634(void* arg0) {
             }
         } else if (var7 == 2) {
             var1 = GameState::GetInstance();
-            int var26 = func_020100f8((char*)var1);
+            int var26 = GetFollowCamera_020100f8((char*)var1);
             int var27 = 0;
             if (var0[OBJECT_OFFSET(0x17c)] > 1) {
                 if (((Object3D*)var0)->HasAnimationStopped() != 0) {

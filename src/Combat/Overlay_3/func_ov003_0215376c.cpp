@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_02020cb8;
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
+struct BGLayer_02020cb8;
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 struct Struct_02074b64;
 extern "C" void func_02074b64(struct Struct_02074b64* arg0);
 
@@ -13,7 +13,7 @@ extern "C" ARM void func_ov003_0215376c(char* arg0) {
     *(int*)(arg0 + 0xc) = 0;
     *(int*)(arg0 + 0x14) = 0;
     *(int*)(arg0 + 0x10) = 0;
-    func_0204af64((struct Struct_02020cb8*)(arg0 + 0x18));
+    InitBGLayer_0204af64((struct BGLayer_02020cb8*)(arg0 + 0x18));
     int var0;
     *(unsigned char*)(arg0 + 0x48) = 0;
     *(unsigned char*)(arg0 + 0x49) = 0;

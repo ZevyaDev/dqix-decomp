@@ -8,9 +8,9 @@ extern "C" void func_ov002_021605d4(void *arg0, void *arg1, int arg2);
 extern "C" void func_ov002_0216049c(void *arg0, void *arg1, int arg2);
 extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
 #if defined(jpn)
-extern "C" void func_0205d304(void *arg0, void *arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void *windowManager, void *text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(void *arg0, void *arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void *windowManager, void *text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 extern "C" unsigned char data_ov002_0216c9f9[];
 
@@ -23,11 +23,11 @@ struct Struct_ov002_02155960_4 {
     short unknown_ac_;
     short unknown_ae_;
 };
-extern "C" struct Struct_ov002_02155960_4 *func_0205d81c(struct Struct_ov002_02155960_2 *arg0, int arg1);
+extern "C" struct Struct_ov002_02155960_4 *FindTextWindow_0205d81c(struct Struct_ov002_02155960_2 *windowManager, int windowId);
 struct Struct_ov002_0215624c_11;
-extern "C" void func_0205de24(struct Struct_ov002_0215624c_11 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
-extern "C" void func_0205deb4(struct Struct_ov002_02155960_2 *arg0, int arg1, int arg2);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
+extern "C" void SetTextWindowPalette_0205deb4(struct Struct_ov002_02155960_2 *windowManager, int windowId, int palette);
 extern "C" void func_0205def8(struct Struct_ov002_02155960_3 *arg0, int arg1, int arg2);
 
 struct Struct_ov002_02160274 {
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov002_02160274(char *arg0) {
     func_ov002_02157480(arg0, var0);
     int var2 = 0;
     for (int var3 = 0; var3 < 4; var3++) {
-        if (inline_ov002_02160274(var0[var3]) && func_0200ff1c(var1, var0[var3]) != NULL) {
+        if (inline_ov002_02160274(var0[var3]) && GetPartyMemberBaseByIndex_0200ff1c(var1, var0[var3]) != NULL) {
             var2++;
         }
     }
@@ -64,36 +64,36 @@ extern "C" ARM void func_ov002_02160274(char *arg0) {
     func_ov002_0215be00(arg0, 0x21, 0x10, (short) (var4 + 10));
     memset(*(char **) (arg0 + 0x1000 + 0xa98), 0, 0x800);
     func_ov002_021605d4(arg0, *(char **) (arg0 + 0x1000 + 0xa98), 0);
-    func_0205d304(arg0 + 0xe20, *(char **) (arg0 + 0x1000 + 0xa98), 0, 0, 0, 1, 0);
+    OpenTextWindow_0205d304(arg0 + 0xe20, *(char **) (arg0 + 0x1000 + 0xa98), 0, 0, 0, 1, 0);
 
-    func_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + 0xe20), 0, 2);
+    SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + 0xe20), 0, 2);
     func_ov002_0215be00(arg0, *(int *) (arg0 + 0x1000 + 0xa80) & 0xff, 0x10, 8);
     memset(*(char **) (arg0 + 0x1000 + 0xa98), 0, 0x800);
     func_ov002_0216049c(arg0, *(char **) (arg0 + 0x1000 + 0xa98), 0);
-    func_0205d304(arg0 + 0xe20, *(char **) (arg0 + 0x1000 + 0xa98), 0, 1, 0, 1, 0);
+    OpenTextWindow_0205d304(arg0 + 0xe20, *(char **) (arg0 + 0x1000 + 0xa98), 0, 1, 0, 1, 0);
 
-    func_0205deb4((struct Struct_ov002_02155960_2 *) (arg0 + 0xe20), 0x21, 0);
+    SetTextWindowPalette_0205deb4((struct Struct_ov002_02155960_2 *) (arg0 + 0xe20), 0x21, 0);
     func_0205def8((struct Struct_ov002_02155960_3 *) (arg0 + 0xe20), 0, 0x2c);
 #else
     func_ov002_0215be00(arg0, 0x20, 0x10, (short) (var4 + 10));
     memset(((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0x960);
     func_ov002_021605d4(arg0, ((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0);
-    func_0205d304(arg0 + 0xec8, ((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0, 0, 1, 0, 0);
+    OpenTextWindow_0205d304(arg0 + 0xec8, ((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0, 0, 1, 0, 0);
 
-    func_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + 0xec8), 0, 2);
+    SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + 0xec8), 0, 2);
     func_ov002_0215be00(arg0, ((struct Struct_ov002_02160274_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, 0x10, 8);
     memset(((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0x960);
     func_ov002_0216049c(arg0, ((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0);
-    func_0205d304(arg0 + 0xec8, ((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0, 1, 0, 1, 0, 0);
+    OpenTextWindow_0205d304(arg0 + 0xec8, ((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0, 1, 0, 1, 0, 0);
 
-    func_0205deb4((struct Struct_ov002_02155960_2 *) (arg0 + 0xec8), 0x20, 0);
+    SetTextWindowPalette_0205deb4((struct Struct_ov002_02155960_2 *) (arg0 + 0xec8), 0x20, 0);
     func_0205def8((struct Struct_ov002_02155960_3 *) (arg0 + 0xec8), 0, 0x29);
     struct Struct_ov002_02155960_4 *var5 =
-        func_0205d81c((struct Struct_ov002_02155960_2 *) (arg0 + 0xec8), 0x15);
+        FindTextWindow_0205d81c((struct Struct_ov002_02155960_2 *) (arg0 + 0xec8), 0x15);
     if (var5 != NULL) {
         int var6 = var5->unknown_ac_ + var5->unknown_a8_;
         for (int var7 = 0; var7 < 2; var7++) {
-            struct Struct_ov002_02155960_4 *var8 = func_0205d81c(
+            struct Struct_ov002_02155960_4 *var8 = FindTextWindow_0205d81c(
                 (struct Struct_ov002_02155960_2 *) (arg0 + 0x2c8 + 0xc00), data_ov002_0216c9f9[var7]);
             if (var8 != NULL) {
                 inline_ov002_02160274_2(var8, var6, var8->unknown_ae_);

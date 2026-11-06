@@ -137,8 +137,8 @@ struct Struct_ov005_0215840c_2 {
 
 struct SoundEffectManager_02108760;
 struct Struct_0205bef8;
-struct Struct_0205ba68;
-struct Struct_0205bacc;
+struct MenuCursor_0205ba68;
+struct MenuCursor_0205bacc;
 
 extern "C" void func_ov003_0215f41c(Struct_ov003_0215f4e4* arg0, const char* arg1);
 extern "C" Struct_ov009_02186e00* func_0204254c(int arg0, int arg1);
@@ -151,9 +151,9 @@ extern "C" void func_ov023_021d9e60(char* arg0);
 extern "C" Struct_ov003_0215f4e4_2* func_ov003_0215f4a4(Struct_ov003_0215f4e4* arg0, int arg1);
 extern "C" void func_ov009_0218a8b8(void* arg0);
 extern "C" void func_0205bef8(Struct_0205bef8* arg0);
-extern "C" void func_0205ba68(Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0205bacc(Struct_0205bacc* arg0, int arg1);
-extern "C" void func_0205bb04(Struct_ov009_02186e00_2* arg0, int arg1);
+extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
+extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc* cursor, int itemCount);
+extern "C" void SetMenuCursorIndex_0205bb04(Struct_ov009_02186e00_2* cursor, int index);
 extern "C" void func_ov003_0215f4e4(Struct_ov003_0215f4e4* arg0, int arg1);
 extern "C" void func_ov003_0215ec68(int arg0, short* arg1, short* arg2);
 
@@ -323,10 +323,10 @@ extern "C" ARM void func_ov009_02186e00(Struct_ov009_021842a0_2* arg0)
         {
             Struct_ov009_02186e00_2* var8 = &arg0->unknown_bec_;
             func_0205bef8((Struct_0205bef8*)var8);
-            func_0205ba68((Struct_0205ba68*)var8, 11, 6, 1);
-            func_0205bacc((Struct_0205bacc*)var8, 0x42);
+            SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)var8, 11, 6, 1);
+            SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)var8, 0x42);
             var8->unknown_4_ = 1;
-            func_0205bb04(var8, 0);
+            SetMenuCursorIndex_0205bb04(var8, 0);
         }
         if (g_keyManager.TestKeysPressed(8) && !(arg0->unknown_d9c_ & 0x8100) &&
             arg0->unknown_c0_->unknown_0_ != NULL && var6 == 0)
@@ -340,10 +340,10 @@ extern "C" ARM void func_ov009_02186e00(Struct_ov009_021842a0_2* arg0)
         {
             Struct_ov009_02186e00_2* var9 = &arg0->unknown_bec_;
             func_0205bef8((Struct_0205bef8*)var9);
-            func_0205ba68((Struct_0205ba68*)var9, 11, 6, 1);
-            func_0205bacc((Struct_0205bacc*)var9, 0x42);
+            SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)var9, 11, 6, 1);
+            SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)var9, 0x42);
             var9->unknown_4_ = 1;
-            func_0205bb04(var9, 0);
+            SetMenuCursorIndex_0205bb04(var9, 0);
             func_ov003_0215f4e4(arg0->unknown_c0_, 6);
             arg0->unknown_d9c_ |= 0x1000000;
             sprintf(arg0->unknown_d88_->unknown_3c_, data_020ef078, arg0->unknown_db0_[arg0->unknown_da3_]);

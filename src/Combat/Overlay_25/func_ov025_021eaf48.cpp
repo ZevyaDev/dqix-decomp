@@ -20,7 +20,7 @@ struct Struct_ov025_021eaf48_2 {
     short unknown_c_;
 };
 
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f20(void* arg0);
 extern "C" struct Struct_ov000_02160094* func_ov000_02160094(struct Struct_ov000_0215440c_2* arg0, int arg1);
 extern "C" int func_ov025_021ed380(char* arg0, int arg1, int arg2, int arg3, int arg4, short arg5, unsigned short arg6);
@@ -28,7 +28,7 @@ extern "C" void func_ov025_021ed5f0(char* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov025_021eaf48
 extern "C" ARM void func_ov025_021eaf48(char* arg0, int arg1, int arg2, struct Struct_ov025_021eaf48_2* arg3) {
-    struct Struct_ov000_02160094* var0 = func_ov000_02160094((struct Struct_ov000_0215440c_2*)func_ov000_02160f20(func_ov000_02160130()), arg1);
+    struct Struct_ov000_02160094* var0 = func_ov000_02160094((struct Struct_ov000_0215440c_2*)func_ov000_02160f20(GetBattleScene_ov000_02160130()), arg1);
     if (var0 == 0) {
         return;
     }

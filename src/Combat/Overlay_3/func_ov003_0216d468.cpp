@@ -9,13 +9,13 @@ enum { Enum_ov003_0216d468_1040 = 0x410 };
 #endif
 
 
-struct Struct_0205d1e0;
+struct TextWindowManager_0205d1e0;
 struct Struct_0205d228;
-struct Struct_0205d274;
-extern "C" void func_0205d1e0(Struct_0205d1e0*);
+struct TextWindowManager_0205d274;
+extern "C" void func_0205d1e0(TextWindowManager_0205d1e0*);
 extern "C" void func_0205d228(Struct_0205d228*);
 extern "C" void func_0205da88(void*, int, int, int);
-extern "C" void func_0205d274(Struct_0205d274*);
+extern "C" void func_0205d274(TextWindowManager_0205d274*);
 extern "C" void func_ov003_0216d990(void* arg0);
 #if defined(jpn)
 extern "C" void func_ov003_0216dcf0(void* arg0);
@@ -33,10 +33,10 @@ extern "C" ARM void func_ov003_0216d468(void* arg0) {
     if (*(void**)(var0 + 0x1000 + Enum_ov003_0216d468_704) != 0) {
         short var1 = *(short*)(var0 + 6);
         if (var1 == 0 || var1 == 1 || *(short*)(var0 + 4) == 2) {
-            func_0205d1e0((Struct_0205d1e0*)*(void**)(var0 + 0x1000 + Enum_ov003_0216d468_704));
+            func_0205d1e0((TextWindowManager_0205d1e0*)*(void**)(var0 + 0x1000 + Enum_ov003_0216d468_704));
             func_0205d228((Struct_0205d228*)*(void**)(var0 + 0x1000 + Enum_ov003_0216d468_704));
             func_0205da88(*(void**)(var0 + 0x1000 + Enum_ov003_0216d468_704), 2, 1, 1);
-            func_0205d274((Struct_0205d274*)*(void**)(var0 + 0x1000 + Enum_ov003_0216d468_704));
+            func_0205d274((TextWindowManager_0205d274*)*(void**)(var0 + 0x1000 + Enum_ov003_0216d468_704));
         }
     }
     func_ov003_0216d990(var0);

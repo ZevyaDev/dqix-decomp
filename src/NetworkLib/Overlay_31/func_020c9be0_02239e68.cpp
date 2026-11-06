@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 struct Struct_ov031_02239e68 {
 	unsigned char unknown_0_[0x40];
@@ -21,7 +18,7 @@ struct Struct_ov031_02290d18 {
 };
 
 extern Struct_ov031_02290d18 data_ov031_02290d18;
-extern "C" ARM void func_020c9be0(void);
+extern "C" ARM void HaltForever_020c9be0(void);
 extern "C" ARM void func_ov031_02239368(int arg0);
 extern "C" ARM unsigned short func_ov031_02239ee0(unsigned short arg0);
 extern void* data_ov031_0224c464;
@@ -29,7 +26,7 @@ extern void* data_ov031_0224c464;
 // USA: func_ov031_02239e68
 extern "C" ARM unsigned short func_ov031_02239e68(void) {
 	if (data_ov031_02290d18.unknown_4_->unknown_40_ != 7) {
-		func_020c9be0();
+		HaltForever_020c9be0();
 	}
 
 	func_ov031_02239368(1);

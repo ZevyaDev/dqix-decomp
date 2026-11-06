@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int func_02027bd0(int arg0);
 extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToSubObjStandardPalette(int arg0, int arg1, unsigned int arg2);
@@ -36,7 +36,7 @@ extern "C" ARM void func_020276dc(Struct_020276dc* arg0) {
 
         int var7;
 
-        if (func_0200ff1c(var0, var1) == 0) continue;
+        if (GetPartyMemberBaseByIndex_0200ff1c(var0, var1) == 0) continue;
         var6 = data_020e703e[func_02027bd0(var1)];
         var3 = arg0->unknown_0_;
         var4 = var1 << 1;

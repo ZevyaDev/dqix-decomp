@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-extern "C" void func_0205d304(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, int text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, int text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 
@@ -20,9 +20,9 @@ extern "C" ARM void func_ov023_021d921c(void* arg0, int arg1, int arg2, int arg3
 	*(unsigned char*)((char*)arg0 + 0xd1) = 0;
 	*(unsigned char*)((char*)arg0 + 0xd5) = 0;
 #if defined(jpn)
-	func_0205d304((char*)arg0 + 0x20, arg1, 0, 0, 0, 1, 0);
+	OpenTextWindow_0205d304((char*)arg0 + 0x20, arg1, 0, 0, 0, 1, 0);
 #else
-	func_0205d304((char*)arg0 + 0x20, arg1, 0, 0, 0, 1, 0, 0);
+	OpenTextWindow_0205d304((char*)arg0 + 0x20, arg1, 0, 0, 0, 1, 0, 0);
 #endif
 
 }

@@ -5,10 +5,7 @@
 #include "World/ZoneChest.h"
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
-extern "C" void func_0206df6c(void *arg0, unsigned char *arg1, int arg2, int arg3);
+extern "C" void SetFlag_0206df6c(void *flagManager, unsigned char *flags, int flagIndex, int isSet);
 extern "C" void *GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 struct LocalWireless_0202c1a4;
@@ -44,7 +41,7 @@ extern "C" void func_020ae880(int arg0);
 extern "C" void func_ov017_021d0d58();
 struct Struct_02038598_5;
 extern "C" int func_02046b60(Struct_02038598_5*, int);
-extern "C" void *func_ov017_021b8478(void *arg0);
+extern "C" void *GetBattleSetup_ov017_021b8478(void *battleManager);
 extern "C" int func_020a3694(int*);
 struct Struct_02061c04_8;
 extern "C" void func_ov017_021aa16c(Struct_02061c04_8*);
@@ -265,14 +262,14 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     } var17;
     switch (arg1->unknown_0_) {
     case 0x64: {
-        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_, 1);
+        SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_, 1);
         void *var18 = GetLocalWireless_0202ae18();
         if (IsLocalWirelessOn_0202b7d8((int *)var18) && !GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4 *)var18))
             func_ov017_021d0924(0, 0, arg1->unknown_2_, 1);
         return 1;
     }
     case 0x65: {
-        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_, 0);
+        SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_, 0);
         void *var19 = GetLocalWireless_0202ae18();
         if (IsLocalWirelessOn_0202b7d8((int *)var19) && !GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4 *)var19))
             func_ov017_021d0924(0, 0, arg1->unknown_2_, 0);
@@ -280,7 +277,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     }
     case 0x66: {
         unsigned char var20 = *((unsigned char *)arg0 + 0x332);
-        func_0206df6c(arg0, (unsigned char *)arg0 + var20 * 0x1c + 3, arg1->unknown_2_, 1);
+        SetFlag_0206df6c(arg0, (unsigned char *)arg0 + var20 * 0x1c + 3, arg1->unknown_2_, 1);
         void *var21 = GetLocalWireless_0202ae18();
         if (IsLocalWirelessOn_0202b7d8((int *)var21) && !GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4 *)var21))
             func_ov017_021d0924(3, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 1);
@@ -288,7 +285,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     }
     case 0x67: {
         unsigned char var22 = *((unsigned char *)arg0 + 0x332);
-        func_0206df6c(arg0, (unsigned char *)arg0 + var22 * 0x1c + 3, arg1->unknown_2_, 0);
+        SetFlag_0206df6c(arg0, (unsigned char *)arg0 + var22 * 0x1c + 3, arg1->unknown_2_, 0);
         void *var23 = GetLocalWireless_0202ae18();
         if (IsLocalWirelessOn_0202b7d8((int *)var23) && !GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4 *)var23))
             func_ov017_021d0924(3, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 0);
@@ -296,7 +293,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     }
     case 0x68: {
         unsigned char var24 = *((unsigned char *)arg0 + 0x332);
-        func_0206df6c(arg0, (unsigned char *)arg0 + var24 * 0x1c + 0x10, arg1->unknown_2_, 1);
+        SetFlag_0206df6c(arg0, (unsigned char *)arg0 + var24 * 0x1c + 0x10, arg1->unknown_2_, 1);
         void *var25 = GetLocalWireless_0202ae18();
         if (IsLocalWirelessOn_0202b7d8((int *)var25) && !GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4 *)var25))
             func_ov017_021d0924(5, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 1);
@@ -304,7 +301,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     }
     case 0x69: {
         unsigned char var26 = *((unsigned char *)arg0 + 0x332);
-        func_0206df6c(arg0, (unsigned char *)arg0 + var26 * 0x1c + 0x10, arg1->unknown_2_, 0);
+        SetFlag_0206df6c(arg0, (unsigned char *)arg0 + var26 * 0x1c + 0x10, arg1->unknown_2_, 0);
         void *var27 = GetLocalWireless_0202ae18();
         if (IsLocalWirelessOn_0202b7d8((int *)var27) && !GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4 *)var27))
             func_ov017_021d0924(5, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 0);
@@ -320,7 +317,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     case 0x6b: {
         void *var30 = GetLocalWireless_0202ae18();
         if (IsNotLocalWirelessGuest_0202c508(var30))
-            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x113a, ((unsigned char *)arg1)[2] == 0);
+            SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x113a, ((unsigned char *)arg1)[2] == 0);
         return 1;
     }
     case 0x6c: {
@@ -419,7 +416,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         if (!IsFlagSet_0206dfb0((int)arg0, (unsigned char *)arg0 + 0x8c, 0x119d)) {
             void *var41 = GetGameResources();
             void *var42 = *(void **)((char *)var41 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
-            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x119d, 1);
+            SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x119d, 1);
             void *var43 = *(void **)((char *)var41 + 0x3000 + REGION_VALUE(0x9a0, 0xbc0));
             func_020d9ae8((Struct_02061c04_7 *)var43, 1);
             AppendToQueue_020469b4((Queue_0201bdac_2 *)var42, (QueueNode_0201bdac *)var43);
@@ -514,13 +511,13 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             func_ov017_021ce110((unsigned char)arg1->unknown_4_, 1, arg1->unknown_2_, 1);
         switch (arg1->unknown_4_) {
         case 3:
-            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_, 1);
+            SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_, 1);
             func_ov017_021d0924(0, 0, arg1->unknown_2_, 1);
             if (IsLocalWirelessGuest_0202c540(var53))
                 func_0206e748(arg0, 0, 0, arg1->unknown_2_, 1);
             break;
         case 4: {
-            func_0206df6c(arg0, (unsigned char *)arg0 + *((unsigned char *)arg0 + 0x332) * 0x1c + 3, arg1->unknown_2_, 1);
+            SetFlag_0206df6c(arg0, (unsigned char *)arg0 + *((unsigned char *)arg0 + 0x332) * 0x1c + 3, arg1->unknown_2_, 1);
             func_ov017_021d0924(3, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 1);
             if (IsLocalWirelessGuest_0202c540(var53)) {
                 int var54 = inline_02061c04_3(arg0);
@@ -529,7 +526,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             break;
         }
         case 5: {
-            func_0206df6c(arg0, (unsigned char *)arg0 + *((unsigned char *)arg0 + 0x332) * 0x1c + 0x10, arg1->unknown_2_, 1);
+            SetFlag_0206df6c(arg0, (unsigned char *)arg0 + *((unsigned char *)arg0 + 0x332) * 0x1c + 0x10, arg1->unknown_2_, 1);
             func_ov017_021d0924(5, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 1);
             if (IsLocalWirelessGuest_0202c540(var53)) {
                 int var55 = inline_02061c04_3(arg0);
@@ -548,13 +545,13 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             func_ov017_021ce110((unsigned char)arg1->unknown_4_, 0, arg1->unknown_2_, 1);
         switch (arg1->unknown_4_) {
         case 3:
-            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_, 0);
+            SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_, 0);
             func_ov017_021d0924(0, 0, arg1->unknown_2_, 0);
             if (IsLocalWirelessGuest_0202c540(var56))
                 func_0206e748(arg0, 0, 0, arg1->unknown_2_, 0);
             break;
         case 4: {
-            func_0206df6c(arg0, (unsigned char *)arg0 + *((unsigned char *)arg0 + 0x332) * 0x1c + 3, arg1->unknown_2_, 0);
+            SetFlag_0206df6c(arg0, (unsigned char *)arg0 + *((unsigned char *)arg0 + 0x332) * 0x1c + 3, arg1->unknown_2_, 0);
             func_ov017_021d0924(3, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 0);
             if (IsLocalWirelessGuest_0202c540(var56)) {
                 int var57 = inline_02061c04_3(arg0);
@@ -563,7 +560,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             break;
         }
         case 5: {
-            func_0206df6c(arg0, (unsigned char *)arg0 + *((unsigned char *)arg0 + 0x332) * 0x1c + 0x10, arg1->unknown_2_, 0);
+            SetFlag_0206df6c(arg0, (unsigned char *)arg0 + *((unsigned char *)arg0 + 0x332) * 0x1c + 0x10, arg1->unknown_2_, 0);
             func_ov017_021d0924(5, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 0);
             if (IsLocalWirelessGuest_0202c540(var56)) {
                 int var58 = inline_02061c04_3(arg0);
@@ -684,10 +681,10 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x92:
-        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0x776, 1);
+        SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0x776, 1);
         return 1;
     case 0x93:
-        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0x776, 0);
+        SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0x776, 0);
         return 1;
     case 0x94: {
         GameState *var84 = GameState::GetInstance();
@@ -772,7 +769,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return func_02061c04(arg0, &var8, arg2);
     }
     case 0xa0:
-        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0x113f, 1);
+        SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0x113f, 1);
         return 1;
     case 0xa1: {
         var17.unknown_14_.unknown_2_ &= ~1;
@@ -788,9 +785,9 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     }
     case 0xa2:
         if (arg1->unknown_2_ != 0)
-            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x113b, 0);
+            SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x113b, 0);
         else
-            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x113b, 1);
+            SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x113b, 1);
         return 1;
     case 0xc0: {
         GameState *var92 = GameState::GetInstance();
@@ -856,7 +853,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     case 0xae:
         return 1;
     case 0xaf:
-        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0x1136, 0);
+        SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0x1136, 0);
         return 1;
     case 0xb0: {
         void *var100 = func_02094d6c();
@@ -889,10 +886,10 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         GameState *var107 = GameState::GetInstance();
         void *var108 = GetParty_02010828((GameState*)var107);
         if (arg1->unknown_2_ != 0) {
-            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x113c, 1);
+            SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x113c, 1);
             *(unsigned int *)((char *)var108 + 0x2c94) = arg1->unknown_4_;
         } else {
-            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x113c, 0);
+            SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x113c, 0);
             *(unsigned int *)((char *)var108 + 0x2c94) = *(unsigned int *)((char *)var107 + REGION_VALUE(0x7c34, 0x7e74));
             void *var109 = GetLocalWireless_0202ae18();
             if (IsLocalWirelessOn_0202b7d8((int *)var109) && !GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4 *)var109))
@@ -906,7 +903,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         if (!func_02046b60((Struct_02038598_5*)var111, 0xa))
             return 1;
         void *var112 = *(void **)((char *)var110 + 0x3000 + REGION_VALUE(0x508, 0x718));
-        void *var113 = func_ov017_021b8478(var112);
+        void *var113 = GetBattleSetup_ov017_021b8478(var112);
         if (!func_020a3694((int*)var113))
             return 1;
         *(short *)((char *)var113 + 0x22) = (*(int *)((char *)var113 + 0xc) == arg1->unknown_2_) ? arg1->unknown_4_ : 0;
@@ -932,7 +929,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     }
     case 0xba:
-        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x1138, arg1->unknown_2_);
+        SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x1138, arg1->unknown_2_);
         return 1;
     case 0xbb:
         *(unsigned short *)((char *)arg0 + 0x2ca) = 0;
@@ -1012,7 +1009,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     }
     case 0xc1: {
         GameState *var132 = GameState::GetInstance();
-        void *var133 = func_020100bc(var132);
+        void *var133 = GetCamera_020100bc(var132);
         if (arg1->unknown_2_ != 0) {
             func_0202ea10((unsigned char*)var133, 0x333, 1);
             func_0202ea3c((unsigned char*)var133);
@@ -1118,13 +1115,13 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     }
     case 0xca:
-        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0x1198, 1);
+        SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0x1198, 1);
         return 1;
     case 0xcb: {
         GameState *var151 = GameState::GetInstance();
         void *var152 = GetGameResources();
         for (int var153 = 0; var153 < 4; var153++) {
-            GameObject *var154 = func_0200ff1c(var151, var153);
+            GameObject *var154 = GetPartyMemberBaseByIndex_0200ff1c(var151, var153);
             if (!var154)
                 continue;
             if (!func_02061bd8((Struct_0205faf4_11*)var154))
@@ -1163,7 +1160,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     }
     case 0xce: {
-        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x79a, 1);
+        SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x79a, 1);
         void *var161 = GetLocalWireless_0202ae18();
         if (IsNotLocalWirelessGuest_0202c508(var161)) {
             int var162;
@@ -1195,7 +1192,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     case 0xcf: {
         void *var174 = &data_02108844;
         if (var174)
-            func_0206df6c(var174, (unsigned char *)var174 + 0x8c, 0x384, arg1->unknown_2_);
+            SetFlag_0206df6c(var174, (unsigned char *)var174 + 0x8c, 0x384, arg1->unknown_2_);
         void *var175 = GetGameResources();
         for (int var176 = 0; var176 < 4; var176++)
             *(unsigned short *)((char *)var175 + REGION_VALUE(0x4100, 0x4400) + var176 * 2 + REGION_VALUE(0x9a, 0x4a)) =
@@ -1337,10 +1334,10 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     }
     case 0xdf:
-        func_0206df6c(&data_02108844, (unsigned char *)&data_02108844 + 0x8c, 0x799, arg1->unknown_2_);
+        SetFlag_0206df6c(&data_02108844, (unsigned char *)&data_02108844 + 0x8c, 0x799, arg1->unknown_2_);
         return 1;
     case 0xe0:
-        func_0206df6c(&data_02108844, (unsigned char *)&data_02108844 + 0x8c, 0x798, arg1->unknown_2_);
+        SetFlag_0206df6c(&data_02108844, (unsigned char *)&data_02108844 + 0x8c, 0x798, arg1->unknown_2_);
         return 1;
     case 0xe3: {
         void *var202 = GetGameResources();
@@ -1366,7 +1363,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         if (var204 == 0)
             return 1;
         if (var205 >= 0 && var205 <= 3) {
-            GameObject *var208 = func_0200ff1c(var203, var205);
+            GameObject *var208 = GetPartyMemberBaseByIndex_0200ff1c(var203, var205);
             if (!var208)
                 return 1;
             void *var209 = GetPartyMemberData_02053c6c((unsigned char*)var208);
@@ -1377,13 +1374,13 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     }
     case 0xe6:
-        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0xbea, arg1->unknown_4_);
+        SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0xbea, arg1->unknown_4_);
         return 1;
     case 0xe7: {
         void *var210 = GetLocalWireless_0202ae18();
         if (IsLocalWirelessGuest_0202c540(var210))
             return 1;
-        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x796, arg1->unknown_2_);
+        SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x796, arg1->unknown_2_);
         char *var211 = (char*)GameState::GetInstance();
         Struct_02061c04* var212 = (Struct_02061c04*)((char *)&((struct Struct_02061c04_5 *)inline_02061c04(var211))[1] + 0x3c);
         Struct_02061c04_3* var213 = &var212->unknown_90_;

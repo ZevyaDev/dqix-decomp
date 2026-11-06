@@ -16,11 +16,11 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" int func_020535c8(signed char*);
-extern "C" int func_02046b08(void**);
-extern "C" GameObject* func_0200ff1c(GameState*, int);
+extern "C" int IsQueueEmpty_02046b08(void**);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" int func_02048418(unsigned char*, unsigned short);
 extern "C" void func_ov017_021d27a0(int, int, int);
-extern "C" void* func_02079e2c(char*, int);
+extern "C" void* FindActionData_02079e2c(char*, int);
 struct Struct_02048350_2;
 extern "C" int func_02048350(struct Struct_02048350_2*, int);
 
@@ -91,11 +91,11 @@ extern "C" ARM void func_ov017_021d27e4(void* arg0, Struct_ov017_021d27e4_2* arg
         int var9 = 1;
         if ((*reinterpret_cast<int*>(static_cast<char*>(GetMessageWindow_020421a0()) + Enum_ov017_021d27e4_2456)) != 0) var9 = 0;
         if (func_020535c8((signed char*)arg2->GetUnknownGameObject()) != 0) var9 = 0;
-        if (func_02046b08(static_cast<void**>(arg3->unknown_ptr_array_36fc[0])) == 0) var9 = 0;
+        if (IsQueueEmpty_02046b08(static_cast<void**>(arg3->unknown_ptr_array_36fc[0])) == 0) var9 = 0;
         if (func_020dc920((unsigned char)var1, 1, 1, 0) == 0) var9 = 0;
         if (var9) {
             int var10 = 0;
-            GameObject* var11 = func_0200ff1c(arg2, var2);
+            GameObject* var11 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var2);
             if (var11 != NULL) {
                 if (**(unsigned int**)((char*)var11 + 0x130) & 4) var10 = 1;
             }
@@ -134,9 +134,9 @@ extern "C" ARM void func_ov017_021d27e4(void* arg0, Struct_ov017_021d27e4_2* arg
     }
     case 2: {
         if (!var4) return;
-        Struct_ov017_021d27e4_3* var17 = (Struct_ov017_021d27e4_3*)func_02079e2c((char*)func_020797dc(), 0xd1);
+        Struct_ov017_021d27e4_3* var17 = (Struct_ov017_021d27e4_3*)FindActionData_02079e2c((char*)GetActionTables_020797dc(), 0xd1);
         if (var17 != NULL) {
-            GameObject* var18 = func_0200ff1c(arg2, var1);
+            GameObject* var18 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var1);
             if (var18 != NULL) {
                 func_02048350((struct Struct_02048350_2*)var18, var17->unknown_8_0_);
                 func_ov017_021c9e00(var1, 0, 0, 1);

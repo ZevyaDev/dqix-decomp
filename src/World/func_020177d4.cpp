@@ -42,7 +42,7 @@ extern "C" ARM void func_020177d4(Zone3D *arg0, void *arg1, SafeAllocator *arg2)
     int var13        = var1->timeOfDayIndex_;
     void *var14 = GetGameResources()->unknown_ptr_3718;
     if (var14 != NULL && func_ov017_021b8b54(var14)) {
-        unsigned char *var15 = static_cast<unsigned char *>(func_ov017_021b8478(var14));
+        unsigned char *var15 = static_cast<unsigned char *>(GetBattleSetup_ov017_021b8478(var14));
         var13                   = var15[5];
     }
 

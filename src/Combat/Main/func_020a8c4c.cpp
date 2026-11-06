@@ -4,7 +4,7 @@
 
 extern "C" void* GetParty_02010828(GameState* gameState);
 struct Struct_02018300_3;
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void func_ov017_021d2c34(unsigned char arg0, unsigned char arg1, unsigned char arg2);
 
 struct Struct_020a8c4c {
@@ -25,7 +25,7 @@ extern "C" ARM void func_020a8c4c(struct Struct_020a8c4c* arg0, unsigned char ar
     GameObject* var3 = var0->GetPartyMemberByIndex(arg1);
     GetParty_02010828(var0);
     if (IsBrightnessWithinValidRange(var1, false) == 0) {
-        func_020397cc((struct Struct_02018300_3*)var3, 1);
+        DisablePlayerControl_020397cc((struct Struct_02018300_3*)var3, 1);
         *(short*)((char*)var3 + 0xac) = 0;
         if (arg1 == var2->obj3D_.unknown_4_) {
             return;

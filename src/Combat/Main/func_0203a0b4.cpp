@@ -11,7 +11,7 @@ struct Struct_0203a46c {
     int unknown_24_;
 };
 
-extern "C" int func_020100bc(GameState*);
+extern "C" int GetCamera_020100bc(GameState*);
 extern "C" void func_0202ec84(void*, struct Struct_02015ef4*, int*, int*);
 extern "C" void func_0203a46c(struct Struct_0203a46c*, int, int, int);
 extern "C" void func_0203a47c(unsigned int*, unsigned int, unsigned int, unsigned int);
@@ -55,7 +55,7 @@ extern "C" ARM void func_0203a0b4(struct Struct_0203a0b4* arg0) {
     int var4;
     int var5;
     int var6;
-    void* var7 = (void*)func_020100bc(GameState::GetInstance());
+    void* var7 = (void*)GetCamera_020100bc(GameState::GetInstance());
     if (var7 == 0) return;
     var2 = arg0->unknown_6d0_;
     while (var2 != arg0->unknown_6d4_) {

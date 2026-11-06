@@ -45,7 +45,7 @@ extern const Struct_ov008_0218b31c data_ov008_0218b328;
 extern const Struct_ov008_0218b31c data_ov008_0218b334;
 extern const Struct_ov008_0218b31c data_ov008_0218b31c;
 
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 
 struct Struct_ov008_02184a4c {
     void* unknown_0_;
@@ -205,33 +205,33 @@ struct Struct_0209ff6c;
 extern "C" void func_0209ff6c(Struct_0209ff6c*);
 extern "C" int func_ov008_02185964(void* arg0);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
-extern "C" void func_020dfec0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
-extern "C" void func_0204b11c(unsigned char*, int);
-extern "C" void func_0204b5b4(void* arg0, int arg1);
-struct Struct_02020cb8_5;
-extern "C" void func_0204b5e8(Struct_02020cb8_5*, int, int);
-struct Struct_0204b12c;
-extern "C" void func_0204b12c(Struct_0204b12c*, SafeAllocator*);
-struct Struct_0204af38;
-extern "C" void func_0204af38(Struct_0204af38*, int, SafeAllocator*);
+extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char*, int);
+extern "C" void SetBGPriority_0204b5b4(void* layer, int priority);
+struct BGLayer_02020cb8_5;
+extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
+struct BGLayer_0204b12c;
+extern "C" void AllocateBGScreenData_0204b12c(BGLayer_0204b12c*, SafeAllocator*);
+struct BGLayer_0204af38;
+extern "C" void AllocateBGScreenBlocks_0204af38(BGLayer_0204af38*, int, SafeAllocator*);
 struct Struct_0201099c_3;
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 struct PacEntry_02020cb8_4;
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
-extern "C" void func_0204b174(void* arg0, void* arg1, SafeAllocator* arg2, int arg3);
-struct Struct_0204b8d0;
-extern "C" void func_0204b8d0(Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
-struct Struct_02020cb8_2;
-extern "C" void func_0204b0e8(Struct_02020cb8_2*, void*);
+extern "C" void LoadBGBlock_0204b174(void* layer, void* block, SafeAllocator* allocator, int arg3);
+struct BGLayer_0204b8d0;
+extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+struct BGLayer_02020cb8_2;
+extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2*, void*);
 extern "C" int func_ov008_02188a54(Struct_ov008_02184a4c_12* arg0, int arg1);
-extern "C" void func_0205a444(char*);
-struct Struct_02043368_2;
-extern "C" void func_0205a198(Struct_02043368_2*);
+extern "C" void InitSpriteSet_0205a444(char*);
+struct Sprite_02043368_2;
+extern "C" void InitSprite_0205a198(Sprite_02043368_2*);
 struct Struct_02043368;
 extern "C" void func_0205a234(Struct_02043368*);
-extern "C" int func_0205a528(void* arg0, void* arg1, int arg2, SafeAllocator* arg3);
+extern "C" int LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, SafeAllocator* allocator);
 extern "C" int func_ov008_02188d74(Struct_ov008_02184a4c_12* arg0);
 struct TextureVRAMArea_0203d028;
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
@@ -245,7 +245,7 @@ struct Struct_0202e5c0;
 extern "C" void func_0202e5c0(Struct_0202e5c0*, int, int, int);
 extern "C" void func_0202e5c8(unsigned char*, int, int, int);
 extern "C" void func_020a27a0(void* arg0);
-extern "C" void func_020100c4(GameState*, int);
+extern "C" void SetCamera_020100c4(GameState*, int);
 struct Struct_020a13c4;
 extern "C" void func_020a13c4(Struct_020a13c4*);
 extern "C" void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short arg3, unsigned char arg4);
@@ -261,8 +261,8 @@ struct Struct_ov008_02184a4c_13;
 extern "C" void func_ov008_02187664(Struct_ov008_02184a4c_13*, int);
 extern "C" void func_ov008_02187a70(Struct_ov008_02184a4c_12* arg0, int arg1);
 extern "C" void func_ov008_02187f6c(Struct_ov008_02184a4c_12* arg0, int arg1);
-struct Struct_0205d81c;
-extern "C" Struct_ov008_02184a4c_10* func_0205d81c(Struct_0205d81c*, int);
+struct TextWindowManager_0205d81c;
+extern "C" Struct_ov008_02184a4c_10* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void func_020432c4(char* arg0);
 struct Struct_0209c3b4_2;
@@ -378,19 +378,19 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
                 return;
             }
         }
-        FontLoader_0208cb08* var14 = func_02094a00();
+        FontLoader_0208cb08* var14 = GetFontLoader_02094a00();
         func_02094b40(var14);
-        func_02094b34(var14, 0x6b, 0x1fc, 0, 0);
+        RequestFontLoad_02094b34(var14, 0x6b, 0x1fc, 0, 0);
         arg0->unknown_b11_++;
     } else if (var4 == 3) {
-        if (func_02094b4c(func_02094a00()) != 0) {
+        if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()) != 0) {
 #if defined(jpn)
             arg0->unknown_14_.Reset();
             void* var15 = arg0->unknown_14_.Allocate(0x2000);
             unsigned int var16;
             LoadFileIntoMemory(data_ov008_0218c0bc, var15, &var16);
             arg0->unknown_28_.Reset();
-            func_020dfec0(arg0->unknown_a0_, &arg0->unknown_28_, var15, var16);
+            LoadStringTable_020dfec0(arg0->unknown_a0_, &arg0->unknown_28_, var15, var16);
             arg0->unknown_14_.Reset();
 #else
             BackgroundLoader::AddLockGlobal();
@@ -398,19 +398,19 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
             unsigned int var17;
             void* var18 = ExtractFileFromGP2(data_ov008_0218b43c, data_ov008_0218b455, &var17);
             arg0->unknown_28_.Reset();
-            func_020dfec0(arg0->unknown_a0_, &arg0->unknown_28_, var18, var17);
+            LoadStringTable_020dfec0(arg0->unknown_a0_, &arg0->unknown_28_, var18, var17);
             BackgroundLoader::RemoveLockGlobal();
 #endif
             if (arg0->unknown_b24_ != 0) {
                 arg0->unknown_b11_ = 5;
             } else {
-                func_0204b11c((unsigned char*)arg0->unknown_d0_, 0);
+                SetBGScreenSize_0204b11c((unsigned char*)arg0->unknown_d0_, 0);
                 arg0->unknown_ec_0_ = 0;
                 arg0->unknown_ec_4_ = 1;
-                func_0204b5b4(arg0->unknown_d0_, 3);
-                func_0204b5e8((Struct_02020cb8_5*)arg0->unknown_d0_, 0, 0);
-                func_0204b12c((Struct_0204b12c*)arg0->unknown_d0_, &arg0->unknown_0_);
-                func_0204af38((Struct_0204af38*)arg0->unknown_d0_, 1, &arg0->unknown_0_);
+                SetBGPriority_0204b5b4(arg0->unknown_d0_, 3);
+                SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)arg0->unknown_d0_, 0, 0);
+                AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)arg0->unknown_d0_, &arg0->unknown_0_);
+                AllocateBGScreenBlocks_0204af38((BGLayer_0204af38*)arg0->unknown_d0_, 1, &arg0->unknown_0_);
                 arg0->unknown_b20_ = var2->QueueLoadFile(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_a0_, 0), NULL);
                 arg0->unknown_b11_++;
             }
@@ -426,25 +426,25 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
             for (int var24 = 0; var24 < var23; var24++) {
                 void* var25 = GetPacEntryData_020467f0((PacEntry_02020aec*)var20, var24, &var19, &var22);
                 if (var25 != NULL) {
-                    func_0204b174(arg0->unknown_d0_, var25, &arg0->unknown_0_, var22);
+                    LoadBGBlock_0204b174(arg0->unknown_d0_, var25, &arg0->unknown_0_, var22);
                 }
             }
             var2->RemoveTask(arg0->unknown_b20_);
             arg0->unknown_b20_ = -1;
-            func_0204b8d0((Struct_0204b8d0*)arg0->unknown_d0_, 0, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
-            func_0204b0e8((Struct_02020cb8_2*)arg0->unknown_d0_, NULL);
+            CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)arg0->unknown_d0_, 0, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
+            LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)arg0->unknown_d0_, NULL);
             arg0->unknown_b11_++;
         }
     } else if (var4 == 5) {
         if (func_ov008_02188a54(arg0, 0) != 0) {
             if (arg0->unknown_b24_ == 0) {
-                func_0205a444((char*)arg0->unknown_730_);
+                InitSpriteSet_0205a444((char*)arg0->unknown_730_);
                 arg0->unknown_730_->unknown_50_ = 0;
                 Struct_ov008_02184a4c_8* var26 = arg0->inline_ov008_02184a4c_10();
                 arg0->inline_ov008_02184a4c_11()->inline_ov008_02184a4c_6(var26, 0x12);
                 arg0->unknown_730_->unknown_3c_ = arg0->unknown_738_;
                 for (int var27 = 0; var27 < 0x12; var27++) {
-                    func_0205a198((Struct_02043368_2*)&arg0->unknown_734_[var27]);
+                    InitSprite_0205a198((Sprite_02043368_2*)&arg0->unknown_734_[var27]);
                 }
                 func_0205a234((Struct_02043368*)arg0->unknown_738_);
 #if defined(jpn)
@@ -470,7 +470,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
             for (int var34 = 0; var34 < var33; var34++) {
                 void* var35 = GetPacEntryData_020467f0((PacEntry_02020aec*)var30, var34, &var29, &var32);
                 if (var35 != NULL) {
-                    func_0205a528(arg0->unknown_730_, var35, var32, &arg0->unknown_3c_);
+                    LoadSpriteSetFile_0205a528(arg0->unknown_730_, var35, var32, &arg0->unknown_3c_);
                 }
             }
             arg0->unknown_b18_ |= 0x80000;
@@ -517,7 +517,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
         func_0202e5c0((Struct_0202e5c0*)arg0->unknown_83c_, 0, 0x8000, 0x40000);
         func_0202e5c8((unsigned char*)arg0->unknown_83c_, 0, 0, 0);
         func_020a27a0(arg0->unknown_83c_);
-        func_020100c4(var0, (int)arg0->unknown_83c_);
+        SetCamera_020100c4(var0, (int)arg0->unknown_83c_);
         arg0->unknown_b11_++;
     } else if (var4 == 9) {
         if (!arg0->inline_ov008_02184a4c_12(1)) {
@@ -566,7 +566,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
                     const char* var47 = var46->unknown_4_;
                     if (var47 != NULL) {
                         memset(var45->unknown_44_, 0, REGION_VALUE(0x118, 0x200));
-                        sprintf(var45->unknown_44_ + func_020d2ff0(var45->unknown_44_), data_ov008_0218b3e0, var47);
+                        sprintf(var45->unknown_44_ + GetStringLength_020d2ff0(var45->unknown_44_), data_ov008_0218b3e0, var47);
                     }
                 }
                 Struct_ov008_02184a4c_11* var48 = (Struct_ov008_02184a4c_11*)GameState::GetInstance()->GetProtagonist();
@@ -669,7 +669,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
         func_ov008_02187a70(arg0, 0);
         func_ov008_02187f6c(arg0, 0);
         for (int var62 = 0; var62 < 6; var62++) {
-            Struct_ov008_02184a4c_10* var63 = func_0205d81c((Struct_0205d81c*)arg0->unknown_130_, (unsigned char)var62);
+            Struct_ov008_02184a4c_10* var63 = FindTextWindow_0205d81c((TextWindowManager_0205d81c*)arg0->unknown_130_, (unsigned char)var62);
             if (var63 != NULL) {
                 if (!(var62 != 4 && var62 != 5)) {
                     var63->unknown_c2_ = 1;

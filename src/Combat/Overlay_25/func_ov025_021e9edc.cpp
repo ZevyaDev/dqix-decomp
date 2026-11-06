@@ -31,7 +31,7 @@ struct Struct_ov025_021e9edc_4 {
     Struct_ov025_021e9edc_3* unknown_130_;
 };
 
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" Struct_ov025_021e9edc* func_ov000_02160f20(void* arg0);
 extern "C" int func_ov025_021def24(void* arg0);
 extern "C" char* func_ov000_02160f08(void* arg0);
@@ -44,13 +44,13 @@ static inline int inline_ov000_02169850(int arg0) {
 
 // USA: func_ov025_021e9edc
 extern "C" ARM void func_ov025_021e9edc(void* arg0) {
-    void* var0 = func_ov000_02160130();
+    void* var0 = GetBattleScene_ov000_02160130();
     Struct_ov025_021e9edc* var1 = func_ov000_02160f20(var0);
     if (func_ov025_021def24(var0) != 0) {
         return;
     }
     GameState* var2 = GameState::GetInstance();
-    char* var3 = func_ov000_02160f08(func_ov000_02160130());
+    char* var3 = func_ov000_02160f08(GetBattleScene_ov000_02160130());
     for (Struct_ov025_021e9edc_5* var4 = var1->unknown_10_; var4 != 0; var4 = var4->unknown_30_) {
         int var5 = var4->unknown_20_;
         unsigned short var6 = var4->unknown_22_;

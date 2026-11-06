@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct Struct_0204693c;
-extern "C" void func_0204693c(struct Struct_0204693c* arg0);
+struct QueueNode_0204693c;
+extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
 
 // USA: func_ov017_021bf410
 extern "C" ARM void func_ov017_021bf410(unsigned char* arg0) {
-    func_0204693c((struct Struct_0204693c*)arg0);
+    ResetQueueNode_0204693c((struct QueueNode_0204693c*)arg0);
     arg0[0x0] = 0xd;
     arg0[0xa] = 0;
     arg0[0xb] = 0;

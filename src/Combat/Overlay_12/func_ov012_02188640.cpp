@@ -24,12 +24,12 @@ struct Struct_ov012_02188640 {
 struct StringList_02072a68_2;
 struct SoundEffectManager_02108760;
 struct Struct_ov012_02186a7c;
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
-extern "C" void func_0205de24(Struct_0205de24_2*, unsigned char, unsigned char);
+extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2*, unsigned char, unsigned char);
 extern "C" void func_ov023_021e6e60(void*);
 extern "C" void func_ov012_0218a574(char*);
-extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" int func_ov023_021e6448(void*);
 extern "C" int func_ov023_021e7148(void*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
@@ -56,16 +56,16 @@ extern "C" ARM void func_ov012_02188640(char* arg0) {
         else
             var2 = 0;
         *(unsigned int*)(arg0 + 0x1444) = var2;
-        func_0205de24((Struct_0205de24_2*)(arg0 + 0x90), 0, 3);
+        SetNextTextWindowBGLayer_0205de24((TextWindowManager_0205de24_2*)(arg0 + 0x90), 0, 3);
         func_ov023_021e6e60(arg0);
         func_ov012_0218a574(arg0);
         ++*(unsigned char*)(arg0 + 0x1340);
         return;
     } else if (*(unsigned char*)(arg0 + 0x1340) == 1) {
         *(unsigned char*)(arg0 + 0x1368) = 1;
-        *(int*)(arg0 + 0x1444) = func_0205d794((Struct_0205c570*)(arg0 + 0x90));
+        *(int*)(arg0 + 0x1444) = GetCursorIndex_0205d794((Struct_0205c570*)(arg0 + 0x90));
         if (func_ov023_021e6448(arg0))
-            *(int*)(arg0 + 0x1444) = func_0205d794((Struct_0205c570*)(arg0 + 0x90));
+            *(int*)(arg0 + 0x1444) = GetCursorIndex_0205d794((Struct_0205c570*)(arg0 + 0x90));
         if (func_ov023_021e7148(arg0)) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             Struct_ov012_02188640* var3 = inline_ov012_02188640(GameState::GetInstance());
@@ -162,13 +162,13 @@ struct Struct_ov012_02188640_6
 struct StringList_02072a68_2;
 struct SoundEffectManager_02108760;
 struct Struct_ov012_02186a7c;
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 
-extern "C" void func_0205de24(Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
 extern "C" void func_ov023_021e6e60(Struct_ov012_02188640_6* arg0);
 extern "C" void func_ov012_0218a574(char* arg0);
-extern "C" int func_0205d794(Struct_0205c570* arg0);
+extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
 extern "C" int func_ov023_021e6448(Struct_ov012_02188640_6* arg0);
 extern "C" int func_ov023_021e6de4(Struct_ov012_02188640_6* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -211,7 +211,7 @@ extern "C" ARM void func_ov012_02188640(Struct_ov012_02188640_6* arg0)
         var9 = 0;
     found:
         arg0->unknown_13d8_[5] = var9;
-        func_0205de24((Struct_0205de24_2*)arg0->unknown_ac_, 0, 3);
+        SetNextTextWindowBGLayer_0205de24((TextWindowManager_0205de24_2*)arg0->unknown_ac_, 0, 3);
         func_ov023_021e6e60(arg0);
         func_ov012_0218a574((char*)arg0);
         arg0->unknown_1370_++;
@@ -220,9 +220,9 @@ extern "C" ARM void func_ov012_02188640(Struct_ov012_02188640_6* arg0)
     else if (arg0->unknown_1370_ == 1)
     {
         arg0->unknown_13a0_ = 1;
-        arg0->unknown_13d8_[5] = func_0205d794((Struct_0205c570*)arg0->unknown_ac_);
+        arg0->unknown_13d8_[5] = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_ac_);
         if (func_ov023_021e6448(arg0))
-            arg0->unknown_13d8_[5] = func_0205d794((Struct_0205c570*)arg0->unknown_ac_);
+            arg0->unknown_13d8_[5] = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_ac_);
         if (func_ov023_021e6de4(arg0))
         {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);

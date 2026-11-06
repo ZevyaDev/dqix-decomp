@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct Struct_0205c4a8;
 struct Struct_0205bb84;
 struct Struct_0205bcdc;
@@ -50,11 +50,11 @@ struct Struct_ov023_021e6448_4 {
 };
 
 extern "C" int func_0205c6e4(unsigned char* arg0);
-extern "C" Struct_ov023_021e6448* func_0205d81c(Struct_0205d81c* arg0, int arg1);
+extern "C" Struct_ov023_021e6448* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" void func_0205c4a8(Struct_0205c4a8* arg0, int arg1);
 extern "C" int func_0205bb84(Struct_0205bb84* arg0);
 extern "C" void func_0205bcdc(Struct_0205bcdc* arg0, int arg1);
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
 // USA: func_ov023_021e6448
 extern "C" ARM int func_ov023_021e6448(Struct_ov023_021e6448_4* arg0) {
@@ -63,7 +63,7 @@ extern "C" ARM int func_ov023_021e6448(Struct_ov023_021e6448_4* arg0) {
     if (g_touchInput.pressed_ != 0) {
         int var0, var1;
         g_touchInput.GetTouchPoint(&var0, &var1);
-        Struct_ov023_021e6448* var2 = func_0205d81c((Struct_0205d81c*)&arg0->unknown_ac_, arg0->unknown_1371_);
+        Struct_ov023_021e6448* var2 = FindTextWindow_0205d81c((TextWindowManager_0205d81c*)&arg0->unknown_ac_, arg0->unknown_1371_);
         if (var2 != NULL) {
             short var3 = var2->unknown_ac_;
             short var4 = var2->unknown_ae_;
@@ -85,7 +85,7 @@ extern "C" ARM int func_ov023_021e6448(Struct_ov023_021e6448_4* arg0) {
                 }
                 int var8 = func_0205bb84((Struct_0205bb84*)var6);
                 func_0205bcdc((Struct_0205bcdc*)&arg0->unknown_ac_.unknown_4_[0], var8);
-                func_0205bb04(&arg0->unknown_ac_.unknown_4_[1], var8);
+                SetMenuCursorIndex_0205bb04(&arg0->unknown_ac_.unknown_4_[1], var8);
             }
             return 1;
         }

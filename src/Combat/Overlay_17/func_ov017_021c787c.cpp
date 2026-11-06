@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov017_021b8478(void*);
+extern "C" void* GetBattleSetup_ov017_021b8478(void*);
 extern "C" void* func_ov017_021b8468(void*);
 extern "C" void* func_ov017_021b8470(void*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
@@ -35,7 +35,7 @@ struct Struct_ov017_021c787c_4 {
 // USA: func_ov017_021c787c
 extern "C" ARM void func_ov017_021c787c(int arg0, Struct_ov017_021c787c_3* arg1, GameState* arg2, GameResources* arg3) {
     void* var0 = arg3->unknown_ptr_3718;
-    Struct_ov017_021c787c* var1 = (Struct_ov017_021c787c*)func_ov017_021b8478(var0);
+    Struct_ov017_021c787c* var1 = (Struct_ov017_021c787c*)GetBattleSetup_ov017_021b8478(var0);
     if (!var1) return;
     if (!func_ov017_021b8468(var0)) return;
     if (!func_ov017_021b8470(var0)) return;

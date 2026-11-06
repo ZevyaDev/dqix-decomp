@@ -70,20 +70,20 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" int IsLocalWirelessGuest_0202c540(int *wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(int *wireless);
 struct Struct_02046574_2;
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" const char * FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" void func_ov003_0215cab0(char *arg0, void *arg1);
 extern "C" void func_ov003_0215ddc0(char *arg0);
 extern "C" void func_ov003_0215df1c(void *arg0);
 extern "C" void func_ov003_0215dd3c(char *arg0);
-struct Struct_0205d81c;
-extern "C" void func_0205deb4(Struct_0205d81c*, int, int);
+struct TextWindowManager_0205d81c;
+extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
 extern "C" void func_0205cef8(void *arg0);
 extern "C" void func_0205cf04(void *arg0);
-extern "C" int func_0205d794(Struct_0205c570 *);
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
+extern "C" int GetCursorIndex_0205d794(Struct_0205c570 *);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
 extern "C" void func_0205cf10(void *arg0);
 extern "C" void func_0205cf1c(Struct_0205cf1c *);
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
 
         char *var7 = var1->unknown_5c_;
         if (arg0->unknown_3f0_ != 0) {
-            func_02046574((Struct_02046574_2*)var1, 0, (char*)(*(void **) ((char *) var0->GetPartyMemberByIndex(0) + 0x134)));
+            SetMessageString_02046574((Struct_02046574_2*)var1, 0, (char*)(*(void **) ((char *) var0->GetPartyMemberByIndex(0) + 0x134)));
 
             int var8 = 0;
             if (IsNotLocalWirelessGuest_0202c508(var2) != 0) {
@@ -176,7 +176,7 @@ extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
             func_ov003_0215ddc0((char *) arg0);
         }
         func_ov003_0215df1c(arg0);
-        func_0205deb4((Struct_0205d81c*)arg0->unknown_98_, 0, 0);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_98_, 0, 0);
         arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;
     }
     if (var4 == 3) {
@@ -188,10 +188,10 @@ extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
     }
     if (var4 == 4) {
         arg0->unknown_3c2_ = 1;
-        arg0->unknown_3c1_ = func_0205d794((Struct_0205c570 *) arg0->unknown_98_);
+        arg0->unknown_3c1_ = GetCursorIndex_0205d794((Struct_0205c570 *) arg0->unknown_98_);
         if (func_ov003_0215dcb8((char *) arg0) != 0) {
             arg0->unknown_3c2_ = 0;
-            func_0205d6a0((Struct_0205d6a0*)arg0->unknown_98_, 0);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_98_, 0);
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
             func_0205cf10(arg0->unknown_98_);
             func_0205cf1c((Struct_0205cf1c *) arg0->unknown_98_);
@@ -204,7 +204,7 @@ extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
         } else {
             if (func_ov003_0215dd00((char *) arg0) != 0) {
                 arg0->unknown_3c2_ = 0;
-                func_0205d6a0((Struct_0205d6a0*)arg0->unknown_98_, 0);
+                CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_98_, 0);
                 func_0205cf10(arg0->unknown_98_);
                 func_0205cf1c((Struct_0205cf1c *) arg0->unknown_98_);
                 arg0->unknown_3bc_ = 4;

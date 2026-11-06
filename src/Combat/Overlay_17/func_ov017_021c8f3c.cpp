@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021c8f3c_2 {
     unsigned short unknown_0_;
@@ -84,14 +84,14 @@ extern "C" ARM void func_ov017_021c8f3c(int arg0, int arg1) {
     var1.unknown_2_ = var3->unknown_0_.rotation_.y;
     var1.unknown_a_ = var3->unknown_130_;
 
-    void* var5 = func_0202ae24();
+    void* var5 = GetLocalWirelessPacketQueue_0202ae24();
     var2.unknown_0_ = 0x83;
     var2.unknown_4_0_ = 0;
     func_ov017_021c90b4(&var2.unknown_6_.unknown_0_, &var0);
-    func_0205e330(var5, &var2, 0);
+    QueueOutgoingPacket_0205e330(var5, &var2, 0);
 
     var2.unknown_0_ = 0x83;
     var2.unknown_4_0_ = 1;
     func_ov017_021c90f8(&var2.unknown_6_.unknown1_0_, &var1);
-    func_0205e330(var5, &var2, 0);
+    QueueOutgoingPacket_0205e330(var5, &var2, 0);
 }

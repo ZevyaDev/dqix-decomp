@@ -9,7 +9,7 @@ struct Struct_02057a6c;
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_ov017_02196048(int*, int*, int*);
-extern "C" Struct_02057a6c* func_02057924(void);
+extern "C" Struct_02057a6c* GetEffectManager_02057924(void);
 extern "C" int func_020ca4b4(const void* arg0, void* arg1, int arg2);
 extern "C" void func_02057a6c(Struct_02057a6c* arg0);
 extern "C" void func_ov017_021a3af0(int arg0);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_02195ecc(Struct_ov017_02195ecc* arg0, unsigned in
     SendQueuedDataToGeometryFifo();
 
     if (arg1 & 1) {
-        Struct_02057a6c* var7 = func_02057924();
+        Struct_02057a6c* var7 = GetEffectManager_02057924();
         if (TestFlags04((GameResources*)(arg0->unknown_0_), 0x20) == 0) {
             func_02057a6c(var7);
         }

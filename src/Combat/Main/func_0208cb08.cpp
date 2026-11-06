@@ -13,9 +13,9 @@ struct Struct_0208cb08_2 {
 };
 struct Struct_02015438;
 struct Struct_02074b64 { unsigned char unknown_0_[0x14]; };
-struct Struct_0204b12c;
-struct Struct_0204af38;
-struct Struct_02020cb8_5;
+struct BGLayer_0204b12c;
+struct BGLayer_0204af38;
+struct BGLayer_02020cb8_5;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct Struct_0208cb08_3 {
@@ -52,23 +52,23 @@ struct Struct_0208cb08_5 {
 };
 extern "C" int GetResources_0200fb8c(int*);
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
-extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" int func_02046b24(Struct_02015438**);
 extern "C" void func_02074b64(Struct_02074b64*);
 extern "C" void func_020dc2bc();
 void SetSubBrightness(GameResources*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
-extern "C" void func_0204b11c(unsigned char*, int);
-extern "C" void func_0204b12c(Struct_0204b12c*, SafeAllocator*);
-extern "C" void func_0204af38(Struct_0204af38*, int, SafeAllocator*);
-extern "C" void func_0204b5e8(Struct_02020cb8_5*, int, int);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char*, int);
+extern "C" void AllocateBGScreenData_0204b12c(BGLayer_0204b12c*, SafeAllocator*);
+extern "C" void AllocateBGScreenBlocks_0204af38(BGLayer_0204af38*, int, SafeAllocator*);
+extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
 extern "C" void func_0208c9cc(int, int, int, int, int);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void func_0205aed0(void*, char*, unsigned int, int);
-extern "C" void func_0204b5b4(void*, int);
-extern "C" int func_0205a528(void*, void*, int, int);
-extern "C" void func_020dfec0(void*, SafeAllocator*, void*, unsigned int);
+extern "C" void SetBGPriority_0204b5b4(void*, int);
+extern "C" int LoadSpriteSetFile_0205a528(void*, void*, int, int);
+extern "C" void LoadStringTable_020dfec0(void*, SafeAllocator*, void*, unsigned int);
 extern "C" void func_0208bf78(Struct_0208cb08_5*);
 extern char data_020f11a2[], data_020f11b3[], data_020f11c0[], data_020f11da[];
 
@@ -83,8 +83,8 @@ extern "C" ARM void func_0208cb08(Struct_0208cb08_5* arg0) {
     GameResources* var1 = (GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance());
     if (arg0->unknown_d5_ == 0) {
         SetFlags00(var1, 0x6000);
-        func_020466e4(GetGlobalFlags_020d6c00(), 1);
-        FontLoader_0208cb08* var2 = func_02094a00();
+        SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 1);
+        FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
         int var3 = 0x67;
         if (func_02046b24((Struct_02015438**)var1->unknown_ptr_array_36fc[0]) != 0x2d) {
             if (arg0->unknown_d2_ < 0) var3 = 0x32;
@@ -97,7 +97,7 @@ extern "C" ARM void func_0208cb08(Struct_0208cb08_5* arg0) {
         func_02094b30(var2, var3, 0);
         ++arg0->unknown_d5_;
     } else if (arg0->unknown_d5_ == 1) {
-        if (func_02094b4c(func_02094a00())) ++arg0->unknown_d5_;
+        if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) ++arg0->unknown_d5_;
     } else if (arg0->unknown_d5_ == 2) {
         func_02074b64(&arg0->unknown_2c_);
         func_020dc2bc();
@@ -107,13 +107,13 @@ extern "C" ARM void func_0208cb08(Struct_0208cb08_5* arg0) {
         if (IsSubBrightnessTransitionActive(var1)) return;
         Struct_0208cb08_4* var5 = arg0->unknown_0_;
         var5->unknown_14_.Reset();
-        func_0204b11c((unsigned char*)&arg0->unknown_40_, 0);
+        SetBGScreenSize_0204b11c((unsigned char*)&arg0->unknown_40_, 0);
         arg0->unknown_40_.unknown_1c_ = (arg0->unknown_40_.unknown_1c_ & ~0xf) | 1;
         arg0->unknown_40_.unknown_1c_ &= ~0xf0;
-        func_0204b5b4(&arg0->unknown_40_, 0);
-        func_0204b12c((Struct_0204b12c*)&arg0->unknown_40_, &var5->unknown_14_);
-        func_0204af38((Struct_0204af38*)&arg0->unknown_40_, 1, &var5->unknown_14_);
-        func_0204b5e8((Struct_02020cb8_5*)&arg0->unknown_40_, 0, 0);
+        SetBGPriority_0204b5b4(&arg0->unknown_40_, 0);
+        AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)&arg0->unknown_40_, &var5->unknown_14_);
+        AllocateBGScreenBlocks_0204af38((BGLayer_0204af38*)&arg0->unknown_40_, 1, &var5->unknown_14_);
+        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&arg0->unknown_40_, 0, 0);
         func_0208c9cc(0, 0, 15, 0, 0);
         arg0->unknown_b0_ = 1;
         arg0->unknown_a0_ = arg0->unknown_b4_;
@@ -137,7 +137,7 @@ extern "C" ARM void func_0208cb08(Struct_0208cb08_5* arg0) {
         int var12;
         for (; var11 < var10; ++var11) {
             void* var13 = GetPacEntryData_020467f0((PacEntry_02020aec*)var8, var11, &var7, &var12);
-            func_0205a528(arg0->unknown_60_, var13, var12, (int)&var6->unknown_3c_);
+            LoadSpriteSetFile_0205a528(arg0->unknown_60_, var13, var12, (int)&var6->unknown_3c_);
         }
         func_0205aed0(arg0->unknown_60_, arg0->unknown_b4_, 3, 0x40);
         var0->RemoveTask(arg0->unknown_bc_);
@@ -158,7 +158,7 @@ extern "C" ARM void func_0208cb08(Struct_0208cb08_5* arg0) {
         var0->GetLoadedFileByID(arg0->unknown_bc_, &var15, &var16);
         if (var14) {
             var14->unknown_0_.Reset();
-            func_020dfec0(arg0->unknown_4_, &var14->unknown_0_, var15, var16);
+            LoadStringTable_020dfec0(arg0->unknown_4_, &var14->unknown_0_, var15, var16);
         }
         var0->RemoveTask(arg0->unknown_bc_);
         arg0->unknown_bc_ = -1;

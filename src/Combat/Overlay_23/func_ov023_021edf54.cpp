@@ -223,7 +223,7 @@ extern "C" Struct_ov023_021edf54_10 _ZZ21inline_ov023_021f4c04vE1s;
 extern "C" {
 int func_ov023_021f5340(void* arg0);
 void* GetLocalWireless_0202ae18();
-int func_ov000_0215e9fc(Struct_ov023_021edf54_14* arg0, short* arg1, int arg2, unsigned int arg3);
+int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov023_021edf54_14* battle, short* indices, int maxCount, unsigned int filterFlags);
 int func_ov000_0215ec1c(Struct_ov023_021edf54_14* arg0, short* arg1, int arg2, int arg3);
 int func_ov023_021f4098(Struct_ov023_021edf54_16* arg0, int arg1, int arg2);
 void func_ov023_021f454c(Struct_ov023_021edf54_16* arg0);
@@ -290,7 +290,7 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
         int var10;
         GameState* var11 = GameState::GetInstance();
         var10 = 0;
-        var10 += func_ov000_0215e9fc(var8, var3, 0x10, var10);
+        var10 += CollectPartyCombatantIndices_ov000_0215e9fc(var8, var3, 0x10, var10);
         var10 += func_ov000_0215ec1c(var8, var3 + var10, 0x10 - var10, 0);
         for (var9 = 0; var9 < var10; var9++) {
             GameObject* var12 = var11->GetCombatantByIndex(var3[var9]);
@@ -313,7 +313,7 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
         }
         arg0->unknown_58cc_ = arg0->unknown_29c_->unknown_8e20_;
 
-        int var17 = func_ov000_0215e9fc(arg0->unknown_29c_, var4, 4, 1);
+        int var17 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0->unknown_29c_, var4, 4, 1);
         arg0->unknown_58c8_ = 0;
         for (int var18 = 0; var18 < var17; var18++)
             arg0->unknown_58c8_ |= 1 << var4[var18];
@@ -442,7 +442,7 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
     Struct_ov023_021edf54_8* var44 = _ZZ21inline_ov023_021f4c04vE1s.unknown_0_->unknown_118_;
     for (int var45 = 0; var45 < 4; var45++) {
         if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var45)) {
-            Struct_ov023_021edf54_11* var46 = (Struct_ov023_021edf54_11*)func_0200ff1c(var5, var45);
+            Struct_ov023_021edf54_11* var46 = (Struct_ov023_021edf54_11*)GetPartyMemberBaseByIndex_0200ff1c(var5, var45);
             if (var46 != 0) {
                 var44->unknown_0_ = var45;
                 var44->unknown_1_ = var46->unknown_150_->unknown_950_;

@@ -5,7 +5,7 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" int func_ov001_0215ad2c(int arg0);
 extern "C" int func_ov017_021bbbe4(void* arg0);
 extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov001_0216066c(void* arg0) {
     var4 = GameState::GetInstance();
     (int)BackgroundLoader::GetInstance();
     var5 = data_ov001_021658b8[0];
-    var8 = func_ov001_0215ad2c(func_ov017_021d60f4(arg0));
+    var8 = func_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(arg0));
     var7 = ((int)GetGameResources());
 #if defined(jpn)
     var7 = *(int*)((char*)var7 + 0x3000 + 0x524);

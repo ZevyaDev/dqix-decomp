@@ -41,7 +41,7 @@ struct Struct_ov003_02168b50_3 {
 struct Struct_0201099c_3;
 struct Struct_02046574_2;
 struct MessageWindow_020465c0;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 
 struct Struct_ov003_02168b50_4 {
     char unknown_0_[0x64];
@@ -62,7 +62,7 @@ extern "C" int func_02041fe8(char* arg0, int arg1);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
+extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 
@@ -74,7 +74,7 @@ extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int ar
 #endif
 extern "C" void func_ov003_0216982c(struct Struct_ov003_02168b50_4* arg0);
 extern "C" void func_ov003_0216997c(struct Struct_ov003_02168b50_4* arg0);
-extern "C" void func_0205deb4(struct Struct_0205d81c* arg0, int arg1, int arg2);
+extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c* windowManager, int windowId, int palette);
 
 // USA: func_ov003_02168b50
 extern "C" ARM void func_ov003_02168b50(struct Struct_ov003_02168b50_4* arg0) {
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov003_02168b50(struct Struct_ov003_02168b50_4* arg0) {
         GameState* var3 = GameState::GetInstance();
         struct Struct_ov003_02168b50_3* var4 = (struct Struct_ov003_02168b50_3*)GetParty_02010828(var3);
         ClearMessageParams_02046380(var0);
-        func_02046574((struct Struct_02046574_2*)var0, 0, (char*)var3->GetProtagonist()->baseStats_);
+        SetMessageString_02046574((struct Struct_02046574_2*)var0, 0, (char*)var3->GetProtagonist()->baseStats_);
         if (var4->unknown_f68_ != 0) {
             SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var0, 0, var4->unknown_f68_);
             func_020465f0((unsigned char*)var0, 0, 0);
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov003_02168b50(struct Struct_ov003_02168b50_4* arg0) {
     } else if (arg0->unknown_4e8_ == 1 && arg0->unknown_5a4_ == 0 && var0->unknown_9a0_ == 3) {
         func_ov003_0216982c(arg0);
         func_ov003_0216997c(arg0);
-        func_0205deb4((struct Struct_0205d81c*)arg0->unknown_e4_, 0, 0);
+        SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c*)arg0->unknown_e4_, 0, 0);
         arg0->unknown_4ec_ = 2;
         arg0->unknown_4e8_ = 0;
     }

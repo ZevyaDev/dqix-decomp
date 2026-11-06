@@ -73,7 +73,7 @@ extern "C" float func_ov024_021db358(GameObject* arg0);
 extern "C" int func_ov000_0215fc60(char*);
 extern "C" int func_ov000_0215ffa0(void* arg0);
 extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
-extern "C" struct Struct_ov024_021da9e0_10* func_ov000_0215e958(void* arg0);
+extern "C" struct Struct_ov024_021da9e0_10* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, GameObject* arg2, int arg3, unsigned long long arg4, int arg5);
 extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
 struct Struct_ov024_021da9e0_4;
@@ -82,10 +82,10 @@ extern "C" unsigned long long func_ov024_021e4b14(struct Struct_ov024_021da9e0_2
 extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, int arg2);
 struct Struct_ov000_0215440c_2;
 extern "C" struct Struct_ov024_021da9e0* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
-extern "C" struct Struct_ov024_021da9e0_8* func_02079e2c(char*, int);
+extern "C" struct Struct_ov024_021da9e0_8* FindActionData_02079e2c(char*, int);
 extern "C" short func_ov000_0215a004(void* arg0, int arg1, int arg2, int arg3, void* arg4, struct Struct_ov024_021da9e0_8* arg5, int arg6, int arg7);
 extern "C" void func_ov000_02159eac(void* arg0, void* arg1, int arg2);
-extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" int func_ov024_021eb08c(struct Struct_ov024_021da9e0_2* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov000_0215a908(void* arg0, int arg1);
 extern "C" unsigned short func_ov024_021e9b24(struct Struct_ov024_021da9e0_2* arg0, int arg1, struct Struct_ov024_021da9e0_8* arg2, int arg3);
@@ -110,7 +110,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
     unsigned short var2 = arg3->unknown_4_.unknown_0_0_;
     if (var2 == 0x150) arg4 = 0;
     if (func_ov000_0215fc60((char*)arg0->unknown_10_) != 0 && var2 == 1 && arg2 == 0) {
-        GameObject* var3 = func_0200ff1c(GameState::GetInstance(), 0);
+        GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), 0);
         if (var3) {
             if (func_ov000_0215fc60((char*)arg0->unknown_10_) == 1) {
                 unsigned short var4 = var0->currentStats_->primaryStats.currHP;
@@ -143,7 +143,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
                         struct Struct_ov024_021da9e0_9* var12 = var9->unknown_8_;
                         if (var12) {
                             if (!var11) {
-                                var11 = func_ov000_0215e958(arg0->unknown_10_);
+                                var11 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
                                 if (!var11) return 0;
                                 func_ov000_0215cd44(arg0->unknown_10_, var11, var0, 0, 0, 0);
                                 func_ov000_0215ffc4(arg0->unknown_c_, var11, 1);
@@ -178,7 +178,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
     if (var15) var14.unknown1_0_ = func_ov024_021e4b14(arg0, arg1, arg2, arg3, arg4);
     if (func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0xe) || func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0x17))
         arg0->unknown_70_ = 0;
-    struct Struct_ov024_021da9e0_10* var16 = func_ov000_0215e958(arg0->unknown_10_);
+    struct Struct_ov024_021da9e0_10* var16 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var16) return 0;
     short var17 = 0;
     if (!func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0xd) && !func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0x29)) {
@@ -189,7 +189,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
                 if (var19->unknown_20_ != arg1) var18 = 0;
                 unsigned int var20 = arg3->unknown_4_.unknown_0_0_;
                 if (var20 == 1 || var20 == 2 || var20 == 0xdb || var20 == 0xdf || var20 == 0xe0 || arg0->unknown_c_->unknown_1d_.unknown_0_0_)
-                    var18 = func_02079e2c((char*)func_020797dc(), 1);
+                    var18 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), 1);
             }
         }
         var17 = func_ov000_0215a004(arg0->unknown_10_, arg1, arg2, arg4, &var14, var18, arg0->unknown_c_->unknown_1c_.unknown_0_7_ != 0, 0);
@@ -204,7 +204,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
         arg0->unknown_c_->unknown_18_[2] = 0;
         if (arg0->unknown_4_ && func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 2) && arg3->unknown_4_.unknown_0_0_ != 0x61) {
             if (inline_ov024_021da9e0(arg2))
-                func_ov000_0215a88c(arg0->unknown_10_, var16, (unsigned short)arg3->unknown_28_.unknown_0_0_);
+                AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var16, (unsigned short)arg3->unknown_28_.unknown_0_0_);
             arg0->unknown_68_ = var16;
         }
     } else if (!func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0x29)) {
@@ -220,7 +220,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
         }
     }
     if (arg3->unknown_4_.unknown_0_0_ == 0x61) {
-        if (arg0->unknown_18_ > 0) func_ov000_0215a88c(arg0->unknown_10_, var16, 0x1f0);
+        if (arg0->unknown_18_ > 0) AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var16, 0x1f0);
         unsigned short var23;
         if (arg4 > 0) {
             var23 = func_ov024_021e9b24(arg0, arg2, arg3, 0);
@@ -235,12 +235,12 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
                 var23 = func_ov024_021da644(arg2, 0x26d, 0x1b);
 #endif
         }
-        if (var23) func_ov000_0215a88c(arg0->unknown_10_, var16, var23);
+        if (var23) AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var16, var23);
         if (arg0->unknown_4_ && func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 2)) {
             if (inline_ov024_021da9e0(arg2))
-                func_ov000_0215a88c(arg0->unknown_10_, var16, (unsigned short)arg3->unknown_28_.unknown_0_0_);
+                AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var16, (unsigned short)arg3->unknown_28_.unknown_0_0_);
             else
-                func_ov000_0215a88c(arg0->unknown_10_, var16, (unsigned short)arg3->unknown_28_.unknown_1_2_);
+                AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var16, (unsigned short)arg3->unknown_28_.unknown_1_2_);
             *arg5 |= 2;
             arg0->unknown_c_->unknown_0_[1] = 0;
             arg0->unknown_c_->unknown_18_[1] = 0;
@@ -252,14 +252,14 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
         arg4 = 0;
         var17 = 0;
         if (inline_ov024_021da9e0(arg2))
-            func_ov000_0215a88c(arg0->unknown_10_, var16, 8);
+            AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var16, 8);
         else
-            func_ov000_0215a88c(arg0->unknown_10_, var16, 0x45);
+            AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var16, 0x45);
         arg0->unknown_6e_ = 1;
     } else if (func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0x29)) {
         arg4 = 0;
         var17 = 1;
-        func_ov000_0215a88c(arg0->unknown_10_, var16, 0xc8);
+        AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var16, 0xc8);
         arg0->unknown_6e_ = 1;
     }
     func_ov000_0215ccbc(arg0->unknown_10_, var16, var0, arg4, var17, inline_ov024_021da9e0_3(var0), var14.unknown1_0_, arg0->unknown_c_->unknown_1c_.unknown_0_7_ != 0);

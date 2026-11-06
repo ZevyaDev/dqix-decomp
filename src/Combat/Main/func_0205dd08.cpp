@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Struct_0205d81c;
-struct Struct_0205d0e0;
+struct TextWindowManager_0205d81c;
+struct TextWindow_0205d0e0;
 
-extern "C" struct Struct_0205d0e0* func_0205d8c4(struct Struct_0205d81c* arg0);
+extern "C" struct TextWindow_0205d0e0* func_0205d8c4(struct TextWindowManager_0205d81c* arg0);
 extern "C" int func_0204c7cc(unsigned char* arg0);
 
 struct Struct_0205dd08 {
@@ -33,7 +33,7 @@ extern "C" ARM int func_0205dd08(struct Struct_0205dd08* arg0) {
     if (arg0->unknown_9c_ == NULL) return 0;
     if (g_touchInput.pressed_ == 0) return 0;
 
-    var0 = (struct Struct_0205dd08_2*)func_0205d8c4((struct Struct_0205d81c*)arg0);
+    var0 = (struct Struct_0205dd08_2*)func_0205d8c4((struct TextWindowManager_0205d81c*)arg0);
     if (var0 == NULL) return 0;
     if (func_0204c7cc((unsigned char*)var0) == 0) return 0;
     if ((var0->unknown_c5_ & 8) == 0) return 0;

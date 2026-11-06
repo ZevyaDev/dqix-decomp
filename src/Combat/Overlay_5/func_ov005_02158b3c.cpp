@@ -13,7 +13,7 @@
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" int* func_ov017_021a193c(int* arg0);
-extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void func_020e46c4(void* arg0);
 extern "C" short func_ov005_0215a930(void* arg0, int arg1);
@@ -83,7 +83,7 @@ struct Struct_ov005_02158b3c_5 {
 
 #if defined(jpn)
 extern "C" void func_020de968(int arg0, char* arg1);
-extern "C" void func_02046574(void*, int, char*);
+extern "C" void SetMessageString_02046574(void*, int, char*);
 #endif
 
 // USA: func_ov005_02158b3c
@@ -98,14 +98,14 @@ extern "C" ARM int func_ov005_02158b3c(void* arg0, void* arg1) {
     Struct_ov005_02158b3c_6* var2 = (Struct_ov005_02158b3c_6*)func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     int var3 = var2->unknown_4fc_;
 #endif
-    Struct_ov005_02158b3c_7* var4 = (Struct_ov005_02158b3c_7*)func_0200ff1c(var1, var3);
+    Struct_ov005_02158b3c_7* var4 = (Struct_ov005_02158b3c_7*)GetPartyMemberBaseByIndex_0200ff1c(var1, var3);
     if (var4 == 0) return 0;
 
 #if defined(jpn)
-    func_02046574(var0, 1, *(char**)((char*)var4 + 0x134));
+    SetMessageString_02046574(var0, 1, *(char**)((char*)var4 + 0x134));
 #else
     Struct_ov005_02158b3c_3 var5;
-    func_020e4bf4(&var5, var3);
+    InitPartyMemberNoun_020e4bf4(&var5, var3);
     var0->unknown_10_ = &var5;
     Struct_ov005_02158b3c_4 var6;
     __clear(var6.unknown_80_, 0x80);
@@ -126,7 +126,7 @@ extern "C" ARM int func_ov005_02158b3c(void* arg0, void* arg1) {
             char var11[0x40];
             __clear(var11, 0x40);
             func_020de968(var10->unknown_18_, var11);
-            func_02046574(var0, 0, var11);
+            SetMessageString_02046574(var0, 0, var11);
 #else
             func_020dcf7c(var10->unknown_18_, &var7);
             var0->unknown_18_ = &var7;
@@ -140,7 +140,7 @@ extern "C" ARM int func_ov005_02158b3c(void* arg0, void* arg1) {
         char var14[0x40];
         __clear(var14, 0x40);
         func_020de968(var13, var14);
-        func_02046574(var0, 0, var14);
+        SetMessageString_02046574(var0, 0, var14);
 #else
         func_020dcf7c(var13, &var7);
         var0->unknown_18_ = &var7;

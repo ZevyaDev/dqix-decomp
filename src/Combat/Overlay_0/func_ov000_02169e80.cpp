@@ -15,15 +15,15 @@ struct Struct_ov000_02184264_4 {
     SafeAllocator* unknown_8_;
 };
 extern "C" {
-    extern Struct_ov000_02184264_4 data_ov000_02184264;
-    void func_ov000_02169b78(Struct_ov000_02169e80*);
+    extern Struct_ov000_02184264_4 gBACTParseState_ov000_02184264;
+    void AppendBACTCommand_ov000_02169b78(Struct_ov000_02169e80*);
 }
 
 // USA: func_ov000_02169e80
 extern "C" ARM int func_ov000_02169e80(Script::Parameter* arg0, int arg1)
 {
     Struct_ov000_02169e80* var0 = static_cast<Struct_ov000_02169e80*>(
-        data_ov000_02184264.unknown_8_->Allocate(sizeof(Struct_ov000_02169e80)));
+        gBACTParseState_ov000_02184264.unknown_8_->Allocate(sizeof(Struct_ov000_02169e80)));
     var0->unknown_0_ = 5;
     if (arg0->type == 2) {
         float var1 = arg0->ToFloat();
@@ -44,6 +44,6 @@ extern "C" ARM int func_ov000_02169e80(Script::Parameter* arg0, int arg1)
         var0->unknown_a_ = 4096.0f * (var4 / 1000.0f);
     }
     var0->unknown_c_ = 4096.0f * arg0->ToFloat();
-    func_ov000_02169b78(var0);
+    AppendBACTCommand_ov000_02169b78(var0);
     return 1;
 }

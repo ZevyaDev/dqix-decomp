@@ -42,7 +42,7 @@ extern "C" void func_020cf0fc(int arg0);
 extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0(void);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 extern "C" int func_02098f20(int arg0, int arg1, int arg2);
-extern "C" void func_02046574(Struct_02046574_2* arg0, int arg1, char* arg2);
+extern "C" void SetMessageString_02046574(Struct_02046574_2* window, int index, char* text);
 
 // USA: func_02099304
 extern "C" ARM int func_02099304(Struct_02099304* arg0, char* arg1, const void* arg2, unsigned int arg3, void* arg4, int arg5, unsigned char arg6, char* arg7, char* arg8) {
@@ -108,9 +108,9 @@ extern "C" ARM int func_02099304(Struct_02099304* arg0, char* arg1, const void* 
         }
         SetMessageNumber_020465c0(var3, 0, var5);
     }
-    func_02046574((Struct_02046574_2*)var3, 0, arg1);
-    func_02046574((Struct_02046574_2*)var3, 1, arg7);
-    func_02046574((Struct_02046574_2*)var3, 2, arg8);
+    SetMessageString_02046574((Struct_02046574_2*)var3, 0, arg1);
+    SetMessageString_02046574((Struct_02046574_2*)var3, 1, arg7);
+    SetMessageString_02046574((Struct_02046574_2*)var3, 2, arg8);
 
     var2.Initialize();
     var2.SetOpcodeLookup(data_020f1504);

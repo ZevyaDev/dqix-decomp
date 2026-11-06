@@ -4,33 +4,33 @@
 #include "Resource/CharacterCreationUI.h"
 #include "Graphics/SpriteAffineTransform.h"
 
-extern "C" void func_0205ac40(Struct_0205ac40*, Struct_0205ac40_2*);
+extern "C" void DrawSprite_0205ac40(SpriteSet_0205ac40*, Sprite_0205ac40_2*);
 extern "C" void func_ov023_021dab5c(Struct_ov009_021842a0*, int, int, int, int);
 
 extern "C" ARM void func_ov023_021da770(Struct_ov009_021842a0* arg0) {
     if (!(arg0->unknown_d9c_ & 0x1000000)) {
         if ((arg0->unknown_c58_ != 9 || arg0->unknown_c59_ < 1) && arg0->unknown_c58_ != 11 &&
             !(arg0->unknown_d9c_ & 0x400000)) {
-            fix32_t* var0 = arg0->unknown_7e8_[7].unknown_14_;
+            fix32_t* var0 = arg0->unknown_7e8_[7].position_14_;
             var0[0] = 0xe000;
             var0[1] = 0xa9000;
-            func_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[7]);
-            var0 = arg0->unknown_7e8_[6].unknown_14_;
+            DrawSprite_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[7]);
+            var0 = arg0->unknown_7e8_[6].position_14_;
             var0[0] = 0x19000;
             var0[1] = 0xa9000;
-            func_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[6]);
-            var0 = arg0->unknown_7e8_[8].unknown_14_;
+            DrawSprite_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[6]);
+            var0 = arg0->unknown_7e8_[8].position_14_;
             var0[0] = 0x3b000;
             var0[1] = 0xa9000;
-            func_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[8]);
-            var0 = arg0->unknown_7e8_[9].unknown_14_;
+            DrawSprite_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[8]);
+            var0 = arg0->unknown_7e8_[9].position_14_;
             var0[0] = 0x98000;
             var0[1] = 0xa9000;
-            func_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[9]);
-            var0 = arg0->unknown_7e8_[10].unknown_14_;
+            DrawSprite_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[9]);
+            var0 = arg0->unknown_7e8_[10].position_14_;
             var0[0] = 0xd2000;
             var0[1] = 0xa9000;
-            func_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[10]);
+            DrawSprite_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[10]);
         }
     }
     for (int var1 = 0; var1 < 8; ++var1) {
@@ -38,18 +38,18 @@ extern "C" ARM void func_ov023_021da770(Struct_ov009_021842a0* arg0) {
         int var2 = (var1 * 16 + 0x78) << 12;
         if (arg0->unknown_c58_ == 9) {
             if (arg0->unknown_c59_ >= 1 && arg0->unknown_c59_ != 0xff)
-                arg0->unknown_7e8_[var1 + 11].unknown_25_ = 11;
+                arg0->unknown_7e8_[var1 + 11].paletteOverride_25_ = 11;
         } else if (arg0->unknown_c58_ == 11) {
-            arg0->unknown_7e8_[var1 + 11].unknown_25_ = 11;
+            arg0->unknown_7e8_[var1 + 11].paletteOverride_25_ = 11;
         } else if (var1 == arg0->unknown_c58_ - 1) {
-            arg0->unknown_7e8_[var1 + 11].unknown_25_ = 9;
+            arg0->unknown_7e8_[var1 + 11].paletteOverride_25_ = 9;
         } else {
-            arg0->unknown_7e8_[var1 + 11].unknown_25_ = 10;
+            arg0->unknown_7e8_[var1 + 11].paletteOverride_25_ = 10;
         }
-        fix32_t* var3 = arg0->unknown_7e8_[var1 + 11].unknown_14_;
+        fix32_t* var3 = arg0->unknown_7e8_[var1 + 11].position_14_;
         var3[0] = var2;
         var3[1] = 0x8000;
-        func_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[var1 + 11]);
+        DrawSprite_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[var1 + 11]);
     }
     if (arg0->unknown_d94_ == 1) return;
     int var4 = -1;
@@ -65,17 +65,17 @@ extern "C" ARM void func_ov023_021da770(Struct_ov009_021842a0* arg0) {
     if (var4 >= 0) {
         short var6 = arg0->unknown_c54_;
         short var7 = arg0->unknown_c56_;
-        fix32_t* var8 = arg0->unknown_7e8_[var4].unknown_14_;
+        fix32_t* var8 = arg0->unknown_7e8_[var4].position_14_;
         var8[0] = var6 << 12;
         var8[1] = var7 << 12;
-        func_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[var4]);
+        DrawSprite_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[var4]);
     }
     if (!var5 || (arg0->unknown_d9c_ & 0x400000)) return;
     func_ov023_021dab5c(arg0, arg0->unknown_c4c_, arg0->unknown_c4e_,
                       arg0->unknown_c50_, arg0->unknown_c52_);
 }
 #else
-extern "C" int func_0205ac40(void*, void*);
+extern "C" int DrawSprite_0205ac40(void*, void*);
 extern "C" void func_ov023_021dab5c(void*, int, int, int, int);
 
 // USA: func_ov023_021da770
@@ -93,27 +93,27 @@ extern "C" ARM void func_ov023_021da770(void* arg0) {
             var15 = var12 + 0x118;
             *(int*)(var15 + 0x14) = 0xe000;
             *(int*)(var15 + 0x18) = 0xa9000;
-            func_0205ac40(var10, var15);
+            DrawSprite_0205ac40(var10, var15);
 
             var15 = var12 + 0xf0;
             *(int*)(var15 + 0x14) = 0x15000;
             *(int*)(var15 + 0x18) = 0xa9000;
-            func_0205ac40(var10, var15);
+            DrawSprite_0205ac40(var10, var15);
 
             var15 = var12 + 0x140;
             *(int*)(var15 + 0x14) = 0x3b000;
             *(int*)(var15 + 0x18) = 0xa9000;
-            func_0205ac40(var10, var15);
+            DrawSprite_0205ac40(var10, var15);
 
             var15 = var12 + 0x168;
             *(int*)(var15 + 0x14) = 0x8e000;
             *(int*)(var15 + 0x18) = 0xa9000;
-            func_0205ac40(var10, var15);
+            DrawSprite_0205ac40(var10, var15);
 
             var15 = var12 + 0x190;
             *(int*)(var15 + 0x14) = 0xc8000;
             *(int*)(var15 + 0x18) = 0xa9000;
-            func_0205ac40(var10, var15);
+            DrawSprite_0205ac40(var10, var15);
         }
     }
 
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov023_021da770(void* arg0) {
         *(unsigned char*)(var20 + 0x25) = (unsigned char)var22;
         *(int*)(var20 + 0x14) = var19;
         *(int*)(var20 + 0x18) = 0x8000;
-        func_0205ac40(var10, var20);
+        DrawSprite_0205ac40(var10, var20);
     }
 
     if (*(unsigned char*)(var9 + 0xd94) == 1) return;
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov023_021da770(void* arg0) {
         short var29 = *(short*)(var9 + 0xc00 + 0x56);
         *(int*)(var27 + 0x14) = var28 << 12;
         *(int*)(var27 + 0x18) = var29 << 12;
-        func_0205ac40(var10, var27);
+        DrawSprite_0205ac40(var10, var27);
     }
 
     if (!var26) return;

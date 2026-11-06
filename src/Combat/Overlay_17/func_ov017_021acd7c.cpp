@@ -2,8 +2,8 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory.h"
 
-struct Struct_0204693c;
-extern "C" void func_0204693c(struct Struct_0204693c* arg0);
+struct QueueNode_0204693c;
+extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
 extern "C" void func_0205c790(char* arg0);
 
 #if defined(jpn)
@@ -14,7 +14,7 @@ extern "C" void func_0205c790(char* arg0);
 
 // USA: func_ov017_021acd7c
 extern "C" ARM void func_ov017_021acd7c(char* arg0) {
-    func_0204693c((struct Struct_0204693c*)arg0);
+    ResetQueueNode_0204693c((struct QueueNode_0204693c*)arg0);
     arg0[0] = 1;
     ((SafeAllocator*)(arg0 + 0x8))->ResetAllocatorPointer();
     arg0[0x1c] = 0;

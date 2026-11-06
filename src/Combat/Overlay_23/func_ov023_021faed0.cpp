@@ -10,7 +10,7 @@ extern "C" void* func_ov023_021fad18(void* arg0);
 struct Struct_ov023_021faed0;
 extern "C" ARM void* func_ov023_021fa854(char* arg0, unsigned int arg1);
 
-extern "C" void func_0205ac40(void* arg0, void* arg1);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov023_021faed0(struct Struct_ov023_021faed0_2* arg0, vo
             if (var8 >= 0) var3->unknown_25_ = var8 & 0xf;
             signed char var9 = arg0->unknown_39_;
             if (var9 >= 0) var3->unknown_26_ = var9 & 3;
-            func_0205ac40(var2, var3);
+            DrawSprite_0205ac40(var2, var3);
             var3->unknown_14_ = arg0->unknown_28_;
             var3->unknown_18_ = arg0->unknown_2c_;
             arg0->unknown_4e_ = 0;
@@ -152,11 +152,11 @@ extern "C" ARM void func_ov023_021faed0(struct Struct_ov023_021faed0_2* arg0, vo
                 unsigned short var23 = var3->unknown_0_;
                 if (var23 > 2) {
                     var3->unknown_0_ = var23 - 2;
-                    func_0205ac40(var2, var3);
+                    DrawSprite_0205ac40(var2, var3);
                     var3->unknown_0_ = var23;
                 }
             } else {
-                func_0205ac40(var2, var3);
+                DrawSprite_0205ac40(var2, var3);
             }
 
             var3->unknown_14_ = arg0->unknown_28_;

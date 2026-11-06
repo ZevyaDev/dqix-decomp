@@ -27,7 +27,7 @@ struct Struct_ov024_021eb1ec {
 // USA: func_ov024_021eb1ec
 extern "C" ARM int func_ov024_021eb1ec(void* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    GameObject* var1 = func_0200ff1c(var0, arg1);
+    GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (var1 == NULL) {
         return 0;
     }

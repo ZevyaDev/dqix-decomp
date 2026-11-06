@@ -11,7 +11,7 @@ extern "C" ARM int func_ov002_02153be0(void* arg0, unsigned char* arg1, int arg2
     int var0 = 0;
     unsigned int var1 = *(unsigned int*)(arg1 + 0x18);
     if (((var1 << 14) >> 30) == 1) {
-        GameObject* var2 = func_0200ff1c(GameState::GetInstance(), arg2);
+        GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg2);
         if (var2 == 0) {
             return 0;
         }

@@ -8,10 +8,10 @@ enum { Enum_ov003_0215c01c_2400 = 0x960 };
 
 #include "std_library_functions.h"
 
-struct Struct_0205d81c;
-extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+struct TextWindowManager_0205d81c;
+extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 
-struct Struct_0205d5d0;
+struct TextWindowManager_0205d5d0;
 #if defined(jpn)
 #endif
 extern "C" void func_ov003_0215b6f0(char* arg0, char* arg1, int arg2);
@@ -20,7 +20,7 @@ extern "C" void func_ov003_0215be70(char* arg0, char* arg1, int arg2);
 
 // USA: func_ov003_0215c01c
 extern "C" ARM void func_ov003_0215c01c(unsigned char* arg0, int arg1, int arg2) {
-    unsigned char* var0 = (unsigned char*)func_0205d81c((struct Struct_0205d81c*)(arg0 + 0xf4), arg1);
+    unsigned char* var0 = (unsigned char*)FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)(arg0 + 0xf4), arg1);
     if (var0 == 0) return;
 
     if (arg2) var0[0xc5] |= 0x40;
@@ -36,8 +36,8 @@ extern "C" ARM void func_ov003_0215c01c(unsigned char* arg0, int arg1, int arg2)
     case 3: func_ov003_0215be70((char*)arg0, *(char**)(arg0 + 0x7c), arg2); break;
     }
 #if defined(jpn)
-    func_0205d5d0((struct Struct_0205d5d0*)(arg0 + 0xf4), arg1, *(int*)(arg0 + 0x7c), 1);
+    SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)(arg0 + 0xf4), arg1, *(int*)(arg0 + 0x7c), 1);
 #else
-    func_0205d5d0((struct Struct_0205d5d0*)(arg0 + 0xf4), arg1, *(int*)(arg0 + 0x7c), 1, 0);
+    SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)(arg0 + 0xf4), arg1, *(int*)(arg0 + 0x7c), 1, 0);
 #endif
 }

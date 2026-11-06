@@ -11,9 +11,9 @@ extern "C" int func_ov024_021da998(struct Struct_ov024_021da670_6* arg0);
 extern "C" int func_ov024_021eb4b0(int arg0, int arg1, int arg2);
 extern "C" void func_ov000_02159eac(void* arg0, void* arg1, int arg2);
 extern "C" void* func_ov024_021e8cfc(void* arg0, void* arg1, int arg2, int arg3);
-extern "C" void* func_ov000_0215e958(void* arg0);
+extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov024_021e8bf0(void* arg0, void* arg1, unsigned short* arg2);
-extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, unsigned long long arg4, int arg5);
 
 struct Struct_ov024_021dbd84_7 {
@@ -65,10 +65,10 @@ extern "C" ARM void* func_ov024_021dbd84(struct Struct_ov024_021dbd84_2* arg0, i
     } else {
         arg0->unknown_75_ = 0;
     }
-    void* var6 = func_ov000_0215e958(arg0->unknown_10_);
+    void* var6 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var6) return 0;
     func_ov024_021e8bf0(arg0, arg0->unknown_c_, &var4);
-    func_ov000_0215a88c(arg0->unknown_10_, var6, var4);
+    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var6, var4);
     struct Struct_ov024_021dbd84* var7 = (struct Struct_ov024_021dbd84*)((char*)arg0->unknown_c_ + 0x1c);
     func_ov000_0215cd44(arg0->unknown_10_, var6, var0, 0, var2.unknown1_0_, var7->unknown_0_7_ != 0);
     return var6;

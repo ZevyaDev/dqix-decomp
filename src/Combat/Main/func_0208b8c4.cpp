@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct Struct_02043368_2;
-extern "C" void func_0205a198(struct Struct_02043368_2*);
+struct Sprite_02043368_2;
+extern "C" void InitSprite_0205a198(struct Sprite_02043368_2*);
 
 struct Struct_020e8cd0 {
     unsigned int unknown_0_[5];
@@ -25,7 +25,7 @@ extern "C" ARM void func_0208b8c4(struct Struct_0208b8c4* arg0, SafeAllocator* a
     arg0->unknown_b4_ = arg1->Allocate(0x78);
 
     for (var0 = 0; var0 < 3; var0++) {
-        func_0205a198((struct Struct_02043368_2*)((char*)arg0->unknown_b4_ + var0 * 0x28));
+        InitSprite_0205a198((struct Sprite_02043368_2*)((char*)arg0->unknown_b4_ + var0 * 0x28));
     }
 
     unsigned char var1 = arg0->unknown_df_;

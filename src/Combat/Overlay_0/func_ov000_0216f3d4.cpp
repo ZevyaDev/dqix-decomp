@@ -2,7 +2,7 @@
 #include "NitroSDK/Matrix.h"
 #include "World/Object3D.h"
 #include "GameState/GameState.h"
-extern "C" void* func_ov000_02160130();
+extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" float func_02049fec(char*);
 struct Struct_02049f50;
 extern "C" void func_02049f50(Struct_02049f50*,int,int);
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov000_0216f3d4(Struct_ov000_0216df00* arg0) {
         Vector3fix_Subtract(&var12,&var11,&var13);
         int var14=Vector3fix_InnerProduct(&var13,&var13);
         int var15=arg0->unknown_224_==*var4;
-        if(func_ov000_02160130() && (arg0->unknown_260_ || arg0->unknown_27c_) && !var15) {
+        if(GetBattleScene_ov000_02160130() && (arg0->unknown_260_ || arg0->unknown_27c_) && !var15) {
             Struct_ov000_021537b8* var16=arg0->unknown_27c_;
             if(var16) {
                 Struct_ov000_0215b278* var17=var16->unknown_10_;

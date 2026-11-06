@@ -10,47 +10,47 @@
 #define K(u, j) (u)
 #endif
 
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct SoundEffectManager_02108760;
 struct Struct_0205def8;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct Struct_0205dee8;
 struct Struct_020e280c;
 struct Struct_020676e0;
 struct Struct_020e25e8;
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 struct Struct_0205bcdc;
 struct ItemTable_0201099c_10;
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
 extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_02160fb4(char *arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
 extern "C" char *func_020e1b24(void *arg0);
 extern "C" void func_020e280c(struct Struct_020e280c *arg0, void *arg1);
-extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
-extern "C" char *func_020100f8(char *arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
+extern "C" char *GetFollowCamera_020100f8(char *gameState);
 extern "C" int func_020a27c4(struct Struct_020676e0 *arg0);
 extern "C" int func_020e2918(signed char *arg0);
 extern "C" int func_020e2910(signed char *arg0);
 extern "C" void func_020e25e8(struct Struct_020e25e8 *arg0);
-extern "C" char *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
+extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
-extern "C" void func_0205d6a0(struct Struct_0205d6a0 *arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0 *windowManager, int isAll);
 extern "C" void func_ov017_0219577c(int arg0, int arg1, int arg2);
 extern "C" int func_020dc920(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov002_0216bfd4(char *arg0, int arg1);
 extern "C" void func_ov017_021d0198(int arg0, int arg1, int arg2, int arg3);
 extern "C" int func_ov002_0215753c(unsigned char *arg0);
 extern "C" void func_ov002_02156e90(void *arg0);
-extern "C" void func_0205deb4(struct Struct_0205d81c *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" void ResetMessageWindow_02043204(char *window);
 extern "C" void func_0205dee8(struct Struct_0205dee8 *arg0, int arg1);
 extern "C" void func_0205bcdc(struct Struct_0205bcdc *arg0, int arg1);
-extern "C" void func_0205bb04(void *arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void *cursor, int index);
 extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
 extern "C" char gSoundEffectManager_02108760[];
 extern "C" unsigned char data_ov002_0216d3ac;
@@ -63,11 +63,11 @@ struct Struct_ov002_0216a300 {
 
 #define CONFIRM_0216A300() \
     do { \
-        char *e = func_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)), \
+        char *e = FindItemData_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)), \
                                                                     *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1a00 + 0xea))); \
         if (e != NULL && *(short *) (e + 0x18) == 0x5612) { \
             func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)), 1); \
-            func_0205d6a0((struct Struct_0205d6a0 *) LST(arg0), 0); \
+            CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) LST(arg0), 0); \
             *(short *) (arg0 + RG(0x1c00 + 0x28, 0x1a00 + 0xf0))          = 0x797e; \
             *(short *) (arg0 + RG(0x1c00 + 0x2a, 0x1a00 + 0xf2))          = -1; \
             *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80))           = K(0x26, 0x29); \
@@ -78,7 +78,7 @@ struct Struct_ov002_0216a300 {
         } \
         if (*(unsigned char *) (arg0 + 0x1000 + RG(0xc30, 0xaf8)) != 0) { \
             func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)), 1); \
-            func_0205d6a0((struct Struct_0205d6a0 *) LST(arg0), 0); \
+            CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) LST(arg0), 0); \
             switch (*(unsigned char *) (arg0 + 0x1000 + RG(0xc79, 0xb3d))) { \
                 case 0: func_ov002_0216bfd4(arg0, 4); return; \
                 case 3: func_ov002_0216bfd4(arg0, 2); return; \
@@ -90,7 +90,7 @@ struct Struct_ov002_0216a300 {
         if (*(unsigned char *) (arg0 + 0x2000 + RG(0x521, 0x351)) != 0) { \
             *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = *(int *) (arg0 + 0x1000 + RG(0xbbc, 0xa84)); \
             func_0205dee8((struct Struct_0205dee8 *) LST(arg0), 4); \
-            func_0205deb4((struct Struct_0205d81c *) LST(arg0), 4, 0); \
+            SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) LST(arg0), 4, 0); \
             func_ov002_02161cf0(arg0); \
             *(unsigned char *) (arg0 + 0x2000 + RG(0x521, 0x351)) = 0; \
         } else if ((*(short *) (arg0 + RG(0x1b00 + 0xf0, 0x1a00 + 0xb8)) >= 0 || *(short *) (arg0 + RG(0x1b00 + 0xe8, 0x1a00 + 0xb0)) >= 0 || \
@@ -100,15 +100,15 @@ struct Struct_ov002_0216a300 {
             int n_   = (*(short *) (arg0 + RG(0x1c00 + 0xa, 0x1a00 + 0xd2)) = 7); \
             char *l_ = LST(arg0); \
             func_0205bcdc((struct Struct_0205bcdc *) (l_ + 4), n_); \
-            func_0205bb04(l_ + 0x54, n_); \
+            SetMenuCursorIndex_0205bb04(l_ + 0x54, n_); \
             func_ov002_0215b9a4(arg0, K(0x21, 0x24), 0); \
         } \
         if (*(int *) (arg0 + 0x1000 + RG(0xbbc, 0xa84)) == K(0xb, 0xc)) { \
             *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = K(0xb, 0xc); \
             func_ov002_0215b9a4(arg0, K(0xb, 0xc), 0); \
             func_0205dee8((struct Struct_0205dee8 *) LST(arg0), K(0xb, 0xc)); \
-            func_0205deb4((struct Struct_0205d81c *) LST(arg0), K(0xb, 0xc), 0); \
-            func_0205deb4((struct Struct_0205d81c *) LST(arg0), K(0xd, 0xe), 1); \
+            SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) LST(arg0), K(0xb, 0xc), 0); \
+            SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) LST(arg0), K(0xd, 0xe), 1); \
             func_ov002_02161cf0(arg0); \
         } \
     } while (0)
@@ -120,7 +120,7 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
     int var1                               = *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88));
     if (var1 == 0) {
         *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
-        func_0205de24((struct Struct_0205de24_2 *) LST(arg0), 0, 3);
+        SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) LST(arg0), 0, 3);
         func_ov002_02161cf0(arg0);
         func_ov002_02160fb4(arg0);
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 5, 0);
@@ -136,9 +136,9 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
         func_0205def8((struct Struct_0205def8 *) LST(arg0), 0, K(0x25, 0x28));
         *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) |= 4;
         *(short *) (arg0 + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) =
-            func_0205d794((struct Struct_0205c570 *) LST(arg0));
+            GetCursorIndex_0205d794((struct Struct_0205c570 *) LST(arg0));
         int var3  = 0;
-        char *var4 = func_020100f8((char *) GameState::GetInstance());
+        char *var4 = GetFollowCamera_020100f8((char *) GameState::GetInstance());
         if (var4 != NULL && ((*(unsigned char *) (var4 + 0x244) & 2) || func_020a27c4((struct Struct_020676e0 *) var4) == 0)) {
             if (g_keyManager.TestKeysPressed(0x200)) {
                 var3 = 1;
@@ -156,11 +156,11 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
                 case 0: {
                     *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
                     *(unsigned char *) (arg0 + RG(0xf80, 0xed8)) = *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80));
-                    char *var5                           = func_020dedd0(
+                    char *var5                           = FindItemData_020dedd0(
                         (struct ItemTable_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)), *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1a00 + 0xea)));
                     if (var5 != NULL && *(short *) (var5 + 0x18) == 0x5612) {
                         func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)), 1);
-                        func_0205d6a0((struct Struct_0205d6a0 *) LST(arg0), 0);
+                        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) LST(arg0), 0);
                         *(short *) (arg0 + RG(0x1c00 + 0x28, 0x1a00 + 0xf0))          = 0x7972;
                         *(short *) (arg0 + RG(0x1c00 + 0x2a, 0x1a00 + 0xf2))          = -1;
                         *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80))           = K(0x26, 0x29);
@@ -172,10 +172,10 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
                     }
                     if (*(unsigned char *) (arg0 + 0x1000 + RG(0xc30, 0xaf8)) != 0) {
                         *(unsigned char *) (arg0 + 0x1000 + RG(0xc2e, 0xaf6)) = 0;
-                        func_0205d6a0((struct Struct_0205d6a0 *) LST(arg0), 0);
+                        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) LST(arg0), 0);
                         switch (*(unsigned char *) (arg0 + 0x1000 + RG(0xc79, 0xb3d))) {
                             case 0: {
-                                char *var6 = (char *)func_0200ff1c(GameState::GetInstance(), *(signed char *) (arg0 + RG(0x1c00 + 0x21, 0x1a00 + 0xe9)));
+                                char *var6 = (char *)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), *(signed char *) (arg0 + RG(0x1c00 + 0x21, 0x1a00 + 0xe9)));
                                 int var7  = 1;
                                 if (var6 != NULL && *(unsigned short *) (*(char **) (var6 + 0x130) + 4) == 0) var7 = 0;
                                 if (!func_020dc920(*(unsigned char *) (arg0 + 0x1000 + RG(0xc21, 0xae9)), 1, 0, 0)) var7 = 0;
@@ -222,7 +222,7 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
                             *(short *) (arg0 + RG(0x1c00 + 0xa, 0x1a00 + 0xd2)) = -1;
                         }
                     } else {
-                        func_0205d6a0((struct Struct_0205d6a0 *) LST(arg0), 0);
+                        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) LST(arg0), 0);
                         *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80))  = K(0x26, 0x29);
                         *(short *) (arg0 + RG(0x1c00 + 0x16, 0x1a00 + 0xde)) = 0;
                         *(short *) (arg0 + RG(0x1c00 + 0x18, 0x1a00 + 0xe0)) = 0;
@@ -231,14 +231,14 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
                         *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 0;
                     }
                     if (*(int *) (arg0 + 0x1000 + RG(0xbbc, 0xa84)) == K(0x24, 0x27)) {
-                        func_0205deb4((struct Struct_0205d81c *) LST(arg0), K(0x15, 0x16), 1);
+                        SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) LST(arg0), K(0x15, 0x16), 1);
                         *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = K(0x24, 0x27);
                         *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 1;
                     }
                     if (*(int *) (arg0 + 0x1000 + RG(0xbbc, 0xa84)) == K(0xb, 0xc)) {
                         func_ov002_0215b9a4(arg0, K(0xd, 0xe), 0);
-                        func_0205deb4((struct Struct_0205d81c *) LST(arg0), K(0xb, 0xc), 1);
-                        func_0205deb4((struct Struct_0205d81c *) LST(arg0), K(0xd, 0xe), 1);
+                        SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) LST(arg0), K(0xb, 0xc), 1);
+                        SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) LST(arg0), K(0xd, 0xe), 1);
                     }
                     break;
                 }

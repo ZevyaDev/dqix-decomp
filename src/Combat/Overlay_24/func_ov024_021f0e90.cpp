@@ -4,8 +4,8 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
 extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
-extern "C" int func_ov000_0215e9fc(int arg0, short* arg1, int arg2, int arg3);
-extern "C" int func_ov000_0215eb1c(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
 struct Struct_ov024_021f0b84;
 extern "C" int func_ov024_021f0d0c(struct Struct_ov024_021f0b84* arg0);
 struct Struct_ov024_021ed9dc { int unknown_0_; };
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov024_021f0e90(struct Struct_ov024_021ed9dc* arg0, int a
 
     int var1 = 0;
     struct Struct_ov024_021feebc var2 = data_ov024_021feebc;
-    int var3 = func_ov000_0215e9fc(arg0->unknown_0_, var2.unknown_0_, 4, 1);
+    int var3 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0->unknown_0_, var2.unknown_0_, 4, 1);
     if (var3 <= 0) return 0;
     for (int var4 = 0; var4 < var3; var4++) {
         if (func_ov024_021ed9dc(arg0, var2.unknown_0_[var4])) {
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov024_021f0e90(struct Struct_ov024_021ed9dc* arg0, int a
     if (!var1) return 0;
 
     memset(var2.unknown_0_, -1, sizeof(var2));
-    var3 = func_ov000_0215eb1c(arg0->unknown_0_, var2.unknown_0_, 8, 1);
+    var3 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0->unknown_0_, var2.unknown_0_, 8, 1);
     if (var3 <= 0) return 0;
 
     *arg3 = 0;

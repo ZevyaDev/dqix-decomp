@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" ARM int func_ov031_02222e0c(void);
-extern "C" int func_ov031_02236878(int arg0);
+extern "C" int PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
 extern "C" ARM void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
 extern "C" void func_ov031_0222a598(void);
 
@@ -18,10 +18,10 @@ extern "C" ARM void func_ov031_0222a540(void) {
 	if (var0 != 0) {
 		if (var0 != 1) return;
 		data_ov031_02290c74.unknown_1_ = 1;
-		func_ov031_02236878(6);
+		PlayWifiSetupSoundEffect_ov031_02236878(6);
 	} else {
 		data_ov031_02290c74.unknown_1_ = 0;
-		func_ov031_02236878(7);
+		PlayWifiSetupSoundEffect_ov031_02236878(7);
 	}
 	SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222a598);
 }

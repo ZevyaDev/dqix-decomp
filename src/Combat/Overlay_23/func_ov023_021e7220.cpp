@@ -11,13 +11,13 @@ extern "C" void func_02074b64(struct Struct_02074b64* arg0);
 struct Struct_0205cfd4;
 extern "C" void func_0205cfd4(struct Struct_0205cfd4* arg0);
 
-struct Struct_0201099c_14;
-extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
+struct StringTable_0201099c_14;
+extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 
-struct Struct_02020cb8;
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
+struct BGLayer_02020cb8;
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
-extern "C" void func_0204c684(void*);
+extern "C" void InitTextWindow_0204c684(void*);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
@@ -43,12 +43,12 @@ extern "C" ARM void func_ov023_021e7220(void* arg0, int arg1) {
     *(unsigned char*)((char*)arg0 + 0x75) = 0;
     func_02074b64((struct Struct_02074b64*)((char*)arg0 + 0x64));
     func_0205cfd4((struct Struct_0205cfd4*)((char*)arg0 + 0x78));
-    func_020dfc40((Struct_0201099c_14*)((char*)arg0 + 0x4c));
+    InitStringTable_020dfc40((StringTable_0201099c_14*)((char*)arg0 + 0x4c));
     for (int var1 = 0; var1 < 2; var1++) {
-        func_0204af64((struct Struct_02020cb8*)((char*)arg0 + 0x134 + var1 * 0x20));
+        InitBGLayer_0204af64((struct BGLayer_02020cb8*)((char*)arg0 + 0x134 + var1 * 0x20));
     }
     for (int var2 = 0; var2 < 5; var2++) {
-        func_0204c684((char*)arg0 + 0x174 + var2 * 0xe0);
+        InitTextWindow_0204c684((char*)arg0 + 0x174 + var2 * 0xe0);
     }
     *(int*)((char*)arg0 + 0x5d4) = 0;
     *(int*)((char*)arg0 + 0x5d8) = 0;

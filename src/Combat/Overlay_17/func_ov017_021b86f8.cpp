@@ -29,7 +29,7 @@ extern "C" Struct_020708c8* func_020704fc(void);
 extern "C" Struct_02012de8* GetGlobalFlags_020d6c00(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020d7a50(void);
-extern "C" int func_020e51cc(int arg0);
+extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void* func_ov000_02160f08(void* arg0);
 extern "C" void func_ov000_02172850(void* arg0);
 extern "C" float func_020709ac(unsigned char* arg0);
@@ -37,8 +37,8 @@ extern "C" void func_020708c8(Struct_020708c8* arg0, unsigned int arg1);
 extern "C" int abs(int arg0);
 void SetMainBrightness(GameResources* res, int level, int b);
 extern "C" int func_02046708(Struct_02012de8* arg0, unsigned int arg1);
-struct Struct_02038598_4;
-extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_020dc2d0(int arg0);
 extern "C" int func_0209ca68(char* arg0);
 extern "C" void func_0209c530(void* arg0);
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_021b86f8(Struct_ov017_021b86f8* arg0, int arg1, i
 #if defined(jpn)
             func_020d7e10(func_020d7a50(), data_ov017_021d83e7, 0, 0, 1);
 #else
-            func_020d7e10(func_020d7a50(), (void*)func_020e51cc(0x23), 0, 0, 1
+            func_020d7e10(func_020d7a50(), (void*)GetStandardString_020e51cc(0x23), 0, 0, 1
 #if !defined(jpn)
                 , 1
 #endif
@@ -78,13 +78,13 @@ extern "C" ARM void func_ov017_021b86f8(Struct_ov017_021b86f8* arg0, int arg1, i
         SetMainBrightness(var2, 0, 0x1e);
     }
     if (func_02046708(var4, 1)) {
-        func_020466f4((Struct_02038598_4*)var4, 1);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var4, 1);
         func_020dc2d0(0);
     }
     if (func_0209ca68(gMusicManager_02109bf4) == 2) {
         func_0209c530(gMusicManager_02109bf4);
     }
-    func_020466f4((Struct_02038598_4*)var4, 0x200);
+    ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var4, 0x200);
     ClearFlags04(var2, 0x40);
     ClearFlags04(var2, 4);
     ClearFlags04(var2, 0x10);

@@ -29,10 +29,10 @@ struct Struct_ov001_02160da8_2 {
     char unknown_fc_[0x116 - 0xfc]; signed char unknown_116_;
 };
 struct Struct_0205faf4_11;
-extern "C" int func_ov017_021d60f4(Struct_ov001_0215b72c*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_ov001_0215b72c*);
 extern "C" const char* func_ov017_021d612c(Struct_ov001_0215b72c*);
 extern "C" int func_020100b0(GameState*);
-extern "C" GameObject* func_0200ff58(GameState*, int);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" int func_ov001_021612ac(void*);
 extern "C" int func_02061bd8(Struct_0205faf4_11*);
 extern SafeAllocator* data_ov001_021658b8[];
@@ -60,17 +60,17 @@ extern "C" ARM int func_ov001_02160da8(Struct_ov001_0215b72c* arg0, int arg1) {
     var1->unknown_34_ = 0;
     var1->unknown_30_ = 0;
     var1->unknown_31_ = 0;
-    var1->unknown_0_0_ = (unsigned char)func_ov017_021d60f4(arg0);
+    var1->unknown_0_0_ = (unsigned char)GetScriptValueAsInt_ov017_021d60f4(arg0);
     switch (var1->unknown_0_0_) {
     case 0:
     case 1:
     case 9:
         if (arg1 < 2) return 0;
-        var1->unknown_1_ = func_ov017_021d60f4(arg0 + 1);
+        var1->unknown_1_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 1);
         if (var1->unknown_0_0_ == 1) var1->unknown_2_ = func_020100b0(var0);
         else if (var1->unknown_0_0_ == 9) {
             var1->unknown_2_ = var2->unknown_116_;
-            if (!func_0200ff1c(var0, var1->unknown_2_)) var1->unknown_2_ = func_020100b0(var0);
+            if (!GetPartyMemberBaseByIndex_0200ff1c(var0, var1->unknown_2_)) var1->unknown_2_ = func_020100b0(var0);
         }
         if (var1->unknown_2_ == 0) var1->unknown_0_4_ = 1;
         else var1->unknown_0_4_ = 2;
@@ -79,7 +79,7 @@ extern "C" ARM int func_ov001_02160da8(Struct_ov001_0215b72c* arg0, int arg1) {
     case 12:
     case 13:
         if (arg1 < 2) return 0;
-        var1->unknown_1_ = func_ov017_021d60f4(arg0 + 1);
+        var1->unknown_1_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 1);
         var1->unknown_0_4_ = 2;
         func_020100b0(var0);
         if (var1->unknown_0_0_ == 11) var1->unknown_2_ = 3;
@@ -92,16 +92,16 @@ extern "C" ARM int func_ov001_02160da8(Struct_ov001_0215b72c* arg0, int arg1) {
         break;
     case 10: {
         if (arg1 < 2) return 0;
-        var1->unknown_1_ = func_ov017_021d60f4(arg0 + 1);
+        var1->unknown_1_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 1);
         int var5 = 0;
-        GameObject* var6 = func_0200ff58(var0, 0xce);
+        GameObject* var6 = GetCompanionByIndex_0200ff58(var0, 0xce);
         if (var6) {
             var1->unknown_2_ = 0xce;
             var5 = func_ov001_021612ac(var6);
         } else {
             int var7;
             for (var7 = 0; var7 < 4; ++var7) {
-                GameObject* var8 = func_0200ff58(var0, var7);
+                GameObject* var8 = GetCompanionByIndex_0200ff58(var0, var7);
                 if (var8 && func_02061bd8((Struct_0205faf4_11*)var8)) {
                     var1->unknown_2_ = var7;
                     var5 = func_ov001_021612ac(var8);
@@ -124,31 +124,31 @@ extern "C" ARM int func_ov001_02160da8(Struct_ov001_0215b72c* arg0, int arg1) {
             if (var10) var9 = var10 + 1;
             strcpy(var1->unknown_8_.unknown_0_, var9);
         } else sprintf(var1->unknown_8_.unknown_0_, data_ov001_02165745, var9);
-        var1->unknown_1_ = func_ov017_021d60f4(arg0 + 2);
+        var1->unknown_1_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 2);
         var1->unknown_2_ = var2->unknown_fb_3_ + 160;
         ++var2->unknown_fb_3_;
-        if (arg1 > 3) var1->unknown_30_ = func_ov017_021d60f4(arg0 + 3);
+        if (arg1 > 3) var1->unknown_30_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 3);
         break;
     }
     case 8:
         if (arg1 < 2) return 0;
         sprintf(var1->unknown_8_.unknown_0_, data_ov001_02165775);
-        var1->unknown_1_ = func_ov017_021d60f4(arg0 + 1);
+        var1->unknown_1_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 1);
         var1->unknown_2_ = var2->unknown_fb_3_ + 160;
         ++var2->unknown_fb_3_;
-        if (arg1 > 2) var1->unknown_30_ = func_ov017_021d60f4(arg0 + 2);
+        if (arg1 > 2) var1->unknown_30_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 2);
         break;
     case 3:
         if (arg1 < 3) return 0;
         sprintf(var1->unknown_8_.unknown_0_, data_ov001_021657b2, func_ov017_021d612c(arg0 + 1));
-        var1->unknown_1_ = func_ov017_021d60f4(arg0 + 2);
-        if (arg1 > 3) var1->unknown_30_ = func_ov017_021d60f4(arg0 + 3);
+        var1->unknown_1_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 2);
+        if (arg1 > 3) var1->unknown_30_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 3);
         break;
     case 4:
     case 5:
         if (arg1 < 3) return 0;
-        var1->unknown_8_.unknown1_0_ = func_ov017_021d60f4(arg0 + 1);
-        var1->unknown_1_ = func_ov017_021d60f4(arg0 + 2);
+        var1->unknown_8_.unknown1_0_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 1);
+        var1->unknown_1_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 2);
         if (var1->unknown_0_0_ == 4) {
             var1->unknown_2_ = var2->unknown_fb_3_ + 160;
             ++var2->unknown_fb_3_;

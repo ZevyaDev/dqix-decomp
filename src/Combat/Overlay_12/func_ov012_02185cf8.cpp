@@ -12,7 +12,7 @@
 #include "std_library_functions.h"
 #include "Input/Input.h"
 
-struct Struct_0205d5d0;
+struct TextWindowManager_0205d5d0;
 struct Struct_ov012_02185cf8
 {
     char unknown_0_[LOW_REGION(0x90, 0xac)];
@@ -73,8 +73,8 @@ extern "C" ARM void func_ov012_02185cf8(Struct_ov012_02185cf8* arg0)
     if (var1.unknown_0_[arg0->unknown_1371_] != 0)
         (arg0->*var1.unknown_0_[arg0->unknown_1371_])(arg0->unknown_1374_, var0);
 #if defined(jpn)
-    func_0205d5d0((Struct_0205d5d0*)arg0->unknown_ac_, arg0->unknown_1371_, (int)arg0->unknown_1374_, 0);
+    SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)arg0->unknown_ac_, arg0->unknown_1371_, (int)arg0->unknown_1374_, 0);
 #else
-    func_0205d5d0((Struct_0205d5d0*)arg0->unknown_ac_, arg0->unknown_1371_, (int)arg0->unknown_1374_, 0, 0);
+    SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)arg0->unknown_ac_, arg0->unknown_1371_, (int)arg0->unknown_1374_, 0, 0);
 #endif
 }

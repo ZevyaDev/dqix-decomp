@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Struct_0205de24_2;
-extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+struct TextWindowManager_0205de24_2;
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
 #if defined(jpn)
 #define func_ov013_02185e40 func_ov013_02186f4c
-extern "C" void func_0205d304(void*, char*, int, int, int, int, void*);
-#define DRAW_TEXT(s,t) func_0205d304(s,t,0,0,0,1,NULL)
+extern "C" void OpenTextWindow_0205d304(void*, char*, int, int, int, int, void*);
+#define DRAW_TEXT(s,t) OpenTextWindow_0205d304(s,t,0,0,0,1,NULL)
 enum { Enum_ov013_02185cc0_56=0x34, Enum_ov013_02185cc0_1600=0x5cc, Enum_ov013_02185cc0_1620=0x5dc, Enum_ov013_02185cc0_2400=0x800 };
 #else
-extern "C" void func_0205d304(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, void* arg6, int arg7);
-#define DRAW_TEXT(s,t) func_0205d304(s,t,0,0,0,1,NULL,0)
+extern "C" void OpenTextWindow_0205d304(void* windowManager, char* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, void* margins, int font);
+#define DRAW_TEXT(s,t) OpenTextWindow_0205d304(s,t,0,0,0,1,NULL,0)
 enum { Enum_ov013_02185cc0_56=0x38, Enum_ov013_02185cc0_1600=0x640, Enum_ov013_02185cc0_1620=0x654, Enum_ov013_02185cc0_2400=0x960 };
 #endif
 extern "C" void func_ov013_02185e40(void* arg0, char* arg1);
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov013_02185cc0(Struct_ov013_02185cc0_2* arg0) {
     void* var1;
     void* var2;
     unsigned char var3;
-    func_0205de24((struct Struct_0205de24_2*)&arg0->unknown_38_, 0, 2);
+    SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)&arg0->unknown_38_, 0, 2);
     arg0->unknown_38_.unknown_a0_ = 0xf;
     arg0->unknown_38_.unknown_a2_ = 0xb;
     arg0->unknown_38_.unknown_a4_ = 1;

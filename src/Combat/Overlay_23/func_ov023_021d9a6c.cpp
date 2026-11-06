@@ -8,9 +8,9 @@ extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_02041e70(char*, int);
 extern "C" int func_02042158(char*, int);
 extern "C" int AppendText_02042058(char*, const char*);
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 extern "C" int func_020d3018(const char*, const char*);
-extern "C" int func_02001aec(const void*, const void*, unsigned int);
+extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
 extern "C" const char data_ov023_021fcd20[];
 
 extern "C" ARM void func_ov023_021d9a6c(char* arg0) {
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov023_021d9a6c(char* arg0) {
             func_02041e70(var0->unknown_f8_, 15);
         if (var5 < 7) {
             short var6 = var4[var5];
-            func_02042158(var0->unknown_f8_, (10 - func_020d2ff0((const char*)FindStringInTable_020e0434(&var0->unknown_e0_, var6))) * 5);
+            func_02042158(var0->unknown_f8_, (10 - GetStringLength_020d2ff0((const char*)FindStringInTable_020e0434(&var0->unknown_e0_, var6))) * 5);
             AppendText_02042058(var0->unknown_f8_, (const char*)FindStringInTable_020e0434(&var0->unknown_e0_, var6));
             AppendText_02042058(var0->unknown_f8_, (const char*)FindStringInTable_020e0434(&var0->unknown_e0_, 0x4273));
         } else if (var5 == 7) {
@@ -53,17 +53,17 @@ extern "C" ARM void func_ov023_021d9a6c(char* arg0) {
                 char var8[3] = {};
                 for (int var9 = 1; var9 < 5; var9++) {
                     memcpy(var8, &var7[var9 * 2], 2);
-                    if (func_02001aec(var8, data_ov023_021fcd20, 2) == 0) {
+                    if (CompareBytes_02001aec(var8, data_ov023_021fcd20, 2) == 0) {
                         memset(&var7[var9 * 2], 0, sizeof(var7) - var9 * 2);
                         break;
                     }
                 }
-                func_02042158(var0->unknown_f8_, (10 - func_020d2ff0(var7)) * 5);
+                func_02042158(var0->unknown_f8_, (10 - GetStringLength_020d2ff0(var7)) * 5);
                 AppendText_02042058(var0->unknown_f8_, var7);
             }
         }
     }
-    func_0205d5d0((Struct_0205d5d0*)&var0->unknown_1f8_[0], 0, (int)var0->unknown_f8_, 0);
+    SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)&var0->unknown_1f8_[0], 0, (int)var0->unknown_f8_, 0);
     var0->unknown_d9c_ &= ~0x100;
 }
 #else
@@ -77,8 +77,8 @@ extern "C" int func_02041a28(char*, int);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" int func_020420e8(void*, int);
 
-struct Struct_0205d5d0;
-extern "C" int func_0205d5d0(Struct_0205d5d0*, int, int, int, unsigned char);
+struct TextWindowManager_0205d5d0;
+extern "C" int SetTextWindowText_0205d5d0(TextWindowManager_0205d5d0*, int, int, int, unsigned char);
 
 // USA: func_ov023_021d9a6c
 extern "C" ARM void func_ov023_021d9a6c(char* arg0) {
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov023_021d9a6c(char* arg0) {
         }
     }
 
-    func_0205d5d0((Struct_0205d5d0*)(arg0 + 0x1f8), 0, (int)var12, 0, 0);
+    SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)(arg0 + 0x1f8), 0, (int)var12, 0, 0);
     *(int*)(arg0 + 0xd9c) &= ~0x100;
 }
 

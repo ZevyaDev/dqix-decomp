@@ -16,7 +16,7 @@ struct Struct_0214e34c;
 struct Struct_ov017_021d82fc_6 { char unknown_0_[0xe]; unsigned char unknown_e_; };
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" Zone3D* GetZone3D_02012fe4();
-extern "C" Struct_020579b4* func_02057924();
+extern "C" Struct_020579b4* GetEffectManager_02057924();
 extern "C" void* func_02039e70();
 extern "C" void* func_0203cf4c();
 extern "C" void* func_02010768(void*);
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetLocalWireless_0202ae18();
     Zone3D* var2 = GetZone3D_02012fe4();
-    Struct_020579b4* var3 = func_02057924();
+    Struct_020579b4* var3 = GetEffectManager_02057924();
     func_02039e70();
     GameObject* var4 = var0->GetUnknownGameObject();
     unsigned int var5 = var0->GetTickCount();
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     func_020a654c(arg0);
     func_020ac9ac(arg0);
     func_02011b68(var0);
-    void* var13 = func_020100bc(var0);
+    void* var13 = GetCamera_020100bc(var0);
     if (var13) {
         if (func_0202e09c((int)var13) & 4) func_020a20d8(var13);
         else if (func_0202e09c((int)var13) & 8) func_ov000_0216d464(var13);

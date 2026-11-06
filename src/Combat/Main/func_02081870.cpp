@@ -42,9 +42,9 @@ extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" int func_020420e8(char*, int);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(Struct_02046574_2*);
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 #if defined(jpn)
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 extern "C" void func_020474a8(Struct_02046574_2*, int, void*, char*);
 extern "C" void func_0204f41c(Struct_02081870_2*, short, int, char*, int, int, short*, short*);
 #else
@@ -61,14 +61,14 @@ extern "C" ARM void func_02081870(Struct_02081870* arg0, Struct_02081870_2* arg1
         char* var1 = (char*)FindStringInList_02072a68(arg0->unknown_0_, arg2->unknown_e_);
         if (var1) {
             short var2 = arg1->unknown_a8_ * 8;
-            int var3 = func_020d2ff0(var1) >> 1;
+            int var3 = GetStringLength_020d2ff0(var1) >> 1;
             arg2->unknown_6_ = (short)(var2 - var3 * arg2->unknown_13_0_) >> 1;
         }
     }
     Struct_02046574_2* var4 = (Struct_02046574_2*)GetMessageWindow_020421a0();
     memset(arg0->unknown_18_, 0, 0x800);
     ClearMessageParams_02046380(var4);
-    func_02046574(var4, arg2->unknown_10_, arg2->unknown_0_);
+    SetMessageString_02046574(var4, arg2->unknown_10_, arg2->unknown_0_);
     void* var5 = FindStringInList_02072a68(arg0->unknown_0_, arg2->unknown_e_);
     func_020474a8(var4, arg2->unknown_13_0_, var5, arg0->unknown_18_);
     int var6 = arg2->unknown_13_0_;
@@ -99,7 +99,7 @@ extern "C" ARM void func_02081870(Struct_02081870* arg0, Struct_02081870_2* arg1
     Struct_02046574_2* var12 = (Struct_02046574_2*)GetMessageWindow_020421a0();
     memset(arg0->unknown_18_, 0, 0x960);
     ClearMessageParams_02046380(var12);
-    func_02046574(var12, arg2->unknown_10_, arg2->unknown_0_);
+    SetMessageString_02046574(var12, arg2->unknown_10_, arg2->unknown_0_);
     void* var13 = FindStringInList_02072a68(arg0->unknown_0_, arg2->unknown_e_);
     func_02046608(var12, arg2->unknown_13_0_, var13, arg0->unknown_18_, 0x100, 0, 0);
     int var14 = arg2->unknown_13_0_;

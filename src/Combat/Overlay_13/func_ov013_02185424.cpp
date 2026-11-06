@@ -46,8 +46,8 @@ extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" int func_02041a28(char* arg0, int arg1);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02041fac(char* arg0, int arg1, int arg2);
-extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int func_02041e70(char* arg0, int arg1);
 extern "C" int func_02041a5c(char* arg0, int arg1);
 extern "C" int func_02041cc0(char* arg0, int arg1);
@@ -75,9 +75,9 @@ extern "C" ARM void func_ov013_02185424(Struct_ov013_021846a0_2* arg0, char* arg
 #endif
 
     if (arg0->unknown_648_ == 2) {
-        func_02041c08(arg1, arg0->unknown_65c_, 8, 3, 6, 2);
+        AppendFrameTag_02041c08(arg1, arg0->unknown_65c_, 8, 3, 6, 2);
     }
-    func_02041ea4(arg1, arg0->unknown_65c_);
+    AppendCursorTag_02041ea4(arg1, arg0->unknown_65c_);
 
     for (unsigned char var6 = 0; var6 < 5; var6++) {
         if (arg0->unknown_69c_[var6] == 0) {

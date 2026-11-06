@@ -12,8 +12,8 @@ extern "C" int func_02088208(void*, int);
 extern "C" void func_02088150(void*);
 extern "C" int func_ov024_021e8c48(void*, signed char);
 extern "C" unsigned short func_ov024_021da644(int,int,int);
-extern "C" void* func_ov000_0215e958(void*);
-extern "C" void func_ov000_0215a88c(void*,void*,int);
+extern "C" void* GetNextActionResult_ov000_0215e958(void*);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
 extern "C" void func_ov000_0215ffc4(void*,void*,int);
 extern "C" void func_ov000_02159eac(void*,unsigned long long*,int);
 extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,short,unsigned long long,unsigned char);
@@ -47,12 +47,12 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
    var6=((Struct_ov024_021dc93c_6*)var0->currentStats_)->unknown_24_;
    if(var6>=var7)var2=0;
    if(var2){
-    void* var8=func_ov000_0215e958(arg0->unknown_10_);
+    void* var8=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if(!var8)return 0;
     func_ov000_0215cd44(arg0->unknown_10_,var8,var0,var6,var4,arg0->unknown_c_->unknown_1c_7_!=0);
     func_ov000_0215ffc4(arg0->unknown_c_,var8,0);
     ++*((unsigned char*)arg0->unknown_10_+0x8e02);
-    func_ov000_0215a88c(arg0->unknown_10_,var8,0x152);
+    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var8,0x152);
     if(var6<var7){
      var3=0;
      while(var6<3){
@@ -60,25 +60,25 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
       switch(var6){case 1:var3=0x31;break;case 2:var3=0x32;break;case 3:var3=0x33;break;}
       var4=0;
       func_ov000_02159eac(arg0->unknown_10_,&var4,0x23);
-      void* var9=func_ov000_0215e958(arg0->unknown_10_);
+      void* var9=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
       if(!var9)return 0;
       func_ov000_0215cd44(arg0->unknown_10_,var9,var0,var6,var4,arg0->unknown_c_->unknown_1c_7_!=0);
       func_ov000_0215ffc4(arg0->unknown_c_,var9,0);
       ++*((unsigned char*)arg0->unknown_10_+0x8e02);
       arg0->unknown_74_=1;
-      func_ov000_0215a88c(arg0->unknown_10_,var9,var3);
+      AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var9,var3);
      }
      if(var7>=4){
-      var8=func_ov000_0215e958(arg0->unknown_10_);
+      var8=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
       if(!var8)return 0;
       func_02088150(var0->currentStats_);
-      func_ov000_0215a88c(arg0->unknown_10_,var8,0x34);
+      AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var8,0x34);
       func_ov000_02159eac(arg0->unknown_10_,&var4,7);
       func_ov000_0215cd44(arg0->unknown_10_,var8,var0,var6,var4,arg0->unknown_c_->unknown_1c_7_!=0);
       func_ov000_0215ffc4(arg0->unknown_c_,var8,0);
       ++*((unsigned char*)arg0->unknown_10_+0x8e02);
       arg0->unknown_74_=1;
-      func_ov000_0215a88c(arg0->unknown_10_,var8,var3);
+      AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var8,var3);
       func_ov000_0215af54(arg0->unknown_10_,arg2,0);
      }else{
       func_02088220(var0->currentStats_, var7);
@@ -93,7 +93,7 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
     int var12=func_02088208(var0->currentStats_, (int)inline_ov024_021dc93c(arg0));
     var4=0;
     var3=func_ov024_021e8c48(arg0, var12);
-    void* var13=func_ov000_0215e958(arg0->unknown_10_);
+    void* var13=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if(!var13)return 0;
     if(var12>0){
      func_ov000_02159eac(arg0->unknown_10_,&var4,0x23);
@@ -112,17 +112,17 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
     func_ov000_0215ffc4(arg0->unknown_c_,var13,0);
     ++*((unsigned char*)arg0->unknown_10_+0x8e02);
     arg0->unknown_74_=1;
-    func_ov000_0215a88c(arg0->unknown_10_,var13,var3);
+    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var13,var3);
    }
    var1=1;
   }else{
-   void* var15=func_ov000_0215e958(arg0->unknown_10_);
+   void* var15=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
    if(!var15)return 0;
    func_ov000_0215cd44(arg0->unknown_10_,var15,var0,0,0,arg0->unknown_c_->unknown_1c_7_!=0);
    func_ov000_0215ffc4(arg0->unknown_c_,var15,0);
    ++*((unsigned char*)arg0->unknown_10_+0x8e02);
    arg0->unknown_74_=1;
-   func_ov000_0215a88c(arg0->unknown_10_,var15,func_ov024_021da644(arg2,arg3->unknown_24_.unknown_1_2_,arg3->unknown_24_.unknown_2_4_));
+   AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var15,func_ov024_021da644(arg2,arg3->unknown_24_.unknown_1_2_,arg3->unknown_24_.unknown_2_4_));
   }
  }
  if(inline_ov000_02156cc4_2(arg2) && var1)arg0->unknown_71_=1;

@@ -5,10 +5,10 @@
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void* func_020100f8(char* arg0);
+extern "C" void* GetFollowCamera_020100f8(char* gameState);
 struct Struct_0200ffd0;
 extern "C" void* func_0200ffd0(struct Struct_0200ffd0* arg0);
-extern "C" void* func_0200fd0c(GameState*);
+extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void func_020da77c(void* arg0, int arg1, void* arg2);
 extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
 extern "C" void func_020a2770(void* arg0, short arg1);
@@ -17,7 +17,7 @@ extern "C" int func_0201b868(void* arg0, int arg1);
 struct Struct_020acecc_7;
 extern "C" void func_020ad1f0(struct Struct_020acecc_7* arg0, int arg1, int arg2, int arg3);
 struct Struct_02033834;
-extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 extern "C" void func_020da244(void* arg0);
 extern "C" void func_0205ebec(void* arg0);
 extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState*);
@@ -92,9 +92,9 @@ extern "C" ARM void func_020acecc(unsigned int* arg0, int arg1, int arg2)
     GameState* var0 = GameState::GetInstance();
     Struct_020acecc_2* var1 = (Struct_020acecc_2*)GetZone3D_02012fe4();
     GetLocalWireless_0202ae18();
-    void* var2 = func_020100f8((char*)var0);
+    void* var2 = GetFollowCamera_020100f8((char*)var0);
     Struct_020acecc_5* var3 = (Struct_020acecc_5*)func_0200ffd0((struct Struct_0200ffd0*)var0);
-    Struct_020acecc_4* var4 = (Struct_020acecc_4*)func_0200fd0c(var0);
+    Struct_020acecc_4* var4 = (Struct_020acecc_4*)GetZoneEntry_0200fd0c(var0);
     GameObject* var5 = var0->GetUnknownGameObject();
     var0->GetPartyMemberByIndex(0);
     func_020ad1f8(var1, arg1, arg2);
@@ -131,11 +131,11 @@ extern "C" ARM void func_020acecc(unsigned int* arg0, int arg1, int arg2)
                 var9.z = fix32_Divide(var9.z, 0x6000);
             }
             var3->unknown_0_.position_ = var9;
-            func_02033874((struct Struct_02033834*)var3, 0x3244);
+            SetFacingInstantly_02033874((struct Struct_02033834*)var3, 0x3244);
             func_020adfa8(var3);
         } else {
             var3->unknown_0_.position_ = var1->unknown_27b4_.unknown_4_;
-            func_02033874((struct Struct_02033834*)var3, var1->unknown_27b4_.unknown_10_);
+            SetFacingInstantly_02033874((struct Struct_02033834*)var3, var1->unknown_27b4_.unknown_10_);
             func_020adfa8(var3);
         }
         SetFlags04((GameResources*)arg0, 0x10044);

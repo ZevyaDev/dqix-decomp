@@ -67,7 +67,7 @@ extern "C" ARM void func_ov003_02177410(Struct_ov003_02177410_4* arg0) {
     func_02080c20(var1, 0xe);
     func_02080c68(var1, 0xe, 0);
 
-    Struct_ov003_02177410_3* var2 = (Struct_ov003_02177410_3*)func_0200ff1c(var0, arg0->unknown_1043_);
+    Struct_ov003_02177410_3* var2 = (Struct_ov003_02177410_3*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg0->unknown_1043_);
     if (var2 == NULL) {
         return;
     }

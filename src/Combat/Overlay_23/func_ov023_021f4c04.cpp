@@ -10,8 +10,8 @@
 #endif
 
 struct Struct_ov000_02161e30;
-struct Struct_02109bf4_4;
-struct Struct_02038598_4;
+struct MusicManager_02109bf4_4;
+struct GlobalFlags_02038598_4;
 struct Struct_020727d8;
 struct StringList_02072a68_2;
 struct Struct_02048150;
@@ -147,7 +147,7 @@ inline Struct_ov023_021ed9f8& inline_ov023_021f4c04() {
     return s;
 }
 
-extern Struct_02109bf4_4 gMusicManager_02109bf4;
+extern MusicManager_02109bf4_4 gMusicManager_02109bf4;
 extern const char data_ov023_021fe1d8[];
 extern const char data_ov023_021fe1ee[];
 #if defined(jpn)
@@ -167,9 +167,9 @@ extern "C" unsigned char func_02010750(char* arg0);
 extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_ov017_021d2400(void);
-extern "C" void func_0209c678(Struct_02109bf4_4* arg0, int arg1);
+extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
 extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
-extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_020727d8(Struct_020727d8* arg0);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1,
                                     unsigned int* arg2);
@@ -210,7 +210,7 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
     int var5 = GetResources_0200fb8c((int*)var3);
     GetZone3D_02012fe4();
     BackgroundLoader* var6 = BackgroundLoader::GetInstance();
-    Struct_02038598_4* var7 = (Struct_02038598_4*)GetGlobalFlags_020d6c00();
+    GlobalFlags_02038598_4* var7 = (GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00();
     void* var8 = GetParty_02010828(var3);
     void* var9 = GetLocalWireless_0202ae18();
 
@@ -231,7 +231,7 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
         }
         func_0209c678(&gMusicManager_02109bf4, 0x1e);
         func_ov000_02160fa8(arg0, 0x800000);
-        func_020466f4(var7, 0x40000);
+        ClearGlobalFlags_020466f4(var7, 0x40000);
         inline_ov023_021f4c04().unknown_4_ = 0;
         arg0->unknown_eac_ = 1;
     } else if (var10 == 1) {

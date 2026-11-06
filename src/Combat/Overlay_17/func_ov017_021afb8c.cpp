@@ -4,14 +4,14 @@ extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02042764(char* arg0, void* arg1, int arg2);
 struct Struct_02046574_2;
-extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
-extern "C" int func_020e51cc(int arg0);
+extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
+extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
 extern "C" void func_0205c790(char* arg0);
-struct Struct_0205ba68;
-extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
-struct Struct_0205bacc;
-extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
+struct MenuCursor_0205ba68;
+extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
+struct MenuCursor_0205bacc;
+extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
 extern "C" void func_0205cb74(char* arg0, int arg1);
 extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 #if defined(jpn)
@@ -24,7 +24,7 @@ struct Struct_0205c77c;
 extern "C" void func_0205c77c(struct Struct_0205c77c* arg0, int arg1);
 extern "C" void func_0205cd28(unsigned char* arg0);
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 
 // USA: func_ov017_021afb8c
 extern "C" ARM void func_ov017_021afb8c(char* arg0, char* arg1) {
@@ -43,18 +43,18 @@ extern "C" ARM void func_ov017_021afb8c(char* arg0, char* arg1) {
         char var1[0x30];
         __clear(var1, 0x30);
         func_02042764(arg1, var1, 1);
-        func_02046574((struct Struct_02046574_2*)var0, 0, var1);
+        SetMessageString_02046574((struct Struct_02046574_2*)var0, 0, var1);
 
-        int var2 = func_020e51cc(0x24);
+        int var2 = GetStandardString_020e51cc(0x24);
         char var3[0x64];
         func_02046608(var0, 0xc, var2, var3, 0x100, 0, 1);
 
 #endif
         func_0205c790(arg0 + 0x48);
-        func_0205ba68((struct Struct_0205ba68*)(arg0 + 0x68), 1, 1, 0);
-        func_0205ba68((struct Struct_0205ba68*)(arg0 + 0xb8), 1, 1, 0);
-        func_0205bacc((struct Struct_0205bacc*)(arg0 + 0x68), 1);
-        func_0205bacc((struct Struct_0205bacc*)(arg0 + 0xb8), 1);
+        SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(arg0 + 0x68), 1, 1, 0);
+        SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(arg0 + 0xb8), 1, 1, 0);
+        SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + 0x68), 1);
+        SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + 0xb8), 1);
 
         func_0205cb74(arg0 + 0x48, (int)var3);
 
@@ -77,6 +77,6 @@ extern "C" ARM void func_ov017_021afb8c(char* arg0, char* arg1) {
         *(short*)(arg0 + 0xfe) = 0x40;
 
         func_0205cd28((unsigned char*)(arg0 + 0x48));
-        func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x800000);
+        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x800000);
     }
 }

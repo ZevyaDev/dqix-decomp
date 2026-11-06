@@ -7,8 +7,8 @@ enum { Enum_ov017_021cc730_2384 = 0x950 };
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct Struct_ov017_021cc730 {
@@ -29,12 +29,12 @@ struct Struct_ov017_021cc730 {
 // USA: func_ov017_021cc730
 extern "C" ARM void func_ov017_021cc730(int arg0, unsigned char arg1, unsigned char arg2, unsigned char arg3) {
     GameState* var0 = GameState::GetInstance();
-    GameObject* var1 = func_0200ff1c(var0, arg0);
+    GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     if (var1 == 0) return;
     int var2 = GetPartyMemberData_02053c6c((unsigned char*)var1);
     if (var2 == 0) return;
 
-    void* var3 = func_0202ae24();
+    void* var3 = GetLocalWirelessPacketQueue_0202ae24();
     Struct_ov017_021cc730 var4;
     int var5 = *(int*)((char*)var2 + Enum_ov017_021cc730_2384);
 
@@ -49,5 +49,5 @@ extern "C" ARM void func_ov017_021cc730(int arg0, unsigned char arg1, unsigned c
     var4.unknown_d_ = arg2;
     var4.unknown_e_ = arg3;
 
-    func_0205e330(var3, &var4, 0);
+    QueueOutgoingPacket_0205e330(var3, &var4, 0);
 }

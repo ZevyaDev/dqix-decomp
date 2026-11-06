@@ -6,11 +6,11 @@ enum { Enum_ov025_021e88b8_28665 = 0x71e9 };
 enum { Enum_ov025_021e88b8_28665 = 0x6ff9 };
 #endif
 
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 
 // USA: func_ov025_021e88b8
 extern "C" ARM int func_ov025_021e88b8(void) {
-    void* var0 = func_ov000_02160130();
+    void* var0 = GetBattleScene_ov000_02160130();
     if (var0) {
         *((char*)var0 + Enum_ov025_021e88b8_28665) = 1;
     }

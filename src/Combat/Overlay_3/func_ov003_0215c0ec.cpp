@@ -35,7 +35,7 @@ struct Struct_ov003_0215c0ec_3 {
     unsigned char unknown_583_;
 };
 
-struct Struct_0205d5d0;
+struct TextWindowManager_0205d5d0;
 struct MessageWindow_020465c0;
 
 extern "C" void func_ov003_0215b6f0(struct Struct_ov003_0215c0ec_3* arg0, char* arg1, int arg2);
@@ -43,7 +43,7 @@ extern "C" void func_ov003_0215b964(struct Struct_ov003_0215c0ec_3* arg0, char* 
 extern "C" void func_ov003_0215be70(struct Struct_ov003_0215c0ec_3* arg0, char* arg1, int arg2);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" int func_020e51cc(int arg0);
+extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
@@ -74,9 +74,9 @@ extern "C" ARM void func_ov003_0215c0ec(struct Struct_ov003_0215c0ec_3* arg0) {
             break;
         }
 #if defined(jpn)
-        func_0205d5d0((struct Struct_0205d5d0*)arg0->unknown_f4_, var2, (int)arg0->unknown_7c_, 1);
+        SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)arg0->unknown_f4_, var2, (int)arg0->unknown_7c_, 1);
 #else
-        func_0205d5d0((struct Struct_0205d5d0*)arg0->unknown_f4_, var2, (int)arg0->unknown_7c_, 1, 0);
+        SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)arg0->unknown_f4_, var2, (int)arg0->unknown_7c_, 1, 0);
 #endif
     }
     if (arg0->unknown_583_ != 0) {
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov003_0215c0ec(struct Struct_ov003_0215c0ec_3* arg0) {
         func_02042158(arg0->unknown_7c_, 2);
         AppendText_02042058(arg0->unknown_7c_, data_ov003_0217e696);
 #else
-        AppendText_02042058(arg0->unknown_7c_, (const char*)func_020e51cc(0x3f1));
+        AppendText_02042058(arg0->unknown_7c_, (const char*)GetStandardString_020e51cc(0x3f1));
 #endif
         ClearMessageParams_02046380((void*)var4);
         SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var4, 0,
@@ -97,9 +97,9 @@ extern "C" ARM void func_ov003_0215c0ec(struct Struct_ov003_0215c0ec_3* arg0) {
         func_020465f0((unsigned char*)var4, 0, 7);
         func_020465d8((unsigned char*)var4, 0, 1);
 #if defined(jpn)
-        func_0205d5d0((struct Struct_0205d5d0*)arg0->unknown_f4_, 0, (int)arg0->unknown_7c_, 1);
+        SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)arg0->unknown_f4_, 0, (int)arg0->unknown_7c_, 1);
 #else
-        func_0205d5d0((struct Struct_0205d5d0*)arg0->unknown_f4_, 0, (int)arg0->unknown_7c_, 1, 0);
+        SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)arg0->unknown_f4_, 0, (int)arg0->unknown_7c_, 1, 0);
 #endif
         arg0->unknown_583_ = 0;
     }

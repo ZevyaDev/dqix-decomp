@@ -93,7 +93,7 @@ struct Struct_ov024_021fefea { unsigned char unknown_0_; unsigned char unknown_1
 extern const Struct_ov024_021fefea data_ov024_021fefea[];
 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
-extern "C" void* func_020797dc();
+extern "C" void* GetActionTables_020797dc();
 extern "C" void func_ov024_021f8bd8(Struct_ov024_021fdf04_5*, float*, Struct_ov024_021fdf04_8*, Struct_ov024_021fdf04_2*);
 extern "C" void __clear(void*, int);
 struct Struct_ov024_021fa7ec_7;
@@ -123,7 +123,7 @@ extern "C" void func_ov024_021f9874(Struct_ov024_021fdf04_5*, Struct_ov024_021f6
 extern "C" ARM void func_ov024_021fdf04(Struct_ov024_021fdf04_5* arg0, int arg1) {
     Struct_ov024_021fdf04_8* var0 = arg0->unknown_8_;
     GetPartyMemberData_02053c6c((unsigned char*)var0);
-    func_020797dc();
+    GetActionTables_020797dc();
 
     Struct_ov024_021fdf04_2* var1 = arg0->unknown_64c_;
     if (var1->unknown_9_0_ == 2) return;

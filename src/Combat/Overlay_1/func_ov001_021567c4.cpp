@@ -3,7 +3,7 @@
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
 
-extern "C" char* func_020100f8(char* arg0);
+extern "C" char* GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a2794(void* arg0);
 extern "C" void func_020a2718(char* arg0);
 extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
@@ -33,7 +33,7 @@ extern "C" ARM unsigned short func_ov001_021567c4(Struct_ov001_021567c4* arg0) {
 	GameState* var0 = GameState::GetInstance();
 	GameResources* var1 = GetGameResources();
 	var0->GetUnknownGameObject();
-	char* var2 = func_020100f8((char*)var0);
+	char* var2 = GetFollowCamera_020100f8((char*)var0);
 	inline_ov001_021567c4(var1)[1] = 1;
 	func_ov001_02154da0();
 	SetBrightness(var1, 0, 0x1e);

@@ -2,7 +2,7 @@
 
 struct Struct_0205bb84;
 extern "C" int func_0205bb84(struct Struct_0205bb84*);
-extern "C" void func_0205bb04(void*, int);
+extern "C" void SetMenuCursorIndex_0205bb04(void*, int);
 
 struct Struct_0205c4a8 {
     int unknown_0_;
@@ -22,6 +22,6 @@ extern "C" ARM void func_0205c4a8(struct Struct_0205c4a8* arg0, int arg1) {
     }
     var0 = arg0->unknown_0_;
     if (var0 <= func_0205bb84((struct Struct_0205bb84*)arg0)) {
-        func_0205bb04((void*)arg0, var0 - 1);
+        SetMenuCursorIndex_0205bb04((void*)arg0, var0 - 1);
     }
 }

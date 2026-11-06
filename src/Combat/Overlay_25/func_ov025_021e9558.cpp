@@ -7,9 +7,9 @@
 struct Struct_02033fdc;
 extern "C" void func_02033fdc(struct Struct_02033fdc* arg0);
 extern "C" void func_0200fd48(GameState* arg0, int arg1);
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void func_0205ebec(void* arg0);
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_02057f00(void* arg0, int arg1);
 
 struct Struct_ov025_021e9558 {
@@ -54,9 +54,9 @@ extern char gSoundEffectManager_02108760[];
 // USA: func_ov025_021e9558
 extern "C" ARM void func_ov025_021e9558(struct Struct_ov025_021e9558_4* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Struct_ov025_021e9558_3* var1 = (Struct_ov025_021e9558_3*)func_ov000_02160130();
+    Struct_ov025_021e9558_3* var1 = (Struct_ov025_021e9558_3*)GetBattleScene_ov000_02160130();
     Struct_ov025_021e9558_2* var2 = func_ov000_02160f20(var1);
-    void* var3 = func_02057924();
+    void* var3 = GetEffectManager_02057924();
     BackgroundLoader* var4 = BackgroundLoader::GetInstance();
 
     for (int var5 = 0; var5 < arg0->unknown_582_; var5++) {

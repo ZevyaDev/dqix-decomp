@@ -7,7 +7,7 @@ extern "C" int func_02088e04(unsigned char* arg0);
 extern "C" void func_02088e48(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020488ac(unsigned char* arg0, int arg1);
 extern "C" void func_ov000_0215a908(void* arg0, int arg1);
-extern "C" void* func_ov000_0215e958(void* arg0);
+extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
 
 struct Struct_ov024_021e1de8 { unsigned char unknown_0_0_ : 7; unsigned char unknown_0_7_ : 1; };
@@ -29,7 +29,7 @@ extern "C" ARM void* func_ov024_021e1de8(struct Struct_ov024_021e1de8_2* arg0, s
 			func_ov000_0215a908(arg0->unknown_10_, arg2);
 		}
 	}
-	void* var3 = func_ov000_0215e958(arg0->unknown_10_);
+	void* var3 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
 	if (!var3) return 0;
 	struct Struct_ov024_021e1de8* var4 = (struct Struct_ov024_021e1de8*)((char*)arg0->unknown_c_ + 0x1c);
 	func_ov000_0215cd44(arg0->unknown_10_, var3, var0, 0, 0, 0, var4->unknown_0_7_ != 0);

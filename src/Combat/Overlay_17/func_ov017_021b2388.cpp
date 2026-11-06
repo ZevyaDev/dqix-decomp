@@ -12,19 +12,16 @@ enum { Enum_ov017_021b2388_14080 = 0x3700 };
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
-extern "C" int func_020100f8(char* arg0);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 struct Struct_02018300_3;
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a27b8(unsigned char* arg0);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void func_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void func_020c9be0(void);
+extern "C" void HaltForever_020c9be0(void);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 struct Struct_0214e34c;
@@ -60,14 +57,14 @@ extern "C" ARM int func_ov017_021b2388(struct Struct_ov017_021b2388_2* arg0) {
     int var1 = ((int)GetGameResources());
     unsigned char* var2;
     GameObject* var3 = var0->GetUnknownGameObject();
-    var2 = (unsigned char*)func_020100f8((char*)var0);
+    var2 = (unsigned char*)GetFollowCamera_020100f8((char*)var0);
     int var4 = (int)BackgroundLoader::GetInstance();
     void** var5 = *(void***)((char*)var1 + Enum_ov017_021b2388_14080);
     unsigned int var6 = GetFlags04((GameResources*)var1);
     arg0->unknown_40_ = var6;
 
     if (var3) {
-        func_020397cc((struct Struct_02018300_3*)var3, 1);
+        DisablePlayerControl_020397cc((struct Struct_02018300_3*)var3, 1);
     }
 
     if (var2) {
@@ -77,7 +74,7 @@ extern "C" ARM int func_ov017_021b2388(struct Struct_ov017_021b2388_2* arg0) {
         arg0->unknown_44_ = var2;
     }
 
-    if (!func_02046b08(var5)) {
+    if (!IsQueueEmpty_02046b08(var5)) {
         return arg0->unknown_8_;
     }
 
@@ -85,7 +82,7 @@ extern "C" ARM int func_ov017_021b2388(struct Struct_ov017_021b2388_2* arg0) {
     func_020a0cc4(0x2f800);
     void* var7 = AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, 0x2f800);
     if (!var7) {
-        func_020c9be0();
+        HaltForever_020c9be0();
     }
     arg0->unknown_10_.CreateTypeA(var7, 0x2f800);
 

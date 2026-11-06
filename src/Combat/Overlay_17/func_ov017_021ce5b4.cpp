@@ -54,7 +54,7 @@ static inline Struct_ov017_021ce5b4* inline_ov017_021ce5b4_2(Struct_02000c9c_61*
 
 // USA: func_ov017_021ce5b4
 extern "C" ARM void* func_ov017_021ce5b4(int arg0, Struct_ov017_021ce5b4_2* arg1, GameState* arg2) {
-    GameObject* var0 = func_0200ff1c(arg2, arg1->unknown_4_);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(arg2, arg1->unknown_4_);
     if (var0 == NULL) return var0;
 
     Struct_ov017_021ce5b4_3* var1 = GetPartyMemberData_02053c6c((unsigned char*)var0);

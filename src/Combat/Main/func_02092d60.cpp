@@ -12,7 +12,7 @@ extern "C" int GetResources_0200fb8c(int* gameState);
 struct Struct_02015438;
 extern "C" int func_02046b24(struct Struct_02015438** arg0);
 
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_021677d8(void* arg0, int arg1);
 
 extern "C" void* GetZone3D_02012fe4(void);
@@ -45,7 +45,7 @@ extern "C" ARM void func_02092d60(struct Struct_02092d60_3* arg0, int arg1) {
         struct Struct_02015438** var4 = *(struct Struct_02015438***)((char*)(int)var3 + (IS_JPN ? 0x34ec : 0x36fc));
         int var5 = func_02046b24(var4);
         if (var5 == 0xa) {
-            void* var6 = func_ov000_02160130();
+            void* var6 = GetBattleScene_ov000_02160130();
             if (var6 != 0) {
                 void* var7 = func_ov000_021677d8(var6, var1->obj3D_.unknown_4_);
                 if (var7 != 0) {

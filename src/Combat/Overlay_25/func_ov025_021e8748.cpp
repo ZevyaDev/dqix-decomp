@@ -12,7 +12,7 @@ struct Struct_ov025_021e8748 {
     Vector3i unknown_6fdc_;
     unsigned char unknown_6fe8_;
 };
-extern "C" Struct_ov025_021e8748* func_ov000_02160130(void);
+extern "C" Struct_ov025_021e8748* GetBattleScene_ov000_02160130(void);
 
 struct Struct_ov025_021e8748_2 {
     char unknown_0_[8];
@@ -21,7 +21,7 @@ struct Struct_ov025_021e8748_2 {
 
 // USA: func_ov025_021e8748
 extern "C" ARM int func_ov025_021e8748(struct Struct_ov025_021e8748_2* arg0) {
-    Struct_ov025_021e8748* var0 = func_ov000_02160130();
+    Struct_ov025_021e8748* var0 = GetBattleScene_ov000_02160130();
     if (var0) {
         Vector3i var1 = arg0->unknown_8_;
         var0->unknown_6fdc_ = var1;

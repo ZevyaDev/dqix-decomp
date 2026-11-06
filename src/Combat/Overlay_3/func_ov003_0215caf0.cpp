@@ -2,14 +2,14 @@
 #include "Memory/SafeAllocator.h"
 #include <globaldefs.h>
 
-struct Struct_0204b12c;
-struct Struct_02020cb8_5;
-struct Struct_02020cb8_2;
-struct Struct_02020cb8;
-struct Struct_0204c7a8;
+struct BGLayer_0204b12c;
+struct BGLayer_02020cb8_5;
+struct BGLayer_02020cb8_2;
+struct BGLayer_02020cb8;
+struct TextWindow_0204c7a8;
 struct Struct_0205cf78;
 struct Struct_0205cf78_2;
-struct Struct_02043368_2;
+struct Sprite_02043368_2;
 struct Struct_02043368;
 struct PacEntry_02020aec;
 struct PacEntry_02020cb8_4;
@@ -24,27 +24,27 @@ extern "C" void *__clear(void *arg0, int arg1);
 extern "C" int func_02005a94();
 extern "C" void func_ov003_0215e1ec(char *arg0);
 extern "C" void func_ov003_0215ca90(void *arg0, int arg1);
-extern "C" void func_0204af64(struct Struct_02020cb8 *arg0);
-extern "C" void func_0204b11c(unsigned char *arg0, int arg1);
-extern "C" void func_0204b5b4(void *arg0, int arg1);
-extern "C" void func_0204b12c(struct Struct_0204b12c *arg0,
-                                                                                         SafeAllocator *arg1);
-extern "C" int func_0204b5e8(struct Struct_02020cb8_5 *arg0, int arg1, int arg2);
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8 *layer);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char *layer, int screenSize);
+extern "C" void SetBGPriority_0204b5b4(void *layer, int priority);
+extern "C" void AllocateBGScreenData_0204b12c(struct BGLayer_0204b12c *layer,
+                                                                                         SafeAllocator *allocator);
+extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5 *layer, int scrollX, int scrollY);
 extern "C" void ColorEffect_ConfigureAlphaBlend(int reg, int a, int b, int c, int d);
 extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4 *pac);
 extern "C" void *GetPacEntryData_020467f0(struct PacEntry_02020aec *pac, int index, void **outEntry, int *outSize);
-extern "C" void func_0204b174(void *arg0, void *arg1, SafeAllocator *arg2, int arg3);
-extern "C" void func_0204bc74(void *arg0, unsigned short arg1, int arg2, int arg3, int arg4, int arg5, unsigned short arg6);
-extern "C" void func_0204b0e8(struct Struct_02020cb8_2 *arg0, void *arg1);
-extern "C" void func_0204c7a8(struct Struct_0204c7a8 *arg0, SafeAllocator *arg1,
-                                                                           int arg2, unsigned int arg3);
+extern "C" void LoadBGBlock_0204b174(void *layer, void *block, SafeAllocator *allocator, int arg3);
+extern "C" void FillBGScreenRect_0204bc74(void *layer, unsigned short screenEntry, int x, int y, int width, int height, unsigned short palette);
+extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2 *layer, void *screenData);
+extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8 *window, SafeAllocator *allocator,
+                                                                           int arg2, unsigned int screenDataSize);
 extern "C" void func_0205cf78(struct Struct_0205cf78 *arg0,
                                                                                      struct Struct_0205cf78_2 *arg1,
                                                                                      unsigned char arg2);
-extern "C" void func_0205a198(struct Struct_02043368_2 *arg0);
+extern "C" void InitSprite_0205a198(struct Sprite_02043368_2 *sprite);
 extern "C" void func_0205a234(struct Struct_02043368 *arg0);
-extern "C" void func_0205a528(void *arg0, void *arg1, int arg2, void *arg3);
-extern "C" void func_020dfec0(void *arg0, void *arg1, void *arg2, unsigned int arg3);
+extern "C" void LoadSpriteSetFile_0205a528(void *spriteSet, void *fileData, int size, void *allocator);
+extern "C" void LoadStringTable_020dfec0(void *stringTable, void *allocator, void *fileData, unsigned int fileSize);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 
 struct Struct_ov003_0215caf0 {
@@ -147,7 +147,7 @@ extern "C" ARM void func_ov003_0215caf0(char *arg0) {
             unsigned int var8;
             var0->GetLoadedFileByID(((int *) S32(0x3b4))[0], &var7, &var8);
             ((SafeAllocator *) arg0)->Reset();
-            func_020dfec0(arg0 + 0x64, arg0, var7, var8);
+            LoadStringTable_020dfec0(arg0 + 0x64, arg0, var7, var8);
             if (FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x64), 0x32) != 0) {
                 U8(0x3ee) = func_02005a94();
             }
@@ -169,7 +169,7 @@ extern "C" ARM void func_ov003_0215caf0(char *arg0) {
             unsigned int var10;
             var0->GetLoadedFileByID(((int *) S32(0x3b4))[1], &var9, &var10);
             ((SafeAllocator *) (arg0 + 0x14))->Reset();
-            func_020dfec0(arg0 + 0x7c, arg0 + 0x14, var9, var10);
+            LoadStringTable_020dfec0(arg0 + 0x7c, arg0 + 0x14, var9, var10);
             var0->RemoveTask(((int *) S32(0x3b4))[1]);
             ((int *) S32(0x3b4))[1] = -1;
         }
@@ -182,14 +182,14 @@ extern "C" ARM void func_ov003_0215caf0(char *arg0) {
             struct Struct_ov003_0215caf0_2 *var13;
             for (int var14 = 0; var14 < 2; var14++) {
                 var13 = (struct Struct_ov003_0215caf0_2 *) (arg0 + 0x154 + Enum_ov003_0215caf0_0 + var14 * 0x20);
-                func_0204af64((struct Struct_02020cb8 *) var13);
-                func_0204b11c((unsigned char *) var13, 0);
+                InitBGLayer_0204af64((struct BGLayer_02020cb8 *) var13);
+                SetBGScreenSize_0204b11c((unsigned char *) var13, 0);
                 var13->unknown_1c_0_ = 0;
                 var13->unknown_1c_4_ = var11.unknown_0_[var14];
-                func_0204b5b4(var13, var12.unknown_0_[var14]);
-                func_0204b12c((struct Struct_0204b12c *) var13,
+                SetBGPriority_0204b5b4(var13, var12.unknown_0_[var14]);
+                AllocateBGScreenData_0204b12c((struct BGLayer_0204b12c *) var13,
                                                                                          (SafeAllocator *) (arg0 + 0x28));
-                func_0204b5e8((struct Struct_02020cb8_5 *) var13, 0, 0);
+                SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5 *) var13, 0, 0);
             }
             REG16(0x0400000a) = (REG16(0x0400000a) & 0x43) | 0xd08;
             REG16(0x0400000c) = (REG16(0x0400000c) & 0x43) | 0xe08;
@@ -204,20 +204,20 @@ extern "C" ARM void func_ov003_0215caf0(char *arg0) {
             for (int var20 = 0; var20 < var19; var20++) {
                 void *var21 = GetPacEntryData_020467f0((struct PacEntry_02020aec *) var16, var20, &var15, &var18);
                 if (var21 != 0) {
-                    func_0204b174(arg0 + 0x174 + Enum_ov003_0215caf0_0, var21, (SafeAllocator *) (arg0 + 0x28), var18);
+                    LoadBGBlock_0204b174(arg0 + 0x174 + Enum_ov003_0215caf0_0, var21, (SafeAllocator *) (arg0 + 0x28), var18);
                 }
             }
             char *var22;
             for (int var23 = 0; var23 < 2; var23++) {
                 var22 = arg0 + 0x154 + Enum_ov003_0215caf0_0 + var23 * 0x20;
-                func_0204bc74(var22, 0, 0, 0, 0x20, 0x19, 0);
-                func_0204b0e8((struct Struct_02020cb8_2 *) var22, 0);
+                FillBGScreenRect_0204bc74(var22, 0, 0, 0, 0x20, 0x19, 0);
+                LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2 *) var22, 0);
             }
             S32(0x354) = (int) ((SafeAllocator *) (arg0 + 0x28))->Allocate(Enum_ov003_0215caf0_6144);
             char *var24;
             for (int var25 = 0; var25 < 2; var25++) {
                 var24 = arg0 + 0x194 + Enum_ov003_0215caf0_0 + var25 * 0xe0;
-                func_0204c7a8((struct Struct_0204c7a8 *) var24,
+                SetTextWindowBuffers_0204c7a8((struct TextWindow_0204c7a8 *) var24,
                                                                            (SafeAllocator *) (arg0 + 0x28), S32(0x354), Enum_ov003_0215caf0_512);
                 *(char **) (var24 + 4) = arg0 + 0x174 + Enum_ov003_0215caf0_0;
             }
@@ -238,7 +238,7 @@ extern "C" ARM void func_ov003_0215caf0(char *arg0) {
             ((SafeAllocator *) (arg0 + 0x50))->Reset();
             S32(0x3ac) = (int) ((SafeAllocator *) (arg0 + 0x50))->Allocate(0xf0);
             for (unsigned char var26 = 0; var26 < 6; var26++) {
-                func_0205a198((struct Struct_02043368_2 *) (S32(0x3ac) + var26 * 0x28));
+                InitSprite_0205a198((struct Sprite_02043368_2 *) (S32(0x3ac) + var26 * 0x28));
             }
             S32(0x3b0) = (int) ((SafeAllocator *) (arg0 + 0x50))->Allocate(8);
             func_0205a234((struct Struct_02043368 *) S32(0x3b0));
@@ -254,7 +254,7 @@ extern "C" ARM void func_ov003_0215caf0(char *arg0) {
             int var31 = CountPacEntries_02046900((struct PacEntry_02020cb8_4 *) var28);
             for (int var32 = 0; var32 < var31; var32++) {
                 void *var33 = GetPacEntryData_020467f0((struct PacEntry_02020aec *) var28, var32, &var27, &var30);
-                func_0205a528(arg0 + 0x358 + Enum_ov003_0215caf0_0, var33, var30, arg0 + 0x50);
+                LoadSpriteSetFile_0205a528(arg0 + 0x358 + Enum_ov003_0215caf0_0, var33, var30, arg0 + 0x50);
             }
             var0->RemoveTask(((int *) S32(0x3b4))[2 + Enum_ov003_0215caf0_0_2]);
             ((int *) S32(0x3b4))[2 + Enum_ov003_0215caf0_0_2] = -1;

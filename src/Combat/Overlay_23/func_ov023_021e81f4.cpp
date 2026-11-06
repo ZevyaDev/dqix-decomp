@@ -25,7 +25,7 @@ extern "C" ARM void func_ov023_021e81f4(void* arg0) {
 #endif
     memset(var0->unknown_5d8_, 0, var1);
     func_ov023_021e8cc0(static_cast<Struct_ov023_021e802c*>(arg0));
-    func_0205d5d0(((Struct_0205d5d0*)(&var0->unknown_78_)), 0xc, ((int)(var0->unknown_5d8_)),
+    SetTextWindowText_0205d5d0(((TextWindowManager_0205d5d0*)(&var0->unknown_78_)), 0xc, ((int)(var0->unknown_5d8_)),
 #if defined(jpn)
                               1
 #else
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov023_021e81f4(void* arg0) {
 
     memset(var0->unknown_5d8_, 0, var1);
     func_ov023_021e8cdc(arg0);
-    func_0205d5d0(((Struct_0205d5d0*)(&var0->unknown_78_)), 0xd, ((int)(var0->unknown_5d8_)),
+    SetTextWindowText_0205d5d0(((TextWindowManager_0205d5d0*)(&var0->unknown_78_)), 0xd, ((int)(var0->unknown_5d8_)),
 #if defined(jpn)
                               1
 #else

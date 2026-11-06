@@ -14,7 +14,7 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 
 struct Struct_02018300_3;
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 
 int fix32ReduceAngle0To2Pi(int angle);
 int fix32sin(int angle);
@@ -35,7 +35,7 @@ int IsBrightnessTransitionActive(GameResources*);
 
 extern "C" unsigned char func_02011494(char* arg0, void* arg1);
 
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void VectorizedMemset(void* dst, int val, int size);
 struct Vector3i;
@@ -77,7 +77,7 @@ extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
 
     int var4 = arg0->unknown_8_;
     if (var4 == 0) {
-        func_020397cc((struct Struct_02018300_3*)var2, 1);
+        DisablePlayerControl_020397cc((struct Struct_02018300_3*)var2, 1);
         ((Object3D*)((unsigned char*)var2))->EnableFlag(0x01000080);
 
         struct Struct_ov009_0218aa28 var5;
@@ -149,7 +149,7 @@ extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
             }
         }
 
-        void* var20 = func_0200fd0c(var0);
+        void* var20 = GetZoneEntry_0200fd0c(var0);
         GetProtagonistObjectIndex_020100a8(var0);
         VectorizedMemset(var20, 0, 0x70);
         unsigned char* var21 = (unsigned char*)var20;

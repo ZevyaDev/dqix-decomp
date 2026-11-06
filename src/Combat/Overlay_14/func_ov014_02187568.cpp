@@ -23,7 +23,7 @@ struct Struct_ov014_02184f78 {
     char unknown_1c_[4];
 };
 
-struct Struct_02020cb8;
+struct BGLayer_02020cb8;
 struct Struct_0207f7f0_2;
 
 struct Struct_020974b0 {
@@ -59,7 +59,7 @@ struct Struct_ov014_02186bc8 {
     Struct_ov014_02184f78* unknown_b8_;
     Struct_ov014_02184f78* unknown_bc_;
     Struct_0207f7f0* unknown_c0_;
-    Struct_02020cb8* unknown_c4_;
+    BGLayer_02020cb8* unknown_c4_;
     Struct_0207f7f0_2* unknown_c8_;
     void* unknown_cc_;
     short* unknown_d0_;
@@ -97,13 +97,13 @@ struct Struct_02097418;
 struct Struct_0207f914;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
-struct Struct_0201099c_14;
+struct StringTable_0201099c_14;
 struct Struct_0207f7f0;
 struct Struct_0207f7f0_2;
 
 extern "C" int* GetResources_0200fb8c(int*);
 extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
-extern "C" void func_020c5588(int, int, int, int, int);
+extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
 extern "C" int func_02097420(Struct_02097420*);
 extern "C" Struct_ov014_02184f78* func_02097418(Struct_02097418*);
 extern "C" void func_0206819c(const char*, char*, int);
@@ -115,15 +115,15 @@ extern "C" void func_02080798(void*, int, int);
 #endif
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
-extern "C" void func_020dfc40(Struct_0201099c_14*);
+extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14*);
 extern "C" void func_020abf38(void*);
 extern "C" void func_0207f7f0(Struct_0207f7f0*, Struct_0207f7f0_2*, int);
 
 extern "C" {
 void func_020972e0(Struct_020974b0* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
 int func_0207f9f4(Struct_0207f7f0* arg0);
-void func_0205a528(Struct_ov008_02188d74* arg0, void* arg1, unsigned int arg2, SafeAllocator* arg3);
-void func_020dfec0(Struct_01ff8b48_13* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
+void LoadSpriteSetFile_0205a528(Struct_ov008_02188d74* spriteSet, void* fileData, unsigned int size, SafeAllocator* allocator);
+void LoadStringTable_020dfec0(Struct_01ff8b48_13* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 void func_020abf60(Struct_020974b0* arg0);
 void func_ov014_02187488(Struct_ov014_02186bc8* arg0);
 Struct_ov014_02184f78* func_020974b0(Struct_020974b0* arg0, int arg1, int, bool arg3, int, short* arg5);
@@ -154,16 +154,16 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
     {
         SetFlags04(GetGameResources(), 0x609fe);
         func_020c54a4(0, 0, 0, 0);
-        func_020c5588(0, 0, 0x7fff, 0, 0);
-        FontLoader_0208cb08* var2 = func_02094a00();
-        func_02094ab0(var2);
+        Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
+        FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
+        CancelFontLoad_02094ab0(var2);
         func_02094b40(var2);
         func_02094b30(var2, 0x6a, 0);
         arg0->unknown_17b_++;
     }
     else if (arg0->unknown_17b_ == 1)
     {
-        if (func_02094b4c(func_02094a00()))
+        if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()))
             arg0->unknown_17b_++;
     }
     else if (arg0->unknown_17b_ == 2)
@@ -264,7 +264,7 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
             {
                 void* var18 = GetPacEntryData_020467f0((PacEntry_02020aec*)var12, var17, &var11, (int*)&var14);
                 if (var18 != NULL)
-                    func_0205a528(&arg0->unknown_f8_, var18, var14, &var15[3]);
+                    LoadSpriteSetFile_0205a528(&arg0->unknown_f8_, var18, var14, &var15[3]);
             }
             var1->RemoveTask(arg0->unknown_168_);
             arg0->unknown_168_ = -1;
@@ -273,7 +273,7 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
     }
     else if (arg0->unknown_17b_ == 9)
     {
-        func_020dfc40((Struct_0201099c_14*)&arg0->unknown_e0_);
+        InitStringTable_020dfc40((StringTable_0201099c_14*)&arg0->unknown_e0_);
 #if defined(jpn)
         arg0->unknown_168_ = var1->QueueLoadFile(data_ov014_0218a567, NULL);
 #else
@@ -292,7 +292,7 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
             {
                 SafeAllocator* var21 = arg0->unknown_b4_;
                 var21[4].Reset();
-                func_020dfec0(&arg0->unknown_e0_, &var21[4], var19, var20);
+                LoadStringTable_020dfec0(&arg0->unknown_e0_, &var21[4], var19, var20);
             }
             var1->RemoveTask(arg0->unknown_168_);
             arg0->unknown_168_ = -1;

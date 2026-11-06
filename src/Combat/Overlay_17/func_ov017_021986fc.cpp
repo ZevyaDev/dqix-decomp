@@ -6,9 +6,6 @@
 #include "Input/Input.h"
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 struct Struct_ov017_021986fc_2 {
     unsigned int unknown_0_0_ : 16;
@@ -44,14 +41,14 @@ extern "C" Struct_0208e7d0* func_0208e0a8(void);
 extern "C" int func_0208e824(void*, char*);
 extern "C" int func_020535c8(signed char*);
 extern "C" Struct_0208f3b4* func_0208e9e8(void);
-extern "C" void* func_020100bc(GameState*);
+extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" void func_ov017_0219a674(unsigned char*);
 extern "C" void func_ov017_0219b33c(void*, Struct_ov017_021986fc_3*);
 extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18(void);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" void func_0206df6c(void*, unsigned char*, int, int);
+extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void func_0208f3b4(Struct_0208f3b4*, int);
 extern "C" int func_0208e7d0(Struct_0208e7d0*);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
@@ -67,7 +64,7 @@ extern "C" ARM void func_ov017_021986fc(GameResources* arg0) {
     if (func_020535c8((signed char*)var4)) return;
     func_0208e9e8();
     Struct_ov017_021986fc_2* var5 = var2->unknown_4_;
-    void* var6 = func_020100bc(var3);
+    void* var6 = GetCamera_020100bc(var3);
 
     int var7 = 0;
     unsigned int var8 = 0;
@@ -112,7 +109,7 @@ extern "C" ARM void func_ov017_021986fc(GameResources* arg0) {
     var5->unknown_6_5_ = ~var8 & var5->unknown_6_5_;
     var5->unknown_8_->unknown_0_.unknown_0_0_ = var5->unknown_8_->unknown_0_.unknown_3_1_ * 30;
     void* var19 = GetFlagManager_0205ec34();
-    func_0206df6c(var19, (unsigned char*)var19 + 0x8c, var5->unknown_2_0_ + 0xc12, 1);
+    SetFlag_0206df6c(var19, (unsigned char*)var19 + 0x8c, var5->unknown_2_0_ + 0xc12, 1);
     func_0208f3b4(func_0208e9e8(), var10);
     if (var5->unknown_2_0_ >= 0x62) var5->unknown_0_0_ = func_0208e7d0(var2);
     func_ov017_021ae800(((Struct_ov017_021986fc*)arg0->unknown_ptr_array_3afc[11]));

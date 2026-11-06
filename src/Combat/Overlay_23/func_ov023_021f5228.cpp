@@ -17,7 +17,7 @@ extern "C" ARM int func_ov023_021f5228(int arg0) {
  enum {Enum_ov023_021f5228_2384=0x950};
 #endif
 	GameState *var0 = GameState::GetInstance();
-	struct Struct_ov023_021f5228 *var1 = (struct Struct_ov023_021f5228*)func_0200ff1c(var0, arg0);
+	struct Struct_ov023_021f5228 *var1 = (struct Struct_ov023_021f5228*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
 	if (!var1) return 0;
 	int var2 = GetPartyMemberData_02053c6c((unsigned char*)var1);
 	if (!var2) return 0;

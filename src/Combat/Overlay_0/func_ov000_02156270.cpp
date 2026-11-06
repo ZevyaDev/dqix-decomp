@@ -38,7 +38,7 @@ extern "C" ARM float func_ov000_02156270(struct Struct_ov000_02156270* arg0, int
     }
     int var3 = (arg1 >= 0 && arg1 <= 3) ? 1 : 0;
     if (var3) {
-        GameObject* var4 = func_0200ff1c(var1, arg1);
+        GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var1, arg1);
         if (var4 == NULL) {
             return 0.0f;
         }

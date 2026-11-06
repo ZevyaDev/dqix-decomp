@@ -11,7 +11,7 @@ struct StringList_02072a68_2 {
     StringListEntry_02072a68 *unknown_0_;
     short capacity_4_;
 };
-struct Struct_0205a330;
+struct SpriteAnimationList_0205a330;
 
 struct Struct_ov003_02172e84_8 {
     unsigned int unknown_0_0_ : 12;
@@ -67,7 +67,7 @@ struct Struct_ov003_02172e84_3 {
     char unknown_0_[0x228];
     void *unknown_228_;
     int unknown_22c_;
-    Struct_0205a330 *unknown_230_;
+    SpriteAnimationList_0205a330 *unknown_230_;
     char unknown_234_[0x868 - 0x234];
     int unknown_868_;
     int unknown_86c_;
@@ -78,7 +78,7 @@ struct Struct_ov003_02172e84_3 {
     char unknown1_0_[0x2d8];
     void *unknown_2d8_;
     int unknown_2dc_;
-    Struct_0205a330 *unknown_2e0_;
+    SpriteAnimationList_0205a330 *unknown_2e0_;
     char unknown_2e4_[0x998 - 0x2e4];
     int unknown_998_;
     int unknown_99c_;
@@ -131,7 +131,7 @@ struct Struct_ov003_02172e84_7 {
     unsigned char unknown_ea_;
     char unknown_eb_[0x134 - 0xeb];
     int unknown_134_;
-    Struct_0205a330 *unknown_138_;
+    SpriteAnimationList_0205a330 *unknown_138_;
     char unknown_13c_[0x1cc - 0x13c];
     int unknown_1cc_;
     char unknown_1d0_[0x1dc - 0x1d0];
@@ -165,7 +165,7 @@ struct Struct_ov003_02172e84_7 {
     unsigned char unknown_ee_;
     char unknown_ef_[0x128 - 0xef];
     int unknown_128_;
-    Struct_0205a330 *unknown_12c_;
+    SpriteAnimationList_0205a330 *unknown_12c_;
     char unknown_130_[0x1c0 - 0x130];
     int unknown_1c0_;
     char unknown_1c4_[0x1d0 - 0x1c4];
@@ -202,7 +202,7 @@ extern "C" void *GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void func_0202b0f4(void *arg0);
 extern "C" int func_ov003_021734dc(int arg0, int arg1, int arg2);
-extern "C" void func_0205a330(Struct_0205a330 *arg0, int arg1);
+extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330 *animationList, int ticks);
 extern "C" int func_020457e0(Struct_ov003_02172e84_3 *arg0);
 extern "C" int func_ov003_02172570(unsigned char *arg0, void *arg1);
 
@@ -295,8 +295,8 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
         var1->unknown_22c_ = arg0->unknown_134_;
         var1->unknown_230_ = arg0->unknown_138_;
         arg0->unknown_0_ = 0;
-        Struct_0205a330 *var15 = var1->unknown_230_;
-        func_0205a330(var15, var14->GetTickCount() >> 2);
+        SpriteAnimationList_0205a330 *var15 = var1->unknown_230_;
+        AdvanceSpriteAnimations_0205a330(var15, var14->GetTickCount() >> 2);
         if (var1->unknown_870_ == 0) {
             var1->unknown_868_ = 1;
             if (func_020457e0(var1) == 0) {
@@ -424,8 +424,8 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
         var17->unknown_2dc_ = arg0->unknown_128_;
         var17->unknown_2e0_ = arg0->unknown_12c_;
         arg0->unknown_0_ = 0;
-        Struct_0205a330 *var36 = var17->unknown_2e0_;
-        func_0205a330(var36, var35->GetTickCount() >> 2);
+        SpriteAnimationList_0205a330 *var36 = var17->unknown_2e0_;
+        AdvanceSpriteAnimations_0205a330(var36, var35->GetTickCount() >> 2);
         if (var17->unknown_9a0_ == 0) {
             var17->unknown_998_ = 1;
             if (func_020457e0(var17) == 0) {

@@ -16,7 +16,7 @@ extern "C" void func_02048614(unsigned char* arg0);
 extern "C" void func_02049c88(unsigned char* arg0, int arg1);
 extern "C" void func_02048850(struct Struct_02048850* arg0, struct Struct_02048850_2* arg1);
 extern "C" void func_02048588(unsigned char* arg0, unsigned char* arg1);
-extern "C" void func_02033b88(struct Struct_02010604* arg0, int arg1);
+extern "C" void SetMotion_02033b88(struct Struct_02010604* object, int motion);
 extern "C" void func_ov000_02161dfc(unsigned char* arg0, unsigned char* arg1);
 extern "C" void func_020488ec(char* arg0);
 extern "C" void func_ov000_02161274(GameObject* arg0);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov000_02161c0c(unsigned char* arg0, int arg1) {
     func_02048588((unsigned char*)var5, var1);
     ((Object3D*)var1)->SetField06(*(unsigned short*)(arg0 + Enum_ov000_02161c0c_3784));
     var1[0x17c] = var10;
-    func_02033b88((struct Struct_02010604*)var1, 0);
+    SetMotion_02033b88((struct Struct_02010604*)var1, 0);
     *(unsigned char**)(var1 + 0x138) = var15;
     func_ov000_02161dfc(var15, var13 + 0x6c);
     (*(unsigned char**)(var1 + 0x138))[0x25] = var11;

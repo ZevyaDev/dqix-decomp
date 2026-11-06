@@ -6,13 +6,13 @@
 #endif
 #include <globaldefs.h>
 
-struct Struct_ov011_02184c30 {
-    int unknown_0_;
-    union { int unknown_0_; float unknown1_0_; } unknown_4_;
+struct ScriptValue_ov011_02184c30 {
+    int type_0_;
+    union { int unknown_0_; float unknown1_0_; } value_4_;
 };
-extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
+extern "C" int func_ov011_02184c30(struct ScriptValue_ov011_02184c30* arg0);
 
-extern "C" void* func_ov017_021b2164(void);
+extern "C" void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 #if defined(jpn)
@@ -36,10 +36,10 @@ public:
 };
 
 // USA: func_ov011_02187650
-extern "C" ARM int func_ov011_02187650(struct Struct_ov011_02184c30* arg0) {
+extern "C" ARM int func_ov011_02187650(struct ScriptValue_ov011_02184c30* arg0) {
     int var0 = func_ov011_02184c30(arg0);
-    int var1 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 8));
-    Struct_ov011_02187650* var2 = (Struct_ov011_02187650*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(func_ov017_021b2164()), var0);
+    int var1 = func_ov011_02184c30((struct ScriptValue_ov011_02184c30*)((char*)arg0 + 8));
+    Struct_ov011_02187650* var2 = (Struct_ov011_02187650*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(GetCurrentMenu_ov017_021b2164()), var0);
     if (!var2) return 0;
     if (func_ov024_021f6f10(var2) != 7) return 0;
     var2->inline_ov011_02187650_15(var1);

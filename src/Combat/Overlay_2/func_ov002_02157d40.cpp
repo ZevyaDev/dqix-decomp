@@ -61,7 +61,7 @@ struct Struct_02001a40;
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020e2ff8(void);
-extern "C" void* func_02079e2c(char* arg0, int arg1);
+extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int func_0202053c(void* arg0);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
@@ -85,7 +85,7 @@ extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable,
 extern "C" void func_0208247c(void* arg0);
 extern "C" void func_02048350(struct Struct_ov002_02157d40_8* arg0, int arg1);
 extern "C" void func_ov002_02157ce0(char* arg0);
-extern "C" void func_02046574(struct Struct_ov002_02157d40_6* arg0, int arg1, char* arg2);
+extern "C" void SetMessageString_02046574(struct Struct_ov002_02157d40_6* window, int index, char* text);
 extern "C" int func_02026a28(struct Struct_ov002_02157d40_11* arg0);
 extern "C" int func_02026abc(struct Struct_ov002_02157d40_12* arg0);
 extern "C" void func_ov017_021c2688(unsigned char* arg0);
@@ -98,7 +98,7 @@ extern "C" int func_02026a78(char* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct Struct_ov002_02157d40_7* manager, int soundEffectIndex, int handle);
 struct GameObject;
 extern "C" void func_020e4c74(void*, GameObject*);
-extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" int func_02048448(struct Struct_ov002_02157d40_3* arg0, int arg1);
 
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
@@ -292,13 +292,13 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
     struct Struct_ov002_02157d40_19* var2 = (Struct_ov002_02157d40_19*)GameState::GetInstance();
     int var3 = GetResources_0200fb8c((int*)var2);
     unsigned short* var4 = (unsigned short*)GetZone3D_02012fe4();
-    Struct_02108e10* var5 = func_020797dc();
+    ActionTables_02108e10* var5 = GetActionTables_020797dc();
     var1 = (char*)var5;
-    struct Struct_ov002_02157634_8* var6 = (struct Struct_ov002_02157634_8*)func_02079e2c(var1, arg0->unknown_1c26_);
+    struct Struct_ov002_02157634_8* var6 = (struct Struct_ov002_02157634_8*)FindActionData_02079e2c(var1, arg0->unknown_1c26_);
     #if defined(jpn)
     struct Struct_ov002_02157d40_17* var7 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)func_0200ff94((GameState*)var2, arg0->unknown_1c20_);
 #else
-    struct Struct_ov002_02157d40_17* var7 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)func_0200ff1c((GameState*)var2, arg0->unknown_1c20_);
+    struct Struct_ov002_02157d40_17* var7 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var2, arg0->unknown_1c20_);
 #endif
     int* var8 = (int*)GetLocalWireless_0202ae18();
     int var9 = 0;
@@ -369,7 +369,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
             func_ov002_02157ce0((char*)&var0.unknown_c8_);
             func_ov002_02157ce0((char*)&var0.unknown_c8_);
             int var16 = 0;
-            struct Struct_ov002_02157634_8* var17 = (struct Struct_ov002_02157634_8*)func_02079e2c(var1, arg0->unknown_1c26_);
+            struct Struct_ov002_02157634_8* var17 = (struct Struct_ov002_02157634_8*)FindActionData_02079e2c(var1, arg0->unknown_1c26_);
             if (var17 != 0) {
                 __clear(var0.unknown_18_, 4);
                 int var18 = func_020114ec((char*)var2, var0.unknown_18_);
@@ -420,13 +420,13 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 memset(arg0->unknown_1bd0_, 0, RG(0x960, 0x800));
                 var1 = arg0->unknown_1bd0_;
                 if (var7 != 0) {
-                    func_02046574((struct Struct_ov002_02157d40_6*)var26, 0, var7->unknown_134_);
+                    SetMessageString_02046574((struct Struct_ov002_02157d40_6*)var26, 0, var7->unknown_134_);
 #if !defined(jpn)
-                    func_020e4bf4(arg0->unknown_8_, inline_ov002_02157d40_4(var7));
+                    InitPartyMemberNoun_020e4bf4(arg0->unknown_8_, inline_ov002_02157d40_4(var7));
                     *(void**)var26 = arg0->unknown_8_;
 #endif
                 }
-                func_02046574((struct Struct_ov002_02157d40_6*)var26, 1, var17->unknown_0_);
+                SetMessageString_02046574((struct Struct_ov002_02157d40_6*)var26, 1, var17->unknown_0_);
                 if (var16 != 0) {
                     FMT(var26, 0xc, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x232d), (char*)(var1 + RG(0x860, 0x700)));
                     AppendText_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
@@ -441,14 +441,14 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                         if (var29 < 0) {
                             continue;
                         }
-                        struct Struct_ov002_02157d40_17* var30 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)func_0200ff1c((GameState*)var2, var0.unknown_c8_.unknown_4_[var28]);
+                        struct Struct_ov002_02157d40_17* var30 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var2, var0.unknown_c8_.unknown_4_[var28]);
                         if (var30 == 0) {
                             continue;
                         }
                         ClearMessageParams_02046380(var26);
-                        func_02046574((struct Struct_ov002_02157d40_6*)var26, 2, inline_ov002_02157d40_5(var30));
+                        SetMessageString_02046574((struct Struct_ov002_02157d40_6*)var26, 2, inline_ov002_02157d40_5(var30));
 #if !defined(jpn)
-                        func_020e4bf4(arg0->unknown_14_, var0.unknown_c8_.unknown_4_[var28]);
+                        InitPartyMemberNoun_020e4bf4(arg0->unknown_14_, var0.unknown_c8_.unknown_4_[var28]);
                         *(void**)(var26 + 0x10) = arg0->unknown_14_;
 #endif
                         SetMessageNumber_020465c0((struct Struct_ov002_02157d40_2*)var26, 9, var30->unknown_4_);
@@ -463,7 +463,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 } else {
                     struct Struct_ov002_02157d40* var31 = (Struct_ov002_02157d40*)((GameState*)var2)->GetUnknownGameObject();
                     if (var31 != 0) {
-                        func_02046574((struct Struct_ov002_02157d40_6*)var26, 2, ((struct Struct_ov002_02157d40_17*)var31)->unknown_134_);
+                        SetMessageString_02046574((struct Struct_ov002_02157d40_6*)var26, 2, ((struct Struct_ov002_02157d40_17*)var31)->unknown_134_);
 #if !defined(jpn)
                         func_020e4c74(arg0->unknown_14_, (GameObject*)(Struct_ov002_02157d40*)((GameState*)var2)->GetUnknownGameObject());
                         *(void**)(var26 + 0x10) = arg0->unknown_14_;
@@ -522,12 +522,12 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
             unsigned char* var35 = (unsigned char*)GetMessageWindow_020421a0();
             memset(arg0->unknown_1bd0_, 0, RG(0x960, 0x800));
             var1 = arg0->unknown_1bd0_;
-            struct Struct_ov002_02157d40_17* var36 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)func_0200ff1c((GameState*)var2, arg0->unknown_1c20_);
+            struct Struct_ov002_02157d40_17* var36 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var2, arg0->unknown_1c20_);
             if (var36 != 0) {
                 ClearMessageParams_02046380(var35);
-                func_02046574((struct Struct_ov002_02157d40_6*)var35, 0, var36->unknown_134_);
+                SetMessageString_02046574((struct Struct_ov002_02157d40_6*)var35, 0, var36->unknown_134_);
 #if !defined(jpn)
-                func_020e4bf4(arg0->unknown_8_, arg0->unknown_1c20_);
+                InitPartyMemberNoun_020e4bf4(arg0->unknown_8_, arg0->unknown_1c20_);
                 *(void**)var35 = arg0->unknown_8_;
 #endif
                 FMT(var35, 0xc, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x7537), (char*)(var1 + RG(0x860, 0x700)));
@@ -538,7 +538,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
             int* var38 = var0.unknown_104_;
             int var39;
             for (var39 = 0; var39 < var37; var39++) {
-                struct Struct_ov002_02157d40_17* var40 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)func_0200ff1c((GameState*)var2, var0.unknown_10_[var39]);
+                struct Struct_ov002_02157d40_17* var40 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var2, var0.unknown_10_[var39]);
                 if (var40 == 0) {
                     continue;
                 }
@@ -553,9 +553,9 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     continue;
                 }
                 ClearMessageParams_02046380(var35);
-                func_02046574((struct Struct_ov002_02157d40_6*)var35, 0, var40->unknown_134_);
+                SetMessageString_02046574((struct Struct_ov002_02157d40_6*)var35, 0, var40->unknown_134_);
 #if !defined(jpn)
-                func_020e4bf4(arg0->unknown_8_, var0.unknown_10_[var39]);
+                InitPartyMemberNoun_020e4bf4(arg0->unknown_8_, var0.unknown_10_[var39]);
                 *(void**)var35 = arg0->unknown_8_;
 #endif
                 int var43;
@@ -688,7 +688,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
         } else if (arg0->unknown_1c26_ == 0xa2 || arg0->unknown_1c26_ == 0xa4) {
             arg0->unknown_1c21_ = arg0->unknown_1c20_;
             int var55 = 0;
-            struct Struct_ov002_02157634_8* var56 = (struct Struct_ov002_02157634_8*)func_02079e2c(var1, arg0->unknown_1c26_);
+            struct Struct_ov002_02157634_8* var56 = (struct Struct_ov002_02157634_8*)FindActionData_02079e2c(var1, arg0->unknown_1c26_);
             if (var56 != 0 && (var56->unknown_9_2_ & 1)) {
                 func_ov016_0218b5c0(var55, -1);
                 func_ov002_02157ce0((char*)&var0.unknown_64_);
@@ -757,7 +757,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
         var0.unknown_28_.unknown_2_ = arg0->unknown_1c20_;
         var0.unknown_28_.unknown_3_ = 1;
         var0.unknown_28_.unknown_4_[0] = arg0->unknown_1c21_;
-        struct Struct_ov002_02157634_8* var58 = (struct Struct_ov002_02157634_8*)func_02079e2c(var1, arg0->unknown_1c26_);
+        struct Struct_ov002_02157634_8* var58 = (struct Struct_ov002_02157634_8*)FindActionData_02079e2c(var1, arg0->unknown_1c26_);
         if (var58 != 0 && (var58->unknown_9_2_ & 1)) {
             func_ov016_0218b5c0(0, -1);
             func_ov002_021536e0(&var0.unknown_0_);
@@ -824,7 +824,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
             arg0->unknown_1c28_ = 0x7535;
             arg0->unknown_1c2a_ = -1;
             int var67 = 0;
-            struct Struct_ov002_02157d40_17* var68 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)func_0200ff1c((GameState*)var2, arg0->unknown_1c21_);
+            struct Struct_ov002_02157d40_17* var68 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var2, arg0->unknown_1c21_);
             if (var68 != 0 && (*var68->unknown_130_ & 4)) {
                 var67 = 1;
             }

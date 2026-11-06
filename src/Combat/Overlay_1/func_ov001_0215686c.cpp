@@ -54,9 +54,9 @@ struct Struct_ov001_0215686c_4 {
 extern "C" int func_020c39c8(volatile unsigned short* arg0);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_020dc2bc();
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
 static inline unsigned int inline_ov001_0215686c(Struct_ov001_0215686c_2* arg0) {
     return arg0->unknown_a_;
@@ -64,7 +64,7 @@ static inline unsigned int inline_ov001_0215686c(Struct_ov001_0215686c_2* arg0) 
 
 // USA: func_ov001_0215686c
 extern "C" ARM void func_ov001_0215686c(void) {
-    struct Struct_02020cb8 var0;
+    struct BGLayer_02020cb8 var0;
     char var1[0x20];
 
     int var2 = (*(unsigned short*)0x4000304 & 0x8000) >> 15;
@@ -116,7 +116,7 @@ cont:
         }
     }
 
-    func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 1);
+    SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 1);
     func_020dc2bc();
 
     volatile unsigned int* var8 = (volatile unsigned int*)0x4001000;
@@ -133,7 +133,7 @@ cont:
     var8[7] = 0;
     var9[0x28] = 0;
 
-    func_0204af64(&var0);
+    InitBGLayer_0204af64(&var0);
     var0.unknown_1c_0_ = 3;
 
     unsigned char* var10 = ((struct Struct_ov001_0215686c_4*)var4)->unknown_2c_;

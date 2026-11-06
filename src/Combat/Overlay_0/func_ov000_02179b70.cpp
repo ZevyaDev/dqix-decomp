@@ -10,24 +10,24 @@
 
 #include "std_library_functions.h"
 
-struct Struct_0205d0e0 {
+struct TextWindow_0205d0e0 {
     char unknown_0_[0xc2];
-    unsigned short unknown_c2_;
+    unsigned short palette_c2_;
     char unknown_c4_[0xe0 - 0xc4];
 };
 
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 
 extern "C" void func_ov000_02179cdc(void* arg0, void* arg1);
 extern "C" void func_ov000_0217ab8c(void* arg0, int arg1, int arg2);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_ov000_02179ed8(void* arg0, void* arg1, void* arg2);
 #if defined(jpn)
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
-extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" void func_ov000_02176210(void* arg0, int arg1, int arg2);
 
 // USA: func_ov000_02179b70
@@ -56,14 +56,14 @@ extern "C" ARM void func_ov000_02179b70(char* arg0, void* arg1, int arg2, int ar
     memset(var3, 0, REGION_OFFSET_1);
     func_ov000_02179ed8(arg0, arg1, var3);
 #if defined(jpn)
-    func_0205d304(var2, var3, 0, 1, 0, 1, 0);
+    OpenTextWindow_0205d304(var2, var3, 0, 1, 0, 1, 0);
 #else
-    func_0205d304(var2, var3, 0, 1, 0, 1, 0, 0);
+    OpenTextWindow_0205d304(var2, var3, 0, 1, 0, 1, 0, 0);
 #endif
 
-    struct Struct_0205d0e0* var4 = func_0205d81c((struct Struct_0205d81c*)var2, 0x16);
+    struct TextWindow_0205d0e0* var4 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)var2, 0x16);
     if (var4 != NULL) {
-        var4->unknown_c2_ = 0;
+        var4->palette_c2_ = 0;
     }
     func_ov000_02176210(arg0 + 0x188, 0x15, 0x16);
 }

@@ -17,17 +17,17 @@ struct Struct_ov003_02173f70 {
     unsigned char unknown1_3c_[0x814 - 0x3c];
 #endif
     Struct_02043368* unknown_814_;
-    Struct_02043368_2* unknown_818_;
+    Sprite_02043368_2* unknown_818_;
     unsigned char unknown_81c_[8];
     unsigned short unknown_824_;
     unsigned char unknown_826_[2];
     unsigned char unknown_828_;
     unsigned char unknown_829_[3];
     Struct_02043368* unknown_82c_;
-    Struct_02043368_2* unknown_830_;
+    Sprite_02043368_2* unknown_830_;
     unsigned char unknown_834_[0x89c - 0x834];
     Struct_0207f7f0* unknown_89c_;
-    Struct_02020cb8 unknown_8a0_[2];
+    BGLayer_02020cb8 unknown_8a0_[2];
     Struct_0207f7f0_2 unknown_8e0_[8];
 };
 

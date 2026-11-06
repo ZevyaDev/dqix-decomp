@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Combat/Overlay_1/EventArgs.h"
 
-extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 union Struct_ov017_021c927c {
     struct { unsigned char unknown_0_0_ : 4; unsigned char unknown_0_4_ : 4; } unknown_0_;
@@ -24,7 +24,7 @@ struct Struct_ov017_021c927c_2 {
 
 // USA: func_ov017_021c927c
 extern "C" ARM void func_ov017_021c927c(int arg0, int arg1, int arg2, Struct_ov001_02158efc arg3, int arg4, unsigned short arg5, int arg6) {
-    void* var0 = func_0202ae24();
+    void* var0 = GetLocalWirelessPacketQueue_0202ae24();
 
     struct Struct_ov017_021c927c_2 var1;
     var1.unknown_0_ = 0x88;
@@ -37,5 +37,5 @@ extern "C" ARM void func_ov017_021c927c(int arg0, int arg1, int arg2, Struct_ov0
     var1.unknown_10_ = arg3.unknown_8_;
     var1.unknown_8_ = (unsigned short)arg4;
 
-    func_0205e330(var0, &var1, 0);
+    QueueOutgoingPacket_0205e330(var0, &var1, 0);
 }

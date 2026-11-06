@@ -2,19 +2,19 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Combat/MapDisplay.h"
 
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
-extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
 
-extern "C" void func_0204b5b4(void*, int);
+extern "C" void SetBGPriority_0204b5b4(void*, int);
 
-struct Struct_02020cb8_5 { char unknown_0_[0x1c]; unsigned char unknown_1c_0_ : 4; unsigned char unknown_1c_4_ : 4; };
-extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
+struct BGLayer_02020cb8_5 { char unknown_0_[0x1c]; unsigned char unknown_1c_0_ : 4; unsigned char bgIndex_1c_4_ : 4; };
+extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 
-extern "C" void func_0204c684(void*);
+extern "C" void InitTextWindow_0204c684(void*);
 
 struct Struct_0204fbf8_2 {
     char unknown_0_[0x4];
-    struct Struct_02020cb8* unknown_4_;
+    struct BGLayer_02020cb8* unknown_4_;
     void* unknown_8_;
     char unknown_c_[0xa0 - 0xc];
     int unknown_a0_;
@@ -33,7 +33,7 @@ extern "C" void func_0204fbf8(struct Struct_0204fbf8_2* arg0);
 
 extern int gFileScratchSpace_0211e33c;
 
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 
 struct Struct_ov001_02153884 { int unknown_0_; int unknown_4_; };
 struct Struct_ov001_021658d8 { struct Struct_ov001_02153884* unknown_0_; int unknown_4_; };
@@ -53,16 +53,16 @@ extern "C" ARM int func_ov001_0215e7c0(void* arg0) {
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
 
-    struct Struct_02020cb8 var0;
-    func_0204af64(&var0);
+    struct BGLayer_02020cb8 var0;
+    InitBGLayer_0204af64(&var0);
     var0.unknown_1c_0_ = 1;
-    var0.unknown_1c_4_ = 0;
-    func_0204b11c((unsigned char*)&var0, 0);
-    func_0204b5b4(&var0, 0);
-    func_0204b5e8((struct Struct_02020cb8_5*)&var0, 0, 0);
+    var0.bgIndex_1c_4_ = 0;
+    SetBGScreenSize_0204b11c((unsigned char*)&var0, 0);
+    SetBGPriority_0204b5b4(&var0, 0);
+    SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)&var0, 0, 0);
 
     struct Struct_0204fbf8_2 var1;
-    func_0204c684(&var1);
+    InitTextWindow_0204c684(&var1);
     var1.unknown_4_ = &var0;
     var1.unknown_8_ = &gFileScratchSpace_0211e33c;
     var1.unknown_a8_ = 0x20;
@@ -74,7 +74,7 @@ extern "C" ARM int func_ov001_0215e7c0(void* arg0) {
     var1.unknown_a0_ = 0x60;
     var1.unknown_c5_ = var2 | 0x10;
 
-    int var3 = func_ov017_021d60f4(arg0);
+    int var3 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     struct Struct_ov001_02153884* var4 = (struct Struct_ov001_02153884*)func_ov001_02153884(&data_ov001_021658d8, var3);
     if (var4 == 0) {
         BackgroundLoader::RemoveLockGlobal();

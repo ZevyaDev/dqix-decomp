@@ -8,11 +8,11 @@ extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0205c790(char* arg0);
 
-struct Struct_0205ba68;
-extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
-struct Struct_0205bacc;
-extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
-extern "C" int func_020e51cc(int arg0);
+struct MenuCursor_0205ba68;
+extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
+struct MenuCursor_0205bacc;
+extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
+extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void func_0205cb74(char* arg0, int arg1);
 extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 #if defined(jpn)
@@ -35,14 +35,14 @@ extern "C" ARM void func_ov017_021adb50(char* arg0) {
     func_020d7aa0((struct Struct_020d7aa0_2*)func_020d7a50());
     ResetMessageWindow_02043204((char*)GetMessageWindow_020421a0());
     func_0205c790(arg0 + 0x44);
-    func_0205ba68((struct Struct_0205ba68*)(arg0 + 0x64), 1, 1, 0);
-    func_0205ba68((struct Struct_0205ba68*)(arg0 + 0xb4), 1, 1, 0);
-    func_0205bacc((struct Struct_0205bacc*)(arg0 + 0x64), 1);
-    func_0205bacc((struct Struct_0205bacc*)(arg0 + 0xb4), 1);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(arg0 + 0x64), 1, 1, 0);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(arg0 + 0xb4), 1, 1, 0);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + 0x64), 1);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + 0xb4), 1);
 #if defined(jpn)
     int var0 = (int)data_ov017_021d7f74;
 #else
-    int var0 = func_020e51cc(0x1f);
+    int var0 = GetStandardString_020e51cc(0x1f);
 #endif
 
     func_0205cb74(arg0 + 0x44, var0);

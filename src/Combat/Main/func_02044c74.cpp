@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" void func_0204c684(void* arg0);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
 int AllocateVRAMStagingMemory(unsigned int);
 
 #if defined(jpn)
@@ -14,7 +14,7 @@ enum { Enum_02044c74_2509 = 0x9cd, Enum_02044c74_8 = 8 };
 extern "C" ARM void func_02044c74(void* arg0, void* arg1) {
     char* var0 = (char*)arg0;
     char* var1 = (char*)arg1;
-    func_0204c684(arg1);
+    InitTextWindow_0204c684(arg1);
     void* var2 = (void*)AllocateVRAMStagingMemory(0x4800);
     if (var2) {
         unsigned char* var3 = (unsigned char*)(var0 + 0x1000);

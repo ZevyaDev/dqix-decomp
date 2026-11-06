@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct Struct_0204693c;
-extern "C" void func_0204693c(Struct_0204693c* arg0);
+struct QueueNode_0204693c;
+extern "C" void ResetQueueNode_0204693c(QueueNode_0204693c* node);
 
 struct Struct_ov017_0219bfb4 {
 	unsigned char unknown_0_;
@@ -17,7 +17,7 @@ struct Struct_ov017_0219bfb4 {
 
 // USA: func_ov017_021ba90c
 extern "C" ARM void func_ov017_021ba90c(Struct_ov017_0219bfb4* arg0) {
-	func_0204693c((Struct_0204693c*)arg0);
+	ResetQueueNode_0204693c((QueueNode_0204693c*)arg0);
 	arg0->unknown_0_ = 0x10;
 	arg0->unknown_22_ = 0;
 	arg0->unknown_8_.ResetAllocatorPointer();

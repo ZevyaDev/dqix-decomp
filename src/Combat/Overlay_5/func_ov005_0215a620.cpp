@@ -7,17 +7,17 @@ enum { Enum_ov005_0215a620_3716 = 0xe84, Enum_ov005_0215a620_15768 = 0x3d98, Enu
 #endif
 
 struct Struct_02000c9c_91;
-struct Struct_0204b8d0 {
+struct BGLayer_0204b8d0 {
     char unknown_0_[0x10];
     Struct_02000c9c_91* unknown_10_;
-    unsigned short* unknown_14_;
+    unsigned short* pScreenData_14_;
     char unknown_18_[5];
-    unsigned char unknown_1d_;
+    unsigned char screenBlockCount_1d_;
 };
-extern "C" void func_0204b8d0(struct Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" void CopyBGScreenBlockRect_0204b8d0(struct BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 
-struct Struct_02020cb8_2;
-extern "C" void func_0204b0e8(struct Struct_02020cb8_2*, void*);
+struct BGLayer_02020cb8_2;
+extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2*, void*);
 
 struct Struct_ov005_0215c530
 {
@@ -40,8 +40,8 @@ struct Struct_02020cb8_8
 struct Struct_ov005_0215a620_2
 {
     char unknown_0_[Enum_ov005_0215a620_3716 - 0x244];
-    Struct_0204b8d0 unknown_c40_[3];
-    char unknown_ca0_[0x1000 - (Enum_ov005_0215a620_3716 - 0x244) - sizeof(Struct_0204b8d0) * 3];
+    BGLayer_0204b8d0 unknown_c40_[3];
+    char unknown_ca0_[0x1000 - (Enum_ov005_0215a620_3716 - 0x244) - sizeof(BGLayer_0204b8d0) * 3];
     Struct_02020cb8_8 unknown_1000_;
     char unknown_1008_[0x179c - 0x1000 - sizeof(Struct_02020cb8_8)];
 };
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov005_0215a620(Struct_ov005_0215a620* arg0) {
 
     unsigned char var0 = arg0->unknown_3db8_;
     if (!(var0 != 0 && var0 != 1)) {
-        func_0204b8d0(&arg0->unknown_244_.unknown_c40_[0], 0, Enum_ov005_0215a620_22, 22, Enum_ov005_0215a620_22, 22, Enum_ov005_0215a620_10, 2, 0xffff);
+        CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_244_.unknown_c40_[0], 0, Enum_ov005_0215a620_22, 22, Enum_ov005_0215a620_22, 22, Enum_ov005_0215a620_10, 2, 0xffff);
     } else {
         unsigned char var1 = arg0->unknown_3dbc_;
         unsigned char* var2 = arg0->inline_ov005_0215a620();
@@ -87,8 +87,8 @@ extern "C" ARM void func_ov005_0215a620(Struct_ov005_0215a620* arg0) {
         if (var3 == 1) var4 = 4;
         else if (var3 == 2) var4 = 2;
         else if (var3 == 3) var4 = 3;
-        func_0204b8d0(&arg0->unknown_244_.unknown_c40_[0], var4, 0, 0, Enum_ov005_0215a620_22, 22, Enum_ov005_0215a620_10, 2, 0xffff);
+        CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_244_.unknown_c40_[0], var4, 0, 0, Enum_ov005_0215a620_22, 22, Enum_ov005_0215a620_10, 2, 0xffff);
     }
-    func_0204b0e8((Struct_02020cb8_2*)&arg0->unknown_244_.unknown_c40_[0], 0);
+    LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_244_.unknown_c40_[0], 0);
     arg0->unknown_3dcc_ &= ~0x800;
 }

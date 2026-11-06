@@ -113,7 +113,7 @@ int _Z39GenerateGrottoObjectPositionOrientationPviiPiS0_PK24TileFeaturePlacement
     void* arg0, int arg1, int arg2, int* arg3, int* arg4, const void* arg5, bool arg6);
 int _ZNK8FloorMap16GetAdjacencyBitsEii(const Struct_0201a600_8* arg0, int arg1, int arg2);
 Struct_0201a600_6* func_0201ae8c(Struct_0201a600_6* arg0, Struct_0201a600_6* arg1);
-Struct_0201a600_5* func_0200fd0c(GameState* arg0);
+Struct_0201a600_5* GetZoneEntry_0200fd0c(GameState* gameState);
 int func_02018fbc(Struct_0201a600_3* arg0, Vector3i* arg1);
 void __clear(void* arg0, int arg1);
 void func_02024d94(void* arg0, unsigned short arg1, Vector3i* arg2);
@@ -288,7 +288,7 @@ extern "C" ARM int func_0201a600(Struct_0201a600_3* arg0) {
     }
 
     {
-        Struct_0201a600_5* var35 = func_0200fd0c(var0);
+        Struct_0201a600_5* var35 = GetZoneEntry_0200fd0c(var0);
 
         if ((var7 > arg0->unknown_2_ || !func_0201b588(arg0->unknown_2_))
             && var35->unknown_62_ == 0 && var35->unknown_63_ == 0
@@ -397,7 +397,7 @@ extern "C" ARM int func_0201a600(Struct_0201a600_3* arg0) {
             var9.unknown_1c_ = var7 + 1;
         }
 
-        var39 = func_0200fd0c(var0);
+        var39 = GetZoneEntry_0200fd0c(var0);
         if (var7 < arg0->unknown_2_ && var39->unknown_62_ == 0 && var39->unknown_63_ == 0
             && arg0->unknown_2_ != 0 && var39->unknown_68_ == 0) {
             Vector3i var41;

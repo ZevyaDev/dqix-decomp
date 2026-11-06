@@ -30,25 +30,25 @@ enum { Enum_ov003_02169c3c_1262 = 0x4ee };
 #endif
 
 #if defined(jpn)
-extern "C" void func_0205d304(void*, void*, int, int, int, int, int);
+extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);
 #endif
 #include "std_library_functions.h"
 
-struct Struct_0205de24_2;
-extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+struct TextWindowManager_0205de24_2;
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
 
-struct Struct_0205d0e0;
-struct Struct_0205d81c;
-extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+struct TextWindow_0205d0e0;
+struct TextWindowManager_0205d81c;
+extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 
 extern "C" void func_ov003_02169d10(void* arg0, void* arg1, int arg2);
 #if !defined(jpn)
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 // USA: func_ov003_02169c3c
 extern "C" ARM void func_ov003_02169c3c(char* arg0) {
-    func_0205de24((struct Struct_0205de24_2*)(arg0 + Enum_ov003_02169c3c_228), 0, 2);
+    SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)(arg0 + Enum_ov003_02169c3c_228), 0, 2);
 
     *(short*)(arg0 + Enum_ov003_02169c3c_388) = 0xe;
     *(short*)(arg0 + Enum_ov003_02169c3c_390) = 7;
@@ -66,11 +66,11 @@ extern "C" ARM void func_ov003_02169c3c(char* arg0) {
     memset(*(void**)(arg0 + 0x7c), 0, Enum_ov003_02169c3c_2400);
     func_ov003_02169d10(arg0, *(void**)(arg0 + 0x7c), 0);
 #if defined(jpn)
-    func_0205d304(arg0 + Enum_ov003_02169c3c_228, *(void**)(arg0 + 0x7c), 0, 0, 0, 1, 0);
+    OpenTextWindow_0205d304(arg0 + Enum_ov003_02169c3c_228, *(void**)(arg0 + 0x7c), 0, 0, 0, 1, 0);
 #else
-    func_0205d304(arg0 + Enum_ov003_02169c3c_228, *(void**)(arg0 + 0x7c), 0, 0, 0, 0, 0, 1);
+    OpenTextWindow_0205d304(arg0 + Enum_ov003_02169c3c_228, *(void**)(arg0 + 0x7c), 0, 0, 0, 0, 0, 1);
 #endif
 
-    struct Struct_0205d0e0* var0 = func_0205d81c((struct Struct_0205d81c*)(arg0 + Enum_ov003_02169c3c_228), 2);
+    struct TextWindow_0205d0e0* var0 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)(arg0 + Enum_ov003_02169c3c_228), 2);
     *((unsigned char*)var0 + 0xc6) = 0;
 }

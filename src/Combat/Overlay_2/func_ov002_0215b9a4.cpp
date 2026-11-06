@@ -37,19 +37,19 @@ extern Struct_ov002_0216cae8 data_ov002_0216cae8[];
 extern Struct_ov002_0216cae8 data_ov002_0216caec[];
 
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
-struct Struct_0205d81c;
-struct Struct_0205d0e0 {
+struct TextWindowManager_0205d81c;
+struct TextWindow_0205d0e0 {
     unsigned char unknown_0_[0xc4];
     unsigned char unknown_c4_;
     unsigned char unknown_c5_;
     unsigned char unknown_c6_[0xe0 - 0xc6];
 };
-extern "C" Struct_0205d0e0* func_0205d81c(Struct_0205d81c*, int);
+extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 
 // USA: func_ov002_0215b9a4
 // JPN: func_ov002_0215cb1c
 extern "C" ARM void func_ov002_0215b9a4(Struct_ov002_0215b9a4 *arg0, unsigned char arg1, int arg2) {
-    Struct_0205d0e0* var0 = func_0205d81c(((Struct_0205d81c*)(&arg0->unknown_ec8_)), arg1);
+    TextWindow_0205d0e0* var0 = FindTextWindow_0205d81c(((TextWindowManager_0205d81c*)(&arg0->unknown_ec8_)), arg1);
     if (var0 == 0) {
         return;
     }
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov002_0215b9a4(Struct_ov002_0215b9a4 *arg0, unsigned ch
         return;
     }
     (arg0->*data_ov002_0216cfac[arg1])(arg0->unknown_1bd0_, var1);
-    func_0205d5d0(((Struct_0205d5d0*)(&arg0->unknown_ec8_)), arg1, ((int)(arg0->unknown_1bd0_)),
+    SetTextWindowText_0205d5d0(((TextWindowManager_0205d5d0*)(&arg0->unknown_ec8_)), arg1, ((int)(arg0->unknown_1bd0_)),
 #if defined(jpn)
                              1);
 #else
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov002_0215b9a4(Struct_ov002_0215b9a4 *arg0, unsigned ch
                 break;
             }
             (arg0->*data_ov002_0216cfac[var4])(arg0->unknown_1bd0_, var1);
-            func_0205d5d0(((Struct_0205d5d0*)(&arg0->unknown_ec8_)), static_cast<unsigned char>(var4), ((int)(arg0->unknown_1bd0_)),
+            SetTextWindowText_0205d5d0(((TextWindowManager_0205d5d0*)(&arg0->unknown_ec8_)), static_cast<unsigned char>(var4), ((int)(arg0->unknown_1bd0_)),
 #if defined(jpn)
                                      1);
 #else

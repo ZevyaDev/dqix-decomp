@@ -9,7 +9,7 @@ struct Struct_02048150;
 struct Struct_ov000_02163a7c;
 struct Struct_02010088;
 struct Struct_02010604;
-struct Struct_0205d6a0 { char unknown_0_[4]; };
+struct TextWindowManager_0205d6a0 { char unknown_0_[4]; };
 struct Struct_ov023_021d9988;
 struct StringList_02072a68_2 { char unknown_0_[4]; };
 struct Struct_ov023_021eeaac_2 {
@@ -42,9 +42,9 @@ struct Struct_ov000_02160da0 {
 #endif
 
 #if defined(jpn)
-    char unknown_e2c_[0x371c-0xe2c]; char unknown_3760_[0x38a4-0x371c]; Struct_0205d6a0 unknown_38e8_;
+    char unknown_e2c_[0x371c-0xe2c]; char unknown_3760_[0x38a4-0x371c]; TextWindowManager_0205d6a0 unknown_38e8_;
 #else
-    char unknown_eb0_[0x3760-0xeb0]; char unknown_3760_[0x38e8-0x3760]; Struct_0205d6a0 unknown_38e8_;
+    char unknown_eb0_[0x3760-0xeb0]; char unknown_3760_[0x38e8-0x3760]; TextWindowManager_0205d6a0 unknown_38e8_;
 #endif
 
 #if defined(jpn)
@@ -104,12 +104,12 @@ extern "C" unsigned char* func_ov000_02163524(void*);
 extern "C" int func_020a35e0(unsigned char*, unsigned char);
 extern "C" void func_020d7334(unsigned char*, int);
 extern "C" int func_02010088(Struct_02010088*);
-extern "C" void func_02033b88(Struct_02010604*, int);
+extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_0203400c(Struct_02032e58*);
 extern "C" GameObject* func_0200fea4(GameState*, int);
-extern "C" GameObject* func_0200ff1c(GameState*, int);
-extern "C" GameObject* func_0200ff58(GameState*, int);
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" void func_ov000_02160fa8(void*, int);
 extern "C" void func_ov023_021d8a40(Struct_ov023_021f03a0_2*);
 extern "C" void func_ov023_021d8cb4(void*, void*);
@@ -117,7 +117,7 @@ extern "C" void func_ov023_021d9988(Struct_ov023_021d9988*, void*, unsigned int)
 extern "C" void ClearMessageParams_02046380(Struct_02092e0c*);
 extern "C" void func_ov023_021d8ddc(Struct_ov023_021f03a0_2*, int*);
 extern "C" int func_02011518(void*, unsigned int);
-extern "C" void func_020e4bf4(void*, int);
+extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_02092e0c*, char*, int, int);
@@ -175,7 +175,7 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
                 GameObject* var17 = var15->GetCombatantByIndex(var16);
                 if (var17 && !func_02010088((Struct_02010088*)var17)) {
                     ((Struct_020391ac*)var17)->unknown_c1_ &= ~0xf0;
-                    func_02033b88((Struct_02010604*)var17, 0);
+                    SetMotion_02033b88((Struct_02010604*)var17, 0);
                     var17->obj3D_.SkipAnimationTransition();
                     func_0203400c((Struct_02032e58*)var17);
                     var17->obj3D_.MakeVisible();
@@ -186,7 +186,7 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
             GameObject* var19 = func_0200fea4(var15, var18 + 0xc0);
             if (var19 && ((Struct_020391ac*)var19)->unknown_c2_4_) var19->obj3D_.MakeVisible();
         }
-        func_0205d6a0(&arg0->unknown_38e8_, 1);
+        CloseTextWindows_0205d6a0(&arg0->unknown_38e8_, 1);
         func_ov000_02160fa8(arg0, 0x40000);
         arg0->unknown_30_.Reset();
         arg0->unknown_5588_ = (Struct_ov023_021f03a0_2*)arg0->unknown_30_.Allocate(0x12c);
@@ -213,14 +213,14 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
             for (int var24 = 0; var24 < 4 && !var23; var24++) {
                 int var25 = func_02011518(var5, (unsigned char)var24);
                 if (arg0->unknown_5758_[var25]) {
-                    GameObject* var26 = func_0200ff1c(var5, var25);
+                    GameObject* var26 = GetPartyMemberBaseByIndex_0200ff1c(var5, var25);
 #if defined(jpn)
 
 #else
 #if defined(jpn)
 
 #else
-                    func_020e4bf4(var2, var25);
+                    InitPartyMemberNoun_020e4bf4(var2, var25);
 #endif
 
 #endif
@@ -231,7 +231,7 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
         } else {
             for (int var27 = 0; var27 < 4; var27++) {
                 int var28 = func_02011518(var5, (unsigned char)var27);
-                GameObject* var29 = func_0200ff1c(var5, var28);
+                GameObject* var29 = GetPartyMemberBaseByIndex_0200ff1c(var5, var28);
                 if (var29 && func_020a35e0((unsigned char*)arg0->unknown_2a0_, var28) && !func_02010088((Struct_02010088*)var29)) {
 #if defined(jpn)
 
@@ -239,7 +239,7 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
 #if defined(jpn)
 
 #else
-                    func_020e4bf4(var2, var28);
+                    InitPartyMemberNoun_020e4bf4(var2, var28);
 #endif
 
 #endif
@@ -254,12 +254,12 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
         if (!var23) {
             for (int var32 = 0; var32 < 4; var32++) {
 #if defined(jpn)
-                GameObject* var33 = func_0200ff1c(var5, var32);
-                if (var33 && func_020a35e0((unsigned char*)arg0->unknown_2a0_, var32) && !func_0200ff58(var5, var32))
+                GameObject* var33 = GetPartyMemberBaseByIndex_0200ff1c(var5, var32);
+                if (var33 && func_020a35e0((unsigned char*)arg0->unknown_2a0_, var32) && !GetCompanionByIndex_0200ff58(var5, var32))
                     var23 = var33->baseStats_;
 #else
-                if (func_0200ff1c(var5, var32) && func_020a35e0((unsigned char*)arg0->unknown_2a0_, var32) && !func_0200ff58(var5, var32))
-                    func_020e4bf4(var2, var32);
+                if (GetPartyMemberBaseByIndex_0200ff1c(var5, var32) && func_020a35e0((unsigned char*)arg0->unknown_2a0_, var32) && !GetCompanionByIndex_0200ff58(var5, var32))
+                    InitPartyMemberNoun_020e4bf4(var2, var32);
 #endif
 
             }

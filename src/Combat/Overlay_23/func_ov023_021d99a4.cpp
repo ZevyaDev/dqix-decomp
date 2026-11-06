@@ -3,15 +3,15 @@
 #include "GameState/GameState.h"
 
 struct Struct_02000c9c_8;
-extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* arg0);
+extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
 
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
 
 #if defined(jpn)
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov023_021d99a4(void* arg0) {
 #else
     struct Struct_02000c9c_8* var1 = (struct Struct_02000c9c_8*)GameState::GetInstance();
     int var2 = 0x18;
-    int var3 = func_0200fb08(var1);
+    int var3 = GetGameLanguage_0200fb08(var1);
     if (var3 == 4) var2 = 0x19;
 
 #endif
@@ -56,14 +56,14 @@ extern "C" ARM void func_ov023_021d99a4(void* arg0) {
     memset(*(void**)(var0 + 0xd8), var5, 0x800);
     int var6 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(var0 + 0xc0), 0x4274);
     sprintf(*(char**)(var0 + 0xd8), (const char*)(long)var6);
-    func_0205d304(var0 + 0x1bc, *(void**)(var0 + 0xd8), 0, 0, 0, 0, 0);
+    OpenTextWindow_0205d304(var0 + 0x1bc, *(void**)(var0 + 0xd8), 0, 0, 0, 0, 0);
 
 #else
     void* var7 = *(void**)(var0 + 0xf8);
     memset(var7, var5, 0x960);
     int var8 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(var0 + 0xe0), 0x4274);
     sprintf((char*)var7, (const char*)(long)var8);
-    func_0205d304(var4, var7, 0, 0, 0, 0, 0, 0);
+    OpenTextWindow_0205d304(var4, var7, 0, 0, 0, 0, 0, 0);
 
 #endif
 }

@@ -12,9 +12,9 @@ extern "C" void func_ov000_02159eac(void*,void*,int);
 extern "C" void func_ov000_0215a004(void*,int,int,int,void*,Struct_ov024_021dd028_4*,int,int);
 extern "C" void func_02088b34(unsigned char*);
 extern "C" unsigned short func_ov024_021da644(int,int,int);
-extern "C" void* func_ov000_0215e958(void*);
+extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void func_ov024_021e8bf0(Struct_ov024_021dd028_2*,void*,unsigned short*);
-extern "C" void func_ov000_0215a88c(void*,void*,int);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
 extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,int,unsigned long long,unsigned char);
 struct Struct_ov024_021dd028_8 {char unknown_0_[0x1c]; unsigned char unknown_1c_0_:7; unsigned char unknown_1c_7_:1;};
 struct Struct_ov024_021dd028_2 {char unknown_0_[0xc];Struct_ov024_021dd028_8* unknown_c_;void* unknown_10_;int unknown_14_;char unknown_18_[0x75-0x18];unsigned char unknown_75_;};
@@ -53,10 +53,10 @@ extern "C" ARM void* func_ov024_021dd028(Struct_ov024_021dd028_2* arg0,int arg1,
         var3=func_ov024_021da644(arg2,arg3->unknown_24_.unknown_1_2_,arg3->unknown_24_.unknown_2_4_);
         arg0->unknown_75_=0;
     }
-    void* var4=func_ov000_0215e958(arg0->unknown_10_);
+    void* var4=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if(!var4)return 0;
     func_ov024_021e8bf0(arg0,arg0->unknown_c_,&var3);
-    func_ov000_0215a88c(arg0->unknown_10_,var4,var3);
+    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var4,var3);
     func_ov000_0215cd44(arg0->unknown_10_,var4,var0,0,var2.unknown1_0_,arg0->unknown_c_->unknown_1c_7_!=0);
     return var4;
 }

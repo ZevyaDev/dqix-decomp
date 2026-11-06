@@ -27,16 +27,16 @@ struct Struct_ov023_021e93e0_2 {
     Struct_ov023_021e93e0* unknown_150_;
 };
 
-extern "C" int func_ov017_021d60f4(Struct_0209cf44* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_0209cf44* value);
 extern "C" GameObject* func_ov023_021e8f28(int arg0);
-extern "C" void func_ov017_021d6134(Struct_0209cf44* arg0, int arg1);
+extern "C" void SetScriptRefInt_ov017_021d6134(Struct_0209cf44* value, int number);
 
 extern "C" ARM int func_ov023_021e93e0(void* arg0) {
     Struct_0209cf44* var0 = (Struct_0209cf44*)arg0;
     GameState::GetInstance();
-    GameObject* var1 = func_ov023_021e8f28(func_ov017_021d60f4(&var0[0]));
+    GameObject* var1 = func_ov023_021e8f28(GetScriptValueAsInt_ov017_021d60f4(&var0[0]));
     if (var1 == NULL) return 0;
     Struct_ov023_021e93e0* var2 = ((Struct_ov023_021e93e0_2*)var1)->unknown_150_;
-    func_ov017_021d6134(&var0[1], var2->unknown_49c_0_);
+    SetScriptRefInt_ov017_021d6134(&var0[1], var2->unknown_49c_0_);
     return 1;
 }

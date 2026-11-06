@@ -4,7 +4,7 @@
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0208e0a8(void);
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" int rand(void);
 extern "C" int _s32_div_f(int a, int b);
 extern "C" int func_02018fbc(int arg0, void* arg1);
@@ -87,7 +87,7 @@ extern "C" ARM void func_0208f168(struct Struct_0208f168* arg0, void* arg1) {
         struct Struct_0208f168_2* var6 = (struct Struct_0208f168_2*)((char*)var5 + 0xdc + 0x5c00);
 #endif
         struct Struct_0208f168_4* var7 = var2->unknown_4_;
-        func_02057924();
+        GetEffectManager_02057924();
         var5->GetProtagonist();
 
         unsigned int var8 = 0;

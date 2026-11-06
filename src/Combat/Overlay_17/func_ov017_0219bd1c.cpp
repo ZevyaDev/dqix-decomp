@@ -9,7 +9,7 @@ enum { Enum_ov017_0219bd1c_1804 = 0x70c, Enum_ov017_0219bd1c_1788 = 0x6fc };
 #include "Resource/Brightness.h"
 
 struct Struct_02000c9c_54;
-extern "C" Struct_02000c9c_54* func_0200fd0c(GameState* arg0);
+extern "C" Struct_02000c9c_54* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void func_02046a8c(void* arg0, void* arg1);
 extern "C" unsigned char func_ov017_0219bcac(unsigned char arg0);
 extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov017_0219bd1c(int arg0, unsigned char arg1, int arg2, 
     struct Struct_ov017_0219bd1c* var3;
     void* var4 = *(void**)(var2 + Enum_ov017_0219bd1c_1788);
     struct Struct_ov017_0219bd1c_2* var5 = *(struct Struct_ov017_0219bd1c_2**)(var2 + Enum_ov017_0219bd1c_1804);
-    var3 = (struct Struct_ov017_0219bd1c*)func_0200fd0c(var0);
+    var3 = (struct Struct_ov017_0219bd1c*)GetZoneEntry_0200fd0c(var0);
     if (var5->unknown_3_) return;
     if (var5->unknown_2_) {
         func_02046a8c(var4, var5);

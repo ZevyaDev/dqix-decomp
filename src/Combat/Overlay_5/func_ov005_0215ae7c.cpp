@@ -41,7 +41,7 @@ extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
 extern "C" short* func_02052e14(Struct_02052e14* arg0);
 extern "C" void func_020462d0(MessageWindow_02021b84* arg0, unsigned short* arg1, int arg2);
-extern "C" ItemData_0201099c_9* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
+extern "C" ItemData_0201099c_9* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
 extern "C" void func_02046608(MessageWindow_02021b84* arg0, int, const char* arg2, char* arg3, int arg4, int, int);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov005_0215ae7c(Struct_ov005_02153954* arg0)
     MessageWindow_02021b84* var0 = GetMessageWindow_020421a0();
     GameState* var1 = GameState::GetInstance();
     Struct_02052e14* var2 =
-        (Struct_02052e14*)func_0200ff1c(var1, func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->unknown_4fc_);
+        (Struct_02052e14*)GetPartyMemberBaseByIndex_0200ff1c(var1, func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->unknown_4fc_);
     if (var2 == NULL)
         return;
     short* var3 = func_02052e14(var2);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov005_0215ae7c(Struct_ov005_02153954* arg0)
     for (int var6 = 0; var6 < 8; var6++)
     {
         short var7 = var3[data_ov005_0215cc04[var6]];
-        ItemData_0201099c_9* var8 = func_020dedd0(arg0->unknown_df4_, var7);
+        ItemData_0201099c_9* var8 = FindItemData_020dedd0(arg0->unknown_df4_, var7);
 #if defined(jpn)
         if (var8 != NULL)
         {

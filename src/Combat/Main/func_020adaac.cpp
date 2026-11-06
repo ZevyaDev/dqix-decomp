@@ -33,7 +33,7 @@ struct Struct_020adaac {
     char unknown_19d_[3];
     unsigned char unknown_1a0_;
 };
-extern "C" void* func_020100bc(GameState*);
+extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" void GetZone3D_02012fe4();
 extern "C" void func_020407b4(Struct_02040774_2*, int, int, int);
 extern "C" void* func_ov017_0218d268(void*);
@@ -42,12 +42,12 @@ extern "C" int func_020968c4(Struct_02038138*);
 int fix32ReduceAngle0To2Pi(int);
 int fix32SignedAngleDistance(int, int);
 extern "C" int func_020968d0(Struct_020968d0*, int*);
-extern "C" void func_02033874(Struct_02033834*, int);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern const int data_020e9118[8];
 
 // USA: func_020adaac
 extern "C" ARM void func_020adaac(Struct_020adaac* arg0) {
-    void* var0 = func_020100bc(GameState::GetInstance());
+    void* var0 = GetCamera_020100bc(GameState::GetInstance());
     void* var1 = GetGameResources();
     int var2;
     GetZone3D_02012fe4();
@@ -111,7 +111,7 @@ extern "C" ARM void func_020adaac(Struct_020adaac* arg0) {
         }
         var7 = fix32ReduceAngle0To2Pi(var7);
         if (func_020968d0(var5, 0) || !var5->unknown_224_)
-            func_02033874((Struct_02033834*)arg0, var7);
+            SetFacingInstantly_02033874((Struct_02033834*)arg0, var7);
     }
     arg0->unknown_b2_ = arg0->unknown_144_;
     arg0->unknown_b4_ = arg0->unknown_144_;

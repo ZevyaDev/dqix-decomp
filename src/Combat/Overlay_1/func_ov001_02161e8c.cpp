@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Graphics/LightingManager.h"
 
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" void func_020c54a4(int arg0, unsigned int arg1, unsigned int arg2, unsigned short arg3);
 typedef void (*Type_ov001_02161e8c)(int, unsigned int, unsigned int, unsigned int);
 
@@ -13,7 +13,7 @@ struct Struct_ov001_02161e8c_3 { char unknown_0_[0x85]; unsigned char unknown_85
 // USA: func_ov001_02161e8c
 extern "C" ARM int func_ov001_02161e8c(void* arg0) {
     Struct_ov001_02161e8c_3* var0 = (Struct_ov001_02161e8c_3*)LightingManager::GetInstance();
-    if (func_ov017_021d60f4(arg0) == 0) {
+    if (GetScriptValueAsInt_ov017_021d60f4(arg0) == 0) {
         var0->unknown_85_ = 0;
         func_020c54a4(0, 0, 0, 0);
     } else {

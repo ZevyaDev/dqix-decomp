@@ -6,24 +6,24 @@
 #include "Resource/CharacterCreationUI.h"
 
 struct Struct_0205bef8;
-struct Struct_0205ba68;
+struct MenuCursor_0205ba68;
 struct Struct_0205bb84;
-struct Struct_0205bacc;
+struct MenuCursor_0205bacc;
 struct SoundEffectManager_02108760;
 extern "C" void func_0205bef8(Struct_0205bef8*);
-extern "C" void func_0205ba68(Struct_0205ba68*, int, int, int);
-extern "C" void func_0205bacc(Struct_0205bacc*, int);
+extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
+extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
 extern "C" int func_0205bafc(void*);
 extern "C" int func_0205bb84(Struct_0205bb84*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
-extern "C" int func_02001aec(const void*, const void*, unsigned int);
+extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
 extern "C" int func_ov009_0218a8b4(Struct_ov009_021842a0*, int, int);
 extern "C" int func_ov009_0218aab0(Struct_ov009_021842a0*, unsigned char);
 extern "C" void func_ov009_0218ad0c(void*);
 extern "C" void func_ov009_0218b200(Struct_ov009_021842a0*, int);
 extern "C" void func_ov009_0218b850(Struct_ov009_021842a0*);
-extern "C" void func_0205bb04(Struct_ov009_02188c2c*, int);
+extern "C" void SetMenuCursorIndex_0205bb04(Struct_ov009_02188c2c*, int);
 extern "C" int func_0205bf58(Struct_ov009_02188c2c*, unsigned int);
 extern "C" void func_ov009_02188c2c(Struct_ov009_021842a0*);
 extern "C" void func_ov009_02188e70(Struct_ov009_021842a0*, int);
@@ -45,10 +45,10 @@ extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 #define RESET_NAVIGATION(columns, rows, total, selected) \
     Struct_ov009_02188c2c* navigation = &arg0->unknown_bec_; \
     func_0205bef8((Struct_0205bef8*)navigation); \
-    func_0205ba68((Struct_0205ba68*)navigation, columns, rows, 1); \
-    func_0205bacc((Struct_0205bacc*)navigation, total); \
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)navigation, columns, rows, 1); \
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)navigation, total); \
     navigation->unknown_4_ = 1; \
-    func_0205bb04(navigation, selected); \
+    SetMenuCursorIndex_0205bb04(navigation, selected); \
     navigation->unknown_3d_ = 0
 
 #define TAB_CURSOR(selected) \
@@ -84,7 +84,7 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0* arg0)
             if (var1 - 100 <= arg0->unknown_da0_[arg0->unknown_da3_] && var1 - 100 != arg0->unknown_c58_)
                 PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         } else if (var1 >= 0) {
-            func_0205bb04(&arg0->unknown_bec_, var1);
+            SetMenuCursorIndex_0205bb04(&arg0->unknown_bec_, var1);
             if (arg0->unknown_c58_ == 8) {
                 func_ov009_0218aab0(arg0, (unsigned char)var1);
                 if (arg0->unknown_d9c_ & 0x200000) {
@@ -109,12 +109,12 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0* arg0)
             int var8 = func_0205bafc(&arg0->unknown_bec_);
             if (var7 == 1 && var8 == 8) {
                 if (var1 >= arg0->unknown_da0_[arg0->unknown_da3_]) {
-                    func_0205bb04(&arg0->unknown_bec_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
+                    SetMenuCursorIndex_0205bb04(&arg0->unknown_bec_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
                     var1 = arg0->unknown_da0_[arg0->unknown_da3_] - 1;
                 }
                 if (g_keyManager.TestKeysPressed(0x80)) {
                     RESET_NAVIGATION(11, 6, 66, arg0->unknown1_d8c_);
-                    func_0205bb04(&arg0->unknown_bec_, arg0->unknown_bec_.unknown_18_);
+                    SetMenuCursorIndex_0205bb04(&arg0->unknown_bec_, arg0->unknown_bec_.unknown_18_);
                     arg0->unknown1_d8c_ = func_0205bb84((Struct_0205bb84*)&arg0->unknown_bec_);
                     arg0->unknown_d9c_ |= 0x2000;
                     func_ov009_02188e70(arg0, func_0205bb84((Struct_0205bb84*)&arg0->unknown_bec_));
@@ -126,7 +126,7 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0* arg0)
                     if (var0 - 100 <= arg0->unknown_da0_[arg0->unknown_da3_] && var0 - 100 != arg0->unknown_c58_)
                         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
                 } else if (g_keyManager.TestKeysPressed(2)) {
-                    if (func_02001aec(arg0->unknown_d74_[arg0->unknown_da3_], (const void*)FindStringInTable_020e0434(&arg0->unknown_e0_, 0x4272), 10) == 0)
+                    if (CompareBytes_02001aec(arg0->unknown_d74_[arg0->unknown_da3_], (const void*)FindStringInTable_020e0434(&arg0->unknown_e0_, 0x4272), 10) == 0)
                         var0 = -3;
                     else {
                         func_ov009_0218b200(arg0, 0);
@@ -150,7 +150,7 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0* arg0)
                 } else if (g_keyManager.TestKeysPressed(1)) {
                     if (func_ov009_0218aab0(arg0, arg0->unknown1_d8c_) && arg0->unknown_d8a_[arg0->unknown_da3_] == 5) {
                         var1 = 65;
-                        func_0205bb04(&arg0->unknown_bec_, var1);
+                        SetMenuCursorIndex_0205bb04(&arg0->unknown_bec_, var1);
                     }
                     if (!(arg0->unknown_d9c_ & 0x200000)) arg0->unknown_d9c_ |= 0xa100;
                     else {
@@ -158,7 +158,7 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0* arg0)
                         arg0->unknown_d9c_ &= ~0x200000;
                     }
                 } else if (g_keyManager.TestKeysPressed(2)) {
-                    if (func_02001aec(arg0->unknown_d74_[arg0->unknown_da3_], (const void*)FindStringInTable_020e0434(&arg0->unknown_e0_, 0x4272), 10) == 0)
+                    if (CompareBytes_02001aec(arg0->unknown_d74_[arg0->unknown_da3_], (const void*)FindStringInTable_020e0434(&arg0->unknown_e0_, 0x4272), 10) == 0)
                         var0 = -3;
                     else {
                         func_ov009_0218b200(arg0, 0);
@@ -171,7 +171,7 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0* arg0)
             int var10 = func_0205bafc(&arg0->unknown_bec_);
             if (var9 == 1 && var10 == 8) {
                 if (var1 >= arg0->unknown_da0_[arg0->unknown_da3_]) {
-                    func_0205bb04(&arg0->unknown_bec_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
+                    SetMenuCursorIndex_0205bb04(&arg0->unknown_bec_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
                     var1 = arg0->unknown_da0_[arg0->unknown_da3_] - 1;
                 }
                 if (g_keyManager.TestKeysPressed(0x80)) {
@@ -242,13 +242,13 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0* arg0)
 #include <GameState/GameState.h>
 
 struct Struct_0205bef8;
-struct Struct_0205ba68;
+struct MenuCursor_0205ba68;
 struct Struct_0205bb84;
-struct Struct_0205bacc;
+struct MenuCursor_0205bacc;
 struct SoundEffectManager_02108760;
 extern "C" void func_0205bef8(Struct_0205bef8*);
-extern "C" void func_0205ba68(Struct_0205ba68*, int, int, int);
-extern "C" void func_0205bacc(Struct_0205bacc*, int);
+extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
+extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
 extern "C" int func_0205bafc(void*);
 extern "C" int func_0205bb84(Struct_0205bb84*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
@@ -304,7 +304,7 @@ struct Struct_ov009_021842a0_2 {
 };
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" int func_ov009_02189854(Struct_ov009_021842a0_2*, int, int);
-extern "C" void func_0205bb04(Struct_ov009_02188ee8*, int);
+extern "C" void SetMenuCursorIndex_0205bb04(Struct_ov009_02188ee8*, int);
 extern "C" int func_0205bf58(Struct_ov009_02188ee8*, unsigned int);
 extern "C" void func_ov009_02188c2c(Struct_ov009_021842a0_2*);
 extern "C" void func_ov009_02188e70(Struct_ov009_021842a0_2*, int);
@@ -314,10 +314,10 @@ extern "C" int func_ov009_02188b14(Struct_ov009_021842a0_2*, int, int);
 #define RESET_NAVIGATION(columns, rows, total, selected) \
     Struct_ov009_02188ee8_3* controls = &arg0->unknown_3ec_; \
     func_0205bef8((Struct_0205bef8*)&controls->unknown_800_); \
-    func_0205ba68((Struct_0205ba68*)&controls->unknown_800_, columns, rows, 1); \
-    func_0205bacc((Struct_0205bacc*)&controls->unknown_800_, total); \
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&controls->unknown_800_, columns, rows, 1); \
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&controls->unknown_800_, total); \
     controls->unknown_800_.unknown_4_ = 1; \
-    func_0205bb04(&controls->unknown_800_, selected); \
+    SetMenuCursorIndex_0205bb04(&controls->unknown_800_, selected); \
     controls->unknown_800_.unknown_3d_ = 0
 
 #define TAB_CURSOR(selected) \
@@ -352,7 +352,7 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0_2* arg0) {
             if (var16 - 100 <= arg0->unknown_da0_[arg0->unknown_da3_] && var16 - 100 != arg0->unknown_c58_)
                 PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         } else if (var16 >= 0) {
-            func_0205bb04(&arg0->unknown_3ec_.unknown_800_, var16);
+            SetMenuCursorIndex_0205bb04(&arg0->unknown_3ec_.unknown_800_, var16);
             if (arg0->unknown_c58_ == 8) {
                 if (arg0->unknown_d9c_ & 0x200000) {
                     arg0->unknown_d9c_ &= ~0x200000;
@@ -375,7 +375,7 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0_2* arg0) {
             int var23 = func_0205bafc(&arg0->unknown_3ec_.unknown_800_);
             if (var22 == 1 && var23 == 8) {
                 if (var16 >= arg0->unknown_da0_[arg0->unknown_da3_]) {
-                    func_0205bb04(&arg0->unknown_3ec_.unknown_800_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
+                    SetMenuCursorIndex_0205bb04(&arg0->unknown_3ec_.unknown_800_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
                     var16 = arg0->unknown_da0_[arg0->unknown_da3_] - 1;
                 }
                 if (g_keyManager.TestKeysPressed(0x80)) {
@@ -406,7 +406,7 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0_2* arg0) {
             int var25 = func_0205bafc(&arg0->unknown_3ec_.unknown_800_);
             if (var24 == 1 && var25 == 8) {
                 if (var16 >= arg0->unknown_da0_[arg0->unknown_da3_]) {
-                    func_0205bb04(&arg0->unknown_3ec_.unknown_800_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
+                    SetMenuCursorIndex_0205bb04(&arg0->unknown_3ec_.unknown_800_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
                     var16 = arg0->unknown_da0_[arg0->unknown_da3_] - 1;
                 }
                 if (g_keyManager.TestKeysPressed(0x80)) {
@@ -421,7 +421,7 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0_2* arg0) {
                     if (var15 - 100 <= arg0->unknown_da0_[arg0->unknown_da3_] && var15 - 100 != arg0->unknown_c58_)
                         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
                 } else if (g_keyManager.TestKeysPressed(2)) var15 = -3;
-                if (var15 == 108) func_0205ba68((Struct_0205ba68*)&arg0->unknown_3ec_.unknown_800_, 11, 6, 0);
+                if (var15 == 108) SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&arg0->unknown_3ec_.unknown_800_, 11, 6, 0);
                 return var15;
             }
             if (g_keyManager.TestKeysPressed(0x40) && var21 == 0) {
@@ -470,7 +470,7 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0_2* arg0) {
         arg0->unknown_d9c_ |= 0x6100;
     }
     if (var15 == 108 && var15 - 100 <= arg0->unknown_da0_[arg0->unknown_da3_] && var15 - 100 != arg0->unknown_c58_)
-        func_0205ba68((Struct_0205ba68*)&arg0->unknown_3ec_.unknown_800_, 11, 6, 0);
+        SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&arg0->unknown_3ec_.unknown_800_, 11, 6, 0);
     return var15;
 }
 

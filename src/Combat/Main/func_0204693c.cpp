@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-struct Struct_0204693c {
-    signed char unknown_0_;
-    signed char unknown_1_;
-    signed char unknown_2_;
-    signed char unknown_3_;
+struct QueueNode_0204693c {
+    signed char type_0_;
+    signed char isFinished_1_;
+    signed char isQueued_2_;
+    signed char isRunning_3_;
 };
 
-// USA: func_0204693c
-extern "C" ARM void func_0204693c(struct Struct_0204693c* arg0) {
-    arg0->unknown_0_ = -1;
-    arg0->unknown_1_ = 0;
-    arg0->unknown_2_ = 0;
-    arg0->unknown_3_ = 0;
+// USA: ResetQueueNode_0204693c
+extern "C" ARM void ResetQueueNode_0204693c(struct QueueNode_0204693c* node) {
+    node->type_0_ = -1;
+    node->isFinished_1_ = 0;
+    node->isQueued_2_ = 0;
+    node->isRunning_3_ = 0;
 }

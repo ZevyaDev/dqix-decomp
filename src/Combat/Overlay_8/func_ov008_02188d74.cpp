@@ -13,7 +13,7 @@
 #include "Filesystem/BackgroundLoader.h"
 
 struct Struct_0201099c_3;
-struct Struct_02043368_2;
+struct Sprite_02043368_2;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 
@@ -42,11 +42,11 @@ struct Struct_ov008_02188d74
 };
 
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
-extern "C" void func_0205a444(char* arg0);
-extern "C" void func_0205a198(Struct_02043368_2* arg0);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
+extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void func_0205a528(Struct_ov008_02188d74* arg0, void* arg1, unsigned int arg2, SafeAllocator* arg3);
+extern "C" void LoadSpriteSetFile_0205a528(Struct_ov008_02188d74* spriteSet, void* fileData, unsigned int size, SafeAllocator* allocator);
 
 struct Struct_ov008_021842a0_2
 {
@@ -75,12 +75,12 @@ extern "C" ARM int func_ov008_02188d74(Struct_ov008_021842a0_2* arg0)
         arg0->unknown_50_.Reset();
         arg0->unknown_73c_ = (Struct_ov008_02188d74*)arg0->unknown_50_.Allocate(sizeof(Struct_ov008_02188d74));
         arg0->unknown_740_ = (Struct_ov006_021580b8*)arg0->unknown_50_.Allocate(sizeof(Struct_ov006_021580b8));
-        func_0205a444((char*)arg0->unknown_73c_);
+        InitSpriteSet_0205a444((char*)arg0->unknown_73c_);
         arg0->unknown_73c_->unknown_50_ = 1;
         Struct_ov008_02188d74* var2 = arg0->unknown_73c_;
         var2->inline_ov008_02188d74(arg0->unknown_740_, 1);
         for (int var3 = 0; var3 < 1; var3++)
-            func_0205a198((Struct_02043368_2*)&arg0->unknown_740_[var3]);
+            InitSprite_0205a198((Sprite_02043368_2*)&arg0->unknown_740_[var3]);
         arg0->unknown_b20_ = var0->QueueLoadFile(FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, LOW_REGION(4, 7)), NULL);
         arg0->unknown_b12_++;
     }
@@ -96,7 +96,7 @@ extern "C" ARM int func_ov008_02188d74(Struct_ov008_021842a0_2* arg0)
             unsigned int var9;
             void* var10 = GetPacEntryData_020467f0((PacEntry_02020aec*)var5, var8, (void**)var4, (int*)&var9);
             if (var10 != NULL)
-                func_0205a528(arg0->unknown_73c_, var10, var9, &arg0->unknown_50_);
+                LoadSpriteSetFile_0205a528(arg0->unknown_73c_, var10, var9, &arg0->unknown_50_);
         }
         var0->RemoveTask(arg0->unknown_b20_);
         arg0->unknown_b20_ = -1;

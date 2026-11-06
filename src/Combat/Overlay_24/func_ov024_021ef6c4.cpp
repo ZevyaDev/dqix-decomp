@@ -3,7 +3,7 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "std_library_functions.h"
 
-extern "C" int func_ov000_0215e9fc(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov024_021eda60(GameObject* arg0);
 
 struct Struct_ov024_021ef6c4 { int unknown_0_; };
@@ -16,7 +16,7 @@ struct Struct_ov024_021ef6c4_2 { signed int unknown_0_0_ : 3; signed int unknown
 extern "C" ARM int func_ov024_021ef6c4(struct Struct_ov024_021ef6c4* arg0, int arg1, int arg2, int* arg3, short* arg4) {
     struct Struct_ov024_021feab4 var0 = data_ov024_021feab4;
 
-    int var1 = func_ov000_0215e9fc(arg0->unknown_0_, var0.unknown_0_, 4, 1);
+    int var1 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0->unknown_0_, var0.unknown_0_, 4, 1);
     if (var1 <= 0) return 0;
 
     int var2 = 0;

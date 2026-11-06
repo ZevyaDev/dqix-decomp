@@ -25,7 +25,7 @@ struct Struct_ov009_02189854_2 {
 extern "C" {
     int func_0205bafc(void*);
     int func_0205bb84(void*);
-    void func_0205bb04(void*, int);
+    void SetMenuCursorIndex_0205bb04(void*, int);
     void func_ov009_02188c2c(Struct_ov009_02189854_2*);
     void func_ov009_02188e70(Struct_ov009_02189854_2*, int);
 
@@ -107,7 +107,7 @@ extern "C" {
         int var18 = func_0205bafc(arg0->unknown_bec_);
         if (var17 == 1 && var18 == 8 && var10 >= 0 && var10 != 0x65 && var10 != 0x6c) {
             func_ov009_02188c2c(arg0);
-            func_0205bb04(arg0->unknown_bec_, var10);
+            SetMenuCursorIndex_0205bb04(arg0->unknown_bec_, var10);
             arg0->unknown_d9c_ |= 0x2000;
             int var19 = func_0205bb84(arg0->unknown_bec_);
             func_ov009_02188e70(arg0, var19);

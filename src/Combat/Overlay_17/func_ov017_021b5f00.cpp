@@ -8,7 +8,7 @@ extern int gSoundEffectManager_02108760;
 extern "C" void func_ov017_0218d644(GameResources* arg0, void* arg1, int arg2);
 extern "C" void* func_020d7a50(void);
 extern "C" void func_ov017_021b6090(void* arg0);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_021b5a30(void* arg0);
 
 struct Struct_ov017_021b5f00 {
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov017_021b5f00(Struct_ov017_021b5f00* arg0) {
         return 5;
     }
     func_ov017_021b6090(arg0);
-    func_020397c0(arg0->unknown_1c_);
+    EnablePlayerControl_020397c0(arg0->unknown_1c_);
     if (*arg0->unknown_3c_ != 0) {
         void* var2 = func_020d7a50();
 #if defined(jpn)

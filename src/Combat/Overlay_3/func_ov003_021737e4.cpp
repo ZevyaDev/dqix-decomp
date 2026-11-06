@@ -52,7 +52,7 @@ struct Struct_ov003_021737e4_2 {
 extern "C" void func_020a620c(void* arg0);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void func_0204c684(void* arg0);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void __clear(void*, unsigned int);
 extern "C" void func_02041f50(char*, char*);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov003_021737e4(Struct_ov003_021737e4_2* arg0) {
         }
         void* var8 = arg0->unknown_1_ ? var4[1] : var4[0];
         Struct_ov003_021737e4 var9;
-        func_0204c684(&var9);
+        InitTextWindow_0204c684(&var9);
         var9.unknown_8_ = (char*)var8 + 0x10;
         var9.unknown_a8_ = 0x20;
         var9.unknown_aa_ = 8;
@@ -199,7 +199,7 @@ struct Struct_ov003_021737e4_2 {
 extern "C" void func_020a620c(void* arg0);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void func_0204c684(void* arg0);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_ov003_02172618(void* arg0, int arg1, char** arg2);
@@ -230,7 +230,7 @@ extern "C" ARM void func_ov003_021737e4(Struct_ov003_021737e4_2* arg0) {
         }
         void* var29 = arg0->unknown_1_ ? var25[1] : var25[0];
         Struct_ov003_021737e4 var30;
-        func_0204c684(&var30);
+        InitTextWindow_0204c684(&var30);
         var30.unknown_8_ = (char*)var29 + 0x10;
         var30.unknown_a8_ = 0x20;
         var30.unknown_aa_ = 8;

@@ -4,19 +4,19 @@
 #include "std_library_functions.h"
 
 
-struct Struct_0201099c_14;
-extern "C" void func_020dfc6c(struct Struct_0201099c_14* arg0);
+struct StringTable_0201099c_14;
+extern "C" void func_020dfc6c(struct StringTable_0201099c_14* arg0);
 
 struct Struct_ov017_02199684 { unsigned char unknown_0_[0x14]; int unknown_14_; unsigned char unknown_18_[0x20 - 0x18]; };
 extern "C" void func_ov017_02199684(Struct_ov017_02199684* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021996bc(Struct_ov017_02199684* arg0, int arg1);
 
-struct Struct_0205d1e0;
-extern "C" void func_0205d1e0(Struct_0205d1e0*);
-struct Struct_0205d274;
-extern "C" void func_0205d274(Struct_0205d274*);
-struct Struct_0205d2bc;
-extern "C" void func_0205d2bc(struct Struct_0205d2bc*);
+struct TextWindowManager_0205d1e0;
+extern "C" void func_0205d1e0(TextWindowManager_0205d1e0*);
+struct TextWindowManager_0205d274;
+extern "C" void func_0205d274(TextWindowManager_0205d274*);
+struct TextWindowManager_0205d2bc;
+extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc*);
 extern "C" void func_0205d048(void* arg0);
 
 extern "C" void func_ov017_021996fc(unsigned char* arg0);
@@ -90,11 +90,11 @@ extern "C" ARM void func_ov017_02199780(unsigned char* arg0) {
 
 #if defined(jpn)
 		if (*(int*)(arg0 + 0x3000 + 0xe64) != 0) {
-			func_020dfc6c((Struct_0201099c_14*)*(int*)(arg0 + 0x3000 + 0xe64));
+			func_020dfc6c((StringTable_0201099c_14*)*(int*)(arg0 + 0x3000 + 0xe64));
 			*(int*)(arg0 + 0x3000 + 0xe64) = 0;
 #else
 		if (*(int*)(arg0 + 0x4000 + 0x84) != 0) {
-			func_020dfc6c((Struct_0201099c_14*)*(int*)(arg0 + 0x4000 + 0x84));
+			func_020dfc6c((StringTable_0201099c_14*)*(int*)(arg0 + 0x4000 + 0x84));
 			*(int*)(arg0 + 0x4000 + 0x84) = 0;
 #endif
 		}
@@ -102,17 +102,17 @@ extern "C" ARM void func_ov017_02199780(unsigned char* arg0) {
 #if defined(jpn)
 		if (*(int*)(arg0 + 0x3000 + 0xe54) != 0) {
 			func_ov017_02199684((Struct_ov017_02199684*)(arg0 + 0x294 + 0x3800), 2, 0x800);
-			func_0205d1e0(*(Struct_0205d1e0**)(arg0 + 0x3000 + 0xa90));
-			func_0205d274(*(Struct_0205d274**)(arg0 + 0x3000 + 0xa90));
-			func_0205d2bc(*(Struct_0205d2bc**)(arg0 + 0x3000 + 0xa90));
+			func_0205d1e0(*(TextWindowManager_0205d1e0**)(arg0 + 0x3000 + 0xa90));
+			func_0205d274(*(TextWindowManager_0205d274**)(arg0 + 0x3000 + 0xa90));
+			func_0205d2bc(*(TextWindowManager_0205d2bc**)(arg0 + 0x3000 + 0xa90));
 			func_ov017_021996bc((Struct_ov017_02199684*)(arg0 + 0x294 + 0x3800), 2);
 			func_0205d048(*(void**)(arg0 + 0x3000 + 0xa90));
 #else
 		if (*(int*)(arg0 + 0x4000 + 0x74) != 0) {
 			func_ov017_02199684((Struct_ov017_02199684*)(arg0 + 0xb4 + 0x3c00), 2, 0x800);
-			func_0205d1e0(*(Struct_0205d1e0**)(arg0 + 0x3000 + 0xcb0));
-			func_0205d274(*(Struct_0205d274**)(arg0 + 0x3000 + 0xcb0));
-			func_0205d2bc(*(Struct_0205d2bc**)(arg0 + 0x3000 + 0xcb0));
+			func_0205d1e0(*(TextWindowManager_0205d1e0**)(arg0 + 0x3000 + 0xcb0));
+			func_0205d274(*(TextWindowManager_0205d274**)(arg0 + 0x3000 + 0xcb0));
+			func_0205d2bc(*(TextWindowManager_0205d2bc**)(arg0 + 0x3000 + 0xcb0));
 			func_ov017_021996bc((Struct_ov017_02199684*)(arg0 + 0xb4 + 0x3c00), 2);
 			func_0205d048(*(void**)(arg0 + 0x3000 + 0xcb0));
 #endif

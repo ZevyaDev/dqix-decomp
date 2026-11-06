@@ -80,7 +80,7 @@ struct Struct_02018300_3;
 struct Struct_02010604;
 struct Struct_02033b58;
 struct Struct_02033ec8;
-struct Struct_02038598_4 { unsigned int unknown_0_; };
+struct GlobalFlags_02038598_4 { unsigned int bits_0_; };
 struct Struct_02038598_5;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
@@ -88,9 +88,9 @@ extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_ov017_02191108(void*, int, int, int, int);
 extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void func_02033834(Struct_02033834_2*, int);
-extern "C" void func_02033874(Struct_02033834*, int);
-extern "C" void func_020397cc(Struct_02018300_3*, int);
-extern "C" int func_02033b88(Struct_02010604*, int);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
+extern "C" int SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02033b58(Struct_02033b58*, unsigned char);
 extern "C" int func_02033ec8(Struct_02033ec8*);
 extern "C" void func_02038500(Struct_02038500*, int, int, int);
@@ -98,8 +98,8 @@ extern "C" void func_02033e18(void*, int*, short);
 extern "C" int func_ov017_0218d268(void*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_02046b60(Struct_02038598_5*, int);
-extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
-extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
+extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void func_ov017_0219e310(unsigned char*, int);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern const char data_020efb44[];
@@ -134,10 +134,10 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
         Vector3fix_Normalize(&var9, &var9);
         int var10 = fix32ReduceAngle0To2Pi(fix32_Atan2(var9.x, var9.z));
         func_02033834((struct Struct_02033834_2*)arg0, var10);
-        func_020397cc((struct Struct_02018300_3*)arg0, 1);
+        DisablePlayerControl_020397cc((struct Struct_02018300_3*)arg0, 1);
         var2->unknown_34_.unknown_0_0_ = 1;
         arg0->unknown_0_.obj3D_.EnableFlag(0x180);
-        func_02033b88((struct Struct_02010604*)arg0, 0);
+        SetMotion_02033b88((struct Struct_02010604*)arg0, 0);
         var3->unknown_4c_ = var3->unknown_58_->unknown_8_.unknown1_0_.y;
         var3->unknown_50_ = var1->substruct_c_.unknown_30_;
         if (fix32abs(var2->unknown_2_) - var10 >= 0x333) goto Exit;
@@ -155,7 +155,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
 
     if (var7 == 1) {
         func_02033834((struct Struct_02033834_2*)arg0, var3->unknown_6_);
-        func_020397cc((struct Struct_02018300_3*)arg0, 1);
+        DisablePlayerControl_020397cc((struct Struct_02018300_3*)arg0, 1);
         int var11 = arg0->unknown_0_.obj3D_.normalizedAnimationTime_;
 
         if (var3->unknown_3_ == 0) {
@@ -206,9 +206,9 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
     }
 
     if (var7 == 2) {
-        func_020466f4((struct Struct_02038598_4*)var4, 0x400);
-        func_02033874((struct Struct_02033834*)arg0, var3->unknown_6_);
-        func_020397cc((struct Struct_02018300_3*)arg0, 1);
+        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var4, 0x400);
+        SetFacingInstantly_02033874((struct Struct_02033834*)arg0, var3->unknown_6_);
+        DisablePlayerControl_020397cc((struct Struct_02018300_3*)arg0, 1);
 
         Vector3fix var22 = arg0->unknown_0_.obj3D_.position_;
         Vector3fix var23, var24;
@@ -318,7 +318,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
         if (var31 != 0) goto Exit;
 
         if (var22.y < var3->unknown_c_.unknown_0_[1]) {
-            func_020466e4(var4, 0x400);
+            SetGlobalFlags_020466e4(var4, 0x400);
             Struct_020134e0::Struct_02018300* var37 = var3->unknown_58_;
             if (var37->unknown_2c_.unknown5_0_.unknown_5_ & 2) {
                 var3->unknown_60_ = var37;
@@ -328,7 +328,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
             var3->unknown_1_ = 5;
             var3->unknown_24_.unknown1_0_ = var3->unknown_30_.unknown1_0_;
             func_02033e18(arg0, var3->unknown_30_.unknown_0_, var2->unknown_8_);
-            func_02033b88((struct Struct_02010604*)arg0, 1);
+            SetMotion_02033b88((struct Struct_02010604*)arg0, 1);
             func_02033834((struct Struct_02033834_2*)arg0, var3->unknown_8_);
             func_ov017_021d3f00(var3, 0, 0);
             goto Exit;
@@ -336,7 +336,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
 
         if (var22.y <= var3->unknown_18_.unknown_0_[1]) goto Exit;
 
-        func_020466e4(var4, 0x400);
+        SetGlobalFlags_020466e4(var4, 0x400);
         Struct_020134e0::Struct_02018300* var38 = var3->unknown_5c_;
         if (var38->unknown_2c_.unknown5_0_.unknown_5_ & 2) {
             var3->unknown_60_ = var38;
@@ -353,7 +353,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
     }
 
     if (var7 == 4) {
-        func_020397cc((struct Struct_02018300_3*)arg0, 1);
+        DisablePlayerControl_020397cc((struct Struct_02018300_3*)arg0, 1);
         int var39 = arg0->unknown_0_.obj3D_.normalizedAnimationTime_;
         if (var39 != 0) {
             Vector3fix var40;
@@ -372,16 +372,16 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
             var3->unknown_1_ = 5;
             var3->unknown_24_.unknown1_0_ = var3->unknown_3c_.unknown1_0_;
             func_02033e18(arg0, var3->unknown_3c_.unknown_0_, var2->unknown_8_);
-            func_02033b88((struct Struct_02010604*)arg0, 1);
+            SetMotion_02033b88((struct Struct_02010604*)arg0, 1);
             func_02033834((struct Struct_02033834_2*)arg0, var3->unknown_a_);
             func_ov017_021d3f00(var3, 0, 0);
-            func_020466f4((struct Struct_02038598_4*)var4, 0x400);
+            ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var4, 0x400);
         }
         goto Exit;
     }
 
     if (var7 == 5) {
-        func_020397cc((struct Struct_02018300_3*)arg0, 1);
+        DisablePlayerControl_020397cc((struct Struct_02018300_3*)arg0, 1);
         arg0->unknown_0_.obj3D_.EnableFlag(0x80);
         func_02033b58((struct Struct_02033b58*)arg0, 1);
         if (!func_02033ec8((struct Struct_02033ec8*)arg0)) goto Exit;
@@ -392,7 +392,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
         var2->unknown_34_.unknown_0_0_ = 0;
         arg0->unknown_0_.obj3D_.DisableFlag(0x1180);
         func_ov017_021d3f00(var3, 0, 1);
-        func_020466f4((struct Struct_02038598_4*)var4, 0x400);
+        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var4, 0x400);
         if (var42 == 0) goto Exit;
 
         arg0->unknown_252_ = 1;
@@ -405,7 +405,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
 
     if (var7 == 6) {
         GameState* var44 = GameState::GetInstance();
-        Struct_02038598_2* var45 = (Struct_02038598_2*)func_0200fd0c(var44);
+        Struct_02038598_2* var45 = (Struct_02038598_2*)GetZoneEntry_0200fd0c(var44);
         GameResources* var46 = GetGameResources();
         GetProtagonistObjectIndex_020100a8(var44);
         VectorizedMemset(var45, 0, 0x70);
@@ -444,7 +444,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
         func_ov017_0219e310((unsigned char*)var46->unknown_ptr_array_36fc[4], 0);
         AppendToQueue_020469b4((struct Queue_0201bdac_2*)var46->unknown_ptr_array_36fc[0],
             (struct QueueNode_0201bdac*)var46->unknown_ptr_array_36fc[4]);
-        func_020466f4((struct Struct_02038598_4*)var4, 0x400);
+        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var4, 0x400);
 
         func_02038508(var3);
         arg0->unknown_253_ = 1;

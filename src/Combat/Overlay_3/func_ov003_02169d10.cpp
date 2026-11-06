@@ -27,11 +27,11 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
 extern "C" void func_02041e70(char* arg0, int arg1);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
-extern "C" void func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" void func_02041ed8(char* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02041f24(char* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02041d9c(char* arg0, int arg1);
-extern "C" void func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void func_02041a28(char* arg0, int arg1);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov003_02169d10(Struct_ov003_02169d10* arg0, char* arg1,
     func_02041e70(arg1, 0xf);
  #endif
     if (arg2)
-        func_02041c08(arg1, var1, 3, 0xb, 3, 0xa);
+        AppendFrameTag_02041c08(arg1, var1, 3, 0xb, 3, 0xa);
     func_02041ed8(arg1, var1, arg0->unknown_5a6_, 2);
     func_02041f24(arg1, var1, arg0->unknown_5a7_, 2);
     func_02041d9c(arg1, 0xc);
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov003_02169d10(Struct_ov003_02169d10* arg0, char* arg1,
         func_02041a90(arg1, var2 * 8 + 0x24, 0x10);
 #endif
         if (var2 < 4)
-            func_02041b70(arg1, var2, var0);
+            AppendMenuEntry_02041b70(arg1, var2, var0);
         else
             AppendText_02042058(arg1, data_ov003_02180159);
     }

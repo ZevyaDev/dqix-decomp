@@ -14,19 +14,19 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-extern "C" int func_02094a00(void);
-struct Struct_02094ab0;
-extern "C" void func_02094ab0(struct Struct_02094ab0* arg0);
+extern "C" int GetFontLoader_02094a00(void);
+struct FontLoader_02094ab0;
+extern "C" void CancelFontLoad_02094ab0(struct FontLoader_02094ab0* loader);
 
 struct Struct_02074bd0;
 extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
 
-struct Struct_0205d1e0;
-extern "C" void func_0205d1e0(struct Struct_0205d1e0*);
-struct Struct_0205d274;
-extern "C" void func_0205d274(struct Struct_0205d274*);
-struct Struct_0205d2bc;
-extern "C" void func_0205d2bc(struct Struct_0205d2bc*);
+struct TextWindowManager_0205d1e0;
+extern "C" void func_0205d1e0(struct TextWindowManager_0205d1e0*);
+struct TextWindowManager_0205d274;
+extern "C" void func_0205d274(struct TextWindowManager_0205d274*);
+struct TextWindowManager_0205d2bc;
+extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc*);
 extern "C" void func_0205d048(void*);
 
 extern "C" void DC_FlushRange(const void*, unsigned int);
@@ -34,7 +34,7 @@ extern "C" void LoadToMainBG1CharacterData(int, int, unsigned int);
 
 // USA: func_ov012_02185af0
 extern "C" ARM void func_ov012_02185af0(unsigned char* arg0) {
-    func_02094ab0((struct Struct_02094ab0*)func_02094a00());
+    CancelFontLoad_02094ab0((struct FontLoader_02094ab0*)GetFontLoader_02094a00());
 
     volatile unsigned int* var0 = (volatile unsigned int*)0x4000000;
     *var0 = (*var0 & ~0x1f00) | 0x100;
@@ -42,9 +42,9 @@ extern "C" ARM void func_ov012_02185af0(unsigned char* arg0) {
 
     func_02074bd0((struct Struct_02074bd0*)(arg0 + R(0,8)));
 
-    func_0205d1e0((struct Struct_0205d1e0*)(arg0 + R(0x90,0xac)));
-    func_0205d274((struct Struct_0205d274*)(arg0 + R(0x90,0xac)));
-    func_0205d2bc((struct Struct_0205d2bc*)(arg0 + R(0x90,0xac)));
+    func_0205d1e0((struct TextWindowManager_0205d1e0*)(arg0 + R(0x90,0xac)));
+    func_0205d274((struct TextWindowManager_0205d274*)(arg0 + R(0x90,0xac)));
+    func_0205d2bc((struct TextWindowManager_0205d2bc*)(arg0 + R(0x90,0xac)));
     func_0205d048((void*)(arg0 + R(0x90,0xac)));
 
     memset(*(void**)(arg0 + R(0x134c,0x137c)), 0, 0x20);

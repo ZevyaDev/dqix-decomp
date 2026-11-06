@@ -24,7 +24,7 @@ struct Struct_ov005_021556e4 {
 };
 
 extern "C" void __clear(void* arg0, unsigned long arg1);
-extern "C" Struct_ov005_021556e4* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
+extern "C" Struct_ov005_021556e4* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" int func_020de234(Struct_02015ef4_4* arg0, int arg1);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_0203a46c(Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov005_021556e4(Struct_ov005_02153954* arg0) {
             memset(arg0->unknown_3d8c_, 0, 0x200);
             Struct_ov005_02153ba4* var0 = &arg0->unknown_2d90_[arg0->unknown_3d78_];
             var0->unknown_14_ = -1;
-            Struct_ov005_021556e4* var1 = func_020dedd0(arg0->unknown_df4_, var0->unknown_0_);
+            Struct_ov005_021556e4* var1 = FindItemData_020dedd0(arg0->unknown_df4_, var0->unknown_0_);
             if (var1 != NULL) {
                 char var2[0x80];
                 __clear(var2, sizeof(var2));
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov005_021556e4(Struct_ov005_02153954* arg0) {
             memset(arg0->unknown_3d94_, 0, 0x200);
             Struct_ov005_02153ba4* var6 = &arg0->unknown_2d90_[arg0->unknown_3dac_];
             var6->unknown_14_ = -1;
-            Struct_ov005_021556e4* var7 = func_020dedd0(arg0->unknown_df4_, var6->unknown_0_);
+            Struct_ov005_021556e4* var7 = FindItemData_020dedd0(arg0->unknown_df4_, var6->unknown_0_);
             if (var7 != NULL) {
                 char var8[0x80];
                 __clear(var8, sizeof(var8));
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov005_021556e4(Struct_ov005_02153954* arg0) {
             for (int var13 = arg0->unknown_3dae_; var13 < arg0->unknown_3db0_; var13++) {
                 Struct_ov005_02153ba4* var14 = &arg0->unknown_2d90_[var13];
                 var14->unknown_14_ = -1;
-                Struct_ov005_021556e4* var15 = func_020dedd0(arg0->unknown_df4_, var14->unknown_0_);
+                Struct_ov005_021556e4* var15 = FindItemData_020dedd0(arg0->unknown_df4_, var14->unknown_0_);
                 if (var15 != NULL) {
                     unsigned int var16 = 0;
                     char var17[0x80];
@@ -175,7 +175,7 @@ extern "C" ARM void func_ov005_021556e4(Struct_ov005_02153954* arg0) {
                 var24->unknown_14_ = -1;
                 if (var24->unknown_3_ != 0)
                     continue;
-                Struct_ov005_021556e4* var25 = func_020dedd0(arg0->unknown_df4_, var24->unknown_0_);
+                Struct_ov005_021556e4* var25 = FindItemData_020dedd0(arg0->unknown_df4_, var24->unknown_0_);
                 if (var25 != NULL) {
                     unsigned int var26 = 0;
                     char var27[0x80];

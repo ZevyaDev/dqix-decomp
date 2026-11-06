@@ -9,7 +9,7 @@ enum { Enum_ov003_021725a4_1120 = 0x460 };
 #endif
 
 
-extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
+extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 
 // USA: func_ov003_021725a4
 extern "C" ARM int func_ov003_021725a4(void* arg0, void* arg1) {
@@ -24,7 +24,7 @@ extern "C" ARM int func_ov003_021725a4(void* arg0, void* arg1) {
     }
     for (var0 = 0; var0 < var2; var0++) {
         char* var3 = (char*)arg0 + Enum_ov003_021725a4_1120;
-        if (func_02001aec(var3 + var0 * 0xe8 + 0x14, (char*)arg1 + 0x14, 6) == 0) {
+        if (CompareBytes_02001aec(var3 + var0 * 0xe8 + 0x14, (char*)arg1 + 0x14, 6) == 0) {
             return 0;
         }
     }

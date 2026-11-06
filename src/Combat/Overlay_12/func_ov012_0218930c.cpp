@@ -11,8 +11,8 @@
 
 struct Struct_0205d0e0_2;
 extern "C" void* func_0205d888(struct Struct_0205d0e0_2* arg0);
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void func_ov023_021e6e60(void* arg0);
 extern "C" void func_ov012_02185bf0(void* arg0, int arg1, int arg2);
 
@@ -28,12 +28,12 @@ extern "C" ARM void func_ov012_0218930c(char* arg0, int arg1) {
             unsigned char var2 = data_ov012_0218af88[var1].unknown_0_;
             unsigned char var3 = *((unsigned char*)var0 + 0xc4);
             if (var2 == var3) {
-                func_0205d6a0((struct Struct_0205d6a0*)(arg0 + LOW_REGION(0x90, 0xac)), 0);
+                CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(arg0 + LOW_REGION(0x90, 0xac)), 0);
                 break;
             }
         }
     }
-    func_0205d6a0((struct Struct_0205d6a0*)(arg0 + LOW_REGION(0x90, 0xac)), 0);
+    CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(arg0 + LOW_REGION(0x90, 0xac)), 0);
     var0 = func_0205d888((struct Struct_0205d0e0_2*)(arg0 + LOW_REGION(0x90, 0xac)));
     if (var0 == 0) return;
     arg0[LOW_REGION(0x1341, 0x1371)] = *((unsigned char*)var0 + 0xc4);

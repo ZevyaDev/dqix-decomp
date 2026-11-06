@@ -30,7 +30,7 @@ struct Struct_02081f70_3 {
 };
 
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" void func_02050678(Struct_02081f70_2* arg0, short arg1, int arg2, void* arg3, int arg4, int arg5, short* arg6, short* arg7);
 
 // JPN: func_02081f70
@@ -41,7 +41,7 @@ extern "C" ARM void func_02081f70(Struct_02081f70* arg0, Struct_02081f70_2* arg1
         char* var1 = (char*)FindStringInList_02072a68(arg0->unknown_0_, arg2->unknown_e_);
         if (var1) {
             short var2 = arg1->unknown_a8_ * 8;
-            int var3 = func_020d2ff0(var1) >> 1;
+            int var3 = GetStringLength_020d2ff0(var1) >> 1;
             arg2->unknown_6_ = (short)(var2 - var3 * arg2->unknown_13_0_) >> 1;
         }
     }

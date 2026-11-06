@@ -10,7 +10,7 @@ struct Struct_ov025_021e27c8;
 extern "C" void func_ov025_021eb084(struct Struct_ov025_021e27c8* arg0, int arg1);
 struct Struct_0203d028_11;
 extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
-extern "C" void func_020100c4(GameState* arg0, int arg1);
+extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 
 struct Struct_0204a120;
 extern "C" void func_0204a120(struct Struct_0204a120* arg0);
@@ -118,7 +118,7 @@ extern "C" ARM int func_ov025_021e4be4(struct Struct_ov025_021e4be4* arg0) {
     func_0204a3f0((struct Struct_0204a3f0_2*)var13, (struct Struct_0204a3f0*)var10);
     func_0204a440(var13, data_ov025_021ef7f7);
     func_0204a464(var13, data_ov025_021ef7fb);
-    func_020100c4(var0, (int)var13);
+    SetCamera_020100c4(var0, (int)var13);
     var11->unknown_0_ = 3;
     func_ov025_021e8bac((struct Struct_ov025_021e267c_2*)data_ov025_021ef988.unknown_c_, var11);
     return 1;

@@ -103,15 +103,15 @@ struct Struct_ov008_021842a0_2 {
 };
 
 struct GameResources;
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 struct Struct_ov008_02184a4c_13;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
-extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 void SetMainBrightness(GameResources* resources, int screen, int brightness);
 extern "C" void func_ov008_02187664(Struct_ov008_02184a4c_13* arg0, int arg1);
-extern "C" Struct_ov006_02158478* func_0205d81c(Struct_0205d81c* arg0, int arg1);
+extern "C" Struct_ov006_02158478* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
 int IsBrightnessTransitionActive(GameResources* resources);
 
 extern "C" {
@@ -134,7 +134,7 @@ extern "C" ARM void func_ov008_02185a70(Struct_ov008_021842a0_2* arg0, unsigned 
     MessageWindow_02021b84* var0 = GetMessageWindow_020421a0();
     GameResources* var1 = GetGameResources();
     BackgroundLoader::GetInstance();
-    FontLoader_0208cb08* var2 = func_02094a00();
+    FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
     unsigned char var3 = arg0->unknown_b11_;
     if (var3 >= 2)
         var0->unknown_19ae_ = 0;
@@ -188,14 +188,14 @@ extern "C" ARM void func_ov008_02185a70(Struct_ov008_021842a0_2* arg0, unsigned 
     }
     if (var3 == 5)
     {
-        func_0205d6a0((Struct_0205d6a0*)&arg0->unknown_130_, 1);
+        CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)&arg0->unknown_130_, 1);
         func_02094b40(var2);
-        func_02094b34(var2, 0x6b, 0x1fc, 0, 0);
+        RequestFontLoad_02094b34(var2, 0x6b, 0x1fc, 0, 0);
         arg0->unknown_b11_++;
     }
     if (var3 == 6)
     {
-        if (!func_02094b4c(var2))
+        if (!UpdateFontLoad_02094b4c(var2))
             return;
         if (func_ov008_02188d74(arg0))
         {
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov008_02185a70(Struct_ov008_021842a0_2* arg0, unsigned 
         func_ov008_02187f6c(arg0, NULL);
         for (int var9 = 0; var9 < 6; var9++)
         {
-            Struct_ov006_02158478* var10 = func_0205d81c((Struct_0205d81c*)&arg0->unknown_130_, (unsigned char)var9);
+            Struct_ov006_02158478* var10 = FindTextWindow_0205d81c((TextWindowManager_0205d81c*)&arg0->unknown_130_, (unsigned char)var9);
             if (var10 != NULL)
                 var10->unknown_c2_ = 0;
         }

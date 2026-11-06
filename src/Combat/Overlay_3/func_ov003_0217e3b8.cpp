@@ -23,9 +23,9 @@ struct Struct_ov003_0217e3b8
 };
 
 extern "C" unsigned int* GetResources_0200fb8c(int* gameState);
-extern "C" char* func_020100f8(char* arg0);
-extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
-extern "C" void func_020397c0(void* arg0);
+extern "C" char* GetFollowCamera_020100f8(char* gameState);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
 extern "C" void func_020a0cc4(unsigned int arg0);
@@ -49,9 +49,9 @@ extern "C" ARM void func_ov003_0217e3b8(Struct_ov003_0217e3b8* arg0)
     GameState* var0 = GameState::GetInstance();
     unsigned int* var1 = GetResources_0200fb8c((int*)var0);
     GameObject* var2 = var0->GetUnknownGameObject();
-    char* var3 = func_020100f8((char*)var0);
+    char* var3 = GetFollowCamera_020100f8((char*)var0);
     SetFlags04((GameResources*)var1, 0xc0);
-    func_020397cc((Struct_02018300_3*)var2, 1);
+    DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
     func_020a28a0((unsigned char*)var3, 3);
     int var4 = var0->GetTickCount();
     if (var4 < 0)
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov003_0217e3b8(Struct_ov003_0217e3b8* arg0)
         DISPCNT = (DISPCNT & ~0x1f00) | (func_ov003_021685c4(arg0->unknown_20_) << 8);
         func_ov003_0217e36c(arg0);
         ClearFlags04((GameResources*)var1, 0xc0);
-        func_020397c0(var2);
+        EnablePlayerControl_020397c0(var2);
         func_020a28b0((unsigned char*)var3, 3);
         func_020a0c0c();
         arg0->unknown_1_ = 1;

@@ -8,8 +8,8 @@
 struct GameState { static GameState* GetInstance(); };
 struct GameObject { char unknown_0_[0x134]; const char* unknown_134_; };
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" GameObject* func_0200ff1c(GameState*, int);
-extern "C" int func_020d2ff0(const char*);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
+extern "C" int GetStringLength_020d2ff0(const char*);
 #endif
 
 #if defined(jpn)
@@ -53,7 +53,7 @@ extern "C" {
     int func_0205bb84(void*);
     void func_0205afb0(void*, void*, int);
     void func_0205af84(void*, void*, int);
-    void func_0205ac40(void*, void*);
+    void DrawSprite_0205ac40(void*, void*);
 
     void func_ov008_02188730(Struct_ov008_02188730_2* arg0) {
         if (arg0->unknown_b18_ & 0x80000) {
@@ -75,7 +75,7 @@ extern "C" {
                     var5 = 3;
                 func_0205afb0(arg0->unknown_730_, &arg0->unknown_734_[var2], var5);
                 func_0205af84(arg0->unknown_730_, &arg0->unknown_734_[var2], 1);
-                func_0205ac40(arg0->unknown_730_, &arg0->unknown_734_[var2]);
+                DrawSprite_0205ac40(arg0->unknown_730_, &arg0->unknown_734_[var2]);
                 ++var0;
             }
         }
@@ -83,8 +83,8 @@ extern "C" {
             Struct_ov008_02188730* var6 = arg0->unknown_740_;
 #if defined(jpn)
             GameState* var7 = GameState::GetInstance();
-            GameObject* var8 = func_0200ff1c(var7, GetProtagonistObjectIndex_020100a8(var7));
-            var6->unknown_14_ = ((func_020d2ff0(var8->unknown_134_) >> 1) * 10 + 0x74) << 12;
+            GameObject* var8 = GetPartyMemberBaseByIndex_0200ff1c(var7, GetProtagonistObjectIndex_020100a8(var7));
+            var6->unknown_14_ = ((GetStringLength_020d2ff0(var8->unknown_134_) >> 1) * 10 + 0x74) << 12;
             var6->unknown_18_ = 0;
 #else
             var6->unknown_14_ = arg0->unknown_b2c_;
@@ -93,7 +93,7 @@ extern "C" {
             var6->unknown_26_ = 1;
             var6->unknown_25_ = 0;
             var6->unknown_22_ = 0x7f;
-            func_0205ac40(arg0->unknown_73c_, var6);
+            DrawSprite_0205ac40(arg0->unknown_73c_, var6);
         }
     }
 }

@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct Struct_ov011_02184c30;
-extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
+struct ScriptValue_ov011_02184c30;
+extern "C" int func_ov011_02184c30(struct ScriptValue_ov011_02184c30* arg0);
 
-extern "C" void* func_ov017_021b2164(void);
+extern "C" void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 
@@ -12,9 +12,9 @@ struct Struct_ov011_021872c8_2 { char unknown_0_[0xc]; unsigned char unknown_c_;
 
 // USA: func_ov011_021872c8
 extern "C" ARM int func_ov011_021872c8(struct Struct_ov011_021872c8* arg0) {
-    int var0 = func_ov011_02184c30((struct Struct_ov011_02184c30*)&arg0->unknown_0_);
-    unsigned char var1 = (unsigned char)func_ov011_02184c30((struct Struct_ov011_02184c30*)&arg0->unknown_8_);
-    void* var2 = func_ov017_021b2164();
+    int var0 = func_ov011_02184c30((struct ScriptValue_ov011_02184c30*)&arg0->unknown_0_);
+    unsigned char var1 = (unsigned char)func_ov011_02184c30((struct ScriptValue_ov011_02184c30*)&arg0->unknown_8_);
+    void* var2 = GetCurrentMenu_ov017_021b2164();
     struct Struct_ov011_021872c8_2* var3 = (struct Struct_ov011_021872c8_2*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(var2), var0);
     if (var3 == 0) return 0;
     var3->unknown_c_ = var3->unknown_c_ | var1;

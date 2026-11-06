@@ -16,7 +16,7 @@ struct ItemTable_0201099c_10;
 struct Struct_02061c04_22 { unsigned char unknown_0_[0x454]; short unknown_454_[8]; };
 struct Struct_020a0504;
 
-extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" int func_020ddb20(unsigned int* arg0);
 extern "C" void func_0208386c(struct Struct_02061c04_22* arg0, int arg1);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
@@ -36,13 +36,13 @@ extern "C" ARM int func_020ddcbc(int arg0, int arg1, struct ItemTable_0201099c_1
     if (arg2 == 0) return 0;
     if (arg1 < 0 || arg1 >= 8) return 0;
 
-    var0 = func_0200ff1c(GameState::GetInstance(), arg0);
+    var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0);
     if (var0 == 0) return 0;
 
     var1 = (short*)((char*)(*(struct Struct_02061c04_22**)((char*)var0 + Enum_020ddcbc_336)) + 0x454);
     if (var1 == 0) return 0;
 
-    var2 = func_020dedd0(arg2, var1[arg1]);
+    var2 = FindItemData_020dedd0(arg2, var1[arg1]);
     if (var2 == 0) return 0;
     if (!func_020ddb20(var2->unknown_0_)) return 0;
 

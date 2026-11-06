@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Struct_0205d6a0;
-struct Struct_0205bacc;
+struct TextWindowManager_0205d6a0;
+struct MenuCursor_0205bacc;
 struct Struct_0205bcdc;
 
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void func_0205cef8(void* arg0);
 extern "C" void func_0205cf04(void* arg0);
 extern "C" void func_0205cf28(unsigned char* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
+extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
 extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
 struct Struct_ov000_0217636c_2 {
 #if defined(jpn)
@@ -24,9 +24,9 @@ struct Struct_ov000_0217636c_2 {
 extern "C" struct Struct_ov000_0217636c_2* GetMessageWindow_020421a0();
 
 #if defined(jpn)
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 struct Struct_ov000_0217636c_3 {
@@ -68,14 +68,14 @@ extern "C" ARM void func_ov000_0217636c(struct Struct_ov000_0215ab88* arg0, int 
     if (var0 != 0) {
         int var1 = arg0->unknown_44_;
         int var2 = arg0->unknown_48_;
-        func_0205d6a0((struct Struct_0205d6a0*)var0, 1);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)var0, 1);
         func_0205cef8(var0);
         func_0205cf04(var0);
         func_0205cf28((unsigned char*)var0, 2, 3, 0);
-        func_0205bacc((struct Struct_0205bacc*)&var0->unknown_4_, 6);
-        func_0205bacc((struct Struct_0205bacc*)&var0->unknown_54_, 6);
+        SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)&var0->unknown_4_, 6);
+        SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)&var0->unknown_54_, 6);
         func_0205bcdc((struct Struct_0205bcdc*)&var0->unknown_4_, 0);
-        func_0205bb04(&var0->unknown_54_, 0);
+        SetMenuCursorIndex_0205bb04(&var0->unknown_54_, 0);
         var0->unknown_4_.unknown_4_ = 1;
         var0->unknown_54_.unknown_4_ = 1;
         var0->unknown_a0_ = 2;
@@ -95,9 +95,9 @@ extern "C" ARM void func_ov000_0217636c(struct Struct_ov000_0215ab88* arg0, int 
 #endif
         func_ov000_02176500(arg0, var3, arg1);
 #if defined(jpn)
-        func_0205d304(arg0->unknown_38_, var3, 0, 1, 0, 1, 0);
+        OpenTextWindow_0205d304(arg0->unknown_38_, var3, 0, 1, 0, 1, 0);
 #else
-        func_0205d304(arg0->unknown_38_, var3, 0, 1, 0, 1, 0, 0);
+        OpenTextWindow_0205d304(arg0->unknown_38_, var3, 0, 1, 0, 1, 0, 0);
 #endif
     }
 }

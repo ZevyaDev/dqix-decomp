@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 
-struct Struct_02020cb8 {
+struct BGLayer_02020cb8 {
     char unknown_0_[0xc];
     unsigned char unknown_c_;
     unsigned char unknown_d_;
     unsigned short unknown_e_;
-    int unknown_10_;
-    int unknown_14_;
-    int unknown_18_;
+    int screenBlocks_10_;
+    int screenData_14_;
+    int screenSize_18_;
     unsigned char unknown_1c_0_ : 4;
-    unsigned char unknown_1c_4_ : 4;
+    unsigned char bgIndex_1c_4_ : 4;
     unsigned char unknown_1d_;
     unsigned char unknown_1e_;
     unsigned char unknown_1f_;
 
     unsigned char inline_ov023_021f7b98() { return unknown_1c_0_; }
-    unsigned char inline_ov023_021f7b98_2() { return unknown_1c_4_; }
+    unsigned char inline_ov023_021f7b98_2() { return bgIndex_1c_4_; }
     void inline_ov023_021f7b98_3(unsigned char arg0) { unknown_1c_0_ = arg0; }
-    void inline_ov023_021f7b98_4(unsigned char arg0) { unknown_1c_4_ = arg0; }
+    void inline_ov023_021f7b98_4(unsigned char arg0) { bgIndex_1c_4_ = arg0; }
 };
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
 struct PacEntry_02020cb8_4;
 extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
@@ -38,14 +38,14 @@ struct Struct_ov023_021f7b98 {
 #else
     char unknown_0_[0x28];
 #endif
-    struct Struct_02020cb8 unknown_28_;
+    struct BGLayer_02020cb8 unknown_28_;
 };
 
 // USA: func_ov023_021f7b98
 extern "C" ARM void func_ov023_021f7b98(struct Struct_ov023_021f7b98* arg0, void* arg1, int arg2, struct PacEntry_02020aec* arg3, unsigned int arg4) {
     int var0;
     void* var1;
-    struct Struct_02020cb8 var2;
+    struct BGLayer_02020cb8 var2;
 
     if (arg3 == 0 || arg4 == 0) {
         return;
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov023_021f7b98(struct Struct_ov023_021f7b98* arg0, void
     for (int var4 = 0; var4 < var3; var4++) {
         char* var5 = (char*)GetPacEntryData_020467f0(arg3, var4, &var1, &var0);
         if (var5) {
-            func_0204af64(&var2);
+            InitBGLayer_0204af64(&var2);
             var2.inline_ov023_021f7b98_3(arg0->unknown_28_.inline_ov023_021f7b98());
             var2.inline_ov023_021f7b98_4(arg0->unknown_28_.inline_ov023_021f7b98_2());
             if (arg2) {

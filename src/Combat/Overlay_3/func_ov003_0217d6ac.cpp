@@ -8,15 +8,15 @@ extern "C" struct Struct_ov003_0217d6ac *GetZone3D_02012fe4(void);
 extern "C" void func_0205d7a0(void *arg0, int arg1);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int *out, unsigned char a, unsigned char b, unsigned char c, int d);
 extern "C" char *GetMessageWindow_020421a0(void);
-struct Struct_0205a330;
-extern "C" void func_0205a330(struct Struct_0205a330 *arg0, int arg1);
+struct SpriteAnimationList_0205a330;
+extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330 *animationList, int ticks);
 struct Struct_0205c570;
-extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 struct Struct_0205da38;
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" int func_0205d97c(void *arg0);
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(struct Struct_0205d6a0 *arg0, int arg1);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0 *windowManager, int isAll);
 extern "C" void ResetMessageWindow_02043204(char *window);
 struct SoundEffectManager_02108760;
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
@@ -26,7 +26,7 @@ struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2 *queue, struct QueueNode_0201bdac *node);
 extern "C" void func_ov017_0219e310(unsigned char *arg0, int arg1);
-extern "C" void *func_0200fd0c(GameState *arg0);
+extern "C" void *GetZoneEntry_0200fd0c(GameState *gameState);
 extern "C" void func_02070378(char *arg0);
 
 struct Struct_ov003_0217d6ac_2;
@@ -114,19 +114,19 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
 
     var0                                = GameState::GetInstance();
     var2                            = GetMessageWindow_020421a0();
-    struct Struct_0205a330 *var8 = *(struct Struct_0205a330 **) (var2 + RG(0x2e0, 0x230));
-    func_0205a330(var8, var0->GetTickCount());
+    struct SpriteAnimationList_0205a330 *var8 = *(struct SpriteAnimationList_0205a330 **) (var2 + RG(0x2e0, 0x230));
+    AdvanceSpriteAnimations_0205a330(var8, var0->GetTickCount());
     var2[RG(0x19ae, 0x17de)] = 0;
-    func_0205d794((struct Struct_0205c570 *) arg0->unknown_90_);
+    GetCursorIndex_0205d794((struct Struct_0205c570 *) arg0->unknown_90_);
     var3 = 0;
     if (arg0->unknown_32_ > 1) {
         var3 = func_ov003_0217e1e4(arg0);
     }
     var4 = -1;
     if (func_0205da38((struct Struct_0205da38*)arg0->unknown_90_, 0x14) == 1) {
-        var4 = func_0205d794((struct Struct_0205c570 *) arg0->unknown_90_);
+        var4 = GetCursorIndex_0205d794((struct Struct_0205c570 *) arg0->unknown_90_);
     } else if (g_keyManager.TestKeysPressed(0x601) != 0) {
-        var4 = func_0205d794((struct Struct_0205c570 *) arg0->unknown_90_);
+        var4 = GetCursorIndex_0205d794((struct Struct_0205c570 *) arg0->unknown_90_);
     } else if (g_keyManager.TestKeysPressed(2) != 0) {
         var4 = -2;
     } else if (func_0205d97c(arg0->unknown_90_) == 2) {
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
     if (var4 == -2) {
         arg0->unknown_4_ = 4;
         arg0->unknown_5_  = 0;
-        func_0205d6a0((struct Struct_0205d6a0 *) arg0->unknown_90_, 0);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) arg0->unknown_90_, 0);
         ResetMessageWindow_02043204(var2);
         return;
     }
@@ -147,7 +147,7 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
     arg0->unknown_4_ = 4;
     arg0->unknown_5_  = 0;
     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-    func_0205d6a0((struct Struct_0205d6a0 *) arg0->unknown_90_, 0);
+    CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) arg0->unknown_90_, 0);
     ResetMessageWindow_02043204(var2);
     Struct_ov003_0217d6ac_3 *var9 = *(Struct_ov003_0217d6ac_3 **) (var1 + RG(0x3734, 0x3524));
     func_ov017_021baedc(var9, 1);
@@ -169,7 +169,7 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
     if (var4 != 0) {
         unsigned char *var10 = *(unsigned char **) (var1 + RG(0x370c, 0x34fc));
         func_ov017_0219e310(var10, 0);
-        Struct_ov003_0217d6ac_4 *var11 = (Struct_ov003_0217d6ac_4 *) func_0200fd0c(var0);
+        Struct_ov003_0217d6ac_4 *var11 = (Struct_ov003_0217d6ac_4 *) GetZoneEntry_0200fd0c(var0);
         func_02070378((char *) var11);
         var11->unknown_0_         = arg0->unknown_18_[var4] + 0xc544;
         var11->unknown_7_  = 1;
@@ -180,7 +180,7 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
     } else {
         unsigned char *var12 = *(unsigned char **) (var1 + RG(0x370c, 0x34fc));
         func_ov017_0219e310(var12, 0);
-        Struct_ov003_0217d6ac_4 *var13 = (Struct_ov003_0217d6ac_4 *) func_0200fd0c(var0);
+        Struct_ov003_0217d6ac_4 *var13 = (Struct_ov003_0217d6ac_4 *) GetZoneEntry_0200fd0c(var0);
         func_02070378((char *) var13);
         var13->unknown_0_         = 0xc3bc;
         var13->unknown_7_  = 1;

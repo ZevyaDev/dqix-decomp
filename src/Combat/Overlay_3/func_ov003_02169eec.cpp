@@ -9,12 +9,12 @@ enum { Enum_ov003_02169eec_228 = 0xe4, Enum_ov003_02169eec_8 = 8, Enum_ov003_021
 #endif
 
 struct Struct_0205bbcc;
-struct Struct_0205ba68;
-struct Struct_0205bacc;
+struct MenuCursor_0205ba68;
+struct MenuCursor_0205bacc;
 struct Struct_0205bcdc;
 struct Struct_0205bd58;
 struct Struct_ov003_02169eec_2;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct Struct_0205bc2c;
 struct Struct_0205bd04;
 struct Struct_0205bc10;
@@ -28,18 +28,18 @@ struct Struct_0205cf1c;
 extern "C" void func_ov003_02169594(void* arg0);
 extern "C" void func_ov003_021696f4(void* arg0, int arg1);
 extern "C" int func_ov003_02169674(void* arg0, int arg1, int arg2, void* arg3);
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" int func_0205bf58(void* arg0, int arg1);
 
 extern "C" void func_0205cef8(void* arg0);
 extern "C" void func_0205cf04(void* arg0);
 extern "C" void func_0205bbcc(Struct_0205bbcc* arg0);
-extern "C" void func_0205ba68(Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0205bacc(Struct_0205bacc* arg0, int arg1);
+extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
+extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc* cursor, int itemCount);
 extern "C" void func_0205bcdc(Struct_0205bcdc* arg0, int arg1);
 extern "C" void func_0205bd58(Struct_0205bd58* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" void func_ov003_0216a85c(Struct_ov003_02169eec_2* arg0);
-extern "C" unsigned char* func_0205d8c4(Struct_0205d81c* arg0);
+extern "C" unsigned char* func_0205d8c4(TextWindowManager_0205d81c* arg0);
 extern "C" void func_0204f138(unsigned char* arg0, unsigned char** arg1, unsigned char** arg2, unsigned char** arg3,
                               unsigned char** arg4);
 extern "C" void func_0205bc24(void* arg0, int arg1);
@@ -48,11 +48,11 @@ extern "C" int func_0205bd04(Struct_0205bd04* arg0);
 extern "C" int func_0205bafc(void* arg0);
 extern "C" void func_ov003_02169658(void* arg0);
 extern "C" void func_0205bc10(Struct_0205bc10* arg0);
-extern "C" int func_0205d794(Struct_0205c570* arg0);
+extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
 extern "C" void func_ov003_021694b8(void* arg0, int arg1);
 extern "C" void func_0205bf3c(Struct_0205bf3c* arg0);
 extern "C" int func_0205bb84(Struct_0205bb84* arg0);
-extern "C" int func_0200fb08(Struct_02000c9c_8* arg0);
+extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_0205cf10(void* arg0);
 extern "C" void func_0205cf1c(Struct_0205cf1c* arg0);
@@ -140,9 +140,9 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
         func_0205cf04(arg0->unknown_e4_);
         func_ov003_021696f4(arg0, arg0->unknown_4ee_);
         func_0205bbcc((Struct_0205bbcc*)arg0->unknown_53c_);
-        func_0205ba68((Struct_0205ba68*)arg0->unknown_53c_, 1, 2, 0);
+        SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)arg0->unknown_53c_, 1, 2, 0);
         arg0->unknown_540_ = 1;
-        func_0205bacc((Struct_0205bacc*)arg0->unknown_53c_, 2);
+        SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)arg0->unknown_53c_, 2);
         func_0205bcdc((Struct_0205bcdc*)arg0->unknown_53c_, 0);
         arg0->unknown_58c_[0] = 0;
         arg0->unknown_58c_[1] = 0;
@@ -161,7 +161,7 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
         arg0->unknown_5a8_.unknown_10_ = &arg0->unknown_58c_[4];
         arg0->unknown_5a8_.unknown_14_ = &arg0->unknown_58c_[6];
         func_ov003_0216a85c((Struct_ov003_02169eec_2*)&arg0->unknown_5c0_);
-        unsigned char* var4 = func_0205d8c4((Struct_0205d81c*)arg0->unknown_e4_);
+        unsigned char* var4 = func_0205d8c4((TextWindowManager_0205d81c*)arg0->unknown_e4_);
         short var5 = inline_ov003_02169eec_3(var4);
         short var6 = inline_ov003_02169eec_4(var4);
         arg0->unknown_5c0_.unknown_0_ = var5 << 3;
@@ -177,7 +177,7 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
         if (g_touchInput.pressed_ != 0 || (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) ||
             g_touchInput.released_ != 0) {
             g_touchInput.GetTouchPoint(&var0, &var1);
-            int var9 = (func_0205d8c4((Struct_0205d81c*)arg0->unknown_e4_)[0xc5] & 2) != 0;
+            int var9 = (func_0205d8c4((TextWindowManager_0205d81c*)arg0->unknown_e4_)[0xc5] & 2) != 0;
             unsigned char var10 = 0;
             if (g_touchInput.pressed_ != 0) {
                 short var11 = inline_ov003_02169eec(arg0);
@@ -265,11 +265,11 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
                 }
             }
             if (var10 == 0) {
-                int var22 = func_0205d794((Struct_0205c570*)arg0->unknown_e4_);
+                int var22 = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_e4_);
                 arg0->unknown_179_ = 0;
                 func_ov003_021694b8(arg0, arg1);
                 arg0->unknown_179_ = 1;
-                int var23 = func_0205d794((Struct_0205c570*)arg0->unknown_e4_);
+                int var23 = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_e4_);
                 if (var22 != var23) {
                     func_ov003_021696f4(arg0, var23);
                 }
@@ -287,7 +287,7 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
                 func_0205bf3c((Struct_0205bf3c*)((char*)arg0 + Enum_ov003_02169eec_312));
                 int var24 = var8[var7];
                 int var25 = func_0205bafc(arg0->unknown_4fc_);
-                func_0205bb04(arg0->unknown_4fc_, var25 - 1 - var8[var7]);
+                SetMenuCursorIndex_0205bb04(arg0->unknown_4fc_, var25 - 1 - var8[var7]);
                 if (func_0205bf58(arg0->unknown_4fc_, arg1) != 0) {
                     var8[var7] = var25 - 1 - func_0205bb84((Struct_0205bb84*)arg0->unknown_4fc_);
                     if (var24 != var8[var7]) {
@@ -295,9 +295,9 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
                     }
                 }
             } else {
-                int var26 = func_0205d794((Struct_0205c570*)arg0->unknown_e4_);
+                int var26 = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_e4_);
                 func_ov003_021694b8(arg0, arg1);
-                int var27 = func_0205d794((Struct_0205c570*)arg0->unknown_e4_);
+                int var27 = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_e4_);
                 if (var26 != var27) {
                     func_ov003_021696f4(arg0, var27);
                 }
@@ -315,7 +315,7 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
             }
         }
 
-        arg0->unknown_4ee_ = func_0205d794((Struct_0205c570*)arg0->unknown_e4_);
+        arg0->unknown_4ee_ = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_e4_);
         unsigned int var30 = 0;
         unsigned int var31 = 1000;
         for (int var32 = 3; var32 >= 0; var32--) {
@@ -339,7 +339,7 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
                 short var39 = 0xc8;
                 short var40 = 0xec;
 #else
-                int var36 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+                int var36 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
                 short var37 = 0x8f;
                 short var38 = 0xba;
                 short var39 = 0xc5;

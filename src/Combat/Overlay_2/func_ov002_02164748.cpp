@@ -11,17 +11,17 @@ struct Struct_ov002_02164748_2;
 struct Struct_ov002_02164748_3;
 struct Struct_ov002_02164748_4;
 struct Struct_ov002_02164748_5;
-extern "C" void func_0205de24(struct Struct_ov002_0215624c_11 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
-extern "C" int func_0205d794(struct Struct_ov002_0215624c_15 *arg0);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
+extern "C" int GetCursorIndex_0205d794(struct Struct_ov002_0215624c_15 *windowManager);
 extern "C" int func_0205da38(struct Struct_ov002_02164748* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct Struct_ov002_02157d40_7 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
-extern "C" void func_0205deb4(struct Struct_ov002_02155960_2 *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowPalette_0205deb4(struct Struct_ov002_02155960_2 *windowManager, int windowId, int palette);
 extern "C" void func_0205dee8(struct Struct_ov002_02164748_2 *arg0, int arg1);
 extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
-extern "C" GameObject *func_0200ff1c(GameState *arg0, int arg1);
+extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *gameState, int index);
 extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" void func_02083834(struct Struct_ov002_02164748_3 *arg0, int arg1);
 extern "C" int func_02083994(struct Struct_ov002_02164748_4 *arg0, int arg1);
@@ -47,9 +47,9 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
     int var0 = *(int *) (arg0 + RG(0x1000 + 0xbc0, 0x1a88));
     if (var0 == 0) {
         *(short *) (arg0 + RG(0x1b00 + 0xf4, 0x1abc)) = func_ov002_02157108(arg0, *(signed char *) (arg0 + RG(0x1c00 + 0x21, 0x1ae9))) & 7;
-        func_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0, 3);
-        func_0205deb4((struct Struct_ov002_02155960_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), RG(9, 0xa), 1);
-        func_0205deb4((struct Struct_ov002_02155960_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), RG(0xd, 0xe), 0);
+        SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0, 3);
+        SetTextWindowPalette_0205deb4((struct Struct_ov002_02155960_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), RG(9, 0xa), 1);
+        SetTextWindowPalette_0205deb4((struct Struct_ov002_02155960_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), RG(0xd, 0xe), 0);
         func_ov002_02161cf0(arg0);
         *(int *) (arg0 + RG(0x1000 + 0xbc8, 0x1a90)) = 1;
         func_ov002_0215bba8(arg0);
@@ -58,17 +58,17 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
         *(unsigned int *) (arg0 + RG(0x2000 + 0x47c, 0x22ac)) |= 4;
         short var1 = *(short *) (arg0 + RG(0x1b00 + 0xf4, 0x1abc));
         *(short *) (arg0 + RG(0x1b00 + 0xf4, 0x1abc)) =
-            func_0205d794((struct Struct_ov002_0215624c_15 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)));
+            GetCursorIndex_0205d794((struct Struct_ov002_0215624c_15 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)));
         if (var1 != *(short *) (arg0 + RG(0x1b00 + 0xf4, 0x1abc))) return;
         int var2 = g_keyManager.TestKeysPressed(0x601);
         int var3 = func_0205da38((struct Struct_ov002_02164748*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0x14);
         if ((var2 | var3) ? 1 : 0) {
             PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7 *) gSoundEffectManager_02108760, 1, 0);
             GameState *var4 = GameState::GetInstance();
-            GameObject *var5 = func_0200ff1c(var4, *(signed char *) (arg0 + RG(0x1c00 + 0x21, 0x1ae9)));
+            GameObject *var5 = GetPartyMemberBaseByIndex_0200ff1c(var4, *(signed char *) (arg0 + RG(0x1c00 + 0x21, 0x1ae9)));
             if (var5 == NULL) return;
             unsigned char *var6 = GetPartyMemberData_02053c6c((unsigned char *) var5);
-            GameObject *var7     = func_0200ff1c(var4, *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)));
+            GameObject *var7     = GetPartyMemberBaseByIndex_0200ff1c(var4, *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)));
             if (var7 == NULL && *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)) != 4) return;
             int var8                          = 0;
             short var9                           = SLOT(var6, *(short *) (arg0 + RG(0x1b00 + 0xf4, 0x1abc)));
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
                     else
                         *(short *) (arg0 + RG(0x1c00 + 0x28, 0x1af0)) = 0x236c;
                 } else {
-                    GameObject *var12 = func_0200ff1c(var4, *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)));
+                    GameObject *var12 = GetPartyMemberBaseByIndex_0200ff1c(var4, *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)));
                     if (var12 == NULL) return;
                     unsigned char *var13                           = GetPartyMemberData_02053c6c((unsigned char *) var12);
                     SLOT(var13, *(short *) (arg0 + RG(0x1b00 + 0xe8, 0x1ab0))) = *(short *) (arg0 + RG(0x1c00 + 0x24, 0x1aec));
@@ -164,7 +164,7 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
             *(short *) (arg0 + RG(0x1b00 + 0xf4, 0x1abc)) = -1;
             *(int *) (arg0 + RG(0x1000 + 0xbb8, 0x1a80))  = RG(9, 0xa);
             func_ov002_02161cf0(arg0);
-            func_0205deb4((struct Struct_ov002_02155960_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), RG(9, 0xa), 0);
+            SetTextWindowPalette_0205deb4((struct Struct_ov002_02155960_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), RG(9, 0xa), 0);
             func_0205dee8((struct Struct_ov002_02164748_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), RG(9, 0xa));
             *(int *) (arg0 + RG(0x1000 + 0xbc8, 0x1a90)) = 1;
             *(int *) (arg0 + RG(0x1000 + 0xbcc, 0x1a94)) = 1;

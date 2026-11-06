@@ -1,10 +1,7 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
-extern "C" void func_020c9be0(void);
+extern "C" void HaltForever_020c9be0(void);
 extern "C" void func_020d11a8(void);
 
 struct Struct_02112140_2 {
@@ -26,5 +23,5 @@ extern "C" ARM void func_020d1144(unsigned int arg0, unsigned int arg1, unsigned
         }
         return;
     }
-    func_020c9be0();
+    HaltForever_020c9be0();
 }

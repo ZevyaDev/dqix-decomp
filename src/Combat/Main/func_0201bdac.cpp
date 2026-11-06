@@ -17,7 +17,7 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_020ae53c(int arg0);
 
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 
 struct QueueNode_0201bdac { char unknown_0_[2]; unsigned char isQueued_2_; char unknown_3_; QueueNode_0201bdac* pNext_4_; };
 struct Queue_0201bdac_2 { QueueNode_0201bdac* pHead_0_; QueueNode_0201bdac* pTail_4_; };
@@ -39,7 +39,7 @@ extern "C" ARM void func_0201bdac(unsigned char* arg0) {
     void* var3 = GetLocalWireless_0202ae18();
     void* var4 = GetParty_02010828(var0);
 
-    if (!func_02046b08((void**)var2)) return;
+    if (!IsQueueEmpty_02046b08((void**)var2)) return;
     if (!IsBrightnessZero((GameResources*)var1, false)) return;
     if (!IsBrightnessZero((GameResources*)var1, true)) return;
 

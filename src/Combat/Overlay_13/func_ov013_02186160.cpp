@@ -55,25 +55,25 @@ extern "C" void* __clear(void* arg0, int arg1);
 struct Struct_0205dee8;
 extern "C" void func_0205dee8(struct Struct_0205dee8* arg0, int arg1);
 struct Struct_0205c570;
-extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" void func_0205d7a0(unsigned char* arg0, int arg1);
-struct Struct_0205d81c;
-extern "C" int func_0205d97c(Struct_0205d81c* arg0);
+struct TextWindowManager_0205d81c;
+extern "C" int func_0205d97c(TextWindowManager_0205d81c* arg0);
 extern "C" int func_ov013_021842a0(void* arg0, int arg1);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern int gSoundEffectManager_02108760;
 extern "C" void func_ov013_02185774(void* arg0);
 extern "C" void func_ov013_02185828(unsigned char* arg0);
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void func_ov013_02186c64(void* arg0, int arg1, int arg2);
 extern "C" void func_ov013_02186bd4(void* arg0);
 
 #if defined(jpn)
 inline void Struct_ov013_021846a0_2::inline_ov013_02186160() {
     func_0205dee8((Struct_0205dee8*)unknown_34_, 4);
-    func_0205d6a0((Struct_0205d6a0*)unknown_34_, 0);
+    CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)unknown_34_, 0);
 }
 #endif
 
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov013_02186160(Struct_ov013_021846a0_2* arg0) {
     if (arg0->unknown_65c_ >= 6) arg0->unknown_65c_ = 0;
     int var4 = g_touchInput.TestPressInRectangle(0x1e, 0x5a, 0x2a, 0xa);
     if (arg0->unknown_648_ == 2) {
-        arg0->unknown_65c_ = (signed char)func_0205d794((Struct_0205c570*)arg0->unknown_34_);
+        arg0->unknown_65c_ = (signed char)GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_34_);
         var2 = true;
     }
     if (arg0->unknown_66c_ >= 0 && arg0->unknown_65c_ < 5) {
@@ -168,7 +168,7 @@ extern "C" ARM void func_ov013_02186160(Struct_ov013_021846a0_2* arg0) {
             var2 = true;
         } else if (arg0->unknown_65c_ == 5) {
             var6 = Struct_ov013_021846a0_2::Enum_ov013_02186160_3;
-        } else if (func_0205d97c((Struct_0205d81c*)arg0->unknown_34_) == 2) {
+        } else if (func_0205d97c((TextWindowManager_0205d81c*)arg0->unknown_34_) == 2) {
             var6 = Struct_ov013_021846a0_2::Enum_ov013_02186160_4;
         }
     } else {
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov013_02186160(Struct_ov013_021846a0_2* arg0) {
                 arg0->unknown_665_ = 0;
                 var6 = Struct_ov013_021846a0_2::Enum_ov013_02186160_3;
             }
-        } else if (func_0205d97c((Struct_0205d81c*)arg0->unknown_34_) == 2 && arg0->unknown_63c_ != Struct_ov013_021846a0_2::Enum_ov013_02186160_2) {
+        } else if (func_0205d97c((TextWindowManager_0205d81c*)arg0->unknown_34_) == 2 && arg0->unknown_63c_ != Struct_ov013_021846a0_2::Enum_ov013_02186160_2) {
             var6 = Struct_ov013_021846a0_2::Enum_ov013_02186160_4;
         }
     }
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov013_02186160(Struct_ov013_021846a0_2* arg0) {
     var11 = 0;
     var12 = var11;
     var13 = var11 - 1;
-    arg0->unknown_65c_ = func_0205d794((struct Struct_0205c570*)arg0->unknown_38_);
+    arg0->unknown_65c_ = GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_38_);
 
     if (g_keyManager.TestKeysPressed(0x601) != 0) {
         if (arg0->unknown_65c_ != 5) {
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov013_02186160(Struct_ov013_021846a0_2* arg0) {
             var13 = 3;
         }
     } else {
-        int var15 = func_0205d97c((Struct_0205d81c*)arg0->unknown_38_);
+        int var15 = func_0205d97c((TextWindowManager_0205d81c*)arg0->unknown_38_);
         if (var15 == 2) {
             var13 = 4;
         } else if (g_keyManager.TestKeysPressed(2) != 0) {
@@ -316,7 +316,7 @@ extern "C" ARM void func_ov013_02186160(Struct_ov013_021846a0_2* arg0) {
         if (arg0->unknown_640_ == 0) {
             PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, var12, 0);
             func_0205dee8((struct Struct_0205dee8*)arg0->unknown_38_, 4);
-            func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_38_, 0);
+            CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_38_, 0);
         } else {
             PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 5, 0);
         }

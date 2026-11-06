@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
-// USA: func_020d2ff0
-extern "C" ARM int func_020d2ff0(const char* arg0) {
-    int var0 = 0;
-    if (arg0[var0] != 0) {
+// USA: GetStringLength_020d2ff0
+extern "C" ARM int GetStringLength_020d2ff0(const char* string) {
+    int length = 0;
+    if (string[length] != 0) {
         do {
-            var0++;
-        } while (arg0[var0] != 0);
+            length++;
+        } while (string[length] != 0);
     }
-    return var0;
+    return length;
 }

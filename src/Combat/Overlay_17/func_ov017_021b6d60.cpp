@@ -33,7 +33,7 @@ extern "C" void func_ov017_021cc68c(int arg0);
 extern "C" ARM int func_ov017_021b6d60(int arg0, void* arg1) {
     func_02086404(arg1);
     GameState* var0 = GameState::GetInstance();
-    GameObject* var1 = func_0200ff1c(var0, arg0);
+    GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     if (var1 == NULL) {
         return 0;
     }

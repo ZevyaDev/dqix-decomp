@@ -4,7 +4,7 @@
 #include <std_library_functions.h>
 
 struct Struct_0204b010;
-struct Struct_0204b8d0;
+struct BGLayer_0204b8d0;
 struct Struct_0204b9b8;
 enum Enum_ov023_021da274 {
     Enum_ov023_021da274_0 = 0,
@@ -12,7 +12,7 @@ enum Enum_ov023_021da274 {
     Enum_ov023_021da274_255 = 0xff
 };
 extern "C" void func_0204b010(Struct_0204b010*, void*);
-extern "C" void func_0204b8d0(Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 extern "C" void func_0204b04c(void*, void*);
 extern "C" void func_0204b9b8(Struct_0204b9b8*, int, int, int, int, unsigned int);
 
@@ -23,7 +23,7 @@ extern "C" ARM void func_ov023_021da274(Struct_ov009_021842a0* arg0) {
         if (var0 >= 1 && var0 <= 8) {
             short var1 = (short)((var0 - 1) * 2);
             short var2 = var1 + 5;
-            func_0204b8d0((Struct_0204b8d0*)&arg0->unknown_158_[0], 0, 0, var1, 15, var2, 10, 2, 0xffff);
+            CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_158_[0], 0, 0, var1, 15, var2, 10, 2, 0xffff);
         }
         func_0204b04c(&arg0->unknown_158_[0], NULL);
     }
@@ -41,25 +41,25 @@ extern "C" ARM void func_ov023_021da274(Struct_ov009_021842a0* arg0) {
                 var5 = 7;
                 var6 = 11;
             }
-            func_0204b8d0((Struct_0204b8d0*)&arg0->unknown_158_[3], var4, 0, 0, var5, var6, 18, 6, 0xffff);
+            CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_158_[3], var4, 0, 0, var5, var6, 18, 6, 0xffff);
         } else if (var3 == 2) {
             unsigned int var7 = ((unsigned char*)((int)arg0 + (int)offsetof(Struct_ov009_021842a0, unknown_da4_)))[arg0->unknown_da3_];
-            func_0204b8d0((Struct_0204b8d0*)&arg0->unknown_158_[3], var7, 0, 0, (short)(var7 * 5 + 4), 5, 4, 9, 0xffff);
+            CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_158_[3], var7, 0, 0, (short)(var7 * 5 + 4), 5, 4, 9, 0xffff);
         } else if (var3 == 5) {
-            func_0204b8d0((Struct_0204b8d0*)&arg0->unknown_158_[3], 0, 0, 0, 4, 5, 24, 9, 0xffff);
+            CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_158_[3], 0, 0, 0, 4, 5, 24, 9, 0xffff);
             int var8 = ((unsigned char*)((int)arg0 + (int)offsetof(Struct_ov009_021842a0, unknown_da6_)))[arg0->unknown_da3_];
             func_0204b9b8((Struct_0204b9b8*)&arg0->unknown_158_[3], (short)(var8 % 5 * 5 + 4), (short)((var8 / 5 + 1) * 5), 4, 4, 2);
         } else if (var3 == 3) {
-            func_0204b8d0((Struct_0204b8d0*)&arg0->unknown_158_[3], 0, 0, 0, 4, 5, 24, 9, 0xffff);
+            CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_158_[3], 0, 0, 0, 4, 5, 24, 9, 0xffff);
             Enum_ov023_021da274 var9 = (Enum_ov023_021da274)arg0->unknown_da3_;
             int var10 = ((unsigned char*)((int)arg0 + (int)offsetof(Struct_ov009_021842a0, unknown_dac_)))[var9];
             func_0204b9b8((Struct_0204b9b8*)&arg0->unknown_158_[3], (short)(var10 % 5 * 5 + 4), (short)((var10 / 5 + 1) * 5), 4, 4, 2);
         } else if (var3 == 8) {
             if (arg0->unknown_d9c_ & 0x400000) {
-                func_0204b8d0((Struct_0204b8d0*)&arg0->unknown_158_[3], 3, 0, 0, 0, 14, 32, 10, 0xffff);
+                CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_158_[3], 3, 0, 0, 0, 14, 32, 10, 0xffff);
             } else {
                 if (arg0->unknown_d8e_ != arg0->unknown_d8d_) {
-                    func_0204b8d0((Struct_0204b8d0*)&arg0->unknown_158_[2], (unsigned char)arg0->unknown_d8d_, 0, 0, 0, 0, 32, 24, 0xffff);
+                    CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_158_[2], (unsigned char)arg0->unknown_d8d_, 0, 0, 0, 0, 32, 24, 0xffff);
                 }
                 arg0->unknown_d8e_ = arg0->unknown_d8d_;
                 func_0204b9b8((Struct_0204b9b8*)&arg0->unknown_158_[2], 2, 7, 28, 12, 1);
@@ -87,8 +87,8 @@ extern "C" ARM void func_ov023_021da274(Struct_ov009_021842a0* arg0) {
         } else if (var3 == 9) {
             unsigned int var17 = 0;
             if (arg0->unknown_d95_ == 0) var17 = 1;
-            func_0204b8d0((Struct_0204b8d0*)&arg0->unknown_158_[3], var17, 0, 0, 0, 14, 32, 10, 0xffff);
-            func_0204b8d0((Struct_0204b8d0*)&arg0->unknown_158_[3], 2, 0, 0, 24, 9, 8, 7, 0xffff);
+            CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_158_[3], var17, 0, 0, 0, 14, 32, 10, 0xffff);
+            CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_158_[3], 2, 0, 0, 24, 9, 8, 7, 0xffff);
             func_0204b9b8((Struct_0204b9b8*)&arg0->unknown_158_[2], 2, 7, 28, 12, 1);
             func_0204b04c(&arg0->unknown_158_[2], NULL);
         }
@@ -100,13 +100,13 @@ extern "C" ARM void func_ov023_021da274(Struct_ov009_021842a0* arg0) {
 #include "GameState/GameState.h"
 
 struct Struct_0204b010;
-struct Struct_0204b8d0;
+struct BGLayer_0204b8d0;
 struct Struct_02000c9c_8;
 struct Struct_0204b9b8;
 
 extern "C" void func_0204b010(struct Struct_0204b010*, void*);
-extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8*);
-extern "C" void func_0204b8d0(struct Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8*);
+extern "C" void CopyBGScreenBlockRect_0204b8d0(struct BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 extern "C" void func_0204b04c(void* arg0, void* arg1);
 extern "C" void func_0204b9b8(Struct_0204b9b8* arg0, int arg1, int arg2, int arg3, int arg4, unsigned arg5);
 extern "C" void func_ov003_0215ec68(int arg0, short* arg1, short* arg2);
@@ -154,7 +154,7 @@ struct Struct_ov023_021da274_3 {
     unsigned char unknown_dac_[8];
 };
 
-#define WIN(w) ((struct Struct_0204b8d0*)&(w))
+#define WIN(w) ((struct BGLayer_0204b8d0*)&(w))
 
 // USA: func_ov023_021da274
 extern "C" ARM void func_ov023_021da274(Struct_ov023_021da274_3* arg0) {
@@ -166,11 +166,11 @@ extern "C" ARM void func_ov023_021da274(Struct_ov023_021da274_3* arg0) {
             short var20 = 0xf;
             short var21 = var19 + 5;
             short var22 = 0xa;
-            if (func_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance()) == 4) {
+            if (GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance()) == 4) {
                 var20 = 0xe;
                 var22 = 0xd;
             }
-            func_0204b8d0(WIN(arg0->unknown_158_), 0, 0, var19, var20, var21, var22, 2, 0xffff);
+            CopyBGScreenBlockRect_0204b8d0(WIN(arg0->unknown_158_), 0, 0, var19, var20, var21, var22, 2, 0xffff);
         }
         func_0204b04c(&arg0->unknown_158_, NULL);
     }
@@ -190,22 +190,22 @@ extern "C" ARM void func_ov023_021da274(Struct_ov023_021da274_3* arg0) {
                 var25 = 7;
                 var26 = 0xb;
             }
-            func_0204b8d0(WIN(arg0->unknown_1b8_), var24, 0, 0, var25, var26, 0x12, 6, 0xffff);
+            CopyBGScreenBlockRect_0204b8d0(WIN(arg0->unknown_1b8_), var24, 0, 0, var25, var26, 0x12, 6, 0xffff);
         } else if (var23 == 2) {
             unsigned int var27 = ((unsigned char*)((int)arg0 + 0xda4))[arg0->unknown_da3_];
-            func_0204b8d0(WIN(arg0->unknown_1b8_), var27, 0, 0, (short)(var27 * 5 + 4), 5, 4, 9, 0xffff);
+            CopyBGScreenBlockRect_0204b8d0(WIN(arg0->unknown_1b8_), var27, 0, 0, (short)(var27 * 5 + 4), 5, 4, 9, 0xffff);
         } else if (var23 == 5) {
-            func_0204b8d0(WIN(arg0->unknown_1b8_), 0, 0, 0, 4, 5, 0x18, 9, 0xffff);
+            CopyBGScreenBlockRect_0204b8d0(WIN(arg0->unknown_1b8_), 0, 0, 0, 4, 5, 0x18, 9, 0xffff);
             int var28 = ((unsigned char*)((int)arg0 + 0xda6))[arg0->unknown_da3_];
             func_0204b9b8((Struct_0204b9b8*)&arg0->unknown_1b8_, (short)(var28 % 5 * 5 + 4), (short)((var28 / 5 + 1) * 5), 4, 4, 2);
         } else if (var23 == 3) {
-            func_0204b8d0(WIN(arg0->unknown_1b8_), 0, 0, 0, 4, 5, 0x18, 9, 0xffff);
+            CopyBGScreenBlockRect_0204b8d0(WIN(arg0->unknown_1b8_), 0, 0, 0, 4, 5, 0x18, 9, 0xffff);
             int var29 = ((unsigned char*)((int)arg0 + 0xdac))[arg0->unknown_da3_];
             func_0204b9b8((Struct_0204b9b8*)&arg0->unknown_1b8_, (short)(var29 % 5 * 5 + 4), (short)((var29 / 5 + 1) * 5), 4, 4, 2);
         } else if (var23 == 8) {
             int var30;
             if (arg0->unknown_d9c_ & 0x400000) {
-                func_0204b8d0(WIN(arg0->unknown_1b8_), 3, 0, 0, 0, 0xe, 0x20, 0xa, 0xffff);
+                CopyBGScreenBlockRect_0204b8d0(WIN(arg0->unknown_1b8_), 3, 0, 0, 0, 0xe, 0x20, 0xa, 0xffff);
             } else {
                 var30 = 0;
                 unsigned char var31 = arg0->unknown_c0_->unknown_1e_;
@@ -214,7 +214,7 @@ extern "C" ARM void func_ov023_021da274(Struct_ov023_021da274_3* arg0) {
                     unsigned char var33 = data_ov023_021fd532[var30 * 3];
                     if (var33 == 0) break;
                     if (var31 & var33) {
-                        func_0204b8d0(WIN(arg0->unknown_198_), (&data_ov023_021fd530[var30 * 3])[var32], 0, 0, 0, 0, 0x20, 0x18, 0xffff);
+                        CopyBGScreenBlockRect_0204b8d0(WIN(arg0->unknown_198_), (&data_ov023_021fd530[var30 * 3])[var32], 0, 0, 0, 0, 0x20, 0x18, 0xffff);
                         break;
                     }
                     var30++;
@@ -234,8 +234,8 @@ extern "C" ARM void func_ov023_021da274(Struct_ov023_021da274_3* arg0) {
         } else if (var23 == 9) {
             unsigned int var39 = 0;
             if (arg0->unknown_d95_ == 0) var39 = 1;
-            func_0204b8d0(WIN(arg0->unknown_1b8_), var39, 0, 0, 0, 0xe, 0x20, 0xa, 0xffff);
-            func_0204b8d0(WIN(arg0->unknown_1b8_), 2, 0, 0, 0x18, 9, 8, 7, 0xffff);
+            CopyBGScreenBlockRect_0204b8d0(WIN(arg0->unknown_1b8_), var39, 0, 0, 0, 0xe, 0x20, 0xa, 0xffff);
+            CopyBGScreenBlockRect_0204b8d0(WIN(arg0->unknown_1b8_), 2, 0, 0, 0x18, 9, 8, 7, 0xffff);
             func_0204b9b8((Struct_0204b9b8*)&arg0->unknown_198_, 2, 7, 0x1c, 0xc, 1);
             func_0204b04c(&arg0->unknown_198_, NULL);
         }

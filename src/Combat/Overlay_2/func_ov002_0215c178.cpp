@@ -4,11 +4,11 @@
 extern "C" void* GetFlagManager_0205ec34(void* arg0);
 extern "C" int func_020420e8(int arg0, int arg1);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
-extern "C" int func_020e51cc(int arg0);
-extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int GetStandardString_020e51cc(int stringId);
+extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int func_02041e70(char* arg0, int arg1);
-extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02041a28(char* arg0, int arg1);
 
@@ -28,15 +28,15 @@ extern "C" ARM void func_ov002_0215c178(void* arg0, char* arg1, int arg2) {
     void* var2 = GetFlagManager_0205ec34(var0);
     int var3 = IsFlagSet_0206dfb0((int)(long)var2, (unsigned char*)var2 + 0x8c, 4506) != 0;
     if (arg2 != 0) {
-        func_02041c08(arg1, var1, 8, 5, 5, 5);
+        AppendFrameTag_02041c08(arg1, var1, 8, 5, 5, 5);
     }
-    func_02041ea4(arg1, var1);
+    AppendCursorTag_02041ea4(arg1, var1);
     for (int var4 = 0; var4 < 6; var4++) {
         if (var4 == 3 && var3 == 0) {
             func_02041e70(arg1, 3);
         }
         int var5 = data_ov002_0216d09c[var4];
-        func_02041b70(arg1, var5, data_ov002_0216d600[var5]);
+        AppendMenuEntry_02041b70(arg1, var5, data_ov002_0216d600[var5]);
         if (var4 == 1 || var4 == 3) {
             AppendText_02042058(arg1, &data_ov002_0216d92a);
         } else {
@@ -57,20 +57,20 @@ extern "C" ARM void func_ov002_0215c178(void* arg0, char* arg1, int arg2) {
     int var9 = IsFlagSet_0206dfb0((int)(long)var8, (unsigned char*)var8 + 0x8c, 4506) != 0;
     int var10 = 0;
     for (int var11 = 0; var11 < 3; var11++) {
-        int var12 = func_020420e8(func_020e51cc(data_ov002_0216ca04[var11]), 0);
+        int var12 = func_020420e8(GetStandardString_020e51cc(data_ov002_0216ca04[var11]), 0);
         if (var10 < var12) var10 = var12;
     }
     if (arg2 != 0) {
-        func_02041c08(arg1, var7, 8, 5, 5, 5);
+        AppendFrameTag_02041c08(arg1, var7, 8, 5, 5, 5);
     }
-    func_02041ea4(arg1, var7);
+    AppendCursorTag_02041ea4(arg1, var7);
     for (int var13 = 0; var13 < 6; var13++) {
         if (var13 == 3 && var9 == 0) {
             func_02041e70(arg1, 3);
         }
         int var14 = data_ov002_0216ca58[var13];
-        int var15 = func_020e51cc(data_ov002_0216ca04[var14]);
-        func_02041b70(arg1, var14, (const char*)(long)var15);
+        int var15 = GetStandardString_020e51cc(data_ov002_0216ca04[var14]);
+        AppendMenuEntry_02041b70(arg1, var14, (const char*)(long)var15);
         if (var13 == 1 || var13 == 3) {
             AppendText_02042058(arg1, &data_ov002_0216d26e);
         } else {

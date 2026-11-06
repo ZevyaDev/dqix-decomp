@@ -8,9 +8,9 @@ enum { Enum_ov017_021c41fc_348 = 0x15c };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_0202ae24(void);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 struct Struct_02039df4;
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021c41fc {
     unsigned char unknown_0_;
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov017_021c41fc(int arg0, int arg1) {
     GameObject* var1 = var0->GetPartyMemberByIndex(arg0);
     if (var1 == NULL) return;
 
-    void* var2 = func_0202ae24();
+    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
 
     struct Struct_ov017_021c41fc_2 var3;
     struct Struct_ov017_021c41fc* var4 = &var3.unknown_4_;
@@ -74,5 +74,5 @@ extern "C" ARM void func_ov017_021c41fc(int arg0, int arg1) {
         }
     }
 
-    func_0205e330(var2, &var3, 0);
+    QueueOutgoingPacket_0205e330(var2, &var3, 0);
 }

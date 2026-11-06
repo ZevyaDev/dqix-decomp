@@ -9,7 +9,7 @@
 #include "Grotto/Main/GrottoStruct.h"
 #include "Grotto/Main/DetailedTreasureMapData.h"
 
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_0201b588(int arg0);
 extern "C" int func_0201b5d8(int arg0);
@@ -42,7 +42,7 @@ struct Struct_0208f944_2 {
 // USA: func_0208f944
 extern "C" ARM void func_0208f944(struct Struct_0208f944* arg0) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_0208f944_2* var1 = (struct Struct_0208f944_2*)func_0200fd0c(var0);
+    struct Struct_0208f944_2* var1 = (struct Struct_0208f944_2*)GetZoneEntry_0200fd0c(var0);
     struct GrottoStruct* var2 = var0->GetGrottoStruct();
     void* var3 = GetZone3D_02012fe4();
     int var4 = var1->unknown_0_;

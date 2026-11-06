@@ -2,14 +2,14 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 
 // USA: func_ov001_0215f1b0
 extern "C" ARM int func_ov001_0215f1b0(void* arg0) {
 	GameState::GetInstance();
 	GameResources* var0 = GetGameResources();
-	int var1 = func_ov017_021d60f4(arg0);
-	int var2 = func_ov017_021d60f4((char*)arg0 + 0x8);
+	int var1 = GetScriptValueAsInt_ov017_021d60f4(arg0);
+	int var2 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8);
 	if (var2 != 0) {
 		SetFlags04(var0, var1);
 	} else {

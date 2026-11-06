@@ -72,24 +72,24 @@ extern unsigned short data_ov000_02183510[];
 extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0(void);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" Struct_0209a678* func_ov000_02170cf8(Struct_ov000_02179cdc_2* arg0, int arg1);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void func_020dd040(int arg0, char* arg1);
 extern "C" void func_02046608(MessageWindow_020465c0* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0* window);
 extern "C" int func_ov000_02153a8c(GameObject* arg0);
 extern "C" int func_020dd290(void*, unsigned int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
-extern "C" const char* func_020e51cc(int arg0);
+extern "C" const char* GetStandardString_020e51cc(int stringId);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
-struct Struct_0205d81c;
-extern "C" void* func_0205d81c(Struct_0205d81c*, int);
+struct TextWindowManager_0205d81c;
+extern "C" void* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 #if defined(jpn)
-extern "C" void func_0205d304(Struct_ov000_02179cdc* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(Struct_ov000_02179cdc* windowManager, char* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern char data_ov000_02185169[];
 #else
-extern "C" void func_0205d304(Struct_ov000_02179cdc* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(Struct_ov000_02179cdc* windowManager, char* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 // USA: func_ov000_02179cdc
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov000_02179cdc(Struct_ov000_02176e3c* arg0, Struct_ov00
         return;
     }
     Struct_0209a678* var6 = func_ov000_02170cf8(arg1, data_ov000_02183510[var5->unknown_150_->unknown_950_]);
-    GameObject* var7 = func_0200ff1c(var3, arg1->unknown_4c_);
+    GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var3, arg1->unknown_4c_);
     if (var7 == 0) {
         return;
     }
@@ -148,14 +148,14 @@ extern "C" ARM void func_ov000_02179cdc(Struct_ov000_02176e3c* arg0, Struct_ov00
     func_020465d8((unsigned char*)var1, 1, 1);
     AppendText_02042058(var0, data_ov000_02185169);
 #else
-    AppendText_02042058(var0, func_020e51cc(0x3ec));
+    AppendText_02042058(var0, GetStandardString_020e51cc(0x3ec));
 #endif
     Struct_ov000_02179cdc* var10 = &arg0->unknown_188_;
-    if (func_0205d81c((Struct_0205d81c*)var10, 0x16) != 0) {
+    if (FindTextWindow_0205d81c((TextWindowManager_0205d81c*)var10, 0x16) != 0) {
 #if defined(jpn)
-        func_0205d5d0((Struct_0205d5d0*)var10, 0x16, (int)var0, 1);
+        SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)var10, 0x16, (int)var0, 1);
 #else
-        func_0205d5d0((Struct_0205d5d0*)var10, 0x16, (int)var0, 1, 0);
+        SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)var10, 0x16, (int)var0, 1, 0);
 #endif
         return;
     }
@@ -191,8 +191,8 @@ extern "C" ARM void func_ov000_02179cdc(Struct_ov000_02176e3c* arg0, Struct_ov00
     var10->unknown_ae_ = 0xe;
     var10->unknown_b1_ = 0x16;
 #if defined(jpn)
-    func_0205d304(var10, var0, 1, 0, 0, 1, 0);
+    OpenTextWindow_0205d304(var10, var0, 1, 0, 0, 1, 0);
 #else
-    func_0205d304(var10, var0, 1, 0, 0, 1, 0, 0);
+    OpenTextWindow_0205d304(var10, var0, 1, 0, 0, 1, 0, 0);
 #endif
 }

@@ -7,9 +7,6 @@
 #include "Resource/GameResources.h"
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 #if defined(jpn)
 enum { Enum_ov017_021ac3b0_2400 = 0x800 };
@@ -53,11 +50,11 @@ struct Struct_ov017_021ac3b0_5 {
 };
 extern "C" Struct_ov017_021ac3b0_8* GetZone3D_02012fe4();
 extern "C" Struct_ov017_021ac3b0_3* GetMessageWindow_020421a0();
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" int func_ov017_021959b4();
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_ov017_021ac32c(Struct_ov017_021ac3b0_2*);
-extern "C" int func_020100f8(char*);
+extern "C" int GetFollowCamera_020100f8(char*);
 extern "C" void func_020a28a0(unsigned char*, unsigned char);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void* func_020d7a50();
@@ -76,14 +73,14 @@ extern "C" void func_ov017_021acc8c(void*, Struct_02013fb4*, int, int);
 extern "C" Struct_ov017_021ac3b0_4* GetFlagManager_0205ec34();
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" void AppendText_02042058(char*, const char*);
-extern "C" const char* func_020e51cc(int);
+extern "C" const char* GetStandardString_020e51cc(int);
 extern "C" char* func_0206f504();
 extern "C" void func_0206f510(char*);
 extern "C" void func_0206f550(char*, char*, char*);
 extern "C" int func_020ac2d4(int, void*, Struct_ov017_021ac3b0*, int);
 extern "C" void func_020ac104(int, Struct_ov017_021ac3b0*, int);
-extern "C" void func_0206df6c(void*, unsigned char*, int, int);
-extern "C" void func_020397c0(void*);
+extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
+extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" int func_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(Struct_ov017_021ac3b0_5*);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
@@ -103,14 +100,14 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
     Struct_ov017_021ac3b0_8* var2 = GetZone3D_02012fe4();
     Struct_ov017_021ac3b0_3* var3 = GetMessageWindow_020421a0();
     BackgroundLoader* var4 = BackgroundLoader::GetInstance();
-    FontLoader_0208cb08* var5 = func_02094a00();
-    func_020397cc((Struct_02018300_3*)var1, 1);
+    FontLoader_0208cb08* var5 = GetFontLoader_02094a00();
+    DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
     if (!arg0->unknown_29_ && func_ov017_021959b4()) {
         arg0->unknown_29_ = 1; ResetMessageWindow_02043204((char*)var3);
         func_ov017_021ac32c(arg0); arg0->unknown_1_ = 1; return;
     }
     if (arg0->unknown_28_ == 0) {
-        int var6 = func_020100f8((char*)var0);
+        int var6 = GetFollowCamera_020100f8((char*)var0);
         if (var6) func_020a28a0((unsigned char*)var6, 3);
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         void* var7 = func_020d7a50();
@@ -125,10 +122,10 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
         func_02094b30(var5, 0x1f6, 1);
         arg0->unknown_28_++;
     } else if (arg0->unknown_28_ == 1) {
-        if (func_02094b4c(var5)) arg0->unknown_28_++;
+        if (UpdateFontLoad_02094b4c(var5)) arg0->unknown_28_++;
     } else if (arg0->unknown_28_ == 2) {
         func_020a0cc4(0x2800);
-        func_020397cc((Struct_02018300_3*)var1, 1);
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
         func_02033834((Struct_02033834_2*)var1, fix32ReduceAngle0To2Pi(arg0->unknown_8_->unknown_20_));
         Struct_ov017_021ac3b0_7* var8 = var2->unknown_8_;
         char var9[0x50];
@@ -180,8 +177,8 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
             else AppendText_02042058(var16, data_ov017_021d7eb0);
         } else AppendText_02042058(var16, data_ov017_021d7ed2);
 #else
-            else AppendText_02042058(var16, func_020e51cc(0x3f2));
-        } else AppendText_02042058(var16, func_020e51cc(0x53));
+            else AppendText_02042058(var16, GetStandardString_020e51cc(0x3f2));
+        } else AppendText_02042058(var16, GetStandardString_020e51cc(0x53));
 #endif
         if (strlen(var16) >= Enum_ov017_021ac3b0_2400) var16[Enum_ov017_021ac3b0_2400 - 1] = 0;
         char* var19 = func_0206f504();
@@ -208,14 +205,14 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
                     func_020ac104(0, var22, var21);
                 }
             }
-            func_0206df6c(var20, var20->unknown_8c_, arg0->unknown_c_->unknown_15_ + 0x114c, 1);
+            SetFlag_0206df6c(var20, var20->unknown_8c_, arg0->unknown_c_->unknown_15_ + 0x114c, 1);
         }
-        FontLoader_0208cb08* var25 = func_02094a00(); func_02094ab0(var25);
-        func_02094b34(var25, 0x6f, 0x1388, 1, 1);
+        FontLoader_0208cb08* var25 = GetFontLoader_02094a00(); CancelFontLoad_02094ab0(var25);
+        RequestFontLoad_02094b34(var25, 0x6f, 0x1388, 1, 1);
         arg0->unknown_28_ = 6;
     } else if (arg0->unknown_28_ == 6) {
-        if (!func_02094b4c(func_02094a00())) return;
-        func_ov017_021ac32c(arg0); func_020397c0(var1); arg0->unknown_1_ = 1;
+        if (!UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) return;
+        func_ov017_021ac32c(arg0); EnablePlayerControl_020397c0(var1); arg0->unknown_1_ = 1;
         Struct_ov017_021ac3b0_4* var26 = GetFlagManager_0205ec34();
         Struct_ov017_021ac3b0_5 var27;
         var27.unknown_c_ = var2->unknown_0_; var27.unknown_24_ = arg0->unknown_8_->unknown_0_;

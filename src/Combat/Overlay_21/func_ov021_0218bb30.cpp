@@ -32,7 +32,7 @@ extern "C" void func_020d86d0(int arg0, int arg1);
 extern "C" ARM void func_ov021_0218bb30(Struct_ov021_0218bb30* arg0)
 {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_020100bc(var0);
+    void* var1 = GetCamera_020100bc(var0);
     func_020c52e8();
     func_020c5414();
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 8;

@@ -56,7 +56,7 @@ extern "C" ARM void func_ov017_021bdc34(Struct_ov017_021bdc34_3* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov017_021bdc34_2* var1 = (Struct_ov017_021bdc34_2*)GetGameResources();
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
-    Struct_020236dc_2* var3 = (Struct_020236dc_2*)func_0200ff1c(var0, 0);
+    Struct_020236dc_2* var3 = (Struct_020236dc_2*)GetPartyMemberBaseByIndex_0200ff1c(var0, 0);
     if (var3 == 0) return;
     Struct_ov017_021bdc34* var4 = func_ov017_021a11b4((Struct_ov017_0218f064_6*)var1);
     if (var4 == 0) {

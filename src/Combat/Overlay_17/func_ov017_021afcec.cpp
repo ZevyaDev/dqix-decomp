@@ -8,7 +8,7 @@ extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_ov017_021b6c78(void);
 struct Struct_02018300_3;
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void func_ov017_021afb8c(char* arg0, char* arg1);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void func_02042764(char* arg0, void* arg1, int arg2);
@@ -18,7 +18,7 @@ extern "C" void func_ov017_0219aa5c(unsigned char* arg0);
 extern "C" int func_ov017_0218d268(void* arg0);
 struct Struct_020966cc;
 extern "C" void func_020966cc(struct Struct_020966cc* arg0);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 
 // USA: func_ov017_021afcec
 extern "C" ARM int func_ov017_021afcec(unsigned char* arg0) {
@@ -38,7 +38,7 @@ extern "C" ARM int func_ov017_021afcec(unsigned char* arg0) {
     if (arg0[Enum_ov017_021afcec_644] != 0) {
         GameObject* var4 = var0->GetUnknownGameObject();
         if (var4 != NULL) {
-            func_020397cc((struct Struct_02018300_3*)var4, 0);
+            DisablePlayerControl_020397cc((struct Struct_02018300_3*)var4, 0);
         }
     }
     if (arg0[9] != 2) {
@@ -66,6 +66,6 @@ extern "C" ARM int func_ov017_021afcec(unsigned char* arg0) {
 
     func_ov017_0219aa5c((unsigned char*)var1);
     func_020966cc((struct Struct_020966cc*)func_ov017_0218d268(var1));
-    func_020466e4(var3, 0x40000);
+    SetGlobalFlags_020466e4(var3, 0x40000);
     return 1;
 }

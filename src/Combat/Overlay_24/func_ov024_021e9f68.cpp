@@ -63,8 +63,8 @@ extern "C" int func_02085474(unsigned char* arg0);
 int NextRandomMax(struct Random* random, int maximum);
 extern "C" int func_ov000_02155f9c(struct Random* arg0, int arg1, int arg2);
 extern "C" int func_ov024_021ea500(struct Struct_ov024_021e9f68_3* arg0, struct Struct_ov024_021e9f68_4* arg1, int arg2);
-extern "C" int func_ov000_0215eb1c(struct Random* arg0, short* arg1, int arg2, int arg3);
-extern "C" int func_ov000_0215e9fc(struct Random* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(struct Random* battle, short* indices, int maxCount, int filterFlags);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(struct Random* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov000_02156558(struct Random* arg0, int arg1);
 
 static inline int inline_ov024_021e9f68(struct Struct_ov024_021e9f68_2* arg0, int arg1) {
@@ -110,7 +110,7 @@ extern "C" ARM int func_ov024_021e9f68(struct Struct_ov024_021e9f68_3* arg0, sho
         }
         int var7 = *arg2 >= 0 && *arg2 <= 3;
         if (var7) {
-            struct Struct_ov024_021e9f68_2* var8 = (Struct_ov024_021e9f68_2*)func_0200ff1c(var1, *arg2);
+            struct Struct_ov024_021e9f68_2* var8 = (Struct_ov024_021e9f68_2*)GetPartyMemberBaseByIndex_0200ff1c(var1, *arg2);
             if (var8 && func_02085474(var8->unknown_150_) && NextRandomMax(var4, 4) == 0) {
                 func_ov000_0215ff50(var3, *arg1, 1);
                 *arg1 = *arg2;
@@ -158,9 +158,9 @@ extern "C" ARM int func_ov024_021e9f68(struct Struct_ov024_021e9f68_3* arg0, sho
             int var13 = *arg2 >= 0 && *arg2 <= 3;
             int var14;
             if (var13) {
-                var14 = func_ov000_0215eb1c(arg0->unknown_10_, var12.unknown_0_, 8, 1);
+                var14 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0->unknown_10_, var12.unknown_0_, 8, 1);
             } else {
-                var14 = func_ov000_0215e9fc(arg0->unknown_10_, var12.unknown_0_, 8, 1);
+                var14 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0->unknown_10_, var12.unknown_0_, 8, 1);
             }
             if (*var6 < 0) {
                 *var6 = var12.unknown_0_[NextRandomMax(var4, var14)];
@@ -179,15 +179,15 @@ extern "C" ARM int func_ov024_021e9f68(struct Struct_ov024_021e9f68_3* arg0, sho
             int var18;
             if (var17) {
                 if (var15 < 2) {
-                    var18 = func_ov000_0215e9fc(arg0->unknown_10_, var16.unknown_0_, 8, 1);
+                    var18 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0->unknown_10_, var16.unknown_0_, 8, 1);
                 } else {
-                    var18 = func_ov000_0215eb1c(arg0->unknown_10_, var16.unknown_0_, 8, 1);
+                    var18 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0->unknown_10_, var16.unknown_0_, 8, 1);
                 }
             } else {
                 if (var15 < 2) {
-                    var18 = func_ov000_0215eb1c(arg0->unknown_10_, var16.unknown_0_, 8, 1);
+                    var18 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0->unknown_10_, var16.unknown_0_, 8, 1);
                 } else {
-                    var18 = func_ov000_0215e9fc(arg0->unknown_10_, var16.unknown_0_, 8, 1);
+                    var18 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0->unknown_10_, var16.unknown_0_, 8, 1);
                 }
             }
             if (*var6 < 0) {

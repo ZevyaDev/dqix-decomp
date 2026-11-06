@@ -15,7 +15,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_0202be08(struct Struct_0202b2f0* arg0, int arg1);
 extern "C" int func_0202be70(struct Struct_0202b2f0* arg0, int arg1);
 extern "C" int func_0202bed8(struct Struct_0202b2f0* arg0, int arg1);
-extern "C" char* func_0200ff58(GameState* arg0, int arg1);
+extern "C" char* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int func_020546a8(void* arg0);
 
 // USA: func_020dc920
@@ -38,7 +38,7 @@ extern "C" ARM int func_020dc920(int arg0, int arg1, int arg2, int arg3) {
             if (arg1 != 0 && arg0 != GetProtagonistObjectIndex_020100a8(var0)) {
                 if (func_0202be08(var2, arg0))
                     return 0;
-                char* var5 = func_0200ff58(var0, arg0);
+                char* var5 = GetCompanionByIndex_0200ff58(var0, arg0);
                 if (var5 != NULL) {
                     int var6 = func_020546a8(var5);
                     if (func_0202be08(var2, var6)) {
@@ -48,7 +48,7 @@ extern "C" ARM int func_020dc920(int arg0, int arg1, int arg2, int arg3) {
                 }
                 if (func_0202bed8(var2, arg0))
                     return 0;
-                var5 = func_0200ff58(var0, arg0);
+                var5 = GetCompanionByIndex_0200ff58(var0, arg0);
                 if (var5 != NULL) {
                     int var7 = func_020546a8(var5);
                     if (func_0202bed8(var2, var7)) {

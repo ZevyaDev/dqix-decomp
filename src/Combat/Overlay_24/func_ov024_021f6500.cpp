@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-extern "C" int func_ov000_0215eb1c(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
 extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
 
@@ -21,7 +21,7 @@ extern "C" ARM int func_ov024_021f6500(struct Struct_ov024_021f6500* arg0, int a
 		*var4 = *var2++;
 	} while (--var3);
 
-	int var5 = func_ov000_0215eb1c(arg0->unknown_0_, var0, 8, 1);
+	int var5 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0->unknown_0_, var0, 8, 1);
 	if (var5 <= 0) return 0;
 
 	*arg3 = 0;

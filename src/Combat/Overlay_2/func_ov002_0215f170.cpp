@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 struct Struct_ov002_0215624c_11;
-extern "C" void func_0205de24(struct Struct_ov002_0215624c_11 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
 #if defined(jpn)
 enum { Enum_ov002_0215f170_3784 = 0xe20, Enum_ov002_0215f170_7096 = 0x1a80, Enum_ov002_0215f170_7120 = 0x1a98, Enum_ov002_0215f170_2400 = 0x800 };
 #define FINAL_ARG_0215f170
@@ -14,9 +14,9 @@ extern "C" void func_ov002_0215f224(char *arg0, char *arg1, int arg2);
 extern "C" void func_ov002_0215be00(char *arg0, int arg1, int arg2, int arg3);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 #if defined(jpn)
-extern "C" int func_0205d304(char *arg0, char *arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" int OpenTextWindow_0205d304(char *windowManager, char *text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" int func_0205d304(char *arg0, char *arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" int OpenTextWindow_0205d304(char *windowManager, char *text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 struct Struct_ov002_0215f170 {
@@ -32,9 +32,9 @@ extern "C" ARM int func_ov002_0215f170(char *arg0) {
     if (var0->unknown_58_ > 1) {
         var1 = 1;
     }
-    func_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + Enum_ov002_0215f170_3784), 0, 3);
+    SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + Enum_ov002_0215f170_3784), 0, 3);
     func_ov002_0215be00(arg0, *(int *) (arg0 + Enum_ov002_0215f170_7096) & 0xff, 0x11, 1);
     memset(*(char **) (arg0 + Enum_ov002_0215f170_7120), 0, Enum_ov002_0215f170_2400);
     func_ov002_0215f224(arg0, *(char **) (arg0 + Enum_ov002_0215f170_7120), 0);
-    return func_0205d304(arg0 + Enum_ov002_0215f170_3784, *(char **) (arg0 + Enum_ov002_0215f170_7120), 0, 0, var1, 1, 0 FINAL_ARG_0215f170);
+    return OpenTextWindow_0205d304(arg0 + Enum_ov002_0215f170_3784, *(char **) (arg0 + Enum_ov002_0215f170_7120), 0, 0, var1, 1, 0 FINAL_ARG_0215f170);
 }

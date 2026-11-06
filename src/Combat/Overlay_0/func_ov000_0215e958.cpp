@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-// USA: func_ov000_0215e958
-extern "C" ARM void* func_ov000_0215e958(char* arg0) {
-    int var0 = *(unsigned char*)(arg0 + 0x8e02);
-    if (var0 >= 0x168) {
+// USA: GetNextActionResult_ov000_0215e958
+extern "C" ARM void* GetNextActionResult_ov000_0215e958(char* battle) {
+    int resultCount = *(unsigned char*)(battle + 0x8e02);
+    if (resultCount >= 0x168) {
         return 0;
     }
-    char* var1 = arg0 + 0x21e0 + var0 * 0x24;
-    memset(var1, 0, 0x20);
-    *(int*)(var1 + 0x20) = 0;
-    return arg0 + 0x21e0 + *(unsigned char*)(arg0 + 0x8e02) * 0x24;
+    char* result = battle + 0x21e0 + resultCount * 0x24;
+    memset(result, 0, 0x20);
+    *(int*)(result + 0x20) = 0;
+    return battle + 0x21e0 + *(unsigned char*)(battle + 0x8e02) * 0x24;
 }

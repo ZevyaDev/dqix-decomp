@@ -22,7 +22,7 @@ struct Struct_ov000_0216e3c4 {
 struct Struct_ov000_0216d368 { int unknown_0_, unknown_4_, unknown_8_; };
 struct Struct_0202e6a8;
 extern "C" void func_ov000_0216d370(Struct_020a212c_2*, int, int, int);
-extern "C" int func_ov000_0215e9fc(Random*, short*, int, int);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(Random*, short*, int, int);
 extern "C" void func_0202e5d8(Struct_020a212c_2*, int, int, int);
 extern "C" Struct_ov000_0216e3c4* func_0200fea4(GameState*, int);
 extern "C" void func_0202e5c8(unsigned char*, int, int, int);
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov000_0216e3c4(Struct_020a212c_2* arg0) {
     int var2 = -1;
     if (var1) var2 = var1->obj3D_.GetField06();
     short var3[4];
-    int var4 = func_ov000_0215e9fc(arg0->unknown_21c_, var3, 4, 0);
+    int var4 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0->unknown_21c_, var3, 4, 0);
     Vector3i var5 = {};
     int var6 = 0;
     for (int var7 = 0; var7 < var4; var7++) {
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov000_0216e3c4(Struct_020a212c_2* arg0) {
         var11 = 0xc000;
     }
     int var13 = 0;
-    var4 = func_ov000_0215e9fc(arg0->unknown_21c_, var3, 4, 1);
+    var4 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0->unknown_21c_, var3, 4, 1);
     if (var4 > 0) {
         int var14 = NextRandomMax(arg0->unknown_21c_, var4);
         GameObject* var15 = var0->GetGameObjectByIndex(var3[var14]);

@@ -1,26 +1,26 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Struct_0205d81c {
+struct TextWindowManager_0205d81c {
     char unknown_0_[0xb0];
     unsigned char unknown_b0_;
 };
-struct Struct_0205d0e0 {
+struct TextWindow_0205d0e0 {
     char unknown_0_[0xa8];
     short unknown_a8_;
     short unknown_aa_;
     short unknown_ac_;
     short unknown_ae_;
 };
-extern "C" Struct_0205d0e0* func_0205d81c(Struct_0205d81c*, int);
+extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 
 // USA: func_0205d97c
-extern "C" ARM int func_0205d97c(Struct_0205d81c* arg0) {
+extern "C" ARM int func_0205d97c(TextWindowManager_0205d81c* arg0) {
     if (!g_touchInput.pressed_) return -1;
-    Struct_0205d0e0* var0;
+    TextWindow_0205d0e0* var0;
     int var1;
     int var2;
-    var0 = func_0205d81c(arg0, arg0->unknown_b0_);
+    var0 = FindTextWindow_0205d81c(arg0, arg0->unknown_b0_);
     if (var0 == NULL) return 0;
     g_touchInput.GetTouchPoint(&var1, &var2);
     if (var1 == 0 || var2 == 0) return 0;

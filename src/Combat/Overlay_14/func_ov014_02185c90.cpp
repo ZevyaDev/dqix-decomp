@@ -94,7 +94,7 @@ struct PacEntry_02020cb8_4;
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
-extern "C" void func_0204c684(void*);
+extern "C" void InitTextWindow_0204c684(void*);
 struct Struct_02097054_5;
 extern "C" int func_02097224(Struct_02097054_5*, int);
 extern "C" void __clear(void*, int);
@@ -111,12 +111,12 @@ extern "C" void* func_ov014_021893c4(Struct_ov014_02185c90_3*, int);
 extern "C" struct Struct_ov000_021700dc* func_ov014_0218940c(void*, int, void*);
 extern "C" int* func_ov014_02189430(void*, int, void*);
 extern "C" void func_ov023_021e257c(void*);
-struct Struct_02020cb8;
-extern "C" void func_0204af64(Struct_02020cb8*);
-extern "C" void func_0204b11c(unsigned char*, int);
-extern "C" void func_0204b5b4(void*, int);
-struct Struct_02020cb8_5;
-extern "C" void func_0204b5e8(Struct_02020cb8_5*, int, int);
+struct BGLayer_02020cb8;
+extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char*, int);
+extern "C" void SetBGPriority_0204b5b4(void*, int);
+struct BGLayer_02020cb8_5;
+extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
 extern "C" void func_0204b4c0(void*, void*);
 extern "C" void func_0204b2e0(void*, char*);
 struct Struct_02020cb8_6;
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov014_02185c90(struct Struct_ov000_0217c638_2* arg0) {
         if (var12 != 0) {
             char* var13 = (char*)GetPacEntryData_020467f0((PacEntry_02020aec*)var2, 0, &var1, &var4);
             if (var13 != 0) {
-                func_0204c684(&var5);
+                InitTextWindow_0204c684(&var5);
                 var5.unknown_a8_ = 0x20;
                 var5.unknown_aa_ = 0x18;
                 var5.unknown_b4_ = 0xa;
@@ -282,12 +282,12 @@ extern "C" ARM void func_ov014_02185c90(struct Struct_ov000_0217c638_2* arg0) {
                 var32->unknown_4_ = &var5;
                 var32->unknown_12_ = 1;
                 func_ov023_021e257c(arg0->unknown_58_);
-                func_0204af64((Struct_02020cb8*)&var11);
-                func_0204b11c((unsigned char*)&var11, 0);
+                InitBGLayer_0204af64((BGLayer_02020cb8*)&var11);
+                SetBGScreenSize_0204b11c((unsigned char*)&var11, 0);
                 var11.unknown_1c_0_ = 0;
                 var11.unknown_1c_4_ = 1;
-                func_0204b5b4(&var11, 1);
-                func_0204b5e8((Struct_02020cb8_5*)&var11, 0, 0);
+                SetBGPriority_0204b5b4(&var11, 1);
+                SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&var11, 0, 0);
                 for (int var33 = 0; var33 < var12; var33++) {
                     void* var34 = GetPacEntryData_020467f0((PacEntry_02020aec*)var2, var33, &var1, &var4);
                     if (var34) {
@@ -310,12 +310,12 @@ extern "C" ARM void func_ov014_02185c90(struct Struct_ov000_0217c638_2* arg0) {
         struct Struct_ov014_02185c90_6 var39;
         var0->GetLoadedFileByID(arg0->unknown_70_, &var36, &var37);
         int var40 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var36);
-        func_0204af64((Struct_02020cb8*)&var39);
-        func_0204b11c((unsigned char*)&var39, 0);
+        InitBGLayer_0204af64((BGLayer_02020cb8*)&var39);
+        SetBGScreenSize_0204b11c((unsigned char*)&var39, 0);
         var39.unknown_1c_0_ = 0;
         var39.unknown_1c_4_ = 1;
-        func_0204b5b4(&var39, 1);
-        func_0204b5e8((Struct_02020cb8_5*)&var39, 0, 0);
+        SetBGPriority_0204b5b4(&var39, 1);
+        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&var39, 0, 0);
         for (int var41 = 0; var41 < var40; var41++) {
             void* var42 = GetPacEntryData_020467f0((PacEntry_02020aec*)var36, var41, &var35, &var38);
             if (var42) {

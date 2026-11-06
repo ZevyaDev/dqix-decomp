@@ -4,7 +4,7 @@
 #define data_ov003_02180cc8 data_ov003_0217ef40
 #endif
 extern "C" void func_020e2490(Struct_020e2490*, int, int, void*, SafeAllocator*, int, unsigned char);
-extern "C" void func_0205a198(Struct_02043368_2*);
+extern "C" void InitSprite_0205a198(Sprite_02043368_2*);
 extern unsigned int data_ov003_02180cc8[2];
 
 #if defined(jpn)
@@ -17,7 +17,7 @@ char data_ov003_0217ece4[] = "\x82\xbb\x82\xa4\x82\xd1\x82\xc8\x82\xb5";
 extern "C" ARM void func_ov003_02173f70(Struct_ov003_02173f70* arg0, SafeAllocator* arg1) {
     if (arg1 != NULL) {
         arg0->unknown_4_ = static_cast<SafeAllocator*>(arg1->Allocate(0x78));
-        arg0->unknown_830_ = static_cast<Struct_02043368_2*>(arg1->Allocate(0x528));
+        arg0->unknown_830_ = static_cast<Sprite_02043368_2*>(arg1->Allocate(0x528));
         arg0->unknown_89c_ = static_cast<Struct_0207f7f0*>(arg1->Allocate(sizeof(Struct_0207f7f0)));
         arg0->unknown_82c_ = static_cast<Struct_02043368*>(arg1->Allocate(8));
         arg0->unknown_0_ = static_cast<Struct_020e2490*>(arg1->Allocate(0x24));
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov003_02173f70(Struct_ov003_02173f70* arg0, SafeAllocat
         func_0207f7f0(arg0->unknown_89c_, arg0->unknown_8e0_, 8);
         arg0->unknown_89c_->unknown_3a_ = 2;
         for (unsigned char var4 = 0; var4 < 0x21; ++var4)
-            func_0205a198(&arg0->unknown_830_[var4]);
+            InitSprite_0205a198(&arg0->unknown_830_[var4]);
         arg0->unknown_828_ = 0;
         arg0->unknown_818_ = arg0->unknown_830_;
         arg0->unknown_824_ = 0x21;

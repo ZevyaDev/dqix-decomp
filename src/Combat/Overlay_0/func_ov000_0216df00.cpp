@@ -6,7 +6,7 @@ int fix32abs(int);
 int Vector3fixSquaredDistance(const Vector3i*,const Vector3i*);
 extern "C" void func_ov000_0216d530(void*,int);
 extern "C" void func_0202e5c8(unsigned char*,int,int,int);
-extern "C" void* func_ov000_02160130();
+extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" { void func_ov000_0216d370(void*,int,int,int); void func_0202e5d8(void*,int,int,int); void func_ov000_02167f10(void*); }
 struct Struct_ov000_0216df00 { char unknown_0_[0x10]; Vector3i unknown_10_; char unknown_1c_[0x5c-0x1c]; int unknown_5c_,unknown_60_; char unknown_64_[0x220-0x64]; unsigned char unknown_220_; char unknown_221_[3]; int unknown_224_; char unknown_228_[0x23c-0x228]; int unknown_23c_; };
 inline int inline_ov000_021537b8(int arg0) { return arg0>=0 && arg0<=3; }
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov000_0216df00(Struct_ov000_0216df00* arg0,int arg1,int
     var15.x=var16[0]; var15.z=var16[1];
     if(var17) {
         var15.y=0xcc;
-        func_ov000_02167f10(func_ov000_02160130());
+        func_ov000_02167f10(GetBattleScene_ov000_02160130());
         var0->obj3D_.position_=var15;
     }
 }

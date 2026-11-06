@@ -11,7 +11,7 @@ extern "C" void func_ov023_021f6e10(void* arg0, int arg1, unsigned int arg2);
 extern "C" int GetMessageWindow_020421a0();
 
 extern "C" int func_ov023_021fad20(const void* arg0, const char* arg1, const void** arg2, unsigned int* arg3);
-extern "C" void func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
+extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, void* allocator);
 
 struct Struct_02043368;
 extern "C" void func_0205a234(struct Struct_02043368* arg0);
@@ -40,20 +40,20 @@ extern "C" ARM void func_ov023_021fab48(void* arg0, void* arg1, const void* arg2
     const void* var1;
     unsigned int var2;
     if (func_ov023_021fad20(arg2, data_ov023_021fec44, &var1, &var2) != 0) {
-        func_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
+        LoadSpriteSetFile_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
     }
     if (func_ov023_021fad20(arg2, data_ov023_021fec49, &var1, &var2) != 0) {
-        func_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
+        LoadSpriteSetFile_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
     }
     if (func_ov023_021fad20(arg2, data_ov023_021fec4e, &var1, &var2) != 0) {
-        func_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
+        LoadSpriteSetFile_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
     }
     if (func_ov023_021fad20(arg2, data_ov023_021fec53, &var1, &var2) != 0) {
         void* var3 = ((SafeAllocator*)((char*)var0 + 4))->Allocate(8);
         if (var3 != 0) {
             func_0205a234((struct Struct_02043368*)var3);
             *(void**)((char*)arg0 + Enum_ov023_021fab48_96) = var3;
-            func_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
+            LoadSpriteSetFile_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
         }
     }
 

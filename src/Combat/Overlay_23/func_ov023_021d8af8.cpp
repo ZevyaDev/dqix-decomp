@@ -3,8 +3,8 @@
 struct Struct_0205d67c;
 extern "C" int func_0205d67c(struct Struct_0205d67c*);
 
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(struct Struct_0205d6a0*, int);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0*, int);
 
 struct Struct_02074bf4;
 extern "C" void func_02074bf4(struct Struct_02074bf4*);
@@ -16,7 +16,7 @@ extern "C" void func_0205cfd4(struct Struct_0205cfd4*);
 extern "C" ARM void func_ov023_021d8af8(void* arg0) {
     void* var0 = (char*)arg0 + 0x20;
     if (func_0205d67c((struct Struct_0205d67c*)var0)) {
-        func_0205d6a0((struct Struct_0205d6a0*)var0, 1);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)var0, 1);
     }
     *(int*)arg0 = 0;
     int* var1 = (int*)0x4001000;

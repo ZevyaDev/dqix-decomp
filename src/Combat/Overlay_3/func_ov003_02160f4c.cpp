@@ -14,9 +14,9 @@ extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0 *window, int index, int number);
 extern "C" void *__clear(void *arg0, int arg1);
-extern "C" void func_02046574(Struct_02046574_2 *arg0, int arg1, char *arg2);
+extern "C" void SetMessageString_02046574(Struct_02046574_2 *window, int index, char *text);
 extern "C" void *FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
-extern "C" void func_020e4bf4(void *arg0, int arg1);
+extern "C" void InitPartyMemberNoun_020e4bf4(void *noun, int partyMemberIndex);
 extern "C" void *func_ov003_02160bf8(void *arg0, int arg1);
 extern "C" void func_02042764(void *arg0, void *arg1, int arg2);
 extern "C" void func_020e4b34(void *, const char *, void *, unsigned int, unsigned char, unsigned char, unsigned char,
@@ -40,18 +40,18 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
         if (*(unsigned int *) (arg0 + 0x28c) & 4) {
             unsigned char *var1 = arg0 + *(short *) (arg0 + 0x200 + 0xc0) * 0x1b;
             if ((signed char) var1[1] != 0) {
-                func_02046574((Struct_02046574_2 *) var0, 0, (char *) (var1 + 1));
+                SetMessageString_02046574((Struct_02046574_2 *) var0, 0, (char *) (var1 + 1));
             } else {
-                func_02046574(
+                SetMessageString_02046574(
                     (Struct_02046574_2 *) var0, 0,
                     (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x1c4), 0x7530));
             }
             *(unsigned int *) (arg0 + 0x28c) &= ~4u;
         }
         if (*(unsigned int *) (arg0 + 0x28c) & 0x10) {
-            char *var2 = (char *) func_0200ff1c(GameState::GetInstance(), *(short *) (arg0 + 0x200 + 0xaa));
+            char *var2 = (char *) GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), *(short *) (arg0 + 0x200 + 0xaa));
             if (var2 != 0) {
-                func_02046574((Struct_02046574_2 *) var0, 0, *(char **) (var2 + 0x134));
+                SetMessageString_02046574((Struct_02046574_2 *) var0, 0, *(char **) (var2 + 0x134));
             }
             *(unsigned int *) (arg0 + 0x28c) &= ~0x10u;
             if (*(short *) (arg0 + 0x200 + 0xac) == 0x54) {
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
         } else if ((*(unsigned int *) (arg0 + 0x28c) & 0x28) || *(short *) (arg0 + 0x200 + 0xac) == 0xe) {
             unsigned char *var3 = (unsigned char *) func_ov003_02160bf8(arg0, *(short *) (arg0 + 0x200 + 0xa8));
             if (var3 != 0) {
-                func_02046574((Struct_02046574_2 *) var0, 0, (char *) (var3 + 0x140));
+                SetMessageString_02046574((Struct_02046574_2 *) var0, 0, (char *) (var3 + 0x140));
             }
             *(unsigned int *) (arg0 + 0x28c) &= ~0x28u;
         }
@@ -132,16 +132,16 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
         if (*(unsigned int *) (arg0 + 0x464) & 4) {
             unsigned char *var12 = arg0 + *(short *) (arg0 + 0x400 + 0x98) * 0x37;
             if ((signed char) var12[1] != 0) {
-                func_02046574((Struct_02046574_2 *) var7, 0, (char *) (var12 + 1));
+                SetMessageString_02046574((Struct_02046574_2 *) var7, 0, (char *) (var12 + 1));
             } else {
-                func_02046574(
+                SetMessageString_02046574(
                     (Struct_02046574_2 *) var7, 0,
                     (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x2dc), 0x7530));
             }
             *(unsigned int *) (arg0 + 0x464) &= ~4u;
         }
         if (*(unsigned int *) (arg0 + 0x464) & 0x10) {
-            func_020e4bf4(var9, *(short *) (arg0 + 0x400 + 0x82));
+            InitPartyMemberNoun_020e4bf4(var9, *(short *) (arg0 + 0x400 + 0x82));
             *(void **) (var7 + 0x10) = var9;
             *(unsigned int *) (arg0 + 0x464) &= ~0x10u;
             if (*(short *) (arg0 + 0x400 + 0x84) == 0x54 || *(short *) (arg0 + 0x400 + 0x84) == 0x55) {

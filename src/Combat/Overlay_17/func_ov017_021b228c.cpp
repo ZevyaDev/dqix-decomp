@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_02018300_3;
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 
 struct Struct_ov017_021b228c;
 typedef int (Struct_ov017_021b228c::*Type_02000c9c_3)();
@@ -16,7 +16,7 @@ extern int data_ov017_021d83f0;
 extern "C" ARM void func_ov017_021b228c(unsigned char* arg0) {
     GameObject* var0 = GameState::GetInstance()->GetUnknownGameObject();
     if (var0 != NULL) {
-        func_020397cc((struct Struct_02018300_3*)var0, 1);
+        DisablePlayerControl_020397cc((struct Struct_02018300_3*)var0, 1);
     }
     if (!(data_ov017_021d83f0 & 1)) {
         data_ov017_021d79e0[8] = data_020e6d5c;

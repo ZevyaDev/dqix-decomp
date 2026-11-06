@@ -3,7 +3,7 @@
 #include <std_library_functions.h>
 
 struct Struct_0205a658 { unsigned short unknown_0_, unknown_2_, unknown_4_; };
-struct Struct_02043368_2 {
+struct Sprite_02043368_2 {
     unsigned short unknown_0_, unknown_2_;
     Struct_0205a658* unknown_4_;
     Struct_0205a658* unknown_8_;
@@ -21,14 +21,14 @@ struct Struct_0205a658_3 {
     char unknown_0_[0x38];
     int unknown_38_;
     int unknown_3c_;
-    Struct_02043368_2* unknown_40_;
+    Sprite_02043368_2* unknown_40_;
     int unknown_44_;
     unsigned int unknown_48_;
     unsigned short unknown_4c_, unknown_4e_;
 };
 extern "C" int func_020b00a4(void*, void**);
 extern "C" void* func_020b00e0(Struct_0205a658_2*, unsigned int);
-extern "C" void func_0205a198(Struct_02043368_2*);
+extern "C" void InitSprite_0205a198(Sprite_02043368_2*);
 
 // USA: func_0205a658
 extern "C" ARM int func_0205a658(Struct_0205a658_3* arg0, void* arg1, unsigned int arg2, SafeAllocator* arg3) {
@@ -43,22 +43,22 @@ extern "C" ARM int func_0205a658(Struct_0205a658_3* arg0, void* arg1, unsigned i
     if (!var0) return 1;
     if (arg3 && !arg0->unknown_40_) {
         arg0->unknown_4c_ = var1->unknown_0_;
-        arg0->unknown_40_ = (Struct_02043368_2*)arg3->Allocate(arg0->unknown_4c_ * sizeof(Struct_02043368_2));
-        for (unsigned short var2 = 0; var2 < arg0->unknown_4c_; ++var2) func_0205a198(&arg0->unknown_40_[var2]);
+        arg0->unknown_40_ = (Sprite_02043368_2*)arg3->Allocate(arg0->unknown_4c_ * sizeof(Sprite_02043368_2));
+        for (unsigned short var2 = 0; var2 < arg0->unknown_4c_; ++var2) InitSprite_0205a198(&arg0->unknown_40_[var2]);
     }
-    Struct_02043368_2* var3;
+    Sprite_02043368_2* var3;
     unsigned short var4 = arg0->unknown_4c_;
     unsigned short var5;
     var3 = arg0->unknown_40_;
     if (var3 && var4 && arg3) {
-        Struct_02043368_2* var6;
-        Struct_02043368_2* var7;
+        Sprite_02043368_2* var6;
+        Sprite_02043368_2* var7;
         unsigned short var8;
         var5 = var1->unknown_0_;
         unsigned short var9 = 0;
         for (var8 = 0; var8 < var5; ++var8) {
             if (var4 <= var8) break;
-            var7 = (Struct_02043368_2*)func_020b00e0(var1, var8);
+            var7 = (Sprite_02043368_2*)func_020b00e0(var1, var8);
             if (!var7) break;
             unsigned short var10 = var7->unknown_0_;
             var6 = &var3[var8];
@@ -83,7 +83,7 @@ extern "C" ARM int func_0205a658(Struct_0205a658_3* arg0, void* arg1, unsigned i
     arg0->unknown_4e_ = var1->unknown_0_;
     arg0->unknown_38_ = var1->unknown_8_;
     int var15;
-    Struct_02043368_2* var16 = (Struct_02043368_2*)func_020b00e0(var1, (unsigned short)(var1->unknown_0_ - 1));
+    Sprite_02043368_2* var16 = (Sprite_02043368_2*)func_020b00e0(var1, (unsigned short)(var1->unknown_0_ - 1));
     if (!var16) return 1;
     struct { int unknown_0_; Struct_0205a658* unknown_4_; } var17;
     var17.unknown_0_ = arg0->unknown_38_;

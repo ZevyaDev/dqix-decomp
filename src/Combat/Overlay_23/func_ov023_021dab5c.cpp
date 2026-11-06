@@ -5,7 +5,7 @@
 #include "Graphics/SpriteAffineTransform.h"
 
 extern "C" int func_0205bafc(void*);
-extern "C" void func_0205ac40(Struct_0205ac40*, Struct_0205ac40_2*);
+extern "C" void DrawSprite_0205ac40(SpriteSet_0205ac40*, Sprite_0205ac40_2*);
 
 extern "C" ARM void func_ov023_021dab5c(Struct_ov009_021842a0* arg0, int arg1, int arg2, int arg3, int arg4) {
     int var0 = arg4 << 12;
@@ -33,24 +33,24 @@ extern "C" ARM void func_ov023_021dab5c(Struct_ov009_021842a0* arg0, int arg1, i
         var4 = var9 - 0x4000;
         var6 = var10 - 0x4000;
     }
-    fix32_t* var11 = arg0->unknown_7e8_[21].unknown_14_;
+    fix32_t* var11 = arg0->unknown_7e8_[21].position_14_;
     var11[0] = var3;
     var11[1] = var5;
-    var11 = arg0->unknown_7e8_[22].unknown_14_;
+    var11 = arg0->unknown_7e8_[22].position_14_;
     var11[0] = var4;
     var11[1] = var5;
-    var11 = arg0->unknown_7e8_[23].unknown_14_;
+    var11 = arg0->unknown_7e8_[23].position_14_;
     var11[0] = var3;
     var11[1] = var6;
-    var11 = arg0->unknown_7e8_[24].unknown_14_;
+    var11 = arg0->unknown_7e8_[24].position_14_;
     var11[0] = var4;
     var11[1] = var6;
     for (int var12 = 0; var12 < 4; ++var12)
-        func_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[var12 + 21]);
+        DrawSprite_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[var12 + 21]);
 }
 #else
 extern "C" int func_0205bafc(void* arg0);
-extern "C" void func_0205ac40(void* arg0, void* arg1);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 // USA: func_ov023_021dab5c
 extern "C" ARM void func_ov023_021dab5c(void* arg0, int arg1, int arg2, int arg3, int arg4) {
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov023_021dab5c(void* arg0, int arg1, int arg2, int arg3
 
     int var26;
     for (var26 = 0; var26 < 4; var26++) {
-        func_0205ac40(*(void**)(var13 + 0x7e4), var25 + (var26 + 0x15) * 0x28);
+        DrawSprite_0205ac40(*(void**)(var13 + 0x7e4), var25 + (var26 + 0x15) * 0x28);
     }
 }
 #endif

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_0204c684(void* arg0);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
 #if defined(jpn)
 #define func_ov023_021dcedc func_ov023_021dd7e0
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov023_021dd344(struct Struct_ov023_021dd344* arg0) {
     if (!arg0->unknown_79b_1_) return;
 
     char var0[0xe0];
-    func_0204c684(var0);
+    InitTextWindow_0204c684(var0);
 
     if (!func_ov023_021ddc34(var0, 3, 0x10, 0x1a, 6)) return;
 

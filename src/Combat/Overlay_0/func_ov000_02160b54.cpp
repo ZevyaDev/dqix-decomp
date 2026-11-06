@@ -19,7 +19,7 @@ extern "C" void func_ov025_021df864(void* arg0);
 extern "C" ARM void func_ov000_02160b54(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
     unsigned int* var1 = ((unsigned int*)GetGameResources());
-    func_020100bc(var0);
+    GetCamera_020100bc(var0);
     if (!(*(int*)(arg0 + Enum_ov000_02160b54_22004) & 0x200)) {
         return;
     }

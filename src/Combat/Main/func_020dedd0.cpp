@@ -23,33 +23,33 @@ struct ItemTable_0201099c_10 {
     unsigned char isSorted_14_;
 };
 
-// USA: func_020dedd0
-extern "C" ARM struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1) {
-    int var0;
-    struct ItemData_0201099c_9* var1;
-    unsigned short var2;
-    if (arg1 < 0) {
+// USA: FindItemData_020dedd0
+extern "C" ARM struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId) {
+    int i;
+    struct ItemData_0201099c_9* item;
+    unsigned short count;
+    if (itemId < 0) {
         return NULL;
     }
-    if (arg0->isSorted_14_ != 0) {
-        return func_020de650((struct Struct_020de5b0_2*)arg0, arg1, (Type_020de5fc)func_020de56c);
+    if (itemTable->isSorted_14_ != 0) {
+        return func_020de650((struct Struct_020de5b0_2*)itemTable, itemId, (Type_020de5fc)func_020de56c);
     }
-    var1 = arg0->pItems_c_;
-    if (var1 == NULL || (Type_020de5fc)func_020de56c == NULL) {
-        var1 = NULL;
+    item = itemTable->pItems_c_;
+    if (item == NULL || (Type_020de5fc)func_020de56c == NULL) {
+        item = NULL;
         goto done;
     }
-    var2 = arg0->unknown_0_;
-    if (var2 == 0) {
-        var1 = NULL;
+    count = itemTable->unknown_0_;
+    if (count == 0) {
+        item = NULL;
         goto done;
     }
-    for (var0 = 0; var0 < var2; var0++, var1++) {
-        if (arg1 == func_020de56c(var1)) {
+    for (i = 0; i < count; i++, item++) {
+        if (itemId == func_020de56c(item)) {
             goto done;
         }
     }
-    var1 = NULL;
+    item = NULL;
 done:
-    return var1;
+    return item;
 }

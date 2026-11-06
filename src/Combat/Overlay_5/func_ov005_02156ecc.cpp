@@ -77,7 +77,7 @@ extern "C" short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
 extern "C" signed char* func_0207c60c(void* arg0, unsigned int arg1);
 extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
 // USA: func_ov005_02156ecc
 extern "C" ARM void func_ov005_02156ecc(Struct_ov005_02153954* arg0, int arg1, int arg2) {
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov005_02156ecc(Struct_ov005_02153954* arg0, int arg1, i
         }
     }
     func_ov005_021579ec(arg0, arg0->unknown_3db8_, arg0->unknown_3dbb_);
-    func_0205bb04(arg0->unknown_19f4_, arg0->unknown_3dbb_ - 8);
+    SetMenuCursorIndex_0205bb04(arg0->unknown_19f4_, arg0->unknown_3dbb_ - 8);
     var0->unknown_634_ |= 0x1 | 0x80;
     arg0->unknown_3dcc_ |= 0x4 | 0x8;
 }

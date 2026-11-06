@@ -17,7 +17,7 @@ struct Struct_020200c0_4 {
 };
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void func_02023064(struct Struct_020200c0_3* arg0, unsigned int arg1, short* arg2, short* arg3, short* arg4, short* arg5);
 extern "C" void func_0205b20c(struct Struct_020200c0_4* arg0);
@@ -63,8 +63,8 @@ extern "C" ARM void func_020230fc(Struct_02020554* arg0, char* arg1, int arg2) {
         func_02023064(var4, 0x12, var0, var1, var2, var3);
 
 #if defined(jpn)
-        int var11 = (func_020d2ff0(var10->substruct_c_.unknown1_2a_) / 2 * 10) / 8 + 1;
-        var7 = var11 * 8 - func_020d2ff0(var10->substruct_c_.unknown1_2a_) / 2 * 10;
+        int var11 = (GetStringLength_020d2ff0(var10->substruct_c_.unknown1_2a_) / 2 * 10) / 8 + 1;
+        var7 = var11 * 8 - GetStringLength_020d2ff0(var10->substruct_c_.unknown1_2a_) / 2 * 10;
         var7 /= 2;
 #else
         var8 = arg0->unknown_be4_;

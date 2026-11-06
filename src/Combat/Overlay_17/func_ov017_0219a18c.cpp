@@ -13,28 +13,28 @@ struct Struct_ov017_02199684 { unsigned char unknown_0_[0x14]; int unknown_14_; 
 extern "C" void func_ov017_02199684(Struct_ov017_02199684* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021996bc(Struct_ov017_02199684* arg0, int arg1);
 
-struct Struct_0205d1e0;
+struct TextWindowManager_0205d1e0;
 struct Struct_0205d228;
-struct Struct_0205d274;
-extern "C" void func_0205d1e0(Struct_0205d1e0*);
+struct TextWindowManager_0205d274;
+extern "C" void func_0205d1e0(TextWindowManager_0205d1e0*);
 extern "C" void func_0205d228(Struct_0205d228*);
-extern "C" void func_0205d274(Struct_0205d274*);
+extern "C" void func_0205d274(TextWindowManager_0205d274*);
 extern "C" void func_0205da88(void*, int, int, int);
-struct Struct_0205d2bc;
-extern "C" void func_0205d2bc(Struct_0205d2bc*);
+struct TextWindowManager_0205d2bc;
+extern "C" void func_0205d2bc(TextWindowManager_0205d2bc*);
 
-struct Struct_0205d0e0 {
+struct TextWindow_0205d0e0 {
     char unknown_0_[0xA8];
     short unknown_a8_;
     short unknown_aa_;
     short unknown_ac_;
     short unknown_ae_;
 };
-struct Struct_0205d81c;
-extern "C" Struct_0205d0e0* func_0205d81c(Struct_0205d81c* arg0, int arg1);
+struct TextWindowManager_0205d81c;
+extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
 
-struct Struct_0204bc74;
-extern "C" void func_0204bc74(Struct_0204bc74* arg0, unsigned short arg1, int arg2, int arg3, int arg4, int arg5, unsigned short arg6);
+struct BGLayer_0204bc74;
+extern "C" void FillBGScreenRect_0204bc74(BGLayer_0204bc74* layer, unsigned short screenEntry, int x, int y, int width, int height, unsigned short palette);
 
 // USA: func_ov017_0219a18c
 extern "C" ARM void func_ov017_0219a18c(unsigned char* arg0) {
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov017_0219a18c(unsigned char* arg0) {
  enum {Enum_ov017_0219a18c_16512=0x4080, Enum_ov017_0219a18c_16500=0x4074, Enum_ov017_0219a18c_16504=0x4078, Enum_ov017_0219a18c_180=0xb4, Enum_ov017_0219a18c_15360=0x3c00, Enum_ov017_0219a18c_3248=0xcb0};
 #endif
     for (int var0 = 0; var0 < 4; var0++) {
-        GameObject* var1 = func_0200ff1c(GameState::GetInstance(), var0);
+        GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), var0);
         if (var1 != 0) {
             func_020534ac((char*)var1);
         }
@@ -63,12 +63,12 @@ extern "C" ARM void func_ov017_0219a18c(unsigned char* arg0) {
     }
 
     func_ov017_02199684((Struct_ov017_02199684*)(arg0 + Enum_ov017_0219a18c_180 + Enum_ov017_0219a18c_15360), 2, 0x800);
-    func_0205d1e0(*(Struct_0205d1e0**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
+    func_0205d1e0(*(TextWindowManager_0205d1e0**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
     func_0205d228(*(Struct_0205d228**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
     func_0205da88(*(void**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248), 1, 2, 1);
 
     GameObject* var3 = var2->GetProtagonist();
-    GameObject* var4 = func_0200ff1c(var2, GetProtagonistObjectIndex_020100a8(var2));
+    GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var2, GetProtagonistObjectIndex_020100a8(var2));
     int var5 = 0;
     int var6;
     int var7 = func_02039750(var3);
@@ -95,15 +95,15 @@ extern "C" ARM void func_ov017_0219a18c(unsigned char* arg0) {
     }
 
     if (var5 && var8 >= 0) {
-        Struct_0205d0e0* var9 = func_0205d81c(*(Struct_0205d81c**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248), var6);
+        TextWindow_0205d0e0* var9 = FindTextWindow_0205d81c(*(TextWindowManager_0205d81c**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248), var6);
         if (var9 != 0) {
-            func_0204bc74((Struct_0204bc74*)(arg0 + Enum_ov017_0219a18c_180 + Enum_ov017_0219a18c_15360), 1, var9->unknown_ac_, var9->unknown_ae_, var9->unknown_a8_, var9->unknown_aa_, 0xf);
+            FillBGScreenRect_0204bc74((BGLayer_0204bc74*)(arg0 + Enum_ov017_0219a18c_180 + Enum_ov017_0219a18c_15360), 1, var9->unknown_ac_, var9->unknown_ae_, var9->unknown_a8_, var9->unknown_aa_, 0xf);
         }
     }
 
-    func_0205d274(*(Struct_0205d274**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
+    func_0205d274(*(TextWindowManager_0205d274**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
     if (TestFlags04((GameResources*)arg0, 0x10000) == 0) {
-        func_0205d2bc(*(Struct_0205d2bc**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
+        func_0205d2bc(*(TextWindowManager_0205d2bc**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
     }
     func_ov017_021996bc((Struct_ov017_02199684*)(arg0 + Enum_ov017_0219a18c_180 + Enum_ov017_0219a18c_15360), 2);
 }

@@ -82,8 +82,8 @@ struct Struct_ov003_0217e6b0_2 {
     unsigned char unknown_b4_;
 };
 
-extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
-extern "C" int func_02046b08(void** arg0);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
@@ -101,7 +101,7 @@ extern "C" void func_020a1ef0(int arg0);
 extern "C" void func_ov009_0218454c(void* arg0, int arg1, int arg2);
 extern "C" void func_ov008_021842a0(void* arg0, SafeAllocator* arg1);
 extern "C" void func_02082828(void* arg0);
-extern "C" void func_020100c4(GameState* arg0, int arg1);
+extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void func_ov003_0217eea8(int arg0);
 void LockStagedTextureVRAMCopying(void);
 void UnlockStagedTextureVRAMCopying(void);
@@ -109,7 +109,7 @@ void UpdateVRAMStagingVRAMBanks(void);
 extern "C" void func_020bb48c(unsigned int arg0, int arg1);
 extern "C" void func_020c391c(int arg0, int arg1, int arg2);
 extern "C" void func_020c3984(unsigned int arg0);
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_020c54a4(int arg0, unsigned int arg1, unsigned int arg2, unsigned short arg3);
 extern "C" void* func_0203bd08(void);
 extern "C" void func_0203bd24(char* arg0);
@@ -122,7 +122,7 @@ extern "C" void func_02074bf4(Struct_02074bf4* arg0);
 extern "C" void GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov017_0218f79c(void* arg0);
 extern "C" void func_ov017_021a2840(GameResources* arg0);
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_02058564(Struct_02058564_2* arg0);
 extern "C" void func_ov017_0219b624(GameResources* arg0);
 extern "C" void func_ov017_0219ba0c(GameResources* arg0, int arg1);
@@ -136,7 +136,7 @@ extern "C" void func_ov003_0217e67c(void* arg0);
 extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_0218f758(void* arg0);
 extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 
 enum Enum_ov003_0217e6b0 {
     Enum_ov003_0217e6b0_0 = 0
@@ -159,10 +159,10 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     GameObject* var2 = var0->GetUnknownGameObject();
-    func_020397cc((Struct_02018300_3*)var2, 1);
+    DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
 
     if (arg0->unknown_20_ == 0) {
-        if (!func_02046b08((void**)var1->unknown_ptr_array_36fc[1])) {
+        if (!IsQueueEmpty_02046b08((void**)var1->unknown_ptr_array_36fc[1])) {
             return;
         }
         SetFlags00(var1, 0x10);
@@ -215,7 +215,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
             func_02082828(var4);
             *(void**)((char*)arg0->unknown_1c_ + Enum_ov003_0217e6b0_3464) = var4;
         }
-        arg0->unknown_b0_ = func_020100bc(var0);
+        arg0->unknown_b0_ = GetCamera_020100bc(var0);
         func_ov003_0217eea8(1);
         arg0->unknown_20_++;
     } else if (arg0->unknown_20_ == 2) {
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         BG0CNTSUB = (BG0CNTSUB & ~3) | 2;
         BG1CNTSUB = (BG1CNTSUB & ~3) | 1;
         BG2CNTSUB = BG2CNTSUB & ~3;
-        func_020c5588(0, 0, 0x7fff, 0, 0);
+        Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
         func_020c54a4(0, 0, 0, 0);
         char* var5 = (char*)func_0203bd08();
         func_0203bd24(var5);
@@ -282,7 +282,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | (arg0->unknown_3c_ << 8);
         func_02074bd0((Struct_02074bd0*)arg0->unknown_24_);
         func_02074bf4((Struct_02074bf4*)arg0->unknown_24_);
-        func_020c5588(arg0->unknown_a0_, 0x10, 0x7fff, 0, 0);
+        Set3DClearColorAndDepth_020c5588(arg0->unknown_a0_, 0x10, 0x7fff, 0, 0);
         char var7[0x20];
         memset(var7, 0, 0x20);
         DC_FlushRange(var7, 0x20);
@@ -298,8 +298,8 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         GetPartyMemberData_02053c6c((unsigned char*)var0->GetProtagonist());
         func_ov017_0218f79c(var1);
         func_ov017_021a2840(var1);
-        func_02058564((Struct_02058564_2*)func_02057924());
-        func_020100c4(var0, (int)arg0->unknown_b0_);
+        func_02058564((Struct_02058564_2*)GetEffectManager_02057924());
+        SetCamera_020100c4(var0, (int)arg0->unknown_b0_);
         func_ov017_0219b624(var1);
         func_ov017_0219ba0c(var1, 0);
         char* var8 = var1->unknown_2cc_;
@@ -335,9 +335,9 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         if (func_02046b60((Struct_02038598_5*)var1->unknown_ptr_array_36fc[0], 0x17)) {
             return;
         }
-        func_020397c0(var2);
+        EnablePlayerControl_020397c0(var2);
         ClearFlags04(var1, 0xc0);
         return;
     }
-    func_020397cc((Struct_02018300_3*)var2, 1);
+    DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
 }

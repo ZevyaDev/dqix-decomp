@@ -14,7 +14,7 @@ struct Struct_ov031_0221fd18 {
     Struct_ov031_0221fd18_2 unknown_4_[1];
 };
 
-extern "C" int func_02001aec(const void* arg0, const void* arg1, unsigned int arg2);
+extern "C" int CompareBytes_02001aec(const void* left, const void* right, unsigned int count);
 extern char data_ov031_0224b180[];
 
 // USA: func_ov031_0221fd18
@@ -44,8 +44,8 @@ extern "C" THUMB int func_ov031_0221fd18(Struct_ov031_0221fd18* arg0, Struct_ov0
                 if (var10 == 1 && (var7->unknown_4_[0] == 0 || var7->unknown_4_[0] == ' ')) {
                     break;
                 }
-                if (func_02001aec(var9, var8->unknown_4_, strlen(var9)) == 0 &&
-                    func_02001aec(var7->unknown_28_, var8->unknown_28_, 6) == 0 &&
+                if (CompareBytes_02001aec(var9, var8->unknown_4_, strlen(var9)) == 0 &&
+                    CompareBytes_02001aec(var7->unknown_28_, var8->unknown_28_, 6) == 0 &&
                     var7->unknown_2e_ != var8->unknown_2e_ && var7->unknown_2e_ == 0) {
                     var0 = 1;
                     break;
@@ -68,7 +68,7 @@ extern "C" THUMB int func_ov031_0221fd18(Struct_ov031_0221fd18* arg0, Struct_ov0
         for (var6 = 0; var6 < arg1->unknown_0_; var6++) {
             memcpy(var11, var8->unknown_4_, 0x20);
             var11[var8->unknown_0_] = 0;
-            if (func_02001aec(var11, data_ov031_0224b180, strlen(data_ov031_0224b180)) == 0 &&
+            if (CompareBytes_02001aec(var11, data_ov031_0224b180, strlen(data_ov031_0224b180)) == 0 &&
                 var8->unknown_2e_ == 0) {
                 var3 = 1;
                 break;
@@ -79,7 +79,7 @@ extern "C" THUMB int func_ov031_0221fd18(Struct_ov031_0221fd18* arg0, Struct_ov0
             memcpy(var11, var7->unknown_4_, 0x20);
             var11[var7->unknown_0_] = 0;
             if (strlen(var11) == strlen(data_ov031_0224b180) &&
-                func_02001aec(var11, data_ov031_0224b180, strlen(data_ov031_0224b180)) == 0 &&
+                CompareBytes_02001aec(var11, data_ov031_0224b180, strlen(data_ov031_0224b180)) == 0 &&
                 var7->unknown_2e_ == 0) {
                 var2 = 1;
                 break;

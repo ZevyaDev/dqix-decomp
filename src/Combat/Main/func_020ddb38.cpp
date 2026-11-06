@@ -37,7 +37,7 @@ extern "C" ARM int func_020ddb38(int arg0, int arg1, struct Struct_020ddb38_3* a
     struct Struct_020ddb38* var2;
     char var3[0xb0];
 
-    var1 = func_0200ff1c(GameState::GetInstance(), arg0);
+    var1 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0);
     var0 = (arg0 >= 0 && arg0 <= 3);
     if (!var0) return 0;
     if (var1 == 0) return 0;

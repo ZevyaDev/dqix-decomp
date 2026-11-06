@@ -24,19 +24,19 @@ extern "C" int func_ov017_021a23e4(char* arg0, int arg1, unsigned int arg2, unsi
 extern "C" void* func_020d7a50(void);
 extern "C" unsigned char func_020100b0(GameState* arg0);
 extern "C" void* GetMessageWindow_020421a0(void);
-extern "C" void func_020e4bf4(void* arg0, int arg1);
-extern "C" int func_020e51cc(int arg0);
+extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
+extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
 extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
 extern "C" void func_020e1154(void* arg0);
 struct Struct_02018300_3;
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 struct Struct_020d7aa0_2;
 extern "C" void func_020d7aa0(struct Struct_020d7aa0_2* arg0);
 struct Struct_02059cfc_4;
 struct Struct_ov008_021870e4;
 extern "C" void func_0205ebec(void* arg0);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" int func_ov017_021a26e8(GameResources* arg0, int arg1);
 extern "C" void func_ov017_021d09cc(int arg0, int arg1, int arg2, int arg3);
 extern "C" GameObject* func_0200ffe0(GameState* arg0, int arg1);
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
 
     if (arg0->unknown_10_ == 0) {
         *(unsigned char*)((char*)var1 + Enum_ov017_021c2784_17128) = 1;
-        func_020397cc((struct Struct_02018300_3*)var6, 1);
+        DisablePlayerControl_020397cc((struct Struct_02018300_3*)var6, 1);
         *(unsigned short*)((char*)var6 + 0xb2) = 0;
         if (arg0->unknown_11_ != 0) {
             arg0->unknown_8_ = 0;
@@ -90,9 +90,9 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
             void* var8 = GetMessageWindow_020421a0();
             char var9[0xc];
             char var10[0x50];
-            func_020e4bf4(var9, arg0->unknown_14_);
+            InitPartyMemberNoun_020e4bf4(var9, arg0->unknown_14_);
             *(void**)var8 = var9;
-            int var11 = func_020e51cc(0x26);
+            int var11 = GetStandardString_020e51cc(0x26);
             func_02046608(var8, 0xc, var11, var10, 0xe3, 0, 1);
             func_020d7e10(var3, var10, 0, 0, 1, 1);
 #endif
@@ -142,7 +142,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
 #if defined(jpn)
             func_020d7e10(var3, data_ov017_021d7108, 0, 0, 1);
 #else
-            int var19 = func_020e51cc(0x27);
+            int var19 = GetStandardString_020e51cc(0x27);
             func_020d7e10(var3, (void*)var19, 0, 0, 1, 1);
 #endif
             var18 = 0xbb8;
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
             }
         }
         func_0205ebec(&gSoundEffectManager_02108760);
-        func_020397c0(var6);
+        EnablePlayerControl_020397c0(var6);
         arg0->unknown_1_ = 1;
         return;
     } else if (arg0->unknown_10_ == 4) {

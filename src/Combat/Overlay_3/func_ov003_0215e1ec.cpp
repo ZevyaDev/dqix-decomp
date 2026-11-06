@@ -29,7 +29,7 @@ extern "C" ARM void func_ov003_0215e1ec(struct Struct_ov003_0215e1ec_2* arg0) {
     int var2 = func_02011494((char*)var0, var1);
     arg0->unknown_3c3_ = 0;
     for (int var3 = 0; var3 < var2; var3++) {
-        GameObject* var4 = func_0200ff1c(var0, var1[var3]);
+        GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, var1[var3]);
         if (var4 != NULL) {
             struct Struct_ov003_0215e1ec* var5 = *(struct Struct_ov003_0215e1ec**)((char*)var4 + 0x130);
             int var6 = var5->unknown_4_;

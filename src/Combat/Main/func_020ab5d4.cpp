@@ -17,9 +17,9 @@ struct Struct_0201099c_16;
 extern "C" int func_020865b0(struct Struct_0201099c_16* arg0);
 
 extern "C" void* GetGlobalFlags_020d6c00();
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
-struct Struct_02038598_4;
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_020ac864(int arg0);
 
@@ -109,7 +109,7 @@ extern "C" ARM int func_020ab5d4(void* arg0, int arg1, int arg2, void* arg3) {
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
     unsigned int* var11 = (unsigned int*)GetGlobalFlags_020d6c00();
-    func_020466e4(var11, 0x2000000);
+    SetGlobalFlags_020466e4(var11, 0x2000000);
     unsigned char* var12 = (unsigned char*)&gFileScratchSpace_0211e33c[0] + 0x28000;
     GameState* var13 = GameState::GetInstance();
     unsigned char* var14 = var12 + 4;
@@ -143,11 +143,11 @@ extern "C" ARM int func_020ab5d4(void* arg0, int arg1, int arg2, void* arg3) {
     memcpy(arg3, (char*)(((struct Struct_020ab5d4_2*)(var12 + 0x1d8)) + 1) + 0x3c, 4);
     if (func_020ac864(0) == 0) {
         BackgroundLoader::RemoveLockGlobal();
-        func_020466f4((struct Struct_02038598_4*)var11, 0x2000000);
+        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var11, 0x2000000);
         return 0;
     }
     BackgroundLoader::RemoveLockGlobal();
-    func_020466f4((struct Struct_02038598_4*)var11, 0x2000000);
+    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var11, 0x2000000);
     return 1;
 }
 #endif

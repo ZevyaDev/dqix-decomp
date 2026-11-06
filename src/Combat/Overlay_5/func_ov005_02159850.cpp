@@ -29,17 +29,17 @@ struct Struct_ov005_02159850 {
     int* unknown_3708_;
 };
 
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 
 extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
-extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
 
 // USA: func_ov005_02159850
 extern "C" ARM void func_ov005_02159850(Struct_ov005_02153954* arg0) {
     if (arg0->unknown_3ddc_ != 0)
         return;
-    func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ee4_, 1);
+    CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_ee4_, 1);
     if (arg0->unknown_3dbb_ >= 0 && arg0->unknown_3dbb_ < 8)
         func_ov005_0215792c(arg0, 3);
     else if (arg0->unknown_3dbb_ >= 8 && arg0->unknown_3dbb_ < 24)

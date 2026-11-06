@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct Struct_0205de24_2;
-struct Struct_0205ba68;
-struct Struct_0205bacc;
-struct Struct_0205d81c;
+struct TextWindowManager_0205de24_2;
+struct MenuCursor_0205ba68;
+struct MenuCursor_0205bacc;
+struct TextWindowManager_0205d81c;
 struct Struct_0204c610;
 struct Struct_0201099c_3;
 
@@ -13,13 +13,13 @@ struct Struct_ov003_0216fc58 {
     short unknown_ae_;
 };
 
-extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
 extern "C" void func_0205cef8(void* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
-extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" short func_ov003_0216df38(char* arg0, struct Struct_0201099c_3* arg1, int arg2);
 #if defined(jpn)
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
@@ -28,11 +28,11 @@ extern char data_ov003_0217eaac[];
 extern char data_ov003_0217eabf[];
 extern char data_ov003_0217ea6f[];
 #else
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
-extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
-extern "C" struct Struct_ov003_0216fc58* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
+extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
+extern "C" struct Struct_ov003_0216fc58* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" void func_0204c610(struct Struct_0204c610* arg0, int arg1, short* arg2, short* arg3, short* arg4, short* arg5);
 extern "C" void* func_ov023_021e2ca8(void* arg0, void* arg1, int arg2, int arg3);
 extern "C" void* func_ov023_021e2cc8(void* arg0, void* arg1, int arg2, int arg3);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov003_0216fc58(char* arg0, int arg1, int arg2) {
     if (var0 == 0) {
         return;
     }
-    func_0205de24((struct Struct_0205de24_2*)var0, 0, 1);
+    SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)var0, 0, 1);
 
     (*(char**)(arg0 + 0x3c))[0xb1] = 0;
 
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov003_0216fc58(char* arg0, int arg1, int arg2) {
     char var2[0x80];
     __clear(var1, 0x200);
     __clear(var2, 0x80);
-    func_02041c08(var1, arg2, 8, 5, 5, 5);
+    AppendFrameTag_02041c08(var1, arg2, 8, 5, 5, 5);
 
     if (arg1) {
         sprintf(var2, data_ov003_0217ea90, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xdc), 6));
@@ -85,15 +85,15 @@ extern "C" ARM void func_ov003_0216fc58(char* arg0, int arg1, int arg2) {
     sprintf(var2, data_ov003_0217eabf, data_ov003_0217ea6f);
     AppendText_02042058(var1, var2);
 
-    func_0205d304(*(char**)(arg0 + 0x3c), var1, 0, 0, 0, 1, 0);
+    OpenTextWindow_0205d304(*(char**)(arg0 + 0x3c), var1, 0, 0, 0, 1, 0);
 
     var0 = *(char**)(arg0 + 0x3c);
     *(int*)(var0 + 0x8) = 1;
     *(int*)(var0 + 0x58) = 1;
-    func_0205ba68((struct Struct_0205ba68*)(var0 + 0x4), 1, 3, 0);
-    func_0205ba68((struct Struct_0205ba68*)(var0 + 0x54), 1, 3, 0);
-    func_0205bacc((struct Struct_0205bacc*)(var0 + 0x4), 3);
-    func_0205bacc((struct Struct_0205bacc*)(var0 + 0x54), 3);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(var0 + 0x4), 1, 3, 0);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(var0 + 0x54), 1, 3, 0);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(var0 + 0x4), 3);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(var0 + 0x54), 3);
 }
 #else
 // USA: func_ov003_0216fc58
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov003_0216fc58(char* arg0, int arg1, int arg2) {
     if (var3 == 0) {
         return;
     }
-    func_0205de24((struct Struct_0205de24_2*)var3, 0, 1);
+    SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)var3, 0, 1);
 
     (*(char**)(arg0 + 0x3c))[0xb1] = 0;
 
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov003_0216fc58(char* arg0, int arg1, int arg2) {
 
     char var4[0x200];
     __clear(var4, 0x200);
-    func_02041c08(var4, arg2, 8, 5, 5, 5);
+    AppendFrameTag_02041c08(var4, arg2, 8, 5, 5, 5);
 
     short var5 = func_ov003_0216df38(var4, (struct Struct_0201099c_3*)(arg0 + 0xdc), arg1);
 
@@ -140,17 +140,17 @@ extern "C" ARM void func_ov003_0216fc58(char* arg0, int arg1, int arg2) {
     *(short*)(var3 + 0xa0) = var5;
     *(short*)(var3 + 0xa2) = 9;
 
-    func_0205d304(*(char**)(arg0 + 0x3c), var4, 0, 0, 0, 1, 0, 0);
+    OpenTextWindow_0205d304(*(char**)(arg0 + 0x3c), var4, 0, 0, 0, 1, 0, 0);
 
     var3 = *(char**)(arg0 + 0x3c);
     *(int*)(var3 + 0x8) = 1;
     *(int*)(var3 + 0x58) = 1;
-    func_0205ba68((struct Struct_0205ba68*)(var3 + 0x4), 1, 3, 0);
-    func_0205ba68((struct Struct_0205ba68*)(var3 + 0x54), 1, 3, 0);
-    func_0205bacc((struct Struct_0205bacc*)(var3 + 0x4), 3);
-    func_0205bacc((struct Struct_0205bacc*)(var3 + 0x54), 3);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(var3 + 0x4), 1, 3, 0);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(var3 + 0x54), 1, 3, 0);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(var3 + 0x4), 3);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(var3 + 0x54), 3);
 
-    struct Struct_ov003_0216fc58* var6 = func_0205d81c(*(struct Struct_0205d81c**)(arg0 + 0x3c), 0);
+    struct Struct_ov003_0216fc58* var6 = FindTextWindow_0205d81c(*(struct TextWindowManager_0205d81c**)(arg0 + 0x3c), 0);
     if (var6 == 0) {
         return;
     }

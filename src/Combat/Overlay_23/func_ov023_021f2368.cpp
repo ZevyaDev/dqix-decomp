@@ -11,12 +11,12 @@ extern "C" int func_02086ef0(struct Struct_02048150* arg0, int arg1);
 struct Struct_0209a9dc_2;
 struct Struct_0209a9dc_3 { unsigned short unknown_0_; unsigned short unknown_2_; };
 extern "C" struct Struct_0209a9dc_3* func_0209a9dc(struct Struct_0209a9dc_2* arg0, int arg1);
-extern "C" void* func_02079e2c(char* arg0, int arg1);
+extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
-extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 struct Struct_02046574_2;
-extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
+extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, char* text, int arg2);
 #else
@@ -72,14 +72,14 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* arg0) {
             var1->unknown_1c_[var4].unknown_0_[var1->unknown_70_]);
         if (var6 != NULL) {
             short var7 = *(short*)((char*)var6 + 2);
-            Struct_02108e10* var8 = func_020797dc();
-            void* var9 = func_02079e2c((char*)var8, var7);
+            ActionTables_02108e10* var8 = GetActionTables_020797dc();
+            void* var9 = FindActionData_02079e2c((char*)var8, var7);
             if (var9 != NULL) {
 #if defined(jpn)
                 GameObject* var10;
-                if ((var10 = func_0200ff1c(var0, var4)) != 0 && var5 != 0) {
+                if ((var10 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4)) != 0 && var5 != 0) {
 #else
-                if (func_0200ff1c(var0, var4) != 0 && var5 != 0) {
+                if (GetPartyMemberBaseByIndex_0200ff1c(var0, var4) != 0 && var5 != 0) {
 #endif
 
 #if defined(jpn)
@@ -98,10 +98,10 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* arg0) {
                     sprintf(var16, var17);
                     char* var18 = (char*)FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + Enum_ov023_021f2368_22788), 0x22);
                     strcat(var16, var18);
-                    func_020e4bf4(var15, var4);
+                    InitPartyMemberNoun_020e4bf4(var15, var4);
                     *(void**)(var3 + 0x10) = var15;
                     char* var19 = *(char**)var9;
-                    func_02046574((struct Struct_02046574_2*)var3, 1, var19);
+                    SetMessageString_02046574((struct Struct_02046574_2*)var3, 1, var19);
                     StartMessage_0204500c(var3, var16, 1, 0xe3);
 
 #endif
@@ -113,7 +113,7 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* arg0) {
         var1->unknown_70_ = var1->unknown_70_ + 1;
         if (var1->unknown_6c_[var4] <= var1->unknown_70_) {
             void* var20 = GetParty_02010828(var0);
-            GameObject* var21 = func_0200ff1c(var0, var4);
+            GameObject* var21 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4);
             unsigned char* var22 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var21);
             struct Struct_ov023_021f2368_3* var23 = (struct Struct_ov023_021f2368_3*)(arg0 + var4 * 0x54 + Enum_ov023_021f2368_22272 + Enum_ov023_021f2368_156);
             if (var23->unknown_0_7_ != 0) {

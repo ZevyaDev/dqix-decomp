@@ -9,9 +9,9 @@
 extern "C" void func_ov012_021893b4(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov012_0218a844(void* arg0, void* arg1, int arg2);
 #if defined(jpn)
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 struct Struct_ov012_0218a7a0 { char unknown_0_[LOW_REGION(0x344, 0x374)]; void* unknown_374_; };
@@ -35,12 +35,12 @@ extern "C" ARM void func_ov012_0218a7a0(char* arg0)
     int var3 = var2 - 1;
 #if defined(jpn)
     if ((var3 / 16) > 0)
-        func_0205d304(arg0 + 0x90, ((struct Struct_ov012_0218a7a0*)(arg0 + 0x1000))->unknown_374_, 0, 0, 1, 1, 0);
+        OpenTextWindow_0205d304(arg0 + 0x90, ((struct Struct_ov012_0218a7a0*)(arg0 + 0x1000))->unknown_374_, 0, 0, 1, 1, 0);
     else
-        func_0205d304(arg0 + 0x90, ((struct Struct_ov012_0218a7a0*)(arg0 + 0x1000))->unknown_374_, 0, 0, 0, 1, 0);
+        OpenTextWindow_0205d304(arg0 + 0x90, ((struct Struct_ov012_0218a7a0*)(arg0 + 0x1000))->unknown_374_, 0, 0, 0, 1, 0);
 #else
     int var4 = ((var3 / 16) > 0) ? 1 : 0;
 
-    func_0205d304(arg0 + 0xac, ((struct Struct_ov012_0218a7a0*)(arg0 + 0x1000))->unknown_374_, 0, 0, var4, 1, 0, 0);
+    OpenTextWindow_0205d304(arg0 + 0xac, ((struct Struct_ov012_0218a7a0*)(arg0 + 0x1000))->unknown_374_, 0, 0, var4, 1, 0, 0);
 #endif
 }

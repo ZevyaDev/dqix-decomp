@@ -3,8 +3,8 @@
 
 extern "C" void func_020489e8(void* arg0);
 struct Struct_02010604;
-extern "C" void func_02033b88(Struct_02010604*, int);
-extern "C" void* func_02057924(void);
+extern "C" void SetMotion_02033b88(Struct_02010604*, int);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_02057fb4(void*, int, void*);
 
 struct SoundEffectManager_02108760;
@@ -53,13 +53,13 @@ extern "C" ARM void func_02048690(void* arg0) {
     if (var0->unknown_183_ != 0) {
         var0->unknown_183_--;
         if (var0->unknown_183_ == 0) {
-            func_02033b88((Struct_02010604*)var0, 5);
+            SetMotion_02033b88((Struct_02010604*)var0, 5);
         }
     }
 
     if (var0->unknown_e0_3_ == 0) return;
 
-    void* var1 = func_02057924();
+    void* var1 = GetEffectManager_02057924();
     ((Object3D*)var0)->TransitionInheritedAlpha(0, 0x1f4);
 
     int var2 = *(short*)((char*)var0 + 0x100 + 0x8e) - 0x1000;

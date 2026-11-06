@@ -27,10 +27,10 @@ extern "C" Struct_ov003_0215af9c* GetMessageWindow_020421a0(void);
 int IsBrightnessTransitionActive(GameResources*);
 void SetMainBrightness(GameResources*, int, int);
 extern "C" int func_020100b0(GameState*);
-extern "C" GameObject* func_0200ff1c(GameState*, int);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" void ClearMessageParams_02046380(Struct_ov003_0215af9c*);
 struct Struct_02046574_2;
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 struct Struct_0201099c_3;
 extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov003_02159250(Struct_ov003_021594c4_2*, void*);
@@ -57,9 +57,9 @@ extern "C" ARM void func_ov003_0215af9c(Struct_ov003_021594c4_2* arg0) {
 
         if (arg0->unknown_587_ == 1) {
             GameState* var3 = GameState::GetInstance();
-            GameObject* var4 = func_0200ff1c(var3, func_020100b0(var3));
+            GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var3, func_020100b0(var3));
             ClearMessageParams_02046380(var1);
-            func_02046574((Struct_02046574_2*)var1, 0, (char*)var4->baseStats_);
+            SetMessageString_02046574((Struct_02046574_2*)var1, 0, (char*)var4->baseStats_);
         }
         var1->unknown_998_ = 1;
         func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, (short)(arg0->unknown_587_ + 0x438)));

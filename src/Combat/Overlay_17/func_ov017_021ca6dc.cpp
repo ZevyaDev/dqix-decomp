@@ -7,7 +7,7 @@ enum { Enum_ov017_021ca6dc_14104 = 0x3718 };
 #endif
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 struct Struct_ov017_021ca6dc {
@@ -49,7 +49,7 @@ struct Struct_ov017_021ca6dc_3 {
 
 // USA: func_ov017_021ca6dc
 extern "C" ARM void func_ov017_021ca6dc(void* arg0, struct Struct_ov017_021ca6dc_3* arg1, GameState* arg2, char* arg3) {
-    void* var0 = func_ov017_021b8478(*(void**)(arg3 + Enum_ov017_021ca6dc_14104));
+    void* var0 = GetBattleSetup_ov017_021b8478(*(void**)(arg3 + Enum_ov017_021ca6dc_14104));
     if (!var0) {
         return;
     }

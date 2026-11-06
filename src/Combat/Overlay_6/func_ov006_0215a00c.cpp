@@ -83,7 +83,7 @@ extern "C" struct MessageWindow_020465c0* GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(struct MessageWindow_020465c0*);
 extern "C" void* func_020e5294(void*, int);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0*, int, int);
-extern "C" void func_020e4bf4(void*, int);
+extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" void func_02046608(struct MessageWindow_020465c0*, int, const char*, char*, int, int, int);
 extern "C" char* func_0204254c(int, int);
 extern "C" void __clear(void*, int);
@@ -92,7 +92,7 @@ extern "C" void func_ov006_02159fb0(struct Struct_ov006_02159fb0*);
 extern char data_ov006_0215ffd2[];
 extern char data_ov006_0215ffea[];
 #if defined(jpn)
-extern "C" void func_02046574(struct MessageWindow_020465c0*, int, char*);
+extern "C" void SetMessageString_02046574(struct MessageWindow_020465c0*, int, char*);
 extern "C" void func_020474a8(struct MessageWindow_020465c0*, int, const char*, char*);
 extern char data_ov006_021615c8[];
 extern char data_ov006_021615cb[];
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov006_0215a00c(struct Struct_ov006_0215a00c_5* arg0) {
         unsigned short var6 = 0;
         if (arg0->unknown_34_ != 0) {
 #if defined(jpn)
-            func_02046574(var4, 0, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_1ec_));
+            SetMessageString_02046574(var4, 0, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_1ec_));
 #else
             void* var7 = func_020e5294(&arg0->unknown_170_, arg0->unknown_1ec_);
             if (var7 != 0) {
@@ -147,17 +147,17 @@ extern "C" ARM void func_ov006_0215a00c(struct Struct_ov006_0215a00c_5* arg0) {
         struct Struct_ov006_0215a00c_2* var8 = (struct Struct_ov006_0215a00c_2*)((GameState*)((struct Struct_ov006_0215a00c*)GameState::GetInstance()))->GetUnknownGameObject();
         if (var8 != 0) {
 #if defined(jpn)
-            func_02046574(var4, 1, var8->unknown_134_);
+            SetMessageString_02046574(var4, 1, var8->unknown_134_);
 #else
-            func_020e4bf4(&var1, var8->unknown_4_);
+            InitPartyMemberNoun_020e4bf4(&var1, var8->unknown_4_);
             var4->unknown_0_ = &var1;
 #endif
         }
 
 #if defined(jpn)
-        func_02046574(var4, 2, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[0]));
-        func_02046574(var4, 3, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[1]));
-        func_02046574(var4, 4, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[2]));
+        SetMessageString_02046574(var4, 2, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[0]));
+        SetMessageString_02046574(var4, 3, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[1]));
+        SetMessageString_02046574(var4, 4, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[2]));
 #else
         short* var9 = (short*)data_ov006_0215ffd2;
         for (var2 = 0; ; var2++) {

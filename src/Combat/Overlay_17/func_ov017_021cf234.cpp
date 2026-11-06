@@ -33,7 +33,7 @@ enum { Enum_ov017_021cf234_2128 = 0x850 };
 // USA: func_ov017_021cf234
 extern "C" ARM void func_ov017_021cf234(int arg0, struct Struct_ov017_021cf234_3* arg1, GameState* arg2) {
     unsigned int var0 = (arg1->unknown_10_ << 21) >> 29;
-    GameObject* var1 = func_0200ff1c(arg2, var0);
+    GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var0);
     if (!var1) return;
     unsigned char* var2 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var1);
     if (!var2) return;

@@ -151,7 +151,7 @@ extern "C" void* memcpy(void*, const void*, unsigned int);
 extern "C" Struct_ov005_0215c530_7* func_ov023_021db08c(void*, int);
 extern "C" int func_020dd4c4(int, Struct_ov005_0215c530_6*);
 extern "C" void func_ov005_021579ec(Struct_ov005_0215c530_3*, unsigned int, unsigned char);
-extern "C" void func_0205bb04(void*, int);
+extern "C" void SetMenuCursorIndex_0205bb04(void*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov005_021555c0(Struct_ov005_0215c530_3*);
 extern "C" void func_ov023_021dcae0(Struct_ov003_02178910*, int);
@@ -300,7 +300,7 @@ extern "C" ARM void func_ov005_0215c530(Struct_ov005_0215c530_3* arg0)
                 if (var24 != arg0->unknown_3dbb_)
                 {
                     func_ov005_021579ec(arg0, 4, (unsigned char)arg0->unknown_3dbb_);
-                    func_0205bb04(arg0->unknown_19f4_, arg0->unknown_3dbb_ - 8);
+                    SetMenuCursorIndex_0205bb04(arg0->unknown_19f4_, arg0->unknown_3dbb_ - 8);
                 }
             }
         }

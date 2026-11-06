@@ -4,12 +4,12 @@
 struct Struct_0205bb84;
 extern "C" int func_0205bb84(struct Struct_0205bb84* arg0);
 
-struct Struct_0205a254;
-struct Struct_0205a330;
+struct SpriteAnimationList_0205a254;
+struct SpriteAnimationList_0205a330;
 
-extern "C" void func_0205a42c(struct Struct_0205a254* arg0, int arg1, int arg2);
-extern "C" void func_0205a370(struct Struct_0205a254* arg0, int arg1);
-extern "C" void func_0205a330(struct Struct_0205a330* arg0, int arg1);
+extern "C" void func_0205a42c(struct SpriteAnimationList_0205a254* arg0, int arg1, int arg2);
+extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
+extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
 
 struct Struct_ov008_02188870 {
     char unknown_0_[4];
@@ -18,10 +18,10 @@ struct Struct_ov008_02188870 {
     char unknown_8_[0x15 - 8];
     unsigned char unknown_15_;
 };
-extern "C" struct Struct_ov008_02188870* func_0205a3d0(struct Struct_0205a254* arg0, int arg1);
+extern "C" struct Struct_ov008_02188870* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
 
 
-extern "C" void func_0205ae8c(void* arg0);
+extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
 
 struct Struct_ov008_02188870_2 {
     char unknown_0_[0x730];
@@ -44,22 +44,22 @@ extern "C" ARM void func_ov008_02188870(struct Struct_ov008_02188870_2* arg0) {
     int var1 = func_0205bb84((struct Struct_0205bb84*)((char*)arg0 + 0x750));
     short var2 = (short)(((var1 - arg0->unknown_b29_) << 4) + 7);
 
-    func_0205a42c((struct Struct_0205a254*)arg0->unknown_738_, 0, 0x3f);
-    func_0205a370((struct Struct_0205a254*)arg0->unknown_738_, 0);
+    func_0205a42c((struct SpriteAnimationList_0205a254*)arg0->unknown_738_, 0, 0x3f);
+    PlaySpriteAnimation_0205a370((struct SpriteAnimationList_0205a254*)arg0->unknown_738_, 0);
 
-    struct Struct_ov008_02188870* var3 = func_0205a3d0((struct Struct_0205a254*)arg0->unknown_738_, 0);
+    struct Struct_ov008_02188870* var3 = FindSpriteAnimation_0205a3d0((struct SpriteAnimationList_0205a254*)arg0->unknown_738_, 0);
     if (var3 != NULL) {
         var3->unknown_15_ |= 8;
     }
 
     unsigned int var4 = var0->GetTickCount();
-    func_0205a330((struct Struct_0205a330*)arg0->unknown_738_, var4);
+    AdvanceSpriteAnimations_0205a330((struct SpriteAnimationList_0205a330*)arg0->unknown_738_, var4);
 
-    var3 = func_0205a3d0((struct Struct_0205a254*)arg0->unknown_738_, 0);
+    var3 = FindSpriteAnimation_0205a3d0((struct SpriteAnimationList_0205a254*)arg0->unknown_738_, 0);
     if (var3 != NULL) {
         var3->unknown_4_ = 4;
         var3->unknown_6_ = var2;
     }
 
-    func_0205ae8c(arg0->unknown_730_);
+    DrawSpriteAnimations_0205ae8c(arg0->unknown_730_);
 }

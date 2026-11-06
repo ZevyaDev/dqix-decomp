@@ -2,13 +2,13 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-struct Struct_0201099c_14;
-extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
+struct StringTable_0201099c_14;
+extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 extern "C" void* func_020df828(void* arg0);
 extern "C" void func_ov023_021e20c0(void* arg0);
-extern "C" void func_0205a444(char* arg0);
-struct Struct_02043368_2;
-extern "C" void func_0205a198(struct Struct_02043368_2* arg0);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
+struct Sprite_02043368_2;
+extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
 extern "C" void func_ov023_021db0d4(void* arg0, int arg1);
 extern "C" void func_ov023_021dce88(void* arg0);
 
@@ -71,13 +71,13 @@ extern "C" ARM void func_ov023_021dc134(void* arg0, short arg1, int arg2) {
     *(int*)(var0 + 0x48) = 0;
     *(int*)(var0 + 0x4c) = 0;
     *(int*)(var0 + 0x50) = 0;
-    func_020dfc40((struct Struct_0201099c_14*)(var0 + 0x54));
+    InitStringTable_020dfc40((struct StringTable_0201099c_14*)(var0 + 0x54));
 
     func_020df828(var0 + 0x6c);
     func_020df828(var0 + 0x7c);
 
-    func_020dfc40((struct Struct_0201099c_14*)(var0 + 0x8c));
-    func_020dfc40((struct Struct_0201099c_14*)(var0 + 0xa4));
+    InitStringTable_020dfc40((struct StringTable_0201099c_14*)(var0 + 0x8c));
+    InitStringTable_020dfc40((struct StringTable_0201099c_14*)(var0 + 0xa4));
 
     *(int*)(var0 + 0xc4) = 0;
     *(int*)(var0 + 0xc8) = 0;
@@ -85,10 +85,10 @@ extern "C" ARM void func_ov023_021dc134(void* arg0, short arg1, int arg2) {
 
     *(unsigned char*)(var0 + Enum_ov023_021dc134_296) = 0;
     *(unsigned char*)(var0 + Enum_ov023_021dc134_297) = 0;
-    func_0205a444(var0 + Enum_ov023_021dc134_300);
+    InitSpriteSet_0205a444(var0 + Enum_ov023_021dc134_300);
 
     for (unsigned char var1 = 0; var1 < 30; var1++) {
-        func_0205a198((struct Struct_02043368_2*)(var0 + Enum_ov023_021dc134_384 + var1 * 0x28));
+        InitSprite_0205a198((struct Sprite_02043368_2*)(var0 + Enum_ov023_021dc134_384 + var1 * 0x28));
     }
 
     memset(var0 + Enum_ov023_021dc134_1584, 0, Enum_ov023_021dc134_256);

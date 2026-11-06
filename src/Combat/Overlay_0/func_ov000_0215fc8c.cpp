@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_ov000_0215eb1c(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
 extern short data_ov000_02182c44[8];
 
@@ -13,7 +13,7 @@ struct Struct_ov000_0215fc8c_2 { char unknown_0_[0x10]; unsigned short unknown_1
 extern "C" ARM int func_ov000_0215fc8c(void* arg0, int arg1) {
     short var0[8];
     *(struct Struct_ov000_0215fc8c*)var0 = *(struct Struct_ov000_0215fc8c*)data_ov000_02182c44;
-    int var1 = (short)func_ov000_0215eb1c(arg0, var0, 8, 0);
+    int var1 = (short)CollectEnemyCombatantIndices_ov000_0215eb1c(arg0, var0, 8, 0);
     int var2 = 0;
     while (var2 < var1) {
         short var3 = var0[var2];

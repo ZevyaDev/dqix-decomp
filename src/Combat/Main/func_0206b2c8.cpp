@@ -34,7 +34,7 @@ extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void func_0206b104(void* arg0);
 extern "C" void func_0206aa28(void* arg0);
 extern "C" void func_0206b974(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6, int arg7);
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 
 struct Struct_020678bc {
     char unknown_0_[0x4c];
@@ -65,7 +65,7 @@ extern "C" ARM void func_0206b2c8(Struct_020678bc* arg0, int, void*) {
     arg0->unknown_9a0_ = 5;
     func_0206aa28(arg0);
     func_0206b974(arg0, 1, arg0->unknown_50_, arg0->unknown_60_, 0xe3, 0, 1, 1);
-    int var1 = func_020d2ff0((const char*)arg0->unknown_60_);
+    int var1 = GetStringLength_020d2ff0((const char*)arg0->unknown_60_);
     memcpy(arg0->unknown_50_, arg0->unknown_60_, var1);
 }
 

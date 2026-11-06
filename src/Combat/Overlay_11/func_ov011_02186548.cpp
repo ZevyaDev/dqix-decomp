@@ -8,8 +8,8 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-struct Struct_ov011_02184c30;
-extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
+struct ScriptValue_ov011_02184c30;
+extern "C" int func_ov011_02184c30(struct ScriptValue_ov011_02184c30* arg0);
 
 struct Struct_ov011_02186548;
 struct Struct_ov011_02186548_2 { int unknown_0_, unknown_4_; };
@@ -20,7 +20,7 @@ struct Struct_ov004_0215c30c;
 struct Struct_ov004_0215c30c_2;
 extern "C" void func_ov023_021f67ac(struct Struct_ov004_0215c30c* arg0, struct Struct_ov004_0215c30c_2* arg1);
 
-extern "C" void* func_ov017_021b2164(void);
+extern "C" void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 
@@ -33,18 +33,18 @@ struct Struct_ov011_02186548_4 {
 
 // USA: func_ov011_02186548
 extern "C" ARM int func_ov011_02186548(char* arg0) {
-    int var0 = func_ov011_02184c30((struct Struct_ov011_02184c30*)arg0);
-    int var1 = func_ov011_02184c30((struct Struct_ov011_02184c30*)(arg0 + 8));
+    int var0 = func_ov011_02184c30((struct ScriptValue_ov011_02184c30*)arg0);
+    int var1 = func_ov011_02184c30((struct ScriptValue_ov011_02184c30*)(arg0 + 8));
 
     struct Struct_ov011_02186548_2 var2;
-    var2.unknown_0_ = func_ov011_02184c30((struct Struct_ov011_02184c30*)(arg0 + 0x10));
-    var2.unknown_4_ = func_ov011_02184c30((struct Struct_ov011_02184c30*)(arg0 + 0x18));
+    var2.unknown_0_ = func_ov011_02184c30((struct ScriptValue_ov011_02184c30*)(arg0 + 0x10));
+    var2.unknown_4_ = func_ov011_02184c30((struct ScriptValue_ov011_02184c30*)(arg0 + 0x18));
 
     struct Struct_ov011_02186548_3 var3;
-    var3.unknown_0_ = func_ov011_02184c30((struct Struct_ov011_02184c30*)(arg0 + 0x20)) != 0;
-    var3.unknown_1_ = func_ov011_02184c30((struct Struct_ov011_02184c30*)(arg0 + 0x28)) != 0;
+    var3.unknown_0_ = func_ov011_02184c30((struct ScriptValue_ov011_02184c30*)(arg0 + 0x20)) != 0;
+    var3.unknown_1_ = func_ov011_02184c30((struct ScriptValue_ov011_02184c30*)(arg0 + 0x28)) != 0;
 
-    void* var4 = func_ov017_021b2164();
+    void* var4 = GetCurrentMenu_ov017_021b2164();
     void* var5 = func_ov011_021845f8(var4, var1);
     if (var5 == 0) return 0;
 

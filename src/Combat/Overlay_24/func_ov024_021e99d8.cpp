@@ -53,7 +53,7 @@ struct Struct_ov024_021e99d8_7 {
     unsigned char* unknown_150_;
 };
 
-extern "C" void* func_02079e2c(char* arg0, int arg1);
+extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
 extern "C" int func_020850d0(unsigned char* arg0);
 
@@ -73,7 +73,7 @@ extern "C" ARM int func_ov024_021e99d8(struct Struct_ov024_021e99d8_6* arg0, str
     }
     if (arg2->unknown_4_0_ == 0x1f8) {
         struct Struct_ov024_021e99d8_2* var1 =
-            (struct Struct_ov024_021e99d8_2*)func_02079e2c((char*)func_020797dc(), arg1->unknown_2_);
+            (struct Struct_ov024_021e99d8_2*)FindActionData_02079e2c((char*)GetActionTables_020797dc(), arg1->unknown_2_);
         if (!var1) {
             return 0;
         }
@@ -85,7 +85,7 @@ extern "C" ARM int func_ov024_021e99d8(struct Struct_ov024_021e99d8_6* arg0, str
     int var2 = func_ov024_021da644(var0, arg2->unknown_20_.unknown_0_0_, arg2->unknown_20_.unknown_1_2_);
     if (var2 == 1 && inline_ov000_02169850(var0)) {
         struct Struct_ov024_021e99d8_7* var3 =
-            (struct Struct_ov024_021e99d8_7*)func_0200ff1c(GameState::GetInstance(), var0);
+            (struct Struct_ov024_021e99d8_7*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), var0);
         if (var3 && (arg2->unknown_10_ & 0x100000)) {
             if (func_020850d0(var3->unknown_150_)) {
                 return 0x10;

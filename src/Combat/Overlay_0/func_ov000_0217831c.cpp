@@ -35,9 +35,9 @@ extern "C" void func_0205c508(struct Struct_0205c508* arg0, int* arg1, int* arg2
 extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" struct Struct_ov000_0217831c_2* func_02054000(struct Struct_02054000* arg0);
 extern "C" int func_ov000_0217542c(void* arg0);
-extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" int func_02041ea4(char* arg0, int arg1);
-extern "C" struct Struct_ov000_0217831c* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
+extern "C" struct Struct_ov000_0217831c* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 #if defined(jpn)
@@ -46,7 +46,7 @@ extern "C" int func_02042158(char* arg0, int arg1);
 #else
 extern "C" int func_02041acc(char* arg0, int arg1);
 #endif
-extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 
 // USA: func_ov000_0217831c
@@ -65,20 +65,20 @@ extern "C" ARM void func_ov000_0217831c(Struct_ov000_0217831c_3* arg0, char* arg
     signed char var9 = arg0->unknown_70_[arg0->unknown_1d6b_];
     int var10 = -1;
     GameState* var11 = GameState::GetInstance();
-    GameObject* var12 = func_0200ff1c(var11, var9);
+    GameObject* var12 = GetPartyMemberBaseByIndex_0200ff1c(var11, var9);
     struct Struct_ov000_0217831c_2* var13 = func_02054000((struct Struct_02054000*)var12);
     if (var13 != NULL) {
         var10 = var13->unknown_18_;
     }
     if (func_ov000_0217542c(arg0)) {
-        func_02041c08(arg1, var6 - var2, 8, 5, 5, 5);
+        AppendFrameTag_02041c08(arg1, var6 - var2, 8, 5, 5, 5);
     }
-    func_02041ea4(arg1, var6 - var2);
+    AppendCursorTag_02041ea4(arg1, var6 - var2);
     for (signed char var14 = var2; var14 < var3; var14++) {
         char var15[0x40];
         __clear(var15, sizeof(var15));
         int var16 = arg0->unknown_26_[var14];
-        struct Struct_ov000_0217831c* var17 = func_020dedd0((struct ItemTable_0201099c_10*)arg0->unknown_100_, var16);
+        struct Struct_ov000_0217831c* var17 = FindItemData_020dedd0((struct ItemTable_0201099c_10*)arg0->unknown_100_, var16);
         const char* var18 = var7;
         if (var17 != NULL) {
 #if defined(jpn)
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov000_0217831c(Struct_ov000_0217831c_3* arg0, char* arg
             func_02041acc(var15, 8);
         }
         AppendText_02042058(var15, var18);
-        func_02041b70(arg1, var8, var15);
+        AppendMenuEntry_02041b70(arg1, var8, var15);
         if (var14 != var3 - 1) {
             AppendText_02042058(arg1, var5);
         }

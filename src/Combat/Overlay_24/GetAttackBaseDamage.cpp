@@ -92,7 +92,7 @@ ARM int GetAttackBaseDamage(int* param_1, int attackerId, int defenderId, int* p
         }
         if (var5) {
             if (ARG3->unknown_1a_0_ == 2) {
-                GameObject* var6 = func_0200ff1c(gameState, attackerId);
+                GameObject* var6 = GetPartyMemberBaseByIndex_0200ff1c(gameState, attackerId);
                 if (var6 == NULL) {
                     return 0;
                 }

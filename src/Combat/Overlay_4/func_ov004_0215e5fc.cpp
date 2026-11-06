@@ -23,7 +23,7 @@ extern "C" short func_ov023_021f6f10(void*);
 extern "C" void func_ov023_021f809c(void*, void*);
 extern "C" void* func_ov004_0215e4c0(void*, int);
 extern "C" void func_ov023_021f8960(char*, short, unsigned short);
-extern "C" struct Struct_ov004_0215e5fc_5* func_020dedd0(struct Struct_ov002_02157634_5*, int);
+extern "C" struct Struct_ov004_0215e5fc_5* FindItemData_020dedd0(struct Struct_ov002_02157634_5*, int);
 extern "C" void func_02083738(void*, int);
 extern "C" void func_0208358c(void*, void*, int);
 extern "C" int func_02046608(int, int, void*, void*, int, int, int);
@@ -146,7 +146,7 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
     int var9;
     int var10;
     int var11;
-    void* var12 = func_0200ff1c(var5, arg1);
+    void* var12 = GetPartyMemberBaseByIndex_0200ff1c(var5, arg1);
     if (var12 != 0) {
         var8 = (char*)GetPartyMemberData_02053c6c((unsigned char*)var12);
         Struct_ov004_0215e5fc_2* var13 = (Struct_ov004_0215e5fc_2*)func_ov004_0215e47c(arg0, 0x81);
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
                     var3 = *(short*)(var2 + data_ov004_021705a4[var4] * 2);
                     if (var3 == data_ov004_02171118[var4][arg1] && data_ov004_0217057c[var4] != 1) continue;
                     var7 = 1;
-                    var0 = (struct Struct_ov004_0215e5fc_5*)func_020dedd0((struct Struct_ov002_02157634_5*)var6, var3);
+                    var0 = (struct Struct_ov004_0215e5fc_5*)FindItemData_020dedd0((struct Struct_ov002_02157634_5*)var6, var3);
                     if (var0 == 0) {
                         var9 = data_ov004_0217057c[var4];
                         func_02083738(var8, var9);
@@ -172,7 +172,7 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
                             var10 = 1000;
                             var11 = 0;
                         }
-                        void* var14 = func_020dedd0((struct Struct_ov002_02157634_5*)var6, var10);
+                        void* var14 = FindItemData_020dedd0((struct Struct_ov002_02157634_5*)var6, var10);
                         if (var14 != 0) {
                             func_0208358c(var8, var14, var11);
                         }
@@ -230,7 +230,7 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
     int var28;
     int var29;
     void* var30;
-    void* var31 = func_0200ff1c(var24, arg1);
+    void* var31 = GetPartyMemberBaseByIndex_0200ff1c(var24, arg1);
     if (var31 != 0) {
         var26 = (char*)GetPartyMemberData_02053c6c((unsigned char*)var31);
         Struct_ov004_0215e5fc_2* var32 = (Struct_ov004_0215e5fc_2*)func_ov004_0215e47c(arg0, 0x81);
@@ -242,7 +242,7 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
                     var22 = *(short*)(var21 + data_ov004_0216fe3c[var23] * 2);
                     if (var22 == data_ov004_02170888[var23][arg1] && data_ov004_0216fdfc[var23] != 1) continue;
                     var25 = 1;
-                    var19 = (struct Struct_ov004_0215e5fc_5*)func_020dedd0((struct Struct_ov002_02157634_5*)var30, var22);
+                    var19 = (struct Struct_ov004_0215e5fc_5*)FindItemData_020dedd0((struct Struct_ov002_02157634_5*)var30, var22);
                     if (var19 == 0) {
                         var27 = data_ov004_0216fdfc[var23];
                         func_02083738(var26, var27);
@@ -256,7 +256,7 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
                             var28 = 1000;
                             var29 = 0;
                         }
-                        void* var33 = func_020dedd0((struct Struct_ov002_02157634_5*)var30, var28);
+                        void* var33 = FindItemData_020dedd0((struct Struct_ov002_02157634_5*)var30, var28);
                         if (var33 != 0) {
                             func_0208358c(var26, var33, var29);
                         }

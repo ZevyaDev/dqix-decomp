@@ -20,9 +20,9 @@ struct Struct_ov017_021c48f0_2 { char unknown_0_[0x34c0]; unsigned char* unknown
 struct Struct_ov017_021c48f0_2 { char unknown_0_[0x36d0]; unsigned char* unknown_36d0_; char unknown_36d4_[0x3734-0x36d4]; Struct_ov017_021c48f0_8* unknown_3734_; };
 #endif
 extern "C" int func_02039888(void*); extern "C" void func_02039d58(unsigned char*);
-extern "C" GameObject* func_0200ff58(GameState*,int); extern "C" int func_020546a8(void*);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*,int); extern "C" int func_020546a8(void*);
 extern "C" unsigned short* GetZone3D_02012fe4(); extern "C" void func_02039d24(unsigned char*);
-extern "C" void func_020407b4(Struct_02040774_2*,int,int,int); extern "C" void func_02033874(Struct_02033834*,int); extern "C" void func_02033b88(Struct_02010604*,int);
+extern "C" void func_020407b4(Struct_02040774_2*,int,int,int); extern "C" void SetFacingInstantly_02033874(Struct_02033834*,int); extern "C" void SetMotion_02033b88(Struct_02010604*,int);
 extern "C" void func_ov017_02193428(void*,void*); extern "C" void func_02026bc8(unsigned char*,int);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void func_ov017_0219dc90(GameResources*,int,int,int,int);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_021c48f0(int arg0,Struct_ov017_021c48f0_5* arg1,G
         GameObject* var7=var6[0];
         if(*((Struct_ov017_021c48f0_7*)var7)->unknown_130_&1) { var0=func_02039888(var7); GameObject* var8=arg2->GetPartyMemberByIndex(var0); if(var8!=NULL) func_02039d58((unsigned char*)var8); }
         else { func_02039d58((unsigned char*)var7); var0=arg0; }
-        for(int var9=0;var9<4;var9++) { GameObject* var10=func_0200ff58(arg2,var9); if(var10!=NULL && arg0==func_020546a8(var10)) var6[var5++]=var10; }
+        for(int var9=0;var9<4;var9++) { GameObject* var10=GetCompanionByIndex_0200ff58(arg2,var9); if(var10!=NULL && arg0==func_020546a8(var10)) var6[var5++]=var10; }
         int var11=(var2->unknown_3_==0 || var2->unknown_101_==0)?1:0;
         for(int var12=0;var12<var5;var12++) {
             GameObject* var13=var6[var12];
@@ -60,14 +60,14 @@ extern "C" ARM void func_ov017_021c48f0(int arg0,Struct_ov017_021c48f0_5* arg1,G
                 func_02039d24((unsigned char*)var13);
                 if(arg1->unknown_4_==10000 && func_02039888(var13)!=-1) func_020407b4((Struct_02040774_2*)var13,0xff000,0,0xff000);
                 else var13->obj3D_.position_=var4;
-                func_02033874((Struct_02033834*)var13,arg1->unknown_10_);
-                if(var12!=0) func_02033b88((Struct_02010604*)var13,0);
+                SetFacingInstantly_02033874((Struct_02033834*)var13,arg1->unknown_10_);
+                if(var12!=0) SetMotion_02033b88((Struct_02010604*)var13,0);
                 ((Struct_ov017_021c48f0_6*)var6[var12])->unknown_d4_=var4;
                 ((Struct_ov017_021c48f0_6*)var6[var12])->unknown_e0_|=0x20;
             }
             if(arg1->unknown_4_==10000 && var0==var13->obj3D_.unknown_4_ && var11) {
                 func_020407b4((Struct_02040774_2*)var6[var12],0x5f0a,0x3614,0x570);
-                func_02033874((Struct_02033834*)var6[var12],0x4b66);
+                SetFacingInstantly_02033874((Struct_02033834*)var6[var12],0x4b66);
             }
             var13->obj3D_.EnableFlag(0x4000000);
             if(var2->unknown_3_==0) func_ov017_02193428(var13,0);

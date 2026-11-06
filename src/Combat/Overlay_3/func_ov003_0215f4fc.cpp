@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" int func_02001aec(const char* arg0, const char* arg1, unsigned int arg2);
+extern "C" int CompareBytes_02001aec(const char* left, const char* right, unsigned int count);
 
 struct Struct_ov003_0215f4fc {
     int unknown_0_;
@@ -30,7 +30,7 @@ extern "C" ARM Struct_ov003_0215f4fc* func_ov003_0215f4fc(Struct_ov003_0215f4fc_
     var3 = arg0->unknown_4_->unknown_6_;
     var1 = arg0->unknown_4_->unknown_0_;
     for (var2 = 0; var2 < var3; var2++, var1++) {
-        if (var1->unknown_4_ != 0 && func_02001aec(var1->unknown_4_, arg1, var0) == 0) {
+        if (var1->unknown_4_ != 0 && CompareBytes_02001aec(var1->unknown_4_, arg1, var0) == 0) {
             return var1;
         }
     }

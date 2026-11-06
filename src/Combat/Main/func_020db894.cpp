@@ -10,9 +10,9 @@ extern "C" void func_020db844(Struct_020db3f4_3* arg0, int arg1, int arg2, int a
 
 extern "C" void func_020db304(int arg0, int arg1);
 
-struct Struct_02038598_4;
-extern "C" Struct_02038598_4* GetGlobalFlags_020d6c00();
-extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
+struct GlobalFlags_02038598_4;
+extern "C" GlobalFlags_02038598_4* GetGlobalFlags_020d6c00();
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 
 struct Struct_020dafd4;
 extern "C" void func_020db0c4(Struct_020dafd4* arg0);
@@ -59,7 +59,7 @@ extern "C" ARM void func_020db894(Struct_020db894_2* arg0) {
         data_020f28f4[arg0->unknown_3c_](var0);
     }
     func_020db304((int)arg0, arg0->unknown_3c_);
-    func_020466f4(GetGlobalFlags_020d6c00(), 0x8000);
+    ClearGlobalFlags_020466f4(GetGlobalFlags_020d6c00(), 0x8000);
     func_020db0c4((Struct_020dafd4*)arg0);
     func_020db814(arg0);
     func_020d8694();

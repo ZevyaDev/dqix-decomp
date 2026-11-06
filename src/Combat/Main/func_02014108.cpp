@@ -8,12 +8,9 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 extern "C" {
-    void func_020c9be0();
+    void HaltForever_020c9be0();
     void _ZN6Zone3D13func_02014b04Ev(void* arg0);
 }
 
@@ -96,7 +93,7 @@ ARM int Zone3D::func_02014108() {
             unsigned int var14 = pAllocator_4c_->GetMaxPossibleAllocation();
             void* var15 = pAllocator_4c_->Allocate(var14);
             if (var15 == 0) {
-                func_020c9be0();
+                HaltForever_020c9be0();
             }
             internalAllocator_.ResetAllocatorPointer();
             internalAllocator_.CreateTypeA(var15, var14);

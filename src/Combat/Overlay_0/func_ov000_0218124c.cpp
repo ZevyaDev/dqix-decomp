@@ -5,10 +5,10 @@
 struct Struct_02000c9c_8;
 struct Struct_0204af14;
 
-extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* arg0);
+extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
 extern "C" void* func_0204af14(struct Struct_0204af14* arg0, unsigned int arg1);
 extern "C" void func_0204b938(void* arg0, void* arg1, int arg2, int arg3, unsigned short arg4);
-extern "C" void func_0205ac40(void* arg0, void* arg1);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 // USA: func_ov000_0218124c
 #if defined(jpn)
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov000_0218124c(unsigned char* arg0, int arg1, void* arg
 extern "C" ARM void func_ov000_0218124c(unsigned char* arg0, int arg1, void* arg2, int arg3, short arg4, short arg5, short arg6, short arg7) {
     GameState* var4 = GameState::GetInstance();
     unsigned int var5 = 5;
-    switch (func_0200fb08((struct Struct_02000c9c_8*)var4)) {
+    switch (GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)var4)) {
     case 2:
         var5 = 6;
         break;
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov000_0218124c(unsigned char* arg0, int arg1, void* arg
         *(int*)(var8 + 0x18) = arg7 << 12;
         var8[0x22] = arg1 + 0x5c;
         var8[0x26] = 1;
-        func_0205ac40(arg0 + 0x11c, var8);
+        DrawSprite_0205ac40(arg0 + 0x11c, var8);
     }
 }
 #endif

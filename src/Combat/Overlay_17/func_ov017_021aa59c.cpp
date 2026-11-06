@@ -17,14 +17,14 @@
 struct AllocatorUnion;
 struct Struct_0201bdac_4;
 struct Struct_02046c78;
-struct Struct_02109bf4_4;
+struct MusicManager_02109bf4_4;
 struct Struct_02109bf4_3;
 struct Struct_02081ee4;
 struct Struct_02081ee4_2;
-struct Struct_02020cb8;
-struct Struct_0204b12c;
-struct Struct_02020cb8_5;
-struct Struct_0204c7a8;
+struct BGLayer_02020cb8;
+struct BGLayer_0204b12c;
+struct BGLayer_02020cb8_5;
+struct TextWindow_0204c7a8;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct Struct_0207f914;
@@ -41,7 +41,7 @@ struct Struct_ov017_021aa59c_5;
 struct Struct_ov017_021aa59c_6;
 struct SoundEffectManager_02108760;
 struct Struct_0207fe44;
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 struct Struct_02038598_5;
 
 extern "C" void* GetLocalWireless_0202ae18(void);
@@ -54,21 +54,21 @@ extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int func_02086b98(struct Struct_0201bdac_4* arg0);
 extern "C" void func_ov017_021ab010(void* arg0, int arg1);
 extern "C" int func_02046c78(struct Struct_02046c78* arg0);
-extern "C" void func_0209c678(struct Struct_02109bf4_4* arg0, int arg1);
+extern "C" void func_0209c678(struct MusicManager_02109bf4_4* arg0, int arg1);
 extern "C" void func_020a0cc4(unsigned int arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020a0c0c(void);
 extern "C" void func_02081ee4(struct Struct_02081ee4* arg0, struct Struct_02081ee4_2* arg1);
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
-extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
-extern "C" void func_0204b5b4(void* arg0, int arg1);
-extern "C" void func_0204b12c(struct Struct_0204b12c* arg0, SafeAllocator* arg1);
-extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
-extern "C" void func_0204c684(void* arg0);
-extern "C" void func_0204c7a8(struct Struct_0204c7a8* arg0, SafeAllocator* arg1, int arg2, unsigned int arg3);
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
+extern "C" void SetBGPriority_0204b5b4(void* layer, int priority);
+extern "C" void AllocateBGScreenData_0204b12c(struct BGLayer_0204b12c* layer, SafeAllocator* allocator);
+extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
+extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
 extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void func_0204b174(void* arg0, void* arg1, SafeAllocator* arg2, unsigned int arg3);
+extern "C" void LoadBGBlock_0204b174(void* layer, void* block, SafeAllocator* allocator, unsigned int arg3);
 #if defined(jpn)
 extern "C" void func_02080654(struct Struct_0207f914* arg0, int arg1, int arg2);
 #else
@@ -90,9 +90,9 @@ extern "C" void func_020804fc(void* arg0, int arg1);
 extern "C" int func_ov017_021ab0c0(struct Struct_ov017_021aa59c_5* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_0207fe44(struct Struct_0207fe44* arg0);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" int func_ov017_021ab1a4(struct Struct_ov017_021aa59c_6* arg0);
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" unsigned char func_02010750(char* arg0);
 extern "C" void func_ov017_021d1a18(int arg0, int arg1, int arg2, int arg3);
 extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
@@ -143,7 +143,7 @@ struct Struct_ov017_021aa59c_3 {
     char unknown_10_[4];
     int unknown_14_;
     Struct_0207f7f0* unknown_18_;
-    Struct_02020cb8* unknown_1c_;
+    BGLayer_02020cb8* unknown_1c_;
     Struct_0207f7f0_2* unknown_20_;
     SafeAllocator unknown_24_;
     int unknown_38_;
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
         return;
     }
 
-    func_0209c678((Struct_02109bf4_4*)&gMusicManager_02109bf4, 0);
+    func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
     BackgroundLoader* var5 = BackgroundLoader::GetInstance();
     int var6 = arg0->unknown_14_;
     if (var6 == 0) {
@@ -202,7 +202,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
         arg0->unknown_24_.Reset();
         arg0->unknown_8_ = arg0->unknown_24_.Allocate(0x1400);
         arg0->unknown_20_ = (Struct_0207f7f0_2*)arg0->unknown_24_.Allocate(0x1c0);
-        arg0->unknown_1c_ = (Struct_02020cb8*)arg0->unknown_24_.Allocate(0x40);
+        arg0->unknown_1c_ = (BGLayer_02020cb8*)arg0->unknown_24_.Allocate(0x40);
 #if defined(jpn)
         arg0->unknown_18_ = (Struct_0207f7f0*)arg0->unknown_24_.Allocate(0x34);
 #else
@@ -212,22 +212,22 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
         arg0->unknown_40_ = (Struct_ov017_021aa59c*)arg0->unknown_24_.Allocate(4);
         func_02081ee4((Struct_02081ee4*)arg0->unknown_3c_, (Struct_02081ee4_2*)arg0->unknown_40_);
 
-        Struct_02020cb8* var8 = arg0->unknown_1c_;
+        BGLayer_02020cb8* var8 = arg0->unknown_1c_;
         for (int var9 = 0; var9 < 2; var9++) {
-            func_0204af64((Struct_02020cb8*)var8);
-            func_0204b11c((unsigned char*)var8, 0);
+            InitBGLayer_0204af64((BGLayer_02020cb8*)var8);
+            SetBGScreenSize_0204b11c((unsigned char*)var8, 0);
             var8->unknown_1c_0_ = 0;
-            var8->unknown_1c_4_ = var9 + 1;
-            func_0204b5b4(var8, var9);
-            func_0204b12c((Struct_0204b12c*)var8, &arg0->unknown_24_);
-            func_0204b5e8((Struct_02020cb8_5*)var8, 0, 0);
+            var8->bgIndex_1c_4_ = var9 + 1;
+            SetBGPriority_0204b5b4(var8, var9);
+            AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)var8, &arg0->unknown_24_);
+            SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var8, 0, 0);
             var8++;
         }
 
         Struct_0207f7f0_2* var10 = arg0->unknown_20_;
         for (unsigned char var11 = 0; var11 < 2; var11++) {
-            func_0204c684(var10);
-            func_0204c7a8((Struct_0204c7a8*)var10, &arg0->unknown_24_, (int)arg0->unknown_8_, 0x800);
+            InitTextWindow_0204c684(var10);
+            SetTextWindowBuffers_0204c7a8((TextWindow_0204c7a8*)var10, &arg0->unknown_24_, (int)arg0->unknown_8_, 0x800);
             var10->unknown_4_ = arg0->unknown_1c_;
             var10++;
         }
@@ -248,11 +248,11 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
             unsigned int var14;
             var5->GetLoadedFileByID(arg0->unknown_50_, &var13, &var14);
             int var15 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var13);
-            Struct_02020cb8* var16 = arg0->unknown_1c_;
+            BGLayer_02020cb8* var16 = arg0->unknown_1c_;
             for (int var17 = 0; var17 < var15; var17++) {
                 int var18;
                 void* var19 = GetPacEntryData_020467f0((PacEntry_02020aec*)var13, var17, &var12, &var18);
-                func_0204b174(var16, var19, NULL, var18);
+                LoadBGBlock_0204b174(var16, var19, NULL, var18);
             }
             var5->RemoveTask(arg0->unknown_50_);
             arg0->unknown_50_ = -1;
@@ -329,7 +329,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
                     arg0->unknown_44_ = NULL;
                     if (arg0->unknown_4c_ == 0) {
                         func_0207fe44((Struct_0207fe44*)arg0->unknown_18_);
-                        func_020466e4(var4, 0x200);
+                        SetGlobalFlags_020466e4(var4, 0x200);
                     } else if (arg0->unknown_4c_ == 1) {
                         var22 = true;
                     }
@@ -339,7 +339,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
             } else if (g_keyManager.TestKeysPressed(0x401) != 0 || g_touchInput.pressed_ != 0) {
                 func_020813ec(var25, arg0->unknown_48_);
                 func_ov017_021ab060((Struct_ov017_021aa59c_4*)arg0);
-                func_020466f4((Struct_02038598_4*)var4, 0x200);
+                ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var4, 0x200);
             }
         }
         if (func_02010750((char*)var2) != 0 || var22) {
@@ -349,13 +349,13 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
         }
         if (var23 && var25 != NULL && var24 != NULL) {
             func_0207fe44((Struct_0207fe44*)arg0->unknown_18_);
-            func_020466e4(var4, 0x200);
+            SetGlobalFlags_020466e4(var4, 0x200);
         }
     } else if (var6 == 6) {
         if (var1->unknown_0_ == 10000) {
             func_ov017_021d1a18(var1->unknown_2786_, var1->unknown_2784_, var1->unknown_2788_, 1);
         }
-        func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x200000);
+        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x200000);
         SetBrightness(var0, -16, 120);
         arg0->unknown_14_ = 7;
     } else if (var6 == 7) {

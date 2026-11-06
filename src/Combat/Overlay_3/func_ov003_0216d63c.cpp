@@ -26,15 +26,15 @@ enum { Enum_ov003_0216d63c_5128 = 0x1408 };
 enum { Enum_ov003_0216d63c_5119 = 0x13ff };
 #endif
 
-struct Struct_0201099c_14 {
+struct StringTable_0201099c_14 {
 	char unknown_0_[0x18];
 };
 struct Struct_020a9ea4 {
 	char unknown_0_[8];
 };
 
-extern "C" void func_0205a444(char* arg0);
-extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
+extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 extern "C" void func_020a9ea4(struct Struct_020a9ea4* arg0);
 extern "C" void func_ov003_0215c650(void* arg0);
 extern "C" void func_ov003_0216ffbc(void* arg0);
@@ -62,7 +62,7 @@ struct Struct_ov003_0216d63c {
 	int unknown_12cc_;
 	int unknown_12d0_;
 	SafeAllocator unknown_12d4_[4];
-	struct Struct_0201099c_14 unknown_1324_;
+	struct StringTable_0201099c_14 unknown_1324_;
 	Object3D unknown_133c_;
 	unsigned char unknown_13e8_;
 	unsigned char unknown_13e9_;
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov003_0216d63c(struct Struct_ov003_0216d63c* arg0) {
 	arg0->unknown_f08_ = arg0->unknown_410_;
 	arg0->unknown_1264_ = 0;
 	arg0->unknown_1268_ = 0;
-	func_0205a444(arg0->unknown_126c_);
+	InitSpriteSet_0205a444(arg0->unknown_126c_);
 	arg0->unknown_12c0_ = 0;
 	arg0->unknown_12c4_ = 0;
 	arg0->unknown_12c8_ = 0;
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov003_0216d63c(struct Struct_ov003_0216d63c* arg0) {
 	arg0->unknown_12d4_[1].ResetAllocatorPointer();
 	arg0->unknown_12d4_[2].ResetAllocatorPointer();
 	arg0->unknown_12d4_[3].ResetAllocatorPointer();
-	func_020dfc40(&arg0->unknown_1324_);
+	InitStringTable_020dfc40(&arg0->unknown_1324_);
 	arg0->unknown_133c_.Initialize();
 	arg0->unknown_13e8_ = 0;
 	arg0->unknown_13e9_ = 0;

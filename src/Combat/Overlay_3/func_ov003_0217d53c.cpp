@@ -23,7 +23,7 @@ struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void func_02070378(char* arg0);
 
 struct Struct_ov003_0217d53c_4 {
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov003_0217d53c(Struct_ov003_0217d53c_3* arg0) {
         AppendToQueue_020469b4(var3, (struct QueueNode_0201bdac*)var6);
         unsigned char* var7 = *(unsigned char**)(var2 + Enum_ov003_0217d53c_14092);
         func_ov017_0219e310(var7, 0);
-        Struct_ov003_0217d53c_2* var8 = (Struct_ov003_0217d53c_2*)func_0200fd0c(var0);
+        Struct_ov003_0217d53c_2* var8 = (Struct_ov003_0217d53c_2*)GetZoneEntry_0200fd0c(var0);
         func_02070378((char*)var8);
         var8->unknown_0_ = 0xc3bc;
         var8->unknown_7_ = 1;

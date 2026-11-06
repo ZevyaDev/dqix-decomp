@@ -65,10 +65,10 @@ struct Struct_0201099c_3;
 extern "C" void * FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov003_0215cab0(Struct_ov003_02154af4_3 *, void *);
 extern "C" void *func_0203df78(void *, int);
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
-struct Struct_02109bf4_4;
-extern "C" void func_0209c678(Struct_02109bf4_4*, int);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
+struct MusicManager_02109bf4_4;
+extern "C" void func_0209c678(MusicManager_02109bf4_4*, int);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 extern "C" void func_0205e944(void *, int);
@@ -93,7 +93,7 @@ extern "C" void func_0209c7fc(void *);
 struct Struct_0203e2c4_2;
 extern "C" void func_02040b2c(Struct_0203e2c4_2*, int);
 struct Struct_02046574_2;
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 
 // USA: func_ov003_0215d4fc
 extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
@@ -151,8 +151,8 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
         if (var2->unknown_998_ != 0) {
             return;
         }
-        func_0205d6a0((Struct_0205d6a0*)arg0->unknown_98_, 0);
-        func_0209c678((Struct_02109bf4_4*)&gMusicManager_02109bf4, 0x10);
+        CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_98_, 0);
+        func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0x10);
         SetBrightness((GameResources*)var1, -16, 0x3c);
         func_0205e944(&gSoundEffectManager_02108760, 0);
         arg0->unknown_3f5_  = 1;
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
             return;
         }
         var2->unknown_998_ = 1;
-        func_02046574((Struct_02046574_2*)var2, 0, (char*)(*(void **) ((char *) var0->GetUnknownGameObject() + 0x134)));
+        SetMessageString_02046574((Struct_02046574_2*)var2, 0, (char*)(*(void **) ((char *) var0->GetUnknownGameObject() + 0x134)));
         int var16 = 0x3f3;
         if (arg0->unknown_3f0_ != 0) {
             if (var9 == 0) {

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_0205d2bc;
-extern "C" void func_0205d2bc(struct Struct_0205d2bc* arg0);
+struct TextWindowManager_0205d2bc;
+extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc* arg0);
 extern "C" void func_020e2d24(int* arg0, int arg1, int arg2);
 struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov003_02159100(void* arg0) {
     if (*(signed char*)(var0 + 0x588) == 0) return;
     if (*(unsigned char*)(var0 + 0x587) != 0) return;
 
-    func_0205d2bc((struct Struct_0205d2bc*)(var0 + 0xf4));
+    func_0205d2bc((struct TextWindowManager_0205d2bc*)(var0 + 0xf4));
 
     if (*(void**)(var0 + 0x570) == NULL) return;
 

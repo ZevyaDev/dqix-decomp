@@ -76,10 +76,10 @@ struct Struct_ov002_0215a0a4_4 {
 extern "C" void* func_020e2ff8();
 extern "C" void func_020e3428(void*, int);
 extern "C" Struct_ov002_02157d40_6* GetMessageWindow_020421a0();
-extern "C" Struct_ov002_0215a0a4_5* func_02079e2c(char*, int);
+extern "C" Struct_ov002_0215a0a4_5* FindActionData_02079e2c(char*, int);
 extern "C" void* func_020e46c4(void*);
-extern "C" void func_02046574(Struct_ov002_02157d40_6*, int, char*);
-extern "C" void func_020e4bf4(void*, int);
+extern "C" void SetMessageString_02046574(Struct_ov002_02157d40_6*, int, char*);
+extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" int func_02048350(Struct_ov002_02157d40_8*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
     var7 = GameState::GetInstance();
     var8 = GetMessageWindow_020421a0();
     var2 = GetLocalWireless_0202ae18();
-    var9 = func_02079e2c((char*)func_020797dc(), arg0->unknown_1c26_);
+    var9 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), arg0->unknown_1c26_);
     if (!var9) return;
     memset(arg0->unknown_1000_.unknown_bd0_, 0, Enum_ov002_0215a0a4_2400);
     memset(arg0->unknown_1000_.unknown_bd4_, 0, Enum_ov002_0215a0a4_2400);
@@ -123,15 +123,15 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
     func_020e46c4(arg0->unknown_8_);
     func_020e46c4(arg0->unknown_14_);
 #endif
-    var3 = func_0200ff1c(var7, arg1->unknown_2_);
+    var3 = GetPartyMemberBaseByIndex_0200ff1c(var7, arg1->unknown_2_);
     if (var3) {
-        func_02046574(var8, 0, var3->baseStats_->unk);
+        SetMessageString_02046574(var8, 0, var3->baseStats_->unk);
 #if !defined(jpn)
-        func_020e4bf4(arg0->unknown_8_, arg1->unknown_2_);
+        InitPartyMemberNoun_020e4bf4(arg0->unknown_8_, arg1->unknown_2_);
         var8->unknown_0_ = arg0->unknown_8_;
 #endif
     }
-    func_02046574(var8, 1, var9->unknown_0_);
+    SetMessageString_02046574(var8, 1, var9->unknown_0_);
     if (arg0->unknown_1c26_ == 0x1e || arg0->unknown_1c26_ == 0x1f || arg0->unknown_1c26_ == 0x20 ||
         arg0->unknown_1c26_ == 0x21 || arg0->unknown_1c26_ == 0x23 || arg0->unknown_1c26_ == 0x26 || arg0->unknown_1c26_ == 0x27) {
         arg0->unknown_248a_ = 1;
@@ -188,15 +188,15 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
             int var13 = var4[var10].unknown_0_ == 3 ? var1 : 0x233a;
             if (var13 >= 0) {
 #if defined(jpn)
-                var0 = func_0200ff1c(var7, arg1->unknown_4_[var10]);
+                var0 = GetPartyMemberBaseByIndex_0200ff1c(var7, arg1->unknown_4_[var10]);
 #else
-                var0 = func_0200ff1c(var7, var6[var10]);
+                var0 = GetPartyMemberBaseByIndex_0200ff1c(var7, var6[var10]);
 #endif
                 if (var0) {
                     ClearMessageParams_02046380(var8);
-                    func_02046574(var8, 2, inline_ov002_0215a0a4(var0));
+                    SetMessageString_02046574(var8, 2, inline_ov002_0215a0a4(var0));
 #if !defined(jpn)
-                    func_020e4bf4(arg0->unknown_14_, var6[var10]);
+                    InitPartyMemberNoun_020e4bf4(arg0->unknown_14_, var6[var10]);
                     var8->unknown_10_ = arg0->unknown_14_;
 #endif
                     SetMessageNumber_020465c0((Struct_ov002_02157d40_2*)var8, 9, var0->obj3D_.unknown_4_);
@@ -212,9 +212,9 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
     } else {
         var0 = var7->GetUnknownGameObject();
         if (var0) {
-            func_02046574(var8, 2, inline_ov002_0215a0a4(var0));
+            SetMessageString_02046574(var8, 2, inline_ov002_0215a0a4(var0));
 #if !defined(jpn)
-            func_020e4bf4(arg0->unknown_14_, var0->obj3D_.unknown_4_);
+            InitPartyMemberNoun_020e4bf4(arg0->unknown_14_, var0->obj3D_.unknown_4_);
             var8->unknown_10_ = arg0->unknown_14_;
 #endif
         }

@@ -7,12 +7,12 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 
-extern "C" void* func_ov017_021b2164(void);
+extern "C" void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0203cf4c(void);
 
-struct Struct_ov011_02184c30;
-extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
+struct ScriptValue_ov011_02184c30;
+extern "C" int func_ov011_02184c30(struct ScriptValue_ov011_02184c30* arg0);
 
 struct Struct_ov011_021849bc;
 extern "C" int func_ov011_021849bc(struct Struct_ov011_021849bc* arg0, int arg1);
@@ -30,9 +30,9 @@ extern "C" void func_ov017_021a316c(int arg0);
 extern "C" void func_ov017_0219b938(int arg0);
 
 // USA: func_ov011_02184cc0
-extern "C" ARM int func_ov011_02184cc0(struct Struct_ov011_02184c30* arg0) {
+extern "C" ARM int func_ov011_02184cc0(struct ScriptValue_ov011_02184c30* arg0) {
     int var0 = (int)GetGameResources();
-    struct Struct_ov011_021849bc* var1 = (struct Struct_ov011_021849bc*)func_ov017_021b2164();
+    struct Struct_ov011_021849bc* var1 = (struct Struct_ov011_021849bc*)GetCurrentMenu_ov017_021b2164();
     void* var2 = func_0203cf4c();
     void* var3 = GetZone3D_02012fe4();
 

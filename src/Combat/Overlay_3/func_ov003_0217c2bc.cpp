@@ -18,7 +18,7 @@ struct Struct_ov003_0217c2bc {
 
 extern "C" void func_0205ebfc(void *arg0, int arg1, int arg2);
 extern "C" void func_ov003_0217cb3c(Struct_ov003_0217c2bc *arg0, int arg1, int arg2);
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_ov003_0217c974(Struct_ov003_0217c2bc *arg0);
 extern "C" void func_0209c830(Struct_02109bf4_2*, int);
 
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov003_0217c2bc(Struct_ov003_0217c2bc *arg0) {
         func_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
         func_ov003_0217cb3c(arg0, 1, 0);
         ((Object3D*)arg0->unknown_80_)->MakeVisible();
-        func_020c5588(0, 0, 0x7fff, 0, 0);
+        Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
         *(volatile unsigned int *) 0x4000000 = (*(volatile unsigned int *) 0x4000000 & ~0x1f00) | 0x300;
         SetBrightness(var0, 0x10, 0xa);
         arg0->unknown_141_++;
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov003_0217c2bc(Struct_ov003_0217c2bc *arg0) {
         arg0->unknown_141_++;
     } else if (arg0->unknown_141_ == 7) {
         if (IsBrightnessTransitionActive(var0)) return;
-        func_020c5588(0, 0x1f, 0x7fff, 0, 0);
+        Set3DClearColorAndDepth_020c5588(0, 0x1f, 0x7fff, 0, 0);
         *(volatile unsigned int *) 0x4000000 = (*(volatile unsigned int *) 0x4000000 & ~0x1f00) | 0x100;
         arg0->unknown_4_.Reset();
         ((Object3D*)arg0->unknown_80_)->Initialize();

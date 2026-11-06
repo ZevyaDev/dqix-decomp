@@ -39,9 +39,9 @@ struct Struct_02069234 {
 
 extern "C" char* func_020424ac(char* arg0);
 extern "C" int func_020d857c(signed char* arg0, signed char* arg1);
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" int func_02005a94(void* arg0);
-extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
+extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 extern "C" char* func_020e4958(char** arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
 
 typedef void (*Type_02000c9c_14)(char* tag, char** dst, Struct_02069234* sb, int index);
@@ -95,7 +95,7 @@ extern "C" ARM void func_02069234(Struct_02069234* arg0, char* arg1, char* arg2)
                 }
                 if (var5->unknown_4_ != 0) {
                     int var6 = 0;
-                    int var7 = func_020d2ff0(var5->unknown_0_);
+                    int var7 = GetStringLength_020d2ff0(var5->unknown_0_);
                     signed char var8 = var4[var7];
                     if (var8 >= '1' && var8 <= '9') {
                         var6 = func_02005a94(var4 + var7) - 1;
@@ -126,8 +126,8 @@ extern "C" ARM void func_02069234(Struct_02069234* arg0, char* arg1, char* arg2)
                 if (var16 == 0) {
                     break;
                 }
-                int var17 = func_020d2ff0(var16);
-                if (func_02001aec(var4, var16, var17) == 0) {
+                int var17 = GetStringLength_020d2ff0(var16);
+                if (CompareBytes_02001aec(var4, var16, var17) == 0) {
                     var3 = 1;
                     var4 += var17;
                     int var18 = 0;
@@ -163,10 +163,10 @@ extern "C" ARM void func_02069234(Struct_02069234* arg0, char* arg1, char* arg2)
             continue;
         }
         if (var1 == '[') {
-            if (func_02001aec(arg1, data_020f0904, 4) == 0) {
+            if (CompareBytes_02001aec(arg1, data_020f0904, 4) == 0) {
                 arg1 += 4;
                 GameState* var20 = GameState::GetInstance();
-                Struct_02069234_4* var21 = (Struct_02069234_4*)func_0200ff1c(var20, arg0->unknown_1880_);
+                Struct_02069234_4* var21 = (Struct_02069234_4*)GetPartyMemberBaseByIndex_0200ff1c(var20, arg0->unknown_1880_);
                 if (var21 != 0) {
                     Struct_02069234_2* var22 = var21->unknown_150_->inline_02069234();
                     if (var22 != 0) {
@@ -179,7 +179,7 @@ extern "C" ARM void func_02069234(Struct_02069234* arg0, char* arg1, char* arg2)
                 }
                 goto skip_bracket;
             }
-            if (func_02001aec(arg1, data_020f0909, 6) == 0) {
+            if (CompareBytes_02001aec(arg1, data_020f0909, 6) == 0) {
                 arg1 += 6;
                 var0 += sprintf(var0, arg0->unknown_3ac_);
                 goto skip_bracket;

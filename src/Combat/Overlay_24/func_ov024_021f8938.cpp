@@ -30,7 +30,7 @@ extern "C" Struct_02079ee0* func_02079ee0(void*, int);
 
 // USA: func_ov024_021f8938
 extern "C" ARM void func_ov024_021f8938(void* arg0, float* arg1, float* arg2, int arg3, Struct_ov024_021f8938* arg4, GameObject* arg5) {
-    Struct_02108e10* var0 = func_020797dc();
+    ActionTables_02108e10* var0 = GetActionTables_020797dc();
     *arg1 = 0;
     *arg2 = 0;
     Struct_02079ee0* var1 = func_02079ee0(var0, arg4->unknown_9_6_);

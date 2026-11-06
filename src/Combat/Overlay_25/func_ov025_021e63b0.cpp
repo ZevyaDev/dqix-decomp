@@ -52,7 +52,7 @@ extern "C" void func_ov025_021e8bac(Struct_ov025_021e267c_2*, Struct_ov025_021e2
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_0200fd38(GameState*, int, GameObject*);
-extern "C" Struct_ov025_021e63b0_4* func_ov000_02160130();
+extern "C" Struct_ov025_021e63b0_4* GetBattleScene_ov000_02160130();
 extern "C" void func_ov017_02191aac(GameResources*, int, int, int);
 
 // USA: func_ov025_021e63b0
@@ -62,7 +62,7 @@ extern "C" ARM int func_ov025_021e63b0(void* arg0, Struct_ov025_021e63b0_3* arg1
     if (data_ov025_021ef988.unknown_20_ == 0) {
         if (!arg1->unknown_10_) return 1;
         int var2 = arg1->unknown_10_->unknown_20_;
-        GameObject* var3 = func_0200ff1c(var0, var2);
+        GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var0, var2);
         if (!var3) {
             func_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
@@ -117,9 +117,9 @@ extern "C" ARM int func_ov025_021e63b0(void* arg0, Struct_ov025_021e63b0_3* arg1
         func_0200fd38(var0, 0xc8, (GameObject*)var12);
         var12->MakeHidden();
         int var14 = arg1->unknown_10_->unknown_20_;
-        Struct_ov025_021e63b0_4* var15 = func_ov000_02160130();
+        Struct_ov025_021e63b0_4* var15 = GetBattleScene_ov000_02160130();
         if (var15) var15->unknown_6fd6_ = var14;
-        GameObject* var16 = func_0200ff1c(var0, var14);
+        GameObject* var16 = GetPartyMemberBaseByIndex_0200ff1c(var0, var14);
         if (var16) {
             var12->position_ = var16->obj3D_.position_;
             var12->rotation_ = var16->obj3D_.rotation_;

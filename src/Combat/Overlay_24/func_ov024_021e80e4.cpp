@@ -114,7 +114,7 @@ extern "C" short func_ov000_0215ffa0(struct Struct_ov024_021e80e4* arg0);
 struct Struct_ov000_02159f7c;
 extern "C" int func_ov000_02159f7c(void*, Struct_ov000_02159f7c*);
 extern "C" int func_ov000_0215fd90(struct Struct_ov024_021e80e4_11* arg0, int arg1);
-extern "C" void func_ov000_0215a88c(void*, void*, int);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 extern "C" unsigned short func_ov024_021e9b24(struct Struct_ov024_021e80e4_4* arg0, int arg1, struct Struct_ov024_021e80e4_9* arg2, int arg3);
 
 // USA: func_ov024_021e80e4
@@ -297,7 +297,7 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
         }
         int var32 = var28 > 1 ? 0x24a : 0x5b;
         if (var29 != 0 && var29->unknown_0_ != 0) {
-            func_ov000_0215a88c(arg0->unknown_10_, var29->unknown_0_, (unsigned short)var32);
+            AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var29->unknown_0_, (unsigned short)var32);
         }
         return;
     }

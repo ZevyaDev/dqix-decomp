@@ -21,8 +21,8 @@ struct PacEntry_02020cb8_4;
 extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
-extern "C" void func_020dfec0(void* arg0, void* arg1, void* arg2, unsigned int arg3);
+extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, void* allocator);
+extern "C" void LoadStringTable_020dfec0(void* stringTable, void* allocator, void* fileData, unsigned int fileSize);
 
 extern "C" void func_ov023_021dcc58(void* arg0);
 extern "C" ARM void func_ov023_021db2e4(volatile int* arg0);
@@ -88,11 +88,11 @@ extern "C" ARM void func_ov023_021dd59c(void* arg0) {
             *(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) = 4;
             return;
         }
-        FontLoader_0208cb08* var2 = func_02094a00();
+        FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
         func_02094b30(var2, 0x1fa, 0);
         *(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) = *(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) + 1;
     } else if (*(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) == 3) {
-        if (func_02094b4c(func_02094a00()) != 0) {
+        if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()) != 0) {
             *(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) = *(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) + 1;
         }
     }
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov023_021dd59c(void* arg0) {
                 int var7 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var4);
                 for (int var8 = 0; var8 < var7; var8++) {
                     void* var9 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var4, var8, &var3, &var6);
-                    func_0205a528(var0 + Enum_ov023_021dd59c_300, var9, var6, *(void**)(var0 + 0x44));
+                    LoadSpriteSetFile_0205a528(var0 + Enum_ov023_021dd59c_300, var9, var6, *(void**)(var0 + 0x44));
                 }
             }
             *(signed char*)(var0 + Enum_ov023_021dd59c_1917) = 1;
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov023_021dd59c(void* arg0) {
             if (var10 != 0 && var11 != 0) {
 #endif
 
-                func_020dfec0(var0 + 0x54, var0 + 0x14, (void*)var10, (unsigned int)var11);
+                LoadStringTable_020dfec0(var0 + 0x54, var0 + 0x14, (void*)var10, (unsigned int)var11);
             }
             ((BackgroundLoader*)(var1))->RemoveTask((int)(*(int*)(var0 + Enum_ov023_021dd59c_1844)));
             *(int*)(var0 + Enum_ov023_021dd59c_1844) = -1;

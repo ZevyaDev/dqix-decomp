@@ -10,8 +10,8 @@ extern "C" int func_020850fc(unsigned char* arg0);
 extern "C" struct Struct_ov000_021600f8* func_ov000_021600f8(struct Struct_ov000_0215440c* arg0, int arg1);
 extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
 extern "C" short func_ov000_0215a16c(void* arg0, int arg1, int arg2, short* arg3);
-extern "C" struct Struct_ov000_021584e8* func_ov000_0215e958(void* arg0);
-extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" struct Struct_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_02159eac(void* arg0, struct Struct_ov024_021e6104_5* arg1, int arg2);
 extern "C" void func_ov000_0215ccbc(
     int arg0, struct Struct_ov000_021584e8* arg1, GameObject* arg2, short arg3, short arg4, short arg5,
@@ -49,7 +49,7 @@ static inline int inline_ov024_021ddf5c(int arg0) {
 
 // USA: func_ov024_021e6104
 extern "C" ARM int func_ov024_021e6104(struct Struct_ov024_021e6104_4* arg0, int arg1, struct Struct_ov024_021e6104_3* arg2) {
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg1);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1);
     if (!var0) return 0;
     if ((arg2->unknown_10_ & 0x400000) && inline_ov024_021ddf5c(arg1) && func_020850fc(((struct Struct_ov024_021e6104_2*)var0)->unknown_150_)) {
         int var1 = 0;
@@ -65,9 +65,9 @@ extern "C" ARM int func_ov024_021e6104(struct Struct_ov024_021e6104_4* arg0, int
         if (var6 > 0 && inline_ov000_021584e8(var0) < inline_ov024_021e6104(var0)) {
             short var7 = 0;
             short var8 = func_ov000_0215a16c(arg0->unknown_10_, arg1, var6, &var7);
-            struct Struct_ov000_021584e8* var9 = func_ov000_0215e958(arg0->unknown_10_);
+            struct Struct_ov000_021584e8* var9 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
             if (!var9) return 0;
-            func_ov000_0215a88c(arg0->unknown_10_, var9, 0x215);
+            AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var9, 0x215);
             struct Struct_ov024_021e6104_5 var10;
             var10.unknown_0_ = 0;
             var10.unknown_4_ = 0;

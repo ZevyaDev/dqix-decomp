@@ -50,11 +50,11 @@ struct Struct_ov025_021ef988_10 { unsigned char unknown_0_[4]; char* unknown_c_;
 struct Struct_ov025_021ef988_10 { unsigned char unknown_0_[0xc]; char* unknown_c_; };
 #endif
 extern Struct_ov025_021ef988_10 data_ov025_021ef988;
-extern "C" void* func_02057924();
+extern "C" void* GetEffectManager_02057924();
 extern "C" Struct_ov025_021e41a0_2* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
 extern "C" Struct_ov025_021e41a0_3* func_ov000_021600f8(Struct_ov000_0215440c*, int);
 extern "C" void func_02078484(Struct_02078398_2*);
-extern "C" Struct_ov025_021e41a0* func_ov000_02160130();
+extern "C" Struct_ov025_021e41a0* GetBattleScene_ov000_02160130();
 extern "C" void* func_02057fb4(void*, int, void*);
 extern "C" void** func_ov025_021e8cf0(char*, int);
 
@@ -66,7 +66,7 @@ static inline void inline_ov025_021e41a0(Vector3i* arg0, int arg1) {
 // USA: func_ov025_021e41a0
 extern "C" ARM int func_ov025_021e41a0(Struct_ov025_021e41a0_4* arg0, Struct_ov000_0215440c* arg1) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_02057924();
+    void* var1 = GetEffectManager_02057924();
     Struct_ov025_021e41a0_2* var2 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, 0);
     if (!var2) return 0;
     int var3 = var2->unknown_20_;
@@ -118,7 +118,7 @@ extern "C" ARM int func_ov025_021e41a0(Struct_ov025_021e41a0_4* arg0, Struct_ov0
         var6.unknown_44_.y = 0x800;
         var6.unknown_44_.z = 0x800;
     }
-    Struct_ov025_021e41a0* var20 = func_ov000_02160130();
+    Struct_ov025_021e41a0* var20 = GetBattleScene_ov000_02160130();
     var20->unknown_6f02_ = arg0->unknown_e_;
     void* var21 = func_02057fb4(var1, arg0->unknown_e_, &var6);
     void** var22 = func_ov025_021e8cf0(data_ov025_021ef988.unknown_c_, arg0->unknown_d_);

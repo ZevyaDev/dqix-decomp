@@ -40,10 +40,10 @@ struct Struct_ov003_0215a5b4_4 {
 };
 
 struct Struct_0201099c_3;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 
 extern "C" struct Struct_ov003_0215a5b4_3* GetMessageWindow_020421a0();
-extern "C" void func_0205deb4(struct Struct_0205d81c* arg0, int arg1, int arg2);
+extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c* windowManager, int windowId, int palette);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" void __clear(void* arg0, int arg1);
@@ -58,9 +58,9 @@ extern "C" ARM void func_ov003_0215a5b4(struct Struct_ov003_0215a5b4_4* arg0) {
     unsigned char var1 = arg0->unknown_580_;
     if (var1 == 0) {
         GameState* var2 = GameState::GetInstance();
-        func_0205deb4((struct Struct_0205d81c*)arg0->unknown_f4_, 0, 1);
-        func_0205deb4((struct Struct_0205d81c*)arg0->unknown_f4_, 1, 1);
-        func_0205deb4((struct Struct_0205d81c*)arg0->unknown_f4_, 2, 1);
+        SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c*)arg0->unknown_f4_, 0, 1);
+        SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c*)arg0->unknown_f4_, 1, 1);
+        SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c*)arg0->unknown_f4_, 2, 1);
         memset(arg0->unknown_7c_, 0, Enum_ov003_0215a5b4_2400);
         AppendText_02042058(arg0->unknown_7c_,
                              (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, 0x3fc));
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov003_0215a5b4(struct Struct_ov003_0215a5b4_4* arg0) {
         int var5 = func_020114ec((char*)var2, var3);
         for (int var6 = 0; var6 < var5; var6++) {
             struct Struct_ov003_0215a5b4_2* var7 =
-                (struct Struct_ov003_0215a5b4_2*)func_0200ff1c(var2, var3[var6]);
+                (struct Struct_ov003_0215a5b4_2*)GetPartyMemberBaseByIndex_0200ff1c(var2, var3[var6]);
             if (var7 == NULL) {
                 continue;
             }

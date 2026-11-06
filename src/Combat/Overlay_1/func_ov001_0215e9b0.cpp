@@ -2,7 +2,7 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 struct Struct_02114e20;
 extern "C" unsigned int func_02012dd0(struct Struct_02114e20*);
 
@@ -13,7 +13,7 @@ extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov001_0215e9b0
 extern "C" ARM int func_ov001_0215e9b0(void* arg0) {
-    int var0 = func_ov017_021d60f4(arg0);
+    int var0 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     if (var0 < 0 || var0 >= 8) {
         return 0;
     }

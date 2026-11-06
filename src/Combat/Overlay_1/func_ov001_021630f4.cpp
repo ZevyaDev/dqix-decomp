@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-extern "C" int func_ov017_021d60f4(int arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(int value);
 
 // USA: func_ov001_021630f4
 extern "C" ARM int func_ov001_021630f4(int arg0) {
@@ -11,6 +11,6 @@ extern "C" ARM int func_ov001_021630f4(int arg0) {
     enum { Enum_ov001_021630f4_1844 = 0x734, Enum_ov001_021630f4_254 = 0xfe };
 #endif
 	char* var0 = *(char**)((char*)GetGameResources() + 0x3000 + Enum_ov001_021630f4_1844);
-	*(unsigned char*)(var0 + Enum_ov001_021630f4_254) = func_ov017_021d60f4(arg0) != 0 ? 1 : 0;
+	*(unsigned char*)(var0 + Enum_ov001_021630f4_254) = GetScriptValueAsInt_ov017_021d60f4(arg0) != 0 ? 1 : 0;
 	return 1;
 }

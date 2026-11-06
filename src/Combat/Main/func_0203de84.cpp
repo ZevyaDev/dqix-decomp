@@ -45,7 +45,7 @@ struct Struct_0203de84_7 {
 // USA: func_0203de84
 extern "C" ARM void func_0203de84(void* arg0) {
     struct Struct_0203de84_7* var0 = (struct Struct_0203de84_7*)arg0;
-    void* var1 = func_020100bc(GameState::GetInstance());
+    void* var1 = GetCamera_020100bc(GameState::GetInstance());
     GetGameResources();
     struct Struct_0203de84_5* var2 = (struct Struct_0203de84_5*)GetZone3D_02012fe4();
     unsigned short var3 = var2->unknown_38_;

@@ -22,7 +22,7 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202c1a4* w
 extern "C" void func_ov017_021d360c(int arg0, unsigned char arg1, int arg2, Vector3s arg3);
 extern "C" GameObject* func_0200ffe0(GameState* arg0, int arg1);
 extern "C" void func_02034044(unsigned char* arg0, int arg1);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" unsigned char func_02039d7c(char* arg0);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_021d36b4(int arg0, struct Struct_ov017_021d36b4* 
             if (var3->obj3D_.unknown_4_ >= 0 && var3->obj3D_.unknown_4_ <= 3) var5 = 1;
             if (!var5) {
                 func_02034044((unsigned char*)var3, 5000);
-                if (var4 != 0) func_020397c0(var4);
+                if (var4 != 0) EnablePlayerControl_020397c0(var4);
             }
             var0->unknown_0_ = 0;
             func_ov017_021d360c(arg1->unknown_4_, arg1->unknown_5_, arg1->unknown_6_, arg1->unknown_8_);
@@ -70,11 +70,11 @@ extern "C" ARM void func_ov017_021d36b4(int arg0, struct Struct_ov017_021d36b4* 
             if (var7) {
                 if (var6 == GetOwnProtagonistObjectIndex_0202c1a4(arg4) && var4 != 0 && func_02039d7c((char*)var4) == 0) {
                     func_02034044((unsigned char*)var3, 5000);
-                    if (var4 != 0) func_020397c0(var4);
+                    if (var4 != 0) EnablePlayerControl_020397c0(var4);
                 }
             } else {
                 func_02034044((unsigned char*)var3, 5000);
-                if (var4 != 0) func_020397c0(var4);
+                if (var4 != 0) EnablePlayerControl_020397c0(var4);
             }
             var0->unknown_0_ = 0;
         }

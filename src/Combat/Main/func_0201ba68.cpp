@@ -1,15 +1,12 @@
 #include <globaldefs.h>
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int func_02012f68(int arg0);
-extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
+extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" int func_0201b588(int arg0);
 extern "C" int func_02012f24(int arg0);
 extern "C" int _s32_div_f(int a, int b);
@@ -29,20 +26,20 @@ extern "C" ARM void func_0201ba68(void* arg0) {
     if (*(unsigned short*)var0 >= 20000 && *(unsigned short*)var0 <= 0x752f) {
         int var2 = func_02012f68(*(unsigned short*)var0);
         if (var2 < 0) return;
-        func_0206df6c(var1, (unsigned char*)var1 + 0x8c, var2 + 0x5a + 0xa00, 1);
+        SetFlag_0206df6c(var1, (unsigned char*)var1 + 0x8c, var2 + 0x5a + 0xa00, 1);
         return;
     }
     if (*(unsigned short*)var0 >= 100 && *(unsigned short*)var0 <= 0x270f) {
         int var3 = _s32_div_f(*(unsigned short*)var0, 100);
         if (var3 >= 100) return;
-        func_0206df6c(var1, (unsigned char*)var1 + 0x8c, var3 + 0x96 + 0xa00, 1);
+        SetFlag_0206df6c(var1, (unsigned char*)var1 + 0x8c, var3 + 0x96 + 0xa00, 1);
         return;
     }
     if (func_0201b588(*(unsigned short*)var0)) {
-        func_0206df6c(var1, (unsigned char*)var1 + 0x8c, 0x79d, 1);
+        SetFlag_0206df6c(var1, (unsigned char*)var1 + 0x8c, 0x79d, 1);
         return;
     }
     int var4 = func_02012f24(*(unsigned short*)var0);
     if (var4 < 0) return;
-    func_0206df6c(var1, (unsigned char*)var1 + 0x8c, var4 + 0x5a + 0xa00, 1);
+    SetFlag_0206df6c(var1, (unsigned char*)var1 + 0x8c, var4 + 0x5a + 0xa00, 1);
 }

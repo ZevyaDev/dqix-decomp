@@ -16,7 +16,7 @@ extern short data_ov000_02182d56[];
 // USA: func_ov000_02159cb4
 extern "C" ARM int func_ov000_02159cb4(void* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    GameObject* var1 = func_0200ff1c(var0, arg1);
+    GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (!var1) return 0;
 
     int var2 = 0;

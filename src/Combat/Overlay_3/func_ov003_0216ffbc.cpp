@@ -2,9 +2,9 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-extern "C" void func_0205a444(char* arg0);
-struct Struct_0201099c_14;
-extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
+struct StringTable_0201099c_14;
+extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void func_0205c790(char* arg0);
 
 // USA: func_ov003_0216ffbc
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov003_0216ffbc(char* arg0) {
     *(int*)(arg0 + 0x5c) = 0;
     *(int*)(arg0 + 0x60) = 0;
     *(int*)(arg0 + 0x64) = 0;
-    func_0205a444(arg0 + 0x68);
+    InitSpriteSet_0205a444(arg0 + 0x68);
 
     ((SafeAllocator*)(arg0 + 0xbc))->ResetAllocatorPointer();
 
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov003_0216ffbc(char* arg0) {
     *(int*)(arg0 + 0xd8) = 0;
     *(int*)(arg0 + 0x16c) = 0;
     *(int*)(arg0 + 0x174) = 0;
-    func_020dfc40((Struct_0201099c_14*)(arg0 + 0xdc));
+    InitStringTable_020dfc40((StringTable_0201099c_14*)(arg0 + 0xdc));
 
     func_0205c790(arg0 + 0x178);
 

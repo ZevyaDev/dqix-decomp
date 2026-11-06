@@ -4,7 +4,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov000_02160130();
+extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" void* func_ov000_02160f20(void* arg0);
 struct Struct_ov000_0215440c_2;
 extern "C" void* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
@@ -14,7 +14,7 @@ struct GameState;
 extern "C" void* func_0200fea4(GameState*, int);
 extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
 extern "C" void func_0205eabc(void* arg0, void* arg1, int arg2);
-extern "C" void* func_02079e2c(char*, int);
+extern "C" void* FindActionData_02079e2c(char*, int);
 extern "C" int func_ov025_021eb42c(void* arg0, short arg1, short arg2);
 extern "C" int func_ov025_021eb148(void*, short, int, unsigned char);
 extern "C" void* func_ov000_0215ffa0(void* arg0);
@@ -112,8 +112,8 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
     int var1;
     int var2;
     void* var3 = GameState::GetInstance();
-    Struct_02108e10* var4 = func_020797dc();
-    void* var5 = func_ov000_02160130();
+    ActionTables_02108e10* var4 = GetActionTables_020797dc();
+    void* var5 = GetBattleScene_ov000_02160130();
     Struct_ov000_021700dc* var6 = (Struct_ov000_021700dc*)func_ov000_02160f20(var5);
     *(char**)arg0 = arg1;
     *(int*)(arg0 + 4) = *(int*)(arg1 + 8);
@@ -150,7 +150,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
     } else {
         *(int*)(arg0 + 0x224) = 0;
     }
-    Entry* var12 = (Entry*)func_02079e2c((char*)var4, (short)var6->unknown_0_);
+    Entry* var12 = (Entry*)FindActionData_02079e2c((char*)var4, (short)var6->unknown_0_);
     *(Entry**)(arg0 + 8) = var12;
     if ((var12 != 0 && ((var12->unknown_18_ << 16) >> 28) == 2) || var6->unknown_0_ == 0x1f8 || var6->unknown_0_ == 0x392) {
         int var13 = 0;
@@ -258,7 +258,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
     arg0[0x574] = 0;
     arg0[0x575] = 0;
     arg0[0x578] = 0;
-    var12 = (Entry*)func_02079e2c((char*)var4, (short)var6->unknown_0_);
+    var12 = (Entry*)FindActionData_02079e2c((char*)var4, (short)var6->unknown_0_);
     if (var12 != 0) {
         unsigned int var30 = var12->unknown_14_ >> 28;
         if (!(var30 != 3 && var30 != 4)) {
@@ -266,7 +266,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
         }
     }
     if (var6->unknown_0_ == 1 && var8 != 0) {
-        Struct_ov000_0215ab88* var31 = (Struct_ov000_0215ab88*)(void*)func_0200ff1c((GameState*)var3, var8->unknown_20_);
+        Struct_ov000_0215ab88* var31 = (Struct_ov000_0215ab88*)(void*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var3, var8->unknown_20_);
         if (var31 != 0) {
             char* var32 = var31->unknown_150_ + 0x294;
             if (var32 != 0) {
@@ -321,7 +321,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
             if (var39->unknown_2c_ != 0) {
                 int var41 = var39->unknown_20_ <= 3 ? 1 : 0;
                 if (var41 != 0) {
-                    void* var42 = func_02079e2c((char*)var4, 0x39a);
+                    void* var42 = FindActionData_02079e2c((char*)var4, 0x39a);
                     if (var42 != 0) {
                         Struct_ov014_02185c90_4 var43;
                         var43.unknown_0_ = var39->unknown_20_;

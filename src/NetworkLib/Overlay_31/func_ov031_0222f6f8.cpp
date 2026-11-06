@@ -24,7 +24,7 @@ extern struct Struct_ov031_02290ca0_8 data_ov031_02290ca0;
 extern int data_ov031_0224bb64;
 extern void* data_ov031_02290ca8;
 
-extern "C" int func_ov031_0223c054(int);
+extern "C" int IsBrightnessFadeActive_ov031_0223c054(int);
 extern "C" ARM int func_ov031_0223e2e0(int, void*);
 extern "C" int func_ov031_0223da58(void* arg0);
 extern "C" void func_ov031_022238cc(void);
@@ -54,8 +54,8 @@ extern "C" void func_ov031_02233248(void);
 
 // USA: func_ov031_0222f6f8
 extern "C" ARM void func_ov031_0222f6f8(void) {
-    if (func_ov031_0223c054(1) != 0) return;
-    if (func_ov031_0223c054(0) != 0) return;
+    if (IsBrightnessFadeActive_ov031_0223c054(1) != 0) return;
+    if (IsBrightnessFadeActive_ov031_0223c054(0) != 0) return;
 
     func_ov031_0223e2e0(0, data_ov031_02290ca0.unknown_8_->unknown_0_);
     func_ov031_0223e2e0(1, data_ov031_02290ca0.unknown_8_->unknown_3c_);

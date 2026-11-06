@@ -27,15 +27,15 @@ extern char data_ov017_021d7ed5[];
 extern "C" void GetLocalWireless_0202ae18();
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void* GetZone3D_02012fe4();
-extern "C" unsigned char* func_020100f8(char*);
+extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" Struct_020d7aa0_2* func_020d7a50();
 extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020a27b8(unsigned char*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_020728ac(StringList_02072a68_2*, SafeAllocator*, void*, unsigned int, int, int, int);
 extern "C" void ClearMessageParams_02046380(Struct_02046574_2*);
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void StartMessage_0204500c(Struct_02046574_2*, char*, int
 #if !defined(jpn)
@@ -46,7 +46,7 @@ extern "C" int func_020457e0(Struct_02046574_2*);
 extern "C" void func_020116c8(void*);
 extern "C" void func_020dc2d0(int);
 extern "C" void ResetMessageWindow_02043204(char*);
-extern "C" void func_020397c0(void*);
+extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" void func_ov017_021bf398(char*);
 
 // USA: func_ov017_021bf014
@@ -58,10 +58,10 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
     GetZone3D_02012fe4();
     GrottoStruct* var2 = var0->GetGrottoStruct();
     GameObject* var3 = var0->GetUnknownGameObject();
-    unsigned char* var4 = func_020100f8((char*)var0);
+    unsigned char* var4 = GetFollowCamera_020100f8((char*)var0);
     if (arg0->unknown_8_ == 0) {
         func_020d7aa0(func_020d7a50());
-        func_020397cc((Struct_02018300_3*)var3, 1);
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var3, 1);
         func_020a27b8(var4);
         void* var5 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021bf014_800);
         arg0->unknown_14_.CreateTypeA(var5, Enum_ov017_021bf014_800);
@@ -81,12 +81,12 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
         BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_28_);
         arg0->unknown_28_ = -1;
         ClearMessageParams_02046380(var1);
-        func_02046574(var1, 0, var0->GetUnknownGameObject()->baseStats_->unk);
-        func_02094b30(func_02094a00(), 0x203, 0);
+        SetMessageString_02046574(var1, 0, var0->GetUnknownGameObject()->baseStats_->unk);
+        func_02094b30(GetFontLoader_02094a00(), 0x203, 0);
         arg0->unknown_8_ = 2;
     }
     if (arg0->unknown_8_ == 2) {
-        if (!func_02094b4c(func_02094a00())) return;
+        if (!UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) return;
         if (var2->activeMapData.GetDiscoveryState() == DiscoveryState_Undiscovered) arg0->unknown_8_ = 3;
         else arg0->unknown_8_ = 4;
     } else if (arg0->unknown_8_ == 3) {
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
         (*reinterpret_cast<int*>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_712)) = 0;
         arg0->unknown_8_ = 5;
     } else if (arg0->unknown_8_ == 5) {
-        func_020397cc((Struct_02018300_3*)var3, 1);
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var3, 1);
         if ((*reinterpret_cast<int*>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_2456))) return;
         var2->unknown_0[2] = 1;
         int var10 = func_020457e0(var1);
@@ -127,14 +127,14 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
     } else if (arg0->unknown_8_ == 7) {
         arg0->unknown_8_ = 8;
     } else if (arg0->unknown_8_ == 8) {
-        func_020397cc((Struct_02018300_3*)var3, 1);
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var3, 1);
         if (!(*reinterpret_cast<int*>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_2464))) arg0->unknown_8_ = 9;
     } else if (arg0->unknown_8_ == 9) {
         ResetMessageWindow_02043204((char*)var1);
-        func_020397c0(var3);
-        FontLoader_0208cb08* var11 = func_02094a00();
+        EnablePlayerControl_020397c0(var3);
+        FontLoader_0208cb08* var11 = GetFontLoader_02094a00();
         func_02094b38(var11, 0x203);
-        func_02094ab0(var11);
+        CancelFontLoad_02094ab0(var11);
         func_ov017_021bf398((char*)arg0);
     }
 }

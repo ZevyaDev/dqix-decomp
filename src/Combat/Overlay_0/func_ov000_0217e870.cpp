@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_0205c570;
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 struct SoundEffectManager_02108760;
 struct Struct_ov000_0217e870 {
     char unknown_0_[0x10];
@@ -45,21 +45,21 @@ extern int data_ov000_02184294[2];
 #define G02184294(i) data_ov000_02184294[i]
 #endif
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" Struct_ov000_0217e870* func_ov000_02161318(Struct_ov004_021707e8*, int);
 extern "C" int func_ov000_0217c594(Struct_ov004_021707e8*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov000_02176e3c(Struct_ov004_021707e8*, Struct_ov000_0217e870*, int, int, int, int);
 extern "C" void func_ov000_02170db0(Struct_ov000_0217e870*);
 extern "C" int func_ov000_0217c5f4(void*);
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" void func_ov000_0217c638(Struct_ov004_021707e8*, int, int);
 extern "C" void func_ov000_02177038(Struct_ov004_021707e8*, Struct_ov000_0217e870*, int, int, int);
 
 // USA: func_ov000_0217e870
 extern "C" ARM void func_ov000_0217e870(Struct_ov004_021707e8* arg0, int arg1, int arg2) {
     arg0->unknown_1d72_ |= 0x100;
-    arg0->unknown_1c_ = func_0205d794((Struct_0205c570*)arg0->unknown_188_);
+    arg0->unknown_1c_ = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_188_);
     GameState* var0 = GameState::GetInstance();
     Struct_ov000_0217e870_2* var1 = (Struct_ov000_0217e870_2*)GetParty_02010828(var0);
     Struct_ov000_0217e870* var2 = func_ov000_02161318(arg0, GetProtagonistObjectIndex_020100a8(var0));
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov000_0217e870(Struct_ov004_021707e8* arg0, int arg1, i
         }
     } else if (func_ov000_0217c5f4(arg0)) {
         arg0->unknown_1d72_ &= ~0x100;
-        func_0205d6a0((Struct_0205d6a0*)arg0->unknown_188_, 0);
+        CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_188_, 0);
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 0;
         arg0->unknown_1d68_--;
         arg0->unknown_1c_ = -1;

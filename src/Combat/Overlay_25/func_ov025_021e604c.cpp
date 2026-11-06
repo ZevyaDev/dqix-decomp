@@ -8,19 +8,19 @@ struct Struct_ov009_0218aa28 {
     fix32_t unknown_0_[3];
 };
 
-extern "C" void* func_ov000_02160130();
+extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02049f28(unsigned char* arg0);
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
 extern "C" void func_02049b54(struct Struct_ov009_0218aa28* arg0, struct Struct_02049b54_2* arg1);
-extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 extern "C" void func_02049bac(unsigned char* arg0, int* arg1);
 extern "C" void func_ov000_02161c0c(void* arg0, int arg1);
 extern "C" void func_ov000_02167fb0(void* arg0, GameObject* arg1);
 extern "C" void func_ov000_021677fc(void* arg0);
 extern "C" void* func_ov000_02160f14(void* arg0);
-extern "C" int func_ov000_0215eb1c(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" void __clear(void* arg0, int arg1);
 
 extern char data_ov025_021ef802[];
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov025_021e604c(void* arg0, int arg1, int arg2, void* arg
     int var10;
     GameState* var11;
     GameState* var12 = GameState::GetInstance();
-    void* var13 = func_ov000_02160130();
+    void* var13 = GetBattleScene_ov000_02160130();
     if (var13 == NULL) {
         return 1;
     }
@@ -63,7 +63,7 @@ extern "C" ARM int func_ov025_021e604c(void* arg0, int arg1, int arg2, void* arg
     struct Struct_ov025_021e604c* var17 = (struct Struct_ov025_021e604c*)func_ov000_02160f14(var13);
     var11 = GameState::GetInstance();
     GetResources_0200fb8c((int*)var11);
-    var10 = func_ov000_0215eb1c(arg3, var7, 8, 0);
+    var10 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg3, var7, 8, 0);
     var6 = var17->unknown_240_;
     var9 = var6.unknown_0_[2];
     for (var8 = 0; var8 < var10; var8++) {
@@ -78,7 +78,7 @@ extern "C" ARM int func_ov025_021e604c(void* arg0, int arg1, int arg2, void* arg
             var3.y = 0;
             Vector3fix_Normalize(&var3, &var3);
             int var19 = fix32_Atan2(var3.x, var3.z);
-            func_02033874((struct Struct_02033834*)var18, var19);
+            SetFacingInstantly_02033874((struct Struct_02033834*)var18, var19);
             __clear(&var2, 0xc);
             var2.y = var19;
             func_02049bac((unsigned char*)var18, (int*)&var2);

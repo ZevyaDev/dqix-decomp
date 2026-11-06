@@ -14,7 +14,7 @@
 #endif
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" int func_02001aec(const void* arg0, const void* arg1, unsigned int arg2);
+extern "C" int CompareBytes_02001aec(const void* left, const void* right, unsigned int count);
 
 extern char data_020f12b8[];
 extern char data_020f12bf[];
@@ -46,7 +46,7 @@ extern "C" ARM void func_0208e520(struct Struct_0208e4f8* arg0, char* arg1) {
     }
     BackgroundLoader::AddLockGlobal();
     var1 = 0;
-    if (func_02001aec(arg1, data_020f12b8, 6) == 0 && func_02001aec(arg1, arg0->unknown_0_, 3) != 0 &&
+    if (CompareBytes_02001aec(arg1, data_020f12b8, 6) == 0 && CompareBytes_02001aec(arg1, arg0->unknown_0_, 3) != 0 &&
         LoadFileIntoMemory(data_020f12bf, gFileScratchSpace_0211e33c, &var1)) {
         func_0208e4f8(arg0);
         Script var5;
@@ -60,7 +60,7 @@ extern "C" ARM void func_0208e520(struct Struct_0208e4f8* arg0, char* arg1) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    if (func_02001aec(arg1, arg0->unknown_0_, 3) == 0) {
+    if (CompareBytes_02001aec(arg1, arg0->unknown_0_, 3) == 0) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }

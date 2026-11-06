@@ -4,11 +4,11 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
 struct Struct_02018300_3;
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
-extern "C" unsigned char* func_020100f8(char* arg0);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
+extern "C" unsigned char* GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 struct Struct_02092aa4;
 extern "C" void func_02092aa4(Struct_02092aa4*, int);
@@ -36,8 +36,8 @@ extern "C" void func_ov017_021c0160(struct Struct_ov017_021c01a4* arg0);
 extern "C" ARM void func_ov017_021c01a4(struct Struct_ov017_021c01a4* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetUnknownGameObject();
-    func_020397cc((struct Struct_02018300_3*)var1, 1);
-    unsigned char* var2 = func_020100f8((char*)var0);
+    DisablePlayerControl_020397cc((struct Struct_02018300_3*)var1, 1);
+    unsigned char* var2 = GetFollowCamera_020100f8((char*)var0);
     func_020a28a0(var2, 1);
 
     if (arg0->unknown_1c_ == 0) {
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov017_021c01a4(struct Struct_ov017_021c01a4* arg0) {
     } else if (arg0->unknown_1c_ == 3) {
         func_ov017_021c0160(arg0);
         func_020a28b0(var2, 1);
-        func_020397c0(var1);
+        EnablePlayerControl_020397c0(var1);
         arg0->unknown_1c_++;
         arg0->unknown_1_ = 1;
         func_020a0c0c();

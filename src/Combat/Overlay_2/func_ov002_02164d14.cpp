@@ -7,23 +7,23 @@
 #if defined(jpn)
 #endif
 
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205def8;
 struct Struct_0205da38;
 struct SoundEffectManager_02108760;
 struct Struct_0205faf4_11;
-extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
-extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
 extern "C" void func_020dc4d0(signed char *arg0, signed char *arg1);
-extern "C" GameObject *func_0200ff1c(GameState *arg0, int arg1);
+extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *gameState, int index);
 extern "C" int func_02061bd8(struct Struct_0205faf4_11 *arg0);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466e4(unsigned int *arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int *globalFlags, unsigned int mask);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_ov002_0215b814(char *arg0);
 extern "C" void func_ov002_02161cf0(char *arg0);
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
     int var0 = *(int *) (arg0 + OFF_STATE_02164d14);
     if (var0 == 0) {
         func_ov002_0215b814(arg0);
-        func_0205de24((struct Struct_0205de24_2 *) (arg0 + OFF_LIST_02164d14), 0, 2);
+        SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + OFF_LIST_02164d14), 0, 2);
         func_ov002_02161cf0(arg0);
         func_ov002_0215e1d0(arg0);
         *(int *) (arg0 + OFF_STATE_02164d14) += 1;
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
         *(unsigned int *) (arg0 + OFF_FLAGS_02164d14) |= 4;
         short var2 = *(short *) (arg0 + OFF_SEL_02164d14);
         *(short *) (arg0 + OFF_SEL_02164d14) =
-            func_0205d794((struct Struct_0205c570 *) (arg0 + OFF_LIST_02164d14));
+            GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + OFF_LIST_02164d14));
         signed char var3[7];
         signed char var4;
         Struct_ov002_02164d14 *var5 = (Struct_ov002_02164d14 *) (arg0 + OFF_LIST_02164d14) + 1;
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
         func_020dc4d0(var3, &var4);
         int var7 = var6;
         for (int var8 = 0; var8 < var4; var8++) {
-            GameObject *var9 = func_0200ff1c(var1, var3[var8]);
+            GameObject *var9 = GetPartyMemberBaseByIndex_0200ff1c(var1, var3[var8]);
             if (var9 != NULL && func_02061bd8((struct Struct_0205faf4_11 *) var9)) var7++;
         }
         var4 -= var7;
@@ -123,15 +123,15 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
                 return;
             }
             if (var3[*(short *) (arg0 + OFF_SEL_02164d14)] < 0) return;
-            func_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
+            SetGlobalFlags_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
             if (func_02061bd8(
-                    (struct Struct_0205faf4_11 *) func_0200ff1c(var1, var3[*(short *) (arg0 + OFF_SEL_02164d14)])))
+                    (struct Struct_0205faf4_11 *) GetPartyMemberBaseByIndex_0200ff1c(var1, var3[*(short *) (arg0 + OFF_SEL_02164d14)])))
             {
                 for (int var14 = 0; var14 < 4; var14++) {
                     short *var15 = (short *) (arg0 + OFF_SEL_02164d14);
                     (*var15)++;
                     *var15          = *var15 % 4;
-                    GameObject *var16 = func_0200ff1c(var1, var3[*(short *) (arg0 + OFF_SEL_02164d14)]);
+                    GameObject *var16 = GetPartyMemberBaseByIndex_0200ff1c(var1, var3[*(short *) (arg0 + OFF_SEL_02164d14)]);
                     if (var16 != NULL && !func_02061bd8((struct Struct_0205faf4_11 *) var16)) break;
                 }
             }

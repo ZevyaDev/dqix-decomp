@@ -17,7 +17,7 @@ struct Struct_ov031_02244660 {
     unsigned int unknown_50_;
 };
 struct Struct_02245528;
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 extern Struct_ov031_02291e68 data_ov031_02291e68;
 extern unsigned char data_ov031_02291e04[];
 #if defined(jpn)
@@ -41,7 +41,7 @@ extern "C" int func_ov031_022111e0();
 extern "C" int func_020ab314(int*, int, int);
 extern "C" void func_ov031_022120f8();
 extern "C" void* GetGlobalFlags_020d6c00();
-extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" int func_ov031_02211310(int, void*, unsigned int, void (*)(), int);
 extern "C" void* func_ov031_022112e4();
 extern "C" int func_ov031_0221126c();
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov031_02244660(Struct_02245528* arg0) {
         int var5[2];
         if (!func_020ab314(var5, 0, 0)) {
             func_ov031_022120f8();
-            func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
+            ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
             (*(unsigned char*)(var1 + 0x35)) = 7;
             break;
         }

@@ -6,7 +6,7 @@ extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(
 #include "GameState/GameState.h"
 #include "Resource/ActionDataTables.h"
 struct Struct_02000c9c_8;
-extern "C" unsigned char func_0200fb08(Struct_02000c9c_8*);
+extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" void* func_02079a3c(void*);
 extern "C" void __clear(void*, unsigned int);
 #if defined(jpn)
@@ -18,7 +18,7 @@ extern "C" int func_0207a6fc(void*, Struct_02079808*);
 extern char data_020f0dcc[], data_020f0de1[], data_020f0df2[];
 // USA: func_02079900
 // JPN: func_0207a7c8
-extern "C" ARM void func_02079900(Struct_02108e10* arg0, SafeAllocator* arg1) {
+extern "C" ARM void func_02079900(ActionTables_02108e10* arg0, SafeAllocator* arg1) {
     BackgroundLoader::AddLockGlobal();
     GPCReadPair var0;
     unsigned int var1 = 0;
@@ -35,7 +35,7 @@ extern "C" ARM void func_02079900(Struct_02108e10* arg0, SafeAllocator* arg1) {
         GameState* var8 = GameState::GetInstance();
         char var9[0x20];
         __clear(var9, 0x20);
-        StringReplaceLanguageTag(data_020f0de1, var9, func_0200fb08((Struct_02000c9c_8*)var8));
+        StringReplaceLanguageTag(data_020f0de1, var9, GetGameLanguage_0200fb08((Struct_02000c9c_8*)var8));
 #else
         const char* var9 = data_020f0de1;
 #endif

@@ -263,7 +263,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int
             var10 = 1;
             var12 = arg4;
             if (inline_ov000_02169850(arg1)) {
-                struct Struct_ov024_021e6a90_11* var13 = (struct Struct_ov024_021e6a90_11*)func_0200ff1c(var0, arg1);
+                struct Struct_ov024_021e6a90_11* var13 = (struct Struct_ov024_021e6a90_11*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
                 if (var13) {
                     struct Struct_ov024_021e6a90_8* var14 = (struct Struct_ov024_021e6a90_8*)(var13->unknown_150_ + 0x2f4);
                     if (var14 && (var14->unknown_0_1_ || var14->unknown_0_0_)) {
@@ -288,7 +288,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int
 
     int var16 = 0;
     signed char* var17 = data_ov024_021fe798;
-    struct Struct_ov024_021e6a90_11* var18 = (struct Struct_ov024_021e6a90_11*)func_0200ff1c(var0, arg1);
+    struct Struct_ov024_021e6a90_11* var18 = (struct Struct_ov024_021e6a90_11*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (var18) {
         for (; *var17 != -1; var17 += 2) {
             if (var17[1] == func_02085748(var18->unknown_150_)) {
@@ -300,7 +300,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int
 
     int var19 = 0;
     float var20 = 0;
-    if (inline_ov000_02169850(arg1) && func_0200ff1c(var0, arg1) &&
+    if (inline_ov000_02169850(arg1) && GetPartyMemberBaseByIndex_0200ff1c(var0, arg1) &&
         (arg3->unknown_10_ & 0x40000) && var16 >= 1 && var16 <= 7) {
         var20 = var4 * func_ov000_02156b38(arg0->unknown_10_, arg2, var16);
         var19 = 1;
@@ -352,7 +352,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int
     }
 
     if (inline_ov000_02169850(arg1)) {
-        struct Struct_ov024_021e6a90_11* var28 = (struct Struct_ov024_021e6a90_11*)func_0200ff1c(var0, arg1);
+        struct Struct_ov024_021e6a90_11* var28 = (struct Struct_ov024_021e6a90_11*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
         if (var28 && (arg3->unknown_10_ & 0x40000)) {
             if (func_ov000_02156068(arg0->unknown_10_, arg2, 1, 0)) {
                 var4 = var4 * func_02085968((char*)var28->unknown_150_);
@@ -434,7 +434,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int
 
     var29 = 0;
     if (inline_ov000_02169850(arg1)) {
-        struct Struct_ov024_021e6a90_11* var32 = (struct Struct_ov024_021e6a90_11*)func_0200ff1c(var0, arg1);
+        struct Struct_ov024_021e6a90_11* var32 = (struct Struct_ov024_021e6a90_11*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
         if (var32) {
             if (arg3->unknown_10_ & 0x80000) {
                 if (func_02085154(var32->unknown_150_)) {
@@ -503,7 +503,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int
             var4 = 1.0f + NextRandomMax((Random*)arg0->unknown_10_, 2);
         }
         if (inline_ov000_02169850(arg1)) {
-            struct Struct_ov024_021e6a90_11* var34 = (struct Struct_ov024_021e6a90_11*)func_0200ff1c(var0, arg1);
+            struct Struct_ov024_021e6a90_11* var34 = (struct Struct_ov024_021e6a90_11*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
             if (var34 && (arg3->unknown_10_ & 0x40000) && func_02085128(var34->unknown_150_)) {
                 var4 += 1.0f;
             }

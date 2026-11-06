@@ -20,7 +20,7 @@ struct Struct_ov000_0217c514_2 {
 // USA: func_ov000_0217c514
 extern "C" ARM int func_ov000_0217c514(int arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    GameObject* var1 = func_0200ff1c(var0, arg0);
+    GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     if (!var1) return arg1;
     struct Struct_ov000_0217c514_2* var2 = (struct Struct_ov000_0217c514_2*)func_02054000((struct Struct_02054000*)var1);
     if (!var2) return arg1;

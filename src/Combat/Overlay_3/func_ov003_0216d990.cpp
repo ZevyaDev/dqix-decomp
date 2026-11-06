@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
-struct Struct_0205d0e0 {
+struct TextWindow_0205d0e0 {
     char unknown_0_[0xac];
     short unknown_ac_;
     short unknown_ae_;
 };
 
-struct Struct_0205d81c;
-extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+struct TextWindowManager_0205d81c;
+extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_0204f138(unsigned char* arg0, unsigned char** arg1, unsigned char** arg2, unsigned char** arg3,
                               unsigned char** arg4);
 
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void func_0205ac40(void* arg0, void* arg1);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 struct Struct_ov003_0216d990 {
     unsigned char unknown_0_[0x14];
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov003_0216d990(char* arg0) {
     var1->unknown_14_ = 0xde000;
     var1->unknown_18_ = 0x14000;
 #else
-    struct Struct_0205d0e0* var3 = func_0205d81c(*(struct Struct_0205d81c**)(arg0 + 0x1000 + 0x2c0), 0);
+    struct TextWindow_0205d0e0* var3 = FindTextWindow_0205d81c(*(struct TextWindowManager_0205d81c**)(arg0 + 0x1000 + 0x2c0), 0);
     if (var3 == 0) return;
 
     short var4 = var3->unknown_ac_ << 3;
@@ -61,5 +61,5 @@ extern "C" ARM void func_ov003_0216d990(char* arg0) {
     var1->unknown_14_ = (var10 + 2) << 12;
     var1->unknown_18_ = (var11 - 2) << 12;
 #endif
-    func_0205ac40(arg0 + Enum_ov003_0216d990_4716, var1);
+    DrawSprite_0205ac40(arg0 + Enum_ov003_0216d990_4716, var1);
 }

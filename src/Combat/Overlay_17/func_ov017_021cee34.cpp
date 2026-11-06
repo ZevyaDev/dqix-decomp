@@ -25,7 +25,7 @@ extern "C" ARM void func_ov017_021cee34(void* arg0, Struct_ov017_021cee34* arg1,
     int var0 = arg1->unknown_c_;
     unsigned int var1 = arg1->unknown_8_;
     int var2 = arg1->unknown_4_;
-    GameObject* var3 = func_0200ff1c(arg2, var2);
+    GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var2);
     if (var3 == NULL) return;
     Struct_ov017_021cee34_2* var4 = (Struct_ov017_021cee34_2*)var3;
     if (var0) {

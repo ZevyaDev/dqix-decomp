@@ -105,7 +105,7 @@ extern "C" unsigned char func_02098ee8(struct Struct_0205faf4_12* arg0);
 extern "C" int func_02011b50(void* arg0, int arg1);
 struct Struct_0205faf4_13;
 extern "C" int func_0206e2dc(struct Struct_0205faf4_13* arg0, int arg1);
-extern "C" void* func_0200fd0c(GameState*);
+extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 
 extern AllocatorUnion gMainHeap_02114e20;
 extern const char* data_020f2a38;
@@ -429,7 +429,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 47: {
         struct Struct_0203d028_2* var55 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
-        struct Struct_0203d028_3* var56 = (Struct_0203d028_3*)func_0200ff1c((GameState*)var55, func_020100b0((GameState*)var55));
+        struct Struct_0203d028_3* var56 = (Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var55, func_020100b0((GameState*)var55));
         if (!var56) return 0;
         int var57 = 0;
         int var58;
@@ -457,7 +457,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         func_02010834((struct Struct_02010834*)var61, GetProtagonistObjectIndex_020100a8((GameState*)var61), var62, &var63);
         int var64;
         for (var64 = 0; var64 < var63; var64++) {
-            struct Struct_0203d028_3* var65 = (Struct_0203d028_3*)func_0200ff1c((GameState*)var61, var62[var64]);
+            struct Struct_0203d028_3* var65 = (Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var61, var62[var64]);
             if (!var65) continue;
             void* var66 = STAT130(var65);
             if (*(int*)var66 & 1) continue;
@@ -481,7 +481,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
             if (CU16(0) == 0x52) {
                 var72 = (Struct_0203d028_3*)((GameState*)var68)->GetProtagonist();
             } else {
-                var72 = (Struct_0203d028_3*)func_0200ff1c((GameState*)var68, *(var69 + var71 + 0xf78));
+                var72 = (Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var68, *(var69 + var71 + 0xf78));
             }
             if (var72 == NULL) continue;
             if (*(int*)STAT130(var72) & 1) continue;
@@ -775,7 +775,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         struct Struct_0203d028_2* var124 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
         int var125;
         for (var125 = 0; var125 < 4; var125++) {
-            struct Struct_0203d028_3* var126 = (Struct_0203d028_3*)func_0200ff1c((GameState*)var124, var125);
+            struct Struct_0203d028_3* var126 = (Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var124, var125);
             if (var126 == NULL) continue;
             if (!func_02061bd8((struct Struct_0205faf4_11*)var126)) continue;
             if (inline_0205faf4_2(STAT130(var126)) <= 0) return CU16(2) == 0;
@@ -846,7 +846,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         func_02010834((struct Struct_02010834*)var136, GetProtagonistObjectIndex_020100a8((GameState*)var136), var137, &var138);
         int var139;
         for (var139 = 0; var139 < var138; var139++) {
-            struct Struct_0203d028_3* var140 = (Struct_0203d028_3*)func_0200ff1c((GameState*)var136, var137[var139]);
+            struct Struct_0203d028_3* var140 = (Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var136, var137[var139]);
             if (var140 == NULL) continue;
             if (!HasNibble56b(var140)) continue;
             if (CU16(2) != GetNibble56b(var140)) continue;
@@ -874,7 +874,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     case 506:
         return func_0206e2dc((struct Struct_0205faf4_13*)arg0, CU16(2));
     case 507:
-        return CU16(2) == *(unsigned short*)func_0200fd0c((GameState*)(void*)GameState::GetInstance());
+        return CU16(2) == *(unsigned short*)GetZoneEntry_0200fd0c((GameState*)(void*)GameState::GetInstance());
     }
     return 0;
 }

@@ -12,11 +12,8 @@
 #endif
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
-struct Struct_02043368_2;
+struct Sprite_02043368_2;
 struct Struct_02043368;
 struct Struct_0208b8c4;
 struct Struct_0203d028_6;
@@ -28,7 +25,7 @@ struct Struct_020213fc;
 struct Struct_ov001_021552a8_3 {
     char unknown_0_[0x3c];
     void* unknown_3c_;
-    Struct_02043368_2* unknown_40_;
+    Sprite_02043368_2* unknown_40_;
     char unknown_44_[8];
     unsigned short unknown_4c_;
     char unknown_4e_[2];
@@ -71,7 +68,7 @@ struct Struct_ov001_021552a8 {
     char unknown_138_[0x30];
     Struct_ov001_021552a8_3* unknown_168_;
     void* unknown_16c_;
-    Struct_02043368_2* unknown_170_;
+    Sprite_02043368_2* unknown_170_;
 };
 
 struct Struct_ov001_021552a8_2 {
@@ -79,7 +76,7 @@ struct Struct_ov001_021552a8_2 {
     unsigned char unknown_45b_[0x20];
 };
 
-extern "C" char* func_020100f8(char* arg0);
+extern "C" char* GetFollowCamera_020100f8(char* gameState);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021bb27c(void* arg0);
@@ -89,12 +86,12 @@ extern "C" void func_0208b8c4(Struct_0208b8c4* arg0, SafeAllocator* arg1);
 extern "C" void* func_0203cf4c(void);
 extern "C" void* func_0203d004(void* arg0);
 extern "C" void func_020401fc(Struct_0203d028_6* arg0, unsigned int arg1, SafeAllocator* arg2);
-extern "C" void func_0205a198(Struct_02043368_2* arg0);
+extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
 extern "C" void func_0205a234(Struct_02043368* arg0);
-extern "C" void func_0205a444(char* arg0);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" int func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
+extern "C" int LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, void* allocator);
 extern "C" void func_ov001_0215a850(SafeAllocator* arg0);
 extern "C" void func_ov001_0215a8dc(void);
 extern "C" void func_ov001_021538d4(int arg0, void* arg1, SafeAllocator* arg2);
@@ -105,7 +102,7 @@ extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" int func_ov001_02153948(unsigned short arg0);
 extern "C" Struct_ov001_021552a8_2* GetFlagManager_0205ec34(void);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
+extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* GetGlobalFlags_020d6c00(void);
@@ -122,7 +119,7 @@ extern const char data_ov001_021661d7[];
 extern const char data_ov001_021661dc[];
 #endif
 
-static inline void inline_ov001_021552a8(Struct_ov001_021552a8_3* arg0, Struct_02043368_2* arg1, unsigned short arg2) {
+static inline void inline_ov001_021552a8(Struct_ov001_021552a8_3* arg0, Sprite_02043368_2* arg1, unsigned short arg2) {
     arg0->unknown_40_ = arg1;
     arg0->unknown_4c_ = arg2;
 }
@@ -133,7 +130,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
     GameState* var1 = GameState::GetInstance();
     GameResources* var2 = GetGameResources();
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
-    char* var4 = func_020100f8((char*)var1);
+    char* var4 = GetFollowCamera_020100f8((char*)var1);
     GameObject* var5 = var1->GetUnknownGameObject();
     var0 = var2->unknown_2cc_;
 
@@ -200,14 +197,14 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
     }
     if (arg0->unknown_c_.unknown_44_ & 0x200) {
         arg0->unknown_7c_.GetMaxPossibleAllocation();
-        arg0->unknown_170_ = (Struct_02043368_2*)arg0->unknown_7c_.Allocate(0x230);
+        arg0->unknown_170_ = (Sprite_02043368_2*)arg0->unknown_7c_.Allocate(0x230);
         arg0->unknown_168_ = (Struct_ov001_021552a8_3*)arg0->unknown_7c_.Allocate(0x54);
         arg0->unknown_16c_ = arg0->unknown_7c_.Allocate(8);
         for (int var12 = 0; var12 < 0xe; var12++) {
-            func_0205a198((Struct_02043368_2*)((char*)arg0->unknown_170_ + var12 * 0x28));
+            InitSprite_0205a198((Sprite_02043368_2*)((char*)arg0->unknown_170_ + var12 * 0x28));
         }
         func_0205a234((Struct_02043368*)arg0->unknown_16c_);
-        func_0205a444((char*)arg0->unknown_168_);
+        InitSpriteSet_0205a444((char*)arg0->unknown_168_);
         arg0->unknown_168_->unknown_50_ = 0;
         inline_ov001_021552a8(arg0->unknown_168_, arg0->unknown_170_, 0xe);
         arg0->unknown_168_->unknown_3c_ = arg0->unknown_16c_;
@@ -220,7 +217,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
         int var17 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var14);
         for (int var18 = 0; var18 < var17; var18++) {
             void* var19 = GetPacEntryData_020467f0((PacEntry_02020aec*)var14, var18, &var13, &var16);
-            func_0205a528(arg0->unknown_168_, var19, var16, &arg0->unknown_7c_);
+            LoadSpriteSetFile_0205a528(arg0->unknown_168_, var19, var16, &arg0->unknown_7c_);
         }
         var3->RemoveTask(arg0->unknown_110_);
         arg0->unknown_110_ = -1;
@@ -285,7 +282,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
         for (var23 = 0; var23 < var24; var23++) {
             Struct_02016874_2* var27 = &var25->unknown_44_[var23];
             if (var27 != NULL && !(var27->unknown_2_ & 4)) {
-                func_0206df6c(var26, var26->unknown_45b_, (unsigned char)var23, 1);
+                SetFlag_0206df6c(var26, var26->unknown_45b_, (unsigned char)var23, 1);
             }
         }
     }

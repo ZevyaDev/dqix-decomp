@@ -6,7 +6,7 @@ struct Struct_0205c570;
 struct Struct_0205def8;
 struct SoundEffectManager_02108760;
 
-extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" void func_0205def8(struct Struct_0205def8* arg0, int arg1, int arg2);
 struct Struct_0205da38;
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
@@ -95,7 +95,7 @@ extern "C" ARM int func_ov000_0217b6d0(Struct_ov000_0217b6d0_3* arg0, int arg1, 
     Enum_ov000_0217b518 var1;
     data_ov000_02184294.unknown_0_->unknown_1d72_ |= 0x100;
     const short var2 = arg0->inline_ov000_0217b6d0_2();
-    var1 = (Enum_ov000_0217b518)(short)func_0205d794((struct Struct_0205c570*)arg0->unknown_38_);
+    var1 = (Enum_ov000_0217b518)(short)GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_38_);
     arg0->unknown_1e_ = var1;
     {
     var0 = data_ov000_02184294.inline_ov000_0217b6d0();
@@ -143,7 +143,7 @@ extern "C" ARM int func_ov000_0217b6d0(Struct_ov000_0217b6d0_3* arg0, int arg1, 
     short var8;
     data_ov000_02184294.unknown1_8_->unknown_1d72_ |= 0x100;
     short var9 = arg0->unknown_1e_;
-    var8 = func_0205d794((struct Struct_0205c570*)arg0->unknown_38_);
+    var8 = GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_38_);
     arg0->unknown_1e_ = var8;
     var7 = data_ov000_02184294.unknown1_8_;
     func_0205def8((struct Struct_0205def8*)var7->unknown1_188_, 1, 0x23);

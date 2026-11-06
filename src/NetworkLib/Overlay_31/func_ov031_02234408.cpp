@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov031_0223c054(int);
+extern "C" int IsBrightnessFadeActive_ov031_0223c054(int);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
 extern "C" void func_ov031_0223442c(void);
 
 // USA: func_ov031_02234408
 extern "C" ARM void func_ov031_02234408(void) {
-	if (func_ov031_0223c054(0) != 0) return;
+	if (IsBrightnessFadeActive_ov031_0223c054(0) != 0) return;
 	SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0223442c);
 }

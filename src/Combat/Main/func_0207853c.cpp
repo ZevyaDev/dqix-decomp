@@ -2,7 +2,7 @@
 #include "World/Object3D.h"
 
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" void __clear(void* arg0, int arg1);
 
 struct Struct_02037d88_9;
@@ -66,7 +66,7 @@ extern "C" ARM int func_0207853c(struct Struct_0207853c_2* arg0) {
     ((Object3D*)((struct Struct_02037d88_9*)arg0))->TransitionInheritedAlpha(0, 0x7d);
 
     if (arg0->unknown_178_ > 0) {
-        void* var1 = func_02057924();
+        void* var1 = GetEffectManager_02057924();
         struct Struct_02078398_2 var2;
         func_02078484(&var2);
         *(Vector3i*)&var2.unknown_2c_ = *(Vector3i const*)&arg0->unknown_44_;

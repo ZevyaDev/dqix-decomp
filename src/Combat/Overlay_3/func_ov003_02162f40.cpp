@@ -101,7 +101,7 @@ extern "C" void func_ov003_021612c0(Struct_ov003_02154af4_3 *);
 extern "C" int func_ov003_02161344(Struct_ov003_02154af4_3 *);
 extern "C" void func_02086a04(Struct_02086a04 *, int);
 extern "C" int func_ov003_02166a90(Struct_ov003_02154af4_3 *, int);
-extern "C" void func_020397cc(Struct_02018300_3 *, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3 *, int);
 
 extern int gSoundEffectManager_02108760;
 
@@ -248,7 +248,7 @@ extern "C" ARM void func_ov003_02162f40(Struct_ov003_02154af4_3 *arg0) {
         }
         GameObject *var16 = GameState::GetInstance()->GetProtagonist();
         if (var16 != NULL) {
-            func_020397cc((Struct_02018300_3 *) var16, 1);
+            DisablePlayerControl_020397cc((Struct_02018300_3 *) var16, 1);
         }
         arg0->unknown_4a4_ = 7;
     } else if (var0 == 100) {

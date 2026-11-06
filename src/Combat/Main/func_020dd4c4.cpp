@@ -52,7 +52,7 @@ struct Struct_020dd4c4 {
     Struct_020dd4c4_4* unknown_150_;
 };
 static inline Struct_020dd4c4* inline_020dd4c4_2(int arg0) {
-    return (Struct_020dd4c4*)func_0200ff1c(GameState::GetInstance(), arg0);
+    return (Struct_020dd4c4*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0);
 }
 
 // USA: func_020dd4c4

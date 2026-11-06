@@ -41,7 +41,7 @@ extern "C" ARM void func_ov002_02168354(char *arg0) {
     *(unsigned int *) (arg0 + 0x247c) &= ~4;
     if (*(unsigned char *) (arg0 + 0x2455) == 0) {
         char *var2 =
-            (char *) func_0200ff1c(var1, func_ov002_021574d4(arg0, *(short *) (arg0 + 0x1c08)));
+            (char *) GetPartyMemberBaseByIndex_0200ff1c(var1, func_ov002_021574d4(arg0, *(short *) (arg0 + 0x1c08)));
         if (var2 != 0) {
             func_ov013_02184c8c(arg0 + 0xd70 + 0x1000, var2);
         }

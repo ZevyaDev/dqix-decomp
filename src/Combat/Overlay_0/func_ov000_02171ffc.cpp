@@ -67,7 +67,7 @@ extern "C" struct Struct_ov000_02171ffc_5* func_ov000_02170cf8(struct Struct_ov0
 
 // USA: func_ov000_02171ffc
 extern "C" ARM int func_ov000_02171ffc(struct Struct_ov000_0215ab88* arg0) {
-    struct Struct_ov000_02171ffc_3* var0 = (struct Struct_ov000_02171ffc_3*)func_0200ff1c(GameState::GetInstance(), arg0->unknown_4c_);
+    struct Struct_ov000_02171ffc_3* var0 = (struct Struct_ov000_02171ffc_3*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_4c_);
     if (var0 == 0) {
         return 2;
     }

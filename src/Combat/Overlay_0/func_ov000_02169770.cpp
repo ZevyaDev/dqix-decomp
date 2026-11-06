@@ -21,9 +21,6 @@
 #include "Util/Random.h"
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 extern "C" void GetLocalWireless_0202ae18(void);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
@@ -34,7 +31,7 @@ extern "C" void func_ov000_0215e6e8(void* arg0);
 extern "C" void func_ov000_02160fbc(void* arg0, int arg1);
 extern "C" void func_ov000_02160e48(void* arg0);
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
+extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void func_ov017_021d0d58(void);
 
@@ -63,7 +60,7 @@ extern "C" ARM void func_ov000_02169770(unsigned char* arg0) {
     if (*(int*)((char*)*(int**)(arg0 + REGION_OFFSET_5) + 0xc) == 0x19 &&
         *(signed char*)((char*)*(void**)(arg0 + REGION_OFFSET_0) + 0x8e00 + 0x14) == 1) {
         void* var2 = GetFlagManager_0205ec34();
-        func_0206df6c(var2, (unsigned char*)var2 + 0x8c, 3, 1);
+        SetFlag_0206df6c(var2, (unsigned char*)var2 + 0x8c, 3, 1);
         *(int*)((char*)GetParty_02010828(var0) + 0x2000 + 0xc94) = 0x6d;
         func_ov017_021d0d58();
     }

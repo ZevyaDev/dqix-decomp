@@ -3,7 +3,7 @@
 #include "Memory/SafeAllocator.h"
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" void* func_ov017_021d612c(void* arg0);
 extern "C" void* func_02010768(void* arg0);
 extern "C" void* func_02011584(void* arg0);
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov001_02163b14(void* arg0) {
     int var3 = *(int*)arg0;
     int var4 = -1;
     if (var3 == 0) {
-        var4 = func_ov017_021d60f4(arg0);
+        var4 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     } else if (var3 == 2) {
         var4 = (int)func_ov017_021d612c(arg0);
         if (var4 == 0) return 0;

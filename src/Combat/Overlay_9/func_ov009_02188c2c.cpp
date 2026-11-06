@@ -3,12 +3,12 @@
 
 struct Struct_0205bef8;
 extern "C" void func_0205bef8(struct Struct_0205bef8* arg0);
-struct Struct_0205ba68;
-extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
-struct Struct_0205bacc;
-extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
-struct Struct_0205bb04;
-extern "C" void func_0205bb04(struct Struct_0205bb04* arg0, int arg1);
+struct MenuCursor_0205ba68;
+extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
+struct MenuCursor_0205bacc;
+extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
+struct MenuCursor_0205bb04;
+extern "C" void SetMenuCursorIndex_0205bb04(struct MenuCursor_0205bb04* cursor, int index);
 
 // USA: func_ov009_02188c2c
 extern "C" ARM void func_ov009_02188c2c(Struct_ov009_021842a0* arg0) {
@@ -94,9 +94,9 @@ extern "C" ARM void func_ov009_02188c2c(Struct_ov009_021842a0* arg0) {
 
     Struct_ov009_02188c2c* var12 = &arg0->unknown_bec_;
     func_0205bef8((struct Struct_0205bef8*)var12);
-    func_0205ba68((struct Struct_0205ba68*)var12, var0, var1, 1);
-    func_0205bacc((struct Struct_0205bacc*)var12, var2);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)var12, var0, var1, 1);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)var12, var2);
     var12->unknown_4_ = var3;
-    func_0205bb04((struct Struct_0205bb04*)var12, var4);
+    SetMenuCursorIndex_0205bb04((struct MenuCursor_0205bb04*)var12, var4);
     var12->unknown_3d_ = 0;
 }

@@ -31,7 +31,7 @@ extern "C" void func_020a1940(unsigned int arg0);
 extern "C" void func_ov002_021682c0(char* arg0);
 void SetSubBrightness(GameResources* resources, int brightness, int duration);
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_020dc2bc(void);
 extern "C" void func_0209a338(Struct_ov002_02168d54_2* arg0);
 extern "C" void func_0209a470(Struct_ov002_02168d54_3* arg0, SafeAllocator* arg1, Struct_ov002_02168d54_4* arg2, int arg3);
@@ -40,7 +40,7 @@ extern "C" int func_ov013_021870f0(char* arg0);
 extern "C" void func_ov013_02184360(char* arg0, int arg1);
 extern "C" void func_ov013_02184cf0(char* arg0, SafeAllocator* arg1);
 extern "C" int func_ov002_021574d4(void* arg0, int arg1);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void func_ov013_02184b4c(char* arg0, GameObject* arg1);
 extern "C" void func_ov002_02168354(char* arg0);
 extern "C" void func_ov013_0218782c(char* arg0, int arg1, int arg2);
@@ -65,12 +65,12 @@ extern "C" void func_ov023_021eb080(char* arg0, SafeAllocator* arg1);
 extern "C" void func_ov023_021eb564(char* arg0, int arg1, int arg2);
 extern "C" void func_ov023_021eb26c(void* arg0);
 extern "C" void ColorEffect_ConfigureAlphaBlend(int control, unsigned int pixel1Source, unsigned int pixel2Source, unsigned int pixel1Alpha, unsigned int pixel2Alpha);
-extern "C" void func_020466f4(Struct_ov002_02168d54_9* arg0, unsigned int arg1);
+extern "C" void ClearGlobalFlags_020466f4(Struct_ov002_02168d54_9* globalFlags, unsigned int mask);
 extern "C" void func_020a1f4c(int arg0);
 extern "C" void func_020dc2d0(int arg0);
 extern "C" void func_ov002_0215a938(char* arg0);
 extern "C" void func_ov002_02161cf0(char* arg0);
-extern "C" void func_0205de24(Struct_ov002_0215624c_11* arg0, unsigned char arg1, unsigned char arg2);
+extern "C" void SetNextTextWindowBGLayer_0205de24(Struct_ov002_0215624c_11* windowManager, unsigned char arg1, unsigned char bgIndex);
 extern "C" void func_ov002_02160274(char* arg0);
 
 extern char data_ov002_0216d350;
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
         SetSubBrightness(var1, -0x10, 0xf);
         *(int*)(arg0 + REGION_VALUE(0x228c, 0x2458)) = var2->QueueLoadFile(&data_ov002_0216d350, NULL);
 #if !defined(jpn)
-        func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 1);
+        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 1);
         func_020dc2bc();
 #endif
     } else if (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) == 1) {
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
             }
         } else if (!IsSubBrightnessTransitionActive(var1)) {
 #if defined(jpn)
-            func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 1);
+            SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 1);
             func_020dc2bc();
 #endif
             (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)))++;
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
             func_ov013_02184cf0(arg0 + REGION_VALUE(0x1c20, 0x1d70), (SafeAllocator*)(arg0 + REGION_VALUE(0x78c, 0x828)));
             *(int*)(arg0 + REGION_VALUE(0x1c38, 0x1d88)) = *(int*)(arg0 + REGION_VALUE(0x19c0, 0x1a68));
             *(short*)(arg0 + REGION_VALUE(0x1c3c, 0x1d8c)) = 0;
-            GameObject* var5 = func_0200ff1c(var0, func_ov002_021574d4(arg0, *(short*)(arg0 + REGION_VALUE(0x1ad0, 0x1c08))));
+            GameObject* var5 = GetPartyMemberBaseByIndex_0200ff1c(var0, func_ov002_021574d4(arg0, *(short*)(arg0 + REGION_VALUE(0x1ad0, 0x1c08))));
             if (var5) {
                 func_ov013_02184b4c(arg0 + REGION_VALUE(0x1c20, 0x1d70), var5);
             }
@@ -168,9 +168,9 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
         }
         ResetMessageWindow_02043204(var8);
         CloseMessageWindow_02043124(var8);
-        FontLoader_0208cb08* var9 = func_02094a00();
+        FontLoader_0208cb08* var9 = GetFontLoader_02094a00();
         func_02094b3c(var9, 0xc);
-        func_02094ab0(var9);
+        CancelFontLoad_02094ab0(var9);
         arg0[REGION_VALUE(0x2288, 0x2454)] = 0;
         arg0[REGION_VALUE(0x2289, 0x2455)] = 0;
         (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)))++;
@@ -250,17 +250,17 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
         arg0[REGION_VALUE(0x22a1, 0x2471)] = 0;
         (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)))++;
     } else if (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) == 0xf) {
-        FontLoader_0208cb08* var13 = func_02094a00();
+        FontLoader_0208cb08* var13 = GetFontLoader_02094a00();
         func_02094b40(var13);
         func_02094b30(var13, 100, 0);
         (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)))++;
     } else if (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) == 0x10) {
-        if (func_02094b4c(func_02094a00())) {
+        if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) {
             *(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) = 100;
             ColorEffect_ConfigureAlphaBlend(0x04000050, 2, 1, 10, 6);
         }
     } else if (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) == 100) {
-        func_020466f4((Struct_ov002_02168d54_9*)GetGlobalFlags_020d6c00(), 1);
+        ClearGlobalFlags_020466f4((Struct_ov002_02168d54_9*)GetGlobalFlags_020d6c00(), 1);
         func_020a1f4c(1);
         arg0[REGION_VALUE(0x1afb, 0x1c33)] = 0;
         arg0[REGION_VALUE(0x22bf, 0x248f)] = 0;
@@ -278,7 +278,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
         func_ov002_0215a938(arg0);
         *(int*)(arg0 + REGION_VALUE(0x1a80, 0x1bb8)) = REGION_VALUE(0x20, 0x1f);
         func_ov002_02161cf0(arg0);
-        func_0205de24((Struct_ov002_0215624c_11*)(arg0 + REGION_VALUE(0xe20, 0xec8)), 0, 2);
+        SetNextTextWindowBGLayer_0205de24((Struct_ov002_0215624c_11*)(arg0 + REGION_VALUE(0xe20, 0xec8)), 0, 2);
         func_ov002_02160274(arg0);
     }
 }

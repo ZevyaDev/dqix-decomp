@@ -23,7 +23,7 @@ struct Struct_ov000_021836d0 {
     unsigned char unknown_0_[5];
 };
 
-extern "C" int func_0200fb08(Struct_02000c9c_8* arg0);
+extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" void func_0203a46c(Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02047554(Struct_ov000_0218251c* arg0, int arg1, int arg2);
 
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov000_0218251c(Struct_ov000_0218251c_2* arg0) {
     if (var23 <= 0) {
         return;
     }
-    int var25 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance()) - 1;
+    int var25 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance()) - 1;
     Struct_ov000_021836d0 var26 = data_ov000_021836d0;
     int var27 = 30 - arg0->unknown_6ea_;
 

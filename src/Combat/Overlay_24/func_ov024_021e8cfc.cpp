@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov000_0215e958(void* arg0);
-extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
 extern "C" void func_ov000_02159eac(void* arg0, void* arg1, int arg2);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, unsigned long long arg4, int arg5);
@@ -10,12 +10,12 @@ struct Struct_ov024_021ddc80_5 { char unknown_0_[0xc]; void* unknown_c_; void* u
 
 // USA: func_ov024_021e8cfc
 extern "C" ARM void* func_ov024_021e8cfc(struct Struct_ov024_021ddc80_5* arg0, void* arg1, int arg2, int arg3) {
-    void* var0 = func_ov000_0215e958(arg0->unknown_10_);
+    void* var0 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var0) return 0;
     if (arg3) {
-        func_ov000_0215a88c(arg0->unknown_10_, var0, 0xf1);
+        AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var0, 0xf1);
     }
-    func_ov000_0215a88c(arg0->unknown_10_, var0, 0x25c);
+    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var0, 0x25c);
     func_ov000_0215ffc4(arg0->unknown_c_, var0, 1);
     ((unsigned char*)arg0->unknown_10_)[0x8e02] = ((unsigned char*)arg0->unknown_10_)[0x8e02] + 1;
     union { struct { int unknown_0_; int unknown_4_; }; unsigned long long unknown1_0_; } var1;

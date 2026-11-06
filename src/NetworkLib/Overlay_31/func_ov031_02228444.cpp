@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov031_0223c054(int);
+extern "C" int IsBrightnessFadeActive_ov031_0223c054(int);
 extern "C" void func_ov031_022238cc(void);
 extern "C" void func_ov031_02223440(void);
 extern "C" void func_ov031_0223b710(int);
@@ -20,8 +20,8 @@ extern Struct_ov031_02290c50 data_ov031_02290c50;
 
 // USA: func_ov031_02228444
 extern "C" ARM void func_ov031_02228444(void) {
-	if (func_ov031_0223c054(1) != 0) return;
-	if (func_ov031_0223c054(0) != 0) return;
+	if (IsBrightnessFadeActive_ov031_0223c054(1) != 0) return;
+	if (IsBrightnessFadeActive_ov031_0223c054(0) != 0) return;
 
 	func_ov031_022238cc();
 	func_ov031_02223440();

@@ -98,7 +98,7 @@ extern "C" unsigned short* GetZone3D_02012fe4(void);
 static inline int inline_ov024_021df924() { return *GetZone3D_02012fe4(); }
 extern "C" int func_ov024_021df71c(Struct_ov024_021df924_11* arg0, unsigned short arg1, int arg2, unsigned short* arg3, unsigned short* arg4, unsigned short* arg5);
 extern "C" short func_02052df8(Struct_02052df8* arg0, int arg1);
-extern "C" void* func_ov000_02160130();
+extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" char* func_ov000_02160f08(void* arg0);
 extern "C" void* func_020de824(void* arg0);
 extern "C" void func_0207cbe8(char* arg0);
@@ -112,13 +112,13 @@ extern "C" void func_0209fffc(Struct_0209fffc* arg0, unsigned int arg1);
 extern "C" void func_020a0750(Struct_020a0750* arg0, unsigned int arg1);
 extern "C" void func_020a0038(Struct_020a0038* arg0, unsigned int arg1);
 extern "C" void func_020ac494(void* arg0);
-extern "C" void* func_ov000_0215e958(void* arg0);
-extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, GameObject* arg2, int arg3, int arg4, int arg5, int arg6);
 
 // USA: func_ov024_021df924
 extern "C" ARM void* func_ov024_021df924(Struct_ov024_021df924_2* arg0, short arg1, int arg2, Struct_ov024_021df924_4* arg3) {
-    Struct_ov024_021df924_11* var0 = (Struct_ov024_021df924_11*)func_0200ff1c(GameState::GetInstance(), arg1);
+    Struct_ov024_021df924_11* var0 = (Struct_ov024_021df924_11*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1);
     if (!var0) return 0;
     Struct_ov024_021df924_11* var1 = (Struct_ov024_021df924_11*)func_ov000_021536f8((int)arg0->unknown_10_, arg2);
     if (!var1) return 0;
@@ -170,7 +170,7 @@ extern "C" ARM void* func_ov024_021df924(Struct_ov024_021df924_2* arg0, short ar
         var3 = 1;
         ((Struct_ov024_021df924_7*)var1->currentStats_)->unknown_3d_ = var15 + 1;
         if (func_ov000_0215fd24((int)arg0->unknown_10_, arg1)) {
-            char* var20 = func_ov000_02160f08(func_ov000_02160130());
+            char* var20 = func_ov000_02160f08(GetBattleScene_ov000_02160130());
             char* var21 = var20 + 0xd0;
             char* var22 = var20 + 0xe8;
             var14.unknown_0_.ResetAllocatorPointer();
@@ -224,9 +224,9 @@ extern "C" ARM void* func_ov024_021df924(Struct_ov024_021df924_2* arg0, short ar
         var28 = arg3->unknown_24_.unknown_2_4_;
     }
     func_020ac494(var26);
-    void* var29 = func_ov000_0215e958(arg0->unknown_10_);
+    void* var29 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var29) return 0;
-    if (var28) func_ov000_0215a88c(arg0->unknown_10_, var29, var28);
+    if (var28) AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var29, var28);
     func_ov000_0215cd44(arg0->unknown_10_, var29, var1, 0, 0, 0, arg0->unknown_c_->unknown_1c_7_ != 0);
     return var29;
 }

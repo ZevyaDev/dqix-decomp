@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void* func_ov017_021d612c(void*);
 extern "C" float func_ov017_021d6110(void*);
 extern "C" void* func_ov001_0215ab20(int);
@@ -10,13 +10,13 @@ extern "C" void func_ov001_0215a594(void* arg0, char* arg1, int arg2, int arg3);
 extern "C" ARM int func_ov001_0215c788(char* arg0, int arg1) {
     int var0 = 0x1000;
     int var1;
-    int var2 = func_ov017_021d60f4(arg0);
+    int var2 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     char* var3 = arg0 + 0x8;
     arg0 += 0x10;
     char* var4 = (char*)func_ov017_021d612c(var3);
     var1 = 0;
     if (arg1 >= 3) {
-        var1 = func_ov017_021d60f4(arg0);
+        var1 = GetScriptValueAsInt_ov017_021d60f4(arg0);
         arg0 += 0x8;
     }
     if (arg1 >= 4) {

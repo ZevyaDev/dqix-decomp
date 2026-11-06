@@ -139,13 +139,13 @@ extern "C" int func_020e12ec(char* arg0, const char* arg1);
 #endif
 extern "C" void func_020de848(void* arg0);
 extern "C" int func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
-extern "C" void* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
+extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void func_ov023_021dcd90(Struct_ov006_02154614_2* arg0, unsigned char arg1);
 extern "C" void func_ov023_021dcae0(Struct_ov006_02154614_2* arg0, int arg1);
 extern "C" void func_ov023_021dced4(Struct_ov006_02154614_2* arg0, unsigned char arg1);
 extern "C" const char** func_020e5294(void* arg0, int arg1);
 extern "C" void func_020e4864(const char* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void func_ov023_021dceac(char* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4, unsigned char arg5);
 
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov006_021557c0(Struct_ov006_02154614* arg0) {
             arg0->unknown_ae4_.unknown_48_ = arg0->unknown_1288_;
             func_ov023_021dcd90(&arg0->unknown_ae4_, 1);
             var0->RemoveTask(arg0->unknown_ad4_);
-            arg0->unknown_1dc_ = func_020dedd0((ItemTable_0201099c_10*)arg0->unknown_1288_, var10);
+            arg0->unknown_1dc_ = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_1288_, var10);
             arg0->unknown_ae2_ &= ~2;
             arg0->unknown_ae2_ |= 0x40;
             func_ov023_021dcae0(&arg0->unknown_ae4_, arg0->unknown_12b8_);
@@ -230,7 +230,7 @@ extern "C" ARM void func_ov006_021557c0(Struct_ov006_02154614* arg0) {
             arg0->unknown_188_->Reset();
             func_020de848(arg0->unknown_1288_);
             func_020de980(arg0->unknown_1288_, arg0->unknown_188_, var18, var19, arg0->unknown_1b8_->unknown_2_);
-            arg0->unknown_1dc_ = func_020dedd0((ItemTable_0201099c_10*)arg0->unknown_1288_, arg0->unknown_1b8_->unknown_2_);
+            arg0->unknown_1dc_ = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_1288_, arg0->unknown_1b8_->unknown_2_);
         }
         var0->RemoveTask(arg0->unknown_ad4_);
         arg0->unknown_ad4_ = -1;
@@ -271,7 +271,7 @@ extern "C" ARM void func_ov006_021557c0(Struct_ov006_02154614* arg0) {
         GameState* var24 = GameState::GetInstance();
         Struct_ov006_021557c0* var25 = (Struct_ov006_021557c0*)GetParty_02010828(var24);
         for (int var26 = 0; var26 < var25->unknown_f7c_; var26++) {
-            char* var27 = (char*)func_0200ff1c(var24, var25->unknown_f78_[var26]);
+            char* var27 = (char*)GetPartyMemberBaseByIndex_0200ff1c(var24, var25->unknown_f78_[var26]);
             if (var27 != 0) {
                 for (int var28 = 0; var28 < 8; var28++) {
                     Struct_ov000_02171c04_2* var29 = *(Struct_ov000_02171c04_2**)(var27

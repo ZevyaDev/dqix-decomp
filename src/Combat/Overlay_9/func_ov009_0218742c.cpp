@@ -77,24 +77,24 @@ extern "C" void func_ov009_021867bc(unsigned char*, int);
 struct Struct_ov009_0218742c_8 { char unknown_0_[0x63d4]; unsigned char unknown_63d4_; };
 #endif
 struct Struct_ov009_0218aac8 { unsigned char unknown_0_; unsigned char unknown_1_; unsigned char unknown_2_[5]; };
-struct Struct_0205d81c; struct SoundEffectManager_02108760; struct Struct_0205c570; struct Struct_0205da38;
-struct Struct_0205d6a0; struct Struct_0204b010; struct Struct_0205d1e0; struct Struct_0205d228;
-struct Struct_0205d274; struct Struct_0205d2bc; struct ItemTable_0201099c_10; struct Struct_0201099c_18;
+struct TextWindowManager_0205d81c; struct SoundEffectManager_02108760; struct Struct_0205c570; struct Struct_0205da38;
+struct TextWindowManager_0205d6a0; struct Struct_0204b010; struct TextWindowManager_0205d1e0; struct Struct_0205d228;
+struct TextWindowManager_0205d274; struct TextWindowManager_0205d2bc; struct ItemTable_0201099c_10; struct Struct_0201099c_18;
 extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void func_ov023_021d9f88(Struct_ov009_0218742c_6*);
-extern "C" void func_0205deb4(Struct_0205d81c*, int, int);
+extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
-extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" int func_0205da38(Struct_0205da38*, int);
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" void func_0204b010(Struct_0204b010*, void*);
-extern "C" void func_0204bc74(void*, int, int, int, int, int, int);
+extern "C" void FillBGScreenRect_0204bc74(void*, int, int, int, int, int, int);
 extern "C" void func_0204b04c(void*, int);
 extern "C" void func_0204b088(void*, int);
-extern "C" void func_0205d1e0(Struct_0205d1e0*);
+extern "C" void func_0205d1e0(TextWindowManager_0205d1e0*);
 extern "C" void func_0205d228(Struct_0205d228*);
-extern "C" void func_0205d274(Struct_0205d274*);
-extern "C" void func_0205d2bc(Struct_0205d2bc*);
+extern "C" void func_0205d274(TextWindowManager_0205d274*);
+extern "C" void func_0205d2bc(TextWindowManager_0205d2bc*);
 extern "C" void func_ov009_021855dc(unsigned char*, int);
 extern "C" void func_02086404(Struct_ov009_0218742c*);
 extern "C" void func_02083ca0(unsigned char*, int);
@@ -103,7 +103,7 @@ extern "C" void func_0208247c(void*);
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
 extern "C" void func_02082490(void*, void*, unsigned int, int, int);
 extern "C" void func_02083cbc(void*, void*, void*);
-extern "C" void* func_020dedd0(ItemTable_0201099c_10*, int);
+extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" void func_02083e28(void*, int);
 extern "C" void func_020863c4(unsigned char*);
 extern "C" void func_0209a804(int*);
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
     unsigned int var1 = arg0->unknown_c59_;
     if (var1 == 0) {
         func_ov023_021d9f88(arg0);
-        func_0205deb4((Struct_0205d81c*)arg0->unknown_2b4_, 3, 2);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_2b4_, 3, 2);
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 5, 0);
         ++arg0->unknown_c59_;
     } else if (var1 == 1) {
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
         arg0->unknown_d9c_ &= ~0x1000000;
         ++arg0->unknown_c59_;
     } else if (var1 == 2) {
-        arg0->unknown_d84_ = func_0205d794((Struct_0205c570*)arg0->unknown_2b4_);
+        arg0->unknown_d84_ = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_2b4_);
         int var2 = 0;
         int var3 = func_0205da38((Struct_0205da38*)arg0->unknown_2b4_, 0x14);
         int var4 = g_keyManager.TestKeysPressed(1);
@@ -150,8 +150,8 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             }
         } else if (g_keyManager.TestKeysPressed(2)) var2 = 1;
         if (arg0->unknown_c59_ == 3) {
-            func_0205d6a0((Struct_0205d6a0*)arg0->unknown_2b4_, 0);
-            func_0205deb4((Struct_0205d81c*)arg0->unknown_2b4_, 3, 2);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_2b4_, 0);
+            SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_2b4_, 3, 2);
 #if defined(jpn)
             arg0->unknown_d9c_ &= ~0x20;
             arg0->unknown_d9c_ &= ~0x40;
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             arg0->unknown_d9c_ &= ~0x60;
 #endif
         } else if (var2) {
-            func_0205d6a0((Struct_0205d6a0*)arg0->unknown_2b4_, 0);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_2b4_, 0);
 #if defined(jpn)
             arg0->unknown_d9c_ &= ~0x20;
             arg0->unknown_d9c_ &= ~0x40;
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
         }
     } else if (var1 == 3) {
         func_0204b010((Struct_0204b010*)arg0->unknown_1b8_, 0);
-        func_0204bc74(arg0->unknown_1b8_, 0, 0, 0, 32, 25, 0);
+        FillBGScreenRect_0204bc74(arg0->unknown_1b8_, 0, 0, 0, 32, 25, 0);
         func_0204b04c(arg0->unknown_1b8_, 0);
         func_0204b088(arg0->unknown_1b8_, 0);
         if (arg0->unknown_d95_ == 0) {
@@ -178,11 +178,11 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             var6->unknown_56a_ = data_ov009_0218a9b4[arg0->unknown_da8_[arg0->unknown_da3_]];
             ((Struct_ov009_0218742c_8*)var0)->unknown_63d4_ = 1;
             ColorEffect_ConfigureBrightnessAdjust(0x04001050, 1, 0);
-            func_0205deb4((Struct_0205d81c*)arg0->unknown_2b4_, 3, 0);
-            func_0205d1e0((Struct_0205d1e0*)arg0->unknown_2b4_);
+            SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_2b4_, 3, 0);
+            func_0205d1e0((TextWindowManager_0205d1e0*)arg0->unknown_2b4_);
             func_0205d228((Struct_0205d228*)arg0->unknown_2b4_);
-            func_0205d274((Struct_0205d274*)arg0->unknown_2b4_);
-            func_0205d2bc((Struct_0205d2bc*)arg0->unknown_2b4_);
+            func_0205d274((TextWindowManager_0205d274*)arg0->unknown_2b4_);
+            func_0205d2bc((TextWindowManager_0205d2bc*)arg0->unknown_2b4_);
             func_ov009_021855dc((unsigned char*)arg0, 10);
 #if defined(jpn)
         } else if (arg0->unknown_d95_ == 1) {
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             BackgroundLoader::RemoveLockGlobal();
             short* var14 = arg0->unknown_d88_->unknown_488_;
             for (int var15 = 0; var15 < 7; ++var15) {
-                void* var16 = func_020dedd0((ItemTable_0201099c_10*)arg0->unknown_a8_, var14[data_ov009_0218aac8[var15].unknown_0_]);
+                void* var16 = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_a8_, var14[data_ov009_0218aac8[var15].unknown_0_]);
                 if (var16) memcpy(&arg0->unknown_d88_->unknown_194_[data_ov009_0218aac8[var15].unknown_1_], var16, 32);
             }
             func_02083e28(arg0->unknown_d88_, 0);
@@ -266,7 +266,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             BackgroundLoader::RemoveLockGlobal();
             short* var33 = var25->unknown_488_;
             for (int var34 = 0; var34 < 7; ++var34) {
-                void* var35 = func_020dedd0((ItemTable_0201099c_10*)arg0->unknown_c8_, var33[data_ov009_0218aac8[var34].unknown_0_]);
+                void* var35 = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_c8_, var33[data_ov009_0218aac8[var34].unknown_0_]);
                 if (var35) memcpy(&var25->unknown_194_[data_ov009_0218aac8[var34].unknown_1_], var35, 32);
             }
             func_02083e28(var25, 0);
@@ -305,12 +305,12 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
 #endif
     } else if (var1 == 255) {
         func_0204b010((Struct_0204b010*)arg0->unknown_1b8_, 0);
-        func_0204bc74(arg0->unknown_1b8_, 0, 0, 0, 32, 25, 0);
+        FillBGScreenRect_0204bc74(arg0->unknown_1b8_, 0, 0, 0, 32, 25, 0);
         func_0204b04c(arg0->unknown_1b8_, 0);
         func_0204b088(arg0->unknown_1b8_, 0);
         ColorEffect_ConfigureBrightnessAdjust(0x04001050, 1, 0);
-        func_0205deb4((Struct_0205d81c*)arg0->unknown_2b4_, 3, 0);
-        func_0205deb4((Struct_0205d81c*)arg0->unknown_2b4_, 2, 0);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_2b4_, 3, 0);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_2b4_, 2, 0);
 #if defined(jpn)
         func_ov009_021855dc((unsigned char*)arg0, 8);
 #else

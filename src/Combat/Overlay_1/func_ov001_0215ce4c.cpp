@@ -5,7 +5,7 @@
 #include "World/Object3D.h"
 #include "std_library_functions.h"
 
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" int func_ov001_0215ad2c(int arg0);
 extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
 extern "C" void func_0200fd38(GameState* arg0, int arg1, GameObject* arg2);
@@ -30,10 +30,10 @@ extern "C" ARM int func_ov001_0215ce4c(char* arg0, int arg1) {
 
     var5 = GameState::GetInstance();
     var6 = BackgroundLoader::GetInstance();
-    var10 = func_ov001_0215ad2c(func_ov017_021d60f4(arg0));
+    var10 = func_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(arg0));
     var4 = 0;
     if (arg1 >= 2) {
-        var4 = func_ov017_021d60f4(arg0 + 8);
+        var4 = GetScriptValueAsInt_ov017_021d60f4(arg0 + 8);
     }
     var7 = data_ov001_021658b8[var4];
     sprintf(var0, data_ov001_02165775);

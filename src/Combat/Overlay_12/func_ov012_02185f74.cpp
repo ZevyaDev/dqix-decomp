@@ -91,25 +91,25 @@ struct Struct_ov012_02185f74_2
     Struct_ov012_02185f74_4 unknown_1c8_[13];
 };
 
-struct Struct_0204b12c;
-struct Struct_02020cb8_5;
+struct BGLayer_0204b12c;
+struct BGLayer_02020cb8_5;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
-struct Struct_02020cb8_2;
-struct Struct_0204c7a8;
+struct BGLayer_02020cb8_2;
+struct TextWindow_0204c7a8;
 struct Struct_0205cf78;
 struct Struct_0205cf78_2;
 
-extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
-extern "C" void func_0204b5b4(Struct_ov012_02185f74_3* arg0, int arg1);
-extern "C" void func_0204b12c(Struct_0204b12c* arg0, SafeAllocator* arg1);
-extern "C" void func_0204b5e8(Struct_02020cb8_5* arg0, int arg1, int arg2);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
+extern "C" void SetBGPriority_0204b5b4(Struct_ov012_02185f74_3* layer, int priority);
+extern "C" void AllocateBGScreenData_0204b12c(BGLayer_0204b12c* layer, SafeAllocator* allocator);
+extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void func_0204b174(Struct_ov012_02185f74_3* arg0, void* arg1, SafeAllocator* arg2, unsigned int arg3);
-extern "C" void func_0204bc74(Struct_ov012_02185f74_3* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
-extern "C" void func_0204b0e8(Struct_02020cb8_2* arg0, void* arg1);
-extern "C" void func_0204c7a8(Struct_0204c7a8* arg0, SafeAllocator* arg1, int arg2, unsigned int arg3);
+extern "C" void LoadBGBlock_0204b174(Struct_ov012_02185f74_3* layer, void* block, SafeAllocator* allocator, unsigned int arg3);
+extern "C" void FillBGScreenRect_0204bc74(Struct_ov012_02185f74_3* layer, int screenEntry, int x, int y, int width, int height, int palette);
+extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
+extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int arg2, unsigned int screenDataSize);
 extern "C" void func_0205cf78(Struct_0205cf78* arg0, Struct_0205cf78_2* arg1, unsigned char arg2);
 
 extern "C" const unsigned char data_ov012_0218af75[3];
@@ -131,12 +131,12 @@ extern "C" ARM void func_ov012_02185f74(Struct_ov012_02185f74_2* arg0)
     for (int var8 = 0; var8 < 3; var8++)
     {
         var0 = &arg0->unknown_168_[var8];
-        func_0204b11c((unsigned char*)var0, 0);
+        SetBGScreenSize_0204b11c((unsigned char*)var0, 0);
         var0->unknown_1c_0_ = 0;
         var0->unknown_1c_4_ = data_ov012_0218af75[var8];
-        func_0204b5b4(var0, data_ov012_0218af78[var8]);
-        func_0204b12c((Struct_0204b12c*)var0, &arg0->unknown_20_[0]);
-        func_0204b5e8((Struct_02020cb8_5*)var0, 0, 0);
+        SetBGPriority_0204b5b4(var0, data_ov012_0218af78[var8]);
+        AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)var0, &arg0->unknown_20_[0]);
+        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var0, 0, 0);
     }
     BG1CNT = (BG1CNT & 0x43) | 0x1d00;
     BG2CNT = (BG2CNT & 0x43) | 0x1e00;
@@ -150,22 +150,22 @@ extern "C" ARM void func_ov012_02185f74(Struct_ov012_02185f74_2* arg0)
         void* var10 = GetPacEntryData_020467f0((PacEntry_02020aec*)var5, var9, &var4, &var7);
         if (var10 != 0)
         {
-            func_0204b174(&arg0->unknown_168_[1], var10, &arg0->unknown_20_[0], var7);
-            func_0204b174(&arg0->unknown_168_[2], var10, &arg0->unknown_20_[0], var7);
+            LoadBGBlock_0204b174(&arg0->unknown_168_[1], var10, &arg0->unknown_20_[0], var7);
+            LoadBGBlock_0204b174(&arg0->unknown_168_[2], var10, &arg0->unknown_20_[0], var7);
         }
     }
     for (int var11 = 0; var11 < 3; var11++)
     {
         var0 = &arg0->unknown_168_[var11];
-        func_0204bc74(var0, 0, 0, 0, 0x20, 0x19, 0);
-        func_0204b0e8((Struct_02020cb8_2*)var0, 0);
+        FillBGScreenRect_0204bc74(var0, 0, 0, 0, 0x20, 0x19, 0);
+        LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)var0, 0);
     }
     char* var12 = (char*)arg0;
     *(void**)(var12 + Enum_ov012_02185f74_4988) = arg0->unknown_20_[0].Allocate(0x7800);
     for (int var13 = 0; var13 < 13; var13++)
     {
         var3 = &arg0->unknown_1c8_[var13];
-        func_0204c7a8((Struct_0204c7a8*)var3, &arg0->unknown_20_[0], (int)*(void**)(var12 + Enum_ov012_02185f74_4988), 0x800);
+        SetTextWindowBuffers_0204c7a8((TextWindow_0204c7a8*)var3, &arg0->unknown_20_[0], (int)*(void**)(var12 + Enum_ov012_02185f74_4988), 0x800);
         var3->unknown_4_ = &arg0->unknown_168_[1];
     }
     arg0->unknown_ac_.unknown_98_ = arg0->unknown_168_;

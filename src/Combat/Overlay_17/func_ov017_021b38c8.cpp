@@ -50,7 +50,7 @@ extern "C" ARM int func_ov017_021b38c8(Struct_ov017_021b38c8* arg0) {
     Struct_0206f81c_8* var1;
     GameState* var2 = GameState::GetInstance();
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
-    GameObject* var4 = func_0200ff1c(var2, arg0->unknown_8_);
+    GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var2, arg0->unknown_8_);
     if (!var4) return 0;
     Struct_ov017_021b38c8_4* var5 = ((Struct_ov017_021b38c8_5*)var4)->inline_ov017_021b38c8_2();
     if (!var5) return 0;

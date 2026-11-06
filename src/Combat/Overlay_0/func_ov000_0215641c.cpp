@@ -27,7 +27,7 @@ extern "C" ARM float func_ov000_0215641c(int arg0, int arg1) {
     float var1 = 0.0f;
     int var2 = (arg1 >= 0 && arg1 <= 3);
     if (var2) {
-        Struct_ov000_0215641c* var3 = (Struct_ov000_0215641c*)func_0200ff1c(var0, arg1);
+        Struct_ov000_0215641c* var3 = (Struct_ov000_0215641c*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
         if (var3 == NULL) {
             return 0.0f;
         }

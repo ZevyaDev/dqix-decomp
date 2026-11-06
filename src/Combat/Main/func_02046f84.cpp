@@ -24,7 +24,7 @@ struct Struct_02046f84 {
 extern "C" ARM void func_02046f84(struct Struct_02046f84* arg0) {
     GameState* var0 = GameState::GetInstance();
     GetResources_0200fb8c((int*)var0);
-    void* var1 = func_020100bc(var0);
+    void* var1 = GetCamera_020100bc(var0);
     func_0202e874((unsigned char*)var1, 0);
     func_0202e9a4((struct Struct_0202df68*)var1, 0xf000);
     func_0202eab8(var1);

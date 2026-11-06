@@ -23,14 +23,14 @@ struct Struct_ov005_02153ba4_2 {
 extern "C" void func_020c51a4(int arg0);
 
 struct Struct_02000c9c_91;
-struct Struct_0204b8d0 {
+struct BGLayer_0204b8d0 {
     char unknown_0_[0x10];
     Struct_02000c9c_91* unknown_10_;
-    unsigned short* unknown_14_;
+    unsigned short* pScreenData_14_;
     char unknown_18_[5];
-    unsigned char unknown_1d_;
+    unsigned char screenBlockCount_1d_;
 };
-extern "C" void func_0204b8d0(struct Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" void CopyBGScreenBlockRect_0204b8d0(struct BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 struct Struct_0204b010;
 extern "C" void func_0204b010(struct Struct_0204b010* arg0, void* arg1);
 extern "C" void func_0204b04c(void* arg0, int arg1);
@@ -83,7 +83,7 @@ extern "C" void func_ov023_021dcba4(void*, short);
 
 struct Struct_ov005_0215b520_2 {
     char unknown_0_[REGION(0xea0,0xea4)];
-    Struct_0204b8d0 unknown_ea4_;
+    BGLayer_0204b8d0 unknown_ea4_;
     char unknown_ec4_[0x1244 - 0xec4];
     Struct_ov003_02178910 unknown_1244_;
     char unknown_19bc_[REGION(0x19ac - 0x1240,0x1a34 - 0x1244) - sizeof(Struct_ov003_02178910)];
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
         void* var1 = (void*)GameState::GetInstance();
         GameResources* var2 = GetGameResources();
         Struct_ov005_02153ba4_2* var3 = func_ov017_021a193c((int*)var2->unknown_ptr_array_36fc[3]);
-        short* var4 = func_02052e14((Struct_02052e14*)func_0200ff1c((GameState*)var1, var3->unknown_4fc_));
+        short* var4 = func_02052e14((Struct_02052e14*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var1, var3->unknown_4fc_));
         arg0->unknown_3de8_ += arg0->unknown_3de4_;
         if (arg0->unknown_3de8_ >= 3) {
             arg0->unknown_3de8_ -= 3;
@@ -187,10 +187,10 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
             }
         }
         func_0204b010((struct Struct_0204b010*)&arg0->unknown_ea4_, 0);
-        func_0204b8d0(&arg0->unknown_ea4_, 0, 0, 0, 0x20 - arg0->unknown_3de2_, 0, 0x10, 0x16, 0xffff);
+        CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_ea4_, 0, 0, 0, 0x20 - arg0->unknown_3de2_, 0, 0x10, 0x16, 0xffff);
         unsigned char var11 = arg0->unknown_3dbc_;
         short var12 = var11 * 2 + 0xf;
-        func_0204b8d0(&arg0->unknown_ea4_, (unsigned char)(var11 + 1), 0, 0, var12 + 0x10 - arg0->unknown_3de2_, 0, 4, 3, 0xffff);
+        CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_ea4_, (unsigned char)(var11 + 1), 0, 0, var12 + 0x10 - arg0->unknown_3de2_, 0, 4, 3, 0xffff);
         func_0204b04c(&arg0->unknown_ea4_, 0);
         if (arg0->unknown_3dec_ == 1) {
             arg0->unknown_3dba_++;
@@ -218,10 +218,10 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
             }
         }
         func_0204b010((struct Struct_0204b010*)&arg0->unknown_ea4_, 0);
-        func_0204b8d0(&arg0->unknown_ea4_, 0, 0, 0, arg0->unknown_3de2_ + 0x10, 0, 0x10, 0x16, 0xffff);
+        CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_ea4_, 0, 0, 0, arg0->unknown_3de2_ + 0x10, 0, 0x10, 0x16, 0xffff);
         unsigned char var13 = arg0->unknown_3dbc_;
         short var14 = var13 * 2 + 0xf;
-        func_0204b8d0(&arg0->unknown_ea4_, (unsigned char)(var13 + 1), 0, 0, var14 + arg0->unknown_3de2_, 0, 4, 3, 0xffff);
+        CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_ea4_, (unsigned char)(var13 + 1), 0, 0, var14 + arg0->unknown_3de2_, 0, 4, 3, 0xffff);
         func_0204b04c(&arg0->unknown_ea4_, 0);
         if (arg0->unknown_3dec_ == 2) {
             arg0->unknown_3dba_++;
@@ -232,7 +232,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
         void* var15 = (void*)GameState::GetInstance();
         GameResources* var16 = GetGameResources();
         Struct_ov005_02153ba4_2* var17 = func_ov017_021a193c((int*)var16->unknown_ptr_array_36fc[3]);
-        short* var18 = func_02052e14((Struct_02052e14*)func_0200ff1c((GameState*)var15, var17->unknown_4fc_));
+        short* var18 = func_02052e14((Struct_02052e14*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var15, var17->unknown_4fc_));
         arg0->unknown_3de8_ += arg0->unknown_3de4_;
         if (arg0->unknown_3de8_ >= 3) {
             arg0->unknown_3de8_ -= 3;

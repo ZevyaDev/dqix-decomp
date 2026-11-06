@@ -12,7 +12,7 @@ extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
 
 // USA: func_020dd154
 extern "C" ARM int func_020dd154(int arg0, int arg1) {
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg0);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0);
     if (var0 == NULL) {
         return 0;
     }

@@ -7,24 +7,24 @@
 #define RG(u, j) (u)
 #endif
 
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
 struct SoundEffectManager_02108760;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct Struct_0205bcdc;
 struct Struct_0204c610;
-extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
-extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
-extern "C" char *func_0205d81c(struct Struct_0205d81c *arg0, int arg1);
+extern "C" char *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
 extern "C" void func_0204c610(struct Struct_0204c610 *arg0, int arg1, short *arg2, short *arg3, short *arg4, short *arg5);
 extern "C" void func_0205bcdc(struct Struct_0205bcdc *arg0, int arg1);
 extern "C" void func_ov002_0215b268(char *arg0);
-extern "C" void func_0205bb04(void *arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void *cursor, int index);
 extern "C" void func_ov002_02161cf0(void *arg0);
 extern "C" void func_ov002_02160c68(void *arg0);
 extern "C" void func_ov002_02156e90(void *arg0);
@@ -37,14 +37,14 @@ extern "C" ARM void func_ov002_02169bb0(char *arg0) {
     if (var0 == 0) {
         *(short *) (arg0 + RG(0x1c00 + 0xe, 0x1a00 + 0xd6)) = 0;
         *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
-        func_0205de24((struct Struct_0205de24_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0, 2);
+        SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0, 2);
         func_ov002_02161cf0(arg0);
         func_ov002_02160c68(arg0);
         *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) += 1;
     } else if (var0 == 1) {
         *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) |= 4;
         *(short *) (arg0 + RG(0x1c00 + 0xe, 0x1a00 + 0xd6)) =
-            func_0205d794((struct Struct_0205c570 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)));
+            GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)));
         unsigned char *var1[2];
         var1[0] = (unsigned char *) (arg0 + RG(0x2c + 0x1c00, 0x2f4 + 0x1800));
         var1[1] = (unsigned char *) (arg0 + RG(0x2d + 0x1c00, 0xf5 + 0x1a00));
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov002_02169bb0(char *arg0) {
             int var2, var3;
             short var4, var5, var6, var7;
             g_touchInput.GetTouchPoint(&var2, &var3);
-            char *var8 = func_0205d81c((struct Struct_0205d81c *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), RG(0x23, 0x26));
+            char *var8 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), RG(0x23, 0x26));
             if (var8 != NULL) {
                 short var9 = 3;
                 for (unsigned char var10 = 0; var10 < 2; var10++) {
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov002_02169bb0(char *arg0) {
                             int var14                          = *(short *) (arg0 + RG(0x1c00 + 0xe, 0x1a00 + 0xd6));
                             char *var15                       = arg0 + RG(0x2c8 + 0xc00, 0xe20);
                             func_0205bcdc((struct Struct_0205bcdc *) (var15 + 4), var14);
-                            func_0205bb04(var15 + 0x54, var14);
+                            SetMenuCursorIndex_0205bb04(var15 + 0x54, var14);
                             func_ov002_0215b9a4(arg0, RG(0x23, 0x26), 0);
                             func_ov002_0215b268(arg0);
                             return;

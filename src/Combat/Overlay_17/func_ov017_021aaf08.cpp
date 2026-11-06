@@ -7,7 +7,7 @@
 #include "Resource/Brightness.h"
 
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov017_021aaf08(char* arg0) {
     int var1 = (int)GetGameResources();
     void* var2 = GetGlobalFlags_020d6c00();
     ClearFlags04((GameResources*)var1, 0x80);
-    func_020466f4((struct Struct_02038598_4*)var2, 0x200);
+    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var2, 0x200);
 
     SafeAllocator* var3 = (SafeAllocator*)(arg0 + 0x24);
     void* var4 = var3->GetSignedAllocator();

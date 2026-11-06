@@ -8,7 +8,7 @@ struct Struct_020a095c;
 struct Struct_0207cf30_4;
 struct Struct_ov002_0215b2c8;
 struct ItemTable_0201099c_10;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 extern "C" int func_020a0b8c(struct Struct_020a0b8c *arg0);
 extern "C" void func_020a0bcc(struct Struct_020a0bcc *arg0);
 extern "C" int func_020a0af4(struct Struct_020a095c *arg0, int arg1);
@@ -22,7 +22,7 @@ struct Struct_ov002_0215b458_4 {
     char unknown_0_[0xc5];
     unsigned char unknown_c5_;
 };
-extern "C" struct Struct_ov002_0215b458_4 *func_0205d81c(struct Struct_0205d81c *arg0, int arg1);
+extern "C" struct Struct_ov002_0215b458_4 *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
 extern "C" int GetInventoryItemByID(char *arg0, int arg1, int arg2);
 extern "C" void func_0205d7a0(void *arg0, int arg1);
 extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov002_0215b458(char *arg0, int arg1) {
             *(short *) (arg0 + 0x1b00 + 0xe8) = var11;
             func_0205d7a0(arg0 + 0x2c8 + 0xc00, var11);
             struct Struct_ov002_0215b458_4 *var12 =
-                func_0205d81c((struct Struct_0205d81c *) (arg0 + 0x2c8 + 0xc00), 5);
+                FindTextWindow_0205d81c((struct TextWindowManager_0205d81c *) (arg0 + 0x2c8 + 0xc00), 5);
             if (var12 != NULL) {
                 var12->unknown_c5_ &= ~2;
             }

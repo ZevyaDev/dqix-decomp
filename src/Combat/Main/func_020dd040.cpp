@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
-struct Struct_0201099c_14 {
+struct StringTable_0201099c_14 {
     unsigned char unknown_0_[0x14];
     int unknown_14_;
 };
 
 extern "C" void* func_020dfc2c(void* arg0);
-extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
+extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 
 #if defined(jpn)
 extern "C" int func_020e2168(char* arg0, const char* arg1,
@@ -27,7 +27,7 @@ extern "C" ARM void func_020dd040(int arg0, char* arg1) {
     const char* var1;
 #endif
     if (arg0 > 0 && arg1 != NULL) {
-        struct Struct_0201099c_14 var2;
+        struct StringTable_0201099c_14 var2;
 #if defined(jpn)
         var0 = data_020f2b82;
 #else
@@ -36,7 +36,7 @@ extern "C" ARM void func_020dd040(int arg0, char* arg1) {
 #endif
         arg1[0] = 0;
         func_020dfc2c(&var2);
-        func_020dfc40(&var2);
+        InitStringTable_020dfc40(&var2);
     } else {
         return;
     }

@@ -5,10 +5,10 @@
 struct Struct_02048150;
 extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
 extern "C" void* GetMessageWindow_020421a0(void);
-extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
 struct Struct_02038598_5;
 extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" int func_02039820(void* arg0);
 extern "C" int func_02039d7c(char* arg0);
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov017_021bff8c(Struct_ov017_021bff8c* arg0, unsigned ch
             var7 = var6->unknown_3718_;
         }
         if (var7 != NULL) {
-            func_ov017_021b8478(var7);
+            GetBattleSetup_ov017_021b8478(var7);
         }
         unsigned short var8 = *(unsigned short*)((char*)var4 + Enum_ov017_021bff8c_434);
         if (var8 != 0) {
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov017_021bff8c(Struct_ov017_021bff8c* arg0, unsigned ch
         } else if (func_02046b60((Struct_02038598_5*)arg0->unknown_36fc_, 3)) {
             var1 = 1;
         }
-        if (func_02046b08((void**)arg0->unknown_36fc_) == 0) {
+        if (IsQueueEmpty_02046b08((void**)arg0->unknown_36fc_) == 0) {
             var1 = 1;
         } else if (func_020535c8((signed char*)var4) != 0) {
             var1 = 1;

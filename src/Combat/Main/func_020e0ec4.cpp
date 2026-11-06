@@ -21,7 +21,7 @@ extern "C" void func_02023064(struct Struct_020200c0_3* arg0, unsigned int arg1,
 extern "C" void func_0205b20c(struct Struct_020200c0_4* arg0);
 extern "C" void func_0205b220(void* arg0, int arg1);
 extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
-extern "C" int func_0200fb08(Struct_02000c9c_8*);
+extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" int func_0205b234(void*, short, short, int, unsigned char, unsigned char);
 
 #if defined(jpn)
@@ -55,7 +55,7 @@ extern "C" ARM void func_020e0ec4(void* arg0, void* arg1, int arg2, int) {
 #if defined(jpn)
     func_0205b234(&var1, (short)44, (short)18, (int)((char*)arg0 + 0x680), (unsigned char)10, (unsigned char)15);
 #else
-    int var2 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+    int var2 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
     func_0205b234(&var1, data_020ee820[var2], (short)6, (int)((char*)arg0 + 0x2ec + 0x400), (unsigned char)0xf, (unsigned char)0);
 #endif
 }

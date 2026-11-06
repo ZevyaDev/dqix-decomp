@@ -16,7 +16,7 @@ extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_020730e0(int arg0, int arg1);
 extern "C" int NSBXX_Model_GetMaterialPolygonID(NSBXXInternalModel* model, unsigned int materialIndex);
 extern "C" int func_ov017_021b8470(void* arg0);
-extern "C" unsigned char* func_ov017_021b8478(void* arg0);
+extern "C" unsigned char* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
 
 struct Struct_0203d028_11;
@@ -31,10 +31,10 @@ extern "C" void func_02053e10(struct Struct_02053e10* arg0);
 extern "C" void func_ov017_021917f0(int arg0, int arg1);
 extern "C" void func_02026bc8(unsigned char* arg0, int arg1);
 struct Struct_02010604;
-extern "C" int func_02033b88(struct Struct_02010604* arg0, int arg1);
+extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
 struct Struct_0202b2f0;
 extern "C" struct Struct_0202b2f0* GetLocalWireless_0202ae18(void);
-extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int func_020546a8(void* arg0);
 extern "C" int func_0202be08(struct Struct_0202b2f0* arg0, int arg1);
 struct Struct_02054000;
@@ -204,7 +204,7 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
     int var20 = 0;
     void* var21 = var0->unknown_ptr_3718;
     var3 = func_ov017_021b8470(var21);
-    unsigned char* var22 = func_ov017_021b8478(var21);
+    unsigned char* var22 = GetBattleSetup_ov017_021b8478(var21);
     if (((unsigned char*)var21)[2] != 0 && var22 != NULL) {
         if (func_020a35e0(var22, arg0->unknown_8_)) {
             var20 = 1;
@@ -286,13 +286,13 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
         if (var35 != NULL && var36 != NULL && var35->obj3D_.pModel_ != NULL && var36->obj3D_.pModel_ != NULL) {
             var35->obj3D_.pModel_->ApplyTexturesFromModel(var36->obj3D_.pModel_);
         }
-        func_02033b88((struct Struct_02010604*)var10, 0);
+        SetMotion_02033b88((struct Struct_02010604*)var10, 0);
         var10->unknown_0_.EnableFlag(4);
 
         if (var3 == 0) {
             struct Struct_0202b2f0* var37 = GetLocalWireless_0202ae18();
             int var38 = var10->unknown_0_.unknown_4_;
-            GameObject* var39 = func_0200ff58(var8, var38);
+            GameObject* var39 = GetCompanionByIndex_0200ff58(var8, var38);
             if (var39 != NULL) {
                 var38 = func_020546a8(var39);
             }
@@ -308,12 +308,12 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
             var23->obj3D_.MakeHidden();
             ((unsigned char*)var10)[0xc2] |= 0x20;
             if (*(int*)((char*)var10->unknown_138_ + 0x14) & 1) {
-                func_02033b88((struct Struct_02010604*)var10, 4);
+                SetMotion_02033b88((struct Struct_02010604*)var10, 4);
             } else {
                 var10->unknown_0_.MaybeSetRegularAnimation(data_ov017_021d7ae3, 0);
             }
             if (var3 != 0) {
-                struct Struct_ov017_021b3e14_3* var41 = (struct Struct_ov017_021b3e14_3*)func_0200ff1c(var8, arg0->unknown_8_);
+                struct Struct_ov017_021b3e14_3* var41 = (struct Struct_ov017_021b3e14_3*)GetPartyMemberBaseByIndex_0200ff1c(var8, arg0->unknown_8_);
                 if (var41 != NULL) {
                     struct Struct_ov017_021b3e14_4* var42 = (struct Struct_ov017_021b3e14_4*)func_02054000((struct Struct_02054000*)var41);
                     if (var42 != NULL && var42->unknown_18_ > 0 && var42->unknown_a_2_) {

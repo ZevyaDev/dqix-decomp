@@ -2,14 +2,14 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-struct Struct_0204693c;
-extern "C" void func_0204693c(struct Struct_0204693c* arg0);
+struct QueueNode_0204693c;
+extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
 struct Struct_020a3578;
 extern "C" void func_020a3578(struct Struct_020a3578* arg0);
 
 // USA: func_ov017_021b6f18
 extern "C" ARM void func_ov017_021b6f18(char* arg0) {
-	func_0204693c((struct Struct_0204693c*)arg0);
+	ResetQueueNode_0204693c((struct QueueNode_0204693c*)arg0);
 	arg0[0] = 0xa;
 	((SafeAllocator*)(arg0 + 8))->ResetAllocatorPointer();
 	func_020a3578((struct Struct_020a3578*)(arg0 + 0x1c));

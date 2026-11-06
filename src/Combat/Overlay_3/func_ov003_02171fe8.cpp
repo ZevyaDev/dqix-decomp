@@ -10,7 +10,7 @@ extern "C" void *GetZone3D_02012fe4(void);
 extern "C" int func_ov003_021725a4(void *arg0, void *arg1);
 
 struct Struct_02000c9c_8;
-extern "C" int func_0200fb08(Struct_02000c9c_8 *arg0);
+extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8 *gameState);
 extern "C" int func_0209890c(void *arg0, void *arg1);
 #if defined(jpn)
 extern "C" void *GetLocalWireless_0202ae18(void);
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov003_02171fe8(Struct_ov003_02171fe8_3 *arg0, int arg1,
                 memcpy(&var2.unknown_50_, &arg0->unknown_2a0_.unknown_c4_, 0x1c);
                 memcpy(&var2.unknown_14_, &arg0->unknown_2a0_.unknown_e_, 6);
                 var2.unknown_6c_.unknown_0_[0] |= 0x4000000;
-                int var4 = func_0200fb08((Struct_02000c9c_8 *) var3);
+                int var4 = GetGameLanguage_0200fb08((Struct_02000c9c_8 *) var3);
                 int var5  = 0;
                 switch (var4) {
                     case 2: var5 = 1; break;

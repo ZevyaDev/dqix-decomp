@@ -7,9 +7,6 @@
 #include "Resource/Brightness.h"
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 struct Struct_02013fb4;
 struct Struct_020213fc;
@@ -84,7 +81,7 @@ struct Struct_ov017_021bbfc4_3 { char unknown_0_[0x5cac]; unsigned char unknown_
 #endif
 int IsSubBrightnessTransitionActive(GameResources*);
 extern "C" int* GetLocalWireless_0202ae18();
-extern "C" unsigned char* func_020100f8(char*);
+extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_020531f0(GameObject*);
 extern "C" void func_ov017_021bb27c(Struct_ov017_021bbfc4_5*);
@@ -92,14 +89,14 @@ extern "C" void* GetMainBG1CharacterBase();
 extern "C" void* GetMainBG1ScreenBase();
 extern "C" int func_0208dc00(Struct_02013fb4*, int, int);
 void SetBrightness(GameResources*, int, int);
-extern "C" Struct_ov017_021bbfc4_2* func_0200fd0c(GameState*);
+extern "C" Struct_ov017_021bbfc4_2* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void func_020213fc(Struct_020213fc*, int);
 extern "C" void func_02070378(char*);
 extern "C" int func_02071488(Struct_02013fb4*, int, int, Struct_02071488*);
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
-extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void* GetFlagManager_0205ec34();
-extern "C" void func_0206df6c(void*, unsigned char*, int, int);
+extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" Struct_0204bd7c* func_02033fa0(void*);
 extern "C" int func_0204bd7c(Struct_0204bd7c*);
@@ -127,7 +124,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     GameResources* var2 = GetGameResources();
     int* var3 = GetLocalWireless_0202ae18();
     GameObject* var4 = var0->GetUnknownGameObject();
-    func_020100f8((char*)var0);
+    GetFollowCamera_020100f8((char*)var0);
     Zone3D* var5 = GetZone3D_02012fe4();
     if (IsSubBrightnessTransitionActive(var2)) return arg0->unknown_a_;
     for (int var6 = 0; var6 < 4; ++var6) {
@@ -165,7 +162,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
         arg0->unknown_c_.unknown_5_ = 1;
         if (arg0->unknown_a0_.unknown_2a_ != var5->currentZoneID_) {
             var1->RemoveTask(arg0->unknown_74_);
-            Struct_ov017_021bbfc4_2* var14 = func_0200fd0c(var0);
+            Struct_ov017_021bbfc4_2* var14 = GetZoneEntry_0200fd0c(var0);
             func_020213fc((Struct_020213fc*)var2->unknown_ptr_36d0, 1);
             func_02070378((char*)var14);
             var14->unknown_0_ = arg0->unknown_a0_.unknown_2a_;
@@ -182,14 +179,14 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
         return arg0->unknown_a_;
     }
     var1->RemoveTask(arg0->unknown_74_);
-    if (arg0->unknown_50_ & 0x100) func_020466e4(GetGlobalFlags_020d6c00(), 1);
+    if (arg0->unknown_50_ & 0x100) SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 1);
     arg0->unknown_118_ = arg0->unknown_c_.unknown_c_;
     int var15;
     int var16;
     int var17;
     int var18;
     Struct_ov017_021bbfc4* var19 = (Struct_ov017_021bbfc4*)GetFlagManager_0205ec34();
-    if (arg0->unknown_98_) func_0206df6c(var19, var19->unknown_8c_, arg0->unknown_52_ + 0x38e, 0);
+    if (arg0->unknown_98_) SetFlag_0206df6c(var19, var19->unknown_8c_, arg0->unknown_52_ + 0x38e, 0);
     var18 = 0;
     if (IsFlagSet_0206dfb0((int)var19, var19->unknown_8c_, arg0->unknown_52_ + 0x38e)) var18 = 1;
     if (var18) {
@@ -242,7 +239,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     }
     if (arg0->unknown_fd_ || ((Struct_ov017_021bbfc4_3*)var0)->unknown_5cac_) var16 = 1;
     if (var15) {
-        Struct_ov017_021bbfc4_2* var30 = func_0200fd0c(var0);
+        Struct_ov017_021bbfc4_2* var30 = GetZoneEntry_0200fd0c(var0);
         func_02070378((char*)var30);
         var30->unknown_0_ = arg0->unknown_c_.unknown_e_;
         var30->unknown_20_ = arg0->unknown_8_;

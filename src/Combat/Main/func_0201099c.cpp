@@ -156,7 +156,7 @@ struct Struct_020e6d74 {
     unsigned char unknown_1_;
 };
 
-struct Struct_0201099c_14 {
+struct StringTable_0201099c_14 {
     unsigned char unknown_0_[0x18];
 };
 
@@ -171,9 +171,9 @@ struct Struct_0201099c_18 {
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_020dfc2c(void* arg0);
-extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
-extern "C" void func_020dfc6c(Struct_0201099c_14* arg0);
-extern "C" void func_020dfec0(Struct_0201099c_14* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
+extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
+extern "C" void func_020dfc6c(StringTable_0201099c_14* arg0);
+extern "C" void LoadStringTable_020dfec0(StringTable_0201099c_14* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" void func_02089db4(Struct_0201099c_6* arg0);
 extern "C" void func_02089ddc(Struct_0201099c_6* arg0);
 extern "C" void func_02089de8(void* arg0, void* arg1, const char* arg2);
@@ -193,7 +193,7 @@ extern "C" int func_020dea64(void* arg0, void* arg1, void* arg2, unsigned int ar
 extern "C" void* func_0208247c(void* arg0);
 extern "C" void func_02082828(Struct_0201099c_13* arg0);
 extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
-extern "C" ItemData_0201099c_9* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
+extern "C" ItemData_0201099c_9* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void func_02083e28(void* arg0, int arg1);
 
 extern AllocatorUnion gMainHeap_02114e20;
@@ -213,7 +213,7 @@ extern const Struct_020e6d74 data_020e7618[];
 extern unsigned char data_020e7610[];
 extern const char data_020eeff3[];
 extern "C" int func_020e052c(void*, void*, const char*, void*, short, unsigned char);
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 #endif
 
 static inline const Struct_020e6d98* inline_0201099c(int arg0) {
@@ -266,14 +266,14 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
     var9.ResetAllocatorPointer();
     var9.ResetAllocatorPointer();
     var9.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x5000), 0x5000);
-    Struct_0201099c_14 var10;
+    StringTable_0201099c_14 var10;
     func_020dfc2c(&var10);
-    func_020dfc40(&var10);
+    InitStringTable_020dfc40(&var10);
     BackgroundLoader::AddLockGlobal();
     unsigned int var11 = 0;
     void* var12 = ExtractFileFromGP2(data_020ef08c, data_020ef0a5, &var11);
     if (var12 != NULL) {
-        func_020dfec0(&var10, &var9, var12, var11);
+        LoadStringTable_020dfec0(&var10, &var9, var12, var11);
     }
     BackgroundLoader::RemoveLockGlobal();
 
@@ -343,7 +343,7 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
         } else {
             var20 += NextRandomMax(var2, 5);
         }
-        memcpy(var4->unknown_140_, *var20, func_020d2ff0(*var20));
+        memcpy(var4->unknown_140_, *var20, GetStringLength_020d2ff0(*var20));
 #else
         short var22 = 20000;
         if (var17->unknown_14_0_ == 1) {
@@ -459,7 +459,7 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
                         func_02083cbc(var43, &var1, var1.unknown_3c_);
                         short* var50 = var4->unknown_160_.unknown_0_;
                         for (int var51 = 0; var51 < 8; var51++) {
-                            ItemData_0201099c_9* var52 = func_020dedd0(&var40, var50[inline_0201099c_2(var51)->unknown_0_]);
+                            ItemData_0201099c_9* var52 = FindItemData_020dedd0(&var40, var50[inline_0201099c_2(var51)->unknown_0_]);
                             if (var52 != NULL) {
                                 memcpy(&var32.unknown_194_[inline_0201099c_2(var51)->unknown_1_], var52, sizeof(ItemData_0201099c_9));
                             }

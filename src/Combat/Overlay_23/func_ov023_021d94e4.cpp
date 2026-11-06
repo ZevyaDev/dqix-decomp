@@ -83,7 +83,7 @@ extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
 extern "C" void func_02041fac(char* arg0, int arg1, int arg2);
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
+extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
@@ -156,7 +156,7 @@ extern "C" ARM void func_ov023_021d94e4(Struct_ov023_021d94e4_5* arg0, char* arg
             func_02041a90(arg1, 10, var7 * 15 + 0x15);
             char var8[0x100] = {0};
     ClearMessageParams_02046380(var0);
-    func_02046574((Struct_02046574_2*)var0, 0, (char*)FindStringInTable_020e0434(arg0->unknown_0_, (short)(var7 + 0x760c)));
+    SetMessageString_02046574((Struct_02046574_2*)var0, 0, (char*)FindStringInTable_020e0434(arg0->unknown_0_, (short)(var7 + 0x760c)));
     short var9 = var4[var7][0];
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 0, var9);
     func_020465d8((unsigned char*)var0, 0, 1);
@@ -190,7 +190,7 @@ extern "C" ARM void func_ov023_021d94e4(Struct_ov023_021d94e4_5* arg0, char* arg
     char var15[0x100] = {0};
     char var16[0x100] = {0};
     ClearMessageParams_02046380(var0);
-    func_02046574((Struct_02046574_2*)var0, 0, (char*)FindStringInTable_020e0434(arg0->unknown_0_, (short)(var13 + 0x760c)));
+    SetMessageString_02046574((Struct_02046574_2*)var0, 0, (char*)FindStringInTable_020e0434(arg0->unknown_0_, (short)(var13 + 0x760c)));
     short var17 = var4[var13][0];
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 0, var17);
     func_020465d8((unsigned char*)var0, 0, 1);

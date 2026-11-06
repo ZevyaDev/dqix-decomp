@@ -36,9 +36,9 @@ extern "C" ARM void func_02092b34(struct Struct_02092b34* arg0) {
     ResetMessageWindow_02043204((char*)var1);
     CloseMessageWindow_02043124((char*)var1);
     if (!(arg0->unknown_37_ & 8)) {
-        FontLoader_0208cb08* var2 = func_02094a00();
-        func_02094ab0(var2);
-        func_02094b34(var2, 0x6f, 0x1388, 1, 1);
+        FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
+        CancelFontLoad_02094ab0(var2);
+        RequestFontLoad_02094b34(var2, 0x6f, 0x1388, 1, 1);
     }
     if (arg0->unknown_0_.GetSignedAllocator() != 0) {
         arg0->unknown_0_.Destroy();

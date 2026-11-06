@@ -21,12 +21,12 @@ struct Struct_ov004_021549e4_2 {
 };
 extern "C" unsigned int func_ov023_021f9bb0(struct Struct_ov004_021549e4_2* arg0);
 
-struct Struct_02046574 { char unknown_0_[0x40]; };
+struct MessageString_02046574 { char text_0_[0x40]; };
 struct Struct_02046574_2 {
     char unknown_0_[0x4ac];
-    struct Struct_02046574 unknown_4ac_[16];
+    struct MessageString_02046574 unknown_4ac_[16];
 };
-extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
+extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 extern "C" void func_020464e8(char* arg0, int arg1, char* arg2);
 
 extern unsigned char* data_ov004_02171010;
@@ -83,16 +83,16 @@ extern "C" ARM int func_ov004_02164e40(void* arg0) {
         strcpy(var8, var18 + 0xd0);
     }
     if (var2) {
-        func_02046574((Struct_02046574_2*)var0, 0, (char*)var2->baseStats_);
+        SetMessageString_02046574((Struct_02046574_2*)var0, 0, (char*)var2->baseStats_);
     }
-    func_02046574((Struct_02046574_2*)var0, 1, var5);
-    func_02046574((Struct_02046574_2*)var0, 2, var6);
-    func_02046574((Struct_02046574_2*)var0, 3, var7);
-    func_02046574((Struct_02046574_2*)var0, 4, var8);
-    func_02046574((Struct_02046574_2*)var0, 5, (char*)func_02011aa0((char*)var1, 0));
-    func_02046574((Struct_02046574_2*)var0, 6, (char*)func_02011aa0((char*)var1, 1));
-    func_02046574((Struct_02046574_2*)var0, 7, (char*)func_02011aa0((char*)var1, 2));
-    func_02046574((Struct_02046574_2*)var0, 8, (char*)func_02011aa0((char*)var1, 3));
+    SetMessageString_02046574((Struct_02046574_2*)var0, 1, var5);
+    SetMessageString_02046574((Struct_02046574_2*)var0, 2, var6);
+    SetMessageString_02046574((Struct_02046574_2*)var0, 3, var7);
+    SetMessageString_02046574((Struct_02046574_2*)var0, 4, var8);
+    SetMessageString_02046574((Struct_02046574_2*)var0, 5, (char*)func_02011aa0((char*)var1, 0));
+    SetMessageString_02046574((Struct_02046574_2*)var0, 6, (char*)func_02011aa0((char*)var1, 1));
+    SetMessageString_02046574((Struct_02046574_2*)var0, 7, (char*)func_02011aa0((char*)var1, 2));
+    SetMessageString_02046574((Struct_02046574_2*)var0, 8, (char*)func_02011aa0((char*)var1, 3));
 #else
     char var19[0x40];
     VectorizedMemset(var19, 0, 0x40);
@@ -114,7 +114,7 @@ extern "C" ARM int func_ov004_02164e40(void* arg0) {
 
     if (var2) {
         char* var26 = (char*)var2->baseStats_;
-        func_02046574((struct Struct_02046574_2*)var0, 0, var26);
+        SetMessageString_02046574((struct Struct_02046574_2*)var0, 0, var26);
     }
     func_020464e8((char*)var0, 0, var19);
 #endif

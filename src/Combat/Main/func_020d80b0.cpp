@@ -8,9 +8,6 @@
 #include "Resource/GameResources.h"
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 struct StringListEntry_02072a68;
 struct StringList_02072a68_2 { StringListEntry_02072a68* unknown_0_; short capacity_4_; short unknown_6_; };
@@ -32,15 +29,15 @@ extern "C" void GetLocalWireless_0202ae18(GameState*);
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void* GetFlagManager_0205ec34();
 extern "C" int GetMessageWindow_020421a0();
-extern "C" int func_020100f8(char*);
+extern "C" int GetFollowCamera_020100f8(char*);
 extern "C" void func_020d8484(Struct_020d80b0_3*);
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020a27b8(unsigned char*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_020728ac(StringList_02072a68_2*, SafeAllocator*, void*, unsigned int, int, int, int);
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
-extern "C" void func_0206df6c(void*, unsigned char*, int, int);
+extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, char*, int);
@@ -51,7 +48,7 @@ extern "C" void StartMessage_0204500c(void*, char*, int, int);
 #define SHOW_TEXT_020d80b0(d, t) StartMessage_0204500c(d, t, 0, 0xe3)
 #endif
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
-extern "C" void func_020397c0(void*);
+extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" void func_020dc2d0(int);
 struct Struct_020d80b0 {
 #if defined(jpn)
@@ -83,13 +80,13 @@ extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
     GrottoStruct* var6 = var0->GetGrottoStruct();
     var3 = var0->GetUnknownGameObject();
     var4 = (Struct_020d80b0_2*)GetFlagManager_0205ec34();
-    unsigned char* var7 = (unsigned char*)func_020100f8((char*)var0);
+    unsigned char* var7 = (unsigned char*)GetFollowCamera_020100f8((char*)var0);
     if (var6->activeMapData.GetDiscoveryState() != 1) {
         arg0->unknown_8_ = 7;
         func_020d8484(arg0);
     }
     if (arg0->unknown_8_ == 0) {
-        func_020397cc((Struct_02018300_3*)var3, 1);
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var3, 1);
         func_020a27b8(var7);
         arg0->unknown_14_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x300), 0x300);
 #if defined(jpn)
@@ -108,15 +105,15 @@ extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
             BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_28_);
             arg0->unknown_28_ = -1;
             ClearMessageParams_02046380(var2);
-            func_02094b30(func_02094a00(), 0x203, 0);
+            func_02094b30(GetFontLoader_02094a00(), 0x203, 0);
             arg0->unknown_8_ = 2;
         }
     } else if (arg0->unknown_8_ == 2) {
-        if (func_02094b4c(func_02094a00())) {
+        if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) {
             if (IsFlagSet_0206dfb0((int)var4, var4->unknown_8c_, 0x119e)) arg0->unknown_8_ = 5;
             else {
                 arg0->unknown_8_ = 3;
-                func_0206df6c(var4, var4->unknown_8c_, 0x119e, 1);
+                SetFlag_0206df6c(var4, var4->unknown_8c_, 0x119e, 1);
             }
         }
     } else if (arg0->unknown_8_ == 3) {
@@ -144,10 +141,10 @@ extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
             arg0->unknown_8_ = 7;
         }
     } else if (arg0->unknown_8_ == 7) {
-        func_020397c0(var3);
-        FontLoader_0208cb08* var12 = func_02094a00();
+        EnablePlayerControl_020397c0(var3);
+        FontLoader_0208cb08* var12 = GetFontLoader_02094a00();
         func_02094b38(var12, 0x203);
-        func_02094ab0(var12);
+        CancelFontLoad_02094ab0(var12);
         if (var5 && !var5->unknown_c_low_) func_020d8484(arg0);
         else {
             SetSubBrightness(var1, -16, 15);

@@ -20,8 +20,8 @@ struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
 extern "C" void func_ov003_02167370(void* arg0);
-struct Struct_02038598_4;
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_020dc2d0(int);
 
 struct Struct_ov003_02160e34 {
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov003_02160e34(struct Struct_ov003_02160e34* arg0) {
 	func_ov003_02167370(arg0->unknown_318_);
 	arg0->unknown_4a8_ = 0;
 	var0 = 1;
-	func_020466f4((struct Struct_02038598_4*)var1, 0x41);
+	ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var1, 0x41);
 	func_020dc2d0(0);
 	arg0->unknown_464_ &= ~0x800;
 end:

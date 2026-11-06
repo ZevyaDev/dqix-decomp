@@ -10,9 +10,9 @@ struct Vector3i;
 extern "C" struct Struct_ov000_0215440c_2* func_ov000_02160094(struct Struct_ov000_0215440c_2* arg0, int arg1);
 extern "C" struct Struct_ov000_0215440c* func_ov000_021600f8(struct Struct_ov000_0215440c* arg0, int arg1);
 extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
-extern "C" void* func_020100bc(GameState* arg0);
+extern "C" void* GetCamera_020100bc(GameState* gameState);
 extern "C" int func_0202e7f0(void* arg0);
-extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
 extern "C" void* __clear(void* arg0, int arg1);
 
@@ -97,7 +97,7 @@ extern "C" ARM int func_ov025_021e514c(struct Struct_ov025_021e514c_2* arg0, str
         if (var9) var7 = 2; else var7 = 1;
         break;
     case 3: {
-        void* var14 = func_020100bc(var0);
+        void* var14 = GetCamera_020100bc(var0);
         if (var14) {
             Matrix4x3 var15 = RotationMatrixY(func_0202e7f0(var14));
             Mat4x3_ApplyToVector(&arg0->unknown_14_, &var15, &var5);
@@ -131,7 +131,7 @@ extern "C" ARM int func_ov025_021e514c(struct Struct_ov025_021e514c_2* arg0, str
             if (var25) {
                 *(Vector3i*)(&var25->obj3D_.position_.x) = *(Vector3i const*)((int*)&var22);
                 if (((Struct_ov025_021e514c_3*)var25)->unknown_0_ & 2) {
-                    func_02033874((struct Struct_02033834*)var25, var24);
+                    SetFacingInstantly_02033874((struct Struct_02033834*)var25, var24);
                 } else {
                     func_0203db34((unsigned char*)var25, 0, var24, 0);
                 }
@@ -159,7 +159,7 @@ extern "C" ARM int func_ov025_021e514c(struct Struct_ov025_021e514c_2* arg0, str
         break;
     }
     case 8: {
-        int* var29 = (int*)func_020100bc(var0);
+        int* var29 = (int*)GetCamera_020100bc(var0);
         if (!var29) return 1;
         Struct_ov025_021e514c_4 var30;
         *(Vector3i*)((int*)&var30.unknown_24_) = *(Vector3i const*)(var29 + 4);
@@ -210,7 +210,7 @@ extern "C" ARM int func_ov025_021e514c(struct Struct_ov025_021e514c_2* arg0, str
         if (var34) {
             *(Vector3i*)(&var34->obj3D_.position_.x) = *(Vector3i const*)((int*)&var5);
             if (((Struct_ov025_021e514c_3*)var34)->unknown_0_ & 2) {
-                func_02033874((struct Struct_02033834*)var34, var6);
+                SetFacingInstantly_02033874((struct Struct_02033834*)var34, var6);
             } else {
                 func_0203db34((unsigned char*)var34, 0, var6, 0);
             }

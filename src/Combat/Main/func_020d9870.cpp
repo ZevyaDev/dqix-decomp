@@ -11,7 +11,7 @@ extern char data_020f29cc;
 extern "C" int func_ov017_021959b4(void);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" char* func_020100f8(char*);
+extern "C" char* GetFollowCamera_020100f8(char*);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void func_020d9a58(void* arg0);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
@@ -20,10 +20,10 @@ extern "C" void func_ov017_021cf730(int arg0, int arg1);
 extern "C" void func_020a27b8(unsigned char* arg0);
 extern "C" void func_020531f0(void* arg0);
 struct Struct_02018300_3;
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020e11a4(void);
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" int func_020e51cc(int arg0);
+extern "C" int GetStandardString_020e51cc(int stringId);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int arg3);
 #endif
@@ -31,7 +31,7 @@ extern "C" int func_020457e0(void* arg0);
 extern "C" void func_ov017_021ab860(short arg0, int arg1);
 extern "C" void func_020e1154(void* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_020d9ab0(void* arg0);
 extern "C" int func_0201b5d8(int arg0);
 
@@ -53,9 +53,9 @@ extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
     GetGameResources();
     void* var1 = var0->GetUnknownGameObject();
     void* var2 = GetMessageWindow_020421a0();
-    FontLoader_0208cb08* var3 = func_02094a00();
+    FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
     void* var4 = GetLocalWireless_0202ae18();
-    char* var5 = func_020100f8((char*)var0);
+    char* var5 = GetFollowCamera_020100f8((char*)var0);
     unsigned short* var6 = GetZone3D_02012fe4();
 
     if (func_ov017_021959b4() != 0) {
@@ -73,20 +73,20 @@ extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
         func_02094b30(var3, 0x20e, 0);
         arg0->unknown_8_ = 2;
     } else if (arg0->unknown_8_ == 2) {
-        if (func_02094b4c(var3) != 0) {
+        if (UpdateFontLoad_02094b4c(var3) != 0) {
             arg0->unknown_8_ = 3;
         }
     } else if (arg0->unknown_8_ == 3) {
         if (var1 != NULL) {
             func_020531f0(var1);
-            func_020397cc((Struct_02018300_3*)var1, 1);
+            DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
         }
         func_020e11a4();
         ClearMessageParams_02046380(var2);
 #if defined(jpn)
         StartMessage_0204500c(var2, &data_020f29cc, 0);
 #else
-        StartMessage_0204500c(var2, (void*)func_020e51cc(0x3e), 0, 0xe3);
+        StartMessage_0204500c(var2, (void*)GetStandardString_020e51cc(0x3e), 0, 0xe3);
 #endif
         *(unsigned char*)((char*)var2 + Enum_020d9870_6578) = 0;
         *(int*)((char*)var2 + Enum_020d9870_2456) = 1;
@@ -101,7 +101,7 @@ extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
             arg0->unknown_8_ = 5;
         }
     } else if (arg0->unknown_8_ == 5) {
-        func_020397c0(var1);
+        EnablePlayerControl_020397c0(var1);
         func_020d9ab0(arg0);
     }
 

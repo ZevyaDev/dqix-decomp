@@ -5,7 +5,7 @@ struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" int GetZone3D_02012fe4(void);
 extern "C" void func_02098efc(char* arg0, int arg1, const void* arg2, unsigned int arg3);
-extern "C" void* func_0202ae24(void);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 struct Struct_0205e804;
 extern "C" void func_0205e804(struct Struct_0205e804* arg0, int arg1);
 
@@ -34,6 +34,6 @@ extern "C" ARM void func_ov017_021d3dcc(int arg0, struct Struct_ov017_021d3dcc* 
         return;
     }
     var1[0x1000 + 0xb62] = 1;
-    struct Struct_0205e804* var2 = (struct Struct_0205e804*)func_0202ae24();
+    struct Struct_0205e804* var2 = (struct Struct_0205e804*)GetLocalWirelessPacketQueue_0202ae24();
     func_0205e804(var2, 0xb9);
 }

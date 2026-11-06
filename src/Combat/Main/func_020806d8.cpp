@@ -34,7 +34,7 @@ extern "C" void* func_0207f6ac(Struct_0207f524*, int);
 extern "C" Struct_020806d8* func_0207f0ac(Struct_0207f0ac*, int);
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 #if defined(jpn)
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 #else
 extern "C" int func_02042190(int);
 extern "C" int func_020420e8(char* arg0, int arg1);
@@ -52,7 +52,7 @@ extern "C" ARM void func_020806d8(Struct_020806d8_3* arg0, int arg1, int arg2, i
     char* var1 = (char*)FindStringInList_02072a68(arg0->unknown_0_, var0->unknown_e_);
     if (var1 == NULL) return;
 #if defined(jpn)
-    int var2 = func_020d2ff0(var1) >> 1;
+    int var2 = GetStringLength_020d2ff0(var1) >> 1;
     int var4 = var2 * var0->unknown_13_0_;
 #else
     int var3 = func_02042190(var0->unknown_13_0_);

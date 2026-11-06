@@ -5,7 +5,7 @@
 
 struct Struct_02011b24;
 extern "C" void func_02011b24(struct Struct_02011b24* arg0);
-extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" void func_ov017_021cf594(unsigned short, int, int);
 extern "C" void* GetZone3D_02012fe4(void);
 
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov004_02168760(void) {
     for (signed char var5 = 1; var5 < 4; var5++) {
         GameObject* var6 = var0->GetPartyMemberByIndex(var5);
         if (!var6) continue;
-        if (func_0200ff58(var0, var5)) continue;
+        if (GetCompanionByIndex_0200ff58(var0, var5)) continue;
         if (var6->obj3D_.GetField06() != var4) continue;
         func_ov017_021cf594(0x1130, var5, 1);
     }

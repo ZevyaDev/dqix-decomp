@@ -16,12 +16,12 @@ extern "C" ARM void func_ov009_021842a0(void* arg0, SafeAllocator* arg1) {
     var0->unknown_0_[5].CreateTypeA(arg1->Allocate(0x2000), 0x2000);
     var0->unknown_0_[6].CreateTypeA(arg1->Allocate(0x400), 0x400);
     var0->unknown_0_[7].CreateTypeA(arg1->Allocate(0x800), 0x800);
-    var0->unknown_7d8_ = (Struct_0205ac40*)arg1->Allocate(0x54);
-    var0->unknown_7dc_ = (Struct_0205ac40_2*)arg1->Allocate(0xf0);
-    var0->unknown_7e0_ = (Struct_0205a254*)arg1->Allocate(8);
-    var0->unknown_7e4_ = (Struct_0205ac40*)arg1->Allocate(0x54);
-    var0->unknown_7e8_ = (Struct_0205ac40_2*)arg1->Allocate(0x3e8);
-    var0->unknown_7ec_ = (Struct_0205a254*)arg1->Allocate(8);
+    var0->unknown_7d8_ = (SpriteSet_0205ac40*)arg1->Allocate(0x54);
+    var0->unknown_7dc_ = (Sprite_0205ac40_2*)arg1->Allocate(0xf0);
+    var0->unknown_7e0_ = (SpriteAnimationList_0205a254*)arg1->Allocate(8);
+    var0->unknown_7e4_ = (SpriteSet_0205ac40*)arg1->Allocate(0x54);
+    var0->unknown_7e8_ = (Sprite_0205ac40_2*)arg1->Allocate(0x3e8);
+    var0->unknown_7ec_ = (SpriteAnimationList_0205a254*)arg1->Allocate(8);
     if (var0->unknown_d95_ != 0) return;
     var0->unknown_b4_ = (SafeAllocator*)arg1->Allocate(0x14);
     var0->unknown_b8_ = (SafeAllocator*)arg1->Allocate(0x28);

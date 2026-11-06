@@ -7,7 +7,7 @@ enum { Enum_02039df4_462 = 0x1ce };
 
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 
 struct Struct_02039df4;
 
@@ -32,7 +32,7 @@ extern "C" ARM void func_02039df4(struct Struct_02037d88_10* arg0) {
     GameObject* var1;
 
     if (arg0->unknown_c2_5_) return;
-    var1 = func_0200ff58(GameState::GetInstance(), arg0->unknown_4_);
+    var1 = GetCompanionByIndex_0200ff58(GameState::GetInstance(), arg0->unknown_4_);
     if (var1 == NULL) return;
     var0 = ((Object3D*)((struct Struct_02039df4*)arg0))->GetField06() / 100;
     if (var0 != 0x2b && var0 != 0x2d && var0 != 0x40 && var0 != 0x29) return;

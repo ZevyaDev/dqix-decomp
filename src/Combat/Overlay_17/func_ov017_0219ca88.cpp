@@ -34,12 +34,12 @@ struct Struct_ov017_0219ca88_3 { unsigned char unknown_0_, unknown_1_; unsigned 
 struct Struct_ov017_0219ca88 { unsigned int unknown_0_, unknown_4_, unknown_8_, unknown_c_; unsigned char unknown_10_[0x24]; };
 
 extern "C" Zone3D* GetZone3D_02012fe4();
-extern "C" void* func_0200fd0c(GameState*);
-extern "C" void* func_020100bc(GameState*);
+extern "C" void* GetZoneEntry_0200fd0c(GameState*);
+extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" void* GetFlagManager_0205ec34(void*);
 extern "C" int func_02046b38(Struct_02046b38*, Struct_02046b38_2*);
 extern "C" int func_02046b24(Struct_02015438**);
-extern "C" int func_02046b08(void**);
+extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_ov017_0219bed0(void*);
 extern "C" unsigned char func_0200fb9c(char*);
 extern "C" int func_0201201c(void*);
@@ -60,11 +60,11 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetUnknownGameObject();
     Zone3D* var2 = GetZone3D_02012fe4();
-    unsigned char* var3 = static_cast<unsigned char*>(func_0200fd0c(var0));
+    unsigned char* var3 = static_cast<unsigned char*>(GetZoneEntry_0200fd0c(var0));
     BackgroundLoader::GetInstance();
     Vector3fix* var4;
     int var5 = 0;
-    void* var6 = GetFlagManager_0205ec34(func_020100bc(var0));
+    void* var6 = GetFlagManager_0205ec34(GetCamera_020100bc(var0));
     if (func_02046b38((Struct_02046b38*)arg0->unknown_ptr_array_36fc[0], (Struct_02046b38_2*)arg0->unknown_ptr_array_36fc[4])) return;
     if (func_02046b24((Struct_02015438**)arg0->unknown_ptr_array_36fc[0]) == 4) return;
     if (func_02046b24((Struct_02015438**)arg0->unknown_ptr_array_36fc[0]) == 10) return;
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
         ClearFlags08(arg0, 8);
     }
     if (func_02046b38((Struct_02046b38*)arg0->unknown_ptr_array_36fc[0], (Struct_02046b38_2*)arg0->unknown_ptr_array_371c[0])) return;
-    if (func_02046b08((void**)arg0->unknown_ptr_array_36fc[0]) && !IsBrightnessTransitionActive(arg0) && ((unsigned char*)arg0->unknown_42e3_)[6]) {
+    if (IsQueueEmpty_02046b08((void**)arg0->unknown_ptr_array_36fc[0]) && !IsBrightnessTransitionActive(arg0) && ((unsigned char*)arg0->unknown_42e3_)[6]) {
         if (var3[2]) var3[0xa] = 0;
         else func_ov017_0219bed0((void*)1);
         arg0->unknown_42e3_[6] = 0;

@@ -35,12 +35,12 @@ struct Struct_ov002_02167998_4 {
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
 extern "C" void func_0205def8(struct Struct_ov002_02155960_3 *arg0, int arg1, int arg2);
-extern "C" void func_0205de24(struct Struct_ov002_0215624c_11 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
-extern "C" struct Struct_ov002_02155960_4 *func_0205d81c(struct Struct_ov002_02155960_2 *arg0, int arg1);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
+extern "C" struct Struct_ov002_02155960_4 *FindTextWindow_0205d81c(struct Struct_ov002_02155960_2 *windowManager, int windowId);
 extern "C" void func_0204c610(struct Struct_ov002_02167998 *arg0, int arg1, short *arg2, short *arg3, short *arg4, short *arg5);
 extern "C" void func_0204c654(Struct_ov002_02167998_2*, int, short, short, short, short);
-extern "C" int func_0205d794(struct Struct_ov002_0215624c_15 *arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_ov002_0215624c_15 *windowManager);
 extern "C" void func_0205d7a0(unsigned char *arg0, int arg1);
 extern "C" int func_0205da38(struct Struct_ov002_02164748 *arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct Struct_ov002_02157d40_7 *manager, int soundEffectIndex, int handle);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov002_02167998(char *arg0) {
         }
         arg0[RG(0x1c20, 0x1ae8)]               = GetProtagonistObjectIndex_020100a8(var5);
         *(short *) (arg0 + RG(0x1c02, 0x1aca)) = 0;
-        func_0205de24((struct Struct_ov002_0215624c_11 *) var0, 0, 2);
+        SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) var0, 0, 2);
         func_ov002_02161cf0(arg0);
         func_ov002_0215f6a4(arg0);
         (*(int *) (arg0 + RG(0x1bc0, 0x1a88)))++;
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov002_02167998(char *arg0) {
     }
     if (var6 != 1) return;
     *(int *) (arg0 + RG(0x247c, 0x22ac)) |= 4;
-    struct Struct_ov002_02155960_4 *var8 = func_0205d81c((struct Struct_ov002_02155960_2 *) var0, RG(0x18, 0x19));
+    struct Struct_ov002_02155960_4 *var8 = FindTextWindow_0205d81c((struct Struct_ov002_02155960_2 *) var0, RG(0x18, 0x19));
     if (var8 != 0) {
         short var9 = *(signed char *) (arg0 + RG(0x1c73, 0x1b37));
         short var10, var11, var12, var13;
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov002_02167998(char *arg0) {
     Struct_ov002_02167998_3 *var17 = (Struct_ov002_02167998_3 *) (var0 + 0x6c);
     var14        = var17->unknown_0_;
     var15         = var17->unknown_4_;
-    *(short *) (arg0 + RG(0x1c02, 0x1aca)) = func_0205d794((struct Struct_ov002_0215624c_15 *) var0);
+    *(short *) (arg0 + RG(0x1c02, 0x1aca)) = GetCursorIndex_0205d794((struct Struct_ov002_0215624c_15 *) var0);
     if (var16 != *(short *) (arg0 + RG(0x1c02, 0x1aca))) {
         if (var1 == var15 && var15 == *(signed char *) (arg0 + RG(0x1c73, 0x1b37)) && g_touchInput.pressed_ == 0) {
             var15--;

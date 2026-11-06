@@ -13,7 +13,7 @@
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov000_0217a688(void* arg0, int arg1, int arg2, void* arg3);
-struct Struct_0205d5d0;
+struct TextWindowManager_0205d5d0;
 // USA: func_ov000_0217a628
 extern "C" ARM void func_ov000_0217a628(void* arg0, int arg1, int arg2) {
     if (arg1 == 0) return;
@@ -21,8 +21,8 @@ extern "C" ARM void func_ov000_0217a628(void* arg0, int arg1, int arg2) {
     memset(var0, 0, REGION_OFFSET_1);
     func_ov000_0217a688(arg0, arg1, arg2, var0);
 #if defined(jpn)
-    func_0205d5d0((struct Struct_0205d5d0*)((char*)arg0 + 0x188), 0x19, (int)var0, 1);
+    SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)((char*)arg0 + 0x188), 0x19, (int)var0, 1);
 #else
-    func_0205d5d0((struct Struct_0205d5d0*)((char*)arg0 + 0x188), 0x19, (int)var0, 1, 0);
+    SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)((char*)arg0 + 0x188), 0x19, (int)var0, 1, 0);
 #endif
 }

@@ -54,7 +54,7 @@ extern "C" ARM void func_ov024_021ea584(Struct_ov024_021ea584* arg0, int arg1, i
     if (arg3->unknown_1d_6_ && arg0->unknown_18_ > 0) return;
     if (arg0->unknown_78_ && arg0->unknown_18_ > 0) return;
     if (inline_ov000_02169850(arg1)) {
-        Struct_ov024_021ea584_4* var0 = (Struct_ov024_021ea584_4*)func_0200ff1c(GameState::GetInstance(), arg1);
+        Struct_ov024_021ea584_4* var0 = (Struct_ov024_021ea584_4*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1);
         if (var0 && (arg3->unknown_10_ & 0x100000) && func_020850d0(var0->unknown_150_) && arg0->unknown_18_ > 0) return;
     }
     if (arg3->unknown_2f_3_) {

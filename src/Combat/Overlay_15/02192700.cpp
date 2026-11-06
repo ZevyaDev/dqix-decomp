@@ -130,7 +130,7 @@ extern "C" void func_0202a91c(Struct_02029634_3*);
 extern "C" void func_02029568(struct Struct_ov015_02192700_2* arg0);
 extern "C" void func_020294cc(void* arg0, const char* arg1);
 extern "C" void func_0202949c(char*);
-extern "C" const char* func_020e51cc(int arg0);
+extern "C" const char* GetStandardString_020e51cc(int stringId);
 struct Struct_0202a944_2;
 struct Struct_0202a944;
 extern "C" void func_0202a944(Struct_0202a944_2*, Struct_0202a944*);
@@ -140,7 +140,7 @@ struct Struct_0206f01c_2;
 extern "C" struct Struct_ov015_02192700_6* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" int func_ov015_02190d08(struct Struct_ov015_02192700_8* arg0);
 struct ItemTable_0201099c_10;
-extern "C" struct Struct_ov002_0215a658* func_020dedd0(ItemTable_0201099c_10*, int);
+extern "C" struct Struct_ov002_0215a658* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 struct Struct_ov015_02192700_9;
 extern "C" void func_ov015_0219313c(Struct_ov015_02192700_9*, int, int);
 struct Struct_ov015_02192700_10;
@@ -363,7 +363,7 @@ extern "C" ARM void func_ov015_02192700(struct Struct_ov015_02192700_8* arg0, in
 #if defined(jpn)
                 func_020294cc(arg0->unknown_344_, data_ov015_021950f0);
 #else
-                func_020294cc(arg0->unknown_344_, func_020e51cc(1000));
+                func_020294cc(arg0->unknown_344_, GetStandardString_020e51cc(1000));
 #endif
                 func_0202a944((Struct_0202a944_2*)&arg0->unknown_2c4_, (Struct_0202a944*)arg0->unknown_344_);
                 var4 = 1;
@@ -412,7 +412,7 @@ extern "C" ARM void func_ov015_02192700(struct Struct_ov015_02192700_8* arg0, in
                         func_020294cc(&arg0->unknown_344_[var4], data_ov015_0219450f);
                     }
                 } else if (func_ov015_02190d08(arg0) != 0) {
-                    struct Struct_ov002_0215a658* var10 = func_020dedd0((ItemTable_0201099c_10*)arg0->unknown_4c_, var8->unknown_8_);
+                    struct Struct_ov002_0215a658* var10 = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_4c_, var8->unknown_8_);
                     if (var10 != 0) {
                         if (var10->unknown_4_ != 0) {
                             func_020294cc(&arg0->unknown_344_[var4], var10->unknown_4_);

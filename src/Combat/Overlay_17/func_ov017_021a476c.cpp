@@ -109,7 +109,7 @@ extern "C" void* func_0203cf4c(void);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" Struct_ov017_021a476c_2* GetZone3D_02012fe4(void);
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_ov017_021a4e88(int arg0, unsigned short* arg1);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" Struct_ov017_021a476c_3* func_0203dce4(Struct_0203dce4_2* arg0, int arg1);
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
     Vector3fix var2;
     GameState* var3 = GameState::GetInstance();
     void* var4 = func_0203cf4c();
-    func_020100bc(var3);
+    GetCamera_020100bc(var3);
     GetMessageWindow_020421a0();
     Struct_ov017_021a476c_10* var5 = (Struct_ov017_021a476c_10*)var3->GetUnknownGameObject();
     GameResources* var6 = GetGameResources();
@@ -149,7 +149,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
     data_ov017_021d76d8 = -1;
     *(int*)((char*)var3 + Enum_ov017_021a476c_22308) = -1;
 
-    if (arg0->unknown_4491_ == 0 && !func_02046b08((void**)arg0->unknown_36fc_)) {
+    if (arg0->unknown_4491_ == 0 && !IsQueueEmpty_02046b08((void**)arg0->unknown_36fc_)) {
         func_ov017_021a4e88(0, &data_ov017_021d83a8);
         return;
     }
@@ -253,7 +253,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
             var28 = -1;
             goto done;
         }
-        if (func_02046b08((void**)var32) == 0) {
+        if (IsQueueEmpty_02046b08((void**)var32) == 0) {
             var28 = -1;
             goto done;
         }

@@ -4,17 +4,17 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
-struct Struct_02043368_2;
+struct Sprite_02043368_2;
 struct Struct_02043368;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 
-extern "C" void func_0205a444(char* arg0);
-extern "C" void func_0205a198(struct Struct_02043368_2* arg0);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
+extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
 extern "C" void func_0205a234(struct Struct_02043368* arg0);
 extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
+extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, void* allocator);
 
 extern char data_020f007f;
 extern char data_020f0093;
@@ -79,9 +79,9 @@ extern "C" ARM void func_02043368(struct Struct_02043368_4* arg0) {
         arg0->unknown_2e0_ = (struct Struct_02043368*)arg0->unknown_2d4_->Allocate(8);
 
         if (arg0->unknown_2d8_ != 0 && arg0->unknown_2dc_ != 0 && arg0->unknown_2e0_ != 0) {
-            func_0205a444((char*)arg0->unknown_2d8_);
+            InitSpriteSet_0205a444((char*)arg0->unknown_2d8_);
             for (unsigned short var2 = 0; var2 < 6; var2++) {
-                func_0205a198((struct Struct_02043368_2*)(arg0->unknown_2dc_ + var2 * 0x28));
+                InitSprite_0205a198((struct Sprite_02043368_2*)(arg0->unknown_2dc_ + var2 * 0x28));
             }
             func_0205a234(arg0->unknown_2e0_);
             arg0->unknown_2d8_->unknown_50_ = 0;
@@ -101,7 +101,7 @@ extern "C" ARM void func_02043368(struct Struct_02043368_4* arg0) {
             int var8 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var5);
             for (int var9 = 0; var9 < var8; var9++) {
                 void* var10 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var5, var9, &var4, &var7);
-                func_0205a528(arg0->unknown_2d8_, var10, var7, arg0->unknown_2d4_);
+                LoadSpriteSetFile_0205a528(arg0->unknown_2d8_, var10, var7, arg0->unknown_2d4_);
             }
         }
 

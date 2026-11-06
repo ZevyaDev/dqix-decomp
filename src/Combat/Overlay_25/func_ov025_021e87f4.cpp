@@ -4,7 +4,7 @@
 struct Vector3i;
 extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
 struct Struct_02033834;
-extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 
 struct Struct_ov025_021e87f4 {
     char unknown_0_[8];
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov025_021e87f4(struct Struct_ov025_021e87f4* arg0, int a
     }
     GameObject* var2 = var0->GetMaybeWanderingMonsterByIndex(var1.unknown_c_);
     if (var2) {
-        func_02033874((struct Struct_02033834*)var2, arg0->unknown_c_);
+        SetFacingInstantly_02033874((struct Struct_02033834*)var2, arg0->unknown_c_);
     } else {
         var2 = var0->GetGameObjectByIndex(var1.unknown_c_);
         if (!var2) {

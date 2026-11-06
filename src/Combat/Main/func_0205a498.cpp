@@ -4,7 +4,7 @@ struct PacEntry_02020cb8_4;
 extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
+extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, void* allocator);
 
 // USA: func_0205a498
 extern "C" ARM int func_0205a498(void* arg0, struct PacEntry_02020aec* arg1, int arg2, void* arg3) {
@@ -16,7 +16,7 @@ extern "C" ARM int func_0205a498(void* arg0, struct PacEntry_02020aec* arg1, int
             int var4 = 0;
             void* var5 = GetPacEntryData_020467f0(arg1, var2, &var3, &var4);
             if (var5) {
-                func_0205a528(arg0, var5, var4, arg3);
+                LoadSpriteSetFile_0205a528(arg0, var5, var4, arg3);
             }
         }
         var0 = 0;

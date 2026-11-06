@@ -11,14 +11,14 @@ struct Struct_ov023_021e7f68 {
     void* unknown_5f4_;
 };
 
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void func_ov023_021e7cec(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov023_021e868c(void* arg0);
-extern "C" void func_0205d304(void* arg0, const char* arg1, int arg2, unsigned char arg3,
-                            unsigned char arg4, unsigned char arg5, void* arg6
+extern "C" void OpenTextWindow_0205d304(void* windowManager, const char* text, int arg2, unsigned char isVerticallyCentered,
+                            unsigned char hasPageArrows, unsigned char isSizedToText, void* margins
 #if !defined(jpn)
-                            , unsigned char arg7
+                            , unsigned char font
 #endif
 );
 
@@ -26,7 +26,7 @@ extern "C" void func_0205d304(void* arg0, const char* arg1, int arg2, unsigned c
 // JPN: func_ov023_021e8144
 extern "C" ARM void func_ov023_021e7f68(void* arg0) {
     Struct_ov023_021e7f68* var0 = static_cast<Struct_ov023_021e7f68*>(arg0);
-    func_0205d6a0(((Struct_0205d6a0*)(&var0->unknown_78_)), 1);
+    CloseTextWindows_0205d6a0(((TextWindowManager_0205d6a0*)(&var0->unknown_78_)), 1);
     func_ov023_021e7cec(arg0, 0xb, 3, 5);
 #if defined(jpn)
     memset(var0->unknown_5d8_, 0, 0x800);
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov023_021e7f68(void* arg0) {
     if (var0->unknown_5f4_ != NULL) {
         func_ov023_021e868c(arg0);
     }
-    func_0205d304(&var0->unknown_78_, var0->unknown_5d8_, 0, 0, 0, 1, 0
+    OpenTextWindow_0205d304(&var0->unknown_78_, var0->unknown_5d8_, 0, 0, 0, 1, 0
 #if !defined(jpn)
                    , 0
 #endif

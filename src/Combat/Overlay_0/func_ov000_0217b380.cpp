@@ -25,7 +25,7 @@ struct Struct_ov000_02184294_3 {
 extern struct Struct_ov000_02184294_3 data_ov000_02184294;
 
 struct Struct_0205c570;
-extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 struct Struct_0205da38;
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" int func_ov000_021761c8(char* arg0, int arg1);
@@ -53,7 +53,7 @@ struct Struct_ov000_0217b380 {
 // USA: func_ov000_0217b380
 extern "C" ARM int func_ov000_0217b380(struct Struct_ov000_0217b380* arg0, int arg1, int arg2) {
     data_ov000_02184294.unknown_8_->unknown_1d72_ |= 0x100;
-    int var0 = func_0205d794(arg0->unknown_38_);
+    int var0 = GetCursorIndex_0205d794(arg0->unknown_38_);
     arg0->unknown_1d_ = var0;
     int var1 = g_keyManager.TestKeysPressed(0x601);
     int var2 = (var1 | func_0205da38((struct Struct_0205da38*)arg0->unknown_38_, 0x14)) != 0;

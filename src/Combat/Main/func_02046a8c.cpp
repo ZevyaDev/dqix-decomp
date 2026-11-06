@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_0204693c;
-extern "C" void func_0204693c(struct Struct_0204693c* arg0);
+struct QueueNode_0204693c;
+extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
 
 struct Struct_02046a8c {
     char unknown_0_[2];
@@ -37,5 +37,5 @@ extern "C" ARM void func_02046a8c(struct Struct_02046a8c_2* arg0, struct Struct_
         arg0->unknown_4_ = var0;
         var0 = var0->unknown_4_;
     }
-    func_0204693c((struct Struct_0204693c*)arg1);
+    ResetQueueNode_0204693c((struct QueueNode_0204693c*)arg1);
 }

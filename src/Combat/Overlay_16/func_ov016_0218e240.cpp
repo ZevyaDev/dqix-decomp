@@ -18,7 +18,7 @@ extern "C" struct Struct_ov016_0218e240* func_020425b4(int arg0, int arg1);
 extern "C" int func_020425e4(int arg0, int arg1, int arg2);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int func_020420e8(char* arg0, int arg1);
-extern "C" int func_02001aec(unsigned char* arg0, unsigned char* arg1, int arg2);
+extern "C" int CompareBytes_02001aec(unsigned char* left, unsigned char* right, int count);
 extern "C" void func_ov016_0218e17c(unsigned short* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5);
 
 // USA: func_ov016_0218e240
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov016_0218e240(unsigned short* arg0, char* arg1, unsign
         if (arg1[0] == 0) break;
         int var13 = 1;
                 int var14 = (arg1[0] == '\n') ? var13 : 0;
-        if (func_02001aec((unsigned char*)arg1, (unsigned char*)data_ov016_0219d06f, 2) == 0) {
+        if (CompareBytes_02001aec((unsigned char*)arg1, (unsigned char*)data_ov016_0219d06f, 2) == 0) {
                         var14 = 1; 1;
             var13 = 2;
         }

@@ -30,8 +30,8 @@ extern "C" void func_0204c754(struct Struct_0204c754* arg0);
 struct Struct_0205a244;
 extern "C" void func_0205a244(struct Struct_0205a244* arg0);
 extern "C" void func_0205a494(void* arg0);
-struct Struct_0201099c_14;
-extern "C" void func_020dfc6c(struct Struct_0201099c_14* arg0);
+struct StringTable_0201099c_14;
+extern "C" void func_020dfc6c(struct StringTable_0201099c_14* arg0);
 
 // USA: func_ov003_0217db88
 extern "C" ARM void func_ov003_0217db88(void* arg0) {
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov003_0217db88(void* arg0) {
         ((SafeAllocator*)(var0 + Enum_ov003_0217db88_184))->Destroy();
     }
     func_0205a494(var0 + Enum_ov003_0217db88_60);
-    func_020dfc6c((struct Struct_0201099c_14*)(var0 + Enum_ov003_0217db88_204));
+    func_020dfc6c((struct StringTable_0201099c_14*)(var0 + Enum_ov003_0217db88_204));
 
     volatile unsigned int* var3 = (volatile unsigned int*)0x4000000;
     *var3 = (*var3 & ~0x1f00) | ((unsigned int)*(int*)var0 << 8);

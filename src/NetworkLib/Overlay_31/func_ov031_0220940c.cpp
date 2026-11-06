@@ -25,7 +25,7 @@ extern "C" void func_ov031_0220b9ac(void*, void*);
 extern "C" void func_ov031_022093d0(unsigned char*);
 extern "C" void func_ov031_0220b028(void*, const void*, unsigned int);
 extern "C" void func_ov031_0220b8f4(void*, const void*, unsigned int);
-extern "C" int func_02001aec(const void*, const void*, unsigned int);
+extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
 
 // USA: func_ov031_0220940c
 extern "C" ARM int func_ov031_0220940c(Struct_ov031_0220940c_3* arg0, Struct_ov031_0220940c* arg1) {
@@ -74,7 +74,7 @@ extern "C" ARM int func_ov031_0220940c(Struct_ov031_0220940c_3* arg0, Struct_ov0
         var2 = 0x14;
         break;
     }
-    if (func_02001aec(arg1->unknown_5_ + var0, var1.unknown_30_, var2)) arg0->unknown_455_ = 9;
+    if (CompareBytes_02001aec(arg1->unknown_5_ + var0, var1.unknown_30_, var2)) arg0->unknown_455_ = 9;
     func_ov031_022093d0(arg0->unknown_2ec_);
     return var0 + 5;
 }

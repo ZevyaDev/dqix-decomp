@@ -6,9 +6,6 @@
 
 
 #if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
-#if defined(jpn)
 enum { Enum_ov003_02178910_0 = 0x84, Enum_ov003_02178910_54 = 0x2a };
 #else
 enum { Enum_ov003_02178910_0 = 0, Enum_ov003_02178910_54 = 0x36 };
@@ -45,7 +42,7 @@ extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
 extern "C" void func_02081ea4(struct Struct_0207fdcc_2* arg0, int arg1, int arg2);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
-extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void func_0207fdcc(struct Struct_0207fdcc_2* arg0, int arg1);
 extern "C" void func_0207fdf0(struct Struct_0207fdf0_2* arg0, int arg1);
 extern "C" signed char func_020a0b3c(struct Struct_0207cf30_3* arg0, int arg1);
@@ -55,7 +52,7 @@ extern "C" void func_ov003_02175924(char* arg0);
 extern "C" int func_020de194(void* arg0);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char* window);
-extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
+extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" void func_020de824(void* arg0);
 extern "C" void func_0207cbe8(char* arg0);
 extern "C" unsigned int _u32_div_f(unsigned int arg0, unsigned int arg1);
@@ -152,7 +149,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
             *(void**)(arg0 + (0xff8 - Enum_ov003_02178910_0)) = 0;
-            struct ItemData_0201099c_9* var9 = func_020dedd0((struct ItemTable_0201099c_10*)(arg0 + (0x874 - Enum_ov003_02178910_0)), *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_02178910_0)));
+            struct ItemData_0201099c_9* var9 = FindItemData_020dedd0((struct ItemTable_0201099c_10*)(arg0 + (0x874 - Enum_ov003_02178910_0)), *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_02178910_0)));
             *(void**)(arg0 + 8) = var9;
             if (var9 == 0) return;
             int var10 = var9->unknown_8_0_;
@@ -355,7 +352,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
         short var47 = *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_02178910_0));
         if (var46 == 0x20 && var47 == 0x55f0) {
                 void* var48 = GetFlagManager_0205ec34();
-                func_0206df6c(var48, (unsigned char*)var48 + 0x8c, 0x1139, 1);
+                SetFlag_0206df6c(var48, (unsigned char*)var48 + 0x8c, 0x1139, 1);
             }
             return;
         }

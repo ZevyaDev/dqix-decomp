@@ -8,9 +8,9 @@ struct Struct_02010604 {
     unsigned char unknown_bf_;
 };
 
-// USA: func_02033b88
-extern "C" ARM int func_02033b88(struct Struct_02010604* arg0, int arg1) {
-    arg0->unknown_bf_ = arg0->unknown_be_;
-    arg0->unknown_be_ = (unsigned char)arg1;
-    return func_02033ce8(arg0, arg1);
+// USA: SetMotion_02033b88
+extern "C" ARM int SetMotion_02033b88(struct Struct_02010604* object, int motion) {
+    object->unknown_bf_ = object->unknown_be_;
+    object->unknown_be_ = (unsigned char)motion;
+    return func_02033ce8(object, motion);
 }

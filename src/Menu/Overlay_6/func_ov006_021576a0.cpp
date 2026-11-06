@@ -74,9 +74,9 @@ extern unsigned int data_ov006_02160054[];
 void* memcpy(void*, const void*, unsigned int);
 void* memset(void*, int, unsigned int);
 void func_020e2490(void*, int, int, void*, SafeAllocator*, int, int);
-void func_0204af64(void*);
-void func_0204c684(void*);
-void func_0205a198(void*);
+void InitBGLayer_0204af64(void*);
+void InitTextWindow_0204c684(void*);
+void InitSprite_0205a198(void*);
 void func_ov006_02154614(void*);
 void func_ov006_02154348(Struct_ov006_02154348*, SafeAllocator*, void*);
 void func_ov006_021553a8(void*);
@@ -117,9 +117,9 @@ extern "C" ARM void func_ov006_021576a0(Struct_ov006_021576a0_5* arg0, SafeAlloc
         arg0->unknown_c_[var4].Reset();
     }
     func_0207f84c(arg0->unknown_14_);
-    for (unsigned char var6 = 0; var6 < 2; var6++) func_0204af64(arg0->unknown_1c_[var6]);
-    for (unsigned char var7 = 0; var7 < 7; var7++) func_0204c684(arg0->unknown_20_[var7]);
-    for (unsigned char var8 = 0; var8 < 29; var8++) func_0205a198(arg0->unknown_24_[var8]);
+    for (unsigned char var6 = 0; var6 < 2; var6++) InitBGLayer_0204af64(arg0->unknown_1c_[var6]);
+    for (unsigned char var7 = 0; var7 < 7; var7++) InitTextWindow_0204c684(arg0->unknown_20_[var7]);
+    for (unsigned char var8 = 0; var8 < 29; var8++) InitSprite_0205a198(arg0->unknown_24_[var8]);
     for (unsigned short var9 = 0; var9 < 471; var9++) {
         Struct_ov006_021576a0_2* var10 = &arg0->unknown_38_[var9];
         var10->unknown_0_ = -1;

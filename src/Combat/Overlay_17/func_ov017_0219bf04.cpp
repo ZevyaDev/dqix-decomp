@@ -2,7 +2,7 @@
 #include "Resource/GameResources.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void func_ov017_0219bcac(unsigned char arg0);
 extern "C" int* func_020936f8(void);
 extern "C" void func_02094030(int*, short, short, signed char);
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov017_0219bf04(unsigned char arg0, int arg1) {
 	GameState* var0 = GameState::GetInstance();
 	GameResources* var1 = GetGameResources();
 	func_ov017_0219bcac(arg0);
-	char* var2 = (char*)func_0200fd0c(var0);
+	char* var2 = (char*)GetZoneEntry_0200fd0c(var0);
 	var2[0x6e] = 1;
 	var2[0xa] = 0;
 	var2[0x67] = 1;

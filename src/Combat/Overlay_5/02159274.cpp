@@ -14,7 +14,7 @@ enum { Enum_ov005_02159274_3684 = 0xe64, Enum_ov005_02159274_2400 = 0x960, Enum_
 struct Struct_020e28dc;
 struct Struct_020e263c_2;
 struct SoundEffectManager_02108760;
-struct Struct_0205d5d0;
+struct TextWindowManager_0205d5d0;
 struct ItemTable_0201099c_10;
 struct Struct_020dd768;
 
@@ -77,7 +77,7 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, i
 struct Struct_020e25e8;
 extern "C" void func_020e25e8(Struct_020e25e8*);
 extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
-extern "C" void* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
+extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" int func_020dd768(Struct_020dd768* arg0);
 extern "C" void func_ov005_02157b74(void* arg0, int arg1, int arg2);
 struct Struct_0207c484;
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
             void* var1;
             int var2;
             int var3;
-            var1 = func_020dedd0(
+            var1 = FindItemData_020dedd0(
                 arg0->unknown_df4_,
                 arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_);
             var3 = func_020dd768((Struct_020dd768*)var1);
@@ -126,8 +126,8 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
                         arg0->unknown_3dd1_ = 0xc;
                         memset(arg0->unknown_e10_, 0, Enum_ov005_02159274_2400);
                         func_ov005_02158b3c(arg0, arg0->unknown_e10_);
-                        func_0205d5d0(
-                            (Struct_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
+                        SetTextWindowText_0205d5d0(
+                            (TextWindowManager_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
 #if !defined(jpn)
                             , 0
 #endif
@@ -156,8 +156,8 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
                         arg0->unknown_3daa_ = 0;
                     }
                 }
-                func_0205d5d0(
-                    (Struct_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
+                SetTextWindowText_0205d5d0(
+                    (TextWindowManager_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
 #if !defined(jpn)
                             , 0
 #endif
@@ -166,8 +166,8 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
                 arg0->unknown_3dd1_ = 9;
                 memset(arg0->unknown_e10_, 0, Enum_ov005_02159274_2400);
                 func_ov005_02158b3c(arg0, arg0->unknown_e10_);
-                func_0205d5d0(
-                    (Struct_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
+                SetTextWindowText_0205d5d0(
+                    (TextWindowManager_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
 #if !defined(jpn)
                             , 0
 #endif
@@ -178,8 +178,8 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
                 arg0->unknown_3dd1_ = 0xb;
                 memset(arg0->unknown_e10_, 0, Enum_ov005_02159274_2400);
                 func_ov005_02158b3c(arg0, arg0->unknown_e10_);
-                func_0205d5d0(
-                    (Struct_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
+                SetTextWindowText_0205d5d0(
+                    (TextWindowManager_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
 #if !defined(jpn)
                             , 0
 #endif
@@ -217,15 +217,15 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
             memset(arg0->unknown_e10_, 0, Enum_ov005_02159274_2400);
             func_ov005_02158b3c(arg0, arg0->unknown_e10_);
             if (arg0->unknown_3dbb_ >= 0 && arg0->unknown_3dbb_ < 8) {
-                var7 = func_020dedd0(
+                var7 = FindItemData_020dedd0(
                     arg0->unknown_df4_,
                     arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_);
                 if (((Struct_ov005_02159274*)((char*)var7 + 8))->unknown_2_2_) {
                     arg0->unknown_3dd1_ = 0xc;
                     memset(arg0->unknown_e10_, 0, Enum_ov005_02159274_2400);
                     func_ov005_02158b3c(arg0, arg0->unknown_e10_);
-                    func_0205d5d0(
-                        (Struct_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
+                    SetTextWindowText_0205d5d0(
+                        (TextWindowManager_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
 #if !defined(jpn)
                             , 0
 #endif
@@ -237,7 +237,7 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
                 func_ov005_02157b74(arg0, 0xffff, 1);
             } else if (arg0->unknown_3dbb_ >= 8 && arg0->unknown_3dbb_ < 0x18) {
                 char* var9 = (char*)GetParty_02010828(GameState::GetInstance());
-                var7 = func_020dedd0(
+                var7 = FindItemData_020dedd0(
                     arg0->unknown_df4_,
                     arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_);
                 var0 = *(short*)((char*)var7 + 0x18);
@@ -255,8 +255,8 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
                     arg0->unknown_3daa_ = 0;
                 }
             }
-            func_0205d5d0(
-                (Struct_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
+            SetTextWindowText_0205d5d0(
+                (TextWindowManager_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
 #if !defined(jpn)
                             , 0
 #endif

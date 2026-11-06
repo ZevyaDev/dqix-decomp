@@ -4,14 +4,14 @@
 extern unsigned int data_ov000_02184704[4];
 #endif
 
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct Struct_0205c570;
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 struct SoundEffectManager_02108760;
 struct Struct_ov000_021735d0_2;
 struct Struct_ov000_021735d0_3;
-extern "C" void func_0205deb4(struct Struct_0205d81c* arg0, int arg1, int arg2);
-extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c* windowManager, int windowId, int palette);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" int func_ov000_0217c594(void* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void* func_ov000_021815e4(char* arg0);
@@ -20,7 +20,7 @@ extern "C" int func_020dd4c4(int arg0, void* arg1);
 extern "C" struct Struct_ov000_021735d0_2* func_ov000_0217f8c0(struct Struct_ov000_021735d0_3* arg0);
 extern "C" void func_ov000_02176634(void* arg0, struct Struct_ov000_021735d0_2* arg1, int arg2, int arg3, int arg4);
 extern "C" int func_ov000_0217c5f4(void* arg0);
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void func_ov000_0217c638(void* arg0, int arg1, int arg2);
 extern "C" void func_ov000_02176e3c(void* arg0, struct Struct_ov000_021735d0_2* arg1, int arg2, int arg3, int arg4, int arg5);
 
@@ -48,9 +48,9 @@ struct Struct_ov000_0217db4c {
 // USA: func_ov000_0217db4c
 extern "C" ARM void func_ov000_0217db4c(struct Struct_ov000_0217db4c* arg0, int arg1, int arg2) {
     arg0->unknown_1d72_ |= 0x100;
-    func_0205deb4((struct Struct_0205d81c*)arg0->unknown_188_, 0x21, 0);
+    SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c*)arg0->unknown_188_, 0x21, 0);
     signed char var0 = arg0->unknown_1d6f_;
-    int var1 = func_0205d794((struct Struct_0205c570*)arg0->unknown_188_);
+    int var1 = GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_188_);
     arg0->unknown_1d6f_ = var1;
     if (var0 != var1) {
         return;
@@ -81,8 +81,8 @@ extern "C" ARM void func_ov000_0217db4c(struct Struct_ov000_0217db4c* arg0, int 
         func_ov000_02176634(arg0, func_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0), arg0->unknown_1d60_[arg0->unknown_1d68_], arg1, arg2);
     } else if (func_ov000_0217c5f4(arg0)) {
         arg0->unknown_956_ = 0;
-        func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_188_, 0);
-        func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_188_, 0);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_188_, 0);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_188_, 0);
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 0;
         arg0->unknown_1d68_--;
         func_ov000_0217c638(arg0, arg1, arg2);

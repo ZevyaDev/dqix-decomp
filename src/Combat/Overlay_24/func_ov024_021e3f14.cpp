@@ -14,9 +14,9 @@ extern "C" int func_ov024_021dd260(struct Struct_ov024_021dd028_5* arg0);
 extern "C" void func_020488cc(unsigned char* arg0, int arg1);
 extern "C" void func_02088e64(unsigned char* arg0);
 extern "C" void func_02087704(void* arg0);
-extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
-extern "C" struct Struct_ov000_021584e8* func_ov000_0215e958(void* arg0);
+extern "C" struct Struct_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov000_02159eac(void* arg0, struct Struct_ov024_021e3f14_3* arg1, int arg2);
 extern "C" void func_ov000_0215cd44(void* arg0, struct Struct_ov000_021584e8* arg1, GameObject* arg2, int arg3,
     struct Struct_ov024_021e3f14_3 arg4, int arg5);
@@ -37,13 +37,13 @@ extern "C" ARM unsigned long long func_ov024_021e3f14(struct Struct_ov024_021e3f
     if (arg4 <= 0) return 0;
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
     if (!var0) return 0;
-    struct Struct_ov000_021584e8* var1 = func_ov000_0215e958(arg0->unknown_10_);
+    struct Struct_ov000_021584e8* var1 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var1) return 0;
     int var2 = 0;
     if (func_ov024_021e05e4((struct Struct_ov024_021e04e0*)var0)) {
         if (!inline_ov024_021ddf5c(arg2)) func_020488cc((unsigned char*)var0, 1);
         func_02088e64((unsigned char*)var0->currentStats_);
-        func_ov000_0215a88c(arg0->unknown_10_, var1, 0x164);
+        AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var1, 0x164);
         var2 = 1;
     }
     struct Struct_ov024_021e3f14_3 var3;
@@ -60,7 +60,7 @@ extern "C" ARM unsigned long long func_ov024_021e3f14(struct Struct_ov024_021e3f
         case 3: var4 = 0x259; break;
         }
         if (var5 == 3) func_ov000_02159eac(arg0->unknown_10_, &var3, 8);
-        func_ov000_0215a88c(arg0->unknown_10_, var1, var4);
+        AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var1, var4);
         var2 = 1;
     }
     if (var2) {

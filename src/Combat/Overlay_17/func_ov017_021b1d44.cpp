@@ -9,8 +9,8 @@ enum { Enum_ov017_021b1d44_620 = 0x26c };
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory.h"
 
-struct Struct_0204693c;
-extern "C" void func_0204693c(struct Struct_0204693c* arg0);
+struct QueueNode_0204693c;
+extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
 
 struct Struct_ov017_021b1d44 { char unknown_0_[0xc]; unsigned short unknown_c_0_ : 13; unsigned short unknown_d_5_ : 3; };
 struct Struct_ov017_021b1d44_2 { char unknown_0_[0x5d00]; struct Struct_ov017_021b1d44 unknown_5d00_; };
@@ -19,7 +19,7 @@ struct Struct_ov017_021b1d44_3 { unsigned char unknown_0_[0x3c]; int unknown_3c_
 
 // USA: func_ov017_021b1d44
 extern "C" ARM int func_ov017_021b1d44(unsigned char* arg0, int arg1, int arg2) {
-    func_0204693c((struct Struct_0204693c*)arg0);
+    ResetQueueNode_0204693c((struct QueueNode_0204693c*)arg0);
     arg0[0] = 0x2c;
     *(int*)(arg0 + 8) = 0;
     arg0[0x20] = 0;

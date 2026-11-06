@@ -9,9 +9,9 @@
 #define func_ov002_02155dbc func_ov002_021574fc
 #endif
 
-struct Struct_0205d1e0;
+struct TextWindowManager_0205d1e0;
 struct Struct_0205d228;
-struct Struct_0205d274;
+struct TextWindowManager_0205d274;
 struct Struct_020e28dc;
 struct Struct_020e2794_2;
 #if defined(jpn)
@@ -21,9 +21,9 @@ extern "C" void func_ov023_021e761c(void *arg0);
 #endif
 extern "C" void func_ov023_021eb4b8(void *arg0);
 extern "C" void func_ov013_02184a58(void *arg0);
-extern "C" void func_0205d1e0(struct Struct_0205d1e0 *arg0);
+extern "C" void func_0205d1e0(struct TextWindowManager_0205d1e0 *arg0);
 extern "C" void func_0205d228(struct Struct_0205d228 *arg0);
-extern "C" void func_0205d274(struct Struct_0205d274 *arg0);
+extern "C" void func_0205d274(struct TextWindowManager_0205d274 *arg0);
 extern "C" int func_020e28dc(struct Struct_020e28dc *arg0);
 extern "C" void func_020e2794(struct Struct_020e2794_2 *arg0, void *arg1);
 extern "C" void func_0205da88(void *arg0, int arg1, int arg2, int arg3);
@@ -56,12 +56,12 @@ extern "C" ARM void func_ov002_02155dbc(char *arg0) {
         func_ov013_02184a58(arg0 + LOW_REGION(0xc20, 0xd70) + 0x1000);
     } else {
         char *var0 = arg0 + LOW_REGION(0x220, 0x2c8);
-        func_0205d1e0((struct Struct_0205d1e0 *) (var0 + 0xc00));
+        func_0205d1e0((struct TextWindowManager_0205d1e0 *) (var0 + 0xc00));
         func_0205d228((struct Struct_0205d228 *) (var0 + 0xc00));
         func_0205da88(var0 + 0xc00, 1, 2, 1);
         func_0205da88(var0 + 0xc00, 1, 3, 1);
         func_0205da88(var0 + 0xc00, 2, 3, 0);
-        func_0205d274((struct Struct_0205d274 *) (var0 + 0xc00));
+        func_0205d274((struct TextWindowManager_0205d274 *) (var0 + 0xc00));
         func_ov002_0215aaa4(arg0);
 #if !defined(jpn)
         if (*(unsigned char *) (arg0 + 0x1000 + 0xc34) != 0) {

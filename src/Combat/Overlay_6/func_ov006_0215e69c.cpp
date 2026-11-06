@@ -102,14 +102,14 @@ extern "C" void func_ov006_02153cbc(void* arg0, int arg1, int arg2, void* arg3);
 extern "C" void func_ov006_0215759c(void* arg0, Struct_ov006_0215e69c_4* arg1, int arg2);
 extern "C" void func_ov006_02158de0(Struct_ov006_0215e69c_3* arg0);
 extern "C" unsigned int* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 struct Struct_020a9ea4;
 extern "C" void func_020a9ea4(Struct_020a9ea4*);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_020aad1c(void* arg0, void* arg1, int arg2, int arg3);
-struct Struct_02038598_4;
-extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void** func_020e5294(void* arg0, int arg1);
 #if defined(jpn)
 struct Struct_0201099c_3;
@@ -265,7 +265,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
     } else if (arg0->unknown_390_ == 0xa) {
         arg0->unknown_394_ |= 0x200;
         if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() <= 0) {
-            func_020466e4(GetGlobalFlags_020d6c00(), 0x80);
+            SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 0x80);
             func_020a9ea4((Struct_020a9ea4*)arg0->unknown_3c_);
             arg0->unknown_390_++;
         }
@@ -278,7 +278,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
             var6 = 0x14;
         }
         if (func_020aad1c(arg0->unknown_3c_, &gFileScratchSpace_0211e33c, var6, 0) == 1) {
-            func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
+            ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
             arg0->unknown_390_++;
             arg0->unknown_394_ &= ~0x200;
         }

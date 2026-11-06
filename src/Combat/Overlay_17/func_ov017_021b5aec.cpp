@@ -41,7 +41,7 @@ struct Struct_ov017_021b5aec_2 {
 extern "C" Struct_02017098* GetZone3D_02012fe4(void);
 extern "C" unsigned char* GetFlagManager_0205ec34(void);
 extern "C" Struct_0201777c* func_0201777c(Struct_02017098* arg0, int arg1);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_021b5a30(Struct_ov017_021b5aec_2* arg0);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void* func_020de824(void* arg0);
@@ -62,7 +62,7 @@ extern "C" ARM int func_ov017_021b5aec(Struct_ov017_021b5aec_2* arg0) {
     LootableContainerManager* var2 = LootableContainerManager::GetMainInstance();
     Struct_0201777c* var3 = func_0201777c(var0, arg0->unknown_10_);
     if (var2 == 0 || var1 == 0 || var3 == 0) {
-        func_020397c0(arg0->unknown_1c_);
+        EnablePlayerControl_020397c0(arg0->unknown_1c_);
         func_ov017_021b5a30(arg0);
         arg0->unknown_1_ = 1;
         return 6;
@@ -100,7 +100,7 @@ extern "C" ARM int func_ov017_021b5aec(Struct_ov017_021b5aec_2* arg0) {
         SetFlags04(GetGameResources(), 0x40);
         return 1;
     }
-    func_020397c0(arg0->unknown_1c_);
+    EnablePlayerControl_020397c0(arg0->unknown_1c_);
     func_ov017_021b5a30(arg0);
     arg0->unknown_1_ = 1;
     return 6;

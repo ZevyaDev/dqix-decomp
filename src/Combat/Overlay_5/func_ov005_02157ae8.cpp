@@ -4,7 +4,7 @@
 extern "C" int* GetLocalWireless_0202ae18(GameState* arg0);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" void* func_0200ff58(GameState* arg0, int arg1);
+extern "C" void* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int func_020546a8(void* arg0);
 
 // USA: func_ov005_02157ae8
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov005_02157ae8(void* arg0, int arg1) {
             if (arg1 != var3)
                 return 0;
         } else if (var2 & 0x1000) {
-            if (var3 != func_020546a8(func_0200ff58(var0, arg1)))
+            if (var3 != func_020546a8(GetCompanionByIndex_0200ff58(var0, arg1)))
                 return 0;
         }
     }

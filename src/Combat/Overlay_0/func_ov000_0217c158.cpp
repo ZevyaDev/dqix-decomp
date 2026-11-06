@@ -42,7 +42,7 @@ extern "C" int func_0205dd08(Struct_ov000_0217c158* arg0);
 extern "C" void func_0205c4a8(struct Struct_0205c4a8* arg0, int arg1);
 extern "C" int func_0205bb84(struct Struct_0205bb84* arg0);
 extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" int abs(int);
 
 // USA: func_ov000_0217c158
@@ -90,7 +90,7 @@ extern "C" ARM int func_ov000_0217c158(Struct_ov000_0217c158_3* arg0) {
         }
         if (var3 != var1) {
             func_0205bcdc((struct Struct_0205bcdc*)var5->unknown_4_, var1);
-            func_0205bb04(&var5->unknown_54_, var1);
+            SetMenuCursorIndex_0205bb04(&var5->unknown_54_, var1);
         }
         arg0->unknown_22_ = var1;
         arg0->unknown_2c_ = -1;

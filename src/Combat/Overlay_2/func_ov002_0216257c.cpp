@@ -9,13 +9,13 @@
 #define RG(u, j) (u)
 #endif
 
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
 struct SoundEffectManager_02108760;
-extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
-extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int GetResources_0200fb8c(int *gameState);
@@ -40,14 +40,14 @@ extern "C" ARM void func_ov002_0216257c(char *arg0) {
     if (var0 == 0) {
         *(short *) (arg0 + RG(0x1b00, 0x1a00) + RG(0xe2, 0xaa))        = 0;
         *(signed char *) (arg0 + 0x1000 + RG(0xc20, 0xae8)) = inline_ov002_0216257c(arg0, *(short *) (arg0 + RG(0x1b00, 0x1a00) + RG(0xe2, 0xaa)));
-        func_0205de24((struct Struct_0205de24_2 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0, 2);
+        SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0, 2);
         func_ov002_02161cf0(arg0);
         func_ov002_0215c2c8(arg0);
         *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) += 1;
     } else if (var0 == 1) {
         *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) |= 4;
         *(short *) (arg0 + RG(0x1b00, 0x1a00) + RG(0xe2, 0xaa)) =
-            func_0205d794((struct Struct_0205c570 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)));
+            GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)));
         int var1 = g_keyManager.TestKeysPressed(0x601);
         int var2 = func_0205da38((struct Struct_0205da38*)(arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0x14);
         if ((var1 | var2) ? 1 : 0) {

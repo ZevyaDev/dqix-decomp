@@ -10,17 +10,17 @@
 struct Struct_ov023_021f6ed8;
 extern "C" ARM void func_ov023_021f6ed8(struct Struct_ov023_021f6ed8* arg0);
 
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
-extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
-extern "C" void func_0204b5b4(void*, int);
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
+extern "C" void SetBGPriority_0204b5b4(void*, int);
 
-struct Struct_02020cb8_5;
-extern "C" int func_0204b5e8(struct Struct_02020cb8_5*, int, int);
+struct BGLayer_02020cb8_5;
+extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5*, int, int);
 
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 
-struct Struct_0204b12c;
-extern "C" void func_0204b12c(struct Struct_0204b12c* arg0, SafeAllocator* arg1);
+struct BGLayer_0204b12c;
+extern "C" void AllocateBGScreenData_0204b12c(struct BGLayer_0204b12c* layer, SafeAllocator* allocator);
 
 struct Struct_ov023_021f745c;
 extern "C" ARM void func_ov023_021f7a08(struct Struct_ov023_021f745c* arg0, void* arg1);
@@ -46,20 +46,20 @@ extern "C" ARM int func_ov023_021f745c(char* arg0, void* arg1, int arg2, int arg
 
     *(int*)(arg0 + 0x10) = arg5;
     *(int*)(arg0 + Enum_ov023_021f745c_72) = 0;
-    func_0204af64((struct Struct_02020cb8*)(arg0 + Enum_ov023_021f745c_40));
-    func_0204b11c((unsigned char*)(arg0 + Enum_ov023_021f745c_40), 0);
+    InitBGLayer_0204af64((struct BGLayer_02020cb8*)(arg0 + Enum_ov023_021f745c_40));
+    SetBGScreenSize_0204b11c((unsigned char*)(arg0 + Enum_ov023_021f745c_40), 0);
 
-    struct Struct_02020cb8* var0 = (struct Struct_02020cb8*)(arg0 + Enum_ov023_021f745c_40);
+    struct BGLayer_02020cb8* var0 = (struct BGLayer_02020cb8*)(arg0 + Enum_ov023_021f745c_40);
     var0->unknown_1c_0_ = (unsigned char)arg6;
-    var0->unknown_1c_4_ = (unsigned char)arg7;
+    var0->bgIndex_1c_4_ = (unsigned char)arg7;
 
-    func_0204b5b4(arg0 + Enum_ov023_021f745c_40, arg8);
-    func_0204b5e8((struct Struct_02020cb8_5*)(arg0 + Enum_ov023_021f745c_40), 0, 0);
+    SetBGPriority_0204b5b4(arg0 + Enum_ov023_021f745c_40, arg8);
+    SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)(arg0 + Enum_ov023_021f745c_40), 0, 0);
 
     void* var1 = func_ov011_021845f8(arg1, *(unsigned short*)(arg0 + 0x8));
     if (var1 == 0) return 0;
 
-    func_0204b12c((struct Struct_0204b12c*)(arg0 + Enum_ov023_021f745c_40), (SafeAllocator*)((char*)var1 + 4));
+    AllocateBGScreenData_0204b12c((struct BGLayer_0204b12c*)(arg0 + Enum_ov023_021f745c_40), (SafeAllocator*)((char*)var1 + 4));
     func_ov023_021f7a08((struct Struct_ov023_021f745c*)arg0, arg1);
     *(short*)(arg0 + Enum_ov023_021f745c_80) = 0;
     *(short*)(arg0 + Enum_ov023_021f745c_82) = 0;

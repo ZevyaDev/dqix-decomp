@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
+extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 
 struct Struct_0209859c {
     char unknown_0_[0x14];
@@ -14,7 +14,7 @@ extern "C" ARM struct Struct_0209859c* func_0209859c(struct Struct_0209859c* arg
     int var1;
     for (var1 = 0; var1 < 0x1e; var1++) {
         var0 = &arg0[var1];
-        if (func_02001aec(arg1, var0->unknown_14_, 6) == 0) return var0;
+        if (CompareBytes_02001aec(arg1, var0->unknown_14_, 6) == 0) return var0;
     }
     return 0;
 }

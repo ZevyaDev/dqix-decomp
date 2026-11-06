@@ -1,11 +1,8 @@
 #include <globaldefs.h>
 #include "NitroSDK/Interrupts.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
-extern "C" void func_020c9be0(void);
+extern "C" void HaltForever_020c9be0(void);
 
 struct Struct_ov027_021dd118 {
     void* unknown_0_;
@@ -28,7 +25,7 @@ extern "C" ARM void func_ov027_021dd118(Struct_ov027_021dd118_2* arg0, void* arg
     var0 = arg0->unknown_30_ + 4;
     for (;;) {
         if (var2 >= var0) {
-            func_020c9be0();
+            HaltForever_020c9be0();
         }
         if (var2->unknown_c_ == 0) {
             var2->unknown_0_ = arg1;

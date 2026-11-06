@@ -36,7 +36,7 @@ extern "C" void func_020488cc(unsigned char*, int);
 extern "C" void func_0208979c(unsigned char*);
 extern "C" int func_ov000_0215fc60(char*);
 extern "C" int func_ov000_02153e40(Struct_ov000_0215767c_2* arg0, short* arg1, int arg2, int arg3);
-extern "C" int func_ov000_0215e9fc(Struct_ov000_0215767c_2* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_0215767c_2* battle, short* indices, int maxCount, int filterFlags);
 extern "C" void func_ov000_0215a23c(Struct_ov000_0215767c_2* arg0);
 extern "C" void func_ov000_02157e1c(Struct_ov000_0215767c_2* arg0);
 extern "C" void func_ov000_02155e94(Struct_ov000_0215767c_2* arg0);
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov000_0215e6e8(Struct_ov000_0215767c_2* arg0) {
         }
         func_ov000_02155e94(arg0);
         Struct_ov000_02182b04 var9 = data_ov000_02182bc4;
-        if (func_ov000_0215e9fc(arg0, var9.unknown_0_, 8, 9) <= 0) {
+        if (CollectPartyCombatantIndices_ov000_0215e9fc(arg0, var9.unknown_0_, 8, 9) <= 0) {
             arg0->unknown_8e14_ = 2;
         } else if (arg0->unknown_81b1_0_ == 0) {
             arg0->unknown_8e14_ = 1;
@@ -88,10 +88,10 @@ extern "C" ARM void func_ov000_0215e6e8(Struct_ov000_0215767c_2* arg0) {
     }
     arg0->unknown_8e20_++;
     if (arg0->unknown_8e14_ != 0) {
-        var0 = func_ov000_0215e9fc(arg0, var1.unknown_0_, 0x10, 0);
+        var0 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0, var1.unknown_0_, 0x10, 0);
         void* var10 = GameState::GetInstance();
         for (int var11 = 0; var11 < var0; var11++) {
-            (Struct_ov000_0215ab88*)func_0200ff1c((GameState*)var10, var1.unknown_0_[var11]);
+            (Struct_ov000_0215ab88*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var10, var1.unknown_0_[var11]);
         }
     }
 }

@@ -22,7 +22,7 @@ struct Struct_ov017_021b3444_2 {
 extern "C" ARM int func_ov017_021b3444(struct Struct_ov017_021b3444_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     int var1 = (int)BackgroundLoader::GetInstance();
-    GameObject* var2 = func_0200ff1c(var0, arg0->unknown_8_);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0->unknown_8_);
     if (var2 != 0) {
         if (func_ov017_021b354c((Struct_ov017_021b3444*)var2) != 0) {
 #if defined(jpn)

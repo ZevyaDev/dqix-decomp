@@ -7,18 +7,18 @@
 #define RG(u, j) (u)
 #endif
 
-struct Struct_0205d81c;
-struct Struct_0205d0e0;
+struct TextWindowManager_0205d81c;
+struct TextWindow_0205d0e0;
 struct Struct_0205c4a8;
 struct Struct_0205bb84;
 struct Struct_0205bcdc;
 
-extern "C" struct Struct_0205d0e0 *func_0205d81c(struct Struct_0205d81c *arg0, int arg1);
+extern "C" struct TextWindow_0205d0e0 *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
 extern "C" int func_0205c6e4(unsigned char *arg0);
 extern "C" void func_0205c4a8(struct Struct_0205c4a8 *arg0, int arg1);
 extern "C" int func_0205bb84(struct Struct_0205bb84 *arg0);
 extern "C" void func_0205bcdc(struct Struct_0205bcdc *arg0, int arg1);
-extern "C" void func_0205bb04(void *arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void *cursor, int index);
 
 // USA: func_ov002_02161b98
 extern "C" ARM int func_ov002_02161b98(char *arg0) {
@@ -27,12 +27,12 @@ extern "C" ARM int func_ov002_02161b98(char *arg0) {
     short var2;
     short var3;
     char *var4;
-    struct Struct_0205d0e0 *var5;
+    struct TextWindow_0205d0e0 *var5;
     if (g_touchInput.pressed_ == 0) {
         goto ret0;
     }
     g_touchInput.GetTouchPoint(&var0, &var1);
-    var5 = func_0205d81c((struct Struct_0205d81c *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)),
+    var5 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)),
                                    *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) & 0xff);
     if (var5 == 0) {
         goto ret0;
@@ -65,7 +65,7 @@ extern "C" ARM int func_ov002_02161b98(char *arg0) {
         }
         int var15 = func_0205bb84((struct Struct_0205bb84 *) (var4 + 0x54));
         func_0205bcdc((struct Struct_0205bcdc *) (var4 + 4), var15);
-        func_0205bb04(var4 + 0x54, var15);
+        SetMenuCursorIndex_0205bb04(var4 + 0x54, var15);
     }
     return 1;
 ret0:

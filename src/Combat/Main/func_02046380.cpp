@@ -37,13 +37,13 @@ extern "C" ARM void ClearMessageParams_02046380(void* window) {
     *(unsigned char*)((char*)window + 0x8f0) = 0;
     *(int*)((char*)window + 0x2e8) = 0;
 
-    int (*var0)[2] = (int(*)[2])window;
+    int (*nouns)[2] = (int(*)[2])window;
     for (int i = 0; i < 2; i++) {
-        var0[0][i] = 0;
-        var0[1][i] = 0;
-        var0[2][i] = 0;
-        var0[3][i] = 0;
-        var0[4][i] = 0;
+        nouns[0][i] = 0;
+        nouns[1][i] = 0;
+        nouns[2][i] = 0;
+        nouns[3][i] = 0;
+        nouns[4][i] = 0;
     }
 
     *(int*)((char*)window + 0x28) = 0;

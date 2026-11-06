@@ -9,7 +9,7 @@ extern "C" {
     void* GetZone3D_02012fe4(void);
 }
 
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 struct Struct_02038598_5;
 struct Struct_02093b90_2;
 
@@ -23,7 +23,7 @@ extern "C" void func_020dc214(int arg0);
 extern "C" int* func_020936f8(void);
 extern "C" void func_020941b0(struct Struct_02093b90_2* arg0);
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
 
 #if defined(jpn)
@@ -77,5 +77,5 @@ extern "C" ARM void func_020dc2d0(int arg0) {
     }
 
     func_020941b0((Struct_02093b90_2*)func_020936f8());
-    func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x41);
+    ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x41);
 }

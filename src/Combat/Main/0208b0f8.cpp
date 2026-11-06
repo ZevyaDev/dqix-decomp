@@ -15,7 +15,7 @@ extern "C" void* __clear(void*, int);
 extern "C" void func_0206f81c(void*);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 extern "C" void func_02010834(Struct_02010834*, int, int*, int*);
-extern "C" int func_02046b08(void**);
+extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" int func_020649b0(void*, int, void*);
 extern "C" void* func_020e2ff8();
 extern "C" int func_020e34bc(Struct_0208ab34*, int);
@@ -93,7 +93,7 @@ extern "C" ARM void func_0208b0f8(void* arg0) {
     int var19;
     __clear(var18, sizeof(var18));
     func_02010834((Struct_02010834*)var1, var12->unknown_4_, var18, &var19);
-    if (func_02046b08(var8) && var12->unknown_b2_ != 0 && var0->unknown_a8_ != 0) {
+    if (IsQueueEmpty_02046b08(var8) && var12->unknown_b2_ != 0 && var0->unknown_a8_ != 0) {
         var0->unknown_a8_--;
         if (var0->unknown_a8_ == 0) {
             Struct_0208b0f8_3 var20;
@@ -112,7 +112,7 @@ extern "C" ARM void func_0208b0f8(void* arg0) {
         var15 = (Struct_0208b0f8*)var1->GetPartyMemberByIndex(var18[var13]);
         if (!IsLocalWirelessOn_0202b7d8(var4) || (IsLocalWirelessOn_0202b7d8(var4) && var14 != 1)) {
             if (var15 == NULL || var12->unknown_b2_ == 0 || func_02039d7c((char*)var12) != 0 ||
-                (var15->unknown_130_[0] & 1) || !func_02046b08(var8)) {
+                (var15->unknown_130_[0] & 1) || !IsQueueEmpty_02046b08(var8)) {
                 var7 = 1;
                 continue;
             }

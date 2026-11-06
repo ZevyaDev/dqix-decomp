@@ -2,9 +2,6 @@
 #include "Input/Input.h"
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 extern "C" char *GetMessageWindow_020421a0(void);
 extern "C" char *GetZone3D_02012fe4(void);
@@ -18,7 +15,7 @@ struct Struct_ov003_0216efdc_2;
 struct Struct_ov003_0216efdc_3;
 extern "C" Struct_ov003_0216efdc_3 *func_ov003_0216f414(Struct_ov003_0216efdc_2 *arg0, int arg1);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char *flags, int flagIndex);
-extern "C" void func_0206df6c(void *arg0, unsigned char *arg1, int arg2, int arg3);
+extern "C" void SetFlag_0206df6c(void *flagManager, unsigned char *flags, int flagIndex, int isSet);
 
 struct Struct_ov003_0216efdc_3 {
     unsigned char unknown_0_[0x16];
@@ -99,7 +96,7 @@ extern "C" ARM void func_ov003_0216efdc(Struct_ov003_0216efdc *arg0) {
             arg0->unknown_2_ = 1;
             return;
         }
-        func_0206df6c(var6, (unsigned char *) var6 + 0x8c, 0x783, 1);
+        SetFlag_0206df6c(var6, (unsigned char *) var6 + 0x8c, 0x783, 1);
 #if defined(jpn)
         func_ov003_021701e4(arg0, 0x1f);
 #else

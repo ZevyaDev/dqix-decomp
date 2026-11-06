@@ -15,15 +15,15 @@ struct Struct_ov017_021cf730 { char unknown_0_[0xc]; int unknown_c_; };
 extern "C" int* GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsLocalWirelessGuest_0202c540(int*);
-extern "C" void* func_0202ae24();
-extern "C" void func_0205e330(void*, void*, int);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
+extern "C" void QueueOutgoingPacket_0205e330(void*, void*, int);
 
 // USA: func_ov017_021cf730
 extern "C" ARM void func_ov017_021cf730(signed char arg0, unsigned char arg1) {
     int* var0 = GetLocalWireless_0202ae18();
     if (!IsLocalWirelessOn_0202b7d8(var0) || IsLocalWirelessGuest_0202c540(var0)) return;
     GameState* var1 = GameState::GetInstance();
-    void* var2 = func_0202ae24();
+    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
     unsigned char var3[0x14];
     Struct_ov017_021cf730_2* var4 = (Struct_ov017_021cf730_2*)(var3 + 4);
     GrottoStruct* var5 = var1->GetGrottoStruct();
@@ -42,5 +42,5 @@ extern "C" ARM void func_ov017_021cf730(signed char arg0, unsigned char arg1) {
     var4->unknown_f_.unknown1_0_.unknown_0_4_ = var5->activeEnviron;
     var4->unknown_e_ = *((signed char*)var5 + 8);
     var4->unknown_3_.unknown1_0_.unknown_0_3_ = arg0;
-    func_0205e330(var2, var3, 0);
+    QueueOutgoingPacket_0205e330(var2, var3, 0);
 }

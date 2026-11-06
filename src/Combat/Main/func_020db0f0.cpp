@@ -5,16 +5,13 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "NitroSDK/Memory.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" char* func_020467c0(void* arg0, char* arg1, unsigned int* arg2);
 extern "C" int func_020b01a4(void* arg0, void** arg1);
 struct Struct_0205ab78;
 extern "C" int func_020b01f0(struct Struct_0205ab78* arg0, void** arg1);
-extern "C" void func_020c9be0(void);
+extern "C" void HaltForever_020c9be0(void);
 
 extern AllocatorUnion gMainHeap_02114e20;
 extern unsigned char gFileScratchSpace_0211e33c[0x30000];
@@ -69,7 +66,7 @@ extern "C" ARM void func_020db0f0(Struct_02000c9c_18* arg0) {
 
     var5 = NULL;
     if (!func_020b01a4(var3, (void**)&var5)) {
-        func_020c9be0();
+        HaltForever_020c9be0();
     }
 
     arg0->unknown_44_ = var5->unknown_10_;
@@ -78,7 +75,7 @@ extern "C" ARM void func_020db0f0(Struct_02000c9c_18* arg0) {
 
     var6 = NULL;
     if (!func_020b01f0(var4, (void**)&var6)) {
-        func_020c9be0();
+        HaltForever_020c9be0();
     }
 
     arg0->unknown_4c_ = 0x20;

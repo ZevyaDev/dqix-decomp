@@ -12,7 +12,7 @@
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" void* func_020100f8(char* arg0);
+extern "C" void* GetFollowCamera_020100f8(char* gameState);
 
 struct Struct_0200ffc0
 {
@@ -21,7 +21,7 @@ struct Struct_0200ffc0
 };
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
 
-extern "C" void* func_0200fd0c(GameState*);
+extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 
 extern "C" void func_020da77c(void* arg0, int arg1, void* arg2);
 
@@ -35,7 +35,7 @@ extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_ov017_021d1a18(int arg0, short arg1, short arg2, unsigned char arg3);
 
 struct Struct_02033834;
-extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 
 extern "C" void* func_0201b678(void* arg0, void* arg1);
 struct Struct_020a6aac;
@@ -117,10 +117,10 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
     LightingManager::GetInstance();
     void* var2 = GetLocalWireless_0202ae18();
     GetFlagManager_0205ec34();
-    Struct_020a6aac_2* var3 = (Struct_020a6aac_2*)func_020100f8((char*)var0);
+    Struct_020a6aac_2* var3 = (Struct_020a6aac_2*)GetFollowCamera_020100f8((char*)var0);
     Struct_020a6aac_3* var4 = (Struct_020a6aac_3*)func_0200ffc0((struct Struct_0200ffc0*)var0);
     GameObject* var5 = var0->GetUnknownGameObject();
-    Struct_020a6aac_4* var6 = (Struct_020a6aac_4*)func_0200fd0c(var0);
+    Struct_020a6aac_4* var6 = (Struct_020a6aac_4*)GetZoneEntry_0200fd0c(var0);
 
     if ((unsigned int)(arg1 - 0x170c) <= 3) {
         var3->unknown_1f8_ = 1;
@@ -131,7 +131,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
     }
 
     if (arg1 == 0x2710) {
-        Struct_020a6aac_4* var7 = (Struct_020a6aac_4*)func_0200fd0c(var0);
+        Struct_020a6aac_4* var7 = (Struct_020a6aac_4*)GetZoneEntry_0200fd0c(var0);
         int var8 = 0;
         if (var7->unknown_20_ == 0x25f1)
         {
@@ -167,7 +167,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
             var4->unknown_0_.position_.x = 0x19000;
             var4->unknown_0_.position_.y = 0x199;
             var4->unknown_0_.position_.z = 0x38ccc;
-            func_02033874((struct Struct_02033834*)var4, 0);
+            SetFacingInstantly_02033874((struct Struct_02033834*)var4, 0);
         }
     } else if (arg1 == 0x2774) {
         var4->unknown_154_ = 0;
@@ -221,7 +221,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
                     var4->unknown_0_.EnableFlag(0x100);
                     var4->unknown_0_.position_ = var21->unknown_8_;
                     var4->unknown_144_ = var21->unknown_8_;
-                    func_02033874((struct Struct_02033834*)var4, var21->unknown_20_);
+                    SetFacingInstantly_02033874((struct Struct_02033834*)var4, var21->unknown_20_);
                     Vector3i var22 = var21->unknown_40_;
                     var1->unknown_2774_.unknown_0_ = var22;
                 }
@@ -265,7 +265,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
             Vector3i var28 = data_020e909c;
             short var29 = 0x570;
             var27->obj3D_.position_ = var28;
-            func_02033874((struct Struct_02033834*)var27, var29);
+            SetFacingInstantly_02033874((struct Struct_02033834*)var27, var29);
             func_ov017_0219c598(&var28.x, &var29, 0);
             var26->unknown_2774_.unknown_14_ = 0;
             func_ov017_021d1a18((short)arg1, -1, 0, 0);

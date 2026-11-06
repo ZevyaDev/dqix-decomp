@@ -96,7 +96,7 @@ extern "C" ARM void func_ov017_0219dc90(Struct_ov017_0219dc90* arg0, int arg1, i
     void* var1 = GetLocalWireless_0202ae18();
     Struct_ov017_0219dc90_2* var2 = func_02027ca4();
     GetZone3D_02012fe4();
-    Struct_ov017_0219dc90_7* var3 = (Struct_ov017_0219dc90_7*)func_0200ff1c(var0, arg1);
+    Struct_ov017_0219dc90_7* var3 = (Struct_ov017_0219dc90_7*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1) != 0) return;
     func_020288e0(var2);
     func_ov017_0219e0ec(arg0);

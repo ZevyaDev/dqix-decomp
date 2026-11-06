@@ -68,9 +68,9 @@ struct Struct_020d7b04 {
 extern "C" ARM void func_020d7b04(Struct_020d7b04_3* arg0) {
     char var0[0xc8];
     GameState* var1 = GameState::GetInstance();
-    FontLoader_0208cb08* var2 = func_02094a00();
+    FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
     Struct_020d7b04* var3 = static_cast<Struct_020d7b04*>(GetMessageWindow_020421a0());
-    if (arg0->unknown_150_7_ && !func_02094b4c(var2)) return;
+    if (arg0->unknown_150_7_ && !UpdateFontLoad_02094b4c(var2)) return;
 
     void* var4 = GetGameResources()->unknown_ptr_array_36fc[0];
     if (func_02046b60((Struct_02038598_5*)var4, 0x25)) return;
@@ -139,7 +139,7 @@ extern "C" ARM void func_020d7b04(Struct_020d7b04_3* arg0) {
         return;
     } else {
         if (arg0->unknown_150_7_) {
-            func_02094ab0(var2);
+            CancelFontLoad_02094ab0(var2);
             arg0->unknown_150_7_ = 0;
         }
         if (arg0->unknown_150_6_) {

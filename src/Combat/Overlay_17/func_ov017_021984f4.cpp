@@ -54,7 +54,7 @@ extern "C" ARM void func_ov017_021984f4(void* arg0) {
     }
 
     void* var2 = GetZone3D_02012fe4();
-    func_020100bc(var0);
+    GetCamera_020100bc(var0);
     struct Struct_ov017_021984f4* var3 = (struct Struct_ov017_021984f4*)func_0201e838((unsigned char*)var2 + Enum_ov017_021984f4_108, 8);
 
     struct Struct_ov017_021984f4_2 var4 = *(struct Struct_ov017_021984f4_2*)((char*)var1 + 0x44);

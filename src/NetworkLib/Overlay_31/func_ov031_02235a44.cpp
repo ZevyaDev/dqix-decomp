@@ -50,7 +50,7 @@ typedef struct Struct_ov031_02235a44
     unsigned char unknown_29_;
 } Struct_ov031_02235a44;
 
-extern "C" int func_02001aec(const void* arg0, const void* arg1, unsigned int arg2);
+extern "C" int CompareBytes_02001aec(const void* left, const void* right, unsigned int count);
 extern "C" void func_020d4c7c(Struct_020d4c7c* arg0, const Struct_020d4c7c_2* arg1);
 
 extern char* data_ov031_02290cf8;
@@ -69,11 +69,11 @@ extern "C" ARM void func_ov031_02235a44(Struct_ov031_02235a44_2* arg0) {
         var0 = arg0->unknown_10_[var1];
         if (var0->unknown_c_[0] == 0 || var0->unknown_3c_ != 0) continue;
         for (var2 = 0; var2 < 20; var2++) {
-            if (func_02001aec(var0->unknown_4_, var7[var2].unknown_20_, 6) == 0) break;
+            if (CompareBytes_02001aec(var0->unknown_4_, var7[var2].unknown_20_, 6) == 0) break;
         }
         if (var2 == 20) {
             for (var2 = 0; var2 < 20; var2++) {
-                if (func_02001aec(var7[var2].unknown_20_, data_ov031_022491fc, 6) == 0) break;
+                if (CompareBytes_02001aec(var7[var2].unknown_20_, data_ov031_022491fc, 6) == 0) break;
             }
             if (var2 == 20) return;
         }
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov031_02235a44(Struct_ov031_02235a44_2* arg0) {
                 break;
             }
             if (var6.unknown_4_[var3].unknown_0_ == 0xdd && var6.unknown_4_[var3].unknown_1_ >= 4
-                && func_02001aec(var6.unknown_4_[var3].unknown_4_, data_ov031_022491f8, 4) == 0) {
+                && CompareBytes_02001aec(var6.unknown_4_[var3].unknown_4_, data_ov031_022491f8, 4) == 0) {
                 var5->unknown_28_ = 2;
                 break;
             }

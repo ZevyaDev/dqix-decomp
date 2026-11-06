@@ -20,13 +20,13 @@ struct Struct_ov012_02189af4_2 {
     Struct_ov012_02189af4* inline_ov012_02189af4_3() { return &unknown_54_; }
 };
 
-extern "C" void func_02041c08(char*, int, int, int, int, int);
-extern "C" int func_02041ea4(char*, int);
+extern "C" void AppendFrameTag_02041c08(char*, int, int, int, int, int);
+extern "C" int AppendCursorTag_02041ea4(char*, int);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_0205c508(Struct_0205c508*, int*, int*);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
-extern "C" int func_02041b70(char*, int, const char*);
+extern "C" int AppendMenuEntry_02041b70(char*, int, const char*);
 extern "C" int func_02041a28(char*, int);
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
@@ -39,8 +39,8 @@ extern "C" ARM void func_ov012_0218a5f0(char* arg0, char* arg1, int arg2) {
     if (!arg1) return;
     int var0 = *(int*)(arg0 + 0x1444) % 10;
     if (arg2)
-        func_02041c08(arg1, var0, 8, 5, 5, 5);
-    func_02041ea4(arg1, var0);
+        AppendFrameTag_02041c08(arg1, var0, 8, 5, 5, 5);
+    AppendCursorTag_02041ea4(arg1, var0);
     void* var1 = GetMessageWindow_020421a0();
     int var2;
     Struct_ov012_02189af4* var3 = ((Struct_ov012_02189af4_2*)(arg0 + 0x90))->inline_ov012_02189af4_3();
@@ -55,10 +55,10 @@ extern "C" ARM void func_ov012_0218a5f0(char* arg0, char* arg1, int arg2) {
             AppendText_02042058(arg1, *(const char**)(arg0 + 0x1348));
         if (var2 == 0) {
             const char* var8 = FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x1314), 0x50dc);
-            func_02041b70(arg1, var2 % 10, var8);
+            AppendMenuEntry_02041b70(arg1, var2 % 10, var8);
         } else {
             const char* var9 = FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x1314), (short)(0x5140 + var2 - 1));
-            func_02041b70(arg1, var2 % 10, var9);
+            AppendMenuEntry_02041b70(arg1, var2 % 10, var9);
         }
     }
     ClearMessageParams_02046380(var1);
@@ -119,14 +119,14 @@ struct Struct_ov012_0218a5f0_4
     Struct_01ff91ac_16* inline_ov012_0218a5f0_2() { return &unknown_ac_; }
 };
 
-extern "C" void func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" void func_02041ea4(char* arg0, int arg1);
+extern "C" void AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" void AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_0205c508(Struct_0205c508* arg0, int* arg1, int* arg2);
 extern "C" void GetLocalWireless_0202ae18();
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
-extern "C" void func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
 extern "C" void func_ov012_021842a0(Struct_ov012_0218a5f0_4* arg0, int arg1, int arg2, int arg3);
@@ -139,8 +139,8 @@ extern "C" ARM void func_ov012_0218a5f0(Struct_ov012_0218a5f0_4* arg0, char* arg
 
     int var10 = arg0->unknown_13d8_[5] % 10;
     if (arg2)
-        func_02041c08(arg1, var10, 8, 5, 5, 5);
-    func_02041ea4(arg1, var10);
+        AppendFrameTag_02041c08(arg1, var10, 8, 5, 5, 5);
+    AppendCursorTag_02041ea4(arg1, var10);
     GetMessageWindow_020421a0();
     Struct_ov012_0218a5f0_3* var11;
     int var12;
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov012_0218a5f0(Struct_ov012_0218a5f0_4* arg0, char* arg
             if (var11->unknown_150_->unknown_49c_0_ == 1)
                 var19 = 0x510e;
             const char* var20 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, (short)var19);
-            func_02041b70(arg1, var12 % 10, var20);
+            AppendMenuEntry_02041b70(arg1, var12 % 10, var20);
         }
         else
         {
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov012_0218a5f0(Struct_ov012_0218a5f0_4* arg0, char* arg
             char var23[0x80];
             __clear(var23, sizeof(var23));
             func_0206819c(var22, var23, 0);
-            func_02041b70(arg1, var12 % 10, var23);
+            AppendMenuEntry_02041b70(arg1, var12 % 10, var23);
         }
     }
     func_ov012_021842a0(arg0, 11, var14, var15);

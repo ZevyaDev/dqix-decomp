@@ -22,19 +22,19 @@ struct Struct_02043368 {
     unsigned short unknown_4_;
 };
 struct TextureVRAMArea_0203d028;
-struct Struct_0201099c_14;
+struct StringTable_0201099c_14;
 struct Struct_0201099c_3;
 struct Struct_020a9ea4;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 struct Struct_020444e0;
 struct Struct_0203bdb0;
 
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0205a444(char* arg0);
-extern "C" void func_0205a198(Struct_02043368_2* arg0);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
+extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
 extern "C" void func_0205a234(Struct_02043368* arg0);
 extern "C" void func_020c39a0(short* arg0, int arg1);
 extern "C" void func_0200fb84(int* arg0, int arg1);
@@ -60,7 +60,7 @@ void UnlockStagedTextureVRAMCopying();
 void Finish3DRendering();
 extern "C" void func_020c51dc();
 extern "C" void func_020c537c();
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_020c5770(int, int, int, int, int, int, int, int, void*);
 extern "C" void func_020bb780(void* arg0, int arg1);
 extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
@@ -76,8 +76,8 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigne
 extern "C" void func_020440b8(char* arg0, void* arg1, void* arg2);
 extern "C" void func_0202ad30();
 extern "C" void func_0202adf0();
-extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
-extern "C" void func_020dfec0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
+extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
+extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_020d86d0(int arg0, int arg1);
 extern "C" void func_020c9820();
@@ -90,13 +90,13 @@ extern "C" void __clear(void* arg0, int arg1);
 unsigned long long GetCurrentTimestamp();
 extern "C" void func_02012efc();
 extern "C" int func_020457e0(MessageWindow_02021b84* arg0);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_020a9ea4(Struct_020a9ea4* arg0);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void func_0205a528(void* arg0, void* arg1, int arg2, SafeAllocator* arg3);
+extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, SafeAllocator* allocator);
 extern "C" int func_020ab7a8(void* arg0, int arg1);
-extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_0209c6d8(void* arg0, int arg1);
 extern "C" int func_ov019_0218c240(void* arg0);
 extern "C" int func_020aba5c(int arg0);
@@ -159,13 +159,13 @@ struct Struct_ov019_0218b5a8 {
     int unknown_50_;
     char unknown_54_[0x90 - 0x54];
     Struct_02043368* unknown_90_;
-    Struct_02043368_2* unknown_94_;
+    Sprite_02043368_2* unknown_94_;
     char unknown_98_[0xa0 - 0x98];
     short unknown_a0_;
     char unknown_a2_[0xa4 - 0xa2];
     unsigned char unknown_a4_;
     char unknown_a5_[0xa8 - 0xa5];
-    Struct_02043368_2 unknown_a8_[14];
+    Sprite_02043368_2 unknown_a8_[14];
     Struct_02043368 unknown_2d8_;
 };
 
@@ -237,9 +237,9 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     func_020daf9c(0, 0, 1, 0);
     arg0->unknown_4c_ = 0;
     arg0->unknown_50_ = 0;
-    func_0205a444(arg0->unknown_54_);
+    InitSpriteSet_0205a444(arg0->unknown_54_);
     for (int var3 = 0; var3 < 14; var3++) {
-        func_0205a198(&arg0->unknown_a8_[var3]);
+        InitSprite_0205a198(&arg0->unknown_a8_[var3]);
     }
     func_0205a234(&arg0->unknown_2d8_);
     func_020c39a0((short*)0x400006c, -16);
@@ -274,7 +274,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     func_020c51dc();
     func_020c537c();
     inline_ov019_0218b5a8_3(0);
-    func_020c5588(0, 0x1f, 0x7fff, 0, 0);
+    Set3DClearColorAndDepth_020c5588(0, 0x1f, 0x7fff, 0, 0);
     inline_ov019_0218b5a8_4(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, NULL);
     inline_ov019_0218b5a8_5(0);
     inline_ov019_0218b5a8_6(0, 0, 255, 191);
@@ -327,8 +327,8 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    func_020dfc40((Struct_0201099c_14*)arg0->unknown_34_);
-    func_020dfec0(arg0->unknown_34_, &var10, var12, var8);
+    InitStringTable_020dfc40((StringTable_0201099c_14*)arg0->unknown_34_);
+    LoadStringTable_020dfec0(arg0->unknown_34_, &var10, var12, var8);
 #endif
     BackgroundLoader::RemoveLockGlobal();
 
@@ -370,7 +370,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
         case 1:
             if (var7->unknown_998_ == 0) {
                 if (func_020457e0(var7) == 0) {
-                    func_020466e4(var2, 0x80);
+                    SetGlobalFlags_020466e4(var2, 0x80);
                     inline_ov019_0218b5a8(var7, arg0, 5);
                     func_020a9ea4((Struct_020a9ea4*)arg0->unknown_2c_);
                     var13 = 3;
@@ -402,9 +402,9 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
                         BackgroundLoader::RemoveLockGlobal();
                         return;
                     }
-                    func_0205a444(arg0->unknown_54_);
+                    InitSpriteSet_0205a444(arg0->unknown_54_);
                     for (int var20 = 0; var20 < 14; var20++) {
-                        func_0205a198(&arg0->unknown_a8_[var20]);
+                        InitSprite_0205a198(&arg0->unknown_a8_[var20]);
                     }
                     func_0205a234(&arg0->unknown_2d8_);
                     arg0->unknown_a4_ = 0;
@@ -417,7 +417,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
                         void* var24;
                         int var25;
                         void* var26 = GetPacEntryData_020467f0((PacEntry_02020aec*)var21, var23, &var24, &var25);
-                        func_0205a528(arg0->unknown_54_, var26, var25, &var10);
+                        LoadSpriteSetFile_0205a528(arg0->unknown_54_, var26, var25, &var10);
                     }
                     arg0->unknown_4c_ |= 1;
                     arg0->unknown_50_++;
@@ -426,20 +426,20 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
                     if (var27 == 1) {
                         inline_ov019_0218b5a8(var7, arg0, 0);
                         var7->unknown_998_ = 1;
-                        func_020466f4((Struct_02038598_4*)var2, 0x80);
+                        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var2, 0x80);
                         arg0->unknown_4c_ &= ~1;
                         var13 = 0;
                     } else if (var27 == 2) {
                         inline_ov019_0218b5a8(var7, arg0, 1);
                         var7->unknown_998_ = 1;
-                        func_020466f4((Struct_02038598_4*)var2, 0x80);
+                        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var2, 0x80);
                         arg0->unknown_4c_ &= ~1;
                         var13 = 0;
                     } else if (var27 == 3) {
-                        func_020466f4((Struct_02038598_4*)var2, 0x80);
+                        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var2, 0x80);
                         var13 = 6;
                     } else if (var27 == 5) {
-                        func_020466f4((Struct_02038598_4*)var2, 0x80);
+                        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var2, 0x80);
                         var13 = 4;
                     }
                     BackgroundLoader::RemoveLockGlobal();

@@ -7,7 +7,7 @@ extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(
 
 struct Struct_02000c9c_8;
 struct Struct_02012de8;
-extern "C" int func_0200fb08(Struct_02000c9c_8*);
+extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
 extern "C" int func_02046708(Struct_02012de8*, unsigned int);
 extern "C" void __clear(void*, unsigned int);
@@ -28,7 +28,7 @@ extern "C" ARM void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsi
     GameState* var0 = GameState::GetInstance();
     char var1[0x80];
     __clear(var1, sizeof(var1));
-    StringReplaceLanguageTag(arg1, var1, func_0200fb08((Struct_02000c9c_8*)var0));
+    StringReplaceLanguageTag(arg1, var1, GetGameLanguage_0200fb08((Struct_02000c9c_8*)var0));
     void* var2;
     unsigned int var3;
     unsigned int var4 = 0;

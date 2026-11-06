@@ -18,8 +18,8 @@ enum { Enum_ov003_0215a740_2384 = 0x950, Enum_ov003_0215a740_336 = 0x150, Enum_o
 #include "Resource/GameResources.h"
 
 extern "C" void* GetMessageWindow_020421a0(void);
-struct Struct_0205d81c;
-extern "C" void func_0205deb4(Struct_0205d81c*, int, int);
+struct TextWindowManager_0205d81c;
+extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
 struct Struct_0201099c_3;
 extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov003_02159250(void*, void*);
@@ -35,9 +35,9 @@ extern "C" int _s32_div_f(int, int);
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
-extern "C" void func_020e4bf4(void*, int);
+extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 struct Struct_02046574_2;
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" int func_ov003_0215bf18(void*, int);
 extern "C" int func_ov003_0215b580(void*, int);
 struct Struct_02109bf4_2;
@@ -92,9 +92,9 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
     unsigned char var3 = *(unsigned char*)(var0 + 0x580);
 
     if (var3 == 0) {
-        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 0, 0);
-        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 1, 1);
-        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 2, 0);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 0, 0);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 1, 1);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 2, 0);
         func_ov003_02159250(arg0,
             FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), (short)arg2));
         *(unsigned char*)(var0 + 0x580) = *(unsigned char*)(var0 + 0x580) + 1;
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
             func_ov003_0215c01c(arg0, 2, 1);
             *(unsigned char*)(var0 + 0x5a1) = (unsigned char)var4;
             unsigned char* var5 =
-                (unsigned char*)(void*)func_0200ff1c(var1, *(unsigned char*)(var0 + *(signed char*)(var0 + 0x5a1) + 0x591));
+                (unsigned char*)(void*)GetPartyMemberBaseByIndex_0200ff1c(var1, *(unsigned char*)(var0 + *(signed char*)(var0 + 0x5a1) + 0x591));
             unsigned char* var6 = GetPartyMemberData_02053c6c(var5);
             int var7 = *(int*)(var6 + Enum_ov003_0215a740_2384);
             *(int*)(var0 + 0x5a4) = *(int*)(var5 + 0x134);
@@ -160,11 +160,11 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
             } else {
 #if !defined(jpn)
                 Struct_ov003_0215a740_2 var11;
-                func_020e4bf4(&var11,
+                InitPartyMemberNoun_020e4bf4(&var11,
                     *(unsigned char*)(var0 + *(signed char*)(var0 + 0x5a1) + 0x591));
                 *(void**)(var2 + 0x10) = &var11;
 #endif
-                func_02046574((Struct_02046574_2*)var2, 0, *(char**)(var0 + 0x5a4));
+                SetMessageString_02046574((Struct_02046574_2*)var2, 0, *(char**)(var0 + 0x5a4));
                 memset(*(void**)(var0 + 0x7c), 0, Enum_ov003_0215a740_2400);
                 func_ov003_02159290(arg0, (arg2 + 2), 0x42e);
                 func_ov003_02159250(arg0, *(void**)(var0 + 0x7c));
@@ -176,9 +176,9 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
     if (var3 == 3) {
         if (*(int*)(var2 + Enum_ov003_0215a740_2464) != 3) return;
         int var12 = func_ov003_0215bf18(arg0, 0);
-        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 0, 0);
-        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 1, 1);
-        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 2, 1);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 0, 0);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 1, 1);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 2, 1);
         if (var12 == -1) return;
         if (var12 == -2 || var12 == 1) {
             memset(*(void**)(var0 + 0x7c), 0, Enum_ov003_0215a740_2400);
@@ -194,10 +194,10 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
             } else {
                 *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) | 0x10;
 #if defined(jpn)
-                func_02046574((Struct_02046574_2*)var2, 0, *(char**)(var0 + 0x5a4));
+                SetMessageString_02046574((Struct_02046574_2*)var2, 0, *(char**)(var0 + 0x5a4));
 #else
                 Struct_ov003_0215a740_2 var13;
-                func_020e4bf4(&var13,
+                InitPartyMemberNoun_020e4bf4(&var13,
                     *(unsigned char*)(var0 + *(signed char*)(var0 + 0x5a1) + 0x591));
                 *(void**)(var2 + 0x10) = &var13;
 #endif
@@ -206,9 +206,9 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
                 *(unsigned char*)(var0 + 0x580) = *(unsigned char*)(var0 + 0x580) + 1;
             }
         }
-        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 0, 0);
-        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 1, 1);
-        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 2, 0);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 0, 0);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 1, 1);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 2, 0);
     }
 
     if (var3 == 4) {
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
         }
         if (func_0209ca2c(&gMusicManager_02109bf4) != 0) return;
         int var14 = *(unsigned char*)(var0 + *(signed char*)(var0 + 0x5a1) + 0x591);
-        unsigned char* var15 = (unsigned char*)(void*)func_0200ff1c(var1, var14);
+        unsigned char* var15 = (unsigned char*)(void*)GetPartyMemberBaseByIndex_0200ff1c(var1, var14);
         switch (arg2) {
         case 0x406: {
             func_02048150(var15, 0, 1);

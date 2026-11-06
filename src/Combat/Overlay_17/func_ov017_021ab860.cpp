@@ -29,7 +29,7 @@ struct Struct_02046a3c_2;
 struct Struct_02046a3c;
 extern "C" void func_02046a3c(struct Struct_02046a3c_2* arg0, struct Struct_02046a3c* arg1);
 extern "C" int func_ov017_0219ff58(GameResources* arg0, int arg1, int arg2, int arg3);
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void VectorizedMemset(void* dst, int val, int size);
 extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
 struct Queue_0201bdac_2;
@@ -160,7 +160,7 @@ extern "C" ARM int func_ov017_021ab860(int arg0, unsigned char arg1) {
             return 3;
         }
         if (var13 == 0) {
-            Struct_ov017_021ab860_4* var14 = (Struct_ov017_021ab860_4*)func_0200fd0c(var0);
+            Struct_ov017_021ab860_4* var14 = (Struct_ov017_021ab860_4*)GetZoneEntry_0200fd0c(var0);
             VectorizedMemset(var14, 0, sizeof(Struct_ov017_021ab860_4));
             var14->unknown_4_ = 1;
             var14->unknown_8_ = 1;

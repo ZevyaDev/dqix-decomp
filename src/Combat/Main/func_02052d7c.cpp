@@ -2,15 +2,12 @@
 
 
 #if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
-#if defined(jpn)
 enum { Enum_02052d7c_336 = 0x144 };
 #else
 enum { Enum_02052d7c_336 = 0x150 };
 #endif
 
-extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
+extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" void* GetFlagManager_0205ec34(void);
 
 struct Struct_02052d7c {
@@ -27,7 +24,7 @@ extern "C" ARM void func_02052d7c(struct Struct_02052d7c* arg0, int arg1, short 
 
     if (arg1 != 7 && arg1 != 8) {
         void* var2 = GetFlagManager_0205ec34();
-        func_0206df6c(var2, (unsigned char*)var2 + 0x8c, 0x113f, 1);
+        SetFlag_0206df6c(var2, (unsigned char*)var2 + 0x8c, 0x113f, 1);
     }
 
     var0 = arg0->unknown_150_;

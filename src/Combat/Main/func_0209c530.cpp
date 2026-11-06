@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct Struct_02109bf4_4;
+struct MusicManager_02109bf4_4;
 struct Struct_0209c3b4_2;
 
-extern "C" void func_0209c678(struct Struct_02109bf4_4* arg0, int arg1);
+extern "C" void func_0209c678(struct MusicManager_02109bf4_4* arg0, int arg1);
 extern "C" int func_0209c0f4(int arg0, int arg1);
 extern "C" void func_0209c3b4(struct Struct_0209c3b4_2* arg0, int arg1);
 extern "C" void func_0203aa80(void* arg0, int arg1);
@@ -34,7 +34,7 @@ struct Struct_0209c530 {
 extern "C" ARM void func_0209c530(struct Struct_0209c530* arg0) {
     if (arg0->unknown_b0_ != 2) return;
 
-    func_0209c678((struct Struct_02109bf4_4*)arg0, 0);
+    func_0209c678((struct MusicManager_02109bf4_4*)arg0, 0);
     arg0->unknown_b0_ = 1;
 
     if (func_0209c0f4(arg0->unknown_b8_, arg0->unknown_ba_) != 0) {
@@ -47,7 +47,7 @@ extern "C" ARM void func_0209c530(struct Struct_0209c530* arg0) {
         }
         func_0203ab6c(arg0, (void*)arg0->unknown_b8_);
         if (func_0209c140() != 0) {
-            func_0209c678((struct Struct_02109bf4_4*)arg0, 0);
+            func_0209c678((struct MusicManager_02109bf4_4*)arg0, 0);
         } else {
             func_020bc068(&arg0->unknown_bc_, 0);
             if (func_0209c6bc(arg0) == 0) {

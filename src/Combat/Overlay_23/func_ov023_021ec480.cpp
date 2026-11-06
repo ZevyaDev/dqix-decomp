@@ -16,9 +16,9 @@
 #define REG_BLDCNT_SUB 0x04001050
 
 struct GameResources;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct Struct_02109bf4_2;
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 struct Struct_0201099c_3;
 
 struct Struct_ov023_021ec480_3 {
@@ -93,12 +93,12 @@ extern "C" Struct_ov023_021ec480_4* GetMessageWindow_020421a0();
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
 extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
-extern "C" void func_0205deb4(Struct_0205d81c* arg0, int arg1, int arg2);
+extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c* windowManager, int windowId, int palette);
 extern "C" void func_0209c830(Struct_02109bf4_2* arg0, int arg1);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_0209ca2c(void* arg0);
 extern "C" int func_ov023_021ed014(struct Struct_ov023_021ec480* arg0);
-extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void func_0205ebec(void* arg0);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
@@ -176,7 +176,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
         unsigned char var4[2];
         *(Struct_ov023_021ec480_2*)var4 = *(Struct_ov023_021ec480_2*)&data_ov023_021fd844[0xa];
         for (int var5 = 0; var5 < 2; var5++)
-            func_0205deb4((Struct_0205d81c*)arg0->unknown_c4_, var4[var5], 0);
+            SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_c4_, var4[var5], 0);
         func_0209c830((Struct_02109bf4_2*)gMusicManager_02109bf4, 0x40);
         arg0->unknown_432_++;
     }
@@ -205,7 +205,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
         int var7 = arg0->unknown_28_ + 1;
         if (var7 < arg0->unknown_24_)
         {
-            func_0205d6a0((Struct_0205d6a0*)arg0->unknown_c4_, 1);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_c4_, 1);
             arg0->unknown_28_ = var7;
             arg0->unknown_432_ = 1;
             func_ov023_021ecbbc(arg0);
@@ -215,7 +215,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
     }
     if (var2 == 6)
     {
-        func_0205d6a0((Struct_0205d6a0*)arg0->unknown_c4_, 0);
+        CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_c4_, 0);
         func_0205ebec(gSoundEffectManager_02108760);
         if (!(arg0->unknown_438_ & GUIDE_WINDOW_NO_DIMMING))
         {
@@ -266,7 +266,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
             unsigned char var9[2];
             *(Struct_ov023_021ec480_2*)var9 = *(Struct_ov023_021ec480_2*)&data_ov023_021fd844[4];
             for (int var10 = 0; var10 < 2; var10++)
-                func_0205deb4((Struct_0205d81c*)arg0->unknown_c4_, var9[var10], 0);
+                SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_c4_, var9[var10], 0);
         }
         func_0209c830((Struct_02109bf4_2*)gMusicManager_02109bf4, 0x40);
         arg0->unknown_432_++;
@@ -326,7 +326,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
             arg0->unknown_432_ = 0;
             return;
         }
-        func_0205d6a0((Struct_0205d6a0*)arg0->unknown_c4_, 0);
+        CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_c4_, 0);
         arg0->unknown_431_ = 2;
         arg0->unknown_432_ = 0;
     }

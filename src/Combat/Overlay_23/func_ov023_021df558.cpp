@@ -77,7 +77,7 @@ struct Struct_ov023_021ff9e0_13 {
 };
 extern "C" Struct_ov023_021ff9e0_13 data_ov023_021ff9e0;
 
-extern "C" void func_0204c684(Struct_ov023_021df558_2* arg0);
+extern "C" void InitTextWindow_0204c684(Struct_ov023_021df558_2* textWindow);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void* GetMessageWindow_020421a0();
@@ -115,7 +115,7 @@ static inline int inline_ov023_021df558(const Struct_ov023_021df558_3* arg0)
 extern "C" ARM void func_ov023_021df558(Struct_ov023_021df558_4* arg0)
 {
     Struct_ov023_021df558_2 var0;
-    func_0204c684(&var0);
+    InitTextWindow_0204c684(&var0);
     if (func_ov023_021ddc34(&var0, 0, 0, 0xe, 8))
     {
         Struct_ov023_021df558_3* var1 = arg0->unknown_4c_;

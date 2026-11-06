@@ -2,7 +2,7 @@
 #include <globaldefs.h>
 
 struct Struct_ov002_02155f4c;
-struct Struct_0205d2bc;
+struct TextWindowManager_0205d2bc;
 struct Struct_020e2834;
 struct Struct_020e28dc;
 struct Struct_020439b0;
@@ -10,7 +10,7 @@ struct Struct_020439b0;
 extern "C" void func_ov023_021e76a8(Struct_ov002_02155f4c *arg0);
 extern "C" void func_ov023_021eb4f4(char *arg0);
 extern "C" void func_ov013_02184aec(void *arg0);
-extern "C" void func_0205d2bc(Struct_0205d2bc *arg0);
+extern "C" void func_0205d2bc(TextWindowManager_0205d2bc *arg0);
 extern "C" void func_020e2d24(int *arg0, int arg1, int arg2);
 extern "C" int func_020e28dc(Struct_020e28dc *arg0);
 extern "C" void func_020e2cc4(Struct_020439b0 *arg0, int arg1);
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov002_02155f4c(Struct_ov002_02155f4c_2 *arg0) {
         func_ov013_02184aec(var0 + REGIONAL_OFFSET(0x1c20, 0x1d70));
     }
     if (*(int *) (var0 + REGIONAL_OFFSET(0x1a80, 0x1bb8)) != REGIONAL_OFFSET(0x1f, 0x1e)) {
-        func_0205d2bc((Struct_0205d2bc *) (var0 + REGIONAL_OFFSET(0xe20, 0xec8)));
+        func_0205d2bc((TextWindowManager_0205d2bc *) (var0 + REGIONAL_OFFSET(0xe20, 0xec8)));
     }
     if (arg0->unknown_0_[0] != 0) {
         if (*(char **) (var0 + REGIONAL_OFFSET(0x2298, 0x2468)) == 0) {

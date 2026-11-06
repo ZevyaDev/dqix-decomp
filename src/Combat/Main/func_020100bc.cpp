@@ -2,7 +2,7 @@
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 
-// USA: func_020100bc
-extern "C" ARM void* func_020100bc(GameState* arg0) {
-    return arg0->pCamera_3b0_;
+// USA: GetCamera_020100bc
+extern "C" ARM void* GetCamera_020100bc(GameState* gameState) {
+    return gameState->pCamera_3b0_;
 }

@@ -5,7 +5,7 @@ extern "C" int func_ov017_021c9d2c(int arg0, int arg1, int arg2, int arg3, int a
 
 // USA: func_ov000_0217616c
 extern "C" ARM void func_ov000_0217616c(char* arg0) {
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), *(int*)(arg0 + 0x4c));
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), *(int*)(arg0 + 0x4c));
     if (var0 == 0) {
         return;
     }

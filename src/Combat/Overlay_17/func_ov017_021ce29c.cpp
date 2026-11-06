@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021ce29c {
 	unsigned char unknown_0_;
@@ -18,7 +18,7 @@ extern "C" ARM void func_ov017_021ce29c(void) {
 #else
  enum {Enum_ov017_021ce29c_2864=0xb30};
 #endif
-	void* var0 = func_0202ae24();
+	void* var0 = GetLocalWirelessPacketQueue_0202ae24();
 	int var1 = (int)GetGameResources();
 	unsigned char* var2 = *(unsigned char**)((char*)var1 + 0x3000 + Enum_ov017_021ce29c_2864);
 
@@ -28,5 +28,5 @@ extern "C" ARM void func_ov017_021ce29c(void) {
 	for (int var5 = 0; var5 < 4; var5++) {
 		var4[var5] = *(unsigned char*)(var2 + var5 + 0x1b);
 	}
-	func_0205e330(var0, &var3, 0);
+	QueueOutgoingPacket_0205e330(var0, &var3, 0);
 }

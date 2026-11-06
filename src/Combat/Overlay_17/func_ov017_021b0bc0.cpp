@@ -22,7 +22,7 @@ extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c
 extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
 extern "C" signed char func_02039888(void*);
-extern "C" void func_02033874(Struct_02033834*, int);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_020120d4(unsigned char*, unsigned char);
 extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
 extern "C" void func_0201206c(void*, int);
@@ -33,7 +33,7 @@ extern "C" void func_0206e70c(char*);
 extern "C" void func_0206df14(unsigned char*);
 extern "C" float func_020103e8(GameState*);
 extern "C" void func_ov017_0219bcac(unsigned char);
-extern "C" unsigned char* func_0200fd0c(GameState*);
+extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void* func_02094d6c();
 extern "C" void* func_020965f8();
 extern "C" void* func_020de824(void*);
@@ -198,7 +198,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
             if (var16 != 0 && !(var17->obj3D_.classFlags_0_ & 0x1000)) {
                 continue;
             }
-            func_02033874((Struct_02033834*)var17, *var12);
+            SetFacingInstantly_02033874((Struct_02033834*)var17, *var12);
         }
         ClearFlags00(var6, 0x40);
 
@@ -245,7 +245,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
         var22->dayNightTimer_ = var5->GetDayTimer();
         var22->timeOfDayIndex_ = var5->GetTimeOfDay();
         func_ov017_0219bcac(1);
-        func_0200fd0c(var5)[0xa] = 0;
+        GetZoneEntry_0200fd0c(var5)[0xa] = 0;
         func_02094d6c();
         func_020965f8();
 

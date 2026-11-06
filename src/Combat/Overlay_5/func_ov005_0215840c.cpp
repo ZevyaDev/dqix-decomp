@@ -43,7 +43,7 @@ struct Struct_ov005_02153954 {
 extern "C" const unsigned char data_ov005_0215cc0c[];
 
 extern "C" int func_02052df8(Struct_02052df8* arg0, int arg1);
-extern "C" Struct_ov005_021556e4* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
+extern "C" Struct_ov005_021556e4* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" Struct_ov005_0215840c_2* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_02052d7c(Struct_02052df8* arg0, int arg1, short arg2);
 extern "C" void func_0208358c(Struct_ov005_0215840c_2* arg0, Struct_ov005_021556e4* arg1, int arg2);
@@ -53,7 +53,7 @@ extern "C" int func_0207c378(void* arg0, int arg1, int arg2, int arg3);
 // USA: func_ov005_0215840c
 extern "C" ARM int func_ov005_0215840c(Struct_ov005_02153954* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    Struct_02052df8* var1 = (Struct_02052df8*)func_0200ff1c(var0, arg1);
+    Struct_02052df8* var1 = (Struct_02052df8*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (var1 == NULL)
         return 0;
     int var2 = 0;
@@ -61,7 +61,7 @@ extern "C" ARM int func_ov005_0215840c(Struct_ov005_02153954* arg0, int arg1) {
     for (int var4 = 0; var4 < 7; var4++) {
         unsigned char var5 = data_ov005_0215cc0c[var4];
         int var6 = func_02052df8(var1, var5);
-        Struct_ov005_021556e4* var7 = func_020dedd0(arg0->unknown_df4_, var6);
+        Struct_ov005_021556e4* var7 = FindItemData_020dedd0(arg0->unknown_df4_, var6);
         if (var7 == NULL)
             continue;
         unsigned int var8[2];
@@ -77,7 +77,7 @@ extern "C" ARM int func_ov005_0215840c(Struct_ov005_02153954* arg0, int arg1) {
         }
         func_02052d7c(var1, var5, -1);
         Struct_ov005_0215840c_2* var11 = GetPartyMemberData_02053c6c((unsigned char*)var1);
-        Struct_ov005_021556e4* var12 = func_020dedd0(arg0->unknown_df4_, var9);
+        Struct_ov005_021556e4* var12 = FindItemData_020dedd0(arg0->unknown_df4_, var9);
         if (var12 != NULL)
             func_0208358c(var11, var12, var10);
         else

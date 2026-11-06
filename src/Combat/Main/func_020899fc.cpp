@@ -8,7 +8,7 @@ struct Struct_0201c3a4 {
     void* unknown_4_;
 };
 
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 
 struct Struct_020899fc {
     char unknown_0_[0xc];
@@ -35,7 +35,7 @@ extern "C" ARM int func_020899fc(struct Struct_0201c3a4* arg0) {
         char* var4 = (char*)(void*)((Script::Parameter*)arg0)->ToString();
         arg0++;
 
-        int var5 = func_020d2ff0(var4);
+        int var5 = GetStringLength_020d2ff0(var4);
         char* var6 = (char*)data_02108efc.unknown_c_->Allocate(var5 + 1);
         var1[var3] = var6;
         memset(var1[var3], 0, var5 + 1);

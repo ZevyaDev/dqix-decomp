@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
+extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 
 struct Struct_0206e558 {
     unsigned char unknown_0_[3];
@@ -41,7 +41,7 @@ extern "C" ARM int func_0206e558(struct Struct_0206e558_2* arg0) {
             if (var4 > var5) {
                 continue;
             }
-            if (var0 == 0 && func_02001aec(var2, var3, sizeof(struct Struct_0206e558)) != 0) {
+            if (var0 == 0 && CompareBytes_02001aec(var2, var3, sizeof(struct Struct_0206e558)) != 0) {
                 var0 = 1;
             }
             var2->unknown_0_[0] = var3->unknown_0_[0];
@@ -74,14 +74,14 @@ extern "C" ARM int func_0206e558(struct Struct_0206e558_2* arg0) {
         }
 
         if (var0 == 0) {
-            if (func_02001aec(arg0->unknown_8c_, arg0->unknown_3c0_, 0x42) != 0) {
+            if (CompareBytes_02001aec(arg0->unknown_8c_, arg0->unknown_3c0_, 0x42) != 0) {
                 var0 = arg0->unknown_404_;
             }
         }
         memcpy(arg0->unknown_8c_, arg0->unknown_3c0_, 0x42);
 
         if (var0 == 0) {
-            if (func_02001aec(arg0->unknown_323_, arg0->unknown_40c_, 0xf) != 0) {
+            if (CompareBytes_02001aec(arg0->unknown_323_, arg0->unknown_40c_, 0xf) != 0) {
                 var0 = 1;
             }
         }

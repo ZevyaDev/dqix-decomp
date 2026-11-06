@@ -75,7 +75,7 @@ extern char data_ov000_02183ff4[];
 extern "C" ARM void func_ov000_02170db0(struct Struct_ov000_02170db0_3* arg0) {
     struct Struct_ov000_02170cf8* var0 = func_ov000_02170cf8(arg0, arg0->unknown_26_);
     struct Struct_ov000_02170db0* var1 = func_ov000_02171d90(arg0, arg0->unknown_2c_);
-    GameObject* var2 = func_0200ff1c(GameState::GetInstance(), arg0->unknown_4c_);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_4c_);
     if (var2 == NULL) {
         return;
     }

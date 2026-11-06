@@ -39,7 +39,7 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_0206e558(void* arg0);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
     GameResources* var0 = GetGameResources();
     GameState* var1 = GameState::GetInstance();
     char* var2 = (char*)GetParty_02010828(var1);
-    char* var3 = (char*)func_0200fd0c(var1);
+    char* var3 = (char*)GetZoneEntry_0200fd0c(var1);
     void* var4 = GetLocalWireless_0202ae18();
     char* var5 = (char*)GetZone3D_02012fe4();
     unsigned char* var6 = (unsigned char*)GetFlagManager_0205ec34();

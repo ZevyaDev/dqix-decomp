@@ -14,7 +14,7 @@ struct Struct_ov000_02182b04 {
     Struct_ov000_0215767c_9* unknown_14_;
 };
 
-extern "C" int func_ov000_0215e9fc(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
 
 static inline int inline_ov000_02181b4c(int arg0)
 {
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov000_02181b4c(void* arg0, Struct_ov000_02182b04* arg1, 
             if (var5) {
                 if (inline_ov000_02181b4c(var4)) {
                     short var8[4];
-                    var0 = func_ov000_0215e9fc(arg0, var8, 4, 0);
+                    var0 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0, var8, 4, 0);
                     var6 = arg2;
                     short* var9 = var8;
                     int var10;

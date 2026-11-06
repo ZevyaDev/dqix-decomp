@@ -31,7 +31,7 @@ extern const char data_ov002_0216d26c[];
 extern "C" void func_02046608(void*, int, int, int, int, int, int);
 extern "C" int func_02041cc0(char*, int);
 #endif
-extern "C" void func_0205d304(void*, const char*, int, unsigned char, unsigned char, unsigned char, void*
+extern "C" void OpenTextWindow_0205d304(void*, const char*, int, unsigned char, unsigned char, unsigned char, void*
 #if !defined(jpn)
                             , unsigned char
 #endif
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov002_0215c028(char* arg0) {
     func_02046608(var1, 8, ((int)(data_ov002_0216d26c)), ((int)(var0->unknown_1bd0_)), 0x100, 0, 0);
     func_02041cc0(var0->unknown_1bd0_, 0x11);
 #endif
-    func_0205d304(&var0->unknown_ec8_, var0->unknown_1bd0_, 0, 0, 0, 1, 0
+    OpenTextWindow_0205d304(&var0->unknown_ec8_, var0->unknown_1bd0_, 0, 0, 0, 1, 0
 #if !defined(jpn)
                  , 0
 #endif

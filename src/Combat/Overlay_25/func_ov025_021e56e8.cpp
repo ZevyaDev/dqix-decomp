@@ -11,7 +11,7 @@ struct Struct_ov025_021e56e8 {
 
 extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov025_021e4448(int* arg0, int arg1, int arg2, int arg3);
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f14(void* arg0);
 extern "C" int func_0202e800(void* arg0);
 
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov025_021e56e8(struct Struct_ov025_021e56e8* arg0, int a
     if (arg0->unknown_9_ == 0) {
         func_ov025_021e4448((int*)&var3, 0x10a, 0x10a, 0x10a);
     } else if (arg0->unknown_9_ == 2) {
-        void* var4 = func_ov000_02160f14(func_ov000_02160130());
+        void* var4 = func_ov000_02160f14(GetBattleScene_ov000_02160130());
         float var5 = 0.065f;
         float var6 = 0.08f;
         float var7 = 6.5f;

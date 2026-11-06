@@ -6,7 +6,7 @@ struct Struct_ov023_021dbb34;
 struct Struct_ov023_021dbc58_2;
 struct Struct_ov023_021e257c;
 
-extern "C" void func_0204c684(void* arg0);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" void func_ov023_021db45c(void* arg0, struct Struct_ov023_021db45c* arg1, int arg2, short* arg3, short* arg4);
 extern "C" void* func_ov023_021db4e4(void* arg0, int arg1);
@@ -127,7 +127,7 @@ struct Struct_ov023_021ddf5c_4 {
 extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
     char var0[0xe0];
     unsigned char var1;
-    func_0204c684(var0);
+    InitTextWindow_0204c684(var0);
     if (!func_ov023_021ddc34(var0, 0, 0, 0x14, 9)) return;
 
     if (arg0->unknown_77a_ < 0) {

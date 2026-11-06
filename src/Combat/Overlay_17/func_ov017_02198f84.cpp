@@ -52,7 +52,7 @@ extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
 extern "C" void func_0206f81c(void* arg0);
 extern "C" void func_ov017_021ab250(struct Struct_ov017_021ab250* arg0);
-extern "C" Struct_ov017_02198f84* func_0200fd0c(GameState* arg0);
+extern "C" Struct_ov017_02198f84* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void func_ov017_021ab698(char* arg0, int arg1);
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov017_02198f84(Struct_ov017_02198f84_3* arg0) {
             func_02018300(var0, var2, 1, 1, 1);
             if ((var2->unknown_2c_.unknown1_0_.unknown_2_4_ & 8) && var2->unknown_2c_.unknown1_0_.unknown_4_ != 0) {
                 func_ov017_021ab250(arg0->unknown_3b10_);
-                Struct_ov017_02198f84* var6 = func_0200fd0c(GameState::GetInstance());
+                Struct_ov017_02198f84* var6 = GetZoneEntry_0200fd0c(GameState::GetInstance());
                 if (var6->unknown_2_ != 0) {
                     var2->unknown_2c_.unknown1_0_.unknown_4_ = var6->unknown_0_;
                     var2->unknown_2c_.unknown1_0_.unknown_c_[0] = var6->unknown_10_;

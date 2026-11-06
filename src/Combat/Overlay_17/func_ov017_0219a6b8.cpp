@@ -11,7 +11,7 @@ struct Struct_0203402c;
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
-extern "C" int func_02046b08(void**);
+extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" int func_02046b24(Struct_02015438**);
 extern "C" int func_02046708(Struct_02012de8*, unsigned int);
 extern "C" unsigned char* func_0200ffc0(Struct_0200ffc0*);
@@ -19,10 +19,10 @@ extern "C" int func_020535c8(signed char*);
 extern "C" int func_0203402c(Struct_0203402c*);
 extern "C" unsigned char func_02039d7c(char*);
 extern "C" void __clear(void*, int);
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020a7f40(unsigned char*);
 extern "C" void func_020a7f34(unsigned char*);
-extern "C" void func_020397c0(void*);
+extern "C" void EnablePlayerControl_020397c0(void*);
 
 // USA: func_ov017_0219a6b8
 extern "C" ARM void func_ov017_0219a6b8(GameResources* arg0) {
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov017_0219a6b8(GameResources* arg0) {
     GetMessageWindow_020421a0();
     unsigned short var2 = GetZone3D_02012fe4()->currentZoneID_;
     Struct_02012de8* var3 = GetGlobalFlags_020d6c00();
-    if (!func_02046b08((void**)arg0->unknown_ptr_array_36fc[0])) return;
+    if (!IsQueueEmpty_02046b08((void**)arg0->unknown_ptr_array_36fc[0])) return;
     if (func_02046b24((Struct_02015438**)(void**)arg0->unknown_ptr_array_36fc[0]) == 2) return;
     if (func_02046708(var3, 0x800)) return;
     GameObject* var4 = var0->GetUnknownGameObject();
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_0219a6b8(GameResources* arg0) {
             int var10, var11;
             g_touchInput.GetTouchPoint(&var10, &var11);
             if (arg0->unknown_3634_[var7] < var10 && var10 < arg0->unknown_3634_[var7] + var8 && arg0->unknown_3646_[var7] < var11 && var11 < arg0->unknown_3646_[var7] + var9) {
-                func_020397cc((Struct_02018300_3*)var4, 1);
+                DisablePlayerControl_020397cc((Struct_02018300_3*)var4, 1);
                 if (var1 && var2 == 0x2710) func_020a7f40(var1);
                 arg0->unknown_3658_[var7] = 1;
             }
@@ -74,17 +74,17 @@ extern "C" ARM void func_ov017_0219a6b8(GameResources* arg0) {
             }
         } else if (g_touchInput.released_) {
             if (arg0->unknown_3658_[var7]) {
-                func_020397c0(var4);
+                EnablePlayerControl_020397c0(var4);
                 if (var1 && var2 == 0x2710) func_020a7f34(var1);
             }
             if (arg0->unknown_3658_[var7] == 1) {
                 arg0->unknown_42e3_[1] = 1;
-                func_020397c0(var4);
+                EnablePlayerControl_020397c0(var4);
                 if (var1 && var2 == 0x2710) func_020a7f34(var1);
             }
             arg0->unknown_3658_[var7] = 0;
         } else if (arg0->unknown_3658_[var7]) {
-            func_020397c0(var4);
+            EnablePlayerControl_020397c0(var4);
             if (var1 && var2 == 0x2710) func_020a7f34(var1);
             arg0->unknown_3658_[var7] = 0;
         }

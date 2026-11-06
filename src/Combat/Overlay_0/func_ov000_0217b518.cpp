@@ -64,7 +64,7 @@ struct Struct_ov000_0217b518_3 {
 extern Struct_ov000_02184294_4 data_ov000_02184294;
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
-extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" void func_0205def8(struct Struct_0205def8* arg0, int arg1, int arg2);
 struct Struct_0205da38;
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
@@ -85,7 +85,7 @@ extern "C" ARM int func_ov000_0217b518(Struct_ov000_0217b518_3* arg0, int arg1, 
     Enum_ov000_0217b518 var1;
     data_ov000_02184294.unknown_0_->unknown_1d72_ |= 0x100;
     const signed char var2 = arg0->inline_ov000_0217b518();
-    var1 = (Enum_ov000_0217b518)(signed char)func_0205d794((struct Struct_0205c570*)arg0->unknown_38_);
+    var1 = (Enum_ov000_0217b518)(signed char)GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_38_);
     arg0->unknown_20_ = var1;
     {
     var0 = data_ov000_02184294.inline_ov000_0217b518_2();
@@ -133,7 +133,7 @@ extern "C" ARM int func_ov000_0217b518(Struct_ov000_0217b518_3* arg0, int arg1, 
     signed char var9;
     data_ov000_02184294.unknown_8_->unknown_1d72_ |= 0x100;
     var9 = arg0->unknown_20_;
-    var7 = func_0205d794((struct Struct_0205c570*)arg0->unknown_38_);
+    var7 = GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_38_);
     arg0->unknown_20_ = var7;
     var8 = data_ov000_02184294.unknown_8_;
     func_0205def8((struct Struct_0205def8*)var8->unknown1_188_, 1, 0x22);

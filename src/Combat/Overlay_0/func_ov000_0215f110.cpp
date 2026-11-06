@@ -5,12 +5,12 @@
 extern "C" int func_ov000_021537b8(char* arg0, short arg1, void* arg2);
 
 extern "C" int func_ov000_021543f4(GameObject* arg0);
-extern "C" void* func_02079e2c(char* arg0, int arg1);
+extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 
 // USA: func_ov000_0215f110
 extern "C" ARM void func_ov000_0215f110(char* arg0) {
     char* var0 = arg0;
-    Struct_02108e10* var1 = func_020797dc();
+    ActionTables_02108e10* var1 = GetActionTables_020797dc();
     int var2 = 0;
     while (var2 < *(int*)(var0 + 0x8000 + 0xe7c)) {
         char* var3 = (char*)(*(int**)(var0 + 0x8000 + 0xe78)) + var2 * 0x28;
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov000_0215f110(char* arg0) {
         }
         if (!func_ov000_021543f4(var6)) {
             short var7 = *(short*)var3;
-            void* var8 = func_02079e2c((char*)var1, var7);
+            void* var8 = FindActionData_02079e2c((char*)var1, var7);
             if (var8 != NULL) {
                 unsigned int var9 = *(unsigned int*)((char*)var8 + 8);
                 if (((var9 << 3) >> 31) != 0) {

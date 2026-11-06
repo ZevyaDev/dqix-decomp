@@ -11,8 +11,8 @@ extern "C" void func_ov000_0215a8d4(unsigned char*, int);
 extern "C" short func_ov000_0215a16c(void*, int, int, short*);
 extern "C" unsigned short func_ov024_021e9b24(Struct_ov024_021db3a4*, int, Struct_ov024_021db3a4_3*, int);
 extern "C" unsigned long long func_ov024_021e4b14(Struct_ov024_021db3a4*, short, int, Struct_ov024_021db3a4_3*, int);
-extern "C" void* func_ov000_0215e958(void*);
-extern "C" void func_ov000_0215a88c(void*, void*, int);
+extern "C" void* GetNextActionResult_ov000_0215e958(void*);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 extern "C" void func_ov000_02159eac(void*, void*, int);
 extern "C" void func_ov000_0215ccbc(void*, void*, GameObject*, short, short, short, unsigned long long, unsigned char);
 struct Struct_ov024_021db3a4_4 { char unknown_0_[0x1c]; unsigned char unknown_1c_0_:7; unsigned char unknown_1c_7_:1; };
@@ -37,16 +37,16 @@ extern "C" ARM void* func_ov024_021db3a4(Struct_ov024_021db3a4* arg0, short arg1
     var7.unknown_0_ = 0;
     var7.unknown_4_ = 0;
     var7.unknown1_0_ = func_ov024_021e4b14(arg0, arg1, arg2, arg3, arg4);
-    void* var8 = func_ov000_0215e958(arg0->unknown_10_);
+    void* var8 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var8) return 0;
     if (var3 > 0) arg0->unknown_14_++;
     else if (var7.unknown1_0_ != 0) arg0->unknown_14_++;
     if (var5) {
-        if (var7.unknown1_0_ == 0) func_ov000_0215a88c(arg0->unknown_10_, var8, var6);
-        else func_ov000_0215a88c(arg0->unknown_10_, var8, 0);
+        if (var7.unknown1_0_ == 0) AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var8, var6);
+        else AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var8, 0);
     } else {
         func_ov000_02159eac(arg0->unknown_10_, &var7, 0x25);
-        func_ov000_0215a88c(arg0->unknown_10_, var8, var6);
+        AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var8, var6);
     }
     unsigned short var9 = var0->currentStats_->primaryStats.currMP;
     unsigned char var10;

@@ -22,7 +22,7 @@ extern "C" int func_ov024_021f6f10(void* arg0);
 extern "C" int func_ov004_02167908(void* arg0, int arg1);
 struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9 { char unknown_0_[4]; int unknown_4_; };
-extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void func_ov023_021f809c(void* arg0, void* arg1);
 
 extern short data_ov004_0216fffa;
@@ -66,7 +66,7 @@ extern "C" ARM int func_ov004_021680cc(void* arg0) {
         *(int*)(var6 + 0x20) = 0;
         var6[0xc] |= 8;
 
-        struct ItemData_0201099c_9* var10 = func_020dedd0((struct ItemTable_0201099c_10*)var9, var7);
+        struct ItemData_0201099c_9* var10 = FindItemData_020dedd0((struct ItemTable_0201099c_10*)var9, var7);
         if (!var10) continue;
 
         *(int*)(var6 + 0x20) = var10->unknown_4_;

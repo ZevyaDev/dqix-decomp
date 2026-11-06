@@ -12,7 +12,7 @@ extern "C" void* GetZone3D_02012fe4(void);
 int fix32ReduceAngle0To2Pi(int angle);
 extern "C" void func_020399b0(GameObject* arg0, unsigned short arg1, int* arg2, int arg3);
 
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" unsigned char func_02039d7c(char* arg0);
 struct Vector3i;
 
@@ -25,7 +25,7 @@ extern "C" int func_0201e820(Struct_0201e820* arg0);
 // USA: func_ov017_0219c598
 extern "C" ARM void func_ov017_0219c598(int* arg0, short* arg1, int arg2) {
     GameState* var0 = GameState::GetInstance();
-    unsigned char* var1 = (unsigned char*)func_0200fd0c(var0);
+    unsigned char* var1 = (unsigned char*)GetZoneEntry_0200fd0c(var0);
     void* var2 = GetZone3D_02012fe4();
     ((int)GetGameResources());
     unsigned char* var3 = (unsigned char*)GetParty_02010828(var0);

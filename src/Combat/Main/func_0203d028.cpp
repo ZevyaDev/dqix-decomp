@@ -140,7 +140,7 @@ extern "C" int func_020db2d4(void* arg0);
 extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
 
 void SetMainBrightness(GameResources*, int, int);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" int func_020cede0(void);
 extern "C" int func_020cedc0(int arg0);
 
@@ -175,8 +175,8 @@ extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* 
 struct GameState;
 extern "C" void func_0200fd48(GameState*, int);
 
-struct Struct_02038598_4 { unsigned int unknown_0_; };
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+struct GlobalFlags_02038598_4 { unsigned int bits_0_; };
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 
 struct Struct_02040774 { char unknown_0_[4]; int unknown_4_; int unknown_8_; int unknown_c_; };
 struct Struct_0203d028_15 {
@@ -415,7 +415,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
                         func_020daf9c(1, 0, 1, 0);
                         SetMainBrightness(var1, ~0xf, 0);
                     }
-                    func_020466e4(var5, 0x400000);
+                    SetGlobalFlags_020466e4(var5, 0x400000);
                     if (!func_020cede0()) {
                         while (func_020cedc0(1) == 0) {
                         }
@@ -478,7 +478,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
                     var37->Reset();
                     ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)var38);
                     func_0200fd48((GameState*)var0, 5);
-                    func_020466f4((struct Struct_02038598_4*)var5, 0x400000);
+                    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var5, 0x400000);
                 }
             }
         }

@@ -15,11 +15,11 @@ extern "C" ARM void func_ov003_02160ec4(void* arg0) {
     if (!(*(int*)(var0 + Enum_ov003_02160ec4_1124) & 0x1000)) return;
     unsigned char var1 = *(unsigned char*)(var0 + Enum_ov003_02160ec4_1191);
     if (var1 == 0) {
-        FontLoader_0208cb08* var2 = func_02094a00();
-        func_02094b34(var2, 0x1f5, 0x66, 0, 0);
+        FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
+        RequestFontLoad_02094b34(var2, 0x1f5, 0x66, 0, 0);
         *(unsigned char*)(var0 + Enum_ov003_02160ec4_1191) = *(unsigned char*)(var0 + Enum_ov003_02160ec4_1191) + 1;
     } else if (var1 == 1) {
-        if (func_02094b4c(func_02094a00()) != 0) {
+        if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()) != 0) {
             *(int*)(var0 + Enum_ov003_02160ec4_1124) &= ~0x1000;
             *(unsigned char*)(var0 + Enum_ov003_02160ec4_1191) = *(unsigned char*)(var0 + Enum_ov003_02160ec4_1191) + 1;
         }

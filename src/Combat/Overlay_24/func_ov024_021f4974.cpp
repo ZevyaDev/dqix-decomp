@@ -3,7 +3,7 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "Util/Random.h"
 
-extern "C" int func_ov000_0215eb1c(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
 struct Struct_ov024_021da670_7;
 extern "C" int func_ov024_021da9b0(struct Struct_ov024_021da670_7* arg0);
 extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
@@ -15,7 +15,7 @@ extern struct Struct_ov024_021fec8c data_ov024_021fec8c;
 extern "C" ARM int func_ov024_021f4974(int* arg0, int arg1, int arg2, int* arg3, short* arg4) {
 	struct Struct_ov024_021fec8c var0 = data_ov024_021fec8c;
 
-	int var1 = func_ov000_0215eb1c(*arg0, var0.unknown_0_, 8, 1);
+	int var1 = CollectEnemyCombatantIndices_ov000_0215eb1c(*arg0, var0.unknown_0_, 8, 1);
 	if (var1 <= 0) return 0;
 
 	*arg3 = 0;

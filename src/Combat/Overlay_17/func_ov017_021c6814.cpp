@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_0202ae24(void);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021c6814 {
 	unsigned char unknown_0_;
@@ -41,7 +41,7 @@ struct Struct_ov017_021c6814_3 {
 
 // USA: func_ov017_021c6814
 extern "C" ARM void func_ov017_021c6814(unsigned short arg0, unsigned short arg1, Struct_ov017_021c6814* arg2, unsigned char arg3, signed char arg4, unsigned char arg5) {
-	void* var0 = func_0202ae24();
+	void* var0 = GetLocalWirelessPacketQueue_0202ae24();
 	Struct_ov017_021c6814_3 var1;
 	Struct_ov017_021c6814_2* var2 = &var1.unknown_4_;
 	GameState* var3 = GameState::GetInstance();
@@ -62,5 +62,5 @@ extern "C" ARM void func_ov017_021c6814(unsigned short arg0, unsigned short arg1
 	var2->unknown_e_ = arg4;
 	var2->unknown_d_1_ = arg5;
 
-	func_0205e330(var0, &var1, 0);
+	QueueOutgoingPacket_0205e330(var0, &var1, 0);
 }

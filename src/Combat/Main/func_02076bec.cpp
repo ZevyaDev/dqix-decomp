@@ -25,7 +25,7 @@ extern "C" ARM int func_02076bec(GameObject* arg0, void* arg1) {
     }
 
     GameState* var2 = GameState::GetInstance();
-    void* var3 = func_020100bc(var2);
+    void* var3 = GetCamera_020100bc(var2);
 
     Vector3i var4 = arg0->obj3D_.position_;
     var4.y = *(int*)(var0 + 0x170);

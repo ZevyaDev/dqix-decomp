@@ -8,7 +8,7 @@ enum { Enum_0209dbfc_9196 = 0x23EC };
 #endif
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" int func_ov017_021d6134(void*, int);
+extern "C" int SetScriptRefInt_ov017_021d6134(void*, int);
 
 // USA: func_0209dbfc
 extern "C" ARM int func_0209dbfc(void* arg0) {
@@ -17,6 +17,6 @@ extern "C" ARM int func_0209dbfc(void* arg0) {
     DetailedTreasureMapData* var1 = var0->GetDetailedData();
     if (var1 == NULL) return 0;
     if (var1->mapType_ != 1) return 0;
-    func_ov017_021d6134(arg0, var1->regular_.localeRank_);
+    SetScriptRefInt_ov017_021d6134(arg0, var1->regular_.localeRank_);
     return 1;
 }

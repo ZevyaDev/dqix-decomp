@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void* func_ov001_0215ab20(int);
 extern "C" int fix32_Atan2(int arg0, int arg1);
 int fix32ReduceAngle0To2Pi(int angle);
@@ -16,10 +16,10 @@ extern "C" void func_ov001_0215a480(void* arg0, struct Struct_ov001_0215a480 arg
 
 // USA: func_ov001_0215c5fc
 extern "C" ARM int func_ov001_0215c5fc(void* arg0, int arg1) {
-    int var0 = func_ov017_021d60f4(arg0);
+    int var0 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     void* var1 = func_ov001_0215ab20(var0);
     if (var1 == NULL) return 0;
-    int var2 = func_ov017_021d60f4((char*)arg0 + 0x8);
+    int var2 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8);
     void* var3 = func_ov001_0215ab20(var2);
     if (var3 == NULL) return 0;
 
@@ -29,10 +29,10 @@ extern "C" ARM int func_ov001_0215c5fc(void* arg0, int arg1) {
     memcpy(&var6, (char*)var1 + 0x80, sizeof(var6));
     var6.unknown_4_ = fix32ReduceAngle0To2Pi(fix32_Atan2(var4, var5));
 
-    unsigned int var7 = func_ov017_021d60f4((char*)arg0 + 0x10);
+    unsigned int var7 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x10);
     unsigned int var8;
     if (arg1 >= 4) {
-        var8 = func_ov017_021d60f4((char*)arg0 + 0x18);
+        var8 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x18);
     } else {
         short var9 = (short)(*(int*)((char*)var1 + 0x84)) - (short)var6.unknown_4_;
         if (fix32abs(var9) > 0x3244) {

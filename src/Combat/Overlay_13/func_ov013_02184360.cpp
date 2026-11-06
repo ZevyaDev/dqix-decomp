@@ -13,11 +13,11 @@ extern "C" ARM void func_02074af4(struct Struct_02074af4* arg0);
 struct Struct_0205cfd4;
 extern "C" ARM void func_0205cfd4(struct Struct_0205cfd4* arg0);
 extern "C" ARM void func_0205c790(char* arg0);
-struct Struct_02020cb8;
-extern "C" ARM void func_0204af64(struct Struct_02020cb8* arg0);
-extern "C" void func_0204c684(void* arg0);
-struct Struct_0201099c_14;
-extern "C" ARM void func_020dfc40(Struct_0201099c_14* arg0);
+struct BGLayer_02020cb8;
+extern "C" ARM void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
+struct StringTable_0201099c_14;
+extern "C" ARM void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 
 struct Struct_ov013_02184360 { unsigned int unknown_0_[20]; };
 struct Struct_ov013_02184360_2 { unsigned int unknown_0_[16]; };
@@ -80,14 +80,14 @@ extern "C" ARM void func_ov013_02184360(void* arg0, void* arg1) {
     }
 
     for (int var6 = 0; var6 < 2; var6++) {
-        func_0204af64((Struct_02020cb8*)(var0 + R(0xf0, 0xf4) + var6 * 0x20));
+        InitBGLayer_0204af64((BGLayer_02020cb8*)(var0 + R(0xf0, 0xf4) + var6 * 0x20));
     }
     for (int var7 = 0; var7 < 3; var7++) {
-        func_0204c684((void*)(var0 + R(0x130, 0x134) + var7 * 0xe0));
+        InitTextWindow_0204c684((void*)(var0 + R(0x130, 0x134) + var7 * 0xe0));
     }
 
     ((SafeAllocator*)(var0 + R(0x598, 0x60c)))->ResetAllocatorPointer();
-    func_020dfc40((Struct_0201099c_14*)(var0 + R(0x5ac, 0x620)));
+    InitStringTable_020dfc40((StringTable_0201099c_14*)(var0 + R(0x5ac, 0x620)));
     ((SafeAllocator*)var0)->ResetAllocatorPointer();
 
     for (int var8 = 0; var8 < 3; var8++) {

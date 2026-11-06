@@ -20,7 +20,7 @@ static inline unsigned short inline_ov024_021dc700(GameObject* arg0) {
 
 // USA: func_ov024_021eb344
 extern "C" ARM int func_ov024_021eb344(void* arg0, int arg1, int arg2) {
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg1);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1);
     if (var0 == 0) return 0;
     if (arg2 <= 0) return 0;
     unsigned short var1 = inline_ov024_021dc700(var0);

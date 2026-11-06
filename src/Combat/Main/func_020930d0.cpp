@@ -7,7 +7,7 @@ struct Struct_02092cd0;
 
 extern "C" void func_02092d60(void* arg0, int arg1);
 extern "C" int func_020457e0(char* arg0);
-extern "C" unsigned char* func_ov017_021b8478(void* arg0);
+extern "C" unsigned char* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" void func_02094030(int* arg0, short arg1, short arg2, int arg3);
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -113,7 +113,7 @@ extern "C" ARM void func_020930d0(struct Struct_02092cd0* arg0) {
             } else {
                 var15 = 6;
                 if (func_02046b60(var8, 10)) {
-                    if (var12 == func_020a35f8(func_ov017_021b8478(var0->unknown_ptr_3718)) && var16 + var17 == 4) arg0->unknown_3b_ = 1;
+                    if (var12 == func_020a35f8(GetBattleSetup_ov017_021b8478(var0->unknown_ptr_3718)) && var16 + var17 == 4) arg0->unknown_3b_ = 1;
                 }
             }
             arg0->unknown_30_ = var15;

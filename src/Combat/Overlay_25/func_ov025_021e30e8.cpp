@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 
 struct Struct_ov025_021ef9a8 { int unknown_0_; int unknown_4_; int unknown_8_; int unknown_c_; int unknown_10_; int unknown_14_; };
 extern "C" void func_ov025_021e3158(struct Struct_ov025_021ef9a8* arg0);
@@ -21,7 +21,7 @@ extern "C" ARM int func_ov025_021e30e8(struct Struct_ov025_021e30e8* arg0) {
     GameState* var0 = GameState::GetInstance();
     if (arg0->unknown_8_ <= *(unsigned int*)((char*)&data_ov025_021ef988 + 0x34)) {
         if (arg0->unknown_c_ != 0) {
-            void* var1 = func_ov000_02160130();
+            void* var1 = GetBattleScene_ov000_02160130();
             *(int*)((char*)var1 + Enum_ov025_021e30e8_28624) = arg0->unknown_8_;
         }
         func_ov025_021e3158(&data_ov025_021ef9a8);

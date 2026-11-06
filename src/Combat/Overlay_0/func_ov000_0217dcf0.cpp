@@ -10,12 +10,12 @@ enum { Enum_ov000_0217dcf0_7520 = 0x1d60, Enum_ov000_0217dcf0_7528 = 0x1d68,
 #endif
 
 struct Struct_0205c570;
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 struct SoundEffectManager_02108760;
 
-extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" int func_ov000_0217c5f4(void* arg0);
 extern "C" int func_ov000_0217c594(void* arg0, int arg1);
 extern "C" void func_ov000_02176e3c(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
@@ -44,7 +44,7 @@ struct Struct_ov000_0217dcf0_2 {
 // USA: func_ov000_0217dcf0
 extern "C" ARM void func_ov000_0217dcf0(char* arg0, int arg1, int arg2) {
     *(unsigned short*)(arg0 + Enum_ov000_0217dcf0_7538) |= 0x100;
-    *(unsigned char*)(arg0 + Enum_ov000_0217dcf0_7531) = func_0205d794((struct Struct_0205c570*)(arg0 + 0x188));
+    *(unsigned char*)(arg0 + Enum_ov000_0217dcf0_7531) = GetCursorIndex_0205d794((struct Struct_0205c570*)(arg0 + 0x188));
     if (func_ov000_0217c594(arg0, 0)) {
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
         GameState* var0 = GameState::GetInstance();
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov000_0217dcf0(char* arg0, int arg1, int arg2) {
             }
         }
     } else if (func_ov000_0217c5f4(arg0)) {
-        func_0205d6a0((struct Struct_0205d6a0*)(arg0 + 0x188), 0);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(arg0 + 0x188), 0);
         *(unsigned char*)(arg0 + *(signed char*)(arg0 + Enum_ov000_0217dcf0_7528) + Enum_ov000_0217dcf0_7520) = 0;
         *(signed char*)(arg0 + Enum_ov000_0217dcf0_7528) = *(signed char*)(arg0 + Enum_ov000_0217dcf0_7528) - 1;
         func_ov000_0217c638(arg0, arg1, arg2);

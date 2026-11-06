@@ -40,7 +40,7 @@ extern "C" struct Struct_02017a94* func_0201b600(Struct_02017a94* arg0, int arg1
 extern "C" void func_02013380(struct Struct_02013380* arg0, int arg1, int arg2);
 extern "C" void func_0201b8c8(struct Struct_02017a94* arg0, int arg1, int arg2, int arg3);
 extern "C" void* func_0201b754(void* arg0, int arg1);
-extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 
 // USA: func_020a72ac
 extern "C" ARM void func_020a72ac(struct Struct_020a72ac_3* arg0) {
@@ -65,7 +65,7 @@ extern "C" ARM void func_020a72ac(struct Struct_020a72ac_3* arg0) {
                 if (var5) {
                     var2->position_ = var5->unknown_8_;
                     reinterpret_cast<Struct_020a72ac*>(var2)->unknown_144_ = var5->unknown_8_;
-                    func_02033874((struct Struct_02033834*)var2, var5->unknown_20_);
+                    SetFacingInstantly_02033874((struct Struct_02033834*)var2, var5->unknown_20_);
                 }
             }
         } else {

@@ -13,9 +13,9 @@ struct Struct_ov003_02166fc4_2 {
 };
 struct Struct_0204b010;
 extern "C" void func_0204b010(Struct_0204b010*, void*);
-extern "C" void func_0204bc74(void*,int,int,int,int,int,int);
-struct Struct_0204b8d0;
-extern "C" void func_0204b8d0(Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" void FillBGScreenRect_0204bc74(void*,int,int,int,int,int,int);
+struct BGLayer_0204b8d0;
+extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 extern "C" void func_0204b04c(void*,int);
 // USA: func_ov003_02166fc4
 extern "C" ARM void func_ov003_02166fc4(Struct_ov003_02166fc4_2* arg0) {
@@ -23,27 +23,27 @@ extern "C" ARM void func_ov003_02166fc4(Struct_ov003_02166fc4_2* arg0) {
  if((arg0->unknown_464_&0x80000) || (arg0->unknown_464_&0x100000) || (arg0->unknown_464_&0x200000) || (arg0->unknown_464_&0x800000)) {
   func_0204b010((Struct_0204b010*)var0->unknown_40_, 0);
   if(arg0->unknown_464_&0x80000) {
-   func_0204bc74(var0->unknown_40_,0,0,0,32,25,0);
+   FillBGScreenRect_0204bc74(var0->unknown_40_,0,0,0,32,25,0);
    arg0->unknown_464_|=0x40000;arg0->unknown_464_&=~0x80000;
   }
   if(arg0->unknown_464_&0x100000) {
-   func_0204b8d0((Struct_0204b8d0*)var0->unknown_40_, 0, 0, 0, 0, 0, 32, 12, 0xffff);
+   CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)var0->unknown_40_, 0, 0, 0, 0, 0, 32, 12, 0xffff);
    arg0->unknown_464_|=0x40000;arg0->unknown_464_&=~0x100000;
   }
   if(arg0->unknown_464_&0x200000) {
-   func_0204b8d0((Struct_0204b8d0*)var0->unknown_40_, 1, 0, 0, 11, 0, Enum_ov003_02166fc4_21, 2, 0xffff);
+   CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)var0->unknown_40_, 1, 0, 0, 11, 0, Enum_ov003_02166fc4_21, 2, 0xffff);
    arg0->unknown_464_|=0x40000;arg0->unknown_464_&=~0x200000;
   }
   if(arg0->unknown_464_&0x400000) {
    short var1=arg0->unknown_324_->inline_ov003_02166fc4();
    short var2=var1-arg0->unknown_4bd_;
    short var3=(var2%4)*2+2;
-   func_0204b8d0((Struct_0204b8d0*)var0->unknown_40_, 2, 0, 0, 2, var3, 28, 2, 0xffff);
+   CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)var0->unknown_40_, 2, 0, 0, 2, var3, 28, 2, 0xffff);
    arg0->unknown_464_|=0x40000;arg0->unknown_464_&=~0x400000;
   }
   if(arg0->unknown_464_&0x800000) {
-   func_0204b8d0((Struct_0204b8d0*)var0->unknown_40_, 3, 0, 0, 3, 10, 1, 2, 0xffff);
-   func_0204b8d0((Struct_0204b8d0*)var0->unknown_40_, 4, 0, 0, 28, 10, 1, 2, 0xffff);
+   CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)var0->unknown_40_, 3, 0, 0, 3, 10, 1, 2, 0xffff);
+   CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)var0->unknown_40_, 4, 0, 0, 28, 10, 1, 2, 0xffff);
    arg0->unknown_464_|=0x40000;arg0->unknown_464_&=~0x800000;
   }
   if(arg0->unknown_464_&0x40000) func_0204b04c(var0->unknown_40_,0);

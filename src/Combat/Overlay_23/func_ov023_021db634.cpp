@@ -85,7 +85,7 @@ extern "C" Struct_ov023_021ff9e0 data_ov023_021ff9e0;
 extern "C" const short data_ov023_021fd5b8[3];
 
 extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
-extern "C" const char* func_020e51cc(int arg0);
+extern "C" const char* GetStandardString_020e51cc(int stringId);
 extern "C" Struct_ov023_021db634_2* func_ov023_021db4e4(Struct_ov023_021db634_3* arg0, int arg1);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
@@ -146,7 +146,7 @@ extern "C" ARM void func_ov023_021db634(Struct_ov023_021db634_3* arg0, Struct_ov
     var3 = data_ov023_021fcdfe;
 #else
     var2 = FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x2a);
-    var3 = func_020e51cc(0x56);
+    var3 = GetStandardString_020e51cc(0x56);
 #endif
 
     SHOW_ELEMENT(arg0, 0xf);

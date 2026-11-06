@@ -48,8 +48,8 @@ struct Struct_020e90a8 { int unknown_0_[8]; };
 
 extern "C" char* GetZone3D_02012fe4();
 extern "C" struct Struct_02038138_3* func_ov017_0218d268(void*);
-extern "C" int func_02046b08(void** arg0);
-extern "C" void func_02033b88(struct Struct_02010604*, int);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
+extern "C" void SetMotion_02033b88(struct Struct_02010604*, int);
 extern "C" void func_02033b68(struct Struct_02033b68*, int);
 extern "C" void func_02033b58(struct Struct_02033b58*, unsigned char);
 extern "C" int func_0202e7f0(void*);
@@ -73,7 +73,7 @@ extern "C" ARM void func_020a78dc(struct Struct_020a78dc* arg0) {
     struct Struct_02038138_3* var3;
     void** var4;
 
-    var1 = func_020100bc(GameState::GetInstance());
+    var1 = GetCamera_020100bc(GameState::GetInstance());
     var2 = (char*)GetGameResources();
 #if defined(jpn)
     enum { Enum_020a78dc_14076 = 0x34ec, Enum_020a78dc_108 = 0x8c };
@@ -133,7 +133,7 @@ extern "C" ARM void func_020a78dc(struct Struct_020a78dc* arg0) {
         }
     }
 
-    if (arg0->unknown_154_ == 0 || func_02046b08(var4) == 0) {
+    if (arg0->unknown_154_ == 0 || IsQueueEmpty_02046b08(var4) == 0) {
         arg0->unknown_134_ = 0;
     }
 
@@ -142,7 +142,7 @@ extern "C" ARM void func_020a78dc(struct Struct_020a78dc* arg0) {
             arg0->unknown_158_ -= 8;
         }
         if (arg0->unknown_be_ != 0) {
-            func_02033b88((struct Struct_02010604*)arg0, 0);
+            SetMotion_02033b88((struct Struct_02010604*)arg0, 0);
         }
         arg0->unknown_15d_ = -1;
     } else if (arg0->unknown_134_ == 1) {

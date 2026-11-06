@@ -14,8 +14,8 @@ struct Struct_020e25e8;
 extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
-struct Struct_02109bf4_4;
-extern "C" void func_0209c678(struct Struct_02109bf4_4* arg0, int arg1);
+struct MusicManager_02109bf4_4;
+extern "C" void func_0209c678(struct MusicManager_02109bf4_4* arg0, int arg1);
 int IsBrightnessTransitionActive(GameResources*);
 
 extern int gMusicManager_02109bf4;
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov006_0215f2b4(struct Struct_ov006_0215f2b4* arg0) {
 		}
 		SetBrightness((GameResources*)var0, -16, 16);
 		if ((arg0->unknown_394_ & 2) == 0) {
-			func_0209c678((struct Struct_02109bf4_4*)&gMusicManager_02109bf4, 0xf);
+			func_0209c678((struct MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0xf);
 		}
 		arg0->unknown_390_ += 1;
 		return;

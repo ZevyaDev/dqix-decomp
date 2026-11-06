@@ -12,10 +12,10 @@ struct Struct_ov023_021ea9b0 {
 };
 
 extern "C" Struct_ov023_021ea9b0* GetZone3D_02012fe4(void);
-extern "C" void func_ov017_021d6134(void* arg0, int arg1);
+extern "C" void SetScriptRefInt_ov017_021d6134(void* value, int number);
 
 // USA: func_ov023_021ea9b0
 extern "C" ARM int func_ov023_021ea9b0(void* arg0) {
-    func_ov017_021d6134(arg0, GetZone3D_02012fe4()->unknown_8_->unknown_c_4_);
+    SetScriptRefInt_ov017_021d6134(arg0, GetZone3D_02012fe4()->unknown_8_->unknown_c_4_);
     return 1;
 }

@@ -10,11 +10,11 @@
 #define func_ov013_02185990 func_ov013_02186b88
 #endif
 
-struct Struct_0205ba68;
-extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
+struct MenuCursor_0205ba68;
+extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 
-struct Struct_0205bacc;
-extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
+struct MenuCursor_0205bacc;
+extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
 
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
@@ -49,10 +49,10 @@ extern "C" ARM void func_ov013_02185990(unsigned char* arg0) {
     *(unsigned char*)(var0 + LOW_REGION(0x481, 0xb1)) = 1;
     *(unsigned char*)(var0 + LOW_REGION(0x480, 0xb0)) = 1;
 
-    func_0205ba68((struct Struct_0205ba68*)(var0 + LOW_REGION(0x3f0, 0x20)), 1, 2, 0);
-    func_0205ba68((struct Struct_0205ba68*)(var0 + LOW_REGION(0x440, 0x70)), 1, 2, 0);
-    func_0205bacc((struct Struct_0205bacc*)(var0 + LOW_REGION(0x3f0, 0x20)), 2);
-    func_0205bacc((struct Struct_0205bacc*)(var0 + LOW_REGION(0x440, 0x70)), 2);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(var0 + LOW_REGION(0x3f0, 0x20)), 1, 2, 0);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(var0 + LOW_REGION(0x440, 0x70)), 1, 2, 0);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(var0 + LOW_REGION(0x3f0, 0x20)), 2);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(var0 + LOW_REGION(0x440, 0x70)), 2);
 
     int var1 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + LOW_REGION(0x5ac, 0x620)), 0xa);
     func_0205cb74((char*)(var0 + LOW_REGION(0x3d0, 0)), var1);

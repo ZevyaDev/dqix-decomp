@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct Struct_020c5588 {
-    volatile unsigned int unknown_0_;
-    volatile unsigned short unknown_4_;
+struct Clear3DRegisters_020c5588 {
+    volatile unsigned int colorAttributes_0_;
+    volatile unsigned short depth_4_;
 };
 
-// USA: func_020c5588
-extern "C" ARM void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4) {
-    struct Struct_020c5588* var0 = (struct Struct_020c5588*)0x4000350;
-    unsigned int var1 = arg0 | (arg1 << 16) | (arg3 << 24);
-    if (arg4) var1 |= 0x8000;
-    var0->unknown_0_ = var1;
-    var0->unknown_4_ = arg2;
+// USA: Set3DClearColorAndDepth_020c5588
+extern "C" ARM void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled) {
+    struct Clear3DRegisters_020c5588* registers = (struct Clear3DRegisters_020c5588*)0x4000350;
+    unsigned int colorAttributes = color | (alpha << 16) | (polygonId << 24);
+    if (isFogEnabled) colorAttributes |= 0x8000;
+    registers->colorAttributes_0_ = colorAttributes;
+    registers->depth_4_ = depth;
 }

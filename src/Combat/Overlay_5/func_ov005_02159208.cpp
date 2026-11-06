@@ -18,8 +18,8 @@
 #include "Resource/GameResources.h"
 
 extern "C" unsigned char* func_ov017_021a193c(int*);
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" void func_ov005_0215792c(unsigned char*, int);
 
 // USA: func_ov005_02159208
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov005_02159208(unsigned char* arg0) {
     if (arg0[R(0x3d54, 0x3ddc)] != 0) {
         return;
     }
-    func_0205d6a0((Struct_0205d6a0*)(arg0 + R(0xee0, 0xee4)), 1);
+    CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)(arg0 + R(0xee0, 0xee4)), 1);
     func_ov005_0215792c(arg0, 6);
     arg0[R(0x3d54, 0x3ddc)] = 0;
     arg0[R(0x3d56, 0x3dde)] = 0;

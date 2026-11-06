@@ -94,7 +94,7 @@ extern "C" ARM int func_ov001_02154f24(Struct_ov001_02154f24_3* arg0)
     void* var5 = GetLocalWireless_0202ae18();
     if (!TestFlags00(var1, 0x1000))
     {
-        if (!func_02094b4c(func_02094a00()))
+        if (!UpdateFontLoad_02094b4c(GetFontLoader_02094a00()))
         {
             return arg0->unknown_a_;
         }

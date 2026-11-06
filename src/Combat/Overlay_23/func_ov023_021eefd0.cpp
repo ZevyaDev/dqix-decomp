@@ -165,7 +165,7 @@ extern "C" void func_020117cc(char* arg0, DetailedTreasureMapData* arg1);
 
 extern "C" {
 void __clear(void* arg0, unsigned long arg1);
-Struct_ov023_021eefd0_3* func_ov017_021b8478(void* arg0);
+Struct_ov023_021eefd0_3* GetBattleSetup_ov017_021b8478(void* battleManager);
 Struct_ov023_021eefd0_8 func_ov023_021ed804(Struct_ov023_021eefd0_8 arg0, void* arg1);
 #if !defined(jpn)
 void StartMessage_0204500c(Struct_ov023_021eefd0_9* window, const char* text, int arg2, int arg3);
@@ -235,7 +235,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
         if (var7 != NULL)
             var8 = var7->unknown_ptr_3718;
         if (var8 != NULL)
-            var9 = func_ov017_021b8478(var8);
+            var9 = GetBattleSetup_ov017_021b8478(var8);
 #if defined(jpn)
         char var11[40];
         if (var9 != NULL)

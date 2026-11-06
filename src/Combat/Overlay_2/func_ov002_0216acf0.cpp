@@ -20,7 +20,7 @@ extern "C" unsigned int _ZNK9GameState21GetEffectiveDeltaTimeEv(GameState* arg0)
 extern "C" int _ZNK9GameState12GetTickCountEv(GameState* arg0);
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" Struct_ov002_0216acf0_4* GetLocalWireless_0202ae18(void);
-extern "C" char* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" char* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void _ZN8Vector3iaSERKS_(int* arg0, const void* arg1);
 extern "C" int func_0202c578(Struct_ov002_0216acf0_4* arg0, int arg1);
 extern "C" int func_ov002_0216c628(unsigned char*, int);
@@ -32,7 +32,7 @@ struct Struct_ov002_02157d40_7;
 extern "C" void PlaySoundEffect_0205eaa0(Struct_ov002_02157d40_7*, int, int);
 extern "C" void func_ov002_02157ce0(char* arg0);
 struct Struct_ov002_0215624c_11;
-extern "C" void func_0205de24(Struct_ov002_0215624c_11*, unsigned char, unsigned char);
+extern "C" void SetNextTextWindowBGLayer_0205de24(Struct_ov002_0215624c_11*, unsigned char, unsigned char);
 extern "C" void func_ov002_02161174(char* arg0);
 extern "C" void func_ov002_0216bfd4(char* arg0, int arg1);
 extern "C" int func_ov002_02161b48(char* arg0, int arg1);
@@ -51,17 +51,17 @@ extern "C" int func_ov002_02157108(void*, int);
 struct Struct_ov002_02164748_2;
 extern "C" void func_0205dee8(Struct_ov002_02164748_2*, int);
 struct Struct_ov002_02155960_2;
-extern "C" void func_0205deb4(Struct_ov002_02155960_2*, int, int);
+extern "C" void SetTextWindowPalette_0205deb4(Struct_ov002_02155960_2*, int, int);
 extern "C" void func_ov002_02161cf0(char* arg0);
 extern "C" void func_ov023_021dca88(char* arg0);
 extern "C" void func_0205d7a0(char* arg0, int arg1);
 extern "C" void func_ov002_0215c988(char* arg0, void* arg1, int arg2);
 struct Struct_ov002_0215bba8_3;
 #if defined(jpn)
-extern "C" void func_0205d5d0(Struct_ov002_0215bba8_3*, int, int, int);
+extern "C" void SetTextWindowText_0205d5d0(Struct_ov002_0215bba8_3*, int, int, int);
 #define TAE_LAST(x)
 #else
-extern "C" void func_0205d5d0(Struct_ov002_0215bba8_3*, int, int, int, unsigned char);
+extern "C" void SetTextWindowText_0205d5d0(Struct_ov002_0215bba8_3*, int, int, int, unsigned char);
 #define TAE_LAST(x) , x
 #endif
 extern "C" void func_ov002_0215b9a4(char* arg0, int arg1, int arg2);
@@ -69,8 +69,8 @@ extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
 extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
 extern "C" void ResetMessageWindow_02043204(char* window);
 struct Struct_ov002_0216acf0_3;
-extern "C" void func_0205d6a0(Struct_ov002_0216acf0_3*, int);
-extern "C" char* func_0205d81c(Struct_ov002_02155960_2*, int);
+extern "C" void CloseTextWindows_0205d6a0(Struct_ov002_0216acf0_3*, int);
+extern "C" char* FindTextWindow_0205d81c(Struct_ov002_02155960_2*, int);
 
 struct Struct_020fdcb0_2 {
     int unknown_0_;
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                 S32(RG(0x2530, 0x2360)) = 10000;
             }
         }
-        char* var8 = func_0200ff1c(var0, S8(RG(0x1c21, 0x1ae9)));
+        char* var8 = GetPartyMemberBaseByIndex_0200ff1c(var0, S8(RG(0x1c21, 0x1ae9)));
         if (var8 != 0) {
             int var9[3];
             _ZN8Vector3iaSERKS_(var9, var8 + 0x44);
@@ -225,7 +225,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
             S32(RG(0x247c, 0x22ac)) &= ~4;
             S16(RG(0x1c16, 0x1ade)) = 0;
             S16(RG(0x1c18, 0x1ae0)) = 0;
-            func_0205de24((Struct_ov002_0215624c_11*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0, 3);
+            SetNextTextWindowBGLayer_0205de24((Struct_ov002_0215624c_11*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0, 3);
             func_ov002_02161174(arg0);
             S32(RG(0x247c, 0x22ac)) &= ~4;
             S32(RG(0x1bc0, 0x1a88)) = 1;
@@ -318,7 +318,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
             return;
         }
         if (U8(RG(0x2522, 0x2352)) != 0 && *(int*)(var1 + RG(0x9a0, 0x870)) != 3) {
-            char* var25 = func_0200ff1c(var0, S8(RG(0x1c21, 0x1ae9)));
+            char* var25 = GetPartyMemberBaseByIndex_0200ff1c(var0, S8(RG(0x1c21, 0x1ae9)));
             if (var25 != 0) {
                 int var26[3];
                 _ZN8Vector3iaSERKS_(var26, var25 + 0x44);
@@ -362,7 +362,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                         S32(RG(0x1bb8, 0x1a80)) = 4;
                         S32(RG(0x1bc0, 0x1a88)) = 1;
                         func_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4);
-                        func_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4, 0);
+                        SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4, 0);
                         func_ov002_02161cf0(arg0);
                         if (S32(RG(0x247c, 0x22ac)) & 1) {
                             func_ov023_021dca88(arg0 + RG(0x50, 0x38));
@@ -375,7 +375,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                     }
                     memset(*(void**)(arg0 + RG(0x1bd0, 0x1a98)), 0, RG(0x960, 0x800));
                     func_ov002_0215c988(arg0, *(void**)(arg0 + RG(0x1bd0, 0x1a98)), 0);
-                    func_0205d5d0((Struct_ov002_0215bba8_3*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), (unsigned char)S32(RG(0x1bb8, 0x1a80)), (int)(*(void**)(arg0 + RG(0x1bd0, 0x1a98))), 1 TAE_LAST(0));
+                    SetTextWindowText_0205d5d0((Struct_ov002_0215bba8_3*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), (unsigned char)S32(RG(0x1bb8, 0x1a80)), (int)(*(void**)(arg0 + RG(0x1bd0, 0x1a98))), 1 TAE_LAST(0));
                     U8(RG(0x2478, 0x22a8)) = 0;
                 }
             } else if (S32(RG(0x1bb8, 0x1a80)) == K(0x11, 0x12)) {
@@ -430,7 +430,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
             if (U8(RG(0x2521, 0x2351)) != 0) {
                 S32(RG(0x1bb8, 0x1a80)) = S32(RG(0x1bbc, 0x1a84));
                 func_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4);
-                func_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4, 0);
+                SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4, 0);
                 func_ov002_02161cf0(arg0);
                 U8(RG(0x2521, 0x2351)) = 0;
             } else if (var30 != 0) {
@@ -444,14 +444,14 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
             S32(RG(0x1bc0, 0x1a88)) = 1;
         }
         if (U8(RG(0x248c, 0x22bc)) != 0) {
-            func_0205d6a0((Struct_ov002_0216acf0_3*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 1);
+            CloseTextWindows_0205d6a0((Struct_ov002_0216acf0_3*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 1);
             S32(RG(0x1bb8, 0x1a80)) = K(0x2b, 0x2e);
             return;
         }
         int var32 = S32(RG(0x1bb8, 0x1a80));
         if (var32 == K(0xb, 0xc)) {
             func_ov002_0215b9a4(arg0, var32 & 0xff, 0);
-            func_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0xb, 0xc), 0);
+            SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0xb, 0xc), 0);
             func_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0xb, 0xc));
             func_ov002_02161cf0(arg0);
         } else if (var32 == 3) {
@@ -462,9 +462,9 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
         } else if (var32 == K(0x10, 0x11)) {
             func_ov002_0215b9a4(arg0, var32 & 0xff, 0);
             S32(RG(0x247c, 0x22ac)) |= 4;
-            func_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0x11, 0x12), 1);
+            SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0x11, 0x12), 1);
             func_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0x10, 0x11));
-            func_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0x10, 0x11), 0);
+            SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0x10, 0x11), 0);
             S32(RG(0x1bc0, 0x1a88)) = 1;
             func_ov002_02161cf0(arg0);
         } else if (var32 == K(0x15, 0x16)) {
@@ -473,10 +473,10 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
             S16(RG(0x1bfe, 0x1ac6)) = var34;
             func_ov002_0215b9a4(arg0, S32(RG(0x1bb8, 0x1a80)) & 0xff, 0);
         } else if (var32 == K(0x11, 0x12)) {
-            if (func_0205d81c((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(7, 8)) != 0 || S16(RG(0x1bfc, 0x1ac4)) >= 0) {
+            if (FindTextWindow_0205d81c((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(7, 8)) != 0 || S16(RG(0x1bfc, 0x1ac4)) >= 0) {
                 func_ov002_02156ff0((unsigned char*)arg0, K(0x13, 0x14));
                 func_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0x11, 0x12));
-                func_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0x11, 0x12), 0);
+                SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0x11, 0x12), 0);
                 S32(RG(0x1bc0, 0x1a88)) = 1;
                 S32(RG(0x1bb8, 0x1a80)) = K(0x11, 0x12);
                 if (S16(RG(0x1bfc, 0x1ac4)) >= 0) {
@@ -489,7 +489,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
             func_ov002_02161cf0(arg0);
         } else if (var32 == K(9, 0xa)) {
             func_ov002_02161cf0(arg0);
-            func_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(9, 0xa), 0);
+            SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(9, 0xa), 0);
             func_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(9, 0xa));
             S32(RG(0x1bc8, 0x1a90)) = 1;
             S32(RG(0x1bcc, 0x1a94)) = 1;
@@ -504,7 +504,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                     S32(RG(0x1bb8, 0x1a80)) = 4;
                     S32(RG(0x1bc0, 0x1a88)) = 1;
                     func_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4);
-                    func_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4, 0);
+                    SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4, 0);
                     func_ov002_02161cf0(arg0);
                     if (S32(RG(0x247c, 0x22ac)) & 1) {
                         func_ov023_021dca88(arg0 + RG(0x50, 0x38));
@@ -517,7 +517,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                 }
                 memset(*(void**)(arg0 + RG(0x1bd0, 0x1a98)), 0, RG(0x960, 0x800));
                 func_ov002_0215c988(arg0, *(void**)(arg0 + RG(0x1bd0, 0x1a98)), 0);
-                func_0205d5d0((Struct_ov002_0215bba8_3*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), (unsigned char)S32(RG(0x1bb8, 0x1a80)), (int)(*(void**)(arg0 + RG(0x1bd0, 0x1a98))), 1 TAE_LAST(0));
+                SetTextWindowText_0205d5d0((Struct_ov002_0215bba8_3*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), (unsigned char)S32(RG(0x1bb8, 0x1a80)), (int)(*(void**)(arg0 + RG(0x1bd0, 0x1a98))), 1 TAE_LAST(0));
                 U8(RG(0x2478, 0x22a8)) = 0;
             }
         } else if (S32(RG(0x1bb8, 0x1a80)) != K(9, 0xa)) {

@@ -9,7 +9,7 @@ struct Struct_ov000_0217a8f4_2 {
     char unknown_c5_[0xe0 - 0xc5];
 };
 
-struct Struct_0205d81c {
+struct TextWindowManager_0205d81c {
     char unknown_0_[0xfc];
     Struct_ov000_0217a8f4_2 unknown_fc_[7];
 };
@@ -24,7 +24,7 @@ struct Struct_ov000_0217a8f4_3 {
     char unknown_0_[0x17c];
     int unknown_17c_;
     char unknown_180_[0x188 - 0x180];
-    Struct_0205d81c unknown_188_;
+    TextWindowManager_0205d81c unknown_188_;
 };
 
 struct Struct_ov000_02183548 {
@@ -42,7 +42,7 @@ extern Struct_ov000_02183548 data_ov000_02183548[];
 extern Struct_ov000_021834d4 data_ov000_021834d4[];
 
 extern "C" Struct_ov000_0217a8f4* func_ov000_02161318(Struct_ov000_0217a8f4_3* arg0, int arg1);
-extern "C" void func_ov000_02176210(Struct_0205d81c* arg0, int arg1, int arg2);
+extern "C" void func_ov000_02176210(TextWindowManager_0205d81c* arg0, int arg1, int arg2);
 extern "C" void func_0205d904(unsigned char* arg0);
 
 // USA: func_ov000_0217a8f4

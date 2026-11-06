@@ -28,7 +28,7 @@ extern "C" void func_ov025_021e13e0(unsigned char*, Struct_ov025_021e16c8_3*);
 extern "C" unsigned int func_ov025_021e161c(int, int, unsigned char*, int);
 extern "C" void func_ov025_021e1c20(int, unsigned char*, unsigned char*, int, void*, void*, Struct_ov025_021e16c8_3*);
 extern "C" unsigned char func_ov025_021e1480(int, unsigned char*, int);
-extern "C" Struct_ov025_021e16c8_6* func_02079e2c(char*, int);
+extern "C" Struct_ov025_021e16c8_6* FindActionData_02079e2c(char*, int);
 
 static inline int inline_ov025_021e16c8(Struct_ov025_021e16c8_3* arg0) { return arg0->unknown_8_->obj3D_.unknown_4_; }
 static inline void inline_ov025_021e120c_2(unsigned char* arg0, unsigned int arg1, unsigned char arg2) {
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov025_021e16c8(Struct_ov025_021e16c8_3* arg0, Struct_ov
     else if (var23 == 1) var26 = var5[0];
     else if (var23 > 1) var26 = func_ov025_021e1480(func_020493a4((unsigned char*)arg0->unknown_8_), var5, var23);
     if (var7) {
-        Struct_ov025_021e16c8_6* var27 = func_02079e2c((char*)func_020797dc(), arg3->unknown_0_);
+        Struct_ov025_021e16c8_6* var27 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), arg3->unknown_0_);
         if (var27 && (var27->unknown_18_ << 16) >> 28 != 2) {
             memset(var2, 0, 81);
             func_ov025_021e120c(var2, var9, 1, var13, 0);

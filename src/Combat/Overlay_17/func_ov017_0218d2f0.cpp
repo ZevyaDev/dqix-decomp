@@ -11,9 +11,9 @@ extern "C" unsigned char func_020100b0(GameState*);
 extern "C" void func_02048418(unsigned char*, unsigned short);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 extern "C" void func_ov017_02191108(void*, int, int, int, int);
-extern "C" void func_020397c0(void*);
+extern "C" void EnablePlayerControl_020397c0(void*);
 struct Struct_02018300_3;
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 
 // USA: func_ov017_0218d2f0
 extern "C" ARM void func_ov017_0218d2f0(unsigned char arg0, unsigned char arg1, int arg2, unsigned char arg3) {
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov017_0218d2f0(unsigned char arg0, unsigned char arg1, 
     }
     for (unsigned char var5 = 0; var5 < var3; ++var5) {
         short var6 = var1->unknown_f78_[var5];
-        GameObject* var7 = func_0200ff1c(var0, var6);
+        GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var0, var6);
         if (!var7 || (!arg3 && var6 != func_020100b0(var0))) continue;
         if (arg0) {
             if (var7->unknown_ac_.unknown_84_->unknown_0_ & 1) {
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_0218d2f0(unsigned char arg0, unsigned char arg1, 
     }
     var4 = var0->GetUnknownGameObject();
     if (var4) {
-        if (var2) func_020397c0(var4);
-        else func_020397cc((Struct_02018300_3*)var4, 1);
+        if (var2) EnablePlayerControl_020397c0(var4);
+        else DisablePlayerControl_020397cc((Struct_02018300_3*)var4, 1);
     }
 }

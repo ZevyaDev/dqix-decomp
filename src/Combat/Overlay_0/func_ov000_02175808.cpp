@@ -12,7 +12,7 @@ struct Struct_ov000_02175808_3 : GameObject { char unknown_13c_[8]; Struct_ov000
 #else
 struct Struct_ov000_02175808_3 : GameObject { char unknown_13c_[0x14]; Struct_ov000_02175808_2* unknown_150_; };
 #endif
-struct Struct_0205d6a0 { int unknown_0_; };
+struct TextWindowManager_0205d6a0 { int unknown_0_; };
 struct Struct_ov000_021735d0_3 {
     char unknown_0_[0x10];
     unsigned short unknown_10_[5];
@@ -22,7 +22,7 @@ struct Struct_ov000_021735d0_3 {
     char unknown_24_[0x158];
     int unknown_17c_;
     char unknown_180_[8];
-    Struct_0205d6a0 unknown_188_;
+    TextWindowManager_0205d6a0 unknown_188_;
 #if defined(jpn)
     char unknown_18c_[0x1f98-0x18c];
 #else
@@ -41,7 +41,7 @@ extern "C" void __clear(void*, unsigned long);
 extern "C" void func_ov000_021757ac(Struct_ov000_021735d0_3*, unsigned short);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" Struct_ov000_02175808* func_ov000_02161318(Struct_ov000_021735d0_3*, int);
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" int func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
 extern "C" void func_ov000_02176634(Struct_ov000_021735d0_3*, int, int, int, int);
 extern unsigned short data_ov000_0218342a[];
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov000_02175808(Struct_ov000_021735d0_3* arg0) {
         Struct_ov000_02175808* var11 = func_ov000_02161318(arg0, var8->unknown_f78_[var10]);
         if (var11) var11->unknown_10_[var11->unknown_18_] = 13;
     }
-    func_0205d6a0(&arg0->unknown_188_, 1);
+    CloseTextWindows_0205d6a0(&arg0->unknown_188_, 1);
     arg0->unknown_1d6d_ = 0;
     ++arg0->unknown_1d68_;
     arg0->unknown_1d60_[arg0->unknown_1d68_] = 0x17;

@@ -70,8 +70,8 @@ extern "C" void __clear(void *, int);
 extern "C" void func_020e46c4(void *);
 extern "C" void func_020e5334(Struct_ov003_021760cc_3 *, void *, unsigned int, int);
 extern "C" void ClearMessageParams_02046380(Struct_ov003_021760cc_4 *);
-extern "C" void func_020e4bf4(void *, int);
-extern "C" Struct_ov003_021760cc *func_020dedd0(ItemTable_0201099c_10 *, int);
+extern "C" void InitPartyMemberNoun_020e4bf4(void *, int);
+extern "C" Struct_ov003_021760cc *FindItemData_020dedd0(ItemTable_0201099c_10 *, int);
 extern "C" int func_ov003_02175898(char *, void *);
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0 *, int, int);
@@ -115,7 +115,7 @@ struct Struct_ov003_021760cc_2 {
     short unknown_fc4_;
 };
 struct Struct_02046574_2;
-extern "C" void func_02046574(Struct_02046574_2 *, int, char *);
+extern "C" void SetMessageString_02046574(Struct_02046574_2 *, int, char *);
 extern "C" char *func_020e046c(char *arg0, void *arg1, unsigned int arg2, int arg3);
 extern const char data_ov003_0217eddd[];
 extern const unsigned char data_ov003_0217e326[];
@@ -151,9 +151,9 @@ extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_2 *arg0) {
             ClearMessageParams_02046380(var1);
             GameObject *var6 = GameState::GetInstance()->GetPartyMemberByIndex(arg0->unknown_fbf_);
             if (var6) {
-                func_02046574((Struct_02046574_2 *) var1, 0, (char *) var6->baseStats_);
+                SetMessageString_02046574((Struct_02046574_2 *) var1, 0, (char *) var6->baseStats_);
             }
-            Struct_ov003_021760cc *var7 = func_020dedd0((ItemTable_0201099c_10 *) arg0->unknown_7f0_, arg0->unknown_fb6_);
+            Struct_ov003_021760cc *var7 = FindItemData_020dedd0((ItemTable_0201099c_10 *) arg0->unknown_7f0_, arg0->unknown_fb6_);
             if (var7) {
                 int var8;
                 if (arg0->unknown_f80_ == 4) {
@@ -162,15 +162,15 @@ extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_2 *arg0) {
                     var8 = var7->unknown_1a_;
                 }
                 var8 *= arg0->unknown_fb8_;
-                func_02046574((Struct_02046574_2 *) var1, 1, var2);
+                SetMessageString_02046574((Struct_02046574_2 *) var1, 1, var2);
                 SetMessageNumber_020465c0((MessageWindow_020465c0 *) var1, 0, var8);
                 SetMessageNumber_020465c0((MessageWindow_020465c0 *) var1, 1, arg0->unknown_fb8_);
             }
             unsigned char var9 = arg0->unknown_7ec_;
             char *var10  = (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) arg0->unknown_c_, (short) (data_ov003_0217e326[var9] + 0x25));
             char *var11 = (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) arg0->unknown_c_, (short) (data_ov003_0217e320[var9] + 0x25));
-            func_02046574((Struct_02046574_2 *) var1, 2, var10);
-            func_02046574((Struct_02046574_2 *) var1, 3, var11);
+            SetMessageString_02046574((Struct_02046574_2 *) var1, 2, var10);
+            SetMessageString_02046574((Struct_02046574_2 *) var1, 3, var11);
             if (arg0->unknown_fc2_ & 0x200) {
                 char *var12 = var1->unknown_2c_;
                 AppendText_02042058(var12, FindStringInTable_020e0434((Struct_0201099c_3 *) arg0->unknown_c_, var5));
@@ -254,9 +254,9 @@ extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_5 *arg0) {
             arg0->unknown_fec_ = -1;
             short var22  = arg0->unknown_1036_;
             ClearMessageParams_02046380(var15);
-            func_020e4bf4(var19, arg0->unknown_1043_);
+            InitPartyMemberNoun_020e4bf4(var19, arg0->unknown_1043_);
             var15->unknown_10_             = var19;
-            Struct_ov003_021760cc *var23 = func_020dedd0(
+            Struct_ov003_021760cc *var23 = FindItemData_020dedd0(
                 (ItemTable_0201099c_10 *) (arg0->unknown_74_ + 0x800), arg0->unknown_103a_);
             if (var23) {
                 int var24 = (arg0->unknown_1004_ == 4 ? func_ov003_02175898((char *) arg0, var23) : var23->unknown_1a_);

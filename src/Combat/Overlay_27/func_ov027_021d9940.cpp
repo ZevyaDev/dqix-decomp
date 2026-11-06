@@ -12,9 +12,6 @@
 #include <globaldefs.h>
 #include "NitroSDK/Interrupts.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 extern char* data_ov027_021e33ec;
 
@@ -24,7 +21,7 @@ extern "C" void* func_ov027_021dd638(void* arg0, void* arg1);
 extern "C" ARM int func_ov027_021dd180(void* arg0, unsigned int arg1, void* arg2, unsigned int arg3);
 extern "C" ARM int func_ov027_021dd3e0(void* arg0);
 extern "C" ARM void func_ov027_021dd3f8(void* arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3);
-extern "C" ARM void func_020c9be0(void);
+extern "C" ARM void HaltForever_020c9be0(void);
 extern "C" int func_ov027_021dab00(int arg0, int arg1, void* arg2);
 
 struct Struct_ov027_021d989c;
@@ -124,7 +121,7 @@ extern "C" ARM int func_ov027_021d9940(void) {
             var23++;
         } while (var23 < 4);
         if (var22 == 0) {
-            func_020c9be0();
+            HaltForever_020c9be0();
         }
         *(int*)var19 = 2;
         var22->unknown_c_ = 1;

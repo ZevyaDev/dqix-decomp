@@ -26,7 +26,7 @@ extern "C" int func_0205b234(void* arg0, int arg1, int arg2, char* arg3, int arg
 
 #if defined(jpn)
 extern short data_020e790a[6], data_020e7916[6], data_020e78f2[6], data_020e78fe[6];
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 
 extern "C" ARM void func_02023218(Struct_02020554* arg0, char* arg1, int arg2, unsigned int arg3) {
     Struct_020200c0_3 var0[6];
@@ -36,7 +36,7 @@ extern "C" ARM void func_02023218(Struct_02020554* arg0, char* arg1, int arg2, u
     func_0205b220(&var1, (int)(arg1 + arg2));
     func_0205b228(&var1, (int)var0, 6);
     func_0205b234(&var1, 14, 3, arg0->inline_02023218(), 10, 15);
-    func_0205b234(&var1, (short)(func_020d2ff0(arg0->inline_02023218()) / 2 * 10 + 15), 3, arg0->inline_02023218_2(), 10, 15);
+    func_0205b234(&var1, (short)(GetStringLength_020d2ff0(arg0->inline_02023218()) / 2 * 10 + 15), 3, arg0->inline_02023218_2(), 10, 15);
 }
 #else
 // USA: func_02023218

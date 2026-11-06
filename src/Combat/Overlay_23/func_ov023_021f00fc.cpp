@@ -92,7 +92,7 @@ extern "C" ARM int func_ov023_021f00fc(Struct_ov023_021f00fc_4* arg0)
             if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var7) && var3[var7] != 0)
             {
                 Struct_ov023_021f00fc_2* var8 = func_ov023_021f0360(_ZZ21inline_ov023_021f4c04vE1s, var7);
-                GameObject* var9 = func_0200ff1c(var0, var7);
+                GameObject* var9 = GetPartyMemberBaseByIndex_0200ff1c(var0, var7);
                 if (var8 != NULL)
                     var8->unknown_4_ = func_ov023_021eea98((Struct_ov023_021edf54*)var9);
                 arg0->unknown_5758_[var7] = 0;

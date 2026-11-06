@@ -18,7 +18,7 @@ struct Struct_ov031_0224e1d0 { char unknown_0_[0x2784]; short unknown_2784_; sho
 #endif
 struct Struct_ov017_021b06b0_2 { unsigned short unknown_0_; Vector3fix16 unknown_2_; };
 extern "C" Struct_ov031_0224e1d0* GetZone3D_02012fe4();
-extern "C" void* func_0202ae24();
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
 extern "C" void func_ov017_021cdaa0();
 extern "C" void func_ov017_021cf730(int, int);
 extern "C" void func_ov017_021cfc74(unsigned char);
@@ -41,7 +41,7 @@ extern "C" ARM unsigned char func_ov017_021b06b0(Struct_ov017_021b06b0_3* arg0) 
     GameState* var0 = GameState::GetInstance();
     Struct_ov031_0224e1d0* var1 = GetZone3D_02012fe4();
     GrottoStruct* var2 = var0->GetGrottoStruct();
-    void* var3 = func_0202ae24();
+    void* var3 = GetLocalWirelessPacketQueue_0202ae24();
     if (arg0->unknown_25_ == 0) {
         func_ov017_021cdaa0();
         func_ov017_021cf730(arg0->unknown_c_, 1);

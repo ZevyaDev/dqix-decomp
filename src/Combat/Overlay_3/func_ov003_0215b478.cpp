@@ -9,19 +9,19 @@ enum { Enum_ov003_0215b478_2 = 2 };
 
 #if defined(jpn)
 extern "C" void func_02042428(void*, int);
-extern "C" void func_0205d304(void*, void*, int, int, int, int, int);
+extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);
 extern "C" void func_02042158(void*, int);
 extern char data_ov003_0217e68e[], data_ov003_0217e696[];
 #endif
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-struct Struct_0205de24_2;
-extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+struct TextWindowManager_0205de24_2;
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" int func_020e51cc(int arg0);
+extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 struct MessageWindow_020465c0;
@@ -30,7 +30,7 @@ extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2)
 extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
 
 #if !defined(jpn)
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 // USA: func_ov003_0215b478
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov003_0215b478(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
     int var1 = GetMessageWindow_020421a0();
 
-    func_0205de24((struct Struct_0205de24_2*)(arg0 + 0xf4), 0, 2);
+    SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)(arg0 + 0xf4), 0, 2);
 
     *(short*)(arg0 + 0x100 + 0x94) = 0xb;
     *(short*)(arg0 + 0x100 + 0x96) = 2;
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov003_0215b478(unsigned char* arg0) {
     func_02042158(*(void**)(arg0 + 0x7c), 2);
     AppendText_02042058(*(char**)(arg0 + 0x7c), data_ov003_0217e696);
 #else
-    int var2 = func_020e51cc(0x3f1);
+    int var2 = GetStandardString_020e51cc(0x3f1);
     AppendText_02042058((char*)*(void**)(arg0 + 0x7c), (const char*)var2);
 #endif
 
@@ -72,8 +72,8 @@ extern "C" ARM void func_ov003_0215b478(unsigned char* arg0) {
     func_020465d8((unsigned char*)var1, 0, 1);
 
 #if defined(jpn)
-    func_0205d304(arg0 + 0xf4, *(void**)(arg0 + 0x7c), 0, 0, 0, 1, 0);
+    OpenTextWindow_0205d304(arg0 + 0xf4, *(void**)(arg0 + 0x7c), 0, 0, 0, 1, 0);
 #else
-    func_0205d304(arg0 + 0xf4, *(void**)(arg0 + 0x7c), 0, 0, 0, 1, 0, 0);
+    OpenTextWindow_0205d304(arg0 + 0xf4, *(void**)(arg0 + 0x7c), 0, 0, 0, 1, 0, 0);
 #endif
 }

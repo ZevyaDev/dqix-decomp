@@ -3,12 +3,12 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void* func_ov017_021d612c(void*);
 extern "C" int func_ov001_0215ad2c(int arg0);
 extern SafeAllocator* data_ov001_021658b8[8];
 extern "C" void* func_02010768(void* arg0);
-extern "C" void func_020100c4(GameState* arg0, int arg1);
+extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 
 struct Struct_0204a120;
 extern "C" void func_0204a120(struct Struct_0204a120* arg0);
@@ -30,11 +30,11 @@ extern "C" ARM int func_ov001_02160768(char* arg0) {
 	SafeAllocator* var1 = data_ov001_021658b8[0];
 	void* var2 = func_02010768(var0);
 
-	int var3 = func_ov017_021d60f4(arg0);
+	int var3 = GetScriptValueAsInt_ov017_021d60f4(arg0);
 	void* var4 = func_ov017_021d612c(arg0 + 0x8);
 	void* var5 = func_ov017_021d612c(arg0 + 0x10);
 	void* var6 = func_ov017_021d612c(arg0 + 0x18);
-	int var7 = func_ov017_021d60f4(arg0 + 0x20);
+	int var7 = GetScriptValueAsInt_ov017_021d60f4(arg0 + 0x20);
 
 	int var8 = func_ov001_0215ad2c(var3);
 	int var9 = func_ov001_0215ad2c(var7);
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov001_02160768(char* arg0) {
 
 	void* var12 = var1->Allocate(0x268);
 
-	*(void**)((char*)var2 + 0x4) = func_020100bc(var0);
+	*(void**)((char*)var2 + 0x4) = GetCamera_020100bc(var0);
 
 	func_0204a120((struct Struct_0204a120*)var12);
 	func_0204a3f0((struct Struct_0204a3f0_2*)var12, (struct Struct_0204a3f0*)var10);
@@ -59,6 +59,6 @@ extern "C" ARM int func_ov001_02160768(char* arg0) {
 	((Object3D*)((unsigned char*)var10))->EnableFlag(1);
 	((Object3D*)((unsigned char*)var10))->EnableFlag(0x20);
 
-	func_020100c4(var0, (int)var12);
+	SetCamera_020100c4(var0, (int)var12);
 	return 1;
 }

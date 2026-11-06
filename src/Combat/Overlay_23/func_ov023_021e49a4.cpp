@@ -44,7 +44,7 @@ struct Struct_ov023_021e49a4 {
 };
 extern "C" Struct_02045cac* GetMessageWindow_020421a0();
 extern "C" void func_02045cac(Struct_02045cac*);
-extern "C" char* func_020e51cc(int);
+extern "C" char* GetStandardString_020e51cc(int);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_ov023_021e4250(char*);
 extern const char data_ov023_021fdcd8[];
@@ -74,12 +74,12 @@ extern "C" ARM void func_ov023_021e49a4(Struct_ov023_021e49a4_4* arg0) {
     for (int var10 = 0; var10 < 8; var10++) arg0->unknown_5e0_[var10] = 0xffff;
     func_02045cac(var5);
     var0 = &arg0->unknown_0_->unknown_1f8_;
-    func_02045d14(var5, func_020e51cc(0x3f3), arg0->unknown_5e0_, 0);
+    func_02045d14(var5, GetStandardString_020e51cc(0x3f3), arg0->unknown_5e0_, 0);
     for (int var11 = 0; var11 < 4; var11++) {
         var4 = arg0->unknown_500_;
         var3 = arg0->unknown_590_;
         var2 = arg0->unknown_5f0_;
-        Struct_ov023_021e49a4* var12 = (Struct_ov023_021e49a4*)func_0200ff1c(var1, var11);
+        Struct_ov023_021e49a4* var12 = (Struct_ov023_021e49a4*)GetPartyMemberBaseByIndex_0200ff1c(var1, var11);
         if (var12 != 0) {
             char* var13 = var12->unknown_134_;
             func_02045d14(var5, var13, var4[var11], 0);

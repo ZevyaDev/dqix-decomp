@@ -25,7 +25,7 @@ struct Struct_ov000_0215767c_2 {
 extern Struct_ov000_02182c74 data_ov000_02182c74;
 
 extern "C" void func_ov000_02155e94(Struct_ov000_0215767c_2* arg0);
-extern "C" int func_ov000_0215e9fc(Struct_ov000_0215767c_2* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_0215767c_2* battle, short* indices, int maxCount, int filterFlags);
 extern "C" void func_ov000_0215858c(Struct_ov000_0215767c_2* arg0, int arg1, Struct_ov000_0215767c_8* arg2);
 extern "C" void func_ov000_021599f4(Struct_ov000_0215767c_2* arg0, int arg1);
 extern "C" Struct_ov000_0215767c_8* func_ov000_02160094(Struct_ov000_0215440c_2* arg0, int arg1);
@@ -34,7 +34,7 @@ extern "C" Struct_ov000_0215767c_8* func_ov000_02160094(Struct_ov000_0215440c_2*
 extern "C" ARM void func_ov000_02157d3c(Struct_ov000_0215767c_2* arg0, Struct_ov000_0215440c_2* arg1, int arg2) {
     func_ov000_02155e94(arg0);
     Struct_ov000_02182c74 var0 = data_ov000_02182c74;
-    if (func_ov000_0215e9fc(arg0, var0.unknown_0_, 8, 9) <= 0) {
+    if (CollectPartyCombatantIndices_ov000_0215e9fc(arg0, var0.unknown_0_, 8, 9) <= 0) {
         arg0->unknown_8e14_ = 2;
     } else if (arg0->unknown_81b1_0_ == 0) {
         arg0->unknown_8e14_ = 1;

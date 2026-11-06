@@ -127,7 +127,7 @@ extern "C" void* func_ov031_02243450(int, unsigned int);
 extern "C" void func_ov031_02243484(int, void*);
 #if defined(jpn)
 extern "C" unsigned char func_ov031_0220eb30();
-extern "C" int func_02001aec(void*, void*, int);
+extern "C" int CompareBytes_02001aec(void*, void*, int);
 extern "C" void func_ov031_02246444(Struct_ov031_02244ad0_5*);
 extern Script::OpcodeLookupEntry data_ov031_0224d4bc[];
 extern Script::OpcodeLookupEntry data_ov031_0224c8dc[];
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov031_02244ad0(Struct_02245528* arg0) {
                     if (var9->unknown_6_ == 0xff) {
                         Struct_ov031_02244ad0_5* var21 = var7;
                         for (int var22 = 0; var22 < data_ov031_02292a08; var22++, var21++) {
-                            if (func_02001aec(var9, var21->unknown_4_, 6) == 0) {
+                            if (CompareBytes_02001aec(var9, var21->unknown_4_, 6) == 0) {
                                 data_ov031_02292a06 = 1;
                                 var8 = var22;
                                 break;

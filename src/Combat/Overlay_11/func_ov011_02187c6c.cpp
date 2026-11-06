@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct Struct_ov011_02184c30;
-extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
+struct ScriptValue_ov011_02184c30;
+extern "C" int func_ov011_02184c30(struct ScriptValue_ov011_02184c30* arg0);
 
-extern "C" void* func_ov017_021b2164(void);
+extern "C" void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 
 class Struct_ov011_02187c6c {
@@ -25,11 +25,11 @@ public:
 extern "C" struct Struct_ov011_02187c6c* FindMenuObjectById_ov023_021f6880(void*, int);
 
 // USA: func_ov011_02187c6c
-extern "C" ARM int func_ov011_02187c6c(struct Struct_ov011_02184c30* arg0) {
+extern "C" ARM int func_ov011_02187c6c(struct ScriptValue_ov011_02184c30* arg0) {
     int var0 = func_ov011_02184c30(arg0);
-    int var1 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 8));
-    int var2 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 0x10));
-    struct Struct_ov011_02187c6c* var3 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(func_ov017_021b2164()), var0);
+    int var1 = func_ov011_02184c30((struct ScriptValue_ov011_02184c30*)((char*)arg0 + 8));
+    int var2 = func_ov011_02184c30((struct ScriptValue_ov011_02184c30*)((char*)arg0 + 0x10));
+    struct Struct_ov011_02187c6c* var3 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(GetCurrentMenu_ov017_021b2164()), var0);
     if (var3) {
         var3->inline_ov011_02187c6c_3(var1);
         var3->inline_ov011_02187c6c_5(var2);

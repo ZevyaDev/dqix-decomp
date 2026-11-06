@@ -91,15 +91,15 @@ int func_ov000_021719f8(int* arg0);
 int func_ov000_021761c8(char* arg0, int arg1);
 int func_ov000_021761ec(char* arg0, int arg1);
 Struct_ov000_0215ab88* func_0200fea4(GameState* arg0, int arg1);
-void* func_020100bc(GameState* arg0);
+void* GetCamera_020100bc(GameState* gameState);
 int _ZNK8Object3D9GetHeightEv(Struct_ov000_0215ab88* arg0);
 int func_0202ec84(void* arg0, Struct_ov026_021dddcc* arg1, int* arg2, int* arg3);
 void func_020473c8(Struct_ov026_021dddcc_2* arg0, int arg1);
 void Vector3fix_Add(const Struct_ov026_021dddcc* arg0, const Struct_ov026_021dddcc* arg1, Struct_ov026_021dddcc* arg2);
 void Vector3fix_Normalize(const Struct_ov026_021dddcc* arg0, Struct_ov026_021dddcc* arg1);
 int func_ov000_0217fd60(void* arg0, int arg1);
-int func_ov000_0215e9fc(Struct_ov000_02161e30* arg0, short* arg1, int arg2, int arg3);
-int func_ov000_0215eb1c(Struct_ov000_02161e30* arg0, short* arg1, int arg2, int arg3);
+int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30* battle, short* indices, int maxCount, int filterFlags);
+int CollectEnemyCombatantIndices_ov000_0215eb1c(Struct_ov000_02161e30* battle, short* indices, int maxCount, int filterFlags);
 int func_ov000_02153e78(Struct_ov000_02161e30* arg0, short* arg1, int arg2, int arg3, int arg4);
 int func_ov000_02171ffc(Struct_ov026_021d8ba0_6* arg0);
 double func_02009424(double arg0);
@@ -169,9 +169,9 @@ extern "C" ARM void func_ov026_021dddcc(Struct_ov000_02160da0* arg0) {
     }
 
     var4 = data_ov026_021de7fa;
-    var10 = func_ov000_0215e9fc(var7, var4.unknown_0_, 4, 0);
+    var10 = CollectPartyCombatantIndices_ov000_0215e9fc(var7, var4.unknown_0_, 4, 0);
     var0 = data_ov026_021de802;
-    var11 = func_ov000_0215eb1c(var7, var0.unknown_0_, 8, 1);
+    var11 = CollectEnemyCombatantIndices_ov000_0215eb1c(var7, var0.unknown_0_, 8, 1);
     __clear(var5, sizeof(var5));
     __clear(var1, sizeof(var1));
     __clear(var2, sizeof(var2));
@@ -282,7 +282,7 @@ extern "C" ARM void func_ov026_021dddcc(Struct_ov000_02160da0* arg0) {
         var36 = 0;
         switch (var35) {
         case 3:
-            var36 = func_ov000_0215eb1c(var7, var38.unknown_0_, 8, 1);
+            var36 = CollectEnemyCombatantIndices_ov000_0215eb1c(var7, var38.unknown_0_, 8, 1);
             if (var36 == 0) continue;
             break;
         case 4:
@@ -317,7 +317,7 @@ extern "C" ARM void func_ov026_021dddcc(Struct_ov000_02160da0* arg0) {
                 Vector3fix_Normalize(&var41, &var42);
                 var42.unknown_0_[0] = (float)var42.unknown_0_[0] * (0.2f * data_ov026_021def00.unknown_0_);
                 var42.unknown_0_[1] = (float)var42.unknown_0_[1] * (0.2f * data_ov026_021def00.unknown_0_);
-                var47 = func_020100bc(var6);
+                var47 = GetCamera_020100bc(var6);
                 var43 = var39->unknown_44_;
                 var43.unknown_0_[1] += _ZNK8Object3D9GetHeightEv(var39);
                 Vector3fix_Add(&var43, &var42, &var43);
@@ -347,7 +347,7 @@ extern "C" ARM void func_ov026_021dddcc(Struct_ov000_02160da0* arg0) {
                 Vector3fix_Normalize(&var49, &var50);
                 var50.unknown_0_[0] = 0;
                 var50.unknown_0_[1] = 0;
-                var54 = func_020100bc(var6);
+                var54 = GetCamera_020100bc(var6);
                 var51 = var39->unknown_44_;
                 var51.unknown_0_[1] += _ZNK8Object3D9GetHeightEv(var39);
                 Vector3fix_Add(&var51, &var50, &var51);

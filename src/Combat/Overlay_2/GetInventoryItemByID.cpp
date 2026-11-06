@@ -45,7 +45,7 @@ extern "C" ARM int GetInventoryItemByID(void* arg0, int arg1, int arg2) {
         return *(short*)(var2 + 0xc + arg1 * 2);
     }
     signed char var3 = *(signed char*)((char*)arg0 + COMBATANT_ID_OFFSET);
-    GameObject* var4 = func_0200ff1c(var0, var3);
+    GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, var3);
     if (var4 == 0) {
         return -1;
     }

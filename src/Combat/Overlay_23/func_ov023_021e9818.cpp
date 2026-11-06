@@ -27,19 +27,19 @@ struct Struct_ov023_021e93e0_2 {
     Struct_ov023_021e93e0* unknown_150_;
 };
 
-extern "C" int func_ov017_021d60f4(Struct_0209cf44* arg0);
-extern "C" void func_ov017_021d6134(Struct_0209cf44* arg0, int arg1);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_0209cf44* value);
+extern "C" void SetScriptRefInt_ov017_021d6134(Struct_0209cf44* value, int number);
 extern "C" GameObject* func_ov023_021e8f28(int arg0);
 
 extern "C" ARM int func_ov023_021e9818(void* arg0) {
     Struct_0209cf44* var0 = (Struct_0209cf44*)arg0;
     GameState::GetInstance();
-    int var1 = func_ov017_021d60f4(&var0[0]);
+    int var1 = GetScriptValueAsInt_ov017_021d60f4(&var0[0]);
     GameObject* var2 = func_ov023_021e8f28(var1);
     if (var2 == NULL) return 0;
-    int var3 = func_ov017_021d60f4(&var0[1]);
+    int var3 = GetScriptValueAsInt_ov017_021d60f4(&var0[1]);
     Struct_ov023_021e93e0* var4 = ((Struct_ov023_021e93e0_2*)var2)->unknown_150_;
     unsigned char var5 = var4->unknown_464_[(unsigned char)var3];
-    func_ov017_021d6134(&var0[2], var5);
+    SetScriptRefInt_ov017_021d6134(&var0[2], var5);
     return 1;
 }

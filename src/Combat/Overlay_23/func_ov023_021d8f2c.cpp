@@ -3,14 +3,14 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 
 extern "C" void func_ov023_021d921c(void* arg0, int arg1, int arg2, int arg3);
 
 extern "C" void func_ov023_021d9290(void* arg0, void* arg1, unsigned char arg2);
 
-struct Struct_0205d5d0;
+struct TextWindowManager_0205d5d0;
 // USA: func_ov023_021d8f2c
 extern "C" ARM int func_ov023_021d8f2c(char* arg0) {
 #if defined(jpn)
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov023_021d8f2c(char* arg0) {
     unsigned char var1 = *(unsigned char*)(arg0 + 0x11c);
 
     if (var1 == 0) {
-        func_0205d6a0((struct Struct_0205d6a0*)(arg0 + 0x20), 1);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(arg0 + 0x20), 1);
         int var2 = *(unsigned char*)(arg0 + 0x11c) + 1;
         *(unsigned char*)(arg0 + 0x11c) = (unsigned char)var2;
         return var2;
@@ -79,9 +79,9 @@ extern "C" ARM int func_ov023_021d8f2c(char* arg0) {
     memset(*(void**)(arg0 + 4), 0, Enum_ov023_021d8f2c_2400);
     func_ov023_021d9290(arg0, *(void**)(arg0 + 4), *(unsigned char*)(arg0 + 0x118));
 #if defined(jpn)
-    func_0205d5d0((struct Struct_0205d5d0*)(arg0 + 0x20), 0, *(int*)(arg0 + 4), 1);
+    SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)(arg0 + 0x20), 0, *(int*)(arg0 + 4), 1);
 #else
-    func_0205d5d0((struct Struct_0205d5d0*)(arg0 + 0x20), 0, *(int*)(arg0 + 4), 1, 0);
+    SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)(arg0 + 0x20), 0, *(int*)(arg0 + 4), 1, 0);
 #endif
 
     if (*(unsigned char*)(arg0 + 0x118) == 4) {

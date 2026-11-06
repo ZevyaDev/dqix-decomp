@@ -2,19 +2,19 @@
 #include "GameState/GameState.h"
 
 
-struct Struct_0205a254;
+struct SpriteAnimationList_0205a254;
 struct Struct_ov023_021fb3c8_2 {
     char unknown_0_[0x15];
     unsigned char unknown_15_;
 };
-extern "C" void func_0205a370(struct Struct_0205a254*, int);
-extern "C" void func_0205a42c(struct Struct_0205a254*, int, int);
-extern "C" struct Struct_ov023_021fb3c8_2* func_0205a3d0(struct Struct_0205a254*, int);
+extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254*, int);
+extern "C" void func_0205a42c(struct SpriteAnimationList_0205a254*, int, int);
+extern "C" struct Struct_ov023_021fb3c8_2* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254*, int);
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" void* func_ov023_021fad18(void* arg0);
-extern "C" void func_0205a254(struct Struct_0205a254*, unsigned char, unsigned int);
+extern "C" void func_0205a254(struct SpriteAnimationList_0205a254*, unsigned char, unsigned int);
 extern "C" void func_0205addc(void*, unsigned char);
 
 struct Struct_ov023_021fb3c8 {
@@ -38,12 +38,12 @@ extern "C" ARM void func_ov023_021fb3c8(struct Struct_ov023_021fb3c8* arg0, void
     void* var1 = GetMenuObjectList_ov011_021849c8(arg1);
     void* var2 = FindMenuObjectById_ov023_021f6880(var1, arg0->unknown_20_);
     void* var3 = func_ov023_021fad18(var2);
-    struct Struct_0205a254* var4 = *(struct Struct_0205a254**)((char*)var3 + 0x3c);
+    struct SpriteAnimationList_0205a254* var4 = *(struct SpriteAnimationList_0205a254**)((char*)var3 + 0x3c);
     if (var4 == NULL) {
         return;
     }
-    func_0205a370(var4, arg0->unknown_22_);
-    struct Struct_ov023_021fb3c8_2* var5 = func_0205a3d0(var4, arg0->unknown_22_);
+    PlaySpriteAnimation_0205a370(var4, arg0->unknown_22_);
+    struct Struct_ov023_021fb3c8_2* var5 = FindSpriteAnimation_0205a3d0(var4, arg0->unknown_22_);
     if (var5 != NULL) {
         var5->unknown_15_ |= 8;
     }
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov023_021fb3c8(struct Struct_ov023_021fb3c8* arg0, void
     short var7, var8;
     var8 = arg0->unknown_2a_;
     var7 = arg0->unknown_28_;
-    struct Struct_ov023_021fb3c8_2* var9 = func_0205a3d0(var4, arg0->unknown_22_);
+    struct Struct_ov023_021fb3c8_2* var9 = FindSpriteAnimation_0205a3d0(var4, arg0->unknown_22_);
     if (var9 != NULL) {
         *(short*)((char*)var9 + 0x4) = var7;
         *(short*)((char*)var9 + 0x6) = var8;

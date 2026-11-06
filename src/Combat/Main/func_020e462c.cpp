@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" int func_020d2ff0(const char* arg0);
-extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
+extern "C" int GetStringLength_020d2ff0(const char* string);
+extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 
 extern char data_020f2dc8;
 extern char data_020f2dcb;
@@ -15,9 +15,9 @@ extern "C" ARM char* func_020e462c(char* arg0, char* arg1, char* arg2) {
         int var0;
         if (arg1 == 0) goto setFlag1;
         {
-            int var1 = func_020d2ff0(arg1);
+            int var1 = GetStringLength_020d2ff0(arg1);
             if (var1 <= 3) goto setFlag1;
-            var0 = func_02001aec(arg1 + (var1 - 3), &data_020f2dcb, 3);
+            var0 = CompareBytes_02001aec(arg1 + (var1 - 3), &data_020f2dcb, 3);
             goto flagDone;
         }
     setFlag1:

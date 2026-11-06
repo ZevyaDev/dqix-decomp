@@ -32,7 +32,7 @@ extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void* func_020e46c4(void*);
 extern "C" void func_020dcf7c(int, void*);
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 extern "C" void func_02044f3c(struct MessageWindow_02021b84* arg0, const char* arg1, int arg2);
 extern "C" void func_0206b198(struct Struct_0204500c_4*, unsigned short);
 extern "C" void func_0205e944(void* arg0, int arg1);
@@ -219,7 +219,7 @@ extern "C" ARM void StartMessage_0204500c(struct MessageWindow_02021b84* window,
         return;
     }
 
-    int var13 = func_020d2ff0(text);
+    int var13 = GetStringLength_020d2ff0(text);
     for (int var14 = 0; var14 < var13;) {
         int var15 = 0x40;
         char var16[0x43] = {};

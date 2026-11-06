@@ -16,7 +16,7 @@ extern "C" ARM void func_0203dd20(struct Struct_0203dd20_2* arg0) {
     unsigned int var3;
     int var4;
     var0 = GameState::GetInstance();
-    var1 = func_020100bc(var0);
+    var1 = GetCamera_020100bc(var0);
     var2 = var0->GetEffectiveDeltaTime();
     var3 = var0->GetTickCount();
     for (var4 = 0; var4 < 0x20; var4++) {

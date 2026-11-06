@@ -8,24 +8,24 @@ enum { Enum_ov012_021861e0_19 = 17, Enum_ov012_021861e0_4964 = 0x133c, Enum_ov01
 enum { Enum_ov012_021861e0_19 = 19, Enum_ov012_021861e0_4964 = 0x1364, Enum_ov012_021861e0_4960 = 0x1360, Enum_ov012_021861e0_4956 = 0x135c, Enum_ov012_021861e0_5008 = 0x1390, Enum_ov012_021861e0_92 = 0x5c };
 #endif
 
-struct Struct_02043368_2;
-extern "C" void func_0205a198(Struct_02043368_2*);
+struct Sprite_02043368_2;
+extern "C" void InitSprite_0205a198(Sprite_02043368_2*);
 struct Struct_02043368;
 extern "C" void func_0205a234(Struct_02043368*);
-extern "C" void func_0205a444(char*);
+extern "C" void InitSpriteSet_0205a444(char*);
 struct PacEntry_02020cb8_4;
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
-extern "C" void func_0205a528(void*, void*, int, void*);
+extern "C" void LoadSpriteSetFile_0205a528(void*, void*, int, void*);
 
 // USA: func_ov012_021861e0
 extern "C" ARM void func_ov012_021861e0(char* arg0) {
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
     for (unsigned char var1 = 0; var1 < Enum_ov012_021861e0_19; ++var1)
-        func_0205a198((Struct_02043368_2*)(*(char**)(arg0 + Enum_ov012_021861e0_4964) + var1 * 0x28));
+        InitSprite_0205a198((Sprite_02043368_2*)(*(char**)(arg0 + Enum_ov012_021861e0_4964) + var1 * 0x28));
     func_0205a234(*(Struct_02043368**)(arg0 + Enum_ov012_021861e0_4960));
-    func_0205a444(*(char**)(arg0 + Enum_ov012_021861e0_4956));
+    InitSpriteSet_0205a444(*(char**)(arg0 + Enum_ov012_021861e0_4956));
     *(unsigned char*)(*(char**)(arg0 + Enum_ov012_021861e0_4956) + 0x50) = 0;
     char* var2 = *(char**)(arg0 + Enum_ov012_021861e0_4956);
     *(void**)(var2 + 0x40) = *(void**)(arg0 + Enum_ov012_021861e0_4964);
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov012_021861e0(char* arg0) {
     ((SafeAllocator*)(arg0 + Enum_ov012_021861e0_92))->Reset();
     for (int var10 = 0; var10 < var9; ++var10) {
         void* var11 = GetPacEntryData_020467f0((PacEntry_02020aec*)var6, var10, &var5, &var8);
-        func_0205a528(*(char**)(arg0 + Enum_ov012_021861e0_4956), var11, var8, arg0 + Enum_ov012_021861e0_92);
+        LoadSpriteSetFile_0205a528(*(char**)(arg0 + Enum_ov012_021861e0_4956), var11, var8, arg0 + Enum_ov012_021861e0_92);
     }
     var0->RemoveTask(*(int*)(arg0 + Enum_ov012_021861e0_5008));
     *(int*)(arg0 + Enum_ov012_021861e0_5008) = -1;

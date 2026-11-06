@@ -40,7 +40,7 @@ extern "C" ARM void func_ov000_0216258c(Struct_ov000_0216258c_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     for (int var1 = 0; var1 < 4; var1++) {
         if (!func_020a35e0(arg0->unknown_2a0_, var1 & 0xff)) continue;
-        GameObject* var2 = func_0200ff1c(var0, var1);
+        GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, var1);
         if (!var2) continue;
         Struct_ov000_0216258c_3* var3 = func_ov000_02161318(arg0->unknown_3760_, var1);
         if (!var3) continue;

@@ -13,13 +13,13 @@ enum { Enum_ov003_021696f4_1271 = 0x4f7 };
 struct Struct_0205bef8;
 extern "C" void func_0205bef8(struct Struct_0205bef8* arg0);
 
-struct Struct_0205ba68;
-extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
+struct MenuCursor_0205ba68;
+extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 
-struct Struct_0205bacc;
-extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
+struct MenuCursor_0205bacc;
+extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
 
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
 struct Struct_ov003_021696f4 {
     int unknown_0_;
@@ -56,14 +56,14 @@ extern "C" ARM void func_ov003_021696f4(struct Struct_ov003_021696f4_2* arg0, in
     func_0205bef8((struct Struct_0205bef8*)&arg0->unknown_4fc_);
     if (var1) {
         int var5 = arg0->unknown_4f3_[arg1];
-        func_0205ba68((struct Struct_0205ba68*)&arg0->unknown_4fc_, 1, var5 + 1, 0);
+        SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)&arg0->unknown_4fc_, 1, var5 + 1, 0);
         arg0->unknown_4fc_.unknown_4_ = 1;
-        func_0205bacc((struct Struct_0205bacc*)&arg0->unknown_4fc_, var5 + 1);
-        func_0205bb04(&arg0->unknown_4fc_, var5 - var0);
+        SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)&arg0->unknown_4fc_, var5 + 1);
+        SetMenuCursorIndex_0205bb04(&arg0->unknown_4fc_, var5 - var0);
     } else {
-        func_0205ba68((struct Struct_0205ba68*)&arg0->unknown_4fc_, 1, 10, 0);
+        SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)&arg0->unknown_4fc_, 1, 10, 0);
         arg0->unknown_4fc_.unknown_4_ = 1;
-        func_0205bacc((struct Struct_0205bacc*)&arg0->unknown_4fc_, 10);
-        func_0205bb04(&arg0->unknown_4fc_, 9 - var0);
+        SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)&arg0->unknown_4fc_, 10);
+        SetMenuCursorIndex_0205bb04(&arg0->unknown_4fc_, 9 - var0);
     }
 }

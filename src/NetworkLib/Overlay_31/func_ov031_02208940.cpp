@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void* VectorizedInvertedMemcpy(void* src, void* dst, int n);
-extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
+extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 extern "C" void func_ov031_02207c30(void* arg0);
 
 // USA: func_ov031_02208940
@@ -10,7 +10,7 @@ extern "C" ARM void func_ov031_02208940(unsigned char* arg0, unsigned char* arg1
 	int var0 = arg0[0x30];
 	int var1 = arg1[0x22];
 	arg1 += 0x23;
-	if (var0 != 0 && var1 == 0x20 && func_02001aec(arg0 + 0x74, arg1, 0x20) == 0) {
+	if (var0 != 0 && var1 == 0x20 && CompareBytes_02001aec(arg0 + 0x74, arg1, 0x20) == 0) {
 		arg0[0x31] = 1;
 	} else {
 		if (var0 != 0) {

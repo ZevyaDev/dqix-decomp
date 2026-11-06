@@ -9,7 +9,7 @@ enum { Enum_ov000_02156558_336 = 0x150, Enum_ov000_02156558_2384 = 0x950 };
 
 extern "C" int func_ov000_0215fc60(char* arg0);
 extern "C" int func_ov000_02155f9c(struct Random* arg0, int arg1, int arg2);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int func_ov000_02156404(GameObject* arg0);
 extern "C" int func_02083b00(unsigned char* arg0, int arg1);
 int NextRandomMax(struct Random* random, int maximum);
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov000_02156558(struct Random* arg0, int arg1) {
         return 0;
     }
 
-    GameObject* var2 = func_0200ff1c(var0, arg1);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (var2 == 0) {
         return 0;
     }

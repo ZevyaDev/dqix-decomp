@@ -22,7 +22,7 @@ struct Struct_ov017_021b6090 {
 // USA: func_ov017_021b6090
 extern "C" ARM void func_ov017_021b6090(struct Struct_ov017_021b6090* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_020100bc(var0);
+    void* var1 = GetCamera_020100bc(var0);
     struct Struct_02015ef4 var2 = arg0->unknown_2c_;
 
     if (arg0->unknown_38_ < 0x191e) {

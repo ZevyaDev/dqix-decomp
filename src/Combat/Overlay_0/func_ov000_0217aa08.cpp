@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 #if defined(jpn)
 extern "C" void __clear(void* arg0, int arg1);
 extern char data_ov000_021846f7[];
@@ -15,7 +15,7 @@ extern "C" ARM void func_ov000_0217aa08(char* arg0, char* arg1) {
     if (arg0[0] == 0) return;
 #endif
     sprintf(arg1, arg0);
-    int var0 = func_020d2ff0(arg1);
+    int var0 = GetStringLength_020d2ff0(arg1);
 #if defined(jpn)
     if (var0 <= 2) return;
     int var1 = var0 - 2;

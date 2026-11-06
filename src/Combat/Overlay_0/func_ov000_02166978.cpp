@@ -23,12 +23,12 @@ extern "C" ARM void func_ov000_02166978(unsigned char* arg0) {
     for (;;) {
         signed char var2 = *(signed char*)(arg0 + Enum_ov000_02166978_22289);
         if (var2 == 0) {
-            FontLoader_0208cb08* var3 = func_02094a00();
+            FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
             func_02094b40(var3);
-            func_02094b34(var3, 0x65, 500, 0, 0);
+            RequestFontLoad_02094b34(var3, 0x65, 500, 0, 0);
             *(signed char*)(arg0 + Enum_ov000_02166978_22289) = 1;
         } else if (var2 == 1) {
-            if (func_02094b4c(func_02094a00()) != 0) {
+            if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()) != 0) {
                 *(signed char*)(arg0 + Enum_ov000_02166978_22289) = -1;
                 break;
             }

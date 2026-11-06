@@ -3,20 +3,20 @@
 #include "NitroSDK/Cache.h"
 #include "std_library_functions.h"
 
-extern "C" int func_02094a00(void);
-extern "C" void func_02094ab0(void);
+extern "C" int GetFontLoader_02094a00(void);
+extern "C" void CancelFontLoad_02094ab0(void);
 struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
 struct Struct_020e25e8;
 extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
 struct Struct_02074bd0;
 extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
-struct Struct_0205d1e0;
-extern "C" void func_0205d1e0(struct Struct_0205d1e0* arg0);
-struct Struct_0205d274;
-extern "C" void func_0205d274(struct Struct_0205d274* arg0);
-struct Struct_0205d2bc;
-extern "C" void func_0205d2bc(struct Struct_0205d2bc* arg0);
+struct TextWindowManager_0205d1e0;
+extern "C" void func_0205d1e0(struct TextWindowManager_0205d1e0* arg0);
+struct TextWindowManager_0205d274;
+extern "C" void func_0205d274(struct TextWindowManager_0205d274* arg0);
+struct TextWindowManager_0205d2bc;
+extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc* arg0);
 extern "C" void func_0205d048(void* arg0);
 extern "C" int LoadToMainBG1CharacterData(int src, int offset, unsigned int size);
 extern "C" int LoadToMainBG1ScreenData(int src, int offset, unsigned int size);
@@ -41,8 +41,8 @@ struct Struct_ov003_02158d4c {
 
 // USA: func_ov003_02158d4c
 extern "C" ARM void func_ov003_02158d4c(Struct_ov003_02158d4c* arg0) {
-    func_02094a00();
-    func_02094ab0();
+    GetFontLoader_02094a00();
+    CancelFontLoad_02094ab0();
 
     if (arg0->unknown_570_ != NULL && func_020e28dc((struct Struct_020e28dc*)arg0->unknown_570_)) {
         func_020e25e8(arg0->unknown_570_);
@@ -53,9 +53,9 @@ extern "C" ARM void func_ov003_02158d4c(Struct_ov003_02158d4c* arg0) {
     *(unsigned short*)0x4000050 = 0;
     func_02074bd0((struct Struct_02074bd0*)arg0->unknown_80_);
 
-    func_0205d1e0((struct Struct_0205d1e0*)arg0->unknown_f4_);
-    func_0205d274((struct Struct_0205d274*)arg0->unknown_f4_);
-    func_0205d2bc((struct Struct_0205d2bc*)arg0->unknown_f4_);
+    func_0205d1e0((struct TextWindowManager_0205d1e0*)arg0->unknown_f4_);
+    func_0205d274((struct TextWindowManager_0205d274*)arg0->unknown_f4_);
+    func_0205d2bc((struct TextWindowManager_0205d2bc*)arg0->unknown_f4_);
     func_0205d048(arg0->unknown_f4_);
 
     arg0->unknown_28_.Reset();

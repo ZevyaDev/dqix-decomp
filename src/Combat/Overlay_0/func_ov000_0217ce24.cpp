@@ -23,19 +23,19 @@ struct Struct_ov000_02182a74 {char unknown_0_[0xf78];signed char unknown_f78_[4]
 struct Struct_ov000_0217ce24_2 {char unknown_0_[0x56b];unsigned char unknown_56b_0_:4,unknown_56b_4_:4;};
 struct Struct_ov000_0217ce24 {char unknown_0_[Enum_ov000_0217ce24_336];Struct_ov000_0217ce24_2* unknown_150_;};
 struct Struct_0205c570;struct SoundEffectManager_02108760;struct Struct_ov000_021735d0_3;struct Struct_ov000_021735d0_2;
-struct Struct_0205d81c;struct Struct_0205d6a0;struct Struct_02092aa4;
-extern "C" int func_0205d794(Struct_0205c570*);
+struct TextWindowManager_0205d81c;struct TextWindowManager_0205d6a0;struct Struct_02092aa4;
+extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*,int,int);
 extern "C" void* GetParty_02010828(GameState*);
-extern "C" GameObject* func_0200ff1c(GameState*,int);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);
 extern "C" Struct_ov000_021735d0_2* func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_ov000_0218155c(void*);
-extern "C" void func_ov000_0217a9d0(int,int,int,Struct_0205d81c*);
+extern "C" void func_ov000_0217a9d0(int,int,int,TextWindowManager_0205d81c*);
 extern "C" void func_02092aa4(Struct_02092aa4*, int);
 extern "C" void func_02092a74(SafeAllocator*,SafeAllocator*);
 extern "C" int func_ov000_0217c5f4(void*);
-extern "C" void func_0205d6a0(Struct_0205d6a0*,int);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*,int);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" {
 void GetZone3D_02012fe4();int func_ov000_0217c594(void*,int);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov000_0217ce24(Struct_ov000_021682ec_5* arg0,int arg1,i
 {
     GetZone3D_02012fe4();
     arg0->unknown_1d72_|=0x100;
-    int var0=func_0205d794((Struct_0205c570*)arg0->unknown_188_);
+    int var0=GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_188_);
     if(var0<0)var0=0;
     arg0->unknown_1d6a_=var0;
     if(func_ov000_0217c594(arg0,5)){
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov000_0217ce24(Struct_ov000_021682ec_5* arg0,int arg1,i
         unsigned char var5=0;unsigned char var6=var2->unknown_f7c_;
         for(;var5<var6;var5++){
             int var7=var2->unknown_f78_[var5];
-            Struct_ov000_0217ce24* var8=(Struct_ov000_0217ce24*)func_0200ff1c(var1,var7);
+            Struct_ov000_0217ce24* var8=(Struct_ov000_0217ce24*)GetPartyMemberBaseByIndex_0200ff1c(var1,var7);
             if(var8){
                 bool var9=var8->unknown_150_?var8->unknown_150_->unknown_56b_0_!=0:false;
                 if(var9)var4=true;
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov000_0217ce24(Struct_ov000_021682ec_5* arg0,int arg1,i
             }
             {Struct_ov000_021735d0_2* var12=func_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0);
             func_ov000_02176634(arg0,var12,arg0->unknown_1d60_[arg0->unknown_1d68_],arg1,arg2);}
-            func_ov000_0217a9d0(6,func_ov000_0218155c(arg0),4,(Struct_0205d81c*)arg0->unknown_188_);
+            func_ov000_0217a9d0(6,func_ov000_0218155c(arg0),4,(TextWindowManager_0205d81c*)arg0->unknown_188_);
             break;
         case 2:
             arg0->unknown_79_=var3;
@@ -119,7 +119,7 @@ extern "C" ARM void func_ov000_0217ce24(Struct_ov000_021682ec_5* arg0,int arg1,i
         }
     }else if(func_ov000_0217c5f4(arg0)){
         arg0->unknown_956_=0;
-        func_0205d6a0((Struct_0205d6a0*)arg0->unknown_188_,0);
+        CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_188_,0);
         arg0->unknown_1d60_[arg0->unknown_1d68_]=0;arg0->unknown_1d68_--;
         func_ov000_0217c638(arg0,arg1,arg2);
     }

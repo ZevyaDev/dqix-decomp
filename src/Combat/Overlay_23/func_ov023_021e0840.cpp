@@ -5,8 +5,8 @@
 
 
 struct Struct_020534ac;
-struct Struct_0201099c_14;
-extern "C" void func_020dfc6c(struct Struct_0201099c_14* arg0);
+struct StringTable_0201099c_14;
+extern "C" void func_020dfc6c(struct StringTable_0201099c_14* arg0);
 extern "C" void func_020df83c(void* arg0);
 extern "C" void func_ov023_021db2e4(volatile int* arg0);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
@@ -17,7 +17,7 @@ extern "C" {
     void func_020df850(void* arg0, void* arg1, int arg2, int arg3, int arg4);
     void* GetFlagManager_0205ec34(void);
     int func_02005a94(signed char* arg0);
-    void func_0204c684(void* arg0);
+    void InitTextWindow_0204c684(void* textWindow);
     void func_ov023_021db314(void* arg0, short* arg1, short* arg2);
     void func_ov023_021db634(void* arg0, void* arg1);
     int func_ov023_021ddc98(void* arg0, int arg1, unsigned short arg2, int arg3);
@@ -69,9 +69,9 @@ extern "C" ARM int func_ov023_021e0840(void* arg0) {
     }
 #endif
 
-    func_020dfc6c((struct Struct_0201099c_14*)(var0 + 0x8c));
+    func_020dfc6c((struct StringTable_0201099c_14*)(var0 + 0x8c));
     func_020df83c(var0 + 0x7c);
-    func_020dfc6c((struct Struct_0201099c_14*)(var0 + 0xa4));
+    func_020dfc6c((struct StringTable_0201099c_14*)(var0 + 0xa4));
     ((class SafeAllocator*)(var0 + 0x28))->Reset();
 
     int var7 = *(short*)((char*)*(void**)(var0 + 0x4c) + 0x18);
@@ -109,7 +109,7 @@ extern "C" ARM int func_ov023_021e0840(void* arg0) {
         goto retB;
     }
 
-    func_0204c684(var1);
+    InitTextWindow_0204c684(var1);
     if (func_ov023_021ddc34(var1, 0, 0, 0x1c, 6)) {
         if (!(*(unsigned short*)(var0 + Enum_ov023_021e0840_1908) & 0x400)) {
             func_ov023_021db634(var0 + 0xcc, var1);

@@ -15,7 +15,7 @@ extern "C" ARM void func_ov000_021811f4(char* arg0, int arg1, void* arg2, int ar
 }
 #else
 extern "C" int func_ov000_02174e34(int arg0, int arg1);
-extern "C" void func_0205ac40(void* arg0, void* arg1);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 struct Struct_ov000_021811f4 {
     char unknown_0_[0x14];
@@ -37,6 +37,6 @@ extern "C" ARM void func_ov000_021811f4(void* arg0, int arg1, short arg2, int ar
     var1->unknown_22_ = (unsigned char)(arg1 + 0x48);
     var1->unknown_26_ = 1;
     var1->unknown_25_ = (unsigned char)func_ov000_02174e34((int)arg0, (signed char)arg1);
-    func_0205ac40((char*)arg0 + 0x11c, var1);
+    DrawSprite_0205ac40((char*)arg0 + 0x11c, var1);
 }
 #endif

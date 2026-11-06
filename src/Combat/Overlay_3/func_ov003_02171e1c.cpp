@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" int func_ov003_02171df0(unsigned char* arg0);
-extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
+extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 
 struct Struct_ov003_02171e1c {
     unsigned char unknown_0_[6];
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov003_02171e1c(Struct_ov003_02171e1c_2* arg0, unsigned 
         Struct_ov003_02171e1c* var2 = arg0->unknown_8_;
         for (int var3 = 0; var3 < 0x32; var3++, var2++) {
             int var4 = var2->unknown_6_;
-            if (var4 != 0 && func_02001aec(var2, arg1, 6) == 0) {
+            if (var4 != 0 && CompareBytes_02001aec(var2, arg1, 6) == 0) {
                 var0 = var2;
                 var1 = var4;
                 var2->unknown_6_ = 0x32;

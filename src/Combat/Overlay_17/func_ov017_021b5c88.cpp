@@ -44,7 +44,7 @@ struct Struct_ov017_021b5c88_3 {
 };
 
 extern "C" Struct_ov017_021b5c88* GetZone3D_02012fe4(void);
-extern "C" Struct_02015ef4_4* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
+extern "C" Struct_02015ef4_4* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" unsigned short func_020de234(Struct_02015ef4_4* arg0, int arg1);
 
 // USA: func_ov017_021b5c88
@@ -54,7 +54,7 @@ extern "C" ARM int func_ov017_021b5c88(Struct_ov017_021b5c88_3* arg0) {
         arg0->unknown_17_ = 0x69;
         arg0->unknown_14_ = 0x7f;
     } else {
-        Struct_02015ef4_4* var1 = func_020dedd0(var0, arg0->unknown_12_);
+        Struct_02015ef4_4* var1 = FindItemData_020dedd0(var0, arg0->unknown_12_);
         if (var1 != NULL) {
             arg0->unknown_17_ = var1->unknown_12_4_;
             arg0->unknown_14_ = func_020de234(var1, 0);

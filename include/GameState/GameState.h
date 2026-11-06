@@ -45,7 +45,7 @@ public:
     char unk_4[4];
     GameObject* objects_[0xe9];
     int protagonistObjectIndex_;
-    void* pCamera_3b0_; // see func_020100bc, LightingManager::MaybeComputeHorizonPosition. Probably a high level camera
+    void* pCamera_3b0_; // see GetCamera_020100bc, LightingManager::MaybeComputeHorizonPosition. Probably a high level camera
     unsigned int effectiveDeltaTimeMilliseconds_;
     unsigned int trueDeltaTimeMilliseconds_;
     fix16_t gameSpeed_; // effective delta time is true delta time rescaled by this

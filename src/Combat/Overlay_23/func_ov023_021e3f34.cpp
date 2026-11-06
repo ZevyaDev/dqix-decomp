@@ -11,7 +11,7 @@ struct GameResources;
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" int func_0209ca2c(void* arg0);
-extern "C" void func_020100c4(GameState* arg0, int arg1);
+extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern int gMusicManager_02109bf4;
 
 struct Struct_ov023_021e3f34 { char unknown_0_[Enum_ov023_021e3f34_312]; int unknown_138_; char unknown_13c_[Enum_ov023_021e3f34_1252 - Enum_ov023_021e3f34_312 - 4]; unsigned char unknown_4e4_; };
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov023_021e3f34(struct Struct_ov023_021e3f34* arg0) {
     }
     if (IsBrightnessTransitionActive((GameResources*)var1)) return;
     if (func_0209ca2c(&gMusicManager_02109bf4)) return;
-    func_020100c4(var0, arg0->unknown_138_);
+    SetCamera_020100c4(var0, arg0->unknown_138_);
     arg0->unknown_4e4_ = 0;
     *(signed char*)((char*)arg0 + Enum_ov023_021e3f34_1255) = *(signed char*)((char*)arg0 + 0x400 + Enum_ov023_021e3f34_230);
     *(signed char*)((char*)arg0 + Enum_ov023_021e3f34_1254) = -1;

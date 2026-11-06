@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-extern "C" void func_ov017_021d6134(void* arg0, int arg1);
+extern "C" void SetScriptRefInt_ov017_021d6134(void* value, int number);
 
 struct Struct_ov001_02160a7c { 
 #if defined(jpn)
@@ -21,14 +21,14 @@ extern "C" ARM int func_ov001_02160a7c(char* arg0, int arg1) {
     int var0;
     void* var1 = GetGameResources();
     struct Struct_ov001_02160a7c* var2 = *(struct Struct_ov001_02160a7c**)((char*)var1 + Enum_ov001_02160a7c_14132);
-    func_ov017_021d6134(arg0, var2->unknown_cd_);
+    SetScriptRefInt_ov017_021d6134(arg0, var2->unknown_cd_);
     arg0 += 8;
     if (arg1 >= 2) {
-        func_ov017_021d6134(arg0, var2->unknown_cf_);
+        SetScriptRefInt_ov017_021d6134(arg0, var2->unknown_cf_);
         arg0 += 8;
     }
     if (arg1 >= 3) {
-        func_ov017_021d6134(arg0, var2->unknown_ce_);
+        SetScriptRefInt_ov017_021d6134(arg0, var2->unknown_ce_);
         arg0 += 8;
     }
     if (arg1 >= 4) {
@@ -38,7 +38,7 @@ extern "C" ARM int func_ov001_02160a7c(char* arg0, int arg1) {
         } else if (var3 == 1) {
             var0 = 1;
         }
-        func_ov017_021d6134(arg0, var0);
+        SetScriptRefInt_ov017_021d6134(arg0, var0);
     }
     return 1;
 }

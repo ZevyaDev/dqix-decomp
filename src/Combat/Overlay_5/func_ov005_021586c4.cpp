@@ -37,7 +37,7 @@ extern "C" ARM int func_ov005_021586c4(void*, int arg1, int arg2) {
     if (arg1 > 0 && arg1 < 128) {
         int var5[8];
         int var6[8];
-        var1 = func_020100bc(var0);
+        var1 = GetCamera_020100bc(var0);
         Matrix4x3 var7;
         Vector3fix var8[8];
         var7 = RotationMatrixY(func_ov023_021e4e20(var3)->unknown_50_.y);
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov005_021586c4(void*, int arg1, int arg2) {
             Mat4x3_ApplyToVector(&data_ov005_0215cc24[var2], &var7, &var8[var2]);
             func_0202ec84(var1, (Struct_02015ef4*)&var8[var2], &var5[var2], &var6[var2]);
         }
-        func_0200ff1c(var0, var4);
+        GetPartyMemberBaseByIndex_0200ff1c(var0, var4);
         int var9 = 0;
         float var10[8];
         int var11[8];

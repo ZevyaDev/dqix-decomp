@@ -21,8 +21,8 @@ struct Struct_ov025_021e771c_3 {
     SafeAllocator* inline_ov025_021e771c(int arg0) { return &unknown_30_[arg0]; }
 };
 
-extern "C" Struct_ov025_021e771c_2* func_ov017_021b8478(void* arg0);
-extern "C" Struct_ov025_021e771c_3* func_ov000_02160130(void);
+extern "C" Struct_ov025_021e771c_2* GetBattleSetup_ov017_021b8478(void* battleManager);
+extern "C" Struct_ov025_021e771c_3* GetBattleScene_ov000_02160130(void);
 extern "C" void func_ov000_02166804(Struct_ov025_021e771c_3* arg0);
 void* LoadFileIntoMemory(const char* path, void* dst, unsigned int* outSize);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
@@ -52,8 +52,8 @@ extern char data_ov025_021ef86d[];
 extern "C" ARM int func_ov025_021e771c(short* arg0, int arg1, int arg2, int arg3) {
     GameResources* var0 = GetGameResources();
     GameState::GetInstance();
-    Struct_ov025_021e771c_2* var1 = func_ov017_021b8478(var0->unknown_ptr_3718);
-    Struct_ov025_021e771c_3* var2 = func_ov000_02160130();
+    Struct_ov025_021e771c_2* var1 = GetBattleSetup_ov017_021b8478(var0->unknown_ptr_3718);
+    Struct_ov025_021e771c_3* var2 = GetBattleScene_ov000_02160130();
     func_ov000_02166804(var2);
     Struct_ov025_021e771c* var3 = &var1->unknown_678_;
     Struct_ov025_021e771c* var4 = &var1->unknown_684_;

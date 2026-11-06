@@ -107,7 +107,7 @@ struct Struct_ov014_02184dcc {
 struct Struct_ov014_021845d4;
 struct Struct_02097238;
 struct Struct_02097054_5;
-struct Struct_0201099c_14;
+struct StringTable_0201099c_14;
 struct TextureVRAMArea_0203d028;
 struct Struct_0203d028_11;
 
@@ -136,7 +136,7 @@ extern "C" void func_020e56fc(void* arg0, int arg1, int arg2);
 extern "C" const char** func_020e5294(void* arg0, int arg1);
 extern "C" void func_020e4864(const char* arg0, char* arg1, int, int, int, int);
 extern "C" void* func_020dfc2c(void* arg0);
-extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
+extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void func_020e046c(char* arg0, void* arg1, unsigned int arg2, short arg3);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
@@ -234,7 +234,7 @@ extern "C" ARM void func_ov014_021850cc(Struct_ov014_02184dcc* arg0) {
 #if defined(jpn)
                 char var13[0x18];
                 func_020dfc2c(var13);
-                func_020dfc40((Struct_0201099c_14*)var13);
+                InitStringTable_020dfc40((StringTable_0201099c_14*)var13);
                 func_020e038c(var13, var10, var11);
                 func_020e207c(var13, arg0->unknown_60_[0], var12->unknown_8_[0]);
                 func_020e207c(var13, arg0->unknown_60_[1], var12->unknown_8_[1]);
@@ -267,7 +267,7 @@ extern "C" ARM void func_ov014_021850cc(Struct_ov014_02184dcc* arg0) {
         if (var16 != NULL) {
             char var18[0x18];
             func_020dfc2c(var18);
-            func_020dfc40((Struct_0201099c_14*)var18);
+            InitStringTable_020dfc40((StringTable_0201099c_14*)var18);
             func_020e046c(arg0->unknown_68_, var16, var17, arg0->unknown_48_->unknown_1a_);
         }
         var0->RemoveTask(arg0->unknown_86_[2]);

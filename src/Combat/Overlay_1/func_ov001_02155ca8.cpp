@@ -8,7 +8,7 @@ struct Struct_0208ab34;
 extern "C" int func_020e34bc(struct Struct_0208ab34* arg0, int arg1);
 extern "C" void func_ov017_021bd5d0(void);
 struct Struct_02018300_3;
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void func_020e3428(void* arg0, int arg1);
 struct Struct_0208ab34_2;
 extern "C" void func_020e3468(struct Struct_0208ab34_2* arg0, int arg1);
@@ -38,7 +38,7 @@ extern "C" ARM int func_ov001_02155ca8(struct Struct_ov001_02155ca8* arg0) {
             int var3 = func_020e34bc((struct Struct_0208ab34*)var2, 1);
             if (var3 == 1) {
                 func_ov017_021bd5d0();
-                func_020397cc((struct Struct_02018300_3*)var0->GetUnknownGameObject(), 1);
+                DisablePlayerControl_020397cc((struct Struct_02018300_3*)var0->GetUnknownGameObject(), 1);
                 func_020e3428(var2, 1);
             } else {
                 if ((unsigned int)(var3 - 3) > 2) {

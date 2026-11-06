@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_021bf490(void*);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov017_0218d5ac(void* arg0);
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov017_021bf534(struct Struct_ov017_021bf534* arg0) {
         arg0->unknown_a_ = (unsigned char)var4(arg0);
     } else {
         if (var1) {
-            func_020397c0(var1);
+            EnablePlayerControl_020397c0(var1);
         }
         func_ov017_021bf490(arg0);
         arg0->unknown_1_ = 1;

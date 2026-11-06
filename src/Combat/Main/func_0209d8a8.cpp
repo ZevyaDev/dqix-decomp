@@ -12,14 +12,14 @@ enum { Enum_0209d8a8_1816 = 0x718 };
 
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* func_0209dccc();
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" void* func_ov017_021b8468(int arg0);
 extern "C" void* func_ov000_02160f08(void* arg0);
 extern "C" void* func_020de824(void* arg0);
 extern "C" void func_0207cbe8(char* arg0);
 
 struct ItemTable_0201099c_10;
-extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 
 struct Struct_0207ccf0_4;
 extern "C" int func_0207d200(struct Struct_0207ccf0_4* arg0, short arg1, int arg2);
@@ -47,8 +47,8 @@ extern "C" ARM int func_0209d8a8(void* arg0) {
     if (var3 == NULL) {
         return 0;
     }
-    var1 = func_ov017_021d60f4(arg0);
-    var2 = func_ov017_021d60f4((char*)arg0 + 8);
+    var1 = GetScriptValueAsInt_ov017_021d60f4(arg0);
+    var2 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 8);
     void* var4 = GetGameResources();
     int var5 = *(int*)((char*)var4 + 0x3000 + Enum_0209d8a8_1816);
     void* var6 = func_ov017_021b8468(var5);
@@ -63,7 +63,7 @@ extern "C" ARM int func_0209d8a8(void* arg0) {
     ((SafeAllocator*)&var0)->ResetAllocatorPointer();
     func_020de824(var0.unknown_0_ + 0x14);
     func_0207cbe8(var0.unknown_0_);
-    if (func_020dedd0(var8, (short)var1) != NULL) {
+    if (FindItemData_020dedd0(var8, (short)var1) != NULL) {
         var0.unknown_2c_ = var8;
         func_0207d200((struct Struct_0207ccf0_4*)&var0, var1, (char)var2);
     }

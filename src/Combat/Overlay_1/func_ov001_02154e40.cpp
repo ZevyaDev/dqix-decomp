@@ -48,13 +48,13 @@ extern "C" ARM int func_ov001_02154e40(struct Struct_ov001_02154e40* arg0) {
         arg0->unknown_120_ = 0;
     }
 
-    FontLoader_0208cb08* var3 = func_02094a00();
+    FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
     unsigned char var4 = 1;
     if (arg0->unknown_13_ != 0) {
         var4 = 0;
     }
     func_02094b40(var3);
-    func_02094ab0(var3);
+    CancelFontLoad_02094ab0(var3);
     func_02094b2c(var3, 0x6f, (char*)arg0 + 0x62, 1, var4);
     return 0xd;
 }

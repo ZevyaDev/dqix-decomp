@@ -19,13 +19,13 @@ enum { Enum_ov003_0215dd3c_240 = 0xf0 };
 #endif
 
 
-struct Struct_0205ba68;
-extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
-struct Struct_0205bacc;
-extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
+struct MenuCursor_0205ba68;
+extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
+struct MenuCursor_0205bacc;
+extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
 struct Struct_0205bcdc;
 extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
 // USA: func_ov003_0215dd3c
 extern "C" ARM void func_ov003_0215dd3c(char* arg0) {
@@ -35,12 +35,12 @@ extern "C" ARM void func_ov003_0215dd3c(char* arg0) {
         var1 = 1;
         var2 = *(signed char*)(arg0 + Enum_ov003_0215dd3c_961);
     }
-    func_0205ba68((struct Struct_0205ba68*)(arg0 + Enum_ov003_0215dd3c_156), var1, var0, 0);
-    func_0205ba68((struct Struct_0205ba68*)(arg0 + Enum_ov003_0215dd3c_236), var1, var0, 0);
-    func_0205bacc((struct Struct_0205bacc*)(arg0 + Enum_ov003_0215dd3c_156), var0);
-    func_0205bacc((struct Struct_0205bacc*)(arg0 + Enum_ov003_0215dd3c_236), var0);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(arg0 + Enum_ov003_0215dd3c_156), var1, var0, 0);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(arg0 + Enum_ov003_0215dd3c_236), var1, var0, 0);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + Enum_ov003_0215dd3c_156), var0);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + Enum_ov003_0215dd3c_236), var0);
     *(int*)(arg0 + Enum_ov003_0215dd3c_160) = var1;
     *(int*)(arg0 + Enum_ov003_0215dd3c_240) = var1;
     func_0205bcdc((struct Struct_0205bcdc*)(arg0 + Enum_ov003_0215dd3c_156), var2);
-    func_0205bb04((void*)(arg0 + Enum_ov003_0215dd3c_236), var2);
+    SetMenuCursorIndex_0205bb04((void*)(arg0 + Enum_ov003_0215dd3c_236), var2);
 }

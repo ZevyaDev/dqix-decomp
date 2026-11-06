@@ -16,7 +16,7 @@ extern "C" int func_02046b1c(struct Struct_02046b1c* arg0);
 struct Struct_020a66a4;
 extern "C" void func_020a7eb8(struct Struct_020a66a4* arg0);
 extern "C" int func_ov017_021b8b54(void* arg0);
-extern "C" void* func_02057924(void* arg0);
+extern "C" void* GetEffectManager_02057924(void* arg0);
 extern "C" void func_02057ab8(void* arg0, int arg1);
 
 struct Struct_020a66a4_2 {
@@ -43,7 +43,7 @@ extern "C" ARM void func_020a66a4(struct Struct_020a66a4_2* arg0) {
     func_02046b1c((struct Struct_02046b1c*)var1);
     struct Struct_020a66a4_3* var6 = (struct Struct_020a66a4_3*)((char*)arg0 + 0x3000);
     var4 = var6->unknown_718_;
-    var3 = func_02057924(var6);
+    var3 = GetEffectManager_02057924(var6);
     if (var0 == NULL) return;
     if (var2 == 0xa && *((unsigned char*)var4 + 3) != 0) {
         if (func_ov017_021b8b54(var4)) return;

@@ -58,7 +58,7 @@ static LightingManager s_lightingManager;
 
 extern "C"
 {
-    void* func_020100bc(GameState*);
+    void* GetCamera_020100bc(GameState*);
 
     void func_0202ec84(void*, const Vector3fix*, int*, int*);
 
@@ -76,7 +76,7 @@ extern "C"
 
     void* func_ov017_021b8468(void*);
     extern "C" void func_ov017_021901ac(GameResources*);
-    void* func_ov017_021b8478(void*);
+    void* GetBattleSetup_ov017_021b8478(void*);
 }
 
 void SetVector3fixComponents(Vector3fix*, fix32_t, fix32_t, fix32_t);
@@ -408,7 +408,7 @@ void LightingManager::GetCurrentAdvancedLightingValues(unsigned short *outMaybeA
             void* ov0thing = func_ov017_021b8468(ov17thing);
             if (ov0thing != NULL && func_ov000_02160fd4(ov0thing, 1 << 9))
             {
-                unsigned char* overrideData = (unsigned char*)func_ov017_021b8478(ov17thing);
+                unsigned char* overrideData = (unsigned char*)GetBattleSetup_ov017_021b8478(ov17thing);
                 currentTimeType = overrideData[5];
                 lerpFactor = 0.0f;
                 nextTimeType = currentTimeType + 1;
@@ -968,7 +968,7 @@ void LightingManager::ApplyAmbientColorToModel(NSBXXInternalModel* model)
 
 void LightingManager::MaybeComputeHorizonPosition()
 {
-    void* maybeCameraData = func_020100bc(GameState::GetInstance());
+    void* maybeCameraData = GetCamera_020100bc(GameState::GetInstance());
     Vector3fix* maybeCameraTarget = (Vector3fix*)((char*)maybeCameraData + 0x12c);
     Vector3fix* maybeCameraEye = (Vector3fix*)((char*)maybeCameraData + 0x120);
 
@@ -1030,7 +1030,7 @@ void LightingManager::DrawBackgroundGradient()
             void* ov0thing = func_ov017_021b8468(ov17inner);
             if (ov0thing != NULL && func_ov000_02160fd4(ov0thing, 1 << 9))
             {
-                unsigned char* overrideData = (unsigned char*)func_ov017_021b8478(ov17inner);
+                unsigned char* overrideData = (unsigned char*)GetBattleSetup_ov017_021b8478(ov17inner);
                 int index = overrideData[5];
                 outerColor = lightingInfo->advanced_.backgroundColor[index];
                 innerColor = lightingInfo->advanced_.backgroundSecondColor[index];

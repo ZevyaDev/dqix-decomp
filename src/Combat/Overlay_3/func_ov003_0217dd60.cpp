@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct Struct_0205de24_2;
-struct Struct_0205ba68;
-struct Struct_0205d81c;
-struct Struct_0205bacc;
+struct TextWindowManager_0205de24_2;
+struct MenuCursor_0205ba68;
+struct TextWindowManager_0205d81c;
+struct MenuCursor_0205bacc;
 struct Struct_0201099c_3;
 
 struct Struct_ov003_0217dd60 {
@@ -59,32 +59,32 @@ struct Struct_ov003_0217dd60_2 {
 };
 #endif
 
-extern "C" void func_0205de24(struct Struct_0205de24_2*, unsigned char, unsigned char);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2*, unsigned char, unsigned char);
 extern "C" void func_0205cf04(void*);
 extern "C" void func_0205cef8(void*);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void GetZone3D_02012fe4();
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
-extern "C" void func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
-extern "C" unsigned char* func_0205e00c(struct Struct_0205d81c* arg0, int arg1);
+extern "C" unsigned char* func_0205e00c(struct TextWindowManager_0205d81c* arg0, int arg1);
 extern "C" void func_02050400(unsigned char* arg0, int arg1);
 extern "C" void func_0205042c(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_02050440(unsigned char* arg0, int arg1);
 #if defined(jpn)
 struct MessageWindow_020465c0;
-extern "C" void func_0205d304(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, char* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0*, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern "C" void func_02042428(char* arg0, int arg1);
 #else
-extern "C" void func_0205d304(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, char* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
-extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
+extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
+extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
 
 extern const char data_ov003_02180c7f[];
 
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
     char var0[0x400];
     GetZone3D_02012fe4();
     struct MessageWindow_020465c0* var1 = (struct MessageWindow_020465c0*)GetMessageWindow_020421a0();
-    func_0205de24((struct Struct_0205de24_2*)arg0->unknown_8c_, 0, 1);
+    SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)arg0->unknown_8c_, 0, 1);
     arg0->unknown_8c_->unknown_b1_ = 0;
     {
         struct Struct_ov003_0217dd60* var2 = arg0->unknown_8c_;
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
     }
     for (var7 = var8 * 6; var7 < var6; var7++) {
         const char* var9 = (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_c8_, (short)(arg0->unknown_14_[var7] + 100));
-        func_02041b70(var0, var7 % 6, var9);
+        AppendMenuEntry_02041b70(var0, var7 % 6, var9);
         if (var7 != var6 - 1) {
             AppendText_02042058(var0, data_ov003_02180c7f);
         }
@@ -146,19 +146,19 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
         AppendText_02042058(var0, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_c8_, 200));
     }
     if (arg0->unknown_2e_ > 1) {
-        func_0205d304(arg0->unknown_8c_, var0, 0, 0, 1, 1, 0);
+        OpenTextWindow_0205d304(arg0->unknown_8c_, var0, 0, 0, 1, 1, 0);
     } else {
-        func_0205d304(arg0->unknown_8c_, var0, 0, 0, 0, 1, 0);
+        OpenTextWindow_0205d304(arg0->unknown_8c_, var0, 0, 0, 0, 1, 0);
     }
     int var10 = arg0->unknown_2e_;
     struct Struct_ov003_0217dd60* var11 = arg0->unknown_8c_;
     var11->unknown_8_ = var10;
     var11->unknown_58_ = var10;
-    func_0205ba68((struct Struct_0205ba68*)((char*)var11 + 4), 1, 6, 0);
-    func_0205ba68((struct Struct_0205ba68*)((char*)var11 + 0x54), 1, 6, 0);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)((char*)var11 + 4), 1, 6, 0);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)((char*)var11 + 0x54), 1, 6, 0);
     unsigned char var12 = arg0->unknown_2c_;
-    func_0205bacc((struct Struct_0205bacc*)((char*)var11 + 4), var12);
-    func_0205bacc((struct Struct_0205bacc*)((char*)var11 + 0x54), var12);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)((char*)var11 + 4), var12);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)((char*)var11 + 0x54), var12);
     var11->unknown_94_ = 1;
     var11->unknown_95_ = 1;
 }
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
     char var13[0x400];
     GetZone3D_02012fe4();
     GetMessageWindow_020421a0();
-    func_0205de24((struct Struct_0205de24_2*)arg0->unknown_90_, 0, 1);
+    SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)arg0->unknown_90_, 0, 1);
     int var14 = arg0->unknown_10_;
     arg0->unknown_90_->unknown_b1_ = 0;
     short var15 = (short)(var14 >> 3);
@@ -209,13 +209,13 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
     }
     for (var22 = var23 * 6; var22 < var21; var22++) {
         const char* var24 = (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_cc_, (short)(arg0->unknown_18_[var22] + 100));
-        func_02041b70(var13, var22 % 6, var24);
+        AppendMenuEntry_02041b70(var13, var22 % 6, var24);
         if (var22 != var21 - 1) {
             AppendText_02042058(var13, data_ov003_02180c7f);
         }
     }
     if (arg0->unknown_32_ > 1) {
-        unsigned char* var25 = func_0205e00c((struct Struct_0205d81c*)arg0->unknown_90_, 0);
+        unsigned char* var25 = func_0205e00c((struct TextWindowManager_0205d81c*)arg0->unknown_90_, 0);
         if (var25 != NULL) {
             func_02050400(var25, 1);
             func_0205042c(var25, var23);
@@ -223,19 +223,19 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
         }
     }
     if (arg0->unknown_32_ > 1) {
-        func_0205d304(arg0->unknown_90_, var13, 0, 0, 1, 1, 0, 0);
+        OpenTextWindow_0205d304(arg0->unknown_90_, var13, 0, 0, 1, 1, 0, 0);
     } else {
-        func_0205d304(arg0->unknown_90_, var13, 0, 0, 0, 1, 0, 0);
+        OpenTextWindow_0205d304(arg0->unknown_90_, var13, 0, 0, 0, 1, 0, 0);
     }
     int var26 = arg0->unknown_32_;
     struct Struct_ov003_0217dd60* var27 = arg0->unknown_90_;
     var27->unknown_8_ = var26;
     var27->unknown_58_ = var26;
-    func_0205ba68((struct Struct_0205ba68*)((char*)var27 + 4), 1, 6, 0);
-    func_0205ba68((struct Struct_0205ba68*)((char*)var27 + 0x54), 1, 6, 0);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)((char*)var27 + 4), 1, 6, 0);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)((char*)var27 + 0x54), 1, 6, 0);
     unsigned char var28 = arg0->unknown_30_;
-    func_0205bacc((struct Struct_0205bacc*)((char*)var27 + 4), var28);
-    func_0205bacc((struct Struct_0205bacc*)((char*)var27 + 0x54), var28);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)((char*)var27 + 4), var28);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)((char*)var27 + 0x54), var28);
     var27->unknown_94_ = 1;
     var27->unknown_95_ = 1;
 }

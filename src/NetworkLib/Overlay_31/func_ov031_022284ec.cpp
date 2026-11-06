@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_ov031_02236878(int);
+extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern "C" void func_ov031_022237dc(unsigned short, unsigned short, unsigned short, unsigned short);
 extern unsigned char data_ov031_02290c50;
 extern short data_ov031_02248d9e;
@@ -14,7 +14,7 @@ extern "C" ARM void func_ov031_022284ec(int arg0) {
         return;
     }
     data_ov031_02290c50 ^= 1;
-    func_ov031_02236878(8);
+    PlayWifiSetupSoundEffect_ov031_02236878(8);
     int var0 = data_ov031_02290c50 * 8;
     unsigned short var1 = *(unsigned short*)((char*)&data_ov031_02248d9e + var0);
     unsigned short var2 = *(unsigned short*)((char*)&data_ov031_02248da2 + var0);

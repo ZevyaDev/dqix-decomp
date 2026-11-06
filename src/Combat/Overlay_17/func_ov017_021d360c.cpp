@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_020341e0;
 struct Vector3s;
@@ -24,7 +24,7 @@ struct Struct_ov017_021d360c_2 {
 
 // USA: func_ov017_021d360c
 extern "C" ARM void func_ov017_021d360c(int arg0, int arg1, int arg2, int arg3) {
-    void* var0 = func_0202ae24();
+    void* var0 = GetLocalWirelessPacketQueue_0202ae24();
     struct Struct_ov017_021d360c_2 var1;
     struct Struct_ov017_021d360c* var2 = &var1.unknown_4_;
 
@@ -47,5 +47,5 @@ sendEvent:
     var2->unknown_2_ = (unsigned short)arg2;
     Vector3fix16Copy((Vector3s*)var2->unknown_4_, (Vector3s const*)&arg3);
 
-    func_0205e330(var0, &var1, 0);
+    QueueOutgoingPacket_0205e330(var0, &var1, 0);
 }

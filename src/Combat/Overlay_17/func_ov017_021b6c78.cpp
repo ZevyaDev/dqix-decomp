@@ -20,7 +20,7 @@ extern "C" int func_02087510(Struct_02087510* arg0, char arg1, void* arg2);
 #define GetCombatantAtField0x3ac _Z24GetCombatantAtField0x3acP9GameState
 
 struct Struct_02018300_3;
-extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 
 // USA: func_ov017_021b6c78
 extern "C" ARM void func_ov017_021b6c78(void) {
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov017_021b6c78(void) {
         char var6 = var2[var5];
         if (var6 != GetProtagonistObjectIndex_020100a8(var0)) {
             __clear(var3, 0x10);
-            GameObject* var7 = func_0200ff1c(var0, var6);
+            GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var0, var6);
             if (var7) {
                 unsigned char* var8 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var7);
                 memcpy(var3, var8 + 0x54 + 0x400, 0x10);
@@ -54,6 +54,6 @@ extern "C" ARM void func_ov017_021b6c78(void) {
 
     GameObject* var10 = var0->GetProtagonist();
     if (var10) {
-        func_020397cc((Struct_02018300_3*)var10, 1);
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var10, 1);
     }
 }

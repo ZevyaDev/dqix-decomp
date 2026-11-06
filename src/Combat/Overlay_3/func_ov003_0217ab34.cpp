@@ -63,7 +63,7 @@ extern "C" void func_02081ea4(struct Struct_0207fdcc_2* arg0, int arg1, int arg2
 extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" struct Struct_ov003_02179e18* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" struct Struct_ov003_02179e18* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void func_0207fdf0(struct Struct_0207fdf0_2* arg0, int arg1);
 extern "C" void func_0207fdcc(struct Struct_0207fdcc_2* arg0, int arg1);
 extern "C" unsigned short func_ov003_0217b200(void** arg0);
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov003_0217ab34(struct Struct_ov003_0217ab34_2* arg0) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             func_0208203c((struct Struct_02081f20_2*)arg0->unknown_88c_);
             arg0->unknown_ff8_ = 0;
-            arg0->unknown_8_ = func_020dedd0((struct ItemTable_0201099c_10*)arg0->unknown_874_, arg0->unknown_103a_);
+            arg0->unknown_8_ = FindItemData_020dedd0((struct ItemTable_0201099c_10*)arg0->unknown_874_, arg0->unknown_103a_);
             if (arg0->unknown_8_ == 0) {
                 return;
             }

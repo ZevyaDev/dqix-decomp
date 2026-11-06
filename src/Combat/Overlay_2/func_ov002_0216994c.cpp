@@ -4,11 +4,11 @@
 #if defined(jpn)
 #define RG(u, j) (j)
 #define OBJ (arg0 + 0xe20)
-#define APPLY(s, k, t) func_0205d5d0(s, k, t, 1)
+#define APPLY(s, k, t) SetTextWindowText_0205d5d0(s, k, t, 1)
 #else
 #define RG(u, j) (u)
 #define OBJ (arg0 + 0x2c8 + 0xc00)
-#define APPLY(s, k, t) func_0205d5d0(s, k, t, 1, 0)
+#define APPLY(s, k, t) SetTextWindowText_0205d5d0(s, k, t, 1, 0)
 #endif
 
 struct Struct_ov002_0215624c_11;
@@ -20,18 +20,18 @@ struct Struct_ov002_0215bba8_3;
 extern "C" int func_ov002_0215a9f0(void *arg0);
 extern "C" char *GetFlagManager_0205ec34();
 extern "C" short func_0206e3e8(int arg0, int arg1);
-extern "C" void func_0205de24(struct Struct_ov002_0215624c_11 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
 extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_021609d4(char *arg0);
 extern "C" void func_ov002_02161b98(char *arg0);
-extern "C" int func_0205d794(struct Struct_ov002_0215624c_15 *arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_ov002_0215624c_15 *windowManager);
 extern "C" void func_ov002_0215bba8(char *arg0);
 struct Struct_ov002_02164748;
 extern "C" int func_0205da38(struct Struct_ov002_02164748* arg0, int arg1);
 extern "C" int func_ov002_0215a9b4(void *arg0, short arg1);
 extern "C" int func_0206e3d4(int arg0, int arg1);
-extern "C" char *func_0205d81c(struct Struct_ov002_02155960_2 *arg0, int arg1);
+extern "C" char *FindTextWindow_0205d81c(struct Struct_ov002_02155960_2 *windowManager, int windowId);
 extern "C" void PlaySoundEffect_0205eaa0(struct Struct_ov002_02157d40_7 *manager, int soundEffectIndex, int handle);
 extern "C" void func_ov002_0215a9cc(void *arg0, int arg1);
 extern "C" char *GetMessageWindow_020421a0();
@@ -40,9 +40,9 @@ extern "C" void func_ov002_021607cc(void *arg0, void *arg1, int arg2);
 #if defined(jpn)
 struct Struct_ov002_02155960_3;
 extern "C" void func_0205def8(struct Struct_ov002_02155960_3 *arg0, int arg1, int arg2);
-extern "C" int func_0205d5d0(struct Struct_ov002_0215bba8_3 *, int, int, int);
+extern "C" int SetTextWindowText_0205d5d0(struct Struct_ov002_0215bba8_3 *, int, int, int);
 #else
-extern "C" int func_0205d5d0(struct Struct_ov002_0215bba8_3 *, int, int, int, unsigned char);
+extern "C" int SetTextWindowText_0205d5d0(struct Struct_ov002_0215bba8_3 *, int, int, int, unsigned char);
 #endif
 extern "C" void func_ov002_02156e90(void *arg0);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov002_0216994c(char *arg0) {
         if (*(short *) (arg0 + RG(0x1c0c, 0x1ad4)) < 0) {
             *(short *) (arg0 + RG(0x1c0c, 0x1ad4)) = 0;
         }
-        func_0205de24((struct Struct_ov002_0215624c_11 *) OBJ, 0, 3);
+        SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) OBJ, 0, 3);
         func_ov002_02161cf0(arg0);
         func_ov002_021609d4(arg0);
         *(int *) (arg0 + RG(0x1bc0, 0x1a88)) += 1;
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov002_0216994c(char *arg0) {
     *(unsigned int *) (arg0 + RG(0x247c, 0x22ac)) |= 4;
     func_ov002_02161b98(arg0);
     *(short *) (arg0 + RG(0x1c0c, 0x1ad4)) =
-        func_0205d794((struct Struct_ov002_0215624c_15 *) OBJ);
+        GetCursorIndex_0205d794((struct Struct_ov002_0215624c_15 *) OBJ);
     struct Struct_ov002_0216994c *var2 = (struct Struct_ov002_0216994c *) OBJ + 1;
     var2--;
     int var3 = var2->unknown_68_;
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov002_0216994c(char *arg0) {
             return;
         }
         *(unsigned int *) (arg0 + RG(0x247c, 0x22ac)) &= ~4;
-        unsigned char *var11 = (unsigned char *) func_0205d81c(
+        unsigned char *var11 = (unsigned char *) FindTextWindow_0205d81c(
             (struct Struct_ov002_02155960_2 *) OBJ, RG(0x21, 0x24));
         if (var11 == 0) {
             return;

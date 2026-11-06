@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void* func_ov025_021e8cf0(char* arg0, int arg1);
 extern "C" short func_ov000_0216352c(int arg0, float arg1, float arg2);
@@ -26,7 +26,7 @@ struct Struct_ov025_021e8148 {
 // USA: func_ov025_021e8148
 extern "C" ARM int func_ov025_021e8148(Struct_ov025_021e8148* arg0, int arg1, int arg2, void* arg3) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_02057924();
+    void* var1 = GetEffectManager_02057924();
     if (var0 == NULL || var1 == NULL) {
         return 0;
     }

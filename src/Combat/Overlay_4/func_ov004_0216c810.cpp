@@ -13,7 +13,7 @@ extern "C" void func_0209c3b4(struct Struct_0209c3b4_2* arg0, int arg1);
 extern "C" void func_02012028(void* arg0, unsigned char arg1);
 extern "C" void* func_ov004_0216b1c4(void* arg0, int arg1);
 extern "C" void* func_ov004_0216ae9c(void* arg0, int arg1);
-extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* arg0);
+extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
 extern "C" void func_ov011_02184ad8(struct Struct_ov004_0216b7bc* arg0);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 
@@ -241,7 +241,7 @@ extern "C" ARM int func_ov004_0216c810(void* arg0) {
     void* var18 = func_ov004_0216ae9c(arg0, 0xd2);
     func_ov023_021f8120(var18);
     var17 = 0x60;
-    unsigned char var19 = func_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
+    unsigned char var19 = GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
     Struct_ov004_02170174 var20 = data_ov004_02170174;
     int var21;
     switch (var2) {

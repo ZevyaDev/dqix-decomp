@@ -22,7 +22,7 @@ extern "C" ARM int func_0208aa28(unsigned char* arg0, int arg1, int arg2) {
     ((unsigned int*)GetGameResources());
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = func_0200ff94(var0, arg1);
-    GameObject* var2 = func_0200ff1c(var0, arg1);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (var1 == NULL || (**(int**)((char*)var1 + 0x130) & 1)) {
         return 0;
     }

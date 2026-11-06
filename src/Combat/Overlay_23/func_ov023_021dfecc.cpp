@@ -10,13 +10,13 @@ extern "C" unsigned char func_ov023_021dcb70(struct Struct_ov023_021dcb70* arg0)
 
 struct Struct_020534ac;
 
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
-extern "C" void func_0204b5b4(void*, int);
-extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
+extern "C" void SetBGPriority_0204b5b4(void*, int);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
 
-struct Struct_02020cb8_5;
-extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
+struct BGLayer_02020cb8_5;
+extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 
 struct PacEntry_02020cb8_4;
 extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
@@ -49,7 +49,7 @@ extern "C" ARM int func_ov023_021dfecc(void* arg0) {
  enum {Enum_ov023_021dfecc_1844=0x734, Enum_ov023_021dfecc_1792=0x700, Enum_ov023_021dfecc_124=0x7c, Enum_ov023_021dfecc_1912=0x778, Enum_ov023_021dfecc_1884=0x75c, Enum_ov023_021dfecc_123=0x7b, Enum_ov023_021dfecc_1888=0x760, Enum_ov023_021dfecc_1896=0x768, Enum_ov023_021dfecc_1913=0x779, Enum_ov023_021dfecc_116=0x74, Enum_ov023_021dfecc_1848=0x738};
 #endif
     unsigned char* var0 = (unsigned char*)arg0;
-    struct Struct_02020cb8 var1;
+    struct BGLayer_02020cb8 var1;
     int var2;
     void* var3;
     int var4;
@@ -69,20 +69,20 @@ extern "C" ARM int func_ov023_021dfecc(void* arg0) {
         if (var2 != 0 && var4 != 0) {
 #endif
 
-            func_0204af64(&var1);
+            InitBGLayer_0204af64(&var1);
 
             signed char var11 = *(signed char*)(var0 + Enum_ov023_021dfecc_1792 + Enum_ov023_021dfecc_124);
             if (var11 == 1) {
                 var1.unknown_1c_0_ = var11;
-                var1.unknown_1c_4_ = 1;
+                var1.bgIndex_1c_4_ = 1;
             } else {
                 var1.unknown_1c_0_ = var11;
-                var1.unknown_1c_4_ = 3;
+                var1.bgIndex_1c_4_ = 3;
             }
 
-            func_0204b5b4(&var1, 3);
-            func_0204b11c((unsigned char*)&var1, 0);
-            func_0204b5e8((struct Struct_02020cb8_5*)&var1, 0, 0);
+            SetBGPriority_0204b5b4(&var1, 3);
+            SetBGScreenSize_0204b11c((unsigned char*)&var1, 0);
+            SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)&var1, 0, 0);
 
             if (*(signed char*)(var0 + Enum_ov023_021dfecc_1792 + Enum_ov023_021dfecc_124) == 1) {
                 volatile unsigned int* var12 = (volatile unsigned int*)0x4001000;

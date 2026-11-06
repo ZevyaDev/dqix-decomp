@@ -9,9 +9,6 @@
 #include "Resource/GameResources.h"
 #include "NitroSDK/NSBXX/NSBXX.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 extern "C"
 {
@@ -28,7 +25,7 @@ extern "C"
     void func_02094d00(void*);
     Zone3D_StructPtr_8* func_02099950(void*, unsigned short id);
 
-    void func_020c9be0();
+    void HaltForever_020c9be0();
     void func_020de848(void*);
 
     void func_02013750(Zone3D*, bool);

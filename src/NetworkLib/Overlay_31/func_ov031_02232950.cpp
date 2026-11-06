@@ -2,7 +2,7 @@
 
 extern "C" ARM int func_ov031_02222e0c(void);
 extern "C" ARM unsigned int func_ov031_02227558(void);
-extern "C" int func_ov031_02236878(int arg0);
+extern "C" int PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
 extern "C" ARM void func_ov031_02222e98(void);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_02227ce4(void);
@@ -39,7 +39,7 @@ handleZero:
     }
 
 setField1dAndFinal:
-    func_ov031_02236878(7);
+    PlayWifiSetupSoundEffect_ov031_02236878(7);
     data_ov031_02290cc0.unknown_4_->unknown_1d_ = 2;
     goto final;
 
@@ -57,11 +57,11 @@ handleOne:
         int var3 = var2 - 4;
         unsigned char var4 = func_ov031_0223607c(var3);
         if (var4 == 0xff) {
-            func_ov031_02236878(9);
+            PlayWifiSetupSoundEffect_ov031_02236878(9);
             func_ov031_02222e40(-1);
             return;
         }
-        func_ov031_02236878(6);
+        PlayWifiSetupSoundEffect_ov031_02236878(6);
         signed char var5 = data_ov031_0224910c[func_ov031_02227548()];
         int var6 = var3 + 1;
         func_ov031_02237b2c(0x46, 0, 1, var5, var6);
@@ -77,7 +77,7 @@ lowField0:
         if (var7 <= 2) {
             func_ov031_02236094();
         }
-        func_ov031_02236878(6);
+        PlayWifiSetupSoundEffect_ov031_02236878(6);
         func_ov031_02233178();
         goto final;
     }

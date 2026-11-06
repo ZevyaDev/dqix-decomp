@@ -41,13 +41,13 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_02048150(void* arg0, int arg1, int arg2);
 extern "C" int func_02048260(struct Struct_02048260_2* arg0);
 extern "C" int func_020482bc(struct Struct_02010604_3* arg0);
-extern "C" int func_02033b88(struct Struct_02010604* arg0, int arg1);
+extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
 extern "C" void func_02039858(unsigned char*, int);
 extern "C" void func_0203986c(unsigned char* arg0, int arg1);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_021cedf4(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
-extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int func_020546a8(void* arg0);
 extern "C" void func_02070378(char* arg0);
 extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
@@ -71,23 +71,23 @@ extern "C" ARM int func_ov017_0219ff58(unsigned char* arg0, int arg1, int arg2, 
                 func_02048260((struct Struct_02048260_2*)var2);
                 func_020482bc((struct Struct_02010604_3*)var2);
                 var2->unknown_18c_ &= ~1;
-                func_02033b88((struct Struct_02010604*)var2, 0);
+                SetMotion_02033b88((struct Struct_02010604*)var2, 0);
                 if (var2->unknown_130_->unknown_0_ & 1) {
                     func_02039858((unsigned char*)var2, -1);
                     func_0203986c((unsigned char*)var2, 0);
-                    func_020397c0(var2);
+                    EnablePlayerControl_020397c0(var2);
                 }
                 func_ov017_021cedf4(var1, 1, 0);
                 func_ov017_021c9e00(var1, 0, 0, 1);
             }
             for (signed char var3 = 0; var3 < 4; var3++) {
-                Struct_ov017_0219ff58_3* var4 = (Struct_ov017_0219ff58_3*)func_0200ff58(var0, var3);
+                Struct_ov017_0219ff58_3* var4 = (Struct_ov017_0219ff58_3*)GetCompanionByIndex_0200ff58(var0, var3);
                 if (var4 != NULL && var1 == func_020546a8(var4)) {
                     func_02048150(var4, 0, 1);
                     func_02048260((struct Struct_02048260_2*)var4);
                     func_020482bc((struct Struct_02010604_3*)var4);
                     var4->unknown_18c_ &= ~1;
-                    func_02033b88((struct Struct_02010604*)var4, 0);
+                    SetMotion_02033b88((struct Struct_02010604*)var4, 0);
                     func_ov017_021cedf4(var3, 1, 0);
                     func_ov017_021c9e00(var3, 0, 0, 1);
                 }

@@ -25,7 +25,7 @@ void CreateRotationZ(Matrix3x3* out, fix32_t s, fix32_t c);
 
 extern "C"
 {
-    void* func_020100bc(GameState*);
+    void* GetCamera_020100bc(GameState*);
     void func_02016d8c(void* rotation);
 
     const Matrix3x3* func_0202ed74(void*);
@@ -550,7 +550,7 @@ void Object3D::PopulateRenderConfigWorld()
         RenderConfig::SetObjectPosition(&position_);
         if (flags_ & (1 << OBJECT3D_FLAG_19))
         {
-            const Matrix3x3* rotation = func_0202ed74(func_020100bc(GameState::GetInstance()));
+            const Matrix3x3* rotation = func_0202ed74(GetCamera_020100bc(GameState::GetInstance()));
             func_020ca528(rotation, &data_0210a010.objectRotationPosition.rotation);
             data_0210a010.flags &= ~((1 << RENDER_CONFIG_FLAG_WORLDVIEW_CACHE_VALID) | (1 << RENDER_CONFIG_FLAG_5) | (1 << RENDER_CONFIG_FLAG_2));
         }

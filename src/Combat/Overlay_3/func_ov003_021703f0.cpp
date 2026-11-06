@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-struct Struct_0205d0e0 {
+struct TextWindow_0205d0e0 {
     char unknown_0_[0xac];
     short unknown_ac_;
     short unknown_ae_;
 };
 
-struct Struct_0205d81c;
-extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+struct TextWindowManager_0205d81c;
+extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" int func_0204c7e0(unsigned char* arg0);
 
 struct Struct_0204c610;
@@ -21,7 +21,7 @@ struct Struct_ov003_021703f0 {
     char unknown_7_;
     signed char unknown_8_;
     char unknown_9_[0x3c - 0x9];
-    struct Struct_0205d81c* unknown_3c_;
+    struct TextWindowManager_0205d81c* unknown_3c_;
     char unknown_40_[4];
     unsigned char* unknown_44_;
 };
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov003_021703f0(struct Struct_ov003_021703f0* arg0, shor
             *arg1 = 0x2c;
             *arg2 = arg0->unknown_8_ * 17 + 0x3a;
 #else
-            struct Struct_0205d0e0* var0 = func_0205d81c(arg0->unknown_3c_, 0);
+            struct TextWindow_0205d0e0* var0 = FindTextWindow_0205d81c(arg0->unknown_3c_, 0);
             if (var0 == 0) return;
             short var1 = var0->unknown_ac_ << 3;
             short var2 = var0->unknown_ae_ << 3;

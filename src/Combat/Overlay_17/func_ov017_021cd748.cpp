@@ -68,8 +68,8 @@ extern "C" Struct_0206ea7c* GetFlagManager_0205ec34();
 extern "C" Struct_ov017_021cd748* GetZone3D_02012fe4();
 extern "C" int IsLocalWirelessGuest_0202c540(LocalWireless_0202c1a4*);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
-extern "C" void* func_0200fd0c(GameState*);
-extern "C" int func_02046b08(void**);
+extern "C" void* GetZoneEntry_0200fd0c(GameState*);
+extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_ov017_021baedc(void*, int);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" Struct_0206ea7c_2* func_0206ea7c(Struct_0206ea7c*, int);
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov017_021cd748(int arg0, Struct_ov017_021cd748_6* arg1,
         if (var3 == arg1->unknown_4_) var0 = 1;
         if (var3 == arg1->unknown_a_) var0 = 1;
         if (!var0 && ((Struct_ov017_021cd748_3*)arg3->unknown_ptr_array_36fc[4])->unknown_3_) {
-            unsigned short var6 = ((Struct_ov017_021cd748_2*)func_0200fd0c(arg2))->unknown_0_;
+            unsigned short var6 = ((Struct_ov017_021cd748_2*)GetZoneEntry_0200fd0c(arg2))->unknown_0_;
             if (var6 == arg1->unknown_4_) var0 = 1;
             if (var6 == arg1->unknown_a_) var0 = 1;
         }
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov017_021cd748(int arg0, Struct_ov017_021cd748_6* arg1,
         unsigned short var7 = arg1->unknown_8_;
         if (!var7) var7 = arg1->unknown_6_;
         if (!var7) return;
-        if (func_02046b08((void**)var4) || arg1->unknown_e_) {
+        if (IsQueueEmpty_02046b08((void**)var4) || arg1->unknown_e_) {
             int var8 = 0;
             if (!var2->unknown_3_) {
                 if (var2->unknown_2_) {

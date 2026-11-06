@@ -85,7 +85,7 @@ struct Struct_ov023_021fd678
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov023_021e5fdc(void* arg0, short* arg1, short* arg2);
-extern "C" Struct_02015ef4_4* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" Struct_02015ef4_4* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" unsigned short func_020de234(Struct_02015ef4_4* arg0, int arg1);
 extern "C" void func_ov023_021e61a0(Struct_ov023_021e5974* arg0);
 
@@ -123,10 +123,10 @@ extern "C" ARM void func_ov023_021e5974(Struct_ov023_021e5974* arg0, Struct_ov02
     func_ov023_021e5fdc((void*)arg2, var2, var6->unknown_0_);
     arg0->unknown_0_[3].unknown_2_ = -1;
     arg0->unknown_0_[4].unknown_2_ = -1;
-    func_020dedd0(arg0->unknown_c0c_, var2[7]);
+    FindItemData_020dedd0(arg0->unknown_c0c_, var2[7]);
     Struct_02015ef4_4* var7[10] = {0};
-    var7[0] = func_020dedd0(arg0->unknown_c0c_, var2[0]);
-    var7[7] = func_020dedd0(arg0->unknown_c0c_, var2[7]);
+    var7[0] = FindItemData_020dedd0(arg0->unknown_c0c_, var2[0]);
+    var7[7] = FindItemData_020dedd0(arg0->unknown_c0c_, var2[7]);
     arg0->unknown_c1c_ = arg0->unknown_0_[0].rotation_.y;
 
     arg0->unknown_c13_ = 0;
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov023_021e5974(Struct_ov023_021e5974* arg0, Struct_ov02
                 var2[5] = -1;
             continue;
         }
-        Struct_02015ef4_4* var11 = func_020dedd0(arg0->unknown_c0c_, var2[var10]);
+        Struct_02015ef4_4* var11 = FindItemData_020dedd0(arg0->unknown_c0c_, var2[var10]);
         if (var11 == NULL)
         {
             arg0->unknown_0_[var10].Initialize();
@@ -233,8 +233,8 @@ extern "C" ARM void func_ov023_021e5974(Struct_ov023_021e5974* arg0, Struct_ov02
     arg0->unknown_c13_ = 1;
     if (arg0->unknown_c13_)
     {
-        Struct_02015ef4_4* var21 = func_020dedd0(arg0->unknown_c0c_, var2[0]);
-        Struct_02015ef4_4* var22 = func_020dedd0(arg0->unknown_c0c_, var2[8]);
+        Struct_02015ef4_4* var21 = FindItemData_020dedd0(arg0->unknown_c0c_, var2[0]);
+        Struct_02015ef4_4* var22 = FindItemData_020dedd0(arg0->unknown_c0c_, var2[8]);
         unsigned char var23 = 0;
         if (var22 != NULL)
             var23 = var22->unknown_0_->unknown_5_4_;

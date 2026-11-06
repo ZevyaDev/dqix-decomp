@@ -90,7 +90,7 @@ extern "C" ARM void func_ov002_0216c42c(char* arg0, Struct_ov002_0216c42c_5* arg
             var6->unknown_0_0_ = var7->unknown_2_;
             var6->unknown_1_3_ = arg1->unknown_20_[var4].unknown_2_;
             if (var2.unknown_1_ == 4 && var7->unknown_0_ == 3) {
-                char* var8 = (char*)func_0200ff1c(var0, var5);
+                char* var8 = (char*)GetPartyMemberBaseByIndex_0200ff1c(var0, var5);
                 if (var8 != NULL) {
                     *(unsigned char*)(arg0 + RG(0x2522, 0x2352)) = 1;
                     *(unsigned char*)(arg0 + RG(0x2523, 0x2353)) = 0;

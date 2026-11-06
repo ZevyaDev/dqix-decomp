@@ -9,8 +9,8 @@ enum {Enum_ov023_021e2f38_1584=0x630, Enum_ov023_021e2f38_292=0x124, Enum_ov023_
 #include "Memory/SafeAllocator.h"
 
 extern "C" void* GetGlobalFlags_020d6c00(void);
-struct Struct_02038598_4;
-extern "C" void func_020466f4(struct Struct_02038598_4*, unsigned int);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4*, unsigned int);
 extern "C" void func_ov005_02154198(void*);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_02017d68(void* arg0);
@@ -26,7 +26,7 @@ extern "C" void CloseMessageWindow_02043124(int);
 extern "C" ARM void func_ov023_021e2f38(void* arg0) {
     char* var0 = (char*)arg0;
 
-    func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0xf);
+    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0xf);
 
     int var1 = (int)BackgroundLoader::GetInstance();
     if (*(int*)(var0 + Enum_ov023_021e2f38_1584) > 0) {
@@ -34,9 +34,9 @@ extern "C" ARM void func_ov023_021e2f38(void* arg0) {
         *(int*)(var0 + Enum_ov023_021e2f38_1584) = -1;
     }
 
-    FontLoader_0208cb08* var2 = func_02094a00();
+    FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
     func_02094b40(var2);
-    func_02094ab0(var2);
+    CancelFontLoad_02094ab0(var2);
 
     if (*(void**)(var0 + 0x0) != 0) {
         func_ov005_02154198(*(void**)(var0 + 0x0));

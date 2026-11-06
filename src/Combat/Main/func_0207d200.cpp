@@ -6,7 +6,7 @@
 
 struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9;
-extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 
 extern "C" void* func_0207d6dc(SafeAllocator* arg0, int arg1, int arg2);
 extern "C" void* GetParty_02010828(GameState* gameState);
@@ -34,7 +34,7 @@ extern "C" ARM int func_0207d200(struct Struct_0207ccf0_4* arg0, short arg1, int
         var0 = 1;
     }
     int var1 = 0;
-    struct ItemData_0201099c_9* var2 = func_020dedd0(arg0->unknown_2c_, arg1);
+    struct ItemData_0201099c_9* var2 = FindItemData_020dedd0(arg0->unknown_2c_, arg1);
     if (var2 != NULL) {
         GameState* var3 = GameState::GetInstance();
         char* var4 = (char*)GetParty_02010828(var3) + 0xe04;

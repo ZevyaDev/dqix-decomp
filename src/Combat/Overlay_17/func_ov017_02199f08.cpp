@@ -3,16 +3,16 @@
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void func_ov017_02199e98(void* arg0);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int func_02039750(void* arg0);
 extern "C" int func_0203402c(struct Struct_0203402c* arg0);
 extern "C" unsigned char func_02039820(void* arg0);
 extern "C" int func_020535c8(signed char* arg0);
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_ov017_021a5bac(unsigned char* arg0);
 extern "C" void func_ov017_021996fc(unsigned char* arg0);
 extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
@@ -22,10 +22,10 @@ struct Struct_ov017_02199684 { unsigned char unknown_0_[0x14]; int unknown_14_; 
 extern "C" void func_ov017_02199684(Struct_ov017_02199684* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021996bc(Struct_ov017_02199684* arg0, int arg1);
 
-struct Struct_0204bc74;
-extern "C" void func_0204bc74(Struct_0204bc74* arg0, unsigned short arg1, int arg2, int arg3, int arg4, int arg5, unsigned short arg6);
-struct Struct_02020cb8_2;
-extern "C" void func_0204b0e8(Struct_02020cb8_2* arg0, void* arg1);
+struct BGLayer_0204bc74;
+extern "C" void FillBGScreenRect_0204bc74(BGLayer_0204bc74* layer, unsigned short screenEntry, int x, int y, int width, int height, unsigned short palette);
+struct BGLayer_02020cb8_2;
+extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
 
 struct Struct_ov017_02199780 {
     unsigned short unknown_0_0_ : 2;
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* arg0) {
 #endif
 
     struct Struct_02015438;
-    if (func_02046b08((void**)*(struct Struct_02015438***)(arg0 + 0x3000 + Enum_ov017_02199f08_1788)) == 0) {
+    if (IsQueueEmpty_02046b08((void**)*(struct Struct_02015438***)(arg0 + 0x3000 + Enum_ov017_02199f08_1788)) == 0) {
         func_ov017_02199e98(arg0);
         return;
     }
@@ -65,9 +65,9 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* arg0) {
                 (*(int*)((char*)var1 + Enum_ov017_02199f08_396) & 1) == 0 &&
                 func_020535c8((signed char*)var1) == 0 &&
                 *(short*)((char*)var1 + 0xac) == 0) {
-                func_020397cc((Struct_02018300_3*)var1, 1);
+                DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
                 *(unsigned short*)((char*)var1 + 0xb2) = 0;
-                func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x400);
+                SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x400);
                 func_ov017_021a5bac(arg0);
 
                 volatile unsigned short* var4 = (volatile unsigned short*)0x400000a;
@@ -122,8 +122,8 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* arg0) {
         func_ov017_02199684((Struct_ov017_02199684*)(arg0 + Enum_ov017_02199f08_180 + Enum_ov017_02199f08_15360), 2, 0x800);
         for (var13 = 0; var13 < 2; var13++) {
             var12 = (Struct_ov017_02199684*)(arg0 + Enum_ov017_02199f08_180 + Enum_ov017_02199f08_15360) + var13;
-            func_0204bc74((Struct_0204bc74*)var12, 0, 0, 0, 0x20, 0x19, 0);
-            func_0204b0e8((Struct_02020cb8_2*)var12, 0);
+            FillBGScreenRect_0204bc74((BGLayer_0204bc74*)var12, 0, 0, 0, 0x20, 0x19, 0);
+            LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)var12, 0);
         }
         func_ov017_021996bc((Struct_ov017_02199684*)(arg0 + Enum_ov017_02199f08_180 + Enum_ov017_02199f08_15360), 2);
     }

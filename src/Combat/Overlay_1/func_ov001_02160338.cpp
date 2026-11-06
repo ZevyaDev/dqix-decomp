@@ -2,7 +2,7 @@
 #include "Graphics/LightingManager.h"
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" void func_ov001_021601f8(void* arg0, void* arg1);
 
 struct Struct_ov001_02160338 { char unknown_0_[0x44]; int unknown_44_; char unknown_48_[0x54 - 0x48]; struct Struct_ov001_02160338* unknown_54_; };
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov001_02160338(void* arg0) {
     if (var0->unknown_834_ != 0) {
         return 1;
     }
-    var1->unknown_90_ = func_ov017_021d60f4(arg0);
+    var1->unknown_90_ = GetScriptValueAsInt_ov017_021d60f4(arg0);
     if (var0->unknown_410_ == 1) {
         Struct_ov001_02160338* var2 = var0->unknown_41c_;
         while (var2 != NULL) {

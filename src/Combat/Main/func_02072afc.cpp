@@ -15,7 +15,7 @@ extern Struct_020e8878 data_020e8878;
 
 // USA: func_02072afc
 extern "C" ARM void func_02072afc(int arg0, int* arg1, short* arg2) {
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg0);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0);
     if (var0 == NULL) return;
     short* var1 = func_02052e2c((Struct_02052e2c*)var0);
     if (var1 == NULL) return;

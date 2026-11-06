@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void func_ov017_021bdb78(int arg0);
 extern "C" void func_ov017_02191e5c(int arg0, int arg1, short arg2, unsigned char arg3, unsigned short arg4);
 
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov017_02191f4c(int arg0, int arg1) {
 	GameState* var0 = GameState::GetInstance();
 	GameObject* var1 = var0->GetCombatantByIndex(arg1);
 	if (!var1) return;
-	GameObject* var2 = func_0200ff1c(var0, arg1);
+	GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
 	if (var2 != NULL && (*(int*)((char*)var2 + Enum_ov017_02191f4c_396) & 0x40)) {
 		func_ov017_021bdb78(arg1);
 		return;

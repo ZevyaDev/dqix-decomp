@@ -2,7 +2,7 @@
 
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
-extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
 
 struct Struct_ov017_021bd35c { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_, unknown_8_; };
 struct Struct_ov017_021bd35c_2 {
@@ -52,7 +52,7 @@ struct Struct_ov017_021cddd4_2 {
 
 // USA: func_ov017_021cddd4
 extern "C" ARM void func_ov017_021cddd4(int arg0, Struct_ov017_021cddd4_3* arg1, int arg2, Struct_ov017_021cddd4_2* arg3, LocalWireless_0202c1a4* arg4) {
-    Struct_ov017_021cddd4* var0 = (Struct_ov017_021cddd4*)func_ov017_021b8478(arg3->unknown_3718_);
+    Struct_ov017_021cddd4* var0 = (Struct_ov017_021cddd4*)GetBattleSetup_ov017_021b8478(arg3->unknown_3718_);
     Struct_ov017_021bd35c_2* var1 = arg3->unknown_3734_;
     if (arg0 == 0) {
         if (arg1->unknown_10_ == GetOwnProtagonistObjectIndex_0202c1a4(arg4)) {

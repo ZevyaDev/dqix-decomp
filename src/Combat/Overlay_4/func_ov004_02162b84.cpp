@@ -27,7 +27,7 @@ extern "C" ARM int func_ov004_02162b84(void* arg0) {
 
     int var3 = 0;
     for (int var4 = 0; var4 < 4; var4++) {
-        GameObject* var5 = func_0200ff1c(var0, var4);
+        GameObject* var5 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4);
         if (var5) {
             if (func_02061bd8((struct Struct_0205faf4_11*)var5)) var3 = 1;
         }

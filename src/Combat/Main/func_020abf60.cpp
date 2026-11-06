@@ -8,13 +8,10 @@ enum { Enum_020abf60_30192 = 0x75f0 };
 #include "GameState/GameState.h"
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
-extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
+extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 struct Struct_02097430_2;
 struct Struct_02097430 {
     unsigned char unknown_0_[0x1a];
@@ -46,7 +43,7 @@ extern "C" ARM int func_020abf60(void* arg0) {
         IsFlagSet_0206dfb0((int)var0, var0->unknown_8c_, 0x1143) != 0) {
         return 0;
     }
-    func_0206df6c(var0, var0->unknown_8c_, 0x1143, 1);
+    SetFlag_0206df6c(var0, var0->unknown_8c_, 0x1143, 1);
     unsigned int* var1 = reinterpret_cast<Struct_020abe84_2*>(GameState::GetInstance())->unknown_75f0_;
     short* var2 = data_020e90d4;
     int var3;

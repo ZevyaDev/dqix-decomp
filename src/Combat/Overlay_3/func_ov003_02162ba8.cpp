@@ -122,7 +122,7 @@ extern "C" ARM void func_ov003_02162ba8(unsigned char *arg0) {
     } else if (var1 == 2) {
         unsigned char var5 = arg0[RO(0x4a3)];
         arg0[RO(0x4a3)]         = 0x10;
-        GameObject *var6       = func_0200ff1c(var0, *(short *) (arg0 + RO(0x482)));
+        GameObject *var6       = GetPartyMemberBaseByIndex_0200ff1c(var0, *(short *) (arg0 + RO(0x482)));
         if (var6 == 0) return;
         unsigned char *var7 = GetPartyMemberData_02053c6c((unsigned char *) var6);
         arg0[RO(0x4a3)]      = var5;

@@ -28,11 +28,11 @@ struct Struct_020978fc;
 extern "C" void func_02097bc4(struct Struct_020978fc*, int);
 extern "C" void func_02097c18(void*, int, int, int, int, int, int, int);
 
-struct Struct_02020cb8;
-extern "C" void func_0204af64(Struct_02020cb8*);
-extern "C" void func_0204b11c(unsigned char*, int);
-struct Struct_02020cb8_5;
-extern "C" void func_0204b5e8(Struct_02020cb8_5*, int, int);
+struct BGLayer_02020cb8;
+extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char*, int);
+struct BGLayer_02020cb8_5;
+extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
 extern "C" void func_0204b2e0(void*, char*);
 struct Struct_02020cb8_6;
 extern "C" void func_0204b3a0(Struct_02020cb8_6*, char*);
@@ -48,18 +48,18 @@ extern int data_ov028_021d9aa0;
 
 // USA: func_ov028_021d8dd0
 extern "C" ARM void func_ov028_021d8dd0(unsigned char* arg0) {
-    FontLoader_0208cb08* var0 = func_02094a00();
+    FontLoader_0208cb08* var0 = GetFontLoader_02094a00();
     void* var1 = BackgroundLoader::GetInstance();
     void* var2 = GameState::GetInstance();
     void* var3 = GetResources_0200fb8c((int*)var2);
     unsigned char var4 = arg0[0x81];
 
     if (var4 == 0) {
-        func_02094ab0(var0);
-        func_02094b34(var0, 0x7a, 0x20b, 0, 0);
+        CancelFontLoad_02094ab0(var0);
+        RequestFontLoad_02094b34(var0, 0x7a, 0x20b, 0, 0);
         arg0[0x81] = arg0[0x81] + 1;
     } else if (var4 == 1) {
-        if (func_02094b4c(var0) != 0) {
+        if (UpdateFontLoad_02094b4c(var0) != 0) {
             arg0[0x81] = arg0[0x81] + 1;
         }
     } else if (var4 == 2) {
@@ -77,14 +77,14 @@ extern "C" ARM void func_ov028_021d8dd0(unsigned char* arg0) {
         *var6 = (*var6 & 0x43) | 0x1000;
 
         unsigned char var7[0x20];
-        func_0204af64((Struct_02020cb8*)var7);
+        InitBGLayer_0204af64((BGLayer_02020cb8*)var7);
         unsigned char var8 = var7[0x1c];
         var8 = (var8 & ~0xf) | 1;
         var8 = var8 & 0xff;
         var8 = (var8 & ~0xf0) | 0x10;
         var7[0x1c] = var8;
-        func_0204b11c((unsigned char*)var7, 0);
-        func_0204b5e8((Struct_02020cb8_5*)var7, 0, 0);
+        SetBGScreenSize_0204b11c((unsigned char*)var7, 0);
+        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var7, 0, 0);
         int var9 = *(int*)((char*)var3 + 0x2c);
         func_0204b2e0(var7, (char*)var9);
         func_0204b3a0((Struct_02020cb8_6*)var7, (char*)var9);

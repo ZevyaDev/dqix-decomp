@@ -45,7 +45,7 @@ extern "C" void func_0202e694(void *arg0, int *arg1);
 extern "C" void func_0200fd38(GameState *arg0, int arg1, GameObject *arg2);
 extern "C" void func_ov003_0217ca84(Struct_ov003_0217bf78_2 *arg0, unsigned short arg1);
 extern "C" void func_020a64e8(void);
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" int func_ov003_0217c2a0(int arg0);
 extern "C" void func_ov003_0217cb3c(Struct_ov003_0217bf78_2 *arg0, int arg1, int arg2);
 extern "C" void func_0205ebc0(void *arg0, int arg1, int arg2);
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov003_0217bf78(Struct_ov003_0217bf78_2 *arg0) {
         arg0->unknown_130_            = var0->QueueLoadFileInGP2(data_ov003_02180bef, data_ov003_02180cf8, 0);
         arg0->unknown_138_            = var0->QueueLoadFile(data_ov003_02180d08, 0);
         arg0->unknown_134_            = var0->QueueLoadFile(data_ov003_02180c07, 0);
-        Struct_ov003_0217bf78 *var3 = (Struct_ov003_0217bf78*)func_020100bc(var2);
+        Struct_ov003_0217bf78 *var3 = (Struct_ov003_0217bf78*)GetCamera_020100bc(var2);
         func_020a27a0(var3);
         func_020a27ac(var3);
         var3->unknown_21e_ = func_0202e7f0(var3);
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov003_0217bf78(Struct_ov003_0217bf78_2 *arg0) {
         GameState *var4 = GameState::GetInstance();
         ResetMessageWindow_02043204((char *) GetMessageWindow_020421a0());
         func_ov003_0217c974(arg0);
-        Struct_ov003_0217bf78 *var5 = (Struct_ov003_0217bf78*)func_020100bc(var4);
+        Struct_ov003_0217bf78 *var5 = (Struct_ov003_0217bf78*)GetCamera_020100bc(var4);
         arg0->unknown_144_   = var5->unknown_10_;
         arg0->unknown_150_       = var5->unknown_70_;
         var5->unknown_10_       = data_ov003_02180ce0;
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov003_0217bf78(Struct_ov003_0217bf78_2 *arg0) {
         }
         if (arg0->unknown_160_ != 0) func_020a64e8();
         ((Object3D*)arg0->unknown_80_)->MakeHidden();
-        func_020c5588(0, 0x1f, 0x7fff, 0, 0);
+        Set3DClearColorAndDepth_020c5588(0, 0x1f, 0x7fff, 0, 0);
         *(volatile unsigned int *) 0x4000000 = (*(volatile unsigned int *) 0x4000000 & ~0x1f00) | 0x100;
         func_ov003_0217c2a0(1);
         arg0->unknown_141_++;

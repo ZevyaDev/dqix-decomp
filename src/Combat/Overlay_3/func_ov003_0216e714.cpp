@@ -12,7 +12,7 @@ struct PacEntry_02020cb8_4;
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4 *pac);
 struct PacEntry_02020aec;
 extern "C" void *GetPacEntryData_020467f0(PacEntry_02020aec *pac, int index, void **outEntry, int *outSize);
-extern "C" void func_0204c684(void *arg0);
+extern "C" void InitTextWindow_0204c684(void *textWindow);
 extern "C" void __clear(void *arg0, int arg1);
 extern "C" void func_02042764(void *arg0, void *arg1, int arg2);
 extern "C" void func_0204f41c(void *arg0, short arg1, short arg2, void *arg3, int arg4, int arg5, short *arg6, short *arg7, int arg8);
@@ -20,16 +20,16 @@ struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int func_020420e8(void *arg0, int arg1);
 extern "C" void func_0204e038(void *arg0, char *arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
-struct Struct_02020cb8;
-extern "C" void func_0204af64(struct Struct_02020cb8 *arg0);
-extern "C" void func_0204b11c(unsigned char *arg0, int arg1);
-struct Struct_02020cb8_5;
-extern "C" int func_0204b5e8(struct Struct_02020cb8_5 *arg0, int arg1, int arg2);
+struct BGLayer_02020cb8;
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8 *layer);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char *layer, int screenSize);
+struct BGLayer_02020cb8_5;
+extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5 *layer, int scrollX, int scrollY);
 extern "C" void DC_FlushRange(const void *addr, unsigned int size);
 extern "C" int LoadToMainBG3ScreenData(int arg0, int arg1, unsigned int arg2);
-extern "C" void func_0204b174(void *arg0, void *arg1, SafeAllocator *arg2, unsigned int arg3);
-struct Struct_02020cb8_2;
-extern "C" void func_0204b0e8(struct Struct_02020cb8_2 *arg0, void *arg1);
+extern "C" void LoadBGBlock_0204b174(void *layer, void *block, SafeAllocator *allocator, unsigned int arg3);
+struct BGLayer_02020cb8_2;
+extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2 *layer, void *screenData);
 struct Struct_02020cb8_3;
 extern "C" void func_0204afb4(struct Struct_02020cb8_3 *arg0);
 
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
             for (int var20 = 0; var20 < var19; var20++) {
                 var10[var20] = (Struct_ov003_0216e714_6 *) GetPacEntryData_020467f0((PacEntry_02020aec *) var14, var20, &var13, &var11[var20]);
             }
-            func_0204c684(&var8);
+            InitTextWindow_0204c684(&var8);
             var8.unknown_8_   = (char *) var10[0] + 0x10;
             var8.unknown_a8_  = 0x20;
             var8.unknown_aa_ = 0x18;
@@ -258,11 +258,11 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
             if (arg0->unknown_6_ >= arg0->unknown_5_) {
                 arg0->unknown_6_ = arg0->unknown_5_ - 1;
             }
-            func_0204af64((struct Struct_02020cb8 *) &var12);
+            InitBGLayer_0204af64((struct BGLayer_02020cb8 *) &var12);
             var12.unknown_1c_0_ = 0;
             var12.unknown_1c_4_ = 3;
-            func_0204b11c((unsigned char *) &var12, 0);
-            func_0204b5e8((struct Struct_02020cb8_5 *) &var12, 0, 0);
+            SetBGScreenSize_0204b11c((unsigned char *) &var12, 0);
+            SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5 *) &var12, 0, 0);
             BG3CNT = (BG3CNT & 0x43) | 0xf00;
             for (int var21 = 0; var21 < var19; var21++) {
                 if (var21 == 2) {
@@ -271,10 +271,10 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
                     DC_FlushRange((char *) var22 + 0x10, var23);
                     LoadToMainBG3ScreenData((int) ((char *) var22 + 0x10), 0, var23);
                 } else {
-                    func_0204b174(&var12, var10[var21], 0, var11[var21]);
+                    LoadBGBlock_0204b174(&var12, var10[var21], 0, var11[var21]);
                 }
             }
-            func_0204b0e8((struct Struct_02020cb8_2 *) &var12, 0);
+            LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2 *) &var12, 0);
             func_0204afb4((struct Struct_02020cb8_3 *) &var12);
             var6->RemoveTask(arg0->unknown_1c_);
             arg0->unknown_1c_ = -1;
@@ -334,7 +334,7 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
             for (int var45 = 0; var45 < var44; var45++) {
                 var29[var45] = (Struct_ov003_0216e714_6 *) GetPacEntryData_020467f0((PacEntry_02020aec *) var34, var45, &var33, &var30[var45]);
             }
-            func_0204c684(&var27);
+            InitTextWindow_0204c684(&var27);
             var27.unknown_8_   = (char *) var29[0] + 0x10;
             var27.unknown_a8_  = 0x20;
             var27.unknown_aa_ = 0x18;
@@ -408,11 +408,11 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
             if (arg0->unknown_6_ >= arg0->unknown_5_) {
                 arg0->unknown_6_ = arg0->unknown_5_ - 1;
             }
-            func_0204af64((struct Struct_02020cb8 *) &var32);
+            InitBGLayer_0204af64((struct BGLayer_02020cb8 *) &var32);
             var32.unknown_1c_0_ = 0;
             var32.unknown_1c_4_ = 3;
-            func_0204b11c((unsigned char *) &var32, 0);
-            func_0204b5e8((struct Struct_02020cb8_5 *) &var32, 0, 0);
+            SetBGScreenSize_0204b11c((unsigned char *) &var32, 0);
+            SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5 *) &var32, 0, 0);
             BG3CNT = (BG3CNT & 0x43) | 0xf00;
             for (int var48 = 0; var48 < var44; var48++) {
                 if (var48 == 2) {
@@ -421,10 +421,10 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
                     DC_FlushRange((char *) var49 + 0x10, var50);
                     LoadToMainBG3ScreenData((int) ((char *) var49 + 0x10), 0, var50);
                 } else {
-                    func_0204b174(&var32, var29[var48], 0, var30[var48]);
+                    LoadBGBlock_0204b174(&var32, var29[var48], 0, var30[var48]);
                 }
             }
-            func_0204b0e8((struct Struct_02020cb8_2 *) &var32, 0);
+            LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2 *) &var32, 0);
             func_0204afb4((struct Struct_02020cb8_3 *) &var32);
             var26->RemoveTask(arg0->unknown_1c_);
             arg0->unknown_1c_ = -1;

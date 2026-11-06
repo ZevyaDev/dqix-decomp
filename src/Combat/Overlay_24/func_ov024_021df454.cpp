@@ -29,8 +29,8 @@ extern "C" void func_02087ff0(void*);
 extern "C" void func_020880e4(void*);
 extern "C" int func_ov024_021da644(int, int, int);
 void ApplyCombatantBuffs(int, int);
-extern "C" void func_ov000_0215a88c(void*, void*, int);
-extern "C" void* func_ov000_0215e958(void*);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
+extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void func_ov000_0215cd44(void*, void*, GameObject*, int, int, int, int);
 
 struct Struct_ov024_021df454 {
@@ -131,9 +131,9 @@ extern "C" ARM void* func_ov024_021df454(Struct_ov024_021df454_3* arg0, int arg1
     if (var1 > 0) var2 = func_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
     else var2 = func_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
     ApplyCombatantBuffs((int)arg0->unknown_10_, arg2);
-    void* var3 = func_ov000_0215e958(arg0->unknown_10_);
+    void* var3 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var3) return 0;
-    func_ov000_0215a88c(arg0->unknown_10_, var3, (unsigned short)var2);
+    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var3, (unsigned short)var2);
     func_ov000_0215cd44(arg0->unknown_10_, var3, var0, 0, 0, 0, arg0->unknown_c_->unknown_1c_7_ != 0);
     return var3;
 }

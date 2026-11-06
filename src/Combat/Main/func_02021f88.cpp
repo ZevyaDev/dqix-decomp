@@ -18,9 +18,9 @@ extern "C" void func_0203bd78(char* arg0);
 extern "C" void func_0203bd24(char* arg0);
 extern "C" void func_0203b718(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0203ba74(void* arg0);
-struct Struct_02043368_2;
-extern "C" void func_0205a198(struct Struct_02043368_2* arg0);
-extern "C" void func_0205a444(char* arg0);
+struct Sprite_02043368_2;
+extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 
 extern "C" void* func_0203bd14();
 extern "C" void* func_0203be4c(void);
@@ -41,9 +41,9 @@ extern "C" void func_02020fc4(void* arg0, int arg1, SafeAllocator* arg2);
 extern "C" void func_02020fc4(void* arg0, int* arg1, SafeAllocator* arg2);
 #endif
 extern "C" void func_020210f8(char* arg0, int* arg1, SafeAllocator* arg2);
-struct Struct_02020cb8;
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
-extern "C" void func_0204b174(void* arg0, void* arg1, SafeAllocator* arg2, int arg3);
+struct BGLayer_02020cb8;
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
+extern "C" void LoadBGBlock_0204b174(void* layer, void* block, SafeAllocator* allocator, int arg3);
 extern "C" void func_0202445c(void* arg0);
 extern "C" void func_ov017_02191234(void* arg0);
 extern "C" void func_0202343c(void* arg0);
@@ -182,9 +182,9 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
         func_0203b718(var15, 1, 1, 0);
         func_0203ba74(var15);
         for (int var19 = 0; var19 < 0x1c; var19++) {
-            func_0205a198(&arg0->unknown_e8_[var19]);
+            InitSprite_0205a198(&arg0->unknown_e8_[var19]);
         }
-        func_0205a444((char*)&arg0->unknown_94_);
+        InitSpriteSet_0205a444((char*)&arg0->unknown_94_);
         arg0->unknown_94_.unknown_50_ = 1;
         arg0->unknown_94_.unknown_40_ = arg0->unknown_e8_;
         arg0->unknown_94_.unknown_4c_ = 0x1b;
@@ -274,9 +274,9 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
         if (func_0201b5b0(*var12)) {
             arg0->unknown_70_ = arg0->unknown_74_ + 1;
             char* var29 = inline_02021f88_2(var12);
-            func_0204af64(&arg0->unknown_4c_);
+            InitBGLayer_0204af64(&arg0->unknown_4c_);
             arg0->unknown_4c_.unknown_1c_0_ = 1;
-            arg0->unknown_4c_.unknown_1c_4_ = 0;
+            arg0->unknown_4c_.bgIndex_1c_4_ = 0;
             arg0->unknown_4c_.unknown_0_ = arg0->unknown_70_ << 5;
             var11->AddFence();
             ActiveGrottoClass* var30 = (ActiveGrottoClass*)(var29 + Enum_02021f88_8192);
@@ -310,8 +310,8 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
             var9 = (var9 + 3) & ~3;
             var11->GetLoadedFileByID(arg0->unknown_a1c_, &var8, &var10);
             var10 = (var10 + 3) & ~3;
-            func_0204b174(&arg0->unknown_4c_, var7, var17, var9);
-            func_0204b174(&arg0->unknown_4c_, var8, var17, var10);
+            LoadBGBlock_0204b174(&arg0->unknown_4c_, var7, var17, var9);
+            LoadBGBlock_0204b174(&arg0->unknown_4c_, var8, var17, var10);
             BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_a18_);
             arg0->unknown_a18_ = -1;
             BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_a1c_);

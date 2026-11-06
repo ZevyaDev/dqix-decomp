@@ -10,7 +10,7 @@ extern "C" ARM void func_ov023_021f50fc(void) {
     unsigned char* var1 = (unsigned char*)GetParty_02010828(var0);
     for (int var2 = 0; var2 < var1[0xf7c]; var2++) {
         unsigned char* var3 = var1 + var2;
-        GameObject* var4 = func_0200ff1c(var0, var3[0xf78]);
+        GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, var3[0xf78]);
         if (var4 != 0) {
             func_02053ec8(var4, 2);
         }

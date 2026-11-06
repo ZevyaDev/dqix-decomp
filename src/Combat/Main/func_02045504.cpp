@@ -4,7 +4,7 @@
 #if defined(jpn)
 extern "C" int func_02005a94(const char*);
 extern "C" int func_020d85dc(const char*, const char*);
-extern "C" int func_02001aec(const void*, const void*, unsigned int);
+extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
 extern "C" void func_02043270(void*, int, int, int, int);
 extern const char data_020f00c1[], data_020f00c8[], data_020f00ce[], data_020f00d4[];
 extern const char data_020f00db[], data_020f00e2[], data_020f00ea[];
@@ -163,7 +163,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
             signed char var23 = 0;
             memcpy(var22, arg1 + 7, 2);
             for (; *data_020efe58[var23]; var23++) {
-                if (func_02001aec(var22, data_020efe58[var23], 2) == 0) {
+                if (CompareBytes_02001aec(var22, data_020efe58[var23], 2) == 0) {
                     arg0->unknown_1000_.unknown_74c_ = data_020e842a[var23];
                     arg1 += var20 + 1;
                     var21 = 1;

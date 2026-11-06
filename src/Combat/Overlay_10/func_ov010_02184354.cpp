@@ -21,7 +21,7 @@ struct Struct_ov010_021842d8;
 extern "C" void func_ov010_021842d8(struct Struct_ov010_021842d8* arg0);
 
 struct Struct_02018300_3;
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 
 struct Struct_020727d8 {
@@ -64,7 +64,7 @@ extern "C" unsigned char func_020100b0(GameState* arg0);
 struct Struct_020340b4;
 extern "C" void func_020340b4(struct Struct_020340b4* arg0);
 
-extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" int func_020457e0(void* arg0);
 
@@ -74,13 +74,13 @@ extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 struct Struct_02057de0_2;
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" int func_02057de0(struct Struct_02057de0_2* arg0, int arg1, SafeAllocator* arg2, int arg3, int arg4);
 extern "C" int func_02057fb4(void* arg0, int arg1, void* arg2);
 
 struct Vector3i;
 
-extern "C" void* func_02079e2c(char* arg0, int arg1);
+extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 
 struct Struct_02048350_2;
 extern "C" int func_02048350(struct Struct_02048350_2* arg0, int arg1);
@@ -184,7 +184,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
 
     unsigned char var10 = arg0->unknown_0_;
     if (var10 == 0) {
-        func_020397cc((struct Struct_02018300_3*)var6, 1);
+        DisablePlayerControl_020397cc((struct Struct_02018300_3*)var6, 1);
         void* var11 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x7800);
         if (var11 == NULL) {
             func_ov010_021842d8((struct Struct_ov010_021842d8*)arg0);
@@ -261,7 +261,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         var1->unknown_998_ = 1;
 #else
         struct Struct_ov010_02184354_6 var23;
-        func_020e4bf4(&var23, var5->unknown_c_);
+        InitPartyMemberNoun_020e4bf4(&var23, var5->unknown_c_);
         ClearMessageParams_02046380(var1);
         *(void**)var1 = &var23;
         StartMessage_0204500c(var1, (const char*)var22, 0, 0xe3);
@@ -281,7 +281,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
             var1->unknown_998_ = 1;
 #else
             struct Struct_ov010_02184354_6 var25;
-            func_020e4bf4(&var25, var5->unknown_c_);
+            InitPartyMemberNoun_020e4bf4(&var25, var5->unknown_c_);
             ClearMessageParams_02046380(var1);
             *(void**)var1 = &var25;
             StartMessage_0204500c(var1, (const char*)var24, 0, 0xe3);
@@ -324,7 +324,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         struct Struct_ov010_02184354_6 var30 = *(struct Struct_ov010_02184354_6*)((char*)var3 + 0x44);
         ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)(var29 + 0xc40));
         RestoreTextureVRAMState_0207df90(var29 + 0xc40);
-        void* var31 = func_02057924();
+        void* var31 = GetEffectManager_02057924();
         func_02057de0((struct Struct_02057de0_2*)var31, 0x11, &arg0->unknown_14_,
                                       (int)var27, (int)var28);
         SaveTextureVRAMState_0207dfac(var29 + 0xc40);
@@ -384,7 +384,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         }
 
         struct Struct_ov010_02184354_5* var36 =
-            (struct Struct_ov010_02184354_5*)func_02079e2c((char*)func_020797dc(), 0xd2);
+            (struct Struct_ov010_02184354_5*)FindActionData_02079e2c((char*)GetActionTables_020797dc(), 0xd2);
         if (var36 != NULL) {
             func_02048350((struct Struct_02048350_2*)var3, var36->unknown_8_0_);
         }

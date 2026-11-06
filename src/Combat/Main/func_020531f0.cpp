@@ -8,12 +8,12 @@ extern "C" int func_02053604(signed char* arg0);
 extern "C" void func_0205eabc(void* arg0, void* arg1, int arg2);
 extern "C" int func_02039d7c(char* arg0);
 extern "C" int func_020100b0(GameState* arg0);
-extern "C" int func_020100f8(char* arg0);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a2c8c(unsigned char* arg0);
 extern "C" void* GetMessageWindow_020421a0(void);
 
 struct Struct_02010604;
-extern "C" void func_02033b88(struct Struct_02010604* arg0, int arg1);
+extern "C" void SetMotion_02033b88(struct Struct_02010604* object, int motion);
 
 extern "C" void func_ov017_021cc1f8(int arg0, const char* arg1, int arg2, int arg3);
 
@@ -99,13 +99,13 @@ extern "C" ARM void func_020531f0(struct Struct_020531f0_2* arg0) {
     arg0->unknown_c1_.unknown_0_0_ &= ~2;
     arg0->unknown_0_.RemoveAnimationPackageByID(2);
     arg0->unknown_b2_ = 0;
-    func_02033b88((struct Struct_02010604*)arg0, 0);
+    SetMotion_02033b88((struct Struct_02010604*)arg0, 0);
 
     var1 = GameState::GetInstance();
     var4 = arg0->unknown_0_.unknown_4_;
     int var5 = func_020100b0(var1);
     if (var5 == var4) {
-        var3 = func_020100f8((char*)var1);
+        var3 = GetFollowCamera_020100f8((char*)var1);
         if (var3 != 0) {
             if (g_keyManager.TestKeysHeld(2) == 0
                 || ((unsigned char*)GetMessageWindow_020421a0())[Enum_020531f0_6577] != 0) {

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int func_ov024_021edf00(int* arg0, int arg1, short* arg2);
-extern "C" int func_ov000_0215e9fc(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" void func_ov024_021ed8c0(void* arg0, int arg1, int arg2, int* arg3, short* arg4);
 extern "C" int func_ov024_021eda78(int* arg0, int arg1);
 
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov024_021f1f64(int* arg0, int arg1, int arg2, int* arg3,
 
 	int var5 = func_ov024_021edf00(arg0, arg1, var0);
 	if (var5 <= 0) {
-		var5 = func_ov000_0215e9fc(*arg0, var0, 4, 1);
+		var5 = CollectPartyCombatantIndices_ov000_0215e9fc(*arg0, var0, 4, 1);
 		if (var5 <= 0) return 0;
 	}
 

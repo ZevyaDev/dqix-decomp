@@ -32,7 +32,7 @@ extern "C" void* GetZone3D_02012fe4();
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void* GetFlagManager_0205ec34();
 extern "C" void* GetGlobalFlags_020d6c00();
-extern "C" GameObject* func_0200ff58(GameState*, int);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" int func_02046708(Struct_02012de8*, unsigned int);
 extern "C" void func_02053f58(Struct_020236dc_7*, int*, int*);
 extern "C" unsigned char func_02053f74(void*);
@@ -64,9 +64,9 @@ extern "C" ARM int func_020236dc(Struct_020236dc* arg0, unsigned char* arg1, Vec
     var7.unknown_0_ = arg0;
     var7.unknown_4_ = 0;
     for (int var8 = 0; var8 < 4; ++var8) {
-        Struct_020236dc_5* var9 = (Struct_020236dc_5*)func_0200ff1c(var0, var8);
+        Struct_020236dc_5* var9 = (Struct_020236dc_5*)GetPartyMemberBaseByIndex_0200ff1c(var0, var8);
         if (!var9 || !(var9->unknown_18c_ & 8)) continue;
-        if (func_0200ff58(var0, var8)) {
+        if (GetCompanionByIndex_0200ff58(var0, var8)) {
             unsigned char var10 = 0;
             unsigned short var11 = var3->unknown_4_;
             int var12 = 0;
@@ -102,7 +102,7 @@ extern "C" ARM int func_020236dc(Struct_020236dc* arg0, unsigned char* arg1, Vec
         var13->unknown_c_ = 5;
         var13->unknown_d_ = var9->obj3D_.unknown_4_ + 4;
         GameObject* var15 = var0->GetPartyMemberByIndex(var8);
-        GameObject* var16 = func_0200ff58(var0, var8);
+        GameObject* var16 = GetCompanionByIndex_0200ff58(var0, var8);
         if (var15 && (var9->obj3D_.unknown_4_ == 0 || var16)) var13->unknown_e_ = func_02039874(var15) + 0x58;
         else var13->unknown_e_ = var9->obj3D_.unknown_4_ + 0x5b;
         if (var15) var13->unknown_13_ = func_02039874(var15);

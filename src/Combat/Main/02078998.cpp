@@ -62,7 +62,7 @@ extern "C" ARM void func_02078998(Struct_02078998_2* arg0) {
     arg0->unknown_17a_ = 0;
     int* var3 = (int*)GetLocalWireless_0202ae18();
     if (IsLocalWirelessOn_0202b7d8(var3) && GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var3)) return;
-    GameObject* var4 = func_0200ff1c(GameState::GetInstance(), arg0->unknown_166_);
+    GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_166_);
     if (var4 == NULL) return;
     GetPartyMemberData_02053c6c((unsigned char*)var4);
     int var5 = 0;

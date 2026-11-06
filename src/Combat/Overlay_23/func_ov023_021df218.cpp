@@ -3,7 +3,7 @@
 #if defined(jpn)
 struct Struct_ov023_021db45c;
 
-extern "C" void func_0204c684(void* arg0);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void* GetFlagManager_0205ec34();
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov023_021df218(Struct_ov023_021df218_4* arg0)
     short var3;
     int var7;
 
-    func_0204c684(var0);
+    InitTextWindow_0204c684(var0);
     if (!func_ov023_021ddc34(var0, 0, 0, 7, 0x10))
         return;
 
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov023_021df218(Struct_ov023_021df218_4* arg0)
 
 struct Struct_ov023_021db45c;
 
-extern "C" void func_0204c684(void* arg0);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void* GetFlagManager_0205ec34();
@@ -217,7 +217,7 @@ extern "C" ARM void func_ov023_021df218(Struct_ov023_021df218_4* arg0)
     short var9;
     unsigned short* var10;
 
-    func_0204c684(var0);
+    InitTextWindow_0204c684(var0);
     if (!func_ov023_021ddc34(var0, 0, 0, 7, 0x10))
         return;
 

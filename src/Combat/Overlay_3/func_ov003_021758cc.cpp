@@ -11,14 +11,14 @@ enum { Enum_ov003_021758cc_2164 = 0x874 };
 
 struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9;
-extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" unsigned int func_ov003_02175898(char* arg0, void* arg1);
 extern "C" void* GetParty_02010828(GameState* gameState);
 
 // USA: func_ov003_021758cc
 extern "C" ARM int func_ov003_021758cc(char* arg0, int arg1) {
 	short var0 = *(short*)(arg0 + Enum_ov003_021758cc_4154);
-	struct ItemData_0201099c_9* var1 = func_020dedd0((struct ItemTable_0201099c_10*)(arg0 + Enum_ov003_021758cc_2164), var0);
+	struct ItemData_0201099c_9* var1 = FindItemData_020dedd0((struct ItemTable_0201099c_10*)(arg0 + Enum_ov003_021758cc_2164), var0);
 	if (var1 == NULL)
 		return 0;
 	unsigned int var2 = arg1 * func_ov003_02175898(arg0, var1);

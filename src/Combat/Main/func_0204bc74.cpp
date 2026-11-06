@@ -1,55 +1,55 @@
 #include <globaldefs.h>
 
-struct Struct_0204bc74 {
+struct BGLayer_0204bc74 {
     char unknown_0_[0x14];
-    unsigned short (*unknown_14_)[32];
+    unsigned short (*pScreenData_14_)[32];
 };
 
-// USA: func_0204bc74
-extern "C" ARM void func_0204bc74(struct Struct_0204bc74 *arg0, unsigned short arg1, int arg2, int arg3, int arg4, int arg5, unsigned short arg6) {
-    unsigned short (*var0)[32] = arg0->unknown_14_;
-    if (var0 == 0) {
+// USA: FillBGScreenRect_0204bc74
+extern "C" ARM void FillBGScreenRect_0204bc74(struct BGLayer_0204bc74 *layer, unsigned short screenEntry, int x, int y, int width, int height, unsigned short palette) {
+    unsigned short (*screenData)[32] = layer->pScreenData_14_;
+    if (screenData == 0) {
         return;
     }
-    if (arg2 + arg4 <= 0 || arg3 + arg5 <= 0) {
+    if (x + width <= 0 || y + height <= 0) {
         return;
     }
-    if (arg2 >= 0x20 || arg3 >= 0x19) {
+    if (x >= 0x20 || y >= 0x19) {
         return;
     }
 
-    if (arg2 < 0) {
-        arg4 = (short)(arg2 + arg4);
-        arg2 = 0;
-    } else if (arg2 + arg4 >= 0x20) {
-        arg4 = (short)(0x20 - arg2);
+    if (x < 0) {
+        width = (short)(x + width);
+        x = 0;
+    } else if (x + width >= 0x20) {
+        width = (short)(0x20 - x);
     }
 
-    if (arg3 < 0) {
-        arg5 = arg5 + arg3;
-        arg5 = (short)arg5;
-        arg3 = 0;
-    } else if (arg3 + arg5 >= 0x19) {
-        arg5 = (short)(0x19 - arg3);
+    if (y < 0) {
+        height = height + y;
+        height = (short)height;
+        y = 0;
+    } else if (y + height >= 0x19) {
+        height = (short)(0x19 - y);
     }
-    unsigned short *var1 = var0[arg3] + arg2;
-    if (arg6 != 0xffff) {
-        arg6 = arg6 << 12;
+    unsigned short *dest = screenData[y] + x;
+    if (palette != 0xffff) {
+        palette = palette << 12;
     } else {
-        arg6 = 0;
+        palette = 0;
     }
-    arg1 = arg1 & 0xfff;
-    arg1 |= arg6;
+    screenEntry = screenEntry & 0xfff;
+    screenEntry |= palette;
 
-    short var2 = 0;
-    short var3;
-    while (var2 < arg5) {
-        var3 = 0;
-        while (var3 < arg4) {
-            var1[var3] = arg1;
-            var3 = var3 + 1;
+    short i = 0;
+    short j;
+    while (i < height) {
+        j = 0;
+        while (j < width) {
+            dest[j] = screenEntry;
+            j = j + 1;
         }
-        var1 += 32;
-        var2 = var2 + 1;
+        dest += 32;
+        i = i + 1;
     }
 }

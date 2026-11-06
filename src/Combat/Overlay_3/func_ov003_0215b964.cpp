@@ -50,20 +50,20 @@ extern "C" int func_02042638(char*, int, int);
 #else
 extern "C" int func_02041fac(char*, int, int);
 #endif
-extern "C" int func_02041c08(char*, int, int, int, int, int);
-extern "C" int func_02041ea4(char*, int);
+extern "C" int AppendFrameTag_02041c08(char*, int, int, int, int, int);
+extern "C" int AppendCursorTag_02041ea4(char*, int);
 extern "C" int func_02041e70(char*, int);
 extern "C" int func_02041a90(char*, int, int);
 extern "C" int func_02041a28(char*, int);
 extern "C" int AppendText_02042058(char*, const char*);
-extern "C" int func_02041b70(char*, int, const char*);
-extern "C" void func_020e4bf4(void*, int);
+extern "C" int AppendMenuEntry_02041b70(char*, int, const char*);
+extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" void func_02046608(void*, int, void*, void*, int, int, int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
-extern "C" int func_020e51cc(int);
+extern "C" int GetStandardString_020e51cc(int);
 
 #if defined(jpn)
 extern const char data_ov003_0217fe7f[];
@@ -95,12 +95,12 @@ extern "C" ARM void func_ov003_0215b964(Struct_ov003_0215b964_5* arg0, char* arg
 #else
         func_02041fac(arg1, FindStringInTable_020e0434(&arg0->unknown_64_, 11), 14);
 #endif
-        if (arg2) func_02041c08(arg1, var2, 8, 5, 5, 5);
-        func_02041ea4(arg1, var2);
+        if (arg2) AppendFrameTag_02041c08(arg1, var2, 8, 5, 5, 5);
+        AppendCursorTag_02041ea4(arg1, var2);
     }
     GameState* var3 = GameState::GetInstance();
     for (int var4 = 0; var4 < arg0->unknown_590_; ++var4) {
-        Struct_ov003_0215b964_2* var5 = (Struct_ov003_0215b964_2*)func_0200ff1c(var3, arg0->unknown_591_[var4]);
+        Struct_ov003_0215b964_2* var5 = (Struct_ov003_0215b964_2*)GetPartyMemberBaseByIndex_0200ff1c(var3, arg0->unknown_591_[var4]);
         Struct_ov003_0215b964_3* var6 = (Struct_ov003_0215b964_3*)GetPartyMemberData_02053c6c((unsigned char*)var5);
         float var7;
         int var8;
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov003_0215b964(Struct_ov003_0215b964_5* arg0, char* arg
             AppendText_02042058(arg1, var12);
         } else {
             var12 = var5->unknown_134_->unk;
-            func_02041b70(arg1, var4, var12);
+            AppendMenuEntry_02041b70(arg1, var4, var12);
         }
 #if defined(jpn)
         if (var5->unknown_130_->unknown_0_ & 1)
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov003_0215b964(Struct_ov003_0215b964_5* arg0, char* arg
         else if (var10 & 4)
             AppendText_02042058(var0->unknown_920_, (const char*)FindStringInTable_020e0434(&arg0->unknown_64_, 15));
         unsigned int var14[3];
-        func_020e4bf4(var14, var5->unknown_4_);
+        InitPartyMemberNoun_020e4bf4(var14, var5->unknown_4_);
         ClearMessageParams_02046380(var1);
         var1->unknown_0_ = var14;
         func_02046608(var1, 10, var0->unknown_920_, var0->unknown_8e0_, 0x100, 0, 0);
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov003_0215b964(Struct_ov003_0215b964_5* arg0, char* arg
             memset(var0->unknown_8e0_, 0, 0x40);
             memset(var0->unknown_920_, 0, 0x40);
             func_02041a28(var0->unknown_920_, 0x40);
-            AppendText_02042058(var0->unknown_920_, (const char*)func_020e51cc(0x3f3));
+            AppendText_02042058(var0->unknown_920_, (const char*)GetStandardString_020e51cc(0x3f3));
             AppendText_02042058(var0->unknown_920_, (const char*)FindStringInTable_020e0434(&arg0->unknown_64_, 12));
             func_02046608(var1, 10, var0->unknown_920_, var0->unknown_8e0_, 0x100, 0, 0);
             AppendText_02042058(arg1, var0->unknown_8e0_);

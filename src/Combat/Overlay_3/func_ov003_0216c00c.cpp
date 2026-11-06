@@ -59,12 +59,12 @@ extern "C" void func_ov017_021a9ff0(int arg0);
 extern "C" void func_ov017_021c1798(GameResources* arg0, unsigned char arg1);
 int IsBrightnessTransitionActive(void* word);
 struct Struct_02018300_3;
-extern "C" void func_020397cc(Struct_02018300_3*, int);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 void SetMainBrightness(void* obj, int a, int b);
 void SetSubBrightness(void* obj, int a, int b);
-struct Struct_02038598_4;
-extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 struct Struct_020a9ea4;
 extern "C" void func_020a9ea4(Struct_020a9ea4*);
 extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
@@ -74,7 +74,7 @@ struct Struct_02059cfc_2;
 struct Struct_02059cfc_3;
 extern "C" void func_02059f38(Struct_02059cfc_2*, Struct_02059cfc_3*);
 struct Struct_02033834;
-extern "C" void func_02033874(Struct_02033834*, int);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 struct TextureVRAMArea_0203d028;
 extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
@@ -88,7 +88,7 @@ extern "C" void func_020a03f8(Struct_020a03f8*, unsigned int);
 extern "C" void func_020ac494(void* arg0);
 extern "C" void func_020ac760(void* arg0);
 extern "C" void func_020ac734(void* arg0);
-extern "C" const char* func_020e51cc(int arg0);
+extern "C" const char* GetStandardString_020e51cc(int stringId);
 struct Struct_02011818;
 extern "C" void func_02011818(void*, Struct_02011818*);
 extern "C" void func_02011ab8(char*);
@@ -132,7 +132,7 @@ static inline unsigned char inline_ov003_0216c00c_7(struct Struct_ov003_0216c00c
 static inline void inline_ov003_0216c00c_8(struct Struct_ov003_0216c00c_11* arg0, unsigned char arg1) { arg0->unknown_1b60_ = arg1; }
 #if defined(jpn)
 struct Struct_02046574_2;
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 struct Struct_0201099c_3;
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
 
     short var9 = *(short*)(arg0 + 6);
     if (var9 == 0) {
-        func_02046574((Struct_02046574_2*)var2, 0, *(char**)((char*)((GameState*)var0)->GetUnknownGameObject() + 0x134));
+        SetMessageString_02046574((Struct_02046574_2*)var2, 0, *(char**)((char*)((GameState*)var0)->GetUnknownGameObject() + 0x134));
         if (inline_ov003_0216c00c_7(var4) == 0) {
             func_ov003_0216d8d4(arg0, 0x47);
             *(short*)(arg0 + 6) = 0x63;
@@ -329,14 +329,14 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (var17 != 0) {
             *(Struct_ov003_0216c00c**)(arg0 + 0xe6c) = var17;
         }
-        func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x10080);
+        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x10080);
         SetMainBrightness(var1, -16, 0x24);
         SetSubBrightness(var1, -16, 0x24);
         *(short*)(arg0 + 6) = 6;
     } else if (var9 == 6) {
         int var18;
         struct Struct_0203d028_3* var19 = (Struct_0203d028_3*)((GameState*)var0)->GetUnknownGameObject();
-        func_020397cc((Struct_02018300_3*)var19, 1);
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var19, 1);
         if (IsBrightnessTransitionActive(var1) != 0) {
             if (inline_ov003_0216c00c_10(arg0) == 0) return;
         }
@@ -352,7 +352,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         }
         if (func_ov003_021727c8(arg0 + 0xda0) == 0) {
         *(unsigned char*)(arg0 + 0x1000 + 0x27b) = 1;
-        func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x10080);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x10080);
         *(unsigned char*)(arg0 + 0x1000 + 0x27e) = 0;
         *(unsigned char*)(arg0 + 0x1000 + 0x27e) = *(unsigned char*)(arg0 + 0xe70);
         int var20 = *(unsigned char*)(arg0 + 0xd97);
@@ -378,7 +378,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
                     Struct_ov009_0218aa28 var27 = *(Struct_ov009_0218aa28*)((char*)var24 + 0x50);
                     var26.unknown_8_ += 0x1800;
                     func_02059f38((Struct_02059cfc_2*)var24, (Struct_02059cfc_3*)&var26);
-                    func_02033874((Struct_02033834*)var24, 0);
+                    SetFacingInstantly_02033874((Struct_02033834*)var24, 0);
                 } else {
                     void* var28 = ((GameState*)var0)->GetPartyMemberByIndex(var25);
                     if (var28 != 0) {
@@ -417,13 +417,13 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         func_ov003_0216d8d4(arg0, 0x38);
         *(short*)(arg0 + 6) = 8;
     } else if (var9 == 0xc) {
-        FontLoader_0208cb08* var29 = func_02094a00();
+        FontLoader_0208cb08* var29 = GetFontLoader_02094a00();
         struct Struct_0203d028_3* var30 = (Struct_0203d028_3*)((GameState*)var0)->GetUnknownGameObject();
         if (var30 != 0) {
-            func_020397cc((Struct_02018300_3*)var30, 1);
+            DisablePlayerControl_020397cc((Struct_02018300_3*)var30, 1);
         }
-        func_02094b34(var29, 0x1f5, 0x66, 0, 0);
-        if (func_02094b4c(var29) == 0) return;
+        RequestFontLoad_02094b34(var29, 0x1f5, 0x66, 0, 0);
+        if (UpdateFontLoad_02094b4c(var29) == 0) return;
         if (IsBrightnessTransitionActive(var1) != 0) return;
         void* var31 = *(void**)((char*)var3 + 8);
         int var32 = ((struct Struct_ov003_0216c00c_8*)var31)->unknown_d_0_;
@@ -463,7 +463,7 @@ phase2:;
             func_020a9ea4((Struct_020a9ea4*)(arg0 + 0x29c + 0x1000));
             func_ov003_0216d8d4(arg0, 0xc8);
             *(short*)(arg0 + 6) = 0x12e;
-            func_020466e4((unsigned int*)var6, 0x80);
+            SetGlobalFlags_020466e4((unsigned int*)var6, 0x80);
         }
         return;
     } else if (var9 == 0x12e) {
@@ -478,7 +478,7 @@ phase2:;
         }
         return;
     } else if (var9 == 0x12f) {
-        func_020466f4((Struct_02038598_4*)var6, 0x80);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var6, 0x80);
         if (*(int*)(var2 + 0x870) != 3) return;
         func_ov003_0216d8d4(arg0, 0x30);
         *(short*)(arg0 + 6) = 5;
@@ -492,7 +492,7 @@ phase2:;
         *(unsigned char*)(arg0 + 0x1000 + 0x27c) |= 1;
         struct Struct_0203d028_3* var34 = (Struct_0203d028_3*)((GameState*)var0)->GetUnknownGameObject();
         if (var34 != 0) {
-            func_020397cc((Struct_02018300_3*)var34, 1);
+            DisablePlayerControl_020397cc((Struct_02018300_3*)var34, 1);
         }
         *(unsigned char*)(arg0 + 0x1000 + 0x279) = 1;
         *(short*)(arg0 + 6) = 0xe;
@@ -543,7 +543,7 @@ phase2:;
         void* var42 = *(void**)((char*)var1 + 0x3928);
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var2, 1, func_ov017_021b1fb0(var42));
         short var43 = func_ov017_021b1fa8(var42) + 0x64;
-        func_02046574((Struct_02046574_2*)var2, 5, FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000), var43));
+        SetMessageString_02046574((Struct_02046574_2*)var2, 5, FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000), var43));
         *(int*)(var2 + 0x868) = 1;
         func_ov003_0216d8d4(arg0, 0x4f);
         *(short*)(arg0 + 6) = 0x10;
@@ -563,7 +563,7 @@ phase2:;
                 Struct_ov009_0218aa28 var47 = *(Struct_ov009_0218aa28*)((char*)var44 + 0x50);
                 var46.unknown_8_ -= 0x1800;
                 func_02059f38((Struct_02059cfc_2*)var44, (Struct_02059cfc_3*)&var46);
-                func_02033874((Struct_02033834*)var44, 0x323d);
+                SetFacingInstantly_02033874((Struct_02033834*)var44, 0x323d);
             } else {
                 void* var48 = ((GameState*)var0)->GetPartyMemberByIndex(var45);
                 if (var48 != 0) {
@@ -840,14 +840,14 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (var85 != 0) {
             *(Struct_ov003_0216c00c**)(arg0 + 0xfec) = var85;
         }
-        func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x10080);
+        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x10080);
         SetMainBrightness(var69, -16, 0x24);
         SetSubBrightness(var69, -16, 0x24);
         *(short*)(arg0 + 6) = 6;
     } else if (var76 == 6) {
         int var86;
         struct Struct_0203d028_3* var87 = (Struct_0203d028_3*)((GameState*)var68)->GetUnknownGameObject();
-        func_020397cc((Struct_02018300_3*)var87, 1);
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var87, 1);
         if (IsBrightnessTransitionActive(var69) != 0) {
             if (inline_ov003_0216c00c_3(arg0) == 0) return;
         }
@@ -863,7 +863,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         }
         if (func_ov003_021727c8(arg0 + 0x31c + 0xc00) == 0) {
         *(unsigned char*)(arg0 + 0x1000 + 0x3eb) = 1;
-        func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x10080);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x10080);
         *(unsigned char*)(arg0 + 0x1000 + 0x3ee) = 0;
         *(unsigned char*)(arg0 + 0x1000 + 0x3ee) = *(unsigned char*)(arg0 + 0xff0);
         int var88 = *(unsigned char*)(arg0 + 0xf13);
@@ -889,7 +889,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
                     Struct_ov009_0218aa28 var94 = *(Struct_ov009_0218aa28*)((char*)var91 + 0x50);
                     var93.unknown_8_ += 0x1800;
                     func_02059f38((Struct_02059cfc_2*)var91, (Struct_02059cfc_3*)&var93);
-                    func_02033874((Struct_02033834*)var91, 0);
+                    SetFacingInstantly_02033874((Struct_02033834*)var91, 0);
                 } else {
                     void* var95 = ((GameState*)var68)->GetPartyMemberByIndex(var92);
                     if (var95 != 0) {
@@ -930,13 +930,13 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         func_ov003_0216d8d4(arg0, 0x38, -1, -1, -1);
         *(short*)(arg0 + 6) = 8;
     } else if (var76 == 0xc) {
-        FontLoader_0208cb08* var98 = func_02094a00();
+        FontLoader_0208cb08* var98 = GetFontLoader_02094a00();
         struct Struct_0203d028_3* var99 = (Struct_0203d028_3*)((GameState*)var68)->GetUnknownGameObject();
         if (var99 != 0) {
-            func_020397cc((Struct_02018300_3*)var99, 1);
+            DisablePlayerControl_020397cc((Struct_02018300_3*)var99, 1);
         }
-        func_02094b34(var98, 0x1f5, 0x66, 0, 0);
-        if (func_02094b4c(var98) == 0) return;
+        RequestFontLoad_02094b34(var98, 0x1f5, 0x66, 0, 0);
+        if (UpdateFontLoad_02094b4c(var98) == 0) return;
         if (IsBrightnessTransitionActive(var69) != 0) return;
         void* var100 = *(void**)((char*)var71 + 8);
         int var101 = ((struct Struct_ov003_0216c00c_8*)var100)->unknown_d_0_;
@@ -976,7 +976,7 @@ phase2:;
             func_020a9ea4((Struct_020a9ea4*)(arg0 + 0xc + 0x1400));
             func_ov003_0216d8d4(arg0, 0xc8, -1, -1, -1);
             *(short*)(arg0 + 6) = 0x12e;
-            func_020466e4((unsigned int*)var73, 0x80);
+            SetGlobalFlags_020466e4((unsigned int*)var73, 0x80);
         }
         return;
     } else if (var76 == 0x12e) {
@@ -991,7 +991,7 @@ phase2:;
         }
         return;
     } else if (var76 == 0x12f) {
-        func_020466f4((Struct_02038598_4*)var73, 0x80);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var73, 0x80);
         if (*(int*)(var70 + 0x9a0) != 3) return;
         func_ov003_0216d8d4(arg0, 0x30, -1, -1, -1);
         *(short*)(arg0 + 6) = 5;
@@ -1005,7 +1005,7 @@ phase2:;
         *(unsigned char*)(arg0 + 0x1000 + 0x3ec) |= 1;
         struct Struct_0203d028_3* var103 = (Struct_0203d028_3*)((GameState*)var68)->GetUnknownGameObject();
         if (var103 != 0) {
-            func_020397cc((Struct_02018300_3*)var103, 1);
+            DisablePlayerControl_020397cc((Struct_02018300_3*)var103, 1);
         }
         *(unsigned char*)(arg0 + 0x1000 + 0x3e9) = 1;
         *(short*)(arg0 + 6) = 0xe;
@@ -1075,7 +1075,7 @@ phase2:;
                 Struct_ov009_0218aa28 var117 = *(Struct_ov009_0218aa28*)((char*)var114 + 0x50);
                 var116.unknown_8_ -= 0x1800;
                 func_02059f38((Struct_02059cfc_2*)var114, (Struct_02059cfc_3*)&var116);
-                func_02033874((Struct_02033834*)var114, 0x323d);
+                SetFacingInstantly_02033874((Struct_02033834*)var114, 0x323d);
             } else {
                 void* var118 = ((GameState*)var68)->GetPartyMemberByIndex(var115);
                 if (var118 != 0) {
@@ -1144,13 +1144,13 @@ phase2:;
         void* var135 = func_ov017_021b1fb8(var133);
         strcpy(var134 + 7, (char*)var135);
         func_02011818(var68, (Struct_02011818*)var134);
-        const char* var136 = func_020e51cc(1011);
+        const char* var136 = GetStandardString_020e51cc(1011);
         int var137 = func_ov017_021b1fb0(var133);
         char var138[0x20];
         sprintf(var138, data_ov003_021801fc, var136, var137);
         func_02011ab8((char*)var68);
         short var139 = (short)(func_ov017_021b1fa8(var133) + 0x45);
-        const char* var140 = func_020e51cc(var139);
+        const char* var140 = GetStandardString_020e51cc(var139);
         char var141[0x40];
         sprintf(var141, data_ov003_02180201, var140, var138);
         func_02011a74((char*)var68, 0, var141);

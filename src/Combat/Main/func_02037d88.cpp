@@ -24,7 +24,7 @@ extern "C" void func_02052ae8(struct Struct_02037d88_11* arg0);
 
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" int func_ov017_0219a370(unsigned char* arg0);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 
 struct Struct_0203402c;
 extern "C" int func_0203402c(struct Struct_0203402c* arg0);
@@ -32,7 +32,7 @@ extern "C" int func_0203402c(struct Struct_0203402c* arg0);
 extern "C" int GetMessageWindow_020421a0();
 
 extern "C" unsigned char func_020100b0(GameState* arg0);
-extern "C" int func_020100f8(char* arg0);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 
 struct Struct_02037d88_12;
 extern "C" int func_020a2c70(struct Struct_02037d88_12* arg0);
@@ -129,7 +129,7 @@ extern "C" ARM void func_02037d88(struct Struct_02037d88_7* arg0) {
 
     {
         void* var5 = GameState::GetInstance();
-        void* var6 = func_020100bc((GameState*)var5);
+        void* var6 = GetCamera_020100bc((GameState*)var5);
         void* var7 = GetZone3D_02012fe4();
         int* var8 = (int*)arg0->unknown_130_;
 
@@ -155,7 +155,7 @@ extern "C" ARM void func_02037d88(struct Struct_02037d88_7* arg0) {
 
         if (var11 != 0
             && func_ov017_0219a370(var1) != 0
-            && func_02046b08((void**)var13) != 0
+            && IsQueueEmpty_02046b08((void**)var13) != 0
             && g_keyManager.TestKeysHeld(2) != 0
             && func_0203402c((struct Struct_0203402c*)arg0) == 0
             && ((struct Struct_02037d88_6*)GetMessageWindow_020421a0())->unknown_1000_.unknown_9b1_ == 0) {
@@ -166,7 +166,7 @@ extern "C" ARM void func_02037d88(struct Struct_02037d88_7* arg0) {
             short var16 = arg0->unknown_4_;
             unsigned char var17 = func_020100b0((GameState*)var15);
             if (var17 == var16) {
-                int var18 = func_020100f8((char*)var15);
+                int var18 = GetFollowCamera_020100f8((char*)var15);
                 if (var18 != 0) {
                     if (func_ov017_0219a370(var1) != 0) {
                         if (func_020a2c70((struct Struct_02037d88_12*)var18) != 0) {
@@ -207,7 +207,7 @@ extern "C" ARM void func_02037d88(struct Struct_02037d88_7* arg0) {
             short var25 = arg0->unknown_4_;
             unsigned char var26 = func_020100b0((GameState*)var24);
             if (var26 == var25) {
-                int var27 = func_020100f8((char*)var24);
+                int var27 = GetFollowCamera_020100f8((char*)var24);
                 if (var27 != 0) {
                     unsigned char* var28 = (unsigned char*)var27 + 0x2c4;
                     if (var28 != 0) {

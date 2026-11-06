@@ -477,7 +477,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             memcpy(var22->unknown_0_, var25->unknown_f80_, var25->unknown_2c8c_ * sizeof(Struct_020a95a4_7));
             for (var11 = 0; var11 < var15; var11++) {
                 var10 = var11 + var25->unknown_2c8c_;
-                GameObject* var28 = func_0200ff1c(var24, var27[var11]);
+                GameObject* var28 = GetPartyMemberBaseByIndex_0200ff1c(var24, var27[var11]);
                 if (var28 != NULL) {
                     Struct_020a95a4_5* var29 = GetPartyMemberData_02053c6c((unsigned char*)var28);
                     if (var29 != NULL) {
@@ -487,7 +487,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             }
             var22->unknown_1d0c_ = var25->unknown_2c8c_;
             for (var9 = 0; var9 < var15; var9++) {
-                GameObject* var30 = func_0200ff1c(var24, var27[var9]);
+                GameObject* var30 = GetPartyMemberBaseByIndex_0200ff1c(var24, var27[var9]);
                 if (var30 != NULL) {
                     memcpy(&var22->unknown_1d12_[var9], GetPartyMemberData_02053c6c((unsigned char*)var30)->unknown_454_, 0x10);
                 }

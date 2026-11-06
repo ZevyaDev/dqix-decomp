@@ -65,7 +65,7 @@ struct Struct_ov000_021759f4 {
     unsigned char unknown_eb4_;
 };
 
-extern "C" struct Struct_020a36a8* func_ov017_021b8478(void* arg0);
+extern "C" struct Struct_020a36a8* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" int func_020a36a8(struct Struct_020a36a8* arg0);
 extern "C" struct Struct_ov000_021759f4* func_ov017_021b8468(void* arg0);
 extern "C" struct Struct_ov000_021643d4_8* func_ov000_02161318(void* arg0, int arg1);
@@ -80,7 +80,7 @@ extern "C" ARM int func_ov000_021759f4(struct Struct_ov000_021759f4_5* arg0) {
 #else
     void* var0 = GetGameResources()->unknown_ptr_3718;
 #endif
-    struct Struct_020a36a8* var1 = func_ov017_021b8478(var0);
+    struct Struct_020a36a8* var1 = GetBattleSetup_ov017_021b8478(var0);
     if (arg0->unknown_1d72_ & 0x200) {
         return 0;
     }

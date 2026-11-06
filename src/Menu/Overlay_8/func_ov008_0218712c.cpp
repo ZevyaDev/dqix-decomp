@@ -26,9 +26,9 @@ struct Struct_ov008_0218712c {
 extern "C" {
     void func_ov008_02187278(Struct_ov008_0218712c*, void*, int, void*);
 #if defined(jpn)
-    void func_0205d304(void*, void*, int, int, bool, bool, void*);
+    void OpenTextWindow_0205d304(void*, void*, int, int, bool, bool, void*);
 #else
-    void func_0205d304(void*, void*, int, int, bool, bool, void*, bool);
+    void OpenTextWindow_0205d304(void*, void*, int, int, bool, bool, void*, bool);
 #endif
 
     void func_ov008_0218712c(Struct_ov008_0218712c* arg0, void* arg1) {
@@ -47,9 +47,9 @@ extern "C" {
         memset(arg0->unknown_b8_, 0, LOW_REGION(0x800, 0x960));
         func_ov008_02187278(arg0, arg0->unknown_b8_, 0, arg1);
 #if defined(jpn)
-        func_0205d304(arg0->unknown_130_, arg0->unknown_b8_, 0, 0, false, false, 0);
+        OpenTextWindow_0205d304(arg0->unknown_130_, arg0->unknown_b8_, 0, 0, false, false, 0);
 #else
-        func_0205d304(arg0->unknown_130_, arg0->unknown_b8_, 0, 0, false, false, 0, false);
+        OpenTextWindow_0205d304(arg0->unknown_130_, arg0->unknown_b8_, 0, 0, false, false, 0, false);
 #endif
 
         arg0->unknown_1d0_[0] = LOW_REGION(10, 5);
@@ -67,9 +67,9 @@ extern "C" {
         memset(arg0->unknown_b8_, 0, LOW_REGION(0x800, 0x960));
         func_ov008_02187278(arg0, arg0->unknown_b8_, 1, arg1);
 #if defined(jpn)
-        func_0205d304(arg0->unknown_130_, arg0->unknown_b8_, 0, 0, false, false, 0);
+        OpenTextWindow_0205d304(arg0->unknown_130_, arg0->unknown_b8_, 0, 0, false, false, 0);
 #else
-        func_0205d304(arg0->unknown_130_, arg0->unknown_b8_, 0, 0, false, false, 0, false);
+        OpenTextWindow_0205d304(arg0->unknown_130_, arg0->unknown_b8_, 0, 0, false, false, 0, false);
 #endif
     }
 }

@@ -16,12 +16,12 @@ enum { Enum_ov000_021723a8_1096 = 0x448, Enum_ov000_021723a8_9 = 9 };
 #endif
 
 extern "C" void func_020de848(void* arg0);
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 extern "C" void func_0205cfd4(struct Struct_0205cfd4* arg0);
 extern "C" void func_0205bef8(struct Struct_0205bef8* arg0);
-extern "C" void func_0204c684(void* arg0);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void func_02092aa4(Struct_02092aa4* arg0, int arg1);
-extern "C" void func_0205a444(char* arg0);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void* GetLocalWireless_0202ae18(GameState* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_0203c0cc(struct Struct_0203c0cc* arg0);
@@ -67,7 +67,7 @@ struct Struct_ov000_021723a8 {
     struct Struct_0205bef8 unknown1_244_;
     char unknown_284_[0x284 - 0x244 - sizeof(struct Struct_0205bef8)];
     char unknown1_284_[7][0xe0];
-    struct Struct_02020cb8 unknown_8a4_[3];
+    struct BGLayer_02020cb8 unknown_8a4_[3];
     char unknown_904_[4];
     int unknown_908_;
     int unknown_90c_;
@@ -176,17 +176,17 @@ extern "C" ARM void func_ov000_021723a8(struct Struct_ov000_021723a8* arg0, int 
             var2;
         }
     }
-    func_0204af64(&arg0->unknown_8a4_[0]);
-    func_0204af64(&arg0->unknown_8a4_[1]);
-    func_0204af64(&arg0->unknown_8a4_[2]);
+    InitBGLayer_0204af64(&arg0->unknown_8a4_[0]);
+    InitBGLayer_0204af64(&arg0->unknown_8a4_[1]);
+    InitBGLayer_0204af64(&arg0->unknown_8a4_[2]);
     func_0205cfd4(&arg0->unknown_188_);
     func_0205bef8(&arg0->unknown1_244_);
     for (int var5 = 0; var5 < 7; var5++) {
-        func_0204c684(arg0->unknown1_284_[var5]);
+        InitTextWindow_0204c684(arg0->unknown1_284_[var5]);
     }
     arg0->unknown_1af0_ = arg1;
     func_02092aa4(&arg0->unknown_7c_, 0);
-    func_0205a444(arg0->unknown_11c_);
+    InitSpriteSet_0205a444(arg0->unknown_11c_);
     arg0->unknown_170_ = 0;
     arg0->unknown_174_ = 0;
     arg0->unknown_910_ = 0;

@@ -24,7 +24,7 @@ extern const short data_020e83f2[];
 extern const short data_020e83fc[];
 extern const unsigned char data_020e83e4[];
 
-extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
+extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 extern "C" unsigned char* func_02043110(int arg0, int arg1);
 extern "C" void func_02041c10(Struct_0204166c*, const char*, unsigned char*, int, unsigned int, unsigned char);
 extern "C" void func_02046458(int, short, unsigned char, unsigned char*, short, short, unsigned char*, short, short);
@@ -64,7 +64,7 @@ extern "C" ARM int func_02046530(MessageWindow_02021b84* arg0, const char* arg1,
                     memset(var9, 0, 0x80);
                     bool var16;
                     for (unsigned char var17 = 0; var17 < 10; var17++) {
-                        if (func_02001aec((void*)(data_020e843e + var17), (void*)arg1, 2) == 0) {
+                        if (CompareBytes_02001aec((void*)(data_020e843e + var17), (void*)arg1, 2) == 0) {
                             var16 = true;
                             goto label_02046530;
                         }

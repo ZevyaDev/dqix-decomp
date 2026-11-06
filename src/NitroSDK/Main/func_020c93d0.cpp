@@ -1,13 +1,10 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 unsigned int DisableIRQInterrupts(void);
 unsigned int SetIRQInterruptState(int mask);
 extern "C" int func_020c96a8(int arg0);
-extern "C" void func_020c9be0(void);
+extern "C" void HaltForever_020c9be0(void);
 struct Struct_020c92d0;
 extern "C" void func_020c92d0(struct Struct_020c92d0* arg0);
 
@@ -15,7 +12,7 @@ extern "C" void func_020c92d0(struct Struct_020c92d0* arg0);
 extern "C" ARM void func_020c93d0(void* arg0, int arg1, int arg2, int arg3, int arg4) {
     unsigned int var0 = DisableIRQInterrupts();
     if (arg0 == 0 || *(int*)arg0 != 0) {
-        func_020c9be0();
+        HaltForever_020c9be0();
     }
     int var1 = *(volatile unsigned short*)0x4000006;
     int var2 = func_020c96a8(var1);

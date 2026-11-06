@@ -145,7 +145,7 @@ extern "C" ARM int func_ov004_0216033c(void* arg0) {
     int var7 = *(int*)((char*)D0 + 0x1c);
     unsigned char var8 = *(unsigned char*)((char*)D0 + Enum_ov004_0216033c_8);
     GameState* var9 = GameState::GetInstance();
-    var4 = (unsigned char*)func_0200ff1c(var9, var7);
+    var4 = (unsigned char*)GetPartyMemberBaseByIndex_0200ff1c(var9, var7);
     if (!var4) goto stats_done;
     var3 = (unsigned char*)GetPartyMemberData_02053c6c(var4);
     if (!var3) goto stats_done;
@@ -350,7 +350,7 @@ stats_done:
     int var50 = *(int*)((char*)D0 + 0x1c);
     unsigned char var51 = *(unsigned char*)((char*)D0 + Enum_ov004_0216033c_8);
     GameState* var52 = GameState::GetInstance();
-    unsigned char* var53 = (unsigned char*)func_0200ff1c(var52, var50);
+    unsigned char* var53 = (unsigned char*)GetPartyMemberBaseByIndex_0200ff1c(var52, var50);
     Struct_ov004_0216033c* var54;
     int var55;
     Struct_ov004_0216033c* var56;

@@ -11,7 +11,7 @@ extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_ov003_02170898(void* arg0);
 extern "C" void func_ov003_02170688(void* arg0);
 extern "C" void func_02074af4(void* arg0);
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 
 // USA: func_ov003_0216e200
 extern "C" ARM void func_ov003_0216e200(char* arg0) {
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov003_0216e200(char* arg0) {
 	*var1 = (*var1 & ~0x1f00) | 0x700;
 
 	*(int*)(arg0 + 0x174) = GetFlags04(GetGameResources());
-	func_020c5588(0, 0, 0x7fff, 0, 0);
+	Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
 	*(unsigned char*)(arg0 + 0x1) = 1;
 	*(unsigned char*)(arg0 + 0x2) = 0;
 	*(int*)(arg0 + 0x16c) = 0;

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void* func_ov031_022368e0();
-extern "C" int func_ov031_02236878(int arg0);
+extern "C" int PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
 extern "C" void func_ov031_02237b2c(int, int, int, int, int);
 extern "C" void func_ov031_02222e98(void);
 extern "C" void func_ov031_022376e4(int arg0);
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov031_02234cac(int arg0) {
     case 0:
         data_ov031_02290ce4 = 3;
         func_ov031_022368e0();
-        func_ov031_02236878(0x12);
+        PlayWifiSetupSoundEffect_ov031_02236878(0x12);
         func_ov031_02237b2c(0x10, 1, 1, -1, 0);
         func_ov031_02222e98();
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02234d98);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov031_02234cac(int arg0) {
     case 3:
         data_ov031_02290ce4 = 2;
         func_ov031_022368e0();
-        func_ov031_02236878(9);
+        PlayWifiSetupSoundEffect_ov031_02236878(9);
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02234b2c);
         break;
     }

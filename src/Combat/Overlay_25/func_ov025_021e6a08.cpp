@@ -18,7 +18,7 @@ extern "C" void func_02049ae4(unsigned char*);
 extern "C" int func_02048c10(unsigned char*);
 extern "C" int func_020882f8(unsigned char*);
 extern "C" void func_02033920(GameObject*, int, int);
-extern "C" int func_02033b88(Struct_02010604*, int);
+extern "C" int SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02048c90(Struct_02048c90*);
 extern Struct_ov025_021ef9a8 data_ov025_021ef9a8;
 extern Struct_ov025_021ef988_24 data_ov025_021ef988;
@@ -61,19 +61,19 @@ extern "C" ARM int func_ov025_021e6a08(Struct_ov025_021e6a08* arg0, Struct_ov000
         Vector3fixMultiplyScalar(&var14, fix32_Divide(0x1000, 0x4000), &var14);
         int var15 = Vector3fix_Length(&var14);
         if (var15 > 0x333) Vector3fixMultiplyScalar(&var14, fix32_Divide(0x333, var15), &var14);
-        else if (((Struct_02010604*)var3)->unknown_c0_ != 6) func_02033b88((Struct_02010604*)var3, 0);
+        else if (((Struct_02010604*)var3)->unknown_c0_ != 6) SetMotion_02033b88((Struct_02010604*)var3, 0);
         Vector3i var16;
         Vector3fix_Add(&var6, &var14, &var16);
         var3->obj3D_.position_ = var16;
         if (var9 < 0x28 || (!var5 && ((Struct_02010604*)var3)->unknown_c0_ == 0)) {
-            func_02033b88((Struct_02010604*)var3, 0);
+            SetMotion_02033b88((Struct_02010604*)var3, 0);
             func_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
     }
     if (var5) {
         func_02048c90((Struct_02048c90*)var3);
-        if (((Struct_02010604*)var3)->unknown_c0_ != 6) func_02033b88((Struct_02010604*)var3, 1);
+        if (((Struct_02010604*)var3)->unknown_c0_ != 6) SetMotion_02033b88((Struct_02010604*)var3, 1);
     }
     return 0;
 }

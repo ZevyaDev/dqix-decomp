@@ -7,7 +7,7 @@ extern "C" short* func_02052e14(struct Struct_02052e14* arg0);
 // USA: func_020dd718
 extern "C" ARM int func_020dd718(int arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    GameObject* var1 = func_0200ff1c(var0, arg0);
+    GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     short* var2 = func_02052e14((struct Struct_02052e14*)var1);
     unsigned char var3 = 0;
     while (var3 < 10) {

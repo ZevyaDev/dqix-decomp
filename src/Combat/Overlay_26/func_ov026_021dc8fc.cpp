@@ -82,13 +82,13 @@ extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" Struct_ov026_021db090_4* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
 extern "C" void func_ov000_0217193c(Struct_ov000_0217193c*);
 extern "C" void func_ov000_02171614(Struct_ov000_02171614*);
-extern "C" ItemData_0201099c_9* func_020dedd0(ItemTable_0201099c_10*, int);
+extern "C" ItemData_0201099c_9* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" void func_02083acc(unsigned char*, int);
 extern "C" void func_02083b28(unsigned char*, int);
 extern "C" int func_02083b00(unsigned char*, int);
 extern "C" int func_020839dc(Struct_020839dc*, unsigned char*, int);
 extern "C" Struct_0209a9dc_3* func_0209a9dc(Struct_0209a9dc_2*, int);
-extern "C" Struct_ov026_021dc8fc_5* func_02079e2c(char*, int);
+extern "C" Struct_ov026_021dc8fc_5* FindActionData_02079e2c(char*, int);
 extern "C" void func_ov000_02171640(Struct_ov000_02171640*, int, int);
 extern "C" void func_ov000_02171968(Struct_ov000_02171968*, int, int);
 extern "C" int func_02083960(Struct_0207d300*);
@@ -104,7 +104,7 @@ extern "C" int func_0209ab7c(Struct_0209a9dc_2*, GameObject*, unsigned char*);
 extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8ba0_4* arg3,
                                         void* arg4, Struct_0209a9dc_2* arg5, int arg6) {
     GameState* var0 = GameState::GetInstance();
-    GameObject* var1 = func_0200ff1c(var0, arg6);
+    GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg6);
     if (!var1) return;
     Struct_ov026_021dc8fc* var2 = (Struct_ov026_021dc8fc*)GetPartyMemberData_02053c6c((unsigned char*)var1);
     if (!var2) return;
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8b
         for (int var12 = 0; var12 < 8; ++var12) {
             if (var9 == var10[var12]) { var11 = 1; break; }
         }
-        ItemData_0201099c_9* var13 = func_020dedd0(&arg3->unknown_d0_, (short)var9);
+        ItemData_0201099c_9* var13 = FindItemData_020dedd0(&arg3->unknown_d0_, (short)var9);
         if (var13 && var13->unknown_8_4_ == 0x1f) {
             if (var11) func_02083acc((unsigned char*)var2, var13->unknown_14_);
             else func_02083b28((unsigned char*)var2, var13->unknown_14_);
@@ -158,8 +158,8 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8b
         Struct_0209a9dc_3* var20 = func_0209a9dc(arg5, var5[var19]);
         if (var20 && var20->unknown_2_) var4[var8++] = var20->unknown_2_;
     }
-    Struct_02108e10* var21 = func_020797dc();
-    for (int var22 = 0; var22 < var8; ++var22) var6[var22] = func_02079e2c((char*)var21, var4[var22]);
+    ActionTables_02108e10* var21 = GetActionTables_020797dc();
+    for (int var22 = 0; var22 < var8; ++var22) var6[var22] = FindActionData_02079e2c((char*)var21, var4[var22]);
     int var23 = 0;
     int var24;
     int var25 = 0;
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8b
     for (var32 = 0; var32 < 16; ++var32) {
         if (var32 < 8) {
             if (var32 < var27) {
-                ItemData_0201099c_9* var33 = func_020dedd0(&arg3->unknown_d0_, (short)var7[var32]);
+                ItemData_0201099c_9* var33 = FindItemData_020dedd0(&arg3->unknown_d0_, (short)var7[var32]);
                 if (var33) {
                     func_ov000_02171b68(var3, var30, var33);
                     ++var30;

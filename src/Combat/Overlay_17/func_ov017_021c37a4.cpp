@@ -113,12 +113,12 @@ struct QueueNode_0201bdac;
 struct Struct_020e3004;
 struct Struct_020e358c;
 struct Struct_020e3814;
-struct Struct_02109bf4_4;
+struct MusicManager_02109bf4_4;
 struct Struct_02109bf4_3;
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void* func_0202ae24(void);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 extern "C" void* func_020e2ff8(void);
 extern "C" void* func_020e3580(void);
 extern "C" void* func_020e3808(void);
@@ -136,7 +136,7 @@ extern "C" void func_0205e22c(void* arg0);
 extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_02039d7c(char* arg0);
 extern "C" void func_02039d84(Struct_02039d84* arg0);
-extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int func_020546a8(void* arg0);
 extern "C" void func_ov017_02190264(void* arg0, int arg1);
 extern "C" void func_ov017_021c32b0(Struct_ov017_021c37a4_2* arg0, int arg1);
@@ -149,7 +149,7 @@ extern "C" void func_ov017_02191108(void* arg0, int arg1, int arg2, int arg3, in
 extern "C" void func_020546a0(void* arg0, int arg1);
 extern "C" void func_02039858(unsigned char* arg0, int arg1);
 extern "C" void func_02039d24(unsigned char* arg0);
-extern "C" void* func_020100f8(char* arg0);
+extern "C" void* GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a2770(void* arg0, short arg1);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int func_0206e2dc(Struct_0205faf4_13* arg0, int arg1);
@@ -174,11 +174,11 @@ extern "C" void func_020e358c(Struct_020e358c* arg0);
 extern "C" void func_020e3814(Struct_020e3814* arg0);
 extern "C" int func_0209c3ac(char* arg0);
 extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
-extern "C" void func_0209c678(Struct_02109bf4_4* arg0, int arg1);
+extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
 extern "C" void func_020bbd9c(void);
 extern "C" int func_0209c6bc(void* arg0);
 extern "C" void func_0209c20c(Struct_02109bf4_3* arg0);
-extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" Struct_ov017_021c37a4_5* GetMessageWindow_020421a0(void);
 
 extern Struct_02109bf4_11 gMusicManager_02109bf4;
@@ -189,7 +189,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     Struct_ov017_021c37a4_10* var1 = (Struct_ov017_021c37a4_10*)var0;
     Struct_ov017_021c37a4_6* var2 = (Struct_ov017_021c37a4_6*)GetLocalWireless_0202ae18();
     GameResources* var3 = GetGameResources();
-    void* var4 = func_0202ae24();
+    void* var4 = GetLocalWirelessPacketQueue_0202ae24();
     void* var5 = func_020e2ff8();
     void* var6 = func_020e3580();
     void* var7 = func_020e3808();
@@ -242,7 +242,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
                 func_02039d84((Struct_02039d84*)var19);
             }
         } else {
-            GameObject* var20 = func_0200ff58(var0, var18);
+            GameObject* var20 = GetCompanionByIndex_0200ff58(var0, var18);
             if (var20 && func_020546a8(var20) == GetProtagonistObjectIndex_020100a8(var0)) {
                 continue;
             }
@@ -287,7 +287,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     }
 
     for (int var25 = 0; var25 < 4; var25++) {
-        GameObject* var26 = func_0200ff58(var0, var25);
+        GameObject* var26 = GetCompanionByIndex_0200ff58(var0, var25);
         if (var26) {
             func_020546a0(var26, GetProtagonistObjectIndex_020100a8(var0));
             func_02039858((unsigned char*)var26, GetProtagonistObjectIndex_020100a8(var0));
@@ -295,7 +295,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         }
     }
 
-    void* var27 = func_020100f8((char*)var0);
+    void* var27 = GetFollowCamera_020100f8((char*)var0);
     if (var27) {
         func_020a2770(var27, 0);
     }
@@ -364,7 +364,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     Struct_ov017_021c37a4* var38 = (Struct_ov017_021c37a4*)GetParty_02010828(var0);
     for (int var39 = 0; var39 < var38->unknown_f7c_; var39++) {
         unsigned char var40 = var38->unknown_f78_[var39];
-        if (func_0200ff1c(var0, var40)) {
+        if (GetPartyMemberBaseByIndex_0200ff1c(var0, var40)) {
             func_ov017_02191aac(var3, 0, var40, 2);
         }
     }
@@ -392,13 +392,13 @@ extern "C" ARM void func_ov017_021c37a4(void) {
 
     if (func_0209c3ac((char*)&gMusicManager_02109bf4) != 0x7f) {
         func_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
-        func_0209c678((Struct_02109bf4_4*)&gMusicManager_02109bf4, 0);
+        func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
         func_020bbd9c();
     }
     gMusicManager_02109bf4.unknown_c8_ &= ~4;
     if (!func_0209c6bc(&gMusicManager_02109bf4)) {
         func_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
     }
-    func_020466f4((Struct_02038598_4*)var8, 0x800);
+    ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var8, 0x800);
     GetMessageWindow_020421a0()->unknown_1962_ = 0;
 }

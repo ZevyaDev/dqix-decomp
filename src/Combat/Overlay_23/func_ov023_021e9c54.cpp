@@ -13,7 +13,7 @@ struct Struct_0209cf44 {
     } unknown_4_;
 };
 
-extern "C" void func_ov017_021d6134(Struct_0209cf44* arg0, int arg1);
+extern "C" void SetScriptRefInt_ov017_021d6134(Struct_0209cf44* value, int number);
 
 // USA: func_ov023_021e9c54
 extern "C" ARM int func_ov023_021e9c54(void* arg0) {
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov023_021e9c54(void* arg0) {
 
     Struct_020ac4f8 var2 = func_ov023_021e8fe8(var1.unknown_0_.unknown_4_, 1);
 
-    func_ov017_021d6134(&var0[0], var2.unknown_0_);
-    func_ov017_021d6134(&var0[1], var2.unknown_2_);
+    SetScriptRefInt_ov017_021d6134(&var0[0], var2.unknown_0_);
+    SetScriptRefInt_ov017_021d6134(&var0[1], var2.unknown_2_);
     return 1;
 }

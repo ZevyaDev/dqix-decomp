@@ -101,7 +101,7 @@ extern "C" void func_02053da0(char*, Struct_02053da0*);
 extern "C" void func_0208936c(char*, char*, char*);
 extern "C" void func_02039d84(Struct_02039d84*);
 extern "C" void func_02033fdc(Struct_02033fdc*);
-extern "C" void func_02033b88(Struct_02010604*, int);
+extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_0203409c(unsigned char*);
 extern "C" void func_02039d58(unsigned char*);
 extern "C" void func_ov000_02168644(char*, int);
@@ -120,7 +120,7 @@ extern "C" void func_ov000_0217f5d0(void*);
 extern "C" {
 int* GetLocalWireless_0202ae18();
 int func_ov000_0215fad4(Struct_ov000_02161e30*);
-int func_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
+int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
 void func_ov000_02174738(void*, int);
 void* memset(void*, int, unsigned int);
 void func_02049c88(void*, void*);
@@ -155,7 +155,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, Struct_ov000_02160da0* arg1, S
     func_ov000_02160fbc(arg1, 0x80000000);
     int var5 = 0;
     int var6 = func_ov000_0215fad4(arg2);
-    func_ov000_0215e9fc(arg2, var1, 4, 0);
+    CollectPartyCombatantIndices_ov000_0215e9fc(arg2, var1, 4, 0);
     while (var6 >= 0) {
         func_020a35cc((unsigned char*)arg3, var6);
         func_ov000_02174738(arg4, var6);
@@ -188,7 +188,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, Struct_ov000_02160da0* arg1, S
             ((Struct_ov023_021f2a48_2*)var11)->unknown_c1_.unknown_0_0_ |= 3;
             ((Struct_ov023_021f2a48_2*)var11)->unknown_c2_5_ = 1;
             func_02033fdc((Struct_02033fdc*)var11);
-            func_02033b88((Struct_02010604*)var11, 0);
+            SetMotion_02033b88((Struct_02010604*)var11, 0);
             func_0203409c((unsigned char*)var11);
             var11->obj3D_.SetInheritedAlpha(0x1f);
             func_02039d58((unsigned char*)var11);
@@ -228,7 +228,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, Struct_ov000_02160da0* arg1, S
         if (func_020a36a8((Struct_020a36a8*)arg3)) {
             unsigned char var12 = 0;
             unsigned char var13 = 0;
-            int var14 = func_ov000_0215e9fc(arg2, var2, 4, 0);
+            int var14 = CollectPartyCombatantIndices_ov000_0215e9fc(arg2, var2, 4, 0);
             int var15;
             for (var15 = 0; var15 < var14; var15++) {
                 GameObject* var16 = var3->GetCombatantByIndex(var2[var15]);

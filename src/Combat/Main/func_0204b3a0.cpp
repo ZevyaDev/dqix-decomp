@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
+extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 
 typedef void (*Type_0204a984)(void*, int, int);
 extern "C" void func_0204a984(int* arg0, Type_0204a984 arg1, char* arg2);
@@ -42,19 +42,19 @@ extern "C" ARM void func_0204b3a0(struct Struct_02020cb8_6* arg0, char* arg1) {
     __clear(var0, 5);
     memcpy(var0, arg1, 5);
 
-    if (func_02001aec(var0, &data_020f0238, 4) == 0) {
+    if (CompareBytes_02001aec(var0, &data_020f0238, 4) == 0) {
         Type_0204a984 var1 = (Type_0204a984)data_020f01f8[arg0->unknown_1c_0_][arg0->unknown_1c_4_];
         func_0204a984((int*)arg0, var1, arg1);
         return;
     }
 
-    if (func_02001aec(var0, &data_020f023d, 4) == 0) {
+    if (CompareBytes_02001aec(var0, &data_020f023d, 4) == 0) {
         Type_0204abcc var2 = data_020f01b0[arg0->unknown_1c_0_];
         func_0204abcc((struct Struct_0204abcc*)((char*)arg0 + 0xc), var2, (struct Struct_0204abcc_2*)arg1);
         return;
     }
 
-    if (func_02001aec(var0, &data_020f0242, 4) == 0) {
+    if (CompareBytes_02001aec(var0, &data_020f0242, 4) == 0) {
         struct Struct_02020cb8_7 var3;
         func_0204acb0(&var3);
         Type_02020cb8 var4 = (Type_02020cb8)data_020f0218[arg0->unknown_1c_0_][arg0->unknown_1c_4_];

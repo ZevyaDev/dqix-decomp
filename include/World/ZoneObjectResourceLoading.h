@@ -21,7 +21,7 @@ struct Struct_02014d80 {
     int unknown_20_;
 };
 
-extern "C" void *func_0200fd0c(GameState *arg0);
+extern "C" void *GetZoneEntry_0200fd0c(GameState *gameState);
 extern "C" void func_02014d18(int arg0, char *arg1, char *arg2);
 extern "C" void RestoreTextureVRAMState_0207df90(char *area);
 extern "C" void SaveTextureVRAMState_0207dfac(char *area);

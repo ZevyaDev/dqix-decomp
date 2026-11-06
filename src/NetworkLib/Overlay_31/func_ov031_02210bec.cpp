@@ -24,7 +24,7 @@ struct Struct_ov031_02210bec {
 
 extern Struct_ov031_02210bec* data_ov031_0224e588;
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" int func_020d2f28(char* arg0, const char* arg1, int arg2);
 extern "C" int func_ov031_0221042c(unsigned char* arg0);
 extern "C" int func_ov031_022104e4(unsigned char* arg0);
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov031_02210bec(void) {
         return;
     }
     data_ov031_0224e588->unknown_1b5_ = 0;
-    var0 = func_020d2ff0(data_ov031_0224e588->unknown_89_);
+    var0 = GetStringLength_020d2ff0(data_ov031_0224e588->unknown_89_);
     var1 = var0 + 0x19;
     VectorizedMemset(var2, 0, sizeof(var2));
     var3->unknown_0_ = var1;

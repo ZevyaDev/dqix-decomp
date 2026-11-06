@@ -5,7 +5,7 @@ extern "C" int func_ov017_021d446c(void* arg0, void* arg1, int arg2);
 extern "C" int GetZone3D_02012fe4(void);
 extern "C" int func_02018fbc(int arg0, Vector3i* arg1);
 struct Struct_02033834;
-extern "C" void func_02033874(Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834* object, int angle);
 extern "C" void func_02076ccc(void*, int);
 
 struct Struct_ov017_021c949c {
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov017_021c949c(int arg0, Struct_ov017_021c949c* arg1) {
     }
 
     *(Vector3i*)((char*)var0[2] + 0x44) = var1;
-    func_02033874((Struct_02033834*)var0[2], var2);
+    SetFacingInstantly_02033874((Struct_02033834*)var0[2], var2);
 
     if (*(int*)((char*)var0[2] + 0x130) != 9) {
         func_02076ccc((void*)var0[2], 1);

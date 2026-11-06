@@ -150,7 +150,7 @@ struct Struct_ov003_02170d88_13;
 extern "C" void* GetLocalWireless_0202ae18();
 struct Struct_0202aec0_2;
 extern "C" void func_0202aec0(Struct_0202aec0_2*);
-extern "C" void* func_0202ae24();
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
 extern "C" void func_0205e22c(void*);
 extern "C" void VectorizedMemset(void*, int, unsigned int);
 extern "C" void* func_02052a10(char*);
@@ -162,7 +162,7 @@ extern "C" int func_020a08a4(Struct_02061c04*);
 extern "C" int func_020a08d8(Struct_02061c04*);
 extern "C" int func_020a090c(Struct_02061c04*);
 extern "C" Struct_ov003_02170d88_7* GetPartyMemberData_02053c6c(unsigned char*);
-extern "C" unsigned char func_0200fb08(Struct_02000c9c_8*);
+extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" unsigned char func_020119f8(char*, void*);
 extern "C" void func_ov003_02171f80(Struct_ov003_02170d88_13*);
 extern "C" void func_ov017_021b1d44(void*, int, int);
@@ -184,7 +184,7 @@ extern "C" ARM void func_ov003_02170d88(Struct_ov003_02170d88_4* arg0) {
     arg0->unknown_724_ = 0;
     Struct_0202aec0_2* var1 = static_cast<Struct_0202aec0_2*>(GetLocalWireless_0202ae18());
     func_0202aec0(var1);
-    void* var2 = func_0202ae24();
+    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
     func_0205e22c(var2);
     GameState* var3 = GameState::GetInstance();
     GameObject* var4 = var3->GetProtagonist();
@@ -245,7 +245,7 @@ extern "C" ARM void func_ov003_02170d88(Struct_ov003_02170d88_4* arg0) {
     Struct_ov003_02170d88_5 var15 = var6->unknown_74fe_;
     arg0->unknown_1c0_.unknown_e_ = var15;
 #if !defined(jpn)
-    unsigned char var16 = func_0200fb08((Struct_02000c9c_8*)var3);
+    unsigned char var16 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)var3);
     int var17 = 0;
     switch (var16) {
     case 2: var17 = 1; break;

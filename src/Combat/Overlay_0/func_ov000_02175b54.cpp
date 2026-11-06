@@ -17,20 +17,20 @@
 
 #include "GameState/GameState.h"
 
-extern "C" void* func_02079e2c(char* arg0, int arg1);
+extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* func_ov000_02161318(void* arg0, int arg1);
 extern "C" int func_ov000_02171210(void* arg0, void* arg1);
 
 // USA: func_ov000_02175b54
 extern "C" ARM void func_ov000_02175b54(void* arg0) {
-    Struct_02108e10* var0 = func_020797dc();
+    ActionTables_02108e10* var0 = GetActionTables_020797dc();
     if (var0 == 0) {
         return;
     }
     signed char var1 = *((signed char*)arg0 + REGION_OFFSET_0 + REGION_OFFSET_1);
     signed short var2 = *(signed short*)((char*)arg0 + var1 * 2 + 0x10);
-    void* var3 = func_02079e2c((char*)var0, var2);
+    void* var3 = FindActionData_02079e2c((char*)var0, var2);
     if (var3 == 0) {
         return;
     }

@@ -8,8 +8,8 @@ enum { Enum_ov017_02191bdc_14092 = 0x370c, Enum_ov017_02191bdc_156 = 0x9c, Enum_
 #include "Combat/CombatantRecovery.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_0200fd0c(GameState* arg0);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov017_02191bdc(unsigned char* arg0, int arg1) {
 	if (*(short*)((char*)var1 + 0xac) != 0) return;
 	if (var1->obj3D_.GetFlag(0x8000000) != 0) return;
 	if (arg1 == 0) {
-		unsigned char* var2 = (unsigned char*)func_0200fd0c(var0);
+		unsigned char* var2 = (unsigned char*)GetZoneEntry_0200fd0c(var0);
 		unsigned char* var3 = *(unsigned char**)(arg0 + Enum_ov017_02191bdc_14092);
 		if (var3[2] != 0) return;
 		if (var2[2] != 0) return;
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov017_02191bdc(unsigned char* arg0, int arg1) {
 	unsigned char* var4 = arg0 + Enum_ov017_02191bdc_156 + Enum_ov017_02191bdc_17408;
 	for (int var5 = 0; var5 < 4; var4 += 4, var5++) {
 		if (var4[0] == 0) continue;
-		GameObject* var6 = func_0200ff1c(var0, var5);
+		GameObject* var6 = GetPartyMemberBaseByIndex_0200ff1c(var0, var5);
 		if (var6 != NULL) {
 			func_02053fe4(var6, *(short*)(var4 + 2), 1);
 			func_ov017_021c9e00(var5, 1, 0, 1);

@@ -24,9 +24,9 @@ extern "C"
 
     void func_020426bc(void*, char* arg1, int);
 
-    const char* func_020e51cc(int);
+    const char* GetStandardString_020e51cc(int);
 
-    int func_0200fb08(GameState*);
+    int GetGameLanguage_0200fb08(GameState*);
 }
 
 #define BINARY_READ_AND_ADVANCE(buffer, offset, dst, len) \

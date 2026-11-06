@@ -3,7 +3,7 @@
 #include "Util/Random.h"
 
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_02032370(int arg0);
 
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov017_021970a0(int arg0) {
 
     int var2 = 0;
     for (int var3 = 0; var3 < var1->unknown_f7c_; var3++) {
-        GameObject* var4 = func_0200ff1c(var0, var1->unknown_f78_[var3]);
+        GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, var1->unknown_f78_[var3]);
         if (var4 == NULL) continue;
         int* var5 = *(int**)((char*)var4 + 0x130);
         if (*var5 & 1) continue;

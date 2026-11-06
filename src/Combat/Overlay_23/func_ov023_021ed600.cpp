@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Struct_0205de24_2;
-extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+struct TextWindowManager_0205de24_2;
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
 
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
@@ -10,16 +10,16 @@ extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable,
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 #if defined(jpn)
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 // USA: func_ov023_021ed600
 extern "C" ARM void func_ov023_021ed600(char* arg0) {
     struct Struct_ov023_021ed600 { unsigned char unknown_0_0_ : 4; unsigned char unknown_0_4_ : 4; };
     unsigned char var0 = ((struct Struct_ov023_021ed600*)(arg0 + 0xc0))->unknown_0_0_;
-    func_0205de24((struct Struct_0205de24_2*)(arg0 + 0xc4), var0, 3);
+    SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)(arg0 + 0xc4), var0, 3);
 
     *(unsigned short*)(arg0 + 0x164) = 0x20;
     *(unsigned short*)(arg0 + 0x166) = 0x9;
@@ -45,8 +45,8 @@ extern "C" ARM void func_ov023_021ed600(char* arg0) {
     AppendText_02042058(*(char**)(arg0 + 0x1c), (const char*)(long)var2);
 
 #if defined(jpn)
-    func_0205d304(arg0 + 0xc4, *(void**)(arg0 + 0x1c), 0, 0, 0, 1, 0);
+    OpenTextWindow_0205d304(arg0 + 0xc4, *(void**)(arg0 + 0x1c), 0, 0, 0, 1, 0);
 #else
-    func_0205d304(arg0 + 0xc4, *(void**)(arg0 + 0x1c), 0, 0, 0, 0, 0, 1);
+    OpenTextWindow_0205d304(arg0 + 0xc4, *(void**)(arg0 + 0x1c), 0, 0, 0, 0, 0, 1);
 #endif
 }

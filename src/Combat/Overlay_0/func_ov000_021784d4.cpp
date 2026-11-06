@@ -44,9 +44,9 @@ extern "C" Struct_ov000_02178074_4* GetMessageWindow_020421a0();
 extern "C" void func_ov000_0217c638(struct Struct_ov000_021784d4_2* arg0, int arg1, int arg2);
 extern "C" void func_ov000_02178648(struct Struct_ov000_021784d4_2* arg0, void* arg1);
 #if defined(jpn)
-extern "C" void func_0205d304(struct Struct_ov000_021784d4* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(struct Struct_ov000_021784d4* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(struct Struct_ov000_021784d4* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(struct Struct_ov000_021784d4* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 // USA: func_ov000_021784d4
@@ -95,8 +95,8 @@ extern "C" ARM void func_ov000_021784d4(struct Struct_ov000_021784d4_2* arg0, st
 #endif
     func_ov000_02178648(arg0, var4);
 #if defined(jpn)
-    func_0205d304(&arg0->unknown_188_, var4, 0, 1, 0, 1, 0);
+    OpenTextWindow_0205d304(&arg0->unknown_188_, var4, 0, 1, 0, 1, 0);
 #else
-    func_0205d304(var3, var4, 0, 1, 0, 1, 0, 0);
+    OpenTextWindow_0205d304(var3, var4, 0, 1, 0, 1, 0, 0);
 #endif
 }

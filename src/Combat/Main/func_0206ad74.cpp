@@ -6,7 +6,7 @@ extern "C" int func_02069408(void*, unsigned short);
 extern "C" int func_02069430(void*, unsigned short);
 extern "C" void func_0206cb14(void*, int, unsigned short);
 extern "C" void __clear(void*, int);
-extern "C" int func_02001aec(const void*, const void*, unsigned int);
+extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
 extern const char data_020f07ce[];
 extern const char data_020f0aeb[];
 
@@ -30,7 +30,7 @@ extern "C" ARM void func_0206c794(void* arg0) {
             break;
         }
         if (!func_02069430(var0, *var3)) {
-            if (func_02001aec(var3, data_020f07ce, 2) == 0) {
+            if (CompareBytes_02001aec(var3, data_020f07ce, 2) == 0) {
                 var0->unknown_17f3_ = 0;
                 break;
             }
@@ -44,7 +44,7 @@ extern "C" ARM void func_0206c794(void* arg0) {
     for (;;) {
         if (func_02069408(var0, *var3)) break;
         if (!func_02069430(var0, *var3)) {
-            if (func_02001aec(var3, data_020f0aeb, 2) == 0) {
+            if (CompareBytes_02001aec(var3, data_020f0aeb, 2) == 0) {
                 var2 = 0;
                 var0->unknown_1774_ = -1;
                 var0->unknown_1772_ = 0;
@@ -53,7 +53,7 @@ extern "C" ARM void func_0206c794(void* arg0) {
                 var4 = 1;
                 break;
             }
-            if (func_02001aec(var3, data_020f07ce, 2) == 0) break;
+            if (CompareBytes_02001aec(var3, data_020f07ce, 2) == 0) break;
         }
         var3++;
     }

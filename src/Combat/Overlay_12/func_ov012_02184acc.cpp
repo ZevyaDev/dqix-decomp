@@ -106,7 +106,7 @@ struct Struct_ov012_0218b188
 };
 
 struct Struct_0205def8;
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 
 extern "C" void func_ov023_021e7404(void* arg0, int arg1);
 extern "C" int func_0205d0e0(void* arg0, int arg1);
@@ -122,7 +122,7 @@ extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18();
 extern "C" int func_0202c578(Struct_0202b2f0*, int);
 #endif
 extern "C" void func_0205def8(Struct_0205def8* arg0, int arg1, int arg2);
-extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void ResetMessageWindow_02043204(char* window);
 
 extern "C" const Struct_ov012_0218b188 data_ov012_0218b188;
@@ -197,7 +197,7 @@ extern "C" ARM int func_ov012_02184acc(Struct_ov012_02184acc* arg0, int arg1)
             arg0->unknown_14bc_ = 1;
             arg0->unknown_13a0_ = 0;
             arg0->unknown_13d4_ = 0;
-            func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ac_, 1);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_ac_, 1);
             arg0->unknown_1371_ = 15;
             arg0->unknown1_1370_ = 0;
             if (var1->unknown_998_ != 0)

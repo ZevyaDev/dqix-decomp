@@ -7,10 +7,10 @@ void SetSubBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" int func_0209ca2c(void* arg0);
 extern "C" void ColorEffect_ConfigureBrightnessAdjust(unsigned short*, int, int);
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
-struct Struct_02038598_4;
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern int gMusicManager_02109bf4;
 
@@ -55,9 +55,9 @@ extern "C" ARM void func_ov023_021ecaa4(Struct_ov023_021ecaa4* arg0) {
                 ColorEffect_ConfigureBrightnessAdjust((unsigned short*)0x4001050, 0x17, 0);
         }
     }
-    func_0205d6a0((struct Struct_0205d6a0*)((char*)arg0 + 0xc4), 1);
+    CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)((char*)arg0 + 0xc4), 1);
     arg0->unknown_438_ |= 4;
     if (arg0->unknown_438_ & 0x10)
-        func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 1);
+        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 1);
     arg0->unknown_432_++;
 }

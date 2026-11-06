@@ -93,7 +93,7 @@ extern "C" int func_ov031_02212ab4(void*, const char*, const char*);
 extern "C" int func_ov031_02212c18(int);
 extern "C" void func_ov031_02212bcc(void*);
 extern "C" int func_ov031_02212c3c(void*, void*, int);
-extern "C" int func_0200fb08(Struct_02000c9c_8*);
+extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" int func_ov031_022123d4();
 extern "C" int func_ov031_02212c84(void*, int, int);
 extern "C" void func_ov031_022120f8();
@@ -162,7 +162,7 @@ extern "C" ARM void func_ov031_02244050(Struct_02245528* arg0) {
                 }
             }
 #else
-            int var4 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+            int var4 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
             for (int var5 = 0; var5 < arg0->unknown_38_; var5++) {
                 int var6 = var5 * sizeof(Struct_ov031_02244050_2);
                 for (int var7 = 0; var7 < 4; var7++) {

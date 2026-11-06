@@ -4,7 +4,7 @@
 
 struct Struct_0205c570 { unsigned char unknown_0_[0x7cc]; };
 struct Struct_0205def8 { unsigned char unknown_0_[0x7cc]; };
-struct Struct_0205d81c { unsigned char unknown_0_[0x7cc]; };
+struct TextWindowManager_0205d81c { unsigned char unknown_0_[0x7cc]; };
 struct Struct_ov000_021735d0_3;
 struct SoundEffectManager_02108760 { unsigned char unknown_0_[0xd0]; };
 #if defined(jpn)
@@ -36,7 +36,7 @@ struct Struct_ov000_0217e558 {
         struct { unsigned char unknown1_10_[0xc]; unsigned char unknown_1c_; };
     };
     unsigned char unknown_20_[0x188 - 0x20];
-    union { Struct_0205c570 unknown_0_; Struct_0205def8 unknown1_0_; Struct_0205d81c unknown2_0_; } unknown_188_;
+    union { Struct_0205c570 unknown_0_; Struct_0205def8 unknown1_0_; TextWindowManager_0205d81c unknown2_0_; } unknown_188_;
     unsigned char unknown_954_[2];
     unsigned char unknown_956_;
 #if defined(jpn)
@@ -53,9 +53,9 @@ struct Struct_ov000_0217e558 {
     unsigned char unknown_1d74_[5];
     unsigned char unknown_1d79_;
 };
-extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void func_0205def8(Struct_0205def8*, int, int);
-extern "C" void func_0205deb4(Struct_0205d81c*, int, int);
+extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
 extern "C" GameResources* GetResources_0200fb8c(int*);
 extern "C" Struct_ov000_0217e558_2* func_ov017_021b8468(void*);
 extern "C" int func_ov000_0217c594(Struct_ov000_0217e558*, int);
@@ -63,7 +63,7 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int)
 extern "C" Struct_ov000_0217e558_5* func_ov000_02161318(Struct_ov000_0217e558*, int);
 extern "C" void func_ov000_02170db0(Struct_ov000_0217e558_5*);
 
-extern "C" Struct_ov000_0217e558_4* func_02079e2c(char*, int);
+extern "C" Struct_ov000_0217e558_4* FindActionData_02079e2c(char*, int);
 extern "C" void func_ov000_02175b54(Struct_ov000_0217e558*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_ov000_02176e3c(Struct_ov000_0217e558*, int, int, int, int, int);
@@ -82,9 +82,9 @@ extern int data_ov000_02184294[3];
 // USA: func_ov000_0217e558
 extern "C" ARM void func_ov000_0217e558(Struct_ov000_0217e558* arg0, int arg1, int arg2) {
     arg0->unknown_1d72_ |= 0x100;
-    arg0->unknown_1d6d_ = func_0205d794(&arg0->unknown_188_.unknown_0_);
+    arg0->unknown_1d6d_ = GetCursorIndex_0205d794(&arg0->unknown_188_.unknown_0_);
     func_0205def8(&arg0->unknown_188_.unknown1_0_, 1, 0x18);
-    func_0205deb4(&arg0->unknown_188_.unknown2_0_, 0x18, 0);
+    SetTextWindowPalette_0205deb4(&arg0->unknown_188_.unknown2_0_, 0x18, 0);
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetResources_0200fb8c((int*)var0);
     if (func_ov017_021b8468(PTR3718(var1))->unknown_7712_ != -1 || !func_ov000_0217c594(arg0, 5)) return;
@@ -106,9 +106,9 @@ extern "C" ARM void func_ov000_0217e558(Struct_ov000_0217e558* arg0, int arg1, i
             }
         }
     } else {
-        Struct_02108e10* var6 = func_020797dc();
+        ActionTables_02108e10* var6 = GetActionTables_020797dc();
         if (!var6) return;
-        Struct_ov000_0217e558_4* var7 = func_02079e2c((char*)var6, arg0->unknown_10_[arg0->unknown_1d6d_]);
+        Struct_ov000_0217e558_4* var7 = FindActionData_02079e2c((char*)var6, arg0->unknown_10_[arg0->unknown_1d6d_]);
         if (!var7) return;
         func_ov000_02175b54(arg0);
         GameState* var8 = GameState::GetInstance();

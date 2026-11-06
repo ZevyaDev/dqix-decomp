@@ -11,7 +11,7 @@ struct Struct_0209ff6c;
 struct Struct_ov023_021f1868_10;
 struct Struct_020a13c4;
 struct Struct_020a15bc;
-struct Struct_0201099c_14;
+struct StringTable_0201099c_14;
 struct Struct_0201099c_3;
 struct Struct_ov023_021f1868_11;
 
@@ -129,7 +129,7 @@ extern "C" int func_ov023_021f21f4(Struct_ov023_021f1868_10* arg0);
 extern "C" void func_020a13c4(Struct_020a13c4* arg0);
 extern "C" void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short arg3, unsigned char arg4);
 extern "C" void* func_020dfc2c(void* arg0);
-extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
+extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void* func_020a15bc(Struct_020a15bc* arg0, int arg1);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_ov023_021f222c(Struct_ov023_021f1868_11* arg0);
@@ -222,7 +222,7 @@ extern "C" ARM int func_ov023_021f3aac(Struct_ov023_021f3aac_4* arg0)
             Struct_ov023_021f3aac_7* var13 = GameState::GetInstance()->GetProtagonist();
             Struct_ov023_021f3aac_2 var14;
             func_020dfc2c(&var14);
-            func_020dfc40((Struct_0201099c_14*)&var14);
+            InitStringTable_020dfc40((StringTable_0201099c_14*)&var14);
 #if defined(jpn)
             func_020e1fc4(&var14, &arg0->unknown_30_, data_ov023_021fd533, var7, (unsigned short)var10, var13->unknown_150_->unknown_49c_.unknown_0_0_, 1);
             var8 = (Struct_ov023_021f3aac_9*)var11->Allocate(var10 * sizeof(void*));

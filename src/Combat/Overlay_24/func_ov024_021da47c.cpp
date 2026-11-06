@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-extern "C" int func_ov000_0215e9fc(int arg0, unsigned short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, unsigned short* indices, int maxCount, int filterFlags);
 extern unsigned short data_ov024_021fe6c8;
 
 // USA: func_ov024_021da47c
@@ -24,9 +24,9 @@ extern "C" ARM int func_ov024_021da47c(int* arg0, unsigned short arg1, int arg2,
 		*var7 = *var4++;
 	} while (--var6);
 
-	int var8 = func_ov000_0215e9fc(*arg0, var3, 4, 1);
+	int var8 = CollectPartyCombatantIndices_ov000_0215e9fc(*arg0, var3, 4, 1);
 	for (int var9 = 0; var9 < var8; var9++) {
-		GameObject* var10 = func_0200ff1c(var1, *(short*)&var3[var9]);
+		GameObject* var10 = GetPartyMemberBaseByIndex_0200ff1c(var1, *(short*)&var3[var9]);
 		if (var10) {
 			var2 += var10->currentStats_->primaryStats.attack;
 		}

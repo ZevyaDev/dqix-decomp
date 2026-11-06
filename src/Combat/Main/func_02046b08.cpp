@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_02046b08
-extern "C" ARM int func_02046b08(void** arg0) {
-    return arg0[0] == 0;
+// USA: IsQueueEmpty_02046b08
+extern "C" ARM int IsQueueEmpty_02046b08(void** queue) {
+    return queue[0] == 0;
 }

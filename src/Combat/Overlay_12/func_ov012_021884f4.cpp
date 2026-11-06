@@ -31,12 +31,12 @@ struct Struct_ov012_021884f4 {
 };
 
 extern "C" int func_ov012_02184384(unsigned short* arg0, int arg1);
-struct Struct_0205de24_2;
-extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+struct TextWindowManager_0205de24_2;
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
 extern "C" void func_ov023_021e6e60(void* arg0);
 extern "C" void func_ov012_0218a438(char* arg0);
 struct Struct_0205c570;
-extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" int func_ov023_021e6de4(char* arg0);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov012_021884f4(char* arg0) {
             *(int*)(arg0 + Enum_ov012_021884f4_5096) = 0;
         }
 
-        func_0205de24((struct Struct_0205de24_2*)(arg0 + Enum_ov012_021884f4_172), 0, 3);
+        SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)(arg0 + Enum_ov012_021884f4_172), 0, 3);
         func_ov023_021e6e60(arg0);
         func_ov012_0218a438(arg0);
 
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov012_021884f4(char* arg0) {
     if (var0 != 1) return;
 
     *(unsigned char*)(arg0 + Enum_ov012_021884f4_5024) = 1;
-    int var3 = func_0205d794((struct Struct_0205c570*)(arg0 + Enum_ov012_021884f4_172));
+    int var3 = GetCursorIndex_0205d794((struct Struct_0205c570*)(arg0 + Enum_ov012_021884f4_172));
     *(int*)(arg0 + Enum_ov012_021884f4_5096) = var3;
 
     if (func_ov023_021e6de4(arg0) != 0) {

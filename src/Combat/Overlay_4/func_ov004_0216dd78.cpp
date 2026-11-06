@@ -10,8 +10,8 @@ extern "C" void* func_ov023_021fa598(void*);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" int func_020ab7a8(void* arg0, int arg1);
-struct Struct_02038598_4;
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_02012028(void* arg0, unsigned char arg1);
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov004_0216dd78(void* arg0) {
     void* var2 = func_ov023_021fa598(var1);
     void* var3 = GameState::GetInstance();
     MessageWindow_02021b84* var4 = (MessageWindow_02021b84*)GetMessageWindow_020421a0();
-    struct Struct_02038598_4* var5 = (struct Struct_02038598_4*)GetGlobalFlags_020d6c00();
+    struct GlobalFlags_02038598_4* var5 = (struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00();
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
 
@@ -51,12 +51,12 @@ extern "C" ARM int func_ov004_0216dd78(void* arg0) {
 
     int var8 = func_020ab7a8((void*)data_ov004_02171034.unknown_10_, var6);
     if (var8 == 5) {
-        func_020466f4(var5, 0x80);
+        ClearGlobalFlags_020466f4(var5, 0x80);
         data_ov004_02171034.unknown_10_[1] = 0;
         QueueMenuScriptEntry_ov011_021848a0(arg0, 0x194);
         var6 = 0;
     } else if (var8 == 1) {
-        func_020466f4(var5, 0x80);
+        ClearGlobalFlags_020466f4(var5, 0x80);
         data_ov004_02171034.unknown_10_[1] = 0;
         void* var9 = FindStringInList_02072a68((struct StringList_02072a68_2*)var2, 0x5dc);
 #if defined(jpn)
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov004_0216dd78(void* arg0) {
         func_02012028(var3, 0);
         var6 = 0;
     } else if (var8 == 2) {
-        func_020466f4(var5, 0x80);
+        ClearGlobalFlags_020466f4(var5, 0x80);
         data_ov004_02171034.unknown_10_[1] = 0;
         void* var10 = FindStringInList_02072a68((struct StringList_02072a68_2*)var2, 0x5dd);
 #if defined(jpn)
@@ -78,7 +78,7 @@ extern "C" ARM int func_ov004_0216dd78(void* arg0) {
         func_02012028(var3, 0);
         var6 = 0;
     } else if (var8 == 3) {
-        func_020466f4(var5, 0x80);
+        ClearGlobalFlags_020466f4(var5, 0x80);
         data_ov004_02171034.unknown_10_[1] = 0;
         QueueMenuScriptEntry_ov011_021848a0(arg0, 0x195);
         var6 = 0;

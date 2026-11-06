@@ -4,13 +4,10 @@
 #include "std_library_functions.h"
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 struct Struct_0201099c_16;
 struct Struct_02033834;
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 struct Struct_02015438;
 struct Struct_02082d6c;
 struct Struct_02082d6c_2;
@@ -65,8 +62,8 @@ extern "C" void* func_02010954(char*);
 extern "C" void func_02086380(unsigned char*);
 extern "C" void func_02082d6c(Struct_02082d6c*, Struct_02082d6c_2*);
 extern "C" void func_ov017_0218f064(GameResources*, int, int, int, int);
-extern "C" GameObject* func_0200ff58(GameState*, int);
-extern "C" void func_02033874(Struct_02033834*, int);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" unsigned char* func_ov017_021a4658(unsigned char*, int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_020546a0(void*, int);
@@ -78,7 +75,7 @@ extern "C" void func_02042764(unsigned char*, char*, int);
 extern "C" int func_020865b0(Struct_0201099c_16*);
 extern "C" void func_02083ca0(unsigned char*, int);
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" int func_02046b24(Struct_02015438**);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -89,8 +86,8 @@ extern "C" void func_ov017_021cca5c(int, int);
 extern "C" void func_ov017_021ccb58(int, int);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_0206e424(void*, int);
-extern "C" void func_0206df6c(void*, unsigned char*, int, int);
-extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
+extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void func_ov017_02191234(unsigned char*);
 extern "C" void func_020dc2d0(int);
 extern "C" void func_ov017_02191108(void*, int, int, int, int);
@@ -140,14 +137,14 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
         func_02086380((unsigned char*)var7);
         func_02082d6c((Struct_02082d6c*)var7, (Struct_02082d6c_2*)var0);
         func_ov017_0218f064(var3, arg0->unknown_4a2_, 0x1000, 1, 0);
-        GameObject* var8 = func_0200ff58(var2, arg0->unknown_4a2_);
+        GameObject* var8 = GetCompanionByIndex_0200ff58(var2, arg0->unknown_4a2_);
         if (var8 == 0) {
             return 0;
         }
         var8->obj3D_.SetField06(*var4);
         var2->GetProtagonist();
         var8->obj3D_.position_ = data_ov003_0217f4b8[arg0->unknown_4a2_ - 1];
-        func_02033874((Struct_02033834*)var8, 0x323d);
+        SetFacingInstantly_02033874((Struct_02033834*)var8, 0x323d);
         Struct_ov003_02166a90_3* var9 = (Struct_ov003_02166a90_3*)func_ov017_021a4658((unsigned char*)var3, arg0->unknown_4a2_);
         if (var1 == 0) {
             var9->unknown_b_ |= 8;
@@ -156,7 +153,7 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
         ((Type_ov003_02166a90)func_020546a0)(var8, var10);
         int var11 = 0;
         for (int var12 = 0; var12 < 4; var12++) {
-            GameObject* var13 = func_0200ff58(var2, var12);
+            GameObject* var13 = GetCompanionByIndex_0200ff58(var2, var12);
             if (var13 != 0 && var12 != arg0->unknown_4a2_) {
                 if (var10 == func_020546a8(var13)) {
                     var11++;
@@ -180,7 +177,7 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
     }
     if (arg0->unknown_4bc_ == 2) {
         Struct_02015438** var17 = (Struct_02015438**)var3->unknown_ptr_array_36fc[1];
-        func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x41);
+        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x41);
         if (func_02046b24(var17) != 0x13) {
             arg0->unknown_4bc_++;
         }
@@ -202,9 +199,9 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
         func_0206e424(GetFlagManager_0205ec34(), arg0->unknown_4a2_);
         var2->GetPartyMemberByIndex(arg0->unknown_4a2_);
         Struct_ov003_02166a90_4* var19 = (Struct_ov003_02166a90_4*)GetFlagManager_0205ec34();
-        func_0206df6c(var19, var19->unknown_8c_, 0x784, 1);
+        SetFlag_0206df6c(var19, var19->unknown_8c_, 0x784, 1);
         arg0->unknown_4bc_ = 0;
-        func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x41);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x41);
         func_ov017_02191234((unsigned char*)var3);
         if (var1 != 0) {
             func_020dc2d0(0);

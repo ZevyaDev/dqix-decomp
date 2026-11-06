@@ -10,16 +10,16 @@ struct Struct_ov023_021e761c {
 };
 }
 
-struct Struct_0205d1e0;
-extern "C" void func_0205d1e0(Struct_0205d1e0*);
+struct TextWindowManager_0205d1e0;
+extern "C" void func_0205d1e0(TextWindowManager_0205d1e0*);
 
 struct Struct_0205d228;
 extern "C" void func_0205d228(Struct_0205d228*);
 
-struct Struct_0205d274;
-extern "C" void func_0205d274(Struct_0205d274*);
+struct TextWindowManager_0205d274;
+extern "C" void func_0205d274(TextWindowManager_0205d274*);
 
-extern "C" int func_0205ac40(void*, void*);
+extern "C" int DrawSprite_0205ac40(void*, void*);
 
 #if defined(jpn)
 #define func_ov023_021e761c func_ov023_021e7868
@@ -32,9 +32,9 @@ extern "C" ARM void func_ov023_021e761c(void *arg0) {
 	Struct_ov023_021e761c* var0 = static_cast<Struct_ov023_021e761c*>(arg0);
 	if (var0->unknown_5dc_ == 0) return;
 
-	func_0205d1e0(((Struct_0205d1e0*)(&var0->unknown_78_)));
+	func_0205d1e0(((TextWindowManager_0205d1e0*)(&var0->unknown_78_)));
 	func_0205d228(((Struct_0205d228*)(&var0->unknown_78_)));
-	func_0205d274(((Struct_0205d274*)(&var0->unknown_78_)));
+	func_0205d274(((TextWindowManager_0205d274*)(&var0->unknown_78_)));
 
 #if !defined(jpn)
 	char* var1 = static_cast<char*>(arg0);
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov023_021e761c(void *arg0) {
 	*(int*)(var2 + 0x14) = 0xd0000;
 	*(int*)(var2 + 0x18) = 0x10000;
 
-	func_0205ac40(*(void**)(var1 + 0x604), var2);
+	DrawSprite_0205ac40(*(void**)(var1 + 0x604), var2);
 #endif
 }
 

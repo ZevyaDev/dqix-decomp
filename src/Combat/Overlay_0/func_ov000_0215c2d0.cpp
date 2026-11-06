@@ -59,7 +59,7 @@ extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*, Struct_ov000_02157
 struct Struct_ov000_0215767c_4;
 struct Struct_ov000_0215767c_5;
 extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*, Struct_ov000_0215767c_4*);
-extern "C" Struct_ov000_0215c2d0* func_ov000_0215e958(void* arg0);
+extern "C" Struct_ov000_0215c2d0* GetNextActionResult_ov000_0215e958(void* battle);
 struct Struct_ov000_021584e8;
 extern "C" void func_ov000_0215ccbc(int, Struct_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
 extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov000_0215c2d0(Struct_ov000_0215767c_2* arg0, Struct_ov
             continue;
         }
         func_ov000_02157cdc(var6);
-        Struct_ov000_0215c2d0* var7 = func_ov000_0215e958(arg0);
+        Struct_ov000_0215c2d0* var7 = GetNextActionResult_ov000_0215e958(arg0);
         if (var7 == 0) {
             continue;
         }

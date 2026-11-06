@@ -11,7 +11,7 @@ struct Struct_ov001_0215db3c { int unknown_0_, unknown_4_, unknown_8_; };
 
 // USA: func_ov001_0215db3c
 extern "C" ARM int func_ov001_0215db3c(void* arg0) {
-    int* var0 = (int*)func_020100bc(GameState::GetInstance());
+    int* var0 = (int*)GetCamera_020100bc(GameState::GetInstance());
     if (var0 == NULL) return 0;
     Struct_ov001_0215db3c var1 = *(Struct_ov001_0215db3c*)((char*)var0 + 0x70);
     func_ov017_021d6148((Struct_ov001_0215af34*)arg0, _fdiv(_fflt(var1.unknown_0_), 0x45800000u));

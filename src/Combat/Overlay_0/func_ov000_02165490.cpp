@@ -153,8 +153,8 @@ extern "C" int func_ov000_0215ed34(Struct_ov000_02165490_14* arg0, short* arg1, 
 extern "C" void func_020709d8(void*);
 extern "C" void func_02070b6c(void*, void*, void*, unsigned int, short*, short);
 extern "C" Struct_ov000_02165490_11* func_02070fd0(void*, int);
-extern "C" char* func_020797dc();
-extern "C" Struct_ov000_02165490_13* func_02079e2c(char*, int);
+extern "C" char* GetActionTables_020797dc();
+extern "C" Struct_ov000_02165490_13* FindActionData_02079e2c(char*, int);
 extern "C" int func_ov000_0215fb54(Struct_ov000_02165490_14*, int, int*);
 extern "C" int func_020a3694(void*);
 extern "C" void func_ov000_02165f90(void*, void*);
@@ -282,9 +282,9 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
                 }
             }
 
-            char* var28 = func_020797dc();
+            char* var28 = GetActionTables_020797dc();
             for (int var29 = 0; var29 < var21; var29++) {
-                Struct_ov000_02165490_13* var30 = func_02079e2c(var28, (short)var1[var29]);
+                Struct_ov000_02165490_13* var30 = FindActionData_02079e2c(var28, (short)var1[var29]);
                 if (var30 != 0 && var30->unknown_18_5_ == 0xc) {
                     static const Struct_ov000_02165490_8 def = {-1, 0};
                     var6 = def;
@@ -370,13 +370,13 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
             unsigned int var50 = var4;
             Struct_ov000_02165490_11* var51;
             int var52;
-            char* var53 = func_020797dc();
+            char* var53 = GetActionTables_020797dc();
             int var54;
             for (int var55 = 0; var55 < var8; var55++) {
                 var52 = 0;
                 var51 = func_02070fd0(&((Struct_ov000_02165490_6*)var10)->unknown_400_, var2[var55]);
                 for (var54 = 0; var54 < 6; var54++) {
-                    Struct_ov000_02165490_13* var56 = func_02079e2c(var53, var51->unknown_18_[var54]);
+                    Struct_ov000_02165490_13* var56 = FindActionData_02079e2c(var53, var51->unknown_18_[var54]);
                     if (var56 != 0 && var56->unknown_18_5_ == 0x22 && var56->unknown_2e_ > 0 &&
                         func_02070fd0(&((Struct_ov000_02165490_6*)var10)->unknown_400_, var56->unknown_2e_) == 0) {
                         var2[var8++] = var56->unknown_2e_;

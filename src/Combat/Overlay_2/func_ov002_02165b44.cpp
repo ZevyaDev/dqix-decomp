@@ -6,11 +6,11 @@
 #include "Input/Input.h"
 
 
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
 struct SoundEffectManager_02108760;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct Struct_0205dee8;
 struct Struct_020a83b0;
 struct Struct_02048350_2;
@@ -24,22 +24,22 @@ struct Struct_ov002_02165b44 {
 };
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
-extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1, unsigned char arg2);
-extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1, unsigned char bgIndex);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
-extern "C" void func_0205deb4(struct Struct_0205d81c *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" void func_0205dee8(struct Struct_0205dee8 *arg0, int arg1);
 extern "C" void func_ov002_02156ff0(unsigned char *arg0, int arg1);
 extern "C" int func_020100b0(GameState *arg0);
 extern "C" GameObject *func_0200ff94(GameState *arg0, int arg1);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char *flags, int flagIndex);
 extern "C" char *func_020a83b0(struct Struct_020a83b0 *arg0, int arg1);
-extern "C" char *func_02079e2c(char *arg0, int arg1);
+extern "C" char *FindActionData_02079e2c(char *actionTables, int actionId);
 extern "C" void func_02048350(struct Struct_02048350_2 *arg0, int arg1);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
-extern "C" void *func_0200fd0c(GameState *arg0);
+extern "C" void *GetZoneEntry_0200fd0c(GameState *gameState);
 extern "C" void VectorizedMemset(void *dst, int value, unsigned int length);
 extern "C" void *func_0200fcfc(void *arg0, const void *arg1);
 extern "C" void func_ov017_021acd30(char *arg0, unsigned char arg1, unsigned char arg2, unsigned char arg3);
@@ -65,14 +65,14 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
     int var0 = *(int *) (arg0 + 0x1a88);
     if (var0 == 0) {
         *(short *) (arg0 + 0x1ac4) = 0;
-        func_0205de24((struct Struct_0205de24_2 *) (arg0 + 0xe20), 0, 2);
+        SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + 0xe20), 0, 2);
         func_ov002_02161cf0(arg0);
         func_ov002_0215f170(arg0);
         *(int *) (arg0 + 0x1a88) += 1;
     } else if (var0 == 1) {
         *(unsigned int *) (arg0 + 0x22ac) |= 4;
         func_ov002_02161b98(arg0);
-        *(short *) (arg0 + 0x1ac4) = func_0205d794((struct Struct_0205c570 *) (arg0 + 0xe20));
+        *(short *) (arg0 + 0x1ac4) = GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + 0xe20));
         int var1                            = g_keyManager.TestKeysPressed(0x601);
         int var2 = func_0205da38((struct Struct_0205da38*)(arg0 + 0xe20), 0x14);
         if ((var1 | var2) ? 1 : 0) {
@@ -117,13 +117,13 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                                             *(short *) (arg0 + 0x1ab0), 0);
                     } else {
                         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 0x64, 0);
-                        char *var12 = func_02079e2c((char*)func_020797dc(), 0xca);
+                        char *var12 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), 0xca);
                         func_02048350(
                             (struct Struct_02048350_2 *) func_0200ff94(var3, *(signed char *) (arg0 + 0x1ae8)),
                             ((struct Struct_ov002_02165b44 *) var12)->unknown_8_0_);
                         if (IsLocalWirelessOn_0202b7d8(var11)) func_ov017_021c9e00(*(signed char *) (arg0 + 0x1ae8), 0, 0, 1);
                     }
-                    unsigned char *var13 = (unsigned char *) func_0200fd0c(var3);
+                    unsigned char *var13 = (unsigned char *) GetZoneEntry_0200fd0c(var3);
                     VectorizedMemset(var13, 0, 0x70);
                     var13[4]                       = 1;
                     var13[8]                       = 1;
@@ -208,7 +208,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                 func_ov002_02156ff0((unsigned char *) arg0, 0x14);
                 *(int *) (arg0 + 0x1a80) = 0x12;
                 func_0205dee8((struct Struct_0205dee8 *) (arg0 + 0xe20), 0x12);
-                func_0205deb4((struct Struct_0205d81c *) (arg0 + 0xe20), 0x12, 0);
+                SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 0x12, 0);
                 func_ov002_02161cf0(arg0);
                 func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
                 *(int *) (arg0 + 0x1a88) = 1;
@@ -219,14 +219,14 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
     int var19 = *(int *) (arg0 + 0x1000 + 0xbc0);
     if (var19 == 0) {
         *(short *) (arg0 + 0x1b00 + 0xfc) = 0;
-        func_0205de24((struct Struct_0205de24_2 *) (arg0 + 0x2c8 + 0xc00), 0, 2);
+        SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + 0x2c8 + 0xc00), 0, 2);
         func_ov002_02161cf0(arg0);
         func_ov002_0215f170(arg0);
         *(int *) (arg0 + 0x1000 + 0xbc0) += 1;
     } else if (var19 == 1) {
         *(unsigned int *) (arg0 + 0x2000 + 0x47c) |= 4;
         func_ov002_02161b98(arg0);
-        *(short *) (arg0 + 0x1b00 + 0xfc) = func_0205d794((struct Struct_0205c570 *) (arg0 + 0x2c8 + 0xc00));
+        *(short *) (arg0 + 0x1b00 + 0xfc) = GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + 0x2c8 + 0xc00));
         int var20                            = g_keyManager.TestKeysPressed(0x601);
         int var21 = func_0205da38((struct Struct_0205da38*)(arg0 + 0x2c8 + 0xc00), 0x14);
         if ((var20 | var21) ? 1 : 0) {
@@ -271,13 +271,13 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                                             *(short *) (arg0 + 0x1b00 + 0xe8), 0);
                     } else {
                         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 0x64, 0);
-                        char *var31 = func_02079e2c((char*)func_020797dc(), 0xca);
+                        char *var31 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), 0xca);
                         func_02048350(
                             (struct Struct_02048350_2 *) func_0200ff94(var22, *(signed char *) (arg0 + 0x1c00 + 0x20)),
                             ((struct Struct_ov002_02165b44 *) var31)->unknown_8_0_);
                         if (IsLocalWirelessOn_0202b7d8(var30)) func_ov017_021c9e00(*(signed char *) (arg0 + 0x1c00 + 0x20), 0, 0, 1);
                     }
-                    unsigned char *var32 = (unsigned char *) func_0200fd0c(var22);
+                    unsigned char *var32 = (unsigned char *) GetZoneEntry_0200fd0c(var22);
                     VectorizedMemset(var32, 0, 0x70);
                     var32[4]                       = 1;
                     var32[8]                       = 1;
@@ -362,7 +362,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                 func_ov002_02156ff0((unsigned char *) arg0, 0x13);
                 *(int *) (arg0 + 0x1000 + 0xbb8) = 0x11;
                 func_0205dee8((struct Struct_0205dee8 *) (arg0 + 0x2c8 + 0xc00), 0x11);
-                func_0205deb4((struct Struct_0205d81c *) (arg0 + 0x2c8 + 0xc00), 0x11, 0);
+                SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0x2c8 + 0xc00), 0x11, 0);
                 func_ov002_02161cf0(arg0);
                 func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + 0xbb8) & 0xff, 0);
                 *(int *) (arg0 + 0x1000 + 0xbc0) = 1;

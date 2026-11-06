@@ -16,7 +16,7 @@ enum { Enum_ov003_02164400_55 = REGIONAL_OFFSET(0x1b, 0x37) };
 struct Struct_0207fdcc_2 { char unknown_0_[REGIONAL_OFFSET(0x2a, 0x36)]; unsigned short unknown_36_; };
 
 struct Struct_0207fe44;
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 struct Struct_02081f20_2;
 struct Struct_020a9ea4;
 struct Struct_02081198;
@@ -49,9 +49,9 @@ extern "C" void func_020469f8(struct Struct_020469f8* arg0, struct Struct_020469
 
 extern "C" void func_0207fe44(struct Struct_0207fe44* arg0);
 extern "C" void func_020939fc(unsigned char* arg0);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_020a9ea4(struct Struct_020a9ea4* arg0);
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" int func_020811e8(struct Struct_0207fdcc_2* arg0, int arg1);
 extern "C" void func_0207fdcc(struct Struct_0207fdcc_2* arg0, int arg1);
 extern "C" void func_02080cec(void* arg0, int arg1, int arg2);
@@ -68,7 +68,7 @@ extern "C" void func_02081198(struct Struct_02081198* arg0, int arg1, int arg2);
 extern "C" void func_02081164(struct Struct_02081164* arg0, int arg1, int arg2);
 extern "C" int func_0202bae4(void* arg0);
 extern "C" struct Struct_0202bad4* func_0202bad4(struct Struct_0202bad4_2* arg0, int arg1);
-extern "C" int func_02001aec(int arg0, int arg1, int arg2);
+extern "C" int CompareBytes_02001aec(int left, int right, int count);
 struct Random* GetBTRandom(void);
 int NextRandomMax(struct Random* random, int maximum);
 extern "C" void func_02080b54(void* arg0, int arg1);
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
     }
     if (var6 == 0xb) {
         if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() != 0) return;
-        func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x80);
+        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x80);
         func_020a9ea4((struct Struct_020a9ea4*)(arg0 + HI(0x4b4)));
         arg0[HI(0x4a4)] = 0xc;
         return;
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
             *(short*)(arg0 + HI(0x484)) = 0x30;
             *(short*)(arg0 + HI(0x486)) = 6;
             arg0[HI(0x4a4)] = 5;
-            func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
+            ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
         }
         BackgroundLoader::RemoveLockGlobal();
         return;
@@ -214,7 +214,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
             *(short*)(arg0 + HI(0x476)) = 0;
             *(short*)(arg0 + HI(0x478)) = 0;
             func_020939dc((unsigned char*)var2);
-            func_020466f4((struct Struct_02038598_4*)var1, 0x20);
+            ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var1, 0x20);
         }
         return;
     }
@@ -439,7 +439,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         var32 = func_0202bae4(var30);
         for (var31 = 0; var31 < var32; var31++) {
             struct Struct_0202bad4* var33 = func_0202bad4((struct Struct_0202bad4_2*)var30, var31);
-            if (func_02001aec((int)(var0 + REGIONAL_OFFSET(0x15, 0x31)), (int)((char*)var33 + 4), 6) == 0) goto var28;
+            if (CompareBytes_02001aec((int)(var0 + REGIONAL_OFFSET(0x15, 0x31)), (int)((char*)var33 + 4), 6) == 0) goto var28;
         }
         var31 = -1;
     var28:
@@ -460,7 +460,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         }
 
         *(int*)(arg0 + HI(0x4b0)) = 0;
-        func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x80000);
+        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x80000);
         {
             char* var34 = (char*)GetGameResources() + 0x3000;
             struct Struct_ov003_02164400* var35 = *(struct Struct_ov003_02164400**)(var34 + REGIONAL_OFFSET(0x90c, 0xb2c));

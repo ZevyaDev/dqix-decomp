@@ -8,8 +8,8 @@
 struct Struct_ov009_021842a0;
 
 extern "C" void* GetGlobalFlags_020d6c00(void);
-struct Struct_02038598_4;
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_ov023_021e4f18(void* arg0);
 extern "C" int GetMessageWindow_020421a0();
 struct Struct_02045cac;
@@ -33,7 +33,7 @@ extern "C" void* __clear(void* arg0, int arg1);
 extern "C" ARM void func_ov009_02184848(Struct_ov009_021842a0* arg0) {
     char* var0 = (char*)arg0;
     if (*(unsigned char*)(var0 + R(0xd59,0xd95)) == 1) {
-        func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0xf);
+        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0xf);
     }
 
     func_ov023_021e4f18(*(void**)(var0 + R(0x7b4,0x7f0)));

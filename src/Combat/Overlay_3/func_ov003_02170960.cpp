@@ -11,7 +11,7 @@ extern "C" void func_020e4b34(Struct_020e4b34* arg0, void* arg1, int arg2, unsig
     unsigned char arg4, unsigned char arg5, unsigned char arg6, unsigned char arg7,
     unsigned char arg8, unsigned char arg9, unsigned char arg10, unsigned char arg11);
 
-extern "C" int func_020e51cc(int arg0);
+extern "C" int GetStandardString_020e51cc(int stringId);
 
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov003_02170960(struct Struct_ov003_02170960_2* arg0, in
         func_020e4b34(&var1, var3, 0, 0, 0, 0, 0, arg2->unknown_2e_0_, 0, 1, 0, 1);
         *(void**)(var0 + 0x10) = &var1;
 
-        int var4 = func_020e51cc(arg2->unknown_c_0_);
+        int var4 = GetStandardString_020e51cc(arg2->unknown_c_0_);
 
         func_020e4b34(&var2, (void*)var4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         *(void**)(var0 + 0x28) = &var2;

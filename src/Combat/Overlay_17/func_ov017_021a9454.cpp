@@ -59,12 +59,12 @@ struct Struct_ov017_021a9454_3 {
 
 extern "C" Struct_ov017_021a9454* GetMessageWindow_020421a0(void);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" int func_020100f8(char* arg0);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" struct Struct_0214e34c* func_020d7a50(void);
 extern "C" void func_020d7aa0(struct Struct_020d7aa0_2* arg0);
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
 extern "C" void func_020a7f40(unsigned char* arg0);
-extern "C" int func_020e51cc(int arg0);
+extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, const char*, int);
@@ -76,7 +76,7 @@ extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
 extern "C" int func_020457e0(void* arg0);
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void VectorizedMemset(void*, int, int);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_020a7f34(unsigned char* arg0);
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov017_021a9454(Struct_ov017_021a9454_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov017_021a9454* var1 = GetMessageWindow_020421a0();
     GetZone3D_02012fe4();
-    int var2 = func_020100f8((char*)var0);
+    int var2 = GetFollowCamera_020100f8((char*)var0);
     int var3 = arg0->unknown_8_;
 
     if (var3 == 0) {
@@ -101,13 +101,13 @@ extern "C" ARM void func_ov017_021a9454(Struct_ov017_021a9454_2* arg0) {
 #if defined(jpn)
             sprintf(var7, &data_ov017_021d7c28);
 #else
-            sprintf(var7, (const char*)func_020e51cc(0x3a));
+            sprintf(var7, (const char*)GetStandardString_020e51cc(0x3a));
 #endif
         } else {
 #if defined(jpn)
             sprintf(var7, &data_ov017_021d7c49);
 #else
-            sprintf(var7, (const char*)func_020e51cc(0x3b));
+            sprintf(var7, (const char*)GetStandardString_020e51cc(0x3b));
 #endif
             arg0->unknown_c_ = 0x170c;
         }
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov017_021a9454(Struct_ov017_021a9454_2* arg0) {
     func_020a28b0((unsigned char*)var2, 2);
     if (func_020457e0(var1) == 0) {
         func_0200ffc0((struct Struct_0200ffc0*)var0);
-        Struct_ov017_021a9454_3* var8 = (Struct_ov017_021a9454_3*)func_0200fd0c(var0);
+        Struct_ov017_021a9454_3* var8 = (Struct_ov017_021a9454_3*)GetZoneEntry_0200fd0c(var0);
         VectorizedMemset(var8, 0, sizeof(*var8));
         var8->unknown_4_ = 1;
         var8->unknown_8_ = 1;

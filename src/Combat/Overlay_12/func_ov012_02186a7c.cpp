@@ -27,20 +27,20 @@ enum {
 #include "GameState/GameState.h"
 
 extern "C" void* GetResources_0200fb8c(int*);
-extern "C" void* func_02094a00();
+extern "C" void* GetFontLoader_02094a00();
 
-struct Struct_0205de24_2;
-extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+struct TextWindowManager_0205de24_2;
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
 
 struct Struct_0205c570;
-extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 
 struct SoundEffectManager_02108760;
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" int PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 
 struct Struct_ov012_02186a7c;
 extern "C" int func_ov023_021e6e20(struct Struct_ov012_02186a7c* arg0);
@@ -53,13 +53,13 @@ extern "C" void func_ov012_0218943c(void* arg0);
 extern "C" ARM void func_ov012_02186a7c(char* arg0) {
 	GetResources_0200fb8c((int*)GameState::GetInstance());
 	BackgroundLoader::GetInstance();
-	func_02094a00();
+	GetFontLoader_02094a00();
 
 	unsigned char var0 = *(unsigned char*)(arg0 + Enum_ov012_02186a7c_4976);
 	if (var0 == 0) {
 		*(unsigned char*)(arg0 + Enum_ov012_02186a7c_5024) = 0;
 		*(int*)(arg0 + Enum_ov012_02186a7c_5076) = 0;
-		func_0205de24((struct Struct_0205de24_2*)(arg0 + Enum_ov012_02186a7c_172), 0, 2);
+		SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)(arg0 + Enum_ov012_02186a7c_172), 0, 2);
 		func_ov023_021e6e60(arg0);
 		func_ov012_0218943c(arg0);
 		(*(unsigned char*)(arg0 + Enum_ov012_02186a7c_4976))++;
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov012_02186a7c(char* arg0) {
 	if (var0 != 1) return;
 
 	*(unsigned char*)(arg0 + Enum_ov012_02186a7c_5024) = 1;
-	*(int*)(arg0 + Enum_ov012_02186a7c_5076) = func_0205d794((struct Struct_0205c570*)(arg0 + Enum_ov012_02186a7c_172));
+	*(int*)(arg0 + Enum_ov012_02186a7c_5076) = GetCursorIndex_0205d794((struct Struct_0205c570*)(arg0 + Enum_ov012_02186a7c_172));
 
 	int var1 = 0;
 	if (func_ov023_021e6de4(arg0) != 0) {
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov012_02186a7c(char* arg0) {
 	if (var1 == 0) return;
 	*(unsigned char*)(arg0 + Enum_ov012_02186a7c_5024) = 0;
 	*(int*)(arg0 + Enum_ov012_02186a7c_5076) = 0;
-	func_0205d6a0((struct Struct_0205d6a0*)(arg0 + Enum_ov012_02186a7c_172), 1);
+	CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(arg0 + Enum_ov012_02186a7c_172), 1);
 	*(unsigned char*)(arg0 + Enum_ov012_02186a7c_4977) = 0xf;
 	*(unsigned char*)(arg0 + Enum_ov012_02186a7c_4976) = 0;
 }

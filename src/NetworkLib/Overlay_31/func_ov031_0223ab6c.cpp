@@ -1,14 +1,11 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 extern "C" int func_ov031_02239be8(void);
 extern "C" int func_ov031_02239bfc(void);
 extern "C" int func_ov031_02239e68(void);
 extern "C" int func_ov031_0223a358(void);
-extern "C" int func_020c9be0(void);
+extern "C" int HaltForever_020c9be0(void);
 
 struct Struct_ov031_0223ab6c {
 	unsigned char unknown_0_[0x64a];
@@ -43,7 +40,7 @@ extern "C" ARM void func_ov031_0223ab6c(void) {
 	case 3:
 		break;
 	default:
-		func_020c9be0();
+		HaltForever_020c9be0();
 		break;
 	}
 }

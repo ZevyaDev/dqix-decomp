@@ -49,7 +49,7 @@ struct Struct_ov025_021e9778 {
     Struct_ov025_021eb46c_5* unknown_1d8_;
 };
 
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f20(void* arg0);
 extern "C" void func_02072c9c(int arg0, char* arg1);
 struct Struct_ov000_0215440c_2;
@@ -77,11 +77,11 @@ extern "C" ARM int func_ov025_021eb46c(Struct_ov025_021e9778* arg0) {
         SafeAllocator* var7 = arg0->unknown_10_[arg0->unknown_30_];
 
         if (arg0->unknown_1c8_ == 0) {
-            Struct_ov025_021eb46c_2* var8 = (Struct_ov025_021eb46c_2*)func_ov000_02160f20(func_ov000_02160130());
+            Struct_ov025_021eb46c_2* var8 = (Struct_ov025_021eb46c_2*)func_ov000_02160f20(GetBattleScene_ov000_02160130());
             arg0->unknown_1cc_ = -1;
             if (var8->unknown_8_ == 1 && func_ov000_02160094((Struct_ov000_0215440c_2*)var8, 0) != NULL) {
                 int var9 = func_ov000_02160094((Struct_ov000_0215440c_2*)var8, 0)->unknown_20_;
-                Struct_ov025_021eb46c_4* var10 = (Struct_ov025_021eb46c_4*)func_0200ff1c(GameState::GetInstance(), var9);
+                Struct_ov025_021eb46c_4* var10 = (Struct_ov025_021eb46c_4*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), var9);
                 bool var11;
                 if (var9 >= 0 && var9 <= 3) {
                     var11 = true;
@@ -108,10 +108,10 @@ extern "C" ARM int func_ov025_021eb46c(Struct_ov025_021e9778* arg0) {
         } else if (var5->GetTaskStatus(arg0->unknown_1cc_) != 0) {
             var5->GetLoadedFileByID(arg0->unknown_1cc_, &var3, &var4);
             if (var3 != NULL) {
-                void* var13 = func_ov000_02160f20(func_ov000_02160130());
+                void* var13 = func_ov000_02160f20(GetBattleScene_ov000_02160130());
                 if (func_ov000_02160094((Struct_ov000_0215440c_2*)var13, 0) != NULL) {
                     var6 = func_ov000_02160094((Struct_ov000_0215440c_2*)var13, 0)->unknown_20_;
-                    GameObject* var14 = func_0200ff1c(GameState::GetInstance(), var6);
+                    GameObject* var14 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), var6);
                     if (var14 != NULL) {
                         Struct_ov025_021eb46c_5* var15 = (Struct_ov025_021eb46c_5*)var7->Allocate(sizeof(Struct_ov025_021eb46c_5));
                         if (var15 != NULL) {

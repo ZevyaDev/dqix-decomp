@@ -21,7 +21,7 @@ extern "C" int func_0202ba00(int* arg0);
 extern "C" int func_020ac4f8(int arg0);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" int func_020ac0b4(void* arg0);
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_020e2d24(int* arg0, int arg1, int arg2);
@@ -193,7 +193,7 @@ extern "C" ARM int func_ov004_02168b44(void* arg0) {
     data_ov004_02171030->unknown_188_ = GetFlags08((GameResources*)var17);
     SetFlags00((GameResources*)var17, 4);
     SetFlags04((GameResources*)var17, 0x8de);
-    func_020c5588(0, 0, 0x7fff, 0, 0);
+    Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
 
     struct Struct_ov004_02168b44_7* var18 = (struct Struct_ov004_02168b44_7*)NODE_LOOKUP_CALL(arg0, 0x64);
     if (data_ov004_02171030->unknown_190_[0] <= 8) {

@@ -28,7 +28,7 @@ struct Struct_0205a180 {
     unsigned int unknown_0_;
     Struct_020da31c_2* unknown_4_;
 };
-extern "C" void* func_02057924();
+extern "C" void* GetEffectManager_02057924();
 extern "C" void func_02078484(Struct_02078398_2*);
 extern "C" void func_02057fb4(void*, int, void*);
 extern "C" void* func_02058658(void*, int);
@@ -38,7 +38,7 @@ extern char data_020f2884[], data_020f2887[], gSoundEffectManager_02108760[];
 
 // USA: func_020da31c
 extern "C" ARM void func_020da31c(Struct_020da31c_3* arg0) {
-    void* var0 = func_02057924();
+    void* var0 = GetEffectManager_02057924();
     GameState* var1 = GameState::GetInstance();
     if (!var0 || !var1) return;
     switch (arg0->unknown_e_) {

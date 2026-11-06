@@ -7,7 +7,7 @@ extern "C" ARM int func_020151cc(Zone3D *arg0, Struct_02012ff0 *arg1, Struct_020
     SafeAllocator *var1  = arg0->pAllocator_68_;
     char *var2          = static_cast<char *>(arg0->unknown_ptr_50_);
     LightingManager *var3 = LightingManager::GetInstance();
-    int var4         = static_cast<Struct_02014d80 *>(func_0200fd0c(var0))->unknown_20_ < 0;
+    int var4         = static_cast<Struct_02014d80 *>(GetZoneEntry_0200fd0c(var0))->unknown_20_ < 0;
     arg0->unknown_834_        = var4;
     char var5[0x50];
     unsigned int var6;

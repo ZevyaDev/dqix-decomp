@@ -1,10 +1,7 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
-extern "C" void func_020c9be0();
+extern "C" void HaltForever_020c9be0();
 extern "C" void func_01ff81e4();
 unsigned int GenerateLockOwnerID();
 void NitroVM_Command_AcquireCardReadResources(unsigned short owner);
@@ -23,7 +20,7 @@ extern "C" ARM void func_020c98f0(int arg0)
 {
     if (inline_020c98f0())
     {
-        func_020c9be0();
+        HaltForever_020c9be0();
     }
 
     NitroVM_Command_AcquireCardReadResources((unsigned short)GenerateLockOwnerID());

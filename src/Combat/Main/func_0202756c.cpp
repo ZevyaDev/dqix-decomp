@@ -14,7 +14,7 @@ struct Struct_0202756c {
 };
 
 extern "C" void func_0205afb0(int arg0, void* arg1, int arg2);
-extern "C" void func_0205ac40(void* arg0, void* arg1);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 // USA: func_0202756c
 extern "C" ARM void func_0202756c(void* arg0, int arg1, int arg2, int arg3,
@@ -32,5 +32,5 @@ extern "C" ARM void func_0202756c(void* arg0, int arg1, int arg2, int arg3,
     }
     var0->unknown_c_ = arg8;
     var0->unknown_10_ = arg9;
-    func_0205ac40((char*)arg0 + 0x94, var0);
+    DrawSprite_0205ac40((char*)arg0 + 0x94, var0);
 }

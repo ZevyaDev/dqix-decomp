@@ -76,7 +76,7 @@ struct Struct_ov000_0216fd0c;
 struct Struct_ov000_0216fd38;
 struct Struct_ov000_0216fd80;
 extern "C" void* func_ov000_02160f20(void*);
-extern "C" void* func_02057924();
+extern "C" void* GetEffectManager_02057924();
 extern "C" unsigned char* func_ov000_02163524(void*);
 extern "C" unsigned char _ZZ21inline_ov025_021dcf14vE1s __attribute__((aligned(4)));
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov025_021db038(Struct_ov000_021537b8* arg0) {
     void* var2 = func_ov000_02160f20(arg0);
     GameState* var3 = GameState::GetInstance();
     GameResources* var4 = GetGameResources();
-    func_02057924();
+    GetEffectManager_02057924();
     func_ov000_02163524(arg0);
     _ZZ21inline_ov025_021dcf14vE1s = 0;
     var0 = &arg0->unknown_a40_;
@@ -182,7 +182,7 @@ extern "C" ARM void func_ov025_021db038(Struct_ov000_021537b8* arg0) {
             func_ov000_0216fd38((Struct_ov000_0216fd38*)var13);
             if (!var13->unknown_a0_) return;
             func_ov000_0216fd80((Struct_ov000_0216fd80*)var13, func_ov025_021e8a54(arg0->unknown_2a8_));
-            var11 = func_0200ff1c(var9, 0);
+            var11 = GetPartyMemberBaseByIndex_0200ff1c(var9, 0);
             var10 = 0;
             if (func_ov000_0215fc60((char*)var1) == 1) var10 = func_ov000_0216fcfc(var13, 0x1ee);
             else if (func_ov000_0215fc60((char*)var1) == 2) var10 = func_ov000_0216fcfc(var13, 0x211);

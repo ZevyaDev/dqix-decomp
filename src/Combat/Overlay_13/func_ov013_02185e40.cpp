@@ -57,7 +57,7 @@ extern "C" ARM int func_02041a28(char* arg0, int arg1);
 extern "C" ARM int func_02041acc(char* arg0, int arg1);
 extern "C" ARM int func_02041e70(char* arg0, int arg1);
 extern "C" ARM int AppendText_02042058(char* buffer, const char* text);
-extern "C" ARM int func_020e51cc(int arg0);
+extern "C" ARM int GetStandardString_020e51cc(int stringId);
 extern "C" ARM int func_02041fac(char* arg0, int arg1, int arg2);
 extern "C" void* GetMessageWindow_020421a0(void);
 
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
         AppendText_02042058(var10, (const char*)var13);
         func_02041acc(var10, 4);
         func_02041e70(var10, 0xf);
-        int var15 = func_020e51cc(0x3f3);
+        int var15 = GetStandardString_020e51cc(0x3f3);
         AppendText_02042058(var10, (const char*)var15);
 
         char var16[0x10];
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
         func_02041a5c(var10, 4);
         AppendText_02042058(var10, arg0->unknown_6a4_);
         func_02041acc(var10, 0x12);
-        int var17 = func_020e51cc(0x3f3);
+        int var17 = GetStandardString_020e51cc(0x3f3);
         AppendText_02042058(var10, (const char*)var17);
 
         char var18[0x10];
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
 
     char var19[0x100];
     __clear(var19, 0x100);
-    int var20 = func_020e51cc(0x3f3);
+    int var20 = GetStandardString_020e51cc(0x3f3);
     sprintf(var19, &data_ov013_02187e3f, var20, arg0->unknown_6b0_);
     int var21 = func_020420e8(var19, 0);
 

@@ -34,7 +34,7 @@ struct Struct_ov000_02164fac;
 extern "C" Struct_ov000_02164fac* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov000_02166a94(void* arg0);
 #if defined(jpn)
-extern "C" void func_0207ab68(Struct_02108e10* arg0, SafeAllocator* arg1);
+extern "C" void func_0207ab68(ActionTables_02108e10* arg0, SafeAllocator* arg1);
 #endif
 extern "C" int func_ov017_0219e008(void* arg0);
 extern "C" void func_0207dfc8(Struct_02015ef4_5* arg0, Struct_02015ef4_5* arg1);
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov000_02164fac(Struct_ov000_02164fac_3* arg0) {
     ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)&var11[7]);
     BackgroundLoader::AddLockGlobal();
     func_02012de8();
-    Struct_02108e10* var16 = func_020797dc();
+    ActionTables_02108e10* var16 = GetActionTables_020797dc();
 #if defined(jpn)
     func_0207ab68(var16, var15);
 #else
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov000_02164fac(Struct_ov000_02164fac_3* arg0) {
             if (!func_020a35e0(arg0->unknown_2a0_, var20)) {
                 continue;
             }
-            Struct_ov000_02164fac_5* var21 = (Struct_ov000_02164fac_5*)func_0200ff1c(var12, var20);
+            Struct_ov000_02164fac_5* var21 = (Struct_ov000_02164fac_5*)GetPartyMemberBaseByIndex_0200ff1c(var12, var20);
             unsigned char* var22;
             if (var21 == NULL || (var22 = var21->unknown_154_) == NULL) {
                 continue;

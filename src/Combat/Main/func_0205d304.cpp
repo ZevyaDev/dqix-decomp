@@ -6,12 +6,12 @@ struct Struct_0205d304_3 {
     inline void inline_0205d304(short arg0, short arg1) { unknown_0_ = arg0; unknown_2_ = arg1; }
 };
 
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct Struct_0205bf3c;
 struct Struct_0205d304_2;
 struct Struct_0204aa28;
 
-extern "C" void* func_0205d81c(struct Struct_0205d81c*, int);
+extern "C" void* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c*, int);
 extern "C" void func_0204c770(char*, void*);
 extern "C" void func_0205d594(struct Struct_0205d304_2*, unsigned char*, unsigned char*);
 #if defined(jpn)
@@ -23,124 +23,124 @@ extern "C" unsigned int func_0204aa28(struct Struct_0204aa28*);
 extern "C" void func_0205bf3c(struct Struct_0205bf3c*);
 extern "C" void func_0205d904(unsigned char*);
 
-struct Struct_0205d304_4 {
+struct TextWindow_0205d304_4 {
     char unknown_0_[0x4];
-    void* unknown_4_;
+    void* pBGLayer_4_;
     char unknown_8_[0x98];
     unsigned int unknown_a0_;
     int unknown_a4_;
     struct Struct_0205d304_3 unknown_a8_[4];
     char unknown_b8_[0xa];
-    short unknown_c2_;
-    unsigned char unknown_c4_;
-    unsigned char unknown_c5_;
+    short palette_c2_;
+    unsigned char id_c4_;
+    unsigned char flags_c5_;
     char unknown_c6_;
-    unsigned char unknown_c7_;
+    unsigned char fontSize_c7_;
     char unknown_c8_[0x18];
 };
 
-struct Struct_0205d304 {
+struct TextWindowManager_0205d304 {
     char unknown_0_[0x54];
     char unknown_54_[0x44];
-    void* unknown_98_;
-    struct Struct_0205d304_4* unknown_9c_;
+    void* pBGLayers_98_;
+    struct TextWindow_0205d304_4* pTextWindows_9c_;
     struct Struct_0205d304_3 unknown_a0_[4];
-    unsigned char unknown_b0_;
-    unsigned char unknown_b1_;
+    unsigned char cursorWindowId_b0_;
+    unsigned char nextWindowId_b1_;
     char unknown_b2_;
-    unsigned char unknown_b3_;
-    unsigned char unknown_b4_;
+    unsigned char textWindowCapacity_b3_;
+    unsigned char textWindowCount_b4_;
     unsigned char unknown_b5_;
     unsigned char unknown_b6_;
-    unsigned char unknown_b7_;
+    unsigned char fontSize_b7_;
 };
 
-// USA: func_0205d304
-extern "C" ARM void func_0205d304(struct Struct_0205d304* arg0, const char* arg1, int arg2, unsigned char arg3,
+// USA: OpenTextWindow_0205d304
+extern "C" ARM void OpenTextWindow_0205d304(struct TextWindowManager_0205d304* windowManager, const char* text, int arg2, unsigned char isVerticallyCentered,
 #if defined(jpn)
-                                       unsigned char arg4, unsigned char arg5, void* arg6) {
+                                       unsigned char hasPageArrows, unsigned char isSizedToText, void* margins) {
 #else
-                                       unsigned char arg4, unsigned char arg5, void* arg6, unsigned char arg7) {
+                                       unsigned char hasPageArrows, unsigned char isSizedToText, void* margins, unsigned char font) {
 #endif
-    struct Struct_0205d304_4* var0;
-    struct Struct_0205d304_4* var1;
-    unsigned char var2, var3, var4, var5;
-    int var6;
-    int var7;
-    unsigned char var8;
+    struct TextWindow_0205d304_4* textWindow;
+    struct TextWindow_0205d304_4* earlierWindow;
+    unsigned char var2, bgIndex, var4, earlierBGIndex;
+    int hasSameLayerWindow;
+    int earlierIndex;
+    unsigned char i;
     unsigned int var9;
 
-    if (arg1 == 0 || arg0->unknown_98_ == NULL || arg0->unknown_9c_ == NULL) return;
-    if (arg0->unknown_b3_ <= arg0->unknown_b4_) return;
-    if (func_0205d81c((struct Struct_0205d81c*)arg0, arg0->unknown_b1_) != 0) return;
+    if (text == 0 || windowManager->pBGLayers_98_ == NULL || windowManager->pTextWindows_9c_ == NULL) return;
+    if (windowManager->textWindowCapacity_b3_ <= windowManager->textWindowCount_b4_) return;
+    if (FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)windowManager, windowManager->nextWindowId_b1_) != 0) return;
 
-    var0 = &arg0->unknown_9c_[arg0->unknown_b4_];
-    var0->unknown_a8_[0].inline_0205d304(arg0->unknown_a0_[0].unknown_0_, arg0->unknown_a0_[0].unknown_2_);
-    var0->unknown_a8_[1].inline_0205d304(arg0->unknown_a0_[1].unknown_0_, arg0->unknown_a0_[1].unknown_2_);
-    var0->unknown_a8_[2].inline_0205d304(arg0->unknown_a0_[2].unknown_0_, arg0->unknown_a0_[2].unknown_2_);
-    var0->unknown_a8_[3].inline_0205d304(arg0->unknown_a0_[3].unknown_0_, arg0->unknown_a0_[3].unknown_2_);
-    if (arg4) {
-        var0->unknown_c5_ |= 8;
+    textWindow = &windowManager->pTextWindows_9c_[windowManager->textWindowCount_b4_];
+    textWindow->unknown_a8_[0].inline_0205d304(windowManager->unknown_a0_[0].unknown_0_, windowManager->unknown_a0_[0].unknown_2_);
+    textWindow->unknown_a8_[1].inline_0205d304(windowManager->unknown_a0_[1].unknown_0_, windowManager->unknown_a0_[1].unknown_2_);
+    textWindow->unknown_a8_[2].inline_0205d304(windowManager->unknown_a0_[2].unknown_0_, windowManager->unknown_a0_[2].unknown_2_);
+    textWindow->unknown_a8_[3].inline_0205d304(windowManager->unknown_a0_[3].unknown_0_, windowManager->unknown_a0_[3].unknown_2_);
+    if (hasPageArrows) {
+        textWindow->flags_c5_ |= 8;
     } else {
-        var0->unknown_c5_ &= ~8;
+        textWindow->flags_c5_ &= ~8;
     }
-    var0->unknown_c4_ = arg0->unknown_b1_;
-    if (arg0->unknown_b5_) {
-        var0->unknown_c5_ |= 4;
+    textWindow->id_c4_ = windowManager->nextWindowId_b1_;
+    if (windowManager->unknown_b5_) {
+        textWindow->flags_c5_ |= 4;
     } else {
-        var0->unknown_c5_ &= ~4;
+        textWindow->flags_c5_ &= ~4;
     }
-    if (arg0->unknown_b6_) {
-        var0->unknown_c5_ |= 0x10;
+    if (windowManager->unknown_b6_) {
+        textWindow->flags_c5_ |= 0x10;
     } else {
-        var0->unknown_c5_ &= ~0x10;
+        textWindow->flags_c5_ &= ~0x10;
     }
-    var0->unknown_c7_ = arg0->unknown_b7_;
-    func_0204c770((char*)var0, arg6);
+    textWindow->fontSize_c7_ = windowManager->fontSize_b7_;
+    func_0204c770((char*)textWindow, margins);
 
-    if (arg0->unknown_b4_ != 0) {
-        var6 = 0;
-        func_0205d594((struct Struct_0205d304_2*)var0->unknown_4_, &var2, &var3);
-        for (var7 = arg0->unknown_b4_ - 1; var7 >= 0; var7--) {
-            var1 = &arg0->unknown_9c_[var7];
-            func_0205d594((struct Struct_0205d304_2*)var1->unknown_4_, &var4, &var5);
-            if (var2 == var4 && var3 == var5) {
-                var1 = &arg0->unknown_9c_[var7];
-                var9 = var1->unknown_a0_ + var1->unknown_a4_;
+    if (windowManager->textWindowCount_b4_ != 0) {
+        hasSameLayerWindow = 0;
+        func_0205d594((struct Struct_0205d304_2*)textWindow->pBGLayer_4_, &var2, &bgIndex);
+        for (earlierIndex = windowManager->textWindowCount_b4_ - 1; earlierIndex >= 0; earlierIndex--) {
+            earlierWindow = &windowManager->pTextWindows_9c_[earlierIndex];
+            func_0205d594((struct Struct_0205d304_2*)earlierWindow->pBGLayer_4_, &var4, &earlierBGIndex);
+            if (var2 == var4 && bgIndex == earlierBGIndex) {
+                earlierWindow = &windowManager->pTextWindows_9c_[earlierIndex];
+                var9 = earlierWindow->unknown_a0_ + earlierWindow->unknown_a4_;
 #if defined(jpn)
-                func_0204d790(var0, arg1, var9, arg2, arg3, arg5);
+                func_0204d790(textWindow, text, var9, arg2, isVerticallyCentered, isSizedToText);
 #else
-                func_0204c980(var0, arg1, var9, arg2, arg3, arg5, arg7);
+                func_0204c980(textWindow, text, var9, arg2, isVerticallyCentered, isSizedToText, font);
 #endif
-                var6 = 1;
+                hasSameLayerWindow = 1;
                 break;
             }
         }
-        if (!var6) {
-            var9 = func_0204aa28((struct Struct_0204aa28*)var0->unknown_4_);
+        if (!hasSameLayerWindow) {
+            var9 = func_0204aa28((struct Struct_0204aa28*)textWindow->pBGLayer_4_);
 #if defined(jpn)
-            func_0204d790(var0, arg1, var9, arg2, arg3, arg5);
+            func_0204d790(textWindow, text, var9, arg2, isVerticallyCentered, isSizedToText);
 #else
-            func_0204c980(var0, arg1, var9, arg2, arg3, arg5, arg7);
+            func_0204c980(textWindow, text, var9, arg2, isVerticallyCentered, isSizedToText, font);
 #endif
         }
-        var0->unknown_c5_ &= ~0x20;
-        for (var8 = 0; var8 < arg0->unknown_b4_; var8++) {
-            var1 = &arg0->unknown_9c_[var8];
-            var1->unknown_c2_ = 1;
+        textWindow->flags_c5_ &= ~0x20;
+        for (i = 0; i < windowManager->textWindowCount_b4_; i++) {
+            earlierWindow = &windowManager->pTextWindows_9c_[i];
+            earlierWindow->palette_c2_ = 1;
         }
     } else {
-        var9 = func_0204aa28((struct Struct_0204aa28*)var0->unknown_4_);
+        var9 = func_0204aa28((struct Struct_0204aa28*)textWindow->pBGLayer_4_);
 #if defined(jpn)
-        func_0204d790(var0, arg1, var9, arg2, arg3, arg5);
+        func_0204d790(textWindow, text, var9, arg2, isVerticallyCentered, isSizedToText);
 #else
-        func_0204c980(var0, arg1, var9, arg2, arg3, arg5, arg7);
+        func_0204c980(textWindow, text, var9, arg2, isVerticallyCentered, isSizedToText, font);
 #endif
-        var0->unknown_c5_ &= ~0x20;
+        textWindow->flags_c5_ &= ~0x20;
     }
 
-    arg0->unknown_b4_++;
-    func_0205bf3c((struct Struct_0205bf3c*)arg0->unknown_54_);
-    arg0->unknown_b0_ = arg0->unknown_b1_;
-    func_0205d904((unsigned char*)arg0);
+    windowManager->textWindowCount_b4_++;
+    func_0205bf3c((struct Struct_0205bf3c*)windowManager->unknown_54_);
+    windowManager->cursorWindowId_b0_ = windowManager->nextWindowId_b1_;
+    func_0205d904((unsigned char*)windowManager);
 }

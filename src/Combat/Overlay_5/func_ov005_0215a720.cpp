@@ -19,10 +19,10 @@ struct Struct_ov005_02153954 {
 };
 
 struct Struct_0204b010;
-struct Struct_0204b8d0;
+struct BGLayer_0204b8d0;
 
 extern "C" void func_0204b010(Struct_0204b010* arg0, void* arg1);
-extern "C" void func_0204b8d0(Struct_0204b8d0* arg0, unsigned int arg1, int arg2, int arg3, short arg4, short arg5, short arg6, short arg7, unsigned short arg8);
+extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0* layer, unsigned int screenBlockIndex, int srcX, int srcY, short destX, short destY, short width, short height, unsigned short palette);
 extern "C" void func_0204b04c(void* arg0, int arg1);
 
 // USA: func_ov005_0215a720
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov005_0215a720(Struct_ov005_02153954* arg0) {
     if (!(arg0->unknown_3dcc_ & 0x100))
         return;
     func_0204b010((Struct_0204b010*)arg0->unknown_ea4_, 0);
-    func_0204b8d0((Struct_0204b8d0*)arg0->unknown_ea4_, 0, 0, 0, 0x10, 0, 0x10, 0x16, 0xffff);
-    func_0204b8d0((Struct_0204b8d0*)arg0->unknown_ea4_, (unsigned char)(arg0->unknown_3dbc_ + 1), 0, 0, (short)(arg0->unknown_3dbc_ * 2 + 0xf), 0, 4, 3, 0xffff);
+    CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)arg0->unknown_ea4_, 0, 0, 0, 0x10, 0, 0x10, 0x16, 0xffff);
+    CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)arg0->unknown_ea4_, (unsigned char)(arg0->unknown_3dbc_ + 1), 0, 0, (short)(arg0->unknown_3dbc_ * 2 + 0xf), 0, 4, 3, 0xffff);
     func_0204b04c(arg0->unknown_ea4_, 0);
 }

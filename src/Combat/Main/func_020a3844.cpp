@@ -7,12 +7,9 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 extern "C" void func_020a39d8(SafeAllocator* arg0);
-extern "C" void func_020c9be0(void);
+extern "C" void HaltForever_020c9be0(void);
 
 #if defined(jpn)
 extern const char data_020f1bf4[];
@@ -43,7 +40,7 @@ extern "C" ARM int func_020a3844(SafeAllocator* arg0) {
     void* var5 = ExtractFileFromGP2(data_020f1a9c, data_020f1ab0, &var4);
     memcpy(var3, var5, var4);
     if (var4 > 0x2000) {
-        func_020c9be0();
+        HaltForever_020c9be0();
     }
 #endif
 

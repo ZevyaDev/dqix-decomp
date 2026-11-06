@@ -14,8 +14,8 @@
 struct Struct_0205dee8;
 extern "C" void func_0205dee8(struct Struct_0205dee8* arg0, int arg1);
 
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 
 extern "C" void func_ov013_02186c64(void* arg0, int arg1, int arg2);
 extern "C" void func_ov013_02185cc0(void* arg0);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov013_0218678c(Struct_ov013_021846a0_2* arg0) {
     arg0->unknown_63c_ = 1;
     g_keyManager.CancelCurrentKeyRepeat();
     func_0205dee8((struct Struct_0205dee8*)arg0->unknown_38_, 2);
-    func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_38_, 0);
+    CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_38_, 0);
     arg0->unknown_638_[1] = 0;
     arg0->unknown_6bc_ &= ~1;
     func_ov013_02186c64(arg0, 0, 0);

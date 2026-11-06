@@ -5,7 +5,7 @@
 
 struct Struct_0201c3a4 { int unknown_0_; void* unknown_4_; };
 struct Struct_0201c1c8 { int unknown_0_; union { int unknown_0_; float unknown1_0_; } unknown_4_; };
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 
 struct Struct_ov015_0218b6e4 { int unknown_0_; int unknown_4_; };
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov015_0218b6e4(char* arg0, int arg1) {
     var2.unknown_0_ = 0;
     var2.unknown_4_ = 0;
     if (var1 != 0) {
-        int var3 = func_020d2ff0(var1);
+        int var3 = GetStringLength_020d2ff0(var1);
         char* var4 = (char*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var3 + 1);
         var2.unknown_0_ = (int)var4;
         if (var4 != 0) {
@@ -54,7 +54,7 @@ extern "C" ARM int func_ov015_0218b6e4(char* arg0, int arg1) {
         var6->unknown_6_ = 0;
         var6->unknown_8_ = 0;
         if (var7 != 0) {
-            int var11 = func_020d2ff0(var7);
+            int var11 = GetStringLength_020d2ff0(var7);
             char* var12 = (char*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var11 + 1);
             var6->unknown_0_ = var12;
             if (var12 != 0) {

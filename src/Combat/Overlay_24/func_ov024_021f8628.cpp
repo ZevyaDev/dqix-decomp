@@ -11,8 +11,8 @@ extern "C" struct Struct_ov024_021f8628_2* func_02053dc0(struct Struct_02053dc0*
 
 extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
 
-struct Struct_02010088_2 { char unknown_0_[0x14]; int unknown_14_; };
-struct Struct_02010088 { char unknown_0_[0x138]; struct Struct_02010088_2* unknown_138_; };
+struct Struct_02010088_2 { char unknown_0_[0x14]; int statusFlags_14_; };
+struct Struct_02010088 { char unknown_0_[0x138]; struct Struct_02010088_2* pCurrentStats_138_; };
 extern "C" int func_02010088(struct Struct_02010088* arg0);
 
 extern "C" float func_ov024_021db358(GameObject* arg0);

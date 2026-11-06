@@ -49,7 +49,7 @@ struct Struct_02054000;
 struct Struct_ov025_021e267c_2;
 struct Struct_0203d028_11;
 
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" Struct_ov025_021e66cc_3* func_02054000(struct Struct_02054000* arg0);
 extern "C" void func_ov025_021e3158(struct Struct_ov025_021ef9a8* arg0);
 extern "C" int func_ov025_021e2628(int arg0, int arg1);
@@ -69,7 +69,7 @@ extern "C" ARM int func_ov025_021e66cc(void* arg0, struct Struct_ov025_021e66cc_
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
 
     if (data_ov025_021ef988.unknown_20_ == 0) {
-        GameObject* var2 = func_0200ff1c(var0, arg1->unknown_10_->unknown_20_);
+        GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1->unknown_10_->unknown_20_);
         if (var2 == NULL) {
             func_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;

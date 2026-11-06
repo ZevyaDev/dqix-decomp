@@ -38,7 +38,7 @@ extern "C" void func_020a75a0(char*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" Zone3D* GetZone3D_02012fe4();
-extern "C" void func_02033874(Struct_02033834*, int);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_02033fdc(Struct_02033fdc*);
 extern "C" void func_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_020da1ac(void*);
@@ -92,7 +92,7 @@ extern "C" ARM void func_020a6728(GameResources* arg0, int arg1) {
     var11 = var10->inline_020a6728();
     var8->unknown_144_ = var11->unknown_0_;
     var8->unknown_0_.SetScale(0xa0, 0xa0, 0xa0);
-    func_02033874((Struct_02033834*)var8, var10->unknown_2774_.unknown_c_);
+    SetFacingInstantly_02033874((Struct_02033834*)var8, var10->unknown_2774_.unknown_c_);
     var8->unknown_b0_ = 0xc9;
     var8->unknown_b4_ = 0x106;
     var8->unknown_b6_ = 10;

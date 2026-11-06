@@ -9,7 +9,7 @@ extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(
 #include "Resource/GameResources.h"
 #include "Combat/CombatantRecovery.h"
 
-struct Struct_0201099c_14 {
+struct StringTable_0201099c_14 {
     unsigned char unknown_0_[0x18];
 };
 
@@ -45,17 +45,17 @@ struct Struct_ov002_02162114_2 {
 extern "C" char *FindStringInTable_020e0434(char *stringTable, int stringId);
 extern "C" void *GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void *window);
-extern "C" void func_02046574(void *arg0, int arg1, char *arg2);
+extern "C" void SetMessageString_02046574(void *window, int index, char *text);
 extern "C" void SetMessageNumber_020465c0(void *window, int index, int number);
-extern "C" char **func_02079e2c(Struct_02108e10 *arg0, int arg1);
+extern "C" char **FindActionData_02079e2c(ActionTables_02108e10 *actionTables, int actionId);
 extern "C" void *__clear(void *arg0, int arg1);
-extern "C" void func_020dfc2c(Struct_0201099c_14 *arg0);
-extern "C" void func_020dfc40(Struct_0201099c_14 *arg0);
-extern "C" void func_020e038c(Struct_0201099c_14 *arg0, void *arg1, unsigned int arg2);
-extern "C" void func_020e207c(Struct_0201099c_14 *arg0, char *arg1, int arg2);
+extern "C" void func_020dfc2c(StringTable_0201099c_14 *arg0);
+extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14 *stringTable);
+extern "C" void func_020e038c(StringTable_0201099c_14 *arg0, void *arg1, unsigned int arg2);
+extern "C" void func_020e207c(StringTable_0201099c_14 *arg0, char *arg1, int arg2);
 extern "C" void func_020474a8(void *arg0, int arg1, char *arg2, char *arg3);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
-extern "C" int func_020d2ff0(const char *arg0);
+extern "C" int GetStringLength_020d2ff0(const char *string);
 
 extern "C" char data_ov002_0216da6e[];
 extern "C" char data_ov002_0216da84[];
@@ -68,7 +68,7 @@ static inline int inline_ov002_02162114(int arg0) {
 // JPN: func_ov002_02162114
 extern "C" ARM void func_ov002_02162114(Struct_ov002_02162114 *arg0, char *arg1) {
     char var0[0x40];
-    Struct_0201099c_14 var1;
+    StringTable_0201099c_14 var1;
     char var2[0x40];
     unsigned int var3;
     if (arg1 == 0) {
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov002_02162114(Struct_ov002_02162114 *arg0, char *arg1)
     short var7       = arg0->unknown_1af0_;
     GameObject *var8 = var4->GetUnknownGameObject();
     if (var8 != 0) {
-        func_02046574(var5, 4, var8->baseStats_->unk);
+        SetMessageString_02046574(var5, 4, var8->baseStats_->unk);
     }
     int var9  = arg0->unknown_1ae8_;
     int var10 = arg0->unknown_1ae9_;
@@ -101,15 +101,15 @@ extern "C" ARM void func_ov002_02162114(Struct_ov002_02162114 *arg0, char *arg1)
             if (var12 != 0) {
                 var6 = var12->baseStats_->unk;
             }
-            func_02046574(var5, 0, var6);
+            SetMessageString_02046574(var5, 0, var6);
         }
-        char **var13 = func_02079e2c(func_020797dc(), arg0->unknown_1aee_);
+        char **var13 = FindActionData_02079e2c(GetActionTables_020797dc(), arg0->unknown_1aee_);
         if (*var13 != 0) {
             var6 = *var13;
         }
-        func_02046574(var5, 1, var6);
+        SetMessageString_02046574(var5, 1, var6);
         if (inline_ov002_02162114(var10)) {
-            func_02046574(var5, 2, arg0->unknown_1a08_[var10]);
+            SetMessageString_02046574(var5, 2, arg0->unknown_1a08_[var10]);
         }
         for (int var14 = 0; var14 < 2; var14++) {
             SetMessageNumber_020465c0(var5, var14, arg0->unknown_22c0_[var14]);
@@ -121,56 +121,56 @@ extern "C" ARM void func_ov002_02162114(Struct_ov002_02162114 *arg0, char *arg1)
             if (var15 != 0) {
                 var6 = var15->baseStats_->unk;
             }
-            func_02046574(var5, 0, var6);
+            SetMessageString_02046574(var5, 0, var6);
         } else if (arg0->unknown_1ae8_ == 4) {
             if (arg0->unknown_1ab8_ == 0) {
                 var6 = FindStringInTable_020e0434(arg0->unknown_8_, 0x76d);
             } else {
                 Struct_ov002_02162114_2 *var16 = (Struct_ov002_02162114_2 *) GetParty_02010828(var4);
                 for (int var17 = 0; var17 < 4; var17++) {
-                    GameObject *var18 = func_0200ff1c(var4, var16->unknown_f78_[var17]);
+                    GameObject *var18 = GetPartyMemberBaseByIndex_0200ff1c(var4, var16->unknown_f78_[var17]);
                     if (var18 != 0 && (int) var18->unknown_ac_.unknown_84_->unknown_4_ > 0) {
                         var6 = var18->baseStats_->unk;
                         break;
                     }
                 }
             }
-            func_02046574(var5, 0, var6);
+            SetMessageString_02046574(var5, 0, var6);
         }
         BackgroundLoader::AddLockGlobal();
         void *var19 = LoadFileIntoMemory(data_ov002_0216da6e, gFileScratchSpace_0211e33c, &var3);
         __clear(var0, 0x40);
         func_020dfc2c(&var1);
-        func_020dfc40(&var1);
+        InitStringTable_020dfc40(&var1);
         func_020e038c(&var1, var19, var3);
         func_020e207c(&var1, var0, arg0->unknown_1aea_);
-        func_02046574(var5, 1, var0);
+        SetMessageString_02046574(var5, 1, var0);
         if (inline_ov002_02162114(var10)) {
-            func_02046574(var5, 2, arg0->unknown_1a08_[var10]);
+            SetMessageString_02046574(var5, 2, arg0->unknown_1a08_[var10]);
         } else if (var10 == 4) {
             Struct_ov002_02162114_2 *var20 = (Struct_ov002_02162114_2 *) GetParty_02010828(var4);
             for (int var21 = 0; var21 < 4; var21++) {
-                GameObject *var22 = func_0200ff1c(var4, var20->unknown_f78_[var21]);
+                GameObject *var22 = GetPartyMemberBaseByIndex_0200ff1c(var4, var20->unknown_f78_[var21]);
                 if (var22 != 0 && (int) var22->unknown_ac_.unknown_84_->unknown_4_ > 0) {
-                    func_02046574(var5, 2, var22->baseStats_->unk);
+                    SetMessageString_02046574(var5, 2, var22->baseStats_->unk);
                     break;
                 }
             }
         }
         __clear(var2, 0x40);
         func_020e207c(&var1, var2, arg0->unknown_1aec_);
-        func_02046574(var5, 3, var2);
+        SetMessageString_02046574(var5, 3, var2);
         BackgroundLoader::RemoveLockGlobal();
     }
     func_020474a8(var5, 0xc, FindStringInTable_020e0434(arg0->unknown_8_, arg0->unknown_1af0_), arg1);
     AppendText_02042058(arg1, arg0->unknown_1aa4_);
-    int var23   = func_020d2ff0(arg1);
+    int var23   = GetStringLength_020d2ff0(arg1);
     short var24 = arg0->unknown_1af2_;
     char *var25 = FindStringInTable_020e0434(arg0->unknown_8_, var24);
     if (var25 != 0) {
         func_020474a8(var5, 0xc, var25, arg1 + var23);
     }
-    arg0->unknown_1ae0_ = func_020d2ff0(arg1);
+    arg0->unknown_1ae0_ = GetStringLength_020d2ff0(arg1);
     int var26           = 1;
     if (arg0->unknown_1a84_ == 0x12 && var7 == 0x232b) {
         var26 = 0;

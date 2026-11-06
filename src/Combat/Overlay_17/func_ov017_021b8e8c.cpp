@@ -91,14 +91,14 @@ extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void* func_0203cf4c(void);
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" int func_020100f8(char* arg0);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void func_020a27ac(void* arg0);
-extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void* func_0203df78(void* arg0, int arg1);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" Struct_020d7aa0_2* func_020d7a50(void);
 extern "C" void func_020d7aa0(struct Struct_020d7aa0_2* arg0);
 extern "C" int func_020981e4(int arg0, int arg1);
@@ -166,7 +166,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
     void* var7 = GetFlagManager_0205ec34();
     void* var8;
     unsigned short var9 = *var3;
-    var8 = (void*)func_020100f8((char*)var0);
+    var8 = (void*)GetFollowCamera_020100f8((char*)var0);
     unsigned char* var10 = (unsigned char*)var1->unknown_ptr_44c4;
 
     if (func_ov017_021959b4() != 0) {
@@ -179,7 +179,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
         return;
     }
 
-    func_020397cc((Struct_02018300_3*)var6, 1);
+    DisablePlayerControl_020397cc((Struct_02018300_3*)var6, 1);
 
     switch (arg0->unknown_11c_) {
     case 0: {
@@ -190,7 +190,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
         Struct_ov017_021b8e8c var11 = *(Struct_ov017_021b8e8c*)((char*)var6 + 0x44);
         Struct_ov017_021b8e8c_3* var12 = (Struct_ov017_021b8e8c_3*)func_0203df78(var5, arg0->unknown_114_->unknown_0_);
         if (var12 == NULL) {
-            func_020397c0(var6);
+            EnablePlayerControl_020397c0(var6);
             if (var8 != NULL) {
                 func_020a27ac(var8);
             }
@@ -216,7 +216,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
         char var16[0xc];
         strcpy(var16, *(char**)((char*)var3 + 8) + 5);
         var16[3] = 0;
-        func_020397cc((Struct_02018300_3*)var6, 1);
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var6, 1);
         if (arg0->unknown_128_ != 0) {
             Queue_0201bdac_2* var17;
             QueueNode_0201bdac* var18 = (QueueNode_0201bdac*)var1->unknown_ptr_array_3afc[0x22];
@@ -254,7 +254,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
         if (var2->GetDetailedTaskStatus(arg0->unknown_120_) != 2) {
             var2->RemoveTask(arg0->unknown_120_);
             arg0->unknown_120_ = -1;
-            func_020397c0(var6);
+            EnablePlayerControl_020397c0(var6);
             if (var8 != NULL) {
                 func_020a27ac(var8);
             }
@@ -274,7 +274,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
         if (var28 == NULL) {
             var2->RemoveTask(arg0->unknown_120_);
             arg0->unknown_120_ = -1;
-            func_020397c0(var6);
+            EnablePlayerControl_020397c0(var6);
             if (var8 != NULL) {
                 func_020a27ac(var8);
             }
@@ -307,14 +307,14 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
         func_0206f510((char*)var32);
         if (func_0206f550(var32, var30, var29) != 0 && func_0206f6cc(var32, 0) == 0) {
             arg0->unknown_11c_ = 8;
-            func_02094b34(func_02094a00(), 0x6f, 0x1388, 1, 1);
+            RequestFontLoad_02094b34(GetFontLoader_02094a00(), 0x6f, 0x1388, 1, 1);
             break;
         }
         arg0->unknown_11c_ = 3;
         break;
     }
     case 8:
-        if (func_02094b4c(func_02094a00()) != 0) {
+        if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()) != 0) {
             if (var8 != NULL) {
                 func_020a27ac(var8);
             }
@@ -329,12 +329,12 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
         if (arg0->unknown_128_ != 0) {
             func_ov008_02184754(arg0->unknown_118_);
         }
-        FontLoader_0208cb08* var33 = func_02094a00();
+        FontLoader_0208cb08* var33 = GetFontLoader_02094a00();
         if (arg0->unknown_128_ != 0) {
             func_02094b40(var33);
-            func_02094b34(var33, 0x6e, 0x1ff, 0, 0);
+            RequestFontLoad_02094b34(var33, 0x6e, 0x1ff, 0, 0);
         } else {
-            func_02094b34(var33, 0x6f, 0x1388, 1, 1);
+            RequestFontLoad_02094b34(var33, 0x6f, 0x1388, 1, 1);
         }
         arg0->unknown_11c_ = 4;
         break;
@@ -343,7 +343,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
         if (arg0->unknown_128_ != 0) {
             func_ov008_02184754(arg0->unknown_118_);
         }
-        if (func_02094b4c(func_02094a00()) != 0) {
+        if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()) != 0) {
             arg0->unknown_11c_ = 2;
         }
         break;
@@ -440,7 +440,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
     }
     case 6: {
         if (*(short*)(arg0->unknown_30_ + 0xd2) < 0) {
-            func_020397c0(var6);
+            EnablePlayerControl_020397c0(var6);
             if (var8 != NULL) {
                 func_020a27ac(var8);
             }
@@ -476,7 +476,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
             func_ov017_021bd38c(var1->unknown_ptr_array_36fc[14], (int)arg0->unknown_30_, (int)&arg0->unknown_8_);
             arg0->unknown_137_ = 1;
         }
-        func_020397c0(var6);
+        EnablePlayerControl_020397c0(var6);
         if (var8 != NULL) {
             func_020a27ac(var8);
         }

@@ -87,8 +87,8 @@ extern int data_ov025_021eef40[];
 extern "C" void func_ov025_021eb044(void* arg0, ...);
 extern "C" int func_ov000_0215fd90(void* arg0, unsigned char arg1);
 extern "C" void func_ov000_02162c14(void* arg0, int arg1, struct Struct_ov025_021e3178_3* arg2);
-extern "C" void* func_ov000_02160130(void);
-extern "C" struct Struct_ov025_021e3178_2* func_02079e2c(char*, int);
+extern "C" void* GetBattleScene_ov000_02160130(void);
+extern "C" struct Struct_ov025_021e3178_2* FindActionData_02079e2c(char*, int);
 struct Struct_ov000_0215440c_2;
 extern "C" struct Struct_ov025_021e3178* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
 struct Struct_ov000_0215440c;
@@ -177,7 +177,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
         break;
     }
     case 6: {
-        struct Struct_ov025_021e3178_2* var18 = func_02079e2c((char*)func_020797dc(), arg1->unknown_0_);
+        struct Struct_ov025_021e3178_2* var18 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), arg1->unknown_0_);
         if (!var18) return 0;
         unsigned short var19 = arg1->unknown_0_;
         if (var19 == 0x74) {
@@ -316,7 +316,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
         break;
     }
     case 15: {
-        void* var48 = func_ov000_02160130();
+        void* var48 = GetBattleScene_ov000_02160130();
         if (var48 && *(unsigned char*)((char*)var48 + Enum_ov025_021e3178_28629)) NOTIFY();
         break;
     }
@@ -340,7 +340,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
         struct Struct_ov025_021e3178_7* var51 = arg1->unknown_10_;
         if (!var51) break;
         int var52 = var51->unknown_20_;
-        void* var53 = func_ov000_02160130();
+        void* var53 = GetBattleScene_ov000_02160130();
         if (!var53) break;
         struct Struct_ov025_021e3178_3 var54;
         func_ov000_02162c14(var53, var52, &var54);
@@ -356,7 +356,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
         int var56 = var55->unknown_20_;
         GameState* var57 = GameState::GetInstance();
         if (!var57) break;
-        struct Struct_ov025_021e3178_4* var58 = (Struct_ov025_021e3178_4*)func_0200ff1c(var57, var56);
+        struct Struct_ov025_021e3178_4* var58 = (Struct_ov025_021e3178_4*)GetPartyMemberBaseByIndex_0200ff1c(var57, var56);
         if (!var58) break;
         if (func_020850d0(var58->unknown_150_)) {
             NOTIFY();
@@ -396,7 +396,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
         break;
     }
     case 9: {
-        struct Struct_ov025_021e3178_2* var65 = func_02079e2c((char*)func_020797dc(), arg1->unknown_0_);
+        struct Struct_ov025_021e3178_2* var65 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), arg1->unknown_0_);
         if (!var65) return 0;
         struct Struct_ov025_021e3178* var66 = func_ov000_021600f8((Struct_ov000_0215440c*)arg1, 0);
         if (!var66) return 0;

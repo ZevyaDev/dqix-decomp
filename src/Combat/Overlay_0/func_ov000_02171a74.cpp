@@ -3,7 +3,7 @@
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_020e46c4(void* arg0);
-extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov000_02171a74(struct Struct_ov000_02171a74* arg0
         }
         char var3[0xc];
         func_020e46c4(var3);
-        func_020e4bf4(var3, arg0->unknown_4c_);
+        InitPartyMemberNoun_020e4bf4(var3, arg0->unknown_4c_);
         void* var4 = GetMessageWindow_020421a0();
         ClearMessageParams_02046380(var4);
         *(void**)var4 = var3;

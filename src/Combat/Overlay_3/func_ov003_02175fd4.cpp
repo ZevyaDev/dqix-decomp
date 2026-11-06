@@ -31,7 +31,7 @@ extern "C" void func_020e263c(struct Struct_020e263c_2* arg0, int arg1);
 struct Struct_020e28f0;
 extern "C" void func_020e28f0(struct Struct_020e28f0* arg0, short arg1, short arg2);
 
-extern "C" void func_0205ae8c(void* arg0);
+extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
 
 // USA: func_ov003_02175fd4
 extern "C" ARM void func_ov003_02175fd4(unsigned char* arg0) {
@@ -57,5 +57,5 @@ extern "C" ARM void func_ov003_02175fd4(unsigned char* arg0) {
     var1 = var1 - 0x10;
     var2 = var2 - 3;
     func_020e28f0(*(Struct_020e28f0**)(arg0 + 0x0), var1, var2);
-    func_0205ae8c(arg0 + Enum_ov003_02175fd4_2008);
+    DrawSpriteAnimations_0205ae8c(arg0 + Enum_ov003_02175fd4_2008);
 }

@@ -3,12 +3,12 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_0202ae24(void);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 extern "C" ARM void* func_ov017_021b8470(void* arg0);
-extern "C" int func_ov000_0215e9fc(void* arg0, short* arg1, int arg2, int arg3);
-extern "C" int func_ov000_0215eb1c(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_020493a4(unsigned char* arg0);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021c812c {
     unsigned char unknown_0_0_ : 4;
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov017_021c812c(unsigned char arg0, int arg1) {
 #endif
     GameState* var0 = GameState::GetInstance();
     char* var1 = (char*)GetGameResources();
-    void* var2 = func_0202ae24();
+    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
 
     Struct_ov017_021c812c_2 var3;
     memset(&var3, 0, sizeof(var3));
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_021c812c(unsigned char arg0, int arg1) {
         void* var7 = func_ov017_021b8470(*(void**)(var1 + 0x3000 + Enum_ov017_021c812c_1816));
         if (var7 != NULL) {
             short var8[8];
-            int var9 = func_ov000_0215e9fc(var7, var8, 8, 0x10);
+            int var9 = CollectPartyCombatantIndices_ov000_0215e9fc(var7, var8, 8, 0x10);
             for (int var10 = 0; var10 < var9; var10++) {
                 GameObject* var11 = var0->GetCombatantByIndex(var8[var10]);
                 if (var11 != NULL) {
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_021c812c(unsigned char arg0, int arg1) {
                     var4->unknown_1_[var12] = func_020493a4((unsigned char*)var11);
                 }
             }
-            var9 = func_ov000_0215eb1c(var7, var8, 8, 0x10);
+            var9 = CollectEnemyCombatantIndices_ov000_0215eb1c(var7, var8, 8, 0x10);
             for (int var13 = 0; var13 < var9; var13++) {
                 GameObject* var14 = var0->GetCombatantByIndex(var8[var13]);
                 if (var14 != NULL) {
@@ -71,5 +71,5 @@ extern "C" ARM void func_ov017_021c812c(unsigned char arg0, int arg1) {
             }
         }
     }
-    func_0205e330(var2, &var3, 0);
+    QueueOutgoingPacket_0205e330(var2, &var3, 0);
 }

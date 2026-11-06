@@ -39,7 +39,7 @@ extern "C" ARM void func_020dd8b4(Struct_020dd8b4_4* arg0, int arg1, int arg2, u
     arg0->unknown_0_ = arg1;
     arg0->unknown_4_.unknown_0_ = arg2;
     arg0->unknown_38_ = arg3;
-    Struct_020dd8b4_2* var0 = (Struct_020dd8b4_2*)func_0200ff1c(GameState::GetInstance(), arg0->unknown_0_);
+    Struct_020dd8b4_2* var0 = (Struct_020dd8b4_2*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_0_);
     if (!var0) return;
     char* var1 = GetPartyMemberData_02053c6c((unsigned char*)var0);
     arg0->unknown_3c_ = var0->unknown_134_->primaryStats.attack;

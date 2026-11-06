@@ -31,10 +31,10 @@ struct Struct_ov012_0218a9ec {
     unsigned int unknown_3_7_ : 1;
 };
 
-extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
-extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 // USA: func_ov012_0218a9ec
@@ -46,9 +46,9 @@ extern "C" ARM void func_ov012_0218a9ec(unsigned char* arg0, char* arg1, int arg
         (Struct_ov012_0218a9ec*)((char*)GameState::GetInstance() + Enum_ov012_0218a9ec_22172);
 
     if (arg2 != 0) {
-        func_02041c08(arg1, var0, 8, 5, 5, 5);
+        AppendFrameTag_02041c08(arg1, var0, 8, 5, 5, 5);
     }
-    func_02041ea4(arg1, var0);
+    AppendCursorTag_02041ea4(arg1, var0);
 
     int var2;
     for (var2 = 0; var2 < 8; var2++) {
@@ -57,6 +57,6 @@ extern "C" ARM void func_ov012_0218a9ec(unsigned char* arg0, char* arg1, int arg
         }
         void* var3 = FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + Enum_ov012_0218a9ec_4924),
                                     (short)(((short)var1->unknown_3_1_) + var2 * 2 + 0x7530));
-        func_02041b70(arg1, var2, (const char*)var3);
+        AppendMenuEntry_02041b70(arg1, var2, (const char*)var3);
     }
 }

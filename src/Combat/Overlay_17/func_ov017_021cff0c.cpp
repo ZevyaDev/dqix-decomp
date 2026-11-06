@@ -5,7 +5,7 @@ struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void func_ov017_02191234(int arg0);
 extern "C" void func_02026394(unsigned char* arg0, unsigned int arg1);
-extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int func_020546a8(void* arg0);
 extern "C" void func_ov017_021907dc(int arg0, int arg1, int arg2, int arg3, int arg4);
 
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov017_021cff0c(int arg0, Struct_ov017_021cff0c* arg1, G
 	unsigned char* var1 = *(unsigned char**)((unsigned char*)arg3 + 0x3000 + Enum_ov017_021cff0c_1744);
 	func_02026394(var1, arg1->unknown_5_);
 	int var2 = arg1->unknown_5_;
-	GameObject* var3 = func_0200ff58(arg2, var2);
+	GameObject* var3 = GetCompanionByIndex_0200ff58(arg2, var2);
 	if (var3 != NULL) {
 		var2 = func_020546a8(var3);
 	}

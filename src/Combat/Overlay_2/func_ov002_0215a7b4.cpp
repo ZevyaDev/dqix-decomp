@@ -12,12 +12,12 @@ struct ItemTable_0201099c_10 {
 struct Struct_02061c04_22 { unsigned char unknown_0_[0x454]; short unknown_454_[8]; };
 struct Struct_02061c04_23 { short* unknown_0_; signed char* unknown_4_; short unknown_8_; };
 
-extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" int func_020dddcc(void* arg0);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int func_020a0a08(struct Struct_02061c04_23* arg0, int arg1, int arg2);
 extern "C" int func_020ddcbc(int arg0, int arg1, struct ItemTable_0201099c_10* arg2, int arg3);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_0208386c(struct Struct_02061c04_22* arg0, int arg1);
 
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov002_0215a7b4(char* arg0, int arg1, int arg2, int arg3
     GameState* var0 = GameState::GetInstance();
     if (arg1 == 4) {
         if (arg4 != 0) {
-            struct ItemData_0201099c_9* var1 = func_020dedd0((struct ItemTable_0201099c_10*)(arg0 + CONTAINER_0215a7b4), arg2);
+            struct ItemData_0201099c_9* var1 = FindItemData_020dedd0((struct ItemTable_0201099c_10*)(arg0 + CONTAINER_0215a7b4), arg2);
             if (var1 != 0) {
                 func_020dddcc(var1);
             }
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov002_0215a7b4(char* arg0, int arg1, int arg2, int arg3
     if (arg4 != 0) {
         func_020ddcbc(arg1, arg3, (struct ItemTable_0201099c_10*)(arg0 + CONTAINER_0215a7b4), 0);
     } else {
-        GameObject* var3 = func_0200ff1c(var0, arg1);
+        GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
         if (var3 == 0) return;
         {
             int var4 = GetPartyMemberData_02053c6c((unsigned char*)var3);

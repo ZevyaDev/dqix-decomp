@@ -61,8 +61,8 @@ struct Struct_ov025_021dc940_5 {
 
 struct Struct_02109bf4_5;
 
-extern "C" void* func_02057924(void);
-extern "C" int func_ov000_0215e9fc(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" void* GetEffectManager_02057924(void);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov000_0215ec1c(void* arg0, short* arg1, int arg2, int arg3);
 extern "C" int func_02058618(void* arg0);
 extern "C" unsigned char* func_02039e70(void);
@@ -71,7 +71,7 @@ extern "C" int func_ov025_021ed2f4(void* arg0);
 extern "C" int func_ov025_021ed0fc(void* arg0);
 extern "C" int func_0209ca2c(void* arg0);
 struct Struct_02010604;
-extern "C" void func_02033b88(Struct_02010604*, int);
+extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" Struct_ov025_021dc940_4* func_ov000_02160f20(void* arg0);
 extern "C" void func_ov000_021754e0(int, int);
@@ -99,7 +99,7 @@ struct Struct_ov025_021dc940_2 { char unknown_0_[RG(0x5d8, 0x7c8)]; int unknown_
 extern "C" ARM int func_ov025_021dc940(Struct_ov025_021dc940_5* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov025_021dc940* var1 = arg0->unknown_29c_;
-    void* var2 = func_02057924();
+    void* var2 = GetEffectManager_02057924();
 
     unsigned char var3 = arg0->unknown_6e4b_;
     if (var3 != 0) {
@@ -115,7 +115,7 @@ extern "C" ARM int func_ov025_021dc940(Struct_ov025_021dc940_5* arg0) {
 
     short var4[16];
     int var5 = 0;
-    var5 = var5 + func_ov000_0215e9fc(var1, var4, 0x10, var5);
+    var5 = var5 + CollectPartyCombatantIndices_ov000_0215e9fc(var1, var4, 0x10, var5);
     var5 = var5 + func_ov000_0215ec1c(var1, var4 + var5, 0x10 - var5, 0);
 
     for (int var6 = 0; var6 < var5; var6++) {
@@ -151,7 +151,7 @@ extern "C" ARM int func_ov025_021dc940(Struct_ov025_021dc940_5* arg0) {
         if (arg0->unknown_7747_ == 0) {
             unsigned char var11 = inline_ov025_021dc940(var10);
             if (var11 != 4 && var11 != 6) {
-                func_02033b88((Struct_02010604*)var10, 0);
+                SetMotion_02033b88((Struct_02010604*)var10, 0);
             }
         }
         if (var10->obj3D_.IsVisible() && var10->obj3D_.IsTransitioningAnimations()) {

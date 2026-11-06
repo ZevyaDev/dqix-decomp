@@ -18,7 +18,7 @@ extern "C" int func_0203402c(Struct_0203402c* arg0);
 extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
 extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
 extern "C" int func_02094b9c(Struct_02018300* arg0, Vector3i* arg1);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 
 // USA: func_ov017_021975e4
 extern "C" ARM void func_ov017_021975e4(GameResources* arg0) {
@@ -136,7 +136,7 @@ extern "C" ARM void func_ov017_021975e4(GameResources* arg0) {
                 if (var10.unknown_8_ < 0) var10.unknown_8_ += 0x6487;
             }
             func_020398b4(var3, &var10);
-            func_020466e4(var2, 0x400);
+            SetGlobalFlags_020466e4(var2, 0x400);
         }
         var9 = var9->unknown_70_;
     }

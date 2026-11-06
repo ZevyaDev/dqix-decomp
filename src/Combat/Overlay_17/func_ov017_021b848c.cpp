@@ -1,12 +1,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 struct Struct_02018300_3;
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 
 struct Struct_ov017_021b848c {
     unsigned char unknown_0_[0x8e49];
@@ -41,12 +38,12 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov017_021c9c64(unsigned short arg0, unsigned char arg1);
 extern "C" void func_ov017_021c8b78(unsigned short arg0);
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void func_020a35cc(unsigned char* arg0, unsigned char arg1);
 extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
-extern "C" void func_020c9be0(void);
+extern "C" void HaltForever_020c9be0(void);
 extern "C" void func_ov017_021c3f70(unsigned short arg0);
 
 // USA: func_ov017_021b848c
@@ -67,11 +64,11 @@ extern "C" ARM void func_ov017_021b848c(Struct_ov017_021b848c_2* arg0, signed ch
     }
 
     void* var3 = GetGlobalFlags_020d6c00();
-    func_020466f4((Struct_02038598_4*)var3, 0x200);
-    func_020466e4((unsigned int*)var3, 0x40000);
+    ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var3, 0x200);
+    SetGlobalFlags_020466e4((unsigned int*)var3, 0x40000);
     GameObject* var4 = var0->GetUnknownGameObject();
     if (var4 != NULL) {
-        func_020397cc((struct Struct_02018300_3*)var4, 1);
+        DisablePlayerControl_020397cc((struct Struct_02018300_3*)var4, 1);
         *(unsigned short*)((char*)var4 + 0xb2) = 0;
     }
     if (arg1[0] != 0 && var0->GetGameObjectByIndex(0) != NULL) {
@@ -87,7 +84,7 @@ extern "C" ARM void func_ov017_021b848c(Struct_ov017_021b848c_2* arg0, signed ch
         func_020a35cc(arg0->unknown_1c_, 3);
     }
     arg0->unknown_46_ = arg2;
-    if (func_020a35e0(arg0->unknown_1c_, arg0->unknown_46_) == 0) func_020c9be0();
+    if (func_020a35e0(arg0->unknown_1c_, arg0->unknown_46_) == 0) HaltForever_020c9be0();
     if (arg3 == 0) GetProtagonistObjectIndex_020100a8(var0);
     arg0->unknown_48_ = arg3;
     arg0->unknown_1e_ = arg4;

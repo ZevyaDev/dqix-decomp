@@ -7,8 +7,8 @@ struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
 extern "C" char* func_020e046c(char* arg0, void* arg1, void* arg2, int arg3);
 extern "C" void func_020df83c(void* arg0);
-struct Struct_0201099c_14;
-extern "C" void func_020dfc6c(struct Struct_0201099c_14* arg0);
+struct StringTable_0201099c_14;
+extern "C" void func_020dfc6c(struct StringTable_0201099c_14* arg0);
 
 extern "C" {
     void func_ov023_021ddf5c(void* arg0);
@@ -73,9 +73,9 @@ extern "C" ARM int func_ov023_021e0690(void* arg0) {
         }
 
         func_020df83c(var0 + 0x6c);
-        func_020dfc6c((struct Struct_0201099c_14*)(var0 + 0x8c));
+        func_020dfc6c((struct StringTable_0201099c_14*)(var0 + 0x8c));
         func_020df83c(var0 + 0x7c);
-        func_020dfc6c((struct Struct_0201099c_14*)(var0 + 0xa4));
+        func_020dfc6c((struct StringTable_0201099c_14*)(var0 + 0xa4));
 
         void* var7 = *(void**)(var0 + 0x4c);
         if (var7 == NULL) {

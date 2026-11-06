@@ -2,10 +2,10 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-extern "C" void* func_0202ae24(void);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void* func_02052a10(char* arg0);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021c45b4 {
     unsigned char unknown_0_;
@@ -17,8 +17,8 @@ struct Struct_ov017_021c45b4 {
 // USA: func_ov017_021c45b4
 extern "C" ARM void func_ov017_021c45b4(int arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0202ae24();
-    GameObject* var2 = func_0200ff1c(var0, arg0);
+    void* var1 = GetLocalWirelessPacketQueue_0202ae24();
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     if (!var2) return;
 
     struct Struct_ov017_021c45b4 var3;
@@ -30,5 +30,5 @@ extern "C" ARM void func_ov017_021c45b4(int arg0) {
     char* var4 = (char*)func_02052a10((char*)var2);
 #endif
     strcpy(var3.unknown_5_, var4);
-    func_0205e330(var1, &var3, 0);
+    QueueOutgoingPacket_0205e330(var1, &var3, 0);
 }

@@ -7,7 +7,7 @@ extern Struct_ov031_02290cc8_6 data_ov031_02290cc8;
 extern signed char data_ov031_0224912e[][4][4];
 
 extern "C" int func_ov031_02227570(unsigned int);
-extern "C" void func_ov031_02236878(int);
+extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern "C" void func_ov031_022237dc(unsigned short, unsigned short, unsigned short, unsigned short);
 
 // USA: func_ov031_022338b4
@@ -23,7 +23,7 @@ extern "C" ARM void func_ov031_022338b4(int arg0) {
     } else {
         data_ov031_02290cc8.unknown_1_ = var1;
     }
-    func_ov031_02236878(8);
+    PlayWifiSetupSoundEffect_ov031_02236878(8);
     func_ov031_022237dc(
         data_ov031_02249198[func_ov031_02227570(1)][data_ov031_02290cc8.unknown_1_].unknown_0_,
         data_ov031_02249198[func_ov031_02227570(1)][data_ov031_02290cc8.unknown_1_].unknown_4_,

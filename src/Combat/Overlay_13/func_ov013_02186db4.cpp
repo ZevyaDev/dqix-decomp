@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 
-extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c*, int);
+extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c*, int);
 extern "C" int func_0204c7cc(unsigned char*);
 extern "C" void* func_ov013_02184338(void*, unsigned int);
-extern "C" void func_0205ac40(void* arg0, void* arg1);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 struct Struct_ov013_02186db4 {
     unsigned char unknown_0_[0x14];
@@ -23,7 +23,7 @@ extern "C" ARM void func_ov013_02186db4(void* arg0) {
 
     if (*(void**)(var0 + 0x18) == 0) return;
 
-    unsigned char* var1 = (unsigned char*)func_0205d81c((struct Struct_0205d81c*)(var0 + 0x38), 4);
+    unsigned char* var1 = (unsigned char*)FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)(var0 + 0x38), 4);
     if (var1 == 0) return;
     if (func_0204c7cc(var1) == 0) return;
     if ((var1[0xc5] & 0x20) != 0) return;
@@ -45,5 +45,5 @@ extern "C" ARM void func_ov013_02186db4(void* arg0) {
     var3->unknown_18_ = var5 * 0x1000;
     var3->unknown_26_ = 1;
     var3->unknown_22_ = 0x20;
-    func_0205ac40(*(void**)(var0 + 0x18), var3);
+    DrawSprite_0205ac40(*(void**)(var0 + 0x18), var3);
 }

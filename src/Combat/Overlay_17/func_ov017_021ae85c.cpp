@@ -56,14 +56,14 @@ extern "C" Struct_ov017_021ae85c_5* GetZone3D_02012fe4();
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void func_ov017_021aeea8(Struct_ov017_021ae85c_2*);
-extern "C" void func_02033b88(Struct_02010604*, int);
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void SetMotion_02033b88(Struct_02010604*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_02033b68(Struct_02033b68*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
-extern "C" Struct_02015ef4_4* func_020dedd0(ItemTable_0201099c_10*, int);
+extern "C" Struct_02015ef4_4* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" unsigned short func_020de234(Struct_02015ef4_4*, int);
-extern "C" void func_020397c0(void*);
+extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_0207dfc8(Struct_02015ef4_5*, Struct_02015ef4_5*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
@@ -75,7 +75,7 @@ extern "C" void* func_020de824(void*);
 extern "C" void func_0207cbe8(char*);
 extern "C" int func_0207d538(void*, int, int, char*, int);
 extern "C" void* func_020d7a50();
-extern "C" void* func_020100bc(GameState*);
+extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" void func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void func_0203a46c(Struct_0203a46c*, int, int, int);
 extern "C" void func_020473c8(Struct_02015ef4_2*, int);
@@ -108,8 +108,8 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
     if (arg0->unknown_8_ == 0) {
         GameObject* var4 = var0->GetUnknownGameObject();
         if (!var4) { func_ov017_021aeea8(arg0); arg0->unknown_1_ = 1; return; }
-        func_02033b88((Struct_02010604*)var4, 0);
-        func_020397cc((Struct_02018300_3*)var4, 1);
+        SetMotion_02033b88((Struct_02010604*)var4, 0);
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var4, 1);
         arg0->unknown_a_ = 5; arg0->unknown_8_ = 1;
     } else if (arg0->unknown_8_ == 1) {
         arg0->unknown_a_--;
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
         arg0->unknown_a_--;
         if (arg0->unknown_a_) return;
         Struct_ov017_021ae85c_5* var6 = GetZone3D_02012fe4();
-        Struct_02015ef4_4* var7 = func_020dedd0(&var6->unknown_2754_, arg0->unknown_c_);
+        Struct_02015ef4_4* var7 = FindItemData_020dedd0(&var6->unknown_2754_, arg0->unknown_c_);
         if (var7) {
             arg0->unknown_28_ = &var6->unknown_600_[GetProtagonistObjectIndex_020100a8(var0)];
             func_02047230(arg0->unknown_28_);
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
             arg0->unknown_10_ = var1->QueueLoadFile(var8, 0);
         } else {
             func_ov017_021aeea8(arg0); arg0->unknown_1_ = 1;
-            func_020397c0(var0->GetUnknownGameObject()); return;
+            EnablePlayerControl_020397c0(var0->GetUnknownGameObject()); return;
         }
         arg0->unknown_8_ = 3;
     } else if (arg0->unknown_8_ == 3) {
@@ -151,17 +151,17 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
                 SaveTextureVRAMState_0207dfac((char*)&var12);
             } else {
                 func_ov017_021aeea8(arg0); arg0->unknown_1_ = 1;
-                func_020397c0(var0->GetUnknownGameObject());
+                EnablePlayerControl_020397c0(var0->GetUnknownGameObject());
                 var1->RemoveTask(arg0->unknown_10_); return;
             }
         }
         var1->RemoveTask(arg0->unknown_10_);
-        FontLoader_0208cb08* var13 = func_02094a00();
+        FontLoader_0208cb08* var13 = GetFontLoader_02094a00();
         func_02094b3c(var13, 10);
         func_02094b30(var13, 0x1f9, 0);
         arg0->unknown_8_ = 4;
     } else if (arg0->unknown_8_ == 4) {
-        if (!func_02094b4c(func_02094a00())) return;
+        if (!UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) return;
         GetMessageWindow_020421a0();
         char var14[0x80] = {};
         Struct_ov017_021ae85c_5* var15 = GetZone3D_02012fe4();
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
     } else if (arg0->unknown_8_ == 5) {
         arg0->unknown_a_--;
         int var17 = var0->GetTickCount();
-        void* var18 = func_020100bc(var0);
+        void* var18 = GetCamera_020100bc(var0);
         Vector3fix var19 = arg0->unknown_14_;
         if (arg0->unknown_20_ < 0x191e) arg0->unknown_20_ += var17 * 0x199;
         var19.y += fix32sin(arg0->unknown_20_);
@@ -195,7 +195,7 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
     } else if (arg0->unknown_8_ == 6) {
         arg0->unknown_a_--;
         int var22 = var0->GetTickCount();
-        void* var23 = func_020100bc(var0);
+        void* var23 = GetCamera_020100bc(var0);
         Vector3fix var24 = arg0->unknown_14_;
         var24.y += fix32sin(arg0->unknown_20_);
         if (arg0->unknown_24_) {
@@ -212,12 +212,12 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
         if (!arg0->unknown_a_) { GetMessageWindow_020421a0(); arg0->unknown_8_ = 7; }
         else if (arg0->unknown_a_ == 5) {
             GameObject* var27 = var0->GetUnknownGameObject();
-            func_020397c0(var27); func_02033b68((Struct_02033b68*)var27, 0);
+            EnablePlayerControl_020397c0(var27); func_02033b68((Struct_02033b68*)var27, 0);
         }
     } else if (arg0->unknown_8_ == 7) {
         Struct_ov017_021ae85c* var28 = GetMessageWindow_020421a0();
         var28->unknown_2d8_ = 0; var28->unknown_2e6_ = 1;
-        func_02094ab0(func_02094a00());
+        CancelFontLoad_02094ab0(GetFontLoader_02094a00());
         func_ov017_021aeea8(arg0); arg0->unknown_1_ = 1;
     }
 }

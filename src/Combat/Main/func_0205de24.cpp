@@ -3,37 +3,37 @@
 struct Struct_0205d304_2;
 extern "C" void func_0205d594(struct Struct_0205d304_2* arg0, unsigned char* arg1, unsigned char* arg2);
 
-struct Struct_0205de24 {
+struct TextWindow_0205de24 {
     char unknown_0_[0x4];
-    void* unknown_4_;
+    void* pBGLayer_4_;
     char unknown_8_[0xE0 - 0x8];
 };
 
-struct Struct_0205de24_2 {
+struct TextWindowManager_0205de24_2 {
     char unknown_0_[0x98];
-    unsigned char* unknown_98_;
-    unsigned char* unknown_9c_;
+    unsigned char* pBGLayers_98_;
+    unsigned char* pTextWindows_9c_;
     char unknown_a0_[0xb2 - 0xa0];
-    unsigned char unknown_b2_;
+    unsigned char bgLayerCount_b2_;
     char unknown_b3_[0xb4 - 0xb3];
-    unsigned char unknown_b4_;
+    unsigned char textWindowCount_b4_;
 };
 
-// USA: func_0205de24
-extern "C" ARM void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2) {
-    if (arg0->unknown_98_ == 0 || arg0->unknown_9c_ == 0) return;
-    struct Struct_0205de24* var0 = (struct Struct_0205de24*)(arg0->unknown_9c_ + arg0->unknown_b4_ * 0xE0);
-    if (var0 == 0) return;
-    unsigned char* var1;
-    unsigned char var2 = 0;
-    unsigned char var3, var4;
-    while (var2 < arg0->unknown_b2_) {
-        var1 = arg0->unknown_98_ + var2 * 0x20;
-        func_0205d594((struct Struct_0205d304_2*)var1, &var3, &var4);
-        if (var3 == arg1 && var4 == arg2) {
-            var0->unknown_4_ = var1;
+// USA: SetNextTextWindowBGLayer_0205de24
+extern "C" ARM void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex) {
+    if (windowManager->pBGLayers_98_ == 0 || windowManager->pTextWindows_9c_ == 0) return;
+    struct TextWindow_0205de24* nextWindow = (struct TextWindow_0205de24*)(windowManager->pTextWindows_9c_ + windowManager->textWindowCount_b4_ * 0xE0);
+    if (nextWindow == 0) return;
+    unsigned char* layer;
+    unsigned char i = 0;
+    unsigned char var3, layerBGIndex;
+    while (i < windowManager->bgLayerCount_b2_) {
+        layer = windowManager->pBGLayers_98_ + i * 0x20;
+        func_0205d594((struct Struct_0205d304_2*)layer, &var3, &layerBGIndex);
+        if (var3 == arg1 && layerBGIndex == bgIndex) {
+            nextWindow->pBGLayer_4_ = layer;
             return;
         }
-        var2++;
+        i++;
     }
 }

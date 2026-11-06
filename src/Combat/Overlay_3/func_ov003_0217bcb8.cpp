@@ -2,8 +2,8 @@
 #include "Memory/SafeAllocator.h"
 #include "World/Object3D.h"
 
-struct Struct_02020cb8;
-extern "C" void func_0204af64(Struct_02020cb8* arg0);
+struct BGLayer_02020cb8;
+extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 
 struct Struct_ov003_02173c40 {
     int unknown_0_;
@@ -33,8 +33,8 @@ extern "C" ARM void func_ov003_0217bcb8(Struct_ov003_02173c40* arg0) {
     arg0->unknown_4_.ResetAllocatorPointer();
     arg0->unknown_18_.ResetAllocatorPointer();
     arg0->unknown_2c_.ResetAllocatorPointer();
-    func_0204af64((Struct_02020cb8*)arg0->unknown_40_);
-    func_0204af64((Struct_02020cb8*)arg0->unknown_60_);
+    InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_40_);
+    InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_60_);
     ((Object3D*)arg0->unknown_80_)->Initialize();
     arg0->unknown_12c_ = 0;
     int var0 = arg0->unknown_12c_ - 1;

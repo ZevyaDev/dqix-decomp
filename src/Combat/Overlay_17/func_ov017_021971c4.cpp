@@ -42,7 +42,7 @@ extern "C" ARM unsigned short func_ov017_021971c4(unsigned char* arg0) {
         if (var3[var6] != 0) {
             continue;
         }
-        GameObject* var7 = func_0200ff1c(var0, var6);
+        GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var0, var6);
         if (var7 == NULL) {
             continue;
         }

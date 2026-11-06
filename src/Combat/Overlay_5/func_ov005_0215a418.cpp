@@ -52,7 +52,7 @@ extern "C" ARM void func_ov005_0215a418(Struct_ov005_0215a418* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     char* var2 = func_ov017_021a193c((int*)var1->unknown_ptr_array_36fc[3]);
-    short* var3 = func_02052e14((Struct_02052e14*)(func_0200ff1c(var0,*(int*)(var2 + LOW_REGION(0x4f8, 0x4fc)))));
+    short* var3 = func_02052e14((Struct_02052e14*)(GetPartyMemberBaseByIndex_0200ff1c(var0,*(int*)(var2 + LOW_REGION(0x4f8, 0x4fc)))));
     if (arg0->unknown_3db8_ != 0) return;
 
     for (int var4 = 0; var4 < 8; var4++) {

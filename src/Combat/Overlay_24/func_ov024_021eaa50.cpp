@@ -45,13 +45,13 @@ extern Struct_ov024_021fe748 data_ov024_021fe748;
 extern "C" GameObject* func_ov000_021536f8(int, int);
 extern "C" int func_ov000_02153e78(Struct_ov000_02153e78_3*, short*, int, int, int);
 extern "C" int func_ov000_02159c58(void*, int);
-extern "C" int func_ov000_0215e9fc(char*, short*, int, unsigned int);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(char*, short*, int, unsigned int);
 extern "C" int func_ov000_02159cb4(void*, int);
 extern "C" int func_ov024_021eadfc(GameObject*);
 extern "C" unsigned int func_020dd290(void*, unsigned int);
 extern "C" int func_ov024_021dd010(Struct_ov024_021dced0_2*);
 extern "C" int func_ov000_0215fd24(int, int);
-extern "C" GameObject* func_0200ff58(GameState*, int);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 
 static inline int inline_ov000_02169850(int arg0) {
     return arg0 >= 0 && arg0 <= 3;
@@ -96,7 +96,7 @@ extern "C" ARM int func_ov024_021eaa50(Struct_ov024_021ea4d0* arg0, Struct_ov024
         }
     }
     if (func_ov000_02159c58(*(char**)(var0 + 0x10), *(unsigned short*)var1)) {
-        if (func_ov000_0215e9fc(*(char**)(var0 + 0x10), var6.unknown_0_, 8, 1) != 4) {
+        if (CollectPartyCombatantIndices_ov000_0215e9fc(*(char**)(var0 + 0x10), var6.unknown_0_, 8, 1) != 4) {
             *(unsigned char*)(var1 + 9) = 0;
             *(unsigned short*)var1 = (unsigned short)func_ov000_02159cb4(*(char**)(var0 + 0x10), *(short*)(*(char**)(var1 + 0x10) + 0x20));
             return *(unsigned short*)var1;
@@ -108,7 +108,7 @@ extern "C" ARM int func_ov024_021eaa50(Struct_ov024_021ea4d0* arg0, Struct_ov024
         short var10 = (short)var2->unknown_8_0_;
         if (inline_ov000_02169850(var4)) {
             var10 = (short)func_020dd290(
-                func_0200ff1c(var3, var4), (unsigned int)var10);
+                GetPartyMemberBaseByIndex_0200ff1c(var3, var4), (unsigned int)var10);
         }
         if (var2->unknown_8_0_ < 0xff) {
             if (var5->currentStats_->primaryStats.currMP < var10) var9 = 1;
@@ -144,7 +144,7 @@ extern "C" ARM int func_ov024_021eaa50(Struct_ov024_021ea4d0* arg0, Struct_ov024
             void* var16 = GetParty_02010828(var3);
             if (*(unsigned int*)((char*)var16 + 0xf6c) < var2->unknown_32_) var15 = 1;
         } else {
-            GameObject* var17 = func_0200ff58(var3, var4);
+            GameObject* var17 = GetCompanionByIndex_0200ff58(var3, var4);
             if (var17 != 0) {
                 if (((int*)(*(char**)(var0 + 0x10) + 0x8e84))[0] < var2->unknown_32_) var15 = 1;
             } else {

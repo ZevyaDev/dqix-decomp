@@ -24,15 +24,15 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigne
 extern AllocatorUnion gMainHeap_02114e20;
 
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
-extern "C" int func_020100f8(char* arg0);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a27b8(unsigned char* arg0);
 extern "C" void func_020a27ac(void* arg0);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_020a1df8(int arg0);
 extern "C" void func_020daeb0(void* arg0);
 
 struct Struct_02018300_3;
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 
 struct Struct_020dac94 {
     char unknown_0_;
@@ -73,8 +73,8 @@ extern "C" ARM void func_020dac94(void* arg0, void*) {
         func_ov003_0217daf0(var0->unknown_c_);
         func_ov003_0217cd24(var0->unknown_c_, &var0->unknown_14_);
         GameObject* var6 = var1->GetUnknownGameObject();
-        func_020397cc((struct Struct_02018300_3*)var6, 1);
-        int var7 = func_020100f8((char*)var1);
+        DisablePlayerControl_020397cc((struct Struct_02018300_3*)var6, 1);
+        int var7 = GetFollowCamera_020100f8((char*)var1);
         func_020a27b8((unsigned char*)var7);
         var0->unknown_10_ = 1;
         return;
@@ -95,8 +95,8 @@ extern "C" ARM void func_020dac94(void* arg0, void*) {
     }
     func_020dae08(arg0);
     GameObject* var9 = var1->GetUnknownGameObject();
-    func_020397c0(var9);
-    int var10 = func_020100f8((char*)var1);
+    EnablePlayerControl_020397c0(var9);
+    int var10 = GetFollowCamera_020100f8((char*)var1);
     func_020a27ac((void*)var10);
     func_020a28b0((unsigned char*)var10, 2);
     ClearFlags04(GetGameResources(), 0xc0);

@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-extern "C" void func_02094ab0(int arg0);
+extern "C" void CancelFontLoad_02094ab0(int loader);
 extern "C" void func_ov017_0218b5c0(int arg0, int arg1);
 extern "C" void func_ov017_0218b5f8(int arg0);
 
-extern "C" int func_02094a00(void);
+extern "C" int GetFontLoader_02094a00(void);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
 
@@ -28,9 +28,9 @@ struct Struct_020d7aa0_2 {
 
 // USA: func_020d7aa0
 extern "C" ARM void func_020d7aa0(struct Struct_020d7aa0_2* arg0) {
-    int var0 = func_02094a00();
+    int var0 = GetFontLoader_02094a00();
     if (arg0->unknown_150_.unknown_0_7_) {
-        func_02094ab0(var0);
+        CancelFontLoad_02094ab0(var0);
     }
     if (arg0->unknown_150_.unknown_0_6_) {
         ResetMessageWindow_02043204((char*)GetMessageWindow_020421a0());

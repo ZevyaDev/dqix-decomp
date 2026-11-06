@@ -99,7 +99,7 @@ struct Struct_ov006_02154614 {
 
 extern "C" void func_ov023_021dc354(Struct_ov006_02154614_2* arg0);
 extern "C" void func_ov006_02156e54(Struct_ov006_02154614* arg0);
-extern "C" void func_020100c4(GameState* arg0, int arg1);
+extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void func_020dbebc(void* arg0);
 extern "C" void func_ov006_02154614(Struct_ov006_02154614* arg0);
 
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov006_021547c8(Struct_ov006_02154614* arg0) {
     }
     if (arg0->unknown_1a0_ != 0) {
         GameState* var5 = GameState::GetInstance();
-        func_020100c4(var5, (int)arg0->unknown_1a0_);
+        SetCamera_020100c4(var5, (int)arg0->unknown_1a0_);
         arg0->unknown_1a0_ = 0;
     }
     if (!(arg0->unknown_ae2_ & 8)) {

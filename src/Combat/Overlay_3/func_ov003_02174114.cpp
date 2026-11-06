@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0201099c_14;
+struct StringTable_0201099c_14;
 struct Struct_ov003_02174114_4;
 struct Struct_02081ee4;
 struct Struct_02081ee4_2;
-struct Struct_02020cb8;
+struct BGLayer_02020cb8;
 
 struct Struct_ov003_02174114 {
 #if defined(jpn)
@@ -92,16 +92,16 @@ extern "C" void StartMessage_0204500c(Struct_ov003_02174114 *, int, int);
 #else
 extern "C" void StartMessage_0204500c(Struct_ov003_02174114 *, int, int, int);
 #endif
-extern "C" void func_020dfc40(Struct_0201099c_14 *);
+extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14 *);
 extern "C" void func_02074af4(void *);
 extern "C" void func_ov023_021dc134(void *, int, int);
-extern "C" void func_0205a444(char *);
+extern "C" void InitSpriteSet_0205a444(char *);
 extern "C" void func_ov003_02174408(Struct_ov003_02174114_4 *);
 extern "C" void func_02081ee4(Struct_02081ee4 *, Struct_02081ee4_2 *);
-extern "C" void func_0204af64(Struct_02020cb8 *);
-extern "C" void func_0204c684(void *);
+extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8 *);
+extern "C" void InitTextWindow_0204c684(void *);
 extern "C" unsigned char func_02011494(char *, void *);
-extern "C" GameObject *func_0200ff1c(GameState *, int);
+extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *, int);
 
 #if defined(jpn)
 #define FIGHTER_OFF_02174114 0x144
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov003_02174114(Struct_ov003_02174114_3 *arg0) {
 
     arg0->unknown_4_ = 0;
     arg0->unknown_8_ = 0;
-    func_020dfc40((Struct_0201099c_14 *) (arg0->unknown_c_));
+    InitStringTable_020dfc40((StringTable_0201099c_14 *) (arg0->unknown_c_));
     arg0->unknown_34_ = 0;
     arg0->unknown_35_ = 0;
     func_02074af4(arg0->unknown_24_);
@@ -134,15 +134,15 @@ extern "C" ARM void func_ov003_02174114(Struct_ov003_02174114_3 *arg0) {
     var3                          = *var2;
     *var2                       = (var3 & ~0x1f00u) | 0x100u;
     func_ov023_021dc134((char *) arg0 + 0x3c, -1, 0);
-    func_0205a444(arg0->unknown_7d8_);
+    InitSpriteSet_0205a444(arg0->unknown_7d8_);
     arg0->unknown_830_ = 0;
     func_ov003_02174408((Struct_ov003_02174114_4 *) arg0->unknown_834_);
     func_02081ee4((Struct_02081ee4 *) arg0->unknown_88c_, (Struct_02081ee4_2 *) arg0->unknown_898_);
     arg0->unknown_89c_ = 0;
     for (int var4 = 0; var4 < 2; var4++)
-        func_0204af64((Struct_02020cb8 *) (arg0->unknown_8a0_ + var4 * 32));
+        InitBGLayer_0204af64((BGLayer_02020cb8 *) (arg0->unknown_8a0_ + var4 * 32));
     for (int var5 = 0; var5 < 8; var5++)
-        func_0204c684(arg0->unknown_8e0_ + var5 * 0xe0);
+        InitTextWindow_0204c684(arg0->unknown_8e0_ + var5 * 0xe0);
 
     arg0->unknown_fe0_     = 0;
     arg0->unknown_fe4_     = 0;
@@ -201,7 +201,7 @@ extern "C" ARM void func_ov003_02174114(Struct_ov003_02174114_3 *arg0) {
 
     int var11 = 0;
     while (var11 < arg0->unknown_1030_) {
-        GameObject *var12 = func_0200ff1c(var7, arg0->unknown_101c_[var11]);
+        GameObject *var12 = GetPartyMemberBaseByIndex_0200ff1c(var7, arg0->unknown_101c_[var11]);
         if (var12) {
             Struct_ov003_02174114_2 *var13 = *(Struct_ov003_02174114_2 **) ((char *) var12 + FIGHTER_OFF_02174114);
             bool var14         = var13 ? (var13->unknown_56b_0_ != 0) : false;

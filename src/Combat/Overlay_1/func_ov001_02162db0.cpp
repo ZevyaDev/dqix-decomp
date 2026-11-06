@@ -43,7 +43,7 @@ struct Struct_ov001_02164d14_3 {
     int unknown_34_[8];
 };
 
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 struct Struct_02052e2c;
 extern "C" short* func_02052e2c(Struct_02052e2c*);
 struct Struct_02052df8;
@@ -69,15 +69,15 @@ extern "C" ARM int func_ov001_02162db0(void* arg0, int arg1) {
     short* var7;
 
     var0 = GameState::GetInstance();
-    var5 = func_ov017_021d60f4(arg0);
-    var1 = (Struct_ov001_02162db0_2*)func_0200ff1c(var0, var5);
+    var5 = GetScriptValueAsInt_ov017_021d60f4(arg0);
+    var1 = (Struct_ov001_02162db0_2*)GetPartyMemberBaseByIndex_0200ff1c(var0, var5);
     if (var1 == NULL) {
         return 0;
     }
-    var6 = func_ov017_021d60f4((char*)arg0 + 8);
+    var6 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 8);
     var2 = 0;
     if (arg1 >= 3) {
-        var2 = func_ov017_021d60f4((char*)arg0 + 0x10);
+        var2 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x10);
     }
 
     if (!(data_ov001_02165880.unknown_18_ & 1)) {

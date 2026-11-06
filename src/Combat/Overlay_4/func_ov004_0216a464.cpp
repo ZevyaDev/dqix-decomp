@@ -24,7 +24,7 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
-extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
+extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, void*, int);
 #else
@@ -88,11 +88,11 @@ extern "C" ARM int func_ov004_0216a464(void* arg0) {
     void* var9 = FindStringInList_02072a68(var1, 0xd);
     ClearMessageParams_02046380((void*)var2);
 #if defined(jpn)
-    func_02046574((struct Struct_02046574_2*)var2, 0, (char*)var0+0x2e);
+    SetMessageString_02046574((struct Struct_02046574_2*)var2, 0, (char*)var0+0x2e);
     StartMessage_0204500c((void*)var2, var9, 0);
 #else
     func_02042764((char*)var0 + 0x2e, var8, 1);
-    func_02046574((struct Struct_02046574_2*)var2, 0, var8);
+    SetMessageString_02046574((struct Struct_02046574_2*)var2, 0, var8);
     StartMessage_0204500c((void*)var2, var9, 0, 0xe3);
 #endif
     *(int*)((char*)var2 + Enum_ov004_0216a464_2456) = 1;

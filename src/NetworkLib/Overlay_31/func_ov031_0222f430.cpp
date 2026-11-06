@@ -24,7 +24,7 @@ extern "C" void func_ov031_02222e80();
 extern "C" void func_ov031_022238cc();
 extern "C" void func_ov031_0222f9ec();
 extern "C" void func_ov031_022308d4();
-extern "C" int func_ov031_02236878(int);
+extern "C" int PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern "C" void func_ov031_0223060c(int);
 extern "C" void func_ov031_022306d4();
 extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov031_0222f430() {
     case 3: {
         data_ov031_02290ca0.unknown_8_->unknown_45_ = 0;
         data_ov031_02290ca0.unknown_4_ = (func_ov031_022351d0() * 145) / 55;
-        func_ov031_02236878(0x13);
+        PlayWifiSetupSoundEffect_ov031_02236878(0x13);
         func_ov031_0222f9ec();
         int var0 = FastIntModulus(data_ov031_02290ca0.unknown_4_, 0x1d);
         if (var0 == 0) {
@@ -65,20 +65,20 @@ extern "C" ARM void func_ov031_0222f430() {
     case 4:
         if (data_ov031_02290ca0.unknown_4_ == 0) {
             if (data_ov031_02290ca0.unknown_8_->unknown_46_) return;
-            func_ov031_02236878(9);
+            PlayWifiSetupSoundEffect_ov031_02236878(9);
             data_ov031_02290ca0.unknown_8_->unknown_46_ = 1;
         } else {
-            func_ov031_02236878(0x13);
+            PlayWifiSetupSoundEffect_ov031_02236878(0x13);
             data_ov031_02290ca0.unknown_8_->unknown_38_ = func_ov031_0223e218(0, (void*)func_ov031_0223060c, 0, 0x78);
         }
         return;
     case 6:
         if (data_ov031_02290ca0.unknown_4_ == 145) {
             if (data_ov031_02290ca0.unknown_8_->unknown_46_) return;
-            func_ov031_02236878(9);
+            PlayWifiSetupSoundEffect_ov031_02236878(9);
             data_ov031_02290ca0.unknown_8_->unknown_46_ = 1;
         } else {
-            func_ov031_02236878(0x13);
+            PlayWifiSetupSoundEffect_ov031_02236878(0x13);
             data_ov031_02290ca0.unknown_8_->unknown_38_ = func_ov031_0223e218(0, (void*)func_ov031_022306d4, 0, 0x78);
         }
         return;

@@ -18,9 +18,9 @@
 #endif
 #include <GameState/GameState.h>
 
-struct Struct_0205d1e0;
+struct TextWindowManager_0205d1e0;
 struct Struct_0205d228;
-struct Struct_0205d274;
+struct TextWindowManager_0205d274;
 struct Struct_020e28dc;
 struct Struct_020e2794_2;
 
@@ -50,9 +50,9 @@ extern "C" void func_ov005_0215a2c8(Struct_ov005_02153954* arg0);
 extern "C" void func_ov005_0215a3bc(Struct_ov005_02153954* arg0);
 extern "C" void func_ov005_0215aa44(Struct_ov005_02153954* arg0);
 extern "C" void func_ov005_0215acc0(Struct_ov005_02153954* arg0);
-extern "C" void func_0205d1e0(Struct_0205d1e0* arg0);
+extern "C" void func_0205d1e0(TextWindowManager_0205d1e0* arg0);
 extern "C" void func_0205d228(Struct_0205d228* arg0);
-extern "C" void func_0205d274(Struct_0205d274* arg0);
+extern "C" void func_0205d274(TextWindowManager_0205d274* arg0);
 extern "C" void func_ov005_02159c88(Struct_ov005_02153954* arg0);
 extern "C" int func_020e28dc(Struct_020e28dc* arg0);
 extern "C" void func_020e2794(Struct_020e2794_2* arg0, void* arg1);
@@ -102,9 +102,9 @@ extern "C" ARM void func_ov005_02154ef0(Struct_ov005_02153954* arg0) {
         func_ov005_0215a3bc(arg0);
         func_ov005_0215aa44(arg0);
         func_ov005_0215acc0(arg0);
-        func_0205d1e0((Struct_0205d1e0*)arg0->unknown_ee4_);
+        func_0205d1e0((TextWindowManager_0205d1e0*)arg0->unknown_ee4_);
         func_0205d228((Struct_0205d228*)arg0->unknown_ee4_);
-        func_0205d274((Struct_0205d274*)arg0->unknown_ee4_);
+        func_0205d274((TextWindowManager_0205d274*)arg0->unknown_ee4_);
     }
     func_ov005_02159c88(arg0);
     if (arg0->unknown_e64_ != NULL && func_020e28dc((Struct_020e28dc*)arg0->unknown_e64_))

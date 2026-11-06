@@ -10,11 +10,11 @@ extern "C" void func_ov004_0216794c(short* arg0, short* arg1, short* arg2, char*
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ClearMessageParams_02046380(void* window);
 struct Struct_02046574_2;
-extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
+extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 #if defined(jpn)
 struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9;
-extern "C" ItemData_0201099c_9* func_020dedd0(ItemTable_0201099c_10*, int);
+extern "C" ItemData_0201099c_9* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" ItemTable_0201099c_10* func_ov004_02167908(void* arg0, int arg1);
 #else
 extern "C" int func_ov004_02167908(void* arg0, int arg1);
@@ -63,7 +63,7 @@ extern "C" ARM int func_ov004_02167b78(void* arg0, struct Struct_ov004_02170010_
 
     GameObject* var3 = GameState::GetInstance()->GetUnknownGameObject();
     if (var3 != 0) {
-        func_02046574((struct Struct_02046574_2*)var2, 0, var3->baseStats_->unk);
+        SetMessageString_02046574((struct Struct_02046574_2*)var2, 0, var3->baseStats_->unk);
     }
 
 #if defined(jpn)
@@ -86,9 +86,9 @@ extern "C" ARM int func_ov004_02167b78(void* arg0, struct Struct_ov004_02170010_
         }
         if (arg1 != 0) {
 #if defined(jpn)
-            ItemData_0201099c_9* var6 = func_020dedd0(var4, arg1->unknown_2_);
+            ItemData_0201099c_9* var6 = FindItemData_020dedd0(var4, arg1->unknown_2_);
             if (var6 != 0) {
-                func_02046574((struct Struct_02046574_2*)var2, 1, *(char**)((char*)var6 + 4));
+                SetMessageString_02046574((struct Struct_02046574_2*)var2, 1, *(char**)((char*)var6 + 4));
             }
 #else
             if (data_ov004_02171024.unknown_4_ != 0 && data_ov004_02171024.unknown_0_ != 0 && data_ov004_02171024.unknown_8_ != 0) {

@@ -19,7 +19,7 @@ struct Struct_0209ff6c;
 struct Struct_ov023_021f1868_10;
 struct Struct_020a13c4;
 struct Struct_020a15bc;
-struct Struct_0201099c_14;
+struct StringTable_0201099c_14;
 struct Struct_0201099c_3;
 struct Struct_ov023_021f1868_11;
 struct Struct_ov023_021eeaac_2;
@@ -197,17 +197,17 @@ extern "C" void func_0209fee4(Struct_0209fee4* arg0, SafeAllocator* arg1, int ar
 extern "C" void func_0209ff64(Struct_0209ff64* arg0, int arg1);
 extern "C" void func_0209ff6c(Struct_0209ff6c* arg0);
 extern "C" int func_ov023_021f21f4(Struct_ov023_021f1868_10* arg0);
-extern "C" Struct_ov023_021f1868* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" Struct_ov023_021f1868* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
-extern "C" void func_02046574(Struct_02046574_2* arg0, int arg1, char* arg2);
-extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" void SetMessageString_02046574(Struct_02046574_2* window, int index, char* text);
+extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void** func_020e5294(void* arg0, int arg1);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_020a13c4(Struct_020a13c4* arg0);
 extern "C" void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short arg3, unsigned char arg4);
 extern "C" void* func_020dfc2c(void* arg0);
-extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
+extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void* func_020a15bc(Struct_020a15bc* arg0, int arg1);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_ov023_021f222c(Struct_ov023_021f1868_11* arg0);
@@ -291,7 +291,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             char* var6 = FindStringInList_02072a68(arg0->unknown_5770_, var20->unknown_74_[var20->unknown_e3_]);
             if (var6 != NULL)
             {
-                Struct_ov023_021f1868* var7 = func_0200ff1c(var19, var2);
+                Struct_ov023_021f1868* var7 = GetPartyMemberBaseByIndex_0200ff1c(var19, var2);
                 if (var7 != NULL)
                 {
                     char var8[0x80];
@@ -299,7 +299,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
                     AppendText_02042058(var8, var6);
                     AppendText_02042058(var8, FindStringInList_02072a68(&arg0->unknown_5af4_, 0x22));
                     ClearMessageParams_02046380(var0);
-                    func_02046574((Struct_02046574_2*)var0, 0, var7->unknown_134_);
+                    SetMessageString_02046574((Struct_02046574_2*)var0, 0, var7->unknown_134_);
                     if (var3)
                     {
                         StartMessage_0204500c(var0, var8, 1);
@@ -354,7 +354,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             Struct_ov023_021f1868_14* var14 = var19->GetProtagonist();
             Struct_ov023_021f1868_7 var15;
             func_020dfc2c(&var15);
-            func_020dfc40((Struct_0201099c_14*)&var15);
+            InitStringTable_020dfc40((StringTable_0201099c_14*)&var15);
             func_020e1fc4(&var15, &arg0->unknown_30_, data_ov023_021fd533, var9, (unsigned short)var11, var14->unknown_150_->unknown_49c_.unknown_0_0_, 1);
             arg0->unknown_55d0_ = (Struct_ov023_021f1868_5*)arg0->unknown_30_.Allocate(var11 * sizeof(Struct_ov023_021f1868_5));
             for (var10 = 0; var10 < var11; var10++)
@@ -380,9 +380,9 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             arg0->unknown_5770_ = NULL;
             arg0->unknown_57b4_ = NULL;
             arg0->unknown_77d1_ = 0;
-            FontLoader_0208cb08* var18 = func_02094a00();
+            FontLoader_0208cb08* var18 = GetFontLoader_02094a00();
             func_02094b40(var18);
-            func_02094b34(var18, 0x65, 500, 0, 0);
+            RequestFontLoad_02094b34(var18, 0x65, 500, 0, 0);
             var20->unknown_0_ = 8;
         }
     }
@@ -449,7 +449,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
                 var30 = FindStringInList_02072a68(arg0->unknown_557c_, var29->unknown_6_4_);
             if (var30 != NULL)
             {
-                Struct_ov023_021f1868* var31 = func_0200ff1c(GameState::GetInstance(), var23);
+                Struct_ov023_021f1868* var31 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), var23);
                 if (var31 != NULL)
                 {
                     char var32[0x200];
@@ -459,8 +459,8 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
                     AppendText_02042058(var32, var30);
                     AppendText_02042058(var32, FindStringInList_02072a68(&arg0->unknown_5904_, 0x22));
                     ClearMessageParams_02046380(var21);
-                    func_02046574((Struct_02046574_2*)var21, 0, var31->unknown_134_);
-                    func_020e4bf4(var33, var23);
+                    SetMessageString_02046574((Struct_02046574_2*)var21, 0, var31->unknown_134_);
+                    InitPartyMemberNoun_020e4bf4(var33, var23);
                     var21->unknown1_0_ = var33;
                     if (var29->unknown_6_4_ == 1)
                     {
@@ -468,16 +468,16 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
                         var21->unknown_8_ = var35;
                         __clear(var34, sizeof(var34));
                         func_020e4864(*var35, var34, 1, 0, 0, 0);
-                        func_02046574((Struct_02046574_2*)var21, 1, var34);
+                        SetMessageString_02046574((Struct_02046574_2*)var21, 1, var34);
                     }
                     else
                     {
-                        func_02046574((Struct_02046574_2*)var21, 1, FindStringInList_02072a68(arg0->unknown_557c_, (short)(var29->unknown_4_0_ + 100)));
+                        SetMessageString_02046574((Struct_02046574_2*)var21, 1, FindStringInList_02072a68(arg0->unknown_557c_, (short)(var29->unknown_4_0_ + 100)));
                     }
                     int var36 = 2;
                     if (var29->unknown_6_4_ == 4 || var29->unknown_6_4_ == 0x10)
                         var36 = 1;
-                    func_02046574((Struct_02046574_2*)var21, var36, FindStringInList_02072a68(arg0->unknown_557c_, (short)(var29->unknown_1_3_ + 200)));
+                    SetMessageString_02046574((Struct_02046574_2*)var21, var36, FindStringInList_02072a68(arg0->unknown_557c_, (short)(var29->unknown_1_3_ + 200)));
                     SetMessageNumber_020465c0((MessageWindow_020465c0*)var21, 0, var29->unknown_5_4_);
                     if (var24)
                     {
@@ -532,7 +532,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             Struct_ov023_021f1868_14* var42 = var19->GetProtagonist();
             Struct_ov023_021f1868_7 var43;
             func_020dfc2c(&var43);
-            func_020dfc40((Struct_0201099c_14*)&var43);
+            InitStringTable_020dfc40((StringTable_0201099c_14*)&var43);
             BackgroundLoader::AddLockGlobal();
             unsigned int var44 = 0;
             char var45[0x40];
@@ -571,9 +571,9 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             arg0->unknown_5580_ = NULL;
             arg0->unknown_55c4_ = NULL;
             arg0->unknown_77d1_ = 0;
-            FontLoader_0208cb08* var52 = func_02094a00();
+            FontLoader_0208cb08* var52 = GetFontLoader_02094a00();
             func_02094b40(var52);
-            func_02094b34(var52, 0x65, 500, 0, 0);
+            RequestFontLoad_02094b34(var52, 0x65, 500, 0, 0);
             var20->unknown_0_ = 8;
         }
     }
@@ -608,14 +608,14 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
         arg0->unknown_55d5_ = 0;
         arg0->unknown_77d1_ = 0;
         SetMainBrightness(GetResources_0200fb8c((int*)var19), 0, 0xf);
-        FontLoader_0208cb08* var53 = func_02094a00();
+        FontLoader_0208cb08* var53 = GetFontLoader_02094a00();
         func_02094b40(var53);
-        func_02094b34(var53, 0x65, 500, 0, 0);
+        RequestFontLoad_02094b34(var53, 0x65, 500, 0, 0);
         var20->unknown_0_++;
     }
     else if (var20->unknown_0_ == 8)
     {
-        if (func_02094b4c(func_02094a00()))
+        if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()))
             var20->unknown_0_++;
     }
     else if (var20->unknown_0_ == 9)

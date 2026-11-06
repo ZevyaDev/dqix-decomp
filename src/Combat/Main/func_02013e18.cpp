@@ -21,10 +21,10 @@ extern "C" {
     void func_02017a94(Zone3D*);
     int func_0201b5b0(int);
     int func_0201b5d8(int);
-    void func_020c5588(int, int, int, int, int);
+    void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
     void func_02018f30(unsigned char*);
     void func_020181fc(void*);
-    int func_020100f8(char const*);
+    int GetFollowCamera_020100f8(char const*);
 }
 
 // USA: func_02013e18
@@ -74,7 +74,7 @@ extern "C" ARM int func_02013e18(Zone3D* arg0)
     else
         var4 = arg0->lighting_.advanced_.backgroundColor[var3];
 
-    func_020c5588(var4, 0x10, 0x7fff, 0, 0);
+    Set3DClearColorAndDepth_020c5588(var4, 0x10, 0x7fff, 0, 0);
 
     GameResources* var5 = GetGameResources();
     int var6 = (unsigned int)((unsigned char*)arg0->pUnknownStruct_8_)[0xe] << 24 >> 31;
@@ -85,7 +85,7 @@ extern "C" ARM int func_02013e18(Zone3D* arg0)
 
     func_02018f30((unsigned char*)arg0);
     func_020181fc(arg0);
-    (void)func_020100f8((char const*)GameState::GetInstance());
+    (void)GetFollowCamera_020100f8((char const*)GameState::GetInstance());
 
     arg0->unk_830[1] = (char)var1->timeOfDayIndex_;
     arg0->unk_830[2] = 0;

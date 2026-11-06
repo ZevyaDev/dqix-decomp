@@ -61,7 +61,7 @@ struct Struct_ov017_021a2128_2 { short unknown_0_; short unknown_2_; };
 extern "C" Struct_ov017_021a2128_2* func_0209be84(Struct_02073ec4_2*, unsigned int, int);
 extern "C" int func_02018fbc(void*, Vector3fix*);
 extern "C" int func_020283fc(Struct_020283fc*, int);
-extern "C" void func_02033874(Struct_02033834*, int);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_020795e8(Struct_020795e8*, Struct_020795e8_2*);
 extern "C" void func_02076ccc(void*, int);
 extern "C" void func_02076cc4(Struct_02076cc4*, int);
@@ -101,7 +101,7 @@ extern "C" ARM int func_ov017_021a2128(Struct_ov017_021a2128* arg0, unsigned sho
     var7->unknown_b8_ = func_020283fc((Struct_020283fc*)var0->unknown_18_, arg6);
     var7->unknown_164_ = arg6;
     var7->unknown_0_.position_ = var11;
-    func_02033874((Struct_02033834*)var7, arg5);
+    SetFacingInstantly_02033874((Struct_02033834*)var7, arg5);
     var7->unknown_0_.SetRadius(var1->unknown_c_ << 2);
     var7->unknown_0_.SetHeight(var1->unknown_e_);
     Struct_020795e8_2* var12 = (Struct_020795e8_2*)func_0206ef18(var0->unknown_304_, (short)arg2);

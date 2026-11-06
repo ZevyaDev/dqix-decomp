@@ -40,7 +40,7 @@ struct Struct_ov014_02184a64_3 {
 };
 extern "C" {
 void func_ov023_021e2bdc(void*, short, short*, short*);
-void func_0205ac40(void*, void*);
+void DrawSprite_0205ac40(void*, void*);
 extern const short data_ov014_0218948c[6];
 extern const short data_ov014_0218948e[6];
 extern const short data_ov014_02189478[3];
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov014_02184a64(Struct_ov014_02184a64_3* arg0) {
                 Struct_ov014_02184a64_2* var7 = &arg0->unknown_8_[var3];
                 var7->unknown_14_ = var4 << 12;
                 var7->unknown_18_ = var5 << 12;
-                if (arg0->unknown_94_) func_0205ac40(arg0->unknown_4_, &arg0->unknown_8_[var3]);
+                if (arg0->unknown_94_) DrawSprite_0205ac40(arg0->unknown_4_, &arg0->unknown_8_[var3]);
             }
         }
     }

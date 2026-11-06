@@ -14,11 +14,11 @@ enum { Enum_ov017_021c17fc_189632 = 0x2e4c0, Enum_ov017_021c17fc_28 = 0x1c, Enum
 struct AllocatorUnion;
 struct Struct_02018300_3;
 
-extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
-extern "C" int func_020100f8(char* arg0);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_020a0cc4(unsigned int arg0);
 extern "C" void func_020a0c0c(void);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
@@ -59,9 +59,9 @@ extern "C" ARM void func_ov017_021c17fc(Struct_ov017_021c17fc_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     GameObject* var2 = var0->GetUnknownGameObject();
-    func_020397cc((Struct_02018300_3*)var2, 1);
+    DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
     SetFlags04(var1, 0xc0);
-    unsigned char* var3 = (unsigned char*)func_020100f8((char*)var0);
+    unsigned char* var3 = (unsigned char*)GetFollowCamera_020100f8((char*)var0);
     func_020a28a0(var3, 3);
     if (arg0->unknown_1c_ == 0) {
         func_020a0cc4(Enum_ov017_021c17fc_189632);
@@ -106,7 +106,7 @@ extern "C" ARM void func_ov017_021c17fc(Struct_ov017_021c17fc_2* arg0) {
     func_020dc2d0(0);
     if (arg0->unknown_1d_) {
         if (var5) {
-            func_020397c0(var2);
+            EnablePlayerControl_020397c0(var2);
             func_020a28b0(var3, 3);
             ClearFlags04(var1, 0xc0);
         } else {

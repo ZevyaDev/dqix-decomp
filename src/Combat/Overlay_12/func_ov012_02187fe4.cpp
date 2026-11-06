@@ -81,12 +81,12 @@ struct Struct_ov012_02187fe4
     unsigned char unknown_13ff_;
 };
 
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 struct SoundEffectManager_02108760;
 struct Struct_ov012_02186a7c;
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 
-extern "C" void func_0205de24(Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
 extern "C" void func_ov012_0218a054(Struct_ov012_02187fe4* arg0);
 extern "C" int func_ov023_021e63bc(Struct_ov012_02187fe4* arg0);
 extern "C" void func_ov023_021e61f4(Struct_ov012_02187fe4* arg0);
@@ -104,7 +104,7 @@ extern "C" void func_ov012_0218bba0(Struct_ov012_02187fe4* arg0, int arg1, int a
 extern "C" void func_ov012_0218adac(Struct_ov012_02187fe4* arg0, int arg1, int arg2, int arg3);
 #endif
 extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c* arg0);
-extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void func_ov023_021e6e60(Struct_ov012_02187fe4* arg0);
 extern "C" void func_ov012_0218943c(Struct_ov012_02187fe4* arg0);
 
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov012_02187fe4(Struct_ov012_02187fe4* arg0)
 #if !defined(jpn)
     if (arg0->unknown_1370_ == 0)
     {
-        func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ac_, 1);
+        CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_ac_, 1);
         arg0->unknown_1370_++;
         return;
     }
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov012_02187fe4(Struct_ov012_02187fe4* arg0)
         arg0->unknown_13fc_ = inline_ov012_02187fe4(var0)->unknown_0_0_;
         arg0->unknown_13fe_ = inline_ov012_02187fe4(var0)->unknown_1_4_;
         arg0->unknown_13ff_ = inline_ov012_02187fe4(var0)->unknown_2_0_;
-        func_0205de24((Struct_0205de24_2*)arg0->unknown_ac_, 0, 2);
+        SetNextTextWindowBGLayer_0205de24((TextWindowManager_0205de24_2*)arg0->unknown_ac_, 0, 2);
         func_ov023_021e6e60(arg0);
         func_ov012_0218a054(arg0);
         arg0->unknown_13a0_ = 0;
@@ -263,7 +263,7 @@ extern "C" ARM void func_ov012_02187fe4(Struct_ov012_02187fe4* arg0)
         }
         if (!var4)
             return;
-        func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ac_, 1);
+        CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_ac_, 1);
         arg0->unknown_1370_++;
         return;
     }

@@ -49,10 +49,10 @@ extern "C" void func_020adaac(Struct_020ad61c_3*);
 extern "C" void func_020ae398(Struct_020ad61c*);
 extern "C" void func_020ae3f4(Struct_020ad61c_2*);
 extern "C" int func_02046b24(Struct_02015438**);
-extern "C" void func_020397c0(void*);
+extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" int func_02018fbc(Zone3D*, Struct_02015ef4*);
-extern "C" int func_02046b08(void**);
+extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_ov017_021a72f4(GameResources*, int);
 extern short data_020e9450[];
 extern Struct_ov017_021d82fc_5 data_ov017_021d82fc;
@@ -120,9 +120,9 @@ extern "C" ARM void func_020ad61c(Struct_020ad61c_3* arg0) {
     GameObject* var11 = var3->GetUnknownGameObject();
     if (var11 && func_02046b24(var10) != 3) {
         var11->obj3D_.position_ = arg0->unknown_0_.position_;
-        func_020397c0(var11);
+        EnablePlayerControl_020397c0(var11);
     }
-    var8 = func_020100bc(var3);
+    var8 = GetCamera_020100bc(var3);
     int var12 = 0;
     var9 = 0;
     int var13[3];
@@ -154,7 +154,7 @@ extern "C" ARM void func_020ad61c(Struct_020ad61c_3* arg0) {
             }
         }
     }
-    if (func_02046b08((void**)var10) && arg0->unknown_13c_ == 0) {
+    if (IsQueueEmpty_02046b08((void**)var10) && arg0->unknown_13c_ == 0) {
         if (g_keyManager.TestKeysPressed(1) || var9) {
             func_ov017_021a72f4(var7, 1);
         } else if (g_keyManager.TestKeysPressed(2) || var12) {

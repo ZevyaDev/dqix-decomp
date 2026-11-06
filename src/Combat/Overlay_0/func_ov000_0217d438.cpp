@@ -3,7 +3,7 @@
 
 struct Struct_0205c570;
 struct SoundEffectManager_02108760;
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 
 struct Struct_ov000_0217d438 {
 #if defined(jpn)
@@ -45,9 +45,9 @@ struct Struct_ov000_0217d438_3 {
     signed char unknown_1d74_[4];
 };
 
-extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" int func_ov000_0217c5f4(void* arg0);
 extern "C" int func_ov000_0217c594(void* arg0, int arg1);
 extern "C" void func_ov000_0217c638(void* arg0, int arg1, int arg2);
@@ -67,7 +67,7 @@ static inline int inline_ov000_02156cc4_2(signed char arg0) {
 // USA: func_ov000_0217d438
 extern "C" ARM void func_ov000_0217d438(struct Struct_ov000_0217d438_3* arg0, int arg1, int arg2) {
     arg0->unknown_1d72_ |= 0x100;
-    arg0->unknown_1d6c_ = func_0205d794((struct Struct_0205c570*)arg0->unknown_188_);
+    arg0->unknown_1d6c_ = GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_188_);
     if (func_ov000_0217c594(arg0, 0) != 0) {
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         GameState* var0 = GameState::GetInstance();
@@ -112,13 +112,13 @@ extern "C" ARM void func_ov000_0217d438(struct Struct_ov000_0217d438_3* arg0, in
             func_ov000_02174c14(arg0);
             return;
         }
-        func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_188_, 0);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_188_, 0);
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 0;
         arg0->unknown_1d68_ = arg0->unknown_1d68_ - 1;
         func_ov000_0217c638(arg0, arg1, arg2);
         func_ov017_021c847c();
     } else if (func_ov000_0217c5f4(arg0) != 0) {
-        func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_188_, 0);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_188_, 0);
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 0;
         arg0->unknown_1d68_ = arg0->unknown_1d68_ - 1;
         func_ov000_0217c638(arg0, arg1, arg2);

@@ -45,7 +45,7 @@ extern "C" ARM void func_0205337c(struct Struct_0205337c_2* arg0) {
     if (func_02046708((struct Struct_02012de8*)GetGlobalFlags_020d6c00(), 2)) return;
     if (arg0->unknown_190_ == NULL) return;
 
-    void* var0 = func_020100bc(GameState::GetInstance());
+    void* var0 = GetCamera_020100bc(GameState::GetInstance());
     *(volatile int*)0x4000444 = 0;
 
     struct Struct_02015ef4 var1 = arg0->unknown_44_;

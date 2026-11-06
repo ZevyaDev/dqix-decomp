@@ -5,7 +5,7 @@
 #include <std_library_functions.h>
 #include "Resource/Brightness.h"
 
-struct Struct_02109bf4_4;
+struct MusicManager_02109bf4_4;
 struct Struct_0209c3b4_2;
 struct Struct_02018300_3;
 struct Struct_020979c0;
@@ -50,9 +50,9 @@ struct Struct_ov017_021b1564_6 { char unknown_0_[0x114]; void* unknown_114_; cha
 extern "C" GameResources* GetResources_0200fb8c(int*);
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" Struct_ov017_021b1564_8* GetMessageWindow_020421a0();
-extern "C" unsigned char* func_020100f8(char*);
+extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" void func_020a27b8(unsigned char*);
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, signed char*, int);
 enum { Enum_ov017_021b1564_248832 = 0x3b000, Enum_ov017_021b1564_255008 = 0x3c820 };
@@ -64,8 +64,8 @@ extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" int func_020457e0(void*);
 extern "C" void func_020a27ac(void*);
 void SetBrightness(GameResources*, int, int);
-extern "C" void func_0209c678(Struct_02109bf4_4*, int);
-extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" void func_0209c678(MusicManager_02109bf4_4*, int);
+extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" void func_020dc2bc();
 extern "C" void func_020a0cc4(unsigned int);
@@ -116,7 +116,7 @@ extern "C" int* func_0203df78(void*, int);
 extern "C" void* func_02040528(int*);
 extern "C" void func_ov017_021b8d1c(Struct_ov017_021b1564_6*);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
-extern "C" void func_020397c0(void*);
+extern "C" void EnablePlayerControl_020397c0(void*);
 extern char gMusicManager_02109bf4[];
 extern AllocatorUnion gMainHeap_02114e20;
 extern Struct_ov017_021b1564* data_ov017_021d83ec;
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
     GameResources* var1 = GetResources_0200fb8c((int*)var0);
     unsigned int* var2 = GetGlobalFlags_020d6c00();
     Struct_ov017_021b1564_8* var3 = GetMessageWindow_020421a0();
-    unsigned char* var4 = func_020100f8((char*)var0);
+    unsigned char* var4 = GetFollowCamera_020100f8((char*)var0);
     GameObject* var5 = var0->GetUnknownGameObject();
     if (var4) func_020a27b8(var4);
     if (arg0->unknown_48_ == 0) {
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         SetFlags04(var1, 0x40);
         if (!arg0->unknown_49_) {
             GameObject* var6 = var0->GetUnknownGameObject();
-            if (var6) func_020397cc((Struct_02018300_3*)var6, 1);
+            if (var6) DisablePlayerControl_020397cc((Struct_02018300_3*)var6, 1);
             if (*var3->unknown_5c_) {
 #if defined(jpn)
                 StartMessage_0204500c(var3, var3->unknown_5c_, 0);
@@ -165,8 +165,8 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         }
         ResetMessageWindow_02043204((char*)var3);
         SetBrightness(var1, -16, 16);
-        func_0209c678((Struct_02109bf4_4*)gMusicManager_02109bf4, 15);
-        func_020466e4(var2, 1);
+        func_0209c678((MusicManager_02109bf4_4*)gMusicManager_02109bf4, 15);
+        SetGlobalFlags_020466e4(var2, 1);
         arg0->unknown_48_ = 1;
         return;
     } else if (arg0->unknown_48_ == 1) {
@@ -311,7 +311,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         }
         if (!var16) return;
         GameObject* var20 = var0->GetUnknownGameObject();
-        if (var20) func_020397c0(var20);
+        if (var20) EnablePlayerControl_020397c0(var20);
         func_020a0c0c();
         arg0->unknown_1_ = 1;
     }

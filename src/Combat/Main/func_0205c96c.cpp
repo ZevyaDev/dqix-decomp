@@ -21,7 +21,7 @@ struct Struct_02042c68 {
     short unknown_18_;
 };
 
-struct Struct_0205a254;
+struct SpriteAnimationList_0205a254;
 struct Struct_0205c96c {
     char unknown_0_[4];
     unsigned short unknown_4_;
@@ -29,9 +29,9 @@ struct Struct_0205c96c {
     char unknown_8_[0xd];
     unsigned char unknown_15_;
 };
-extern "C" void func_0205a370(struct Struct_0205a254* arg0, int arg1);
-extern "C" struct Struct_0205c96c* func_0205a3d0(struct Struct_0205a254* arg0, int arg1);
-extern "C" void func_0205ae8c(void* arg0);
+extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
+extern "C" struct Struct_0205c96c* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
+extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
 
 // USA: func_0205c96c
 extern "C" ARM void func_0205c96c(unsigned char* arg0, int arg1) {
@@ -88,15 +88,15 @@ extern "C" ARM void func_0205c96c(unsigned char* arg0, int arg1) {
                 unsigned short var28 = *(unsigned short*)(var0 + 0x2e4);
 
                 if (var22 != NULL && var27 != NULL) {
-                    func_0205a370((struct Struct_0205a254*)var27, var28);
-                    struct Struct_0205c96c* var29 = func_0205a3d0((struct Struct_0205a254*)var27, var28);
+                    PlaySpriteAnimation_0205a370((struct SpriteAnimationList_0205a254*)var27, var28);
+                    struct Struct_0205c96c* var29 = FindSpriteAnimation_0205a3d0((struct SpriteAnimationList_0205a254*)var27, var28);
                     if (var29 != NULL) var29->unknown_15_ |= 8;
-                    struct Struct_0205c96c* var30 = func_0205a3d0((struct Struct_0205a254*)var27, var28);
+                    struct Struct_0205c96c* var30 = FindSpriteAnimation_0205a3d0((struct SpriteAnimationList_0205a254*)var27, var28);
                     if (var30 != NULL) {
                         var30->unknown_4_ = var26;
                         var30->unknown_6_ = var25;
                     }
-                    func_0205ae8c(var22);
+                    DrawSpriteAnimations_0205ae8c(var22);
                 }
             }
         }

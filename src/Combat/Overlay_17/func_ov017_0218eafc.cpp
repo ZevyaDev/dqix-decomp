@@ -18,7 +18,7 @@ struct Struct_ov017_0218eafc {
     Model3D* unknown_36c8_;
 };
 
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_02057ab8(void* arg0, int arg1);
 extern "C" int func_ov017_021922ac(void* arg0, unsigned int arg1);
 extern "C" int func_02039d68(unsigned char* arg0);
@@ -35,10 +35,10 @@ extern "C" void func_ov017_0218dba0(int arg0);
 // USA: func_ov017_0218eafc
 extern "C" ARM void func_ov017_0218eafc(Struct_ov017_0218eafc* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_02057924();
+    void* var1 = GetEffectManager_02057924();
     int var2 = func_ov017_021922ac(arg0, (unsigned char)arg1);
     if (var2) func_02057ab8(var1, arg1);
-    if (func_020100bc(var0) == 0) return;
+    if (GetCamera_020100bc(var0) == 0) return;
 
     Struct_020236dc_2* var3 = (Struct_020236dc_2*)var0->GetPartyMemberByIndex(arg1);
     int var4 = arg1 * 12 + 0x13;

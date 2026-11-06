@@ -30,7 +30,7 @@ struct Struct_ov000_021675a0_2 {
     struct Struct_ov000_021675a0 unknown_18_;
 };
 
-extern "C" int func_ov000_0215e9fc(char* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(char* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov000_0215fc60(char* arg0);
 extern "C" void func_02049b20(unsigned char* arg0, int* arg1);
 extern "C" void func_02049bac(unsigned char* arg0, int* arg1);
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov000_021675a0(struct Struct_ov000_021675a0_2* arg0) {
     var0 = arg0->unknown_18_.unknown_284_;
 #endif
     var1 = arg0->unknown_18_.unknown_c00_;
-    var2 = func_ov000_0215e9fc(var0, var7, 4, 0);
+    var2 = CollectPartyCombatantIndices_ov000_0215e9fc(var0, var7, 4, 0);
     if (func_ov000_0215fc60(var0)) var2 = 1;
 
     var5 = (var2 - 1) * 0x1800;

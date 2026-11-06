@@ -9,7 +9,7 @@
 
 #include "std_library_functions.h"
 
-struct Struct_0205d5d0;
+struct TextWindowManager_0205d5d0;
 extern "C" void func_ov013_02185424(void*, void*);
 
 struct Struct_ov013_021846a0_2 {
@@ -59,8 +59,8 @@ extern "C" ARM void func_ov013_02186bd4(Struct_ov013_021846a0_2* arg0) {
     memset(arg0->unknown_658_, 0, LOW_REGION(0x800, 0x960));
     func_ov013_02185424(arg0, arg0->unknown_658_);
 #if defined(jpn)
-    func_0205d5d0((Struct_0205d5d0*)arg0->unknown_34_, 0, (int)arg0->unknown_658_, 1);
+    SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)arg0->unknown_34_, 0, (int)arg0->unknown_658_, 1);
 #else
-    func_0205d5d0((Struct_0205d5d0*)arg0->unknown_38_, 0, (int)arg0->unknown_658_, 1, 0);
+    SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)arg0->unknown_38_, 0, (int)arg0->unknown_658_, 1, 0);
 #endif
 }

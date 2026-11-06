@@ -126,7 +126,7 @@ extern "C" ARM void func_ov017_021905b8(GameResources* arg0, int arg1, int arg2)
             Struct_ov017_021905b8_3* var10 = (Struct_ov017_021905b8_3*)arg0->unknown_ptr_3718;
             var9 = 1;
             if (var10->unknown_2_ != 0 && func_ov017_021b8480(var10) == 0) {
-                Struct_ov017_021905b8_4* var11 = (Struct_ov017_021905b8_4*)func_ov017_021b8478(var10);
+                Struct_ov017_021905b8_4* var11 = (Struct_ov017_021905b8_4*)GetBattleSetup_ov017_021b8478(var10);
                 if (var11 != NULL && var11->unknown_8_ == var8->unknown_16a_) {
                     Struct_ov017_021905b8_5* var12 = (Struct_ov017_021905b8_5*)func_ov017_021b8468(var10);
                     if (var12 != NULL && var12->unknown_ea8_ == 7) {

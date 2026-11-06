@@ -37,9 +37,9 @@ extern "C" void func_02020e58(void* arg0, int* arg1);
 #endif
 extern "C" void func_02026428(void* arg0, const char* arg1);
 extern "C" void func_02026470(void* arg0, int arg1);
-struct Struct_02043368_2;
-extern "C" void func_0205a198(struct Struct_02043368_2* arg0);
-extern "C" void func_0205a444(char* arg0);
+struct Sprite_02043368_2;
+extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 struct PacEntry_02020aec;
 extern "C" int func_0205a498(void* arg0, struct PacEntry_02020aec* arg1, int arg2, void* arg3);
 extern "C" void func_0205af38(int arg0, char* arg1, int arg2, int arg3);
@@ -186,9 +186,9 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
         var2 = 0;
         var4->GetLoadedFileByID(arg0->unknown_a04_, &var1, &var2);
         for (int var12 = 0; var12 < 0x1c; var12++) {
-            func_0205a198(&arg0->unknown_e8_[var12]);
+            InitSprite_0205a198(&arg0->unknown_e8_[var12]);
         }
-        func_0205a444((char*)&arg0->unknown_94_);
+        InitSpriteSet_0205a444((char*)&arg0->unknown_94_);
         arg0->unknown_94_.unknown_50_ = 1;
         arg0->unknown_94_.unknown_40_ = arg0->unknown_e8_;
         arg0->unknown_94_.unknown_4c_ = 0x18;

@@ -7,9 +7,7 @@ unsigned short ComputeCurrentKeys();
 
 #if defined(jpn)
 #define func_0200b454 func_0200b318
-#define func_0206df6c func_0206f0c0
 #define func_020c39c8 func_020c5494
-#define func_020c9be0 func_020cb6ac
 
 #define data_020fb3cc data_020fb0f8
 #endif
@@ -22,12 +20,12 @@ extern "C"
 
     void* GetFlagManager_0205ec34();
     // set flag in some big flag mask
-    void func_0206df6c(void*, void*, int, bool);
+    void SetFlag_0206df6c(void*, void*, int, bool);
     // get signed brightness
     int func_020c39c8(volatile unsigned short*);
 
     // abort() or similar
-    void func_020c9be0();
+    void HaltForever_020c9be0();
 }
 
 extern TouchInput* data_020fb3cc;
@@ -79,7 +77,7 @@ dont_ignore:
         if (currentKeys_ != 0)
         {
             void* flagManager = GetFlagManager_0205ec34();
-            func_0206df6c(flagManager, (unsigned char*)flagManager + 0x8c, 0x113e, true);
+            SetFlag_0206df6c(flagManager, (unsigned char*)flagManager + 0x8c, 0x113e, true);
         }
     }
 }
@@ -346,7 +344,7 @@ void TouchInput::Initialize()
     enabled_ = true;
     InitializeTouchSystem();
     if (!GetTouchScreenCalibration(&calibration_))
-        func_020c9be0();
+        HaltForever_020c9be0();
 
     SaveTouchScreenCalibration(&calibration_);
     Unpause();

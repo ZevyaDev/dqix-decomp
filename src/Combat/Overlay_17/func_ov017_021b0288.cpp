@@ -26,14 +26,14 @@ struct Struct_ov017_021b0288_2 {
 
 extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18(void);
 extern "C" unsigned char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
-extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" void func_020546a0(void* arg0, int arg1);
 extern "C" void func_ov017_021c32b0(Struct_ov017_021b0288* arg0, int arg1);
 extern "C" void func_020100a0(GameState* arg0, int arg1);
 extern "C" void func_ov017_02191108(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov017_021b0a7c(Struct_ov017_021b0288_2* arg0);
 extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
-extern "C" void* func_0202ae24(void);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 extern "C" void* func_0205e854(struct Struct_0205e854* arg0);
 
 // USA: func_ov017_021b0288
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov017_021b0288(Struct_ov017_021b0288_2* arg0) {
             var3++;
             memcpy(var7, arg0->unknown_1b_, 4);
             for (var2 = 3; var2 >= 1; var2--) {
-                var0 = func_0200ff58(var6, var2);
+                var0 = GetCompanionByIndex_0200ff58(var6, var2);
                 if (var0 == 0) continue;
                 for (var1 = 3; var1 >= 1; var1--) {
                     if (var7[var1] == 3) {
@@ -84,7 +84,7 @@ extern "C" ARM int func_ov017_021b0288(Struct_ov017_021b0288_2* arg0) {
         func_ov017_021b0a7c(arg0);
         func_ov017_021d0b30(2, 0, 0);
         if (arg0->unknown_9_ != 2) return 0xb;
-        func_0205e854((Struct_0205e854*)func_0202ae24());
+        func_0205e854((Struct_0205e854*)GetLocalWirelessPacketQueue_0202ae24());
         return 6;
     }
     return arg0->unknown_a_;

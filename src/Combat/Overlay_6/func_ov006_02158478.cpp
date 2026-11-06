@@ -11,8 +11,8 @@
 #endif
 
 struct Struct_0207fdcc_2;
-struct Struct_02020cb8;
-struct Struct_02020cb8_5;
+struct BGLayer_02020cb8;
+struct BGLayer_02020cb8_5;
 struct Struct_ov006_02155480_2;
 struct Struct_020e28dc;
 struct Struct_020439b0;
@@ -60,8 +60,8 @@ extern "C" void* GetSubBG0ScreenBase();
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" int func_ov006_02158080(Struct_0207fdcc_2*, int);
 extern "C" Struct_ov006_02158478* func_02081da8(Struct_0207fdcc_2*, int);
-extern "C" void func_0204af64(Struct_02020cb8*);
-extern "C" int func_0204b5e8(Struct_02020cb8_5*, int, int);
+extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
+extern "C" int SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
 extern "C" void func_0204b938(void*, void*, int, int, unsigned short);
 extern "C" void func_ov006_02154fe4(Struct_ov006_02154614*);
 extern "C" void func_ov006_02155480(Struct_ov006_02155480_2*);
@@ -182,11 +182,11 @@ extern "C" ARM void func_ov006_02158478(Struct_ov006_02157a60* arg0)
         var2 = var1->unknown_ac_;
         var3 = var1->unknown_ae_;
         Struct_ov003_021594c4 var5;
-        func_0204af64((Struct_02020cb8*)&var5);
+        InitBGLayer_0204af64((BGLayer_02020cb8*)&var5);
         var5.unknown_1c_0_ = 1;
         var5.unknown_1c_4_ = 0;
         *(unsigned short**)&var5.unknown_0_[0x14] = var0;
-        func_0204b5e8((Struct_02020cb8_5*)&var5, 0, 0);
+        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&var5, 0, 0);
         func_0204b938(&var5, var4, var2, var3, 0xffff);
     }
     func_ov006_02154fe4(R(*(Struct_ov006_02154614**)((char*)arg0+8),arg0->unknown_10_));

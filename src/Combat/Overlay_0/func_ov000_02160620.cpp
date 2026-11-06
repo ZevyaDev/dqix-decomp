@@ -10,7 +10,7 @@
 
 struct Struct_0202b2f0;
 struct Struct_02039fec_2;
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 struct Struct_ov000_02160620_2 {
     unsigned char unknown_0_[RG(0x29c, 0x218)];
     void* unknown_29c_;
@@ -56,8 +56,8 @@ extern "C" int func_020a1fa8();
 extern "C" void func_ov025_021df794(void*);
 extern "C" int IsLocalWirelessGuest_0202c540(Struct_0202b2f0*);
 extern "C" int func_0202c578(Struct_0202b2f0*, int);
-extern "C" Struct_02038598_4* GetGlobalFlags_020d6c00();
-extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
+extern "C" GlobalFlags_02038598_4* GetGlobalFlags_020d6c00();
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void* func_020936f8();
 extern "C" void func_020939dc(void*);
 extern "C" void func_02093a14(char*);
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov000_02160620(Struct_ov000_02160620_2* arg0) {
         if (var3)
             var3->obj3D_.AdvanceEffects();
         if (IsLocalWirelessGuest_0202c540(var1) && func_0202c578(var1, 0) && arg0->unknown_77d0_ == 0) {
-            func_020466f4(GetGlobalFlags_020d6c00(), 0x8020);
+            ClearGlobalFlags_020466f4(GetGlobalFlags_020d6c00(), 0x8020);
             void* var4 = func_020936f8();
             func_020939dc(var4);
             func_02093a14((char*)var4);

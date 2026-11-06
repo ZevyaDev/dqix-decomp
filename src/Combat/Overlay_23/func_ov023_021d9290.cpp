@@ -31,7 +31,7 @@ extern "C" void __clear(void*, int);
 extern "C" Struct_ov023_021d9290_3* func_ov023_021d994c(Struct_ov023_021d9290_2*, int);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" void ClearMessageParams_02046380(int);
-extern "C" void func_02046574(int, int, void*);
+extern "C" void SetMessageString_02046574(int, int, void*);
 extern "C" void SetMessageNumber_020465c0(int, int, int);
 extern "C" void func_020474a8(int, int, char*, char*);
 
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov023_021d9290(Struct_ov023_021d9290_2* arg0, char* arg
                     func_02041b00(arg1, var9);
                 }
                 ClearMessageParams_02046380(var1);
-                func_02046574(var1, 0, var14->unknown_8_);
+                SetMessageString_02046574(var1, 0, var14->unknown_8_);
                 int var16 = arg0->unknown_dc_[var12];
                 int var17 = 0;
                 do {
@@ -128,7 +128,7 @@ extern "C" void __clear(void*, int);
 extern "C" void* func_ov023_021d994c(void*, int);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" void ClearMessageParams_02046380(int);
-extern "C" ARM void func_020e4bf4(void*, int);
+extern "C" ARM void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" int func_020426a4(int, int);
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0*, int, int);
@@ -184,7 +184,7 @@ extern "C" ARM void func_ov023_021d9290(char* arg0, char* arg1, unsigned char ar
                 }
                 ClearMessageParams_02046380(var1);
                 struct Struct_ov023_021d9290 var18;
-                func_020e4bf4(&var18, var13);
+                InitPartyMemberNoun_020e4bf4(&var18, var13);
                 void* var19 = var14->unknown_8_;
                 var18.unknown_0_ = var19;
                 var18.unknown_4_ = var19;

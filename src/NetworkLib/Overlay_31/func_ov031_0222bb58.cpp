@@ -10,7 +10,7 @@ extern "C" int func_ov031_0223d394(int);
 extern "C" void func_ov031_0222cad8(void);
 extern "C" int func_ov031_0223d3d4(int);
 extern "C" void func_ov031_0222ca64(void);
-extern "C" int func_ov031_02236878(int);
+extern "C" int PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern "C" void func_ov031_0222c918(int);
 
 struct Struct_ov031_0222bb58 {
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov031_0222bb58(void) {
                 if (var4 != var3) break;
                 unsigned char var5 = data_ov031_02290c8c.unknown_4_->unknown_51_;
                 if (var3 >= var5) {
-                    func_ov031_02236878(9);
+                    PlayWifiSetupSoundEffect_ov031_02236878(9);
                     break;
                 }
                 func_ov031_02222e20(1);

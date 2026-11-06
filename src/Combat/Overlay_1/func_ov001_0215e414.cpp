@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_ov017_021d6134(void*, int);
+extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
 
 // USA: func_ov001_0215e414
 extern "C" ARM int func_ov001_0215e414(void* arg0) {
@@ -17,6 +17,6 @@ extern "C" ARM int func_ov001_0215e414(void* arg0) {
 #else
     unsigned char var1 = **(unsigned char**)(var0 + Enum_ov001_0215e414_88);
 #endif
-    func_ov017_021d6134(arg0, var1);
+    SetScriptRefInt_ov017_021d6134(arg0, var1);
     return 1;
 }

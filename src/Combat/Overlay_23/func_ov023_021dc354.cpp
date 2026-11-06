@@ -3,8 +3,8 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
 extern "C" void func_ov023_021db2e4(volatile int* arg0);
-extern "C" int func_02094a00(void);
-extern "C" void func_02094ab0(void* arg0);
+extern "C" int GetFontLoader_02094a00(void);
+extern "C" void CancelFontLoad_02094ab0(void* loader);
 struct Struct_02075cdc;
 extern "C" void func_02075d58(struct Struct_02075cdc* arg0);
 extern "C" void func_ov023_021dcd18(void* arg0);
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov023_021dc354(struct Struct_ov023_021dc354* arg0) {
     arg0->unknown_77e_ = -1;
 
     if (!(arg0->unknown_774_ & 0x10)) {
-        func_02094ab0((void*)func_02094a00());
+        CancelFontLoad_02094ab0((void*)GetFontLoader_02094a00());
     }
 
     func_ov023_021db2e4((volatile int*)&arg0->unknown_734_);

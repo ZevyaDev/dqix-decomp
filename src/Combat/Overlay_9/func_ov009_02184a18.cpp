@@ -12,7 +12,7 @@ extern "C" int func_ov009_02185c58(void*);
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct Struct_ov009_02184a18;
 
 struct Struct_ov006_02158478 {
@@ -33,7 +33,7 @@ struct Struct_02081870_2 {
 };
 
 extern "C" void func_020a20d8(void* arg0);
-extern "C" Struct_ov006_02158478* func_0205d8c4(Struct_0205d81c* arg0);
+extern "C" Struct_ov006_02158478* func_0205d8c4(TextWindowManager_0205d81c* arg0);
 extern "C" int func_0204c7cc(unsigned char* arg0);
 extern "C" void func_0205bc24(void* arg0, int arg1);
 extern "C" int func_0205d0e0(Struct_02081870_2* arg0, unsigned int arg1);
@@ -84,7 +84,7 @@ extern "C" ARM int func_ov009_02184a18(Struct_ov009_021842a0_2* arg0)
         func_020a20d8(arg0->unknown_924_);
     if (arg0->unknown_c58_ == 9 && arg0->unknown_c59_ == 2)
     {
-        Struct_ov006_02158478* var1 = func_0205d8c4((Struct_0205d81c*)&arg0->unknown_1f8_[1]);
+        Struct_ov006_02158478* var1 = func_0205d8c4((TextWindowManager_0205d81c*)&arg0->unknown_1f8_[1]);
         if (var1 != NULL && func_0204c7cc((unsigned char*)var1) != 0 && !(var1->unknown_c5_ & 2))
             func_0205bc24(&arg0->unknown_1f8_[1].unknown_0_.unknown_4_, -1);
     }

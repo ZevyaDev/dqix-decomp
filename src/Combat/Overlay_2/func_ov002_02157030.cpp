@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_0205d81c;
-extern "C" unsigned int func_0205d81c(Struct_0205d81c*, int);
+struct TextWindowManager_0205d81c;
+extern "C" unsigned int FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 
 #if defined(jpn)
 #define LIST_02157030 0xe20
@@ -11,7 +11,7 @@ extern "C" unsigned int func_0205d81c(Struct_0205d81c*, int);
 
 // USA: func_ov002_02157030
 extern "C" ARM void func_ov002_02157030(unsigned int arg0, unsigned int arg1, short* arg2, short* arg3, short* arg4, short* arg5) {
-    char* var0 = (char*)func_0205d81c((Struct_0205d81c*)(arg0 + LIST_02157030), arg1);
+    char* var0 = (char*)FindTextWindow_0205d81c((TextWindowManager_0205d81c*)(arg0 + LIST_02157030), arg1);
     if (var0 == 0) {
         return;
     }

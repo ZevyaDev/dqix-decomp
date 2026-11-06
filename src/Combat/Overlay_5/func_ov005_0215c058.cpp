@@ -76,7 +76,7 @@ extern "C" void func_ov005_021551fc(char*, int, int);
 extern "C" GameState* _ZN9GameState11GetInstanceEv();
 extern "C" void func_ov005_02156658(Struct_ov005_0215c058_4* arg0, int arg1, int arg2);
 extern "C" int func_ov005_02155670(Struct_ov005_0215c058_4* arg0, int arg1, int arg2);
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" void func_ov005_021579ec(Struct_ov005_0215c058_4* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" unsigned int _ZNK9GameState12GetTickCountEv(GameState* arg0);
 extern "C" int func_0205bf58(void* arg0, int arg1);
@@ -135,7 +135,7 @@ extern "C" ARM void func_ov005_0215c058(Struct_ov005_0215c058_4* arg0)
             {
                 arg0->unknown_3dbb_ = var6;
                 var3 = 1;
-                func_0205bb04(arg0->unknown_19f4_, arg0->unknown_3dbb_ - 8);
+                SetMenuCursorIndex_0205bb04(arg0->unknown_19f4_, arg0->unknown_3dbb_ - 8);
                 func_ov005_021579ec(arg0, arg0->unknown_3db8_, arg0->unknown_3dbb_);
             }
         }

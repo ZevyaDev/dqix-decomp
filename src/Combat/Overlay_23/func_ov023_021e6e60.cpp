@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 
 struct Struct_0205cf1c;
-struct Struct_0205ba68;
-struct Struct_0205bacc;
+struct MenuCursor_0205ba68;
+struct MenuCursor_0205bacc;
 struct Struct_0205bcdc {
     int unknown_0_; int unknown_4_; char unknown_8_[0x40 - 8];
     unsigned char unknown_40_; unsigned char unknown_41_; char unknown_42_[0x50 - 0x42];
@@ -51,10 +51,10 @@ struct Struct_ov023_021e6e60 {
 extern "C" void func_0205cf10(void*);
 extern "C" void func_0205cf1c(Struct_0205cf1c*);
 extern "C" void func_0205c53c(Struct_0205c53c*);
-extern "C" void func_0205ba68(Struct_0205ba68*, int, int, int);
-extern "C" void func_0205bacc(Struct_0205bacc*, int);
+extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
+extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
 extern "C" void func_0205bcdc(Struct_0205bcdc*, int);
-extern "C" void func_0205bb04(Struct_0205bcdc*, int);
+extern "C" void SetMenuCursorIndex_0205bb04(Struct_0205bcdc*, int);
 
 // USA: func_ov023_021e6e60
 extern "C" ARM void func_ov023_021e6e60(Struct_ov023_021e6e60* arg0) {
@@ -96,14 +96,14 @@ extern "C" ARM void func_ov023_021e6e60(Struct_ov023_021e6e60* arg0) {
         return;
     }
     func_0205c53c(&arg0->unknown_ac_);
-    func_0205ba68((Struct_0205ba68*)&arg0->unknown_ac_.unknown_4_, var0, var1, var3);
-    func_0205ba68((Struct_0205ba68*)&arg0->unknown_ac_.unknown_54_, var0, var1, var3);
-    func_0205bacc((Struct_0205bacc*)&arg0->unknown_ac_.unknown_4_, var4);
-    func_0205bacc((Struct_0205bacc*)&arg0->unknown_ac_.unknown_54_, var4);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&arg0->unknown_ac_.unknown_4_, var0, var1, var3);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&arg0->unknown_ac_.unknown_54_, var0, var1, var3);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&arg0->unknown_ac_.unknown_4_, var4);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&arg0->unknown_ac_.unknown_54_, var4);
     arg0->unknown_ac_.unknown_4_.unknown_4_ = var2;
     arg0->unknown_ac_.unknown_54_.unknown_4_ = var2;
     func_0205bcdc(&arg0->unknown_ac_.unknown_4_, var5);
-    func_0205bb04(&arg0->unknown_ac_.unknown_54_, var5);
+    SetMenuCursorIndex_0205bb04(&arg0->unknown_ac_.unknown_54_, var5);
     arg0->unknown_ac_.unknown_54_.unknown_40_ = 1;
     arg0->unknown_ac_.unknown_54_.unknown_41_ = 1;
     arg0->unknown_13a0_ = 0;

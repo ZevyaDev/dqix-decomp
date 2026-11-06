@@ -6,8 +6,8 @@
 
 extern "C" void func_ov017_0218d5c8(unsigned char* arg0);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
-extern "C" void func_020397c0(void* arg0);
-extern "C" int func_020100f8(char* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a2794(void* arg0);
 
 extern int gMainHeap_02114e20;
@@ -43,10 +43,10 @@ extern "C" ARM void func_ov017_021b5a30(struct Struct_ov017_021b5a30* arg0) {
 	GameState* var3 = GameState::GetInstance();
 	GameObject* var4 = var3->GetUnknownGameObject();
 	if (var4 != NULL) {
-		func_020397c0(var4);
+		EnablePlayerControl_020397c0(var4);
 	}
 
-	int var5 = func_020100f8((char*)var3);
+	int var5 = GetFollowCamera_020100f8((char*)var3);
 	if (var5 != 0) {
 		func_020a2794((void*)var5);
 	}

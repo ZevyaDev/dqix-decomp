@@ -10,7 +10,7 @@ struct Struct_ov017_021a6648 {
     TextureVRAMArea_0203d028 unknown_0_[0x1c];
     TextureVRAMArea_0203d028 unknown_c40_;
 };
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 struct Struct_020d7aa0_2;
 struct Struct_02038598_5;
 struct Struct_ov017_021a6648_2 {
@@ -25,11 +25,11 @@ struct Struct_ov017_021a6648_3 {
     int unknown_20_, unknown_24_, unknown_28_; Vector3i unknown_2c_;
     int unknown_38_, unknown_3c_, unknown_40_; Vector3i unknown_44_;
 };
-extern "C" void* func_02057924();
+extern "C" void* GetEffectManager_02057924();
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
-extern "C" void func_020397cc(Struct_02018300_3*, int);
-extern "C" int func_02046b08(void**);
-extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
+extern "C" int IsQueueEmpty_02046b08(void**);
+extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void func_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
@@ -40,9 +40,9 @@ extern "C" int func_02057e6c(void*, int, SafeAllocator*, void*, unsigned int, Te
 extern "C" void func_02057fb4(void*, int, void*);
 extern "C" void func_0205ebc0(void*, int, int);
 extern "C" void func_0205ebfc(void*, int, int);
-extern "C" void func_020397c0(void*);
+extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" void func_0205ebec(void*);
-extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void func_020dc2d0(int);
 extern "C" void func_ov017_0219593c();
 extern "C" Struct_020d7aa0_2* func_020d7a50();
@@ -64,14 +64,14 @@ extern "C" ARM void func_ov017_021a6648(Struct_ov017_021a6648_2* arg0, Struct_02
     GameObject* var1 = var0->GetUnknownGameObject();
     GameResources* var2 = GetGameResources();
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
-    void* var4 = func_02057924();
+    void* var4 = GetEffectManager_02057924();
     unsigned int* var5 = GetGlobalFlags_020d6c00();
     if (arg0->unknown_8_ == 0) {
         var1->obj3D_.MakeHidden();
-        func_020397cc((Struct_02018300_3*)var1, 1);
-        if (!func_02046b08((void**)var2->unknown_ptr_array_36fc[1])) return;
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
+        if (!IsQueueEmpty_02046b08((void**)var2->unknown_ptr_array_36fc[1])) return;
         SetFlags00(var2, 0x10);
-        func_020466e4(var5, 1);
+        SetGlobalFlags_020466e4(var5, 1);
         func_020a0cc4(0x7000);
         arg0->unknown_e_ = var3->QueueLoadFile(data_ov017_021d771c[arg0->unknown_c_], 0);
         arg0->unknown_8_++;
@@ -137,10 +137,10 @@ extern "C" ARM void func_ov017_021a6648(Struct_ov017_021a6648_2* arg0, Struct_02
     } else if (arg0->unknown_8_ == 5) {
         arg0->unknown_9_ += var0->GetTickCount();
         if (arg0->unknown_9_ < data_ov017_021d6aaa[arg0->unknown_c_ * 3]) return;
-        func_020397c0(var1);
+        EnablePlayerControl_020397c0(var1);
         func_0205ebec(&gSoundEffectManager_02108760);
         ClearFlags00(var2, 0x10);
-        func_020466f4((Struct_02038598_4*)var5, 1);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var5, 1);
         func_020dc2d0(0);
         if (arg0->unknown_a_) {
             func_ov017_0219593c();

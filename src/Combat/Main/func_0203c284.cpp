@@ -44,7 +44,7 @@ struct Struct_0203c1c8 {
 #endif
 };
 extern Struct_0203bdf4* data_02105244;
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 
 extern "C" ARM int func_0203c284(const Struct_0203c1c8* arg0) {
     Struct_0203bdf4* var0 = data_02105244;
@@ -55,7 +55,7 @@ extern "C" ARM int func_0203c284(const Struct_0203c1c8* arg0) {
     for (int var3 = 0; var3 < 10; ++var3) {
         short var4 = arg0->unknown_0_[var3];
         if (var4 >= 0) ++var2;
-        int var5 = func_020d2ff0(var1[var4].unknown_4_);
+        int var5 = GetStringLength_020d2ff0(var1[var4].unknown_4_);
         switch (var5) {
             case 2: ++var3; break;
             case 4: ++var3; ++var2; break;

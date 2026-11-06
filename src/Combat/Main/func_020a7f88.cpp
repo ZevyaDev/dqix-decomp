@@ -13,7 +13,7 @@ struct Struct_0201c3a4 { int unknown_0_; void* unknown_4_; };
 
 struct Struct_0201d530 { int unknown_0_; union { int unknown_0_; float unknown1_0_; } unknown_4_; };
 
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 
 struct Struct_020a825c { unsigned int unknown_0_[4]; };
 struct Struct_020a7f88_2 {
@@ -55,7 +55,7 @@ extern "C" ARM int func_020a7f88(unsigned char* arg0) {
     var0.unknown_20_ = (unsigned int)(int)(((Script::Parameter*)((Struct_0201d530*)(arg0 + 0x58)))->ToFloat() * 4096.0f);
     var0.unknown_24_ = (unsigned int)(int)(((Script::Parameter*)((Struct_0201d530*)(arg0 + 0x60)))->ToFloat() * 4096.0f);
 
-    int var3 = func_020d2ff0(var1);
+    int var3 = GetStringLength_020d2ff0(var1);
     var0.unknown_4_ = (unsigned int)data_02109fe0.unknown_0_->Allocate(var3 + 1);
     sprintf((char*)var0.unknown_4_, &data_020f1b94, var1);
     ((char*)var0.unknown_4_)[var3] = 0;

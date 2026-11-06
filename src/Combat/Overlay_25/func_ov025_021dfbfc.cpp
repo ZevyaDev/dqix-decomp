@@ -63,7 +63,7 @@ extern "C" ARM void func_ov025_021dfbfc(Struct_ov025_021dfbfc_6* arg0) {
             if (inline_ov025_021dfbfc(var5)) {
                 var6 = 1;
             } else {
-                GameObject* var7 = func_0200ff1c(var0, var5);
+                GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var0, var5);
                 if (var7 != 0) {
                     struct Struct_ov025_021dfbfc_4* var8 = GetPartyMemberData_02053c6c((unsigned char*)var7);
                     if (var8 != 0 && (signed char)var8->unknown_94c_ != 5) {

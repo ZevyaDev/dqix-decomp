@@ -18,7 +18,7 @@ struct Struct_ov001_02155dd0 {
     unsigned short unknown_a_;
 };
 
-extern "C" char* func_020100f8(char* arg0);
+extern "C" char* GetFollowCamera_020100f8(char* gameState);
 extern "C" void* func_02010768(void* arg0);
 extern "C" void* GetZone3D_02012fe4();
 extern "C" char* GetMessageWindow_020421a0();
@@ -48,9 +48,9 @@ extern "C" void func_020a1f4c(int arg0);
 extern "C" void* GetFlagManager_0205ec34();
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 struct Struct_02010604;
-extern "C" void func_02033b88(Struct_02010604*, int);
+extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_0200fd48(GameState* arg0, int arg1);
-extern "C" void func_020100c4(GameState* arg0, int arg1);
+extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 
 extern char data_ov001_02164c4a[];
 extern char gSoundEffectManager_02108760[];
@@ -78,7 +78,7 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
         GameState* var11;
 
     var11 = GameState::GetInstance();
-    var10 = func_020100f8((char*)var11);
+    var10 = GetFollowCamera_020100f8((char*)var11);
     var6 = GetGameResources();
     var7 = (Zone3D*)GetZone3D_02012fe4();
     var2 = GetMessageWindow_020421a0();
@@ -93,7 +93,7 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
             if (var12 == var3->obj3D_.GetField06()) {
                 var3->obj3D_.MakeVisible();
             }
-            func_02033b88((Struct_02010604*)var3, 0);
+            SetMotion_02033b88((Struct_02010604*)var3, 0);
         }
     }
 
@@ -106,9 +106,9 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
     }
 
     if (var5[1] != 0) {
-        if (func_020100f8((char*)var11) == 0) {
-            func_020100c4(var11, var5[1]);
-            var10 = func_020100f8((char*)var11);
+        if (GetFollowCamera_020100f8((char*)var11) == 0) {
+            SetCamera_020100c4(var11, var5[1]);
+            var10 = GetFollowCamera_020100f8((char*)var11);
         }
     }
 

@@ -18,7 +18,7 @@ extern Struct_020ee710 data_020ee710[];
 extern "C" ARM int func_020dd200(int arg0, int arg1) {
     int var0 = 0;
     GameState* var1 = GameState::GetInstance();
-    GameObject* var2 = func_0200ff1c(var1, arg0);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var1, arg0);
     if (var2 == 0) {
         return var0;
     }

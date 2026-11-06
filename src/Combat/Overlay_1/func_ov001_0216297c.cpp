@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" unsigned short GetMainBGVRAMBanks(void);
 extern "C" unsigned short GetSubBGVRAMBanks(void);
 
@@ -38,7 +38,7 @@ extern struct Struct_ov001_021658b8_12 data_ov001_021658b8;
 
 // USA: func_ov001_0216297c
 extern "C" ARM int func_ov001_0216297c(void* arg0) {
-    int var0 = func_ov017_021d60f4(arg0);
+    int var0 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     if (var0 == 0) {
         data_ov001_021658b8.unknown_494_ = GetMainBGVRAMBanks();
         struct Struct_ov001_0216297c* var1 = (struct Struct_ov001_0216297c*)0x04000008;

@@ -7,7 +7,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" unsigned short func_ov004_0215eb20(void* arg0, int arg1);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 
 struct Struct_ov004_0215f770 {
     unsigned int unknown_0_0_ : 7;
@@ -111,7 +111,7 @@ extern char data_ov004_021708c8[];
 
 // USA: func_ov004_0215ef14
 extern "C" ARM void func_ov004_0215ef14() {
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), data_ov004_02170804);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), data_ov004_02170804);
     int var1 = 0;
     for (int var2 = 1; var2 < 13; var2++) {
         if (func_ov004_0215eb20(var0, data_ov004_02170854[var2])) {
@@ -268,24 +268,24 @@ struct Struct_ov004_0215f0c0_9 {
 struct Struct_02000c9c_8;
 struct StringList_02072a68_2;
 
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" struct Struct_ov004_0215f0c0_10* func_ov004_0215e47c(void* arg0, int arg1);
 extern "C" void* func_ov023_021fad18(void* arg0);
 extern "C" struct Struct_ov004_0215f0c0_8* func_ov004_0215e438(void* arg0, int arg1);
 extern "C" int func_ov017_021bdbcc(void* arg0);
 extern "C" void* func_020421b0(int arg0);
-extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* arg0);
+extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" Struct_ov004_0215f0c0_5* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(Struct_ov004_0215f0c0_5* arg0);
 extern "C" int func_02042190(int arg0);
 extern "C" int func_020420e8(void* arg0, int arg1);
-extern "C" int func_020e51cc(int arg0);
+extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int func_ov004_0215e460(void);
 extern "C" void func_ov004_0215e49c(void*, int, int);
 extern "C" struct StringList_02072a68_2* func_ov023_021fa598(Struct_ov004_0215f0c0_5* arg0);
-extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
@@ -300,7 +300,7 @@ extern unsigned short data_ov004_0216fdd0[];
 // USA: func_ov004_0215f0c0
 extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_ov004_0215f0c0_2* var1 = (struct Struct_ov004_0215f0c0_2*)func_0200ff1c(var0, data_ov004_02170804);
+    struct Struct_ov004_0215f0c0_2* var1 = (struct Struct_ov004_0215f0c0_2*)GetPartyMemberBaseByIndex_0200ff1c(var0, data_ov004_02170804);
     struct Struct_ov004_0215f0c0_6* var2 = (struct Struct_ov004_0215f0c0_6*)GetPartyMemberData_02053c6c((unsigned char*)var1);
     int var3 = 0;
     int var4 = 0xf;
@@ -353,7 +353,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
         }
     }
 
-    unsigned char var18 = func_0200fb08((struct Struct_02000c9c_8*)var0);
+    unsigned char var18 = GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)var0);
 #endif
     void* var19 = GetMenuObjectList_ov011_021849c8(arg0);
     Struct_ov004_0215f0c0_5* var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7f);
@@ -369,7 +369,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
             int var23 = 0;
             if (var22 != 0) {
 #if defined(jpn)
-                var23 = func_020d2ff0((const char*)var22);
+                var23 = GetStringLength_020d2ff0((const char*)var22);
                 var23 = (var23 * var21->unknown_44_0_) >> 1;
 #else
                 var23 = func_020420e8(var22, func_02042190(var21->unknown_44_0_));
@@ -444,7 +444,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
         }
         var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7d);
         if (var20 != 0) {
-            var20->unknown_20_ = (void*)func_020e51cc(0x3f3);
+            var20->unknown_20_ = (void*)GetStandardString_020e51cc(0x3f3);
         }
 #endif
     } else {
@@ -486,7 +486,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
         }
         var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7d);
         if (var20 != 0) {
-            var20->unknown_20_ = (void*)func_020e51cc(0x3f3);
+            var20->unknown_20_ = (void*)GetStandardString_020e51cc(0x3f3);
         }
 #endif
     }
@@ -531,7 +531,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
         if (var39 != 0 && func_ov023_021f6f10(var39) == 4) {
             struct StringList_02072a68_2* var40 = func_ov023_021fa598(var39);
             struct Struct_ov004_0215f0c0_9 var41;
-            func_020e4bf4(&var41, data_ov004_02170804);
+            InitPartyMemberNoun_020e4bf4(&var41, data_ov004_02170804);
             int var42 = GetMessageWindow_020421a0();
             ClearMessageParams_02046380((void*)var42);
             *(struct Struct_ov004_0215f0c0_9**)var42 = &var41;
@@ -582,14 +582,14 @@ extern "C" ARM void func_ov004_0215f6f4(void* arg0, short arg1, short arg2, int 
 
 // USA: func_ov004_0215f74c
 extern "C" ARM int func_ov004_0215f74c(int arg0, int arg1) {
-	return func_0200ff1c(GameState::GetInstance(), arg1) != NULL;
+	return GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1) != NULL;
 }
 
 extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
 extern "C" int func_02052df8(struct Struct_ov004_0215f770_3* arg0, int arg1);
-extern "C" struct Struct_ov004_0215f770_2* func_020dedd0(struct Struct_0200fb08* arg0, int arg1);
-extern "C" int func_020100bc(GameState* arg0);
-extern "C" void func_020100c4(GameState* arg0, int arg1);
+extern "C" struct Struct_ov004_0215f770_2* FindItemData_020dedd0(struct Struct_0200fb08* itemTable, int itemId);
+extern "C" int GetCamera_020100bc(GameState* gameState);
+extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void func_020a2010(void* arg0);
 extern "C" void func_0202e5c0(struct Struct_ov004_0215f770_4* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
@@ -617,11 +617,11 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
     data_ov004_021707e8 = 0;
 #endif
     var5 = func_020114ec((char*)var3, var1);
-    GameObject* var6 = func_0200ff1c(var3, data_ov004_02170804);
+    GameObject* var6 = GetPartyMemberBaseByIndex_0200ff1c(var3, data_ov004_02170804);
     if (var6 == 0) {
         data_ov004_02170804 = 0;
         while (var6 == 0) {
-            var6 = func_0200ff1c(var3, data_ov004_02170804);
+            var6 = GetPartyMemberBaseByIndex_0200ff1c(var3, data_ov004_02170804);
             if (var6 != 0) {
                 break;
             }
@@ -722,7 +722,7 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
     var25 = func_020114ec((char*)var23, var2);
     var26 = var15;
     for (var20 = 0; var20 < var25; var20++) {
-        var22 = func_0200ff1c(var23, var26);
+        var22 = GetPartyMemberBaseByIndex_0200ff1c(var23, var26);
         if (var22 == 0) {
             continue;
         }
@@ -731,7 +731,7 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
             var17 = 0;
             var24 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x81);
             if (var24 != 0 && func_ov023_021f6f10(var24) != 0x11) {
-                var17 = func_020dedd0(var24->inline_ov004_0215f770_2(), var19);
+                var17 = FindItemData_020dedd0(var24->inline_ov004_0215f770_2(), var19);
             }
             if (var17 == 0 && var19 > 0) {
 #if defined(jpn)
@@ -783,12 +783,12 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
     data_ov004_021707ee = data_ov004_021707f1;
     func_020dc7e8(2, (signed char)data_ov004_02170804);
     func_020dc7e8(5, (signed char)data_ov004_02170804);
-    data_ov004_021707f8 = func_020100bc(var3);
+    data_ov004_021707f8 = GetCamera_020100bc(var3);
     func_020a2010(data_ov004_021708c8);
     func_0202e5c0((struct Struct_ov004_0215f770_4*)data_ov004_021708c8, 0xb666, 0xa800, 0x42ccc);
     func_0202e5c8((unsigned char*)data_ov004_021708c8, 0xb666, 0xa800, 0);
     func_020a27a0(data_ov004_021708c8);
-    func_020100c4(var3, (int)data_ov004_021708c8);
+    SetCamera_020100c4(var3, (int)data_ov004_021708c8);
     func_ov004_0215e47c(arg0, 9)->unknown_c_ |= 0x80;
     var0 = 0x18c6;
     DC_FlushRange(&var0, 2);

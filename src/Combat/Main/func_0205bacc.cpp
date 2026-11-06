@@ -2,16 +2,16 @@
 
 struct Struct_0205bb84;
 extern "C" int func_0205bb84(struct Struct_0205bb84* arg0);
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
-struct Struct_0205bacc {
-    int unknown_0_;
+struct MenuCursor_0205bacc {
+    int itemCount_0_;
 };
 
-// USA: func_0205bacc
-extern "C" ARM void func_0205bacc(struct Struct_0205bacc* arg0, int arg1) {
-    if (arg1 < 0) return;
-    arg0->unknown_0_ = arg1;
-    if (func_0205bb84((struct Struct_0205bb84*)arg0) < arg1) return;
-    func_0205bb04(arg0, arg1 - 1);
+// USA: SetMenuCursorItemCount_0205bacc
+extern "C" ARM void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount) {
+    if (itemCount < 0) return;
+    cursor->itemCount_0_ = itemCount;
+    if (func_0205bb84((struct Struct_0205bb84*)cursor) < itemCount) return;
+    SetMenuCursorIndex_0205bb04(cursor, itemCount - 1);
 }

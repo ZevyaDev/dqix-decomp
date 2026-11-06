@@ -102,7 +102,7 @@ extern "C" ARM int func_ov023_021f2248(Struct_ov023_021f2248_6* arg0) {
         char* var20 = var11;
         char var12[0x100] = {0};
         if (var7 >= 0) {
-            Struct_ov023_021f2248* var13 = (Struct_ov023_021f2248*)func_0200ff1c(var0, var7);
+            Struct_ov023_021f2248* var13 = (Struct_ov023_021f2248*)GetPartyMemberBaseByIndex_0200ff1c(var0, var7);
             if (var13) var9 = var13->unknown_134_;
             sprintf(var12, FindStringInList_02072a68(&arg0->unknown_5af4_, 0x25), var9, var20);
         } else {

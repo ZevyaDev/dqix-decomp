@@ -54,7 +54,7 @@ extern "C" void func_0203ae4c(void* arg0, int arg1, void* arg2);
 extern "C" void func_0203ad88(void* arg0, void* arg1, int arg2);
 extern "C" void func_0203ac10(void* arg0, void* arg1, int arg2);
 struct Struct_02000c9c_8;
-extern "C" int func_0200fb08(Struct_02000c9c_8*);
+extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" void func_ov016_0218c024(void);
 
 struct Struct_ov016_0218c04c {
@@ -340,7 +340,7 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 #if defined(jpn)
 				var31 = 0x56; var32 = 0xb3; var33 = 0x67; var34 = 0x98;
 #else
-				switch (func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance())) {
+				switch (GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance())) {
 				case 1:
 					var31 = 0x4c; var32 = 0xbd; var33 = 0x67; var34 = 0x98;
 					break;

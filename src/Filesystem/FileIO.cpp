@@ -24,10 +24,10 @@ extern "C"
     bool func_02046708(void*, unsigned int);
     void* GetGlobalFlags_020d6c00();
 
-    int func_0200fb08(GameState*);
+    int GetGameLanguage_0200fb08(GameState*);
 
     char* func_020d2f88(char* searchString, const char* targetString);
-    int func_020d2ff0(const char* str);
+    int GetStringLength_020d2ff0(const char* str);
 
     void LZ77UnCompReadNormalWrite8bit(const void* src, void* dst);
 }
@@ -55,7 +55,7 @@ void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength
     GameState* gameState = GameState::GetInstance();
 
     char replacedPath[128] = { 0 };
-    int language = func_0200fb08(gameState);
+    int language = GetGameLanguage_0200fb08(gameState);
     StringReplaceLanguageTag(path, replacedPath, language);
 #elif defined(jpn)
     const char* replacedPath = path;
@@ -95,7 +95,7 @@ void* LoadFileIntoNewAllocation(const char* path, SafeAllocator& alloc, unsigned
 
     char replacedPath[128] = { 0 };
 
-    int language = func_0200fb08(gameState);
+    int language = GetGameLanguage_0200fb08(gameState);
     StringReplaceLanguageTag(path, replacedPath, language);
 #elif defined(jpn)
     const char* replacedPath = path;

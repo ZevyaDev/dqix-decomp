@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 #if defined(jpn)
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 #endif
 struct Struct_0208358c { int unknown_0_, unknown_4_, unknown_8_, unknown_c_, unknown_10_, unknown_14_, unknown_18_, unknown_1c_; };
 struct Struct_0208358c_2 { Struct_0208358c* unknown_0_; char* unknown_4_; unsigned int unknown_8_0_:4; unsigned int unknown_8_4_:28; char unknown_c_[20]; };
@@ -40,7 +40,7 @@ extern "C" ARM void func_0208358c(Struct_0208358c_3* arg0, Struct_0208358c_2* ar
     var2->unknown_10_ = var4->unknown_10_; var2->unknown_14_ = var4->unknown_14_; var2->unknown_18_ = var4->unknown_18_; var2->unknown_1c_ = var4->unknown_1c_;
 #if defined(jpn)
     memset(var3, 0, 0x14);
-    if (arg1->unknown_4_) { memcpy(var3, arg1->unknown_4_, func_020d2ff0(arg1->unknown_4_)); }
+    if (arg1->unknown_4_) { memcpy(var3, arg1->unknown_4_, GetStringLength_020d2ff0(arg1->unknown_4_)); }
 #else
     *var3 = 0;
     if (arg1->unknown_4_) { memset(var3, 0, 0x30); sprintf(var3, arg1->unknown_4_); }

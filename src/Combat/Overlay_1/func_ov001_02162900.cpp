@@ -5,13 +5,13 @@ extern "C" int LoadToMainBG3ScreenData(int arg0, int arg1, unsigned int arg2);
 extern "C" int LoadToSubBG3ScreenData(int arg0, int arg1, unsigned int arg2);
 extern "C" int LoadToMainBG3CharacterData(int arg0, int arg1, unsigned int arg2);
 extern "C" int LoadToSubBG3CharacterData(int arg0, int arg1, unsigned int arg2);
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 
 // USA: func_ov001_02162900
 extern "C" ARM int func_ov001_02162900(void* arg0) {
 	unsigned char var0[0x20];
 	unsigned char var1[0x600];
-	int var2 = func_ov017_021d60f4(arg0);
+	int var2 = GetScriptValueAsInt_ov017_021d60f4(arg0);
 	VectorizedMemset(var0, 0, sizeof(var0));
 	VectorizedMemset(var1, 0, sizeof(var1));
 	if (var2 == 0) {

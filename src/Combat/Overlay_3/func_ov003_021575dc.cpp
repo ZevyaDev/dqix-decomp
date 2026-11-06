@@ -10,7 +10,6 @@
 
 
 #if defined(jpn)
-#define func_0206df6c func_0206f0c0
 #define data_ov003_0217fdbb data_ov003_0217e5e3
 #define data_ov003_0217f2e8 data_ov003_0217dfe8
 #define data_ov003_0217f2ce data_ov003_0217dfce
@@ -112,7 +111,7 @@ extern "C" void func_ov003_02158a50(unsigned char*);
 struct Struct_02109bf4_2;
 extern "C" void func_0209c830(Struct_02109bf4_2*, int);
 extern "C" int func_0209ca2c(void* arg0);
-extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
+extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" void* func_020de824(void* arg0);
 extern "C" void func_0207cbe8(char* arg0);
 extern "C" void func_0207cc0c(char* arg0);
@@ -340,7 +339,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
         if (var34 > 0) {
             void* var36 = GetFlagManager_0205ec34();
             if (IsFlagSet_0206dfb0((int)var36, (unsigned char*)var36 + 0x8c, var34 + 0x8b + 0x1100) == 0) {
-                func_0206df6c(var36, (unsigned char*)var36 + 0x8c, var34 + 0x8b + 0x1100, 1);
+                SetFlag_0206df6c(var36, (unsigned char*)var36 + 0x8c, var34 + 0x8b + 0x1100, 1);
                 var5[0] = 0x16;
                 var5[1] = 0x17;
                 var0->unknown_1f9_ = var0->unknown_1f9_ + 1;
@@ -369,7 +368,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
         __clear(var38, 0x18);
         unsigned short var39 = 0;
         int var40 = GetProtagonistObjectIndex_020100a8(var1);
-        Struct_ov003_021575dc_7* var41 = (Struct_ov003_021575dc_7*)func_0200ff1c(var1, var40);
+        Struct_ov003_021575dc_7* var41 = (Struct_ov003_021575dc_7*)GetPartyMemberBaseByIndex_0200ff1c(var1, var40);
         for (int var42 = 1; var42 < 13; var42++) {
             Struct_ov003_021575dc_6* var43 = var41->unknown_150_;
             if (var43->unknown_186_[(unsigned char)var42] >= 0xa) {
@@ -481,12 +480,12 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
             }
         }
     } else if (var3 == 0x66) {
-        FontLoader_0208cb08* var68 = func_02094a00();
+        FontLoader_0208cb08* var68 = GetFontLoader_02094a00();
         func_02094b40(var68);
-        func_02094b34(var68, 0x66, 501, 0, 0);
+        RequestFontLoad_02094b34(var68, 0x66, 501, 0, 0);
         var0->unknown_1f9_ = var0->unknown_1f9_ + 1;
     } else if (var3 == 0x67) {
-        if (func_02094b4c(func_02094a00()) != 0) {
+        if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()) != 0) {
             func_020dc2d0(0);
             var0->unknown_1f9_ = var0->unknown_1f9_ + 1;
         }

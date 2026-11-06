@@ -42,7 +42,7 @@ extern "C" ARM void func_02046608(void* arg0, int arg1, void* arg2, void* arg3, 
 #endif
 
 struct Struct_02000c9c_8;
-extern "C" ARM unsigned char func_0200fb08(Struct_02000c9c_8* arg0);
+extern "C" ARM unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
 
 #if defined(jpn)
 #define data_ov023_021fd75c data_ov023_021fd760
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov023_021e83c8(void* arg0) {
     char* var9 = strstr(var0->unknown_5d8_, &data_ov023_021fddb0);
     char* var10 = strstr(var9 + 1, &data_ov023_021fddb0);
     var7 = 0x82; var8 = 0xb4;
-    int var11 = func_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
+    int var11 = GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
     switch (var11) {
     case 2:
     case 5:

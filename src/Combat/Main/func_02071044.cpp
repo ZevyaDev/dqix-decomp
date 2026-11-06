@@ -12,7 +12,7 @@ struct Struct_0201c3a4 {
     void* unknown_4_;
 };
 
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 
 struct Struct_02071044 {
     struct Struct_0201c1c8 unknown_0_;
@@ -84,7 +84,7 @@ extern "C" ARM int func_02071044(struct Struct_02071044* arg0) {
 
         memset(data_02108d70.unknown_8_[data_02108d70.unknown_24_].unknown_4_, 0, 0x20);
 
-        var4 = func_020d2ff0((const char*)var3);
+        var4 = GetStringLength_020d2ff0((const char*)var3);
         if (var4 < 0x1f) {
             memcpy(data_02108d70.unknown_8_[data_02108d70.unknown_24_].unknown_4_, var3, var4);
         } else {

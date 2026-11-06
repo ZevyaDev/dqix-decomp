@@ -14,8 +14,8 @@ struct Struct_0205c77c;
 extern "C" void func_0205c77c(struct Struct_0205c77c* arg0, int arg1);
 extern "C" void func_0205cd28(unsigned char* arg0);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
-struct Struct_0205a330;
-extern "C" void func_0205a330(struct Struct_0205a330* arg0, int arg1);
+struct SpriteAnimationList_0205a330;
+extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
 extern "C" int func_0205cde8(unsigned char* arg0);
 extern "C" int func_0205cecc(void* arg0);
 extern "C" int func_0205cb64(void* arg0);
@@ -48,9 +48,9 @@ extern "C" ARM void func_ov020_0218c840(struct Struct_ov020_0218c840* arg0) {
 
     func_0205c904((unsigned char*)arg0 + 0xc, 1);
 
-    struct Struct_0205a330* var2 = *(struct Struct_0205a330**)(var1 + REGION(0x230, 0x2e0));
+    struct SpriteAnimationList_0205a330* var2 = *(struct SpriteAnimationList_0205a330**)(var1 + REGION(0x230, 0x2e0));
     if (var2 != 0) {
-        func_0205a330(var2, 1);
+        AdvanceSpriteAnimations_0205a330(var2, 1);
     }
 
     if (func_0205cde8((unsigned char*)arg0 + 0xc) != 0) {

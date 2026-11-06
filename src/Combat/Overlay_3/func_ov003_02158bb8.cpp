@@ -14,8 +14,8 @@
 #include <Memory/SafeAllocator.h>
 #include <NitroSDK/Graphics.h>
 
-struct Struct_0201099c_14;
-struct Struct_02020cb8;
+struct StringTable_0201099c_14;
+struct BGLayer_02020cb8;
 struct Struct_0205cfd4;
 struct Struct_020a9ea4;
 
@@ -27,11 +27,11 @@ struct Struct_ov003_02158bb8_2 {
 };
 
 extern "C" void func_02074af4(Struct_ov003_02158bb8_2* arg0);
-extern "C" void func_0204c684(void* arg0);
-extern "C" void func_0205a444(char* arg0);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void func_0205cfd4(Struct_0205cfd4* arg0);
-extern "C" void func_0204af64(Struct_02020cb8* arg0);
-extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
+extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
+extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void func_020a9ea4(Struct_020a9ea4* arg0);
 
 struct Struct_ov003_02158bb8 {
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov003_02158bb8(Struct_ov003_02158bb8* arg0)
     func_02074af4(&arg0->unknown_80_);
     arg0->unknown_94_ = (DISPCNT & 0x1f00) >> 8;
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
-    func_0205a444(arg0->unknown_98_);
+    InitSpriteSet_0205a444(arg0->unknown_98_);
     arg0->unknown_ec_ = NULL;
     arg0->unknown_f0_ = NULL;
     arg0->unknown_3c_.ResetAllocatorPointer();
@@ -102,12 +102,12 @@ extern "C" ARM void func_ov003_02158bb8(Struct_ov003_02158bb8* arg0)
     arg0->unknown_0_.ResetAllocatorPointer();
     func_0205cfd4((Struct_0205cfd4*)arg0->unknown_f4_);
     for (int var0 = 0; var0 < 2; var0++) {
-        func_0204af64((Struct_02020cb8*)arg0->unknown_1b0_[var0]);
+        InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_1b0_[var0]);
     }
     for (int var1 = 0; var1 < 4; var1++) {
-        func_0204c684(arg0->unknown_1f0_[var1]);
+        InitTextWindow_0204c684(arg0->unknown_1f0_[var1]);
     }
-    func_020dfc40((Struct_0201099c_14*)arg0->unknown_64_);
+    InitStringTable_020dfc40((StringTable_0201099c_14*)arg0->unknown_64_);
     arg0->unknown_587_ = 0;
     arg0->unknown_588_ = 0;
     arg0->unknown_580_ = 0;

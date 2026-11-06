@@ -68,7 +68,7 @@ struct Struct_ov023_021ff9e0_15 {
 extern "C" Struct_ov023_021ff9e0_15 data_ov023_021ff9e0;
 extern "C" const short data_ov023_021fd5a8[2] __attribute__((aligned(4)));
 
-extern "C" void func_0204c684(Struct_ov023_021e0f44_2* arg0);
+extern "C" void InitTextWindow_0204c684(Struct_ov023_021e0f44_2* textWindow);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
@@ -98,7 +98,7 @@ extern "C" unsigned int func_ov023_021ddc98(Struct_ov023_021e0f44_2* arg0, unsig
 extern "C" ARM void func_ov023_021e0f44(Struct_ov023_021e0f44_3* arg0)
 {
     Struct_ov023_021e0f44_2 var0;
-    func_0204c684(&var0);
+    InitTextWindow_0204c684(&var0);
     if (!func_ov023_021ddc34(&var0, 0, 0, 0x1c, 3))
         return;
     if (!(arg0->unknown_774_ & 0x400))

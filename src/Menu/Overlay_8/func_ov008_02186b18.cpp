@@ -38,7 +38,7 @@ extern char data_ov008_0218b490[];
 extern "C" {
     int func_0205bafc(void*);
     int func_0205bb84(void*);
-    void func_0205bb04(void*, int);
+    void SetMenuCursorIndex_0205bb04(void*, int);
     void PlaySoundEffect_0205eaa0(void*, int, int);
 
     int func_ov008_02186b18(Struct_ov008_02186b18* arg0, int arg1, int arg2) {
@@ -60,7 +60,7 @@ extern "C" {
                 arg0->unknown_b29_ = var4 - 1;
                 int var5 = arg0->unknown_b29_ + 5;
                 if (func_0205bb84(arg0->unknown_750_) > var5)
-                    func_0205bb04(arg0->unknown_750_, var5);
+                    SetMenuCursorIndex_0205bb04(arg0->unknown_750_, var5);
                 return -1;
             }
             if ((unsigned int)var4 < 2 && arg2 >= 104 && arg2 < 112) {
@@ -68,7 +68,7 @@ extern "C" {
                     ++arg0->unknown_b29_;
                 int var6 = arg0->unknown_b29_;
                 if (func_0205bb84(arg0->unknown_750_) < var6)
-                    func_0205bb04(arg0->unknown_750_, var6);
+                    SetMenuCursorIndex_0205bb04(arg0->unknown_750_, var6);
                 return -1;
             }
         }

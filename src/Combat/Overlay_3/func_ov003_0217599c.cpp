@@ -77,7 +77,7 @@ struct Struct_ov003_0217599c_2 {
 extern "C" int *GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *);
 extern "C" short *func_02052e2c(Struct_02052e2c *);
-extern "C" Struct_ov003_0217599c_4 *func_020dedd0(ItemTable_0201099c_10 *, int);
+extern "C" Struct_ov003_0217599c_4 *FindItemData_020dedd0(ItemTable_0201099c_10 *, int);
 extern "C" void *func_020de824(void *);
 extern "C" void func_0207cbe8(char *);
 extern "C" void func_0207cc18(void *, Struct_ov003_0217599c_4 *);
@@ -109,11 +109,11 @@ extern Struct_ov003_0217e33c data_ov003_0217faac;
 extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
     GameState *var0        = GameState::GetInstance();
     int *var1          = GetLocalWireless_0202ae18();
-    Struct_ov003_0217599c *var2 = (Struct_ov003_0217599c *) func_0200ff1c(var0, arg0->unknown_1043_);
+    Struct_ov003_0217599c *var2 = (Struct_ov003_0217599c *) GetPartyMemberBaseByIndex_0200ff1c(var0, arg0->unknown_1043_);
     if (!var2) return 0;
     if (!func_02052e2c((Struct_02052e2c *) var2)) return 0;
     Struct_ov003_0217599c_4 *var3 =
-        func_020dedd0(&arg0->unknown_874_, arg0->unknown_103a_);
+        FindItemData_020dedd0(&arg0->unknown_874_, arg0->unknown_103a_);
     if (!var3) return 0;
     unsigned int var4 = var3->unknown_8_0_;
     Struct_0206b37c var5;
@@ -139,7 +139,7 @@ extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
         func_02052d7c(var2, var6, arg0->unknown_103a_);
         func_0208358c(GetPartyMemberData_02053c6c((unsigned char *) var2), var3, -1);
     }
-    if (func_020dedd0(&arg0->unknown_874_, var8)) {
+    if (FindItemData_020dedd0(&arg0->unknown_874_, var8)) {
         func_0207c378(var7 + 0x1d4, var8, 1, var4);
     }
     arg0->unknown_103c_--;

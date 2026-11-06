@@ -19,8 +19,8 @@ extern "C" void* func_0204af14(struct Struct_0204af14* arg0, unsigned int arg1);
 extern "C" void DC_FlushRange(const void* where, unsigned int len);
 extern "C" void LoadToMainBG1CharacterData(int, int, unsigned int);
 
-struct Struct_02020cb8_2;
-extern "C" void func_0204b0e8(struct Struct_02020cb8_2* arg0, void* arg1);
+struct BGLayer_02020cb8_2;
+extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2* layer, void* screenData);
 
 struct Struct_02074bd0;
 extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
@@ -30,9 +30,9 @@ extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
 
 // USA: func_ov013_02186fa0
 extern "C" ARM void func_ov013_02186fa0(unsigned char* arg0) {
-    FontLoader_0208cb08* var0 = func_02094a00();
+    FontLoader_0208cb08* var0 = GetFontLoader_02094a00();
     func_02094b38(var0, 0x68);
-    func_02094ab0(var0);
+    CancelFontLoad_02094ab0(var0);
 
     if (arg0[R(0x50,0x64)] == 0) {
         void* var1 = func_0204af14((struct Struct_0204af14*)(arg0 + 0x28), 0);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov013_02186fa0(unsigned char* arg0) {
             memset(var2, 0, 0x600);
             DC_FlushRange(var2, 0x20);
             LoadToMainBG1CharacterData((int)var2, 0, 0x20);
-            func_0204b0e8((struct Struct_02020cb8_2*)(arg0 + 0x28), var2);
+            LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)(arg0 + 0x28), var2);
         }
 
         func_02074bd0((struct Struct_02074bd0*)(arg0 + 0x14));

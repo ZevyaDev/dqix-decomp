@@ -74,7 +74,7 @@ extern "C" ARM void func_0201730c(Struct_02016874_3* arg0) {
     if (arg0->unknown_2750_ == NULL) return;
 
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_020100bc(var0);
+    void* var1 = GetCamera_020100bc(var0);
     if (var1 == NULL) return;
     var0->GetTickCount();
     unsigned short var2 = LightingManager::GetInstance()->maybePotBarrelDiffuseColor_;

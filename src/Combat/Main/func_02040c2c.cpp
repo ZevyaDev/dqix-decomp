@@ -143,7 +143,7 @@ extern "C" ARM void func_02040c2c(struct Struct_0203dd20* arg0, void* arg1, int 
         struct Vector3i* var8 = (struct Vector3i*)&var2;
         var1.unknown_0_[1] += 0x1000;
         if (arg0->unknown_14_ != 0) {
-            unsigned char* var9 = (unsigned char*)func_020100bc(GameState::GetInstance());
+            unsigned char* var9 = (unsigned char*)GetCamera_020100bc(GameState::GetInstance());
             func_0202ed6c(var9);
             float var10 = (float)func_0202e800(var9);
             var10 *= 3.0f;

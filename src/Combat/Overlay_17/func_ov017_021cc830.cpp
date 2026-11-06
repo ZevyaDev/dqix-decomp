@@ -23,7 +23,7 @@ struct Struct_ov017_021cc830 {
 
 // USA: func_ov017_021cc830
 extern "C" ARM void func_ov017_021cc830(void* arg0, struct Struct_ov017_021cc830* arg1, GameState* arg2, char* arg3) {
-    GameObject* var0 = func_0200ff1c(arg2, arg1->unknown_4_0_);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(arg2, arg1->unknown_4_0_);
     if (var0 == NULL) return;
     unsigned char* var1 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var0);
     if (var1 == NULL) return;

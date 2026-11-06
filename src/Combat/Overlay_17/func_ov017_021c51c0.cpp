@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void* GetFlagManager_0205ec34(void);
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov017_021c51c0(int arg0, Struct_ov017_021c51c0* arg1, G
 #endif
 	unsigned char* var0 = arg3 + 0x3000;
 	void* var1 = *(void**)(var0 + Enum_ov017_021c51c0_1804);
-	void* var2 = func_0200fd0c(arg2);
+	void* var2 = GetZoneEntry_0200fd0c(arg2);
 	signed char var3 = GetOwnProtagonistObjectIndex_0202c1a4(arg4);
 	if (arg1->unknown_4_ != var3) return;
 

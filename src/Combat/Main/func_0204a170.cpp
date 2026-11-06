@@ -12,7 +12,7 @@ struct Struct_0204a170;
 extern "C" int func_020a3570(struct Struct_0204a170* arg0);
 
 struct Struct_02033834;
-extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 
 extern Matrix4x3 data_02107874;
 extern Matrix4x3 data_021078ac;
@@ -99,10 +99,10 @@ struct Struct_0204a170_2* var10 = arg0->unknown_220_;
 
     arg0->unknown_264_++;
     if (arg0->unknown_264_ >= 3) {
-        func_02033874((struct Struct_02033834*)var12,
+        SetFacingInstantly_02033874((struct Struct_02033834*)var12,
             FIX32_MULTIPLY(var10->unknown_50_.y + var11, 0x800));
         arg0->unknown_264_ = 0;
     } else {
-        func_02033874((struct Struct_02033834*)var12, var10->unknown_50_.y);
+        SetFacingInstantly_02033874((struct Struct_02033834*)var12, var10->unknown_50_.y);
     }
 }

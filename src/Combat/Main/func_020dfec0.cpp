@@ -10,52 +10,52 @@ struct Struct_020dfec0_2 {
 
 extern "C" int func_020dffb8(struct Struct_020dfec0_2* arg0);
 
-struct Struct_020dfec0 {
+struct StringTable_020dfec0 {
     unsigned int unknown_0_0_ : 12;
     unsigned int unknown_1_4_ : 19;
     unsigned int unknown_3_7_ : 1;
     void* unknown_4_;
-    void* unknown_8_;
+    void* pText_8_;
 };
 
 struct Struct_020dffc8;
-typedef int (*Type_020dfec0)(struct Struct_020dfec0*, struct Struct_020dffc8*);
-extern "C" int func_020dffc8(struct Struct_020dfec0* arg0, Type_020dfec0 arg1);
+typedef int (*Type_020dfec0)(struct StringTable_020dfec0*, struct Struct_020dffc8*);
+extern "C" int func_020dffc8(struct StringTable_020dfec0* arg0, Type_020dfec0 arg1);
 
 struct Struct_020dfbdc;
 extern "C" int func_020dfbdc(void* arg0, struct Struct_020dfbdc* arg1);
 
-// USA: func_020dfec0
-extern "C" ARM int func_020dfec0(struct Struct_020dfec0* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3) {
-    Type_020dfec0 var0;
-    unsigned int var1;
-    unsigned int var2;
+// USA: LoadStringTable_020dfec0
+extern "C" ARM int LoadStringTable_020dfec0(struct StringTable_020dfec0* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize) {
+    Type_020dfec0 resolveEntryText;
+    unsigned int entriesSize;
+    unsigned int textSize;
 
-    if (arg1 == 0 || arg2 == 0 || arg3 == 0) {
+    if (allocator == 0 || fileData == 0 || fileSize == 0) {
         return 0;
     }
-    if (arg1 == 0 || arg2 == 0) {
+    if (allocator == 0 || fileData == 0) {
         return 0;
     }
-    memcpy(arg0, arg2, 4);
-    var1 = func_020dffb8((struct Struct_020dfec0_2*)arg0);
-    var2 = arg0->unknown_1_4_;
-    if (var1) {
-        arg0->unknown_4_ = arg1->Allocate(var1);
+    memcpy(stringTable, fileData, 4);
+    entriesSize = func_020dffb8((struct Struct_020dfec0_2*)stringTable);
+    textSize = stringTable->unknown_1_4_;
+    if (entriesSize) {
+        stringTable->unknown_4_ = allocator->Allocate(entriesSize);
     } else {
-        arg0->unknown_4_ = 0;
+        stringTable->unknown_4_ = 0;
     }
-    arg0->unknown_8_ = var2 ? arg1->Allocate(var2) : 0;
-    if (arg0->unknown_4_) {
-        memcpy(arg0->unknown_4_, (char*)arg2 + 4, var1);
+    stringTable->pText_8_ = textSize ? allocator->Allocate(textSize) : 0;
+    if (stringTable->unknown_4_) {
+        memcpy(stringTable->unknown_4_, (char*)fileData + 4, entriesSize);
     }
-    if (arg0->unknown_8_) {
-        memcpy(arg0->unknown_8_, (char*)arg2 + (func_020dffb8((struct Struct_020dfec0_2*)arg0) + 4), var2);
+    if (stringTable->pText_8_) {
+        memcpy(stringTable->pText_8_, (char*)fileData + (func_020dffb8((struct Struct_020dfec0_2*)stringTable) + 4), textSize);
     }
-    var0 = (Type_020dfec0)func_020dfbdc;
-    if (var0) {
-        func_020dffc8(arg0, var0);
+    resolveEntryText = (Type_020dfec0)func_020dfbdc;
+    if (resolveEntryText) {
+        func_020dffc8(stringTable, resolveEntryText);
     }
-    arg0->unknown_3_7_ = 1;
+    stringTable->unknown_3_7_ = 1;
     return 1;
 }

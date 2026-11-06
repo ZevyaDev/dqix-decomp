@@ -21,11 +21,11 @@ extern "C" ARM void func_ov023_021e8e34(void* arg0) {
     void* var2 = GetLocalWireless_0202ae18();
     int var3 = 0;
     if (!IsLocalWirelessOn_0202b7d8((int*)var2)) {
-        GameObject* var4 = func_0200ff1c(var1, 0);
+        GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var1, 0);
         if (var4) var3 = GetPartyMemberData_02053c6c((unsigned char*)var4);
     } else {
         int var5 = GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var2);
-        GameObject* var6 = func_0200ff1c(var1, var5);
+        GameObject* var6 = GetPartyMemberBaseByIndex_0200ff1c(var1, var5);
         if (var6) var3 = GetPartyMemberData_02053c6c((unsigned char*)var6);
     }
     if (var3 == 0) return;

@@ -7,8 +7,8 @@ extern char* data_ov017_021d87f4;
 #endif
 
 extern "C" void* GetMessageWindow_020421a0(void);
-extern "C" void func_020e4bf4(void* arg0, int arg1);
-extern "C" int func_020e51cc(int arg0);
+extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
+extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void* func_020d7a50(void);
 struct Struct_0208b494;
 extern "C" Struct_0208b494* func_0208a9b4(void);
@@ -34,9 +34,9 @@ extern "C" ARM void func_ov017_021c2ea4(unsigned char* arg0) {
     GameObject* var5 = var3->GetPartyMemberByIndex(arg0[0x95]);
     sprintf(var1, data_ov017_021d87f4, *(char**)((char*)var5 + 0x134));
 #else
-    func_020e4bf4(var0, arg0[0x95]);
+    InitPartyMemberNoun_020e4bf4(var0, arg0[0x95]);
     *(void**)var4 = var0;
-    int var6 = func_020e51cc(0x31);
+    int var6 = GetStandardString_020e51cc(0x31);
     func_02046608(var4, 0xc, var6, var2, 0xe3, 0, 1);
 #endif
     void* var7 = func_020d7a50();

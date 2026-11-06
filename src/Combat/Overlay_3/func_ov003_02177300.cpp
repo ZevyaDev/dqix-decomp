@@ -55,7 +55,7 @@ extern "C" ARM void func_ov003_02177300(char* arg0) {
     unsigned char var6;
     for (var6 = 0; var6 < *(int*)(arg0 + Enum_ov003_02177300_4144); var6++) {
         var5 = 0;
-        GameObject* var7 = func_0200ff1c(var0, *(int*)(arg0 + Enum_ov003_02177300_4124 + var6 * 4));
+        GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var0, *(int*)(arg0 + Enum_ov003_02177300_4124 + var6 * 4));
         if (var7 != 0) {
             var5 = *(int*)((char*)var7 + 0x134);
         }

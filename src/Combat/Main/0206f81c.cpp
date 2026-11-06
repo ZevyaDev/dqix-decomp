@@ -34,7 +34,7 @@ struct Struct_020213fc;
 extern "C" void func_020213fc(struct Struct_020213fc* arg0, int arg1);
 extern "C" void func_020e1154(void* arg0);
 
-extern "C" void* func_0200fd0c(GameState*);
+extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void func_02070378(char* arg0);
 
 extern "C" void* func_0203cf4c(void);
@@ -44,7 +44,7 @@ extern "C" int func_02040528(int* arg0);
 extern "C" void func_ov017_021b8d80(void*);
 extern "C" void func_ov017_021b8d1c(void* arg0);
 
-extern "C" int func_020100f8(char* arg0);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a27b8(unsigned char* arg0);
 
 struct Vector3i;
@@ -219,7 +219,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
             }
 
             case 0x85: case 0x8a: case 0xe2: {
-                unsigned char* var19 = (unsigned char*)func_0200fd0c((GameState*)var11);
+                unsigned char* var19 = (unsigned char*)GetZoneEntry_0200fd0c((GameState*)var11);
                 func_02070378((char*)var19);
                 var19[2] = 1;
                 *(unsigned short*)(var19 + 0) = *(unsigned short*)(var14 + 2);
@@ -252,7 +252,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                     *(int*)(var23 + 0x124) = *(unsigned short*)(var14 + 4);
                     *(unsigned char*)(var23 + 0x139) = (var22 != 0) ? 1 : 0;
                     AppendToQueue_020469b4(var9, (struct QueueNode_0201bdac*)var23);
-                    int var25 = func_020100f8((char*)var11);
+                    int var25 = GetFollowCamera_020100f8((char*)var11);
                     if (var25 != 0) {
                         func_020a27b8((unsigned char*)var25);
                     }
@@ -261,7 +261,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
             }
 
             case 0x79: case 0x89: case 0xe1: {
-                unsigned char* var26 = (unsigned char*)func_0200fd0c((GameState*)var11);
+                unsigned char* var26 = (unsigned char*)GetZoneEntry_0200fd0c((GameState*)var11);
                 func_02070378((char*)var26);
                 var26[2] = 1;
                 *(unsigned short*)(var26 + 0) = *(unsigned short*)(var14 + 2);
@@ -376,7 +376,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                         int var43 = 0;
                         unsigned char var44 = func_02011494((char*)var7, var41);
                         for (int var45 = 0; var45 < var44; var45++) {
-                            struct Struct_0203d028_3* var46 = (Struct_0203d028_3*)func_0200ff1c((GameState*)var7, var41[var45]);
+                            struct Struct_0203d028_3* var46 = (Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var7, var41[var45]);
                             if (var46 != NULL) {
                                 int var47 = GetPartyMemberData_02053c6c((unsigned char*)var46);
                                 if (var47 != 0) {
@@ -427,7 +427,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                         unsigned char var58 = func_02011494((char*)var11, var57);
                         for (int var59 = 0; var59 < var58; var59++) {
                             int var60 = var57[var59];
-                            struct Struct_0203d028_3* var61 = (Struct_0203d028_3*)func_0200ff1c((GameState*)var11, var60);
+                            struct Struct_0203d028_3* var61 = (Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var11, var60);
                             if (var61 != NULL) {
                                 int var62 = GetPartyMemberData_02053c6c((unsigned char*)var61);
                                 if (var62 != 0) {
@@ -541,12 +541,12 @@ extern "C" ARM void func_0206f81c(void* arg0) {
         }
 
         if (var4 != 0 && var15 != 0) {
-            unsigned char* var80 = (unsigned char*)func_0200fd0c((GameState*)var11);
+            unsigned char* var80 = (unsigned char*)GetZoneEntry_0200fd0c((GameState*)var11);
             var80[7] = 1;
             *(Vector3i*)(var80 + 0x10) = *(Vector3i const*)var10;
         }
         if (var5 != 0 && var15 != 0) {
-            unsigned char* var81 = (unsigned char*)func_0200fd0c((GameState*)var11);
+            unsigned char* var81 = (unsigned char*)GetZoneEntry_0200fd0c((GameState*)var11);
             var81[7] = 1;
             *(short*)(var81 + 0x1c) = var6;
         }

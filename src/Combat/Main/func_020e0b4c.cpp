@@ -18,7 +18,7 @@ extern "C" void func_02023064(struct Struct_020200c0_3* arg0, unsigned int arg1,
 extern "C" void func_0205b20c(struct Struct_020200c0_4* arg0);
 extern "C" void func_0205b220(void* arg0, int arg1);
 extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" int func_0205b234(void*, short, short, int, unsigned char, unsigned char);
 
 #if defined(jpn)
@@ -62,11 +62,11 @@ extern "C" ARM void func_020e0b4c(void* arg0, void* arg1, int arg2, int) {
     for (int var2 = 0; var2 < 3; var2++) {
         func_0205b234(&var1, (short)0xa, (short)(var2 * 13 + 0x10), (int)((char*)arg0 + 0x1fc + 0x400 + var2 * Enum_020e0b4c_72), (unsigned char)Enum_020e0b4c_15_2, (unsigned char)Enum_020e0b4c_0);
         char* var3 = (char*)arg0 + Enum_020e0b4c_1748 + var2 * 8;
-        if (func_020d2ff0(var3) == 3) {
+        if (GetStringLength_020d2ff0(var3) == 3) {
             func_0205b234(&var1, (short)Enum_020e0b4c_116, (short)(var2 * 13 + 0x10), (int)var3, (unsigned char)Enum_020e0b4c_15_2, (unsigned char)Enum_020e0b4c_0);
-        } else if (func_020d2ff0(var3) == 2) {
+        } else if (GetStringLength_020d2ff0(var3) == 2) {
             func_0205b234(&var1, (short)Enum_020e0b4c_120, (short)(var2 * 13 + 0x10), (int)var3, (unsigned char)Enum_020e0b4c_15_2, (unsigned char)Enum_020e0b4c_0);
-        } else if (func_020d2ff0(var3) == 1) {
+        } else if (GetStringLength_020d2ff0(var3) == 1) {
             func_0205b234(&var1, (short)Enum_020e0b4c_125, (short)(var2 * 13 + Enum_020e0b4c_15), (int)var3, (unsigned char)Enum_020e0b4c_15_2, (unsigned char)Enum_020e0b4c_0);
         } else {
             func_0205b234(&var1, (short)Enum_020e0b4c_116, (short)(var2 * 13 + 0x10), (int)var3, (unsigned char)Enum_020e0b4c_15_2, (unsigned char)Enum_020e0b4c_0);

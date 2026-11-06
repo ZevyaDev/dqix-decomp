@@ -30,7 +30,7 @@ extern "C" void func_02013750(void* arg0, int arg1);
 extern "C" void func_ov000_02172720(void* arg0);
 
 extern "C" void func_02079f9c(char* arg0);
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_02057f00(void* arg0, int arg1);
 extern "C" void func_ov023_021eb26c(void* arg0);
 
@@ -60,8 +60,8 @@ extern "C" ARM void func_ov000_021604f0(struct Struct_ov000_021604f0* arg0) {
     if (!(arg0->unknown_55f4_ & 0x800)) {
         func_ov000_02172720(arg0->unknown_3760_);
     }
-    func_02079f9c((char*)func_020797dc());
-    void* var0 = func_02057924();
+    func_02079f9c((char*)GetActionTables_020797dc());
+    void* var0 = GetEffectManager_02057924();
     for (int* var1 = data_ov000_02182fe0; *var1 >= 0; var1++) {
         func_02057f00(var0, *var1);
     }

@@ -31,7 +31,7 @@ extern "C" ARM short func_02086aec(struct Struct_02053f7c* arg0, int arg1) {
     var0 = 0;
     var1 = GameState::GetInstance();
     for (var2 = 0; var2 < arg0->unknown_f7c_; var2++) {
-        var3 = func_0200ff1c(var1, arg0->unknown_f78_[var2]);
+        var3 = GetPartyMemberBaseByIndex_0200ff1c(var1, arg0->unknown_f78_[var2]);
         if (var3 != NULL) {
             var4 = (void*)GetPartyMemberData_02053c6c((unsigned char*)var3);
             if (var4 != NULL) {

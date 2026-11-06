@@ -1,12 +1,9 @@
 #include <globaldefs.h>
 #include "NitroSDK/TouchScreen.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 extern "C" void* func_ov031_0223cf4c(unsigned int arg0, int arg1);
-extern "C" void func_020c9be0(void);
+extern "C" void HaltForever_020c9be0(void);
 extern "C" void func_ov031_0223d0a4();
 
 struct Struct_ov031_02290d40 { unsigned char unknown_0_[4]; void* unknown_4_; };
@@ -18,14 +15,14 @@ extern "C" ARM void func_ov031_0223cff0(void) {
 
 	TouchScreenCalibration var0;
 	if (GetTouchScreenCalibration(&var0) == 0) {
-		func_020c9be0();
+		HaltForever_020c9be0();
 	}
 	SaveTouchScreenCalibration(&var0);
 
 	EnableTouchScreen(0, 4, (TouchScreenSample*)data_ov031_02290d40.unknown_4_, 5);
 	WaitForTouchScreenOperations(2);
 	if (GetTouchScreenErrors(2) != 0) {
-		func_020c9be0();
+		HaltForever_020c9be0();
 	}
 	func_ov031_0223d0a4();
 }

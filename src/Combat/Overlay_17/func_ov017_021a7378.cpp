@@ -102,7 +102,7 @@ struct Struct_ov017_021a7378_3 {
     char unknown_270_[0x10];
 };
 
-extern "C" unsigned char* func_020100f8(char* arg0);
+extern "C" unsigned char* GetFollowCamera_020100f8(char* gameState);
 extern "C" Struct_ov000_0217964c_3* GetMessageWindow_020421a0();
 extern "C" Struct_ov017_021a7378_4* GetZone3D_02012fe4(void);
 extern "C" Struct_ov001_02158ae4_3* func_0200ffd0(Struct_0200ffd0* arg0);
@@ -113,12 +113,12 @@ extern "C" void func_020a0cc4(unsigned int arg0);
 extern "C" void func_020ae38c(unsigned char* arg0);
 extern "C" void func_020ae380(unsigned char* arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void func_020dfec0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
+extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
 extern "C" int func_020457e0(Struct_ov000_0217964c_3* arg0);
-extern "C" Struct_ov017_021a7378* func_0200fd0c(GameState* arg0);
+extern "C" Struct_ov017_021a7378* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void func_02070378(char* arg0);
 extern "C" void* func_02033fa0(void* arg0);
 extern "C" int func_0204bedc(unsigned short* arg0);
@@ -147,7 +147,7 @@ extern const char data_ov017_021d77b2[];
 // JPN: func_ov017_021a7d20
 extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    unsigned char* var1 = func_020100f8((char*)var0);
+    unsigned char* var1 = GetFollowCamera_020100f8((char*)var0);
     Struct_ov000_0217964c_3* var2 = GetMessageWindow_020421a0();
     Struct_ov017_021a7378_4* var3 = GetZone3D_02012fe4();
     Struct_ov001_02158ae4_3* var4 = func_0200ffd0((Struct_0200ffd0*)var0);
@@ -159,9 +159,9 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1100;
         func_020a0cc4(Enum_ov017_021a7378_5120);
         func_020ae38c((unsigned char*)func_0200ffd0((Struct_0200ffd0*)var0));
-        FontLoader_0208cb08* var5 = func_02094a00();
+        FontLoader_0208cb08* var5 = GetFontLoader_02094a00();
         func_02094b30(var5, 0x205, 0);
-        if (func_02094b4c(var5)) {
+        if (UpdateFontLoad_02094b4c(var5)) {
 #if defined(jpn)
             arg0->unknown_20_ = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov017_021d7bd4, NULL);
 #else
@@ -177,7 +177,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
             unsigned int var8;
             var6->GetLoadedFileByID(arg0->unknown_20_, &var7, &var8);
             arg0->unknown_25c_.Reset();
-            func_020dfec0(arg0->unknown_270_, &arg0->unknown_25c_, var7, var8);
+            LoadStringTable_020dfec0(arg0->unknown_270_, &arg0->unknown_25c_, var7, var8);
             var6->RemoveTask(arg0->unknown_20_);
             arg0->unknown_20_ = -1;
             if (arg0->unknown_c_ == 0) {
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
         if (var2->unknown_9a0_ == 0) {
             func_020a28b0(var1, 2);
             if (func_020457e0(var2) == 0) {
-                Struct_ov017_021a7378* var9 = func_0200fd0c(var0);
+                Struct_ov017_021a7378* var9 = GetZoneEntry_0200fd0c(var0);
                 func_02070378((char*)var9);
                 var9->unknown_2_ = 1;
                 var9->unknown_7_ = 1;
@@ -272,7 +272,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
         Struct_ov017_021a7378* var12;
         Queue_0201bdac_2* var13 = (Queue_0201bdac_2*)var11->unknown_ptr_array_36fc[0];
         QueueNode_0201bdac* var14 = (QueueNode_0201bdac*)var11->unknown_ptr_array_371c[6];
-        var12 = func_0200fd0c(var0);
+        var12 = GetZoneEntry_0200fd0c(var0);
         func_02070378((char*)var12);
         var12->unknown_7_ = 1;
         void* var15 = func_02033fa0(var4);

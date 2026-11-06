@@ -2,14 +2,14 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
-extern "C" void func_ov000_02169b78(void* arg0);
+extern "C" void AppendBACTCommand_ov000_02169b78(void* command);
 extern "C" void __clear(void* arg0, int arg1);
 
 struct Struct_ov000_02184264_2 {
     unsigned char unknown_0_[8];
     SafeAllocator* unknown_8_;
 };
-extern struct Struct_ov000_02184264_2 data_ov000_02184264;
+extern struct Struct_ov000_02184264_2 gBACTParseState_ov000_02184264;
 
 struct Struct_ov000_0216a68c {
     int unknown_0_;
@@ -27,7 +27,7 @@ struct Struct_ov000_0216a68c {
 
 // USA: func_ov000_0216a68c
 extern "C" ARM int func_ov000_0216a68c(Script::Parameter* arg0, int arg1) {
-    Struct_ov000_0216a68c* var0 = (Struct_ov000_0216a68c*)data_ov000_02184264.unknown_8_->Allocate(sizeof(Struct_ov000_0216a68c));
+    Struct_ov000_0216a68c* var0 = (Struct_ov000_0216a68c*)gBACTParseState_ov000_02184264.unknown_8_->Allocate(sizeof(Struct_ov000_0216a68c));
     int var1;
     int var2 = -1;
     const char* var3;
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov000_0216a68c(Script::Parameter* arg0, int arg1) {
             var2 = arg0++->ToInt() - 0x1a;
             var3 = arg0++->ToString();
             if (var3 != NULL) {
-                var4 = (char*)data_ov000_02184264.unknown_8_->Allocate(strlen(var3) + 1);
+                var4 = (char*)gBACTParseState_ov000_02184264.unknown_8_->Allocate(strlen(var3) + 1);
                 strcpy(var4, var3);
             }
             if (arg1 >= 4) {
@@ -94,6 +94,6 @@ extern "C" ARM int func_ov000_0216a68c(Script::Parameter* arg0, int arg1) {
     Vector3fix16Copy(&var0->unknown_12_, &var10);
     var0->unknown_1a_ = var7;
     var0->unknown_1b_ = var8;
-    func_ov000_02169b78(var0);
+    AppendBACTCommand_ov000_02169b78(var0);
     return 1;
 }

@@ -16,12 +16,12 @@ struct MessageWindow_020465c0;
 extern "C" void *func_020e2ff8(void);
 extern "C" void func_020e3428(void *arg0, int arg1);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" char *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
+extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" void *func_020e46c4(void *arg0);
-extern "C" void func_02046574(struct Struct_02046574_2 *arg0, int arg1, char *arg2);
-extern "C" void func_020e4bf4(void *arg0, int arg1);
+extern "C" void SetMessageString_02046574(struct Struct_02046574_2 *window, int index, char *text);
+extern "C" void InitPartyMemberNoun_020e4bf4(void *noun, int partyMemberIndex);
 extern "C" void __clear(void *arg0, int arg1);
 #if !defined(jpn)
 extern "C" void func_020dcf7c(int arg0, void *arg1);
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov002_02159900(char *arg0, char *arg1, int arg2) {
     GameState *var0      = GameState::GetInstance();
     char *var1            = (char *) GetMessageWindow_020421a0();
     unsigned char *var2 = (unsigned char *) (arg1 + 8);
-    char *var3            = func_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + REGION_LAYOUT(0x750, 0x3ec + 0x400)),
+    char *var3            = FindItemData_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + REGION_LAYOUT(0x750, 0x3ec + 0x400)),
                                                                            *(short *) (arg0 + REGION_LAYOUT(0x1aea, 0x1c00 + 0x22)));
     if (var3 == NULL) return;
 #if defined(jpn)
@@ -56,17 +56,17 @@ extern "C" ARM void func_ov002_02159900(char *arg0, char *arg1, int arg2) {
     memset(*(void **) (arg0 + 0x1a9c), 0, 0x800);
     ClearMessageParams_02046380(var1);
     char *var4 = *(char **) (arg0 + 0x1a98);
-    char *var5   = (char *)func_0200ff1c(var0, *(signed char *) (arg1 + 2));
+    char *var5   = (char *)GetPartyMemberBaseByIndex_0200ff1c(var0, *(signed char *) (arg1 + 2));
     if (var5 != NULL) {
-        func_02046574((struct Struct_02046574_2 *) var1, 0, *(char **) (var5 + 0x134));
+        SetMessageString_02046574((struct Struct_02046574_2 *) var1, 0, *(char **) (var5 + 0x134));
     }
     char var6[0x40];
     __clear(var6, 0x40);
     func_020dcf7c(*(short *) (var3 + 0x18), var6);
-    func_02046574((struct Struct_02046574_2 *) var1, 1, var6);
-    char *var7 = (char *)func_0200ff1c(var0, *(signed char *) (arg1 + 4));
+    SetMessageString_02046574((struct Struct_02046574_2 *) var1, 1, var6);
+    char *var7 = (char *)GetPartyMemberBaseByIndex_0200ff1c(var0, *(signed char *) (arg1 + 4));
     if (var7 != NULL) {
-        func_02046574((struct Struct_02046574_2 *) var1, 2, *(char **) (var7 + 0x134));
+        SetMessageString_02046574((struct Struct_02046574_2 *) var1, 2, *(char **) (var7 + 0x134));
         func_020465f0((unsigned char *) var1, 9, 0);
         SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var1, 9, *(short *) (var7 + 4));
     }
@@ -77,10 +77,10 @@ extern "C" ARM void func_ov002_02159900(char *arg0, char *arg1, int arg2) {
     func_020e46c4(arg0 + 8);
     func_020e46c4(arg0 + 0x14);
     char *var8 = *(char **) (arg0 + 0x1000 + 0xbd0);
-    char *var9   = (char *)func_0200ff1c(var0, *(signed char *) (arg1 + 2));
+    char *var9   = (char *)GetPartyMemberBaseByIndex_0200ff1c(var0, *(signed char *) (arg1 + 2));
     if (var9 != NULL) {
-        func_02046574((struct Struct_02046574_2 *) var1, 0, *(char **) (var9 + 0x134));
-        func_020e4bf4(arg0 + 8, *(signed char *) (arg1 + 2));
+        SetMessageString_02046574((struct Struct_02046574_2 *) var1, 0, *(char **) (var9 + 0x134));
+        InitPartyMemberNoun_020e4bf4(arg0 + 8, *(signed char *) (arg1 + 2));
         *(char **) var1 = arg0 + 8;
     }
     struct Struct_ov002_02159900 var10;
@@ -93,11 +93,11 @@ extern "C" ARM void func_ov002_02159900(char *arg0, char *arg1, int arg2) {
     var10.unknown_4_ = var12;
     func_020dcf7c(*(short *) (var3 + 0x18), &var10);
     *(struct Struct_ov002_02159900 **) (var1 + 0x18) = &var10;
-    func_02046574((struct Struct_02046574_2 *) var1, 1, var10.unknown_0_);
-    char *var13 = (char *)func_0200ff1c(var0, *(signed char *) (arg1 + 4));
+    SetMessageString_02046574((struct Struct_02046574_2 *) var1, 1, var10.unknown_0_);
+    char *var13 = (char *)GetPartyMemberBaseByIndex_0200ff1c(var0, *(signed char *) (arg1 + 4));
     if (var13 != NULL) {
-        func_02046574((struct Struct_02046574_2 *) var1, 2, *(char **) (var13 + 0x134));
-        func_020e4bf4(arg0 + 0x14, *(signed char *) (arg1 + 4));
+        SetMessageString_02046574((struct Struct_02046574_2 *) var1, 2, *(char **) (var13 + 0x134));
+        InitPartyMemberNoun_020e4bf4(arg0 + 0x14, *(signed char *) (arg1 + 4));
         *(char **) (var1 + 0x10) = arg0 + 0x14;
         func_020465f0((unsigned char *) var1, 9, 0);
         SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var1, 9, *(short *) (var13 + 4));
@@ -173,18 +173,18 @@ extern "C" ARM void func_ov002_02159900(char *arg0, char *arg1, int arg2) {
                     }
                     if (var15 >= 0) {
                         int var18 = *(signed char *) (arg1 + var17 + 4);
-                        char *var19 = (char *)func_0200ff1c(var0, var18);
+                        char *var19 = (char *)GetPartyMemberBaseByIndex_0200ff1c(var0, var18);
                         if (var19 != NULL) {
                             ClearMessageParams_02046380(var1);
 #if defined(jpn)
-                            func_02046574((struct Struct_02046574_2 *) var1, 2, *(char **) (var19 + 0x134));
+                            SetMessageString_02046574((struct Struct_02046574_2 *) var1, 2, *(char **) (var19 + 0x134));
                             SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var1, 9, var18);
                             func_020474a8(var1, 0xc, (const char *) TXT(var15), var4 + 0x700);
                             AppendText_02042058(BD0, (const char *) TXT(8));
                             AppendText_02042058(BD0, var4 + 0x700);
 #else
-                            func_02046574((struct Struct_02046574_2 *) var1, 2, *(char **) (var19 + 0x134));
-                            func_020e4bf4(arg0 + 0x14, var18);
+                            SetMessageString_02046574((struct Struct_02046574_2 *) var1, 2, *(char **) (var19 + 0x134));
+                            InitPartyMemberNoun_020e4bf4(arg0 + 0x14, var18);
                             *(char **) (var1 + 0x10) = arg0 + 0x14;
                             SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var1, 9, var18);
                             func_02046608(var1, 0xc, TXT(var15), var8 + 0x860, 0xe3, 0, 1);
@@ -234,7 +234,7 @@ extern "C" ARM void func_ov002_02159900(char *arg0, char *arg1, int arg2) {
                     case 0x5624: var20 = 0x7999; break;
                     case 0x5619: var20 = 0x7997; break;
                 }
-                func_02046574((struct Struct_02046574_2 *) var1, 5, (char *) TXT(var20));
+                SetMessageString_02046574((struct Struct_02046574_2 *) var1, 5, (char *) TXT(var20));
                 var14 = 0x792c;
                 var15 = 0x7990;
             } else {

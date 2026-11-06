@@ -2,13 +2,13 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-struct Struct_0204693c;
-extern "C" void func_0204693c(struct Struct_0204693c* arg0);
+struct QueueNode_0204693c;
+extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
 extern "C" int GetMessageWindow_020421a0();
 
 // USA: func_ov017_021b57fc
 extern "C" ARM void func_ov017_021b57fc(unsigned char* arg0) {
-    func_0204693c((struct Struct_0204693c*)arg0);
+    ResetQueueNode_0204693c((struct QueueNode_0204693c*)arg0);
 
     arg0[0x0] = 0x15;
     *(int*)(arg0 + 0x8) = 0;

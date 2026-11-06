@@ -31,7 +31,7 @@ struct Struct_020675fc_2 {
 };
 extern "C" Struct_0203dce4_2* func_0203cf4c();
 extern "C" Struct_0203dce4* func_0203dce4(Struct_0203dce4_2*, int);
-extern "C" void* func_020100bc(GameState*);
+extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" void func_020406f8(Struct_0203de84*, Struct_0203de84_2*);
 extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void func_020473c8(Struct_02015ef4_2*, int);
@@ -43,7 +43,7 @@ extern "C" ARM void func_020675fc(Struct_020675fc_2* arg0) {
     Struct_0203dce4* var0 = func_0203dce4(func_0203cf4c(), arg0->unknown_1838_);
     if (var0 && arg0->unknown_19b7_) {
         GameResources* var1 = GetGameResources();
-        void* var2 = func_020100bc(GameState::GetInstance());
+        void* var2 = GetCamera_020100bc(GameState::GetInstance());
         int var3;
         int var4;
         Struct_02015ef4 var5;

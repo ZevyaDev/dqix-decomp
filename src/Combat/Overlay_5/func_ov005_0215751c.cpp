@@ -59,7 +59,7 @@ extern "C" int func_0205bb84(Struct_0205bb84* arg0);
 extern "C" int func_ov005_02158560(Struct_ov005_02153954* arg0, unsigned char arg1, int arg2);
 extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
 extern "C" int func_ov005_02157ae8(Struct_ov005_02153954* arg0, int arg1);
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
 // USA: func_ov005_0215751c
 extern "C" ARM void func_ov005_0215751c(Struct_ov005_02153954* arg0) {
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov005_0215751c(Struct_ov005_02153954* arg0) {
     if (var1) {
         func_ov005_0215792c(arg0, 4);
         arg0->unknown_3dbb_ = 8;
-        func_0205bb04(arg0->unknown_19f4_, arg0->unknown_3dbb_ - 8);
+        SetMenuCursorIndex_0205bb04(arg0->unknown_19f4_, arg0->unknown_3dbb_ - 8);
         if (g_keyManager.TestKeysPressed(0x80))
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 2, 0);
         else if (func_ov005_02157190(arg0))

@@ -34,6 +34,6 @@ struct ModifiableCombatStats {
 class GameState;
 class GameObject;
 
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int func_02011538(GameState* arg0);

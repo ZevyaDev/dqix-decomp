@@ -2,23 +2,23 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct Struct_0205def8;
 struct SoundEffectManager_02108760;
 struct Struct_020d7aa0_2;
 struct Struct_020a095c;
 
 extern "C" void func_ov002_0215b2c8(char *arg0);
-extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
 extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_0215c614(char *arg0);
-extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
 extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
-extern "C" void func_0205deb4(struct Struct_0205d81c *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" int func_0205df38(void *arg0, int arg1);
 extern "C" void func_ov002_0215b458(char *arg0, int arg1);
 struct Struct_0205da38;
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov002_02162964(char *arg0) {
 #endif
         CUR = 0;
         SEL = *(int *) (arg0 + CUR * 4 + RG(0x1c3c, 0x1b00));
-        func_0205de24((struct Struct_0205de24_2 *) OBJ, 0, 2);
+        SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) OBJ, 0, 2);
         func_ov002_02161cf0(arg0);
         func_ov002_0215c614(arg0);
         *(int *) (arg0 + RG(0x1bc0, 0x1a88)) += 1;
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov002_02162964(char *arg0) {
         *(short *) (arg0 + RG(0x1bf0, 0x1ab8)) = -1;
         *(unsigned int *) (arg0 + RG(0x247c, 0x22ac)) |= 4;
         short var2 = CUR;
-        CUR       = func_0205d794((struct Struct_0205c570 *) OBJ);
+        CUR       = GetCursorIndex_0205d794((struct Struct_0205c570 *) OBJ);
         func_ov002_0215b9a4(arg0, *(int *) (arg0 + RG(0x1bb8, 0x1a80)) & 0xff, 0);
         signed char var3 = SEL;
         SEL              = *(signed char *) (arg0 + CUR + RG(0x1c6e, 0x1b32));
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov002_02162964(char *arg0) {
             func_ov002_0215b9a4(arg0, 5, 0);
             func_0205def8((struct Struct_0205def8 *) OBJ, SEL >= 0 ? 1 : 0, 5);
         }
-        func_0205deb4((struct Struct_0205d81c *) OBJ, 5, 1);
+        SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 5, 1);
         if (g_keyManager.TestKeysHeld(0x40)) {
             return;
         }
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov002_02162964(char *arg0) {
                     *(int *) (arg0 + RG(0x1bb8, 0x1a80)) = RG(0xb, 0xc);
                 } else {
                     *(unsigned char *) (arg0 + RG(0x1c32, 0x1afa)) = 0;
-                    func_0205deb4((struct Struct_0205d81c *) OBJ, 4, 1);
+                    SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 4, 1);
                     *(short *) (arg0 + RG(0x1bf0, 0x1ab8)) = *(unsigned char *) (arg0 + RG(0x2521, 0x2351)) = 1;
                     SEL                                = func_ov002_021573f8(arg0, 1);
                     *(short *) (arg0 + RG(0x1c12, 0x1ada))         = 0;

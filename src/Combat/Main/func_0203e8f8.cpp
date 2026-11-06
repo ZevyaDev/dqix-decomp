@@ -106,7 +106,7 @@ struct Struct_0203e624 {
 
 extern "C" Struct_0203e8f8_2* func_0203f008(Struct_0203f008* arg0);
 extern "C" void func_020c555c(const unsigned short* arg0);
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_020d86d0(int arg0, int arg1);
 extern "C" void func_020c9820(void);
 extern "C" Vector3i func_020406f8(Struct_0203e8f8* arg0);
@@ -205,7 +205,7 @@ extern "C" ARM int func_0203e8f8(void* arg0, Struct_0203e8f8* arg1, SafeAllocato
     GetCurrentTimestamp();
     var0 = data_020e7980;
     func_020c555c(var0.unknown_0_);
-    func_020c5588(0x7c00, 0, 0x7fff, 0, 0);
+    Set3DClearColorAndDepth_020c5588(0x7c00, 0, 0x7fff, 0, 0);
     func_020d86d0(0, 0);
     func_020c9820();
     LockStagedTextureVRAMCopying();
@@ -333,7 +333,7 @@ extern "C" ARM int func_0203e8f8(void* arg0, Struct_0203e8f8* arg1, SafeAllocato
         {
             var38 = var37->advanced_.backgroundColor[var35];
         }
-        func_020c5588(var38, 0x10, 0x7fff, 0, 0);
+        Set3DClearColorAndDepth_020c5588(var38, 0x10, 0x7fff, 0, 0);
     }
     return 1;
 }

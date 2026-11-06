@@ -1,11 +1,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
-extern "C" void func_020c9be0(void);
+extern "C" void HaltForever_020c9be0(void);
 extern "C" void func_ov017_021d4c04(void*, int, void*, int, void*, int);
 extern "C" void func_ov023_021eb000(void*);
 
@@ -27,7 +24,7 @@ extern "C" ARM void func_0209fee4(struct Struct_0209fee4* arg0, struct SafeAlloc
     void* var0 = arg1->Allocate(0x400);
     void* var1 = arg1->Allocate(0x1800);
     if (var0 == NULL || var1 == NULL) {
-        func_020c9be0();
+        HaltForever_020c9be0();
     }
 
     func_ov017_021d4c04(&arg0->unknown_c_, arg0->unknown_4_, var0, 0x80, var1, 0x200);

@@ -5,13 +5,13 @@ extern "C" void func_02074af4(void*);
 struct Struct_02074b64;
 extern "C" void func_02074b64(struct Struct_02074b64* arg0);
 
-struct Struct_0201099c_14;
-extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
+struct StringTable_0201099c_14;
+extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 
-struct Struct_02020cb8;
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
+struct BGLayer_02020cb8;
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
-extern "C" void func_0204c684(void*);
+extern "C" void InitTextWindow_0204c684(void*);
 
 struct Struct_0205cfd4;
 extern "C" void func_0205cfd4(struct Struct_0205cfd4* arg0);
@@ -27,19 +27,19 @@ extern "C" ARM void func_ov023_021eb138(void* arg0, unsigned char arg1) {
     unsigned int* var0 = (unsigned int*)0x4000000;
     *(int*)((char*)arg0 + 0x3c) = (*var0 & 0x1f00) >> 8;
     unsigned int* var1 = (unsigned int*)0x4001000;
-    struct Struct_0201099c_14* var2 = (struct Struct_0201099c_14*)((char*)arg0 + 4);
+    struct StringTable_0201099c_14* var2 = (struct StringTable_0201099c_14*)((char*)arg0 + 4);
     *(int*)((char*)arg0 + 0x40) = (*var1 & 0x1f00) >> 8;
     *(int*)arg0 = 0;
-    func_020dfc40(var2);
+    InitStringTable_020dfc40(var2);
 
     for (int var3 = 0; var3 < 2; var3++) {
-        func_0204af64((struct Struct_02020cb8*)((char*)arg0 + 0x44 + var3 * 0x20));
+        InitBGLayer_0204af64((struct BGLayer_02020cb8*)((char*)arg0 + 0x44 + var3 * 0x20));
     }
     for (int var4 = 0; var4 < 2; var4++) {
-        func_0204af64((struct Struct_02020cb8*)((char*)arg0 + 0x84 + var4 * 0x20));
+        InitBGLayer_0204af64((struct BGLayer_02020cb8*)((char*)arg0 + 0x84 + var4 * 0x20));
     }
     for (int var5 = 0; var5 < 3; var5++) {
-        func_0204c684((char*)arg0 + 0x180 + var5 * 0xe0);
+        InitTextWindow_0204c684((char*)arg0 + 0x180 + var5 * 0xe0);
     }
 
     func_0205cfd4((struct Struct_0205cfd4*)((char*)arg0 + 0xc4));

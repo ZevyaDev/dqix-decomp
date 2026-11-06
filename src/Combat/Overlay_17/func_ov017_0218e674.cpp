@@ -36,7 +36,7 @@ extern "C" ARM void func_ov017_0218e674(unsigned char* arg0) {
 #endif
     GameState* var0 = GameState::GetInstance();
     GetLocalWireless_0202ae18();
-    if (func_020100bc(var0) == 0) return;
+    if (GetCamera_020100bc(var0) == 0) return;
 
     struct Struct_ov017_0218e674_2* var1 = (struct Struct_ov017_0218e674_2*)GetParty_02010828(var0);
     int var2[4];

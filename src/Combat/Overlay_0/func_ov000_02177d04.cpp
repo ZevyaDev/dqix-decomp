@@ -12,13 +12,13 @@ struct Struct_ov000_02177d04 {
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_ov000_0217542c(void* arg0);
-extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" void* func_ov000_02161318(void* arg0, int arg1);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int func_ov000_02170c7c(void* arg0);
 extern "C" int func_02041dd0(char* arg0, int arg1);
-extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int func_02041a28(char* arg0, int arg1);
 extern "C" Struct_ov000_02177d04* func_02054000(struct Struct_02054000* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
@@ -37,9 +37,9 @@ extern "C" ARM void func_ov000_02177d04(char* arg0, char* arg1) {
 #endif
 
     if (func_ov000_0217542c(arg0)) {
-        func_02041c08(arg1, var3, 8, 5, 5, 5);
+        AppendFrameTag_02041c08(arg1, var3, 8, 5, 5, 5);
     }
-    func_02041ea4(arg1, var3);
+    AppendCursorTag_02041ea4(arg1, var3);
 
     for (unsigned char var4 = 0; var4 < var1; var4++) {
         signed char var5 = *(signed char*)(arg0 + 0x70 + var4);
@@ -47,12 +47,12 @@ extern "C" ARM void func_ov000_02177d04(char* arg0, char* arg1) {
         if (var6 == 0) {
             continue;
         }
-        GameObject* var7 = func_0200ff1c(var0, var5);
+        GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var0, var5);
         if (var7 == 0) {
             continue;
         }
         func_02041dd0(arg1, func_ov000_02170c7c(var6));
-        func_02041b70(arg1, var4, var7->baseStats_->unk);
+        AppendMenuEntry_02041b70(arg1, var4, var7->baseStats_->unk);
         func_02041a28(arg1, 0x46);
         func_02041dd0(arg1, 0);
         Struct_ov000_02177d04* var8 = func_02054000((struct Struct_02054000*)var7);

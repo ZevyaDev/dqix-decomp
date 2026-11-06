@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_ov031_0222506c(void);
-extern "C" void func_ov031_02236878(int arg0);
+extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
 
 struct Struct_ov031_02225148 {
     unsigned char unknown_0_[0x120];
@@ -145,5 +145,5 @@ extern "C" ARM void func_ov031_02225148(int arg0) {
         }
     }
     func_ov031_0222506c();
-    func_ov031_02236878(8);
+    PlayWifiSetupSoundEffect_ov031_02236878(8);
 }

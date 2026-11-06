@@ -5,7 +5,7 @@
 int fix32ReduceAngle0To2Pi(int angle);
 struct Struct_02033710;
 struct Struct_02010604;
-extern "C" int func_02033b88(struct Struct_02010604* arg0, int arg1);
+extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
 int fix32SignedAngleDistance(int a, int b);
 struct Vector3i;
 
@@ -64,7 +64,7 @@ extern "C" ARM void func_02033710(struct Struct_020332ac_2* arg0) {
                 if (arg0->unknown_be_ == 0) {
                     if (arg0->unknown_14_ != NULL) {
                         if (strcmp(arg0->unknown_14_, &data_020efa3c) == 0) {
-                            func_02033b88((struct Struct_02010604*)arg0, 0);
+                            SetMotion_02033b88((struct Struct_02010604*)arg0, 0);
                         }
                     }
                 }

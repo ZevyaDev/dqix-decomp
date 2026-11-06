@@ -11,7 +11,7 @@ enum { Enum_ov025_021dc694_680 = 0x2a8, Enum_ov025_021dc694_332 = 0x14c, Enum_ov
 #endif
 
 extern "C" void* func_ov000_02160f20(void* arg0);
-extern "C" void* func_02079e2c(char* arg0, int arg1);
+extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" void func_ov025_021e88d8(void* arg0);
 extern "C" void func_ov025_021e8a40(char* arg0, int arg1, int arg2);
 extern "C" void func_ov025_021e8a4c(char* arg0, int arg1);
@@ -48,8 +48,8 @@ extern "C" ARM void func_ov025_021dc694(void* arg0) {
     unsigned int var4 = 0;
     var2->GetLoadedFileByID(data_ov025_021ef404, &var3, &var4);
 
-    Struct_02108e10* var5 = func_020797dc();
-    struct Struct_ov025_021dc694* var6 = (struct Struct_ov025_021dc694*)func_02079e2c((char*)var5, *(short*)var1);
+    ActionTables_02108e10* var5 = GetActionTables_020797dc();
+    struct Struct_ov025_021dc694* var6 = (struct Struct_ov025_021dc694*)FindActionData_02079e2c((char*)var5, *(short*)var1);
 
     if (var3 != 0 && var4 != 0 && var6 != 0) {
         char var7[0x50];

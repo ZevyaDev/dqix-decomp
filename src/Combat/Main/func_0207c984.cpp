@@ -10,7 +10,7 @@ extern short data_020e8a34[];
 
 // USA: func_0207c984
 extern "C" ARM int func_0207c984(unsigned char* arg0, int arg1, int arg2, short* arg3, short* arg4) {
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg1);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1);
     if (var0 == 0) {
         return 1;
     }

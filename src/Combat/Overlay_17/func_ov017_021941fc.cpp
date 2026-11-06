@@ -93,7 +93,7 @@ struct Struct_0209494c {
     signed char unknown_3cb_;
 };
 struct Struct_02012de8;
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 struct Struct_020469f8;
 struct Struct_020469f8_2;
 struct Struct_02015438;
@@ -149,7 +149,7 @@ extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" int* func_020936f8(void);
 extern "C" void* func_020e3580(void);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void func_ov017_021cd6d8(struct Struct_02061c04_10* arg0);
 extern "C" void func_ov017_0219577c(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_0219593c(void);
@@ -173,13 +173,13 @@ extern "C" int func_ov017_02195658(unsigned char* arg0);
 extern "C" int IsLocalWirelessGuest_0202c540(struct Struct_0202b2f0* wireless);
 extern "C" void func_ov017_02195618(unsigned char* arg0);
 extern "C" void func_020e35a0(unsigned char* arg0);
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" int func_ov017_0219531c(void* arg0, void* arg1);
 extern "C" int func_02011494(char* arg0, void* arg1);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void func_ov017_02195250(void* arg0, void* arg1);
 extern "C" int func_0202bd34(struct Struct_0202b2f0* arg0, int arg1);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_ov017_021cc198(unsigned char arg0, int arg1);
 extern "C" void func_ov017_021d0b30(int arg0, int arg1, void* arg2);
 extern "C" void func_0202c69c(struct Struct_0202b2f0* arg0, int arg1);
@@ -206,7 +206,7 @@ extern "C" int func_ov017_021bd3a4(struct Struct_ov017_0218e674* arg0);
 extern "C" int func_02039888(void* arg0);
 struct Vector3i;
 extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
-extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" void func_020531f0(void* arg0);
 extern "C" GameObject* func_0200ffe0(GameState* arg0, int arg1);
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
     var13 = func_020936f8();
     arg1 = *(unsigned char**)(arg0 + 0x3000 + Enum_ov017_021941fc_1844);
     var14 = (unsigned char*)func_020e3580();
-    if (func_02046b08(arg2) != 0 && *(unsigned short*)(arg0 + Enum_ov017_021941fc_17408 + Enum_ov017_021941fc_172) != 0) {
+    if (IsQueueEmpty_02046b08(arg2) != 0 && *(unsigned short*)(arg0 + Enum_ov017_021941fc_17408 + Enum_ov017_021941fc_172) != 0) {
         var0.unknown_0_ = 0;
         var0.unknown_2_ = 0;
         var0.unknown_4_ = 0;
@@ -274,7 +274,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
                 func_020939dc(func_020936f8());
             }
             var15 = 1;
-        } else if (func_02046b08(arg2) != 0 && *(unsigned char*)(arg0 + 0x4000 + Enum_ov017_021941fc_738) != 0) {
+        } else if (IsQueueEmpty_02046b08(arg2) != 0 && *(unsigned char*)(arg0 + 0x4000 + Enum_ov017_021941fc_738) != 0) {
             if (GetProtagonistObjectIndex_020100a8(var6) != 0) {
                 func_ov017_0219577c(0, 1, 1);
             }
@@ -331,7 +331,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
     if ((*(unsigned char**)(arg0 + 0x4000 + Enum_ov017_021941fc_1052))[0] == 0) {
         if (IsNotLocalWirelessGuest_0202c508(var7) != 0) {
             if (var14[1] != 0) goto dispatched;
-            func_020466f4((struct Struct_02038598_4*)var9, 0x800);
+            ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var9, 0x800);
             if (func_ov017_0219531c(arg0, var1) == 0) goto dispatched;
             int var20 = 1;
             int var21 = func_02011494((char*)var6, var5);
@@ -343,7 +343,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
             if (func_0202bd34(var7, var1[0]) == 0) var20 = 0;
             if (var1[0xe] != 0) var20 = 0;
             if (var20 != 0) {
-                func_020466e4((unsigned int*)var9, 0x800);
+                SetGlobalFlags_020466e4((unsigned int*)var9, 0x800);
                 func_ov017_021cc198(var1[0], 1);
                 func_ov017_021d0b30(0, var1[0], var1 + 2);
                 func_0202c69c(var7, var1[0]);
@@ -357,7 +357,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
                 func_ov017_021cc198(var1[0], 0);
                 func_0202c660(var7, var1[0]);
                 if (*(unsigned char*)(arg0 + 0x4000 + Enum_ov017_021941fc_752) == 0) {
-                    func_020466f4((struct Struct_02038598_4*)var9, 0x800);
+                    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var9, 0x800);
                 }
             }
         } else if (*(unsigned char*)(arg0 + 0x4000 + Enum_ov017_021941fc_798) != 0 &&
@@ -401,7 +401,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
                     }
                 }
                 int var27 = 1;
-                if (func_02046b08(arg2) == 0) var27 = 0;
+                if (IsQueueEmpty_02046b08(arg2) == 0) var27 = 0;
                 if (arg1[3] != 0 && arg1[Enum_ov017_021941fc_207] == 2) var27 = 1;
                 int var28 = abs(GetBrightness((GameResources*)arg0, false));
                 if (var28 + abs(GetBrightness((GameResources*)arg0, true)) > 0) var27 = 0;
@@ -435,7 +435,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
     } else if ((*(unsigned char**)(arg0 + 0x4000 + Enum_ov017_021941fc_1052))[0] == 2) {
         if (func_02046b60((struct Struct_02038598_5*)arg2, 0x26) != 0) goto dispatched;
         if (*(unsigned char*)(arg0 + 0x4000 + Enum_ov017_021941fc_752) == 0) {
-            func_020466f4((struct Struct_02038598_4*)var9, 0x800);
+            ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var9, 0x800);
         }
         (*(unsigned char**)(arg0 + 0x4000 + Enum_ov017_021941fc_1052))[0] = 0;
     }
@@ -509,7 +509,7 @@ dispatched:
     var30->unknown_3_3_ |= var37[3];
     var30->unknown_3_3_ |= var38[3];
     var30->unknown_3_5_ = 1;
-    if (func_02046b08(arg2) == 0) {
+    if (IsQueueEmpty_02046b08(arg2) == 0) {
         var30->unknown_3_5_ = 0;
         var30->unknown_3_5_ |= (*(unsigned char**)(arg0 + 0x3000 + Enum_ov017_021941fc_2812))[3];
         var30->unknown_3_5_ |= (*(unsigned char**)(arg0 + 0x3000 + Enum_ov017_021941fc_2828))[3];
@@ -546,7 +546,7 @@ dispatched:
             struct Struct_02028460_3 var44 = *(struct Struct_02028460_3*)((char*)var42 + 0x44);
             if (Vector3fix_Distance((const Vector3fix*)&var4, (const Vector3fix*)&var44) > 0x1000) {
                 *(Vector3i*)(&var42->obj3D_.position_.x) = *(Vector3i const*)((int*)&var4);
-                func_02033874((struct Struct_02033834*)var42, var43);
+                SetFacingInstantly_02033874((struct Struct_02033834*)var42, var43);
             }
         }
         if (var41->unknown_0_.unknown_1_0_ == 2) {

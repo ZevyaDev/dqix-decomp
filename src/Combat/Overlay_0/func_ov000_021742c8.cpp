@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-struct Struct_0205d2bc;
+struct TextWindowManager_0205d2bc;
 extern "C" void func_0204b088(void*, int);
-extern "C" void func_0205d2bc(struct Struct_0205d2bc*);
+extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc*);
 
 #if defined(jpn)
 enum { Enum_ov000_021742c8_7538 = 0x1faa };
@@ -20,5 +20,5 @@ extern "C" ARM void func_ov000_021742c8(void* arg0) {
     }
     func_0204b088((char*)arg0 + 0x8a4, 0);
     func_0204b088((char*)arg0 + 0x8c4, 0);
-    func_0205d2bc((struct Struct_0205d2bc*)((char*)arg0 + 0x188));
+    func_0205d2bc((struct TextWindowManager_0205d2bc*)((char*)arg0 + 0x188));
 }

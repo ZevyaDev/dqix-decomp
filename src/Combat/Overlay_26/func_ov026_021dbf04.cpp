@@ -68,7 +68,7 @@ extern "C" Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4*
 extern "C" int func_ov000_02160fd4(void* arg0, int arg1);
 extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
 extern "C" void* GetGlobalFlags_020d6c00();
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_ov000_02176038(Struct_ov000_02176038* arg0);
 
 extern "C" {
@@ -110,6 +110,6 @@ extern "C" ARM void func_ov026_021dbf04(Struct_ov000_02160da0* arg0) {
     if (var6) {
         func_ov000_02160fa8(arg0, 0x2000000);
     }
-    func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), arg0->unknown_7738_);
+    SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), arg0->unknown_7738_);
     func_ov000_02176038((Struct_ov000_02176038*)&arg0->unknown_3760_);
 }

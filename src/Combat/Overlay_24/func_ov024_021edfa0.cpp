@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_ov024_021edf00(int* arg0, int arg1, short* arg2);
-extern "C" int func_ov000_0215e9fc(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" void func_ov024_021ed8c0(void* arg0, int arg1, int arg2, int* arg3, short* arg4);
 
 struct Struct_ov024_021df454_2;
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov024_021edfa0(int* arg0, int arg1, int arg2, int* arg3,
 
 	int var6 = func_ov024_021edf00(arg0, arg1, var1);
 	if (var6 <= 0) {
-		var6 = func_ov000_0215e9fc(*arg0, var1, 4, 1);
+		var6 = CollectPartyCombatantIndices_ov000_0215e9fc(*arg0, var1, 4, 1);
 		if (var6 <= 0) return 0;
 	}
 

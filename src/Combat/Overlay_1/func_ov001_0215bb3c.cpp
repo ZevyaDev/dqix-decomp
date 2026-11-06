@@ -5,7 +5,7 @@
 #include "std_library_functions.h"
 
 extern "C" void* func_ov017_021d612c(void* arg0);
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" int func_ov001_0215ad2c(int arg0);
 extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
 
@@ -31,18 +31,18 @@ extern "C" ARM int func_ov001_0215bb3c(char* arg0, int arg1) {
     var8 = func_ov017_021d612c(arg0);
     char* var11 = arg0 + 0x8;
     arg0 += 0x10;
-    var9 = func_ov001_0215ad2c(func_ov017_021d60f4(var11));
+    var9 = func_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(var11));
 
     var10 = 0;
     if (arg1 >= 3) {
-        var10 = func_ov017_021d60f4(arg0);
+        var10 = GetScriptValueAsInt_ov017_021d60f4(arg0);
         arg0 += 0x8;
     }
     var6 = data_ov001_021658b8[var10];
 
     var7 = 3;
     if (arg1 >= 4) {
-        var7 = func_ov017_021d60f4(arg0);
+        var7 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     }
 
     GameObject* var12 = var4->GetGameObjectByIndex(var9);

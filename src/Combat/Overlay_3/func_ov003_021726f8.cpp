@@ -24,8 +24,8 @@ enum { Enum_ov003_021726f8_408 = 0x198 };
 #endif
 
 
-struct Struct_02043368_2;
-extern "C" void func_0205a198(struct Struct_02043368_2* arg0);
+struct Sprite_02043368_2;
+extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
 
 struct Struct_02043368;
 extern "C" void func_0205a234(struct Struct_02043368* arg0);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov003_021726f8(char* arg0, SafeAllocator* arg1) {
     *(void**)(arg0 + Enum_ov003_021726f8_300) = (*(SafeAllocator**)(arg0 + Enum_ov003_021726f8_448))->Allocate(8);
 
     for (var0 = 0; var0 < Enum_ov003_021726f8_13; var0++) {
-        func_0205a198((struct Struct_02043368_2*)(*(char**)(arg0 + Enum_ov003_021726f8_296) + var0 * 0x28));
+        InitSprite_0205a198((struct Sprite_02043368_2*)(*(char**)(arg0 + Enum_ov003_021726f8_296) + var0 * 0x28));
     }
 
     func_0205a234((struct Struct_02043368*)*(void**)(arg0 + Enum_ov003_021726f8_300));

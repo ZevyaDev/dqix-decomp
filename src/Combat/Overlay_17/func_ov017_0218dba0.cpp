@@ -15,7 +15,7 @@ extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_0203402c;
 extern "C" int func_0203402c(struct Struct_0203402c* arg0);
 
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 
 struct Struct_02015438;
 extern "C" int func_02046b24(struct Struct_02015438** arg0);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov017_0218dba0(int arg0) {
         }
     }
 
-    if (*(short*)((char*)func_0200fd0c(var0) + 0x6c) == 0x270f) {
+    if (*(short*)((char*)GetZoneEntry_0200fd0c(var0) + 0x6c) == 0x270f) {
         if (func_02046b24((struct Struct_02015438**)var4) == 3) {
             var10 = 0;
         }

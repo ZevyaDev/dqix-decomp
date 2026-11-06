@@ -64,7 +64,7 @@ extern "C" void func_0203dafc(Struct_0203d028_11*);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 struct Struct_02010604;
-extern "C" void func_02033b88(Struct_02010604*, int);
+extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02039d48(unsigned char*);
 extern "C" void func_ov017_02191fec(void* arg0, int arg1);
 
@@ -106,7 +106,7 @@ extern "C" ARM void func_ov017_021b2fac(struct Struct_ov017_021b2fac* arg0) {
     var7 = GameState::GetInstance();
     var3 = BackgroundLoader::GetInstance();
     var8 = GetGameResources();
-    var9 = (Struct_ov017_021b2fac_4*)func_0200ff1c(var7, arg0->unknown_8_);
+    var9 = (Struct_ov017_021b2fac_4*)GetPartyMemberBaseByIndex_0200ff1c(var7, arg0->unknown_8_);
     if (var9 == 0) {
         func_ov017_021b33d8(arg0);
         arg0->unknown_1_ = 1;
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov017_021b2fac(struct Struct_ov017_021b2fac* arg0) {
     }
     if (arg0->unknown_a_ == 3) {
         if (func_ov017_021b3e14(arg0) != 0) {
-            var4 = (Struct_ov017_021b2fac_4*)func_0200ff1c(var7, arg0->unknown_8_);
+            var4 = (Struct_ov017_021b2fac_4*)GetPartyMemberBaseByIndex_0200ff1c(var7, arg0->unknown_8_);
             if (var4->unknown_9c_ != 0) {
                 var1 = GetGameResources();
                 func_ov017_0218fcf8((int)var1, arg0->unknown_8_, var4->unknown_9c_);
@@ -219,7 +219,7 @@ extern "C" ARM void func_ov017_021b2fac(struct Struct_ov017_021b2fac* arg0) {
                 }
             }
             ((Object3D*)var9)->SetScale(0x10a, 0x10a, 0x10a);
-            func_02033b88((Struct_02010604*)var9, 0);
+            SetMotion_02033b88((Struct_02010604*)var9, 0);
             ((Object3D*)var9)->DisableFlag(0x200);
             ((Object3D*)var9)->SetInheritedAlpha(0);
             func_02039d48((unsigned char*)var9);

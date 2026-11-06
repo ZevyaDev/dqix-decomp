@@ -8,7 +8,7 @@ extern "C" int func_0202d0b4(void);
 void SleepCurrentContext(unsigned int);
 extern "C" int func_0202dc40(int arg0, void* arg1);
 unsigned long long GetCurrentTimestamp(void);
-extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
+extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 
 // USA: func_0202b900
 extern "C" ARM int func_0202b900(int* arg0, unsigned char* arg1) {
@@ -48,7 +48,7 @@ extern "C" ARM int func_0202b900(int* arg0, unsigned char* arg1) {
     var0 += 0x10;
 
     for (; var4 < var3; var4++) {
-        if (func_02001aec(arg1, var0 + var4 * var5 + 4, 6) == 0) {
+        if (CompareBytes_02001aec(arg1, var0 + var4 * var5 + 4, 6) == 0) {
             func_0202dc40(5, data_020feffc + var4 * var5);
             *arg0 = 6;
             var6 = GameState::GetInstance();

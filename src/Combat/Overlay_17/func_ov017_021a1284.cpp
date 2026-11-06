@@ -69,11 +69,11 @@ struct Struct_ov017_021a1284_6 { char unknown_0_[0x56b]; unsigned char unknown_5
 struct Struct_0203dce4_2;
 extern "C" Struct_0203dce4_2* func_0203cf4c();
 extern "C" Zone3D* GetZone3D_02012fe4();
-extern "C" Struct_02058564_2* func_02057924();
+extern "C" Struct_02058564_2* GetEffectManager_02057924();
 extern "C" int* GetLocalWireless_0202ae18();
 extern "C" GameResources* GetResources_0200fb8c(int*);
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" int func_02039850(void*);
@@ -96,7 +96,7 @@ extern "C" void func_020a1ef0(int);
 extern "C" void func_ov023_021e2dd8(Struct_ov017_021a1284_8*);
 extern "C" void __clear(void*, unsigned int);
 extern "C" int func_02011494(char*, void*);
-extern "C" GameObject* func_0200ff1c(GameState*, int);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" void func_ov023_021e31b0(Struct_ov017_021a1284_7*, unsigned char*, int);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_ov023_021e338c(char*);
@@ -118,12 +118,12 @@ extern "C" int func_02086ef0(Struct_02048150*, int);
 extern "C" void func_ov017_021c3fb4(int, int);
 extern "C" void func_ov017_021c4418(int, int);
 extern "C" void func_ov017_0219ba0c(GameResources*, int);
-extern "C" int func_02046b08(void**);
+extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_020732a8();
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
-extern "C" unsigned char* func_020100f8(char*);
+extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" void func_020a28b0(unsigned char*, int);
-extern "C" void func_020397c0(void*);
+extern "C" void EnablePlayerControl_020397c0(void*);
 extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_ov017_021a1284
@@ -132,12 +132,12 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     Zone3D* var2 = GetZone3D_02012fe4();
     Struct_0203dce4_2* var3 = func_0203cf4c();
-    Struct_02058564_2* var4 = func_02057924();
+    Struct_02058564_2* var4 = GetEffectManager_02057924();
     int* var5 = GetLocalWireless_0202ae18();
     GameObject* var6 = var0->GetUnknownGameObject();
     GameResources* var7 = GetResources_0200fb8c((int*)var0);
     void* var8 = GetMessageWindow_020421a0();
-    func_020397cc((Struct_02018300_3*)var6, 1);
+    DisablePlayerControl_020397cc((Struct_02018300_3*)var6, 1);
     ((Struct_ov017_021a1284_5*)var6)->unknown_b2_ = 0;
     if (arg0->unknown_22_ == 0) {
         SetBrightness(var7, -16, 15);
@@ -209,7 +209,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
             for (int var18 = 0; var18 < 4; ++var18) var16[var18] = 0xff;
             int var19 = func_02011494((char*)var0, var15);
             for (int var20 = 0; var20 < var19; ++var20) {
-                GameObject* var21 = func_0200ff1c(var0, var15[var20]);
+                GameObject* var21 = GetPartyMemberBaseByIndex_0200ff1c(var0, var15[var20]);
                 if (!var21) continue;
                 Struct_ov017_021a1284_6* var22 = (Struct_ov017_021a1284_6*)((Struct_ov017_021a1284_5*)var21)->unknown_150_;
                 int var23;
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         func_ov017_0219ba0c(var7, 0);
         arg0->unknown_22_ = 5;
     } else if (arg0->unknown_22_ == 5) {
-        if (!func_02046b08(((Struct_ov017_021a1284_3*)var7)->unknown_3700_)) return;
+        if (!IsQueueEmpty_02046b08(((Struct_ov017_021a1284_3*)var7)->unknown_3700_)) return;
         func_020732a8();
         func_ov017_0219bd1c(1, 0, 0, 0);
         if (var2->currentZoneID_ == 0x2710 || var2->currentZoneID_ == 0x2774) {
@@ -260,10 +260,10 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         arg0->unknown_22_ = 6;
     } else if (arg0->unknown_22_ == 6) {
         if (((Struct_ov017_021a1284_4*)GetZone3D_02012fe4())->unknown_424_) return;
-        func_020a28b0(func_020100f8((char*)var0), 3);
+        func_020a28b0(GetFollowCamera_020100f8((char*)var0), 3);
         arg0->unknown_22_ = 7;
     } else if (arg0->unknown_22_ == 7) {
-        if (arg0->unknown_20_ == 3) func_020397c0(var6);
+        if (arg0->unknown_20_ == 3) EnablePlayerControl_020397c0(var6);
         arg0->unknown_1_ = 1;
     }
 }

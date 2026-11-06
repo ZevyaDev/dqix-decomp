@@ -3,13 +3,13 @@
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void func_ov017_021d6134(void*, int);
+extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
 
 // USA: func_ov023_021ea7e0
 extern "C" ARM int func_ov023_021ea7e0(void *arg0) {
 	GameState *var0 = GameState::GetInstance();
 	int var1 = GetProtagonistObjectIndex_020100a8(var0);
-	void *var2 = (void*)func_0200ff1c(var0, var1);
+	void *var2 = (void*)GetPartyMemberBaseByIndex_0200ff1c(var0, var1);
 	int var3 = 0;
 	if (var2) {
 		int var4 = GetPartyMemberData_02053c6c((unsigned char*)var2);
@@ -22,6 +22,6 @@ extern "C" ARM int func_ov023_021ea7e0(void *arg0) {
 			}
 		}
 	}
-	func_ov017_021d6134(arg0, var3);
+	SetScriptRefInt_ov017_021d6134(arg0, var3);
 	return 1;
 }

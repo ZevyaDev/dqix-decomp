@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 extern "C" unsigned int* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 
 // USA: func_020dc2bc
 extern "C" ARM void func_020dc2bc(void) {
-    func_020466e4(GetGlobalFlags_020d6c00(), 0x40);
+    SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 0x40);
 }

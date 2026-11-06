@@ -10,7 +10,7 @@ enum { Enum_ov017_021cc4f8_2384 = 0x950 };
 
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 extern "C" void func_ov017_021c41fc(int arg0, signed char arg1);
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov017_021cc4f8(signed char arg0, struct Struct_ov017_02
     }
     if (var3 & 0x8) {
         func_ov017_021ce704(var0);
-        GameObject* var4 = func_0200ff1c(arg2, var0);
+        GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var0);
         if (var4) {
             int var5 = GetPartyMemberData_02053c6c((unsigned char*)var4);
             unsigned char var6 = *(int*)((char*)var5 + Enum_ov017_021cc4f8_2384) & 0xff;

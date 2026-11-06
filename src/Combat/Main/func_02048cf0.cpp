@@ -28,7 +28,7 @@ extern "C" void func_020493b8(unsigned char*, unsigned char);
 extern "C" void func_020493dc(unsigned char*, unsigned char);
 extern "C" void func_02049bd4(unsigned char*, int*);
 struct Struct_02010604;
-extern "C" void func_02033b88(Struct_02010604*, int);
+extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 struct Struct_02048c90;
 extern "C" void func_02048c90(Struct_02048c90*);
 extern "C" struct Struct_02048cf0 func_ov000_0216f74c(int* arg0);
@@ -66,7 +66,7 @@ extern "C" ARM void func_02048cf0(struct Struct_02048cf0_3* arg0, int arg1) {
         func_020493dc((unsigned char*)arg0, 0xff);
     }
     if (arg0->unknown_be_ == 0) {
-        func_02033b88((Struct_02010604*)arg0, 0);
+        SetMotion_02033b88((Struct_02010604*)arg0, 0);
         ((Object3D*)arg0)->IsTransitioningAnimations();
     }
     ((Object3D*)arg0)->SetAnimationPlaybackSpeed(0x1000, 0);

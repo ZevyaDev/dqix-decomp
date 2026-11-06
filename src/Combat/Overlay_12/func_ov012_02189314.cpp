@@ -83,18 +83,18 @@ struct Struct_ov012_02189314
     char unknown_14d8_[0x20];
 };
 
-extern "C" void func_0205d6a0(void* arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(void* windowManager, int isAll);
 extern "C" void func_ov023_021e20c0(void* arg0);
 extern "C" int func_ov023_021e20f0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
 extern "C" void func_02042428(char* arg0, int arg1);
 extern "C" int func_02099304(Struct_ov012_02189314_2* arg0, char* arg1, const void* arg2, unsigned int arg3, void* arg4, int arg5, unsigned char arg6, char* arg7, char* arg8);
-extern "C" void func_0205de24(void* arg0, unsigned char arg1, unsigned char arg2);
+extern "C" void SetNextTextWindowBGLayer_0205de24(void* windowManager, unsigned char arg1, unsigned char bgIndex);
 extern "C" void func_ov023_021e6e60(Struct_ov012_02189314* arg0);
 extern "C" void func_ov012_0218aabc(Struct_ov012_02189314* arg0);
 extern "C" void func_0205bef8(Struct_0205bef8* arg0);
-extern "C" void func_0205ba68(Struct_0205bef8* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0205bacc(Struct_0205bef8* arg0, int arg1);
-extern "C" void func_0205bb04(Struct_0205bef8* arg0, int arg1);
+extern "C" void SetMenuCursorGrid_0205ba68(Struct_0205bef8* cursor, int columnCount, int rowCount, int isRowMajor);
+extern "C" void SetMenuCursorItemCount_0205bacc(Struct_0205bef8* cursor, int itemCount);
+extern "C" void SetMenuCursorIndex_0205bb04(Struct_0205bef8* cursor, int index);
 extern "C" int func_0205bf58(Struct_0205bef8* arg0, unsigned int arg1);
 extern "C" int func_0205bb84(Struct_0205bef8* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(void* manager, int soundEffectIndex, int handle);
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
 {
     if (arg0->unknown_1340_ == 0)
     {
-        func_0205d6a0(arg0->unknown_90_, 1);
+        CloseTextWindows_0205d6a0(arg0->unknown_90_, 1);
         Struct_ov012_02189314_2* var0 = inline_ov012_02189314(GameState::GetInstance());
         memset(arg0->unknown_1428_, 0, 0x400);
         arg0->unknown_130c_ = arg0->unknown_1428_;
@@ -174,15 +174,15 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
     else if (arg0->unknown_1340_ == 3)
     {
         arg0->unknown_1368_ = 0;
-        func_0205de24(arg0->unknown_90_, 0, 2);
+        SetNextTextWindowBGLayer_0205de24(arg0->unknown_90_, 0, 2);
         func_ov023_021e6e60(arg0);
         func_ov012_0218aabc(arg0);
         arg0->unknown_13b8_ = 0;
         func_0205bef8(&arg0->unknown_1378_);
-        func_0205ba68(&arg0->unknown_1378_, 11, 7, 0);
-        func_0205bacc(&arg0->unknown_1378_, 77);
+        SetMenuCursorGrid_0205ba68(&arg0->unknown_1378_, 11, 7, 0);
+        SetMenuCursorItemCount_0205bacc(&arg0->unknown_1378_, 77);
         arg0->unknown_1378_.unknown_4_ = 1;
-        func_0205bb04(&arg0->unknown_1378_, arg0->unknown_13b8_);
+        SetMenuCursorIndex_0205bb04(&arg0->unknown_1378_, arg0->unknown_13b8_);
         memcpy(arg0->unknown_1404_, inline_ov012_02189314(GameState::GetInstance())->unknown_8_, 0x72);
         arg0->unknown_1340_++;
         return;
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
                 }
                 PlaySoundEffect_0205eaa0(gSoundEffectManager_02108760, 2, 0);
                 arg0->unknown_13b8_ = var8;
-                func_0205bb04(&arg0->unknown_1378_, var8);
+                SetMenuCursorIndex_0205bb04(&arg0->unknown_1378_, var8);
             }
         }
         int var13 = 0;
@@ -220,7 +220,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
         if (var14 != 0 && g_touchInput.pressed_)
         {
             arg0->unknown_13b8_ = var14 - 1;
-            func_0205bb04(&arg0->unknown_1378_, arg0->unknown_13b8_);
+            SetMenuCursorIndex_0205bb04(&arg0->unknown_1378_, arg0->unknown_13b8_);
             var13 = 1;
         }
         int var15 = 0;
@@ -312,7 +312,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
                 arg0->unknown_1340_ = 10;
                 return;
             }
-            func_0205d6a0(arg0->unknown_90_, 1);
+            CloseTextWindows_0205d6a0(arg0->unknown_90_, 1);
             arg0->unknown_1340_++;
             return;
         }

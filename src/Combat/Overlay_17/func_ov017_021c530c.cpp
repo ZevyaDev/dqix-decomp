@@ -22,8 +22,8 @@ extern "C" void func_0207dcf0(unsigned short arg0);
 extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
 extern "C" void func_02076ccc(void* arg0, int arg1);
 struct Struct_ov017_021c530c;
-extern "C" Struct_ov017_021c530c* func_ov017_021b8478(void* arg0);
-extern "C" int func_02046b08(void** arg0);
+extern "C" Struct_ov017_021c530c* GetBattleSetup_ov017_021b8478(void* battleManager);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 struct Struct_ov017_021c530c_2 { unsigned short unknown_0_; unsigned short unknown_2_; unsigned char unknown_4_; unsigned char unknown_5_; unsigned char unknown_6_; };
 extern "C" void func_ov017_021c5f00(Struct_ov017_021c530c_2* arg0);
 struct Struct_02046b38;
@@ -245,7 +245,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
                 var8 = var7->unknown_3718_;
                 var9 = var7->unknown_36fc_;
                 var6 = NULL;
-                if (var8->unknown_2_ != 0 && (var6 = func_ov017_021b8478(var8), var6->unknown_8_ == var4)) {
+                if (var8->unknown_2_ != 0 && (var6 = GetBattleSetup_ov017_021b8478(var8), var6->unknown_8_ == var4)) {
                     var27 = 1;
                 } else {
                     var10 = var5->unknown_0_.GetField06();
@@ -253,7 +253,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
                         var27 = 0;
                     } else if ((int)var5->unknown_c3_ > 0) {
                         var27 = 0;
-                    } else if (func_02046b08((void**)var9) == 0) {
+                    } else if (IsQueueEmpty_02046b08((void**)var9) == 0) {
                         var27 = 2;
                     } else {
                         var27 = 1;
@@ -374,13 +374,13 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
             var18 = 1;
         }
     } else {
-        var19 = func_0200ff1c(arg2, arg1->unknown_8_);
+        var19 = GetPartyMemberBaseByIndex_0200ff1c(arg2, arg1->unknown_8_);
         var20 = (Struct_ov017_021c530c_9*)GetZone3D_02012fe4();
         if (arg0 != 0) {
             return;
         }
         if (var19 != NULL) {
-            if (func_02046b08((void**)var17) && var19->obj3D_.GetField06() == inline_ov004_02163304(var20)) {
+            if (IsQueueEmpty_02046b08((void**)var17) && var19->obj3D_.GetField06() == inline_ov004_02163304(var20)) {
                 func_ov017_021c5b44(arg1->unknown_8_, arg1->unknown_4_, func_ov017_021bb9fc(var29), arg1->unknown_c_, arg1->unknown_10_);
                 var18 = 1;
             } else if (var19->obj3D_.GetField06() == inline_ov004_02163304(var20)) {

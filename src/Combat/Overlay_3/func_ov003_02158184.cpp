@@ -10,8 +10,8 @@ enum { Enum_ov003_02158184_504 = 0x1f8 };
 
 extern "C" int func_ov003_021538e0(void*);
 extern "C" void* GetGlobalFlags_020d6c00(void);
-struct Struct_02038598_4;
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_020dc2d0(int);
 extern "C" void func_ov003_02153874(void* arg0);
 
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov003_02158184(void* arg0) {
     if (var1 != 1) return;
     if (func_ov003_021538e0(var2) == 0) return;
 
-    func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 1);
+    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 1);
     func_020dc2d0(0);
     *(unsigned char*)(var0 + Enum_ov003_02158184_504) = 7;
 }

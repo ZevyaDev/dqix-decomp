@@ -2,7 +2,7 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_ov000_0215e9fc(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" void __clear(void* arg0, int arg1);
 struct Struct_ov024_021eda78_5;
 extern "C" int func_ov024_021edc08(struct Struct_ov024_021eda78_5* arg0);
@@ -15,7 +15,7 @@ extern struct Struct_ov024_021fea44 data_ov024_021fea44;
 // USA: func_ov024_021ede2c
 extern "C" ARM int func_ov024_021ede2c(struct Struct_ov024_021ede2c* arg0) {
     struct Struct_ov024_021fea44 var0 = data_ov024_021fea44;
-    int var1 = func_ov000_0215e9fc(arg0->unknown_0_, var0.unknown_0_, 4, 1);
+    int var1 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0->unknown_0_, var0.unknown_0_, 4, 1);
     if (var1 <= 0) return 0;
     short var2[4];
     __clear(var2, 8);

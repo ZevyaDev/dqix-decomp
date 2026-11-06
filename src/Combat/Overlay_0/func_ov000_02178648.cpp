@@ -4,10 +4,10 @@
 struct Struct_0201099c_3;
 
 extern "C" int func_ov000_0217542c(void* arg0);
-extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int func_02041dd0(char* arg0, int arg1);
-extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int func_02041e70(char* arg0, int arg1);
 extern "C" int func_02041a28(char* arg0, int arg1);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
@@ -46,9 +46,9 @@ extern "C" ARM void func_ov000_02178648(char* arg0, char* arg1) {
     GetParty_02010828(var3);
 
     if (func_ov000_0217542c(arg0)) {
-        func_02041c08(arg1, var0, 8, 5, 5, 5);
+        AppendFrameTag_02041c08(arg1, var0, 8, 5, 5, 5);
     }
-    func_02041ea4(arg1, var0);
+    AppendCursorTag_02041ea4(arg1, var0);
 
     var2 = *(unsigned char*)(arg0 + 0x79);
     for (unsigned char var4 = 0; var4 < var2; var4++) {
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov000_02178648(char* arg0, char* arg1) {
         GameObject* var6 = var3->GetPartyMemberByIndex((signed char)var5->unknown_4c_);
         if (var6 != NULL) {
             func_02041dd0(arg1, func_ov000_02170c7c(var5));
-            func_02041b70(arg1, var1, (const char*)var6->baseStats_);
+            AppendMenuEntry_02041b70(arg1, var1, (const char*)var6->baseStats_);
             func_02041e70(arg1, 0xf);
             func_02041a28(arg1, 0x46);
             struct Struct_ov000_02178648* var7 = (struct Struct_ov000_02178648*)var6->baseStats_;

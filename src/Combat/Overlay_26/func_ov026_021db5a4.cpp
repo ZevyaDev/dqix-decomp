@@ -127,7 +127,7 @@ extern "C" void func_ov000_02163710(void* arg0, int arg1);
 extern "C" void func_ov000_02167e6c(unsigned char* arg0);
 
 extern "C" {
-void* func_02057924();
+void* GetEffectManager_02057924();
 int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, TextureVRAMArea_0203d028* arg5);
 void func_02057f00(void* arg0, int arg1);
 int func_ov000_021759f4(void* arg0);
@@ -177,7 +177,7 @@ extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
                 void* var7;
                 unsigned int var8;
                 var1->GetLoadedFileByID(*var2, &var7, &var8);
-                func_02057e6c(func_02057924(), *var3, &arg0->unknown_774c_, var7, var8, &arg0->unknown_7760_);
+                func_02057e6c(GetEffectManager_02057924(), *var3, &arg0->unknown_774c_, var7, var8, &arg0->unknown_7760_);
                 var1->RemoveTask(*var2);
                 var3++;
                 var2++;
@@ -205,8 +205,8 @@ extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
         var9.unknown_2c_.x = 0;
         var9.unknown_2c_.z = 0;
         var9.unknown_2c_.y = -0xa000;
-        arg0->unknown_7722_ = func_02057fb4(func_02057924(), 0x1d, &var9);
-        arg0->unknown_7724_ = func_02057fb4(func_02057924(), 0x1e, &var9);
+        arg0->unknown_7722_ = func_02057fb4(GetEffectManager_02057924(), 0x1d, &var9);
+        arg0->unknown_7724_ = func_02057fb4(GetEffectManager_02057924(), 0x1e, &var9);
         arg0->unknown_7726_ = 0;
         SetMainBrightness(var0, 0, 0xf);
         arg0->unknown_7712_ = 3;
@@ -231,8 +231,8 @@ extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
     } else if (arg0->unknown_7712_ == 4) {
         if (!IsBrightnessTransitionActive(var0)) {
             SetMainBrightness(var0, -0x10, 0);
-            func_02057f00(func_02057924(), 0x1d);
-            func_02057f00(func_02057924(), 0x1e);
+            func_02057f00(GetEffectManager_02057924(), 0x1d);
+            func_02057f00(GetEffectManager_02057924(), 0x1e);
             arg0->unknown_7722_ = arg0->unknown_7724_ = -1;
             func_ov000_021626a0(arg0, 0x26, 1);
             ClearFlags04((GameResources*)var0, 0x100000);
@@ -252,7 +252,7 @@ extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
             }
             var15.unknown_14_ = var17;
             var15.unknown_10_ = 0;
-            arg0->unknown_7716_[var17] = func_02057fb4(func_02057924(), 0x12, &var15);
+            arg0->unknown_7716_[var17] = func_02057fb4(GetEffectManager_02057924(), 0x12, &var15);
         }
         func_ov000_02175808(arg0->unknown_3760_);
         arg0->unknown_54d2_ |= 0x200;

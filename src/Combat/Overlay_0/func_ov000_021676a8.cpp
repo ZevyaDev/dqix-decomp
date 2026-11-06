@@ -17,7 +17,7 @@ struct Struct_ov000_021676a8_2 {
 };
 
 extern "C" int GetResources_0200fb8c(int* gameState);
-extern "C" int func_ov000_0215e9fc(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov000_0215fc60(char* arg0);
 extern "C" int func_020493a4(unsigned char* arg0);
 extern "C" void func_02049390(unsigned char* arg0, unsigned char arg1);
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov000_021676a8(Struct_ov000_021676a8_2* arg0) {
     GetResources_0200fb8c((int*)var0);
     Struct_ov000_021676a8* var1 = arg0->unknown_29c_;
     short var2[4];
-    int var3 = func_ov000_0215e9fc(var1, var2, 4, 0);
+    int var3 = CollectPartyCombatantIndices_ov000_0215e9fc(var1, var2, 4, 0);
     if (func_ov000_0215fc60((char*)var1) != 0) {
         var3 = 1;
     }

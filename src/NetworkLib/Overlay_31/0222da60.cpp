@@ -15,7 +15,7 @@ extern "C" void func_ov031_02225c4c(unsigned char);
 extern "C" void func_ov031_02225c60(unsigned char);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_0222de08(void);
-extern "C" void func_ov031_02236878(int);
+extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern "C" int func_ov031_0222dd70(int);
 extern "C" void func_ov031_0222df84(void);
 extern "C" void func_ov031_0222e048(void);
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov031_0222da60(void) {
         return;
     case 16:
         if (data_ov031_02290c98->unknown_14_ == 0 && data_ov031_02290c98->unknown_8_[2] == 0) break;
-        func_ov031_02236878(3);
+        PlayWifiSetupSoundEffect_ov031_02236878(3);
         if (data_ov031_02290c98->unknown_8_[data_ov031_02290c98->unknown_14_ * 3 + 2] == 0)
             --data_ov031_02290c98->unknown_14_;
         VectorizedMemset(data_ov031_02290c98->unknown_8_ + data_ov031_02290c98->unknown_14_ * 3, 0, 3);
@@ -42,22 +42,22 @@ extern "C" ARM void func_ov031_0222da60(void) {
     case 17:
         if (data_ov031_02290c98->unknown_14_ >= 3) break;
         if (data_ov031_02290c98->unknown_8_[data_ov031_02290c98->unknown_14_ * 3 + 2] == 0) break;
-        func_ov031_02236878(1);
+        PlayWifiSetupSoundEffect_ov031_02236878(1);
         ++data_ov031_02290c98->unknown_14_;
         func_ov031_02225c60(0);
         break;
     case 18:
         data_ov031_02290c98->unknown_15_ = 0;
-        func_ov031_02236878(7);
+        PlayWifiSetupSoundEffect_ov031_02236878(7);
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222de08);
         return;
     case 19:
         if (func_ov031_0222e224()) {
-            func_ov031_02236878(6);
+            PlayWifiSetupSoundEffect_ov031_02236878(6);
             data_ov031_02290c98->unknown_15_ = 1;
         } else {
             data_ov031_02290c98->unknown_15_ = 2;
-            func_ov031_02236878(9);
+            PlayWifiSetupSoundEffect_ov031_02236878(9);
         }
         data_ov031_02290c98->unknown_14_ = 3;
         *data_ov031_02290c98->unknown_4_ = (*data_ov031_02290c98->unknown_4_ & 0xc1fffcff) | 0x200;
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov031_0222da60(void) {
         return;
     default:
         if (data_ov031_02290c98->unknown_14_ == 3 && func_ov031_0222dd70(26)) break;
-        func_ov031_02236878(1);
+        PlayWifiSetupSoundEffect_ov031_02236878(1);
         unsigned char* var1 = data_ov031_02290c98->unknown_8_;
         int var2 = data_ov031_02290c98->unknown_14_ * 3;
         if (var1[var2 + 2] == 0) {

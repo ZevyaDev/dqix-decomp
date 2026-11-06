@@ -60,7 +60,7 @@ extern "C" ARM void func_ov023_021e4bc8(Struct_ov023_021e4bc8_4* arg0) {
     var0 = &arg0->unknown_0_->unknown_df8_;
     func_020469b0(var2, (const char*)FindStringInTable_020e0434(var0, 0x258), arg0->unknown_554_, 10);
     for (int var8 = 0; var8 < 4; var8++) {
-        Struct_ov023_021e4bc8* var9 = (Struct_ov023_021e4bc8*)func_0200ff1c(var1, var8);
+        Struct_ov023_021e4bc8* var9 = (Struct_ov023_021e4bc8*)GetPartyMemberBaseByIndex_0200ff1c(var1, var8);
         if (var9 != 0) {
             func_020469b0(var2, var9->unknown_134_, arg0->unknown_4fc_[var8], 10);
             for (int var10 = 0; var10 < 6; var10++) {

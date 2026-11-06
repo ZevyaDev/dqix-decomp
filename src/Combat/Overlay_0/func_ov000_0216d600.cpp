@@ -26,7 +26,7 @@ struct Struct_ov000_0216d600 {
 extern "C" void func_ov000_0216d370(Struct_0202df68*, int, int, int);
 extern "C" void func_0202e9a4(Struct_0202df68*, int);
 extern "C" void func_ov000_0216d368(Struct_ov000_0216d368*, int, int, int);
-extern "C" Struct_ov000_0216d600* func_ov000_02160130();
+extern "C" Struct_ov000_0216d600* GetBattleScene_ov000_02160130();
 extern "C" void func_0202eab8(Struct_0202df68*);
 extern "C" int func_ov000_0216f210(Struct_0202df68*, int*);
 
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov000_0216d600(Struct_0202df68* arg0, int arg1, int arg
         }
     }
     if (arg7) {
-        Struct_ov000_0216d600* var11 = func_ov000_02160130();
+        Struct_ov000_0216d600* var11 = GetBattleScene_ov000_02160130();
         if (var11 && var11->unknown_77f0_ != -1) {
             func_ov000_0216d368(&var8, var11->unknown_77f4_.x, var11->unknown_77f4_.y, var11->unknown_77f4_.z);
             func_ov000_0216d368(&var9, var11->unknown_7800_.x, var11->unknown_7800_.y, var11->unknown_7800_.z);

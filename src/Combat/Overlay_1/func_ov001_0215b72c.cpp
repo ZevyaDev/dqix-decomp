@@ -5,7 +5,7 @@
 
 struct Struct_ov001_0215b72c { char unknown_0_[8]; };
 extern "C" const char* func_ov017_021d612c(Struct_ov001_0215b72c*);
-extern "C" int func_ov017_021d60f4(Struct_ov001_0215b72c*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_ov001_0215b72c*);
 extern "C" int func_ov001_0215ad2c(int);
 extern "C" int func_ov001_0215ad3c(const char*, char*, char*);
 extern "C" unsigned int func_ov001_0215a750(const char*, void**);
@@ -18,7 +18,7 @@ extern const char data_ov001_02165758[];
 extern const char data_ov001_02165762[];
 
 static inline int inline_ov001_0215b72c(Struct_ov001_0215b72c* arg0) {
-    return func_ov001_0215ad2c(func_ov017_021d60f4(arg0));
+    return func_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(arg0));
 }
 
 // USA: func_ov001_0215b72c
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov001_0215b72c(Struct_ov001_0215b72c* arg0, int arg1) {
     const char* var5 = func_ov017_021d612c(arg0);
     int var6 = inline_ov001_0215b72c(arg0 + 1);
     int var7 = 0;
-    if (arg1 >= 3) var7 = func_ov017_021d60f4(arg0 + 2);
+    if (arg1 >= 3) var7 = GetScriptValueAsInt_ov017_021d60f4(arg0 + 2);
     var1 = data_ov001_021658b8[var7];
     if (var6 < 160 || var6 > 191) return 0;
     char var8[80];

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" ARM int func_02094a00(void);
-extern "C" ARM void func_02094ab0(void* arg0);
+extern "C" ARM int GetFontLoader_02094a00(void);
+extern "C" ARM void CancelFontLoad_02094ab0(void* loader);
 extern "C" ARM int GetMessageWindow_020421a0();
 extern "C" ARM void ResetMessageWindow_02043204(char* window);
 extern "C" ARM void func_0200fb40(void* arg0);
@@ -10,7 +10,7 @@ extern "C" ARM void func_0200fb40(void* arg0);
 // USA: func_020936b0
 extern "C" ARM void func_020936b0(void* arg0) {
     unsigned char* var0 = (unsigned char*)arg0;
-    func_02094ab0((void*)func_02094a00());
+    CancelFontLoad_02094ab0((void*)GetFontLoader_02094a00());
     var0[0x37] &= ~4;
     ResetMessageWindow_02043204((char*)GetMessageWindow_020421a0());
     *(short*)(var0 + 0x30) = -1;

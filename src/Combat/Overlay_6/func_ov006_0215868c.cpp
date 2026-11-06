@@ -28,7 +28,7 @@ struct Struct_ov006_02154614 {
 };
 
 extern "C" void func_ov023_021e2bdc(void*, int, short*, short*);
-extern "C" void func_0205ac40(void*, Struct_ov006_021580b8*);
+extern "C" void DrawSprite_0205ac40(void*, Struct_ov006_021580b8*);
 
 struct Struct_ov006_02157a60 {
 #if !defined(jpn)
@@ -141,14 +141,14 @@ extern "C" ARM void func_ov006_0215868c(Struct_ov006_02157a60* arg0)
     var2->unknown_26_ = 2;
     if (arg0->unknown_38c_[0] > 1 || arg0->unknown_38c_[1] >= 1)
         var2->unknown_25_ = 8;
-    func_0205ac40(arg0->unknown_ac_, var2);
+    DrawSprite_0205ac40(arg0->unknown_ac_, var2);
     func_ov023_021e2bdc(arg0->unknown_100_, 0x10, &var0, &var1);
     var2 = &arg0->unknown_24_[9];
     var2->unknown_14_ = var0 << 12;
     var2->unknown_18_ = var1 << 12;
     var2->unknown_22_ = 0xe;
     var2->unknown_26_ = 2;
-    func_0205ac40(arg0->unknown_ac_, var2);
+    DrawSprite_0205ac40(arg0->unknown_ac_, var2);
     func_ov023_021e2bdc(arg0->unknown_100_, 0x25, &var0, &var1);
     var2 = &arg0->unknown_24_[15];
     if (!(arg0->unknown_10_->unknown_1258_ & 0x800))
@@ -157,5 +157,5 @@ extern "C" ARM void func_ov006_0215868c(Struct_ov006_02157a60* arg0)
     var2->unknown_18_ = var1 << 12;
     var2->unknown_22_ = 0x10;
     var2->unknown_26_ = 2;
-    func_0205ac40(arg0->unknown_ac_, var2);
+    DrawSprite_0205ac40(arg0->unknown_ac_, var2);
 }

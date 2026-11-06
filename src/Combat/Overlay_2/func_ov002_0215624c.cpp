@@ -32,21 +32,21 @@ extern "C" unsigned char *func_0205d8c4(struct Struct_ov002_02155960_2 *arg0);
 extern "C" int func_0204c7cc(unsigned char *arg0);
 extern "C" void func_0205bc24(void *arg0, int arg1);
 extern "C" int func_0205d0e0(void *arg0, int arg1);
-extern "C" int func_0205d794(struct Struct_ov002_0215624c_15 *arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_ov002_0215624c_15 *windowManager);
 extern "C" void func_020a1ef0(int arg0);
 extern "C" int GetResources_0200fb8c(int *gameState);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_0204b11c(unsigned char *arg0, int arg1);
-extern "C" void func_0204b5b4(void *arg0, int arg1);
-extern "C" void func_0204b12c(struct Struct_ov002_0215624c_17 *arg0,
-                                                                                         SafeAllocator *arg1);
-extern "C" int func_0204b5e8(struct Struct_ov002_0215624c_18 *arg0, int arg1, int arg2);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char *layer, int screenSize);
+extern "C" void SetBGPriority_0204b5b4(void *layer, int priority);
+extern "C" void AllocateBGScreenData_0204b12c(struct Struct_ov002_0215624c_17 *layer,
+                                                                                         SafeAllocator *allocator);
+extern "C" int SetBGScroll_0204b5e8(struct Struct_ov002_0215624c_18 *layer, int scrollX, int scrollY);
 extern "C" void ColorEffect_ConfigureAlphaBlend(int reg, int a, int b, int c, int d);
-extern "C" void func_0204bc74(void *arg0, unsigned short arg1, int arg2, int arg3, int arg4, int arg5, unsigned short arg6);
-extern "C" void func_0204b0e8(struct Struct_ov002_0215624c_19 *arg0, void *arg1);
-extern "C" void func_0204b174(void *arg0, void *arg1, SafeAllocator *arg2, int arg3);
-extern "C" void func_0204c7a8(struct Struct_ov002_0215624c_20 *arg0, SafeAllocator *arg1,
-                                                                           int arg2, unsigned int arg3);
+extern "C" void FillBGScreenRect_0204bc74(void *layer, unsigned short screenEntry, int x, int y, int width, int height, unsigned short palette);
+extern "C" void LoadBGScreenData_0204b0e8(struct Struct_ov002_0215624c_19 *layer, void *screenData);
+extern "C" void LoadBGBlock_0204b174(void *layer, void *block, SafeAllocator *allocator, int arg3);
+extern "C" void SetTextWindowBuffers_0204c7a8(struct Struct_ov002_0215624c_20 *window, SafeAllocator *allocator,
+                                                                           int arg2, unsigned int screenDataSize);
 extern "C" void func_0205cf78(struct Struct_ov002_0215624c_21 *arg0,
                                                                                      struct Struct_ov002_0215624c_22 *arg1,
                                                                                      unsigned char arg2);
@@ -56,15 +56,15 @@ extern "C" void *func_020421b0(int arg0);
 extern "C" void DC_FlushRange(const void *where, unsigned int len);
 extern "C" void LoadToMainBG1CharacterData(const void *data, unsigned int offset, unsigned int length);
 extern "C" void LoadToMainBG3CharacterData(const void *data, unsigned int offset, unsigned int length);
-extern "C" void func_0205a198(struct Struct_ov002_0215624c_23 *arg0);
+extern "C" void InitSprite_0205a198(struct Struct_ov002_0215624c_23 *sprite);
 extern "C" void func_0205a234(struct Struct_ov002_0215624c_24 *arg0);
-extern "C" void func_0205a444(char *arg0);
+extern "C" void InitSpriteSet_0205a444(char *spriteSet);
 extern "C" void *GetPacEntryData_020467f0(struct Struct_ov002_0215624c_25 *pac, int index, void **outEntry, int *outSize);
-extern "C" void func_0205a528(void *arg0, void *arg1, int arg2, void *arg3);
-extern "C" void func_0205de24(struct Struct_ov002_0215624c_11 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
+extern "C" void LoadSpriteSetFile_0205a528(void *spriteSet, void *fileData, int size, void *allocator);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
 extern "C" int CountPacEntries_02046900(struct Struct_ov002_0215624c_26 *pac);
-extern "C" void func_020dfec0(void *arg0, void *arg1, void *arg2, unsigned int arg3);
+extern "C" void LoadStringTable_020dfec0(void *stringTable, void *allocator, void *fileData, unsigned int fileSize);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void func_020dc7e8(int arg0, int arg1);
 extern "C" void func_ov002_0215bf34(char *arg0);
@@ -149,7 +149,7 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
     }
     S32(REGIONAL_OFFSET(0x1a90, 0x1bc8)) = func_0205d0e0(arg0 + REGIONAL_OFFSET(0xe20, 0xec8), S32(REGIONAL_OFFSET(0x1a68, 0x1ba0)));
     short var3   = S16(REGIONAL_OFFSET(0x1aa8, 0x1be0));
-    S16(REGIONAL_OFFSET(0x1aa8, 0x1be0)) = func_0205d794((struct Struct_ov002_0215624c_15 *) (arg0 + REGIONAL_OFFSET(0xe20, 0xec8)));
+    S16(REGIONAL_OFFSET(0x1aa8, 0x1be0)) = GetCursorIndex_0205d794((struct Struct_ov002_0215624c_15 *) (arg0 + REGIONAL_OFFSET(0xe20, 0xec8)));
     if (S32(REGIONAL_OFFSET(0x1a88, 0x1bc0)) >= 1 && var3 != S16(REGIONAL_OFFSET(0x1aa8, 0x1be0))) {
         S32(REGIONAL_OFFSET(0x1a90, 0x1bc8)) = 1;
         int var4   = S32(REGIONAL_OFFSET(0x1a80, 0x1bb8));
@@ -169,13 +169,13 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
         struct Struct_ov002_0215624c_16 *var8;
         for (int var9 = 0; var9 < 3; var9++) {
             var8 = (struct Struct_ov002_0215624c_16 *) (arg0 + REGIONAL_OFFSET(0xedc, 0xf84) + var9 * 0x20);
-            func_0204b11c((unsigned char *) var8, 0);
+            SetBGScreenSize_0204b11c((unsigned char *) var8, 0);
             var8->unknown_1c_0_ = 0;
             var8->unknown_1c_4_ = var6.unknown_0_[var9];
-            func_0204b5b4(var8, var7.unknown_0_[var9]);
-            func_0204b12c((struct Struct_ov002_0215624c_17 *) var8,
+            SetBGPriority_0204b5b4(var8, var7.unknown_0_[var9]);
+            AllocateBGScreenData_0204b12c((struct Struct_ov002_0215624c_17 *) var8,
                                                                                      (SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x78c, 0x828)));
-            func_0204b5e8((struct Struct_ov002_0215624c_18 *) var8, 0, 0);
+            SetBGScroll_0204b5e8((struct Struct_ov002_0215624c_18 *) var8, 0, 0);
         }
 
         REG16(0x0400000a) = (REG16(0x0400000a) & 0x43) | 0x1d00;
@@ -186,13 +186,13 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
         char *var10;
         for (int var11 = 0; var11 < 3; var11++) {
             var10 = arg0 + REGIONAL_OFFSET(0xedc, 0xf84) + var11 * 0x20;
-            func_0204bc74(var10, 0, 0, 0, 0x20, 0x19, 0);
-            func_0204b0e8((struct Struct_ov002_0215624c_19 *) var10, 0);
+            FillBGScreenRect_0204bc74(var10, 0, 0, 0, 0x20, 0x19, 0);
+            LoadBGScreenData_0204b0e8((struct Struct_ov002_0215624c_19 *) var10, 0);
         }
 
         void *var12 = *(void **) (var5 + 0x2c);
-        func_0204b174(arg0 + REGIONAL_OFFSET(0xefc, 0xfa4), var12, (SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x78c, 0x828)), 0);
-        func_0204b174(arg0 + REGIONAL_OFFSET(0xf1c, 0xfc4), var12, (SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x78c, 0x828)), 0);
+        LoadBGBlock_0204b174(arg0 + REGIONAL_OFFSET(0xefc, 0xfa4), var12, (SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x78c, 0x828)), 0);
+        LoadBGBlock_0204b174(arg0 + REGIONAL_OFFSET(0xf1c, 0xfc4), var12, (SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x78c, 0x828)), 0);
 
         for (int var13 = 0; var13 < 3; var13++) {
             struct Struct_ov002_0215624c_13 *var14 = (struct Struct_ov002_0215624c_13 *) (arg0 + REGIONAL_OFFSET(0xedc, 0xf84)) + var13;
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
         S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)) = (int) ((SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x78c, 0x828)))->Allocate(0x4400);
         for (int var15 = 0; var15 < 12; var15++) {
             char *var16 = arg0 + REGIONAL_OFFSET(0xf3c, 0xfe4) + var15 * 0xe0;
-            func_0204c7a8((struct Struct_ov002_0215624c_20 *) var16,
+            SetTextWindowBuffers_0204c7a8((struct Struct_ov002_0215624c_20 *) var16,
                                                                        (SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x78c, 0x828)), S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0x400);
             *(char **) (var16 + 4) = arg0 + REGIONAL_OFFSET(0xefc, 0xfa4);
         }
@@ -220,10 +220,10 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
         LoadToMainBG3CharacterData((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
 
         for (unsigned char var17 = 0; var17 < REGIONAL_OFFSET(0x2c, 0x2b); var17++) {
-            func_0205a198((struct Struct_ov002_0215624c_23 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + var17 * 0x28));
+            InitSprite_0205a198((struct Struct_ov002_0215624c_23 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + var17 * 0x28));
         }
         func_0205a234((struct Struct_ov002_0215624c_24 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c)));
-        func_0205a444((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)));
+        InitSpriteSet_0205a444((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)));
         *(unsigned char *) (S32(REGIONAL_OFFSET(0x19c0, 0x1a68)) + 0x50) = 0;
         {
             char *var18               = (char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68));
@@ -238,11 +238,11 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
             int var20;
             void *var21;
             void *var22 = GetPacEntryData_020467f0((struct Struct_ov002_0215624c_25 *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), var19, &var21, &var20);
-            func_0205a528((void *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)), var22, var20, arg0 + REGIONAL_OFFSET(0x7dc, 0x878));
+            LoadSpriteSetFile_0205a528((void *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)), var22, var20, arg0 + REGIONAL_OFFSET(0x7dc, 0x878));
         }
 
         S16(REGIONAL_OFFSET(0x1aa8, 0x1be0)) = 0;
-        func_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + REGIONAL_OFFSET(0xe20, 0xec8)), 0, 2);
+        SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + REGIONAL_OFFSET(0xe20, 0xec8)), 0, 2);
 
         if (U8(REGIONAL_OFFSET(0x22b5, 0x2485)) == 0 && U8(REGIONAL_OFFSET(0x2364, 0x253c)) == 0) {
             func_ov002_0215bf34(arg0);
@@ -304,10 +304,10 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
             var0->GetLoadedFileByID(S32(REGIONAL_OFFSET(0x1a6c, 0x1ba4)), &var28, &var29);
             int var31 = CountPacEntries_02046900((struct Struct_ov002_0215624c_26 *) var28);
             for (unsigned char var32 = 0; var32 < REGIONAL_OFFSET(0x2c, 0x2b); var32++) {
-                func_0205a198((struct Struct_ov002_0215624c_23 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + var32 * 0x28));
+                InitSprite_0205a198((struct Struct_ov002_0215624c_23 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + var32 * 0x28));
             }
             func_0205a234((struct Struct_ov002_0215624c_24 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c)));
-            func_0205a444((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)));
+            InitSpriteSet_0205a444((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)));
             *(unsigned char *) (S32(REGIONAL_OFFSET(0x19c0, 0x1a68)) + 0x50) = 0;
             {
                 char *var33               = (char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68));
@@ -318,7 +318,7 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
             ((SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x7dc, 0x878)))->Reset();
             for (int var34 = 0; var34 < var31; var34++) {
                 void *var35 = GetPacEntryData_020467f0((struct Struct_ov002_0215624c_25 *) var28, var34, &var27, &var30);
-                func_0205a528((void *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)), var35, var30, arg0 + REGIONAL_OFFSET(0x7dc, 0x878));
+                LoadSpriteSetFile_0205a528((void *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)), var35, var30, arg0 + REGIONAL_OFFSET(0x7dc, 0x878));
             }
             var0->RemoveTask(S32(REGIONAL_OFFSET(0x1a6c, 0x1ba4)));
             S32(REGIONAL_OFFSET(0x1a6c, 0x1ba4)) = -1;
@@ -329,7 +329,7 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
             unsigned int var37;
             var0->GetLoadedFileByID(S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)), &var36, &var37);
             ((SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x7a0, 0x83c)))->Reset();
-            func_020dfec0(arg0 + REGIONAL_OFFSET(0x8, 0x20), arg0 + REGIONAL_OFFSET(0x7a0, 0x83c), var36, var37);
+            LoadStringTable_020dfec0(arg0 + REGIONAL_OFFSET(0x8, 0x20), arg0 + REGIONAL_OFFSET(0x7a0, 0x83c), var36, var37);
             S32(REGIONAL_OFFSET(0x1aa4, 0x1bdc)) = FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + REGIONAL_OFFSET(0x8, 0x20)), 0);
             var0->RemoveTask(S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)));
             S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)) = -1;

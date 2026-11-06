@@ -6,7 +6,7 @@
 #include "std_library_functions.h"
 
 extern "C" void* func_ov017_021d612c(void* arg0);
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" int func_ov001_0215ad2c(int arg0);
 
 extern SafeAllocator* data_ov001_021658b8[8];
@@ -44,7 +44,7 @@ extern "C" ARM int func_ov001_0215f060(char* arg0, int arg1) {
     BackgroundLoader::GetInstance()->GetLoadedFileByName(var4, &var6, &var7);
 
     for (int var8 = 1; var8 < arg1; var8++) {
-        int var9 = func_ov017_021d60f4(arg0);
+        int var9 = GetScriptValueAsInt_ov017_021d60f4(arg0);
         arg0 += 0x8;
         GameObject* var10 = var2->GetGameObjectByIndex(func_ov001_0215ad2c(var9));
         if (var10 != NULL) {

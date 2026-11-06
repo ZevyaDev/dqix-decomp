@@ -15,21 +15,21 @@ struct Struct_ov002_02169efc_2;
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" int GetResources_0200fb8c(int *gameState);
 extern "C" void *GetGlobalFlags_020d6c00();
-extern "C" void func_0205deb4(struct Struct_ov002_02155960_2 *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowPalette_0205deb4(struct Struct_ov002_02155960_2 *windowManager, int windowId, int palette);
 extern "C" void *GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void func_0205def8(struct Struct_ov002_02155960_3 *arg0, int arg1, int arg2);
-extern "C" void func_020466e4(unsigned int *arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int *globalFlags, unsigned int mask);
 struct Struct_ov002_0215624c_23;
-extern "C" void func_0205a198(Struct_ov002_0215624c_23*);
+extern "C" void InitSprite_0205a198(Struct_ov002_0215624c_23*);
 struct Struct_ov002_0215624c_24;
 extern "C" void func_0205a234(Struct_ov002_0215624c_24*);
-extern "C" void func_0205a444(char *arg0);
+extern "C" void InitSpriteSet_0205a444(char *spriteSet);
 extern "C" void *GetPacEntryData_020467f0(Struct_ov002_0215624c_25 *pac, int index, void **outEntry, int *outSize);
-extern "C" void func_0205a528(void *arg0, void *arg1, unsigned int arg2, SafeAllocator *arg3);
+extern "C" void LoadSpriteSetFile_0205a528(void *spriteSet, void *fileData, unsigned int size, SafeAllocator *allocator);
 extern "C" void func_020a9ea4(struct Struct_ov002_02169efc *arg0);
 extern "C" int func_020aad1c(void *arg0, void *arg1, int arg2, int arg3);
-extern "C" void func_020466f4(Struct_ov002_02168d54_9 *arg0, unsigned int arg1);
+extern "C" void ClearGlobalFlags_020466f4(Struct_ov002_02168d54_9 *globalFlags, unsigned int mask);
 extern "C" void func_0200fb94(char *arg0, unsigned char arg1);
 extern "C" void func_0209c678(Struct_ov002_02169efc_2 *arg0, int arg1);
 extern "C" void func_ov017_0218d258(void *arg0);
@@ -68,8 +68,8 @@ extern "C" ARM void func_ov002_02169efc(char *arg0) {
         *(int *) (arg0 + RG(0x1bb8, 0x1a80))           = RG(0x26, 0x29);
         *(int *) (arg0 + RG(0x1bbc, 0x1a84))           = RG(0x24, 0x27);
         *(unsigned char *) (arg0 + RG(0x1c2e, 0x1af6)) = 1;
-        func_0205deb4((struct Struct_ov002_02155960_2 *) OBJ, RG(0x15, 0x16), 1);
-        func_0205deb4((struct Struct_ov002_02155960_2 *) OBJ, RG(0x16, 0x17), 1);
+        SetTextWindowPalette_0205deb4((struct Struct_ov002_02155960_2 *) OBJ, RG(0x15, 0x16), 1);
+        SetTextWindowPalette_0205deb4((struct Struct_ov002_02155960_2 *) OBJ, RG(0x16, 0x17), 1);
         if (IsLocalWirelessOn_0202b7d8((int *) GetLocalWireless_0202ae18())) {
             *(short *) (arg0 + RG(0x1c28, 0x1af0))         = 0x125f;
             *(int *) (arg0 + RG(0x1bbc, 0x1a84))           = RG(0x15, 0x16);
@@ -84,17 +84,17 @@ extern "C" ARM void func_ov002_02169efc(char *arg0) {
         *(int *) (arg0 + RG(0x1bbc, 0x1a84))           = RG(0x24, 0x27);
         *(unsigned char *) (arg0 + RG(0x1c2e, 0x1af6)) = 0;
         *(int *) (arg0 + RG(0x1bc0, 0x1a88))           = 0;
-        func_020466e4((unsigned int *) var6, 0x80);
+        SetGlobalFlags_020466e4((unsigned int *) var6, 0x80);
         *(int *) (arg0 + RG(0x1bc4, 0x1a8c)) = var7->QueueLoadFile(data_ov002_0216d384, 0);
     } else if (var8 == 2) {
         if (var7->GetTaskStatus(*(int *) (arg0 + RG(0x1bc4, 0x1a8c))) == 0) {
             return;
         }
         for (unsigned char var9 = 0; var9 < 0x2c; var9++) {
-            func_0205a198((Struct_ov002_0215624c_23*)(*(char **) (arg0 + RG(0x1a64, 0x19bc)) + var9 * 0x28));
+            InitSprite_0205a198((Struct_ov002_0215624c_23*)(*(char **) (arg0 + RG(0x1a64, 0x19bc)) + var9 * 0x28));
         }
         func_0205a234((Struct_ov002_0215624c_24*)(*(void **) (arg0 + RG(0x1a6c, 0x19c4))));
-        func_0205a444(*(char **) (arg0 + RG(0x1a68, 0x19c0)));
+        InitSpriteSet_0205a444(*(char **) (arg0 + RG(0x1a68, 0x19c0)));
         var4 = *(char **) (arg0 + RG(0x1a68, 0x19c0));
         var4[0x50]                                      = 0;
         char *var10                                      = inline_ov002_02169efc(arg0, RG(0x1a64, 0x19bc));
@@ -106,7 +106,7 @@ extern "C" ARM void func_ov002_02169efc(char *arg0) {
         var7->GetLoadedFileByID(*(int *) (arg0 + RG(0x1bc4, 0x1a8c)), &var0, &var1);
         for (int var11 = 0; var11 < 4; var11++) {
             void *var12 = GetPacEntryData_020467f0((Struct_ov002_0215624c_25 *) var0, var11, &var3, &var2);
-            func_0205a528(*(void **) (arg0 + RG(0x1a68, 0x19c0)), var12, var2, (SafeAllocator *) (arg0 + RG(0x78 + 0x800, 0x3dc + 0x400)));
+            LoadSpriteSetFile_0205a528(*(void **) (arg0 + RG(0x1a68, 0x19c0)), var12, var2, (SafeAllocator *) (arg0 + RG(0x78 + 0x800, 0x3dc + 0x400)));
         }
         var7->RemoveTask(*(int *) (arg0 + RG(0x1bc4, 0x1a8c)));
         *(int *) (arg0 + RG(0x1bc4, 0x1a8c)) = -1;
@@ -135,7 +135,7 @@ extern "C" ARM void func_ov002_02169efc(char *arg0) {
         *(int *) (arg0 + RG(0x1bbc, 0x1a84))           = RG(0x24, 0x27);
         *(unsigned char *) (arg0 + RG(0x1c2e, 0x1af6)) = 0;
         *(int *) (arg0 + RG(0x1bc0, 0x1a88))           = 0;
-        func_020466f4((Struct_ov002_02168d54_9 *) var6, 0x80);
+        ClearGlobalFlags_020466f4((Struct_ov002_02168d54_9 *) var6, 0x80);
         *(unsigned int *) (arg0 + RG(0x247c, 0x22ac)) &= ~8;
         func_0200fb94((char *) GameState::GetInstance(), 0);
     } else if (var8 == 3) {

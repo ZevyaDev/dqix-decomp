@@ -18,7 +18,7 @@ union Struct_ov025_021dffac_6 { Vector3fix unknown_0_; int unknown1_0_[3]; };
 struct Struct_ov025_021dffac_7 { unsigned char unknown_0_; char unknown_1_[3]; int unknown_4_; GameObject* unknown_8_; };
 struct Struct_ov025_021dffac_8 { int unknown_0_, unknown_4_; };
 extern "C" int func_ov000_02163690(int);
-extern "C" void* func_02079e2c(char*, int);
+extern "C" void* FindActionData_02079e2c(char*, int);
 extern "C" int func_ov000_021627fc(void*);
 extern "C" int func_ov025_021e1048(Struct_ov025_021dffac_4*, Struct_ov025_021dffac_7*);
 extern "C" unsigned char func_020493a4(unsigned char*);
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov025_021dffac(Struct_ov025_021dffac_5* arg0) {
     Struct_ov025_021dffac_3* var3 = inline_ov025_021dffac_3(var1, arg0->unknown_55d8_);
     int var4 = var3->unknown_0_;
     if (func_ov000_02163690(var4)) var4 = 1;
-    void* var5 = func_02079e2c((char*)func_020797dc(), (short)var4);
+    void* var5 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), (short)var4);
     if (!var5) return 0;
     if (!func_ov000_021627fc(arg0)) return 0;
     Struct_ov025_021dffac_7 var6[12];

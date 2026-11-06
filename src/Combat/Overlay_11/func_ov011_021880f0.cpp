@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" {
-    void* func_ov017_021b2164(void);
+    void* GetCurrentMenu_ov017_021b2164(void);
     void MapVRAMBanksToSubBG(void* p);
 }
 
@@ -12,7 +12,7 @@ struct Struct_ov011_021880f0 {
 
 // USA: func_ov011_021880f0
 extern "C" ARM int func_ov011_021880f0(void) {
-    Struct_ov011_021880f0* var0 = (Struct_ov011_021880f0*)func_ov017_021b2164();
+    Struct_ov011_021880f0* var0 = (Struct_ov011_021880f0*)GetCurrentMenu_ov017_021b2164();
     MapVRAMBanksToSubBG(var0->unknown_1d8_);
     return 1;
 }

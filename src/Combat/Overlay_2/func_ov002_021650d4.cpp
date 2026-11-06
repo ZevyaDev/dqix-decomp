@@ -10,14 +10,14 @@
 #define RG(u, j) (u)
 #endif
 
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205def8;
 struct Struct_ov002_021650d4;
 extern "C" int GetResources_0200fb8c(int *gameState);
 extern "C" void *GetGlobalFlags_020d6c00();
-extern "C" void func_020466e4(unsigned int *arg0, unsigned int arg1);
-extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
+extern "C" void SetGlobalFlags_020466e4(unsigned int *globalFlags, unsigned int mask);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
 extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
 extern "C" void func_ov023_021e71b4(void *arg0, SafeAllocator *arg1);
 extern "C" void func_020dc2bc();
@@ -43,9 +43,9 @@ extern "C" ARM void func_ov002_021650d4(char *arg0) {
     if (*(unsigned char *) (arg0 + 0x1000 + RG(0xcc3, 0xb87)) == 0) {
         int var2 = *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88));
         if (var2 == 0) {
-            func_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
+            SetGlobalFlags_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
             func_020dc7e8(1, -1);
-            func_0205de24((struct Struct_0205de24_2 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0, 3);
+            SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0, 3);
             func_ov002_02161cf0(arg0);
             func_ov002_0215e44c(arg0);
             for (int var3 = 0; var3 < 3; var3++) {

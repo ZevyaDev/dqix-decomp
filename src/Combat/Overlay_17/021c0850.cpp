@@ -96,7 +96,7 @@ struct Struct_ov017_021c0850_2 {
     unsigned char unknown_bc_;
 };
 
-extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void func_020a0cc4(unsigned int arg0);
 extern "C" void func_020a0c0c(void);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
@@ -106,8 +106,8 @@ extern "C" void func_ov008_021843f8(void* arg0);
 extern "C" void func_ov008_021842a0(void* arg0, SafeAllocator* arg1);
 struct Struct_0209cae8;
 extern "C" int func_0209cae8(Struct_0209cae8*);
-struct Struct_02109bf4_4;
-extern "C" void func_0209c678(Struct_02109bf4_4*, int);
+struct MusicManager_02109bf4_4;
+extern "C" void func_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0203cf4c(void);
 extern "C" void func_0203e0a0(void* arg0, unsigned short arg1);
@@ -120,14 +120,14 @@ extern "C" void func_020bb700(int* arg0);
 extern "C" void func_020bb740(int* arg0);
 extern "C" void func_020bb910(int* arg0);
 extern "C" unsigned short func_0201e830(Struct_0201e830* arg0);
-extern "C" void func_020100c4(GameState* arg0, int arg1);
+extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 void LockStagedTextureVRAMCopying(void);
 void UnlockStagedTextureVRAMCopying(void);
 void UpdateVRAMStagingVRAMBanks(void);
 extern "C" void func_020bb48c(unsigned int arg0, int arg1);
 extern "C" void func_020c391c(int arg0, int arg1, int arg2);
 extern "C" void func_020c3984(unsigned int arg0);
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_020c54a4(int arg0, unsigned int arg1, unsigned int arg2, unsigned short arg3);
 extern "C" void* func_0203bd08(void);
 extern "C" void func_0203bd24(char* arg0);
@@ -160,7 +160,7 @@ extern "C" void func_ov017_021c0580(void* arg0, int arg1, const char* arg2, void
 extern "C" int func_0209cd50(int arg0);
 struct Struct_0209c3b4_2;
 extern "C" void func_0209c3b4(Struct_0209c3b4_2*, int);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_021c07d0(void* arg0);
 extern "C" int func_ov004_0215502c(SafeAllocator* arg0, int arg1);
 extern "C" int func_ov004_021560b0(SafeAllocator* arg0, int arg1);
@@ -199,7 +199,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     GameObject* var2 = var0->GetUnknownGameObject();
-    func_020397cc((Struct_02018300_3*)var2, 1);
+    DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
 
     if (arg0->unknown_20_ == 0) {
         func_020a0cc4(Enum_ov017_021c0850_123784);
@@ -234,7 +234,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         if (arg0->unknown_bc_) {
             arg0->unknown_1c_->unknown_b18_ |= 1;
             if (func_0209cae8((Struct_0209cae8*)&gMusicManager_02109bf4) != 0x29) {
-                func_0209c678((Struct_02109bf4_4*)&gMusicManager_02109bf4, 0xf);
+                func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0xf);
             }
         }
         unsigned short* var5 = (unsigned short*)GetZone3D_02012fe4();
@@ -274,7 +274,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         arg0->unknown_ac_ = GetFlags00(var1);
         arg0->unknown_b0_ = GetFlags04(var1);
         arg0->unknown_b4_ = GetFlags08(var1);
-        arg0->unknown_b8_ = func_020100bc(var0);
+        arg0->unknown_b8_ = GetCamera_020100bc(var0);
         arg0->unknown_20_++;
     } else if (arg0->unknown_20_ == 2) {
         LockStagedTextureVRAMCopying();
@@ -307,7 +307,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         BG3CNTSUB = (BG3CNTSUB & ~3) | 3;
         SetFlags00(var1, 4);
         SetFlags04(var1, 0x8de);
-        func_020c5588(0, 0, 0x7fff, 0, 0);
+        Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
         func_020c54a4(0, 0, 0, 0);
         char* var7 = (char*)func_0203bd08();
         func_0203bd24(var7);
@@ -338,7 +338,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | (arg0->unknown_44_ << 8);
         func_02074bd0((Struct_02074bd0*)arg0->unknown_2c_);
         func_02074bf4((Struct_02074bf4*)arg0->unknown_2c_);
-        func_020c5588(arg0->unknown_a8_, 0x10, 0x7fff, 0, 0);
+        Set3DClearColorAndDepth_020c5588(arg0->unknown_a8_, 0x10, 0x7fff, 0, 0);
         func_ov008_021845ac(arg0->unknown_1c_);
         char var9[0x20];
         memset(var9, 0, 0x20);
@@ -351,7 +351,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         SetFlags04(var1, arg0->unknown_b0_);
         SetFlags08(var1, arg0->unknown_b4_);
         func_ov017_0218f79c(var1);
-        func_020100c4(var0, (int)arg0->unknown_b8_);
+        SetCamera_020100c4(var0, (int)arg0->unknown_b8_);
         GameState* var10 = GameState::GetInstance();
         int var11 = 0x70;
         for (int var12 = 0; var12 < 0x30; var12++) {
@@ -430,9 +430,9 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
             return;
         }
         if (arg0->unknown_1c_->unknown_b13_ == 0) {
-            func_020397c0(var2);
+            EnablePlayerControl_020397c0(var2);
         } else {
-            func_020397cc((Struct_02018300_3*)var2, 1);
+            DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
         }
         func_ov017_021c07d0(arg0);
         func_020a0c0c();

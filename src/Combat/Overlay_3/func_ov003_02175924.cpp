@@ -16,7 +16,7 @@ enum { Enum_ov003_02175924_4156 = 0x103c };
 extern "C" void* GetParty_02010828(GameState* gameState);
 struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9;
-extern "C" struct ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" unsigned int func_ov003_02175898(char* arg0, void* arg1);
 extern "C" void func_ov003_02176798(void* arg0);
 
@@ -24,7 +24,7 @@ extern "C" void func_ov003_02176798(void* arg0);
 extern "C" ARM int func_ov003_02175924(char* arg0) {
     void* var0 = GetParty_02010828(GameState::GetInstance());
     short var1 = *(short*)(arg0 + Enum_ov003_02175924_4154);
-    struct ItemData_0201099c_9* var2 = func_020dedd0((struct ItemTable_0201099c_10*)(arg0 + Enum_ov003_02175924_2164), var1);
+    struct ItemData_0201099c_9* var2 = FindItemData_020dedd0((struct ItemTable_0201099c_10*)(arg0 + Enum_ov003_02175924_2164), var1);
     if (var2 == 0) {
         return 0;
     }

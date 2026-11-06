@@ -23,8 +23,8 @@ struct Struct_ov023_021dc520 {
     char unknown_50_[0x74];
     Struct_02075db0* unknown_c4_;
     char unknown_c8_[REGION(0x60,0x64)];
-    Struct_0205ac40 unknown_12c_;
-    Struct_0205ac40_2 unknown_180_[30];
+    SpriteSet_0205ac40 unknown_12c_;
+    Sprite_0205ac40_2 unknown_180_[30];
     char unknown_630_[REGION(0xc4,0x144)];
     unsigned short unknown_774_;
     char unknown_776_[5];
@@ -40,7 +40,7 @@ extern unsigned char data_ov023_021fd565[2][2];
 extern "C" void* func_0203bd08();
 extern "C" Struct_ov023_021dc520_3* func_0203be40(void*);
 extern "C" Struct_ov023_021dc520_3* func_0203be4c(void*);
-extern "C" void func_0205ac40(Struct_0205ac40*, Struct_0205ac40_2*);
+extern "C" void DrawSprite_0205ac40(SpriteSet_0205ac40*, Sprite_0205ac40_2*);
 extern "C" short func_020dee58(Struct_020dee58*);
 extern "C" int func_02075db0(Struct_02075db0*, int, int);
 inline int inline_ov023_021dc520(int arg0) { return arg0 * 2; }
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov023_021dc520(Struct_ov023_021dc520* arg0) {
         if (!arg0->unknown_79b_1_ || !(arg0->unknown_774_ & 0x2000)) return;
     }
     if (!(arg0->unknown_774_ & 2) || !arg0->unknown_4c_) return;
-    Struct_0205ac40_2* var0;
+    Sprite_0205ac40_2* var0;
     Struct_ov023_021dc520_3* var1;
     if (arg0->unknown_77c_ == 0) {
         Struct_ov023_021dc520_3* var2 = func_0203be40(func_0203bd08());
@@ -88,10 +88,10 @@ extern "C" ARM void func_ov023_021dc520(Struct_ov023_021dc520* arg0) {
                 else var0 = &arg0->unknown_180_[28];
                 int var9 = (var6->unknown_6_ + 10) << 12;
                 int var10 = (var6->unknown_4_ + REGION(190,202)) << 12;
-                var0->unknown_14_[0] = var10;
-                var0->unknown_14_[1] = var9;
-                var0->unknown_22_ = var4 + 0x48;
-                func_0205ac40(&arg0->unknown_12c_, var0);
+                var0->position_14_[0] = var10;
+                var0->position_14_[1] = var9;
+                var0->oamIndex_22_ = var4 + 0x48;
+                DrawSprite_0205ac40(&arg0->unknown_12c_, var0);
             }
         }
     }
@@ -123,20 +123,20 @@ extern "C" ARM void func_ov023_021dc520(Struct_ov023_021dc520* arg0) {
                     else LoadToSubObjStandardPalette(&var19, var21, 2);
                 }
             }
-            var0->unknown_14_[0] = (var11 + var13) << 12;
-            var0->unknown_14_[1] = (var13 + 11) << 12;
-            var0->unknown_22_ = var12 + 0x4c;
-            func_0205ac40(&arg0->unknown_12c_, var0);
+            var0->position_14_[0] = (var11 + var13) << 12;
+            var0->position_14_[1] = (var13 + 11) << 12;
+            var0->oamIndex_22_ = var12 + 0x4c;
+            DrawSprite_0205ac40(&arg0->unknown_12c_, var0);
             var11 += 8;
             ++var12;
         }
     }
     int var22 = func_020dee58(arg0->unknown_4c_);
     var0 = &arg0->unknown_180_[var22 + 1];
-    var0->unknown_14_[0] = REGION(0x18000,0x10000);
-    var0->unknown_14_[1] = 0x8000;
-    var0->unknown_22_ = 0x52;
-    func_0205ac40(&arg0->unknown_12c_, var0);
+    var0->position_14_[0] = REGION(0x18000,0x10000);
+    var0->position_14_[1] = 0x8000;
+    var0->oamIndex_22_ = 0x52;
+    DrawSprite_0205ac40(&arg0->unknown_12c_, var0);
     if (inline_ov023_021dc520_2(arg0->unknown_4c_)) {
         int var23 = 0, var24 = 0;
         Struct_ov023_021dc520_2* var25 = arg0->unknown_4c_->unknown_0_;
@@ -147,10 +147,10 @@ extern "C" ARM void func_ov023_021dc520(Struct_ov023_021dc520* arg0) {
         unsigned char var26 = data_ov023_021fd565[var23][var24];
         if (var26) {
             var0 = &arg0->unknown_180_[var26];
-            var0->unknown_14_[0] = REGION(0x9a000,0x90000);
-            var0->unknown_14_[1] = 0x8000;
-            var0->unknown_22_ = 0x53;
-            func_0205ac40(&arg0->unknown_12c_, var0);
+            var0->position_14_[0] = REGION(0x9a000,0x90000);
+            var0->position_14_[1] = 0x8000;
+            var0->oamIndex_22_ = 0x53;
+            DrawSprite_0205ac40(&arg0->unknown_12c_, var0);
         }
         if (!(arg0->unknown_774_ & 8)) {
             func_0203bd08();

@@ -24,7 +24,7 @@ struct Struct_ov025_021e6cf4 {
     unsigned char unknown_9_;
 };
 
-extern "C" unsigned char* func_ov000_02160130(void);
+extern "C" unsigned char* GetBattleScene_ov000_02160130(void);
 extern "C" void func_ov000_02167e6c(unsigned char* arg0);
 extern "C" void func_ov000_02167dd8(unsigned char* arg0);
 extern "C" void func_ov000_02167f10(unsigned char* arg0);
@@ -36,7 +36,7 @@ extern "C" void func_020338d4(Struct_020338d4* arg0, Struct_ov009_0218aa28* arg1
 
 // USA: func_ov025_021e6cf4
 extern "C" ARM int func_ov025_021e6cf4(Struct_ov025_021e6cf4* arg0, void* arg1) {
-    unsigned char* var0 = func_ov000_02160130();
+    unsigned char* var0 = GetBattleScene_ov000_02160130();
     if (arg0->unknown_8_0_ == 0) {
         func_ov000_02167e6c(var0);
     } else if (arg0->unknown_8_0_ == 1) {

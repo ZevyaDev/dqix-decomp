@@ -7,8 +7,8 @@ struct Struct_ov024_021ddf5c_4 { int unknown_0_; int unknown_4_; };
 
 extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
 extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
-extern "C" struct Struct_ov000_021584e8* func_ov000_0215e958(void* arg0);
-extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" struct Struct_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_02159eac(void* arg0, struct Struct_ov024_021ddf5c_4* arg1, int arg2);
 extern "C" void func_ov000_0215ccbc(
     int arg0, struct Struct_ov000_021584e8* arg1, GameObject* arg2, short arg3, short arg4, short arg5,
@@ -57,9 +57,9 @@ extern "C" ARM struct Struct_ov000_021584e8* func_ov024_021ddf5c(struct Struct_o
     } else {
         var5 = func_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
     }
-    struct Struct_ov000_021584e8* var6 = func_ov000_0215e958(arg0->unknown_10_);
+    struct Struct_ov000_021584e8* var6 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var6) return 0;
-    func_ov000_0215a88c(arg0->unknown_10_, var6, var5);
+    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var6, var5);
     struct Struct_ov024_021ddf5c_4 var7;
     var7.unknown_0_ = 0;
     var7.unknown_4_ = 0;

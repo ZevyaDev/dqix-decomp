@@ -7,7 +7,7 @@ enum { Enum_ov017_021cbcc0_1816 = 0x718 };
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" void* func_ov017_021b8468(void* arg0);
 extern "C" void* func_ov017_021b8470(void* arg0);
 extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov017_021cbcc0(int arg0, Struct_ov017_021cbcc0_2* arg1,
     void* var6;
     void* var7;
     void* var8 = *(void**)(arg3 + 0x3000 + Enum_ov017_021cbcc0_1816);
-    var5 = (Struct_ov017_021cbcc0*)func_ov017_021b8478(var8);
+    var5 = (Struct_ov017_021cbcc0*)GetBattleSetup_ov017_021b8478(var8);
     if (!var5) return;
     var6 = func_ov017_021b8470(var8);
     if (!var6) return;

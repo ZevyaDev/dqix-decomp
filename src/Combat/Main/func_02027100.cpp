@@ -26,7 +26,7 @@ extern "C" ARM void func_02027100(unsigned char* arg0) {
         if (arg0[Enum_02027100_1885] & (1 << var3)) {
             continue;
         }
-        GameObject* var4 = func_0200ff1c(var0, var3);
+        GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, var3);
         if (var4 == NULL) {
             continue;
         }

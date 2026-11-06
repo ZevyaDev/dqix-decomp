@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021cd35c {
     unsigned short unknown_0_;
@@ -22,7 +22,7 @@ struct Struct_ov017_021cd35c_2 {
 
 // USA: func_ov017_021cd35c
 extern "C" ARM void func_ov017_021cd35c(unsigned short arg0, Struct_ov017_021cd35c* arg1, int arg2, signed char arg3) {
-    void* var0 = func_0202ae24();
+    void* var0 = GetLocalWirelessPacketQueue_0202ae24();
     unsigned char var1[0x14];
     var1[0] = 0x68;
     struct Struct_ov017_021cd35c_2* var2 = (struct Struct_ov017_021cd35c_2*)(var1 + 4);
@@ -37,13 +37,13 @@ extern "C" ARM void func_ov017_021cd35c(unsigned short arg0, Struct_ov017_021cd3
             var2->unknown_8_ = arg1->unknown_5_;
             if (var3 == arg2 - 1) var2->unknown_6_ = arg3;
             else var2->unknown_6_ = var4;
-            func_0205e330(var0, var1, 0);
+            QueueOutgoingPacket_0205e330(var0, var1, 0);
         }
     } else {
         var2->unknown_2_ = 0;
         var2->unknown_4_ = 0;
         var2->unknown_6_ = 0;
         var2->unknown_8_ = -1;
-        func_0205e330(var0, var1, 0);
+        QueueOutgoingPacket_0205e330(var0, var1, 0);
     }
 }

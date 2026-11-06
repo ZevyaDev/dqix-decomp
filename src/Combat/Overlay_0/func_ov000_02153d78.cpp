@@ -3,7 +3,7 @@
 
 extern short data_ov000_02182c14[8];
 extern short data_ov000_02182b84[8];
-extern "C" int func_ov000_0215eb1c(struct Random* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(struct Random* battle, short* indices, int maxCount, int filterFlags);
 
 // USA: func_ov000_02153d78
 extern "C" ARM void func_ov000_02153d78(struct Random* arg0, int arg1, short* arg2) {
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov000_02153d78(struct Random* arg0, int arg1, short* ar
         var2++;
     } while (--var3);
     short* var4 = var0;
-    int var5 = func_ov000_0215eb1c(arg0, var4, 8, 1);
+    int var5 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0, var4, 8, 1);
 
     short var6[8];
     int var7 = 8;

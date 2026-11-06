@@ -65,8 +65,8 @@ struct Struct_ov004_02171034 {
 };
 
 struct Struct_02000c9c_8;
-extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* arg0);
-extern "C" int func_020e51cc(int arg0);
+extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
+extern "C" int GetStandardString_020e51cc(int stringId);
 struct Struct_ov004_0216b7bc;
 extern "C" void func_ov011_02184ad8(struct Struct_ov004_0216b7bc* arg0);
 extern "C" void* func_ov004_0216ae9c(void* arg0, int arg1);
@@ -169,8 +169,8 @@ extern "C" ARM int func_ov004_0216ba70(void* arg0) {
 
     {
     int var12 = 0;
-    if (func_0200fb08((struct Struct_02000c9c_8*)var5) == 4 ||
-        func_0200fb08((struct Struct_02000c9c_8*)var5) == 2) {
+    if (GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)var5) == 4 ||
+        GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)var5) == 2) {
         var12 = 2;
     }
     var3 = 0;
@@ -181,7 +181,7 @@ extern "C" ARM int func_ov004_0216ba70(void* arg0) {
 
     Struct_ov004_0216ba70* var13 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x3a);
     if (var13) {
-        var13->unknown_20_ = (void*)func_020e51cc(0x3f3);
+        var13->unknown_20_ = (void*)GetStandardString_020e51cc(0x3f3);
     }
 
     func_ov004_0216afb0(arg0, 0x47, 2, 0xd3, 0x3e7, 0xa1, var3 + 0x13, 8, 1);
@@ -203,7 +203,7 @@ extern "C" ARM int func_ov004_0216ba70(void* arg0) {
 
             Struct_ov004_0216ba70* var16 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), var15 + 0x3a);
             if (var16) {
-                var16->unknown_20_ = (void*)func_020e51cc(0x3f3);
+                var16->unknown_20_ = (void*)GetStandardString_020e51cc(0x3f3);
             }
 
             func_ov004_0216afb0(arg0, var1 + 0x47, 2, 0xd3, var14, 0xa1, var3 + 0x13, 8, 1);

@@ -2,7 +2,7 @@
 #include "Resource/Script.h"
 #include "Memory/SafeAllocator.h"
 
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 struct Struct_ov017_021aca2c {
     char* unknown_0_;
     char* unknown_4_;
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov017_021aca2c(Script::Parameter* arg0, int arg1) {
     data_ov017_021d83cc.unknown_4_->unknown_15_ = arg0[3].ToInt();
     const char* var2 = arg0[4].ToString();
     if (var2) {
-        int var3 = func_020d2ff0(var2);
+        int var3 = GetStringLength_020d2ff0(var2);
         if (var3) {
             data_ov017_021d83cc.unknown_4_->unknown_0_ = (char*)data_ov017_021d83cc.unknown_0_->Allocate(var3 + 1);
             memset(data_ov017_021d83cc.unknown_4_->unknown_0_, 0, var3 + 1);
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov017_021aca2c(Script::Parameter* arg0, int arg1) {
     }
     var2 = arg0[5].ToString();
     if (var2) {
-        int var4 = func_020d2ff0(var2);
+        int var4 = GetStringLength_020d2ff0(var2);
         if (var4) {
             data_ov017_021d83cc.unknown_4_->unknown_4_ = (char*)data_ov017_021d83cc.unknown_0_->Allocate(var4 + 1);
             memset(data_ov017_021d83cc.unknown_4_->unknown_4_, 0, var4 + 1);
@@ -54,7 +54,7 @@ extern "C" ARM int func_ov017_021aca2c(Script::Parameter* arg0, int arg1) {
     arg0 += 7;
     var2 = var5->ToString();
     if (var2) {
-        int var6 = func_020d2ff0(var2);
+        int var6 = GetStringLength_020d2ff0(var2);
         if (var6) {
             data_ov017_021d83cc.unknown_4_->unknown_8_ = (char*)data_ov017_021d83cc.unknown_0_->Allocate(var6 + 1);
             memset(data_ov017_021d83cc.unknown_4_->unknown_8_, 0, var6 + 1);

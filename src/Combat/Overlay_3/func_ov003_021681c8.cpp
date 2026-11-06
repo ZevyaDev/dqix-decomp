@@ -8,14 +8,14 @@ enum { Enum_ov003_021681c8_76 = 0x4c };
 #include "Combat/MapDisplay.h"
 
 struct Struct_0205cfd4;
-struct Struct_0201099c_14;
+struct StringTable_0201099c_14;
 
 extern "C" void func_02074af4(void* arg0);
 extern "C" void func_0205cfd4(struct Struct_0205cfd4* arg0);
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
-extern "C" void func_0204c684(void* arg0);
-extern "C" void func_0205a444(char* arg0);
-extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
+extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 extern "C" void func_ov023_021e20c0(void* arg0);
 extern "C" void func_ov003_02169658(void* arg0);
 
@@ -33,7 +33,7 @@ struct Struct_ov003_021681c8 {
     unsigned char unknown_de_[2];
     int unknown_e0_;
     unsigned char unknown_e4_[0xbc];
-    Struct_02020cb8 unknown_1a0_[2];
+    BGLayer_02020cb8 unknown_1a0_[2];
     Struct_02000c9c_85 unknown_1e0_[3];
     char unknown_480_[0x54];
     int unknown_4d4_;
@@ -76,15 +76,15 @@ extern "C" ARM void func_ov003_021681c8(Struct_ov003_021681c8* arg0) {
 
     func_0205cfd4((struct Struct_0205cfd4*)arg0->unknown_e4_);
     for (int var1 = 0; var1 < 2; var1++) {
-        func_0204af64(&arg0->unknown_1a0_[var1]);
+        InitBGLayer_0204af64(&arg0->unknown_1a0_[var1]);
     }
     for (int var2 = 0; var2 < 3; var2++) {
-        func_0204c684(&arg0->unknown_1e0_[var2]);
+        InitTextWindow_0204c684(&arg0->unknown_1e0_[var2]);
     }
-    func_0205a444(arg0->unknown_480_);
+    InitSpriteSet_0205a444(arg0->unknown_480_);
     arg0->unknown_4d4_ = 0;
     arg0->unknown_4d8_ = 0;
-    func_020dfc40((struct Struct_0201099c_14*)arg0->unknown_64_);
+    InitStringTable_020dfc40((struct StringTable_0201099c_14*)arg0->unknown_64_);
     func_ov023_021e20c0(arg0->unknown_80_);
 
     arg0->unknown_4dc_ = 0;

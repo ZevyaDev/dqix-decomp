@@ -17,7 +17,7 @@ struct Struct_ov025_021e4f00 {
 extern "C" ARM int func_ov025_021e4f00(struct Struct_ov025_021e4f00* arg0, int arg1, int arg2, void* arg3) {
     int var0[8];
     int var1[8];
-    void* var2 = func_020100bc(GameState::GetInstance());
+    void* var2 = GetCamera_020100bc(GameState::GetInstance());
     if (var2 != 0) {
         if (func_0202e09c((int)var2) & 0x10) {
             if (func_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)var0) != 1) {

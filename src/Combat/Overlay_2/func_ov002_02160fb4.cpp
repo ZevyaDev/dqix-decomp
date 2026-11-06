@@ -5,20 +5,20 @@ extern "C" void func_ov002_02157030(void *arg0, int arg1, short *arg2, short *ar
 extern "C" void func_ov002_0215be00(void *arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov002_021610c4(void *arg0, void *arg1, int arg2);
 #if defined(jpn)
-extern "C" void func_0205d304(void *arg0, void *arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void *windowManager, void *text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(void *arg0, void *arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void *windowManager, void *text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
-struct Struct_0205d81c;
-struct Struct_0205d0e0 {
+struct TextWindowManager_0205d81c;
+struct TextWindow_0205d0e0 {
     char unknown_0_[0xa8];
     short unknown_a8_;
     short unknown_aa_;
     short unknown_ac_;
     short unknown_ae_;
 };
-extern "C" struct Struct_0205d0e0 *func_0205d81c(struct Struct_0205d81c *arg0, int arg1);
+extern "C" struct TextWindow_0205d0e0 *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
 extern "C" void func_0205d904(unsigned char *arg0);
 
 struct Struct_ov002_02160fb4 {
@@ -38,11 +38,11 @@ struct Struct_ov002_02160fb4_2 {
     int unknown_bb8_;
 };
 
-static inline void inline_ov002_02160fb4(struct Struct_0205d0e0 *arg0, short arg1, short arg2) {
+static inline void inline_ov002_02160fb4(struct TextWindow_0205d0e0 *arg0, short arg1, short arg2) {
     arg0->unknown_ac_ = arg1;
     arg0->unknown_ae_ = arg2;
 }
-static inline void inline_ov002_02160fb4_2(struct Struct_0205d0e0 *arg0, short arg1, short arg2) {
+static inline void inline_ov002_02160fb4_2(struct TextWindow_0205d0e0 *arg0, short arg1, short arg2) {
     arg0->unknown_a8_ = arg1;
     arg0->unknown_aa_ = arg2;
 }
@@ -56,10 +56,10 @@ extern "C" ARM void func_ov002_02160fb4(char *arg0) {
     memset(((struct Struct_ov002_02160fb4 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0x800);
     func_ov002_021610c4(arg0, ((struct Struct_ov002_02160fb4 *) (arg0 + 0x1000))->unknown_bd0_, 0);
 
-    func_0205d304(arg0 + 0xe20, ((struct Struct_ov002_02160fb4 *) (arg0 + 0x1000))->unknown_bd0_, 0, 1, 0, 1, 0);
+    OpenTextWindow_0205d304(arg0 + 0xe20, ((struct Struct_ov002_02160fb4 *) (arg0 + 0x1000))->unknown_bd0_, 0, 1, 0, 1, 0);
 
-    struct Struct_0205d0e0 *var4 = func_0205d81c(
-        (struct Struct_0205d81c *) (arg0 + 0xe20), ((struct Struct_ov002_02160fb4_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff);
+    struct TextWindow_0205d0e0 *var4 = FindTextWindow_0205d81c(
+        (struct TextWindowManager_0205d81c *) (arg0 + 0xe20), ((struct Struct_ov002_02160fb4_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff);
     if (var4 == NULL) return;
 
     func_ov002_02157030(arg0, ((struct Struct_ov002_02160fb4_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, &var0, &var1, &var2, &var3);
@@ -77,10 +77,10 @@ extern "C" ARM void func_ov002_02160fb4(char *arg0) {
     memset(((struct Struct_ov002_02160fb4 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0x960);
     func_ov002_021610c4(arg0, ((struct Struct_ov002_02160fb4 *) (arg0 + 0x1000))->unknown_bd0_, 0);
 
-    func_0205d304(arg0 + 0xec8, ((struct Struct_ov002_02160fb4 *) (arg0 + 0x1000))->unknown_bd0_, 0, 1, 0, 1, 0, 0);
+    OpenTextWindow_0205d304(arg0 + 0xec8, ((struct Struct_ov002_02160fb4 *) (arg0 + 0x1000))->unknown_bd0_, 0, 1, 0, 1, 0, 0);
 
-    struct Struct_0205d0e0 *var9 = func_0205d81c(
-        (struct Struct_0205d81c *) (arg0 + 0xec8), ((struct Struct_ov002_02160fb4_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff);
+    struct TextWindow_0205d0e0 *var9 = FindTextWindow_0205d81c(
+        (struct TextWindowManager_0205d81c *) (arg0 + 0xec8), ((struct Struct_ov002_02160fb4_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff);
     if (var9 == NULL) return;
 
     func_ov002_02157030(arg0, ((struct Struct_ov002_02160fb4_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, &var5, &var6, &var7, &var8);

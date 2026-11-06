@@ -158,7 +158,7 @@ extern "C" ARM void func_ov023_021f454c(struct Struct_ov023_021f454c_6* arg0) {
         var5 = 100;
         if (var14 > 0) {
             int var18 = func_02011518(var1, (unsigned char)(var14 - 1));
-            struct Struct_ov023_021f454c* var19 = (struct Struct_ov023_021f454c*)func_0200ff1c(var1, var18);
+            struct Struct_ov023_021f454c* var19 = (struct Struct_ov023_021f454c*)GetPartyMemberBaseByIndex_0200ff1c(var1, var18);
             if (var19 == 0) continue;
             if (!func_020a35e0((unsigned char*)arg0->unknown_2a0_, var18)) continue;
             if (func_02010088((struct Struct_02010088*)var19)) continue;
@@ -281,7 +281,7 @@ extern "C" ARM void func_ov023_021f454c(struct Struct_ov023_021f454c_6* arg0) {
     if (arg0->unknown_5900_ != 0 || arg0->unknown_6e24_ != 0) {
         for (int var33 = 0; var33 < 4; var33++) {
             if (!func_020a35e0((unsigned char*)arg0->unknown_2a0_, var33)) continue;
-            struct Struct_ov023_021f454c* var34 = (struct Struct_ov023_021f454c*)func_0200ff1c(var1, var33);
+            struct Struct_ov023_021f454c* var34 = (struct Struct_ov023_021f454c*)GetPartyMemberBaseByIndex_0200ff1c(var1, var33);
             if (var34 == 0) continue;
             if (!((float)(unsigned int)func_02053dfc((struct Struct_02053dfc*)var34) / var4 < 0.5f)) {
                 arg0->unknown_5901_ |= 1 << var33;

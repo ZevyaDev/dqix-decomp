@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-struct Struct_0205d81c;
-struct Struct_0205d0e0;
-extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+struct TextWindowManager_0205d81c;
+struct TextWindow_0205d0e0;
+extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 
 extern "C" void func_0204f138(unsigned char* arg0, unsigned char** arg1, unsigned char** arg2, unsigned char** arg3, unsigned char** arg4);
 
@@ -17,14 +17,14 @@ struct Struct_0205d904 {
 
 // USA: func_0205d904
 extern "C" ARM void func_0205d904(unsigned char* arg0) {
-    struct Struct_0205d0e0* var0;
+    struct TextWindow_0205d0e0* var0;
     unsigned char* var1;
     unsigned char* var2;
     unsigned char* var3;
     unsigned char* var4;
     struct Struct_0205d904* var5;
 
-    var0 = func_0205d81c((struct Struct_0205d81c*)arg0, arg0[0xb0]);
+    var0 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)arg0, arg0[0xb0]);
     if (var0 == NULL) return;
 
     func_0204f138((unsigned char*)var0, &var1, &var2, &var3, &var4);

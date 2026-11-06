@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct Struct_ov011_02184c30 {
-    int unknown_0_;
-    union { int unknown_0_; float unknown1_0_; } unknown_4_;
+struct ScriptValue_ov011_02184c30 {
+    int type_0_;
+    union { int unknown_0_; float unknown1_0_; } value_4_;
 };
 
-extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
-extern "C" ARM void* func_ov017_021b2164(void);
+extern "C" int func_ov011_02184c30(struct ScriptValue_ov011_02184c30* arg0);
+extern "C" ARM void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f4(void);
 extern "C" ARM void* func_ov011_021842c8(unsigned char* arg0, unsigned int arg1);
 extern "C" ARM void func_ov011_021842a0(void* arg0);
@@ -21,7 +21,7 @@ struct Struct_ov011_02184ed0 {
 };
 
 // USA: func_ov011_02184ed0
-extern "C" ARM int func_ov011_02184ed0(struct Struct_ov011_02184c30* arg0, int arg1, Struct_ov011_02184ed0* arg2) {
+extern "C" ARM int func_ov011_02184ed0(struct ScriptValue_ov011_02184c30* arg0, int arg1, Struct_ov011_02184ed0* arg2) {
     unsigned int var0;
     int var1;
     unsigned char* var2;
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov011_02184ed0(struct Struct_ov011_02184c30* arg0, int a
 
     var0 = func_ov011_02184c30(&arg0[0]);
     var1 = func_ov011_02184c30(&arg0[1]);
-    func_ov017_021b2164();
+    GetCurrentMenu_ov017_021b2164();
     var2 = (unsigned char*)func_ov011_021845f4();
     var3 = (Struct_ov011_02184ed0*)func_ov011_021842c8(var2, var0);
     if (var3 == 0)

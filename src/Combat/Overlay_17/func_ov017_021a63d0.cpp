@@ -11,12 +11,12 @@
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
-extern "C" void func_0205ac40(void* arg0, void* arg1);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 extern "C" int func_02039750(void* arg0);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void* func_020daf90(void);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 
 struct Struct_02015a2c_2;
 extern "C" int func_02015a2c(struct Struct_02015a2c_2* arg0);
@@ -28,17 +28,17 @@ extern "C" void func_ov017_021a5ad0(struct Struct_ov017_021a5ad0* arg0, int arg1
 extern "C" void func_ov017_021a5b08(struct Struct_ov017_021a5ad0* arg0, int arg1);
 
 struct Struct_02000c9c_8;
-extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* arg0);
+extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
 
-struct Struct_0205d1e0;
+struct TextWindowManager_0205d1e0;
 struct Struct_0205d228;
-struct Struct_0205d274;
-extern "C" void func_0205d1e0(Struct_0205d1e0*);
+struct TextWindowManager_0205d274;
+extern "C" void func_0205d1e0(TextWindowManager_0205d1e0*);
 extern "C" void func_0205d228(Struct_0205d228*);
-extern "C" void func_0205d274(Struct_0205d274*);
+extern "C" void func_0205d274(TextWindowManager_0205d274*);
 extern "C" void func_0205da88(void*, int, int, int);
-struct Struct_0205d2bc;
-extern "C" void func_0205d2bc(Struct_0205d2bc*);
+struct TextWindowManager_0205d2bc;
+extern "C" void func_0205d2bc(TextWindowManager_0205d2bc*);
 
 extern unsigned short data_ov017_021d6a9e[5];
 
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov017_021a63d0(unsigned char* arg0) {
     if (var6 != 0) return;
     if (var2 != -1) return;
 
-    if (!func_02046b08(*(void***)(arg0 + OFF_36fc))) return;
+    if (!IsQueueEmpty_02046b08(*(void***)(arg0 + OFF_36fc))) return;
     if (IsLocalWirelessGuest_0202c540(var1)) return;
 
     if (func_020117f0(GameState::GetInstance()) != 0) return;
@@ -107,17 +107,17 @@ extern "C" ARM void func_ov017_021a63d0(unsigned char* arg0) {
         } while (--var9);
     }
 
-    unsigned char var12 = func_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
+    unsigned char var12 = GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
 
  #endif
 
     if (*(int*)(arg0 + OFF_41b8) >= 3) {
         void* var13 = *(void**)(arg0 + OFF_4090);
-        func_0205d1e0((Struct_0205d1e0*)var13);
+        func_0205d1e0((TextWindowManager_0205d1e0*)var13);
         func_0205d228((Struct_0205d228*)var13);
         func_0205da88(var13, 1, 2, 1);
-        func_0205d274((Struct_0205d274*)var13);
-        func_0205d2bc((Struct_0205d2bc*)var13);
+        func_0205d274((TextWindowManager_0205d274*)var13);
+        func_0205d2bc((TextWindowManager_0205d2bc*)var13);
 
         unsigned char* var14 = *(unsigned char**)(arg0 + OFF_41c4);
         int var15 = *(int*)(var14 + 0x40);
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov017_021a63d0(unsigned char* arg0) {
             *(int*)(var16 + 0xc) = 0x1000;
             *(int*)(var16 + 0x10) = 0x1000;
             void* var18 = *(void**)(arg0 + OFF_41c4);
-            func_0205ac40(var18, var16);
+            DrawSprite_0205ac40(var18, var16);
         }
     }
 

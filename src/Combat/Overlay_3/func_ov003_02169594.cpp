@@ -14,14 +14,14 @@ enum { Enum_ov003_02169594_1261 = 0x4ed };
 enum { Enum_ov003_02169594_405 = 0x195 };
 #endif
 
-struct Struct_0205ba68;
-struct Struct_0205bacc;
+struct MenuCursor_0205ba68;
+struct MenuCursor_0205bacc;
 struct Struct_0205bcdc;
 
-extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
+extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
+extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
 extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
 struct Struct_ov003_02169594 {
     int unknown_0_;
@@ -68,14 +68,14 @@ extern "C" ARM void func_ov003_02169594(struct Struct_ov003_02169594_2* arg0) {
         break;
     }
 
-    func_0205ba68((struct Struct_0205ba68*)inline_ov003_02169594(arg0, 0), var0, var1, 0);
-    func_0205ba68((struct Struct_0205ba68*)inline_ov003_02169594(arg0, 1), var0, var1, 0);
-    func_0205bacc((struct Struct_0205bacc*)inline_ov003_02169594(arg0, 0), var2);
-    func_0205bacc((struct Struct_0205bacc*)inline_ov003_02169594(arg0, 1), var2);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)inline_ov003_02169594(arg0, 0), var0, var1, 0);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)inline_ov003_02169594(arg0, 1), var0, var1, 0);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)inline_ov003_02169594(arg0, 0), var2);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)inline_ov003_02169594(arg0, 1), var2);
     inline_ov003_02169594(arg0, 0)->unknown_4_ = var3;
     inline_ov003_02169594(arg0, 1)->unknown_4_ = var3;
     func_0205bcdc((struct Struct_0205bcdc*)inline_ov003_02169594(arg0, 0), var4);
-    func_0205bb04(inline_ov003_02169594(arg0, 1), var4);
+    SetMenuCursorIndex_0205bb04(inline_ov003_02169594(arg0, 1), var4);
     struct Struct_ov003_02169594* var5 = inline_ov003_02169594(arg0, 1);
     var5->unknown_3c_ = 0;
 }

@@ -11,10 +11,10 @@ struct Struct_020d9e44;
 extern "C" void func_020d9fc8(struct Struct_020d9e44* arg0);
 
 struct Struct_02018300_3;
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 
 extern const char data_020f2838[];
 
@@ -39,8 +39,8 @@ extern "C" ARM void func_020d9e44(Struct_020d9e44_2* arg0) {
             func_020d9fc8((struct Struct_020d9e44*)arg0);
             return;
         }
-        func_020397cc((struct Struct_02018300_3*)GameState::GetInstance()->GetUnknownGameObject(), 1);
-        func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x1e);
+        DisablePlayerControl_020397cc((struct Struct_02018300_3*)GameState::GetInstance()->GetUnknownGameObject(), 1);
+        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x1e);
         if (arg0->unknown_8_ & 1) {
             arg0->unknown_c_[0] = var0->QueueLoadFile(data_020f2838, NULL);
         }

@@ -25,7 +25,7 @@ struct Struct_0203bdf4 {
 #endif
 
 extern Struct_0203bdf4* data_02105244;
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" void func_02042764(const unsigned char* arg0, char* arg1, int arg2);
 
 #if defined(jpn)
@@ -41,7 +41,7 @@ extern "C" ARM void func_0203bdf4(const short* arg0, char* arg1) {
         short var4 = arg0[var3];
         if (var4 >= 0) {
             Struct_0203bdf4_2* var5 = &var1[var4];
-            int var6 = func_020d2ff0(var5->unknown_4_);
+            int var6 = GetStringLength_020d2ff0(var5->unknown_4_);
             memcpy(arg1 + var2, var5->unknown_4_, var6);
             var2 += var6;
             ++var3;

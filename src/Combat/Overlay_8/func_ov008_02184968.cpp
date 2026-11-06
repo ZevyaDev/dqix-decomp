@@ -8,12 +8,12 @@
 
 #include "std_library_functions.h"
 
-struct Struct_0205d5d0;
+struct TextWindowManager_0205d5d0;
 extern "C" void func_ov008_02187278(void* arg0, char* arg1, int arg2, void* arg3);
 extern "C" void func_0204b088(void* arg0, int arg1);
 extern "C" void func_ov023_021eb4f4(char* arg0);
-struct Struct_0205d2bc;
-extern "C" void func_0205d2bc(struct Struct_0205d2bc*);
+struct TextWindowManager_0205d2bc;
+extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc*);
 struct Struct_ov008_02184968;
 extern "C" void func_ov008_021873ac(struct Struct_ov008_02184968* arg0, int arg1);
 
@@ -46,13 +46,13 @@ extern "C" ARM void func_ov008_02184968(struct Struct_ov008_02184968_2* arg0) {
         memset(arg0->unknown_b8_, 0, LOW_REGION(0x800, 0x960));
         func_ov008_02187278(arg0, arg0->unknown_b8_, 0, 0);
 #if defined(jpn)
-        func_0205d5d0((struct Struct_0205d5d0*)((char*)arg0 + 0x130), 1, (int)arg0->unknown_b8_, 1);
+        SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)((char*)arg0 + 0x130), 1, (int)arg0->unknown_b8_, 1);
 #else
-        func_0205d5d0((struct Struct_0205d5d0*)((char*)arg0 + 0x130), 1, (int)arg0->unknown_b8_, 1, 0);
+        SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)((char*)arg0 + 0x130), 1, (int)arg0->unknown_b8_, 1, 0);
 #endif
         arg0->unknown_b18_ &= ~0x800;
     }
 
     func_ov008_021873ac((struct Struct_ov008_02184968*)arg0, 1);
-    func_0205d2bc((struct Struct_0205d2bc*)((char*)arg0 + 0x130));
+    func_0205d2bc((struct TextWindowManager_0205d2bc*)((char*)arg0 + 0x130));
 }

@@ -5,7 +5,7 @@
 
 
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int func_0206eaec(unsigned char* arg0, int arg1, int arg2);
 extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
 extern "C" int func_02064b24(void* arg0, int arg1, unsigned short arg2, void* arg3);
@@ -42,7 +42,7 @@ extern "C" ARM void func_02017a94(Zone3D* arg0) {
     if (var0 == NULL) {
         return;
     }
-    if (func_0200fd0c(var0) == NULL) {
+    if (GetZoneEntry_0200fd0c(var0) == NULL) {
         return;
     }
 #if defined(jpn)

@@ -3,14 +3,14 @@
 #include <NitroSDK/Cache.h>
 #include <NitroSDK/LoadToVRAM.h>
 
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct Struct_0204c610;
-struct Struct_0205d0e0 {
+struct TextWindow_0205d0e0 {
     char unknown_0_[0xac];
     short unknown_ac_;
     short unknown_ae_;
     char unknown_b0_[0x12];
-    unsigned short unknown_c2_;
+    unsigned short palette_c2_;
 };
 struct Struct_ov000_021707f0_2 {
     char unknown_0_[0x3b];
@@ -49,7 +49,7 @@ struct Struct_ov000_021707f0_5 {
 };
 struct Struct_ov000_021707f0 {
     char unknown_0_[0x38];
-    Struct_0205d81c* unknown_38_;
+    TextWindowManager_0205d81c* unknown_38_;
 #if defined(jpn)
     char unknown_3c_[0x470 - 0x3c];
 #else
@@ -61,12 +61,12 @@ struct Struct_ov000_021707f0 {
 
 extern "C" int GetResources_0200fb8c(int*);
 extern "C" void* func_ov000_02160f08(void*);
-extern "C" Struct_0205d0e0* func_0205d81c(Struct_0205d81c*, int);
+extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 extern "C" int func_0204c7cc(unsigned char*);
 extern "C" void func_0204c610(Struct_0204c610*, int, short*, short*, short*, short*);
 extern "C" void* func_ov017_021b8468(void*);
 extern "C" double func_02009424(double);
-extern "C" void func_0205ac40(void*, void*);
+extern "C" void DrawSprite_0205ac40(void*, void*);
 struct Struct_ov000_02183488 {
     short unknown_0_;
     short unknown_2_[2];
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov000_021707f0(Struct_ov000_021707f0* arg0) {
     short var8 = 0;
     short var9 = 0;
     short var10 = 0;
-    Struct_0205d0e0* var11 = func_0205d81c(arg0->unknown_38_, 13);
+    TextWindow_0205d0e0* var11 = FindTextWindow_0205d81c(arg0->unknown_38_, 13);
     signed char var12 = 0;
     short var13 = 0;
     GameObject* var14 = GameState::GetInstance()->GetCombatantByIndex(var4->unknown_17c_);
@@ -135,7 +135,7 @@ extern "C" ARM void func_ov000_021707f0(Struct_ov000_021707f0* arg0) {
     if (!func_0204c7cc((unsigned char*)var11)) {
         return;
     }
-    if (var11->unknown_c2_) {
+    if (var11->palette_c2_) {
         return;
     }
     short var16 = var11->unknown_ac_;
@@ -174,5 +174,5 @@ extern "C" ARM void func_ov000_021707f0(Struct_ov000_021707f0* arg0) {
     }
     DC_FlushRange(arg0->unknown_430_, 4);
     LoadToSubObjStandardPalette(arg0->unknown_430_, 0x142, 4);
-    func_0205ac40(var5, var6->unknown_320_);
+    DrawSprite_0205ac40(var5, var6->unknown_320_);
 }

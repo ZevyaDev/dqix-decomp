@@ -43,7 +43,7 @@ extern "C" ARM void func_ov002_021605d4(char *arg0, char *arg1) {
     int var4 = var0[var3];
     int var5   = (var4 >= 0 && var4 <= 3);
     if (!var5) return;
-    unsigned char *var6 = (unsigned char *) func_0200ff1c(var2, var4);
+    unsigned char *var6 = (unsigned char *) GetPartyMemberBaseByIndex_0200ff1c(var2, var4);
     if (var6 == 0) return;
     unsigned char *var7 = GetPartyMemberData_02053c6c(var6);
     if (var7 == 0) return;
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov002_021605d4(char *arg0, char *arg1) {
     int var15 = var10[var14];
     int var16   = (var15 >= 0 && var15 <= 3);
     if (!var16) return;
-    unsigned char *var17 = (unsigned char *) func_0200ff1c(var13, var15);
+    unsigned char *var17 = (unsigned char *) GetPartyMemberBaseByIndex_0200ff1c(var13, var15);
     if (var17 == 0) return;
     unsigned char *var18 = GetPartyMemberData_02053c6c(var17);
     if (var18 == 0) return;

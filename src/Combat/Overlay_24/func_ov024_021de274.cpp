@@ -24,8 +24,8 @@ struct Struct_ov024_021de274_6 {char unknown_0_[4];Struct_ov024_021de274_5* unkn
 struct Struct_ov000_021584e8;
 
 extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
-extern "C" struct Struct_ov000_021584e8* func_ov000_0215e958(void* arg0);
-extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" struct Struct_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
 extern "C" void func_ov000_02159eac(void* arg0, unsigned long long* arg1, int arg2);
 extern "C" short func_ov000_0215a124(void* arg0, int arg1, int arg2);
@@ -77,18 +77,18 @@ extern "C" ARM Struct_ov000_021584e8* func_ov024_021de274(Struct_ov024_021de274_
   short var11=func_ov000_0215a1d4(arg0->unknown_10_,arg1,arg4,&var10);
   if(var2 && arg4>0){
    func_ov000_02159eac(arg0->unknown_10_,&var6,0x22);
-   Struct_ov000_021584e8* var12=func_ov000_0215e958(arg0->unknown_10_);
+   Struct_ov000_021584e8* var12=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
    if(!var12)return 0;
-   func_ov000_0215a88c(arg0->unknown_10_,var12,0x26c);
+   AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var12,0x26c);
    func_ov000_0215ccbc(arg0->unknown_10_,var12,var0,-arg4,var0->currentStats_->primaryStats.currHP,var11,var6,0);
    func_ov000_0215fe84(arg0->unknown_8_,var12,0);
    ++*((unsigned char*)arg0->unknown_10_+0x8e02);
   }
  }
- Struct_ov000_021584e8* var13=func_ov000_0215e958(arg0->unknown_10_);
+ Struct_ov000_021584e8* var13=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
  if(!var13)return 0;
  func_ov024_021e8bf0(arg0,arg0->unknown_c_,&var7);
- func_ov000_0215a88c(arg0->unknown_10_,var13,var7);
+ AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var13,var7);
  Struct_ov024_021de274_3* var14=(Struct_ov024_021de274_3*)((char*)arg0->unknown_c_+0x1c);
  func_ov000_0215ccbc(arg0->unknown_10_,var13,var1,arg4,inline_ov024_021dc540(var1),var8,var5,var14->unknown_0_7_!=0);
  return var13;

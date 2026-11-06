@@ -82,7 +82,7 @@ struct Struct_ov000_0217c32c_3 {
 
 // USA: func_ov000_0217c32c
 extern "C" ARM void func_ov000_0217c32c(struct Struct_ov000_0217c32c_3* arg0) {
-    struct Struct_02054000* var0 = (struct Struct_02054000*)func_0200ff1c(GameState::GetInstance(), arg0->unknown_4c_);
+    struct Struct_02054000* var0 = (struct Struct_02054000*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_4c_);
     if (var0 == NULL) {
         return;
     }

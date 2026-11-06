@@ -9,8 +9,8 @@ enum { Enum_ov017_021baedc_0 = -0x4 };
 enum { Enum_ov017_021baedc_0 = 0x0 };
 #endif
 
-struct Struct_0204693c;
-extern "C" void func_0204693c(struct Struct_0204693c* arg0);
+struct QueueNode_0204693c;
+extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
 
 struct Struct_ov017_021baedc;
 extern "C" void func_ov017_021bb088(struct Struct_ov017_021baedc* arg0);
@@ -20,7 +20,7 @@ struct Struct_ov017_021baedc_2 { unsigned char unknown_0_0_:1; unsigned char unk
 // USA: func_ov017_021baedc
 extern "C" ARM void func_ov017_021baedc(void* arg0, int arg1) {
 	char* var0 = (char*)arg0;
-	func_0204693c((struct Struct_0204693c*)var0);
+	ResetQueueNode_0204693c((struct QueueNode_0204693c*)var0);
 	*(signed char*)(var0 + 0x0) = 4;
 	*(short*)(var0 + 0x8) = 0;
 	*(short*)(var0 + 0xa) = 0;

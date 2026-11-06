@@ -14,7 +14,7 @@ extern "C" void func_ov000_021604f0(void);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_020a1e54(int arg0);
 extern "C" void func_020a1f4c(int arg0);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 struct Struct_02053f7c_3;
 extern "C" void func_02053f7c(Struct_02053f7c_3* arg0, unsigned short arg1, int arg2);
 extern "C" ARM void func_ov017_021c3f70(unsigned short arg0);
@@ -24,8 +24,8 @@ extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_02017d68(void* arg0);
 extern "C" void* GetGlobalFlags_020d6c00(void);
-struct Struct_02038598_4;
-extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 struct Struct_020a3578;
 extern "C" void func_020a3578(Struct_020a3578* arg0);
 
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov017_021b6f9c(char* arg0) {
     }
 
     GameObject* var8 = GameState::GetInstance()->GetUnknownGameObject();
-    func_020397c0(var8);
+    EnablePlayerControl_020397c0(var8);
     func_02053f7c((Struct_02053f7c_3*)var8, 0, 0);
     func_ov017_021c3f70(0);
 
@@ -92,5 +92,5 @@ extern "C" ARM void func_ov017_021b6f9c(char* arg0) {
         func_02017d68(var12);
     }
 
-    func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x40000);
+    ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x40000);
 }

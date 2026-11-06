@@ -2,15 +2,15 @@
 extern "C" void func_0203aaf8(void*, void*, int*);
 extern "C" void func_0203aba8(struct Struct_0203aba8*, void*, void*);
 
-struct Struct_02109bf4_4;
-extern "C" void func_0209c678(struct Struct_02109bf4_4* arg0, int arg1);
+struct MusicManager_02109bf4_4;
+extern "C" void func_0209c678(struct MusicManager_02109bf4_4* arg0, int arg1);
 extern "C" void func_0203aa80(void* arg0, int arg1);
 extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
 extern "C" void func_020bbd9c(void);
 
 // USA: func_0209c6d8
 extern "C" ARM void func_0209c6d8(void* arg0, int arg1) {
-    func_0209c678((struct Struct_02109bf4_4*)arg0, 0);
+    func_0209c678((struct MusicManager_02109bf4_4*)arg0, 0);
     {
         int var0 = *(int*)((char*)arg0 + 0xb4);
         if (var0 > 0) {

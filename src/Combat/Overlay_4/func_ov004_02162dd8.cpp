@@ -84,7 +84,7 @@ extern "C" ARM int func_ov004_02162dd8(void* arg0) {
                     Struct_0201099c_2 var7;
                     sprintf(var5, data_ov004_0217052d, data_ov004_02170854[var4]);
                     if (LoadFileIntoMemory(var5, &gFileScratchSpace_0211e33c, &var6) != 0) {
-                        GameObject* var8 = func_0200ff1c(var0, var1[var3]);
+                        GameObject* var8 = GetPartyMemberBaseByIndex_0200ff1c(var0, var1[var3]);
                         if (var8 != 0) {
                             unsigned char* var9 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var8);
                             if (var9 != 0) {

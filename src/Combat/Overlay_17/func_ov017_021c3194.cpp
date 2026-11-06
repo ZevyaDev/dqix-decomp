@@ -23,11 +23,11 @@ struct Struct_ov017_021c3194_2 {
 extern "C" Struct_ov017_021c3194_2* GetMessageWindow_020421a0(void);
 extern "C" void func_020531f0(void* arg0);
 struct Struct_02018300_3;
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" int func_020e51cc(int arg0);
+extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
-extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
@@ -35,7 +35,7 @@ extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 extern "C" void StartMessage_0204500c(void*, const char*, int);
 extern char data_ov017_021d882c[];
 #endif
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 
 struct Struct_ov017_021c3194 {
     unsigned char unknown_0_;
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_021c3194(Struct_ov017_021c3194* arg0) {
     if (var4 == 0) {
         if (var1 != NULL) {
             func_020531f0(var1);
-            func_020397cc((struct Struct_02018300_3*)var1, 1);
+            DisablePlayerControl_020397cc((struct Struct_02018300_3*)var1, 1);
         }
         ClearMessageParams_02046380(var3);
         char* var5 = var3->unknown_5c_;
@@ -70,9 +70,9 @@ extern "C" ARM void func_ov017_021c3194(Struct_ov017_021c3194* arg0) {
         StartMessage_0204500c(var3, var5, 0);
 
 #else
-        sprintf(var5, (const char*)func_020e51cc(0x25));
+        sprintf(var5, (const char*)GetStandardString_020e51cc(0x25));
         char var6[0xc];
-        func_020e4bf4(var6, arg0->unknown_9_);
+        InitPartyMemberNoun_020e4bf4(var6, arg0->unknown_9_);
         var3->unknown_10_ = var6;
         StartMessage_0204500c(var3, var5, 0, 0xe3);
 
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov017_021c3194(Struct_ov017_021c3194* arg0) {
         return;
     }
     if (var4 == 2) {
-        func_020397c0(var1);
+        EnablePlayerControl_020397c0(var1);
         arg0->unknown_1_ = 1;
     }
 }

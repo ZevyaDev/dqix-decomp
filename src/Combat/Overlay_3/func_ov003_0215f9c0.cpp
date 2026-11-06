@@ -9,7 +9,7 @@ enum { Enum_ov003_0215f9c0_550 = 0x10e };
 enum { Enum_ov003_0215f9c0_550 = 0x226 };
 #endif
 
-struct Struct_0201099c_14 {
+struct StringTable_0201099c_14 {
     char unknown_0_[0x18];
 };
 struct Struct_02074af4 {
@@ -29,9 +29,9 @@ struct Struct_020a9ea4 {
 };
 
 extern "C" void func_02074af4(struct Struct_02074af4* arg0);
-extern "C" void func_0205a444(char* arg0);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void func_02081ee4(struct Struct_02081ee4* arg0, struct Struct_02081ee4_2* arg1);
-extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
+extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 extern "C" void func_020a9ea4(struct Struct_020a9ea4* arg0);
 
 struct Struct_ov003_0215f9c0 {
@@ -46,7 +46,7 @@ struct Struct_ov003_0215f9c0 {
     SafeAllocator unknown_2a0_;
     SafeAllocator unknown_2b4_;
     char unknown_2c8_[0x2dc - 0x2c8];
-    struct Struct_0201099c_14 unknown_2dc_;
+    struct StringTable_0201099c_14 unknown_2dc_;
     struct Struct_02074af4 unknown_2f4_;
     struct Struct_02081ee4 unknown_308_;
     struct Struct_02081ee4_2 unknown_314_;
@@ -130,10 +130,10 @@ extern "C" ARM void func_ov003_0215f9c0(struct Struct_ov003_0215f9c0* arg0, int 
     func_02074af4(&arg0->unknown_2f4_);
     arg0->unknown_330_ = (DISPCNT & 0x1f00) >> 8;
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
-    func_0205a444(arg0->unknown_334_);
+    InitSpriteSet_0205a444(arg0->unknown_334_);
     arg0->unknown_388_ = 0;
     func_02081ee4(&arg0->unknown_308_, &arg0->unknown_314_);
-    func_020dfc40(&arg0->unknown_2dc_);
+    InitStringTable_020dfc40(&arg0->unknown_2dc_);
     arg0->unknown_318_ = 0;
     arg0->unknown_31c_ = 0;
     arg0->unknown_320_ = 0;

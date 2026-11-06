@@ -15,11 +15,11 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Brightness.h"
 
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" void* GetGlobalFlags_020d6c00();
-struct Struct_02038598_4;
-extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 
 struct Struct_ov008_0218b240 {
     char unknown_0_[R(0xe95,0xe99)];
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov008_0218b240(Struct_ov008_0218b240* arg0) {
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
 
     arg0->unknown_ec0_0_ = 0;
-    func_0205d6a0((Struct_0205d6a0*)((char*)arg0 + 0x18), 1);
+    CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)((char*)arg0 + 0x18), 1);
 
     arg0->unknown_e99_ = 2;
     arg0->unknown_e9a_ = 0;
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov008_0218b240(Struct_ov008_0218b240* arg0) {
     arg0->unknown_e9c_ = 0;
 
     void* var1 = GetGlobalFlags_020d6c00();
-    func_020466f4((Struct_02038598_4*)var1, 0x2f);
+    ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var1, 0x2f);
     ClearFlags00(GetGameResources(), 0x10);
 
     var0->RemoveTask(arg0->unknown_ea0_);

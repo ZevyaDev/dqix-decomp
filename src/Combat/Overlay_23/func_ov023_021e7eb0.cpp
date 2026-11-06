@@ -37,7 +37,7 @@ extern "C" ARM void func_ov023_021e7eb0(Struct_ov023_021e7eb0_2 *arg0) {
 		memset(var0->unknown_5d8_, 0, 0x960);
 #endif
 		(arg0->*var1.unknown_0_[var3])();
-		func_0205d5d0(((Struct_0205d5d0*)(&var0->unknown_78_)), var3, ((int)(var0->unknown_5d8_)), 1
+		SetTextWindowText_0205d5d0(((TextWindowManager_0205d5d0*)(&var0->unknown_78_)), var3, ((int)(var0->unknown_5d8_)), 1
 #if !defined(jpn)
 			, 0
 #endif

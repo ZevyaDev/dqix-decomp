@@ -8,8 +8,8 @@ struct LocalWireless_0202c1a4 {
 extern "C" int* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
-extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021d1dc0 {
 	short unknown_0_;
@@ -32,7 +32,7 @@ struct Struct_ov017_021d1dc0_2 {
 extern "C" ARM void func_ov017_021d1dc0(unsigned short arg0, int arg1, int* arg2, int arg3, int arg4) {
 	if (!IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18())) return;
 	if (GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)GetLocalWireless_0202ae18()) != 0) return;
-	void* var0 = func_0202ae24();
+	void* var0 = GetLocalWirelessPacketQueue_0202ae24();
 
 	struct Struct_ov017_021d1dc0_2 var1;
 	var1.unknown_0_ = 0xb5;
@@ -43,5 +43,5 @@ extern "C" ARM void func_ov017_021d1dc0(unsigned short arg0, int arg1, int* arg2
 	var1.unknown_4_.unknown_8_ = (short)(arg2[0] >> 7);
 	var1.unknown_4_.unknown_a_ = (short)(arg2[1] >> 7);
 	var1.unknown_4_.unknown_c_ = (short)(arg2[2] >> 7);
-	func_0205e330(var0, &var1, 0);
+	QueueOutgoingPacket_0205e330(var0, &var1, 0);
 }

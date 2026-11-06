@@ -2,12 +2,12 @@
 #include "Resource/CharacterCreationUI.h"
 #include "Input/Input.h"
 
-struct Struct_0205d81c;
-struct Struct_0205d0e0 {
+struct TextWindowManager_0205d81c;
+struct TextWindow_0205d0e0 {
     unsigned char unknown_0_[0xac];
     short unknown_ac_, unknown_ae_;
 };
-extern "C" Struct_0205d0e0* func_0205d81c(Struct_0205d81c* arg0, int arg1);
+extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
 
 #if defined(jpn)
 enum { Enum_ov023_021e63bc_4977 = 0x1341, Enum_ov023_021e63bc_172 = 0x90 };
@@ -28,7 +28,7 @@ struct Struct_ov023_021e63bc {
 extern "C" ARM int func_ov023_021e63bc(unsigned char* arg0) {
     Struct_ov023_021e63bc* var0 = ((Struct_ov023_021e63bc*)(arg0));
     int var1 = var0->unknown_1371_;
-    Struct_0205d0e0* var2 = func_0205d81c(((Struct_0205d81c*)(&var0->unknown_ac_)), var1);
+    TextWindow_0205d0e0* var2 = FindTextWindow_0205d81c(((TextWindowManager_0205d81c*)(&var0->unknown_ac_)), var1);
     int var3 = g_touchInput.prevX_;
     int var4 = var2->unknown_ac_;
     int var5 = var2->unknown_ae_;

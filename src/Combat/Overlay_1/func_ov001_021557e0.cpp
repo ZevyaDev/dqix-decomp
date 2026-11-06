@@ -26,7 +26,7 @@ struct Struct_0205420c;
 extern "C" void func_0205420c(struct Struct_0205420c* arg0, int arg1, int arg2);
 extern "C" void func_ov017_02191f4c(int arg0, int arg1);
 extern "C" void func_ov017_02192400(int arg0, int arg1);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" unsigned char func_020100b0(GameState* arg0);
 extern "C" void func_ov017_021917f0(int arg0, int arg1);
@@ -91,7 +91,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
     if (arg0->unknown_12_ != 0 && IsLocalWirelessGuest_0202c540(var1) != 0) {
         arg0->unknown_103_ = 1;
         if (arg0->unknown_f8_0_ & 0x10) {
-            GameObject* var3 = func_0200ff1c(var2, 0);
+            GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var2, 0);
             ((unsigned int*)((char*)var3 + COMBATANT_FLAGS_021557e0))[0] |= 2;
         }
     }
@@ -125,7 +125,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
         unsigned int* var10 = (unsigned int*)GetGlobalFlags_020d6c00();
         void* var11 = GetParty_02010828(var2);
         for (int var12 = 0; var12 < 4; var12++) {
-            struct Struct_ov001_021557e0* var13 = (struct Struct_ov001_021557e0*)func_0200ff1c(var2, var12);
+            struct Struct_ov001_021557e0* var13 = (struct Struct_ov001_021557e0*)GetPartyMemberBaseByIndex_0200ff1c(var2, var12);
             if (var13 == 0) {
                 continue;
             }
@@ -135,7 +135,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
             func_ov017_02191f4c((int)var0, var12);
             func_ov017_02192400((int)var0, var12);
         }
-        func_020466e4(var10, 0x20000);
+        SetGlobalFlags_020466e4(var10, 0x20000);
     }
 
     if (IsLocalWirelessOn_0202b7d8((int*)var1) != 0 && arg0->unknown_12_ != 0 && arg0->unknown_116_ < 0) {
@@ -145,7 +145,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
                 if (var15 == var14) {
                     continue;
                 }
-                struct Struct_ov001_021557e0* var16 = (struct Struct_ov001_021557e0*)func_0200ff1c(var2, var15);
+                struct Struct_ov001_021557e0* var16 = (struct Struct_ov001_021557e0*)GetPartyMemberBaseByIndex_0200ff1c(var2, var15);
                 if (var16 == 0) {
                     continue;
                 }
@@ -158,7 +158,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
             }
         }
     } else if (arg0->unknown_116_ >= 0) {
-        struct Struct_ov001_021557e0* var17 = (struct Struct_ov001_021557e0*)func_0200ff1c(var2, arg0->unknown_116_);
+        struct Struct_ov001_021557e0* var17 = (struct Struct_ov001_021557e0*)GetPartyMemberBaseByIndex_0200ff1c(var2, arg0->unknown_116_);
         if (var17 != 0) {
             var17->unknown_c1_0_ |= 1;
             var17->unknown_c1_0_ |= 2;

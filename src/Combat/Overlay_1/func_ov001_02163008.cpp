@@ -3,14 +3,11 @@
 #include "Memory/SafeAllocator.h"
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 struct Struct_020a9ea4;
 extern "C" void func_020a9ea4(struct Struct_020a9ea4* arg0);
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
+extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 
 struct Struct_ov001_021658b8_14 {
 	SafeAllocator* unknown_0_;
@@ -30,6 +27,6 @@ extern "C" ARM int func_ov001_02163008(void) {
 	data_ov001_021658b8.unknown_4b8_ = var2;
 	memset(var2, 0, 0x8000);
 	void* var3 = GetFlagManager_0205ec34();
-	func_0206df6c(var3, (unsigned char*)var3 + 0x8c, 0x1142, 1);
+	SetFlag_0206df6c(var3, (unsigned char*)var3 + 0x8c, 0x1142, 1);
 	return 1;
 }

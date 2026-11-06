@@ -3,7 +3,7 @@
 #include "World/Object3D.h"
 #include "Resource/GameResources.h"
 
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" void func_ov017_021b621c(void* arg0, SafeAllocator* arg1, void* arg2);
 extern SafeAllocator* data_ov001_021658b8[8];
 
@@ -39,10 +39,10 @@ extern "C" ARM int func_ov001_02163ccc(char* arg0, int arg1) {
         func_ov017_021b621c(var5, var0, 0);
         func_020469f8((struct Struct_020469f8*)var4, (struct Struct_020469f8_2*)var5);
     } else {
-        var6 = func_ov017_021d60f4(arg0);
+        var6 = GetScriptValueAsInt_ov017_021d60f4(arg0);
         var2 = -1;
         if (arg1 >= 2) {
-            var2 = func_ov017_021d60f4(arg0 + 0x8);
+            var2 = GetScriptValueAsInt_ov017_021d60f4(arg0 + 0x8);
         }
         var3 = 0;
         if (var6 > 0) {

@@ -20,12 +20,12 @@ extern "C" void func_ov003_0215c510(void* arg0);
 struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
 
-struct Struct_0205d81c;
-struct Struct_0205d0e0 {
+struct TextWindowManager_0205d81c;
+struct TextWindow_0205d0e0 {
     unsigned char unknown_0_[0xc5];
     unsigned char unknown_c5_;
 };
-extern "C" struct Struct_0205d0e0* func_0205d8c4(struct Struct_0205d81c* arg0);
+extern "C" struct TextWindow_0205d0e0* func_0205d8c4(struct TextWindowManager_0205d81c* arg0);
 extern "C" int func_0204c7cc(unsigned char* arg0);
 extern "C" void func_0205bc24(void* arg0, int arg1);
 extern "C" int func_0205d0e0(void* arg0, int arg1);
@@ -77,7 +77,7 @@ extern "C" ARM int func_ov003_02158e94(struct Struct_ov003_02158e94* arg0, int a
     }
 
     if (arg0->unknown_570_ != 0 && !func_020e28dc(arg0->unknown_570_) && arg0->unknown_588_ != 0 && arg0->unknown_587_ == 0) {
-        struct Struct_0205d0e0* var0 = func_0205d8c4((struct Struct_0205d81c*)arg0->unknown_f4_);
+        struct TextWindow_0205d0e0* var0 = func_0205d8c4((struct TextWindowManager_0205d81c*)arg0->unknown_f4_);
         if (var0 != 0 && func_0204c7cc((unsigned char*)var0) != 0 && (var0->unknown_c5_ & 2) == 0) {
             func_0205bc24(arg0->unknown_f8_, -1);
         }

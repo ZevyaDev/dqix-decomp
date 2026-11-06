@@ -59,7 +59,7 @@ extern "C" ARM void func_ov017_021aa1ac(Struct_ov017_021aa1ac_3* arg0) {
         arg0->unknown_10_ = 0;
         for (int var4 = 0; var4 < var3; var4++) {
             int var5 = var1->unknown_f78_[var4];
-            GameObject* var6 = func_0200ff1c(var0, var5);
+            GameObject* var6 = GetPartyMemberBaseByIndex_0200ff1c(var0, var5);
             if (var6 == NULL) {
                 continue;
             }
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov017_021aa1ac(Struct_ov017_021aa1ac_3* arg0) {
         if (arg0->unknown_10_ != 0) {
             char var8[0x100];
             __clear(var8, sizeof(var8));
-            sprintf(var8, data_ov017_021d783c, func_0200ff1c(var0, arg0->unknown_8_[0])->baseStats_);
+            sprintf(var8, data_ov017_021d783c, GetPartyMemberBaseByIndex_0200ff1c(var0, arg0->unknown_8_[0])->baseStats_);
             if (++arg0->unknown_11_ >= arg0->unknown_10_) {
                 arg0->unknown_12_++;
             } else {
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov017_021aa1ac(Struct_ov017_021aa1ac_3* arg0) {
         }
         char var9[0x100];
         __clear(var9, sizeof(var9));
-        sprintf(var9, data_ov017_021d783c, func_0200ff1c(var0, arg0->unknown_8_[arg0->unknown_11_])->baseStats_);
+        sprintf(var9, data_ov017_021d783c, GetPartyMemberBaseByIndex_0200ff1c(var0, arg0->unknown_8_[arg0->unknown_11_])->baseStats_);
         if (++arg0->unknown_11_ >= arg0->unknown_10_) {
             arg0->unknown_12_++;
         } else {

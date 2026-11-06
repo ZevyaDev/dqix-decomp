@@ -5,7 +5,7 @@
 extern int data_ov023_021fdd6c;
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int func_020426bc(void* arg0, void* arg1, int arg2);
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" int func_020424e4(int arg0, int arg1);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
 
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov023_021e8cdc(char* arg0) {
     if (var7 != 0) {
         var0 = func_020426bc(var7, var6, 1);
     } else {
-        var0 = func_020d2ff0(var5 + 8);
+        var0 = GetStringLength_020d2ff0(var5 + 8);
         memcpy(var6, var5 + 8, var0);
     }
 

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 extern "C" void GetLocalWireless_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void);
 extern "C" void func_ov017_021cdaa0(void);
@@ -34,7 +34,7 @@ struct Struct_ov017_021c5284 {
 
 // USA: func_ov017_021c5284
 extern "C" ARM void func_ov017_021c5284(Struct_ov017_021b7284_10* arg0) {
-    void* var0 = func_0202ae24();
+    void* var0 = GetLocalWirelessPacketQueue_0202ae24();
 
     Struct_ov017_021c5284 var1;
     var1.unknown_0_ = 0x3d;
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov017_021c5284(Struct_ov017_021b7284_10* arg0) {
     var1.unknown_d_ = arg0->unknown_9_;
     var1.unknown_e_ = arg0->unknown_a_;
     var1.unknown_10_ = arg0->unknown_c_;
-    func_0205e330(var0, &var1, 0);
+    QueueOutgoingPacket_0205e330(var0, &var1, 0);
 
     GetLocalWireless_0202ae18();
     if (IsNotLocalWirelessGuest_0202c508()) {

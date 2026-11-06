@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 #include "NitroSDK/Interrupts.h"
 
 struct Struct_ov031_0223db7c {
@@ -31,7 +28,7 @@ struct Struct_ov031_0223db7c_4 {
 extern Struct_ov031_0223db7c_4* data_ov031_02290d64;
 extern "C" void* func_ov031_0223bfa0(void*);
 extern "C" void func_ov031_0223d8d8(void*, void*);
-extern "C" void func_020c9be0();
+extern "C" void HaltForever_020c9be0();
 
 static inline Struct_ov031_0223db7c_3* inline_ov031_0223db7c(int arg0) {
     Struct_ov031_0223db7c_3* var0 = data_ov031_02290d64->unknown_0_;
@@ -64,7 +61,7 @@ extern "C" ARM void* func_ov031_0223db7c(int arg0, int arg1, unsigned char arg2,
             } while (var1 != &data_ov031_02290d64->unknown_0_[arg0].unknown_18c_);
         }
         if (var1 == &data_ov031_02290d64->unknown_0_[arg0].unknown_18c_) {
-            func_020c9be0();
+            HaltForever_020c9be0();
         }
     } else {
         var1 = &inline_ov031_0223db7c(arg0)->unknown_18c_;
@@ -81,7 +78,7 @@ extern "C" ARM void* func_ov031_0223db7c(int arg0, int arg1, unsigned char arg2,
             } while (var1 != &data_ov031_02290d64->unknown_0_[arg0].unknown_180_);
         }
         if (var1 == &data_ov031_02290d64->unknown_0_[arg0].unknown_180_) {
-            func_020c9be0();
+            HaltForever_020c9be0();
         }
     }
     *arg3 = var0->unknown_8_;

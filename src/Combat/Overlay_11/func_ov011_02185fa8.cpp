@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct Struct_ov011_02184c30;
-extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
+struct ScriptValue_ov011_02184c30;
+extern "C" int func_ov011_02184c30(struct ScriptValue_ov011_02184c30* arg0);
 
-extern "C" void* func_ov017_021b2164(void);
+extern "C" void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 
 // Real virtual call; target method at vtable index 0xc4/4 = 49.
@@ -30,12 +30,12 @@ public:
 extern "C" struct Struct_ov011_02185fa8* FindMenuObjectById_ov023_021f6880(void*, int);
 
 // USA: func_ov011_02185fa8
-extern "C" ARM int func_ov011_02185fa8(struct Struct_ov011_02184c30* arg0) {
+extern "C" ARM int func_ov011_02185fa8(struct ScriptValue_ov011_02184c30* arg0) {
     int var0 = func_ov011_02184c30(arg0);
-    int var1 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 8));
-    int var2 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 0x10));
-    int var3 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 0x18));
-    struct Struct_ov011_02185fa8* var4 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(func_ov017_021b2164()), var0);
+    int var1 = func_ov011_02184c30((struct ScriptValue_ov011_02184c30*)((char*)arg0 + 8));
+    int var2 = func_ov011_02184c30((struct ScriptValue_ov011_02184c30*)((char*)arg0 + 0x10));
+    int var3 = func_ov011_02184c30((struct ScriptValue_ov011_02184c30*)((char*)arg0 + 0x18));
+    struct Struct_ov011_02185fa8* var4 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(GetCurrentMenu_ov017_021b2164()), var0);
     if (!var4) return 0;
     var4->inline_ov011_02185fa8_27(var1, var2, var3);
     return 1;

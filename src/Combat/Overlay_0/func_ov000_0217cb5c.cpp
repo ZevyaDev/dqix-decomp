@@ -9,7 +9,7 @@ enum { Enum_ov000_0217cb5c_7520 = 0x1d60 };
 
 struct Struct_0205c570;
 struct SoundEffectManager_02108760;
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 struct Struct_ov000_021735d0_3;
 struct Struct_ov000_021735d0_2;
 
@@ -41,10 +41,10 @@ struct Struct_ov000_0215ab88 {
     signed char unknown_18_;
 };
 
-extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void* GetParty_02010828(GameState*);
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" Struct_ov000_021735d0_2* func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" {
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov000_0217cb5c(Struct_ov000_0215767c_2* arg0, int arg1,
 {
     GetZone3D_02012fe4();
     arg0->unknown_1d72_ |= 0x100;
-    int var0 = func_0205d794((Struct_0205c570*)arg0->unknown_188_);
+    int var0 = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_188_);
     if (var0 < 0) var0 = 0;
     arg0->unknown_1d69_ = var0;
     if (func_ov000_0217c594(arg0, 0)) {
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov000_0217cb5c(Struct_ov000_0215767c_2* arg0, int arg1,
             func_ov000_02177038(arg0, 0, arg0->unknown_1d60_[arg0->unknown_1d68_], arg1, arg2);
             arg0->unknown_1d68_++;
             arg0->unknown_1d60_[arg0->unknown_1d68_] = 13;
-            func_0205d6a0((Struct_0205d6a0*)arg0->unknown_188_, 1);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_188_, 1);
             arg0->unknown_1d72_ |= 4;
             if (func_ov000_0217f990(arg0) == 0) {
                 arg0->unknown_1d72_ &= ~4;
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov000_0217cb5c(Struct_ov000_0215767c_2* arg0, int arg1,
             func_ov000_02177038(arg0, 0, arg0->unknown_1d60_[arg0->unknown_1d68_], arg1, arg2);
             arg0->unknown_1d68_++;
             arg0->unknown_1d60_[arg0->unknown_1d68_] = 11;
-            func_0205d6a0((Struct_0205d6a0*)arg0->unknown_188_, 1);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_188_, 1);
             func_ov000_02180394(arg0);
             break;
         }

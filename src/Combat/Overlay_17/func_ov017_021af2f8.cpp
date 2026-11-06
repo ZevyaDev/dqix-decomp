@@ -10,15 +10,15 @@ struct Struct_0202b2f0 {
 };
 
 struct LocalWireless_0202c1a4;
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 struct Struct_0205e854;
 
 extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18(void);
-extern "C" void* func_0202ae24(void);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 extern "C" int func_0202c578(Struct_0202b2f0* arg0, int arg1);
 extern "C" int func_0202d6a8(void);
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" int* func_020936f8(void);
 extern "C" void func_020939dc(void* arg0);
 extern "C" void func_02094030(int*, short, short, signed char);
@@ -45,10 +45,10 @@ extern "C" ARM unsigned char func_ov017_021af2f8(Struct_ov017_021af2f8* arg0) {
     unsigned int* var0 = (unsigned int*)GetGameResources();
     Struct_0202b2f0* var1 = GetLocalWireless_0202ae18();
     func_0202c178(var1, 0);
-    Struct_0205e854* var2 = (Struct_0205e854*)func_0202ae24();
+    Struct_0205e854* var2 = (Struct_0205e854*)GetLocalWirelessPacketQueue_0202ae24();
 
     if (func_0202c578(var1, 0) != 0 || func_0202d6a8() == 8) {
-        func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x8020);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x8020);
         int* var3 = func_020936f8();
         func_020939dc(var3);
         func_02094030(var3, 4, -1, 0);

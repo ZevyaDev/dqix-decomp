@@ -29,7 +29,7 @@ struct Struct_0200f3a4_9;
 struct Struct_0203bdb0;
 struct GameResources;
 struct Struct_0209c3b4_2;
-struct Struct_02109bf4_4;
+struct MusicManager_02109bf4_4;
 struct Struct_02109bf4_3;
 
 extern "C" void func_020a1df8(int arg0);
@@ -61,7 +61,7 @@ extern "C" void MapVRAMBanksToMainObj(int mode);
 extern "C" void MapVRAMBanksToSubObj(int value);
 extern "C" void func_020c391c(int arg0, int arg1, int arg2);
 extern "C" void func_020c3984(unsigned int arg0);
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_020c555c(int arg0);
 extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
 extern "C" void* GetMessageWindow_020421a0();
@@ -90,7 +90,7 @@ extern "C" void func_ov009_02184ca4(void* arg0);
 extern "C" void func_0203bdb0(Struct_0203bdb0* arg0);
 void UpdateAndApplyBrightness(GameResources* resources);
 extern "C" void func_ov009_02184848(void* arg0);
-extern "C" void func_0209c678(Struct_02109bf4_4* arg0, int arg1);
+extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
 extern "C" void func_0203ad88(void* arg0, void* arg1, int arg2);
 extern "C" void func_0203aa08(void* arg0);
 extern "C" void func_0209c20c(Struct_02109bf4_3* arg0);
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     BG2CNTSUB = BG2CNTSUB & ~3;
     BG3CNTSUB = (BG3CNTSUB & ~3) | 3;
     *(unsigned short*)0x4000304 |= 0x8000;
-    func_020c5588(0, 0, 0x7fff, 0, 0);
+    Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
 
     Struct_ov021_0218bbc4 var4 = data_ov021_0218bbc4;
     func_020c555c((int)&var4);
@@ -234,7 +234,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     }
 
     func_ov009_02184848(arg0->unknown_40_);
-    func_0209c678((Struct_02109bf4_4*)&gMusicManager_02109bf4, 0);
+    func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
     func_0203ad88(&gMusicManager_02109bf4, 0, 0);
     func_0203aa08(&gMusicManager_02109bf4);
     func_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);

@@ -29,7 +29,7 @@ struct Struct_ov000_02161020_3 {
     short unknown_18e_;
 };
 
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" Struct_ov000_02161020_2* GetZone3D_02012fe4(void);
 extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
 extern "C" int func_02032fdc(GameObject* arg0, int arg1, int arg2);
@@ -42,7 +42,7 @@ extern "C" void func_020d76d8(unsigned char* arg0, int arg1);
 extern "C" ARM void func_ov000_02161020(Struct_ov000_02161020* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
-    void* var2 = func_02057924();
+    void* var2 = GetEffectManager_02057924();
     Struct_ov000_02161020_2* var3 = GetZone3D_02012fe4();
     Struct_020d76b8* var4 = arg0->unknown_ea4_;
     unsigned short var5 = var3->unknown_38_;

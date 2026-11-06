@@ -2,23 +2,23 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
 struct SoundEffectManager_02108760;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct ItemTable_0201099c_10;
-extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
-extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
-extern "C" void func_0205deb4(struct Struct_0205d81c *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 extern "C" void func_ov002_0215ccc4(char *arg0);
 extern "C" int func_ov002_0216364c(void *arg0);
-extern "C" char *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
+extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" void func_ov002_021575d4(char *arg0);
 extern "C" int func_ov002_02157500(char *arg0, int, int);
 extern "C" int func_ov002_0215b7d0(char* arg0);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov002_021631e8(char *arg0) {
         } else {
             *(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2)) = *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var1) + RG(0x900 + 0x5c, 0x8c4));
         }
-        func_0205de24((struct Struct_0205de24_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0, 2);
+        SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0, 2);
         func_ov002_02161cf0(arg0);
         func_ov002_0215ccc4(arg0);
         *(int *) (arg0 + RG(0x1000 + 0xbc0, 0x1a88)) += 1;
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov002_021631e8(char *arg0) {
         *(unsigned int *) (arg0 + RG(0x2000 + 0x47c, 0x22ac)) |= 4;
         short var2 = *(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2));
         *(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2)) =
-            func_0205d794((struct Struct_0205c570 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)));
+            GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)));
         if (var2 != *(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2))) return;
         int var3 = g_keyManager.TestKeysPressed(0x601);
         int var4 = func_0205da38((struct Struct_0205da38*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0x14);
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov002_021631e8(char *arg0) {
                         return;
                     }
                     {
-                        char *var9 = func_020dedd0(
+                        char *var9 = FindItemData_020dedd0(
                             (struct ItemTable_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)), *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1aea)));
                         if (var9 != NULL && func_ov002_0215b720(arg0, *(short *) (var9 + 0x14))) {
                             *(int *) (arg0 + RG(0x1000 + 0xbc0, 0x1a88)) = 2;
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov002_021631e8(char *arg0) {
         } else if (func_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2)) = -1;
             func_ov002_02156e90(arg0);
-            func_0205deb4((struct Struct_0205d81c *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4, 1);
+            SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4, 1);
         }
     } else if (var0 == 2) {
         int var11 = func_ov002_0215b7d0(arg0);

@@ -5,9 +5,9 @@ extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" int func_02039730(void* arg0, int arg1);
 extern "C" void func_ov017_0219a544(unsigned char* arg0, char* arg1, int arg2, int arg3);
 #if defined(jpn)
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 extern "C" int func_0205d0e0(void* arg0, int arg1);
@@ -72,9 +72,9 @@ extern "C" ARM void func_ov017_0219a388(unsigned char* arg0) {
         __clear(var7, 0x80);
         func_ov017_0219a544(arg0, var7, var10, (signed char)func_02039730(var1, var6.unknown_0_[var9]));
 #if defined(jpn)
-        func_0205d304(var8, var7, 0, 0, 0, 1, 0);
+        OpenTextWindow_0205d304(var8, var7, 0, 0, 0, 1, 0);
 #else
-        func_0205d304(var8, var7, 0, 0, 0, 1, 0, 0);
+        OpenTextWindow_0205d304(var8, var7, 0, 0, 0, 1, 0, 0);
 #endif
 
         func_0205d0e0(var8, var0->GetTickCount());

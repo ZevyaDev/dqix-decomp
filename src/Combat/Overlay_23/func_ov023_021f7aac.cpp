@@ -20,10 +20,10 @@ struct PacEntry_02020cb8_4 {
 };
 extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 
-struct Struct_0204af38;
-extern "C" void func_0204af38(struct Struct_0204af38* arg0, int arg1, SafeAllocator* arg2);
+struct BGLayer_0204af38;
+extern "C" void AllocateBGScreenBlocks_0204af38(struct BGLayer_0204af38* layer, int capacity, SafeAllocator* allocator);
 
-extern "C" void func_0204b174(struct Struct_0204af38* arg0, void* arg1, SafeAllocator* arg2, int arg3);
+extern "C" void LoadBGBlock_0204b174(struct BGLayer_0204af38* layer, void* block, SafeAllocator* allocator, int arg3);
 
 extern char data_ov023_021fe5f4[];
 
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov023_021f7aac(struct Struct_ov023_021f7688* arg0, void
     }
 
     if (var2 > 0) {
-        func_0204af38((struct Struct_0204af38*)((char*)arg0 + Enum_ov023_021f7aac_40), (unsigned char)var2, (SafeAllocator*)((char*)var0 + 4));
+        AllocateBGScreenBlocks_0204af38((struct BGLayer_0204af38*)((char*)arg0 + Enum_ov023_021f7aac_40), (unsigned char)var2, (SafeAllocator*)((char*)var0 + 4));
     }
 
     int var6;
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov023_021f7aac(struct Struct_ov023_021f7688* arg0, void
         void* var8;
         void* var9 = GetPacEntryData_020467f0(arg2, var6, &var8, &var7);
         if (var9 != 0) {
-            func_0204b174((struct Struct_0204af38*)((char*)arg0 + Enum_ov023_021f7aac_40), var9, (SafeAllocator*)((char*)var0 + 4), var7);
+            LoadBGBlock_0204b174((struct BGLayer_0204af38*)((char*)arg0 + Enum_ov023_021f7aac_40), var9, (SafeAllocator*)((char*)var0 + 4), var7);
         }
     }
 }

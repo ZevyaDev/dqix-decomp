@@ -37,8 +37,8 @@ enum { Enum_ov003_02173d40_736 = 0x2e0 };
 
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* GetGlobalFlags_020d6c00(void);
-struct Struct_02038598_4;
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 struct Struct_0205a244;
 extern "C" void func_0205a244(struct Struct_0205a244* arg0);
 extern "C" void func_0205a494(void* arg0);
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov003_02173d40(Struct_ov003_02173d40* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     unsigned char* var2 = (unsigned char*)GetMessageWindow_020421a0();
-    func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x1000);
+    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x1000);
     var2[0x1000 + Enum_ov003_02173d40_2494] = 0;
     func_0205a244(arg0->unknown_12c_);
     func_0205a494(arg0->unknown_130_);

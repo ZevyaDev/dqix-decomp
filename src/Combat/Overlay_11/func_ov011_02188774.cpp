@@ -2,23 +2,23 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-struct Struct_ov011_02184c30 {
-    int unknown_0_;
-    union { int unknown_0_; float unknown1_0_; } unknown_4_;
+struct ScriptValue_ov011_02184c30 {
+    int type_0_;
+    union { int unknown_0_; float unknown1_0_; } value_4_;
 };
 
 struct Struct_ov011_02188774 {
-    Struct_ov011_02184c30 unknown_0_;
-    Struct_ov011_02184c30 unknown_8_;
+    ScriptValue_ov011_02184c30 unknown_0_;
+    ScriptValue_ov011_02184c30 unknown_8_;
     int unknown_10_;
     int unknown_14_;
     int unknown_18_;
     int unknown_1c_;
-    Struct_ov011_02184c30 unknown_20_;
+    ScriptValue_ov011_02184c30 unknown_20_;
 };
 
-extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
-extern "C" ARM void* func_ov017_021b2164(void);
+extern "C" int func_ov011_02184c30(struct ScriptValue_ov011_02184c30* arg0);
+extern "C" ARM void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" ARM void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" ARM void* func_ov011_02185ce0(void* arg0);
@@ -51,7 +51,7 @@ extern "C" ARM int func_ov011_02188774(struct Struct_ov011_02188774* arg0) {
 
     int var4 = func_ov011_02184c30(&arg0->unknown_20_);
 
-    void* var5 = func_ov017_021b2164();
+    void* var5 = GetCurrentMenu_ov017_021b2164();
     void* var6 = func_ov011_021845f8(var5, var1);
     if (var6 == 0) return 0;
 

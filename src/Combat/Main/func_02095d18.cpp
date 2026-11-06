@@ -29,29 +29,29 @@ static inline int inline_02095d18(int arg0, int arg1, int arg2) {
 extern "C" ARM void func_02095d18(FontLoader_0208cb08* arg0) {
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
     for (unsigned char var1 = 0; var1 < arg0->unknown_54_; var1++) {
-        if (var0->GetTaskStatus(arg0->unknown_14_[var1]) == 0) return;
+        if (var0->GetTaskStatus(arg0->loadTaskIds_14_[var1]) == 0) return;
     }
     void* var2;
     unsigned int var3;
     int var4 = 1;
-    var0->GetLoadedFileByID(arg0->unknown_14_[0], &var2, &var3);
+    var0->GetLoadedFileByID(arg0->loadTaskIds_14_[0], &var2, &var3);
     if (var2 == NULL || var3 == 0) {
         for (unsigned char var1 = 0; var1 < arg0->unknown_54_; var1++) {
-            var0->RemoveTask(arg0->unknown_14_[var1]);
-            arg0->unknown_14_[var1] = -1;
+            var0->RemoveTask(arg0->loadTaskIds_14_[var1]);
+            arg0->loadTaskIds_14_[var1] = -1;
         }
         func_0209651c(arg0);
         return;
     }
     Struct_02095d18* var5[8];
     __clear(var5, 0x20);
-    int var6 = arg0->unknown_34_;
+    int var6 = arg0->requestedFontSetId_34_;
     if (var6 == 5000 || var6 == 502 || var6 == 1000 || var6 == 0x200 || var6 == 0x6f || var6 == 0x210 ||
         var6 == 510) {
         var5[0] = (Struct_02095d18*)var2;
     } else if (inline_02095d18(var6, 0x31, 0x31)) {
         var5[0] = (Struct_02095d18*)var2;
-        var0->GetLoadedFileByID(arg0->unknown_14_[1], &var2, &var3);
+        var0->GetLoadedFileByID(arg0->loadTaskIds_14_[1], &var2, &var3);
         var5[1] = (Struct_02095d18*)var2;
         var4 = 2;
     } else {
@@ -68,7 +68,7 @@ extern "C" ARM void func_02095d18(FontLoader_0208cb08* arg0) {
                     var4++;
                 }
             }
-            var0->GetLoadedFileByID(arg0->unknown_14_[1], &var2, &var3);
+            var0->GetLoadedFileByID(arg0->loadTaskIds_14_[1], &var2, &var3);
             var5[var4] = (Struct_02095d18*)var2;
             var4++;
         } else {
@@ -96,8 +96,8 @@ extern "C" ARM void func_02095d18(FontLoader_0208cb08* arg0) {
     }
     if (var12 != 0) {
         for (unsigned char var1 = 0; var1 < arg0->unknown_54_; var1++) {
-            var0->RemoveTask(arg0->unknown_14_[var1]);
-            arg0->unknown_14_[var1] = -1;
+            var0->RemoveTask(arg0->loadTaskIds_14_[var1]);
+            arg0->loadTaskIds_14_[var1] = -1;
         }
         func_0209651c(arg0);
         return;
@@ -203,7 +203,7 @@ extern "C" ARM void func_02095d18(FontLoader_0208cb08* arg0) {
         if (var35 + arg0->unknown_10_ <= *(unsigned int*)arg0->unknown_8_) {
             arg0->unknown_4_ = (char*)arg0->unknown_0_ + (*(unsigned int*)arg0->unknown_8_ - var35);
             var36 = (char*)arg0->unknown_4_;
-            arg0->unknown_40_ = arg0->unknown_34_;
+            arg0->unknown_40_ = arg0->requestedFontSetId_34_;
             arg0->unknown_10_ = var35;
             arg0->unknown_64_ = arg0->unknown_61_;
             var37 = 1;
@@ -211,7 +211,7 @@ extern "C" ARM void func_02095d18(FontLoader_0208cb08* arg0) {
         break;
     case 10:
         if (var35 + arg0->unknown_10_ <= *(unsigned int*)arg0->unknown_8_) {
-            arg0->unknown_3c_ = arg0->unknown_34_;
+            arg0->unknown_3c_ = arg0->requestedFontSetId_34_;
             arg0->unknown_c_ = var35;
             arg0->unknown_63_ = arg0->unknown_61_;
             var37 = 1;
@@ -221,7 +221,7 @@ extern "C" ARM void func_02095d18(FontLoader_0208cb08* arg0) {
         if (var35 + arg0->unknown_c_ <= *(unsigned int*)arg0->unknown_8_) {
             arg0->unknown_4_ = (char*)arg0->unknown_0_ + (*(unsigned int*)arg0->unknown_8_ - var35);
             var36 = (char*)arg0->unknown_4_;
-            arg0->unknown_40_ = arg0->unknown_34_;
+            arg0->unknown_40_ = arg0->requestedFontSetId_34_;
             arg0->unknown_10_ = var35;
             arg0->unknown_64_ = arg0->unknown_61_;
             var37 = 1;
@@ -253,18 +253,18 @@ extern "C" ARM void func_02095d18(FontLoader_0208cb08* arg0) {
             }
         }
         if (var33.unknown_4_ == 12) {
-            if (arg0->unknown_34_ != 5000) {
+            if (arg0->requestedFontSetId_34_ != 5000) {
                 memset(arg0->unknown_59_, 0, 8);
             }
-            if (arg0->unknown_34_ != 1000) {
+            if (arg0->requestedFontSetId_34_ != 1000) {
                 arg0->unknown_58_ = 0;
                 memset(arg0->unknown_44_, 0, 0x10);
             }
         }
     }
     for (unsigned char var1 = 0; var1 < arg0->unknown_54_; var1++) {
-        var0->RemoveTask(arg0->unknown_14_[var1]);
-        arg0->unknown_14_[var1] = -1;
+        var0->RemoveTask(arg0->loadTaskIds_14_[var1]);
+        arg0->loadTaskIds_14_[var1] = -1;
     }
     func_0209651c(arg0);
 }

@@ -38,14 +38,14 @@ struct Struct_ov012_0218a844_2
     Struct_0201099c_22* inline_ov012_0218a844_2() { return &unknown_ac_; }
 };
 
-extern "C" void func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" void func_02041ea4(char* arg0, int arg1);
+extern "C" void AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" void AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_0205c508(Struct_0205c508* arg0, int* arg1, int* arg2);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_02041a28(char* arg0, int arg1);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
-extern "C" void func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
 #if !defined(jpn)
 extern "C" void func_ov012_021842a0(Struct_ov012_0218a844_2* arg0, int arg1, int arg2, int arg3);
@@ -72,8 +72,8 @@ extern "C" ARM void func_ov012_0218a844(Struct_ov012_0218a844_2* arg0, char* arg
 
     int var0 = arg0->unknown_13f0_ & 0xf;
     if (arg2)
-        func_02041c08(arg1, var0, 8, 5, 5, 5);
-    func_02041ea4(arg1, var0);
+        AppendFrameTag_02041c08(arg1, var0, 8, 5, 5, 5);
+    AppendCursorTag_02041ea4(arg1, var0);
 #if defined(jpn)
     void* var1 = GetMessageWindow_020421a0();
 #else
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov012_0218a844(Struct_ov012_0218a844_2* arg0, char* arg
         {
             func_02041a28(arg1, LOW_REGION(0x7c, 0x88));
         }
-        func_02041b70(arg1, var2 & 0xf, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_1344_, arg0->unknown_13c8_[var2]));
+        AppendMenuEntry_02041b70(arg1, var2 & 0xf, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_1344_, arg0->unknown_13c8_[var2]));
     }
     if (var5 > 1)
     {

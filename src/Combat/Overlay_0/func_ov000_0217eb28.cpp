@@ -6,7 +6,7 @@
 
 struct Struct_02109bf4_5;
 struct Struct_0205d0e0_2;
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 struct Struct_0205def8;
 struct Struct_ov000_02179cdc_2 {
     unsigned char unknown_0_[0xc4];
@@ -62,7 +62,7 @@ extern "C" Struct_ov000_0217e870* func_ov000_02161318(Struct_ov004_021707e8*, in
 extern "C" int func_ov000_021719f8(int*);
 extern "C" void func_ov000_02171c04(Struct_ov000_0217e870*);
 extern "C" Struct_ov000_02179cdc_2* func_0205d888(Struct_0205d0e0_2*);
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" void func_ov000_0217c638(Struct_ov004_021707e8*, int, int);
 extern "C" void func_0205def8(Struct_0205def8*, int, int);
 
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov000_0217eb28(Struct_ov004_021707e8* arg0, int arg1, i
         Struct_ov000_02179cdc_2* var4 = func_0205d888((Struct_0205d0e0_2*)arg0->unknown_188_);
         while (var4) {
             if (var4->unknown_c4_ == 2) break;
-            func_0205d6a0((Struct_0205d6a0*)arg0->unknown_188_, 0);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_188_, 0);
             var4 = func_0205d888((Struct_0205d0e0_2*)arg0->unknown_188_);
         }
         unsigned char var5 = ((Struct_ov000_0217e870_2*)GetParty_02010828(GameState::GetInstance()))->unknown_f7c_;
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov000_0217eb28(Struct_ov004_021707e8* arg0, int arg1, i
         arg0->unknown_1d6b_ = -1;
         arg0->unknown_1d6f_ = 0;
     } else {
-        func_0205d6a0((Struct_0205d6a0*)arg0->unknown_188_, 0);
+        CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_188_, 0);
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 0;
         arg0->unknown_1d68_--;
         func_ov000_0217c638(arg0, arg1, arg2);

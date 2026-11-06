@@ -20,7 +20,7 @@ extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2)
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" int func_020e51cc(int arg0);
+extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
 
 // USA: func_ov003_0215de6c
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov003_0215de6c(char* arg0, void* arg1) {
     int var5 = FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0x7c), 0xa);
     func_020474a8(var1, 8, (void*)var5, arg1);
 #else
-    int var6 = func_020e51cc(0x3f1);
+    int var6 = GetStandardString_020e51cc(0x3f1);
     func_02046608(var1, 8, (void*)var6, arg1, 0x100, 0, 0);
 #endif
 }

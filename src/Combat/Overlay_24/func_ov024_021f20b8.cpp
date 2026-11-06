@@ -3,7 +3,7 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "std_library_functions.h"
 
-extern "C" int func_ov000_0215eb1c(int arg0, unsigned short* arg1, int arg2, int arg3);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, unsigned short* indices, int maxCount, int filterFlags);
 extern "C" float func_ov024_021db358(GameObject* arg0);
 
 extern unsigned short data_ov024_021fec6c;
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov024_021f20b8(int* arg0, int arg1, int arg2, int* arg3,
         *var6 = *var4++;
     } while (--var5);
 
-    int var7 = func_ov000_0215eb1c(*arg0, var0, 8, 1);
+    int var7 = CollectEnemyCombatantIndices_ov000_0215eb1c(*arg0, var0, 8, 1);
     if (var7 <= 0) return 0;
 
     var2 = var0;

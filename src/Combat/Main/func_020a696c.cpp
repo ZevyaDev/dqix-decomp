@@ -7,14 +7,14 @@ enum { Enum_020a696c_10118 = 0x2786, Enum_020a696c_10124 = 0x278c, Enum_020a696c
 #include "GameState/GameState.h"
 
 extern "C" void* GetZone3D_02012fe4(GameState* arg0);
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void func_020a6aa4(Vector3i* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_020a696c
 extern "C" ARM void func_020a696c(void* arg0, int arg1, int arg2) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetZone3D_02012fe4(var0);
-    void* var2 = func_0200fd0c(var0);
+    void* var2 = GetZoneEntry_0200fd0c(var0);
 
     if (arg2 == 0x170c) {
         if ((arg1 >= 0x4e20 && arg1 <= 0x752f) || arg1 == 0x76c) {

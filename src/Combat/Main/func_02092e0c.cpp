@@ -41,8 +41,8 @@ struct Struct_02092e0c_2 { int unknown_0_[3]; };
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
-extern "C" void func_020e4bf4(void*, int);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
+extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_02046574_2*, int, int, int);
@@ -59,10 +59,10 @@ extern "C" ARM void func_02092e0c(Struct_02092e0c* arg0) {
         ClearMessageParams_02046380(var0);
         GameState* var1 = GameState::GetInstance();
         GameObject* var2 = var1->GetPartyMemberByIndex(GetProtagonistObjectIndex_020100a8(var1));
-        if (var2) func_02046574(var0, 0, var2->baseStats_->unk);
+        if (var2) SetMessageString_02046574(var0, 0, var2->baseStats_->unk);
 #if defined(jpn)
         var2 = var1->GetPartyMemberByIndex(arg0->unknown_38_);
-        if (var2) func_02046574(var0, 1, var2->baseStats_->unk);
+        if (var2) SetMessageString_02046574(var0, 1, var2->baseStats_->unk);
         StartMessage_0204500c(var0, FindStringInTable_020e0434(&arg0->unknown_14_, arg0->unknown_30_), 0);
         var0->unknown_998_ = 1;
         if ((arg0->unknown_37_ & 1) && (arg0->unknown_37_ & 2)) {
@@ -74,7 +74,7 @@ extern "C" ARM void func_02092e0c(Struct_02092e0c* arg0) {
         }
 #else
         Struct_02092e0c_2 var3;
-        func_020e4bf4(&var3, arg0->unknown_38_);
+        InitPartyMemberNoun_020e4bf4(&var3, arg0->unknown_38_);
         var0->unknown_0_ = &var3;
         StartMessage_0204500c(var0, FindStringInTable_020e0434(&arg0->unknown_14_, arg0->unknown_30_), 0, 0xe3);
         var0->unknown_998_ = 1;

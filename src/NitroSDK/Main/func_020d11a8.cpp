@@ -1,14 +1,11 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 void ResetDMAChannel(int id);
 extern "C" int func_020ce7a4(void);
 extern "C" void func_020c976c(unsigned int id);
 extern "C" void func_020d1294(int arg0, int arg1);
-extern "C" void func_020c9be0(void);
+extern "C" void HaltForever_020c9be0(void);
 
 // USA: func_020d11a8
 extern "C" ARM void func_020d11a8(void) {
@@ -33,5 +30,5 @@ extern "C" ARM void func_020d11a8(void) {
     if (var0 != 0) {
         func_020d1294(1, 1);
     }
-    func_020c9be0();
+    HaltForever_020c9be0();
 }

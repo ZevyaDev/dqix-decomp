@@ -29,7 +29,7 @@ struct Struct_ov001_02158ae4_3 {
     int unknown_a24_;
 };
 struct Struct_ov000_0216df00 { int unknown_0_; Vector3i unknown_4_; Vector3i unknown_10_; };
-extern "C" void* func_020100bc(GameState*);
+extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" void func_ov001_021588e4(Struct_ov001_02158ae4_3*);
 extern "C" void func_0202e7d4(unsigned char*, int*, int*, int*);
 extern "C" Struct_ov001_02158ae4* func_ov001_02158e8c(Struct_ov001_02158ae4_3*, Struct_ov001_02158ae4*, int);
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov001_02158ae4(Struct_ov001_02158ae4_3* arg0) {
     Struct_ov001_02158ae4* var0;
     GameState* var1 = GameState::GetInstance();
     if (!var1) { func_ov001_021588e4(arg0); return; }
-    Struct_ov000_0216df00* var2 = (Struct_ov000_0216df00*)func_020100bc(var1);
+    Struct_ov000_0216df00* var2 = (Struct_ov000_0216df00*)GetCamera_020100bc(var1);
     if (!var2) { func_ov001_021588e4(arg0); return; }
     arg0->unknown_4c_ = var2->unknown_4_;
     arg0->unknown_58_ = var2->unknown_10_;

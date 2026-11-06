@@ -84,7 +84,7 @@ extern "C" void func_02078484(Struct_02078398_2* arg0);
 extern "C" int func_02057fb4(void* arg0, int arg1, void* arg2);
 
 extern "C" {
-void* func_02057924();
+void* GetEffectManager_02057924();
 int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, TextureVRAMArea_0203d028* arg5);
 }
 
@@ -94,7 +94,7 @@ extern char data_ov026_021dedf0[];
 extern "C" ARM void func_ov026_021db3d8(Struct_ov000_02160da0* arg0) {
     if (arg0->unknown_29c_->unknown_8e49_ == 2) {
         BackgroundLoader* var0 = BackgroundLoader::GetInstance();
-        void* var1 = func_02057924();
+        void* var1 = GetEffectManager_02057924();
 
         if (arg0->unknown_772e_ == 0) {
             if (GetMessageWindow_020421a0()->unknown_9a0_ == 4) {

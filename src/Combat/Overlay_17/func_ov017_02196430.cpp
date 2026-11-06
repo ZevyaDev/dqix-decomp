@@ -114,8 +114,8 @@ struct Struct_ov017_021d6438 {
 
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" Struct_ov017_02196430_3* GetZone3D_02012fe4(void);
-extern "C" void* func_0200fd0c(GameState* arg0);
-extern "C" int func_02046b08(void** arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_02046b24(Struct_02015438** arg0);
 extern "C" int func_02053cdc(int* arg0);
 extern "C" int func_02039d7c(char* arg0);
@@ -176,7 +176,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
     if (var0->unknown_42e2_ != 0) {
         return 2;
     }
-    if (func_02046b08((void**)var0->unknown_36fc_) == 0) {
+    if (IsQueueEmpty_02046b08((void**)var0->unknown_36fc_) == 0) {
         return func_02046b24((Struct_02015438**)var0->unknown_36fc_) == 0x45 ? 0 : 2;
     }
     if (var3 == NULL) {
@@ -197,7 +197,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
     if (var5->unknown_42e7_ != 0) {
         return 2;
     }
-    if (((Struct_ov017_02196430_2*)func_0200fd0c(var1))->unknown_2_ != 0) {
+    if (((Struct_ov017_02196430_2*)GetZoneEntry_0200fd0c(var1))->unknown_2_ != 0) {
         return 2;
     }
     if (func_02039760(var4) != 0 && var14 == 0) {
@@ -354,7 +354,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
             var23 = 0;
         }
     }
-    if (IsLocalWirelessGuest_0202c540(var2) && func_02046b08((void**)var0->unknown_36fc_) && var0->unknown_44ae_ != 0) {
+    if (IsLocalWirelessGuest_0202c540(var2) && IsQueueEmpty_02046b08((void**)var0->unknown_36fc_) && var0->unknown_44ae_ != 0) {
         var26 = var0->unknown_44ae_;
         var0->unknown_44ae_ = 0;
         var0->unknown_44b0_ = 0;

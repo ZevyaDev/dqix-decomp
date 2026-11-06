@@ -33,22 +33,22 @@ enum { Enum_ov003_0215ddc0_2400 = 0x960 };
 
 #if defined(jpn)
 enum { Enum_ov003_0215ddc0_2 = 4 };
-extern "C" void func_0205d304(void*, void*, int, int, int, int, int);
+extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);
 #else
 enum { Enum_ov003_0215ddc0_2 = 2 };
 #endif
 #include "std_library_functions.h"
 
-struct Struct_0205de24_2;
-extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+struct TextWindowManager_0205de24_2;
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
 extern "C" void func_ov003_0215de6c(char* arg0, void* arg1);
 #if !defined(jpn)
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 // USA: func_ov003_0215ddc0
 extern "C" ARM void func_ov003_0215ddc0(char* arg0) {
-    func_0205de24((struct Struct_0205de24_2*)(arg0 + Enum_ov003_0215ddc0_152), 0, 2);
+    SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)(arg0 + Enum_ov003_0215ddc0_152), 0, 2);
 
     *(unsigned short*)(arg0 + 0x100 + Enum_ov003_0215ddc0_56) = 0xb;
     *(unsigned short*)(arg0 + 0x100 + Enum_ov003_0215ddc0_58) = 2;
@@ -67,8 +67,8 @@ extern "C" ARM void func_ov003_0215ddc0(char* arg0) {
     func_ov003_0215de6c(arg0, *(void**)(arg0 + Enum_ov003_0215ddc0_124));
 
 #if defined(jpn)
-    func_0205d304(arg0 + Enum_ov003_0215ddc0_152, *(void**)(arg0 + Enum_ov003_0215ddc0_124), 0, 0, 0, 1, 0);
+    OpenTextWindow_0205d304(arg0 + Enum_ov003_0215ddc0_152, *(void**)(arg0 + Enum_ov003_0215ddc0_124), 0, 0, 0, 1, 0);
 #else
-    func_0205d304(arg0 + Enum_ov003_0215ddc0_152, *(void**)(arg0 + Enum_ov003_0215ddc0_124), 0, 0, 0, 1, 0, 0);
+    OpenTextWindow_0205d304(arg0 + Enum_ov003_0215ddc0_152, *(void**)(arg0 + Enum_ov003_0215ddc0_124), 0, 0, 0, 1, 0, 0);
 #endif
 }

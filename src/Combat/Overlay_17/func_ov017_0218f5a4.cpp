@@ -10,7 +10,7 @@ enum { Enum_ov017_0218f5a4_1844 = 0x734, Enum_ov017_0218f5a4_336 = 0x150, Enum_o
 extern "C" void GetLocalWireless_0202ae18(void);
 extern "C" int func_ov017_021925e0(void* arg0);
 extern "C" void func_ov017_021bd440(void* arg0, int arg1);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 struct Struct_0205faf4_11;
 extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov017_0218f5a4(char* arg0, int arg1, int arg2, int arg3,
         }
     }
 
-    GameObject* var4 = func_0200ff1c(var0, arg1);
+    GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (var4 == 0) return 0;
     if (GetPartyMemberData_02053c6c((unsigned char*)var4) == 0) return 0;
 

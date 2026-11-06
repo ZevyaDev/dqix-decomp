@@ -11,9 +11,9 @@ extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
-extern "C" void func_0204c684(void* arg0);
+extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void func_ov013_02187a58(void* arg0, void* arg1);
-extern "C" void func_0204b174(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void LoadBGBlock_0204b174(void* layer, void* block, int allocator, int arg3);
 
 struct Struct_0204af14;
 extern "C" void* func_0204af14(struct Struct_0204af14* arg0, unsigned int arg1);
@@ -21,8 +21,8 @@ struct Struct_0204ae44;
 extern "C" void func_0204ae44(struct Struct_0204ae44* arg0, int arg1);
 struct Struct_0204b988;
 extern "C" void func_0204b988(struct Struct_0204b988* arg0, unsigned int arg1, int arg2, int arg3, unsigned short arg4);
-struct Struct_02020cb8_2;
-extern "C" void func_0204b0e8(struct Struct_02020cb8_2* arg0, void* arg1);
+struct BGLayer_02020cb8_2;
+extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2* layer, void* screenData);
 
 extern const char data_ov013_02187eaf[];
 
@@ -87,14 +87,14 @@ extern "C" ARM void func_ov013_021878b0(Struct_ov013_021878b0* arg0) {
             void* var7 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var4, 0, &var3, &var6);
             if (var7 != 0) {
                 Struct_ov013_021878b0_2 var8;
-                func_0204c684(&var8);
+                InitTextWindow_0204c684(&var8);
                 var8.unknown_8_ = (char*)var7 + 0x10;
                 var8.unknown_b4_ = 0xa;
                 var8.unknown_b6_ = 0xb;
                 var8.unknown_a8_ = 0x20;
                 var8.unknown_aa_ = 0x18;
                 func_ov013_02187a58(arg0, &var8);
-                func_0204b174(arg0->unknown_28_, var7, 0, var6);
+                LoadBGBlock_0204b174(arg0->unknown_28_, var7, 0, var6);
             }
             var0->RemoveTask(arg0->unknown_5c_);
             arg0->unknown_5c_ = -1;
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov013_021878b0(Struct_ov013_021878b0* arg0) {
                 func_0204ae44((struct Struct_0204ae44*)var9, arg0->unknown_67_);
             }
             func_0204b988((struct Struct_0204b988*)arg0->unknown_28_, 0, 0, 0, 0xffff);
-            func_0204b0e8((struct Struct_02020cb8_2*)arg0->unknown_28_, 0);
+            LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)arg0->unknown_28_, 0);
             arg0->unknown_66_ = 0;
             arg0->unknown_69_ &= ~1;
         }

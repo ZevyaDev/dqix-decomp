@@ -6,7 +6,7 @@
 struct Struct_0207267c { short unknown_0_; int unknown_4_; };
 struct Struct_02072a28;
 extern "C" void func_02072a28(Struct_02072a28* arg0, Struct_0207267c* arg1);
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 struct Struct_02108db0_2 {
     unsigned char unknown_0_;
     unsigned char unknown_1_;
@@ -42,7 +42,7 @@ extern "C" ARM int func_0207267c(Script::Parameter* arg0) {
         return 1;
     }
     var4 = 0;
-    if (var5 != NULL) var4 = func_020d2ff0(var5);
+    if (var5 != NULL) var4 = GetStringLength_020d2ff0(var5);
     var0.unknown_4_ = (int)data_02108db0.unknown_c_->Allocate(var4 + 1);
     if (var0.unknown_4_ == 0) return 0;
     ((char*)var0.unknown_4_)[var4] = 0;

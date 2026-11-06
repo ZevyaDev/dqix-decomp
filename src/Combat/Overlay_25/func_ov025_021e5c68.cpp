@@ -21,7 +21,7 @@ struct Struct_ov025_021e5c68_3 {
 extern "C" void func_0202e694(void* arg0, int* arg1);
 struct Struct_ov000_0215440c;
 extern "C" Struct_ov025_021e5c68_3* func_ov000_021600f8(Struct_ov000_0215440c*, int);
-extern "C" char* func_ov000_02160130();
+extern "C" char* GetBattleScene_ov000_02160130();
 
 // USA: func_ov025_021e5c68
 extern "C" ARM int func_ov025_021e5c68(Struct_ov025_021e5c68_2* arg0, void* arg1) {
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov025_021e5c68(Struct_ov025_021e5c68_2* arg0, void* arg1
  enum {Enum_ov025_021e5c68_28629=0x6fd5};
 #endif
     GameState* var0 = GameState::GetInstance();
-    Struct_ov025_021e5c68* var1 = (Struct_ov025_021e5c68*)func_020100bc(var0);
+    Struct_ov025_021e5c68* var1 = (Struct_ov025_021e5c68*)GetCamera_020100bc(var0);
     if (arg0->unknown_14_ == 0) {
         if (var1 != 0) func_0202e694(var1, (int*)&arg0->unknown_8_);
     } else if (arg0->unknown_14_ == 2) {
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov025_021e5c68(Struct_ov025_021e5c68_2* arg0, void* arg1
             func_0202e694(var1, (int*)&var6);
         }
     }
-    char* var8 = func_ov000_02160130();
+    char* var8 = GetBattleScene_ov000_02160130();
     if (var8 != 0) var8[Enum_ov025_021e5c68_28629] = 1;
     return 1;
 }

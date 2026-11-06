@@ -57,7 +57,7 @@ struct Struct_ov025_021e9778_6 {
 
 typedef int (*Type_02000c9c_17)(struct Struct_ov025_021e9778_7*, struct Struct_ov025_021e9778_8*, void*, int);
 
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f00(void* arg0);
 extern "C" void* func_ov000_02160f20(void* arg0);
 extern "C" Struct_ov000_02160094* func_ov000_02160094(Struct_ov000_0215440c_2* arg0, int arg1);
@@ -66,7 +66,7 @@ extern "C" void* func_ov000_02160f14(void* arg0);
 extern "C" void func_0202ea10(unsigned char* arg0, int arg1, int arg2);
 extern "C" short func_ov000_0216352c(int arg0, float arg1, float arg2);
 extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
 extern "C" void func_ov025_021eb6fc(Struct_ov025_021e9778_9* arg0, int arg1);
 extern "C" int func_ov025_021eb46c(Struct_ov025_021e9778* arg0);
@@ -85,7 +85,7 @@ extern char data_ov025_021ef8de[];
 extern "C" ARM void func_ov025_021e9778(void* arg0) {
     unsigned char* var0 = (unsigned char*)arg0;
     GameState* var1 = GameState::GetInstance();
-    void* var2 = func_ov000_02160130();
+    void* var2 = GetBattleScene_ov000_02160130();
     void* var3 = func_ov000_02160f00(var2);
     struct Struct_ov025_021e9778_8* var4 = (struct Struct_ov025_021e9778_8*)func_ov000_02160f20(var2);
     data_ov025_021ef994 = arg0;
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov025_021e9778(void* arg0) {
             }
         }
         if (var8 == 0 && (data_ov025_021ef9a4 & 0x200) && !(data_ov025_021ef9a4 & 0x400)) {
-            void* var13 = func_02057924();
+            void* var13 = GetEffectManager_02057924();
             struct Struct_02078398_2 var14;
             func_02078484(&var14);
             var14.unknown_14_ = *(unsigned short*)((char*)func_ov000_02160094((Struct_ov000_0215440c_2*)var4, 0) + 0x20);

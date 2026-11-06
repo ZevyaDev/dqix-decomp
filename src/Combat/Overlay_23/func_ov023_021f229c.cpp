@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" void* memset(void* arg0, int arg1, int arg2);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern char data_ov023_021fe144;
@@ -33,5 +33,5 @@ extern "C" ARM void func_ov023_021f229c(Struct_ov023_021f229c_2* arg0, Struct_ov
 #else
     memset(arg0->unknown_44_, 0, 0x200);
 #endif
-    sprintf(arg0->unknown_44_ + func_020d2ff0(arg0->unknown_44_), &data_ov023_021fe144, var0);
+    sprintf(arg0->unknown_44_ + GetStringLength_020d2ff0(arg0->unknown_44_), &data_ov023_021fe144, var0);
 }

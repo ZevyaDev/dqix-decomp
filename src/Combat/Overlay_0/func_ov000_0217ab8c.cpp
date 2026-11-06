@@ -68,7 +68,7 @@ struct Struct_ov000_02184294_2 {
 #endif
 };
 struct Struct_0207d300;
-struct Struct_0205ba68;
+struct MenuCursor_0205ba68;
 
 extern Struct_ov000_02184294_2 data_ov000_02184294;
 
@@ -76,7 +76,7 @@ struct Struct_ov000_02171640;
 extern "C" int func_ov000_02171698(Struct_ov000_02171640*);
 struct Struct_ov000_02171968;
 extern "C" int func_ov000_021719c0(Struct_ov000_02171968*);
-extern "C" GameObject* func_0200ff1c(GameState*, int);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" int func_02083960(Struct_0207d300*);
 extern "C" void func_0205cf10(void*);
@@ -84,12 +84,12 @@ struct Struct_0205cf1c;
 extern "C" void func_0205cf1c(Struct_0205cf1c*);
 extern "C" void func_0205cef8(void*);
 extern "C" void func_0205cf04(void*);
-extern "C" void func_0205ba68(Struct_0205ba68*, int, int, int);
-struct Struct_0205bacc;
-extern "C" void func_0205bacc(Struct_0205bacc*, int);
+extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
+struct MenuCursor_0205bacc;
+extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
 struct Struct_0205bcdc;
 extern "C" void func_0205bcdc(Struct_0205bcdc*, int);
-extern "C" void func_0205bb04(Struct_02061c04_21*, int);
+extern "C" void SetMenuCursorIndex_0205bb04(Struct_02061c04_21*, int);
 
 // USA: func_ov000_0217ab8c
 extern "C" ARM void func_ov000_0217ab8c(Struct_ov000_0217ab8c* arg0, int arg1, int arg2) {
@@ -151,7 +151,7 @@ extern "C" ARM void func_ov000_0217ab8c(Struct_ov000_0217ab8c* arg0, int arg1, i
         break;
     case 17: {
         GameState* var6 = GameState::GetInstance();
-        GameObject* var7 = func_0200ff1c(var6, arg0->unknown_4c_);
+        GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var6, arg0->unknown_4c_);
         int var8 = GetPartyMemberData_02053c6c((unsigned char*)var7);
         if (var8 != 0) {
             int var9 = func_02083960((Struct_0207d300*)var8);
@@ -197,13 +197,13 @@ extern "C" ARM void func_ov000_0217ab8c(Struct_ov000_0217ab8c* arg0, int arg1, i
     }
     func_0205cef8(arg0->unknown_38_);
     func_0205cf04(arg0->unknown_38_);
-    func_0205ba68((Struct_0205ba68*)&var5->unknown_4_, var0, var1, 0);
-    func_0205ba68((Struct_0205ba68*)&var5->unknown_54_, var0, var1, 0);
-    func_0205bacc((Struct_0205bacc*)&var5->unknown_4_, var3);
-    func_0205bacc((Struct_0205bacc*)&var5->unknown_54_, var3);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var5->unknown_4_, var0, var1, 0);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var5->unknown_54_, var0, var1, 0);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&var5->unknown_4_, var3);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&var5->unknown_54_, var3);
     var5->unknown_4_.unknown_4_ = var2;
     var5->unknown_54_.unknown_4_ = var2;
     func_0205bcdc((Struct_0205bcdc*)&var5->unknown_4_, var4);
-    func_0205bb04(&var5->unknown_54_, var4);
+    SetMenuCursorIndex_0205bb04(&var5->unknown_54_, var4);
     data_ov000_02184294.unknown1_8_->unknown_1d72_ &= ~0x100;
 }

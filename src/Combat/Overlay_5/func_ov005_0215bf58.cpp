@@ -40,7 +40,7 @@ struct Struct_ov005_02153954
 extern "C" void func_ov005_021562b8(Struct_ov005_02153954* arg0);
 extern "C" void func_ov005_0215730c(Struct_ov005_02153954* arg0);
 extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
-extern "C" ItemData_0201099c_9* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
+extern "C" ItemData_0201099c_9* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" int func_020dd4c4(signed char arg0, ItemData_0201099c_9* arg1);
 extern "C" void func_ov005_021551fc(char*, int, int);
 
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov005_0215bf58(Struct_ov005_02153954* arg0)
     if (!var0)
         func_ov005_0215730c(arg0);
     int var1 = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->unknown_4fc_;
-    ItemData_0201099c_9* var2 = func_020dedd0(arg0->unknown_df4_, arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_);
+    ItemData_0201099c_9* var2 = FindItemData_020dedd0(arg0->unknown_df4_, arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_);
     if (var2 != NULL)
     {
         if (func_020dd4c4(var1, var2))

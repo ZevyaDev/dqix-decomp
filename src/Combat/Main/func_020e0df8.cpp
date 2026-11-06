@@ -21,7 +21,7 @@ extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
 extern "C" int func_0205b234(void*, short, short, int, unsigned char, unsigned char);
 
 #if defined(jpn)
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 extern short data_020ee980[];
 extern short data_020ee938[];
 extern short data_020ee950[];
@@ -50,7 +50,7 @@ extern "C" ARM void func_020e0df8(void* arg0, int arg1, int arg2, int) {
     func_0205b228(&var1, (int)var0, Enum_020e0df8_7);
 #if defined(jpn)
     func_0205b234((void*)&var1, (short)6, (short)Enum_020e0df8_2, (int)((char*)arg0 + 0x1b4 + 0x400), (unsigned char)Enum_020e0df8_15, (unsigned char)Enum_020e0df8_0);
-    int var2 = func_020d2ff0((char*)arg0 + 0x1b4 + 0x400);
+    int var2 = GetStringLength_020d2ff0((char*)arg0 + 0x1b4 + 0x400);
     short var4 = (var2 / 2) * 10 + 7;
 #else
     int var3 = func_0205b234((void*)&var1, (short)6, (short)Enum_020e0df8_2, (int)((char*)arg0 + 0x1b4 + 0x400), (unsigned char)Enum_020e0df8_15, (unsigned char)Enum_020e0df8_0);

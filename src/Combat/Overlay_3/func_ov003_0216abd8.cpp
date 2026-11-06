@@ -10,7 +10,7 @@ struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 struct Struct_02046574_2;
-extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
+extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5, int arg6);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov003_0216abd8(struct Struct_ov003_0216abd8_3* arg0, ch
         AppendText_02042058(arg1, var4->unknown_600_);
     } else {
         char* var6 = (char*)var1->GetProtagonist()->baseStats_;
-        func_02046574((struct Struct_02046574_2*)var2, 0, var6);
+        SetMessageString_02046574((struct Struct_02046574_2*)var2, 0, var6);
         int var7 = FindStringInTable_020e0434((struct Struct_0201099c_3*)var0->unknown_64_, 0x442);
 #if defined(jpn)
         func_020474a8(var2, 0xc, var7, var4->unknown_600_);

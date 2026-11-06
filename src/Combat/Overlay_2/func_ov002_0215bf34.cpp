@@ -29,7 +29,7 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
-extern "C" int func_020e51cc(int);
+extern "C" int GetStandardString_020e51cc(int);
 extern "C" void func_ov002_0215be00(void*, int, short, short);
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" void func_0205d0e0(void*, int);
@@ -39,7 +39,7 @@ extern "C" void func_020474a8(void*, unsigned char, const char*, char*);
 #else
 extern "C" void func_02046608(void*, int, int, int, int, int, int);
 #endif
-extern "C" void func_0205d304(void*, const char*, int, unsigned char, unsigned char, unsigned char, void*
+extern "C" void OpenTextWindow_0205d304(void*, const char*, int, unsigned char, unsigned char, unsigned char, void*
 #if !defined(jpn)
                             , unsigned char
 #endif
@@ -62,10 +62,10 @@ extern "C" ARM void func_ov002_0215bf34(char* arg0) {
 #if defined(jpn)
     func_020474a8(var2, 8, data_ov002_0216d908, var0->unknown_1bd0_);
 #else
-    int var4 = func_020e51cc(0x3f1);
+    int var4 = GetStandardString_020e51cc(0x3f1);
     func_02046608(var2, 8, var4, ((int)(var0->unknown_1bd0_)), 0x100, 0, 0);
 #endif
-    func_0205d304(&var0->unknown_ec8_, var0->unknown_1bd0_, 0, 0, 0,
+    OpenTextWindow_0205d304(&var0->unknown_ec8_, var0->unknown_1bd0_, 0, 0, 0,
 #if defined(jpn)
                  1, 0);
 #else

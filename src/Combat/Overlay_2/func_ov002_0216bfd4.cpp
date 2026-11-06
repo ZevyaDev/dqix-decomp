@@ -6,12 +6,12 @@
 #define RG(u, j) (u)
 #endif
 
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 struct Struct_020e28dc;
 struct Struct_020e25e8;
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char *window);
-extern "C" void func_0205d6a0(struct Struct_0205d6a0 *arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0 *windowManager, int isAll);
 extern "C" void func_020e25e8(struct Struct_020e25e8 *arg0);
 extern "C" int func_020e28dc(struct Struct_020e28dc *arg0);
 extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
@@ -23,7 +23,7 @@ extern "C" ARM void func_ov002_0216bfd4(char *arg0, unsigned char arg1) {
         *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
         *(unsigned char *) (arg0 + 0x1000 + RG(0xc2e, 0xaf6)) = 0;
         func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)), 1);
-        func_0205d6a0((struct Struct_0205d6a0 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0);
     }
     *(unsigned char *) (arg0 + 0x1000 + RG(0xc79, 0xb3d)) = arg1;
     *(unsigned char *) (arg0 + 0x1000 + RG(0xc30, 0xaf8)) = 1;

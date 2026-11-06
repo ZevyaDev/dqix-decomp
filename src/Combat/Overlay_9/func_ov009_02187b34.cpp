@@ -52,10 +52,10 @@ struct Struct_ov009_0218aa98 {
     Struct_ov009_02187b34_2 unknown_0_[4];
 };
 
-struct Struct_02109bf4_4;
+struct MusicManager_02109bf4_4;
 struct Struct_0201099c_3;
 struct TextureVRAMArea_0203d028;
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 
 extern "C" Object3D* func_ov023_021e6194(void* arg0);
 extern "C" GameResources* GetResources_0200fb8c(int* gameState);
@@ -64,7 +64,7 @@ extern "C" void func_ov023_021dac40(void* arg0, unsigned int arg1);
 extern "C" int func_ov009_0218a930(void* arg0, unsigned int arg1);
 extern "C" void func_0202ee38(char* arg0, int arg1, int arg2);
 extern "C" void func_0202ee58(char* arg0, int arg1, int arg2);
-extern "C" void func_0209c678(Struct_02109bf4_4* arg0, int arg1);
+extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
 extern "C" int func_0202eeb4(char* arg0);
 extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
@@ -72,8 +72,8 @@ extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
-extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_020c39a0(short* arg0, int arg1);
 extern "C" void func_0205ebec(void* arg0);
 #if defined(jpn)
@@ -162,7 +162,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         func_0202ee58(arg0->unknown_924_, (int)&var7, 0x1e000);
         arg0->unknown_d98_ = 90;
         arg0->unknown_d9c_ |= 0x10000;
-        func_0209c678((Struct_02109bf4_4*)gMusicManager_02109bf4, 120);
+        func_0209c678((MusicManager_02109bf4_4*)gMusicManager_02109bf4, 120);
         arg0->unknown_c59_ = 1;
         int* var8 = arg0->unknown_c5c_;
         for (unsigned char var9 = 0; var9 < 3; var9++)
@@ -315,7 +315,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         arg0->unknown_c59_ = 7;
         break;
     case 7:
-        func_020466e4(var3, 0x100);
+        SetGlobalFlags_020466e4(var3, 0x100);
         SetBrightness(var1, 16, 40);
         func_0205ebfc(gSoundEffectManager_02108760, 1, 0);
         arg0->unknown_c59_ = 8;
@@ -345,7 +345,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
             break;
         func_020c39a0(REG_MASTER_BRIGHT, -16);
         func_020c39a0(REG_MASTER_BRIGHT_SUB, -16);
-        func_020466f4((Struct_02038598_4*)var3, 0x100);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var3, 0x100);
         ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT, 0x1f, 0);
         ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT_SUB, 0x1f, 0);
         func_0205ebec(gSoundEffectManager_02108760);

@@ -9,8 +9,8 @@ extern "C" void func_0208902c(unsigned char* arg0, int arg1);
 extern "C" void func_ov000_02159eac(void* arg0, void* arg1, int arg2);
 extern "C" float func_ov024_021db358(GameObject* arg0);
 extern "C" short func_ov000_0215a16c(void* arg0, int arg1, int arg2, short* arg3);
-extern "C" void* func_ov000_0215e958(void* arg0);
-extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, unsigned long long arg4, int arg5);
 
 struct Struct_ov024_021de868 { unsigned char unknown_0_0_ : 7; unsigned char unknown_0_7_ : 1; };
@@ -38,7 +38,7 @@ extern "C" ARM void* func_ov024_021de868(struct Struct_ov024_021de868_2* arg0, i
 		var3 = 0x20;
 		int var4 = (arg2 >= 0 && arg2 <= 3);
 		if (var4) {
-			GameObject* var5 = func_0200ff1c(GameState::GetInstance(), arg2);
+			GameObject* var5 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg2);
 			if (var5) {
 				((struct Struct_ov024_021de868_3*)var5->currentStats_)->unknown_3a_ = 1;
 			}
@@ -50,9 +50,9 @@ extern "C" ARM void* func_ov024_021de868(struct Struct_ov024_021de868_2* arg0, i
 	} else {
 		var3 = 0x1f;
 	}
-	void* var6 = func_ov000_0215e958(arg0->unknown_10_);
+	void* var6 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
 	if (!var6) return 0;
-	func_ov000_0215a88c(arg0->unknown_10_, var6, var3);
+	AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var6, var3);
 	struct Struct_ov024_021de868* var7 = (struct Struct_ov024_021de868*)((char*)arg0->unknown_c_ + 0x1c);
 	func_ov000_0215cd44(arg0->unknown_10_, var6, var0, (short)-var1, var2.unknown1_0_, var7->unknown_0_7_ != 0);
 	return var6;

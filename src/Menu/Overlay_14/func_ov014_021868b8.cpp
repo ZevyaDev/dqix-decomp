@@ -40,10 +40,10 @@ struct Struct_ov014_021868b8_5 {
 };
 struct Struct_ov014_02184300_3;
 extern "C" {
-void func_0205a198(void*);
+void InitSprite_0205a198(void*);
 void func_0205a234(void*);
-void func_0204af64(void*);
-void func_0204c684(void*);
+void InitBGLayer_0204af64(void*);
+void InitTextWindow_0204c684(void*);
 void func_ov014_02184300(Struct_ov014_02184300_3*, SafeAllocator*);
 extern const unsigned int data_ov014_021894b8[5];
 }
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov014_021868b8(Struct_ov014_021868b8_5* arg0, SafeAlloc
     arg0->unknown_d8_ = arg1->Allocate(8);
     arg0->unknown_b4_ = (SafeAllocator*)arg1->Allocate(0x64);
     arg0->unknown_dc_ = (Struct_ov014_021868b8_4*)arg1->Allocate(0x4d0);
-    for (unsigned char var0 = 0; var0 < 8; ++var0) func_0205a198(&arg0->unknown_d4_[var0]);
+    for (unsigned char var0 = 0; var0 < 8; ++var0) InitSprite_0205a198(&arg0->unknown_d4_[var0]);
     func_0205a234(arg0->unknown_d8_);
     for (int var1 = 0; var1 < 5; ++var1) {
         unsigned int var2;
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov014_021868b8(Struct_ov014_021868b8_5* arg0, SafeAlloc
     arg0->unknown_c4_ = (Struct_ov014_021868b8_2*)arg1->Allocate(0x40);
     arg0->unknown_c8_ = (Struct_ov014_021868b8_3*)arg1->Allocate(0x380);
     func_0207f84c(arg0->unknown_c0_);
-    for (unsigned char var7 = 0; var7 < 2; ++var7) func_0204af64(&arg0->unknown_c4_[var7]);
-    for (unsigned char var8 = 0; var8 < 4; ++var8) func_0204c684(&arg0->unknown_c8_[var8]);
+    for (unsigned char var7 = 0; var7 < 2; ++var7) InitBGLayer_0204af64(&arg0->unknown_c4_[var7]);
+    for (unsigned char var8 = 0; var8 < 4; ++var8) InitTextWindow_0204c684(&arg0->unknown_c8_[var8]);
     func_ov014_02184300((Struct_ov014_02184300_3*)arg0, arg1);
 }

@@ -65,7 +65,7 @@ extern "C" void func_ov000_0217feb0(void* arg0, unsigned char arg1, int arg2);
 extern "C" int func_020a35e0(unsigned char*, unsigned char);
 extern "C" void func_ov000_02174a50(void* arg0, int arg1);
 extern "C" struct Struct_ov000_02164d74_4* func_0200fea4(GameState* arg0, int arg1);
-extern "C" void func_02033b88(Struct_02010604*, int);
+extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02089560(char* arg0, char* arg1, char* arg2);
 extern "C" void func_0208936c(char* arg0, char* arg1, char* arg2);
 void ApplyCombatantBuffs(int unused, int combatantId);
@@ -98,13 +98,13 @@ extern "C" ARM void func_ov000_02164d74(struct Struct_ov000_02164d74_5* arg0) {
             func_ov000_02174a50(arg0->unknown_3760_, var3);
             continue;
         }
-        struct Struct_ov000_02164d74_4* var4 = (Struct_ov000_02164d74_4*)func_0200ff1c(var0, var3);
+        struct Struct_ov000_02164d74_4* var4 = (Struct_ov000_02164d74_4*)GetPartyMemberBaseByIndex_0200ff1c(var0, var3);
         if (var4 == NULL) {
             continue;
         }
         var4->unknown_0_.MakeVisible();
         var4->unknown_c1_0_ |= 3;
-        func_02033b88((Struct_02010604*)var4, 0);
+        SetMotion_02033b88((Struct_02010604*)var4, 0);
         var4->unknown_0_.SetField06(arg0->unknown_ec8_);
         if (arg0->unknown_2a0_->unknown_30_ != 0) {
             func_02089560((char*)var4->unknown_138_, var4->unknown_130_, var4->unknown_134_);
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov000_02164d74(struct Struct_ov000_02164d74_5* arg0) {
         if (!(var4->unknown_138_->unknown_14_ & 1)) {
             var4->unknown_18c_ &= ~1;
         } else {
-            func_02033b88((Struct_02010604*)var4, 4);
+            SetMotion_02033b88((Struct_02010604*)var4, 4);
         }
         func_ov000_02174738(arg0->unknown_3760_, var3);
         func_ov017_021917f0(var3, 1);

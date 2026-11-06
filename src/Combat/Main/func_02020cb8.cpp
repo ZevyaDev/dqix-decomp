@@ -10,15 +10,15 @@ extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
-struct Struct_02020cb8;
-extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
+struct BGLayer_02020cb8;
+extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
-extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
 
-extern "C" void func_0204b5b4(void*, int);
+extern "C" void SetBGPriority_0204b5b4(void*, int);
 
-struct Struct_02020cb8_5;
-extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
+struct BGLayer_02020cb8_5;
+extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 
 extern "C" void func_0204b2e0(void* arg0, char* arg1);
 
@@ -33,8 +33,8 @@ typedef void (*Type_02020cb8)(void*, int, int);
 extern "C" void func_0204adb4(unsigned char* arg0, Type_02020cb8 arg1, unsigned char* arg2);
 extern "C" void func_0204acd0(struct Struct_02020cb8_7* arg0);
 
-struct Struct_02020cb8_2;
-extern "C" void func_0204b0e8(struct Struct_02020cb8_2* arg0, void* arg1);
+struct BGLayer_02020cb8_2;
+extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2* layer, void* screenData);
 
 struct Struct_02020cb8_3;
 extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
@@ -47,7 +47,7 @@ extern "C" ARM void func_02020cb8(void* arg0, Type_02020aec arg1) {
     void* var3;
     void* var4[3];
     int var5[3];
-    Struct_02020cb8 var6;
+    BGLayer_02020cb8 var6;
     unsigned char var7[0x10];
 
     var0->GetLoadedFileByID(
@@ -62,12 +62,12 @@ extern "C" ARM void func_02020cb8(void* arg0, Type_02020aec arg1) {
         var4[var9] = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var1, var9, &var3, &var5[var9]);
     }
 
-    func_0204af64((struct Struct_02020cb8*)&var6);
+    InitBGLayer_0204af64((struct BGLayer_02020cb8*)&var6);
     var6.unknown_1c_0_ = 1;
-    var6.unknown_1c_4_ = 1;
-    func_0204b5b4(&var6, 3);
-    func_0204b11c((unsigned char*)&var6, 0);
-    func_0204b5e8((struct Struct_02020cb8_5*)&var6, 0, 0);
+    var6.bgIndex_1c_4_ = 1;
+    SetBGPriority_0204b5b4(&var6, 3);
+    SetBGScreenSize_0204b11c((unsigned char*)&var6, 0);
+    SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)&var6, 0, 0);
 
     var6.unknown_0_ = 0x6000;
     var6.unknown_e_ = 0xfffe;
@@ -87,7 +87,7 @@ extern "C" ARM void func_02020cb8(void* arg0, Type_02020aec arg1) {
     func_0204adb4(var7, var13, (unsigned char*)var4[2]);
     func_0204acd0((struct Struct_02020cb8_7*)var7);
 
-    func_0204b0e8((struct Struct_02020cb8_2*)&var6, 0);
+    LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)&var6, 0);
     func_0204afb4((struct Struct_02020cb8_3*)&var6);
 
     BackgroundLoader* var14 = BackgroundLoader::GetInstance();

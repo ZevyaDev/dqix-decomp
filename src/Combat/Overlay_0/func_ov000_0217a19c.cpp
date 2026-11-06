@@ -3,9 +3,9 @@
 #include "std_library_functions.h"
 
 struct Struct_0201099c_3;
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 
-struct Struct_0205d5d0 {
+struct TextWindowManager_0205d5d0 {
     char unknown_0_[0xa0];
     short unknown_a0_;
     short unknown_a2_;
@@ -30,22 +30,22 @@ extern "C" struct Struct_ov000_02170cf8* func_ov000_02170cf8(char* arg0, int arg
 extern "C" void func_020dd040(int arg0, char* arg1);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
-extern "C" void* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+extern "C" void* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 #if defined(jpn)
-extern "C" void func_0205d304(void*, void*, int, int, int, int, int);
-#define APPLY_TEXT(s,k,t) func_0205d5d0(s,k,(int)t,1)
-#define DRAW_TEXT(s,t) func_0205d304(s,t,0,1,0,1,0)
+extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);
+#define APPLY_TEXT(s,k,t) SetTextWindowText_0205d5d0(s,k,(int)t,1)
+#define DRAW_TEXT(s,t) OpenTextWindow_0205d304(s,t,0,1,0,1,0)
 enum { Enum_ov000_0217a19c_92=0x28, Enum_ov000_0217a19c_2400=0x800, Enum_ov000_0217a19c_7533=0x1fa5, Enum_ov000_0217a19c_7=6, Enum_ov000_0217a19c_24=0 };
 #else
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
-#define APPLY_TEXT(s,k,t) func_0205d5d0(s,k,(int)t,1,0)
-#define DRAW_TEXT(s,t) func_0205d304(s,t,0,0,0,1,0,0)
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
+#define APPLY_TEXT(s,k,t) SetTextWindowText_0205d5d0(s,k,(int)t,1,0)
+#define DRAW_TEXT(s,t) OpenTextWindow_0205d304(s,t,0,0,0,1,0,0)
 enum { Enum_ov000_0217a19c_92=0x5c, Enum_ov000_0217a19c_2400=0x960, Enum_ov000_0217a19c_7533=0x1d6d, Enum_ov000_0217a19c_7=7, Enum_ov000_0217a19c_24=0x18 };
 #endif
 
 // USA: func_ov000_0217a19c
 extern "C" ARM void func_ov000_0217a19c(char* arg0, char* arg1) {
-    struct Struct_0205d5d0* var0;
+    struct TextWindowManager_0205d5d0* var0;
 #if !defined(jpn)
     char var1[0x800];
 #endif
@@ -61,11 +61,11 @@ extern "C" ARM void func_ov000_0217a19c(char* arg0, char* arg1) {
 #if !defined(jpn)
     func_02046608(GetMessageWindow_020421a0(), 0xa, var2, var1, 0x98, 0, 0);
 #endif
-    var0 = (struct Struct_0205d5d0*)(arg0 + 0x188);
+    var0 = (struct TextWindowManager_0205d5d0*)(arg0 + 0x188);
 #if !defined(jpn)
     var2 = var1;
 #endif
-    if (func_0205d81c((struct Struct_0205d81c*)var0, 0x18) != 0) {
+    if (FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)var0, 0x18) != 0) {
         APPLY_TEXT(var0, 0x18, var2);
         return;
     }

@@ -1,16 +1,16 @@
 #include "Resource/ActionDataTables.h"
 #include <globaldefs.h>
 
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f20(void* arg0);
-extern "C" void* func_02079e2c(char* arg0, int arg1);
+extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 
 // USA: func_ov025_021eba60
 extern "C" ARM void func_ov025_021eba60(char* arg0) {
-    void* var0 = func_ov000_02160f20(func_ov000_02160130());
-    Struct_02108e10* var1 = func_020797dc();
+    void* var0 = func_ov000_02160f20(GetBattleScene_ov000_02160130());
+    ActionTables_02108e10* var1 = GetActionTables_020797dc();
     short var2 = *(short*)var0;
-    void* var3 = func_02079e2c((char*)var1, var2);
+    void* var3 = FindActionData_02079e2c((char*)var1, var2);
     if (var3 == 0) {
         return;
     }

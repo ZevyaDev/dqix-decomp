@@ -15,14 +15,14 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Struct_0205de24_2;
-extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+struct TextWindowManager_0205de24_2;
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
 
 extern "C" void func_ov013_02185900(void* arg0, void* arg1);
 #if defined(jpn)
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
 
 extern int data_ov013_02187d94;
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov013_02185828(unsigned char* arg0) {
     unsigned char var0 = arg0[R(0x644,0x6bc)];
     arg0[R(0x644,0x6bc)] = var0 & ~1;
 
-    func_0205de24((struct Struct_0205de24_2*)(arg0 + R(0x34,0x38)), 0, 2);
+    SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)(arg0 + R(0x34,0x38)), 0, 2);
 
     *(unsigned short*)(arg0 + R(0xd4,0xd8)) = 0x20;
     *(unsigned short*)(arg0 + R(0xd6,0xda)) = 9;
@@ -54,8 +54,8 @@ extern "C" ARM void func_ov013_02185828(unsigned char* arg0) {
     func_ov013_02185900(arg0, *(void**)(arg0 + R(0x5e0,0x658)));
 
 #if defined(jpn)
-    func_0205d304(arg0 + R(0x34,0x38), *(void**)(arg0 + R(0x5e0,0x658)), 0, 0, 0, 1, (int)&data_ov013_02187d94);
+    OpenTextWindow_0205d304(arg0 + R(0x34,0x38), *(void**)(arg0 + R(0x5e0,0x658)), 0, 0, 0, 1, (int)&data_ov013_02187d94);
 #else
-    func_0205d304(arg0 + R(0x34,0x38), *(void**)(arg0 + R(0x5e0,0x658)), 0, 0, 0, 1, (int)&data_ov013_02187d94, 1);
+    OpenTextWindow_0205d304(arg0 + R(0x34,0x38), *(void**)(arg0 + R(0x5e0,0x658)), 0, 0, 0, 1, (int)&data_ov013_02187d94, 1);
 #endif
 }

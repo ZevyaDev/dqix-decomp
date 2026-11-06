@@ -12,7 +12,7 @@ struct Struct_0201d530 {
 
 struct ItemData_0201099c_9;
 struct ItemTable_0201099c_10;
-extern "C" ItemData_0201099c_9* func_020dedd0(struct ItemTable_0201099c_10*, int);
+extern "C" ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10*, int);
 
 struct Struct_ov023_021f5848 {
     unsigned short unknown_0_0_ : 13;
@@ -51,7 +51,7 @@ extern "C" ARM int func_ov023_021f5848(struct Struct_0201c1c8* arg0) {
             var1->unknown_10c_.unknown_0_0_ |= 2;
             return 0;
         }
-        struct Struct_ov023_021f5848_3* var2 = (struct Struct_ov023_021f5848_3*)func_020dedd0(data_ov023_021fff08.unknown_4_, (short)var0);
+        struct Struct_ov023_021f5848_3* var2 = (struct Struct_ov023_021f5848_3*)FindItemData_020dedd0(data_ov023_021fff08.unknown_4_, (short)var0);
         if (var2 == 0) {
             data_ov023_021fff08.unknown_1_ = 1;
             data_ov023_021fff08.unknown_c_->unknown_10c_.unknown_0_0_ |= 2;

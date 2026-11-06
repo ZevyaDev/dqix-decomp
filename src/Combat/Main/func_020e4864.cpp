@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
-extern "C" int func_020d2ff0(const char*);
-extern "C" int func_02001aec(const void*, const void*, unsigned int);
+extern "C" int GetStringLength_020d2ff0(const char*);
+extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
 extern char data_020f2d2c[][11];
 extern signed char data_020eeab0[][8];
 extern char data_020ee9d8[][3];
@@ -15,12 +15,12 @@ extern "C" ARM void func_020e4864(const char* arg0, char* arg1, int arg2, int, i
             int var2 = 0;
             for (;;) {
                 if (!data_020f2d2c[var2][0]) break;
-                int var3 = func_020d2ff0(data_020f2d2c[var2]);
-                if (func_02001aec(arg0 + 1, data_020f2d2c[var2], var3) == 0) {
+                int var3 = GetStringLength_020d2ff0(data_020f2d2c[var2]);
+                if (CompareBytes_02001aec(arg0 + 1, data_020f2d2c[var2], var3) == 0) {
                     if (arg2 >= 0 && arg5 >= 0) {
                         int var4 = data_020eeab0[var2][arg2 + arg5 * 2] * 3;
                         const char* var5 = (const char*)data_020ee9d8;
-                        var0 = func_020d2ff0(var5 + var4);
+                        var0 = GetStringLength_020d2ff0(var5 + var4);
                         memcpy(arg1, var5 + var4, var0);
                         arg1 += var0;
                     }

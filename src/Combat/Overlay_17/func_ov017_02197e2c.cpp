@@ -18,7 +18,7 @@ struct Struct_02046b1c;
 struct Struct_ov009_0218aa28;
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void* func_020100bc(GameState*);
+extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" bool func_020535c8(signed char*);
 extern "C" void* func_02046b1c(Struct_02046b1c*);
 extern "C" Struct_020133fc* func_020177a8(unsigned char*, int);
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov017_02197e2c(GameResources* arg0) {
     GameState* var0 = GameState::GetInstance();
     Zone3D* var1 = GetZone3D_02012fe4();
     GetMessageWindow_020421a0();
-    func_020100bc(var0);
+    GetCamera_020100bc(var0);
     Struct_ov017_02197e2c* var2 = (Struct_ov017_02197e2c*)var0->GetUnknownGameObject();
     Vector3i* var3 = &var2->unknown_0_.position_;
     if (func_020535c8((signed char*)var2)) return;

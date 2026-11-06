@@ -104,7 +104,7 @@ struct Struct_ov000_02180ca8_3  {
     unsigned char unknown_1d5c_;
 };
 extern "C" int func_ov000_0217fe30(Struct_ov000_02180ca8_3*);
-extern "C" void func_0205ac40(void*, void*);
+extern "C" void DrawSprite_0205ac40(void*, void*);
 extern "C" int func_ov000_021719f8(int*);
 extern "C" int func_ov000_02174e34(int, int);
 extern "C" Struct_0203c1c8* func_ov000_02174e1c(void*, int);
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov000_02180ca8(Struct_ov000_02180ca8_3* arg0, Struct_ov
     int var7 = arg1->unknown_4c_;
     var4 = var2 >> 3;
     var5 = var3 >> 3;
-    GameObject* var8 = func_0200ff1c(GameState::GetInstance(), var7);
+    GameObject* var8 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), var7);
     if (func_ov000_0217fe30(arg0) && var8 && arg1->unknown_c_ && ((Struct_ov000_02180ca8_2*)var8)->unknown_138_->unknown_3b_3_)  {
         Struct_ov000_02180ca8_4* var9 = &arg0->unknown_170_[30];
         var9->unknown_14_ = 0;
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov000_02180ca8(Struct_ov000_02180ca8_3* arg0, Struct_ov
         var9->unknown_22_ = arg1->unknown_4c_ + 0x44;
 #endif
         var9->unknown_26_ = 0;
-        func_0205ac40(arg0->unknown_11c_, var9);
+        DrawSprite_0205ac40(arg0->unknown_11c_, var9);
     }
     signed char var10 = arg1->unknown_10_[arg1->unknown_18_];
     if (var10 == 0x67)  {
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov000_02180ca8(Struct_ov000_02180ca8_3* arg0, Struct_ov
             var11->unknown_22_ = arg1->unknown_4c_;
 #endif
             var11->unknown_26_ = 1;
-            func_0205ac40(arg0->unknown_11c_, var11);
+            DrawSprite_0205ac40(arg0->unknown_11c_, var11);
         }
         if (arg1->unknown_1c_ == 6 || arg1->unknown_c_ == 0 || func_ov000_021719f8(arg1->unknown_0_) || arg1->unknown_1c_ == 2 || arg1->unknown_443_ != 5)  {
             return;

@@ -15,7 +15,7 @@ extern "C" ARM int func_ov024_021ea500(void* arg0, struct Struct_ov024_021ea500_
 	if (arg1->unknown_4_0_ == 1) {
 		int var1 = (arg2 >= 0 && arg2 <= 3);
 		if (var1) {
-			GameObject* var2 = func_0200ff1c(var0, arg2);
+			GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg2);
 			char* var3 = (char*)(*(int**)((char*)var2 + Enum_ov024_021ea500_336)) + 0x2f4;
 			if (var3) {
 				struct Struct_ov024_021ea500* var4 = (struct Struct_ov024_021ea500*)var3;

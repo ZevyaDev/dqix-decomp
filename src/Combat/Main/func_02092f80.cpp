@@ -2,15 +2,15 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 
-struct Struct_020dfec0 {
+struct StringTable_020dfec0 {
     unsigned int unknown_0_0_ : 12;
     unsigned int unknown_1_4_ : 19;
     unsigned int unknown_3_7_ : 1;
     void* unknown_4_;
-    void* unknown_8_;
+    void* pText_8_;
 };
 
-extern "C" int func_020dfec0(Struct_020dfec0* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
+extern "C" int LoadStringTable_020dfec0(StringTable_020dfec0* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 
 #if defined(jpn)
 extern const char data_020f143c[];
@@ -20,7 +20,7 @@ extern const char data_020f1382[];
 
 struct Struct_02092f80 {
     SafeAllocator unknown_0_;
-    Struct_020dfec0 unknown_14_;
+    StringTable_020dfec0 unknown_14_;
     unsigned char unknown_20_[0xc];
     int unknown_2c_;
     unsigned char unknown_30_[0x34 - 0x30];
@@ -48,7 +48,7 @@ extern "C" ARM void func_02092f80(Struct_02092f80* arg0) {
             unsigned int var3;
             var0->GetLoadedFileByID(arg0->unknown_2c_, &var2, &var3);
             arg0->unknown_0_.Reset();
-            func_020dfec0(&arg0->unknown_14_, &arg0->unknown_0_, var2, var3);
+            LoadStringTable_020dfec0(&arg0->unknown_14_, &arg0->unknown_0_, var2, var3);
             var0->RemoveTask(arg0->unknown_2c_);
             arg0->unknown_2c_ = -1;
             arg0->unknown_35_++;

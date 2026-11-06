@@ -42,7 +42,7 @@ extern "C" void func_02080c68(void *arg0, int arg1, int arg2);
 extern "C" void func_02080bac(void *arg0, int arg1);
 struct ItemTable_0201099c_10;
 struct Struct_ov003_02176f94;
-extern "C" struct Struct_ov003_02176f94 *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
+extern "C" struct Struct_ov003_02176f94 *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 struct Struct_02083994;
 extern "C" int func_02083994(struct Struct_02083994 *arg0, int arg1);
@@ -120,7 +120,7 @@ extern "C" ARM void func_ov003_02176f94(Struct_ov003_02176f94_2* arg0) {
     func_02080bac(var0, var3);
 
     bool var8                 = true;
-    struct Struct_ov003_02176f94 *var9 = func_020dedd0(
+    struct Struct_ov003_02176f94 *var9 = FindItemData_020dedd0(
         (struct ItemTable_0201099c_10 *) ((char*)arg0 + Enum_ov003_02176f94_2164), arg0->unknown_103a_);
     if (var9 != NULL) var8 = inline_ov003_02176f94(var9->unknown_8_0_);
     if (!var8) {

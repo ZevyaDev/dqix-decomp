@@ -42,7 +42,7 @@ extern const short data_ov006_0215ffca[];
 extern const short data_ov006_0215ffc4[];
 extern const unsigned char data_ov006_0215ffb4[];
 int func_ov023_021e2c38(void*, short);
-void func_0205ac40(void*, Struct_ov006_021580b8*);
+void DrawSprite_0205ac40(void*, Struct_ov006_021580b8*);
 }
 
 extern "C" Struct_ov006_02158478* func_02081da8(Struct_0207fdcc_2*, int);
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov006_02158914(Struct_ov006_02157a60* arg0)
                 var5->unknown_25_ = 0xb;
             else if (var4 == 9)
                 var5->unknown_25_ = 1;
-            func_0205ac40(arg0->unknown_ac_, var5);
+            DrawSprite_0205ac40(arg0->unknown_ac_, var5);
         }
     }
 }

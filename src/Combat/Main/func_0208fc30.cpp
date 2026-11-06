@@ -5,9 +5,6 @@
 
 
 #if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
-#if defined(jpn)
 #include "std_library_functions.h"
 extern const char data_020f1438[];
 #endif
@@ -28,10 +25,10 @@ extern "C" struct Struct_0205faf4_7* func_02094d6c();
 extern "C" struct Struct_0205faf4_8* func_02096134(struct Struct_0205faf4_7*, int);
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2*, struct QueueNode_0201bdac*);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
-extern "C" void func_0206df6c(void*, unsigned char*, int, int);
+extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void func_ov017_021beba4(char*);
 extern "C" int func_0201b588(int);
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 
 // JPN: func_02090544
 // USA: func_0208fc30
@@ -61,7 +58,7 @@ extern "C" ARM void func_0208fc30(ActiveGrottoClass* arg0) {
     var1 = GetLocalWireless_0202ae18();
     var2 = GetFlagManager_0205ec34();
     GameState* var9 = GameState::GetInstance();
-    func_0200fd0c(var9);
+    GetZoneEntry_0200fd0c(var9);
     var3 = GetGameResources();
     var7 = (struct Queue_0201bdac_2*)var3->unknown_ptr_array_36fc[0];
 #if !defined(jpn)
@@ -93,7 +90,7 @@ extern "C" ARM void func_0208fc30(ActiveGrottoClass* arg0) {
                 ((struct Struct_0208fc30*)var10)->unknown_8_ = 0x5105;
                 AppendToQueue_020469b4(var7, (struct QueueNode_0201bdac*)var10);
                 var11 = true;
-                func_0206df6c(var2, var2 + 0x8c, 0x2d, 1);
+                SetFlag_0206df6c(var2, var2 + 0x8c, 0x2d, 1);
             } else if (arg0->GetActiveGrottoEnviron() == 2 &&
                        IsFlagSet_0206dfb0((int)var2, var2 + 0x8c, 0x13) &&
                        !IsFlagSet_0206dfb0((int)var2, var2 + 0x8c, 0x2e) &&
@@ -101,7 +98,7 @@ extern "C" ARM void func_0208fc30(ActiveGrottoClass* arg0) {
                 ((struct Struct_0208fc30*)var10)->unknown_8_ = 0x51c3;
                 AppendToQueue_020469b4(var7, (struct QueueNode_0201bdac*)var10);
                 var11 = true;
-                func_0206df6c(var2, var2 + 0x8c, 0x2e, 1);
+                SetFlag_0206df6c(var2, var2 + 0x8c, 0x2e, 1);
             }
         }
         if (!var11 && (unsigned char)arg0->unknown_260_[0] == 0) {

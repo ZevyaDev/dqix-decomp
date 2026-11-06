@@ -22,7 +22,7 @@ struct Struct_ov025_021e6ff8 {
     unsigned char unknown_24_;
 };
 
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" unsigned char func_ov025_021dcc64(void* arg0);
 extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c* arg0, int arg1);
 extern "C" void func_0202edf8(char* arg0, int arg1, int arg2, int arg3, int arg4);
@@ -35,8 +35,8 @@ extern "C" ARM int func_ov025_021e6ff8(Struct_ov025_021e6ff8* arg0, Struct_ov000
  enum { Enum_ov025_021e6ff8_28629=0x6fd5 };
 #endif
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_020100bc(var0);
-    void* var2 = func_ov000_02160130();
+    void* var1 = GetCamera_020100bc(var0);
+    void* var2 = GetBattleScene_ov000_02160130();
     if (var2 != NULL) {
         *((unsigned char*)var2 + Enum_ov025_021e6ff8_28629) = 1;
         if (func_ov025_021dcc64(var2)) {

@@ -14,7 +14,7 @@ extern struct Struct_0214e33c data_0214e33c;
 
 struct Struct_020d7754 { short unknown_0_; short unknown_2_; char* unknown_4_; };
 
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" void func_020d78e0(void** arg0, void* arg1);
 extern char data_020f2330[];
 
@@ -33,7 +33,7 @@ extern "C" ARM int func_020d7754(Script::Parameter* arg0) {
     }
     if (!var1) return 1;
     const char* var3 = arg0[2].ToString();
-    int var4 = func_020d2ff0(var3);
+    int var4 = GetStringLength_020d2ff0(var3);
     var0.unknown_4_ = (char*)((SafeAllocator*)data_0214e33c.unknown_8_)->Allocate(var4 + 1);
     if (var0.unknown_4_ == NULL) return 0;
     var0.unknown_4_[var4] = 0;

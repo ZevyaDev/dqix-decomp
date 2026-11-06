@@ -66,10 +66,10 @@ struct Struct_0208a03c {
 };
 
 extern "C" struct Struct_0208a03c_6* func_0200fea4(GameState*, int);
-extern "C" void* func_020797dc(void);
+extern "C" void* GetActionTables_020797dc(void);
 extern "C" int func_020117f0(GameState*);
 extern "C" char* GetZone3D_02012fe4(void);
-extern "C" struct Struct_0208a03c_7* func_02079e2c(char* arg0, int arg1);
+extern "C" struct Struct_0208a03c_7* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" int func_ov000_02159d94(void* arg0, int arg1);
 extern "C" void func_ov024_021f66c0(int* arg0);
 extern "C" int func_ov024_021f66cc(int* arg0, struct Struct_0208a03c* arg1, int arg2, int arg3, int* arg4, int arg5);
@@ -84,7 +84,7 @@ enum { Enum_0208a03c_9196 = 0x23ec };
 extern "C" ARM int func_0208a03c(Struct_0208a03c_3* arg0, unsigned char arg1, unsigned short arg2, int* arg3, int arg4) {
     GameState* var0 = GameState::GetInstance();
     struct Struct_0208a03c_6* var1 = func_0200fea4(var0, arg2);
-    char* var2 = (char*)func_020797dc();
+    char* var2 = (char*)GetActionTables_020797dc();
     struct Struct_0208a03c_4* var3 = var1->unknown_148_;
     if (arg0->unknown_0_->unknown_8e49_ == 2 && arg0->unknown_0_->unknown_8e20_ == 0 && var1->unknown_148_->unknown_18_[arg1] == 0xe1) {
         return 0;
@@ -107,7 +107,7 @@ extern "C" ARM int func_0208a03c(Struct_0208a03c_3* arg0, unsigned char arg1, un
             }
         }
     }
-    struct Struct_0208a03c_7* var10 = func_02079e2c(var2, (short)var3->unknown_18_[arg1]);
+    struct Struct_0208a03c_7* var10 = FindActionData_02079e2c(var2, (short)var3->unknown_18_[arg1]);
     int var11 = 0;
     int var12 = func_ov000_02159d94(arg0->unknown_0_, (short)arg2);
     int var13;

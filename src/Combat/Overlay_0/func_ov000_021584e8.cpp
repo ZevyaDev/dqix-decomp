@@ -3,7 +3,7 @@
 
 struct Struct_ov000_021584e8;
 
-extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_0215fe84(void* arg0, void* arg1, int arg2);
 extern "C" void func_ov000_02159eac(void* arg0, void* arg1, int arg2);
 extern "C" void func_ov000_0215ccbc(
@@ -16,7 +16,7 @@ static inline short inline_ov000_021584e8_2(ModifiableCombatStats* arg0) { retur
 // USA: func_ov000_021584e8
 extern "C" ARM void func_ov000_021584e8(void* arg0, struct Struct_ov000_021584e8* arg1, GameObject* arg2,
                                         void* arg3, int arg4, unsigned char arg5) {
-    func_ov000_0215a88c(arg0, arg1, (unsigned short)arg4);
+    AddActionResultMessage_ov000_0215a88c(arg0, arg1, (unsigned short)arg4);
     func_ov000_0215fe84(arg3, arg1, 1);
     ((unsigned char*)arg0)[0x8e02]++;
     unsigned long long var0 = 0;

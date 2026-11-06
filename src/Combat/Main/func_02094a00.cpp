@@ -9,7 +9,7 @@ enum { Enum_02094a00_0 = 4 };
 enum { Enum_02094a00_0 = 0 };
 #endif
 
-// USA: func_02094a00
-extern "C" ARM FontLoader_0208cb08* func_02094a00(void) {
+// USA: GetFontLoader_02094a00
+extern "C" ARM FontLoader_0208cb08* GetFontLoader_02094a00(void) {
     return *(FontLoader_0208cb08**)((char*)&data_02109400 + Enum_02094a00_0);
 }

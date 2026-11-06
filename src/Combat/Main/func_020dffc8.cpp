@@ -5,16 +5,16 @@ struct Struct_020dffc8 {
     int unknown_4_;
 };
 
-struct Struct_020dfec0 {
+struct StringTable_020dfec0 {
     unsigned int unknown_0_0_ : 12;
     unsigned int unknown_1_4_ : 20;
     struct Struct_020dffc8 *unknown_4_;
 };
 
-typedef int (*Type_020dfec0)(struct Struct_020dfec0 *, struct Struct_020dffc8 *);
+typedef int (*Type_020dfec0)(struct StringTable_020dfec0 *, struct Struct_020dffc8 *);
 
 // USA: func_020dffc8
-extern "C" ARM int func_020dffc8(struct Struct_020dfec0 *arg0, Type_020dfec0 arg1) {
+extern "C" ARM int func_020dffc8(struct StringTable_020dfec0 *arg0, Type_020dfec0 arg1) {
     int var0;
     struct Struct_020dffc8 *var1;
     int var2;

@@ -11,7 +11,7 @@ extern "C" void func_ov017_021a1d98(void* arg0, unsigned int arg1);
 // USA: func_ov017_02196398
 extern "C" ARM void func_ov017_02196398(unsigned int* arg0) {
 	GameState* var0 = GameState::GetInstance();
-	func_020100bc(var0);
+	GetCamera_020100bc(var0);
 	unsigned short var1 = ((Object3D*)((struct Struct_02039df4*)var0->GetProtagonist()))->GetField06();
 	func_ov017_021973e8(arg0);
 

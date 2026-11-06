@@ -3,9 +3,9 @@
 #include "World/Object3D.h"
 #include "Memory/SafeAllocator.h"
 
-struct Struct_0205ac40;
-struct Struct_0205ac40_2;
-struct Struct_0205a254;
+struct SpriteSet_0205ac40;
+struct Sprite_0205ac40_2;
+struct SpriteAnimationList_0205a254;
 
 struct Struct_02000c9c_6 {
     int unknown_0_;
@@ -100,12 +100,12 @@ struct Struct_ov009_021842a0 {
     unsigned char unknown_1d8_[0x20];
     Struct_ov023_021d9c7c unknown_1f8_[2];
     unsigned char unknown_370_[0x7d8 - 0x370];
-    Struct_0205ac40* unknown_7d8_;
-    Struct_0205ac40_2* unknown_7dc_;
-    Struct_0205a254* unknown_7e0_;
-    Struct_0205ac40* unknown_7e4_;
-    Struct_0205ac40_2* unknown_7e8_;
-    Struct_0205a254* unknown_7ec_;
+    SpriteSet_0205ac40* unknown_7d8_;
+    Sprite_0205ac40_2* unknown_7dc_;
+    SpriteAnimationList_0205a254* unknown_7e0_;
+    SpriteSet_0205ac40* unknown_7e4_;
+    Sprite_0205ac40_2* unknown_7e8_;
+    SpriteAnimationList_0205a254* unknown_7ec_;
     unsigned char unknown_7f0_[0x7f8 - 0x7f0];
     void* unknown_7f8_;
     void* unknown_7fc_;

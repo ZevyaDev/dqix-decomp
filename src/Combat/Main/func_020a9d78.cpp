@@ -8,7 +8,7 @@ enum { Enum_020a9d78_32376 = 0x7e78 };
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void* GetZone3D_02012fe4();
 struct Struct_0201bc7c;
 extern "C" void func_0201bc7c(struct Struct_0201bc7c* arg0, unsigned short arg1);
@@ -62,7 +62,7 @@ struct Struct_020a9d78_2 {
 extern "C" ARM int func_020a9d78(void* arg0) {
     Struct_020a9d78_3* var0 = static_cast<Struct_020a9d78_3*>(arg0);
     GameState* var1 = GameState::GetInstance();
-    Struct_020a9d78_4* var2 = static_cast<Struct_020a9d78_4*>(func_0200fd0c(var1));
+    Struct_020a9d78_4* var2 = static_cast<Struct_020a9d78_4*>(GetZoneEntry_0200fd0c(var1));
 
     var2->unknown_0_ = var0->unknown_0_;
     var2->unknown_10_ = var0->unknown_4_;

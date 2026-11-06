@@ -17,7 +17,7 @@ struct Struct_ov004_0215e4e8 {
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" Struct_ov004_0215e4e8* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" unsigned int func_ov023_021f6f10(void* arg0);
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" void* func_ov023_021fa598(void* arg0);
 extern "C" int func_020420e8(void* arg0, int arg1);
 
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov004_0215e4e8(void* arg0, int arg1) {
     int var5 = 0;
     if (var2) {
 #if defined(jpn)
-        unsigned int var6 = func_020d2ff0((const char*)var2);
+        unsigned int var6 = GetStringLength_020d2ff0((const char*)var2);
         var5 = (int)(var6 * var1->unknown_44_0_) >> 1;
 #else
         var5 = func_020420e8(var2, func_02042190(var1->unknown_44_0_));

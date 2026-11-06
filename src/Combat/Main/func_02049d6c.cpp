@@ -3,7 +3,7 @@
 struct Struct_02033834;
 extern "C" void _ZN8Vector3iaSERKS_(int* arg0, int* arg1);
 extern "C" void func_02048cf0(void* arg0, int arg1);
-extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 
 struct Struct_020e7b18 { unsigned int unknown_0_[3]; };
 extern "C" const struct Struct_020e7b18 data_020e7b18;
@@ -33,5 +33,5 @@ extern "C" ARM void func_02049d6c(struct Struct_02049d6c_2* arg0) {
     var1.unknown_0_[2] = arg0->unknown_13c_->unknown_c_;
     unsigned int var2 = arg0->unknown_13c_->unknown_8_;
     _ZN8Vector3iaSERKS_((int*)arg0->unknown_44_, (int*)&var1);
-    func_02033874((struct Struct_02033834*)arg0, var2);
+    SetFacingInstantly_02033874((struct Struct_02033834*)arg0, var2);
 }

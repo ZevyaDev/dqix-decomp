@@ -4,8 +4,8 @@
 #include "Resource/CharacterCreationUI.h"
 #include "Combat/TryApplyElemFields.h"
 
-struct Struct_0205d81c;
-struct Struct_0205d0e0 {
+struct TextWindowManager_0205d81c;
+struct TextWindow_0205d0e0 {
     unsigned char unknown_0_[0xb8];
     unsigned short unknown_b8_;
     unsigned short unknown_ba_;
@@ -13,7 +13,7 @@ struct Struct_0205d0e0 {
     unsigned char unknown_c4_;
     unsigned char unknown_c5_[0xe0 - 0xc5];
 };
-extern "C" Struct_0205d0e0* func_0205d81c(Struct_0205d81c*, int);
+extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" int func_02042428(char*, int);
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov023_021d9e60(char* arg0) {
     if (!(var0->unknown_d9c_ & 0x8000)) return;
     memset(var0->unknown_f8_, 0, 0x800);
     if (var0->unknown_c58_ == 8) {
-        Struct_0205d0e0* var1 = func_0205d81c((Struct_0205d81c*)&var0->unknown_1f8_[1], 3);
+        TextWindow_0205d0e0* var1 = FindTextWindow_0205d81c((TextWindowManager_0205d81c*)&var0->unknown_1f8_[1], 3);
         var1->unknown_b8_ = 0x11;
         var1->unknown_ba_ = 0x10;
         func_02042428(var0->unknown_f8_, 12);
@@ -33,19 +33,19 @@ extern "C" ARM void func_ov023_021d9e60(char* arg0) {
         int var2 = FindStringInTable_020e0434(&var0->unknown_e0_, 0x4274);
         AppendText_02042058(var0->unknown_f8_, (const char*)var2);
     }
-    func_0205d5d0((Struct_0205d5d0*)&var0->unknown_1f8_[1], 3, (int)var0->unknown_f8_, 0);
+    SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)&var0->unknown_1f8_[1], 3, (int)var0->unknown_f8_, 0);
     var0->unknown_d9c_ &= ~0x8000;
 }
 #else
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Struct_0205d81c;
-struct Struct_0205d0e0;
-extern "C" Struct_0205d0e0* func_0205d81c(Struct_0205d81c*, int);
+struct TextWindowManager_0205d81c;
+struct TextWindow_0205d0e0;
+extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 
-struct Struct_0205d5d0;
-extern "C" int func_0205d5d0(Struct_0205d5d0*, int, int, int, unsigned char);
+struct TextWindowManager_0205d5d0;
+extern "C" int SetTextWindowText_0205d5d0(TextWindowManager_0205d5d0*, int, int, int, unsigned char);
 
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov023_021d9e60(char* arg0) {
 	char* var3 = *(char**)(arg0 + 0xf8);
 	memset(var3, 0, 0x960);
 	if (*(signed char*)(arg0 + 0xc58) == 8) {
-		Struct_0205d0e0* var4 = func_0205d81c((Struct_0205d81c*)(arg0 + 0x2b4), 3);
+		TextWindow_0205d0e0* var4 = FindTextWindow_0205d81c((TextWindowManager_0205d81c*)(arg0 + 0x2b4), 3);
 		*(unsigned short*)((char*)var4 + 0xb8) = 0x11;
 		*(unsigned short*)((char*)var4 + 0xba) = 0x10;
 		char var5[0x80];
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov023_021d9e60(char* arg0) {
 		int var11 = FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), 0x4274);
 		AppendText_02042058(var3, (const char*)var11);
 	}
-	func_0205d5d0((Struct_0205d5d0*)(arg0 + 0x2b4), 3, (int)var3, 0, 0);
+	SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)(arg0 + 0x2b4), 3, (int)var3, 0, 0);
 	*(int*)(arg0 + 0xd9c) &= ~0x8000;
 }
 

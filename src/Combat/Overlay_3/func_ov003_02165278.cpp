@@ -9,14 +9,14 @@
 #endif
 
 struct Struct_0207fe44;
-struct Struct_0205a254;
-struct Struct_0205a254_2 {
+struct SpriteAnimationList_0205a254;
+struct SpriteAnimation_0205a254_2 {
     char unknown_0_[0x15];
     unsigned char unknown_15_;
 };
 struct Struct_020a9ea4;
 struct Struct_02018300_3;
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 
 struct Struct_ov003_02165278 {
     unsigned char unknown_0_[RG(0x3c9, 0x139)];
@@ -27,7 +27,7 @@ struct Struct_ov003_02165278_2 {
     char unknown_0_[RG(0x324, 0x20c)];
     struct Struct_0207fe44* unknown_324_;
     char unknown_328_[RG(0x38c - 0x328, 0x274 - 0x210)];
-    struct Struct_0205a254* unknown_38c_;
+    struct SpriteAnimationList_0205a254* unknown_38c_;
     char unknown_390_[RG(0x464 - 0x390, 0x28c - 0x278)];
     unsigned int unknown_464_;
     char unknown_468_[0x484 - 0x468];
@@ -44,14 +44,14 @@ extern "C" Struct_ov003_02165278* func_020936f8(void);
 extern "C" void func_ov003_021612c0(struct Struct_ov003_02165278_2* arg0);
 extern "C" int func_ov003_02161344(struct Struct_ov003_02165278_2* arg0);
 extern "C" void func_0207fe44(struct Struct_0207fe44* arg0);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_020a9ea4(struct Struct_020a9ea4* arg0);
 extern "C" int func_020aad1c(void* arg0, void* arg1, int arg2, int arg3);
 extern int gFileScratchSpace_0211e33c;
-extern "C" struct Struct_0205a254_2* func_0205a3d0(struct Struct_0205a254* arg0, int arg1);
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" struct SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_020939dc(void* arg0);
-extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void func_ov017_021c35ac(void);
 
 // USA: func_ov003_02165278
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov003_02165278(struct Struct_ov003_02165278_2* arg0) {
         if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() != 0) {
             return;
         }
-        func_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x80);
+        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x80);
         func_020a9ea4((struct Struct_020a9ea4*)((char*)arg0 + RG(0x4b4, 0x2dc)));
         arg0->unknown_4a4_++;
     } else if (var2 == 0xf) {
@@ -97,31 +97,31 @@ extern "C" ARM void func_ov003_02165278(struct Struct_ov003_02165278_2* arg0) {
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
         if (func_020aad1c((char*)arg0 + RG(0x4b4, 0x2dc), &gFileScratchSpace_0211e33c, 10, 0) == 1) {
-            struct Struct_0205a254_2* var5 = func_0205a3d0(arg0->unknown_38c_, 0);
+            struct SpriteAnimation_0205a254_2* var5 = FindSpriteAnimation_0205a3d0(arg0->unknown_38c_, 0);
             if (var5 != NULL) {
                 var5->unknown_15_ |= 8;
             }
-            var5 = func_0205a3d0(arg0->unknown_38c_, 1);
+            var5 = FindSpriteAnimation_0205a3d0(arg0->unknown_38c_, 1);
             if (var5 != NULL) {
                 var5->unknown_15_ &= ~8;
             }
             arg0->unknown_464_ &= ~0x2000000;
             arg0->unknown_484_ = 0x30;
             arg0->unknown_4a4_++;
-            func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
+            ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
         }
         BackgroundLoader::RemoveLockGlobal();
     } else if (var2 == 0x10) {
         func_ov017_021c35ac();
         func_020939dc(var1);
-        func_020466f4((struct Struct_02038598_4*)var0, 0x20);
+        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var0, 0x20);
         arg0->unknown_484_ = 0x1b;
         arg0->unknown_4a4_++;
         GameObject* var6 = GameState::GetInstance()->GetProtagonist();
         if (var6 == NULL) {
             return;
         }
-        func_020397cc((struct Struct_02018300_3*)var6, 1);
+        DisablePlayerControl_020397cc((struct Struct_02018300_3*)var6, 1);
     } else if (var2 == 0x11) {
         func_ov003_021612c0(arg0);
         arg0->unknown_4a4_++;

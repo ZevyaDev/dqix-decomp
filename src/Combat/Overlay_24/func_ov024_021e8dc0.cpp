@@ -63,7 +63,7 @@ extern "C" ARM int func_ov024_021e8dc0(struct Struct_ov024_021e8dc0* arg0, int a
 	}
 	if (var1 > 1) arg0->unknown_7a_ = 1;
 	if (inline_ov000_02169850(arg1)) {
-		struct Struct_ov024_021e8dc0_3* var2 = (struct Struct_ov024_021e8dc0_3*)func_0200ff1c(GameState::GetInstance(), arg1);
+		struct Struct_ov024_021e8dc0_3* var2 = (struct Struct_ov024_021e8dc0_3*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1);
 		if (var2 && (arg2->unknown_10_ & 0x100000) && func_020850d0(var2->unknown_150_)) {
 			arg0->unknown_7a_ = 1;
 			var1 *= 2;

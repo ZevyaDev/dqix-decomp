@@ -6,7 +6,7 @@ extern "C" void func_ov031_022368e0(void);
 extern "C" void func_ov031_02227c84(void);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_02231724(void);
-extern "C" void func_ov031_02236878(int);
+extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern "C" void func_ov031_02237b2c(int, int, int, int, int);
 extern "C" void func_ov031_02222e98(void);
 extern "C" void func_ov031_0223193c(void);
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov031_02231864(void) {
 	case 4:
 		data_ov031_02290cb0 = 0;
 		func_ov031_022368e0();
-		func_ov031_02236878(9);
+		PlayWifiSetupSoundEffect_ov031_02236878(9);
 		func_ov031_02237b2c(0xd, 1, 1, -1, 0);
 		func_ov031_02222e98();
 		SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0223193c);
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov031_02231864(void) {
 	case 5:
 		data_ov031_02290cb0 = 0;
 		func_ov031_022368e0();
-		func_ov031_02236878(0x12);
+		PlayWifiSetupSoundEffect_ov031_02236878(0x12);
 		func_ov031_02237b2c(0xe, 1, 1, -1, 0);
 		func_ov031_02222e98();
 		SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0223193c);

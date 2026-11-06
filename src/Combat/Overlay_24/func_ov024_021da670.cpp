@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 struct Struct_ov024_021da670;
 struct Struct_ov024_021da670_3;
-extern "C" void* func_ov000_0215e958(void*);
+extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void func_ov000_02159eac(void*,void*,int);
 extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,int,unsigned long long,int);
 extern "C" void func_ov000_021554f4(void*,int,int,Struct_ov024_021da670_3*,int,int);
@@ -21,7 +21,7 @@ struct Struct_ov024_021da670_8;
 extern "C" int func_ov024_021da9c8(Struct_ov024_021da670_8*);
 extern "C" unsigned short func_ov024_021e9018(Struct_ov024_021da670*,int,int,int);
 extern "C" void func_ov024_021e8cfc(Struct_ov024_021da670*,GameObject*,int,int);
-extern "C" void func_ov000_0215a88c(void*,void*,int);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
 struct Struct_ov024_021da670 {char unknown_0_[0x10];void* unknown_10_;};
 struct Struct_ov024_021da670_2 {unsigned int unknown_0_0_:12;unsigned int unknown_1_4_:20;};
 struct Struct_ov024_021da670_3 {char unknown_0_[4];Struct_ov024_021da670_2 unknown_4_;};
@@ -37,7 +37,7 @@ extern "C" ARM void* func_ov024_021da670(Struct_ov024_021da670* arg0,int arg1,in
     union {struct{int unknown_0_;int unknown_4_;};unsigned long long unknown1_0_;} var3;
     var3.unknown_0_=0;var3.unknown_4_=0;
     if(arg2!=arg1){
-        void* var4=func_ov000_0215e958(arg0->unknown_10_);
+        void* var4=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
         if(!var4)return 0;
         if(var1==0x150)func_ov000_02159eac(arg0->unknown_10_,&var3,4);
         func_ov000_0215cd44(arg0->unknown_10_,var4,var0,0,var3.unknown1_0_,0);
@@ -85,9 +85,9 @@ extern "C" ARM void* func_ov024_021da670(Struct_ov024_021da670* arg0,int arg1,in
         func_ov000_02159eac(arg0->unknown_10_,&var3,0x27);
     }
     if(((unsigned char*)arg0->unknown_10_)[0x8e96])func_ov024_021e8cfc(arg0,var0,0,0);
-    void* var6=func_ov000_0215e958(arg0->unknown_10_);
+    void* var6=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if(!var6)return 0;
-    if(var2)func_ov000_0215a88c(arg0->unknown_10_,var6,var2);
+    if(var2)AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var6,var2);
     func_ov000_0215cd44(arg0->unknown_10_,var6,var0,0,var3.unknown1_0_,0);
     return var6;
 }

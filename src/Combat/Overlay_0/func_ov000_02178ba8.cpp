@@ -10,12 +10,12 @@
 
 #include "std_library_functions.h"
 
-struct Struct_0205d0e0 {
+struct TextWindow_0205d0e0 {
     char unknown_0_[0xc2];
-    short unknown_c2_;
+    short palette_c2_;
 };
 
-struct Struct_0205d81c {
+struct TextWindowManager_0205d81c {
     char unknown_0_[0x54];
     int unknown_54_;
     char unknown_58_[0xa0 - 0x58];
@@ -44,21 +44,21 @@ struct Struct_ov000_02178ba8_2 {
 
 struct Struct_ov000_02178ba8_3 {
     char unknown_0_[0x188];
-    Struct_0205d81c unknown_188_;
+    TextWindowManager_0205d81c unknown_188_;
 };
 
 extern "C" Struct_ov000_02178ba8* GetMessageWindow_020421a0();
 extern "C" int func_0205bafc(void* arg0);
-extern "C" Struct_0205d0e0* func_0205d81c(Struct_0205d81c* arg0, int arg1);
+extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" void func_ov000_02178d28(Struct_ov000_02178ba8_3* arg0, Struct_ov000_02178ba8_2* arg1);
 extern "C" void func_ov000_0217ab8c(Struct_ov000_02178ba8_2* arg0, int arg1, int arg2);
 extern "C" void func_ov000_02178f28(Struct_ov000_02178ba8_3* arg0, Struct_ov000_02178ba8_2* arg1, void* arg2);
 #if defined(jpn)
-extern "C" void func_0205d304(Struct_0205d81c* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void OpenTextWindow_0205d304(TextWindowManager_0205d81c* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
-extern "C" void func_0205d304(Struct_0205d81c* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void OpenTextWindow_0205d304(TextWindowManager_0205d81c* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
-extern "C" void func_ov000_02176210(Struct_0205d81c* arg0, int arg1, int arg2);
+extern "C" void func_ov000_02176210(TextWindowManager_0205d81c* arg0, int arg1, int arg2);
 
 // USA: func_ov000_02178ba8
 extern "C" ARM void func_ov000_02178ba8(Struct_ov000_02178ba8_3* arg0, Struct_ov000_02178ba8_2* arg1, int arg2, int arg3) {
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov000_02178ba8(Struct_ov000_02178ba8_3* arg0, Struct_ov
     int var0 = arg1->unknown_44_;
     int var1 = arg1->unknown_48_;
     func_ov000_0217ab8c(arg1, arg2, arg3);
-    Struct_0205d81c* var2 = &arg0->unknown_188_;
+    TextWindowManager_0205d81c* var2 = &arg0->unknown_188_;
 #if defined(jpn)
     var2->unknown_a0_ = 0xd;
 #else
@@ -92,13 +92,13 @@ extern "C" ARM void func_ov000_02178ba8(Struct_ov000_02178ba8_3* arg0, Struct_ov
     memset(var4, 0, REGION_OFFSET_1);
     func_ov000_02178f28(arg0, arg1, var4);
 #if defined(jpn)
-    func_0205d304(var2, var4, 0, 0, var3, 1, 0);
+    OpenTextWindow_0205d304(var2, var4, 0, 0, var3, 1, 0);
 #else
-    func_0205d304(var2, var4, 0, 0, var3, 1, 0, 0);
+    OpenTextWindow_0205d304(var2, var4, 0, 0, var3, 1, 0, 0);
 #endif
-    Struct_0205d0e0* var5 = func_0205d81c(var2, 0x22);
+    TextWindow_0205d0e0* var5 = FindTextWindow_0205d81c(var2, 0x22);
     if (var5 != NULL) {
-        var5->unknown_c2_ = 0;
+        var5->palette_c2_ = 0;
     }
     func_ov000_02176210(&arg0->unknown_188_, 0xf, 0x22);
 }

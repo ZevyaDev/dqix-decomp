@@ -15,7 +15,7 @@ struct Struct_ov017_02198aa0 { int unknown_0_,unknown_4_,unknown_8_; };
 struct Struct_ov017_02198aa0_2 { unsigned char unknown_0_[8]; signed char unknown_8_; unsigned char unknown_9_[3]; int unknown_c_; Struct_ov017_02198aa0 unknown_10_; };
 struct Struct_ov017_02198aa0_3 { unsigned char unknown_0_; unsigned char unknown_1_[19]; };
 struct Struct_ov017_02198aa0_4 { unsigned short unknown_0_; unsigned char unknown_2_[5]; unsigned char unknown_7_; unsigned char unknown_8_[4]; unsigned char unknown_c_; unsigned char unknown_d_[15]; unsigned short unknown_1c_; };
-extern "C" void* func_020100bc(GameState*);
+extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void* GetZone3D_02012fe4();
@@ -26,7 +26,7 @@ extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void func_ov017_0219a674(unsigned char*);
 extern "C" void func_ov017_0219b33c(void*, Struct_ov017_02198aa0_3*);
 extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
-extern "C" void* func_0200fd0c(GameState*);
+extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void func_02070378(char*);
 extern "C" void func_ov017_0219e310(unsigned char*, int);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
@@ -36,7 +36,7 @@ extern "C" void func_ov017_021be0a0(unsigned char*);
 extern "C" ARM void func_ov017_02198aa0(GameResources* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetUnknownGameObject();
-    void* var2 = func_020100bc(var0);
+    void* var2 = GetCamera_020100bc(var0);
     GameResources* var3 = GetGameResources();
     MessageWindow_02021b84* var4 = (MessageWindow_02021b84*)GetMessageWindow_020421a0();
     void* var5 = GetLocalWireless_0202ae18();
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* arg0) {
     if (!var14) return;
     if ((unsigned char)(var8 + 254) <= 1) {
         func_0201bfd4(static_cast<Zone3D*>(var6));
-        Struct_ov017_02198aa0_4* var19 = (Struct_ov017_02198aa0_4*)func_0200fd0c(var0);
+        Struct_ov017_02198aa0_4* var19 = (Struct_ov017_02198aa0_4*)GetZoneEntry_0200fd0c(var0);
         func_02070378((char*)var19);
         var19->unknown_7_ = 1;
         var19->unknown_c_ = 1;

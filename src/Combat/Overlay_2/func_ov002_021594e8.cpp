@@ -10,7 +10,7 @@
 
 struct SoundEffectManager_02108760;
 struct Struct_02048350_2;
-extern "C" void *func_02079e2c(char *arg0, int arg1);
+extern "C" void *FindActionData_02079e2c(char *actionTables, int actionId);
 extern "C" GameObject *func_0200ff94(GameState *arg0, int arg1);
 extern "C" int *GetLocalWireless_0202ae18(void);
 extern "C" void *__clear(void *arg0, int arg1);
@@ -74,8 +74,8 @@ extern "C" ARM void func_ov002_021594e8(struct Struct_ov002_021594e8_2 *arg0, sh
 
     arg0->unknown_1c26_                        = arg1;
     GameState *var5                     = GameState::GetInstance();
-    Struct_02108e10* var6                         = func_020797dc();
-    struct Struct_ov002_021594e8_3 *var7 = (struct Struct_ov002_021594e8_3 *) func_02079e2c((char*)var6, arg0->unknown_1c26_);
+    ActionTables_02108e10* var6                         = GetActionTables_020797dc();
+    struct Struct_ov002_021594e8_3 *var7 = (struct Struct_ov002_021594e8_3 *) FindActionData_02079e2c((char*)var6, arg0->unknown_1c26_);
     GameObject *var8                  = func_0200ff94(var5, arg2);
     int *var9                     = GetLocalWireless_0202ae18();
     int var10                         = 0;
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov002_021594e8(struct Struct_ov002_021594e8_2 *arg0, sh
         if (arg0->unknown_1c26_ == 0x22) {
             func_ov002_02157ce0((char *) &var0);
             func_ov002_02157ce0((char *) &var0);
-            struct Struct_ov002_021594e8_3 *var12 = (struct Struct_ov002_021594e8_3 *) func_02079e2c((char*)var6, arg0->unknown_1c26_);
+            struct Struct_ov002_021594e8_3 *var12 = (struct Struct_ov002_021594e8_3 *) FindActionData_02079e2c((char*)var6, arg0->unknown_1c26_);
             if (var12 != NULL) {
                 __clear(var2, 4);
                 int var13 = func_020114ec((char *) var5, var2);
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov002_021594e8(struct Struct_ov002_021594e8_2 *arg0, sh
                 }
             }
         } else {
-            struct Struct_ov002_021594e8_3 *var15 = (struct Struct_ov002_021594e8_3 *) func_02079e2c((char*)var6, arg0->unknown_1c26_);
+            struct Struct_ov002_021594e8_3 *var15 = (struct Struct_ov002_021594e8_3 *) FindActionData_02079e2c((char*)var6, arg0->unknown_1c26_);
             if (var15 != NULL && (var15->unknown_9_2_ & 1)) {
                 func_ov016_0218b5c0(var11, -1);
                 func_ov002_02157ce0((char *) &var1);

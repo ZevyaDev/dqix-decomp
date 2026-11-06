@@ -41,7 +41,7 @@ struct Struct_ov017_021cf86c_2 { char unknown_0_[0x2664]; char unknown_2664_[4];
 struct Struct_ov017_021cf86c_3 { char unknown_0_[0xc]; int unknown_c_; };
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" Struct_ov017_021cf86c_2* GetZone3D_02012fe4();
-extern "C" void* func_0200fd0c(GameState*);
+extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" int func_02046b60(Struct_02038598_5*, int);
 extern "C" int func_02046b24(Struct_02015438**);
 extern "C" void func_0208f748(void*, int);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov017_021cf86c(void*, Struct_ov017_021cf730_2* arg1, Ga
     Struct_ov017_021cf86c_2* var0 = GetZone3D_02012fe4();
     GrottoStruct* var1;
     Struct_02038598_5* var2 = arg3->unknown_36fc_;
-    func_0200fd0c(arg2);
+    GetZoneEntry_0200fd0c(arg2);
     var1 = arg2->GetGrottoStruct();
     if (func_02046b60(var2, 0x4e)) {
         Struct_ov017_021cf86c_4* var3 = arg3->unknown_3ca4_;

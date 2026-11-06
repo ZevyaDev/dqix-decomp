@@ -10,15 +10,15 @@
 #include "NitroSDK/ColorEffects.h"
 #include "Input/Input.h"
 
-struct Struct_0205a330;
+struct SpriteAnimationList_0205a330;
 struct Struct_0205c570;
 struct Struct_0205da38;
 struct SoundEffectManager_02108760;
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 
 struct Struct_ov003_0216b968 {
     char unknown_0_[REGION_LAYOUT(0x230, 0x2e0)];
-    struct Struct_0205a330* unknown_2e0_;
+    struct SpriteAnimationList_0205a330* unknown_2e0_;
     char unknown_2e4_[REGION_LAYOUT(0x63c, 0x6bc)];
     int unknown_9a0_;
     char unknown_9a4_[REGION_LAYOUT(0xf6a, 0x100a)];
@@ -44,13 +44,13 @@ struct Struct_ov003_0216b968_2 {
 extern "C" Struct_ov003_0216b968* GetMessageWindow_020421a0(void);
 extern "C" void func_0205d7a0(void* arg0, int arg1);
 extern "C" void func_ov003_0216da90(Struct_ov003_0216b968_2* arg0);
-extern "C" void func_0205a330(struct Struct_0205a330* arg0, int arg1);
-extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" void func_ov003_0216dc58(Struct_ov003_0216b968_2* arg0);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" int func_0205d97c(void* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
@@ -73,20 +73,20 @@ extern "C" ARM void func_ov003_0216b968(Struct_ov003_0216b968_2* arg0) {
         arg0->unknown_6_ = 2;
     } else if (arg0->unknown_6_ == 2) {
         GameState* var1 = GameState::GetInstance();
-        struct Struct_0205a330* var2 = var0->unknown_2e0_;
-        func_0205a330(var2, var1->GetTickCount());
+        struct SpriteAnimationList_0205a330* var2 = var0->unknown_2e0_;
+        AdvanceSpriteAnimations_0205a330(var2, var1->GetTickCount());
         var0->unknown_19ae_ = 0;
         arg0->unknown_13ee_ = 0;
-        func_0205d794((struct Struct_0205c570*)arg0->unknown_12c0_);
+        GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_12c0_);
         if (arg0->unknown_10_ != 0) {
             func_ov003_0216dc58(arg0);
         }
 
         int var3 = -1;
         if (func_0205da38((struct Struct_0205da38*)arg0->unknown_12c0_, 0x14) != 0) {
-            var3 = func_0205d794((struct Struct_0205c570*)arg0->unknown_12c0_);
+            var3 = GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_12c0_);
         } else if (g_keyManager.TestKeysPressed(0x401) != 0) {
-            var3 = func_0205d794((struct Struct_0205c570*)arg0->unknown_12c0_);
+            var3 = GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_12c0_);
         } else if (g_keyManager.TestKeysPressed(2) != 0 || func_0205d97c(arg0->unknown_12c0_) == 2) {
             var3 = -2;
         }
@@ -97,30 +97,30 @@ extern "C" ARM void func_ov003_0216b968(Struct_ov003_0216b968_2* arg0) {
             arg0->unknown_4_ = 3;
             arg0->unknown_6_ = 0;
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-            func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_12c0_, 0);
+            CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_12c0_, 0);
             break;
         case 1:
             arg0->unknown_4_ = 5;
             arg0->unknown_6_ = 0;
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-            func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_12c0_, 0);
+            CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_12c0_, 0);
             break;
         case 2:
             arg0->unknown_4_ = 4;
             arg0->unknown_6_ = 0;
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-            func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_12c0_, 0);
+            CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_12c0_, 0);
             break;
         case 3:
             arg0->unknown_4_ = 6;
             arg0->unknown_6_ = 0;
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-            func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_12c0_, 0);
+            CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_12c0_, 0);
             break;
         case -2:
             arg0->unknown_4_ = 6;
             arg0->unknown_6_ = 0;
-            func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_12c0_, 0);
+            CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_12c0_, 0);
             break;
         default:
             break;
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov003_0216b968(Struct_ov003_0216b968_2* arg0) {
         if (var5) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         }
-        func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_12c0_, 0);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_12c0_, 0);
 #endif
     }
 }

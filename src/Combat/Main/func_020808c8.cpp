@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 
 struct StringList_02072a68_2;
 struct Struct_0207f524 {
@@ -52,7 +52,7 @@ extern "C" ARM void func_020808c8(void* arg0, int arg1, short* arg2, short* arg3
             return;
         }
 #if defined(jpn)
-        int var5 = func_020d2ff0((const char*)var4) >> 1;
+        int var5 = GetStringLength_020d2ff0((const char*)var4) >> 1;
         int var6 = var1->unknown_13_0_;
         *arg2 = (short)(var5 * var6);
 #else
@@ -70,7 +70,7 @@ extern "C" ARM void func_020808c8(void* arg0, int arg1, short* arg2, short* arg3
             return;
         }
 #if defined(jpn)
-        int var7 = func_020d2ff0(var1->unknown_0_) >> 1;
+        int var7 = GetStringLength_020d2ff0(var1->unknown_0_) >> 1;
         int var8 = var1->unknown_13_0_;
         *arg2 = (short)(var7 * var8);
 #else

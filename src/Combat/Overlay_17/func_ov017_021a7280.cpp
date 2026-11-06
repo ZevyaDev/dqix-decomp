@@ -7,11 +7,11 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_02057924(void* arg0);
+extern "C" void* GetEffectManager_02057924(void* arg0);
 extern "C" void func_02057f00(void* arg0, int arg1);
 extern "C" void func_020a0c0c(void);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_0205ebec(void* arg0);
 
 extern char gSoundEffectManager_02108760;
@@ -24,9 +24,9 @@ struct Struct_ov017_021a7280 {
 
 // USA: func_ov017_021a7280
 extern "C" ARM void func_ov017_021a7280(struct Struct_ov017_021a7280* arg0) {
-	func_02057f00(func_02057924(arg0), 0xd);
+	func_02057f00(GetEffectManager_02057924(arg0), 0xd);
 
-	func_020397c0(GameState::GetInstance()->GetUnknownGameObject());
+	EnablePlayerControl_020397c0(GameState::GetInstance()->GetUnknownGameObject());
 
 	func_0205ebec(&gSoundEffectManager_02108760);
 

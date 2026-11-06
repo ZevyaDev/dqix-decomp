@@ -6,7 +6,7 @@
 #include "Combat/Overlay_1/EventArgs.h"
 
 extern "C" float func_ov017_021d6110(void*);
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void func_ov001_02158f64(void* arg0, Struct_ov001_02158efc arg1, Struct_ov001_02158efc arg2, int arg3, int arg4, int arg5);
 
 struct Struct_ov001_02165880_33 { char unknown_0_[0x24]; void* unknown_24_; };
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov001_0215dbd0(void* arg0) {
     var2.unknown_4_ = (int)(4096.0f * func_ov017_021d6110((char*)arg0 + 0x8));
     var2.unknown_8_ = (int)(4096.0f * func_ov017_021d6110((char*)arg0 + 0x10));
 
-    Vector3fix var3 = *(Vector3fix*)((char*)func_020100bc(var0) + 0x70);
+    Vector3fix var3 = *(Vector3fix*)((char*)GetCamera_020100bc(var0) + 0x70);
     Vector3fix var4;
     var4.x = 0;
     var4.y = var3.y;
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov001_0215dbd0(void* arg0) {
     Mat4x3_ApplyToVector(&var4, &var5, &var4);
     Vector3fix_Add((Vector3fix*)&var2, &var4, (Vector3fix*)&var1);
 
-    int var6 = func_ov017_021d60f4((char*)arg0 + 0x18);
+    int var6 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x18);
     func_ov001_02158f64(data_ov001_02165880.unknown_24_, var1, var2, var6, 1, 0);
     return 1;
 }

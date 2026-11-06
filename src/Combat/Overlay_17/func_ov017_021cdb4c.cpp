@@ -1,15 +1,12 @@
 #include <globaldefs.h>
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 struct LocalWireless_0202c1a4;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4*);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
+extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" void func_0201bf84(unsigned char* arg0, int arg1);
 
 struct Struct_ov017_021cdb4c {
@@ -38,13 +35,13 @@ extern "C" ARM void func_ov017_021cdb4c(void* arg0, struct Struct_ov017_021cdb4c
     case 6:
         break;
     case 1:
-        func_0206df6c(var0, var0 + 0x8c, arg1->unknown_6_ + 0x212, arg1->unknown_8_);
+        SetFlag_0206df6c(var0, var0 + 0x8c, arg1->unknown_6_ + 0x212, arg1->unknown_8_);
         break;
     case 8:
-        func_0206df6c(var0, var0 + 0x8c, arg1->unknown_6_ + 0x79e, arg1->unknown_8_);
+        SetFlag_0206df6c(var0, var0 + 0x8c, arg1->unknown_6_ + 0x79e, arg1->unknown_8_);
         break;
     case 7:
-        func_0206df6c(var0, var0 + 0x8c, arg1->unknown_6_ + 0x33e, arg1->unknown_8_);
+        SetFlag_0206df6c(var0, var0 + 0x8c, arg1->unknown_6_ + 0x33e, arg1->unknown_8_);
         func_0201bf84(var1, 1);
         break;
     default:

@@ -40,7 +40,7 @@ extern unsigned char data_ov003_0217fb60[];
 // USA: func_ov003_0217839c
 extern "C" ARM int func_ov003_0217839c(int arg0, void* arg1) {
     if (((Struct_ov003_0217839c_3*)arg1)->unknown_8_0_ != 7) return 0;
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg0);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0);
     if (var0 == 0) return 0;
 
     unsigned char var1;

@@ -7,7 +7,7 @@
 
 struct Struct_ov023_021edc08_5 { unsigned int unknown_0_, unknown_4_, unknown_8_; };
 struct Struct_0200f3a4_8 { int unknown_0_, unknown_4_; };
-struct Struct_02109bf4_4;
+struct MusicManager_02109bf4_4;
 struct Struct_020d6f0c;
 struct Struct_020d6d18_2;
 struct Struct_0203a54c;
@@ -60,7 +60,7 @@ struct Struct_ov023_021edc08_3 { char unknown_0_[0x23ec]; ActiveGrottoClass unkn
 struct Struct_ov023_021edc08_4 { short unknown_0_, unknown_2_; short unknown_4_[3]; };
 struct Struct_ov023_021fd870 { int unknown_0_[6]; };
 extern "C" Struct_ov023_021edc08_2 _ZZ21inline_ov023_021f4c04vE1s;
-extern Struct_02109bf4_4 gMusicManager_02109bf4;
+extern MusicManager_02109bf4_4 gMusicManager_02109bf4;
 extern const Struct_ov023_021fd870 data_ov023_021fd870;
 #if defined(jpn)
 extern const char data_ov023_021fd45c[];
@@ -69,12 +69,12 @@ extern "C" void StartMessage_0204500c(Struct_02081870*, const char*, int);
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" Struct_02081870* GetMessageWindow_020421a0();
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
-extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void func_ov017_021c9ad4(unsigned short);
 extern "C" void func_ov017_021a23b0(GameResources*, int);
-extern "C" void func_0209c678(Struct_02109bf4_4*, int);
+extern "C" void func_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" void func_ov000_0216d370(void*, int, int, int);
-extern "C" void* func_02057924();
+extern "C" void* GetEffectManager_02057924();
 extern "C" void func_02057f00(void*, int);
 extern "C" void func_020d6f0c(Struct_020d6f0c*);
 extern "C" void func_020d6d18(Struct_020d6d18_2*);
@@ -94,7 +94,7 @@ extern "C" void func_020e46c4(void*);
 extern "C" void* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" Struct_ov023_021edc08_5 func_ov023_021ed804(Struct_ov023_021edc08_5, void*);
 extern "C" void func_ov023_021edf38(void*, Struct_ov023_021edc08_5*);
-extern "C" const char* func_020e51cc(int);
+extern "C" const char* GetStandardString_020e51cc(int);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_02081870*, const char*, int, int);
 #endif
@@ -120,12 +120,12 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
     GameResources* var1 = GetGameResources();
     void* var2 = GetLocalWireless_0202ae18();
     Struct_02081870* var3 = GetMessageWindow_020421a0();
-    func_020466e4(GetGlobalFlags_020d6c00(), 0x20000);
+    SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 0x20000);
     func_ov017_021c9ad4(arg0->unknown_2a0_->unknown_8_);
     func_ov017_021a23b0(var1, arg0->unknown_2a0_->unknown_8_);
     func_0209c678(&gMusicManager_02109bf4, 0);
     func_ov000_0216d370(arg0->unknown_c18_, 0, 0, 1);
-    void* var4 = func_02057924();
+    void* var4 = GetEffectManager_02057924();
     Struct_ov023_021fd870 var5 = data_ov023_021fd870;
     for (int* var6 = var5.unknown_0_; *var6 >= 0; ++var6) func_02057f00(var4, *var6);
     if (arg0->unknown_ea4_) {
@@ -184,7 +184,7 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
             }
         }
         char var19[256];
-        sprintf(var19, func_020e51cc(200));
+        sprintf(var19, GetStandardString_020e51cc(200));
         StartMessage_0204500c(var3, var19, 1, 0xe3);
 
 #endif

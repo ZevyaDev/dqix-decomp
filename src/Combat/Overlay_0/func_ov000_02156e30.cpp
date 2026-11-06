@@ -48,7 +48,7 @@ extern "C" ARM int func_ov000_02156e30(struct Random* arg0, int arg1, int arg2, 
         return 0;
     }
     if (inline_ov000_02156cc4_2(arg1)) {
-        GameObject* var1 = func_0200ff1c(var0, arg1);
+        GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
         if (var1 != NULL && (arg3->unknown_10_ & 0x80000)) {
             if (func_02085154(inline_ov000_02156cc4(var1))) {
                 return 0;
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov000_02156e30(struct Random* arg0, int arg1, int arg2, 
     }
     float var2 = func_ov000_02156118(arg0, arg2);
     if (inline_ov000_02156cc4_2(arg2) && (arg3->unknown_4_0_ == 0xf4 || arg3->unknown_4_0_ == 0xf5)) {
-        GameObject* var3 = func_0200ff1c(GameState::GetInstance(), arg2);
+        GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg2);
         Struct_ov000_02156e30* var4 = GetPartyMemberData_02053c6c((unsigned char*)var3);
         if (var3 != NULL && var4 != NULL && var4->unknown_2cc_ > 0) {
             if (func_02083b00(inline_ov000_02156cc4(var3), 0x28)) {

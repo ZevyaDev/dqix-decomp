@@ -22,8 +22,8 @@ struct Struct_0205faf4_3;
 struct Struct_0205faf4_4;
 struct Struct_0205faf4_7;
 struct Struct_02015438;
-struct Struct_02020cb8;
-struct Struct_02020cb8_5;
+struct BGLayer_02020cb8;
+struct BGLayer_02020cb8_5;
 struct Struct_02020cb8_6;
 
 struct Struct_0208bf78_6 {
@@ -130,21 +130,21 @@ extern "C" int func_0206e260(Struct_0205faf4_4*, int);
 extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0();
 extern "C" Struct_0208bf78_7* func_02096134(Struct_0205faf4_7*, int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" void func_0204af64(Struct_02020cb8*);
-extern "C" void func_0204b11c(unsigned char*, int);
-extern "C" void func_0204b5e8(Struct_02020cb8_5*, int, int);
+extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char*, int);
+extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
 extern "C" void func_0208c9cc(int, int, int, int, int);
 extern "C" void func_0204b2e0(void*, char*);
 extern "C" void func_0204b3a0(Struct_02020cb8_6*, char*);
-extern "C" void func_0204c684(Struct_0208bf78_2*);
+extern "C" void InitTextWindow_0204c684(Struct_0208bf78_2*);
 extern "C" Struct_0205faf4_3* GetFlagManager_0205ec34();
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0*);
 extern "C" void func_0208d42c(void*, Struct_0208bf78_2*, short, short, int, unsigned char, unsigned char, unsigned char, unsigned char);
-extern "C" void func_0204b5b4(void*, int);
+extern "C" void SetBGPriority_0204b5b4(void*, int);
 #if defined(jpn)
 extern "C" void func_02050678(void*, short, short, const char*, int, unsigned char, short*, short*);
 extern "C" void func_020474a8(MessageWindow_020465c0*, int, const char*, char*);
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 extern char data_020f1234[], data_020f129b[];
 #else
 extern "C" void func_0204f41c(Struct_0208bf78_2*, short, short, const char*, int, unsigned char, short*, short*, int);
@@ -178,7 +178,7 @@ static inline void inline_0208bf78_6(void* arg0, short arg1, short arg2, int arg
         short var1;
         short var2;
         sprintf(var0, data_020f129b, arg3);
-        func_020d2ff0(var0);
+        GetStringLength_020d2ff0(var0);
         func_02050678(arg0, arg1, arg2, var0, 8, arg4, &var1, &var2);
     }
 }
@@ -249,7 +249,7 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
         short var16;
         short var17;
         char* var18 = (char*)var8[0];
-        func_0204c684(&var15);
+        InitTextWindow_0204c684(&var15);
         var15.unknown_8_ = var18 + 0x10;
         var15.unknown_8c_.unknown_1c_ = 0x20;
         var15.unknown_8c_.unknown_1e_ = 0x18;
@@ -384,12 +384,12 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
 #endif
         }
         Struct_0208bf78_3 var39;
-        func_0204af64((Struct_02020cb8*)&var39);
-        func_0204b11c((unsigned char*)&var39, 0);
+        InitBGLayer_0204af64((BGLayer_02020cb8*)&var39);
+        SetBGScreenSize_0204b11c((unsigned char*)&var39, 0);
         var39.unknown_1c_0_ = 1;
         var39.unknown_1c_4_ = 0;
-        func_0204b5b4(&var39, 0);
-        func_0204b5e8((Struct_02020cb8_5*)&var39, 0, 0);
+        SetBGPriority_0204b5b4(&var39, 0);
+        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&var39, 0, 0);
         func_0208c9cc(0, 0, 15, 0, 0);
         for (int var40 = 0; var40 < var12; var40++) {
             func_0204b2e0(&var39, (char*)var8[var40]);

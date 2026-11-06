@@ -2,9 +2,9 @@
 #include "GameState/GameState.h"
 
 struct Struct_02000c9c_8;
-extern "C" int func_0200fb08(Struct_02000c9c_8*);
-extern "C" int func_020d2ff0(const char*);
-extern "C" int func_02001aec(const char*, const char*, unsigned int);
+extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
+extern "C" int GetStringLength_020d2ff0(const char*);
+extern "C" int CompareBytes_02001aec(const char*, const char*, unsigned int);
 extern "C" int sprintf(char*, const char*, ...);
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" void* memcpy(void*, const void*, unsigned int);
@@ -35,7 +35,7 @@ extern "C" ARM void func_020e4958(char** arg0, int arg1, int arg2, int arg3, int
     char var3[0x100];
     var0 = 1 - var0;
     __clear(var3, 0x100);
-    if (arg5 == -1 && func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance()) == 3) arg5 = 0;
+    if (arg5 == -1 && GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance()) == 3) arg5 = 0;
     char* var4;
     char* var5 = var3;
     var4 = var1;
@@ -46,7 +46,7 @@ extern "C" ARM void func_020e4958(char** arg0, int arg1, int arg2, int arg3, int
             Struct_020eea50* var7 = data_020eea50;
             int var8;
             while ((var8 = var7->unknown_8_) != 0) {
-                if (func_02001aec(var4 + 1, var7->unknown_4_, var8) == 0) {
+                if (CompareBytes_02001aec(var4 + 1, var7->unknown_4_, var8) == 0) {
                     if (arg5 != -1) {
                         var5 += sprintf(var5, data_020eea08[var7->unknown_0_[arg5]].unknown_0_);
                         var4 += var7->unknown_8_ + 1;
@@ -68,7 +68,7 @@ extern "C" ARM void func_020e4958(char** arg0, int arg1, int arg2, int arg3, int
     *var5 = *var4;
     memset(var1, 0, 0x100);
     func_020e4864(var3, var1, var0, arg3, var2, arg5);
-    int var9 = func_020d2ff0(var1);
+    int var9 = GetStringLength_020d2ff0(var1);
     memcpy(*arg0, var1, var9);
     *arg0 += var9;
 }

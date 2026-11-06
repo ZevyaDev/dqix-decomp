@@ -4,7 +4,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 
 struct Struct_02052e2c;
 extern "C" short* func_02052e2c(struct Struct_02052e2c* arg0);
@@ -34,7 +34,7 @@ extern "C" ARM void func_020732cc(int arg0) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetGameResources();
     void* var2 = GetParty_02010828(var0);
-    GameObject* var3 = func_0200ff1c(var0, arg0);
+    GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     if (var3 != NULL) {
         int var4;
         short* var5;

@@ -108,7 +108,7 @@ struct MessageWindow_02021b84 {
 struct Struct_02045cac;
 struct Struct_0204b010;
 struct Struct_02020cb8_3;
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 
 extern "C" void func_0205a494(void* arg0);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
@@ -118,7 +118,7 @@ extern "C" void func_0204b010(Struct_0204b010* arg0, void* arg1);
 extern "C" void func_0204afb4(Struct_02020cb8_3* arg0);
 extern "C" void func_02017d68(void* arg0);
 extern "C" void* GetGlobalFlags_020d6c00();
-extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 
 extern "C" {
 void func_ov023_021eb26c(void* arg0);
@@ -178,6 +178,6 @@ extern "C" ARM void func_ov008_021845ac(Struct_ov008_021842a0_2* arg0)
         {
             func_02017d68(GetZone3D_02012fe4());
         }
-        func_020466f4((Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0xf);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0xf);
     }
 }

@@ -4,11 +4,11 @@
 
 extern "C" void func_ov017_021b5a30(unsigned char* arg0);
 extern "C" void func_ov017_021b6090(unsigned char* arg0);
-extern "C" void func_02094ab0(int arg0);
-extern "C" int func_02094a00(void);
+extern "C" void CancelFontLoad_02094ab0(int loader);
+extern "C" int GetFontLoader_02094a00(void);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_ov017_0218d75c(void* arg0);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 
 // USA: func_ov017_021b5fc0
 extern "C" ARM int func_ov017_021b5fc0(unsigned char* arg0) {
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov017_021b5fc0(unsigned char* arg0) {
             return 5;
         }
         arg0[0x16] = 0;
-        func_02094ab0(func_02094a00());
+        CancelFontLoad_02094ab0(GetFontLoader_02094a00());
         func_ov017_021b5a30(arg0);
         arg0[0x1] = 1;
         char* var3 = (char*)GetMessageWindow_020421a0();
@@ -43,8 +43,8 @@ extern "C" ARM int func_ov017_021b5fc0(unsigned char* arg0) {
         goto returnFive021b5fc0;
     }
     arg0[0x16] = 0;
-    func_02094ab0(func_02094a00());
-    func_020397c0(*(void**)(arg0 + 0x1c));
+    CancelFontLoad_02094ab0(GetFontLoader_02094a00());
+    EnablePlayerControl_020397c0(*(void**)(arg0 + 0x1c));
     func_ov017_021b5a30(arg0);
     arg0[0x1] = 1;
     *(int*)(var4 + Enum_ov017_021b5fc0_728) = 0;

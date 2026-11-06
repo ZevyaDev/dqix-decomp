@@ -38,8 +38,8 @@ extern "C" void func_ov002_021556fc(char*);
 extern "C" void func_ov017_021a55b0(Struct_ov017_021a5600_2*);
 extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
 extern "C" Struct_02012de8* GetGlobalFlags_020d6c00();
-extern "C" void func_020397cc(Struct_02018300_3*, int);
-extern "C" unsigned char* func_020100f8(char*);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
+extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" void func_020a28a0(unsigned char*, unsigned char);
 extern "C" void func_020a28b0(unsigned char*, int);
 extern "C" void func_02027288(unsigned char*, int);
@@ -48,7 +48,7 @@ extern "C" void func_020a1df8(int);
 extern "C" void func_020a1ef0(int);
 extern "C" void func_ov002_021556ec(void*, int, int);
 extern "C" int func_02046b60(Struct_02038598_5*, int);
-extern "C" void func_020397c0(void*);
+extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" void func_0202ac74();
 extern "C" int func_02046708(Struct_02012de8*, unsigned int);
 extern "C" void func_ov017_021a01bc(unsigned char*);
@@ -62,10 +62,10 @@ extern "C" ARM void func_ov017_021a5600(Struct_ov017_021a5600_2* arg0) {
     GameResources* var1 = GetGameResources();
     Struct_02018300_3* var2 = (Struct_02018300_3*)var0->GetUnknownGameObject();
     Struct_02012de8* var3 = GetGlobalFlags_020d6c00();
-    func_020397cc(var2, 1);
+    DisablePlayerControl_020397cc(var2, 1);
     var2->unknown_b2_ = 0;
     SetFlags04(var1, 0xc0);
-    unsigned char* var4 = func_020100f8((char*)var0);
+    unsigned char* var4 = GetFollowCamera_020100f8((char*)var0);
     func_020a28a0(var4, 3);
     int var5 = var0->GetTickCount();
     if (var5 < 0) var5 = 1;
@@ -98,10 +98,10 @@ extern "C" ARM void func_ov017_021a5600(Struct_ov017_021a5600_2* arg0) {
         if (func_ov002_02155960(data_ov017_021d83ac, var5)) ++arg0->unknown_8_;
     } else if (arg0->unknown_8_ == 2) {
         func_ov002_021556fc(data_ov017_021d83ac);
-        FontLoader_0208cb08* var10 = func_02094a00();
+        FontLoader_0208cb08* var10 = GetFontLoader_02094a00();
         func_02094b40(var10);
-        func_02094ab0(var10);
-        func_02094b34(var10, 5000, 0x6f, 1, 1);
+        CancelFontLoad_02094ab0(var10);
+        RequestFontLoad_02094b34(var10, 5000, 0x6f, 1, 1);
         ++arg0->unknown_8_;
     } else if (arg0->unknown_8_ == 3) {
         unsigned int var11 = *reinterpret_cast<unsigned int*>(data_ov017_021d83ac + Enum_ov017_021a5600_76);
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov017_021a5600(Struct_ov017_021a5600_2* arg0) {
         if (var12) {
             func_020a28b0(var4, 3);
             ClearFlags04(var1, 0xc0);
-            func_020397c0(var2);
+            EnablePlayerControl_020397c0(var2);
         }
         func_ov017_02191108(var1, 1, 1, 0, 1);
         func_0202ac74();
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov017_021a5600(Struct_ov017_021a5600_2* arg0) {
             func_02027304(var14, -1);
         }
         func_ov017_021a01bc((unsigned char*)var1);
-        func_020397c0(var2);
+        EnablePlayerControl_020397c0(var2);
         func_02039830(var2);
         arg0->unknown_1_ = 1;
         func_ov017_021a5974((char*)arg0);

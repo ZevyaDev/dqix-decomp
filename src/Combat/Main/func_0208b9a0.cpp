@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 
-struct Struct_0201099c_14;
-extern "C" ARM void func_020dfc40(struct Struct_0201099c_14*);
+struct StringTable_0201099c_14;
+extern "C" ARM void InitStringTable_020dfc40(struct StringTable_0201099c_14*);
 
 struct Struct_0208b9a0;
 extern "C" ARM void func_0208d82c(struct Struct_0208b9a0*);
 
-struct Struct_02020cb8;
-extern "C" ARM void func_0204af64(struct Struct_02020cb8*);
+struct BGLayer_02020cb8;
+extern "C" ARM void InitBGLayer_0204af64(struct BGLayer_02020cb8*);
 
-extern "C" ARM void func_0205a444(char*);
+extern "C" ARM void InitSpriteSet_0205a444(char*);
 
 // USA: func_0208b9a0
 extern "C" ARM void func_0208b9a0(char* arg0, unsigned char arg1) {
     *(int*)(arg0 + 0x0) = 0;
-    func_020dfc40((struct Struct_0201099c_14*)(arg0 + 0x4));
+    InitStringTable_020dfc40((struct StringTable_0201099c_14*)(arg0 + 0x4));
     func_0208d82c((struct Struct_0208b9a0*)(arg0 + 0x1c));
     *(unsigned char*)(arg0 + 0x3c) = 0;
     *(unsigned char*)(arg0 + 0x3d) = 0;
-    func_0204af64((struct Struct_02020cb8*)(arg0 + 0x40));
-    func_0205a444(arg0 + 0x60);
+    InitBGLayer_0204af64((struct BGLayer_02020cb8*)(arg0 + 0x40));
+    InitSpriteSet_0205a444(arg0 + 0x60);
     *(int*)(arg0 + 0xb4) = 0;
     *(int*)(arg0 + 0xb8) = (*(volatile unsigned int*)0x04001000 & 0x1f00) >> 8;
     *(int*)(arg0 + 0xbc) = -1;

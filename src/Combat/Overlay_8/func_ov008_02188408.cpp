@@ -32,7 +32,7 @@ extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int in
 extern char data_ov008_0218c0d5[];
 extern "C" int func_020e2168(char*, const char*, int, int, bool);
 extern "C" void func_02041f50(char*, char*);
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 #endif
@@ -120,10 +120,10 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
         char var3[0x80];
         __clear(var3, sizeof(var3));
         func_02041f50(var2, var3);
-        int var4 = func_020d2ff0(var3);
+        int var4 = GetStringLength_020d2ff0(var3);
         int var5 = (0x80 - (var4 / 2) * 12) / 2;
         int var6 = 6;
-        if (var4 != func_020d2ff0(var2)) var6 = 8;
+        if (var4 != GetStringLength_020d2ff0(var2)) var6 = 8;
         func_02041a90(arg1, var5, var6);
         AppendText_02042058(arg1, var2);
 #else

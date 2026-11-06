@@ -8,7 +8,7 @@ struct Struct_ov025_021dfce0 {
     GameObject* unknown_8_;
 };
 
-extern "C" int func_ov000_0215e9fc(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov000_0215ec1c(void* arg0, short* arg1, int arg2, int arg3);
 extern "C" int func_ov025_021dfbd4(int arg0);
 
@@ -17,7 +17,7 @@ extern "C" ARM int func_ov025_021e1048(void* arg0, Struct_ov025_021dfce0* arg1) 
     GameState* var0 = GameState::GetInstance();
     short var1[12];
     int var2 = 0;
-    var2 += func_ov000_0215e9fc(arg0, var1, 12, var2);
+    var2 += CollectPartyCombatantIndices_ov000_0215e9fc(arg0, var1, 12, var2);
     var2 += func_ov000_0215ec1c(arg0, var1 + var2, 12 - var2, 0);
     int var3 = 0;
     for (int var4 = 0; var4 < var2; var4++) {

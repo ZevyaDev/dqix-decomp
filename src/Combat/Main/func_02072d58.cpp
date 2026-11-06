@@ -38,7 +38,7 @@ extern "C" ARM void func_02072d58(int arg0, char* arg1, char* arg2) {
         sprintf(arg2, data_020f0cff, arg1, 0x65);
     }
 
-    GameObject* var4 = func_0200ff1c(GameState::GetInstance(), arg0);
+    GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0);
     if (var4 == NULL) {
         return;
     }

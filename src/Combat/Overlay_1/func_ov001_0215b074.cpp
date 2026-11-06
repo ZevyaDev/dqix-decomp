@@ -3,17 +3,17 @@
 #include "Resource/Brightness.h"
 #include "Resource/GameResources.h"
 
-extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" GameResources* GetResources_0200fb8c(int* gameState);
 
 // USA: func_ov001_0215b074
 extern "C" ARM int func_ov001_0215b074(int arg0, char* arg1, int arg2) {
     int var0;
     int var1;
-    int var2 = func_ov017_021d60f4(arg1);
+    int var2 = GetScriptValueAsInt_ov017_021d60f4(arg1);
     var0 = -16;
     if (arg2 >= 2) {
-        var0 = func_ov017_021d60f4(arg1 + 8);
+        var0 = GetScriptValueAsInt_ov017_021d60f4(arg1 + 8);
     }
     GameResources* var3 = GetResources_0200fb8c((int*)GameState::GetInstance());
     if (var3 == NULL) return 0;

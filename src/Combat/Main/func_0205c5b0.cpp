@@ -4,8 +4,8 @@ struct Struct_0205c5b0_2;
 extern "C" int func_0205c6bc(Struct_0205c5b0_2*);
 struct Struct_0205bd04;
 extern "C" int func_0205bd04(struct Struct_0205bd04*);
-struct Struct_0205bb04;
-extern "C" void func_0205bb04(struct Struct_0205bb04*, int);
+struct MenuCursor_0205bb04;
+extern "C" void SetMenuCursorIndex_0205bb04(struct MenuCursor_0205bb04*, int);
 struct Struct_0205bf3c;
 extern "C" void func_0205bf3c(struct Struct_0205bf3c*);
 struct Struct_0205bc10;
@@ -36,7 +36,7 @@ extern "C" ARM int func_0205c5b0(void* arg0, void* arg1) {
     if (var1->unknown_94_ != 0) {
         if (func_0205c6bc((Struct_0205c5b0_2*)arg0) != 0) {
             int var4 = func_0205bd04((struct Struct_0205bd04*)((char*)var1 + 0x4));
-            func_0205bb04((struct Struct_0205bb04*)((char*)var1 + 0x54), var4);
+            SetMenuCursorIndex_0205bb04((struct MenuCursor_0205bb04*)((char*)var1 + 0x54), var4);
             func_0205bf3c((struct Struct_0205bf3c*)((char*)var1 + 0x54));
             func_0205bc10((struct Struct_0205bc10*)((char*)var1 + 0x4));
             var2 = 1;
@@ -49,7 +49,7 @@ extern "C" ARM int func_0205c5b0(void* arg0, void* arg1) {
         if (((Type_0205c5b0)func_0205bc2c)((struct Struct_0205bc2c*)((char*)var1 + 0x4), var0) != 0) {
             int var5 = func_0205bd04((struct Struct_0205bd04*)((char*)var1 + 0x4));
             if (var3 != var5) var2 = 2;
-            func_0205bb04((struct Struct_0205bb04*)((char*)var1 + 0x54), var5);
+            SetMenuCursorIndex_0205bb04((struct MenuCursor_0205bb04*)((char*)var1 + 0x54), var5);
             func_0205bf3c((struct Struct_0205bf3c*)((char*)var1 + 0x54));
             goto done;
         }

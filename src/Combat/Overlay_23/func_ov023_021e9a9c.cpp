@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_020cf0fc(int arg0);
-extern "C" void func_ov017_021d6134(void* arg0, int arg1);
+extern "C" void SetScriptRefInt_ov017_021d6134(void* value, int number);
 
 struct Struct_ov023_021e9a9c {
     unsigned int unknown_0_0_ : 12;
@@ -25,9 +25,9 @@ extern "C" ARM int func_ov023_021e9a9c(void* arg0) {
     Struct_ov023_021e9a9c* var2 = (Struct_ov023_021e9a9c*)((char*)var0 + 0x5000 + Enum_ov023_021e9a9c_1692);
 
     if (var1[1] == (int)var2->unknown_1_4_ && var1[2] == (int)var2->unknown_2_0_) {
-        func_ov017_021d6134(arg0, 1);
+        SetScriptRefInt_ov017_021d6134(arg0, 1);
     } else {
-        func_ov017_021d6134(arg0, 0);
+        SetScriptRefInt_ov017_021d6134(arg0, 0);
     }
     return 1;
 }

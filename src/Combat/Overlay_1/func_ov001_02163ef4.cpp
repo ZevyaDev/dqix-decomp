@@ -3,7 +3,7 @@
 union Struct_020117f0_2 { int unknown_0_; float unknown1_0_; };
 struct Struct_ov001_02163ef4 { int unknown_0_; Struct_020117f0_2 unknown_4_; };
 
-extern "C" int func_ov017_021d60f4(Struct_ov001_02163ef4* arg0);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_ov001_02163ef4* value);
 extern "C" float func_ov017_021d6110(Struct_ov001_02163ef4* arg0);
 extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_02019508;
@@ -12,8 +12,8 @@ extern "C" ARM struct Struct_02019508* func_02019508(struct Struct_02019508_3* a
 
 // USA: func_ov001_02163ef4
 extern "C" ARM int func_ov001_02163ef4(Struct_ov001_02163ef4* arg0) {
-    int var0 = func_ov017_021d60f4(arg0);
-    int var1 = func_ov017_021d60f4((Struct_ov001_02163ef4*)((char*)arg0 + 0x8));
+    int var0 = GetScriptValueAsInt_ov017_021d60f4(arg0);
+    int var1 = GetScriptValueAsInt_ov017_021d60f4((Struct_ov001_02163ef4*)((char*)arg0 + 0x8));
     void* var2 = GetZone3D_02012fe4();
     if (!var2) {
         return 0;

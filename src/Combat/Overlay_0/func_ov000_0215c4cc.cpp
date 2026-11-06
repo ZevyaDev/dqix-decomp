@@ -10,7 +10,7 @@ struct Struct_ov000_021584e8 { char unknown_0_[0x20]; Struct_ov000_021584e8* unk
 struct Struct_ov000_0215a908 { char unknown_0_[0x8e00]; unsigned char unknown_8e00_; unsigned char unknown_8e01_; unsigned char unknown_8e02_; char unknown_8e03_[0x21]; int unknown_8e24_; };
 struct Struct_ov000_0215a908_2 { char unknown_0_[0x2e]; short unknown_2e_; };
 struct Struct_02010088;
-extern "C" int func_ov000_0215eb1c(Struct_ov000_0215a908*, short*, int, int);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(Struct_ov000_0215a908*, short*, int, int);
 extern "C" GameObject* func_0200fea4(GameState*, int);
 extern "C" int func_ov000_02155154(GameObject*);
 extern "C" int func_02010088(Struct_02010088*);
@@ -22,9 +22,9 @@ extern "C" void func_ov000_02160030(void*);
 extern "C" void* func_ov000_0215e918(void*);
 extern "C" void* func_ov000_0215e938(void*);
 extern "C" void func_ov000_02157cdc(void*);
-extern "C" Struct_ov000_021584e8* func_ov000_0215e958(Struct_ov000_0215a908*);
+extern "C" Struct_ov000_021584e8* GetNextActionResult_ov000_0215e958(Struct_ov000_0215a908*);
 extern "C" void func_ov000_0215ccbc(int, Struct_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
-extern "C" void func_ov000_0215a88c(void*, void*, int);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 extern "C" void func_ov000_0215ffc4(void*, void*, int);
 extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*, Struct_ov000_0215767c_6*);
 extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*, Struct_ov000_0215767c_4*);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov000_0215c4cc(Struct_ov000_0215a908* arg0) {
     int var2 = 8;
     unsigned short* var3 = (unsigned short*)var0;
     do { *var3 = *var1++; var3++; } while (--var2);
-    int var4 = func_ov000_0215eb1c(arg0, var0, 8, 1);
+    int var4 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0, var0, 8, 1);
     for (int var5 = 0; var5 < var4; var5++) {
         short var6 = inline_ov000_0215c4cc(var0, var5);
         GameObject* var7 = func_0200fea4(GameState::GetInstance(), var6);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov000_0215c4cc(Struct_ov000_0215a908* arg0) {
         Struct_ov000_0215767c_4* var12 = (Struct_ov000_0215767c_4*)func_ov000_0215e938(arg0);
         if (!var12) continue;
         func_ov000_02157cdc(var12);
-        Struct_ov000_021584e8* var13 = func_ov000_0215e958(arg0);
+        Struct_ov000_021584e8* var13 = GetNextActionResult_ov000_0215e958(arg0);
         if (!var13) continue;
         memset(var13, 0, 0x20);
         var13->unknown_20_ = 0;
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov000_0215c4cc(Struct_ov000_0215a908* arg0) {
         var11->unknown_22_ = var7->currentStats_->primaryStats.currHP;
         var11->unknown_24_ = var7->currentStats_->primaryStats.currMP;
         func_ov000_0215ccbc((int)arg0, var13, var7, 0, inline_ov000_0215a908_2(var7), inline_ov000_0215a908_3(var7), 0, 0);
-        func_ov000_0215a88c(arg0, var13, 0x164);
+        AddActionResultMessage_ov000_0215a88c(arg0, var13, 0x164);
         var12->unknown_e_ = var0[var5];
         var12->unknown_17_ = 1;
         func_ov000_0215ffc4(var12, var13, 0);

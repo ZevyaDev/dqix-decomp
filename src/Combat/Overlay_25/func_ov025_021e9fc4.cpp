@@ -20,7 +20,7 @@ struct Struct_ov000_021600f8 {
     Struct_ov000_021600f8* unknown_20_;
 };
 struct Struct_ov025_021e9fc4;
-extern "C" void* func_ov000_02160130();
+extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" void* func_ov000_02160f20(void*);
 extern "C" int func_ov000_0216fd38(Struct_ov000_0216fd38*);
 extern "C" void func_ov000_0216fdf8(Struct_ov000_0216fdf8*, int);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov025_021e9fc4(char* arg0) {
         if ((*(unsigned char*)(arg0 + 0x87c)) != 0) func_ov025_021ed634((Struct_ov025_021e9fc4*)(arg0 + 0x5e8));
     } else if (((int*)(arg0 + 0x10))[(unsigned char)arg0[0x30]] != 0 &&
                func_ov000_0216fd38((Struct_ov000_0216fd38*)(arg0 + 0x798)) != 0) {
-        unsigned char* var3 = (unsigned char*)func_ov000_02160f20(func_ov000_02160130());
+        unsigned char* var3 = (unsigned char*)func_ov000_02160f20(GetBattleScene_ov000_02160130());
         func_ov000_0216fdf8((Struct_ov000_0216fdf8*)(arg0 + 0x798), ((short*)(var3 + 0x18))[0]);
         func_ov000_0216fdf8((Struct_ov000_0216fdf8*)(arg0 + 0x798), ((short*)(var3 + 0x18))[1]);
         func_ov000_0216fdf8((Struct_ov000_0216fdf8*)(arg0 + 0x798), ((short*)(var3 + 0x18))[2]);

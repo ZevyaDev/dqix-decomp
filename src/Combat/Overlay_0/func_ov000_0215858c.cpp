@@ -58,7 +58,7 @@ struct Struct_ov000_0215858c {
 
 int NextRandomMax(struct Random* random, int max);
 
-extern "C" void* func_ov000_0215e958(struct Random* arg0);
+extern "C" void* GetNextActionResult_ov000_0215e958(struct Random* battle);
 extern "C" void func_ov000_021584e8(struct Random* arg0, void* arg1, GameObject* arg2, int arg3, int arg4, int arg5);
 
 extern "C" void func_020884f8(unsigned char* arg0);
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         AILMENTS(var1)->unknown_3c_ |= 0x40;
     }
     if (func_ov000_02155154(var1) != 0) {
-        void* var3 = func_ov000_0215e958(arg0);
+        void* var3 = GetNextActionResult_ov000_0215e958(arg0);
         if (var3 == 0) {
             return;
         }
@@ -192,7 +192,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_02156b20(var1) != 0 && var0->unknown_82_ != 0) {
-        void* var12 = func_ov000_0215e958(arg0);
+        void* var12 = GetNextActionResult_ov000_0215e958(arg0);
         if (var12 == 0) {
             return;
         }
@@ -205,7 +205,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_0215985c(var1) != 0 && var0->unknown_83_ != 0) {
-        void* var13 = func_ov000_0215e958(arg0);
+        void* var13 = GetNextActionResult_ov000_0215e958(arg0);
         if (var13 == 0) {
             return;
         }
@@ -218,7 +218,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_02159874(var1) != 0 && var0->unknown_84_ != 0) {
-        void* var14 = func_ov000_0215e958(arg0);
+        void* var14 = GetNextActionResult_ov000_0215e958(arg0);
         if (var14 == 0) {
             return;
         }
@@ -231,7 +231,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_0215516c(var1) != 0 && var0->unknown_85_ != 0) {
-        void* var15 = func_ov000_0215e958(arg0);
+        void* var15 = GetNextActionResult_ov000_0215e958(arg0);
         if (var15 == 0) {
             return;
         }
@@ -244,7 +244,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_0215988c(var1) != 0 && var0->unknown_86_ != 0) {
-        void* var16 = func_ov000_0215e958(arg0);
+        void* var16 = GetNextActionResult_ov000_0215e958(arg0);
         if (var16 == 0) {
             return;
         }
@@ -257,7 +257,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_021598a4(var1) != 0 && var0->unknown_87_ != 0) {
-        void* var17 = func_ov000_0215e958(arg0);
+        void* var17 = GetNextActionResult_ov000_0215e958(arg0);
         if (var17 == 0) {
             return;
         }
@@ -270,7 +270,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_021598bc(var1) != 0 && var0->unknown_89_ != 0) {
-        void* var18 = func_ov000_0215e958(arg0);
+        void* var18 = GetNextActionResult_ov000_0215e958(arg0);
         if (var18 == 0) {
             return;
         }
@@ -283,7 +283,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_021598d4(var1) != 0 && var0->unknown_8a_ != 0) {
-        void* var19 = func_ov000_0215e958(arg0);
+        void* var19 = GetNextActionResult_ov000_0215e958(arg0);
         if (var19 == 0) {
             return;
         }
@@ -296,7 +296,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_02088660((struct Struct_02088660*)var1->currentStats_) != 0 && var0->unknown_8d_ != 0) {
-        void* var20 = func_ov000_0215e958(arg0);
+        void* var20 = GetNextActionResult_ov000_0215e958(arg0);
         if (var20 == 0) {
             return;
         }
@@ -326,7 +326,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_02156c94(var1) != 0 && var0->unknown_8e_ != 0) {
-        void* var22 = func_ov000_0215e958(arg0);
+        void* var22 = GetNextActionResult_ov000_0215e958(arg0);
         if (var22 == 0) {
             return;
         }
@@ -339,7 +339,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_02156cac(var1) != 0 && var0->unknown_9e_ != 0) {
-        void* var23 = func_ov000_0215e958(arg0);
+        void* var23 = GetNextActionResult_ov000_0215e958(arg0);
         if (var23 == 0) {
             return;
         }
@@ -352,7 +352,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_021598ec(var1) != 0 && var0->unknown_8f_ != 0) {
-        void* var24 = func_ov000_0215e958(arg0);
+        void* var24 = GetNextActionResult_ov000_0215e958(arg0);
         if (var24 == 0) {
             return;
         }
@@ -365,7 +365,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_02159904(var1) != 0 && var0->unknown_90_ != 0) {
-        void* var25 = func_ov000_0215e958(arg0);
+        void* var25 = GetNextActionResult_ov000_0215e958(arg0);
         if (var25 == 0) {
             return;
         }
@@ -378,7 +378,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_0215991c(var1) != 0 && var0->unknown_91_ != 0) {
-        void* var26 = func_ov000_0215e958(arg0);
+        void* var26 = GetNextActionResult_ov000_0215e958(arg0);
         if (var26 == 0) {
             return;
         }
@@ -392,7 +392,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_02159934(var1) != 0 && var0->unknown_92_ != 0) {
-        void* var27 = func_ov000_0215e958(arg0);
+        void* var27 = GetNextActionResult_ov000_0215e958(arg0);
         if (var27 == 0) {
             return;
         }
@@ -406,7 +406,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_0215994c(var1) != 0 && var0->unknown_93_ != 0) {
-        void* var28 = func_ov000_0215e958(arg0);
+        void* var28 = GetNextActionResult_ov000_0215e958(arg0);
         if (var28 == 0) {
             return;
         }
@@ -420,7 +420,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_02159964(var1) != 0 && var0->unknown_94_ != 0) {
-        void* var29 = func_ov000_0215e958(arg0);
+        void* var29 = GetNextActionResult_ov000_0215e958(arg0);
         if (var29 == 0) {
             return;
         }
@@ -434,7 +434,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_0215997c(var1) != 0 && var0->unknown_95_ != 0) {
-        void* var30 = func_ov000_0215e958(arg0);
+        void* var30 = GetNextActionResult_ov000_0215e958(arg0);
         if (var30 == 0) {
             return;
         }
@@ -448,7 +448,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_02159994(var1) != 0 && var0->unknown_96_ != 0) {
-        void* var31 = func_ov000_0215e958(arg0);
+        void* var31 = GetNextActionResult_ov000_0215e958(arg0);
         if (var31 == 0) {
             return;
         }
@@ -462,7 +462,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_021599ac(var1) != 0 && var0->unknown_97_ != 0) {
-        void* var32 = func_ov000_0215e958(arg0);
+        void* var32 = GetNextActionResult_ov000_0215e958(arg0);
         if (var32 == 0) {
             return;
         }
@@ -475,7 +475,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_021599c4(var1) != 0 && var0->unknown_98_ != 0) {
-        void* var33 = func_ov000_0215e958(arg0);
+        void* var33 = GetNextActionResult_ov000_0215e958(arg0);
         if (var33 == 0) {
             return;
         }
@@ -488,7 +488,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_02156258(var1) != 0 && var0->unknown_99_ != 0) {
-        void* var34 = func_ov000_0215e958(arg0);
+        void* var34 = GetNextActionResult_ov000_0215e958(arg0);
         if (var34 == 0) {
             return;
         }
@@ -501,7 +501,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_021563ec(var1) != 0 && var0->unknown_9a_ != 0) {
-        void* var35 = func_ov000_0215e958(arg0);
+        void* var35 = GetNextActionResult_ov000_0215e958(arg0);
         if (var35 == 0) {
             return;
         }
@@ -514,7 +514,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_02153a8c(var1) != 0 && var0->unknown_9b_ != 0) {
-        void* var36 = func_ov000_0215e958(arg0);
+        void* var36 = GetNextActionResult_ov000_0215e958(arg0);
         if (var36 == 0) {
             return;
         }
@@ -527,7 +527,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_02156404(var1) != 0 && var0->unknown_9c_ != 0) {
-        void* var37 = func_ov000_0215e958(arg0);
+        void* var37 = GetNextActionResult_ov000_0215e958(arg0);
         if (var37 == 0) {
             return;
         }
@@ -540,7 +540,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
     }
 
     if (func_ov000_021599dc(var1) != 0 && var0->unknown_a0_ != 0) {
-        void* var38 = func_ov000_0215e958(arg0);
+        void* var38 = GetNextActionResult_ov000_0215e958(arg0);
         if (var38 == 0) {
             return;
         }

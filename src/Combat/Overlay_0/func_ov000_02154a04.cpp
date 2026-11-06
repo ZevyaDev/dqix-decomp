@@ -19,14 +19,14 @@ struct Struct_ov000_02154a04 {
 };
 struct Struct_ov000_02154a04_2 { char unknown_0_[0x17c]; unsigned char unknown_17c_; };
 
-extern "C" void* func_02079e2c(char*, int);
-extern "C" int func_ov000_0215e9fc(Random*, short*, int, int);
+extern "C" void* FindActionData_02079e2c(char*, int);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(Random*, short*, int, int);
 extern "C" short func_ov000_02154f30(Random*, short, int, short*);
 extern "C" void func_ov000_02153d10(Random*, short*);
 extern "C" void func_ov000_02153d78(Random*, short, short*);
 extern "C" GameObject* func_0200fea4(GameState*, int);
 extern "C" int func_ov000_02153e78(Random*, short*, int, int, int);
-extern "C" int func_ov000_0215eb1c(Random*, short*, int, int);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(Random*, short*, int, int);
 extern "C" signed char func_ov000_0215fbe0(Random*, int);
 extern short data_ov000_02182af4[8];
 
@@ -34,7 +34,7 @@ extern short data_ov000_02182af4[8];
 extern "C" ARM int func_ov000_02154a04(Random* arg0, int arg1, int arg2, short* arg3) {
     int var0 = 0;
     GameState::GetInstance();
-    Struct_ov000_02154a04* var1 = (Struct_ov000_02154a04*)func_02079e2c((char*)func_020797dc(), (short)arg2);
+    Struct_ov000_02154a04* var1 = (Struct_ov000_02154a04*)FindActionData_02079e2c((char*)GetActionTables_020797dc(), (short)arg2);
     if (!var1) return 0;
     unsigned int var2 = var1->unknown_9_0_;
     unsigned int var3 = var1->unknown_17_4_;
@@ -42,13 +42,13 @@ extern "C" ARM int func_ov000_02154a04(Random* arg0, int arg1, int arg2, short* 
         arg3[var0++] = arg1;
     } else if (var2 == 1) {
         if (var3 == 2 || var3 == 5) {
-            int var4 = func_ov000_0215e9fc(arg0, arg3, 8, 1);
+            int var4 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0, arg3, 8, 1);
             arg3[0] = func_ov000_02154f30(arg0, (short)arg1, var4, arg3);
             var0 = 1;
         } else if (var3 == 4) {
-            var0 = func_ov000_0215e9fc(arg0, arg3, 8, 1);
+            var0 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0, arg3, 8, 1);
         } else if (var3 == 3) {
-            var0 = func_ov000_0215e9fc(arg0, arg3, 8, 1);
+            var0 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0, arg3, 8, 1);
         }
     } else if (var2 == 2) {
         if (var3 == 2) {
@@ -63,7 +63,7 @@ extern "C" ARM int func_ov000_02154a04(Random* arg0, int arg1, int arg2, short* 
             GameObject* var7 = func_0200fea4(GameState::GetInstance(), (short)arg1);
             var0 = func_ov000_02153e78(arg0, arg3, 8, ((Struct_ov000_02154a04_2*)var7)->unknown_17c_, 1);
         } else if (var3 == 3) {
-            var0 = func_ov000_0215eb1c(arg0, arg3, 8, 1);
+            var0 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0, arg3, 8, 1);
         }
     }
     short var8[8];

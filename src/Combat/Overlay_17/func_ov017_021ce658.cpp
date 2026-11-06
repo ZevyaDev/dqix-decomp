@@ -8,7 +8,7 @@ struct Struct_ov017_021ce658 {
 	unsigned char unknown_6_;
 };
 
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_020e3b8c(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, unsigned char arg7);
 
@@ -20,7 +20,7 @@ extern "C" ARM void func_ov017_021ce658(void* arg0, struct Struct_ov017_021ce658
  enum {Enum_ov017_021ce658_2384=0x950};
 #endif
 	signed char var0 = arg1->unknown_4_;
-	GameObject* var1 = func_0200ff1c(arg2, var0);
+	GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var0);
 	if (var1 == NULL) return;
 
 	char* var2 = (char*)GetPartyMemberData_02053c6c((unsigned char*)var1);

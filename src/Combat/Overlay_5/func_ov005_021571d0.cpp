@@ -6,8 +6,8 @@
 #include <globaldefs.h>
 
 struct Struct_0205bef8;
-struct Struct_0205ba68;
-struct Struct_0205bacc;
+struct MenuCursor_0205ba68;
+struct MenuCursor_0205bacc;
 
 struct Struct_ov005_021571d0 {
     int unknown_0_;
@@ -28,9 +28,9 @@ struct Struct_ov005_02153954 {
 };
 
 extern "C" void func_0205bef8(Struct_0205bef8* arg0);
-extern "C" void func_0205ba68(Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0205bacc(Struct_0205bacc* arg0, int arg1);
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
+extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc* cursor, int itemCount);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
 // USA: func_ov005_021571d0
 extern "C" ARM void func_ov005_021571d0(Struct_ov005_02153954* arg0) {
@@ -86,10 +86,10 @@ extern "C" ARM void func_ov005_021571d0(Struct_ov005_02153954* arg0) {
         break;
     }
     func_0205bef8((Struct_0205bef8*)&arg0->unknown_19f4_);
-    func_0205ba68((Struct_0205ba68*)&arg0->unknown_19f4_, var0, var1, var2);
-    func_0205bacc((Struct_0205bacc*)&arg0->unknown_19f4_, var3);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&arg0->unknown_19f4_, var0, var1, var2);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&arg0->unknown_19f4_, var3);
     arg0->unknown_19f4_.unknown_4_ = var4;
-    func_0205bb04(&arg0->unknown_19f4_, var5);
+    SetMenuCursorIndex_0205bb04(&arg0->unknown_19f4_, var5);
     arg0->unknown_19f4_.unknown_3c_ = var6;
     arg0->unknown_19f4_.unknown_3d_ = var7;
 }

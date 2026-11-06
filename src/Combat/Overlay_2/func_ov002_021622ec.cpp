@@ -9,13 +9,13 @@
 #define RG(u, j) (u)
 #endif
 
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205da38;
 struct SoundEffectManager_02108760;
-extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
-                                                                        unsigned char arg2);
-extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
+extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char arg1,
+                                                                        unsigned char bgIndex);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02161b48(char *arg0, int arg1);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov002_021622ec(char *arg0) {
     if (var0 == 0) {
         *(unsigned char *) (arg0 + 0x1000 + RG(0xc2f, 0xaf7)) = 0;
         *(short *) (arg0 + RG(0x1b00, 0x1a00) + RG(0xe0, 0xa8))          = 0;
-        func_0205de24((struct Struct_0205de24_2 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0, 2);
+        SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0, 2);
         func_ov002_0215bf34(arg0);
         func_ov002_02161cf0(arg0);
         func_ov002_0215c0f8(arg0);
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov002_021622ec(char *arg0) {
         *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) |= 4;
         short var1 = *(short *) (arg0 + RG(0x1b00, 0x1a00) + RG(0xe0, 0xa8));
         *(short *) (arg0 + RG(0x1b00, 0x1a00) + RG(0xe0, 0xa8)) =
-            func_0205d794((struct Struct_0205c570 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)));
+            GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)));
         if (var1 != *(short *) (arg0 + RG(0x1b00, 0x1a00) + RG(0xe0, 0xa8))) return;
         if (inline_ov002_021622ec(arg0) || *(unsigned char *) (arg0 + 0x1000 + RG(0xc2f, 0xaf7)) == 1) {
             GameState *var2                              = GameState::GetInstance();

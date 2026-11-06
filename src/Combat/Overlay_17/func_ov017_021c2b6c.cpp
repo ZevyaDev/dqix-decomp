@@ -14,7 +14,7 @@ enum { Enum_ov017_021c2b6c_434 = 0x1b2 };
 struct Struct_02114e20;
 struct Struct_02015ef4_5;
 
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_020a0cc4(unsigned int);
 extern "C" int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, int arg3, int arg4, Struct_02015ef4_5* arg5);
 extern "C" unsigned int func_02012dd0(Struct_02114e20*);
@@ -64,7 +64,7 @@ struct Struct_ov017_021c2b6c {
 extern "C" ARM void func_ov017_021c2b6c(Struct_ov017_021c2b6c* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
-    void* var2 = func_02057924();
+    void* var2 = GetEffectManager_02057924();
     Struct_ov017_021c2b6c_2 var3[4];
     unsigned int var4;
     if (arg0->unknown_8d_ == 0) {

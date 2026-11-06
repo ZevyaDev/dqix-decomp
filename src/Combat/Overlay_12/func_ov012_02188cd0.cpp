@@ -5,10 +5,10 @@
 #include "Input/Input.h"
 
 struct StringList_02072a68_2;
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 struct Struct_ov003_0215e6d8;
 struct Struct_ov003_0215efb8;
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205def8;
 struct SoundEffectManager_02108760;
 
@@ -84,13 +84,13 @@ struct Struct_ov012_02188cd0
     unsigned char unknown_1480_[0x14bc - 0x1480];
 };
 
-extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void func_02042764(const void* arg0, char* arg1, int arg2);
 extern "C" void func_ov003_0215e6d8(Struct_ov003_0215e6d8* arg0);
 extern "C" void func_ov003_0215e6f8(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
 extern "C" void func_ov003_0215efb8(Struct_ov003_0215efb8* arg0);
 extern "C" int func_ov012_0218ae74(Struct_ov012_02188cd0* arg0, Struct_ov012_02188cd0_3* arg1);
-extern "C" void func_0205de24(Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char arg1, unsigned char bgIndex);
 extern "C" void func_ov023_021e6e60(Struct_ov012_02188cd0* arg0);
 extern "C" void func_ov012_0218aabc(char* arg0);
 extern "C" void func_ov003_0215f41c(void* arg0, const char* arg1);
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov012_02188cd0(Struct_ov012_02188cd0* arg0)
 {
     if (arg0->unknown_1370_ == 0)
     {
-        func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ac_, 1);
+        CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_ac_, 1);
         Struct_ov012_02188cd0_3* var0 = inline_ov012_02188cd0(GameState::GetInstance());
         memset(arg0->unknown_13d0_, 0, 0x400);
         arg0->unknown_1328_ = arg0->unknown_13d0_;
@@ -169,7 +169,7 @@ extern "C" ARM void func_ov012_02188cd0(Struct_ov012_02188cd0* arg0)
     else if (arg0->unknown_1370_ == 3)
     {
         arg0->unknown_13a0_ = 0;
-        func_0205de24((Struct_0205de24_2*)arg0->unknown_ac_, 0, 2);
+        SetNextTextWindowBGLayer_0205de24((TextWindowManager_0205de24_2*)arg0->unknown_ac_, 0, 2);
         func_ov023_021e6e60(arg0);
         func_ov012_0218aabc((char*)arg0);
         memcpy(arg0->unknown_13ac_, inline_ov012_02188cd0(GameState::GetInstance())->unknown_8_, 0x72);
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov012_02188cd0(Struct_ov012_02188cd0* arg0)
     {
         if ((g_keyManager.TestKeysPressed(2) || func_0205d97c(arg0->unknown_ac_) == 2) && *arg0->unknown_13d0_ == 0)
         {
-            func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ac_, 1);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_ac_, 1);
             arg0->unknown_1370_++;
         }
         Struct_ov012_02188cd0_2* var5 = (Struct_ov012_02188cd0_2*)arg0->unknown_0_;
@@ -241,7 +241,7 @@ extern "C" ARM void func_ov012_02188cd0(Struct_ov012_02188cd0* arg0)
                         return;
                     }
                 }
-                func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ac_, 1);
+                CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_ac_, 1);
                 arg0->unknown_1370_++;
                 return;
         }

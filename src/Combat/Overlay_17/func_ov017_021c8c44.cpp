@@ -31,7 +31,7 @@ struct Struct_ov017_021d6d18 {
 
 extern const Struct_ov017_021d6d18 data_ov017_021d6d18;
 
-extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int func_020546a8(void* arg0);
 extern "C" void func_0202738c(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02027304(void* arg0, int arg1);
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov017_021c8c44(int arg0, Struct_ov017_021c8c44* arg1, G
         if (var6 == arg0) {
             var0 = 1;
         } else {
-            GameObject* var7 = func_0200ff58(var4, var6);
+            GameObject* var7 = GetCompanionByIndex_0200ff58(var4, var6);
             if (var7 != NULL && arg0 == func_020546a8(var7)) {
                 var0 = 1;
             }
@@ -97,12 +97,12 @@ extern "C" ARM void func_ov017_021c8c44(int arg0, Struct_ov017_021c8c44* arg1, G
     }
 
     for (int var11 = 0; var11 < 4; var11++) {
-        Struct_ov017_021c8c44_2* var12 = (Struct_ov017_021c8c44_2*)func_0200ff1c(arg2, var11);
+        Struct_ov017_021c8c44_2* var12 = (Struct_ov017_021c8c44_2*)GetPartyMemberBaseByIndex_0200ff1c(arg2, var11);
         if (var12 != NULL) {
             if (arg0 == var12->unknown_0_.unknown_4_) {
                 func_02053f7c((Struct_02053f7c_3*)var12, 0, 1);
             } else if (var12->unknown_0_.classFlags_0_ & 0x1000) {
-                Struct_ov017_021c8c44_2* var13 = (Struct_ov017_021c8c44_2*)func_0200ff1c(arg2, 0);
+                Struct_ov017_021c8c44_2* var13 = (Struct_ov017_021c8c44_2*)GetPartyMemberBaseByIndex_0200ff1c(arg2, 0);
                 if (var13 != NULL) {
                     func_02053f7c((Struct_02053f7c_3*)var12, var13->unknown_1b2_, 1);
                 }

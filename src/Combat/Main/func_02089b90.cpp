@@ -54,7 +54,7 @@ struct Struct_02089b90 {
     void* unknown_4_;
 };
 
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" float _fflt(int v);
 extern "C" float _fdiv(float arg0, float arg1);
 
@@ -84,7 +84,7 @@ extern "C" ARM int func_02089b90(struct Struct_02089b90* arg0) {
         var0.unknown_0_ = (signed char)((Script::Parameter*)&arg0[0])->ToInt();
         var1 = (char*)(void*)((Script::Parameter*)&arg0[1])->ToString();
         if (var1 != 0) {
-            int var5 = func_020d2ff0(var1);
+            int var5 = GetStringLength_020d2ff0(var1);
             var0.unknown_4_ = (int)data_02108efc.unknown_c_->Allocate(var5 + 1);
             memset((void*)var0.unknown_4_, 0, var5 + 1);
             memcpy((void*)var0.unknown_4_, var1, var5);

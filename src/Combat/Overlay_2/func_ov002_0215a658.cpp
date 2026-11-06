@@ -12,9 +12,9 @@ struct ItemTable_0201099c_10;
 struct Struct_02083994;
 struct Struct_0207cf30_4;
 
-extern "C" struct Struct_ov002_0215a658* func_020dedd0(struct ItemTable_0201099c_10* arg0, int arg1);
+extern "C" struct Struct_ov002_0215a658* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_02083994(struct Struct_02083994* arg0, int arg1);
 extern "C" int func_020a095c(struct Struct_0207cf30_4* arg0, int arg1, int arg2);
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov002_0215a658(char* arg0, int arg1) {
     for (int var4 = 0; var4 < *(int*)(arg0 + 0x1afc); var4++) {
         int var5 = *(int*)(arg0 + var4 * 4 + 0x1b00);
         if (arg1 == var5 || arg1 == 4) {
-            GameObject* var6 = func_0200ff1c(var2, var5);
+            GameObject* var6 = GetPartyMemberBaseByIndex_0200ff1c(var2, var5);
             if (var6 != NULL) {
                 char* var7 = (char*)GetPartyMemberData_02053c6c((unsigned char*)var6);
                 int var8;
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov002_0215a658(char* arg0, int arg1) {
                     var0 = var8 * 2;
                     var1 = var7 + 0x454;
                     if (*(short*)(var1 + var0) > 0) {
-                        struct Struct_ov002_0215a658* var10 = func_020dedd0((struct ItemTable_0201099c_10*)(arg0 + 0x750), *(short*)(var1 + var0));
+                        struct Struct_ov002_0215a658* var10 = FindItemData_020dedd0((struct ItemTable_0201099c_10*)(arg0 + 0x750), *(short*)(var1 + var0));
                         if (var10->unknown_a_4_) {
                             short var11 = *(short*)(var1 + var0);
                             *(short*)(var1 + var0) = -1;
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov002_0215a658(char* arg0, int arg1) {
     for (int var16 = 0; var16 < *(int*)(arg0 + 0x1c38); var16++) {
         int var17 = *(int*)(arg0 + var16 * 4 + 0x1c3c);
         if (arg1 == var17 || arg1 == 4) {
-            GameObject* var18 = func_0200ff1c(var14, var17);
+            GameObject* var18 = GetPartyMemberBaseByIndex_0200ff1c(var14, var17);
             if (var18 != NULL) {
                 char* var19 = (char*)GetPartyMemberData_02053c6c((unsigned char*)var18);
                 int var20;
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov002_0215a658(char* arg0, int arg1) {
                     var12 = var20 * 2;
                     var13 = var19 + 0x454;
                     if (*(short*)(var13 + var12) > 0) {
-                        struct Struct_ov002_0215a658* var22 = func_020dedd0((struct ItemTable_0201099c_10*)(arg0 + 0x7ec), *(short*)(var13 + var12));
+                        struct Struct_ov002_0215a658* var22 = FindItemData_020dedd0((struct ItemTable_0201099c_10*)(arg0 + 0x7ec), *(short*)(var13 + var12));
                         if (var22->unknown_a_4_) {
                             short var23 = *(short*)(var13 + var12);
                             *(short*)(var13 + var12) = -1;

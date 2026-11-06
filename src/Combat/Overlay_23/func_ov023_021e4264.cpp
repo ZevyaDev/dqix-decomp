@@ -6,7 +6,7 @@ enum {Enum_ov023_021e4264_1588=0x634};
 #include <globaldefs.h>
 
 extern "C" void func_ov023_021e2bdc(void* arg0, int arg1, short* arg2, short* arg3);
-extern "C" void func_0205ac40(void* arg0, void* arg1);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 struct Struct_ov023_021e4264 {
     char unknown_0_[0xc8];
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov023_021e4264(Struct_ov023_021e4264* arg0) {
     var3->unknown_18_ = var1 << 12;
     var3->unknown_22_ = 0x7f;
     var3->unknown_26_ = 2;
-    func_0205ac40(arg0->unknown_c8_, var3);
+    DrawSprite_0205ac40(arg0->unknown_c8_, var3);
 
     var2 = (Struct_ov023_021e4264_2*)arg0->unknown_cc_;
     func_ov023_021e2bdc((char*)arg0 + 0xd4, 0x12, &var0, &var1);
@@ -53,5 +53,5 @@ extern "C" ARM void func_ov023_021e4264(Struct_ov023_021e4264* arg0) {
     var4->unknown_18_ = var1 << 12;
     var4->unknown_22_ = 0x7e;
     var4->unknown_26_ = 2;
-    func_0205ac40(arg0->unknown_c8_, var4);
+    DrawSprite_0205ac40(arg0->unknown_c8_, var4);
 }

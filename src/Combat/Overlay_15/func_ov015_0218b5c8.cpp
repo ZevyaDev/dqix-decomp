@@ -5,7 +5,7 @@
 
 struct Struct_0201c3a4;
 struct Struct_0201c1c8;
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 
 struct Struct_ov015_0218b5c8 {
@@ -41,7 +41,7 @@ extern "C" ARM int func_ov015_0218b5c8(char* arg0) {
     var5.unknown_b_ = 0;
 
     if (var0 != 0) {
-        int var6 = func_020d2ff0(var0);
+        int var6 = GetStringLength_020d2ff0(var0);
         char* var7 = (char*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var6 + 1);
         var5.unknown_0_ = (int)var7;
         if (var7 != 0) {
@@ -49,7 +49,7 @@ extern "C" ARM int func_ov015_0218b5c8(char* arg0) {
         }
     }
     if (var1 != 0) {
-        int var8 = func_020d2ff0(var1);
+        int var8 = GetStringLength_020d2ff0(var1);
         char* var9 = (char*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var8 + 1);
         var5.unknown_4_ = (int)var9;
         if (var9 != 0) {

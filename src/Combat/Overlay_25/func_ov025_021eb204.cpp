@@ -26,7 +26,7 @@ struct Struct_ov025_021eeff4 {
 };
 
 extern "C" void func_ov025_021eb3c0(struct Struct_ov025_021eb204* arg0);
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, int arg5);
 
 extern struct Struct_ov025_021eeff4 data_ov025_021eeff4;
@@ -40,7 +40,7 @@ extern "C" ARM int func_ov025_021eb204(struct Struct_ov025_021e9778_2* arg0) {
     struct Struct_ov025_021eb204* var1 = (struct Struct_ov025_021eb204*)((char*)arg0 + 0x194 + 0x400);
     var0 = 0;
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
-    void* var3 = func_02057924();
+    void* var3 = GetEffectManager_02057924();
     SafeAllocator* var4 = arg0->unknown_10_[arg0->unknown_30_];
     int var5 = arg0->unknown_20_[arg0->unknown_30_];
     for (unsigned char var6 = 0; var6 < 4; var6++, var1++) {

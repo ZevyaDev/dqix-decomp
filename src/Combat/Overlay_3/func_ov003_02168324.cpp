@@ -18,16 +18,16 @@ enum { Enum_ov003_02168324_736 = 0x2e0 };
 enum { Enum_ov003_02168324_1252 = 0x4e4 };
 #endif
 
-extern "C" int func_02094a00(void);
-extern "C" void func_02094ab0(void);
+extern "C" int GetFontLoader_02094a00(void);
+extern "C" void CancelFontLoad_02094ab0(void);
 struct Struct_02074bd0;
 extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
-struct Struct_0205d1e0;
-extern "C" void func_0205d1e0(Struct_0205d1e0*);
-struct Struct_0205d274;
-extern "C" void func_0205d274(Struct_0205d274*);
-struct Struct_0205d2bc;
-extern "C" void func_0205d2bc(Struct_0205d2bc*);
+struct TextWindowManager_0205d1e0;
+extern "C" void func_0205d1e0(TextWindowManager_0205d1e0*);
+struct TextWindowManager_0205d274;
+extern "C" void func_0205d274(TextWindowManager_0205d274*);
+struct TextWindowManager_0205d2bc;
+extern "C" void func_0205d2bc(TextWindowManager_0205d2bc*);
 extern "C" void func_0205d048(void* arg0);
 extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
@@ -38,17 +38,17 @@ extern "C" void* __clear(void* arg0, int arg1);
 
 // USA: func_ov003_02168324
 extern "C" ARM void func_ov003_02168324(char* arg0) {
-    func_02094a00();
-    func_02094ab0();
+    GetFontLoader_02094a00();
+    CancelFontLoad_02094ab0();
 
     int* var0 = (int*)0x4000000;
     *var0 = (*var0 & ~0x1f00) | 0x100;
     *(short*)((char*)var0 + 0x50) = 0;
     func_02074bd0((struct Struct_02074bd0*)(arg0 + Enum_ov003_02168324_204));
 
-    func_0205d1e0((Struct_0205d1e0*)(arg0 + Enum_ov003_02168324_228));
-    func_0205d274((Struct_0205d274*)(arg0 + Enum_ov003_02168324_228));
-    func_0205d2bc((Struct_0205d2bc*)(arg0 + Enum_ov003_02168324_228));
+    func_0205d1e0((TextWindowManager_0205d1e0*)(arg0 + Enum_ov003_02168324_228));
+    func_0205d274((TextWindowManager_0205d274*)(arg0 + Enum_ov003_02168324_228));
+    func_0205d2bc((TextWindowManager_0205d2bc*)(arg0 + Enum_ov003_02168324_228));
     func_0205d048(arg0 + Enum_ov003_02168324_228);
 
     memset(*(void**)(arg0 + 0x7c), 0, 0x20);

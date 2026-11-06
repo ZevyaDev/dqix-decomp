@@ -3,10 +3,10 @@
 #include "Memory/SafeAllocator.h"
 
 
-struct Struct_02043368_2;
-extern "C" void func_0205a198(struct Struct_02043368_2* arg0);
+struct Sprite_02043368_2;
+extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
 
-extern "C" void func_0205a444(char* arg0);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 
 struct Struct_020534ac;
 
@@ -16,17 +16,17 @@ extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
-extern "C" void func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
+extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, void* allocator);
 
 // USA: func_ov012_021862fc
 extern "C" ARM void func_ov012_021862fc(char* arg0) {
     int var0 = (int)BackgroundLoader::GetInstance();
 
     for (int var1 = 0; var1 < 3; var1++) {
-        func_0205a198((struct Struct_02043368_2*)(*(char**)(arg0 + 0x1000 + 0x36c) + var1 * 0x28));
+        InitSprite_0205a198((struct Sprite_02043368_2*)(*(char**)(arg0 + 0x1000 + 0x36c) + var1 * 0x28));
     }
 
-    func_0205a444(*(char**)(arg0 + 0x1000 + 0x368));
+    InitSpriteSet_0205a444(*(char**)(arg0 + 0x1000 + 0x368));
 
     *(unsigned char*)(*(char**)(arg0 + 0x1000 + 0x368) + 0x50) = 1;
 
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov012_021862fc(char* arg0) {
 
     for (int var8 = 0; var8 < var7; var8++) {
         void* var9 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var4, var8, &var3, &var6);
-        func_0205a528(*(char**)(arg0 + 0x1000 + 0x368), var9, var6, arg0 + 0x98);
+        LoadSpriteSetFile_0205a528(*(char**)(arg0 + 0x1000 + 0x368), var9, var6, arg0 + 0x98);
     }
 
     ((BackgroundLoader*)(var0))->RemoveTask((int)(*(int*)(arg0 + 0x1000 + 0x394)));

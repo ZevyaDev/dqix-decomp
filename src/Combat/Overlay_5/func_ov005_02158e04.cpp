@@ -28,8 +28,8 @@ struct Struct_ov005_02153954 {
     char* inline_ov005_02158e04() { return unknown_ee4_; }
 };
 
-struct Struct_0205d81c;
-extern "C" Struct_ov005_02158e04* func_0205d8c4(Struct_0205d81c*);
+struct TextWindowManager_0205d81c;
+extern "C" Struct_ov005_02158e04* func_0205d8c4(TextWindowManager_0205d81c*);
 extern "C" int func_0204c7cc(unsigned char*);
 extern "C" void func_0205bc24(void* arg0, int arg1);
 extern "C" unsigned char func_0205d0e0(void* arg0, int arg1);
@@ -42,7 +42,7 @@ extern "C" void func_ov005_02158ed0(Struct_ov005_02153954* arg0);
 
 // USA: func_ov005_02158e04
 extern "C" ARM void func_ov005_02158e04(Struct_ov005_02153954* arg0, int arg1) {
-    Struct_ov005_02158e04* var0 = func_0205d8c4((Struct_0205d81c*)arg0->unknown_ee4_);
+    Struct_ov005_02158e04* var0 = func_0205d8c4((TextWindowManager_0205d81c*)arg0->unknown_ee4_);
     if (var0 != NULL && func_0204c7cc((unsigned char*)var0) && !(var0->unknown_c5_ & 2))
         func_0205bc24(arg0->inline_ov005_02158e04() + 4, -1);
     arg0->unknown_3ddd_ = func_0205d0e0(arg0->unknown_ee4_, arg1);

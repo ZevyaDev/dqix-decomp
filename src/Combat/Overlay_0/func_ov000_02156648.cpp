@@ -9,7 +9,7 @@ char unknown1_13c_[20];
 unsigned char* unknown_150_;
 };
 class GameState {public:static GameState* GetInstance();GameObject* GetCombatantByIndex(int);};
-extern "C" GameObject* func_0200ff1c(GameState*,int);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);
 extern "C" int func_ov000_02156af0(GameObject*);extern "C" int func_ov000_02156b08(GameObject*);extern "C" int func_ov000_02156b20(GameObject*);
 extern "C" void func_02088aa8(unsigned char*);extern "C" void func_02088af0(unsigned char*);
 extern "C" int func_020851d8(unsigned char*);extern "C" int func_02085204(unsigned char*);
@@ -37,13 +37,13 @@ extern "C" ARM int func_ov000_02156648(Random* arg0,int arg1,int arg2,Struct_ov0
  if(func_ov000_02156068(arg0,arg2,0,1)&&!(arg4->unknown_10_&0x1000000))return 0;
  float var2=100.0f;int var3=NextRandomMax(arg0,100);
  if(IsParty(arg1)){
-  GameObject* var4=func_0200ff1c(var0,arg1);if(!var4)return 0;
+  GameObject* var4=GetPartyMemberBaseByIndex_0200ff1c(var0,arg1);if(!var4)return 0;
   if((arg4->unknown_10_&0x40000)&&func_020851d8(var4->unknown_150_))return 1;
   if((arg4->unknown_10_&0x10000)&&func_02085204(var4->unknown_150_)){if(NextRandomMax(arg0,4)==0)return 0;}
  }
  if(arg4->unknown_1a_0_==1){
   if(IsParty(arg1)){
-   GameObject* var5=func_0200ff1c(var0,arg1);if(!var5)return 0;
+   GameObject* var5=GetPartyMemberBaseByIndex_0200ff1c(var0,arg1);if(!var5)return 0;
    unsigned int var6=(unsigned short)var5->unknown_138_->unknown_11_2_;unsigned int var7=(unsigned short)var5->unknown_138_->unknown_12_4_;
    unsigned int var8=0;int var9=0;
    if(arg4->unknown_10_&0x4000){var8=var6;var9=1;}else if(arg4->unknown_10_&0x8000){var8=var7;var9=1;}

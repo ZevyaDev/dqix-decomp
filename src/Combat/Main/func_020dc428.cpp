@@ -32,7 +32,7 @@ extern "C" ARM int func_020dc428(void) {
     signed char var1 = 0;
     GameState* var2 = GameState::GetInstance();
     for (int var3 = 0; var3 < var0.unknown_0_; var3++) {
-        GameObject* var4 = func_0200ff1c(var2, var0.unknown_1_[var3]);
+        GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var2, var0.unknown_1_[var3]);
         if (var4 != 0) {
             int var5;
             struct Struct_020dc428* var6 = ((struct Struct_020dc428_2*)var4)->unknown_150_;

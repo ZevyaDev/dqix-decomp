@@ -2,14 +2,14 @@
 
 extern "C" void* func_ov000_02174da4(int arg0, void* arg1);
 extern "C" int func_ov000_0217542c(void* arg0);
-extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
-extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
-extern "C" int func_020e51cc(int arg0);
+extern "C" int GetStandardString_020e51cc(int stringId);
 
 extern short data_ov000_021834c4[4];
 
@@ -37,9 +37,9 @@ extern "C" ARM void func_ov000_0217737c(void* arg0, char* arg1) {
     int var4 = 0;
 #endif
     if (func_ov000_0217542c(var0)) {
-        func_02041c08(arg1, var3, 8, 5, 5, 5);
+        AppendFrameTag_02041c08(arg1, var3, 8, 5, 5, 5);
     }
-    func_02041ea4(arg1, var3);
+    AppendCursorTag_02041ea4(arg1, var3);
     int var5 = 0;
     for (int var6 = 0; var6 < 4; var6++) {
         int var7 = var1[var6];
@@ -53,9 +53,9 @@ extern "C" ARM void func_ov000_0217737c(void* arg0, char* arg1) {
 #if defined(jpn)
         char* var9 = var2.unknown_0_[var7];
 #else
-        int var9 = func_020e51cc(data_ov000_021834c4[var7]);
+        int var9 = GetStandardString_020e51cc(data_ov000_021834c4[var7]);
 #endif
-        func_02041b70(arg1, var4, (const char*)var9);
+        AppendMenuEntry_02041b70(arg1, var4, (const char*)var9);
         var4++;
     }
 }

@@ -68,7 +68,7 @@ extern "C" Struct_ov000_0217df08_6* func_0200fea4(GameState*, int);
 extern "C" void func_020e4ce8(Struct_ov000_0217df08*, Struct_ov000_0217df08_6*, int);
 extern "C" int func_ov000_0217ff34(void* arg0, int arg1, int* arg2);
 extern "C" void ClearMessageParams_02046380(Struct_ov000_0217df08_8*);
-extern "C" void func_020e4bf4(void*, int);
+extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" void AppendText_02042058(char*, const char*);
 extern "C" char* func_020e046c(char* arg0, void* arg1, unsigned int arg2, int arg3);
 extern "C" void func_02046608(Struct_ov000_0217df08_8*, int, char*, char*, int, int, int);
@@ -126,7 +126,7 @@ struct Struct_ov000_0217df08_5 {
 };
 
 struct Struct_02046574_2;
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" void func_020474a8(Struct_ov000_0217df08_4*, int, char*, char*);
 extern "C" void StartMessage_0204500c(Struct_ov000_0217df08_4*, char*, int);
 extern "C" void func_ov000_0217c638(Struct_ov000_0217df08_5* arg0, int arg1, int arg2);
@@ -191,8 +191,8 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_5* arg0, int arg1,
                                 var18 = *(char**)((char*)var19 + 0x134);
                             }
                             ClearMessageParams_02046380((Struct_ov000_0217df08_8*)var1);
-                            func_02046574((Struct_02046574_2*)var1, 0, var13->unknown_14c_);
-                            func_02046574((Struct_02046574_2*)var1, 1, var18);
+                            SetMessageString_02046574((Struct_02046574_2*)var1, 0, var13->unknown_14c_);
+                            SetMessageString_02046574((Struct_02046574_2*)var1, 1, var18);
                             if (var10 != 0) {
                                 AppendText_02042058(var7, var5);
                             }
@@ -222,7 +222,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_5* arg0, int arg1,
                         func_ov000_0217aa08(var9, var21);
                     }
                     ClearMessageParams_02046380((Struct_ov000_0217df08_8*)var1);
-                    func_02046574((Struct_02046574_2*)var1, 2, var21);
+                    SetMessageString_02046574((Struct_02046574_2*)var1, 2, var21);
                     func_020e046c(var7, var3, var4, var20);
                     func_020474a8(var1, 0xc, var7, var6);
                 }
@@ -319,7 +319,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
                             ClearMessageParams_02046380(var23);
                             func_020e4ce8(&var32, var44, 1);
                             func_020e4ce8(&var33, var44, 0);
-                            func_020e4bf4(&var31, var45);
+                            InitPartyMemberNoun_020e4bf4(&var31, var45);
                             var23->unknown_20_ = &var32;
                             var23->unknown_10_ = &var31;
                             if (var40 != 0) {

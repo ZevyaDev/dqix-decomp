@@ -126,7 +126,7 @@ extern "C" Struct_ov002_021665b0_8* func_0200ff94(GameState* arg0, int arg1);
 extern "C" Struct_ov002_021665b0_9* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" int func_02083bc0(unsigned char*, int);
 extern "C" int func_0209ac28(char* arg0, Struct_ov002_021665b0_8* arg1, int arg2);
-extern "C" Struct_ov002_021665b0_10* func_02079e2c(char*, int);
+extern "C" Struct_ov002_021665b0_10* FindActionData_02079e2c(char*, int);
 struct Struct_02048448_2;
 extern "C" int func_02048448(Struct_02048448_2*, int);
 extern "C" void __clear(void* arg0, int arg1);
@@ -172,7 +172,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
     Struct_ov002_021665b0_9* var2;
     Struct_ov002_021665b0_8* var3;
     func_ov002_02157ce0((char*)&var1);
-    Struct_02108e10* var4 = func_020797dc();
+    ActionTables_02108e10* var4 = GetActionTables_020797dc();
     signed char var5 = arg0->unknown_1c50_ - 1;
     short* var6 = arg0->unknown_1c86_;
     short* var7 = arg0->unknown_1c8e_;
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             if (var3 == NULL) {
                 continue;
             }
-            var11 = (Struct_ov002_021665b0_8*)func_0200ff1c(var0, var13);
+            var11 = (Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, var13);
             if (var11 == NULL) {
                 continue;
             }
@@ -234,7 +234,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
         int var18 = 0;
         for (int var19 = 0; var19 < var5; var19++) {
             var13 = arg0->unknown_1c54_[var19];
-            if ((Struct_ov002_021665b0_8*)func_0200ff1c(var0, var13) == NULL) {
+            if ((Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, var13) == NULL) {
                 continue;
             }
             var3 = func_0200ff94(var0, var13);
@@ -247,7 +247,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             if (var12[var13] != 0) {
                 for (int var20 = 0; var20 < var5; var20++) {
                     int var21 = arg0->unknown_1c54_[var20];
-                    if ((Struct_ov002_021665b0_8*)func_0200ff1c(var0, var21) != NULL && var7[var21] > 0 && var8[var21] > 0) {
+                    if ((Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, var21) != NULL && var7[var21] > 0 && var8[var21] > 0) {
                         var18 = 1;
                         break;
                     }
@@ -256,7 +256,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             if (var9[var13] != 0) {
                 for (int var22 = 0; var22 < var5; var22++) {
                     int var23 = arg0->unknown_1c54_[var22];
-                    Struct_ov002_021665b0_8* var24 = (Struct_ov002_021665b0_8*)func_0200ff1c(var0, var23);
+                    Struct_ov002_021665b0_8* var24 = (Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, var23);
                     if (var24 == NULL) {
                         continue;
                     }
@@ -271,7 +271,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
                         continue;
                     }
                     Struct_ov002_021665b0_8* var26 = func_0200ff94(var0, var23);
-                    if (func_02048448((Struct_02048448_2*)var26, (unsigned short)func_02079e2c((char*)var4, (short)0x23)->unknown_8_0_)) {
+                    if (func_02048448((Struct_02048448_2*)var26, (unsigned short)FindActionData_02079e2c((char*)var4, (short)0x23)->unknown_8_0_)) {
                         var18 = 1;
                         break;
                     }
@@ -303,7 +303,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             if (var32 == NULL) {
                 continue;
             }
-            var11 = (Struct_ov002_021665b0_8*)func_0200ff1c(var0, var31);
+            var11 = (Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, var31);
             if (var11 == NULL) {
                 continue;
             }
@@ -398,7 +398,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             }
             return;
         }
-        Struct_ov002_021665b0_8* var44 = (Struct_ov002_021665b0_8*)func_0200ff1c(var0, var1.unknown_2_);
+        Struct_ov002_021665b0_8* var44 = (Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, var1.unknown_2_);
         if (var44->unknown_130_->unknown_0_ & 1) {
             arg0->unknown_1cae_ = 2;
             arg0->unknown_1cac_ = arg0->unknown_1cac_ + 1;
@@ -427,7 +427,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
                 continue;
             }
             var1.unknown_0_ = var47 + 0x1e;
-            Struct_ov002_021665b0_10* var48 = func_02079e2c((char*)var4, (short)var1.unknown_0_);
+            Struct_ov002_021665b0_10* var48 = FindActionData_02079e2c((char*)var4, (short)var1.unknown_0_);
             void* var49 = func_02079ee0((char*)var4, var48->unknown_9_6_);
             arg0->unknown_1c96_[var47].unknown_0_ = func_ov002_021538e4(&var45, var48, var49, var1.unknown_2_);
             arg0->unknown_1c96_[var47].unknown_2_ = var1.unknown_0_;
@@ -446,7 +446,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
         arg0->unknown_1c21_ = var55;
         for (int var56 = 0; var56 < var5; var56++) {
             signed char var57 = arg0->unknown_1c54_[var56];
-            Struct_ov002_021665b0_8* var58 = (Struct_ov002_021665b0_8*)func_0200ff1c(var0, var57);
+            Struct_ov002_021665b0_8* var58 = (Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, var57);
             if (var58 != NULL) {
                 var7[var57] = var58->unknown_130_->unknown_4_;
             }
@@ -456,7 +456,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
         unsigned char var60 = 0;
         if (var9[var55] == 1) {
             while (var60 < var5) {
-                Struct_ov002_021665b0_8* var61 = (Struct_ov002_021665b0_8*)func_0200ff1c(var0, arg0->unknown_1cb2_[var60].unknown_0_);
+                Struct_ov002_021665b0_8* var61 = (Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg0->unknown_1cb2_[var60].unknown_0_);
                 if (var61 == NULL) {
                     var60++;
                     continue;
@@ -476,7 +476,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
                         continue;
                     }
                     var1.unknown_0_ = 0x23;
-                    Struct_ov002_021665b0_10* var63 = func_02079e2c((char*)var4, (short)var1.unknown_0_);
+                    Struct_ov002_021665b0_10* var63 = FindActionData_02079e2c((char*)var4, (short)var1.unknown_0_);
                     Struct_ov002_021665b0_8* var64 = func_0200ff94(var0, arg0->unknown_1cb2_[var60].unknown_0_);
                     if (!func_02048448((Struct_02048448_2*)var64, (unsigned short)var63->unknown_8_0_)) {
                         var60++;
@@ -493,7 +493,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
         if (var59) {
             arg0->unknown_1cad_ = var60;
             func_ov002_021594e8(arg0, arg0->unknown_1caa_, arg0->unknown_1cb2_[var60].unknown_0_, var55);
-            Struct_ov002_021665b0_8* var65 = (Struct_ov002_021665b0_8*)func_0200ff1c(var0, var55);
+            Struct_ov002_021665b0_8* var65 = (Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, var55);
             Struct_ov002_021665b0_8* var66 = func_0200ff94(var0, var55);
             var7[var55] = var65->unknown_130_->unknown_4_;
             if (!(var66->unknown_130_->unknown_0_ & 2)) {
@@ -546,10 +546,10 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             }
             return;
         }
-        Struct_ov002_021665b0_8* var69 = (Struct_ov002_021665b0_8*)func_0200ff1c(var0, var53);
+        Struct_ov002_021665b0_8* var69 = (Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, var53);
         if (func_02083bc0((unsigned char*)(GetPartyMemberData_02053c6c((unsigned char*)var69)), 0x1e) && arg0->unknown_1c96_[4].unknown_2_ > 0) {
             var1.unknown_0_ = 0x22;
-            if (func_02048448((Struct_02048448_2*)var69, (unsigned short)func_02079e2c((char*)var4, (short)0x22)->unknown_8_0_)) {
+            if (func_02048448((Struct_02048448_2*)var69, (unsigned short)FindActionData_02079e2c((char*)var4, (short)0x22)->unknown_8_0_)) {
                 var50 = arg0->unknown_1c96_[0].unknown_0_;
                 short var70 = arg0->unknown_1c96_[1].unknown_0_;
                 var51 = arg0->unknown_1c96_[2].unknown_0_;
@@ -616,7 +616,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             func_ov002_021594e8(arg0, arg0->unknown_1caa_ = 0x22, var53, 0);
             for (int var84 = 0; var84 < var5; var84++) {
                 unsigned char var85 = arg0->unknown_1c54_[var84];
-                Struct_ov002_021665b0_8* var86 = (Struct_ov002_021665b0_8*)func_0200ff1c(var0, var85);
+                Struct_ov002_021665b0_8* var86 = (Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, var85);
                 if (var86 != NULL) {
                     var7[var85] = var86->unknown_130_->unknown_4_;
                 }
@@ -664,7 +664,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
         }
         var52 = 0;
         while (!var52) {
-            Struct_ov002_021665b0_10* var88 = func_02079e2c((char*)var4, (short)arg0->unknown_1caa_);
+            Struct_ov002_021665b0_10* var88 = FindActionData_02079e2c((char*)var4, (short)arg0->unknown_1caa_);
             Struct_ov002_021665b0_8* var89 = func_0200ff94(var0, var53);
             if (var89 == NULL || var88 == NULL) {
                 continue;
@@ -688,7 +688,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
     } else if (var10 == 4) {
         int var90 = arg0->unknown_1c54_[arg0->unknown_1cb0_];
         func_ov002_021594e8(arg0, arg0->unknown_1caa_, arg0->unknown_1cb2_[arg0->unknown_1cac_].unknown_0_, var90);
-        Struct_ov002_021665b0_8* var91 = (Struct_ov002_021665b0_8*)func_0200ff1c(var0, var90);
+        Struct_ov002_021665b0_8* var91 = (Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, var90);
         Struct_ov002_021665b0_8* var92 = func_0200ff94(var0, var90);
         var7[var90] = var91->unknown_130_->unknown_4_;
         if (!(var92->unknown_130_->unknown_0_ & 2)) {

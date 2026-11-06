@@ -28,7 +28,7 @@ struct Struct_0204a3f0;
 extern "C" void func_0204a3f0(struct Struct_0204a3f0_2* arg0, struct Struct_0204a3f0* arg1);
 extern "C" void func_0204a440(char* arg0, const char* arg1);
 extern "C" void func_0204a464(char* arg0, const char* arg1);
-extern "C" void func_020100c4(GameState*, int);
+extern "C" void SetCamera_020100c4(GameState*, int);
 extern "C" void func_0200fd38(GameState*, int, GameObject*);
 extern "C" int func_020a35e0(unsigned char*, unsigned char);
 extern "C" int func_020a35f8(unsigned char*);
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, Struct_ov000_02160d
                     func_0204a3f0((Struct_0204a3f0_2*)var11, (Struct_0204a3f0*)var9);
                     func_0204a440(var11, data_ov026_021dee84);
                     func_0204a464(var11, data_ov026_021dee88);
-                    func_020100c4(var3, (int)var11);
+                    SetCamera_020100c4(var3, (int)var11);
                     Struct_ov026_021dc440 var12;
                     var12.unknown_0_[0] = data_ov026_021de6a0.unknown_4_;
                     var12.unknown_0_[1] = data_ov026_021de6a0.unknown_5_;
@@ -172,7 +172,7 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, Struct_ov000_02160d
         }
         for (int var25 = 0; var25 < 4; ++var25) {
             if (func_020a35e0(arg3, var25)) {
-                GameObject* var26 = func_0200ff1c(var3, var25);
+                GameObject* var26 = GetPartyMemberBaseByIndex_0200ff1c(var3, var25);
                 if (var26) {
                     char var27[0x14];
                     func_02072c9c(var25, var27);

@@ -61,7 +61,7 @@ extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" int func_ov005_02157ae8(Struct_ov005_02153954* arg0, int arg1);
-extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" int func_ov005_02155670(Struct_ov005_02153954* arg0, int arg1, int arg2);
 
 // USA: func_ov005_021567ac
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov005_021567ac(Struct_ov005_02153954* arg0, int arg1, i
         func_ov005_0215792c(arg0, 4);
         arg0->unknown_3dbb_ = arg0->unknown_3d78_;
         func_ov005_021579ec(arg0, arg0->unknown_3db8_, arg0->unknown_3dbb_);
-        func_0205bb04(arg0->unknown_19f4_, arg0->unknown_3dbb_ - 8);
+        SetMenuCursorIndex_0205bb04(arg0->unknown_19f4_, arg0->unknown_3dbb_ - 8);
         arg0->unknown_3de0_ = (arg0->unknown_3dbb_ - 8) + arg0->unknown_3dbd_ * 16;
         arg0->unknown_3dc0_ = 0;
         arg0->unknown_3dcc_ |= 0x80;

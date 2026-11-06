@@ -1,9 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 struct Struct_0206e424 {
     unsigned int unknown_0_;
@@ -36,7 +33,7 @@ struct Struct_0206e424_4 {
 extern Struct_020e87b4 data_020e87b4;
 extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
-extern "C" void func_0206df6c(void*, unsigned char*, int, int);
+extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void GetBattleRecords_020ac4c0(void*);
 extern "C" void func_020a04c8(Struct_0206e424_4*, unsigned int);
 extern "C" void func_020ac494(void*);
@@ -65,7 +62,7 @@ extern "C" ARM void func_0206e424(Struct_0206e424_3* arg0, int arg1) {
             unsigned short var8 = var7->unknown_d_4_;
             if (var8) {
                 if (!IsFlagSet_0206dfb0((int)arg0, arg0->unknown_8c_, var8 + 0xc76)) {
-                    func_0206df6c(arg0, arg0->unknown_8c_, var8 + 0xc76, 1);
+                    SetFlag_0206df6c(arg0, arg0->unknown_8c_, var8 + 0xc76, 1);
                     var5++;
                 }
             }

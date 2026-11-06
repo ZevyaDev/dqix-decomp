@@ -20,21 +20,21 @@ struct Struct_ov005_02153954 {
 struct SoundEffectManager_02108760;
 struct Struct_0205c570;
 struct Struct_0205cf1c;
-struct Struct_0205d6a0;
+struct TextWindowManager_0205d6a0;
 
 extern "C" char gSoundEffectManager_02108760[];
 
 extern "C" void func_ov005_02159904(Struct_ov005_02153954* arg0);
 extern "C" void func_0205cef8(void* arg0);
 extern "C" void func_0205cf04(void* arg0);
-extern "C" int func_0205d794(Struct_0205c570* arg0);
+extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
 extern "C" int func_ov005_02157190(void* arg0);
 struct Struct_0205da38;
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_0205cf10(void* arg0);
 extern "C" void func_0205cf1c(Struct_0205cf1c* arg0);
-extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 
 // USA: func_ov005_02158f80
 extern "C" ARM void func_ov005_02158f80(Struct_ov005_02153954* arg0) {
@@ -44,12 +44,12 @@ extern "C" ARM void func_ov005_02158f80(Struct_ov005_02153954* arg0) {
         func_0205cf04(arg0->unknown_ee4_);
         arg0->unknown_3ddc_++;
     } else if (arg0->unknown_3ddc_ == 1) {
-        arg0->unknown_3dde_ = func_0205d794((Struct_0205c570*)arg0->unknown_ee4_);
+        arg0->unknown_3dde_ = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_ee4_);
         if (func_ov005_02157190(arg0) | func_0205da38((struct Struct_0205da38*)arg0->unknown_ee4_, 0x14)) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             func_0205cf10(arg0->unknown_ee4_);
             func_0205cf1c((Struct_0205cf1c*)arg0->unknown_ee4_);
-            func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ee4_, 0);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_ee4_, 0);
             if (arg0->unknown_3dbb_ >= 0 && arg0->unknown_3dbb_ < 8) {
                 switch (arg0->unknown_3dde_) {
                 case 0:
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov005_02158f80(Struct_ov005_02153954* arg0) {
             return;
         func_0205cf10(arg0->unknown_ee4_);
         func_0205cf1c((Struct_0205cf1c*)arg0->unknown_ee4_);
-        func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ee4_, 0);
+        CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_ee4_, 0);
         arg0->unknown_3ddf_ = 4;
         arg0->unknown_3ddc_ = 0;
     }

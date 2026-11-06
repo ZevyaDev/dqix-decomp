@@ -51,7 +51,7 @@ extern "C" Struct_ov025_021dc324_2 _ZZ21inline_ov025_021dcf14vE1s;
 extern "C" Struct_ov025_021dc324_4* func_ov000_02160f20(void*);
 extern "C" int func_ov025_021ea46c(void*);
 extern "C" int func_ov000_0216f0bc(void*);
-extern "C" Struct_ov025_021dc324_5* func_02079e2c(char*, int);
+extern "C" Struct_ov025_021dc324_5* FindActionData_02079e2c(char*, int);
 extern "C" int func_ov000_02163690(int);
 extern "C" int func_ov000_0215fc60(char*);
 extern "C" void func_ov025_021df5e4(void*, int, int);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov025_021dc324(Struct_ov025_021dc324_9* arg0) {
     Struct_ov025_021dc324_4* var3 = func_ov000_02160f20(arg0);
     var2 = &arg0->unknown_18_;
     if (!func_ov025_021ea46c(&arg0->unknown_2a8_)) return;
-    Struct_02108e10* var4 = func_020797dc();
+    ActionTables_02108e10* var4 = GetActionTables_020797dc();
     Object3D* var5 = &arg0->unknown_5954_;
     Object3D* var17 = &arg0->unknown_5a00_;
     if (data_ov025_021ef404.unknown_4_) {
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov025_021dc324(Struct_ov025_021dc324_9* arg0) {
         var5->MakeHidden();
         var17->MakeHidden();
         int var6 = 0;
-        Struct_ov025_021dc324_5* var7 = func_02079e2c((char*)var4, (short)var3->unknown_0_);
+        Struct_ov025_021dc324_5* var7 = FindActionData_02079e2c((char*)var4, (short)var3->unknown_0_);
         if (func_ov000_02163690(var3->unknown_0_)) var6 = 1;
         else if (var7) {
             if (var7->unknown_17_4_ == 2) var6 = 1;

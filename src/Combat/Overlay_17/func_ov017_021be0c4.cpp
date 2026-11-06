@@ -43,7 +43,7 @@ struct Struct_02018300_3;
 extern "C" Struct_ov017_021be0c4_2* GetZone3D_02012fe4();
 extern "C" int* GetLocalWireless_0202ae18();
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_0205ebc0(void*, int, int);
 extern "C" void func_0205ebfc(void*, int, int);
 extern "C" void func_0205ebec(void*);
@@ -53,8 +53,8 @@ extern "C" void __clear(void*, unsigned int);
 extern "C" void func_020426bc(BaseCombatStats*, char*, int);
 extern "C" void VectorizedInvertedMemcpy(const void*, void*, unsigned int);
 extern "C" void func_02011744(GameState*);
-extern "C" const char* func_020e51cc(int);
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" const char* GetStandardString_020e51cc(int);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 #if defined(jpn)
 extern char data_ov017_021d8658[];
 #endif
@@ -66,7 +66,7 @@ extern "C" void func_ov017_021d1810(int, int, signed char);
 extern "C" void func_02011408(void*);
 extern "C" void func_ov017_021d3ec8();
 extern "C" void ResetMessageWindow_02043204(char*);
-extern "C" void func_020397c0(void*);
+extern "C" void EnablePlayerControl_020397c0(void*);
 
 // USA: func_ov017_021be0c4
 // JPN: func_ov017_021be6bc
@@ -78,10 +78,10 @@ extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
     GetZone3D_02012fe4();
     GrottoStruct* var3 = var0->GetGrottoStruct();
     if (arg0->unknown_8_ == 0) {
-        func_020397cc((Struct_02018300_3*)var0->GetUnknownGameObject(), 1);
-        FontLoader_0208cb08* var4 = func_02094a00();
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var0->GetUnknownGameObject(), 1);
+        FontLoader_0208cb08* var4 = GetFontLoader_02094a00();
         func_02094b30(var4, 0x203, 0);
-        if (func_02094b4c(var4)) arg0->unknown_8_ = 1;
+        if (UpdateFontLoad_02094b4c(var4)) arg0->unknown_8_ = 1;
     } else if (arg0->unknown_8_ == 1) {
         SetMainBrightness(var1, 0x10, 0xf);
         func_0205ebc0(gSoundEffectManager_02108760, 0x83, 0x83);
@@ -117,8 +117,8 @@ extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
             sprintf(var6, data_ov017_021d8658, var0->GetUnknownGameObject()->baseStats_->unk);
             StartMessage_0204500c((MessageWindow_02021b84*)var2, var6, 0);
 #else
-            sprintf(var6, func_020e51cc(0x3f));
-            func_02046574(var2, 0, (char*)var0->GetUnknownGameObject()->baseStats_);
+            sprintf(var6, GetStandardString_020e51cc(0x3f));
+            SetMessageString_02046574(var2, 0, (char*)var0->GetUnknownGameObject()->baseStats_);
             StartMessage_0204500c((MessageWindow_02021b84*)var2, var6, 0, 0xe3);
 #endif
             var2->unknown_19b2_ = 0;
@@ -136,10 +136,10 @@ extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
         var2->unknown_19ae_ = 0;
         if (!var2->unknown_9a0_) {
             ResetMessageWindow_02043204((char*)var2);
-            func_020397c0(var0->GetUnknownGameObject());
-            FontLoader_0208cb08* var8 = func_02094a00();
+            EnablePlayerControl_020397c0(var0->GetUnknownGameObject());
+            FontLoader_0208cb08* var8 = GetFontLoader_02094a00();
             func_02094b38(var8, 0x203);
-            func_02094ab0(var8);
+            CancelFontLoad_02094ab0(var8);
             func_0205ebec(gSoundEffectManager_02108760);
             arg0->unknown_1_ = 1;
         }

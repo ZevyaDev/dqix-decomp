@@ -4,7 +4,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_020de848(void* arg0);
 extern "C" void func_ov023_021e20c0(void* arg0);
 extern "C" void func_020dc4d0(signed char* arg0, signed char* arg1);
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov023_021e2dd8(unsigned char* arg0) {
     int var5;
 
     var0 = GetGlobalFlags_020d6c00();
-    func_020466e4((unsigned int*)var0, 0xf);
+    SetGlobalFlags_020466e4((unsigned int*)var0, 0xf);
 
     *(unsigned int*)(arg0 + 0x0) = 0;
     *(unsigned int*)(arg0 + 0x4) = 0;
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov023_021e2dd8(unsigned char* arg0) {
     for (var5 = 0; var5 < 4; var5++) {
         signed char var6 = var2[var5];
         *(int*)((char*)arg0 + var5 * 4 + Enum_ov023_021e2dd8_1260) = var6;
-        func_0200ff1c(var1, var6);
+        GetPartyMemberBaseByIndex_0200ff1c(var1, var6);
     }
 
     *(int*)(arg0 + Enum_ov023_021e2dd8_1256) = var3;

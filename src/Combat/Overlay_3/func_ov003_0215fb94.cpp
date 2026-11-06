@@ -17,14 +17,14 @@ enum { Enum_ov003_0215fb94_742 = 0x2e6 };
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 struct Struct_02074bd0;
 struct Struct_0207fcb8;
 struct Struct_0207fd44_2;
 struct Struct_0207fd88;
 
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
 extern "C" void func_0207fcb8(struct Struct_0207fcb8* arg0);
 extern "C" void func_0207fd44(struct Struct_0207fd44_2* arg0);
@@ -60,7 +60,7 @@ struct Struct_ov003_0215fb94 {
 
 // USA: func_ov003_0215fb94
 extern "C" ARM void func_ov003_0215fb94(Struct_ov003_0215fb94* arg0) {
-    func_020466f4((struct Struct_02038598_4*)GetGlobalFlags_020d6c00(), 0x80000);
+    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80000);
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
     if (arg0->unknown_46c_ >= 0) {
         var0->RemoveTask(arg0->unknown_46c_);

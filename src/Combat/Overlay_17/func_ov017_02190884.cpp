@@ -48,7 +48,7 @@ extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18();
 extern "C" GameObject* func_0200fee0(GameState* arg0, int arg1);
 extern "C" char* GetZone3D_02012fe4();
 extern "C" int func_020981e4(int arg0, int arg1);
-extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int func_020546a8(void* arg0);
 extern "C" int func_ov017_02190818(int arg0);
 extern "C" int func_02039888(void* arg0);
@@ -61,8 +61,8 @@ extern "C" int func_02039874(void* arg0);
 extern "C" unsigned char func_020100b0(GameState* arg0);
 extern "C" void func_020340f4(unsigned char* arg0);
 extern "C" void func_02039858(unsigned char*, int);
-extern "C" void func_020397c0(void* arg0);
-extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" void EnablePlayerControl_020397c0(void* object);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void func_02039d58(unsigned char* arg0);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
@@ -71,7 +71,7 @@ extern "C" void func_02039d24(unsigned char* arg0);
 extern "C" void func_0203986c(unsigned char*, int);
 extern "C" void func_02039880(unsigned char*, int);
 extern "C" void func_020398a4(unsigned char* arg0);
-extern "C" void func_02033874(Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834* object, int angle);
 extern "C" void func_0202006c(unsigned char* arg0, int arg1);
 
 #if defined(jpn)
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
     }
 
     for (int var22 = 3; var22 >= 0; var22--) {
-        Struct_ov017_02190884_2* var23 = (Struct_ov017_02190884_2*)func_0200ff58(var0, var22);
+        Struct_ov017_02190884_2* var23 = (Struct_ov017_02190884_2*)GetCompanionByIndex_0200ff58(var0, var22);
         if (var23 != NULL && arg0 == func_020546a8(var23)) {
             if (!(var23->unknown_130_->unknown_0_ & 1)) {
                 var15[var17++] = var22;
@@ -150,7 +150,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
     Struct_ov017_021d61dc var24 = data_ov017_021d61dc;
     int* var25 = var15;
     for (int var26 = 0; var26 < var17; var26++, var25++) {
-        Struct_ov017_02190884_2* var27 = (Struct_ov017_02190884_2*)func_0200ff58(var0, *var25);
+        Struct_ov017_02190884_2* var27 = (Struct_ov017_02190884_2*)GetCompanionByIndex_0200ff58(var0, *var25);
         if (var27 != NULL) {
             var24.unknown_0_[var27->unknown_2d2_] = *var25;
         } else {
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
     }
     var25 = var16;
     for (int var28 = 0; var28 < var18; var28++, var25++) {
-        Struct_ov017_02190884_2* var29 = (Struct_ov017_02190884_2*)func_0200ff58(var0, *var25);
+        Struct_ov017_02190884_2* var29 = (Struct_ov017_02190884_2*)GetCompanionByIndex_0200ff58(var0, *var25);
         if (var29 != NULL) {
             var24.unknown_0_[var29->unknown_2d2_ + 4] = *var25;
         } else {
@@ -202,7 +202,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
     }
 
     if (var34 != NULL && arg1[0] != var34->obj3D_.unknown_4_) {
-        GameObject* var35 = func_0200ff58(var0, arg0);
+        GameObject* var35 = GetCompanionByIndex_0200ff58(var0, arg0);
         int var36;
         if (arg0 == 0 || var35 != NULL) {
             var36 = func_02010038(var0, var5);
@@ -254,10 +254,10 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
             var46->unknown_b0_ = 0x324;
             if (arg4 != 0) {
                 if (var33 != 0) {
-                    func_020397c0(var46);
+                    EnablePlayerControl_020397c0(var46);
                     var46->unknown_0_.DisableFlag(0x1000000);
                 } else {
-                    func_020397cc((Struct_02018300_3*)var46, 1);
+                    DisablePlayerControl_020397cc((Struct_02018300_3*)var46, 1);
                 }
             }
             func_02039d58((unsigned char*)var46);
@@ -273,7 +273,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
                 func_02039d24((unsigned char*)var46);
             }
             if (arg4 != 0) {
-                func_020397cc((Struct_02018300_3*)var46, 1);
+                DisablePlayerControl_020397cc((Struct_02018300_3*)var46, 1);
             }
             var46->unknown_0_.EnableFlag(0x80);
         }
@@ -318,7 +318,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
             var50->unknown_b0_ = 0x648;
             func_02039d24((unsigned char*)var50);
             if (arg4 != 0) {
-                func_020397cc((Struct_02018300_3*)var50, 1);
+                DisablePlayerControl_020397cc((Struct_02018300_3*)var50, 1);
             }
             func_0203986c((unsigned char*)var50, var48);
             var50->unknown_b4_ = 0x189;
@@ -338,7 +338,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
             GameObject* var52 = var0->GetPartyMemberByIndex(arg1[var51]);
             if (var52 != NULL) {
                 var52->obj3D_.position_ = var39[var51];
-                func_02033874((Struct_02033834*)var52, var40[var51]);
+                SetFacingInstantly_02033874((Struct_02033834*)var52, var40[var51]);
             }
         }
     }

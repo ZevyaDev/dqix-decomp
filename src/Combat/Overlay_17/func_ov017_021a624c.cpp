@@ -23,7 +23,7 @@ extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_02039750(void* arg0);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void* func_020daf90(void);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 
 struct Struct_02015a2c_2;
 extern "C" int func_02015a2c(struct Struct_02015a2c_2* arg0);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov017_021a624c(GameResources* arg0) {
 
     if (var1->GetGrottoStruct()->unknown_0[0] == 0 ||
         arg0->unknown_4080_ != 0 || var3 != -1 ||
-        !func_02046b08((void**)arg0->unknown_ptr_array_36fc[0]) ||
+        !IsQueueEmpty_02046b08((void**)arg0->unknown_ptr_array_36fc[0]) ||
         IsLocalWirelessGuest_0202c540(var0) ||
         func_020117f0(GameState::GetInstance()) != 0 ||
         *(int*)((char*)var4 + GLOB1C_FLAG_021a624c) != 0 ||

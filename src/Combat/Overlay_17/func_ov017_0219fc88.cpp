@@ -10,7 +10,7 @@ enum { Enum_ov017_0219fc88_1788 = 0x6fc, Enum_ov017_0219fc88_1844 = 0x734, Enum_
 
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 
 struct Struct_02071488 {
     char unknown_0_[0x46];
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov017_0219fc88(void* arg0, int arg1) {
     int var3;
     void* var4 = GetGameResources();
     struct Queue_0201bdac_2* var5 = *(struct Queue_0201bdac_2**)((char*)var4 + 0x3000 + Enum_ov017_0219fc88_1788);
-    var2 = func_0200fd0c(var0);
+    var2 = GetZoneEntry_0200fd0c(var0);
 
     struct Struct_02071488 var6;
     var3 = 0;

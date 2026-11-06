@@ -39,7 +39,7 @@ struct Struct_ov006_02157a60 {
 };
 
 extern "C" Struct_ov000_02182a74* GetParty_02010828(GameState* gameState);
-extern "C" void* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" void* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" short func_0207c620(unsigned char* arg0, unsigned int arg1);
 extern "C" short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
 extern "C" unsigned char* func_0207c60c(void* arg0, unsigned int arg1);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov006_02158de0(Struct_ov006_02157a60* arg0) {
     for (unsigned short var5 = 0; var5 < 0x98; var5++)
         func_ov006_02158fd8(arg0, 8, *(short*)((char*)var4 + 0xc + var5 * 2), *((char*)var4 + 0x13c + var5));
     for (unsigned char var6 = 0; var6 < var4->unknown_f7c_; var6++) {
-        GameObject* var7 = (GameObject*)func_0200ff1c(var3, var4->unknown_f78_[var6]);
+        GameObject* var7 = (GameObject*)GetPartyMemberBaseByIndex_0200ff1c(var3, var4->unknown_f78_[var6]);
         if (var7 != 0) {
             unsigned short* var8 = var7->unknown_150_->unknown_454_;
             for (unsigned char var9 = 0; var9 < 8; var9++)

@@ -53,7 +53,7 @@ extern "C" int func_02010088(struct Struct_02010088* arg0);
 extern "C" int func_ov000_02153c0c(GameObject* arg0);
 extern "C" void func_ov000_02160030(void* arg0);
 extern "C" void func_ov000_02157cdc(void* arg0);
-extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_0215ccbc(int arg0, struct Struct_ov000_021584e8* arg1, GameObject* arg2,
                             short arg3, short arg4, short arg5, unsigned long long arg6, unsigned char arg7);
 extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
@@ -109,10 +109,10 @@ extern "C" ARM void func_ov000_0215af54(struct Struct_ov000_0215af54_5* arg0, in
         } else {
             var0->unknown_0_ = 0x39d;
         }
-        func_ov000_0215a88c(arg0, var3, 0x35);
+        AddActionResultMessage_ov000_0215a88c(arg0, var3, 0x35);
     } else {
         var0->unknown_0_ = 0x39a;
-        func_ov000_0215a88c(arg0, var3, 0x213);
+        AddActionResultMessage_ov000_0215a88c(arg0, var3, 0x213);
     }
     var0->unknown_b_ |= 4;
 

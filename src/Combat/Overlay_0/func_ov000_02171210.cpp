@@ -68,7 +68,7 @@ extern "C" ARM int func_ov000_02171210(struct Struct_ov000_02171210* arg0, struc
         arg1->unknown_21_ = 0;
         int var1 = arg0->unknown_17_4_;
         if (var1 == 6) {
-            GameObject* var2 = func_0200ff1c(GameState::GetInstance(), arg1->unknown_4c_);
+            GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1->unknown_4c_);
             if (var2 != NULL) {
 #if defined(jpn)
                 if (func_02083b00(*(unsigned char**)((char*)var2 + 0x144), 0xe6)) {

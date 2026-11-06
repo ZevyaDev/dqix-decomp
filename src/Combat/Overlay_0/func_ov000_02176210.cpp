@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 
-struct Struct_0205d0e0 {
+struct TextWindow_0205d0e0 {
     char unknown_0_[0xa8];
     short unknown_a8_;
     short unknown_aa_;
@@ -10,13 +10,13 @@ struct Struct_0205d0e0 {
     short unknown_ae_;
 };
 
-extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" void func_0205d904(unsigned char* arg0);
 
 // USA: func_ov000_02176210
-extern "C" ARM void func_ov000_02176210(struct Struct_0205d81c* arg0, int arg1, int arg2) {
-    struct Struct_0205d0e0* var0 = func_0205d81c(arg0, arg1);
-    struct Struct_0205d0e0* var1 = func_0205d81c(arg0, arg2);
+extern "C" ARM void func_ov000_02176210(struct TextWindowManager_0205d81c* arg0, int arg1, int arg2) {
+    struct TextWindow_0205d0e0* var0 = FindTextWindow_0205d81c(arg0, arg1);
+    struct TextWindow_0205d0e0* var1 = FindTextWindow_0205d81c(arg0, arg2);
     if (var0 == NULL || var1 == NULL) return;
 
     short var2 = var0->unknown_ae_;

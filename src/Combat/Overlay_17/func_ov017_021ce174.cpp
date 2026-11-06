@@ -1,9 +1,6 @@
 #include <globaldefs.h>
 
 
-#if defined(jpn)
-#define func_0206df6c func_0206f0c0
-#endif
 
 struct LocalWireless_0202c1a4;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4*);
@@ -13,7 +10,7 @@ extern "C" void func_020107a8(char* arg0, int arg1);
 extern "C" void func_020107dc(char* arg0, int arg1);
 extern "C" void func_0206e080(char* arg0, int arg1);
 extern "C" void func_0206e0d0(char* arg0, int arg1);
-extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
+extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 
 struct Struct_ov017_021ce174 {
     char unknown_0_[4];
@@ -49,13 +46,13 @@ extern "C" ARM void func_ov017_021ce174(void* arg0, struct Struct_ov017_021ce174
         func_020107dc(arg2, arg1->unknown_6_);
         break;
     case 3:
-        func_0206df6c(var0, var0 + 0x8c, arg1->unknown_8_, arg1->unknown_6_);
+        SetFlag_0206df6c(var0, var0 + 0x8c, arg1->unknown_8_, arg1->unknown_6_);
         break;
     case 4:
-        func_0206df6c(var0, var0 + var0[0x332] * 0x1c + 0x3, arg1->unknown_8_, arg1->unknown_6_);
+        SetFlag_0206df6c(var0, var0 + var0[0x332] * 0x1c + 0x3, arg1->unknown_8_, arg1->unknown_6_);
         break;
     case 5:
-        func_0206df6c(var0, var0 + var0[0x332] * 0x1c + 0x10, arg1->unknown_8_, arg1->unknown_6_);
+        SetFlag_0206df6c(var0, var0 + var0[0x332] * 0x1c + 0x10, arg1->unknown_8_, arg1->unknown_6_);
         break;
     default:
         break;

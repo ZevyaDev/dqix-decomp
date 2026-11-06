@@ -18,21 +18,21 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-struct Struct_ov011_02184c30 {
-    int unknown_0_;
-    union { int unknown_0_; float unknown1_0_; } unknown_4_;
+struct ScriptValue_ov011_02184c30 {
+    int type_0_;
+    union { int unknown_0_; float unknown1_0_; } value_4_;
 };
 
 struct Struct_ov011_021869b8_5 {
-    Struct_ov011_02184c30 unknown_0_;
-    Struct_ov011_02184c30 unknown_8_;
-    Struct_ov011_02184c30 unknown_10_;
-    Struct_ov011_02184c30 unknown_18_;
-    Struct_ov011_02184c30 unknown_20_;
+    ScriptValue_ov011_02184c30 unknown_0_;
+    ScriptValue_ov011_02184c30 unknown_8_;
+    ScriptValue_ov011_02184c30 unknown_10_;
+    ScriptValue_ov011_02184c30 unknown_18_;
+    ScriptValue_ov011_02184c30 unknown_20_;
 };
 
-extern "C" int func_ov009_02184c30(struct Struct_ov011_02184c30* arg0);
-extern "C" ARM void* func_ov017_021b2164(void);
+extern "C" int func_ov009_02184c30(struct ScriptValue_ov011_02184c30* arg0);
+extern "C" ARM void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" ARM void* GetMenuObjectList_ov011_021849c8(void* menu);
 
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov023_021fbd00(void* arg0, void* arg1, int arg2, int arg
 
 extern "C" void* func_020dfc2c(void* arg0);
 extern "C" void* func_020df80c(void* arg0);
-extern "C" void func_0205a444(char* arg0);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void func_0205a494(void* arg0);
 
 struct Struct_ov004_0215c30c;
@@ -102,7 +102,7 @@ extern "C" ARM int func_ov011_021869b8(struct Struct_ov011_021869b8_5* arg0, int
     var1 = 0;
     if (arg1 - 4) var1 = (unsigned char)func_ov009_02184c30(&arg0->unknown_20_);
 
-    var2 = func_ov017_021b2164();
+    var2 = GetCurrentMenu_ov017_021b2164();
     var3 = func_ov011_021845f8(var2, var8);
     if (var3 == 0) return 0;
 
@@ -125,7 +125,7 @@ extern "C" ARM int func_ov011_021869b8(struct Struct_ov011_021869b8_5* arg0, int
     func_020df80c(var7->unknown_7c_);
     func_020dfc2c(var7->unknown_8c_);
     func_020dfc2c(var7->unknown_a4_);
-    func_0205a444(var7->unknown_12c_);
+    InitSpriteSet_0205a444(var7->unknown_12c_);
     memcpy(var4, &var0, sizeof(Struct_ov011_021869b8_4));
 
     if (func_ov023_021fbd00(var4, var2, var10, var8, var9, var5, var1) == 0) {

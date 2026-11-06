@@ -9,7 +9,7 @@ struct Struct_ov000_0215f1ac_4 { char unknown_0_[0x8e20]; int unknown_8e20_; cha
 struct Struct_ov000_0215f1ac_5 { char unknown_0_[0x10]; unsigned int unknown_10_; char unknown_14_[0x2c - 0x14]; unsigned int unknown_2c_0_ : 14; unsigned int unknown_2d_6_ : 6; unsigned int unknown_2e_4_ : 12; };
 struct Struct_ov000_0215440c_2;
 
-extern "C" Struct_ov000_0215f1ac_5* func_02079e2c(char*, int);
+extern "C" Struct_ov000_0215f1ac_5* FindActionData_02079e2c(char*, int);
 extern "C" int func_02085180(unsigned char*);
 extern "C" int func_ov000_0215fc60(char*);
 extern "C" Struct_ov000_0215f1ac_2* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
@@ -25,16 +25,16 @@ struct Struct_ov000_0215f1ac { char unknown_0_[0x150]; unsigned char* unknown_15
 // USA: func_ov000_0215f1ac
 extern "C" ARM void func_ov000_0215f1ac(Struct_ov000_0215f1ac_4* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Struct_02108e10* var1 = func_020797dc();
+    ActionTables_02108e10* var1 = GetActionTables_020797dc();
     int var2 = 0;
     for (int var3 = arg0->unknown_8e7c_ - 1; var3 >= var2; var3--) {
         Struct_ov000_0215f1ac_3* var4 = &arg0->unknown_8e78_[var3];
-        Struct_ov000_0215f1ac_5* var5 = func_02079e2c((char*)var1, var4->unknown_0_);
+        Struct_ov000_0215f1ac_5* var5 = FindActionData_02079e2c((char*)var1, var4->unknown_0_);
         if (!var5 || !(var5->unknown_10_ & 0x80000)) continue;
         unsigned short var6 = var4->unknown_10_->unknown_20_;
         unsigned char var7 = var6 <= 3;
         if (!var7) continue;
-        GameObject* var8 = func_0200ff1c(var0, var6);
+        GameObject* var8 = GetPartyMemberBaseByIndex_0200ff1c(var0, var6);
         if (!var8 || !func_02085180(((Struct_ov000_0215f1ac*)var8)->unknown_150_)) continue;
         Struct_ov000_0215f1ac_3 var9;
         memcpy(&var9, var4, 0x28);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov000_0215f1ac(Struct_ov000_0215f1ac_4* arg0) {
         int var11 = 0;
         for (int var12 = arg0->unknown_8e7c_ - 1; var12 >= var11; var12--) {
             Struct_ov000_0215f1ac_3* var13 = arg0->unknown_8e78_;
-            Struct_ov000_0215f1ac_5* var14 = func_02079e2c((char*)var1, var13[var12].unknown_0_);
+            Struct_ov000_0215f1ac_5* var14 = FindActionData_02079e2c((char*)var1, var13[var12].unknown_0_);
             if (!var14 || var14->unknown_2d_6_ != data_ov000_02182aac[var10]) continue;
             Struct_ov000_0215f1ac_3 var15;
             memcpy(&var15, &var13[var12], 0x28);
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov000_0215f1ac(Struct_ov000_0215f1ac_4* arg0) {
         for (; var20 < var19; var20++) {
             var18 = var16[var17];
             Struct_ov000_0215f1ac_3* var21 = arg0->unknown_8e78_;
-            Struct_ov000_0215f1ac_5* var22 = func_02079e2c((char*)var1, var21[var20].unknown_0_);
+            Struct_ov000_0215f1ac_5* var22 = FindActionData_02079e2c((char*)var1, var21[var20].unknown_0_);
             if (!var22 || var22->unknown_2d_6_ != var18) continue;
             Struct_ov000_0215f1ac_3 var23;
             memcpy(&var23, &var21[var20], 0x28);

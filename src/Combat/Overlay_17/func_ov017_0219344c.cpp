@@ -65,9 +65,9 @@ extern "C" int func_ov017_02193290(Struct_ov017_0219344c_4* arg0, Struct_ov017_0
 extern "C" int func_02017d90(Struct_ov017_0219344c_3* arg0, int arg1, Struct_ov017_0219344c_5* arg2, Struct_ov017_0219344c_4 arg3, Struct_ov017_0219344c_2* arg4);
 extern "C" int func_ov017_02192b48(Struct_ov017_0219344c_5* arg0, Struct_ov017_0219344c_4* arg1, int arg2, Struct_ov017_0219344c_2* arg3, int arg4, Vector3i* arg5, Vector3i* arg6, int* arg7, int* arg8, int arg9, int* arg10, int arg11, int arg12, int arg13);
 extern "C" unsigned char func_020100b0(GameState* arg0);
-extern "C" void func_020397c0(void* arg0);
-extern "C" int func_02033b88(Struct_02010604* arg0, int arg1);
-extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" void EnablePlayerControl_020397c0(void* object);
+extern "C" int SetMotion_02033b88(Struct_02010604* object, int motion);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void func_020531f0(GameObject* arg0);
 extern "C" unsigned char* func_020177a8(unsigned char* arg0, int arg1);
 extern "C" void func_ov017_0218daa8(void* arg0, Struct_ov009_0218aa28* arg1, int arg2, int arg3, unsigned char arg4);
@@ -252,13 +252,13 @@ extern "C" ARM int func_ov017_0219344c(Struct_ov017_0219344c_2* arg0, int arg1, 
     }
     if (var1 != 0) {
         if (var18 != 0 && var34->obj3D_.unknown_4_ == arg0->unknown_4_) {
-            func_020397c0(var34);
+            EnablePlayerControl_020397c0(var34);
         }
         arg0->unknown_ac_ = 0;
     } else if (var18 == 0) {
-        func_02033b88((Struct_02010604*)arg0, 0);
+        SetMotion_02033b88((Struct_02010604*)arg0, 0);
         if (var34->obj3D_.unknown_4_ == arg0->unknown_4_) {
-            func_020397cc((Struct_02018300_3*)var34, 1);
+            DisablePlayerControl_020397cc((Struct_02018300_3*)var34, 1);
             if (!var34->obj3D_.GetFlag(0x1000)) {
                 func_020531f0(var34);
             }

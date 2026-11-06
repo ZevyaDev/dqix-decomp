@@ -80,7 +80,7 @@ extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
 extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" unsigned short func_0201e830(Struct_0201e830* arg0);
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" int func_ov017_021a193c(int* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
@@ -143,7 +143,7 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
             if (arg0->unknown_3c_ == 0x10) {
                 var9 = 0x7fff;
             }
-            func_020c5588(var9, 0x1f, 0x7fff, 0, 0);
+            Set3DClearColorAndDepth_020c5588(var9, 0x1f, 0x7fff, 0, 0);
             arg0->unknown_38_ = GetFlags04(var6);
             ClearFlags04(var6, 0xffffffff);
             SetFlags04(var6, 0x8de);

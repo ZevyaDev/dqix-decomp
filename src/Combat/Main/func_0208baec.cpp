@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_0205af38(int arg0, char* arg1, int arg2, int arg3);
-extern "C" int func_0205ac40(int arg0, void* arg1);
+extern "C" int DrawSprite_0205ac40(int spriteSet, void* sprite);
 
 struct Struct_0208baec {
     int unknown_0_;
@@ -36,5 +36,5 @@ extern "C" ARM int func_0208baec(int arg0, Struct_0208baec_2* arg1, Struct_0208b
     arg1->unknown_c_ = (int)(arg4 * 4096.0f);
     arg1->unknown_10_ = (int)(arg4 * 4096.0f);
     arg1->unknown_1c_ = arg2->unknown_c_;
-    return func_0205ac40(arg0, arg1);
+    return DrawSprite_0205ac40(arg0, arg1);
 }

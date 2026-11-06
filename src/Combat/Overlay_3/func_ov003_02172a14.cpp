@@ -12,15 +12,15 @@
 struct GameResources;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
-struct Struct_02020cb8;
-struct Struct_02020cb8_5;
+struct BGLayer_02020cb8;
+struct BGLayer_02020cb8_5;
 struct Struct_02020cb8_6;
 struct Struct_ov003_02172a14;
 
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4 *pac);
 extern "C" void *GetPacEntryData_020467f0(PacEntry_02020aec *pac, int index, void **outEntry, int *outSize);
-extern "C" void func_0205a528(void *arg0, void *arg1, unsigned int arg2, void *arg3);
-extern "C" void func_0204c684(void *arg0);
+extern "C" void LoadSpriteSetFile_0205a528(void *spriteSet, void *fileData, unsigned int size, void *allocator);
+extern "C" void InitTextWindow_0204c684(void *textWindow);
 #if defined(jpn)
 struct Struct_ov003_02172a14_5;
 extern "C" Struct_ov003_02172a14_5 *GetZone3D_02012fe4(void);
@@ -33,12 +33,12 @@ extern "C" void func_02050678(void *arg0, int arg1, int arg2, char *arg3, int ar
 #else
 extern "C" void func_0204f41c(void *arg0, int arg1, int arg2, char *arg3, int arg4, int arg5, short *arg6, short *arg7, int arg8);
 #endif
-extern "C" void func_0204af64(Struct_02020cb8 *arg0);
-extern "C" void func_0204b11c(unsigned char *arg0, int arg1);
-extern "C" void func_0204b5e8(Struct_02020cb8_5 *arg0, int arg1, int arg2);
+extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8 *layer);
+extern "C" void SetBGScreenSize_0204b11c(unsigned char *layer, int screenSize);
+extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5 *layer, int scrollX, int scrollY);
 #if defined(jpn)
-extern "C" void func_0204b174(void *arg0, void *arg1, SafeAllocator *arg2, int arg3);
-extern "C" void func_0204b0e8(void *arg0, void *arg1);
+extern "C" void LoadBGBlock_0204b174(void *layer, void *block, SafeAllocator *allocator, int arg3);
+extern "C" void LoadBGScreenData_0204b0e8(void *layer, void *screenData);
 extern "C" void func_0204afb4(void *arg0);
 #else
 extern "C" void func_0204b2e0(void *arg0, char *arg1);
@@ -151,7 +151,7 @@ struct Struct_ov003_02172a14_4 {
 extern "C" ARM void func_ov003_02172a14(Struct_ov003_02172a14_4 *arg0) {
     GameResources *var0       = GetGameResources();
     BackgroundLoader *var1 = BackgroundLoader::GetInstance();
-    FontLoader_0208cb08* var2 = func_02094a00();
+    FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
     if (arg0->unknown_ee_ == 0) {
         arg0->unknown_180_ = 0;
         arg0->unknown_170_ = arg0->unknown_128_;
@@ -178,7 +178,7 @@ extern "C" ARM void func_ov003_02172a14(Struct_ov003_02172a14_4 *arg0) {
         int var7 = CountPacEntries_02046900((PacEntry_02020cb8_4 *) var4);
         for (int var8 = 0; var8 < var7; var8++) {
             void *var9 = GetPacEntryData_020467f0((PacEntry_02020aec *) var4, var8, &var3, &var6);
-            func_0205a528(arg0->unknown_130_, var9, var6, arg0->unknown_1ac_);
+            LoadSpriteSetFile_0205a528(arg0->unknown_130_, var9, var6, arg0->unknown_1ac_);
         }
         var1->RemoveTask(arg0->unknown_f0_);
         arg0->unknown_f0_ = -1;
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov003_02172a14(Struct_ov003_02172a14_4 *arg0) {
         for (int var21 = 0; var21 < var20; var21++) {
             var13[var21] = GetPacEntryData_020467f0((PacEntry_02020aec *) var11, var21, &var10, &var14[var21]);
         }
-        func_0204c684(&var15);
+        InitTextWindow_0204c684(&var15);
         var15.unknown_8_ = (char *) var13[0] + 0x10;
         var15.unknown_a8_  = 0x20;
         var15.unknown_aa_ = 0x18;
@@ -226,11 +226,11 @@ extern "C" ARM void func_ov003_02172a14(Struct_ov003_02172a14_4 *arg0) {
 #else
         func_0204f41c(&var15, 0xb0, 0x48, var16, 8, 1, &var18, &var19, 0);
 #endif
-        func_0204af64((Struct_02020cb8 *) &var17);
+        InitBGLayer_0204af64((BGLayer_02020cb8 *) &var17);
         var17.unknown_1c_0_ = 0;
         var17.unknown_1c_4_ = 1;
-        func_0204b11c((unsigned char *) &var17, 0);
-        func_0204b5e8((Struct_02020cb8_5 *) &var17, 0, 0);
+        SetBGScreenSize_0204b11c((unsigned char *) &var17, 0);
+        SetBGScroll_0204b5e8((BGLayer_02020cb8_5 *) &var17, 0, 0);
 #if defined(jpn)
         for (int var24 = 0; var24 < var20; var24++) {
             if (var24 == 2) {
@@ -239,10 +239,10 @@ extern "C" ARM void func_ov003_02172a14(Struct_ov003_02172a14_4 *arg0) {
                 DC_FlushRange(var29 + 0x10, var30);
                 LoadToMainBG1ScreenData(var29 + 0x10, 0, var30);
             } else {
-                func_0204b174(&var17, var13[var24], 0, var14[var24]);
+                LoadBGBlock_0204b174(&var17, var13[var24], 0, var14[var24]);
             }
         }
-        func_0204b0e8(&var17, 0);
+        LoadBGScreenData_0204b0e8(&var17, 0);
         func_0204afb4(&var17);
 #else
         for (int var24 = 0; var24 < var20; var24++) {
@@ -287,7 +287,7 @@ extern "C" ARM void func_ov003_02172a14(Struct_ov003_02172a14_4 *arg0) {
     }
     if (arg0->unknown_ee_ == 5) {
         func_02094b30(var2, 0x1ff, 0);
-        if (func_02094b4c(var2) != 0) {
+        if (UpdateFontLoad_02094b4c(var2) != 0) {
             arg0->unknown_ec_ = 2;
             arg0->unknown_ee_  = 0;
         }

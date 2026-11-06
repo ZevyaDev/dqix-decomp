@@ -2,13 +2,13 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
-extern "C" void func_ov000_02169b78(void*);
+extern "C" void AppendBACTCommand_ov000_02169b78(void*);
 
 struct Struct_ov000_02184264_2 {
     unsigned char unknown_0_[8];
     SafeAllocator* unknown_8_;
 };
-extern struct Struct_ov000_02184264_2 data_ov000_02184264;
+extern struct Struct_ov000_02184264_2 gBACTParseState_ov000_02184264;
 
 struct Struct_0201c1c8 { int unknown_0_; int unknown_4_; };
 struct Struct_0201d530 { int unknown_0_; union { int unknown_0_; float unknown1_0_; } unknown_4_; };
@@ -23,7 +23,7 @@ struct Struct_ov000_0216c04c {
 
 // USA: func_ov000_0216c04c
 extern "C" ARM int func_ov000_0216c04c(struct Struct_0201c1c8* arg0) {
-    struct Struct_ov000_0216c04c* var0 = (struct Struct_ov000_0216c04c*)data_ov000_02184264.unknown_8_->Allocate(sizeof(struct Struct_ov000_0216c04c));
+    struct Struct_ov000_0216c04c* var0 = (struct Struct_ov000_0216c04c*)gBACTParseState_ov000_02184264.unknown_8_->Allocate(sizeof(struct Struct_ov000_0216c04c));
     var0->unknown_0_ = 0;
     var0->unknown_4_ = 0;
     var0->unknown_0_ = 0x59;
@@ -31,6 +31,6 @@ extern "C" ARM int func_ov000_0216c04c(struct Struct_0201c1c8* arg0) {
     var0->unknown_14_[0] = (int)(4096.0f * ((Script::Parameter*)(var1 + 0))->ToFloat());
     var0->unknown_14_[1] = (int)(4096.0f * ((Script::Parameter*)(var1 + 1))->ToFloat());
     var0->unknown_14_[2] = (int)(4096.0f * ((Script::Parameter*)(var1 + 2))->ToFloat());
-    func_ov000_02169b78(var0);
+    AppendBACTCommand_ov000_02169b78(var0);
     return 1;
 }

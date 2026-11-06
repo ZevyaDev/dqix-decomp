@@ -7,12 +7,12 @@ struct Struct_ov023_021e9910 {
 };
 
 extern "C" int GetBattleRecords_020ac4c0(void* records);
-extern "C" void func_ov017_021d6134(void*, int);
+extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
 
 // USA: func_ov023_021e9910
 extern "C" ARM int func_ov023_021e9910(void* arg0) {
     char var0[0xb0];
     GetBattleRecords_020ac4c0(var0);
-    func_ov017_021d6134(arg0, ((struct Struct_ov023_021e9910*)var0)->unknown_d_6_);
+    SetScriptRefInt_ov017_021d6134(arg0, ((struct Struct_ov023_021e9910*)var0)->unknown_d_6_);
     return 1;
 }

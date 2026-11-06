@@ -8,14 +8,14 @@ enum { Enum_ov017_021af59c_640 = 0x280, Enum_ov017_021af59c_644 = 0x284, Enum_ov
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-struct Struct_0204693c;
-extern "C" void func_0204693c(struct Struct_0204693c* arg0);
+struct QueueNode_0204693c;
+extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
 extern "C" void func_0205c790(char* arg0);
 extern "C" unsigned char func_02039820(void* arg0);
 
 // USA: func_ov017_021af59c
 extern "C" ARM void func_ov017_021af59c(char* arg0) {
-    func_0204693c((struct Struct_0204693c*)arg0);
+    ResetQueueNode_0204693c((struct QueueNode_0204693c*)arg0);
     arg0[0] = 0x26;
     arg0[0x9] = 0;
     arg0[0xa] = 0;

@@ -21,7 +21,7 @@ struct Struct_ov017_0219b43c { unsigned char unknown_0_[0x88]; };
 
 // USA: func_ov017_0219b43c
 extern "C" ARM void func_ov017_0219b43c(char* arg0, int arg1, struct Struct_02015ef4* arg2, int arg3, int arg4) {
-    void* var0 = func_020100bc(GameState::GetInstance());
+    void* var0 = GetCamera_020100bc(GameState::GetInstance());
     switch (arg1) {
     case 2:
         arg1 = 2;

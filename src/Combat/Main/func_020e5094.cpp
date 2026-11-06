@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct Struct_0201099c_14 {
+struct StringTable_0201099c_14 {
     unsigned char unknown_0_[0xc];
     short unknown_c_;
     int unknown_10_;
 };
-extern "C" void func_020dfc6c(Struct_0201099c_14* arg0);
+extern "C" void func_020dfc6c(StringTable_0201099c_14* arg0);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 
 struct Struct_02153694 {
-    Struct_0201099c_14 unknown_0_;
+    StringTable_0201099c_14 unknown_0_;
     unsigned char unknown_14_[4];
 };
 

@@ -55,7 +55,7 @@ struct Struct_ov023_021e540c {
 
 extern "C" unsigned short (*func_02099cac())[2];
 extern "C" void func_ov023_021e5fdc(void* arg0, short* arg1, short* arg2);
-extern "C" ItemData_0201099c_9* func_020dedd0(ItemTable_0201099c_10* arg0, int arg1);
+extern "C" ItemData_0201099c_9* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" int func_020de2a4(Struct_020730e0_2* arg0, int arg1, int arg2);
 extern short data_ov023_021fd68a[];
 
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov023_021e540c(Struct_ov023_021e540c_5* arg0) {
         if (var8 != NULL) {
           Struct_ov023_021e540c_4* var11 = &arg0->unknown_794_[var7];
           if (var11 != NULL) {
-            ItemData_0201099c_9* var12 = func_020dedd0(var8, (short)var9);
+            ItemData_0201099c_9* var12 = FindItemData_020dedd0(var8, (short)var9);
             if (var12 != NULL && var12->unknown_0_ != NULL) {
                 int var13 = func_020de2a4((Struct_020730e0_2*)var12, 0, var10);
                 if (var13 != 0) {

@@ -8,7 +8,7 @@ extern "C" ARM int func_020243b8(void* arg0, int arg1) {
     if (arg1 < 0) {
         return 1;
     }
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg1);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1);
     if (var0 == NULL) {
         return 1;
     }

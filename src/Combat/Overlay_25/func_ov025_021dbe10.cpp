@@ -79,7 +79,7 @@ extern "C" void func_ov025_021e8a40(char*, int, int);
 extern "C" void func_ov025_021e8a4c(char*, int);
 extern "C" void func_ov025_021e8d20(char*, void*);
 extern "C" void func_ov025_021db8d8(Struct_ov025_021dbe10_4*);
-extern "C" Struct_ov025_021dbe10_3* func_02079e2c(char*, int);
+extern "C" Struct_ov025_021dbe10_3* FindActionData_02079e2c(char*, int);
 extern "C" void func_ov025_021d8a40(void*, Struct_ov025_021d8a40*);
 extern "C" void func_ov025_021def30(unsigned char*);
 static inline int inline_ov000_02156cc4_2(unsigned int arg0) { return arg0 <= 3; }
@@ -134,7 +134,7 @@ extern "C" ARM void func_ov025_021dbe10(Struct_ov025_021dbe10_4* arg0) {
             func_ov025_021e8d20(arg0->unknown_2a8_, var9);
             func_ov025_021db8d8(arg0);
         } else {
-            Struct_ov025_021dbe10_3* var11 = func_02079e2c((char*)func_020797dc(), (short)var8);
+            Struct_ov025_021dbe10_3* var11 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), (short)var8);
             if (var11) {
                 if (var11->unknown_18_5_ == 0x22) func_ov025_021d8a40(arg0, (Struct_ov025_021d8a40*)var3);
                 else {

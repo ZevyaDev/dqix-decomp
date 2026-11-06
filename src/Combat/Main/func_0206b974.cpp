@@ -27,7 +27,7 @@ public:
     unsigned int unknown_70_;
 };
 
-extern "C" int func_02001aec(const void* arg0, const void* arg1, unsigned int arg2);
+extern "C" int CompareBytes_02001aec(const void* left, const void* right, unsigned int count);
 extern "C" int func_020424e4(int, int);
 
 extern "C" char* func_020424ac(char*);
@@ -36,7 +36,7 @@ extern "C" int func_020425e4(int arg0, int arg1, int arg2);
 extern "C" int func_02042648(int arg0);
 extern "C" int func_02044420(void*, void*);
 extern "C" bool func_02044494(void*, void*);
-extern "C" int func_020d2ff0(const char*);
+extern "C" int GetStringLength_020d2ff0(const char*);
 extern "C" bool func_020d85dc(const char* arg0, const char* arg1);
 
 struct Struct_020e7e04
@@ -145,7 +145,7 @@ extern "C" ARM void func_0206b974(Struct_0206b974* arg0, bool arg1, char *arg2, 
             continue;
         }
 
-        if (func_02001aec(arg2, data_020f0981, 6) == 0)
+        if (CompareBytes_02001aec(arg2, data_020f0981, 6) == 0)
         {
             var4 = 0;
             var0 = arg5;
@@ -160,7 +160,7 @@ extern "C" ARM void func_0206b974(Struct_0206b974* arg0, bool arg1, char *arg2, 
             continue;
         }
 
-        if (func_02001aec(arg2, data_020f08dc, 2) == 0)
+        if (CompareBytes_02001aec(arg2, data_020f08dc, 2) == 0)
         {
             char* var14 = strstr(arg2, data_020f0988);
             if (var14 != NULL)
@@ -189,7 +189,7 @@ extern "C" ARM void func_0206b974(Struct_0206b974* arg0, bool arg1, char *arg2, 
                     if (!func_020d85dc(var18, var19->unknown_0_))
                         continue;
 
-                    int var20 = var19->unknown_4_(var18 + func_020d2ff0(var19->unknown_0_), &var0, arg7, arg5);
+                    int var20 = var19->unknown_4_(var18 + GetStringLength_020d2ff0(var19->unknown_0_), &var0, arg7, arg5);
                     if (var20 != 1)
                     {
                         if (var20 == 2)
@@ -224,7 +224,7 @@ extern "C" ARM void func_0206b974(Struct_0206b974* arg0, bool arg1, char *arg2, 
         {
             var9 = 0;
         }
-        if (func_02001aec(arg2, data_020f098c, 3) == 0)
+        if (CompareBytes_02001aec(arg2, data_020f098c, 3) == 0)
         {
             var16 = -1;
             arg2 += 3;

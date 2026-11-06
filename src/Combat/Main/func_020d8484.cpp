@@ -21,7 +21,7 @@ struct Struct_020d80b0_3 {
     SafeAllocator unknown_14_;
 };
 
-extern "C" int func_020100f8(char* arg0);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a27ac(void* arg0);
 extern "C" void func_020727ec(struct Struct_020727d8* arg0);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
@@ -29,7 +29,7 @@ extern int gMainHeap_02114e20;
 
 // USA: func_020d8484
 extern "C" ARM void func_020d8484(struct Struct_020d80b0_3* arg0) {
-    func_020a27ac((void*)func_020100f8((char*)GameState::GetInstance()));
+    func_020a27ac((void*)GetFollowCamera_020100f8((char*)GameState::GetInstance()));
     void* var0 = arg0->unknown_14_.GetSignedAllocator();
     if (var0 != NULL) {
         arg0->unknown_14_.Reset();

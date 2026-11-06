@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 
 #include "Combat/EntryGetterTypes.h"
 #include "World/Object3D.h"
@@ -30,7 +30,7 @@ extern Struct_ov001_02165880_47 data_ov001_02165880;
 
 // USA: func_ov001_02161754
 extern "C" ARM int func_ov001_02161754(void* arg0) {
-    int var0 = func_ov017_021d60f4(arg0);
+    int var0 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     if (var0 < 0) {
         return 0;
     }

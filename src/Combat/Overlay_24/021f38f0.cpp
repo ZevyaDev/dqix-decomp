@@ -4,7 +4,7 @@
 
 extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
 extern "C" float func_ov024_021db358(GameObject* arg0);
-extern "C" int func_ov000_0215eb1c(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
 extern const short data_ov024_021fee2c[8] __attribute__((aligned(4)));
 
 // USA: func_ov024_021f38f0
@@ -21,7 +21,7 @@ extern "C" ARM int func_ov024_021f38f0(int* arg0, int arg1, void* arg2, int* arg
         *(unsigned short*)var3++ = *(const unsigned short*)var2++;
     } while (--var4);
 
-    int var5 = func_ov000_0215eb1c(*arg0, var1, 8, 1);
+    int var5 = CollectEnemyCombatantIndices_ov000_0215eb1c(*arg0, var1, 8, 1);
     if (var5 <= 0) return 0;
     *arg3 = 0;
     for (int var6 = 0; var6 < var5; var6++) {

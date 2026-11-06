@@ -17,9 +17,9 @@ extern char data_ov031_0224c90c[];
 extern char data_ov031_0224c920[];
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
-extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 void MarkContextStackTopUnknownSubspace(ProcessorContext*, unsigned int);
 
 enum Enum_ov031_02243850 {
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov031_02243850(void* arg0) {
     int var3 = 1;
     if (IsLocalWirelessOn_0202b7d8(var1)) return -1;
     GameObject* var4 = var0->GetUnknownGameObject();
-    if (var4) func_020397cc((Struct_02018300_3*)var4, 1);
+    if (var4) DisablePlayerControl_020397cc((Struct_02018300_3*)var4, 1);
     Enum_ov031_02243850 var5 = Enum_ov031_02243850_183616;
     SafeAllocator* var6 = *(SafeAllocator**)((char*)arg0 + 0x28);
     if (!var6) return -1;
@@ -61,7 +61,7 @@ extern "C" ARM int func_ov031_02243850(void* arg0) {
         BackgroundLoader::RemoveLockGlobal();
     } else {
         *(void**)((char*)arg0 + 0x4c) = var8->Allocate(0x700);
-        func_020466e4(GetGlobalFlags_020d6c00(), 0x80);
+        SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 0x80);
     }
 #if defined(jpn)
     *(int*)((char*)GetGameResources() + 0x41e4) = 1;

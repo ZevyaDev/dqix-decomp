@@ -4,7 +4,7 @@ extern "C" int func_ov031_0223d394(int arg0);
 extern "C" void func_ov031_02225148(int arg0);
 extern "C" int func_ov031_0223d354(int arg0);
 extern "C" int func_ov031_0223d3d4(int arg0);
-extern "C" void func_ov031_02236878(int arg0);
+extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
 extern "C" void func_ov031_02224f20(int);
 extern "C" ARM void func_ov031_022247bc(void);
 extern "C" ARM void func_ov031_022247ec(void);
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov031_02224a74(void) {
         int var1 = var0->unknown_121_;
         if (var1 < 0x2f) {
             if (var0->unknown_124_ == 0) {
-                func_ov031_02236878(9);
+                PlayWifiSetupSoundEffect_ov031_02236878(9);
                 return;
             }
             unsigned char var2 = var0->unknown_11d_;
@@ -59,13 +59,13 @@ extern "C" ARM void func_ov031_02224a74(void) {
                     return;
                 case 2:
                     if (var0->unknown_124_ == 0) {
-                        func_ov031_02236878(9);
+                        PlayWifiSetupSoundEffect_ov031_02236878(9);
                         return;
                     }
                     break;
                 case 3:
                     if (var0->unknown_123_ == 0) {
-                        func_ov031_02236878(9);
+                        PlayWifiSetupSoundEffect_ov031_02236878(9);
                         return;
                     }
                     break;
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov031_02224a74(void) {
             if (var4->unknown_125_ != 0) {
                 return;
             }
-            func_ov031_02236878(9);
+            PlayWifiSetupSoundEffect_ov031_02236878(9);
             data_ov031_02250bfc->unknown_125_ = 1;
             return;
         }

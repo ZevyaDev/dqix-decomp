@@ -105,7 +105,7 @@ extern "C" void func_ov000_02160d80(void*, int);
 extern "C" Struct_ov026_021db090_4* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
 
 extern "C" {
-int func_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
+int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
 void func_ov000_02162c14(Struct_ov000_02160da0*, int, Struct_ov026_021db090*);
 void func_020dd0b0(int, char*);
 void GetZone3D_02012fe4();
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov026_021db090(Struct_ov000_02160da0* arg0) {
         sprintf(var3, data_ov026_021dedee);
 #endif
         __clear(var5, sizeof(var5));
-        var9 = func_ov000_0215e9fc(arg0->unknown_29c_, var7, 4, 0);
+        var9 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0->unknown_29c_, var7, 4, 0);
         var8 = data_ov026_021de6bc;
 #if defined(jpn)
         var11 = 0;
@@ -219,7 +219,7 @@ extern "C" ARM void func_ov026_021db090(Struct_ov000_02160da0* arg0) {
             var18 = GameState::GetInstance();
             var17 = (Struct_ov000_02182a60*)GetParty_02010828(var18);
             for (var16 = 0; var16 < var17->unknown_f7c_; var16++) {
-                GameObject* var19 = func_0200ff1c(var18, var17->unknown_f78_[var16]);
+                GameObject* var19 = GetPartyMemberBaseByIndex_0200ff1c(var18, var17->unknown_f78_[var16]);
                 if (var19 != NULL) {
                     func_02053ec8(var19, 2);
                 }

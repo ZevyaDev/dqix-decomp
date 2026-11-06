@@ -6,8 +6,8 @@
 #include "NitroSDK/ColorEffects.h"
 
 extern "C" int GetResources_0200fb8c(int*);
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 #if defined(jpn)
 extern "C" void func_ov009_021867bc(unsigned char*, int);
 #else
@@ -25,8 +25,8 @@ extern "C" ARM void func_ov009_021883cc(unsigned char* arg0) {
     }
     if (var2 != 1 || IsBrightnessTransitionActive(var1))
         return;
-    func_0205d6a0((Struct_0205d6a0*)&var0->unknown_1f8_[0], 1);
-    func_0205d6a0((Struct_0205d6a0*)&var0->unknown_1f8_[1], 1);
+    CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)&var0->unknown_1f8_[0], 1);
+    CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)&var0->unknown_1f8_[1], 1);
     ColorEffect_ConfigureBrightnessAdjust(0x04001050, 1, 0);
 #if defined(jpn)
     func_ov009_021867bc(arg0, 12);

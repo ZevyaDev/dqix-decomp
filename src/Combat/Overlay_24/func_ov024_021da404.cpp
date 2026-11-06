@@ -12,7 +12,7 @@ extern "C" ARM int func_ov024_021da404(int arg0, int arg1, int arg2, int arg3, i
 		return arg5;
 	}
 	GameState* var1 = GameState::GetInstance();
-	GameObject* var2 = func_0200ff1c(var1, arg1);
+	GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var1, arg1);
 	if (!var2) {
 		return arg5;
 	}

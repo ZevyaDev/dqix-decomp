@@ -10,7 +10,7 @@ extern "C" void func_020a27a0(void* arg0);
 extern "C" ARM int func_ov015_021925a8() {
     GameState* var0 = GameState::GetInstance();
     if (!var0) return 0;
-    void* var1 = func_020100bc(var0);
+    void* var1 = GetCamera_020100bc(var0);
     if (!var1) return 0;
     if (g_keyManager.TestKeysHeld(0xc00)) {
         func_020a2794(var1);

@@ -15,12 +15,12 @@ extern "C" void func_ov013_02185aac(unsigned char* arg0);
 struct Struct_0205dee8;
 extern "C" void func_0205dee8(struct Struct_0205dee8* arg0, int arg1);
 struct Struct_0205c570;
-extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 struct SoundEffectManager_02108760;
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void func_ov013_02186c64(void* arg0, int arg1, int arg2);
 extern "C" void func_ov013_02185cc0(void* arg0);
 struct Struct_0205da38;
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov013_0218683c(void* arg0) {
     }
 
     if (*(int*)(var0 + LOW_REGION(0x5d4, 0x648)) == 2) {
-        *(int*)(var0 + LOW_REGION(0x5e8, 0x660)) = (signed char)func_0205d794((struct Struct_0205c570*)(var0 + LOW_REGION(0x34, 0x38)));
+        *(int*)(var0 + LOW_REGION(0x5e8, 0x660)) = (signed char)GetCursorIndex_0205d794((struct Struct_0205c570*)(var0 + LOW_REGION(0x34, 0x38)));
         var1 = 1;
     }
 
@@ -63,16 +63,16 @@ extern "C" ARM void func_ov013_0218683c(void* arg0) {
                 int var2 = 1;
                 if (*(int*)(var0 + LOW_REGION(0x5e8, 0x660)) == 0) {
                     var0[LOW_REGION(0x5c8, 0x63c)] = 5;
-                    func_0205d6a0((struct Struct_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), var2);
+                    CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), var2);
                     var0[LOW_REGION(0x5ec, 0x664)] = 0;
                 } else {
                     var0[LOW_REGION(0x5c8, 0x63c)] = var2;
                     g_keyManager.CancelCurrentKeyRepeat();
                     var0[LOW_REGION(0x5ec, 0x664)] = 0;
                     func_0205dee8((struct Struct_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 3);
-                    func_0205d6a0((struct Struct_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
+                    CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
                     func_0205dee8((struct Struct_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 2);
-                    func_0205d6a0((struct Struct_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
+                    CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
                     var0[LOW_REGION(0x5c5, 0x639)] = 0;
                     var0[LOW_REGION(0x644, 0x6bc)] &= ~1;
                     func_ov013_02186c64(var0, 0, 0);
@@ -83,12 +83,12 @@ extern "C" ARM void func_ov013_0218683c(void* arg0) {
                     int var3 = 1;
                     var0[LOW_REGION(0x5ec, 0x664)] = var3;
                     var0[LOW_REGION(0x5c8, 0x63c)] = 5;
-                    func_0205d6a0((struct Struct_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), var3);
+                    CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), var3);
                 } else {
                     func_0205dee8((struct Struct_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 3);
-                    func_0205d6a0((struct Struct_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
+                    CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
                     func_0205dee8((struct Struct_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 2);
-                    func_0205d6a0((struct Struct_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
+                    CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
                     var0[LOW_REGION(0x5c5, 0x639)] = 0;
                     var0[LOW_REGION(0x5c8, 0x63c)] = 1;
                     g_keyManager.CancelCurrentKeyRepeat();
@@ -105,9 +105,9 @@ extern "C" ARM void func_ov013_0218683c(void* arg0) {
                     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
                 }
                 func_0205dee8((struct Struct_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 3);
-                func_0205d6a0((struct Struct_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
+                CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
                 func_0205dee8((struct Struct_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 2);
-                func_0205d6a0((struct Struct_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
+                CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
                 var0[LOW_REGION(0x5c5, 0x639)] = 0;
                 var0[LOW_REGION(0x5c8, 0x63c)] = 1;
                 g_keyManager.CancelCurrentKeyRepeat();
@@ -122,12 +122,12 @@ extern "C" ARM void func_ov013_0218683c(void* arg0) {
                     int var4 = 1;
                     if (var0[LOW_REGION(0x5c8, 0x63c)] == 4) {
                         var0[LOW_REGION(0x5c8, 0x63c)] = 5;
-                        func_0205d6a0((struct Struct_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), var4);
+                        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), var4);
                         var0[LOW_REGION(0x5ec, 0x664)] = 0;
                     } else {
                         var0[LOW_REGION(0x5ec, 0x664)] = var4;
                         var0[LOW_REGION(0x5c8, 0x63c)] = 5;
-                        func_0205d6a0((struct Struct_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), var4);
+                        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), var4);
                         var0[LOW_REGION(0x5ca, 0x63e)] = 0;
                     }
                 }

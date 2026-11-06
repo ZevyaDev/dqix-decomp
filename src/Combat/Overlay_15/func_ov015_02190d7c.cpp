@@ -41,7 +41,7 @@ extern "C" ARM void func_ov015_02190d7c(struct Struct_ov015_02190d7c_4* arg0) {
     if (var0 == 0) {
         return;
     }
-    void* var1 = func_020100bc(var0);
+    void* var1 = GetCamera_020100bc(var0);
     if (var1 != 0) {
         func_020a20d8(var1);
     }

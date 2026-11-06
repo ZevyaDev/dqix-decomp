@@ -1,9 +1,6 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 struct Struct_ov031_0221aed8 {
     unsigned char unknown_0_[0xf0];
@@ -23,7 +20,7 @@ extern "C" void* func_ov031_0221b8e4(void*);
 extern "C" int func_ov031_0221b6f0(int, int, int);
 extern "C" int func_ov031_0221b780(int, int, int);
 extern "C" int func_ov031_0221b848();
-extern "C" void func_020c9be0();
+extern "C" void HaltForever_020c9be0();
 extern "C" void func_020d1ba0(unsigned short*, unsigned short);
 extern "C" unsigned short func_020d1cc8(const unsigned short*, const unsigned char*, unsigned int);
 extern "C" int func_ov031_0221b7fc(int, int, int, int);
@@ -37,7 +34,7 @@ extern "C" ARM int func_ov031_0221aed8(void* arg0, Struct_ov031_0221aed8* arg1) 
     var0 = 0;
     do {
         if (func_ov031_0221b6f0(var1, 0x100, (int)arg1) == 0) {
-            func_020c9be0();
+            HaltForever_020c9be0();
             return 0;
         }
         VectorizedInvertedMemcpy(data_ov031_0224e6ac, arg1->unknown_f0_, 14);

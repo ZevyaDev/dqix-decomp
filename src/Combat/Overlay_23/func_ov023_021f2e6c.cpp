@@ -98,7 +98,7 @@ struct Struct_02048850_2;
 extern "C" void func_02048850(Struct_02048850*, Struct_02048850_2*);
 extern "C" void func_02048588(unsigned char* arg0, unsigned char* arg1);
 struct Struct_02010604;
-extern "C" int func_02033b88(Struct_02010604*, int);
+extern "C" int SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02049f28(unsigned char* arg0);
 extern "C" void* func_ov000_02160f14(void* arg0);
 extern "C" void func_ov000_0216d370(void* arg0, int arg1, int arg2, int arg3);
@@ -129,7 +129,7 @@ extern char data_ov023_021fd5a2[];
 struct Struct_0206f01c_2;
 extern "C" void* func_0206f4f0(Struct_0206f01c_2*, int);
 struct Struct_02046574_2;
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" void func_020de968(int,char*);
 extern "C" void StartMessage_0204500c(void*,char*,int);
 extern "C" int func_020e052c(void*,void*,const char*,void*,short,unsigned char);
@@ -171,11 +171,11 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                 char* var10 = data_ov023_021fd54e;
                 if (var6 == 0x12) var10 = data_ov023_021fd578;
                 void* var11 = func_0206f4f0((Struct_0206f01c_2*)(*(char**)(arg0 + 0x21c) + 0x678), var8);
-                if (var11 != 0) func_02046574((Struct_02046574_2*)var0, 0, *(char**)var11);
+                if (var11 != 0) SetMessageString_02046574((Struct_02046574_2*)var0, 0, *(char**)var11);
                 char var12[0x40];
                 __clear(var12,0x40);
                 func_020de968(var7,var12);
-                func_02046574((Struct_02046574_2*)var0, 1, var12);
+                SetMessageString_02046574((Struct_02046574_2*)var0, 1, var12);
 #else
                 int var13 = 0x29;
                 if (var6 == 0x12) {
@@ -246,7 +246,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
         func_020d784c((Struct_020d784c*)(*(Struct_ov023_021f2e6c_5**)(arg0 + Enum_ov023_021f2e6c_21908)));
         *(SafeAllocator**)(arg0 + Enum_ov023_021f2e6c_21952) = (SafeAllocator*)((SafeAllocator*)(arg0 + 0x30))->Allocate(0x14);
         (*(SafeAllocator**)(arg0 + Enum_ov023_021f2e6c_21952))->CreateTypeA(((SafeAllocator*)(arg0 + 0x30))->Allocate(0xf000), 0xf000);
-        FontLoader_0208cb08* var27 = func_02094a00();
+        FontLoader_0208cb08* var27 = GetFontLoader_02094a00();
         func_02094b40(var27);
         func_02094b30(var27, 0x210, 1);
         var1[0] = 1;
@@ -286,7 +286,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
             *(short*)(arg0 + Enum_ov023_021f2e6c_21948) = 1;
         }
     } else if (var5 == 1) {
-        if (func_02094b4c(func_02094a00()) != 0) {
+        if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()) != 0) {
             char* var35;
 #if defined(jpn)
             char* var36 = arg0 + 0x3ec;
@@ -431,7 +431,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                             func_02048588(var52, var57);
                             *(int*)(var57 + 0x138) = var58;
                             ((Object3D*)var57)->SetField06(*(unsigned short*)(arg0 + Enum_ov023_021f2e6c_3784));
-                            func_02033b88((Struct_02010604*)var57, 0);
+                            SetMotion_02033b88((Struct_02010604*)var57, 0);
                             var57[0xc2] |= 0x20;
                             ((Object3D*)var57)->SetInheritedAlpha(0x1f);
                             ((Object3D*)var57)->MakeVisible();

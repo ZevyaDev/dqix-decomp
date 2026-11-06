@@ -12,7 +12,7 @@ extern "C" unsigned char* func_020936f8(void);
 extern "C" void func_ov003_021612c0(void* arg0);
 extern "C" int func_ov003_02161344(void* arg0);
 extern "C" int func_ov003_02160b84(void* arg0);
-extern "C" int func_020100f8(char* arg0);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 struct Vector3i;
 extern "C" void func_0202e7d4(unsigned char* arg0, int* arg1, int* arg2, int* arg3);
 extern "C" void func_ov017_021c37a4(void);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov003_0216552c(Struct_ov003_0216552c_2* arg0) {
                 int var6;
                 int var7[3];
                 int var8[3];
-                Struct_ov003_0216552c_3* var9 = (Struct_ov003_0216552c_3*)func_020100f8((char*)GameState::GetInstance());
+                Struct_ov003_0216552c_3* var9 = (Struct_ov003_0216552c_3*)GetFollowCamera_020100f8((char*)GameState::GetInstance());
                 if (var9 != NULL) {
                     *(Vector3i*)var7 = *(Vector3i const*)var9->unknown_4_;
                     *(Vector3i*)var8 = *(Vector3i const*)var9->unknown_10_;

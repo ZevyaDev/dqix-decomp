@@ -13,11 +13,11 @@ struct Struct_0201099c_3;
 
 struct GameState;
 extern "C" unsigned char func_02011804(GameState* arg0);
-extern "C" void func_02041c08(char *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" void func_02041ea4(char *arg0, int arg1);
+extern "C" void AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" void AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" const char *FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void func_02041fac(char *arg0, int arg1, int arg2);
-extern "C" void func_02041b70(char *arg0, int arg1, const char *arg2);
+extern "C" void AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
 extern "C" void AppendText_02042058(char *buffer, const char *text);
 
 // USA: func_ov002_0215c52c
@@ -27,12 +27,12 @@ extern "C" ARM void func_ov002_0215c52c(unsigned char *arg0, char *arg1, int arg
     int var1     = 3;
     short var2   = *(short *) (arg0 + RG(0x1be4, 0x1aac));
     if (func_02011804(GameState::GetInstance()) == 0) var1 = 2;
-    if (arg2) func_02041c08(arg1, var2, 8, 5, 5, 5);
-    func_02041ea4(arg1, var2);
+    if (arg2) AppendFrameTag_02041c08(arg1, var2, 8, 5, 5, 5);
+    AppendCursorTag_02041ea4(arg1, var2);
     func_02041fac(
         arg1, (int) FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + RG(0x20, 0x8)), 1000), 0x18);
     for (int var3 = 0; var3 < var1; var3++) {
-        func_02041b70(arg1, var3, FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + RG(0x20, 0x8)), var0++));
+        AppendMenuEntry_02041b70(arg1, var3, FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + RG(0x20, 0x8)), var0++));
         if (var3 != var1 - 1) AppendText_02042058(arg1, *(const char **) (arg0 + RG(0x1bdc, 0x1aa4)));
     }
 }

@@ -12,12 +12,12 @@ struct Struct_02033834_2 {
 };
 
 short fix32ReduceAngle0To2Pi(int);
-extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 
 // USA: func_02033834
 extern "C" ARM void func_02033834(struct Struct_02033834_2* arg0, int arg1) {
     if (arg0->unknown_be_ == 4 || arg0->unknown_be_ == 3) {
-        func_02033874((struct Struct_02033834*)arg0, arg1);
+        SetFacingInstantly_02033874((struct Struct_02033834*)arg0, arg1);
     } else {
         arg0->unknown_ae_ = fix32ReduceAngle0To2Pi(arg1);
     }

@@ -24,7 +24,7 @@ extern "C" void func_ov031_02222e80();
 extern "C" void func_ov031_022238cc();
 extern "C" void func_ov031_0222c3b4();
 extern "C" void func_ov031_0222c8cc();
-extern "C" int func_ov031_02236878(int);
+extern "C" int PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern "C" void func_ov031_0222c71c();
 extern "C" void func_ov031_0222c7d8();
 extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov031_0222bdac() {
         data_ov031_02290c8c.unknown_4_->unknown_57_ = 0;
         func_ov031_02222e80();
         data_ov031_02290c8c.unknown_2_ = FastIntDivide(data_ov031_02290c8c.unknown_4_->unknown_40_ * func_ov031_022351d0(), data_ov031_02290c8c.unknown_4_->unknown_53_);
-        func_ov031_02236878(0x13);
+        PlayWifiSetupSoundEffect_ov031_02236878(0x13);
         func_ov031_0222c3b4();
         int var0 = FastIntModulus(data_ov031_02290c8c.unknown_2_, 0x1c);
         if (var0 == 0) {
@@ -69,20 +69,20 @@ extern "C" ARM void func_ov031_0222bdac() {
     case 4:
         if (data_ov031_02290c8c.unknown_2_ == 0) {
             if (data_ov031_02290c8c.unknown_4_->unknown_58_) return;
-            func_ov031_02236878(9);
+            PlayWifiSetupSoundEffect_ov031_02236878(9);
             data_ov031_02290c8c.unknown_4_->unknown_58_ = 1;
         } else {
-            func_ov031_02236878(0x13);
+            PlayWifiSetupSoundEffect_ov031_02236878(0x13);
             data_ov031_02290c8c.unknown_4_->unknown_38_ = func_ov031_0223e218(0, (void*)func_ov031_0222c71c, 0, 0x78);
         }
         return;
     case 6:
         if (data_ov031_02290c8c.unknown_4_->unknown_51_ <= 4 || data_ov031_02290c8c.unknown_2_ == data_ov031_02290c8c.unknown_4_->unknown_40_) {
             if (data_ov031_02290c8c.unknown_4_->unknown_58_) return;
-            func_ov031_02236878(9);
+            PlayWifiSetupSoundEffect_ov031_02236878(9);
             data_ov031_02290c8c.unknown_4_->unknown_58_ = 1;
         } else {
-            func_ov031_02236878(0x13);
+            PlayWifiSetupSoundEffect_ov031_02236878(0x13);
             data_ov031_02290c8c.unknown_4_->unknown_38_ = func_ov031_0223e218(0, (void*)func_ov031_0222c7d8, 0, 0x78);
         }
         return;

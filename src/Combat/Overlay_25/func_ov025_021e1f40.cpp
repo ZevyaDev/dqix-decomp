@@ -34,7 +34,7 @@ extern "C" ARM int func_ov025_021e1f40(GameObject* arg0, int arg1) {
     }
     if (var0) {
         GameState* var1 = GameState::GetInstance();
-        GameObject* var2 = func_0200ff1c(var1, arg0->obj3D_.unknown_4_);
+        GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var1, arg0->obj3D_.unknown_4_);
         if (var2 != NULL && (*(unsigned int*)((char*)var2 + Enum_ov025_021e1f40_396) & 1)) {
             return 0;
         }

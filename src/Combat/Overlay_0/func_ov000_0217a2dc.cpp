@@ -6,19 +6,19 @@ struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_ov000_0217542c(void* arg0);
-extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 
 extern "C" int func_02041e70(char* arg0, int arg1);
-extern "C" const char** func_02079e2c(char* arg0, int arg1);
-extern "C" int func_02041ea4(char* arg0, int arg1);
-extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" const char** FindActionData_02079e2c(char* actionTables, int actionId);
+extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
+extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
 extern "C" int func_02041cc0(char* arg0, int arg1);
 #if defined(jpn)
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void*);
-extern "C" void func_02046574(void*, int, const char*);
+extern "C" void SetMessageString_02046574(void*, int, const char*);
 extern "C" void __clear(void*, int);
 extern "C" void func_02041f50(const char*, char*);
 extern char data_ov000_021851af[];
@@ -48,9 +48,9 @@ extern "C" ARM void func_ov000_0217a2dc(struct Struct_ov000_0217a2dc* arg0, int 
 
     if (arg0->unknown_1d81_) {
         if (func_ov000_0217542c(arg0)) {
-            func_02041c08(arg2, var3, 8, 5, 5, 5);
+            AppendFrameTag_02041c08(arg2, var3, 8, 5, 5, 5);
         }
-        Struct_02108e10* var4 = func_020797dc();
+        ActionTables_02108e10* var4 = GetActionTables_020797dc();
         if (var4 == NULL) {
             return;
         }
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov000_0217a2dc(struct Struct_ov000_0217a2dc* arg0, int 
             if (arg0->unknown_10_[var5] == 0) {
                 AppendText_02042058(arg2, var1);
             } else {
-                const char** var7 = func_02079e2c((char*)var4, (short)arg0->unknown_10_[var5]);
+                const char** var7 = FindActionData_02079e2c((char*)var4, (short)arg0->unknown_10_[var5]);
                 if (var7 == NULL) {
                     continue;
                 }
@@ -91,18 +91,18 @@ extern "C" ARM void func_ov000_0217a2dc(struct Struct_ov000_0217a2dc* arg0, int 
         }
     } else {
         if (func_ov000_0217542c(arg0)) {
-            func_02041c08(arg2, var3, 8, 5, 5, 5);
+            AppendFrameTag_02041c08(arg2, var3, 8, 5, 5, 5);
         }
-        func_02041ea4(arg2, var3);
-        Struct_02108e10* var9 = func_020797dc();
+        AppendCursorTag_02041ea4(arg2, var3);
+        ActionTables_02108e10* var9 = GetActionTables_020797dc();
         if (var9 == NULL) {
             return;
         }
         for (int var10 = 0; var10 < arg0->unknown_1a_; var10++) {
             if (arg0->unknown_10_[var10] == 0) {
-                func_02041b70(arg2, var10, var1);
+                AppendMenuEntry_02041b70(arg2, var10, var1);
             } else {
-                const char** var11 = func_02079e2c((char*)var9, (short)arg0->unknown_10_[var10]);
+                const char** var11 = FindActionData_02079e2c((char*)var9, (short)arg0->unknown_10_[var10]);
                 if (var11 == NULL) {
                     continue;
                 }
@@ -110,9 +110,9 @@ extern "C" ARM void func_ov000_0217a2dc(struct Struct_ov000_0217a2dc* arg0, int 
                 char var12[0x40];
                 __clear(var12, sizeof(var12));
                 func_02041f50(*var11, var12);
-                func_02041b70(arg2, var10, var12);
+                AppendMenuEntry_02041b70(arg2, var10, var12);
 #else
-                func_02041b70(arg2, var10, *var11);
+                AppendMenuEntry_02041b70(arg2, var10, *var11);
 #endif
             }
             if (var10 == arg0->unknown_1a_ - 1) {
@@ -126,7 +126,7 @@ extern "C" ARM void func_ov000_0217a2dc(struct Struct_ov000_0217a2dc* arg0, int 
 #if defined(jpn)
     void* var13 = GetMessageWindow_020421a0();
     ClearMessageParams_02046380(var13);
-    func_02046574(var13, 0,
+    SetMessageString_02046574(var13, 0,
         (const char*)FindStringInTable_020e0434(var0, 0x21));
     AppendText_02042058(arg2, data_ov000_021851af);
 #else

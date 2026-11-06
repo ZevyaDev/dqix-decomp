@@ -17,14 +17,14 @@ struct Struct_02033b68 {
     unsigned char unknown_e0_;
 };
 
-extern "C" void func_02057924(void);
+extern "C" void GetEffectManager_02057924(void);
 extern "C" void func_02033dd4(unsigned char* arg0);
 extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
 
 // USA: func_02033ce8
 extern "C" ARM void func_02033ce8(struct Struct_02033b68* arg0) {
     int var0;
-    func_02057924();
+    GetEffectManager_02057924();
     func_02033dd4((unsigned char*)arg0);
 
     if (arg0->unknown_be_ == 3 || arg0->unknown_be_ == 4) {

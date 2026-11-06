@@ -61,7 +61,7 @@ extern "C" ARM void func_ov003_02165730(Struct_ov003_02165730_2* arg0) {
         GameState* var2 = GameState::GetInstance();
         Struct_ov003_02165730* var3 = (Struct_ov003_02165730*)GetParty_02010828(var2);
         for (int var4 = 0; var4 < var3->unknown_f7c_; var4++) {
-            GameObject* var5 = func_0200ff1c(var2, var3->unknown_f78_[var4]);
+            GameObject* var5 = GetPartyMemberBaseByIndex_0200ff1c(var2, var3->unknown_f78_[var4]);
             if (var5 != NULL) {
                 var5->obj3D_.MakeVisible();
             }

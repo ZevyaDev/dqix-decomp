@@ -13,8 +13,8 @@ struct Struct_ov017_021ba998_2 {
     unsigned char unknown_20_; signed char unknown_21_; unsigned char unknown_22_;
 };
 extern "C" unsigned int* GetResources_0200fb8c(int*);
-extern "C" unsigned char* func_020100f8(char*);
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" unsigned char* GetFollowCamera_020100f8(char*);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020a28a0(unsigned char*, unsigned char);
 extern "C" void func_020a28b0(unsigned char*, int);
 extern "C" void func_020a0cc4(unsigned int);
@@ -32,7 +32,7 @@ extern "C" int func_ov003_02158e94(Struct_ov017_021ba998*, int);
 extern "C" void func_ov017_02191108(void*, int, int, int, int);
 extern "C" void func_ov003_02158d4c(Struct_ov017_021ba998*);
 extern "C" int func_ov003_0215916c(void*);
-extern "C" void func_020397c0(void*);
+extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" void func_ov017_021ba94c(Struct_ov017_021ba998_2*);
 extern AllocatorUnion gMainHeap_02114e20;
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
@@ -42,9 +42,9 @@ extern "C" ARM void func_ov017_021ba998(Struct_ov017_021ba998_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     unsigned int* var1 = GetResources_0200fb8c((int*)var0);
     GameObject* var2 = var0->GetUnknownGameObject();
-    unsigned char* var3 = func_020100f8((char*)var0);
+    unsigned char* var3 = GetFollowCamera_020100f8((char*)var0);
     SetFlags04((GameResources*)var1, 0xc0);
-    func_020397cc((Struct_02018300_3*)var2, 1);
+    DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
     func_020a28a0(var3, 3);
     int var4 = var0->GetTickCount();
     if (var4 < 0) var4 = 1;
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov017_021ba998(Struct_ov017_021ba998_2* arg0) {
         int var7 = func_ov003_0215916c(arg0->unknown_1c_);
         REG_DISPCNT = (REG_DISPCNT & ~0x1f00) | var7 << 8;
         ClearFlags04((GameResources*)var1, 0xc0);
-        func_020397c0(var2);
+        EnablePlayerControl_020397c0(var2);
         func_020a28b0(var3, 3);
         func_ov017_021ba94c(arg0);
         func_020a0c0c();

@@ -13,7 +13,7 @@ struct Struct_0201730c_4 { short unknown_0_; signed char unknown_2_; char unknow
 struct Struct_ov005_0215acc0 { char unknown_0_[0xdf4]; ItemTable_0201099c_10* unknown_df4_; char unknown_df8_[R(0x1f10,0x1f98)]; Struct_0201730c_4 unknown_2d90_[24]; char unknown_3030_[0xddc]; Struct_0201099c_23 unknown_3e0c_[20]; };
 struct Struct_ov005_0215acc0_2 { char unknown_0_[R(0x4f8,0x4fc)]; int unknown_4fc_; };
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void* func_020dedd0(ItemTable_0201099c_10*, int);
+extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" Struct_ov005_0215acc0_2* func_ov017_021a193c(int*);
 extern "C" int func_020dd4c4(signed char, void*);
 #if defined(jpn)
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov005_0215acc0(Struct_ov005_0215acc0* arg0) {
             int var8 = var6 % 10;
             int var9 = 0x7fff;
             if (var4->unknown_0_ > 0) {
-                void* var10 = func_020dedd0(arg0->unknown_df4_, (short)var5);
+                void* var10 = FindItemData_020dedd0(arg0->unknown_df4_, (short)var5);
                 if (var10 && func_020dd4c4((signed char)func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->unknown_4fc_, var10)) var9 = 0x1ce7;
             }
             REG_GEOMETRY[0] = 0;

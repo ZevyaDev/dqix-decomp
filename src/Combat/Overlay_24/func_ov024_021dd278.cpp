@@ -5,10 +5,10 @@ struct Struct_02010088;
 extern "C" int func_02010088(Struct_02010088*);
 extern "C" void func_0208902c(unsigned char*, int);
 extern "C" void func_ov000_02159eac(void*,void*,int);
-extern "C" GameObject* func_0200ff1c(GameState*,int);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);
 extern "C" unsigned short func_ov024_021da644(int,int,int);
-extern "C" void* func_ov000_0215e958(void*);
-extern "C" void func_ov000_0215a88c(void*,void*,int);
+extern "C" void* GetNextActionResult_ov000_0215e958(void*);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
 extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,int,unsigned long long,unsigned char);
 struct Struct_ov024_021dd278_3 {char unknown_0_[0x1c];unsigned char unknown_1c_0_:7;unsigned char unknown_1c_7_:1;};
 struct Struct_ov024_021dd278_4 {char unknown_0_[0xc];Struct_ov024_021dd278_3* unknown_c_;void* unknown_10_;int unknown_14_;};
@@ -49,7 +49,7 @@ extern "C" ARM void* func_ov024_021dd278(Struct_ov024_021dd278_4* arg0,int arg1,
         func_ov000_02159eac(arg0->unknown_10_,&var4,3);
         ((Struct_ov024_021dd278_2*)var1->currentStats_)->unknown_3b_0_=1;
         if(inline_ov000_021537b8(arg2)){
-            GameObject* var9=func_0200ff1c(GameState::GetInstance(),arg2);
+            GameObject* var9=GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(),arg2);
             if(var9)((Struct_ov024_021dd278_2*)var9->currentStats_)->unknown_3a_=1;
         }
         var5=func_ov024_021da644(arg2,arg3->unknown_20_.unknown_2_4_,arg3->unknown_24_.unknown_0_0_);
@@ -58,9 +58,9 @@ extern "C" ARM void* func_ov024_021dd278(Struct_ov024_021dd278_4* arg0,int arg1,
         if(var2)var5=0x21;
         else var5=func_ov024_021da644(arg2,arg3->unknown_24_.unknown_1_2_,arg3->unknown_24_.unknown_2_4_);
     }
-    void* var10=func_ov000_0215e958(arg0->unknown_10_);
+    void* var10=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if(!var10)return 0;
-    func_ov000_0215a88c(arg0->unknown_10_,var10,var5);
+    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var10,var5);
     func_ov000_0215cd44(arg0->unknown_10_,var10,var1,0,var4.unknown1_0_,arg0->unknown_c_->unknown_1c_7_!=0);
     return var10;
 }

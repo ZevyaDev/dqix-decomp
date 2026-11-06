@@ -13,13 +13,13 @@ struct Struct_ov012_02186c1c_2 {
     unsigned short unknown_0_0_ : 5;
     unsigned short unknown_0_5_ : 11;
 };
-struct Struct_0205de24_2;
+struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct StringList_02072a68_2;
 struct SoundEffectManager_02108760;
 struct Struct_ov012_02186a7c;
-extern "C" void func_0205de24(Struct_0205de24_2*, unsigned char, unsigned char);
-extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2*, unsigned char, unsigned char);
+extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void func_ov012_021898bc(char*);
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov012_02186c1c(char* arg0) {
         else if (var0 == 300) var1 = 3;
         else var1 = 0;
         *(int*)(arg0 + 0x1430) = var1;
-        func_0205de24((Struct_0205de24_2*)(arg0 + 0x90), 0, 3);
+        SetNextTextWindowBGLayer_0205de24((TextWindowManager_0205de24_2*)(arg0 + 0x90), 0, 3);
         func_ov023_021e6e60(arg0);
         func_ov012_021898bc(arg0);
         (*(unsigned char*)(arg0 + 0x1340))++;
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov012_02186c1c(char* arg0) {
     }
     if (*(unsigned char*)(arg0 + 0x1340) != 1) return;
     *(unsigned char*)(arg0 + 0x1368) = 1;
-    *(int*)(arg0 + 0x1430) = func_0205d794((Struct_0205c570*)(arg0 + 0x90));
+    *(int*)(arg0 + 0x1430) = GetCursorIndex_0205d794((Struct_0205c570*)(arg0 + 0x90));
     if (func_ov023_021e7148(arg0)) {
         int var2 = 1;
         switch (*(int*)(arg0 + 0x1430)) {
@@ -95,14 +95,14 @@ extern "C" ARM void func_ov012_02186c1c(char* arg0) {
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-struct Struct_0205de24_2 {
+struct TextWindowManager_0205de24_2 {
     char unknown_0_[0x98];
-    void* unknown_98_;
-    void* unknown_9c_;
+    void* pBGLayers_98_;
+    void* pTextWindows_9c_;
     char unknown_a0_[0x12];
-    unsigned char unknown_b2_;
+    unsigned char bgLayerCount_b2_;
     unsigned char unknown_b3_;
-    unsigned char unknown_b4_;
+    unsigned char textWindowCount_b4_;
 };
 struct Struct_0205c570;
 struct StringListEntry_02072a68 { short id_0_; void* pText_4_; };
@@ -121,7 +121,7 @@ struct Struct_01ff8b48_9 {
 };
 struct Struct_ov012_02185ab8 {
     char unknown_0_[0xac];
-    Struct_0205de24_2 unknown_ac_;
+    TextWindowManager_0205de24_2 unknown_ac_;
     char unknown_164_[0x133c - 0x164];
     StringList_02072a68_2 unknown_133c_;
     char unknown_1344_[0x1370 - 0x1344];
@@ -142,8 +142,8 @@ static inline Struct_ov012_02186c1c_3* inline_ov012_02186c1c_2(GameState* arg0) 
     Struct_01ff8b48_9* var0 = (Struct_01ff8b48_9*)arg0;
     return &var0->unknown_569c_;
 }
-extern "C" void func_0205de24(Struct_0205de24_2*, unsigned char, unsigned char);
-extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2*, unsigned char, unsigned char);
+extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void func_ov012_021898bc(char*);
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
@@ -173,7 +173,7 @@ extern "C" ARM void func_ov012_02186c1c(Struct_ov012_02185ab8* arg0) {
             }
         }
         arg0->unknown_13d8_ = var6;
-        func_0205de24(&arg0->unknown_ac_, 0, 3);
+        SetNextTextWindowBGLayer_0205de24(&arg0->unknown_ac_, 0, 3);
         func_ov023_021e6e60(arg0);
         func_ov012_021898bc((char*)arg0);
         arg0->unknown_1370_++;
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov012_02186c1c(Struct_ov012_02185ab8* arg0) {
     }
     if (arg0->unknown_1370_ != 1) return;
     arg0->unknown_13a0_ = 1;
-    arg0->unknown_13d8_ = func_0205d794((Struct_0205c570*)&arg0->unknown_ac_);
+    arg0->unknown_13d8_ = GetCursorIndex_0205d794((Struct_0205c570*)&arg0->unknown_ac_);
     if (func_ov023_021e6de4(arg0)) {
         int var7 = 1;
         switch (arg0->unknown_13d8_) {

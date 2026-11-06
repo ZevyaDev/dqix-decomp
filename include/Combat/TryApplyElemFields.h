@@ -1,9 +1,9 @@
 #pragma once
 
-struct Struct_0205d5d0;
+struct TextWindowManager_0205d5d0;
 
-extern "C" int func_0205d5d0(Struct_0205d5d0* arg0, int arg1, int arg2, int arg3
+extern "C" int SetTextWindowText_0205d5d0(TextWindowManager_0205d5d0* windowManager, int windowId, int text, int arg3
 #if !defined(jpn)
-                            , unsigned char arg4
+                            , unsigned char font
 #endif
 );

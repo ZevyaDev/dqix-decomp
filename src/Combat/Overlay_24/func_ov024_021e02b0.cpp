@@ -4,7 +4,7 @@
 
 extern "C" void func_ov024_021ea85c(void* arg0, int arg1, int arg2);
 extern "C" void func_ov000_02159eac(void* arg0, void* arg1, int arg2);
-extern "C" void* func_ov000_0215e958(void* arg0);
+extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, unsigned long long arg4, int arg5);
 
 struct Struct_ov024_021e02b0 {
@@ -36,7 +36,7 @@ extern "C" ARM void* func_ov024_021e02b0(struct Struct_ov024_021e02b0_2* arg0, i
             arg0->unknown_44_ = arg2;
         }
     }
-    void* var2 = func_ov000_0215e958(arg0->unknown_10_);
+    void* var2 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var2) return 0;
     struct Struct_ov024_021e02b0* var3 = (struct Struct_ov024_021e02b0*)((char*)arg0->unknown_c_ + 0x1c);
     func_ov000_0215cd44(arg0->unknown_10_, var2, var0, 0, var1.unknown1_0_, var3->unknown_0_7_ != 0);

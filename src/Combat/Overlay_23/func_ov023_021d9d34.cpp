@@ -14,14 +14,14 @@ extern "C" ARM void func_ov023_021d9d34(char* arg0) {
     memset(var0->unknown_f8_, 0, 0x800);
     int var1 = FindStringInTable_020e0434(&var0->unknown_e0_, 0x4274);
     AppendText_02042058(var0->unknown_f8_, (const char*)var1);
-    func_0205d5d0((Struct_0205d5d0*)&var0->unknown_1f8_[1], 2,
+    SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)&var0->unknown_1f8_[1], 2,
                              (int)var0->unknown_f8_, 1);
 #else
     char* var2 = var0->unknown_f8_;
     memset(var2, 0, 0x960);
     int var3 = FindStringInTable_020e0434(&var0->unknown_e0_, 0x4274);
     AppendText_02042058(var2, (const char*)var3);
-    func_0205d5d0((Struct_0205d5d0*)&var0->unknown_1f8_[1], 2, (int)var2, 1, 0);
+    SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)&var0->unknown_1f8_[1], 2, (int)var2, 1, 0);
 #endif
     var0->unknown_d9c_ &= ~0x4000;
 }

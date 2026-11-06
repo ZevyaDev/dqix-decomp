@@ -4,8 +4,8 @@
 #include "GameState/BattleRecordSnapshot.h"
 #include "NitroSDK/Memory.h"
 
-extern "C" void* func_0202ae24();
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int func_0202ba00(int* arg0);
 extern "C" int func_020ac4f8(int arg0);
@@ -126,7 +126,7 @@ extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned 
     int var13;
     Struct_ov017_021d1118_3* var14;
     var0 = GameState::GetInstance();
-    var1 = func_0202ae24();
+    var1 = GetLocalWirelessPacketQueue_0202ae24();
     Struct_ov017_021d1118 var15;
     var2 = &var15.unknown_4_;
     var15.unknown_0_ = 0x1a;
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned 
         var2->unknown_f_2_ = 6;
         Struct_ov017_021d1118_8 var16 = ((Struct_ov017_021d1118_4*)var0)->inline_ov017_021d1118();
         memcpy(var2->unknown_0_, &var16, var2->unknown_f_2_);
-        func_0205e330(var1, &var15, 0);
+        QueueOutgoingPacket_0205e330(var1, &var15, 0);
     }
     if (arg1 & 1) {
         var4 = (Struct_ov017_021d1118_7*)GetLocalWireless_0202ae18();
@@ -190,7 +190,7 @@ extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned 
                 if (!(arg1 & 2)) var2->unknown_f_6_ = 1;
             }
             memcpy(var2->unknown_0_, var3, var2->unknown_f_2_);
-            func_0205e330(var1, &var15, 0);
+            QueueOutgoingPacket_0205e330(var1, &var15, 0);
         }
     }
     if (arg1 & 2) {
@@ -204,7 +204,7 @@ extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned 
                 var2->unknown_f_6_ = 1;
             }
             memcpy(var2->unknown_0_, var3, var2->unknown_f_2_);
-            func_0205e330(var1, &var15, 0);
+            QueueOutgoingPacket_0205e330(var1, &var15, 0);
         }
     }
 }

@@ -17,7 +17,7 @@ extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_02039820(void* arg0);
 extern "C" int func_020535c8(signed char* arg0);
 struct Struct_0203402c;
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov017_021c05f4(void* arg0, unsigned char arg1, unsigned
         void* var2 = GetGlobalFlags_020d6c00();
         void* var3 = GetFlagManager_0205ec34();
         if (IsFlagSet_0206dfb0((int)var3, (unsigned char*)var3 + 0x8c, 0x119a) == 0) return;
-        if (func_02046b08((void**)*(void**)((char*)arg0 + 0x3000 + Enum_ov017_021c05f4_1788)) == 0) return;
+        if (IsQueueEmpty_02046b08((void**)*(void**)((char*)arg0 + 0x3000 + Enum_ov017_021c05f4_1788)) == 0) return;
         if (func_02039820(var1) == 0) return;
         if (func_020535c8((signed char*)var1) != 0) return;
         if (*(int*)((char*)var1 + Enum_ov017_021c05f4_396) & 1) return;

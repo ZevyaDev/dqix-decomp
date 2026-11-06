@@ -23,13 +23,13 @@ struct Struct_02049b54_3 {
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
 extern "C" Struct_02049b54_3 func_02049b54(Struct_02049b54_2* arg0);
-extern "C" void func_02033874(Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(Struct_02033834* object, int angle);
 extern "C" void func_02049bac(unsigned char* arg0, int* arg1);
 extern "C" int func_02010088(Struct_02010088* arg0);
 
 extern "C" {
 void __clear(void* arg0, int arg1);
-int func_ov000_0215eb1c(Struct_ov000_02161e30*, short*, int, int);
+int CollectEnemyCombatantIndices_ov000_0215eb1c(Struct_ov000_02161e30*, short*, int, int);
 void func_0203232c(int*, int);
 }
 
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov026_021daec8(Struct_ov000_02161e30* arg0, Struct_ov02
     GameState* var1 = GameState::GetInstance();
     GetResources_0200fb8c((int*)var1);
 
-    int var2 = func_ov000_0215eb1c(arg0, var0, 8, 0);
+    int var2 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0, var0, 8, 0);
     int var3 = 0;
     Vector3fix var4 = arg1->unknown_240_;
     int var5[8];
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov026_021daec8(Struct_ov000_02161e30* arg0, Struct_ov02
             var11.y = 0;
             Vector3fix_Normalize(&var11, &var11);
             fix32_t var12 = fix32_Atan2(var11.x, var11.z);
-            func_02033874((Struct_02033834*)var8, var12);
+            SetFacingInstantly_02033874((Struct_02033834*)var8, var12);
 
             Vector3fix var13;
             __clear(&var13, sizeof(var13));

@@ -86,17 +86,17 @@ extern "C" int func_ov023_021e20f0(void* arg0, SafeAllocator* arg1, void* arg2, 
 extern "C" Struct_ov006_0215b7e8* func_ov014_021842a0(void* arg0, short arg1);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void func_0205a528(Struct_ov008_02188d74* arg0, void* arg1, unsigned int arg2, SafeAllocator* arg3);
+extern "C" void LoadSpriteSetFile_0205a528(Struct_ov008_02188d74* spriteSet, void* fileData, unsigned int size, SafeAllocator* allocator);
 extern "C" void func_ov023_021e2bdc(void* arg0, int arg1, short* arg2, short* arg3);
-extern "C" void* func_020100f8(char* arg0);
+extern "C" void* GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a2010(void* arg0);
 extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0202e5d8(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0202e0a4(void* arg0);
 extern "C" void func_020a27a0(void* arg0);
-extern "C" void func_020100c4(GameState* arg0, int arg1);
+extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
-extern "C" void func_020c5588(int, int, int, int, int);
+extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
 
 #define HIDE_ELEMENT(layout, id)                                        \
     {                                                                   \
@@ -147,7 +147,7 @@ extern "C" ARM void func_ov014_0218580c(Struct_ov014_02184dcc* arg0) {
         for (int var9 = 0; var9 < var8; var9++) {
             void* var10 = GetPacEntryData_020467f0((PacEntry_02020aec*)var5, var9, &var4, &var7);
             if (var10 != NULL)
-                func_0205a528(arg0->unknown_4_, var10, var7, &arg0->unknown_3c_[5]);
+                LoadSpriteSetFile_0205a528(arg0->unknown_4_, var10, var7, &arg0->unknown_3c_[5]);
         }
 
         short var11 = 0;
@@ -185,18 +185,18 @@ extern "C" ARM void func_ov014_0218580c(Struct_ov014_02184dcc* arg0) {
         BG3CNT = (BG3CNT & ~BGCNT_MASK_PRIORITY) | 3;
         DISPCNT = (DISPCNT & ~0x1f00) | (0x13 << 8);
         GameState* var14 = GameState::GetInstance();
-        data_ov014_02189800.unknown_c_ = func_020100f8((char*)var14);
+        data_ov014_02189800.unknown_c_ = GetFollowCamera_020100f8((char*)var14);
         func_020a2010(arg0->unknown_44_);
         func_0202e5c8((unsigned char*)arg0->unknown_44_, 0, 0, 0);
         func_0202e5d8(arg0->unknown_44_, 0, 0, 0xa000);
         func_0202e0a4(arg0->unknown_44_);
         func_020a27a0(arg0->unknown_44_);
-        func_020100c4(var14, (int)arg0->unknown_44_);
+        SetCamera_020100c4(var14, (int)arg0->unknown_44_);
         GameResources* var15 = GetGameResources();
         SetFlags04(var15, 0x6093e);
         ClearFlags04(var15, 0x20);
         func_020c54a4(0, 0, 0, 0);
-        func_020c5588(0, 0, 0x7fff, 0, 0);
+        Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
         LightingManager::GetInstance()->fogEnabled_ = false;
         arg0->unknown_7c_ = 1;
         arg0->unknown_7d_ = 0;

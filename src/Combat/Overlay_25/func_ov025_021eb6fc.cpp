@@ -21,9 +21,9 @@ struct Struct_ov025_021e9778_9 {
     unsigned int unknown_1c4_;
 };
 
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f20(void* arg0);
-extern "C" Struct_ov025_021eb6fc* func_02079e2c(char* arg0, int arg1);
+extern "C" Struct_ov025_021eb6fc* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" int func_ov000_02163690(int arg0);
 extern "C" unsigned char* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -34,8 +34,8 @@ extern "C" ARM void func_ov025_021eb6fc(Struct_ov025_021e9778_9* arg0, int arg1)
     if ((arg0->unknown_1c4_ & 8) && arg1 == 0) {
         return;
     }
-    short* var0 = (short*)func_ov000_02160f20(func_ov000_02160130());
-    Struct_ov025_021eb6fc* var1 = func_02079e2c((char*)func_020797dc(), *var0);
+    short* var0 = (short*)func_ov000_02160f20(GetBattleScene_ov000_02160130());
+    Struct_ov025_021eb6fc* var1 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), *var0);
     if (func_ov000_02163690(*(unsigned short*)var0)) {
         arg1 = 1;
     } else if (var1 != 0 && var1->unknown_9_0_ == 1 && var1->unknown_18_5_ == 1 && var1->unknown_19_4_ != 2) {

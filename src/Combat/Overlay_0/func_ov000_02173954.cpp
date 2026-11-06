@@ -2,19 +2,19 @@
 #include "GameState/GameState.h"
 
 struct Struct_0204b010;
-struct Struct_0204b8d0;
+struct BGLayer_0204b8d0;
 struct Struct_0204b878;
-struct Struct_0205d1e0;
+struct TextWindowManager_0205d1e0;
 struct Struct_0205d228;
-struct Struct_0205d274;
+struct TextWindowManager_0205d274;
 struct Struct_0204af14;
 struct Struct_ov000_02173954;
 
 extern "C" void func_0204b010(struct Struct_0204b010*, void*);
-extern "C" void func_0204b8d0(struct Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
-extern "C" void func_0205d1e0(struct Struct_0205d1e0*);
+extern "C" void CopyBGScreenBlockRect_0204b8d0(struct BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" void func_0205d1e0(struct TextWindowManager_0205d1e0*);
 extern "C" void func_0205d228(struct Struct_0205d228*);
-extern "C" void func_0205d274(struct Struct_0205d274*);
+extern "C" void func_0205d274(struct TextWindowManager_0205d274*);
 extern "C" void* func_0204af14(struct Struct_0204af14*, unsigned int);
 extern "C" void func_0204b878(struct Struct_0204b878*, int, int, int, short, short, short, short, unsigned short);
 extern "C" void func_ov000_0217f5e4(struct Struct_ov000_02173954*, int);
@@ -88,16 +88,16 @@ extern "C" ARM void func_ov000_02173954(char* arg0) {
     if (*(unsigned short*)(arg0 + 0x1d72) & 0x80) {
 #endif
         func_0204b010((struct Struct_0204b010*)(arg0 + 0x8a4), 0);
-        func_0204b8d0((struct Struct_0204b8d0*)(arg0 + 0x8c4), 0, 0, 0, 0, 0, 0x20, 0x19, 0xffff);
-        func_0205d1e0((struct Struct_0205d1e0*)(arg0 + 0x188));
+        CopyBGScreenBlockRect_0204b8d0((struct BGLayer_0204b8d0*)(arg0 + 0x8c4), 0, 0, 0, 0, 0, 0x20, 0x19, 0xffff);
+        func_0205d1e0((struct TextWindowManager_0205d1e0*)(arg0 + 0x188));
         func_0204b04c(arg0 + 0x8c4, 0);
         return;
     }
     func_ov000_0217a8f4(arg0);
     func_ov000_021750e4(arg0);
     func_0204b010((struct Struct_0204b010*)(arg0 + 0x8a4), 0);
-    func_0204b8d0((struct Struct_0204b8d0*)(arg0 + 0x8c4), 0, 0, 0, 0, 0, 0x20, 0x19, 0xffff);
-    func_0205d1e0((struct Struct_0205d1e0*)(arg0 + 0x188));
+    CopyBGScreenBlockRect_0204b8d0((struct BGLayer_0204b8d0*)(arg0 + 0x8c4), 0, 0, 0, 0, 0, 0x20, 0x19, 0xffff);
+    func_0205d1e0((struct TextWindowManager_0205d1e0*)(arg0 + 0x188));
 #if defined(jpn)
     if (*(unsigned char*)(arg0 + 0x1fb8) == 0 && (*(unsigned short*)(arg0 + 0x1faa) & 0x600)) {
 #else
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov000_02173954(char* arg0) {
         func_ov000_02175544(arg0);
         func_0204b04c(arg0 + 0x8a4, 0);
         func_0204b04c(arg0 + 0x8c4, 0);
-        func_0205d274((struct Struct_0205d274*)(arg0 + 0x188));
+        func_0205d274((struct TextWindowManager_0205d274*)(arg0 + 0x188));
         func_ov000_02180bac(arg0);
         return;
     }
@@ -202,7 +202,7 @@ extern "C" ARM void func_ov000_02173954(char* arg0) {
                     func_ov000_021741e0(arg0, var23[var25], 1.52f, var10 + data_ov000_021833c8[var25][0], var27, var28, var29, var30, 1, 0);
                 }
             }
-            func_0204b8d0((struct Struct_0204b8d0*)(arg0 + 0x8c4), 1, 0, 0, var1, var2, 0x20, 0x19, var14 + 2);
+            CopyBGScreenBlockRect_0204b8d0((struct BGLayer_0204b8d0*)(arg0 + 0x8c4), 1, 0, 0, var1, var2, 0x20, 0x19, var14 + 2);
 #if defined(jpn)
             if (!func_ov000_02174324(arg0, var0[var13], var10 + 0x25, var11 + 0x17)) {
                 func_ov000_021811f4(arg0, var14, arg0 + 0x8c4, var9, var1 + 7, var2 + 3);
@@ -290,5 +290,5 @@ extern "C" ARM void func_ov000_02173954(char* arg0) {
     }
     func_0204b04c(arg0 + 0x8a4, 0);
     func_0204b04c(arg0 + 0x8c4, 0);
-    func_0205d274((struct Struct_0205d274*)(arg0 + 0x188));
+    func_0205d274((struct TextWindowManager_0205d274*)(arg0 + 0x188));
 }

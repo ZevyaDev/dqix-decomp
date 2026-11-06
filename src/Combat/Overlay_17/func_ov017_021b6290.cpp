@@ -18,7 +18,7 @@ struct Struct_ov017_021b6290 {
     unsigned char unknown_fc_, unknown_fd_;
     short unknown_fe_, unknown_100_;
 };
-struct Struct_02109bf4_4;
+struct MusicManager_02109bf4_4;
 struct Struct_0203e5d8;
 struct Struct_02038598_5;
 extern "C" void* GetZone3D_02012fe4();
@@ -26,28 +26,28 @@ extern "C" unsigned char* func_020704fc();
 extern "C" void func_02017c58(void*);
 extern "C" int func_02046cc8(Struct_02046f84*);
 extern "C" int func_0204700c(Struct_02046f84*);
-extern "C" void* func_ov017_021b8478(void*);
-extern "C" void func_0209c480(Struct_02109bf4_4*, int);
-extern "C" void func_0209c2e0(Struct_02109bf4_4*, int, int);
+extern "C" void* GetBattleSetup_ov017_021b8478(void*);
+extern "C" void func_0209c480(MusicManager_02109bf4_4*, int);
+extern "C" void func_0209c2e0(MusicManager_02109bf4_4*, int, int);
 extern "C" void func_0205e944(void*, int);
 extern "C" void CloseMessageWindow_02043124(void*);
 extern "C" int abs(int);
-extern "C" void func_020397cc(Struct_02018300_3*, int);
-extern "C" void func_0209c678(Struct_02109bf4_4*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
+extern "C" void func_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" int func_02046b60(Struct_02038598_5*, int);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" Struct_0203e5d8* func_0203cf4c();
 extern "C" void func_0203e5d8(Struct_0203e5d8*, int);
 extern "C" float func_020709ac(unsigned char*);
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
-extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void func_02047198(Struct_02046f84*);
 extern "C" void func_02046f84(Struct_02046f84*);
 extern "C" void func_ov017_0218d274(void* arg0);
 extern "C" void func_ov017_0218f79c(void*);
 extern "C" void func_ov017_021a2840(GameResources*);
 extern char data_ov017_021d7c10[];
-extern Struct_02109bf4_4 gMusicManager_02109bf4;
+extern MusicManager_02109bf4_4 gMusicManager_02109bf4;
 extern char gSoundEffectManager_02108760[];
 // USA: func_ov017_021b6290
 extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
     BackgroundLoader* var4 = BackgroundLoader::GetInstance();
     void* var5 = var1->unknown_ptr_3718;
     if (arg0->unknown_fc_ == 0) {
-        func_020397cc(var2, 1);
+        DisablePlayerControl_020397cc(var2, 1);
         var2->unknown_b2_ = 0;
         if (arg0->unknown_fe_ >= 0) {
             arg0->unknown_100_ = var4->QueueLoadFile(data_ov017_021d7c10, 0);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
                 Struct_02074060 var9;
                 Struct_02074060* var10 = &var9;
                 if (func_02046b60((Struct_02038598_5*)var1->unknown_ptr_array_36fc[0], 10)) {
-                    void* var11 = func_ov017_021b8478(var5);
+                    void* var11 = GetBattleSetup_ov017_021b8478(var5);
                     if (var11) var10 = (Struct_02074060*)((char*)var11 + 0x10);
                 }
                 if (func_0207416c(var10, arg0->unknown_fe_, var7, var8)) var6 = var10->unknown_e_;
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
             SetFlags04(var1, 16);
             SetFlags04(var1, 2);
             SetFlags00(var1, 4);
-            func_020466e4(GetGlobalFlags_020d6c00(), 1);
+            SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 1);
             func_02047198(&arg0->unknown_c_);
             func_02046f84(&arg0->unknown_c_);
             func_ov017_0218d274(var1);

@@ -13,7 +13,7 @@ struct Struct_ov000_0217ae90_2 {
     signed char unknown_18_,unknown_19_,unknown_1a_,unknown_1b_;char unknown_1c_[2];short unknown_1e_;
     char unknown_20_[6];signed char unknown_26_;char unknown_27_[9];
 };
-struct Struct_0201099c_3;struct Struct_0205c570;struct Struct_0205da38;struct Struct_0205d6a0;
+struct Struct_0201099c_3;struct Struct_0205c570;struct Struct_0205da38;struct TextWindowManager_0205d6a0;
 struct Struct_0203c108_3;struct SoundEffectManager_02108760;
 struct Struct_ov000_021682ec_5 {
     int unknown_0_;Struct_0201099c_3* unknown_4_;Struct_ov000_0217ae90_2 unknown_8_;
@@ -32,14 +32,14 @@ struct Struct_ov000_0217ae90 {char unknown_0_[0x3b];unsigned char unknown_3b_0_:
 struct Struct_ov000_0215ed8c_4 {char unknown_0_[0x138];Struct_ov000_0217ae90* unknown_138_;};
 extern Struct_ov000_02184294 data_ov000_02184294;
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
-extern "C" GameObject* func_0200ff1c(GameState*,int);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
-extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*,int,int);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*,int);
 extern "C" void func_0203c108(Struct_0203c108_3*,char*);
 extern "C" int func_ov000_0217ab48(void*);
-extern "C" void func_0205d6a0(Struct_0205d6a0*,int);
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*,int);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" {
 void GetZone3D_02012fe4();
@@ -51,12 +51,12 @@ void func_ov000_0217c32c(void*);void func_ov000_02171c04(void*);
 // USA: func_ov000_0217ae90
 extern "C" ARM int func_ov000_0217ae90(Struct_ov000_021682ec_5* arg0)
 {
-    Struct_ov000_0215ed8c_4* var0=(Struct_ov000_0215ed8c_4*)func_0200ff1c(GameState::GetInstance(),arg0->unknown_4c_);
+    Struct_ov000_0215ed8c_4* var0=(Struct_ov000_0215ed8c_4*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(),arg0->unknown_4c_);
     int var1=0;
     if(var0)var1=GetPartyMemberData_02053c6c((unsigned char*)var0);
     GetZone3D_02012fe4();
     Struct_ov000_0217ae90_2* var2=&arg0->unknown_8_;
-    var2->unknown_14_=func_0205d794(arg0->unknown_38_);
+    var2->unknown_14_=GetCursorIndex_0205d794(arg0->unknown_38_);
     var2->unknown_1e_=0;
     data_ov000_02184294.unknown1_8_->unknown_1d72_|=0x100;
     bool var3=g_keyManager.TestKeysPressed(0x601);
@@ -129,7 +129,7 @@ extern "C" ARM int func_ov000_0217ae90(Struct_ov000_021682ec_5* arg0)
         }
     }else if(func_ov000_0217ab48(arg0)){
         var2->unknown_1e_=0;data_ov000_02184294.unknown1_8_->unknown_1d72_&=~0x100;
-        func_0205d6a0((Struct_0205d6a0*)arg0->unknown_38_,1);
+        CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_38_,1);
         return -2;
     }
     return -1;

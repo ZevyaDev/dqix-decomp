@@ -13,7 +13,7 @@ extern "C" ARM int func_02043014(int arg0, unsigned short* arg1) {
     int var1 = func_02042f9c(func_020429bc(arg0), var0);
     if (var1 >= 0) return var1;
     return func_02042f9c(
-        static_cast<Struct_0203bebc*>(func_02094b44(func_02094a00(), arg0)), var0)
+        static_cast<Struct_0203bebc*>(func_02094b44(GetFontLoader_02094a00(), arg0)), var0)
         | 0x40000000;
 }
 #endif

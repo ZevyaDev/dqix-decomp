@@ -7,8 +7,8 @@
 
 extern "C" int func_ov017_0218d75c(void* arg0);
 extern "C" int func_02039820(void* arg0);
-extern "C" void func_020397c0(void* arg0);
-extern "C" int func_020100f8(char* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a27ac(void* arg0);
 extern "C" int GetMessageWindow_020421a0(void);
 
@@ -45,9 +45,9 @@ extern "C" ARM int func_ov017_021bfc40(struct Struct_ov017_021bfc40* arg0) {
         }
         GameObject* var4 = var0->GetUnknownGameObject();
         if (var4 != NULL && func_02039820(var4) == 0) {
-            func_020397c0(var4);
+            EnablePlayerControl_020397c0(var4);
         }
-        int var5 = func_020100f8((char*)var0);
+        int var5 = GetFollowCamera_020100f8((char*)var0);
         if (var5 != 0) {
             func_020a27ac((void*)var5);
         }
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Struct_ov017_021bfc40* arg0) {
     }
 
     GameState* var6 = GameState::GetInstance();
-    void* var7 = func_020100bc(var6);
+    void* var7 = GetCamera_020100bc(var6);
     struct Struct_02015ef4 var8 = arg0->unknown_28_;
 
     if (arg0->unknown_18_ < 0x191e) {
@@ -99,9 +99,9 @@ extern "C" ARM int func_ov017_021bfc40(struct Struct_ov017_021bfc40* arg0) {
     if (arg0->unknown_8_ == 0) {
         GameObject* var16 = var0->GetUnknownGameObject();
         if (var16 != NULL && func_02039820(var16) == 0) {
-            func_020397c0(var16);
+            EnablePlayerControl_020397c0(var16);
         }
-        int var17 = func_020100f8((char*)var0);
+        int var17 = GetFollowCamera_020100f8((char*)var0);
         if (var17 != 0) {
             func_020a27ac((void*)var17);
         }

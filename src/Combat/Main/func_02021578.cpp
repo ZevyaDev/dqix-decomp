@@ -30,9 +30,9 @@ extern "C" void func_0203bd78(char* arg0);
 extern "C" void func_0203bd24(char* arg0);
 extern "C" void func_0203b718(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0203ba74(void* arg0);
-struct Struct_02043368_2;
-extern "C" void func_0205a198(struct Struct_02043368_2* arg0);
-extern "C" void func_0205a444(char* arg0);
+struct Sprite_02043368_2;
+extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
+extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 
 extern "C" int func_02020b98(void* arg0);
 extern "C" void func_02026644(char* arg0);
@@ -148,9 +148,9 @@ extern "C" ARM void func_02021578(Struct_02020554* arg0) {
         func_0203b718(var11, 1, 1, 0);
         func_0203ba74(var11);
         for (var6 = 0; var6 < 0x1c; var6++) {
-            func_0205a198(&arg0->unknown_e8_[var6]);
+            InitSprite_0205a198(&arg0->unknown_e8_[var6]);
         }
-        func_0205a444((char*)&arg0->unknown_94_);
+        InitSpriteSet_0205a444((char*)&arg0->unknown_94_);
         arg0->unknown_94_.unknown_50_ = 1;
         arg0->unknown_94_.unknown_40_ = arg0->unknown_e8_;
         arg0->unknown_94_.unknown_4c_ = 0x1c;

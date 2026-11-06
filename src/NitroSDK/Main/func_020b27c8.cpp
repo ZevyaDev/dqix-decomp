@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 typedef unsigned char Type_020b1300;
 typedef unsigned short Type_020b0a1c;
@@ -50,7 +47,7 @@ struct Struct_020b27c8 {
 };
 
 struct Struct_0205ab78;
-extern "C" void func_020c9be0(void);
+extern "C" void HaltForever_020c9be0(void);
 extern "C" void func_020b291c(void* arg0);
 extern "C" Struct_020b27c8_4* func_020b0288(struct Struct_0205ab78* arg0, unsigned int arg1);
 
@@ -85,7 +82,7 @@ extern "C" ARM Type_020b0a1c_2 func_020b27c8(void* arg0, Struct_020b27c8** arg1)
 
     if (!inline_020b27c8_3((Struct_020b27c8_3*)arg0, NNS_G2D_BINFILE_SIG_FONTDATA, NNS_G2D_NFTR_VER)) {
         if (!inline_020b27c8_3((Struct_020b27c8_3*)arg0, NNS_G2D_BINFILE_SIG_FONTDATA, NNS_G2D_NFTR_PREV_VER)) {
-            func_020c9be0();
+            HaltForever_020c9be0();
         }
         var0 = TRUE;
     }

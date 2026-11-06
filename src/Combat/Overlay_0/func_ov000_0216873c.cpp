@@ -25,7 +25,7 @@ struct Struct_020d6f0c;
 struct Struct_020d6d18_2;
 extern "C" void func_020d6f0c(struct Struct_020d6f0c* arg0);
 extern "C" void func_020d6d18(struct Struct_020d6d18_2* arg0);
-extern "C" void* func_02057924(void);
+extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_02057f00(void* arg0, int arg1);
 extern "C" void func_ov017_021a05a8(GameResources* arg0);
 extern "C" void func_ov017_0219b624(GameResources* arg0);
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov000_0216873c(struct Struct_ov000_0216873c* arg0) {
     func_02013750(arg0->unknown_ec8_, 1);
     func_ov000_02172720(arg0->unknown_3760_);
     func_ov000_02160fa8(arg0, 0x800);
-    func_02079f9c((char*)func_020797dc());
+    func_02079f9c((char*)GetActionTables_020797dc());
     func_02047230(&arg0->unknown_5600_);
     func_02047230(&arg0->unknown_5688_);
     if (arg0->unknown_ea4_ != 0) {
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov000_0216873c(struct Struct_ov000_0216873c* arg0) {
         func_020d6d18(arg0->unknown_ea4_);
         arg0->unknown_ea4_ = 0;
     }
-    void* var2 = func_02057924();
+    void* var2 = GetEffectManager_02057924();
     for (int* var3 = data_ov000_0218321c; *var3 >= 0; var3++) {
         func_02057f00(var2, *var3);
     }

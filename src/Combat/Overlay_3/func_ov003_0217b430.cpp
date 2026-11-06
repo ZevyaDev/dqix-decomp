@@ -35,7 +35,7 @@ struct ItemData_0201099c_9 {
     char unknown_0_[8];
     unsigned int unknown_8_;
 };
-extern "C" struct ItemData_0201099c_9 *func_020dedd0(struct ItemTable_0201099c_10 *arg0, int arg1);
+extern "C" struct ItemData_0201099c_9 *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" void func_0207fdf0(struct Struct_0207fdf0_2 *arg0, int arg1);
 extern "C" int func_ov003_02179da8(void *arg0, int arg1);
 extern "C" int func_ov003_021766e8(void *arg0);
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
             func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
             *(void **) (arg0 + REGIONAL_OFFSET(0xf74, 0xff8)) = 0;
             *(void **) (arg0 + 8) =
-                func_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + REGIONAL_OFFSET(0x7f0, 0x874)), *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a));
+                FindItemData_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + REGIONAL_OFFSET(0x7f0, 0x874)), *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a));
             if (*(void **) (arg0 + 8) == 0) return;
             *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x78, 0xfc)) = *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe));
             func_02080c68(var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 1);

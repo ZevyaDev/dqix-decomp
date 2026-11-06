@@ -20,13 +20,13 @@ struct Struct_ov012_02189af4_2 {
     Struct_ov012_02189af4* inline_ov012_02189af4_3() { return &unknown_54_; }
 };
 
-extern "C" void func_02041c08(char*, int, int, int, int, int);
-extern "C" int func_02041ea4(char*, int);
+extern "C" void AppendFrameTag_02041c08(char*, int, int, int, int, int);
+extern "C" int AppendCursorTag_02041ea4(char*, int);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_0205c508(Struct_0205c508*, int*, int*);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
-extern "C" int func_02041b70(char*, int, const char*);
+extern "C" int AppendMenuEntry_02041b70(char*, int, const char*);
 extern "C" int func_02041a28(char*, int);
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
@@ -44,8 +44,8 @@ extern "C" ARM void func_ov012_02189dfc(char* arg0, char* arg1, int arg2) {
     if (!arg1) return;
     int var0 = *(int*)(arg0 + 0x143c) % 9;
     if (arg2)
-        func_02041c08(arg1, var0, 8, 5, 5, 5);
-    func_02041ea4(arg1, var0);
+        AppendFrameTag_02041c08(arg1, var0, 8, 5, 5, 5);
+    AppendCursorTag_02041ea4(arg1, var0);
     void* var1 = GetMessageWindow_020421a0();
     int var2;
     Struct_ov012_02189af4* var3 = ((Struct_ov012_02189af4_2*)(arg0 + 0x90))->inline_ov012_02189af4_3();
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov012_02189dfc(char* arg0, char* arg1, int arg2) {
         if (var2 != var6)
             AppendText_02042058(arg1, *(const char**)(arg0 + 0x1348));
         const char* var8 = FindStringInList_02072a68((StringList_02072a68_2*)(arg0 + 0x1314), (short)((*(signed char**)(arg0 + 0x1418))[var2] + 10000));
-        func_02041b70(arg1, var2 % 9, var8);
+        AppendMenuEntry_02041b70(arg1, var2 % 9, var8);
     }
     if (((Struct_ov012_021884f4*)(arg0 + 0x141c))->unknown_0_0_ > 9) {
         ClearMessageParams_02046380(var1);
@@ -110,13 +110,13 @@ struct Struct_ov012_02189dfc_2
     Struct_01ff91ac_15* inline_ov012_02189dfc_2() { return &unknown_ac_; }
 };
 
-extern "C" void func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" void func_02041ea4(char* arg0, int arg1);
+extern "C" void AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
+extern "C" void AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_0205c508(Struct_0205c508* arg0, int* arg1, int* arg2);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
-extern "C" void func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
 extern "C" void func_ov012_021842a0(Struct_ov012_02189dfc_2* arg0, int arg1, int arg2, int arg3);
 
@@ -130,8 +130,8 @@ extern "C" ARM void func_ov012_02189dfc(Struct_ov012_02189dfc_2* arg0, char* arg
 
     int var9 = arg0->unknown_13d8_[3] % 9;
     if (arg2)
-        func_02041c08(arg1, var9, 8, 5, 5, 5);
-    func_02041ea4(arg1, var9);
+        AppendFrameTag_02041c08(arg1, var9, 8, 5, 5, 5);
+    AppendCursorTag_02041ea4(arg1, var9);
     GetMessageWindow_020421a0();
     int var10;
     Struct_ov012_02189dfc* var11 = arg0->inline_ov012_02189dfc_2()->inline_ov012_02189dfc();
@@ -144,7 +144,7 @@ extern "C" ARM void func_ov012_02189dfc(Struct_ov012_02189dfc_2* arg0, char* arg
     {
         if (var10 != var14)
             AppendText_02042058(arg1, arg0->unknown_1378_);
-        func_02041b70(arg1, var10 % 9, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, (short)(arg0->unknown_13c0_[var10] + 10000)));
+        AppendMenuEntry_02041b70(arg1, var10 % 9, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, (short)(arg0->unknown_13c0_[var10] + 10000)));
     }
     if (arg0->unknown_13c4_0_ > 9)
     {

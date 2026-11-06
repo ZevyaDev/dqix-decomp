@@ -19,11 +19,11 @@ struct Struct_0209c5e8 {
     struct Struct_0209c5e8_2 unknown_c8_;
 };
 
-struct Struct_02109bf4_4;
+struct MusicManager_02109bf4_4;
 struct Struct_0203aba8;
 
 extern "C" int func_0209c140();
-extern "C" void func_0209c678(struct Struct_02109bf4_4* arg0, int arg1);
+extern "C" void func_0209c678(struct MusicManager_02109bf4_4* arg0, int arg1);
 extern "C" void func_0203ac10(void* arg0, void* arg1, int arg2);
 extern "C" int func_0203aba8(struct Struct_0203aba8* arg0, void* arg1, void* arg2);
 
@@ -31,7 +31,7 @@ extern "C" int func_0203aba8(struct Struct_0203aba8* arg0, void* arg1, void* arg
 extern "C" ARM void func_0209c5e8(struct Struct_0209c5e8* arg0) {
     if (arg0->unknown_c8_.unknown_0_2_) return;
     if (func_0209c140() != 0) {
-        func_0209c678((struct Struct_02109bf4_4*)arg0, 0);
+        func_0209c678((struct MusicManager_02109bf4_4*)arg0, 0);
         return;
     }
     if (arg0->unknown_b0_ == 1) {

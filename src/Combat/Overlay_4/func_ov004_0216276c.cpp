@@ -60,7 +60,7 @@ extern "C" Struct_ov004_0216276c_2* func_ov004_0215e47c(void*, int);
 // USA: func_ov004_0216276c
 extern "C" ARM int func_ov004_0216276c(void* arg0) {
     data_ov004_021707e8.unknown1_7_ = 0x68;
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), data_ov004_021707e8.unknown_1c_);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), data_ov004_021707e8.unknown_1c_);
     if (!var0) return 0;
     Struct_ov004_0216276c* var1 = GetPartyMemberData_02053c6c(((unsigned char*)(var0)));
     if (!var1) return 0;

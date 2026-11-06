@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_ov023_021e2bdc(void* arg0, int arg1, short* arg2, short* arg3);
-extern "C" void func_0205ac40(void* arg0, void* arg1);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 struct Struct_ov023_021e4358 {
     char unknown_0_[0xc8];
@@ -47,5 +47,5 @@ extern "C" ARM void func_ov023_021e4358(Struct_ov023_021e4358* arg0) {
     var3->unknown_18_ = var1 << 12;
     var3->unknown_22_ = 0x7b;
     var3->unknown_26_ = 2;
-    func_0205ac40(arg0->unknown_c8_, var2);
+    DrawSprite_0205ac40(arg0->unknown_c8_, var2);
 }

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void* func_0207d78c(void);
 struct Struct_0207d7f4;
 extern "C" struct Struct_0207d7f4* func_0207d9bc(struct Struct_0207d7f4* arg0, unsigned short arg1);
@@ -23,7 +23,7 @@ retry:
         *(unsigned short*)(data_ov017_021d7654 + 2) = 0x7ff8;
     }
     for (var2 = 0; var2 < 4; var2++) {
-        GameObject* var3 = func_0200ff1c(var0, var2);
+        GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var0, var2);
         if (var3 != NULL) {
             unsigned short var4 = *(unsigned short*)((char*)var3 + Enum_ov017_021a1a20_434);
             if (*(unsigned short*)(data_ov017_021d7654 + 2) == var4) {

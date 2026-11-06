@@ -11,7 +11,7 @@ extern "C" unsigned char* GetZone3D_02012fe4(void);
 struct Struct_0200ffc0;
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
 extern "C" unsigned char* GetFlagManager_0205ec34(void);
-extern "C" int func_02046b08(void** arg0);
+extern "C" int IsQueueEmpty_02046b08(void** queue);
 struct Struct_02015438;
 extern "C" int func_02046b24(struct Struct_02015438** arg0);
 extern "C" int func_02053cdc(int* arg0);
@@ -84,7 +84,7 @@ extern "C" ARM int func_ov017_02196c4c(Struct_ov017_02196c4c* arg0) {
     unsigned char* var7 = GetFlagManager_0205ec34();
     var5 = LightingManager::GetInstance();
 
-    if (func_02046b08((void**)arg0->unknown_36fc_) == 0) {
+    if (IsQueueEmpty_02046b08((void**)arg0->unknown_36fc_) == 0) {
         return func_02046b24((struct Struct_02015438**)arg0->unknown_36fc_) == 0x45 ? 0 : 2;
     }
     if (var2 == NULL) {

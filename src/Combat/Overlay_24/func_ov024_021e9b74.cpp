@@ -48,8 +48,8 @@ extern const struct Struct_ov024_021fe7e0 data_ov024_021fe7e0;
 struct Struct_ov024_021e9b74* GetCombatantByID(int unused, int id);
 extern "C" int func_02010088(struct Struct_02010088* arg0);
 extern "C" int func_ov024_021e6798(GameObject* arg0);
-extern "C" int func_ov000_0215e9fc(int arg0, short* arg1, int arg2, int arg3);
-extern "C" int func_ov000_0215eb1c(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov000_02155f9c(int arg0, int arg1, int arg2);
 int NextRandomMax(struct Random* random, int maximum);
 extern "C" void func_ov000_0215ff20(void* arg0, short arg1, unsigned char arg2);
@@ -89,9 +89,9 @@ extern "C" ARM int func_ov024_021e9b74(struct Struct_ov024_021e9b74_2* arg0, int
         int var6 = arg2->unknown_0_ >= 0 && arg2->unknown_0_ <= 3;
         int var7;
         if (var6) {
-            var7 = func_ov000_0215e9fc(arg0->unknown_10_, var5.unknown_0_, 8, 1);
+            var7 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0->unknown_10_, var5.unknown_0_, 8, 1);
         } else {
-            var7 = func_ov000_0215eb1c(arg0->unknown_10_, var5.unknown_0_, 8, 1);
+            var7 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0->unknown_10_, var5.unknown_0_, 8, 1);
         }
         struct Struct_ov024_021fe7e0 var8 = data_ov024_021fe7e0;
         var1 = 0;

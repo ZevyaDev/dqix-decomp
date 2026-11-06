@@ -11,11 +11,11 @@ enum { Enum_ov017_021b58b8_1804 = 0x70c };
 #include "Resource/Brightness.h"
 
 struct Struct_02018300_3;
-extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
-extern "C" int func_020100f8(char* arg0);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
+extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a27a0(void* arg0);
 extern "C" void func_020a2794(void* arg0);
-extern "C" void func_020397c0(void* arg0);
+extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_0218d5ac(void* arg0);
 struct Struct_02046b38;
 struct Struct_02046b38_2;
@@ -45,10 +45,10 @@ extern "C" ARM void func_ov017_021b58b8(Struct_ov017_021b58b8* arg0, Struct_0204
         if (var1 != 0) {
             unsigned int var2 = (unsigned int)var0->GetEffectiveDeltaTime();
             if (var2 < arg0->unknown_18_) {
-                func_020397cc((Struct_02018300_3*)var1, 1);
+                DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
                 *(unsigned short*)((char*)var1 + 0xb2) = 0;
                 arg0->unknown_18_ = arg0->unknown_18_ - var2;
-                int var3 = func_020100f8((char*)var0);
+                int var3 = GetFollowCamera_020100f8((char*)var0);
                 if (var3 != 0) {
                     func_020a27a0((void*)var3);
                 }
@@ -57,9 +57,9 @@ extern "C" ARM void func_ov017_021b58b8(Struct_ov017_021b58b8* arg0, Struct_0204
                     SetFlags04(var4, 0x80);
                 }
             } else if (arg0->unknown_54_ == 0) {
-                func_020397c0((void*)var1);
+                EnablePlayerControl_020397c0((void*)var1);
                 arg0->unknown_18_ = 0;
-                int var5 = func_020100f8((char*)var0);
+                int var5 = GetFollowCamera_020100f8((char*)var0);
                 if (var5 != 0) {
                     func_020a2794((void*)var5);
                 }

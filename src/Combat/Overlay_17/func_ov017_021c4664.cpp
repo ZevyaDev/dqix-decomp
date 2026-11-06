@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
-extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021c4664 {
     short unknown_0_;
@@ -23,7 +23,7 @@ struct Struct_ov017_021c4664_2 {
 // USA: func_ov017_021c4664
 extern "C" ARM void func_ov017_021c4664(int arg0, Vector3i arg1, short arg2) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0202ae24();
+    void* var1 = GetLocalWirelessPacketQueue_0202ae24();
     Struct_ov017_021c4664_2 var2;
     Struct_ov017_021c4664* var3 = &var2.unknown_4_;
     var2.unknown_0_ = 0x36;
@@ -33,5 +33,5 @@ extern "C" ARM void func_ov017_021c4664(int arg0, Vector3i arg1, short arg2) {
     var3->unknown_6_ = arg1.z >> 10;
     var3->unknown_8_ = arg2;
     var3->unknown_c_ = var0->GetDayTimer();
-    func_0205e330(var1, &var2, 0);
+    QueueOutgoingPacket_0205e330(var1, &var2, 0);
 }

@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" float func_ov017_021d6110(void*);
-extern "C" void* func_ov017_021d60f4(void*);
+extern "C" void* GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" int func_ov001_0215ab20(void*);
 
 struct Struct_ov001_02159250 { int unknown_0_, unknown_4_, unknown_8_; };
@@ -15,7 +15,7 @@ extern Struct_ov001_02165880_36 data_ov001_02165880;
 extern "C" ARM int func_ov001_0215dfc4(void* arg0, int arg1) {
     void* var0 = arg0;
     arg0 = (char*)arg0 + 0x8;
-    int var1 = func_ov001_0215ab20(func_ov017_021d60f4(var0));
+    int var1 = func_ov001_0215ab20(GetScriptValueAsInt_ov017_021d60f4(var0));
     if (var1 == 0) {
         return 0;
     }

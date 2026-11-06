@@ -65,7 +65,7 @@ extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int ar
     unsigned int var5;
     Struct_02086f24_6 var6;
 
-    GameObject* var7 = func_0200ff1c(GameState::GetInstance(), arg0);
+    GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0);
     if (var7 == 0) {
         return;
     }

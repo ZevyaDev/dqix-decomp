@@ -17,7 +17,7 @@ struct Struct_0203c108_3 {
 };
 extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
 
-extern "C" void* func_02079e2c(char* arg0, int arg1);
+extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" int func_ov000_02171210(void* arg0, void* arg1);
 
 struct Struct_ov000_02171e60_2 {
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov000_02171e60(struct Struct_ov000_02171e60* arg0) {
         func_0203c108(&arg0->unknown_50_, FindStringInTable_020e0434(arg0->unknown_4_, 5));
         return;
     }
-    void* var1 = func_02079e2c((char*)func_020797dc(), var0->unknown_16_);
+    void* var1 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), var0->unknown_16_);
     if (var1 == NULL) {
         arg0->unknown_18_++;
         arg0->unknown_10_[arg0->unknown_18_] = 0xe;

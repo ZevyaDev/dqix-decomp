@@ -5,7 +5,7 @@
 struct Struct_ov024_021f3a04 { char unknown_0_[0x2c]; short unknown_2c_; };
 extern "C" GameObject* func_ov000_021536f8(int, int);
 extern "C" float func_ov024_021db358(GameObject*);
-extern "C" int func_ov000_0215eb1c(int, short*, int, int);
+extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int, short*, int, int);
 extern const short data_ov024_021fee3c[8] __attribute__((aligned(4)));
 
 // USA: func_ov024_021f3a04
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov024_021f3a04(int* arg0, int arg1, void*, int* arg3, sh
     do {
         *(unsigned short*)var3++ = *(const unsigned short*)var2++;
     } while (--var4);
-    int var5 = func_ov000_0215eb1c(*arg0, var1, 8, 1);
+    int var5 = CollectEnemyCombatantIndices_ov000_0215eb1c(*arg0, var1, 8, 1);
     if (var5 <= 0) return 0;
     *arg3 = 0;
     for (int var6 = 0; var6 < var5; var6++) {

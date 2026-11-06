@@ -15,7 +15,7 @@ struct Struct_ov017_021d82e0 {
 };
 
 extern "C" int func_ov000_0215fc60(char* arg0);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" GameObject* func_0200ff94(GameState* arg0, int arg1);
 extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" float func_02084ee8(void* arg0);
@@ -37,7 +37,7 @@ extern "C" ARM float func_ov000_02156118(Struct_ov017_021d82e0* arg0, int arg1) 
     float var2;
     int var3 = (arg1 >= 0 && arg1 <= 3) ? 1 : 0;
     if (var3) {
-        GameObject* var4 = func_0200ff1c(var0, arg1);
+        GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
         if (var4 == 0) {
             return 0;
         }

@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct Struct_ov011_02184c30;
-extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
+struct ScriptValue_ov011_02184c30;
+extern "C" int func_ov011_02184c30(struct ScriptValue_ov011_02184c30* arg0);
 
-extern "C" void* func_ov017_021b2164(void);
+extern "C" void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" void func_ov011_02184bf0(void*, int, int);
 
 // USA: func_ov011_02187f04
-extern "C" ARM int func_ov011_02187f04(struct Struct_ov011_02184c30* arg0) {
+extern "C" ARM int func_ov011_02187f04(struct ScriptValue_ov011_02184c30* arg0) {
     int var0 = func_ov011_02184c30(arg0);
-    int var1 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 8));
-    func_ov011_02184bf0(func_ov017_021b2164(), var0, var1);
+    int var1 = func_ov011_02184c30((struct ScriptValue_ov011_02184c30*)((char*)arg0 + 8));
+    func_ov011_02184bf0(GetCurrentMenu_ov017_021b2164(), var0, var1);
     return 1;
 }

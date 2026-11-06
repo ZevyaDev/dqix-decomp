@@ -5,9 +5,9 @@
 extern "C" int func_020881c4(unsigned char* arg0);
 extern "C" void func_02088150(void* arg0);
 extern "C" void func_02088220(void*, int);
-extern "C" void* func_ov000_0215e958(void* arg0);
+extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov000_02159eac(void* arg0, void* arg1, int arg2);
-extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, unsigned long long arg4, int arg5);
 extern "C" void func_ov000_0215fe84(void* arg0, void* arg1, int arg2);
 
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov024_021e5ec4(struct Struct_ov024_021e5ec4_2* arg0, in
     case 4: var2 = 0x34; break;
     }
 
-    void* var3 = func_ov000_0215e958(arg0->unknown_10_);
+    void* var3 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var3) return;
     union { struct { int unknown_0_; int unknown_4_; }; unsigned long long unknown1_0_; } var4;
     var4.unknown_0_ = 0;
@@ -50,5 +50,5 @@ extern "C" ARM void func_ov024_021e5ec4(struct Struct_ov024_021e5ec4_2* arg0, in
         func_ov000_0215fe84(arg0->unknown_8_, var3, 2);
         arg0->unknown_10_[0x8e02]++;
     }
-    func_ov000_0215a88c(arg0->unknown_10_, var3, (unsigned short)var2);
+    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var3, (unsigned short)var2);
 }

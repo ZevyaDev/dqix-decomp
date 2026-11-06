@@ -55,15 +55,15 @@ extern "C" void func_0204a170(int);
 extern "C" int func_ov000_021820bc(void*, int, int, int);
 extern "C" void func_02048c90(Struct_02048c90*);
 extern "C" void func_02049ae4(unsigned char*);
-extern "C" void func_02033b88(Struct_02010604*, int);
-extern "C" Struct_ov025_021e2980_4* func_ov000_02160130();
+extern "C" void SetMotion_02033b88(Struct_02010604*, int);
+extern "C" Struct_ov025_021e2980_4* GetBattleScene_ov000_02160130();
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 
 // USA: func_ov025_021e2980
 extern "C" ARM int func_ov025_021e2980(Struct_ov025_021e2980* arg0, Struct_ov025_021e2980_2* arg1, int arg2, void* arg3) {
     GameState* var0 = GameState::GetInstance();
     if (arg0->unknown_e_ == 0x19) {
-        void* var1 = func_020100bc(var0);
+        void* var1 = GetCamera_020100bc(var0);
         if (func_0202e09c((int)var1) & 0x10) {
             Object3D* var2 = func_0204a438((Struct_0204a438*)var1);
             if (var2) {
@@ -85,7 +85,7 @@ extern "C" ARM int func_ov025_021e2980(Struct_ov025_021e2980* arg0, Struct_ov025
                 func_02049ae4((unsigned char*)var6);
                 int var7 = var6->unknown_be_;
                 if (var7 != 0 && var7 != 4 && var7 != 6)
-                    func_02033b88((Struct_02010604*)var6, 0);
+                    SetMotion_02033b88((Struct_02010604*)var6, 0);
             }
             var6->unknown_0_.SetAnimationPlaybackSpeed(0x1000, 0);
             var6->unknown_0_.SkipAnimationTransition();
@@ -97,7 +97,7 @@ extern "C" ARM int func_ov025_021e2980(Struct_ov025_021e2980* arg0, Struct_ov025
         }
         LightingManager* var8 = LightingManager::GetInstance();
         if (!(arg0->unknown_f_ & 2) && arg1->unknown_0_ != 1 && arg1->unknown_0_ != 2 && arg1->unknown_0_ != 0xdb) {
-            Struct_ov025_021e2980_4* var9 = func_ov000_02160130();
+            Struct_ov025_021e2980_4* var9 = GetBattleScene_ov000_02160130();
             if (!var9->unknown_6fd4_) {
                 var8->BeginFade(0x999, 300);
                 var9->unknown_6fd4_ = 1;

@@ -30,14 +30,14 @@ struct Struct_ov017_021ce704_4 {
     unsigned int unknown_d_2_ : 3;
 };
 struct Struct_ov017_021ce704_5 { unsigned char unknown_0_; unsigned char unknown_1_[3]; unsigned int unknown_4_[4]; };
-extern "C" void* func_0202ae24();
+extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
 extern "C" Struct_ov000_02179cdc_3* GetPartyMemberData_02053c6c(unsigned char*);
-extern "C" void func_0205e330(void*, void*, int);
+extern "C" void QueueOutgoingPacket_0205e330(void*, void*, int);
 
 // USA: func_ov017_021ce704
 extern "C" ARM void func_ov017_021ce704(int arg0) {
-    void* var0 = func_0202ae24();
-    GameObject* var1 = func_0200ff1c(GameState::GetInstance(), arg0);
+    void* var0 = GetLocalWirelessPacketQueue_0202ae24();
+    GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0);
     if (!var1) return;
     Struct_ov000_02179cdc_3* var2 = GetPartyMemberData_02053c6c((unsigned char*)var1);
     if (!var2) return;
@@ -56,5 +56,5 @@ extern "C" ARM void func_ov017_021ce704(int arg0) {
     var4->unknown_0_[2].unknown_2_4_ = var5->unknown_800_[2].unknown_2_4_;
     var4->unknown_c_0_ = var5->unknown_80c_0_;
     var4->unknown_d_2_ = arg0;
-    func_0205e330(var0, &var3, 0);
+    QueueOutgoingPacket_0205e330(var0, &var3, 0);
 }

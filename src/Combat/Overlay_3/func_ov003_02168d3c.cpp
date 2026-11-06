@@ -2,11 +2,11 @@
 extern "C" void* memset(void*, int, unsigned int);
 #include "GameState/GameState.h"
 
-struct Struct_0205d81c;
+struct TextWindowManager_0205d81c;
 struct Struct_0201099c_3;
 struct MessageWindow_020465c0;
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_0205deb4(Struct_0205d81c*, int, int);
+extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" void func_ov003_0216abd8(void*, char*);
@@ -15,8 +15,8 @@ extern "C" int func_ov003_02169eec(void*, void*);
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
-extern "C" void func_0205d6e4(Struct_0205d81c*, int);
-extern "C" void* func_0205d81c(Struct_0205d81c*, int);
+extern "C" void func_0205d6e4(TextWindowManager_0205d81c*, int);
+extern "C" void* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 extern "C" int func_ov003_02169938(int, int);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, int, int);
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov003_02168d3c(Struct_ov003_02168d3c* arg0, void* arg1,
     Struct_ov003_02168d3c_3* var2=(Struct_ov003_02168d3c_3*)GetParty_02010828(var0);
     if(var1->unknown_9a0_==3) var1->unknown_19ae_=0;
     if(arg0->unknown_4e8_==0) {
-        func_0205deb4((Struct_0205d81c*)arg0->unknown_e4_,1,1);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_e4_,1,1);
         if(arg2==0x3f2) {
             int var3=-1;
             if(var2->unknown_f68_>=0x3b9ac618) var3=(short)(arg2+5);
@@ -132,16 +132,16 @@ extern "C" ARM void func_ov003_02168d3c(Struct_ov003_02168d3c* arg0, void* arg1,
     } else if(arg0->unknown_4e8_==1) {
         if(var1->unknown_9a0_==3) {
             func_ov003_02169c3c(arg0);
-            func_0205deb4((Struct_0205d81c*)arg0->unknown_e4_,0,0);
-            func_0205deb4((Struct_0205d81c*)arg0->unknown_e4_,2,0);
+            SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_e4_,0,0);
+            SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_e4_,2,0);
             arg0->unknown_4e8_++;
         }
     } else if(arg0->unknown_4e8_==2) {
         int var19=func_ov003_02169eec(arg0,arg1);
         if(var19==-1) return;
         if(var19==-2) {
-            func_0205d6e4((Struct_0205d81c*)arg0->unknown_e4_,1);
-            func_0205deb4((Struct_0205d81c*)arg0->unknown_e4_,1,1);
+            func_0205d6e4((TextWindowManager_0205d81c*)arg0->unknown_e4_,1);
+            SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_e4_,1,1);
             memset(arg0->unknown_7c_,0,Enum_ov003_02168d3c_2400);
             int var20=FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_,0x406);
             AppendText_02042058(arg0->unknown_7c_,(const char*)var20);
@@ -151,8 +151,8 @@ extern "C" ARM void func_ov003_02168d3c(Struct_ov003_02168d3c* arg0, void* arg1,
             return;
         }
         if(var19!=0) return;
-        func_0205d6e4((Struct_0205d81c*)arg0->unknown_e4_,1);
-        void* var21=func_0205d81c((Struct_0205d81c*)arg0->unknown_e4_,1);
+        func_0205d6e4((TextWindowManager_0205d81c*)arg0->unknown_e4_,1);
+        void* var21=FindTextWindow_0205d81c((TextWindowManager_0205d81c*)arg0->unknown_e4_,1);
         *(unsigned short*)((char*)var21+0xc2)=1;
         bool var22=false;
         bool var23=false;

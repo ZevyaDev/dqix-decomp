@@ -17,7 +17,7 @@ extern "C" Struct_020952f4* GetZone3D_02012fe4();
 extern "C" void __clear(void*, int);
 extern "C" int func_0201079c(char* arg0);
 extern "C" int func_ov017_0218d2c4(int arg0);
-extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int GetStringLength_020d2ff0(const char* string);
 
 // JPN: func_020952f4
 extern "C" ARM int func_020952f4(char* arg0) {
@@ -34,6 +34,6 @@ extern "C" ARM int func_020952f4(char* arg0) {
             strcat(arg0, var2);
         }
     }
-    return func_020d2ff0(arg0);
+    return GetStringLength_020d2ff0(arg0);
 }
 #endif

@@ -5,7 +5,7 @@ enum {Enum_ov023_021dd404_1792=0x700, Enum_ov023_021dd404_116=0x74, Enum_ov023_0
 #endif
 #include <globaldefs.h>
 
-extern "C" void func_0205ac40(void* arg0, void* arg1, void* arg2, int arg3);
+extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite, void* arg2, int arg3);
 
 struct Struct_ov023_021dd404 {
     unsigned char unknown_0_0_:1;
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov023_021dd404(char* arg0) {
         *(unsigned int*)(var3 + 0x414) = 0x10000;
         *(unsigned int*)(var3 + 0x418) = 0x68000;
         *(unsigned char*)(var3 + 0x422) = 0x58;
-        func_0205ac40(arg0 + Enum_ov023_021dd404_300, var3 + 0x400, var3, 0x58);
+        DrawSprite_0205ac40(arg0 + Enum_ov023_021dd404_300, var3 + 0x400, var3, 0x58);
         return;
     }
     if (var1 == 2) {
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov023_021dd404(char* arg0) {
         *(unsigned int*)(var5 + 0x414) = 0x10000;
         *(unsigned int*)(var5 + 0x418) = 0x68000;
         *(unsigned char*)(var5 + 0x422) = 0x58;
-        func_0205ac40(arg0 + Enum_ov023_021dd404_300, var5 + 0x400, var5, 0x58);
+        DrawSprite_0205ac40(arg0 + Enum_ov023_021dd404_300, var5 + 0x400, var5, 0x58);
         return;
     }
 }

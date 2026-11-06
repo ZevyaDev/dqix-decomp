@@ -42,7 +42,7 @@ struct Struct_ov017_021cfb0c_3 {
 
 extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202c1a4* wireless);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
-extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int func_02046b24(Struct_02015438** arg0);
 extern "C" int func_0201b588(int arg0);
 extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov017_021cfb0c(int arg0, void* arg1, GameState* arg2, s
     var2 = (struct Struct_ov017_021cfb0c_3*)arg2->GetGrottoStruct();
     var4 = arg3->unknown_36fc_;
     var0 = 0;
-    var5 = (unsigned short*)func_0200fd0c(arg2);
+    var5 = (unsigned short*)GetZoneEntry_0200fd0c(arg2);
     if (func_02046b24(var4) == 3) {
         if (func_0201b588(*var5)) {
             var0 = 1;
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov017_021cfb0c(int arg0, void* arg1, GameState* arg2, s
     Vector3i var7 = var2->unknown_10_;
     var7.z += 0x2000;
     if (func_02046b60((Struct_02038598_5*)var4, 3) || func_02046b60((Struct_02038598_5*)var4, 1)) {
-        unsigned short var8 = *(unsigned short*)func_0200fd0c(arg2);
+        unsigned short var8 = *(unsigned short*)GetZoneEntry_0200fd0c(arg2);
         if (var8 == 0xc3b5) {
             return;
         }

@@ -22,8 +22,8 @@ extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_ov003_02159290(void*, unsigned short, int);
 extern "C" void func_ov003_02159250(void*, void*);
-struct Struct_0205d81c;
-extern "C" void func_0205deb4(Struct_0205d81c*, int, int);
+struct TextWindowManager_0205d81c;
+extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 struct Struct_0201099c_3;
@@ -33,7 +33,7 @@ extern "C" int func_020457e0(void*);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int func_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void*);
-extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void func_ov017_021d1118(int, int, int, int);
 extern "C" void func_ov017_021d1014(int, int, int);
 struct Struct_02109bf4_2;
@@ -45,12 +45,12 @@ extern "C" int func_020aad1c(void*, void*, int, int);
 extern "C" void func_0209c7fc(void*);
 extern "C" void ClearMessageParams_02046380(void*);
 struct Struct_02046574_2;
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" void AppendText_02042058(char*, char const*);
-struct Struct_02038598_4;
-extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
+struct GlobalFlags_02038598_4;
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" void* memset(void*, int, unsigned int);
 
 extern int gMusicManager_02109bf4;
@@ -80,9 +80,9 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
             *(unsigned char*)(var0 + 0x580) = 2;
             return;
         }
-        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 0, 1);
-        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 1, 1);
-        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 2, 1);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 0, 1);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 1, 1);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 2, 1);
         int var6 = 0x3f2;
         if (IsLocalWirelessOn_0202b7d8((int*)var3) && IsLocalWirelessGuest_0202c540(var3)) {
             var6 += 8;
@@ -103,9 +103,9 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
         } else if (var7 == 0) {
             *(unsigned char*)(var0 + 0x580) = *(unsigned char*)(var0 + 0x580) + 1;
         }
-        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 0, 1);
-        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 1, 1);
-        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 2, 1);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 0, 1);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 1, 1);
+        SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 2, 1);
     }
 
     if (var5 == 2) {
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
         if (*(unsigned char*)(var0 + 0x5b4) == 0) {
             func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x64));
         }
-        func_020466e4((unsigned int*)var2, 0x80);
+        SetGlobalFlags_020466e4((unsigned int*)var2, 0x80);
         *(int*)(var0 + 0x598) = 0xf;
         if (IsLocalWirelessOn_0202b7d8((int*)var3)) {
             func_ov017_021d1118(-1, 1, 1, 2);
@@ -191,13 +191,13 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
         if (*(unsigned char*)(var0 + 0x5b4) != 0) {
             unsigned char* var15 = (unsigned char*)GameState::GetInstance()->GetUnknownGameObject();
             ClearMessageParams_02046380(var1);
-            func_02046574((Struct_02046574_2*)var1, 0, (char*)(*(void**)(var15 + 0x134)));
+            SetMessageString_02046574((Struct_02046574_2*)var1, 0, (char*)(*(void**)(var15 + 0x134)));
             AppendText_02042058((char*)(*(void**)(var0 + 0x7c)), (char const*)FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f3));
         } else {
             func_ov003_02159290(arg0, 0x3f3, 0x3f5);
         }
         func_ov003_02159250(arg0, *(void**)(var0 + 0x7c));
-        func_020466f4((Struct_02038598_4*)var2, 0x80);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var2, 0x80);
         *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) & ~0x10;
         if (*(unsigned char*)(var0 + 0x5b4) != 0) {
             *(unsigned char*)(var0 + 0x580) = 7;
@@ -212,29 +212,29 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
         if (var16 == -1) return;
         if (var16 == -2 || var16 == 1) {
             if (*(unsigned char*)(var0 + 0x59c) == 0) {
-                func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 0, 1);
-                func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 1, 1);
-                func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 2, 1);
+                SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 0, 1);
+                SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 1, 1);
+                SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 2, 1);
                 func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f7));
                 *(unsigned char*)(var0 + 0x580) = *(unsigned char*)(var0 + 0x580) + 1;
                 return;
             }
             if (IsLocalWirelessOn_0202b7d8((int*)var3)) {
-                func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 0, 1);
-                func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 1, 1);
-                func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 2, 1);
+                SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 0, 1);
+                SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 1, 1);
+                SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 2, 1);
                 func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f9));
                 *(unsigned char*)(var0 + 0x580) = 6;
                 return;
             }
-            func_0205d6a0((Struct_0205d6a0*)(var0 + 0xf4), 1);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)(var0 + 0xf4), 1);
             func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f6));
             *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) | 0x10;
             *(unsigned char*)(var0 + 0x588) = 9;
             *(unsigned char*)(var0 + 0x580) = 0;
             return;
         } else if (var16 == 0) {
-            func_0205d6a0((Struct_0205d6a0*)(var0 + 0xf4), 1);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)(var0 + 0xf4), 1);
             func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x442));
             *(unsigned char*)(var0 + 0x580) = 7;
         }
@@ -245,22 +245,22 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
         int var17 = func_ov003_0215bf18(arg0, 1);
         if (var17 == -1) return;
         if (var17 == -2 || var17 == 1) {
-            func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 0, 1);
-            func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 1, 1);
-            func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 2, 1);
+            SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 0, 1);
+            SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 1, 1);
+            SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 2, 1);
             func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f8));
             *(unsigned char*)(var0 + 0x580) = 1;
             return;
         } else if (var17 == 0) {
             if (IsLocalWirelessOn_0202b7d8((int*)var3)) {
-                func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 0, 1);
-                func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 1, 1);
-                func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 2, 1);
+                SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 0, 1);
+                SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 1, 1);
+                SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 2, 1);
                 func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f9));
                 *(unsigned char*)(var0 + 0x580) = 6;
                 return;
             }
-            func_0205d6a0((Struct_0205d6a0*)(var0 + 0xf4), 1);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)(var0 + 0xf4), 1);
             func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f6));
             *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) | 0x10;
             *(unsigned char*)(var0 + 0x588) = 9;
@@ -274,12 +274,12 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
         int var18 = func_ov003_0215bf18(arg0, 1);
         if (var18 == -1) return;
         if (var18 == -2 || var18 == 1) {
-            func_0205d6a0((Struct_0205d6a0*)(var0 + 0xf4), 1);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)(var0 + 0xf4), 1);
             func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x442));
             *(unsigned char*)(var0 + 0x580) = 7;
             return;
         } else if (var18 == 0) {
-            func_0205d6a0((Struct_0205d6a0*)(var0 + 0xf4), 1);
+            CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)(var0 + 0xf4), 1);
             func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f6));
             *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) | 0x10;
             *(unsigned char*)(var0 + 0x588) = 9;

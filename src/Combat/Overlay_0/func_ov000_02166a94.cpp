@@ -4,9 +4,6 @@
 #include <Resource/GameResources.h>
 #include <World/Object3D.h>
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 struct Struct_ov000_02166a94_2 { int unknown_0_; char unknown_4_[0x84]; };
 struct Struct_ov000_02166a94_3 {
@@ -42,8 +39,8 @@ struct Struct_020d6d18_2;
 struct Struct_020d6d90_3;
 struct Struct_020d76fc;
 struct Struct_020d6ec8;
-extern "C" Struct_02057de0_2* func_02057924();
-extern "C" void func_020c9be0();
+extern "C" Struct_02057de0_2* GetEffectManager_02057924();
+extern "C" void HaltForever_020c9be0();
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_02057de0(Struct_02057de0_2*, int, SafeAllocator*, int, int);
@@ -76,14 +73,14 @@ extern "C" ARM void func_ov000_02166a94(Struct_ov000_02166a94_3* arg0) {
     Struct_02057de0_2* var2;
     SafeAllocator* var3;
     GameResources* var4 = GetGameResources();
-    var2 = func_02057924();
+    var2 = GetEffectManager_02057924();
     var0 = &var4->allocator_array_38[0];
     var3 = &var4->allocator_array_38[5];
     var1 = (Struct_ov000_02166a94_4*)var4->unknown_2cc_;
     unsigned int var5;
     const void* var6;
     BackgroundLoader::AddLockGlobal();
-    if (!LoadFileIntoMemory(data_ov000_02183a5a, gFileScratchSpace_0211e33c, &var5)) func_020c9be0();
+    if (!LoadFileIntoMemory(data_ov000_02183a5a, gFileScratchSpace_0211e33c, &var5)) HaltForever_020c9be0();
     RestoreTextureVRAMState_0207df90(var1->unknown_230_);
     if (GetFileInNarc(gFileScratchSpace_0211e33c, data_ov000_02183a6f, &var6, &var5, 0)) {
         void* var7 = var0->Allocate(var5);

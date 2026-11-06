@@ -14,13 +14,13 @@ struct Struct_02048150;
 extern "C" int func_02086ef0(struct Struct_02048150* arg0, int arg1);
 
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 struct Vector3i;
 
 struct Struct_02033834_2;
 struct Struct_02033834;
 extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
-extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
+extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 
 extern "C" void __clear(void* arg0, int arg1);
 
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov017_021ceee0(void* arg0, struct Struct_ov017_021ceee0
         if (!(var0->obj3D_.classFlags_0_ & 0x80)) {
             return;
         }
-        GameObject* var3 = func_0200ff1c(arg2, arg1->unknown_12_);
+        GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(arg2, arg1->unknown_12_);
         if (!var3) {
             return;
         }
@@ -69,6 +69,6 @@ extern "C" ARM void func_ov017_021ceee0(void* arg0, struct Struct_ov017_021ceee0
     if (arg1->unknown_13_ == 0) {
         func_02033834((struct Struct_02033834_2*)var0, arg1->unknown_10_);
     } else {
-        func_02033874((struct Struct_02033834*)var0, arg1->unknown_10_);
+        SetFacingInstantly_02033874((struct Struct_02033834*)var0, arg1->unknown_10_);
     }
 }

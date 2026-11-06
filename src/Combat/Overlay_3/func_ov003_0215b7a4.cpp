@@ -14,7 +14,7 @@ struct Struct_0205cf1c;
 extern "C" void func_0205cf1c(struct Struct_0205cf1c* arg0);
 
 struct Struct_0205c570;
-extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -35,7 +35,7 @@ extern "C" ARM int func_ov003_0215b7a4(void* arg0) {
     }
     if (var1 == 1) {
         *(unsigned char*)(var0 + 0x59f) |= 1;
-        int var2 = func_0205d794((struct Struct_0205c570*)(var0 + 0xf4));
+        int var2 = GetCursorIndex_0205d794((struct Struct_0205c570*)(var0 + 0xf4));
         *(unsigned char*)(var0 + 0x584) = (unsigned char)var2;
         if (func_ov003_0215b328(var0) != 0) {
             unsigned char var3 = *(unsigned char*)(var0 + 0x59f);

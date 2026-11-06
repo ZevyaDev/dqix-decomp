@@ -6,8 +6,8 @@ extern "C" struct Struct_0207fdcc* func_02081da8(struct Struct_0207fdcc_2*, int)
 extern "C" int func_0204c7e0(unsigned char*);
 extern "C" void func_020809c4(void*, int, int, short*, short*);
 
-struct Struct_0205a254;
-struct Struct_0205a330;
+struct SpriteAnimationList_0205a254;
+struct SpriteAnimationList_0205a330;
 
 struct Struct_ov014_02186e2c {
     char unknown_0_[4];
@@ -17,10 +17,10 @@ struct Struct_ov014_02186e2c {
     unsigned char unknown_15_;
 };
 
-extern "C" struct Struct_ov014_02186e2c* func_0205a3d0(struct Struct_0205a254*, int);
-extern "C" void func_0205a370(struct Struct_0205a254*, int);
-extern "C" void func_0205a330(struct Struct_0205a330*, int);
-extern "C" void func_0205ae8c(void*);
+extern "C" struct Struct_ov014_02186e2c* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254*, int);
+extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254*, int);
+extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330*, int);
+extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 
 struct Struct_ov014_02186e2c_2 {
     char unknown_0_[0xc0];
@@ -28,7 +28,7 @@ struct Struct_ov014_02186e2c_2 {
     char unknown_c4_[0xd0 - 0xc4];
     short* unknown_d0_;
     char unknown_d4_[0xd8 - 0xd4];
-    struct Struct_0205a254* unknown_d8_;
+    struct SpriteAnimationList_0205a254* unknown_d8_;
     char unknown_dc_[0xf8 - 0xdc];
     char unknown_f8_[0x164 - 0xf8];
     int unknown_164_;
@@ -53,18 +53,18 @@ extern "C" ARM void func_ov014_02186e2c(struct Struct_ov014_02186e2c_2* arg0) {
     var2 -= 0x10;
     var3 -= 3;
 
-    func_0205a370(arg0->unknown_d8_, 0);
-    var1 = func_0205a3d0(arg0->unknown_d8_, 0);
+    PlaySpriteAnimation_0205a370(arg0->unknown_d8_, 0);
+    var1 = FindSpriteAnimation_0205a3d0(arg0->unknown_d8_, 0);
     if (var1 != NULL) {
         var1->unknown_15_ |= 8;
     }
-    func_0205a330((struct Struct_0205a330*)arg0->unknown_d8_, arg0->unknown_164_);
+    AdvanceSpriteAnimations_0205a330((struct SpriteAnimationList_0205a330*)arg0->unknown_d8_, arg0->unknown_164_);
     var5 = var3;
     var4 = var2;
-    var1 = func_0205a3d0(arg0->unknown_d8_, 0);
+    var1 = FindSpriteAnimation_0205a3d0(arg0->unknown_d8_, 0);
     if (var1 != NULL) {
         var1->unknown_4_ = var4;
         var1->unknown_6_ = var5;
     }
-    func_0205ae8c(&arg0->unknown_f8_);
+    DrawSpriteAnimations_0205ae8c(&arg0->unknown_f8_);
 }

@@ -7,7 +7,7 @@ enum { Enum_ov000_021564cc_336 = 0x150, Enum_ov000_021564cc_2384 = 0x950 };
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int func_02083b00(unsigned char* arg0, int arg1);
 extern unsigned char data_ov000_02182ac5[];
 
@@ -21,7 +21,7 @@ extern "C" ARM int func_ov000_021564cc(struct Random* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
     int var1 = (arg1 >= 0 && arg1 <= 3);
     if (!var1) return 0;
-    GameObject* var2 = func_0200ff1c(var0, arg1);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (var2 == NULL) return 0;
     unsigned char* var3 = *(unsigned char**)((char*)var2 + Enum_ov000_021564cc_336);
     if (!func_02083b00(var3, 0xd0)) return 0;

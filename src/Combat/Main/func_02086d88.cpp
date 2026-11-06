@@ -30,7 +30,7 @@ extern "C" ARM int func_02086d88(unsigned char* arg0, int arg1) {
     unsigned char var2;
     for (var2 = 0; var2 < arg0[0xf7c]; var2++) {
         unsigned char* var3 = arg0 + var2;
-        var1 = func_0200ff1c(var0, var3[0xf78]);
+        var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, var3[0xf78]);
         if (var1 != 0) {
             int var4 = GetPartyMemberData_02053c6c((unsigned char*)var1);
             if (var4 != 0) {

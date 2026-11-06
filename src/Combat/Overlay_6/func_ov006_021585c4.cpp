@@ -34,7 +34,7 @@ extern "C" int func_020e28dc(Struct_020e28dc*);
 extern "C" void func_020809c4(void*, int, int, short*, short*);
 extern "C" void func_020e263c(Struct_020e263c_2*, int);
 extern "C" void func_020e28f0(Struct_020e28f0*, short, short);
-extern "C" void func_0205ae8c(void*);
+extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 
 struct Struct_ov006_02157a60 {
 #if !defined(jpn)
@@ -152,5 +152,5 @@ extern "C" ARM void func_ov006_021585c4(Struct_ov006_02157a60* arg0)
     var1 -= 0x10;
     var2 -= 3;
     func_020e28f0((Struct_020e28f0*)arg0->unknown_18_, var1, var2);
-    func_0205ae8c(arg0->unknown_ac_);
+    DrawSpriteAnimations_0205ae8c(arg0->unknown_ac_);
 }

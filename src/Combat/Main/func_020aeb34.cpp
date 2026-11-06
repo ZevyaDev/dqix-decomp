@@ -28,7 +28,7 @@ extern "C" int func_02046b24(struct Struct_02015438**);
 extern "C" struct Struct_02017a94* func_0201b600(Struct_02017a94*, int, unsigned short);
 extern "C" struct Struct_0203dce4* func_0203dce4(struct Struct_0203dce4_2*, int);
 extern "C" void func_02040648(unsigned int*);
-extern "C" int func_02046b08(void**);
+extern "C" int IsQueueEmpty_02046b08(void**);
 int IsMainBrightnessTransitionActive(struct GameResources*);
 int GetMainBrightnessTransitionState(struct GameResources*);
 extern "C" void func_02040774(struct Struct_0203d028_15*, int, int, int);
@@ -62,7 +62,7 @@ extern "C" ARM void func_020aeb34(void) {
         func_02040648((unsigned int*)var1[var4]);
     }
 
-    if (func_02046b08((void**)var5) == 0 && IsMainBrightnessTransitionActive(var2) == 0 &&
+    if (IsQueueEmpty_02046b08((void**)var5) == 0 && IsMainBrightnessTransitionActive(var2) == 0 &&
         (GetMainBrightnessTransitionState(var2) == 2 ||
          GetMainBrightnessTransitionState(var2) == 3)) {
         if (var3->unknown_6_ != 0) return;

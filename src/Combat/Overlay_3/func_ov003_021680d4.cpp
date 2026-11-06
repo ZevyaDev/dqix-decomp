@@ -15,8 +15,8 @@ enum { Enum_ov003_021680d4_640 = 0x280 };
 enum { Enum_ov003_021680d4_92 = 0x5c };
 #endif
 
-struct Struct_02043368_2;
-extern "C" void func_0205a198(Struct_02043368_2*);
+struct Sprite_02043368_2;
+extern "C" void InitSprite_0205a198(Sprite_02043368_2*);
 struct Struct_02043368;
 extern "C" void func_0205a234(Struct_02043368*);
 extern "C" int GetMessageWindow_020421a0();
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov003_021680d4(struct Struct_ov003_021680d4* arg0, Safe
 #else
     for (var6 = 0; var6 < 0x10; var6++) {
 #endif
-        func_0205a198((Struct_02043368_2*)((char*)arg0->unknown_4d4_ + var6 * 0x28));
+        InitSprite_0205a198((Sprite_02043368_2*)((char*)arg0->unknown_4d4_ + var6 * 0x28));
     }
 
     void* var7 = arg1->Allocate(8);

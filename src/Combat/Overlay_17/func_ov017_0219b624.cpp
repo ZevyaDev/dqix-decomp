@@ -28,7 +28,7 @@ extern const char data_ov017_021d7544[], data_ov017_021d7555[], data_ov017_021d7
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
-extern "C" int func_0200fb08(Struct_02000c9c_8*);
+extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" void* func_0208e9e8();
 extern "C" void func_02096604(char*, int);
 extern "C" {
@@ -36,7 +36,7 @@ Zone3D* GetZone3D_02012fe4();
 void func_02018d28(Zone3D*, SafeAllocator*, void*, unsigned int);
 void func_0204719c(void*);
 void func_02047b40(Struct_02012fa4*, const void*, SafeAllocator*);
-void func_02057924();
+void GetEffectManager_02057924();
 void func_0208f36c(void*, Object3D*);
 void func_02013d24(Zone3D*);
 int sprintf(char*, const char*, ...);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov017_0219b624(GameResources* arg0) {
     }
 #if !defined(jpn)
     sprintf(var8, data_ov017_021d751f, data_ov017_021d7526);
-    switch (func_0200fb08((Struct_02000c9c_8*)var3)) {
+    switch (GetGameLanguage_0200fb08((Struct_02000c9c_8*)var3)) {
     case 3: sprintf(var8, data_ov017_021d751f, data_ov017_021d7530); break;
     case 5: sprintf(var8, data_ov017_021d751f, data_ov017_021d753a); break;
     }
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov017_0219b624(GameResources* arg0) {
         func_02047b40(&(*reinterpret_cast<Struct_02012fa4*>(arg0->unknown_35a8)), var13, var2);
     }
     var7.Destroy();
-    func_02057924();
+    GetEffectManager_02057924();
     unsigned int var14;
     if (GetFileInNarc(&gFileScratchSpace_0211e33c, data_ov017_021d7567, &var13, &var14, 0)) {
         Object3D* var15 = (Object3D*)var2->Allocate(0xac);

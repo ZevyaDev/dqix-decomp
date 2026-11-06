@@ -48,7 +48,7 @@ static inline BaseCombatStats* inline_02069120(GameObject* arg0) { SDK_NULL_ASSE
 
 // USA: func_ov003_02167b34
 extern "C" ARM void func_ov003_02167b34(Struct_ov003_02167b34_3* arg0) {
-    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg0->unknown_76_);
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_76_);
     if (var0 == 0) return;
     Struct_ov003_02167b34* var1 = (Struct_ov003_02167b34*)GetPartyMemberData_02053c6c((unsigned char*)var0);
     func_02083e28(var1, 0);

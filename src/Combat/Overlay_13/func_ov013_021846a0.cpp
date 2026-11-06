@@ -59,14 +59,14 @@ extern "C" void func_02074bf4(struct Struct_02074bf4*);
 struct Struct_02074bd0;
 extern "C" void func_02074bd0(struct Struct_02074bd0*);
 
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(struct Struct_0205d6a0*, int);
-struct Struct_0205d1e0;
-extern "C" void func_0205d1e0(struct Struct_0205d1e0*);
-struct Struct_0205d274;
-extern "C" void func_0205d274(struct Struct_0205d274*);
-struct Struct_0205d2bc;
-extern "C" void func_0205d2bc(struct Struct_0205d2bc*);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0*, int);
+struct TextWindowManager_0205d1e0;
+extern "C" void func_0205d1e0(struct TextWindowManager_0205d1e0*);
+struct TextWindowManager_0205d274;
+extern "C" void func_0205d274(struct TextWindowManager_0205d274*);
+struct TextWindowManager_0205d2bc;
+extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc*);
 extern "C" void func_0205d048(void*);
 
 extern "C" void DC_FlushRange(const void*, unsigned int);
@@ -84,15 +84,15 @@ extern "C" ARM void func_ov013_021846a0(Struct_ov013_021846a0_2* arg0) {
 
     if (arg0->unknown_640_) {
         func_02074bf4((struct Struct_02074bf4*)arg0->unknown_20_);
-        func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_38_, 1);
-        func_0205d1e0((struct Struct_0205d1e0*)arg0->unknown_38_);
-        func_0205d274((struct Struct_0205d274*)arg0->unknown_38_);
-        func_0205d2bc((struct Struct_0205d2bc*)arg0->unknown_38_);
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_38_, 1);
+        func_0205d1e0((struct TextWindowManager_0205d1e0*)arg0->unknown_38_);
+        func_0205d274((struct TextWindowManager_0205d274*)arg0->unknown_38_);
+        func_0205d2bc((struct TextWindowManager_0205d2bc*)arg0->unknown_38_);
     } else {
         func_02074bd0((struct Struct_02074bd0*)arg0->unknown_20_);
-        func_0205d1e0((struct Struct_0205d1e0*)arg0->unknown_38_);
-        func_0205d274((struct Struct_0205d274*)arg0->unknown_38_);
-        func_0205d2bc((struct Struct_0205d2bc*)arg0->unknown_38_);
+        func_0205d1e0((struct TextWindowManager_0205d1e0*)arg0->unknown_38_);
+        func_0205d274((struct TextWindowManager_0205d274*)arg0->unknown_38_);
+        func_0205d2bc((struct TextWindowManager_0205d2bc*)arg0->unknown_38_);
         func_0205d048(arg0->unknown_38_);
 
         if (arg0->unknown_654_) {

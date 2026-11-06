@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_ov031_02236878(int);
+extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern "C" void func_ov031_0222cad8(int);
 extern "C" void func_ov031_0222c3b4(int);
 extern "C" void func_ov031_022351f8(int);
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov031_0222c918(int arg0) {
 				data_ov031_02290c8c.unknown_0_ = 4;
 				break;
 			}
-			func_ov031_02236878(0x13);
+			PlayWifiSetupSoundEffect_ov031_02236878(0x13);
 			void* var2 = func_ov031_0223e218((void*)0, (void*)func_ov031_0222c71c, (void*)0, 0x78);
 			*(int*)(data_ov031_02290c8c.unknown_4_ + 0x38) = (int)var2;
 			return;
@@ -70,10 +70,10 @@ extern "C" ARM void func_ov031_0222c918(int arg0) {
 	}
 	if (!var0) {
 		if (*(unsigned char*)(data_ov031_02290c8c.unknown_4_ + 0x59) != 0) return;
-		func_ov031_02236878(9);
+		PlayWifiSetupSoundEffect_ov031_02236878(9);
 		*(unsigned char*)(data_ov031_02290c8c.unknown_4_ + 0x59) = 1;
 		return;
 	}
-	func_ov031_02236878(8);
+	PlayWifiSetupSoundEffect_ov031_02236878(8);
 	func_ov031_0222c8cc();
 }

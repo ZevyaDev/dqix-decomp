@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-extern "C" void* func_02057924(void* arg0);
+extern "C" void* GetEffectManager_02057924(void* arg0);
 extern "C" void func_02057f00(void* arg0, int arg1);
 
 // USA: func_020dabd0
 extern "C" ARM int func_020dabd0(void* arg0) {
-    void* var0 = func_02057924(arg0);
+    void* var0 = GetEffectManager_02057924(arg0);
     unsigned char var1 = *((unsigned char*)arg0 + 0xe);
     switch (var1) {
     case 1:

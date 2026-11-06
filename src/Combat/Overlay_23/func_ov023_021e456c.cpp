@@ -19,7 +19,7 @@ extern "C" ARM void func_ov023_021e456c(void* arg0) {
     char* var0 = (char*)arg0;
     if (!(*(unsigned short*)(var0 + Enum_ov023_021e456c_1588) & 4)) return;
     GameState* var1 = GameState::GetInstance();
-    GameObject* var2 = func_0200ff1c(var1, *(int*)(var0 + Enum_ov023_021e456c_1276));
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var1, *(int*)(var0 + Enum_ov023_021e456c_1276));
     if (!var2) return;
     int var3 = 0;
     if (*(unsigned short*)(var0 + Enum_ov023_021e456c_1588) & 0x10) var3 = 1;

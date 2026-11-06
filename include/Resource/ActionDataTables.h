@@ -44,15 +44,15 @@ extern "C" int func_02079bac(Struct_02079bac_2* arg0, SafeAllocator* arg1, void*
 
 extern "C" int func_02079808(void* arg0, Struct_02079808* arg1);
 
-struct Struct_02108e10 {
+struct ActionTables_02108e10 {
     Struct_02079a58 unknown_0_;
     Struct_02079a58 unknown_c_;
     Struct_02079bac_2 unknown_18_;
     Struct_02079bac_2 unknown_24_;
 };
 
-extern "C" Struct_02108e10* func_020797dc();
+extern "C" ActionTables_02108e10* GetActionTables_020797dc();
 
-extern "C" void func_02079900(Struct_02108e10* arg0, SafeAllocator* arg1);
-extern "C" void func_02079cf8(Struct_02108e10* arg0, SafeAllocator* arg1, SafeAllocator* arg2);
+extern "C" void func_02079900(ActionTables_02108e10* arg0, SafeAllocator* arg1);
+extern "C" void func_02079cf8(ActionTables_02108e10* arg0, SafeAllocator* arg1, SafeAllocator* arg2);
 

@@ -7,7 +7,7 @@ extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" ARM void func_ov017_021ccbdc(int arg0, unsigned char* arg1, GameState* arg2) {
 	unsigned char* var0 = arg1 + 4;
 	unsigned short var1 = *(unsigned short*)(var0 + 0xc);
-	GameObject* var2 = func_0200ff1c(arg2, var1);
+	GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var1);
 	if (!var2) return;
 	unsigned char* var3 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var2);
 	if (!var3) return;

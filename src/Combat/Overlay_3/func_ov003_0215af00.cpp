@@ -8,8 +8,8 @@ enum { Enum_ov003_0215af00_2456 = 0x998 };
 #endif
 
 extern "C" void* GetMessageWindow_020421a0(void);
-struct Struct_0205d6a0;
-extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
+struct TextWindowManager_0205d6a0;
+extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 struct Struct_0201099c_3;
 extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov003_02159250(void*, void*);
@@ -23,7 +23,7 @@ extern "C" ARM void func_ov003_0215af00(void* arg0) {
     unsigned char var2 = *(unsigned char*)(var0 + 0x580);
 
     if (var2 == 0) {
-        func_0205d6a0((Struct_0205d6a0*)(var0 + 0xf4), 1);
+        CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)(var0 + 0xf4), 1);
         void* var3 = FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x442);
         func_ov003_02159250(arg0, var3);
         *(unsigned char*)(var0 + 0x580) = *(unsigned char*)(var0 + 0x580) + 1;

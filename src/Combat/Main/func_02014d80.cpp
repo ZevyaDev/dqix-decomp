@@ -43,7 +43,7 @@ extern "C" ARM int func_02014d80(Zone3D* arg0, void* arg1, Struct_02012ff0* arg2
     LightingManager* var6 = LightingManager::GetInstance();
     int var7 = var6->timeOfDayIndex_;
     Zone3D::Model3DListNode* var8 = 0;
-    int var9 = ((Struct_02014d80*)func_0200fd0c(var3))->unknown_20_ < 0;
+    int var9 = ((Struct_02014d80*)GetZoneEntry_0200fd0c(var3))->unknown_20_ < 0;
     arg0->unknown_834_ = var9;
     for (Struct_02014d80_3* var10 = var2->unknown_8_; var10; var10 = var10->unknown_8_) {
         if (var10->unknown_0_ == var7) { var2 = var10; break; }

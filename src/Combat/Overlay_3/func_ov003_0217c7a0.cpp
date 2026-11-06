@@ -45,7 +45,7 @@ extern "C" void func_0204b010(Struct_0204b010* arg0, void* arg1);
 extern "C" void func_0204b04c(void* arg0, int arg1);
 extern "C" void func_0204b088(void* arg0, int arg1);
 extern "C" void func_0204afb4(Struct_02020cb8_3* arg0);
-extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_0202e694(void* arg0, int* arg1);
 extern "C" void func_020a2794(void* arg0);
 extern "C" void func_020a2744(char* arg0);
@@ -105,8 +105,8 @@ extern "C" ARM void func_ov003_0217c7a0(Struct_ov003_0217c7a0_2* arg0)
         func_0204b088(&arg0->unknown_60_, 0);
         func_0204afb4((Struct_02020cb8_3*)&arg0->unknown_60_);
 
-        func_020c5588(0, 0, 0x7fff, 0, 0);
-        Struct_ov003_0217c7a0* var4 = (Struct_ov003_0217c7a0*)func_020100bc(var1);
+        Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
+        Struct_ov003_0217c7a0* var4 = (Struct_ov003_0217c7a0*)GetCamera_020100bc(var1);
         var4->unknown_10_ = arg0->unknown_144_;
         func_0202e694(var4, arg0->unknown_150_);
         func_020a2794(var4);

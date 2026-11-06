@@ -1,9 +1,6 @@
 #include <globaldefs.h>
 #include "NitroSDK/Interrupts.h"
 
-#if defined(jpn)
-#define func_020c9be0 func_020cb6ac
-#endif
 
 struct Struct_ov031_0223b8c4 {
     Struct_ov031_0223b8c4* unknown_0_;
@@ -24,7 +21,7 @@ struct Struct_ov031_0223b8c4_2 {
 extern Struct_ov031_0223b8c4_2* data_ov031_02290d28;
 extern "C" Struct_ov031_0223b8c4* func_ov031_0223bfa0(void*);
 extern "C" void func_ov031_0223d8d8(Struct_ov031_0223b8c4*, Struct_ov031_0223b8c4*);
-extern "C" void func_020c9be0();
+extern "C" void HaltForever_020c9be0();
 
 static inline Struct_ov031_0223b8c4_2* inline_ov031_0223b8c4(int arg0) {
     Struct_ov031_0223b8c4_2* var0 = data_ov031_02290d28;
@@ -51,7 +48,7 @@ extern "C" ARM Struct_ov031_0223b8c4* func_ov031_0223b8c4(int arg0, int arg1, in
                 var1 = var3;
             } while (var1 != &data_ov031_02290d28[arg0].unknown_210_);
         }
-        if (var1 == &data_ov031_02290d28[arg0].unknown_210_) func_020c9be0();
+        if (var1 == &data_ov031_02290d28[arg0].unknown_210_) HaltForever_020c9be0();
     } else {
         var1 = &inline_ov031_0223b8c4(arg0)->unknown_210_;
         if (var1 != &inline_ov031_0223b8c4(arg0)->unknown_200_) {
@@ -66,7 +63,7 @@ extern "C" ARM Struct_ov031_0223b8c4* func_ov031_0223b8c4(int arg0, int arg1, in
                 var1 = var5;
             } while (var1 != &data_ov031_02290d28[arg0].unknown_200_);
         }
-        if (var1 == &data_ov031_02290d28[arg0].unknown_200_) func_020c9be0();
+        if (var1 == &data_ov031_02290d28[arg0].unknown_200_) HaltForever_020c9be0();
     }
     EnableSpecificInterrupts(var2);
     var0->unknown_c_ = arg1;

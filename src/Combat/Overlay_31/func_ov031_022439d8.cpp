@@ -4,7 +4,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
 
-struct Struct_02038598_4;
+struct GlobalFlags_02038598_4;
 
 struct Struct_ov031_022439d8 {
 	unsigned char unknown_0_[0x28];
@@ -24,9 +24,9 @@ struct Struct_ov031_022439d8 {
 
 extern SafeAllocator data_ov031_02291e3c;
 extern "C" void func_ov023_021f5b9c(void* arg0, void* arg1, int arg2, void* arg3);
-extern "C" void func_020397c0(void* arg0);
-extern "C" Struct_02038598_4* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void EnablePlayerControl_020397c0(void* object);
+extern "C" GlobalFlags_02038598_4* GetGlobalFlags_020d6c00(void);
+extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 
 // USA: func_ov031_022439d8
 extern "C" ARM int func_ov031_022439d8(Struct_ov031_022439d8* arg0) {
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov031_022439d8(Struct_ov031_022439d8* arg0) {
 	BackgroundLoader* var1 = BackgroundLoader::GetInstance();
 	GameObject* var2 = GameState::GetInstance()->GetUnknownGameObject();
 	if (var2 != 0) {
-		func_020397c0(var2);
+		EnablePlayerControl_020397c0(var2);
 	}
 #if defined(jpn)
 	*(int*)((char*)var0 + 0x41e4) = 0;
@@ -75,7 +75,7 @@ extern "C" ARM int func_ov031_022439d8(Struct_ov031_022439d8* arg0) {
 		}
 	}
 	if ((arg0->unknown_374_ & 0x20) == 0) {
-		func_020466f4(GetGlobalFlags_020d6c00(), 0x80);
+		ClearGlobalFlags_020466f4(GetGlobalFlags_020d6c00(), 0x80);
 	}
 	arg0->unknown_30_ = 1;
 	return 2;

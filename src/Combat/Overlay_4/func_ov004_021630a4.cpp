@@ -14,7 +14,7 @@ public:
 };
 
 extern "C" Struct_ov004_021630a4* func_ov004_0215e47c(void* arg0, int arg1);
-extern "C" void func_020100c4(GameState* arg0, int arg1);
+extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 
 extern int data_ov004_021707e8;
 
@@ -34,6 +34,6 @@ extern "C" ARM int func_ov004_021630a4(void* arg0) {
     var1.unknown_0_[1] = 0;
     var1.unknown_0_[2] = 0;
     var0->inline_ov004_021630a4_8(var1);
-    func_020100c4(GameState::GetInstance(), *(int*)((char*)&data_ov004_021707e8 + Enum_ov004_021630a4_16));
+    SetCamera_020100c4(GameState::GetInstance(), *(int*)((char*)&data_ov004_021707e8 + Enum_ov004_021630a4_16));
     return 0;
 }

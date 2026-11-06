@@ -12,7 +12,7 @@ struct Struct_ov025_021e7ec0 {
 };
 
 extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
-extern "C" void* func_ov000_02160130(void);
+extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" GameObject* func_ov000_02162d88(void* arg0, unsigned short arg1);
 extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
 extern "C" void func_02048588(unsigned char* arg0, unsigned char* arg1);
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov025_021e7ec0(struct Struct_ov025_021e7ec0* arg0, int a
     GameState* var0 = GameState::GetInstance();
     int var1[8];
     int var2 = func_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)&var1[0]);
-    void* var3 = func_ov000_02160130();
+    void* var3 = GetBattleScene_ov000_02160130();
     GameObject* var4 = func_ov000_02162d88(var3, arg0->unknown_a_);
     if (var4 == NULL) return 1;
     if (var4->obj3D_.pModel_ == NULL) return 1;

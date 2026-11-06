@@ -5,21 +5,21 @@ extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov024_021f6f10(void* arg0);
 struct Struct_02000c9c_8;
-extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* arg0);
+extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
 extern "C" void* func_ov023_021f79e4(void* arg0);
 
 struct Struct_0204b988;
 extern "C" void func_0204b988(struct Struct_0204b988*, unsigned int, int, int, unsigned short);
 
-struct Struct_0204b8d0;
-extern "C" void func_0204b8d0(struct Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+struct BGLayer_0204b8d0;
+extern "C" void CopyBGScreenBlockRect_0204b8d0(struct BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 
-struct Struct_02020cb8_2;
-extern "C" void func_0204b0e8(struct Struct_02020cb8_2*, void*);
+struct BGLayer_02020cb8_2;
+extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2*, void*);
 
 // USA: func_ov004_02154f1c
 extern "C" ARM int func_ov004_02154f1c(void* arg0) {
-    unsigned char var0 = func_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
+    unsigned char var0 = GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
     unsigned int var1 = 1;
     switch (var0) {
     case 2: var1 = 2; break;
@@ -36,8 +36,8 @@ extern "C" ARM int func_ov004_02154f1c(void* arg0) {
     void* var3 = func_ov023_021f79e4(var2);
     func_0204b988((struct Struct_0204b988*)var3, 1, 0, 0, 0xffff);
     if (var1 > 1) {
-        func_0204b8d0((struct Struct_0204b8d0*)var3, var1, 0, 0, 0x16, 2, 9, 2, 0xffff);
+        CopyBGScreenBlockRect_0204b8d0((struct BGLayer_0204b8d0*)var3, var1, 0, 0, 0x16, 2, 9, 2, 0xffff);
     }
-    func_0204b0e8((struct Struct_02020cb8_2*)var3, 0);
+    LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)var3, 0);
     return 0;
 }

@@ -91,7 +91,7 @@ extern "C" ARM void func_ov024_021fb91c(Struct_ov024_021fb91c_2* arg0) {
     if (!var2 && var0->unknown_18_0_ == 0) return;
     GameObject* var3 = arg0->unknown_8_;
     GetPartyMemberData_02053c6c((unsigned char*)var3);
-    func_020797dc();
+    GetActionTables_020797dc();
     int var4 = arg0->unknown_25c_.unknown_3ec_;
     float var5 = 0;
     float var6 = 0;

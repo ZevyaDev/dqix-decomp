@@ -56,15 +56,15 @@ struct Struct_ov017_021a9bf8 {
     char unknown_26f_;
     unsigned short unknown_270_;
 };
-extern "C" unsigned char* func_020100f8(char*);
+extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_ov017_021a9f58(int);
 extern "C" void func_020a27b8(unsigned char*);
-extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020e11a4();
 extern "C" char* GetMessageWindow_020421a0();
-extern "C" void func_02046574(Struct_02046574_2*, int, char*);
-extern "C" const char* func_020e51cc(int);
+extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
+extern "C" const char* GetStandardString_020e51cc(int);
 extern "C" unsigned char func_02011804(GameState* arg0);
 extern "C" void func_020ac760(void*);
 extern "C" void func_020ac734(void*);
@@ -81,7 +81,7 @@ extern "C" void func_ov017_021a9ff0(int);
 extern "C" void* GetFlagManager_0205ec34();
 extern "C" int func_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void*);
-extern "C" void func_020397c0(void*);
+extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" void func_ov017_021a9fa0(Struct_ov017_021a9bf8*);
 extern const char data_ov017_021d781f[];
 extern const char data_ov017_021d782b[];
@@ -89,7 +89,7 @@ extern const char data_ov017_021d782b[];
 // USA: func_ov017_021a9bf8
 extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
     GameState* var0 = GameState::GetInstance();
-    unsigned char* var1 = func_020100f8((char*)var0);
+    unsigned char* var1 = GetFollowCamera_020100f8((char*)var0);
     Struct_ov017_021a9bf8_2 var2;
     Struct_02011818 var3;
     unsigned char var4[0x34];
@@ -97,15 +97,15 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
     GameObject* var5 = var0->GetUnknownGameObject();
     if (!var5) { arg0->unknown_1_ = 1; return; }
     if (arg0->unknown_8_ == 0) {
-        FontLoader_0208cb08* var6 = func_02094a00();
-        func_02094ab0(var6);
+        FontLoader_0208cb08* var6 = GetFontLoader_02094a00();
+        CancelFontLoad_02094ab0(var6);
         func_02094b3c(var6, 12);
         func_02094b30(var6, 0x203, 0);
         func_020a27b8(var1);
         arg0->unknown_8_ = 1;
     } else if (arg0->unknown_8_ == 1) {
-        if (!func_02094b4c(func_02094a00())) return;
-        func_020397cc((Struct_02018300_3*)var5, 1);
+        if (!UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) return;
+        DisablePlayerControl_020397cc((Struct_02018300_3*)var5, 1);
         func_020e11a4();
         char* var7 = GetMessageWindow_020421a0();
         char* var8 = (*reinterpret_cast<char**>(var7 + Enum_ov017_021a9bf8_96));
@@ -113,8 +113,8 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
         char* var9 = var0->GetUnknownGameObject()->baseStats_->unk;
         sprintf(var8, data_ov017_021d7c96, var9, arg0->unknown_28c_);
 #else
-        func_02046574((Struct_02046574_2*)var7, 1, arg0->unknown_22c_);
-        sprintf(var8, func_020e51cc(0x40));
+        SetMessageString_02046574((Struct_02046574_2*)var7, 1, arg0->unknown_22c_);
+        sprintf(var8, GetStandardString_020e51cc(0x40));
 #endif
         if (func_02011804(var0) >= 99) {
             arg0->unknown_26c_ = 1;
@@ -152,8 +152,8 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
         char* var12 = var0->GetUnknownGameObject()->baseStats_->unk;
         sprintf(var11, data_ov017_021d7cd1, arg0->unknown_28c_, var12, arg0->unknown_28c_);
 #else
-        func_02046574((Struct_02046574_2*)var10, 0, arg0->unknown_22c_);
-        sprintf(var11, func_020e51cc(0x41));
+        SetMessageString_02046574((Struct_02046574_2*)var10, 0, arg0->unknown_22c_);
+        sprintf(var11, GetStandardString_020e51cc(0x41));
 #endif
         (*reinterpret_cast<int*>(var10 + Enum_ov017_021a9bf8_712)) = 1;
         StartMessage_0204500c(var10, var11, 0
@@ -196,12 +196,12 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
         }
     } else if (arg0->unknown_8_ == 4) {
         if ((*reinterpret_cast<int*>(GetMessageWindow_020421a0() + Enum_ov017_021a9bf8_2456))) return;
-        func_02094ab0(func_02094a00());
+        CancelFontLoad_02094ab0(GetFontLoader_02094a00());
         if (func_020649b0(GetFlagManager_0205ec34(), 0x1b, var4)) func_0206f81c(var4);
         arg0->unknown_8_ = 5;
     }
     if (arg0->unknown_8_ == 5) {
-        func_020397c0(var0->GetUnknownGameObject());
+        EnablePlayerControl_020397c0(var0->GetUnknownGameObject());
         func_ov017_021a9fa0(arg0);
     }
 }

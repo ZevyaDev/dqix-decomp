@@ -5,7 +5,7 @@ extern "C" int func_02011b50(void* arg0, int arg1);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int func_0202ba00(int* arg0);
-extern "C" int func_ov017_021d6134(void* arg0, int arg1);
+extern "C" int SetScriptRefInt_ov017_021d6134(void* value, int number);
 
 // USA: func_ov011_02187f7c
 extern "C" ARM int func_ov011_02187f7c(void* arg0) {
@@ -20,6 +20,6 @@ extern "C" ARM int func_ov011_02187f7c(void* arg0) {
             if (func_0202ba00(var2) == 6) var0 = 4;
         }
     }
-    func_ov017_021d6134(arg0, var0);
+    SetScriptRefInt_ov017_021d6134(arg0, var0);
     return 1;
 }

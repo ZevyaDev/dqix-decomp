@@ -80,7 +80,7 @@ extern "C" ARM void func_02093428(struct Struct_02093428_6* arg0) {
         struct Struct_02093428* var4 = (struct Struct_02093428*)GetParty_02010828(var0);
         unsigned char var5 = var4->unknown_f7c_;
         for (unsigned char var6 = 0; var6 < var5; var6++) {
-            GameObject* var7 = func_0200ff1c(var0, var4->unknown_f78_[var6]);
+            GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4->unknown_f78_[var6]);
             if (var7 != 0 && func_020535c8((signed char*)var7) != 0) {
                 func_020531f0(var7);
             }
@@ -117,7 +117,7 @@ extern "C" ARM void func_02093428(struct Struct_02093428_6* arg0) {
         }
         func_ov017_021cf4b0(var2, 2);
         unsigned char var9 = 0;
-        GameObject* var10 = func_0200ff1c(var0, 0);
+        GameObject* var10 = GetPartyMemberBaseByIndex_0200ff1c(var0, 0);
         if (var10 != 0) {
             if (((struct Struct_02093428_4*)var10)->unknown_be_ == 2 || var10->obj3D_.GetField06() == 0x170c) {
                 unsigned short var11 = ((struct Struct_02093428_4*)var10)->unknown_1b2_;

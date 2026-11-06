@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_ov017_021d60f4(void*);
+extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" int GetResources_0200fb8c(int* gameState);
 
 struct TextureImageVRAMState_0207df50 { unsigned int unknown_0_[10]; };
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov001_0215eab0(void* arg0, int arg1) {
     if (var1 == 0) {
         return 0;
     }
-    int var2 = func_ov017_021d60f4(arg0);
+    int var2 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     int var3;
     if (var2 < 0) {
         var3 = var1 + Enum_ov001_0215eab0_716;
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov001_0215eab0(void* arg0, int arg1) {
     }
     int var4 = 1;
     if (arg1 >= 2) {
-        var4 = func_ov017_021d60f4((char*)arg0 + 0x8);
+        var4 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8);
     }
     if (var4 != 0) {
         ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)var3);

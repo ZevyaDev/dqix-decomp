@@ -28,8 +28,8 @@ struct Struct_ov000_0217964c_2 {
     int unknown_4c_;
 };
 
-struct Struct_0205d81c;
-struct Struct_0205d5d0;
+struct TextWindowManager_0205d81c;
+struct TextWindowManager_0205d5d0;
 
 struct Struct_ov000_0217964c_3 {
     char unknown_0_[0xa0];
@@ -54,15 +54,15 @@ extern "C" Struct_ov000_0217964c* GetMessageWindow_020421a0();
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" Struct_ov000_02171ffc_5* func_ov000_02171b9c(void* arg0, int arg1);
 extern "C" void func_02046608(Struct_ov000_0217964c* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
-extern "C" void* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+extern "C" void* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 #if defined(jpn)
-extern "C" void func_0205d304(void*, void*, int, int, int, int, int);
-#define APPLY_TEXT(s,k,t) func_0205d5d0(s,k,(int)t,1)
-#define DRAW_TEXT(s,t) func_0205d304(s,t,0,0,0,1,0)
+extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);
+#define APPLY_TEXT(s,k,t) SetTextWindowText_0205d5d0(s,k,(int)t,1)
+#define DRAW_TEXT(s,t) OpenTextWindow_0205d304(s,t,0,0,0,1,0)
 #else
-extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
-#define APPLY_TEXT(s,k,t) func_0205d5d0(s,k,(int)t,1,0)
-#define DRAW_TEXT(s,t) func_0205d304(s,t,0,0,0,1,0,0)
+extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
+#define APPLY_TEXT(s,k,t) SetTextWindowText_0205d5d0(s,k,(int)t,1,0)
+#define DRAW_TEXT(s,t) OpenTextWindow_0205d304(s,t,0,0,0,1,0,0)
 #endif
 
 // USA: func_ov000_0217964c
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov000_0217964c(Struct_ov000_02176e3c* arg0, Struct_ov00
     }
     char* var3 = GetMessageWindow_020421a0()->unknown_5c_;
     memset(var3, 0, Enum_ov000_0217964c_2400);
-    GameObject* var4 = func_0200ff1c(GameState::GetInstance(), arg1->unknown_4c_);
+    GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1->unknown_4c_);
     if (var4 == NULL) {
         return;
     }
@@ -99,8 +99,8 @@ extern "C" ARM void func_ov000_0217964c(Struct_ov000_02176e3c* arg0, Struct_ov00
 #else
     var0 = var2;
 #endif
-    if (func_0205d81c((struct Struct_0205d81c*)var1, 0x24) != NULL) {
-        APPLY_TEXT((struct Struct_0205d5d0*)var1, 0x24, var0);
+    if (FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)var1, 0x24) != NULL) {
+        APPLY_TEXT((struct TextWindowManager_0205d5d0*)var1, 0x24, var0);
     } else {
         int var6 = arg1->unknown_44_;
         int var7 = arg1->unknown_48_;

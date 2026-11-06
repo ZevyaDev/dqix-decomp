@@ -43,7 +43,7 @@ extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18();
 extern "C" int func_ov000_0215fc60(char*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int func_020a35e0(unsigned char*, unsigned char);
-extern "C" GameObject* func_0200ff58(GameState*, int);
+extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
 extern "C" int func_0202c1c0(Struct_0202b2f0*, int);
 extern "C" int func_020546a8(void*);
@@ -51,7 +51,7 @@ extern "C" int func_02010088(Struct_02010088*);
 extern "C" int func_ov026_021dce1c(Struct_ov026_021dc8fc_4*);
 extern "C" int func_020882f8(unsigned char*);
 extern "C" int func_ov000_0215f7a8(Struct_ov000_02161e30*, short*, unsigned char);
-extern "C" int func_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
+extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
 extern "C" void GetBattleRecords_020ac4c0(void*);
 extern "C" void func_020a0780(struct Struct_020a0780*, unsigned int);
 extern "C" void func_020a0068(struct Struct_020a0068*, unsigned int);
@@ -78,7 +78,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
         var8 = 0;
         for (var7 = 0; var7 < 4; var7++) {
             if (!func_020a35e0((unsigned char*)arg1, var7)) continue;
-            if (var7 != 0 && !func_0200ff58(var5, var7)) continue;
+            if (var7 != 0 && !GetCompanionByIndex_0200ff58(var5, var7)) continue;
             Struct_ov026_021d8ba0_6* var10 = func_ov026_021dae60(arg2, var7);
             if (!var10) continue;
             if (var10->unknown_1c_ == 6) {
@@ -89,7 +89,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
         if (var8 == 0) {
             for (var7 = 0; var7 < 4; var7++) {
                 if (!func_020a35e0((unsigned char*)arg1, var7)) continue;
-                if (var7 != 0 && !func_0200ff58(var5, var7)) continue;
+                if (var7 != 0 && !GetCompanionByIndex_0200ff58(var5, var7)) continue;
                 GameObject* var11 = var5->GetCombatantByIndex(var7);
                 if (!var11) continue;
                 if ((((Struct_ov017_021af66c_5*)var11)->unknown_138_->unknown_14_ & 0x80019) == 0) {
@@ -104,7 +104,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
     if (IsLocalWirelessOn_0202b7d8((int*)var6)) {
         for (var7 = 1; var7 < 4; var7++) {
             if (!func_020a35e0((unsigned char*)arg1, var7)) continue;
-            if (func_0200ff58(var5, var7)) continue;
+            if (GetCompanionByIndex_0200ff58(var5, var7)) continue;
             GameObject* var12 = var5->GetCombatantByIndex(var7);
             if (!var12) continue;
             Struct_ov026_021d8ba0_6* var13 = func_ov026_021dae60(arg2, var7);
@@ -143,7 +143,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
             }
             for (var20 = 0; var20 < 4; var20++) {
                 if (!func_020a35e0((unsigned char*)arg1, var20)) continue;
-                GameObject* var21 = func_0200ff58(var5, var20);
+                GameObject* var21 = GetCompanionByIndex_0200ff58(var5, var20);
                 if (!var21) continue;
                 if (func_0202c1c0(var6, func_020546a8(var21))) {
                     var0.unknown_0_[var19] = var20;
@@ -179,7 +179,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
         func_020a0780((Struct_020a0780*)&var4, 1);
         func_020a0068((Struct_020a0068*)var26, 1);
         if (var8 == 2) {
-            int var27 = func_ov000_0215e9fc(arg0, var2, 4, 0);
+            int var27 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0, var2, 4, 0);
             int var28 = 0;
             for (int var29 = 0; var29 < var27; var29++) {
                 GameObject* var30 = var5->GetCombatantByIndex(var2[var29]);

@@ -2,20 +2,20 @@
 
 extern "C" void func_020c99c8(void* arg0);
 
-struct Struct_02000c9c_8 { unsigned char unknown_0_[5]; unsigned char unknown_5_; };
+struct Struct_02000c9c_8 { unsigned char unknown_0_[5]; unsigned char language_5_; };
 
-// USA: func_0200fb08
-// EUR: func_0200fb08
-extern "C" ARM unsigned char func_0200fb08(Struct_02000c9c_8* arg0) {
-    unsigned char var0[0x54];
-    unsigned char var1;
-    func_020c99c8(var0);
-    var1 = var0[0];
-    arg0->unknown_5_ = var1;
+// USA: GetGameLanguage_0200fb08
+// EUR: GetGameLanguage_0200fb08
+extern "C" ARM unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState) {
+    unsigned char userSettings[0x54];
+    unsigned char language;
+    func_020c99c8(userSettings);
+    language = userSettings[0];
+    gameState->language_5_ = language;
 #if defined(eur)
-    if (var1 != 2 && var1 != 3 && var1 != 4 && var1 != 5) arg0->unknown_5_ = 1;
+    if (language != 2 && language != 3 && language != 4 && language != 5) gameState->language_5_ = 1;
 #else
-    if (var1 != 2 && var1 != 5) arg0->unknown_5_ = 1;
+    if (language != 2 && language != 5) gameState->language_5_ = 1;
 #endif
-    return arg0->unknown_5_;
+    return gameState->language_5_;
 }

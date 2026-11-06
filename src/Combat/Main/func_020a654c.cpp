@@ -35,7 +35,7 @@ extern "C" void func_020a75ec(void* arg0);
 extern "C" void func_ov017_02193428(void*, void*);
 extern "C" void func_020a7ce0(void* arg0);
 extern "C" int func_020a7d74(void* arg0, int* arg1, int* arg2);
-extern "C" int func_02046b08(void**);
+extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" int func_ov017_021a93f0(void* arg0, int arg1, int arg2);
 
 // USA: func_020a654c
@@ -82,7 +82,7 @@ extern "C" ARM void func_020a654c(struct Struct_020a654c* arg0) {
     if (var6.unknown_4_ == 0) {
         return;
     }
-    if (func_02046b08((void**)arg0->unknown_36fc_) == 0) {
+    if (IsQueueEmpty_02046b08((void**)arg0->unknown_36fc_) == 0) {
         return;
     }
     func_ov017_021a93f0(arg0, var6.unknown_4_, 0);

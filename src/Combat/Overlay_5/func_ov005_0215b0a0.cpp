@@ -25,7 +25,7 @@ struct Struct_ov005_0215b0a0 {
 struct Struct_ov005_0215acc0 { char unknown_0_[0xdf4]; ItemTable_0201099c_10* unknown_df4_; char unknown_df8_[LOW_REGION(0x2f38, 0x2fc0)]; unsigned char unknown_3db8_; char unknown_3db9_[3]; unsigned char unknown_3dbc_; char unknown_3dbd_[0xc7]; Struct_ov005_0215b0a0 unknown_3e84_[8]; unsigned char unknown_4284_[8]; };
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" short* func_02052e14(Struct_02052e14*);
-extern "C" void* func_020dedd0(ItemTable_0201099c_10*, int);
+extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" Struct_ov005_0215acc0_2* func_ov017_021a193c(int*);
 #if defined(jpn)
 extern "C" void func_02045f3c(void*, unsigned short*, int, int, int, int, int, int);
@@ -40,7 +40,7 @@ extern unsigned char data_ov005_0215cbfc[];
 extern "C" ARM void func_ov005_0215b0a0(Struct_ov005_0215acc0* arg0) {
     void* var0 = GetMessageWindow_020421a0();
     GameState* var1 = GameState::GetInstance();
-    GameObject* var2 = func_0200ff1c(var1, func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->unknown_4fc_);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var1, func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->unknown_4fc_);
     if (!var2) return;
     short* var3 = func_02052e14((Struct_02052e14*)var2);
     int var4 = LOW_REGION(29, 28);
@@ -50,10 +50,10 @@ extern "C" ARM void func_ov005_0215b0a0(Struct_ov005_0215acc0* arg0) {
     if (arg0->unknown_3db8_ == 0) {
         for (int var5 = 0; var5 < 8; var5++) {
 #if defined(jpn)
-            if (func_020dedd0(arg0->unknown_df4_, var3[data_ov005_0215cbfc[var5]])) var6 = 0x7fff;
+            if (FindItemData_020dedd0(arg0->unknown_df4_, var3[data_ov005_0215cbfc[var5]])) var6 = 0x7fff;
             else var6 = 0x3def;
 #else
-            int var6 = func_020dedd0(arg0->unknown_df4_, var3[data_ov005_0215cbfc[var5]]) ? 0x7fff : 0x3def;
+            int var6 = FindItemData_020dedd0(arg0->unknown_df4_, var3[data_ov005_0215cbfc[var5]]) ? 0x7fff : 0x3def;
 #endif
             if (var5 == arg0->unknown_3dbc_) var6 = 0xf0a;
             int var7 = var5 * 24;
@@ -75,10 +75,10 @@ extern "C" ARM void func_ov005_0215b0a0(Struct_ov005_0215acc0* arg0) {
         }
     } else {
 #if defined(jpn)
-        if (func_020dedd0(arg0->unknown_df4_, var3[data_ov005_0215cbfc[arg0->unknown_3dbc_]])) var6 = 0x7fff;
+        if (FindItemData_020dedd0(arg0->unknown_df4_, var3[data_ov005_0215cbfc[arg0->unknown_3dbc_]])) var6 = 0x7fff;
         else var6 = 0x3def;
 #else
-        int var6 = func_020dedd0(arg0->unknown_df4_, var3[data_ov005_0215cbfc[arg0->unknown_3dbc_]]) ? 0x7fff : 0x3def;
+        int var6 = FindItemData_020dedd0(arg0->unknown_df4_, var3[data_ov005_0215cbfc[arg0->unknown_3dbc_]]) ? 0x7fff : 0x3def;
 #endif
         if (arg0->unknown_3db8_ == 3) var6 = 0xf0a;
 #if !defined(jpn)

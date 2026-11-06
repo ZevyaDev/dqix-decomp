@@ -1,34 +1,34 @@
 #include <globaldefs.h>
 
-struct Struct_0205ba68 {
+struct MenuCursor_0205ba68 {
     int unknown_0_;
     int unknown_4_;
-    int unknown_8_;
-    int unknown_c_;
-    unsigned char unknown_10_;
+    int columnCount_8_;
+    int rowCount_c_;
+    unsigned char isRowMajor_10_;
     int unknown_14_;
-    int unknown_18_;
-    int unknown_1c_;
-    int* unknown_20_;
-    int* unknown_24_;
-    int* unknown_28_;
-    int* unknown_2c_;
+    int column_18_;
+    int row_1c_;
+    int* pMajorCount_20_;
+    int* pMinorCount_24_;
+    int* pMajorIndex_28_;
+    int* pMinorIndex_2c_;
 };
 
-// USA: func_0205ba68
-extern "C" ARM void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3) {
-    arg0->unknown_8_ = arg1;
-    arg0->unknown_c_ = arg2;
-    arg0->unknown_10_ = arg3;
-    if (arg3 == 0) {
-        arg0->unknown_20_ = &arg0->unknown_8_;
-        arg0->unknown_24_ = &arg0->unknown_c_;
-        arg0->unknown_28_ = &arg0->unknown_18_;
-        arg0->unknown_2c_ = &arg0->unknown_1c_;
-    } else if (arg3 == 1) {
-        arg0->unknown_20_ = &arg0->unknown_c_;
-        arg0->unknown_24_ = &arg0->unknown_8_;
-        arg0->unknown_28_ = &arg0->unknown_1c_;
-        arg0->unknown_2c_ = &arg0->unknown_18_;
+// USA: SetMenuCursorGrid_0205ba68
+extern "C" ARM void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor) {
+    cursor->columnCount_8_ = columnCount;
+    cursor->rowCount_c_ = rowCount;
+    cursor->isRowMajor_10_ = isRowMajor;
+    if (isRowMajor == 0) {
+        cursor->pMajorCount_20_ = &cursor->columnCount_8_;
+        cursor->pMinorCount_24_ = &cursor->rowCount_c_;
+        cursor->pMajorIndex_28_ = &cursor->column_18_;
+        cursor->pMinorIndex_2c_ = &cursor->row_1c_;
+    } else if (isRowMajor == 1) {
+        cursor->pMajorCount_20_ = &cursor->rowCount_c_;
+        cursor->pMinorCount_24_ = &cursor->columnCount_8_;
+        cursor->pMajorIndex_28_ = &cursor->row_1c_;
+        cursor->pMinorIndex_2c_ = &cursor->column_18_;
     }
 }
