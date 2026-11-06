@@ -11,7 +11,7 @@ extern "C" void func_020728ac(void* arg0, void* arg1, void* arg2, int arg3, int 
 extern "C" int func_02046900(Struct_02020cb8_4*);
 struct Struct_02020aec;
 extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
-extern "C" char* func_020421a0();
+extern "C" char* GetMessageWindow_020421a0();
 extern "C" void func_0207f524(void* arg0, void* arg1, Struct_02013fb4* arg2, int arg3);
 struct Struct_0207ed1c;
 extern "C" void func_0207ef74(Struct_0207ed1c*, SafeAllocator*, Struct_02013fb4*, int);
@@ -75,9 +75,9 @@ extern "C" ARM int func_0207f9f4(Struct_0207f9f4* arg0) {
                 var0++;
             }
     #ifdef jpn
-        arg0->field18 = *(int*)(func_020421a0() + 0x28);
+        arg0->field18 = *(int*)(GetMessageWindow_020421a0() + 0x28);
 #else
-        arg0->unknown_18_ = *(int*)(func_020421a0() + 0x5c);
+        arg0->unknown_18_ = *(int*)(GetMessageWindow_020421a0() + 0x5c);
 #endif
             return 0;
         }
@@ -105,9 +105,9 @@ extern "C" ARM int func_0207f9f4(Struct_0207f9f4* arg0) {
         var7->RemoveTask(arg0->unknown_1c_);
         arg0->unknown_1c_ = -1;
 #ifdef jpn
-        arg0->unknown_18_ = *(int*)(func_020421a0() + 0x28);
+        arg0->unknown_18_ = *(int*)(GetMessageWindow_020421a0() + 0x28);
 #else
-        arg0->unknown_18_ = *(int*)(func_020421a0() + 0x5c);
+        arg0->unknown_18_ = *(int*)(GetMessageWindow_020421a0() + 0x5c);
 #endif
         return 0;
     }

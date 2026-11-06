@@ -19,7 +19,7 @@ struct Struct_02092b34 {
     unsigned char unknown_3b_;
 };
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02043204(char* arg0);
 extern "C" void func_02043124(char* arg0);
 struct Struct_02092aa4;
@@ -32,7 +32,7 @@ extern "C" ARM void func_02092b34(struct Struct_02092b34* arg0) {
         ((BackgroundLoader*)(var0))->RemoveTask((int)(arg0->unknown_2c_));
         arg0->unknown_2c_ = -1;
     }
-    void* var1 = (void*)func_020421a0();
+    void* var1 = (void*)GetMessageWindow_020421a0();
     func_02043204((char*)var1);
     func_02043124((char*)var1);
     if (!(arg0->unknown_37_ & 8)) {

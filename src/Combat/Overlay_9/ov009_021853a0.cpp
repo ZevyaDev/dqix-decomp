@@ -686,7 +686,7 @@ extern "C" int func_020424e4(int arg0, int arg1);
 extern "C" int func_ov009_02185888(Struct_ov009_02185888* arg0);
 extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
 extern "C" void func_ov023_021e4f18(void* arg0);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02045cac(struct Struct_02045cac* arg0);
 extern "C" void func_02043204(char* arg0);
 extern "C" void func_02043124(char* arg0);
@@ -1078,7 +1078,7 @@ extern "C" ARM void func_ov009_02184848(Struct_ov009_021842a0* arg0) {
     func_ov023_021e4f18(*(void**)(var0 + (0x7b4)));
     func_ov023_021e4f18(*(void**)(var0 + (0x7b8)));
 
-    void* var1 = (void*)func_020421a0();
+    void* var1 = (void*)GetMessageWindow_020421a0();
     func_02045cac((struct Struct_02045cac*)var1);
     func_02043204((char*)var1);
     func_02043124((char*)var1);
@@ -1544,7 +1544,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_6* arg0)
         LoadFileIntoMemory(data_ov009_0218bc25, var4, &var5);
         arg0->unknown_0_[5].Reset();
         func_020dfec0(arg0->unknown_e0_, &arg0->unknown_0_[5], var4, var5);
-        arg0->unknown_d8_ = *(int*)(func_020421a0() + 0x28);
+        arg0->unknown_d8_ = *(int*)(GetMessageWindow_020421a0() + 0x28);
         func_020de848(arg0->unknown_c8_);
         const int var99 = 0x29;
         func_020e0484(arg0->unknown_c8_, &arg0->unknown_0_[4], data_020f2a38, data_ov009_0218bab0, var99, 1);
@@ -3330,7 +3330,7 @@ extern "C" int func_ov009_0218a8b4(Struct_ov009_02189854_2* arg0, int arg1, int 
 
 extern "C" ARM int func_ov009_0218aab0(Struct_ov009_021842a0* arg0, unsigned char arg1)
 {
-    func_020421a0();
+    GetMessageWindow_020421a0();
     char var0[3] = {};
     int var1 = -1;
     int var2 = 0;

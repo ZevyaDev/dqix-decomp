@@ -4,7 +4,7 @@
 
 struct Struct_02048150;
 extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void* func_ov017_021b8478(void* arg0);
 struct Struct_02038598_5;
 extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_021bff8c(Struct_ov017_021bff8c* arg0, unsigned ch
         GameState* var2 = GameState::GetInstance();
         GameObject* var3 = var2->GetPartyMemberByIndex(0);
         GameObject* var4 = var2->GetProtagonist();
-        char* var5 = (char*)func_020421a0();
+        char* var5 = (char*)GetMessageWindow_020421a0();
         Struct_ov017_021bff8c* var6 = (Struct_ov017_021bff8c*)GetGameResources();
         void* var7 = NULL;
         if (var6 != NULL) {

@@ -8,7 +8,7 @@ enum { Enum_020dc214_1744 = 0x6d0 };
 #endif
 
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_02022d78;
 extern "C" void func_02022d78(struct Struct_02022d78*, int);
 extern "C" int func_0201b588(int);
@@ -17,7 +17,7 @@ extern "C" int func_0201b588(int);
 extern "C" ARM void func_020dc214(int arg0) {
     int var0 = (int)GetGameResources();
     void* var1 = *(void**)(var0 + 0x3000 + Enum_020dc214_1744);
-    unsigned short var2 = *(unsigned short*)func_02012fe4();
+    unsigned short var2 = *(unsigned short*)GetZone3D_02012fe4();
     struct Struct_02022d78* var3 = (struct Struct_02022d78*)var1;
     if (arg0 == 1) {
         func_02022d78(var3, 1);

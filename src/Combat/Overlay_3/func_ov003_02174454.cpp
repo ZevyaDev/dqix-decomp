@@ -15,7 +15,7 @@ enum { Enum_ov003_02174454_742 = 0x2e6 };
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 
 struct Struct_02074bd0;
 extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov003_02174454(char* arg0) {
         *(int*)(arg0 + Enum_ov003_02174454_4076) = -1;
     }
 
-    unsigned char* var2 = (unsigned char*)func_020421a0();
+    unsigned char* var2 = (unsigned char*)GetMessageWindow_020421a0();
     *(int*)(var2 + Enum_ov003_02174454_728) = 0;
     var2[Enum_ov003_02174454_742] = 1;
 

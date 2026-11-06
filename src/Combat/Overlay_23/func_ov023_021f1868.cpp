@@ -183,7 +183,7 @@ extern "C" void func_02073864(Struct_02072a68_2* arg0, SafeAllocator* arg1, cons
 extern "C" void func_020e1fc4(Struct_ov023_021f1868_7* arg0, SafeAllocator* arg1, const char* arg2, short* arg3, unsigned short arg4, int arg5, int arg6);
 #endif
 
-extern "C" Struct_ov023_021f1868_3* func_020421a0();
+extern "C" Struct_ov023_021f1868_3* GetMessageWindow_020421a0();
 extern "C" Struct_02048150* func_02010828(GameState* arg0);
 extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
@@ -227,9 +227,9 @@ Struct_ov023_021f1868_2* func_0209a594(void* arg0, int arg1);
 void func_02046380(Struct_ov023_021f1868_3* arg0);
 void func_020e4864(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5);
 #if defined(jpn)
-void func_0204500c(Struct_ov023_021f1868_3* arg0, char* arg1, int arg2);
+void StartMessage_0204500c(Struct_ov023_021f1868_3* window, char* text, int arg2);
 #else
-void func_0204500c(Struct_ov023_021f1868_3* arg0, char* arg1, int arg2, int arg3);
+void StartMessage_0204500c(Struct_ov023_021f1868_3* window, char* text, int arg2, int arg3);
 #endif
 int func_ov023_021f4fc8();
 int func_ov023_021ed724(void* arg0, short* arg1, int arg2);
@@ -249,7 +249,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
 #if defined(jpn)
     GameState* var19 = GameState::GetInstance();
     Struct_ov023_021f1868_8* var20 = _ZZ21inline_ov023_021f4c04vE1s;
-    Struct_ov023_021f1868_3* var0 = func_020421a0();
+    Struct_ov023_021f1868_3* var0 = GetMessageWindow_020421a0();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     int var2 = var20->unknown_18_;
     int var3 = func_02086ef0(func_02010828(var19), var2);
@@ -302,7 +302,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
                     func_02046574((Struct_02046574_2*)var0, 0, var7->unknown_134_);
                     if (var3)
                     {
-                        func_0204500c(var0, var8, 1);
+                        StartMessage_0204500c(var0, var8, 1);
                         var0->unknown_17e2_ = 0;
                         var0->unknown_868_ = 1;
                     }
@@ -389,7 +389,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
 #else
     GameState* var19 = GameState::GetInstance();
     Struct_ov023_021f1868_8* var20 = _ZZ21inline_ov023_021f4c04vE1s;
-    Struct_ov023_021f1868_3* var21 = func_020421a0();
+    Struct_ov023_021f1868_3* var21 = GetMessageWindow_020421a0();
     BackgroundLoader* var22 = BackgroundLoader::GetInstance();
     int var23 = var20->unknown_18_;
     int var24 = func_02086ef0(func_02010828(var19), var23);
@@ -481,7 +481,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
                     func_020465c0((Struct_020465c0*)var21, 0, var29->unknown_5_4_);
                     if (var24)
                     {
-                        func_0204500c(var21, var32, 1, 0xe3);
+                        StartMessage_0204500c(var21, var32, 1, 0xe3);
                         var21->unknown_19b2_ = 0;
                         var21->unknown_998_ = 1;
                     }

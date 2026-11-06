@@ -12,7 +12,7 @@ struct Struct_ov001_021592bc { int unknown_0_; int unknown_4_; int unknown_8_; }
 void Vector3fixMultiplyScalar(Vector3i const*, int, Vector3i*);
 
 extern "C" int func_ov001_02164578(void* arg0, int arg1, void* arg2, int arg3, float arg4);
-extern "C" int func_02012fe4(void);
+extern "C" int GetZone3D_02012fe4(void);
 extern "C" int func_02018fbc(int arg0, void* arg1);
 extern void* data_ov001_02165884;
 
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov001_021592bc(char* arg0, char* arg1) {
             Vector3fix_Add((const Vector3fix*)((Struct_ov009_0218aa28*)(arg1 + 0x74)), (const Vector3fix*)((Struct_ov009_0218aa28*)&var6), (Vector3fix*)((Struct_ov009_0218aa28*)(arg1 + 0x74)));
         } else if (var7 == 1) {
             Vector3fix_Add((const Vector3fix*)((Struct_ov009_0218aa28*)(arg1 + 0x74)), (const Vector3fix*)((Struct_ov009_0218aa28*)&var6), (Vector3fix*)((Struct_ov009_0218aa28*)(arg1 + 0x74)));
-            int var8 = func_02012fe4();
+            int var8 = GetZone3D_02012fe4();
             *(int*)(arg1 + 0x78) = func_02018fbc(var8, arg1 + 0x74);
         }
     }

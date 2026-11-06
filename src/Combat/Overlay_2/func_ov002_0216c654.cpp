@@ -13,7 +13,7 @@ struct Struct_02012de8;
 struct Struct_02038598_4;
 
 extern "C" int func_0200fb8c(int *);
-extern "C" char *func_020421a0();
+extern "C" char *GetMessageWindow_020421a0();
 extern "C" void func_02043204(char *);
 extern "C" int func_020e28dc(struct Struct_020e28dc *);
 extern "C" void func_020e25e8(struct Struct_020e25e8 *);
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov002_0216c654(char *arg0) {
     GameResources *var0 = (GameResources *) func_0200fb8c((int *) GameState::GetInstance());
     int var1          = S32(0x1bc0 + Enum_ov002_0216c654_0);
     if (var1 == 0) {
-        func_02043204(func_020421a0());
+        func_02043204(GetMessageWindow_020421a0());
         if (S32(4) != 0 && func_020e28dc((struct Struct_020e28dc *) S32(4))) {
             func_020e25e8((struct Struct_020e25e8 *) S32(4));
         }

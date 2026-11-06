@@ -22,7 +22,7 @@ struct Struct_020e25e8;
 struct Struct_0205d6a0;
 struct Struct_0205bcdc;
 struct Struct_0201099c_10;
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
                                                                         unsigned char arg2);
 extern "C" void func_ov002_02161cf0(char *arg0);
@@ -115,7 +115,7 @@ struct Struct_ov002_0216a300 {
 
 // USA: func_ov002_0216a300
 extern "C" ARM void func_ov002_0216a300(char *arg0) {
-    char *var0                                 = (char *) func_020421a0();
+    char *var0                                 = (char *) GetMessageWindow_020421a0();
     *(unsigned char *) (var0 + 0x1000 + RG(0x9ae, 0x7de)) = 0;
     int var1                               = *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88));
     if (var1 == 0) {

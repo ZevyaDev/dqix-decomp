@@ -66,14 +66,14 @@ struct Struct_ov023_021f5ad8
     } unknown_840_;
 };
 
-extern "C" Struct_ov023_021f5ad8* func_02012fe4();
+extern "C" Struct_ov023_021f5ad8* GetZone3D_02012fe4();
 
 extern "C" Struct_ov023_021fff08_8 data_ov023_021fff08;
 
 // USA: func_ov023_021f5ad8
 extern "C" ARM int func_ov023_021f5ad8(Script::Parameter* arg0, int arg1)
 {
-    Struct_ov023_021f5ad8::Struct_ov023_021f5ad8_2* var0 = &func_02012fe4()->unknown_840_;
+    Struct_ov023_021f5ad8::Struct_ov023_021f5ad8_2* var0 = &GetZone3D_02012fe4()->unknown_840_;
     for (int var1 = 0; var1 < arg1; var1++)
     {
         int var2 = arg0->ToInt();

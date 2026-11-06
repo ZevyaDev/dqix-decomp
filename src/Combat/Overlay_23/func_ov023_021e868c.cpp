@@ -2,7 +2,7 @@
 #include <std_library_functions.h>
 #include "GameState/GameState.h"
 
-struct Struct_02021b84;
+struct MessageWindow_02021b84;
 struct Struct_02072a68_2;
 struct Struct_020465c0;
 struct Struct_0202c1a4;
@@ -61,7 +61,7 @@ static inline Struct_ov023_021e868c* inline_ov003_02172e84(GameState* arg0)
     return &((Struct_01ff91ac_28*)arg0)->unknown_29c_.unknown_5400_;
 }
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" int func_0202b7d8(int* arg0);
 extern "C" Struct_ov023_021e868c_2* func_02053c6c(unsigned char* arg0);
 extern "C" int func_0202c1a4(Struct_0202c1a4* arg0);
@@ -89,10 +89,10 @@ extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2)
 extern "C" {
 void* func_0202ae18();
 #if defined(jpn)
-void func_020474a8(Struct_02021b84* arg0, unsigned char arg1, const char* arg2, char* arg3);
+void func_020474a8(MessageWindow_02021b84* arg0, unsigned char arg1, const char* arg2, char* arg3);
 #else
 int func_020420e8(const char* arg0, int arg1);
-void func_02046608(Struct_02021b84* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
+void func_02046608(MessageWindow_02021b84* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
 #endif
 }
 #if defined(jpn)
@@ -104,7 +104,7 @@ extern "C" int func_020e0434(Struct_0201099c_3* arg0, int arg1);
 extern "C" ARM void func_ov023_021e868c(Struct_ov023_021e868c_3* arg0)
 {
     GameState* var0 = GameState::GetInstance();
-    Struct_02021b84* var1 = (Struct_02021b84*)func_020421a0();
+    MessageWindow_02021b84* var1 = (MessageWindow_02021b84*)GetMessageWindow_020421a0();
     void* var2 = func_0202ae18();
     Struct_ov023_021e868c_2* var3 = NULL;
     if (func_0202b7d8((int*)var2) == 0)

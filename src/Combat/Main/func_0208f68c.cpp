@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
 
-extern "C" void* func_02012fe4(void* arg0);
+extern "C" void* GetZone3D_02012fe4(void* arg0);
 struct Vector3i;
 
 extern int data_020e8d3c;
@@ -13,7 +13,7 @@ struct Struct_0208f68c { int unknown_0_, unknown_4_, unknown_8_; };
 extern "C" ARM void func_0208f68c(unsigned char* arg0) {
     if (arg0[0xb4] != 0) {
         GameState* var0 = GameState::GetInstance();
-        void* var1 = func_02012fe4(var0);
+        void* var1 = GetZone3D_02012fe4(var0);
         unsigned short var2 = *(unsigned short*)var1;
         GrottoStruct* var3 = var0->GetGrottoStruct();
         Struct_0208f68c var4 = *(Struct_0208f68c*)&data_020e8d3c;

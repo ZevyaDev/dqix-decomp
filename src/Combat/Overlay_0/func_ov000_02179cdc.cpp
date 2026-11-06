@@ -69,7 +69,7 @@ struct Struct_ov000_02179cdc_4 {
 #endif
 extern unsigned short data_ov000_02183510[];
 
-extern "C" Struct_020465c0* func_020421a0(void);
+extern "C" Struct_020465c0* GetMessageWindow_020421a0(void);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" Struct_0209a678* func_ov000_02170cf8(Struct_ov000_02179cdc_2* arg0, int arg1);
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov000_02179cdc(Struct_ov000_02176e3c* arg0, Struct_ov00
     if (arg1 == 0) {
         return;
     }
-    char* var2 = func_020421a0()->unknown_5c_;
+    char* var2 = GetMessageWindow_020421a0()->unknown_5c_;
 #if defined(jpn)
     memset(var2, 0, 0x800);
 #else
@@ -126,10 +126,10 @@ extern "C" ARM void func_ov000_02179cdc(Struct_ov000_02176e3c* arg0, Struct_ov00
 #if defined(jpn)
     var0 = var2;
 #else
-    func_02046608(func_020421a0(), 10, var2, var8, 0x72, 0, 0);
+    func_02046608(GetMessageWindow_020421a0(), 10, var2, var8, 0x72, 0, 0);
     var0 = var8;
 #endif
-    var1 = func_020421a0();
+    var1 = GetMessageWindow_020421a0();
     func_02046380(var1);
     int var9;
     if (func_ov000_02153a8c(var4) != 0) {

@@ -12,7 +12,7 @@ struct Struct_0201099c_23 { short unknown_0_[3]; };
 struct Struct_0201730c_4 { short unknown_0_; signed char unknown_2_; char unknown_3_[9]; int unknown_c_; int unknown_10_; char unknown_14_[8]; };
 struct Struct_ov005_0215acc0 { char unknown_0_[0xdf4]; Struct_0201099c_10* unknown_df4_; char unknown_df8_[R(0x1f10,0x1f98)]; Struct_0201730c_4 unknown_2d90_[24]; char unknown_3030_[0xddc]; Struct_0201099c_23 unknown_3e0c_[20]; };
 struct Struct_ov005_0215acc0_2 { char unknown_0_[R(0x4f8,0x4fc)]; int unknown_4fc_; };
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void* func_020dedd0(Struct_0201099c_10*, int);
 extern "C" Struct_ov005_0215acc0_2* func_ov017_021a193c(int*);
 extern "C" int func_020dd4c4(signed char, void*);
@@ -25,7 +25,7 @@ extern "C" void func_02045f3c(void*, Struct_0201099c_23*, int, int, int, int, in
 
 // USA: func_ov005_0215acc0
 extern "C" ARM void func_ov005_0215acc0(Struct_ov005_0215acc0* arg0) {
-    void* var0 = func_020421a0();
+    void* var0 = GetMessageWindow_020421a0();
     int var1;
     int var2;
     for (int var3 = 8; var3 < 24; var3++) {

@@ -48,7 +48,7 @@ struct Struct_020bc1ec {
 };
 
 struct Struct_01ff91ac_30;
-extern "C" Struct_020bc1ec *func_02012fe4();
+extern "C" Struct_020bc1ec *GetZone3D_02012fe4();
 extern "C" void func_020daf9c(int, int, int, int);
 void SetAndLockBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
@@ -83,7 +83,7 @@ struct GameResources;
 void SetBrightness(GameResources*, int, int);
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
 extern "C" int *func_0200fd0c(GameState *);
-extern "C" char *func_020421a0();
+extern "C" char *GetMessageWindow_020421a0();
 extern "C" void func_02043204(char *);
 extern "C" void func_02043124(char *);
 extern "C" unsigned char *func_02053c6c(unsigned char *);
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
     var1     = GameState::GetInstance();
     var4 = BackgroundLoader::GetInstance();
     var2     = (unsigned char *)func_02010828(var1);
-    func_02012fe4();
+    GetZone3D_02012fe4();
     unsigned char var5 = arg0->unknown_4a4_;
 
     if (var5 == 0) {
@@ -195,7 +195,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
     } else if (var5 == 4) {
         if (IsBrightnessTransitionActive((GameResources*)var0) == 0) {
             func_020466f4((Struct_02038598_4*)func_020d6c00(), 0x80000);
-            Struct_020bc1ec *var19   = func_02012fe4();
+            Struct_020bc1ec *var19   = GetZone3D_02012fe4();
             Struct_ov000_0215b278 *var20     = *(Struct_ov000_0215b278 **) (var0 + 0x3000 + RES_NODE_C_021638e4);
             Struct_0209a678_2 *var21 = func_02052e2c((Struct_02052e2c*)(var1->GetGameObjectByIndex(func_020100b0(var1))));
             func_ov017_021bbae4(var20, var19->unknown_8_, 2);
@@ -222,7 +222,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
                 *((unsigned char *) var22 + 0x6e)  = 0x40;
                 *((unsigned char *) var22 + 0xa)   = 0;
             }
-            char *var23 = func_020421a0();
+            char *var23 = GetMessageWindow_020421a0();
             func_02043204(var23);
             func_02043124(var23);
             arg0->unknown_4a3_  = 0x10;

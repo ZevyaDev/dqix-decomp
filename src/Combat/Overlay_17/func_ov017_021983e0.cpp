@@ -9,7 +9,7 @@ enum { Enum_ov017_021983e0_14076 = 0x36fc, Enum_ov017_021983e0_108 = 0x6c };
 #include "GameState/GameState.h"
 
 extern "C" int func_02046b08(void** arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
 extern "C" int func_02094b9c(void* arg0, void* arg1);
@@ -47,7 +47,7 @@ struct Struct_ov017_021983e0 {
 extern "C" ARM void func_ov017_021983e0(unsigned char* arg0) {
     if (func_02046b08(*(void***)(arg0 + Enum_ov017_021983e0_14076))) {
         GameState* var0 = GameState::GetInstance();
-        void* var1 = func_02012fe4();
+        void* var1 = GetZone3D_02012fe4();
         func_020100bc(var0);
         GameObject* var2 = var0->GetUnknownGameObject();
         if (func_020535c8((signed char*)var2) == 0) {

@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_0200fd0c(GameState*);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 struct Vector3i;
 extern "C" void func_02070378(char*);
 
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov001_021620bc(void) {
     int var0[3];
     void* var1 = GameState::GetInstance();
     struct Struct_ov001_021620bc* var2 = (struct Struct_ov001_021620bc*)func_0200fd0c((GameState*)var1);
-    char* var3 = (char*)func_02012fe4();
+    char* var3 = (char*)GetZone3D_02012fe4();
     *(Vector3i*)var0 = *(Vector3i const*)((int*)(var3 + Enum_ov001_021620bc_9152));
     short var4 = *(short*)(var3 + Enum_ov001_021620bc_9164);
     func_02070378((char*)var2);

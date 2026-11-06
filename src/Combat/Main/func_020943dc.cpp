@@ -22,7 +22,7 @@ struct Struct_020943dc {
     char unknown_13b_[2];
     unsigned char unknown_13d_;
 };
-extern "C" Struct_02046574_2* func_020421a0();
+extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 extern "C" void func_020e046c(char*, void*, unsigned int, int);
 extern "C" void func_020474a8(Struct_02046574_2*, int, char*, char*);
@@ -46,7 +46,7 @@ extern "C" ARM int func_020943dc(Struct_020943dc* arg0) {
             if (var1) {
                 char var3[0x40] = {};
                 func_020e046c(var3, var1, var2, arg0->unknown_c_);
-                Struct_02046574_2* var4 = func_020421a0();
+                Struct_02046574_2* var4 = GetMessageWindow_020421a0();
                 char* var5 = var4->unknown_37c_[0].unknown_0_;
                 char var6[0x40] = {};
                 if (var5) memcpy(var6, var5, strlen(var5));
@@ -86,7 +86,7 @@ struct Struct_020943dc {
     char unknown_3cb_[2];
     unsigned char unknown_3cd_;
 };
-extern "C" Struct_02046574_2* func_020421a0();
+extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 extern "C" void func_020e046c(char*, void*, unsigned int, int);
 extern "C" void func_02046608(Struct_02046574_2*, int, char*, char*, int, int, int);
@@ -112,7 +112,7 @@ extern "C" ARM int func_020943dc(Struct_020943dc* arg0) {
             if (var8) {
                 char var10[0x40] = {};
                 func_020e046c(var10, var8, var9, arg0->unknown_30_);
-                Struct_02046574_2* var11 = func_020421a0();
+                Struct_02046574_2* var11 = GetMessageWindow_020421a0();
                 char* var12 = var11->unknown_4ac_[0].unknown_0_;
                 char var13[0x40] = {};
                 if (var12) memcpy(var13, var12, strlen(var12));

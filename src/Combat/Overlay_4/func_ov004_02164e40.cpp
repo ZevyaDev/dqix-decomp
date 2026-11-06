@@ -8,7 +8,7 @@ extern "C" void* func_02011aa0(char*, unsigned int);
 #include "GameState/GameState.h"
 #include "NitroSDK/Memory.h"
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02046380(void* arg0);
 extern "C" int func_020100a8(GameState* arg0);
 extern "C" void* func_ov011_021849c8(void*);
@@ -33,7 +33,7 @@ extern unsigned char* data_ov004_02171010;
 
 // USA: func_ov004_02164e40
 extern "C" ARM int func_ov004_02164e40(void* arg0) {
-    void* var0 = (void*)func_020421a0();
+    void* var0 = (void*)GetMessageWindow_020421a0();
     func_02046380(var0);
 
     GameState* var1 = GameState::GetInstance();

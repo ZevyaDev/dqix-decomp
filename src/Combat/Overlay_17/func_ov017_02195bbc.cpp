@@ -12,7 +12,7 @@ struct Struct_020aca30;
 struct Struct_0208f820;
 struct Struct_0208f410_3;
 
-extern "C" Zone3D* func_02012fe4();
+extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" Struct_02057a10* func_02057924();
 extern "C" void* func_02010768(void* arg0);
 extern "C" void func_ov017_021a3dcc(int arg0);
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov017_02195bbc(Struct_ov017_02195bbc* arg0) {
     GameState* var10;
 
     var3 = GameState::GetInstance();
-    var1 = func_02012fe4();
+    var1 = GetZone3D_02012fe4();
     var2 = func_02057924();
     var4 = (Zone3D**)func_02010768(var3);
 
@@ -119,7 +119,7 @@ extern "C" ARM void func_ov017_02195bbc(Struct_ov017_02195bbc* arg0) {
     if (TestFlags04((GameResources*)(arg0->unknown_0_), 0x100) == 0) {
         var10 = GameState::GetInstance();
         func_0202ae18();
-        var0 = func_02012fe4();
+        var0 = GetZone3D_02012fe4();
         var9 = var0->substruct_c_.unknown_2c_;
         for (var8 = 0xa0; var8 <= 0xbf; var8++) {
             var7 = var10->GetMaybeWanderingMonsterByIndex(var8);

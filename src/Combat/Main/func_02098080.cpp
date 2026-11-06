@@ -7,7 +7,7 @@ struct Struct_02097ec8_2 {
     int unknown_1b3c_;
 };
 
-extern "C" Struct_0208fa8c* func_02012fe4();
+extern "C" Struct_0208fa8c* GetZone3D_02012fe4();
 extern "C" int _s32_div_f(int a, int b);
 extern "C" int func_020981e4(int arg0, int arg1);
 extern "C" int func_02098240(int arg0, int arg1);
@@ -15,7 +15,7 @@ extern "C" int func_0201bd74(Struct_02017a94* arg0, unsigned int arg1, int arg2)
 
 // USA: func_02098080
 extern "C" ARM int func_02098080(Struct_02097ec8_2* arg0) {
-    Struct_0208fa8c* var0 = func_02012fe4();
+    Struct_0208fa8c* var0 = GetZone3D_02012fe4();
     int var1 = var0->unknown_0_;
     int var2, var3;
     var3 = arg0->unknown_1b3c_;

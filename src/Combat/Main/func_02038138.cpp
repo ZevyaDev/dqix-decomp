@@ -48,7 +48,7 @@ struct Struct_02038138_4 {
     short unknown_256_;
 };
 
-extern "C" char* func_02012fe4();
+extern "C" char* GetZone3D_02012fe4();
 extern "C" struct Struct_02038138_3* func_ov017_0218d268(void*);
 extern "C" void func_02033b88(struct Struct_02010604*, int);
 extern "C" void func_02033b68(struct Struct_02033b68*, int);
@@ -71,7 +71,7 @@ extern "C" ARM void func_02038138(struct Struct_02038138_4* arg0) {
     int var3;
     var1 = func_020100bc(GameState::GetInstance());
     var2 = GetGameResources();
-    var0 = func_02012fe4();
+    var0 = GetZone3D_02012fe4();
     var3 = 0;
 
     if (g_keyManager.IsUpHeld() && g_keyManager.IsLeftHeld()) {

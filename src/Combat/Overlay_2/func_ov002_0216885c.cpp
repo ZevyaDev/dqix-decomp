@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 
 #if defined(jpn)
 #define RG(usa, jpn) (jpn)
@@ -11,7 +11,7 @@ extern "C" int func_020421a0();
 
 // USA: func_ov002_0216885c
 extern "C" ARM void func_ov002_0216885c(char* arg0) {
-    char* var0 = (char*)func_020421a0();
+    char* var0 = (char*)GetMessageWindow_020421a0();
     int var1 = *(int*)(var0 + RG(0x998, 0x868));
     if (var1 != 0) {
         unsigned char var2 = *(unsigned char*)(arg0 + 0x2000 + RG(0x454, 0x288));

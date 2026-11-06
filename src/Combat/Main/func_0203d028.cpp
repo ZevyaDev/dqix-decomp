@@ -69,7 +69,7 @@ struct Struct_0203d028_8 {
     struct Struct_0203d028_7 unknown_1840_;
     struct Struct_0203d028_7* inline_0203d028_2() { return &unknown_1840_; }
 };
-extern "C" struct Struct_0203d028_8* func_02012fe4(void);
+extern "C" struct Struct_0203d028_8* GetZone3D_02012fe4(void);
 extern "C" unsigned int* func_020d6c00(void);
 
 extern "C" int func_020981e4(int arg0, int arg1);
@@ -335,7 +335,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
     struct Struct_0203d028_2* var0 = (Struct_0203d028_2*)GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     struct Struct_0203d028_23* var2 = (struct Struct_0203d028_23*)func_020652c8(&arg0->unknown_90_);
-    struct Struct_0203d028_8* var3 = func_02012fe4();
+    struct Struct_0203d028_8* var3 = GetZone3D_02012fe4();
 #if defined(jpn)
     char* var4 = (char*)var3 + 0x860;
 #define GLOBAL_SUB var4

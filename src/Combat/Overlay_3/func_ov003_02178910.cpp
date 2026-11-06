@@ -56,7 +56,7 @@ extern "C" unsigned int func_ov003_02175898(char* arg0, void* arg1);
 extern "C" int func_ov003_021758cc(char* arg0, int arg1);
 extern "C" void func_ov003_02175924(char* arg0);
 extern "C" int func_020de194(void* arg0);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02043204(char* arg0);
 extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
 extern "C" void func_020de824(void* arg0);
@@ -409,7 +409,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
                 return;
             }
 
-            func_02043204((char*)func_020421a0());
+            func_02043204((char*)GetMessageWindow_020421a0());
             (*(unsigned char*)(arg0 + (0x1000 + 0x3f - Enum_ov003_02178910_0)))++;
             return;
         }

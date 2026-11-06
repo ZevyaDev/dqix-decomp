@@ -12,7 +12,7 @@ enum { Enum_ov003_0215b0e8_2464 = 0x9a0 };
 enum { Enum_ov003_0215b0e8_2478 = 0x9ae };
 #endif
 
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 struct Struct_0201099c_3;
 extern "C" void* func_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov003_02159250(void*, void*);
@@ -27,7 +27,7 @@ extern unsigned char data_02109bf4;
 extern "C" ARM void func_ov003_0215b0e8(void* arg0) {
     unsigned char* var0 = (unsigned char*)arg0;
     GameState::GetInstance();
-    unsigned char* var1 = (unsigned char*)func_020421a0();
+    unsigned char* var1 = (unsigned char*)GetMessageWindow_020421a0();
     unsigned char var2 = *(unsigned char*)(var0 + 0x580);
 
     if (var2 == 0) {

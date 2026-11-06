@@ -14,7 +14,7 @@ enum { Enum_ov017_0219bddc_2112 = 0x840 };
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_0205ec34(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_0202c508(void* arg0);
 struct Struct_020ad4c4;
 extern "C" int func_020ad4c4(struct Struct_020ad4c4* arg0);
@@ -29,7 +29,7 @@ extern "C" ARM int func_ov017_0219bddc(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = func_0202ae18();
     void* var2 = func_0205ec34();
-    void* var3 = func_02012fe4();
+    void* var3 = GetZone3D_02012fe4();
     GameObject* var4 = var0->GetGameObjectByIndex(0);
     GameObject* var5 = var0->GetProtagonist();
 

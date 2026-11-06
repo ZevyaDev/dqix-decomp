@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-extern "C" char *func_020421a0(void);
-extern "C" char *func_02012fe4(void);
+extern "C" char *GetMessageWindow_020421a0(void);
+extern "C" char *GetZone3D_02012fe4(void);
 extern "C" void func_ov003_0216fc58(void *arg0, int arg1, int arg2);
 extern "C" void func_ov003_0216ff90(void *arg0);
 extern "C" void func_ov003_0216fe74(void *arg0, int arg1, int arg2, int arg3);
@@ -95,8 +95,8 @@ enum { Enum_ov003_0216f474_2112 = 0x840 };
 extern "C" ARM void func_ov003_0216f474(Struct_ov003_0216f474_4 *arg0) {
     char *var0;
     Struct_ov003_0216f474_2 *var1;
-    var1    = (Struct_ov003_0216f474_2 *) func_020421a0();
-    var0      = func_02012fe4();
+    var1    = (Struct_ov003_0216f474_2 *) GetMessageWindow_020421a0();
+    var0      = GetZone3D_02012fe4();
     int var2 = arg0->unknown_2_;
     if (var2 == 0) {
         if (arg0->unknown_d4_ != 0) {

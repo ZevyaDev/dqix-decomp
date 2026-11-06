@@ -6,7 +6,7 @@ extern "C" void func_ov017_021b5a30(unsigned char* arg0);
 extern "C" void func_ov017_021b6090(unsigned char* arg0);
 extern "C" void func_02094ab0(int arg0);
 extern "C" int func_02094a00(void);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_ov017_0218d75c(void* arg0);
 extern "C" void func_020397c0(void* arg0);
 
@@ -30,13 +30,13 @@ extern "C" ARM int func_ov017_021b5fc0(unsigned char* arg0) {
         func_02094ab0(func_02094a00());
         func_ov017_021b5a30(arg0);
         arg0[0x1] = 1;
-        char* var3 = (char*)func_020421a0();
+        char* var3 = (char*)GetMessageWindow_020421a0();
         *(int*)(var3 + Enum_ov017_021b5fc0_728) = 0;
         return 6;
     }
 
     func_ov017_021b6090(arg0);
-    char* var4 = (char*)func_020421a0();
+    char* var4 = (char*)GetMessageWindow_020421a0();
     unsigned char var5 = arg0[0x16];
     if (var1 < var5) {
         arg0[0x16] = var5 - var1;

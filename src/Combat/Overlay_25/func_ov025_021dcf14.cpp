@@ -701,7 +701,7 @@ extern "C" void func_ov025_021eabd0(void* arg0, bool arg1);
 extern "C" void func_ov025_021ead5c(void* arg0, bool arg1);
 extern "C" void func_ov025_021ed344(void* arg0, int arg1);
 extern "C" int func_ov025_021ed2f4(void* arg0);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02043124(int arg0);
 extern "C" void* func_02057924(void);
 extern "C" void func_02078484(struct Struct_02078398_2* arg0);
@@ -910,7 +910,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
         if (!func_ov025_021ed2f4(arg0 + Enum_ov025_021dcf14_2192)) {
             return 1;
         }
-        func_02043124(func_020421a0());
+        func_02043124(GetMessageWindow_020421a0());
         func_ov000_021626a0(arg0, 4, 0);
         GameObject* var36 = var0->GetCombatantByIndex(*(short*)(arg0 + Enum_ov025_021dcf14_28412));
         if (var36) {

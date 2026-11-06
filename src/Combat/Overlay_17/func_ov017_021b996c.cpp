@@ -14,7 +14,7 @@ extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
 struct Struct_02039df4;
 struct Struct_02038598_5;
 extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov017_021d079c(unsigned char arg0, unsigned char arg1, unsigned short arg2);
 
 struct Struct_ov017_021b996c { char unknown_0_[0x12c]; int unknown_12c_; };
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov017_021b996c(struct Struct_ov017_021b996c* arg0, int 
         return;
     }
 
-    int var10 = func_020421a0();
+    int var10 = GetMessageWindow_020421a0();
     if (*(int*)(var10 + Enum_ov017_021b996c_2456) != 0) {
         func_ov017_021d079c(arg3, 1, 0);
         return;

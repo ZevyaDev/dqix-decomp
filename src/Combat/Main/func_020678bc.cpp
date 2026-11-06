@@ -28,7 +28,7 @@ extern char data_02108760;
 // JPN: func_0206917c
 // USA: func_020678bc
 #if defined(jpn)
-extern "C" ARM void func_020678bc(Struct_02021b84* arg0, int arg1) {
+extern "C" ARM void func_020678bc(MessageWindow_02021b84* arg0, int arg1) {
     int var0 = arg0->unknown_78_;
     unsigned short* var1 = arg0->unknown_4c_;
 #else

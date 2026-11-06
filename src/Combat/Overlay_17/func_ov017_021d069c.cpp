@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_02012fe4(void);
+extern "C" int GetZone3D_02012fe4(void);
 extern "C" int func_0202c508(void* arg0);
 extern "C" void func_ov017_021d0490(int arg0);
 extern "C" void func_ov017_021c3e18(int arg0);
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov017_021d069c(int arg0, struct Struct_ov017_021d069c* 
 #else
  enum {Enum_ov017_021d069c_1844=0x734};
 #endif
-    func_02012fe4();
+    GetZone3D_02012fe4();
     unsigned char* var0 = *(unsigned char**)((char*)arg3 + 0x3000 + Enum_ov017_021d069c_1844);
     if (func_0202c508(arg4)) {
         func_ov017_021d0490(arg0);

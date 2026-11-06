@@ -21,7 +21,7 @@ enum { Enum_ov003_021733d0_236 = 0xec };
 
 struct GameResources;
 void SetMainBrightness(GameResources*, int, int);
-extern "C" int func_02012fe4(void);
+extern "C" int GetZone3D_02012fe4(void);
 extern "C" void func_02098630(void* arg0, void* arg1, int arg2, int arg3);
 
 int IsMainBrightnessTransitionActive(GameResources*);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov003_021733d0(unsigned char* arg0) {
     if (IsMainBrightnessTransitionActive(var0) != 0) {
         return;
     }
-    int var1 = func_02012fe4();
+    int var1 = GetZone3D_02012fe4();
     if (arg0[Enum_ov003_021733d0_204] == 0) {
         func_ov003_0216fb6c((char*)var1 + Enum_ov003_021733d0_2112);
         for (int var2 = 0; var2 < arg0[Enum_ov003_021733d0_213]; var2++) {

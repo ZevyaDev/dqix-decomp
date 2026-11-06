@@ -54,7 +54,7 @@ extern "C" void func_ov002_02161b98(char *arg0);
 extern "C" void func_ov002_0215a7b4(char *arg0, int arg1, short arg2, int arg3, int arg4);
 extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
 extern "C" char *func_0205ec34(void);
-extern "C" char *func_02012fe4(void);
+extern "C" char *GetZone3D_02012fe4(void);
 extern "C" int *func_0202ae18(void);
 extern "C" int func_0202c508(int *arg0);
 extern "C" void func_ov023_021dca88(char *arg0);
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
             *(int *) (arg0 + 0x1a88) = 0;
             func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
             int var6    = (int) func_0205ec34();
-            char *var7 = func_02012fe4();
+            char *var7 = GetZone3D_02012fe4();
             int var8    = 0;
             if (!func_0206dfb0(var6, (unsigned char *) ((char *) var6 + 0x8c), 0x113a)) {
                 char *var9 = *(char **) (var7 + 8);
@@ -249,7 +249,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
             *(int *) (arg0 + 0x1000 + 0xbc0) = 0;
             func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
             int var25    = (int) func_0205ec34();
-            char *var26 = func_02012fe4();
+            char *var26 = GetZone3D_02012fe4();
             int var27    = 0;
             if (!func_0206dfb0(var25, (unsigned char *) ((char *) var25 + 0x8c), 0x113a)) {
                 char *var28 = *(char **) (var26 + 8);

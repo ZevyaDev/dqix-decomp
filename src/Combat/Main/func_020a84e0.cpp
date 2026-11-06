@@ -11,7 +11,7 @@
 struct Struct_02012de8 { unsigned int unknown_0_; };
 
 extern "C" void* func_020d6c00(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0205ec34(void);
 extern "C" void* func_02010828(GameState* arg0);
 extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
@@ -40,7 +40,7 @@ extern "C" ARM void func_020a84e0() {
     GameState* var0 = GameState::GetInstance();
     GetGameResources();
     struct Struct_02012de8* var1 = (struct Struct_02012de8*)func_020d6c00();
-    Zone3D* var2 = (Zone3D*)func_02012fe4();
+    Zone3D* var2 = (Zone3D*)GetZone3D_02012fe4();
     int var3 = (int)func_0205ec34();
     unsigned char* var4;
     int var5;

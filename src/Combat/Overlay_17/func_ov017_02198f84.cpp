@@ -50,7 +50,7 @@ struct Struct_ov017_02198f84_3 {
     unsigned short unknown_42ec_;
 };
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0205ec34(void);
 extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
 extern "C" void func_0206f81c(void* arg0);
@@ -62,7 +62,7 @@ extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201
 
 // USA: func_ov017_02198f84
 extern "C" ARM void func_ov017_02198f84(Struct_ov017_02198f84_3* arg0) {
-    Zone3D* var0 = (Zone3D*)func_02012fe4();
+    Zone3D* var0 = (Zone3D*)GetZone3D_02012fe4();
     for (int var1 = 0; var1 < arg0->unknown_36b8_; var1++) {
         Struct_020134e0::Struct_02018300* var2 = arg0->unknown_36bc_[var1];
         if (var2 == NULL) {

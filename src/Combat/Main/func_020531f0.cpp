@@ -10,7 +10,7 @@ extern "C" int func_02039d7c(char* arg0);
 extern "C" int func_020100b0(GameState* arg0);
 extern "C" int func_020100f8(char* arg0);
 extern "C" void func_020a2c8c(unsigned char* arg0);
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 
 struct Struct_02010604;
 extern "C" void func_02033b88(struct Struct_02010604* arg0, int arg1);
@@ -108,7 +108,7 @@ extern "C" ARM void func_020531f0(struct Struct_020531f0_2* arg0) {
         var3 = func_020100f8((char*)var1);
         if (var3 != 0) {
             if (g_keyManager.TestKeysHeld(2) == 0
-                || ((unsigned char*)func_020421a0())[Enum_020531f0_6577] != 0) {
+                || ((unsigned char*)GetMessageWindow_020421a0())[Enum_020531f0_6577] != 0) {
                 func_020a2c8c((unsigned char*)var3);
             }
         }

@@ -24,7 +24,7 @@ struct Struct_02019508_3;
 struct Struct_0201099c_10;
 struct Struct_02012fa4;
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0201ba1c(struct Struct_02019508_3* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021cfe40(unsigned short arg0, unsigned short arg1, unsigned short arg2);
 extern "C" unsigned char* func_0205ec34(void);
@@ -73,7 +73,7 @@ extern "C" ARM int func_ov017_021bf7ac(struct Struct_ov017_021bf7ac_2* arg0) {
 #endif
     GameState* var0 = GameState::GetInstance();
     var0->GetUnknownGameObject();
-    unsigned short* var1 = (unsigned short*)func_02012fe4();
+    unsigned short* var1 = (unsigned short*)GetZone3D_02012fe4();
     struct Struct_ov017_021bf7ac* var2 = arg0->unknown_c_;
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
     unsigned short var4 = var2->unknown_2c_;
@@ -90,7 +90,7 @@ extern "C" ARM int func_ov017_021bf7ac(struct Struct_ov017_021bf7ac_2* arg0) {
     unsigned short var8 = 0;
     LootableContainerManager::Container* var9 = var6->GetContainerByID(var2->unknown_30_, &var8);
     if (var9 != 0 && !func_0206dfb0((int)var7, var7 + 0x8c, var9->uniqueID + 0x79e)) {
-        char* var10 = (char*)func_02012fe4();
+        char* var10 = (char*)GetZone3D_02012fe4();
         char* var11 = var10 + Enum_ov017_021bf7ac_852;
         arg0->unknown_10_ = (struct Struct_02012fa4*)(var10 + Enum_ov017_021bf7ac_1536 + func_020100a8(var0) * 0x88);
         func_02047230(arg0->unknown_10_);

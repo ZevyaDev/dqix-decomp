@@ -36,7 +36,7 @@ extern "C" void func_020ad59c(void* arg0);
 extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
 extern "C" void func_0207df90(char* arg0);
 extern "C" void func_0207dfac(char* arg0);
-extern "C" void func_02012fe4();
+extern "C" void GetZone3D_02012fe4();
 extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
 extern "C" void func_02033fdc(struct Struct_02033fdc* arg0);
 extern "C" void func_0200fd38(GameState* arg0, int arg1, GameObject* arg2);
@@ -81,7 +81,7 @@ extern "C" ARM void func_020aca88(GameResources* arg0, int arg1) {
         var5.allocator = var2;
         var7->unknown_0_.LoadFromCHRArchive(&var5);
         func_0207dfac(var3);
-        func_02012fe4();
+        GetZone3D_02012fe4();
 
         GameObject* var8 = var0->GetUnknownGameObject();
         Vector3i var9 = var8->obj3D_.position_;

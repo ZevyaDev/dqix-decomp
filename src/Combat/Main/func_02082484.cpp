@@ -36,7 +36,7 @@ struct Struct_02082484_3 {
 
 struct Struct_020465c0;
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02046380(int arg0);
 extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
@@ -57,7 +57,7 @@ extern "C" ARM void func_02082484(struct Struct_02082484* arg0, struct Struct_02
     }
 
     int var1 = (int)(100.0f * arg2->unknown_0_) / 100;
-    int var2 = func_020421a0();
+    int var2 = GetMessageWindow_020421a0();
     memset(arg0->unknown_18_, 0, 0x800);
     func_02046380(var2);
     func_020465c0((struct Struct_020465c0*)var2, 0, var1);

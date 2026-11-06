@@ -447,7 +447,7 @@ func_02012efc kind:function(arm,size=0x28) addr:0x02012cc4
 func_02012f24 kind:function(arm,size=0x44) addr:0x02012cec
 func_02012f68 kind:function(arm,size=0x3c) addr:0x02012d30
 func_02012fa4 kind:function(arm,size=0x40) addr:0x02012d6c
-func_02012fe4 kind:function(arm,size=0xc) addr:0x02012dac
+GetZone3D_02012fe4 kind:function(arm,size=0xc) addr:0x02012dac
 func_02012ff0 kind:function(arm,size=0x28) addr:0x02012db8
 func_02013018 kind:function(arm,size=0x90) addr:0x02012de0
 func_020130a8 kind:function(arm,size=0x8) addr:0x02012e70
@@ -1657,7 +1657,7 @@ func_02042798 kind:function(arm,size=0x12c) addr:0x02042798
 func_020428c4 kind:function(arm,size=0x40) addr:0x020428c4
 func_02042904 kind:function(arm,size=0x8) addr:0x02042904
 func_0204290c kind:function(arm,size=0x34) addr:0x0204290c
-func_020421a0 kind:function(arm,size=0x10) addr:0x02042940
+GetMessageWindow_020421a0 kind:function(arm,size=0x10) addr:0x02042940
 func_020421b0 kind:function(arm,size=0x14) addr:0x02042950
 func_020421c4 kind:function(arm,size=0x4a8) addr:0x02042964
 func_02042998 kind:function(arm,size=0x24) addr:0x02042e0c
@@ -1669,7 +1669,7 @@ func_02043014 kind:function(arm,size=0x4c) addr:0x02043014
 func_02043060 kind:function(arm,size=0x70) addr:0x02043060
 func_02042a50 kind:function(arm,size=0x40) addr:0x020430d0
 func_02043110 kind:function(arm,size=0x5c) addr:0x02043110
-_ZN15Struct_02021b8413func_02042a90EPhj kind:function(arm,size=0x64) addr:0x0204316c
+_ZN22MessageWindow_02021b8413func_02042a90EPhj kind:function(arm,size=0x64) addr:0x0204316c
 func_02042af4 kind:function(arm,size=0x1c) addr:0x020431d0
 func_02042b10 kind:function(arm,size=0xc) addr:0x020431ec
 func_02042b1c kind:function(arm,size=0x14) addr:0x020431f8
@@ -1701,9 +1701,9 @@ func_0204483c kind:function(arm,size=0x18) addr:0x0204483c
 func_0204408c kind:function(arm,size=0x18) addr:0x02044854
 func_020440a4 kind:function(arm,size=0x14) addr:0x0204486c
 func_020440b8 kind:function(arm,size=0x14) addr:0x02044880
-_ZN15Struct_02021b8413func_020440ccEv kind:function(arm,size=0x354) addr:0x02044894
+_ZN22MessageWindow_02021b8413func_020440ccEv kind:function(arm,size=0x354) addr:0x02044894
 func_020444bc kind:function(arm,size=0x18) addr:0x02044be8
-_ZN15Struct_02021b8413func_020444d4Ei kind:function(arm,size=0xc) addr:0x02044c00
+_ZN22MessageWindow_02021b8413func_020444d4Ei kind:function(arm,size=0xc) addr:0x02044c00
 func_020444e0 kind:function(arm,size=0x50) addr:0x02044c0c
 func_02044530 kind:function(arm,size=0x2c) addr:0x02044c5c
 func_0204455c kind:function(arm,size=0x40) addr:0x02044c88
@@ -1715,11 +1715,11 @@ func_02045504 kind:function(arm,size=0x4d8) addr:0x02045504
 func_02044c74 kind:function(arm,size=0x98) addr:0x020459dc
 func_02044d0c kind:function(arm,size=0x230) addr:0x02045a74
 func_02044f3c kind:function(arm,size=0xe4) addr:0x02045ca4
-func_0204500c kind:function(arm,size=0x4e0) addr:0x02045d88
-_ZN15Struct_02021b8413func_020455f8Ev kind:function(arm,size=0x90) addr:0x02046268
-_ZN15Struct_02021b8413func_02045688Ev kind:function(arm,size=0x48) addr:0x020462f8
+StartMessage_0204500c kind:function(arm,size=0x4e0) addr:0x02045d88
+_ZN22MessageWindow_02021b8413func_020455f8Ev kind:function(arm,size=0x90) addr:0x02046268
+_ZN22MessageWindow_02021b8413func_02045688Ev kind:function(arm,size=0x48) addr:0x020462f8
 func_020456d0 kind:function(arm,size=0x70) addr:0x02046340
-_ZN15Struct_02021b8413func_02045740Ev kind:function(arm,size=0xa0) addr:0x020463b0
+_ZN22MessageWindow_02021b8413func_02045740Ev kind:function(arm,size=0xa0) addr:0x020463b0
 func_020457e0 kind:function(arm,size=0x8) addr:0x02046450
 func_02046458 kind:function(arm,size=0xd8) addr:0x02046458
 func_02046530 kind:function(arm,size=0x34c) addr:0x02046530
@@ -2422,8 +2422,8 @@ func_020653e4 kind:function(arm,size=0x34) addr:0x020666c0
 func_02065418 kind:function(arm,size=0xa0) addr:0x020666f4
 func_02066794 kind:function(arm,size=0x1a0) addr:0x02066794
 func_02066934 kind:function(arm,size=0x1d4) addr:0x02066934
-_ZN15Struct_02021b8413func_020656d0Ev kind:function(arm,size=0x14) addr:0x02066b08
-_ZN15Struct_02021b8413func_020656e4Ei kind:function(arm,size=0x74) addr:0x02066b1c
+_ZN22MessageWindow_02021b8413func_020656d0Ev kind:function(arm,size=0x14) addr:0x02066b08
+_ZN22MessageWindow_02021b8413func_020656e4Ei kind:function(arm,size=0x74) addr:0x02066b1c
 func_02065758 kind:function(arm,size=0x70) addr:0x02066b90
 func_020657c8 kind:function(arm,size=0xdc) addr:0x02066c00
 func_020658ac kind:function(arm,size=0x74) addr:0x02066cdc
@@ -7503,7 +7503,7 @@ data_020f83d8 kind:bss addr:0x020f83d8
 data_020fb0f8 kind:bss addr:0x020fb0f8
 data_020fb3d0 kind:bss addr:0x020fb0fc
 data_020fb3e4 kind:bss addr:0x020fb110
-data_020fb3f0 kind:bss addr:0x020fb11c
+gZone3D_020fb3f0 kind:bss addr:0x020fb11c
 data_020fdc14 kind:bss addr:0x020fd980
 data_020fdc20 kind:bss addr:0x020fd98c
 data_020fdc40 kind:bss addr:0x020fd9ac

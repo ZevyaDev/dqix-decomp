@@ -35,7 +35,7 @@ struct Struct_ov002_0215d214_3 {
 
 extern "C" void *func_02053c6c(unsigned char *arg0);
 extern "C" char *func_020dedd0(struct Struct_0201099c_10 *arg0, int arg1);
-extern "C" char *func_020421a0();
+extern "C" char *GetMessageWindow_020421a0();
 extern "C" void func_02046380(void *arg0);
 extern "C" void func_020e4bf4(void *arg0, int arg1);
 extern "C" int func_ov002_02159774(void *arg0, int arg1, int arg2, int arg3, int arg4);
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov002_0215d214(char *arg0, char *arg1, int arg2) {
                                                               *(short *) (arg0 + 0x1c22));
         if (var9 == 0) return;
     }
-    char *var10 = func_020421a0();
+    char *var10 = GetMessageWindow_020421a0();
     func_02046380(var10);
     func_020e4bf4(&var1, var6);
     *(void **) var10 = &var1;

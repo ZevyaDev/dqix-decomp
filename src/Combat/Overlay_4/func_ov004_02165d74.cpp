@@ -3,7 +3,7 @@
 #include "NitroSDK/Memory.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02046380(void*);
 extern "C" void* func_02011aa0(char* arg0, unsigned int arg1);
 struct Struct_02046574_2;
@@ -12,7 +12,7 @@ extern "C" void func_020464e8(char* arg0, int arg1, char* arg2);
 
 // USA: func_ov004_02165d74
 extern "C" ARM int func_ov004_02165d74(void* arg0) {
-    int var0 = func_020421a0();
+    int var0 = GetMessageWindow_020421a0();
     func_02046380((void*)var0);
     GameState* var1 = GameState::GetInstance();
     GameObject* var2 = var1->GetUnknownGameObject();

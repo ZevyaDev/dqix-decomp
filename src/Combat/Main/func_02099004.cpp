@@ -18,7 +18,7 @@ extern const char data_020f1670[];
 extern const char data_020f1677[];
 extern const char data_020f1683[];
 extern const char data_020f1686[];
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_020474a8(void*, int, const char*, char*);
 
 // JPN: func_0209abd0
@@ -32,7 +32,7 @@ extern "C" ARM int func_02099004(Script::Parameter* arg0, int arg1) {
 
     (arg0++)->ToInt();
     if (data_021098e8.unknown_4_->unknown_2_5_ != (arg0++)->ToInt()) return 0;
-    void* var6 = func_020421a0();
+    void* var6 = GetMessageWindow_020421a0();
     (arg0++)->ToInt();
     const char* var7 = (arg0++)->ToString();
     if (!data_021098e8.unknown_4_->unknown_3_7_) {
@@ -131,7 +131,7 @@ extern Struct_021098e8 data_021098e8;
 extern unsigned char data_020e8dac[2];
 struct Struct_020e8dae { char unknown_0_[7]; };
 extern const Struct_020e8dae data_020e8dae;
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" int func_020d2ff0(const char*);
 extern "C" char* func_020e51cc(int);
 extern "C" void func_02098f70(int*, void*, int, int);
@@ -143,7 +143,7 @@ extern "C" int func_02042764(const char*, char*, int);
 extern "C" ARM int func_02099004(Script::Parameter* arg0, int arg1) {
     (arg0++)->ToInt();
     if (data_021098e8.unknown_8_->unknown_2_5_ != (arg0++)->ToInt()) return 0;
-    int var0 = func_020421a0();
+    int var0 = GetMessageWindow_020421a0();
     (arg0++)->ToInt();
     const char* var1 = (arg0++)->ToString();
     if (!data_021098e8.unknown_8_->unknown_3_7_) {

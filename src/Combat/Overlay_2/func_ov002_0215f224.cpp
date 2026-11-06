@@ -31,7 +31,7 @@ extern int data_ov002_0216d2a8;
 #if defined(jpn)
 #define RG(u, j) (j)
 struct Struct_ov002_02157d40_2;
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_020465c0(Struct_ov002_02157d40_2*, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov002_0215f224(char* arg0, char* arg1, int arg2) {
     int var8 = *(int*)(var1 + 0x58);
     var4 = *(int*)(var1 + 0x68);
     if (var8 > 1) {
-        int var9 = func_020421a0();
+        int var9 = GetMessageWindow_020421a0();
         func_020465c0((Struct_ov002_02157d40_2*)var9, 0, var4 + 1);
         func_020465c0((Struct_ov002_02157d40_2*)var9, 1, var8);
         func_020465f0((unsigned char*)var9, 0, 1);

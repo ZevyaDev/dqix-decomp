@@ -9,12 +9,12 @@
 #endif
 #include <globaldefs.h>
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov011_02184c68(void* arg0, int arg1);
 
 // USA: func_ov011_021874b0
 extern "C" ARM int func_ov011_021874b0(void* arg0) {
-    int var0 = *(int*)((char*)(int)func_020421a0() + R(0x868, 0x998));
+    int var0 = *(int*)((char*)(int)GetMessageWindow_020421a0() + R(0x868, 0x998));
     func_ov011_02184c68(arg0, var0);
     return 1;
 }

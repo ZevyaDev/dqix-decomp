@@ -47,7 +47,7 @@ struct Struct_0205cf78;
 struct Struct_0205cf78_2;
 struct Struct_ov003_0215917c;
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov017_021d243c(int arg0);
 extern "C" void func_020dfec0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
 extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
@@ -130,11 +130,11 @@ struct Struct_ov003_021594c4_2 {
 extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
 #if defined(jpn)
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
-    int var1 = func_020421a0();
+    int var1 = GetMessageWindow_020421a0();
     unsigned char var2 = arg0->unknown_580_;
 
     if (var2 == 0) {
-        arg0->unknown_7c_ = *(void**)(func_020421a0() + 0x28);
+        arg0->unknown_7c_ = *(void**)(GetMessageWindow_020421a0() + 0x28);
         func_ov017_021d243c(1);
         arg0->unknown_0_[2].Reset();
         void* var3 = arg0->unknown_0_[2].Allocate(0x4000);
@@ -161,7 +161,7 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
                 arg0->unknown_5b4_ = 1;
                 arg0->unknown_580_ = 2;
                 arg0->unknown_578_ = var0->QueueLoadFile(data_ov003_0217fe5a, NULL);
-                *(int*)(func_020421a0() + Enum_ov003_021594c4_2152) = 1;
+                *(int*)(GetMessageWindow_020421a0() + Enum_ov003_021594c4_2152) = 1;
             } else {
                 arg0->unknown_588_ = 10;
                 arg0->unknown_580_ = 0;
@@ -283,11 +283,11 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
     }
 #else
     BackgroundLoader* var34 = BackgroundLoader::GetInstance();
-    int var35 = func_020421a0();
+    int var35 = GetMessageWindow_020421a0();
     unsigned char var36 = arg0->unknown_580_;
 
     if (var36 == 0) {
-        arg0->unknown_7c_ = *(void**)(func_020421a0() + 0x5c);
+        arg0->unknown_7c_ = *(void**)(GetMessageWindow_020421a0() + 0x5c);
         func_ov017_021d243c(1);
         char var37[0x40];
         char var38[0x18];
@@ -323,7 +323,7 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
                 arg0->unknown_5b4_ = 1;
                 arg0->unknown_580_ = 3;
                 arg0->unknown_578_ = var34->QueueLoadFile(data_ov003_0217fe5a, NULL);
-                *(int*)(func_020421a0() + Enum_ov003_021594c4_2456) = 1;
+                *(int*)(GetMessageWindow_020421a0() + Enum_ov003_021594c4_2456) = 1;
             } else {
                 arg0->unknown_588_ = 10;
                 arg0->unknown_580_ = 0;

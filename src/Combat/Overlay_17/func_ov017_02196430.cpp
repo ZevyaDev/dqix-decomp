@@ -113,7 +113,7 @@ struct Struct_ov017_021d6438 {
 };
 
 extern "C" void* func_0202ae18(void);
-extern "C" Struct_ov017_02196430_3* func_02012fe4(void);
+extern "C" Struct_ov017_02196430_3* GetZone3D_02012fe4(void);
 extern "C" void* func_0200fd0c(GameState* arg0);
 extern "C" int func_02046b08(void** arg0);
 extern "C" int func_02046b24(Struct_02015438** arg0);
@@ -155,7 +155,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
     Struct_ov017_02196430_7* var3 = var0->unknown_36f8_;
     Struct_ov017_02196430* var4 = (Struct_ov017_02196430*)var1->GetUnknownGameObject();
     Struct_ov017_02196430_8* var5 = (Struct_ov017_02196430_8*)GetGameResources();
-    Struct_ov017_02196430_3* var6 = func_02012fe4();
+    Struct_ov017_02196430_3* var6 = GetZone3D_02012fe4();
     LightingManager* var7 = LightingManager::GetInstance();
     Struct_02048150* var8 = (Struct_02048150*)func_02010828(var1);
     unsigned short var9;

@@ -18,7 +18,7 @@ struct Struct_020430b0;
 extern "C" void func_02043110(Struct_020430b0* arg0);
 
 // USA: func_020430b0
-extern "C" ARM void func_020430b0(Struct_02021b84* arg0) {
+extern "C" ARM void func_020430b0(MessageWindow_02021b84* arg0) {
     char* var0 = (char*)arg0;
     func_02043110((Struct_020430b0*)(var0 + Enum_020430b0_6624));
     *(void**)(var0 + Enum_020430b0_7712) = var0 + Enum_020430b0_2352;

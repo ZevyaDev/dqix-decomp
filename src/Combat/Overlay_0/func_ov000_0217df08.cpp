@@ -56,7 +56,7 @@ struct Struct_ov000_0217df08_9 {
     unsigned short unknown_1d72_;
 };
 
-extern "C" Struct_ov000_0217df08_8* func_020421a0();
+extern "C" Struct_ov000_0217df08_8* GetMessageWindow_020421a0();
 extern "C" Struct_ov000_0217df08_7* func_ov000_02161318(void* arg0, int arg1);
 extern "C" int func_ov000_02171a60(void*);
 extern "C" void func_020e46c4(void*);
@@ -76,7 +76,7 @@ extern "C" void __clear(void*, int);
 extern "C" void func_ov000_0217aa08(char*, char*);
 extern "C" void func_020e4f18(Struct_ov000_0217df08*, Struct_ov000_0217df08*, int);
 #if !defined(jpn)
-extern "C" void func_0204500c(Struct_ov000_0217df08_8*, char*, int, int);
+extern "C" void StartMessage_0204500c(Struct_ov000_0217df08_8*, char*, int, int);
 #endif
 extern "C" void func_02043124(Struct_ov000_0217df08_8*);
 extern "C" void func_02043204(char*);
@@ -128,7 +128,7 @@ struct Struct_ov000_0217df08_5 {
 struct Struct_02046574_2;
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 extern "C" void func_020474a8(Struct_ov000_0217df08_4*, int, char*, char*);
-extern "C" void func_0204500c(Struct_ov000_0217df08_4*, char*, int);
+extern "C" void StartMessage_0204500c(Struct_ov000_0217df08_4*, char*, int);
 extern "C" void func_ov000_0217c638(Struct_ov000_0217df08_5* arg0, int arg1, int arg2);
 extern "C" void func_ov000_02176e3c(Struct_ov000_0217df08_5* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern const char data_ov000_021851cc[];
@@ -136,7 +136,7 @@ extern const char data_ov000_021851cc[];
 // USA: func_ov000_0217df08
 extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_5* arg0, int arg1, int arg2) {
     GameState* var0 = GameState::GetInstance();
-    Struct_ov000_0217df08_4* var1 = (Struct_ov000_0217df08_4*)func_020421a0();
+    Struct_ov000_0217df08_4* var1 = (Struct_ov000_0217df08_4*)GetMessageWindow_020421a0();
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
 
     if (arg0->unknown_1fa8_ == 0) {
@@ -226,7 +226,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_5* arg0, int arg1,
                     func_020e046c(var7, var3, var4, var20);
                     func_020474a8(var1, 0xc, var7, var6);
                 }
-                func_0204500c(var1, var6, 0);
+                StartMessage_0204500c(var1, var6, 0);
                 var1->unknown_868_ = 1;
             }
             var2->RemoveTask(arg0->unknown_90c_);
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_5* arg0, int arg1,
 // USA: func_ov000_0217df08
 extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1, int arg2) {
     GameState* var22 = GameState::GetInstance();
-    Struct_ov000_0217df08_8* var23 = func_020421a0();
+    Struct_ov000_0217df08_8* var23 = GetMessageWindow_020421a0();
     BackgroundLoader* var24 = BackgroundLoader::GetInstance();
 
     if (arg0->unknown_1d70_ == 0) {
@@ -366,7 +366,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
                 }
                 var23->unknown_30_ = var27;
                 var23->unknown_31_ = var28;
-                func_0204500c(var23, var35, 0, 0xe3);
+                StartMessage_0204500c(var23, var35, 0, 0xe3);
                 var23->unknown_998_ = 1;
                 var23->unknown_30_ = -1;
             }

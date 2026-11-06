@@ -121,7 +121,7 @@ extern "C" int func_0200fb8c(int* arg0);
 extern "C" int func_02046b08(void** arg0);
 extern "C" void* func_020d6c00();
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
-extern "C" Struct_ov012_021863fc_3* func_020421a0();
+extern "C" Struct_ov012_021863fc_3* GetMessageWindow_020421a0();
 extern "C" void func_020dc2bc();
 extern "C" void func_ov012_02185e18(Struct_ov012_021863fc_2* arg0);
 extern "C" void func_ov012_02185ea8(char* arg0);
@@ -142,7 +142,7 @@ extern "C" void* func_0205ec34();
 extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
 extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
 #if !defined(jpn)
-extern "C" void func_0204500c(Struct_ov012_021863fc_3* arg0, const char* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(Struct_ov012_021863fc_3* window, const char* text, int arg2, int arg3);
 #endif
 
 extern "C" const char data_ov012_0218b224[];
@@ -241,7 +241,7 @@ extern "C" void func_ov012_021856c8(Struct_ov012_021863fc_8* arg0);
 extern "C" void func_ov012_02185690(Struct_ov012_021863fc_8* arg0);
 extern "C" int func_ov012_02186f3c(Struct_ov012_021863fc_8* arg0);
 extern "C" void func_ov012_0218bba0(void* arg0, int arg1, int arg2);
-extern "C" void func_0204500c(Struct_ov012_021863fc_4* arg0, const char* arg1, int arg2);
+extern "C" void StartMessage_0204500c(Struct_ov012_021863fc_4* window, const char* text, int arg2);
 extern "C" const char data_ov012_0218bf66[];
 extern "C" const char data_ov012_0218bf81[];
 extern "C" const char data_ov012_0218bf9a[];
@@ -260,7 +260,7 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_10* arg0)
         {
             SetFlags00(var1, 0x10);
             func_020466e4((unsigned int*)func_020d6c00(), 0xf);
-            arg0->unknown_1344_ = (char*)((Struct_ov012_021863fc_4*)func_020421a0())->unknown_28_;
+            arg0->unknown_1344_ = (char*)((Struct_ov012_021863fc_4*)GetMessageWindow_020421a0())->unknown_28_;
             unsigned int var3 = 0;
             Struct_ov012_021863fc_6* var4 = (Struct_ov012_021863fc_6*)var0->GetProtagonist();
             if (var4 != 0)
@@ -382,15 +382,15 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_10* arg0)
     }
     else if (arg0->unknown_1340_ == 5)
     {
-        Struct_ov012_021863fc_4* var13 = (Struct_ov012_021863fc_4*)func_020421a0();
-        func_0204500c(var13, func_02072a68((Struct_02072a68_2*)arg0->unknown_1314_, 500), 0);
+        Struct_ov012_021863fc_4* var13 = (Struct_ov012_021863fc_4*)GetMessageWindow_020421a0();
+        StartMessage_0204500c(var13, func_02072a68((Struct_02072a68_2*)arg0->unknown_1314_, 500), 0);
         var13->unknown_868_ = 1;
         arg0->unknown_1340_++;
         return;
     }
     else if (arg0->unknown_1340_ == 6)
     {
-        if (((Struct_ov012_021863fc_4*)func_020421a0())->unknown_868_ == 0)
+        if (((Struct_ov012_021863fc_4*)GetMessageWindow_020421a0())->unknown_868_ == 0)
         {
             Struct_ov012_021863fc_13* var14 = inline_ov012_021863fc_2(var0);
             var14->unknown_7_6_ = 1;
@@ -413,7 +413,7 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_2* arg0)
         {
             SetFlags00(var16, 0x10);
             func_020466e4((unsigned int*)func_020d6c00(), 0xf);
-            arg0->unknown_1374_ = (char*)func_020421a0()->unknown_5c_;
+            arg0->unknown_1374_ = (char*)GetMessageWindow_020421a0()->unknown_5c_;
             unsigned int var18 = 0;
             Struct_ov012_021863fc_12* var19 = (Struct_ov012_021863fc_12*)var15->GetProtagonist();
             if (var19 != 0)
@@ -556,15 +556,15 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_2* arg0)
     }
     else if (arg0->unknown_1370_ == 5)
     {
-        Struct_ov012_021863fc_3* var33 = func_020421a0();
-        func_0204500c(var33, func_02072a68((Struct_02072a68_2*)arg0->unknown_133c_, 500), 0, 0xe3);
+        Struct_ov012_021863fc_3* var33 = GetMessageWindow_020421a0();
+        StartMessage_0204500c(var33, func_02072a68((Struct_02072a68_2*)arg0->unknown_133c_, 500), 0, 0xe3);
         var33->unknown_998_ = 1;
         arg0->unknown_1370_++;
         return;
     }
     else if (arg0->unknown_1370_ == 6)
     {
-        if (func_020421a0()->unknown_998_ == 0)
+        if (GetMessageWindow_020421a0()->unknown_998_ == 0)
         {
             Struct_ov012_021863fc_13* var34 = inline_ov012_021863fc(var15);
             var34->unknown_7_6_ = 1;

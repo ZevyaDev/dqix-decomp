@@ -56,7 +56,7 @@ struct Struct_ov003_02168b50_4 {
     unsigned char unknown_5a4_;
 };
 
-extern "C" struct Struct_ov003_02168b50* func_020421a0();
+extern "C" struct Struct_ov003_02168b50* GetMessageWindow_020421a0();
 extern "C" struct Struct_ov003_02168b50_2* func_0206f504();
 extern "C" int func_02041fe8(char* arg0, int arg1);
 extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
@@ -67,10 +67,10 @@ extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 
 #if defined(jpn)
-extern "C" void func_0204500c(void*, char*, int);
+extern "C" void StartMessage_0204500c(void*, char*, int);
 #endif
 #if !defined(jpn)
-extern "C" void func_0204500c(void* arg0, char* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int arg3);
 #endif
 extern "C" void func_ov003_0216982c(struct Struct_ov003_02168b50_4* arg0);
 extern "C" void func_ov003_0216997c(struct Struct_ov003_02168b50_4* arg0);
@@ -78,7 +78,7 @@ extern "C" void func_0205deb4(struct Struct_0205d81c* arg0, int arg1, int arg2);
 
 // USA: func_ov003_02168b50
 extern "C" ARM void func_ov003_02168b50(struct Struct_ov003_02168b50_4* arg0) {
-    struct Struct_ov003_02168b50* var0 = func_020421a0();
+    struct Struct_ov003_02168b50* var0 = GetMessageWindow_020421a0();
     struct Struct_0201099c_3* var1 = (struct Struct_0201099c_3*)arg0->unknown_64_;
     if (arg0->unknown_4e8_ == 0) {
         memset(arg0->unknown_7c_, 0, Enum_ov003_02168b50_2400);
@@ -100,9 +100,9 @@ extern "C" ARM void func_ov003_02168b50(struct Struct_ov003_02168b50_4* arg0) {
         }
         var0->unknown_998_ = 1;
 #if defined(jpn)
-        func_0204500c(var0, arg0->unknown_7c_, 0);
+        StartMessage_0204500c(var0, arg0->unknown_7c_, 0);
 #else
-        func_0204500c(var0, arg0->unknown_7c_, 0, 0xe3);
+        StartMessage_0204500c(var0, arg0->unknown_7c_, 0, 0xe3);
 #endif
         var0->unknown_99c_ = 2;
         arg0->unknown_4e8_++;

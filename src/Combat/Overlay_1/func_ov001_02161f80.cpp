@@ -4,7 +4,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" void* func_0200fd0c(GameState*);
-extern "C" void func_02012fe4(void);
+extern "C" void GetZone3D_02012fe4(void);
 extern "C" int func_ov017_021d60f4(void* arg0);
 extern "C" float func_ov017_021d6110(void* arg0);
 struct Vector3i;
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov001_02161f80(void* arg0, int arg1) {
     int var0[3];
     void* var1 = GameState::GetInstance();
     struct Struct_ov001_02161f80* var2 = (struct Struct_ov001_02161f80*)func_0200fd0c((GameState*)var1);
-    func_02012fe4();
+    GetZone3D_02012fe4();
     int var3 = -1;
     int var4;
     int var5 = func_ov017_021d60f4(arg0);

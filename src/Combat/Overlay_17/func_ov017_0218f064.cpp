@@ -56,7 +56,7 @@ enum { Enum_ov017_0218f064_720 = 0x2c4, Enum_ov017_0218f064_724 = 0x2c8, Enum_ov
 enum { Enum_ov017_0218f064_720 = 0x2d0, Enum_ov017_0218f064_724 = 0x2d4, Enum_ov017_0218f064_760 = 0x2f8 };
 #endif
 extern "C" void* func_0200fd0c(GameState*);
-extern "C" Zone3D* func_02012fe4();
+extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_0202ae18();
 extern "C" void func_0207df50(Struct_0203d028*);
 extern "C" void func_020545b8(Struct_020545b8*);
@@ -93,9 +93,9 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
 #endif
     Struct_ov017_0218f064_4* var2 = (Struct_ov017_0218f064_4*)func_0200fd0c(var0);
 #if defined(jpn)
-    Struct_ov017_0218f064_10* var3 = ((Struct_ov017_0218f064_3*)func_02012fe4())->inline_ov017_0218f064_3();
+    Struct_ov017_0218f064_10* var3 = ((Struct_ov017_0218f064_3*)GetZone3D_02012fe4())->inline_ov017_0218f064_3();
 #else
-    var1 = func_02012fe4();
+    var1 = GetZone3D_02012fe4();
 #endif
     func_0202ae18();
     int var4 = 1;

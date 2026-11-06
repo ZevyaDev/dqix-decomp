@@ -42,7 +42,7 @@ struct Struct_ov023_021e49a4 {
     unsigned char unknown_138_[0x18];
     Struct_ov023_021e49a4_5* unknown_150_;
 };
-extern "C" Struct_02045cac* func_020421a0();
+extern "C" Struct_02045cac* GetMessageWindow_020421a0();
 extern "C" void func_02045cac(Struct_02045cac*);
 extern "C" char* func_020e51cc(int);
 extern "C" int func_020e0434(Struct_0201099c_3*, int);
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov023_021e49a4(Struct_ov023_021e49a4_4* arg0) {
     unsigned short (*var2)[8];
     unsigned short (*var3)[10];
     unsigned short (*var4)[16];
-    Struct_02045cac* var5 = func_020421a0();
+    Struct_02045cac* var5 = GetMessageWindow_020421a0();
     for (int var6 = 0; var6 < 4; var6++) {
         for (int var7 = 0; var7 < 16; var7++) arg0->unknown_500_[var6][var7] = 0xffff;
         for (int var8 = 0; var8 < 10; var8++) arg0->unknown_590_[var6][var8] = 0xffff;

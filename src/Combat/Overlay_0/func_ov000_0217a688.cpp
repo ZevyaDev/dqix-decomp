@@ -20,7 +20,7 @@ struct Struct_ov000_02178938 {
 };
 
 extern "C" int func_ov000_02175348(void*, int);
-extern "C" Struct_020465c0* func_020421a0();
+extern "C" Struct_020465c0* GetMessageWindow_020421a0();
 extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_ov000_0217542c(void*);
 extern "C" int func_02041c08(char*, int, int, int, int, int);
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov000_0217a688(Struct_ov000_02178938* arg0, void* arg1,
         int var6 = func_ov000_02175348(arg0, var5);
         if (var4 <= var3 && var3 < var4 + var6) var0 = var4;
     }
-    Struct_020465c0* var7 = func_020421a0();
+    Struct_020465c0* var7 = GetMessageWindow_020421a0();
 #if !defined(jpn)
     GameState* var8 = GameState::GetInstance();
     const char* var9 = (const char*)func_020e0434(&arg0->unknown_b8_, 0);

@@ -5,7 +5,7 @@
 #endif
 #include "Filesystem/BackgroundLoader.h"
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_0205d6a0;
 extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
@@ -25,7 +25,7 @@ struct Struct_ov003_0217dc40 {
 
 // USA: func_ov003_0217dc40
 extern "C" ARM void func_ov003_0217dc40(Struct_ov003_0217dc40* arg0) {
-    int var0 = func_020421a0();
+    int var0 = GetMessageWindow_020421a0();
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
 #if !defined(jpn)

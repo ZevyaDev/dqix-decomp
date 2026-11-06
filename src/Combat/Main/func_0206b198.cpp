@@ -6,7 +6,7 @@ extern "C" void func_02041bbc(Struct_0204166c*);
 
 // JPN: func_0206cb14
 extern "C" ARM void func_0206cb14(void* arg0, int arg1, unsigned short arg2) {
-    Struct_02021b84* var0 = static_cast<Struct_02021b84*>(arg0);
+    MessageWindow_02021b84* var0 = static_cast<MessageWindow_02021b84*>(arg0);
     if (arg2 >= 0x80) return;
     if (func_02069430(var0, arg2)) return;
     Struct_0204166c* var1 = &var0->unknown_9b8_[arg2];

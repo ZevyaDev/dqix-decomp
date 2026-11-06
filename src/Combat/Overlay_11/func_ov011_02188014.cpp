@@ -14,12 +14,12 @@ struct Struct_ov011_02184c30 {
     union { int unknown_0_; float unknown1_0_; } unknown_4_;
 };
 
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
 
 // USA: func_ov011_02188014
 extern "C" ARM int func_ov011_02188014(struct Struct_ov011_02184c30* arg0, int arg1) {
     int var0 = func_ov011_02184c30(&arg0[0]);
-    *(int*)((char*)func_020421a0() + R(0x86c, 0x99c)) = var0;
+    *(int*)((char*)GetMessageWindow_020421a0() + R(0x86c, 0x99c)) = var0;
     return 1;
 }

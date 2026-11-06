@@ -38,17 +38,17 @@ struct Struct_ov003_0216b7bc_3 {
     char unknown_1324_[4];
 };
 
-extern "C" struct Struct_ov003_0216b7bc* func_020421a0();
-extern "C" void* func_02012fe4(void);
+extern "C" struct Struct_ov003_0216b7bc* GetMessageWindow_020421a0();
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" const char* func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 extern "C" int func_02042058(char* arg0, const char* arg1);
 extern "C" void func_02046380(struct Struct_ov003_0216b7bc* arg0);
 #if !defined(jpn)
-extern "C" void func_0204500c(struct Struct_ov003_0216b7bc* arg0, char* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(struct Struct_ov003_0216b7bc* window, char* text, int arg2, int arg3);
 #endif
 #if defined(jpn)
 extern "C" void func_ov003_0216d8d4(struct Struct_ov003_0216b7bc_3* arg0, int arg1);
-extern "C" void func_0204500c(struct Struct_ov003_0216b7bc* arg0, char* arg1, int arg2);
+extern "C" void StartMessage_0204500c(struct Struct_ov003_0216b7bc* window, char* text, int arg2);
 #else
 extern "C" void func_ov003_0216d8d4(struct Struct_ov003_0216b7bc_3* arg0, int arg1, int arg2, int arg3, int arg4);
 #endif
@@ -58,7 +58,7 @@ extern char data_ov003_021801c2[];
 
 // USA: func_ov003_0216b7bc
 extern "C" ARM void func_ov003_0216b7bc(struct Struct_ov003_0216b7bc_3* arg0) {
-    struct Struct_ov003_0216b7bc* var0 = func_020421a0();
+    struct Struct_ov003_0216b7bc* var0 = GetMessageWindow_020421a0();
     GameState::GetInstance();
     if (arg0->unknown_a_ == 3) {
         arg0->unknown_6_ = 2;
@@ -67,10 +67,10 @@ extern "C" ARM void func_ov003_0216b7bc(struct Struct_ov003_0216b7bc_3* arg0) {
     if (arg0->unknown_6_ == 0) {
 #if defined(jpn)
         char* var2;
-        struct Struct_ov003_0216b7bc_2* var1 = (struct Struct_ov003_0216b7bc_2*)((char*)func_02012fe4() + REGION_LAYOUT(0x860, 0x840));
+        struct Struct_ov003_0216b7bc_2* var1 = (struct Struct_ov003_0216b7bc_2*)((char*)GetZone3D_02012fe4() + REGION_LAYOUT(0x860, 0x840));
         var2 = var0->unknown_5c_;
 #else
-        struct Struct_ov003_0216b7bc_2* var1 = (struct Struct_ov003_0216b7bc_2*)((char*)func_02012fe4() + REGION_LAYOUT(0x860, 0x840));
+        struct Struct_ov003_0216b7bc_2* var1 = (struct Struct_ov003_0216b7bc_2*)((char*)GetZone3D_02012fe4() + REGION_LAYOUT(0x860, 0x840));
         char* var2 = var0->unknown_5c_;
 #endif
         memset(var2, 0, REGION_LAYOUT(0x800, 0x960));
@@ -116,10 +116,10 @@ extern "C" ARM void func_ov003_0216b7bc(struct Struct_ov003_0216b7bc_3* arg0) {
 #endif
         var1->unknown_1b42_ &= ~0xff;
 #if defined(jpn)
-        func_0204500c(var0, var2, 0);
+        StartMessage_0204500c(var0, var2, 0);
 #else
         func_02046380(var0);
-        func_0204500c(var0, var2, 0, 0xe3);
+        StartMessage_0204500c(var0, var2, 0, 0xe3);
 #endif
         var0->unknown_19b2_ = 1;
         var0->unknown_99c_ = 2;

@@ -16,7 +16,7 @@ struct Struct_ov017_0219b938 {
     Model3D* inline_ov017_0219b938(int arg0) { return &unknown_498_[arg0]; }
 };
 
-extern "C" struct Struct_ov017_0219b938* func_02012fe4(void);
+extern "C" struct Struct_ov017_0219b938* GetZone3D_02012fe4(void);
 extern "C" void func_020966a0(struct Struct_020966a0* arg0);
 extern "C" void func_0204719c(void* arg0);
 extern "C" void* func_0208e9e8(void);
@@ -54,7 +54,7 @@ struct Struct_ov017_0219b938_2 {
 
 // USA: func_ov017_0219b938
 extern "C" ARM void func_ov017_0219b938(struct Struct_ov017_0219b938_2* arg0) {
-    struct Struct_ov017_0219b938* var0 = func_02012fe4();
+    struct Struct_ov017_0219b938* var0 = GetZone3D_02012fe4();
     var0->inline_ov017_0219b938(0)->Func0207e2e0();
     var0->inline_ov017_0219b938(1)->Func0207e2e0();
     func_020966a0(arg0->unknown_4328_);

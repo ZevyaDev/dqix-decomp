@@ -64,13 +64,13 @@ extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_020c5770(int, int, int, int, int, int, int, int, void*);
 extern "C" void func_020bb780(void* arg0, int arg1);
 extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
-extern "C" Struct_02021b84* func_020421a0();
-extern "C" void func_02042c68(Struct_02021b84* arg0);
-extern "C" void func_02043124(Struct_02021b84* arg0);
+extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
+extern "C" void func_02042c68(MessageWindow_02021b84* arg0);
+extern "C" void func_02043124(MessageWindow_02021b84* arg0);
 extern "C" void func_02042b30(void* arg0, void* arg1);
 extern "C" void func_0207df50(Struct_0203d028* arg0);
 extern "C" void func_0207df90(char* arg0);
-extern "C" void func_020432c4(Struct_02021b84* arg0);
+extern "C" void func_020432c4(MessageWindow_02021b84* arg0);
 extern "C" void func_0207dfac(char* arg0);
 extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
 extern "C" void func_020440b8(char* arg0, void* arg1, void* arg2);
@@ -89,7 +89,7 @@ extern "C" void func_020c38d4();
 extern "C" void __clear(void* arg0, int arg1);
 unsigned long long GetCurrentTimestamp();
 extern "C" void func_02012efc();
-extern "C" int func_020457e0(Struct_02021b84* arg0);
+extern "C" int func_020457e0(MessageWindow_02021b84* arg0);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_020a9ea4(Struct_020a9ea4* arg0);
 extern "C" int func_02046900(Struct_02020cb8_4* arg0);
@@ -100,7 +100,7 @@ extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
 extern "C" void func_0209c6d8(void* arg0, int arg1);
 extern "C" int func_ov019_0218c240(void* arg0);
 extern "C" int func_020aba5c(int arg0);
-extern "C" void func_02043368(Struct_02021b84* arg0);
+extern "C" void func_02043368(MessageWindow_02021b84* arg0);
 extern "C" void func_020bbd9c();
 extern "C" void func_020c52e8();
 extern "C" void func_020c5414();
@@ -110,7 +110,7 @@ extern "C" void func_ov019_0218c178(void* arg0);
 extern "C" void func_0203bd88(void* arg0);
 extern "C" void func_0204359c(void* arg0, int arg1);
 extern "C" void func_0203bdb0(Struct_0203bdb0* arg0);
-extern "C" void func_020439b0(Struct_02021b84* arg0, int arg1);
+extern "C" void func_020439b0(MessageWindow_02021b84* arg0, int arg1);
 extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
 extern "C" void func_0200fb94(char* arg0, unsigned char arg1);
 extern "C" void func_02012010(void* arg0, int arg1);
@@ -169,11 +169,11 @@ struct Struct_ov019_0218b5a8 {
     Struct_02043368 unknown_2d8_;
 };
 
-static inline void inline_ov019_0218b5a8(Struct_02021b84* arg0, Struct_ov019_0218b5a8* arg1, int arg2) {
+static inline void inline_ov019_0218b5a8(MessageWindow_02021b84* arg0, Struct_ov019_0218b5a8* arg1, int arg2) {
 #if defined(jpn)
-    func_0204500c(arg0, (const char*)func_02072a68((struct Struct_02072a68_2*)arg1->unknown_34_, arg2), 0);
+    StartMessage_0204500c(arg0, (const char*)func_02072a68((struct Struct_02072a68_2*)arg1->unknown_34_, arg2), 0);
 #else
-    func_0204500c(arg0, func_020e0434((Struct_0201099c_3*)arg1->unknown_34_, arg2), 0, 0xe3);
+    StartMessage_0204500c(arg0, func_020e0434((Struct_0201099c_3*)arg1->unknown_34_, arg2), 0, 0xe3);
 #endif
 }
 
@@ -285,7 +285,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     char var6[0x70];
     func_0207de48(var5, 0x4000, 0x20);
     func_0207de48(var6, 0x4000, 0x20);
-    Struct_02021b84* var7 = func_020421a0();
+    MessageWindow_02021b84* var7 = GetMessageWindow_020421a0();
     func_02042c68(var7);
     func_02043124(var7);
     func_02042b30(var7, var5);

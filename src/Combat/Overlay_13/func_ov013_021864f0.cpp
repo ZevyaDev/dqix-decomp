@@ -8,7 +8,7 @@
 #define LOW_REGION(j, u) (u)
 #endif
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02043204(char* arg0);
 
 extern "C" void func_ov013_02186c64(void* arg0, int arg1, int arg2);
@@ -20,7 +20,7 @@ extern "C" ARM void func_ov013_021864f0(void* arg0) {
     var0[LOW_REGION(0x644, 0x6bc)] &= ~1;
     if (var0[LOW_REGION(0x5cb, 0x63f)] != 0) var0[LOW_REGION(0x5c5, 0x639)] = 1;
 
-    int var1 = func_020421a0();
+    int var1 = GetMessageWindow_020421a0();
     unsigned char* var2 = (unsigned char*)var1;
     var2[0x1000 + LOW_REGION(0x7ee, 0x9be)] = 1;
 

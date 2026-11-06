@@ -238,7 +238,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     GameResources* var2 = GetGameResources();
     int var3 = (int)var2;
     Struct_ov000_021643d4* var4 = (Struct_ov000_021643d4*)func_02027cb0();
-    Zone3D* var5 = func_02012fe4();
+    Zone3D* var5 = GetZone3D_02012fe4();
     Struct_ov000_021643d4_2* var6 = (Struct_ov000_021643d4_2*)func_02010828(var0);
     Struct_ov000_0215f7a8* var7 = (Struct_ov000_0215f7a8*)var0->GetProtagonist();
     Struct_ov000_0215f7a8* var8 = func_ov017_021a278c((void*)var3, arg0->unknown_2a0_->unknown_8_);

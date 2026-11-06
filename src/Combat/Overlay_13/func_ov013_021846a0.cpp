@@ -52,7 +52,7 @@ struct Struct_ov013_021846a0_2 {
     void* unknown_654_;
 };
 
-extern "C" Struct_ov013_021846a0* func_020421a0(void);
+extern "C" Struct_ov013_021846a0* GetMessageWindow_020421a0(void);
 
 struct Struct_02074bf4;
 extern "C" void func_02074bf4(struct Struct_02074bf4*);
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov013_021846a0(Struct_ov013_021846a0_2* arg0) {
         arg0->unknown_650_ = -1;
     }
 
-    func_020421a0()->unknown_19be_ = 0;
+    GetMessageWindow_020421a0()->unknown_19be_ = 0;
 
     if (arg0->unknown_640_) {
         func_02074bf4((struct Struct_02074bf4*)arg0->unknown_20_);

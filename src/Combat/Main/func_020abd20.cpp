@@ -11,7 +11,7 @@
 
 extern char data_0211e33c[];
 
-extern "C" void* func_02012fe4();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" int func_020aaf84(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void* func_0205ec34();
 extern "C" void func_020a9a50(void* arg0, char* arg1, int arg2);
@@ -28,7 +28,7 @@ extern "C" void func_02011544(struct Struct_02011544* arg0);
 extern "C" ARM int func_020abd20() {
     GameState* var0 = GameState::GetInstance();
     GetGameResources();
-    unsigned char* var1 = (unsigned char*)func_02012fe4();
+    unsigned char* var1 = (unsigned char*)GetZone3D_02012fe4();
 #if defined(jpn)
     unsigned char* var6 = var1 + 0x860;
 #endif

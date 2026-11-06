@@ -15,7 +15,7 @@ struct Struct_0203402c {
 
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" int func_0203402c(struct Struct_0203402c* arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
 extern "C" int func_02094b9c(void* arg0, void* arg1);
 extern "C" void func_ov017_0219a674(unsigned char* arg0);
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov017_02198618(void* arg0) {
     if (func_020535c8((signed char*)var1) != 0) return;
     if (func_0203402c((struct Struct_0203402c*)var1) != 0) return;
 
-    unsigned char* var2 = (unsigned char*)func_02012fe4();
+    unsigned char* var2 = (unsigned char*)GetZone3D_02012fe4();
     func_020100bc(var0);
     unsigned char* var3 = (unsigned char*)func_0201e838(var2 + Enum_ov017_02198618_108, 10);
     struct Struct_ov017_02198618 var4 = *(struct Struct_ov017_02198618*)((char*)var1 + 0x44);

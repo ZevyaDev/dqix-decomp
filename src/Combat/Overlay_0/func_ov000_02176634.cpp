@@ -127,7 +127,7 @@ extern "C" void func_ov000_0217992c(Struct_ov000_02176634_11*, Struct_ov000_0217
 extern "C" void func_ov000_02179b70(Struct_ov000_02176634_11*, Struct_ov000_02176634*, int, int);
 extern "C" void func_ov000_02179f94(Struct_ov000_02176634_11*, Struct_ov000_02176634*, int, int);
 extern "C" void func_ov000_0217a514(Struct_ov000_02176634_11*, Struct_ov000_02176634*, int, int);
-extern "C" Struct_ov000_02176634_9* func_020421a0();
+extern "C" Struct_ov000_02176634_9* GetMessageWindow_020421a0();
 extern "C" void func_02046380(Struct_ov000_02176634_9*);
 extern "C" void __clear(void*, int);
 extern "C" void func_020e46c4(void*);
@@ -253,13 +253,13 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
         return;
     }
 
-    Struct_ov000_02176634_9* var13 = func_020421a0();
+    Struct_ov000_02176634_9* var13 = GetMessageWindow_020421a0();
     func_02046380(var13);
 #if defined(jpn)
     char var14[0x20];
     __clear(var14, 0x20);
     int var32;
-    var0 = func_020421a0()->inline_ov000_02176634_2();
+    var0 = GetMessageWindow_020421a0()->inline_ov000_02176634_2();
     memset(var0, 0, 0x800);
     memset(var0, 0, 0x800);
     func_0203bdf4((char*)arg1 + 0x88, var14);
@@ -430,7 +430,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
     var31.unknown_4_ = var29;
     int var32;
     short var33 = 0x7554;
-    var11 = func_020421a0()->unknown_5c_;
+    var11 = GetMessageWindow_020421a0()->unknown_5c_;
     memset(var11, 0, 0x960);
     memset(var11, 0, 0x960);
     func_020e4bf4(&var30, arg1->unknown_4c_);

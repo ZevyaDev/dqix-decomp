@@ -11,7 +11,7 @@ enum { Enum_ov017_021b4f48_9196 = 0x23ec, Enum_ov017_021b4f48_96 = 0x60 };
 
 struct Struct_02013fb4;
 
-extern "C" char* func_02012fe4(void);
+extern "C" char* GetZone3D_02012fe4(void);
 extern "C" int func_0201079c(char* arg0);
 extern "C" int func_020107d0(char* arg0);
 extern "C" int func_0201b5b0(int arg0);
@@ -38,7 +38,7 @@ struct Struct_ov017_021b4f48_2 {
 extern "C" ARM void func_ov017_021b4f48(struct Struct_ov017_021b4f48_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
-    ActiveGrottoClass* var2 = (ActiveGrottoClass*)((char*)func_02012fe4() + Enum_ov017_021b4f48_9196);
+    ActiveGrottoClass* var2 = (ActiveGrottoClass*)((char*)GetZone3D_02012fe4() + Enum_ov017_021b4f48_9196);
 
     if (var1->GetTaskStatus(arg0->unknown_c_) == 0) {
         return;

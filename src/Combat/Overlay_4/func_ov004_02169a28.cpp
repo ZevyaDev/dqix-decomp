@@ -5,7 +5,7 @@
 #define func_ov004_02168b08 func_ov004_02169040
 #endif
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* func_ov023_021f6524(void* arg0, int arg1);
 struct Struct_02072a68_2;
 extern "C" Struct_02072a68_2* func_ov004_02168b08(void* arg0, int arg1);
@@ -29,7 +29,7 @@ extern "C" ARM int func_ov004_02169a28(void* arg0) {
 #endif
     if (!var0) return 0;
 
-    void* var1 = (void*)func_020421a0();
+    void* var1 = (void*)GetMessageWindow_020421a0();
     char* var2 = (char*)func_ov023_021f6524(arg0, 0x64);
     func_ov004_02168b08(arg0, 3);
     short var3 = *(short*)(var2 + 0x5c);

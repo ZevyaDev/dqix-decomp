@@ -3,7 +3,7 @@
 #include "NitroSDK/Matrix.h"
 #include "Resource/Brightness.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_020100f8(char* arg0);
 struct Struct_0200ffd0;
@@ -90,7 +90,7 @@ extern int data_02108760;
 extern "C" ARM void func_020acecc(unsigned int* arg0, int arg1, int arg2)
 {
     GameState* var0 = GameState::GetInstance();
-    Struct_020acecc_2* var1 = (Struct_020acecc_2*)func_02012fe4();
+    Struct_020acecc_2* var1 = (Struct_020acecc_2*)GetZone3D_02012fe4();
     func_0202ae18();
     void* var2 = func_020100f8((char*)var0);
     Struct_020acecc_5* var3 = (Struct_020acecc_5*)func_0200ffd0((struct Struct_0200ffd0*)var0);

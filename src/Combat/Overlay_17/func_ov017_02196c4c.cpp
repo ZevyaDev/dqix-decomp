@@ -10,7 +10,7 @@
 #endif
 
 extern "C" void* func_0202ae18(void);
-extern "C" unsigned char* func_02012fe4(void);
+extern "C" unsigned char* GetZone3D_02012fe4(void);
 struct Struct_0200ffc0;
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
 extern "C" unsigned char* func_0205ec34(void);
@@ -78,7 +78,7 @@ extern "C" ARM int func_ov017_02196c4c(Struct_ov017_02196c4c* arg0) {
 #endif
     GameState* var0 = GameState::GetInstance();
     func_0202ae18();
-    unsigned char* var1 = func_02012fe4();
+    unsigned char* var1 = GetZone3D_02012fe4();
     unsigned short* var2 = arg0->unknown_36f8_;
     GameObject* var3 = var0->GetUnknownGameObject();
     void* var4 = func_0200ffc0((struct Struct_0200ffc0*)var0);

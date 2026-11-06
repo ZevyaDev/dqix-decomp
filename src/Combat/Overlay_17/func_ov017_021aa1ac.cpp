@@ -34,13 +34,13 @@ struct Struct_ov017_021aa1ac_3 {
     unsigned short unknown_12_;
 };
 
-extern "C" Struct_ov017_021aa1ac_2* func_020421a0(void);
+extern "C" Struct_ov017_021aa1ac_2* GetMessageWindow_020421a0(void);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 #if defined(jpn)
-extern "C" void func_0204500c(Struct_ov017_021aa1ac_2* arg0, const char* arg1, int arg2);
+extern "C" void StartMessage_0204500c(Struct_ov017_021aa1ac_2* window, const char* text, int arg2);
 #else
-extern "C" void func_0204500c(Struct_ov017_021aa1ac_2* arg0, const char* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(Struct_ov017_021aa1ac_2* window, const char* text, int arg2, int arg3);
 #endif
 extern "C" int func_ov017_021aa080(void);
 
@@ -51,7 +51,7 @@ extern char data_ov017_021d7868[];
 extern "C" ARM void func_ov017_021aa1ac(Struct_ov017_021aa1ac_3* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov017_021aa1ac* var1 = (Struct_ov017_021aa1ac*)func_02010828(var0);
-    Struct_ov017_021aa1ac_2* var2 = func_020421a0();
+    Struct_ov017_021aa1ac_2* var2 = GetMessageWindow_020421a0();
     int var3 = var1->unknown_f7c_;
     if (arg0->unknown_12_ == 0) {
         memset(arg0->unknown_8_, -1, sizeof(arg0->unknown_8_));
@@ -81,9 +81,9 @@ extern "C" ARM void func_ov017_021aa1ac(Struct_ov017_021aa1ac_3* arg0) {
                 strcat(var8, data_ov017_021d7868);
             }
 #if defined(jpn)
-            func_0204500c(var2, var8, 0);
+            StartMessage_0204500c(var2, var8, 0);
 #else
-            func_0204500c(var2, var8, 0, 0xe3);
+            StartMessage_0204500c(var2, var8, 0, 0xe3);
 #endif
             var2->unknown_19b2_ = 0;
             var2->unknown_998_ = 1;
@@ -105,9 +105,9 @@ extern "C" ARM void func_ov017_021aa1ac(Struct_ov017_021aa1ac_3* arg0) {
             strcat(var9, data_ov017_021d7868);
         }
 #if defined(jpn)
-        func_0204500c(var2, var9, 0);
+        StartMessage_0204500c(var2, var9, 0);
 #else
-        func_0204500c(var2, var9, 0, 0xe3);
+        StartMessage_0204500c(var2, var9, 0, 0xe3);
 #endif
         var2->unknown_19b2_ = 0;
         var2->unknown_998_ = 1;

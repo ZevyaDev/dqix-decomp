@@ -12,7 +12,7 @@ struct Struct_0205bcdc;
 extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
 extern "C" void func_0205bb04(void* arg0, int arg1);
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" int func_0205cecc(void* arg0);
 extern "C" int func_0205cb64(void* arg0);
 extern "C" void func_02043204(char* arg0);
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov013_02186590(void* arg0) {
     if (var0[R(0x5cb,0x63f)] != 0) {
         var0[R(0x5c5,0x639)] = 1;
     }
-    int var1 = func_020421a0();
+    int var1 = GetMessageWindow_020421a0();
     unsigned char* var2 = (unsigned char*)var1;
     int var3 = 1;
     var2[0x1000 + R(0x7ee,0x9be)] = var3;

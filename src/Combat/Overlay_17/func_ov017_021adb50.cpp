@@ -4,7 +4,7 @@ struct Struct_0214e34c;
 extern "C" struct Struct_0214e34c* func_020d7a50();
 struct Struct_020d7aa0_2;
 extern "C" void func_020d7aa0(struct Struct_020d7aa0_2* arg0);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02043204(char* arg0);
 extern "C" void func_0205c790(char* arg0);
 
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov017_021adb50(char* arg0) {
  enum {Enum_ov017_021adb50_632=0x278, Enum_ov017_021adb50_631=0x277};
 #endif
     func_020d7aa0((struct Struct_020d7aa0_2*)func_020d7a50());
-    func_02043204((char*)func_020421a0());
+    func_02043204((char*)GetMessageWindow_020421a0());
     func_0205c790(arg0 + 0x44);
     func_0205ba68((struct Struct_0205ba68*)(arg0 + 0x64), 1, 1, 0);
     func_0205ba68((struct Struct_0205ba68*)(arg0 + 0xb4), 1, 1, 0);

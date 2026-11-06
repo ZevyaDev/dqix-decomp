@@ -86,7 +86,7 @@ extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
 extern "C" Struct_02072a68_2* func_ov023_021fa598(void*);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void* func_02072a68(Struct_02072a68_2*, int);
 extern "C" void func_02046608(void*, int, void*, char*, int, int, int);
 extern "C" char* func_020d2f88(char*, char*);
@@ -124,7 +124,7 @@ extern "C" ARM int func_ov004_021561b0(void* arg0) {
         var12->unknown_c_ &= ~8;
         int var13 = var10 + var6;
         if (data_ov004_021707c8.unknown_8_[var13] > 0) {
-            void* var14 = func_020421a0();
+            void* var14 = GetMessageWindow_020421a0();
             memset(var8->unknown_f00_.unknown_0_, 0, 0x100);
             void* var15 = func_02072a68(var5, data_ov004_021707c8.unknown_8_[var13]);
             func_02046608(var14, 0, var15, var8->unknown_f00_.unknown_0_, 0x60, 0, 0);

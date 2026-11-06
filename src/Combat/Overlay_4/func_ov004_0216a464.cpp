@@ -16,7 +16,7 @@ enum{Enum_ov004_0216a464_400=0x190,Enum_ov004_0216a464_2456=0x998};
 extern "C" void* func_ov023_021f6524(void* arg0, int arg1);
 struct Struct_02072a68_2;
 extern "C" Struct_02072a68_2* func_ov004_02168b08(void* arg0, int arg1);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_ov023_021f9bc8(char* arg0);
 extern "C" void func_ov004_0216950c(void* arg0);
 extern "C" void func_ov004_0216920c(void* arg0);
@@ -26,9 +26,9 @@ extern "C" void func_02046380(void* arg0);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
 extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
 #if defined(jpn)
-extern "C" void func_0204500c(void*, void*, int);
+extern "C" void StartMessage_0204500c(void*, void*, int);
 #else
-extern "C" void func_0204500c(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int arg3);
 #endif
 extern "C" void func_ov023_021f65d4(void* arg0, int arg1, int arg2);
 struct Struct_ov004_02158dcc;
@@ -59,7 +59,7 @@ extern "C" ARM int func_ov004_0216a464(void* arg0) {
 
     void* var0 = func_ov023_021f6524(arg0, 0x64);
     Struct_02072a68_2* var1 = func_ov004_02168b08(arg0, 3);
-    int var2 = func_020421a0();
+    int var2 = GetMessageWindow_020421a0();
     func_ov023_021f9bc8((char*)var0);
     func_ov004_0216950c(arg0);
 
@@ -89,11 +89,11 @@ extern "C" ARM int func_ov004_0216a464(void* arg0) {
     func_02046380((void*)var2);
 #if defined(jpn)
     func_02046574((struct Struct_02046574_2*)var2, 0, (char*)var0+0x2e);
-    func_0204500c((void*)var2, var9, 0);
+    StartMessage_0204500c((void*)var2, var9, 0);
 #else
     func_02042764((char*)var0 + 0x2e, var8, 1);
     func_02046574((struct Struct_02046574_2*)var2, 0, var8);
-    func_0204500c((void*)var2, var9, 0, 0xe3);
+    StartMessage_0204500c((void*)var2, var9, 0, 0xe3);
 #endif
     *(int*)((char*)var2 + Enum_ov004_0216a464_2456) = 1;
 

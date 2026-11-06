@@ -25,7 +25,7 @@ extern unsigned short data_ov004_02170660[3];
 extern unsigned short data_ov004_0216fef8[3];
 #endif
 extern "C" void func_ov023_021f809c(void*, void*);
-extern "C" Struct_02021b84* func_020421a0();
+extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" int func_0205eaa0(Struct_02108760*, int, int);
 extern "C" void func_ov004_02163478(Struct_ov004_02163c40*);
 extern "C" void* func_ov011_021849c8(void*);
@@ -52,7 +52,7 @@ extern "C" ARM int func_ov004_02163c40(void* arg0) {
     int var11 = IsBrightnessTransitionActive(GetGameResources());
     if (var11 && !data_ov004_02171010->unknown_18fe_) return 0;
     if (!data_ov004_02171010->unknown_18f4_) return 0;
-    if (func_020421a0()->unknown_998_) return 0;
+    if (GetMessageWindow_020421a0()->unknown_998_) return 0;
     if (!data_ov004_02171010->unknown_18fe_) {
         func_0205eaa0(&data_02108760, 1, 0);
     }

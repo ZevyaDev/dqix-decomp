@@ -70,7 +70,7 @@ extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int
 extern "C" void func_0204b0e8(Struct_02020cb8_2* arg0, void* arg1);
 extern "C" void func_0204c7a8(Struct_0204c7a8* arg0, SafeAllocator* arg1, int arg2, unsigned int arg3);
 extern "C" void func_0205cf78(Struct_0205cf78* arg0, Struct_0205cf78_2* arg1, unsigned char arg2);
-extern "C" char* func_020421a0();
+extern "C" char* GetMessageWindow_020421a0();
 extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
 extern "C" int func_02042058(char* arg0, const char* arg1);
 extern "C" int func_02042084(char* arg0, char* arg1, int arg2, int arg3);
@@ -348,10 +348,10 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         arg0->unknown_36a_ = 1;
 
 #if defined(jpn)
-        char* var11 = *(char**)(func_020421a0() + 0x28);
+        char* var11 = *(char**)(GetMessageWindow_020421a0() + 0x28);
         memset(var11, 0, 0x800);
 #else
-        char* var11 = *(char**)(func_020421a0() + 0x5c);
+        char* var11 = *(char**)(GetMessageWindow_020421a0() + 0x5c);
         memset(var11, 0, 0x960);
 #endif
         char var12[0x80] = {0};
@@ -451,7 +451,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
 
     arg0->unknown_470_.CreateTypeA(func_02012d88(&data_02114e20, 0x10000), 0x10000);
     func_0207de48(arg0->unknown_244_, 0x4000, 0x400);
-    char* var17 = func_020421a0();
+    char* var17 = GetMessageWindow_020421a0();
     func_02042c68(var17);
     func_02043124(var17);
     func_020440a4(var17);
@@ -652,7 +652,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         MapVRAMBanksToMainObj(2);
 
         BackgroundLoader* var26 = BackgroundLoader::GetInstance();
-        char* var27 = func_020421a0();
+        char* var27 = GetMessageWindow_020421a0();
         for (;;) {
             func_02043368(var27);
 #if defined(jpn)

@@ -8,7 +8,7 @@
 #endif
 
 struct Struct_0201099c_3;
-struct Struct_02021b84;
+struct MessageWindow_02021b84;
 struct Struct_020465c0;
 
 extern "C" void __clear(void* arg0, unsigned long arg1);
@@ -16,9 +16,9 @@ extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned
 extern "C" const char* func_020e046c(char* arg0, void* arg1, unsigned int arg2, short arg3);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" char* func_0205ec34();
-extern "C" void func_02046380(Struct_02021b84* arg0);
+extern "C" void func_02046380(MessageWindow_02021b84* arg0);
 
-extern "C" Struct_02021b84* func_020421a0();
+extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
 extern "C" void func_02041a5c(char* arg0, int arg1);
 extern "C" void func_02042058(char* arg0, const char* arg1);
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
 {
     if (arg1 == NULL)
         return;
-    Struct_02021b84* var0 = func_020421a0();
+    MessageWindow_02021b84* var0 = GetMessageWindow_020421a0();
     if (arg3 != NULL)
     {
         Struct_ov008_02187f6c_3* var1 = (Struct_ov008_02187f6c_3*)GameState::GetInstance()->GetProtagonist();

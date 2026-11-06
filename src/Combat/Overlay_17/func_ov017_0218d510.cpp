@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-extern "C" unsigned short* func_02012fe4(void);
+extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" int func_020981e4(int arg0, int arg1);
 struct Struct_0203d028;
 extern "C" void func_0207df50(struct Struct_0203d028* arg0);
@@ -41,7 +41,7 @@ extern "C" ARM int func_ov017_0218d510(struct Struct_ov017_0218d510* arg0, SafeA
     if (arg1 == NULL) {
         return -1;
     }
-    unsigned short* var0 = func_02012fe4();
+    unsigned short* var0 = GetZone3D_02012fe4();
     int var1 = func_020981e4((int)(var0 + Enum_ov017_0218d510_1056), *var0);
     struct Struct_0203d028* var2 = inline_ov017_0218d510(arg0->unknown_2cc_, var1);
     func_0207df50(var2);

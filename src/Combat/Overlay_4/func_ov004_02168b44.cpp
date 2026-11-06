@@ -22,11 +22,11 @@ extern "C" int func_020ac4f8(int arg0);
 extern "C" int func_020ac4c0(void* arg0);
 extern "C" int func_020ac0b4(void* arg0);
 extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02043204(char* arg0);
 extern "C" void func_020e2d24(int* arg0, int arg1, int arg2);
 extern "C" void* func_ov004_02168ad4(void* arg0, int arg1);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void func_ov011_021848a0(void* arg0, int arg1);
@@ -181,7 +181,7 @@ extern "C" ARM int func_ov004_02168b44(void* arg0) {
     data_ov004_02171030->unknown_19c_ = ((SafeAllocator*)((char*)var7 + 4))->Allocate(0x800);
     memset(data_ov004_02171030->unknown_19c_, 0, 4);
 
-    void* var15 = func_02012fe4();
+    void* var15 = GetZone3D_02012fe4();
     if (!var15) return 0;
     struct Struct_0201e830* var16 = (struct Struct_0201e830*)((char*)var15 + Enum_ov004_02168b44_108);
     if (!var16) return 0;
@@ -216,7 +216,7 @@ extern "C" ARM int func_ov004_02168b44(void* arg0) {
         func_ov011_021848a0(arg0, 0x64);
     }
 
-    char* var22 = (char*)func_020421a0();
+    char* var22 = (char*)GetMessageWindow_020421a0();
     func_02043204(var22);
     *(unsigned char*)(var22 + Enum_ov004_02168b44_6498) = 1;
     func_020e2d24((int*)(var22 + Enum_ov004_02168b44_6500), 9, 1);

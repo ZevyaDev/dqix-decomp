@@ -7,7 +7,7 @@ enum { Enum_ov017_021cfe84_14132 = 0x3524 };
 enum { Enum_ov017_021cfe84_14132 = 0x3734 };
 #endif
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_02019508_3;
 extern "C" void func_0201ba1c(struct Struct_02019508_3* arg0, int arg1, int arg2);
 
@@ -20,7 +20,7 @@ struct Struct_ov017_021cfe84 {
 
 // USA: func_ov017_021cfe84
 extern "C" ARM void func_ov017_021cfe84(int arg0, Struct_ov017_021cfe84* arg1) {
-	void* var0 = func_02012fe4();
+	void* var0 = GetZone3D_02012fe4();
 	if (arg1->unknown_4_ != *(unsigned short*)var0) {
 		return;
 	}

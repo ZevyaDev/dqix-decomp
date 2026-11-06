@@ -40,7 +40,7 @@ struct Struct_0205faf4_20 {
 
 extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
 extern "C" void func_02010890(GameState*, int*, int*);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_020457e0(int);
 struct Struct_0205faf4;
 struct GameState;
@@ -99,7 +99,7 @@ extern "C" int func_020de9a4(void* arg0, void* arg1, void* arg2, unsigned int ar
 struct Struct_0205faf4_11;
 extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
 extern "C" int func_020cf0fc(int arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_0205faf4_12;
 extern "C" unsigned char func_02098ee8(struct Struct_0205faf4_12* arg0);
 extern "C" int func_02011b50(void* arg0, int arg1);
@@ -202,7 +202,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return CU16(2) == var10;
     }
     case 16:
-        return CU16(2) == func_020457e0(func_020421a0());
+        return CU16(2) == func_020457e0(GetMessageWindow_020421a0());
     case 17: {
         struct Struct_0203d028_2* var11 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
         if (CU16(2) == 1) {
@@ -811,12 +811,12 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 93: {
         unsigned int var131 = 1 << CU16(2);
-        return (FLAGS1840(func_02012fe4())->unknown_b4c_ & var131) ? 1 : 0;
+        return (FLAGS1840(GetZone3D_02012fe4())->unknown_b4c_ & var131) ? 1 : 0;
     }
     case 94:
-        return CU16(2) == FLAGS1840(func_02012fe4())->unknown_b3c_;
+        return CU16(2) == FLAGS1840(GetZone3D_02012fe4())->unknown_b3c_;
     case 95: {
-        unsigned short var132 = *(unsigned short*)((char*)func_02012fe4() + REGION_VALUE(0x27f4, 0x27b4));
+        unsigned short var132 = *(unsigned short*)((char*)GetZone3D_02012fe4() + REGION_VALUE(0x27f4, 0x27b4));
         return CS16(2) == var132;
     }
     case 96: {
@@ -836,9 +836,9 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return 0;
 #endif
     case 98:
-        return *((unsigned char*)func_02012fe4() + REGION_VALUE(0x2810, 0x27d0)) <= CU16(2);
+        return *((unsigned char*)GetZone3D_02012fe4() + REGION_VALUE(0x2810, 0x27d0)) <= CU16(2);
     case 99:
-        return *((unsigned char*)func_02012fe4() + REGION_VALUE(0x2810, 0x27d0)) >= CU16(2);
+        return *((unsigned char*)GetZone3D_02012fe4() + REGION_VALUE(0x2810, 0x27d0)) >= CU16(2);
     case 500: {
         struct Struct_0203d028_2* var136 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
         int var137[4];
@@ -858,7 +858,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     case 501:
         return CU16(2) == ((GameState*)((struct Struct_0203d028_2*)(void*)GameState::GetInstance()))->GetTimeOfDay();
     case 502:
-        return func_02098ee8((struct Struct_0205faf4_12*)((char*)func_02012fe4() + REGION_VALUE(0x860, 0x840)));
+        return func_02098ee8((struct Struct_0205faf4_12*)((char*)GetZone3D_02012fe4() + REGION_VALUE(0x860, 0x840)));
     case 503:
         if (CU16(2) != 0) return func_0206dfb0((int)arg0, OBJB + 0x8c, 0x798);
         return !func_0206dfb0((int)arg0, OBJB + 0x8c, 0x798);

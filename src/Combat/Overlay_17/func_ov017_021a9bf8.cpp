@@ -65,13 +65,13 @@ extern "C" void func_ov017_021a9f58(int);
 extern "C" void func_020a27b8(unsigned char*);
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020e11a4();
-extern "C" char* func_020421a0();
+extern "C" char* GetMessageWindow_020421a0();
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 extern "C" const char* func_020e51cc(int);
 extern "C" unsigned char func_02011804(GameState* arg0);
 extern "C" void func_020ac760(void*);
 extern "C" void func_020ac734(void*);
-extern "C" void func_0204500c(char*, char*, int
+extern "C" void StartMessage_0204500c(char*, char*, int
 #if !defined(jpn)
     , int
 #endif
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
         if (!func_02094b4c(func_02094a00())) return;
         func_020397cc((Struct_02018300_3*)var5, 1);
         func_020e11a4();
-        char* var7 = func_020421a0();
+        char* var7 = GetMessageWindow_020421a0();
         char* var8 = (*reinterpret_cast<char**>(var7 + Enum_ov017_021a9bf8_96));
 #if defined(jpn)
         char* var9 = var0->GetUnknownGameObject()->baseStats_->unk;
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
 #endif
             arg0->unknown_8_ = 4;
         }
-        func_0204500c(var7, var8, 0
+        StartMessage_0204500c(var7, var8, 0
 #if !defined(jpn)
             , 0xe3
 #endif
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
         (*reinterpret_cast<int*>(var7 + Enum_ov017_021a9bf8_2456)) = 1;
         (*reinterpret_cast<unsigned char*>(var7 + Enum_ov017_021a9bf8_6578)) = 0;
     } else if (arg0->unknown_8_ == 2) {
-        char* var10 = func_020421a0();
+        char* var10 = GetMessageWindow_020421a0();
         if ((*reinterpret_cast<int*>(var10 + Enum_ov017_021a9bf8_2456))) return;
         char* var11 = (*reinterpret_cast<char**>(var10 + Enum_ov017_021a9bf8_96));
 #if defined(jpn)
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
         sprintf(var11, func_020e51cc(0x41));
 #endif
         (*reinterpret_cast<int*>(var10 + Enum_ov017_021a9bf8_712)) = 1;
-        func_0204500c(var10, var11, 0
+        StartMessage_0204500c(var10, var11, 0
 #if !defined(jpn)
             , 0xe3
 #endif
@@ -168,7 +168,7 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
         (*reinterpret_cast<unsigned char*>(var10 + Enum_ov017_021a9bf8_6578)) = 1;
         arg0->unknown_8_ = 3;
     } else if (arg0->unknown_8_ == 3) {
-        char* var13 = func_020421a0();
+        char* var13 = GetMessageWindow_020421a0();
         if ((*reinterpret_cast<int*>(var13 + Enum_ov017_021a9bf8_2456))) return;
         int var14 = func_020457e0(var13);
         if (var14 == 0) arg0->unknown_8_ = 4;
@@ -198,7 +198,7 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
             arg0->unknown_8_ = 5;
         }
     } else if (arg0->unknown_8_ == 4) {
-        if ((*reinterpret_cast<int*>(func_020421a0() + Enum_ov017_021a9bf8_2456))) return;
+        if ((*reinterpret_cast<int*>(GetMessageWindow_020421a0() + Enum_ov017_021a9bf8_2456))) return;
         func_02094ab0(func_02094a00());
         if (func_020649b0(func_0205ec34(), 0x1b, var4)) func_0206f81c(var4);
         arg0->unknown_8_ = 5;

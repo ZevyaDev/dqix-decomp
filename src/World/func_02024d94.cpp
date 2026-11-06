@@ -7,7 +7,7 @@ enum { Enum_02024d94_1004 = 0xc, Enum_02024d94_8192 = 0x2400, Enum_02024d94_12 =
 enum { Enum_02024d94_1004 = 0x3ec, Enum_02024d94_8192 = 0x2000, Enum_02024d94_12 = 12 };
 #endif
 
-extern "C" void *func_02012fe4();
+extern "C" void *GetZone3D_02012fe4();
 extern "C" void func_02027974(void *arg0, int arg1, void *arg2);
 
 static inline char *inline_02024d94(Zone3D *arg0) {
@@ -21,7 +21,7 @@ static inline ActiveGrottoClass *inline_02024d94_2(char *arg0) {
 // USA: func_02024d94
 extern "C" ARM void func_02024d94(void *arg0, unsigned short arg1, Vector3i *arg2) {
     GameState *var0        = GameState::GetInstance();
-    Zone3D *var1                = static_cast<Zone3D *>(func_02012fe4());
+    Zone3D *var1                = static_cast<Zone3D *>(GetZone3D_02012fe4());
     unsigned char *var2 = reinterpret_cast<unsigned char *>(&var0->unk_6fc0[Enum_02024d94_12]) + ((arg1 % 20) - 1) * 32;
 
     int var3 = static_cast<int>((4.0f + static_cast<float>(arg2->x) / 4096.0f) / 8.0f);

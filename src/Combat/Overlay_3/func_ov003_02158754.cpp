@@ -13,7 +13,7 @@ void func_0207dfac(void *);
 void func_02059f38(void *, void *);
 void func_020407b4(void *, int, int, int);
 int func_02098210(int, int);
-unsigned short *func_02012fe4(void);
+unsigned short *GetZone3D_02012fe4(void);
 }
 
 #if defined(jpn)
@@ -86,7 +86,7 @@ extern "C" ARM int func_ov003_02158754(struct Struct_ov003_02158754_3 *arg0) {
         GameState *var6         = GameState::GetInstance();
         Object3D *var7          = (Object3D *) var6->GetPartyMemberByIndex(arg0->unknown_1f7_);
         struct Struct_ov003_02158754 *var8 = (struct Struct_ov003_02158754 *) var6->GetGameObjectByIndex(arg0->unknown_1f7_ * 0xc + 0x14);
-        unsigned short *var9     = func_02012fe4();
+        unsigned short *var9     = GetZone3D_02012fe4();
         unsigned int var10       = var9[0];
         if (var7->IsVisible() && var7->GetInheritedAlpha() != 0 && var10 != 10000) {
             if (TestFlags04((GameResources*)var3, 4) == 0 || ((struct Struct_ov003_02158754_2 *) var7)->unknown_4_ == 0) {

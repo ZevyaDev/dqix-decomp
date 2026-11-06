@@ -40,7 +40,7 @@ extern "C" int func_0201b5d8(int);
 extern "C" int func_0202b7d8(int*);
 extern "C" void func_ov017_021c9544(int, int, int, int);
 extern "C" int* func_0202ae18();
-extern "C" unsigned short* func_02012fe4();
+extern "C" unsigned short* GetZone3D_02012fe4();
 extern "C" int func_0202c508(int*);
 extern "C" void func_02034104(Vector3fix*, GameObject*);
 extern "C" int func_02031118(Vector3fix*, Struct_ov017_021a1ad0_2*);
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov017_021a1ad0() {
     GameState* var0 = GameState::GetInstance();
     Struct_020fdd44* var1 = func_02027ca4();
     int* var2 = func_0202ae18();
-    unsigned short* var3 = func_02012fe4();
+    unsigned short* var3 = GetZone3D_02012fe4();
     if (func_0202c508(var2)) {
         int var4;
         int var5;

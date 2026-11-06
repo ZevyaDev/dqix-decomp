@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_ov017_021acd7c(void* arg0);
 extern "C" void func_ov017_021adb50(char* arg0);
 struct Struct_0201bdac_2;
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov017_0219577c(unsigned char arg0, int arg1, int arg2) 
     GameState* var0 = GameState::GetInstance();
     char* var1 = (char*)GetGameResources();
     void* var2 = *(void**)(var1 + 0x3000 + Enum_ov017_0219577c_1788);
-    func_02012fe4();
+    GetZone3D_02012fe4();
     Struct_ov017_0219577c* var3 = *(Struct_ov017_0219577c**)(var1 + 0x3000 + Enum_ov017_0219577c_2848);
     if (var3->unknown_2_) return;
 

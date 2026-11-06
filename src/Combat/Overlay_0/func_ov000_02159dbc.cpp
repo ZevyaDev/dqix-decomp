@@ -5,7 +5,7 @@
 
 extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
 extern "C" void* func_ov000_02153758(void* arg0, int arg1);
-extern "C" char* func_02012fe4(void);
+extern "C" char* GetZone3D_02012fe4(void);
 
 struct Struct_ov000_02159dbc {
     char unknown_0_[0xa];
@@ -29,7 +29,7 @@ extern "C" ARM int func_ov000_02159dbc(char* arg0, int arg1) {
     if (var2 == 0) {
         return 1;
     }
-    char* var3 = func_02012fe4();
+    char* var3 = GetZone3D_02012fe4();
     if (func_020117f0(var0) && (*(struct Struct_ov000_02159dbc_2**)(arg0 + 0x8e18))->unknown_25_ != 0) {
 #if defined(jpn)
         enum { Enum_ov000_02159dbc_9196 = 0x240c };

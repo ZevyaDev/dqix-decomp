@@ -3,7 +3,7 @@
 #include "std_library_functions.h"
 
 extern "C" void func_020dcfc8(int arg0, char* arg1);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
 struct Struct_0205d81c;
 struct Struct_0205d0e0;
@@ -34,11 +34,11 @@ extern "C" ARM void func_ov000_021781f8(char* arg0, struct Struct_ov000_021781f8
 #if !defined(jpn)
     char var2[0x800];
 #endif
-    char* var3 = *(char**)(func_020421a0() + Enum_ov000_021781f8_92);
+    char* var3 = *(char**)(GetMessageWindow_020421a0() + Enum_ov000_021781f8_92);
     memset(var3, 0, Enum_ov000_021781f8_2400);
     func_020dcfc8(*(short*)(arg0 + 0x26 + *(signed char*)(arg0 + Enum_ov000_021781f8_7535) * 2), var3);
 #if !defined(jpn)
-    func_02046608(func_020421a0(), 0xa, var3, var2, 0x72, 0, 0);
+    func_02046608(GetMessageWindow_020421a0(), 0xa, var3, var2, 0x72, 0, 0);
 #endif
     var1 = arg0 + 0x188;
 #if defined(jpn)

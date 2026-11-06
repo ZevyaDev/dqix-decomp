@@ -176,7 +176,7 @@ extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
 extern "C" int func_02042190(int arg0);
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02046608(void* arg0, int, const char* arg2, char* arg3, int, int, int);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void func_0204f41c(Struct_ov023_021f8240_5* arg0, short arg1, short arg2, const char* arg3, unsigned char arg4,
@@ -279,7 +279,7 @@ extern "C" ARM void func_ov023_021f8240(Struct_ov023_021f8240_6* arg0, void* arg
             if (var7)
             {
                 func_0206819c(var6, var19, var5);
-                func_02046608(func_020421a0(), 10, var19, var20, 0x400, 0, 0);
+                func_02046608(GetMessageWindow_020421a0(), 10, var19, var20, 0x400, 0, 0);
                 var6 = var20;
             }
             int var21 = func_020420e8(var6, var5);

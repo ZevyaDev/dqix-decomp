@@ -46,7 +46,7 @@ struct Struct_020a78dc {
 
 struct Struct_020e90a8 { int unknown_0_[8]; };
 
-extern "C" char* func_02012fe4();
+extern "C" char* GetZone3D_02012fe4();
 extern "C" struct Struct_02038138_3* func_ov017_0218d268(void*);
 extern "C" int func_02046b08(void** arg0);
 extern "C" void func_02033b88(struct Struct_02010604*, int);
@@ -81,7 +81,7 @@ extern "C" ARM void func_020a78dc(struct Struct_020a78dc* arg0) {
     enum { Enum_020a78dc_14076 = 0x36fc, Enum_020a78dc_108 = 0x6c };
 #endif
     var4 = *(void***)(var2 + Enum_020a78dc_14076);
-    var0 = func_02012fe4();
+    var0 = GetZone3D_02012fe4();
     var3 = func_ov017_0218d268(var2);
     struct Struct_020e90a8 var5 = data_020e90a8;
 

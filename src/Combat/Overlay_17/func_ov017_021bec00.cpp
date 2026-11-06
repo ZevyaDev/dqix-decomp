@@ -65,14 +65,14 @@ struct Struct_ov017_021bec00_2 {
     char unknown_58_[0xa4];
 };
 extern "C" void func_0202ae18();
-extern "C" Struct_ov017_021bec00_3* func_02012fe4();
+extern "C" Struct_ov017_021bec00_3* GetZone3D_02012fe4();
 extern "C" void VectorizedMemset(void*, int, unsigned int);
 extern "C" int sprintf(char*, const char*, ...);
 extern "C" void func_020dfec0(void*, SafeAllocator*, void*, unsigned int);
 #if defined(jpn)
-extern "C" void func_0204500c(Struct_ov017_021bec00_5*, char*, int);
+extern "C" void StartMessage_0204500c(Struct_ov017_021bec00_5*, char*, int);
 #else
-extern "C" void func_0204500c(Struct_ov017_021bec00_5*, char*, int, int);
+extern "C" void StartMessage_0204500c(Struct_ov017_021bec00_5*, char*, int, int);
 #endif
 #if defined(jpn)
 extern "C" void func_02043270(Struct_ov017_021bec00_5*, int, int, int, int);
@@ -80,7 +80,7 @@ extern "C" void func_02043270(Struct_ov017_021bec00_5*, int, int, int, int);
 extern "C" void func_02042b98(Struct_ov017_021bec00_5*, int, int, int, int);
 #endif
 extern "C" void func_ov017_021bef84(Struct_ov017_021bec00_2*);
-extern "C" Struct_ov017_021bec00_5* func_020421a0();
+extern "C" Struct_ov017_021bec00_5* GetMessageWindow_020421a0();
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
 extern "C" Struct_ov017_021bec00* func_0200fd0c(GameState*);
@@ -99,9 +99,9 @@ extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     func_0202ae18();
     GameResources* var1 = GetGameResources();
-    Struct_ov017_021bec00_5* var2 = func_020421a0();
+    Struct_ov017_021bec00_5* var2 = GetMessageWindow_020421a0();
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
-    ActiveGrottoClass* var4 = &func_02012fe4()->unknown_23ec_;
+    ActiveGrottoClass* var4 = &GetZone3D_02012fe4()->unknown_23ec_;
     var0->GetGrottoStruct();
     char var5[0x100] = {};
     var2->unknown_19ae_ = 0;
@@ -164,10 +164,10 @@ extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
             } else {
 #if defined(jpn)
                 sprintf(var5, data_ov017_021d86c6, var4->GetPopupName());
-                func_0204500c(var2, var5, 0);
+                StartMessage_0204500c(var2, var5, 0);
 #else
                 sprintf(var5, data_ov017_021d7eb2, var4->GetPopupName());
-                func_0204500c(var2, var5, 0, 256);
+                StartMessage_0204500c(var2, var5, 0, 256);
 #endif
                 var2->unknown_19b8_ = 1;
                 var2->unknown_19af_ = 0;

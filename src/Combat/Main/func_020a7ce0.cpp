@@ -9,7 +9,7 @@ enum { Enum_020a7ce0_1844 = 0x734 };
 enum { Enum_020a7ce0_1940 = 0x794 };
 #endif
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 
 extern "C" int _s32_div_f(int a, int b);
 
@@ -23,7 +23,7 @@ struct Struct_020a7ce0 {
 
 // USA: func_020a7ce0
 extern "C" ARM void func_020a7ce0(struct Struct_020a7ce0* arg0) {
-    void* var0 = func_02012fe4();
+    void* var0 = GetZone3D_02012fe4();
     void* var1 = GetGameResources();
     char* var2 = (char*)var1 + 0x3000;
     void* var3 = *(void**)(var2 + Enum_020a7ce0_1844);

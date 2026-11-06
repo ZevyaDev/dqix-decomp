@@ -9,7 +9,7 @@ enum { Enum_ov017_021a316c_4544 = 0x11c0, Enum_ov017_021a316c_4412 = 0x113c, Enu
 #endif
 
 extern "C" void func_020da244(void* arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern int data_ov017_021d82fc;
 
 extern "C" void func_ov017_021a27e8(void* arg0);
@@ -34,7 +34,7 @@ extern "C" void func_0207df50(struct Struct_0203d028* arg0);
 // USA: func_ov017_021a316c
 extern "C" ARM void func_ov017_021a316c(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
-    unsigned char* var1 = (unsigned char*)func_02012fe4();
+    unsigned char* var1 = (unsigned char*)GetZone3D_02012fe4();
     int var2;
     int var3;
     int var4;

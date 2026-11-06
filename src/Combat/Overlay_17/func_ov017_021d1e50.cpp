@@ -27,7 +27,7 @@ struct Struct_ov017_021d1e50_3 : Struct_0201bdac {
 struct Struct_0202c1a4;
 extern "C" int func_0202c1a4(Struct_0202c1a4*);
 extern "C" int func_02046b08(void**);
-extern "C" Struct_ov017_021d1e50_2* func_02012fe4();
+extern "C" Struct_ov017_021d1e50_2* GetZone3D_02012fe4();
 extern "C" void func_ov017_021baedc(Struct_ov017_021d1e50_3*, int);
 extern "C" void func_ov017_021bbbf8(void*, unsigned short);
 extern "C" int func_0201079c(char*);
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov017_021d1e50(int arg0, Struct_ov017_021cd748_6* arg1,
     if (!func_0202c1a4(arg4)) return;
     var4 = (Struct_0201bdac_2*)arg3->unknown_ptr_array_36fc[0];
     if (!func_02046b08((void**)var4)) return;
-    Struct_ov017_021d1e50_2* var6 = func_02012fe4();
+    Struct_ov017_021d1e50_2* var6 = GetZone3D_02012fe4();
     var2 = var6->unknown_0_;
     if (var2 != 0x1901 && var2 != 0x1902 && var2 != 0x1903 && var2 != 0x1904) return;
     if (arg1->unknown_8_ || arg1->unknown_a_) {

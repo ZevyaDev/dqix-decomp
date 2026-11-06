@@ -92,7 +92,7 @@ extern unsigned char data_ov023_021fd844[];
 extern char data_02108760[];
 extern char data_02109bf4[];
 
-extern "C" Struct_ov023_021ec480_4* func_020421a0();
+extern "C" Struct_ov023_021ec480_4* GetMessageWindow_020421a0();
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
 extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
@@ -116,9 +116,9 @@ void func_ov023_021ed4b8(Struct_ov023_021ec480* arg0);
 void func_ov023_021ed600(Struct_ov023_021ec480* arg0);
 void* func_0205ec34();
 #if defined(jpn)
-void func_0204500c(Struct_ov023_021ec480_4* arg0, const char* arg1, int arg2);
+void StartMessage_0204500c(Struct_ov023_021ec480_4* window, const char* text, int arg2);
 #else
-void func_0204500c(Struct_ov023_021ec480_4* arg0, const char* arg1, int arg2, int arg3);
+void StartMessage_0204500c(Struct_ov023_021ec480_4* window, const char* text, int arg2, int arg3);
 #endif
 }
 
@@ -136,7 +136,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
  enum {Enum_ov023_021ec480_2400=0x960};
 #endif
     GameResources* var0 = GetGameResources();
-    Struct_ov023_021ec480_4* var1 = func_020421a0();
+    Struct_ov023_021ec480_4* var1 = GetMessageWindow_020421a0();
     if (arg0->unknown_432_ >= 1 && arg0->unknown_432_ <= 3 && func_ov023_021ed064(arg0))
     {
         arg0->unknown_432_ = 4;
@@ -255,9 +255,9 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
             func_02042058(arg0->unknown_1c_, func_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1002));
             var1->unknown_998_ = 1;
 #if defined(jpn)
-            func_0204500c(var1, arg0->unknown_1c_, 0);
+            StartMessage_0204500c(var1, arg0->unknown_1c_, 0);
 #else
-            func_0204500c(var1, arg0->unknown_1c_, 0, 0xe3);
+            StartMessage_0204500c(var1, arg0->unknown_1c_, 0, 0xe3);
 #endif
             var1->unknown_19b2_ = 0;
             var1->unknown_19c8_ = 0;
@@ -305,9 +305,9 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
         func_02042058(arg0->unknown_1c_, func_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1002));
         var1->unknown_998_ = 1;
 #if defined(jpn)
-        func_0204500c(var1, arg0->unknown_1c_, 0);
+        StartMessage_0204500c(var1, arg0->unknown_1c_, 0);
 #else
-        func_0204500c(var1, arg0->unknown_1c_, 0, 0xe3);
+        StartMessage_0204500c(var1, arg0->unknown_1c_, 0, 0xe3);
 #endif
         var1->unknown_19b2_ = 0;
         var1->unknown_19c8_ = 0;

@@ -58,12 +58,12 @@ struct Struct_02108760;
 struct Struct_0205c570;
 struct Struct_ov012_02186a7c;
 
-extern "C" Struct_ov012_02187320* func_020421a0();
+extern "C" Struct_ov012_02187320* GetMessageWindow_020421a0();
 extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
 #if defined(jpn)
-extern "C" void func_0204500c(Struct_ov012_02187320* arg0, const char* arg1, int arg2);
+extern "C" void StartMessage_0204500c(Struct_ov012_02187320* window, const char* text, int arg2);
 #else
-extern "C" void func_0204500c(Struct_ov012_02187320* arg0, const char* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(Struct_ov012_02187320* window, const char* text, int arg2, int arg3);
 #endif
 extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
 extern "C" void func_0205de24(Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
@@ -93,16 +93,16 @@ static inline Struct_ov012_02187320_2* inline_ov012_02187320(GameState* arg0)
 // USA: func_ov012_02187320
 extern "C" ARM void func_ov012_02187320(Struct_ov012_02187320_3* arg0)
 {
-    Struct_ov012_02187320* var0 = func_020421a0();
+    Struct_ov012_02187320* var0 = GetMessageWindow_020421a0();
     int var1 = var0->unknown_9a0_;
     if (var1 == 3)
         var0->unknown_19ae_ = 0;
     if (arg0->unknown_1370_ == 0)
     {
 #if defined(jpn)
-        func_0204500c(var0, func_02072a68((Struct_02072a68_2*)arg0->unknown_133c_, 0xf), 0);
+        StartMessage_0204500c(var0, func_02072a68((Struct_02072a68_2*)arg0->unknown_133c_, 0xf), 0);
 #else
-        func_0204500c(var0, func_02072a68((Struct_02072a68_2*)arg0->unknown_133c_, 0xf), 0, 0xe3);
+        StartMessage_0204500c(var0, func_02072a68((Struct_02072a68_2*)arg0->unknown_133c_, 0xf), 0, 0xe3);
 #endif
         var0->unknown_998_ = 1;
         func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ac_, 1);
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov012_02187320(Struct_ov012_02187320_3* arg0)
         }
         if (!var2)
             return;
-        Struct_ov012_02187320* var4 = func_020421a0();
+        Struct_ov012_02187320* var4 = GetMessageWindow_020421a0();
         int var5 = var4->unknown_998_ == 0 ? 1 : 0;
         if (!var5)
             func_02043204((char*)var4);

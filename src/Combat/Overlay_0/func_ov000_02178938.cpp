@@ -12,7 +12,7 @@ struct Struct_ov000_02178938 { char unknown_0_[0xb8]; char unknown_b8_[0x20]; ch
 struct Struct_ov000_02178938_2 { char unknown_0_[0x1d]; signed char unknown_1d_; };
 extern "C" int func_ov000_02175348(void*, int);
 extern "C" int func_ov000_0217542c(void*);
-extern "C" Struct_020465c0* func_020421a0();
+extern "C" Struct_020465c0* GetMessageWindow_020421a0();
 extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_02041c08(char*, int, int, int, int, int);
 extern "C" void func_02041ea4(char*, int);
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov000_02178938(Struct_ov000_02178938* arg0, Struct_ov00
         }
     }
     int var7 = func_ov000_0217542c(arg0);
-    Struct_020465c0* var8 = func_020421a0();
+    Struct_020465c0* var8 = GetMessageWindow_020421a0();
 #if !defined(jpn)
     GameState* var9 = GameState::GetInstance();
     const char* var10 = (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0);

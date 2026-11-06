@@ -11,7 +11,7 @@ extern const char data_020f2a18[];
 extern "C" void func_020728ac(int, int, void*, int, int, unsigned short, unsigned char);
 struct Struct_02072a68_2;
 extern "C" void* func_02072a68(Struct_02072a68_2*, int);
-extern "C" void func_0204500c(void*, void*, int);
+extern "C" void StartMessage_0204500c(void*, void*, int);
 #else
 #define REGION_VALUE(jpnValue, usaValue) usaValue
 #endif
@@ -27,10 +27,10 @@ extern "C" void* func_020d6c00(void);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 struct Struct_02018300_3;
 extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02046380(void* arg0);
 #if !defined(jpn)
-extern "C" void func_0204500c(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int arg3);
 #endif
 extern "C" void func_020dfec0(void* arg0, void* arg1, void* arg2, unsigned int arg3);
 struct Struct_02046574_2;
@@ -104,18 +104,18 @@ extern "C" ARM void func_020d9b34(struct Struct_020d9b34_2* arg0) {
         arg0->unknown_9_++;
     } else if (arg0->unknown_9_ == 3) {
         if (func_02094b4c(func_02094a00()) == 0) return;
-        void* var4 = (void*)func_020421a0();
+        void* var4 = (void*)GetMessageWindow_020421a0();
         func_02046380(var4);
         func_02046574((struct Struct_02046574_2*)var4, 0, arg0->unknown_10_);
 #if defined(jpn)
-        func_0204500c(var4, func_02072a68((Struct_02072a68_2*)&arg0->unknown_40_, arg0->unknown_8_), 0);
+        StartMessage_0204500c(var4, func_02072a68((Struct_02072a68_2*)&arg0->unknown_40_, arg0->unknown_8_), 0);
 #else
-        func_0204500c(var4, (void*)func_020e0434((struct Struct_0201099c_3*)&arg0->unknown_40_, arg0->unknown_8_), 0, 0xe3);
+        StartMessage_0204500c(var4, (void*)func_020e0434((struct Struct_0201099c_3*)&arg0->unknown_40_, arg0->unknown_8_), 0, 0xe3);
 #endif
         *(int*)((char*)var4 + REGION_VALUE(0x868, 0x998)) = 1;
         arg0->unknown_9_++;
     } else if (arg0->unknown_9_ == 4) {
-        if (*(int*)((char*)func_020421a0() + REGION_VALUE(0x868, 0x998)) == 0) {
+        if (*(int*)((char*)GetMessageWindow_020421a0() + REGION_VALUE(0x868, 0x998)) == 0) {
             func_020d9d60((struct Struct_020d9b34*)arg0);
             arg0->unknown_1_ = 1;
         }

@@ -11,11 +11,11 @@ struct Struct_ov023_021ea9b0 {
     Struct_ov023_021ea9b0_2* unknown_8_;
 };
 
-extern "C" Struct_ov023_021ea9b0* func_02012fe4(void);
+extern "C" Struct_ov023_021ea9b0* GetZone3D_02012fe4(void);
 extern "C" void func_ov017_021d6134(void* arg0, int arg1);
 
 // USA: func_ov023_021ea9b0
 extern "C" ARM int func_ov023_021ea9b0(void* arg0) {
-    func_ov017_021d6134(arg0, func_02012fe4()->unknown_8_->unknown_c_4_);
+    func_ov017_021d6134(arg0, GetZone3D_02012fe4()->unknown_8_->unknown_c_4_);
     return 1;
 }

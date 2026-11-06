@@ -57,7 +57,7 @@ struct Struct_ov017_021bb27c {
 struct Struct_ov017_021d6c20 { int unknown_0_; Vector3fix unknown_4_, unknown_10_, unknown_1c_; };
 extern "C" int func_020100f8(char*);
 extern "C" int* func_0202ae18();
-extern "C" Struct_ov017_021bb27c_4* func_02012fe4();
+extern "C" Struct_ov017_021bb27c_4* GetZone3D_02012fe4();
 extern "C" void func_ov001_0215aa5c();
 extern "C" void func_02033fdc(Struct_02033fdc*);
 extern "C" void func_02033b58(Struct_02033b58*, unsigned char);
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
     GameObject* var5 = var1->GetUnknownGameObject();
     void* var6 = (void*)func_020100f8((char*)var1);
     var0 = func_0202ae18();
-    Struct_ov017_021bb27c_4* var7 = func_02012fe4();
+    Struct_ov017_021bb27c_4* var7 = GetZone3D_02012fe4();
     if (!TestFlags00(var2, 0x1000)) {
         func_ov001_0215aa5c();
     }

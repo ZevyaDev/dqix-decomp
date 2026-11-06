@@ -18,7 +18,7 @@ extern "C" void func_ov003_021702e4(struct Struct_ov003_0217019c* arg0);
 #endif
 extern "C" void func_ov003_021704e8(char* arg0);
 struct Struct_ov003_0217019c;
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_ov003_0216dee4;
 extern "C" void func_ov003_0216dee4(struct Struct_ov003_0216dee4* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov003_0217019c(struct Struct_ov003_0217019c_2* arg0) {
         case 1:
             return;
     }
-    func_02012fe4();
+    GetZone3D_02012fe4();
 
     int var2 = 0x51;
     int var3 = 0x2e;

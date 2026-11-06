@@ -24,7 +24,7 @@ struct Struct_ov004_02164c18_2 {
     short unknown_5e_;
 };
 
-extern "C" void func_02012fe4(GameState* arg0);
+extern "C" void GetZone3D_02012fe4(GameState* arg0);
 extern "C" int func_ov004_021634dc(void* arg0);
 extern "C" void* func_ov011_021849c8(void* arg0);
 extern "C" struct Struct_ov004_02164c18_2* func_ov023_021f6880(void* arg0, int arg1);
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov004_02164c18(void* arg0) {
     if (data_ov004_02171010->unknown_18f4_ == 0) {
         return 0;
     }
-    func_02012fe4(GameState::GetInstance());
+    GetZone3D_02012fe4(GameState::GetInstance());
     int var0 = func_ov004_021634dc(arg0);
     if (data_ov004_02171010->unknown_0_[var0].GetInitialByteUnknownBit()) {
         return 0;

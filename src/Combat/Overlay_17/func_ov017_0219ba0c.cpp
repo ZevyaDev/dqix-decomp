@@ -8,7 +8,7 @@
 #include "World/Object3D.h"
 #include "std_library_functions.h"
 
-extern "C" char* func_020421a0(void);
+extern "C" char* GetMessageWindow_020421a0(void);
 struct Struct_0203d028;
 extern "C" void func_0207df50(Struct_0203d028*);
 extern "C" void func_0207df90(char* arg0);
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov017_0219ba0c(GameResources* arg0, int arg1) {
     unsigned int var1;
     unsigned int var2;
     unsigned int var3;
-    char* var4 = func_020421a0();
+    char* var4 = GetMessageWindow_020421a0();
     BackgroundLoader* var5 = BackgroundLoader::GetInstance();
     SafeAllocator* var6 = &arg0->allocator_array_38[6];
     char* var7 = arg0->unknown_2cc_ + 0x2a0;

@@ -18,7 +18,7 @@ struct Struct_020465c0;
 extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
 extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02046380(void* arg0);
 extern "C" int func_020e51cc(int arg0);
 extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
@@ -26,7 +26,7 @@ extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int ar
 // USA: func_ov003_0215de6c
 extern "C" ARM void func_ov003_0215de6c(char* arg0, void* arg1) {
     GameState* var0 = GameState::GetInstance();
-    int var1 = func_020421a0();
+    int var1 = GetMessageWindow_020421a0();
     void* var2 = func_02010828(var0);
 
     unsigned char var3 = *(unsigned char*)(arg0 + Enum_ov003_0215de6c_955);

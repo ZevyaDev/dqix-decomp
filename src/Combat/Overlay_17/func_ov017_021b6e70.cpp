@@ -3,7 +3,7 @@
 #include "Grotto/Main/GrottoStruct.h"
 #include "Grotto/Main/TreasureMapMetadata.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_0201b5d8(int arg0);
 
 struct Struct_ov017_021b6e70 {
@@ -25,7 +25,7 @@ extern "C" ARM bool func_ov017_021b6e70(struct Struct_ov017_021b6e70* arg0, int 
         }
     }
 
-    void* var3 = func_02012fe4();
+    void* var3 = GetZone3D_02012fe4();
     struct GrottoStruct* var4 = var0->GetGrottoStruct();
 #if defined(jpn)
     int var5 = var4->activeMapData.GetMapType();

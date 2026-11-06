@@ -8,7 +8,7 @@ enum { Enum_ov017_021984f4_108 = 0x6c };
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" int func_02094b9c(void* arg0, void* arg1);
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_021984f4(void* arg0) {
         return;
     }
 
-    void* var2 = func_02012fe4();
+    void* var2 = GetZone3D_02012fe4();
     func_020100bc(var0);
     struct Struct_ov017_021984f4* var3 = (struct Struct_ov017_021984f4*)func_0201e838((unsigned char*)var2 + Enum_ov017_021984f4_108, 8);
 

@@ -23,9 +23,9 @@ extern "C" void func_0205a528(void *arg0, void *arg1, unsigned int arg2, void *a
 extern "C" void func_0204c684(void *arg0);
 #if defined(jpn)
 struct Struct_ov003_02172a14_5;
-extern "C" Struct_ov003_02172a14_5 *func_02012fe4(void);
+extern "C" Struct_ov003_02172a14_5 *GetZone3D_02012fe4(void);
 #else
-extern "C" Struct_ov003_02172a14 *func_02012fe4(void);
+extern "C" Struct_ov003_02172a14 *GetZone3D_02012fe4(void);
 #endif
 extern "C" void __clear(void *arg0, int arg1);
 #if defined(jpn)
@@ -213,9 +213,9 @@ extern "C" ARM void func_ov003_02172a14(Struct_ov003_02172a14_4 *arg0) {
         var15.unknown_b4_  = 8;
         var15.unknown_b6_  = 8;
 #if defined(jpn)
-        Struct_ov003_02172a14 *var22 = &func_02012fe4()->unknown_860_;
+        Struct_ov003_02172a14 *var22 = &GetZone3D_02012fe4()->unknown_860_;
 #else
-        Struct_ov003_02172a14 *var22 = func_02012fe4();
+        Struct_ov003_02172a14 *var22 = GetZone3D_02012fe4();
 #endif
         __clear(var16, 0x40);
         int var23 = inline_ov003_02172a14(inline_ov003_0216e714_2(var22));

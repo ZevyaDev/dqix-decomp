@@ -21,7 +21,7 @@ struct Struct_020a654c_3 {
     int unknown_4_;
 };
 
-extern "C" void* func_02012fe4();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" void func_0202ae18();
 struct Struct_0200ffc0;
 extern "C" void* func_0200ffc0(Struct_0200ffc0*);
@@ -43,7 +43,7 @@ extern "C" ARM void func_020a654c(struct Struct_020a654c* arg0) {
     void* var0 = GameState::GetInstance();
     unsigned short* var1;
     void* var2 = arg0->unknown_36fc_;
-    var1 = (unsigned short*)func_02012fe4();
+    var1 = (unsigned short*)GetZone3D_02012fe4();
     func_0202ae18();
     void* var3 = func_0200ffc0((Struct_0200ffc0*)var0);
     ((GameState*)var0)->GetUnknownGameObject();

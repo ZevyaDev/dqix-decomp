@@ -79,7 +79,7 @@ struct Struct_ov006_0215a00c_5 {
 extern "C" void func_02080c20(struct Struct_0207fdcc_2*, int);
 extern "C" void func_020813ec(void*, int);
 extern "C" int func_020e0434(struct Struct_0201099c_3*, int);
-extern "C" struct Struct_020465c0* func_020421a0();
+extern "C" struct Struct_020465c0* GetMessageWindow_020421a0();
 extern "C" void func_02046380(struct Struct_020465c0*);
 extern "C" void* func_020e5294(void*, int);
 extern "C" void func_020465c0(struct Struct_020465c0*, int, int);
@@ -120,7 +120,7 @@ extern "C" ARM void func_ov006_0215a00c(struct Struct_ov006_0215a00c_5* arg0) {
         return;
     }
     if (var3 == 1) {
-        struct Struct_020465c0* var4 = func_020421a0();
+        struct Struct_020465c0* var4 = GetMessageWindow_020421a0();
         char* var5 = var4->unknown_5c_;
 #if defined(jpn)
         memset(var5, 0, 0x800);

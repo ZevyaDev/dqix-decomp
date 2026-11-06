@@ -10,7 +10,7 @@ struct Struct_02018300_3;
 struct Struct_02000c9c_21;
 extern "C" void func_02033874(Struct_02033834*, int);
 extern "C" void* func_0200fd0c(GameState*);
-extern "C" void* func_02012fe4();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" void func_02039d24(unsigned char*);
 extern "C" int func_02033b88(Struct_02010604*, int);
 extern "C" void func_ov017_021d440c(int);
@@ -54,7 +54,7 @@ extern "C" ARM void func_020399b0(GameObject* arg0, unsigned short arg1, const V
     ((signed char*)arg0)[0x1cb - Enum_020399b0_0] = -1;
     ((unsigned char*)arg0)[0x1cc - Enum_020399b0_0] = 0;
     unsigned char* var0 = static_cast<unsigned char*>(func_0200fd0c(GameState::GetInstance()));
-    Zone3D* var1 = static_cast<Zone3D*>(func_02012fe4());
+    Zone3D* var1 = static_cast<Zone3D*>(GetZone3D_02012fe4());
     func_02039d24(reinterpret_cast<unsigned char*>(arg0));
     if (var0[0x66]) {
         func_02038508((Struct_02037d10*)((char*)arg0 + 0x26c - Enum_020399b0_0));

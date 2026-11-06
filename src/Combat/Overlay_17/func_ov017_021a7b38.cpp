@@ -8,7 +8,7 @@ enum { Enum_ov017_021a7b38_1788 = 0x6fc, Enum_ov017_021a7b38_1816 = 0x718 };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" unsigned short* func_02012fe4(void* arg0);
+extern "C" unsigned short* GetZone3D_02012fe4(void* arg0);
 struct Struct_02038598_5;
 extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
 struct Struct_02046b38;
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov017_021a7b38(struct Struct_ov017_021a3544_2* arg0, vo
     char* var0 = (char*)(long)((int)GetGameResources()) + 0x3000;
     struct Struct_02038598_5* var1 = *(struct Struct_02038598_5**)(var0 + Enum_ov017_021a7b38_1788);
     struct Struct_02046b38_2* var2 = *(struct Struct_02046b38_2**)(var0 + Enum_ov017_021a7b38_1816);
-    unsigned short var3 = *func_02012fe4(var0);
+    unsigned short var3 = *GetZone3D_02012fe4(var0);
     if (arg0->unknown_8_ != 0) {
         return;
     }

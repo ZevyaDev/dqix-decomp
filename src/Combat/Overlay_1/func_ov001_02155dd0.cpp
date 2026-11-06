@@ -23,8 +23,8 @@ struct Struct_ov001_02155dd0 {
 
 extern "C" char* func_020100f8(char* arg0);
 extern "C" void* func_02010768(void* arg0);
-extern "C" void* func_02012fe4();
-extern "C" char* func_020421a0();
+extern "C" void* GetZone3D_02012fe4();
+extern "C" char* GetMessageWindow_020421a0();
 extern "C" void* func_0203cf4c(void);
 extern "C" void* func_0203d004(void* arg0);
 extern "C" void* func_0203dce4(Struct_0203dce4_2*, int);
@@ -83,8 +83,8 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
     var11 = GameState::GetInstance();
     var10 = func_020100f8((char*)var11);
     var6 = GetGameResources();
-    var7 = (Zone3D*)func_02012fe4();
-    var2 = func_020421a0();
+    var7 = (Zone3D*)GetZone3D_02012fe4();
+    var2 = GetMessageWindow_020421a0();
     var1 = BackgroundLoader::GetInstance();
     var5 = (int*)func_02010768(var11);
 
@@ -169,7 +169,7 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
 
     void* var21 = func_0205ec34();
-    Struct_02013454* var22 = func_020196fc((Zone3D*)func_02012fe4(), 0);
+    Struct_02013454* var22 = func_020196fc((Zone3D*)GetZone3D_02012fe4(), 0);
     Struct_02016874_2* var23;
     int var24 = var22->unknown_4_.unknown_10_;
     if (var22 != 0) {

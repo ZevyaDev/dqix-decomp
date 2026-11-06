@@ -25,7 +25,7 @@ struct Struct_ov017_0218e8c8_2 {
     Struct_ov017_0218e8c8* unknown_3b30_;
 };
 
-extern "C" char* func_02012fe4(void);
+extern "C" char* GetZone3D_02012fe4(void);
 extern "C" int func_020981e4(int, int);
 extern "C" unsigned short func_ov017_021b8480(void* arg0);
 extern "C" unsigned char* func_ov017_021b8478(void* arg0);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov017_0218e8c8(Struct_ov017_0218e8c8_2* arg0, int arg1,
  enum {Enum_ov017_0218e8c8_2112=0x840};
 #endif
     GameState* var0 = GameState::GetInstance();
-    char* var1 = func_02012fe4();
+    char* var1 = GetZone3D_02012fe4();
     int var2 = 0;
     if (func_020981e4((int)(var1 + Enum_ov017_0218e8c8_2112), arg1)) {
         var2 = 1;

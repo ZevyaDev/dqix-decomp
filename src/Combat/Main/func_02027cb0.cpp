@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" unsigned short* func_02012fe4(void);
+extern "C" unsigned short* GetZone3D_02012fe4(void);
 
 struct Struct_020fdd44;
 extern struct Struct_020fdd44 data_020fdd44;
@@ -8,5 +8,5 @@ extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, i
 
 // USA: func_02027cb0
 extern "C" ARM struct Struct_020fdd44* func_02027cb0(void) {
-    return func_02028bd0(&data_020fdd44, *func_02012fe4());
+    return func_02028bd0(&data_020fdd44, *GetZone3D_02012fe4());
 }

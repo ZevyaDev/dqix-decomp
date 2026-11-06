@@ -17,7 +17,7 @@ struct Struct_02024518 {
     int unknown_c_;
 };
 extern "C" void* func_0203b628();
-extern "C" void* func_02012fe4();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" void func_0203b718(void*, int, int, int);
 extern "C" Struct_02024518_3* func_02027878(Struct_02024518_2*, int);
 extern "C" void func_0203bcb8(Struct_02020fc4_3*, int, int);
@@ -30,7 +30,7 @@ extern "C" void func_0202756c(void*, int, int, int, unsigned char, unsigned char
 extern "C" ARM void func_02025b0c(Struct_02020554* arg0) {
     GameObject* var0 = GameState::GetInstance()->GetUnknownGameObject();
     void* var1 = func_0203b628();
-    func_02012fe4();
+    GetZone3D_02012fe4();
     Vector3i var2 = var0->obj3D_.position_;
     Struct_020236dc var3[17];
     unsigned char var4[32];

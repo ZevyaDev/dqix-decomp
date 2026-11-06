@@ -96,7 +96,7 @@ struct Struct_ov017_021a7e14_5 {
 #endif
 };
 
-extern "C" Struct_020465c0* func_020421a0();
+extern "C" Struct_020465c0* GetMessageWindow_020421a0();
 extern "C" Struct_0202b2f0* func_0202ae18();
 extern "C" int func_020100a8(GameState* arg0);
 extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
@@ -155,7 +155,7 @@ extern const char* data_020f2a0c;
 extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
-    Struct_020465c0* var2 = func_020421a0();
+    Struct_020465c0* var2 = GetMessageWindow_020421a0();
     Struct_0208cb08* var3 = func_02094a00();
     GetGameResources();
     Struct_0202b2f0* var4 = func_0202ae18();
@@ -287,9 +287,9 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
         }
         var2->unknown_998_ = 1;
 #if defined(jpn)
-        func_0204500c((Struct_02021b84*)var2, var16, 0);
+        StartMessage_0204500c((MessageWindow_02021b84*)var2, var16, 0);
 #else
-        func_0204500c((Struct_02021b84*)var2, var16, 0, 0xe3);
+        StartMessage_0204500c((MessageWindow_02021b84*)var2, var16, 0, 0xe3);
 #endif
         arg0->unknown_24_ = 3;
     } else if (arg0->unknown_24_ == 3) {
@@ -325,9 +325,9 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
         }
         if (var7) {
 #if defined(jpn)
-            func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0);
+            StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0);
 #else
-            func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0, 0xe3);
+            StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0, 0xe3);
 #endif
             arg0->unknown_24_ = 7;
         }
@@ -340,9 +340,9 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
         if (func_ov017_021a85e8((unsigned char*)arg0, var19) == 0 && var2->unknown_9a0_ == 3) {
             if (func_0202c578(var4, 0) || func_0202c578(var4, arg0->unknown_34_)) {
 #if defined(jpn)
-                func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0);
 #else
-                func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0, 0xe3);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0, 0xe3);
 #endif
                 arg0->unknown_24_ = 7;
             } else {
@@ -365,9 +365,9 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
                 var2->unknown_28_ = arg0->unknown_44_;
 #endif
 #if defined(jpn)
-                func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x6f), 0);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x6f), 0);
 #else
-                func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x6f), 0, 0xe3);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x6f), 0, 0xe3);
 #endif
                 arg0->unknown_24_ = 7;
             }
@@ -376,9 +376,9 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
         func_02043204((char*)var2);
         var2->unknown_998_ = 1;
 #if defined(jpn)
-        func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x65), var7);
+        StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x65), var7);
 #else
-        func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x65), var7, 0xe3);
+        StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x65), var7, 0xe3);
 #endif
         arg0->unknown_24_ = 7;
     } else if (arg0->unknown_24_ == 7) {

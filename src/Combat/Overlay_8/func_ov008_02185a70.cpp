@@ -107,7 +107,7 @@ struct Struct_0205d6a0;
 struct Struct_ov008_02184a4c_13;
 struct Struct_0205d81c;
 
-extern "C" Struct_02021b84* func_020421a0();
+extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
 void SetMainBrightness(GameResources* resources, int screen, int brightness);
 extern "C" void func_ov008_02187664(Struct_ov008_02184a4c_13* arg0, int arg1);
@@ -131,7 +131,7 @@ void func_ov008_02186cec(Struct_ov008_021842a0_2* arg0);
 // USA: func_ov008_02185a70
 extern "C" ARM void func_ov008_02185a70(Struct_ov008_021842a0_2* arg0, unsigned int arg1)
 {
-    Struct_02021b84* var0 = func_020421a0();
+    MessageWindow_02021b84* var0 = GetMessageWindow_020421a0();
     GameResources* var1 = GetGameResources();
     BackgroundLoader::GetInstance();
     Struct_0208cb08* var2 = func_02094a00();

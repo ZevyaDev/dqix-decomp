@@ -24,7 +24,7 @@ struct Struct_ov023_021d9290_2 {
 };
 
 extern "C" char* func_020e0434(Struct_0201099c_3*, int);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_020420e8(char*, int);
 extern "C" int func_02041b00(char*, int);
 extern "C" void __clear(void*, int);
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov023_021d9290(Struct_ov023_021d9290_2* arg0, char* arg
     if (!arg1) return;
 
     GameState::GetInstance();
-    int var1 = func_020421a0();
+    int var1 = GetMessageWindow_020421a0();
 
     func_02042058(arg1, func_020e0434(arg0->unknown_0_, 0x75f8));
 
@@ -119,7 +119,7 @@ struct Struct_ov023_021d9290_2 {
 
 struct Struct_0201099c_3;
 extern "C" int func_020e0434(Struct_0201099c_3*, int);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_020420e8(void*, int);
 extern "C" int func_02041a28(char*, int);
 extern "C" int func_02041b00(char*, int);
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov023_021d9290(char* arg0, char* arg1, unsigned char ar
     if (!arg1) return;
 
     GameState::GetInstance();
-    int var1 = func_020421a0();
+    int var1 = GetMessageWindow_020421a0();
 
     char* var2 = (char*)func_020e0434(var0->unknown_0_, 0x75f8);
     int var3 = func_020420e8(var2, 0);

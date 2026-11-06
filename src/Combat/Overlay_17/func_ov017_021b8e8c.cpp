@@ -88,8 +88,8 @@ struct Struct_ov017_021b8e8c_5 {
 
 extern "C" int func_ov017_021959b4(void);
 extern "C" void func_ov017_021b8d80(Struct_ov017_021b8e8c_5* arg0);
-extern "C" unsigned short* func_02012fe4(void);
-extern "C" char* func_020421a0(void);
+extern "C" unsigned short* GetZone3D_02012fe4(void);
+extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void* func_0203cf4c(void);
 extern "C" void* func_0205ec34(void);
 extern "C" int func_020100f8(char* arg0);
@@ -131,9 +131,9 @@ extern "C" void func_020a0cc4(unsigned int arg0);
 extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
 extern "C" void func_0208b8c4(struct Struct_0208b8c4* arg0, SafeAllocator* arg1);
 #if defined(jpn)
-extern "C" void func_0204500c(void* arg0, char* arg1, int arg2);
+extern "C" void StartMessage_0204500c(void* window, char* text, int arg2);
 #else
-extern "C" void func_0204500c(void* arg0, char* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int arg3);
 #endif
 extern "C" void func_0208bb78(void* arg0, unsigned int arg1);
 extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
@@ -160,8 +160,8 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
-    unsigned short* var3 = func_02012fe4();
-    char* var4 = func_020421a0();
+    unsigned short* var3 = GetZone3D_02012fe4();
+    char* var4 = GetMessageWindow_020421a0();
     void* var5 = func_0203cf4c();
     GameObject* var6 = var0->GetUnknownGameObject();
     void* var7 = func_0205ec34();
@@ -372,9 +372,9 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02
         }
         }
 #if defined(jpn)
-        func_0204500c(var4, var34, var35);
+        StartMessage_0204500c(var4, var34, var35);
 #else
-        func_0204500c(var4, var34, var35, 0xe3);
+        StartMessage_0204500c(var4, var34, var35, 0xe3);
 #endif
         *(int*)(var4 + Enum_ov017_021b8e8c_2456) = 1;
         *(unsigned char*)(var4 + Enum_ov017_021b8e8c_6578) = 1;

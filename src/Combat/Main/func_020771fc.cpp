@@ -56,7 +56,7 @@ extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c508(void* arg0);
 extern "C" int func_020322c0(void* arg0, int* arg1);
 extern "C" void func_020794f8(Struct_020771fc_2* arg0, int arg1, int arg2);
-extern "C" Struct_020771fc_3* func_02012fe4(void);
+extern "C" Struct_020771fc_3* GetZone3D_02012fe4(void);
 extern "C" int func_02018fbc(Struct_020771fc_3* arg0, Vector3i* arg1);
 extern "C" void func_ov017_021c9400(int arg0, int arg1, int arg2, Vector3i arg3, Vector3i arg4, int arg5);
 extern "C" int func_0202c1a4(Struct_0202c1a4* arg0);
@@ -140,7 +140,7 @@ extern "C" ARM void func_020771fc(Struct_020771fc_2* arg0) {
                     }
                 }
             }
-            Struct_020771fc_3* var15 = func_02012fe4();
+            Struct_020771fc_3* var15 = GetZone3D_02012fe4();
             unsigned short var16 = var15->unknown_0_;
             if (var16 == ((Object3D*)arg0)->GetField06() && var15->unknown_424_ == 0) {
                 var9.y = func_02018fbc(var15, &var9);

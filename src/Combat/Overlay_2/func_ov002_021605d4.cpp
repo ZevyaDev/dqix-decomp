@@ -14,7 +14,7 @@ extern "C" const char *func_020e0434(Struct_0201099c_3 *arg0, int arg1);
 extern "C" void __clear(void *arg0, unsigned long arg1);
 extern "C" void func_ov002_0215b8c8(Struct_ov002_0215b8c8 *arg0, const char *arg1, int arg2);
 extern "C" void func_02041fac(char *arg0, int arg1, int arg2);
-extern "C" void *func_020421a0();
+extern "C" void *GetMessageWindow_020421a0();
 extern "C" void func_02046380(void *arg0);
 extern "C" void func_020465c0(Struct_020465c0 *arg0, int arg1, int arg2);
 extern "C" void func_020465f0(unsigned char *arg0, int arg1, unsigned char arg2);
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov002_021605d4(char *arg0, char *arg1) {
     unsigned char *var7 = func_02053c6c(var6);
     if (var7 == 0) return;
     func_02041fac(arg1, (int) data_ov002_0216da30, 0x10);
-    void *var8 = func_020421a0();
+    void *var8 = GetMessageWindow_020421a0();
     func_02046380(var8);
     func_020465c0((Struct_020465c0 *) var8, 0, *(unsigned short *) (var7 + 0x564));
     func_020465f0((unsigned char *) var8, 0, 4);
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov002_021605d4(char *arg0, char *arg1) {
     var12.unknown_0_ = var9;
     func_ov002_0215b8c8(&var12, var19, 0);
     func_02041fac(arg1, (int) var9, 0x10);
-    void *var20 = func_020421a0();
+    void *var20 = GetMessageWindow_020421a0();
     func_02046380(var20);
     func_020465c0((Struct_020465c0 *) var20, 0, *(unsigned short *) (var18 + 0x564));
     func_020465f0((unsigned char *) var20, 0, 4);

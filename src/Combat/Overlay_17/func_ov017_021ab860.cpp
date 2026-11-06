@@ -21,7 +21,7 @@ enum { Enum_ov017_021ab860_1804 = 0x70c, Enum_ov017_021ab860_1788 = 0x6fc,
 #endif
 
 extern "C" int func_0200fb8c(int* arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" unsigned char* func_0205ec34(void);
 extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
@@ -92,7 +92,7 @@ struct Struct_ov017_021ab860_4 {
 extern "C" ARM int func_ov017_021ab860(int arg0, unsigned char arg1) {
     GameState* var0 = GameState::GetInstance();
     func_0200fb8c((int*)var0);
-    data_ov017_021d83b0.unknown_0_ = ((Struct_ov017_021ab860_2*)func_02012fe4())->unknown_8_;
+    data_ov017_021d83b0.unknown_0_ = ((Struct_ov017_021ab860_2*)GetZone3D_02012fe4())->unknown_8_;
     data_ov017_021d83b0.unknown_4_ = 0;
     data_ov017_021d83b0.unknown_6_ = 0;
     data_ov017_021d83b0.unknown_8_ = 0;
@@ -105,7 +105,7 @@ extern "C" ARM int func_ov017_021ab860(int arg0, unsigned char arg1) {
     if (func_020117f0(var0) != 0) {
         int var2;
         GameState* var3 = GameState::GetInstance();
-        Struct_ov017_021ab860_2* var4 = (Struct_ov017_021ab860_2*)func_02012fe4();
+        Struct_ov017_021ab860_2* var4 = (Struct_ov017_021ab860_2*)GetZone3D_02012fe4();
         Struct_ov017_021ab860_3* var5 = (Struct_ov017_021ab860_3*)var3->GetGrottoStruct();
         if (var5 == NULL) {
             var2 = 0;

@@ -10,7 +10,7 @@ enum { Enum_ov003_02171f80_2112 = 0x840 };
 
 struct Struct_0209859c;
 extern "C" struct Struct_0209859c* func_0209859c(struct Struct_0209859c* arg0, void* arg1);
-extern "C" void* func_02012fe4(void* arg0);
+extern "C" void* GetZone3D_02012fe4(void* arg0);
 
 struct Struct_ov003_02170d88_13 {
 	unsigned char unknown_0_[0x8];
@@ -21,7 +21,7 @@ struct Struct_ov003_02170d88_13 {
 
 // USA: func_ov003_02171f80
 extern "C" ARM void func_ov003_02171f80(struct Struct_ov003_02170d88_13* arg0) {
-	unsigned char* var0 = (unsigned char*)func_02012fe4(arg0);
+	unsigned char* var0 = (unsigned char*)GetZone3D_02012fe4(arg0);
 	unsigned char* var1 = arg0->unknown_8_[0];
 	int var2 = 0;
 	while (var2 < 0x32) {

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Graphics/LightingManager.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_ov017_021d60f4(void* arg0);
 extern "C" void func_ov001_021601f8(void* arg0, void* arg1);
 extern "C" void func_02016874(void* arg0);
@@ -55,7 +55,7 @@ extern int data_ov001_02164d24[];
 
 // USA: func_ov001_021603d8
 extern "C" ARM int func_ov001_021603d8(void* arg0) {
-    Struct_ov001_021603d8_2* var0 = (Struct_ov001_021603d8_2*)func_02012fe4();
+    Struct_ov001_021603d8_2* var0 = (Struct_ov001_021603d8_2*)GetZone3D_02012fe4();
     Struct_ov001_021603d8_3* var1 = (Struct_ov001_021603d8_3*)LightingManager::GetInstance();
     int var2 = func_ov017_021d60f4(arg0);
     var1->unknown_98_ = var2;

@@ -20,7 +20,7 @@ struct Struct_0201d530 {
 struct Struct_0201f3b4;
 extern "C" void func_02027b5c(struct Struct_0201f3b4* arg0, unsigned short arg1, unsigned char arg2, int arg3, int arg4);
 
-extern "C" void func_02012fe4(void);
+extern "C" void GetZone3D_02012fe4(void);
 
 struct Struct_020fdc4c_2 {
     char unknown_0_[Enum_0201f3b4_16];
@@ -42,7 +42,7 @@ extern "C" ARM int func_0201f3b4(struct Struct_0201f3b4_2* arg0) {
     int var2 = ((Script::Parameter*)&arg0->unknown_8_)->ToInt();
     var0 = ((Script::Parameter*)&arg0->unknown_10_)->ToFloat();
     float var3 = ((Script::Parameter*)&arg0->unknown_18_)->ToFloat();
-    func_02012fe4();
+    GetZone3D_02012fe4();
     if (var2 == 0) return 1;
     float var4;
     if (var3 > 0.0f) {

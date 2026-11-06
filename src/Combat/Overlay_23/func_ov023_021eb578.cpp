@@ -28,7 +28,7 @@ extern "C" void* func_020d6c00(void);
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_020dc2bc(void);
 extern "C" void func_020dfec0(void* arg0, void* arg1, void* arg2, unsigned int arg3);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_ov023_021ec368(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov023_021ec39c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov023_021ec3c8(int arg0, int arg1, int arg2, int arg3);
@@ -182,9 +182,9 @@ extern "C" ARM void func_ov023_021eb578(Struct_ov023_021eb578_4* arg0) {
         var3->RemoveTask(arg0->unknown_434_);
         arg0->unknown_434_ = -1;
 #if defined(jpn)
-        arg0->unknown_1c_ = *(int*)(func_020421a0() + 0x28);
+        arg0->unknown_1c_ = *(int*)(GetMessageWindow_020421a0() + 0x28);
 #else
-        arg0->unknown_1c_ = *(int*)(func_020421a0() + 0x5c);
+        arg0->unknown_1c_ = *(int*)(GetMessageWindow_020421a0() + 0x5c);
 #endif
         if (arg0->unknown_430_ == 0 || arg0->unknown_430_ == 1) {
             func_ov023_021ec368(0, 0, 0x1a, 4, 0);

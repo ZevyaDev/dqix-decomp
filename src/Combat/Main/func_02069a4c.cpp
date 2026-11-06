@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" int func_020696bc(int arg0, int* arg1, int arg2);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_02069a4c { void* unknown_0_; };
 
@@ -21,7 +21,7 @@ extern "C" ARM int func_02069a4c(struct Struct_02069a4c* arg0, int arg1) {
 
     func_020696bc(arg1, &var0[1], 2);
 
-    var1 = (struct Struct_02069a4c_2*)func_020421a0();
+    var1 = (struct Struct_02069a4c_2*)GetMessageWindow_020421a0();
     var3 = var0[2];
 
     var1->unknown_1956_ = var1->unknown_1956_ % 4;

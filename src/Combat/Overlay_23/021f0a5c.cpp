@@ -82,7 +82,7 @@ struct Struct_02092e0c {
 extern "C" Struct_ov023_021f0a5c* _ZZ21inline_ov023_021f4c04vE1s;
 extern char data_02109bf4[];
 
-extern "C" Struct_02092e0c* func_020421a0();
+extern "C" Struct_02092e0c* GetMessageWindow_020421a0();
 extern "C" void func_02046380(Struct_02092e0c*);
 extern "C" char* func_02072a68(Struct_02072a68_2*, int);
 extern "C" void* func_02010828(GameState*);
@@ -108,9 +108,9 @@ struct Struct_020465c0;
 extern "C" void func_020465c0(Struct_020465c0*, int, int);
 extern "C" void func_020e4bf4(void*, int);
 #if defined(jpn)
-extern "C" void func_0204500c(Struct_02092e0c*, char*, int);
+extern "C" void StartMessage_0204500c(Struct_02092e0c*, char*, int);
 #else
-extern "C" void func_0204500c(Struct_02092e0c*, char*, int, int);
+extern "C" void StartMessage_0204500c(Struct_02092e0c*, char*, int, int);
 #endif
 extern "C" void func_0209c6d8(void*, int);
 extern "C" void func_ov017_021ce704(int);
@@ -133,7 +133,7 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
     char var4[12];
     GameState* var5 = GameState::GetInstance();
     Struct_ov023_021f0a5c* var6 = _ZZ21inline_ov023_021f4c04vE1s;
-    Struct_02092e0c* var7 = func_020421a0();
+    Struct_02092e0c* var7 = GetMessageWindow_020421a0();
 #if !defined(jpn)
     func_02046380(var7);
 #endif
@@ -244,7 +244,7 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
                 sprintf(var0, func_02072a68(&arg0->unknown_5904_, 0xa), var35, var31->unknown_4_0_, var35);
             }
             strcat(var0, var9);
-            func_0204500c(var7, var0, 1);
+            StartMessage_0204500c(var7, var0, 1);
             var7->unknown_17e2_ = 0;
             var7->unknown_868_ = 1;
         }
@@ -262,7 +262,7 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
             strcat(var0, var9);
             func_020e4bf4(var3, var30);
             var7->unknown_10_ = var3;
-            func_0204500c(var7, var0, 1, 0xe3);
+            StartMessage_0204500c(var7, var0, 1, 0xe3);
             var7->unknown_19b2_ = 0;
             var7->unknown_998_ = 1;
         }
@@ -283,7 +283,7 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
             if (var36) {
                 sprintf(var1, func_02072a68(&arg0->unknown_5904_, 0x26), (char*)(var36 + 1));
                 strcat(var1, var9);
-                func_0204500c(var7, var1, 1);
+                StartMessage_0204500c(var7, var1, 1);
                 var7->unknown_17e2_ = 0;
                 var7->unknown_868_ = 1;
             }
@@ -294,7 +294,7 @@ extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
                 strcat(var1, var9);
                 func_020e4bf4(var4, var37);
                 var7->unknown_10_ = var4;
-                func_0204500c(var7, var1, 1, 0xe3);
+                StartMessage_0204500c(var7, var1, 1, 0xe3);
                 var7->unknown_19b2_ = 0;
                 var7->unknown_998_ = 1;
             }

@@ -56,7 +56,7 @@ struct Struct_020200c0_8 : GameObject {
 #endif
 };
 
-extern "C" Struct_020200c0_6* func_020421a0(void);
+extern "C" Struct_020200c0_6* GetMessageWindow_020421a0(void);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void func_02020520(struct Struct_020200c0_3* arg0);
 extern "C" void func_0205b890(struct Struct_020200c0_3* arg0, int arg1, int arg2);
@@ -91,7 +91,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
     GameResources* var2 = GetGameResources();
     if (var2 == NULL || var2->unknown_ptr_36d0 == NULL) return;
     unsigned int var3 = (arg0 + 1) << 11;
-    Struct_020200c0_6* var4 = func_020421a0();
+    Struct_020200c0_6* var4 = GetMessageWindow_020421a0();
     if (var4->unknown_2c_ == NULL) return;
     void* var5 = var4->unknown_2c_;
     memcpy(var5, (void*)0x06600000, 0x800);
@@ -176,7 +176,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
     GameResources* var2 = GetGameResources();
     if (var2 == NULL || var2->unknown_ptr_36d0 == NULL) return;
     unsigned int var3 = (arg0 + 1) << 11;
-    Struct_020200c0_6* var4 = func_020421a0();
+    Struct_020200c0_6* var4 = GetMessageWindow_020421a0();
     void* var5 = var4->unknown_60_;
     if (var5 == NULL) return;
     memcpy(var5, (void*)0x06600000, 0x800);

@@ -8,7 +8,7 @@
 
 #include "GameState/GameState.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int _s32_div_f(int a, int b);
 
 struct Struct_0208f048 {
@@ -31,7 +31,7 @@ extern "C" ARM void func_0208f048(unsigned char* arg0) {
         return;
     }
 
-    var0 = func_02012fe4();
+    var0 = GetZone3D_02012fe4();
     var1 = (char*)((int)var0 + (IS_JPN ? 0x1860 : 0x1840));
     var2 = _s32_div_f(*(int*)(var1 + 0xb34), 100) + 4;
     if (var2 > 14) {

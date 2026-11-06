@@ -6,7 +6,7 @@ enum { Enum_ov004_0216e638_2506 = 0x9ca, Enum_ov004_0216e638_16 = 0x10, Enum_ov0
 #endif
 #include "GameState/GameState.h"
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02012028(void* arg0, unsigned char arg1);
 
 struct Struct_020a9ea4;
@@ -56,7 +56,7 @@ extern unsigned char data_02108760;
 // USA: func_ov004_0216e638
 extern "C" ARM int func_ov004_0216e638(void* arg0) {
     void* var0 = arg0;
-    *(unsigned char*)((char*)func_020421a0() + 0x1000 + Enum_ov004_0216e638_2506) = 0;
+    *(unsigned char*)((char*)GetMessageWindow_020421a0() + 0x1000 + Enum_ov004_0216e638_2506) = 0;
     func_02012028(GameState::GetInstance(), 0);
 
     func_020a9ea4(*(struct Struct_020a9ea4**)((char*)&data_ov004_02171034 + Enum_ov004_0216e638_16));

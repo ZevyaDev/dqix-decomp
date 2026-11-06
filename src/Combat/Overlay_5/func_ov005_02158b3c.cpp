@@ -10,7 +10,7 @@
 #include <Resource/GameResources.h>
 #include <Resource/CharacterCreationUI.h>
 
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02046380(void* arg0);
 extern "C" int* func_ov017_021a193c(int* arg0);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
@@ -89,7 +89,7 @@ extern "C" void func_02046574(void*, int, char*);
 // USA: func_ov005_02158b3c
 extern "C" ARM int func_ov005_02158b3c(void* arg0, void* arg1) {
     if (arg1 == 0) return 0;
-    Struct_ov005_02158b3c_2* var0 = (Struct_ov005_02158b3c_2*)func_020421a0();
+    Struct_ov005_02158b3c_2* var0 = (Struct_ov005_02158b3c_2*)GetMessageWindow_020421a0();
     func_02046380(var0);
     GameState* var1 = GameState::GetInstance();
 #if defined(jpn)

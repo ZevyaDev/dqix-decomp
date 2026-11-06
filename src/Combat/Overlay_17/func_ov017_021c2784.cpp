@@ -16,14 +16,14 @@ enum { Enum_ov017_021c2784_17128 = 0x42e8, Enum_ov017_021c2784_10132 = 0x2794 };
 struct Struct_0202b2f0;
 extern "C" struct Struct_0202b2f0* func_0202ae18(void);
 extern "C" int func_0202c508(struct Struct_0202b2f0* arg0);
-extern "C" unsigned short* func_02012fe4(void);
+extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
 extern "C" int func_ov017_021959b4(void);
 extern "C" int func_ov017_021a23e4(char* arg0, int arg1, unsigned int arg2, unsigned int arg3);
 
 extern "C" void* func_020d7a50(void);
 extern "C" unsigned char func_020100b0(GameState* arg0);
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
 extern "C" int func_020e51cc(int arg0);
 extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
             sprintf(var7, data_ov017_021d70e0, *(char**)((char*)var4 + 0x134));
             func_020d7e10(var3, var7, 0, 0, 1);
 #else
-            void* var8 = func_020421a0();
+            void* var8 = GetMessageWindow_020421a0();
             char var9[0xc];
             char var10[0x50];
             func_020e4bf4(var9, arg0->unknown_14_);
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
         }
         arg0->unknown_8_ = (arg0->unknown_11_ != 0) ? 0x64 : 0x384;
 
-        unsigned short* var13 = func_02012fe4();
+        unsigned short* var13 = GetZone3D_02012fe4();
         if (*var13 == 0x2710) {
             *(int*)((char*)var13 + Enum_ov017_021c2784_10132) = 0;
             func_020e1154((void*)0x7d0);

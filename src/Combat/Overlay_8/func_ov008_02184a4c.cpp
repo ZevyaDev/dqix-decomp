@@ -266,7 +266,7 @@ extern "C" void func_ov008_02187a70(Struct_ov008_02184a4c_12* arg0, int arg1);
 extern "C" void func_ov008_02187f6c(Struct_ov008_02184a4c_12* arg0, int arg1);
 struct Struct_0205d81c;
 extern "C" Struct_ov008_02184a4c_10* func_0205d81c(Struct_0205d81c*, int);
-extern "C" char* func_020421a0(void);
+extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void func_020432c4(char* arg0);
 struct Struct_0209c3b4_2;
 extern "C" void func_0209c3b4(Struct_0209c3b4_2*, int);
@@ -683,7 +683,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
         }
         if (arg0->unknown_b24_ == 0) {
             char* var64 = var1->unknown_2cc_;
-            char* var65 = func_020421a0();
+            char* var65 = GetMessageWindow_020421a0();
             func_0207df50((Struct_0203d028*)(var64 + 0x5b0));
             func_0207df90(var64 + 0x5b0);
             func_020432c4(var65);

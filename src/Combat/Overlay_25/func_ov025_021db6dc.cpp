@@ -5,7 +5,7 @@
 struct Struct_02033b58;
 extern "C" void func_02033b58(struct Struct_02033b58* arg0, unsigned char arg1);
 extern "C" void func_ov017_02195540(unsigned char* arg0);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_ov025_021ed124(unsigned char* arg0);
 extern "C" void func_ov025_021e8a4c(char* arg0, int arg1);
 extern "C" void func_ov025_021e8d14(void* arg0);
@@ -26,7 +26,7 @@ enum { Enum_ov025_021db6dc_680 = 0x2a8, Enum_ov025_021db6dc_668 = 0x29c, Enum_ov
 extern "C" ARM void func_ov025_021db6dc(void* arg0) {
     char* var0 = (char*)arg0;
     GameState* var1 = GameState::GetInstance();
-    int var2 = func_020421a0();
+    int var2 = GetMessageWindow_020421a0();
     int var3 = ((int)GetGameResources());
 
     func_ov025_021e88d8(var0 + Enum_ov025_021db6dc_680);

@@ -25,7 +25,7 @@ struct Struct_ov023_021fd75c_2 {
 };
 }
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_020465c0;
 extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
@@ -57,7 +57,7 @@ struct Struct_01ff8b48_15 { char unknown_0_[0x38]; int unknown_38_; int unknown_
 // JPN: func_ov023_021e8404
 extern "C" ARM void func_ov023_021e83c8(void* arg0) {
     Struct_ov023_021e83c8* var0 = static_cast<Struct_ov023_021e83c8*>(arg0);
-    int var1 = func_020421a0();
+    int var1 = GetMessageWindow_020421a0();
 
     int* var2;
     int var3;

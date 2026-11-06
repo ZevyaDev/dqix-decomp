@@ -111,7 +111,7 @@ struct Struct_0205d6a0;
 extern "C" void func_ov023_021e7404(void* arg0, int arg1);
 extern "C" int func_0205d0e0(void* arg0, int arg1);
 extern "C" void func_ov012_02185cf8(Struct_ov012_02184acc* arg0);
-extern "C" Struct_ov012_02184acc_2* func_020421a0();
+extern "C" Struct_ov012_02184acc_2* GetMessageWindow_020421a0();
 extern "C" void func_ov012_0218adac(Struct_ov012_02184acc* arg0, int arg1, int arg2, int arg3);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_ov012_021845f8(void* arg0);
@@ -145,7 +145,7 @@ extern "C" ARM int func_ov012_02184acc(Struct_ov012_02184acc* arg0, int arg1)
         (arg0->*var0.unknown_0_[arg0->unknown_1371_])();
     func_ov012_02185cf8(arg0);
 
-    Struct_ov012_02184acc_2* var1 = func_020421a0();
+    Struct_ov012_02184acc_2* var1 = GetMessageWindow_020421a0();
 #if !defined(jpn)
     GameState* var2 = GameState::GetInstance();
 #endif

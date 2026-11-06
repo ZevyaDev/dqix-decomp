@@ -22,7 +22,7 @@ struct Struct_ov012_02189af4_2 {
 
 extern "C" void func_02041c08(char*, int, int, int, int, int);
 extern "C" int func_02041ea4(char*, int);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_0205c508(Struct_0205c508*, int*, int*);
 extern "C" int func_02042058(char*, const char*);
 extern "C" const char* func_02072a68(Struct_02072a68_2*, int);
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov012_02189dfc(char* arg0, char* arg1, int arg2) {
     if (arg2)
         func_02041c08(arg1, var0, 8, 5, 5, 5);
     func_02041ea4(arg1, var0);
-    void* var1 = func_020421a0();
+    void* var1 = GetMessageWindow_020421a0();
     int var2;
     Struct_ov012_02189af4* var3 = ((Struct_ov012_02189af4_2*)(arg0 + 0x90))->inline_ov012_02189af4_3();
     int var4 = var3->unknown_14_;
@@ -112,7 +112,7 @@ struct Struct_ov012_02189dfc_2
 
 extern "C" void func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" void func_02041ea4(char* arg0, int arg1);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_0205c508(Struct_0205c508* arg0, int* arg1, int* arg2);
 extern "C" void func_02042058(char* arg0, const char* arg1);
 extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov012_02189dfc(Struct_ov012_02189dfc_2* arg0, char* arg
     if (arg2)
         func_02041c08(arg1, var9, 8, 5, 5, 5);
     func_02041ea4(arg1, var9);
-    func_020421a0();
+    GetMessageWindow_020421a0();
     int var10;
     Struct_ov012_02189dfc* var11 = arg0->inline_ov012_02189dfc_2()->inline_ov012_02189dfc();
     int var12 = var11->unknown_8_[3];

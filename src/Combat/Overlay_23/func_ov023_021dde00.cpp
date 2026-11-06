@@ -5,7 +5,7 @@ extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg
 extern "C" int func_ov023_021ddc98(void* arg0, int arg1, unsigned short arg2, int arg3);
 extern int data_ov023_021ff9e0[];
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
 extern "C" int func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
 extern "C" int func_020420e8(void* arg0, int arg1);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov023_021dde00(void* arg0) {
                 short var8, var9;
                 func_02050678(var2, var7, 3, *(const char**)((char*)var1 + 4), 0xa, 0xf, &var9, &var8);
 #else
-                int var10 = func_020421a0();
+                int var10 = GetMessageWindow_020421a0();
                 char var11[0x80];
                 char var12[0x80];
                 __clear(var12, 0x80);

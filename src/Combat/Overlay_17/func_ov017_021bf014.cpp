@@ -25,8 +25,8 @@ extern AllocatorUnion data_02114e20;
 extern char data_ov017_021d7ec0[];
 extern char data_ov017_021d7ed5[];
 extern "C" void func_0202ae18();
-extern "C" Struct_02046574_2* func_020421a0();
-extern "C" void* func_02012fe4();
+extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" unsigned char* func_020100f8(char*);
 extern "C" Struct_020d7aa0_2* func_020d7a50();
 extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
@@ -37,7 +37,7 @@ extern "C" void func_020728ac(Struct_02072a68_2*, SafeAllocator*, void*, unsigne
 extern "C" void func_02046380(Struct_02046574_2*);
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 extern "C" char* func_02072a68(Struct_02072a68_2*, int);
-extern "C" void func_0204500c(Struct_02046574_2*, char*, int
+extern "C" void StartMessage_0204500c(Struct_02046574_2*, char*, int
 #if !defined(jpn)
     , int
 #endif
@@ -54,8 +54,8 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
     GameState* var0 = GameState::GetInstance();
     func_0202ae18();
     GetGameResources();
-    Struct_02046574_2* var1 = func_020421a0();
-    func_02012fe4();
+    Struct_02046574_2* var1 = GetMessageWindow_020421a0();
+    GetZone3D_02012fe4();
     GrottoStruct* var2 = var0->GetGrottoStruct();
     GameObject* var3 = var0->GetUnknownGameObject();
     unsigned char* var4 = func_020100f8((char*)var0);
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
     } else if (arg0->unknown_8_ == 3) {
         char* var8 = (*reinterpret_cast<char**>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_92));
         strcpy(var8, func_02072a68(&arg0->unknown_c_, 1));
-        func_0204500c(var1, var8, 0
+        StartMessage_0204500c(var1, var8, 0
 #if !defined(jpn)
             , 0xe3
 #endif
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
     } else if (arg0->unknown_8_ == 4) {
         char* var9 = (*reinterpret_cast<char**>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_92));
         strcpy(var9, func_02072a68(&arg0->unknown_c_, 2));
-        func_0204500c(var1, var9, 0
+        StartMessage_0204500c(var1, var9, 0
 #if !defined(jpn)
             , 0xe3
 #endif

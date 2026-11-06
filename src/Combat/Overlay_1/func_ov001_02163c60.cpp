@@ -5,7 +5,7 @@ extern "C" unsigned int func_02010768(void*);
 extern "C" unsigned int func_02013750(void*, int);
 struct Struct_0203d028;
 extern "C" unsigned int func_0207df50(Struct_0203d028*);
-extern "C" unsigned int func_02012fe4();
+extern "C" unsigned int GetZone3D_02012fe4();
 
 // USA: func_ov001_02163c60
 extern "C" ARM int func_ov001_02163c60(void) {
@@ -16,7 +16,7 @@ extern "C" ARM int func_ov001_02163c60(void) {
 #endif
     unsigned int var0;
     unsigned int var1 = (unsigned int)GameState::GetInstance();
-    unsigned int var2 = func_02012fe4();
+    unsigned int var2 = GetZone3D_02012fe4();
     unsigned int* var3 = (unsigned int*)func_02010768((void*)var1);
     unsigned int var4 = *var3;
     if (var4 != 0) {

@@ -8,7 +8,7 @@ enum { Enum_ov017_0219c598_108 = 0x6c };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 int fix32ReduceAngle0To2Pi(int angle);
 extern "C" void func_020399b0(GameObject* arg0, unsigned short arg1, int* arg2, int arg3);
 
@@ -26,7 +26,7 @@ extern "C" int func_0201e820(Struct_0201e820* arg0);
 extern "C" ARM void func_ov017_0219c598(int* arg0, short* arg1, int arg2) {
     GameState* var0 = GameState::GetInstance();
     unsigned char* var1 = (unsigned char*)func_0200fd0c(var0);
-    void* var2 = func_02012fe4();
+    void* var2 = GetZone3D_02012fe4();
     ((int)GetGameResources());
     unsigned char* var3 = (unsigned char*)func_02010828(var0);
     GameObject* var4 = var0->GetUnknownGameObject();

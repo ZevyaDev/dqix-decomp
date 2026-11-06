@@ -11,7 +11,7 @@
 struct Struct_0202c1a4;
 extern "C" int func_0202c1a4(struct Struct_0202c1a4*);
 extern "C" void* func_0205ec34(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
 extern "C" void func_0201bf84(unsigned char* arg0, int arg1);
 
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov017_021cdb4c(void* arg0, struct Struct_ov017_021cdb4c
     }
 
     unsigned char* var0 = (unsigned char*)func_0205ec34();
-    unsigned char* var1 = (unsigned char*)func_02012fe4();
+    unsigned char* var1 = (unsigned char*)GetZone3D_02012fe4();
 
     switch (arg1->unknown_5_) {
     case 0:

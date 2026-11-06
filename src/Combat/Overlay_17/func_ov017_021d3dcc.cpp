@@ -3,7 +3,7 @@
 
 struct Struct_0202c1a4;
 extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
-extern "C" int func_02012fe4(void);
+extern "C" int GetZone3D_02012fe4(void);
 extern "C" void func_02098efc(char* arg0, int arg1, const void* arg2, unsigned int arg3);
 extern "C" void* func_0202ae24(void);
 struct Struct_0205e804;
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov017_021d3dcc(int arg0, struct Struct_ov017_021d3dcc* 
     if (func_0202c1a4(arg4) != arg1->unknown_11_4_) {
         return;
     }
-    char* var0 = (char*)func_02012fe4();
+    char* var0 = (char*)GetZone3D_02012fe4();
     char* var1 = var0 + Enum_ov017_021d3dcc_2112;
     func_02098efc(var1, arg1->unknown_12_, (const void*)((char*)arg1 + 4), arg1->unknown_11_0_);
     if (!arg1->unknown_11_7_) {

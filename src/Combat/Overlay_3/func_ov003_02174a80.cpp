@@ -137,7 +137,7 @@ extern "C" void func_0207f914(Struct_0207f914*, int, int, int);
 extern "C" int func_0207f9f4(void*);
 extern "C" void func_0208108c(void*, int);
 extern "C" void func_0205a528(void*, void*, int, SafeAllocator*);
-extern "C" Struct_ov003_02174a80* func_020421a0(void);
+extern "C" Struct_ov003_02174a80* GetMessageWindow_020421a0(void);
 extern "C" void func_ov003_02176798(void*);
 
 extern const char* data_020f2a38;
@@ -369,7 +369,7 @@ extern "C" ARM void func_ov003_02174a80(Struct_ov003_02174a80_5* arg0) {
             }
             var1->RemoveTask(arg0->unknown_fec_);
             arg0->unknown_fec_ = -1;
-            Struct_ov003_02174a80* var32 = func_020421a0();
+            Struct_ov003_02174a80* var32 = GetMessageWindow_020421a0();
             var32->unknown_2d8_ = (char*)arg0 + Enum_ov003_02174a80_2008;
             var32->unknown_2dc_ = arg0->unknown_830_;
             if (arg0->unknown_0_ != 0) {
@@ -382,7 +382,7 @@ extern "C" ARM void func_ov003_02174a80(Struct_ov003_02174a80_5* arg0) {
     }
 
     if (arg0->unknown_103f_ == 11) {
-        if (func_020421a0()->unknown_9a0_ == 3) {
+        if (GetMessageWindow_020421a0()->unknown_9a0_ == 3) {
             arg0->unknown_1046_ |= 0x40;
             arg0->unknown_1041_ = 0;
             func_ov003_02176798(arg0);

@@ -34,7 +34,7 @@ static inline unsigned int inline_02046530(Struct_0203d028* arg0) {
 }
 
 // JPN: func_02046530
-extern "C" ARM int func_02046530(Struct_02021b84* arg0, const char* arg1, int arg2, unsigned char arg3) {
+extern "C" ARM int func_02046530(MessageWindow_02021b84* arg0, const char* arg1, int arg2, unsigned char arg3) {
     Struct_0203bebc* var0 = func_020429bc(arg3);
     if (var0 == NULL) {
         return 0;

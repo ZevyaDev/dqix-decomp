@@ -15,7 +15,7 @@ extern "C" int func_02046b24(struct Struct_02015438** arg0);
 extern "C" void* func_ov000_02160130(void);
 extern "C" void* func_ov000_021677d8(void* arg0, int arg1);
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 
 extern "C" int func_02011b50(void* arg0, int arg1);
 
@@ -53,7 +53,7 @@ extern "C" ARM void func_02092d60(struct Struct_02092d60_3* arg0, int arg1) {
                 }
             }
         }
-        struct Struct_02092d60_2* var8 = (struct Struct_02092d60_2*)func_02012fe4();
+        struct Struct_02092d60_2* var8 = (struct Struct_02092d60_2*)GetZone3D_02012fe4();
         unsigned short var9 = var8->unknown_0_;
         int var10 = func_02011b50(var0, 1);
         func_ov017_021cf3c0(var2, var9, arg1, var10, arg0->unknown_38_);

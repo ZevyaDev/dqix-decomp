@@ -3,7 +3,7 @@
 
 struct Struct_ov000_0217ff34_2;
 extern "C" Struct_ov000_0217ff34_2* func_0200fea4(GameState*,int);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 struct Random;
 Random* GetBTRandom();
 int NextRandomMax(Random*,int);
@@ -19,7 +19,7 @@ struct Struct_ov000_0217ff34_2 { char unknown_0_[0x138]; Struct_ov000_0217ff34* 
 extern "C" ARM int func_ov000_0217ff34(void* arg0,int arg1,int* arg2) {
     int var0 = -1;
     GameState* var1 = GameState::GetInstance();
-    func_020421a0();
+    GetMessageWindow_020421a0();
     Struct_ov000_0217ff34_2* var2 = func_0200fea4(var1,arg1);
     if (!var2) return var0;
     int var3 = 0;

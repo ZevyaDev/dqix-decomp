@@ -9,7 +9,7 @@ struct Struct_02087574;
 struct Struct_0201099c_16;
 struct Struct_020dcd40 { unsigned char unknown_0_[0x30]; };
 
-extern "C" unsigned short* func_02012fe4(void* arg0);
+extern "C" unsigned short* GetZone3D_02012fe4(void* arg0);
 extern "C" int func_02086e9c(Struct_02086e9c* arg0);
 extern "C" Struct_02086e50* func_02086e50(Struct_02086e50* arg0, int arg1);
 extern "C" void* func_020108f0(void* arg0, int arg1);
@@ -37,7 +37,7 @@ extern "C" ARM int func_020dcd40() {
     GameResources* var1 = GetGameResources();
     GameState* var2 = GameState::GetInstance();
     void* var3 = func_02010828(var2);
-    unsigned short* var4 = func_02012fe4(var3);
+    unsigned short* var4 = GetZone3D_02012fe4(var3);
     while (true) {
         int var5 = func_02086e9c((Struct_02086e9c*)var3);
         if (var5 < 0) {

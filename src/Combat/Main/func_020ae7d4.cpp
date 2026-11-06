@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" bool func_020ae4c8();
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_020ae4ec(int arg0, int arg1);
 
 struct Struct_02017a94;
@@ -10,7 +10,7 @@ extern "C" struct Struct_0201b600* func_0201b600(Struct_02017a94*, int, unsigned
 
 // USA: func_020ae7d4
 extern "C" ARM void func_020ae7d4(int arg0) {
-    struct Struct_02017a94* var0 = (struct Struct_02017a94*)func_02012fe4();
+    struct Struct_02017a94* var0 = (struct Struct_02017a94*)GetZone3D_02012fe4();
     if (*(unsigned short*)var0 != 0x1bbd) return;
 
     struct Struct_0201b600* var1 = func_0201b600(var0, 0, 0xd);

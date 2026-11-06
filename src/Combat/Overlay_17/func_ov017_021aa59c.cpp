@@ -45,9 +45,9 @@ struct Struct_02038598_4;
 struct Struct_02038598_5;
 
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020d6c00(void);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_ov017_021959b4(void);
 extern "C" void func_ov017_021aaf08(void* arg0);
 extern "C" void* func_02010828(GameState* arg0);
@@ -166,9 +166,9 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Struct_02
     GameState* var2 = GameState::GetInstance();
     func_0202ae18();
     var0 = GetGameResources();
-    func_020421a0();
+    GetMessageWindow_020421a0();
     Struct_02046c78* var3 = (Struct_02046c78*)var0->unknown_ptr_array_36fc[0];
-    var1 = (Struct_ov017_021aa59c_2*)func_02012fe4();
+    var1 = (Struct_ov017_021aa59c_2*)GetZone3D_02012fe4();
     unsigned int* var4 = (unsigned int*)func_020d6c00();
 
     if (arg0->unknown_14_ < 6 && (func_ov017_021959b4() != 0 || var0->unknown_42e2_ != 0)) {

@@ -9,7 +9,7 @@ struct Struct_0201099c_3;
 extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 
 extern "C" int func_020100a8(GameState* arg0);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
 
 struct Struct_02046574_2;
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov023_021ed4b8(char* arg0) {
     GameObject* var8 = func_0200ff1c(var6, var7);
     if (var8 == NULL) return;
 
-    int var9 = func_020421a0();
+    int var9 = GetMessageWindow_020421a0();
     func_02046380((void*)var9);
 
 #if defined(jpn)

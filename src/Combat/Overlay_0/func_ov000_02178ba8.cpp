@@ -47,7 +47,7 @@ struct Struct_ov000_02178ba8_3 {
     Struct_0205d81c unknown_188_;
 };
 
-extern "C" Struct_ov000_02178ba8* func_020421a0();
+extern "C" Struct_ov000_02178ba8* GetMessageWindow_020421a0();
 extern "C" int func_0205bafc(void* arg0);
 extern "C" Struct_0205d0e0* func_0205d81c(Struct_0205d81c* arg0, int arg1);
 extern "C" void func_ov000_02178d28(Struct_ov000_02178ba8_3* arg0, Struct_ov000_02178ba8_2* arg1);
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov000_02178ba8(Struct_ov000_02178ba8_3* arg0, Struct_ov
     if (func_0205bafc(&var2->unknown_54_) > 4) {
         var3 = 1;
     }
-    void* var4 = func_020421a0()->unknown_5c_;
+    void* var4 = GetMessageWindow_020421a0()->unknown_5c_;
     memset(var4, 0, REGION_OFFSET_1);
     func_ov000_02178f28(arg0, arg1, var4);
 #if defined(jpn)

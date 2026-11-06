@@ -81,7 +81,7 @@ extern "C" void func_ov003_0216e02c(void *arg0, SafeAllocator *arg1);
 #endif
 extern "C" int func_ov003_0216e124(void *arg0);
 extern "C" void func_ov003_021700dc(void *arg0);
-extern "C" void *func_020421a0();
+extern "C" void *GetMessageWindow_020421a0();
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 
 extern char data_02114e20;
@@ -89,7 +89,7 @@ extern char data_ov003_021801c9[];
 
 // USA: func_ov003_0216bcfc
 extern "C" ARM void func_ov003_0216bcfc(Struct_ov003_0216bcfc_3 *arg0) {
-    Struct_ov003_0216bcfc_2 *var0   = (Struct_ov003_0216bcfc_2 *) func_020421a0();
+    Struct_ov003_0216bcfc_2 *var0   = (Struct_ov003_0216bcfc_2 *) GetMessageWindow_020421a0();
     BackgroundLoader *var1 = BackgroundLoader::GetInstance();
     void *var2                = func_0202ae18();
 
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov003_0216bcfc(Struct_ov003_0216bcfc_3 *arg0) {
             arg0->unknown_6_  = 0;
             return;
         }
-        Struct_ov003_0216bcfc_2 *var3 = (Struct_ov003_0216bcfc_2 *) func_020421a0();
+        Struct_ov003_0216bcfc_2 *var3 = (Struct_ov003_0216bcfc_2 *) GetMessageWindow_020421a0();
 #if defined(jpn)
         memset(var3->unknown_28_, 0, 0x800);
 #else

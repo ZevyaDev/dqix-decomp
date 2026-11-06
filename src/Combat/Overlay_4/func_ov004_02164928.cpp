@@ -18,7 +18,7 @@ struct Struct_0201bdac_2;
 struct Struct_0201bdac;
 extern Struct_ov004_02164928* data_ov004_02171010;
 extern "C" GameResources* func_0200fb8c(int*);
-extern "C" Zone3D* func_02012fe4();
+extern "C" Zone3D* GetZone3D_02012fe4();
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" int func_ov004_021634dc(void*);
 extern "C" void* func_ov011_021849c8(void*);
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov004_02164928(void* arg0) {
     if (data_ov004_02171010->unknown_18f4_ == 0) return 0;
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = func_0200fb8c(((int*)(var0)));
-    Zone3D* var2 = func_02012fe4();
+    Zone3D* var2 = GetZone3D_02012fe4();
     ActiveGrottoClass* var3 = var2->inline_02024518_2();
     GrottoStruct* var4 = var0->GetGrottoStruct();
     if (IsBrightnessTransitionActive(var1)) return 0;

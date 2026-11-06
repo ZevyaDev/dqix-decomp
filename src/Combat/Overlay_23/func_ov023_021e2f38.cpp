@@ -12,11 +12,11 @@ extern "C" void* func_020d6c00(void);
 struct Struct_02038598_4;
 extern "C" void func_020466f4(struct Struct_02038598_4*, unsigned int);
 extern "C" void func_ov005_02154198(void*);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_02017d68(void* arg0);
 extern "C" void func_ov023_021e4f18(void* arg0);
 extern "C" void func_0205a494(void* arg0);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 struct Struct_02045cac;
 extern "C" void func_02045cac(struct Struct_02045cac*);
 extern "C" void func_02043204(char*);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov023_021e2f38(void* arg0) {
     if (*(void**)(var0 + 0x0) != 0) {
         func_ov005_02154198(*(void**)(var0 + 0x0));
         *(void**)(var0 + 0x0) = 0;
-        func_02017d68(func_02012fe4());
+        func_02017d68(GetZone3D_02012fe4());
     }
 
     func_ov023_021e4f18(*(void**)(var0 + Enum_ov023_021e2f38_292));
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov023_021e2f38(void* arg0) {
     *(int*)(var0 + 0xc0) = 0;
     *(int*)(var0 + 0xc4) = 0;
 
-    int var3 = func_020421a0();
+    int var3 = GetMessageWindow_020421a0();
     func_02045cac((struct Struct_02045cac*)var3);
     func_02043204((char*)var3);
     func_02043124(var3);

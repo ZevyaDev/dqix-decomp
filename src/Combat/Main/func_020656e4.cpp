@@ -10,7 +10,7 @@ struct Struct_0203dce4;
 extern "C" struct Struct_0203dce4* func_0203dce4(struct Struct_0203dce4_2* arg0, int arg1);
 
 // USA: func_020656e4
-ARM int Struct_02021b84::func_020656e4(int arg0) {
+ARM int MessageWindow_02021b84::func_020656e4(int arg0) {
     if (!unknown_19b6_) return 0;
 
     struct Struct_0203dce4* var0 = func_0203dce4(

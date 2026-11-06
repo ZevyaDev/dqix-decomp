@@ -21,7 +21,7 @@ struct Struct_020263e4;
 struct Struct_02011930;
 
 extern "C" int func_020ac734(void* arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_020263e4(Struct_020263e4* arg0);
 extern "C" void func_02026418(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020dc2d0(int arg0);
@@ -36,7 +36,7 @@ extern "C" void func_020e1154(void* arg0);
 extern "C" void func_020118fc(void* arg0);
 extern "C" void func_020119e8(void* arg0);
 extern "C" void func_02011ad4(char* arg0);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 
 extern char* data_ov004_02171010;
 
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov004_02164738(void* arg0) {
     func_020ac734(&var1);
 
     GameState* var3 = GameState::GetInstance();
-    char* var4 = (char*)func_02012fe4();
+    char* var4 = (char*)GetZone3D_02012fe4();
     GameResources* var5 = GetGameResources();
     unsigned char* var6 = (unsigned char*)var5->unknown_ptr_36d0;
     var5->unknown_41c8[0x42e0 - 0x41c8] = *(unsigned char*)(data_ov004_02171010 + 0x1000 + Enum_ov004_02164738_2299);
@@ -94,6 +94,6 @@ extern "C" ARM int func_ov004_02164738(void* arg0) {
     func_020118fc(var3);
     func_020119e8(var3);
     func_02011ad4((char*)var3);
-    *(unsigned char*)(func_020421a0() + 0x1000 + Enum_ov004_02164738_2402) = 0;
+    *(unsigned char*)(GetMessageWindow_020421a0() + 0x1000 + Enum_ov004_02164738_2402) = 0;
     return 0;
 }

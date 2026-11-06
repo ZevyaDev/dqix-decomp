@@ -73,7 +73,7 @@ struct Struct_ov023_021ef524_2 {
 extern "C" Struct_ov023_021eeaac_2* _ZZ21inline_ov023_021f4c04vE1s;
 extern char data_02109bf4[];
 extern char data_ov023_021fd511[];
-extern "C" Struct_020465c0* func_020421a0();
+extern "C" Struct_020465c0* GetMessageWindow_020421a0();
 extern "C" int func_0202b7d8(int*);
 extern "C" signed char func_0202c1a4(Struct_0202c1a4*);
 extern "C" void func_ov000_02163b60(void*);
@@ -93,9 +93,9 @@ extern "C" void func_ov023_021ed988(char*, int);
 extern "C" Struct_ov023_021ef524_2* func_02079e2c(char*, int);
 extern "C" {
 void* func_0202ae18();
-Struct_ov023_021ef524_4* func_02012fe4();
+Struct_ov023_021ef524_4* GetZone3D_02012fe4();
 void __clear(void*, unsigned int);
-void func_0204500c(Struct_020465c0*, const char*, int);
+void StartMessage_0204500c(Struct_020465c0*, const char*, int);
 int func_ov023_021f4fc8();
 void func_ov000_0216d370(void*, int, int, int);
 void func_ov000_02163b90(Struct_ov023_021ef524_3*, int);
@@ -110,9 +110,9 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
     DetailedTreasureMapData* var4;
     GameState* var0 = GameState::GetInstance();
     Struct_ov023_021eeaac_2* var1 = _ZZ21inline_ov023_021f4c04vE1s;
-    Struct_020465c0* var2 = func_020421a0();
+    Struct_020465c0* var2 = GetMessageWindow_020421a0();
     void* var3 = func_0202ae18();
-    var4 = func_02012fe4()->unknown_240c_.GetDetailedData();
+    var4 = GetZone3D_02012fe4()->unknown_240c_.GetDetailedData();
     char var5[0x100];
     __clear(var5, sizeof(var5));
     if (var1->unknown_0_ == 0) {
@@ -124,7 +124,7 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
         unsigned short var6;
         if ((!var4->legacy_.minTurns_ || arg0->unknown_5abc_ < var4->legacy_.minTurns_) && (var6 = arg0->unknown_5abc_) < 1000) {
             sprintf(var5, func_02072a68(&arg0->unknown_5af4_, 0x23), var6, var4->legacy_.bossName_, var4->legacy_.level_);
-            func_0204500c(var2, var5, 1);
+            StartMessage_0204500c(var2, var5, 1);
             var2->unknown_17e2_ = 0;
             var2->unknown_868_ = 1;
             var1->unknown_0_ = 2;
@@ -178,7 +178,7 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
         func_0202ea4c(&arg0->unknown_b94_);
         func_ov000_0216d50c(&arg0->unknown_b94_);
         sprintf(var5, func_02072a68(&arg0->unknown_5af4_, 0x1b), var4->legacy_.bossName_);
-        func_0204500c(var2, var5, 1);
+        StartMessage_0204500c(var2, var5, 1);
         var2->unknown_17e2_ = 0;
         var2->unknown_868_ = 1;
         var1->unknown_0_ = 4;
@@ -186,13 +186,13 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
         if (func_ov023_021f4fc8()) {
             if (var4->legacy_.level_ >= 99) {
                 sprintf(var5, func_02072a68(&arg0->unknown_5af4_, 0x1d), var4->legacy_.bossName_);
-                func_0204500c(var2, var5, 1);
+                StartMessage_0204500c(var2, var5, 1);
                 var2->unknown_17e2_ = 0;
                 var2->unknown_868_ = 1;
                 var1->unknown_0_ = 8;
             } else {
                 sprintf(var5, func_02072a68(&arg0->unknown_5af4_, 0x1c), var4->legacy_.bossName_);
-                func_0204500c(var2, var5, 1);
+                StartMessage_0204500c(var2, var5, 1);
                 var2->unknown_17e2_ = 0;
                 var2->unknown_868_ = 1;
                 var1->unknown_0_ = 5;
@@ -203,7 +203,7 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
             char* var23 = ((Struct_ov023_021ef524*)func_0200ff1c(var0, func_020100a8(var0)))->unknown_134_;
             int var22 = arg0->unknown_5ab0_;
             sprintf(var5, func_02072a68(&arg0->unknown_5af4_, 0x1e), var22, var4->legacy_.bossName_, var23, var22, var4->legacy_.bossName_, var4->legacy_.bossName_);
-            func_0204500c(var2, var5, 1);
+            StartMessage_0204500c(var2, var5, 1);
             var2->unknown_17e2_ = 0;
             var2->unknown_868_ = 1;
             var2->unknown_218_ = 1;
@@ -216,7 +216,7 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
         if (func_ov023_021f4fc8()) {
             arg0->unknown_595c_ = 1;
             sprintf(var5, func_02072a68(&arg0->unknown_5af4_, 0x1f), var4->legacy_.bossName_, var4->legacy_.level_ + 1, var4->legacy_.bossName_);
-            func_0204500c(var2, var5, 1);
+            StartMessage_0204500c(var2, var5, 1);
             var2->unknown_17e2_ = 0;
             var2->unknown_868_ = 1;
             func_0209c6d8(data_02109bf4, 0x35);
@@ -238,7 +238,7 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
             if (var26) {
                 Struct_ov023_021ef524_2* var27 = func_02079e2c((char*)func_020797dc(), (short)var26);
                 sprintf(var5, func_02072a68(&arg0->unknown_5af4_, 0x20), var4->legacy_.bossName_, var27->unknown_0_);
-                func_0204500c(var2, var5, 1);
+                StartMessage_0204500c(var2, var5, 1);
                 var2->unknown_17e2_ = 0;
                 var2->unknown_868_ = 1;
             }

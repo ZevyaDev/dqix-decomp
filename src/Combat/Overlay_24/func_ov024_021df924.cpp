@@ -94,8 +94,8 @@ extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c508(void* arg0);
 extern "C" int func_ov000_0215fd24(int arg0, int arg1);
-extern "C" unsigned short* func_02012fe4(void);
-static inline int inline_ov024_021df924() { return *func_02012fe4(); }
+extern "C" unsigned short* GetZone3D_02012fe4(void);
+static inline int inline_ov024_021df924() { return *GetZone3D_02012fe4(); }
 extern "C" int func_ov024_021df71c(Struct_ov024_021df924_11* arg0, unsigned short arg1, int arg2, unsigned short* arg3, unsigned short* arg4, unsigned short* arg5);
 extern "C" short func_02052df8(Struct_02052df8* arg0, int arg1);
 extern "C" void* func_ov000_02160130();

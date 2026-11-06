@@ -3,7 +3,7 @@
 #include "std_library_functions.h"
 #include "NitroSDK/Cache.h"
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_020c9820(void);
 extern "C" void func_02023218(void* arg0, void* arg1, int arg2);
 extern "C" int LoadToSubObjVRAM(void* buf, int a1, int a2);
@@ -11,7 +11,7 @@ extern "C" int LoadToSubObjVRAM(void* buf, int a1, int a2);
 // USA: func_020233b8
 extern "C" ARM int func_020233b8(void* arg0, int arg1)
 {
-    void* var0 = (void*)func_020421a0();
+    void* var0 = (void*)GetMessageWindow_020421a0();
     int var1 = 0;
     int var2 = var1;
     void* var3 = *(void**)((char*)var0 + 0x60);

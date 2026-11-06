@@ -46,7 +46,7 @@ extern "C" void func_020dc548(signed char arg0, signed char* arg1, signed char* 
 extern "C" int func_02039d7c(char* arg0);
 extern "C" Struct_0202c1a4* func_0202ae18();
 extern "C" GameObject* func_0200fee0(GameState* arg0, int arg1);
-extern "C" char* func_02012fe4();
+extern "C" char* GetZone3D_02012fe4();
 extern "C" int func_020981e4(int arg0, int arg1);
 extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
 extern "C" int func_020546a8(void* arg0);
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
         return;
     }
 
-    char* var11 = func_02012fe4();
+    char* var11 = GetZone3D_02012fe4();
     int var12 = 0;
     int var13;
     GameObject* var14;

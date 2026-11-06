@@ -8,7 +8,7 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 struct Struct_02048150;
 extern "C" int func_02086ef0(struct Struct_02048150* arg0, int arg1);
 struct Struct_0209a9dc_2;
@@ -21,9 +21,9 @@ extern "C" void func_020e4bf4(void* arg0, int arg1);
 struct Struct_02046574_2;
 extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
 #if defined(jpn)
-extern "C" void func_0204500c(void* arg0, char* arg1, int arg2);
+extern "C" void StartMessage_0204500c(void* window, char* text, int arg2);
 #else
-extern "C" void func_0204500c(void* arg0, char* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int arg3);
 #endif
 
 extern "C" int func_02053c6c(unsigned char* arg0);
@@ -64,7 +64,7 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* arg0) {
 #endif
     GameState* var0 = GameState::GetInstance();
     struct Struct_ov023_021f2368_2* var1 = _ZZ21inline_ov023_021f4c04vE1s;
-    int var2 = func_020421a0();
+    int var2 = GetMessageWindow_020421a0();
     unsigned char* var3 = (unsigned char*)var2;
     (int)BackgroundLoader::GetInstance();
     int var4 = var1->unknown_18_;
@@ -92,7 +92,7 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* arg0) {
                     sprintf(var12, var13, var11, *(char**)var9);
                     char* var14 = (char*)func_02072a68((struct Struct_02072a68_2*)(arg0 + Enum_ov023_021f2368_23284), 0x22);
                     strcat(var12, var14);
-                    func_0204500c(var3, var12, 1);
+                    StartMessage_0204500c(var3, var12, 1);
 
 #else
                     char var15[0xc];
@@ -105,7 +105,7 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* arg0) {
                     *(void**)(var3 + 0x10) = var15;
                     char* var19 = *(char**)var9;
                     func_02046574((struct Struct_02046574_2*)var3, 1, var19);
-                    func_0204500c(var3, var16, 1, 0xe3);
+                    StartMessage_0204500c(var3, var16, 1, 0xe3);
 
 #endif
                     var3[Enum_ov023_021f2368_6578] = 0;

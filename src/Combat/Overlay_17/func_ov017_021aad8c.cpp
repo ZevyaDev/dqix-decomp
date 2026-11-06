@@ -17,7 +17,7 @@ extern "C" void func_0207fd44(struct Struct_0207fd44_2* arg0);
 struct Struct_0207fdcc_2;
 extern "C" void* func_02081da8(struct Struct_0207fdcc_2* arg0, int arg1);
 extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 struct Struct_0205a330;
 extern "C" void func_0205a330(struct Struct_0205a330* arg0, int arg1);
 struct Struct_0205a254;
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov017_021aad8c(struct Struct_ov017_021aad8c_2* arg0) {
     var1 -= 0x10;
     var2 -= 3;
 
-    struct Struct_ov017_021aad8c* var3 = (struct Struct_ov017_021aad8c*)func_020421a0();
+    struct Struct_ov017_021aad8c* var3 = (struct Struct_ov017_021aad8c*)GetMessageWindow_020421a0();
     void* var4 = var3->unknown_2e0_;
     int var5 = var3->unknown_2e4_;
     void* var6 = var3->unknown_2d8_;

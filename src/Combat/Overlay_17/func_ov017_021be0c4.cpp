@@ -40,9 +40,9 @@ struct Struct_ov017_021be0c4_2 {
     char unknown_2664_[4];
 };
 struct Struct_02018300_3;
-extern "C" Struct_ov017_021be0c4_2* func_02012fe4();
+extern "C" Struct_ov017_021be0c4_2* GetZone3D_02012fe4();
 extern "C" int* func_0202ae18();
-extern "C" Struct_02046574_2* func_020421a0();
+extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void func_0205ebc0(void*, int, int);
 extern "C" void func_0205ebfc(void*, int, int);
@@ -74,8 +74,8 @@ extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
     GameState* var0 = GameState::GetInstance();
     func_0202ae18();
     GameResources* var1 = GetGameResources();
-    Struct_02046574_2* var2 = func_020421a0();
-    func_02012fe4();
+    Struct_02046574_2* var2 = GetMessageWindow_020421a0();
+    GetZone3D_02012fe4();
     GrottoStruct* var3 = var0->GetGrottoStruct();
     if (arg0->unknown_8_ == 0) {
         func_020397cc((Struct_02018300_3*)var0->GetUnknownGameObject(), 1);
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
         arg0->unknown_8_ = 2;
     } else if (arg0->unknown_8_ == 2) {
         if (!IsMainBrightnessTransitionActive(var1)) {
-            if (func_0208f748(func_02012fe4()->unknown_2664_, &var3->entranceX)) {
+            if (func_0208f748(GetZone3D_02012fe4()->unknown_2664_, &var3->entranceX)) {
                 var3->activeMapData.SetDiscoveryState(DiscoveryState_Discovered);
                 if (var3->activeMapData.DiscoveredBy[0] == 0) {
 #if defined(jpn)
@@ -115,11 +115,11 @@ extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
             char* var6 = var2->unknown_5c_;
 #if defined(jpn)
             sprintf(var6, data_ov017_021d8658, var0->GetUnknownGameObject()->baseStats_->unk);
-            func_0204500c((Struct_02021b84*)var2, var6, 0);
+            StartMessage_0204500c((MessageWindow_02021b84*)var2, var6, 0);
 #else
             sprintf(var6, func_020e51cc(0x3f));
             func_02046574(var2, 0, (char*)var0->GetUnknownGameObject()->baseStats_);
-            func_0204500c((Struct_02021b84*)var2, var6, 0, 0xe3);
+            StartMessage_0204500c((MessageWindow_02021b84*)var2, var6, 0, 0xe3);
 #endif
             var2->unknown_19b2_ = 0;
             var2->unknown_998_ = 1;

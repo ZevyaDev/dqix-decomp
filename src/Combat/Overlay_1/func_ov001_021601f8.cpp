@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Graphics/LightingManager.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 
 struct Struct_0201f170 {
     short unknown_0_;
@@ -66,7 +66,7 @@ struct Struct_ov001_021601f8_2 {
 
 // USA: func_ov001_021601f8
 extern "C" ARM void func_ov001_021601f8(struct Struct_ov001_021601f8* arg0, struct Struct_0201f2cc* arg1) {
-    func_02012fe4();
+    GetZone3D_02012fe4();
     LightingManager* var0 = LightingManager::GetInstance();
     struct Struct_ov001_021601f8_5* var1 = arg0->unknown_24_;
     int var2 = ((struct Struct_ov001_021601f8_2*)var0)->unknown_98_;

@@ -99,7 +99,7 @@ struct Struct_02097054_5;
 extern "C" int func_02097224(Struct_02097054_5*, int);
 extern "C" void __clear(void*, int);
 extern "C" void func_0206819c(const char*, char*, int);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02046608(void*, int, char*, char*, int, int, int);
 extern "C" void func_ov023_021e24b0(void*, int, int, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
 extern "C" void func_ov023_021e23d0(void*, int, int, unsigned char, unsigned char);
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov014_02185c90(struct Struct_ov000_0217c638_2* arg0) {
                 char* var14 = var9;
                 char* var15 = var10;
                 char* var16 = var8;
-                void* var17 = func_020421a0();
+                void* var17 = GetMessageWindow_020421a0();
                 func_02046608(var17, 0xa, var6, var14, 0x400, 0, 0);
                 func_02046608(var17, 0xa, var7, var15, 0x400, 0, 0);
                 func_02046608(var17, 0xa, (char*)arg0->unknown_68_, var16, 0x8c, 0, 0);

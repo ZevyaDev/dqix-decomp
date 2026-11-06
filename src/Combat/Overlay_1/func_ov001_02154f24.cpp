@@ -48,7 +48,7 @@ struct Struct_ov001_02154f24_2
     char unknown_c_[0x34 - 0xc];
 };
 extern "C" void* func_0203cf4c();
-extern "C" Struct_ov001_02154f24* func_02012fe4();
+extern "C" Struct_ov001_02154f24* GetZone3D_02012fe4();
 extern "C" void* func_0202ae18();
 extern "C" void func_02012de4(AllocatorUnion*);
 extern "C" void func_020a0cc4(int);
@@ -93,7 +93,7 @@ extern "C" ARM int func_ov001_02154f24(Struct_ov001_02154f24_3* arg0)
     GameResources* var1 = GetGameResources();
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
     void* var3 = func_0203cf4c();
-    Struct_ov001_02154f24* var4 = func_02012fe4();
+    Struct_ov001_02154f24* var4 = GetZone3D_02012fe4();
     void* var5 = func_0202ae18();
     if (!TestFlags00(var1, 0x1000))
     {

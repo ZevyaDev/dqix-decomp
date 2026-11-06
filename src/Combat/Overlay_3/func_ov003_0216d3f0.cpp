@@ -11,7 +11,7 @@ enum { Enum_ov003_0216d3f0_2464 = 0x9a0 };
 extern "C" void func_ov003_0216d8d4(char*, int);
 #endif
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 #if !defined(jpn)
 extern "C" void func_ov003_0216d8d4(char* arg0, int arg1, int arg2, int arg3, int arg4);
 #endif
@@ -19,7 +19,7 @@ extern "C" void func_02043204(char* arg0);
 
 // USA: func_ov003_0216d3f0
 extern "C" ARM void func_ov003_0216d3f0(char* arg0) {
-    char* var0 = (char*)func_020421a0();
+    char* var0 = (char*)GetMessageWindow_020421a0();
     short var1 = *(short*)(arg0 + 6);
     if (var1 == 0) {
 #if defined(jpn)

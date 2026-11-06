@@ -7,7 +7,7 @@ extern "C" int func_020694a0(void*, unsigned short);
 
 // JPN: func_0206cdcc
 extern "C" ARM void func_0206cdcc(void* arg0, int* arg1, int* arg2) {
-    Struct_02021b84* var0 = static_cast<Struct_02021b84*>(arg0);
+    MessageWindow_02021b84* var0 = static_cast<MessageWindow_02021b84*>(arg0);
     unsigned short* var1 = static_cast<unsigned short*>(var0->unknown_1c_);
     int var2 = var0->unknown1_40_;
     int var3 = var0->unknown_78_;

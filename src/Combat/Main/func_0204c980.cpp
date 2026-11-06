@@ -36,7 +36,7 @@ struct Struct_0204c980 {
 };
 
 extern "C" void func_0204f0ec(char*);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" int func_0204a5e4(int, int);
 #if defined(jpn)
 extern "C" void func_020474a8(void*, unsigned char, const char*, char*);
@@ -63,7 +63,7 @@ extern "C" ARM void func_0204c980(Struct_0204c980* arg0, const char* arg1, unsig
         func_0204f0ec((char*)arg0);
 #if defined(jpn)
         char var0[0x800] = {};
-        func_020474a8(func_020421a0(), arg0->unknown_c7_, arg1, var0);
+        func_020474a8(GetMessageWindow_020421a0(), arg0->unknown_c7_, arg1, var0);
         short var1 = func_0204f6a0(arg0, var0, arg3, arg4, arg5);
         func_0204daf8(arg0, var0, var1);
 #else
@@ -71,7 +71,7 @@ extern "C" ARM void func_0204c980(Struct_0204c980* arg0, const char* arg1, unsig
         if (!(arg0->unknown_c5_ & 0x10)) var2 -= 4;
         if (arg5) var2 = 256;
         char var3[0x800] = {};
-        func_02046608(func_020421a0(), arg0->unknown_c7_, arg1, var3, var2, arg0->unknown_b0_, arg6);
+        func_02046608(GetMessageWindow_020421a0(), arg0->unknown_c7_, arg1, var3, var2, arg0->unknown_b0_, arg6);
         short var4 = func_0204e3e0(arg0, var3, arg3, arg4, arg5, arg6);
         func_0204cd60(arg0, var3, var4, arg6);
 #endif

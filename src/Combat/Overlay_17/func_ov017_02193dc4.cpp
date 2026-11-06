@@ -68,7 +68,7 @@ public:
     short unknown_ac_;
 };
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_02031188(Struct_020312bc* arg0, short* arg1);
 extern "C" long long func_020c32f8(int);
 extern "C" long long func_020c3260(int);
@@ -88,7 +88,7 @@ extern "C" ARM int func_ov017_02193dc4(Struct_ov017_02193dc4_2* arg0) {
 
     GameState::GetInstance();
     GetGameResources();
-    var2 = (Struct_ov017_02193dc4_3*)func_02012fe4();
+    var2 = (Struct_ov017_02193dc4_3*)GetZone3D_02012fe4();
     Struct_ov017_02193dc4 var5;
     Vector3i var6 = arg0->position_;
     var3 = 0;

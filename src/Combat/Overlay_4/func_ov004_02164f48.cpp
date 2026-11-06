@@ -13,7 +13,7 @@ struct Struct_02011930 {
 extern "C" unsigned char func_02011930(void* arg0, struct Struct_02011930* arg1, void* arg2, void* arg3);
 extern "C" void func_ov011_021848a0(void* arg0, int arg1);
 extern char* data_ov004_02171010;
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_020985ec {
     unsigned char unknown_0_[0x10];
     unsigned int unknown_10_;
@@ -95,9 +95,9 @@ extern "C" ARM int func_ov004_02164f48(void* arg0) {
 #endif
         if (var11 >= 0) {
 #if defined(jpn)
-            struct Struct_020985ec* var12 = (struct Struct_020985ec*)((char*)func_02012fe4() + 0x860);
+            struct Struct_020985ec* var12 = (struct Struct_020985ec*)((char*)GetZone3D_02012fe4() + 0x860);
 #else
-            struct Struct_020985ec* var12 = (struct Struct_020985ec*)((char*)func_02012fe4() + 0x840);
+            struct Struct_020985ec* var12 = (struct Struct_020985ec*)((char*)GetZone3D_02012fe4() + 0x840);
 #endif
             struct Struct_020985ec* var13 = func_020985ec(var12, var11);
             if (var13) {

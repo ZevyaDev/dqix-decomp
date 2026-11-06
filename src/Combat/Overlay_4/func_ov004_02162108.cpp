@@ -73,7 +73,7 @@ extern "C" struct Struct_02072a68_2* func_ov023_021fa598(Struct_ov004_02162108_2
 extern "C" char* func_02072a68(struct Struct_02072a68_2* arg0, short arg1);
 #endif
 extern "C" char* func_020d2f88(char* arg0, char* arg1);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" void func_ov004_0215f6f4(void* arg0, short arg1, short arg2, int arg3);
 
@@ -192,7 +192,7 @@ extern "C" ARM int func_ov004_02162108(void* arg0) {
                         memset(var26, 0, 0x80);
                         var25 = 0;
                         if (func_020d2f88(func_02072a68(var27, var22), data_ov004_02170527)) var25 = 0x14;
-                        func_02046608(func_020421a0(), 0, func_02072a68(var27, var22), var26, 0x78 - var25, 0, 0);
+                        func_02046608(GetMessageWindow_020421a0(), 0, func_02072a68(var27, var22), var26, 0x78 - var25, 0, 0);
                         var28 = func_ov004_0215e47c(arg0, var19);
                         if (var28 != 0 && func_ov023_021f6f10(var28) == 8) var28->unknown_20_ = var26;
                     }

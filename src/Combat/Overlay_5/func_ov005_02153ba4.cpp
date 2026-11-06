@@ -151,7 +151,7 @@ struct Struct_ov005_02153954 {
 
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void func_02074af4(void* arg0);
-extern "C" char* func_02012fe4();
+extern "C" char* GetZone3D_02012fe4();
 extern "C" short func_0201e830(Struct_0201e830* arg0);
 extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
 extern "C" void func_ov023_021e20c0(void* arg0);
@@ -179,7 +179,7 @@ extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
     arg0->unknown_e7d_ = 0;
     func_02074af4(arg0->unknown_e6c_);
     arg0->unknown_e80_ = (REG_DISPCNT & 0x1f00) >> 8;
-    arg0->unknown_3dc2_ = func_0201e830((Struct_0201e830*)(func_02012fe4() + REGION(0x8c,0x6c)));
+    arg0->unknown_3dc2_ = func_0201e830((Struct_0201e830*)(GetZone3D_02012fe4() + REGION(0x8c,0x6c)));
     arg0->unknown_0_.ResetAllocatorPointer();
     arg0->unknown_14_.ResetAllocatorPointer();
     for (int var0 = 0; var0 < 8; var0++)

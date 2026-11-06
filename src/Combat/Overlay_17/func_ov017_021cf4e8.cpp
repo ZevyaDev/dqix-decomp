@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_020fdd44;
-extern "C" unsigned short* func_02012fe4(void);
+extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" struct Struct_020fdd44* func_02027ca4(void);
 extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1);
 
@@ -20,7 +20,7 @@ extern "C" ARM void func_ov017_021cf4e8(void* arg0, unsigned char* arg1, unsigne
         var1[Enum_ov017_021cf4e8_3958] = arg1[5];
         if (arg1[5] == 2) {
             unsigned char* var2 = arg3 + Enum_ov017_021cf4e8_180 + Enum_ov017_021cf4e8_17408;
-            unsigned short* var3 = func_02012fe4();
+            unsigned short* var3 = GetZone3D_02012fe4();
             struct Struct_020fdd44* var4 = func_02028bd0(func_02027ca4(), *var3);
             if (var4 != 0) {
                 *(unsigned short*)var2 = *var3;

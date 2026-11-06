@@ -32,7 +32,7 @@ extern "C" void func_0207fd88(struct Struct_0207fd88* arg0);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02043204(char* arg0);
 extern "C" void func_02043124(char* arg0);
 
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov003_0215fb94(Struct_ov003_0215fb94* arg0) {
     }
     arg0->unknown_398_ = NULL;
 
-    char* var4 = (char*)func_020421a0();
+    char* var4 = (char*)GetMessageWindow_020421a0();
     if (*(int*)(var4 + Enum_ov003_0215fb94_2456) != 0) {
         func_02043204(var4);
         func_02043124(var4);

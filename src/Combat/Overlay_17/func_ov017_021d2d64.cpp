@@ -78,7 +78,7 @@ extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
 extern "C" void* func_020d7a50(void);
 extern "C" int func_02046b08(void** arg0);
 extern "C" int func_020535c8(signed char* arg0);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_020d805c(Struct_020d805c* arg0);
 extern "C" int func_ov017_0218b628(signed char);
 extern "C" void func_ov017_0218b5c0(int arg0, signed char arg1);
@@ -174,9 +174,9 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
             GameObject* var20 = arg2->GetUnknownGameObject();
             if (var20 != 0 && func_020535c8((signed char*)var20)) var19 = 0;
 #if defined(jpn)
-            if (*(int*)(func_020421a0() + 0x868) != 0 && func_020d805c((Struct_020d805c*)var3) == 0) var19 = 0;
+            if (*(int*)(GetMessageWindow_020421a0() + 0x868) != 0 && func_020d805c((Struct_020d805c*)var3) == 0) var19 = 0;
 #else
-            if (*(int*)(func_020421a0() + 0x998) != 0 && func_020d805c((Struct_020d805c*)var3) == 0) var19 = 0;
+            if (*(int*)(GetMessageWindow_020421a0() + 0x998) != 0 && func_020d805c((Struct_020d805c*)var3) == 0) var19 = 0;
 #endif
 
             for (int var21 = 0; var21 < var8.unknown_7_; var21++) {
@@ -269,7 +269,7 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
                 if (var19) {
                     for (int var37 = 0; var37 < 2; var37++) {
                         if (var3->unknown_150_0_ >= 3) continue;
-                        var0 = (void*)func_020421a0();
+                        var0 = (void*)GetMessageWindow_020421a0();
                         var6 = var23.unknown_0_[var37];
                         if (var6 < 0) continue;
 #if defined(jpn)

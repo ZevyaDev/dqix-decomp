@@ -11,7 +11,7 @@ struct Struct_02081b3c {
 };
 
 extern "C" ARM int func_02042190(int arg0);
-extern "C" ARM int func_020421a0(void);
+extern "C" ARM int GetMessageWindow_020421a0(void);
 extern "C" ARM void func_0206819c(const char* arg0, char* arg1, int arg2);
 
 extern "C" void __clear(void* arg0, int arg1);
@@ -47,7 +47,7 @@ extern "C" ARM void func_02081b3c(void* arg0, void* arg1, void* arg2) {
         *(short*)(var2 + 0x6) = (short)(var7 - var8 * F13(var2)->unknown_0_0_) >> 1;
     }
 
-    int var10 = func_020421a0();
+    int var10 = GetMessageWindow_020421a0();
     memset(*(void**)(var0 + 0x18), 0, 0x800);
     func_02046380((void*)var10);
     func_020474a8((void*)var10, F13(var2)->unknown_0_0_, *(void**)(var2 + 0x0), *(void**)(var0 + 0x18));
@@ -99,7 +99,7 @@ extern "C" ARM void func_02081b3c(void* arg0, void* arg1, void* arg2) {
         *(short*)(var2 + 0x6) = (short)var9;
     }
 
-    int var10 = func_020421a0();
+    int var10 = GetMessageWindow_020421a0();
     memset(*(void**)(var0 + 0x18), 0, 0x960);
     func_02046380((void*)var10);
     func_02046608(var10, F13(var2)->unknown_0_0_, var6, *(void**)(var0 + 0x18), 0x100, 0, 0);

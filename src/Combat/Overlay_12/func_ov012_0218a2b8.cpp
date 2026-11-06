@@ -14,7 +14,7 @@ struct Struct_02072a68_2 {
     short unknown_4_;
 };
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" int func_02041dd0(char* arg0, int arg1);
 extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
 extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
@@ -33,7 +33,7 @@ extern "C" void func_02042428(char* arg0, int arg1);
 extern "C" ARM void func_ov012_0218a2b8(unsigned char* arg0, char* arg1) {
     if (arg1 == 0) return;
 #if defined(jpn)
-    struct Struct_020465c0* var0 = (struct Struct_020465c0*)func_020421a0();
+    struct Struct_020465c0* var0 = (struct Struct_020465c0*)GetMessageWindow_020421a0();
     func_020465c0(var0, 0, arg0[0x1456]);
     func_020465f0((unsigned char*)var0, 0, 2);
     func_020465d8((unsigned char*)var0, 0, 1);
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov012_0218a2b8(unsigned char* arg0, char* arg1) {
         func_02041b70(arg1, 0, (const char*)var2);
     }
 #else
-    func_020421a0();
+    GetMessageWindow_020421a0();
 
     if (arg0[0x1371] == 8) {
         func_02041dd0(arg1, 4);

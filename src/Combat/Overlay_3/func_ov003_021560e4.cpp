@@ -13,7 +13,7 @@
 #if defined(jpn)
 enum { Enum_ov003_021560e4_464 = 0x1cc, Enum_ov003_021560e4_1820 = 0x50c, Enum_ov003_021560e4_2456 = 0x868, Enum_ov003_021560e4_32 = 0x20, Enum_ov003_021560e4_44 = 0x2c, Enum_ov003_021560e4_46 = 0x2e };
 extern "C" void func_02046574(void*, int, char*);
-extern "C" void func_0204500c(void*, void*, int);
+extern "C" void StartMessage_0204500c(void*, void*, int);
 extern "C" void func_02080654(void*, void*, const char*);
 extern const char data_ov003_0217e554[];
 extern const char data_ov003_0217e56e[];
@@ -40,7 +40,7 @@ void func_0204b5e8(void*, int, int);
 void func_020807fc(void*, int, int, int);
 void func_0204b11c(void*, int);
 void* func_020d7a50(void);
-void* func_020421a0(void);
+void* GetMessageWindow_020421a0(void);
 void func_02080828(void*, short, short*, short*);
 void func_02080878(void*, int, short*, short*);
 void func_02080854(void*, short, int, int);
@@ -59,7 +59,7 @@ int func_ov003_02155f88(void*, int);
 void _ZN13SafeAllocator5ResetEv(void*);
 int func_020420e8(int, int);
 #if !defined(jpn)
-void func_0204500c(void*, void*, int, int);
+void StartMessage_0204500c(void*, void*, int, int);
 #endif
 void func_02046380(void*);
 void func_0204b174(void*, void*, int, int);
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             func_020dfec0(arg0->unknown_e4_, var7, var5, var6);
             var2->RemoveTask(arg0->unknown_1d0_);
             arg0->unknown_1d0_ = -1;
-            char* var8 = (char*)func_020421a0();
+            char* var8 = (char*)GetMessageWindow_020421a0();
             int var9 = -1;
             if (arg0->unknown_1fc_ & 1) {
                 var9 = 0x1a;
@@ -203,9 +203,9 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             void* var15 = func_020e0434(arg0->unknown_e4_, var9);
             if (var15) {
 #if defined(jpn)
-                func_0204500c(var8, var15, 0);
+                StartMessage_0204500c(var8, var15, 0);
 #else
-                func_0204500c(var8, var15, 0, 0xe3);
+                StartMessage_0204500c(var8, var15, 0, 0xe3);
 #endif
                 *(int*)(var8 + Enum_ov003_021560e4_2456) = 1;
                 *(int*)(var8 + Enum_ov003_021560e4_2456 + 4) = 1;
@@ -367,7 +367,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
         }
     } else if (var1 == 9) {
-        char* var58 = (char*)func_020421a0();
+        char* var58 = (char*)GetMessageWindow_020421a0();
         if (*(int*)(var58 + Enum_ov003_021560e4_2456 + 8) == 3) {
             Struct_0207f7f0* var59 = arg0->unknown_18_;
             var59->unknown_2c_ = arg0->unknown_10_;

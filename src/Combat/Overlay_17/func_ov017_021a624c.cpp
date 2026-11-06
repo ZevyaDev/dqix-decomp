@@ -17,11 +17,11 @@
 #endif
 
 extern "C" void* func_0202ae18(void);
-extern "C" Zone3D* func_02012fe4(void);
+extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" int func_0202c540(void* arg0);
 
 extern "C" int func_02039750(void* arg0);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void* func_020daf90(void);
 extern "C" int func_02046b08(void** arg0);
 
@@ -64,10 +64,10 @@ extern "C" ARM void func_ov017_021a624c(GameResources* arg0) {
     if (var2 == 0) return;
 
     int var3 = func_02039750(var2);
-    int var4 = func_020421a0();
+    int var4 = GetMessageWindow_020421a0();
     GrottoStruct* var5;
     Zone3D_StructPtr_8* var6;
-    Zone3D* var7 = func_02012fe4();
+    Zone3D* var7 = GetZone3D_02012fe4();
     var6 = var7->pUnknownStruct_8_;
     var5 = var1->GetGrottoStruct();
     void* var8 = func_020daf90();

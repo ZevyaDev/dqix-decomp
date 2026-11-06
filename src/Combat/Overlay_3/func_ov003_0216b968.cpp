@@ -41,7 +41,7 @@ struct Struct_ov003_0216b968_2 {
     unsigned char unknown_13ee_;
 };
 
-extern "C" Struct_ov003_0216b968* func_020421a0(void);
+extern "C" Struct_ov003_0216b968* GetMessageWindow_020421a0(void);
 extern "C" void func_0205d7a0(void* arg0, int arg1);
 extern "C" void func_ov003_0216da90(Struct_ov003_0216b968_2* arg0);
 extern "C" void func_0205a330(struct Struct_0205a330* arg0, int arg1);
@@ -56,7 +56,7 @@ extern struct Struct_02108760 data_02108760;
 
 // USA: func_ov003_0216b968
 extern "C" ARM void func_ov003_0216b968(Struct_ov003_0216b968_2* arg0) {
-    Struct_ov003_0216b968* var0 = func_020421a0();
+    Struct_ov003_0216b968* var0 = GetMessageWindow_020421a0();
 
     if (arg0->unknown_6_ == 0) {
         if (var0->unknown_9a0_ == 3) {

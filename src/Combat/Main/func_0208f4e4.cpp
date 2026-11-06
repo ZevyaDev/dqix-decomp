@@ -13,7 +13,7 @@ enum { Enum_0208f4e4_108 = 0x6c };
 struct Struct_02015438;
 extern "C" int func_02046b24(struct Struct_02015438** arg0);
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0208f68c(void* arg0);
 
 // USA: func_0208f4e4
@@ -23,7 +23,7 @@ extern "C" ARM void func_0208f4e4(unsigned char* arg0) {
     void* var2;
     GameResources* var3 = GetGameResources();
     var2 = var3->unknown_ptr_array_36fc[0];
-    var1 = func_02012fe4();
+    var1 = GetZone3D_02012fe4();
     if (arg0[0xb5]) {
         func_0208f68c(arg0);
     }

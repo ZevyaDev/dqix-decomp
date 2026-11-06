@@ -51,7 +51,7 @@ static inline char* inline_ov008_02187708(GameState* arg0)
     return (char*)arg0 + 0x543c;
 }
 
-struct Struct_02021b84;
+struct MessageWindow_02021b84;
 struct Struct_ov008_021843f8_2;
 struct Struct_020727d8;
 struct Struct_0201099c_3;
@@ -65,15 +65,15 @@ struct Struct_ov008_02185dc0 {
 extern char data_ov008_0218c0d5[];
 extern char data_ov008_0218c0fc[];
 
-extern "C" Struct_02021b84* func_020421a0();
+extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_020727d8(Struct_020727d8* arg0);
 extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
 extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
-extern "C" void func_02046574(Struct_02021b84* arg0, int arg1, const void* arg2);
+extern "C" void func_02046574(MessageWindow_02021b84* arg0, int arg1, const void* arg2);
 extern "C" void func_02042058(char* arg0, const char* arg1);
-extern "C" void func_02046380(Struct_02021b84* arg0);
-extern "C" void func_020474a8(Struct_02021b84* arg0, int arg1, const char* arg2, char* arg3);
+extern "C" void func_02046380(MessageWindow_02021b84* arg0);
+extern "C" void func_020474a8(MessageWindow_02021b84* arg0, int arg1, const char* arg2, char* arg3);
 extern "C" const char* func_020e2168(char* arg0, const char* arg1, short arg2, unsigned int arg3, int arg4);
 extern "C" void __clear(void* arg0, unsigned long arg1);
 
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
         return;
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader::GetInstance();
-    Struct_02021b84* var1 = func_020421a0();
+    MessageWindow_02021b84* var1 = GetMessageWindow_020421a0();
     short var3 = 0;
     char var4[0x40];
     __clear(var4, sizeof(var4));
@@ -303,7 +303,7 @@ static inline char* inline_ov008_02187708(GameState* arg0)
     return (char*)arg0 + 0x569c;
 }
 
-struct Struct_02021b84 {
+struct MessageWindow_02021b84 {
     char unknown_0_[0x10];
     void* unknown_10_;
 };
@@ -324,7 +324,7 @@ extern char data_ov008_0218b49b[];
 extern char data_ov008_0218b4b0[];
 extern char data_ov008_0218b4c1[];
 
-extern "C" Struct_02021b84* func_020421a0();
+extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_020e46c4(void* arg0);
 extern "C" void func_020e4c74(void* arg0, GameObject* arg1);
 extern "C" void func_020727d8(Struct_020727d8* arg0);
@@ -340,12 +340,12 @@ extern "C" {
 void __clear(void* arg0, unsigned long arg1);
 int sprintf(char* arg0, const char* arg1, ...);
 void* ExtractFileFromGP2(char* arg0, char* arg1, unsigned int* arg2);
-void func_02046380(Struct_02021b84* arg0);
+void func_02046380(MessageWindow_02021b84* arg0);
 void func_02042764(const void* arg0, char* arg1, int arg2);
 void func_020e4b34(Struct_ov008_02187708_2* arg0, char* arg1, char* arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8,
                    int arg9, int arg10, int arg11);
 const char* func_020e046c(char* arg0, void* arg1, unsigned int arg2, short arg3);
-void func_02046608(Struct_02021b84* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
+void func_02046608(MessageWindow_02021b84* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
 int func_020420e8(const char* arg0, int arg1);
 }
 
@@ -356,7 +356,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
         return;
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader::GetInstance();
-    Struct_02021b84* var1 = func_020421a0();
+    MessageWindow_02021b84* var1 = GetMessageWindow_020421a0();
     char var2[0x30];
     __clear(var2, sizeof(var2));
     short var3 = 0;

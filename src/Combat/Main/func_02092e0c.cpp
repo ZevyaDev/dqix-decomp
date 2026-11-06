@@ -38,24 +38,24 @@ struct Struct_02046574_2 {
     unsigned char unknown_19b1_;
 };
 struct Struct_02092e0c_2 { int unknown_0_[3]; };
-extern "C" Struct_02046574_2* func_020421a0();
+extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void func_02046380(void*);
 extern "C" int func_020100a8(GameState*);
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 extern "C" void func_020e4bf4(void*, int);
 extern "C" int func_020e0434(Struct_0201099c_3*, int);
 #if !defined(jpn)
-extern "C" void func_0204500c(Struct_02046574_2*, int, int, int);
+extern "C" void StartMessage_0204500c(Struct_02046574_2*, int, int, int);
 #endif
 extern "C" void func_02042b98(Struct_02046574_2*, int, int, int, int);
 #if defined(jpn)
-extern "C" void func_0204500c(Struct_02046574_2*, int, int);
+extern "C" void StartMessage_0204500c(Struct_02046574_2*, int, int);
 extern "C" void func_02043270(Struct_02046574_2*, int, int, int, int);
 #endif
 // USA: func_02092e0c
 extern "C" ARM void func_02092e0c(Struct_02092e0c* arg0) {
     if (arg0->unknown_30_ >= 0) {
-        Struct_02046574_2* var0 = func_020421a0();
+        Struct_02046574_2* var0 = GetMessageWindow_020421a0();
         func_02046380(var0);
         GameState* var1 = GameState::GetInstance();
         GameObject* var2 = var1->GetPartyMemberByIndex(func_020100a8(var1));
@@ -63,7 +63,7 @@ extern "C" ARM void func_02092e0c(Struct_02092e0c* arg0) {
 #if defined(jpn)
         var2 = var1->GetPartyMemberByIndex(arg0->unknown_38_);
         if (var2) func_02046574(var0, 1, var2->baseStats_->unk);
-        func_0204500c(var0, func_020e0434(&arg0->unknown_14_, arg0->unknown_30_), 0);
+        StartMessage_0204500c(var0, func_020e0434(&arg0->unknown_14_, arg0->unknown_30_), 0);
         var0->unknown_998_ = 1;
         if ((arg0->unknown_37_ & 1) && (arg0->unknown_37_ & 2)) {
             var0->unknown_19b1_ = 0;
@@ -76,7 +76,7 @@ extern "C" ARM void func_02092e0c(Struct_02092e0c* arg0) {
         Struct_02092e0c_2 var3;
         func_020e4bf4(&var3, arg0->unknown_38_);
         var0->unknown_0_ = &var3;
-        func_0204500c(var0, func_020e0434(&arg0->unknown_14_, arg0->unknown_30_), 0, 0xe3);
+        StartMessage_0204500c(var0, func_020e0434(&arg0->unknown_14_, arg0->unknown_30_), 0, 0xe3);
         var0->unknown_998_ = 1;
         if ((arg0->unknown_37_ & 1) && (arg0->unknown_37_ & 2)) {
             var0->unknown_19b1_ = 0;

@@ -45,7 +45,7 @@ struct Struct_020e8d54 {
 
 extern const struct Struct_020e8d54 data_020e8d54;
 
-extern "C" struct Struct_0208f588_3* func_02012fe4(void);
+extern "C" struct Struct_0208f588_3* GetZone3D_02012fe4(void);
 struct ObjectArchiveLoadInfo;
 
 extern "C" void func_0207df90(char* arg0);
@@ -61,7 +61,7 @@ extern "C" ARM int func_0208f588(struct Struct_0208f588_4* arg0, SafeAllocator* 
     arg0->unknown_b4_ = 0;
     ((Object3D*)&arg0->unknown_8_)->Destroy();
     ((Object3D*)&arg0->unknown_8_)->Initialize();
-    if (func_02012fe4()->unknown_8_->unknown_c_0_ != 0) {
+    if (GetZone3D_02012fe4()->unknown_8_->unknown_c_0_ != 0) {
         return 0;
     }
 

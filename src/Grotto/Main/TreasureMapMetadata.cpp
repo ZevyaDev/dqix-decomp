@@ -12,7 +12,7 @@ extern "C"
 
 unsigned int func_020100a8(GameState*);
 
-void* func_02012fe4();
+void* GetZone3D_02012fe4();
 }
 
 // USA: func_020a5cb8
@@ -21,7 +21,7 @@ unsigned short GenerateNewMapQuality()
 {
     GameState* gameState = GameState::GetInstance();
     char* maybeMainCharDataPtr = (char*)func_0200ff1c(gameState, func_020100a8(gameState));
-    (void)func_02012fe4();
+    (void)GetZone3D_02012fe4();
     GrottoStruct* grotto = gameState->GetGrottoStruct();
 
 #ifdef jpn

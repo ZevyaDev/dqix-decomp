@@ -4,7 +4,7 @@ struct Struct_0201099c_3;
 extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 extern "C" void func_020e46c4(void* arg0);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void func_02046380(void* arg0);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
 
@@ -51,7 +51,7 @@ extern "C" ARM int func_ov000_02171a74(struct Struct_ov000_02171a74* arg0
         char var3[0xc];
         func_020e46c4(var3);
         func_020e4bf4(var3, arg0->unknown_4c_);
-        void* var4 = func_020421a0();
+        void* var4 = GetMessageWindow_020421a0();
         func_02046380(var4);
         *(void**)var4 = var3;
         func_02046608(var4, 0xa, var2, (void*)arg1, 0x100, 0, 0);

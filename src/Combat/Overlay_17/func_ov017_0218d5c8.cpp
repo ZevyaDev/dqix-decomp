@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_020dbebc(void* arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_020981e4(int arg0, int arg1);
 struct Struct_0203d028;
 extern "C" void func_0207df50(struct Struct_0203d028* arg0);
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov017_0218d5c8(unsigned char* arg0) {
 	if (var0 != NULL) {
 		func_020dbebc(var0);
 	}
-	unsigned char* var1 = (unsigned char*)func_02012fe4();
+	unsigned char* var1 = (unsigned char*)GetZone3D_02012fe4();
 	unsigned short var2 = *(unsigned short*)var1;
 	int var3 = func_020981e4((int)(var1 + kIdOffset), var2);
 	unsigned char* var4 = arg0 + kInternalOffset;

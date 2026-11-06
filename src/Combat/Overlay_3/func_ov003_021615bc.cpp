@@ -62,7 +62,7 @@ struct Struct_02020aec;
 extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
 struct Struct_0207f914;
 extern "C" void func_0207f914(Struct_0207f914*, int, int, int);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_0208108c(void* arg0, int arg1);
 extern "C" void func_02081058(void* arg0, int arg1, int arg2);
 extern "C" void func_02080798(void* arg0, int arg1, int arg2);
@@ -306,7 +306,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
         var22->unknown_3c_ = 0x10;
 #endif
         if (arg0->unknown_464_ & 0x20000) {
-            Struct_ov003_021615bc_2* var23 = (Struct_ov003_021615bc_2*)func_020421a0();
+            Struct_ov003_021615bc_2* var23 = (Struct_ov003_021615bc_2*)GetMessageWindow_020421a0();
             if (var23->unknown_998_ != 0 && var23->unknown_9a0_ != 3) {
                 return;
             }

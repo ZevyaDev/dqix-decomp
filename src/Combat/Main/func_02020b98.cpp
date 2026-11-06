@@ -10,7 +10,7 @@ enum { Enum_02020b98_8 = 8 };
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern int data_020ef460;
 extern char data_020ef587;
 extern char data_020ef58f;
@@ -19,7 +19,7 @@ extern char data_020ef58f;
 extern "C" ARM int func_02020b98(void* arg0) {
     char var0[0x20];
     int var1 = (int)BackgroundLoader::GetInstance();
-    char* var2 = (char*)func_02012fe4();
+    char* var2 = (char*)GetZone3D_02012fe4();
     sprintf(var0, &data_020ef587, (void*)(var2 + 0x26));
     int var3 = ((BackgroundLoader*)(var1))->QueueLoadFileInGP2((const char*)(*(int*)((char*)&data_020ef460 + Enum_02020b98_8)), (const char*)((int)var0), (SafeAllocator*)(0));
     strcpy((char*)arg0 + Enum_02020b98_2613, var2 + 0x26);

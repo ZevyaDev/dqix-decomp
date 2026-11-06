@@ -18,7 +18,7 @@ struct Struct_ov008_021842a0 {
     void* unknown_5c_;
 };
 
-extern "C" Struct_ov008_021842a0* func_020421a0();
+extern "C" Struct_ov008_021842a0* GetMessageWindow_020421a0();
 
 struct Struct_ov008_021842a0_2 {
     SafeAllocator unknown_0_;
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov008_021842a0(Struct_ov008_021842a0_2* arg0, SafeAlloc
         arg0->unknown_730_ = arg1->Allocate(0x54);
         arg0->unknown_734_ = arg1->Allocate(0x2d0);
         arg0->unknown_738_ = arg1->Allocate(8);
-        arg0->unknown_b8_ = (char*)func_020421a0()->unknown_5c_;
+        arg0->unknown_b8_ = (char*)GetMessageWindow_020421a0()->unknown_5c_;
     }
     else
     {

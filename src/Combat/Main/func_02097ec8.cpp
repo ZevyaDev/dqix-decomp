@@ -17,7 +17,7 @@ struct Struct_02097ec8_2 {
     Struct_02097ec8* unknown_1b5c_;
     unsigned char unknown_1b60_;
 };
-extern "C" Struct_0208fa8c* func_02012fe4();
+extern "C" Struct_0208fa8c* GetZone3D_02012fe4();
 extern "C" void* func_0202ae18();
 extern "C" void func_0201bd3c(Struct_0208fa8c*, int, int);
 extern "C" void func_02082828(Struct_02097ec8*);
@@ -37,7 +37,7 @@ static inline char& inline_0203d028_5(GameResources* arg0, int arg1) {
 
 // USA: func_02097ec8
 extern "C" ARM void func_02097ec8(Struct_02097ec8_2* arg0) {
-    Struct_0208fa8c* var0 = func_02012fe4();
+    Struct_0208fa8c* var0 = GetZone3D_02012fe4();
     int var1 = var0->unknown_0_;
     int var2 = var0->unknown_2_;
     if (!func_020981e4((int)arg0, var1) &&

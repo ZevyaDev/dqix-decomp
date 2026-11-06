@@ -5,16 +5,16 @@
 #include "Resource/GameResources.h"
 
 struct Struct_0208cb08;
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 struct Struct_02038598_5;
 extern "C" int func_02046b60(Struct_02038598_5*, int);
 extern "C" void func_ov016_0218b5c0(int, int);
 extern "C" void func_ov017_0218b5f8(int);
 extern "C" void func_02046380(void*);
 #if defined(jpn)
-extern "C" void func_0204500c(void*, void*, int);
+extern "C" void StartMessage_0204500c(void*, void*, int);
 #else
-extern "C" void func_0204500c(void*, void*, int, int);
+extern "C" void StartMessage_0204500c(void*, void*, int, int);
 #endif
 extern "C" void func_02042b3c(void*);
 extern "C" void func_02043204(char*);
@@ -69,7 +69,7 @@ extern "C" ARM void func_020d7b04(Struct_020d7b04_3* arg0) {
     char var0[0xc8];
     GameState* var1 = GameState::GetInstance();
     Struct_0208cb08* var2 = func_02094a00();
-    Struct_020d7b04* var3 = static_cast<Struct_020d7b04*>(func_020421a0());
+    Struct_020d7b04* var3 = static_cast<Struct_020d7b04*>(GetMessageWindow_020421a0());
     if (arg0->unknown_150_7_ && !func_02094b4c(var2)) return;
 
     void* var4 = GetGameResources()->unknown_ptr_array_36fc[0];
@@ -118,13 +118,13 @@ extern "C" ARM void func_020d7b04(Struct_020d7b04_3* arg0) {
         }
         if (arg0->unknown_0_[0].unknown_0_[0] != 0) {
 #if defined(jpn)
-            func_0204500c(var3, var0, 0);
+            StartMessage_0204500c(var3, var0, 0);
 #else
             func_02046380(var3);
             if (arg0->unknown_0_[0].unknown_6f_6_) {
-                func_0204500c(var3, var0, 0, 0xe3);
+                StartMessage_0204500c(var3, var0, 0, 0xe3);
             } else {
-                func_0204500c(var3, var0, 0, 0x100);
+                StartMessage_0204500c(var3, var0, 0, 0x100);
             }
 #endif
             func_02042b3c(var3);
@@ -143,7 +143,7 @@ extern "C" ARM void func_020d7b04(Struct_020d7b04_3* arg0) {
             arg0->unknown_150_7_ = 0;
         }
         if (arg0->unknown_150_6_) {
-            func_02043204(static_cast<char*>(func_020421a0()));
+            func_02043204(static_cast<char*>(GetMessageWindow_020421a0()));
             arg0->unknown_150_6_ = 0;
         }
     }

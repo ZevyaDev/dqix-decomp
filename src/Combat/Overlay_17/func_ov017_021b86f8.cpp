@@ -22,12 +22,12 @@ extern char data_02109bf4[];
 extern char data_ov017_021d83e7[];
 #endif
 
-extern "C" void func_020421a0(void);
+extern "C" void GetMessageWindow_020421a0(void);
 extern "C" int func_020100a8(GameState* arg0);
 extern "C" GameObject* func_0200ff94(GameState* arg0, int arg1);
 extern "C" Struct_020708c8* func_020704fc(void);
 extern "C" Struct_02012de8* func_020d6c00(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020d7a50(void);
 extern "C" int func_020e51cc(int arg0);
 extern "C" void* func_ov000_02160f08(void* arg0);
@@ -50,12 +50,12 @@ extern "C" ARM void func_ov017_021b86f8(Struct_ov017_021b86f8* arg0, int arg1, i
     if (arg0->unknown_6ac_ == NULL) return;
     if (arg1 != arg0->unknown_24_ || arg0->unknown_6b4_ != 2) return;
     GameState* var0 = GameState::GetInstance();
-    func_020421a0();
+    GetMessageWindow_020421a0();
     GameObject* var1 = func_0200ff94(var0, func_020100a8(var0));
     GameResources* var2 = GetGameResources();
     Struct_020708c8* var3 = func_020704fc();
     Struct_02012de8* var4 = func_020d6c00();
-    func_02012fe4();
+    GetZone3D_02012fe4();
     if (var1 != NULL) {
         if (arg2) {
 #if defined(jpn)

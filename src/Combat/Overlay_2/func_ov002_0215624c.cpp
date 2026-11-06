@@ -35,7 +35,7 @@ extern "C" int func_0205d0e0(void *arg0, int arg1);
 extern "C" int func_0205d794(struct Struct_ov002_0215624c_15 *arg0);
 extern "C" void func_020a1ef0(int arg0);
 extern "C" int func_0200fb8c(int *arg0);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_0204b11c(unsigned char *arg0, int arg1);
 extern "C" void func_0204b5b4(void *arg0, int arg1);
 extern "C" void func_0204b12c(struct Struct_ov002_0215624c_17 *arg0,
@@ -161,7 +161,7 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
     if (S32(REGIONAL_OFFSET(0x1a88, 0x1bc0)) == 0) {
         func_020a1ef0(1);
         char *var5     = (char *) func_0200fb8c((int *) GameState::GetInstance());
-        S32(REGIONAL_OFFSET(0x1a98, 0x1bd0)) = *(int *) ((char *) func_020421a0() + REGIONAL_OFFSET(0x28, 0x5c));
+        S32(REGIONAL_OFFSET(0x1a98, 0x1bd0)) = *(int *) ((char *) GetMessageWindow_020421a0() + REGIONAL_OFFSET(0x28, 0x5c));
         ((SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x78c, 0x828)))->Reset();
 
         struct Struct_ov002_0215624c_14 var6  = data_ov002_0216c96c.unknown_4_;

@@ -35,7 +35,7 @@ struct Struct_02064e88_3 {
     struct Struct_02064e88_3* unknown_10_;
 };
 
-extern "C" unsigned short* func_02012fe4(void);
+extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" int func_02098284(int, int);
 extern "C" int func_020982a4(int, int);
 extern "C" void func_020984b0(struct Struct_02064e88*);
@@ -88,7 +88,7 @@ extern "C" ARM int func_02064e88(struct Struct_02064e88_3** arg0, void* arg1, Sa
     char var8[0x30];
 #endif
 
-    var0 = func_02012fe4();
+    var0 = GetZone3D_02012fe4();
     var1 = *var0;
     var2 = func_020982a4((int)((char*)var0 + Enum_02064e88_2112),
                                func_02098284((int)((char*)var0 + Enum_02064e88_2112), var1));

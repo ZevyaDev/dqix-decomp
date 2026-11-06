@@ -12,7 +12,7 @@ extern "C" void* func_0202ae18(void);
 extern "C" int func_0202b7d8(int* arg0);
 extern "C" void* func_02010828(GameState*);
 extern "C" void func_ov017_021cc730(int arg0, unsigned char arg1, unsigned char arg2, unsigned char arg3);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02043204(char* arg0);
 extern "C" void func_02043124(char* arg0);
 extern "C" void* func_020d6c00(void);
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov023_021f3fbc(char* arg0) {
         }
     }
 
-    int var4 = func_020421a0();
+    int var4 = GetMessageWindow_020421a0();
     func_02043204((char*)var4);
     func_02043124((char*)var4);
     func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 0x20000);

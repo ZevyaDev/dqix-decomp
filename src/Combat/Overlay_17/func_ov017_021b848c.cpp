@@ -36,7 +36,7 @@ struct Struct_ov017_021b848c_2 {
     unsigned char unknown_6c6_;
 };
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" int func_020100a8(GameState* arg0);
 extern "C" void func_ov017_021c9c64(unsigned short arg0, unsigned char arg1);
 extern "C" void func_ov017_021c8b78(unsigned short arg0);
@@ -53,7 +53,7 @@ extern "C" void func_ov017_021c3f70(unsigned short arg0);
 extern "C" ARM void func_ov017_021b848c(Struct_ov017_021b848c_2* arg0, signed char* arg1, int arg2, int arg3,
                                          unsigned short arg4, signed char arg5, int arg6, int arg7) {
     GameState* var0 = GameState::GetInstance();
-    func_020421a0();
+    GetMessageWindow_020421a0();
     unsigned short var1 = arg0->unknown_6b4_;
     if (var1 == 4 || var1 == 6 || var1 == 0) return;
     if (arg1[func_020100a8(var0)] == 0) return;

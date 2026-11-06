@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02042764(char* arg0, void* arg1, int arg2);
 struct Struct_02046574_2;
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov017_021afb8c(char* arg0, char* arg1) {
         sprintf(var3,data_ov017_021d8104,arg1);
 
 #else
-        void* var0 = (void*)func_020421a0();
+        void* var0 = (void*)GetMessageWindow_020421a0();
         char var1[0x30];
         __clear(var1, 0x30);
         func_02042764(arg1, var1, 1);

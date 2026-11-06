@@ -32,9 +32,9 @@ extern AllocatorUnion data_02114e20;
 extern char data_020f235c[];
 extern char data_020f2371[];
 extern "C" void func_0202ae18(GameState*);
-extern "C" Zone3D* func_02012fe4();
+extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void* func_0205ec34();
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" int func_020100f8(char*);
 extern "C" void func_020d8484(Struct_020d80b0_3*);
 extern "C" void func_020397cc(Struct_02018300_3*, int);
@@ -46,12 +46,12 @@ extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 extern "C" void* func_02072a68(Struct_02072a68_2*, int);
 #if defined(jpn)
-extern "C" void func_0204500c(void*, char*, int);
-#define SHOW_TEXT_020d80b0(d, t) func_0204500c(d, t, 0)
+extern "C" void StartMessage_0204500c(void*, char*, int);
+#define SHOW_TEXT_020d80b0(d, t) StartMessage_0204500c(d, t, 0)
 extern char data_020f24b8[];
 #else
-extern "C" void func_0204500c(void*, char*, int, int);
-#define SHOW_TEXT_020d80b0(d, t) func_0204500c(d, t, 0, 0xe3)
+extern "C" void StartMessage_0204500c(void*, char*, int, int);
+#define SHOW_TEXT_020d80b0(d, t) StartMessage_0204500c(d, t, 0, 0xe3)
 #endif
 extern "C" void func_0205eaa0(Struct_02108760*, int, int);
 extern "C" void func_020397c0(void*);
@@ -79,10 +79,10 @@ extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
     GameState* var0 = GameState::GetInstance();
     func_0202ae18(var0);
     GameResources* var1 = GetGameResources();
-    Struct_020d80b0* var2 = (Struct_020d80b0*)func_020421a0();
+    Struct_020d80b0* var2 = (Struct_020d80b0*)GetMessageWindow_020421a0();
     GameObject* var3;
     Struct_020d80b0_2* var4;
-    Zone3D_StructPtr_8* var5 = func_02012fe4()->pUnknownStruct_8_;
+    Zone3D_StructPtr_8* var5 = GetZone3D_02012fe4()->pUnknownStruct_8_;
     GrottoStruct* var6 = var0->GetGrottoStruct();
     var3 = var0->GetUnknownGameObject();
     var4 = (Struct_020d80b0_2*)func_0205ec34();

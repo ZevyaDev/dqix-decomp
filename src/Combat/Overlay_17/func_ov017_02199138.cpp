@@ -5,7 +5,7 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0205ec34(void);
 extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
 extern "C" void func_0206f81c(void* arg0);
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov017_02199138(char* arg0) {
 #endif
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetUnknownGameObject();
-    unsigned short* var2 = (unsigned short*)func_02012fe4();
+    unsigned short* var2 = (unsigned short*)GetZone3D_02012fe4();
     if (*((unsigned char*)(*(void**)(arg0 + 0x3000 + Enum_ov017_02199138_2812)) + 2) != 0) {
         return;
     }

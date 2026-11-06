@@ -48,7 +48,7 @@ struct Struct_ov017_021c96c0_4 {
 
 struct Struct_02033f44;
 
-extern "C" Struct_ov017_021c96c0_2* func_02012fe4(void);
+extern "C" Struct_ov017_021c96c0_2* GetZone3D_02012fe4(void);
 extern "C" int func_ov017_021d446c(void* arg0, Struct_ov017_021c96c0* arg1, int arg2);
 extern "C" int func_0202c540(void* arg0);
 extern "C" int func_02018fbc(Struct_ov017_021c96c0_2* arg0, Vector3i* arg1);
@@ -59,7 +59,7 @@ extern "C" void func_02076ccc(void*, int);
 
 // USA: func_ov017_021c96c0
 extern "C" ARM void func_ov017_021c96c0(int arg0, Struct_ov017_021c96c0_4* arg1, int arg2, int arg3, void* arg4) {
-    Struct_ov017_021c96c0_2* var0 = func_02012fe4();
+    Struct_ov017_021c96c0_2* var0 = GetZone3D_02012fe4();
     Struct_ov017_021c96c0 var1;
     if (!func_ov017_021d446c(&arg1->unknown_4_, &var1, arg1->unknown_6_0_)) return;
 

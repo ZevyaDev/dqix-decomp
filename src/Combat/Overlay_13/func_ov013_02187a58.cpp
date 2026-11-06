@@ -115,7 +115,7 @@ extern "C" ARM struct Struct_ov013_02187a58_3* func_0208e06c(struct Struct_0208e
 extern "C" ARM void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
 extern "C" ARM int func_020dd11c(unsigned int arg0, unsigned int arg1);
 extern "C" int func_02053c6c(unsigned char* arg0);
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
@@ -207,7 +207,7 @@ extern "C" ARM void func_ov013_02187a58(void* arg0, void* arg1) {
 
             __clear(var35, 0x100);
             __clear(var36, 0x100);
-            func_02046608(func_020421a0(), 0xa, var43->unknown_4_, var35, 0x100, 0, 0);
+            func_02046608(GetMessageWindow_020421a0(), 0xa, var43->unknown_4_, var35, 0x100, 0, 0);
             func_020e4864(var35, var36, 1, 0, 0, 0);
 
             if (var43->unknown_3_7_ != 0 && *(signed char*)(var23 + 0x6a) >= 0) {

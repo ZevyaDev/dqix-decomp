@@ -17,7 +17,7 @@
 #define REG_BG3CNT (*(volatile unsigned short*)0x0400000e)
 #define REG_BLDCNT 0x04000050
 
-struct Struct_02021b84
+struct MessageWindow_02021b84
 {
 #if defined(jpn)
     char unknown_0_[0x28];
@@ -130,7 +130,7 @@ extern "C" char* func_0200fb8c(int* arg0);
 extern "C" int func_02046b08(void** arg0);
 extern "C" unsigned int* func_020d6c00();
 extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
-extern "C" Struct_02021b84* func_020421a0();
+extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" Struct_ov005_0215840c_2* func_02053c6c(unsigned char* arg0);
 extern "C" void func_0204b11c(unsigned char* arg0, int);
 extern "C" void func_0204b12c(Struct_0204b12c* arg0, SafeAllocator* arg1);
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov008_021895a8(Struct_ov008_02188f5c_3* arg0)
         SetFlags00(GetGameResources(), 0x10);
         func_020466e4(func_020d6c00(), 0xd);
         unsigned int var4;
-        arg0->unknown_2a0_ = (char*)func_020421a0()->unknown_5c_;
+        arg0->unknown_2a0_ = (char*)GetMessageWindow_020421a0()->unknown_5c_;
         var4 = 0;
         Struct_ov008_02188f5c_2* var5 = arg0->unknown_ebc_;
         if (var5 == NULL)

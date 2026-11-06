@@ -96,7 +96,7 @@ extern "C" unsigned int strlen(const char* arg0);
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" long func_02005a94(const char* arg0);
-extern "C" void* func_02012fe4();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" int func_0201bb78(struct Struct_0201bb78* arg0, unsigned int arg1);
 extern "C" void* func_0205ec34();
 extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
@@ -184,7 +184,7 @@ extern "C" ARM void func_ov023_021db634(Struct_ov023_021db634_3* arg0, Struct_ov
                     char var18[4] = {0};
                     memcpy(var18, var6->unknown_4_ + 2, 2);
                     short var19 = func_02005a94(var18);
-                    if (!func_0201bb78((Struct_0201bb78*)func_02012fe4(), (unsigned short)(var19 + 20000)))
+                    if (!func_0201bb78((Struct_0201bb78*)GetZone3D_02012fe4(), (unsigned short)(var19 + 20000)))
                         continue;
                     var16 = func_020e0434(data_ov023_021ff9e0.unknown1_8_, (short)func_02005a94(var6->unknown_4_ + 5));
                     var15.unknown_4_ = 2;
@@ -219,7 +219,7 @@ extern "C" ARM void func_ov023_021db634(Struct_ov023_021db634_3* arg0, Struct_ov
             }
             else if (var17 >= 'A' && var17 <= 'Z')
             {
-                void* var25 = func_02012fe4();
+                void* var25 = GetZone3D_02012fe4();
                 unsigned short var26 = func_ov023_021db564((char*)var6->unknown_4_);
                 if (var26 == 0)
                     continue;

@@ -132,7 +132,7 @@ extern unsigned char data_0211e33c[];
 extern Struct_02108760 data_02108760;
 
 extern "C" GameResources* func_0200fb8c(int* arg0);
-extern "C" Struct_02021b84* func_020421a0();
+extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 void SetBrightness(GameResources* resources, int screen, int brightness);
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void func_020ac4c0(void* arg0);
@@ -164,7 +164,7 @@ extern "C" ARM void func_ov008_02185dc0(Struct_ov008_021842a0_2* arg0, unsigned 
 {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = func_0200fb8c((int*)var0);
-    Struct_02021b84* var2 = func_020421a0();
+    MessageWindow_02021b84* var2 = GetMessageWindow_020421a0();
     if (var2->unknown_998_ != NULL)
         var2->unknown_19ae_ = 0;
     signed char var3 = arg0->unknown_b11_;
@@ -250,9 +250,9 @@ extern "C" ARM void func_ov008_02185dc0(Struct_ov008_021842a0_2* arg0, unsigned 
 #endif
                     func_02042058(var12, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 1000));
 #if defined(jpn)
-                    func_0204500c(var2, var12, 0);
+                    StartMessage_0204500c(var2, var12, 0);
 #else
-                    func_0204500c(var2, var12, 0, 0xe3);
+                    StartMessage_0204500c(var2, var12, 0, 0xe3);
 #endif
                     var2->unknown_19b2_ = 1;
                     var2->unknown_19c8_ = 1;
@@ -275,9 +275,9 @@ extern "C" ARM void func_ov008_02185dc0(Struct_ov008_021842a0_2* arg0, unsigned 
                 if (REGION_MESSAGE(arg0, var4))
                 {
 #if defined(jpn)
-                    func_0204500c(var2, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 10000), 0);
+                    StartMessage_0204500c(var2, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 10000), 0);
 #else
-                    func_0204500c(var2, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 10000), 0, 0xe3);
+                    StartMessage_0204500c(var2, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 10000), 0, 0xe3);
 #endif
                     var2->unknown_19b2_ = 1;
                     var2->unknown_19c8_ = 1;

@@ -12,7 +12,7 @@ struct Struct_ov002_02169efc;
 struct Struct_ov002_02168d54_9;
 struct Struct_ov002_02169efc_2;
 
-extern "C" char *func_020421a0();
+extern "C" char *GetMessageWindow_020421a0();
 extern "C" int func_0200fb8c(int *arg0);
 extern "C" void *func_020d6c00();
 extern "C" void func_0205deb4(struct Struct_ov002_02155960_2 *arg0, int arg1, int arg2);
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov002_02169efc(char *arg0) {
     unsigned int var1;
     int var2;
     void *var3;
-    char *var4                  = func_020421a0();
+    char *var4                  = GetMessageWindow_020421a0();
     GameResources *var5       = (GameResources *) func_0200fb8c((int *) GameState::GetInstance());
     void *var6              = func_020d6c00();
     BackgroundLoader *var7 = BackgroundLoader::GetInstance();

@@ -16,7 +16,7 @@ enum { Enum_ov017_021b24d0_261 = 0x105, Enum_ov017_021b24d0_716 = 0x2cc };
 #endif
 
 extern "C" void func_020c9be0(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_020a1940(unsigned int arg0);
 extern "C" void func_020a1ef0(int arg0);
 extern "C" void func_020a1df8(int arg0);
@@ -69,7 +69,7 @@ extern "C" ARM int func_ov017_021b24d0(Struct_ov017_021b24d0_3* arg0) {
     if (var1->GetDetailedTaskStatus(arg0->unknown_c_) != 2) {
         func_020c9be0();
     }
-    Struct_ov017_021b24d0* var2 = (Struct_ov017_021b24d0*)func_02012fe4();
+    Struct_ov017_021b24d0* var2 = (Struct_ov017_021b24d0*)GetZone3D_02012fe4();
     if (var2 != NULL) {
         var2->unknown_105_ |= 1;
     }

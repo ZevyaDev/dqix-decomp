@@ -42,7 +42,7 @@ struct Struct_ov017_021be468_4 {
 #define data_ov017_021d7e80 data_ov017_021d8693
 #endif
 extern AllocatorUnion data_02114e20; extern char data_ov017_021d7e80[]; extern char data_02108760[];
-extern "C" void func_0202ae18(); extern "C" void* func_02057924(); extern "C" unsigned char* func_02012fe4();
+extern "C" void func_0202ae18(); extern "C" void* func_02057924(); extern "C" unsigned char* GetZone3D_02012fe4();
 extern "C" void func_020397cc(Struct_02018300_3*,int); extern "C" void func_0201bf98(unsigned char*,int,int);
 extern "C" int func_02046b60(Struct_02038598_5*,int); extern "C" void func_02046b8c(void*,int); extern "C" void func_02046a8c(void*,void*);
 extern "C" void func_ov017_021d2738(unsigned char,unsigned char); extern "C" int func_02046b08(void**); 
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_021be468(Struct_ov017_021be468_5* arg0,Struct_020
     GameState* var0=GameState::GetInstance(); func_0202ae18();
     GameResources* var1=GetGameResources();
     GameObject* var2=var0->GetUnknownGameObject();
-    void* var3=func_02057924(); BackgroundLoader* var4=BackgroundLoader::GetInstance(); unsigned char* var5=func_02012fe4();
+    void* var3=func_02057924(); BackgroundLoader* var4=BackgroundLoader::GetInstance(); unsigned char* var5=GetZone3D_02012fe4();
     if(arg0->unknown_8_==0) {
         func_020397cc((Struct_02018300_3*)var2,1); func_0201bf98(var5,1,0);
         if(func_02046b60(arg1,3)) func_02046b8c(arg1,3);

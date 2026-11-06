@@ -13,7 +13,7 @@ extern "C" int func_0207d300(void*, int, int, int);
 extern "C" void func_0207d2c4(void*, int);
 extern "C" void func_02046380(Struct_020465c0*);
 extern "C" void func_02046608(Struct_020465c0*, int, const char*, char*, int, int, int);
-extern "C" Struct_020465c0* func_020421a0();
+extern "C" Struct_020465c0* GetMessageWindow_020421a0();
 extern "C" unsigned char func_020100b0(GameState*);
 extern "C" void func_020e4bf4(void*, int);
 extern "C" void* func_020e46c4(void*);
@@ -59,7 +59,7 @@ extern "C" ARM int func_0207d538(void* arg0, int arg1, int arg2, char* arg3) {
                 sprintf(arg3, &data_020f1050, *(char**)((char*)arg0 + 0x30));
             }
 #else
-            Struct_020465c0* var3 = func_020421a0();
+            Struct_020465c0* var3 = GetMessageWindow_020421a0();
             func_02046380(var3);
             Struct_0207d538 var4;
             func_020e4bf4(&var4, func_020100b0(GameState::GetInstance()));
@@ -85,7 +85,7 @@ extern "C" ARM int func_0207d538(void* arg0, int arg1, int arg2, char* arg3) {
 #if defined(jpn)
         sprintf(arg3, &data_020f106e, arg2);
 #else
-        Struct_020465c0* var9 = func_020421a0();
+        Struct_020465c0* var9 = GetMessageWindow_020421a0();
         func_02046380(var9);
         func_020465c0(var9, 0, arg2);
         char* var10 = func_020e51cc(0x3f4);

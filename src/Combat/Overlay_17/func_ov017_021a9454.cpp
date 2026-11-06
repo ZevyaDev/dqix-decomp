@@ -57,8 +57,8 @@ struct Struct_ov017_021a9454_3 {
     char unknown_6e_[2];
 };
 
-extern "C" Struct_ov017_021a9454* func_020421a0(void);
-extern "C" void* func_02012fe4(void);
+extern "C" Struct_ov017_021a9454* GetMessageWindow_020421a0(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_020100f8(char* arg0);
 extern "C" struct Struct_0214e34c* func_020d7a50(void);
 extern "C" void func_020d7aa0(struct Struct_020d7aa0_2* arg0);
@@ -67,11 +67,11 @@ extern "C" void func_020a7f40(unsigned char* arg0);
 extern "C" int func_020e51cc(int arg0);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 #if defined(jpn)
-extern "C" void func_0204500c(void*, const char*, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int);
 extern char data_ov017_021d7c28;
 extern char data_ov017_021d7c49;
 #else
-extern "C" void func_0204500c(void*, const char*, int, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
@@ -84,8 +84,8 @@ extern "C" void func_020a7f34(unsigned char* arg0);
 // USA: func_ov017_021a9454
 extern "C" ARM void func_ov017_021a9454(Struct_ov017_021a9454_2* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Struct_ov017_021a9454* var1 = func_020421a0();
-    func_02012fe4();
+    Struct_ov017_021a9454* var1 = GetMessageWindow_020421a0();
+    GetZone3D_02012fe4();
     int var2 = func_020100f8((char*)var0);
     int var3 = arg0->unknown_8_;
 
@@ -112,9 +112,9 @@ extern "C" ARM void func_ov017_021a9454(Struct_ov017_021a9454_2* arg0) {
             arg0->unknown_c_ = 0x170c;
         }
 #if defined(jpn)
-        func_0204500c(var1, var7, 0);
+        StartMessage_0204500c(var1, var7, 0);
 #else
-        func_0204500c(var1, var7, 0, 0xe3);
+        StartMessage_0204500c(var1, var7, 0, 0xe3);
 #endif
         var1->unknown_19b2_ = 0;
         var1->unknown_998_ = 1;

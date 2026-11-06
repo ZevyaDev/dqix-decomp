@@ -115,8 +115,8 @@ struct Struct_ov017_0219d250_5 {
     void* unknown_44c4_;
 };
 
-extern "C" char* func_02012fe4(void);
-extern "C" char* func_020421a0(void);
+extern "C" char* GetZone3D_02012fe4(void);
+extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void* func_02027ca4(void);
 extern "C" void* func_02057924(void);
 extern "C" void* func_02011584(void*);
@@ -222,8 +222,8 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
     unsigned short var26;
 
     var5 = GameState::GetInstance();
-    char* var27 = func_02012fe4();
-    var6 = func_020421a0();
+    char* var27 = GetZone3D_02012fe4();
+    var6 = GetMessageWindow_020421a0();
     var7 = func_02027ca4();
     var8 = func_02057924();
     var9 = var5->GetProtagonist();
@@ -346,7 +346,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
         func_020531f0(var10);
     }
     func_0203409c((unsigned char*)var9);
-    if (((Struct_02021b84*)var6)->unknown_998_ != NULL) {
+    if (((MessageWindow_02021b84*)var6)->unknown_998_ != NULL) {
         func_02043204(var6);
     }
     func_02043124(var6);

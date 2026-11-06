@@ -15,7 +15,7 @@ enum { Enum_ov017_021b5dc4_1536 = 0x600, Enum_ov017_021b5dc4_716 = 0x2cc };
 struct Struct_ov017_0218d618_2;
 extern "C" int func_ov017_0218d618(struct Struct_ov017_0218d618_2* arg0);
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_020100a8(GameState* arg0);
 extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
 extern AllocatorUnion data_02114e20;
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov017_021b5dc4(char* arg0) {
                 if (var2 != 0 && var3 != 0) {
                     ((SafeAllocator*)(arg0 + 0x40))->CreateTypeA(var3, 0x100);
                     GameState* var4 = GameState::GetInstance();
-                    char* var5 = (char*)func_02012fe4();
+                    char* var5 = (char*)GetZone3D_02012fe4();
                     int var6 = func_020100a8(var4);
                     char* var7 = var5 + Enum_ov017_021b5dc4_1536 + var6 * 0x88;
                     *(int*)(arg0 + 0x20) = (int)var7;

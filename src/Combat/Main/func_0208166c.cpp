@@ -15,7 +15,7 @@ struct Struct_0208166c_2 {
 };
 
 extern "C" ARM int func_02042190(int arg0);
-extern "C" ARM int func_020421a0(void);
+extern "C" ARM int GetMessageWindow_020421a0(void);
 
 extern "C" int func_020420e8(void* arg0, int arg1);
 extern "C" int func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
@@ -66,7 +66,7 @@ extern "C" ARM void func_0208166c(void* arg0, void* arg1, void* arg2) {
 
     void* var12 = var5;
     if (*(unsigned char*)(var2 + 0x2a) & 0x20) {
-        int var13 = func_020421a0();
+        int var13 = GetMessageWindow_020421a0();
         memset(*(void**)(var0 + 0x18), 0, 0x960);
         func_02046608(var13, F13(var2)->unknown_0_0_, var5, *(void**)(var0 + 0x18), *(unsigned char*)(var2 + 0x2b), 0, 0);
         var12 = *(void**)(var0 + 0x18);

@@ -36,7 +36,7 @@ struct Struct_ov017_021a1d98_4 {
 
 extern "C" Struct_020fdd44* func_02027ca4();
 extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44*, int);
-extern "C" Struct_ov017_021a1d98_2* func_02012fe4();
+extern "C" Struct_ov017_021a1d98_2* GetZone3D_02012fe4();
 extern "C" int func_02076bec(GameObject*, void*);
 struct Struct_0203402c;
 extern "C" int func_0203402c(Struct_0203402c*);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov017_021a1d98(unsigned int* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
     Struct_020fdd44* var1 = func_02028bd0(func_02027ca4(), arg1);
     if (!var1) return;
-    Struct_ov017_021a1d98_2* var2 = func_02012fe4();
+    Struct_ov017_021a1d98_2* var2 = GetZone3D_02012fe4();
     unsigned short var3 = var2->unknown_38_;
     unsigned int var4 = var2->unknown_3c_;
     int var5 = 1;

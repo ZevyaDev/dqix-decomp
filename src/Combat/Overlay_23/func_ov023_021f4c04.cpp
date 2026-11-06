@@ -153,12 +153,12 @@ extern const char data_ov023_021fe1ee[];
 #if defined(jpn)
 extern const char data_ov023_021fd49e[];
 extern "C" void func_02073864(void*, void*, const char*, int, int, int);
-extern "C" void func_0204500c(void*, const char*, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int);
 #endif
 
-extern "C" Struct_ov023_021f4c04* func_020421a0();
+extern "C" Struct_ov023_021f4c04* GetMessageWindow_020421a0();
 extern "C" int func_0200fb8c(int* arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020d6c00();
 extern "C" void* func_02010828(GameState* arg0);
 extern "C" void* func_0202ae18(void);
@@ -186,7 +186,7 @@ extern "C" void func_ov000_0216d370(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void* func_02072a68(Struct_02072a68_2* arg0, int arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 #if !defined(jpn)
-extern "C" void func_0204500c(void* arg0, const char* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void* window, const char* text, int arg2, int arg3);
 #endif
 extern "C" void func_0209c6d8(void* arg0, int arg1);
 extern "C" int func_ov017_021959b4(void);
@@ -206,9 +206,9 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
 #endif
 
     GameState* var3 = GameState::GetInstance();
-    Struct_ov023_021f4c04* var4 = func_020421a0();
+    Struct_ov023_021f4c04* var4 = GetMessageWindow_020421a0();
     int var5 = func_0200fb8c((int*)var3);
-    func_02012fe4();
+    GetZone3D_02012fe4();
     BackgroundLoader* var6 = BackgroundLoader::GetInstance();
     Struct_02038598_4* var7 = (Struct_02038598_4*)func_020d6c00();
     void* var8 = func_02010828(var3);
@@ -281,11 +281,11 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
 #if defined(jpn)
         int var21 = *(int*)((char*)var3->GetProtagonist() + 0x134);
         sprintf(var0, (const char*)func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x14), var21);
-        func_0204500c(var4, var0, 1);
+        StartMessage_0204500c(var4, var0, 1);
 #else
         var3->GetProtagonist();
         sprintf(var0, (const char*)func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x14));
-        func_0204500c(var4, var0, 1, 0xe3);
+        StartMessage_0204500c(var4, var0, 1, 0xe3);
 #endif
         var4->unknown_998_ = 1;
         func_0209c6d8(&data_02109bf4, 0x3a);

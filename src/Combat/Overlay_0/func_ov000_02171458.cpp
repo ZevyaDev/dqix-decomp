@@ -6,7 +6,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 
 struct Struct_0201099c_3;
 extern "C" char* func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
@@ -62,7 +62,7 @@ struct Struct_ov000_02171458_2 {
 
 // USA: func_ov000_02171458
 extern "C" ARM void func_ov000_02171458(struct Struct_ov000_02171458_2* arg0) {
-    func_02012fe4();
+    GetZone3D_02012fe4();
     struct Struct_ov000_02171458* var0 = &arg0->unknown_8_;
     int var1 = var0->unknown_18_;
     if (arg0->unknown_9c_[var1] == NULL) {

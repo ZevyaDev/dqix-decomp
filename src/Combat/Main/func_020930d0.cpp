@@ -9,7 +9,7 @@ extern "C" void func_02092d60(void* arg0, int arg1);
 extern "C" int func_020457e0(char* arg0);
 extern "C" unsigned char* func_ov017_021b8478(void* arg0);
 extern "C" void func_02094030(int* arg0, short arg1, short arg2, int arg3);
-extern "C" char* func_020421a0(void);
+extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void func_02043204(char* arg0);
 extern "C" void* func_02010828(GameState* arg0);
 extern "C" int* func_020936f8(void);
@@ -70,7 +70,7 @@ extern "C" ARM void func_020930d0(struct Struct_02092cd0* arg0) {
     unsigned char var9;
 
     var1 = GameState::GetInstance();
-    var2 = (Struct_020930d0_3*)func_020421a0();
+    var2 = (Struct_020930d0_3*)GetMessageWindow_020421a0();
     var0 = GetGameResources();
     var8 = (struct Struct_02038598_5*)var0->unknown_ptr_array_36fc[0];
     var7 = (struct Struct_020930d0*)func_02010828(var1);

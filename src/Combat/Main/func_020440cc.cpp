@@ -10,19 +10,19 @@ struct Struct_02108760;
 extern Struct_02108760 data_02108760;
 extern "C" void* func_0203cf4c();
 extern "C" Struct_0203dce4* func_0203dce4(Struct_0203dce4_2*, int);
-extern "C" void func_0206b104(Struct_02021b84*);
+extern "C" void func_0206b104(MessageWindow_02021b84*);
 extern "C" void func_0205eaa0(Struct_02108760*, int, int);
 extern "C" void func_0208beb4(unsigned char*);
-extern "C" void func_02043124(Struct_02021b84*);
+extern "C" void func_02043124(MessageWindow_02021b84*);
 
 #if defined(jpn)
-extern "C" void func_0206cba0(Struct_02021b84*);
+extern "C" void func_0206cba0(MessageWindow_02021b84*);
 #else
-extern "C" void func_0206b224(Struct_02021b84*);
+extern "C" void func_0206b224(MessageWindow_02021b84*);
 #endif
 
 // USA: func_020440cc
-ARM int Struct_02021b84::func_020440cc() {
+ARM int MessageWindow_02021b84::func_020440cc() {
     if (!unknown_998_) return 1;
     if (!unknown_19c1_) {
         if (unknown_19c0_) return 0;

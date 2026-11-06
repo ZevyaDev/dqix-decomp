@@ -18,7 +18,7 @@ struct Struct_ov002_0215c028 {
 }
 
 extern "C" void func_ov002_0215be00(void*, int, short, short);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_0205d0e0(void*, int);
 struct Struct_0205def8;
 extern "C" void func_0205def8(Struct_0205def8*, int, int);
@@ -42,7 +42,7 @@ extern "C" void func_0205d304(void*, const char*, int, unsigned char, unsigned c
 extern "C" ARM void func_ov002_0215c028(char* arg0) {
     Struct_ov002_0215c028* var0 = ((Struct_ov002_0215c028*)(arg0));
     func_ov002_0215be00(var0, Enum_ov002_0215c028_40, 0x15, 0x13);
-    void* var1 = ((void*)(func_020421a0()));
+    void* var1 = ((void*)(GetMessageWindow_020421a0()));
     memset(var0->unknown_1bd0_, 0, Enum_ov002_0215c028_2400);
 #if defined(jpn)
     func_020474a8(var1, 8, data_ov002_0216d91f, var0->unknown_1bd0_);

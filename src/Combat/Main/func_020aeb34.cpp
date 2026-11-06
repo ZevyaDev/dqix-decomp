@@ -17,7 +17,7 @@ struct Struct_0203e2c4_2;
 struct Struct_020aeb34 { char unknown_0_[0x10]; int unknown_10_; int unknown_14_; int unknown_18_; short unknown_1c_; };
 struct Struct_ov009_0218aa28 { int unknown_0_; int unknown_4_; int unknown_8_; };
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int rand(void);
 extern "C" long long func_020c3260(int arg0);
 extern "C" long long func_020c32f8(int arg0);
@@ -47,7 +47,7 @@ extern "C" ARM void func_020aeb34(void) {
     int var4;
     struct Struct_02015438** var5;
 
-    var3 = (struct Struct_02017a94*)func_02012fe4();
+    var3 = (struct Struct_02017a94*)GetZone3D_02012fe4();
     var0 = func_0203cf4c();
     var2 = GetGameResources();
     var5 = (Struct_02015438**)var2->unknown_ptr_array_36fc[0];

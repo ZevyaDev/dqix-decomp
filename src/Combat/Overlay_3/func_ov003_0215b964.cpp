@@ -42,7 +42,7 @@ struct Struct_ov003_0215b964_5 {
     unsigned char unknown_590_;
     unsigned char unknown_591_[1];
 };
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_02053c6c(unsigned char*);
 #if defined(jpn)
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov003_0215b964(Struct_ov003_0215b964_5* arg0, char* arg
     Struct_ov003_0215b964_4* var0;
 #endif
     if (!arg1) return;
-    Struct_020465c0* var1 = (Struct_020465c0*)func_020421a0();
+    Struct_020465c0* var1 = (Struct_020465c0*)GetMessageWindow_020421a0();
     int var2 = arg0->unknown_585_;
 #if !defined(jpn)
     var0 = arg0->unknown_7c_;

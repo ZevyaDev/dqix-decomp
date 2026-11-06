@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
 
-extern "C" void* func_02012fe4(void* arg0);
+extern "C" void* GetZone3D_02012fe4(void* arg0);
 
 struct Struct_0208f820 {
     unsigned char unknown_0_[8];
@@ -20,7 +20,7 @@ extern "C" ARM void func_0208f820(struct Struct_0208f820* arg0) {
         }
         GameState* var0 = GameState::GetInstance();
         GrottoStruct* var1 = var0->GetGrottoStruct();
-        unsigned short var2 = *(unsigned short*)func_02012fe4(var1);
+        unsigned short var2 = *(unsigned short*)GetZone3D_02012fe4(var1);
         if (var2 != *(int*)((char*)var1 + 0xc)) {
             return;
         }

@@ -133,7 +133,7 @@ struct Struct_ov023_021f1234_3 {
 extern "C" Struct_ov023_021f1234_2* _ZZ21inline_ov023_021f4c04vE1s;
 extern char data_02108760[];
 
-extern "C" Struct_ov023_021f1234_4* func_020421a0();
+extern "C" Struct_ov023_021f1234_4* GetMessageWindow_020421a0();
 extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
 extern "C" void func_ov023_021d8b6c(void* arg0);
 extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
@@ -156,10 +156,10 @@ void func_ov023_021d8af8(void* arg0);
 void func_ov013_02184360(Struct_ov023_021f1234_5* arg0, void* arg1);
 void func_ov013_02184cf0(Struct_ov023_021f1234_5* arg0, SafeAllocator* arg1);
 #if !defined(jpn)
-void func_0204500c(Struct_ov023_021f1234_4* arg0, const char* arg1, int arg2, int arg3);
+void StartMessage_0204500c(Struct_ov023_021f1234_4* window, const char* text, int arg2, int arg3);
 #endif
 #if defined(jpn)
-void func_0204500c(Struct_ov023_021f1234_4*,const char*,int);
+void StartMessage_0204500c(Struct_ov023_021f1234_4*,const char*,int);
 #endif
 int func_ov023_021f4fc8();
 void func_ov013_02186eec(Struct_ov023_021f1234* arg0, int arg1);
@@ -185,7 +185,7 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
     GameResources* var2 = GetGameResources();
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
     void* var4 = func_0205ec34();
-    Struct_ov023_021f1234_4* var5 = func_020421a0();
+    Struct_ov023_021f1234_4* var5 = GetMessageWindow_020421a0();
     int var6 = var1->unknown_18_;
     int var7 = func_02086ef0((Struct_02048150*)func_02010828(var0), var6);
     if (arg0->unknown_5574_ == NULL)
@@ -221,9 +221,9 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
                 if (var7)
                 {
 #if defined(jpn)
-                    func_0204500c(var5, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x24), 1);
+                    StartMessage_0204500c(var5, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x24), 1);
 #else
-                    func_0204500c(var5, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x24), 1, 0xe3);
+                    StartMessage_0204500c(var5, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x24), 1, 0xe3);
 #endif
 
                     var5->unknown_19b2_ = 0;

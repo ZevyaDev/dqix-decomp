@@ -23,7 +23,7 @@ struct Struct_0205d81c;
 struct Struct_0205d0e0;
 extern "C" Struct_0205d0e0* func_0205d8c4(Struct_0205d81c*);
 extern "C" int func_0204c7e0(unsigned char*);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_0205a254;
 struct Struct_0205a254_2;
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov003_0215e2a8(char* arg0) {
     var6 = (short)(var6 - 2);
 
     if (*(unsigned char*)(arg0 + Enum_ov003_0215e2a8_1010) != 0) {
-        int var7 = func_020421a0();
+        int var7 = GetMessageWindow_020421a0();
         int var8 = *(short*)((char*)var7 + Enum_ov003_0215e2a8_2304 + Enum_ov003_0215e2a8_22);
         var5 = (short)(var5 - 2);
         var6 = (short)(var6 + (short)(var8 % 8));

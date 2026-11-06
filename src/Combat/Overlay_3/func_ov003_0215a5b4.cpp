@@ -42,7 +42,7 @@ struct Struct_ov003_0215a5b4_4 {
 struct Struct_0201099c_3;
 struct Struct_0205d81c;
 
-extern "C" struct Struct_ov003_0215a5b4_3* func_020421a0();
+extern "C" struct Struct_ov003_0215a5b4_3* GetMessageWindow_020421a0();
 extern "C" void func_0205deb4(struct Struct_0205d81c* arg0, int arg1, int arg2);
 extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 extern "C" int func_02042058(char* arg0, const char* arg1);
@@ -54,7 +54,7 @@ extern "C" void func_ov003_0215c01c(struct Struct_ov003_0215a5b4_4* arg0, int ar
 
 // USA: func_ov003_0215a5b4
 extern "C" ARM void func_ov003_0215a5b4(struct Struct_ov003_0215a5b4_4* arg0) {
-    struct Struct_ov003_0215a5b4_3* var0 = func_020421a0();
+    struct Struct_ov003_0215a5b4_3* var0 = GetMessageWindow_020421a0();
     unsigned char var1 = arg0->unknown_580_;
     if (var1 == 0) {
         GameState* var2 = GameState::GetInstance();

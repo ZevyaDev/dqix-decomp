@@ -10,7 +10,7 @@ enum { Enum_ov017_0218dba0_14076 = 0x36fc, Enum_ov017_0218dba0_56 = 0x38, Enum_o
 #include "NitroSDK/NSBXX/RenderConfig.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 
 struct Struct_0203402c;
 extern "C" int func_0203402c(struct Struct_0203402c* arg0);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov017_0218dba0(int arg0) {
 
     void* var5 = GetGameResources();
     var4 = *(void**)((char*)var5 + Enum_ov017_0218dba0_14076);
-    void* var6 = func_02012fe4();
+    void* var6 = GetZone3D_02012fe4();
     var2 = *(unsigned short*)((char*)var6 + Enum_ov017_0218dba0_56);
     var3 = *(int*)((char*)var6 + Enum_ov017_0218dba0_60);
 

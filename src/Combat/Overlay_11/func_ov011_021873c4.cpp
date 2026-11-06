@@ -15,7 +15,7 @@ extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" int func_ov024_021f6f10(void* arg0);
 #endif
 extern "C" void* func_ov023_021fa598(void* arg0);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 struct Struct_02072a68_2;
 extern "C" void* func_02072a68(Struct_02072a68_2* arg0, int arg1);
 
@@ -34,14 +34,14 @@ extern "C" ARM int func_ov011_021873c4(Struct_ov011_02184c30* arg0) {
 #endif
     Struct_02072a68_2* var5 = (Struct_02072a68_2*)func_ov023_021fa598(var4);
     if (!var5) return 1;
-    Struct_02021b84* var6 = (Struct_02021b84*)func_020421a0();
+    MessageWindow_02021b84* var6 = (MessageWindow_02021b84*)GetMessageWindow_020421a0();
     const char* var7 = (const char*)func_02072a68(var5, (short)var1);
 #if defined(jpn)
-    func_0204500c(var6, var7, 0);
+    StartMessage_0204500c(var6, var7, 0);
     var6->unknown_998_ = 1;
     var6->unknown_17ff_.unknown_0_4_ = 1;
 #else
-    func_0204500c(var6, var7, 0, 0xe3);
+    StartMessage_0204500c(var6, var7, 0, 0xe3);
     var6->unknown_998_ = 1;
     var6->unknown_19d2_ = 1;
 #endif

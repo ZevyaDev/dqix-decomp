@@ -11,12 +11,12 @@ extern int data_02107800;
 struct Struct_02108760;
 extern struct Struct_02108760 data_02108760;
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
 
 // USA: func_ov017_021aa080
 extern "C" ARM int func_ov017_021aa080() {
-    int var0 = func_020421a0();
+    int var0 = GetMessageWindow_020421a0();
     int var1 = *(int*)(var0 + Enum_ov017_021aa080_2464);
     int var2 = 0;
     if (var1 == 3 || var1 == 0) {

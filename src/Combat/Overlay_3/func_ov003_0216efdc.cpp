@@ -9,8 +9,8 @@
 #define func_0206df6c func_0206f0c0
 #endif
 
-extern "C" char *func_020421a0(void);
-extern "C" char *func_02012fe4(void);
+extern "C" char *GetMessageWindow_020421a0(void);
+extern "C" char *GetZone3D_02012fe4(void);
 extern "C" void *func_0205ec34(void);
 extern "C" void func_ov003_02170960(void *arg0, int arg1, int arg2);
 #if defined(jpn)
@@ -77,8 +77,8 @@ enum { Enum_ov003_0216efdc_6208 = 0x1840 };
 
 // USA: func_ov003_0216efdc
 extern "C" ARM void func_ov003_0216efdc(Struct_ov003_0216efdc *arg0) {
-    Struct_ov003_0216efdc_4 *var0     = (Struct_ov003_0216efdc_4 *) func_020421a0();
-    Struct_ov003_0216efdc_5 *var1 = (Struct_ov003_0216efdc_5 *) (func_02012fe4() + Enum_ov003_0216efdc_6208);
+    Struct_ov003_0216efdc_4 *var0     = (Struct_ov003_0216efdc_4 *) GetMessageWindow_020421a0();
+    Struct_ov003_0216efdc_5 *var1 = (Struct_ov003_0216efdc_5 *) (GetZone3D_02012fe4() + Enum_ov003_0216efdc_6208);
     int var2                = var1->unknown_b38_;
     int var3                  = arg0->unknown_2_;
     if (var3 == 0) {

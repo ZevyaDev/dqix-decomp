@@ -49,15 +49,15 @@ struct Struct_ov017_021b1564_5 { char unknown_0_[0x5b0]; char unknown_5b0_[1]; }
 struct Struct_ov017_021b1564_6 { char unknown_0_[0x114]; void* unknown_114_; char unknown_118_[0xc]; int unknown_124_; char unknown_128_[0x11]; unsigned char unknown_139_; };
 extern "C" GameResources* func_0200fb8c(int*);
 extern "C" unsigned int* func_020d6c00();
-extern "C" Struct_ov017_021b1564_8* func_020421a0();
+extern "C" Struct_ov017_021b1564_8* GetMessageWindow_020421a0();
 extern "C" unsigned char* func_020100f8(char*);
 extern "C" void func_020a27b8(unsigned char*);
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 #if defined(jpn)
-extern "C" void func_0204500c(void*, signed char*, int);
+extern "C" void StartMessage_0204500c(void*, signed char*, int);
 enum { Enum_ov017_021b1564_248832 = 0x3b000, Enum_ov017_021b1564_255008 = 0x3c820 };
 #else
-extern "C" void func_0204500c(void*, signed char*, int, int);
+extern "C" void StartMessage_0204500c(void*, signed char*, int, int);
 enum { Enum_ov017_021b1564_248832 = 0x3cc00, Enum_ov017_021b1564_255008 = 0x3e420 };
 #endif
 extern "C" void func_02043204(char*);
@@ -82,7 +82,7 @@ extern "C" int func_02097a04(Struct_020979c0*);
 extern "C" void func_02074af4(void*);
 extern "C" void func_02074b64(Struct_02074b64*);
 extern "C" void* func_0203cf4c();
-extern "C" Zone3D* func_02012fe4();
+extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_0203e0a0(void*, unsigned short);
 extern "C" void func_ov017_0219bf74();
 extern "C" int func_020981e4(int, int);
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Struct_02
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = func_0200fb8c((int*)var0);
     unsigned int* var2 = func_020d6c00();
-    Struct_ov017_021b1564_8* var3 = func_020421a0();
+    Struct_ov017_021b1564_8* var3 = GetMessageWindow_020421a0();
     unsigned char* var4 = func_020100f8((char*)var0);
     GameObject* var5 = var0->GetUnknownGameObject();
     if (var4) func_020a27b8(var4);
@@ -144,9 +144,9 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Struct_02
             if (var6) func_020397cc((Struct_02018300_3*)var6, 1);
             if (*var3->unknown_5c_) {
 #if defined(jpn)
-                func_0204500c(var3, var3->unknown_5c_, 0);
+                StartMessage_0204500c(var3, var3->unknown_5c_, 0);
 #else
-                func_0204500c(var3, var3->unknown_5c_, 0, 0xe3);
+                StartMessage_0204500c(var3, var3->unknown_5c_, 0, 0xe3);
 #endif
                 var3->unknown_998_ = 1;
             } else func_02043204((char*)var3);
@@ -184,7 +184,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Struct_02
             return;
         }
         Struct_ov017_021b1564_2* var8 = &var7->unknown_820_;
-        Struct_ov017_021b1564_8* var9 = func_020421a0();
+        Struct_ov017_021b1564_8* var9 = GetMessageWindow_020421a0();
         func_02043204((char*)var9);
         func_02043124(var9);
         arg0->unknown_8_.CreateTypeA(var7, Enum_ov017_021b1564_248832);
@@ -217,7 +217,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Struct_02
         arg0->unknown_38_ = (REG_SUB_DISPLAY & 0x1f00) >> 8;
         SetFlags04(var1, 0x8de);
         void* var10 = func_0203cf4c();
-        Zone3D* var11 = func_02012fe4();
+        Zone3D* var11 = GetZone3D_02012fe4();
         func_0203e0a0(var10, var11->currentZoneID_);
         func_ov017_0219bf74();
         if (func_020981e4((int)var11->unk_840, inline_ov017_021b1564(var11))) {
@@ -278,7 +278,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Struct_02
         func_ov017_0219b624(var1);
         func_ov017_0219ba0c(var1, 0);
         Struct_ov017_021b1564_5* var14 = (Struct_ov017_021b1564_5*)var1->unknown_2cc_;
-        Struct_ov017_021b1564_8* var15 = func_020421a0();
+        Struct_ov017_021b1564_8* var15 = GetMessageWindow_020421a0();
         func_0207df50((Struct_0203d028*)var14->unknown_5b0_);
         func_0207df90(var14->unknown_5b0_);
         func_020432c4(var15);

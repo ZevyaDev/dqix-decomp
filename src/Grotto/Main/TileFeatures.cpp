@@ -7,7 +7,7 @@
 #endif
 
 extern unsigned char const data_020e7010[];
-extern "C" int func_02012fe4(void);
+extern "C" int GetZone3D_02012fe4(void);
 extern unsigned char const data_020e700c[];
 
 // USA: func_0201ea54
@@ -18,7 +18,7 @@ int ChooseTileFeaturePosition(const TileFeaturePlacementData* data)
  
     // This function doesn't seem to do anything besides put a value in r0.
     // We never use the value, but it gets called so yeah   
-    func_02012fe4();
+    GetZone3D_02012fe4();
 
     int validCount = 0;
 
@@ -51,7 +51,7 @@ int ChooseTileFeatureOrientation(const TileFeaturePlacementData* data,
 {
     char validDirections[4];
 
-    func_02012fe4();
+    GetZone3D_02012fe4();
     int numValidDirections = 0;    
     int j = 4;
     unsigned char* dstPtr = (unsigned char*)validDirections;

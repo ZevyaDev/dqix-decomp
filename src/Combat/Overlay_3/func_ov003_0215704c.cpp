@@ -25,7 +25,7 @@ void *func_ov003_02155e14(void *, int);
 void func_020de9a4(void *, void *, void *, unsigned int, void *, int);
 void _ZN13SafeAllocator5ResetEv(void *);
 void func_ov003_0215873c(void *);
-void *func_020421a0(void);
+void *GetMessageWindow_020421a0(void);
 void func_02043204(void *);
 void func_ov003_02158a50(void *);
 void func_0209c830(void *, int);
@@ -231,7 +231,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
         }
     } else if (var1 == 6) {
         arg0->unknown_1d4_ = 0;
-        func_02043204(func_020421a0());
+        func_02043204(GetMessageWindow_020421a0());
         func_ov003_02158a50(arg0);
         func_0209c830(data_02109bf4, 0x34);
         arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;

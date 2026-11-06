@@ -19,7 +19,7 @@ extern "C" void func_02027ad8(int, int);
 extern "C" int func_0202b7d8(int*);
 extern "C" {
 int* func_0202ae18();
-Struct_0208fa8c* func_02012fe4();
+Struct_0208fa8c* GetZone3D_02012fe4();
 void func_020a0cc4(int);
 void func_020a3720();
 void func_020a395c();
@@ -38,7 +38,7 @@ extern "C" ARM void func_0208fa8c(DetailedTreasureMapData* arg0) {
     GrottoStruct* var4 = var1->GetGrottoStruct();
     int var5;
     void* var6 = var2->unknown_ptr_36d0;
-    Struct_0208fa8c* var7 = func_02012fe4();
+    Struct_0208fa8c* var7 = GetZone3D_02012fe4();
     var5 = var0->unknown_0_;
     int var8 = var7->unknown_0_;
     if (func_0201b588(var5) && !func_0201b588(var8) &&

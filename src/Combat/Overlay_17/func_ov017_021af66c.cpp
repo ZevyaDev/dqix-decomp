@@ -77,7 +77,7 @@ struct AllocatorUnion;
 
 extern "C" void* func_0202ae18();
 extern "C" void func_ov017_021c37a4();
-extern "C" Struct_ov017_021af66c_3* func_02012fe4();
+extern "C" Struct_ov017_021af66c_3* GetZone3D_02012fe4();
 extern "C" void func_ov017_021baedc(Struct_ov017_021af66c* arg0, int arg1);
 extern "C" void func_ov017_021bbae4(Struct_ov017_021af66c* arg0, int arg1, int arg2);
 extern "C" void func_ov017_0219577c(int arg0, int arg1, int arg2);
@@ -105,7 +105,7 @@ extern "C" void func_0205ce94(unsigned char* arg0);
 extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
 extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
-extern "C" Struct_02021b84* func_020421a0();
+extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 
 extern Struct_ov017_021d6aec data_ov017_021d6aec;
 extern AllocatorUnion data_02114e20;
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
         if (arg0->unknown_9_ == 2) {
             func_ov017_021c37a4();
             var1->unknown_42e3_[0] = 1;
-            Struct_ov017_021af66c_3* var9 = func_02012fe4();
+            Struct_ov017_021af66c_3* var9 = GetZone3D_02012fe4();
             if (var9->unknown_0_ == 1) {
                 SetBrightness(var1, 0, 30);
                 UnlockAndSetBrightness(var1, 0, 30);
@@ -229,7 +229,7 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
         func_02012da4(&data_02114e20, arg0->unknown_288_);
         arg0->unknown_288_ = 0;
     }
-    Struct_02021b84* var18 = func_020421a0();
+    MessageWindow_02021b84* var18 = GetMessageWindow_020421a0();
 #if defined(jpn)
     var18->unknown_17ff_.unknown_0_2_ = 0;
 #else

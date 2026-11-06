@@ -9,12 +9,12 @@
 #endif
 
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_0202c540(void* arg0);
 extern "C" void func_0205ac40(void* arg0, void* arg1);
 
 extern "C" int func_02039750(void* arg0);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void* func_020daf90(void);
 extern "C" int func_02046b08(void** arg0);
 
@@ -75,8 +75,8 @@ extern "C" ARM void func_ov017_021a63d0(unsigned char* arg0) {
 
     void* var1 = func_0202ae18();
     int var2 = func_02039750(GameState::GetInstance()->GetProtagonist());
-    int var3 = func_020421a0();
-    void* var4 = func_02012fe4();
+    int var3 = GetMessageWindow_020421a0();
+    void* var4 = GetZone3D_02012fe4();
     void* var5 = func_020daf90();
 
     if (GameState::GetInstance()->GetGrottoStruct()->unknown_0[0] == 0) return;

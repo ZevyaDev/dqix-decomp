@@ -22,7 +22,7 @@ struct Struct_ov003_02165278 {
 
 extern "C" void* func_020d6c00(void);
 extern "C" Struct_ov003_02165278* func_020936f8(void);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02043204(char* arg0);
 extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
 extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov003_02165730(Struct_ov003_02165730_2* arg0) {
 
     if (arg0->unknown_4a4_ == 0) {
         func_020936f8()->unknown_3c9_0_ = 1;
-        func_02043204((char*)func_020421a0());
+        func_02043204((char*)GetMessageWindow_020421a0());
         arg0->unknown_484_ = arg0->unknown_486_ = -1;
         arg0->unknown_4a5_ = 0;
 
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov003_02165730(Struct_ov003_02165730_2* arg0) {
         }
         arg0->unknown_4a4_ = 2;
     } else if (arg0->unknown_4a4_ == 2) {
-        func_02043204((char*)func_020421a0());
+        func_02043204((char*)GetMessageWindow_020421a0());
         arg0->unknown_484_ = arg0->unknown_486_ = -1;
         arg0->unknown_4a5_ = 0;
         arg0->unknown_4a3_ = 0x10;

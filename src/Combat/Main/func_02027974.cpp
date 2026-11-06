@@ -14,7 +14,7 @@ enum { Enum_02027974_12 = 0x4c };
 enum { Enum_02027974_12 = 12 };
 #endif
 
-extern "C" unsigned short* func_02012fe4();
+extern "C" unsigned short* GetZone3D_02012fe4();
 extern unsigned char data_020e7090[][2];
 extern unsigned char data_020e7091[][2];
 
@@ -22,7 +22,7 @@ extern unsigned char data_020e7091[][2];
 extern "C" ARM void func_02027974(Struct_02027974* arg0, const unsigned char (*arg1)[16], void* arg2) {
     if (arg1 == 0 || arg2 == 0) return;
     GameState* var0 = GameState::GetInstance();
-    unsigned short* var1 = func_02012fe4();
+    unsigned short* var1 = GetZone3D_02012fe4();
     unsigned char* var2 = (unsigned char*)&var0->unk_6fc0[Enum_02027974_12] + ((*var1 % 20) - 1) * 32;
     for (int var3 = 0; var3 < 16; var3++) {
         for (int var4 = 0; var4 < 16; var4++) {

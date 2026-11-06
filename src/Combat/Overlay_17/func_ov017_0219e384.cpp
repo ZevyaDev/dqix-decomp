@@ -249,7 +249,7 @@ struct BackgroundLoader;
 struct Struct_01ff91ac_20 { unsigned short unknown_0_; unsigned short unknown_2_; };
 
 extern "C" struct Struct_ov017_0219e384* func_0200fd0c(GameState*);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_02011584(void* arg0);
 extern "C" struct Struct_ov017_0219dc90_2* func_02027ca4(void);
 extern "C" void* func_0205ec34(void);
@@ -386,7 +386,7 @@ extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
 extern "C" void func_ov017_021cdaa0(void);
 extern "C" void func_020397c0(void* arg0);
 extern "C" void func_ov017_021d2ad0(short, int, int, int, unsigned char);
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void func_ov017_021a7a74(void* arg0, struct Struct_ov017_0219e384_7* arg1);
 extern "C" int func_02076ccc(void* arg0, int arg1);
 extern "C" void func_020a72ac(void* arg0, unsigned char arg1);
@@ -408,7 +408,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 	struct Struct_ov017_0219e384_3* var3 = (struct Struct_ov017_0219e384_3*)var0->GetUnknownGameObject();
 	struct Struct_ov017_0219e384* var4 = func_0200fd0c(var0);
 	struct BackgroundLoader* var5 = BackgroundLoader::GetInstance();
-	Zone3D* var6 = (Zone3D*)func_02012fe4();
+	Zone3D* var6 = (Zone3D*)GetZone3D_02012fe4();
 	char* var7 = (char*)var6 + Enum_ov017_0219e384_9196;
 	int var8 = (int)var6 + Enum_ov017_0219e384_2112;
 	void* var9 = func_02011584(var0);
@@ -1040,7 +1040,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 		if (var4 != 0 && (var4->unknown_6e_ & 0x20) != 0) {
 			func_ov017_0219c598(0, 0, 1);
 		}
-		*(int*)((char*)func_020421a0() + Enum_ov017_0219e384_728) = 0;
+		*(int*)((char*)GetMessageWindow_020421a0() + Enum_ov017_0219e384_728) = 0;
 		if (var4->unknown_64_ != 0) {
 			GameState* var84 = GameState::GetInstance();
 			int* var85 = (int*)LightingManager::GetInstance();
@@ -1123,7 +1123,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			}
 		}
 		if (arg0->unknown_12_ != 0) {
-			Zone3D* var99 = (Zone3D*)func_02012fe4();
+			Zone3D* var99 = (Zone3D*)GetZone3D_02012fe4();
 			*(unsigned short*)((char*)var99 + Enum_ov017_0219e384_10118) = arg0->unknown_12_;
 			if (((arg0->unknown_14_ << 18) >> 18) != -1) {
 				*(unsigned short*)((char*)var99 + Enum_ov017_0219e384_10116) = (arg0->unknown_14_ << 18) >> 18;

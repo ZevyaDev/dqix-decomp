@@ -15,8 +15,8 @@ enum { Enum_ov003_0217d53c_14092 = 0x370c };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" char* func_020421a0(void);
-extern "C" char* func_02012fe4(void);
+extern "C" char* GetMessageWindow_020421a0(void);
+extern "C" char* GetZone3D_02012fe4(void);
 extern "C" int func_020457e0(char* arg0);
 extern "C" void func_ov017_021baedc(void* arg0, int arg1);
 struct Struct_0201bdac_2;
@@ -68,13 +68,13 @@ struct Struct_ov003_0217d53c_3 {
 // USA: func_ov003_0217d53c
 extern "C" ARM void func_ov003_0217d53c(Struct_ov003_0217d53c_3* arg0) {
     GameState* var0 = GameState::GetInstance();
-    char* var1 = func_020421a0();
+    char* var1 = GetMessageWindow_020421a0();
     char* var2 = (char*)GetGameResources();
     struct Struct_0201bdac_2* var3 = *(struct Struct_0201bdac_2**)(var2 + Enum_ov003_0217d53c_14076);
 #if defined(jpn)
-    Struct_ov003_0217d53c_4* var4 = (Struct_ov003_0217d53c_4*)(func_02012fe4() + 0x860);
+    Struct_ov003_0217d53c_4* var4 = (Struct_ov003_0217d53c_4*)(GetZone3D_02012fe4() + 0x860);
 #else
-    char* var5 = func_02012fe4();
+    char* var5 = GetZone3D_02012fe4();
 #endif
     if (arg0->unknown_5_ != 0 || *(int*)(var1 + Enum_ov003_0217d53c_2464) != 0) return;
     if (func_020457e0(var1) == 0) {

@@ -47,7 +47,7 @@ extern "C" void func_ov013_0218782c(char* arg0, int arg1, int arg2);
 extern "C" void func_ov013_021870c0(void* arg0);
 extern "C" void func_ov002_021685bc(char* arg0);
 extern "C" void func_ov002_0216885c(char* arg0);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02043204(char* arg0);
 extern "C" void func_02043124(void* arg0);
 extern "C" void func_020a1ef0(int arg0);
@@ -156,7 +156,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
 #if !defined(jpn)
         func_ov013_021870c0(arg0 + REGION_VALUE(0x1bc8, 0x1d04));
 #endif
-        char* var8 = (char*)func_020421a0();
+        char* var8 = (char*)GetMessageWindow_020421a0();
         if (*(int*)(var8 + REGION_VALUE(0x868, 0x998)) != 0) {
             var8[REGION_VALUE(0x17de, 0x19ae)] = 0;
             if (*(int*)(var8 + REGION_VALUE(0x870, 0x9a0)) != 3) {

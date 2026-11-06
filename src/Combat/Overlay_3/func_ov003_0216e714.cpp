@@ -6,7 +6,7 @@
 
 struct Struct_ov003_0216e714;
 #if !defined(jpn)
-extern "C" struct Struct_ov003_0216e714 *func_02012fe4(void);
+extern "C" struct Struct_ov003_0216e714 *GetZone3D_02012fe4(void);
 #endif
 struct Struct_02020cb8_4;
 extern "C" int func_02046900(Struct_02020cb8_4 *arg0);
@@ -57,7 +57,7 @@ struct Struct_ov003_0216e714_2 {
     unsigned char unknown_0_[0x860];
     struct Struct_ov003_0216e714 unknown_860_;
 };
-extern "C" struct Struct_ov003_0216e714_2 *func_02012fe4(void);
+extern "C" struct Struct_ov003_0216e714_2 *GetZone3D_02012fe4(void);
 #else
 struct Struct_ov003_0216e714 {
     unsigned char unknown_0_[0x1840];
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
     int var2;
     Struct_ov003_0216e714_3 *var3;
     int var4;
-    Struct_ov003_0216e714 *var5         = &func_02012fe4()->unknown_860_;
+    Struct_ov003_0216e714 *var5         = &GetZone3D_02012fe4()->unknown_860_;
     BackgroundLoader *var6 = BackgroundLoader::GetInstance();
     if (arg0->unknown_2_ == 0) {
         Struct_ov003_0216e714_8 var7 = *(Struct_ov003_0216e714_8 *) data_ov003_0217e264;
@@ -302,7 +302,7 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
 // USA: func_ov003_0216e714
 extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
     int var24;
-    Struct_ov003_0216e714 *var25         = func_02012fe4();
+    Struct_ov003_0216e714 *var25         = GetZone3D_02012fe4();
     BackgroundLoader *var26 = BackgroundLoader::GetInstance();
     if (arg0->unknown_2_ == 0) {
         arg0->unknown_1c_ = var26->QueueLoadFileInGP2(data_ov003_0218028b, data_ov003_0218029b, 0);

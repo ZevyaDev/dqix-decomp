@@ -108,10 +108,10 @@ extern "C" void func_02046380(void *arg0);
 #if defined(jpn)
 struct Struct_02046574_2;
 extern "C" void func_02046574(Struct_02046574_2 *arg0, int arg1, char *arg2);
-extern "C" void func_0204500c(void *arg0, const char *arg1, int arg2);
+extern "C" void StartMessage_0204500c(void *window, const char *text, int arg2);
 extern char data_ov003_0217e930[];
 #else
-extern "C" void func_0204500c(void *arg0, const char *arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void *window, const char *text, int arg2, int arg3);
 #endif
 extern "C" void func_0205a528(void *arg0, void *arg1, unsigned int arg2, SafeAllocator *arg3);
 extern "C" void func_020dfec0(void *arg0, SafeAllocator *arg1, void *arg2, unsigned int arg3);
@@ -127,7 +127,7 @@ extern "C" void func_0204c7a8(Struct_0204c7a8 *arg0, SafeAllocator *arg1,
 extern "C" void func_0205cf78(Struct_0205cf78 *arg0,
                                                                                      Struct_0205cf78_2 *arg1,
                                                                                      unsigned char arg2);
-extern "C" void *func_020421a0();
+extern "C" void *GetMessageWindow_020421a0();
 
 struct Struct_ov003_0217f56c {
     const char *unknown_0_[3];
@@ -142,7 +142,7 @@ struct Struct_ov003_0216b07c_4 {
 
 // USA: func_ov003_0216b07c
 extern "C" ARM void func_ov003_0216b07c(Struct_ov003_0216b07c *arg0) {
-    Struct_ov003_0216b07c_6 *var0   = (Struct_ov003_0216b07c_6 *) func_020421a0();
+    Struct_ov003_0216b07c_6 *var0   = (Struct_ov003_0216b07c_6 *) GetMessageWindow_020421a0();
     GameState *var1         = GameState::GetInstance();
     BackgroundLoader *var2 = BackgroundLoader::GetInstance();
 
@@ -155,12 +155,12 @@ extern "C" ARM void func_ov003_0216b07c(Struct_ov003_0216b07c *arg0) {
                 var0->unknown_998_ = 1;
 #if defined(jpn)
                 func_02042058(var0->unknown_28_, data_ov003_0217e930);
-                func_0204500c(var0, var0->unknown_28_, 0);
+                StartMessage_0204500c(var0, var0->unknown_28_, 0);
 #else
                 char *var3      = var0->unknown_5c_;
                 func_02042058(var3, func_020e51cc(0x44));
                 func_02046380(var0);
-                func_0204500c(var0, var0->unknown_5c_, 0, 0xe3);
+                StartMessage_0204500c(var0, var0->unknown_5c_, 0, 0xe3);
 #endif
                 var0->unknown_19b2_ = 1;
                 var0->unknown_99c_  = 2;

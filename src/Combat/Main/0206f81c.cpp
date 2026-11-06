@@ -84,7 +84,7 @@ extern "C" void func_ov017_021a3498(struct Struct_0203d028_4* arg0);
 struct Struct_02015438;
 extern "C" int func_02046b24(struct Struct_02015438** arg0);
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0206461c(void* arg0, int arg1);
 extern "C" int func_020100a8(GameState*);
 
@@ -556,7 +556,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
         BackgroundLoader* var82 = BackgroundLoader::GetInstance();
         if (var2 != 0 && var82->GetNumQueuedTasks() <= 0) {
             void* var83 = func_0205ec34();
-            void* var84 = func_02012fe4();
+            void* var84 = GetZone3D_02012fe4();
             func_0206461c(var83, *(int*)((char*)var84 + 8));
         }
         if (var3 != 0) {

@@ -4,7 +4,7 @@
 #define func_02045f3c func_02046c78
 #endif
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 #if defined(jpn)
 extern "C" void func_02046c78(void*, void*, int, int, int, int, int, int);
 #define DRAW_DIGIT(ctx, rec, x, y, color) func_02046c78(ctx, rec, x, y, color, 8, 0, 0)
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov005_02155258(void* arg0, int arg1,
     short arg2, short arg3
 #endif
     , unsigned short arg4) {
-    int var0 = func_020421a0();
+    int var0 = GetMessageWindow_020421a0();
     volatile unsigned int* var1 = (volatile unsigned int*)0x04000444;
     var1[0] = 0;
     var1[0x2f] = 1;

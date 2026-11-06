@@ -4,7 +4,7 @@
 struct Struct_02011b24;
 struct Struct_02093428_5;
 
-extern "C" void func_02012fe4();
+extern "C" void GetZone3D_02012fe4();
 extern "C" int func_020457e0(char* arg0);
 extern "C" void func_020531f0(GameObject* arg0);
 extern "C" void func_02043124(char* arg0);
@@ -19,7 +19,7 @@ extern "C" void func_ov017_021d1810(int, int, signed char);
 extern "C" int func_020100a8(GameState* arg0);
 extern "C" int func_0200fb8c(int* arg0);
 extern "C" int* func_020936f8(void);
-extern "C" char* func_020421a0(void);
+extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" int func_020535c8(signed char* arg0);
 
 struct Struct_02093428_6 {
@@ -71,8 +71,8 @@ struct Struct_02093428_4 {
 // USA: func_02093428
 extern "C" ARM void func_02093428(struct Struct_02093428_6* arg0) {
     GameState* var0 = GameState::GetInstance();
-    char* var1 = func_020421a0();
-    func_02012fe4();
+    char* var1 = GetMessageWindow_020421a0();
+    GetZone3D_02012fe4();
     unsigned char var2 = func_020100a8(var0);
     unsigned char var3 = arg0->unknown_35_;
 

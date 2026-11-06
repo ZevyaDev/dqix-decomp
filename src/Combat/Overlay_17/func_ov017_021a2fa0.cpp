@@ -27,7 +27,7 @@ struct Struct_ov017_021a2fa0_3 {
     unsigned char unknown_f7d_;
 };
 
-extern "C" Struct_ov017_021a2fa0_2* func_02012fe4(void);
+extern "C" Struct_ov017_021a2fa0_2* GetZone3D_02012fe4(void);
 extern "C" void func_ov017_021a316c(unsigned char* arg0);
 extern "C" void func_ov017_021a2c14(unsigned char* arg0, int arg1, void* arg2);
 extern "C" void func_020a6728(unsigned char* arg0, unsigned short arg1);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov017_021a2fa0(unsigned char* arg0) {
  enum {Enum_ov017_021a2fa0_4676=0x1244, Enum_ov017_021a2fa0_1500=0x5dc, Enum_ov017_021a2fa0_4696=0x1258, Enum_ov017_021a2fa0_4412=0x113c, Enum_ov017_021a2fa0_4432=0x1150, Enum_ov017_021a2fa0_4544=0x11c0, Enum_ov017_021a2fa0_4564=0x11d4};
 #endif
     GameState* var0 = GameState::GetInstance();
-    Struct_ov017_021a2fa0_2* var1 = func_02012fe4();
+    Struct_ov017_021a2fa0_2* var1 = GetZone3D_02012fe4();
     func_ov017_021a316c(arg0);
     func_ov017_021a2c14(arg0, var1->unknown_8_, var1->unknown_c_);
     func_020a6728(arg0, var1->unknown_0_);

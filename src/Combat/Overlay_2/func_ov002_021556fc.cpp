@@ -47,7 +47,7 @@ struct Struct_0205d274;
 struct Struct_0205d2bc;
 struct Struct_0205d048;
 
-extern "C" char *func_020421a0();
+extern "C" char *GetMessageWindow_020421a0();
 extern "C" void func_020466c8(Struct_020466c8 *arg0, int arg1);
 extern "C" void *func_02010828(GameState *arg0);
 extern "C" void func_ov017_021cff8c(int arg0, int arg1);
@@ -69,7 +69,7 @@ extern "C" void func_ov023_021eb26c(void *arg0);
 
 // USA: func_ov002_021556fc
 extern "C" ARM void func_ov002_021556fc(char *arg0) {
-    func_020466c8((Struct_020466c8 *) func_020421a0(), 0);
+    func_020466c8((Struct_020466c8 *) GetMessageWindow_020421a0(), 0);
     unsigned char *var0 = (unsigned char *) func_02010828(GameState::GetInstance());
     for (int var1 = 0; var1 < var0[0xf7c]; var1++) {
         func_ov017_021cff8c((var0 + var1)[0xf78], 0);
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov002_021556fc(char *arg0) {
     *(volatile unsigned int *) 0x4000000   = (*(volatile unsigned int *) 0x4000000 & ~0x1f00) | 0x100;
     *(volatile unsigned short *) 0x4000050 = 0;
     func_02074bd0((Struct_02074bd0 *) (arg0 + FIELD_38));
-    func_02043204(func_020421a0());
+    func_02043204(GetMessageWindow_020421a0());
     *(void **) (arg0 + FIELD_1bd0) = 0;
     func_0205d1e0((Struct_0205d1e0 *) (arg0 + FIELD_ec8));
     func_0205d274((Struct_0205d274 *) (arg0 + FIELD_ec8));

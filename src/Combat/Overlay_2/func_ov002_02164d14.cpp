@@ -30,7 +30,7 @@ extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_0215e1d0(char *arg0);
 extern "C" void func_ov002_02156e90(char *arg0);
 extern "C" void func_020d79e0(char *arg0, int arg1);
-extern "C" void func_02012fe4(void);
+extern "C" void GetZone3D_02012fe4(void);
 extern "C" void func_02017c58(void);
 extern "C" char data_02108760[];
 extern "C" unsigned short data_ov002_0216cca4[];
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
             func_020d79e0(arg0, var3[*(short *) (arg0 + OFF_SEL_02164d14)]);
             *(int *) (arg0 + OFF_NEXT_02164d14) = K_2B_02164d14;
             *(int *) (arg0 + OFF_STATE_02164d14) = 0;
-            func_02012fe4();
+            GetZone3D_02012fe4();
             func_02017c58();
         } else if (func_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + OFF_SEL_02164d14) = -1;

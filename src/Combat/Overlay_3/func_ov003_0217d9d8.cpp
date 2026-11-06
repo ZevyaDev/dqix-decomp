@@ -11,7 +11,7 @@ enum { Enum_ov003_0217d9d8_2464 = 0x9a0 };
 #endif
 
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov003_0217dd10(char* arg0, int arg1);
 extern "C" void func_02043204(char* arg0);
 
@@ -23,7 +23,7 @@ struct Struct_ov003_0217d9d8 {
 
 // USA: func_ov003_0217d9d8
 extern "C" ARM void func_ov003_0217d9d8(struct Struct_ov003_0217d9d8* arg0) {
-    char* var0 = (char*)func_020421a0();
+    char* var0 = (char*)GetMessageWindow_020421a0();
     signed char var1 = arg0->unknown_5_;
 
     if (var1 == 0) {

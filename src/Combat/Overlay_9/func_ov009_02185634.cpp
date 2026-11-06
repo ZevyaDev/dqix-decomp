@@ -179,7 +179,7 @@ struct Struct_0203d028;
 
 struct GameResources;
 extern "C" GameResources* func_0200fb8c(int* arg0);
-extern "C" char* func_020421a0();
+extern "C" char* GetMessageWindow_020421a0();
 extern "C" void func_020de848(void* arg0);
 extern "C" void func_020de9a4(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, const void* arg4, int arg5);
 extern "C" void func_020dfec0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
@@ -307,7 +307,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
         LoadFileIntoMemory(data_ov009_0218acb0, var4, &var5);
         arg0->unknown_0_[5].Reset();
         func_020dfec0(arg0->unknown_e0_, &arg0->unknown_0_[5], var4, var5);
-        arg0->unknown_d8_ = *(int*)(func_020421a0() + 0x28);
+        arg0->unknown_d8_ = *(int*)(GetMessageWindow_020421a0() + 0x28);
         func_020de848(arg0->unknown_c8_);
         func_020e0484(arg0->unknown_c8_, &arg0->unknown_0_[4], data_020f2a38, data_ov009_0218ab48, 0x29, 1);
 #else
@@ -318,7 +318,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
         arg0->unknown_0_[5].Reset();
         func_020dfec0(arg0->unknown_e0_, &arg0->unknown_0_[5], var7, var6);
         BackgroundLoader::RemoveLockGlobal();
-        arg0->unknown1_f8_ = *(int*)(func_020421a0() + 0x5c);
+        arg0->unknown1_f8_ = *(int*)(GetMessageWindow_020421a0() + 0x5c);
         func_020de848(arg0->unknown_c8_);
         BackgroundLoader::AddLockGlobal();
         unsigned int var8;

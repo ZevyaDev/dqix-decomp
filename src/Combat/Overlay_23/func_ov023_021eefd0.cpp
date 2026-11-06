@@ -143,10 +143,10 @@ extern char data_02109bf4[];
 #if defined(jpn)
 extern const char data_ov023_021fd4ec[];
 extern const char data_ov023_021fd504[];
-extern "C" void func_0204500c(Struct_ov023_021eefd0_9*, const char*, int);
+extern "C" void StartMessage_0204500c(Struct_ov023_021eefd0_9*, const char*, int);
 #endif
 
-extern "C" Struct_ov023_021eefd0_9* func_020421a0();
+extern "C" Struct_ov023_021eefd0_9* GetMessageWindow_020421a0();
 extern "C" void func_0206efc4(void* arg0);
 extern "C" void func_0206f200(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void* func_0206f4f0(Struct_0206f01c_2* arg0, int arg1);
@@ -168,13 +168,13 @@ void __clear(void* arg0, unsigned long arg1);
 Struct_ov023_021eefd0_3* func_ov017_021b8478(void* arg0);
 Struct_ov023_021eefd0_8 func_ov023_021ed804(Struct_ov023_021eefd0_8 arg0, void* arg1);
 #if !defined(jpn)
-void func_0204500c(Struct_ov023_021eefd0_9* arg0, const char* arg1, int arg2, int arg3);
+void StartMessage_0204500c(Struct_ov023_021eefd0_9* window, const char* text, int arg2, int arg3);
 #endif
 void* func_0202ae18();
 int func_0202c508(void* arg0);
 int func_0202c540(void* arg0);
 int func_ov023_021f4fc8();
-Struct_ov023_021eefd0_2* func_02012fe4();
+Struct_ov023_021eefd0_2* GetZone3D_02012fe4();
 void func_020426bc(void* arg0, char* arg1, int arg2);
 void VectorizedMemset(void* dst, int value, unsigned int size);
 void VectorizedInvertedMemcpy(const void* src, void* dst, unsigned int size);
@@ -188,7 +188,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
     if (var0->unknown_0_ == 0)
     {
         void* var1 = arg0->unknown_2a0_->unknown_678_;
-        Struct_ov023_021eefd0_9* var2 = func_020421a0();
+        Struct_ov023_021eefd0_9* var2 = GetMessageWindow_020421a0();
         BackgroundLoader* var3 = BackgroundLoader::GetInstance();
         int var4 = 1;
         if (_ZZ21inline_ov023_021f4c04vE1s->unknown_c_ > BackgroundLoader::TaskStatus_Invalid)
@@ -373,9 +373,9 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
         else if (var0->unknown_10_ == 0)
             strcat(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x22));
 #if defined(jpn)
-        func_0204500c(var2, var20, 1);
+        StartMessage_0204500c(var2, var20, 1);
 #else
-        func_0204500c(var2, var20, 1, 0xe3);
+        StartMessage_0204500c(var2, var20, 1, 0xe3);
 #endif
 
         var2->unknown_19b2_ = 0;
@@ -418,7 +418,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
     {
         func_ov023_021eefac((Struct_ov023_021eeaac_2*)var0);
         void* var23 = func_0202ae18();
-        Struct_ov023_021eefd0_2* var24 = func_02012fe4();
+        Struct_ov023_021eefd0_2* var24 = GetZone3D_02012fe4();
         DetailedTreasureMapData* var25 = var24->unknown_23ec_.GetDetailedData();
         if (arg0->unknown_2a0_->unknown_25_ != 0)
         {
@@ -435,7 +435,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
         }
         if (arg0->unknown_2a0_->unknown_24_ != 0)
         {
-            DetailedTreasureMapData* var27 = func_02012fe4()->unknown_23ec_.GetDetailedData();
+            DetailedTreasureMapData* var27 = GetZone3D_02012fe4()->unknown_23ec_.GetDetailedData();
             GameState* var28 = GameState::GetInstance();
             if (func_0202c508(var23))
             {

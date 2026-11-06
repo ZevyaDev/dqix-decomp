@@ -75,7 +75,7 @@ struct Struct_ov002_02155960 {
 
 extern "C" int func_ov017_021959b4();
 extern "C" void func_ov002_02155024(unsigned char*);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov023_021e7404(void*, int);
 extern "C" void func_ov002_02156178(unsigned char*);
 extern "C" void func_ov023_021eb43c(void*);
@@ -110,7 +110,7 @@ static inline Struct_ov002_02155960_6* inline_ov002_02155960(Struct_ov002_021559
 extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) {
     if (func_ov017_021959b4() != 0)
         func_ov002_02155024((unsigned char*)arg0);
-    Struct_ov002_02155960_5* var0 = (Struct_ov002_02155960_5*)func_020421a0();
+    Struct_ov002_02155960_5* var0 = (Struct_ov002_02155960_5*)GetMessageWindow_020421a0();
     arg0->unknown_1ba0_ = arg1;
     if (arg0->unknown_1cc3_ != 0)
         func_ov023_021e7404(arg0->unknown_8b4_, arg0->unknown_1ba0_);
@@ -191,7 +191,7 @@ extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) 
         return (arg0->unknown_247c_ & 1) == 0;
     (arg0->*data_ov002_0216cd74[arg0->unknown_1bb8_])();
     if (arg0->unknown_1bb8_ != 0 && arg0->unknown_1bb8_ != RG(0x1e, 0x1f) && arg0->unknown_1bb8_ != RG(0x2a, 0x2d) && arg0->unknown_1c30_ == 0 && arg0->unknown_1bc0_ == 1) {
-        var0 = (Struct_ov002_02155960_5*)func_020421a0();
+        var0 = (Struct_ov002_02155960_5*)GetMessageWindow_020421a0();
         if (g_keyManager.TestKeysPressed(0x800) != 0 && var0->unknown_998_ == 0) {
             if (arg0->unknown_1bb8_ == RG(0x21, 0x24))
                 func_ov002_0215aa14((char*)arg0);

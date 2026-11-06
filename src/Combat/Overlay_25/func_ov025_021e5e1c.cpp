@@ -10,11 +10,11 @@ enum { Enum_ov025_021e5e1c_2481 = 0x9b1, Enum_ov025_021e5e1c_2482 = 0x9b2, Enum_
 #define func_02042b98 func_02043270
 #endif
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 #if defined(jpn)
-extern "C" void func_0204500c(void* arg0, void* arg1, int arg2);
+extern "C" void StartMessage_0204500c(void* window, void* text, int arg2);
 #else
-extern "C" void func_0204500c(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int arg3);
 #endif
 extern "C" void func_02042b98(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
@@ -22,12 +22,12 @@ struct Struct_ov025_021e5e1c { char unknown_0_[8]; void* unknown_8_; };
 
 // USA: func_ov025_021e5e1c
 extern "C" ARM void func_ov025_021e5e1c(struct Struct_ov025_021e5e1c* arg0) {
-    int var0 = func_020421a0();
+    int var0 = GetMessageWindow_020421a0();
     void* var1 = arg0->unknown_8_;
 #if defined(jpn)
-    func_0204500c((void*)var0, var1, 0);
+    StartMessage_0204500c((void*)var0, var1, 0);
 #else
-    func_0204500c((void*)var0, var1, 0, 0xe3);
+    StartMessage_0204500c((void*)var0, var1, 0, 0xe3);
 #endif
     *(unsigned char*)(var0 + 0x1000 + Enum_ov025_021e5e1c_2481) = 0;
 #if defined(jpn)

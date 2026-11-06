@@ -23,7 +23,7 @@ extern "C" void func_0206cfd4(char*);
 extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 #endif
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_0206b7b0(char* arg0);
 
 struct Struct_0205bcdc;
@@ -66,11 +66,11 @@ extern "C" ARM void func_020652d0(char* arg0, int arg1, int arg2, int arg3) {
 
 #if defined(jpn)
     func_0205dfa8(arg0);
-    func_0206cfd4((char*)func_020421a0());
+    func_0206cfd4((char*)GetMessageWindow_020421a0());
     func_0205dfa8(arg0);
 #else
     func_0205cc50(arg0, 1, -4);
-    func_0206b7b0((char*)func_020421a0());
+    func_0206b7b0((char*)GetMessageWindow_020421a0());
     func_0205cc50(arg0, 1, -4);
 #endif
 

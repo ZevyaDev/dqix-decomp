@@ -12,7 +12,7 @@ enum { Enum_02043040_0 = 0 };
 #endif
 
 // USA: func_02043040
-extern "C" ARM void func_02043040(Struct_02021b84* arg0) {
+extern "C" ARM void func_02043040(MessageWindow_02021b84* arg0) {
     memset(arg0->unknown_2cc_, 0, sizeof(arg0->unknown_2cc_));
     arg0->unknown_9b4_ = Enum_02043040_0;
     for (int var0 = Enum_02043040_0; var0 < 0x80; ++var0) {

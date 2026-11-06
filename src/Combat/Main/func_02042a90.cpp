@@ -2,7 +2,7 @@
 #include "Resource/MessageSystem.h"
 
 // USA: func_02042a90
-ARM int Struct_02021b84::func_02042a90(unsigned char* arg0, unsigned int arg1) {
+ARM int MessageWindow_02021b84::func_02042a90(unsigned char* arg0, unsigned int arg1) {
     unsigned int var0;
     for (var0 = 0; var0 < arg1; var0++) {
         unsigned char var1 = *arg0;

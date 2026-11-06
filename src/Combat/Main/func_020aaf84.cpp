@@ -99,7 +99,7 @@ extern "C" int func_020a9a50(void*, void*, int);
 extern "C" void func_020a9b2c(void*);
 extern "C" void func_020a9c14(void*);
 extern "C" void func_020a9e30(void*);
-extern "C" Zone3D* func_02012fe4();
+extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" int func_020a94f8(Struct_020a94f8_2*, int);
 extern "C" void* func_020d6c00();
 extern "C" void func_020466e4(unsigned int*, unsigned int);
@@ -206,7 +206,7 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
     var0->SetDayTimer(var1.unknown_10_);
     var5->dayNightTimer_ = var1.unknown_10_;
     var5->timeOfDayIndex_ = var0->GetTimeOfDay();
-    var5->SetZone(func_02012fe4());
+    var5->SetZone(GetZone3D_02012fe4());
     var5->RecomputeAdvancedLighting();
     func_0206df6c(var4, var4->unknown_8c_, 3, 0);
     BackgroundLoader::RemoveLockGlobal();
@@ -295,7 +295,7 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
     var13->SetDayTimer(var14.unknown_10_);
     var19->dayNightTimer_ = var14.unknown_10_;
     var19->timeOfDayIndex_ = var13->GetTimeOfDay();
-    var19->SetZone(func_02012fe4());
+    var19->SetZone(GetZone3D_02012fe4());
     var19->RecomputeAdvancedLighting();
     func_0206df6c(var26, var26->unknown_8c_, 3, 0);
     func_020466f4((Struct_02038598_4*)var17, 0x2000000);

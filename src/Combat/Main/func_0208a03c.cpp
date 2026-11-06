@@ -68,7 +68,7 @@ struct Struct_0208a03c {
 extern "C" struct Struct_0208a03c_6* func_0200fea4(GameState*, int);
 extern "C" void* func_020797dc(void);
 extern "C" int func_020117f0(GameState*);
-extern "C" char* func_02012fe4(void);
+extern "C" char* GetZone3D_02012fe4(void);
 extern "C" struct Struct_0208a03c_7* func_02079e2c(char* arg0, int arg1);
 extern "C" int func_ov000_02159d94(void* arg0, int arg1);
 extern "C" void func_ov024_021f66c0(int* arg0);
@@ -96,7 +96,7 @@ extern "C" ARM int func_0208a03c(Struct_0208a03c_3* arg0, unsigned char arg1, un
             return 0;
         }
     }
-    char* var6 = func_02012fe4();
+    char* var6 = GetZone3D_02012fe4();
     if (func_020117f0(var0) && arg0->unknown_0_->unknown_8e18_->unknown_25_ != 0) {
         char* var7 = (char*)((ActiveGrottoClass*)(var6 + Enum_0208a03c_9196))->GetDetailedData();
         short var8 = var1->unknown_2_;

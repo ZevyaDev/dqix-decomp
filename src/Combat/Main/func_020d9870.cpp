@@ -4,15 +4,15 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
-extern "C" void func_0204500c(void*, const char*, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int);
 extern char data_020f29cc;
 #endif
 
 extern "C" int func_ov017_021959b4(void);
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void* func_0202ae18(void);
 extern "C" char* func_020100f8(char*);
-extern "C" unsigned short* func_02012fe4(void);
+extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void func_020d9a58(void* arg0);
 extern "C" int func_0202b7d8(int* arg0);
 extern "C" int func_0202c508(void* arg0);
@@ -25,7 +25,7 @@ extern "C" void func_020e11a4(void);
 extern "C" void func_02046380(void* arg0);
 extern "C" int func_020e51cc(int arg0);
 #if !defined(jpn)
-extern "C" void func_0204500c(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int arg3);
 #endif
 extern "C" int func_020457e0(void* arg0);
 extern "C" void func_ov017_021ab860(short arg0, int arg1);
@@ -52,11 +52,11 @@ extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
     GameState* var0 = GameState::GetInstance();
     GetGameResources();
     void* var1 = var0->GetUnknownGameObject();
-    void* var2 = func_020421a0();
+    void* var2 = GetMessageWindow_020421a0();
     Struct_0208cb08* var3 = func_02094a00();
     void* var4 = func_0202ae18();
     char* var5 = func_020100f8((char*)var0);
-    unsigned short* var6 = func_02012fe4();
+    unsigned short* var6 = GetZone3D_02012fe4();
 
     if (func_ov017_021959b4() != 0) {
         func_020d9a58(arg0);
@@ -84,9 +84,9 @@ extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
         func_020e11a4();
         func_02046380(var2);
 #if defined(jpn)
-        func_0204500c(var2, &data_020f29cc, 0);
+        StartMessage_0204500c(var2, &data_020f29cc, 0);
 #else
-        func_0204500c(var2, (void*)func_020e51cc(0x3e), 0, 0xe3);
+        StartMessage_0204500c(var2, (void*)func_020e51cc(0x3e), 0, 0xe3);
 #endif
         *(unsigned char*)((char*)var2 + Enum_020d9870_6578) = 0;
         *(int*)((char*)var2 + Enum_020d9870_2456) = 1;

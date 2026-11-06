@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" int func_020696bc(int arg0, int* arg1, int arg2);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_020699c4 { void* unknown_0_; };
 
@@ -13,7 +13,7 @@ extern "C" ARM int func_020699c4(struct Struct_020699c4* arg0, int arg1) {
 
     func_020696bc(arg1, var0, 3);
 
-    var1 = (char*)func_020421a0();
+    var1 = (char*)GetMessageWindow_020421a0();
     unsigned short var2 = (unsigned short)var0[2];
     int var3 = (var0[1] != 0);
     int var4 = (var0[0] != 0);

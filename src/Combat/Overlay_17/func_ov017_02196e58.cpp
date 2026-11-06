@@ -5,7 +5,7 @@
 
 extern "C" void func_020a1df8(int arg0);
 extern "C" int func_020100a8(GameState* arg0);
-extern "C" Zone3D* func_02012fe4(void);
+extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" void func_ov004_0216fa08(void* arg0);
 extern "C" void func_ov004_0216fa74(void* arg0, unsigned char arg1);
 extern "C" int func_ov004_0216f990(int arg0, int arg1, int arg2);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov017_02196e58(struct Struct_ov017_02196e58* arg0) {
     var3.unknown_2_ = arg0->unknown_36b6_;
     var3.unknown_12_ = var1->timeOfDayIndex_;
 
-    Zone3D* var4 = func_02012fe4();
+    Zone3D* var4 = GetZone3D_02012fe4();
     ActiveGrottoClass* var5 = NULL;
     if (var4 != NULL) {
 #if defined(jpn)

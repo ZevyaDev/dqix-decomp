@@ -19,7 +19,7 @@ struct Struct_02043368_2;
 extern "C" void func_0205a198(Struct_02043368_2*);
 struct Struct_02043368;
 extern "C" void func_0205a234(Struct_02043368*);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 
 struct Struct_ov003_021680d4 {
     SafeAllocator unknown_0_;
@@ -63,5 +63,5 @@ extern "C" ARM void func_ov003_021680d4(struct Struct_ov003_021680d4* arg0, Safe
     arg0->unknown_4d8_ = var7;
     func_0205a234((Struct_02043368*)var7);
 
-    arg0->unknown_7c_ = *(int*)(func_020421a0() + Enum_ov003_021680d4_92);
+    arg0->unknown_7c_ = *(int*)(GetMessageWindow_020421a0() + Enum_ov003_021680d4_92);
 }

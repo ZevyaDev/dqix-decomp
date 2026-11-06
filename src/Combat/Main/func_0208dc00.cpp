@@ -22,7 +22,7 @@ struct Struct_02013fb4;
 
 struct Struct_0201f040_3;
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 
 struct Struct_02108fc8_2 {
     int unknown_0_;
@@ -36,7 +36,7 @@ extern int data_020f1248;
 extern "C" ARM int func_0208dc00(struct Struct_02013fb4* arg0, int arg1, int arg2) {
     data_02108fc8.unknown_8_ = arg2;
     data_02108fc8.unknown_0_ = 0;
-    data_02108fc8.unknown_4_ = *(int*)((char*)func_02012fe4() + 8);
+    data_02108fc8.unknown_4_ = *(int*)((char*)GetZone3D_02012fe4() + 8);
     struct Struct_0201f040 var0;
     ((Script*)&var0)->Initialize();
     ((Script*)&var0)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f1248);

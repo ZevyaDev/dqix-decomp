@@ -179,19 +179,19 @@ struct Struct_ov003_02172e84_7 {
 };
 #endif
 
-extern "C" Struct_ov003_02172e84_3 *func_020421a0();
+extern "C" Struct_ov003_02172e84_3 *GetMessageWindow_020421a0();
 extern "C" const char *func_02072a68(Struct_02072a68_2 *arg0, int arg1);
 #if defined(jpn)
-extern "C" void func_0204500c(Struct_ov003_02172e84_3 *arg0, const char *arg1, int arg2);
+extern "C" void StartMessage_0204500c(Struct_ov003_02172e84_3 *window, const char *text, int arg2);
 extern "C" void func_020e2168(char *arg0, const char *arg1, int arg2, int arg3, int arg4);
 extern char data_ov003_0217eb9b[];
 extern char data_ov003_0217ebff[];
 extern char data_ov003_0217ec02[];
 extern char data_ov003_0217ec1d[];
 #else
-extern "C" void func_0204500c(Struct_ov003_02172e84_3 *arg0, const char *arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(Struct_ov003_02172e84_3 *window, const char *text, int arg2, int arg3);
 #endif
-extern "C" Struct_ov003_02172e84_6 *func_02012fe4(void);
+extern "C" Struct_ov003_02172e84_6 *GetZone3D_02012fe4(void);
 extern "C" void __clear(void *arg0, int arg1);
 extern "C" void func_02042764(Struct_ov003_02172e84_9 *arg0, char *arg1, int arg2);
 extern "C" void *ExtractFileFromGP2(const char *arg0, const char *arg1, unsigned int *arg2);
@@ -214,17 +214,17 @@ extern char data_ov003_02180a63[];
 #if defined(jpn)
 extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
     GameResources *var0 = GetGameResources();
-    Struct_ov003_02172e84_3 *var1 = func_020421a0();
+    Struct_ov003_02172e84_3 *var1 = GetMessageWindow_020421a0();
     Struct_ov003_02172e84_2 *var2 = (Struct_ov003_02172e84_2 *) var0->unknown_ptr_array_3afc[19];
     if (arg0->unknown_ea_ == 0) {
         if (IsMainBrightnessTransitionActive(var0) == 0) {
-            func_0204500c(var1, data_ov003_0217eb9b, 0);
+            StartMessage_0204500c(var1, data_ov003_0217eb9b, 0);
             var1->unknown_17ee_ = 1;
             var1->unknown_868_ = 1;
             arg0->unknown_ea_ = 1;
         }
     } else if (arg0->unknown_ea_ == 1) {
-        Struct_ov003_02172e84_6 *var3 = func_02012fe4();
+        Struct_ov003_02172e84_6 *var3 = GetZone3D_02012fe4();
         Struct_ov003_02172e84_5 *var4 = &var3->unknown_840_;
         unsigned char var5 = arg0->unknown_cc_->unknown_614_;
         unsigned int var6 = arg0->unknown_cc_->unknown_738_ & ~1;
@@ -286,7 +286,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
             }
         }
     } else if (arg0->unknown_ea_ == 2) {
-        func_0204500c(var1, data_ov003_0217ec1d, 0);
+        StartMessage_0204500c(var1, data_ov003_0217ec1d, 0);
         var1->unknown_868_ = 1;
         arg0->unknown_ea_ = 3;
     } else if (arg0->unknown_ea_ == 3) {
@@ -323,17 +323,17 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
 #else
 extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
     GameResources *var16 = GetGameResources();
-    Struct_ov003_02172e84_3 *var17 = func_020421a0();
+    Struct_ov003_02172e84_3 *var17 = GetMessageWindow_020421a0();
     Struct_ov003_02172e84_2 *var18 = (Struct_ov003_02172e84_2 *) var16->unknown_ptr_array_3afc[19];
     if (arg0->unknown_ee_ == 0) {
         if (IsMainBrightnessTransitionActive(var16) == 0) {
-            func_0204500c(var17, func_02072a68(&arg0->unknown_1d8_, 100), 0, 0xe3);
+            StartMessage_0204500c(var17, func_02072a68(&arg0->unknown_1d8_, 100), 0, 0xe3);
             var17->unknown_19be_ = 1;
             var17->unknown_998_ = 1;
             arg0->unknown_ee_ = 1;
         }
     } else if (arg0->unknown_ee_ == 1) {
-        Struct_ov003_02172e84_6 *var19 = func_02012fe4();
+        Struct_ov003_02172e84_6 *var19 = GetZone3D_02012fe4();
         Struct_ov003_02172e84_5 *var20 = &var19->unknown_840_;
         unsigned char var21 = arg0->unknown_d0_->unknown_718_;
         unsigned int var22 = arg0->unknown_d0_->unknown_738_ & ~1;
@@ -415,7 +415,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
             }
         }
     } else if (arg0->unknown_ee_ == 2) {
-        func_0204500c(var17, func_02072a68(&arg0->unknown_1d8_, 101), 0, 0xe3);
+        StartMessage_0204500c(var17, func_02072a68(&arg0->unknown_1d8_, 101), 0, 0xe3);
         var17->unknown_998_ = 1;
         arg0->unknown_ee_ = 3;
     } else if (arg0->unknown_ee_ == 3) {

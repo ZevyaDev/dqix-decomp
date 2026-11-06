@@ -10,7 +10,7 @@ struct Struct_02108760;
 struct Struct_020d7aa0_2;
 
 extern "C" int func_0200fb8c(int *arg0);
-extern "C" void func_02012fe4(void);
+extern "C" void GetZone3D_02012fe4(void);
 extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
                                                                         unsigned char arg2);
 extern "C" void func_ov002_02161cf0(char *arg0);
@@ -46,7 +46,7 @@ extern "C" char data_02108760;
 extern "C" ARM void func_ov002_02166168(char *arg0) {
     GameState *var0      = GameState::GetInstance();
     GameResources *var1 = (GameResources *) func_0200fb8c((int *) var0);
-    func_02012fe4();
+    GetZone3D_02012fe4();
     int var2 = *(int *) (arg0 + 0x1a88);
     if (var2 == 0) {
         *(short *) (arg0 + 0x1ac6) = 0;
@@ -149,7 +149,7 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
 extern "C" ARM void func_ov002_02166168(char *arg0) {
     GameState *var14      = GameState::GetInstance();
     GameResources *var15 = (GameResources *) func_0200fb8c((int *) var14);
-    func_02012fe4();
+    GetZone3D_02012fe4();
     int var16 = *(int *) (arg0 + 0x1bc0);
     if (var16 == 0) {
         *(short *) (arg0 + 0x1bfe) = 0;

@@ -11,7 +11,7 @@
 
 #include "std_library_functions.h"
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 struct Struct_ov000_021735d0_3;
 struct Struct_ov000_021735d0_2;
 extern "C" struct Struct_ov000_021735d0_2* func_ov000_0217f8c0(struct Struct_ov000_021735d0_3* arg0);
@@ -23,7 +23,7 @@ struct Struct_0205d5d0;
 extern "C" ARM int func_ov000_021795e0(void* arg0, int, int) {
 	void* var0 = func_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0);
 	func_ov000_0217964c(arg0, var0);
-	void* var1 = *(void**)(func_020421a0() + REGION_OFFSET_0);
+	void* var1 = *(void**)(GetMessageWindow_020421a0() + REGION_OFFSET_0);
 	memset(var1, 0, REGION_OFFSET_1);
 	func_ov000_0217979c(arg0, var0, var1);
 #if defined(jpn)

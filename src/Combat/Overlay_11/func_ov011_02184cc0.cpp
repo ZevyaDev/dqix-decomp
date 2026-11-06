@@ -8,7 +8,7 @@
 #include "Resource/Brightness.h"
 
 extern "C" void* func_ov017_021b2164(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0203cf4c(void);
 
 struct Struct_ov011_02184c30;
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov011_02184cc0(struct Struct_ov011_02184c30* arg0) {
     int var0 = (int)GetGameResources();
     struct Struct_ov011_021849bc* var1 = (struct Struct_ov011_021849bc*)func_ov017_021b2164();
     void* var2 = func_0203cf4c();
-    void* var3 = func_02012fe4();
+    void* var3 = GetZone3D_02012fe4();
 
     switch (func_ov011_02184c30(arg0)) {
     case 0:

@@ -286,7 +286,7 @@ extern "C" int func_ov004_0215e460(void);
 extern "C" void func_ov004_0215e49c(void*, int, int);
 extern "C" struct Struct_02072a68_2* func_ov023_021fa598(Struct_ov004_0215f0c0_5* arg0);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02046380(void* arg0);
 extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
 extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
@@ -532,7 +532,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
             struct Struct_02072a68_2* var40 = func_ov023_021fa598(var39);
             struct Struct_ov004_0215f0c0_9 var41;
             func_020e4bf4(&var41, data_ov004_02170804);
-            int var42 = func_020421a0();
+            int var42 = GetMessageWindow_020421a0();
             func_02046380((void*)var42);
             *(struct Struct_ov004_0215f0c0_9**)var42 = &var41;
             func_02046608(var42, 0, func_02072a68(var40, 0x202), var35, 0x1e, 0, 0);
@@ -753,7 +753,7 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
 #else
                 var18 = data_ov004_02170800 + (var26 * 8 + var16) * 0x80;
                 memset(var18, 0, 0x80);
-                func_02046608(func_020421a0(), 0, var17->unknown_4_, var18, 0x60, 0, 0);
+                func_02046608(GetMessageWindow_020421a0(), 0, var17->unknown_4_, var18, 0x60, 0, 0);
                 data_ov004_02170888[var16][var26] = var17->unknown_18_;
                 data_ov004_021704a4[var16][var26] = var18;
 #endif

@@ -8,7 +8,7 @@ extern "C" void* func_020d6c00(void);
 struct Struct_02038598_4;
 extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
 extern "C" void func_ov011_021848a0(void* arg0, int arg1);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02043204(char* arg0);
 extern "C" void func_02043124(char* arg0);
 extern "C" void* func_ov004_0216ae9c(void* arg0, int arg1);
@@ -49,7 +49,7 @@ extern "C" ARM int func_ov004_0216e258(void* arg0) {
         func_ov011_021848a0(arg0, 0x3e7);
         var2 = 0;
     } else if (var1 == 1) {
-        char* var3 = (char*)func_020421a0();
+        char* var3 = (char*)GetMessageWindow_020421a0();
         func_02043204(var3);
         func_02043124(var3);
         func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 0x80);
@@ -59,7 +59,7 @@ extern "C" ARM int func_ov004_0216e258(void* arg0) {
         func_ov011_021848a0(arg0, 0x1f4);
         var2 = 0;
     } else if (var1 == 2) {
-        char* var5 = (char*)func_020421a0();
+        char* var5 = (char*)GetMessageWindow_020421a0();
         func_02043204(var5);
         func_02043124(var5);
         func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 0x80);
@@ -69,7 +69,7 @@ extern "C" ARM int func_ov004_0216e258(void* arg0) {
         func_ov011_021848a0(arg0, 0x1f5);
         var2 = 0;
     } else if (var1 == 3) {
-        char* var7 = (char*)func_020421a0();
+        char* var7 = (char*)GetMessageWindow_020421a0();
         func_02043204(var7);
         func_02043124(var7);
         data_ov004_02171034.unknown_3_ = 4;

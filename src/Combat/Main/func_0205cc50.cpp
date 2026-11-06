@@ -4,7 +4,7 @@
 #define func_0205cc50 func_0205dfa8
 #endif
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 struct Struct_0205bd58;
 extern "C" void func_0205bd58(Struct_0205bd58 *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 
@@ -37,7 +37,7 @@ extern "C" ARM void func_0205cc50(void *arg0) {
 extern "C" ARM void func_0205cc50(void *arg0, int arg1, int arg2) {
 #endif
     Struct_0205cc50 *var0 = static_cast<Struct_0205cc50 *>(arg0);
-    func_020421a0();
+    GetMessageWindow_020421a0();
 
     int var1       = var0->unknown_7c_;
     int var2 = var1 * 12 + 16;

@@ -56,7 +56,7 @@ extern int data_02108760;
 
 extern "C" int *func_0202ae18();
 extern "C" void * func_0200fb8c(int*);
-extern "C" Struct_ov003_0215d150_2 *func_020421a0();
+extern "C" Struct_ov003_0215d150_2 *GetMessageWindow_020421a0();
 extern "C" void *func_0203cf4c();
 extern "C" unsigned char *func_020e2ff8();
 extern "C" int func_0202c508(int *);
@@ -85,7 +85,7 @@ extern "C" void func_020e3428(void *, int);
 struct Struct_0208ab34_2;
 extern "C" void func_020e3468(Struct_0208ab34_2*, int);
 extern "C" void func_ov017_021a2fa0(void *);
-extern "C" void func_02012fe4();
+extern "C" void GetZone3D_02012fe4();
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
 extern "C" void func_ov017_021921fc(void *, int, int);
 extern "C" int func_0209ca2c(void *);
@@ -99,7 +99,7 @@ extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
     GameState *var0    = GameState::GetInstance();
     void *var1        = func_0200fb8c((int*)var0);
-    Struct_ov003_0215d150_2 *var2         = func_020421a0();
+    Struct_ov003_0215d150_2 *var2         = GetMessageWindow_020421a0();
     int *var3           = func_0202ae18();
     void *var4          = func_0203cf4c();
     GameObject *var5    = var0->GetUnknownGameObject();
@@ -200,7 +200,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
     if (var7 == 5) {
         if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() <= 0) {
             func_ov017_021a2fa0((void *) GetGameResources());
-            func_02012fe4();
+            GetZone3D_02012fe4();
             func_ov017_0219bd1c(1, 0, 0, 0);
             func_ov017_021921fc((char *) var5 + 0x44, *(short *) ((char *) var5 + 0xae), 1);
             arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void *func_02012fe4(void);
+extern "C" void *GetZone3D_02012fe4(void);
 extern "C" int func_0201b588(int arg0);
 extern "C" int func_0201b5b0(int arg0);
 extern "C" void func_0202756c(void *arg0, int arg1, int arg2, int arg3, unsigned char arg4, unsigned char arg5,
@@ -62,7 +62,7 @@ static inline Struct_02024000_3 *inline_02024000_2(Struct_02024000_4 *arg0, int 
 extern "C" ARM void func_02024000(void *arg0) {
     Struct_02024000_2 *var0 = static_cast<Struct_02024000_2 *>(arg0);
     GameState *var1 = GameState::GetInstance();
-    Struct_02024000 *var2 = static_cast<Struct_02024000 *>(func_02012fe4());
+    Struct_02024000 *var2 = static_cast<Struct_02024000 *>(GetZone3D_02012fe4());
     unsigned short var3 = var2->unknown_0_;
     if (!func_0201b588(var3)) {
         return;

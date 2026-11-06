@@ -3,9 +3,9 @@
 #include "GameState/GameState.h"
 
 extern "C" void func_02046380(void);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
 extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
 extern "C" int func_ov023_021f4438(void* arg0);
@@ -15,9 +15,9 @@ struct Struct_020465c0;
 extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
 extern "C" int func_0201b5d8(int arg0);
 #if defined(jpn)
-extern "C" void func_0204500c(void* arg0, char* arg1, int arg2);
+extern "C" void StartMessage_0204500c(void* window, char* text, int arg2);
 #else
-extern "C" void func_0204500c(void* arg0, char* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int arg3);
 #endif
 extern "C" int func_ov023_021f4fc8(void);
 struct Struct_ov023_021eeaac_2;
@@ -30,10 +30,10 @@ extern "C" ARM int func_ov023_021f2638(unsigned char* arg0) {
 #if defined(jpn)
     GameState* var0 = GameState::GetInstance();
     int* var1 = _ZZ21inline_ov023_021f4c04vE1s;
-    int var2 = func_020421a0();
+    int var2 = GetMessageWindow_020421a0();
     unsigned char* var3 = (unsigned char*)var2;
     func_0202ae18();
-    void* var4 = func_02012fe4();
+    void* var4 = GetZone3D_02012fe4();
     int var5 = *var1;
 
     if (var5 == 0) {
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov023_021f2638(unsigned char* arg0) {
                 char* var10 = (char*)func_02072a68((struct Struct_02072a68_2*)(arg0 + 0x5af4), 0x22);
                 strcat(var6, var10);
             }
-            func_0204500c(var3, var6, 1);
+            StartMessage_0204500c(var3, var6, 1);
             var3[0x17e2] = 0;
             *(int*)(var3 + 0x868) = 1;
         } else {
@@ -75,11 +75,11 @@ extern "C" ARM int func_ov023_021f2638(unsigned char* arg0) {
 #else
     GameState* var12 = GameState::GetInstance();
     int* var13 = _ZZ21inline_ov023_021f4c04vE1s;
-    int var14 = func_020421a0();
+    int var14 = GetMessageWindow_020421a0();
     unsigned char* var15 = (unsigned char*)var14;
     func_02046380();
     func_0202ae18();
-    void* var16 = func_02012fe4();
+    void* var16 = GetZone3D_02012fe4();
     int var17 = *var13;
 
     if (var17 == 0) {
@@ -113,7 +113,7 @@ extern "C" ARM int func_ov023_021f2638(unsigned char* arg0) {
                 char* var29 = (char*)func_02072a68((struct Struct_02072a68_2*)(arg0 + 0x5904), 0x22);
                 strcat(var18, var29);
             }
-            func_0204500c(var15, var18, 1, 0xe3);
+            StartMessage_0204500c(var15, var18, 1, 0xe3);
             var15[0x19b2] = 0;
             *(int*)(var15 + 0x998) = 1;
         } else {

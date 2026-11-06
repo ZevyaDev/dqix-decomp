@@ -28,7 +28,7 @@ struct Struct_0203d028;
 struct Struct_0204394c;
 struct Struct_0204500c_5;
 
-struct Struct_02021b84 {
+struct MessageWindow_02021b84 {
     unsigned char unknown_0_[4];
     void* unknown_4_;
     unsigned char unknown_8_[4];
@@ -174,7 +174,7 @@ struct Struct_0204500c_3;
 struct Struct_0204500c_4;
 struct Struct_02042c68_2;
 
-struct Struct_02021b84 {
+struct MessageWindow_02021b84 {
     unsigned char unknown_0_[0x18];
     Struct_0204500c_2* unknown_18_;
     unsigned char unknown_1c_[0x14];
@@ -310,7 +310,7 @@ struct Struct_02021b84 {
 #endif
 
 #if defined(jpn)
-extern "C" void func_0204500c(Struct_02021b84* arg0, const char* arg1, int arg2);
+extern "C" void StartMessage_0204500c(MessageWindow_02021b84* window, const char* text, int arg2);
 #else
-extern "C" void func_0204500c(Struct_02021b84* arg0, const char* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(MessageWindow_02021b84* window, const char* text, int arg2, int arg3);
 #endif

@@ -6,7 +6,7 @@
 extern "C" void __clear(void *arg0, int arg1);
 extern "C" void func_ov003_02170a7c(char *arg0, char *arg1);
 extern "C" void func_020426bc(const char *arg0, char *arg1, int arg2);
-extern "C" void *func_02012fe4(void);
+extern "C" void *GetZone3D_02012fe4(void);
 extern "C" int func_ov003_021725a4(void *arg0, void *arg1);
 
 struct Struct_02000c9c_8;
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov003_02171fe8(Struct_ov003_02171fe8_3 *arg0, int arg1,
             memcpy(&var2.unknown_50_, &arg0->unknown_2a0_.unknown_c4_, 0x1c);
             memcpy(&var2.unknown_14_, &arg0->unknown_2a0_.unknown_e_, 6);
             var2.unknown_6c_.unknown_0_[0] |= 0x4000000;
-            char *var8 = (char *) func_02012fe4();
+            char *var8 = (char *) GetZone3D_02012fe4();
             if (arg0->unknown_718_ < 3) {
                 if (func_0209890c(var8 + 0x860, &var2) != 0) {
                     if (func_ov003_021725a4(arg0, &var2) != 0) {
@@ -228,7 +228,7 @@ extern "C" ARM void func_ov003_02171fe8(Struct_ov003_02171fe8_3 *arg0, int arg1,
                 memset(var7 + 0xb, 0, 10);
                 func_020426bc(var0, var7 + 0xb, 1);
             }
-            char *var8 = (char *) func_02012fe4();
+            char *var8 = (char *) GetZone3D_02012fe4();
             if (arg0->unknown_718_ < 3) {
                 if (func_0209890c(var8 + 0x840, &var2) != 0) {
                     if (func_ov003_021725a4(arg0, &var2) != 0) {

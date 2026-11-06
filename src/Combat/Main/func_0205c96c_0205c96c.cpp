@@ -7,7 +7,7 @@
 #endif
 
 struct Struct_0205c570;
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_0205c570(struct Struct_0205c570* arg0);
 extern "C" void func_02042b10(void* arg0, void* arg1);
 extern "C" void func_0202f404(void* arg0, int arg1, int arg2);
@@ -57,7 +57,7 @@ extern "C" ARM void func_0205c96c(unsigned char* arg0, int arg1) {
         return;
     }
 
-    var0 = (unsigned char*)func_020421a0();
+    var0 = (unsigned char*)GetMessageWindow_020421a0();
     var1 = *(int*)(arg0 + 0x50);
     var3 = func_0205c570((struct Struct_0205c570*)(arg0 + 0x1c));
     var4 = 0x7fff;

@@ -79,7 +79,7 @@ struct Struct_0204c7a8;
 struct Struct_0205cf78;
 struct Struct_0205cf78_2;
 
-extern "C" Struct_ov023_021e76c4_2* func_020421a0();
+extern "C" Struct_ov023_021e76c4_2* GetMessageWindow_020421a0();
 extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
 extern "C" void func_0204b12c(Struct_0204b12c* arg0, SafeAllocator* arg1);
 extern "C" int func_0204b5e8(Struct_02020cb8_5* arg0, int arg1, int arg2);
@@ -155,7 +155,7 @@ extern "C" ARM int func_ov023_021e76c4(Struct_ov023_021e76c4_3* arg0)
     else if (arg0->unknown_5e0_ == 2)
     {
         arg0->unknown_0_[0].Reset();
-        arg0->unknown_5d8_ = (char*)func_020421a0()->unknown_5c_;
+        arg0->unknown_5d8_ = (char*)GetMessageWindow_020421a0()->unknown_5c_;
         __clear(var4, sizeof(var4));
         Struct_ov023_021e76c4_4* var10;
         int var11;

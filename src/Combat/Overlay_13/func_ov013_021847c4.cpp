@@ -18,7 +18,7 @@ struct Struct_0205d0e0_2;
 extern "C" void* func_0205d888(struct Struct_0205d0e0_2* arg0);
 extern "C" int func_0204c7cc(unsigned char* arg0);
 extern "C" void func_0205bc24(void* arg0, int arg1);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 
 struct Struct_0205a330;
@@ -74,7 +74,7 @@ extern "C" ARM unsigned char func_ov013_021847c4(void* arg0, int arg1) {
     func_0205c904(var0 + R(0x3d0,0x3d4), *(int*)(var0 + R(0x5d0,0x644)));
 
     {
-        int var4 = func_020421a0();
+        int var4 = GetMessageWindow_020421a0();
         struct Struct_0205a330* var5 = *(struct Struct_0205a330**)(var4 + R(0x230,0x2e0));
         if (var5 != 0) {
             func_0205a330(var5, var1->GetTickCount());

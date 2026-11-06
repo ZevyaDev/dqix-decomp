@@ -170,7 +170,7 @@ struct Struct_02072a68 { short unknown_0_; void* unknown_4_; };
 struct Struct_02072a68_2 { struct Struct_02072a68* unknown_0_; short unknown_4_; };
 extern "C" void* func_02072a68(struct Struct_02072a68_2*, int);
 extern "C" int func_ov004_02157018(void*, int);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02046380(void* arg0);
 struct Struct_020465c0;
 extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
@@ -249,7 +249,7 @@ extern "C" ARM void func_ov004_02157374(void* arg0, int arg1, int arg2, char* ar
     }
     if (var2 == 0) return;
 
-    void* var3 = (void*)func_020421a0();
+    void* var3 = (void*)GetMessageWindow_020421a0();
     func_02046380(var3);
     func_020465c0((struct Struct_020465c0*)var3, 0, arg1);
     memcpy(arg3, (void*)var2, strlen(var2));
@@ -591,7 +591,7 @@ extern "C" void func_020dfc40(struct Struct_0201099c_14*);
 extern "C" void func_020e526c(void*);
 #endif
 extern "C" void func_020e46c4(void*);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" unsigned short func_0201e830(struct Struct_0201e830* arg0);
 extern "C" void func_020c5588(int, int, int, int, int);
 extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
@@ -677,7 +677,7 @@ extern "C" ARM int func_ov004_02157db8(void* arg0) {
     func_020e46c4(var7->unknown_ac_);
 #endif
 
-    void* var11 = func_02012fe4();
+    void* var11 = GetZone3D_02012fe4();
     if (!var11) return 0;
     void* var12 = (char*)var11 + Enum_ov004_02157db8_108;
     if (!var12) return 0;
@@ -799,7 +799,7 @@ extern "C" ARM int func_ov004_02158298(void) {
     SetFlags04((GameResources*)var1, ((Struct_ov004_02158298*)data_ov004_021707e0)->unknown_4_);
     SetFlags08((GameResources*)var1, ((Struct_ov004_02158298*)data_ov004_021707e0)->unknown_8_);
 
-    void* var2 = func_02012fe4();
+    void* var2 = GetZone3D_02012fe4();
     if (!var2) return 0;
     var2 = (char*)var2 + Enum_ov004_02158298_108;
     if (!var2) return 0;
@@ -849,9 +849,9 @@ extern "C" void* func_ov017_021b1e24(void*, int);
 extern "C" void func_ov004_02157374(void*, int, int, char*, unsigned char);
 extern "C" void func_ov004_021571f4(void*, int);
 #if defined(jpn)
-extern "C" void func_0204500c(void*, const char*, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int);
 #else
-extern "C" void func_0204500c(void*, const char*, int, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
 extern "C" char* strstr(const char*, const char*);
 extern "C" unsigned int strlen(const char*);
@@ -895,7 +895,7 @@ extern "C" ARM int func_ov004_021583a8(void* arg0) {
     var6 = *(int*)((char*)var1 + Enum_ov004_021583a8_14076);
     var7 = *(void**)((char*)var1 + Enum_ov004_021583a8_15176);
     var2 = ((Struct_02072a68_2*)func_ov004_02157018(arg0, 4));
-    var3 = (Struct_ov004_021583a8_8*)((void*)func_020421a0());
+    var3 = (Struct_ov004_021583a8_8*)((void*)GetMessageWindow_020421a0());
     int var8 = ((Struct_ov004_021583a8_7*)data_ov004_021707e0)->unknown_13_;
     if (var8 == 2) {
         func_ov004_0215781c(arg0);
@@ -908,12 +908,12 @@ extern "C" ARM int func_ov004_021583a8(void* arg0) {
                 func_ov004_02157374(arg0, var4, var9, var5, (int)1);
                 if (var5[0] != 0) {
 #if defined(jpn)
-                    func_0204500c(var3, var5, 0);
+                    StartMessage_0204500c(var3, var5, 0);
 #else
                     if (var5 == strstr(var5, "<PAGE>")) {
                         var5 += 6;
                     }
-                    func_0204500c(var3, var5, 0, 0xe3);
+                    StartMessage_0204500c(var3, var5, 0, 0xe3);
 #endif
                     var3->unknown_998_ = 1;
                     sShown3 = 1;
@@ -934,9 +934,9 @@ extern "C" ARM int func_ov004_021583a8(void* arg0) {
         int var12 = ((int)func_ov017_021b2038((Struct_ov004_021583a8_5*)var7));
         if (sShown2 == 0 && var11 == 4 && var12 == 0) {
 #if defined(jpn)
-            func_0204500c(var3, ((char*)func_02072a68(var2, 0x2e)), 0);
+            StartMessage_0204500c(var3, ((char*)func_02072a68(var2, 0x2e)), 0);
 #else
-            func_0204500c(var3, ((char*)func_02072a68(var2, 0x2e)), 0, 0xe3);
+            StartMessage_0204500c(var3, ((char*)func_02072a68(var2, 0x2e)), 0, 0xe3);
 #endif
             var3->unknown_998_ = 1;
             sShown2 = 1;
@@ -945,15 +945,15 @@ extern "C" ARM int func_ov004_021583a8(void* arg0) {
             if ((var11 == 4 && var12 == 5) || (sShown4 != 0 && var4 > 0)) {
 #if defined(jpn)
                 if (sShown4 == 0) {
-                    func_0204500c(var3, ((char*)func_02072a68(var2, 0x25)), 0);
+                    StartMessage_0204500c(var3, ((char*)func_02072a68(var2, 0x25)), 0);
                 } else {
-                    func_0204500c(var3, ((char*)func_02072a68(var2, 0x33)), 0);
+                    StartMessage_0204500c(var3, ((char*)func_02072a68(var2, 0x33)), 0);
                 }
 #else
                 if (sShown4 == 0) {
-                    func_0204500c(var3, ((char*)func_02072a68(var2, 0x25)), 0, 0xe3);
+                    StartMessage_0204500c(var3, ((char*)func_02072a68(var2, 0x25)), 0, 0xe3);
                 } else {
-                    func_0204500c(var3, ((char*)func_02072a68(var2, 0x33)), 0, 0xe3);
+                    StartMessage_0204500c(var3, ((char*)func_02072a68(var2, 0x33)), 0, 0xe3);
                 }
 #endif
                 var3->unknown_998_ = 1;
@@ -1019,13 +1019,13 @@ extern "C" ARM int func_ov004_021583a8(void* arg0) {
             ((Struct_ov004_021583a8_7*)data_ov004_021707e0)->unknown_14_ = 0;
         }
 #if defined(jpn)
-        func_0204500c(var3, var3->unknown_5c_, 0);
+        StartMessage_0204500c(var3, var3->unknown_5c_, 0);
 #else
         char* var23 = var3->unknown_5c_;
         if (var23 == strstr(var23, "<PAGE>")) {
             var23 += 6;
         }
-        func_0204500c(var3, var23, 0, 0xe3);
+        StartMessage_0204500c(var3, var23, 0, 0xe3);
 #endif
         var3->unknown_998_ = 1;
         *((unsigned char*)var7 + 1) = 1;
@@ -1128,7 +1128,7 @@ extern "C" ARM int func_ov004_021589e8(void* arg0) {
     Struct_ov004_021589e8 var1 = *(Struct_ov004_021589e8*)(var0 + 0xf4);
     Struct_ov004_021589e8 var2 = *(Struct_ov004_021589e8*)(data_ov004_021707e0 + 0x18);
     if (func_ov017_021b213c(var1, var2) != 0) {
-        char* var3 = (char*)func_020421a0();
+        char* var3 = (char*)GetMessageWindow_020421a0();
         func_02043204(var3);
         func_ov011_021848a0(arg0, 0x387);
     } else {
@@ -1174,7 +1174,7 @@ extern "C" ARM int func_ov004_02158a60(void* arg0) {
     Struct_ov004_02158a60* var0 = &((Struct_ov004_02158a60_2*)GameState::GetInstance())->unknown_5e6c_;
     short var1 = var0->unknown_f8_;
     if (var1 > 0 || var0->unknown_fa_ != 0) {
-        void* var2 = (void*)func_020421a0();
+        void* var2 = (void*)GetMessageWindow_020421a0();
         func_02046380(var2);
         struct Struct_0201099c_10* var3 = ((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
         struct Struct_0201099c_9* var4 = func_020dedd0(var3, var0->unknown_f8_);
@@ -1403,10 +1403,10 @@ extern "C" ARM int func_ov004_02158dcc(void* arg0) {
 #if defined(jpn)
     char var3[80];
     func_020e207c((Struct_0201099c_3*)(((Struct_ov004_02158dcc_2*)data_ov004_021707e0)->unknown_8c_), var3, var2->unknown_16_);
-    func_02046574((Struct_02046574_2*)((Struct_ov004_02158dcc_6*)func_020421a0()), 1, var3);
+    func_02046574((Struct_02046574_2*)((Struct_ov004_02158dcc_6*)GetMessageWindow_020421a0()), 1, var3);
 #else
     int var4 = ((int)func_020e5294(((Struct_ov004_02158dcc_2*)data_ov004_021707e0)->unknown_8c_, var2->unknown_16_));
-    ((Struct_ov004_02158dcc_6*)func_020421a0())->unknown_18_ = var4;
+    ((Struct_ov004_02158dcc_6*)GetMessageWindow_020421a0())->unknown_18_ = var4;
 #endif
     if (var1->unknown_4_0_ == 0) return 0;
 
@@ -1836,7 +1836,7 @@ struct Struct_ov004_02159650_5 { unsigned int unknown_0_0_ : 18; unsigned int un
 
 // USA: func_ov004_02159650
 extern "C" ARM int func_ov004_02159650(void* arg0) {
-    int var0 = func_020421a0();
+    int var0 = GetMessageWindow_020421a0();
     func_02046380((void*)var0);
 
     struct Struct_0201099c_10* var1 = ((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
@@ -2057,7 +2057,7 @@ extern "C" ARM int func_ov004_02159bcc(void* arg0) {
     struct Struct_0201099c_9* var1 = func_020dedd0(var0, *(short*)(((char*)data_ov004_021707e0) + 0xe));
     if (var1 == NULL) return 0;
     int var2 = ((int)func_020e5294(((char*)data_ov004_021707e0) + 0x8c, *(short*)((char*)var1 + 0x18)));
-    *(int*)((char*)(int)func_020421a0() + 0x18) = var2;
+    *(int*)((char*)(int)GetMessageWindow_020421a0() + 0x18) = var2;
     ((char*)data_ov004_021707e0)[0x12] = (char)0xff;
 #endif
     if (*(unsigned char*)(((char*)data_ov004_021707e0) + 0x47) == 0) {
@@ -2236,7 +2236,7 @@ extern "C" ARM int func_ov004_02159fcc(void* arg0) {
         Struct_ov000_0215767c_8* var7 = ((Struct_ov000_0215767c_8*)func_020dedd0(var2, var6));
         if (var7 && var7->unknown_a_2_) {
             func_ov004_02159650(arg0);
-            Struct_ov004_02159fcc_5* var8 = ((Struct_ov004_02159fcc_5*)func_020421a0());
+            Struct_ov004_02159fcc_5* var8 = ((Struct_ov004_02159fcc_5*)GetMessageWindow_020421a0());
 #if defined(jpn)
             char var9[80];
             func_020e207c((Struct_0201099c_3*)((Struct_ov004_02159fcc_4*)data_ov004_021707e0)->unknown_8c_, var9, var7->unknown_18_);
@@ -2894,7 +2894,7 @@ struct Struct_ov004_0215b120_3 {
 
 // USA: func_ov004_0215b120
 extern "C" ARM int func_ov004_0215b120(void* arg0) {
-    void* var0 = (void*)func_020421a0();
+    void* var0 = (void*)GetMessageWindow_020421a0();
     func_02046380(var0);
 
     struct Struct_0201099c_10* var1 = ((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
@@ -3238,9 +3238,9 @@ struct Struct_ov004_0215b7f8_5 {
 };
 extern "C" int func_0202c508(struct Struct_0202c508*);
 #if defined(jpn)
-extern "C" void func_0204500c(void*, const char*, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int);
 #else
-extern "C" void func_0204500c(void*, const char*, int, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
 
 static inline void inline_ov004_0215b7f8(char* arg0, const char* arg1) {
@@ -3270,11 +3270,11 @@ extern "C" ARM int func_ov004_0215b7f8(void* arg0) {
         func_02094b54(func_02094a00(), 5001, var2, var4);
 #endif
         inline_ov004_0215b7f8(var3, ((Struct_ov004_0215b7f8_4*)var0)->unknown_5f6c_.unknown_14_);
-        Struct_ov004_0215b7f8_5* var5 = ((Struct_ov004_0215b7f8_5*)func_020421a0());
+        Struct_ov004_0215b7f8_5* var5 = ((Struct_ov004_0215b7f8_5*)GetMessageWindow_020421a0());
 #if defined(jpn)
-        func_0204500c(var5, var3, 0);
+        StartMessage_0204500c(var5, var3, 0);
 #else
-        func_0204500c(var5, var3, 0, 0xe3);
+        StartMessage_0204500c(var5, var3, 0, 0xe3);
 #endif
         var5->unknown_998_ = 1;
         var5->unknown_99c_ = 2;
@@ -3353,7 +3353,7 @@ extern "C" ARM int func_ov004_0215b934(void* arg0) {
         struct Struct_0201099c_10* var6 = ((struct Struct_0201099c_10*)func_ov004_02156fd4(arg0, 5));
         var2 = ((Struct_ov004_0215b934_5*)func_020dedd0(var6, var5->unknown_f8_.unknown_0_));
         if (!var2) return 0;
-        var3 = ((Struct_ov004_0215b934_6*)func_020421a0());
+        var3 = ((Struct_ov004_0215b934_6*)GetMessageWindow_020421a0());
         func_02046380(var3);
         unsigned int var7 = var5->unknown_f8_.unknown_14_0_;
         if (var7 & 1) {
@@ -3399,9 +3399,9 @@ extern "C" ARM int func_ov004_0215b934(void* arg0) {
     return 0;
 }
 #if defined(jpn)
-extern "C" void func_0204500c(void*, const char*, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int);
 #else
-extern "C" void func_0204500c(void*, const char*, int, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
 
 #if defined(jpn)
@@ -3431,12 +3431,12 @@ extern "C" ARM int func_ov004_0215bb54(void* arg0) {
         data_ov004_021707e0[0x13]++;
         func_ov011_021848a0(arg0, 0x3aa);
         void* var5 = (void*)func_ov004_02157018(arg0, 4);
-        int var6 = func_020421a0();
+        int var6 = GetMessageWindow_020421a0();
         void* var7 = func_02072a68((struct Struct_02072a68_2*)var5, 0x13);
 #if defined(jpn)
-        func_0204500c((void*)var6, (const char*)var7, 0);
+        StartMessage_0204500c((void*)var6, (const char*)var7, 0);
 #else
-        func_0204500c((void*)var6, (const char*)var7, 0, 0xe3);
+        StartMessage_0204500c((void*)var6, (const char*)var7, 0, 0xe3);
 #endif
         *(int*)((char*)var6 + Enum_ov004_0215bb54_2456) = 1;
     } else if (var1 == 1) {
@@ -3459,9 +3459,9 @@ extern "C" void func_ov004_021571f4(void* arg0, int arg1);
 extern "C" ARM void func_ov004_02157874(void* arg0);
 extern "C" int func_ov017_021b1ffc(Struct_ov004_021583a8_2* arg0);
 #if defined(jpn)
-extern "C" void func_0204500c(void*, const char*, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int);
 #else
-extern "C" void func_0204500c(void*, const char*, int, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
 
 // USA: func_ov004_0215bc9c
@@ -3471,7 +3471,7 @@ extern "C" ARM int func_ov004_0215bc9c(void* arg0) {
     void* var2 = var1->unknown_ptr_array_36fc[0];
     void* var3 = var1->unknown_ptr_array_3afc[19];
     void* var4 = (void*)func_ov004_02157018(arg0, 4);
-    var0 = func_020421a0();
+    var0 = GetMessageWindow_020421a0();
     unsigned char var5 = data_ov004_021707e0[0x13];
 
     if (var5 == 2) {
@@ -3514,9 +3514,9 @@ extern "C" ARM int func_ov004_0215bc9c(void* arg0) {
         memset(var13 + 0x1c, 0, 0xc);
         *(int*)(var13 + 0x28) = 0;
 #if defined(jpn)
-        func_0204500c((void*)var0, (const char*)(*(char**)((char*)var0 + Enum_ov004_0215bc9c_92)), 0);
+        StartMessage_0204500c((void*)var0, (const char*)(*(char**)((char*)var0 + Enum_ov004_0215bc9c_92)), 0);
 #else
-        func_0204500c((void*)var0, *(char**)((char*)var0 + Enum_ov004_0215bc9c_92), 0, 0xe3);
+        StartMessage_0204500c((void*)var0, *(char**)((char*)var0 + Enum_ov004_0215bc9c_92), 0, 0xe3);
 #endif
         *(int*)((char*)var0 + Enum_ov004_0215bc9c_2456) = 1;
         return 0;
@@ -3632,7 +3632,7 @@ extern "C" ARM int func_ov004_0215bf94() {
         unsigned char unknown_0_[8];
         Struct_ov004_0215bf94_2* unknown_8_;
     };
-    Struct_ov004_0215bf94_3* var2 = (Struct_ov004_0215bf94_3*)func_02012fe4();
+    Struct_ov004_0215bf94_3* var2 = (Struct_ov004_0215bf94_3*)GetZone3D_02012fe4();
     unsigned char var3 = var2->unknown_8_->unknown_d_0_;
     func_0209c3b4((struct Struct_0209c3b4_2*)data_02109bf4, var3);
     func_0209ca70(data_02109bf4, ((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_2d_);
@@ -4159,9 +4159,9 @@ extern "C" void* func_ov017_021b1fc0(void* arg0);
 struct Struct_ov004_0215c974;
 extern "C" void func_ov011_02184534(struct Struct_ov004_0215c974* arg0, int arg1, int arg2);
 #if defined(jpn)
-extern "C" void func_0204500c(void*, const char*, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int);
 #else
-extern "C" void func_0204500c(void*, const char*, int, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
 
 struct Struct_ov004_0215c974_2 { unsigned char unknown_0_0_ : 7; unsigned char unknown_0_7_ : 1; };
@@ -4201,7 +4201,7 @@ extern "C" ARM int func_ov004_0215c974(void* arg0) {
 
     func_ov023_021f65d4(arg0, 0x36, 8);
 
-    var3 = func_020421a0();
+    var3 = GetMessageWindow_020421a0();
     var4 = *(char**)((char*)var3 + Enum_ov004_0215c974_92);
     memset(var4, 0, Enum_ov004_0215c974_2400);
 
@@ -4221,7 +4221,7 @@ extern "C" ARM int func_ov004_0215c974(void* arg0) {
 
     if (data_ov004_021707e0[0x15] != 0) {
         func_ov004_0215b1d4(arg0);
-        void* var13 = func_02012fe4();
+        void* var13 = GetZone3D_02012fe4();
         Struct_ov004_0215c974_2* var14 = (Struct_ov004_0215c974_2*)((char*)(*(void**)((char*)var13 + 8)) + 0xd);
         func_0209c3b4((struct Struct_0209c3b4_2*)data_02109bf4, var14->unknown_0_0_);
         func_0209ca70(data_02109bf4, data_ov004_021707e0[0x2d]);
@@ -4279,9 +4279,9 @@ extern "C" ARM int func_ov004_0215c974(void* arg0) {
     }
 
 #if defined(jpn)
-    func_0204500c((void*)var3, *(char**)((char*)var3 + Enum_ov004_0215c974_92), 0);
+    StartMessage_0204500c((void*)var3, *(char**)((char*)var3 + Enum_ov004_0215c974_92), 0);
 #else
-    func_0204500c((void*)var3, *(char**)((char*)var3 + Enum_ov004_0215c974_92), 0, 0xe3);
+    StartMessage_0204500c((void*)var3, *(char**)((char*)var3 + Enum_ov004_0215c974_92), 0, 0xe3);
 #endif
     *(int*)((char*)var3 + Enum_ov004_0215c974_2456) = 1;
     return 0;

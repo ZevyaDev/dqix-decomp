@@ -109,8 +109,8 @@ short data_ov017_021d76da = -1;
 unsigned short data_ov017_021d83a8;
 
 extern "C" void* func_0203cf4c(void);
-extern "C" int func_020421a0(void);
-extern "C" Struct_ov017_021a476c_2* func_02012fe4(void);
+extern "C" int GetMessageWindow_020421a0(void);
+extern "C" Struct_ov017_021a476c_2* GetZone3D_02012fe4(void);
 extern "C" void* func_0202ae18(void);
 extern "C" int func_02046b08(void** arg0);
 extern "C" int func_ov017_021a4e88(int arg0, unsigned short* arg1);
@@ -141,10 +141,10 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
     GameState* var3 = GameState::GetInstance();
     void* var4 = func_0203cf4c();
     func_020100bc(var3);
-    func_020421a0();
+    GetMessageWindow_020421a0();
     Struct_ov017_021a476c_10* var5 = (Struct_ov017_021a476c_10*)var3->GetUnknownGameObject();
     GameResources* var6 = GetGameResources();
-    Struct_ov017_021a476c_2* var7 = func_02012fe4();
+    Struct_ov017_021a476c_2* var7 = GetZone3D_02012fe4();
     void* var8 = func_0202ae18();
 
     data_ov017_021d76da = -1;
@@ -247,7 +247,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
         }
         var33 = GetGameResources();
         var32 = var33->unknown_ptr_array_36fc[0];
-        var31 = func_02012fe4();
+        var31 = GetZone3D_02012fe4();
         if (IsBrightnessOutsideValidRange(var33, false)) {
             var28 = -1;
             goto done;

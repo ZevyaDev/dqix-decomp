@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 
 struct Struct_0203de84 {
     unsigned int unknown_0_[3];
@@ -47,7 +47,7 @@ extern "C" ARM void func_0203de84(void* arg0) {
     struct Struct_0203de84_7* var0 = (struct Struct_0203de84_7*)arg0;
     void* var1 = func_020100bc(GameState::GetInstance());
     GetGameResources();
-    struct Struct_0203de84_5* var2 = (struct Struct_0203de84_5*)func_02012fe4();
+    struct Struct_0203de84_5* var2 = (struct Struct_0203de84_5*)GetZone3D_02012fe4();
     unsigned short var3 = var2->unknown_38_;
     int var4 = var2->unknown_3c_;
     struct Struct_0203de84 var5;

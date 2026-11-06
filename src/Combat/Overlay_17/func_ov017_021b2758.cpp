@@ -25,7 +25,7 @@ extern "C" int func_ov011_021849bc(struct Struct_ov011_021849bc* arg0, int arg1)
 struct Struct_ov017_021a3ef0_12;
 extern "C" void func_ov017_021b2200(struct Struct_ov017_021a3ef0_12* arg0);
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_020a0c0c(void);
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
 
@@ -73,7 +73,7 @@ extern "C" ARM int func_ov017_021b2758(Struct_ov017_021b2758_3* arg0) {
 
     ClearFlags00(var1, 0x10);
     if (arg0->unknown_38_.unknown1_0_.unknown_0_0_) {
-        func_02012fe4();
+        GetZone3D_02012fe4();
         ClearFlags00(var1, 4);
         func_ov017_0219bd1c(1, 0, 0, 0);
         arg0->unknown_38_.unknown_0_ &= ~2;
@@ -86,7 +86,7 @@ extern "C" ARM int func_ov017_021b2758(Struct_ov017_021b2758_3* arg0) {
 
     var0->GetUnknownGameObject();
     int var3 = func_020100f8((char*)var0);
-    unsigned char* var4 = (unsigned char*)func_02012fe4();
+    unsigned char* var4 = (unsigned char*)GetZone3D_02012fe4();
     if (var3 != 0) {
         func_020a28b0((unsigned char*)var3, 2);
         if (arg0->unknown_3e_ != 0) {

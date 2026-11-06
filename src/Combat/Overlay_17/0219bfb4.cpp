@@ -39,7 +39,7 @@ struct Struct_020a83fc_2 {
 };
 
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0205ec34(void);
 extern "C" void* func_02010828(GameState* arg0);
 extern "C" void* func_0200fd0c(GameState* arg0);
@@ -60,7 +60,7 @@ extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
 extern "C" void func_02017d7c(void* arg0);
 extern "C" void func_02039d58(unsigned char* arg0);
 extern "C" void func_02039d48(unsigned char* arg0);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02043204(char* arg0);
 extern "C" int func_ov017_0219ff58(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021b2174(unsigned char* arg0);
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
     char* var2 = (char*)func_02010828(var1);
     char* var3 = (char*)func_0200fd0c(var1);
     void* var4 = func_0202ae18();
-    char* var5 = (char*)func_02012fe4();
+    char* var5 = (char*)GetZone3D_02012fe4();
     unsigned char* var6 = (unsigned char*)func_0205ec34();
     char* var7 = var5 + Enum_ov017_0219bfb4_9196;
     Struct_0201bdac_2* var8 = (Struct_0201bdac_2*)var0->unknown_ptr_array_36fc[0];
@@ -176,7 +176,7 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
         return;
     }
 
-    char* var19 = (char*)func_020421a0();
+    char* var19 = (char*)GetMessageWindow_020421a0();
     memset(*(void**)(var19 + Enum_ov017_0219bfb4_92), 0, Enum_ov017_0219bfb4_2400);
     func_02043204(var19);
     if (func_ov017_0219ff58(var0, 0, 0, 1)) {

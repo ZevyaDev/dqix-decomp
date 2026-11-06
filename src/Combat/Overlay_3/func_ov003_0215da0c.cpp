@@ -18,7 +18,7 @@ enum { Enum_ov003_0215da0c_2456 = 0x998 };
 struct Struct_0201099c_3;
 struct Struct_0205d6a0;
 
-extern "C" char* func_020421a0();
+extern "C" char* GetMessageWindow_020421a0();
 extern "C" void func_02043204(char* arg0);
 extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov003_0215da0c(struct Struct_ov003_0215da0c* arg0) {
     int var5;
 
     var1 = GameState::GetInstance();
-    var0 = func_020421a0();
+    var0 = GetMessageWindow_020421a0();
     var2 = func_0202ae18();
 
     var4 = 0;

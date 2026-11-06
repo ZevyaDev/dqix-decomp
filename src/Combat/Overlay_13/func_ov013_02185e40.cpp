@@ -59,7 +59,7 @@ extern "C" ARM int func_02041e70(char* arg0, int arg1);
 extern "C" ARM int func_02042058(char* arg0, const char* arg1);
 extern "C" ARM int func_020e51cc(int arg0);
 extern "C" ARM int func_02041fac(char* arg0, int arg1, int arg2);
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 
 struct Struct_020465c0;
 extern "C" ARM void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
     func_02041fac(arg1, (int)&data_ov013_02187e44, 0x10);
 #endif
 
-    void* var23 = func_020421a0();
+    void* var23 = GetMessageWindow_020421a0();
 #if defined(jpn)
     func_02046380(var23);
 #else

@@ -59,9 +59,9 @@ struct Struct_ov003_0215d150 {
 static inline Struct_01ff91ac_29 *inline_ov003_0215d150(Struct_ov003_0215d150 *arg0) { return &arg0->unknown_1840_; }
 static inline int inline_ov003_0215d150_2(Struct_01ff91ac_29 *arg0) { return arg0->unknown_b3c_; }
 
-extern "C" Struct_ov003_0215d150_2 *func_020421a0();
+extern "C" Struct_ov003_0215d150_2 *GetMessageWindow_020421a0();
 extern "C" int *func_0202ae18();
-extern "C" Struct_ov003_0215d150 *func_02012fe4();
+extern "C" Struct_ov003_0215d150 *GetZone3D_02012fe4();
 extern "C" void func_02046380(void *arg0);
 struct Struct_020465c0;
 extern "C" void func_020465c0(Struct_020465c0*, int, int);
@@ -95,9 +95,9 @@ extern int data_02108760;
 // USA: func_ov003_0215d150
 extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
     GameState *var0 = GameState::GetInstance();
-    Struct_ov003_0215d150_2 *var1       = func_020421a0();
+    Struct_ov003_0215d150_2 *var1       = GetMessageWindow_020421a0();
     int *var2       = func_0202ae18();
-    Struct_ov003_0215d150 *var3      = func_02012fe4();
+    Struct_ov003_0215d150 *var3      = GetZone3D_02012fe4();
 
     if (var1->unknown_9a0_ == 3) {
         *(unsigned char *) ((char *) var1 + 0x1000 + 0x9ae + Enum_ov003_0215d150_0_4) = 0;

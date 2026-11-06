@@ -42,7 +42,7 @@ extern "C" int func_ov000_0217ab48(void*);
 extern "C" void func_0205d6a0(Struct_0205d6a0*,int);
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" {
-void func_02012fe4();
+void GetZone3D_02012fe4();
 void* func_ov000_02174504(Struct_ov000_0217ab8c_2*);
 int func_ov000_0217c2a0(void*);int func_ov000_0217aa78(void*,int,int);
 void func_ov000_0217c32c(void*);void func_ov000_02171c04(void*);
@@ -54,7 +54,7 @@ extern "C" ARM int func_ov000_0217ae90(Struct_ov000_021682ec_5* arg0)
     Struct_ov000_0215ed8c_4* var0=(Struct_ov000_0215ed8c_4*)func_0200ff1c(GameState::GetInstance(),arg0->unknown_4c_);
     int var1=0;
     if(var0)var1=func_02053c6c((unsigned char*)var0);
-    func_02012fe4();
+    GetZone3D_02012fe4();
     Struct_ov000_0217ae90_2* var2=&arg0->unknown_8_;
     var2->unknown_14_=func_0205d794(arg0->unknown_38_);
     var2->unknown_1e_=0;

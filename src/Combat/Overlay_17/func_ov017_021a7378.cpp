@@ -103,8 +103,8 @@ struct Struct_ov017_021a7378_3 {
 };
 
 extern "C" unsigned char* func_020100f8(char* arg0);
-extern "C" Struct_ov000_0217964c_3* func_020421a0();
-extern "C" Struct_ov017_021a7378_4* func_02012fe4(void);
+extern "C" Struct_ov000_0217964c_3* GetMessageWindow_020421a0();
+extern "C" Struct_ov017_021a7378_4* GetZone3D_02012fe4(void);
 extern "C" Struct_ov001_02158ae4_3* func_0200ffd0(Struct_0200ffd0* arg0);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 extern "C" void* func_020d7a50(void);
@@ -148,8 +148,8 @@ extern const char data_ov017_021d77b2[];
 extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
     unsigned char* var1 = func_020100f8((char*)var0);
-    Struct_ov000_0217964c_3* var2 = func_020421a0();
-    Struct_ov017_021a7378_4* var3 = func_02012fe4();
+    Struct_ov000_0217964c_3* var2 = GetMessageWindow_020421a0();
+    Struct_ov017_021a7378_4* var3 = GetZone3D_02012fe4();
     Struct_ov001_02158ae4_3* var4 = func_0200ffd0((Struct_0200ffd0*)var0);
     func_0205c904(arg0->unknown_24_, var0->GetTickCount());
 
@@ -182,16 +182,16 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
             arg0->unknown_20_ = -1;
             if (arg0->unknown_c_ == 0) {
 #if defined(jpn)
-                func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x23), 0);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x23), 0);
 #else
-                func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x23), 0, 0xe3);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x23), 0, 0xe3);
 #endif
                 arg0->unknown_8_ = 0xc8;
             } else {
 #if defined(jpn)
-                func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x24), 0);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x24), 0);
 #else
-                func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x24), 0, 0xe3);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x24), 0, 0xe3);
 #endif
                 arg0->unknown_8_ = 0x12c;
             }
@@ -233,9 +233,9 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
                 } else {
                     var2->unknown_998_ = 1;
 #if defined(jpn)
-                    func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x26), 0);
+                    StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x26), 0);
 #else
-                    func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x26), 0, 0xe3);
+                    StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x26), 0, 0xe3);
 #endif
                     arg0->unknown_8_ = 0x12d;
                     func_020a28a0(var1, 2);
@@ -243,9 +243,9 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
             } else {
                 var2->unknown_998_ = 1;
 #if defined(jpn)
-                func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x25), 0);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x25), 0);
 #else
-                func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x25), 0, 0xe3);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x25), 0, 0xe3);
 #endif
                 arg0->unknown_8_ = 0x12d;
                 func_020a28a0(var1, 2);

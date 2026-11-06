@@ -236,7 +236,7 @@ int func_020abe84(void* arg0, short* arg1, Struct_ov023_021ed7e0* arg2, int arg3
 int func_ov023_021f5150(Struct_ov023_021edf54_16* arg0, Struct_ov023_021edf54_15* arg1, int* arg2, int* arg3, int arg4);
 }
 
-extern "C" Struct_ov023_021edf54_20* func_020421a0();
+extern "C" Struct_ov023_021edf54_20* GetMessageWindow_020421a0();
 extern "C" void func_02049ae4(unsigned char* arg0);
 extern "C" void func_ov023_021f50fc();
 extern "C" int func_0202b7d8(int* arg0);
@@ -281,7 +281,7 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
         return arg0->unknown_eac_;
 
     Struct_ov023_021edf54_19* var6 = (Struct_ov023_021edf54_19*)GetGameResources();
-    Struct_ov023_021edf54_20* var7 = func_020421a0();
+    Struct_ov023_021edf54_20* var7 = GetMessageWindow_020421a0();
     var0 = func_0202ae18();
 
     Struct_ov023_021edf54_14* var8 = arg0->unknown_29c_;

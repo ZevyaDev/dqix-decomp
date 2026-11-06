@@ -7,7 +7,7 @@ struct Struct_02020554;
 
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c540(void* arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 
 extern "C" void func_02026644(char* arg0);
 extern "C" void func_020269e4(char* arg0, const void* arg1);
@@ -89,7 +89,7 @@ extern "C" ARM int func_02026780(Struct_02020554* arg0, void* arg1, unsigned int
         return 0;
     }
 
-    func_02012fe4();
+    GetZone3D_02012fe4();
     var2.ResetAllocatorPointer();
     var2.ResetAllocatorPointer();
     var2.CreateTypeA(var1, sizeof(var1));

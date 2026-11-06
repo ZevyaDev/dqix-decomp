@@ -24,7 +24,7 @@ struct Struct_ov017_0219dac4 {
 extern "C" void _ZN8Object3D10SetField06Et(Object3D* arg0, int arg1);
 extern "C" void* func_0202ae18(void);
 extern "C" struct Struct_020fdd44* func_02027ca4(void);
-extern "C" unsigned short* func_02012fe4(void);
+extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void* func_0205ec34(void);
 extern "C" int func_02053ed0(void* arg0);
 extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov017_0219dac4(unsigned char* arg0, int arg1, int arg2)
     GameState* var0 = GameState::GetInstance();
     void* var1 = func_0202ae18();
     func_02027ca4();
-    unsigned short* var2 = func_02012fe4();
+    unsigned short* var2 = GetZone3D_02012fe4();
     Struct_ov017_0219dac4* var3 = (Struct_ov017_0219dac4*)var0->GetPartyMemberByIndex(arg1);
     func_0205ec34();
     if (var3 == NULL) {

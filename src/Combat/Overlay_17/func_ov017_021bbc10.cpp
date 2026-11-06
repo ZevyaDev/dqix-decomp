@@ -72,7 +72,7 @@ extern "C" void func_ov017_021bb088(Struct_ov017_021baedc*);
 extern "C" int* func_02010768(void* arg0);
 struct SafeAllocator;
 extern "C" void func_ov001_0215aa14(SafeAllocator*);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0202ae18(void);
 extern "C" ARM int func_ov017_021bb27c(Struct_ov017_021bbc10* arg0);
 
@@ -161,7 +161,7 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
     if (arg0->unknown_9c_ != 0) {
         arg0->unknown_74_ = var1->QueueLoadFile(data_ov017_021d7d9e, NULL);
     } else if (arg0->unknown_cc_ != 0) {
-        char* var16 = *(char**)((char*)func_02012fe4() + 8);
+        char* var16 = *(char**)((char*)GetZone3D_02012fe4() + 8);
         if (var0->GetGameObjectByIndex(arg0->unknown_cd_) == NULL || strstr(var16 + 5, data_ov017_021d7db8) == NULL ||
             strstr(var16 + 5, data_ov017_021d7dbb) == NULL) {
             SetBrightness(var4, 0, 0x28);

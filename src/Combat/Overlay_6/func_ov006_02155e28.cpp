@@ -91,7 +91,7 @@ struct Struct_ov003_0217d53c_4 {
     unsigned char unknown_0_[0xb3c];
     int unknown_b3c_;
 };
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 static inline struct Struct_ov003_0217d53c_4* inline_ov003_0216e714_2(void* arg0) {
     return (struct Struct_ov003_0217d53c_4*)((char*)arg0 + R(0x1860,0x1840));
 }
@@ -333,7 +333,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             arg0->unknown_add_ = 0x12;
         }
     } else if (var1 == 8) {
-        int var36 = (signed char)inline_ov003_0216e714_2(func_02012fe4())->unknown_b3c_;
+        int var36 = (signed char)inline_ov003_0216e714_2(GetZone3D_02012fe4())->unknown_b3c_;
         char var37[0x20];
         __clear(var37, 0x20);
         if (var36 < 1) {

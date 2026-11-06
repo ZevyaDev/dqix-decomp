@@ -13,7 +13,7 @@ extern "C" int func_ov023_021fa598(void*);
 extern "C" int func_ov023_021f9bc8(void*);
 extern "C" void func_ov023_021f809c(void* arg0, void* arg1);
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_020a15bc_2 { unsigned int unknown_0_0_ : 9; unsigned int unknown_1_1_ : 23; unsigned int unknown_4_; unsigned int unknown_8_; };
 struct Struct_020a15bc { struct Struct_020a15bc_2* unknown_0_; unsigned short unknown_4_; unsigned short unknown_6_; };
@@ -75,7 +75,7 @@ extern "C" ARM int func_ov004_021564f0(void* arg0) {
     struct Struct_020a15bc_2* var8 = func_020a15bc(data_ov004_021707c8.unknown_8_, var7);
     if (var8 != NULL) {
 
-    void* var9 = (void*)func_020421a0();
+    void* var9 = (void*)GetMessageWindow_020421a0();
     char* var10 = *(char**)((char*)var9 + 0x28);
 
     void* var11 = func_ov023_021f6880(var0, 0x82);
@@ -147,7 +147,7 @@ extern "C" ARM int func_ov004_021564f0(void* arg0) {
     struct Struct_020a15bc_2* var21 = func_020a15bc(data_ov004_021707c8.unknown_c_, var20);
     if (var21 != NULL) {
 
-    void* var22 = (void*)func_020421a0();
+    void* var22 = (void*)GetMessageWindow_020421a0();
     char* var23 = *(char**)((char*)var22 + 0x5c);
 
     void* var24 = func_ov023_021f6880(var0, 0x82);

@@ -32,7 +32,7 @@ struct Struct_ov004_02171048 { char unknown_0_[4]; struct Struct_ov004_0216ea74_
 extern Struct_ov004_02171048 data_ov004_02171048;
 
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_ov017_021b2090(Struct_ov004_021589e8 arg0, Struct_ov004_021589e8 arg1);
 extern "C" int func_0201e830(struct Struct_0201e830* arg0);
 extern "C" void func_020c5588(int, int, int, int, int);
@@ -91,7 +91,7 @@ extern "C" ARM int func_ov004_0216ea74(SafeAllocator* arg0) {
     memset(var3->unknown_3c_, 0, 0xc);
     var3->unknown_48_ = 0;
 
-    Zone3D* var4 = (Zone3D*)func_02012fe4();
+    Zone3D* var4 = (Zone3D*)GetZone3D_02012fe4();
     if (!var4) return 0;
     Struct_0201e830* var5 = inline_ov004_0216ea74(var4);
     if (!var5) return 0;

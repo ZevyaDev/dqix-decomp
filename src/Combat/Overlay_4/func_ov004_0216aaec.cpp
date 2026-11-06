@@ -48,7 +48,7 @@ extern "C" void* func_ov011_021849c8(void* arg0);
 extern "C" struct Struct_ov004_0216aaec_3* func_ov023_021f6880(void* arg0, int arg1);
 extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" struct Struct_02072a68_2* func_ov023_021fa598(void* arg0);
-extern "C" struct Struct_020465c0* func_020421a0(void);
+extern "C" struct Struct_020465c0* GetMessageWindow_020421a0(void);
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c540(void* arg0);
 extern "C" void func_02046380(struct Struct_020465c0* arg0);
@@ -96,7 +96,7 @@ extern "C" ARM int func_ov004_0216aaec(void* arg0) {
         return 0;
     }
     struct Struct_02072a68_2* var8 = func_ov023_021fa598(var7);
-    struct Struct_020465c0* var9 = func_020421a0();
+    struct Struct_020465c0* var9 = GetMessageWindow_020421a0();
 #if !defined(jpn)
     void* var10 = var6->unknown_4_.Allocate(4);
 #endif

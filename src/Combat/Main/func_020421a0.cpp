@@ -8,7 +8,7 @@ enum { Enum_020421a0_28 = 0x38 };
 enum { Enum_020421a0_28 = 0x1c };
 #endif
 
-// USA: func_020421a0
-extern "C" ARM int func_020421a0() {
+// USA: GetMessageWindow_020421a0
+extern "C" ARM int GetMessageWindow_020421a0() {
     return *(int*)((char*)&data_02107800 + Enum_020421a0_28);
 }

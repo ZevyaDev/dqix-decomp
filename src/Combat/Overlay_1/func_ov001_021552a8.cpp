@@ -87,7 +87,7 @@ extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
 extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021bb27c(void* arg0);
 extern "C" void func_0208b9a0(void* arg0, unsigned char arg1);
-extern "C" char* func_020421a0(void);
+extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void func_0208b8c4(Struct_0208b8c4* arg0, SafeAllocator* arg1);
 extern "C" void* func_0203cf4c(void);
 extern "C" void* func_0203d004(void* arg0);
@@ -107,7 +107,7 @@ extern "C" void func_ov001_0215acf8(int arg0, int arg1);
 extern "C" void func_0207df50(Struct_0203d028* arg0);
 extern "C" int func_ov001_02153948(unsigned short arg0);
 extern "C" Struct_ov001_021552a8_2* func_0205ec34(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_02010828(GameState* arg0);
@@ -188,7 +188,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
     if (arg0->unknown_c_.unknown_44_ & 2) {
         arg0->unknown_120_ = arg0->unknown_7c_.Allocate(0xe4);
         func_0208b9a0(arg0->unknown_120_, 0);
-        char* var11 = func_020421a0();
+        char* var11 = GetMessageWindow_020421a0();
         arg0->unknown_124_.CreateTypeA(arg0->unknown_7c_.Allocate(0xa000), 0xa000);
         arg0->unknown_124_.Reset();
         func_0208b8c4((Struct_0208b8c4*)arg0->unknown_120_, &arg0->unknown_124_);
@@ -281,7 +281,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
     int var24;
     Struct_02013454* var25;
     Struct_ov001_021552a8_2* var26 = func_0205ec34();
-    var25 = func_020196fc((Zone3D*)func_02012fe4(), 0);
+    var25 = func_020196fc((Zone3D*)GetZone3D_02012fe4(), 0);
     var24 = var25->unknown_4_.unknown_10_;
     if (var25 != NULL) {
         memset(var26->unknown_45b_, 0, sizeof(var26->unknown_45b_));
@@ -297,7 +297,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
     Struct_ov001_021552a8_4 var29 = arg0->unknown_c_;
     GameState* var30 = GameState::GetInstance();
     GameResources* var31 = GetGameResources();
-    void* var32 = (Zone3D*)func_02012fe4();
+    void* var32 = (Zone3D*)GetZone3D_02012fe4();
     func_0202ae18();
     func_02010828(var30);
     func_020d6c00();

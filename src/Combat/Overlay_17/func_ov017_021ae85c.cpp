@@ -52,7 +52,7 @@ struct Struct_ov017_021ae85c_3 {
     SafeAllocator unknown_0_; char unknown_14_[0x18]; Struct_0201099c_10* unknown_2c_;
     int unknown_30_, unknown_34_;
 };
-extern "C" Struct_ov017_021ae85c_5* func_02012fe4();
+extern "C" Struct_ov017_021ae85c_5* GetZone3D_02012fe4();
 extern "C" void* func_0202ae18();
 extern "C" int func_0202c540(void*);
 extern "C" void func_ov017_021aeea8(Struct_ov017_021ae85c_2*);
@@ -69,7 +69,7 @@ extern "C" void func_0207dfc8(Struct_02015ef4_5*, Struct_02015ef4_5*);
 extern "C" void func_0207df90(char*);
 extern "C" void func_02047b30(void*, int, int, int);
 extern "C" void func_0207dfac(char*);
-extern "C" Struct_ov017_021ae85c* func_020421a0();
+extern "C" Struct_ov017_021ae85c* GetMessageWindow_020421a0();
 extern "C" void __clear(void*, int);
 extern "C" void* func_020de824(void*);
 extern "C" void func_0207cbe8(char*);
@@ -92,7 +92,7 @@ static inline Struct_ov017_021ae85c_4* inline_ov017_021ae85c(GameResources* arg0
 // USA: func_ov017_021ae85c
 extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_02012fe4();
+    GetZone3D_02012fe4();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     void* var2 = func_0202ae18();
     GameResources* var3 = GetGameResources();
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
     } else if (arg0->unknown_8_ == 2) {
         arg0->unknown_a_--;
         if (arg0->unknown_a_) return;
-        Struct_ov017_021ae85c_5* var6 = func_02012fe4();
+        Struct_ov017_021ae85c_5* var6 = GetZone3D_02012fe4();
         Struct_02015ef4_4* var7 = func_020dedd0(&var6->unknown_2754_, arg0->unknown_c_);
         if (var7) {
             arg0->unknown_28_ = &var6->unknown_600_[func_020100a8(var0)];
@@ -162,9 +162,9 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
         arg0->unknown_8_ = 4;
     } else if (arg0->unknown_8_ == 4) {
         if (!func_02094b4c(func_02094a00())) return;
-        func_020421a0();
+        GetMessageWindow_020421a0();
         char var14[0x80] = {};
-        Struct_ov017_021ae85c_5* var15 = func_02012fe4();
+        Struct_ov017_021ae85c_5* var15 = GetZone3D_02012fe4();
         Struct_ov017_021ae85c_3 var16;
         var16.unknown_0_.ResetAllocatorPointer();
         func_020de824(var16.unknown_14_);
@@ -209,13 +209,13 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
             arg0->unknown_28_->unknown_82_ = arg0->unknown_24_ > 31 ? 31 : arg0->unknown_24_;
             if (arg0->unknown_24_ < 0) arg0->unknown_24_ = 0;
         }
-        if (!arg0->unknown_a_) { func_020421a0(); arg0->unknown_8_ = 7; }
+        if (!arg0->unknown_a_) { GetMessageWindow_020421a0(); arg0->unknown_8_ = 7; }
         else if (arg0->unknown_a_ == 5) {
             GameObject* var27 = var0->GetUnknownGameObject();
             func_020397c0(var27); func_02033b68((Struct_02033b68*)var27, 0);
         }
     } else if (arg0->unknown_8_ == 7) {
-        Struct_ov017_021ae85c* var28 = func_020421a0();
+        Struct_ov017_021ae85c* var28 = GetMessageWindow_020421a0();
         var28->unknown_2d8_ = 0; var28->unknown_2e6_ = 1;
         func_02094ab0(func_02094a00());
         func_ov017_021aeea8(arg0); arg0->unknown_1_ = 1;

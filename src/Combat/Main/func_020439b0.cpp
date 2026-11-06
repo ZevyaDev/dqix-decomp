@@ -88,7 +88,7 @@ static inline short inline_020439b0(Struct_020439b0_6* arg0) { return arg0->unkn
 
 // USA: func_020439b0
 extern "C" ARM void func_020439b0(char* arg0, int arg1) {
-    Struct_02021b84* var0 = (Struct_02021b84*)arg0;
+    MessageWindow_02021b84* var0 = (MessageWindow_02021b84*)arg0;
     int var1, var2;
     Struct_020439b0_8 var3, var4, var5;
 
@@ -223,9 +223,9 @@ extern "C" ARM void func_020439b0(char* arg0, int arg1) {
         FreeVRAMStagingMemory((const void*)(*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52))->unknown_8_);
 
         if (var0->unknown_998_ == 0) {
-            func_02043040((Struct_02021b84*)arg0);
+            func_02043040((MessageWindow_02021b84*)arg0);
             func_02043124(arg0);
-            func_020430b0((Struct_02021b84*)arg0);
+            func_020430b0((MessageWindow_02021b84*)arg0);
         }
     }
 

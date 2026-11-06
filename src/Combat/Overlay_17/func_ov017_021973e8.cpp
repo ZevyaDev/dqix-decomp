@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_ov017_021973e8;
 extern "C" int _ZN8Object3D4DrawEb(void* arg0, int arg1);
 struct Struct_020243b8;
@@ -21,7 +21,7 @@ enum { Enum_ov017_021973e8_56 = 0x38, Enum_ov017_021973e8_60 = 0x3c };
 // USA: func_ov017_021973e8
 extern "C" ARM void func_ov017_021973e8(unsigned int* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_02012fe4();
+    void* var1 = GetZone3D_02012fe4();
     unsigned short var2 = *(unsigned short*)((char*)var1 + Enum_ov017_021973e8_56);
     unsigned int var3 = *(unsigned int*)((char*)var1 + Enum_ov017_021973e8_60);
 

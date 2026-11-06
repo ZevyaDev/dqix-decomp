@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_ov017_021d60f4(void* arg0);
 extern "C" void* func_ov017_021d612c(void* arg0);
 extern "C" void* func_02010768(void* arg0);
@@ -26,7 +26,7 @@ struct Struct_ov001_02163b14 {
 // USA: func_ov001_02163b14
 extern "C" ARM int func_ov001_02163b14(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_ov001_02163b14* var1 = (struct Struct_ov001_02163b14*)func_02012fe4();
+    struct Struct_ov001_02163b14* var1 = (struct Struct_ov001_02163b14*)GetZone3D_02012fe4();
     void* var2 = func_02010768(var0);
     int var3 = *(int*)arg0;
     int var4 = -1;

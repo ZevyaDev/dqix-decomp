@@ -26,7 +26,7 @@ struct AllocatorUnion;
 
 extern "C" void* func_0202ae18();
 extern "C" void* func_020100f8(char*);
-extern "C" unsigned short* func_02012fe4();
+extern "C" unsigned short* GetZone3D_02012fe4();
 extern "C" unsigned char* func_0205ec34();
 extern "C" unsigned int* func_020d6c00();
 extern "C" void func_02019678(unsigned short* arg0, int arg1);
@@ -225,7 +225,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
     unsigned char* var9;
     unsigned char* var10;
     unsigned char* var11;
-    unsigned short* var12 = func_02012fe4();
+    unsigned short* var12 = GetZone3D_02012fe4();
     unsigned char* var13 = func_0205ec34();
     var10 = RES_PTR(var1, 710);
     unsigned char* var14 = RES_PTR(var1, 718);
@@ -236,7 +236,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
         unsigned char var16 = arg0->unknown_9c_;
         var7 = GameState::GetInstance();
         GameResources* var17 = GetGameResources();
-        var6 = func_02012fe4();
+        var6 = GetZone3D_02012fe4();
         func_0202ae18();
         if (!(var15.unknown_44_ & 0x400)) {
             func_02019678(var6, var16);
@@ -396,7 +396,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
             unsigned short* var34;
             unsigned short var35 = arg0->unknown_8_;
             void* var36 = func_0202ae18();
-            var34 = func_02012fe4();
+            var34 = GetZone3D_02012fe4();
             var9 = func_0205ec34();
             var8 = GetGameResources();
             unsigned char* var37 = RES_PTR(var8, 734);
@@ -470,7 +470,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
         *(short*)(var27 + 0x1c) = *(int*)((unsigned char*)var0 + Enum_ov017_021bc77c_29168);
         *(int*)((unsigned char*)var0 + Enum_ov017_021bc77c_29172) = 0;
         SetBrightness(var1, -16, 0);
-        func_02017d68(func_02012fe4());
+        func_02017d68(GetZone3D_02012fe4());
     } else {
         if (func_020a1eb0() == 1) {
 #if defined(jpn)

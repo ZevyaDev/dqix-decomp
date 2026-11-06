@@ -2,7 +2,7 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_020fdd44;
 extern "C" struct Struct_020fdd44* func_02027ca4(void);
 struct Struct_02028bac { unsigned char unknown_0_[0x318]; };
@@ -16,7 +16,7 @@ extern AllocatorUnion data_02114e20;
 
 // USA: func_ov017_0219fec0
 extern "C" ARM void func_ov017_0219fec0(void*) {
-	func_02012fe4();
+	GetZone3D_02012fe4();
 	struct Struct_020fdd44* var0 = func_02027ca4();
 	struct Struct_02028bac* var1 = func_02028bac((struct Struct_02028bac*)var0, 0);
 	func_020289c4((struct Struct_020288e0*)var1);

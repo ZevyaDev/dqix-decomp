@@ -8,11 +8,11 @@ enum{Enum_ov001_0215e2a4_2104=0x838,Enum_ov001_0215e2a4_2456=0x998};
 extern "C" int func_ov017_021d60f4(void*);
 extern "C" void* func_ov017_021d612c(void*);
 #if defined(jpn)
-extern "C" void func_0204500c(void*, int, int);
+extern "C" void StartMessage_0204500c(void*, int, int);
 #else
-extern "C" void func_0204500c(void*, int, int, int);
+extern "C" void StartMessage_0204500c(void*, int, int, int);
 #endif
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 struct Struct_ov001_021658d8;
 extern "C" void* func_ov001_02153884(struct Struct_ov001_021658d8* arg0, int arg1);
 
@@ -23,7 +23,7 @@ struct Struct_ov001_0215e2a4_2 { int unknown_0_; };
 
 // USA: func_ov001_0215e2a4
 extern "C" ARM int func_ov001_0215e2a4(Struct_ov001_0215e2a4_2* arg0, int arg1) {
-    char* var0 = (char*)func_020421a0();
+    char* var0 = (char*)GetMessageWindow_020421a0();
     int var1 = arg0->unknown_0_;
     switch (var1) {
     case 0: {
@@ -37,9 +37,9 @@ extern "C" ARM int func_ov001_0215e2a4(Struct_ov001_0215e2a4_2* arg0, int arg1) 
             if (var5 & 1) var4 = 0;
         }
 #if defined(jpn)
-        func_0204500c(var0, var3->unknown_4_, var4);
+        StartMessage_0204500c(var0, var3->unknown_4_, var4);
 #else
-        func_0204500c(var0, var3->unknown_4_, var4, 0xe3);
+        StartMessage_0204500c(var0, var3->unknown_4_, var4, 0xe3);
 #endif
         *(int*)(var0 + Enum_ov001_0215e2a4_2456) = 1;
         break;
@@ -48,9 +48,9 @@ extern "C" ARM int func_ov001_0215e2a4(Struct_ov001_0215e2a4_2* arg0, int arg1) 
         void* var6 = func_ov017_021d612c(arg0);
         *(int*)(var0 + 0x1000 + Enum_ov001_0215e2a4_2104) = -1;
 #if defined(jpn)
-        func_0204500c(var0, (int)var6, 1);
+        StartMessage_0204500c(var0, (int)var6, 1);
 #else
-        func_0204500c(var0, (int)var6, 1, 0xe3);
+        StartMessage_0204500c(var0, (int)var6, 1, 0xe3);
 #endif
         *(int*)(var0 + Enum_ov001_0215e2a4_2456) = 1;
         break;

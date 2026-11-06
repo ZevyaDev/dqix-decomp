@@ -110,7 +110,7 @@ extern unsigned char data_02109bf4;
 extern unsigned char data_02108760;
 
 // USA: func_02065990
-extern "C" ARM void func_02065990(Struct_02021b84* arg0, int arg1) {
+extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
     unsigned char* var0 = (unsigned char*)arg0;
     unsigned short var1;
     struct Struct_02065990_6 var2;

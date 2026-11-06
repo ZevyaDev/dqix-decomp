@@ -17,7 +17,7 @@ enum { Enum_ov003_0215a740_2384 = 0x950, Enum_ov003_0215a740_336 = 0x150, Enum_o
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 struct Struct_0205d81c;
 extern "C" void func_0205deb4(Struct_0205d81c*, int, int);
 struct Struct_0201099c_3;
@@ -83,7 +83,7 @@ struct Struct_ov003_0215a740_2 {
 extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
     unsigned char* var0 = (unsigned char*)arg0;
     GameState* var1 = GameState::GetInstance();
-    unsigned char* var2 = (unsigned char*)func_020421a0();
+    unsigned char* var2 = (unsigned char*)GetMessageWindow_020421a0();
 
     if (*(int*)(var2 + Enum_ov003_0215a740_2464) == 3) {
         *(unsigned char*)(var2 + 0x1000 + Enum_ov003_0215a740_2478) = 0;

@@ -3,7 +3,7 @@
 #include "Input/Input.h"
 
 // USA: func_02045740
-ARM void Struct_02021b84::func_02045740() {
+ARM void MessageWindow_02021b84::func_02045740() {
     int var0 = unknown_94c_[3];
     unknown_94c_[3] = (var0 + 1) & 0x1f;
     if (g_keyManager.TestKeysPressed(0x40)) {

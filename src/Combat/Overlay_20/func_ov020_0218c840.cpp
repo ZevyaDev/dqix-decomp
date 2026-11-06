@@ -9,7 +9,7 @@
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 struct Struct_0205c77c;
 extern "C" void func_0205c77c(struct Struct_0205c77c* arg0, int arg1);
 extern "C" void func_0205cd28(unsigned char* arg0);
@@ -37,7 +37,7 @@ struct Struct_ov020_0218c840 {
 // USA: func_ov020_0218c840
 extern "C" ARM void func_ov020_0218c840(struct Struct_ov020_0218c840* arg0) {
     GameState* var0 = GameState::GetInstance();
-    unsigned char* var1 = (unsigned char*)func_020421a0();
+    unsigned char* var1 = (unsigned char*)GetMessageWindow_020421a0();
 
     if (arg0->unknown_4_ == 0) {
         arg0->unknown_23f_ = 1;

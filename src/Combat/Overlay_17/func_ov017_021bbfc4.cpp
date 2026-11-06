@@ -88,7 +88,7 @@ struct Struct_ov017_021bbfc4_3 { char unknown_0_[0x5cac]; unsigned char unknown_
 int IsSubBrightnessTransitionActive(GameResources*);
 extern "C" int* func_0202ae18();
 extern "C" unsigned char* func_020100f8(char*);
-extern "C" Zone3D* func_02012fe4();
+extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_020531f0(GameObject*);
 extern "C" void func_ov017_021bb27c(Struct_ov017_021bbfc4_5*);
 extern "C" void* GetMainBG1CharacterBase();
@@ -131,7 +131,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     int* var3 = func_0202ae18();
     GameObject* var4 = var0->GetUnknownGameObject();
     func_020100f8((char*)var0);
-    Zone3D* var5 = func_02012fe4();
+    Zone3D* var5 = GetZone3D_02012fe4();
     if (IsSubBrightnessTransitionActive(var2)) return arg0->unknown_a_;
     for (int var6 = 0; var6 < 4; ++var6) {
         GameObject* var7 = var0->GetPartyMemberByIndex(var6);

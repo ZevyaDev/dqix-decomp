@@ -57,7 +57,7 @@ struct Struct_ov003_021552b8 {
     char unknown_0_[0xc];
 };
 
-extern "C" Struct_ov003_021552b8_2 *func_020421a0();
+extern "C" Struct_ov003_021552b8_2 *GetMessageWindow_020421a0();
 extern "C" void func_02046380(Struct_ov003_021552b8_2 *);
 extern "C" int func_ov003_02156034(void *);
 extern "C" void * func_020e0434(Struct_0201099c_3*, int);
@@ -65,10 +65,10 @@ extern "C" void func_020e4bf4(void *, int);
 extern "C" void func_020e4b34(void *, void *, int, int, int, int, int, int, int, int, int, int);
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 #if defined(jpn)
-extern "C" void func_0204500c(Struct_ov003_021552b8_2*, void*, int);
+extern "C" void StartMessage_0204500c(Struct_ov003_021552b8_2*, void*, int);
 #endif
 #if !defined(jpn)
-extern "C" void func_0204500c(Struct_ov003_021552b8_2 *, void *, int, int);
+extern "C" void StartMessage_0204500c(Struct_ov003_021552b8_2 *, void *, int, int);
 #endif
 extern "C" int func_ov003_021538e0(void *);
 extern "C" void func_02043204(char *);
@@ -76,7 +76,7 @@ extern "C" void func_02043124(Struct_ov003_021552b8_2 *);
 
 // USA: func_ov003_021552b8
 extern "C" ARM void func_ov003_021552b8(Struct_ov003_021552b8_5 *arg0) {
-    Struct_ov003_021552b8_2 *var0 = func_020421a0();
+    Struct_ov003_021552b8_2 *var0 = GetMessageWindow_020421a0();
     if (arg0->unknown_1fa_ == 0) {
 #if !defined(jpn)
         int var1 = arg0->unknown_1ec_;
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov003_021552b8(Struct_ov003_021552b8_5 *arg0) {
         func_02046574((Struct_02046574_2*)var0, 1, (char*)(func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, var6)));
         func_02046574((Struct_02046574_2*)var0, 2, (char*)(func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, (short)(var5 + 0x23))));
         func_02046574((Struct_02046574_2*)var0, 3, (char*)(func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, (short)(var5 + 0x34))));
-        func_0204500c(var0, func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, arg0->unknown_1ec_), 0);
+        StartMessage_0204500c(var0, func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, arg0->unknown_1ec_), 0);
 #else
         int var7            = 0;
         if (var3) {
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov003_021552b8(Struct_ov003_021552b8_5 *arg0) {
         func_02046574((Struct_02046574_2*)var0, 1, (char*)var9);
         func_02046574((Struct_02046574_2*)var0, 2, (char*)var10);
         func_02046574((Struct_02046574_2*)var0, 3, (char*)(func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, (short) (var7 + 0x34))));
-        func_0204500c(var0, func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, var1), 0, 0xe3);
+        StartMessage_0204500c(var0, func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, var1), 0, 0xe3);
 #endif
         var0->unknown_998_  = 1;
         var0->unknown_99c_ = 1;

@@ -117,7 +117,7 @@ extern "C" void func_ov017_0218eafc(GameResources* arg0, int arg1);
 extern "C" int func_0203e7b4(Struct_0203e624* arg0, void* arg1, unsigned char* arg2, void* arg3, unsigned int arg4, int arg5, int arg6, int arg7, int arg8);
 extern "C" unsigned int func_02040184(void* arg0, const char* arg1);
 extern "C" unsigned int func_020d8524(void* arg0, const void* arg1, unsigned int arg2);
-extern "C" Zone3D* func_02012fe4(void);
+extern "C" Zone3D* GetZone3D_02012fe4(void);
 
 struct Struct_021075f4;
 extern "C" void func_020401e4(Struct_021075f4* arg0);
@@ -316,7 +316,7 @@ extern "C" ARM int func_0203e8f8(void* arg0, Struct_0203e8f8* arg1, SafeAllocato
     UnlockStagedTextureVRAMCopying();
     {
         LightingManager* var33 = LightingManager::GetInstance();
-        Zone3D* var34 = func_02012fe4();
+        Zone3D* var34 = GetZone3D_02012fe4();
         int var35 = var33->timeOfDayIndex_;
         int var36 = var33->lightingIndexOverride_;
         LightingInfo* var37 = &var34->lighting_;

@@ -5,7 +5,7 @@ extern "C" void* memset(void*, int, unsigned int);
 struct Struct_0205d81c;
 struct Struct_0201099c_3;
 struct Struct_020465c0;
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_0205deb4(Struct_0205d81c*, int, int);
 extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_02042058(char*, const char*);
@@ -19,11 +19,11 @@ extern "C" void func_0205d6e4(Struct_0205d81c*, int);
 extern "C" void* func_0205d81c(Struct_0205d81c*, int);
 extern "C" int func_ov003_02169938(int, int);
 #if defined(jpn)
-extern "C" void func_0204500c(void*, int, int);
+extern "C" void StartMessage_0204500c(void*, int, int);
 extern "C" void func_020474a8(void*, int, int, char*);
 enum { Enum_ov003_02168d3c_228=0xe0, Enum_ov003_02168d3c_2464=0x870, Enum_ov003_02168d3c_6574=0x17de, Enum_ov003_02168d3c_2400=0x800 };
 #else
-extern "C" void func_0204500c(void*, int, int, int);
+extern "C" void StartMessage_0204500c(void*, int, int, int);
 extern "C" void func_02046608(void*, int, int, char*, int, int, int);
 enum { Enum_ov003_02168d3c_228=0xe4, Enum_ov003_02168d3c_2464=0x9a0, Enum_ov003_02168d3c_6574=0x19ae, Enum_ov003_02168d3c_2400=0x960 };
 #endif
@@ -56,9 +56,9 @@ struct Struct_ov003_02168d3c_2 {
 struct Struct_ov003_02168d3c_3 { char unknown_0_[0xf68]; unsigned int unknown_f68_; unsigned int unknown_f6c_; };
 static inline void inline_ov003_02168d3c(Struct_ov003_02168d3c_2* arg0, int arg1) {
 #if defined(jpn)
-    func_0204500c(arg0,arg1,0);
+    StartMessage_0204500c(arg0,arg1,0);
 #else
-    func_0204500c(arg0,arg1,0,0xe3);
+    StartMessage_0204500c(arg0,arg1,0,0xe3);
 #endif
 }
 static inline void inline_ov003_02168d3c_2(Struct_ov003_02168d3c_2* arg0,int arg1,char* arg2) {
@@ -71,7 +71,7 @@ static inline void inline_ov003_02168d3c_2(Struct_ov003_02168d3c_2* arg0,int arg
 // USA: func_ov003_02168d3c
 extern "C" ARM void func_ov003_02168d3c(Struct_ov003_02168d3c* arg0, void* arg1, int arg2) {
     GameState* var0=GameState::GetInstance();
-    Struct_ov003_02168d3c_2* var1=(Struct_ov003_02168d3c_2*)func_020421a0();
+    Struct_ov003_02168d3c_2* var1=(Struct_ov003_02168d3c_2*)GetMessageWindow_020421a0();
     Struct_ov003_02168d3c_3* var2=(Struct_ov003_02168d3c_3*)func_02010828(var0);
     if(var1->unknown_9a0_==3) var1->unknown_19ae_=0;
     if(arg0->unknown_4e8_==0) {

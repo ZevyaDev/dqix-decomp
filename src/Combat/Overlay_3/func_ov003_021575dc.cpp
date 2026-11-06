@@ -135,7 +135,7 @@ extern "C" int func_020100a8(GameState*);
 extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" void func_020de848(void* arg0);
 extern "C" ARM int func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02043204(char* arg0);
 extern "C" void func_020dc2d0(int);
 struct GameResources;
@@ -320,7 +320,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
             var0->unknown_1f9_ = 0x32;
         }
     } else if (var3 == 9) {
-        func_02043204((char*)func_020421a0());
+        func_02043204((char*)GetMessageWindow_020421a0());
         func_ov003_02158a50((unsigned char*)arg0);
         func_0209c830((Struct_02109bf4_2*)&data_02109bf4, 0x34);
         var0->unknown_1f9_ = var0->unknown_1f9_ + 1;

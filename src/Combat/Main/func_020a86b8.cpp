@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "World/Zone3D.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020a8a34(void*, int, int, int);
 
 // USA: func_020a86b8
 extern "C" ARM void* func_020a86b8(int arg0, int arg1, unsigned char arg2, unsigned char arg3, unsigned char arg4, unsigned char arg5, unsigned char arg6, unsigned char arg7) {
-    Zone3D* var0 = (Zone3D*)func_02012fe4();
+    Zone3D* var0 = (Zone3D*)GetZone3D_02012fe4();
     int var1 = 0;
     for (;;) {
         Struct_020134e0::Struct_02018300* var2 = func_0201e664(&var0->substruct_6c_, var1);

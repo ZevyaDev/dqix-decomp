@@ -10,7 +10,7 @@ extern "C" int func_02039820(void* arg0);
 extern "C" void func_020397c0(void* arg0);
 extern "C" int func_020100f8(char* arg0);
 extern "C" void func_020a27ac(void* arg0);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
 extern "C" int func_0202ec84(void* arg0, struct Struct_02015ef4* arg1, int* arg2, int* arg3);
@@ -110,7 +110,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Struct_ov017_021bfc40* arg0) {
         }
     }
 
-    func_020421a0();
+    GetMessageWindow_020421a0();
     if (var1 < arg0->unknown_16_) {
         arg0->unknown_16_ -= var1;
     } else {

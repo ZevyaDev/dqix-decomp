@@ -7,7 +7,7 @@ enum { Enum_ov003_0216e200_92 = 0x28 };
 enum { Enum_ov003_0216e200_92 = 0x5c };
 #endif
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_ov003_02170898(void* arg0);
 extern "C" void func_ov003_02170688(void* arg0);
 extern "C" void func_02074af4(void* arg0);
@@ -17,7 +17,7 @@ extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" ARM void func_ov003_0216e200(char* arg0) {
 	if (*(signed char*)(arg0 + 0x2) != 0) return;
 
-	int var0 = func_020421a0();
+	int var0 = GetMessageWindow_020421a0();
 	*(int*)(arg0 + 0x18) = *(int*)(var0 + Enum_ov003_0216e200_92);
 	func_ov003_02170898(arg0);
 	func_ov003_02170688(arg0);

@@ -169,7 +169,7 @@ extern "C" void func_ov017_02191aac(void* arg0, int arg1, int arg2, unsigned cha
 extern "C" void VectorizedMemset(void* dst, int value, int len);
 extern "C" char* func_020936f8(void);
 extern "C" void func_02093a14(char* arg0);
-extern "C" Struct_ov017_021c37a4_4* func_02012fe4(void);
+extern "C" Struct_ov017_021c37a4_4* GetZone3D_02012fe4(void);
 extern "C" void func_ov017_02195748(unsigned char* arg0);
 extern "C" void func_020a2718(char* arg0);
 extern "C" void func_020e3004(Struct_020e3004* arg0);
@@ -182,7 +182,7 @@ extern "C" void func_020bbd9c(void);
 extern "C" int func_0209c6bc(void* arg0);
 extern "C" void func_0209c20c(Struct_02109bf4_3* arg0);
 extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
-extern "C" Struct_ov017_021c37a4_5* func_020421a0(void);
+extern "C" Struct_ov017_021c37a4_5* GetMessageWindow_020421a0(void);
 
 extern Struct_02109bf4_11 data_02109bf4;
 
@@ -382,7 +382,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     }
 
     func_02093a14(func_020936f8());
-    Struct_ov017_021c37a4_4* var43 = func_02012fe4();
+    Struct_ov017_021c37a4_4* var43 = GetZone3D_02012fe4();
     Struct_ov017_021c37a4_3* var44 = var43->inline_ov017_021c37a4();
     var44->unknown_64_ = 0;
     var3->unknown_42e2_ = 0;
@@ -403,5 +403,5 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         func_0209c20c((Struct_02109bf4_3*)&data_02109bf4);
     }
     func_020466f4((Struct_02038598_4*)var8, 0x800);
-    func_020421a0()->unknown_1962_ = 0;
+    GetMessageWindow_020421a0()->unknown_1962_ = 0;
 }

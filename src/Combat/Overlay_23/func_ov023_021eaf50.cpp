@@ -3,7 +3,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" void* func_ov017_021b8478(void* arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_ov017_021d6134(void* arg0, int arg1);
 
 struct Struct_02046b38;
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov023_021eaf50(void* arg0) {
     void* var4 = func_ov017_021b8478(var3);
 
     if (func_02046b38(var2, var3) != 0) {
-        void* var5 = func_02012fe4();
+        void* var5 = GetZone3D_02012fe4();
         ActiveGrottoClass* var6 = (ActiveGrottoClass*)((char*)var5 + Enum_ov023_021eaf50_9196);
         DetailedTreasureMapData* var7 = var6->GetDetailedData();
 

@@ -8,7 +8,7 @@
 #define RG(u, j) (u)
 #endif
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov002_0215be00(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov002_02161234(void* arg0, void* arg1, int arg2);
 
@@ -16,9 +16,9 @@ struct Struct_020466c8;
 extern "C" void func_020466c8(struct Struct_020466c8* arg0, int arg1);
 
 #if defined(jpn)
-extern "C" void func_0204500c(void* arg0, void* arg1, int arg2);
+extern "C" void StartMessage_0204500c(void* window, void* text, int arg2);
 #else
-extern "C" void func_0204500c(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int arg3);
 #endif
 
 struct Struct_ov002_02161174 { char unknown_0_[RG(0xbb8, 0xa80)]; int unknown_bb8_; };
@@ -28,7 +28,7 @@ struct Struct_ov002_02161174_4 { char unknown_0_[RG(0xbd0, 0xa98)]; void* unknow
 
 // USA: func_ov002_02161174
 extern "C" ARM void func_ov002_02161174(char* arg0) {
-    int var0 = func_020421a0();
+    int var0 = GetMessageWindow_020421a0();
 
     func_ov002_0215be00(arg0, ((struct Struct_ov002_02161174*)(arg0 + 0x1000))->unknown_bb8_ & 0xff, 0, 0xf);
 
@@ -41,9 +41,9 @@ extern "C" ARM void func_ov002_02161174(char* arg0) {
 
     func_020466c8((struct Struct_020466c8*)var0, *(int*)(*(int*)arg0 + 0x10));
 #if defined(jpn)
-    func_0204500c((void*)var0, ((struct Struct_ov002_02161174_4*)(arg0 + 0x1000))->unknown_bd0_, 0);
+    StartMessage_0204500c((void*)var0, ((struct Struct_ov002_02161174_4*)(arg0 + 0x1000))->unknown_bd0_, 0);
 #else
-    func_0204500c((void*)var0, ((struct Struct_ov002_02161174_4*)(arg0 + 0x1000))->unknown_bd0_, 0, 0xe3);
+    StartMessage_0204500c((void*)var0, ((struct Struct_ov002_02161174_4*)(arg0 + 0x1000))->unknown_bd0_, 0, 0xe3);
 #endif
     ((struct Struct_ov002_02161174_2*)var0)->unknown_998_ = 1;
 

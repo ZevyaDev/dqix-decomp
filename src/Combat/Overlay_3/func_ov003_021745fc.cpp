@@ -61,7 +61,7 @@ void func_020813ec(Struct_ov003_021745fc* arg0, short arg1);
 
 extern "C" void func_ov003_02174988(char* arg0);
 extern "C" void func_ov003_0217451c(char* arg0);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02043204(char* arg0);
 extern "C" void func_0207fc6c(Struct_0207fc6c* arg0, int arg1);
 extern "C" void func_020804fc(void* arg0, int arg1);
@@ -87,9 +87,9 @@ extern "C" ARM bool func_ov003_021745fc(Struct_ov003_021745fc_2* arg0, int arg1)
             return false;
         }
 #if defined(jpn)
-        ((unsigned char*)func_020421a0())[0x17de] = 0;
+        ((unsigned char*)GetMessageWindow_020421a0())[0x17de] = 0;
 #else
-        ((unsigned char*)func_020421a0())[0x19ae] = 0;
+        ((unsigned char*)GetMessageWindow_020421a0())[0x19ae] = 0;
 #endif
         Struct_ov003_021745fc* var0 = arg0->unknown_89c_;
         if (var0 != NULL)
@@ -114,7 +114,7 @@ extern "C" ARM bool func_ov003_021745fc(Struct_ov003_021745fc_2* arg0, int arg1)
         data_ov003_02180cc8[0] |= 1;
     }
     if (data_ov003_02180aa4[arg0->unknown_103e_] == NULL) {
-        func_02043204((char*)func_020421a0());
+        func_02043204((char*)GetMessageWindow_020421a0());
         return !(arg0->unknown_1046_ & 0x80);
     }
     (arg0->*data_ov003_02180aa4[arg0->unknown_103e_])();

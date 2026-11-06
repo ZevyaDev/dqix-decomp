@@ -7,10 +7,10 @@
 #endif
 
 extern "C" void func_02046380(void);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* func_0205ec34(void);
 #if !defined(jpn)
-extern "C" void func_0204500c(void* arg0, char* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int arg3);
 #endif
 extern "C" int func_ov023_021f4438(void* arg0);
 extern "C" int func_ov023_021f4fc8(void);
@@ -41,7 +41,7 @@ extern "C" struct Struct_ov023_021f288c_2* _ZZ21inline_ov023_021f4c04vE1s;
 struct Struct_ov023_021f288c { unsigned short unknown_0_0_ : 7; unsigned short unknown_0_7_ : 9; };
 
 #if defined(jpn)
-extern "C" void func_0204500c(void*,char*,int);
+extern "C" void StartMessage_0204500c(void*,char*,int);
 #endif
 // USA: func_ov023_021f288c
 extern "C" ARM int func_ov023_021f288c(unsigned char* arg0) {
@@ -54,7 +54,7 @@ extern "C" ARM int func_ov023_021f288c(unsigned char* arg0) {
     GameState* var1 = GameState::GetInstance();
     struct Struct_ov023_021f288c_2* var2 = _ZZ21inline_ov023_021f4c04vE1s;
     int var3 = var2->unknown_18_;
-    int var4 = func_020421a0();
+    int var4 = GetMessageWindow_020421a0();
     unsigned char* var5 = (unsigned char*)var4;
 #if defined(jpn)
 
@@ -82,9 +82,9 @@ extern "C" ARM int func_ov023_021f288c(unsigned char* arg0) {
 #endif
 
 #if defined(jpn)
-        func_0204500c(var5, var0, 1);
+        StartMessage_0204500c(var5, var0, 1);
 #else
-        func_0204500c(var5, var0, 1, 0xe3);
+        StartMessage_0204500c(var5, var0, 1, 0xe3);
 #endif
 
         var5[Enum_ov023_021f288c_6578] = 0;

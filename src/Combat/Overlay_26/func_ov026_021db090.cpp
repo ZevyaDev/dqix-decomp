@@ -94,7 +94,7 @@ struct Struct_ov023_021f2a48_4 {
 };
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" Struct_ov000_0217964c_3* func_020421a0();
+extern "C" Struct_ov000_0217964c_3* GetMessageWindow_020421a0();
 extern "C" int func_02010088(struct Struct_02010088*);
 extern "C" void func_020e4c74(void*, GameObject*);
 extern "C" void func_02053ec8(void*, int);
@@ -108,12 +108,12 @@ extern "C" {
 int func_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
 void func_ov000_02162c14(Struct_ov000_02160da0*, int, Struct_ov026_021db090*);
 void func_020dd0b0(int, char*);
-void func_02012fe4();
+void GetZone3D_02012fe4();
 void func_ov017_021a23b0(GameResources*, unsigned short);
 #if defined(jpn)
-void func_0204500c(Struct_ov000_0217964c_3*, char*, int);
+void StartMessage_0204500c(Struct_ov000_0217964c_3*, char*, int);
 #else
-void func_0204500c(Struct_ov000_0217964c_3*, char*, int, int);
+void StartMessage_0204500c(Struct_ov000_0217964c_3*, char*, int, int);
 #endif
 void func_02043124(Struct_ov000_0217964c_3*);
 void func_ov000_02160da0(Struct_ov000_02160da0*);
@@ -133,7 +133,7 @@ extern Struct_02108760 data_02108760;
 // USA: func_ov026_021db090
 extern "C" ARM void func_ov026_021db090(Struct_ov000_02160da0* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Struct_ov000_0217964c_3* var1 = func_020421a0();
+    Struct_ov000_0217964c_3* var1 = GetMessageWindow_020421a0();
 
     if (arg0->unknown_eac_ == 0) {
 #if defined(jpn)
@@ -207,7 +207,7 @@ extern "C" ARM void func_ov026_021db090(Struct_ov000_02160da0* arg0) {
 #if defined(jpn)
             sprintf(var2, data_ov026_021df3ff, var5);
 #else
-            var13 = ((Struct_ov023_021f2a48_4*)func_020421a0())->unknown_5c_;
+            var13 = ((Struct_ov023_021f2a48_4*)GetMessageWindow_020421a0())->unknown_5c_;
             memset(var13, 0, 0x960);
             func_020dd0b0(1, var13);
             strcat(var3, var13);
@@ -225,7 +225,7 @@ extern "C" ARM void func_ov026_021db090(Struct_ov000_02160da0* arg0) {
                 }
             }
             GameResources* var20 = GetGameResources();
-            func_02012fe4();
+            GetZone3D_02012fe4();
             unsigned short var21 = arg0->unknown_2a0_->unknown_8_;
             func_ov017_021c9ad4(var21);
             func_ov017_021a23b0(var20, var21);
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov026_021db090(Struct_ov000_02160da0* arg0) {
 #if defined(jpn)
             sprintf(var2, data_ov026_021df423, var5);
 #else
-            var13 = ((Struct_ov023_021f2a48_4*)func_020421a0())->unknown_5c_;
+            var13 = ((Struct_ov023_021f2a48_4*)GetMessageWindow_020421a0())->unknown_5c_;
             memset(var13, 0, 0x960);
             func_020dd0b0(2, var13);
             strcat(var3, var13);
@@ -242,7 +242,7 @@ extern "C" ARM void func_ov026_021db090(Struct_ov000_02160da0* arg0) {
 #if defined(jpn)
             sprintf(var2, data_ov026_021df465, var5);
 #else
-            var13 = ((Struct_ov023_021f2a48_4*)func_020421a0())->unknown_5c_;
+            var13 = ((Struct_ov023_021f2a48_4*)GetMessageWindow_020421a0())->unknown_5c_;
             memset(var13, 0, 0x960);
             func_020dd0b0(3, var13);
             strcat(var3, var13);
@@ -250,10 +250,10 @@ extern "C" ARM void func_ov026_021db090(Struct_ov000_02160da0* arg0) {
         }
 
 #if defined(jpn)
-        func_0204500c(var1, var2, 0);
+        StartMessage_0204500c(var1, var2, 0);
 #else
         var1->unknown_0_ = &var4;
-        func_0204500c(var1, var3, 0, 0xe3);
+        StartMessage_0204500c(var1, var3, 0, 0xe3);
 #endif
         var1->unknown_19b1_ = 0;
         var1->unknown_19b2_ = 0;

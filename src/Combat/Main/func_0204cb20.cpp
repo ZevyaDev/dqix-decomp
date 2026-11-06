@@ -26,7 +26,7 @@ struct Struct_0204cb20_2 {
     unsigned char unknown_c7_;
 };
 extern "C" void __clear(void*, unsigned int);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 #if defined(jpn)
 extern "C" void func_020474a8(void*, int, const char*, char*);
 extern "C" int func_0204e3e0(Struct_0204cb20_2*, char*, int, int, int);
@@ -60,7 +60,7 @@ extern "C" ARM void func_0204cb20(Struct_0204cb20_2* arg0, const char* arg1, sho
         var6 = arg0->unknown_b6_;
         var7 = arg0->unknown_a4_;
         __clear(var0, sizeof(var0));
-        func_020474a8(func_020421a0(), arg0->unknown_c7_, arg1, var0);
+        func_020474a8(GetMessageWindow_020421a0(), arg0->unknown_c7_, arg1, var0);
         int var8 = func_0204e3e0(arg0, var0, 0, 0, arg2);
         arg0->unknown_a8_ = var1;
         arg0->unknown_aa_ = var2;
@@ -100,7 +100,7 @@ extern "C" ARM void func_0204cb20(Struct_0204cb20_2* arg0, const char* arg1, int
         var16 = arg0->unknown_b6_;
         var19 = arg0->unknown_a4_;
         __clear(var12, sizeof(var12));
-        func_02046608(func_020421a0(), arg0->unknown_c7_, arg1, var12, var18, var17, arg3);
+        func_02046608(GetMessageWindow_020421a0(), arg0->unknown_c7_, arg1, var12, var18, var17, arg3);
         int var21 = func_0204e3e0(arg0, var12, 0, 0, arg2, arg3);
         arg0->unknown_a8_ = var20;
         arg0->unknown_aa_ = var13;

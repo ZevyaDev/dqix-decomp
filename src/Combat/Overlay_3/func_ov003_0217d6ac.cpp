@@ -4,10 +4,10 @@
 #include "Resource/GameResources.h"
 
 struct Struct_ov003_0217d6ac;
-extern "C" struct Struct_ov003_0217d6ac *func_02012fe4(void);
+extern "C" struct Struct_ov003_0217d6ac *GetZone3D_02012fe4(void);
 extern "C" void func_0205d7a0(void *arg0, int arg1);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int *out, unsigned char a, unsigned char b, unsigned char c, int d);
-extern "C" char *func_020421a0(void);
+extern "C" char *GetMessageWindow_020421a0(void);
 struct Struct_0205a330;
 extern "C" void func_0205a330(struct Struct_0205a330 *arg0, int arg1);
 struct Struct_0205c570;
@@ -99,9 +99,9 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
     var1     = (char *) GetGameResources();
     var5    = *(struct Struct_0201bdac_2 **) (var1 + RG(0x36fc, 0x34ec));
 #if defined(jpn)
-    var6 = inline_ov003_0216e714_2(func_02012fe4());
+    var6 = inline_ov003_0216e714_2(GetZone3D_02012fe4());
 #else
-    var7 = func_02012fe4();
+    var7 = GetZone3D_02012fe4();
 #endif
     if (arg0->unknown_5_ == 0) {
         func_0205d7a0(arg0->unknown_90_, 0);
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
     if (arg0->unknown_5_ != 1) return;
 
     var0                                = GameState::GetInstance();
-    var2                            = func_020421a0();
+    var2                            = GetMessageWindow_020421a0();
     struct Struct_0205a330 *var8 = *(struct Struct_0205a330 **) (var2 + RG(0x2e0, 0x230));
     func_0205a330(var8, var0->GetTickCount());
     var2[RG(0x19ae, 0x17de)] = 0;

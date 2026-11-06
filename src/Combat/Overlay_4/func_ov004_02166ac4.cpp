@@ -23,7 +23,7 @@ extern char* data_ov004_0217101c;
 #endif
 extern "C" void* func_0205ec34(void);
 extern "C" int* func_02094d6c(void);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_ov004_02166ac4 {
     unsigned char unknown_0_[0x1c];
@@ -48,7 +48,7 @@ extern "C" ARM int func_ov004_02166ac4() {
     memcpy(var3 + 0x2cc, ((Struct_ov004_02166ac4*)CurrentBase0217101c)->unknown_51_, 0x66);
     int* var4 = func_02094d6c();
     *(int*)((char*)var4 + 0xa0) = ((Struct_ov004_02166ac4*)CurrentBase0217101c)->unknown_b8_;
-    char* var5 = (char*)func_020421a0();
+    char* var5 = (char*)GetMessageWindow_020421a0();
     *(unsigned char*)(var5 + 0x1000 + Enum_ov004_02166ac4_2402) = 0;
     return 0;
 }

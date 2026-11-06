@@ -35,7 +35,7 @@ struct Struct_ov023_021ef6f4_2 { char* unknown_0_; };
 extern "C" Struct_ov023_021eeaac_2* _ZZ21inline_ov023_021f4c04vE1s;
 extern char data_02109bf4[] __attribute__((aligned(4)));
 extern char data_ov023_021fe258[];
-extern "C" Struct_020465c0* func_020421a0();
+extern "C" Struct_020465c0* GetMessageWindow_020421a0();
 extern "C" int func_0202b7d8(int*);
 extern "C" signed char func_0202c1a4(Struct_0202c1a4*);
 extern "C" void func_ov000_02163b60(void*);
@@ -57,10 +57,10 @@ extern "C" Struct_ov023_021ef6f4_2* func_02079e2c(char*, int);
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 extern "C" {
 void* func_0202ae18();
-Struct_ov023_021ef6f4* func_02012fe4();
+Struct_ov023_021ef6f4* GetZone3D_02012fe4();
 void __clear(void*, unsigned int);
 void func_020e4ce8(void*, Struct_ov000_0217964c_2*, int);
-void func_0204500c(Struct_020465c0*, const char*, int, int);
+void StartMessage_0204500c(Struct_020465c0*, const char*, int, int);
 int func_ov023_021f4fc8();
 void func_ov000_0216d370(void*, int, int, int);
 void func_ov000_02163b90(Struct_ov023_021ef6f4_3*, int);
@@ -72,9 +72,9 @@ void func_02011744(GameState*);
 extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov023_021eeaac_2* var1 = _ZZ21inline_ov023_021f4c04vE1s;
-    Struct_020465c0* var2 = func_020421a0();
+    Struct_020465c0* var2 = GetMessageWindow_020421a0();
     void* var3 = func_0202ae18();
-    DetailedTreasureMapData* var4 = func_02012fe4()->unknown_23ec_.GetDetailedData();
+    DetailedTreasureMapData* var4 = GetZone3D_02012fe4()->unknown_23ec_.GetDetailedData();
     char var5[0x300];
     __clear(var5, sizeof(var5));
     int var6[3];
@@ -101,7 +101,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
             var2->unknown_20_ = var6;
             func_020465c0(var2, 0, arg0->unknown_58cc_);
             func_020465c0(var2, 1, var4->legacy_.level_);
-            func_0204500c(var2, var5, 1, 0xe3);
+            StartMessage_0204500c(var2, var5, 1, 0xe3);
             var2->unknown_19b2_ = 0;
             var2->unknown_998_ = 1;
             var1->unknown_0_ = 2;
@@ -149,7 +149,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
         if (var4->legacy_.bossID_ == 9) var21 = func_0200fea4(var0, arg0->unknown_6e30_[1]);
         func_020e4ce8(var6, var21, 1);
         var2->unknown_20_ = var6;
-        func_0204500c(var2, var5, 1, 0xe3);
+        StartMessage_0204500c(var2, var5, 1, 0xe3);
         var2->unknown_19b2_ = 0;
         var2->unknown_998_ = 1;
         var1->unknown_0_ = 4;
@@ -161,7 +161,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
                 if (var4->legacy_.bossID_ == 9) var22 = func_0200fea4(var0, arg0->unknown_6e30_[1]);
                 func_020e4ce8(var6, var22, 1);
                 var2->unknown_20_ = var6;
-                func_0204500c(var2, var5, 1, 0xe3);
+                StartMessage_0204500c(var2, var5, 1, 0xe3);
                 var2->unknown_19b2_ = 0;
                 var2->unknown_998_ = 1;
                 var1->unknown_0_ = 8;
@@ -171,7 +171,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
                 if (var4->legacy_.bossID_ == 9) var23 = func_0200fea4(var0, arg0->unknown_6e30_[1]);
                 func_020e4ce8(var6, var23, 1);
                 var2->unknown_20_ = var6;
-                func_0204500c(var2, var5, 1, 0xe3);
+                StartMessage_0204500c(var2, var5, 1, 0xe3);
                 var2->unknown_19b2_ = 0;
                 var2->unknown_998_ = 1;
                 var1->unknown_0_ = 5;
@@ -186,7 +186,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
             func_020e4ce8(var6, var24, 1);
             var2->unknown_20_ = var6;
             func_020465c0(var2, 0, arg0->unknown_58c0_);
-            func_0204500c(var2, var5, 1, 0xe3);
+            StartMessage_0204500c(var2, var5, 1, 0xe3);
             var2->unknown_19b2_ = 0;
             var2->unknown_998_ = 1;
             var2->unknown_2c8_ = 1;
@@ -204,7 +204,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
             func_020e4ce8(var6, var25, 1);
             var2->unknown_20_ = var6;
             func_020465c0(var2, 0, var4->legacy_.level_ + 1);
-            func_0204500c(var2, var5, 1, 0xe3);
+            StartMessage_0204500c(var2, var5, 1, 0xe3);
             var2->unknown_19b2_ = 0;
             var2->unknown_998_ = 1;
             func_0209c6d8(data_02109bf4, 0x35);
@@ -231,7 +231,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
                 func_020e4ce8(var6, var28, 1);
                 var2->unknown_20_ = var6;
                 func_02046574((Struct_02046574_2*)var2, 1, var27->unknown_0_);
-                func_0204500c(var2, var5, 1, 0xe3);
+                StartMessage_0204500c(var2, var5, 1, 0xe3);
                 var2->unknown_19b2_ = 0;
                 var2->unknown_998_ = 1;
             }

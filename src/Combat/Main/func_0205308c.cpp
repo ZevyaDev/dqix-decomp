@@ -22,7 +22,7 @@ struct Struct_0205308c {
 };
 
 extern "C" short* func_02052e2c(struct Struct_02052e2c*);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 
 extern signed char data_020e7bf8[];
@@ -54,7 +54,7 @@ extern "C" ARM void func_0205308c(void* arg0, int arg1) {
     var0->unknown_180_ = var3->QueueLoadFile(var1, 0);
 
     {
-        unsigned short var5 = *(unsigned short*)func_02012fe4();
+        unsigned short var5 = *(unsigned short*)GetZone3D_02012fe4();
         if (var5 != ((Object3D*)arg0)->GetField06()) {
             return;
         }

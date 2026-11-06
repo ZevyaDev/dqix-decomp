@@ -42,7 +42,7 @@ struct Struct_ov000_0217a0a4 {
     unsigned char unknown_1d81_;
 };
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_0205def8(struct Struct_0205def8*, int, int);
 extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c*, int);
 extern "C" void func_ov000_0217a2dc(struct Struct_ov000_0217a0a4*, int, void*);
@@ -50,7 +50,7 @@ extern "C" void func_ov000_0217a19c(struct Struct_ov000_0217a0a4*, int);
 
 // USA: func_ov000_0217a0a4
 extern "C" ARM void func_ov000_0217a0a4(struct Struct_ov000_0217a0a4* arg0) {
-    void* var0 = *(void**)(func_020421a0() + REGION_OFFSET_0);
+    void* var0 = *(void**)(GetMessageWindow_020421a0() + REGION_OFFSET_0);
     memset(var0, 0, REGION_OFFSET_1);
     func_ov000_0217a2dc(arg0, 0, var0);
 #if defined(jpn)

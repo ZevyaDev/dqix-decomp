@@ -10,7 +10,7 @@
 
 #include "GameState/GameState.h"
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 
 extern "C" void func_ov017_021bac58(unsigned char* arg0);
 
@@ -21,7 +21,7 @@ extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
 // USA: func_ov017_021bac24
 extern "C" ARM void func_ov017_021bac24(unsigned char* arg0) {
     GameState::GetInstance()->GetUnknownGameObject();
-    func_020421a0();
+    GetMessageWindow_020421a0();
     func_ov017_021bac58(*(unsigned char**)(arg0 + 0x3000 + REGION_FIELD_0));
     Struct_0201bdac_2* var0 = *(Struct_0201bdac_2**)(arg0 + 0x3000 + REGION_FIELD_1);
     Struct_0201bdac* var1 = *(Struct_0201bdac**)(arg0 + 0x3000 + REGION_FIELD_0);

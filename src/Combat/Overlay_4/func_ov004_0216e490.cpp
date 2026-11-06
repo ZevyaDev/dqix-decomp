@@ -12,7 +12,7 @@ extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
 extern "C" int func_020ac864(int arg0);
 extern "C" void func_ov011_021848a0(void* arg0, int arg1);
 extern "C" int func_020aba5c(int arg0);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02043204(char* arg0);
 extern "C" void func_02043124(char* arg0);
 extern "C" void* func_ov004_0216ae9c(void* arg0, int arg1);
@@ -78,7 +78,7 @@ extern "C" ARM int func_ov004_0216e490(void* arg0) {
     if (data_ov004_02171034[0] == 1) {
 #endif
         if (func_020aba5c(1) == 0) {
-            char* var4 = (char*)func_020421a0();
+            char* var4 = (char*)GetMessageWindow_020421a0();
             func_02043204(var4);
             func_02043124(var4);
             void* var5 = func_ov004_0216ae9c(arg0, 0xd4);

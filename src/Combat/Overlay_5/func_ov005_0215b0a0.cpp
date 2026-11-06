@@ -23,7 +23,7 @@ struct Struct_ov005_0215b0a0 {
 #endif
 };
 struct Struct_ov005_0215acc0 { char unknown_0_[0xdf4]; Struct_0201099c_10* unknown_df4_; char unknown_df8_[LOW_REGION(0x2f38, 0x2fc0)]; unsigned char unknown_3db8_; char unknown_3db9_[3]; unsigned char unknown_3dbc_; char unknown_3dbd_[0xc7]; Struct_ov005_0215b0a0 unknown_3e84_[8]; unsigned char unknown_4284_[8]; };
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" short* func_02052e14(Struct_02052e14*);
 extern "C" void* func_020dedd0(Struct_0201099c_10*, int);
 extern "C" Struct_ov005_0215acc0_2* func_ov017_021a193c(int*);
@@ -38,7 +38,7 @@ extern unsigned char data_ov005_0215cbfc[];
 
 // USA: func_ov005_0215b0a0
 extern "C" ARM void func_ov005_0215b0a0(Struct_ov005_0215acc0* arg0) {
-    void* var0 = func_020421a0();
+    void* var0 = GetMessageWindow_020421a0();
     GameState* var1 = GameState::GetInstance();
     GameObject* var2 = func_0200ff1c(var1, func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->unknown_4fc_);
     if (!var2) return;

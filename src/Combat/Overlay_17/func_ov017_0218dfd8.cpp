@@ -48,7 +48,7 @@ struct Struct_ov017_0218dfd8_3 {
     unsigned char unknown_3_;
 };
 
-extern "C" Struct_02017098* func_02012fe4(void);
+extern "C" Struct_02017098* GetZone3D_02012fe4(void);
 extern "C" Struct_0201777c* func_0201777c(Struct_02017098* arg0, int arg1);
 extern "C" unsigned int func_02039dcc(unsigned char* arg0);
 struct Struct_ov009_0218aa28;
@@ -66,7 +66,7 @@ extern "C" ARM int func_ov017_0218dfd8(Struct_ov017_0218dfd8* arg0) {
     }
     Vector3fix var1 = arg0->unknown_0_.position_;
     int var2 = 0;
-    Struct_02017098* var3 = func_02012fe4();
+    Struct_02017098* var3 = GetZone3D_02012fe4();
     Struct_0201777c* var4 = func_0201777c(var3, 0);
     if (var4 == NULL) {
         return 0;

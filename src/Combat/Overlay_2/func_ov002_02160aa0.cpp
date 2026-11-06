@@ -4,7 +4,7 @@
 #define func_0205ec34 func_0205ff20
 #define data_ov002_0216d2b4 data_ov002_0216da66
 extern "C" void __clear(void *arg0, int arg1);
-extern "C" void *func_020421a0(void);
+extern "C" void *GetMessageWindow_020421a0(void);
 extern "C" void func_02046380(void *arg0);
 extern "C" void func_020465c0(void *arg0, int arg1, int arg2);
 extern "C" void func_020465f0(void *arg0, int arg1, int arg2);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov002_02161938(unsigned char *arg0, char *arg1, int arg
     func_02041e70(arg1, 0xf);
     char var6[0x40];
     __clear(var6, 0x40);
-    void *var7 = func_020421a0();
+    void *var7 = GetMessageWindow_020421a0();
     func_02046380(var7);
     func_020465c0(var7, 0, *(unsigned char *) (arg0 + 0x2000 + 0x2b4) + 1);
     func_020465f0(var7, 0, 1);

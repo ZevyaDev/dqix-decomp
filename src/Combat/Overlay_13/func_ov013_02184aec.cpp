@@ -10,7 +10,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_0204359c(void*, int);
 extern "C" void func_020439b0(void*, int);
 struct Struct_0205d2bc;
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov013_02184aec(void* arg0) {
     }
 
     void* var2 = GameState::GetInstance();
-    void* var3 = func_020421a0();
+    void* var3 = GetMessageWindow_020421a0();
     int var4 = ((GameState*)var2)->GetTickCount();
     func_0204359c(var3, var4);
     func_020439b0(var3, 0);

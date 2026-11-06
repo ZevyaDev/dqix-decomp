@@ -23,7 +23,7 @@ struct Struct_0203bebc_4 {
 extern "C" void func_0205b20c(struct Struct_020200c0_4* arg0);
 extern "C" void func_0205b220(void* arg0, int arg1);
 extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void* func_020425b4(int arg0, int arg1);
 extern "C" int func_020425e4(int arg0, int arg1, int arg2);
 extern "C" int func_02042648(int arg0);
@@ -146,7 +146,7 @@ extern "C" ARM void func_0203bebc(void* arg0, void* arg1, void* arg2)
     }
 #else
     int var16;
-    char* var17 = (char*)func_020421a0();
+    char* var17 = (char*)GetMessageWindow_020421a0();
     void* var18 = *(void**)(var17 + 0x60);
     memset(var18, 0, 0x400);
 

@@ -12,7 +12,7 @@ enum { Enum_020ae53c_17496 = 0x4458 };
 #endif
 
 extern "C" void* func_0205ec34(void);
-extern "C" unsigned short* func_02012fe4(void);
+extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void func_020aee04(int arg0, int arg1);
 
 extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
@@ -30,7 +30,7 @@ extern "C" ARM void func_020ae53c(int arg0) {
     char* var0 = (char*)GetGameResources();
     unsigned char* var1 = (unsigned char*)func_0205ec34();
     int var2;
-    func_02012fe4();
+    GetZone3D_02012fe4();
     *(int*)((unsigned char*)var0 + Enum_020ae53c_17496) = arg0;
 
     func_020ae6e8(!func_0206dfb0((int)var1, var1 + 0x8c, 0x33e));
@@ -41,7 +41,7 @@ extern "C" ARM void func_020ae53c(int arg0) {
     func_020ae9f0();
 
     arg0 = func_0206dfb0((int)var1, var1 + 0x8c, 0x385);
-    if (*func_02012fe4() == 0x1cea) {
+    if (*GetZone3D_02012fe4() == 0x1cea) {
         for (var2 = 0x4e; var2 <= 0x58; var2++) {
             func_020ae694((unsigned char)arg0, 0, var2);
         }

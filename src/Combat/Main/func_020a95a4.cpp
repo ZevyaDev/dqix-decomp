@@ -140,7 +140,7 @@ struct Struct_020a95a4_6 {
 
 extern "C" void* func_02010828(GameState* arg0);
 extern "C" void* func_0202ae18(void);
-extern "C" Struct_020a95a4_2* func_02012fe4(void);
+extern "C" Struct_020a95a4_2* GetZone3D_02012fe4(void);
 extern "C" Struct_020a95a4_3* func_02094d6c(void);
 extern "C" void func_020a93e0(char* arg0);
 extern "C" void func_02082d6c(void* arg0, void* arg1);
@@ -168,7 +168,7 @@ extern "C" ARM int func_020a95a4(Struct_020a95a4_6* arg0, Struct_020a95a4_5* arg
     GameState* var0 = GameState::GetInstance();
     Struct_020a95a4_8* var1 = static_cast<Struct_020a95a4_8*>(func_02010828(var0));
     func_0202ae18();
-    Struct_020a95a4_2* var2 = func_02012fe4();
+    Struct_020a95a4_2* var2 = GetZone3D_02012fe4();
     GetGameResources();
     Struct_020a95a4_3* var3 = func_02094d6c();
 #if !defined(jpn)

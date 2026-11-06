@@ -61,7 +61,7 @@ struct Struct_ov017_02197a64 {
     short unknown_12_;
 };
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
 extern "C" Struct_020968d0* func_ov017_0218d268(void* arg0);
 extern "C" void func_ov017_0219a674(unsigned char* arg0);
@@ -80,7 +80,7 @@ extern "C" void func_ov017_02198f84(Struct_ov017_02197a64_5* arg0);
 extern "C" ARM void func_ov017_02197a64(Struct_ov017_02197a64_5* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov017_02197a64_4* var1 = (Struct_ov017_02197a64_4*)GetGameResources();
-    void* var2 = func_02012fe4();
+    void* var2 = GetZone3D_02012fe4();
     Struct_ov017_02197a64_3* var3 = (Struct_ov017_02197a64_3*)var0->GetUnknownGameObject();
     Vector3fix var4 = var3->unknown_44_;
     Struct_ov017_02197a64_2* var5 = (Struct_ov017_02197a64_2*)func_0201e838((unsigned char*)var2 + Enum_ov017_02197a64_108, 2);

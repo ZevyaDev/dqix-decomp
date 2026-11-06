@@ -4,7 +4,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void func_02094ab0(void);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02043204(char* arg0);
 extern "C" void func_02043124(void* arg0);
 extern "C" int func_02094a00(void);
@@ -24,7 +24,7 @@ struct Struct_ov017_021ac32c {
 
 // USA: func_ov017_021ac32c
 extern "C" ARM void func_ov017_021ac32c(struct Struct_ov017_021ac32c* arg0) {
-    void* var0 = (void*)func_020421a0();
+    void* var0 = (void*)GetMessageWindow_020421a0();
     func_02043204((char*)var0);
     func_02043124(var0);
     func_02094a00();

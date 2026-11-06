@@ -34,7 +34,7 @@ extern short data_ov003_0217f2a8[3];
 extern Struct_ov003_0217f340 data_ov003_0217f340;
 extern Struct_020e6d5c_13 data_020e6d5c;
 extern "C" int func_ov017_021959b4();
-extern "C" char* func_020421a0();
+extern "C" char* GetMessageWindow_020421a0();
 extern "C" void func_02043204(char*);
 struct Struct_020e28dc;
 extern "C" int func_020e28dc(Struct_020e28dc*);
@@ -61,14 +61,14 @@ extern "C" ARM int func_ov003_02154af4(Struct_ov003_02154af4_3* arg0,unsigned in
  if (arg0->unknown_339_ && !arg0->unknown_338_) {
   if(arg0->unknown_8_) *arg0->unknown_8_=-1;
   arg0->unknown_8_=0;
-  func_02043204(func_020421a0());
+  func_02043204(GetMessageWindow_020421a0());
   arg0->unknown_1ee_=-1; arg0->unknown_1ec_=arg0->unknown_1ee_;
   if(arg0->unknown_1c_ && func_020e28dc((Struct_020e28dc*)arg0->unknown_1c_)) func_020e25e8((Struct_020e25e8*)arg0->unknown_1c_);
   arg0->unknown_1f8_=6; arg0->unknown_1f9_=0; arg0->unknown_339_=0;
  }
  if(!arg0->unknown_204_) func_ov003_021537d4(arg0->unknown_4_,arg1);
  if(arg0->unknown_1ec_>=0) { func_ov003_021552b8(arg0); return 0; }
- if(arg0->unknown_1f8_) func_020421a0()[Enum_ov003_02154af4_6574]=0;
+ if(arg0->unknown_1f8_) GetMessageWindow_020421a0()[Enum_ov003_02154af4_6574]=0;
  Struct_ov003_02154af4_2* var0=arg0->unknown_18_;
  if(var0) {
   if(!arg0->unknown_204_) func_0207fc6c((Struct_0207fc6c*)var0, arg1);

@@ -30,7 +30,7 @@ extern "C" int func_020312bc(Struct_02018fbc_2*, int, Vector3fix*, Vector3fix*, 
 extern "C" int func_020319d8(Struct_02018fbc_2*, int, Vector3fix*, Vector3fix*, Vector3fix*);
 extern "C" int func_020315b8(Struct_02018fbc_2*, int, Vector3fix*, int, Vector3fix*, int);
 
-extern "C" Zone3D* func_02012fe4();
+extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" int func_02018fbc(Zone3D* arg0, Vector3fix* arg1);
 extern "C" Vector3fix func_02019210(Zone3D* arg0, const Vector3fix* arg1,
                                    const Vector3fix* arg2, int arg3);

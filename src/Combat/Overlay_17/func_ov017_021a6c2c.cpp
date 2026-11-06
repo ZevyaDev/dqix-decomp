@@ -50,8 +50,8 @@ struct Struct_ov017_021a6c2c_2 {
 };
 extern "C" void* func_02057924();
 extern "C" void* func_0202ae18();
-extern "C" void* func_020421a0();
-extern "C" Struct_ov017_021a6c2c_4* func_02012fe4();
+extern "C" void* GetMessageWindow_020421a0();
+extern "C" Struct_ov017_021a6c2c_4* GetZone3D_02012fe4();
 extern "C" void func_020a0cc4(unsigned int);
 extern "C" void func_ov017_021d1cb8();
 extern "C" void func_020397cc(Struct_02018300_3*, int);
@@ -86,8 +86,8 @@ extern "C" ARM void func_ov017_021a6c2c(Struct_ov017_021a6c2c_2* arg0) {
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
     void* var4 = func_02057924();
     func_0202ae18();
-    func_020421a0();
-    Struct_ov017_021a6c2c_4* var5 = func_02012fe4();
+    GetMessageWindow_020421a0();
+    Struct_ov017_021a6c2c_4* var5 = GetZone3D_02012fe4();
     if (arg0->unknown_8_ == 0) {
         if (arg0->unknown_10_) {
             Vector3fix var6 = var0->GetUnknownGameObject()->obj3D_.position_;

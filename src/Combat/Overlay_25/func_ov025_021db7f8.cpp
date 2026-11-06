@@ -12,7 +12,7 @@ extern "C" int func_ov000_0215ec1c(void* arg0, short* arg1, int arg2, int arg3);
 extern "C" void func_0204a00c(unsigned char* arg0, int arg1);
 extern "C" void func_ov000_02182498(void* arg0, int arg1);
 extern "C" void func_ov017_02195530(unsigned char* arg0);
-extern "C" unsigned char* func_020421a0();
+extern "C" unsigned char* GetMessageWindow_020421a0();
 
 struct Struct_ov025_021db7f8 {
     unsigned char unknown_0_0_ : 4;
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov025_021db7f8(Struct_ov025_021db7f8_2* arg0) {
     }
     func_ov000_02182498(arg0->unknown_6ffc_, 1);
     func_ov017_02195530((unsigned char*)GetGameResources());
-    func_020421a0()[Enum_ov025_021db7f8_6590] = 0;
+    GetMessageWindow_020421a0()[Enum_ov025_021db7f8_6590] = 0;
     arg0->unknown_e90_ = 0;
     arg0->unknown_e94_ = 0;
 }

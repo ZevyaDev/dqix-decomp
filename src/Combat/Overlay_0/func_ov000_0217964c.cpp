@@ -50,7 +50,7 @@ struct Struct_ov000_02176e3c {
     struct Struct_ov000_0217964c_3 unknown_188_;
 };
 
-extern "C" Struct_ov000_0217964c* func_020421a0();
+extern "C" Struct_ov000_0217964c* GetMessageWindow_020421a0();
 extern "C" void* func_02053c6c(unsigned char* arg0);
 extern "C" Struct_ov000_02171ffc_5* func_ov000_02171b9c(void* arg0, int arg1);
 extern "C" void func_02046608(Struct_ov000_0217964c* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov000_0217964c(Struct_ov000_02176e3c* arg0, Struct_ov00
     if (arg1 == NULL) {
         return;
     }
-    char* var3 = func_020421a0()->unknown_5c_;
+    char* var3 = GetMessageWindow_020421a0()->unknown_5c_;
     memset(var3, 0, Enum_ov000_0217964c_2400);
     GameObject* var4 = func_0200ff1c(GameState::GetInstance(), arg1->unknown_4c_);
     if (var4 == NULL) {
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov000_0217964c(Struct_ov000_02176e3c* arg0, Struct_ov00
     }
     func_020dcfc8(var5->unknown_18_, var3);
 #if !defined(jpn)
-    func_02046608(func_020421a0(), 0xa, var3, var2, 0x72, 0, 0);
+    func_02046608(GetMessageWindow_020421a0(), 0xa, var3, var2, 0x72, 0, 0);
 #endif
     var1 = &arg0->unknown_188_;
 #if defined(jpn)

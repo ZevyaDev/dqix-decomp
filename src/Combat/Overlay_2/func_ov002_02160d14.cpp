@@ -30,7 +30,7 @@ extern "C" const char *func_020e0434(char *arg0, int arg1);
 extern "C" int func_02041a28(char *arg0, int arg1);
 extern "C" int func_02042058(char *arg0, const char *arg1);
 extern "C" int func_02042638(char *arg0, const char *arg1, int arg2);
-extern "C" void *func_020421a0();
+extern "C" void *GetMessageWindow_020421a0();
 extern "C" void func_020465c0(void *arg0, int arg1, int arg2);
 extern "C" void func_020465f0(void *arg0, int arg1, unsigned char arg2);
 extern "C" void func_020465d8(void *arg0, int arg1, unsigned char arg2);
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov002_02160d14(Struct_ov002_02160d14 *arg0, char *arg1)
         sprintf(arg1, data_ov002_0216d9be, var15, var14, var3, func_0202053c(var2));
     }
     func_02042638(arg1, data_ov002_0216da1c, 0x10);
-    void *var7 = func_020421a0();
+    void *var7 = GetMessageWindow_020421a0();
     func_02046380(var7);
     Struct_ov002_0216d088 var8 = data_ov002_0216d088;
     Struct_020200c0 *var9 = var2->unknown_ac_.unknown_84_;

@@ -6,7 +6,7 @@ enum { Enum_ov003_02170898_2112 = 0x860 };
 enum { Enum_ov003_02170898_2112 = 0x840 };
 #endif
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 
 struct Struct_020985ec {
     unsigned char unknown_0_[0x10];
@@ -21,7 +21,7 @@ struct Struct_ov003_02170898 {
 
 // USA: func_ov003_02170898
 extern "C" ARM void func_ov003_02170898(unsigned char* arg0) {
-    struct Struct_020985ec* var0 = (struct Struct_020985ec*)((char*)func_02012fe4() + Enum_ov003_02170898_2112);
+    struct Struct_020985ec* var0 = (struct Struct_020985ec*)((char*)GetZone3D_02012fe4() + Enum_ov003_02170898_2112);
     int var1 = (*(struct Struct_ov003_02170898**)(arg0 + 0x170))->unknown_1b38_;
 
     int var2;

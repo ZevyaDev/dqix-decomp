@@ -18,7 +18,7 @@ extern "C" void func_02022da0(void*);
 #include "Resource/Brightness.h"
 #include "NitroSDK/Memory.h"
 
-extern "C" Zone3D* func_02012fe4(void);
+extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" void* func_0203bd08(void);
 extern "C" void* func_0203b628(void);
 extern "C" void func_02021428(void* arg0, int arg1);
@@ -89,7 +89,7 @@ extern "C" ARM void func_02021578(Struct_02020554* arg0) {
 
     GameState::GetInstance();
     var4 = BackgroundLoader::GetInstance();
-    var9 = func_02012fe4()->pUnknownStruct_8_;
+    var9 = GetZone3D_02012fe4()->pUnknownStruct_8_;
     var5 = GetGameResources();
     var10 = (char*)func_0203bd08();
     var11 = (char*)func_0203b628();

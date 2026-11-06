@@ -54,8 +54,8 @@ struct Struct_ov017_021ac3b0_4 { char unknown_0_[0x8c]; unsigned char unknown_8c
 struct Struct_ov017_021ac3b0_5 {
     char unknown_0_[0xc]; int unknown_c_; char unknown_10_[0x14]; int unknown_24_; char unknown_28_[0xc];
 };
-extern "C" Struct_ov017_021ac3b0_8* func_02012fe4();
-extern "C" Struct_ov017_021ac3b0_3* func_020421a0();
+extern "C" Struct_ov017_021ac3b0_8* GetZone3D_02012fe4();
+extern "C" Struct_ov017_021ac3b0_3* GetMessageWindow_020421a0();
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_02043204(char*);
@@ -67,9 +67,9 @@ extern "C" void* func_020d7a50();
 extern "C" int func_020d805c(Struct_020d805c*);
 extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
 #if defined(jpn)
-extern "C" void func_0204500c(void*, const char*, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int);
 #else
-extern "C" void func_0204500c(void*, const char*, int, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
 extern "C" void func_020a0cc4(unsigned int);
 extern "C" void func_02033834(Struct_02033834_2*, int);
@@ -103,8 +103,8 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     GetGameResources();
     GameObject* var1 = var0->GetUnknownGameObject();
-    Struct_ov017_021ac3b0_8* var2 = func_02012fe4();
-    Struct_ov017_021ac3b0_3* var3 = func_020421a0();
+    Struct_ov017_021ac3b0_8* var2 = GetZone3D_02012fe4();
+    Struct_ov017_021ac3b0_3* var3 = GetMessageWindow_020421a0();
     BackgroundLoader* var4 = BackgroundLoader::GetInstance();
     Struct_0208cb08* var5 = func_02094a00();
     func_020397cc((Struct_02018300_3*)var1, 1);
@@ -119,9 +119,9 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
         void* var7 = func_020d7a50();
         if (func_020d805c((Struct_020d805c*)var7)) func_020d7aa0((Struct_020d7aa0_2*)var7);
 #if defined(jpn)
-        func_0204500c(var3, data_ov017_021d7e88, 0);
+        StartMessage_0204500c(var3, data_ov017_021d7e88, 0);
 #else
-        func_0204500c(var3, data_ov017_021d7920, 0, 0xe3);
+        StartMessage_0204500c(var3, data_ov017_021d7920, 0, 0xe3);
 #endif
         var3->unknown_19b2_ = 0; var3->unknown_998_ = 1;
         func_02094b3c(var5, 10);
@@ -155,7 +155,7 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
         var4->GetLoadedFileByID(arg0->unknown_24_, &var11, &var12);
         arg0->unknown_10_.CreateTypeA(func_02012d88(&data_02114e20, 0x2800), 0x2800);
         arg0->unknown_10_.Reset();
-        Struct_ov017_021ac3b0_8* var13 = func_02012fe4();
+        Struct_ov017_021ac3b0_8* var13 = GetZone3D_02012fe4();
         Struct_ov017_021ac3b0_9* var14 = (Struct_ov017_021ac3b0_9*)arg0->unknown_10_.Allocate(0x18);
         arg0->unknown_c_ = var14;
         var14->unknown_0_ = 0; var14->unknown_4_ = 0; var14->unknown_8_ = 0; var14->unknown_c_ = 0;
@@ -190,9 +190,9 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
         char* var19 = func_0206f504();
         func_0206f510(var19); func_0206f550(var19, var16, var15);
 #if defined(jpn)
-        func_0204500c(var3, var15, 0);
+        StartMessage_0204500c(var3, var15, 0);
 #else
-        func_0204500c(var3, var15, 0, 0xe3);
+        StartMessage_0204500c(var3, var15, 0, 0xe3);
 #endif
         var3->unknown_998_ = 1; var3->unknown_19b2_ = 0; arg0->unknown_28_ = 5;
     } else if (arg0->unknown_28_ == 5) {

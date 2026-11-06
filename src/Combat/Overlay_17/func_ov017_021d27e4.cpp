@@ -14,7 +14,7 @@ extern "C" void func_ov017_0218f5a4(void* arg0, int arg1, int arg2, int arg3, in
 
 extern "C" int func_020100a8(GameState*);
 extern "C" void* func_02010828(GameState*);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" int func_020535c8(signed char*);
 extern "C" int func_02046b08(void**);
 extern "C" GameObject* func_0200ff1c(GameState*, int);
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov017_021d27e4(void* arg0, Struct_ov017_021d27e4_2* arg
     case 1: {
         if (!var5) return;
         int var9 = 1;
-        if ((*reinterpret_cast<int*>(static_cast<char*>(func_020421a0()) + Enum_ov017_021d27e4_2456)) != 0) var9 = 0;
+        if ((*reinterpret_cast<int*>(static_cast<char*>(GetMessageWindow_020421a0()) + Enum_ov017_021d27e4_2456)) != 0) var9 = 0;
         if (func_020535c8((signed char*)arg2->GetUnknownGameObject()) != 0) var9 = 0;
         if (func_02046b08(static_cast<void**>(arg3->unknown_ptr_array_36fc[0])) == 0) var9 = 0;
         if (func_020dc920((unsigned char)var1, 1, 1, 0) == 0) var9 = 0;

@@ -9,7 +9,7 @@
 #define TIMED_STATE 0x19e0
 #endif
 
-extern "C" unsigned char* func_020421a0(void);
+extern "C" unsigned char* GetMessageWindow_020421a0(void);
 extern "C" void func_02042b10(void* arg0, void* arg1);
 extern "C" void func_0202f380(void* arg0, int arg1);
 extern "C" void func_02042b1c(unsigned char* arg0);
@@ -26,7 +26,7 @@ extern "C" ARM void func_0205c904(unsigned char* arg0, int arg1) {
         return;
     }
 
-    unsigned char* var0 = func_020421a0();
+    unsigned char* var0 = GetMessageWindow_020421a0();
     func_02042b10(var0, arg0 + 0xb4);
     func_0202f380(var0 + TIMED_STATE, arg1);
     func_02042b1c(var0);

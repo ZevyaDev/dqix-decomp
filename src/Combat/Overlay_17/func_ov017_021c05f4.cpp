@@ -16,7 +16,7 @@ enum { Enum_ov017_021c05f4_1788 = 0x6fc, Enum_ov017_021c05f4_396 = 0x18c, Enum_o
 #define func_020c39c8 func_020c5494
 #endif
 
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void* func_020d6c00(void);
 extern "C" void* func_0205ec34(void);
 extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
@@ -35,7 +35,7 @@ extern "C" void func_02043204(char* arg0);
 extern "C" void* func_020d7a50(void);
 struct Struct_020d7aa0_2;
 extern "C" void func_020d7aa0(Struct_020d7aa0_2* arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_02017c58(void* arg0);
 extern "C" void func_ov017_021c0760(unsigned char* arg0, unsigned char arg1);
 struct Struct_02046a3c_2;
@@ -46,7 +46,7 @@ extern Struct_02108760 data_02108760;
 
 // USA: func_ov017_021c05f4
 extern "C" ARM void func_ov017_021c05f4(void* arg0, unsigned char arg1, unsigned char arg2, int arg3) {
-    void* var0 = func_020421a0();
+    void* var0 = GetMessageWindow_020421a0();
     if (arg3 != 0) {
         GameObject* var1 = GameState::GetInstance()->GetUnknownGameObject();
         void* var2 = func_020d6c00();
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov017_021c05f4(void* arg0, unsigned char arg1, unsigned
 
     void* var4 = func_020d7a50();
     func_020d7aa0((Struct_020d7aa0_2*)var4);
-    func_02017c58(func_02012fe4());
+    func_02017c58(GetZone3D_02012fe4());
 
     func_ov017_021c0760((unsigned char*)*(void**)((char*)arg0 + 0x3000 + Enum_ov017_021c05f4_2876), arg1);
     char* var5 = (char*)arg0 + 0x3000;

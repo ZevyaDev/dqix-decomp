@@ -87,9 +87,9 @@ extern "C" void func_020e4ce8(Struct_ov026_021db090_3*, GameObject*, int);
 extern "C" Struct_ov026_021d8ba0_8* func_ov017_021b8478(void*);
 extern "C" void* func_ov017_021b8468(void*);
 extern "C" void func_020dd0b0(int, char*);
-extern "C" void func_0204500c(Struct_ov023_021f4c04*, char*, int, int);
+extern "C" void StartMessage_0204500c(Struct_ov023_021f4c04*, char*, int, int);
 extern "C" void func_02042b98(Struct_ov023_021f4c04*, int, int, int, int);
-extern "C" Struct_ov023_021f4c04* func_020421a0();
+extern "C" Struct_ov023_021f4c04* GetMessageWindow_020421a0();
 extern "C" GameObject* func_0200fea4(GameState*, int);
 extern "C" int func_02010088(Struct_02010088*);
 extern "C" int func_ov026_021dd3c4(Struct_ov026_021d8ba0_10*);
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
     int var26;
 
     var6 = GameState::GetInstance();
-    var8 = func_020421a0();
+    var8 = GetMessageWindow_020421a0();
     if (arg0->unknown_8e24_ != 0) {
         return;
     }
@@ -249,7 +249,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
         break;
     }
 
-    var24 = func_020421a0()->unknown_5c_;
+    var24 = GetMessageWindow_020421a0()->unknown_5c_;
     memset(var24, 0, 0x960);
     func_020dd0b0(var26, var24);
     strcpy(var0, var24);
@@ -264,7 +264,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
             var26 = data_ov026_021de6a8[var33];
             var8->unknown_19d7_ = 1;
         }
-        var24 = func_020421a0()->unknown_5c_;
+        var24 = GetMessageWindow_020421a0()->unknown_5c_;
         memset(var24, 0, 0x960);
         func_020dd0b0(var26, var24);
         strcat(var0, var24);
@@ -280,7 +280,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
     } else {
         strcat(var0, data_ov026_021deed8);
     }
-    func_0204500c(var8, var0, 0, 0xe3);
+    StartMessage_0204500c(var8, var0, 0, 0xe3);
     var8->unknown_19b1_ = 0;
     func_02042b98(var8, 2, 0x92, 0xfc, 0x4a);
     var8->unknown_19b2_ = 0;

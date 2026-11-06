@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_02108760;
 extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
@@ -14,7 +14,7 @@ extern "C" ARM int func_ov023_021f4fc8(void) {
 #else
  enum {Enum_ov023_021f4fc8_2464=0x9a0, Enum_ov023_021f4fc8_2456=0x998};
 #endif
-    void* var0 = (void*)func_020421a0();
+    void* var0 = (void*)GetMessageWindow_020421a0();
     int var1 = *(int*)((char*)var0 + Enum_ov023_021f4fc8_2464);
     int var2 = 0;
     if (var1 == 3 || var1 == 0) {

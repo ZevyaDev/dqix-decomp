@@ -54,7 +54,7 @@ struct Struct_ov015_0219050c_2
     char unknown_2c4_[0x80];
 };
 
-extern "C" Struct_0204500c_5* func_020421a0();
+extern "C" Struct_0204500c_5* GetMessageWindow_020421a0();
 extern "C" void func_02069fec(Struct_0204500c_5* arg0, const char* arg1, char* arg2);
 #if defined(jpn)
 extern "C" int func_02045d14(Struct_0204500c_5* arg0, const char* arg1, unsigned short* arg2, int arg3);
@@ -84,7 +84,7 @@ extern const char data_ov015_02194295[];
 #define PREPARE_TEXT()                                                    \
     {                                                                     \
         memset(var1, 0, sizeof(var1));                                    \
-        Struct_0204500c_5* system = func_020421a0();     \
+        Struct_0204500c_5* system = GetMessageWindow_020421a0();     \
         char converted[0x40] = {};                                        \
         func_02069fec(system, var0, converted);                           \
         func_02045d14(system, converted, var1, PrepareLineMode);          \
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov015_0219050c(Struct_ov015_0219050c_2* arg0)
     char var0[0x20];
     unsigned short var1[0x20];
 
-    Struct_0204500c_5* var2 = func_020421a0();
+    Struct_0204500c_5* var2 = GetMessageWindow_020421a0();
     sprintf(var0, data_ov015_02194256, (double)(arg0->unknown_24c_));
     PREPARE_TEXT();
     DRAW_LINE(0, 0xa0, 0x7fff);

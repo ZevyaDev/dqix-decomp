@@ -62,7 +62,7 @@ extern Vector3i data_ov003_0217f4b8[3];
 
 extern "C" Struct_ov003_02166a90_6* func_ov003_02160bf8(Struct_ov003_02166a90_5*, int);
 extern "C" int func_0200fb8c(int*);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020108f0(void*, int);
 extern "C" void* func_02010954(char*);
 extern "C" void func_02086380(unsigned char*);
@@ -113,7 +113,7 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
     }
     GameState* var2 = GameState::GetInstance();
     GameResources* var3 = (GameResources*)func_0200fb8c((int*)var2);
-    unsigned short* var4 = (unsigned short*)func_02012fe4();
+    unsigned short* var4 = (unsigned short*)GetZone3D_02012fe4();
     if (arg0->unknown_4bc_ == 0) {
         int var5 = -1;
         for (int var6 = 3; var6 >= 0; var6--) {

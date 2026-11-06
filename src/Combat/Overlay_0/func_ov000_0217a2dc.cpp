@@ -16,7 +16,7 @@ extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
 extern "C" int func_02041cc0(char* arg0, int arg1);
 #if defined(jpn)
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02046380(void*);
 extern "C" void func_02046574(void*, int, const char*);
 extern "C" void __clear(void*, int);
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov000_0217a2dc(struct Struct_ov000_0217a2dc* arg0, int 
 
     func_02041e70(arg2, 0xf);
 #if defined(jpn)
-    void* var13 = func_020421a0();
+    void* var13 = GetMessageWindow_020421a0();
     func_02046380(var13);
     func_02046574(var13, 0,
         (const char*)func_020e0434(var0, 0x21));

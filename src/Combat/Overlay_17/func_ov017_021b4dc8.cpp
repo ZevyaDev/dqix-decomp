@@ -9,7 +9,7 @@ struct Struct_0209c08c {
     unsigned short unknown_18_;
 };
 
-extern "C" char* func_02012fe4(void);
+extern "C" char* GetZone3D_02012fe4(void);
 extern "C" int func_0201079c(char* arg0);
 extern "C" int func_020107d0(char* arg0);
 extern "C" int func_0201b5b0(int arg0);
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov017_021b4dc8(struct Struct_ov017_021b4dc8_2* arg0) {
     Struct_ov017_021b4dc8* var0;
     GameState* var1 = GameState::GetInstance();
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
-    ActiveGrottoClass* var3 = (ActiveGrottoClass*)((char*)func_02012fe4() + Enum_ov017_021b4dc8_9196);
+    ActiveGrottoClass* var3 = (ActiveGrottoClass*)((char*)GetZone3D_02012fe4() + Enum_ov017_021b4dc8_9196);
     int var4 = arg0->unknown_8_->unknown_0_;
 
     if (var2->GetTaskStatus(arg0->unknown_c_) == 0) {

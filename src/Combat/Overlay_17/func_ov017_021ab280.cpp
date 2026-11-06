@@ -11,7 +11,7 @@ enum { Enum_ov017_021ab280_2096 = 0x830, Enum_ov017_021ab280_1804 = 0x70c, Enum_
 #include "Resource/GameResources.h"
 
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 
 struct Struct_02018300_3;
 extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
@@ -73,7 +73,7 @@ extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
     func_0202ae18();
     unsigned char* var1 = (unsigned char*)GetGameResources();
     GameObject* var2 = var0->GetUnknownGameObject();
-    void* var3 = func_02012fe4();
+    void* var3 = GetZone3D_02012fe4();
 
     int var4 = arg0->unknown_8_;
     if (var4 == 0) {

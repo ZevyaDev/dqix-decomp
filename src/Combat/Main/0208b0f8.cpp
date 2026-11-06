@@ -13,7 +13,7 @@ struct Struct_02048228;
 struct Struct_02048284;
 extern "C" void* func_0205ec34();
 extern "C" void* func_0202ae18();
-extern "C" void* func_02012fe4();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" void* __clear(void*, int);
 extern "C" void func_0206f81c(void*);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
@@ -100,7 +100,7 @@ extern "C" ARM void func_0208b0f8(void* arg0) {
         var0->unknown_a8_--;
         if (var0->unknown_a8_ == 0) {
             Struct_0208b0f8_3 var20;
-            var20.unknown_c_ = *(unsigned short*)func_02012fe4();
+            var20.unknown_c_ = *(unsigned short*)GetZone3D_02012fe4();
             if (func_020649b0(var2, 0x19, &var20)) {
                 func_0206f81c(&var20);
             }

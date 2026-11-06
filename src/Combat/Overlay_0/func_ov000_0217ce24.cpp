@@ -38,7 +38,7 @@ extern "C" int func_ov000_0217c5f4(void*);
 extern "C" void func_0205d6a0(Struct_0205d6a0*,int);
 extern Struct_02108760 data_02108760;
 extern "C" {
-void func_02012fe4();int func_ov000_0217c594(void*,int);
+void GetZone3D_02012fe4();int func_ov000_0217c594(void*,int);
 void* func_ov000_02161318(void*,int);int func_ov000_0217f5dc(void*);
 void func_ov000_02177038(void*,int,int,int,int);
 void func_ov000_02176634(void*,void*,int,int,int);
@@ -50,7 +50,7 @@ void func_ov000_0217c638(void*,int,int);
 // USA: func_ov000_0217ce24
 extern "C" ARM void func_ov000_0217ce24(Struct_ov000_021682ec_5* arg0,int arg1,int arg2)
 {
-    func_02012fe4();
+    GetZone3D_02012fe4();
     arg0->unknown_1d72_|=0x100;
     int var0=func_0205d794((Struct_0205c570*)arg0->unknown_188_);
     if(var0<0)var0=0;

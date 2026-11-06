@@ -22,7 +22,7 @@ enum { Enum_ov003_02158214_504 = 0x1f8 };
 #endif
 
 extern "C" int func_0200fb8c(int* arg0);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02043204(char* arg0);
 
 struct Struct_020e28dc;
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov003_02158214(void* arg0) {
 
     if (var3 == 0) {
         *(int*)(var0 + Enum_ov003_02158214_812) = 0;
-        func_02043204((char*)func_020421a0());
+        func_02043204((char*)GetMessageWindow_020421a0());
 
         *(short*)(var0 + Enum_ov003_02158214_494) = -1;
         *(short*)(var0 + Enum_ov003_02158214_492) = *(short*)(var0 + Enum_ov003_02158214_494);

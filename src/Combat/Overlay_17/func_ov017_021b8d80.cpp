@@ -10,7 +10,7 @@ enum { Enum_ov017_021b8d80_140 = 0x8c };
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 struct Struct_0208ba54;
 extern "C" void func_0208ba54(struct Struct_0208ba54* arg0);
 extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov017_021b8d80(unsigned char* arg0) {
     }
 
     if (arg0[0x137] == 0) {
-        *(int*)((char*)func_020421a0() + Enum_ov017_021b8d80_140) = 0;
+        *(int*)((char*)GetMessageWindow_020421a0() + Enum_ov017_021b8d80_140) = 0;
         func_0208ba54((struct Struct_0208ba54*)(arg0 + 0x30));
         SafeAllocator* var2 = (SafeAllocator*)(arg0 + 0x8);
         void* var3 = var2->GetSignedAllocator();

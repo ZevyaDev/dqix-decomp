@@ -32,7 +32,7 @@ extern "C" int func_0200fb08(Struct_02000c9c_8*);
 extern "C" void* func_0208e9e8();
 extern "C" void func_02096604(char*, int);
 extern "C" {
-Zone3D* func_02012fe4();
+Zone3D* GetZone3D_02012fe4();
 void func_02018d28(Zone3D*, SafeAllocator*, void*, unsigned int);
 void func_0204719c(void*);
 void func_02047b40(Struct_02012fa4*, const void*, SafeAllocator*);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_0219b624(GameResources* arg0) {
 #if !defined(jpn)
     GameState* var3 = GameState::GetInstance();
 #endif
-    var1 = func_02012fe4();
+    var1 = GetZone3D_02012fe4();
     BackgroundLoader::GetInstance();
     var2 = &arg0->allocator_array_38[5];
     Struct_0203d028* var4 = reinterpret_cast<Struct_0203d028*>(reinterpret_cast<char*>(arg0) + Enum_ov017_0219b624_1276);

@@ -72,7 +72,7 @@ struct Struct_ov017_021afe00_2 {
 };
 
 extern "C" void* func_0202ae18();
-extern "C" void* func_02012fe4();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" void func_020531f0(void* arg0);
 extern "C" void func_ov017_021cff8c(int arg0, int arg1);
 extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
@@ -112,7 +112,7 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
         }
     }
     arg0->unknown_b_ = 1;
-    char* var4 = (char*)func_02012fe4();
+    char* var4 = (char*)GetZone3D_02012fe4();
     GameResources* var6;
 #if defined(jpn)
     Struct_ov017_021afe00* var5 = (Struct_ov017_021afe00*)(var4 + 0x860);
@@ -128,7 +128,7 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
         if (IsBrightnessOutsideValidRange((GameResources*)var6, false) != 0) {
             arg0->unknown_42_ = 1;
             DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
-            char* var7 = (char*)func_02012fe4();
+            char* var7 = (char*)GetZone3D_02012fe4();
             if (var7 != 0) {
 #if defined(jpn)
                 Struct_0201e830* var8 = (Struct_0201e830*)(var7 + 0x8c);

@@ -1,10 +1,10 @@
 #pragma once
 
-struct Struct_02021b84;
+struct MessageWindow_02021b84;
 
-extern "C" void func_02065990(Struct_02021b84* arg0, int arg1);
-extern "C" void func_02043040(Struct_02021b84* arg0);
-extern "C" void func_020430b0(Struct_02021b84* arg0);
+extern "C" void func_02065990(MessageWindow_02021b84* arg0, int arg1);
+extern "C" void func_02043040(MessageWindow_02021b84* arg0);
+extern "C" void func_020430b0(MessageWindow_02021b84* arg0);
 
 #if defined(jpn)
 extern "C" int func_02069430(void* arg0, unsigned short arg1);

@@ -41,7 +41,7 @@ struct Struct_020465c0;
 extern "C" void func_ov003_0215b6f0(struct Struct_ov003_0215c0ec_3* arg0, char* arg1, int arg2);
 extern "C" void func_ov003_0215b964(struct Struct_ov003_0215c0ec_3* arg0, char* arg1, int arg2);
 extern "C" void func_ov003_0215be70(struct Struct_ov003_0215c0ec_3* arg0, char* arg1, int arg2);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02046380(void* arg0);
 extern "C" int func_020e51cc(int arg0);
 extern "C" int func_02042058(char* arg0, const char* arg1);
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov003_0215c0ec(struct Struct_ov003_0215c0ec_3* arg0) {
     }
     if (arg0->unknown_583_ != 0) {
         GameState* var3 = GameState::GetInstance();
-        int var4 = func_020421a0();
+        int var4 = GetMessageWindow_020421a0();
         memset(arg0->unknown_7c_, 0, Enum_ov003_0215c0ec_2400);
 #if defined(jpn)
         func_02042428(arg0->unknown_7c_, 8);

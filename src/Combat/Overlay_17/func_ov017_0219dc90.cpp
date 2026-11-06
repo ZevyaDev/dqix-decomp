@@ -72,7 +72,7 @@ struct Struct_ov017_0219dc90 {
 
 extern "C" void* func_0202ae18(void);
 extern "C" Struct_ov017_0219dc90_2* func_02027ca4(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" signed char func_0202c1a4(Struct_0202c1a4* arg0);
 extern "C" void func_020288e0(Struct_ov017_0219dc90_2* arg0);
 extern "C" void func_ov017_0219e0ec(void* arg0);
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov017_0219dc90(Struct_ov017_0219dc90* arg0, int arg1, i
     GameState* var0 = GameState::GetInstance();
     void* var1 = func_0202ae18();
     Struct_ov017_0219dc90_2* var2 = func_02027ca4();
-    func_02012fe4();
+    GetZone3D_02012fe4();
     Struct_ov017_0219dc90_7* var3 = (Struct_ov017_0219dc90_7*)func_0200ff1c(var0, arg1);
     if (func_0202c1a4((Struct_0202c1a4*)var1) != 0) return;
     func_020288e0(var2);

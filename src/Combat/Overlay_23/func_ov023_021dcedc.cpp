@@ -40,7 +40,7 @@ extern char data_ov023_021fdb35[];
 extern char data_ov023_021fdb39[];
 extern char data_ov023_021fdb3b[];
 extern char data_ov023_021fdb3e[];
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" int sprintf(char*, const char*, ...);
 extern "C" void func_0206819c(const char*, char*, int);
 extern "C" void func_02046608(void*, int, const char*, char*, int, int, int);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov023_021dcedc(Struct_ov023_021dcedc* arg0, void* arg1)
     }
     char var2[64] = {};
 #if !defined(jpn)
-    void* var3 = func_020421a0();
+    void* var3 = GetMessageWindow_020421a0();
 #endif
     for (int var4 = 0; var4 < 3; var4++) {
         const char* var5 = arg0->unknown_784_[var4];

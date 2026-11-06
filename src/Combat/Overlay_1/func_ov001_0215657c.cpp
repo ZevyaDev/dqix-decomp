@@ -56,15 +56,15 @@ struct Struct_ov001_0215657c { char unknown_0_[0x8c]; unsigned char unknown_8c_[
 extern "C" char* func_020100f8(char*);
 extern "C" Struct_ov001_0215657c* func_0205ec34();
 extern "C" int func_0206dfb0(int, unsigned char*, int);
-extern "C" unsigned short* func_02012fe4();
-extern "C" Struct_02046574_2* func_020421a0();
+extern "C" unsigned short* GetZone3D_02012fe4();
+extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 extern "C" int func_020e51cc(int);
 extern "C" void func_02046608(Struct_02046574_2*, int, int, char*, int, int, int);
 #if defined(jpn)
-extern "C" void func_0204500c(Struct_02046574_2*, char*, int);
+extern "C" void StartMessage_0204500c(Struct_02046574_2*, char*, int);
 #else
-extern "C" void func_0204500c(Struct_02046574_2*, char*, int, int);
+extern "C" void StartMessage_0204500c(Struct_02046574_2*, char*, int, int);
 #endif
 void SetMainBrightness(GameResources*, int, int);
 extern "C" Struct_02070900_2* func_020704fc();
@@ -94,25 +94,25 @@ extern "C" ARM int func_ov001_0215657c(Struct_ov001_0215657c_2* arg0, void* arg1
     else {
         Struct_ov001_0215657c* var6 = func_0205ec34();
         if (func_0206dfb0((int)var6, var6->unknown_8c_, arg0->unknown_154_ + 0x38e)) var3 = 1;
-        else if (arg0->unknown_156_ == *func_02012fe4()) var4 = 1;
+        else if (arg0->unknown_156_ == *GetZone3D_02012fe4()) var4 = 1;
     }
     if (var3) {
         GameState* var7 = GameState::GetInstance();
         GameResources* var8 = GetGameResources();
-        Struct_02046574_2* var9 = func_020421a0();
+        Struct_02046574_2* var9 = GetMessageWindow_020421a0();
         GameObject* var10 = func_0200ff1c(var7, 0);
         if (var10) {
             char* var11 = (char*)var10->baseStats_;
 #if defined(jpn)
             char var12[0x50];
             sprintf(var12, data_ov001_021661e8, var11);
-            func_0204500c(var9, var12, 0);
+            StartMessage_0204500c(var9, var12, 0);
 #else
             func_02046574(var9, 0, var11);
             char var13[0x100];
             int var14 = func_020e51cc(0x34);
             func_02046608(var9, 12, var14, var13, 0xe3, 0, 1);
-            func_0204500c(var9, var13, 0, 0xe3);
+            StartMessage_0204500c(var9, var13, 0, 0xe3);
 #endif
             var9->unknown_998_ = 1;
             var9->unknown_19b2_ = 0;

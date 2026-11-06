@@ -2,7 +2,7 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_020981e4(int arg0, int arg1);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 
@@ -22,7 +22,7 @@ static inline int inline_ov004_02163304(char* arg0) { SDK_NULL_ASSERT(arg0); ret
 // USA: func_ov004_02163304
 extern "C" ARM int func_ov004_02163304(void* arg0) {
     int var0 = 3;
-    char* var1 = (char*)func_02012fe4();
+    char* var1 = (char*)GetZone3D_02012fe4();
     char* var2 = var1 + 0x840;
     if (var2 != NULL && func_020981e4((int)var2, inline_ov004_02163304(var1))) {
         var0 = 7;

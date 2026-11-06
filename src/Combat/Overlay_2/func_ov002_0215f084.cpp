@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_020dd290(void *arg0, unsigned int arg1);
-extern "C" void *func_020421a0();
+extern "C" void *GetMessageWindow_020421a0();
 extern "C" void func_02046380();
 struct Struct_ov002_02157d40_2;
 extern "C" void func_020465c0(Struct_ov002_02157d40_2*, int, int);
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov002_0215f084(void *arg0, int arg1) {
     int var7 = func_020dd290(var3, var6);
     short var8 = *(short*)((char*)var3 + 4);
     Struct_020fdcb0 *var9 = &data_020fdcb0[var8];
-    void *var10 = func_020421a0();
+    void *var10 = GetMessageWindow_020421a0();
     func_02046380();
     func_020465c0((Struct_ov002_02157d40_2*)var10, 0, var7);
 #if defined(jpn)

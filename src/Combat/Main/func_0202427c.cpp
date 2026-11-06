@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "World/Zone3D.h"
 
-extern "C" void *func_02012fe4(void);
+extern "C" void *GetZone3D_02012fe4(void);
 extern "C" int func_0201b588(int arg0);
 extern "C" int func_020d2ff0(const char *arg0);
 extern "C" void func_0202756c(void *arg0, int arg1, int arg2, int arg3, unsigned char arg4, unsigned char arg5,
@@ -14,7 +14,7 @@ static inline int inline_0202427c(int arg0) {
 // USA: func_0202427c
 extern "C" ARM void func_0202427c(void *arg0) {
     unsigned char *var0 = static_cast<unsigned char *>(arg0);
-    Zone3D *var1 = static_cast<Zone3D *>(func_02012fe4());
+    Zone3D *var1 = static_cast<Zone3D *>(GetZone3D_02012fe4());
     unsigned short var2 = var1->currentZoneID_;
     if (!var0[0x5a8] || func_0201b588(var2) || var2 == 10000 || var2 == 10100) {
         return;

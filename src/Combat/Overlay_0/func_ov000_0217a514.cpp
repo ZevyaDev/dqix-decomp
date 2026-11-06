@@ -19,7 +19,7 @@ extern "C" void func_ov000_0217c638(void* arg0, int arg1, int arg2);
 extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
 extern "C" void func_0205bb04(void* arg0, int arg1);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov000_0217a688(void* arg0, void* arg1, int arg2, void* arg3);
 #if defined(jpn)
 extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov000_0217a514(char* arg0, char* arg1, int arg2, int ar
     func_0205bacc((struct Struct_0205bacc*)(arg0 + 0x244), var0);
     func_0205bb04(arg0 + 0x244, var1);
 
-    int var3 = func_020421a0();
+    int var3 = GetMessageWindow_020421a0();
     void* var4 = *(void**)((char*)var3 + REGION_OFFSET_0);
     memset(var4, 0, REGION_OFFSET_1);
     func_ov000_0217a688(arg0, arg1, arg3, var4);

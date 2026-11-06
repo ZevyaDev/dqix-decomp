@@ -16,9 +16,9 @@ struct Struct_ov017_02198aa0_2 { unsigned char unknown_0_[8]; signed char unknow
 struct Struct_ov017_02198aa0_3 { unsigned char unknown_0_; unsigned char unknown_1_[19]; };
 struct Struct_ov017_02198aa0_4 { unsigned short unknown_0_; unsigned char unknown_2_[5]; unsigned char unknown_7_; unsigned char unknown_8_[4]; unsigned char unknown_c_; unsigned char unknown_d_[15]; unsigned short unknown_1c_; };
 extern "C" void* func_020100bc(GameState*);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void* func_0202ae18();
-extern "C" void* func_02012fe4();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" int func_020535c8(signed char*);
 extern "C" int func_0203402c(Struct_0203402c*);
 extern "C" int func_0202b7d8(int*);
@@ -38,9 +38,9 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* arg0) {
     GameObject* var1 = var0->GetUnknownGameObject();
     void* var2 = func_020100bc(var0);
     GameResources* var3 = GetGameResources();
-    Struct_02021b84* var4 = (Struct_02021b84*)func_020421a0();
+    MessageWindow_02021b84* var4 = (MessageWindow_02021b84*)GetMessageWindow_020421a0();
     void* var5 = func_0202ae18();
-    void* var6 = func_02012fe4();
+    void* var6 = GetZone3D_02012fe4();
     GrottoStruct* var7 = var0->GetGrottoStruct();
     unsigned char var8 = var7->activeMapData.GetDiscoveryState();
     unsigned char var9 = var7->activeMapData.GetMapType();

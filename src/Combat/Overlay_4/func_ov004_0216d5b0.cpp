@@ -12,7 +12,7 @@ extern "C" int func_ov024_021f6f10(void* arg0);
 #define NODE_KIND_CALL func_ov024_021f6f10
 #endif
 extern "C" void* func_ov023_021fa598(void* arg0);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" int func_020abb64(void);
 struct Struct_02072a68_2;
 extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
@@ -28,14 +28,14 @@ extern "C" ARM int func_ov004_0216d5b0(void* arg0) {
 
     struct Struct_02072a68_2* var1 = (struct Struct_02072a68_2*)func_ov023_021fa598(var0);
     GameState* var2 = GameState::GetInstance();
-    Struct_02021b84* var3 = (Struct_02021b84*)func_020421a0();
+    MessageWindow_02021b84* var3 = (MessageWindow_02021b84*)GetMessageWindow_020421a0();
 
     if (func_020abb64() == 0) {
         void* var4 = func_02072a68(var1, 0x5dd);
 #if defined(jpn)
-        func_0204500c(var3, (const char*)var4, 0);
+        StartMessage_0204500c(var3, (const char*)var4, 0);
 #else
-        func_0204500c(var3, (const char*)var4, 0, 0xe3);
+        StartMessage_0204500c(var3, (const char*)var4, 0, 0xe3);
 #endif
         var3->unknown_19ca_ = 0;
         var3->unknown_19af_ = 0;
@@ -45,9 +45,9 @@ extern "C" ARM int func_ov004_0216d5b0(void* arg0) {
 
     void* var5 = func_02072a68(var1, 0x4b1);
 #if defined(jpn)
-    func_0204500c(var3, (const char*)var5, 0);
+    StartMessage_0204500c(var3, (const char*)var5, 0);
 #else
-    func_0204500c(var3, (const char*)var5, 0, 0xe3);
+    StartMessage_0204500c(var3, (const char*)var5, 0, 0xe3);
 #endif
     func_0200fb94((char*)var2, 7);
     func_02012028(var2, 0);

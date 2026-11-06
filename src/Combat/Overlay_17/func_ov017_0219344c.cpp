@@ -54,7 +54,7 @@ struct Struct_ov017_0219344c {
     unsigned short unknown_2_;
 };
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_02046b24(Struct_02015438** arg0);
 extern "C" void func_02033f2c(Struct_02033f2c* arg0);
 extern "C" int func_ov017_0218df50(void* arg0, void* arg1);
@@ -109,7 +109,7 @@ extern "C" ARM int func_ov017_0219344c(Struct_ov017_0219344c_2* arg0, int arg1, 
 
     var4 = GameState::GetInstance();
     GameResources* var19 = GetGameResources();
-    var5 = (Struct_ov017_0219344c_3*)func_02012fe4();
+    var5 = (Struct_ov017_0219344c_3*)GetZone3D_02012fe4();
     var6 = 0;
     Struct_02015438** var20 = (Struct_02015438**)var19->unknown_ptr_array_36fc[0];
     var17 = var5->unknown_0_;
@@ -266,7 +266,7 @@ extern "C" ARM int func_ov017_0219344c(Struct_ov017_0219344c_2* arg0, int arg1, 
     }
 
     GameResources* var35 = GetGameResources();
-    unsigned char* var36 = (unsigned char*)func_02012fe4();
+    unsigned char* var36 = (unsigned char*)GetZone3D_02012fe4();
     Vector3i var37 = arg0->position_;
     Struct_ov017_0219344c* var38 = (Struct_ov017_0219344c*)var35->unknown_36b4_;
     if (var38 != NULL && !(var21.x == var37.x && var21.y == var37.y && var21.z == var37.z)) {

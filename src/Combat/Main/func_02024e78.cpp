@@ -45,7 +45,7 @@ struct Struct_0202441c;
 struct Struct_02024d48;
 
 extern "C" void *func_0203b628();
-extern "C" void *func_02012fe4();
+extern "C" void *GetZone3D_02012fe4();
 extern "C" void func_0203b718(void *arg0, int arg1, int arg2, int arg3);
 extern "C" Struct_02024518_3 *func_02027878(Struct_02024518_2 *arg0, int arg1);
 extern "C" void func_0203bcb8(Struct_02020fc4_3 *arg0, int arg1, int arg2);
@@ -60,7 +60,7 @@ extern "C" ARM void func_02024e78(void *arg0) {
     Struct_02024e78_2 *var0 = static_cast<Struct_02024e78_2 *>(arg0);
     GameObject *var1             = GameState::GetInstance()->GetUnknownGameObject();
     void *var2            = func_0203b628();
-    func_02012fe4();
+    GetZone3D_02012fe4();
     Vector3i var3 = var1->obj3D_.position_;
     Struct_020236dc var4[17];
     unsigned char var5[32];
@@ -141,7 +141,7 @@ extern "C" ARM void func_020251bc(void *arg0) {
     Struct_020251bc_2 *var0 = static_cast<Struct_020251bc_2 *>(arg0);
     GameObject *var1                  = GameState::GetInstance()->GetUnknownGameObject();
     void *var2                  = func_0203b628();
-    func_02012fe4();
+    GetZone3D_02012fe4();
     Vector3fix var3 = var1->obj3D_.position_;
     Struct_020236dc var4[17];
     unsigned char var5[32];

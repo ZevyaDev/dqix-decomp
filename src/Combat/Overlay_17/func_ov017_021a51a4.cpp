@@ -28,9 +28,9 @@ struct Struct_020213fc;
 struct Struct_02027bac;
 struct SafeAllocator;
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" Struct_0202b2f0* func_0202ae18(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" Struct_02012de8* func_020d6c00();
 extern "C" unsigned char* func_0200fd0c(GameState* arg0);
 extern "C" int func_02046b08(void** arg0);
@@ -119,9 +119,9 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
     Struct_ov017_021a51a4_3* var11;
     var0 = GameState::GetInstance();
     var1 = (Struct_ov017_021a51a4*)var0->GetUnknownGameObject();
-    func_020421a0();
+    GetMessageWindow_020421a0();
     var3 = func_0202ae18();
-    var11 = *(Struct_ov017_021a51a4_3**)((char*)func_02012fe4() + 8);
+    var11 = *(Struct_ov017_021a51a4_3**)((char*)GetZone3D_02012fe4() + 8);
     var4 = func_020d6c00();
     var5 = func_0200fd0c(var0);
     if (!func_02046b08((void**)arg0->unknown_36fc_)) {

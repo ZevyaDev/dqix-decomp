@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Combat/Overlay_1/EventArgs.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_02018fbc(int arg0, Struct_ov001_02158efc* arg1);
 struct Struct_020fdd44;
 extern "C" struct Struct_020fdd44* func_02027cb0(void);
@@ -16,7 +16,7 @@ struct Struct_ov017_021a3338_2 { unsigned char unknown_0_[2]; unsigned short unk
 // USA: func_ov017_021a3338
 extern "C" ARM void func_ov017_021a3338(void*) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_ov017_021a3338* var1 = (struct Struct_ov017_021a3338*)func_02012fe4();
+    struct Struct_ov017_021a3338* var1 = (struct Struct_ov017_021a3338*)GetZone3D_02012fe4();
     unsigned short var2 = var1->unknown_0_;
     struct Struct_020fdd44* var3 = func_02027cb0();
     if (var3 == NULL) return;

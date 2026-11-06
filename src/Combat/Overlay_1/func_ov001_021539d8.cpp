@@ -160,7 +160,7 @@ void _ZN8Object3D25LoadFromCCHROrCMOTArchiveEP21ObjectArchiveLoadInfoPFiPN4BCFG1
 void _ZN8Object3D8SetScaleEiii(struct Struct_ov001_021539d8_11* arg0, int arg1, int arg2, int arg3);
 void _ZN8Object3D21MaybeSetBCFGAnimationEii(struct Struct_ov001_021539d8_11* arg0, int arg1, int arg2);
 void _ZN8Object3D16SetModelFromFileEP13SafeAllocatorPvjN7Model3D18TextureStagingModeE(struct Struct_ov001_021539d8_11* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, int arg4);
-void func_02012fe4(void);
+void GetZone3D_02012fe4(void);
 void func_020404c0(struct Struct_ov001_021539d8* arg0);
 void func_0206bf2c(void* arg0);
 void func_0203c794(struct Struct_ov001_021539d8_12* arg0);
@@ -351,7 +351,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             _ZN8Object3D21MaybeSetBCFGAnimationEii(var34, 0, 0);
             func_0200fd38(var0, var5->unknown_2_, var34);
             if (var5->unknown_4_ & 1) {
-                func_02012fe4();
+                GetZone3D_02012fe4();
                 var8 = LightingManager::GetInstance();
                 var18 = var34->unknown_8_->unknown_54_;
                 NSBXXNameList* var35 = var18->GetMeshListSafe();

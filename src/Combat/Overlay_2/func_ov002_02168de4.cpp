@@ -8,7 +8,7 @@ struct Struct_0201099c_3;
 struct Struct_020727d8;
 
 extern "C" unsigned char func_ov013_021847c4(void *arg0, int arg1);
-extern "C" char *func_020421a0();
+extern "C" char *GetMessageWindow_020421a0();
 extern "C" int func_ov002_021574d4(void *arg0, int arg1);
 extern "C" void func_ov013_02184c8c(void *arg0, void *arg1);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov002_02168de4(char *arg0) {
     *(unsigned int *) (arg0 + 0x22ac) |= 4;
     if (func_ov013_021847c4(arg0 + 0xc20 + 0x1000, *(int *) (arg0 + 0x1a68)) == 6) {
         GameState *var1 = GameState::GetInstance();
-        func_020421a0();
+        GetMessageWindow_020421a0();
         *(unsigned int *) (arg0 + 0x22ac) &= ~4;
         if (*(unsigned char *) (arg0 + 0x2289) == 0) {
             char *var2 =

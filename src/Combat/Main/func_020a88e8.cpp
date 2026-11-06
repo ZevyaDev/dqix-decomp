@@ -10,12 +10,12 @@ struct Struct_02019508 { unsigned short unknown_0_, unknown_2_; signed char unkn
 struct Struct_02019508_3;
 struct Struct_020a88e8_2 { char unknown_0_[3]; unsigned char unknown_3_; };
 struct Struct_020a88e8_3 { char unknown_0_[Enum_020a88e8_14092]; Struct_020a88e8_2* unknown_370c_; };
-extern "C" Struct_02019508_3* func_02012fe4();
+extern "C" Struct_02019508_3* GetZone3D_02012fe4();
 extern "C" Struct_02019508* func_02019508(Struct_02019508_3*, int, int);
 extern "C" void func_020133b4(void*, int);
 // USA: func_020a88e8
 extern "C" ARM void func_020a88e8(Struct_020a88e8* arg0) {
-    Struct_02019508_3* var0 = func_02012fe4();
+    Struct_02019508_3* var0 = GetZone3D_02012fe4();
     Struct_02019508* var1 = func_02019508(var0, arg0->unknown_1_, arg0->unknown_2_);
     Struct_02019508* var2 = func_02019508(var0, arg0->unknown_8_, arg0->unknown_9_);
     if (!var1 || !var2) return;

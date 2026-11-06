@@ -8,7 +8,7 @@ struct Struct_0205af18;
 extern "C" int func_0205af18(int arg0, struct Struct_0205af18* arg1);
 extern "C" void* func_ov023_021fa854(char* arg0, unsigned int arg1);
 extern "C" void func_ov023_021f6e10(void* arg0, int arg1, unsigned int arg2);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 
 extern "C" int func_ov023_021fad20(const void* arg0, const char* arg1, const void** arg2, unsigned int* arg3);
 extern "C" void func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov023_021fab48(void* arg0, void* arg1, const void* arg2
         }
     }
 
-    char* var10 = (char*)func_020421a0();
+    char* var10 = (char*)GetMessageWindow_020421a0();
     *(void**)(var10 + Enum_ov023_021fab48_728) = (char*)arg0 + Enum_ov023_021fab48_36;
     *(int*)(var10 + Enum_ov023_021fab48_732) = *(int*)((char*)arg0 + Enum_ov023_021fab48_100);
     *(short*)(var10 + Enum_ov023_021fab48_740) = 0;

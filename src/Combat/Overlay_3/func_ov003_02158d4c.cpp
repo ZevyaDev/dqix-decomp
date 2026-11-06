@@ -20,7 +20,7 @@ extern "C" void func_0205d2bc(struct Struct_0205d2bc* arg0);
 extern "C" void func_0205d048(void* arg0);
 extern "C" int LoadToMainBG1CharacterData(int src, int offset, unsigned int size);
 extern "C" int LoadToMainBG1ScreenData(int src, int offset, unsigned int size);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02043124(void* arg0);
 extern "C" void func_02043204(char* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov003_02158d4c(Struct_ov003_02158d4c* arg0) {
     LoadToMainBG1CharacterData((int)var1, 0, 0x20);
     LoadToMainBG1ScreenData((int)var1, 0, 0x800);
 
-    void* var2 = (void*)func_020421a0();
+    void* var2 = (void*)GetMessageWindow_020421a0();
     func_02043124(var2);
     func_02043204((char*)var2);
 

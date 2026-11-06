@@ -19,7 +19,7 @@ struct Struct_020465c0 {
     int unknown_8b0_[0x10];
 };
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
@@ -37,7 +37,7 @@ extern "C" void func_02042428(char* arg0, int arg1);
 extern "C" ARM void func_ov012_0218a1f4(unsigned char* arg0, char* arg1) {
     if (arg1 == 0) return;
 
-    struct Struct_020465c0* var0 = (struct Struct_020465c0*)func_020421a0();
+    struct Struct_020465c0* var0 = (struct Struct_020465c0*)GetMessageWindow_020421a0();
 #if defined(jpn)
     func_020465c0(var0, 0, arg0[0x1457]);
     func_020465f0((unsigned char*)var0, 0, 2);

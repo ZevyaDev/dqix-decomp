@@ -11,7 +11,7 @@
 #include "std_library_functions.h"
 #include "World/GrottoTileGraph.h"
 
-extern "C" Zone3D* func_02012fe4(void);
+extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" void func_020a0cc4(unsigned int arg0);
 extern "C" void func_020a0c0c(void);
 extern "C" int func_0201b5b0(int arg0);
@@ -38,7 +38,7 @@ struct Struct_ov017_021b4a88 {
 extern "C" ARM void func_ov017_021b4a88(Struct_ov017_021b4a88* arg0) {
     GameState::GetInstance();
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
-    Zone3D* var1 = func_02012fe4();
+    Zone3D* var1 = GetZone3D_02012fe4();
     ActiveGrottoClass* var2 = &var1->grotto_;
     Struct_020134e0 var3;
     var3.func_0201e248();

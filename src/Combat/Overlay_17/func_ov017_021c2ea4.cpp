@@ -6,7 +6,7 @@ extern "C" int sprintf(char*, const char*, ...);
 extern char* data_ov017_021d87f4;
 #endif
 
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
 extern "C" int func_020e51cc(int arg0);
 extern "C" void* func_020d7a50(void);
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov017_021c2ea4(unsigned char* arg0) {
 #else
     GameState::GetInstance();
 #endif
-    void* var4 = func_020421a0();
+    void* var4 = GetMessageWindow_020421a0();
 #if defined(jpn)
     GameObject* var5 = var3->GetPartyMemberByIndex(arg0[0x95]);
     sprintf(var1, data_ov017_021d87f4, *(char**)((char*)var5 + 0x134));

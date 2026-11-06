@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_02012fe4();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" void VectorizedInvertedMemcpy(void* dst, const void* src, unsigned int size);
 
 struct Struct_020a9b2c {
@@ -52,7 +52,7 @@ struct Struct_020a9b2c_6 {
 extern "C" ARM int func_020a9b2c(Struct_020a9b2c_3* arg0) {
     Struct_020a9b2c_2* var0 = &arg0->unknown_198_;
     Struct_020a9b2c* var1 = &var0->unknown_c00_;
-    Struct_020a9b2c_6* var2 = static_cast<Struct_020a9b2c_6*>(func_02012fe4());
+    Struct_020a9b2c_6* var2 = static_cast<Struct_020a9b2c_6*>(GetZone3D_02012fe4());
     Struct_020a9b2c_5* var3 = &var2->unknown_840_;
     var3->unknown_1000_.unknown_b38_ = var1->unknown_d98_;
     var3->unknown_1000_.unknown_b34_ = var1->unknown_d9c_;

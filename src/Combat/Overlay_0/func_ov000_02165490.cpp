@@ -397,7 +397,7 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
         func_02070b6c(&var14->unknown_400_, &arg0->unknown_44_, data_0211e33c, var4, var2, var8);
     }
 
-    Zone3D* var57 = func_02012fe4();
+    Zone3D* var57 = GetZone3D_02012fe4();
     char* var58 = func_02028bd0(func_02027ca4(), var57->currentZoneID_);
     if (var58 != 0) {
 #if defined(jpn)
@@ -453,7 +453,7 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
                     break;
                 }
                 var63 -= var66->unknown_2a_ << 10;
-                Zone3D* var67 = func_02012fe4();
+                Zone3D* var67 = GetZone3D_02012fe4();
                 if (func_0201b5d8(var67->currentZoneID_)) {
                     DetailedTreasureMapData* var68 = var67->grotto_.GetDetailedData();
                     if (var68->mapType_ == 2) {

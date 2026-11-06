@@ -51,7 +51,7 @@ struct Struct_ov017_021c1e6c_5 {
     Struct_ov017_021c1e6c_4* inline_ov017_021c1e6c(int arg0) { return &unknown_1d4_[arg0]; }
 };
 struct Struct_ov017_021c1e6c_6 { char unknown_0_; unsigned char unknown_1_; char unknown_2_[6]; short unknown_8_; unsigned char unknown_a_, unknown_b_; };
-extern "C" unsigned short* func_02012fe4();
+extern "C" unsigned short* GetZone3D_02012fe4();
 extern "C" void func_020d3c08(char*);
 extern "C" void func_020d3c84(Struct_020d3c28*, Struct_02013fb4*, int);
 extern "C" Struct_ov017_021c1e6c_7* func_020d3d90(Struct_020d3d90*, int);
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov017_021c1e6c(Struct_ov017_021c1e6c_6* arg0) {
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     GameResources* var2 = GetGameResources();
-    unsigned short* var3 = func_02012fe4();
+    unsigned short* var3 = GetZone3D_02012fe4();
     if (arg0->unknown_a_ == 0) {
 #if defined(jpn)
         arg0->unknown_8_ = var1->QueueLoadFile(data_ov017_021d87c4, 0);

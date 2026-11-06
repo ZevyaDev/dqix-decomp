@@ -50,7 +50,7 @@ struct Struct_ov023_021f00fc_4 {
 
 extern "C" Struct_ov023_021f00fc_3* _ZZ21inline_ov023_021f4c04vE1s;
 
-extern "C" void func_020421a0();
+extern "C" void GetMessageWindow_020421a0();
 extern "C" int func_0202b7d8(int* arg0);
 extern "C" int func_0202c1a4(Struct_0202c1a4* arg0);
 extern "C" int func_02010038(GameState* arg0, unsigned char* arg1);
@@ -73,7 +73,7 @@ int func_ov023_021f5150(Struct_ov023_021f00fc_4* arg0, Struct_ov023_021f00fc* ar
 extern "C" ARM int func_ov023_021f00fc(Struct_ov023_021f00fc_4* arg0)
 {
     GameState* var0 = GameState::GetInstance();
-    func_020421a0();
+    GetMessageWindow_020421a0();
     void* var1 = func_0202ae18();
     GameResources* var2 = GetGameResources();
     if (!func_0202b7d8((int*)var1) || arg0->unknown_2a0_->unknown_2a_ == func_0202c1a4((Struct_0202c1a4*)var1))

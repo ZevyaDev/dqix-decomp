@@ -35,7 +35,7 @@ extern "C" int func_0206e3d4(int arg0, int arg1);
 extern "C" char *func_0205d81c(struct Struct_ov002_02155960_2 *arg0, int arg1);
 extern "C" void func_0205eaa0(struct Struct_ov002_02157d40_7 *arg0, int arg1, int arg2);
 extern "C" void func_ov002_0215a9cc(void *arg0, int arg1);
-extern "C" char *func_020421a0();
+extern "C" char *GetMessageWindow_020421a0();
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void func_ov002_021607cc(void *arg0, void *arg1, int arg2);
 #if defined(jpn)
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov002_0216994c(char *arg0) {
         }
         func_0205eaa0((struct Struct_ov002_02157d40_7 *) &data_02108760, 1, 0);
         func_ov002_0215a9cc(arg0, var8);
-        void *var12 = *(void **) (func_020421a0() + RG(0x5c, 0x28));
+        void *var12 = *(void **) (GetMessageWindow_020421a0() + RG(0x5c, 0x28));
         memset(var12, 0, RG(0x960, 0x800));
         func_ov002_021607cc(arg0, var12, (var11[0xc5] & 2) ? 1 : 0);
         APPLY((struct Struct_ov002_0215bba8_3 *) OBJ, RG(0x21, 0x24), (int) var12);

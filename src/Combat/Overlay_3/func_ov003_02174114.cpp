@@ -86,11 +86,11 @@ struct Struct_ov003_02174114_3 {
     unsigned char unknown_104f_;
 };
 
-extern "C" Struct_ov003_02174114 *func_020421a0(void);
+extern "C" Struct_ov003_02174114 *GetMessageWindow_020421a0(void);
 #if defined(jpn)
-extern "C" void func_0204500c(Struct_ov003_02174114 *, int, int);
+extern "C" void StartMessage_0204500c(Struct_ov003_02174114 *, int, int);
 #else
-extern "C" void func_0204500c(Struct_ov003_02174114 *, int, int, int);
+extern "C" void StartMessage_0204500c(Struct_ov003_02174114 *, int, int, int);
 #endif
 extern "C" void func_020dfc40(Struct_0201099c_14 *);
 extern "C" void func_02074af4(void *);
@@ -111,13 +111,13 @@ extern "C" GameObject *func_0200ff1c(GameState *, int);
 
 // USA: func_ov003_02174114
 extern "C" ARM void func_ov003_02174114(Struct_ov003_02174114_3 *arg0) {
-    Struct_ov003_02174114 *var0 = func_020421a0();
+    Struct_ov003_02174114 *var0 = GetMessageWindow_020421a0();
     int var1             = var0->unknown_5c_;
     arg0->unknown_ff0_       = var0->unknown_99c_;
 #if defined(jpn)
-    func_0204500c(var0, var1, 0);
+    StartMessage_0204500c(var0, var1, 0);
 #else
-    func_0204500c(var0, var1, 0, 0xe3);
+    StartMessage_0204500c(var0, var1, 0, 0xe3);
 #endif
     var0->unknown_998_ = 1;
     var0->unknown_99c_ = arg0->unknown_ff0_;

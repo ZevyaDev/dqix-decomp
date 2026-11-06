@@ -21,7 +21,7 @@ struct Struct_ov017_021c48f0_2 { char unknown_0_[0x36d0]; unsigned char* unknown
 #endif
 extern "C" int func_02039888(void*); extern "C" void func_02039d58(unsigned char*);
 extern "C" GameObject* func_0200ff58(GameState*,int); extern "C" int func_020546a8(void*);
-extern "C" unsigned short* func_02012fe4(); extern "C" void func_02039d24(unsigned char*);
+extern "C" unsigned short* GetZone3D_02012fe4(); extern "C" void func_02039d24(unsigned char*);
 extern "C" void func_020407b4(Struct_02040774_2*,int,int,int); extern "C" void func_02033874(Struct_02033834*,int); extern "C" void func_02033b88(Struct_02010604*,int);
 extern "C" void func_ov017_02193428(void*,void*); extern "C" void func_02026bc8(unsigned char*,int);
 extern "C" int func_0202c1a4(Struct_0202c1a4*);
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov017_021c48f0(int arg0,Struct_ov017_021c48f0_5* arg1,G
             GameObject* var13=var6[var12];
             if(var13==NULL) continue;
             if(!var13->obj3D_.IsVisible() && var11) {
-                if(arg1->unknown_7_==0 || var3!=*func_02012fe4()) var13->obj3D_.MakeVisible();
+                if(arg1->unknown_7_==0 || var3!=*GetZone3D_02012fe4()) var13->obj3D_.MakeVisible();
                 func_02039d24((unsigned char*)var13);
                 if(arg1->unknown_4_==10000 && func_02039888(var13)!=-1) func_020407b4((Struct_02040774_2*)var13,0xff000,0,0xff000);
                 else var13->obj3D_.position_=var4;
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov017_021c48f0(int arg0,Struct_ov017_021c48f0_5* arg1,G
         }
     }
     Struct_ov017_021c48f0* var26=(Struct_ov017_021c48f0*)func_02010828(arg2);
-    if(func_0202c508(arg4) && var26->unknown_f7d_!=0) func_ov017_021ce400(var26->unknown_f7d_,*func_02012fe4());
+    if(func_0202c508(arg4) && var26->unknown_f7d_!=0) func_ov017_021ce400(var26->unknown_f7d_,*GetZone3D_02012fe4());
     if(arg2->GetPartyMemberByIndex(var0)!=NULL && func_02039790(arg2->GetPartyMemberByIndex(var0),0x20)) func_ov017_021bd4d0(var2,(unsigned char)var0,0,1);
-    if(var3==*func_02012fe4()) func_ov017_021c3e18(0);
+    if(var3==*GetZone3D_02012fe4()) func_ov017_021c3e18(0);
 }

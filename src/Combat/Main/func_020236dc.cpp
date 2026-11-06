@@ -31,7 +31,7 @@ struct Struct_020236dc_6 {
 };
 struct Struct_02012de8;
 struct Struct_020236dc_7;
-extern "C" void* func_02012fe4();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" void* func_0202ae18();
 extern "C" void* func_0205ec34();
 extern "C" void* func_020d6c00();
@@ -58,7 +58,7 @@ extern "C" ARM int func_020236dc(Struct_020236dc* arg0, unsigned char* arg1, Vec
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     GameObject* var2 = var0->GetProtagonist();
-    Zone3D* var3 = (Zone3D*)func_02012fe4();
+    Zone3D* var3 = (Zone3D*)GetZone3D_02012fe4();
     func_0202ae18();
     Struct_020236dc_6* var4 = (Struct_020236dc_6*)func_0205ec34();
     Struct_02012de8* var5 = (Struct_02012de8*)func_020d6c00();

@@ -8,7 +8,7 @@ enum { Enum_0208f410_1788 = 0x4ec };
 enum { Enum_0208f410_1788 = 0x6fc };
 #endif
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0208e0a8(void);
 
 struct Struct_02015438;
@@ -39,7 +39,7 @@ extern "C" ARM void func_0208f410(Struct_0208f410_3* arg0) {
     if (func_02046b24(var1) == 0xa) return;
     if (TestFlags04((GameResources*)var0, 2) != 0) return;
 
-    void* var2 = func_02012fe4();
+    void* var2 = GetZone3D_02012fe4();
     char* var3 = *(char**)((char*)var2 + 8);
     void* var4 = func_0208e0a8();
     if (var3 == 0) return;

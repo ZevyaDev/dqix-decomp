@@ -377,7 +377,7 @@ extern "C" void func_0206b6b8(unsigned char* arg0);
 extern "C" int func_02042648(int arg0);
 extern "C" bool func_02044494(void* arg0, void* arg1);
 extern "C" int func_020425e4(int arg0, int arg1, int arg2);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 struct Struct_020416cc_2;
 extern "C" int func_020416cc(struct Struct_020416cc_2* arg0);
 extern "C" void func_020e2310(char* arg0, int arg1, int arg2, int arg3, int arg4, unsigned char arg5, unsigned char arg6);
@@ -617,7 +617,7 @@ extern "C" ARM void func_02066cf0(Struct_02066cf0_3* arg0, int arg1) {
                     Struct_02066cf0* var63 = var36->unknown_18_;
 
                     if (var63) {
-                        unsigned char var64 = ((Struct_02066cf0_4*)func_020421a0())->unknown_195b_;
+                        unsigned char var64 = ((Struct_02066cf0_4*)GetMessageWindow_020421a0())->unknown_195b_;
                         if (var64 & 0x80) {
                             for (var60 = 0; var60 < 4; var60++) {
                                 func_02045864(data_020e7e54[var60] + (short)var37, data_020e7e3c[var60] + (short)(var38 - 0x74),

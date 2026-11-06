@@ -23,7 +23,7 @@ extern "C" int func_ov002_02161b48(char *arg0, int arg1);
 extern "C" void func_ov002_02161cf0(void *arg0);
 extern "C" void func_ov002_0215c2c8(void *arg0);
 extern "C" void func_ov002_02156e90(void *arg0);
-extern "C" void func_02012fe4(void);
+extern "C" void GetZone3D_02012fe4(void);
 extern "C" void func_02017c58(void);
 extern "C" char data_02108760[];
 
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov002_0216257c(char *arg0) {
             func_ov017_021a120c((GameResources*)func_0200fb8c((int*)GameState::GetInstance()), 3, var3);
             *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = RG(0x2b, 0x2e);
             *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 0;
-            func_02012fe4();
+            GetZone3D_02012fe4();
             func_02017c58();
         } else if (func_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + RG(0x1b00, 0x1a00) + RG(0xe2, 0xaa)) = -1;

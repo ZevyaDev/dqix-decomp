@@ -55,7 +55,7 @@ extern "C" int func_ov016_0218be5c();
 extern "C" int func_ov016_0218e708(void* arg0, void* arg1, int arg2, int arg3);
 extern "C" int func_ov016_0218e72c(void* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 extern "C" void func_ov016_0218e240(unsigned short* arg0, char* arg1, unsigned short arg2, int arg3, int arg4, unsigned char arg5, int arg6, int arg7);
 
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov016_0218bec4(void* arg0, int arg1) {
         func_ov016_0218e708(arg0, (void*)func_ov016_0218be5c(), 0x100, 0);
         if (var3 != 0 && var3->unknown_4_ == 0) {
             __clear(var1, 0x200);
-            func_02046608((void*)func_020421a0(), 0xc, var3->unknown_10_, (int)var1, 0xe3, 0, 1);
+            func_02046608((void*)GetMessageWindow_020421a0(), 0xc, var3->unknown_10_, (int)var1, 0xe3, 0, 1);
             func_ov016_0218e240((unsigned short*)func_ov016_0218be5c(), var1, 0x7fff, 0, 0xa8, 1, 1, var3->unknown_0_);
             var3->unknown_0_ += 4;
         }

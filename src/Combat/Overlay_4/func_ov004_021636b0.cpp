@@ -29,7 +29,7 @@ struct Struct_ov004_02171010 {
 
 extern struct Struct_ov004_02171010 data_ov004_02171010;
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_ov011_021849c8(void* arg0);
 extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
 extern "C" struct Struct_02072a68_2* func_ov023_021fa598(void* arg0);
@@ -44,7 +44,7 @@ extern "C" void func_02026470(void* arg0, int arg1);
 extern "C" void func_020264e4(char* arg0, char* arg1);
 extern "C" void func_02026528(char* arg0, char* arg1);
 extern "C" void func_0202656c(struct Struct_0202656c* arg0, int arg1);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_020265a8(char* arg0, int arg1, const char* arg2, int arg3);
 extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
 extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov004_021636b0(void* arg0, const char* arg1) {
 #endif
     char var1[0x80];
 
-    char* var2 = (char*)func_02012fe4();
+    char* var2 = (char*)GetZone3D_02012fe4();
 #if !defined(jpn)
     DetailedTreasureMapData* var3;
 #endif
@@ -146,7 +146,7 @@ extern "C" ARM void func_ov004_021636b0(void* arg0, const char* arg1) {
     for (int var15 = 0; var15 < 3; var15++) {
         __clear(var0, 0x80);
         __clear(var1, 0x80);
-        int var16 = func_020421a0();
+        int var16 = GetMessageWindow_020421a0();
         if (var3->discoveredTreasures_[var15] == 0) {
             func_020265a8((char*)var7, (unsigned char)var15, NULL, var3->treasureDropRates_[var15]);
             continue;

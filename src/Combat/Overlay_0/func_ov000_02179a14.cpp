@@ -11,12 +11,12 @@
 
 #include "std_library_functions.h"
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov000_02179a70(void*, int, int, void*);
 struct Struct_0205d5d0;
 // USA: func_ov000_02179a14
 extern "C" ARM void func_ov000_02179a14(void* arg0, int arg1, int arg2) {
-    void* var0 = *(void**)(func_020421a0() + REGION_OFFSET_0);
+    void* var0 = *(void**)(GetMessageWindow_020421a0() + REGION_OFFSET_0);
     memset(var0, 0, REGION_OFFSET_1);
     func_ov000_02179a70(arg0, arg1, arg2, var0);
 #if defined(jpn)

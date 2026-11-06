@@ -103,7 +103,7 @@ struct Struct_ov000_0215440c_6 {
 
 extern "C" int func_020100a8(GameState*);
 extern "C" Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
-extern "C" Struct_ov023_021f4c04* func_020421a0();
+extern "C" Struct_ov023_021f4c04* GetMessageWindow_020421a0();
 extern "C" void* func_0202ae24();
 extern "C" void* func_020d6c00();
 extern "C" unsigned char* func_020e3580();
@@ -215,9 +215,9 @@ int func_ov026_021ddd84(GameResources*, Struct_ov000_02160da0*, Struct_ov000_021
 void func_ov017_021c847c();
 void func_020dd0b0(int, void*);
 #if defined(jpn)
-void func_0204500c(Struct_ov023_021f4c04*, void*, int);
+void StartMessage_0204500c(Struct_ov023_021f4c04*, void*, int);
 #else
-void func_0204500c(Struct_ov023_021f4c04*, void*, int, int);
+void StartMessage_0204500c(Struct_ov023_021f4c04*, void*, int, int);
 #endif
 int func_ov026_021d8a40();
 void func_ov026_021dce34(int, Struct_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, void*, void*, void*, void*, void*, void*);
@@ -507,7 +507,7 @@ extern "C" ARM void func_ov026_021d8ba0(Struct_ov000_02160da0* arg0) {
     var22 = func_0202ae18();
     var19 = arg0->unknown_29c_;
     var20 = func_ov026_021dae60((Struct_ov026_021d8ba0_4*)arg0->unknown_3760_, func_020100a8(var17));
-    var21 = func_020421a0();
+    var21 = GetMessageWindow_020421a0();
     var23 = BackgroundLoader::GetInstance();
     var24 = func_0202ae24();
     var25 = func_020d6c00();
@@ -726,7 +726,7 @@ state1:
             var42 = arg0->unknown_526c_;
             var41 = arg0->unknown_53bc_;
             var72 = var71->unknown_81b0_;
-            var40 = func_020421a0();
+            var40 = GetMessageWindow_020421a0();
             var74 = 0;
             func_ov000_02174614(arg0->unknown_3760_, -1);
             func_ov000_02174dc0(arg0->unknown_3760_);
@@ -906,13 +906,13 @@ state1:
             SetBrightness(var18, 0, 0xf);
             if (var21->unknown_998_ == 0) {
 #if defined(jpn)
-                func_0204500c(var21, data_ov026_021df3c0, 0);
+                StartMessage_0204500c(var21, data_ov026_021df3c0, 0);
                 var21->unknown_998_ = 1;
 #else
-                void* var90 = func_020421a0()->unknown_5c_;
+                void* var90 = GetMessageWindow_020421a0()->unknown_5c_;
                 memset(var90, 0, 0x960);
                 func_020dd0b0(0, var90);
-                func_0204500c(var21, var90, 0, 0xe3);
+                StartMessage_0204500c(var21, var90, 0, 0xe3);
                 var21->unknown_998_ = 1;
 #endif
             }
@@ -968,7 +968,7 @@ state1:
         }
     checked:
         if (var91) {
-            Struct_ov023_021f4c04* var99 = func_020421a0();
+            Struct_ov023_021f4c04* var99 = GetMessageWindow_020421a0();
             Struct_0201099c_3* var100 = arg0->inline_ov026_021d8ba0();
             GameObject* var101 = func_0200fea4(var17, var28);
             void* var102 = func_020e0434(var100, 0x28);
@@ -976,11 +976,11 @@ state1:
                 func_02046380(var99);
                 func_02046574((Struct_02046574_2*)var99, 0, (char*)var101 + 0x14c);
 #if defined(jpn)
-                func_0204500c(var99, var102, 0);
+                StartMessage_0204500c(var99, var102, 0);
 #else
                 func_020e4ce8(var4, (char*)var101, 1);
                 var99->unknown_20_ = var4;
-                func_0204500c(var99, var102, 0, 0xe3);
+                StartMessage_0204500c(var99, var102, 0, 0xe3);
 #endif
                 var99->unknown_998_ = 1;
                 arg0->unknown_eac_ = 0xf;
@@ -1333,7 +1333,7 @@ state1:
             arg0->unknown_eac_ = 0;
         }
     }
-    if (arg0->unknown_eac_ == 0xf && func_020421a0()->unknown_998_ == 0) {
+    if (arg0->unknown_eac_ == 0xf && GetMessageWindow_020421a0()->unknown_998_ == 0) {
         arg0->unknown_eac_ = 4;
     }
 }

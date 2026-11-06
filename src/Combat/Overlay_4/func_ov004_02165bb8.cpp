@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 
 // USA: func_ov004_02165bb8
 extern "C" ARM int func_ov004_02165bb8(void) {
@@ -9,6 +9,6 @@ extern "C" ARM int func_ov004_02165bb8(void) {
 #else
     enum { Enum_ov004_02165bb8_712 = 0x2c8 };
 #endif
-    *(int*)((char*)func_020421a0() + Enum_ov004_02165bb8_712) = 1;
+    *(int*)((char*)GetMessageWindow_020421a0() + Enum_ov004_02165bb8_712) = 1;
     return 0;
 }

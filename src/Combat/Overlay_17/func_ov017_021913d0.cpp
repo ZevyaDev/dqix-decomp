@@ -8,7 +8,7 @@ enum {Enum_ov017_021913d0_2976=0xba0, Enum_ov017_021913d0_3936=0xf60, Enum_ov017
 
 extern "C" void func_0202ae18(void);
 extern "C" int func_0202c508(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_ov017_0218f574(int* arg0, int arg1, int arg2, int arg3);
 struct Struct_ov017_021913d0;
 extern "C" void func_ov017_021c1e40(struct Struct_ov017_021913d0* arg0);
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov017_021913d0(unsigned char* arg0, int arg1) {
         }
         func_0202ae18();
         if (func_0202c508()) {
-            unsigned short* var6 = (unsigned short*)func_02012fe4();
+            unsigned short* var6 = (unsigned short*)GetZone3D_02012fe4();
             func_ov017_021ce400(arg1, (unsigned short)*var6);
         }
     }

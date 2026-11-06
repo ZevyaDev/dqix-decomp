@@ -40,7 +40,7 @@ struct Struct_ov000_02179018_2 {
     int unknown_48_;
 };
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" int func_0205bafc(void* arg0);
 extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
 extern "C" void func_ov000_02179194(struct Struct_ov000_02179018* arg0, struct Struct_ov000_02179018_2* arg1);
@@ -82,10 +82,10 @@ extern "C" ARM void func_ov000_02179018(struct Struct_ov000_02179018* arg0, stru
         var3 = 1;
     }
 #if defined(jpn)
-    void* var4 = *(void**)(func_020421a0() + 0x28);
+    void* var4 = *(void**)(GetMessageWindow_020421a0() + 0x28);
     memset(var4, 0, 0x800);
 #else
-    void* var4 = *(void**)(func_020421a0() + 0x5c);
+    void* var4 = *(void**)(GetMessageWindow_020421a0() + 0x5c);
     memset(var4, 0, 0x960);
 #endif
     func_ov000_0217936c(arg0, arg1, var4);

@@ -118,7 +118,7 @@ extern const char data_ov023_021fe316[];
 extern const char data_ov023_021fe2a0[];
 extern const char data_ov023_021fe2b7[];
 
-extern "C" char* func_020421a0();
+extern "C" char* GetMessageWindow_020421a0();
 extern "C" void func_02043204(char* arg0);
 extern "C" void func_ov023_021d8b6c(void* arg0);
 extern "C" void func_0209fe9c(char* arg0);
@@ -158,7 +158,7 @@ extern "C" ARM int func_ov023_021f3aac(Struct_ov023_021f3aac_4* arg0)
     int var2 = var0->unknown_0_;
     if (var2 == 0)
     {
-        func_02043204(func_020421a0());
+        func_02043204(GetMessageWindow_020421a0());
         if (arg0->unknown_5588_ != NULL)
         {
             func_ov023_021f1818(arg0->unknown_3760_, 1);

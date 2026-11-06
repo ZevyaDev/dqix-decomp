@@ -5,7 +5,7 @@ extern "C" void func_ov017_0218b5c0(int arg0, int arg1);
 extern "C" void func_ov017_0218b5f8(int arg0);
 
 extern "C" int func_02094a00(void);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02043204(char* arg0);
 
 struct Struct_0214e34c;
@@ -33,7 +33,7 @@ extern "C" ARM void func_020d7aa0(struct Struct_020d7aa0_2* arg0) {
         func_02094ab0(var0);
     }
     if (arg0->unknown_150_.unknown_0_6_) {
-        func_02043204((char*)func_020421a0());
+        func_02043204((char*)GetMessageWindow_020421a0());
         arg0->unknown_150_.unknown_0_6_ = 0;
     }
     func_ov017_0218b5c0(1, -1);

@@ -17,7 +17,7 @@ enum { Enum_ov003_0215c568_92 = 0x5c };
 
 
 extern "C" void func_020c9be0(void);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 
 // USA: func_ov003_0215c568
 extern "C" ARM void func_ov003_0215c568(void* arg0, SafeAllocator* arg1) {
@@ -43,6 +43,6 @@ extern "C" ARM void func_ov003_0215c568(void* arg0, SafeAllocator* arg1) {
     if (var0 == 0) func_020c9be0();
     ((SafeAllocator*)((char*)arg0 + 0x50))->CreateTypeA(var0, 0x2000);
 
-    int var1 = func_020421a0();
+    int var1 = GetMessageWindow_020421a0();
     *(int*)((char*)arg0 + Enum_ov003_0215c568_124) = *(int*)(var1 + Enum_ov003_0215c568_92);
 }

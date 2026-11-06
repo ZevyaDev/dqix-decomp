@@ -22,7 +22,7 @@ struct Struct_0205faf4_7;
 struct Struct_0205faf4_8 { unsigned int unknown_0_0_:14, unknown_1_6_:1; };
 struct Struct_0208fc30 { char unknown_0_[8]; unsigned short unknown_8_; };
 
-extern "C" Struct_0208fa8c* func_02012fe4();
+extern "C" Struct_0208fa8c* GetZone3D_02012fe4();
 extern "C" int* func_0202ae18();
 extern "C" unsigned char* func_0205ec34();
 extern "C" int func_0202c508(void* arg0);
@@ -58,7 +58,7 @@ extern "C" ARM void func_0208fc30(ActiveGrottoClass* arg0) {
     int var6;
     struct Struct_0201bdac_2* var7;
 #endif
-    Struct_0208fa8c* var8 = func_02012fe4();
+    Struct_0208fa8c* var8 = GetZone3D_02012fe4();
     var5 = var8->unknown_0_;
     var6 = var8->unknown_2_;
     var1 = func_0202ae18();

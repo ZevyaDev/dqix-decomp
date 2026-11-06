@@ -35,7 +35,7 @@ struct Struct_ov003_0216bb70 {
     unsigned char unknown_13ec_;
 };
 
-extern "C" Struct_ov000_0217636c_2* func_020421a0();
+extern "C" Struct_ov000_0217636c_2* GetMessageWindow_020421a0();
 extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
 extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
 extern AllocatorUnion data_02114e20;
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov003_0216bb70(Struct_ov003_0216bb70* arg0)
     GameState* var0 = GameState::GetInstance();
 
     if (arg0->unknown_6_ == 0) {
-        memset(func_020421a0()->unknown_5c_, 0, REGION_LAYOUT(0x800, 0x960));
+        memset(GetMessageWindow_020421a0()->unknown_5c_, 0, REGION_LAYOUT(0x800, 0x960));
         void* var1 = func_02012d88(&data_02114e20, 0x10000);
         VectorizedMemset(var1, 0, 0x10000);
         arg0->unknown_12d4_.CreateTypeA(var1, 0x10000);
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov003_0216bb70(Struct_ov003_0216bb70* arg0)
         }
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1700;
         arg0->unknown_a_ = 3;
-        func_020421a0()->unknown_998_ = 1;
+        GetMessageWindow_020421a0()->unknown_998_ = 1;
 #if defined(jpn)
         func_ov003_0216d8d4(arg0, 0x29);
 #else

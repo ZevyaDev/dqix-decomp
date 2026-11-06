@@ -109,8 +109,8 @@ extern "C" void func_ov012_0218bba0(Struct_ov012_02189314* arg0, int arg1, int a
 extern "C" int func_ov012_02185db4(void* arg0, const char* arg1);
 extern "C" void func_0205def8(void* arg0, int arg1, int arg2);
 extern "C" void func_ov012_02189d18(Struct_ov012_02189314* arg0);
-extern "C" Struct_ov012_02189314_3* func_020421a0();
-extern "C" void func_0204500c(Struct_ov012_02189314_3* arg0, const char* arg1, int arg2);
+extern "C" Struct_ov012_02189314_3* GetMessageWindow_020421a0();
+extern "C" void StartMessage_0204500c(Struct_ov012_02189314_3* window, const char* text, int arg2);
 
 extern "C" const char data_ov012_0218bfc1[];
 extern "C" char data_02108760[];
@@ -341,15 +341,15 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
     }
     else if (arg0->unknown_1340_ == 10)
     {
-        Struct_ov012_02189314_3* var22 = func_020421a0();
-        func_0204500c(var22, func_02072a68(&arg0->unknown_1314_, 501), 0);
+        Struct_ov012_02189314_3* var22 = GetMessageWindow_020421a0();
+        StartMessage_0204500c(var22, func_02072a68(&arg0->unknown_1314_, 501), 0);
         var22->unknown_868_ = 1;
         arg0->unknown_1340_++;
         return;
     }
     else if (arg0->unknown_1340_ == 11)
     {
-        if (func_020421a0()->unknown_868_ == 0)
+        if (GetMessageWindow_020421a0()->unknown_868_ == 0)
         {
             func_0205def8(arg0->unknown_90_, 1, 14);
             arg0->unknown_1340_ = 4;

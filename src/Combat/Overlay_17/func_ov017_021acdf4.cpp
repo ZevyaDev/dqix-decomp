@@ -33,7 +33,7 @@ struct Struct_ov003_021638e4_2;
 #if defined(jpn)
 struct Struct_02046574_2;
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
-extern "C" void func_0204500c(void* arg0, const char* arg1, int arg2);
+extern "C" void StartMessage_0204500c(void* window, const char* text, int arg2);
 extern "C" char data_ov017_021d7f3b;
 enum { Enum_ov017_021acdf4_17582 = 0x41fe, Enum_ov017_021acdf4_17584 = 0x4200, Enum_ov017_021acdf4_6578 = 0x17e2, Enum_ov017_021acdf4_2456 = 0x868, Enum_ov017_021acdf4_32648 = 0x7cb4, Enum_ov017_021acdf4_32636 = 0x7ca8 };
 #else
@@ -143,11 +143,11 @@ extern "C" void func_02039d58(unsigned char* arg0);
 extern "C" void func_ov017_021c37a4(void);
 extern "C" void func_ov017_021b11b0(Struct_ov003_021638e4_2* arg0);
 extern "C" void func_020469f8(Struct_020469f8* arg0, Struct_020469f8_2* arg1);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_020e4c74(void* arg0, GameObject* arg1);
 extern "C" int func_020e51cc(int arg0);
 #if !defined(jpn)
-extern "C" void func_0204500c(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void* window, int text, int arg2, int arg3);
 #endif
 extern "C" int func_020100f8(char* arg0);
 extern "C" void func_0202ea10(unsigned char* arg0, int arg1, int arg2);
@@ -460,15 +460,15 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
                     }
                 }
             }
-            char* var37 = (char*)func_020421a0();
+            char* var37 = (char*)GetMessageWindow_020421a0();
 #if defined(jpn)
             func_02046574((Struct_02046574_2*)var37, 0, *(char**)((char*)var0->GetUnknownGameObject() + 0x134));
-            func_0204500c(var37, &data_ov017_021d7f3b, 0);
+            StartMessage_0204500c(var37, &data_ov017_021d7f3b, 0);
 #else
             char var38[0xc];
             func_020e4c74(var38, var0->GetUnknownGameObject());
             *(char**)var37 = var38;
-            func_0204500c(var37, func_020e51cc(0x39), 0, 0xe3);
+            StartMessage_0204500c(var37, func_020e51cc(0x39), 0, 0xe3);
 #endif
             var37[Enum_ov017_021acdf4_6578] = 0;
             *(int*)(var37 + Enum_ov017_021acdf4_2456) = 1;
@@ -504,7 +504,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
             arg0->unknown1_1c_++;
         }
     } else if (arg0->unknown1_1c_ == 0xd) {
-        char* var43 = (char*)func_020421a0();
+        char* var43 = (char*)GetMessageWindow_020421a0();
         func_020a2770((void*)func_020100f8((char*)var0), arg0->unknown_1f_);
         func_02057f00(var3, 8);
         func_0205ebec(&data_02108760);

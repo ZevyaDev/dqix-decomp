@@ -47,8 +47,8 @@ struct Struct_ov017_021a86d0 {
     unsigned char unknown_278_[0x10];
 };
 
-extern "C" char* func_020421a0(void);
-extern "C" char* func_02012fe4(void);
+extern "C" char* GetMessageWindow_020421a0(void);
+extern "C" char* GetZone3D_02012fe4(void);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 extern "C" void* func_020d7a50(void);
 struct Struct_020d7aa0_2;
@@ -135,8 +135,8 @@ static inline void inline_ov017_021a86d0_2(unsigned int arg0) {
 // USA: func_ov017_021a86d0
 extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1) {
     GameState* var0 = GameState::GetInstance();
-    char* var1 = func_020421a0();
-    char* var2 = func_02012fe4();
+    char* var1 = GetMessageWindow_020421a0();
+    char* var2 = GetZone3D_02012fe4();
     Struct_ov017_021a86d0_2* var3 = (Struct_ov017_021a86d0_2*)arg0->unknown_2c_;
     func_0205c904(arg0->unknown_2c_, var0->GetTickCount());
 

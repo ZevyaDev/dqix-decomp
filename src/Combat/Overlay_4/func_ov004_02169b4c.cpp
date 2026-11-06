@@ -17,7 +17,7 @@ extern "C" struct Struct_02072a68_2* func_ov004_02169040(void* arg0, int arg1);
 #else
 extern "C" struct Struct_02072a68_2* func_ov004_02168b08(void* arg0, int arg1);
 #endif
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* func_02053c6c(unsigned char* arg0);
 #if defined(jpn)
 #define func_0205ec34 func_0205ff20
@@ -146,7 +146,7 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
 #else
     struct Struct_02072a68_2* var2 = func_ov004_02168b08(arg0, 3);
 #endif
-    void* var3 = (void*)func_020421a0();
+    void* var3 = (void*)GetMessageWindow_020421a0();
     unsigned char* var4 = (unsigned char*)func_02053c6c((unsigned char*)GameState::GetInstance()->GetProtagonist());
     unsigned char* var5 = (unsigned char*)func_0205ec34(var4);
 #if defined(jpn)

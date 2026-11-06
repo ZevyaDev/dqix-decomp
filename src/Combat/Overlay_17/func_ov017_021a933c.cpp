@@ -21,25 +21,25 @@ struct Struct_ov017_021a933c_2 {
     unsigned char unknown_19b2_;
 };
 
-extern "C" Struct_ov017_021a933c_2* func_020421a0(void);
+extern "C" Struct_ov017_021a933c_2* GetMessageWindow_020421a0(void);
 extern "C" int func_020e0434(struct Struct_0201099c_3*, int);
 #if !defined(jpn)
-extern "C" void func_0204500c(void*, const char*, int, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
 #if defined(jpn)
-extern "C" void func_0204500c(void*, const char*, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int);
 #endif
 
 // USA: func_ov017_021a933c
 extern "C" ARM void func_ov017_021a933c(Struct_ov017_021a933c* arg0, int arg1) {
-    Struct_ov017_021a933c_2* var0 = func_020421a0();
+    Struct_ov017_021a933c_2* var0 = GetMessageWindow_020421a0();
     if (arg1 <= 0xc7 && arg1 >= 0x64) {
         if (arg0->unknown_14_ == 1) arg1 += 0x64;
     }
 #if defined(jpn)
-    func_0204500c(var0, (const char*)func_020e0434(&arg0->unknown_278_, (short)arg1), 0);
+    StartMessage_0204500c(var0, (const char*)func_020e0434(&arg0->unknown_278_, (short)arg1), 0);
 #else
-    func_0204500c(var0, (const char*)func_020e0434(&arg0->unknown_278_, (short)arg1), 0, 0xe3);
+    StartMessage_0204500c(var0, (const char*)func_020e0434(&arg0->unknown_278_, (short)arg1), 0, 0xe3);
 #endif
 
     if (arg1 <= 0x12b && arg1 >= 0x64) {

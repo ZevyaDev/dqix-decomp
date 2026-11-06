@@ -10,7 +10,7 @@ struct Struct_0205d81c;
 
 extern "C" int func_02041c08(char *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" int func_02041ea4(char *arg0, int arg1);
-extern "C" char *func_020421a0();
+extern "C" char *GetMessageWindow_020421a0();
 extern "C" void func_0205c508(struct Struct_0205c508 *arg0, int *arg1, int *arg2);
 extern "C" void *func_02053c6c(unsigned char *arg0);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov002_0215c988(char *arg0, char *arg1, int arg2) {
     }
     func_02041ea4(arg1, var3);
     GameState *var4 = GameState::GetInstance();
-    char *var5    = func_020421a0();
+    char *var5    = GetMessageWindow_020421a0();
     char *var6     = arg0 + 0xe20;
     int var7      = *(int *) (var6 + 0x68);
     int var8     = *(int *) (var6 + 0x58);
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov002_0215c988(char *arg0, char *arg1, int arg2) {
     }
     func_02041ea4(arg1, var30);
     GameState *var31 = GameState::GetInstance();
-    char *var32    = func_020421a0();
+    char *var32    = GetMessageWindow_020421a0();
     char *var33     = arg0 + 0x2c8 + 0xc00;
     int var34      = *(int *) (var33 + 0x68);
     int var35     = *(int *) (var33 + 0x58);

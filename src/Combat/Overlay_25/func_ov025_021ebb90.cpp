@@ -126,7 +126,7 @@ extern "C" int func_ov025_021d8c30(void* arg0, void* arg1, int arg2, int arg3, i
 extern "C" void func_02049ae4(unsigned char* arg0);
 extern "C" int func_02049ee8(unsigned char* arg0);
 extern "C" int func_02033b88(struct Struct_02010604* arg0, int arg1);
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void func_02043124(void* arg0);
 extern "C" struct Struct_0203a588_2* func_02039e70(void);
 extern "C" void func_0203a588(struct Struct_0203a588_2* arg0);
@@ -325,7 +325,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
                                 func_02033b88((struct Struct_02010604*)var44, 0);
                             }
                         }
-                        func_02043124(func_020421a0());
+                        func_02043124(GetMessageWindow_020421a0());
                         func_0203a588(func_02039e70());
                         func_ov000_02182a44(var12 + Enum_ov025_021ebb90_28668);
                     }

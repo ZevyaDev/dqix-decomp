@@ -15,7 +15,7 @@ struct Struct_02013fb4;
 extern "C" ARM void func_0209562c(struct Struct_02095578* arg0, int arg1,
     struct Struct_02013fb4* arg2, int arg3, unsigned short arg4, int arg5, int arg6);
 
-extern "C" void* func_02012fe4();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" int func_0201079c(char* arg0);
 extern "C" int func_020107d0(char* arg0);
 extern int data_020f1474;
@@ -42,7 +42,7 @@ extern "C" ARM int func_02095578(void) {
     void* var10;
 
     var2 = GameState::GetInstance();
-    var3 = func_02012fe4();
+    var3 = GetZone3D_02012fe4();
     var4 = (struct Struct_02095578*)&data_02109418;
     var5 = GetGameResources();
     (int)BackgroundLoader::GetInstance();

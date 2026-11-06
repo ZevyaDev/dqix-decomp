@@ -170,7 +170,7 @@ struct Struct_0201099c_3;
 extern char data_ov008_0218b4c3[];
 #endif
 
-extern "C" unsigned char* func_020421a0();
+extern "C" unsigned char* GetMessageWindow_020421a0();
 extern "C" void func_020ac0b4(void* arg0);
 extern "C" void func_020465c0(Struct_020465c0* arg0, int arg1, int arg2);
 extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov008_02187b20(Struct_ov008_021842a0_2* arg0, char* arg
     int var1;
     if (arg1 == NULL)
         return;
-    unsigned char* var2 = func_020421a0();
+    unsigned char* var2 = GetMessageWindow_020421a0();
     int var3;
     unsigned int var4;
     unsigned char var5;

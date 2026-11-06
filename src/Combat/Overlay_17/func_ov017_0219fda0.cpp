@@ -5,7 +5,7 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Memory/SafeAllocator.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_020fdd44;
 extern "C" struct Struct_020fdd44* func_02027ca4(void);
 struct Struct_02028bac {
@@ -38,7 +38,7 @@ extern unsigned char data_0211e33c[0x30000];
 // USA: func_ov017_0219fda0
 extern "C" ARM void func_ov017_0219fda0(void) {
 	GameState* var0 = GameState::GetInstance();
-	func_02012fe4();
+	GetZone3D_02012fe4();
 	struct Struct_020fdd44* var1 = func_02027ca4();
 	for (int var2 = 0; var2 < 4; var2++) {
 		struct Struct_02028bac* var3 = func_02028bac((struct Struct_02028bac*)var1, var2);

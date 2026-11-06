@@ -40,7 +40,7 @@ struct Struct_02081870_3 {
 extern "C" int func_02042190(int);
 extern "C" void* func_02072a68(Struct_02072a68_2*, int);
 extern "C" int func_020420e8(char*, int);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02046380(Struct_02046574_2*);
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 #if defined(jpn)
@@ -65,7 +65,7 @@ extern "C" ARM void func_02081870(Struct_02081870* arg0, Struct_02081870_2* arg1
             arg2->unknown_6_ = (short)(var2 - var3 * arg2->unknown_13_0_) >> 1;
         }
     }
-    Struct_02046574_2* var4 = (Struct_02046574_2*)func_020421a0();
+    Struct_02046574_2* var4 = (Struct_02046574_2*)GetMessageWindow_020421a0();
     memset(arg0->unknown_18_, 0, 0x800);
     func_02046380(var4);
     func_02046574(var4, arg2->unknown_10_, arg2->unknown_0_);
@@ -96,7 +96,7 @@ extern "C" ARM void func_02081870(Struct_02081870* arg0, Struct_02081870_2* arg1
             arg2->unknown_6_ = (short)(var11 - func_020420e8(var10, var9)) >> 1;
         }
     }
-    Struct_02046574_2* var12 = (Struct_02046574_2*)func_020421a0();
+    Struct_02046574_2* var12 = (Struct_02046574_2*)GetMessageWindow_020421a0();
     memset(arg0->unknown_18_, 0, 0x960);
     func_02046380(var12);
     func_02046574(var12, arg2->unknown_10_, arg2->unknown_0_);

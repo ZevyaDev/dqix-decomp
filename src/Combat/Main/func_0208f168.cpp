@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0208e0a8(void);
 extern "C" void* func_02057924(void);
 extern "C" int rand(void);
@@ -58,7 +58,7 @@ extern "C" ARM void func_0208f168(struct Struct_0208f168* arg0, void* arg1) {
         return;
     }
 
-    void* var0 = func_02012fe4();
+    void* var0 = GetZone3D_02012fe4();
     char* var1 = *(char**)((char*)var0 + 8);
     struct Struct_0208f168_5* var2 = (struct Struct_0208f168_5*)func_0208e0a8();
 

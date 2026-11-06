@@ -26,7 +26,7 @@ static inline unsigned int inline_020459b8(Struct_0203d028* arg0) {
 }
 
 // USA: func_020459b8
-extern "C" ARM int func_020459b8(Struct_02021b84* arg0, unsigned char arg1, Struct_020420e8* arg2,
+extern "C" ARM int func_020459b8(MessageWindow_02021b84* arg0, unsigned char arg1, Struct_020420e8* arg2,
                                  unsigned char arg3) {
     if (arg2 == NULL) {
         return 0;

@@ -17,7 +17,7 @@ struct Struct_02053f7c_3;
 struct Struct_02083508_2 { char unknown_0_[0x20]; };
 
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0202c288(void*);
 extern "C" void func_02039880(unsigned char*, int);
 extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
     GameState* var5 = GameState::GetInstance();
     GameResources* var6 = GetGameResources();
     Struct_0202b2f0* var7 = (Struct_0202b2f0*)func_0202ae18();
-    Struct_ov017_021b0bc0_2* var8 = (Struct_ov017_021b0bc0_2*)func_02012fe4();
+    Struct_ov017_021b0bc0_2* var8 = (Struct_ov017_021b0bc0_2*)GetZone3D_02012fe4();
 #if defined(jpn)
     Struct_ov017_021b0bc0* var9 = inline_ov017_021b0bc0(var8);
 #endif

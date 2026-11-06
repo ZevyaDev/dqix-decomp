@@ -12,7 +12,7 @@
 #define data_020e909c data_020e91a8
 #endif
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_0205ec34(void);
 extern "C" void* func_020100f8(char* arg0);
@@ -116,7 +116,7 @@ struct Struct_020a6aac_6
 extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
 {
     GameState* var0 = GameState::GetInstance();
-    Zone3D* var1 = (Zone3D*)func_02012fe4();
+    Zone3D* var1 = (Zone3D*)GetZone3D_02012fe4();
     LightingManager::GetInstance();
     void* var2 = func_0202ae18();
     func_0205ec34();
@@ -262,7 +262,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
             }
         }
     } else if (arg1 == 0x76c) {
-        Zone3D* var26 = (Zone3D*)func_02012fe4();
+        Zone3D* var26 = (Zone3D*)GetZone3D_02012fe4();
         if (arg2 == 0x2710) {
             GameObject* var27 = var0->GetUnknownGameObject();
             Vector3i var28 = data_020e909c;

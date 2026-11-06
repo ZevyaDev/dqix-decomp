@@ -7,7 +7,7 @@ extern "C" void func_0206aa28(void*);
 
 // JPN: func_0206c570
 extern "C" ARM void func_0206c570(void* arg0, const char* arg1) {
-    Struct_02021b84* var0 = static_cast<Struct_02021b84*>(arg0);
+    MessageWindow_02021b84* var0 = static_cast<MessageWindow_02021b84*>(arg0);
     if (arg1 == NULL) return;
     {
         void* var1 = var0->unknown_14_;

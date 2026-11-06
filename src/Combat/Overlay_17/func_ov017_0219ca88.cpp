@@ -36,7 +36,7 @@ enum { Enum_ov017_0219ca88_396 = 0x18c };
 struct Struct_ov017_0219ca88_3 { unsigned char unknown_0_, unknown_1_; unsigned short unknown_2_; unsigned char unknown_4_; Struct_ov017_0219ca88_2* unknown_8_; int unknown_c_; unsigned short unknown_10_, unknown_12_; };
 struct Struct_ov017_0219ca88 { unsigned int unknown_0_, unknown_4_, unknown_8_, unknown_c_; unsigned char unknown_10_[0x24]; };
 
-extern "C" Zone3D* func_02012fe4();
+extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void* func_0200fd0c(GameState*);
 extern "C" void* func_020100bc(GameState*);
 extern "C" void* func_0205ec34(void*);
@@ -62,7 +62,7 @@ extern "C" void func_0206f81c(void*);
 extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetUnknownGameObject();
-    Zone3D* var2 = func_02012fe4();
+    Zone3D* var2 = GetZone3D_02012fe4();
     unsigned char* var3 = static_cast<unsigned char*>(func_0200fd0c(var0));
     BackgroundLoader::GetInstance();
     Vector3fix* var4;

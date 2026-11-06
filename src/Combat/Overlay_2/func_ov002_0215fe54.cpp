@@ -4,7 +4,7 @@
 extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
 extern "C" int func_02042058(char* arg0, const char* arg1);
 extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void func_020465c0(void* arg0, int arg1, int arg2);
 extern "C" void func_020465d8(void* arg0, int arg1, unsigned char arg2);
 extern "C" void func_020465f0(void* arg0, int arg1, unsigned char arg2);
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov002_0215fe54(void* arg0, char* arg1, int arg2, int ar
     int var9 = *(unsigned char*)(var0 + 0x2000 + 0x350);
     if (var9 != 0) {
         var9 = (var9 + 7) / 8;
-        void* var10 = func_020421a0();
+        void* var10 = GetMessageWindow_020421a0();
         func_020465c0(var10, 0, arg3 / 8 + 1);
         func_020465c0(var10, 1, var9);
         func_020465f0(var10, 0, 1);

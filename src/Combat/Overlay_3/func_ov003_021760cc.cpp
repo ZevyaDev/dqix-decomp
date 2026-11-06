@@ -65,7 +65,7 @@ struct Struct_ov003_021760cc_5 {
 };
 
 extern "C" int func_02042058(char *, const char *);
-extern "C" Struct_ov003_021760cc_4 *func_020421a0();
+extern "C" Struct_ov003_021760cc_4 *GetMessageWindow_020421a0();
 extern "C" void __clear(void *, int);
 extern "C" void func_020e46c4(void *);
 extern "C" void func_020e5334(Struct_ov003_021760cc_3 *, void *, unsigned int, int);
@@ -77,9 +77,9 @@ struct Struct_020465c0;
 extern "C" void func_020465c0(Struct_020465c0 *, int, int);
 extern "C" const char *func_020e0434(Struct_0201099c_3 *, int);
 #if defined(jpn)
-extern "C" void func_0204500c(Struct_ov003_021760cc_4 *, const char *, int);
+extern "C" void StartMessage_0204500c(Struct_ov003_021760cc_4 *, const char *, int);
 #else
-extern "C" void func_0204500c(Struct_ov003_021760cc_4 *, const char *, int, int);
+extern "C" void StartMessage_0204500c(Struct_ov003_021760cc_4 *, const char *, int, int);
 #endif
 extern "C" void func_ov003_021749c0(char *);
 extern "C" void func_02043204(char *);
@@ -124,7 +124,7 @@ extern const unsigned char data_ov003_0217e320[];
 // USA: func_ov003_021760cc
 extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_2 *arg0) {
     BackgroundLoader *var0 = BackgroundLoader::GetInstance();
-    Struct_ov003_021760cc_4 *var1   = func_020421a0();
+    Struct_ov003_021760cc_4 *var1   = GetMessageWindow_020421a0();
     if (arg0->unknown_fbc_ == 0) {
         if (arg0->unknown_f68_ > 0) {
             var0->RemoveTask(arg0->unknown_f68_);
@@ -177,10 +177,10 @@ extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_2 *arg0) {
                 char *var13 = var1->unknown_30_;
                 memset(var13, 0, 0x800);
                 memcpy(var13, var12, 0x800);
-                func_0204500c(var1, var13, 0);
+                StartMessage_0204500c(var1, var13, 0);
                 arg0->unknown_fc2_ &= ~0x200;
             } else {
-                func_0204500c(var1, func_020e0434((Struct_0201099c_3 *) arg0->unknown_c_, var5), 0);
+                StartMessage_0204500c(var1, func_020e0434((Struct_0201099c_3 *) arg0->unknown_c_, var5), 0);
             }
             var1->unknown_86c_ = arg0->unknown_f6c_;
             var1->unknown_868_     = 1;
@@ -198,7 +198,7 @@ extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_2 *arg0) {
                     arg0->unknown_fc2_ &= ~0x2000;
                 }
             } else if (var1->unknown_870_ == 3) {
-                *(unsigned char *) ((char *) func_020421a0() + 0x17de) = 0;
+                *(unsigned char *) ((char *) GetMessageWindow_020421a0() + 0x17de) = 0;
                 arg0->unknown_fb2_  = arg0->unknown_fb4_;
                 arg0->unknown_fb4_ = -1;
                 if (arg0->unknown_fb2_ < 0) {
@@ -221,7 +221,7 @@ extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_2 *arg0) {
 // USA: func_ov003_021760cc
 extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_5 *arg0) {
     BackgroundLoader *var14 = BackgroundLoader::GetInstance();
-    Struct_ov003_021760cc_4 *var15   = func_020421a0();
+    Struct_ov003_021760cc_4 *var15   = GetMessageWindow_020421a0();
     if (arg0->unknown_1040_ == 0) {
         if (arg0->unknown_fec_ >= 0) {
             var14->RemoveTask(arg0->unknown_fec_);
@@ -272,10 +272,10 @@ extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_5 *arg0) {
                 char *var26 = var15->unknown_64_;
                 memset(var26, 0, 0x960);
                 memcpy(var26, var25, 0x960);
-                func_0204500c(var15, var26, 0, 0xe3);
+                StartMessage_0204500c(var15, var26, 0, 0xe3);
                 arg0->unknown_1046_ &= ~0x200;
             } else {
-                func_0204500c(var15,
+                StartMessage_0204500c(var15,
                               func_020e0434((Struct_0201099c_3 *) (arg0->unknown_c_), var22), 0,
                               0xe3);
             }
@@ -295,7 +295,7 @@ extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_5 *arg0) {
                     arg0->unknown_1046_ &= ~0x2000;
                 }
             } else if (var15->unknown_9a0_ == 3) {
-                *(unsigned char *) ((char *) func_020421a0() + 0x19ae) = 0;
+                *(unsigned char *) ((char *) GetMessageWindow_020421a0() + 0x19ae) = 0;
                 arg0->unknown_1036_                                                                = arg0->unknown_1038_;
                 arg0->unknown_1038_                                                               = -1;
                 if (arg0->unknown_1036_ < 0) {

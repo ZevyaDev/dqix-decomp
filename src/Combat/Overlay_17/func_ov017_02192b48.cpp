@@ -99,7 +99,7 @@ public:
 extern int data_ov017_021d62d8[8];
 extern int data_ov017_021d62f8[8];
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_02031188(Struct_020312bc* arg0, short* arg1);
 extern "C" long long func_020c32f8(int);
 extern "C" long long func_020c3260(int);
@@ -121,7 +121,7 @@ extern "C" ARM int func_ov017_02192b48(Struct_02017d90* arg0, Struct_ov017_02192
 
     var1 = GameState::GetInstance();
     GetGameResources();
-    var2 = (Struct_ov017_02192b48_2*)func_02012fe4();
+    var2 = (Struct_ov017_02192b48_2*)GetZone3D_02012fe4();
     var3 = 0;
     for (var5 = 0; var5 < arg2; var5++) {
         func_02031188(&var0[var5], arg0->unknown_0_[var5]);

@@ -8,7 +8,7 @@ enum { Enum_ov004_0216ecd0_108 = 0x8c, Enum_ov004_0216ecd0_3954 = 0xc9e, Enum_ov
 enum { Enum_ov004_0216ecd0_108 = 0x6c, Enum_ov004_0216ecd0_3954 = 0xf72, Enum_ov004_0216ecd0_3955 = 0xf73 };
 #endif
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_0201e828;
 extern "C" void func_0201e828(Struct_0201e828*, unsigned short);
 extern "C" void func_02012010(void* arg0, int arg1);
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov004_0216ecd0(void) {
     SetFlags00((GameResources*)var1, *(unsigned int*)(data_ov004_02171048.unknown_4_ + 0x0));
     SetFlags04((GameResources*)var1, *(unsigned int*)(data_ov004_02171048.unknown_4_ + 0x4));
     SetFlags08((GameResources*)var1, *(unsigned int*)(data_ov004_02171048.unknown_4_ + 0x8));
-    void* var2 = func_02012fe4();
+    void* var2 = GetZone3D_02012fe4();
     if (!var2) return 0;
     struct Struct_0201e828* var3 = (struct Struct_0201e828*)((char*)var2 + Enum_ov004_0216ecd0_108);
     if (!var3) return 0;

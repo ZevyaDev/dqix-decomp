@@ -64,9 +64,9 @@ struct Struct_ov000_0215440c;
 struct Struct_ov000_02160094 { char unknown_0_[0x20]; unsigned short unknown_20_; };
 struct Struct_ov000_021600f8 { int unknown_0_; char unknown_4_[8]; int unknown_c_; char unknown_10_[8]; unsigned char unknown_18_; char unknown_19_[2]; unsigned char unknown_1b_; };
 #if defined(jpn)
-struct Struct_02021b84 { char unknown_0_[0x868]; int unknown_998_; };
+struct MessageWindow_02021b84 { char unknown_0_[0x868]; int unknown_998_; };
 #else
-struct Struct_02021b84 { char unknown_0_[0x998]; int unknown_998_; };
+struct MessageWindow_02021b84 { char unknown_0_[0x998]; int unknown_998_; };
 #endif
 
 struct Struct_02108760;
@@ -97,13 +97,13 @@ extern "C" void func_ov025_021dbe10(Struct_ov000_021537b8*);
 extern "C" void func_ov000_0216fe48(Struct_ov000_0216fe48*);
 extern "C" void func_ov000_0216fdf8(Struct_ov000_0216fdf8*, int);
 extern "C" void func_ov000_0216fd0c(Struct_ov000_0216fd0c*);
-extern "C" Struct_02021b84* func_020421a0();
+extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_ov000_0216fd38(Struct_ov000_0216fd38*);
 extern "C" int func_ov025_021e8a54(char*);
 extern "C" void func_ov000_0216fd80(Struct_ov000_0216fd80*, int);
 extern "C" char* func_ov000_0216fcfc(void*, int);
 #if !defined(jpn)
-extern "C" void func_0204500c(Struct_02021b84*, char*, int, int);
+extern "C" void StartMessage_0204500c(MessageWindow_02021b84*, char*, int, int);
 #endif
 extern "C" void func_ov025_021eedb0(char*);
 extern "C" void func_ov025_021dcf14(Struct_ov000_021537b8*);
@@ -120,7 +120,7 @@ extern "C" void func_ov000_02160d80(void*, int);
 inline unsigned int inline_ov025_021db038(unsigned int arg0) { return (arg0 + 3) & ~3; }
 
 #if defined(jpn)
-extern "C" void func_0204500c(Struct_02021b84*,char*,int);
+extern "C" void StartMessage_0204500c(MessageWindow_02021b84*,char*,int);
 #endif
 // USA: func_ov025_021db038
 extern "C" ARM void func_ov025_021db038(Struct_ov000_021537b8* arg0) {
@@ -174,9 +174,9 @@ extern "C" ARM void func_ov025_021db038(Struct_ov000_021537b8* arg0) {
         GameState* var9;
         char* var10;
         GameObject* var11;
-        Struct_02021b84* var12;
+        MessageWindow_02021b84* var12;
         var9 = GameState::GetInstance();
-        var12 = func_020421a0();
+        var12 = GetMessageWindow_020421a0();
         Struct_ov025_021db038* var13 = &arg0->unknown_a40_;
         if (!var13->unknown_a0_) {
             func_ov000_0216fd38((Struct_ov000_0216fd38*)var13);
@@ -194,9 +194,9 @@ extern "C" ARM void func_ov025_021db038(Struct_ov000_021537b8* arg0) {
             if (!var16) return;
             sprintf(var16, var10, var11->baseStats_);
 #if defined(jpn)
-            func_0204500c(var12, var16, 0);
+            StartMessage_0204500c(var12, var16, 0);
 #else
-            func_0204500c(var12, var16, 0, 0xe3);
+            StartMessage_0204500c(var12, var16, 0, 0xe3);
 #endif
 
             var12->unknown_998_ = 1;

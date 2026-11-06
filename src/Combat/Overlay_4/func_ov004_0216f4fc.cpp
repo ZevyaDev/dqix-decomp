@@ -9,7 +9,7 @@ enum { Enum_ov004_0216f4fc_9088 = 0x2380, Enum_ov004_0216f4fc_16384 = 0x4000 };
 #endif
 
 extern "C" void func_ov004_0216ea38(void* arg0, int arg1);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* func_ov011_021849c8(void* arg0);
 extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
 extern "C" int func_ov023_021f6f10(void* arg0);
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov004_0216f4fc(void* arg0) {
     void* var6;
 
     func_ov004_0216ea38(arg0, 4);
-    func_020421a0();
+    GetMessageWindow_020421a0();
 
     var5 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x65);
     if (var5 == NULL || func_ov023_021f6f10(var5) != 8) var5 = NULL;

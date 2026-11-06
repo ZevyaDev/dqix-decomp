@@ -37,7 +37,7 @@ struct Struct_020e081c {
     char unknown_51_[3];
 };
 
-extern "C" void* func_02012fe4();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" char* func_0203bd08();
 extern "C" char* func_0203b628();
 extern "C" void func_020213fc(Struct_020213fc*, int);
@@ -70,7 +70,7 @@ static inline SafeAllocator* inline_02021578(GameResources* arg0, int arg1) {
 extern "C" ARM void func_020e081c(char* arg0) {
     GameState::GetInstance();
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
-    func_02012fe4();
+    GetZone3D_02012fe4();
     GameResources* var1 = GetGameResources();
     char* var2 = func_0203bd08();
     char* var3 = func_0203b628();

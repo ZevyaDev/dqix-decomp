@@ -4,7 +4,7 @@
 #include "World/ZoneResourceTree.h"
 
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_0202c508(void* arg0);
 extern "C" void* func_0202ae24(void);
 extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
@@ -91,7 +91,7 @@ static inline Struct_ov017_021d0490* inline_ov017_021d0490_3(GameResources* arg0
 extern "C" ARM void func_ov017_021d0490(int arg0) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = func_0202ae18();
-    unsigned short* var2 = (unsigned short*)func_02012fe4();
+    unsigned short* var2 = (unsigned short*)GetZone3D_02012fe4();
     GameResources* var3 = GetGameResources();
     Struct_ov017_021d0490_7* var4 = inline_ov017_021d0490(var3);
     Struct_ov017_021d0490* var5 = inline_ov017_021d0490_2(var3);

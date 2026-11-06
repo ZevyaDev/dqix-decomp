@@ -4,7 +4,7 @@
 
 extern "C" void func_020397c0(void* arg0);
 extern "C" void func_ov017_021bf490(void*);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov017_0218d5ac(void* arg0);
 
 typedef int (*Type_ov017_021bf534)(void*);
@@ -42,6 +42,6 @@ extern "C" ARM void func_ov017_021bf534(struct Struct_ov017_021bf534* arg0) {
         }
         func_ov017_021bf490(arg0);
         arg0->unknown_1_ = 1;
-        *(int*)((char*)func_020421a0() + Enum_ov017_021bf534_728) = 0;
+        *(int*)((char*)GetMessageWindow_020421a0() + Enum_ov017_021bf534_728) = 0;
     }
 }

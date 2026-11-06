@@ -39,7 +39,7 @@ extern "C" int func_0202c508(void* arg0);
 extern "C" void func_02046380(Struct_020465c0* arg0);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void func_020cf0fc(int arg0);
-extern "C" Struct_020465c0* func_020421a0(void);
+extern "C" Struct_020465c0* GetMessageWindow_020421a0(void);
 extern "C" void func_020465c0(Struct_020465c0* arg0, int arg1, int arg2);
 extern "C" int func_02098f20(int arg0, int arg1, int arg2);
 extern "C" void func_02046574(Struct_02046574_2* arg0, int arg1, char* arg2);
@@ -91,7 +91,7 @@ extern "C" ARM int func_02099304(Struct_02099304* arg0, char* arg1, const void* 
         }
     }
 
-    Struct_020465c0* var3 = func_020421a0();
+    Struct_020465c0* var3 = GetMessageWindow_020421a0();
     func_02046380(var3);
     unsigned int var4 = arg0->unknown_2_0_;
     func_020465c0(var3, 1, arg0->unknown_1_4_);

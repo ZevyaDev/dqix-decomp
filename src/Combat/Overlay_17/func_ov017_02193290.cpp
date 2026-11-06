@@ -3,7 +3,7 @@
 #include "Graphics/Vector.h"
 #include "std_library_functions.h"
 
-extern "C" void* func_02012fe4(void* arg0);
+extern "C" void* GetZone3D_02012fe4(void* arg0);
 extern "C" unsigned char* func_020177a8(unsigned char* arg0, int arg1);
 
 struct Struct_ov017_021d6318 {
@@ -45,7 +45,7 @@ static inline fix32_t inline_ov000_0216f3d4(fix32_t arg0) {
 
 // USA: func_ov017_02193290
 extern "C" ARM int func_ov017_02193290(int arg0, int arg1, int arg2, Vector3i* arg3, int arg4, int arg5, int arg6) {
-    Struct_ov017_02193290_3* var0 = (Struct_ov017_02193290_3*)func_02012fe4(GameState::GetInstance());
+    Struct_ov017_02193290_3* var0 = (Struct_ov017_02193290_3*)GetZone3D_02012fe4(GameState::GetInstance());
     int var1 = 0;
     for (int var2 = 0; var2 < var0->unknown_477_; var2++) {
         Struct_ov017_02193290_2* var3 = (Struct_ov017_02193290_2*)func_020177a8((unsigned char*)var0, var2);

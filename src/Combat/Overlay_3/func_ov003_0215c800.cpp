@@ -37,7 +37,7 @@ extern "C" void func_0205d2bc(Struct_0205d2bc*);
 extern "C" void func_0205d048(void* arg0);
 extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02043124(void* arg0);
 extern "C" void func_02043204(char* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov003_0215c800(char* arg0) {
     DC_FlushRange(*(void**)(arg0 + Enum_ov003_0215c800_124), 0x20);
     LoadToMainBG1CharacterData((int)*(void**)(arg0 + Enum_ov003_0215c800_124), 0, 0x20);
 
-    void* var1 = (void*)func_020421a0();
+    void* var1 = (void*)GetMessageWindow_020421a0();
     func_02043124(var1);
     func_02043204((char*)var1);
 

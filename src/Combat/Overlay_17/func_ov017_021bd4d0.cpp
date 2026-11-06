@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_020dc548(int arg0, signed char* arg1, signed char* arg2);
 
 struct Struct_ov017_0218e674;
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov017_021bd4d0(struct Struct_ov017_021bd4d0* arg0, int 
     var1 = var0->GetPartyMemberByIndex(arg1);
     if (var1 != 0) {
         var6 = 1;
-        var7 = *(unsigned short*)func_02012fe4();
+        var7 = *(unsigned short*)GetZone3D_02012fe4();
         var8 = ((Object3D*)((struct Struct_02039df4*)var1))->GetField06();
         if (var8 != var7) {
             if (arg2 == 0) {

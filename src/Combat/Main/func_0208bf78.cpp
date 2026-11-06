@@ -128,7 +128,7 @@ extern "C" int func_0200fb8c(int*);
 extern "C" int func_02046b24(Struct_02015438**);
 extern "C" int func_0208dadc(Struct_0208bf78_5*, int);
 extern "C" int func_0206e260(Struct_0205faf4_4*, int);
-extern "C" Struct_020465c0* func_020421a0();
+extern "C" Struct_020465c0* GetMessageWindow_020421a0();
 extern "C" Struct_0208bf78_7* func_02096134(Struct_0205faf4_7*, int);
 extern "C" void func_020465c0(Struct_020465c0*, int, int);
 extern "C" void func_0204af64(Struct_02020cb8*);
@@ -322,7 +322,7 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
                     }
                 }
             }
-            Struct_020465c0* var30 = func_020421a0();
+            Struct_020465c0* var30 = GetMessageWindow_020421a0();
             char* var31 = var30->unknown_60_;
 #if defined(jpn)
             memset(var31, 0, 0x800);

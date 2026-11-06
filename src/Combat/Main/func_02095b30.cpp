@@ -28,7 +28,7 @@ struct Struct_02095924_2 { char unknown_0_[0xa0]; Struct_02095924* unknown_a0_; 
 struct Struct_02095924_3 { char unknown_0_[0xc]; int unknown_c_; char unknown_10_[0x24]; };
 extern "C" Struct_0205faf4_3* func_0205ec34();
 extern "C" Struct_0202c1a4* func_0202ae18();
-extern "C" unsigned short* func_02012fe4();
+extern "C" unsigned short* GetZone3D_02012fe4();
 extern "C" int func_0206e2dc(Struct_0205faf4_13*, int);
 extern "C" int func_0202b7d8(int*);
 extern "C" signed char func_0202c1a4(Struct_0202c1a4*);
@@ -57,7 +57,7 @@ extern "C" ARM void func_02095b30(Struct_02095924_2* arg0, int arg1) {
             if (!var4->unknown_3_2_) continue;
             if (var4->unknown_5_0_ * 100 + var4->unknown_5_6_ > (unsigned int)(var2[2] * 100 + var2[1])) continue;
         }
-        var3.unknown_c_ = *func_02012fe4();
+        var3.unknown_c_ = *GetZone3D_02012fe4();
         if (!func_02064704(var0, var4->unknown_8_, &var3)) continue;
         if (inline_02095924(var0, var4->unknown_2_0_, 3) && !var4->unknown_3_1_) continue;
         if (!func_02095ae0(var0, var4->unknown_2_0_)) {

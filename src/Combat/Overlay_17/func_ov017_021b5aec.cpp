@@ -41,7 +41,7 @@ struct Struct_ov017_021b5aec_2 {
     int unknown_3c_;
 };
 
-extern "C" Struct_02017098* func_02012fe4(void);
+extern "C" Struct_02017098* GetZone3D_02012fe4(void);
 extern "C" unsigned char* func_0205ec34(void);
 extern "C" Struct_0201777c* func_0201777c(Struct_02017098* arg0, int arg1);
 extern "C" void func_020397c0(void* arg0);
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov017_021b5aec(Struct_ov017_021b5aec_2* arg0) {
 #else
  enum { Enum_ov017_021b5aec_10068 = 0x2754 };
 #endif
-    Struct_02017098* var0 = func_02012fe4();
+    Struct_02017098* var0 = GetZone3D_02012fe4();
     unsigned char* var1 = func_0205ec34();
     LootableContainerManager* var2 = LootableContainerManager::GetMainInstance();
     Struct_0201777c* var3 = func_0201777c(var0, arg0->unknown_10_);

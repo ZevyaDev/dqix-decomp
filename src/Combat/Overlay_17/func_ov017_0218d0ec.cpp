@@ -16,7 +16,7 @@ enum { Enum_ov017_0218d0ec_1788 = 0x6fc, Enum_ov017_0218d0ec_1816 = 0x718 };
 #define func_0206df6c func_0206f0c0
 #endif
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c508(void* arg0);
 extern "C" void* func_0205ec34(void);
@@ -40,7 +40,7 @@ struct Struct_ov017_0218d0ec_2 { unsigned char unknown_0_0_ : 4; unsigned char u
 // USA: func_ov017_0218d0ec
 extern "C" ARM void func_ov017_0218d0ec(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Struct_ov017_0218d0ec* var1 = (Struct_ov017_0218d0ec*)func_02012fe4();
+    Struct_ov017_0218d0ec* var1 = (Struct_ov017_0218d0ec*)GetZone3D_02012fe4();
     void* var2 = func_0202ae18();
 
     if (func_02046b24(*(struct Struct_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 3) return;

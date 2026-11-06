@@ -2,7 +2,7 @@
 #include "Resource/Brightness.h"
 
 struct Struct_ov004_02164670;
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern char* data_ov004_02171010;
 struct Struct_ov004_021652e8 {
 #if defined(jpn)
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov004_021652e8(void* arg0) {
 #endif
     struct Struct_ov004_02164670* var0 = (struct Struct_ov004_02164670*)GetGameResources();
     if (!IsBrightnessZero((GameResources*)var0, false) || !IsBrightnessZero((GameResources*)var0, true)) return 0;
-    if (*(void**)((char*)func_020421a0() + Enum_ov004_021652e8_2456) != NULL) return 0;
+    if (*(void**)((char*)GetMessageWindow_020421a0() + Enum_ov004_021652e8_2456) != NULL) return 0;
 
     {
         Struct_ov004_021652e8* var1 = (Struct_ov004_021652e8*)data_ov004_02171010;

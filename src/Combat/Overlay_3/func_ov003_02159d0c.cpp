@@ -20,7 +20,7 @@ enum { Enum_ov003_02159d0c_2456 = 0x998 };
 enum { Enum_ov003_02159d0c_13504 = 0x34c0 };
 #endif
 
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void* func_020d6c00(void);
 extern "C" void* func_0202ae18(void);
 extern "C" void func_ov003_02159290(void*, unsigned short, int);
@@ -62,7 +62,7 @@ extern int data_0211e33c;
 // USA: func_ov003_02159d0c
 extern "C" ARM void func_ov003_02159d0c(void* arg0) {
     unsigned char* var0 = (unsigned char*)arg0;
-    unsigned char* var1 = (unsigned char*)func_020421a0();
+    unsigned char* var1 = (unsigned char*)GetMessageWindow_020421a0();
     void* var2 = func_020d6c00();
     void* var3 = func_0202ae18();
     char var4[0x34];

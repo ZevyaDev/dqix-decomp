@@ -11,7 +11,7 @@ struct Struct_ov023_021e853c_2 {
 };
 }
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 #if defined(jpn)
 extern "C" int func_0204234c(char* arg0, int arg1);
 #define func_02041cc0 func_0204234c
@@ -40,7 +40,7 @@ struct Struct_ov023_021e853c { char unknown_0_[0xf68]; int unknown_f68_; int unk
 extern "C" ARM void func_ov023_021e853c(void* arg0) {
     Struct_ov023_021e853c_2* var0 = static_cast<Struct_ov023_021e853c_2*>(arg0);
     Struct_ov023_021e853c* var1 = static_cast<Struct_ov023_021e853c*>(func_02010828(GameState::GetInstance()));
-    int var2 = func_020421a0();
+    int var2 = GetMessageWindow_020421a0();
     func_02041cc0(var0->unknown_5d8_, 0x18);
     int var3[2] = { var1->unknown_f6c_, var1->unknown_f68_ };
     for (int var4 = 0; var4 < 2; var4++) {

@@ -32,7 +32,7 @@ struct Struct_02038598_5;
 struct Struct_02010604;
 struct Struct_02015ef4;
 extern short data_020e9450[];
-extern "C" Zone3D* func_02012fe4();
+extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_020332ac(Struct_020a75ec*);
 extern "C" void func_020a78dc(Struct_020a75ec*);
 extern "C" int func_02046b60(Struct_02038598_5*, int);
@@ -54,7 +54,7 @@ enum { Enum_020a75ec_10100 = 0x2774, Enum_020a75ec_10112 = 0x2780 };
 // USA: func_020a75ec
 extern "C" ARM void func_020a75ec(Struct_020a75ec* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Zone3D* var1 = func_02012fe4();
+    Zone3D* var1 = GetZone3D_02012fe4();
     short var2 = arg0->unknown_b4_;
     func_020332ac(arg0);
     arg0->unknown_b4_ = var2;

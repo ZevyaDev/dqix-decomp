@@ -34,7 +34,7 @@ extern "C" void func_ov017_021a05a8(GameResources* arg0);
 extern "C" void func_ov017_0219b624(GameResources* arg0);
 extern "C" void func_ov017_0219ba0c(GameResources* arg0, int arg1);
 extern "C" void* func_0205ec34(void);
-extern "C" unsigned short* func_02012fe4(void);
+extern "C" unsigned short* GetZone3D_02012fe4(void);
 struct Struct_02095924_2;
 struct Struct_02099950;
 extern "C" struct Struct_02095924_2* func_02011584(void* arg0);
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov000_0216873c(struct Struct_ov000_0216873c* arg0) {
     func_ov017_0219ba0c(var1, 0);
 #endif
     void* var5 = func_0205ec34();
-    unsigned short* var6 = func_02012fe4();
+    unsigned short* var6 = GetZone3D_02012fe4();
     func_0206461c(var5, func_02099950(func_02011584(var0), *var6));
     if (arg0->unknown_0_ != 0) {
         DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_0_ << 8);

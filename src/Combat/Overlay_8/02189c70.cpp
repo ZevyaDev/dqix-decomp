@@ -249,9 +249,9 @@ struct Struct_ov008_02189c70_16 {
 extern char data_ov008_0218c184[];
 extern char data_ov008_0218c196[];
 extern "C" void func_020474a8(Struct_ov008_02189c70_12*, int, char*, char*);
-extern "C" void func_0204500c(Struct_ov008_02189c70_12*, char*, int);
+extern "C" void StartMessage_0204500c(Struct_ov008_02189c70_12*, char*, int);
 #endif
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" int func_0202ae18();
 extern "C" void func_020728ac(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, int arg4, int arg5, int arg6);
 extern "C" void* func_020d6c00();
@@ -273,7 +273,7 @@ extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
 extern "C" void func_02046608(Struct_ov008_02189c70_12* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
 #if !defined(jpn)
-extern "C" void func_0204500c(Struct_ov008_02189c70_12* arg0, char* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(Struct_ov008_02189c70_12* window, char* text, int arg2, int arg3);
 #endif
 extern "C" int func_0202c508(int arg0);
 extern "C" int func_020457e0(Struct_ov008_02189c70_12* arg0);
@@ -321,7 +321,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
 
     GameState* var9 = GameState::GetInstance();
     BackgroundLoader* var10 = BackgroundLoader::GetInstance();
-    Struct_ov008_02189c70_12* var11 = (Struct_ov008_02189c70_12*)func_020421a0();
+    Struct_ov008_02189c70_12* var11 = (Struct_ov008_02189c70_12*)GetMessageWindow_020421a0();
     Struct_ov008_02189c70_15* var12 = (Struct_ov008_02189c70_15*)GetGameResources();
     Struct_ov008_02189c70_13* var13 = var12->unknown_3b84_;
     int var14 = func_0202ae18();
@@ -505,9 +505,9 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
         if (!arg0->unknown_e1f_1_) var11->unknown_99c_ = 0; else var11->unknown_99c_ = 2;
         var11->unknown_19b2_ = 1;
 #if defined(jpn)
-        func_0204500c(var11, var0, 0);
+        StartMessage_0204500c(var11, var0, 0);
 #else
-        func_0204500c(var11, var0, 0, 0xe3);
+        StartMessage_0204500c(var11, var0, 0, 0xe3);
 #endif
         var11->unknown_998_ = 1;
         var10->RemoveTask(arg0->unknown_eac_);
@@ -553,9 +553,9 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             if (!arg0->unknown_e1f_1_) var11->unknown_99c_ = 0; else var11->unknown_99c_ = 2;
             var11->unknown_19b2_ = 1;
 #if defined(jpn)
-            func_0204500c(var11, var2, 0);
+            StartMessage_0204500c(var11, var2, 0);
 #else
-            func_0204500c(var11, var2, 0, 0xe3);
+            StartMessage_0204500c(var11, var2, 0, 0xe3);
 #endif
             var11->unknown_998_ = 1;
         }
@@ -618,15 +618,15 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
 #endif
         if (func_02011804(var9) >= 0x63) {
 #if defined(jpn)
-            func_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xc9), 0);
+            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xc9), 0);
 #else
-            func_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xc9), 0, 0xe3);
+            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xc9), 0, 0xe3);
 #endif
         } else {
 #if defined(jpn)
-            func_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0);
+            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0);
 #else
-            func_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0, 0xe3);
+            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0, 0xe3);
 #endif
         }
         var11->unknown_998_ = 1;
@@ -640,15 +640,15 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             char* var55 = *(char**)((char*)var9->GetUnknownGameObject() + 0x134);
             sprintf(var54, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xcb), var55);
             var11->unknown_2c8_ = 1;
-            func_0204500c(var11, var54, 0);
+            StartMessage_0204500c(var11, var54, 0);
 #else
             func_020e4bf4(var7, func_020100b0(var9));
             var11->unknown_0_ = var7;
             var11->unknown_2c8_ = 1;
 #if defined(jpn)
-            func_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xcb), 0);
+            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xcb), 0);
 #else
-            func_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xcb), 0, 0xe3);
+            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xcb), 0, 0xe3);
 #endif
 #endif
             var11->unknown_998_ = 1;
@@ -771,9 +771,9 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
 #endif
             func_02046574((Struct_02046574_2*)var11, 1, *(char**)((char*)var9->GetUnknownGameObject() + 0x134));
 #if defined(jpn)
-            func_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0);
+            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0);
 #else
-            func_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0, 0xe3);
+            StartMessage_0204500c(var11, func_02072a68((Struct_02072a68_2*)((char*)arg0 + 0x278), 0xca), 0, 0xe3);
 #endif
             var11->unknown_998_ = 1;
             var11->unknown_19b2_ = 0;

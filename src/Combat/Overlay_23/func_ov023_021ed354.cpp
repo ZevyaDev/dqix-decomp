@@ -3,7 +3,7 @@
 
 struct Struct_0205de24_2;
 extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" ARM void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
 #if defined(jpn)
 extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov023_021ed354(char* arg0) {
     func_02042058(*(char**)(arg0 + 0x1c), *(char**)(var1 + 4));
 
 #else
-    void* var2 = (void*)func_020421a0();
+    void* var2 = (void*)GetMessageWindow_020421a0();
     memset(*(void**)(arg0 + 0x1c), 0, 0x960);
 
     void* var3 = *(void**)(arg0 + 0x20);

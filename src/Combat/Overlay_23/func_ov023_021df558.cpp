@@ -80,7 +80,7 @@ extern "C" Struct_ov023_021ff9e0_13 data_ov023_021ff9e0;
 extern "C" void func_0204c684(Struct_ov023_021df558_2* arg0);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" void __clear(void* arg0, unsigned long arg1);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02046608(void* arg0, int, const char* arg2, char* arg3, int, int, int);
 extern "C" Struct_ov023_021df558_5* func_ov023_021db4e4(Struct_ov023_021df558* arg0, int arg1);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4);
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov023_021df558(Struct_ov023_021df558_4* arg0)
             func_ov023_021e23d0(&arg0->unknown_cc_, var3, (int)arg0->unknown_62c_, 12, 15);
 #else
             char var4[0x100] = {0};
-            func_02046608(func_020421a0(), 10, arg0->unknown_630_, var4, 0x68, 0, 0);
+            func_02046608(GetMessageWindow_020421a0(), 10, arg0->unknown_630_, var4, 0x68, 0, 0);
             func_ov023_021e23d0(&arg0->unknown_cc_, var3, (int)var4, 10, 15);
 #endif
 

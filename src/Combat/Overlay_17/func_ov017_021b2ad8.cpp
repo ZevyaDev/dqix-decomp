@@ -7,7 +7,7 @@ enum { Enum_ov017_021b2ad8_1060 = 0x444 };
 enum { Enum_ov017_021b2ad8_1060 = 0x424 };
 #endif
 
-extern "C" ARM void* func_02012fe4(void);
+extern "C" ARM void* GetZone3D_02012fe4(void);
 
 struct Struct_ov017_021b2ad8 {
 	unsigned char unknown_0_[8];
@@ -18,7 +18,7 @@ struct Struct_ov017_021b2ad8 {
 
 // USA: func_ov017_021b2ad8
 extern "C" ARM int func_ov017_021b2ad8(Struct_ov017_021b2ad8* arg0) {
-	if (*(int*)((char*)func_02012fe4() + Enum_ov017_021b2ad8_1060) != 0) {
+	if (*(int*)((char*)GetZone3D_02012fe4() + Enum_ov017_021b2ad8_1060) != 0) {
 		return arg0->unknown_8_;
 	}
 	int var0 = (int)GetGameResources();

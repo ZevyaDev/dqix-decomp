@@ -82,7 +82,7 @@ enum {
 struct Struct_ov000_02183218 { unsigned char unknown_0_[4]; };
 
 extern "C" void* func_0202ae18(void);
-extern "C" unsigned short* func_02012fe4(void);
+extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void* func_0203bd08(void);
 extern "C" void func_02082828(int arg0);
 extern "C" void func_020542b4(void* arg0, void* arg1, void* arg2);
@@ -133,7 +133,7 @@ extern "C" int func_02053c6c(unsigned char* arg0);
 
 struct Struct_020fdd44;
 extern "C" struct Struct_020fdd44* func_02027cb0(void);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* func_0207d78c(void);
 extern "C" void* func_020d6c00(void);
 
@@ -240,14 +240,14 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     GameState* var9 = GameState::GetInstance();
     int var10 = (int)GetGameResources();
     struct Struct_0202b2f0* var11 = (struct Struct_0202b2f0*)func_0202ae18();
-    unsigned short* var12 = func_02012fe4();
+    unsigned short* var12 = GetZone3D_02012fe4();
     func_0203bd08();
 
     void* var13 = *(void**)(arg0 + Enum_ov000_021688dc_668);
     struct Struct_02048150* var14 = (struct Struct_02048150*)func_02010828(var9);
     GameObject* var15 = var9->GetProtagonist();
     struct Struct_020fdd44* var16 = func_02027cb0();
-    int var17 = func_020421a0();
+    int var17 = GetMessageWindow_020421a0();
     void* var18 = func_0207d78c();
     void* var19 = *(void**)(var10 + Enum_ov000_021688dc_14076);
     unsigned char* var20 = *(unsigned char**)(var10 + Enum_ov000_021688dc_14132);
@@ -583,7 +583,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
         }
         func_ov017_021baedc(var20, 1);
         *(unsigned short*)(var20 + 8) = *(int*)(arg0 + var59 * 4 + Enum_ov000_021688dc_21912);
-        unsigned short* var60 = func_02012fe4();
+        unsigned short* var60 = GetZone3D_02012fe4();
         GameObject* var61 = var9->GetProtagonist();
         *(int*)((char*)var9 + Enum_ov000_021688dc_29172) = *var60;
         int var62 = var61->obj3D_.rotation_.y;

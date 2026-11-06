@@ -42,7 +42,7 @@ struct Struct_02015ef4;
 struct Struct_0208f3b4;
 struct Struct_0202c1a4;
 
-extern "C" Zone3D* func_02012fe4(void);
+extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" Struct_0208e7d0* func_0208e0a8(void);
 extern "C" int func_0208e824(void*, char*);
 extern "C" int func_020535c8(signed char*);
@@ -61,7 +61,7 @@ extern "C" void func_020469b4(Struct_0201bdac_2*, Struct_0201bdac*);
 
 // USA: func_ov017_021986fc
 extern "C" ARM void func_ov017_021986fc(GameResources* arg0) {
-    Zone3D* var0 = func_02012fe4();
+    Zone3D* var0 = GetZone3D_02012fe4();
     Zone3D_StructPtr_8* var1 = var0->pUnknownStruct_8_;
     Struct_0208e7d0* var2 = func_0208e0a8();
     if (!func_0208e824(var2, var1->mapShortName_)) return;

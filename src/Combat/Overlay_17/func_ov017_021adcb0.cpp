@@ -80,8 +80,8 @@ struct Struct_ov017_021adcb0_4 {
     SafeAllocator unknown_2c_;
 };
 
-extern "C" void* func_020421a0(void);
-extern "C" unsigned char* func_02012fe4(void);
+extern "C" void* GetMessageWindow_020421a0(void);
+extern "C" unsigned char* GetZone3D_02012fe4(void);
 extern "C" void* func_020d7a50(void);
 extern "C" void func_ov017_021ae760(Struct_ov017_021adcb0_4* arg0);
 extern "C" void func_ov017_0218d5ac(void* arg0);
@@ -143,8 +143,8 @@ extern unsigned char data_ov017_021d6ac0[];
 // JPN: func_ov017_021ae4b8
 extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_020421a0();
-    unsigned char* var2 = func_02012fe4();
+    void* var1 = GetMessageWindow_020421a0();
+    unsigned char* var2 = GetZone3D_02012fe4();
     LootableContainerManager* var3 = LootableContainerManager::GetMainInstance();
     Struct_02015ef4_3* var4 = (Struct_02015ef4_3*)(var2 + Enum_ov017_021adcb0_10020);
     void* var5 = func_020d7a50();
@@ -318,7 +318,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
             arg0->unknown_9_ = 4;
         }
     } else if (arg0->unknown_9_ == 4) {
-        var2 = func_02012fe4();
+        var2 = GetZone3D_02012fe4();
         Struct_ov017_021adcb0_2* var34 = (Struct_ov017_021adcb0_2*)func_020177a8(var2, arg0->unknown_a_);
         if (var34) {
             char* var35 = *(char**)((char*)var1 + Enum_ov017_021adcb0_96);

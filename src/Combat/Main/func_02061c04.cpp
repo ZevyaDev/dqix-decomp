@@ -16,7 +16,7 @@ extern "C" int func_0202c1a4(Struct_0202c1a4 *arg0);
 extern "C" void func_ov017_021d0924(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0206ece8(int arg0, int arg1, unsigned char *arg2, unsigned arg3);
 extern "C" int func_0202c508(void *arg0);
-extern "C" void *func_02012fe4(void);
+extern "C" void *GetZone3D_02012fe4(void);
 extern "C" void *func_0201e838(unsigned char *arg0, unsigned arg1);
 struct Struct_02061c04_25;
 struct Struct_02061c04_26;
@@ -324,7 +324,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     }
     case 0x6c: {
-        void *var31 = func_02012fe4();
+        void *var31 = GetZone3D_02012fe4();
         void *var32 = func_0201e838((unsigned char *)((char *)var31 + REGION_VALUE(0x8c, 0x6c)), 2);
         while (var32) {
             if (*((unsigned char *)var32 + 0x2c) == arg1->unknown_4_ &&
@@ -339,7 +339,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     }
     case 0x6d: {
-        Zone3D* var34 = (Zone3D*)func_02012fe4();
+        Zone3D* var34 = (Zone3D*)GetZone3D_02012fe4();
         Struct_020134e0::Struct_02018300* var35 = (Struct_020134e0::Struct_02018300*)func_0201e838((unsigned char*)&var34->substruct_6c_, 2);
         while (var35) {
             if (!(var35->unknown_2c_.unknown1_0_.unknown_2_4_ & 1) &&
@@ -353,7 +353,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     }
     case 0x99: {
-        Zone3D* var36 = (Zone3D*)func_02012fe4();
+        Zone3D* var36 = (Zone3D*)GetZone3D_02012fe4();
         Struct_020134e0::Struct_02018300* var37 = (Struct_020134e0::Struct_02018300*)func_0201e838((unsigned char*)&var36->substruct_6c_, 2);
         while (var37) {
             if (!(var37->unknown_2c_.unknown1_0_.unknown_2_4_ & 1) &&
@@ -577,7 +577,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     }
     case 0x88: {
-        void *var59 = func_02012fe4();
+        void *var59 = GetZone3D_02012fe4();
         void *var60 = func_0201e838((unsigned char *)((char *)var59 + REGION_VALUE(0x8c, 0x6c)), 2);
         while (var60) {
             if (*((unsigned char *)var60 + 0x2c) == arg1->unknown_4_ &&
@@ -619,7 +619,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         void *var69 = GetGameResources();
         void *var70 = ((SafeAllocator *)((char *)var69 + 0x164))->Allocate(0x30);
         if (var70) {
-            func_02012fe4();
+            GetZone3D_02012fe4();
             struct Struct_02061c04_9 { short unknown_0_, unknown_2_; int unknown_4_, unknown_8_, unknown_c_, unknown_10_; int *unknown_14_; } *var71 = (struct Struct_02061c04_9 *)arg1;
             char *var72 = (char *)var70;
             *(short *)(var72 + 0) = (short)var71->unknown_4_;
@@ -699,7 +699,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     }
     case 0x95: {
-        void *var85 = func_02012fe4();
+        void *var85 = GetZone3D_02012fe4();
         if (!var85)
             return 0;
         void *var86 = func_02019508((Struct_02019508_3*)var85, arg1->unknown_2_, arg1->unknown_4_);
@@ -712,7 +712,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     }
     case 0x96: {
-        void *var87 = func_02012fe4();
+        void *var87 = GetZone3D_02012fe4();
         if (!var87)
             return 0;
         void *var88 = func_02019508((Struct_02019508_3*)var87, arg1->unknown_2_, arg1->unknown_4_);
@@ -794,7 +794,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     case 0xc0: {
         GameState *var92 = GameState::GetInstance();
-        void *var93 = func_02012fe4();
+        void *var93 = GetZone3D_02012fe4();
         func_0202ae18();
         var9.unknown_0_ = 0;
         var9.unknown_2_ = 0;
@@ -1250,7 +1250,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             Struct_02061c04_19::Struct_02061c04_20 unknown_1000_;
         };
         unsigned int var185 = 1 << arg1->unknown_2_;
-        ((Struct_02061c04_21 *)((char *)func_02012fe4() + REGION_VALUE(0x860, 0x840)))->unknown_1000_.unknown_b4c_ |= var185;
+        ((Struct_02061c04_21 *)((char *)GetZone3D_02012fe4() + REGION_VALUE(0x860, 0x840)))->unknown_1000_.unknown_b4c_ |= var185;
         return 1;
     }
     case 0xd4:
@@ -1287,7 +1287,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         int var189 = *(short *)((char *)arg1 + 2);
         void *var190 = func_0202ae18();
         if (func_0202c508(var190)) {
-            void *var191 = func_02012fe4();
+            void *var191 = GetZone3D_02012fe4();
             *(short *)((char *)var191 + 0x2700 + REGION_VALUE(0xf4, 0xb4)) = var189;
             if (func_0202b7d8((int *)var190)) {
                 func_ov017_021d1c2c(var189, 0);
@@ -1332,7 +1332,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     }
     case 0xde: {
-        void *var201 = func_02012fe4();
+        void *var201 = GetZone3D_02012fe4();
         *((unsigned char *)var201 + 0x2000 + REGION_VALUE(0x810, 0x7d0)) = 0;
         return 1;
     }

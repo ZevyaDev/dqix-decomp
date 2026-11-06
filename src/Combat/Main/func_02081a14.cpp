@@ -9,7 +9,7 @@
 struct Struct_02072a68_2;
 struct Struct_020465c0;
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
 extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
 
@@ -65,7 +65,7 @@ extern "C" ARM void func_02081a14(struct Struct_02081a14* arg0, struct Struct_02
         var0 = 5;
     }
 
-    int var1 = func_020421a0();
+    int var1 = GetMessageWindow_020421a0();
 #if defined(jpn)
     memset(arg0->unknown_18_, 0, 0x800);
     func_02046380(var1);

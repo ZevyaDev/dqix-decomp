@@ -92,7 +92,7 @@ extern "C" void func_02074b64(Struct_02074b64* arg0);
 extern "C" void func_020bb700(int* arg0);
 extern "C" void func_020bb740(int* arg0);
 extern "C" void func_020bb910(int* arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" unsigned short func_0201e830(Struct_0201e830* arg0);
 extern "C" void func_ov017_0219bf74(void);
 extern "C" void func_0207df50(Struct_0203d028* arg0);
@@ -126,7 +126,7 @@ extern "C" void* func_02057924(void);
 extern "C" void func_02058564(Struct_02058564_2* arg0);
 extern "C" void func_ov017_0219b624(GameResources* arg0);
 extern "C" void func_ov017_0219ba0c(GameResources* arg0, int arg1);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_0207df90(char* arg0);
 extern "C" void func_0207dfac(char* arg0);
 extern "C" void func_020432c4(void* arg0);
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         arg0->unknown_5c_ = var3.unknown_3_0_;
         arg0->unknown_60_ = DISPCNT & 0x300010;
         arg0->unknown_64_ = DISPCNTSUB & 0x300010;
-        arg0->unknown_a0_ = func_0201e830((Struct_0201e830*)((char*)func_02012fe4() + Enum_ov003_0217e6b0_108));
+        arg0->unknown_a0_ = func_0201e830((Struct_0201e830*)((char*)GetZone3D_02012fe4() + Enum_ov003_0217e6b0_108));
         arg0->unknown_a4_ = GetFlags00(var1);
         arg0->unknown_a8_ = GetFlags04(var1);
         arg0->unknown_ac_ = GetFlags08(var1);
@@ -303,7 +303,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         func_ov017_0219b624(var1);
         func_ov017_0219ba0c(var1, 0);
         char* var8 = var1->unknown_2cc_;
-        void* var9 = (void*)func_020421a0();
+        void* var9 = (void*)GetMessageWindow_020421a0();
         func_0207df50((Struct_0203d028*)(var8 + 0x5b0));
         func_0207df90(var8 + 0x5b0);
         func_020432c4(var9);
@@ -320,7 +320,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         func_ov017_0219bd1c(1, 0, 0, 0);
         arg0->unknown_20_++;
     } else if (arg0->unknown_20_ == 6) {
-        if (*(int*)((char*)func_02012fe4() + Enum_ov003_0217e6b0_1060) != 0) {
+        if (*(int*)((char*)GetZone3D_02012fe4() + Enum_ov003_0217e6b0_1060) != 0) {
             return;
         }
         ClearFlags04(var1, 2);

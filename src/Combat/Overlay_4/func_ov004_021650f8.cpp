@@ -4,7 +4,7 @@
 #include "Resource/Brightness.h"
 
 struct Struct_ov004_02164670;
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 struct Struct_02011930;
 extern "C" unsigned char func_02011930(void* arg0, struct Struct_02011930* arg1, void* arg2, void* arg3);
 extern "C" void func_ov011_021848a0(void* arg0, int arg1);
@@ -27,7 +27,7 @@ ret0:
     return 0;
 
 mainlogic:
-    if (*(void**)((char*)func_020421a0() + Enum_ov004_021650f8_2456) != NULL) return 0;
+    if (*(void**)((char*)GetMessageWindow_020421a0() + Enum_ov004_021650f8_2456) != NULL) return 0;
 
     if (func_02011930(var0, NULL, NULL, NULL) != 0) {
         func_ov011_021848a0(arg0, 0x6b);

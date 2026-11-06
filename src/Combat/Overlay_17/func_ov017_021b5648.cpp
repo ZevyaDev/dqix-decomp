@@ -14,7 +14,7 @@ extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
 struct Struct_02039df4;
 extern "C" unsigned short func_02028460(void* arg0, void* arg1);
 extern "C" int func_0202c508(void* arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_ov017_021a2128(void* arg0, int arg1, int arg2, int arg3, void* arg4, int arg5, int arg6, int arg7);
 
 struct Struct_ov017_021d6bcc { unsigned int unknown_0_, unknown_4_, unknown_8_; };
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov017_021b5648(char* arg0) {
         GameState* var6 = GameState::GetInstance();
         void* var7 = GetGameResources();
         var6->GetGrottoStruct();
-        ActiveGrottoClass* var8 = (ActiveGrottoClass*)((char*)func_02012fe4() + Enum_ov017_021b5648_9196);
+        ActiveGrottoClass* var8 = (ActiveGrottoClass*)((char*)GetZone3D_02012fe4() + Enum_ov017_021b5648_9196);
         unsigned char var9 = var8->GetActiveGrottoEnviron() & 0xff;
 
         struct Struct_ov017_021d6bcc var10 = data_ov017_021d6bcc;

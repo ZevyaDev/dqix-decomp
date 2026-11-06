@@ -21,7 +21,7 @@ struct Struct_ov000_0217636c_2 {
 #endif
     void* unknown_5c_;
 };
-extern "C" struct Struct_ov000_0217636c_2* func_020421a0();
+extern "C" struct Struct_ov000_0217636c_2* GetMessageWindow_020421a0();
 
 #if defined(jpn)
 extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov000_0217636c(struct Struct_ov000_0215ab88* arg0, int 
         var0->unknown_ac_ = 0xa;
         var0->unknown_ae_ = 0xe;
         var0->unknown_b1_ = 0xd;
-        void* var3 = func_020421a0()->unknown_5c_;
+        void* var3 = GetMessageWindow_020421a0()->unknown_5c_;
 #if defined(jpn)
         memset(var3, 0, 0x800);
 #else

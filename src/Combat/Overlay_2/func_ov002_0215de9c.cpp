@@ -8,7 +8,7 @@ struct Struct_020a0b8c;
 struct Struct_020465c0;
 extern "C" int func_02041c08(char *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" int func_02041ea4(char *arg0, int arg1);
-extern "C" char *func_020421a0();
+extern "C" char *GetMessageWindow_020421a0();
 extern "C" unsigned char *func_02053c6c(unsigned char *arg0);
 extern "C" int func_02086ef0(Struct_02048150 *arg0, int arg1);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov002_0215de9c(char *arg0, char *arg1, int arg2) {
         func_02041ea4(arg1, var3);
     }
     GameState *var4 = GameState::GetInstance();
-    char *var5       = func_020421a0();
+    char *var5       = GetMessageWindow_020421a0();
     char *var6   = (char *) func_02010828(var4);
     int var7     = *(signed char *) (arg0 + 0x1c00 + 0x21);
     int var8        = 0;

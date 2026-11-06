@@ -503,7 +503,7 @@ namespace { enum { Enum_0206b7b0_2324 = 0x7e4, Enum_0206b7b0_324 = 0x104 }; }
 
 enum { Enum_0206b804_6592 = 0x17f0, Enum_0206b804_6605 = 0x17fe, Enum_0206b804_64 = 0xc, Enum_0206b804_6493 = 0x178b };
 
-extern "C" unsigned char* func_020421a0();
+extern "C" unsigned char* GetMessageWindow_020421a0();
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" void func_02046458(int arg0, int arg1, unsigned char arg2, char* arg3, unsigned char arg4, unsigned char arg5, void* arg6, int arg7, int arg8);
 extern "C" void func_02050678(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, short* arg6, short* arg7);
@@ -746,7 +746,7 @@ extern "C" ARM void func_02066794(void* arg0, int arg1, int arg2, char* arg3, sh
     if (var2 == NULL) return;
     unsigned char var3 = var2->unknown_2_;
     unsigned char var4 = var2->unknown_3_;
-    unsigned char var5 = (func_020421a0() + 0x1000)[0x789];
+    unsigned char var5 = (GetMessageWindow_020421a0() + 0x1000)[0x789];
     if (var5 & 0x80) {
         unsigned char var6;
         for (var6 = 0; var6 < 4; var6++) {
@@ -776,7 +776,7 @@ extern "C" ARM void func_02066934(unsigned char* arg0, void* arg1, void* arg2, i
     var2.unknown_1_ = *(signed char*)((char*)arg2 + 0x19);
     var7 = *(unsigned char*)((char*)arg2 + 0x1a);
     var4 = (short)(arg4 - (short)(*(short*)((char*)(*(void**)arg0) + 0xae) * 8));
-    var5 = ((unsigned char*)func_020421a0() + 0x1000)[0x789];
+    var5 = ((unsigned char*)GetMessageWindow_020421a0() + 0x1000)[0x789];
     if (var5 & 0x80) {
         for (var6 = 0; var6 < 4; var6++) {
             func_02050678(arg1, (short)(arg3 + data_020e882c[var6]), (short)(var4 + data_jpn_020e8834[var6]), &var2, var7, 1, &var0, &var1);
@@ -790,11 +790,11 @@ extern "C" ARM void func_02066934(unsigned char* arg0, void* arg1, void* arg2, i
     }
 }
 
-ARM unsigned short Struct_02021b84::func_020656d0() {
+ARM unsigned short MessageWindow_02021b84::func_020656d0() {
     return unknown_4c_[unknown_78_];
 }
 
-ARM int Struct_02021b84::func_020656e4(int arg0) {
+ARM int MessageWindow_02021b84::func_020656e4(int arg0) {
     if (!unknown_19b6_) return 0;
 
     struct Struct_0203dce4* var0 = func_0203dce4(
@@ -920,7 +920,7 @@ extern "C" ARM void func_02065920(unsigned char* arg0, unsigned int arg1) {
     *(int*)(arg0 + 0x870) = 5;
 }
 
-extern "C" ARM void func_02065990(Struct_02021b84* arg0, int arg1) {
+extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
     unsigned char* var0 = (unsigned char*)arg0;
     unsigned short var1;
     struct Struct_02065990_6 var2;
@@ -1811,7 +1811,7 @@ extern "C" ARM void func_020676e0(Struct_020676e0_4* arg0, int arg1) {
     (arg0->*data_020f079c[var5])(var8);
 }
 
-extern "C" ARM void func_0206917c(Struct_02021b84* arg0, int arg1) {
+extern "C" ARM void func_0206917c(MessageWindow_02021b84* arg0, int arg1) {
     int var0 = arg0->unknown_78_;
     unsigned short* var1 = arg0->unknown_4c_;
     unsigned short var2 = var1[var0];
@@ -1846,7 +1846,7 @@ extern "C" ARM void func_0206917c(Struct_02021b84* arg0, int arg1) {
     }
 }
 
-extern "C" ARM void func_02069294(Struct_02021b84* arg0, int arg1) {
+extern "C" ARM void func_02069294(MessageWindow_02021b84* arg0, int arg1) {
     switch (arg1) {
     case 0:
         func_0206b104((Struct_0206b104*)arg0);
@@ -3255,7 +3255,7 @@ extern "C" ARM void func_0206c520(void* arg0, const char** arg1, const char* arg
 }
 
 extern "C" ARM void func_0206c570(void* arg0, const char* arg1) {
-    Struct_02021b84* var0 = static_cast<Struct_02021b84*>(arg0);
+    MessageWindow_02021b84* var0 = static_cast<MessageWindow_02021b84*>(arg0);
     if (arg1 == NULL) return;
     {
         void* var1 = var0->unknown_14_;
@@ -3320,7 +3320,7 @@ extern "C" ARM void func_0206aa28(char* arg0) {
 }
 
 extern "C" ARM unsigned short* func_0206c730(void* arg0, unsigned short arg1, unsigned short* arg2) {
-    Struct_02021b84* var0 = static_cast<Struct_02021b84*>(arg0);
+    MessageWindow_02021b84* var0 = static_cast<MessageWindow_02021b84*>(arg0);
     if (!arg2) return NULL;
     if (!func_02069430(arg0, arg1)) return NULL;
     unsigned int var1 = 0;
@@ -3334,7 +3334,7 @@ extern "C" ARM unsigned short* func_0206c730(void* arg0, unsigned short arg1, un
 }
 
 extern "C" ARM void func_0206c794(void* arg0) {
-    Struct_02021b84* var0 = static_cast<Struct_02021b84*>(arg0);
+    MessageWindow_02021b84* var0 = static_cast<MessageWindow_02021b84*>(arg0);
     unsigned short var1[16];
     unsigned char var2 = 0;
     __clear(var1, sizeof(var1));
@@ -3428,7 +3428,7 @@ extern "C" ARM void func_0206b104(struct Struct_0206b104* arg0) {
 }
 
 extern "C" ARM void func_0206cb14(void* arg0, int arg1, unsigned short arg2) {
-    Struct_02021b84* var0 = static_cast<Struct_02021b84*>(arg0);
+    MessageWindow_02021b84* var0 = static_cast<MessageWindow_02021b84*>(arg0);
     if (arg2 >= 0x80) return;
     if (func_02069430(var0, arg2)) return;
     Struct_0204166c* var1 = &var0->unknown_9b8_[arg2];
@@ -3456,7 +3456,7 @@ extern "C" ARM void func_0206cba0(struct Struct_0206b224* arg0) {
 }
 
 extern "C" ARM void func_0206cbe8(void* arg0, unsigned short arg1, unsigned short* arg2) {
-    Struct_02021b84* var0 = static_cast<Struct_02021b84*>(arg0);
+    MessageWindow_02021b84* var0 = static_cast<MessageWindow_02021b84*>(arg0);
     char* var1 = static_cast<char*>(arg0);
     unsigned short* var2 = func_0206c730(arg0, arg1, arg2);
     if (var2 == NULL) {
@@ -3527,7 +3527,7 @@ extern "C" ARM int func_0206cc50(Struct_0206cc50* arg0, unsigned short* arg1) {
 }
 
 extern "C" ARM void func_0206cdcc(void* arg0, int* arg1, int* arg2) {
-    Struct_02021b84* var0 = static_cast<Struct_02021b84*>(arg0);
+    MessageWindow_02021b84* var0 = static_cast<MessageWindow_02021b84*>(arg0);
     unsigned short* var1 = static_cast<unsigned short*>(var0->unknown_1c_);
     int var2 = var0->unknown1_40_;
     int var3 = var0->unknown_78_;

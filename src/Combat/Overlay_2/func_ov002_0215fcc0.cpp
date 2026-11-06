@@ -18,7 +18,7 @@ extern "C" int func_02041acc(char *arg0, int arg1);
 extern "C" int func_02042058(char *arg0, const char *arg1);
 extern "C" int func_02041fac(char *arg0, int arg1, int arg2);
 extern "C" const char *func_020e51cc(int arg0);
-extern "C" char *func_020421a0();
+extern "C" char *GetMessageWindow_020421a0();
 extern "C" void func_020465c0(struct Struct_020465c0 *arg0, int arg1, int arg2);
 extern "C" void func_020465f0(unsigned char *arg0, int arg1, unsigned char arg2);
 extern "C" void func_020465d8(unsigned char *arg0, int arg1, unsigned char arg2);
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov002_0215fcc0(char *arg0, char *arg1) {
     func_02041a28(arg1, var15);
     func_02042058(arg1, var0);
     func_02041fac(arg1, (int) data_ov002_0216d2b3, 0x10);
-    unsigned char *var16 = (unsigned char *) func_020421a0();
+    unsigned char *var16 = (unsigned char *) GetMessageWindow_020421a0();
     func_02046380(var16);
     struct Struct_ov002_0216ca30 var17 = data_ov002_0216ca30;
     int var18[7]         = {

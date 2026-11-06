@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void* func_0203cf4c(void);
 extern "C" void* func_0203df78(void* arg0, int arg1);
 
@@ -31,7 +31,7 @@ extern struct Struct_02108760 data_02108760;
 
 // USA: func_ov004_021688d4
 extern "C" ARM int func_ov004_021688d4(void) {
-    char* var0 = (char*)(int)func_020421a0();
+    char* var0 = (char*)(int)GetMessageWindow_020421a0();
     void* var1 = func_0203cf4c();
     void* var2 = func_0203df78(var1, 6);
     if (var2) {

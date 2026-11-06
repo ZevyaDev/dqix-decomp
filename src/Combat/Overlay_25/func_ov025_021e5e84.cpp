@@ -4,7 +4,7 @@
 
 extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
 struct Struct_02046574_2;
-extern "C" struct Struct_02046574_2* func_020421a0(void);
+extern "C" struct Struct_02046574_2* GetMessageWindow_020421a0(void);
 extern "C" void* func_ov000_02160130(void);
 extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
 extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
@@ -24,7 +24,7 @@ extern "C" ARM int func_ov025_021e5e84(struct Struct_ov025_021e5e84* arg0, int a
     }
 
     GameState* var1 = GameState::GetInstance();
-    struct Struct_02046574_2* var2 = func_020421a0();
+    struct Struct_02046574_2* var2 = GetMessageWindow_020421a0();
     int var3 = var0[0];
     func_ov000_02160130();
 #if defined(jpn)

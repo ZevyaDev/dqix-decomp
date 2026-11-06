@@ -126,7 +126,7 @@ extern "C" void func_020a8170(struct Struct_ov002_02157634_6* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_0202c540(void* arg0);
 extern "C" int func_0202c508(void* arg0);
 extern "C" unsigned char* func_0205ec34(void);
@@ -162,7 +162,7 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
     int var6 = Enum_ov002_02157634_38;
     if (arg0->unknown_1bb8_ == Enum_ov002_02157634_6) {
         void* var7 = func_0202ae18();
-        unsigned short* var8 = (unsigned short*)func_02012fe4();
+        unsigned short* var8 = (unsigned short*)GetZone3D_02012fe4();
         unsigned short var9 = *var8;
         switch (var3->unknown_18_) {
         case 0x5612:

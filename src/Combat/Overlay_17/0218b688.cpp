@@ -40,7 +40,7 @@ extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
 void SetMainBrightness(GameResources*, int, int);
 void SetSubBrightness(GameResources*, int, int);
 extern "C" void func_0200fb84(int*, int);
-extern "C" char* func_02012fe4();
+extern "C" char* GetZone3D_02012fe4();
 extern "C" void* func_0200fd0c(GameState* arg0);
 extern "C" void func_0201133c(char*);
 extern "C" void* func_020a6084();
@@ -192,7 +192,7 @@ extern "C" void* func_02039e70();
 extern "C" void func_02039e7c(void* arg0);
 struct Struct_0203a54c;
 extern "C" void func_0203a54c(Struct_0203a54c*);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02042c68(void* arg0);
 extern "C" void func_02043124(void* arg0);
 extern "C" void func_02042b30(void* arg0, void* arg1);
@@ -451,7 +451,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     SetSubBrightness((GameResources*)arg0, -16, 0);
     func_0200fb84((int*)var5, (int)arg0);
     BackgroundLoader* var8 = BackgroundLoader::GetInstance();
-    char* var9 = func_02012fe4();
+    char* var9 = GetZone3D_02012fe4();
     Struct_ov017_0218b688* var10 = (Struct_ov017_0218b688*)func_0200fd0c(var5);
     var8->MaybeReset();
     func_0201133c((char*)var5);
@@ -751,7 +751,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
 #endif
     void* var50 = func_02039e70();
     func_02039e7c(var50);
-    void* var51 = func_020421a0();
+    void* var51 = GetMessageWindow_020421a0();
     func_02042c68(var51);
     func_02043124(var51);
     func_02042b30(var51, arg0->unknown_87c_);

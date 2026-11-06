@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* func_ov011_021849c8(void* arg0);
 extern "C" void* func_ov023_021f6880(void** arg0, int arg1);
 extern "C" void* func_ov023_021fad18(void* arg0);
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov023_021faed0(struct Struct_ov023_021faed0_2* arg0, vo
         void* var1 = func_ov023_021f6880(var0, arg0->unknown_20_);
         void* var2 = func_ov023_021fad18(var1);
         struct Struct_ov023_021faed0* var3 = (struct Struct_ov023_021faed0*)func_ov023_021fa854((char*)var2, arg0->unknown_22_);
-        int* var4 = (int*)func_020421a0();
+        int* var4 = (int*)GetMessageWindow_020421a0();
 
         if (var3 != 0) {
 #if defined(jpn)

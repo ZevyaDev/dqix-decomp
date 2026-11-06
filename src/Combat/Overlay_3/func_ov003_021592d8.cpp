@@ -49,7 +49,7 @@ struct Struct_ov003_021592d8_6 {
     char unknown_64_[0x18];
 };
 
-extern "C" struct Struct_ov003_021592d8_3* func_020421a0();
+extern "C" struct Struct_ov003_021592d8_3* GetMessageWindow_020421a0();
 extern "C" struct Struct_ov003_021592d8* func_02053c6c(unsigned char* arg0);
 extern "C" void func_02046380(void* arg0);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov003_021592d8(struct Struct_ov003_021592d8_6* arg0, st
     if (arg2 == NULL || arg1 == NULL) {
         return;
     }
-    struct Struct_ov003_021592d8_3* var0 = func_020421a0();
+    struct Struct_ov003_021592d8_3* var0 = GetMessageWindow_020421a0();
     struct Struct_ov003_021592d8* var1 = func_02053c6c((unsigned char*)arg1);
     int var2 = var1->unknown_950_;
     func_02046380(var0);

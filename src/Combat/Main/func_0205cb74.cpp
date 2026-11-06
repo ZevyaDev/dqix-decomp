@@ -6,7 +6,7 @@
 #endif
 
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 #if defined(jpn)
 extern "C" int func_020469b0(void* arg0, int arg1, void* arg2, int arg3);
 extern "C" int func_02046f80(void* arg0, int arg1, void* arg2, int arg3);
@@ -20,7 +20,7 @@ extern "C" int func_02046170(void* arg0, void* arg1, int arg2, int arg3);
 extern "C" ARM void func_0205cb74(char* arg0, int arg1) {
     if (arg1 == 0) return;
 
-    void* var0 = (void*)func_020421a0();
+    void* var0 = (void*)GetMessageWindow_020421a0();
 
     *(unsigned short*)(arg0 + (IS_JPN ? 0x1b0 : 0x220) + *(unsigned char*)(arg0 + (IS_JPN ? 0x1c2 : 0x232)) * 2) = *(unsigned short*)(arg0 + (IS_JPN ? 0x1c0 : 0x230));
 

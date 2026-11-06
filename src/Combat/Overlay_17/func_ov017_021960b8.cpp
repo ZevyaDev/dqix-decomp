@@ -55,9 +55,9 @@ extern "C" int func_02039d7c(char*);
 extern "C" void func_02096824(unsigned char*);
 extern "C" int* func_020936f8();
 extern "C" void func_02093f68(char*);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_ov017_021959ec(void*);
-extern "C" Struct_ov003_02174114* func_020421a0();
+extern "C" Struct_ov003_02174114* GetMessageWindow_020421a0();
 
 extern Vector3fix data_ov017_021d6408;
 extern Vector3fix data_ov017_021d6414;
@@ -70,7 +70,7 @@ extern int data_ov017_021d8350;
 // USA: func_ov017_021960b8
 extern "C" ARM void func_ov017_021960b8(Struct_ov017_021960b8* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Struct_ov003_02174114* var1 = func_020421a0();
+    Struct_ov003_02174114* var1 = GetMessageWindow_020421a0();
     Struct_020707c8* var2 = (Struct_020707c8*)func_020704fc();
     GameObject* var3 = var0->GetUnknownGameObject();
     var0->GetTickCount();
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov017_021960b8(Struct_ov017_021960b8* arg0) {
     }
 
     func_02093f68((char*)func_020936f8());
-    if (((AtmosphericEffectSet*)((char*)func_02012fe4() + Enum_ov017_021960b8_244))->Draw()) {
+    if (((AtmosphericEffectSet*)((char*)GetZone3D_02012fe4() + Enum_ov017_021960b8_244))->Draw()) {
         func_ov017_021959ec(arg0);
     }
 }

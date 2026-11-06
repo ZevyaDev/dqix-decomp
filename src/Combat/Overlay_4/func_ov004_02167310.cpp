@@ -4,7 +4,7 @@ struct Struct_0208d994;
 struct Struct_0208bf78_5;
 struct Struct_02046574_2;
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02046380(void* arg0);
 extern "C" int func_ov004_021666bc(void*, int*);
 extern "C" Struct_0208d994* func_0208d994(Struct_0208bf78_5*, int);
@@ -21,7 +21,7 @@ extern void* data_ov004_0217101c;
 // USA: func_ov004_02167310
 extern "C" ARM int func_ov004_02167310(void* arg0) {
     void* var0 = CurrentBase0217101c;
-    int var1 = func_020421a0();
+    int var1 = GetMessageWindow_020421a0();
     func_02046380((void*)var1);
     int var2;
     int var3 = func_ov004_021666bc(arg0, &var2);

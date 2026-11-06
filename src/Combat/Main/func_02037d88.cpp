@@ -5,7 +5,7 @@
 #include "Resource/Brightness.h"
 
 extern "C" void func_0202ae18(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_020391ac(void* arg0);
 extern "C" void func_02038138(void* arg0);
 extern "C" void func_02038598(void* arg0);
@@ -29,7 +29,7 @@ extern "C" int func_02046b08(void** arg0);
 struct Struct_0203402c;
 extern "C" int func_0203402c(struct Struct_0203402c* arg0);
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 
 extern "C" unsigned char func_020100b0(GameState* arg0);
 extern "C" int func_020100f8(char* arg0);
@@ -130,7 +130,7 @@ extern "C" ARM void func_02037d88(struct Struct_02037d88_7* arg0) {
     {
         void* var5 = GameState::GetInstance();
         void* var6 = func_020100bc((GameState*)var5);
-        void* var7 = func_02012fe4();
+        void* var7 = GetZone3D_02012fe4();
         int* var8 = (int*)arg0->unknown_130_;
 
         if ((*var8 & 1) != 0
@@ -158,7 +158,7 @@ extern "C" ARM void func_02037d88(struct Struct_02037d88_7* arg0) {
             && func_02046b08((void**)var13) != 0
             && g_keyManager.TestKeysHeld(2) != 0
             && func_0203402c((struct Struct_0203402c*)arg0) == 0
-            && ((struct Struct_02037d88_6*)func_020421a0())->unknown_1000_.unknown_9b1_ == 0) {
+            && ((struct Struct_02037d88_6*)GetMessageWindow_020421a0())->unknown_1000_.unknown_9b1_ == 0) {
 
             unsigned char* var14 = (unsigned char*)func_02010828((GameState*)var5);
 

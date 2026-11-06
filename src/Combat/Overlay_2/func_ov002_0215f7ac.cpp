@@ -14,7 +14,7 @@ struct Struct_ov002_0215f7ac {
 struct Struct_02046574_2;
 struct Struct_020465c0;
 struct Struct_0201099c_3;
-extern "C" char *func_020421a0();
+extern "C" char *GetMessageWindow_020421a0();
 extern "C" GameObject *func_0200ff1c(GameState *arg0, int arg1);
 extern "C" unsigned char *func_02053c6c(unsigned char *arg0);
 extern "C" void func_02046574(struct Struct_02046574_2 *arg0, int arg1, char *arg2);
@@ -38,7 +38,7 @@ static const char data_ov002_0216d054[1] = {8};
 extern "C" ARM void func_ov002_0215f7ac(char *arg0, char *arg1) {
     char var1[0x20];
     if (arg1 == NULL) return;
-    char *var3       = func_020421a0();
+    char *var3       = GetMessageWindow_020421a0();
     GameObject *var4 = func_0200ff1c(GameState::GetInstance(), *(signed char *) (arg0 + 0x1a00 + 0xe8));
     if (var4 == NULL) return;
     struct Struct_ov002_0215f7ac *var5 = (struct Struct_ov002_0215f7ac *) func_02053c6c((unsigned char *) var4);

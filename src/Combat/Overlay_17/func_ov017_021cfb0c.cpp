@@ -41,7 +41,7 @@ struct Struct_ov017_021cfb0c_3 {
 };
 
 extern "C" int func_0202c508(struct Struct_0202c1a4* arg0);
-extern "C" unsigned short* func_02012fe4(void);
+extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void* func_0200fd0c(GameState* arg0);
 extern "C" int func_02046b24(Struct_02015438** arg0);
 extern "C" int func_0201b588(int arg0);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov017_021cfb0c(int arg0, void* arg1, GameState* arg2, s
         return;
     }
 
-    var1 = func_02012fe4();
+    var1 = GetZone3D_02012fe4();
     arg2->GetUnknownGameObject();
     var3 = *var1;
     var2 = (struct Struct_ov017_021cfb0c_3*)arg2->GetGrottoStruct();

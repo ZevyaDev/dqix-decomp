@@ -64,10 +64,10 @@ extern Struct_02109bf4_4 data_02109bf4;
 extern const Struct_ov023_021fd870 data_ov023_021fd870;
 #if defined(jpn)
 extern const char data_ov023_021fd45c[];
-extern "C" void func_0204500c(Struct_02081870*, const char*, int);
+extern "C" void StartMessage_0204500c(Struct_02081870*, const char*, int);
 #endif
 extern "C" void* func_0202ae18();
-extern "C" Struct_02081870* func_020421a0();
+extern "C" Struct_02081870* GetMessageWindow_020421a0();
 extern "C" unsigned int* func_020d6c00();
 extern "C" void func_020466e4(unsigned int*, unsigned int);
 extern "C" void func_ov017_021c9ad4(unsigned short);
@@ -89,14 +89,14 @@ extern "C" void func_020a1ef0(int);
 extern "C" void func_ov023_021f52f8(void*, void*);
 extern "C" int func_0202c540(void*);
 extern "C" void func_02046380(Struct_02081870*);
-extern "C" Struct_ov023_021edc08_3* func_02012fe4();
+extern "C" Struct_ov023_021edc08_3* GetZone3D_02012fe4();
 extern "C" void func_020e46c4(void*);
 extern "C" void* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" Struct_ov023_021edc08_5 func_ov023_021ed804(Struct_ov023_021edc08_5, void*);
 extern "C" void func_ov023_021edf38(void*, Struct_ov023_021edc08_5*);
 extern "C" const char* func_020e51cc(int);
 #if !defined(jpn)
-extern "C" void func_0204500c(Struct_02081870*, const char*, int, int);
+extern "C" void StartMessage_0204500c(Struct_02081870*, const char*, int, int);
 #endif
 extern "C" void func_0209c6d8(void*, int);
 extern "C" int func_0202c508(void*);
@@ -119,7 +119,7 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
 
     GameResources* var1 = GetGameResources();
     void* var2 = func_0202ae18();
-    Struct_02081870* var3 = func_020421a0();
+    Struct_02081870* var3 = GetMessageWindow_020421a0();
     func_020466e4(func_020d6c00(), 0x20000);
     func_ov017_021c9ad4(arg0->unknown_2a0_->unknown_8_);
     func_ov017_021a23b0(var1, arg0->unknown_2a0_->unknown_8_);
@@ -164,13 +164,13 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
     if (func_0202c540(var2) && arg0->unknown_2a0_->unknown_25_) {
 #if defined(jpn)
         GameObject* var10 = var0->GetPartyMemberByIndex(0);
-        DetailedTreasureMapData* var11 = func_02012fe4()->unknown_240c_.GetDetailedData();
+        DetailedTreasureMapData* var11 = GetZone3D_02012fe4()->unknown_240c_.GetDetailedData();
         char var12[128];
         sprintf(var12, data_ov023_021fd45c, *(const char**)((char*)var10 + 0x134), (char*)var11 + 0x5a);
-        func_0204500c(var3, var12, 1);
+        StartMessage_0204500c(var3, var12, 1);
 #else
         func_02046380(var3);
-        Struct_ov023_021edc08_4* var13 = (Struct_ov023_021edc08_4*)&func_02012fe4()->unknown_23ec_.GetDetailedData()->regular_;
+        Struct_ov023_021edc08_4* var13 = (Struct_ov023_021edc08_4*)&GetZone3D_02012fe4()->unknown_23ec_.GetDetailedData()->regular_;
         Struct_ov023_021edc08_5 var14;
         func_020e46c4(&var14);
         Struct_ov003_02162f40* var15 = arg0->unknown_2a0_;
@@ -185,7 +185,7 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
         }
         char var19[256];
         sprintf(var19, func_020e51cc(200));
-        func_0204500c(var3, var19, 1, 0xe3);
+        StartMessage_0204500c(var3, var19, 1, 0xe3);
 
 #endif
         var3->unknown_998_ = 1;

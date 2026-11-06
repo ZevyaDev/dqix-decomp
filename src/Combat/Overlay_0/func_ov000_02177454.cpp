@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov000_0217c638(void* arg0, int arg1, int arg2);
 extern "C" void func_ov000_021775a4(void* arg0, void* arg1);
 #if defined(jpn)
@@ -48,9 +48,9 @@ extern "C" ARM void func_ov000_02177454(void* arg0, struct Struct_ov000_02177454
     }
     *(unsigned char*)(var3 + 0xb1) = 2;
 #if defined(jpn)
-    void* var4 = *(void**)((char*)func_020421a0() + 0x28);
+    void* var4 = *(void**)((char*)GetMessageWindow_020421a0() + 0x28);
 #else
-    void* var4 = *(void**)((char*)func_020421a0() + 0x5c);
+    void* var4 = *(void**)((char*)GetMessageWindow_020421a0() + 0x5c);
 #endif
 #if defined(jpn)
     memset(var4, 0, 0x800);

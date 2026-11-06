@@ -35,8 +35,8 @@ struct Struct_ov003_0217dfb4_2 {
     char unknown_cc_[4];
 };
 
-extern "C" void* func_02012fe4(void);
-extern "C" int func_020421a0();
+extern "C" void* GetZone3D_02012fe4(void);
+extern "C" int GetMessageWindow_020421a0();
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_0205d794(struct Struct_0205c570* arg0);
 extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
@@ -52,11 +52,11 @@ extern const char data_ov003_02180c7f[];
 // USA: func_ov003_0217dfb4
 extern "C" ARM void func_ov003_0217dfb4(struct Struct_ov003_0217dfb4_2* arg0) {
     char var0[0x400];
-    func_02012fe4();
+    GetZone3D_02012fe4();
 #if defined(jpn)
-    int var1 = func_020421a0();
+    int var1 = GetMessageWindow_020421a0();
 #else
-    func_020421a0();
+    GetMessageWindow_020421a0();
 #endif
     __clear(var0, 0x400);
     int var2;

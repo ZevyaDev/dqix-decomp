@@ -11,7 +11,7 @@ extern char data_ov013_02188d20[];
 #include "NitroSDK/Graphics.h"
 
 extern "C" void func_020dfec0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void func_0205cef8(void* arg0);
 extern "C" void func_0205cf04(void* arg0);
 extern "C" void func_ov013_02185310(unsigned char* arg0);
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov013_02184d80(Struct_ov013_02184d80_4* arg0) {
         }
         else if (arg0->unknown_63e_ == 2)
         {
-            arg0->unknown_658_ = *(char**)((char*)func_020421a0()
+            arg0->unknown_658_ = *(char**)((char*)GetMessageWindow_020421a0()
 #if defined(jpn)
                 + 0x28);
 #else
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov013_02184d80(Struct_ov013_02184d80_4* arg0) {
         {
             if (func_02094b4c(func_02094a00()))
             {
-                arg0->unknown_658_ = *(char**)((char*)func_020421a0()
+                arg0->unknown_658_ = *(char**)((char*)GetMessageWindow_020421a0()
 #if defined(jpn)
                 + 0x28);
 #else

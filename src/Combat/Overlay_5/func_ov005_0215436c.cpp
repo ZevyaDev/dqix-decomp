@@ -17,7 +17,7 @@ extern "C" void func_ov005_021555c0(void* arg0);
 extern "C" void func_ov005_021571d0(void* arg0);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" void func_020dfec0(void* arg0, void* arg1, void* arg2, unsigned int arg3);
-extern "C" char* func_020421a0();
+extern "C" char* GetMessageWindow_020421a0();
 extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" int* func_0203b628();
 extern "C" void func_0203b678(int* arg0, int arg1, int arg2);
@@ -192,7 +192,7 @@ extern "C" ARM int func_ov005_0215436c(Struct_ov005_0215436c_3* arg0) {
         arg0->unknown_21c_.Reset();
         func_020dfec0(arg0->unknown_df8_, &arg0->unknown_21c_, var14, var0);
         arg0->unknown_0_.Reset();
-        arg0->unknown_e10_ = *(int*)(func_020421a0() + 0x28);
+        arg0->unknown_e10_ = *(int*)(GetMessageWindow_020421a0() + 0x28);
 #else
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
@@ -200,7 +200,7 @@ extern "C" ARM int func_ov005_0215436c(Struct_ov005_0215436c_3* arg0) {
         arg0->unknown_21c_.Reset();
         func_020dfec0(arg0->unknown_df8_, &arg0->unknown_21c_, var15, var0);
         BackgroundLoader::RemoveLockGlobal();
-        arg0->unknown_e10_ = *(int*)(func_020421a0() + 0x5c);
+        arg0->unknown_e10_ = *(int*)(GetMessageWindow_020421a0() + 0x5c);
 #endif
         func_020c5588(0, 0, 0x7fff, 0, 0);
         SetFlags04((GameResources*)var12, 0x800);

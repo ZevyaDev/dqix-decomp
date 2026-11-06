@@ -15,7 +15,7 @@ enum { Enum_ov003_021728fc_250 = 0xfa };
 enum { Enum_ov003_021728fc_969 = 0x3c9 };
 #endif
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 
 extern "C" int func_020ac4f8(int arg0);
 struct Struct_02074af4;
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov003_021728fc(Struct_ov003_021728fc* arg0) {
 
     func_020ac4f8(0);
 #if defined(jpn)
-    *(int*)((char*)arg0 + 0xf0) = *(int*)(func_020421a0() + 0x28);
+    *(int*)((char*)arg0 + 0xf0) = *(int*)(GetMessageWindow_020421a0() + 0x28);
 #endif
     func_02074af4((struct Struct_02074af4*)((char*)arg0 + Enum_ov003_021728fc_250));
 

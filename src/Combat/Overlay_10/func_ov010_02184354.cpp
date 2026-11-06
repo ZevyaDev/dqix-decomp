@@ -86,7 +86,7 @@ struct Struct_02048350_2;
 extern "C" int func_02048350(struct Struct_02048350_2* arg0, int arg1);
 
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_0202c508(void* arg0);
 
 struct Struct_ov010_02184354 { short unknown_0_; short unknown_2_; short unknown_4_; };
@@ -111,7 +111,7 @@ struct Struct_ov010_02184354_4 {
     unsigned char unknown_0_[0xc];
     unsigned char unknown_c_;
 };
-extern "C" Struct_02021b84* func_020421a0(void);
+extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0(void);
 
 struct Struct_ov010_02184354_5 {
     unsigned char unknown_0_[8];
@@ -159,7 +159,7 @@ struct Struct_ov010_02184354_8 {
 // USA: func_ov010_02184354
 extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
-    Struct_02021b84* var1 = func_020421a0();
+    MessageWindow_02021b84* var1 = GetMessageWindow_020421a0();
     GameState* var2 = GameState::GetInstance();
     GameObject* var3;
     struct Struct_ov010_02184354_2* var4;
@@ -172,7 +172,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
     GameObject* var6 = var2->GetPartyMemberByIndex(func_020100b0(var2));
     void* var7 = func_0202ae18();
     void* var8 = GetGameResources();
-    var4 = (struct Struct_ov010_02184354_2*)func_02012fe4();
+    var4 = (struct Struct_ov010_02184354_2*)GetZone3D_02012fe4();
 #if defined(jpn)
     char var9[200];
 #endif
@@ -257,14 +257,14 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         void* var22 = func_02072a68((struct Struct_02072a68_2*)&arg0->unknown_c_, (short)var21);
 #if defined(jpn)
         sprintf(var9, (const char*)var22, *(char**)((char*)var3 + 0x134));
-        func_0204500c(var1, var9, 0);
+        StartMessage_0204500c(var1, var9, 0);
         var1->unknown_998_ = 1;
 #else
         struct Struct_ov010_02184354_6 var23;
         func_020e4bf4(&var23, var5->unknown_c_);
         func_02046380(var1);
         *(void**)var1 = &var23;
-        func_0204500c(var1, (const char*)var22, 0, 0xe3);
+        StartMessage_0204500c(var1, (const char*)var22, 0, 0xe3);
         var1->unknown_998_ = 1;
 #endif
     } else if (var10 == 2) {
@@ -277,14 +277,14 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
             void* var24 = func_02072a68((struct Struct_02072a68_2*)&arg0->unknown_c_, 0);
 #if defined(jpn)
             sprintf(var9, (const char*)var24, *(char**)((char*)var3 + 0x134));
-            func_0204500c(var1, var9, 0);
+            StartMessage_0204500c(var1, var9, 0);
             var1->unknown_998_ = 1;
 #else
             struct Struct_ov010_02184354_6 var25;
             func_020e4bf4(&var25, var5->unknown_c_);
             func_02046380(var1);
             *(void**)var1 = &var25;
-            func_0204500c(var1, (const char*)var24, 0, 0xe3);
+            StartMessage_0204500c(var1, (const char*)var24, 0, 0xe3);
             var1->unknown_998_ = 1;
 #endif
             func_0205eaa0((struct Struct_02108760*)&data_02108760, 0x64, 0);

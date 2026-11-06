@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "World/ZoneChest.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_020fdd44;
 extern "C" struct Struct_020fdd44* func_02027ca4(void);
 extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1);
@@ -18,7 +18,7 @@ struct Struct_ov017_021d19b0 {
 
 // USA: func_ov017_021d19b0
 extern "C" ARM void func_ov017_021d19b0(int arg0, struct Struct_ov017_021d19b0* arg1) {
-    Zone3D* var0 = (Zone3D*)func_02012fe4();
+    Zone3D* var0 = (Zone3D*)GetZone3D_02012fe4();
     if (arg1->unknown_4_ == var0->currentZoneID_) {
         Struct_020134e0::Struct_02018300* var1 = func_02018c20(var0, arg1->unknown_6_);
         if (var1 == NULL)

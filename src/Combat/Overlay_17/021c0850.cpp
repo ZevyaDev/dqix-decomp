@@ -108,7 +108,7 @@ struct Struct_0209cae8;
 extern "C" int func_0209cae8(Struct_0209cae8*);
 struct Struct_02109bf4_4;
 extern "C" void func_0209c678(Struct_02109bf4_4*, int);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0203cf4c(void);
 extern "C" void func_0203e0a0(void* arg0, unsigned short arg1);
 void SetBrightness(GameResources* resources, int brightness, int duration);
@@ -142,7 +142,7 @@ extern "C" void func_02074bf4(Struct_02074bf4* arg0);
 extern "C" void* func_ov008_021845ac(void* arg0);
 extern "C" void func_ov017_0218f79c(void* arg0);
 extern "C" void func_ov017_0219b624(GameResources* arg0);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 struct Struct_0203d028;
 extern "C" void func_0207df50(Struct_0203d028*);
 extern "C" void func_0207df90(char* arg0);
@@ -237,7 +237,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
                 func_0209c678((Struct_02109bf4_4*)&data_02109bf4, 0xf);
             }
         }
-        unsigned short* var5 = (unsigned short*)func_02012fe4();
+        unsigned short* var5 = (unsigned short*)GetZone3D_02012fe4();
         func_0203e0a0(func_0203cf4c(), *var5);
         if (GetBrightness((GameResources*)var1, false) != -0x10
             || GetBrightness((GameResources*)var1, true) != -0x10) {
@@ -270,7 +270,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         arg0->unknown_60_ = var6.unknown_3_3_;
         arg0->unknown_64_ = var6.unknown_3_0_;
         arg0->unknown_68_ = DISPCNT & 0x300010;
-        arg0->unknown_a8_ = func_0201e830((Struct_0201e830*)((char*)func_02012fe4() + Enum_ov017_021c0850_108));
+        arg0->unknown_a8_ = func_0201e830((Struct_0201e830*)((char*)GetZone3D_02012fe4() + Enum_ov017_021c0850_108));
         arg0->unknown_ac_ = GetFlags00(var1);
         arg0->unknown_b0_ = GetFlags04(var1);
         arg0->unknown_b4_ = GetFlags08(var1);
@@ -363,7 +363,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         }
         func_ov017_0219b624(var1);
         char* var14 = var1->unknown_2cc_;
-        void* var15 = (void*)func_020421a0();
+        void* var15 = (void*)GetMessageWindow_020421a0();
         func_0207df50((Struct_0203d028*)(var14 + 0x5b0));
         func_0207df90(var14 + 0x5b0);
         func_020432c4(var15);
@@ -417,8 +417,8 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
             return;
         case 0: {
             SetMainBrightness(var1, 0, 0xf);
-            func_0209c3b4((Struct_0209c3b4_2*)&data_02109bf4, func_0209cd50(*(unsigned short*)func_02012fe4()));
-            char* var19 = (char*)func_020421a0();
+            func_0209c3b4((Struct_0209c3b4_2*)&data_02109bf4, func_0209cd50(*(unsigned short*)GetZone3D_02012fe4()));
+            char* var19 = (char*)GetMessageWindow_020421a0();
             *(int*)(var19 + Enum_ov017_021c0850_728) = 0;
             *(unsigned char*)(var19 + Enum_ov017_021c0850_742) = 1;
             break;

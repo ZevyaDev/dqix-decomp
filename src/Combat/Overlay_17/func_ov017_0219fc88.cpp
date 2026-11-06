@@ -12,7 +12,7 @@ enum { Enum_ov017_0219fc88_1788 = 0x6fc, Enum_ov017_0219fc88_1844 = 0x734, Enum_
 #define func_0205ec34 func_0205ff20
 #endif
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0200fd0c(GameState* arg0);
 
 struct Struct_02071488 {
@@ -58,7 +58,7 @@ struct Struct_ov017_0219fc88_2 {
 // USA: func_ov017_0219fc88
 extern "C" ARM int func_ov017_0219fc88(void* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    unsigned short* var1 = (unsigned short*)func_02012fe4();
+    unsigned short* var1 = (unsigned short*)GetZone3D_02012fe4();
     void* var2;
     int var3;
     void* var4 = GetGameResources();

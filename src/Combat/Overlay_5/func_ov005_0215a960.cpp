@@ -13,16 +13,16 @@ struct Struct_ov005_02153954 {
 extern "C" char data_ov005_0215ce05[];
 
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 #if defined(jpn)
-extern "C" unsigned short func_020469b0(Struct_02021b84* arg0, const char* arg1, unsigned short* arg2, int);
+extern "C" unsigned short func_020469b0(MessageWindow_02021b84* arg0, const char* arg1, unsigned short* arg2, int);
 #endif
-extern "C" unsigned short func_02045d14(Struct_02021b84* arg0, const char* arg1, unsigned short* arg2, int arg3);
-extern "C" void func_020439b0(Struct_02021b84* arg0, int arg1);
+extern "C" unsigned short func_02045d14(MessageWindow_02021b84* arg0, const char* arg1, unsigned short* arg2, int arg3);
+extern "C" void func_020439b0(MessageWindow_02021b84* arg0, int arg1);
 
 // USA: func_ov005_0215a960
 extern "C" ARM void func_ov005_0215a960(Struct_ov005_02153954* arg0) {
-    Struct_02021b84* var0 = (Struct_02021b84*)func_020421a0();
+    MessageWindow_02021b84* var0 = (MessageWindow_02021b84*)GetMessageWindow_020421a0();
 #if !defined(jpn)
     var0->unknown_195b_ &= ~0x80;
 #endif

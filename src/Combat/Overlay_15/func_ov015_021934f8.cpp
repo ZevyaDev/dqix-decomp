@@ -108,16 +108,16 @@ extern "C" void func_020c38d4();
 extern "C" void func_02010124(Struct_0200f3a4_9*);
 extern "C" void func_020c3a0c(int);
 unsigned long long GetCurrentTimestamp();
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02042b30(void*, void*);
 extern "C" void func_0207df50(struct Struct_0203d028*);
 extern "C" void func_0207df90(char*);
 extern "C" void func_020432c4(void*);
 extern "C" void func_0207dfac(char*);
 #if defined(jpn)
-extern "C" void func_0204500c(void*, const void*, int);
+extern "C" void StartMessage_0204500c(void*, const void*, int);
 #else
-extern "C" void func_0204500c(void*, const void*, int, int);
+extern "C" void StartMessage_0204500c(void*, const void*, int, int);
 #endif
 extern "C" void func_0204359c(void*, int);
 extern "C" void func_020439b0(void*, int);
@@ -268,16 +268,16 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     func_02010124((Struct_0200f3a4_9*)var0);
     func_020c3a0c(0);
     GetCurrentTimestamp();
-    Struct_ov015_021934f8_2* var7 = (Struct_ov015_021934f8_2*)func_020421a0();
+    Struct_ov015_021934f8_2* var7 = (Struct_ov015_021934f8_2*)GetMessageWindow_020421a0();
     func_02042b30(var7, arg0->unknown_124_);
     func_0207df50((struct Struct_0203d028*)arg0->unknown_124_);
     func_0207df90(arg0->unknown_124_);
     func_020432c4(var7);
     func_0207dfac(arg0->unknown_124_);
 #if defined(jpn)
-    func_0204500c(var7, data_ov015_0219511b, 0);
+    StartMessage_0204500c(var7, data_ov015_0219511b, 0);
 #else
-    func_0204500c(var7, data_ov015_02194528, 0, 0xe3);
+    StartMessage_0204500c(var7, data_ov015_02194528, 0, 0xe3);
 #endif
     var7->unknown_195a_ = 8;
     for (unsigned int var8 = 0; var8 < 0x10; var8++)

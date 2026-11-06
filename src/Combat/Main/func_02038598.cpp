@@ -84,7 +84,7 @@ struct Struct_02038598_4 { unsigned int unknown_0_; };
 struct Struct_02038598_5;
 struct Struct_0201bdac_2;
 struct Struct_0201bdac;
-extern "C" Zone3D* func_02012fe4();
+extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_ov017_02191108(void*, int, int, int, int);
 extern "C" void* func_020d6c00();
 extern "C" void func_02033834(Struct_02033834_2*, int);
@@ -117,7 +117,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
     Struct_02038598_5* var6;
     var0 = GetGameResources();
     var6 = (Struct_02038598_5*)var0->unknown_ptr_array_36fc[0];
-    var1 = func_02012fe4();
+    var1 = GetZone3D_02012fe4();
     var2 = (Struct_02038598_7*)arg0->unknown_0_.unk_ac;
     var3 = &arg0->unknown_26c_;
     var4 = (unsigned int*)func_020d6c00();

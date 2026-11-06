@@ -34,7 +34,7 @@ struct Struct_ov023_021e4bc8 {
     unsigned char unknown_138_[0xc];
     Struct_ov023_021e4bc8_5* unknown_144_;
 };
-extern "C" Struct_02045cac* func_020421a0();
+extern "C" Struct_02045cac* GetMessageWindow_020421a0();
 extern "C" void func_02045cac(Struct_02045cac*);
 extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_ov023_021e4250(char*);
@@ -48,7 +48,7 @@ void func_020439b0(Struct_02045cac*, int);
 extern "C" ARM void func_ov023_021e4bc8(Struct_ov023_021e4bc8_4* arg0) {
     Struct_0201099c_3* var0;
     GameState* var1 = GameState::GetInstance();
-    Struct_02045cac* var2 = func_020421a0();
+    Struct_02045cac* var2 = GetMessageWindow_020421a0();
     for (int var3 = 0; var3 < 4; var3++) {
         for (int var4 = 0; var4 < 6; var4++) arg0->unknown_4fc_[var3][var4] = 0xffff;
         for (int var5 = 0; var5 < 3; var5++) arg0->unknown_53c_[var3][var5] = 0xffff;

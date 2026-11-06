@@ -4,7 +4,7 @@
 
 struct Struct_0204693c;
 extern "C" void func_0204693c(struct Struct_0204693c* arg0);
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 
 // USA: func_ov017_021b57fc
 extern "C" ARM void func_ov017_021b57fc(unsigned char* arg0) {
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov017_021b57fc(unsigned char* arg0) {
     ((SafeAllocator*)(arg0 + 0x40))->ResetAllocatorPointer();
     ((SafeAllocator*)(arg0 + 0x58))->ResetAllocatorPointer();
 
-    int var0 = func_020421a0();
+    int var0 = GetMessageWindow_020421a0();
 #if defined(jpn)
     void* var1 = *(void**)((char*)var0 + 0x28);
     memset(*(void**)(arg0 + 0x3c) = var1, 0, 0x800);

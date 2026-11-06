@@ -16,7 +16,7 @@ struct Struct_020200c0_4 {
     unsigned char unknown_8_;
 };
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_020d2ff0(const char* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void func_02023064(struct Struct_020200c0_3* arg0, unsigned int arg1, short* arg2, short* arg3, short* arg4, short* arg5);
@@ -39,9 +39,9 @@ extern "C" ARM void func_020230fc(Struct_02020554* arg0, char* arg1, int arg2) {
     int var9;
 
 #if defined(jpn)
-    Zone3D* var10 = (Zone3D*)func_02012fe4();
+    Zone3D* var10 = (Zone3D*)GetZone3D_02012fe4();
 #else
-    func_02012fe4();
+    GetZone3D_02012fe4();
     __clear(var1, 0x24);
 #endif
     for (var6 = 0; var6 < 0x12; var6++) {

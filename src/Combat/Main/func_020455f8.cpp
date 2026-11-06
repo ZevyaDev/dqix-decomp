@@ -8,7 +8,7 @@ extern int data_02108760;
 extern int data_02107820;
 
 // USA: func_020455f8
-ARM void Struct_02021b84::func_020455f8() {
+ARM void MessageWindow_02021b84::func_020455f8() {
     if (unknown_19b3_ == 1 || unknown_19b2_ == 0) {
         return;
     }

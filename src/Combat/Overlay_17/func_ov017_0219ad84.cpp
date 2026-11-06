@@ -35,8 +35,8 @@ struct Struct_ov017_0219ad84_4 {
     unsigned short unknown_1b2_;
 };
 
-extern "C" Struct_ov017_0219ad84* func_02012fe4();
-extern "C" Struct_ov017_0219ad84_2* func_020421a0();
+extern "C" Struct_ov017_0219ad84* GetZone3D_02012fe4();
+extern "C" Struct_ov017_0219ad84_2* GetMessageWindow_020421a0();
 extern "C" int func_02046b24(Struct_02015438**);
 extern "C" void func_0204724c(Struct_0201730c*);
 extern "C" void func_020473c8(Struct_02015ef4_2*, int);
@@ -66,9 +66,9 @@ static inline unsigned char inline_ov017_0219ad84_2(void* arg0) {
 extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
     if (TestFlags04(arg0, 0x40)) return;
     GameState* var0 = GameState::GetInstance();
-    Struct_ov017_0219ad84* var1 = func_02012fe4();
+    Struct_ov017_0219ad84* var1 = GetZone3D_02012fe4();
     void* var2 = func_020100bc(var0);
-    Struct_ov017_0219ad84_2* var3 = func_020421a0();
+    Struct_ov017_0219ad84_2* var3 = GetMessageWindow_020421a0();
     Struct_ov017_0219ad84_3* var4 = (Struct_ov017_0219ad84_3*)func_0200fd0c(var0);
     GameObject* var5 = var0->GetUnknownGameObject();
     if (!var5) return;

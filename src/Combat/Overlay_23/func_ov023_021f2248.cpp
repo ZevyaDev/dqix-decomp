@@ -66,14 +66,14 @@ struct Struct_ov023_021f2248 {
 };
 extern "C" Struct_ov023_021f2248_8 _ZZ21inline_ov023_021f4c04vE1s;
 extern Struct_02108760 data_02108760;
-extern "C" Struct_02081870* func_020421a0();
+extern "C" Struct_02081870* GetMessageWindow_020421a0();
 extern "C" void func_020de968(int, char*);
 extern "C" int func_020ac020(void*, short*, int*, int);
 extern "C" void func_020abe84(void*, short*, Struct_ov023_021ed7e0*, int);
 extern "C" Struct_ov023_021f2248_3* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" const char* func_02072a68(Struct_02072a68_2*, int);
 extern "C" void func_0205eaa0(Struct_02108760*, int, int);
-extern "C" void func_0204500c(Struct_02081870*, const char*, int);
+extern "C" void StartMessage_0204500c(Struct_02081870*, const char*, int);
 extern "C" void func_ov023_021ed7e0(Struct_ov023_021ed7e0*);
 extern "C" int func_ov023_021f4fc8();
 
@@ -81,7 +81,7 @@ extern "C" int func_ov023_021f4fc8();
 extern "C" ARM int func_ov023_021f2248(Struct_ov023_021f2248_6* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov023_021f2248_7* var1 = _ZZ21inline_ov023_021f4c04vE1s.unknown_0_;
-    Struct_02081870* var2 = func_020421a0();
+    Struct_02081870* var2 = GetMessageWindow_020421a0();
     if (var1->unknown_0_ == 0) {
         ++var1->unknown_e4_;
         if (arg0->unknown_5af0_ <= var1->unknown_e4_) return 14;
@@ -114,7 +114,7 @@ extern "C" ARM int func_ov023_021f2248(Struct_ov023_021f2248_6* arg0) {
             if (var1->unknown_e4_ < arg0->unknown_5af0_ - 1) strcat(var12, func_02072a68(&arg0->unknown_5af4_, 0x22));
         }
         func_0205eaa0(&data_02108760, 0x15, 0);
-        func_0204500c(var2, var12, 1);
+        StartMessage_0204500c(var2, var12, 1);
         var2->unknown_17e2_ = 0;
         var2->unknown_868_ = 1;
         if (arg0->unknown_5ac0_[var1->unknown_e4_].unknown_4_) {

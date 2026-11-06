@@ -21,7 +21,7 @@ extern "C" void func_020a28c4(unsigned char* arg0);
 extern "C" void func_020a28e0(struct Struct_020a28e0* arg0);
 extern "C" void func_020a298c(unsigned char* arg0);
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 
 struct Struct_ov017_021982ac_2 {
     char unknown_0_[0x2c];
@@ -43,7 +43,7 @@ extern "C" void func_020a28dc(void* arg0, int arg1, void* arg2, void* arg3);
 // USA: func_ov017_021982ac
 extern "C" ARM void func_ov017_021982ac(void) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_02012fe4();
+    void* var1 = GetZone3D_02012fe4();
     GameObject* var2 = var0->GetUnknownGameObject();
     struct Struct_ov017_021982ac var3 = *(struct Struct_ov017_021982ac*)((char*)var2 + 0x44);
     struct Struct_ov017_021982ac_2* var4;

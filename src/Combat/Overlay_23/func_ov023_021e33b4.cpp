@@ -147,7 +147,7 @@ extern "C" void func_ov023_021e4fd8(void* arg0);
 extern "C" void func_ov023_021e6198(void* arg0, int arg1);
 extern "C" void func_ov023_021e6150(void* arg0, unsigned char arg1);
 extern "C" void func_ov023_021e60e0(void* arg0, unsigned int arg1);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02042b30(void* arg0, void* arg1);
 extern "C" void func_020100c4(GameState* arg0, int arg1);
 extern "C" int func_020100a8(GameState* arg0);
@@ -310,7 +310,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             func_0207de48(arg0->unknown_404_, 0, 0);
             func_0207df50((Struct_0203d028*)arg0->unknown_404_);
 
-            void* var8 = func_020421a0();
+            void* var8 = GetMessageWindow_020421a0();
             func_02042b30(var8, arg0->unknown_474_);
             func_0207df90(arg0->unknown_474_);
             func_020432c4(var8);
@@ -394,7 +394,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
         Struct_ov023_021e33b4_4 var19;
         func_020e46c4(&var19);
         func_020e4bf4(&var19, func_020100a8(var0));
-        void* var20 = func_020421a0();
+        void* var20 = GetMessageWindow_020421a0();
         Struct_0201099c_3* var21 = (Struct_0201099c_3*)((char*)arg0->unknown_0_ + 0xdf8);
         for (int var22 = 0; var22 < 2; var22++)
         {

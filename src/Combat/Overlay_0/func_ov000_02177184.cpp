@@ -12,7 +12,7 @@ extern "C" void func_0205cef8(void* arg0);
 extern "C" void func_0205cf28(unsigned char* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0205bb04(void* arg0, int arg1);
 extern "C" void func_0205d7a0(unsigned char* arg0, int arg1);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_ov000_0217737c(void* arg0, void* arg1);
 #if defined(jpn)
 extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
@@ -102,10 +102,10 @@ extern "C" ARM void func_ov000_02177184(struct Struct_ov000_02177184_2* arg0, in
     var0->unknown_b1_ = 1;
     func_0205d7a0((unsigned char*)var0, arg0->unknown_1d69_);
 #if defined(jpn)
-    void* var5 = *(void**)(func_020421a0() + 0x28);
+    void* var5 = *(void**)(GetMessageWindow_020421a0() + 0x28);
     memset(var5, 0, 0x800);
 #else
-    void* var5 = *(void**)(func_020421a0() + 0x5c);
+    void* var5 = *(void**)(GetMessageWindow_020421a0() + 0x5c);
     memset(var5, 0, 0x960);
 #endif
     func_ov000_0217737c(arg0, var5);

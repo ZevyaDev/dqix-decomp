@@ -6,7 +6,7 @@
 extern "C" {
     void* func_0202ae18(GrottoStruct* arg0);
     int func_0202c508(void* arg0);
-    void* func_02012fe4(void);
+    void* GetZone3D_02012fe4(void);
 }
 
 struct Struct_02038598_4;
@@ -37,7 +37,7 @@ extern "C" ARM void func_020dc2d0(int arg0) {
     GameState* var0 = GameState::GetInstance();
     GrottoStruct* var1 = var0->GetGrottoStruct();
     void* var2 = func_0202ae18(var1);
-    void* var3 = func_02012fe4();
+    void* var3 = GetZone3D_02012fe4();
     int var4;
     int var5;
     Struct_020dc2d0* var6 = *(Struct_020dc2d0**)((char*)var3 + 0x8);

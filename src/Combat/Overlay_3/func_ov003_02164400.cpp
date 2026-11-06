@@ -60,7 +60,7 @@ extern "C" void func_020813ec(void* arg0, int arg1);
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 extern "C" void func_020939dc(void* arg0);
 extern "C" void func_0202b0f4(int* arg0);
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" int func_020aad1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
 extern "C" short func_02080468(void* arg0, int arg1);
@@ -249,7 +249,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         }
         if (func_ov003_02160a68(arg0) == 0) return;
         {
-            ((struct Struct_ov003_02164400_3*)((char*)func_020421a0() + 0x1000))->unknown_9ca_ = 1;
+            ((struct Struct_ov003_02164400_3*)((char*)GetMessageWindow_020421a0() + 0x1000))->unknown_9ca_ = 1;
         }
         func_0207fe44((struct Struct_0207fe44*)var4);
         *(unsigned int*)(arg0 + HI(0x464)) |= 0x80000;
@@ -358,7 +358,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
                     var5[0] = 0x33;
                     arg0[HI(0x4a4)] = 5;
                 } else {
-                    ((struct Struct_ov003_02164400_3*)((char*)func_020421a0() + 0x1000))->unknown_9ca_ = 0;
+                    ((struct Struct_ov003_02164400_3*)((char*)GetMessageWindow_020421a0() + 0x1000))->unknown_9ca_ = 0;
                     var5[0] = 0xb;
                     arg0[HI(0x4a4)] = 9;
                 }
@@ -447,7 +447,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         if (var31 < 0 || ((struct Struct_ov003_02164400_4*)(arg0 + (*(short*)(arg0 + HI(0x498))) * Enum_ov003_02164400_55))->unknown_0_0_ == 0) {
             if (var29 != 0) {
                 func_0207fdcc(var4, 0x11);
-                ((struct Struct_ov003_02164400_3*)((char*)func_020421a0() + 0x1000))->unknown_9ca_ = 1;
+                ((struct Struct_ov003_02164400_3*)((char*)GetMessageWindow_020421a0() + 0x1000))->unknown_9ca_ = 1;
                 var5[0] = 0x37;
                 *(unsigned int*)(arg0 + HI(0x464)) |= 4;
                 *(short*)(arg0 + HI(0x47a)) = 0;
@@ -501,7 +501,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         return;
     }
     if (var6 == 0x11) {
-        ((struct Struct_ov003_02164400_3*)((char*)func_020421a0() + 0x1000))->unknown_9ca_ = 0;
+        ((struct Struct_ov003_02164400_3*)((char*)GetMessageWindow_020421a0() + 0x1000))->unknown_9ca_ = 0;
         var5[0] = 0x36;
         *(unsigned int*)(arg0 + HI(0x464)) |= 0x0c004042;
         arg0[HI(0x4a3)] = 6;

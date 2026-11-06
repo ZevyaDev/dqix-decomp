@@ -76,7 +76,7 @@ extern "C" void func_02042058(char* arg0, const char* arg1);
 extern "C" void func_02041b34(char* arg0, int arg1, int arg2);
 extern "C" void func_02041cf4(char* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_02041d48(char* arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
 extern "C" void func_02041e70(char* arg0, int arg1);
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
     GameState* var5 = GameState::GetInstance();
     Struct_ov012_021894b4* var6 = inline_ov012_021894b4(var5);
 #if defined(jpn)
-    void* var21 = func_020421a0();
+    void* var21 = GetMessageWindow_020421a0();
     char var7[0x20];
     __clear(var7, sizeof(var7));
     char* var23 = arg0->unknown_1440_;
@@ -205,7 +205,7 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
 
     const char* var22 = func_02072a68((Struct_02072a68_2*)arg0->unknown_133c_, 0x71);
 #else
-    func_020421a0();
+    GetMessageWindow_020421a0();
     char var7[0x20];
     __clear(var7, sizeof(var7));
     func_02041a90(arg1, ((0x88 - func_020420e8(arg0->unknown_1440_, 0)) >> 1) + 0x58, 0x16);

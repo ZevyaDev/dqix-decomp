@@ -51,7 +51,7 @@ struct Struct_ov003_021549a8 {
     char unknown_2e7_[Enum_ov003_021549a8_2456 - Enum_ov003_021549a8_743];
     int unknown_998_;
 };
-extern "C" Struct_ov003_021549a8* func_020421a0(void);
+extern "C" Struct_ov003_021549a8* GetMessageWindow_020421a0(void);
 
 struct Struct_ov003_021549a8_2 {
     SafeAllocator* unknown_0_;
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov003_021549a8(Struct_ov003_021549a8_2* arg0) {
     }
     arg0->unknown_c_ = NULL;
 
-    Struct_ov003_021549a8* var3 = func_020421a0();
+    Struct_ov003_021549a8* var3 = GetMessageWindow_020421a0();
     if (var3->unknown_998_ != 0) {
         func_02043204((char*)var3);
         func_02043124(var3);

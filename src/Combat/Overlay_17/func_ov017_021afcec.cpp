@@ -4,7 +4,7 @@
 #include "Resource/Brightness.h"
 
 struct GameResources;
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* func_020d6c00(void);
 extern "C" void func_ov017_021b6c78(void);
 struct Struct_02018300_3;
@@ -29,7 +29,7 @@ extern "C" ARM int func_ov017_021afcec(unsigned char* arg0) {
 #endif
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
-    unsigned char* var2 = (unsigned char*)func_020421a0();
+    unsigned char* var2 = (unsigned char*)GetMessageWindow_020421a0();
     unsigned int* var3 = (unsigned int*)func_020d6c00();
 
     if (arg0[9] == 2) {

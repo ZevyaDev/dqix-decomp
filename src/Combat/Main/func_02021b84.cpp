@@ -9,14 +9,14 @@
 #include "NitroSDK/Memory.h"
 #include "NitroSDK/Cache.h"
 #include "NitroSDK/LoadToVRAM.h"
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02023218(Struct_02020554* arg0, void* arg1, int arg2, unsigned int arg3);
 extern char data_020ef4b1[], data_020ef4c9[], data_020ef4d0[];
 #endif
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0203bd08(void);
 extern "C" void* func_0203b628(void);
 extern "C" void func_02021428(void* arg0, int arg1);
@@ -84,7 +84,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
 
     var3 = GameState::GetInstance();
     var4 = BackgroundLoader::GetInstance();
-    func_02012fe4();
+    GetZone3D_02012fe4();
     var5 = GetGameResources();
     var6 = (char*)func_0203bd08();
     var7 = (char*)func_0203b628();
@@ -203,7 +203,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
 #endif
         ) = 0x2000;
 #if defined(jpn)
-        Struct_02021b84* var13 = (Struct_02021b84*)func_020421a0();
+        MessageWindow_02021b84* var13 = (MessageWindow_02021b84*)GetMessageWindow_020421a0();
         char* var14 = var13->unknown_2c_;
         char* var15 = (char*)0x06600000;
         VectorizedInvertedMemcpy(var15 + 0x2bc0, var14, 0x540);

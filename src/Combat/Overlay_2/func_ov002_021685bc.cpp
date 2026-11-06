@@ -8,7 +8,7 @@ struct Struct_020466c8;
 struct Struct_0201099c_3;
 extern "C" void *func_02072a68(struct Struct_02072a68_2 *arg0, int arg1);
 extern "C" GameObject *func_0200ff1c(GameState *arg0, int arg1);
-extern "C" void *func_020421a0();
+extern "C" void *GetMessageWindow_020421a0();
 extern "C" int func_02042058(char *arg0, const char *arg1);
 extern "C" int func_020e0434(struct Struct_0201099c_3 *arg0, int arg1);
 extern "C" void func_02046574(struct Struct_02046574_2 *arg0, int arg1, char *arg2);
@@ -21,9 +21,9 @@ extern "C" void *func_0209a594(void *arg0, int arg1);
 extern "C" void func_02046380(void *arg0);
 extern "C" void func_020e4864(void *arg0, void *arg1, int arg2, int arg3, int arg4, int arg5);
 #if defined(jpn)
-extern "C" void func_0204500c(void *arg0, char *arg1, int arg2);
+extern "C" void StartMessage_0204500c(void *window, char *text, int arg2);
 #else
-extern "C" void func_0204500c(void *arg0, char *arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void *window, char *text, int arg2, int arg3);
 #endif
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void *__clear(void *arg0, int arg1);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov002_021685bc(unsigned char *arg0) {
             int var3         = func_ov002_021574d4(arg0, *(short *) (arg0 + 0x1a00 + 0xd0));
             GameObject *var4 = func_0200ff1c(var2, var3);
             if (var4 != NULL) {
-                unsigned char *var7 = (unsigned char *) func_020421a0();
+                unsigned char *var7 = (unsigned char *) GetMessageWindow_020421a0();
                 memset(*(char **) (arg0 + 0x1000 + 0xa98), 0, 0x800);
                 func_02042058(*(char **) (arg0 + 0x1000 + 0xa98), var1);
                 func_02042058(*(char **) (arg0 + 0x1000 + 0xa98),
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov002_021685bc(unsigned char *arg0) {
                 func_02046380(var7);
                 func_02046574((struct Struct_02046574_2 *) var7, 0, *(char **) ((char *) var4 + 0x134));
                 func_020466c8((struct Struct_020466c8 *) var7, (*(int **) arg0)[4]);
-                func_0204500c(var7, *(char **) (arg0 + 0x1000 + 0xa98), 0);
+                StartMessage_0204500c(var7, *(char **) (arg0 + 0x1000 + 0xa98), 0);
                 *(var7 + 0x1000 + 0x7e2) = 0;
                 *(int *) (var7 + 0x868)  = 1;
                 (*(arg0 + 0x2000 + 0x288))++;
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov002_021685bc(unsigned char *arg0) {
             if (var4 != NULL) {
                 char var5[0xc];
                 char var6[0x80];
-                unsigned char *var7 = (unsigned char *) func_020421a0();
+                unsigned char *var7 = (unsigned char *) GetMessageWindow_020421a0();
                 memset(*(char **) (arg0 + 0x1000 + 0xbd0), 0, 0x960);
                 func_02042058(*(char **) (arg0 + 0x1000 + 0xbd0), var1);
                 func_02042058(*(char **) (arg0 + 0x1000 + 0xbd0),
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov002_021685bc(unsigned char *arg0) {
                     (char *) func_02072a68(*(struct Struct_02072a68_2 **) (arg0 + 0x2000 + 0x448), (short) (var0->unknown_1_3_ + 0xc8)));
                 func_020465c0((struct Struct_020465c0 *) var7, 0, var0->unknown_5_4_);
                 func_020466c8((struct Struct_020466c8 *) var7, (*(int **) arg0)[4]);
-                func_0204500c(var7, *(char **) (arg0 + 0x1000 + 0xbd0), 0, 0xe3);
+                StartMessage_0204500c(var7, *(char **) (arg0 + 0x1000 + 0xbd0), 0, 0xe3);
                 *(var7 + 0x1000 + 0x9b2) = 0;
                 *(int *) (var7 + 0x998)  = 1;
                 (*(arg0 + 0x2000 + 0x454))++;

@@ -35,7 +35,7 @@ struct Struct_ov023_021f2a48_3 { char unknown_0_[0x10]; unsigned short unknown_1
 struct Struct_ov023_021f2a48_4 { char* unknown_0_; char* unknown_4_; int unknown_8_; };
 extern "C" Struct_ov023_021f2a48_8 _ZZ21inline_ov023_021f4c04vE1s;
 extern Struct_02108760 data_02108760;
-extern "C" Struct_02081870* func_020421a0();
+extern "C" Struct_02081870* GetMessageWindow_020421a0();
 extern "C" void func_02046380(Struct_02081870*);
 extern "C" void func_020114ec(char*, void*);
 extern "C" int func_020a35e0(unsigned char*, unsigned char);
@@ -48,7 +48,7 @@ extern "C" const char* func_02072a68(Struct_02072a68_2*, int);
 extern "C" void func_020e4bf4(void*, int);
 extern "C" void func_020e4c74(void*, GameObject*);
 extern "C" void func_0205eaa0(Struct_02108760*, int, int);
-extern "C" void func_0204500c(Struct_02081870*, const char*, int, int);
+extern "C" void StartMessage_0204500c(Struct_02081870*, const char*, int, int);
 extern "C" void func_ov023_021ed7e0(Struct_ov023_021ed7e0*);
 extern "C" int func_020ac020(void*, short*, int*, int);
 extern "C" void func_020abe84(void*, short*, Struct_ov023_021ed7e0*, int);
@@ -58,7 +58,7 @@ extern "C" int func_ov023_021f4fc8();
 extern "C" ARM int func_ov023_021f2a48(Struct_ov023_021f2a48_6* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov023_021f2a48_7* var1 = _ZZ21inline_ov023_021f4c04vE1s.unknown_0_;
-    Struct_02081870* var2 = func_020421a0();
+    Struct_02081870* var2 = GetMessageWindow_020421a0();
     func_02046380(var2);
     if (var1->unknown_0_ == 0) {
         ++var1->unknown_e4_;
@@ -113,7 +113,7 @@ extern "C" ARM int func_ov023_021f2a48(Struct_ov023_021f2a48_6* arg0) {
             if (var1->unknown_e4_ < arg0->unknown_5900_ - 1) strcat(var19, func_02072a68(&arg0->unknown_5904_, 0x22));
         }
         func_0205eaa0(&data_02108760, 0x15, 0);
-        func_0204500c(var2, var19, 1, 0xe3);
+        StartMessage_0204500c(var2, var19, 1, 0xe3);
         var2->unknown_19b2_ = 0;
         var2->unknown_998_ = 1;
         if (arg0->unknown_58d0_[var1->unknown_e4_].unknown_4_) {

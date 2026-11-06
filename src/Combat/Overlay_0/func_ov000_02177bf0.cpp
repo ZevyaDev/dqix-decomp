@@ -10,7 +10,7 @@
 
 #include "std_library_functions.h"
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 
 extern "C" void func_ov000_0217c638(void* arg0, int arg1, int arg2);
 extern "C" void func_ov000_02177d04(void* arg0, void* arg1);
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov000_02177bf0(void* arg0, struct Struct_ov000_02177bf0
     *(short*)(var3 + 0xac) = 0xa;
     *(short*)(var3 + 0xae) = 0xc;
     *(unsigned char*)(var3 + 0xb1) = 5;
-    void* var4 = *(void**)((char*)func_020421a0() + REGION_OFFSET_0);
+    void* var4 = *(void**)((char*)GetMessageWindow_020421a0() + REGION_OFFSET_0);
     memset(var4, 0, REGION_OFFSET_1);
     func_ov000_02177d04(var0, var4);
 #if defined(jpn)

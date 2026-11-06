@@ -9,7 +9,7 @@ extern "C" int func_0202c540(void* arg0);
 extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
-extern "C" char* func_020421a0(void);
+extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
 extern "C" void memset(void* arg0, int arg1, int arg2);
 extern "C" void func_ov003_0215e13c(char* arg0, char* arg1, int arg2);
@@ -103,9 +103,9 @@ extern "C" ARM void func_ov003_0215df1c(struct Struct_ov003_0215df1c* arg0) {
 
     if (arg0->unknown_3f2_) {
 #if defined(jpn)
-        short var6 = *(short*)(func_020421a0() + 0x7e6);
+        short var6 = *(short*)(GetMessageWindow_020421a0() + 0x7e6);
 #else
-        short var6 = *(short*)(func_020421a0() + 0x916);
+        short var6 = *(short*)(GetMessageWindow_020421a0() + 0x916);
 #endif
         short var7 = var6 / 8;
         short var8 = var6 % 8;

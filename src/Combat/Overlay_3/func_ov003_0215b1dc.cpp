@@ -30,7 +30,7 @@ struct Struct_ov003_0215af9c {
     unsigned char unknown_19ae_;
 };
 
-extern "C" Struct_ov003_0215af9c* func_020421a0(void);
+extern "C" Struct_ov003_0215af9c* GetMessageWindow_020421a0(void);
 extern "C" GameResources* func_0200fb8c(int*);
 struct Struct_02109bf4_4;
 extern "C" void func_0209c678(Struct_02109bf4_4*, int);
@@ -52,7 +52,7 @@ extern unsigned char data_02109bf4;
 
 // USA: func_ov003_0215b1dc
 extern "C" ARM void func_ov003_0215b1dc(Struct_ov003_021594c4_2* arg0) {
-    Struct_ov003_0215af9c* var0 = func_020421a0();
+    Struct_ov003_0215af9c* var0 = GetMessageWindow_020421a0();
     GameResources* var1 = func_0200fb8c((int*)GameState::GetInstance());
 
     if (var0->unknown_9a0_ == 3) {

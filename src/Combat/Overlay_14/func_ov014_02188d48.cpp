@@ -48,7 +48,7 @@ extern "C" Struct_ov014_02188d48* func_ov014_021892d4(Struct_ov014_02188d48_3* a
 extern "C" char* func_ov014_02188ba0(Struct_ov014_02188d48_3* arg0, char* arg1, char* arg2);
 extern "C" char* func_0205ec34();
 extern "C" bool func_0206dfb0(int, unsigned char*, int arg2);
-extern "C" void* func_02012fe4();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" char* func_020da150(SafeAllocator* arg0, const char* arg1);
 extern "C" bool func_0201b588(int arg0);
 extern "C" bool func_0201bb78(Struct_0201bb78* arg0, unsigned int arg1);
@@ -105,7 +105,7 @@ extern "C" ARM bool func_ov014_02188d48(Struct_ov014_02188bfc* arg0, SafeAllocat
 
             var5 = func_0205ec34();
             var6 = func_0206dfb0((int)var5, (unsigned char*)(var5 + 0x8c), 0x79d) != false;
-            var7 = func_02012fe4();
+            var7 = GetZone3D_02012fe4();
 
             var8 = (Struct_ov014_02188d48_2*)(var2.unknown_c_ + var2.unknown_0_);
             var9 = (unsigned short*)(var8 + var2.unknown_2_);

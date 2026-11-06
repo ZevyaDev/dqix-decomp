@@ -104,8 +104,8 @@ struct Struct_020d7aa0_2;
 struct Struct_02046574_2;
 struct Struct_0201099c_3;
 
-extern "C" struct Struct_020e3f1c_3* func_020421a0();
-extern "C" struct Struct_020e3f1c_5* func_02012fe4();
+extern "C" struct Struct_020e3f1c_3* GetMessageWindow_020421a0();
+extern "C" struct Struct_020e3f1c_5* GetZone3D_02012fe4();
 extern "C" int func_020100f8(char* arg0);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_020e4524(char* arg0);
@@ -139,9 +139,9 @@ extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
 extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
 #if defined(jpn)
-extern "C" void func_0204500c(void* arg0, void* arg1, int arg2);
+extern "C" void StartMessage_0204500c(void* window, void* text, int arg2);
 #else
-extern "C" void func_0204500c(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int arg3);
 #endif
 extern "C" void func_02043124(void* arg0);
 
@@ -173,9 +173,9 @@ static inline int inline_02061c04_5(int arg0, int arg1) {
 extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
     GameState* var1 = GameState::GetInstance();
-    struct Struct_020e3f1c_3* var2 = func_020421a0();
+    struct Struct_020e3f1c_3* var2 = GetMessageWindow_020421a0();
     Struct_0208cb08* var3 = func_02094a00();
-    ActiveGrottoClass* var4 = &func_02012fe4()->unknown_23ec_;
+    ActiveGrottoClass* var4 = &GetZone3D_02012fe4()->unknown_23ec_;
     struct Struct_020e3f1c_2* var5 = (struct Struct_020e3f1c_2*)func_020100f8((char*)var1);
     struct Struct_020e3f1c_8* var6 = (struct Struct_020e3f1c_8*)var1->GetUnknownGameObject();
     GameResources* var7 = GetGameResources();
@@ -363,9 +363,9 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
         var2->unknown_99c_ = 1;
         func_02046574((struct Struct_02046574_2*)var2, 0, var6->unknown_134_);
 #if defined(jpn)
-        func_0204500c(var2, var33, 0);
+        StartMessage_0204500c(var2, var33, 0);
 #else
-        func_0204500c(var2, var33, 0, 0xe3);
+        StartMessage_0204500c(var2, var33, 0, 0xe3);
 #endif
         var2->unknown_998_ = 1;
         var31.Destroy();

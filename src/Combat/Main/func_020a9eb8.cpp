@@ -326,7 +326,7 @@ struct Struct_020a9eb8_15 {
 };
 
 extern "C" int func_01ff85b8(void* arg0, int arg1);
-extern "C" Struct_020a95a4_2* func_02012fe4(void);
+extern "C" Struct_020a95a4_2* GetZone3D_02012fe4(void);
 extern "C" Struct_ov031_0224e6e0* func_0202ae18(void);
 extern "C" Struct_020a99d0_3* func_0205ec34(void);
 extern "C" int func_0202c540(Struct_ov031_0224e6e0* arg0);
@@ -399,7 +399,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
     int var14;
     int var15;
     var0 = GameState::GetInstance();
-    Struct_020a95a4_2* var16 = func_02012fe4();
+    Struct_020a95a4_2* var16 = GetZone3D_02012fe4();
     Struct_ov031_0224e6e0* var17 = func_0202ae18();
     var1 = func_0205ec34();
     var2 = func_02094d6c();
@@ -467,7 +467,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
         GameState* var24 = GameState::GetInstance();
         Struct_020a95a4_8* var25 = static_cast<Struct_020a95a4_8*>(func_02010828(var24));
         var13 = func_0202ae18();
-        var23 = func_02012fe4();
+        var23 = GetZone3D_02012fe4();
         GetGameResources();
         var12 = func_02094d6c();
         func_020a0cc4(sizeof(Struct_020a95a4_6));
@@ -626,7 +626,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             func_02012da4(&data_02114e20, var41);
         }
         int var42 = (char*)arg1->unknown_3ec4_ - var21;
-        Struct_020a95a4* var43 = &func_02012fe4()->unknown_840_;
+        Struct_020a95a4* var43 = &GetZone3D_02012fe4()->unknown_840_;
         func_02075acc(var42, var43->unknown_0_, sizeof(var43->unknown_0_), 0);
         func_020a0cc4(sizeof(Struct_020a9eb8_8));
         Struct_020a9eb8_8* var44 = (Struct_020a9eb8_8*)func_02012d88(&data_02114e20, sizeof(Struct_020a9eb8_8));
@@ -673,10 +673,10 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
 #if defined(jpn)
         Struct_020a95a4_2* var54;
         GameState* var53 = GameState::GetInstance();
-        var54 = func_02012fe4();
+        var54 = GetZone3D_02012fe4();
 #else
         GameState* var53 = GameState::GetInstance();
-        Struct_020a95a4_2* var54 = func_02012fe4();
+        Struct_020a95a4_2* var54 = GetZone3D_02012fe4();
 #endif
         Struct_020a9eb8 var55;
         if (arg3) {
@@ -704,7 +704,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             var58.unknown_4_ = var59->obj3D_.position_;
             var58.unknown_2_ = var59->obj3D_.rotation_.y;
         }
-        Struct_020a95a4_2* var60 = func_02012fe4();
+        Struct_020a95a4_2* var60 = GetZone3D_02012fe4();
         Struct_020fdd44* var61 = func_02028bd0(func_02027ca4(), var60->unknown_0_);
         if (var61 == NULL) {
             var58.unknown_12_ = 0;

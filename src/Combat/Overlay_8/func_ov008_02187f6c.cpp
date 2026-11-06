@@ -15,7 +15,7 @@
 #endif
 
 struct Struct_0201099c_3;
-struct Struct_02021b84;
+struct MessageWindow_02021b84;
 
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
@@ -34,7 +34,7 @@ extern char data_ov008_0218c0d5[];
 extern "C" void func_0205d304(Struct_02081870_2* arg0, char* arg1, int, int, int, int, int, int);
 #endif
 
-extern "C" Struct_02021b84* func_020421a0();
+extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
 extern "C" void func_02042058(char* arg0, const char* arg1);
 extern "C" int func_0206dfb0(int, unsigned char*, int);
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
         char* var0 = arg0->unknown_b8_;
         if (var0 != NULL)
         {
-            func_020421a0();
+            GetMessageWindow_020421a0();
             if (arg1 != NULL)
             {
     #if defined(jpn)
@@ -202,7 +202,7 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
     char* var17 = arg0->unknown_b8_;
     if (var17 != NULL)
     {
-        func_020421a0();
+        GetMessageWindow_020421a0();
         if (arg1 != NULL)
         {
 #if defined(jpn)

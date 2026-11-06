@@ -62,8 +62,8 @@ struct Struct_ov003_0217dd60_2 {
 extern "C" void func_0205de24(struct Struct_0205de24_2*, unsigned char, unsigned char);
 extern "C" void func_0205cf04(void*);
 extern "C" void func_0205cef8(void*);
-extern "C" int func_020421a0();
-extern "C" void func_02012fe4();
+extern "C" int GetMessageWindow_020421a0();
+extern "C" void GetZone3D_02012fe4();
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 extern "C" void func_02041b70(char* arg0, int arg1, const char* arg2);
@@ -92,8 +92,8 @@ extern const char data_ov003_02180c7f[];
 #if defined(jpn)
 extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
     char var0[0x400];
-    func_02012fe4();
-    struct Struct_020465c0* var1 = (struct Struct_020465c0*)func_020421a0();
+    GetZone3D_02012fe4();
+    struct Struct_020465c0* var1 = (struct Struct_020465c0*)GetMessageWindow_020421a0();
     func_0205de24((struct Struct_0205de24_2*)arg0->unknown_8c_, 0, 1);
     arg0->unknown_8c_->unknown_b1_ = 0;
     {
@@ -165,8 +165,8 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
 #else
 extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
     char var13[0x400];
-    func_02012fe4();
-    func_020421a0();
+    GetZone3D_02012fe4();
+    GetMessageWindow_020421a0();
     func_0205de24((struct Struct_0205de24_2*)arg0->unknown_90_, 0, 1);
     int var14 = arg0->unknown_10_;
     arg0->unknown_90_->unknown_b1_ = 0;

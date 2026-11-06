@@ -37,7 +37,7 @@ void* LoadFileIntoNewAllocation(const char*, SafeAllocator&, unsigned int*);
 extern "C" void func_020a75a0(char*);
 extern "C" void func_0207df90(char*);
 extern "C" void func_0207dfac(char*);
-extern "C" Zone3D* func_02012fe4();
+extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_02033874(Struct_02033834*, int);
 extern "C" void func_02033fdc(Struct_02033fdc*);
 extern "C" void func_0200fd38(GameState*, int, GameObject*);
@@ -85,7 +85,7 @@ extern "C" ARM void func_020a6728(GameResources* arg0, int arg1) {
     var9.allocator = var4;
     var8->unknown_0_.LoadFromCHRArchive(&var9);
     func_0207dfac(var5);
-    Zone3D* var10 = func_02012fe4();
+    Zone3D* var10 = GetZone3D_02012fe4();
     var0->GetUnknownGameObject();
     Struct_020236dc_3* var11 = var10->inline_020a6728();
     var8->unknown_0_.position_ = var11->unknown_0_;
@@ -111,5 +111,5 @@ extern "C" ARM void func_020a6728(GameResources* arg0, int arg1) {
         data_ov017_021d82fc.unknown_0_ = var12;
         data_ov017_021d82fc.unknown_4_ = var5;
     }
-    func_020a72ac(func_02012fe4(), 0);
+    func_020a72ac(GetZone3D_02012fe4(), 0);
 }

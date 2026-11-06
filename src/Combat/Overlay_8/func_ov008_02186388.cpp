@@ -163,7 +163,7 @@ extern unsigned char data_0211e33c[];
 extern Struct_02108760 data_02108760;
 
 extern "C" GameResources* func_0200fb8c(int* arg0);
-extern "C" Struct_02021b84* func_020421a0();
+extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 void SetSubBrightness(GameResources* resources, int brightness, int frames);
 int IsBrightnessTransitionActive(GameResources* resources);
 void* LoadFileIntoMemory(const char* path, void* archive, unsigned int* size);
@@ -210,7 +210,7 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
     GameState* var1 = GameState::GetInstance();
     GameResources* var2 = func_0200fb8c((int*)var1);
     BackgroundLoader::GetInstance();
-    Struct_02021b84* var3 = func_020421a0();
+    MessageWindow_02021b84* var3 = GetMessageWindow_020421a0();
 #if defined(jpn)
     var0 = inline_ov008_021843f8(var1);
 #define CLEAR_RECORDS inline_ov008_02186388(var0, 0)
@@ -292,9 +292,9 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
 #endif
             func_02042058(var14, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 1000));
 #if defined(jpn)
-            func_0204500c(var3, var14, 0);
+            StartMessage_0204500c(var3, var14, 0);
 #else
-            func_0204500c(var3, var14, 0, 0xe3);
+            StartMessage_0204500c(var3, var14, 0, 0xe3);
 #endif
             var3->unknown_19b2_ = 1;
             var3->unknown_19c8_ = 1;

@@ -6,7 +6,7 @@
 #include "World/Zone3D.h"
 #include "Resource/GameResources.h"
 
-extern "C" void *func_02012fe4(void);
+extern "C" void *GetZone3D_02012fe4(void);
 struct Struct_02053f4c;
 extern "C" void func_02053f4c(Struct_020236dc_2*, int, int);
 extern "C" void func_02053f6c(void *, unsigned char);
@@ -54,7 +54,7 @@ extern "C" ARM void func_02026bdc(void *arg0, int arg1) {
         if (var3 == 0) {
             continue;
         }
-        Zone3D *var4 = static_cast<Zone3D *>(func_02012fe4());
+        Zone3D *var4 = static_cast<Zone3D *>(GetZone3D_02012fe4());
         if (&var4->substruct_c_ == 0 || var4->pUnknownStruct_8_ == 0) {
             return;
         }

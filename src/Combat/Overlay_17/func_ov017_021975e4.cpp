@@ -11,7 +11,7 @@ typedef Struct_020134e0::Struct_02018300 Struct_02018300;
 struct Struct_0203402c;
 struct Struct_02038598_5;
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" unsigned int* func_020d6c00();
 extern "C" int func_020535c8(signed char* arg0);
 extern "C" int func_0203402c(Struct_0203402c* arg0);
@@ -23,7 +23,7 @@ extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 // USA: func_ov017_021975e4
 extern "C" ARM void func_ov017_021975e4(GameResources* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Zone3D* var1 = (Zone3D*)func_02012fe4();
+    Zone3D* var1 = (Zone3D*)GetZone3D_02012fe4();
     unsigned int* var2 = func_020d6c00();
     GameObject* var3 = var0->GetUnknownGameObject();
     Vector3i var4 = var3->obj3D_.position_;

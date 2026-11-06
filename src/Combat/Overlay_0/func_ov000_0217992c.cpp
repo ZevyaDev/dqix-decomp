@@ -12,7 +12,7 @@
 
 extern "C" void func_ov000_0217ab8c(void* arg0, int arg1, int arg2);
 extern "C" void func_ov000_02179a70(void* arg0, void* arg1, int arg2, void* arg3);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 #if defined(jpn)
 extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 #else
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov000_0217992c(char* arg0, void* arg1, int arg2, int ar
     *(short*)(var3 + 0xae) = 0xb;
     *(unsigned char*)(var3 + 0xb1) = 0x12;
 
-    int var4 = func_020421a0();
+    int var4 = GetMessageWindow_020421a0();
     void* var5 = *(void**)((char*)var4 + REGION_OFFSET_0);
     memset(var5, 0, REGION_OFFSET_1);
     func_ov000_02179a70(arg0, arg1, arg2, var5);

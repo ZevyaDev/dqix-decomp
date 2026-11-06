@@ -53,7 +53,7 @@ extern "C" void func_020a620c(void* arg0);
 extern "C" int func_02046900(Struct_02020cb8_4* arg0);
 extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
 extern "C" void func_0204c684(void* arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void __clear(void*, unsigned int);
 extern "C" void func_02041f50(char*, char*);
 extern "C" int func_02042798(const char*, int, int);
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov003_021737e4(Struct_ov003_021737e4_2* arg0) {
         var9.unknown_aa_ = 8;
         var9.unknown_b4_ = 0xc;
         var9.unknown_b6_ = 0xc;
-        func_02012fe4();
+        GetZone3D_02012fe4();
         char var10[0x100];
         char var11[0x100];
         char var12[0x100];
@@ -200,7 +200,7 @@ extern "C" void func_020a620c(void* arg0);
 extern "C" int func_02046900(Struct_02020cb8_4* arg0);
 extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
 extern "C" void func_0204c684(void* arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
 extern "C" void func_ov003_02172618(void* arg0, int arg1, char** arg2);
 
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov003_021737e4(Struct_ov003_021737e4_2* arg0) {
         var30.unknown_aa_ = 8;
         var30.unknown_b4_ = 0xc;
         var30.unknown_b6_ = 0xc;
-        func_02012fe4();
+        GetZone3D_02012fe4();
         if (arg0->unknown_1_ != 0) {
             char* var31[2] = {0};
             var31[1] = arg0->unknown_4_;

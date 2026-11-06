@@ -13,7 +13,7 @@ struct Struct_020708c8;
 extern "C" void func_020708c8(Struct_020708c8*, unsigned int);
 struct GameResources;
 void SetMainBrightness(GameResources*, int, int);
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void func_02043124(void* arg0);
 extern "C" void func_ov001_02156b20(void* arg0);
 extern "C" void func_ov017_021bb27c(void* arg0);
@@ -28,7 +28,7 @@ extern "C" ARM unsigned short func_ov001_021564b0(struct Struct_ov001_021564b0* 
         func_02046a8c(*(int*)(var1 + Enum_ov001_021564b0_1788), *(int*)(var1 + Enum_ov001_021564b0_1816));
         func_020708c8((Struct_020708c8*)func_020704fc(), 0xf);
         SetMainBrightness((GameResources*)var0, 0, 0xf);
-        void* var2 = func_020421a0();
+        void* var2 = GetMessageWindow_020421a0();
         func_02043124(var2);
         char* var3 = (char*)var2 + 0x1000;
         var3[Enum_ov001_021564b0_2494] = 0;

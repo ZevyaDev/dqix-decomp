@@ -92,7 +92,7 @@ struct Struct_02020cb8_2;
 extern "C" void func_0204b0e8(Struct_02020cb8_2*, void*);
 struct Struct_0201099c_3;
 extern "C" char* func_020e0434(Struct_0201099c_3*, int);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02046608(void*, int, char*, char*, int, int, int);
 extern "C" void func_ov023_021e23d0(void*, int, int, unsigned char, unsigned char);
 extern "C" int func_02085fb4(unsigned char*);
@@ -359,7 +359,7 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
                 char* var56 = func_020e0434((Struct_0201099c_3*)var47, (short)(var54 + 1));
                 char* var57 = func_020e0434((Struct_0201099c_3*)var47, (short)var54);
                 sprintf(var33, data_ov003_0217fcd5, var57, var56, var55);
-                func_02046608(func_020421a0(), 0xc, var33, var32, 0xdc, 0, 1);
+                func_02046608(GetMessageWindow_020421a0(), 0xc, var33, var32, 0xdc, 0, 1);
                 func_ov023_021e23d0(var44, 7, (int)var32, 0xc, 0xf);
                 func_ov023_021e23d0(var44, 8, (int)data_ov003_0217fcde, 0xc, 0xf);
                 func_ov023_021e23d0(var44, 9, (int)data_ov003_0217fcde, 0xc, 0xf);

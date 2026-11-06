@@ -64,7 +64,7 @@ extern "C" void func_020c3984(unsigned int arg0);
 extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_020c555c(int arg0);
 extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02042c68(void* arg0);
 extern "C" void func_02043124(void* arg0);
 extern "C" void func_020440a4(void* arg0);
@@ -192,7 +192,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     Struct_ov021_0218bbc4 var4 = data_ov021_0218bbc4;
     func_020c555c((int)&var4);
     func_0207de48(arg0->unknown_44_, 0x4000, 0x40);
-    void* var5 = func_020421a0();
+    void* var5 = GetMessageWindow_020421a0();
     func_02042c68(var5);
     func_02043124(var5);
     func_020440a4(var5);

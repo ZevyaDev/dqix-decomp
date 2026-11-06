@@ -103,7 +103,7 @@ struct Struct_ov008_021842a0_2 {
 
 struct Struct_0201099c_3;
 
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02041e70(char* arg0, int arg1);
 extern "C" void func_02041a5c(char* arg0, int arg1);
 extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov008_02187278(Struct_ov008_021842a0_2* arg0, char* arg
         return;
     GameState::GetInstance();
 #if defined(jpn)
-    void* var4 = func_020421a0();
+    void* var4 = GetMessageWindow_020421a0();
     char var5[0x40];
     __clear(var5, sizeof(var5));
     func_02046380(var4);
@@ -179,7 +179,7 @@ extern "C" ARM void func_ov008_02187278(Struct_ov008_021842a0_2* arg0, char* arg
     func_02041e70(arg1, 0xe);
     func_02042058(arg1, var5);
 #else
-    func_020421a0();
+    GetMessageWindow_020421a0();
     func_02041e70(arg1, 0xe);
     func_02041a5c(arg1, 2);
     char var6[0x40];

@@ -2,7 +2,7 @@
 #include "Graphics/LightingManager.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_ov001_021601f8(void* arg0, void* arg1);
 
 struct Struct_ov001_02165880_42 {
@@ -41,7 +41,7 @@ struct Struct_ov001_02160504_3 { char unknown_0_[0x94]; int unknown_94_; int unk
 // USA: func_ov001_02160504
 extern "C" ARM int func_ov001_02160504(void) {
     GameState* var0 = GameState::GetInstance();
-    Struct_ov001_02160504_2* var1 = (Struct_ov001_02160504_2*)func_02012fe4();
+    Struct_ov001_02160504_2* var1 = (Struct_ov001_02160504_2*)GetZone3D_02012fe4();
     Struct_ov001_02160504_3* var2 = (Struct_ov001_02160504_3*)LightingManager::GetInstance();
     if (var1->unknown_834_ != 0) return 1;
     int var3 = var0->GetTimeOfDay();

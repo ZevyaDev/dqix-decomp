@@ -21,14 +21,14 @@ struct Struct_ov023_021fd7e4 { Type_0200f3a4_4 unknown_0_[3]; };
 extern const Struct_ov023_021fd7e4 data_ov023_021fd7e4;
 
 extern "C" void func_02046380(void*);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 
 // USA: func_ov023_021e7eb0
 // JPN: func_ov023_021e8094
 extern "C" ARM void func_ov023_021e7eb0(Struct_ov023_021e7eb0_2 *arg0) {
 	Struct_ov023_021e7eb0* var0 = ((Struct_ov023_021e7eb0*)(arg0));
 	Struct_ov023_021fd7e4 var1 = data_ov023_021fd7e4;
-	int var2 = func_020421a0();
+	int var2 = GetMessageWindow_020421a0();
 	for (unsigned char var3 = 0; var3 < 3; var3++) {
 		func_02046380((void*)var2);
 #if defined(jpn)

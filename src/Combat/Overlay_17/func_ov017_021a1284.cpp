@@ -68,11 +68,11 @@ struct Struct_ov017_021a1284_6 { char unknown_0_[0x56b]; unsigned char unknown_5
 
 struct Struct_0203dce4_2;
 extern "C" Struct_0203dce4_2* func_0203cf4c();
-extern "C" Zone3D* func_02012fe4();
+extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" Struct_02058564_2* func_02057924();
 extern "C" int* func_0202ae18();
 extern "C" GameResources* func_0200fb8c(int*);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
@@ -130,13 +130,13 @@ extern AllocatorUnion data_02114e20;
 extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1) {
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
-    Zone3D* var2 = func_02012fe4();
+    Zone3D* var2 = GetZone3D_02012fe4();
     Struct_0203dce4_2* var3 = func_0203cf4c();
     Struct_02058564_2* var4 = func_02057924();
     int* var5 = func_0202ae18();
     GameObject* var6 = var0->GetUnknownGameObject();
     GameResources* var7 = func_0200fb8c((int*)var0);
-    void* var8 = func_020421a0();
+    void* var8 = GetMessageWindow_020421a0();
     func_020397cc((Struct_02018300_3*)var6, 1);
     ((Struct_ov017_021a1284_5*)var6)->unknown_b2_ = 0;
     if (arg0->unknown_22_ == 0) {
@@ -157,9 +157,9 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         }
         unsigned char var9 = 0;
 #if defined(jpn)
-        func_0204500c((Struct_02021b84*)var8, (char*)&var9, 0);
+        StartMessage_0204500c((MessageWindow_02021b84*)var8, (char*)&var9, 0);
 #else
-        func_0204500c((Struct_02021b84*)var8, (char*)&var9, 0, 0xe3);
+        StartMessage_0204500c((MessageWindow_02021b84*)var8, (char*)&var9, 0, 0xe3);
 #endif
         func_02043204((char*)var8);
         func_0203d008((unsigned char*)var3);
@@ -259,7 +259,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         } else ClearFlags04(var7, 0x601fe);
         arg0->unknown_22_ = 6;
     } else if (arg0->unknown_22_ == 6) {
-        if (((Struct_ov017_021a1284_4*)func_02012fe4())->unknown_424_) return;
+        if (((Struct_ov017_021a1284_4*)GetZone3D_02012fe4())->unknown_424_) return;
         func_020a28b0(func_020100f8((char*)var0), 3);
         arg0->unknown_22_ = 7;
     } else if (arg0->unknown_22_ == 7) {

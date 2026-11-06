@@ -21,7 +21,7 @@ struct Struct_ov017_021b6290 {
 struct Struct_02109bf4_4;
 struct Struct_0203e5d8;
 struct Struct_02038598_5;
-extern "C" void* func_02012fe4();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" unsigned char* func_020704fc();
 extern "C" void func_02017c58(void*);
 extern "C" int func_02046cc8(Struct_02046f84*);
@@ -35,7 +35,7 @@ extern "C" int abs(int);
 extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void func_0209c678(Struct_02109bf4_4*, int);
 extern "C" int func_02046b60(Struct_02038598_5*, int);
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" Struct_0203e5d8* func_0203cf4c();
 extern "C" void func_0203e5d8(Struct_0203e5d8*, int);
 extern "C" float func_020709ac(unsigned char*);
@@ -53,7 +53,7 @@ extern char data_02108760[];
 extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
-    func_02012fe4();
+    GetZone3D_02012fe4();
     Struct_02018300_3* var2 = (Struct_02018300_3*)var0->GetUnknownGameObject();
     unsigned char* var3 = func_020704fc();
     BackgroundLoader* var4 = BackgroundLoader::GetInstance();
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
             func_0209c678(&data_02109bf4, 10);
         }
         if (arg0->unknown_fe_ <= 0) arg0->unknown_fd_ = 0;
-        if (arg0->unknown_8_) func_02017c58(func_02012fe4());
+        if (arg0->unknown_8_) func_02017c58(GetZone3D_02012fe4());
         arg0->unknown_fc_ = 1;
     }
     if (arg0->unknown_fd_) --arg0->unknown_fd_;
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
             func_0209c2e0(&data_02109bf4, 127, 0);
             func_0205e944(data_02108760, 127);
             SetFlags04(var1, 0x40);
-            func_02043124(func_020421a0());
+            func_02043124(GetMessageWindow_020421a0());
             func_0203e5d8(func_0203cf4c(), 0);
             if ((int)func_020709ac(var3) > 30 || abs(GetBrightness((GameResources*)var1, false)) == 16) {
                 SetMainBrightness(var1, -16, 0);

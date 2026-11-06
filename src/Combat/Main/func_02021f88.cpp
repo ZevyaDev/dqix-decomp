@@ -8,7 +8,7 @@
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "Resource/Brightness.h"
 
-extern "C" unsigned short* func_02012fe4(void);
+extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void* func_0203bd08(void);
 extern "C" void* func_0203b628(void);
 extern "C" void func_02021428(void* arg0, int arg1);
@@ -28,7 +28,7 @@ struct Struct_02020aec;
 extern "C" int func_0205a498(void* arg0, struct Struct_02020aec* arg1, int arg2, void* arg3);
 extern "C" void func_0205af38(int arg0, char* arg1, int arg2, int arg3);
 extern "C" int func_0205a1f0(void* arg0, void* arg1, int arg2);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void VectorizedInvertedMemcpy(void* dst, void* src, int size);
 extern "C" void func_020c9820(void);
 extern "C" void DC_FlushRange(const void* addr, unsigned int size);
@@ -131,7 +131,7 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
 
     GameState::GetInstance();
     var11 = BackgroundLoader::GetInstance();
-    var12 = func_02012fe4();
+    var12 = GetZone3D_02012fe4();
     var13 = GetGameResources();
     var14 = (char*)func_0203bd08();
     var15 = (char*)func_0203b628();
@@ -208,7 +208,7 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
         var11->GetLoadedFileByID(arg0->unknown_a14_, &var4, &var5);
         var6 = 0;
         if (func_0205a1f0(&var6, var4, var5) != 0) return;
-        char* var22 = (char*)func_020421a0();
+        char* var22 = (char*)GetMessageWindow_020421a0();
         char* var23 = *(char**)(var22 + Enum_02021f88_96);
         VectorizedInvertedMemcpy(var6->unknown_14_, var23, var6->unknown_10_);
         func_020c9820();

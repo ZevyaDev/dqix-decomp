@@ -52,7 +52,7 @@ extern "C" void func_ov001_0215aaa8(int, int);
 extern "C" void func_ov001_02154974(void*);
 extern "C" void func_02012da4(AllocatorUnion*, void*);
 extern "C" void func_ov001_0215aa5c();
-extern "C" void* func_02012fe4();
+extern "C" void* GetZone3D_02012fe4();
 extern "C" void* func_0201e838(unsigned char*, unsigned int);
 extern "C" Struct_020fdd44* func_02027ca4();
 extern "C" Struct_02018300_2* func_02028bd0(Struct_020fdd44*, int);
@@ -103,7 +103,7 @@ extern "C" ARM int func_ov001_021561e0(Struct_ov001_021561e0_4* arg0) {
         }
         func_ov001_0215aa5c();
     }
-    Zone3D* var6 = (Zone3D*)func_02012fe4();
+    Zone3D* var6 = (Zone3D*)GetZone3D_02012fe4();
     Struct_020134e0::Struct_02018300* var7 = (Struct_020134e0::Struct_02018300*)func_0201e838((unsigned char*)&var6->substruct_6c_, 2);
     while (var7) {
         if (var7->unknown_2c_.unknown1_0_.unknown_2_4_ & 0x200) {

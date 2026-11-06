@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 
 // USA: func_ov023_021d8ea0
 extern "C" ARM void func_ov023_021d8ea0(char* arg0) {
@@ -13,7 +13,7 @@ extern "C" ARM void func_ov023_021d8ea0(char* arg0) {
     if (var0 == 0xff) return;
     if (var0 != 0) return;
 
-    int var1 = func_020421a0();
+    int var1 = GetMessageWindow_020421a0();
     *(int*)(arg0 + 0x4) = *(int*)((char*)var1 + Enum_ov023_021d8ea0_92);
 
     volatile unsigned short* var2 = (volatile unsigned short*)0x4001008;

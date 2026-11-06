@@ -12,7 +12,7 @@ extern const char data_020f0aeb[];
 
 // JPN: func_0206c794
 extern "C" ARM void func_0206c794(void* arg0) {
-    Struct_02021b84* var0 = static_cast<Struct_02021b84*>(arg0);
+    MessageWindow_02021b84* var0 = static_cast<MessageWindow_02021b84*>(arg0);
     unsigned short var1[16];
     unsigned char var2 = 0;
     __clear(var1, sizeof(var1));

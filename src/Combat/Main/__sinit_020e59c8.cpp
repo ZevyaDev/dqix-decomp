@@ -4,7 +4,7 @@
 
 extern float data_020ef0dc[5];
 extern float data_020fb3d0[5];
-extern int data_020fb3f0;
+extern int gZone3D_020fb3f0;
 extern int data_020fb3e4;
 
 extern "C" ARM void func_0201c124(void);
@@ -24,6 +24,6 @@ extern "C" __declspec(initcode) ARM void __sinit_020e59c8(void) {
     data_020fb3d0[0] = var0;
     var0 = var0 + data_020ef0dc[0];
     data_020fb3d0[3] = var0;
-    func_0201c014(&data_020fb3f0);
-    __register_global_object(&data_020fb3f0, (void*)func_0201c124, &data_020fb3e4);
+    func_0201c014(&gZone3D_020fb3f0);
+    __register_global_object(&gZone3D_020fb3f0, (void*)func_0201c124, &data_020fb3e4);
 }

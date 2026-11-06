@@ -180,7 +180,7 @@ extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" double func_02008f5c(double);
 extern "C" int func_02053c6c(unsigned char* arg0);
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_ov000_02159cb4(int arg0, int arg1);
 extern "C" void* func_ov000_02160130(void);
 extern "C" void* func_ov000_02160f08(void* arg0);
@@ -344,7 +344,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
     func_02053c6c((unsigned char*)var23);
     arg0->unknown_174_ = 0;
     struct Struct_ov024_021f7478_6* var31 = arg0->unknown_178_;
-    func_02012fe4();
+    GetZone3D_02012fe4();
     struct Struct_ov024_021f7478_6* var32 = &var31[arg0->unknown_174_];
     var32->unknown_0_ = 1;
     var32->unknown_2_ = -1;
@@ -447,7 +447,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
         for (int var58 = 0; var58 < 6; var58++) {
             unsigned short var59 = var57->unknown_18_[var58];
             if (func_020117f0(var10) && ((struct Struct_ov024_021f7478_4*)((struct Struct_ov024_021f7478_5*)arg0->unknown_0_)->unknown_8e18_)->unknown_25_ != 0) {
-                char* var60 = (char*)((ActiveGrottoClass*)((char*)func_02012fe4() + Enum_ov024_021f7478_9196))->GetDetailedData();
+                char* var60 = (char*)((ActiveGrottoClass*)((char*)GetZone3D_02012fe4() + Enum_ov024_021f7478_9196))->GetDetailedData();
                 short var61 = var55->unknown_2_;
                 unsigned short var62 = ((DetailedTreasureMapData::LegacyBossMapData*)(var60 + 0x4c))->MaybeGetCurrentAlternateID();
                 if (var62 == var61) {

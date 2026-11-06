@@ -20,7 +20,7 @@ struct Struct_ov017_021c3194_2 {
     unsigned char unknown_19b2_;
 };
 
-extern "C" Struct_ov017_021c3194_2* func_020421a0(void);
+extern "C" Struct_ov017_021c3194_2* GetMessageWindow_020421a0(void);
 extern "C" void func_020531f0(void* arg0);
 struct Struct_02018300_3;
 extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
@@ -29,10 +29,10 @@ extern "C" int func_020e51cc(int arg0);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void func_020e4bf4(void* arg0, int arg1);
 #if !defined(jpn)
-extern "C" void func_0204500c(void*, const char*, int, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
 #if defined(jpn)
-extern "C" void func_0204500c(void*, const char*, int);
+extern "C" void StartMessage_0204500c(void*, const char*, int);
 extern char data_ov017_021d882c[];
 #endif
 extern "C" void func_020397c0(void* arg0);
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov017_021c3194(Struct_ov017_021c3194* arg0) {
     GetGameResources();
     GameObject* var1 = var0->GetUnknownGameObject();
     GameObject* var2 = var0->GetPartyMemberByIndex(arg0->unknown_9_);
-    Struct_ov017_021c3194_2* var3 = func_020421a0();
+    Struct_ov017_021c3194_2* var3 = GetMessageWindow_020421a0();
 
     if (var2 == NULL) {
         arg0->unknown_8_ = 2;
@@ -67,14 +67,14 @@ extern "C" ARM void func_ov017_021c3194(Struct_ov017_021c3194* arg0) {
         char* var5 = var3->unknown_5c_;
 #if defined(jpn)
         sprintf(var5, data_ov017_021d882c, (char*)var2->baseStats_);
-        func_0204500c(var3, var5, 0);
+        StartMessage_0204500c(var3, var5, 0);
 
 #else
         sprintf(var5, (const char*)func_020e51cc(0x25));
         char var6[0xc];
         func_020e4bf4(var6, arg0->unknown_9_);
         var3->unknown_10_ = var6;
-        func_0204500c(var3, var5, 0, 0xe3);
+        StartMessage_0204500c(var3, var5, 0, 0xe3);
 
 #endif
         var3->unknown_19b2_ = 0;

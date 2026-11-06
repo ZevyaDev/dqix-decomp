@@ -22,8 +22,8 @@ struct Struct_0203d028_3 {
     struct ModifiableCombatStats* unknown_138_;
 };
 
-extern "C" int func_020421a0();
-extern "C" void* func_02012fe4(void);
+extern "C" int GetMessageWindow_020421a0();
+extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0202ae18();
 extern "C" void* func_020d6c00(void);
 #if defined(jpn)
@@ -156,8 +156,8 @@ struct Struct_ov003_0216c00c_17 { char unknown_0_[0x860]; struct Struct_ov003_02
 extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     struct Struct_0203d028_2* var0 = (Struct_0203d028_2*)GameState::GetInstance();
     GameResources* var1 = GetGameResources();
-    char* var2 = (char*)func_020421a0();
-    struct Struct_ov003_0216c00c_17* var3 = (struct Struct_ov003_0216c00c_17*)func_02012fe4();
+    char* var2 = (char*)GetMessageWindow_020421a0();
+    struct Struct_ov003_0216c00c_17* var3 = (struct Struct_ov003_0216c00c_17*)GetZone3D_02012fe4();
     struct Struct_ov003_0216c00c_11* var4 = &var3->unknown_860_;
     void* var5 = func_0202ae18();
     void* var6 = func_020d6c00();
@@ -575,13 +575,13 @@ phase2:;
         *(short*)(arg0 + 6) = 0x12;
         return;
     } else if (var9 == 0x12) {
-        void* var49 = func_02012fe4();
+        void* var49 = GetZone3D_02012fe4();
         int var50 = (*(struct Struct_ov003_0216c00c_8**)((char*)var49 + 8))->unknown_d_0_;
         func_0209c3b4((struct Struct_0209c3b4_2*)&data_02109bf4, var50);
         func_0209c2e0(&data_02109bf4, 0x7f, 0);
         if ((unsigned int)func_02011804((GameState*)var0) >= 0x63) {
             *(short*)(arg0 + 6) = 0x13;
-            char* var51 = (char*)func_020421a0();
+            char* var51 = (char*)GetMessageWindow_020421a0();
             *(int*)(var51 + 0x868) = 1;
             func_ov003_0216d8d4(arg0, 0x72);
             *(int*)(var2 + 0x218) = 1;
@@ -606,7 +606,7 @@ phase2:;
         }
         return;
     } else if (var9 == 0x13) {
-        char* var58 = (char*)func_020421a0();
+        char* var58 = (char*)GetMessageWindow_020421a0();
         if (*(int*)(var58 + 0x868) != 0) return;
         int var59 = func_020457e0(var58);
         if (var59 == 0) {
@@ -667,8 +667,8 @@ phase2:;
 extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     struct Struct_0203d028_2* var68 = (Struct_0203d028_2*)GameState::GetInstance();
     GameResources* var69 = GetGameResources();
-    char* var70 = (char*)func_020421a0();
-    void* var71 = func_02012fe4();
+    char* var70 = (char*)GetMessageWindow_020421a0();
+    void* var71 = GetZone3D_02012fe4();
     void* var72 = func_0202ae18();
     void* var73 = func_020d6c00();
 
@@ -1087,13 +1087,13 @@ phase2:;
         *(short*)(arg0 + 6) = 0x12;
         return;
     } else if (var76 == 0x12) {
-        void* var119 = func_02012fe4();
+        void* var119 = GetZone3D_02012fe4();
         int var120 = (*(struct Struct_ov003_0216c00c_8**)((char*)var119 + 8))->unknown_d_0_;
         func_0209c3b4((struct Struct_0209c3b4_2*)&data_02109bf4, var120);
         func_0209c2e0(&data_02109bf4, 0x7f, 0);
         if ((unsigned int)func_02011804((GameState*)var68) >= 0x63) {
             *(short*)(arg0 + 6) = 0x13;
-            char* var121 = (char*)func_020421a0();
+            char* var121 = (char*)GetMessageWindow_020421a0();
             *(int*)(var121 + 0x998) = 1;
             func_ov003_0216d8d4(arg0, 0x72, -1, -1, -1);
             *(int*)(var70 + 0x2c8) = 1;
@@ -1120,7 +1120,7 @@ phase2:;
         }
         return;
     } else if (var76 == 0x13) {
-        char* var130 = (char*)func_020421a0();
+        char* var130 = (char*)GetMessageWindow_020421a0();
         if (*(int*)(var130 + 0x998) != 0) return;
         int var131 = func_020457e0(var130);
         if (var131 == 0) {

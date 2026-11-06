@@ -16,7 +16,7 @@
 #define GXFIFO_BEGIN_VTXS (*(volatile unsigned int*)0x04000500)
 #define GXFIFO_END_VTXS (*(volatile unsigned int*)0x04000504)
 
-struct Struct_02021b84;
+struct MessageWindow_02021b84;
 
 struct Struct_ov005_02153954
 {
@@ -30,17 +30,17 @@ struct Struct_ov005_02153954
     unsigned short unknown_3e0c_[20][3];
 };
 
-extern "C" Struct_02021b84* func_020421a0();
+extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 #if defined(jpn)
-extern "C" void func_02045f3c(Struct_02021b84* arg0, unsigned short* arg1, int arg2, int arg3, int arg4, int, int, int);
+extern "C" void func_02045f3c(MessageWindow_02021b84* arg0, unsigned short* arg1, int arg2, int arg3, int arg4, int, int, int);
 #else
-extern "C" void func_02045f3c(Struct_02021b84* arg0, unsigned short* arg1, int arg2, int arg3, int arg4, int, int, int, int, int);
+extern "C" void func_02045f3c(MessageWindow_02021b84* arg0, unsigned short* arg1, int arg2, int arg3, int arg4, int, int, int, int, int);
 #endif
 
 // USA: func_ov005_0215aa44
 extern "C" ARM void func_ov005_0215aa44(Struct_ov005_02153954* arg0)
 {
-    Struct_02021b84* var0 = func_020421a0();
+    MessageWindow_02021b84* var0 = GetMessageWindow_020421a0();
     int var1 = arg0->unknown_3dbd_ + 1;
     int var2 = arg0->unknown_3df4_[arg0->unknown_3dbc_];
     GXFIFO_MATRIX_PUSH = 0;

@@ -134,7 +134,7 @@ extern "C" void func_ov002_021536e0(char** arg0);
 extern "C" void* func_02079ee0(void*, int);
 extern "C" short func_ov002_021538e4(char** arg0, Struct_ov002_021665b0_10* arg1, void* arg2, int arg3);
 extern "C" void func_ov002_021594e8(Struct_ov002_021665b0_2* arg0, int arg1, int arg2, int arg3);
-extern "C" char* func_020421a0(void);
+extern "C" char* GetMessageWindow_020421a0(void);
 struct Struct_0205da38;
 extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern "C" int func_0205d97c(char* arg0);
@@ -704,7 +704,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
         arg0->unknown_1bb8_ = NEXT_IDLE_021665b0;
         arg0->unknown_1bbc_ = NEXT_IDLE_021665b0;
         arg0->unknown_1bc0_ = var93;
-        char* var94 = func_020421a0();
+        char* var94 = GetMessageWindow_020421a0();
         if (arg0->unknown_1cb1_ == 0 && arg0->unknown_1caf_ == 1) {
             arg0->unknown_1caf_ = 2;
         }

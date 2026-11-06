@@ -11,12 +11,12 @@ enum { Enum_ov003_02168cc8_1260 = 0x4ec };
 #endif
 
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" int func_ov003_02169b30(void* arg0);
 
 // USA: func_ov003_02168cc8
 extern "C" ARM void func_ov003_02168cc8(void* arg0) {
-    int var0 = func_020421a0();
+    int var0 = GetMessageWindow_020421a0();
     if (*(int*)(var0 + Enum_ov003_02168cc8_2464) == 3) {
         *(unsigned char*)(var0 + 0x1000 + Enum_ov003_02168cc8_2478) = 0;
     }

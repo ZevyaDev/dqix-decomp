@@ -89,7 +89,7 @@ extern Struct_ov025_021ef020 data_ov025_021ef060;
 extern Struct_ov025_021ef020 data_ov025_021ef020;
 
 extern "C" int func_ov025_021ed2f4(void* arg0);
-extern "C" void* func_020421a0(void);
+extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void func_02046380(void* arg0);
 extern "C" ARM void* __clear(void* arg0, int arg1);
 extern "C" void func_ov025_021ed1f0(void* arg0);
@@ -129,7 +129,7 @@ extern "C" char* func_ov000_0216fcfc(void* arg0, int arg1);
 extern "C" unsigned int strlen(const char* arg0);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 #if !defined(jpn)
-extern "C" void func_0204500c(void* arg0, char* arg1, int arg2, int arg3);
+extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int arg3);
 #endif
 extern "C" void func_02042b98(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
@@ -142,7 +142,7 @@ extern "C" void* func_ov000_0217199c(void*, int);
 struct Struct_02046574_2;
 extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 extern "C" void func_020474a8(void*, int, char*, char*);
-extern "C" void func_0204500c(void*, char*, int);
+extern "C" void StartMessage_0204500c(void*, char*, int);
 extern "C" void func_02043270(void*, int, int, int, int);
 extern "C" char* strcpy(char*, const char*);
 extern "C" char* strcat(char*, const char*);
@@ -166,7 +166,7 @@ extern "C" ARM void func_ov025_021ed634(Struct_ov025_021e9fc4* arg0) {
     if (func_ov025_021ed2f4(arg0) != 0) return;
     if (arg0->unknown_164_ == 0) return;
     GameState* var0 = GameState::GetInstance();
-    char* var1 = (char*)func_020421a0();
+    char* var1 = (char*)GetMessageWindow_020421a0();
 #if defined(jpn)
 
 #else
@@ -575,17 +575,17 @@ found_entry:
 #if defined(jpn)
             func_020474a8(var1, 0xc, var8, var2);
 #else
-            func_0204500c(var1, var8, 0, 0xe3);
+            StartMessage_0204500c(var1, var8, 0, 0xe3);
 #endif
         } else {
 #if defined(jpn)
             func_020474a8(var1, 0xc, var89, var2);
 #else
-            func_0204500c(var1, var89, 0, 0xe3);
+            StartMessage_0204500c(var1, var89, 0, 0xe3);
 #endif
         }
 #if defined(jpn)
-        func_0204500c(var1, var2, 0);
+        StartMessage_0204500c(var1, var2, 0);
         *(var1 + 0x17e1) = 0;
         *(int*)(var1 + 0x1730) = 0xc;
         *(int*)(var1 + 0x1734) = 0x12;

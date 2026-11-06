@@ -4,7 +4,7 @@ extern "C" void func_020474a8(void*, int, int, char*);
 #endif
 #include "GameState/GameState.h"
 
-extern "C" void* func_020421a0();
+extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02046380(void* arg0);
 struct Struct_020465c0;
 extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov003_0216abd8(struct Struct_ov003_0216abd8_3* arg0, ch
         return;
     }
     GameState* var1 = GameState::GetInstance();
-    void* var2 = func_020421a0();
+    void* var2 = GetMessageWindow_020421a0();
     struct Struct_ov003_0216abd8* var3 = (struct Struct_ov003_0216abd8*)func_02010828(var1);
     struct Struct_ov003_0216abd8_2* var4 = var0->unknown_7c_;
     func_02046380(var2);

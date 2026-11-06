@@ -25,7 +25,7 @@ struct Struct_ov000_02170cf8 {
     unsigned int unknown_5_4_ : 20;
 };
 
-extern "C" int func_020421a0();
+extern "C" int GetMessageWindow_020421a0();
 extern "C" struct Struct_ov000_02170cf8* func_ov000_02170cf8(char* arg0, int arg1);
 extern "C" void func_020dd040(int arg0, char* arg1);
 extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov000_0217a19c(char* arg0, char* arg1) {
 #if !defined(jpn)
     char var1[0x800];
 #endif
-    char* var2 = *(char**)(func_020421a0() + Enum_ov000_0217a19c_92);
+    char* var2 = *(char**)(GetMessageWindow_020421a0() + Enum_ov000_0217a19c_92);
     memset(var2, 0, Enum_ov000_0217a19c_2400);
     signed char var3 = *(signed char*)(arg0 + Enum_ov000_0217a19c_7533);
     struct Struct_ov000_02170cf8* var4 = func_ov000_02170cf8(arg1, *(unsigned short*)(arg0 + 0x10 + var3 * 2));
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov000_0217a19c(char* arg0, char* arg1) {
         var2 = (char*)func_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0x20);
     }
 #if !defined(jpn)
-    func_02046608(func_020421a0(), 0xa, var2, var1, 0x98, 0, 0);
+    func_02046608(GetMessageWindow_020421a0(), 0xa, var2, var1, 0x98, 0, 0);
 #endif
     var0 = (struct Struct_0205d5d0*)(arg0 + 0x188);
 #if !defined(jpn)

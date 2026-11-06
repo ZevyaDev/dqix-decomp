@@ -9,7 +9,7 @@ struct Struct_0201c1c8 {
     } unknown_4_;
 };
 struct Struct_0201c3a4;
-extern "C" void* func_02012fe4(void);
+extern "C" void* GetZone3D_02012fe4(void);
 
 struct Struct_020fdc4c_5 {
     int unknown_0_;
@@ -22,7 +22,7 @@ extern "C" ARM int func_0201f950(struct Struct_0201c1c8* arg0) {
     int var0;
     if (data_020fdc4c.unknown_4_ != 0) return 1;
     var0 = ((Script::Parameter*)arg0)->ToInt();
-    if (var0 == *(unsigned short*)func_02012fe4()) {
+    if (var0 == *(unsigned short*)GetZone3D_02012fe4()) {
         data_020fdc4c.unknown_4_ = (void*)((Script::Parameter*)((struct Struct_0201c3a4*)(arg0 + 1)))->ToString();
     }
     return 1;

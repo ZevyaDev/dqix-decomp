@@ -7,7 +7,7 @@
 #include "std_library_functions.h"
 
 extern "C" void func_ov004_0216794c(short* arg0, short* arg1, short* arg2, char* arg3, int* arg4);
-extern "C" int func_020421a0(void);
+extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02046380(void* arg0);
 struct Struct_02046574_2;
 extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov004_02167b78(void* arg0, struct Struct_ov004_02170010_
     int var1 = (short)(var0.unknown_6_ + var0.unknown_4_);
     if (var1 > 0x50) var1 = 0x50;
 
-    void* var2 = (void*)func_020421a0();
+    void* var2 = (void*)GetMessageWindow_020421a0();
     func_02046380(var2);
 
     GameObject* var3 = GameState::GetInstance()->GetUnknownGameObject();

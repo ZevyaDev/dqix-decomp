@@ -36,8 +36,8 @@ struct Struct_ov017_021a7e14_4 {
     SafeAllocator unknown_0_; char unknown_14_[0x18]; Struct_0201099c_10* unknown_2c_;
     int unknown_30_; int unknown_34_;
 };
-extern "C" Struct_020465c0* func_020421a0();
-extern "C" Struct_ov017_021bf9a0_3* func_02012fe4();
+extern "C" Struct_020465c0* GetMessageWindow_020421a0();
+extern "C" Struct_ov017_021bf9a0_3* GetZone3D_02012fe4();
 extern "C" unsigned char* func_0205ec34();
 extern "C" int func_ov017_0218d618(Struct_ov017_0218d618_2*);
 extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
@@ -68,9 +68,9 @@ extern "C" ARM int func_ov017_021bf9a0(Struct_ov017_021bf9a0_2* arg0) {
     unsigned int var0 = GameState::GetInstance()->GetEffectiveDeltaTime();
     if (var0 < arg0->unknown_8_) { arg0->unknown_8_ -= var0; return 3; }
     arg0->unknown_8_ = 0;
-    func_020421a0();
+    GetMessageWindow_020421a0();
     Struct_ov017_021bf9a0* var1 = arg0->unknown_c_;
-    func_02012fe4();
+    GetZone3D_02012fe4();
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
     LootableContainerManager* var3 = LootableContainerManager::GetMainInstance();
     unsigned char* var4 = func_0205ec34();
@@ -107,7 +107,7 @@ extern "C" ARM int func_ov017_021bf9a0(Struct_ov017_021bf9a0_2* arg0) {
             func_0206df6c(var4, var4 + 0x8c, var12, 1);
             func_ov017_021cdb00(8, var11, 1, -1);
             char var13[128] = {};
-            Struct_ov017_021bf9a0_3* var14 = func_02012fe4();
+            Struct_ov017_021bf9a0_3* var14 = GetZone3D_02012fe4();
             Struct_ov017_021a7e14_4 var15;
             var15.unknown_0_.ResetAllocatorPointer();
             func_020de824(var15.unknown_14_);
